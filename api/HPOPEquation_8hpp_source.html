@@ -147,37 +147,39 @@ $(function(){initNavTree('HPOPEquation_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    errc_t setPropagationFrame(<a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* frame);</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classast_1_1HPOPEquation.html#ae1e2847670ece5a486304476405abb07">   78</a></span>    <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* <a class="code hl_function" href="classast_1_1HPOPEquation.html#ae1e2847670ece5a486304476405abb07">getPropagationFrame</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> propFrame_;}</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> addBlock(<a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>* block);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> addBlock(<a class="code hl_class" href="classast_1_1BlockDerivative.html">BlockDerivative</a>* block);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> clearBlocks();</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> reset();</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    errc_t initialize();</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    errc_t initializeFromForceModel(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&amp; forceModel, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a>&amp; spacecraftParam);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    errc_t initBlocks(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&amp; forceModel, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a> &amp;spacecraftParam);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_class" href="classast_1_1BlockDynamicSystem.html">BlockDynamicSystem</a>      dynamicSystem_;     </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>               epoch_{};           </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    HPOPForceModel          forceModel_{};      </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    SpacecraftParam         spacecraftParam_{}; </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    HFrame                  propFrame_;         </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* getPropagationFrame() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_class" href="classast_1_1CelestialBody.html">Body</a>* getCentralBody() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> addBlock(<a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>* block);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> addBlock(<a class="code hl_class" href="classast_1_1BlockDerivative.html">BlockDerivative</a>* block);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">void</span> clearBlocks();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> reset();</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    errc_t initialize();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    errc_t initializeFromForceModel(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&amp; forceModel, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a>&amp; spacecraftParam);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    errc_t initBlocks(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&amp; forceModel, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a> &amp;spacecraftParam);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="classast_1_1BlockDynamicSystem.html">BlockDynamicSystem</a>      dynamicSystem_;     </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>               epoch_{};           </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    HPOPForceModel          forceModel_{};      </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    SpacecraftParam         spacecraftParam_{}; </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    HFrame                  propFrame_;         </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>};</div>
 </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1BlockDerivative_html"><div class="ttname"><a href="classast_1_1BlockDerivative.html">ast::BlockDerivative</a></div><div class="ttdoc">导数函数块</div><div class="ttdef"><b>定义</b> BlockDerivative.hpp:46</div></div>
 <div class="ttc" id="aclassast_1_1BlockDynamicSystem_html"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html">ast::BlockDynamicSystem</a></div><div class="ttdoc">动力学系统</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:61</div></div>
+<div class="ttc" id="aclassast_1_1CelestialBody_html"><div class="ttname"><a href="classast_1_1CelestialBody.html">ast::CelestialBody</a></div><div class="ttdoc">天体</div><div class="ttdef"><b>定义</b> CelestialBody.hpp:52</div></div>
 <div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系类</div><div class="ttdef"><b>定义</b> Frame.hpp:60</div></div>
 <div class="ttc" id="aclassast_1_1FuncBlock_html"><div class="ttname"><a href="classast_1_1FuncBlock.html">ast::FuncBlock</a></div><div class="ttdoc">函数块/功能块</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:41</div></div>
 <div class="ttc" id="aclassast_1_1HPOPEquation_html"><div class="ttname"><a href="classast_1_1HPOPEquation.html">ast::HPOPEquation</a></div><div class="ttdoc">高精度轨道预报方程</div><div class="ttdef"><b>定义</b> HPOPEquation.hpp:47</div></div>
 <div class="ttc" id="aclassast_1_1HPOPEquation_html_a3781b50840cde28f0f2d5133cc099b37"><div class="ttname"><a href="classast_1_1HPOPEquation.html#a3781b50840cde28f0f2d5133cc099b37">ast::HPOPEquation::forceModel</a></div><div class="ttdeci">HPOPForceModel &amp; forceModel()</div><div class="ttdoc">获取HPOP力模型</div><div class="ttdef"><b>定义</b> HPOPEquation.hpp:65</div></div>
 <div class="ttc" id="aclassast_1_1HPOPEquation_html_a48f5e5b45d26f867468fae817362c71a"><div class="ttname"><a href="classast_1_1HPOPEquation.html#a48f5e5b45d26f867468fae817362c71a">ast::HPOPEquation::spacecraftParam</a></div><div class="ttdeci">const SpacecraftParam &amp; spacecraftParam() const</div><div class="ttdoc">获取航天器参数</div><div class="ttdef"><b>定义</b> HPOPEquation.hpp:72</div></div>
 <div class="ttc" id="aclassast_1_1HPOPEquation_html_a4c7205d86fc1057cf517d1fe33f743ed"><div class="ttname"><a href="classast_1_1HPOPEquation.html#a4c7205d86fc1057cf517d1fe33f743ed">ast::HPOPEquation::setEpoch</a></div><div class="ttdeci">void setEpoch(const TimePoint &amp;epoch)</div><div class="ttdoc">设置仿真的参考历元</div><div class="ttdef"><b>定义</b> HPOPEquation.hpp:58</div></div>
-<div class="ttc" id="aclassast_1_1HPOPEquation_html_ae1e2847670ece5a486304476405abb07"><div class="ttname"><a href="classast_1_1HPOPEquation.html#ae1e2847670ece5a486304476405abb07">ast::HPOPEquation::getPropagationFrame</a></div><div class="ttdeci">Frame * getPropagationFrame() const</div><div class="ttdoc">获取预报坐标系</div><div class="ttdef"><b>定义</b> HPOPEquation.hpp:78</div></div>
 <div class="ttc" id="aclassast_1_1HPOPForceModel_html"><div class="ttname"><a href="classast_1_1HPOPForceModel.html">ast::HPOPForceModel</a></div><div class="ttdoc">高精度轨道预报力模型</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:49</div></div>
 <div class="ttc" id="aclassast_1_1OrdinaryDifferentialEquation_html"><div class="ttname"><a href="classast_1_1OrdinaryDifferentialEquation.html">ast::OrdinaryDifferentialEquation</a></div><div class="ttdoc">常微分方程基接口</div><div class="ttdef"><b>定义</b> OrdinaryDifferentialEquation.hpp:33</div></div>
 <div class="ttc" id="aclassast_1_1OrdinaryDifferentialEquation_html_a0963660459787299637e98c013fddc5a"><div class="ttname"><a href="classast_1_1OrdinaryDifferentialEquation.html#a0963660459787299637e98c013fddc5a">ast::OrdinaryDifferentialEquation::getDimension</a></div><div class="ttdeci">virtual int getDimension() const =0</div><div class="ttdoc">获取微分方程的维度。</div></div>

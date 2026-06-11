@@ -17,5 +17,6 @@ var searchData=
   ['brentq_14',['brentq',['../group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05',1,'ast']]],
   ['build_15',['build',['../classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24',1,'ast::BuildTarget']]],
   ['buildchildren_16',['buildChildren',['../classast_1_1UiAttributeTreeItem.html#a2d3760c73c881c0ed96322eaf73b6c87',1,'ast::UiAttributeTreeItem::buildChildren()'],['../classast_1_1UiObjectTreeItem.html#a761cfdd57ef7baf2c6e421880fe97053',1,'ast::UiObjectTreeItem::buildChildren()']]],
-  ['buildtarget_17',['BuildTarget',['../classast_1_1BuildTarget.html#afcb30a22f33b3edb4701b4f640259d6e',1,'ast::BuildTarget']]]
+  ['buildsectiongroups_17',['buildSectionGroups',['../classast_1_1UiCommandSummary.html#a75aefa26c9a361c32c105e812aecc595',1,'ast::UiCommandSummary']]],
+  ['buildtarget_18',['BuildTarget',['../classast_1_1BuildTarget.html#afcb30a22f33b3edb4701b4f640259d6e',1,'ast::BuildTarget']]]
 ];

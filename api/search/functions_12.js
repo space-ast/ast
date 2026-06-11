@@ -11,7 +11,7 @@ var searchData=
   ['readrecord_8',['readRecord',['../classast_1_1DAFParser.html#a6d0725fc20a55de4d3dafe29a26fa7c3',1,'ast::DAFParser']]],
   ['reasoningcontent_9',['reasoningContent',['../classast_1_1ChatMessage.html#a578848964bb0bb66fcb1f93720541e54',1,'ast::ChatMessage']]],
   ['refcount_10',['refCount',['../classast_1_1Object.html#a91ca8d28b3a279e60ce673d69b5a545b',1,'ast::Object']]],
-  ['refresh_11',['refresh',['../classast_1_1UiAttributeTree.html#a5f31219f98e5f133b01f1a27d7dc2fb4',1,'ast::UiAttributeTree::refresh()'],['../classast_1_1UiObjectTree.html#aef0feafe47a5fcddd9961857420e5479',1,'ast::UiObjectTree::refresh()']]],
+  ['refresh_11',['refresh',['../classast_1_1UiAttributeTree.html#a5f31219f98e5f133b01f1a27d7dc2fb4',1,'ast::UiAttributeTree::refresh()'],['../classast_1_1UiObjectTree.html#aef0feafe47a5fcddd9961857420e5479',1,'ast::UiObjectTree::refresh()'],['../classast_1_1UiCommandSummary.html#affc566e1eab22de50ba03ab22cf472db',1,'ast::UiCommandSummary::refresh()']]],
   ['refreshdisplay_12',['refreshDisplay',['../classast_1_1UiAttributeTreeItem.html#a8151fc6a894b310ba5f8707e87874baf',1,'ast::UiAttributeTreeItem']]],
   ['refreshoriginallimits_13',['refreshOriginalLimits',['../classast_1_1UiFigure.html#ad988f586abac5478cd840ac54cbad6dd',1,'ast::UiFigure']]],
   ['refreshui_14',['refreshUi',['../classast_1_1UiStudyWorkbench.html#a83eaab980865399c3be9fdcca57a772a',1,'ast::UiStudyWorkbench::refreshUi()'],['../classast_1_1UiSweepStudy.html#a259a84bbe27bfe829fc10d545dc79bea',1,'ast::UiSweepStudy::refreshUi()'],['../classast_1_1UiVariableList.html#a225818cae18fe15b6106089fb68c3449',1,'ast::UiVariableList::refreshUi()']]],

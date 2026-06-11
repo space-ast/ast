@@ -1080,9 +1080,11 @@ var hierarchy =
         [ "ast::UiBodyEphemerisSPK", "classast_1_1UiBodyEphemerisSPK.html", null ],
         [ "ast::UiBurnImpulsive", "classast_1_1UiBurnImpulsive.html", null ],
         [ "ast::UiCelestialBody", "classast_1_1UiCelestialBody.html", null ],
+        [ "ast::UiCommandSummary", "classast_1_1UiCommandSummary.html", null ],
         [ "ast::UiDragForce", "classast_1_1UiDragForce.html", null ],
         [ "ast::UiEventDetector", "classast_1_1UiEventDetector.html", null ],
         [ "ast::UiEventDetectorList", "classast_1_1UiEventDetectorList.html", null ],
+        [ "ast::UiFeasibleRegionStudy", "classast_1_1UiFeasibleRegionStudy.html", null ],
         [ "ast::UiFuelTank", "classast_1_1UiFuelTank.html", null ],
         [ "ast::UiGravityForce", "classast_1_1UiGravityForce.html", null ],
         [ "ast::UiHPOPForceModel", "classast_1_1UiHPOPForceModel.html", null ],
@@ -1154,6 +1156,7 @@ var hierarchy =
       [ "ast::PythonExecutor", "classast_1_1PythonExecutor.html", null ]
     ] ],
     [ "ast::ScriptResult", "classast_1_1ScriptResult.html", null ],
+    [ "ast::SegmentContext", "structast_1_1SegmentContext.html", null ],
     [ "ast::strings_internal::SelectDelimiter< Delimiter >", "structast_1_1strings__internal_1_1SelectDelimiter.html", null ],
     [ "ast::strings_internal::SelectDelimiter< char >", "structast_1_1strings__internal_1_1SelectDelimiter_3_01char_01_4.html", null ],
     [ "ast::strings_internal::SelectDelimiter< const char * >", "structast_1_1strings__internal_1_1SelectDelimiter_3_01const_01char_01_5_01_4.html", null ],
@@ -1239,6 +1242,7 @@ var hierarchy =
     [ "ast::StartupConfig", "classast_1_1StartupConfig.html", null ],
     [ "ast::StringViewBasic< _Char >", "classast_1_1StringViewBasic.html", null ],
     [ "ast::StringViewBasic< char >", "classast_1_1StringViewBasic.html", null ],
+    [ "ast::SummarySection", "structast_1_1SummarySection.html", null ],
     [ "Qwt3D::SurfacePlot", null, [
       [ "ast::ColoredSurfacePlot", "classast_1_1ColoredSurfacePlot.html", null ]
     ] ],
