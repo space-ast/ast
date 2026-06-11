@@ -316,7 +316,7 @@ inline TimePoint operator ""_utc(const char* str, size_t len)
 }
 
 /// @brief 从北京时字符串解析时间点
-inline TimePoint operator ""_北京时(const char* str, size_t len)
+inline TimePoint operator ""_bjt(const char* str, size_t len)
 {
     return TimePoint::ParseBJT(StringView(str, len));
 }
