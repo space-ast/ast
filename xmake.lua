@@ -111,7 +111,7 @@ end
 
 -- 下载并安装第三方库（可选）
 add_requires("python 3.x", {optional = true})                                   -- 可选的Python库，用于编译python库
-add_requires("swig", {optional = true})                                         -- 可选的SWIG库，用于生成Python绑定代码，建议版本 >4.2
+add_requires("swig >=4.2", {optional = true})                                   -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.2 才支持 enum class : type
 add_requires("gtest <=1.12.1", {optional = true, configs = {cmake = false}})    -- 可选的gtest库，用于单元测试，gtest v1.12.1 for c++11
 add_requires("benchmark", {optional = true})                                    -- 可选的benchmark库，用于性能测试
 add_requires("replxx", {optional = true})                                       -- 可选的replxx库，用于命令行交互
