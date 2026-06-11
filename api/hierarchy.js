@@ -1027,7 +1027,8 @@ var hierarchy =
       [ "ast::EditFigureDialog", "classast_1_1EditFigureDialog.html", null ],
       [ "ast::UiNewObjectDialog", "classast_1_1UiNewObjectDialog.html", null ],
       [ "ast::UiNewObjectQuickDialog", "classast_1_1UiNewObjectQuickDialog.html", null ],
-      [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ]
+      [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ],
+      [ "ast::UiWorkbenchExprPicker", "classast_1_1UiWorkbenchExprPicker.html", null ]
     ] ],
     [ "QLineEdit", null, [
       [ "ast::UiValueEdit", "classast_1_1UiValueEdit.html", [
@@ -1108,18 +1109,15 @@ var hierarchy =
         [ "ast::UiThirdBodyForce", "classast_1_1UiThirdBodyForce.html", null ],
         [ "ast::UiThirdBodyForceList", "classast_1_1UiThirdBodyForceList.html", null ]
       ] ],
-      [ "ast::UiPropertyEditor", "classast_1_1UiPropertyEditor.html", null ],
       [ "ast::UiResultView", "classast_1_1UiResultView.html", null ],
       [ "ast::UiSelectFrame", "classast_1_1UiSelectFrame.html", null ],
       [ "ast::UiStartPage", "classast_1_1UiStartPage.html", null ],
       [ "ast::UiStateEditor", "classast_1_1UiStateEditor.html", null ],
-      [ "ast::UiStudyConstraintEditor", "classast_1_1UiStudyConstraintEditor.html", null ],
-      [ "ast::UiStudyConstraintList", "classast_1_1UiStudyConstraintList.html", null ],
-      [ "ast::UiStudyVariableList", "classast_1_1UiStudyVariableList.html", null ],
       [ "ast::UiStudyWorkbench", "classast_1_1UiStudyWorkbench.html", null ],
+      [ "ast::UiSweepOutputList", "classast_1_1UiSweepOutputList.html", null ],
       [ "ast::UiSweepStudy", "classast_1_1UiSweepStudy.html", null ],
+      [ "ast::UiSweepVariableList", "classast_1_1UiSweepVariableList.html", null ],
       [ "ast::UiTimeInterval", "classast_1_1UiTimeInterval.html", null ],
-      [ "ast::UiVariableEditor", "classast_1_1UiVariableEditor.html", null ],
       [ "ast::UiVariableList", "classast_1_1UiVariableList.html", null ],
       [ "ast::UiWidget", "classast_1_1UiWidget.html", null ]
     ] ],

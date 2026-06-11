@@ -67,7 +67,7 @@ var searchData=
   ['variableloader_2ecpp_64',['VariableLoader.cpp',['../VariableLoader_8cpp.html',1,'']]],
   ['variableloader_2ehpp_65',['VariableLoader.hpp',['../VariableLoader_8hpp.html',1,'']]],
   ['variables_66',['variables',['../classast_1_1SweepStudy.html#ab221116cadec962dd7871ea5769885d9',1,'ast::SweepStudy']]],
-  ['variableselected_67',['variableSelected',['../classast_1_1UiStudyVariableList.html#a70857c7c2f9407ef6145f38ea6d1855b',1,'ast::UiStudyVariableList::variableSelected()'],['../classast_1_1UiVariableList.html#a03fbe840b29662b6a301f4dc199e94f0',1,'ast::UiVariableList::variableSelected()']]],
+  ['variableselected_67',['variableSelected',['../classast_1_1UiVariableList.html#a03fbe840b29662b6a301f4dc199e94f0',1,'ast::UiVariableList']]],
   ['variation_68',['Variation',['../structast_1_1GravityFieldSecularVariations_1_1Variation.html',1,'ast::GravityFieldSecularVariations']]],
   ['variations_5f_69',['variations_',['../classast_1_1GravityFieldSecularVariations.html#a405abc123f14624cd2f8265335182502',1,'ast::GravityFieldSecularVariations']]],
   ['vbscript_2ecpp_70',['VBScript.cpp',['../VBScript_8cpp.html',1,'']]],
