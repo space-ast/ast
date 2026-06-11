@@ -99,6 +99,12 @@ void UiVariableList::setupUi()
             this, &UiVariableList::onSelectionChanged);
     connect(tableWidget_, &QTableWidget::cellChanged,
             this, &UiVariableList::onCellChanged);
+    connect(tableWidget_, &QTableWidget::cellDoubleClicked,
+            this, [this](int row, int) {
+        auto* var = selectedVariable();
+        if (var)
+            emit variableDoubleClicked(var);
+    });
     connect(addButton_, &QToolButton::clicked,
             this, &UiVariableList::onAddVariable);
     connect(removeButton_, &QToolButton::clicked,

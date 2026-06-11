@@ -17,7 +17,7 @@
 /// 软件按“现有状态”提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
- 
+
 #pragma once
 
 
@@ -352,6 +352,7 @@
     
 
 /// 为枚举类型定义位操作符
+/// @note __underlying_type 是事实标准的编译器内建类型萃取，MSVC 2015+、GCC 4.x+、Clang 3.x+ 均支持
 #define A_ENUM_CLASS_FLAGS(Enum) \
 	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum& operator|=(Enum& Lhs, Enum Rhs) { return Lhs = (Enum)((__underlying_type(Enum))Lhs | (__underlying_type(Enum))Rhs); } \
 	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum& operator&=(Enum& Lhs, Enum Rhs) { return Lhs = (Enum)((__underlying_type(Enum))Lhs & (__underlying_type(Enum))Rhs); } \

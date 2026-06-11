@@ -28,6 +28,7 @@ class QTabWidget;
 class QSplitter;
 class QStackedWidget;
 class QLabel;
+class QPushButton;
 
 AST_NAMESPACE_BEGIN
 
@@ -51,6 +52,9 @@ public:
     /// @brief 刷新界面
     void refreshUi();
 
+private slots:
+    void onExecute();
+
 private:
     void setupUi();
     void rebuildCommandEditor();
@@ -67,6 +71,9 @@ private:
     // 任务模型 Tab
     QStackedWidget*      commandStack_;
     QLabel*              placeholderLabel_;
+
+    // 执行按钮
+    QPushButton*         executeBtn_;
 };
 
 AST_NAMESPACE_END

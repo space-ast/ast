@@ -25,7 +25,9 @@
 #include "AstGUI/UiSweepOutputList.hpp"
 
 #include <QGroupBox>
+#include <QHBoxLayout>
 #include <QLabel>
+#include <QPushButton>
 #include <QSplitter>
 #include <QStackedWidget>
 #include <QTabWidget>
@@ -92,6 +94,18 @@ void UiSweepStudy::setupUi()
     tabWidget_->addTab(cmdTab, tr("任务模型"));
 
     mainLayout->addWidget(tabWidget_);
+
+    // 底部执行按钮
+    auto* btnLayout = new QHBoxLayout();
+    btnLayout->setContentsMargins(4, 4, 4, 4);
+    btnLayout->addStretch();
+    executeBtn_ = new QPushButton(tr("执行仿真"), this);
+    executeBtn_->setToolTip(tr("执行扫参分析"));
+    executeBtn_->setEnabled(false);
+    btnLayout->addWidget(executeBtn_);
+    mainLayout->addLayout(btnLayout);
+
+    connect(executeBtn_, &QPushButton::clicked, this, &UiSweepStudy::onExecute);
 }
 
 void UiSweepStudy::setAnalyzer(SweepStudy* a)
@@ -106,12 +120,14 @@ void UiSweepStudy::setAnalyzer(SweepStudy* a)
         varList_->setStudy(a);
         outputList_->setStudy(a);
         rebuildCommandEditor();
+        executeBtn_->setEnabled(true);
     }
     else
     {
         varList_->setStudy(nullptr);
         outputList_->setStudy(nullptr);
         commandStack_->setCurrentIndex(0);
+        executeBtn_->setEnabled(false);
     }
 }
 
@@ -159,6 +175,13 @@ void UiSweepStudy::rebuildCommandEditor()
     editor->setParent(commandStack_);
     commandStack_->addWidget(editor); // index 1
     commandStack_->setCurrentIndex(1);
+}
+
+void UiSweepStudy::onExecute()
+{
+    auto* a = analyzer();
+    if (a)
+        a->execute();
 }
 
 AST_NAMESPACE_END

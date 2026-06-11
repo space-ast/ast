@@ -86,6 +86,9 @@ signals:
     /// @brief 用户选中了变量（用于通知外部联动控件）
     void variableFocused();
 
+    /// @brief 用户双击了某个变量行
+    void variableDoubleClicked(Variable* variable);
+
 private slots:
     void onSelectionChanged();
     void onAddVariable();

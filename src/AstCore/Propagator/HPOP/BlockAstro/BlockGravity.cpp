@@ -114,7 +114,11 @@ errc_t BlockGravity::run(const SimTime &simTime)
     auto& tp = simTime.timePoint();
     Rotation rotation;
     errc_t rc = aAxesTransform(propagationAxes_, gravityAxes_, tp, rotation);
-    A_UNUSED(rc);
+    if (A_UNLIKELY(rc != eNoError))
+    {
+        aError("failed to transform from propagation axes to gravity axes");
+        return rc;
+    }
 
     posInGravityAxes = rotation.transformVector(*posPtr_);
     // 根据长期变化率更新重力场系数

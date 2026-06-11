@@ -95,14 +95,13 @@ errc_t BlockDynamicSystem::initialize()
 
 errc_t BlockDynamicSystem::sortBlocks()
 {
+    /// @todo 考虑使用拓扑排序算法对模型进行排序，例如Kahn 算法或者DFS 算法
     size_t size = blocks_.size();
     for(size_t index=0;index<size;index++)
     {
-        auto frontBlock = blocks_[index];
         for(size_t laterIndex=index+1;laterIndex<size;laterIndex++)
         {
-            auto laterBlock = blocks_[laterIndex];
-            if(aAstroBlockDependentOn(frontBlock, laterBlock))
+            if(aAstroBlockDependentOn(blocks_[index], blocks_[laterIndex]))
             {
                 std::swap(blocks_[laterIndex],blocks_[index]);
             }

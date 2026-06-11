@@ -84,9 +84,10 @@ void UiWorkbenchExprPicker::setupUi()
     mainLayout->addLayout(bottomLayout);
 
     // 连接
-    connect(inputList_, &UiVariableList::variableSelected,
+    // 双击选中关闭，单击仅高亮
+    connect(inputList_, &UiVariableList::variableDoubleClicked,
             this, &UiWorkbenchExprPicker::onVariableSelected);
-    connect(outputList_, &UiVariableList::variableSelected,
+    connect(outputList_, &UiVariableList::variableDoubleClicked,
             this, &UiWorkbenchExprPicker::onVariableSelected);
     connect(advancedBtn_, &QPushButton::clicked,
             this, &UiWorkbenchExprPicker::onAdvanced);

@@ -75,6 +75,7 @@ AST_CORE_API Axes* aResolveAxes(StringView name);
 /// @note 如果点不存在，返回 nullptr
 AST_CORE_API Point* aResolvePoint(StringView name);
 
+#ifndef SWIG
 
 inline Point* operator ""_point(const char* str, size_t len)
 {
@@ -101,7 +102,7 @@ inline Object* operator ""_object(const char* str, size_t len)
 {
     return aResolveObject(StringView(str, len));
 }
-
+#endif
 
 
 /*! @} */

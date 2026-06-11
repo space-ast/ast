@@ -752,6 +752,7 @@ bool setScriptVariableByEx(IDispatch* pGlobalDisp, const std::wstring& name, con
     if (FAILED(hr) || !pDispEx) return false;
 
     // 2. 获取或创建属性的 DISPID
+    /// @bug `pDispEx->GetDispID` 这个逻辑在低版本的jscript动态库中执行会报错 
     DISPID dispid;
     hr = pDispEx->GetDispID(const_cast<BSTR>(name.c_str()), fdexNameEnsure, &dispid);
     if (FAILED(hr))

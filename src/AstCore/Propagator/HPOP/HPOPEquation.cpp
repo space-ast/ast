@@ -113,9 +113,6 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     // 重置动力学系统
     this->reset();
 
-    // 添加运动学函数块
-    derivativeBlock = new BlockMotion();
-    this->addBlock(derivativeBlock);
 
     if(body && forceModel.useCentralBodyAttraction()){
         // 添加重力场函数块
@@ -162,6 +159,11 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     }else{
         aWarning("the propagation frame's center is not a celestial body, no gravity force will be added.");
     }
+
+    // 添加运动学函数块
+    derivativeBlock = new BlockMotion();
+    this->addBlock(derivativeBlock);
+
 
     BlockMass* blockMass = nullptr;  // 质量函数块指针，用于标识是否添加了质量函数块
 

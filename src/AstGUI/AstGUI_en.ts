@@ -1756,6 +1756,14 @@ Error code: %2</translation>
         <source>输出</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>执行仿真</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>执行扫参分析</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UiSweepVariableList</name>
