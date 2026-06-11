@@ -264,7 +264,7 @@ var group__Time =
     [ "ast::Date::monthShortName", "group__Time.html#ga88179430870464cb8b0160c2ca7bfe99", null ],
     [ "ast::Date::normalize", "group__Time.html#ga0d082db9849c05f3db689102740d752f", null ],
     [ "ast::Date::normalized", "group__Time.html#gaa09b00d4c981b078f1c49d3ca04f8110", null ],
-    [ "ast::operator\"\"_北京时", "group__Time.html#ga19ff3249092578d8a1eb3cebe299d1af", null ],
+    [ "ast::operator\"\"_bjt", "group__Time.html#gacea40fd21fc0b070309e32e91a2bfbd8", null ],
     [ "ast::operator\"\"_timepoint", "group__Time.html#ga6b83f9550debbba98da642af4c4fa5df", null ],
     [ "ast::operator\"\"_utc", "group__Time.html#gad48a81d9b6bf043e8d2552e8a0ea6f83", null ],
     [ "ast::Date::toJD", "group__Time.html#gafd13a3151cef717af56b5d1836792fb9", null ],

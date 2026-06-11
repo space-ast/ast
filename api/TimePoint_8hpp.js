@@ -12,7 +12,7 @@ var TimePoint_8hpp =
     [ "aTimePointToUT1", "TimePoint_8hpp.html#ga75ce1901b3cae1292cfd714d1c2d6711", null ],
     [ "aTimePointToUTC", "TimePoint_8hpp.html#ga0418cfc5f9a2d78a15fbdf2d7a8540e2", null ],
     [ "aTimePointToUTC", "TimePoint_8hpp.html#ga71924ae7a77279ed8203166c618a49df", null ],
-    [ "operator\"\"_北京时", "TimePoint_8hpp.html#ga19ff3249092578d8a1eb3cebe299d1af", null ],
+    [ "operator\"\"_bjt", "TimePoint_8hpp.html#gacea40fd21fc0b070309e32e91a2bfbd8", null ],
     [ "operator\"\"_timepoint", "TimePoint_8hpp.html#ga6b83f9550debbba98da642af4c4fa5df", null ],
     [ "operator\"\"_utc", "TimePoint_8hpp.html#gad48a81d9b6bf043e8d2552e8a0ea6f83", null ]
 ];

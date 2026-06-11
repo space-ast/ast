@@ -2582,7 +2582,7 @@ var namespaceast =
     [ "moe2rv", "group__Orbit.html#ga02729f95585e7df86db8b5c243cd29ca", null ],
     [ "mxm", "group__Spice.html#ga186312adcab3a6cc586e7affaa431d69", null ],
     [ "mxvg", "group__Spice.html#gad90e6b55870d2a694400ebc5c8c6548f", null ],
-    [ "operator\"\"_北京时", "group__Time.html#ga19ff3249092578d8a1eb3cebe299d1af", null ],
+    [ "operator\"\"_bjt", "group__Time.html#gacea40fd21fc0b070309e32e91a2bfbd8", null ],
     [ "operator\"\"_json", "namespaceast.html#a68ceeef773a5b2d1d1c31431df084663", null ],
     [ "operator\"\"_timepoint", "group__Time.html#ga6b83f9550debbba98da642af4c4fa5df", null ],
     [ "operator\"\"_utc", "group__Time.html#gad48a81d9b6bf043e8d2552e8a0ea6f83", null ],
