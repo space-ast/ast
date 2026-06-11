@@ -48,6 +48,7 @@
 
 #include "AstAnalyzer/StudyWorkbench.hpp"
 #include "AstAnalyzer/SweepStudy.hpp"
+#include "AstAnalyzer/FeasibleRegionStudy.hpp"
 
 #include "AstGUI/UiAttributeTree.hpp"
 #include "AstGUI/UiBodyEphemerisDE.hpp"

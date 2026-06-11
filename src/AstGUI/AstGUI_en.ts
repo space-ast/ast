@@ -540,7 +540,7 @@
     </message>
     <message>
         <source>添加变量</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Add Variable</translation>
     </message>
     <message>
         <source>添加一个新的可行域变量</source>
@@ -576,7 +576,7 @@
     </message>
     <message>
         <source>添加约束</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Add Constraint</translation>
     </message>
     <message>
         <source>添加一个新的可行域约束</source>
@@ -584,7 +584,7 @@
     </message>
     <message>
         <source>删除约束</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Delete Constraint</translation>
     </message>
     <message>
         <source>删除选中的约束</source>
@@ -608,7 +608,7 @@
     </message>
     <message>
         <source>(点击选择表达式)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">(Click to select expression)</translation>
     </message>
     <message>
         <source>点击选择对象属性或计算量表达式</source>
@@ -637,7 +637,7 @@
     </message>
     <message>
         <source>确认删除约束 &quot;%1&quot; 吗？</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Confirm delete constraint &quot;%1&quot;?</translation>
     </message>
     <message>
         <source>可行域研究将对每个变量在 [下界, 上界] 范围内等距采样，遍历所有变量组合，每次迭代设置变量值、执行关联命令、验证约束条件，最终确定满足所有约束的可行区域。
@@ -1673,31 +1673,6 @@ Error code: %2</translation>
     </message>
 </context>
 <context>
-    <name>UiStudyConstraintEditor</name>
-    <message>
-        <source>名称</source>
-        <translation>Name</translation>
-    </message>
-    <message>
-        <source>表达式</source>
-        <translation>Expression</translation>
-    </message>
-</context>
-<context>
-    <name>UiStudyConstraintList</name>
-    <message>
-        <source>+ 添加响应</source>
-        <translation>+ Add Response</translation>
-    </message>
-</context>
-<context>
-    <name>UiStudyVariableList</name>
-    <message>
-        <source>+ 添加变量</source>
-        <translation>+ Add Variable</translation>
-    </message>
-</context>
-<context>
     <name>UiStudyWorkbench</name>
     <message>
         <source>输入变量</source>
@@ -1721,29 +1696,115 @@ Error code: %2</translation>
     </message>
 </context>
 <context>
+    <name>UiSweepOutputList</name>
+    <message>
+        <source>添加约束</source>
+        <translation>Add Constraint</translation>
+    </message>
+    <message>
+        <source>删除约束</source>
+        <translation>Delete Constraint</translation>
+    </message>
+    <message>
+        <source>确认删除约束 &quot;%1&quot; 吗？</source>
+        <translation>Confirm delete constraint &quot;%1&quot;?</translation>
+    </message>
+    <message>
+        <source>(点击选择表达式)</source>
+        <translation>(Click to select expression)</translation>
+    </message>
+    <message>
+        <source>添加一个新的输出约束</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>删除选中的约束</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>名称</source>
+        <translation type="unfinished">Name</translation>
+    </message>
+    <message>
+        <source>表达式</source>
+        <translation type="unfinished">Expression</translation>
+    </message>
+    <message>
+        <source>点击选择对象属性或计算量表达式</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UiSweepStudy</name>
-    <message>
-        <source>扫描变量</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>变量</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>约束条件</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>约束</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>未关联任务模型</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>任务模型</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>扫描变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>变量与输出</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输出</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UiSweepVariableList</name>
+    <message>
+        <source>添加变量</source>
+        <translation>Add Variable</translation>
+    </message>
+    <message>
+        <source>删除变量</source>
+        <translation>Delete Variable</translation>
+    </message>
+    <message>
+        <source>确认删除变量 &quot;%1&quot; 吗？</source>
+        <translation>Confirm delete variable &quot;%1&quot;?</translation>
+    </message>
+    <message>
+        <source>(点击选择表达式)</source>
+        <translation>(Click to select expression)</translation>
+    </message>
+    <message>
+        <source>添加一个新的扫参变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>删除选中的变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>名称</source>
+        <translation type="unfinished">Name</translation>
+    </message>
+    <message>
+        <source>起始值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>步长</source>
+        <translation type="unfinished">Step Size</translation>
+    </message>
+    <message>
+        <source>结束值</source>
+        <translation type="unfinished">End Value</translation>
+    </message>
+    <message>
+        <source>表达式</source>
+        <translation type="unfinished">Expression</translation>
+    </message>
+    <message>
+        <source>点击选择对象属性或计算量表达式</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1816,29 +1877,6 @@ Error code: %2</translation>
     </message>
 </context>
 <context>
-    <name>UiVariableEditor</name>
-    <message>
-        <source>名称</source>
-        <translation>Name</translation>
-    </message>
-    <message>
-        <source>初始值</source>
-        <translation>Initial Value</translation>
-    </message>
-    <message>
-        <source>结束值</source>
-        <translation>End Value</translation>
-    </message>
-    <message>
-        <source>步长</source>
-        <translation>Step Size</translation>
-    </message>
-    <message>
-        <source>表达式</source>
-        <translation>Expression</translation>
-    </message>
-</context>
-<context>
     <name>UiVariableList</name>
     <message>
         <source>名称</source>
@@ -1898,6 +1936,33 @@ Error code: %2</translation>
     </message>
     <message>
         <source>变量 &quot;%1&quot; 已被引用，不能删除</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UiWorkbenchExprPicker</name>
+    <message>
+        <source>选择变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>从工作台的输入/输出变量中选择，或点击&quot;高级&quot;进入表达式浏览器</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输入变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输出变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>高级...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>打开表达式浏览器，选择任意对象属性或计算量</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

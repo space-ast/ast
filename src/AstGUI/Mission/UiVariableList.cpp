@@ -120,6 +120,17 @@ void UiVariableList::setInterpreter(Interpreter* interpreter, Object* owner)
     interpreterOwner_ = owner;
 }
 
+void UiVariableList::setToolbarVisible(bool visible)
+{
+    // buttonLayout_ 是包含所有工具栏按钮的水平布局
+    for (int i = 0; i < buttonLayout_->count(); ++i)
+    {
+        QWidget* w = buttonLayout_->itemAt(i)->widget();
+        if (w)
+            w->setVisible(visible);
+    }
+}
+
 
 void UiVariableList::refreshUi()
 {
