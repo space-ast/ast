@@ -26,6 +26,7 @@
 AST_NAMESPACE_BEGIN
 
 class Segment;
+class UiCommandTreeItem;
 
 /// @brief 任务段树控件，继承 UiObjectTree，支持拖拽排序、右键菜单、序列同步
 class AST_GUI_API UiCommandTree : public UiObjectTree
@@ -51,11 +52,26 @@ signals:
     /// @brief 当树结构被拖拽或删除修改后发出
     void treeModified();
 
+    /// @brief 当通过右键菜单插入新命令后发出
+    void commandInserted(Command* command);
+
+    /// @brief 当用户通过右键菜单请求命令概要时发出
+    void commandSummaryRequested(Command* command);
+
 protected:
     void dropEvent(QDropEvent* event) override;
     void contextMenuEvent(QContextMenuEvent* event) override;
 
 private:
+    /// @brief 在选定项的上方或下方插入指定类型的新命令
+    void insertCommandRelativeToItem(UiCommandTreeItem* item, const QString& typeName, bool above);
+
+    /// @brief 创建并设置插入子菜单
+    QMenu* createInsertMenu(const QString& title);
+
+    /// @brief 处理插入子菜单的动作
+    void handleInsertAction(QAction* action, UiCommandTreeItem* item, bool above);
+
     WeakPtr<Sequence> sequence_ = nullptr;
 };
 

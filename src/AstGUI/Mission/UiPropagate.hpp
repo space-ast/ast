@@ -24,6 +24,7 @@
 #include "AstGUI/UiObject.hpp"
 #include "AstGUI/UiQuantity.hpp"
 #include <QCheckBox>
+#include <QComboBox>
 
 class QPushButton;
 
@@ -48,6 +49,7 @@ public:
 private slots:
     void onMaxTimeChanged();
     void onMaxTimeEnabledChanged(bool checked);
+    void onDirectionChanged(int index);
     void onConfigureForceModel();
     void onConfigureIntegrator();
 
@@ -57,6 +59,7 @@ private:
 
     UiQuantity*  maxTimeEdit_ = nullptr;
     QCheckBox*   useMaxTimeCheck_ = nullptr;
+    QComboBox*   directionCombo_ = nullptr;
     QPushButton* forceModelBtn_ = nullptr;
     QPushButton* integratorBtn_ = nullptr;
     UiEventDetectorList* eventDetectorList_ = nullptr;

@@ -53,6 +53,8 @@ public:
     ~HPOPForceModel();
 
     using ThirdBodyList = std::vector<ThirdBodyForce>;
+
+    bool useCentralBodyAttraction() const{return useCentralBodyAttraction_;}
     
     bool useDrag() const{return useDrag_;}
     void useDrag(bool useDrag){useDrag_ = useDrag;}
@@ -64,7 +66,7 @@ public:
     void useRelativityCorrection(bool useRelativityCorrection){useRelativityCorrection_ = useRelativityCorrection;}
 
     /// @brief 获取中心天体
-    Body* centralBody() const{return centralBody_.get();}
+    Body* centralBody() const;
     /// @brief 设置中心天体
     void setCentralBody(Body* body){centralBody_ = body;}
 
@@ -120,7 +122,8 @@ private:
     bool                        useDrag_{false};                    ///< 是否使用阻力模型
     bool                        useSRP_{false};                     ///< 是否使用太阳辐射压模型
     bool                        useRelativityCorrection_{false};    ///< 是否使用相对论修正
-    SharedPtr<Body>             centralBody_;                       ///< 中心天体
+    bool                        useCentralBodyAttraction_{true};    ///< 是否使用中心天体引力模型
+    SharedPtr<Body>             centralBody_;                       ///< 中心天体(定义引力场模型所属天体，以及进行轨道预报的坐标系)
     DragForce                   drag_;                              ///< 大气阻力
     SolarRadiationPressure      srp_;                               ///< 太阳辐射压模型
     ThirdBodyList               thirdBodies_;                       ///< 三体引力 

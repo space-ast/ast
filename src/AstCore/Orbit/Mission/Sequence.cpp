@@ -155,6 +155,8 @@ errc_t Sequence::removeCommand(MissionCommand* command)
         {
             if(cmd == command)
             {
+                if(command->getParentScope() == this)
+                    command->setParentScope(nullptr);
                 commands_.erase(commands_.begin() + i);
                 linkCommands();
                 return eNoError;

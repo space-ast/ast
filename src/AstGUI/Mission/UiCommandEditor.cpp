@@ -23,12 +23,14 @@
 #include "UiPropagate.hpp"
 #include "UiManeuver.hpp"
 #include "UiSequence.hpp"
+#include "UiFeasibleRegionStudy.hpp"
 #include "AstCore/MissionCommand.hpp"
 #include "AstCore/InitialState.hpp"
 #include "AstCore/Propagate.hpp"
 #include "AstCore/Maneuver.hpp"
 #include "AstCore/Sequence.hpp"
 #include "AstCore/TargeterSequence.hpp"
+#include "AstAnalyzer/FeasibleRegionStudy.hpp"
 #include "AstUtil/Class.hpp"
 #include <QLabel>
 #include <QVBoxLayout>
@@ -62,6 +64,9 @@ void UiCommandEditor::registerEditors()
 
     targetSeqPage_ = new UiTargeterSequence(this);
     targetSeqIdx_ = addWidget(targetSeqPage_);
+
+    feasibleRegionPage_ = new UiFeasibleRegionStudy(this);
+    feasibleRegionIdx_ = addWidget(feasibleRegionPage_);
 }
 
 void UiCommandEditor::setupUi()
@@ -112,6 +117,11 @@ void UiCommandEditor::editCommand(MissionCommand* cmd)
     {
         sequencePage_->setSequence(aobject_cast<Sequence*>(cmd));
         targetIdx = sequenceIdx_;
+    }
+    else if (cmd->isOfType(FeasibleRegionStudy::StaticType()))
+    {
+        feasibleRegionPage_->setStudy(aobject_cast<FeasibleRegionStudy*>(cmd));
+        targetIdx = feasibleRegionIdx_;
     }
 
     if (targetIdx >= 0)

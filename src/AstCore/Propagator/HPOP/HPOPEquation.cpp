@@ -77,24 +77,38 @@ errc_t HPOPEquation::initialize()
 
 errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const SpacecraftParam &spacecraftParam)
 {
-    if(!this->propFrame_)
+    // 检查中心天体
+    auto body = this->getCentralBody();
+    if(!body)
     {
-        if(auto cb = aGetEarth())
+        body = aGetEarth();
+        assert(body);
+        aWarning("central body is not set, using 'Earth' as default.");
+        if(!body)
+            return eErrorNullInput;
+    }
+
+    // 检查预报坐标系是否有效
+    auto propFrame = this->getPropagationFrame(); 
+    if(!propFrame)
+    {
+        propFrame = body->getFrameInertial();
+        assert(propFrame);
+        aWarning("propagation frame is not set, using the inertial frame of '%s' as the default propagation frame.", body->getName().c_str());
+        if(!propFrame)
+            return eErrorNullInput;
+    }
+    else
+    {
+        if(propFrame->getOrigin() != body)
         {
-            this->propFrame_ = cb->getFrameInertial();
-            aWarning("propagation frame is not set, using earth inertial frame as the default propagation frame.");
+            aError("propagation frame '%s' origin is not central body '%s'.", propFrame->getName().c_str(), body->getName().c_str());
+            return eErrorInvalidParam;
         }
-        if(!this->propFrame_)
-            aError("failed to set propagation frame to earth inertial frame.");
     }
     // 将力模型配置转换为动力学系统的一个个函数块
     BlockDerivative* derivativeBlock;
     auto& bodyAttraction = forceModel.bodyAttraction();
-    auto propFrame = this->propFrame_; 
-    auto body = propFrame->getBody();   // 尝试获取预报坐标系原点对应的天体
-    if(!body){
-        body = forceModel.centralBody();
-    }
 
     // 重置动力学系统
     this->reset();
@@ -103,7 +117,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     derivativeBlock = new BlockMotion();
     this->addBlock(derivativeBlock);
 
-    if(body){
+    if(body && forceModel.useCentralBodyAttraction()){
         // 添加重力场函数块
         if(auto gravityPtr = bodyAttraction.asGravityForce()){
             auto& gravity = *gravityPtr;
@@ -163,7 +177,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         NRLMSIS00* atmosphere = new NRLMSIS00(body->getFrameFixed(), body->getShape(), forceModel.drag().f10p7Daily_, forceModel.drag().f10p7Average_, ap);
         atmosphere->setUseApproximateAltitude(forceModel.drag().useApproxAltForDrag_);
         // atmosphere 的所有权转移给 blockDrag
-        derivativeBlock = new BlockDrag(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame_);
+        derivativeBlock = new BlockDrag(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame);
         this->addBlock(derivativeBlock);
     }
 
@@ -206,7 +220,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             {
                 eclipseCalculator->setOccultingBodies(forceModel.srp().eclipsingBodies_); // 设置遮挡体列表
             }
-            BlockSRP* blockSRP = new BlockSRP(eclipseCalculator, spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame_);
+            BlockSRP* blockSRP = new BlockSRP(eclipseCalculator, spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame);
             blockSRP->setSunPosition(forceModel.srp().sunPosition_); // 设置太阳位置
             this->addBlock(blockSRP);
         }
@@ -223,7 +237,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         {
             auto body3rd = thirdBody.body();
             double gm = thirdBody.pointMass().getGM(body3rd);
-            derivativeBlock = new BlockThirdBody(body3rd, gm, propFrame_);
+            derivativeBlock = new BlockThirdBody(body3rd, gm, propFrame);
             this->addBlock(derivativeBlock);
         }
     }
@@ -232,7 +246,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     // 添加月球引力函数块
     if(forceModel.useMoonGravity())
     {
-        derivativeBlock = new BlockThirdBody(aGetMoon(), forceModel.moonGravity(), propFrame_);
+        derivativeBlock = new BlockThirdBody(aGetMoon(), forceModel.moonGravity(), propFrame);
         this->addBlock(derivativeBlock);
     }
     return eNoError;
@@ -288,9 +302,28 @@ errc_t HPOPEquation::setPropagationFrame(Frame *frame)
 {
     if(!frame) return -1;
     /// @todo 这里还需要检查frame是否是准惯性系
+    /// @todo 这里要注意处理propFrame_和centralBody_不一致的情况
     // if(!frame->isPseudoInertial()) return -1;
     propFrame_ = frame;
     return eNoError;
 }
+
+Frame* HPOPEquation::getPropagationFrame() const
+{
+    if(propFrame_)
+        return propFrame_;
+    else if(auto body = getCentralBody()){
+        return body->getFrameInertial();
+    }
+    return nullptr;
+}
+
+
+Body* HPOPEquation::getCentralBody() const
+{
+    return forceModel().centralBody();
+}
+
+
 
 AST_NAMESPACE_END

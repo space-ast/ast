@@ -29,6 +29,14 @@ HPOPForceModel::~HPOPForceModel() = default;
 // HPOPForceModel::HPOPForceModel(HPOPForceModel&& other) = default;
 // HPOPForceModel& HPOPForceModel::operator=(HPOPForceModel&& other) = default;
 
+Body* HPOPForceModel::centralBody() const
+{
+    auto body = centralBody_.get();
+    if(body)
+        return body;
+    return aGetEarth();
+}
+
 GravityForce& HPOPForceModel::gravity()
 {
     if(!bodyAttraction_ || !bodyAttraction_->isAttractionType(EBodyAttractionType::eGravity))

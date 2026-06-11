@@ -56,6 +56,11 @@ const SpacecraftParam& HPOP::spacecraftParam() const
     return equation()->spacecraftParam();
 }
 
+Frame* HPOP::propagationFrame() const
+{
+    return equation_->getPropagationFrame();
+}
+
 errc_t HPOP::setPropagationFrame(Frame *frame)
 {
     return equation_->setPropagationFrame(frame);

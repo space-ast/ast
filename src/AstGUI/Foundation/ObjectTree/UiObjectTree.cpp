@@ -72,6 +72,9 @@ UiObjectTree::UiObjectTree(QWidget* parent)
     });
 
     // 双击对象树节点时发出信号，由外部决定如何打开编辑界面
+    // 禁用双击展开/收起，仅通过 objectDoubleClicked 信号触发编辑窗口打开
+    setExpandsOnDoubleClick(false);
+
     connect(this, &QTreeWidget::itemDoubleClicked,
             this, [this](QTreeWidgetItem* item, int)
     {

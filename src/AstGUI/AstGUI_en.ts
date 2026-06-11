@@ -237,30 +237,85 @@
     </message>
 </context>
 <context>
+    <name>UiCommandSummary</name>
+    <message>
+        <source>(无命令)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(非段命令，无轨道状态信息)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(无输出状态)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(无轨道状态)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(未知坐标系)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Satellite State at End of Segment :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(未知)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UiCommandTree</name>
-    <message>
-        <source>添加初始状态</source>
-        <translation type="unfinished">Add Initial State</translation>
-    </message>
-    <message>
-        <source>添加预报段</source>
-        <translation type="unfinished">Add Propagate Segment</translation>
-    </message>
-    <message>
-        <source>添加机动段</source>
-        <translation type="unfinished">Add Maneuver Segment</translation>
-    </message>
-    <message>
-        <source>添加序列段</source>
-        <translation type="unfinished">Add Sequence Segment</translation>
-    </message>
-    <message>
-        <source>添加瞄准序列段</source>
-        <translation type="unfinished">Add Targeter Sequence Segment</translation>
-    </message>
     <message>
         <source>删除</source>
         <translation type="unfinished">Delete</translation>
+    </message>
+    <message>
+        <source>重命名</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>在上方插入</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>在下方插入</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>添加子命令</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>概要</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>新名称:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>初始状态</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>预报段</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>机动段</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>序列段</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>瞄准序列段</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -467,6 +522,128 @@
     <message>
         <source>选择对象计算量</source>
         <translation>Select object calculation</translation>
+    </message>
+</context>
+<context>
+    <name>UiFeasibleRegionStudy</name>
+    <message>
+        <source>变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>约束</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>添加变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>添加一个新的可行域变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>删除变量</source>
+        <translation type="unfinished">Remove Variable</translation>
+    </message>
+    <message>
+        <source>删除选中的变量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>名称</source>
+        <translation type="unfinished">Name</translation>
+    </message>
+    <message>
+        <source>表达式</source>
+        <translation type="unfinished">Expression</translation>
+    </message>
+    <message>
+        <source>下界</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>上界</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>采样点数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>添加约束</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>添加一个新的可行域约束</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>删除约束</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>删除选中的约束</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>启用下界</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>启用上界</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>排除模式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>运行信息</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(点击选择表达式)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>点击选择对象属性或计算量表达式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>排除模式：可行域为区间补集</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>无可行域研究</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>总运行次数: 0（未定义变量）</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>总运行次数: %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>确认删除变量 &quot;%1&quot; 吗？</source>
+        <translation type="unfinished">Remove variable &quot;%1&quot;?</translation>
+    </message>
+    <message>
+        <source>确认删除约束 &quot;%1&quot; 吗？</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>可行域研究将对每个变量在 [下界, 上界] 范围内等距采样，遍历所有变量组合，每次迭代设置变量值、执行关联命令、验证约束条件，最终确定满足所有约束的可行区域。
+
+关联命令通过右键菜单中的&quot;关联到可行域研究&quot;设置。</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -899,6 +1076,22 @@
         <source>积分器配置</source>
         <translation>Integrator Configuration</translation>
     </message>
+    <message>
+        <source>预报方向</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>逆向预报</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>自动</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>正向预报</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UiQuantity</name>
@@ -1101,10 +1294,6 @@ Error code: %2</translation>
         <translation>Save not yet implemented: %1</translation>
     </message>
     <message>
-        <source>开始执行任务序列...</source>
-        <translation>Starting mission sequence execution...</translation>
-    </message>
-    <message>
         <source>任务序列已停止</source>
         <translation>Mission sequence stopped</translation>
     </message>
@@ -1118,6 +1307,14 @@ Error code: %2</translation>
     </message>
     <message>
         <source>添加: 着陆点段</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>任务序列已完成执行</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>命令概要 — %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

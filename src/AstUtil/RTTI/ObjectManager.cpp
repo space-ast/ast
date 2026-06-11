@@ -141,8 +141,16 @@ void ObjectManager::removeAllObjects()
 
 errc_t ObjectManager::setParentScope(Object *obj, Object *parentScope)
 {
-    if(!obj || !parentScope)
+    if(!obj)
         return -1;
+    if(parentScope == nullptr)
+    {
+        if(obj->index_ != static_cast<uint32_t>(INVALID_ID))
+        {
+            objects_[obj->index_]->setParent(nullptr);
+        }
+        return eNoError;
+    }
     uint32_t parentScopeIndex = addObject(parentScope);
     if(parentScopeIndex == static_cast<uint32_t>(INVALID_ID))
         return -1;

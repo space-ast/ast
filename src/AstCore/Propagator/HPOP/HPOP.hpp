@@ -62,6 +62,9 @@ public:
     /// @brief 获取航天器参数
     const SpacecraftParam& spacecraftParam() const;
 
+    /// @brief 获取预报坐标系
+    Frame* propagationFrame() const;
+
     /// @brief 设置预报坐标系
     errc_t setPropagationFrame(Frame* frame);
 

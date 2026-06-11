@@ -514,6 +514,56 @@ SharedPtr<T> aMakeShared()
     return new T();
 }
 
+template<typename T>
+SharedPtr<T> aMakeShared(Object* parentScope)
+{
+    T* obj = new T();
+    aSetParentScope(obj, parentScope);
+    return obj;
+}
+
+template<typename T>
+SharedPtr<T> aMakeShared(StringView objectName)
+{
+    T* obj = new T();
+    obj->setName(objectName);
+    return obj;
+}
+
+template<typename T>
+SharedPtr<T> aMakeShared(Object* parentScope, StringView typeName)
+{
+    T* obj = new T();
+    obj->setParentScope(parentScope);
+    obj->setName(typeName);
+    return obj;
+}
+
+
+template<typename T>
+T* aNewObject(Object* parentScope=nullptr)
+{
+    T* obj = new T();
+    obj->setParentScope(parentScope);
+    return obj;
+}
+
+template<typename T>
+T* aNewObject(StringView objectName)
+{
+    T* obj = new T();
+    obj->setName(objectName);
+    return obj;
+}
+
+template<typename T>
+T* aNewObject(Object* parentScope, StringView objectName)
+{
+    T* obj = new T();
+    obj->setParentScope(parentScope);
+    obj->setName(objectName);
+    return obj;
+}
 
 /*! @} */
 

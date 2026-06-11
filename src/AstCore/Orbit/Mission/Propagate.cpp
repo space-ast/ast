@@ -28,11 +28,11 @@
 
 AST_NAMESPACE_BEGIN
 
-// #define AST_DEBUG_PROPAGATE
+#define _AST_DEBUG_PROPAGATE
 
 Propagate::Propagate()
 {
-    propagator_ = aNewObject<HPOP>(this);
+    propagator_ = aNewObject<HPOP>(this, "Propagator");
 }
 
 errc_t Propagate::execute()
@@ -41,15 +41,23 @@ errc_t Propagate::execute()
     auto outputState  = this->getOutputState();       AST_CHECK_NULLPTR(outputState);
     auto propagator   = this->propagator();           AST_CHECK_NULLPTR(propagator);
     auto integrator   = propagator->getIntegrator();  AST_CHECK_NULLPTR(integrator);
+    Frame* propFrame = propagator->propagationFrame();  AST_CHECK_NULLPTR(propFrame);
     
     // 获取初始状态
     State* orbitState = inputState->getOrbitState();  AST_CHECK_NULLPTR(orbitState);
     TimePoint startTime;
     errc_t rc = orbitState->getStateEpoch(startTime); AST_CHECK_ERRCODE(rc, "Failed to get state epoch");
     CartState inputCartState;
-    rc = orbitState->getState(inputCartState);             AST_CHECK_ERRCODE(rc, "Failed to get cart state");
+    rc = orbitState->getStateIn(propFrame, inputCartState);             AST_CHECK_ERRCODE(rc, "Failed to get cart state");
     
-    TimePoint endTime = startTime + maxPropTime();
+    TimePoint endTime;
+    if(direction_ == eBackward){
+        endTime = startTime - maxPropTime();
+    }
+    else // if(direction_ == eForward)
+    {
+        endTime = startTime + maxPropTime();
+    }
     // 添加停止条件
     integrator->clearEventDetectors();
     for(auto& eventDetector: eventDetectors_)
@@ -64,10 +72,12 @@ errc_t Propagate::execute()
     CartState outputCartState = inputCartState;
     rc = propagator->propagate(startTime, endTime, outputCartState.pos(), outputCartState.vel()); AST_CHECK_ERRCODE(rc, "Failed to propagate");
     // 输出结果
+    outputState->copyFrom(*inputState);
     outputState->setStateEpoch(endTime);
+    outputState->setFrame(propFrame);
     rc = outputState->setState(outputCartState);       AST_CHECK_ERRCODE(rc, "Failed to set cart state");
 
-    #ifdef AST_DEBUG_PROPAGATE
+    #ifdef _AST_DEBUG_PROPAGATE
     printf("\n------------------------------------\n");
     printf("Propagate: %s\n", getName().c_str());
     printf("------------------------------------\n");

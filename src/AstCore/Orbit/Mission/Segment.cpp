@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 Segment::Segment()
     : MissionCommand()
     , inputState_()
-    , outputState_(new SpacecraftState())
+    , outputState_(aNewObject<SpacecraftState>(this, "OutputState"))
 {
     
 }

@@ -22,6 +22,7 @@
 #include "MissionIcons.hpp"
 #include "AstGUI/UiCommandTree.hpp"
 #include "UiCommandEditor.hpp"
+#include "UiCommandSummary.hpp"
 #include "AstCore/MainSequence.hpp"
 #include "AstCore/InitialState.hpp"
 #include "AstCore/Propagate.hpp"
@@ -35,6 +36,8 @@
 #include <QPlainTextEdit>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QDialog>
+#include <QDialogButtonBox>
 
 AST_NAMESPACE_BEGIN
 
@@ -49,6 +52,7 @@ UiSequenceWorkbench::UiSequenceWorkbench(Object* sequence, QWidget* parent)
     setupUi();
     setupToolBar();
     setupConnections();
+    setSequence(aobject_cast<Sequence*>(sequence));
 }
 
 UiSequenceWorkbench::~UiSequenceWorkbench() = default;
@@ -140,6 +144,28 @@ void UiSequenceWorkbench::setupConnections()
     // 树结构变化
     connect(commandTree_, &UiCommandTree::treeModified,
             this, [this]() { appendOutput(tr("任务序列已更新")); });
+
+    // 右键概要 → 弹出 UiCommandSummary 对话框
+    connect(commandTree_, &UiCommandTree::commandSummaryRequested,
+            this, [this](Command* cmd)
+    {
+        if (!cmd)
+            return;
+
+        QDialog dlg(this);
+        dlg.setWindowTitle(tr("命令概要 — %1").arg(QString::fromStdString(cmd->getName())));
+        dlg.resize(900, 600);
+
+        auto* dlgLayout = new QVBoxLayout(&dlg);
+        auto* summary = new UiCommandSummary(cmd, &dlg);
+        dlgLayout->addWidget(summary);
+
+        auto* btnBox = new QDialogButtonBox(QDialogButtonBox::Close, &dlg);
+        connect(btnBox, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
+        dlgLayout->addWidget(btnBox);
+
+        dlg.exec();
+    });
 
     // 工具栏动作
     connect(deleteAction_, &QAction::triggered,
@@ -425,9 +451,13 @@ void UiSequenceWorkbench::onRun()
 {
     runAction_->setEnabled(false);
     stopAction_->setEnabled(true);
-    appendOutput(tr("开始执行任务序列..."));
-
-    emit runRequested();
+    if(auto sequence = this->sequence())
+    {
+        sequence->execute();
+    }
+    runAction_->setEnabled(true);
+    stopAction_->setEnabled(false);
+    appendOutput(tr("任务序列已完成执行"));
 }
 
 void UiSequenceWorkbench::onStop()
@@ -435,8 +465,6 @@ void UiSequenceWorkbench::onStop()
     runAction_->setEnabled(true);
     stopAction_->setEnabled(false);
     appendOutput(tr("任务序列已停止"));
-
-    emit stopped();
 }
 
 void UiSequenceWorkbench::appendOutput(const QString& text)
