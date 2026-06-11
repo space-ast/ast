@@ -21,6 +21,7 @@
 #include "Propagate.hpp"
 #include "AstCore/HPOP.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/IO.hpp"
 #include "AstCore/SpacecraftState.hpp"
 #include "AstCore/OrbitElement.hpp"
 #include "AstMath/ODEIntegrator.hpp"
@@ -78,14 +79,14 @@ errc_t Propagate::execute()
     rc = outputState->setState(outputCartState);       AST_CHECK_ERRCODE(rc, "Failed to set cart state");
 
     #ifdef _AST_DEBUG_PROPAGATE
-    printf("\n------------------------------------\n");
-    printf("Propagate: %s\n", getName().c_str());
-    printf("------------------------------------\n");
-    printf("startTime: %s\n", startTime.toString().c_str());
-    printf("startState: %s\n", inputCartState.toString().c_str());
-    printf("endTime: %s\n", endTime.toString().c_str());
-    printf("endState: %s\n", outputCartState.toString().c_str());
-    printf("------------------------------------\n");
+    ast_printf("\n------------------------------------\n");
+    ast_printf("Propagate: %s\n", getName().c_str());
+    ast_printf("------------------------------------\n");
+    ast_printf("startTime: %s\n", startTime.toString().c_str());
+    ast_printf("startState: %s\n", inputCartState.toString().c_str());
+    ast_printf("endTime: %s\n", endTime.toString().c_str());
+    ast_printf("endState: %s\n", outputCartState.toString().c_str());
+    ast_printf("------------------------------------\n");
     #endif
     return 0;
 }
