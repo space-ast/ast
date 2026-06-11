@@ -37,7 +37,7 @@ class AST_CORE_API EclipseCalculator
 {
 public:
     EclipseCalculator() = default;
-    EclipseCalculator(CelestialBody* lightSource)
+    explicit EclipseCalculator(CelestialBody* lightSource)
         : lightSource_(lightSource)
     {
     }

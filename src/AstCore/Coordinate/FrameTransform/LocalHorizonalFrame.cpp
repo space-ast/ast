@@ -70,14 +70,14 @@ void aBodyFixedToGeodetic(const Vector3d& cart, GeodeticPoint& lla, double radiu
 #endif
 
 	H = cart.norm() -  radius * (1 - flatFact);
-	newB = atan(cart[2] / (xy * (1 - ee * radius / (radius + H))));
+	newB = std::atan2(cart[2], xy * (1 - ee * radius / (radius + H)));
 	int niter = 0;
 	do
 	{
 		B = newB;
 		sinB = sin(B);
 		newN = radius / sqrt(1 - ee * sinB * sinB);
-		newB = atan((cart[2] + ee * newN * sinB) / xy);
+		newB = std::atan2(cart[2] + ee * newN * sinB, xy);
 		if (++niter > 1000) {
 			aWarning("maximum number of iterations reached");
 			break;

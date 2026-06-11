@@ -43,7 +43,7 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API BlockMass: public BlockDerivative
 {
 public:
-    BlockMass(double mass);
+    explicit BlockMass(double mass);
     ~BlockMass();
     errc_t run(const SimTime& simTime) final{return 0;}
 protected:

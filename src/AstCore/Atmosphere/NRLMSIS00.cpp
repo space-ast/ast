@@ -81,7 +81,7 @@ double NRLMSIS00::getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed
 					double flatFactor = spheroidShape->flatFactor();
 					double majorAxis = spheroidShape->majorAxis();
 					double xy = hypot(posInBodyFixed.x(), posInBodyFixed.y());
-					double latsph = atan(posInBodyFixed.z() / xy);   // 球形下的纬度
+					double latsph = std::atan2(posInBodyFixed.z(), xy);   // 球形下的纬度，atan2 安全处理 xy==0（极点）
 					double r = hypot(xy, posInBodyFixed.z());
 					alt = r - majorAxis * (1 - flatFactor) / sqrt(1 - (2 * flatFactor - flatFactor * flatFactor) * square(cos(latsph)));
 

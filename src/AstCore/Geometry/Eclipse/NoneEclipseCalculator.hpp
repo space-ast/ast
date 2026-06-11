@@ -38,7 +38,7 @@ class AST_CORE_API NoneEclipseCalculator : public EclipseCalculator
 {
 public:
     NoneEclipseCalculator() = default;
-    NoneEclipseCalculator(CelestialBody* lightSource)
+    explicit NoneEclipseCalculator(CelestialBody* lightSource)
         : EclipseCalculator(lightSource)
     {
     }
