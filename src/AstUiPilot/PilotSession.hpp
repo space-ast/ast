@@ -1,5 +1,5 @@
 ///
-/// @file      UiPilotSession.hpp
+/// @file      PilotSession.hpp
 /// @brief     LLM对话管理，系统提示词构建，工具注册
 /// @author    axel
 /// @date      2026-06-12
@@ -27,7 +27,7 @@ AST_NAMESPACE_BEGIN
 
 class ChatSession;
 class ChatTools;
-class UiPilotAgent;
+class PilotAgent;
 
 /*!
     @addtogroup UiPilot
@@ -35,8 +35,8 @@ class UiPilotAgent;
 */
 
 /// @brief AstUiPilot 对话会话
-/// @details 持有 ChatSession 和 UiPilotAgent，负责注册所有工具并管理 LLM 交互循环。
-class AST_UIPILOT_API UiPilotSession : public QObject
+/// @details 持有 ChatSession 和 PilotAgent，负责注册所有工具并管理 LLM 交互循环。
+class AST_UIPILOT_API PilotSession : public QObject
 {
     Q_OBJECT
 
@@ -44,10 +44,10 @@ public:
     /// @brief 构造函数
     /// @param agent 控件代理（必须已初始化）
     /// @param parent 父对象
-    explicit UiPilotSession(UiPilotAgent* agent, QObject* parent = nullptr);
+    explicit PilotSession(PilotAgent* agent, QObject* parent = nullptr);
 
     /// @brief 析构函数
-    ~UiPilotSession() override;
+    ~PilotSession() override;
 
     /// @brief 执行自然语言指令
     /// @param command 用户指令
@@ -61,8 +61,8 @@ public:
     /// @brief 获取 ChatSession（用于高级配置）
     ChatSession& session();
 
-    /// @brief 获取 UiPilotAgent
-    UiPilotAgent* agent() const { return agent_; }
+    /// @brief 获取 PilotAgent
+    PilotAgent* agent() const { return agent_; }
 
     /// @brief 获取系统提示词
     static const char* systemPrompt();
@@ -74,7 +74,7 @@ private:
     /// @brief 注册所有工具到 ChatSession
     void registerTools();
 
-    UiPilotAgent* agent_;
+    PilotAgent* agent_;
     ChatSession*  chatSession_;
 };
 

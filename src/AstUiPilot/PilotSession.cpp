@@ -1,5 +1,5 @@
 ///
-/// @file      UiPilotSession.cpp
+/// @file      PilotSession.cpp
 /// @brief     LLM对话管理，系统提示词构建，工具注册实现
 /// @author    axel
 /// @date      2026-06-12
@@ -17,15 +17,15 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "UiPilotSession.hpp"
-#include "UiPilotAgent.hpp"
+#include "PilotSession.hpp"
+#include "PilotAgent.hpp"
 #include "AstAI/ChatSession.hpp"
 #include "AstAI/ChatTools.hpp"
 #include "AstAI/ChatTool.hpp"
 #include "AstAI/ChatMessages.hpp"
 #include "AstUtil/JsonValue.hpp"
 #include "AstUtil/Logger.hpp"
-#include "UiPilotUtil.hpp"
+#include "PilotUtil.hpp"
 #include <QApplication>
 #include <QWidget>
 #include <QMenu>
@@ -61,7 +61,7 @@ AST_NAMESPACE_BEGIN
 //  系统提示词
 // ============================================================
 
-const char* UiPilotSession::systemPrompt()
+const char* PilotSession::systemPrompt()
 {
     return u8R"(
 你是一个Qt应用程序操控助手。你可以操控运行中的Qt应用程序。
@@ -86,7 +86,7 @@ const char* UiPilotSession::systemPrompt()
 )";
 }
 
-std::string UiPilotSession::buildSystemPrompt() const
+std::string PilotSession::buildSystemPrompt() const
 {
     std::ostringstream out;
     out << systemPrompt();
@@ -106,7 +106,7 @@ std::string UiPilotSession::buildSystemPrompt() const
 //  构造 / 析构
 // ============================================================
 
-UiPilotSession::UiPilotSession(UiPilotAgent* agent, QObject* parent)
+PilotSession::PilotSession(PilotAgent* agent, QObject* parent)
     : QObject(parent)
     , agent_(agent)
     , chatSession_(nullptr)
@@ -116,14 +116,14 @@ UiPilotSession::UiPilotSession(UiPilotAgent* agent, QObject* parent)
     registerTools();
 }
 
-UiPilotSession::~UiPilotSession()
+PilotSession::~PilotSession()
 {
     delete chatSession_;
 }
 
-ChatSession& UiPilotSession::session() { return *chatSession_; }
+ChatSession& PilotSession::session() { return *chatSession_; }
 
-std::string UiPilotSession::execute(const std::string& command)
+std::string PilotSession::execute(const std::string& command)
 {
     // 先获取快照注入上下文
     std::string snap = agent_->snapshot();
@@ -151,7 +151,7 @@ static void chatCompletion(ChatSession& session, int depth)
     }
 }
 
-void UiPilotSession::chat(const std::string& message, int maxIterForToolCalls)
+void PilotSession::chat(const std::string& message, int maxIterForToolCalls)
 {
     auto& session = this->session();
     session.messages().addUserMessage(message);
@@ -172,7 +172,7 @@ static bool hasKey(const JsonValue& obj, const std::string& key)
     return !obj[key].isNull();
 }
 
-QObject* resolveRef(const JsonValue& args, UiPilotAgent* agent, std::string& err)
+QObject* resolveRef(const JsonValue& args, PilotAgent* agent, std::string& err)
 {
     if (!hasKey(args, "ref"))
     {
@@ -195,7 +195,7 @@ QObject* resolveRef(const JsonValue& args, UiPilotAgent* agent, std::string& err
 }
 
 // 操作后自动获取 snapshot 并拼接返回
-std::string appendSnapshot(UiPilotAgent* agent, const std::string& result)
+std::string appendSnapshot(PilotAgent* agent, const std::string& result)
 {
     if (!agent->isAutoSnapshot())
         return result;
@@ -226,7 +226,7 @@ static JsonValue makeSnapshotSchema()
 
 static std::string toolSnapshot(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     int maxDepth = 8;
@@ -264,7 +264,7 @@ static JsonValue makeClickSchema()
 
 static std::string toolClick(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -315,7 +315,7 @@ static JsonValue makeDblClickSchema()
 
 static std::string toolDblClick(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -355,7 +355,7 @@ static JsonValue makeHoverSchema()
 
 static std::string toolHover(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -412,7 +412,7 @@ static JsonValue makeFillSchema()
 
 static std::string toolFill(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -491,7 +491,7 @@ static JsonValue makeTypeSchema()
 
 static std::string toolType(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -575,7 +575,7 @@ static Qt::Key parseKey(const std::string& keyStr)
 
 static std::string toolPressKey(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string keyStr = args["key"].toString();
@@ -677,7 +677,7 @@ static JsonValue makeSelectOptionSchema()
 
 static std::string toolSelectOption(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -735,7 +735,7 @@ static JsonValue makeDragSchema()
 
 static std::string toolDrag(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -785,7 +785,7 @@ static JsonValue makeScreenshotSchema()
 
 static std::string toolScreenshot(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     QWidget* target = nullptr;
@@ -864,7 +864,7 @@ static JsonValue makeDialogAcceptSchema()
 
 static std::string toolDialogAccept(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     QWidget* modal = agent->activeModalDialog();
@@ -906,7 +906,7 @@ static JsonValue makeDialogDismissSchema()
 
 static std::string toolDialogDismiss(const JsonValue& /*args*/)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     QWidget* modal = agent->activeModalDialog();
@@ -946,7 +946,7 @@ static JsonValue makeGetPropertySchema()
 
 static std::string toolGetProperty(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -1008,7 +1008,7 @@ static JsonValue makeInvokeSchema()
 
 static std::string toolInvoke(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -1055,7 +1055,7 @@ static JsonValue makeTableGetSchema()
 
 static std::string toolTableGet(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -1141,7 +1141,7 @@ static JsonValue makeTableClickSchema()
 
 static std::string toolTableClick(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -1190,7 +1190,7 @@ static JsonValue makeTreeGetSchema()
 
 static std::string toolTreeGet(const JsonValue& args)
 {
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
     if (!agent) return "Agent未初始化";
 
     std::string err;
@@ -1259,7 +1259,7 @@ static std::string toolResize(const JsonValue& args)
     if (win)
         win->resize(w, h);
 
-    auto* agent = UiPilotAgent::instance();
+    auto* agent = PilotAgent::instance();
 
     return appendSnapshot(agent,
         "✓ resized to " + std::to_string(w) + "×" + std::to_string(h));
@@ -1269,7 +1269,7 @@ static std::string toolResize(const JsonValue& args)
 //  registerTools: 注册所有 19 个工具
 // ============================================================
 
-void UiPilotSession::registerTools()
+void PilotSession::registerTools()
 {
     auto& tools = session().tools();
     tools.clearTools();

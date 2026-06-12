@@ -1,5 +1,5 @@
 ///
-/// @file      UiPilotAgent.cpp
+/// @file      PilotAgent.cpp
 /// @brief     Qt控件生命周期管理、ref映射、快照生成实现
 /// @author    axel
 /// @date      2026-06-12
@@ -17,8 +17,8 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "UiPilotAgent.hpp"
-#include "UiPilotUtil.hpp"
+#include "PilotAgent.hpp"
+#include "PilotUtil.hpp"
 #include <QApplication>
 #include <QWidget>
 #include <QDialog>
@@ -62,17 +62,17 @@ AST_NAMESPACE_BEGIN
 //  单例 & 构造/析构
 // ============================================================
 
-UiPilotAgent* UiPilotAgent::s_instance = nullptr;
+PilotAgent* PilotAgent::s_instance = nullptr;
 
-UiPilotAgent* UiPilotAgent::instance() { return s_instance; }
+PilotAgent* PilotAgent::instance() { return s_instance; }
 
-UiPilotAgent::UiPilotAgent(QObject* parent)
+PilotAgent::PilotAgent(QObject* parent)
     : QObject(parent)
 {
     s_instance = this;
 }
 
-UiPilotAgent::~UiPilotAgent()
+PilotAgent::~PilotAgent()
 {
     if (s_instance == this) s_instance = nullptr;
 }
@@ -81,7 +81,7 @@ UiPilotAgent::~UiPilotAgent()
 //  ref 管理
 // ============================================================
 
-int UiPilotAgent::ref(QWidget* widget)
+int PilotAgent::ref(QWidget* widget)
 {
     if (!widget) return -1;
 
@@ -100,7 +100,7 @@ int UiPilotAgent::ref(QWidget* widget)
     return id;
 }
 
-int UiPilotAgent::ref(QAction* action)
+int PilotAgent::ref(QAction* action)
 {
     if (!action) return -1;
 
@@ -119,24 +119,24 @@ int UiPilotAgent::ref(QAction* action)
     return id;
 }
 
-QWidget* UiPilotAgent::widget(int refId) const
+QWidget* PilotAgent::widget(int refId) const
 {
     return refToWidget_.value(refId, nullptr);
 }
 
-QAction* UiPilotAgent::action(int refId) const
+QAction* PilotAgent::action(int refId) const
 {
     return refToAction_.value(refId, nullptr);
 }
 
-QObject* UiPilotAgent::object(int refId) const
+QObject* PilotAgent::object(int refId) const
 {
     if (auto* w = widget(refId)) return w;
     if (auto* a = action(refId)) return a;
     return nullptr;
 }
 
-std::string UiPilotAgent::objectType(int refId) const
+std::string PilotAgent::objectType(int refId) const
 {
     if (auto* w = widget(refId))
         return w->metaObject()->className();
@@ -145,12 +145,12 @@ std::string UiPilotAgent::objectType(int refId) const
     return "unknown";
 }
 
-bool UiPilotAgent::isValidRef(int refId) const
+bool PilotAgent::isValidRef(int refId) const
 {
     return refToWidget_.contains(refId) || refToAction_.contains(refId);
 }
 
-void UiPilotAgent::cleanupRef(int refId)
+void PilotAgent::cleanupRef(int refId)
 {
     if (auto* w = refToWidget_.take(refId))
         widgetToRef_.remove(w);
@@ -162,7 +162,7 @@ void UiPilotAgent::cleanupRef(int refId)
 //  智能剪枝
 // ============================================================
 
-bool UiPilotAgent::isInteractive(QWidget* w)
+bool PilotAgent::isInteractive(QWidget* w)
 {
     if (!w) return false;
     return qobject_cast<QAbstractButton*>(w)
@@ -178,7 +178,7 @@ bool UiPilotAgent::isInteractive(QWidget* w)
         || qobject_cast<QMenuBar*>(w);
 }
 
-bool UiPilotAgent::isWorthReporting(QWidget* w)
+bool PilotAgent::isWorthReporting(QWidget* w)
 {
     if (!w || !w->isVisible()) return false;
     if (w->width() <= 0 || w->height() <= 0) return false;
@@ -217,7 +217,7 @@ bool UiPilotAgent::isWorthReporting(QWidget* w)
 //  statusTags / friendlyName
 // ============================================================
 
-QString UiPilotAgent::statusTags(QWidget* w)
+QString PilotAgent::statusTags(QWidget* w)
 {
     QStringList tags;
 
@@ -253,7 +253,7 @@ QString UiPilotAgent::statusTags(QWidget* w)
     return QString(" [") + tags.join(", ") + QString("]");
 }
 
-QString UiPilotAgent::friendlyName(QWidget* w)
+QString PilotAgent::friendlyName(QWidget* w)
 {
     QString text     = w->property("text").toString();
     QString title    = w->property("title").toString();
@@ -284,7 +284,7 @@ QString UiPilotAgent::friendlyName(QWidget* w)
 // ============================================================
 //  formatWidgetValue: 输出控件值信息
 // ============================================================
-void UiPilotAgent::formatWidgetValue(QWidget* w, std::ostringstream& out)
+void PilotAgent::formatWidgetValue(QWidget* w, std::ostringstream& out)
 {
     if (auto* le = qobject_cast<QLineEdit*>(w))
     {
@@ -347,7 +347,7 @@ void UiPilotAgent::formatWidgetValue(QWidget* w, std::ostringstream& out)
 //  formatWidget / formatAction
 // ============================================================
 
-void UiPilotAgent::formatWidget(QWidget* w, int depth, std::ostringstream& out)
+void PilotAgent::formatWidget(QWidget* w, int depth, std::ostringstream& out)
 {
     const char* className = w->metaObject()->className();
 
@@ -411,7 +411,7 @@ void UiPilotAgent::formatWidget(QWidget* w, int depth, std::ostringstream& out)
     }
 }
 
-void UiPilotAgent::formatAction(QAction* a, int depth, std::ostringstream& out)
+void PilotAgent::formatAction(QAction* a, int depth, std::ostringstream& out)
 {
     if (!a) return;
     if (a->isSeparator())
@@ -448,7 +448,7 @@ void UiPilotAgent::formatAction(QAction* a, int depth, std::ostringstream& out)
 // ============================================================
 //  walkWidgetTree: 递归遍历控件树
 // ============================================================
-void UiPilotAgent::walkWidgetTree(QWidget* root, int depth, int maxDepth,
+void PilotAgent::walkWidgetTree(QWidget* root, int depth, int maxDepth,
                                    std::ostringstream& out)
 {
     if (!root || depth > maxDepth) return;
@@ -503,7 +503,7 @@ void UiPilotAgent::walkWidgetTree(QWidget* root, int depth, int maxDepth,
 //  snapshot / snapshotOf
 // ============================================================
 
-std::string UiPilotAgent::snapshot(int maxDepth)
+std::string PilotAgent::snapshot(int maxDepth)
 {
     // 检测模态对话框——只返回对话框
     QWidget* modal = activeModalDialog();
@@ -524,7 +524,7 @@ std::string UiPilotAgent::snapshot(int maxDepth)
     return out.str();
 }
 
-std::string UiPilotAgent::snapshotOf(QWidget* root, int maxDepth)
+std::string PilotAgent::snapshotOf(QWidget* root, int maxDepth)
 {
     if (!root) return "";
 
@@ -539,7 +539,7 @@ std::string UiPilotAgent::snapshotOf(QWidget* root, int maxDepth)
 //  模态检测、高亮、等待
 // ============================================================
 
-QWidget* UiPilotAgent::activeModalDialog() const
+QWidget* PilotAgent::activeModalDialog() const
 {
     auto tops = QApplication::topLevelWidgets();
     for (auto* w : tops)
@@ -549,7 +549,7 @@ QWidget* UiPilotAgent::activeModalDialog() const
     return nullptr;
 }
 
-void UiPilotAgent::highlight(QWidget* widget, int durationMs)
+void PilotAgent::highlight(QWidget* widget, int durationMs)
 {
     if (!widget) return;
 
@@ -563,7 +563,7 @@ void UiPilotAgent::highlight(QWidget* widget, int durationMs)
     QTimer::singleShot(durationMs, rubber, &QObject::deleteLater);
 }
 
-void UiPilotAgent::waitForIdle(int timeoutMs)
+void PilotAgent::waitForIdle(int timeoutMs)
 {
     #ifdef _AST_DEBUG_UIPILLOT_AGENT
     clock_t start = clock();
@@ -590,14 +590,14 @@ void UiPilotAgent::waitForIdle(int timeoutMs)
 //  QAction 操作
 // ============================================================
 
-bool UiPilotAgent::triggerAction(QAction* action)
+bool PilotAgent::triggerAction(QAction* action)
 {
     if (!action || !action->isEnabled()) return false;
     action->trigger();
     return true;
 }
 
-QList<QAction*> UiPilotAgent::expandMenu(QMenu* menu)
+QList<QAction*> PilotAgent::expandMenu(QMenu* menu)
 {
     if (!menu) return {};
 
@@ -617,7 +617,7 @@ QList<QAction*> UiPilotAgent::expandMenu(QMenu* menu)
 //  eventFilter
 // ============================================================
 
-bool UiPilotAgent::eventFilter(QObject* obj, QEvent* event)
+bool PilotAgent::eventFilter(QObject* obj, QEvent* event)
 {
     return QObject::eventFilter(obj, event);
 }
@@ -626,7 +626,7 @@ bool UiPilotAgent::eventFilter(QObject* obj, QEvent* event)
 //  topLevelWidgets
 // ============================================================
 
-QList<QWidget*> UiPilotAgent::topLevelWidgets() const
+QList<QWidget*> PilotAgent::topLevelWidgets() const
 {
     return QApplication::topLevelWidgets();
 }

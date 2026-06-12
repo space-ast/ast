@@ -1,5 +1,5 @@
 ///
-/// @file      UiPilotAgent.hpp
+/// @file      PilotAgent.hpp
 /// @brief     Qt控件生命周期管理、ref映射、快照生成
 /// @author    axel
 /// @date      2026-06-12
@@ -42,19 +42,19 @@ AST_NAMESPACE_BEGIN
 /// @brief Qt控件生命周期管理与界面快照生成
 /// @details 维护 QWidget*/QAction* ↔ ref 的双向映射，ref 在控件整个生命周期内稳定不变。
 ///          提供 snapshot() 生成结构化控件树文本供 LLM 消费。
-class AST_UIPILOT_API UiPilotAgent : public QObject
+class AST_UIPILOT_API PilotAgent : public QObject
 {
     Q_OBJECT
 
 public:
     /// @brief 获取全局单例
-    static UiPilotAgent* instance();
+    static PilotAgent* instance();
 
     /// @brief 构造函数
-    explicit UiPilotAgent(QObject* parent = nullptr);
+    explicit PilotAgent(QObject* parent = nullptr);
 
     /// @brief 析构函数
-    ~UiPilotAgent() override;
+    ~PilotAgent() override;
 
     // ---- ref 管理 ----
 
@@ -139,7 +139,7 @@ private:
     QHash<int, QAction*> refToAction_;   ///< ref编号 → action*
 
     int nextRef_ = 1;                    ///< 下一个可用的ref编号
-    static UiPilotAgent* s_instance;      ///< 全局单例
+    static PilotAgent* s_instance;      ///< 全局单例
 };
 
 /*! @} */

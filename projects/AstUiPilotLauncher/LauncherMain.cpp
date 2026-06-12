@@ -6,8 +6,8 @@
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 
 #include "ast/AstGUIAPI.hpp"
-#include "AstUiPilot/UiPilotAgent.hpp"
-#include "AstUiPilot/UiPilotSession.hpp"
+#include "AstUiPilot/PilotAgent.hpp"
+#include "AstUiPilot/PilotSession.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Encode.hpp"
 #include <QApplication>
@@ -71,7 +71,7 @@ static std::string extractCommand(int argc, char* argv[])
 }
 
 /// @brief 命令行模式：启动 → 渲染 → LLM执行 → 退出
-static int commandLineMode(UiPilotSession* session, const std::string& command)
+static int commandLineMode(PilotSession* session, const std::string& command)
 {
     ast_printf("[AstUiPilot] 指令: %s\n", command.c_str());
 
@@ -88,7 +88,7 @@ static int commandLineMode(UiPilotSession* session, const std::string& command)
 }
 
 /// @brief 交互模式：stdin 循环（主线程执行 GUI 操作）
-static void commandLoop(UiPilotSession* session)
+static void commandLoop(PilotSession* session)
 {
     ast_printf("\n========================================\n");
     ast_printf("[AstUiPilot] Agent 已就绪 (交互模式)\n");
@@ -120,7 +120,7 @@ static void commandLoop(UiPilotSession* session)
         {
             QMetaObject::invokeMethod(qApp, []() {
                 std::string snap;
-                snap = UiPilotAgent::instance()->snapshot();
+                snap = PilotAgent::instance()->snapshot();
                 ast_printf("%s\n", snap.c_str());
             }, Qt::BlockingQueuedConnection);
             continue;
@@ -146,10 +146,10 @@ int main(int argc, char *argv[])
 {
     aQAppInit(argc, argv);
 
-    auto* agent = new UiPilotAgent();
+    auto* agent = new PilotAgent();
     qApp->installEventFilter(agent);
 
-    auto* session = new UiPilotSession(agent);
+    auto* session = new PilotSession(agent);
 
     QMainWindow* mainWindow = aUiNewMainWindow();
     mainWindow->showMaximized();

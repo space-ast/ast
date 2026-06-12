@@ -17,16 +17,16 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "UiPilotAgent.hpp"
-#include "UiPilotSession.hpp"
+#include "PilotAgent.hpp"
+#include "PilotSession.hpp"
 #include <QApplication>
 #include <QDebug>
 #include <QTimer>
 
 AST_NAMESPACE_BEGIN
 
-static UiPilotAgent*   g_agent   = nullptr;
-static UiPilotSession* g_session = nullptr;
+static PilotAgent*   g_agent   = nullptr;
+static PilotSession* g_session = nullptr;
 static bool            g_initialized = false;
 
 /// @brief 延迟初始化（等待 QApplication 创建完成）
@@ -35,10 +35,10 @@ static void initUiPilot()
     if (g_initialized) return;
     if (!qApp) return;
 
-    g_agent = new UiPilotAgent();
+    g_agent = new PilotAgent();
     qApp->installEventFilter(g_agent);
 
-    g_session = new UiPilotSession(g_agent);
+    g_session = new PilotSession(g_agent);
 
     g_initialized = true;
     qDebug() << "[AstUiPilot] Agent initialized in process"
