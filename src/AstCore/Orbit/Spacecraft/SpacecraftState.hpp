@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "SpacecraftParam.hpp"
 #include "AstCore/State.hpp"
 #include "AstUtil/Object.hpp"
 #include "AstUtil/ObjectNamed.hpp"
@@ -32,9 +33,9 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 航天器状态，包含轨道状态、质量、面积、阻力系数、光压、密度、压力、温度等属性
+/// @brief 航天器状态，包含轨道状态、航天器参数（质量、面积、阻力系数、光压、密度、压力、温度等）
 /// @details 参考orekit的SpacecraftState类
-class AST_CORE_API SpacecraftState: public ObjectNamed
+class AST_CORE_API SpacecraftState: public ObjectNamed, public SpacecraftParam
 {
 public:
     AST_OBJECT(SpacecraftState)
@@ -125,6 +126,10 @@ public:
     /// @brief 获取轨道状态类型
     /// @return 轨道状态类型
     EStateType getStateType() const;
+
+    const SpacecraftParam& spacecraftParam() const{return *this;}
+    SpacecraftParam& spacecraftParam(){return *this;}
+    void setSpacecraftParam(const SpacecraftParam& spacecraftParam){this->spacecraftParam() = spacecraftParam;}
 public:
     errc_t getState(ModOrbElem& orbElem) const;
     errc_t getState(CartState& state) const;
@@ -138,19 +143,6 @@ public:
     void copyFrom(const SpacecraftState& srcState);
 private:
     HState orbitState_;                 ///< 轨道状态
-    double cd_{2.2};
-    double cr_{1};                     
-    double dragArea_{20};
-    double srpArea_{20};
-    double dryMass_{500};
-    double fuelMass_{500};
-    double fuelDensity_{1000};
-    double k1_{1};
-    double k2_{1};
-    double radPressureArea_{20};
-    double radPressureCoeff_{1};
-    double tankPressure_{5000};
-    double tankTemperature_{293.15};
 };
 
 

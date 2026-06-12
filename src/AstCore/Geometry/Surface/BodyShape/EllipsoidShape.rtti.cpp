@@ -12,7 +12,7 @@ static bool EllipsoidShape_ClassInited = (EllipsoidShape::ClassInit(&EllipsoidSh
 void EllipsoidShape::ClassInit(Class* cls)
 {
 
-    cls->setName("EllipsoidShape");
+    cls->setName(NC_("Class", "EllipsoidShape"));
     cls->setDesc(u8R"(椭球体形状)");
     cls->addToRegistry();
     cls->setParent<BodyShape>();

@@ -154,6 +154,42 @@ GravityField GravityField::unnormalized() const
     return gf_unnormalized;
 }
 
+void GravityField::updateVariations(const TimePoint& epoch)
+{
+    auto& variations = this->secularVariations_;
+    double dyr = epoch.daysFrom(variations.referenceEpoch_) / (365.25);     // 时间间隔（年）
+    for(auto& variation : variations.variations_)
+    {
+
+        int degree = variation.degree_;
+        int order = variation.order_;
+        bool isValid = this->isValidDegreeOrder(degree, order);
+        if(A_UNLIKELY(!isValid)) continue;
+
+        // 根据长期变化率计算当前时刻的系数
+        double currentCoefficient = variation.originalCoefficient_ + variation.linearRate_ * dyr;
+        if(A_UNLIKELY(variations.normalized_ != this->normalized_))
+        {
+            if(!this->normalized_)
+            {
+                gfUnnormalize(degree, order, currentCoefficient);
+            }
+            else
+            {
+                gfNormalize(degree, order, currentCoefficient);
+            }
+        }
+        // 更新重力场系数
+        if(variation.isSin_)
+        {
+            snm(degree, order) = currentCoefficient;
+        }
+        else
+        {
+            cnm(degree, order) = currentCoefficient;
+        }
+    }
+}
 
 void GravityField::initCoeffMatrices()
 {

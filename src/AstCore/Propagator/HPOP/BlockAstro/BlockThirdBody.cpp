@@ -21,26 +21,35 @@
 #include "BlockThirdBody.hpp"
 #include "AstCore/RunTime.hpp"
 #include "AstCore/JplDe.hpp"
+#include "AstCore/CelestialBody.hpp"
+#include "AstCore/BuiltinFrame.hpp"
 #include "AstUtil/Constants.h"
 #include "AstUtil/IdentifierAPI.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstMath/MathOperator.hpp"
 
 AST_NAMESPACE_BEGIN
 
+using namespace math;
+
 BlockThirdBody::BlockThirdBody()
-    : BlockThirdBody{kMoonGrav}
+    : BlockThirdBody{aGetMoon(), kMoonGrav, aFrameECI()}
 {
 
 }
 
-BlockThirdBody::BlockThirdBody(double thirdBodyGM)
+BlockThirdBody::BlockThirdBody(CelestialBody* thirdBody, double thirdBodyGM, Frame* propagationFrame)
     : BlockDerivative{}
     , posCBI{&vectorBuffer}
     , accThirdBody{&vectorBuffer}
     , velocityDerivative_{&vectorBuffer}
     , vectorBuffer{}
-    , thirdBodyGM_{thirdBodyGM}  // 
+    , thirdBody_{thirdBody}       // 三体
+    , thirdBodyGM_{thirdBodyGM}   // 三体引力常量
+    , propagationFrame_{propagationFrame}   // 预报系
 {
+    assert(propagationFrame_ != nullptr);
+    assert(thirdBody_ != nullptr);
     static auto identifierPos = aIdentifier(kIdentifierPos);
     static auto identifierAccThirdBody = aIdentifier(kIdentifierAccThirdBody);
     static auto identifierVel = aIdentifier(kIdentifierVel);
@@ -78,12 +87,12 @@ BlockThirdBody::BlockThirdBody(double thirdBodyGM)
 
 errc_t BlockThirdBody::run(const SimTime &simTime)
 {
-    // @fixme
-    // 现在只支持计算月球三体引力
-    // 后续再支持其他天体
+    assert(propagationFrame_ != nullptr);
+    assert(thirdBody_ != nullptr);
+
     auto& tp = simTime.timePoint();
     Vector3d thirdBodyPos;
-    errc_t err = aJplDeGetPosICRF(tp, JplDe::eMoon, JplDe::eEarth, thirdBodyPos);
+    errc_t err = thirdBody_->getPosIn(propagationFrame_, tp, thirdBodyPos);
     if (A_UNLIKELY(err != eNoError))
     {
         aError("failed to get third body position");

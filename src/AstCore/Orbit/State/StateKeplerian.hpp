@@ -108,7 +108,6 @@ public:
     AST_PROPERT(ArgLat)
     AST_PROPERT(TimePastPeri)
     AST_PROPERT(TimePastAscNode)
-    
     static PStateKeplerian New();
     static HStateKeplerian MakeShared();
     static PStateKeplerian New(const ModOrbElem& modOrbElem);

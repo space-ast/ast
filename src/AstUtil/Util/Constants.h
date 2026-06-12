@@ -149,7 +149,8 @@ constexpr double kSaturnMinRadius = 5.43640000000000e+007;     ///< 土星最小
 constexpr double kSunGrav = 1.327122E20;				        ///< 太阳引力常数 [m^3/s^2]
 constexpr double kSunRadius = 695990000.0;				        ///< 太阳半径 [m]
 constexpr double kSunMinRadius = 695990000.0;                   ///< 太阳最小半径
-                                                                     
+constexpr double kSunLuminosity = 3.839E26;                     ///< 太阳光度 [W] (Carrol & Ostlie, 2007) An Introduction to Modern Astrophysics
+constexpr double kSolarConstant = 1367.0;                       ///< 太阳常数（1AU处总太阳辐照度）[W/m²]                                                                     
                                                                      
                                                                      
 // 天王星相关常量                                                    
@@ -232,7 +233,7 @@ constexpr double kRevolutionToRad = kTwoPI;                             ///< 周
 /// @brief 获取真空中的光速
 /// @details 这个函数接口是为了应对未来可能允许在软件运行时修改光速的情况
 /// @return 光速
-A_ALWAYS_INLINE double aLightSpeed() noexcept
+A_ALWAYS_INLINE constexpr double aLightSpeed() noexcept
 {
     return kLightSpeed;
 }

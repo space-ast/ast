@@ -21,8 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstAnalyzer/StudyVariable.hpp"
-#include "AstAnalyzer/StudyConstraint.hpp"
+#include "AstAnalyzer/SweepStudy.hpp"
 #include <QWidget>
 #include <QStackedWidget>
 #include <QLineEdit>
@@ -41,10 +40,10 @@ public:
     explicit UiVariableEditor(QWidget* parent = nullptr);
 
     /// @brief 加载变量属性到编辑器
-    void loadVariable(StudyVariable* variable);
+    void loadVariable(SweepVariable* variable);
 
     /// @brief 将编辑器的值写回变量
-    void applyToVariable(StudyVariable* variable);
+    void applyToVariable(SweepVariable* variable);
 
 private:
     void setupUi();
@@ -65,10 +64,10 @@ public:
     explicit UiStudyConstraintEditor(QWidget* parent = nullptr);
 
     /// @brief 加载响应属性到编辑器
-    void loadResponse(StudyConstraint* response);
+    void loadResponse(SweepOutput* response);
 
     /// @brief 将编辑器的值写回响应
-    void applyToResponse(StudyConstraint* response);
+    void applyToResponse(SweepOutput* response);
 
 private:
     void setupUi();
@@ -86,10 +85,10 @@ public:
     explicit UiPropertyEditor(QWidget* parent = nullptr);
 
     /// @brief 切换到变量编辑模式
-    void editVariable(StudyVariable* variable);
+    void editVariable(SweepVariable* variable);
 
     /// @brief 切换到响应编辑模式
-    void editResponse(StudyConstraint* response);
+    void editResponse(SweepOutput* response);
 
     /// @brief 清除当前编辑
     void clear();
@@ -102,8 +101,8 @@ private:
     UiVariableEditor* variableEditor_;
     UiStudyConstraintEditor* responseEditor_;
 
-    StudyVariable*   currentVariable_ = nullptr;
-    StudyConstraint* currentResponse_ = nullptr;
+    SweepVariable*   currentVariable_ = nullptr;
+    SweepOutput* currentResponse_ = nullptr;
 };
 
 AST_NAMESPACE_END

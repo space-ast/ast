@@ -31,15 +31,7 @@ AST_NAMESPACE_BEGIN
 */
 
 
-
-class AST_CORE_API MainSequence : public Sequence
-{
-public:
-    AST_OBJECT(MainSequence)
-
-    MainSequence() = default;
-    ~MainSequence() = default;
-};
+using MainSequence = Sequence;
 
 /*! @} */
 

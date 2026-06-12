@@ -47,3 +47,4 @@
 #include "AstCore/BlockMotion.hpp"
 #include "AstCore/BlockDrag.hpp"
 #include "AstCore/BlockSRP.hpp"
+#include "AstCore/BlockMass.hpp"

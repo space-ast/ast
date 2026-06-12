@@ -12,7 +12,7 @@ static bool MTO_ClassInited = (MTO::ClassInit(&MTO::staticType), true);
 void MTO::ClassInit(Class* cls)
 {
 
-    cls->setName("MTO");
+    cls->setName(NC_("Class", "MTO"));
     cls->setDesc(u8R"(多目标对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

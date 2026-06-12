@@ -36,6 +36,8 @@ AST_NAMESPACE_BEGIN
 class NoopShape final : public BodyShape
 {
 public:
+    double majorAxis() const override{return 0;}
+
     void transform(const Vector3d& cartesian, GeodeticPoint& detic) const override;
 
     void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;

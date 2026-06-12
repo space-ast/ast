@@ -57,7 +57,7 @@ public:
     errc_t integrate(ODE& ode, double* y, double& t, double tf) override;
 
     /// @see ODEIntegrator
-    errc_t integrateStep(ODE& ode, double* y, double& t, double tf) override;
+    errc_t integrateOneStep(ODE& ode, double* y, double& t, double tf) override;
 
 protected:
     void resetWorkspace(int dimension, int stage);

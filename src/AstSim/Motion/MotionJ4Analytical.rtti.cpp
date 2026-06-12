@@ -12,7 +12,7 @@ static bool MotionJ4Analytical_ClassInited = (MotionJ4Analytical::ClassInit(&Mot
 void MotionJ4Analytical::ClassInit(Class* cls)
 {
 
-    cls->setName("MotionJ4Analytical");
+    cls->setName(NC_("Class", "MotionJ4Analytical"));
     cls->setDesc(u8R"(J4解析轨道动力学模型)");
     cls->addToRegistry();
     cls->setParent<MotionOrbitDynamics>();

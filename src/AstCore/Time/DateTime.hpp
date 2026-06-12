@@ -494,6 +494,7 @@ public:
     double& second() {return time_.second();}
     int dayOfYear() const {return date_.dayOfYear();}
     int dayOfWeek() const {return date_.dayOfWeek();}
+    double secOfDay() const {return time_.totalSecond();}
     void setYear(int year) {date_.setYear(year);}
     void setMonth(int month) {date_.setMonth(month);}
     void setDay(int day) {date_.setDay(day);}

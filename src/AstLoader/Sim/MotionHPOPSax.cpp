@@ -23,6 +23,11 @@
 #include "AstCore/HPOP.hpp"
 #include "AstUtil/BKVParser.hpp"
 
+#include "AstMath/RKF78.hpp"
+#include "AstMath/RK4.hpp"
+#include "AstMath/RKF45.hpp"
+#include "AstMath/RKF56.hpp"
+
 AST_NAMESPACE_BEGIN
 
 
@@ -90,6 +95,35 @@ static EAtmDensityModel _aStringToAtmDensityModel(StringView value)
     return EAtmDensityModel::eNone;
 }
 
+errc_t MotionHPOPSax::begin(StringView name)
+{
+    if(aEqualsIgnoreCase(name, "EclipsingBodies"))
+    {
+        BKVItemView item;
+        BKVParser::EToken token;
+        forceModel_.srp().eclipsingBodies_.clear();
+        do{
+            token = parser_.getNext(item);
+            if(token == BKVParser::eKeyValue){
+                if(aEqualsIgnoreCase(item.key(), "Body")){
+                    StringView bodyName = item.value();
+                    auto body = aGetBody(bodyName);
+                    if(!body)
+                    {
+                        aWarning("failed to get body '%.*s'", bodyName.size(), bodyName.data());
+                        continue;
+                    }
+                    forceModel_.srp().eclipsingBodies_.push_back(body);
+                }
+            }
+        }while(token != BKVParser::eBlockEnd && token != BKVParser::eEOF);
+        return eNoError;
+    }
+    else{
+        return MotionOrbitDynamicsSax::begin(name);
+    }
+}
+
 errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
 {
     if(aEqualsIgnoreCase(key, "X")){
@@ -155,7 +189,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         forceModel_.gravity().minAmplitudeOceanTides_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "MassAtEpoch")){
-        massAtEpoch_ = value.toDouble();
+        spacecraftParam_.mass_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "UseDrag")){
         forceModel_.useDrag(value.toBool());
@@ -200,10 +234,10 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         forceModel_.drag().geoMagFluxInterpSubSamplingRatio_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "DragCoefficient")){
-        // forceModel_.drag().dragCoefficient_ = value.toDouble();
+        spacecraftParam_.dragCoefficient_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "AreaMassRatio")){
-        // forceModel_.drag().areaMassRatio_ = value.toDouble();
+        spacecraftParam_.areaMassRatio_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "DragCorrectionType")){
         // @todo 处理DragCorrectionType
@@ -233,8 +267,8 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         forceModel_.useSRP(value.toBool());
     }
     else if(aEqualsIgnoreCase(key, "SolarPressureModel")){
-        if(massAtEpoch_ <= 0.0) massAtEpoch_ = 1;
-        errc_t rc = _aLoadSolarPressureModel(parser_, massAtEpoch_, forceModel_.srp());
+        double mass = this->getMass();
+        errc_t rc = _aLoadSolarPressureModel(parser_, mass, forceModel_.srp());
         A_UNUSED(rc);
     }
     else if(aEqualsIgnoreCase(key, "SunPosition")){
@@ -260,9 +294,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
             // @todo 处理其他阴影模型
         }
     }
-    else if(aEqualsIgnoreCase(key, "EclipsingBodies")){
-        // @todo 处理EclipsingBodies
-    }
+    
     else if(aEqualsIgnoreCase(key, "AtmAltForEclipse")){
         forceModel_.srp().atmAltForEclipse_ = value.toDouble();
     }
@@ -325,7 +357,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
     }
     // 下面是积分器的相关参数
     else if(aEqualsIgnoreCase(key, "IntegMethod")){
-        // @todo 处理IntegMethod
+        integrator_.method_ = value.toString();
     }
     else if(aEqualsIgnoreCase(key, "UseVOP")){
         // @todo 处理UseVOP
@@ -337,19 +369,19 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         // @todo 处理UseRegTime
     }
     else if(aEqualsIgnoreCase(key, "StepControlMethod")){
-        // @todo 处理StepControlMethod
+        integrator_.stepControlMethod_ = value.toString();
     }
     else if(aEqualsIgnoreCase(key, "ErrorTolerance")){
-        // @todo 处理ErrorTolerance
+        integrator_.errorTolerance_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "TimeStep")){
-        // @todo 处理TimeStep
+        integrator_.timeStep_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "MinStepSize")){
-        // @todo 处理MinStepSize
+        integrator_.minStepSize_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "MaxStepSize")){
-        // @todo 处理MaxStepSize
+        integrator_.maxStepSize_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "UseFixedAnomPredict")){
         // @todo 处理UseFixedAnomPredict
@@ -361,24 +393,27 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         // @todo 处理FixedAnomEccCutOff
     }
     else if(aEqualsIgnoreCase(key, "ReportOnFixedStep")){
-        // @todo 处理ReportOnFixedStep
+        integrator_.reportOnFixedStep_ = value.toBool();
     }
     else if(aEqualsIgnoreCase(key, "ReportKp")){
         // @todo 处理ReportKp
     }
     else if(aEqualsIgnoreCase(key, "InterpolationSamplesM1")){
-        // @todo 处理InterpolationSamplesM1
+        integrator_.interpolationSamplesM1_ = value.toInt();
     }
     else if(aEqualsIgnoreCase(key, "InterpolationMethod")){
-        // @todo 处理InterpolationMethod
+        integrator_.interpolationMethod_ = value.toString();
     }
     else if(aEqualsIgnoreCase(key, "AltitudeCutOff")){
-        // @todo 处理AltitudeCutOff
+        integrator_.altitudeCutOff_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "UsePlugin")){
         // @todo 处理UsePlugin
     }
-    return MotionOrbitDynamicsSax::keyValue(key, value);
+    else {
+        return MotionOrbitDynamicsSax::keyValue(key, value);
+    }
+    return 0;
 }
 
 errc_t MotionHPOPSax::getMotion(ScopedPtr<MotionProfile> &motion)
@@ -387,6 +422,56 @@ errc_t MotionHPOPSax::getMotion(ScopedPtr<MotionProfile> &motion)
     if(!motionHPOP){
         return eErrorInvalidParam;
     }
+    
+    SharedPtr<ODEIntegrator> integrator;
+    // 设置积分器
+    if(!integrator_.method_.empty())
+    {
+        if(aEqualsIgnoreCase(integrator_.method_, "RKF78")){
+            integrator = new RKF78();
+        }
+        // else if(aEqualsIgnoreCase(integrator_.method_, "RK4FixedAnomaly")){}
+        // else if(aEqualsIgnoreCase(integrator_.method_, "RKV89Efficient")){}
+        // else if(aEqualsIgnoreCase(integrator_.method_, "BulirschStoer")){}
+        // else if(aEqualsIgnoreCase(integrator_.method_, "GaussJackson")){}
+        else{
+            aWarning("unsupported integrator method '%s'", integrator_.method_.c_str());
+        }
+    }
+    auto varIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator.get());
+    auto fixedIntegrator = aobject_cast<ODEFixedStepIntegrator*>(integrator.get());
+    if(varIntegrator){
+        if(integrator_.stepControlMethod_ == "Fixed")
+        {
+            varIntegrator->setUseFixedStep(true);
+        }
+        else if(integrator_.stepControlMethod_ == "RelativeError")
+        {
+            varIntegrator->setUseFixedStep(false);
+        }
+        varIntegrator->setMaxRelErr(integrator_.errorTolerance_);
+        varIntegrator->setUseMaxStep(true);
+        varIntegrator->setMaxStepSize(integrator_.maxStepSize_);
+        varIntegrator->setUseMinStep(true);
+        varIntegrator->setMinStepSize(integrator_.minStepSize_);
+    }
+    if(fixedIntegrator){
+        fixedIntegrator->setStepSize(integrator_.timeStep_);
+    }
+
+    // 这里可以安全地设置为空指针
+    motionHPOP->setIntegrator(integrator);
+
+    // 设置航天器参数
+
+    SpacecraftParam scParam{};
+    double mass = spacecraftParam_.mass_;
+    scParam.setFuelMass(0);
+    scParam.setDryMass(mass);
+    scParam.setCd(spacecraftParam_.dragCoefficient_);
+    scParam.setDragArea(spacecraftParam_.areaMassRatio_ * mass);
+    motionHPOP->setSpacecraftParam(scParam);
+    
     auto body = vehiclePathData_.centralBody_; AST_CHECK_NULLPTR(body);
     auto bodyInertial = body->makeFrameInertial();
     

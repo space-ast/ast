@@ -12,7 +12,7 @@ static bool DragForce_ClassInited = (DragForce::ClassInit(&DragForce::staticType
 void DragForce::ClassInit(Class* cls)
 {
 
-    cls->setName("DragForce");
+    cls->setName(NC_("Class", "DragForce"));
     cls->setDesc(u8R"(大气阻力模型)");
     cls->addToRegistry();
     cls->setParent<ForceModel>();

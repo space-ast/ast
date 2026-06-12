@@ -261,7 +261,7 @@ TEST(BodyShapeTest, EarthShape)
     ASSERT_TRUE(spheroidShape);
     printf("shape: %s\n", shape->name().c_str());
     printf("majorAxis: %.15lf\n", spheroidShape->majorAxis());
-    printf("flatfactor: %.15lf\n", spheroidShape->flatfactor());
+    printf("flatFactor: %.15lf\n", spheroidShape->flatFactor());
     {
         GeodeticPoint point{45_deg, 90_deg, 2000};
         Vector3d pos = spheroidShape->transform(point);

@@ -27,6 +27,8 @@
 
 AST_NAMESPACE_BEGIN
 
+class SimTime;
+
 /// @brief 函数块/功能块
 /// @details 
 /// 函数块是一个基本的计算单元，用于执行特定的数学或逻辑操作。

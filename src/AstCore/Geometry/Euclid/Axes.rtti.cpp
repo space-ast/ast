@@ -12,7 +12,7 @@ static bool Axes_ClassInited = (Axes::ClassInit(&Axes::staticType), true);
 void Axes::ClassInit(Class* cls)
 {
 
-    cls->setName("Axes");
+    cls->setName(NC_("Class", "Axes"));
     cls->setDesc(u8R"(轴系类)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

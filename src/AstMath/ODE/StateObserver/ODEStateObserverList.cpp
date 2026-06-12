@@ -57,6 +57,15 @@ void ODEStateObserverList::removeStateObserver(ODEStateObserver *observer)
     }
 }
 
+void ODEStateObserverList::clear()
+{
+    for(auto iter: observers_)
+    {
+        delete iter;
+    }
+    observers_.clear();
+}
+
 AST_NAMESPACE_END
 
 

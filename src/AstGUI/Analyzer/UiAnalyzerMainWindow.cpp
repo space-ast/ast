@@ -137,11 +137,11 @@ QWidget* UiAnalyzerMainWindow::createRibbonPage(int index)
     switch (index)
     {
     case 0: // 分析
-        layout->addWidget(createRibbonButton(tr("参数研究"), missionIcon("ParameterStudy"), page));
-        layout->addWidget(createRibbonButton(tr("地毯图研究"), missionIcon("CarpetPlot"), page));
-        layout->addWidget(createRibbonButton(tr("区间分析"), missionIcon("IntervalAnalysis"), page));
-        layout->addWidget(createRibbonButton(tr("优化打靶"), missionIcon("OptimalTargeting"), page));
-        layout->addWidget(createRibbonButton(tr("不确定性分析"), missionIcon("UncertaintyAnalysis"), page));
+        layout->addWidget(createRibbonButton(tr("参数研究"), missionIcon("SweepStudy"), page));
+        layout->addWidget(createRibbonButton(tr("地毯图研究"), missionIcon("CarpetStudy"), page));
+        layout->addWidget(createRibbonButton(tr("区间分析"), missionIcon("IntervalStudy"), page));
+        layout->addWidget(createRibbonButton(tr("优化打靶"), missionIcon("OptimalTargetingStudy"), page));
+        layout->addWidget(createRibbonButton(tr("不确定性分析"), missionIcon("UncertaintyStudy"), page));
         break;
 
     case 1: // 建模

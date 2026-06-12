@@ -12,7 +12,7 @@ static bool ShooterControl_ClassInited = (ShooterControl::ClassInit(&ShooterCont
 void ShooterControl::ClassInit(Class* cls)
 {
 
-    cls->setName("ShooterControl");
+    cls->setName(NC_("Class", "ShooterControl"));
     cls->setDesc(u8R"(控制变量，用于定义微分修正中的控制变量)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();
@@ -25,6 +25,7 @@ void ShooterControl::ClassInit(Class* cls)
     cls->addProperty("scale", aNewPropertyDouble<ShooterControl, &ShooterControl::scale, &ShooterControl::setScale>());
     cls->addProperty("tolerance", aNewPropertyDouble<ShooterControl, &ShooterControl::tolerance, &ShooterControl::setTolerance>());
     cls->addProperty("totalCorrection", aNewPropertyDouble<ShooterControl, &ShooterControl::totalCorrection, &ShooterControl::setTotalCorrection>());
+    cls->addProperty("expr", aNewPropertyObject<ShooterControl, Expr, &ShooterControl::expr, &ShooterControl::setExpr>());
 }
 
 AST_NAMESPACE_END

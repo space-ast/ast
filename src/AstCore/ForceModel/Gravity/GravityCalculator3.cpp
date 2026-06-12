@@ -199,6 +199,12 @@ void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vecto
     auto& acc = accelerationCBF;
     const int MM = getOrder();
     const int NN = getDegree();
+    if(A_UNLIKELY(!getGravityField().isValidDegreeOrder(NN, MM)))
+    {
+        aError("invalid degree or order for gravity field");
+        accelerationCBF = Vector3d::Zero();
+        return;
+    }
     const int nn = NN;
     const int mm = MM;
     const double FieldRadius = getGravityField().getRefDistance();
@@ -265,8 +271,8 @@ void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vecto
 
         for (Integer m=0;  m <= n && m<=MM && m<=mm;  ++m) // wcs - removed "m<=n"
         {
-            Real Cval = getGravityField().getCnm (n,m);
-            Real Sval = getGravityField().getSnm (n,m);
+            Real Cval = getGravityField().cnm (n,m);
+            Real Sval = getGravityField().snm (n,m);
             // Pines Equation 27 (Part of)
             Real D =            (Cval*Re[m]   + Sval*Im[m]) * sqrt2;
             Real E = m==0 ? 0 : (Cval*Re[m-1] + Sval*Im[m-1]) * sqrt2;

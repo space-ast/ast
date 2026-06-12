@@ -55,6 +55,10 @@ A_ALWAYS_INLINE const char* tr(const char* msgid)
     #define QT_TR_NOOP(String) String
 #endif
 
+#ifndef QT_TRANSLATE_NOOP
+    #define QT_TRANSLATE_NOOP(Context, String) String
+#endif
+
 //-----------------------
 // 与 libintl 兼容的函数接口
 //-----------------------
@@ -85,6 +89,11 @@ A_ALWAYS_INLINE const char* _(const char* msgid)
 // 仅用于标记翻译字符串，不进行即时翻译
 #ifndef N_
     #define N_(String) String
+#endif
+
+// 用于标记带上下文的翻译字符串，不进行即时翻译
+#ifndef NC_
+    #define NC_(Context, String) String
 #endif
 
 

@@ -45,6 +45,16 @@ HPOPForceModel& HPOP::forceModel()
     return equation()->forceModel();
 }
 
+void HPOP::setSpacecraftParam(const SpacecraftParam& spacecraftParam)
+{
+    equation()->setSpacecraftParam(spacecraftParam);
+}
+
+const SpacecraftParam& HPOP::spacecraftParam() const
+{
+    return equation()->spacecraftParam();
+}
+
 errc_t HPOP::setPropagationFrame(Frame *frame)
 {
     return equation_->setPropagationFrame(frame);
@@ -67,9 +77,8 @@ errc_t HPOP::initialize()
     if (!integrator_){
         integrator_ = new RKF78();
     }
-    equation_->initialize();
+    return equation_->initialize();
     // err |= integrator_->initialize(equation_);
-    return 0;
 }
 
 
@@ -106,7 +115,7 @@ void HPOP::setIntegrator(ODEIntegrator *integrator)
 }
 
 
-HPOPEquation* HPOP::equation()
+HPOPEquation* HPOP::equation() const
 {
     if(!equation_){
         equation_ = new HPOPEquation();

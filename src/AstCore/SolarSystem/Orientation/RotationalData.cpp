@@ -174,6 +174,14 @@ void RotationalData::getTODTransform(const TimePoint &tp, Rotation &rot) const
     return getICRFToTODTransform(tp, rot);
 }
 
+void RotationalData::getInertialToFixedTransform(const TimePoint &tp, Rotation &rotation) const
+{
+    Rotation rot1, rot2;
+    this->getICRFToInertialTransform(tp, rot1);
+    this->getICRFToFixedTransform(tp, rot2);
+    rotation = rot1.inverse().composed(rot2);
+}
+
 void RotationalData::getICRFToTODMatrix(const TimePoint &tp, Matrix3d &matrix) const
 {
     double d = tp.daysFrom(rotationEpoch_);

@@ -41,6 +41,8 @@ public:
 
     size_t size() const { return observers_.size(); }
 
+    void clear();
+
     ODEStateObserver& operator[](size_t index) { return *observers_[index]; }
     const ODEStateObserver& operator[](size_t index) const { return *observers_[index]; }
 protected:

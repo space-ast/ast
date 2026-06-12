@@ -1,1 +1,0 @@
-#include "AstAnalyzer/StudyVariable.hpp"

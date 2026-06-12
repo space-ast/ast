@@ -21,3 +21,6 @@
 [submodule "thirdparty/QWT"]
 	path = thirdparty/QWT
 	url = https://github.com/space-ast/qwt
+[submodule "thirdparty/OpenFrames"]
+	path = thirdparty/OpenFrames
+	url = https://github.com/space-ast/OpenFrames

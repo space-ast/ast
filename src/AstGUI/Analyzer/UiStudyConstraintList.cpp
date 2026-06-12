@@ -10,7 +10,7 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 
 #include "UiStudyConstraintList.hpp"
-#include "AstAnalyzer/StudyConstraint.hpp"
+#include "AstAnalyzer/SweepStudy.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -38,7 +38,7 @@ void UiStudyConstraintList::setupUi()
             this, &UiStudyConstraintList::addResponseRequested);
 }
 
-void UiStudyConstraintList::setResponses(const std::vector<SharedPtr<StudyConstraint>>& responses)
+void UiStudyConstraintList::setResponses(const std::vector<SharedPtr<SweepOutput>>& responses)
 {
     responses_ = responses;
     listWidget_->clear();
@@ -50,7 +50,7 @@ void UiStudyConstraintList::setResponses(const std::vector<SharedPtr<StudyConstr
     }
 }
 
-StudyConstraint* UiStudyConstraintList::selectedResponse() const
+SweepOutput* UiStudyConstraintList::selectedResponse() const
 {
     auto item = listWidget_->currentItem();
     if (!item) return nullptr;

@@ -17,6 +17,7 @@
  */
 #pragma once
 #include "nrlmsise-00.h"
+#include "AstGlobal.h"
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------- INPUT ----------------------------- */
@@ -168,7 +169,7 @@
 #define NRLMSISE00_CONST  const
 namespace ast
 {
-	class CNRLMSISE00
+	class AST_WEATHER_API NRLMSISE
 	{
 
 	public:

@@ -12,7 +12,7 @@ static bool BodyShape_ClassInited = (BodyShape::ClassInit(&BodyShape::staticType
 void BodyShape::ClassInit(Class* cls)
 {
 
-    cls->setName("BodyShape");
+    cls->setName(NC_("Class", "BodyShape"));
     cls->setDesc(u8R"(天体形状基类)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

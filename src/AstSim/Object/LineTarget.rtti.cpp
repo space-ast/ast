@@ -12,7 +12,7 @@ static bool LineTarget_ClassInited = (LineTarget::ClassInit(&LineTarget::staticT
 void LineTarget::ClassInit(Class* cls)
 {
 
-    cls->setName("LineTarget");
+    cls->setName(NC_("Class", "LineTarget"));
     cls->setDesc(u8R"(线目标对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

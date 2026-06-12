@@ -139,71 +139,13 @@ int ODEFixedStepIntegrator::getNumSteps() const
 
 errc_t ODEFixedStepIntegrator::integrate(ODE& ode, double* y, double& t, double tf)
 {
-    // 初始化积分器
-    this->initialize(ode);
     auto& wrk = this->getWorkspace();
-    
-    errc_t err = eNoError;
-    double stepSize = this->stepSize_;
-    if(stepSize <= 0)
-    {
-        stepSize = 60;
-    }
-    double t0 = t;
-    double habs = std::min(fabs(stepSize), fabs(tf - t0));
-    /// int ndim = ode.getDimension();
-    int tdir = sign(tf - t0);
-    // double step = tdir * habs;
-    // int numSteps = static_cast<int>(std::ceil(fabs(tf - t0) / stepSize));
-    // double t = t0;
-    // std::copy_n(y0, ndim, yf);
-    if(workStateObserver_)
-    {
-        if(workStateObserver_->onStateUpdate(y, t, this) == EODEAction::eStop)
-        {
-            return eNoError;
-        }
-    }
-    while (tdir * (tf - t) > 0) {
-        double h = tdir * std::min(habs, std::abs(tf - t));
-        err = this->singleStep(ode, y, t, h);
-        if (err != eNoError) {
-            return err;
-        }
-        t += h;
-        wrk.numSteps_++;
-        if(workStateObserver_)
-        {
-            if(workStateObserver_->onStateUpdate(y, t, this) == EODEAction::eStop)
-            {
-                return eNoError;
-            }
-        }
-    }
-    return eNoError;
+    return this->integrateFixedStep(ode, this->stepSize_, y, t, tf, &wrk.numSteps_);
 }
 
-errc_t ODEFixedStepIntegrator::integrateStep(ODE &ode, double *y, double &t, double tf)
+errc_t ODEFixedStepIntegrator::integrateOneStep(ODE &ode, double *y, double &t, double tf)
 {
-    // 初始化积分器
-    // this->init(ode);
-    
-    double absh = this->stepSize_;
-    double step = tf - t;
-    int tdir = sign(step);
-    double stepabs = std::abs(step);
-    if(stepabs < absh)
-    {
-        absh = stepabs;
-    }
-    double h = absh * tdir;
-    errc_t err = this->singleStep(ode, y, t, h);
-    if(err != eNoError)
-    {
-        return err;
-    }
-    t += h;
-    return eNoError;
+    return this->integrateOneFixedStep(ode, this->stepSize_, y, t, tf);
 }
 
 void ODEFixedStepIntegrator::resetWorkspace(int dimension, int stage)

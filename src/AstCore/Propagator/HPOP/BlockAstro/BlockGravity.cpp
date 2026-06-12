@@ -117,6 +117,9 @@ errc_t BlockGravity::run(const SimTime &simTime)
     A_UNUSED(rc);
 
     posInGravityAxes = rotation.transformVector(*posPtr_);
+    // 根据长期变化率更新重力场系数
+    if(considerVariations_)
+        gravityCalculator_.updateVariations(tp);
     gravityCalculator_.calcTotalAcceleration(posInGravityAxes, accInGravityAxes);
     Vector3d accInPropagationAxes = rotation.transformVectorInv(accInGravityAxes);
     *accGravityPtr_ = accInPropagationAxes;

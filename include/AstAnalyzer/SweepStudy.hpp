@@ -1,1 +1,1 @@
-#include "../../src/AstAnalyzer/Search/SweepStudy.hpp"
+#include "../../src/AstAnalyzer/SweepStudy/SweepStudy.hpp"

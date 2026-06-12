@@ -12,7 +12,7 @@ static bool Volumetric_ClassInited = (Volumetric::ClassInit(&Volumetric::staticT
 void Volumetric::ClassInit(Class* cls)
 {
 
-    cls->setName("Volumetric");
+    cls->setName(NC_("Class", "Volumetric"));
     cls->setDesc(u8R"(体积对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

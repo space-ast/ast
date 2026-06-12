@@ -12,14 +12,14 @@ static bool SpheroidShape_ClassInited = (SpheroidShape::ClassInit(&SpheroidShape
 void SpheroidShape::ClassInit(Class* cls)
 {
 
-    cls->setName("SpheroidShape");
+    cls->setName(NC_("Class", "SpheroidShape"));
     cls->setDesc(u8R"(旋转椭球体/扁球体)");
     cls->addToRegistry();
     cls->setParent<BodyShape>();
     cls->setConstructor<SpheroidShape>();
 
     cls->addProperty("majorAxis", aNewPropertyQuantityMem<SpheroidShape, &SpheroidShape::majorAxis_>(Dimension::Length()));
-    cls->addProperty("flatfactor", aNewPropertyDoubleMem<SpheroidShape, &SpheroidShape::flatfactor_>());
+    cls->addProperty("flatfactor", aNewPropertyDoubleMem<SpheroidShape, &SpheroidShape::flatFactor_>());
 }
 
 AST_NAMESPACE_END

@@ -23,6 +23,8 @@
 #include "AstGlobal.h"
 #include "AstSim/MotionOrbitDynamics.hpp"
 #include "AstCore/HPOPForceModel.hpp"
+#include "AstCore/SpacecraftParam.hpp"
+#include "AstMath/ODEIntegrator.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -32,6 +34,7 @@ AST_NAMESPACE_BEGIN
 */
 
 class MotionHPOP;
+class ODEIntegrator;
 using PMotionHPOP = MotionHPOP*;
 using HMotionHPOP = SharedPtr<MotionHPOP>;
 
@@ -39,8 +42,8 @@ class AST_SIM_API MotionHPOP: public MotionBasic
 {
 public:
     static PMotionHPOP New();
-    MotionHPOP() = default;
-    ~MotionHPOP() override = default;
+    MotionHPOP();
+    ~MotionHPOP() override;
 public:
     errc_t makeEphemerisSpec(ScopedPtr<Ephemeris>& eph) const override;
     errc_t makeEphemerisSimple(ScopedPtr<Ephemeris>& eph) const override;
@@ -55,8 +58,23 @@ public:
     /// @return 力模型
     const HPOPForceModel& getForceModel() const{return forceModel_;}
 
-protected:
-    HPOPForceModel forceModel_;     ///< 力模型
+    /// @brief 设置航天器参数
+    void setSpacecraftParam(const SpacecraftParam& spacecraftParam){spacecraftParam_= spacecraftParam;}
+
+    /// @brief 获取航天器参数
+    const SpacecraftParam& getSpacecraftParam() const{return spacecraftParam_;}
+
+    /// @brief 设置积分器
+    /// @param integrator 积分器
+    void setIntegrator(ODEIntegrator* integrator);
+
+    /// @brief 获取积分器
+    /// @return 积分器
+    ODEIntegrator* getIntegrator() const;
+private:
+    HPOPForceModel forceModel_;             ///< 力模型
+    SpacecraftParam spacecraftParam_;       ///< 航天器参数
+    SharedPtr<ODEIntegrator> integrator_;   ///< 积分器
 };
 
 /*! @} */

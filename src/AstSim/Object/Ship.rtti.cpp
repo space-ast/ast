@@ -12,7 +12,7 @@ static bool Ship_ClassInited = (Ship::ClassInit(&Ship::staticType), true);
 void Ship::ClassInit(Class* cls)
 {
 
-    cls->setName("Ship");
+    cls->setName(NC_("Class", "Ship"));
     cls->setDesc(u8R"(舰船对象)");
     cls->addToRegistry();
     cls->setParent<Mover>();

@@ -12,7 +12,7 @@ static bool CoverageDefinition_ClassInited = (CoverageDefinition::ClassInit(&Cov
 void CoverageDefinition::ClassInit(Class* cls)
 {
 
-    cls->setName("CoverageDefinition");
+    cls->setName(NC_("Class", "CoverageDefinition"));
     cls->setDesc(u8R"(覆盖定义对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

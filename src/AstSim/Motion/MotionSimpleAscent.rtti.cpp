@@ -12,7 +12,7 @@ static bool MotionSimpleAscent_ClassInited = (MotionSimpleAscent::ClassInit(&Mot
 void MotionSimpleAscent::ClassInit(Class* cls)
 {
 
-    cls->setName("MotionSimpleAscent");
+    cls->setName(NC_("Class", "MotionSimpleAscent"));
     cls->setDesc(u8R"(简单上升运动模型，用于模拟运载火箭的上升阶段运动)");
     cls->addToRegistry();
     cls->setParent<MotionProfile>();

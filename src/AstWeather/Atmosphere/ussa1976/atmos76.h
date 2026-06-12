@@ -10,7 +10,7 @@
 extern "C"{
 #endif
 
-#define Atmosphere USSA76_FUNCNAME(atmosphere, ATMOSPHERE)
+#define _Atmosphere USSA76_FUNCNAME(atmosphere, ATMOSPHERE)
 
 void USSA76_FUNCNAME(upperatmosphere, UPPERATMOSPHERE)
 (const double* alt, double* sigma, double* delta, double* theta);

@@ -32,7 +32,7 @@ using namespace math;
 ODEVarStepIntegrator::ODEVarStepIntegrator()
     : useMinStep_{false}
     , useMaxStep_{false}
-    // , useFixedStepSize_{false}
+    , useFixedStep_{false}
     , warnOnMinStep_{true}
     , maxStepAttempts_{50}
     , minStepSize_{1}
@@ -69,8 +69,14 @@ double ODEVarStepIntegrator::getSmallestStepSize() const
 
 errc_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf)
 {
-    this->initialize(ode);
     auto& wrk = this->getWorkspace();
+    // 检查是否使用固定步长积分
+    if(this->getUseFixedStep())
+    {
+        return this->integrateFixedStep(ode, this->getStepSize(), y, t, tf, &wrk.numSteps_);
+    }
+
+    this->initialize(ode);
     double absh, h, hmin, hmax;
     double tnew;
     double t0 = t;
@@ -160,8 +166,14 @@ errc_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf
     return eNoError;
 }
 
-errc_t ODEVarStepIntegrator::integrateStep(ODE &ode, double* y, double &t, double tf)
+errc_t ODEVarStepIntegrator::integrateOneStep(ODE &ode, double* y, double &t, double tf)
 {
+    // 检查是否使用固定步长积分
+    if((this->getUseFixedStep()))
+    {
+        return this->integrateOneFixedStep(ode, this->getStepSize(), y, t, tf);
+    }
+
     auto& wrk = this->getWorkspace();
     double& absh = wrk.nextAbsStepSize_;
     double step = tf - t;

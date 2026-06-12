@@ -38,6 +38,9 @@ public:
     
     EBodyAttractionType getBodyAttractionType() const override{return EBodyAttractionType::ePointMass;}
     BodyAttraction* clone() const override{return new PointMassForce(*this);}
+
+    /// @brief 根据三体配置获取引力常数
+    double getGM(CelestialBody* body) const;
 public:
     EGMSource gmSource_{EGMSource::eBodyGravity};       ///< 引力常数来源
     double specifiedGM_{0.0};                           ///< 指定的引力常数

@@ -2,89 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
 <context>
-    <name>AxesPropertyPage</name>
-    <message>
-        <source>位置 (归一化)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Width</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Height</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>标题</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>字体</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>字号</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>外观</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>显示网格</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>背景色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>文本</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>字体缩放</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>X 轴</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>可见</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>标签</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>最小值</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>最大值</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Y 轴</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>CelestialBody</name>
     <message>
         <source>Earth</source>
@@ -436,112 +353,557 @@
     </message>
 </context>
 <context>
-    <name>EditFigureDialog</name>
+    <name>Class</name>
     <message>
-        <source>图形属性编辑器</source>
+        <source>AxesLinkTo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>元素</source>
+        <source>FrameAssembly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>请从左侧列表选择要编辑的元素</source>
+        <source>BodyAttraction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>应用</source>
+        <source>DragForce</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>确定</source>
+        <source>ForceModel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>取消</source>
+        <source>GravityForce</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Figure</source>
+        <source>HPOPForceModel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>坐标轴 %1</source>
+        <source>PointMassForce</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>元素 %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LinePropertyPage</name>
-    <message>
-        <source>基本</source>
+        <source>RelativityCorrection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>显示名称</source>
+        <source>SolarRadiationPressure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>线条</source>
+        <source>ThirdBodyForce</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>实线</source>
+        <source>Axes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>虚线</source>
+        <source>Frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>点线</source>
+        <source>Point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>点划线</source>
+        <source>BodyShape</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>无线</source>
+        <source>EllipsoidShape</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>颜色</source>
+        <source>SphereShape</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>线型</source>
+        <source>SpheroidShape</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>线宽</source>
+        <source>Burn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>标记</source>
+        <source>BurnImpulsive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>无</source>
+        <source>ScStateCalcBodyRelated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>样式</source>
+        <source>ScStateCalcFrameRelated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>大小</source>
+        <source>ScStateCalcEccentricity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>填充色</source>
+        <source>ScStateCalcDifference</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>可见</source>
+        <source>ScStateCalcPointRelated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ScStateCalculation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LandingSiteCalcSunAzimuth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LandingSiteCalcSunElevation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LandingSiteCalculation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SegmentCalculation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>InitialState</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LandingSite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maneuver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DifferentialCorrectorProfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ScriptingToolProfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ShooterControl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ShooterResult</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TargeterProfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Propagate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SegmentGraph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TargeterSequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SpacecraftState</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>StateCartesian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>StateKeplerian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorAccess</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorAltitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorAlwaysTripped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorApoapsis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorAscendingNode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorBodyRelated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorCartesian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorDeltaV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorDescendingNode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorDuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorEpoch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorFrameRelated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorLighting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorMeanAnomaly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorPeriapsis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorPointRelated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorRMagnitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorTrueAnomaly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorUserSelect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorXYPlaneCross</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorYZPlaneCross</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DetectorZXPlaneCross</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EventDetector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HPOP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CelestialBody</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BodyEphemerisDE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BodyEphemerisNoop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BodyEphemerisSPK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BodyOrientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EarthOrientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MoonOrientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RotationalData</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SolarSystem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EventTime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EventTimeExplicit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionOrbitDynamics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionBallistic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionJ2Analytical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionJ4Analytical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionMissionCommand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionProfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionSimpleAscent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MotionTwoBody</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdvCAT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aircraft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Antenna</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AreaTarget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Asteroid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AttitudeCoverage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AttitudeFigureOfMerit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CommSystem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Constellation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CoverageDefinition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Facility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FigureOfMerit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GroundVehicle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LaunchVehicle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LineTarget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Missile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MTO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Planet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Receiver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Satellite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scenario</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sensor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ship</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spacecraft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SpaceObject</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Submarine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Target</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transmitter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volumetric</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GroundStation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FeasibleRegionVariable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FeasibleRegionConstraint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FeasibleRegionStudy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OptimizationStudy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SweepVariable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SweepOutput</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SweepStudy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UncertaintyStudy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>StudyWorkbench</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -549,156 +911,6 @@
     <name>SolarSystem</name>
     <message>
         <source>SolarSystem</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SurfacePropertyPage</name>
-    <message>
-        <source>基本</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>曲面可见</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>显示名称</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>外观</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>光照</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>透明度</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>边缘颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>边缘线宽</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>色条</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>显示色条</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UiFigure</name>
-    <message>
-        <source>保存</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>保存图片</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>平移</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>平移视图</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>放大</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>框选放大</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>缩小</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>缩小视图</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>重置</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>恢复原始视图</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>图例</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>显示/隐藏图例</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>网格</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>显示/隐藏网格</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>色条</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>显示/隐藏色条</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>拾取模式</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Y值拾取</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Y值拾取：显示当前X位置所有曲线的Y值</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>临近拾取</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>临近点拾取：显示距离鼠标最近的数据点</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PNG (*.png);;JPG (*.jpg);;BMP (*.bmp);;SVG (*.svg);;PDF (*.pdf)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>编辑</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>编辑模式：选中子图调整大小、编辑绘图元素属性</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>属性</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>打开属性检查器：查看和编辑坐标轴及绘图元素属性</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

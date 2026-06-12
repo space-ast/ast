@@ -68,6 +68,11 @@ public:
     void getMODTransform(const TimePoint& tp, Rotation &rot) const override;
     Axes* getTODParent() const override;
     void getTODTransform(const TimePoint& tp, Rotation &rot) const override;
+
+    /// @brief 获取天体惯性系到天体固连系的旋转
+    /// @param tp 时间点
+    /// @param rot 旋转
+    void getInertialToFixedTransform(const TimePoint& tp, Rotation &rot) const;
     
     /// @brief 获取ICRF到MOD系的旋转    
     /// @param tp 时间点

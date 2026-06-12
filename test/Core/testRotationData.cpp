@@ -59,7 +59,21 @@ TEST(RotationalData, MarsAttitude2000)
     std::string datadir = aDataDirGet();
     errc_t rc = data.load(datadir + "/SolarSystem/Mars/MarsAttitude2000.rot");
     EXPECT_EQ(rc, eNoError);
-    // test Fixed Frame
+    // test Inertial to Fixed Frame
+    {
+        auto tp = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+        Rotation rotation;
+        data.getInertialToFixedTransform(tp, rotation);
+        Vector3d posICRF{3.6961900000000000e+06, 0.0000000000000000e+00, 0.0000000000000000e+00};
+        Vector3d posFixed = rotation.transformVector(posICRF);
+        printf("posICRF: %s\n", posICRF.toString().c_str());
+        printf("posFixed: %s\n", posFixed.toString().c_str());
+        Vector3d posFixedExpect {-992.529459388687883_km, 3560.436011991111627_km, -1.092182414950934_km};
+        EXPECT_NEAR(posFixedExpect[0], posFixed[0], 1e-4);
+        EXPECT_NEAR(posFixedExpect[1], posFixed[1], 1e-4);
+        EXPECT_NEAR(posFixedExpect[2], posFixed[2], 1e-8);
+    }
+    // test ICRF to Fixed Frame
     {
         auto tp = TimePoint::FromUTC(2026, 2, 20, 0, 0, 0);
         Rotation rotation;
@@ -73,7 +87,7 @@ TEST(RotationalData, MarsAttitude2000)
         EXPECT_NEAR(posFixedExpect[1], posFixed[1], 1e-4);
         EXPECT_NEAR(posFixedExpect[2], posFixed[2], 1e-8);
     }
-    // test Inertial Frame
+    // test ICRF to Inertial Frame
     {
         auto tp = TimePoint::FromUTC(2026, 2, 20, 0, 0, 0);
         Rotation rotation;
@@ -87,7 +101,7 @@ TEST(RotationalData, MarsAttitude2000)
         EXPECT_NEAR(posInertialExpect[1], posInertial[1], 1e-9);
         EXPECT_NEAR(posInertialExpect[2], posInertial[2], 1e-9);
     }
-    // test TOD Frame
+    // test ICRF to TOD Frame
     {
         auto tp = TimePoint::FromUTC(2026, 2, 20, 0, 0, 0);
         Rotation rotation;
@@ -101,7 +115,7 @@ TEST(RotationalData, MarsAttitude2000)
         EXPECT_NEAR(posTODExpect[1], posTOD[1], 1e-9);
         EXPECT_NEAR(posTODExpect[2], posTOD[2], 1e-9);
     }
-    // test MOD Frame
+    // test ICRF to MOD Frame
     {
         auto tp = TimePoint::FromUTC(2026, 2, 20, 0, 0, 0);
         Rotation rotation;

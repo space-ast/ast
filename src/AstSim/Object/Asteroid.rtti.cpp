@@ -12,7 +12,7 @@ static bool Asteroid_ClassInited = (Asteroid::ClassInit(&Asteroid::staticType), 
 void Asteroid::ClassInit(Class* cls)
 {
 
-    cls->setName("Asteroid");
+    cls->setName(NC_("Class", "Asteroid"));
     cls->setDesc(u8R"(小行星)");
     cls->addToRegistry();
     cls->setParent<SpaceObject>();
