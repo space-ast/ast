@@ -32,9 +32,13 @@ rule("ast")
         if os.isdir(include_dir) then
             target:add("includedirs", include_dir)
         end
-        if target:plat() == "windows" and target:kind() == "binary" then
-            -- 添加图标资源文件
-            target:add("files", path.join(os.scriptdir(), "data/icons/logo/*.rc"))
+        if target:kind() == "binary" then
+            if target:plat() == "windows" then
+                -- 添加图标资源文件
+                target:add("files", path.join(os.scriptdir(), "data/icons/logo/*.rc"))
+            elseif target:plat() == "linux" then
+                target:add("syslinks", "dl", "pthread")
+            end
         end
     end)
     before_build(function (target)
@@ -65,7 +69,7 @@ rule_end()
 
 rule("ast.qt")
     on_config(function (target)
-        target:add("frameworks", "QtWidgets", "QtGui", "QtCore", "QtSvg")
+        target:add("frameworks", "QtWidgets", "QtGui", "QtCore", "QtSvg", "QtTest")
         target:add("qt.moc.flags", "-DAST_NAMESPACE_BEGIN=namespace ast{")
         target:add("qt.moc.flags", "-DAST_NAMESPACE_END=}")
     end)

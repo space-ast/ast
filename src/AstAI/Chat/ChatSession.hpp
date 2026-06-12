@@ -46,10 +46,26 @@ public:
     /// @param base_url API基础URL
     ChatSession();
 
-    /// @brief 发送消息
-    /// @param message 消息内容
-    /// @return 响应内容
-    std::string sendMessage(StringView message);
+    /// @brief 对话，内部会处理工具调用循环直到没有更多工具调用或最大交互轮数到达，然后返回最终响应内容
+    /// @param message 用户消息
+    /// @return 最终响应内容（执行工具调用循环后的最终结果）
+    std::string chat(StringView message, int maxIterForToolCalls = 100);
+
+    /// @brief 发送消息，不会处理工具调用，直接返回响应消息
+    /// @param message 用户消息
+    /// @return 响应内容，如果失败则返回 nullptr
+    const ChatMessage* sendMessage(StringView message);
+
+    /// @brief 执行工具调用循环
+    /// @param message 含工具调用的输入消息
+    /// @param maxIterForToolCalls 最大工具调用轮数
+    /// @return 错误码，0表示成功，非0表示失败
+    errc_t loopToolCalls(const ChatMessage& message, int maxIterForToolCalls = 100);
+
+    /// @brief 处理工具调用
+    /// @param message 含工具调用的输入消息
+    /// @return 错误码，0表示成功，非0表示失败
+    void handleToolCalls(const ChatMessage& message);
 
     /// @brief 设置系统提示
     /// @param systemPrompt 系统提示
@@ -66,13 +82,18 @@ public:
     /// @brief 获取当前使用的AI接口
     /// @note 目前还不支持指定或者切换client，只能使用对象内部默认的AI接口
     OpenAI& client();
+
+    /// @brief 获取最后一次错误信息
+    const std::string& lastError() const {return lastError_;}
+
+    /// @brief 生成聊天完成响应
+    /// @return 响应内容，如果失败则返回 nullptr
+    const ChatMessage* makeChatCompletion();
 private:
-    std::string makeChatCompletion(int maxInteractions=20);
 
     /// @brief 处理工具调用
     /// @param toolCalls 工具调用列表
-    /// @param maxInteractions 最大交互轮数
-    void handleToolCalls(const JsonValue& toolCalls, int maxInteractions = 20);
+    void handleToolCalls(const JsonValue& toolCalls);
 
     /// @brief 处理单个工具调用
     /// @param toolCall 单个工具调用
@@ -83,6 +104,7 @@ private:
     OpenAI internalClient_;                 ///< 内部默认的AI接口
     ChatMessages messages_;                 ///< 消息历史
     ChatTools tools_;                       ///< 工具集合
+    std::string lastError_;                 ///< 最后一次错误信息
 };
 
 /*! @} */

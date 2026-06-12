@@ -35,7 +35,7 @@ int main()
         if (str && buffer[0] == '\n')
             continue;
         AgentSession session;
-        std::string response = session.sendMessage(buffer);
+        std::string response = session.chat(buffer);
         ast_printf("响应: %s\n", response.c_str());
     }
     return 0;

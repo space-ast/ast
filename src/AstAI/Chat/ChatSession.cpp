@@ -22,24 +22,36 @@
 #include "AstUtil/JsonValue.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Logger.hpp"
-
+#include <ctime>
 
 AST_NAMESPACE_BEGIN
 
+// #define _AST_DEBUG_CHAT_SESSION
 
 
 ChatSession::ChatSession()
 {
 }
 
-std::string ChatSession::sendMessage(StringView message)
+std::string ChatSession::chat(StringView message, int maxIterForToolCalls)
+{
+    const ChatMessage* res = this->sendMessage(message);
+    if(res == nullptr)
+        return lastError_;
+    errc_t rc = this->loopToolCalls(*res, maxIterForToolCalls);
+    if(rc != 0)
+        return lastError_;
+    return this->messages_.back().content();
+}
+
+const ChatMessage* ChatSession::sendMessage(StringView message)
 {
     this->messages_.addUserMessage(message);
     return this->makeChatCompletion();
 }
 
 
-std::string ChatSession::makeChatCompletion(int maxIterations)
+const ChatMessage* ChatSession::makeChatCompletion()
 {
     /*
     @todo 
@@ -63,18 +75,31 @@ std::string ChatSession::makeChatCompletion(int maxIterations)
     json["tools"] = tools_.toJson();
 
     {
+        #ifdef _AST_DEBUG_CHAT_SESSION
+        clock_t start = clock();
+        #endif
+
         JsonValue res = client.chat(json);
+
+        #ifdef _AST_DEBUG_CHAT_SESSION
+        clock_t end = clock();
+        ast_printf("network request cost: %ld ms\n", (end - start) * CLOCKS_PER_SEC / 1000);
+        #endif
+
         if(!res["error"].isNull())
         {
             std::string errorMsg = res["error"]["message"].toString();
-            return aText("response error: " + errorMsg);
+            aError("response error: %s", errorMsg.c_str());
+            lastError_ = errorMsg;
+            return nullptr;
         }
         // ast_printf("res: %s\n", res.toJsonString().c_str());
         auto& choices = res["choices"];
         if(!choices.isArray() || choices.size() == 0)
         {
             aError("choices is empty or not array");
-            return aText("response error: choices is empty or not array");
+            lastError_ = "choices is empty or not array";
+            return nullptr;
         }
         JsonValue& message = choices[0]["message"];
         std::string response = message["content"].toString();
@@ -85,33 +110,62 @@ std::string ChatSession::makeChatCompletion(int maxIterations)
             msg.setReasoningContent(message["reasoning_content"].toString());
         this->messages_.addMessage(msg);
 
-        if(toolCalls.isArray() && toolCalls.size() > 0)
-        {
-            this->handleToolCalls(toolCalls, maxIterations);
-        }
-        return response;
+        return &this->messages_.back();
     }
 }
+
+errc_t ChatSession::loopToolCalls(const ChatMessage& message, int maxIterForToolCalls)
+{
+    const ChatMessage* msg = &message;
+    for(int i = 0; i < maxIterForToolCalls; i++)
+    {
+        if(msg->hasToolCalls())
+        {
+            this->handleToolCalls(*msg);
+            msg = this->makeChatCompletion();
+            if(msg == nullptr)
+                return -1;
+        }
+        else
+        {
+            break;
+        }
+    }
+    return 0;
+}
+
+void ChatSession::handleToolCalls(const ChatMessage& message)
+{
+    // 这里必须拷贝，因为在添加消息后，msg指针会失效
+    JsonValue toolCalls = message.toolCalls();
+    this->handleToolCalls(toolCalls);
+}
+
 
 void ChatSession::setSystemPrompt(StringView systemPrompt)
 {
     this->messages_.setSystemPrompt(systemPrompt);
 }
 
-void ChatSession::handleToolCalls(const JsonValue &toolCalls, int maxInteractions)
+void ChatSession::handleToolCalls(const JsonValue &toolCalls)
 {
-    if(toolCalls.isArray() && toolCalls.size() > 0)
+    for(auto& item: toolCalls.getArray())
     {
-        for(auto& item: toolCalls.getArray())
-        {
-            std::string response = this->handleToolCall(item);
-            std::string id = item["id"];
-            this->messages_.addToolMessage(response, id);
-        }
-        if(maxInteractions > 0)
-            this->makeChatCompletion(maxInteractions-1);
-        else
-            aInfo("max interactions reached");
+        #ifdef _AST_DEBUG_CHAT_SESSION
+        ast_printf("toolCall: %s\n", item.toJsonString().c_str());
+        clock_t start = clock();
+        #endif
+        
+        std::string response = this->handleToolCall(item);
+
+        #ifdef _AST_DEBUG_CHAT_SESSION
+        clock_t end = clock();
+        ast_printf("handleToolCall cost: %ld ms\n", (end - start) * CLOCKS_PER_SEC / 1000);
+        ast_printf("response: %s\n", response.c_str());
+        #endif
+        
+        std::string id = item["id"];
+        this->messages_.addToolMessage(response, id);
     }
 }
 

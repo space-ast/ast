@@ -1,9 +1,9 @@
 ///
-/// @file      Chat.cpp
+/// @file      UiPilotUtil.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-04-25
+/// @date      2026-06-12
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -18,39 +18,28 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "Chat.hpp"
-#include "ChatSession.hpp"
-#include "AstUtil/StringView.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include <QMetaObject>
+#include <QApplication>
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup 
+    @{
+*/
 
-ChatSession& aChatSession()
-{
-    static ChatSession session;
-    return session;
+
+// @brief 添加一个排队执行的回调函数
+// @param func 要排队执行的函数
+template<typename Func>
+void addQueued(Func &&func) {
+    // 使用 Qt::QueuedConnection 确保任务在事件循环中排队执行
+    QMetaObject::invokeMethod(qApp, std::forward<Func>(func), Qt::QueuedConnection);
 }
 
-std::string aChat(StringView message)
-{
-    return aChatSession().chat(message);
-}
-
-
-errc_t aChat(StringView message, std::string& response)
-{
-    // return aChatSession().sendMessage(message, response);
-    return 0;
-}
-
-void aChatClearMessages()
-{
-
-}
-
-void aChatClearAllMessages()
-{
-    
-}
+/*! @} */
 
 AST_NAMESPACE_END

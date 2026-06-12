@@ -5,9 +5,9 @@ if is_plat("windows") and is_mode("debug") then
     set_suffixname("D") -- windows的调试库使用D后缀
 end
 
-if is_plat("windows") then
-    add_cxflags("/utf-8")
-end
+-- if is_plat("windows") then
+--     add_cxflags("/utf-8")
+-- end
 
 
 target("AstConfig")
