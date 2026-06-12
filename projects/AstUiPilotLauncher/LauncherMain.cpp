@@ -193,12 +193,7 @@ static void commandLoop(PilotSession* session, PilotRecorder* recorder)
     {
         if (line.empty()) continue;
 
-        // Windows下stdin是本地编码(GBK)，转为UTF-8
-#ifdef Q_OS_WIN
-        std::string utf8Line = QString::fromLocal8Bit(line.c_str()).toUtf8().toStdString();
-#else
         std::string utf8Line = line;
-#endif
 
         if (utf8Line == "quit" || utf8Line == "exit")
         {

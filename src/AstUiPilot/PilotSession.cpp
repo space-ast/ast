@@ -42,6 +42,7 @@
 #include <QTabWidget>
 #include <QTableView>
 #include <QTreeView>
+#include <QTreeWidget>
 #include <QListView>
 #include <QAbstractSpinBox>
 #include <QScrollArea>
@@ -1122,19 +1123,24 @@ static JsonValue makeTableClickSchema()
     ref["type"] = "string";
     ref["description"] = "QTableView/QTableWidget的ref引用";
     props["ref"] = ref;
+    JsonValue itemPath;
+    itemPath["description"] = "目标单元格路径。简写:[row, col] 或标准:[[row, col]]。整数=行号(列默认0)。例: [2, 3] 表示第3行第4列";
+    props["itemPath"] = itemPath;
+    JsonValue expect;
+    expect["type"] = "string";
+    expect["description"] = "期望的单元格文本，操作前校验。不匹配则拒绝操作";
+    props["expect"] = expect;
     JsonValue row;
     row["type"] = "integer";
-    row["description"] = "行号(从0开始)";
+    row["description"] = "行号(从0开始)。兼容旧版，优先使用itemPath";
     props["row"] = row;
     JsonValue column;
     column["type"] = "integer";
-    column["description"] = "列号(从0开始)";
+    column["description"] = "列号(从0开始)。兼容旧版，优先使用itemPath";
     props["column"] = column;
     s["properties"] = props;
     JsonValue required;
     required.append("ref");
-    required.append("row");
-    required.append("column");
     s["required"] = required;
     return s;
 }
@@ -1151,16 +1157,48 @@ static std::string toolTableClick(const JsonValue& args)
     QAbstractItemView* view = qobject_cast<QAbstractItemView*>(obj);
     if (!view) return "ref对应的对象不是表格视图";
 
-    int row = args["row"].toInt();
-    int col = args["column"].toInt();
-    auto idx = view->model()->index(row, col);
+    auto* model = view->model();
+    if (!model) return "视图没有数据模型";
+
+    QModelIndex idx;
+    if (!args["itemPath"].isNull())
+    {
+        idx = modelIndexFromItemPath(model, args["itemPath"]);
+        if (!idx.isValid()) return "itemPath无效";
+    }
+    else if (!args["row"].isNull())
+    {
+        int row = args["row"].toInt();
+        int col = args["column"].isNull() ? 0 : args["column"].toInt();
+        idx = model->index(row, col);
+    }
+    else
+    {
+        return "缺少 itemPath 或 row 参数";
+    }
+
+    // expect 校验
+    if (!args["expect"].isNull())
+    {
+        std::string expected = args["expect"].toString();
+        QString actual = model->data(idx, Qt::DisplayRole).toString();
+        if (actual.toStdString() != expected)
+        {
+            return "✗ 单元格文本不匹配：预期 \"" + expected
+                 + "\"，实际 \"" + actual.toStdString()
+                 + "\"，数据可能已更新，请重新获取快照";
+        }
+    }
+
     QRect rect = view->visualRect(idx);
     QPoint pt = rect.center();
-
-    QTest::mouseClick(view->viewport(), Qt::LeftButton, Qt::NoModifier, pt);
+    addQueued([=]()
+    {
+        QTest::mouseClick(view->viewport(), Qt::LeftButton, Qt::NoModifier, pt);
+    });
 
     return appendSnapshot(agent,
-        "✓ clicked cell (" + std::to_string(row) + "," + std::to_string(col) + ")");
+        "✓ clicked cell (" + std::to_string(idx.row()) + "," + std::to_string(idx.column()) + ")");
 }
 
 // ============================================================
@@ -1223,6 +1261,212 @@ static std::string toolTreeGet(const JsonValue& args)
 
     walkTree(QModelIndex(), 0);
     return out.str();
+}
+
+// ============================================================
+//  通用: 通过 ref + itemPath 解析 QModelIndex，并校验 expect
+// ============================================================
+
+static std::string resolveItem(const JsonValue& args, PilotAgent* agent,
+                                QAbstractItemView*& outView, QModelIndex& outIdx)
+{
+    std::string err;
+    QObject* obj = resolveRef(args, agent, err);
+    if (!obj) return err;
+
+    QAbstractItemView* view = qobject_cast<QAbstractItemView*>(obj);
+    if (!view) return "ref对应的对象不是列表/表格/树形视图";
+    outView = view;
+
+    auto* model = view->model();
+    if (!model) return "视图没有数据模型";
+
+    if (args["itemPath"].isNull())
+        return "缺少必需参数 itemPath";
+
+    QModelIndex idx = modelIndexFromItemPath(model, args["itemPath"]);
+    if (!idx.isValid())
+    {
+        // 尝试用字符串路径
+        std::ostringstream oss;
+        oss << "itemPath无效，当前树结构：\n";
+        int rc = model->rowCount();
+        for (int i = 0; i < qMin(rc, 20); i++)
+        {
+            auto child = model->index(i, 0);
+            oss << "  [" << i << "] " << model->data(child, Qt::DisplayRole).toString().toUtf8().constData() << "\n";
+        }
+        return oss.str();
+    }
+    outIdx = idx;
+
+    // expect 校验
+    if (!args["expect"].isNull())
+    {
+        std::string expected = args["expect"].toString();
+        QString actual = model->data(idx, Qt::DisplayRole).toString();
+        if (actual.toStdString() != expected)
+        {
+            return "✗ 节点文本不匹配：预期 \"" + expected
+                 + "\"，实际 \"" + actual.toStdString()
+                 + "\"，树结构可能已更新，请重新获取快照";
+        }
+    }
+
+    return "";
+}
+
+// ============================================================
+//  Tool: tree_click
+// ============================================================
+
+static JsonValue makeTreeClickSchema()
+{
+    JsonValue s;
+    s["type"] = "object";
+    JsonValue props;
+    JsonValue ref;
+    ref["type"] = "string";
+    ref["description"] = "QTreeView/QTreeWidget的ref引用";
+    props["ref"] = ref;
+    JsonValue itemPath;
+    itemPath["description"] = "目标节点路径。数字=行索引，字符串=节点文本匹配，[row,col]=单元格。例: [0], [0,1], [0,[1,0]]";
+    props["itemPath"] = itemPath;
+    JsonValue expect;
+    expect["type"] = "string";
+    expect["description"] = "期望的节点文本，操作前校验。不匹配则拒绝操作";
+    props["expect"] = expect;
+    s["properties"] = props;
+    JsonValue required;
+    required.append("ref");
+    required.append("itemPath");
+    s["required"] = required;
+    return s;
+}
+
+static std::string toolTreeClick(const JsonValue& args)
+{
+    auto* agent = PilotAgent::instance();
+    if (!agent) return "Agent未初始化";
+
+    QAbstractItemView* view = nullptr;
+    QModelIndex idx;
+    std::string err = resolveItem(args, agent, view, idx);
+    if (!err.empty()) return err;
+
+    view->scrollTo(idx);
+    QRect rect = view->visualRect(idx);
+    QPoint pt = rect.center();
+
+    addQueued([=]()
+    {
+        QTest::mouseClick(view->viewport(), Qt::LeftButton, Qt::NoModifier, pt);
+    });
+
+    return appendSnapshot(agent, "✓ clicked tree node");
+}
+
+// ============================================================
+//  Tool: tree_expand
+// ============================================================
+
+static JsonValue makeTreeExpandSchema()
+{
+    JsonValue s;
+    s["type"] = "object";
+    JsonValue props;
+    JsonValue ref;
+    ref["type"] = "string";
+    ref["description"] = "QTreeView/QTreeWidget的ref引用";
+    props["ref"] = ref;
+    JsonValue itemPath;
+    itemPath["description"] = "目标节点路径";
+    props["itemPath"] = itemPath;
+    JsonValue expect;
+    expect["type"] = "string";
+    expect["description"] = "期望的节点文本，操作前校验";
+    props["expect"] = expect;
+    JsonValue expand;
+    expand["type"] = "boolean";
+    expand["description"] = "true=展开, false=折叠。默认true";
+    expand["default"] = true;
+    props["expand"] = expand;
+    s["properties"] = props;
+    JsonValue required;
+    required.append("ref");
+    required.append("itemPath");
+    s["required"] = required;
+    return s;
+}
+
+static std::string toolTreeExpand(const JsonValue& args)
+{
+    auto* agent = PilotAgent::instance();
+    if (!agent) return "Agent未初始化";
+
+    QAbstractItemView* view = nullptr;
+    QModelIndex idx;
+    std::string err = resolveItem(args, agent, view, idx);
+    if (!err.empty()) return err;
+
+    bool expand = args["expand"].isNull() ? true : args["expand"].toBool();
+
+    auto* tree = qobject_cast<QTreeView*>(view);
+    if (tree)
+        tree->setExpanded(idx, expand);
+
+    return appendSnapshot(agent,
+        std::string(expand ? "✓ expanded" : "✓ collapsed") + " tree node");
+}
+
+// ============================================================
+//  Tool: tree_dblclick
+// ============================================================
+
+static JsonValue makeTreeDblClickSchema()
+{
+    JsonValue s;
+    s["type"] = "object";
+    JsonValue props;
+    JsonValue ref;
+    ref["type"] = "string";
+    ref["description"] = "QTreeView/QTreeWidget的ref引用";
+    props["ref"] = ref;
+    JsonValue itemPath;
+    itemPath["description"] = "目标节点路径";
+    props["itemPath"] = itemPath;
+    JsonValue expect;
+    expect["type"] = "string";
+    expect["description"] = "期望的节点文本，操作前校验";
+    props["expect"] = expect;
+    s["properties"] = props;
+    JsonValue required;
+    required.append("ref");
+    required.append("itemPath");
+    s["required"] = required;
+    return s;
+}
+
+static std::string toolTreeDblClick(const JsonValue& args)
+{
+    auto* agent = PilotAgent::instance();
+    if (!agent) return "Agent未初始化";
+
+    QAbstractItemView* view = nullptr;
+    QModelIndex idx;
+    std::string err = resolveItem(args, agent, view, idx);
+    if (!err.empty()) return err;
+
+    view->scrollTo(idx);
+    QRect rect = view->visualRect(idx);
+    QPoint pt = rect.center();
+
+    addQueued([=]()
+    {
+        QTest::mouseDClick(view->viewport(), Qt::LeftButton, Qt::NoModifier, pt);
+    });
+
+    return appendSnapshot(agent, "✓ double-clicked tree node");
 }
 
 // ============================================================
@@ -1400,7 +1644,28 @@ void PilotSession::registerTools()
         t->setDescription(u8"获取QTreeView/QTreeWidget的树形结构数据。");
         t->setParameters(makeTreeGetSchema());
     }
-    // 19. resize
+    // 19. tree_click
+    {
+        auto* t = tools.addTool(toolTreeClick);
+        t->setName("tree_click");
+        t->setDescription(u8"点击QTreeView/QTreeWidget中指定路径的树节点。通过itemPath定位节点，支持expect参数校验文本。点击后自动返回新的snapshot。");
+        t->setParameters(makeTreeClickSchema());
+    }
+    // 20. tree_expand
+    {
+        auto* t = tools.addTool(toolTreeExpand);
+        t->setName("tree_expand");
+        t->setDescription(u8"展开或折叠树节点。expand=true展开，false折叠。支持itemPath+expect。操作后自动返回新的snapshot。");
+        t->setParameters(makeTreeExpandSchema());
+    }
+    // 21. tree_dblclick
+    {
+        auto* t = tools.addTool(toolTreeDblClick);
+        t->setName("tree_dblclick");
+        t->setDescription(u8"双击QTreeView/QTreeWidget中指定路径的树节点。支持itemPath+expect。双击后自动返回新的snapshot。");
+        t->setParameters(makeTreeDblClickSchema());
+    }
+    // 22. resize
     {
         auto* t = tools.addTool(toolResize);
         t->setName("resize");

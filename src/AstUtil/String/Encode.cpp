@@ -65,6 +65,14 @@ errc_t aWideToAnsi(const wchar_t* wide, std::string& ansi)
     return eErrorInvalidParam;
 }
 
+std::string aAnsiToUtf8(const char* ansi)
+{
+    std::wstring wide;
+    aAnsiToWide(ansi, wide);
+    std::string utf8;
+    aWideToUtf8(wide.c_str(), utf8);
+    return utf8;
+}
 
 struct LocaleDeleter
 {

@@ -45,6 +45,10 @@
 #include <QTreeView>
 #include <QListView>
 #include <QHeaderView>
+#include <QSplitterHandle>
+#include <QScrollBar>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
 #include <QRubberBand>
 #include <QEvent>
 #include <QElapsedTimer>
@@ -178,13 +182,48 @@ bool PilotAgent::isInteractive(QWidget* w)
         || qobject_cast<QMenuBar*>(w);
 }
 
+// Qt 内部控件，不应出现在快照中
+static bool isQtInternal(QWidget* w)
+{
+    if (!w) return true;
+
+    const QString name = w->objectName();
+
+    // scrollarea 视口和容器
+    if (name.startsWith("qt_scrollarea_")) return true;
+
+    // splitter 拖拽手柄
+    if (qobject_cast<QSplitterHandle*>(w)) return true;
+
+    // 滚动条
+    if (qobject_cast<QScrollBar*>(w)) return true;
+
+    return false;
+}
+
 bool PilotAgent::isWorthReporting(QWidget* w)
 {
     if (!w || !w->isVisible()) return false;
     if (w->width() <= 0 || w->height() <= 0) return false;
 
+    // Qt 内部控件 → 跳过
+    if (isQtInternal(w)) return false;
+
+    // QHeaderView → 仅当在 QTableWidget 外部独立存在时才报告
+    if (qobject_cast<QHeaderView*>(w))
+    {
+        // 如果父控件是表格/树，跳过（表格/树自己会报告行列信息）
+        if (w->parentWidget() && (qobject_cast<QAbstractItemView*>(w->parentWidget())
+            || w->parentWidget()->inherits("QAbstractItemView")))
+            return false;
+    }
+
     // objectName / toolTip / accessibleName → 有语义信息
-    if (!w->objectName().isEmpty())       return true;
+    if (!w->objectName().isEmpty())
+    {
+        // qt_ 前缀的 objectName 是 Qt 内部控件，但上面已过滤
+        return true;
+    }
     if (!w->toolTip().isEmpty())          return true;
     if (!w->accessibleName().isEmpty())   return true;
     if (!w->accessibleDescription().isEmpty()) return true;
@@ -200,6 +239,9 @@ bool PilotAgent::isWorthReporting(QWidget* w)
     if (qobject_cast<QToolBar*>(w))   return true;
     if (qobject_cast<QStatusBar*>(w)) return true;
     if (qobject_cast<QDialog*>(w))    return true;
+
+    // QDockWidget 标题栏按钮 → 报告但简化
+    if (w->inherits("QDockWidgetTitleButton")) return true;
 
     // 可交互控件
     if (isInteractive(w)) return true;
@@ -341,15 +383,40 @@ void PilotAgent::formatWidgetValue(QWidget* w, std::ostringstream& out)
         if (model)
             out << " [" << model->rowCount() << "项]";
     }
+    else if (w->inherits("QTreeView") || w->inherits("QTreeWidget"))
+    {
+        // QTreeView / QTreeWidget / 及其子类 (UiObjectTree, UiAttributeTree)
+        auto* tree = qobject_cast<QAbstractItemView*>(w);
+        auto* model = tree ? tree->model() : nullptr;
+        if (model)
+        {
+            out << " [" << model->rowCount() << "个顶层节点]";
+        }
+    }
 }
 
 // ============================================================
 //  formatWidget / formatAction
 // ============================================================
 
+// 自定义类 → 映射到最近的标准Qt基类名（LLM据此了解可用工具）
+static const char* snapshotClassName(QWidget* w)
+{
+    const QMetaObject* meta = w->metaObject();
+    // "Q" 开头即为Qt标准类，直接使用
+    if (meta->className()[0] == 'Q') return meta->className();
+    // 非Qt类 → 沿继承链向上查找第一个标准Qt类
+    while (meta->superClass())
+    {
+        meta = meta->superClass();
+        if (meta->className()[0] == 'Q') return meta->className();
+    }
+    return w->metaObject()->className(); // 兜底
+}
+
 void PilotAgent::formatWidget(QWidget* w, int depth, std::ostringstream& out)
 {
-    const char* className = w->metaObject()->className();
+    const char* className = snapshotClassName(w);
 
     // 缩进
     for (int i = 0; i < depth; i++) out << "  ";
@@ -455,11 +522,19 @@ void PilotAgent::walkWidgetTree(QWidget* root, int depth, int maxDepth,
     if (!root->isVisible()) return;
     if (root->width() <= 0 || root->height() <= 0) return;
 
+    // Qt 内部控件 → 跳过
+    if (isQtInternal(root)) return;
+
     // QMenuBar / QToolBar / QMenu / QTabWidget 已在 formatWidget 中展开
-    // 这里跳过它们，避免重复
     if (qobject_cast<QMenuBar*>(root)) return;
     if (qobject_cast<QMenu*>(root))    return;
     if (qobject_cast<QToolBar*>(root)) return;
+
+    // QAbstractItemView（表格/树/列表）→ 内容已在 formatWidgetValue 中展示，不展开子控件
+    if (qobject_cast<QAbstractItemView*>(root) || root->inherits("QAbstractItemView"))
+        return;
+    // QHeaderView → 由表格父控件统一展示
+    if (qobject_cast<QHeaderView*>(root)) return;
 
     // QTabWidget: 展开每个 tab 页
     if (auto* tw = qobject_cast<QTabWidget*>(root))

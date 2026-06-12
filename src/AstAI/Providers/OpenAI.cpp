@@ -180,7 +180,7 @@ errc_t OpenAI::chat(const JsonValue &request, JsonValue &response)
         error = networkResponse.toJson(response);
         if(error != 0)
         {
-            aError("failed to parse response body, error: %d", error);   
+            aError("failed to parse response body, response: \n%s\n", networkResponse.body().c_str());   
         }
     }
     return error;
