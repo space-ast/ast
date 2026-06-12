@@ -142,16 +142,16 @@ typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dime
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
-<tr class="memitem:a2b2f079b630a7398433b44d44b7a485e" id="r_a2b2f079b630a7398433b44d44b7a485e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485ea51ade9114aeb32f473ac34c8d0fba502">ast::kIdxMass</a>
-, <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485ea3fbf8243db82a52492253f039651a70d">ast::kIdxLength</a>
-, <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485ea35ba10cc1dd630da6eb3f4542a8921e3">ast::kIdxAngle</a>
-, <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485eaf15113453302983425d85b2e144ab3e9">ast::kIdxTime</a>
+<tr class="memitem:a2b2f079b630a7398433b44d44b7a485e" id="r_a2b2f079b630a7398433b44d44b7a485e"><td class="memItemLeft" align="right" valign="top"><a id="a2b2f079b630a7398433b44d44b7a485e" name="a2b2f079b630a7398433b44d44b7a485e"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<b>kIdxMass</b>
+, <b>kIdxLength</b>
+, <b>kIdxAngle</b>
+, <b>kIdxTime</b>
 , <br />
-&#160;&#160;<a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485eac6c6959b45383d04df3ae436c8c018ca">ast::kIdxTemperature</a>
-, <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485eae0291d339236ac9f041fdb8b2b8ec901">ast::kIdxCurrent</a>
-, <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485eae5e65b9d8f4b68b8a1725a33178588fc">ast::kIdxDateTime</a>
-, <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485ea77167b6a2fef55b749b0470575aa8006">ast::kIdxLuminous</a>
+&#160;&#160;<b>kIdxTemperature</b>
+, <b>kIdxCurrent</b>
+, <b>kIdxAmount</b>
+, <b>kIdxLuminous</b>
 <br />
  }</td></tr>
 <tr class="separator:a2b2f079b630a7398433b44d44b7a485e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,7 +163,7 @@ typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dime
 , <br />
 &#160;&#160;<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a8a4ae9088b5d080c176d9aeb3cb3cb9e">ast::eCurrent</a> = dimensions::kCurrent
 , <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a430ac37de713edd8ef6f62b60a473f59">ast::eTemperature</a> = dimensions::kTemperature
-, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a83e155cad29f707b54862217392d885d">ast::eDateTime</a> = dimensions::kDateTime
+, <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a0e59592ac99bdf12b4bca3f71e0fbcf1">ast::eAmount</a> = dimensions::kAmount
 , <a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a284dd9de53a3c707f05cc0dd662607c2">ast::eLuminous</a> = dimensions::kLuminous
 , <br />
 &#160;&#160;<a class="el" href="namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14a0fc6b6e1dcaee3d00d797bc4507f516d">ast::eAngle</a> = dimensions::kAngle
@@ -256,28 +256,28 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::bits
 constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kUnit</b> = 0</td></tr>
 <tr class="separator:ad5edfbd382f60de525d1116b4fcb39d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40483bc26d57ca7c16d9484f6bc2ca28" id="r_a40483bc26d57ca7c16d9484f6bc2ca28"><td class="memItemLeft" align="right" valign="top"><a id="a40483bc26d57ca7c16d9484f6bc2ca28" name="a40483bc26d57ca7c16d9484f6bc2ca28"></a>
-constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kLength</b> = 1 &lt;&lt; <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485ea3fbf8243db82a52492253f039651a70d">kIdxLength</a> * 4</td></tr>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kLength</b> = 1 &lt;&lt; kIdxLength * 4</td></tr>
 <tr class="separator:a40483bc26d57ca7c16d9484f6bc2ca28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18bf33382df9b82f277d9818c434a9eb" id="r_a18bf33382df9b82f277d9818c434a9eb"><td class="memItemLeft" align="right" valign="top"><a id="a18bf33382df9b82f277d9818c434a9eb" name="a18bf33382df9b82f277d9818c434a9eb"></a>
-constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kMass</b> = 1 &lt;&lt; <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485ea51ade9114aeb32f473ac34c8d0fba502">kIdxMass</a> * 4</td></tr>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kMass</b> = 1 &lt;&lt; kIdxMass * 4</td></tr>
 <tr class="separator:a18bf33382df9b82f277d9818c434a9eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a815c0fd566c43b3e448affa22b691233" id="r_a815c0fd566c43b3e448affa22b691233"><td class="memItemLeft" align="right" valign="top"><a id="a815c0fd566c43b3e448affa22b691233" name="a815c0fd566c43b3e448affa22b691233"></a>
-constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kTime</b> = 1 &lt;&lt; <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485eaf15113453302983425d85b2e144ab3e9">kIdxTime</a> * 4</td></tr>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kTime</b> = 1 &lt;&lt; kIdxTime * 4</td></tr>
 <tr class="separator:a815c0fd566c43b3e448affa22b691233"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ebd098872cb3ae717f29b1206d56917" id="r_a2ebd098872cb3ae717f29b1206d56917"><td class="memItemLeft" align="right" valign="top"><a id="a2ebd098872cb3ae717f29b1206d56917" name="a2ebd098872cb3ae717f29b1206d56917"></a>
-constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kCurrent</b> = 1 &lt;&lt; <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485eae0291d339236ac9f041fdb8b2b8ec901">kIdxCurrent</a> * 4</td></tr>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kCurrent</b> = 1 &lt;&lt; kIdxCurrent * 4</td></tr>
 <tr class="separator:a2ebd098872cb3ae717f29b1206d56917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30aeddb0b7e2b13512aa738b6a78bd6e" id="r_a30aeddb0b7e2b13512aa738b6a78bd6e"><td class="memItemLeft" align="right" valign="top"><a id="a30aeddb0b7e2b13512aa738b6a78bd6e" name="a30aeddb0b7e2b13512aa738b6a78bd6e"></a>
-constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kTemperature</b> = 1 &lt;&lt; <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485eac6c6959b45383d04df3ae436c8c018ca">kIdxTemperature</a> * 4</td></tr>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kTemperature</b> = 1 &lt;&lt; kIdxTemperature * 4</td></tr>
 <tr class="separator:a30aeddb0b7e2b13512aa738b6a78bd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f8e3713edb483474cbe304cde3e4247" id="r_a6f8e3713edb483474cbe304cde3e4247"><td class="memItemLeft" align="right" valign="top"><a id="a6f8e3713edb483474cbe304cde3e4247" name="a6f8e3713edb483474cbe304cde3e4247"></a>
-constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kDateTime</b> = 1 &lt;&lt; <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485eae5e65b9d8f4b68b8a1725a33178588fc">kIdxDateTime</a> * 4</td></tr>
-<tr class="separator:a6f8e3713edb483474cbe304cde3e4247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac079f2b994f4861d117fd9022232cf" id="r_a7ac079f2b994f4861d117fd9022232cf"><td class="memItemLeft" align="right" valign="top"><a id="a7ac079f2b994f4861d117fd9022232cf" name="a7ac079f2b994f4861d117fd9022232cf"></a>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kAmount</b> = 1 &lt;&lt; kIdxAmount * 4</td></tr>
+<tr class="separator:a7ac079f2b994f4861d117fd9022232cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e3f535d37f45cdc5e3dc9052494bacf" id="r_a3e3f535d37f45cdc5e3dc9052494bacf"><td class="memItemLeft" align="right" valign="top"><a id="a3e3f535d37f45cdc5e3dc9052494bacf" name="a3e3f535d37f45cdc5e3dc9052494bacf"></a>
-constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kLuminous</b> = 1 &lt;&lt; <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485ea77167b6a2fef55b749b0470575aa8006">kIdxLuminous</a> * 4</td></tr>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kLuminous</b> = 1 &lt;&lt; kIdxLuminous * 4</td></tr>
 <tr class="separator:a3e3f535d37f45cdc5e3dc9052494bacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefb1e5195e44b45fe0fef8462a861995" id="r_aefb1e5195e44b45fe0fef8462a861995"><td class="memItemLeft" align="right" valign="top"><a id="aefb1e5195e44b45fe0fef8462a861995" name="aefb1e5195e44b45fe0fef8462a861995"></a>
-constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kAngle</b> = 1 &lt;&lt; <a class="el" href="namespaceast.html#a2b2f079b630a7398433b44d44b7a485ea35ba10cc1dd630da6eb3f4542a8921e3">kIdxAngle</a> * 4</td></tr>
+constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kAngle</b> = 1 &lt;&lt; kIdxAngle * 4</td></tr>
 <tr class="separator:aefb1e5195e44b45fe0fef8462a861995"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cc4fb693269e39e000df25965cb1808" id="r_a4cc4fb693269e39e000df25965cb1808"><td class="memItemLeft" align="right" valign="top"><a id="a4cc4fb693269e39e000df25965cb1808" name="a4cc4fb693269e39e000df25965cb1808"></a>
 constexpr dimension_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dimensions::kAngVel</b> = dim_divide(kAngle, kTime)</td></tr>

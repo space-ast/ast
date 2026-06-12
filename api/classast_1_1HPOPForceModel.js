@@ -1,7 +1,6 @@
 var classast_1_1HPOPForceModel =
 [
     [ "addThirdBody", "classast_1_1HPOPForceModel.html#a3e6a09e0267b8294fb7ab25973519259", null ],
-    [ "addThirdBody", "classast_1_1HPOPForceModel.html#ae621c6335d6cbd70e6b1e0991334db52", null ],
     [ "addThirdBody", "classast_1_1HPOPForceModel.html#aaf1ee3c3f06014c3418881e7b72a1d9c", null ],
     [ "bodyAttraction", "classast_1_1HPOPForceModel.html#a57c5aed5f921158e03a8e7e2a9a2e278", null ],
     [ "bodyAttraction", "classast_1_1HPOPForceModel.html#a2d507a0f5e18e01b817d0dc14be5c1c8", null ],

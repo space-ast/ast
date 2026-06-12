@@ -8,7 +8,7 @@ var searchData=
   ['edatacode_5',['EDataCode',['../classast_1_1JplDe.html#a577b7b65a916a9c36041770f2fc5fef1',1,'ast::JplDe']]],
   ['ededatacode_6',['EDeDataCode',['../namespaceast.html#ad226f5138693fa4cb352f8c2201281df',1,'ast']]],
   ['edimension_7',['EDimension',['../namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14',1,'ast']]],
-  ['edirection_8',['EDirection',['../classast_1_1Propagate.html#ab56fcd3190db2cfbe6091706ee38c303',1,'ast::Propagate::EDirection'],['../classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89dd',1,'ast::CriticallyInclinedOrbitDesigner::EDirection'],['../classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656b',1,'ast::ODEEventDetector::EDirection']]],
+  ['edirection_8',['EDirection',['../classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89dd',1,'ast::CriticallyInclinedOrbitDesigner::EDirection'],['../classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656b',1,'ast::ODEEventDetector::EDirection']]],
   ['eendian_9',['EEndian',['../group__Platform.html#gae5cf4de7adb0a012861b982458f81526',1,'ast']]],
   ['eephemerissource_10',['EEphemerisSource',['../namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08',1,'ast']]],
   ['eephemeristype_11',['EEphemerisType',['../namespaceast.html#a364fd776aa5b05ed45dae4534b252fda',1,'ast']]],

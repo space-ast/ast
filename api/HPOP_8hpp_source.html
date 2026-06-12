@@ -139,32 +139,25 @@ $(function(){initNavTree('HPOP_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a>&amp; spacecraftParam() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* propagationFrame() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    errc_t setPropagationFrame(<a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* frame);</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    errc_t setPropagationFrame(<a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* frame);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> setIntegrator(<a class="code hl_class" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a>* integrator);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> setIntegrator(<a class="code hl_class" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a>* integrator);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a>* getIntegrator() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_class" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a>* getIntegrator() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    errc_t propagate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, Vector3d&amp; position, Vector3d&amp; velocity);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    errc_t initialize();</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> addEventDetector(<a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>* eventDetector);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> clearEventDetectors();</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="classast_1_1HPOPEquation.html">HPOPEquation</a>* equation() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classast_1_1ScopedPtr.html">ScopedPtr&lt;HPOPEquation&gt;</a> equation_;       </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;ODEIntegrator&gt;</a> integrator_;   </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>};</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    errc_t propagate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, Vector3d&amp; position, Vector3d&amp; velocity);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    errc_t initialize();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_class" href="classast_1_1HPOPEquation.html">HPOPEquation</a>* equation() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classast_1_1ScopedPtr.html">ScopedPtr&lt;HPOPEquation&gt;</a> equation_;       </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;ODEIntegrator&gt;</a> integrator_;   </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
 </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1EventDetector_html"><div class="ttname"><a href="classast_1_1EventDetector.html">ast::EventDetector</a></div><div class="ttdoc">事件检测基类 事件检测基类，用于检测事件是否发生。 参考orekit的EventDetector类</div><div class="ttdef"><b>定义</b> EventDetector.hpp:39</div></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系类</div><div class="ttdef"><b>定义</b> Frame.hpp:60</div></div>
 <div class="ttc" id="aclassast_1_1HPOPEquation_html"><div class="ttname"><a href="classast_1_1HPOPEquation.html">ast::HPOPEquation</a></div><div class="ttdoc">高精度轨道预报方程</div><div class="ttdef"><b>定义</b> HPOPEquation.hpp:47</div></div>
 <div class="ttc" id="aclassast_1_1HPOPForceModel_html"><div class="ttname"><a href="classast_1_1HPOPForceModel.html">ast::HPOPForceModel</a></div><div class="ttdoc">高精度轨道预报力模型</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:49</div></div>
@@ -174,7 +167,7 @@ $(function(){initNavTree('HPOP_8hpp_source.html',''); initResizable(true); });
 <div class="ttc" id="aclassast_1_1ScopedPtr_html"><div class="ttname"><a href="classast_1_1ScopedPtr.html">ast::ScopedPtr</a></div><div class="ttdoc">作用域指针类</div><div class="ttdef"><b>定义</b> ScopedPtr.hpp:65</div></div>
 <div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdoc">共享指针</div><div class="ttdef"><b>定义</b> SharedPtr.hpp:33</div></div>
 <div class="ttc" id="aclassast_1_1SpacecraftParam_html"><div class="ttname"><a href="classast_1_1SpacecraftParam.html">ast::SpacecraftParam</a></div><div class="ttdoc">航天器参数</div><div class="ttdef"><b>定义</b> SpacecraftParam.hpp:34</div></div>
-<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:107</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:106</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

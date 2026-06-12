@@ -1,7 +1,5 @@
 var NAVTREEINDEX43 =
 {
-"group__Coordinate.html#ga226c2de1691c1af853b19016b1d00a7a":[0,1,0,24],
-"group__Coordinate.html#ga246634a2196a285578700eced82c4a86":[0,1,0,126],
 "group__Coordinate.html#ga27c8cca4e2542e9623118d3ae06b5573":[0,1,0,84],
 "group__Coordinate.html#ga291b8893466d5b1f74e8928852436fe1":[0,1,0,66],
 "group__Coordinate.html#ga3426471e9b8ee911545ee3c753d44cdf":[0,1,0,27],
@@ -249,5 +247,7 @@ var NAVTREEINDEX43 =
 "group__Orbit.html#ga447d01eee78a7a4e84210ae7807da084":[0,1,4,50],
 "group__Orbit.html#ga47974f14a1bc83c30975f44c88ea0294":[0,1,4,116],
 "group__Orbit.html#ga491f5f840f26af3a6042c7ceba0cd0bd":[0,1,4,54],
-"group__Orbit.html#ga54c44d7c9f1fe6bc91b811685bb31209":[0,1,4,36]
+"group__Orbit.html#ga54c44d7c9f1fe6bc91b811685bb31209":[0,1,4,36],
+"group__Orbit.html#ga58481d4e11cac545c86b73019e854e59":[0,1,4,97],
+"group__Orbit.html#ga5a27e254cd6677e0e9adb782ad6797e1":[0,1,4,40]
 };

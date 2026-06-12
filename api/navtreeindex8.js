@@ -1,14 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"OpBinPredefined_8hpp_source.html":[4,0,0,16,7,0,4],
-"OpBinRegistry_8cpp.html":[4,0,0,16,7,0,5],
-"OpBinRegistry_8hpp.html":[4,0,0,16,7,0,6],
-"OpBinRegistry_8hpp_source.html":[4,0,0,16,7,0,6],
-"OpBin_8cpp.html":[4,0,0,16,7,5],
-"OpBin_8hpp.html":[4,0,0,16,7,6],
-"OpBin_8hpp_source.html":[4,0,0,16,7,6],
-"OpUnaryPredefined_8cpp.html":[4,0,0,16,7,0,7],
-"OpUnaryPredefined_8cpp.html#a125a6a178f1e60bafd6b8db57c6ef50e":[4,0,0,16,7,0,7,3],
 "OpUnaryPredefined_8cpp.html#a22f4dc17208a30176dfa74870bfed0ea":[4,0,0,16,7,0,7,1],
 "OpUnaryPredefined_8cpp.html#a4b5d7bbb5a304ba130e8a121fa95b50d":[4,0,0,16,7,0,7,0],
 "OpUnaryPredefined_8cpp.html#ab8215bee1f7972135050c701e7536848":[4,0,0,16,7,0,7,4],
@@ -249,5 +240,14 @@ var NAVTREEINDEX8 =
 "Referenced_8cpp.html":[4,0,0,20,7,21],
 "Referenced_8hpp.html":[4,0,0,20,7,22],
 "Referenced_8hpp_source.html":[4,0,0,20,7,22],
-"RelativityCorrection_8cpp.html":[4,0,0,7,5,12]
+"RelativityCorrection_8cpp.html":[4,0,0,7,5,12],
+"RelativityCorrection_8hpp.html":[4,0,0,7,5,13],
+"RelativityCorrection_8hpp_source.html":[4,0,0,7,5,13],
+"RepeatingOrbitDesigner_8cpp.html":[4,0,0,7,7,4,13],
+"RepeatingOrbitDesigner_8hpp.html":[4,0,0,7,7,4,14],
+"RepeatingOrbitDesigner_8hpp_source.html":[4,0,0,7,7,4,14],
+"RepeatingSunSyncOrbitDesigner_8cpp.html":[4,0,0,7,7,4,15],
+"RepeatingSunSyncOrbitDesigner_8hpp.html":[4,0,0,7,7,4,16],
+"RepeatingSunSyncOrbitDesigner_8hpp_source.html":[4,0,0,7,7,4,16],
+"Resolve_8cpp.html":[4,0,0,7,9,4]
 };
