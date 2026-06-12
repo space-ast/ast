@@ -22,6 +22,7 @@
 #include "FeasibleRegionStudy.hpp"
 #include "AstScript/Expr.hpp"
 #include "AstUtil/Logger.hpp"
+#include <climits>
 
 AST_NAMESPACE_BEGIN
 
