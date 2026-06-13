@@ -90,17 +90,10 @@ std::string PilotCommander::executeSafe(const std::string& line)
 
 void PilotCommander::executeAsync(const std::string& line)
 {
-    if (qApp && QThread::currentThread() == qApp->thread())
-    {
-        dispatch(line);
-    }
-    else
-    {
-        std::string cmd = line;
-        QMetaObject::invokeMethod(qApp, [this, cmd]() {
-            dispatch(cmd);
-        }, Qt::QueuedConnection);
-    }
+    std::string cmd = line;
+    QMetaObject::invokeMethod(qApp, [this, cmd]() {
+        dispatch(cmd);
+    }, Qt::QueuedConnection);
 }
 
 // ============================================================

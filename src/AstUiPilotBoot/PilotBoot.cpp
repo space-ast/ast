@@ -22,6 +22,7 @@
 #include "AstUiPilot/PilotRecorder.hpp"
 #include "AstUiPilot/PilotCommander.hpp"
 #include "AstUiPilot/UiPilotConsole.hpp"
+#include "AstUiPilot/PilotPipeServer.hpp"
 #include <QApplication>
 #include <QMainWindow>
 #include <QDebug>
@@ -33,11 +34,12 @@
 AST_NAMESPACE_BEGIN
 
 // ---- 全局状态 ----
-static PilotAgent*     g_agent     = nullptr;
-static PilotSession*   g_session   = nullptr;
-static PilotRecorder*  g_recorder  = nullptr;
-static PilotCommander* g_commander = nullptr;
-static bool            g_initialized = false;
+static PilotAgent*       g_agent       = nullptr;
+static PilotSession*     g_session     = nullptr;
+static PilotRecorder*    g_recorder    = nullptr;
+static PilotCommander*   g_commander   = nullptr;
+static PilotPipeServer*  g_pipeServer  = nullptr;
+static bool              g_initialized = false;
 
 // ---- 前向声明 ----
 static void startConsoleIfRequested();
@@ -84,6 +86,19 @@ static void initUiPilot()
 
     // 7. 检查是否启用内嵌控制台（环境变量 AST_UIPILOT_CONSOLE=1）
     startConsoleIfRequested();
+
+    // 8. 启动 Named Pipe 服务（供外部 Injector 连接发送命令）
+    //    环境变量 AST_UIPILOT_NO_PIPE=1 可禁用
+    const char* noPipeEnv = std::getenv("AST_UIPILOT_NO_PIPE");
+    if (!noPipeEnv || std::string(noPipeEnv) != "1")
+    {
+        g_pipeServer = new PilotPipeServer(g_commander,
+            static_cast<unsigned long>(qApp->applicationPid()));
+        g_pipeServer->start();
+        qDebug() << "[AstUiPilotBoot] Pipe server started:"
+                 << PilotPipeServer::pipeName(
+                     static_cast<unsigned long>(qApp->applicationPid())).c_str();
+    }
 }
 
 // ============================================================
@@ -166,6 +181,8 @@ namespace {
                 g_session = nullptr;
                 delete g_recorder;
                 g_recorder = nullptr;
+                delete g_pipeServer;
+                g_pipeServer = nullptr;
                 delete g_agent;
                 g_agent = nullptr;
                 g_initialized = false;
@@ -228,4 +245,18 @@ static void __attribute__((constructor)) astUiPilotEntry()
     });
 }
 
+#endif
+
+// ============================================================
+//  PilotBootHookProc — 供 SetWindowsHookEx 使用的钩子过程
+//  当全局 WH_GETMESSAGE 钩子触发时，此函数在目标进程中执行。
+//  实际初始化工作由 DllMain → PollStarter → initUiPilot 完成，
+//  此函数仅将消息传递给下一个钩子。
+// ============================================================
+#ifdef Q_OS_WIN
+extern "C" __declspec(dllexport) LRESULT CALLBACK PilotBootHookProc(
+    int code, WPARAM wParam, LPARAM lParam)
+{
+    return CallNextHookEx(NULL, code, wParam, lParam);
+}
 #endif
