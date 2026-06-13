@@ -88,5 +88,5 @@ AST_NAMESPACE_END
 
 int main()
 {
-    return ast::testUiMotionTwoBody();
+    return _AST testUiMotionTwoBody();
 }

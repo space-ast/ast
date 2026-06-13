@@ -46,7 +46,10 @@ public:
     // ---- 生命周期 ----
     void start();
     void stop();
+    void pause();
+    void resume();
     bool isRecording() const { return recording_; }
+    bool isPaused()    const { return paused_; }
 
     // ---- 导出 ----
     int  stepCount() const { return steps_.size(); }
@@ -61,6 +64,8 @@ Q_SIGNALS:
     void stepRecorded(int index, const std::string& description);
     void recordingStarted();
     void recordingStopped();
+    void recordingPaused();
+    void recordingResumed();
 
 protected:
     bool eventFilter(QObject* obj, QEvent* event) override;
@@ -86,6 +91,7 @@ private:
     PilotAgent* agent_;
     QList<RecordStep> steps_;
     bool recording_ = false;
+    bool paused_    = false;
     int64_t startTime_ = 0;
 
     // 双击检测

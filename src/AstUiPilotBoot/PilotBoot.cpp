@@ -22,6 +22,7 @@
 #include "AstUiPilot/PilotRecorder.hpp"
 #include "AstUiPilot/PilotCommander.hpp"
 #include "AstUiPilot/UiPilotConsole.hpp"
+#include "AstUiPilot/UiPilotToolbar.hpp"
 #include "AstUiPilot/PilotPipeServer.hpp"
 #include <QApplication>
 #include <QMainWindow>
@@ -39,6 +40,8 @@ static PilotSession*     g_session     = nullptr;
 static PilotRecorder*    g_recorder    = nullptr;
 static PilotCommander*   g_commander   = nullptr;
 static PilotPipeServer*  g_pipeServer  = nullptr;
+static UiPilotToolbar*   g_toolbar     = nullptr;
+static UiPilotConsole*   g_console     = nullptr;
 static bool              g_initialized = false;
 
 // ---- 前向声明 ----
@@ -84,10 +87,19 @@ static void initUiPilot()
         g_commander->startStdinLoop();
     }
 
-    // 7. 检查是否启用内嵌控制台（环境变量 AST_UIPILOT_CONSOLE=1）
+    // 7. 浮动录制工具栏（默认启用，AST_UIPILOT_NO_TOOLBAR=1 禁用）
+    const char* noToolbarEnv = std::getenv("AST_UIPILOT_NO_TOOLBAR");
+    if (!noToolbarEnv || std::string(noToolbarEnv) != "1")
+    {
+        g_toolbar = new UiPilotToolbar(g_commander, g_session, g_recorder);
+        g_toolbar->show();
+        qDebug() << "[AstUiPilotBoot] Toolbar shown";
+    }
+
+    // 8. 检查是否启用内嵌控制台（环境变量 AST_UIPILOT_CONSOLE=1）
     startConsoleIfRequested();
 
-    // 8. 启动 Named Pipe 服务（供外部 Injector 连接发送命令）
+    // 9. 启动 Named Pipe 服务（供外部 Injector 连接发送命令）
     //    环境变量 AST_UIPILOT_NO_PIPE=1 可禁用
     const char* noPipeEnv = std::getenv("AST_UIPILOT_NO_PIPE");
     if (!noPipeEnv || std::string(noPipeEnv) != "1")
@@ -113,14 +125,24 @@ static void startConsoleIfRequested()
 
     // 延迟附加控制台：等待主窗口创建完成
     QTimer::singleShot(500, qApp, []() {
-        auto* console = new UiPilotConsole(g_commander);
-        if (!console->autoDock())
+        g_console = new UiPilotConsole(g_commander);
+        if (!g_console->autoDock())
         {
             // 没有 QMainWindow，作为独立窗口显示
-            console->setWindowTitle(QString::fromUtf8("Pilot Console"));
-            console->resize(600, 300);
-            console->show();
+            g_console->setWindowTitle(QString::fromUtf8("Pilot Console"));
+            g_console->resize(600, 300);
+            g_console->show();
         }
+
+        // 工具栏按钮 → 切换控制台可见性
+        if (g_toolbar && g_console)
+        {
+            QObject::connect(g_toolbar, &UiPilotToolbar::consoleToggleRequested,
+                g_console, [console = g_console]() {
+                    console->setVisible(!console->isVisible());
+                });
+        }
+
         qDebug() << "[AstUiPilotBoot] Console started";
     });
 }
@@ -177,6 +199,10 @@ namespace {
                     delete g_commander;
                     g_commander = nullptr;
                 }
+                delete g_toolbar;
+                g_toolbar = nullptr;
+                delete g_console;
+                g_console = nullptr;
                 delete g_session;
                 g_session = nullptr;
                 delete g_recorder;
@@ -235,10 +261,16 @@ static void __attribute__((constructor)) astUiPilotEntry()
             delete ast::g_commander;
             ast::g_commander = nullptr;
         }
+        delete ast::g_toolbar;
+        ast::g_toolbar = nullptr;
+        delete ast::g_console;
+        ast::g_console = nullptr;
         delete ast::g_session;
         ast::g_session = nullptr;
         delete ast::g_recorder;
         ast::g_recorder = nullptr;
+        delete ast::g_pipeServer;
+        ast::g_pipeServer = nullptr;
         delete ast::g_agent;
         ast::g_agent = nullptr;
         ast::g_initialized = false;

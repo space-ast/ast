@@ -62,6 +62,9 @@ UiPilotConsole::~UiPilotConsole()
 
 void UiPilotConsole::setupUi()
 {
+    // 标记为录制器排除对象，避免控制台自身的操作被录制
+    setProperty("ast_recorder_exclude", true);
+
     auto* layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(2);

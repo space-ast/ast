@@ -96,21 +96,62 @@ void PilotRecorder::stop()
 
     flushPendingEdit();
     recording_ = false;
+    paused_    = false;
 
     qApp->removeEventFilter(this);
 
     emit recordingStopped();
 }
 
+void PilotRecorder::pause()
+{
+    if (!recording_ || paused_) return;
+
+    flushPendingEdit();
+    paused_ = true;
+    qApp->removeEventFilter(this);
+
+    emit recordingPaused();
+}
+
+void PilotRecorder::resume()
+{
+    if (!recording_ || !paused_) return;
+
+    paused_ = false;
+    qApp->installEventFilter(this);
+
+    // 重新扫描新创建的控件
+    for (auto* top : QApplication::topLevelWidgets())
+        scanAndConnect(top, this);
+
+    emit recordingResumed();
+}
+
 // ============================================================
 //  eventFilter 入口
 // ============================================================
+
+static bool isRecorderExcluded(QWidget* w)
+{
+    while (w)
+    {
+        if (w->property("ast_recorder_exclude").toBool())
+            return true;
+        w = w->parentWidget();
+    }
+    return false;
+}
 
 bool PilotRecorder::eventFilter(QObject* obj, QEvent* event)
 {
     if (!recording_) return QObject::eventFilter(obj, event);
 
     QWidget* w = qobject_cast<QWidget*>(obj);
+
+    // 跳过 AstUiPilot 自身的 UI 控件（工具栏、控制台等）
+    if (w && isRecorderExcluded(w))
+        return QObject::eventFilter(obj, event);
 
     switch (event->type())
     {
