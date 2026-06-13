@@ -58,7 +58,7 @@ public:
     bool saveToFile(const std::string& path) const;
 
     // ---- LLM 润色 ----
-    std::string polish(PilotSession* session);
+    std::string polish();
 
 Q_SIGNALS:
     void stepRecorded(int index, const std::string& description);

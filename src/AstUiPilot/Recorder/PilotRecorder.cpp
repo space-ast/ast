@@ -6,8 +6,9 @@
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 
 #include "PilotRecorder.hpp"
-#include "../PilotAgent.hpp"
-#include "../PilotSession.hpp"
+#include "AstUiPilot/PilotAgent.hpp"
+#include "AstUiPilot/PilotSession.hpp"
+#include "AstUiPilot/PilotPolisher.hpp"
 #include "AstUtil/JsonValue.hpp"
 #include "AstUtil/IO.hpp"
 #include <QApplication>
@@ -529,44 +530,21 @@ bool PilotRecorder::saveToFile(const std::string& path) const
 }
 
 // ============================================================
-//  polish — LLM 润色
+//  polish — LLM 润色（使用独立的 PilotPolisher，不污染 PilotSession）
 // ============================================================
 
-std::string PilotRecorder::polish(PilotSession* session)
+
+std::string PilotRecorder::polish()
 {
     if (steps_.isEmpty()) return "";
 
-    // 收集模板步骤
-    std::ostringstream prompt;
-    prompt << u8"将以下操作步骤的描述润色为自然流畅的中文，每行以\"→ \"开头：\n\n";
-    for (int i = 0; i < steps_.size(); i++)
-    {
-        prompt << (i + 1) << ". " << steps_[i].toTemplate() << "\n";
-    }
-    prompt << u8"\n要求：删除控件类名，保留人类可读的描述，不要合并或遗漏步骤。";
+    PilotPolisher polisher;
+    std::vector<RecordStep> stepVec(steps_.begin(), steps_.end());
+    polisher.polish(stepVec);
 
-    // 调用 LLM
-    std::string result = session->execute(prompt.str());
-
-    // 解析结果，回填到步骤中
-    std::istringstream iss(result);
-    std::string line;
-    int idx = 0;
-    while (std::getline(iss, line))
-    {
-        // 跳过非步骤行
-        if (line.find("→") == std::string::npos) continue;
-        size_t pos = line.find("→");
-        std::string nl = line.substr(pos + 1);
-        // trim
-        while (!nl.empty() && nl.front() == ' ') nl.erase(0, 1);
-
-        if (idx < steps_.size())
-        {
-            steps_[idx].naturalLanguage = nl;
-            idx++;
-        }
-    }
+    // 回填 naturalLanguage
+    for (int i = 0; i < stepVec.size() && i < steps_.size(); i++)
+        steps_[i].naturalLanguage = stepVec[i].naturalLanguage;
 
     return toJson();
 }

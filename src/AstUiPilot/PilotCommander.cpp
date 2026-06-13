@@ -172,7 +172,7 @@ std::string PilotCommander::dispatch(const std::string& line)
         if (recorder_->stepCount() == 0)
             return "[录制] 没有步骤可润色";
 
-        std::string json = recorder_->polish(session_);
+        std::string json = recorder_->polish();
         recorder_->saveToFile("record_polished.json");
         return "[录制] 润色完成，已导出到 record_polished.json\n" + json;
     }

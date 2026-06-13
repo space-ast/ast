@@ -592,7 +592,7 @@ void UiPilotToolbar::onPolish()
     polishBtn_->setEnabled(false);
     polishBtn_->setText(QString::fromUtf8("💎 润色中..."));
 
-    recorder_->polish(session_);
+    recorder_->polish();
     rebuildStepListFromRecorder();
 
     recorder_->saveToFile("record_polished.json");

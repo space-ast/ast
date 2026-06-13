@@ -3,6 +3,7 @@
 #include "AstUiPilot/PilotCommander.hpp"
 #include "AstUiPilot/PilotPipeServer.hpp"
 #include "AstUiPilot/PilotPlayer.hpp"
+#include "AstUiPilot/PilotPolisher.hpp"
 #include "AstUiPilot/PilotRecorder.hpp"
 #include "AstUiPilot/PilotSession.hpp"
 #include "AstUiPilot/PilotUtil.hpp"
