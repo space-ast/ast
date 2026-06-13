@@ -1,4 +1,4 @@
-target("AstUiPilotLauncher")
+target("PilotLauncher")
     add_rules("ast.qt.widgetapp")
     add_files("**.cpp")
     add_deps("AstUiPilot", "AstGUI")
