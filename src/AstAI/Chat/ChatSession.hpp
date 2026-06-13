@@ -20,6 +20,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstAI/LLMConfig.hpp"
 #include "AstAI/OpenAI.hpp"
 #include "AstAI/ChatTool.hpp"
 #include "AstAI/ChatMessages.hpp"
@@ -53,18 +54,19 @@ public:
 
     /// @brief 发送消息，不会处理工具调用，直接返回响应消息
     /// @param message 用户消息
-    /// @return 响应内容，如果失败则返回 nullptr
-    const ChatMessage* sendMessage(StringView message);
+    /// @return 错误码，0表示成功，消息追加到messages_末尾
+    errc_t sendMessage(StringView message);
 
     /// @brief 执行工具调用循环
     /// @param message 含工具调用的输入消息
     /// @param maxIterForToolCalls 最大工具调用轮数
     /// @return 错误码，0表示成功，非0表示失败
+    /// @note message 引用的对象必须在调用期间保持有效（在handleToolCalls复制toolCalls之前）
     errc_t loopToolCalls(const ChatMessage& message, int maxIterForToolCalls = 100);
 
     /// @brief 处理工具调用
     /// @param message 含工具调用的输入消息
-    /// @return 错误码，0表示成功，非0表示失败
+    /// @note message 引用的对象必须在调用期间保持有效（在复制toolCalls之前）
     void handleToolCalls(const ChatMessage& message);
 
     /// @brief 设置系统提示
@@ -86,9 +88,14 @@ public:
     /// @brief 获取最后一次错误信息
     const std::string& lastError() const {return lastError_;}
 
+    /// @brief 获取LLM配置
+    LLMConfig& config() { return config_; }
+    /// @brief 获取LLM配置（只读）
+    const LLMConfig& config() const { return config_; }
+
     /// @brief 生成聊天完成响应
-    /// @return 响应内容，如果失败则返回 nullptr
-    const ChatMessage* makeChatCompletion();
+    /// @return 错误码，0表示成功，成功时响应消息追加到messages_末尾
+    errc_t makeChatCompletion();
 private:
 
     /// @brief 处理工具调用
@@ -100,6 +107,7 @@ private:
     std::string handleToolCall(const JsonValue& toolCall);
 
 private:
+    LLMConfig config_;                      ///< LLM请求配置（模型、温度等）
     OpenAI* client_{nullptr};               ///< 当前使用的AI接口
     OpenAI internalClient_;                 ///< 内部默认的AI接口
     ChatMessages messages_;                 ///< 消息历史

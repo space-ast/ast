@@ -35,42 +35,38 @@ ChatSession::ChatSession()
 
 std::string ChatSession::chat(StringView message, int maxIterForToolCalls)
 {
-    const ChatMessage* res = this->sendMessage(message);
-    if(res == nullptr)
+    errc_t rc = this->sendMessage(message);
+    if(rc != 0)
         return lastError_;
-    errc_t rc = this->loopToolCalls(*res, maxIterForToolCalls);
+    // sendMessage 成功后，assistant 回复位于 messages_ 末尾
+    rc = this->loopToolCalls(this->messages_.back(), maxIterForToolCalls);
     if(rc != 0)
         return lastError_;
     return this->messages_.back().content();
 }
 
-const ChatMessage* ChatSession::sendMessage(StringView message)
+errc_t ChatSession::sendMessage(StringView message)
 {
     this->messages_.addUserMessage(message);
     return this->makeChatCompletion();
 }
 
 
-const ChatMessage* ChatSession::makeChatCompletion()
+errc_t ChatSession::makeChatCompletion()
 {
-    /*
-    @todo 
-    模型名称和温度参数被硬编码在 makeChatCompletion 方法中。
-    这限制了会话的灵活性。需要将这些参数移动到 LLMConfig 中，
-    或者作为 ChatSession 的成员变量，以便在运行时进行配置。
-
-    @fixme
-    thinking 字段是 DeepSeek 特有的扩展参数。
-    如果将来切换到标准的 OpenAI 或其他服务商，该请求可能会因为包含未知字段而被拒绝。
-    需要根据当前使用的 Provider 动态添加此字段，或者将其放入配置项中。
-    */
-
     auto& client = this->client();
     JsonValue json;
     json["messages"] = this->messages_.toJson();
-    json["model"] = "deepseek-v4-flash";
-    json["temperature"] = 0.2;
-    json["thinking"]["type"] = "disabled";  // "enabled" or "disabled"
+    json["model"] = config_.model();
+    json["temperature"] = config_.temperature();
+    // 合并提供者特有的额外请求体字段（若无则跳过，保持对标准OpenAI的兼容性）
+    const auto& extra = config_.extraBody();
+    if(!extra.isNull() && extra.isObject())
+    {
+        if(!extra["thinking"].isNull())
+            json["thinking"] = extra["thinking"];
+        // 可在此处追加其他提供者特有字段
+    }
     json["stream"] = false;
     json["tools"] = tools_.toJson();
 
@@ -91,7 +87,7 @@ const ChatMessage* ChatSession::makeChatCompletion()
             std::string errorMsg = res["error"]["message"].toString();
             aError("response error: %s", errorMsg.c_str());
             lastError_ = errorMsg;
-            return nullptr;
+            return -1;
         }
         // ast_printf("res: %s\n", res.toJsonString().c_str());
         auto& choices = res["choices"];
@@ -99,7 +95,7 @@ const ChatMessage* ChatSession::makeChatCompletion()
         {
             aError("choices is empty or not array");
             lastError_ = "choices is empty or not array";
-            return nullptr;
+            return -1;
         }
         JsonValue& message = choices[0]["message"];
         std::string response = message["content"].toString();
@@ -110,21 +106,24 @@ const ChatMessage* ChatSession::makeChatCompletion()
             msg.setReasoningContent(message["reasoning_content"].toString());
         this->messages_.addMessage(msg);
 
-        return &this->messages_.back();
+        return 0;
     }
 }
 
 errc_t ChatSession::loopToolCalls(const ChatMessage& message, int maxIterForToolCalls)
 {
-    const ChatMessage* msg = &message;
+    // 在向量修改前复制 toolCalls，避免引用失效
+    JsonValue toolCalls = message.toolCalls();
     for(int i = 0; i < maxIterForToolCalls; i++)
     {
-        if(msg->hasToolCalls())
+        if(toolCalls.isArray() && toolCalls.size() > 0)
         {
-            this->handleToolCalls(*msg);
-            msg = this->makeChatCompletion();
-            if(msg == nullptr)
-                return -1;
+            this->handleToolCalls(toolCalls);
+            errc_t rc = this->makeChatCompletion();
+            if(rc != 0)
+                return rc;
+            // 从最新的 assistant 回复中获取新的 toolCalls
+            toolCalls = this->messages_.back().toolCalls();
         }
         else
         {

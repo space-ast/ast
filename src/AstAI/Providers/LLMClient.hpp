@@ -21,22 +21,35 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/JsonValue.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup Chat
     @{
 */
 
+class JsonValue;
+
 /// @brief     大语言模型客户端接口
-/// @details   该接口定义了大预言客户端的基本操作，包括发送请求、接收响应等。
-/// @note      该接口是抽象类，仅定义了基本的操作，具体实现需要根据不同的LLM模型进行。
+/// @details   子类只需实现一个纯虚方法即可完成对接
 class AST_AI_API LLMClient
 {
 public:
     LLMClient() = default;
     virtual ~LLMClient() = default;
+
+    /// @brief 发送聊天请求（纯虚接口，子类必须实现）
+    /// @param request 请求参数（JSON格式，包含messages、model、temperature等字段）
+    /// @param response 响应参数
+    /// @return 错误码，0表示成功
+    virtual errc_t chat(const JsonValue& request, JsonValue& response) = 0;
+
+    /// @brief 发送聊天请求（便捷封装，内部调用上面的虚方法）
+    /// @param request 请求参数
+    /// @return 响应内容，失败时返回包含error字段的JsonValue
+    JsonValue chat(const JsonValue& request);
 };
 
 /*! @} */

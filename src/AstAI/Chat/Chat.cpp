@@ -39,18 +39,29 @@ std::string aChat(StringView message)
 
 errc_t aChat(StringView message, std::string& response)
 {
-    // return aChatSession().sendMessage(message, response);
+    response = aChatSession().chat(message);
     return 0;
 }
 
 void aChatClearMessages()
 {
-
+    auto& msgs = aChatSession().messages();
+    // 保留系统提示词（如果第一条是系统消息），清除其余
+    if(!msgs.empty() && msgs.front().role() == EChatRole::eSystem)
+    {
+        ChatMessage sysMsg = msgs.front();
+        msgs.clear();
+        msgs.addMessage(sysMsg);
+    }
+    else
+    {
+        msgs.clear();
+    }
 }
 
 void aChatClearAllMessages()
 {
-    
+    aChatSession().messages().clear();
 }
 
 AST_NAMESPACE_END

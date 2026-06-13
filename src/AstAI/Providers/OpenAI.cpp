@@ -140,19 +140,6 @@ std::string OpenAI::chat(const std::string& model, const std::vector<ChatMessage
 #endif
 
 
-JsonValue OpenAI::chat(const JsonValue &request)
-{
-    JsonValue response;
-    errc_t error = chat(request, response);
-    if(error != 0)
-    {
-        aError("failed to call ai api for chat completions, error: %d", error);   
-        return JsonValue();
-    }
-    return response;
-}
-
-
 errc_t OpenAI::chat(const JsonValue &request, JsonValue &response)
 {
     // 确保 baseUrl 结尾没有斜杠

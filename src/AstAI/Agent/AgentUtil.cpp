@@ -24,6 +24,8 @@
 #include "AstUtil/PropertyVisitor.hpp"
 #include "AstUtil/PropertyAll.hpp"
 #include "AstCore/PropertyTimePoint.hpp"
+#include <cmath>
+#include <climits>
 
 
 AST_NAMESPACE_BEGIN
@@ -277,8 +279,8 @@ JsonValue aClassJsonSchema(Class* cls, int maxDepth)
 // 智能体工具函数
 //--------------
 
-// 初始化类别名
-bool aInitClassAliases()
+// 初始化类别名（在首次调用aFindClasses时自动执行）
+static bool aInitClassAliases()
 {
     aRegisterClass(aGetClass("MotionMissionCommand"), "MotionAstrogator");
     return true;
@@ -286,12 +288,19 @@ bool aInitClassAliases()
 
 JsonValue aFindClassesParamSchema()
 {
-    // static bool initialized = aInitClassAliases();
-    return JsonValue();
+    return u8R"(
+        {
+            "type": "object",
+            "properties": {},
+            "description": "查找所有可用的对象类型，无需参数"
+        }
+    )"_json;
 }
 
 std::string aFindClasses(const JsonValue& arguments)
 {
+    static bool aliasesInitialized = aInitClassAliases();
+    (void)aliasesInitialized;
     auto& classMap = aGetAllClasses();
     JsonValue json;
     for(auto& item : classMap)
@@ -493,9 +502,12 @@ std::string aSetObjectAttribute(const JsonValue& arguments)
     errc_t rc = 0;
     if(valueJson.isNumber()){
         double value = valueJson.toDouble();
-        if(fmod(value, 1.0) == 0.0)
+        // 使用floor判断是否为整数值，比fmod更可靠
+        double intPart;
+        if(std::modf(value, &intPart) == 0.0
+            && intPart >= INT_MIN && intPart <= INT_MAX)
         {
-            rc = prop->setValueInt(obj, static_cast<int>(value));
+            rc = prop->setValueInt(obj, static_cast<int>(intPart));
         }
         else{
             rc = prop->setValueDouble(obj, value);

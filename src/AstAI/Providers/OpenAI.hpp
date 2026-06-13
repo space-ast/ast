@@ -63,16 +63,13 @@ public:
     #endif
 public: // 底层json接口
 
-    /// @brief 聊天
-    /// @param request 请求参数
-    /// @return 响应参数
-    JsonValue chat(const JsonValue& request);
+    using LLMClient::chat;  // 引入基类便捷封装 chat(JsonValue)
 
     /// @brief 聊天
     /// @param request 请求参数
     /// @param response 响应参数
     /// @return 错误码
-    errc_t chat(const JsonValue& request, JsonValue& response);
+    errc_t chat(const JsonValue& request, JsonValue& response) override;
 
     /// @brief 设置API密钥
     /// @param apiKey API密钥

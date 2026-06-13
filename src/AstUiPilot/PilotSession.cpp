@@ -138,12 +138,13 @@ std::string PilotSession::execute(const std::string& command)
 
 static void chatCompletion(ChatSession& session, int depth)
 {
-    auto msg = session.makeChatCompletion();
-    if(msg == nullptr)
+    if(session.makeChatCompletion() != 0)
         return;
-    if(msg->hasToolCalls() && depth > 0)
+    // makeChatCompletion成功后，assistant回复位于messages_末尾
+    const ChatMessage& msg = session.messages().back();
+    if(msg.hasToolCalls() && depth > 0)
     {
-        session.handleToolCalls(*msg);
+        session.handleToolCalls(msg);
         if(depth > 0)
         {
             addQueued([&session, depth]() {
