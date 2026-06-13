@@ -1,4 +1,4 @@
-target("AstUiPilotInject")
+target("AstUiPilotBoot")
     add_rules("ast.qt.shared")
     set_kind("shared")
     add_files("**.cpp")

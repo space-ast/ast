@@ -1,5 +1,5 @@
 ///
-/// @file      PilotInject.cpp
+/// @file      PilotBoot.cpp
 /// @brief     注入入口：库加载时自动初始化 Agent + 交互通道
 /// @author    axel
 /// @date      2026-06-12
@@ -67,11 +67,11 @@ static void initUiPilot()
     if (recordEnv && (std::string(recordEnv) == "1" || std::string(recordEnv) == "true"))
     {
         g_recorder->start();
-        qDebug() << "[AstUiPilotInject] 录制已自动开始（AST_UIPILOT_RECORD=1）";
+        qDebug() << "[AstUiPilotBoot] 录制已自动开始（AST_UIPILOT_RECORD=1）";
     }
 
     g_initialized = true;
-    qDebug() << "[AstUiPilotInject] Agent initialized in process"
+    qDebug() << "[AstUiPilotBoot] Agent initialized in process"
              << qApp->applicationPid();
 
     // 6. 启动 stdin 命令监听循环（后台线程）
@@ -106,7 +106,7 @@ static void startConsoleIfRequested()
             console->resize(600, 300);
             console->show();
         }
-        qDebug() << "[AstUiPilotInject] Console started";
+        qDebug() << "[AstUiPilotBoot] Console started";
     });
 }
 
@@ -127,7 +127,7 @@ static void pollForQApp()
 
     if (!qApp)
     {
-        qWarning() << "[AstUiPilotInject] 超时：60秒内未检测到 QApplication";
+        qWarning() << "[AstUiPilotBoot] 超时：60秒内未检测到 QApplication";
         return;
     }
 
