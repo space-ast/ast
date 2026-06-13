@@ -2,3 +2,7 @@
 #include "AstUiPilot/PilotAgent.hpp"
 #include "AstUiPilot/PilotSession.hpp"
 #include "AstUiPilot/PilotUtil.hpp"
+#include "AstUiPilot/PilotCommander.hpp"
+#include "AstUiPilot/UiPilotConsole.hpp"
+#include "AstUiPilot/PilotRecorder.hpp"
+#include "AstUiPilot/PilotPlayer.hpp"

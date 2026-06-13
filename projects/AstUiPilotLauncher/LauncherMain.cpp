@@ -10,6 +10,8 @@
 #include "AstUiPilot/PilotSession.hpp"
 #include "AstUiPilot/PilotRecorder.hpp"
 #include "AstUiPilot/PilotPlayer.hpp"
+#include "AstUiPilot/PilotCommander.hpp"
+#include "AstUiPilot/UiPilotConsole.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Encode.hpp"
 #include <QApplication>
@@ -117,7 +119,7 @@ static std::string getFlagValue(int argc, char* argv[], const std::string& flag)
 
 // ---- 命令行模式 ----
 
-static int commandLineMode(PilotSession* session, const std::string& command)
+static int commandLineMode(PilotCommander* commander, const std::string& command)
 {
     ast_printf("[AstUiPilot] 指令: %s\n", command.c_str());
 
@@ -125,8 +127,7 @@ static int commandLineMode(PilotSession* session, const std::string& command)
     QApplication::processEvents();
     QTest::qWait(300);
 
-    // 直接在主线程执行（不通过 timer，避免事件循环重入）
-    std::string response = session->execute(command);
+    std::string response = commander->execute(command);
     ast_printf("%s\n", response.c_str());
 
     QApplication::processEvents();
@@ -141,174 +142,40 @@ static int replayMode(PilotSession* session, const std::string& scriptPath)
     QApplication::processEvents();
     QTest::qWait(500);
 
-    PilotPlayer player(session);
-    if (!player.loadScript(scriptPath))
+    auto* player = new PilotPlayer(session);
+    if (!player->loadScript(scriptPath))
     {
         ast_printf("[AstUiPilot] 无法加载脚本: %s\n", scriptPath.c_str());
+        delete player;
         return 1;
     }
 
-    ast_printf("[AstUiPilot] 共 %d 个步骤\n", player.totalSteps());
+    ast_printf("[AstUiPilot] 共 %d 个步骤\n", player->totalSteps());
 
-    QObject::connect(&player, &PilotPlayer::stepStarted,
+    QObject::connect(player, &PilotPlayer::stepStarted,
         [](int idx, const std::string& desc) {
             ast_printf("\n[步骤 %d] %s\n", idx + 1, desc.c_str());
         });
 
-    QObject::connect(&player, &PilotPlayer::stepCompleted,
-        [](int idx, const std::string& result) {
+    QObject::connect(player, &PilotPlayer::stepCompleted,
+        [](int idx, const std::string&) {
             ast_printf("[步骤 %d] ✓ 完成\n", idx + 1);
         });
 
-    QObject::connect(&player, &PilotPlayer::stepFailed,
+    QObject::connect(player, &PilotPlayer::stepFailed,
         [](int idx, const std::string& error) {
             ast_printf("[步骤 %d] ✗ 失败: %s\n", idx + 1, error.c_str());
         });
 
-    QObject::connect(&player, &PilotPlayer::playbackFinished,
-        [&]() { ast_printf("\n[AstUiPilot] 回放完成\n"); QApplication::quit(); });
+    QObject::connect(player, &PilotPlayer::playbackFinished,
+        [player]() {
+            ast_printf("\n[AstUiPilot] 回放完成\n");
+            player->deleteLater();
+            QApplication::quit();
+        });
 
-    player.play();
+    player->play();
     return qApp->exec();
-}
-
-// ---- 交互模式 ----
-
-static void commandLoop(PilotSession* session, PilotRecorder* recorder)
-{
-    ast_printf("\n========================================\n");
-    ast_printf("[AstUiPilot] Agent 已就绪 (交互模式)\n");
-    ast_printf("  snap              — 查看界面快照\n");
-    ast_printf("  rec start         — 开始录制\n");
-    ast_printf("  rec stop          — 停止录制并导出\n");
-    ast_printf("  rec export <path> — 导出到指定文件\n");
-    ast_printf("  rec polish        — LLM润色并导出\n");
-    ast_printf("  replay <path>     — 回放脚本\n");
-    ast_printf("  <自然语言>         — LLM 操控界面\n");
-    ast_printf("  quit              — 退出\n");
-    ast_printf("========================================\n\n");
-
-    std::string line;
-    while (g_running && std::getline(std::cin, line))
-    {
-        if (line.empty()) continue;
-
-        std::string utf8Line = line;
-
-        if (utf8Line == "quit" || utf8Line == "exit")
-        {
-            g_running = false;
-            if (recorder->isRecording()) 
-                recorder->stop();
-            QMetaObject::invokeMethod(qApp, "quit", Qt::QueuedConnection);
-            break;
-        }
-
-        if (utf8Line == "snap" || utf8Line == "snapshot")
-        {
-            QMetaObject::invokeMethod(qApp, []() {
-                ast_printf("%s\n", PilotAgent::instance()->snapshot().c_str());
-            }, Qt::BlockingQueuedConnection);
-            continue;
-        }
-
-        // ---- 录制命令 ----
-        if (utf8Line == "rec start")
-        {
-            QMetaObject::invokeMethod(qApp, [recorder]() {
-                recorder->start();
-                ast_printf("[录制] 已开始\n");
-            }, Qt::BlockingQueuedConnection);
-            continue;
-        }
-
-        if (utf8Line == "rec stop")
-        {
-            QMetaObject::invokeMethod(qApp, [recorder]() {
-                recorder->stop();
-                ast_printf("[录制] 已停止，共 %d 步\n", recorder->stepCount());
-                // 自动导出
-                std::string path = "record_output.json";
-                recorder->saveToFile(path);
-                ast_printf("[录制] 已导出到 %s\n", path.c_str());
-            }, Qt::BlockingQueuedConnection);
-            continue;
-        }
-
-        if (utf8Line.rfind("rec export ", 0) == 0)
-        {
-            std::string path = utf8Line.substr(11);
-            QMetaObject::invokeMethod(qApp, [recorder, path]() {
-                recorder->saveToFile(path);
-                ast_printf("[录制] 已导出到 %s\n", path.c_str());
-            }, Qt::BlockingQueuedConnection);
-            continue;
-        }
-
-        if (utf8Line == "rec polish")
-        {
-            QMetaObject::invokeMethod(qApp, [recorder, session]() {
-                if (recorder->stepCount() == 0) {
-                    ast_printf("[录制] 没有步骤可润色\n");
-                    return;
-                }
-                ast_printf("[录制] LLM 润色中...\n");
-                std::string json = recorder->polish(session);
-                ast_printf("[录制] 润色完成\n%s\n", json.c_str());
-                recorder->saveToFile("record_polished.json");
-                ast_printf("[录制] 已导出到 record_polished.json\n");
-            }, Qt::BlockingQueuedConnection);
-            continue;
-        }
-
-        // ---- 回放命令 ----
-        if (utf8Line.rfind("replay ", 0) == 0)
-        {
-            std::string path = utf8Line.substr(7);
-            QMetaObject::invokeMethod(qApp, [session, path]() {
-                PilotPlayer player(session);
-                if (!player.loadScript(path)) {
-                    ast_printf("[回放] 无法加载脚本: %s\n", path.c_str());
-                    return;
-                }
-                ast_printf("[回放] 共 %d 个步骤\n", player.totalSteps());
-
-                QObject::connect(&player, &PilotPlayer::stepStarted,
-                    [](int idx, const std::string& desc) {
-                        ast_printf("\n[步骤 %d] %s\n", idx + 1, desc.c_str());
-                    });
-                QObject::connect(&player, &PilotPlayer::stepCompleted,
-                    [](int, const std::string&) { ast_printf("  ✓\n"); });
-                QObject::connect(&player, &PilotPlayer::stepFailed,
-                    [](int, const std::string& err) { ast_printf("  ✗ %s\n", err.c_str()); });
-                QObject::connect(&player, &PilotPlayer::playbackFinished,
-                    []() { ast_printf("[回放] 完成\n"); });
-
-                player.play();
-            }, Qt::BlockingQueuedConnection);
-            continue;
-        }
-
-        if (utf8Line == "help")
-        {
-            ast_printf("命令:\n"
-                       "  snap / snapshot  — 查看界面快照\n"
-                       "  rec start        — 开始录制\n"
-                       "  rec stop         — 停止录制并导出\n"
-                       "  rec export <p>   — 导出到文件\n"
-                       "  rec polish       — LLM润色并导出\n"
-                       "  replay <path>    — 回放脚本\n"
-                       "  <自然语言>       — LLM 操控界面\n"
-                       "  quit / exit      — 退出\n");
-            continue;
-        }
-
-        // 自然语言指令
-        ast_printf("[AstUiPilot] 执行: %s\n", utf8Line.c_str());
-        QMetaObject::invokeMethod(qApp, [session, utf8Line]() {
-            session->chat(utf8Line);
-        }, Qt::BlockingQueuedConnection);
-    }
 }
 
 // ---- main ----
@@ -317,53 +184,80 @@ int main(int argc, char *argv[])
 {
     aQAppInit(argc, argv);
 
+    // 1. 创建核心组件
     auto* agent = new PilotAgent();
     qApp->installEventFilter(agent);
 
     auto* session = new PilotSession(agent);
     auto* recorder = new PilotRecorder(agent);
+    auto* commander = new PilotCommander(session, recorder);
 
+    // 2. 创建主窗口
     QMainWindow* mainWindow = aUiNewMainWindow();
     mainWindow->showMaximized();
 
     ast_printf("[AstUiPilot] PID=%lld Qt=%s\n",
                static_cast<long long>(qApp->applicationPid()), qVersion());
 
-    // 检测录制标记
+    // 3. 检测 --record 标记：自动开始录制
     if (hasFlag(argc, argv, "--record"))
     {
         recorder->start();
         ast_printf("[AstUiPilot] 录制已自动开始\n");
     }
 
-    // 回放模式
+    // 4. 检测 --console 标记：启用内嵌控制台
+    if (hasFlag(argc, argv, "--console"))
+    {
+        auto* console = new UiPilotConsole(commander);
+        if (!console->autoDock())
+        {
+            console->setWindowTitle(QString::fromUtf8("Pilot Console"));
+            console->resize(600, 300);
+            console->show();
+        }
+    }
+
+    // 5. 回放模式：--replay <script>
     std::string replayPath = getFlagValue(argc, argv, "--replay");
     if (!replayPath.empty())
     {
         return replayMode(session, replayPath);
     }
 
-    // 命令行模式
+    // 6. 命令行模式：-- 之后的所有参数作为单次指令
     std::string command = extractCommand(argc, argv);
     if (!command.empty())
     {
-        return commandLineMode(session, command);
+        return commandLineMode(commander, command);
     }
 
-    // 交互模式
+    // 7. 交互模式
     // 监听录制步骤
     QObject::connect(recorder, &PilotRecorder::stepRecorded,
         [](int idx, const std::string& desc) {
             ast_printf("  [%d] %s\n", idx + 1, desc.c_str());
         });
 
-    std::thread cmdThread(commandLoop, session, recorder);
-    cmdThread.detach();
+    // 监听退出请求
+    QObject::connect(commander, &PilotCommander::quitRequested,
+        qApp, [recorder]() {
+            g_running = false;
+            if (recorder->isRecording())
+                recorder->stop();
+            QApplication::quit();
+        });
+
+    // 启动 stdin 命令循环
+    commander->startStdinLoop();
 
     int ret = qApp->exec();
     g_running = false;
 
+    // 清理
+    commander->stop();
     if (recorder->isRecording()) recorder->stop();
+    delete commander;
     delete session;
     delete agent;
     return ret;

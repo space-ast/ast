@@ -131,7 +131,8 @@ std::string PilotSession::execute(const std::string& command)
     std::ostringstream ctxMsg;
     ctxMsg << "[当前界面快照]\n" << snap << "\n\n[用户指令]\n" << command;
 
-    return session().chat(ctxMsg.str());
+    this->chat(ctxMsg.str());
+    return {};
 }
 
 
