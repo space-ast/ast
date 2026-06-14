@@ -25,6 +25,7 @@
 #include "AstAI/ChatAgent.hpp"
 #include "AstAI/ChatMessages.hpp"
 #include "AstAI/TerminationCondition.hpp"
+#include <memory>
 
 AST_NAMESPACE_BEGIN
 
@@ -69,12 +70,6 @@ public:
 
     // —— 配置 ——
 
-    /// @brief 设置每个Agent每轮的最大推理步数（默认20）
-    void setMaxStepsPerAgent(int maxSteps) { maxStepsPerAgent_ = maxSteps; }
-
-    /// @brief 获取每个Agent每轮的最大推理步数
-    int maxStepsPerAgent() const { return maxStepsPerAgent_; }
-
     /// @brief 设置最大轮次数（默认100，防止无限循环）
     void setMaxRounds(int maxRounds) { maxRounds_ = maxRounds; }
 
@@ -89,7 +84,6 @@ private:
     std::vector<ChatAgent*> agents_;
     ChatMessages messages_;
     std::unique_ptr<TerminationCondition> terminationCondition_;
-    int maxStepsPerAgent_ = 20;
     int maxRounds_ = 100;
 };
 

@@ -36,6 +36,7 @@
 #include "AstAI/LLMConfig.hpp"
 #include "AstAI/ChatMessage.hpp"
 #include "AstAI/ChatMessages.hpp"
+#include "AstAI/AssistantAgent.hpp"
 #include <iostream>
 #include <cstdlib>
 
@@ -101,7 +102,7 @@ int main()
     printSeparator("创建 Agent");
 
     // Architect - 架构师
-    ChatAgent architect;
+    AssistantAgent architect;
     architect.setName("Architect");
     architect.setSystemPrompt(
         "你是一位资深系统架构师，擅长高并发分布式系统设计。\n"
@@ -116,7 +117,7 @@ int main()
     std::cout << "✓ Architect (架构师) 已创建\n";
 
     // Reviewer - 评审者
-    ChatAgent reviewer;
+    AssistantAgent reviewer;
     reviewer.setName("Reviewer");
     reviewer.setSystemPrompt(
         "你是一位严格的技术评审，关注以下维度：\n"
@@ -131,7 +132,7 @@ int main()
     std::cout << "✓ Reviewer (评审者) 已创建\n";
 
     // PM - 产品经理
-    ChatAgent pm;
+    AssistantAgent pm;
     pm.setName("PM");
     pm.setSystemPrompt(
         "你是产品经理，关注用户体验和业务需求：\n"
@@ -158,7 +159,6 @@ int main()
     team.addAgent(&pm);
     team.setTerminationCondition(std::move(termination));
     team.setMaxRounds(10);   // 安全上限，防止无限循环
-    team.setMaxStepsPerAgent(15);
 
     std::cout << "团队配置: Architect → Reviewer → PM (轮询)\n";
     std::cout << "最大轮次: 10 | 每Agent最大步数: 15\n\n";

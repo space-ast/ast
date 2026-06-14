@@ -109,16 +109,20 @@ public:
 
     // —— 交互 ——
 
-    /// @brief 执行单步推理
-    /// @param messages 消息历史
-    /// @return 错误码，0表示成功
-    errc_t runOneStep(ChatMessages& messages);
+    errc_t run(ChatMessages& messages) override;
+
 
     /// @brief 执行多步推理（包含工具调用循环）
     /// @param messages 消息历史
     /// @param maxSteps 最大推理步数
     /// @return 错误码，0表示成功
-    errc_t run(ChatMessages& messages, int maxSteps = 20);
+    errc_t run(ChatMessages& messages, int maxSteps);
+
+    /// @brief 执行单步推理
+    /// @param messages 消息历史
+    /// @return 错误码，0表示成功
+    errc_t runOneStep(ChatMessages& messages);
+
 
     /// @brief 处理工具调用
     /// @param toolCalls 工具调用数组
@@ -138,8 +142,9 @@ private:
     std::string                    systemPrompt_;
     ChatTools                      tools_;
     LLMConfig                      config_;
-    std::unique_ptr<LLMClient>     client_;       ///< LLM客户端（run()前必须设置）
-    std::string                    lastError_;    ///< 最后一次错误信息
+    std::unique_ptr<LLMClient>     client_;                 ///< LLM客户端（run()前必须设置）
+    std::string                    lastError_;              ///< 最后一次错误信息
+    int                            maxToolIterations_{10};  ///< 最大工具调用次数（默认10次）
 };
 
 /*! @} */

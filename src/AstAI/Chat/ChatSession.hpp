@@ -26,6 +26,7 @@
 #include "AstAI/ChatTool.hpp"
 #include "AstAI/ChatMessages.hpp"
 #include "AstAI/ChatTools.hpp"
+#include "AstAI/AssistantAgent.hpp"
 #include <string>
 #include <vector>
 #include <functional>
@@ -37,7 +38,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-
+class AssistantAgent;
 
 /// @brief 聊天会话
 class AST_AI_API ChatSession {
@@ -68,10 +69,10 @@ public:
 
     /// @brief 获取聊天智能体
     /// @return 聊天智能体
-    ChatAgent& agent() const;
+    AssistantAgent& agent() const;
 
     /// @brief 设置聊天智能体（转移所有权）
-    void setAgent(std::unique_ptr<ChatAgent> agent){agent_ = std::move(agent);}
+    void setAgent(std::unique_ptr<AssistantAgent> agent){agent_ = std::move(agent);}
 
     /// @brief 获取工具集合
     /// @return 工具集合
@@ -97,8 +98,8 @@ public:
     void handleToolCalls(const JsonValue& toolCalls);
 
 private:
-    mutable std::unique_ptr<ChatAgent> agent_;      ///< 聊天智能体
-    ChatMessages messages_;                         ///< 消息历史
+    mutable std::unique_ptr<AssistantAgent> agent_;     ///< 助手智能体
+    ChatMessages messages_;                             ///< 消息历史
 };
 
 /*! @} */

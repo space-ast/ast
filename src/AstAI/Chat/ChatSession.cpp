@@ -22,6 +22,7 @@
 #include "AstUtil/JsonValue.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstAI/AssistantAgent.hpp"
 #include <ctime>
 
 AST_NAMESPACE_BEGIN
@@ -65,11 +66,11 @@ void ChatSession::handleToolCalls(const JsonValue& toolCalls)
     this->agent().handleToolCalls(toolCalls, messages_);
 }
 
-ChatAgent& ChatSession::agent() const
+AssistantAgent& ChatSession::agent() const
 {
     if(!agent_)
     {
-        agent_.reset(new ChatAgent());
+        agent_.reset(new AssistantAgent());
     }
     return *agent_.get();
 }

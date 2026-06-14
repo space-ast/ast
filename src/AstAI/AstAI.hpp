@@ -3,6 +3,7 @@
 #include "AstAI/AgentSession.hpp"
 #include "AstAI/AgentUtil.hpp"
 #include "AstAI/Anthropic.hpp"
+#include "AstAI/AssistantAgent.hpp"
 #include "AstAI/BaseGroupChat.hpp"
 #include "AstAI/Chat.hpp"
 #include "AstAI/ChatAgent.hpp"
@@ -18,3 +19,4 @@
 #include "AstAI/RoundRobinGroupChat.hpp"
 #include "AstAI/TerminationCondition.hpp"
 #include "AstAI/TextMentionTermination.hpp"
+#include "AstAI/UserProxyAgent.hpp"

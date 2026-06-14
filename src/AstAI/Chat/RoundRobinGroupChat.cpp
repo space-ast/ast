@@ -61,13 +61,10 @@ errc_t RoundRobinGroupChat::run(const ChatMessage& message, ChatMessage& respons
             ChatAgent* agent = agents_[i];
 
             // 让当前Agent执行推理（内部自动处理工具调用循环）
-            errc_t rc = agent->run(messages_, maxStepsPerAgent_);
+            errc_t rc = agent->run(messages_);
             if (rc != 0)
             {
-                aError("RoundRobinGroupChat::run: agent[%zu] \"%s\" failed with error %d",
-                       i,
-                       agent->name().empty() ? "(unnamed)" : agent->name().c_str(),
-                       rc);
+                aError("RoundRobinGroupChat::run: agent[%zu] failed", i);
                 return rc;
             }
 

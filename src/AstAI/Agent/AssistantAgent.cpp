@@ -145,6 +145,12 @@ errc_t AssistantAgent::runOneStep(ChatMessages& messages)
     return rc;
 }
 
+
+errc_t AssistantAgent::run(ChatMessages& messages)
+{
+    return this->run(messages, maxToolIterations_);
+}
+
 errc_t AssistantAgent::run(ChatMessages &messages, int maxSteps)
 {
     for(int i = 0; i < maxSteps; i++)
