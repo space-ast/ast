@@ -34,7 +34,8 @@ int main()
         char* str = fgets(buffer, sizeof(buffer), stdin);
         if (str && buffer[0] == '\n')
             continue;
-        AgentSession session;
+        ChatSession session;
+        session.setAgent(ChatAgent::NewSpaceEngineer());
         std::string response = session.chat(buffer);
         ast_printf("响应: %s\n", response.c_str());
     }

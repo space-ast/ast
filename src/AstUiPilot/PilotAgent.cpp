@@ -580,6 +580,9 @@ void PilotAgent::walkWidgetTree(QWidget* root, int depth, int maxDepth,
 
 std::string PilotAgent::snapshot(int maxDepth)
 {
+    // 等待事件循环处理前序事件
+    QTest::qWait(50);
+
     // 检测模态对话框——只返回对话框
     QWidget* modal = activeModalDialog();
     if (modal)

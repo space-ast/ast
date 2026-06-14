@@ -21,6 +21,7 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QTableWidget>
 
 AST_NAMESPACE_BEGIN
 

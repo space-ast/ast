@@ -144,7 +144,7 @@ static void chatCompletion(ChatSession& session, int depth)
     const ChatMessage& msg = session.messages().back();
     if(msg.hasToolCalls() && depth > 0)
     {
-        session.handleToolCalls(msg);
+        session.handleToolCalls(msg.toolCalls());
         if(depth > 0)
         {
             addQueued([&session, depth]() {

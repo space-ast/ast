@@ -3,6 +3,7 @@
 #include "AstAI/AgentSession.hpp"
 #include "AstAI/AgentUtil.hpp"
 #include "AstAI/Anthropic.hpp"
+#include "AstAI/ChatAgent.hpp"
 #include "AstAI/Chat.hpp"
 #include "AstAI/ChatMessage.hpp"
 #include "AstAI/ChatMessages.hpp"

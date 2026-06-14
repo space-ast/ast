@@ -20,6 +20,8 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstAI/LLMClient.hpp"
+#include "AstAI/ChatAgent.hpp"
 #include "AstAI/LLMConfig.hpp"
 #include "AstAI/OpenAI.hpp"
 #include "AstAI/ChatTool.hpp"
@@ -57,18 +59,6 @@ public:
     /// @return 错误码，0表示成功，消息追加到messages_末尾
     errc_t sendMessage(StringView message);
 
-    /// @brief 执行工具调用循环
-    /// @param message 含工具调用的输入消息
-    /// @param maxIterForToolCalls 最大工具调用轮数
-    /// @return 错误码，0表示成功，非0表示失败
-    /// @note message 引用的对象必须在调用期间保持有效（在handleToolCalls复制toolCalls之前）
-    errc_t loopToolCalls(const ChatMessage& message, int maxIterForToolCalls = 100);
-
-    /// @brief 处理工具调用
-    /// @param message 含工具调用的输入消息
-    /// @note message 引用的对象必须在调用期间保持有效（在复制toolCalls之前）
-    void handleToolCalls(const ChatMessage& message);
-
     /// @brief 设置系统提示
     /// @param systemPrompt 系统提示
     void setSystemPrompt(StringView systemPrompt);
@@ -77,42 +67,39 @@ public:
     /// @return 消息历史
     ChatMessages& messages(){return messages_;}
 
+    /// @brief 获取聊天智能体
+    /// @return 聊天智能体
+    ChatAgent& agent() const;
+
+    /// @brief 设置聊天智能体
+    void setAgent(ChatAgent* agent){agent_.reset(agent);}
+
     /// @brief 获取工具集合
     /// @return 工具集合
-    ChatTools& tools(){return tools_;}
+    ChatTools& tools(){return agent().tools();}
 
     /// @brief 获取当前使用的AI接口
-    /// @note 目前还不支持指定或者切换client，只能使用对象内部默认的AI接口
-    OpenAI& client();
+    LLMClient& client(){return agent().client();}
 
     /// @brief 获取最后一次错误信息
-    const std::string& lastError() const {return lastError_;}
+    const std::string& lastError() const {return agent().lastError();}
 
     /// @brief 获取LLM配置
-    LLMConfig& config() { return config_; }
+    LLMConfig& config() { return agent().config(); }
     /// @brief 获取LLM配置（只读）
-    const LLMConfig& config() const { return config_; }
+    const LLMConfig& config() const { return agent().config(); }
 
     /// @brief 生成聊天完成响应
     /// @return 错误码，0表示成功，成功时响应消息追加到messages_末尾
     errc_t makeChatCompletion();
-private:
 
     /// @brief 处理工具调用
     /// @param toolCalls 工具调用列表
     void handleToolCalls(const JsonValue& toolCalls);
 
-    /// @brief 处理单个工具调用
-    /// @param toolCall 单个工具调用
-    std::string handleToolCall(const JsonValue& toolCall);
-
 private:
-    LLMConfig config_;                      ///< LLM请求配置（模型、温度等）
-    OpenAI* client_{nullptr};               ///< 当前使用的AI接口
-    OpenAI internalClient_;                 ///< 内部默认的AI接口
-    ChatMessages messages_;                 ///< 消息历史
-    ChatTools tools_;                       ///< 工具集合
-    std::string lastError_;                 ///< 最后一次错误信息
+    mutable std::unique_ptr<ChatAgent> agent_;      ///< 聊天智能体
+    ChatMessages messages_;                         ///< 消息历史
 };
 
 /*! @} */
