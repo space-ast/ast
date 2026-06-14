@@ -20,6 +20,7 @@
 
 #include "Network.hpp"
 #include "NetworkInterface.hpp"
+#include "NetworkStreamReceiver.hpp"
 #include "AstUtil/NetworkImplWinHTTP.hpp"
 #include "AstUtil/NetworkImplWinINet.hpp"
 #include "AstUtil/NetworkImplCurlCmd.hpp"
@@ -94,6 +95,17 @@ errc_t aNetworkRequest(const NetworkRequest& request, NetworkResponse& response)
     return s_interface->request(request, response);
 }
 
+
+errc_t aNetworkRequestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver)
+{
+    if (s_interface == nullptr)
+    {
+        s_interface = aNetworkGetImplDefault();
+        if (s_interface == nullptr)
+            return eErrorNullPtr;
+    }
+    return s_interface->requestStream(request, receiver);
+}
 
 
 AST_NAMESPACE_END

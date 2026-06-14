@@ -20,6 +20,7 @@
 
 #include "AstAI/AgentSession.hpp"
 #include "AstAI/ChatAgent.hpp"
+#include "AstAI/AssistantAgent.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstSim/Satellite.hpp"
 #include <memory>
@@ -37,7 +38,7 @@ int main()
         if (str && buffer[0] == '\n')
             continue;
         ChatSession session;
-        session.setAgent(std::unique_ptr<ChatAgent>(ChatAgent::NewSpaceEngineer()));
+        session.setAgent(std::unique_ptr<AssistantAgent>(AssistantAgent::NewSpaceEngineer()));
         std::string response = session.chat(buffer);
         ast_printf("响应: %s\n", response.c_str());
     }

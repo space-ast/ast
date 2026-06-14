@@ -66,4 +66,11 @@ errc_t UserProxyAgent::run(ChatMessages& messages)
 }
 
 
+errc_t UserProxyAgent::runStream(ChatMessages& messages, ChatEventHandler& handler)
+{
+    A_UNUSED(handler);
+    return run(messages);
+}
+
+
 AST_NAMESPACE_END

@@ -45,7 +45,7 @@ NetworkImplWinHTTP::~NetworkImplWinHTTP()
     delete impl_;
 }
 
-errc_t NetworkImplWinHTTP::request(const NetworkRequest& /*request*/, NetworkResponse& /*response*/)
+errc_t NetworkImplWinHTTP::requestStream(const NetworkRequest& /*request*/, NetworkStreamReceiver& /*receiver*/)
 {
     return eErrorNotInit;
 }
@@ -61,6 +61,7 @@ AST_NAMESPACE_END
 
 #include "NetworkImplWinHTTP.hpp"
 #include "AstUtil/NetworkInterface.hpp"
+#include "AstUtil/NetworkStreamReceiver.hpp"
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstUtil/Encode.hpp"
 #include "AstUtil/Logger.hpp"
@@ -187,7 +188,8 @@ NetworkImplWinHTTP::~NetworkImplWinHTTP() {
 
 /* ---- 核心请求方法 ---- */
 
-errc_t NetworkImplWinHTTP::request(const NetworkRequest& request, NetworkResponse& response) {
+errc_t NetworkImplWinHTTP::requestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver)
+{
     if (!impl_->isLoaded()) {
         return eErrorNotInit;
     }
@@ -326,9 +328,9 @@ errc_t NetworkImplWinHTTP::request(const NetworkRequest& request, NetworkRespons
     DWORD statusCode = 0;
     DWORD statusCodeSize = sizeof(statusCode);
     impl_->winHttpQueryHeaders_(hRequest, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER, WINHTTP_HEADER_NAME_BY_INDEX, &statusCode, &statusCodeSize, NULL);
-    response.setStatusCode(static_cast<int>(statusCode));
 
-    // ---- 正确解析响应头（一次获取全部原始头，手动拆分） ----
+    // 解析响应头
+    std::map<std::string, std::string> respHeaders;
     DWORD headerSize = 0;
     impl_->winHttpQueryHeaders_(hRequest, WINHTTP_QUERY_RAW_HEADERS_CRLF, WINHTTP_HEADER_NAME_BY_INDEX, NULL, &headerSize, NULL);
     if (GetLastError() == ERROR_INSUFFICIENT_BUFFER && headerSize > 0) {
@@ -363,7 +365,7 @@ errc_t NetworkImplWinHTTP::request(const NetworkRequest& request, NetworkRespons
                         } else {
                             value.clear();
                         }
-                        response.addHeader(key, value);
+                        respHeaders[key] = value;
                     }
                     // 续行（obsolete）暂不处理，因为现代服务器几乎不使用
                 }
@@ -371,14 +373,20 @@ errc_t NetworkImplWinHTTP::request(const NetworkRequest& request, NetworkRespons
         }
     }
 
-    // 读取响应体
-    std::string responseBody;
-    char buffer[1024];
+    // 通知响应头
+    receiver.onHeaders(static_cast<int>(statusCode), respHeaders);
+
+    // 流式读取响应体
+    char buffer[4096];
     DWORD bytesRead;
-    while (impl_->winHttpReadData_(hRequest, buffer, sizeof(buffer), &bytesRead) && bytesRead > 0) {
-        responseBody.append(buffer, bytesRead);
+    while (impl_->winHttpReadData_(hRequest, buffer, sizeof(buffer), &bytesRead) && bytesRead > 0)
+    {
+        errc_t rc = receiver.onData(buffer, static_cast<size_t>(bytesRead));
+        if (rc != 0)
+            break;  // 接收器取消
     }
-    response.setBody(responseBody);
+
+    receiver.onDone();
 
     // 清理资源
     impl_->winHttpCloseHandle_(hRequest);

@@ -44,7 +44,7 @@ NetworkImplWinINet::~NetworkImplWinINet()
     delete impl_;
 }
 
-errc_t NetworkImplWinINet::request(const NetworkRequest& /*request*/, NetworkResponse& /*response*/)
+errc_t NetworkImplWinINet::requestStream(const NetworkRequest& /*request*/, NetworkStreamReceiver& /*receiver*/)
 {
     return eErrorNotInit;
 }
@@ -62,6 +62,7 @@ AST_NAMESPACE_END
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstUtil/Encode.hpp"      // for aWideToUtf8
 #include "AstUtil/StringUtil.hpp"
+#include "AstUtil/NetworkStreamReceiver.hpp"
 
 #include <windows.h>
 #include <wininet.h>
@@ -190,7 +191,7 @@ NetworkImplWinINet::~NetworkImplWinINet() {
 
 /* ---- 核心请求方法 ---- */
 
-errc_t NetworkImplWinINet::request(const NetworkRequest& request, NetworkResponse& response)
+errc_t NetworkImplWinINet::requestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver)
 {
     if (!impl_->isLoaded()) {
         return eErrorNotInit;
@@ -343,9 +344,9 @@ errc_t NetworkImplWinINet::request(const NetworkRequest& request, NetworkRespons
         &statusCodeSize,
         NULL
     );
-    response.setStatusCode(static_cast<int>(statusCode));
 
-    // 正确解析响应头：一次获取全部原始头（宽字符），然后按行解析
+    // 解析响应头
+    std::map<std::string, std::string> respHeaders;
     DWORD headerSize = 0;
     impl_->httpQueryInfoW_(hRequest, HTTP_QUERY_RAW_HEADERS_CRLF, NULL, &headerSize, NULL);
     if (GetLastError() == ERROR_INSUFFICIENT_BUFFER && headerSize > 0) {
@@ -377,21 +378,26 @@ errc_t NetworkImplWinINet::request(const NetworkRequest& request, NetworkRespons
                         } else {
                             value.clear();
                         }
-                        response.addHeader(key, value);
+                        respHeaders[key] = value;
                     }
                 }
             }
         }
     }
 
-    // 读取响应体（二进制数据，无需宽字符处理）
-    std::string responseBody;
-    char buffer[1024];
+    // 通知响应头
+    receiver.onHeaders(static_cast<int>(statusCode), respHeaders);
+
+    // 流式读取响应体
+    char buffer[4096];
     DWORD bytesRead;
     while (impl_->internetReadFile_(hRequest, buffer, sizeof(buffer), &bytesRead) && bytesRead > 0) {
-        responseBody.append(buffer, bytesRead);
+        errc_t rc = receiver.onData(buffer, static_cast<size_t>(bytesRead));
+        if (rc != 0)
+            break;
     }
-    response.setBody(responseBody);
+
+    receiver.onDone();
 
     // 清理资源
     impl_->internetCloseHandle_(hRequest);

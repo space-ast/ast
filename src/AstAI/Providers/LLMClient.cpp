@@ -20,6 +20,7 @@
 
 #include "LLMClient.hpp"
 #include "AstUtil/JsonValue.hpp"
+#include "AstAI/ChatEventHandler.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -34,6 +35,15 @@ JsonValue LLMClient::chat(const JsonValue& request)
         return errorRes;
     }
     return response;
+}
+
+
+errc_t LLMClient::chatStream(const JsonValue& /*request*/,
+                              ChatEventHandler& handler,
+                              JsonValue& /*accumulatedResult*/)
+{
+    handler.onError("streaming not implemented for this provider");
+    return -1;
 }
 
 AST_NAMESPACE_END

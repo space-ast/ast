@@ -21,13 +21,57 @@
 
 #include "OpenAI.hpp"
 #include "AstUtil/Network.hpp"
+#include "AstUtil/NetworkStreamReceiver.hpp"
 #include "AstUtil/JsonValue.hpp"
 #include "AstUtil/Posix.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstAI/ChatEventHandler.hpp"
+#include "SSEParser.hpp"
 #include <sstream>
 #include <iostream>
 
 AST_NAMESPACE_BEGIN
+
+
+// ── OpenAI::chatStream() ─────────────────────────────────────────────
+
+errc_t OpenAI::chatStream(const JsonValue& request,
+                          ChatEventHandler& handler,
+                          JsonValue& accumulatedResult)
+{
+    // 1. 确保使用流式模式
+    JsonValue streamRequest;
+    std::string jsonStr = request.toJsonString();
+    streamRequest.parseFromString(jsonStr);
+    streamRequest["stream"] = true;
+
+    // 2. 构建网络请求
+    std::string baseUrl = this->baseUrl();
+    if (!baseUrl.empty() && baseUrl.back() == '/')
+        baseUrl.pop_back();
+
+    NetworkRequest networkRequest;
+    networkRequest.setMethod(ENetworkRequestMethod::ePost);
+    networkRequest.setUrl(baseUrl + "/chat/completions");
+    networkRequest.setBody(streamRequest.toJsonString());
+    networkRequest.addHeader("Content-Type", "application/json");
+    if (!apiKey().empty())
+        networkRequest.addHeader("Authorization", "Bearer " + apiKey());
+
+    // 3. 发送流式请求
+    SSEParser sseParser(handler);
+    errc_t error = aNetworkRequestStream(networkRequest, sseParser);
+    if (error != 0)
+    {
+        handler.onError("network request failed, error code: " + std::to_string(error));
+        return error;
+    }
+
+    // 4. 构建累计结果（与非流式 chat() 返回格式相同）
+    accumulatedResult = sseParser.buildResult();
+
+    return 0;
+}
 
 
 OpenAI::OpenAI() 

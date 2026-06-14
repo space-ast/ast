@@ -22,6 +22,7 @@
 #include "NetworkImplCurlCmd.hpp"
 #include "AstUtil/NetworkRequest.hpp"
 #include "AstUtil/NetworkResponse.hpp"
+#include "AstUtil/NetworkStreamReceiver.hpp"
 #include <cstdio>
 #include <cstdlib>
 #include <string>
@@ -109,14 +110,14 @@ NetworkImplCurlCmd* NetworkImplCurlCmd::Instance()
     return &instance;
 }
 
-errc_t NetworkImplCurlCmd::request(const NetworkRequest& request, NetworkResponse& response)
+errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver)
 {
     // 如果没有 URL，直接返回错误
     if (request.url().empty())
         return -1;
 
-    // 构建 curl 命令参数
-    std::string command = "curl -s -S -i -L";  // -L 跟随重定向
+    // 构建 curl 命令参数: -L 跟随重定向 -N 禁用输出缓冲
+    std::string command = "curl -s -S -i -L -N";  
 
     // 请求方法
     command += " -X " + std::string(methodToString(request.method()));
@@ -173,71 +174,84 @@ errc_t NetworkImplCurlCmd::request(const NetworkRequest& request, NetworkRespons
         return -3;
     }
 
-    // 读取全部输出
-    std::vector<char> buffer(4096);
-    std::string rawResponse;
-    while (std::fread(buffer.data(), sizeof(char), buffer.size(), pipe) > 0)
+    // 禁用管道缓冲以便及时读取
+    setvbuf(pipe, NULL, _IONBF, 0);
+
+    // Phase 1: 读取并解析 HTTP 响应头（直到遇到空行）
+    std::string headerBuf;
+    int statusCode = 0;
+    std::map<std::string, std::string> respHeaders;
+    bool headersDone = false;
+
+    char lineBuffer[8192];
+    while (!headersDone && std::fgets(lineBuffer, sizeof(lineBuffer), pipe))
     {
-        rawResponse.append(buffer.data());
+        std::string line(lineBuffer);
+        // 去除行尾的 \r\n 或 \n
+        while (!line.empty() && (line.back() == '\n' || line.back() == '\r'))
+            line.pop_back();
+
+        if (line.empty())
+        {
+            // 空行 = header/body 分隔
+            headersDone = true;
+            break;
+        }
+
+        // 状态行
+        if (line.find("HTTP/") == 0)
+        {
+            std::istringstream statusLine(line);
+            std::string httpVersion;
+            statusLine >> httpVersion >> statusCode;
+        }
+        else
+        {
+            // 头部行
+            size_t colonPos = line.find(':');
+            if (colonPos != std::string::npos)
+            {
+                std::string key = trim(line.substr(0, colonPos));
+                std::string value = trim(line.substr(colonPos + 1));
+                respHeaders[key] = value;
+            }
+        }
+    }
+
+    if (!headersDone)
+    {
+        int status = pclose(pipe);
+        if (!tmpFilePath.empty())
+            std::remove(tmpFilePath.c_str());
+        receiver.onError(-5);
+        return -5;
+    }
+
+    // 通知响应头
+    receiver.onHeaders(statusCode, respHeaders);
+
+    // Phase 2: 流式读取 body
+    char buffer[4096];
+    size_t bytesRead;
+    while ((bytesRead = std::fread(buffer, 1, sizeof(buffer), pipe)) > 0)
+    {
+        errc_t rc = receiver.onData(buffer, bytesRead);
+        if (rc != 0)
+            break;  // 接收器取消
     }
 
     int status = pclose(pipe);
     if (!tmpFilePath.empty())
         std::remove(tmpFilePath.c_str());
 
-    // 检查 curl 自身是否成功执行
+    receiver.onDone();
+
     if (status != 0)
         return -4;
 
-    // ---------- 解析 HTTP 响应 ----------
-    std::istringstream stream(rawResponse);
-    std::string line;
-
-    // 1. 状态行
-    if (!std::getline(stream, line))
-        return -5;
-    // 示例: "HTTP/1.1 200 OK"
-    line = trim(line);
-    if (line.empty())
-        return -5;
-    // 提取状态码（第二个字段）
-    std::istringstream statusLine(line);
-    std::string httpVersion;
-    int statusCode = 0;
-    statusLine >> httpVersion >> statusCode;
-    if (statusCode == 0)
-        return -6;
-    response.setStatusCode(statusCode);
-
-    // 2. 头部
-    std::map<std::string, std::string> respHeaders;
-    while (std::getline(stream, line))
-    {
-        line = trim(line);
-        if (line.empty())   // 空行表示头部结束
-            break;
-        size_t colonPos = line.find(':');
-        if (colonPos == std::string::npos)
-            continue;       // 忽略不合法行
-        std::string key = trim(line.substr(0, colonPos));
-        std::string value = trim(line.substr(colonPos + 1));
-        respHeaders[key] = value;
-    }
-    response.setHeaders(respHeaders);
-
-    // 3. 主体（剩余所有内容）
-    std::string body;
-    while (std::getline(stream, line))
-    {
-        body += line + "\n";
-    }
-    // 注意：如果原始响应没有最后的换行，上面会多一个 '\n'，但无伤大雅
-    if (!body.empty() && body.back() == '\n')
-        body.pop_back();   // 去掉最后多加的换行符
-    response.setBody(body);
-
     return 0;
 }
+
 
 bool NetworkImplCurlCmd::isSupported() const
 {

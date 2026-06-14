@@ -130,6 +130,7 @@
 %include "../AstUtil/Network/NetworkCookieJar.hpp"
 %include "../AstUtil/Network/NetworkResponse.hpp"
 %include "../AstUtil/Network/NetworkSession.hpp"
+%include "../AstUtil/Network/StreamReceiver.hpp"
 %include "../AstUtil/ParseFormat/BlockKeyValue/BKVNode.hpp"
 %include "../AstUtil/ParseFormat/BlockKeyValue/BKVTree.hpp"
 %include "../AstUtil/ParseFormat/Json/JsonSchema.hpp"

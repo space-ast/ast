@@ -43,7 +43,8 @@ public:
     
     virtual ~NetworkImplWinINet();
 
-    errc_t request(const NetworkRequest& request, NetworkResponse& response) override;
+
+    errc_t requestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver) override;
 
     /// @brief 检查是否支持该网络实现
     /// @return true 如果支持，false 否则

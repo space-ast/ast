@@ -45,6 +45,8 @@ public:
 
     errc_t run(ChatMessages& messages) override;
 
+    errc_t runStream(ChatMessages& messages, ChatEventHandler& handler) override;
+
     /// @brief 设置输入提示词
     void setPrompt(StringView prompt) { prompt_ = std::string(prompt); }
 

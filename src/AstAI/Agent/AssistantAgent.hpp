@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstAI/ChatAgent.hpp"
+#include "AstAI/ChatEventHandler.hpp"
 #include "AstAI/LLMClient.hpp"
 #include "AstAI/LLMConfig.hpp"
 #include "AstAI/ChatTool.hpp"
@@ -127,6 +128,28 @@ public:
     /// @brief 处理单个工具调用
     /// @param toolCall 单个工具调用
     std::string handleToolCall(const JsonValue& toolCall);
+
+    // —— 流式交互 ——
+    errc_t runStream(ChatMessages& messages, ChatEventHandler& handler) override;
+
+
+    /// @brief 执行多步推理（含工具调用循环，流式）
+    /// @details 每步推理调用 runOneStepStream()，实时分派文本/推理事件。
+    ///          工具调用请求和执行结果事件在各步之间触发。
+    /// @param messages 消息历史
+    /// @param handler  事件处理器
+    /// @param maxSteps 最大推理步数（默认 10）
+    /// @return 错误码，0表示成功
+    errc_t runStream(ChatMessages& messages, ChatEventHandler& handler, int maxSteps);
+
+
+    /// @brief 执行单步推理（流式）
+    /// @details 在 LLM 生成过程中实时分发事件到 handler。
+    ///          流式完成后将完整消息追加到 messages。
+    /// @param messages 消息历史
+    /// @param handler  事件处理器
+    /// @return 错误码，0表示成功
+    errc_t runOneStepStream(ChatMessages& messages, ChatEventHandler& handler);
 
     /// @brief 获取最后一次错误信息
     const std::string& lastError() const { return lastError_; }

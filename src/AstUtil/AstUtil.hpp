@@ -122,6 +122,7 @@
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/Span.hpp"
 #include "AstUtil/StartupConfig.hpp"
+#include "AstUtil/NetworkStreamReceiver.hpp"
 #include "AstUtil/String.hpp"
 #include "AstUtil/StringPosix.hpp"
 #include "AstUtil/StringSplit.hpp"

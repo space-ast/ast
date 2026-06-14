@@ -71,6 +71,15 @@ public: // 底层json接口
     /// @return 错误码
     errc_t chat(const JsonValue& request, JsonValue& response) override;
 
+    /// @brief 流式聊天（SSE）
+    /// @param request 请求参数（含 stream:true）
+    /// @param handler 事件处理器
+    /// @param accumulatedResult 累计响应（从 SSE deltas 重组的完整 JSON）
+    /// @return 错误码
+    errc_t chatStream(const JsonValue& request,
+                      ChatEventHandler& handler,
+                      JsonValue& accumulatedResult) override;
+
     /// @brief 设置API密钥
     /// @param apiKey API密钥
     void setApiKey(StringView apiKey){apiKey_ = std::string(apiKey);}
