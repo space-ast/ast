@@ -1,5 +1,5 @@
 ///
-/// @file      ChatAgent.cpp
+/// @file      AssistantAgent.cpp
 /// @brief     聊天智能体实现
 /// @author    axel
 /// @date      2026-06-13
@@ -17,7 +17,7 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "ChatAgent.hpp"
+#include "AssistantAgent.hpp"
 #include "AstAI/AgentInit.hpp"
 #include "AstUtil/JsonValue.hpp"
 #include "AstUtil/Logger.hpp"
@@ -31,19 +31,19 @@ AST_NAMESPACE_BEGIN
 
 // —— 工厂方法 ——
 
-ChatAgent ChatAgent::DefaultAgent()
+AssistantAgent AssistantAgent::DefaultAgent()
 {
-    return ChatAgent();
+    return AssistantAgent();
 }
 
-ChatAgent* ChatAgent::NewDefaultAgent()
+AssistantAgent* AssistantAgent::NewDefaultAgent()
 {
-    return new ChatAgent(DefaultAgent());
+    return new AssistantAgent(DefaultAgent());
 }
 
-ChatAgent ChatAgent::SpaceEngineer()
+AssistantAgent AssistantAgent::SpaceEngineer()
 {
-    ChatAgent agent;
+    AssistantAgent agent;
     agent.setSystemPrompt(aAgentSystemPrompt());
     aInitAgentTools(agent.tools());
     auto extraBody = R"(
@@ -57,73 +57,73 @@ ChatAgent ChatAgent::SpaceEngineer()
     return agent;
 }
 
-ChatAgent* ChatAgent::NewSpaceEngineer()
+AssistantAgent* AssistantAgent::NewSpaceEngineer()
 {
-    return new ChatAgent(SpaceEngineer());
+    return new AssistantAgent(SpaceEngineer());
 }
 
 
 // —— 构造函数 ——
 
-ChatAgent::ChatAgent(StringView systemPrompt)
+AssistantAgent::AssistantAgent(StringView systemPrompt)
     : systemPrompt_(systemPrompt.begin(), systemPrompt.end())
 {
 }
 
 // —— 身份 ——
 
-void ChatAgent::setSystemPrompt(StringView prompt)
+void AssistantAgent::setSystemPrompt(StringView prompt)
 {
     systemPrompt_ = std::string(prompt);
 }
 
-const std::string& ChatAgent::systemPrompt() const
+const std::string& AssistantAgent::systemPrompt() const
 {
     return systemPrompt_;
 }
 
-void ChatAgent::setName(StringView name)
+void AssistantAgent::setName(StringView name)
 {
     name_ = std::string(name);
 }
 
-const std::string& ChatAgent::name() const
+const std::string& AssistantAgent::name() const
 {
     return name_;
 }
 
 // —— 能力 ——
 
-void ChatAgent::addTool(std::unique_ptr<ChatTool> tool)
+void AssistantAgent::addTool(std::unique_ptr<ChatTool> tool)
 {
     tools_.addTool(std::move(tool));
 }
 
-ChatTools& ChatAgent::tools()
+ChatTools& AssistantAgent::tools()
 {
     return tools_;
 }
 
 // —— 配置 ——
 
-LLMConfig& ChatAgent::config()
+LLMConfig& AssistantAgent::config()
 {
     return config_;
 }
 
-const LLMConfig& ChatAgent::config() const
+const LLMConfig& AssistantAgent::config() const
 {
     return config_;
 }
 
 // —— 客户端 ——
 
-void ChatAgent::setClient(std::unique_ptr<LLMClient> client)
+void AssistantAgent::setClient(std::unique_ptr<LLMClient> client)
 {
     client_ = std::move(client);
 }
 
-LLMClient& ChatAgent::client()
+LLMClient& AssistantAgent::client()
 {
     auto client = client_.get();
     if(!client)
@@ -136,7 +136,7 @@ LLMClient& ChatAgent::client()
 
 // —— 交互 ——
 
-errc_t ChatAgent::runOneStep(ChatMessages& messages)
+errc_t AssistantAgent::runOneStep(ChatMessages& messages)
 {
     ChatMessage response;
     errc_t rc = this->runOneStep(messages, response);
@@ -145,7 +145,7 @@ errc_t ChatAgent::runOneStep(ChatMessages& messages)
     return rc;
 }
 
-errc_t ChatAgent::run(ChatMessages &messages, int maxSteps)
+errc_t AssistantAgent::run(ChatMessages &messages, int maxSteps)
 {
     for(int i = 0; i < maxSteps; i++)
     {
@@ -166,7 +166,7 @@ errc_t ChatAgent::run(ChatMessages &messages, int maxSteps)
 }
 
 
-errc_t ChatAgent::runOneStep(const ChatMessages &messages, ChatMessage &response)
+errc_t AssistantAgent::runOneStep(const ChatMessages &messages, ChatMessage &response)
 {
     // 1. 构建请求体
     JsonValue json;
@@ -243,7 +243,7 @@ errc_t ChatAgent::runOneStep(const ChatMessages &messages, ChatMessage &response
 }
 
 
-void ChatAgent::handleToolCalls(const JsonValue &toolCalls, ChatMessages &messages)
+void AssistantAgent::handleToolCalls(const JsonValue &toolCalls, ChatMessages &messages)
 {
     if(!toolCalls.isArray())
         return;
@@ -269,7 +269,7 @@ void ChatAgent::handleToolCalls(const JsonValue &toolCalls, ChatMessages &messag
     }
 }
 
-std::string ChatAgent::handleToolCall(const JsonValue& toolCall)
+std::string AssistantAgent::handleToolCall(const JsonValue& toolCall)
 {
     return tools_.handleToolCall(toolCall);
 }

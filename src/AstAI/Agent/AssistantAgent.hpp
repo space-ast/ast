@@ -1,6 +1,6 @@
 ///
-/// @file      ChatAgent.hpp
-/// @brief     聊天智能体 — 身份 + 能力 + 配置 + 客户端的纯定义，可跨会话复用
+/// @file      AssistantAgent.hpp
+/// @brief     聊天助手智能体 — 身份 + 能力 + 配置 + 客户端的纯定义，可跨会话复用
 /// @details   与 ChatSession 分离：Agent 持有"谁在说话"，Session 持有"跟谁在聊什么"
 /// @author    axel
 /// @date      2026-06-13
@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstAI/ChatAgent.hpp"
 #include "AstAI/LLMClient.hpp"
 #include "AstAI/LLMConfig.hpp"
 #include "AstAI/ChatTool.hpp"
@@ -41,28 +42,28 @@ AST_NAMESPACE_BEGIN
 /// @details 定义智能体的身份、能力、配置和LLM客户端。
 ///          智能体本身无状态，同一个智能体实例可参与多个不同的对话。
 ///
-class AST_AI_API ChatAgent
+class AST_AI_API AssistantAgent : public ChatAgent
 {
 public:
     // —— 工厂方法 ——
 
     /// @brief 创建空的默认Agent
-    static ChatAgent DefaultAgent();
+    static AssistantAgent DefaultAgent();
 
-    static ChatAgent* NewDefaultAgent();
-
-    /// @brief 创建航天工程师Agent（注册默认航天工具和系统提示词）
-    static ChatAgent SpaceEngineer();
+    static AssistantAgent* NewDefaultAgent();
 
     /// @brief 创建航天工程师Agent（注册默认航天工具和系统提示词）
-    static ChatAgent* NewSpaceEngineer();
+    static AssistantAgent SpaceEngineer();
+
+    /// @brief 创建航天工程师Agent（注册默认航天工具和系统提示词）
+    static AssistantAgent* NewSpaceEngineer();
 
 public:
-    ChatAgent() = default;
-    explicit ChatAgent(StringView systemPrompt);
-    ~ChatAgent() = default;
-    ChatAgent(ChatAgent&&) = default;
-    ChatAgent& operator=(ChatAgent&&) = default;
+    AssistantAgent() = default;
+    explicit AssistantAgent(StringView systemPrompt);
+    ~AssistantAgent() = default;
+    AssistantAgent(AssistantAgent&&) = default;
+    AssistantAgent& operator=(AssistantAgent&&) = default;
 
     // —— 身份 ——
 
