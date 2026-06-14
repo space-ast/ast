@@ -40,6 +40,8 @@ void SSEParser::onHeaders(int statusCode,
 
 errc_t SSEParser::onData(const char* data, size_t size)
 {
+    if (handler_.isCancelled())
+        return -1;
     buffer_.append(data, size);
     processBuffer();
     return error_.empty() ? 0 : -1;
@@ -52,7 +54,8 @@ void SSEParser::onDone()
 
 void SSEParser::onError(errc_t /*error*/)
 {
-    handler_.onError("network error");
+    error_ = "network error";
+    handler_.onError(error_);
 }
 
 // ── 累积结果 ──
@@ -62,6 +65,8 @@ JsonValue SSEParser::buildResult() const
     JsonValue result;
     result["id"]     = id_;
     result["object"] = "chat.completion";
+    if (!model_.empty())
+        result["model"] = model_;
 
     JsonValue choice;
     choice["index"]         = 0;
@@ -121,6 +126,9 @@ void SSEParser::processBuffer()
         if (pos == std::string::npos)
             break;
 
+        if (handler_.isCancelled())
+            break;
+
         std::string event = buffer_.substr(0, pos);
         buffer_.erase(0, pos + sepLen);
 
@@ -159,6 +167,11 @@ void SSEParser::processEvent(const std::string& event)
     auto& idVal = json["id"];
     if (!idVal.isNull())
         id_ = idVal.toString();
+
+    // 提取 model（通常只出现在第一个 chunk 中）
+    auto& modelVal = json["model"];
+    if (!modelVal.isNull())
+        model_ = modelVal.toString();
 
     // 提取 choices
     auto& choices = json["choices"];
@@ -211,7 +224,11 @@ void SSEParser::processToolCallDeltas(const JsonValue& toolCalls)
 {
     for (const auto& tc : toolCalls.getArray())
     {
-        int index = tc["index"].toInt();
+        // 跳过缺少 index 字段的 tool call delta（格式错误）
+        auto& indexVal = tc["index"];
+        if (indexVal.isNull())
+            continue;
+        int index = indexVal.toInt();
         auto& accum = toolCallsByIndex_[index];
 
         auto& idVal = tc["id"];

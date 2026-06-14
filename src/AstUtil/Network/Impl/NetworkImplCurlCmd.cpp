@@ -152,7 +152,10 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
         {
             std::ofstream tmpFile(tmpFilePath, std::ios::binary);
             if (!tmpFile)
+            {
+                std::remove(tmpFilePath.c_str());
                 return -2;
+            }
             tmpFile.write(request.body().data(), request.body().size());
             tmpFile.close();
         }
@@ -225,6 +228,16 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
             std::remove(tmpFilePath.c_str());
         receiver.onError(-5);
         return -5;
+    }
+
+    // 验证状态码解析
+    if (statusCode == 0)
+    {
+        int status = pclose(pipe);
+        if (!tmpFilePath.empty())
+            std::remove(tmpFilePath.c_str());
+        receiver.onError(-6);
+        return -6;
     }
 
     // 通知响应头

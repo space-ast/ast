@@ -47,6 +47,14 @@ public:
     void onDone() override;
     void onError(errc_t error) override;
 
+    // ── 状态 ──
+
+    /// @brief 是否发生了错误（HTTP 非 200 或网络错误）
+    bool hasError() const { return !error_.empty(); }
+
+    /// @brief 获取错误描述
+    const std::string& errorMessage() const { return error_; }
+
     // ── 累积结果 ──
 
     /// @brief 将累积的 SSE deltas 重建为非流式 /chat/completions 格式的 JSON 响应
@@ -70,6 +78,7 @@ private:
     std::string       error_;
 
     std::string id_;
+    std::string model_;
     std::string accumulatedContent_;
     std::string accumulatedReasoning_;
     std::string finishReason_;

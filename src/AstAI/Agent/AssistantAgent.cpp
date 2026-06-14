@@ -164,78 +164,12 @@ errc_t AssistantAgent::run(ChatMessages &messages, int maxSteps)
 
 errc_t AssistantAgent::runOneStep(const ChatMessages &messages, ChatMessage &response)
 {
-    // 1. 构建请求体
-    JsonValue json;
-    
-    JsonValue messagesJson = messages.toJson();
-    // 设置系统提示
-    if(!systemPrompt_.empty())
-    {
-        bool hasSystem = messagesJson.size() > 0
-                      && messagesJson[0]["role"].toString() == "system";
-        if(hasSystem)
-        {
-            messagesJson[0]["content"] = systemPrompt_;
-        }
-        else
-        {
-            ChatMessage systemMessage = ChatMessage::System(systemPrompt_);
-            messagesJson.prepend(systemMessage.toJson());
-        }
-    }
-    json["messages"] = messagesJson;
-    json["model"] = config_.model();
-    json["temperature"] = config_.temperature();
-    const auto& extra = config_.extraBody();
-    if(!extra.isNull() && extra.isObject())
-    {
-        if(!extra["thinking"].isNull())
-            json["thinking"] = extra["thinking"];
-    }
-    json["stream"] = false;
-
-    // 设置工具
-    if(!tools_.empty())
-    {
-        json["tools"] = tools_.toJson();
-    }
-
-    // 2. 发送请求
+    // 1. 构建请求 + 发送
+    JsonValue json = buildRequestJson(messages, false);
     JsonValue res = client().chat(json);
 
-    // 3. 解析响应
-    if(!res["error"].isNull())
-    {
-        lastError_ = res["error"]["message"].toString();
-        aError("response error: %s", lastError_.c_str());
-        return -1;
-    }
-    auto& choices = res["choices"];
-    if(!choices.isArray() || choices.size() == 0)
-    {
-        lastError_ = "choices is empty or not array";
-        aError("%s", lastError_.c_str());
-        return -1;
-    }
-
-    JsonValue& msg = choices[0]["message"];
-    std::string content = msg["content"].toString();
-#ifdef _AST_DEBUG_CHAT_AGENT
-    std::string msgJsonStr = msg.toJsonString();
-    ast_printf("msgJsonStr: %s\n", msgJsonStr.c_str());
-#endif
-    ast_printf("ai: %s\n", content.c_str());
-    response = ChatMessage::Assistant(
-        content,
-        msg["tool_calls"]
-    );
-    // 设置Agent的名称
-    if(!name_.empty())
-        response.setName(name_);
-    if(!msg["reasoning_content"].isNull())
-        response.setReasoningContent(msg["reasoning_content"].toString());
-
-    return 0;
+    // 2. 解析响应
+    return parseResponseMessage(res, response);
 }
 
 
@@ -271,6 +205,88 @@ std::string AssistantAgent::handleToolCall(const JsonValue& toolCall)
 }
 
 
+// ── 共享辅助方法 ──────────────────────────────────────────────────
+
+JsonValue AssistantAgent::buildRequestJson(const ChatMessages& messages, bool stream) const
+{
+    JsonValue json;
+    JsonValue messagesJson = messages.toJson();
+
+    // 设置系统提示
+    if (!systemPrompt_.empty())
+    {
+        bool hasSystem = messagesJson.size() > 0
+                      && messagesJson[0]["role"].toString() == "system";
+        if (hasSystem)
+            messagesJson[0]["content"] = systemPrompt_;
+        else
+        {
+            ChatMessage systemMessage = ChatMessage::System(systemPrompt_);
+            messagesJson.prepend(systemMessage.toJson());
+        }
+    }
+
+    json["messages"]    = messagesJson;
+    json["model"]       = config_.model();
+    json["temperature"] = config_.temperature();
+    const auto& extra = config_.extraBody();
+    if (!extra.isNull() && extra.isObject())
+    {
+        if (!extra["thinking"].isNull())
+            json["thinking"] = extra["thinking"];
+    }
+    json["stream"] = stream;
+
+    // 设置工具
+    if (!tools_.empty())
+        json["tools"] = tools_.toJson();
+
+    return json;
+}
+
+
+errc_t AssistantAgent::parseResponseMessage(JsonValue& response, ChatMessage& outMessage)
+{
+    if (!response["error"].isNull())
+    {
+        lastError_ = response["error"]["message"].toString();
+        aError("response error: %s", lastError_.c_str());
+        return -1;
+    }
+
+    auto& choices = response["choices"];
+    if (!choices.isArray() || choices.size() == 0)
+    {
+        lastError_ = "choices is empty or not array";
+        aError("%s", lastError_.c_str());
+        return -1;
+    }
+
+    JsonValue& msg = choices[0]["message"];
+    std::string content = msg["content"].toString();
+
+#ifdef _AST_DEBUG_CHAT_AGENT
+    std::string msgJsonStr = msg.toJsonString();
+    ast_printf("msgJsonStr: %s\n", msgJsonStr.c_str());
+#endif
+    ast_printf("ai: %s\n", content.c_str());
+
+    outMessage = ChatMessage::Assistant(
+        content,
+        msg["tool_calls"]
+    );
+
+    // 设置 Agent 名称
+    if (!name_.empty())
+        outMessage.setName(name_);
+
+    if (!msg["reasoning_content"].isNull())
+        outMessage.setReasoningContent(msg["reasoning_content"].toString());
+
+    return 0;
+}
+
+
 // ── 流式推理 ─────────────────────────────────────────────────────
 
 
@@ -290,7 +306,10 @@ errc_t AssistantAgent::runStream(ChatMessages& messages,
         // 单步流式推理 — 实时分发 text/thought 事件
         errc_t rc = this->runOneStepStream(messages, handler);
         if (rc != 0)
+        {
+            handler.onComplete();
             return rc;
+        }
 
         // 检查是否有工具调用
         auto& response = messages.back();
@@ -330,43 +349,8 @@ errc_t AssistantAgent::runStream(ChatMessages& messages,
 errc_t AssistantAgent::runOneStepStream(ChatMessages& messages,
                                          ChatEventHandler& handler)
 {
-    // 1. 构建请求体（与非流式 runOneStep 相同，但 stream: true）
-    JsonValue json;
-
-    JsonValue messagesJson = messages.toJson();
-
-    // 设置系统提示
-    if (!systemPrompt_.empty())
-    {
-        bool hasSystem = messagesJson.size() > 0
-                      && messagesJson[0]["role"].toString() == "system";
-        if (hasSystem)
-        {
-            messagesJson[0]["content"] = systemPrompt_;
-        }
-        else
-        {
-            ChatMessage systemMessage = ChatMessage::System(systemPrompt_);
-            messagesJson.prepend(systemMessage.toJson());
-        }
-    }
-
-    json["messages"]    = messagesJson;
-    json["model"]       = config_.model();
-    json["temperature"] = config_.temperature();
-    const auto& extra = config_.extraBody();
-    if (!extra.isNull() && extra.isObject())
-    {
-        if (!extra["thinking"].isNull())
-            json["thinking"] = extra["thinking"];
-    }
-    json["stream"] = true;  // 流式模式
-
-    // 设置工具
-    if (!tools_.empty())
-    {
-        json["tools"] = tools_.toJson();
-    }
+    // 1. 构建请求（stream: true）
+    JsonValue json = buildRequestJson(messages, true);
 
     // 2. 发送流式请求
     JsonValue accumulatedResult;
@@ -377,44 +361,13 @@ errc_t AssistantAgent::runOneStepStream(ChatMessages& messages,
         return rc;
     }
 
-    // 3. 解析累计结果（与非流式 runOneStep 逻辑相同）
-    if (!accumulatedResult["error"].isNull())
-    {
-        lastError_ = accumulatedResult["error"]["message"].toString();
-        aError("response error: %s", lastError_.c_str());
-        return -1;
-    }
-
-    auto& choices = accumulatedResult["choices"];
-    if (!choices.isArray() || choices.size() == 0)
-    {
-        lastError_ = "choices is empty or not array";
-        aError("%s", lastError_.c_str());
-        return -1;
-    }
-
-    JsonValue& msg = choices[0]["message"];
-    std::string content = msg["content"].toString();
-
-#ifdef _AST_DEBUG_CHAT_AGENT
-    std::string msgJsonStr = msg.toJsonString();
-    ast_printf("msgJsonStr: %s\n", msgJsonStr.c_str());
-#endif
-
-    ChatMessage response = ChatMessage::Assistant(
-        content,
-        msg["tool_calls"]
-    );
-
-    // 设置 Agent 名称
-    if (!name_.empty())
-        response.setName(name_);
-
-    if (!msg["reasoning_content"].isNull())
-        response.setReasoningContent(msg["reasoning_content"].toString());
+    // 3. 解析响应
+    ChatMessage response;
+    rc = parseResponseMessage(accumulatedResult, response);
+    if (rc != 0)
+        return rc;
 
     messages.push_back(response);
-
     return 0;
 }
 

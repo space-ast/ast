@@ -94,6 +94,13 @@ public:
         response_.setBody(body_);
     }
 
+    void onError(errc_t /*error*/) override
+    {
+        // 保留已累积的部分体数据（用于诊断）
+        if (!body_.empty())
+            response_.setBody(body_);
+    }
+
 private:
     NetworkResponse& response_;
     std::string body_;

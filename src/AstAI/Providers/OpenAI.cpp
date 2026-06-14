@@ -67,7 +67,14 @@ errc_t OpenAI::chatStream(const JsonValue& request,
         return error;
     }
 
-    // 4. 构建累计结果（与非流式 chat() 返回格式相同）
+    // 4. 检查 SSE 级别错误（HTTP 非 200 等）
+    if (sseParser.hasError())
+    {
+        // handler.onError() 已在 SSEParser::onHeaders/onError 中调用过
+        return -1;
+    }
+
+    // 5. 构建累计结果（与非流式 chat() 返回格式相同）
     accumulatedResult = sseParser.buildResult();
 
     return 0;

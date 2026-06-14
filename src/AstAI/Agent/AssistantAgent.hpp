@@ -155,6 +155,13 @@ public:
     const std::string& lastError() const { return lastError_; }
 private:
     errc_t runOneStep(const ChatMessages& messages, ChatMessage& response);
+
+    /// @brief 构建 LLM 请求 JSON（runOneStep / runOneStepStream 共用）
+    JsonValue buildRequestJson(const ChatMessages& messages, bool stream) const;
+
+    /// @brief 解析 LLM 响应 JSON → ChatMessage（runOneStep / runOneStepStream 共用）
+    errc_t parseResponseMessage(JsonValue& response, ChatMessage& outMessage);
+
 private:
     std::string                    systemPrompt_;
     ChatTools                      tools_;
