@@ -19,8 +19,10 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstAI/AgentSession.hpp"
+#include "AstAI/ChatAgent.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstSim/Satellite.hpp"
+#include <memory>
 
 AST_USING_NAMESPACE
 
@@ -35,7 +37,7 @@ int main()
         if (str && buffer[0] == '\n')
             continue;
         ChatSession session;
-        session.setAgent(ChatAgent::NewSpaceEngineer());
+        session.setAgent(std::unique_ptr<ChatAgent>(ChatAgent::NewSpaceEngineer()));
         std::string response = session.chat(buffer);
         ast_printf("响应: %s\n", response.c_str());
     }

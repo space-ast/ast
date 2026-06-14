@@ -23,7 +23,6 @@
 #include "AstAI/LLMClient.hpp"
 #include "AstAI/ChatAgent.hpp"
 #include "AstAI/LLMConfig.hpp"
-#include "AstAI/OpenAI.hpp"
 #include "AstAI/ChatTool.hpp"
 #include "AstAI/ChatMessages.hpp"
 #include "AstAI/ChatTools.hpp"
@@ -71,8 +70,8 @@ public:
     /// @return 聊天智能体
     ChatAgent& agent() const;
 
-    /// @brief 设置聊天智能体
-    void setAgent(ChatAgent* agent){agent_.reset(agent);}
+    /// @brief 设置聊天智能体（转移所有权）
+    void setAgent(std::unique_ptr<ChatAgent> agent){agent_ = std::move(agent);}
 
     /// @brief 获取工具集合
     /// @return 工具集合

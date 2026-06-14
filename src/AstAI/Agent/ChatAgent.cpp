@@ -166,17 +166,16 @@ errc_t ChatAgent::runOneStep(const ChatMessages &messages, ChatMessage &response
     // 设置系统提示
     if(!systemPrompt_.empty())
     {
-        if(messagesJson.isArray() && messagesJson.size() > 0)
+        bool hasSystem = messagesJson.size() > 0
+                      && messagesJson[0]["role"].toString() == "system";
+        if(hasSystem)
         {
-            if(messagesJson[0]["role"].toString() == "system")
-            {
-                messagesJson[0]["content"] = systemPrompt_;
-            }
-            else
-            {
-                ChatMessage systemMessage = ChatMessage::System(systemPrompt_);
-                messagesJson.prepend(systemMessage.toJson());
-            }
+            messagesJson[0]["content"] = systemPrompt_;
+        }
+        else
+        {
+            ChatMessage systemMessage = ChatMessage::System(systemPrompt_);
+            messagesJson.prepend(systemMessage.toJson());
         }
     }
     json["messages"] = messagesJson;
@@ -230,6 +229,8 @@ errc_t ChatAgent::runOneStep(const ChatMessages &messages, ChatMessage &response
 
 void ChatAgent::handleToolCalls(const JsonValue &toolCalls, ChatMessages &messages)
 {
+    if(!toolCalls.isArray())
+        return;
     // 复制toolCalls，避免在处理toolcall过程中修改messages从而导致toolCalls引用失效
     JsonValue toolCallsTemp = toolCalls;
     for(auto& item: toolCallsTemp.getArray())
@@ -243,7 +244,7 @@ void ChatAgent::handleToolCalls(const JsonValue &toolCalls, ChatMessages &messag
 
         #ifdef _AST_DEBUG_CHAT_AGENT
         clock_t end = clock();
-        ast_printf("handleToolCall cost: %ld ms\n", (end - start) * CLOCKS_PER_SEC / 1000);
+        ast_printf("handleToolCall cost: %ld ms\n", (end - start) * 1000 / CLOCKS_PER_SEC);
         ast_printf("response: %s\n", response.c_str());
         #endif
 
