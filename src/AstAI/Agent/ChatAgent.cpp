@@ -23,10 +23,11 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstAI/DeepSeek.hpp"
+#include <ctime>
 
 AST_NAMESPACE_BEGIN
 
-
+// #define _AST_DEBUG_CHAT_AGENT
 
 // —— 工厂方法 ——
 
@@ -45,6 +46,14 @@ ChatAgent ChatAgent::SpaceEngineer()
     ChatAgent agent;
     agent.setSystemPrompt(aAgentSystemPrompt());
     aInitAgentTools(agent.tools());
+    auto extraBody = R"(
+        {
+            "thinking":{
+                "type":"disabled"
+            }
+        }
+    )"_json;
+    agent.config().setExtraBody(extraBody);
     return agent;
 }
 
@@ -215,11 +224,18 @@ errc_t ChatAgent::runOneStep(const ChatMessages &messages, ChatMessage &response
 
     JsonValue& msg = choices[0]["message"];
     std::string content = msg["content"].toString();
+#ifdef _AST_DEBUG_CHAT_AGENT
+    std::string msgJsonStr = msg.toJsonString();
+    ast_printf("msgJsonStr: %s\n", msgJsonStr.c_str());
+#endif
     ast_printf("ai: %s\n", content.c_str());
     response = ChatMessage::Assistant(
         content,
         msg["tool_calls"]
     );
+    // 设置Agent的名称
+    if(!name_.empty())
+        response.setName(name_);
     if(!msg["reasoning_content"].isNull())
         response.setReasoningContent(msg["reasoning_content"].toString());
 
