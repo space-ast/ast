@@ -21,22 +21,40 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/StringView.hpp"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup
     @{
 */
 
 class ChatMessages;
 
-/// @brief 聊天智能体
+/// @brief 聊天智能体抽象基类
+/// @details 定义所有聊天智能体的公共接口，包括名称标识和运行方法。
 class AST_AI_API ChatAgent
 {
 public:
     virtual ~ChatAgent() = default;
+
+    /// @brief 执行智能体逻辑
+    /// @param messages 消息历史（可修改）
+    /// @return 错误码，0表示成功
     virtual errc_t run(ChatMessages& messages) = 0;
+
+    // —— 名称 ——
+
+    /// @brief 设置智能体名称（用于多Agent场景下的标识）
+    void setName(StringView name) { name_ = std::string(name); }
+
+    /// @brief 获取智能体名称
+    const std::string& name() const { return name_; }
+
+protected:
+    std::string name_;  ///< 智能体名称
 };
 
 /*! @} */

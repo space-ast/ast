@@ -82,16 +82,6 @@ const std::string& AssistantAgent::systemPrompt() const
     return systemPrompt_;
 }
 
-void AssistantAgent::setName(StringView name)
-{
-    name_ = std::string(name);
-}
-
-const std::string& AssistantAgent::name() const
-{
-    return name_;
-}
-
 // —— 能力 ——
 
 void AssistantAgent::addTool(std::unique_ptr<ChatTool> tool)

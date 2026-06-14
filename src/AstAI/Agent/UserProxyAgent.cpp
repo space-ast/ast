@@ -27,13 +27,40 @@ AST_NAMESPACE_BEGIN
 
 errc_t UserProxyAgent::run(ChatMessages& messages)
 {
-    if(!prompt_.empty())
+    // 1. 显示输入提示
+    if (!prompt_.empty())
     {
         ast_printf("%s", prompt_.c_str());
         fflush(stdout);
     }
+
+    // 2. 读取用户输入
     std::string input;
-    std::getline(std::cin, input);
+    if (!std::getline(std::cin, input))
+    {
+        // EOF 或读取错误 → 视为退出
+        messages.addUserMessage("EXIT");
+        return 0;
+    }
+
+    // 3. 检查退出关键词（大小写不敏感）
+    if (!exitKeywords_.empty())
+    {
+        // 转为小写进行比较
+        std::string lower = input;
+        for (auto& c : lower) c = static_cast<char>(::tolower(static_cast<unsigned char>(c)));
+
+        for (const auto& kw : exitKeywords_)
+        {
+            if (lower == kw)
+            {
+                messages.addUserMessage("EXIT");
+                return 0;
+            }
+        }
+    }
+
+    // 4. 正常输入 → 追加为用户消息
     messages.addUserMessage(input);
     return 0;
 }

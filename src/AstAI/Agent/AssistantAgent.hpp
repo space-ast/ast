@@ -72,11 +72,6 @@ public:
     /// @brief 获取系统提示词
     const std::string& systemPrompt() const;
 
-    /// @brief 设置智能体名称（可选，用于多Agent场景下的标识）
-    void setName(StringView name);
-    /// @brief 获取智能体名称
-    const std::string& name() const;
-
     // —— 能力 ——
 
     /// @brief 添加工具（通过函数指针/lambda）
@@ -138,7 +133,6 @@ public:
 private:
     errc_t runOneStep(const ChatMessages& messages, ChatMessage& response);
 private:
-    std::string                    name_;
     std::string                    systemPrompt_;
     ChatTools                      tools_;
     LLMConfig                      config_;
