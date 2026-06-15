@@ -43,6 +43,16 @@ std::string ChatSession::chat(StringView message, int maxIterForToolCalls)
     return this->messages_.back().content();
 }
 
+std::string ChatSession::chatStream(StringView message, ChatEventHandler& handler, int maxIterForToolCalls)
+{
+    this->messages_.addUserMessage(message);
+    errc_t rc = this->agent().runStream(this->messages_, handler, maxIterForToolCalls);
+    if(rc != 0)
+        return this->lastError();
+    return this->messages_.back().content();
+}
+
+
 errc_t ChatSession::sendMessage(StringView message)
 {
     this->messages_.addUserMessage(message);

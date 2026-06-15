@@ -54,6 +54,12 @@ public:
     /// @return 最终响应内容（执行工具调用循环后的最终结果）
     std::string chat(StringView message, int maxIterForToolCalls = 100);
 
+    /// @brief 流式输出对话，内部会处理工具调用循环直到没有更多工具调用或最大交互轮数到达，然后返回最终响应内容
+    /// @param message 用户消息
+    /// @param handler 事件处理函数
+    /// @return 最终响应内容（执行工具调用循环后的最终结果）
+    std::string chatStream(StringView message, ChatEventHandler& handler, int maxIterForToolCalls = 100);
+
     /// @brief 发送消息，不会处理工具调用，直接返回响应消息
     /// @param message 用户消息
     /// @return 错误码，0表示成功，消息追加到messages_末尾

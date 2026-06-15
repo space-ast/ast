@@ -268,8 +268,8 @@ errc_t AssistantAgent::parseResponseMessage(JsonValue& response, ChatMessage& ou
 #ifdef _AST_DEBUG_CHAT_AGENT
     std::string msgJsonStr = msg.toJsonString();
     ast_printf("msgJsonStr: %s\n", msgJsonStr.c_str());
-#endif
     ast_printf("ai: %s\n", content.c_str());
+#endif
 
     outMessage = ChatMessage::Assistant(
         content,

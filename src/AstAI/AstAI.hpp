@@ -8,6 +8,7 @@
 #include "AstAI/Chat.hpp"
 #include "AstAI/ChatAgent.hpp"
 #include "AstAI/ChatEventHandler.hpp"
+#include "AstAI/ChatConsole.hpp"
 #include "AstAI/ChatMessage.hpp"
 #include "AstAI/ChatMessages.hpp"
 #include "AstAI/ChatSession.hpp"

@@ -31,7 +31,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstAI/AssistantAgent.hpp"
-#include "AstAI/ChatEventHandler.hpp"
+#include "AstAI/ChatConsole.hpp"
 #include "AstAI/ChatMessage.hpp"
 #include "AstAI/ChatMessages.hpp"
 #include "AstAI/DeepSeek.hpp"
@@ -39,51 +39,7 @@
 #include <iostream>
 #include <cstdlib>
 
-using namespace ast;
-
-
-// ── 事件处理器：打印到终端 ──────────────────────────────────────────
-
-class ConsoleEventHandler : public ChatEventHandler
-{
-public:
-    void onTextChunk(const std::string& text) override
-    {
-        std::cout << text << std::flush;
-    }
-
-    void onThought(const std::string& thought) override
-    {
-        std::cout << thought << std::flush;
-    }
-
-    void onToolCallRequest(const std::string& /*toolCallId*/,
-                           const std::string& functionName,
-                           const std::string& arguments) override
-    {
-        std::cout << "\n  📎 [调用工具: " << functionName
-                  << "(" << arguments << ")]\n";
-    }
-
-    void onToolCallResult(const std::string& /*toolCallId*/,
-                          const std::string& functionName,
-                          const std::string& result) override
-    {
-        std::cout << "  ✅ [工具结果: " << functionName
-                  << " → " << result << "]\n";
-        std::cout << "AI: " << std::flush;  // 继续等待文本输出
-    }
-
-    void onComplete() override
-    {
-        std::cout << std::endl;
-    }
-
-    void onError(const std::string& error) override
-    {
-        std::cerr << "\n  ❌ [错误: " << error << "]" << std::endl;
-    }
-};
+AST_USING_NAMESPACE;
 
 
 // ── 主函数 ──────────────────────────────────────────────────────────
@@ -113,7 +69,7 @@ int main()
     assistant.config().setExtraBody({});
 
     // ── 3. 创建事件处理器 ─────────────────────────────────────
-    ConsoleEventHandler handler;
+    ChatConsole console;
 
     // ── 4. 消息历史 ────────────────────────────────────────────
     ChatMessages messages;
@@ -156,7 +112,7 @@ int main()
 
         // 流式调用 LLM
         std::cout << "AI: " << std::flush;
-        errc_t rc = assistant.runStream(messages, handler);
+        errc_t rc = assistant.runStream(messages, console);
 
         if (rc != 0)
         {
