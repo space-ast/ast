@@ -1,14 +1,17 @@
 set_group("examples")
 set_default(false)
-add_deps("AstUtil", "AstCore", "AstMath", "AstSim", "AstTest", "AstSPICE", "AstPlot", "AstAI")
+add_deps(
+    "AstUtil", "AstCore", "AstMath", "AstSim", "AstTest", 
+    "AstSPICE", "AstPlot", "AstAI", "AstOpt"
+)
 set_warnings("more")
 
 -- 添加 `examples` 和 `docs` 下面的所有cpp文件作为示例
 local patterns = {
         "**/*.cpp",
         "**/*.c",
-        "../docs/guide/**.cpp",  
-        "../docs/examples/**.cpp",  
+        "../docs/guide/**.cpp",
+        "../docs/examples/**.cpp",
         "../docs/dev/**.cpp",
         "../docs/technical/**.cpp"
 }
