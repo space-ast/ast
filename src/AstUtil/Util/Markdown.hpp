@@ -28,6 +28,10 @@ public:
 	/// @brief 渲染一段文本，返回本次 chunk 新产生的增量输出
 	const char* operator()(StringView chunk);
 
+	/// @brief 渲染行内 Markdown 文本（不含块级元素），返回 ANSI 字符串
+	/// @note  线程安全（每次调用使用独立状态）
+	static std::string renderInline(const std::string& text);
+
 	/// @brief 重置所有内部状态（新一轮对话前调用）
 	void reset();
 
@@ -95,6 +99,12 @@ private:
 	void handleCodeBlockChar(char c, std::string& buffer);
 	void handleNewline(std::string& buffer);
 	void handleEscape(char c, std::string& buffer);
+	void outputCodeBlockGutter(std::string& buffer, int lineNum);
+
+	// ---- 表格 ----
+	void processTableNewline(std::string& buffer);
+	void flushTable(std::string& buffer);
+	static bool isTableSeparatorLine(const char* line);
 
 private:
 	A_DISABLE_COPY(Markdown);
@@ -121,6 +131,14 @@ private:
 	bool inCodeBlock_           = false;
 	bool escapeNext_            = false;
 	bool readingHeadingPrefix_  = false;
+	bool codeBlockBuffering_    = false;
+	int  codeLineNumber_        = 0;
+
+	// ---- 表格缓冲 ----
+	enum TableState { TABLE_NONE, TABLE_HEADER, TABLE_BODY };
+	TableState  tableState_ = TABLE_NONE;
+	std::string tableRaw_;     ///< 已确认表格的原始行（含 \n）
+	std::string tableLine_;    ///< 当前行缓冲
 };
 
 /*! @} */

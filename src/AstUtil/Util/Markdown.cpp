@@ -6,6 +6,7 @@
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 
 #include "Markdown.hpp"
+#include "MarkdownTable.hpp"
 #include <algorithm>
 #include <cstring>
 
@@ -25,6 +26,14 @@ static const char kCyan[]      = "\033[36m";
 static const char kYellow[]      = "\033[33m";
 static const char kBrightWhite[] = "\033[97m";
 static const char kBrightCyan[]  = "\033[96m";
+
+// 代码块 256 色样式（深灰背景 + 层次化前景）
+static const char kCodeBg[]       = "\033[48;5;236m";  // #303030 背景
+static const char kCodeGutter[]   = "\033[38;5;240m";  // #585858 gutter │
+static const char kCodeLineNo[]   = "\033[38;5;243m";  // #767676 行号
+static const char kCodeText[]     = "\033[38;5;252m";  // #d0d0d0 代码文本
+static const char kCodeFence[]    = "\033[38;5;240m";  // #585858 围栏标记
+static const char kCodeLang[]     = "\033[38;5;228m";  // #ffff87 语言标签
 
 // UTF-8 符号
 static const char kBullet[]    = "\xe2\x80\xa2";  // "•"
@@ -81,6 +90,25 @@ void Markdown::reset()
 	inCodeBlock_           = false;
 	escapeNext_            = false;
 	readingHeadingPrefix_  = false;
+	codeBlockBuffering_    = false;
+	codeLineNumber_        = 0;
+
+	// ---- 表格缓冲 ----
+	tableState_ = TABLE_NONE;
+	tableRaw_.clear();
+	tableLine_.clear();
+}
+
+std::string Markdown::renderInline(const std::string& text)
+{
+	// 用临时实例避免状态污染；追加 \n 以触发样式闭合
+	Markdown temp;
+	const char* result = temp(text + "\n");
+	std::string rendered(result);
+	// 去掉尾部 \n
+	if (!rendered.empty() && rendered.back() == '\n')
+		rendered.pop_back();
+	return rendered;
 }
 
 // ============================================================================
@@ -782,6 +810,7 @@ void Markdown::openCodeFence(const std::string& fenceLine, std::string& buffer)
 	inCodeBlock_     = true;
 	codeFenceTicks_  = cnt;
 	codeBlockLang_   = "";
+	codeLineNumber_  = 1;
 
 	if ((size_t)cnt < fenceLine.size())
 	{
@@ -790,9 +819,15 @@ void Markdown::openCodeFence(const std::string& fenceLine, std::string& buffer)
 		codeBlockLang_ = fenceLine.substr(start);
 	}
 
-	buffer += kDim;
-	buffer += kCyan;
-	buffer += fenceLine;
+	// 围栏标记（暗灰） + 语言标签（亮黄）
+	buffer += kCodeFence;
+	buffer += std::string(cnt, f);
+	if (!codeBlockLang_.empty())
+	{
+		buffer += " ";
+		buffer += kCodeLang;
+		buffer += codeBlockLang_;
+	}
 	buffer += kReset;
 }
 
@@ -800,10 +835,11 @@ void Markdown::handleCodeBlockChar(char c, std::string& buffer)
 {
 	if (c == '\n')
 	{
-		// 检查 pending_ 是否为闭合围栏
-		if (!pending_.empty())
+		if (codeBlockBuffering_)
 		{
+			// 检查缓冲内容是否为闭合围栏
 			char f = pending_[0];
+			bool isClose = false;
 			if ((f == '`' || f == '~') && (int)pending_.size() >= codeFenceTicks_)
 			{
 				size_t cnt = 0;
@@ -813,47 +849,96 @@ void Markdown::handleCodeBlockChar(char c, std::string& buffer)
 					if (pending_[i] != ' ' && pending_[i] != '\t') { ok = false; break; }
 				if ((int)cnt >= codeFenceTicks_ && ok)
 				{
+					// 闭合围栏 — 不输出 pending_ 中的代码文本
+					pending_.clear();
+					codeBlockBuffering_ = false;
 					buffer += kReset;
 					buffer += '\n';
-					buffer += kDim;
-					buffer += kCyan;
+					buffer += kCodeFence;
 					buffer += std::string(cnt, f);
 					buffer += kReset;
 					buffer += '\n';
-					pending_.clear();
 					inCodeBlock_ = false;
 					codeFenceTicks_ = 0;
 					codeBlockLang_.clear();
+					codeLineNumber_ = 0;
 					atLineStart_ = true;
 					return;
 				}
 			}
+			// 非闭合围栏 — 刷新缓冲
+			codeBlockBuffering_ = false;
+			outputCodeBlockGutter(buffer, codeLineNumber_);
+			buffer += pending_;
 		}
+		else if (atLineStart_)
+		{
+			// 空行 — 仍输出 gutter 以保持背景连续
+			outputCodeBlockGutter(buffer, codeLineNumber_);
+		}
+
+		// EL (Erase in Line) — 清除至行尾，终端用当前背景色填充
+		// 解决中文字符宽度不一致导致的锯齿问题
+		buffer += "\033[K";
 
 		buffer += kReset;
 		buffer += '\n';
 		pending_.clear();
 		atLineStart_ = true;
+		codeLineNumber_++;
 		return;
 	}
 
 	if (atLineStart_)
 	{
 		atLineStart_ = false;
+		if (c == '`' || c == '~')
+		{
+			// 可能为闭合围栏 — 缓冲，暂不输出
+			codeBlockBuffering_ = true;
+			pending_ += c;
+			return;
+		}
+		// 普通代码行 — 输出 gutter 前缀
+		outputCodeBlockGutter(buffer, codeLineNumber_);
 		pending_ += c;
-
-		buffer += kDim;
-		buffer += kCyan;
-		buffer += kBar;
-		buffer += " ";
-		buffer += kReset;
-		buffer += kCyan;
 		buffer += c;
+		return;
+	}
+
+	if (codeBlockBuffering_)
+	{
+		// 仍可能为围栏（同字符或空白）
+		if (c == pending_[0] || c == ' ' || c == '\t')
+		{
+			pending_ += c;
+			return;
+		}
+		// 非围栏字符 → 刷新全部缓冲
+		codeBlockBuffering_ = false;
+		pending_ += c;
+		outputCodeBlockGutter(buffer, codeLineNumber_);
+		buffer += pending_;
 		return;
 	}
 
 	pending_ += c;
 	buffer += c;
+}
+
+void Markdown::outputCodeBlockGutter(std::string& buffer, int lineNum)
+{
+	buffer += kCodeBg;       // 深灰背景
+	buffer += kCodeGutter;   // gutter 颜色
+	buffer += kBar;          // │
+	buffer += " ";
+	buffer += kCodeLineNo;   // 行号颜色
+	// 右对齐到 3 位
+	if (lineNum < 10)       buffer += "  ";
+	else if (lineNum < 100) buffer += " ";
+	buffer += std::to_string(lineNum);
+	buffer += " ";
+	buffer += kCodeText;     // 代码文本颜色
 }
 
 // ============================================================================
@@ -896,6 +981,98 @@ void Markdown::emitBlockPrefix(std::string& buffer)
 }
 
 // ============================================================================
+// 表格检测 & 缓冲
+// ============================================================================
+
+bool Markdown::isTableSeparatorLine(const char* line)
+{
+	if (!line || !*line) return false;
+	bool hasDash = false;
+	for (const char* p = line; *p; ++p)
+	{
+		if (*p == '|' || *p == ':' || *p == ' ' || *p == '\t') continue;
+		if (*p == '-') { hasDash = true; continue; }
+		return false;
+	}
+	return hasDash;
+}
+
+void Markdown::flushTable(std::string& buffer)
+{
+	if (tableState_ == TABLE_NONE) return;
+
+	std::string rendered = aMarkdownTable(tableRaw_);
+	if (!rendered.empty())
+		buffer += rendered;
+	else
+		buffer += tableRaw_;  // 解析失败：原样输出
+
+	tableState_ = TABLE_NONE;
+	tableRaw_.clear();
+	tableLine_.clear();
+	atLineStart_ = true;  // 下一字符在新行首
+}
+
+void Markdown::processTableNewline(std::string& buffer)
+{
+	// 去掉尾部 \n
+	std::string line = tableLine_;
+	if (!line.empty() && line.back() == '\n') line.pop_back();
+	if (!line.empty() && line.back() == '\r') line.pop_back();
+
+	// 定位到非空白字符
+	const char* p = line.c_str();
+	while (*p == ' ' || *p == '\t') ++p;
+	bool startsWithPipe = (*p == '|');
+	bool isEmpty        = (*p == '\0');
+
+	if (tableState_ == TABLE_HEADER)
+	{
+		if (tableRaw_.empty())
+		{
+			// 第一条 | 行：暂存为候选表头，等待下一行判定
+			tableRaw_ += line + '\n';
+			return;
+		}
+		// 已有候选表头，检查当前行是否为分隔行
+		if (isTableSeparatorLine(p))
+		{
+			// 确认表格：header + separator
+			tableRaw_ += line + '\n';
+			tableState_ = TABLE_BODY;
+			return;
+		}
+		// 第二行不是分隔行 → 不是表格，原样输出缓冲的所有行
+		tableRaw_ += line + '\n';
+		buffer += tableRaw_;
+		tableState_ = TABLE_NONE;
+		tableRaw_.clear();
+		atLineStart_ = true;
+		return;
+	}
+
+	// TABLE_BODY
+	if (isEmpty)
+	{
+		// 空行结束表格
+		flushTable(buffer);
+		buffer += '\n';  // 保留空行
+		return;
+	}
+
+	if (startsWithPipe)
+	{
+		// 数据行
+		tableRaw_ += line + '\n';
+		return;
+	}
+
+	// 非 | 非空行 → 表格结束，原样输出当前行
+	flushTable(buffer);
+	buffer += line + '\n';
+}
+
+// ============================================================================
 // 核心分发器 feed()
 // ============================================================================
 void Markdown::feed(char c, std::string& buffer)
@@ -907,7 +1084,19 @@ void Markdown::feed(char c, std::string& buffer)
 		return;
 	}
 
-	// ---- 2. 转义 ----
+	// ---- 2. 表格缓冲模式 ----
+	if (tableState_ != TABLE_NONE)
+	{
+		tableLine_ += c;
+		if (c == '\n')
+		{
+			processTableNewline(buffer);
+			tableLine_.clear();
+		}
+		return;
+	}
+
+	// ---- 3. 转义 ----
 	if (escapeNext_)
 	{
 		handleEscape(c, buffer);
@@ -920,14 +1109,14 @@ void Markdown::feed(char c, std::string& buffer)
 		return;
 	}
 
-	// ---- 3. 换行 ----
+	// ---- 4. 换行 ----
 	if (c == '\n')
 	{
 		handleNewline(buffer);
 		return;
 	}
 
-	// ---- 4. 标题前缀收集 ----
+	// ---- 5. 标题前缀收集 ----
 	if (readingHeadingPrefix_)
 	{
 		if (c == '#' && headingLevel_ < 6)
@@ -956,7 +1145,7 @@ void Markdown::feed(char c, std::string& buffer)
 		return;
 	}
 
-	// ---- 5. 行内扫描模式 ----
+	// ---- 6. 行内扫描模式 ----
 	if (scanMode_ != SCAN_NONE)
 	{
 		if (scanMode_ == SCAN_MARKER)
@@ -971,7 +1160,7 @@ void Markdown::feed(char c, std::string& buffer)
 		return;
 	}
 
-	// ---- 6. 行首块级 ----
+	// ---- 7. 行首块级 ----
 	if (atLineStart_)
 	{
 		if (c == ' ' || c == '\t')
@@ -981,6 +1170,17 @@ void Markdown::feed(char c, std::string& buffer)
 		}
 
 		atLineStart_ = false;
+
+		// ---- 表格候选：行首 | ----
+		if (c == '|')
+		{
+			tableState_ = TABLE_HEADER;
+			tableRaw_.clear();
+			tableLine_ = std::move(leadingSpaces_);
+			tableLine_ += c;
+			leadingSpaces_.clear();
+			return;
+		}
 
 		// 标题
 		if (c == '#')
@@ -1018,7 +1218,7 @@ void Markdown::feed(char c, std::string& buffer)
 		return;
 	}
 
-	// ---- 7. pending_ 中有行首候选，遇空格判定块类型 ----
+	// ---- 8. pending_ 中有行首候选，遇空格判定块类型 ----
 	//      但 ` ~ _ 可能是行内标记（代码/删除线/斜体），不因空格而判定
 	if (!pending_.empty())
 	{
@@ -1037,7 +1237,7 @@ void Markdown::feed(char c, std::string& buffer)
 		return;
 	}
 
-	// ---- 8. 行内标记起始 ----
+	// ---- 9. 行内标记起始 ----
 	if (isInlineMarker(c))
 	{
 		pending_ += c;
@@ -1046,7 +1246,7 @@ void Markdown::feed(char c, std::string& buffer)
 		return;
 	}
 
-	// ---- 9. 普通字符 ----
+	// ---- 10. 普通字符 ----
 	buffer += c;
 }
 

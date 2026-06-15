@@ -224,6 +224,7 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
     if (!headersDone)
     {
         int status = pclose(pipe);
+        A_UNUSED(status);
         if (!tmpFilePath.empty())
             std::remove(tmpFilePath.c_str());
         receiver.onError(-5);
