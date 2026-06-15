@@ -23,6 +23,7 @@
 
 #include "AstGlobal.h"
 #include "AstAI/ChatEventHandler.hpp"
+#include "AstUtil/Markdown.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -32,7 +33,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 终端输出事件处理器
-/// @details 将流式事件格式化输出到 stdout
+/// @details 将流式事件格式化输出到 stdout，支持 Markdown 渲染
 class AST_AI_API ChatConsole : public ChatEventHandler
 {
 public:
@@ -54,6 +55,18 @@ public:
     void onComplete() override;
 
     void onError(const std::string& error) override;
+
+    /// @brief 设置是否以原始 Markdown 原文输出（不做 ANSI 渲染）
+    void setRawOutput(bool raw) { rawOutput_ = raw; }
+
+    /// @brief 查询当前是否为原始输出模式
+    bool isRawOutput() const { return rawOutput_; }
+
+private:
+    void outputText(const std::string& text);
+
+    Markdown renderer_;
+    bool     rawOutput_ = false;
 };
 
 /*! @} */

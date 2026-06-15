@@ -24,16 +24,29 @@
 
 AST_NAMESPACE_BEGIN
 
+void ChatConsole::outputText(const std::string& text)
+{
+    if (rawOutput_)
+    {
+        ast_printf("%s", text.c_str());
+    }
+    else
+    {
+        const char* rendered = renderer_(text);
+        if (rendered && *rendered)
+            ast_printf("%s", rendered);
+    }
+    fflush(stdout);
+}
+
 void ChatConsole::onTextChunk(const std::string& text)
 {
-    ast_printf("%s", text.c_str());
-    fflush(stdout);
+    outputText(text);
 }
 
 void ChatConsole::onThought(const std::string& thought)
 {
-    ast_printf("%s", thought.c_str());
-    fflush(stdout);
+    outputText(thought);
 }
 
 void ChatConsole::onToolCallRequest(const std::string& /*toolCallId*/,
@@ -58,6 +71,7 @@ void ChatConsole::onToolCallResult(const std::string& /*toolCallId*/,
 void ChatConsole::onComplete()
 {
     ast_printf("\n");
+    renderer_.reset();
 }
 
 void ChatConsole::onError(const std::string& error)
