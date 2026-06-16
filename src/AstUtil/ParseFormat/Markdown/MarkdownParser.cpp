@@ -589,7 +589,7 @@ void MarkdownParser::parseInline(StringView text)
                 if (ce != StringView::npos && ce < text.size())
                 {
                     sax_.startLink(text.substr(cb + 2, ce - cb - 2));
-                    parseInline(text.substr(cb + 2, ce - cb - 2));
+                    parseInline(text.substr(pos + 1, cb - pos - 1));
                     sax_.endLink();
                     pos = ce + 1;
                     continue;

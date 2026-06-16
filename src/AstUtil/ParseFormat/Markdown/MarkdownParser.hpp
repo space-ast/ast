@@ -34,6 +34,26 @@ AST_NAMESPACE_BEGIN
 
 class MarkdownSax;
 
+
+class AST_UTIL_API MarkdownInlineStateMachine
+{
+public:
+    MarkdownInlineStateMachine(MarkdownSax& sax)
+        : sax_(sax)
+    {}
+    void feed(StringView chunk);
+private:
+    enum class EState
+    {
+        eNone,      ///< 无状态
+    };
+private:
+    MarkdownSax& sax_;
+
+    EState state_ = EState::eNone;
+};
+
+
 /// @brief  Markdown解析器（SAX事件驱动，流式输入）
 class AST_UTIL_API MarkdownParser {
 public:
