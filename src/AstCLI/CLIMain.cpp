@@ -32,6 +32,7 @@ int main()
 {
     {Satellite sat;}  // 确保链接到AstSim库
     char buffer[1024];
+    ChatSession session;
     while (true)
     {
         ast_printf("请和我说你的需求，我来设计场景: \n");
@@ -39,7 +40,6 @@ int main()
         if (str && buffer[0] == '\n')
             continue;
         ChatConsole console;
-        ChatSession session;
         session.setAgent(std::unique_ptr<AssistantAgent>(AssistantAgent::NewSpaceEngineer()));
         std::string response = session.chatStream(buffer, console);
         A_UNUSED(response);
