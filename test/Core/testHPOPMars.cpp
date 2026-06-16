@@ -59,6 +59,7 @@ TEST_F(HPOPMarsTest, TwoBody)
     forcemodel.gravity().model_ = "MRO110C";
     forcemodel.gravity().maxDegree_ = 0;
     forcemodel.gravity().maxOrder_ = 0;
+    forcemodel.setCentralBody(mars);
     HPOP propagator;
     errc_t err = propagator.setForceModel(forcemodel);
     EXPECT_EQ(err, 0);
@@ -104,6 +105,7 @@ TEST_F(HPOPMarsTest, OnlyGravity_2_0)
     forcemodel.gravity().model_ = "MRO110C";
     forcemodel.gravity().maxDegree_ = 2;
     forcemodel.gravity().maxOrder_ = 0;
+    forcemodel.setCentralBody(mars);
     HPOP propagator;
     errc_t err = propagator.setForceModel(forcemodel);
     EXPECT_EQ(err, 0);
@@ -151,6 +153,7 @@ TEST_F(HPOPMarsTest, OnlyGravity_70_10)
     forcemodel.gravity().model_ = "MRO110C";
     forcemodel.gravity().maxDegree_ = 70;
     forcemodel.gravity().maxOrder_ = 10;
+    forcemodel.setCentralBody(mars);
     HPOP propagator;
     errc_t err = propagator.setForceModel(forcemodel);
     EXPECT_EQ(err, 0);

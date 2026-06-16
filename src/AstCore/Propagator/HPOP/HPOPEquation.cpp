@@ -57,6 +57,7 @@ errc_t HPOPEquation::evaluate(const double* y, double* dy, const double t)
     time.setTimePoint(epoch_ + t);                  // 设置仿真时间点
     time.setElapsedTime(t);                         // 设置仿真的相对时间
     dynamicSystem_.fillDerivativeData(0.0);         // 填充导数数据为0
+    // @bug setStateData 必须要求状态量和导数量的排列和维度与输入数据的一致
     dynamicSystem_.setStateData(y);                 // 设置状态数据
     errc_t err = dynamicSystem_.run(time);           // 执行动力学系统
     dynamicSystem_.getDerivativeData(dy);           // 获取导数数据
@@ -113,7 +114,12 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     // 重置动力学系统
     this->reset();
 
+    // 添加运动学函数块
+    // 先添加运动学函数块，再添加其他块，确保Pos状态在状态量列表的开头
+    derivativeBlock = new BlockMotion();
+    this->addBlock(derivativeBlock);
 
+    
     if(body && forceModel.useCentralBodyAttraction()){
         // 添加重力场函数块
         if(auto gravityPtr = bodyAttraction.asGravityForce()){
@@ -160,9 +166,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         aWarning("the propagation frame's center is not a celestial body, no gravity force will be added.");
     }
 
-    // 添加运动学函数块
-    derivativeBlock = new BlockMotion();
-    this->addBlock(derivativeBlock);
+
 
 
     BlockMass* blockMass = nullptr;  // 质量函数块指针，用于标识是否添加了质量函数块
