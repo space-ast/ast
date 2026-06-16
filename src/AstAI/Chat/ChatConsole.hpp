@@ -24,6 +24,7 @@
 #include "AstGlobal.h"
 #include "AstAI/ChatEventHandler.hpp"
 #include "AstUtil/Markdown.hpp"
+#include "AstUtil/MarkdownRenderer.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -37,6 +38,8 @@ AST_NAMESPACE_BEGIN
 class AST_AI_API ChatConsole : public ChatEventHandler
 {
 public:
+    using RendererType = MarkdownRenderer;
+
     ChatConsole() = default;
     ~ChatConsole() = default;
 
@@ -65,7 +68,7 @@ public:
 private:
     void outputText(const std::string& text);
 
-    Markdown renderer_;
+    RendererType renderer_;
     bool     rawOutput_ = false;
 };
 

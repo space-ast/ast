@@ -28,6 +28,11 @@ public:
 	/// @brief 渲染一段文本，返回本次 chunk 新产生的增量输出
 	const char* operator()(StringView chunk);
 
+	/// @brief 打印渲染结果（不返回）
+	/// @note  直接在标准输出（cout）打印，不返回任何值
+	/// @param chunk 要渲染的文本 chunk
+	void print(StringView chunk);
+
 	/// @brief 渲染行内 Markdown 文本（不含块级元素），返回 ANSI 字符串
 	/// @note  线程安全（每次调用使用独立状态）
 	static std::string renderInline(const std::string& text);

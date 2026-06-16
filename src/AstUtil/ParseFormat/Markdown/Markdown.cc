@@ -7,6 +7,7 @@
 
 #include "Markdown.hpp"
 #include "MarkdownTable.hpp"
+#include "AstUtil/IO.hpp"
 #include <algorithm>
 #include <cstring>
 
@@ -67,6 +68,11 @@ const char* Markdown::operator()(StringView chunk)
 	for (auto c : chunk)
 		feed(c, result_);
 	return result_.c_str();
+}
+
+void Markdown::print(StringView chunk)
+{
+	ast_printf("%s", this->operator()(chunk));
 }
 
 void Markdown::reset()

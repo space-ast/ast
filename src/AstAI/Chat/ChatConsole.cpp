@@ -32,9 +32,7 @@ void ChatConsole::outputText(const std::string& text)
     }
     else
     {
-        const char* rendered = renderer_(text);
-        if (rendered && *rendered)
-            ast_printf("%s", rendered);
+        renderer_.print(text);
     }
     fflush(stdout);
 }
