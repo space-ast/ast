@@ -42,7 +42,7 @@ AST_NAMESPACE_BEGIN
 ///          MarkdownHTML renderer;
 ///          MarkdownParser parser(renderer);
 ///          parser.feed(markdownText);
-///          parser.flush();
+///          parser.finish();
 ///          std::string html = renderer.output();
 ///          @endcode
 class AST_UTIL_API MarkdownHTML: public MarkdownSax
@@ -82,6 +82,8 @@ public:
     void endEmphasis() override;
     void startStrong() override;       // 粗体
     void endStrong() override;
+    void startDelete() override;         // 删除线
+    void endDelete() override;
     void codeSpan(StringView code) override;
     void startLink(StringView url) override;
     void endLink() override;

@@ -42,7 +42,7 @@ AST_NAMESPACE_BEGIN
 ///          MarkdownANSI renderer;
 ///          MarkdownParser parser(renderer);
 ///          parser.feed(markdownText);
-///          parser.flush();
+///          parser.finish();
 ///          std::string result = renderer.output();
 ///          @endcode
 class AST_UTIL_API MarkdownANSI final : public MarkdownSax
@@ -82,6 +82,8 @@ public:
     void endEmphasis() override;
     void startStrong() override;       // 粗体
     void endStrong() override;
+    void startDelete() override;         // 删除线
+    void endDelete() override;
     void codeSpan(StringView code) override;
     void startLink(StringView url) override;
     void endLink() override;
@@ -108,6 +110,7 @@ private:
         STYLE_BOLD   = 1 << 0,  ///< **...**
         STYLE_ITALIC = 1 << 1,  ///< *...* 或 _..._
         STYLE_LINK   = 1 << 2,  ///< [text](url) — 下划线+蓝色
+        STYLE_DELETE = 1 << 3,  ///< ~~...~~ — 删除线
     };
 
     // ---- 块级元素帧（仅用于块引用嵌套跟踪） ----

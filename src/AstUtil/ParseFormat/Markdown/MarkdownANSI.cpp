@@ -67,6 +67,7 @@ void MarkdownANSI::emitActiveStyles()
 {
     if (activeStyles_ & STYLE_BOLD)   output_ += kBold;
     if (activeStyles_ & STYLE_ITALIC) output_ += kItalic;
+    if (activeStyles_ & STYLE_DELETE) output_ += kStrike;
     if (activeStyles_ & STYLE_LINK)   { output_ += kUnderline; output_ += kBlue; }
 }
 
@@ -79,6 +80,7 @@ void MarkdownANSI::emitStyleTransition(int oldStyles, int newStyles)
 
     if (newStyles & STYLE_BOLD)   output_ += kBold;
     if (newStyles & STYLE_ITALIC) output_ += kItalic;
+    if (newStyles & STYLE_DELETE) output_ += kStrike;
     if (newStyles & STYLE_LINK)   { output_ += kUnderline; output_ += kBlue; }
 }
 
@@ -343,6 +345,24 @@ void MarkdownANSI::endStrong()
 {
     int old = activeStyles_;
     activeStyles_ &= ~STYLE_BOLD;
+    emitStyleTransition(old, activeStyles_);
+}
+
+// ============================================================================
+// 行内元素 — 删除线
+// ============================================================================
+
+void MarkdownANSI::startDelete()
+{
+    int old = activeStyles_;
+    activeStyles_ |= STYLE_DELETE;
+    emitStyleTransition(old, activeStyles_);
+}
+
+void MarkdownANSI::endDelete()
+{
+    int old = activeStyles_;
+    activeStyles_ &= ~STYLE_DELETE;
     emitStyleTransition(old, activeStyles_);
 }
 

@@ -38,7 +38,7 @@ void MarkdownRenderer::feed(StringView chunk, std::string &accumulated)
 
 void MarkdownRenderer::end(std::string &remaining)
 {
-    parser_.flush();
+    parser_.finish();
     remaining = std::move(ansiRenderer_.output());
 }
 

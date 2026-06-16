@@ -67,6 +67,8 @@ public:
     virtual void endEmphasis() = 0;
     virtual void startStrong() = 0;       // 粗体
     virtual void endStrong() = 0;
+    virtual void startDelete() = 0;      // 删除线
+    virtual void endDelete() = 0;
     virtual void codeSpan(StringView code) = 0;
     virtual void startLink(StringView url) = 0;
     virtual void endLink() = 0;

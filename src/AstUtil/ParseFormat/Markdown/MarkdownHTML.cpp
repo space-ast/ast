@@ -214,6 +214,20 @@ void MarkdownHTML::endStrong()
 }
 
 // ============================================================================
+// 行内元素 — 删除线
+// ============================================================================
+
+void MarkdownHTML::startDelete()
+{
+    output_ += "<del>";
+}
+
+void MarkdownHTML::endDelete()
+{
+    output_ += "</del>";
+}
+
+// ============================================================================
 // 行内元素 — 行内代码
 // ============================================================================
 
@@ -233,7 +247,16 @@ void MarkdownHTML::startLink(StringView url)
     linkUrl_.assign(url.data(), url.size());
 
     output_ += "<a href=\"";
-    appendEscaped(output_, url);
+    // URL 属性值：仅转义 " 和 <（& 在 URL 中保留原样）
+    for (size_t i = 0; i < url.size(); ++i)
+    {
+        switch (url[i])
+        {
+        case '"': output_ += "&quot;"; break;
+        case '<': output_ += "&lt;";   break;
+        default:  output_ += url[i];   break;
+        }
+    }
     output_ += "\">";
 }
 
@@ -250,7 +273,16 @@ void MarkdownHTML::endLink()
 void MarkdownHTML::image(StringView alt, StringView url)
 {
     output_ += "<img src=\"";
-    appendEscaped(output_, url);
+    // URL: 仅转义 " 和 <
+    for (size_t i = 0; i < url.size(); ++i)
+    {
+        switch (url[i])
+        {
+        case '"': output_ += "&quot;"; break;
+        case '<': output_ += "&lt;";   break;
+        default:  output_ += url[i];   break;
+        }
+    }
     output_ += "\" alt=\"";
     appendEscaped(output_, alt);
     output_ += "\">";
