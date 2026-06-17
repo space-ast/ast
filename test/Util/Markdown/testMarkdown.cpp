@@ -7,7 +7,7 @@
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 
 #include "AstGlobal.h"
-#include "ast/Markdown.hpp"
+// #include "ast/Markdown.hpp"
 #include "ast/MarkdownRenderer.hpp"
 #include "ast/TestMarkdown.hpp"
 #include "ast/IO.hpp"
@@ -24,7 +24,7 @@ AST_USING_NAMESPACE
 /// @brief 渲染并打印（方便目视确认样式），同时返回 ANSI 字符串供断言
 static std::string show(const char* label, const std::string& markdown)
 {
-	Markdown md;
+	MarkdownRenderer md;
 	std::string out = md(markdown.c_str());
 
 	ast_printf("\n[%s]\n", label);
@@ -388,7 +388,7 @@ TEST(MarkdownTest, EscapeBackslash)
 
 TEST(MarkdownTest, StreamBoldSplitMidWord)
 {
-	Markdown md;
+	MarkdownRenderer md;
 	std::string o1 = md("Hello **wor");
 	std::string o2 = md("ld**!\n");
 
@@ -402,7 +402,7 @@ TEST(MarkdownTest, StreamBoldSplitMidWord)
 
 TEST(MarkdownTest, StreamMarkerStarSplit)
 {
-	Markdown md;
+	MarkdownRenderer md;
 	std::string o1 = md("Hello *");
 	std::string o2 = md("*bold**\n");
 
@@ -417,7 +417,7 @@ TEST(MarkdownTest, StreamMarkerStarSplit)
 
 TEST(MarkdownTest, StreamHeadingSplit)
 {
-	Markdown md;
+	MarkdownRenderer md;
 	std::string o1 = md("## T");
 	std::string o2 = md("itle\n");
 
@@ -433,7 +433,7 @@ TEST(MarkdownTest, StreamHeadingSplit)
 
 TEST(MarkdownTest, ResetClearsIncompleteBold)
 {
-	Markdown md;
+	MarkdownRenderer md;
 	md("**incomplete bold...");
 
 	ast_printf("\n  [reset clears bold]\n");
@@ -451,7 +451,7 @@ TEST(MarkdownTest, ResetClearsIncompleteBold)
 
 TEST(MarkdownTest, ResetClearsHeadingState)
 {
-	Markdown md;
+	MarkdownRenderer md;
 	md("# Title\n");
 	md.reset();
 

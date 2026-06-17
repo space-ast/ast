@@ -40,6 +40,12 @@ void MarkdownHTML::appendEscaped(std::string& out, StringView text)
     }
 }
 
+void MarkdownHTML::appendIndent(size_t depth)
+{
+    for (size_t i = 0; i < depth; ++i)
+        output_ += "  ";
+}
+
 // ============================================================================
 // 文档生命周期
 // ============================================================================
@@ -49,6 +55,7 @@ void MarkdownHTML::startDocument()
     output_.clear();
     listStack_.clear();
     blockquoteDepth_ = 0;
+    lastEndListDepth_ = -1;
     inTableHead_ = false;
     linkUrl_.clear();
 }
@@ -125,17 +132,31 @@ void MarkdownHTML::endCodeBlock()
 
 void MarkdownHTML::startList(bool ordered)
 {
+    size_t depth = listStack_.size();
     listStack_.push_back(ordered);
+
+    // 嵌套列表：从父级 <li> 文本换行
+    if (depth > 0 && !output_.empty() && output_.back() != '\n')
+        output_ += '\n';
+
+    appendIndent(depth);
     output_ += ordered ? "<ol>\n" : "<ul>\n";
 }
 
 void MarkdownHTML::startListItem()
 {
+    appendIndent(listStack_.size());
     output_ += "<li>";
 }
 
 void MarkdownHTML::endListItem()
 {
+    if (lastEndListDepth_ >= 0 && static_cast<size_t>(lastEndListDepth_) == listStack_.size())
+    {
+        // 当前项包含子列表，将 </li> 放在独立缩进行
+        appendIndent(listStack_.size());
+        lastEndListDepth_ = -1;
+    }
     output_ += "</li>\n";
 }
 
@@ -146,7 +167,11 @@ void MarkdownHTML::endList()
     bool ordered = listStack_.back();
     listStack_.pop_back();
 
+    size_t depth = listStack_.size();
+    appendIndent(depth);
     output_ += ordered ? "</ol>\n" : "</ul>\n";
+
+    lastEndListDepth_ = static_cast<int>(depth);
 }
 
 // ============================================================================

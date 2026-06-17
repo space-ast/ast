@@ -148,8 +148,15 @@ private:
 
     // ---- 块级状态 ----
     std::vector<BlockFrame> blockStack_;
-    int  listItemNumber_ = 0;
-    bool listOrdered_    = false;
+
+    /// @brief 列表栈帧（支持嵌套列表的逐级编号与缩进）
+    struct ListFrame
+    {
+        bool ordered;       ///< true=有序, false=无序
+        int  itemNumber;    ///< 当前级已输出的列表项序号（0=尚未开始第一项）
+    };
+    std::vector<ListFrame> listStack_;
+
     bool inCodeBlock_    = false;
     int  codeLineNumber_ = 0;
 

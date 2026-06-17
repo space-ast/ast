@@ -24,6 +24,16 @@ MarkdownTableStateMachine::MarkdownTableStateMachine(MarkdownSax& sax)
 // 公共接口
 // ============================================================================
 
+
+void MarkdownTableStateMachine::feed(StringView chunk)
+{
+    for (char c : chunk)
+    {
+        feedChar(c);
+    }
+}
+
+
 void MarkdownTableStateMachine::feedChar(char c)
 {
     charConsumed_ = true;

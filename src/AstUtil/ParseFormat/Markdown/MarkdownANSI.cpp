@@ -326,8 +326,7 @@ void MarkdownANSI::startDocument()
     output_.clear();
     activeStyles_  = STYLE_NONE;
     blockStack_.clear();
-    listItemNumber_ = 0;
-    listOrdered_    = false;
+    listStack_.clear();
     inCodeBlock_    = false;
     codeLineNumber_ = 0;
     inTable_        = false;
@@ -443,21 +442,26 @@ void MarkdownANSI::startList(bool ordered)
     if (!output_.empty() && output_.back() != '\n')
         output_ += '\n';
 
-    listOrdered_    = ordered;
-    listItemNumber_ = 0;
+    listStack_.push_back({ordered, 0});
 }
 
 void MarkdownANSI::startListItem()
 {
-    listItemNumber_++;
+    auto& frame = listStack_.back();
+    frame.itemNumber++;
 
     // 输出块引用前缀（如果在引用中）
     emitBlockPrefix();
 
+    // 嵌套列表缩进：每嵌套一级缩进 2 格（最外层不缩进）
+    size_t depth = listStack_.size();
+    for (size_t i = 1; i < depth; ++i)
+        output_ += "  ";
+
     output_ += kYellow;
-    if (listOrdered_)
+    if (frame.ordered)
     {
-        output_ += std::to_string(listItemNumber_);
+        output_ += std::to_string(frame.itemNumber);
         output_ += ". ";
     }
     else
@@ -476,9 +480,11 @@ void MarkdownANSI::endListItem()
 
 void MarkdownANSI::endList()
 {
-    // 列表后空行分隔
-    output_ += '\n';
-    listItemNumber_ = 0;
+    if (!listStack_.empty())
+        listStack_.pop_back();
+    // 列表后空行分隔（仅最外层列表结束时空行）
+    if (listStack_.empty())
+        output_ += '\n';
 }
 
 // ============================================================================

@@ -17,7 +17,7 @@ ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 VERSION_HEADER_PATTERN = re.compile(r'\A\s*(///.*(?:\r?\n))+')
 
 # 需要处理的文件扩展名
-SOURCE_EXTENSIONS = ['.cpp', '.h', '.hpp', '.c', ".cpp0", ".0cpp"]
+SOURCE_EXTENSIONS = ['.cpp', '.h', '.hpp', '.c', ".cpp0", ".0cpp", ".bak", ".cpp.bak"]
 
 # 需要转换编码的目录
 ENCODE_DIRS = ['examples', 'test']

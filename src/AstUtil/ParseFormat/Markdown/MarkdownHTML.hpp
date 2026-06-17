@@ -111,12 +111,16 @@ private:
     /// @brief 将文本中的 HTML 特殊字符转义后追加到输出
     static void appendEscaped(std::string& out, StringView text);
 
+    /// @brief 向输出追加 depth*2 个空格缩进
+    void appendIndent(size_t depth);
+
     // ---- 输出缓冲 ----
     std::string output_;
 
     // ---- 块级状态 ----
     std::vector<bool> listStack_;   ///< 列表类型栈: true=有序, false=无序
     int  blockquoteDepth_ = 0;      ///< 块引用嵌套深度
+    int  lastEndListDepth_ = -1;    ///< 最近一次 endList 后的栈深度，用于 endListItem 判断子列表换行
 
     // ---- 表格状态 ----
     bool inTableHead_ = false;      ///< 当前是否在表头区域内

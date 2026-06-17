@@ -8,11 +8,22 @@
 #include "MarkdownParser.hpp"
 #include "MarkdownSax.hpp"
 #include "MarkdownTableStateMachine.hpp"
+#include "MarkdownANSI.hpp"
 #include "AstUtil/StringView.hpp"
 #include <cctype>
 #include <cstring>
 
 AST_NAMESPACE_BEGIN
+
+
+std::string aMarkdownANSI(StringView markdown)
+{
+    MarkdownANSI ansi;
+    MarkdownParser md(ansi);
+    md.feed(markdown);
+    md.finish();
+    return ansi.output();
+}
 
 // ============================================================================
 // MarkdownInlineStateMachine — 单字符核心 + StringView 薄封装
@@ -901,17 +912,25 @@ void MarkdownBlockStateMachine::finish()
     if (hasBlock(EBlockType::Paragraph))
         endParagraph();
 
-    // 关闭列表
-    if (hasBlock(EBlockType::ListItem))
-        closeToType(EBlockType::ListItem);
-    if (hasBlock(EBlockType::List))
-        closeToType(EBlockType::List);
-
     // 关闭表格
     tableSM_->finish();
 
-    // 关闭所有剩余块
-    closeAllBlocks();
+    // 关闭所有剩余块（自顶向下，确保内层 List 先于外层 ListItem 关闭）
+    while (!blockStack_.empty())
+    {
+        BlockFrame& top = blockStack_.back();
+        switch (top.type)
+        {
+        case EBlockType::ListItem: sax_.endListItem(); break;
+        case EBlockType::List:     sax_.endList();     break;
+        case EBlockType::Paragraph:  sax_.endParagraph();  break;
+        case EBlockType::Blockquote: sax_.endBlockquote(); break;
+        case EBlockType::CodeBlock:  sax_.endCodeBlock();  break;
+        default: break;
+        }
+        blockStack_.pop_back();
+    }
+    inList_ = false;
 
     // ---- 结束行内状态机 ----
     inlineSM_.finish();
@@ -931,7 +950,7 @@ void MarkdownBlockStateMachine::reset()
     contentBuf_.clear();
     codeLineBuf_.clear();
 
-    state_ = EState::eLineStart;
+    lineFresh_ = true; state_ = EState::eLineStart;
 
     headingLevel_ = 0;
 
@@ -941,6 +960,8 @@ void MarkdownBlockStateMachine::reset()
 
     inList_ = false;
     listOrdered_ = false;
+    currentLineIndent_ = 0;
+    listItemAfterNL_  = false;
 
     paraAfterNL_ = false;
     paraHadContent_ = false;
@@ -964,20 +985,33 @@ void MarkdownBlockStateMachine::feedChar(char c)
     switch (state_)
     {
     case EState::eLineStart:
-        // ---- 跳过行首空白 ----
+        // ---- 每行首次进入时重置缩进计数 ----
+        if (lineFresh_)
+        {
+            currentLineIndent_ = 0;
+            lineFresh_ = false;
+        }
+
+        // ---- 计数行首空白（用于缩进比较） ----
         if (c == ' ' || c == '\t')
+        {
+            currentLineIndent_++;
             return;
+        }
+        // 非空白字符：currentLineIndent_ 已累积完毕，后续 classifyFirstChar 使用
 
         // ---- 空行（\n 紧跟 \n） ----
         if (c == '\n')
         {
+            // 处理延迟的列表项关闭
+            closePendingListItem();
+            currentLineIndent_ = 0;
+            listItemAfterNL_ = false;
             // 结束当前段落
             if (hasBlock(EBlockType::Paragraph))
                 endParagraph();
-            // 结束列表
-            if (hasBlock(EBlockType::ListItem))
-                closeToType(EBlockType::ListItem);
-            if (hasBlock(EBlockType::List))
+            // 结束所有列表
+            while (hasBlock(EBlockType::List))
             {
                 closeToType(EBlockType::List);
                 inList_ = false;
@@ -989,8 +1023,28 @@ void MarkdownBlockStateMachine::feedChar(char c)
             return;
         }
 
+        // ---- 延迟的列表项关闭：根据缩进决定是否保持打开 ----
+        if (listItemAfterNL_)
+        {
+            listItemAfterNL_ = false;
+            int listIndent = currentListIndent();
+
+            if (currentLineIndent_ <= listIndent)
+            {
+                // 缩进相同 → 关闭前一个列表项
+                closePendingListItem();
+                // 缩进更浅 → 逐层关闭内嵌列表及包裹它们的列表项
+                while (hasBlock(EBlockType::List) && currentListIndent() > currentLineIndent_)
+                {
+                    closeToType(EBlockType::List);  // 关闭内层 List
+                    closePendingListItem();          // 关闭刚成为栈顶的父列表项
+                    inList_ = hasBlock(EBlockType::List);
+                }
+            }
+            // else: 缩进更深 → 保持列表项打开（可能包含嵌套列表或续行内容）
+        }
+
         // ---- 段落空行检查：若 paraAfterNL_ 且行首字符并非块标记，继续段落 ----
-        // 这个判断由 classifyFirstChar 完成
         classifyFirstChar(c);
         break;
 
@@ -1034,9 +1088,10 @@ void MarkdownBlockStateMachine::feedChar(char c)
                 std::string dummy;
                 inlineSM_.feed(c, dummy);
             }
-            sax_.endListItem();
-            closeToType(EBlockType::ListItem);
-            state_ = EState::eLineStart;
+            // 不在此处关闭列表项 —— 延迟到下一行根据缩进决定
+            listItemAfterNL_ = true;
+            currentLineIndent_ = 0;
+            lineFresh_ = true; state_ = EState::eLineStart;
         }
         else
         {
@@ -1068,7 +1123,7 @@ void MarkdownBlockStateMachine::feedChar(char c)
                 }
                 if (hasBlock(EBlockType::Blockquote))
                     closeToType(EBlockType::Blockquote);
-                state_ = EState::eLineStart;
+                lineFresh_ = true; state_ = EState::eLineStart;
                 break;
             }
 
@@ -1134,19 +1189,88 @@ void MarkdownBlockStateMachine::closeParagraph()
     paraHadContent_ = false;
 }
 
-void MarkdownBlockStateMachine::ensureListBlock(bool ordered)
+void MarkdownBlockStateMachine::ensureListBlock(bool ordered, int indent)
 {
-    if (!inList_ || listOrdered_ != ordered)
+    // 没有已打开的列表 → 直接开始
+    if (!inList_)
     {
-        if (inList_)
+        sax_.startList(ordered);
+        openBlock(EBlockType::List, indent, ordered);
+        inList_ = true;
+        listOrdered_ = ordered;
+        return;
+    }
+
+    int topIndent = currentListIndent();
+
+    // 缩进更深 → 开始嵌套列表（不关闭父列表项）
+    if (indent > topIndent)
+    {
+        sax_.startList(ordered);
+        openBlock(EBlockType::List, indent, ordered);
+        listOrdered_ = ordered;
+        return;
+    }
+
+    // 缩进相同 → 同层新列表（若类型不同则替换，否则复用）
+    if (indent == topIndent)
+    {
+        if (listOrdered_ != ordered)
         {
             closeToType(EBlockType::List);
+            sax_.startList(ordered);
+            openBlock(EBlockType::List, indent, ordered);
+            inList_ = true;
+            listOrdered_ = ordered;
         }
+        // 同类型 → 复用现有列表块，不发出新 startList
+        return;
+    }
+
+    // 缩进更浅 → 关闭内层列表直到找到匹配级别
+    while (inList_ && currentListIndent() > indent)
+    {
+        // 安全关闭嵌套列表及其最后一项
+        closePendingListItem();
+        closeToType(EBlockType::List);
+        inList_ = hasBlock(EBlockType::List);
+    }
+
+    // 到达匹配缩进层
+    if (!inList_)
+    {
         sax_.startList(ordered);
-        openBlock(EBlockType::List, 0, ordered);
+        openBlock(EBlockType::List, indent, ordered);
         inList_ = true;
         listOrdered_ = ordered;
     }
+    else if (listOrdered_ != ordered)
+    {
+        closeToType(EBlockType::List);
+        sax_.startList(ordered);
+        openBlock(EBlockType::List, indent, ordered);
+        inList_ = true;
+        listOrdered_ = ordered;
+    }
+}
+
+int MarkdownBlockStateMachine::currentListIndent() const
+{
+    for (int i = static_cast<int>(blockStack_.size()) - 1; i >= 0; --i)
+    {
+        if (blockStack_[i].type == EBlockType::List)
+            return blockStack_[i].level;
+    }
+    return -1;
+}
+
+void MarkdownBlockStateMachine::closePendingListItem()
+{
+    // 只关闭最内层的一个延迟列表项（嵌套项由调用方逐层关闭）
+    if (!hasBlock(EBlockType::ListItem)) return;
+    sax_.endListItem();
+    closeToType(EBlockType::ListItem);
+    listItemAfterNL_ = false;
 }
 
 // ============================================================================
@@ -1276,7 +1400,7 @@ void MarkdownBlockStateMachine::handleHeadingChar(char c)
         sax_.endHeading(headingLevel_);
         closeToType(EBlockType::Heading);
         headingLevel_ = 0;
-        state_ = EState::eLineStart;
+        lineFresh_ = true; state_ = EState::eLineStart;
     }
     else
     {
@@ -1324,7 +1448,7 @@ void MarkdownBlockStateMachine::handleCodeFenceOpen(char c)
             classBuf_.clear();
             codeFenceChar_ = 0;
             codeFenceCount_ = 0;
-            state_ = EState::eLineStart;
+            lineFresh_ = true; state_ = EState::eLineStart;
         }
         return;
     }
@@ -1375,7 +1499,7 @@ void MarkdownBlockStateMachine::handleCodeBlockChar(char c)
                 codeLineBuf_.clear();
                 codeFenceChar_ = 0;
                 codeFenceCount_ = 0;
-                state_ = EState::eLineStart;
+                lineFresh_ = true; state_ = EState::eLineStart;
                 return;
             }
         }
@@ -1403,7 +1527,7 @@ void MarkdownBlockStateMachine::handleBlockquoteChar(char c)
         }
         // 清空 classBuf_，为下一行引用前缀判定做准备
         classBuf_.clear();
-        state_ = EState::eLineStart;
+        lineFresh_ = true; state_ = EState::eLineStart;
         return;
     }
 
@@ -1447,7 +1571,7 @@ void MarkdownBlockStateMachine::handleListMarker(char c)
                 ensureDocStarted();
                 sax_.horizontalRule();
                 classBuf_.clear();
-                state_ = EState::eLineStart;
+                lineFresh_ = true; state_ = EState::eLineStart;
                 return;
             }
         }
@@ -1461,7 +1585,7 @@ void MarkdownBlockStateMachine::handleListMarker(char c)
         }
         paraHadContent_ = true;
         classBuf_.clear();
-        state_ = EState::eLineStart;
+        lineFresh_ = true; state_ = EState::eLineStart;
         return;
     }
 
@@ -1472,7 +1596,7 @@ void MarkdownBlockStateMachine::handleListMarker(char c)
         {
             // 确认无序列表
             closeParagraph();
-            ensureListBlock(false);
+            ensureListBlock(false, currentLineIndent_);
             sax_.startListItem();
             openBlock(EBlockType::ListItem);
             classBuf_.clear();
@@ -1537,7 +1661,7 @@ void MarkdownBlockStateMachine::handleListMarker(char c)
         {
             // 确认有序列表 "N. "
             closeParagraph();
-            ensureListBlock(true);
+            ensureListBlock(true, currentLineIndent_);
             sax_.startListItem();
             openBlock(EBlockType::ListItem);
             classBuf_.clear();
@@ -1591,7 +1715,7 @@ void MarkdownBlockStateMachine::handleTableChar(char c)
         if (!tableSM_->isCharConsumed())
         {
             // 当前字符未被表格消费 → 重新做行首分类
-            state_ = EState::eLineStart;
+            lineFresh_ = true; state_ = EState::eLineStart;
             // 跳过空白后重新分类（注意：此时 c 可能为空白，需被行首逻辑跳过）
             if (c != ' ' && c != '\t')
             {
@@ -1605,7 +1729,7 @@ void MarkdownBlockStateMachine::handleTableChar(char c)
         }
         else
         {
-            state_ = EState::eLineStart;
+            lineFresh_ = true; state_ = EState::eLineStart;
         }
     }
 }
@@ -1634,7 +1758,19 @@ void MarkdownBlockStateMachine::closeTop()
     case EBlockType::ListItem:   /* list item closed by newline handler */ break;
     case EBlockType::List:
         sax_.endList();
+        // 检查是否还有其他 List 块（支持嵌套），
+        // 遍历除当前 top 外的栈帧：
+        // pop_back 尚未执行，所以 blockStack_.size()-1 即为不包括 top 的大小
         inList_ = false;
+        for (size_t i = 0; i + 1 < blockStack_.size(); ++i)
+        {
+            if (blockStack_[i].type == EBlockType::List)
+            {
+                inList_ = true;
+                listOrdered_ = blockStack_[i].ordered;
+                break;
+            }
+        }
         break;
     }
     blockStack_.pop_back();

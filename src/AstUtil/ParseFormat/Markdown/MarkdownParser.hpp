@@ -37,6 +37,8 @@ class MarkdownSax;
 class MarkdownTableStateMachine;
 
 
+AST_UTIL_API std::string aMarkdownANSI(StringView markdown);
+
 /// @brief  Markdown内联文本状态机（流式输入输出SAX事件驱动）
 class AST_UTIL_API MarkdownInlineStateMachine
 {
@@ -224,7 +226,7 @@ private:
     void ensureParagraph();
     void endParagraph();
     void closeParagraph();       ///< 关闭段落（不刷新行内缓冲，由调用方负责）
-    void ensureListBlock(bool ordered); ///< 确保列表块已打开
+    void ensureListBlock(bool ordered, int indent = 0); ///< 确保列表块已打开（含缩进嵌套）
 
     // ---- 文档辅助 ----
     void ensureDocStarted();
@@ -255,8 +257,16 @@ private:
     std::string codeFenceLang_;
 
     // ---- 列表状态 ----
-    bool inList_     = false;
-    bool listOrdered_ = false;
+    bool inList_           = false;
+    bool listOrdered_      = false;
+    int  currentLineIndent_ = 0;      ///< 当前行前导空白数
+    bool listItemAfterNL_  = false;   ///< \n 后延迟关闭列表项
+    bool lineFresh_         = true;   ///< 刚进入 eLineStart，需重置缩进计数
+
+    /// @brief 获取当前最内层列表的缩进量（无列表时返回 -1）
+    int currentListIndent() const;
+    /// @brief 安全关闭已标记为延迟的列表项
+    void closePendingListItem();
 
     // ---- 段落跨行追踪 ----
     bool paraAfterNL_ = false;   ///< 段落中刚看到 \n，等待下一字符判定软换行/段落结束

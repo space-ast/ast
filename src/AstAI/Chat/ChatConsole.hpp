@@ -23,7 +23,7 @@
 
 #include "AstGlobal.h"
 #include "AstAI/ChatEventHandler.hpp"
-#include "AstUtil/Markdown.hpp"
+// #include "AstUtil/Markdown.hpp"
 #include "AstUtil/MarkdownRenderer.hpp"
 
 AST_NAMESPACE_BEGIN

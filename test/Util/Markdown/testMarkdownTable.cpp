@@ -6,8 +6,9 @@
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 
 #include "AstGlobal.h"
-#include "ast/MarkdownTable.hpp"
-#include "ast/Markdown.hpp"
+//#include "ast/MarkdownTable.hpp"
+//#include "ast/Markdown.hpp"
+#include "ast/MarkdownRenderer.hpp"
 #include "ast/IO.hpp"
 #include "ast/Test.h"
 #include <gtest/gtest.h>
@@ -29,7 +30,7 @@ TEST(MarkdownTableTest, VisualPrintAll)
             "| 轨道高度 | 500.5 | km |\n"
             "| 倾角 | 97.4 | 度 |\n"
             "| 半长轴 | 6878.14 | km |\n";
-        std::string r = aMarkdownTable(input);
+        std::string r = aMarkdownANSI(input);
         ast_printf("%s\n", r.c_str());
         EXPECT_FALSE(r.empty());
     }
@@ -41,7 +42,7 @@ TEST(MarkdownTableTest, VisualPrintAll)
             "|------|-------|\n"
             "| foo  | 123   |\n"
             "| bar  | 456   |\n";
-        std::string r = aMarkdownTable(input);
+        std::string r = aMarkdownANSI(input);
         ast_printf("%s\n", r.c_str());
         EXPECT_FALSE(r.empty());
     }
@@ -53,7 +54,7 @@ TEST(MarkdownTableTest, VisualPrintAll)
             "|------|------|\n"
             "| **粗体** | *斜体* |\n"
             "| `代码` | [链接](url) |\n";
-        std::string r = aMarkdownTable(input);
+        std::string r = aMarkdownANSI(input);
         ast_printf("%s\n", r.c_str());
         EXPECT_FALSE(r.empty());
     }
@@ -66,7 +67,7 @@ TEST(MarkdownTableTest, VisualPrintAll)
             "| 1 | Alpha | 姿态控制系统 | 正常 |\n"
             "| 2 | Beta | 推进系统 | 待检查 |\n"
             "| 3 | Gamma | 通信链路 | 正常 |\n";
-        std::string r = aMarkdownTable(input);
+        std::string r = aMarkdownANSI(input);
         ast_printf("%s\n", r.c_str());
         EXPECT_FALSE(r.empty());
     }
@@ -78,7 +79,7 @@ TEST(MarkdownTableTest, VisualPrintAll)
             "|----------|\n"
             "| 嫦娥七号 |\n"
             "| 天问三号 |\n";
-        std::string r = aMarkdownTable(input);
+        std::string r = aMarkdownANSI(input);
         ast_printf("%s\n", r.c_str());
         EXPECT_FALSE(r.empty());
     }
@@ -88,7 +89,7 @@ TEST(MarkdownTableTest, VisualPrintAll)
         const char* input =
             "| A | B | C |\n"
             "|---|---|---|\n";
-        std::string r = aMarkdownTable(input);
+        std::string r = aMarkdownANSI(input);
         ast_printf("%s\n", r.c_str());
         EXPECT_FALSE(r.empty());
     }
@@ -105,7 +106,7 @@ TEST(MarkdownTableTest, BasicTable)
         "| foo  | 123   |\n"
         "| bar  | 456   |\n";
 
-    std::string result = aMarkdownTable(input);
+    std::string result = aMarkdownANSI(input);
     EXPECT_FALSE(result.empty());
 
     // 应包含框线字符
@@ -129,7 +130,7 @@ TEST(MarkdownTableTest, Alignments)
         "|------|:------:|------:|\n"
         "| a    | b      | c     |\n";
 
-    std::string result = aMarkdownTable(input);
+    std::string result = aMarkdownANSI(input);
     EXPECT_FALSE(result.empty());
     EXPECT_NE(result.find("Left"), std::string::npos);
     EXPECT_NE(result.find("Center"), std::string::npos);
@@ -146,7 +147,7 @@ TEST(MarkdownTableTest, ChineseTable)
         "|------|------|------|\n"
         "| 轨道高度 | 500 | km |\n";
 
-    std::string result = aMarkdownTable(input);
+    std::string result = aMarkdownANSI(input);
     EXPECT_FALSE(result.empty());
     EXPECT_NE(result.find("参数"), std::string::npos);
     EXPECT_NE(result.find("轨道高度"), std::string::npos);
@@ -157,9 +158,7 @@ TEST(MarkdownTableTest, ChineseTable)
 // ============================================================================
 TEST(MarkdownTableTest, InvalidInput)
 {
-    EXPECT_TRUE(aMarkdownTable("just plain text").empty());
-    EXPECT_TRUE(aMarkdownTable("").empty());
-    EXPECT_TRUE(aMarkdownTable("| A | B |\n").empty());
+    EXPECT_TRUE(aMarkdownANSI("").empty());
 }
 
 // ============================================================================
@@ -173,7 +172,7 @@ TEST(MarkdownTableTest, SingleColumn)
         "| one  |\n"
         "| two  |\n";
 
-    std::string result = aMarkdownTable(input);
+    std::string result = aMarkdownANSI(input);
     EXPECT_FALSE(result.empty());
 }
 
@@ -188,7 +187,7 @@ TEST(MarkdownTableTest, InlineStyles)
         "| **bold** | *italic* text |\n"
         "| `code` | ~~strike~~ |\n";
 
-    std::string result = aMarkdownTable(input);
+    std::string result = aMarkdownANSI(input);
     EXPECT_FALSE(result.empty());
     EXPECT_NE(result.find("\033[1m"), std::string::npos);   // bold
     EXPECT_NE(result.find("\033[3m"), std::string::npos);   // italic
@@ -210,8 +209,8 @@ TEST(MarkdownTableTest, StreamingIntegration)
         "\n"
         "表格后的文本。\n";
 
-    Markdown md;
-    std::string result = md(input);
+    std::string result = aMarkdownANSI(input);
+    ast_printf("%s\n", result.c_str());
 
     // 表格部分应包含框线字符，证明被渲染了
     EXPECT_NE(result.find("\xe2\x94\x8c"), std::string::npos);  // ┌
@@ -232,8 +231,8 @@ TEST(MarkdownTableTest, StreamingIntegration)
 TEST(MarkdownTableTest, PipeLineNotTable)
 {
     // 只有一行 |，没有分隔行 → 不是表格，应原样输出
-    Markdown md;
-    std::string result = md("| 这不是表格\n\n下一段\n");
+    std::string result = aMarkdownANSI("| 这不是表格\n\n下一段\n");
+    ast_printf("%s\n", result.c_str());
 
     // 不应包含框线字符
     EXPECT_EQ(result.find("\xe2\x94\x8c"), std::string::npos);

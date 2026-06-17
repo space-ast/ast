@@ -59,6 +59,8 @@ public:
     explicit MarkdownTableStateMachine(MarkdownSax& sax);
     ~MarkdownTableStateMachine() = default;
 
+    void feed(StringView chunk);
+    
     /// @brief  逐字符输入
     /// @param c 当前字符
     /// @note   当表格结束时（遇到非表格行），当前字符可能未被消费；
