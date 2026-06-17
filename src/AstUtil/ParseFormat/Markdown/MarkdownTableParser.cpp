@@ -1,11 +1,11 @@
 ///
-/// @file      MarkdownTableStateMachine.cpp
+/// @file      MarkdownTableParser.cpp
 /// @brief     Markdown 表格流式解析状态机实现
 /// @author    axel
 /// @date      2026-06-17
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 
-#include "MarkdownTableStateMachine.hpp"
+#include "MarkdownTableParser.hpp"
 #include <cctype>
 
 AST_NAMESPACE_BEGIN
@@ -14,7 +14,7 @@ AST_NAMESPACE_BEGIN
 // 构造 / 析构
 // ============================================================================
 
-MarkdownTableStateMachine::MarkdownTableStateMachine(MarkdownSax& sax)
+MarkdownTableParser::MarkdownTableParser(MarkdownSax& sax)
     : sax_(sax)
     , inlineSM_(sax)
 {
@@ -25,7 +25,7 @@ MarkdownTableStateMachine::MarkdownTableStateMachine(MarkdownSax& sax)
 // ============================================================================
 
 
-void MarkdownTableStateMachine::feed(StringView chunk)
+void MarkdownTableParser::feed(StringView chunk)
 {
     for (char c : chunk)
     {
@@ -34,7 +34,7 @@ void MarkdownTableStateMachine::feed(StringView chunk)
 }
 
 
-void MarkdownTableStateMachine::feedChar(char c)
+void MarkdownTableParser::feedChar(char c)
 {
     charConsumed_ = true;
 
@@ -103,7 +103,7 @@ void MarkdownTableStateMachine::feedChar(char c)
     rowBuf_ += c;
 }
 
-void MarkdownTableStateMachine::finish()
+void MarkdownTableParser::finish()
 {
     // 处理未完成的行（最后一行可能不以 \n 结尾）
     if (!rowBuf_.empty())
@@ -132,7 +132,7 @@ void MarkdownTableStateMachine::finish()
     charConsumed_ = true;
 }
 
-void MarkdownTableStateMachine::reset()
+void MarkdownTableParser::reset()
 {
     state_ = EState::eIdle;
     charConsumed_ = true;
@@ -142,15 +142,15 @@ void MarkdownTableStateMachine::reset()
     abortBuf_.clear();
 
     // 重建 inlineSM（引用成员不可赋值）
-    inlineSM_.~MarkdownInlineStateMachine();
-    new (&inlineSM_) MarkdownInlineStateMachine(sax_);
+    inlineSM_.~MarkdownInlineParser();
+    new (&inlineSM_) MarkdownInlineParser(sax_);
 }
 
 // ============================================================================
 // 行处理
 // ============================================================================
 
-void MarkdownTableStateMachine::processRow(const std::string& rowContent)
+void MarkdownTableParser::processRow(const std::string& rowContent)
 {
     switch (state_)
     {
@@ -175,7 +175,7 @@ void MarkdownTableStateMachine::processRow(const std::string& rowContent)
 // 表头行处理
 // ============================================================================
 
-void MarkdownTableStateMachine::processHeaderRow(const std::string& row)
+void MarkdownTableParser::processHeaderRow(const std::string& row)
 {
     // 检查行首是否为 |
     if (!isTableRow(row))
@@ -206,7 +206,7 @@ void MarkdownTableStateMachine::processHeaderRow(const std::string& row)
 // 分隔行处理
 // ============================================================================
 
-void MarkdownTableStateMachine::processSeparatorRow(const std::string& row)
+void MarkdownTableParser::processSeparatorRow(const std::string& row)
 {
     if (!isSeparatorRow(row))
     {
@@ -235,7 +235,7 @@ void MarkdownTableStateMachine::processSeparatorRow(const std::string& row)
 // 数据行处理
 // ============================================================================
 
-void MarkdownTableStateMachine::processBodyRow(const std::string& row)
+void MarkdownTableParser::processBodyRow(const std::string& row)
 {
     if (!isTableRow(row))
     {
@@ -279,7 +279,7 @@ void MarkdownTableStateMachine::processBodyRow(const std::string& row)
 // 表格结构发射
 // ============================================================================
 
-void MarkdownTableStateMachine::emitTableStart()
+void MarkdownTableParser::emitTableStart()
 {
     sax_.startTable();
     sax_.startTableHead();
@@ -302,7 +302,7 @@ void MarkdownTableStateMachine::emitTableStart()
     sax_.startTableBody();
 }
 
-void MarkdownTableStateMachine::emitTableEnd()
+void MarkdownTableParser::emitTableEnd()
 {
     sax_.endTableBody();
     sax_.endTable();
@@ -312,7 +312,7 @@ void MarkdownTableStateMachine::emitTableEnd()
 // 回退
 // ============================================================================
 
-void MarkdownTableStateMachine::abortAsParagraph()
+void MarkdownTableParser::abortAsParagraph()
 {
     if (abortBuf_.empty()) return;
 
@@ -328,7 +328,7 @@ void MarkdownTableStateMachine::abortAsParagraph()
 // 辅助方法
 // ============================================================================
 
-std::vector<std::string> MarkdownTableStateMachine::splitCells(const std::string& row)
+std::vector<std::string> MarkdownTableParser::splitCells(const std::string& row)
 {
     std::vector<std::string> cells;
     size_t start = 0;
@@ -360,7 +360,7 @@ std::vector<std::string> MarkdownTableStateMachine::splitCells(const std::string
     return cells;
 }
 
-bool MarkdownTableStateMachine::isTableRow(const std::string& row)
+bool MarkdownTableParser::isTableRow(const std::string& row)
 {
     // 表行以 | 开头（允许前导空白）
     for (char c : row)
@@ -371,7 +371,7 @@ bool MarkdownTableStateMachine::isTableRow(const std::string& row)
     return false;
 }
 
-bool MarkdownTableStateMachine::isSeparatorRow(const std::string& row)
+bool MarkdownTableParser::isSeparatorRow(const std::string& row)
 {
     bool hasPipe = false;
     bool hasDash = false;
@@ -390,7 +390,7 @@ bool MarkdownTableStateMachine::isSeparatorRow(const std::string& row)
     return hasPipe && hasDash;
 }
 
-std::vector<ETableAlign> MarkdownTableStateMachine::parseAlignments(const std::string& sepRow)
+std::vector<ETableAlign> MarkdownTableParser::parseAlignments(const std::string& sepRow)
 {
     std::vector<std::string> parts = splitCells(sepRow);
     std::vector<ETableAlign> aligns;
@@ -413,7 +413,7 @@ std::vector<ETableAlign> MarkdownTableStateMachine::parseAlignments(const std::s
     return aligns;
 }
 
-std::string MarkdownTableStateMachine::trim(const std::string& s)
+std::string MarkdownTableParser::trim(const std::string& s)
 {
     size_t b = 0;
     while (b < s.size() && (s[b] == ' ' || s[b] == '\t')) ++b;

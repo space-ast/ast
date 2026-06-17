@@ -1,8 +1,8 @@
 ///
-/// @file      MarkdownTableStateMachine.hpp
+/// @file      MarkdownTableParser.hpp
 /// @brief     Markdown 表格流式解析状态机 — SAX 事件驱动
 /// @details   逐字符解析 GFM 表格语法（| 分隔的 header + separator + body），
-///            通过 MarkdownSax 表格事件输出，单元格内委托 MarkdownInlineStateMachine
+///            通过 MarkdownSax 表格事件输出，单元格内委托 MarkdownInlineParser
 ///            处理行内格式。
 /// @author    axel
 /// @date      2026-06-17
@@ -23,7 +23,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "MarkdownParser.hpp"  // MarkdownInlineStateMachine
+#include "MarkdownInlineParser.hpp"
 #include "MarkdownSax.hpp"
 #include <string>
 #include <vector>
@@ -36,8 +36,10 @@ AST_NAMESPACE_BEGIN
 */
 
 
+class MarkdownSax;
+
 /// @brief  Markdown 表格流式解析状态机
-/// @details 与 MarkdownBlockStateMachine 配合使用：
+/// @details 与 MarkdownBlockParser 配合使用：
 ///          1. BlockSM 在行首检测到 | 时调用 feedChar('|')
 ///          2. 后续逐字符 feedChar(c)，直到 isIdle() 为 true
 ///          3. 内部自动完成 header/separator/body 行判定与 SAX 事件发射
@@ -53,11 +55,11 @@ AST_NAMESPACE_BEGIN
 ///          - eBodyRow:   逐行解析 cell，委托 inlineSM 处理后发射 SAX 事件
 ///
 ///          若表头行后未跟随有效分隔行，自动回退为段落文本输出。
-class AST_UTIL_API MarkdownTableStateMachine
+class AST_UTIL_API MarkdownTableParser
 {
 public:
-    explicit MarkdownTableStateMachine(MarkdownSax& sax);
-    ~MarkdownTableStateMachine() = default;
+    explicit MarkdownTableParser(MarkdownSax& sax);
+    ~MarkdownTableParser() = default;
 
     void feed(StringView chunk);
     
@@ -125,7 +127,7 @@ private:
 
     // ---- 状态成员 ----
     MarkdownSax& sax_;
-    MarkdownInlineStateMachine inlineSM_;
+    MarkdownInlineParser inlineSM_;
 
     EState state_ = EState::eIdle;
     bool charConsumed_ = true;

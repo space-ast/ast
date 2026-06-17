@@ -1,6 +1,6 @@
 ///
 /// @file      testMarkdownInline.cpp
-/// @brief     行内元素解析测试 — 覆盖 MarkdownInlineStateMachine 与 MarkdownParser::parseInline
+/// @brief     行内元素解析测试 — 覆盖 MarkdownInlineParser 与 MarkdownParser::parseInline
 /// @details   验证斜体、粗体、斜粗体、删除线、行内代码、链接、图片、
 ///            转义、嵌套、混合分隔符、换行、中文字符等边界情况。
 /// @author    axel
@@ -32,13 +32,13 @@ AST_USING_NAMESPACE
 // 辅助函数
 // ============================================================================
 
-/// @brief 使用 MarkdownInlineStateMachine 解析行内文本，对比 HTML 输出
+/// @brief 使用 MarkdownInlineParser 解析行内文本，对比 HTML 输出
 void testInlineHTML(StringView chunk, const std::string& expect)
 {
     MarkdownHTML sax;
-    MarkdownInlineStateMachine machine(sax);
-    machine.feed(chunk);
-    machine.finish();
+    MarkdownInlineParser parser(sax);
+    parser.feed(chunk);
+    parser.finish();
     std::string output = sax.output();
     EXPECT_EQ(expect, output);
     ast_printf("chunk : %.*s\n", chunk.size(), chunk.data());
@@ -46,7 +46,7 @@ void testInlineHTML(StringView chunk, const std::string& expect)
 }
 
 // ============================================================================
-// 一、MarkdownInlineStateMachine — 基础行内元素（下划线变体）
+// 一、MarkdownInlineParser — 基础行内元素（下划线变体）
 // ============================================================================
 
 TEST(MarkdownInlineTest, Emphasis)
@@ -99,7 +99,7 @@ TEST(MarkdownInlineTest, MixedDelimiterUnderscoreStar)
 }
 
 // ============================================================================
-// 二、MarkdownInlineStateMachine — 转义
+// 二、MarkdownInlineParser — 转义
 // ============================================================================
 
 TEST(MarkdownInlineTest, EscapeAsterisk)
@@ -128,7 +128,7 @@ TEST(MarkdownInlineTest, EscapeInText)
 }
 
 // ============================================================================
-// 三、MarkdownInlineStateMachine — 嵌套与组合
+// 三、MarkdownInlineParser — 嵌套与组合
 // ============================================================================
 
 TEST(MarkdownInlineTest, StrongContainsEmphasis)
@@ -164,7 +164,7 @@ TEST(MarkdownInlineTest, AdjacentItalicAndBold)
 }
 
 // ============================================================================
-// 四、MarkdownInlineStateMachine — 纯文本与边界
+// 四、MarkdownInlineParser — 纯文本与边界
 // ============================================================================
 
 TEST(MarkdownInlineTest, PlainText)
@@ -207,7 +207,7 @@ TEST(MarkdownInlineTest, TripleTilde)
 }
 
 // ============================================================================
-// 五、MarkdownInlineStateMachine — 换行中断行内样式
+// 五、MarkdownInlineParser — 换行中断行内样式
 // ============================================================================
 
 TEST(MarkdownInlineTest, NewlineBreaksEmphasis)
@@ -227,7 +227,7 @@ TEST(MarkdownInlineTest, NewlineBreaksDelete)
 }
 
 // ============================================================================
-// 六、MarkdownInlineStateMachine — Unicode / 中文字符
+// 六、MarkdownInlineParser — Unicode / 中文字符
 // ============================================================================
 
 TEST(MarkdownInlineTest, ChineseEmphasis)
@@ -257,7 +257,7 @@ TEST(MarkdownInlineTest, EmojiText)
 }
 
 // ============================================================================
-// 七、MarkdownInlineStateMachine — 未闭合样式
+// 七、MarkdownInlineParser — 未闭合样式
 // ============================================================================
 
 TEST(MarkdownInlineTest, UnclosedEmphasis)

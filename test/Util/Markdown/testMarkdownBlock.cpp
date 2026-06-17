@@ -1,6 +1,6 @@
 ///
 /// @file      testMarkdownBlock.cpp
-/// @brief     MarkdownBlockStateMachine 块级流式解析单元测试
+/// @brief     MarkdownBlockParser 块级流式解析单元测试
 /// @details   使用 MarkdownParser + MarkdownHTML 验证块级元素的 HTML 输出，
 ///            覆盖段落、标题、代码块、引用、列表、分割线及跨 chunk 流式场景。
 /// @author    axel
