@@ -76,6 +76,8 @@ public:
 
     void horizontalRule() override;
 
+    // void newline(bool force = false) override;
+
     // 表格
     void startTable() override;
     void startTableHead() override;

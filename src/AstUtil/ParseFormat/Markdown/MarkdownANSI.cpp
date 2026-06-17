@@ -347,8 +347,7 @@ void MarkdownANSI::endDocument()
     }
 
     // 确保文档以换行结尾
-    if (!output_.empty() && output_.back() != '\n')
-        output_ += '\n';
+    output_ += '\n';
 }
 
 // ============================================================================
@@ -438,15 +437,12 @@ void MarkdownANSI::endCodeBlock()
 
 void MarkdownANSI::startList(bool ordered)
 {
-    // 列表前确保换行（与前一个块分隔）
-    if (!output_.empty() && output_.back() != '\n')
-        output_ += '\n';
-
     listStack_.push_back({ordered, 0});
 }
 
 void MarkdownANSI::startListItem()
 {
+    output_ += '\n';
     auto& frame = listStack_.back();
     frame.itemNumber++;
 
@@ -475,7 +471,7 @@ void MarkdownANSI::startListItem()
 
 void MarkdownANSI::endListItem()
 {
-    output_ += '\n';
+
 }
 
 void MarkdownANSI::endList()
@@ -510,14 +506,24 @@ void MarkdownANSI::endBlockquote()
 void MarkdownANSI::horizontalRule()
 {
     // 分割线前确保换行
-    if (!output_.empty() && output_.back() != '\n')
-        output_ += '\n';
+    output_ += '\n';
 
     output_ += kDim;
-    for (int i = 0; i < 60; ++i) output_ += kHr;
+    int width = aTerminalWidth();
+    for (int i = 0; i < width; ++i) output_ += kHr;
     output_ += kReset;
-    output_ += "\n\n";
+    output_ += "\n";
 }
+
+// ============================================================================
+// 块级元素 — 换行
+// ============================================================================
+
+// void MarkdownANSI::newline(bool force)
+// {
+//     if (force)
+//         output_ += '\n';
+// }
 
 // ============================================================================
 // 块级元素 — 表格

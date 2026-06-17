@@ -52,6 +52,11 @@ public:
 
     // ---- 块级元素 ----
 
+    /// @param force 是否强制换行
+    /// force为true时，表示强制换行，此时html输出为<br>
+    /// force为false时，表示不强制换行，仅告知此时有个换行，各渲染器自行决定怎么处理
+    // virtual void newline(bool force=false) {};
+
     virtual void startHeading(int level) = 0;
     virtual void endHeading(int level) = 0;
 
