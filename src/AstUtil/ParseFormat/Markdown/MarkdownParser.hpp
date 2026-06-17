@@ -1,7 +1,7 @@
 ///
 /// @file      MarkdownParser.hpp
-/// @brief
-/// @details
+/// @brief     Markdown 流式解析器 — SAX 事件驱动
+/// @details   块级状态机 + 行内状态机，均为逐字符流式解析。
 /// @author    axel
 /// @date      2026-06-15
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -46,6 +46,10 @@ public:
     void feed(char c, std::string& result);
     void finish();
     std::string& result() { return result_; }
+
+    /// @brief  将 result 中的待提交文本刷新到 SAX
+    void flushPending(std::string& result);
+
 public:
     /// @brief  内联格式状态标志位
     enum class EStateFlags: int
@@ -73,9 +77,6 @@ public:
 private:
     void toggleState(EStateFlags state);
     EStateFlags state() const { return state_; }
-
-    /// @brief  刷新待提交字符和已缓冲文本到 result
-    void flushPending(std::string& result);
 
     /// @brief  关闭所有活跃格式（finish / replay 共用）
     void closeAllFormats(std::string& result);
@@ -135,13 +136,14 @@ private:
 A_ENUM_CLASS_FLAGS(MarkdownInlineStateMachine::EStateFlags);
 
 
-/// @brief  Markdown解析器（SAX事件驱动，流式输入）
-class AST_UTIL_API MarkdownParser {
+/// @brief  Markdown 块级状态机（字符级流式解析，SAX 事件驱动）
+/// @details 逐字符判定行类型（标题/代码围栏/引用/列表/分割线/段落），
+///          在确定的块上下文中将行内文本委托给 MarkdownInlineStateMachine。
+class AST_UTIL_API MarkdownBlockStateMachine
+{
 public:
-    MarkdownParser(MarkdownSax& sax)
-        : sax_(sax)
-    {}
-    ~MarkdownParser() = default;
+    MarkdownBlockStateMachine(MarkdownSax& sax);
+    ~MarkdownBlockStateMachine() = default;
 
     /// @brief  流式输入数据块
     void feed(StringView data);
@@ -151,89 +153,132 @@ public:
 
     /// @brief  重置解析器状态
     void reset();
+
 private:
-    /// @brief  块级元素类型
-    enum EBlockType
+    // ---- 块级状态 ----
+    enum class EState
     {
-        eBlockNone,         ///< 无块级元素
-        eBlockParagraph,    ///< 段落
-        eBlockHeading,      ///< 标题
-        eBlockCode,         ///< 代码块
-        eBlockList,         ///< 列表
-        eBlockListItem,     ///< 列表项
-        eBlockQuote,        ///< 引用
+        eLineStart,          ///< 行首 — 跳过空白，待首个非空白字符判定
+        eHeadingHashes,      ///< 正在累积 # 字符
+        eHeadingContent,     ///< 标题内容（行内文本流式解析）
+        eCodeFenceOpen,      ///< 正在识别代码围栏开界（计数 + 语言标识）
+        eCodeBlockContent,   ///< 代码块内部
+        eBlockquoteContent,  ///< 引用内容（行内文本流式解析）
+        eListMarker,         ///< 正在解析列表标记（- / * / + / N.）
+        eListItemContent,    ///< 列表项内容（行内文本流式解析）
+        eParagraph,          ///< 段落文本（行内文本流式解析）
     };
 
-    /// @brief  行内元素类型
-    enum EInlineType
+    // ---- 块栈帧 ----
+    enum class EBlockType
     {
-        eInlineNone,       ///< 无行内元素
-        eInlineLink,       ///< 链接
-        eInlineEmphasis,   ///< 斜体
-        eInlineStrong,     ///< 加粗
-        eInlineCode,       ///< 代码
+        Paragraph,
+        Heading,
+        CodeBlock,
+        List,
+        ListItem,
+        Blockquote,
     };
-
-    /// @brief  块级元素栈帧
     struct BlockFrame
     {
         EBlockType type;
-        int       level;    // 标题级别(1-6) 或 0
-        bool      ordered;  // 列表是否有序
+        int  level;    ///< 标题级别(1-6)，列表有序标记
+        bool ordered;  ///< 列表是否有序
     };
 
-    // ============================================================
-    // 行分类
-    // ============================================================
-    bool isHeadingLine(StringView line, int& level, StringView& content);
-    bool isCodeFenceLine(StringView line, char& fenceChar, int& count, StringView& lang);
-    bool isHorizRuleLine(StringView line);
-    bool isBlockquoteLine(StringView line, StringView& content);
-    bool isUnorderedListItem(StringView line, StringView& content);
-    bool isOrderedListItem(StringView line, StringView& content, int& number);
-    bool isClosingFence(StringView line);
+    // ---- 核心方法 ----
+    void feedChar(char c);
 
-    // ============================================================
-    // 块栈管理
-    // ============================================================
+    /// @brief  将 contentBuf_ 中的内容喂入行内状态机并清空
+    void flushInlineContent();
+    /// @param force 为 true 时强制 flush（即使末尾为反引号），用于行末/文档结束
+    void flushInlineContent(bool force);
+
+    // ---- 行首分类 ----
+    void classifyFirstChar(char c);
+
+    // ---- 各状态字符处理 ----
+    void handleHeadingHashes(char c);
+    void handleHeadingChar(char c);
+    void handleCodeFenceOpen(char c);
+    void handleCodeBlockChar(char c);
+    void handleBlockquoteChar(char c);
+    void handleListMarker(char c);
+    void handleParagraphChar(char c);
+
+    // ---- 块栈管理 ----
+    void openBlock(EBlockType type, int level = 0, bool ordered = false);
     void closeTop();
-    void closeToBlock(EBlockType type);
+    void closeToType(EBlockType type);
     void closeAllBlocks();
     bool hasBlock(EBlockType type) const;
-    void flushParagraph();
+
+    // ---- 段落辅助 ----
     void ensureParagraph();
+    void endParagraph();
+    void closeParagraph();       ///< 关闭段落（不刷新行内缓冲，由调用方负责）
+    void ensureListBlock(bool ordered); ///< 确保列表块已打开
+
+    // ---- 文档辅助 ----
     void ensureDocStarted();
 
     // ============================================================
-    // 行处理
-    // ============================================================
-    void processLine(StringView line);
-    void processBlockLine(StringView line);
-
-    // ============================================================
-    // 行内解析
-    // ============================================================
-    void parseInline(StringView text);
-    static size_t findClosingMarker(StringView text, StringView marker);
-
-    // ============================================================
-    // 状态
+    // 状态成员
     // ============================================================
     MarkdownSax& sax_;
+    MarkdownInlineStateMachine inlineSM_;
 
+    EState state_ = EState::eLineStart;
     std::vector<BlockFrame> blockStack_;
-    std::string lineBuf_;
-    std::string paraBuf_;
 
-    bool inCodeBlock_   = false;
+    // 分类缓冲（行首判定用，最多缓冲几个字符）
+    std::string classBuf_;
+    // 行内内容缓冲（分类确认后，累积待喂入 inlineSM 的内容）
+    std::string contentBuf_;
+    // 代码块行缓冲（仅代码块内逐行检测关界围栏）
+    std::string codeLineBuf_;
+
+    // ---- 标题状态 ----
+    int headingLevel_ = 0;
+
+    // ---- 代码围栏状态 ----
     char codeFenceChar_ = 0;
-    int  codeFenceCnt_  = 0;
+    int  codeFenceCount_ = 0;
     std::string codeFenceLang_;
 
-    bool docStarted_ = false;
-    bool docEnded_   = false;
+    // ---- 列表状态 ----
     bool inList_     = false;
     bool listOrdered_ = false;
+
+    // ---- 段落跨行追踪 ----
+    bool paraAfterNL_ = false;   ///< 段落中刚看到 \n，等待下一字符判定软换行/段落结束
+    bool paraHadContent_ = false;///< 当前段落是否已有内容（用于空行检测）
+
+    // ---- 文档状态 ----
+    bool docStarted_ = false;
+};
+
+
+/// @brief  Markdown解析器（SAX事件驱动，流式输入）
+/// @details 薄封装，组合 MarkdownBlockStateMachine 实现字符级流式解析。
+class AST_UTIL_API MarkdownParser {
+public:
+    MarkdownParser(MarkdownSax& sax)
+        : blockSM_(sax)
+    {}
+    ~MarkdownParser() = default;
+
+    /// @brief  流式输入数据块
+    void feed(StringView data) { blockSM_.feed(data); }
+
+    /// @brief  通知输入结束，处理剩余内容
+    void finish() { blockSM_.finish(); }
+
+    /// @brief  重置解析器状态
+    void reset() { blockSM_.reset(); }
+
+private:
+    MarkdownBlockStateMachine blockSM_;
 };
 
 /*! @} */

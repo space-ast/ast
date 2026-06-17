@@ -232,6 +232,7 @@
 %include "../AstUtil/ParseFormat/Json/JsonDomSax.hpp"
 %include "../AstUtil/ParseFormat/Markdown/InlineTextRenderer.hpp"
 %include "../AstUtil/ParseFormat/Markdown/MarkdownANSI.hpp"
+%include "../AstUtil/ParseFormat/Markdown/MarkdownHTML.hpp"
 %include "../AstUtil/RTTI/Reflect/Property.hpp"
 %include "../AstUtil/String/StringSplit.hpp"
 %include "../AstCore/Coordinate/IERS/NutationSeries.hpp"

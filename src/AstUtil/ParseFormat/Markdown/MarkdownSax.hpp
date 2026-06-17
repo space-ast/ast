@@ -31,6 +31,16 @@ AST_NAMESPACE_BEGIN
 */
 
 
+/// @brief 表格列对齐方式
+enum class ETableAlign : int
+{
+    eDefault = 0,  ///< 默认（无显式对齐）
+    eLeft    = 1,  ///< 左对齐  :---
+    eCenter  = 2,  ///< 居中对齐 :---:
+    eRight   = 3,  ///< 右对齐  ---:
+};
+
+
 class AST_UTIL_API MarkdownSax
 {
 public:
@@ -40,28 +50,52 @@ public:
     virtual void startDocument() = 0;
     virtual void endDocument() = 0;
 
-    // 块级元素
+    // ---- 块级元素 ----
+
     virtual void startHeading(int level) = 0;
     virtual void endHeading(int level) = 0;
-    
+
     virtual void startParagraph() = 0;
     virtual void endParagraph() = 0;
 
     virtual void startCodeBlock(StringView language) = 0;
     virtual void codeLine(StringView line) = 0;  // 代码行
     virtual void endCodeBlock() = 0;
-    
+
     virtual void startList(bool ordered) = 0;   // true: 有序, false: 无序
     virtual void startListItem() = 0;
     virtual void endListItem() = 0;
     virtual void endList() = 0;
-    
+
     virtual void startBlockquote() = 0;
     virtual void endBlockquote() = 0;
-    
+
     virtual void horizontalRule() = 0;
 
-    // 行内元素
+    // ---- 表格（GFM 扩展） ----
+    /// @brief 表格开始
+    virtual void startTable() {}
+    /// @brief 表头区域开始
+    virtual void startTableHead() {}
+    /// @brief 表头区域结束
+    virtual void endTableHead() {}
+    /// @brief 表体区域开始
+    virtual void startTableBody() {}
+    /// @brief 表体区域结束
+    virtual void endTableBody() {}
+    /// @brief 表格行开始
+    virtual void startTableRow() {}
+    /// @brief 表格行结束
+    virtual void endTableRow() {}
+    /// @brief 表格单元格开始
+    /// @param align 本列对齐方式（由分隔行 :--- 语法确定）
+    virtual void startTableCell(ETableAlign align) { (void)align; }
+    /// @brief 表格单元格结束
+    virtual void endTableCell() {}
+    /// @brief 表格结束
+    virtual void endTable() {}
+
+    // ---- 行内元素 ----
     virtual void text(StringView txt) = 0;
     virtual void startEmphasis() = 0;     // 斜体
     virtual void endEmphasis() = 0;

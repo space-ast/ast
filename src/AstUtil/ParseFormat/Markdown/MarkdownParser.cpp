@@ -557,7 +557,7 @@ void MarkdownInlineStateMachine::feed(StringView chunk)
         char c = chunk[i];
 
         // ---- 多反引号行内代码段预扫描 ----
-        if (mode_ == EParseMode::eNormal && c == '`')
+        if (mode_ == EParseMode::eNormal && c == '`' && !(pendingState_ & EStateFlags::eEscape))
         {
             // 进入代码段前提交文本、触发待定删除线、解析定界符游程
             flushPending(result_);
@@ -839,593 +839,787 @@ void MarkdownInlineStateMachine::replayBufferedText(const std::string& text,
 }
 
 // ============================================================================
-// 行分类
+// MarkdownBlockStateMachine — 公共接口
 // ============================================================================
 
-bool MarkdownParser::isHeadingLine(StringView line, int& level, StringView& content)
+MarkdownBlockStateMachine::MarkdownBlockStateMachine(MarkdownSax& sax)
+    : sax_(sax)
+    , inlineSM_(sax)
 {
-    if (line.empty() || line[0] != '#') return false;
-
-    level = 0;
-    size_t i = 0;
-    while (i < line.size() && line[i] == '#' && level < 6) { ++level; ++i; }
-
-    // # 后必须有空格才是标题，否则 (#tag) 当作普通文本
-    if (i >= line.size() || line[i] != ' ') return false;
-    ++i; // 跳过空格
-
-    content = line.substr(i);
-    return true;
 }
 
-bool MarkdownParser::isCodeFenceLine(StringView line, char& fenceChar, int& count, StringView& lang)
+void MarkdownBlockStateMachine::feed(StringView data)
 {
-    if (line.size() < 3) return false;
-
-    fenceChar = line[0];
-    if (fenceChar != '`' && fenceChar != '~') return false;
-
-    count = 0;
-    while (count < (int)line.size() && line[count] == fenceChar) ++count;
-    if (count < 3) return false;
-
-    // 围栏标记后的语言标识（跳过可选空格）
-    size_t start = count;
-    if (start < line.size() && line[start] == ' ') ++start;
-    lang = line.substr(start);
-
-    return true;
+    for (size_t i = 0; i < data.size(); ++i)
+        feedChar(data[i]);
+    // 每个 chunk 末尾 flush 累积的行内内容（实现流式输出）
+    flushInlineContent();
 }
 
-bool MarkdownParser::isHorizRuleLine(StringView line)
+void MarkdownBlockStateMachine::finish()
 {
-    if (line.size() < 3) return false;
+    // ---- 刷新待提交的行内内容 ----
+    flushInlineContent(true);
 
-    char c = line[0];
-    if (c != '-' && c != '*' && c != '_') return false;
-
-    size_t cnt = 0;
-    for (size_t i = 0; i < line.size(); ++i)
+    // ---- 处理未闭合的块 ----
+    if (state_ == EState::eHeadingContent)
     {
-        if (line[i] == c) ++cnt;
-        else if (line[i] != ' ' && line[i] != '\t') return false;
-    }
-    return cnt >= 3;
-}
-
-bool MarkdownParser::isBlockquoteLine(StringView line, StringView& content)
-{
-    if (line.empty() || line[0] != '>') return false;
-
-    size_t start = 1;
-    if (start < line.size() && line[start] == ' ') ++start;
-    content = line.substr(start);
-    return true;
-}
-
-bool MarkdownParser::isUnorderedListItem(StringView line, StringView& content)
-{
-    if (line.size() < 2) return false;
-
-    char c = line[0];
-    if (c != '-' && c != '*' && c != '+') return false;
-    if (line[1] != ' ') return false;
-
-    content = line.substr(2);
-    return true;
-}
-
-bool MarkdownParser::isOrderedListItem(StringView line, StringView& content, int& number)
-{
-    if (line.empty() || !std::isdigit(static_cast<unsigned char>(line[0]))) return false;
-
-    size_t i = 0;
-    number = 0;
-    while (i < line.size() && std::isdigit(static_cast<unsigned char>(line[i])))
-    {
-        number = number * 10 + (line[i] - '0');
-        ++i;
+        sax_.endHeading(headingLevel_);
+        closeToType(EBlockType::Heading);
     }
 
-    if (i >= line.size() || line[i] != '.') return false;
-    ++i; // 跳过 '.'
-    if (i < line.size() && line[i] == ' ') ++i; // 跳过可选空格
+    if (state_ == EState::eCodeBlockContent)
+    {
+        // 输出未闭合的代码块最后一行
+        if (!codeLineBuf_.empty())
+            sax_.codeLine(codeLineBuf_);
+        sax_.endCodeBlock();
+        closeToType(EBlockType::CodeBlock);
+    }
 
-    content = line.substr(i);
-    return true;
+    // 关闭段落
+    if (hasBlock(EBlockType::Paragraph))
+        endParagraph();
+
+    // 关闭列表
+    if (hasBlock(EBlockType::ListItem))
+        closeToType(EBlockType::ListItem);
+    if (hasBlock(EBlockType::List))
+        closeToType(EBlockType::List);
+
+    // 关闭所有剩余块
+    closeAllBlocks();
+
+    // ---- 结束行内状态机 ----
+    inlineSM_.finish();
+
+    // ---- 结束文档 ----
+    if (docStarted_)
+    {
+        sax_.endDocument();
+        docStarted_ = false;
+    }
 }
 
-bool MarkdownParser::isClosingFence(StringView line)
+void MarkdownBlockStateMachine::reset()
 {
-    if ((int)line.size() < codeFenceCnt_) return false;
+    blockStack_.clear();
+    classBuf_.clear();
+    contentBuf_.clear();
+    codeLineBuf_.clear();
 
-    char fc = line[0];
-    if (fc != codeFenceChar_) return false;
+    state_ = EState::eLineStart;
 
-    int cnt = 0;
-    while (cnt < (int)line.size() && line[cnt] == fc) ++cnt;
-    if (cnt < codeFenceCnt_) return false;
+    headingLevel_ = 0;
 
-    // 剩余字符必须全是空白
-    for (size_t i = cnt; i < line.size(); ++i)
-        if (line[i] != ' ' && line[i] != '\t') return false;
+    codeFenceChar_ = 0;
+    codeFenceCount_ = 0;
+    codeFenceLang_.clear();
 
-    return true;
+    inList_ = false;
+    listOrdered_ = false;
+
+    paraAfterNL_ = false;
+    paraHadContent_ = false;
+
+    docStarted_ = false;
+
+    // 重置行内状态机（引用成员不可赋值，使用 placement new 重建）
+    inlineSM_.~MarkdownInlineStateMachine();
+    new (&inlineSM_) MarkdownInlineStateMachine(sax_);
+}
+
+// ============================================================================
+// MarkdownBlockStateMachine — 逐字符核心
+// ============================================================================
+
+void MarkdownBlockStateMachine::feedChar(char c)
+{
+    switch (state_)
+    {
+    case EState::eLineStart:
+        // ---- 跳过行首空白 ----
+        if (c == ' ' || c == '\t')
+            return;
+
+        // ---- 空行（\n 紧跟 \n） ----
+        if (c == '\n')
+        {
+            // 结束当前段落
+            if (hasBlock(EBlockType::Paragraph))
+                endParagraph();
+            // 结束列表
+            if (hasBlock(EBlockType::ListItem))
+                closeToType(EBlockType::ListItem);
+            if (hasBlock(EBlockType::List))
+            {
+                closeToType(EBlockType::List);
+                inList_ = false;
+            }
+            // 结束引用
+            if (hasBlock(EBlockType::Blockquote))
+                closeToType(EBlockType::Blockquote);
+            paraAfterNL_ = false;
+            return;
+        }
+
+        // ---- 段落空行检查：若 paraAfterNL_ 且行首字符并非块标记，继续段落 ----
+        // 这个判断由 classifyFirstChar 完成
+        classifyFirstChar(c);
+        break;
+
+    case EState::eHeadingHashes:
+        handleHeadingHashes(c);
+        break;
+
+    case EState::eHeadingContent:
+        handleHeadingChar(c);
+        break;
+
+    case EState::eCodeFenceOpen:
+        handleCodeFenceOpen(c);
+        break;
+
+    case EState::eCodeBlockContent:
+        handleCodeBlockChar(c);
+        break;
+
+    case EState::eBlockquoteContent:
+        handleBlockquoteChar(c);
+        break;
+
+    case EState::eListMarker:
+        if (c == '\n')
+        {
+            // 行末 — 检查是否为水平分割线
+            handleListMarker(c);
+        }
+        else
+        {
+            handleListMarker(c);
+        }
+        break;
+
+    case EState::eListItemContent:
+        if (c == '\n')
+        {
+            flushInlineContent(true);
+            {
+                std::string dummy;
+                inlineSM_.feed(c, dummy);
+            }
+            sax_.endListItem();
+            closeToType(EBlockType::ListItem);
+            state_ = EState::eLineStart;
+        }
+        else
+        {
+            contentBuf_ += c;
+        }
+        break;
+
+    case EState::eParagraph:
+        if (paraAfterNL_)
+        {
+            // 段落中刚看到 \n，本字符判定软换行还是段落结束
+            paraAfterNL_ = false;
+
+            // 空行 → 结束段落
+            if (c == '\n')
+            {
+                endParagraph();
+                // 关闭列表 / 引用
+                if (hasBlock(EBlockType::ListItem))
+                    closeToType(EBlockType::ListItem);
+                if (hasBlock(EBlockType::List))
+                {
+                    closeToType(EBlockType::List);
+                    inList_ = false;
+                }
+                if (hasBlock(EBlockType::Blockquote))
+                    closeToType(EBlockType::Blockquote);
+                state_ = EState::eLineStart;
+                break;
+            }
+
+            // 跳过行首空白
+            if (c == ' ' || c == '\t')
+                break;
+
+            // 检查是否遇到新块元素 → 结束段落并重新分类
+            if (c == '#' || c == '>' || c == '`' || c == '~' ||
+                c == '-' || c == '*' || c == '+' || c == '_' ||
+                (c >= '0' && c <= '9'))
+            {
+                endParagraph();
+                // 重新作为行首分类
+                classifyFirstChar(c);
+                break;
+            }
+
+            // 普通字符 → 软换行（空格连接）
+            // 先刷新缓存的内容，再加上空格
+            flushInlineContent(true);
+            contentBuf_ += ' ';
+            contentBuf_ += c;
+            paraHadContent_ = true;
+        }
+        else
+        {
+            handleParagraphChar(c);
+        }
+        break;
+    }
+}
+
+// ============================================================================
+// 行内内容刷新 / 段落辅助（classification 之前调用）
+// ============================================================================
+
+void MarkdownBlockStateMachine::flushInlineContent()
+{
+    flushInlineContent(false);
+}
+
+void MarkdownBlockStateMachine::flushInlineContent(bool force)
+{
+    if (contentBuf_.empty()) return;
+    // 反引号批处理：非强制模式下，末尾为反引号时不 flush，
+    // 等待后续字符以正确计数多反引号序列
+    if (!force && contentBuf_.back() == '`') return;
+    StringView chunk(contentBuf_.data(), contentBuf_.size());
+    inlineSM_.feed(chunk);
+    contentBuf_.clear();
+}
+
+void MarkdownBlockStateMachine::closeParagraph()
+{
+    // 结束当前段落（如果存在）
+    if (hasBlock(EBlockType::Paragraph))
+    {
+        flushInlineContent(true);
+        closeToType(EBlockType::Paragraph);
+    }
+    paraAfterNL_ = false;
+    paraHadContent_ = false;
+}
+
+void MarkdownBlockStateMachine::ensureListBlock(bool ordered)
+{
+    if (!inList_ || listOrdered_ != ordered)
+    {
+        if (inList_)
+        {
+            closeToType(EBlockType::List);
+        }
+        sax_.startList(ordered);
+        openBlock(EBlockType::List, 0, ordered);
+        inList_ = true;
+        listOrdered_ = ordered;
+    }
+}
+
+// ============================================================================
+// 行首分类
+// ============================================================================
+
+void MarkdownBlockStateMachine::classifyFirstChar(char c)
+{
+    // ---- 正常行首分类 ----
+    ensureDocStarted();
+
+    // 非引用延续行：关闭已打开的引用块
+    if (c != '>' && hasBlock(EBlockType::Blockquote))
+        closeToType(EBlockType::Blockquote);
+
+    switch (c)
+    {
+    case '#':
+        headingLevel_ = 1;
+        classBuf_ = '#';
+        state_ = EState::eHeadingHashes;
+        break;
+
+    case '`':
+        codeFenceChar_ = '`';
+        codeFenceCount_ = 1;
+        classBuf_ = '`';
+        state_ = EState::eCodeFenceOpen;
+        break;
+
+    case '~':
+        codeFenceChar_ = '~';
+        codeFenceCount_ = 1;
+        classBuf_ = '~';
+        state_ = EState::eCodeFenceOpen;
+        break;
+
+    case '>':
+        // 引用
+        closeParagraph();
+        if (!hasBlock(EBlockType::Blockquote))
+        {
+            sax_.startBlockquote();
+            openBlock(EBlockType::Blockquote);
+        }
+        state_ = EState::eBlockquoteContent;
+        break;
+
+    case '-':
+    case '*':
+    case '+':
+    case '_':
+        classBuf_ = c;
+        state_ = EState::eListMarker;
+        break;
+
+    default:
+        if (c >= '0' && c <= '9')
+        {
+            classBuf_ = c;
+            state_ = EState::eListMarker;
+        }
+        else
+        {
+            // 默认：段落
+            closeParagraph();
+            ensureParagraph();
+            contentBuf_ += c;
+            paraHadContent_ = true;
+            state_ = EState::eParagraph;
+        }
+        break;
+    }
+}
+
+// ============================================================================
+// 标题处理
+// ============================================================================
+
+void MarkdownBlockStateMachine::handleHeadingHashes(char c)
+{
+    if (c == '#' && headingLevel_ < 6)
+    {
+        ++headingLevel_;
+        classBuf_ += '#';
+        return;
+    }
+
+    if (c == ' ')
+    {
+        // 标题已确认：# 后跟空格
+        openBlock(EBlockType::Heading, headingLevel_, false);
+        sax_.startHeading(headingLevel_);
+        classBuf_.clear();
+        state_ = EState::eHeadingContent;
+        return;
+    }
+
+    // # 后不是空格 → 不是标题，classBuf_ 中的 # 作为段落文本
+    closeParagraph();
+    ensureParagraph();
+    contentBuf_ += classBuf_;
+    classBuf_.clear();
+    headingLevel_ = 0;
+    contentBuf_ += c;
+    paraHadContent_ = true;
+    state_ = EState::eParagraph;
+}
+
+void MarkdownBlockStateMachine::handleHeadingChar(char c)
+{
+    if (c == '\n')
+    {
+        flushInlineContent(true);
+        {
+            std::string dummy;
+            inlineSM_.feed(c, dummy);
+        }
+        sax_.endHeading(headingLevel_);
+        closeToType(EBlockType::Heading);
+        headingLevel_ = 0;
+        state_ = EState::eLineStart;
+    }
+    else
+    {
+        contentBuf_ += c;
+    }
+}
+
+// ============================================================================
+// 代码围栏处理
+// ============================================================================
+
+void MarkdownBlockStateMachine::handleCodeFenceOpen(char c)
+{
+    if (c == codeFenceChar_)
+    {
+        ++codeFenceCount_;
+        classBuf_ += c;
+        return;
+    }
+
+    if (c == '\n')
+    {
+        if (codeFenceCount_ >= 3)
+        {
+            // 有效围栏开界
+            openBlock(EBlockType::CodeBlock);
+            sax_.startCodeBlock(codeFenceLang_);
+            classBuf_.clear();
+            codeFenceLang_.clear();
+            codeLineBuf_.clear();
+            state_ = EState::eCodeBlockContent;
+        }
+        else
+        {
+            // 不足3个 → 普通段落文本
+            closeParagraph();
+            ensureParagraph();
+            contentBuf_ += classBuf_;
+            // 喂入 \n 以关闭行内样式
+            {
+                std::string dummy;
+                inlineSM_.feed('\n', dummy);
+            }
+            paraHadContent_ = true;
+            classBuf_.clear();
+            codeFenceChar_ = 0;
+            codeFenceCount_ = 0;
+            state_ = EState::eLineStart;
+        }
+        return;
+    }
+
+    if (codeFenceCount_ >= 3)
+    {
+        // 围栏已确认，后续字符为语言标识
+        codeFenceLang_ += c;
+        classBuf_ += c;
+    }
+    else
+    {
+        // 围栏未达3个 → 当作段落文本
+        closeParagraph();
+        ensureParagraph();
+        contentBuf_ += classBuf_;
+        contentBuf_ += c;
+        paraHadContent_ = true;
+        classBuf_.clear();
+        codeFenceChar_ = 0;
+        codeFenceCount_ = 0;
+        state_ = EState::eParagraph;
+    }
+}
+
+// ============================================================================
+// 代码块内容处理
+// ============================================================================
+
+void MarkdownBlockStateMachine::handleCodeBlockChar(char c)
+{
+    if (c == '\n')
+    {
+        // 检查 codeLineBuf_ 是否为闭合围栏
+        if (!codeLineBuf_.empty() && codeLineBuf_[0] == codeFenceChar_)
+        {
+            int cnt = 0;
+            while (cnt < (int)codeLineBuf_.size() && codeLineBuf_[cnt] == codeFenceChar_)
+                ++cnt;
+            bool ok = true;
+            for (size_t i = cnt; i < codeLineBuf_.size(); ++i)
+                if (codeLineBuf_[i] != ' ' && codeLineBuf_[i] != '\t') { ok = false; break; }
+            if (cnt >= codeFenceCount_ && ok)
+            {
+                // 闭合围栏
+                sax_.endCodeBlock();
+                closeToType(EBlockType::CodeBlock);
+                codeLineBuf_.clear();
+                codeFenceChar_ = 0;
+                codeFenceCount_ = 0;
+                state_ = EState::eLineStart;
+                return;
+            }
+        }
+        // 非闭合围栏 → 输出代码行
+        sax_.codeLine(codeLineBuf_);
+        codeLineBuf_.clear();
+        return;
+    }
+
+    codeLineBuf_ += c;
+}
+
+// ============================================================================
+// 引用处理
+// ============================================================================
+
+void MarkdownBlockStateMachine::handleBlockquoteChar(char c)
+{
+    if (c == '\n')
+    {
+        flushInlineContent(true);
+        {
+            std::string dummy;
+            inlineSM_.feed(c, dummy);
+        }
+        // 清空 classBuf_，为下一行引用前缀判定做准备
+        classBuf_.clear();
+        state_ = EState::eLineStart;
+        return;
+    }
+
+    // 跳过 > 之后的第一个可选空格（仅当本行尚未消费任何内容时）
+    if (contentBuf_.empty() && classBuf_.empty() && c == ' ')
+    {
+        classBuf_ = "> "; // 标记前缀已消费
+        return;
+    }
+
+    contentBuf_ += c;
+}
+
+// ============================================================================
+// 列表标记处理
+// ============================================================================
+
+void MarkdownBlockStateMachine::handleListMarker(char c)
+{
+    char first = classBuf_.empty() ? 0 : classBuf_[0];
+
+    // ---- \n 处理：行末检查是否为分割线 ----
+    if (c == '\n')
+    {
+        // 检查分割线模式：classBuf_ 由 3+ 个相同字符 (-, *, _) 组成（可含空格）
+        if (first == '-' || first == '*' || first == '_')
+        {
+            int sameCount = 0;
+            bool onlySameAndSpace = true;
+            for (size_t i = 0; i < classBuf_.size(); ++i)
+            {
+                if (classBuf_[i] == first)
+                    ++sameCount;
+                else if (classBuf_[i] != ' ' && classBuf_[i] != '\t')
+                    { onlySameAndSpace = false; break; }
+            }
+            if (sameCount >= 3 && onlySameAndSpace)
+            {
+                // 水平分割线
+                closeParagraph();
+                ensureDocStarted();
+                sax_.horizontalRule();
+                classBuf_.clear();
+                state_ = EState::eLineStart;
+                return;
+            }
+        }
+        // 不是分割线 → 作为段落文本输出
+        closeParagraph();
+        ensureParagraph();
+        contentBuf_ += classBuf_;
+        {
+            std::string dummy;
+            inlineSM_.feed('\n', dummy);
+        }
+        paraHadContent_ = true;
+        classBuf_.clear();
+        state_ = EState::eLineStart;
+        return;
+    }
+
+    if (first == '-' || first == '*' || first == '+')
+    {
+        // 无序列表：检查 "- "/"* "/"+ " 格式
+        if (c == ' ')
+        {
+            // 确认无序列表
+            closeParagraph();
+            ensureListBlock(false);
+            sax_.startListItem();
+            openBlock(EBlockType::ListItem);
+            classBuf_.clear();
+            state_ = EState::eListItemContent;
+        }
+        else if (c == first)
+        {
+            // 同字符累积（可能为分割线如 ---, ***）
+            classBuf_ += c;
+        }
+        else
+        {
+            // 不是列表也不是分割线 → 段落
+            closeParagraph();
+            ensureParagraph();
+            contentBuf_ += classBuf_;
+            contentBuf_ += c;
+            paraHadContent_ = true;
+            classBuf_.clear();
+            state_ = EState::eParagraph;
+        }
+        return;
+    }
+
+    if (first == '_')
+    {
+        // _ 不视为列表标记（_ 不是有效的无序列表标记），但可能是分割线 ___ 或斜体
+        if (c == ' ' || c == first)
+        {
+            // _ 后跟空格 → 不是列表（与 - / * / + 不同），但可能为斜体段落或分割线
+            // 继续累积以检查分割线
+            classBuf_ += c;
+        }
+        else
+        {
+            // 其他字符 → 段落
+            closeParagraph();
+            ensureParagraph();
+            contentBuf_ += classBuf_;
+            contentBuf_ += c;
+            paraHadContent_ = true;
+            classBuf_.clear();
+            state_ = EState::eParagraph;
+        }
+        return;
+    }
+
+    if (first >= '0' && first <= '9')
+    {
+        // 有序列表：累积数字
+        if (c >= '0' && c <= '9')
+        {
+            classBuf_ += c;
+            return;
+        }
+        if (c == '.')
+        {
+            classBuf_ += c;
+            return;
+        }
+        if (c == ' ' && classBuf_.size() >= 2 && classBuf_.back() == '.')
+        {
+            // 确认有序列表 "N. "
+            closeParagraph();
+            ensureListBlock(true);
+            sax_.startListItem();
+            openBlock(EBlockType::ListItem);
+            classBuf_.clear();
+            state_ = EState::eListItemContent;
+            return;
+        }
+        // 不符合有序列表格式 → 段落
+        closeParagraph();
+        ensureParagraph();
+        contentBuf_ += classBuf_;
+        contentBuf_ += c;
+        paraHadContent_ = true;
+        classBuf_.clear();
+        state_ = EState::eParagraph;
+        return;
+    }
+}
+
+// ============================================================================
+// 段落处理
+// ============================================================================
+
+void MarkdownBlockStateMachine::handleParagraphChar(char c)
+{
+    if (c == '\n')
+    {
+        flushInlineContent(true);
+        {
+            std::string dummy;
+            inlineSM_.feed(c, dummy);
+        }
+        paraAfterNL_ = true;
+        return;
+    }
+
+    contentBuf_ += c;
+    paraHadContent_ = true;
 }
 
 // ============================================================================
 // 块栈管理
 // ============================================================================
 
-void MarkdownParser::closeTop()
+void MarkdownBlockStateMachine::openBlock(EBlockType type, int level, bool ordered)
+{
+    BlockFrame f = { type, level, ordered };
+    blockStack_.push_back(f);
+}
+
+void MarkdownBlockStateMachine::closeTop()
 {
     if (blockStack_.empty()) return;
 
     BlockFrame& top = blockStack_.back();
     switch (top.type)
     {
-    case eBlockParagraph: sax_.endParagraph();   break;
-    case eBlockHeading:   sax_.endHeading(top.level); break;
-    case eBlockQuote:     sax_.endBlockquote();  break;
-    case eBlockListItem: sax_.endListItem();    break;
-    case eBlockList:
+    case EBlockType::Paragraph: sax_.endParagraph();   break;
+    case EBlockType::Heading:   /* heading closed by handleHeadingChar */ break;
+    case EBlockType::CodeBlock: /* code block closed by handleCodeBlockChar */ break;
+    case EBlockType::Blockquote: sax_.endBlockquote();  break;
+    case EBlockType::ListItem:   /* list item closed by newline handler */ break;
+    case EBlockType::List:
         sax_.endList();
         inList_ = false;
         break;
-    default: break;
     }
     blockStack_.pop_back();
 }
 
-void MarkdownParser::closeToBlock(EBlockType type)
+void MarkdownBlockStateMachine::closeToType(EBlockType type)
 {
     while (!blockStack_.empty() && blockStack_.back().type != type)
         closeTop();
+    if (!blockStack_.empty() && blockStack_.back().type == type)
+        closeTop();
 }
 
-void MarkdownParser::closeAllBlocks()
+void MarkdownBlockStateMachine::closeAllBlocks()
 {
     while (!blockStack_.empty())
         closeTop();
 }
 
-bool MarkdownParser::hasBlock(EBlockType type) const
+bool MarkdownBlockStateMachine::hasBlock(EBlockType type) const
 {
     for (size_t i = 0; i < blockStack_.size(); ++i)
         if (blockStack_[i].type == type) return true;
     return false;
 }
 
-void MarkdownParser::flushParagraph()
-{
-    if (hasBlock(eBlockParagraph))
-    {
-        closeToBlock(eBlockParagraph);
-        closeTop(); // 关闭段落本身
-    }
-    paraBuf_.clear();
-}
+// ============================================================================
+// 段落 / 文档辅助
+// ============================================================================
 
-void MarkdownParser::ensureParagraph()
+void MarkdownBlockStateMachine::ensureParagraph()
 {
-    if (!hasBlock(eBlockParagraph))
+    if (!hasBlock(EBlockType::Paragraph))
     {
         sax_.startParagraph();
-        BlockFrame f = { eBlockParagraph, 0, false };
-        blockStack_.push_back(f);
+        openBlock(EBlockType::Paragraph);
     }
 }
 
-void MarkdownParser::ensureDocStarted()
+void MarkdownBlockStateMachine::endParagraph()
+{
+    flushInlineContent(true);
+    if (hasBlock(EBlockType::Paragraph))
+    {
+        closeToType(EBlockType::Paragraph);
+    }
+    paraAfterNL_ = false;
+    paraHadContent_ = false;
+}
+
+void MarkdownBlockStateMachine::ensureDocStarted()
 {
     if (!docStarted_)
     {
         sax_.startDocument();
         docStarted_ = true;
-    }
-}
-
-// ============================================================================
-// 公开接口
-// ============================================================================
-
-void MarkdownParser::feed(StringView data)
-{
-    for (size_t i = 0; i < data.size(); ++i)
-    {
-        char c = data[i];
-        lineBuf_ += c;
-
-        if (c == '\n')
-        {
-            // 去掉尾部 \n / \r\n
-            StringView line(lineBuf_);
-            if (!line.empty() && line.back() == '\n') line.remove_suffix(1);
-            if (!line.empty() && line.back() == '\r') line.remove_suffix(1);
-
-            processLine(line);
-            lineBuf_.clear();
-        }
-    }
-}
-
-void MarkdownParser::finish()
-{
-    // 处理行缓冲中剩余的内容（末行无换行符的情况）
-    if (!lineBuf_.empty())
-    {
-        processLine(lineBuf_);
-        lineBuf_.clear();
-    }
-
-    // 关闭所有打开的块
-    flushParagraph();
-    closeAllBlocks();
-    inCodeBlock_ = false;
-    inList_ = false;
-
-    // 结束文档
-    if (docStarted_ && !docEnded_)
-    {
-        sax_.endDocument();
-        docEnded_ = true;
-    }
-}
-
-
-void MarkdownParser::reset()
-{
-    blockStack_.clear();
-    lineBuf_.clear();
-    paraBuf_.clear();
-
-    inCodeBlock_ = false;
-    codeFenceChar_ = 0;
-    codeFenceCnt_ = 0;
-    codeFenceLang_.clear();
-
-    docStarted_ = false;
-    docEnded_ = false;
-    inList_ = false;
-    listOrdered_ = false;
-}
-
-
-
-// ============================================================================
-// 行处理
-// ============================================================================
-
-void MarkdownParser::processLine(StringView line)
-{
-    // 代码块模式
-    if (inCodeBlock_)
-    {
-        if (isClosingFence(line))
-        {
-            inCodeBlock_ = false;
-            sax_.endCodeBlock();
-            return;
-        }
-        sax_.codeLine(line);
-        return;
-    }
-
-    // 普通块级模式
-    processBlockLine(line);
-}
-
-void MarkdownParser::processBlockLine(StringView line)
-{
-    // ---- 空行 ----
-    size_t nonBlank = 0;
-    while (nonBlank < line.size() && (line[nonBlank] == ' ' || line[nonBlank] == '\t'))
-        ++nonBlank;
-    if (nonBlank == line.size())
-    {
-        flushParagraph();
-        if (inList_)
-        {
-            closeToBlock(eBlockList);
-            closeTop(); // 关闭列表
-        }
-        if (hasBlock(eBlockQuote))
-        {
-            closeToBlock(eBlockQuote);
-            closeTop();
-        }
-        return;
-    }
-
-    StringView content;
-    int level = 0, number = 0;
-
-    // ---- 标题 # ----
-    if (isHeadingLine(line, level, content))
-    {
-        flushParagraph();
-        closeToBlock(eBlockNone); // 标题打破所有块
-        // 确保块栈清空（标题是叶子块，不压栈）
-        closeAllBlocks();
-        ensureDocStarted();
-        sax_.startHeading(level);
-        parseInline(content);
-        sax_.endHeading(level);
-        return;
-    }
-
-    // ---- 代码围栏 ``` 或 ~~~ ----
-    char fc; int cnt; StringView lang;
-    if (isCodeFenceLine(line, fc, cnt, lang))
-    {
-        flushParagraph();
-        if (!inCodeBlock_)
-        {
-            // 开启代码块
-            closeToBlock(eBlockNone);
-            closeAllBlocks();
-            ensureDocStarted();
-            sax_.startCodeBlock(lang);
-            inCodeBlock_ = true;
-            codeFenceChar_ = fc;
-            codeFenceCnt_  = cnt;
-            codeFenceLang_.assign(lang.data(), lang.size());
-        }
-        // 闭合围栏由 processLine() 中 isClosingFence() 处理
-        // 这里不会到达（因为 inCodeBlock_ 为 true 时由 processLine 拦截）
-        return;
-    }
-
-    // ---- 分割线 --- / *** / ___ ----
-    if (isHorizRuleLine(line))
-    {
-        flushParagraph();
-        closeToBlock(eBlockNone);
-        closeAllBlocks();
-        ensureDocStarted();
-        sax_.horizontalRule();
-        return;
-    }
-
-    // ---- 引用 > ----
-    if (isBlockquoteLine(line, content))
-    {
-        flushParagraph();
-        ensureDocStarted();
-
-        if (!hasBlock(eBlockQuote))
-        {
-            sax_.startBlockquote();
-            BlockFrame f = { eBlockQuote, 0, false };
-            blockStack_.push_back(f);
-        }
-
-        if (!content.empty())
-        {
-            ensureParagraph();
-            parseInline(content);
-        }
-        return;
-    }
-
-    // ---- 无序列表 - / * / + ----
-    if (isUnorderedListItem(line, content))
-    {
-        flushParagraph();
-        ensureDocStarted();
-
-        // 如果已在引用中，先关闭
-        if (hasBlock(eBlockQuote)) { closeToBlock(eBlockQuote); closeTop(); }
-
-        if (!inList_ || listOrdered_)
-        {
-            if (inList_) { closeToBlock(eBlockList); closeTop(); }
-            sax_.startList(false);
-            BlockFrame f = { eBlockList, 0, false };
-            blockStack_.push_back(f);
-            inList_ = true;
-            listOrdered_ = false;
-        }
-
-        sax_.startListItem();
-        parseInline(content);
-        sax_.endListItem();
-        return;
-    }
-
-    // ---- 有序列表 N. ----
-    if (isOrderedListItem(line, content, number))
-    {
-        flushParagraph();
-        ensureDocStarted();
-
-        if (hasBlock(eBlockQuote)) { closeToBlock(eBlockQuote); closeTop(); }
-
-        if (!inList_ || !listOrdered_)
-        {
-            if (inList_) { closeToBlock(eBlockList); closeTop(); }
-            sax_.startList(true);
-            BlockFrame f = { eBlockList, 0, true };
-            blockStack_.push_back(f);
-            inList_ = true;
-            listOrdered_ = true;
-        }
-
-        sax_.startListItem();
-        parseInline(content);
-        sax_.endListItem();
-        return;
-    }
-
-    // ---- 默认：段落文本 ----
-    ensureDocStarted();
-
-    // 非段落延续行：关闭引用和列表
-    if (hasBlock(eBlockQuote)) { closeToBlock(eBlockQuote); closeTop(); }
-    if (inList_) { closeToBlock(eBlockList); closeTop(); }
-
-    ensureParagraph();
-    // 段落内换行 = 软换行，以空格连接
-    if (!paraBuf_.empty())
-        parseInline(" ");
-    parseInline(line);
-    paraBuf_.append(line.data(), line.size());
-    paraBuf_ += '\n';
-}
-
-// ============================================================================
-// 行内解析
-// ============================================================================
-
-size_t MarkdownParser::findClosingMarker(StringView text, StringView marker)
-{
-    char m0 = marker[0];
-    char m1 = marker.size() > 1 ? marker[1] : 0;
-
-    for (size_t i = 0; i < text.size(); ++i)
-    {
-        // 跳过转义
-        if (text[i] == '\\' && i + 1 < text.size()) { ++i; continue; }
-
-        if (text[i] != m0) continue;
-
-        if (marker.size() == 1)
-        {
-            // 单字符标记：确保不是双字符的一部分
-            if (m0 == '*' && i + 1 < text.size() && text[i + 1] == '*') continue;
-            if (m0 == '_' && i + 1 < text.size() && text[i + 1] == '_') continue;
-            if (m0 == '~' && i + 1 < text.size() && text[i + 1] == '~') continue;
-            return i;
-        }
-        else
-        {
-            if (i + 1 < text.size() && text[i + 1] == m1) return i;
-        }
-    }
-    return StringView::npos;
-}
-
-void MarkdownParser::parseInline(StringView text)
-{
-    size_t pos = 0;
-
-    while (pos < text.size())
-    {
-        char c = text[pos];
-
-        // ---- 转义 ----
-        if (c == '\\' && pos + 1 < text.size())
-        {
-            sax_.text(text.substr(pos + 1, 1));
-            pos += 2;
-            continue;
-        }
-
-        // ---- 粗体 **...** ----
-        if (c == '*' && pos + 1 < text.size() && text[pos + 1] == '*')
-        {
-            size_t cl = findClosingMarker(text.substr(pos + 2), "**");
-            if (cl != StringView::npos)
-            {
-                sax_.startStrong();
-                parseInline(text.substr(pos + 2, cl));
-                sax_.endStrong();
-                pos += 2 + cl + 2;
-                continue;
-            }
-        }
-
-        // ---- 斜体 *...*（单 *，不匹配 **） ----
-        if (c == '*')
-        {
-            size_t cl = findClosingMarker(text.substr(pos + 1), "*");
-            if (cl != StringView::npos)
-            {
-                sax_.startEmphasis();
-                parseInline(text.substr(pos + 1, cl));
-                sax_.endEmphasis();
-                pos += 1 + cl + 1;
-                continue;
-            }
-        }
-
-        // ---- 斜体 _..._ ----
-        if (c == '_')
-        {
-            size_t cl = findClosingMarker(text.substr(pos + 1), "_");
-            if (cl != StringView::npos)
-            {
-                sax_.startEmphasis();
-                parseInline(text.substr(pos + 1, cl));
-                sax_.endEmphasis();
-                pos += 1 + cl + 1;
-                continue;
-            }
-        }
-
-        // ---- 删除线 ~~...~~ ----
-        if (c == '~' && pos + 1 < text.size() && text[pos + 1] == '~')
-        {
-            size_t cl = findClosingMarker(text.substr(pos + 2), "~~");
-            if (cl != StringView::npos)
-            {
-                // SAX 接口暂无 startStrike/endStrike，保留内容文本
-                parseInline(text.substr(pos + 2, cl));
-                pos += 2 + cl + 2;
-                continue;
-            }
-        }
-
-        // ---- 行内代码 `...` ----
-        if (c == '`')
-        {
-            size_t cl = text.find('`', pos + 1);
-            if (cl != StringView::npos && cl < text.size())
-            {
-                sax_.codeSpan(text.substr(pos + 1, cl - pos - 1));
-                pos = cl + 1;
-                continue;
-            }
-        }
-
-        // ---- 图片 ![alt](url) — 先于链接检查 ----
-        if (c == '!' && pos + 1 < text.size() && text[pos + 1] == '[')
-        {
-            size_t cb = text.find(']', pos + 2);
-            if (cb != StringView::npos && cb < text.size() && cb + 1 < text.size() && text[cb + 1] == '(')
-            {
-                size_t ce = text.find(')', cb + 2);
-                if (ce != StringView::npos && ce < text.size())
-                {
-                    sax_.image(text.substr(pos + 2, cb - pos - 2),
-                               text.substr(cb + 2, ce - cb - 2));
-                    pos = ce + 1;
-                    continue;
-                }
-            }
-        }
-
-        // ---- 链接 [text](url) ----
-        if (c == '[')
-        {
-            size_t cb = text.find(']', pos + 1);
-            if (cb != StringView::npos && cb < text.size() && cb + 1 < text.size() && text[cb + 1] == '(')
-            {
-                size_t ce = text.find(')', cb + 2);
-                if (ce != StringView::npos && ce < text.size())
-                {
-                    sax_.startLink(text.substr(cb + 2, ce - cb - 2));
-                    parseInline(text.substr(pos + 1, cb - pos - 1));
-                    sax_.endLink();
-                    pos = ce + 1;
-                    continue;
-                }
-            }
-        }
-
-        // ---- 普通字符 ----
-        sax_.text(text.substr(pos, 1));
-        ++pos;
     }
 }
 

@@ -10,6 +10,7 @@
 #include "AstGlobal.h"
 #include "ast/MarkdownParser.hpp"
 #include "ast/MarkdownHTML.hpp"
+#include "ast/TestMarkdown.hpp"
 #include "ast/IO.hpp"
 #include "ast/Test.h"
 
@@ -30,7 +31,7 @@ static std::string renderHtml(const std::string& markdown)
 
     // 逐行 feed，模拟流式输入
     parser.feed(markdown);
-    parser.flush();
+    parser.finish();
 
     return html.output();
 }
@@ -350,7 +351,7 @@ iss = calculate_orbit(altitude=408, inclination=51.6)
     MarkdownHTML html;
     MarkdownParser parser(html);
     parser.feed(markdown);
-    parser.flush();
+    parser.finish();
 
     std::string out = html.output();
 
@@ -455,6 +456,162 @@ iss = calculate_orbit(altitude=408, inclination=51.6)
             ast_printf("\n[FILE] HTML written to: %s\n", filePath.c_str());
         }
     }
+}
+
+
+TEST(MarkdownHTMLTest, AllElements)
+{
+    const char* sample = aMarkdownString();
+    std::string markdown = sample;
+    MarkdownHTML html;
+    MarkdownParser parser(html);
+    parser.feed(markdown);
+    parser.finish();
+    std::string out = html.output();
+    ast_printf("%s", out.c_str());
+
+    // ================================================================
+    // 15. 转义字符 — 核心回归检测：
+    //     反斜杠转义必须正常工作，否则后续所有元素都会被破坏
+    // ================================================================
+
+    // 15.1 转义后的字符应作为字面文本出现，而非触发 markdown 格式
+    //     注意：所有转义行通过软换行合并到同一个 <p> 中
+    EXPECT_TRUE(has(out, "以下字符可以通过反斜杠转义显示"));
+
+    // 15.2 验证反斜杠转义有效 —— 被转义的字符必须出现在输出中
+    //     （如果转义失败，* 会触发斜体，# 会触发标题，破坏整个文档结构）
+    EXPECT_TRUE(has(out, "* 星号"))     << "escaped \\* should be literal *";
+    EXPECT_TRUE(has(out, "` 反引号"))   << "escaped \\` should be literal `";
+    EXPECT_TRUE(has(out, "_ 下划线"))   << "escaped \\_ should be literal _";
+    EXPECT_TRUE(has(out, "{} 花括号"))  << "escaped \\{\\} should be literal {}";
+    EXPECT_TRUE(has(out, "[] 方括号"))  << "escaped \\[\\] should be literal []";
+    EXPECT_TRUE(has(out, "() 圆括号"))  << "escaped \\(\\) should be literal ()";
+    EXPECT_TRUE(has(out, "# 井号"))     << "escaped \\# should be literal #";
+    EXPECT_TRUE(has(out, "+ 加号"))     << "escaped \\+ should be literal +";
+    EXPECT_TRUE(has(out, "- 减号"))     << "escaped \\- should be literal -";
+    EXPECT_TRUE(has(out, ". 句点"))     << "escaped \\. should be literal .";
+    EXPECT_TRUE(has(out, "! 感叹号"))   << "escaped \\! should be literal !";
+
+    // 15.3 转义段不应产生新格式：通过在 15 和 16 之间查找来定位
+    //     提取转义段所在段落，确认其中不含格式标签
+    {
+        size_t sec15End = out.find("16. 组合示例");
+        EXPECT_NE(sec15End, std::string::npos);
+        std::string escapedSection = out.substr(0, sec15End);
+
+        // 转义段内不应出现由转义字符意外触发的格式标签
+        // （斜体/粗体/链接/图片在文档其他位置合法，但在转义段内不应出现）
+        size_t lastHr = escapedSection.rfind("<hr>");
+        if (lastHr != std::string::npos)
+        {
+            std::string afterLastHr = escapedSection.substr(lastHr);
+            EXPECT_FALSE(has(afterLastHr, "<em>"))
+                << "escaped chars in section 15 should NOT trigger <em>";
+            EXPECT_FALSE(has(afterLastHr, "<strong>"))
+                << "escaped chars in section 15 should NOT trigger <strong>";
+            // 注意：<code> 可能因其他原因出现，不与测试
+        }
+    }
+
+    // ================================================================
+    // 16. 组合示例 — 必须出现在转义段之后且结构完整
+    // ================================================================
+
+    // 16.1 标题必须包含内容，不能为空
+    size_t pos16 = out.find(">16. 组合示例<");
+    EXPECT_NE(pos16, std::string::npos)
+        << "Section 16 heading '16. 组合示例' must exist with content";
+    // 确保在 h2 标签内
+    EXPECT_TRUE(has(out, "<h2>16. 组合示例</h2>"))
+        << "Section 16 must be an <h2> heading with its content";
+
+    // 16.2 引用块及其内部元素
+    size_t posBq = out.find("<blockquote>", pos16);
+    EXPECT_NE(posBq, std::string::npos)
+        << "Section 16 must contain a <blockquote>";
+    EXPECT_TRUE(has(out, "<strong>提示：</strong>"))
+        << "bold '提示：' must be present in blockquote";
+    EXPECT_TRUE(has(out, "<strong>轨道类型</strong>"))
+        << "bold '轨道类型' must be present";
+    EXPECT_TRUE(has(out, "<strong>覆盖范围</strong>"))
+        << "bold '覆盖范围' must be present";
+    EXPECT_TRUE(has(out, "<strong>通信链路</strong>"))
+        << "bold '通信链路' must be present";
+    EXPECT_TRUE(has(out, "<a href=\"https://example.com\">卫星轨道设计指南</a>"))
+        << "link in blockquote must be intact";
+
+    // 16.3 引用块内的代码块
+    EXPECT_TRUE(has(out, "coverage_angle = np.arccos"))
+        << "inline code in blockquote must be present";
+
+    // ================================================================
+    // 17. HTML 元素 — 原始 HTML 标签应被转义
+    // ================================================================
+
+    size_t pos17 = out.find(">17. HTML 元素<");
+    EXPECT_NE(pos17, std::string::npos)
+        << "Section 17 heading must exist with content";
+    EXPECT_TRUE(pos17 > pos16)
+        << "Section 17 must appear after section 16";
+    EXPECT_TRUE(has(out, "<h2>17. HTML 元素</h2>"))
+        << "Section 17 must be an <h2> heading";
+
+    // 原始 HTML 标签应被转义
+    EXPECT_TRUE(has(out, "&lt;p style="))
+        << "raw <p> HTML tag should be escaped";
+    EXPECT_TRUE(has(out, "&lt;/p&gt;"))
+        << "raw </p> HTML tag should be escaped";
+    EXPECT_TRUE(has(out, "&lt;details&gt;"))
+        << "raw <details> tag should be escaped";
+    EXPECT_TRUE(has(out, "&lt;summary&gt;"))
+        << "raw <summary> tag should be escaped";
+
+    // 折叠内容中的列表
+    EXPECT_TRUE(has(out, "<li>卫星类型：通信卫星</li>"))
+        << "list item in HTML section must exist";
+    EXPECT_TRUE(has(out, "<li>轨道类型：地球同步轨道</li>"))
+        << "list item in HTML section must exist";
+    EXPECT_TRUE(has(out, "<li>覆盖区域：亚太地区</li>"))
+        << "list item in HTML section must exist";
+
+    // ================================================================
+    // 18. 图表（Mermaid）— 代码块必须正常渲染
+    // ================================================================
+
+    size_t pos18 = out.find(">18. 图表");
+    EXPECT_NE(pos18, std::string::npos)
+        << "Section 18 heading must exist with content";
+    EXPECT_TRUE(pos18 > pos17)
+        << "Section 18 must appear after section 17";
+    EXPECT_TRUE(has(out, "<h2>18. 图表（Mermaid）</h2>"))
+        << "Section 18 must be an <h2> heading";
+
+    EXPECT_TRUE(has(out, "<pre><code class=\"language-mermaid\">"))
+        << "Mermaid code block must have language-mermaid class";
+    EXPECT_TRUE(has(out, "graph TD"))
+        << "Mermaid graph content must be present";
+    EXPECT_TRUE(has(out, "A[任务需求分析]"))
+        << "Mermaid node A must be present";
+    EXPECT_TRUE(has(out, "H[在轨测试]"))
+        << "Mermaid node H must be present";
+
+    // ================================================================
+    // 全局健康检查
+    // ================================================================
+
+    // 不应出现空标题（这是转义失败的关键症状：\# 被解析为标题）
+    EXPECT_FALSE(has(out, "<h1></h1>"))
+        << "Empty <h1> indicates escape failure";
+    EXPECT_FALSE(has(out, "<h2></h2>"))
+        << "Empty <h2> indicates escape failure";
+
+    // 16-18 的标题不应为空（转义失败时 section 编号会被当作 markdown 格式化掉）
+    // 已在上面用完整标签验证通过
+
+    // 不应有裸露的 markdown 格式字符泄漏
+    // （如 \` 反引号 如果未正确转义，` 会作为代码段分隔符被吞掉）
+    // 此项通过上述正向断言间接覆盖
 }
 
 GTEST_MAIN()

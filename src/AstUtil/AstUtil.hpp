@@ -66,6 +66,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Markdown.hpp"
 #include "AstUtil/MarkdownANSI.hpp"
+#include "AstUtil/MarkdownHTML.hpp"
 #include "AstUtil/MarkdownParser.hpp"
 #include "AstUtil/MarkdownRenderer.hpp"
 #include "AstUtil/MarkdownSax.hpp"

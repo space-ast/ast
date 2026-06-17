@@ -38,8 +38,8 @@ AST_NAMESPACE_BEGIN
 class AST_AI_API ChatConsole : public ChatEventHandler
 {
 public:
-    // using RendererType = MarkdownRenderer;
-    using RendererType = Markdown;
+    using RendererType = MarkdownRenderer;
+    //using RendererType = Markdown;
 
 
     ChatConsole() = default;

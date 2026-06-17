@@ -42,8 +42,8 @@ public:
     void end(std::string& remaining) override;
     void reset() override;
 private:
+    MarkdownANSI ansiRenderer_;   // 必须在 parser_ 之前声明（parser_ 引用 ansiRenderer_）
     MarkdownParser parser_;
-    MarkdownANSI ansiRenderer_;
 };
 
 
