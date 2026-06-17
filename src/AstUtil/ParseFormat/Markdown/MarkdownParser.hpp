@@ -24,6 +24,7 @@
 #include "AstUtil/StringView.hpp"
 #include <string>
 #include <vector>
+#include <memory>
 
 AST_NAMESPACE_BEGIN
 
@@ -33,6 +34,7 @@ AST_NAMESPACE_BEGIN
 */
 
 class MarkdownSax;
+class MarkdownTableStateMachine;
 
 
 /// @brief  Markdown内联文本状态机（流式输入输出SAX事件驱动）
@@ -49,6 +51,9 @@ public:
 
     /// @brief  将 result 中的待提交文本刷新到 SAX
     void flushPending(std::string& result);
+
+    /// @brief  结束当前内联上下文（用于表格 cell 边界），刷新待提交文本、关闭格式
+    void flushCell();
 
 public:
     /// @brief  内联格式状态标志位
@@ -143,7 +148,7 @@ class AST_UTIL_API MarkdownBlockStateMachine
 {
 public:
     MarkdownBlockStateMachine(MarkdownSax& sax);
-    ~MarkdownBlockStateMachine() = default;
+    ~MarkdownBlockStateMachine();
 
     /// @brief  流式输入数据块
     void feed(StringView data);
@@ -167,6 +172,7 @@ private:
         eListMarker,         ///< 正在解析列表标记（- / * / + / N.）
         eListItemContent,    ///< 列表项内容（行内文本流式解析）
         eParagraph,          ///< 段落文本（行内文本流式解析）
+        eTable,              ///< 表格（委托给 MarkdownTableStateMachine）
     };
 
     // ---- 块栈帧 ----
@@ -205,6 +211,7 @@ private:
     void handleBlockquoteChar(char c);
     void handleListMarker(char c);
     void handleParagraphChar(char c);
+    void handleTableChar(char c);
 
     // ---- 块栈管理 ----
     void openBlock(EBlockType type, int level = 0, bool ordered = false);
@@ -227,6 +234,7 @@ private:
     // ============================================================
     MarkdownSax& sax_;
     MarkdownInlineStateMachine inlineSM_;
+    std::unique_ptr<MarkdownTableStateMachine> tableSM_;
 
     EState state_ = EState::eLineStart;
     std::vector<BlockFrame> blockStack_;

@@ -7,6 +7,7 @@
 
 #include "MarkdownParser.hpp"
 #include "MarkdownSax.hpp"
+#include "MarkdownTableStateMachine.hpp"
 #include "AstUtil/StringView.hpp"
 #include <cctype>
 #include <cstring>
@@ -732,6 +733,22 @@ void MarkdownInlineStateMachine::flushPending(std::string& result)
     }
 }
 
+void MarkdownInlineStateMachine::flushCell()
+{
+    // 解析末尾待提交的定界符游程（如行末 * 或 _）
+    resolveDelimRun(0, result_);
+    // 触发待定的删除线
+    if (!!(pendingState_ & EStateFlags::eDelete))
+    {
+        toggleState(EStateFlags::eDelete);
+        pendingState_ &= ~EStateFlags::eDelete;
+    }
+    // 刷新待提交文本
+    flushPending(result_);
+    // 关闭所有活跃格式（table cell 之间格式不跨 cell）
+    closeAllFormats(result_);
+}
+
 void MarkdownInlineStateMachine::closeAllFormats(std::string& result)
 {
     // 循环关闭所有活跃格式（支持多层嵌套）
@@ -845,8 +862,11 @@ void MarkdownInlineStateMachine::replayBufferedText(const std::string& text,
 MarkdownBlockStateMachine::MarkdownBlockStateMachine(MarkdownSax& sax)
     : sax_(sax)
     , inlineSM_(sax)
+    , tableSM_(new MarkdownTableStateMachine(sax))
 {
 }
+
+MarkdownBlockStateMachine::~MarkdownBlockStateMachine() = default;
 
 void MarkdownBlockStateMachine::feed(StringView data)
 {
@@ -887,6 +907,9 @@ void MarkdownBlockStateMachine::finish()
     if (hasBlock(EBlockType::List))
         closeToType(EBlockType::List);
 
+    // 关闭表格
+    tableSM_->finish();
+
     // 关闭所有剩余块
     closeAllBlocks();
 
@@ -923,6 +946,9 @@ void MarkdownBlockStateMachine::reset()
     paraHadContent_ = false;
 
     docStarted_ = false;
+
+    // 重置表格状态机
+    tableSM_->reset();
 
     // 重置行内状态机（引用成员不可赋值，使用 placement new 重建）
     inlineSM_.~MarkdownInlineStateMachine();
@@ -1018,6 +1044,10 @@ void MarkdownBlockStateMachine::feedChar(char c)
         }
         break;
 
+    case EState::eTable:
+        handleTableChar(c);
+        break;
+
     case EState::eParagraph:
         if (paraAfterNL_)
         {
@@ -1048,7 +1078,7 @@ void MarkdownBlockStateMachine::feedChar(char c)
 
             // 检查是否遇到新块元素 → 结束段落并重新分类
             if (c == '#' || c == '>' || c == '`' || c == '~' ||
-                c == '-' || c == '*' || c == '+' || c == '_' ||
+                c == '-' || c == '*' || c == '+' || c == '_' || c == '|' ||
                 (c >= '0' && c <= '9'))
             {
                 endParagraph();
@@ -1171,6 +1201,14 @@ void MarkdownBlockStateMachine::classifyFirstChar(char c)
     case '_':
         classBuf_ = c;
         state_ = EState::eListMarker;
+        break;
+
+    case '|':
+        // 表格：关闭段落，委托给 TableStateMachine
+        closeParagraph();
+        ensureDocStarted();
+        tableSM_->feedChar(c);
+        state_ = EState::eTable;
         break;
 
     default:
@@ -1537,6 +1575,39 @@ void MarkdownBlockStateMachine::handleParagraphChar(char c)
 
     contentBuf_ += c;
     paraHadContent_ = true;
+}
+
+// ============================================================================
+// 表格处理
+// ============================================================================
+
+void MarkdownBlockStateMachine::handleTableChar(char c)
+{
+    tableSM_->feedChar(c);
+
+    if (tableSM_->isIdle())
+    {
+        // 表格结束，检查是否需要重新处理未消费字符
+        if (!tableSM_->isCharConsumed())
+        {
+            // 当前字符未被表格消费 → 重新做行首分类
+            state_ = EState::eLineStart;
+            // 跳过空白后重新分类（注意：此时 c 可能为空白，需被行首逻辑跳过）
+            if (c != ' ' && c != '\t')
+            {
+                if (c == '\n')
+                {
+                    // 空行 — 已在 eLineStart 逻辑中处理
+                    return;
+                }
+                classifyFirstChar(c);
+            }
+        }
+        else
+        {
+            state_ = EState::eLineStart;
+        }
+    }
 }
 
 // ============================================================================

@@ -76,6 +76,18 @@ public:
 
     void horizontalRule() override;
 
+    // 表格
+    void startTable() override;
+    void startTableHead() override;
+    void endTableHead() override;
+    void startTableBody() override;
+    void endTableBody() override;
+    void startTableRow() override;
+    void endTableRow() override;
+    void startTableCell(ETableAlign align) override;
+    void endTableCell() override;
+    void endTable() override;
+
     // 行内元素
     void text(StringView txt) override;
     void startEmphasis() override;     // 斜体
@@ -94,12 +106,20 @@ public:
     std::string& output() { return output_; }
     const std::string& output() const { return output_; }
     void clearOutput() { output_.clear(); }
+
+    /// @brief 设置是否截断超出列宽的表格单元格内容（默认开启）
+    void setTableTruncate(bool enable) { truncateCells_ = enable; }
+    bool isTableTruncate() const { return truncateCells_; }
+
 private:
     // ---- ANSI 辅助 ----
     void emitActiveStyles();
     void emitStyleTransition(int oldStyles, int newStyles);
     void emitBlockPrefix();
     void outputCodeBlockGutter(int lineNum);
+
+    /// @brief 获取当前活跃输出缓冲（table cell 内为 cellContent_，否则为 output_）
+    std::string& curBuf() { return inCell_ ? cellContent_ : output_; }
 
     A_DISABLE_COPY(MarkdownANSI);
 
@@ -132,6 +152,28 @@ private:
     bool listOrdered_    = false;
     bool inCodeBlock_    = false;
     int  codeLineNumber_ = 0;
+
+    // ---- 表格缓冲 ----
+    struct CellData
+    {
+        std::string rendered;   ///< ANSI 渲染后的内容（含转义序列）
+        int         width = 0;  ///< 净显示宽度（剔除转义序列后）
+        ETableAlign align = ETableAlign::eDefault;
+    };
+    struct RowData
+    {
+        std::vector<CellData> cells;
+        bool isHeader = false;
+    };
+
+    bool   inTable_       = false;   ///< 当前是否在表格内
+    bool   inTableHead_   = false;   ///< 当前是否在表头区域
+    bool   inCell_        = false;   ///< 当前是否在 cell 内（inline 事件重定向到 cellContent_）
+    ETableAlign cellAlign_ = ETableAlign::eDefault;  ///< 当前 cell 对齐方式
+    std::string cellContent_;        ///< cell 内容缓冲（独立于 output_，跨 chunk 不丢失）
+    bool   truncateCells_ = true;     ///< 是否截断超出列宽的单元格（默认开启）
+    RowData currentRow_;             ///< 当前行缓冲
+    std::vector<RowData> tableRows_; ///< 表格所有行（含表头）
 
     // ---- 链接状态 ----
     std::string linkUrl_;

@@ -76,6 +76,18 @@ public:
 
     void horizontalRule() override;
 
+    // 表格
+    void startTable() override;
+    void startTableHead() override;
+    void endTableHead() override;
+    void startTableBody() override;
+    void endTableBody() override;
+    void startTableRow() override;
+    void endTableRow() override;
+    void startTableCell(ETableAlign align) override;
+    void endTableCell() override;
+    void endTable() override;
+
     // 行内元素
     void text(StringView txt) override;
     void startEmphasis() override;     // 斜体
@@ -105,6 +117,9 @@ private:
     // ---- 块级状态 ----
     std::vector<bool> listStack_;   ///< 列表类型栈: true=有序, false=无序
     int  blockquoteDepth_ = 0;      ///< 块引用嵌套深度
+
+    // ---- 表格状态 ----
+    bool inTableHead_ = false;      ///< 当前是否在表头区域内
 
     // ---- 链接状态 ----
     std::string linkUrl_;

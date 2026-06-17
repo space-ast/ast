@@ -49,6 +49,7 @@ void MarkdownHTML::startDocument()
     output_.clear();
     listStack_.clear();
     blockquoteDepth_ = 0;
+    inTableHead_ = false;
     linkUrl_.clear();
 }
 
@@ -174,6 +175,87 @@ void MarkdownHTML::endBlockquote()
 void MarkdownHTML::horizontalRule()
 {
     output_ += "<hr>\n";
+}
+
+// ============================================================================
+// 块级元素 — 表格
+// ============================================================================
+
+void MarkdownHTML::startTable()
+{
+    output_ += "<table>\n";
+}
+
+void MarkdownHTML::startTableHead()
+{
+    inTableHead_ = true;
+    output_ += "<thead>\n";
+}
+
+void MarkdownHTML::endTableHead()
+{
+    output_ += "</thead>\n";
+    inTableHead_ = false;
+}
+
+void MarkdownHTML::startTableBody()
+{
+    output_ += "<tbody>\n";
+}
+
+void MarkdownHTML::endTableBody()
+{
+    output_ += "</tbody>\n";
+}
+
+void MarkdownHTML::startTableRow()
+{
+    output_ += "<tr>";
+}
+
+void MarkdownHTML::endTableRow()
+{
+    output_ += "</tr>\n";
+}
+
+void MarkdownHTML::startTableCell(ETableAlign align)
+{
+    const char* tag = inTableHead_ ? "th" : "td";
+
+    switch (align)
+    {
+    case ETableAlign::eLeft:
+        output_ += "<";
+        output_ += tag;
+        output_ += " align=\"left\">";
+        break;
+    case ETableAlign::eCenter:
+        output_ += "<";
+        output_ += tag;
+        output_ += " align=\"center\">";
+        break;
+    case ETableAlign::eRight:
+        output_ += "<";
+        output_ += tag;
+        output_ += " align=\"right\">";
+        break;
+    case ETableAlign::eDefault:
+    default:
+        output_ += "<";
+        output_ += tag;
+        output_ += ">";
+        break;
+    }
+}
+
+void MarkdownHTML::endTableCell()
+{
+    output_ += inTableHead_ ? "</th>" : "</td>";
+}
+
+void MarkdownHTML::endTable()
+{
+    output_ += "</table>\n";
 }
 
 // ============================================================================
