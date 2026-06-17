@@ -256,9 +256,10 @@ TEST(MarkdownHTMLTest, NestedOrderedList)
 }
 
 // ============================================================================
-// 引用
+// 引用（Blockquote）— 基于 CommonMark 规范编写
 // ============================================================================
 
+/// @brief 基础单行引用
 TEST(MarkdownHTMLTest, Blockquote)
 {
     std::string out = show("blockquote", "> quoted text\n");
@@ -266,6 +267,22 @@ TEST(MarkdownHTMLTest, Blockquote)
     EXPECT_TRUE(has(out, "</blockquote>"));
     EXPECT_TRUE(has(out, "quoted text"));
 }
+
+/// @brief 多行引用：每行以 > 开头，属于同一个引用块
+///        CommonMark 例 228: > # Foo\n> bar\n> baz
+TEST(MarkdownHTMLTest, BlockquoteMultiLine)
+{
+    std::string out = show("blockquote multiline",
+        "> 第一行引用内容\n"
+        "> 第二行引用内容\n"
+        "> 第三行引用内容\n");
+    EXPECT_TRUE(has(out, "<blockquote>"));
+    EXPECT_TRUE(has(out, "</blockquote>"));
+    EXPECT_TRUE(has(out, "第一行引用内容"));
+    EXPECT_TRUE(has(out, "第二行引用内容"));
+    EXPECT_TRUE(has(out, "第三行引用内容"));
+}
+
 
 // ============================================================================
 // 分割线

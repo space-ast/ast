@@ -476,6 +476,7 @@ void MarkdownBlockParser::classifyFirstChar(char c)
             sax_.startBlockquote();
             openBlock(EBlockType::Blockquote);
         }
+        ensureParagraph();  // 为引用内容打开段落，触发 emitBlockPrefix 输出 │ 前缀
         state_ = EState::eBlockquoteContent;
         break;
 
