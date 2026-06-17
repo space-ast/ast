@@ -6,7 +6,7 @@
     -- add_files("../../data/*.qrc")
     -- add_files("**.ui")
     add_headerfiles("**.hpp", {prefixdir="AstGUI"})
-    add_deps("AstUtil", "AstSim", "AstCore", "AstMath", "AstAnalyzer", "AstLoader")
+    add_deps("AstUtil", "AstSim", "AstCore", "AstMath", "AstAnalyzer", "AstLoader", "AstUiAI")
     add_defines("AST_BUILD_LIB_GUI")
     set_default(false)
     if not has_package("qt5widgets") and not is_plat("wasm") then

@@ -47,9 +47,10 @@ errc_t SSEParser::onData(const char* data, size_t size)
     return error_.empty() ? 0 : -1;
 }
 
-void SSEParser::onDone()
+void SSEParser::onComplete()
 {
     processBuffer();  // 刷新缓冲区中残余的数据
+    handler_.onContentComplete(accumulatedContent_);
 }
 
 void SSEParser::onError(errc_t /*error*/)
@@ -187,11 +188,19 @@ void SSEParser::processEvent(const std::string& event)
     auto& contentVal = delta["content"];
     if (!contentVal.isNull())
     {
+        if(!thoughtCompleted_)
+        {
+            thoughtCompleted_ = true;
+            if(!accumulatedReasoning_.empty())
+            {
+                handler_.onReasoningComplete(accumulatedReasoning_);
+            }
+        }
         std::string content = contentVal.toString();
         if (!content.empty())
         {
             accumulatedContent_ += content;
-            handler_.onTextChunk(content);
+            handler_.onContentChunk(content);
         }
     }
 
@@ -203,7 +212,7 @@ void SSEParser::processEvent(const std::string& event)
         if (!reasoning.empty())
         {
             accumulatedReasoning_ += reasoning;
-            handler_.onThought(reasoning);
+            handler_.onReasoningChunk(reasoning);
         }
     }
 

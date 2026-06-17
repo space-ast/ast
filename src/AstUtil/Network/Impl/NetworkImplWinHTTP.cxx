@@ -386,7 +386,7 @@ errc_t NetworkImplWinHTTP::requestStream(const NetworkRequest& request, NetworkS
             break;  // 接收器取消
     }
 
-    receiver.onDone();
+    receiver.onComplete();
 
     // 清理资源
     impl_->winHttpCloseHandle_(hRequest);

@@ -48,11 +48,19 @@ public:
 
     /// @brief 收到一块文本内容（delta）
     /// @param text 文本增量（可能是一个或几个 token）
-    virtual void onTextChunk(const std::string& text) {}
+    virtual void onContentChunk(const std::string& text) {}
 
-    /// @brief 收到推理/思考内容（DeepSeek R1 / Claude thinking）
-    /// @param thought 推理内容增量
-    virtual void onThought(const std::string& thought) {}
+    /// @brief 收到完整文本内容
+    virtual void onContentComplete(const std::string& text) {}
+
+    /// @brief 收到一块推理内容（delta）
+    /// @param reasoning 推理内容增量
+    virtual void onReasoningChunk(const std::string& reasoning) {}
+
+    /// @brief 收到完整推理内容
+    /// @param reasoning 推理内容
+    virtual void onReasoningComplete(const std::string& reasoning) {}
+
 
     // ── 工具调用事件（在流式响应完成后触发） ──
 

@@ -62,7 +62,7 @@ public:
     virtual void onError(errc_t error) {}
 
     /// @brief 数据接收完毕（正常完成时触发）
-    virtual void onDone() {}
+    virtual void onComplete() {}
 };
 
 
@@ -89,7 +89,7 @@ public:
         return 0;
     }
 
-    void onDone() override
+    void onComplete() override
     {
         response_.setBody(body_);
     }

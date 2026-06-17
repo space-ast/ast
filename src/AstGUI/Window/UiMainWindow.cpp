@@ -24,6 +24,9 @@
 #include "AstGUI/ObjectEditRegistry.hpp"
 #include "AstGUI/UiCommon.hpp"
 #include "AstGUI/UiObjectTree.hpp"
+#include "AstUiAI/UiChatDockWidget.hpp"
+#include "AstAI/ChatSession.hpp"
+#include "AstAI/AssistantAgent.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 
 #include <QApplication>
@@ -54,7 +57,11 @@ UiMainWindow::UiMainWindow(QWidget *parent)
     setupUi();
 }
 
-UiMainWindow::~UiMainWindow() = default;
+UiMainWindow::~UiMainWindow()
+{
+    delete chatSession_;
+    chatSession_ = nullptr;
+}
 
 // ============================================================================
 // 主界面搭建
@@ -83,6 +90,9 @@ void UiMainWindow::setupUi()
 
     // 左侧 Dock
     setupObjectDock();
+
+    // AI 助手 Dock
+    setupChatDock();
 
     // 状态栏
     setupStatusBar();
@@ -173,6 +183,15 @@ QWidget* UiMainWindow::createRibbonPage(int index)
         layout->addWidget(createRibbonButton(tr("类型管理"), missionIcon("TypeManagement"), page));
         layout->addWidget(createRibbonButton(tr("对象管理"), missionIcon("ObjectManagement"), page));
         layout->addWidget(createRibbonButton(tr("组件管理"), missionIcon("ComponentManagement"), page));
+        addRibbonSeparator(layout);
+        {
+            auto* aiBtn = createRibbonButton(tr("AI 助手"), missionIcon("AI"), page);
+            connect(aiBtn, &QToolButton::clicked, this, [this]() {
+                if (chatDock_)
+                    chatDock_->setVisible(!chatDock_->isVisible());
+            });
+            layout->addWidget(aiBtn);
+        }
         break;
 
     case 1: // 分析
@@ -228,6 +247,25 @@ void UiMainWindow::setupObjectDock()
     });
 
     addDockWidget(Qt::LeftDockWidgetArea, objectDock_);
+}
+
+// ============================================================================
+// AI 助手 Dock
+// ============================================================================
+
+void UiMainWindow::setupChatDock()
+{
+    // 创建 ChatSession 并设置航天工程师 Agent
+    chatSession_ = new ChatSession();
+    chatSession_->setAgent(
+        std::unique_ptr<AssistantAgent>(AssistantAgent::NewSpaceEngineer()));
+
+    // 创建停靠面板，dock 到右侧
+    chatDock_ = new UiChatDockWidget(chatSession_, this);
+    chatDock_->dockInto(this);
+
+    // 初始隐藏，通过功能区按钮切换
+    chatDock_->setVisible(false);
 }
 
 // ============================================================================

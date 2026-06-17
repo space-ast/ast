@@ -41,10 +41,9 @@ public:
 
     // ── NetworkStreamReceiver 接口 ──
 
-    void onHeaders(int statusCode,
-                   const std::map<std::string, std::string>& headers) override;
+    void onHeaders(int statusCode, const std::map<std::string, std::string>& headers) override;
     errc_t onData(const char* data, size_t size) override;
-    void onDone() override;
+    void onComplete() override;
     void onError(errc_t error) override;
 
     // ── 状态 ──
@@ -74,6 +73,7 @@ private:
     void processToolCallDeltas(const JsonValue& toolCalls);
 
     ChatEventHandler& handler_;
+    bool thoughtCompleted_{false};   // 是否已完成推理/思考内容
     std::string       buffer_;
     std::string       error_;
 

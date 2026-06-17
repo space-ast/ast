@@ -24,11 +24,8 @@ AST_USING_NAMESPACE
 /// @brief 使用 MarkdownParser + MarkdownHTML 渲染 markdown 为 HTML
 static std::string renderHtml(const std::string& markdown)
 {
-    MarkdownHTML html;
-    MarkdownParser parser(html);
-    parser.feed(markdown);
-    parser.finish();
-    return html.output();
+    bool compact = true;
+    return aMarkdownHTML(markdown, compact);
 }
 
 /// @brief 检查子串是否存在

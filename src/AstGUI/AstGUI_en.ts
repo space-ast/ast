@@ -835,6 +835,10 @@
         <source>已创建: %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>AI 助手</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UiMotionTwoBody</name>

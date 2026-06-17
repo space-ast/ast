@@ -48,8 +48,16 @@ AST_NAMESPACE_BEGIN
 class AST_UTIL_API MarkdownHTML: public MarkdownSax
 {
 public:
-    MarkdownHTML() = default;
+    /// @brief 构造函数
+    /// @param compact true=紧凑输出（无缩进和换行），false=格式化输出（默认）
+    explicit MarkdownHTML(bool compact = false)
+        : compact_(compact) {}
     ~MarkdownHTML() = default;
+
+    /// @brief 设置紧凑/格式化输出模式
+    void setCompact(bool compact) { compact_ = compact; }
+    /// @brief 获取当前是否为紧凑输出模式
+    bool isCompact() const { return compact_; }
 
     // 文档生命周期
     void startDocument() override;
@@ -111,11 +119,17 @@ private:
     /// @brief 将文本中的 HTML 特殊字符转义后追加到输出
     static void appendEscaped(std::string& out, StringView text);
 
-    /// @brief 向输出追加 depth*2 个空格缩进
+    /// @brief 向输出追加 depth*2 个空格缩进（紧凑模式下不追加）
     void appendIndent(size_t depth);
+
+    /// @brief 向输出追加格式化换行（紧凑模式下不追加）
+    void appendNewline();
 
     // ---- 输出缓冲 ----
     std::string output_;
+
+    // ---- 格式化控制 ----
+    bool compact_ = false;              ///< true=紧凑输出，false=格式化输出
 
     // ---- 块级状态 ----
     std::vector<bool> listStack_;   ///< 列表类型栈: true=有序, false=无序

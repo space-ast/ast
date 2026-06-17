@@ -42,8 +42,14 @@ void MarkdownHTML::appendEscaped(std::string& out, StringView text)
 
 void MarkdownHTML::appendIndent(size_t depth)
 {
+    if (compact_) return;
     for (size_t i = 0; i < depth; ++i)
         output_ += "  ";
+}
+
+void MarkdownHTML::appendNewline()
+{
+    if (!compact_) output_ += '\n';
 }
 
 // ============================================================================
@@ -62,8 +68,8 @@ void MarkdownHTML::startDocument()
 
 void MarkdownHTML::endDocument()
 {
-    // 确保文档以换行结尾
-    if (!output_.empty() && output_.back() != '\n')
+    // 确保文档以换行结尾（紧凑模式下不追加）
+    if (!compact_ && !output_.empty() && output_.back() != '\n')
         output_ += '\n';
 }
 
@@ -82,7 +88,8 @@ void MarkdownHTML::endHeading(int level)
 {
     output_ += "</h";
     output_ += ('0' + static_cast<char>(level));
-    output_ += ">\n";
+    output_ += ">";
+    appendNewline();
 }
 
 // ============================================================================
@@ -96,7 +103,8 @@ void MarkdownHTML::startParagraph()
 
 void MarkdownHTML::endParagraph()
 {
-    output_ += "</p>\n";
+    output_ += "</p>";
+    appendNewline();
 }
 
 // ============================================================================
@@ -123,7 +131,8 @@ void MarkdownHTML::codeLine(StringView line)
 
 void MarkdownHTML::endCodeBlock()
 {
-    output_ += "</code></pre>\n";
+    output_ += "</code></pre>";
+    appendNewline();
 }
 
 // ============================================================================
@@ -137,10 +146,11 @@ void MarkdownHTML::startList(bool ordered)
 
     // 嵌套列表：从父级 <li> 文本换行
     if (depth > 0 && !output_.empty() && output_.back() != '\n')
-        output_ += '\n';
+        appendNewline();
 
     appendIndent(depth);
-    output_ += ordered ? "<ol>\n" : "<ul>\n";
+    output_ += ordered ? "<ol>" : "<ul>";
+    appendNewline();
 }
 
 void MarkdownHTML::startListItem()
@@ -157,7 +167,8 @@ void MarkdownHTML::endListItem()
         appendIndent(listStack_.size());
         lastEndListDepth_ = -1;
     }
-    output_ += "</li>\n";
+    output_ += "</li>";
+    appendNewline();
 }
 
 void MarkdownHTML::endList()
@@ -169,7 +180,8 @@ void MarkdownHTML::endList()
 
     size_t depth = listStack_.size();
     appendIndent(depth);
-    output_ += ordered ? "</ol>\n" : "</ul>\n";
+    output_ += ordered ? "</ol>" : "</ul>";
+    appendNewline();
 
     lastEndListDepth_ = static_cast<int>(depth);
 }
@@ -181,7 +193,8 @@ void MarkdownHTML::endList()
 void MarkdownHTML::startBlockquote()
 {
     blockquoteDepth_++;
-    output_ += "<blockquote>\n";
+    output_ += "<blockquote>";
+    appendNewline();
 }
 
 void MarkdownHTML::endBlockquote()
@@ -189,7 +202,8 @@ void MarkdownHTML::endBlockquote()
     if (blockquoteDepth_ > 0)
     {
         blockquoteDepth_--;
-        output_ += "</blockquote>\n";
+        output_ += "</blockquote>";
+        appendNewline();
     }
 }
 
@@ -199,7 +213,8 @@ void MarkdownHTML::endBlockquote()
 
 void MarkdownHTML::horizontalRule()
 {
-    output_ += "<hr>\n";
+    output_ += "<hr>";
+    appendNewline();
 }
 
 // ============================================================================
@@ -208,29 +223,34 @@ void MarkdownHTML::horizontalRule()
 
 void MarkdownHTML::startTable()
 {
-    output_ += "<table>\n";
+    output_ += "<table>";
+    appendNewline();
 }
 
 void MarkdownHTML::startTableHead()
 {
     inTableHead_ = true;
-    output_ += "<thead>\n";
+    output_ += "<thead>";
+    appendNewline();
 }
 
 void MarkdownHTML::endTableHead()
 {
-    output_ += "</thead>\n";
+    output_ += "</thead>";
+    appendNewline();
     inTableHead_ = false;
 }
 
 void MarkdownHTML::startTableBody()
 {
-    output_ += "<tbody>\n";
+    output_ += "<tbody>";
+    appendNewline();
 }
 
 void MarkdownHTML::endTableBody()
 {
-    output_ += "</tbody>\n";
+    output_ += "</tbody>";
+    appendNewline();
 }
 
 void MarkdownHTML::startTableRow()
@@ -240,7 +260,8 @@ void MarkdownHTML::startTableRow()
 
 void MarkdownHTML::endTableRow()
 {
-    output_ += "</tr>\n";
+    output_ += "</tr>";
+    appendNewline();
 }
 
 void MarkdownHTML::startTableCell(ETableAlign align)
@@ -280,7 +301,8 @@ void MarkdownHTML::endTableCell()
 
 void MarkdownHTML::endTable()
 {
-    output_ += "</table>\n";
+    output_ += "</table>";
+    appendNewline();
 }
 
 // ============================================================================

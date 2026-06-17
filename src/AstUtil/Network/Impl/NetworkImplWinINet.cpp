@@ -397,7 +397,7 @@ errc_t NetworkImplWinINet::requestStream(const NetworkRequest& request, NetworkS
             break;
     }
 
-    receiver.onDone();
+    receiver.onComplete();
 
     // 清理资源
     impl_->internetCloseHandle_(hRequest);

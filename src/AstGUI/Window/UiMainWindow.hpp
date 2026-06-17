@@ -24,6 +24,7 @@
 #include <QIcon>
 #include <QMainWindow>
 #include <QStyle>
+#include <memory>
 
 class QTabBar;
 class QStackedWidget;
@@ -35,6 +36,8 @@ class QTabWidget;
 AST_NAMESPACE_BEGIN
 
 class UiObjectTree;
+class ChatSession;
+class UiChatDockWidget;
 
 class UiMainWindow : public QMainWindow
 {
@@ -53,6 +56,7 @@ private:
                                      QWidget* parent);
 
     void setupObjectDock();
+    void setupChatDock();
     void setupStatusBar();
 
     // Ribbon
@@ -65,6 +69,10 @@ private:
     // Object dock
     QDockWidget* objectDock_ = nullptr;
     UiObjectTree* objectTree_ = nullptr;
+
+    // Chat dock
+    ChatSession*      chatSession_ = nullptr;
+    UiChatDockWidget* chatDock_ = nullptr;
 
     // Status bar
     QLabel* statusReadyLabel_ = nullptr;

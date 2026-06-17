@@ -46,14 +46,20 @@ AssistantAgent AssistantAgent::SpaceEngineer()
     AssistantAgent agent;
     agent.setSystemPrompt(aAgentSystemPrompt());
     aInitAgentTools(agent.tools());
-    auto extraBody = R"(
-        {
-            "thinking":{
-                "type":"disabled"
+    
+    // 是否禁用推理
+    const bool disableThinking = true; 
+
+    if(disableThinking){
+        auto extraBody = R"(
+            {
+                "thinking":{
+                    "type":"disabled"
+                }
             }
-        }
-    )"_json;
-    agent.config().setExtraBody(extraBody);
+        )"_json;
+        agent.config().setExtraBody(extraBody);
+    }
     return agent;
 }
 

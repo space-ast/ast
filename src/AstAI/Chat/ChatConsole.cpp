@@ -37,14 +37,14 @@ void ChatConsole::outputText(const std::string& text)
     fflush(stdout);
 }
 
-void ChatConsole::onTextChunk(const std::string& text)
+void ChatConsole::onContentChunk(const std::string& text)
 {
     outputText(text);
 }
 
-void ChatConsole::onThought(const std::string& thought)
+void ChatConsole::onReasoningChunk(const std::string& reasoning)
 {
-    outputText(thought);
+    outputText(reasoning);
 }
 
 void ChatConsole::onToolCallRequest(const std::string& /*toolCallId*/,

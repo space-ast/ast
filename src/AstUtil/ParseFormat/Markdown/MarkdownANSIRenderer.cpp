@@ -1,9 +1,9 @@
 ///
-/// @file      MarkdownRenderer.hpp
+/// @file      MarkdownRenderer.cpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-06-17
+/// @date      2026-06-16
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -18,20 +18,33 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
-
-#include "AstGlobal.h"
 #include "MarkdownANSIRenderer.hpp"
 
 AST_NAMESPACE_BEGIN
 
-/*!
-    @addtogroup 
-    @{
-*/
+MarkdownANSIRenderer::MarkdownANSIRenderer()
+    : parser_(ansiRenderer_)
+    , ansiRenderer_()
+{
 
-using MarkdownRenderer = MarkdownANSIRenderer;
+}
 
-/*! @} */
+void MarkdownANSIRenderer::feed(StringView chunk, std::string &accumulated)
+{
+    parser_.feed(chunk);
+    accumulated = std::move(ansiRenderer_.output());
+    ansiRenderer_.clearOutput();
+}
+
+void MarkdownANSIRenderer::end(std::string &remaining)
+{
+    parser_.finish();
+    remaining = std::move(ansiRenderer_.output());
+}
+
+void MarkdownANSIRenderer::reset()
+{
+    parser_.reset();
+}
 
 AST_NAMESPACE_END

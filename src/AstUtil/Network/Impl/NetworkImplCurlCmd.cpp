@@ -258,7 +258,7 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
     if (!tmpFilePath.empty())
         std::remove(tmpFilePath.c_str());
 
-    receiver.onDone();
+    receiver.onComplete();
 
     if (status != 0)
         return -4;

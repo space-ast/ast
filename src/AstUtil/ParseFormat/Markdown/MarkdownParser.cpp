@@ -8,6 +8,7 @@
 #include "MarkdownParser.hpp"
 #include "MarkdownSax.hpp"
 #include "MarkdownANSI.hpp"
+#include "MarkdownHTML.hpp"
 #include "AstUtil/StringView.hpp"
 #include <cctype>
 #include <cstring>
@@ -24,5 +25,14 @@ std::string aMarkdownANSI(StringView markdown)
     return ansi.output();
 }
 
+
+std::string aMarkdownHTML(StringView markdown, bool compact)
+{
+    MarkdownHTML html(compact);
+    MarkdownParser md(html);
+    md.feed(markdown);
+    md.finish();
+    return html.output();
+}
 
 AST_NAMESPACE_END

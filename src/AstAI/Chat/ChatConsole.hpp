@@ -45,9 +45,9 @@ public:
     ChatConsole() = default;
     ~ChatConsole() = default;
 
-    void onTextChunk(const std::string& text) override;
+    void onContentChunk(const std::string& text) override;
 
-    void onThought(const std::string& thought) override;
+    void onReasoningChunk(const std::string& reasoning) override;
 
     void onToolCallRequest(const std::string& /*toolCallId*/,
                            const std::string& functionName,

@@ -36,8 +36,18 @@ AST_NAMESPACE_BEGIN
 
 class MarkdownSax;
 
-
+/// @brief 将 Markdown 文本渲染为带有 ANSI 转义序列的终端输出字符串
+/// @param markdown Markdown 源文本（UTF-8 编码）
+/// @return 渲染后的字符串，其中已嵌入颜色、加粗等 ANSI 控制码，可直接输出到支持 ANSI 的终端
 AST_UTIL_API std::string aMarkdownANSI(StringView markdown);
+
+
+/// @brief 将 Markdown 文本转换为 HTML 字符串
+/// @param markdown Markdown 源文本（UTF-8 编码）
+/// @param compact true=紧凑输出（无缩进和换行），false=格式化输出
+/// @return HTML 字符串
+AST_UTIL_API std::string aMarkdownHTML(StringView markdown, bool compact = false);
+
 
 
 /// @brief  Markdown解析器（SAX事件驱动，流式输入）
