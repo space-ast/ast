@@ -30,7 +30,7 @@ void UiChatDockWidget::setupUi()
 {
     setWindowTitle(QString::fromUtf8("AI 助手"));
     setObjectName(QStringLiteral("ChatDock"));
-    setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea);
+    setAllowedAreas(Qt::DockWidgetAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea));
     setMinimumWidth(320);
     setFeatures(QDockWidget::DockWidgetMovable |
                 QDockWidget::DockWidgetClosable |

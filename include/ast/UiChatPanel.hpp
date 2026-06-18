@@ -1,0 +1,1 @@
+#include "AstUiAI/UiChatPanel.hpp"

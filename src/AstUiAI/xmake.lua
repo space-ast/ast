@@ -6,7 +6,7 @@ target("AstUiAI")
     add_headerfiles("**.hpp", {prefixdir="AstUiAI"})
     add_deps("AstAI", "AstUtil", "AstSim")
     add_defines("AST_BUILD_LIB_UIAI")
-    set_default(false)
-    if not has_package("qt5widgets") and not is_plat("wasm") then
-        set_enabled(false)
-    end
+    -- set_default(false)
+    -- if not has_package("qt5widgets") and not is_plat("wasm") then
+    --     set_enabled(false)
+    -- end

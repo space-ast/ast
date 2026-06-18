@@ -14,7 +14,9 @@ option("check_warnings")
     set_default(true)
 option_end()
 
-
+-- 设置库文件后缀名
+-- set_suffixname("_")
+-- add_defines([[_AST_LIB_SUFFIX="_"]])
 
 -- 设置 c++代码标准：c++11，c代码标准：c99
 if not is_plat("windows") then  -- fixme: msvc下添加c++11后生成vs工程有问题，所以这里不设置c++11标准
@@ -115,7 +117,7 @@ add_requires("swig >=4.2", {optional = true})                                   
 add_requires("gtest <=1.12.1", {optional = true, configs = {cmake = false}})    -- 可选的gtest库，用于单元测试，gtest v1.12.1 for c++11
 add_requires("benchmark", {optional = true})                                    -- 可选的benchmark库，用于性能测试
 add_requires("replxx", {optional = true})                                       -- 可选的replxx库，用于命令行交互
-add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})              -- 可选的Qt5库，包含基础、窗口部件和GUI模块
+add_requires("qt", {optional = true, system = true})                            -- 可选的Qt库，包含基础、窗口部件和GUI模块
 add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
 add_requires("openframes", {optional = true})                                   -- 可选的OpenFrames库，用于三维可视化
 add_requires("opengl", {optional = true})                                       -- 可选的OpenGL库，用于图形渲染

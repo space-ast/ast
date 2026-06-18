@@ -9,7 +9,7 @@
 /// SpaceAST项目（https://github.com/space-ast/ast）
 /// 本软件基于 Apache 2.0 开源许可证分发。
 
-#include "AstAI/Providers/SSEParser.hpp"
+#include "ast/SSEParser.hpp"
 #include "AstUtil/JsonValue.hpp"
 #include <gtest/gtest.h>
 #include <stdio.h>
@@ -24,12 +24,12 @@ using namespace ast;
 class MockEventHandler : public ChatEventHandler
 {
 public:
-    void onTextChunk(const std::string& text) override
+    void onContentChunk(const std::string& text) override
     {
         textChunks_.push_back(text);
     }
 
-    void onThought(const std::string& thought) override
+    void onReasoningChunk(const std::string& thought) override
     {
         thoughtChunks_.push_back(thought);
     }
@@ -94,7 +94,7 @@ TEST(SSEParserTest, TextContentDelta)
     parser.onData(sse1, std::strlen(sse1));
     parser.onData(sse2, std::strlen(sse2));
     parser.onData(sse3, std::strlen(sse3));
-    parser.onDone();
+    parser.onComplete();
 
     EXPECT_EQ(handler.textChunks().size(), 2u);
     EXPECT_EQ(handler.textChunks()[0], "Hello");
@@ -122,7 +122,7 @@ TEST(SSEParserTest, ReasoningDelta)
 
     parser.onHeaders(200, {});
     parser.onData(sse, std::strlen(sse));
-    parser.onDone();
+    parser.onComplete();
 
     EXPECT_EQ(handler.thoughtChunks().size(), 1u);
     EXPECT_EQ(handler.thoughtChunks()[0], "Let me think...");
@@ -153,7 +153,7 @@ TEST(SSEParserTest, ToolCallAccumulation)
     parser.onHeaders(200, {});
     parser.onData(sse1, std::strlen(sse1));
     parser.onData(sse2, std::strlen(sse2));
-    parser.onDone();
+    parser.onComplete();
 
     // buildResult 应包含完整的工具调用
     JsonValue result = parser.buildResult();
@@ -177,7 +177,7 @@ TEST(SSEParserTest, HttpErrorStatus)
     SSEParser parser(handler);
 
     parser.onHeaders(500, {});
-    parser.onDone();
+    parser.onComplete();
 
     EXPECT_FALSE(handler.lastError().empty());
     EXPECT_TRUE(handler.lastError().find("500") != std::string::npos);
@@ -199,7 +199,7 @@ TEST(SSEParserTest, SplitAcrossChunks)
     parser.onHeaders(200, {});
     parser.onData(part1, std::strlen(part1));
     parser.onData(part2, std::strlen(part2));
-    parser.onDone();
+    parser.onComplete();
 
     EXPECT_EQ(handler.cumulativeContent(), "Hello");
 }
@@ -216,7 +216,7 @@ TEST(SSEParserTest, HandlesDoneSentinel)
 
     parser.onHeaders(200, {});
     parser.onData(sse, std::strlen(sse));
-    parser.onDone();
+    parser.onComplete();
 
     // [DONE] 不应产生任何文本
     EXPECT_EQ(handler.textChunks().size(), 0u);
@@ -235,7 +235,7 @@ TEST(SSEParserTest, IgnoresEmptyDataLines)
 
     parser.onHeaders(200, {});
     parser.onData(sse, std::strlen(sse));
-    parser.onDone();
+    parser.onComplete();
 
     EXPECT_EQ(handler.textChunks().size(), 0u);
 }

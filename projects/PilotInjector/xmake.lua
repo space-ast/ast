@@ -6,3 +6,4 @@ target("PilotInjector")
         set_enabled(false)
     end
     add_deps("AstUtil")
+    add_deps("AstUiPilotBoot", {inherit = false})

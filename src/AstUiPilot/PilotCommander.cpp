@@ -20,6 +20,7 @@
 #include "PilotCommander.hpp"
 #include "PilotAgent.hpp"
 #include "PilotSession.hpp"
+#include "PilotUtil.hpp"
 #include "Recorder/PilotRecorder.hpp"
 #include "Player/PilotPlayer.hpp"
 #include "AstUtil/IO.hpp"
@@ -82,18 +83,18 @@ std::string PilotCommander::executeSafe(const std::string& line)
 
     // 从其他线程调用 → marshal 到主线程
     std::string result;
-    QMetaObject::invokeMethod(qApp, [&]() {
+    addBlockingQueued([&]() {
         result = dispatch(line);
-    }, Qt::BlockingQueuedConnection);
+    });
     return result;
 }
 
 void PilotCommander::executeAsync(const std::string& line)
 {
     std::string cmd = line;
-    QMetaObject::invokeMethod(qApp, [this, cmd]() {
+    addQueued([this, cmd]() {
         dispatch(cmd);
-    }, Qt::QueuedConnection);
+    });
 }
 
 // ============================================================

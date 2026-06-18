@@ -215,7 +215,7 @@ void UiMainWindow::setupObjectDock()
 {
     objectDock_ = new QDockWidget(tr("对象"), this);
     objectDock_->setObjectName(QStringLiteral("ObjectDock"));
-    objectDock_->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    objectDock_->setAllowedAreas(Qt::DockWidgetAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea));
     objectDock_->setMinimumWidth(190);
 
     objectTree_ = new UiObjectTree(objectDock_);

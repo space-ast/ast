@@ -40,7 +40,7 @@ void UiChatMessageItem::setupUi()
     // 角色标签
     roleLabel_ = new QLabel(this);
     roleLabel_->setFixedWidth(42);
-    roleLabel_->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    roleLabel_->setAlignment(Qt::Alignment(Qt::AlignTop | Qt::AlignHCenter));
     roleLabel_->setStyleSheet("font-weight: bold; padding-top: 6px;");
 
     // 消息内容 — 初始高度由文档内容决定
@@ -151,7 +151,7 @@ void UiChatMessageItem::applyRoleStyle()
         layout->addStretch(1);
         layout->addWidget(contentEdit_, 4);
         layout->addWidget(roleLabel_);
-        contentEdit_->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        contentEdit_->setAlignment(Qt::Alignment(Qt::AlignRight | Qt::AlignVCenter));
     }
     else
     {
@@ -159,7 +159,7 @@ void UiChatMessageItem::applyRoleStyle()
         layout->addWidget(roleLabel_);
         layout->addWidget(contentEdit_, 4);
         layout->addStretch(1);
-        contentEdit_->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        contentEdit_->setAlignment(Qt::Alignment(Qt::AlignLeft | Qt::AlignVCenter));
     }
 }
 

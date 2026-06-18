@@ -82,7 +82,7 @@ static void printLastError(const char* context)
         (LPWSTR)&msgBuf, 0, NULL);
     char utf8Buf[2048];
     WideCharToMultiByte(CP_UTF8, 0, msgBuf, -1, utf8Buf, sizeof(utf8Buf), NULL, NULL);
-    fprintf(stderr, "[PilotInjector] %s (错误 %d): %s\n", context, (int)err, utf8Buf);
+    std::fprintf(stderr, "[PilotInjector] %s (错误 %d): %s\n", context, (int)err, utf8Buf);
     LocalFree(msgBuf);
 }
 
@@ -343,11 +343,11 @@ int wmain(int argc, wchar_t* argv[])
     if (targetExe.empty())
     {
         printUsage();
-        return 1;
+        return 0;
     }
 
     std::wstring dllPath = getFlagValueW(argc, argv, L"--dll");
-    if (dllPath.empty()) dllPath = L"AstUiPilotBoot.dll";
+    if (dllPath.empty()) dllPath = AST_LIB_LINKNAME(L"AstUiPilotBoot") ".dll";
     dllPath = getDllFullPath(dllPath);
 
     std::string command = getFlagValue(argc, argv, L"--cmd");

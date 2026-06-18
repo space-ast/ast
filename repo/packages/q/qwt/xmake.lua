@@ -12,7 +12,7 @@ package("qwt")
 
 
     add_deps("cmake")
-    add_deps("qt5base")
+    add_deps("qt")
     add_includedirs("include/qwt", "include/qwt/plot", "include/qwt/plot3d", "include/qwt/classincludes")
 
     on_load(function (package)

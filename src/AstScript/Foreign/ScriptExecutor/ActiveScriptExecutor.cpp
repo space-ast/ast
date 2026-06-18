@@ -789,7 +789,7 @@ IUnknown* _resolveRootDispatch()
 {
     AST_USING_NAMESPACE
     using FuncType = decltype(&aComObjectRoot);
-    FuncType func = (FuncType)aResolveProcAddress(AST_APPEND_DEBUG("AstCOM"), A_STR(aComObjectRoot));
+    FuncType func = (FuncType)aResolveProcAddress(AST_LIB_LINKNAME("AstCOM"), A_STR(aComObjectRoot));
     if (func)
         return func();
     return nullptr;

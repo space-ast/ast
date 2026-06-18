@@ -68,7 +68,13 @@ rule("ast")
 rule_end()
 
 rule("ast.qt")
+    add_deps("qt.env")
     on_config(function (target)
+        -- 检查是否存在Qt环境，如果没有qt环境则禁用相关项目
+        local qt = target:data("qt")
+        if not qt then
+            target:set("enabled", false)
+        end
         target:add("frameworks", "QtWidgets", "QtGui", "QtCore", "QtSvg", "QtTest")
         target:add("qt.moc.flags", "-DAST_NAMESPACE_BEGIN=namespace ast{")
         target:add("qt.moc.flags", "-DAST_NAMESPACE_END=}")

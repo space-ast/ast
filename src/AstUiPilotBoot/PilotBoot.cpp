@@ -24,6 +24,7 @@
 #include "AstUiPilot/UiPilotConsole.hpp"
 #include "AstUiPilot/UiPilotToolbar.hpp"
 #include "AstUiPilot/PilotPipeServer.hpp"
+#include "AstUiPilot/PilotUtil.hpp"
 #include <QApplication>
 #include <QMainWindow>
 #include <QDebug>
@@ -169,9 +170,7 @@ static void pollForQApp()
     }
 
     // QApplication 已存在 → 在主线程上初始化
-    QMetaObject::invokeMethod(qApp, []() {
-        initUiPilot();
-    }, Qt::QueuedConnection);
+    addBlockingQueued(initUiPilot);
 }
 
 // ============================================================

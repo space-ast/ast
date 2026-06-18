@@ -94,10 +94,23 @@
 #   define _AST_ENABLE_DEBUG_SUFFIX  // 内部宏，标识是否启用了调试库后缀
 #   define AST_APPEND_DEBUG(NAME) NAME _AST_DEBUG_SUFFIX
 #else
+#   define _AST_DEBUG_SUFFIX ""
 #   undef  _AST_ENABLE_DEBUG_SUFFIX
 #   define AST_APPEND_DEBUG(NAME) NAME
 #endif
 
+// 库链接名称前缀
+#ifndef _AST_LIB_PREFIX
+#   define _AST_LIB_PREFIX ""
+#endif
+
+// 库链接名称后缀
+#ifndef _AST_LIB_SUFFIX
+#   define _AST_LIB_SUFFIX _AST_DEBUG_SUFFIX
+#endif
+
+// 库链接名称
+#define AST_LIB_LINKNAME(NAME) _AST_LIB_PREFIX  NAME  _AST_LIB_SUFFIX
 
 // 定义访问函数
 #define AST_DEF_ACCESS_METHOD(TYPE, NAME) TYPE NAME() const{return NAME##_;} TYPE& NAME(){return NAME##_;}
@@ -296,14 +309,6 @@
 #endif
 #define AST_UIPILOT_CAPI A_DECL_EXTERN_C AST_UIPILOT_API
 
-// ast项目UiAI模块导出声明
-#ifdef AST_BUILD_LIB_UIAI
-#    define AST_UIAI_API A_DECL_EXPORT
-#else
-#    define AST_UIAI_API A_DECL_IMPORT
-#endif
-#define AST_UIAI_CAPI A_DECL_EXTERN_C AST_UIAI_API
-
 // ast项目COM封装模块导出声明
 #ifdef AST_BUILD_LIB_COM
 #   define AST_COM_API A_DECL_EXPORT
@@ -333,6 +338,24 @@
 #ifndef AST_PROJECT_NAME
 #   define AST_PROJECT_NAME "ast"
 #endif
+
+// ast项目UiAI模块导出声明
+#ifdef AST_BUILD_LIB_UIAI
+#    define AST_UIAI_API A_DECL_EXPORT
+#else
+#    define AST_UIAI_API A_DECL_IMPORT
+#endif
+#define AST_UIAI_CAPI A_DECL_EXTERN_C AST_UIAI_API
+
+
+// ast项目UiUtil模块导出声明
+#ifdef AST_BUILD_LIB_UIUTIL
+#    define AST_UIUTIL_API A_DECL_EXPORT
+#else
+#    define AST_UIUTIL_API A_DECL_IMPORT
+#endif
+#define AST_UIUTIL_CAPI A_DECL_EXTERN_C AST_UIUTIL_API
+
 
 AST_NAMESPACE_BEGIN
 

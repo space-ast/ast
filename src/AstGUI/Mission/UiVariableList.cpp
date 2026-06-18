@@ -26,6 +26,7 @@
 #include "AstScript/Interpreter.hpp"
 #include "AstScript/ScriptContext.hpp"
 #include "AstScript/Value.hpp"
+#include "AstUiUtil/UiUtil.hpp"
 
 #include <QStyle>
 #include <QToolButton>
@@ -426,7 +427,7 @@ bool UiVariableList::eventFilter(QObject* obj, QEvent* event)
         // 延迟同步内核顺序：等 Qt 完成行移动后再更新
         if (fromIdx >= 0)
         {
-            QMetaObject::invokeMethod(this, [this, fromIdx]() {
+            addQueued([this, fromIdx]() {
                 int toRow = -1;
                 for (int i = 0; i < tableWidget_->rowCount(); ++i)
                 {
@@ -439,7 +440,7 @@ bool UiVariableList::eventFilter(QObject* obj, QEvent* event)
                 }
                 if (toRow >= 0 && static_cast<size_t>(toRow) != static_cast<size_t>(fromIdx))
                     syncOrderFromTable();
-            }, Qt::QueuedConnection);
+            });
         }
 
         return false;
