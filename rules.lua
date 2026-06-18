@@ -75,7 +75,11 @@ rule("ast.qt")
         if not qt then
             target:set("enabled", false)
         end
-        target:add("frameworks", "QtWidgets", "QtGui", "QtCore", "QtSvg", "QtTest")
+        target:add(
+            "frameworks", 
+            "QtWidgets", "QtGui", "QtCore", "QtSvg", "QtTest", 
+            "QtOpenGL", "QtPrintSupport", "QtConcurrent"
+        )
         target:add("qt.moc.flags", "-DAST_NAMESPACE_BEGIN=namespace ast{")
         target:add("qt.moc.flags", "-DAST_NAMESPACE_END=}")
     end)

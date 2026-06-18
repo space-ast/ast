@@ -9,6 +9,22 @@ option("with_test")
     set_default(true)
 option_end()
 
+-- 工程配置选项：是否编译示例工程
+option("with_examples")
+    set_default(true)
+option_end()
+
+-- 工程配置选项：是否编译项目工程
+option("with_projects")
+    set_default(true)
+option_end()
+
+-- 工程配置选项：是否编译第三方库
+option("with_thirdparty")
+    set_default(true)
+option_end()
+
+
 -- 工程配置选项：是否检查警告（将警告作为编译错误处理）
 option("check_warnings")
     set_default(true)
@@ -125,6 +141,7 @@ add_requires("replxx", {optional = true})                                       
 add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
 add_requires("openframes", {optional = true})                                   -- 可选的OpenFrames库，用于三维可视化
 add_requires("opengl", {optional = true})                                       -- 可选的OpenGL库，用于图形渲染
+add_requires("glu", {optional = true})                                          -- 可选的GLU库，用于3D模型渲染
 add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
 add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
 add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
@@ -140,8 +157,8 @@ local system_qt = get_config("system_qt")
 -- 可选的Qwtplot库，用于Qt绘图，共享库版本
 add_requires("qwt", {optional = true, 
     configs = {
-        shared = true, debug = is_mode("debug"), 
-        qt_sdkver = qt_sdkver, system_qt = system_qt
+        shared = true, debug = is_mode("debug")
+        -- , qt_sdkver = qt_sdkver, system_qt = system_qt
     }
 })
 
@@ -256,19 +273,30 @@ end
 -- end
 
 
-
--- 导入子目录配置
-includes("thirdparty")
-includes("src")
-includes("projects")
-includes("examples")
-
 -- 添加插件
 add_plugindirs("scripts/plugins")
+
+includes("src")
+
+
+-- 导入项目工程配置
+if has_config("with_projects") then
+    includes("projects")
+end
+
+-- 导入示例工程配置
+if has_config("with_examples") then
+    includes("examples")
+end
 
 -- 导入测试配置
 if has_config("with_test") then
     includes("test")
+end
+
+-- 导入第三方库工程配置
+if has_config("with_thirdparty") then
+    includes("thirdparty")
 end
 
 -- 导入打包配置

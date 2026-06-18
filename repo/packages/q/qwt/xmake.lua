@@ -7,25 +7,27 @@ package("qwt")
     -- add_urls("https://github.com/space-ast/qwt.git")
     -- add_versions("v7.2.2-dev", "master")
     -- add_versions("v7.2.1", "v7.2.1")
-    add_configs("qt_sdkver", {description = "Qt SDK version to use.", default = "auto"})
-    add_configs("system_qt", {description = "Use system Qt library.", default = false})
+    -- add_configs("qt_sdkver", {description = "Qt SDK version to use.", default = "auto"})
+    -- add_configs("system_qt", {description = "Use system Qt library.", default = false})
 
     set_sourcedir(path.join(os.scriptdir(), "../../../../thirdparty/QWT"))
 
 
     add_deps("cmake")
-    -- add_deps("qt")
+    add_deps("qt")
     add_includedirs("include/qwt", "include/qwt/plot", "include/qwt/plot3d", "include/qwt/classincludes")
+    set_policy("package.librarydeps.strict_compatibility", true)
+    -- set_policy("package.install_always", true)
 
     on_load(function (package)
-        local qt_sdkver = package:config("qt_sdkver")
-        local system_qt = package:config("system_qt")
-        local qt_config = {}
-        if qt_sdkver ~= "auto" then
-            qt_config.version = qt_sdkver
-        end
-        qt_config.system = system_qt
-        package:add("deps", "qt", qt_config)
+        -- local qt_sdkver = package:config("qt_sdkver")
+        -- local system_qt = package:config("system_qt")
+        -- local qt_config = {}
+        -- if qt_sdkver ~= "auto" then
+        --     qt_config.version = qt_sdkver
+        -- end
+        -- qt_config.system = system_qt
+        -- package:add("deps", "qt", qt_config)
         if package:config("shared") then
             package:add("defines", "QWT_DLL")
         end
