@@ -14,6 +14,11 @@ option("check_warnings")
     set_default(true)
 option_end()
 
+-- 工程配置选项：是否使用系统Qt库
+option("system_qt")
+    set_default(false)
+option_end()
+
 -- 设置库文件后缀名
 -- set_suffixname("_")
 -- add_defines([[_AST_LIB_SUFFIX="_"]])
@@ -117,7 +122,6 @@ add_requires("swig >=4.2", {optional = true})                                   
 add_requires("gtest <=1.12.1", {optional = true, configs = {cmake = false}})    -- 可选的gtest库，用于单元测试，gtest v1.12.1 for c++11
 add_requires("benchmark", {optional = true})                                    -- 可选的benchmark库，用于性能测试
 add_requires("replxx", {optional = true})                                       -- 可选的replxx库，用于命令行交互
-add_requires("qt", {optional = true, system = true})                            -- 可选的Qt库，包含基础、窗口部件和GUI模块
 add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
 add_requires("openframes", {optional = true})                                   -- 可选的OpenFrames库，用于三维可视化
 add_requires("opengl", {optional = true})                                       -- 可选的OpenGL库，用于图形渲染
@@ -126,11 +130,34 @@ add_requires("fmt", {optional = true})                                          
 add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
 add_requires("agg", {optional = true, configs = {shared = true}})               -- 可选的agg库，用于绘图
 add_requires("matplotplusplus", {optional = true})                              -- 可选的matplot++库，用于绘图
-add_requires("qwt", {optional = true, 
-    configs = {shared = true, debug = is_mode("debug")}})                       -- 可选的Qwtplot库，用于Qt绘图，共享库版本
 add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
 add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
 add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
+add_requires("qt", {optional = true})                                           -- 可选的Qt库，包含基础、窗口部件和GUI模块
+
+local qt_sdkver = get_config("qt_sdkver")
+local system_qt = get_config("system_qt")
+-- 可选的Qwtplot库，用于Qt绘图，共享库版本
+add_requires("qwt", {optional = true, 
+    configs = {
+        shared = true, debug = is_mode("debug"), 
+        qt_sdkver = qt_sdkver, system_qt = system_qt
+    }
+})
+
+-- 触发Qt库的自动下载
+local qt_config = {
+    override = true,
+    optional = true,
+    system = system_qt
+}
+if qt_sdkver ~= "auto" then
+    qt_config.version = qt_sdkver
+end
+
+add_requireconfs("qt", qt_config)
+add_requireconfs("qwt.qt", qt_config)
+
 -- add_requires("libintl", {optional = true})                                      -- 可选的libintl库，用于国际化
 -- add_requires("nlohmann_json", {optional = true})                                -- 可选的nlohmann_json库，用于JSON解析
 -- add_requires("jsoncpp", {optional = true})                                      -- 可选的jsoncpp库，用于JSON解析

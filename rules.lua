@@ -143,7 +143,7 @@ rule("ast.qt.ts")
 
             -- get lupdate and lrelease
             local qt = assert(target:data("qt"), "qt not found!")
-            if semver.compare(qt.sdkver, "5.10.0") < 0 then
+            if semver.compare(qt.sdkver, "5.15.0") < 0 then
                 target:set("enabled", false)
                 return
             end
