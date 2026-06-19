@@ -234,9 +234,11 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
     // 验证状态码解析
     if (statusCode == 0)
     {
-        int status = pclose(pipe);
         if (!tmpFilePath.empty())
             std::remove(tmpFilePath.c_str());
+        int status = pclose(pipe);
+        if (status != 0)
+            return -4;
         receiver.onError(-6);
         return -6;
     }

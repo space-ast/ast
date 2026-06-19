@@ -21,6 +21,7 @@ if os.exists("QWT/src") then
         if is_plat("windows") and is_mode("debug") then
             set_suffixname("D")
         end
+        set_default(false)
         add_packages("opengl", "glu")
     target_end()
 end

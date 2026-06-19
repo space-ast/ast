@@ -23,8 +23,8 @@
 AST_NAMESPACE_BEGIN
 
 MarkdownANSIRenderer::MarkdownANSIRenderer()
-    : parser_(ansiRenderer_)
-    , ansiRenderer_()
+    : ansiRenderer_()
+    , parser_(ansiRenderer_)
 {
 
 }

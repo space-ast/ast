@@ -139,6 +139,8 @@ private:
     struct BlockFrame
     {
         enum Type { QUOTE };
+        BlockFrame() = default;
+        BlockFrame(Type type) : type(type) {}
         Type type = QUOTE;
     };
 

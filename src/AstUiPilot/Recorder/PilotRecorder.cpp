@@ -543,7 +543,7 @@ std::string PilotRecorder::polish()
     polisher.polish(stepVec);
 
     // 回填 naturalLanguage
-    for (int i = 0; i < stepVec.size() && i < steps_.size(); i++)
+    for (int i = 0; i < (int)stepVec.size() && i < steps_.size(); i++)
         steps_[i].naturalLanguage = stepVec[i].naturalLanguage;
 
     return toJson();

@@ -145,7 +145,10 @@ std::string PilotAgent::objectType(int refId) const
     if (auto* w = widget(refId))
         return w->metaObject()->className();
     if (auto* a = action(refId))
+    {
+        A_UNUSED(a);
         return "QAction";
+    }
     return "unknown";
 }
 
@@ -274,6 +277,7 @@ QString PilotAgent::statusTags(QWidget* w)
     // QTabWidget 当前选中页
     if (auto* tw = qobject_cast<QTabWidget*>(w))
     {
+        A_UNUSED(tw);
         // selected 标记在 tab 页的子控件上发出
     }
     if (qobject_cast<QTabBar*>(w))
@@ -653,7 +657,6 @@ void PilotAgent::waitForIdle(int timeoutMs)
     while (timer.elapsed() < timeoutMs)
     {
         QApplication::processEvents();
-        if (!QApplication::hasPendingEvents()) break;
         QTest::qWait(50);
     }
     

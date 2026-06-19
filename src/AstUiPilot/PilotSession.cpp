@@ -371,6 +371,7 @@ static std::string toolHover(const JsonValue& args)
         // 展开菜单
         QPoint pt = menu->parentWidget() ?
             menu->parentWidget()->mapToGlobal(menu->pos()) : QPoint(0,0);
+        A_UNUSED(pt);
         QTest::mouseMove(menu);
 
         return appendSnapshot(agent,
@@ -758,8 +759,9 @@ static std::string toolDrag(const JsonValue& args)
     if (!dstW) return "目标元素无效";
 
     QPoint srcPt = srcW->mapToGlobal(srcW->rect().center());
+    A_UNUSED(srcPt);
     QPoint dstPt = dstW->mapToGlobal(dstW->rect().center());
-
+    A_UNUSED(dstPt);
     QTest::mousePress(srcW, Qt::LeftButton, Qt::NoModifier, srcW->rect().center());
     QTest::mouseMove(dstW, dstW->mapFromGlobal(srcPt));
     QTest::mouseMove(dstW, dstW->rect().center());

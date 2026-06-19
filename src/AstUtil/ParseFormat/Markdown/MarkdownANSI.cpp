@@ -489,7 +489,7 @@ void MarkdownANSI::endList()
 
 void MarkdownANSI::startBlockquote()
 {
-    BlockFrame bf = { BlockFrame::QUOTE };
+    BlockFrame bf (BlockFrame::QUOTE);
     blockStack_.push_back(bf);
 }
 
