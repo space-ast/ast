@@ -6,4 +6,5 @@ target("AstUiPilot")
     add_headerfiles("**.hpp", {prefixdir="AstUiPilot"})
     add_deps("AstAI", "AstUtil", "AstUiUtil")
     add_defines("AST_BUILD_LIB_UIPILOT")
+    set_default(false)
 

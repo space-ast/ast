@@ -10,3 +10,4 @@ target("AstUiAI")
     -- if not has_package("qt5widgets") and not is_plat("wasm") then
     --     set_enabled(false)
     -- end
+    set_default(false)

@@ -11,4 +11,4 @@
         "AstUiAI", "AstUiUtil"
     )
     add_defines("AST_BUILD_LIB_GUI")
-
+    set_default(false)

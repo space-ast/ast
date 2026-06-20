@@ -138,8 +138,9 @@ static void startConsoleIfRequested()
         // 工具栏按钮 → 切换控制台可见性
         if (g_toolbar && g_console)
         {
+            auto* console = g_console;
             QObject::connect(g_toolbar, &UiPilotToolbar::consoleToggleRequested,
-                g_console, [console = g_console]() {
+                console, [console]() {
                     console->setVisible(!console->isVisible());
                 });
         }
