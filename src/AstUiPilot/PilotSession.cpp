@@ -24,6 +24,7 @@
 #include "AstAI/ChatTool.hpp"
 #include "AstAI/ChatMessages.hpp"
 #include "AstUtil/JsonValue.hpp"
+#include "AstUtil/ParseFormat.hpp"
 #include "AstUtil/Logger.hpp"
 #include "PilotUtil.hpp"
 #include <QApplication>
@@ -187,7 +188,7 @@ QObject* resolveRef(const JsonValue& args, PilotAgent* agent, std::string& err)
     if (!refStr.empty() && (refStr[0] == 'e' || refStr[0] == 'E'))
         refStr = refStr.substr(1);
 
-    int refId = std::stoi(refStr);
+    int refId = aParseInt(refStr);
     QObject* obj = agent->object(refId);
     if (!obj)
     {
@@ -748,20 +749,20 @@ static std::string toolDrag(const JsonValue& args)
 
     // 需要独立的 startRef 参数
     std::string startRefStr = args["startRef"].toString();
-    if (startRefStr[0] == 'e') startRefStr = startRefStr.substr(1);
+    if (!startRefStr.empty() && (startRefStr[0] == 'e' || startRefStr[0] == 'E'))
+        startRefStr = startRefStr.substr(1);
     std::string endRefStr = args["endRef"].toString();
-    if (endRefStr[0] == 'e') endRefStr = endRefStr.substr(1);
+    if (!endRefStr.empty() && (endRefStr[0] == 'e' || endRefStr[0] == 'E'))
+        endRefStr = endRefStr.substr(1);
 
-    QWidget* srcW = agent->widget(std::stoi(startRefStr));
-    QWidget* dstW = agent->widget(std::stoi(endRefStr));
+    QWidget* srcW = agent->widget(aParseInt(startRefStr));
+    QWidget* dstW = agent->widget(aParseInt(endRefStr));
 
     if (!srcW) return "源元素无效";
     if (!dstW) return "目标元素无效";
 
     QPoint srcPt = srcW->mapToGlobal(srcW->rect().center());
-    A_UNUSED(srcPt);
     QPoint dstPt = dstW->mapToGlobal(dstW->rect().center());
-    A_UNUSED(dstPt);
     QTest::mousePress(srcW, Qt::LeftButton, Qt::NoModifier, srcW->rect().center());
     QTest::mouseMove(dstW, dstW->mapFromGlobal(srcPt));
     QTest::mouseMove(dstW, dstW->rect().center());
@@ -1023,7 +1024,10 @@ static std::string toolInvoke(const JsonValue& args)
     std::string method = args["method"].toString();
 
     // 尝试调用
-    QMetaObject::invokeMethod(obj, method.c_str(), Qt::DirectConnection);
+    bool ok = QMetaObject::invokeMethod(obj, method.c_str(), Qt::DirectConnection);
+
+    if (!ok)
+        return "调用失败: 方法 " + method + " 不存在或不可调用";
 
     return appendSnapshot(agent, "✓ invoked " + method);
 }

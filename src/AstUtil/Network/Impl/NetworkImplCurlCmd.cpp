@@ -67,29 +67,22 @@ namespace
         }
     }
 
-    // 转义单引号，以便在单引号字符串中安全使用
+    // 使用单引号包裹参数，并对参数内部的单引号进行转义。
+    // 单引号字符串内所有 shell 特殊字符 ($, `, \, !, 等) 均失去特殊含义，
+    // 仅单引号自身需要处理：将 ' 替换为 '\''（结束单引号、转义单引号、重新开始单引号）
     std::string escapeForShell(const std::string& s)
     {
-        /*!
-        @todo 
-        escapeForShell 函数的实现存在安全风险。它仅转义了双引号，但在 Shell 环境下，
-        双引号内的 $, `, \ 等字符仍具有特殊含义。
-        如果 request.url() 或请求头包含恶意构造的字符串（例如 $(命令)），
-        可能会导致命令注入攻击。考虑使用更完备的转义逻辑，
-        或者考虑使用不经过 Shell 的进程启动方式（如 Windows 的 CreateProcess 或 Unix 的 execvp）
-        */
-
         std::string escaped;
-        escaped.reserve(s.size() + 2);
-        escaped = "\"";
+        escaped.reserve(s.size() + 4);
+        escaped += '\'';
         for (char c : s)
         {
-            if (c == '"')
-                escaped += "\\\"";
+            if (c == '\'')
+                escaped += "'\\''";
             else
                 escaped += c;
         }
-        escaped += "\"";
+        escaped += '\'';
         return escaped;
     }
 
@@ -116,8 +109,12 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
     if (request.url().empty())
         return -1;
 
-    // 构建 curl 命令参数: -L 跟随重定向 -N 禁用输出缓冲
-    std::string command = "curl -s -S -i -L -N";  
+    // 构建 curl 命令参数:
+    //   -L 跟随重定向  -N 禁用输出缓冲
+    //   --connect-timeout 30  连接超时 (秒)
+    //   --max-time 300        总体请求超时 (秒)
+    std::string command = "curl -s -S -i -L -N"
+                          " --connect-timeout 30 --max-time 300";  
 
     // 请求方法
     command += " -X " + std::string(methodToString(request.method()));

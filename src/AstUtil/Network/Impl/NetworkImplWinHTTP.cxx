@@ -279,13 +279,20 @@ errc_t NetworkImplWinHTTP::requestStream(const NetworkRequest& request, NetworkS
         return eErrorNotInit;
     }
 
-    // 添加请求头
+    // 添加请求头（过滤 CR/LF 防止头注入）
+    auto sanitizeHeaderValue = [](std::wstring& ws) {
+        ws.erase(std::remove_if(ws.begin(), ws.end(),
+                   [](wchar_t c) { return c == L'\r' || c == L'\n'; }),
+                 ws.end());
+    };
     std::wstring headersW;
     for (const auto& header : request.headers()) {
         std::wstring keyW;
         std::wstring valueW;
         aUtf8ToWide(header.first.c_str(), keyW);
         aUtf8ToWide(header.second.c_str(), valueW);
+        sanitizeHeaderValue(keyW);
+        sanitizeHeaderValue(valueW);
         headersW += keyW + L": " + valueW + L"\r\n";
     }
 

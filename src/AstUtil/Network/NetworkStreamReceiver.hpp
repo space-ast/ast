@@ -85,6 +85,9 @@ public:
 
     errc_t onData(const char* data, size_t size) override
     {
+        // 防止无限制响应体耗尽内存（上限 100 MB）
+        if (body_.size() + size > kMaxBodySize)
+            return eErrorOutOfRange;
         body_.append(data, size);
         return 0;
     }
@@ -102,6 +105,7 @@ public:
     }
 
 private:
+    static constexpr size_t kMaxBodySize = 100 * 1024 * 1024;  // 100 MB
     NetworkResponse& response_;
     std::string body_;
 };
