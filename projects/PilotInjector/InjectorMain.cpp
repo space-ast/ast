@@ -145,11 +145,21 @@ static bool injectDll(HANDLE hProcess, const std::wstring& dllPath)
     // 3. 创建远程线程执行 LoadLibraryW
     LPTHREAD_START_ROUTINE pLoadLibrary = (LPTHREAD_START_ROUTINE)
         GetProcAddress(GetModuleHandleW(L"kernel32.dll"), "LoadLibraryW");
-    if (!pLoadLibrary) { printLastError("GetProcAddress(LoadLibraryW)"); return false; }
+    if (!pLoadLibrary)
+    {
+        printLastError("GetProcAddress(LoadLibraryW)");
+        VirtualFreeEx(hProcess, remoteMem, 0, MEM_RELEASE);
+        return false;
+    }
 
     HANDLE hThread = CreateRemoteThread(hProcess, NULL, 0,
         pLoadLibrary, remoteMem, 0, NULL);
-    if (!hThread) { printLastError("CreateRemoteThread"); return false; }
+    if (!hThread)
+    {
+        printLastError("CreateRemoteThread");
+        VirtualFreeEx(hProcess, remoteMem, 0, MEM_RELEASE);
+        return false;
+    }
 
     // 4. 等待 LoadLibrary 完成
     WaitForSingleObject(hThread, 30000); // 30s timeout

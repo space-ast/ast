@@ -41,8 +41,8 @@ void testInlineHTML(StringView chunk, const std::string& expect)
     parser.finish();
     std::string output = sax.output();
     EXPECT_EQ(expect, output);
-    ast_printf("chunk : %.*s\n", chunk.size(), chunk.data());
-    ast_printf("output: %.*s\n", output.size(), output.data());
+    ast_printf("chunk : %.*s\n", static_cast<int>(chunk.size()), chunk.data());
+    ast_printf("output: %.*s\n", static_cast<int>(output.size()), output.data());
 }
 
 // ============================================================================

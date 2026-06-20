@@ -258,6 +258,7 @@ int main(int argc, char *argv[])
     commander->stop();
     if (recorder->isRecording()) recorder->stop();
     delete commander;
+    delete recorder;
     delete session;
     delete agent;
     return ret;

@@ -39,10 +39,8 @@ errc_t OpenAI::chatStream(const JsonValue& request,
                           ChatEventHandler& handler,
                           JsonValue& accumulatedResult)
 {
-    // 1. 确保使用流式模式
-    JsonValue streamRequest;
-    std::string jsonStr = request.toJsonString();
-    streamRequest.parseFromString(jsonStr);
+    // 1. 确保使用流式模式（直接拷贝，避免序列化/反序列化开销）
+    JsonValue streamRequest = request;
     streamRequest["stream"] = true;
 
     // 2. 构建网络请求

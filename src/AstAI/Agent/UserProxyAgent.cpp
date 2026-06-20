@@ -20,6 +20,7 @@
 
 #include "UserProxyAgent.hpp"
 #include "AstUtil/IO.hpp"
+#include "AstUtil/StringUtil.hpp"
 #include "AstAI/ChatMessages.hpp"
 #include <iostream>
 
@@ -46,13 +47,9 @@ errc_t UserProxyAgent::run(ChatMessages& messages)
     // 3. 检查退出关键词（大小写不敏感）
     if (!exitKeywords_.empty())
     {
-        // 转为小写进行比较
-        std::string lower = input;
-        for (auto& c : lower) c = static_cast<char>(::tolower(static_cast<unsigned char>(c)));
-
         for (const auto& kw : exitKeywords_)
         {
-            if (lower == kw)
+            if (aEqualsIgnoreCase(input, kw))
             {
                 messages.addUserMessage("EXIT");
                 return 0;

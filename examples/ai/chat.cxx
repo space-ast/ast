@@ -36,7 +36,9 @@ int main()
     {
         ast_printf("我: ");
         char* str = fgets(buffer, sizeof(buffer), stdin);
-        if (str && buffer[0] == '\n')
+        if (!str)
+            break;
+        if (buffer[0] == '\n')
             continue;
         ChatConsole console;
         session.setAgent(std::unique_ptr<AssistantAgent>(AssistantAgent::NewDefaultAgent()));

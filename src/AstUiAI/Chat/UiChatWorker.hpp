@@ -15,6 +15,7 @@
 #include "AstGlobal.h"
 #include <QThread>
 #include <QString>
+#include <QPointer>
 #include <memory>
 
 AST_NAMESPACE_BEGIN
@@ -71,7 +72,7 @@ protected:
 private:
     ChatSession*        session_;
     QString             userMessage_;
-    UiChatEventHandler* handler_;
+    QPointer<UiChatEventHandler> handler_;
     int                 maxToolIterations_;
     std::string         response_;
     int                 errorCode_{0};
