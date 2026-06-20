@@ -57,7 +57,7 @@ extern "C" {
 	extern NRLMSISE00_CONST double pavgm[10];
 }
 
-#define NRLMSISE00_FUNC ast::NRLMSISE::
+#define NRLMSISE00_FUNC _AST NRLMSISE::
 
 
 /* ------------------------------------------------------------------- */

@@ -256,7 +256,7 @@ errc_t State::getStateInBodyInertial(Body *body, CartState&state) const
 {
     if(!body)
         return eErrorNullInput;
-    auto frameInertial = body->makeFrameInertial();
+    auto frameInertial = body->getFrameInertial();
     return getStateIn(frameInertial, state);
 }
 

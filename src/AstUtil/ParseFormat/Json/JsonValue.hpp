@@ -269,14 +269,16 @@ public:
         return insert(name, JsonValue(value));
     }
 
-    /// @brief 插入键值对（模板重载）
-    /// @param index 数组索引
-    /// @param value 键值
+    /// @brief 插入元素到数组开头
+    /// @param value 元素值
+    void prepend(JsonValue value);
+
+    /// @brief 插入元素到数组末尾
+    /// @param value 元素值
     void append(JsonValue value);
 
-    /// @brief 插入键值对（模板重载）
-    /// @param index 数组索引
-    /// @param value 键值
+    /// @brief 插入元素到数组末尾
+    /// @param value 元素值
     template<typename T>
     void append(T value)
     {

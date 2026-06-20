@@ -1,7 +1,7 @@
 ///
 /// @file      UiSweepStudy.cpp
 /// @brief     SweepStudy 编辑界面实现
-/// @details   提供三个 Tab 页：变量编辑、约束编辑和执行命令编辑
+/// @details   提供两个 Tab 页：变量与输出（左右分栏内嵌表格编辑）和任务模型编辑
 /// @author    axel
 /// @date      2026-06-05
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -21,13 +21,13 @@
 #include "UiSweepStudy.hpp"
 #include "AstAnalyzer/SweepStudy.hpp"
 #include "AstGUI/ObjectEditRegistry.hpp"
-#include "AstGUI/UiStudyVariableList.hpp"
-#include "AstGUI/UiStudyConstraintList.hpp"
-#include "AstGUI/UiPropertyEditor.hpp"
-#include "AstUtil/RTTIAPI.hpp"
+#include "AstGUI/UiSweepVariableList.hpp"
+#include "AstGUI/UiSweepOutputList.hpp"
 
 #include <QGroupBox>
+#include <QHBoxLayout>
 #include <QLabel>
+#include <QPushButton>
 #include <QSplitter>
 #include <QStackedWidget>
 #include <QTabWidget>
@@ -49,93 +49,38 @@ void UiSweepStudy::setupUi()
     tabWidget_ = new QTabWidget(this);
 
     // ============================================================
-    // Tab 0: 变量
+    // Tab 0: 变量与输出（左右分栏）
     // ============================================================
-    auto* varTab = new QWidget(tabWidget_);
-    auto* varTabLayout = new QVBoxLayout(varTab);
-    varTabLayout->setContentsMargins(0, 0, 0, 0);
+    auto* studyTab = new QWidget(tabWidget_);
+    auto* studyTabLayout = new QVBoxLayout(studyTab);
+    studyTabLayout->setContentsMargins(0, 0, 0, 0);
 
-    varSplitter_ = new QSplitter(Qt::Horizontal, varTab);
-    varSplitter_->setChildrenCollapsible(true);
+    studySplitter_ = new QSplitter(Qt::Horizontal, studyTab);
+    studySplitter_->setChildrenCollapsible(true);
 
-    // 左侧：变量列表
-    auto* varListGroup = new QGroupBox(tr("扫描变量"), varSplitter_);
-    auto* varListLayout = new QVBoxLayout(varListGroup);
-    varListLayout->setContentsMargins(4, 4, 4, 4);
-    varList_ = new UiStudyVariableList(varListGroup);
-    varListLayout->addWidget(varList_);
+    // 左侧：变量表格
+    auto* varGroup = new QGroupBox(tr("扫描变量"), studySplitter_);
+    auto* varGroupLayout = new QVBoxLayout(varGroup);
+    varGroupLayout->setContentsMargins(0, 0, 0, 0);
+    varList_ = new UiSweepVariableList(varGroup);
+    varGroupLayout->addWidget(varList_);
 
-    // 右侧：变量属性编辑器
-    varPropertyEditor_ = new UiPropertyEditor(varSplitter_);
+    // 右侧：输出表格
+    auto* outGroup = new QGroupBox(tr("输出"), studySplitter_);
+    auto* outGroupLayout = new QVBoxLayout(outGroup);
+    outGroupLayout->setContentsMargins(0, 0, 0, 0);
+    outputList_ = new UiSweepOutputList(outGroup);
+    outGroupLayout->addWidget(outputList_);
 
-    varSplitter_->addWidget(varListGroup);
-    varSplitter_->addWidget(varPropertyEditor_);
-    varSplitter_->setSizes({300, 400});
+    studySplitter_->addWidget(varGroup);
+    studySplitter_->addWidget(outGroup);
+    studySplitter_->setSizes({400, 300});
 
-    varTabLayout->addWidget(varSplitter_);
-    tabWidget_->addTab(varTab, tr("变量"));
-
-    // 连线：选中变量 → 属性编辑器
-    connect(varList_, &UiStudyVariableList::variableSelected,
-            varPropertyEditor_, &UiPropertyEditor::editVariable);
-    connect(varList_, &UiStudyVariableList::addVariableRequested,
-            this, [this]()
-    {
-        auto* a = analyzer();
-        if (!a)
-            return;
-        auto* variable = aNewObject<SweepVariable>();
-        variable->setName(u8"变量");
-        a->addVariable(variable);
-        refreshUi();
-        varPropertyEditor_->editVariable(variable);
-    });
+    studyTabLayout->addWidget(studySplitter_);
+    tabWidget_->addTab(studyTab, tr("变量与输出"));
 
     // ============================================================
-    // Tab 1: 约束
-    // ============================================================
-    auto* constraintTab = new QWidget(tabWidget_);
-    auto* constraintTabLayout = new QVBoxLayout(constraintTab);
-    constraintTabLayout->setContentsMargins(0, 0, 0, 0);
-
-    constraintSplitter_ = new QSplitter(Qt::Horizontal, constraintTab);
-    constraintSplitter_->setChildrenCollapsible(true);
-
-    // 左侧：约束列表
-    auto* constraintListGroup = new QGroupBox(tr("约束条件"), constraintSplitter_);
-    auto* constraintListLayout = new QVBoxLayout(constraintListGroup);
-    constraintListLayout->setContentsMargins(4, 4, 4, 4);
-    responseList_ = new UiStudyConstraintList(constraintListGroup);
-    constraintListLayout->addWidget(responseList_);
-
-    // 右侧：约束属性编辑器
-    constraintPropertyEditor_ = new UiPropertyEditor(constraintSplitter_);
-
-    constraintSplitter_->addWidget(constraintListGroup);
-    constraintSplitter_->addWidget(constraintPropertyEditor_);
-    constraintSplitter_->setSizes({300, 400});
-
-    constraintTabLayout->addWidget(constraintSplitter_);
-    tabWidget_->addTab(constraintTab, tr("约束"));
-
-    // 连线：选中约束 → 属性编辑器
-    connect(responseList_, &UiStudyConstraintList::responseSelected,
-            constraintPropertyEditor_, &UiPropertyEditor::editResponse);
-    connect(responseList_, &UiStudyConstraintList::addResponseRequested,
-            this, [this]()
-    {
-        auto* a = analyzer();
-        if (!a)
-            return;
-        auto* constraint = aNewObject<SweepOutput>();
-        constraint->setName(u8"约束");
-        a->addOutput(constraint);
-        refreshUi();
-        constraintPropertyEditor_->editResponse(constraint);
-    });
-
-    // ============================================================
-    // Tab 2: 任务模型
+    // Tab 1: 任务模型
     // ============================================================
     auto* cmdTab = new QWidget(tabWidget_);
     auto* cmdLayout = new QVBoxLayout(cmdTab);
@@ -149,6 +94,18 @@ void UiSweepStudy::setupUi()
     tabWidget_->addTab(cmdTab, tr("任务模型"));
 
     mainLayout->addWidget(tabWidget_);
+
+    // 底部执行按钮
+    auto* btnLayout = new QHBoxLayout();
+    btnLayout->setContentsMargins(4, 4, 4, 4);
+    btnLayout->addStretch();
+    executeBtn_ = new QPushButton(tr("执行仿真"), this);
+    executeBtn_->setToolTip(tr("执行扫参分析"));
+    executeBtn_->setEnabled(false);
+    btnLayout->addWidget(executeBtn_);
+    mainLayout->addLayout(btnLayout);
+
+    connect(executeBtn_, &QPushButton::clicked, this, &UiSweepStudy::onExecute);
 }
 
 void UiSweepStudy::setAnalyzer(SweepStudy* a)
@@ -160,15 +117,17 @@ void UiSweepStudy::setAnalyzer(SweepStudy* a)
 
     if (a)
     {
-        varList_->setVariables(a->variables());
-        responseList_->setResponses(a->outputs());
+        varList_->setStudy(a);
+        outputList_->setStudy(a);
         rebuildCommandEditor();
+        executeBtn_->setEnabled(true);
     }
     else
     {
-        varList_->setVariables({});
-        responseList_->setResponses({});
+        varList_->setStudy(nullptr);
+        outputList_->setStudy(nullptr);
         commandStack_->setCurrentIndex(0);
+        executeBtn_->setEnabled(false);
     }
 }
 
@@ -177,18 +136,8 @@ void UiSweepStudy::refreshUi()
     auto* a = analyzer();
     if (a)
     {
-        // 保存当前选中
-        auto* selVar = varList_->selectedVariable();
-        auto* selResp = responseList_->selectedResponse();
-
-        varList_->setVariables(a->variables());
-        responseList_->setResponses(a->outputs());
-
-        // 恢复选中
-        if (selVar)
-            varPropertyEditor_->editVariable(selVar);
-        if (selResp)
-            constraintPropertyEditor_->editResponse(selResp);
+        varList_->refreshTable();
+        outputList_->refreshTable();
     }
 }
 
@@ -226,6 +175,13 @@ void UiSweepStudy::rebuildCommandEditor()
     editor->setParent(commandStack_);
     commandStack_->addWidget(editor); // index 1
     commandStack_->setCurrentIndex(1);
+}
+
+void UiSweepStudy::onExecute()
+{
+    auto* a = analyzer();
+    if (a)
+        a->execute();
 }
 
 AST_NAMESPACE_END

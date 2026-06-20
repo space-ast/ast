@@ -32,9 +32,13 @@ rule("ast")
         if os.isdir(include_dir) then
             target:add("includedirs", include_dir)
         end
-        if target:plat() == "windows" and target:kind() == "binary" then
-            -- 添加图标资源文件
-            target:add("files", path.join(os.scriptdir(), "data/icons/logo/*.rc"))
+        if target:kind() == "binary" then
+            if target:plat() == "windows" then
+                -- 添加图标资源文件
+                target:add("files", path.join(os.scriptdir(), "data/icons/logo/*.rc"))
+            elseif target:plat() == "linux" then
+                target:add("syslinks", "dl", "pthread")
+            end
         end
     end)
     before_build(function (target)
@@ -45,13 +49,15 @@ rule("ast")
             end
         end
     end)
-    after_config(function (target)
-        if target:plat() == "wasm" then
-            if os.exists("build/wasm/data") then
-                os.rmdir("build/wasm/data")
+    if after_config then
+        after_config(function (target)
+            if target:plat() == "wasm" then
+                if os.exists("build/wasm/data") then
+                    os.rmdir("build/wasm/data")
+                end
             end
-        end
-    end)
+        end)
+    end
     before_clean(function (target)
         if target:plat() == "wasm" then
             if os.exists("build/wasm/data") then
@@ -62,8 +68,18 @@ rule("ast")
 rule_end()
 
 rule("ast.qt")
+    add_deps("qt.env")
     on_config(function (target)
-        target:add("frameworks", "QtWidgets", "QtGui", "QtCore", "QtSvg")
+        -- 检查是否存在Qt环境，如果没有qt环境则禁用相关项目
+        local qt = target:data("qt")
+        if not qt then
+            target:set("enabled", false)
+        end
+        target:add(
+            "frameworks", 
+            "QtWidgets", "QtGui", "QtCore", "QtSvg", "QtTest", 
+            "QtOpenGL", "QtPrintSupport", "QtConcurrent"
+        )
         target:add("qt.moc.flags", "-DAST_NAMESPACE_BEGIN=namespace ast{")
         target:add("qt.moc.flags", "-DAST_NAMESPACE_END=}")
     end)
@@ -99,6 +115,7 @@ rule("ast.qt.ts")
     on_config(function (target)
         import("lib.detect.find_file")
         import("core.base.json")
+        import("core.base.semver")
 
         -- get source file
         local lupdate_argv = {"-no-obsolete", "-tr-function-alias", "tr+=_,QT_TR_NOOP+=N_,QT_TRANSLATE_NOOP+=NC_"}
@@ -130,6 +147,10 @@ rule("ast.qt.ts")
 
             -- get lupdate and lrelease
             local qt = assert(target:data("qt"), "qt not found!")
+            if semver.compare(qt.sdkver, "5.15.0") < 0 then
+                target:set("enabled", false)
+                return
+            end
 
             local search_dirs = {}
             if qt.bindir_host then table.insert(search_dirs, qt.bindir_host) end

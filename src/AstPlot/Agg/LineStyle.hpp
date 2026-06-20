@@ -1,6 +1,9 @@
 #pragma once
 
 #include <vector>
+
+#if defined(AST_WITH_AGG) 
+
 #include "agg/agg_color_rgba.h"
 #include "agg/agg_math_stroke.h"
 #include "path_converters.h"  // e_snap_mode
@@ -34,3 +37,5 @@ struct LineStyle {
 
 
 AST_NAMESPACE_END
+
+#endif // AST_WITH_AGG 

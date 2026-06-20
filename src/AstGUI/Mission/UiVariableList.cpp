@@ -26,6 +26,7 @@
 #include "AstScript/Interpreter.hpp"
 #include "AstScript/ScriptContext.hpp"
 #include "AstScript/Value.hpp"
+#include "AstUiUtil/UiUtil.hpp"
 
 #include <QStyle>
 #include <QToolButton>
@@ -99,6 +100,12 @@ void UiVariableList::setupUi()
             this, &UiVariableList::onSelectionChanged);
     connect(tableWidget_, &QTableWidget::cellChanged,
             this, &UiVariableList::onCellChanged);
+    connect(tableWidget_, &QTableWidget::cellDoubleClicked,
+            this, [this](int row, int) {
+        auto* var = selectedVariable();
+        if (var)
+            emit variableDoubleClicked(var);
+    });
     connect(addButton_, &QToolButton::clicked,
             this, &UiVariableList::onAddVariable);
     connect(removeButton_, &QToolButton::clicked,
@@ -118,6 +125,17 @@ void UiVariableList::setInterpreter(Interpreter* interpreter, Object* owner)
 {
     interpreter_ = interpreter;
     interpreterOwner_ = owner;
+}
+
+void UiVariableList::setToolbarVisible(bool visible)
+{
+    // buttonLayout_ 是包含所有工具栏按钮的水平布局
+    for (int i = 0; i < buttonLayout_->count(); ++i)
+    {
+        QWidget* w = buttonLayout_->itemAt(i)->widget();
+        if (w)
+            w->setVisible(visible);
+    }
 }
 
 
@@ -409,7 +427,7 @@ bool UiVariableList::eventFilter(QObject* obj, QEvent* event)
         // 延迟同步内核顺序：等 Qt 完成行移动后再更新
         if (fromIdx >= 0)
         {
-            QMetaObject::invokeMethod(this, [this, fromIdx]() {
+            addQueued([this, fromIdx]() {
                 int toRow = -1;
                 for (int i = 0; i < tableWidget_->rowCount(); ++i)
                 {
@@ -422,7 +440,7 @@ bool UiVariableList::eventFilter(QObject* obj, QEvent* event)
                 }
                 if (toRow >= 0 && static_cast<size_t>(toRow) != static_cast<size_t>(fromIdx))
                     syncOrderFromTable();
-            }, Qt::QueuedConnection);
+            });
         }
 
         return false;

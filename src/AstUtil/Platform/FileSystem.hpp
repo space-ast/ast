@@ -62,7 +62,7 @@ AST_NAMESPACE_BEGIN
 // #pragma message("use std::filesystem")
 namespace filesystem = _A_STD_FILESYSTEM;
 #else
-// #pragma message("use ast::simple_fs")
+// #pragma message("use ast simple_fs")
 namespace filesystem = fs_simple;
 #endif
 

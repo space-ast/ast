@@ -23,9 +23,12 @@
 #include "AstCore/Sequence.hpp"
 #include "AstGUI/MissionIcons.hpp"
 #include "AstGUI/ObjectIcons.hpp"
+#include "AstGUI/UiCommon.hpp"
+#include "AstUtil/RTTIAPI.hpp"
 #include <QDropEvent>
 #include <QMenu>
 #include <QAction>
+#include <QInputDialog>
 
 AST_NAMESPACE_BEGIN
 
@@ -132,19 +135,35 @@ void UiCommandTree::contextMenuEvent(QContextMenuEvent* event)
 
     QMenu menu(this);
 
-    QAction* addInitState  = menu.addAction(aUiClassIcon("InitialState"),       tr("添加初始状态"));
-    QAction* addPropagate  = menu.addAction(aUiClassIcon("Propagate"),          tr("添加预报段"));
-    QAction* addManeuver   = menu.addAction(aUiClassIcon("Maneuver"),           tr("添加机动段"));
-    QAction* addSequence   = menu.addAction(aUiClassIcon("Sequence"),           tr("添加序列段"));
-    QAction* addTargetSeq  = menu.addAction(aUiClassIcon("TargeterSequence"),   tr("添加瞄准序列段"));
-    A_UNUSED(addInitState);
-    A_UNUSED(addPropagate);
-    A_UNUSED(addManeuver);
-    A_UNUSED(addSequence);
-    A_UNUSED(addTargetSeq);
+    // ---- 重命名 ----
+    QAction* renameAction = menu.addAction(tr("重命名"));
+    renameAction->setEnabled(item != nullptr);
 
     menu.addSeparator();
 
+    // ---- 在上方插入 / 在下方插入 ----
+    QMenu* insertAboveMenu = createInsertMenu(tr("在上方插入"));
+    QMenu* insertBelowMenu = createInsertMenu(tr("在下方插入"));
+    menu.addMenu(insertAboveMenu);
+    menu.addMenu(insertBelowMenu);
+
+    // 根节点不允许通过"在上方/下方插入"的方式插入
+    bool canInsertAround = item && item->parent();
+    insertAboveMenu->setEnabled(canInsertAround);
+    insertBelowMenu->setEnabled(canInsertAround);
+
+    // ---- 添加子命令（仅对 Sequence 节点有效） ----
+    auto* selectedCmd = item ? item->command() : nullptr;
+    bool isSequence = aobject_cast<Sequence*>(selectedCmd) != nullptr;
+    if (isSequence)
+    {
+        QMenu* addChildMenu = createInsertMenu(tr("添加子命令"));
+        menu.addMenu(addChildMenu);
+    }
+
+    menu.addSeparator();
+
+    // ---- 删除 ----
     QAction* delAction = menu.addAction(tr("删除"));
     delAction->setEnabled(item != nullptr);
 
@@ -152,16 +171,162 @@ void UiCommandTree::contextMenuEvent(QContextMenuEvent* event)
     if (item && !item->parent())
         delAction->setEnabled(false);
 
+    menu.addSeparator();
+
+    // ---- 概要 ----
+    QAction* summaryAction = menu.addAction(tr("概要"));
+    summaryAction->setEnabled(item != nullptr);
+
+    // ---- 执行菜单 ----
     QAction* chosen = menu.exec(event->globalPos());
     if (!chosen)
         return;
 
-    if (chosen == delAction && delAction->isEnabled())
+    // 重命名
+    if (chosen == renameAction)
+    {
+        auto* cmd = item->command();
+        if (!cmd)
+            return;
+
+        bool ok = false;
+        QString newName = QInputDialog::getText(
+            this, tr("重命名"), tr("新名称:"),
+            QLineEdit::Normal, QString::fromStdString(cmd->getName()), &ok);
+
+        if (ok && !newName.isEmpty())
+        {
+            cmd->setName(newName.toStdString());
+            item->setText(0, newName);
+        }
+    }
+    // 删除
+    else if (chosen == delAction && delAction->isEnabled())
     {
         item->removeCommandAndDeleteItem();
         item = nullptr;
         emit treeModified();
     }
+    // 概要
+    else if (chosen == summaryAction)
+    {
+        if (auto* cmd = item->command())
+            emit commandSummaryRequested(cmd);
+    }
+    // 在上方插入 / 在下方插入 / 添加子命令
+    else if (chosen->data().isValid())
+    {
+        QString typeName = chosen->data().toString();
+        if (chosen->parent() == insertAboveMenu)
+        {
+            handleInsertAction(chosen, item, true);
+        }
+        else if (chosen->parent() == insertBelowMenu)
+        {
+            handleInsertAction(chosen, item, false);
+        }
+        else
+        {
+            // 添加子命令：插入到当前 Sequence 的末尾
+            insertCommandRelativeToItem(item, typeName, false);
+        }
+    }
+}
+
+QMenu* UiCommandTree::createInsertMenu(const QString& title)
+{
+    auto* menu = new QMenu(title, this);
+
+    auto* a1 = menu->addAction(aUiClassIcon("InitialState"), tr("初始状态"));
+    a1->setData("InitialState");
+
+    auto* a2 = menu->addAction(aUiClassIcon("Propagate"), tr("预报段"));
+    a2->setData("Propagate");
+
+    auto* a3 = menu->addAction(aUiClassIcon("Maneuver"), tr("机动段"));
+    a3->setData("Maneuver");
+
+    auto* a4 = menu->addAction(aUiClassIcon("Sequence"), tr("序列段"));
+    a4->setData("Sequence");
+
+    auto* a5 = menu->addAction(aUiClassIcon("TargeterSequence"), tr("瞄准序列段"));
+    a5->setData("TargeterSequence");
+
+    return menu;
+}
+
+void UiCommandTree::handleInsertAction(QAction* action, UiCommandTreeItem* item, bool above)
+{
+    Q_UNUSED(action);
+    if (!item)
+        return;
+    QString typeName = action->data().toString();
+    insertCommandRelativeToItem(item, typeName, above);
+}
+
+void UiCommandTree::insertCommandRelativeToItem(UiCommandTreeItem* item, const QString& typeName, bool above)
+{
+    if (!item)
+        return;
+
+    auto* cmd = item->command();
+    if (!cmd)
+        return;
+
+    // 确定目标序列和插入位置
+    // 如果右键选中的节点是 Sequence，则插入到该 Sequence 内部
+    // 否则插入到该节点的父序列中
+    Sequence* targetSeq = nullptr;
+    int insertIndex = 0;
+
+    auto* parentTreeItem = dynamic_cast<UiCommandTreeItem*>(item->parent());
+    if (parentTreeItem)
+    {
+        targetSeq = aobject_cast<Sequence*>(parentTreeItem->command());
+        if (targetSeq)
+        {
+            insertIndex = parentTreeItem->indexOfChild(item);
+            if (!above)
+                ++insertIndex;
+        }
+    }
+
+    // 如果没有父序列（根节点），尝试将选中节点本身当作序列
+    if (!targetSeq)
+    {
+        targetSeq = aobject_cast<Sequence*>(cmd);
+        if (targetSeq)
+        {
+            // 添加到序列末尾（above/below 对子添加无意义，默认追加到末尾）
+            insertIndex = static_cast<int>(targetSeq->getCommands().size());
+        }
+    }
+
+    if (!targetSeq)
+        return;
+
+    // 通过 RTTI 创建新命令
+    std::string typeNameStd = typeName.toStdString();
+    auto* newObj = aNewObject(typeNameStd);
+    auto* newCmd = aobject_cast<MissionCommand*>(newObj);
+    if (!newCmd)
+    {
+        qWarning("Failed to create command of type: %s", typeNameStd.c_str());
+        return;
+    }
+
+    // 设置默认名称（类型名 + 序号）
+    std::string defaultName = typeNameStd + std::to_string(targetSeq->getCommands().size() + 1);
+    newCmd->setName(defaultName);
+
+    // 插入到序列
+    targetSeq->insertCommand(insertIndex, newCmd);
+
+    // 刷新树
+    refresh();
+
+    emit treeModified();
+    emit commandInserted(newCmd);
 }
 
 

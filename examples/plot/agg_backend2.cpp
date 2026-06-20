@@ -6,7 +6,7 @@
 #include "AstPlot/AggBackend.hpp"
 
 static matplot::backend::backend_interface* create_agg_backend() {
-    return new ast::AggBackend();
+    return new _AST AggBackend();
 }
 
 int main()

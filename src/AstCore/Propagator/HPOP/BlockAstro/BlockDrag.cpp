@@ -108,7 +108,12 @@ BlockDrag::BlockDrag(Atmosphere* atmosphere, double dragCoefficient, double drag
 
 errc_t BlockDrag::run(const SimTime& simTime)
 {
-    assert(atmosphere_);
+    if(A_UNLIKELY(!atmosphere_))
+    {
+        aError("BlockDrag: atmosphere is null, cannot compute drag acceleration");
+        *accDrag_ = Vector3d::Zero();
+        return eErrorNullInput;
+    }
     auto& tp = simTime.timePoint();
 
     Vector3d accDrag;
@@ -129,7 +134,14 @@ errc_t BlockDrag::run(const SimTime& simTime)
         Vector3d relVelocity = *velocity_ - atmosVelocity;
         // 计算阻力加速度
         // -1/2·Cd·S/m·rpo·v^2
-        accDrag = -dragCoefficient_ * dragArea_ * density * relVelocity.norm() / (*mass_ * 2)  * relVelocity;
+        double mass = *mass_;
+        if (A_UNLIKELY(mass <= 0))
+        {
+            aError("spacecraft mass is zero or negative (%f), cannot compute drag acceleration", mass);
+            *accDrag_ = Vector3d::Zero();
+            return eErrorInvalidParam;
+        }
+        accDrag = -dragCoefficient_ * dragArea_ * density * relVelocity.norm() / (mass * 2)  * relVelocity;
     }
 
 #if defined(_AST_DEBUG_DRAG)

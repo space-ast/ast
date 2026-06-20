@@ -32,7 +32,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief  可行域变量
 /// @details  可行域变量用于定义可行域的变量，例如下界和上界。
-class FeasibleRegionVariable: public ObjectNamed
+class AST_ANALYZER_API FeasibleRegionVariable: public ObjectNamed
 {
 public:
     AST_OBJECT(FeasibleRegionVariable)
@@ -72,7 +72,7 @@ private:
 
 /// @brief  可行域约束
 /// @details  可行域约束用于定义可行域的边界条件，例如下界和上界。
-class FeasibleRegionConstraint: public ObjectNamed
+class AST_ANALYZER_API FeasibleRegionConstraint: public ObjectNamed
 {
 public:
     AST_OBJECT(FeasibleRegionConstraint)
@@ -112,7 +112,7 @@ private:
 
 
 /// @brief  可行域研究，用于搜索满足约束的解空间
-class FeasibleRegionStudy: public Command
+class AST_ANALYZER_API FeasibleRegionStudy: public Command
 {
 public:
     AST_OBJECT(FeasibleRegionStudy)

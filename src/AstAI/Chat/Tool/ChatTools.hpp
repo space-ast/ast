@@ -41,6 +41,8 @@ public:
     ChatTools() = default;
     ChatTools(bool initAsDefault);
     ~ChatTools() = default;
+    ChatTools(ChatTools&&) = default;
+    ChatTools& operator=(ChatTools&&) = default;
 public:
     /// @brief 处理工具调用
     /// @param toolCall 工具调用参数
@@ -65,6 +67,9 @@ public:
     /// @brief 将工具集合转换为JSON格式
     /// @return JSON值
     JsonValue toJson() const;
+
+    /// @brief 检查工具集合是否为空
+    bool empty() const {return tools_.empty();}
 private:
     A_DISABLE_COPY(ChatTools);
     std::vector<std::unique_ptr<ChatTool>> tools_;

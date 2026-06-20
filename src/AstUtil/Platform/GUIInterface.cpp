@@ -39,7 +39,7 @@ GUIInterface *GUIInterface::CurrentInstance()
     if(g_guiInstance == nullptr)
     {
         using functype = decltype(&aGUIInterfaceImpl);
-        functype func = (functype)aResolveProcAddress(AST_APPEND_DEBUG("AstGUI"), A_STR(aGUIInterfaceImpl));
+        functype func = (functype)aResolveProcAddress(AST_LIB_LINKNAME("AstGUI"), A_STR(aGUIInterfaceImpl));
         if(func){
             g_guiInstance = func();
         }else{

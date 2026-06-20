@@ -84,6 +84,18 @@ void UiPropagate::setupUi()
     timeRow->addWidget(maxTimeEdit_);
     propLayout->addLayout(timeRow, 1, 0, 1, 2);
 
+    // 预报方向
+    auto* dirRow = new QHBoxLayout();
+    dirRow->setSpacing(4);
+    dirRow->addWidget(new QLabel(tr("预报方向"), this));
+    directionCombo_ = new QComboBox(this);
+    directionCombo_->addItem(tr("逆向预报"), static_cast<int>(Propagate::EDirection::eBackward));
+    directionCombo_->addItem(tr("自动"),      static_cast<int>(Propagate::EDirection::eAuto));
+    directionCombo_->addItem(tr("正向预报"), static_cast<int>(Propagate::EDirection::eForward));
+    dirRow->addWidget(directionCombo_);
+    dirRow->addStretch();
+    propLayout->addLayout(dirRow, 2, 0, 1, 2);
+
     rootLayout->addWidget(propGroup);
 
     // ---- 事件检测器 ----
@@ -105,6 +117,8 @@ void UiPropagate::setupUi()
             this, &UiPropagate::onMaxTimeChanged);
     connect(useMaxTimeCheck_, &QCheckBox::toggled,
             this, &UiPropagate::onMaxTimeEnabledChanged);
+    connect(directionCombo_, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, &UiPropagate::onDirectionChanged);
 }
 
 // ============================================================================
@@ -140,6 +154,13 @@ void UiPropagate::refreshFromPropagate()
     useMaxTimeCheck_->blockSignals(false);
 
     maxTimeEdit_->setEnabled(prop->useMaxPropTime());
+
+    directionCombo_->blockSignals(true);
+    // EDirection 值 eBackward=-1, eAuto=0, eForward=1 → combo 索引 = value + 1
+    int dirIndex = directionCombo_->findData(prop->direction());
+    if (dirIndex >= 0 && dirIndex < directionCombo_->count())
+        directionCombo_->setCurrentIndex(dirIndex);
+    directionCombo_->blockSignals(false);
 }
 
 // ============================================================================
@@ -157,6 +178,14 @@ void UiPropagate::onMaxTimeEnabledChanged(bool checked)
     if (auto* prop = getPropagate())
         prop->setUseMaxPropTime(checked);
     maxTimeEdit_->setEnabled(checked);
+}
+
+void UiPropagate::onDirectionChanged(int index)
+{
+    if (auto* prop = getPropagate())
+    {
+        prop->setDirection(static_cast<Propagate::EDirection>(directionCombo_->currentData().toInt()));
+    }
 }
 
 void UiPropagate::onConfigureForceModel()

@@ -75,7 +75,10 @@ public:
     errc_t setPropagationFrame(Frame* frame);
 
     /// @brief 获取预报坐标系
-    Frame* getPropagationFrame() const{return propFrame_;}
+    Frame* getPropagationFrame() const;
+
+    /// @brief 获取中心天体
+    Body* getCentralBody() const;
 protected:
     /// @brief 添加函数块
     void addBlock(FuncBlock* block);

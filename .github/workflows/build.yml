@@ -63,7 +63,7 @@ jobs:
           
       - name: 配置debug版本
         run: |
-          xmake f -cvy --with_test=y -m debug
+          xmake f -cvy --with_test=y --qt_sdkver=5.15.2 -m debug 
           
       - name: 编译debug版本
         run: |
@@ -71,7 +71,7 @@ jobs:
 
       - name: 配置release版本
         run: |
-          xmake f -cvy --with_test=y -m release
+          xmake f -cvy --with_test=y --qt_sdkver=5.15.2 -m release
 
       - name: 编译release版本
         run: |

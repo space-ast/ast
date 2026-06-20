@@ -9,12 +9,35 @@ option("with_test")
     set_default(true)
 option_end()
 
+-- 工程配置选项：是否编译示例工程
+option("with_examples")
+    set_default(true)
+option_end()
+
+-- 工程配置选项：是否编译项目工程
+option("with_projects")
+    set_default(true)
+option_end()
+
+-- 工程配置选项：是否编译第三方库
+option("with_thirdparty")
+    set_default(true)
+option_end()
+
+
 -- 工程配置选项：是否检查警告（将警告作为编译错误处理）
 option("check_warnings")
     set_default(true)
 option_end()
 
+-- 工程配置选项：是否使用系统Qt库
+option("system_qt")
+    set_default(false)
+option_end()
 
+-- 设置库文件后缀名
+-- set_suffixname("_")
+-- add_defines([[_AST_LIB_SUFFIX="_"]])
 
 -- 设置 c++代码标准：c++11，c代码标准：c99
 if not is_plat("windows") then  -- fixme: msvc下添加c++11后生成vs工程有问题，所以这里不设置c++11标准
@@ -111,24 +134,47 @@ end
 
 -- 下载并安装第三方库（可选）
 add_requires("python 3.x", {optional = true})                                   -- 可选的Python库，用于编译python库
-add_requires("swig >4.2", {optional = true})                                    -- 可选的SWIG库，用于生成Python绑定代码
+add_requires("swig >=4.2", {optional = true})                                   -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.2 才支持 enum class : type
 add_requires("gtest <=1.12.1", {optional = true, configs = {cmake = false}})    -- 可选的gtest库，用于单元测试，gtest v1.12.1 for c++11
 add_requires("benchmark", {optional = true})                                    -- 可选的benchmark库，用于性能测试
 add_requires("replxx", {optional = true})                                       -- 可选的replxx库，用于命令行交互
-add_requires("qt5base", "qt5widgets", "qt5gui", {optional = true})              -- 可选的Qt5库，包含基础、窗口部件和GUI模块
 add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
 add_requires("openframes", {optional = true})                                   -- 可选的OpenFrames库，用于三维可视化
 add_requires("opengl", {optional = true})                                       -- 可选的OpenGL库，用于图形渲染
+add_requires("glu", {optional = true})                                          -- 可选的GLU库，用于3D模型渲染
 add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
 add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
 add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
 add_requires("agg", {optional = true, configs = {shared = true}})               -- 可选的agg库，用于绘图
 add_requires("matplotplusplus", {optional = true})                              -- 可选的matplot++库，用于绘图
-add_requires("qwt", {optional = true, 
-    configs = {shared = true, debug = is_mode("debug")}})                       -- 可选的Qwtplot库，用于Qt绘图，共享库版本
 add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
 add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
 add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
+add_requires("qt5base", {optional = true})                                           -- 可选的Qt库，包含基础、窗口部件和GUI模块
+
+local qt_sdkver = get_config("qt_sdkver")
+local system_qt = get_config("system_qt")
+-- 可选的Qwtplot库，用于Qt绘图，共享库版本
+add_requires("qwt", {optional = true, 
+    configs = {
+        shared = true, debug = is_mode("debug")
+        -- , qt_sdkver = qt_sdkver, system_qt = system_qt
+    }
+})
+
+-- 触发Qt库的自动下载
+local qt_config = {
+    override = true,
+    optional = true,
+    system = system_qt
+}
+if qt_sdkver ~= "auto" then
+    qt_config.version = qt_sdkver
+end
+
+add_requireconfs("qt5base", qt_config)
+add_requireconfs("qwt.qt5base", qt_config)
+
 -- add_requires("libintl", {optional = true})                                      -- 可选的libintl库，用于国际化
 -- add_requires("nlohmann_json", {optional = true})                                -- 可选的nlohmann_json库，用于JSON解析
 -- add_requires("jsoncpp", {optional = true})                                      -- 可选的jsoncpp库，用于JSON解析
@@ -227,19 +273,30 @@ end
 -- end
 
 
-
--- 导入子目录配置
-includes("thirdparty")
-includes("src")
-includes("projects")
-includes("examples")
-
 -- 添加插件
-add_plugindirs("scripts")
+add_plugindirs("scripts/plugins")
+
+includes("src")
+
+
+-- 导入项目工程配置
+if has_config("with_projects") then
+    includes("projects")
+end
+
+-- 导入示例工程配置
+if has_config("with_examples") then
+    includes("examples")
+end
 
 -- 导入测试配置
 if has_config("with_test") then
     includes("test")
+end
+
+-- 导入第三方库工程配置
+if has_config("with_thirdparty") then
+    includes("thirdparty")
 end
 
 -- 导入打包配置

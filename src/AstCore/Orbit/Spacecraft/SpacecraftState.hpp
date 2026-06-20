@@ -59,7 +59,7 @@ public:
  
     static SpacecraftState* NewDefault();
     
-    SpacecraftState() = default;
+    SpacecraftState();
     ~SpacecraftState() = default;
 PROPERTIES:
     Frame* getFrame() const;

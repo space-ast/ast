@@ -92,7 +92,11 @@ errc_t aQAppInit(int argc, char *argv[])
         QString qmPath = QCoreApplication::applicationDirPath() + "/Ast_zh.qm";
         if (!translator->load(qmPath)) {
             qmPath = QString::fromStdString(aDataDir()) + "/Ast_zh.qm";
-            translator->load(qmPath);
+            bool loaded =translator->load(qmPath);
+            if (!loaded)
+            {
+                qDebug() << "Failed to load translation file from path:" << qmPath;
+            }
         }
         qApp->installTranslator(translator);
     }

@@ -183,11 +183,19 @@ errc_t BlockSRP::run(const SimTime& simTime)
     double rSqr = scToSun.squaredNorm();
     double r = std::sqrt(rSqr);
 
+    double mass = *mass_;
+    if (A_UNLIKELY(mass <= 0))
+    {
+        aError("spacecraft mass is zero or negative (%f), cannot compute SRP acceleration", mass);
+        *accSRP_ = Vector3d::Zero();
+        return eErrorInvalidParam;
+    }
+
     // 太阳辐射压力加速度
     // a_srp = Cr * (A/m) * P_1AU * (AU/r)^2 * (sunToSc / r)
     //       = Cr * A/m * P_1AU * AU^2 / r^3 * sunToSc
     // 方向：远离太阳（从太阳指向航天器）
-    double factor = - lightingRatio * cr_ * srpArea_  / (*mass_) * kSolarPressureAt1AU * (kAU * kAU) / (r * rSqr);
+    double factor = - lightingRatio * cr_ * srpArea_  / mass * kSolarPressureAt1AU * (kAU * kAU) / (r * rSqr);
     *accSRP_ = factor * scToSun;
 
     // 添加到速度导数上

@@ -146,6 +146,8 @@ errc_t ODEIntegrator::integrateFixedStep(ODE& ode, double stepSize, double* y, d
         }
         t += h;
         numSteps ++;
+        if(pNumSteps)
+            *pNumSteps = numSteps;
         if(workStateObserver_)
         {
             if(workStateObserver_->onStateUpdate(y, t, this) == EODEAction::eStop)
@@ -153,10 +155,6 @@ errc_t ODEIntegrator::integrateFixedStep(ODE& ode, double stepSize, double* y, d
                 break;
             }
         }
-    }
-    if(pNumSteps)
-    {
-        *pNumSteps = numSteps;
     }
     return eNoError;
 }

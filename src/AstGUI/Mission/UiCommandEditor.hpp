@@ -33,6 +33,7 @@ class UiPropagate;
 class UiManeuver;
 class UiSequence;
 class UiTargeterSequence;
+class UiFeasibleRegionStudy;
 
 /// @brief 命令属性编辑器，根据 RTTI 类型自动切换编辑页面
 class AST_GUI_API UiCommandEditor : public QStackedWidget
@@ -55,17 +56,19 @@ private:
     void registerEditors();
     void setupUi();
 
-    UiInitialState*       initStatePage_ = nullptr;
-    UiPropagate*           propagatePage_ = nullptr;
-    UiManeuver*            maneuverPage_ = nullptr;
-    UiSequence*            sequencePage_ = nullptr;
-    UiTargeterSequence*    targetSeqPage_ = nullptr;
+    UiInitialState*         initStatePage_ = nullptr;
+    UiPropagate*            propagatePage_ = nullptr;
+    UiManeuver*             maneuverPage_ = nullptr;
+    UiSequence*             sequencePage_ = nullptr;
+    UiTargeterSequence*     targetSeqPage_ = nullptr;
+    UiFeasibleRegionStudy*  feasibleRegionPage_ = nullptr;
 
     int initStateIdx_ = -1;
     int propagateIdx_ = -1;
     int maneuverIdx_ = -1;
     int sequenceIdx_ = -1;
     int targetSeqIdx_ = -1;
+    int feasibleRegionIdx_ = -1;
 };
 
 AST_NAMESPACE_END

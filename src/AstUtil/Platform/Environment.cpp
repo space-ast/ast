@@ -25,6 +25,8 @@
 
 #ifdef _WIN32
 #include <windows.h>
+#else
+#include <sys/ioctl.h>     // for TIOCGWINSZ (terminal width)
 #endif
 
 
@@ -125,6 +127,36 @@ bool aTerminalSupportColor()
     
     return false;
     #endif
+}
+
+int aTerminalWidth()
+{
+    #ifdef _WIN32
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hConsole != INVALID_HANDLE_VALUE)
+    {
+        CONSOLE_SCREEN_BUFFER_INFO csbi;
+        if (GetConsoleScreenBufferInfo(hConsole, &csbi))
+        {
+            int width = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+            if (width > 0) return width;
+        }
+    }
+    #elif defined(A_WASM)
+    return 80;
+    #else
+    struct winsize ws;
+    if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &ws) == 0 && ws.ws_col > 0)
+        return ws.ws_col;
+    // 降级：尝试从 COLUMNS 环境变量获取
+    const char* columns = posix::getenv("COLUMNS");
+    if (columns)
+    {
+        int w = std::atoi(columns);
+        if (w > 0) return w;
+    }
+    #endif
+    return 80;  // 默认值
 }
 
 StringView aProjectName()

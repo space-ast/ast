@@ -167,8 +167,7 @@
 /* --------------------------- PROTOTYPES ---------------------------- */
 /* ------------------------------------------------------------------- */
 #define NRLMSISE00_CONST  const
-namespace ast
-{
+AST_NAMESPACE_BEGIN
 	class AST_WEATHER_API NRLMSISE
 	{
 
@@ -262,7 +261,7 @@ namespace ast
 		double apdf, apt[4];
 	};
 
-}
+AST_NAMESPACE_END
 
 /* ------------------------------------------------------------------- */
 /* ----------------------- COMPILATION TWEAKS ------------------------ */

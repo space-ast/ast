@@ -50,6 +50,9 @@ public:
     /// @param owner 所有者对象，用于判断解释器的生命周期是否结束
     void setInterpreter(Interpreter* interpreter, Object* owner);
 
+    /// @brief 设置工具栏可见性
+    void setToolbarVisible(bool visible);
+
     /// @brief 刷新表格显示
     void refreshUi();
 
@@ -82,6 +85,9 @@ signals:
 
     /// @brief 用户选中了变量（用于通知外部联动控件）
     void variableFocused();
+
+    /// @brief 用户双击了某个变量行
+    void variableDoubleClicked(Variable* variable);
 
 private slots:
     void onSelectionChanged();

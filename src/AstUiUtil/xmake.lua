@@ -1,0 +1,10 @@
+target("AstUiUtil")
+    add_rules("ast.qt.shared")
+    set_kind("shared")
+    add_files("**.cpp")
+    add_files("**.hpp")
+    add_headerfiles("**.hpp", {prefixdir="AstUiUtil"})
+    add_deps("AstUtil")
+    add_defines("AST_BUILD_LIB_UIUTIL")
+    set_default(false)
+

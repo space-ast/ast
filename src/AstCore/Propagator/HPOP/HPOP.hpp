@@ -62,6 +62,9 @@ public:
     /// @brief 获取航天器参数
     const SpacecraftParam& spacecraftParam() const;
 
+    /// @brief 获取预报坐标系
+    Frame* propagationFrame() const;
+
     /// @brief 设置预报坐标系
     errc_t setPropagationFrame(Frame* frame);
 
@@ -82,6 +85,13 @@ public:
 
     /// @brief 初始化
     errc_t initialize();
+
+    /// @brief 添加事件检测器
+    /// @param[in] eventDetector 事件检测器实例指针
+    void addEventDetector(EventDetector* eventDetector);
+
+    /// @brief 清除所有事件检测器
+    void clearEventDetectors();
 protected:
     HPOPEquation* equation() const;
 private:

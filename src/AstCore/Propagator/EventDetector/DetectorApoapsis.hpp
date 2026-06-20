@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 */
 
 
-/// @brief 近心点事件检测器
+/// @brief 远拱点事件检测器
 class AST_CORE_API DetectorApoapsis : public DetectorBodyRelated
 {
 public:

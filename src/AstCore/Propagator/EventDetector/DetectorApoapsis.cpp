@@ -39,11 +39,8 @@ DetectorApoapsis::DetectorApoapsis()
 double DetectorApoapsis::getValue(const SpacecraftState& scState, double t) const
 {
     auto body = this->body();
-    A_UNUSED(body);
-    auto state = scState.getOrbitState();
-    // @todo: 处理其他天体的情况
     CartState cartState;
-    errc_t rc = state->getState(cartState);
+    errc_t rc = scState.getStateInBodyInertial(body, cartState);
     if(rc)
         aWarning("failed to get state");
     double v = cartState.vel().dot(cartState.pos().normalized());

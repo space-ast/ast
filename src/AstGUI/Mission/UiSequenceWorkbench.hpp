@@ -52,9 +52,6 @@ public:
     /// @brief 获取当前 MainSequence
     Sequence* sequence() const;
 
-signals:
-    void runRequested();
-    void stopped();
 
 private slots:
     void onCommandSelected(Command* cmd);

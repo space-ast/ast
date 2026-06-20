@@ -28,7 +28,7 @@
 int main() {
     // ---- 注册 Agg 后端 ----
     matplot::register_backend("agg", []() -> matplot::backend::backend_interface* {
-        return new ast::AggBackend();
+        return new _AST AggBackend();
     });
     matplot::change_default_backend("agg");
 

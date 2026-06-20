@@ -63,9 +63,7 @@ errc_t Maneuver::execute()
                     // @todo: 这里只能用于地球预报器
                     impulse = rotation.transformVector(impulse);   // 从VNC(Earth)转换到 Earth Inertial
                     cartState.vel() += impulse;
-                    TimePoint tp;
-                    inputState->getStateEpoch(tp);
-                    outputState->setStateEpoch(tp);
+                    outputState->copyFrom(*inputState);
                     outputState->setState(cartState);
                     return 0;
                 }

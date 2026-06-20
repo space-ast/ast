@@ -1,0 +1,12 @@
+// AstUiPilot 工程聚合头文件
+#include "AstUiPilot/PilotAgent.hpp"
+#include "AstUiPilot/PilotCommander.hpp"
+#include "AstUiPilot/PilotPipeServer.hpp"
+#include "AstUiPilot/PilotPlayer.hpp"
+#include "AstUiPilot/PilotPolisher.hpp"
+#include "AstUiPilot/PilotRecorder.hpp"
+#include "AstUiPilot/PilotSession.hpp"
+#include "AstUiPilot/PilotUtil.hpp"
+#include "AstUiPilot/RecordStep.hpp"
+#include "AstUiPilot/UiPilotConsole.hpp"
+#include "AstUiPilot/UiPilotToolbar.hpp"

@@ -1,7 +1,7 @@
 ///
 /// @file      UiSweepStudy.hpp
 /// @brief     SweepStudy 编辑界面
-/// @details   提供三个 Tab 页：变量编辑、约束编辑和执行命令编辑
+/// @details   提供两个 Tab 页：变量与输出（左右分栏内嵌表格编辑）和任务模型编辑
 /// @author    axel
 /// @date      2026-06-05
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -28,13 +28,13 @@ class QTabWidget;
 class QSplitter;
 class QStackedWidget;
 class QLabel;
+class QPushButton;
 
 AST_NAMESPACE_BEGIN
 
 class SweepStudy;
-class UiStudyVariableList;
-class UiStudyConstraintList;
-class UiPropertyEditor;
+class UiSweepVariableList;
+class UiSweepOutputList;
 
 /// @brief SweepStudy 编辑界面
 class AST_GUI_API UiSweepStudy : public QWidget
@@ -52,27 +52,28 @@ public:
     /// @brief 刷新界面
     void refreshUi();
 
+private slots:
+    void onExecute();
+
 private:
     void setupUi();
     void rebuildCommandEditor();
 
     WeakPtr<SweepStudy> analyzer_;
 
-    QTabWidget*            tabWidget_;
+    QTabWidget*        tabWidget_;
 
-    // 变量 Tab
-    QSplitter*             varSplitter_;
-    UiStudyVariableList* varList_;
-    UiPropertyEditor*      varPropertyEditor_;
-
-    // 约束 Tab
-    QSplitter*             constraintSplitter_;
-    UiStudyConstraintList*        responseList_;
-    UiPropertyEditor*      constraintPropertyEditor_;
+    // 变量与输出 Tab（同页左右分栏）
+    QSplitter*           studySplitter_;
+    UiSweepVariableList* varList_;
+    UiSweepOutputList*   outputList_;
 
     // 任务模型 Tab
-    QStackedWidget*        commandStack_;
-    QLabel*                placeholderLabel_;
+    QStackedWidget*      commandStack_;
+    QLabel*              placeholderLabel_;
+
+    // 执行按钮
+    QPushButton*         executeBtn_;
 };
 
 AST_NAMESPACE_END

@@ -48,6 +48,7 @@
 
 #include "AstAnalyzer/StudyWorkbench.hpp"
 #include "AstAnalyzer/SweepStudy.hpp"
+#include "AstAnalyzer/FeasibleRegionStudy.hpp"
 
 #include "AstGUI/UiAttributeTree.hpp"
 #include "AstGUI/UiBodyEphemerisDE.hpp"
@@ -72,6 +73,7 @@
 #include "AstGUI/UiStudyWorkbench.hpp"
 #include "AstGUI/UiSweepStudy.hpp"
 #include "AstGUI/UiThirdBodyForce.hpp"
+#include "AstGUI/UiFeasibleRegionStudy.hpp"
 #include "AstGUI/AstGUIAPI.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -158,6 +160,9 @@ ObjectEditRegistry::ObjectEditRegistry(bool shouldRegistEditWidget)
             auto* editor = new UiSweepStudy();
             editor->setAnalyzer(static_cast<SweepStudy*>(object));
             return editor;
+        });
+        aUiRegisterEditWidget<FeasibleRegionStudy>(this, [](Object *object) -> QWidget* {
+            return new UiFeasibleRegionStudy(object);
         });
     }
 }
