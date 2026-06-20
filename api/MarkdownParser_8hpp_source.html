@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/ParseFormat/Markdown/MarkdownParser.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('MarkdownParser_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MarkdownParser.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="MarkdownParser_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="MarkdownBlockParser_8hpp.html">MarkdownBlockParser.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">class </span>MarkdownSax;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>AST_UTIL_API std::string <a class="code hl_function" href="namespaceast.html#a099dd3c1085f31b725d45ec720f824d1">aMarkdownANSI</a>(StringView markdown);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>AST_UTIL_API std::string <a class="code hl_function" href="namespaceast.html#a45643131ff703ea363ff21ab849a6a97">aMarkdownHTML</a>(StringView markdown, <span class="keywordtype">bool</span> compact = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownParser.html">   55</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1MarkdownParser.html">MarkdownParser</a> {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="classast_1_1MarkdownParser.html">MarkdownParser</a>(<a class="code hl_class" href="classast_1_1MarkdownSax.html">MarkdownSax</a>&amp; sax)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        : blockSM_(sax)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    {}</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classast_1_1MarkdownParser.html">~MarkdownParser</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownParser.html#a0170ddf277e62755a8c085bc8cb0f109">   63</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownParser.html#a0170ddf277e62755a8c085bc8cb0f109">feed</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> data) { blockSM_.feed(data); }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownParser.html#a911c73d565828f42ad8a298937d36eeb">   66</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownParser.html#a911c73d565828f42ad8a298937d36eeb">finish</a>() { blockSM_.finish(); }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownParser.html#a4f6eec70887592d1fdfce3287a299f52">   69</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownParser.html#a4f6eec70887592d1fdfce3287a299f52">reset</a>() { blockSM_.reset(); }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="classast_1_1MarkdownBlockParser.html">MarkdownBlockParser</a> blockSM_;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aMarkdownBlockParser_8hpp_html"><div class="ttname"><a href="MarkdownBlockParser_8hpp.html">MarkdownBlockParser.hpp</a></div></div>
+<div class="ttc" id="aclassast_1_1MarkdownBlockParser_html"><div class="ttname"><a href="classast_1_1MarkdownBlockParser.html">ast::MarkdownBlockParser</a></div><div class="ttdoc">Markdown 块级解析器（字符级流式解析，SAX 事件驱动）</div><div class="ttdef"><b>定义</b> MarkdownBlockParser.hpp:42</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownParser_html"><div class="ttname"><a href="classast_1_1MarkdownParser.html">ast::MarkdownParser</a></div><div class="ttdoc">Markdown解析器（SAX事件驱动，流式输入）</div><div class="ttdef"><b>定义</b> MarkdownParser.hpp:55</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownParser_html_a0170ddf277e62755a8c085bc8cb0f109"><div class="ttname"><a href="classast_1_1MarkdownParser.html#a0170ddf277e62755a8c085bc8cb0f109">ast::MarkdownParser::feed</a></div><div class="ttdeci">void feed(StringView data)</div><div class="ttdoc">流式输入数据块</div><div class="ttdef"><b>定义</b> MarkdownParser.hpp:63</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownParser_html_a4f6eec70887592d1fdfce3287a299f52"><div class="ttname"><a href="classast_1_1MarkdownParser.html#a4f6eec70887592d1fdfce3287a299f52">ast::MarkdownParser::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">重置解析器状态</div><div class="ttdef"><b>定义</b> MarkdownParser.hpp:69</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownParser_html_a911c73d565828f42ad8a298937d36eeb"><div class="ttname"><a href="classast_1_1MarkdownParser.html#a911c73d565828f42ad8a298937d36eeb">ast::MarkdownParser::finish</a></div><div class="ttdeci">void finish()</div><div class="ttdoc">通知输入结束，处理剩余内容</div><div class="ttdef"><b>定义</b> MarkdownParser.hpp:66</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html"><div class="ttname"><a href="classast_1_1MarkdownSax.html">ast::MarkdownSax</a></div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:45</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="anamespaceast_html_a099dd3c1085f31b725d45ec720f824d1"><div class="ttname"><a href="namespaceast.html#a099dd3c1085f31b725d45ec720f824d1">ast::aMarkdownANSI</a></div><div class="ttdeci">std::string aMarkdownANSI(StringView markdown)</div><div class="ttdoc">将 Markdown 文本渲染为带有 ANSI 转义序列的终端输出字符串</div><div class="ttdef"><b>定义</b> MarkdownParser.cpp:19</div></div>
+<div class="ttc" id="anamespaceast_html_a45643131ff703ea363ff21ab849a6a97"><div class="ttname"><a href="namespaceast.html#a45643131ff703ea363ff21ab849a6a97">ast::aMarkdownHTML</a></div><div class="ttdeci">std::string aMarkdownHTML(StringView markdown, bool compact)</div><div class="ttdoc">将 Markdown 文本转换为 HTML 字符串</div><div class="ttdef"><b>定义</b> MarkdownParser.cpp:29</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_480cf6b53fcea3873823fd76d21e216e.html">ParseFormat</a></li><li class="navelem"><a class="el" href="dir_a2e1d1227cce4baaca3039d3f166a508.html">Markdown</a></li><li class="navelem"><a class="el" href="MarkdownParser_8hpp.html">MarkdownParser.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

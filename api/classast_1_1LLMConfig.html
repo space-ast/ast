@@ -99,22 +99,39 @@ $(function(){initNavTree('classast_1_1LLMConfig.html',''); initResizable(true); 
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="classast_1_1LLMConfig-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::LLMConfig类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::LLMConfig类 参考<div class="ingroups"><a class="el" href="group__Chat.html">Chat</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="LLMConfig_8hpp_source.html">LLMConfig.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public 属性</h2></td></tr>
-<tr class="memitem:ac1ffffe5e029e9dee2fae84b9f473df0" id="r_ac1ffffe5e029e9dee2fae84b9f473df0"><td class="memItemLeft" align="right" valign="top"><a id="ac1ffffe5e029e9dee2fae84b9f473df0" name="ac1ffffe5e029e9dee2fae84b9f473df0"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>model_</b></td></tr>
-<tr class="separator:ac1ffffe5e029e9dee2fae84b9f473df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a678fb73543f4de5675a8467492040384" id="r_a678fb73543f4de5675a8467492040384"><td class="memItemLeft" align="right" valign="top"><a id="a678fb73543f4de5675a8467492040384" name="a678fb73543f4de5675a8467492040384"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>temperature_</b></td></tr>
-<tr class="separator:a678fb73543f4de5675a8467492040384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a0f40f6d97133059ceecdedc1f745bd6f" id="r_a0f40f6d97133059ceecdedc1f745bd6f"><td class="memItemLeft" align="right" valign="top"><a id="a0f40f6d97133059ceecdedc1f745bd6f" name="a0f40f6d97133059ceecdedc1f745bd6f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setModel</b> (const std::string &amp;<a class="el" href="#a00159639f9316224e20562860ef94f06">model</a>)</td></tr>
+<tr class="separator:a0f40f6d97133059ceecdedc1f745bd6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00159639f9316224e20562860ef94f06" id="r_a00159639f9316224e20562860ef94f06"><td class="memItemLeft" align="right" valign="top"><a id="a00159639f9316224e20562860ef94f06" name="a00159639f9316224e20562860ef94f06"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>model</b> () const</td></tr>
+<tr class="separator:a00159639f9316224e20562860ef94f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ba68b851bff55832e0b6eea54a731fb" id="r_a2ba68b851bff55832e0b6eea54a731fb"><td class="memItemLeft" align="right" valign="top"><a id="a2ba68b851bff55832e0b6eea54a731fb" name="a2ba68b851bff55832e0b6eea54a731fb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTemperature</b> (float <a class="el" href="#aad64c102978bd70183a5bd156345c193">temperature</a>)</td></tr>
+<tr class="separator:a2ba68b851bff55832e0b6eea54a731fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad64c102978bd70183a5bd156345c193" id="r_aad64c102978bd70183a5bd156345c193"><td class="memItemLeft" align="right" valign="top"><a id="aad64c102978bd70183a5bd156345c193" name="aad64c102978bd70183a5bd156345c193"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>temperature</b> () const</td></tr>
+<tr class="separator:aad64c102978bd70183a5bd156345c193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ccb1032e2f4c6e702f09f80933f2aa5" id="r_a6ccb1032e2f4c6e702f09f80933f2aa5"><td class="memItemLeft" align="right" valign="top"><a id="a6ccb1032e2f4c6e702f09f80933f2aa5" name="a6ccb1032e2f4c6e702f09f80933f2aa5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setExtraBody</b> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;extra)</td></tr>
+<tr class="separator:a6ccb1032e2f4c6e702f09f80933f2aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd02927c76a55221188b6a74aa0c725d" id="r_abd02927c76a55221188b6a74aa0c725d"><td class="memItemLeft" align="right" valign="top"><a id="abd02927c76a55221188b6a74aa0c725d" name="abd02927c76a55221188b6a74aa0c725d"></a>
+const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>extraBody</b> () const</td></tr>
+<tr class="separator:abd02927c76a55221188b6a74aa0c725d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>该类的文档由以下文件生成:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>LLM请求配置 </p>
+<p>封装模型名称、温度、以及提供者特有的额外请求体字段 </p>
+</div><hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstAI/Basic/<a class="el" href="LLMConfig_8hpp_source.html">LLMConfig.hpp</a></li>
 </ul>
 </div><!-- contents -->

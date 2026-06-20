@@ -4,6 +4,7 @@ var classast_1_1ChatMessage =
     [ "ChatMessage", "classast_1_1ChatMessage.html#a1bd970b3c636a2f1ea2fc69409116529", null ],
     [ "~ChatMessage", "classast_1_1ChatMessage.html#abf6e2d829dbd4074f5d20f2f96d50e96", null ],
     [ "content", "classast_1_1ChatMessage.html#a926688d2bf740edcb8b64110236ead80", null ],
+    [ "hasToolCalls", "classast_1_1ChatMessage.html#a49184d500b0dcc3f708ea2ac1b401450", null ],
     [ "name", "classast_1_1ChatMessage.html#a3a13e97d3e317146294b6356205c03e4", null ],
     [ "reasoningContent", "classast_1_1ChatMessage.html#a578848964bb0bb66fcb1f93720541e54", null ],
     [ "role", "classast_1_1ChatMessage.html#a595648aee63890a1a35e8e81d43e6d91", null ],

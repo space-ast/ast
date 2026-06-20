@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUiPilot/Recorder/RecordStep.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('RecordStep_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RecordStep.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="RecordStep_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="group__UiPilot.html#ga330546ca7098436796ab2eb74e678298">   22</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group__UiPilot.html#ga330546ca7098436796ab2eb74e678298">ERecordAction</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    eClick,             <span class="comment">// 点击按钮/控件</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    eDblClick,          <span class="comment">// 双击</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    eFill,              <span class="comment">// 填入文本（替换输入框内容）</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    eSelect,            <span class="comment">// 选择下拉框/列表项</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    ePressKey,          <span class="comment">// 按键</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    eShortcut,          <span class="comment">// 组合快捷键</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    eDrag,              <span class="comment">// 拖拽</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    eDialogAccept,      <span class="comment">// 接受对话框</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    eDialogDismiss,     <span class="comment">// 关闭对话框</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="group__UiPilot.html#gab7b817375e3ace126f4834ad04fc5b4f">   36</a></span><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="group__UiPilot.html#gab7b817375e3ace126f4834ad04fc5b4f">recordActionToString</a>(<a class="code hl_enumeration" href="group__UiPilot.html#ga330546ca7098436796ab2eb74e678298">ERecordAction</a> action)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">switch</span> (action)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">case</span> ERecordAction::eClick:         <span class="keywordflow">return</span> <span class="stringliteral">&quot;eClick&quot;</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">case</span> ERecordAction::eDblClick:      <span class="keywordflow">return</span> <span class="stringliteral">&quot;eDblClick&quot;</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">case</span> ERecordAction::eFill:          <span class="keywordflow">return</span> <span class="stringliteral">&quot;eFill&quot;</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">case</span> ERecordAction::eSelect:        <span class="keywordflow">return</span> <span class="stringliteral">&quot;eSelect&quot;</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">case</span> ERecordAction::ePressKey:      <span class="keywordflow">return</span> <span class="stringliteral">&quot;ePressKey&quot;</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">case</span> ERecordAction::eShortcut:      <span class="keywordflow">return</span> <span class="stringliteral">&quot;eShortcut&quot;</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">case</span> ERecordAction::eDrag:          <span class="keywordflow">return</span> <span class="stringliteral">&quot;eDrag&quot;</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">case</span> ERecordAction::eDialogAccept:  <span class="keywordflow">return</span> <span class="stringliteral">&quot;eDialogAccept&quot;</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">case</span> ERecordAction::eDialogDismiss: <span class="keywordflow">return</span> <span class="stringliteral">&quot;eDialogDismiss&quot;</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="group__UiPilot.html#gadc3c15f21ec27934107d92fb55ef809e">   54</a></span><span class="keyword">inline</span> <a class="code hl_enumeration" href="group__UiPilot.html#ga330546ca7098436796ab2eb74e678298">ERecordAction</a> <a class="code hl_function" href="group__UiPilot.html#gadc3c15f21ec27934107d92fb55ef809e">recordActionFromString</a>(<span class="keyword">const</span> std::string&amp; s)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> == <span class="stringliteral">&quot;eClick&quot;</span>)         <span class="keywordflow">return</span> ERecordAction::eClick;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> == <span class="stringliteral">&quot;eDblClick&quot;</span>)      <span class="keywordflow">return</span> ERecordAction::eDblClick;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> == <span class="stringliteral">&quot;eFill&quot;</span>)          <span class="keywordflow">return</span> ERecordAction::eFill;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> == <span class="stringliteral">&quot;eSelect&quot;</span>)        <span class="keywordflow">return</span> ERecordAction::eSelect;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> == <span class="stringliteral">&quot;ePressKey&quot;</span>)      <span class="keywordflow">return</span> ERecordAction::ePressKey;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> == <span class="stringliteral">&quot;eShortcut&quot;</span>)      <span class="keywordflow">return</span> ERecordAction::eShortcut;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> == <span class="stringliteral">&quot;eDrag&quot;</span>)          <span class="keywordflow">return</span> ERecordAction::eDrag;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> == <span class="stringliteral">&quot;eDialogAccept&quot;</span>)  <span class="keywordflow">return</span> ERecordAction::eDialogAccept;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> == <span class="stringliteral">&quot;eDialogDismiss&quot;</span>) <span class="keywordflow">return</span> ERecordAction::eDialogDismiss;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> ERecordAction::eClick; <span class="comment">// fallback</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="};">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html">   69</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1RecordStep.html">RecordStep</a></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html#a61ec4a52c0af5674bdc4c1e6cd0f3317">   71</a></span>    <a class="code hl_enumeration" href="group__UiPilot.html#ga330546ca7098436796ab2eb74e678298">ERecordAction</a> <a class="code hl_variable" href="structast_1_1RecordStep.html#a61ec4a52c0af5674bdc4c1e6cd0f3317">action</a>;           </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html#a72ff969911618d0334c7cf17fd9e0b73">   72</a></span>    std::string   <a class="code hl_variable" href="structast_1_1RecordStep.html#a72ff969911618d0334c7cf17fd9e0b73">widgetClass</a>;      </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html#a4312cacc273140906689ed104dc82738">   73</a></span>    std::string   <a class="code hl_variable" href="structast_1_1RecordStep.html#a4312cacc273140906689ed104dc82738">widgetText</a>;       </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html#aaca3b306b3af07541efdc0729dbac6e9">   74</a></span>    std::string   <a class="code hl_variable" href="structast_1_1RecordStep.html#aaca3b306b3af07541efdc0729dbac6e9">widgetObjName</a>;    </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html#a55765e0a14ef799609df32a6f3338fbd">   75</a></span>    std::string   <a class="code hl_variable" href="structast_1_1RecordStep.html#a55765e0a14ef799609df32a6f3338fbd">widgetAccName</a>;    </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html#a4b6e63d75336221fa52cc11dd5263022">   76</a></span>    std::string   <a class="code hl_variable" href="structast_1_1RecordStep.html#a4b6e63d75336221fa52cc11dd5263022">parentInfo</a>;       </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html#a072ca789181a51bfc5dad1bb63b29c6a">   77</a></span>    std::string   <a class="code hl_variable" href="structast_1_1RecordStep.html#a072ca789181a51bfc5dad1bb63b29c6a">value</a>;            </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html#a7e30b561593f0bd77368cbef804af8a2">   78</a></span>    int64_t       timestampMs = 0;  </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html#a2d0a60f4bdfb95c40992b1d93a6447d2">   79</a></span>    <span class="keywordtype">int</span>           siblingIndex = -1;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="structast_1_1RecordStep.html#a4521af117284965a6746ed4d0b09de7c">   80</a></span>    std::string   <a class="code hl_variable" href="structast_1_1RecordStep.html#a4521af117284965a6746ed4d0b09de7c">naturalLanguage</a>;  </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::string toTemplate() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
+</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aUnit_8cpp_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:435</div></div>
+<div class="ttc" id="agroup__UiPilot_html_ga330546ca7098436796ab2eb74e678298"><div class="ttname"><a href="group__UiPilot.html#ga330546ca7098436796ab2eb74e678298">ast::ERecordAction</a></div><div class="ttdeci">ERecordAction</div><div class="ttdoc">录制操作类型</div><div class="ttdef"><b>定义</b> RecordStep.hpp:23</div></div>
+<div class="ttc" id="agroup__UiPilot_html_gab7b817375e3ace126f4834ad04fc5b4f"><div class="ttname"><a href="group__UiPilot.html#gab7b817375e3ace126f4834ad04fc5b4f">ast::recordActionToString</a></div><div class="ttdeci">const char * recordActionToString(ERecordAction action)</div><div class="ttdoc">操作类型 → JSON 字符串</div><div class="ttdef"><b>定义</b> RecordStep.hpp:36</div></div>
+<div class="ttc" id="agroup__UiPilot_html_gadc3c15f21ec27934107d92fb55ef809e"><div class="ttname"><a href="group__UiPilot.html#gadc3c15f21ec27934107d92fb55ef809e">ast::recordActionFromString</a></div><div class="ttdeci">ERecordAction recordActionFromString(const std::string &amp;s)</div><div class="ttdoc">JSON 字符串 → 操作类型</div><div class="ttdef"><b>定义</b> RecordStep.hpp:54</div></div>
+<div class="ttc" id="astructast_1_1RecordStep_html"><div class="ttname"><a href="structast_1_1RecordStep.html">ast::RecordStep</a></div><div class="ttdoc">录制步骤结构</div><div class="ttdef"><b>定义</b> RecordStep.hpp:70</div></div>
+<div class="ttc" id="astructast_1_1RecordStep_html_a072ca789181a51bfc5dad1bb63b29c6a"><div class="ttname"><a href="structast_1_1RecordStep.html#a072ca789181a51bfc5dad1bb63b29c6a">ast::RecordStep::value</a></div><div class="ttdeci">std::string value</div><div class="ttdoc">fill的值 / select的选项 / press的键名</div><div class="ttdef"><b>定义</b> RecordStep.hpp:77</div></div>
+<div class="ttc" id="astructast_1_1RecordStep_html_a4312cacc273140906689ed104dc82738"><div class="ttname"><a href="structast_1_1RecordStep.html#a4312cacc273140906689ed104dc82738">ast::RecordStep::widgetText</a></div><div class="ttdeci">std::string widgetText</div><div class="ttdoc">按钮文本 / 标签文本 / combo当前项</div><div class="ttdef"><b>定义</b> RecordStep.hpp:73</div></div>
+<div class="ttc" id="astructast_1_1RecordStep_html_a4521af117284965a6746ed4d0b09de7c"><div class="ttname"><a href="structast_1_1RecordStep.html#a4521af117284965a6746ed4d0b09de7c">ast::RecordStep::naturalLanguage</a></div><div class="ttdeci">std::string naturalLanguage</div><div class="ttdoc">自然语言描述</div><div class="ttdef"><b>定义</b> RecordStep.hpp:80</div></div>
+<div class="ttc" id="astructast_1_1RecordStep_html_a4b6e63d75336221fa52cc11dd5263022"><div class="ttname"><a href="structast_1_1RecordStep.html#a4b6e63d75336221fa52cc11dd5263022">ast::RecordStep::parentInfo</a></div><div class="ttdeci">std::string parentInfo</div><div class="ttdoc">父控件描述</div><div class="ttdef"><b>定义</b> RecordStep.hpp:76</div></div>
+<div class="ttc" id="astructast_1_1RecordStep_html_a55765e0a14ef799609df32a6f3338fbd"><div class="ttname"><a href="structast_1_1RecordStep.html#a55765e0a14ef799609df32a6f3338fbd">ast::RecordStep::widgetAccName</a></div><div class="ttdeci">std::string widgetAccName</div><div class="ttdoc">accessibleName</div><div class="ttdef"><b>定义</b> RecordStep.hpp:75</div></div>
+<div class="ttc" id="astructast_1_1RecordStep_html_a61ec4a52c0af5674bdc4c1e6cd0f3317"><div class="ttname"><a href="structast_1_1RecordStep.html#a61ec4a52c0af5674bdc4c1e6cd0f3317">ast::RecordStep::action</a></div><div class="ttdeci">ERecordAction action</div><div class="ttdoc">操作类型</div><div class="ttdef"><b>定义</b> RecordStep.hpp:71</div></div>
+<div class="ttc" id="astructast_1_1RecordStep_html_a72ff969911618d0334c7cf17fd9e0b73"><div class="ttname"><a href="structast_1_1RecordStep.html#a72ff969911618d0334c7cf17fd9e0b73">ast::RecordStep::widgetClass</a></div><div class="ttdeci">std::string widgetClass</div><div class="ttdoc">控件类名</div><div class="ttdef"><b>定义</b> RecordStep.hpp:72</div></div>
+<div class="ttc" id="astructast_1_1RecordStep_html_aaca3b306b3af07541efdc0729dbac6e9"><div class="ttname"><a href="structast_1_1RecordStep.html#aaca3b306b3af07541efdc0729dbac6e9">ast::RecordStep::widgetObjName</a></div><div class="ttdeci">std::string widgetObjName</div><div class="ttdoc">Qt objectName</div><div class="ttdef"><b>定义</b> RecordStep.hpp:74</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_3f3ef52f82967dc4e4eeb89330a665e6.html">AstUiPilot</a></li><li class="navelem"><a class="el" href="dir_3fb6fe7268d4f398ed62698dd1de9346.html">Recorder</a></li><li class="navelem"><a class="el" href="RecordStep_8hpp.html">RecordStep.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

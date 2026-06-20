@@ -137,6 +137,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setSpacecraftParam</b
 <tr class="memitem:ab70e19b902a5441a8e696668a7d5e5c4" id="r_ab70e19b902a5441a8e696668a7d5e5c4"><td class="memItemLeft" align="right" valign="top"><a id="ab70e19b902a5441a8e696668a7d5e5c4" name="ab70e19b902a5441a8e696668a7d5e5c4"></a>
 const <a class="el" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>spacecraftParam</b> () const</td></tr>
 <tr class="separator:ab70e19b902a5441a8e696668a7d5e5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45c5dfd2a1129f2b01c41a1698b7a484" id="r_a45c5dfd2a1129f2b01c41a1698b7a484"><td class="memItemLeft" align="right" valign="top"><a id="a45c5dfd2a1129f2b01c41a1698b7a484" name="a45c5dfd2a1129f2b01c41a1698b7a484"></a>
+<a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>propagationFrame</b> () const</td></tr>
+<tr class="separator:a45c5dfd2a1129f2b01c41a1698b7a484"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad659ca9be93bd82dd6aff814089b6a6e" id="r_ad659ca9be93bd82dd6aff814089b6a6e"><td class="memItemLeft" align="right" valign="top"><a id="ad659ca9be93bd82dd6aff814089b6a6e" name="ad659ca9be93bd82dd6aff814089b6a6e"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>setPropagationFrame</b> (<a class="el" href="classast_1_1Frame.html">Frame</a> *frame)</td></tr>
 <tr class="separator:ad659ca9be93bd82dd6aff814089b6a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,6 +154,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setIntegrator</b> (<a
 <tr class="memitem:a97b91190d3858e3ad750e33992031180" id="r_a97b91190d3858e3ad750e33992031180"><td class="memItemLeft" align="right" valign="top"><a id="a97b91190d3858e3ad750e33992031180" name="a97b91190d3858e3ad750e33992031180"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</td></tr>
 <tr class="separator:a97b91190d3858e3ad750e33992031180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17be20cd12190596f3802c3976dcadd8" id="r_a17be20cd12190596f3802c3976dcadd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17be20cd12190596f3802c3976dcadd8">addEventDetector</a> (<a class="el" href="classast_1_1EventDetector.html">EventDetector</a> *eventDetector)</td></tr>
+<tr class="separator:a17be20cd12190596f3802c3976dcadd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3209e7dfccd8904d4d2481150f625103" id="r_a3209e7dfccd8904d4d2481150f625103"><td class="memItemLeft" align="right" valign="top"><a id="a3209e7dfccd8904d4d2481150f625103" name="a3209e7dfccd8904d4d2481150f625103"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clearEventDetectors</b> ()</td></tr>
+<tr class="separator:a3209e7dfccd8904d4d2481150f625103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
 <tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
@@ -324,6 +332,31 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>高精度轨道预报器 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
+<a id="a17be20cd12190596f3802c3976dcadd8" name="a17be20cd12190596f3802c3976dcadd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17be20cd12190596f3802c3976dcadd8">&#9670;&#160;</a></span>addEventDetector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::HPOP::addEventDetector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1EventDetector.html">EventDetector</a> *</td>          <td class="paramname"><span class="paramname"><em>eventDetector</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加事件检测器 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">eventDetector</td><td>事件检测器实例指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae7730a7e7ca7125c8780c5118f1e6ff5" name="ae7730a7e7ca7125c8780c5118f1e6ff5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7730a7e7ca7125c8780c5118f1e6ff5">&#9670;&#160;</a></span>propagate()</h2>
 

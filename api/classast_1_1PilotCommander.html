@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::PilotCommander类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1PilotCommander.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#signals">信号</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classast_1_1PilotCommander-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::PilotCommander类 参考<div class="ingroups"><a class="el" href="group__UiPilot.html">UiPilot</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="PilotCommander_8hpp_source.html">PilotCommander.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::PilotCommander 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1PilotCommander.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
+信号</h2></td></tr>
+<tr class="memitem:a6c8d16ab583223ce6de7cd23a2219289" id="r_a6c8d16ab583223ce6de7cd23a2219289"><td class="memItemLeft" align="right" valign="top"><a id="a6c8d16ab583223ce6de7cd23a2219289" name="a6c8d16ab583223ce6de7cd23a2219289"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>outputReady</b> (const QString &amp;text)</td></tr>
+<tr class="separator:a6c8d16ab583223ce6de7cd23a2219289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3893997f10c582b5af46103411dd2d80" id="r_a3893997f10c582b5af46103411dd2d80"><td class="memItemLeft" align="right" valign="top"><a id="a3893997f10c582b5af46103411dd2d80" name="a3893997f10c582b5af46103411dd2d80"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>quitRequested</b> ()</td></tr>
+<tr class="separator:a3893997f10c582b5af46103411dd2d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a545c8549d8130ac48d3b67c917e32d72" id="r_a545c8549d8130ac48d3b67c917e32d72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a545c8549d8130ac48d3b67c917e32d72">PilotCommander</a> (<a class="el" href="classast_1_1PilotSession.html">PilotSession</a> *session, <a class="el" href="classast_1_1PilotRecorder.html">PilotRecorder</a> *recorder, QObject *parent=nullptr)</td></tr>
+<tr class="separator:a545c8549d8130ac48d3b67c917e32d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6518385425805db8dee07ab493e74797" id="r_a6518385425805db8dee07ab493e74797"><td class="memItemLeft" align="right" valign="top"><a id="a6518385425805db8dee07ab493e74797" name="a6518385425805db8dee07ab493e74797"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~PilotCommander</b> () override</td></tr>
+<tr class="separator:a6518385425805db8dee07ab493e74797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a809e78d53ea3c76d121e8f8cc3c5fa14" id="r_a809e78d53ea3c76d121e8f8cc3c5fa14"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a809e78d53ea3c76d121e8f8cc3c5fa14">execute</a> (const std::string &amp;line)</td></tr>
+<tr class="separator:a809e78d53ea3c76d121e8f8cc3c5fa14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae840e5dc2a580ae143d1f2c264189db3" id="r_ae840e5dc2a580ae143d1f2c264189db3"><td class="memItemLeft" align="right" valign="top"><a id="ae840e5dc2a580ae143d1f2c264189db3" name="ae840e5dc2a580ae143d1f2c264189db3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>executeAsync</b> (const std::string &amp;line)</td></tr>
+<tr class="separator:ae840e5dc2a580ae143d1f2c264189db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51fb583365724259cfa6915e0b2ee606" id="r_a51fb583365724259cfa6915e0b2ee606"><td class="memItemLeft" align="right" valign="top"><a id="a51fb583365724259cfa6915e0b2ee606" name="a51fb583365724259cfa6915e0b2ee606"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>startStdinLoop</b> ()</td></tr>
+<tr class="separator:a51fb583365724259cfa6915e0b2ee606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8172a4c87e08442f87d17c7972f35301" id="r_a8172a4c87e08442f87d17c7972f35301"><td class="memItemLeft" align="right" valign="top"><a id="a8172a4c87e08442f87d17c7972f35301" name="a8172a4c87e08442f87d17c7972f35301"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> ()</td></tr>
+<tr class="separator:a8172a4c87e08442f87d17c7972f35301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7629da59ef0a8a97b13383f18adbe7b6" id="r_a7629da59ef0a8a97b13383f18adbe7b6"><td class="memItemLeft" align="right" valign="top"><a id="a7629da59ef0a8a97b13383f18adbe7b6" name="a7629da59ef0a8a97b13383f18adbe7b6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRunning</b> () const</td></tr>
+<tr class="separator:a7629da59ef0a8a97b13383f18adbe7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2c712c5759548975f72c02c18be425b" id="r_ad2c712c5759548975f72c02c18be425b"><td class="memItemLeft" align="right" valign="top"><a id="ad2c712c5759548975f72c02c18be425b" name="ad2c712c5759548975f72c02c18be425b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setOutputCallback</b> (std::function&lt; void(const std::string &amp;)&gt; cb)</td></tr>
+<tr class="separator:ad2c712c5759548975f72c02c18be425b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a4b2d2cc3377114cc9a92bba53656e4f6" id="r_a4b2d2cc3377114cc9a92bba53656e4f6"><td class="memItemLeft" align="right" valign="top"><a id="a4b2d2cc3377114cc9a92bba53656e4f6" name="a4b2d2cc3377114cc9a92bba53656e4f6"></a>
+static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>helpText</b> ()</td></tr>
+<tr class="separator:a4b2d2cc3377114cc9a92bba53656e4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>命令调度器 </p>
+<p>提供线程安全的命令执行接口，供 stdin 线程和内嵌控制台共用。</p><ul>
+<li>从主线程调用 → 直接执行</li>
+<li>从其他线程调用 → marshal 到主线程 </li>
+</ul>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a545c8549d8130ac48d3b67c917e32d72" name="a545c8549d8130ac48d3b67c917e32d72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a545c8549d8130ac48d3b67c917e32d72">&#9670;&#160;</a></span>PilotCommander()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::PilotCommander::PilotCommander </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1PilotSession.html">PilotSession</a> *</td>          <td class="paramname"><span class="paramname"><em>session</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1PilotRecorder.html">PilotRecorder</a> *</td>          <td class="paramname"><span class="paramname"><em>recorder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>构造函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session</td><td>LLM 对话会话 </td></tr>
+    <tr><td class="paramname">recorder</td><td>录制器（可为 nullptr） </td></tr>
+    <tr><td class="paramname">parent</td><td>父对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a809e78d53ea3c76d121e8f8cc3c5fa14" name="a809e78d53ea3c76d121e8f8cc3c5fa14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a809e78d53ea3c76d121e8f8cc3c5fa14">&#9670;&#160;</a></span>execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ast::PilotCommander::execute </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>line</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>执行命令字符串（线程安全） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>命令文本 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>执行结果输出 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUiPilot/<a class="el" href="PilotCommander_8hpp_source.html">PilotCommander.hpp</a></li>
+<li>src/AstUiPilot/<a class="el" href="PilotCommander_8cpp.html">PilotCommander.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1PilotCommander.html">PilotCommander</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

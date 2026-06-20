@@ -85,6 +85,7 @@ var menudata={children:[
 {text:"枚举值",url:"namespacemembers_eval.html",children:[
 {text:"e",url:"namespacemembers_eval.html#index_e"},
 {text:"i",url:"namespacemembers_eval_i.html#index_i"},
+{text:"k",url:"namespacemembers_eval_k.html#index_k"},
 {text:"n",url:"namespacemembers_eval_n.html#index_n"}]}]}]},
 {text:"类",url:"annotated.html",children:[
 {text:"类列表",url:"annotated.html"},

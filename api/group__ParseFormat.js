@@ -104,6 +104,7 @@ var group__ParseFormat =
       [ "operator[]", "classast_1_1JsonValue.html#a0a9f44781abf54bdfc929e71884d79d9", null ],
       [ "parseFromFile", "classast_1_1JsonValue.html#ade53b5284b1f88ccfc45c56d886e6a2e", null ],
       [ "parseFromString", "classast_1_1JsonValue.html#aa4b6ae6f1f0a8cfc7511bbcf8b15ccac", null ],
+      [ "prepend", "classast_1_1JsonValue.html#a3f14b1923da3106185811c7b413aa156", null ],
       [ "setArray", "classast_1_1JsonValue.html#a3afb4f1aa5bc95a93b1af06d86e4c9c5", null ],
       [ "setBool", "classast_1_1JsonValue.html#a58ab3604ae842e91f232245dedd7e004", null ],
       [ "setDouble", "classast_1_1JsonValue.html#aeabd537ac2558c3de9e1d4f89024ee37", null ],

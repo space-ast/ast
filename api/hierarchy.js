@@ -2,7 +2,6 @@ var hierarchy =
 [
     [ "ast::AEP8Data", "classast_1_1AEP8Data.html", null ],
     [ "ast::AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
-    [ "ast::AggRenderer", "classast_1_1AggRenderer.html", null ],
     [ "alist", "structalist.html", null ],
     [ "allocator_type", null, [
       [ "ast::CorVector< T >::CorVectorAllocator", "structast_1_1CorVector_1_1CorVectorAllocator.html", null ]
@@ -29,6 +28,9 @@ var hierarchy =
       [ "ast::QwtBackend", "classast_1_1QwtBackend.html", null ]
     ] ],
     [ "ast::BackTrace", "classast_1_1BackTrace.html", null ],
+    [ "ast::BaseGroupChat", "classast_1_1BaseGroupChat.html", [
+      [ "ast::RoundRobinGroupChat", "classast_1_1RoundRobinGroupChat.html", null ]
+    ] ],
     [ "ast::BaseParser", "classast_1_1BaseParser.html", [
       [ "ast::BKVParser", "classast_1_1BKVParser.html", null ],
       [ "ast::DAFParser", "classast_1_1DAFParser.html", [
@@ -37,6 +39,10 @@ var hierarchy =
       [ "ast::KVParser", "classast_1_1KVParser.html", null ],
       [ "ast::PCKParser", "classast_1_1PCKParser.html", null ],
       [ "ast::XMLParser", "classast_1_1XMLParser.html", null ]
+    ] ],
+    [ "ast::BaseRenderer", "classast_1_1BaseRenderer.html", [
+      [ "ast::MarkdownANSIRenderer", "classast_1_1MarkdownANSIRenderer.html", null ],
+      [ "ast::MarkdownHTMLRenderer", "classast_1_1MarkdownHTMLRenderer.html", null ]
     ] ],
     [ "ast::BKVItemView", "classast_1_1BKVItemView.html", null ],
     [ "ast::BKVNode", "classast_1_1BKVNode.html", [
@@ -56,8 +62,6 @@ var hierarchy =
       ] ]
     ] ],
     [ "ast::BKVTree", "classast_1_1BKVTree.html", null ],
-    [ "ast::BmpFileHeader", "structast_1_1BmpFileHeader.html", null ],
-    [ "ast::BmpInfoHeader", "structast_1_1BmpInfoHeader.html", null ],
     [ "ast::Bracket", "classast_1_1Bracket.html", null ],
     [ "ast::Breakpoint", "classast_1_1Breakpoint.html", null ],
     [ "ast::BuildTarget", "classast_1_1BuildTarget.html", null ],
@@ -103,6 +107,14 @@ var hierarchy =
     ] ],
     [ "ast::CentroidPosition", "classast_1_1CentroidPosition.html", null ],
     [ "AstCOMLib::CExecCmdResult", "classAstCOMLib_1_1CExecCmdResult.html", null ],
+    [ "ast::ChatAgent", "classast_1_1ChatAgent.html", [
+      [ "ast::AssistantAgent", "classast_1_1AssistantAgent.html", null ],
+      [ "ast::UserProxyAgent", "classast_1_1UserProxyAgent.html", null ]
+    ] ],
+    [ "ast::ChatEventHandler", "classast_1_1ChatEventHandler.html", [
+      [ "ast::ChatConsole", "classast_1_1ChatConsole.html", null ],
+      [ "ast::UiChatEventHandler", "classast_1_1UiChatEventHandler.html", null ]
+    ] ],
     [ "ast::ChatMessage", "classast_1_1ChatMessage.html", null ],
     [ "ast::ChatSession", "classast_1_1ChatSession.html", [
       [ "ast::AgentSession", "classast_1_1AgentSession.html", null ]
@@ -164,16 +176,6 @@ var hierarchy =
       [ "ast::ConeEclipseCalculator", "classast_1_1ConeEclipseCalculator.html", null ],
       [ "ast::CylindricalEclipseCalculator", "classast_1_1CylindricalEclipseCalculator.html", null ],
       [ "ast::NoneEclipseCalculator", "classast_1_1NoneEclipseCalculator.html", null ]
-    ] ],
-    [ "EmbeddedQueue< QueueSize >", "classEmbeddedQueue.html", null ],
-    [ "EmbeddedQueue< 3 >", "classEmbeddedQueue.html", [
-      [ "PathClipper< VertexSource >", "classPathClipper.html", null ]
-    ] ],
-    [ "EmbeddedQueue< 4 >", "classEmbeddedQueue.html", [
-      [ "PathNanRemover< VertexSource >", "classPathNanRemover.html", null ]
-    ] ],
-    [ "EmbeddedQueue< 9 >", "classEmbeddedQueue.html", [
-      [ "PathSimplifier< VertexSource >", "classPathSimplifier.html", null ]
     ] ],
     [ "ast::EOP::Entry", "structast_1_1EOP_1_1Entry.html", null ],
     [ "ast::LeapSecond::Entry", "structast_1_1LeapSecond_1_1Entry.html", null ],
@@ -269,7 +271,7 @@ var hierarchy =
     ] ],
     [ "ast::has_own_getType< T >", "structast_1_1has__own__getType.html", null ],
     [ "std::hash< _AST StringViewBasic< _Char > >", "structstd_1_1hash_3_01__AST_01StringViewBasic_3_01__Char_01_4_01_4.html", null ],
-    [ "std::hash< ast::WeakPtr< _Object > >", "structstd_1_1hash_3_01ast_1_1WeakPtr_3_01__Object_01_4_01_4.html", null ],
+    [ "std::hash< _AST WeakPtr< _Object > >", "structstd_1_1hash_3_01__AST_01WeakPtr_3_01__Object_01_4_01_4.html", null ],
     [ "ast::IAUXYS", "classast_1_1IAUXYS.html", null ],
     [ "ast::IAUXYSPrecomputed", "classast_1_1IAUXYSPrecomputed.html", null ],
     [ "icilist", "structicilist.html", null ],
@@ -370,7 +372,6 @@ var hierarchy =
     [ "ast::ISymbolScope", "classast_1_1ISymbolScope.html", [
       [ "ast::SymbolScope", "classast_1_1SymbolScope.html", null ]
     ] ],
-    [ "EmbeddedQueue< QueueSize >::item", "structEmbeddedQueue_1_1item.html", null ],
     [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >::Iterator", "classast_1_1strings__internal_1_1Splitter_1_1Iterator.html", null ],
     [ "ast::TimeInterval::DiscreteEpochSecondRange::iterator", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html", null ],
     [ "ast::TimeInterval::DiscreteTimePointRange::iterator", "classast_1_1TimeInterval_1_1DiscreteTimePointRange_1_1iterator.html", null ],
@@ -407,10 +408,11 @@ var hierarchy =
     [ "ast::LatLonAlt", "classast_1_1LatLonAlt.html", null ],
     [ "ast::LeapSecond", "classast_1_1LeapSecond.html", null ],
     [ "ast::Lexer", "classast_1_1Lexer.html", null ],
-    [ "ast::LineStyle", "structast_1_1LineStyle.html", null ],
     [ "ast::LLMClient", "classast_1_1LLMClient.html", [
       [ "ast::Anthropic", "classast_1_1Anthropic.html", null ],
-      [ "ast::OpenAI", "classast_1_1OpenAI.html", null ]
+      [ "ast::OpenAI", "classast_1_1OpenAI.html", [
+        [ "ast::DeepSeek", "classast_1_1DeepSeek.html", null ]
+      ] ]
     ] ],
     [ "ast::LLMConfig", "classast_1_1LLMConfig.html", null ],
     [ "ast::LocaleGuard", "classast_1_1LocaleGuard.html", null ],
@@ -420,6 +422,14 @@ var hierarchy =
     [ "ast::LowerMatrix< _Scalar >", "classast_1_1LowerMatrix.html", null ],
     [ "ast::LowerMatrix< double >", "classast_1_1LowerMatrix.html", null ],
     [ "ast::detail::make_arg_pair< Tag, Pos >", "structast_1_1detail_1_1make__arg__pair.html", null ],
+    [ "ast::MarkdownBlockParser", "classast_1_1MarkdownBlockParser.html", null ],
+    [ "ast::MarkdownInlineParser", "classast_1_1MarkdownInlineParser.html", null ],
+    [ "ast::MarkdownParser", "classast_1_1MarkdownParser.html", null ],
+    [ "ast::MarkdownSax", "classast_1_1MarkdownSax.html", [
+      [ "ast::MarkdownANSI", "classast_1_1MarkdownANSI.html", null ],
+      [ "ast::MarkdownHTML", "classast_1_1MarkdownHTML.html", null ]
+    ] ],
+    [ "ast::MarkdownTableParser", "classast_1_1MarkdownTableParser.html", null ],
     [ "ast::Matrix< _Scalar >", "classast_1_1Matrix.html", null ],
     [ "ast::MatrixMN< _Scalar, Row, Col >", "classast_1_1MatrixMN.html", null ],
     [ "ast::MatrixMN< _Scalar, 3, 3 >", "classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html", null ],
@@ -449,6 +459,10 @@ var hierarchy =
     [ "ast::NetworkRequest", "classast_1_1NetworkRequest.html", null ],
     [ "ast::NetworkResponse", "classast_1_1NetworkResponse.html", null ],
     [ "ast::NetworkSession", "classast_1_1NetworkSession.html", null ],
+    [ "ast::NetworkStreamReceiver", "classast_1_1NetworkStreamReceiver.html", [
+      [ "ast::CollectingStreamReceiver", "classast_1_1CollectingStreamReceiver.html", null ],
+      [ "ast::SSEParser", "classast_1_1SSEParser.html", null ]
+    ] ],
     [ "ast::NLPBounds", "structast_1_1NLPBounds.html", null ],
     [ "ast::NLPInfo", "structast_1_1NLPInfo.html", null ],
     [ "ast::NLPInput", "structast_1_1NLPInput.html", null ],
@@ -1018,7 +1032,8 @@ var hierarchy =
     [ "parm6_2_", "structparm6__2__.html", null ],
     [ "ast::Parser", "classast_1_1Parser.html", null ],
     [ "ast::fs_simple::path", "classast_1_1fs__simple_1_1path.html", null ],
-    [ "PathSnapper< VertexSource >", "classPathSnapper.html", null ],
+    [ "ast::PilotPipeServer", "classast_1_1PilotPipeServer.html", null ],
+    [ "ast::PilotPolisher", "classast_1_1PilotPolisher.html", null ],
     [ "ast::PoleMotion", "structast_1_1PoleMotion.html", null ],
     [ "ast::PoleMotionSXY", "structast_1_1PoleMotionSXY.html", null ],
     [ "ast::Polynomial", "classast_1_1Polynomial.html", null ],
@@ -1043,7 +1058,14 @@ var hierarchy =
       [ "ast::EditFigureDialog", "classast_1_1EditFigureDialog.html", null ],
       [ "ast::UiNewObjectDialog", "classast_1_1UiNewObjectDialog.html", null ],
       [ "ast::UiNewObjectQuickDialog", "classast_1_1UiNewObjectQuickDialog.html", null ],
-      [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ]
+      [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ],
+      [ "ast::UiWorkbenchExprPicker", "classast_1_1UiWorkbenchExprPicker.html", null ]
+    ] ],
+    [ "QDockWidget", null, [
+      [ "ast::UiChatDockWidget", "classast_1_1UiChatDockWidget.html", null ]
+    ] ],
+    [ "QEvent", null, [
+      [ "ast::CallableEvent", "classast_1_1CallableEvent.html", null ]
     ] ],
     [ "QLineEdit", null, [
       [ "ast::UiValueEdit", "classast_1_1UiValueEdit.html", [
@@ -1058,7 +1080,14 @@ var hierarchy =
       [ "ast::UiMainWindow", "classast_1_1UiMainWindow.html", null ]
     ] ],
     [ "QObject", null, [
-      [ "ast::CloseEventDetecter", "classast_1_1CloseEventDetecter.html", null ]
+      [ "ast::CloseEventDetecter", "classast_1_1CloseEventDetecter.html", null ],
+      [ "ast::InvokeHelper", "classast_1_1InvokeHelper.html", null ],
+      [ "ast::PilotAgent", "classast_1_1PilotAgent.html", null ],
+      [ "ast::PilotCommander", "classast_1_1PilotCommander.html", null ],
+      [ "ast::PilotPlayer", "classast_1_1PilotPlayer.html", null ],
+      [ "ast::PilotRecorder", "classast_1_1PilotRecorder.html", null ],
+      [ "ast::PilotSession", "classast_1_1PilotSession.html", null ],
+      [ "ast::UiChatEventHandler", "classast_1_1UiChatEventHandler.html", null ]
     ] ],
     [ "QPushButton", null, [
       [ "ast::ColorButton", "classast_1_1ColorButton.html", null ]
@@ -1066,6 +1095,9 @@ var hierarchy =
     [ "QStackedWidget", null, [
       [ "ast::UiCommandEditor", "classast_1_1UiCommandEditor.html", null ],
       [ "ast::UiEventDetectorEditor", "classast_1_1UiEventDetectorEditor.html", null ]
+    ] ],
+    [ "QThread", null, [
+      [ "ast::UiChatWorker", "classast_1_1UiChatWorker.html", null ]
     ] ],
     [ "QTreeWidget", null, [
       [ "ast::UiAttributeTree", "classast_1_1UiAttributeTree.html", null ],
@@ -1087,6 +1119,11 @@ var hierarchy =
       [ "ast::LinePropertyPage", "classast_1_1LinePropertyPage.html", null ],
       [ "ast::SurfacePropertyPage", "classast_1_1SurfacePropertyPage.html", null ],
       [ "ast::UiBurnEditor", "classast_1_1UiBurnEditor.html", null ],
+      [ "ast::UiChatInput", "classast_1_1UiChatInput.html", null ],
+      [ "ast::UiChatMainWidget", "classast_1_1UiChatMainWidget.html", null ],
+      [ "ast::UiChatMessageItem", "classast_1_1UiChatMessageItem.html", null ],
+      [ "ast::UiChatMessageList", "classast_1_1UiChatMessageList.html", null ],
+      [ "ast::UiChatPanel", "classast_1_1UiChatPanel.html", null ],
       [ "ast::UiExpressionBrowser", "classast_1_1UiExpressionBrowser.html", null ],
       [ "ast::UiFigure", "classast_1_1UiFigure.html", null ],
       [ "ast::UiFilePath", "classast_1_1UiFilePath.html", null ],
@@ -1096,9 +1133,11 @@ var hierarchy =
         [ "ast::UiBodyEphemerisSPK", "classast_1_1UiBodyEphemerisSPK.html", null ],
         [ "ast::UiBurnImpulsive", "classast_1_1UiBurnImpulsive.html", null ],
         [ "ast::UiCelestialBody", "classast_1_1UiCelestialBody.html", null ],
+        [ "ast::UiCommandSummary", "classast_1_1UiCommandSummary.html", null ],
         [ "ast::UiDragForce", "classast_1_1UiDragForce.html", null ],
         [ "ast::UiEventDetector", "classast_1_1UiEventDetector.html", null ],
         [ "ast::UiEventDetectorList", "classast_1_1UiEventDetectorList.html", null ],
+        [ "ast::UiFeasibleRegionStudy", "classast_1_1UiFeasibleRegionStudy.html", null ],
         [ "ast::UiFuelTank", "classast_1_1UiFuelTank.html", null ],
         [ "ast::UiGravityForce", "classast_1_1UiGravityForce.html", null ],
         [ "ast::UiHPOPForceModel", "classast_1_1UiHPOPForceModel.html", null ],
@@ -1122,25 +1161,26 @@ var hierarchy =
         [ "ast::UiThirdBodyForce", "classast_1_1UiThirdBodyForce.html", null ],
         [ "ast::UiThirdBodyForceList", "classast_1_1UiThirdBodyForceList.html", null ]
       ] ],
-      [ "ast::UiPropertyEditor", "classast_1_1UiPropertyEditor.html", null ],
+      [ "ast::UiPilotConsole", "classast_1_1UiPilotConsole.html", null ],
+      [ "ast::UiPilotToolbar", "classast_1_1UiPilotToolbar.html", null ],
       [ "ast::UiResultView", "classast_1_1UiResultView.html", null ],
       [ "ast::UiSelectFrame", "classast_1_1UiSelectFrame.html", null ],
       [ "ast::UiStartPage", "classast_1_1UiStartPage.html", null ],
       [ "ast::UiStateEditor", "classast_1_1UiStateEditor.html", null ],
-      [ "ast::UiStudyConstraintEditor", "classast_1_1UiStudyConstraintEditor.html", null ],
-      [ "ast::UiStudyConstraintList", "classast_1_1UiStudyConstraintList.html", null ],
-      [ "ast::UiStudyVariableList", "classast_1_1UiStudyVariableList.html", null ],
       [ "ast::UiStudyWorkbench", "classast_1_1UiStudyWorkbench.html", null ],
+      [ "ast::UiSweepOutputList", "classast_1_1UiSweepOutputList.html", null ],
       [ "ast::UiSweepStudy", "classast_1_1UiSweepStudy.html", null ],
+      [ "ast::UiSweepVariableList", "classast_1_1UiSweepVariableList.html", null ],
       [ "ast::UiTimeInterval", "classast_1_1UiTimeInterval.html", null ],
-      [ "ast::UiVariableEditor", "classast_1_1UiVariableEditor.html", null ],
+      [ "ast::UiToolCallCard", "classast_1_1UiToolCallCard.html", null ],
+      [ "ast::UiToolCallTimeline", "classast_1_1UiToolCallTimeline.html", null ],
       [ "ast::UiVariableList", "classast_1_1UiVariableList.html", null ],
       [ "ast::UiWidget", "classast_1_1UiWidget.html", null ]
     ] ],
     [ "QwtFigureWidgetOverlay", null, [
       [ "ast::EditFigureOverlay", "classast_1_1EditFigureOverlay.html", null ]
     ] ],
-    [ "RandomNumberGenerator", "classRandomNumberGenerator.html", null ],
+    [ "ast::RecordStep", "structast_1_1RecordStep.html", null ],
     [ "ast::Rotation", "classast_1_1Rotation.html", [
       [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ]
     ] ],
@@ -1171,6 +1211,7 @@ var hierarchy =
       [ "ast::PythonExecutor", "classast_1_1PythonExecutor.html", null ]
     ] ],
     [ "ast::ScriptResult", "classast_1_1ScriptResult.html", null ],
+    [ "ast::SegmentContext", "structast_1_1SegmentContext.html", null ],
     [ "ast::strings_internal::SelectDelimiter< Delimiter >", "structast_1_1strings__internal_1_1SelectDelimiter.html", null ],
     [ "ast::strings_internal::SelectDelimiter< char >", "structast_1_1strings__internal_1_1SelectDelimiter_3_01char_01_4.html", null ],
     [ "ast::strings_internal::SelectDelimiter< const char * >", "structast_1_1strings__internal_1_1SelectDelimiter_3_01const_01char_01_5_01_4.html", null ],
@@ -1218,7 +1259,6 @@ var hierarchy =
     [ "ast::SimEngine", "classast_1_1SimEngine.html", null ],
     [ "ast::SimTime", "classast_1_1SimTime.html", null ],
     [ "ast::SinCos", "classast_1_1SinCos.html", null ],
-    [ "Sketch< VertexSource >", "classSketch.html", null ],
     [ "ast::SkipBracket", "structast_1_1SkipBracket.html", null ],
     [ "ast::strings_internal::SkipEmpty", "structast_1_1strings__internal_1_1SkipEmpty.html", null ],
     [ "ast::strings_internal::SkipWhitespace", "structast_1_1strings__internal_1_1SkipWhitespace.html", null ],
@@ -1257,6 +1297,7 @@ var hierarchy =
     [ "ast::StartupConfig", "classast_1_1StartupConfig.html", null ],
     [ "ast::StringViewBasic< _Char >", "classast_1_1StringViewBasic.html", null ],
     [ "ast::StringViewBasic< char >", "classast_1_1StringViewBasic.html", null ],
+    [ "ast::SummarySection", "structast_1_1SummarySection.html", null ],
     [ "Qwt3D::SurfacePlot", null, [
       [ "ast::ColoredSurfacePlot", "classast_1_1ColoredSurfacePlot.html", null ]
     ] ],
@@ -1266,6 +1307,9 @@ var hierarchy =
     ] ],
     [ "ast::TAIScale", "classast_1_1TAIScale.html", null ],
     [ "ast::TDBScale", "classast_1_1TDBScale.html", null ],
+    [ "ast::TerminationCondition", "classast_1_1TerminationCondition.html", [
+      [ "ast::TextMentionTermination", "classast_1_1TextMentionTermination.html", null ]
+    ] ],
     [ "ast::Time", "classast_1_1Time.html", null ],
     [ "ast::TimeInterval", "classast_1_1TimeInterval.html", null ],
     [ "ast::TimePoint", "classast_1_1TimePoint.html", null ],

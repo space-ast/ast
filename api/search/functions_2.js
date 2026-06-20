@@ -15,8 +15,10 @@ var searchData=
   ['borrow_5ffrom_12',['borrow_from',['../classast_1_1CorVector.html#ad189ee7ec64af1def41a8ec9ecce1c77',1,'ast::CorVector']]],
   ['brenth_13',['brenth',['../group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa',1,'ast']]],
   ['brentq_14',['brentq',['../group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05',1,'ast']]],
-  ['buffer_15',['buffer',['../classast_1_1AggRenderer.html#ace8dbe5df719663da8c3776a8e44fe95',1,'ast::AggRenderer']]],
-  ['build_16',['build',['../classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24',1,'ast::BuildTarget']]],
-  ['buildchildren_17',['buildChildren',['../classast_1_1UiAttributeTreeItem.html#a2d3760c73c881c0ed96322eaf73b6c87',1,'ast::UiAttributeTreeItem::buildChildren()'],['../classast_1_1UiObjectTreeItem.html#a761cfdd57ef7baf2c6e421880fe97053',1,'ast::UiObjectTreeItem::buildChildren()']]],
-  ['buildtarget_18',['BuildTarget',['../classast_1_1BuildTarget.html#afcb30a22f33b3edb4701b4f640259d6e',1,'ast::BuildTarget']]]
+  ['build_15',['build',['../classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24',1,'ast::BuildTarget']]],
+  ['buildchildren_16',['buildChildren',['../classast_1_1UiAttributeTreeItem.html#a2d3760c73c881c0ed96322eaf73b6c87',1,'ast::UiAttributeTreeItem::buildChildren()'],['../classast_1_1UiObjectTreeItem.html#a761cfdd57ef7baf2c6e421880fe97053',1,'ast::UiObjectTreeItem::buildChildren()']]],
+  ['buildresult_17',['buildResult',['../classast_1_1SSEParser.html#aa29ddb1197af50679e2888975e46738d',1,'ast::SSEParser']]],
+  ['buildsectiongroups_18',['buildSectionGroups',['../classast_1_1UiCommandSummary.html#a75aefa26c9a361c32c105e812aecc595',1,'ast::UiCommandSummary']]],
+  ['buildsystemprompt_19',['buildSystemPrompt',['../classast_1_1PilotSession.html#aaf71283f59438593d16e59b2bb25504a',1,'ast::PilotSession']]],
+  ['buildtarget_20',['BuildTarget',['../classast_1_1BuildTarget.html#afcb30a22f33b3edb4701b4f640259d6e',1,'ast::BuildTarget']]]
 ];

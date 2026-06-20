@@ -120,6 +120,25 @@ $(function(){initNavTree('_2github_2workspace_2src_2AstUtil_2String_2Escape_8hpp
 <div class="line"> </div>
 <div class="line">AST_NAMESPACE_BEGIN</div>
 <div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>escape</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kReset[]       = <span class="stringliteral">&quot;\033[0m&quot;</span>;        </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kBold[]        = <span class="stringliteral">&quot;\033[1m&quot;</span>;        </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kItalic[]      = <span class="stringliteral">&quot;\033[3m&quot;</span>;        </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kUnderline[]   = <span class="stringliteral">&quot;\033[4m&quot;</span>;        </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kStrike[]      = <span class="stringliteral">&quot;\033[9m&quot;</span>;        </div>
+<div class="line">    </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kBlue[]        = <span class="stringliteral">&quot;\033[34m&quot;</span>;       </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kCyan[]        = <span class="stringliteral">&quot;\033[36m&quot;</span>;       </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kDim[]         = <span class="stringliteral">&quot;\033[2m&quot;</span>;        </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kYellow[]      = <span class="stringliteral">&quot;\033[33m&quot;</span>;       </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kBrightWhite[] = <span class="stringliteral">&quot;\033[97m&quot;</span>;       </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">char</span> kBrightCyan[]  = <span class="stringliteral">&quot;\033[96m&quot;</span>;       </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
 <div class="line">AST_UTIL_API std::string aCUnescape(StringView source);</div>
 <div class="line"> </div>
 <div class="line"> </div>

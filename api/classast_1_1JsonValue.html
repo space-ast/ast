@@ -223,6 +223,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr
 <tr class="memitem:a048e18bc93767da5feb15ecab7eccc99" id="r_a048e18bc93767da5feb15ecab7eccc99"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a048e18bc93767da5feb15ecab7eccc99"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a048e18bc93767da5feb15ecab7eccc99">insert</a> (const std::string &amp;name, T value)</td></tr>
 <tr class="separator:a048e18bc93767da5feb15ecab7eccc99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f14b1923da3106185811c7b413aa156" id="r_a3f14b1923da3106185811c7b413aa156"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f14b1923da3106185811c7b413aa156">prepend</a> (<a class="el" href="classast_1_1JsonValue.html">JsonValue</a> value)</td></tr>
+<tr class="separator:a3f14b1923da3106185811c7b413aa156"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b87574ba1019d3abd622ffe58d61ba7" id="r_a5b87574ba1019d3abd622ffe58d61ba7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b87574ba1019d3abd622ffe58d61ba7">append</a> (<a class="el" href="classast_1_1JsonValue.html">JsonValue</a> value)</td></tr>
 <tr class="separator:a5b87574ba1019d3abd622ffe58d61ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd1e7d053bb478ac52d2e535ce4b9400" id="r_abd1e7d053bb478ac52d2e535ce4b9400"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -584,11 +586,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr
       </table>
 </div><div class="memdoc">
 
-<p>插入键值对（模板重载） </p>
+<p>插入元素到数组末尾 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>数组索引 </td></tr>
-    <tr><td class="paramname">value</td><td>键值 </td></tr>
+    <tr><td class="paramname">value</td><td>元素值 </td></tr>
   </table>
   </dd>
 </dl>
@@ -620,11 +621,10 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>插入键值对（模板重载） </p>
+<p>插入元素到数组末尾 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>数组索引 </td></tr>
-    <tr><td class="paramname">value</td><td>键值 </td></tr>
+    <tr><td class="paramname">value</td><td>元素值 </td></tr>
   </table>
   </dd>
 </dl>
@@ -1270,6 +1270,31 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>解析结果 </dd></dl>
+
+</div>
+</div>
+<a id="a3f14b1923da3106185811c7b413aa156" name="a3f14b1923da3106185811c7b413aa156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f14b1923da3106185811c7b413aa156">&#9670;&#160;</a></span>prepend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::JsonValue::prepend </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>插入元素到数组开头 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>元素值 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

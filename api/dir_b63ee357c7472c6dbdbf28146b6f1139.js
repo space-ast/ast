@@ -13,5 +13,6 @@ var dir_b63ee357c7472c6dbdbf28146b6f1139 =
     [ "NetworkResponse.cpp", "NetworkResponse_8cpp.html", null ],
     [ "NetworkResponse.hpp", "NetworkResponse_8hpp.html", "NetworkResponse_8hpp" ],
     [ "NetworkSession.cpp", "NetworkSession_8cpp.html", null ],
-    [ "NetworkSession.hpp", "NetworkSession_8hpp.html", "NetworkSession_8hpp" ]
+    [ "NetworkSession.hpp", "NetworkSession_8hpp.html", "NetworkSession_8hpp" ],
+    [ "NetworkStreamReceiver.hpp", "NetworkStreamReceiver_8hpp.html", null ]
 ];

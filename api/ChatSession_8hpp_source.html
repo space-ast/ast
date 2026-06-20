@@ -106,53 +106,75 @@ $(function(){initNavTree('ChatSession_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstAI/OpenAI.hpp&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstAI/ChatTool.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstAI/ChatMessages.hpp&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstAI/ChatTools.hpp&quot;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html">   41</a></span><span class="keyword">class </span>AST_AI_API <a class="code hl_class" href="classast_1_1ChatSession.html">ChatSession</a> {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classast_1_1ChatSession.html">ChatSession</a>();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    std::string sendMessage(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> message);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> setSystemPrompt(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> systemPrompt);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d">   60</a></span>    <a class="code hl_class" href="classast_1_1ChatMessages.html">ChatMessages</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d">messages</a>(){<span class="keywordflow">return</span> messages_;}</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">   64</a></span>    <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">tools</a>(){<span class="keywordflow">return</span> tools_;}</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1OpenAI.html">OpenAI</a>&amp; client();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    std::string makeChatCompletion(<span class="keywordtype">int</span> maxInteractions=20);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstAI/LLMClient.hpp&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstAI/ChatAgent.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstAI/LLMConfig.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstAI/ChatTool.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;AstAI/ChatMessages.hpp&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;AstAI/ChatTools.hpp&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;AstAI/AssistantAgent.hpp&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">class </span>AssistantAgent;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html">   44</a></span><span class="keyword">class </span>AST_AI_API <a class="code hl_class" href="classast_1_1ChatSession.html">ChatSession</a> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classast_1_1ChatSession.html">ChatSession</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    std::string chat(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> message, <span class="keywordtype">int</span> maxIterForToolCalls = 100);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    std::string chatStream(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> message, <a class="code hl_class" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a>&amp; handler, <span class="keywordtype">int</span> maxIterForToolCalls = 100);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    errc_t sendMessage(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> message);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> setSystemPrompt(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> systemPrompt);</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> handleToolCalls(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCalls, <span class="keywordtype">int</span> maxInteractions = 20);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::string handleToolCall(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCall);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_class" href="classast_1_1OpenAI.html">OpenAI</a>* client_{<span class="keyword">nullptr</span>};               </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    OpenAI internalClient_;                 </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    ChatMessages messages_;                 </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    ChatTools tools_;                       </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d">   74</a></span>    <a class="code hl_class" href="classast_1_1ChatMessages.html">ChatMessages</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d">messages</a>(){<span class="keywordflow">return</span> messages_;}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_class" href="classast_1_1AssistantAgent.html">AssistantAgent</a>&amp; agent() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#a79d7c1e5e3fcf6874305504691d3daba">   81</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatSession.html#a79d7c1e5e3fcf6874305504691d3daba">setAgent</a>(std::unique_ptr&lt;AssistantAgent&gt; agent){agent_ = std::move(agent);}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">   85</a></span>    <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">tools</a>(){<span class="keywordflow">return</span> agent().tools();}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#adfebf9aa6a608d83e6af377c544bc44a">   88</a></span>    <a class="code hl_class" href="classast_1_1LLMClient.html">LLMClient</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#adfebf9aa6a608d83e6af377c544bc44a">client</a>(){<span class="keywordflow">return</span> agent().client();}</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#a7ee04b929db6e0dcf142f33a0ad51f7b">   91</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#a7ee04b929db6e0dcf142f33a0ad51f7b">lastError</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> agent().lastError();}</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#a6bf231f7fb6258bd353df33b6b9dcec0">   94</a></span>    <a class="code hl_class" href="classast_1_1LLMConfig.html">LLMConfig</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#a6bf231f7fb6258bd353df33b6b9dcec0">config</a>() { <span class="keywordflow">return</span> agent().config(); }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#a37c715bce4b1c3b53fe2d41d7d8318af">   96</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1LLMConfig.html">LLMConfig</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#a37c715bce4b1c3b53fe2d41d7d8318af">config</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> agent().config(); }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    errc_t makeChatCompletion();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> handleToolCalls(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCalls);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">mutable</span> std::unique_ptr&lt;AssistantAgent&gt; agent_;     </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_class" href="classast_1_1ChatMessages.html">ChatMessages</a> messages_;                             </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>};</div>
 </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1AssistantAgent_html"><div class="ttname"><a href="classast_1_1AssistantAgent.html">ast::AssistantAgent</a></div><div class="ttdoc">聊天智能体</div><div class="ttdef"><b>定义</b> AssistantAgent.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1ChatEventHandler_html"><div class="ttname"><a href="classast_1_1ChatEventHandler.html">ast::ChatEventHandler</a></div><div class="ttdoc">流式聊天事件处理器</div><div class="ttdef"><b>定义</b> ChatEventHandler.hpp:42</div></div>
 <div class="ttc" id="aclassast_1_1ChatMessages_html"><div class="ttname"><a href="classast_1_1ChatMessages.html">ast::ChatMessages</a></div><div class="ttdoc">聊天消息集合</div><div class="ttdef"><b>定义</b> ChatMessages.hpp:39</div></div>
-<div class="ttc" id="aclassast_1_1ChatSession_html"><div class="ttname"><a href="classast_1_1ChatSession.html">ast::ChatSession</a></div><div class="ttdoc">聊天会话</div><div class="ttdef"><b>定义</b> ChatSession.hpp:41</div></div>
-<div class="ttc" id="aclassast_1_1ChatSession_html_a2c1f6b0a5dd5bab64070316bb0ef51e4"><div class="ttname"><a href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">ast::ChatSession::tools</a></div><div class="ttdeci">ChatTools &amp; tools()</div><div class="ttdoc">获取工具集合</div><div class="ttdef"><b>定义</b> ChatSession.hpp:64</div></div>
-<div class="ttc" id="aclassast_1_1ChatSession_html_ae9974e5336509f991ef1cb29eada082d"><div class="ttname"><a href="classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d">ast::ChatSession::messages</a></div><div class="ttdeci">ChatMessages &amp; messages()</div><div class="ttdoc">获取消息历史</div><div class="ttdef"><b>定义</b> ChatSession.hpp:60</div></div>
+<div class="ttc" id="aclassast_1_1ChatSession_html"><div class="ttname"><a href="classast_1_1ChatSession.html">ast::ChatSession</a></div><div class="ttdoc">聊天会话</div><div class="ttdef"><b>定义</b> ChatSession.hpp:44</div></div>
+<div class="ttc" id="aclassast_1_1ChatSession_html_a2c1f6b0a5dd5bab64070316bb0ef51e4"><div class="ttname"><a href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">ast::ChatSession::tools</a></div><div class="ttdeci">ChatTools &amp; tools()</div><div class="ttdoc">获取工具集合</div><div class="ttdef"><b>定义</b> ChatSession.hpp:85</div></div>
+<div class="ttc" id="aclassast_1_1ChatSession_html_a37c715bce4b1c3b53fe2d41d7d8318af"><div class="ttname"><a href="classast_1_1ChatSession.html#a37c715bce4b1c3b53fe2d41d7d8318af">ast::ChatSession::config</a></div><div class="ttdeci">const LLMConfig &amp; config() const</div><div class="ttdoc">获取LLM配置（只读）</div><div class="ttdef"><b>定义</b> ChatSession.hpp:96</div></div>
+<div class="ttc" id="aclassast_1_1ChatSession_html_a6bf231f7fb6258bd353df33b6b9dcec0"><div class="ttname"><a href="classast_1_1ChatSession.html#a6bf231f7fb6258bd353df33b6b9dcec0">ast::ChatSession::config</a></div><div class="ttdeci">LLMConfig &amp; config()</div><div class="ttdoc">获取LLM配置</div><div class="ttdef"><b>定义</b> ChatSession.hpp:94</div></div>
+<div class="ttc" id="aclassast_1_1ChatSession_html_a79d7c1e5e3fcf6874305504691d3daba"><div class="ttname"><a href="classast_1_1ChatSession.html#a79d7c1e5e3fcf6874305504691d3daba">ast::ChatSession::setAgent</a></div><div class="ttdeci">void setAgent(std::unique_ptr&lt; AssistantAgent &gt; agent)</div><div class="ttdoc">设置聊天智能体（转移所有权）</div><div class="ttdef"><b>定义</b> ChatSession.hpp:81</div></div>
+<div class="ttc" id="aclassast_1_1ChatSession_html_a7ee04b929db6e0dcf142f33a0ad51f7b"><div class="ttname"><a href="classast_1_1ChatSession.html#a7ee04b929db6e0dcf142f33a0ad51f7b">ast::ChatSession::lastError</a></div><div class="ttdeci">const std::string &amp; lastError() const</div><div class="ttdoc">获取最后一次错误信息</div><div class="ttdef"><b>定义</b> ChatSession.hpp:91</div></div>
+<div class="ttc" id="aclassast_1_1ChatSession_html_adfebf9aa6a608d83e6af377c544bc44a"><div class="ttname"><a href="classast_1_1ChatSession.html#adfebf9aa6a608d83e6af377c544bc44a">ast::ChatSession::client</a></div><div class="ttdeci">LLMClient &amp; client()</div><div class="ttdoc">获取当前使用的AI接口</div><div class="ttdef"><b>定义</b> ChatSession.hpp:88</div></div>
+<div class="ttc" id="aclassast_1_1ChatSession_html_ae9974e5336509f991ef1cb29eada082d"><div class="ttname"><a href="classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d">ast::ChatSession::messages</a></div><div class="ttdeci">ChatMessages &amp; messages()</div><div class="ttdoc">获取消息历史</div><div class="ttdef"><b>定义</b> ChatSession.hpp:74</div></div>
 <div class="ttc" id="aclassast_1_1ChatTools_html"><div class="ttname"><a href="classast_1_1ChatTools.html">ast::ChatTools</a></div><div class="ttdoc">AI工具集合</div><div class="ttdef"><b>定义</b> ChatTools.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
-<div class="ttc" id="aclassast_1_1OpenAI_html"><div class="ttname"><a href="classast_1_1OpenAI.html">ast::OpenAI</a></div><div class="ttdoc">OpenAI客户端</div><div class="ttdef"><b>定义</b> OpenAI.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1LLMClient_html"><div class="ttname"><a href="classast_1_1LLMClient.html">ast::LLMClient</a></div><div class="ttdoc">大语言模型客户端接口</div><div class="ttdef"><b>定义</b> LLMClient.hpp:39</div></div>
+<div class="ttc" id="aclassast_1_1LLMConfig_html"><div class="ttname"><a href="classast_1_1LLMConfig.html">ast::LLMConfig</a></div><div class="ttdoc">LLM请求配置</div><div class="ttdef"><b>定义</b> LLMConfig.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

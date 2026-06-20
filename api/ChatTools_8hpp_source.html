@@ -119,35 +119,40 @@ $(function(){initNavTree('ChatTools_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>(<span class="keywordtype">bool</span> initAsDefault);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1ChatTools.html">~ChatTools</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    std::string handleToolCall(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCall);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1ChatTools.html#ac778630307af3a54e8952b99d655df98">   52</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatTools.html#ac778630307af3a54e8952b99d655df98">addTool</a>(std::unique_ptr&lt;ChatTool&gt;&amp;&amp; tool){tools_.push_back(std::move(tool));}</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func&gt;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classast_1_1ChatTool.html">ChatTool</a>* addTool(Func func)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_class" href="classast_1_1ChatTool.html">ChatTool</a>* tool = <span class="keyword">new</span> <a class="code hl_class" href="classast_1_1ChatToolGeneric.html">ChatToolGeneric&lt;Func&gt;</a>(func);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        addTool(std::unique_ptr&lt;ChatTool&gt;(tool));</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">return</span> tool;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classast_1_1ChatTools.html#a6785fd16c9db6fb49e8aa8da8d2c2590">   63</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatTools.html#a6785fd16c9db6fb49e8aa8da8d2c2590">clearTools</a>(){tools_.clear();}</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> toJson() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    A_DISABLE_COPY(<a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    std::vector&lt;std::unique_ptr&lt;ChatTool&gt;&gt; tools_;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>(<a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>&amp; operator=(<a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    std::string handleToolCall(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; toolCall);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1ChatTools.html#ac778630307af3a54e8952b99d655df98">   54</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatTools.html#ac778630307af3a54e8952b99d655df98">addTool</a>(std::unique_ptr&lt;ChatTool&gt;&amp;&amp; tool){tools_.push_back(std::move(tool));}</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func&gt;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="classast_1_1ChatTool.html">ChatTool</a>* addTool(Func func)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_class" href="classast_1_1ChatTool.html">ChatTool</a>* tool = <span class="keyword">new</span> <a class="code hl_class" href="classast_1_1ChatToolGeneric.html">ChatToolGeneric&lt;Func&gt;</a>(func);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        addTool(std::unique_ptr&lt;ChatTool&gt;(tool));</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">return</span> tool;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1ChatTools.html#a6785fd16c9db6fb49e8aa8da8d2c2590">   65</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatTools.html#a6785fd16c9db6fb49e8aa8da8d2c2590">clearTools</a>(){tools_.clear();}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> toJson() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classast_1_1ChatTools.html#a57a68d672f4f56af6ca4ae0246dba93f">   72</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1ChatTools.html#a57a68d672f4f56af6ca4ae0246dba93f">empty</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> tools_.empty();}</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    A_DISABLE_COPY(<a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    std::vector&lt;std::unique_ptr&lt;ChatTool&gt;&gt; tools_;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
 </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1ChatToolGeneric_html"><div class="ttname"><a href="classast_1_1ChatToolGeneric.html">ast::ChatToolGeneric</a></div><div class="ttdoc">通用模板封装</div><div class="ttdef"><b>定义</b> ChatTool.hpp:86</div></div>
 <div class="ttc" id="aclassast_1_1ChatTool_html"><div class="ttname"><a href="classast_1_1ChatTool.html">ast::ChatTool</a></div><div class="ttdoc">AI工具基类</div><div class="ttdef"><b>定义</b> ChatTool.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1ChatTools_html"><div class="ttname"><a href="classast_1_1ChatTools.html">ast::ChatTools</a></div><div class="ttdoc">AI工具集合</div><div class="ttdef"><b>定义</b> ChatTools.hpp:39</div></div>
-<div class="ttc" id="aclassast_1_1ChatTools_html_a6785fd16c9db6fb49e8aa8da8d2c2590"><div class="ttname"><a href="classast_1_1ChatTools.html#a6785fd16c9db6fb49e8aa8da8d2c2590">ast::ChatTools::clearTools</a></div><div class="ttdeci">void clearTools()</div><div class="ttdoc">清除所有工具</div><div class="ttdef"><b>定义</b> ChatTools.hpp:63</div></div>
-<div class="ttc" id="aclassast_1_1ChatTools_html_ac778630307af3a54e8952b99d655df98"><div class="ttname"><a href="classast_1_1ChatTools.html#ac778630307af3a54e8952b99d655df98">ast::ChatTools::addTool</a></div><div class="ttdeci">void addTool(std::unique_ptr&lt; ChatTool &gt; &amp;&amp;tool)</div><div class="ttdoc">添加工具</div><div class="ttdef"><b>定义</b> ChatTools.hpp:52</div></div>
+<div class="ttc" id="aclassast_1_1ChatTools_html_a57a68d672f4f56af6ca4ae0246dba93f"><div class="ttname"><a href="classast_1_1ChatTools.html#a57a68d672f4f56af6ca4ae0246dba93f">ast::ChatTools::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">检查工具集合是否为空</div><div class="ttdef"><b>定义</b> ChatTools.hpp:72</div></div>
+<div class="ttc" id="aclassast_1_1ChatTools_html_a6785fd16c9db6fb49e8aa8da8d2c2590"><div class="ttname"><a href="classast_1_1ChatTools.html#a6785fd16c9db6fb49e8aa8da8d2c2590">ast::ChatTools::clearTools</a></div><div class="ttdeci">void clearTools()</div><div class="ttdoc">清除所有工具</div><div class="ttdef"><b>定义</b> ChatTools.hpp:65</div></div>
+<div class="ttc" id="aclassast_1_1ChatTools_html_ac778630307af3a54e8952b99d655df98"><div class="ttname"><a href="classast_1_1ChatTools.html#ac778630307af3a54e8952b99d655df98">ast::ChatTools::addTool</a></div><div class="ttdeci">void addTool(std::unique_ptr&lt; ChatTool &gt; &amp;&amp;tool)</div><div class="ttdoc">添加工具</div><div class="ttdef"><b>定义</b> ChatTools.hpp:54</div></div>
 <div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

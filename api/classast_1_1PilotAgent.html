@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::PilotAgent类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1PilotAgent.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="classast_1_1PilotAgent-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::PilotAgent类 参考<div class="ingroups"><a class="el" href="group__UiPilot.html">UiPilot</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="PilotAgent_8hpp_source.html">PilotAgent.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::PilotAgent 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1PilotAgent.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a1ca7611a5c160cd12febb8ab92b1705d" id="r_a1ca7611a5c160cd12febb8ab92b1705d"><td class="memItemLeft" align="right" valign="top"><a id="a1ca7611a5c160cd12febb8ab92b1705d" name="a1ca7611a5c160cd12febb8ab92b1705d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PilotAgent</b> (QObject *parent=nullptr)</td></tr>
+<tr class="separator:a1ca7611a5c160cd12febb8ab92b1705d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa89e5e0ccac24e2a7a92e1d01453d24b" id="r_aa89e5e0ccac24e2a7a92e1d01453d24b"><td class="memItemLeft" align="right" valign="top"><a id="aa89e5e0ccac24e2a7a92e1d01453d24b" name="aa89e5e0ccac24e2a7a92e1d01453d24b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~PilotAgent</b> () override</td></tr>
+<tr class="separator:aa89e5e0ccac24e2a7a92e1d01453d24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22bc7929ec7ba1cb0e56b3f613634199" id="r_a22bc7929ec7ba1cb0e56b3f613634199"><td class="memItemLeft" align="right" valign="top"><a id="a22bc7929ec7ba1cb0e56b3f613634199" name="a22bc7929ec7ba1cb0e56b3f613634199"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ref</b> (QWidget *<a class="el" href="#a250f37d0f629e57cf7731722f57f9751">widget</a>)</td></tr>
+<tr class="separator:a22bc7929ec7ba1cb0e56b3f613634199"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ba88b5ac0693dd086aba1ad3cd687b5" id="r_a9ba88b5ac0693dd086aba1ad3cd687b5"><td class="memItemLeft" align="right" valign="top"><a id="a9ba88b5ac0693dd086aba1ad3cd687b5" name="a9ba88b5ac0693dd086aba1ad3cd687b5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ref</b> (QAction *<a class="el" href="#a7962aa10aab13a1073dd2195ea4943bf">action</a>)</td></tr>
+<tr class="separator:a9ba88b5ac0693dd086aba1ad3cd687b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a250f37d0f629e57cf7731722f57f9751" id="r_a250f37d0f629e57cf7731722f57f9751"><td class="memItemLeft" align="right" valign="top"><a id="a250f37d0f629e57cf7731722f57f9751" name="a250f37d0f629e57cf7731722f57f9751"></a>
+QWidget *&#160;</td><td class="memItemRight" valign="bottom"><b>widget</b> (int refId) const</td></tr>
+<tr class="separator:a250f37d0f629e57cf7731722f57f9751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7962aa10aab13a1073dd2195ea4943bf" id="r_a7962aa10aab13a1073dd2195ea4943bf"><td class="memItemLeft" align="right" valign="top"><a id="a7962aa10aab13a1073dd2195ea4943bf" name="a7962aa10aab13a1073dd2195ea4943bf"></a>
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><b>action</b> (int refId) const</td></tr>
+<tr class="separator:a7962aa10aab13a1073dd2195ea4943bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4104ccff40afd91dbed4eb4c3d2bead9" id="r_a4104ccff40afd91dbed4eb4c3d2bead9"><td class="memItemLeft" align="right" valign="top"><a id="a4104ccff40afd91dbed4eb4c3d2bead9" name="a4104ccff40afd91dbed4eb4c3d2bead9"></a>
+QObject *&#160;</td><td class="memItemRight" valign="bottom"><b>object</b> (int refId) const</td></tr>
+<tr class="separator:a4104ccff40afd91dbed4eb4c3d2bead9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab81587769d44712d6032581cadc8f7e9" id="r_ab81587769d44712d6032581cadc8f7e9"><td class="memItemLeft" align="right" valign="top"><a id="ab81587769d44712d6032581cadc8f7e9" name="ab81587769d44712d6032581cadc8f7e9"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>objectType</b> (int refId) const</td></tr>
+<tr class="separator:ab81587769d44712d6032581cadc8f7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e2135473d4174632cc77f2ce713d21e" id="r_a4e2135473d4174632cc77f2ce713d21e"><td class="memItemLeft" align="right" valign="top"><a id="a4e2135473d4174632cc77f2ce713d21e" name="a4e2135473d4174632cc77f2ce713d21e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isValidRef</b> (int refId) const</td></tr>
+<tr class="separator:a4e2135473d4174632cc77f2ce713d21e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a992958ae35c2c4f26a8e4b701300c0fd" id="r_a992958ae35c2c4f26a8e4b701300c0fd"><td class="memItemLeft" align="right" valign="top"><a id="a992958ae35c2c4f26a8e4b701300c0fd" name="a992958ae35c2c4f26a8e4b701300c0fd"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>snapshot</b> (int maxDepth=8)</td></tr>
+<tr class="separator:a992958ae35c2c4f26a8e4b701300c0fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a598888ffe0fe751143ac45905b1c1610" id="r_a598888ffe0fe751143ac45905b1c1610"><td class="memItemLeft" align="right" valign="top"><a id="a598888ffe0fe751143ac45905b1c1610" name="a598888ffe0fe751143ac45905b1c1610"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>snapshotOf</b> (QWidget *root, int maxDepth=8)</td></tr>
+<tr class="separator:a598888ffe0fe751143ac45905b1c1610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dddb2278730f1967c449c458c21b7ec" id="r_a8dddb2278730f1967c449c458c21b7ec"><td class="memItemLeft" align="right" valign="top"><a id="a8dddb2278730f1967c449c458c21b7ec" name="a8dddb2278730f1967c449c458c21b7ec"></a>
+QWidget *&#160;</td><td class="memItemRight" valign="bottom"><b>activeModalDialog</b> () const</td></tr>
+<tr class="separator:a8dddb2278730f1967c449c458c21b7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf3bd21af5de363930706bd59d088e0b" id="r_abf3bd21af5de363930706bd59d088e0b"><td class="memItemLeft" align="right" valign="top"><a id="abf3bd21af5de363930706bd59d088e0b" name="abf3bd21af5de363930706bd59d088e0b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>highlight</b> (QWidget *<a class="el" href="#a250f37d0f629e57cf7731722f57f9751">widget</a>, int durationMs=2000)</td></tr>
+<tr class="separator:abf3bd21af5de363930706bd59d088e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a96d5af3aff82d75f3e7bda5ebaba00" id="r_a6a96d5af3aff82d75f3e7bda5ebaba00"><td class="memItemLeft" align="right" valign="top"><a id="a6a96d5af3aff82d75f3e7bda5ebaba00" name="a6a96d5af3aff82d75f3e7bda5ebaba00"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>waitForIdle</b> (int timeoutMs=5000)</td></tr>
+<tr class="separator:a6a96d5af3aff82d75f3e7bda5ebaba00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b61a855e6b4cc3c2d1eebfaafb00ed2" id="r_a1b61a855e6b4cc3c2d1eebfaafb00ed2"><td class="memItemLeft" align="right" valign="top"><a id="a1b61a855e6b4cc3c2d1eebfaafb00ed2" name="a1b61a855e6b4cc3c2d1eebfaafb00ed2"></a>
+QList&lt; QWidget * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>topLevelWidgets</b> () const</td></tr>
+<tr class="separator:a1b61a855e6b4cc3c2d1eebfaafb00ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4475c22e7d730ff618f9840cd3d0ddad" id="r_a4475c22e7d730ff618f9840cd3d0ddad"><td class="memItemLeft" align="right" valign="top"><a id="a4475c22e7d730ff618f9840cd3d0ddad" name="a4475c22e7d730ff618f9840cd3d0ddad"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>triggerAction</b> (QAction *<a class="el" href="#a7962aa10aab13a1073dd2195ea4943bf">action</a>)</td></tr>
+<tr class="separator:a4475c22e7d730ff618f9840cd3d0ddad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bbe9999c4848b487172491dae487158" id="r_a8bbe9999c4848b487172491dae487158"><td class="memItemLeft" align="right" valign="top">QList&lt; QAction * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bbe9999c4848b487172491dae487158">expandMenu</a> (QMenu *menu)</td></tr>
+<tr class="separator:a8bbe9999c4848b487172491dae487158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab3ef5eaf741113e200751df7a738675" id="r_aab3ef5eaf741113e200751df7a738675"><td class="memItemLeft" align="right" valign="top"><a id="aab3ef5eaf741113e200751df7a738675" name="aab3ef5eaf741113e200751df7a738675"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAutoSnapshot</b> () const</td></tr>
+<tr class="separator:aab3ef5eaf741113e200751df7a738675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a63a2ec67b8e4e3cae6df233667772720" id="r_a63a2ec67b8e4e3cae6df233667772720"><td class="memItemLeft" align="right" valign="top"><a id="a63a2ec67b8e4e3cae6df233667772720" name="a63a2ec67b8e4e3cae6df233667772720"></a>
+static <a class="el" href="classast_1_1PilotAgent.html">PilotAgent</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>instance</b> ()</td></tr>
+<tr class="separator:a63a2ec67b8e4e3cae6df233667772720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:afaaa39e48b2d04f632f424e36089e133" id="r_afaaa39e48b2d04f632f424e36089e133"><td class="memItemLeft" align="right" valign="top"><a id="afaaa39e48b2d04f632f424e36089e133" name="afaaa39e48b2d04f632f424e36089e133"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>eventFilter</b> (QObject *obj, QEvent *event) override</td></tr>
+<tr class="separator:afaaa39e48b2d04f632f424e36089e133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Qt控件生命周期管理与界面快照生成 </p>
+<p>维护 QWidget*&zwj;/QAction* ↔ ref 的双向映射，ref 在控件整个生命周期内稳定不变。 提供 <a class="el" href="#a992958ae35c2c4f26a8e4b701300c0fd" title="生成结构化控件树快照">snapshot()</a> 生成结构化控件树文本供 LLM 消费。 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a8bbe9999c4848b487172491dae487158" name="a8bbe9999c4848b487172491dae487158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bbe9999c4848b487172491dae487158">&#9670;&#160;</a></span>expandMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; QAction * &gt; ast::PilotAgent::expandMenu </td>
+          <td>(</td>
+          <td class="paramtype">QMenu *</td>          <td class="paramname"><span class="paramname"><em>menu</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>展开QMenu（模拟悬停以在快照中看到子项） </p>
+<dl class="section return"><dt>返回</dt><dd>展开后的QMenu子项（QActions） </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUiPilot/<a class="el" href="PilotAgent_8hpp_source.html">PilotAgent.hpp</a></li>
+<li>src/AstUiPilot/<a class="el" href="PilotAgent_8cpp.html">PilotAgent.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1PilotAgent.html">PilotAgent</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

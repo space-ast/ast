@@ -106,20 +106,36 @@ $(function(){initNavTree('LLMClient_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classast_1_1LLMClient.html">   35</a></span><span class="keyword">class </span>AST_AI_API <a class="code hl_class" href="classast_1_1LLMClient.html">LLMClient</a></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="classast_1_1LLMClient.html">LLMClient</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1LLMClient.html">~LLMClient</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/JsonValue.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>JsonValue;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>ChatEventHandler;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classast_1_1LLMClient.html">   38</a></span><span class="keyword">class </span>AST_AI_API <a class="code hl_class" href="classast_1_1LLMClient.html">LLMClient</a></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1LLMClient.html">LLMClient</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1LLMClient.html">~LLMClient</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1LLMClient.html#a92935822dc6ad0bf6932ce6cca091919">   48</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1LLMClient.html#a92935822dc6ad0bf6932ce6cca091919">chat</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; request, <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; response) = 0;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">virtual</span> errc_t chatStream(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; request, <a class="code hl_class" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a>&amp; handler,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                              <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; accumulatedResult);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> chat(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; request);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1LLMClient_html"><div class="ttname"><a href="classast_1_1LLMClient.html">ast::LLMClient</a></div><div class="ttdoc">大语言模型客户端接口</div><div class="ttdef"><b>定义</b> LLMClient.hpp:36</div></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1ChatEventHandler_html"><div class="ttname"><a href="classast_1_1ChatEventHandler.html">ast::ChatEventHandler</a></div><div class="ttdoc">流式聊天事件处理器</div><div class="ttdef"><b>定义</b> ChatEventHandler.hpp:42</div></div>
+<div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1LLMClient_html"><div class="ttname"><a href="classast_1_1LLMClient.html">ast::LLMClient</a></div><div class="ttdoc">大语言模型客户端接口</div><div class="ttdef"><b>定义</b> LLMClient.hpp:39</div></div>
+<div class="ttc" id="aclassast_1_1LLMClient_html_a92935822dc6ad0bf6932ce6cca091919"><div class="ttname"><a href="classast_1_1LLMClient.html#a92935822dc6ad0bf6932ce6cca091919">ast::LLMClient::chat</a></div><div class="ttdeci">virtual errc_t chat(const JsonValue &amp;request, JsonValue &amp;response)=0</div><div class="ttdoc">发送聊天请求（纯虚接口，子类必须实现）</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

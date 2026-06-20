@@ -122,8 +122,10 @@ $(function(){initNavTree('classast_1_1NetworkInterface.html',''); initResizable(
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:aa36a05ab337b39fdcbcece5245ab24dd" id="r_aa36a05ab337b39fdcbcece5245ab24dd"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa36a05ab337b39fdcbcece5245ab24dd">request</a> (const <a class="el" href="classast_1_1NetworkRequest.html">NetworkRequest</a> &amp;request, <a class="el" href="classast_1_1NetworkResponse.html">NetworkResponse</a> &amp;response)=0</td></tr>
-<tr class="separator:aa36a05ab337b39fdcbcece5245ab24dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac853b1761dcfc3af192e9b06a2ffecaf" id="r_ac853b1761dcfc3af192e9b06a2ffecaf"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac853b1761dcfc3af192e9b06a2ffecaf">request</a> (const <a class="el" href="classast_1_1NetworkRequest.html">NetworkRequest</a> &amp;request, <a class="el" href="classast_1_1NetworkResponse.html">NetworkResponse</a> &amp;response)</td></tr>
+<tr class="separator:ac853b1761dcfc3af192e9b06a2ffecaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abddbf3d794e891f373f126f2474d8f6e" id="r_abddbf3d794e891f373f126f2474d8f6e"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abddbf3d794e891f373f126f2474d8f6e">requestStream</a> (const <a class="el" href="classast_1_1NetworkRequest.html">NetworkRequest</a> &amp;<a class="el" href="#ac853b1761dcfc3af192e9b06a2ffecaf">request</a>, <a class="el" href="classast_1_1NetworkStreamReceiver.html">NetworkStreamReceiver</a> &amp;receiver)=0</td></tr>
+<tr class="separator:abddbf3d794e891f373f126f2474d8f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a849f29eba8e6c853c0fcfe3375e106e1" id="r_a849f29eba8e6c853c0fcfe3375e106e1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a849f29eba8e6c853c0fcfe3375e106e1">isSupported</a> () const =0</td></tr>
 <tr class="separator:a849f29eba8e6c853c0fcfe3375e106e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -161,8 +163,8 @@ Public 成员函数</h2></td></tr>
 
 </div>
 </div>
-<a id="aa36a05ab337b39fdcbcece5245ab24dd" name="aa36a05ab337b39fdcbcece5245ab24dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa36a05ab337b39fdcbcece5245ab24dd">&#9670;&#160;</a></span>request()</h2>
+<a id="ac853b1761dcfc3af192e9b06a2ffecaf" name="ac853b1761dcfc3af192e9b06a2ffecaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac853b1761dcfc3af192e9b06a2ffecaf">&#9670;&#160;</a></span>request()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +173,7 @@ Public 成员函数</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual errc_t ast::NetworkInterface::request </td>
+          <td class="memname">errc_t ast::NetworkInterface::request </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classast_1_1NetworkRequest.html">NetworkRequest</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span>, </td>
         </tr>
@@ -183,7 +185,7 @@ Public 成员函数</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -198,7 +200,46 @@ Public 成员函数</h2></td></tr>
 <dl class="section note"><dt>注解</dt><dd>该接口会阻塞调用线程，直到网络请求完成或超时为止 </dd></dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1NetworkImplCurlCmd.html#a2cf35ad8d732ca4e6e997404079d105d">ast::NetworkImplCurlCmd</a>, <a class="el" href="classast_1_1NetworkImplWinHTTP.html#a00fd708723ea6f1f6f1343edd5853c2d">ast::NetworkImplWinHTTP</a> , 以及 <a class="el" href="classast_1_1NetworkImplWinINet.html#a219981c562f3f227eab1aba0b5dad4fe">ast::NetworkImplWinINet</a> 内被实现.</p>
+</div>
+</div>
+<a id="abddbf3d794e891f373f126f2474d8f6e" name="abddbf3d794e891f373f126f2474d8f6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abddbf3d794e891f373f126f2474d8f6e">&#9670;&#160;</a></span>requestStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual errc_t ast::NetworkInterface::requestStream </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1NetworkRequest.html">NetworkRequest</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1NetworkStreamReceiver.html">NetworkStreamReceiver</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>receiver</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>发送流式网络请求 </p>
+<p>与 <a class="el" href="#ac853b1761dcfc3af192e9b06a2ffecaf">request()</a> 不同，该方法在数据到达时立即通过 receiver 回调 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>网络请求 </td></tr>
+    <tr><td class="paramname">receiver</td><td>流式数据接收器 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1NetworkImplCurlCmd.html#a9a332187db4f985121320b38cb7ac990">ast::NetworkImplCurlCmd</a>, <a class="el" href="classast_1_1NetworkImplWinHTTP.html#a30176aaed9b3e78ca81179ca6b2756c9">ast::NetworkImplWinHTTP</a> , 以及 <a class="el" href="classast_1_1NetworkImplWinINet.html#a72dc5d06423975b571615a44b5f83a44">ast::NetworkImplWinINet</a> 内被实现.</p>
 
 </div>
 </div>

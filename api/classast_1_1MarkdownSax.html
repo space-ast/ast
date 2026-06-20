@@ -1,0 +1,567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::MarkdownSax类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1MarkdownSax.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1MarkdownSax-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::MarkdownSax类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::MarkdownSax 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1MarkdownSax.png" usemap="#ast::MarkdownSax_map" alt=""/>
+  <map id="ast::MarkdownSax_map" name="ast::MarkdownSax_map">
+<area href="classast_1_1MarkdownANSI.html" title="Markdown SAX → ANSI 终端转义序列渲染器" alt="ast::MarkdownANSI" shape="rect" coords="0,56,127,80"/>
+<area href="classast_1_1MarkdownHTML.html" title="Markdown SAX → HTML 渲染器" alt="ast::MarkdownHTML" shape="rect" coords="137,56,264,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ad28a378d17a8a0a68ad8e1df5d9d887e" id="r_ad28a378d17a8a0a68ad8e1df5d9d887e"><td class="memItemLeft" align="right" valign="top"><a id="ad28a378d17a8a0a68ad8e1df5d9d887e" name="ad28a378d17a8a0a68ad8e1df5d9d887e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startDocument</b> ()=0</td></tr>
+<tr class="separator:ad28a378d17a8a0a68ad8e1df5d9d887e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9642123b690554e7a468ab11f76e01ed" id="r_a9642123b690554e7a468ab11f76e01ed"><td class="memItemLeft" align="right" valign="top"><a id="a9642123b690554e7a468ab11f76e01ed" name="a9642123b690554e7a468ab11f76e01ed"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endDocument</b> ()=0</td></tr>
+<tr class="separator:a9642123b690554e7a468ab11f76e01ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e7f2ba77284c710488dcb78bf2d91e3" id="r_a2e7f2ba77284c710488dcb78bf2d91e3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e7f2ba77284c710488dcb78bf2d91e3">startHeading</a> (int level)=0</td></tr>
+<tr class="separator:a2e7f2ba77284c710488dcb78bf2d91e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b3389139651dfd8746231cdb8f7a383" id="r_a7b3389139651dfd8746231cdb8f7a383"><td class="memItemLeft" align="right" valign="top"><a id="a7b3389139651dfd8746231cdb8f7a383" name="a7b3389139651dfd8746231cdb8f7a383"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endHeading</b> (int level)=0</td></tr>
+<tr class="separator:a7b3389139651dfd8746231cdb8f7a383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0543348dafdaa7fef19d7969034ad6c0" id="r_a0543348dafdaa7fef19d7969034ad6c0"><td class="memItemLeft" align="right" valign="top"><a id="a0543348dafdaa7fef19d7969034ad6c0" name="a0543348dafdaa7fef19d7969034ad6c0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startParagraph</b> ()=0</td></tr>
+<tr class="separator:a0543348dafdaa7fef19d7969034ad6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ec3f2783be4a9e88da959b22415cba2" id="r_a7ec3f2783be4a9e88da959b22415cba2"><td class="memItemLeft" align="right" valign="top"><a id="a7ec3f2783be4a9e88da959b22415cba2" name="a7ec3f2783be4a9e88da959b22415cba2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endParagraph</b> ()=0</td></tr>
+<tr class="separator:a7ec3f2783be4a9e88da959b22415cba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa6f2cd332908859fb785320da032d67" id="r_aaa6f2cd332908859fb785320da032d67"><td class="memItemLeft" align="right" valign="top"><a id="aaa6f2cd332908859fb785320da032d67" name="aaa6f2cd332908859fb785320da032d67"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startCodeBlock</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> language)=0</td></tr>
+<tr class="separator:aaa6f2cd332908859fb785320da032d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabd376dc0798348e40ed99bdf7c809df" id="r_aabd376dc0798348e40ed99bdf7c809df"><td class="memItemLeft" align="right" valign="top"><a id="aabd376dc0798348e40ed99bdf7c809df" name="aabd376dc0798348e40ed99bdf7c809df"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>codeLine</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> line)=0</td></tr>
+<tr class="separator:aabd376dc0798348e40ed99bdf7c809df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3bcc636444b51fd87a146766f9e7e14" id="r_af3bcc636444b51fd87a146766f9e7e14"><td class="memItemLeft" align="right" valign="top"><a id="af3bcc636444b51fd87a146766f9e7e14" name="af3bcc636444b51fd87a146766f9e7e14"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endCodeBlock</b> ()=0</td></tr>
+<tr class="separator:af3bcc636444b51fd87a146766f9e7e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7cc1309f3f8b0d3846796f8f48bace" id="r_a7f7cc1309f3f8b0d3846796f8f48bace"><td class="memItemLeft" align="right" valign="top"><a id="a7f7cc1309f3f8b0d3846796f8f48bace" name="a7f7cc1309f3f8b0d3846796f8f48bace"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startList</b> (bool ordered)=0</td></tr>
+<tr class="separator:a7f7cc1309f3f8b0d3846796f8f48bace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a522107410f466625e962a5f2f51c1178" id="r_a522107410f466625e962a5f2f51c1178"><td class="memItemLeft" align="right" valign="top"><a id="a522107410f466625e962a5f2f51c1178" name="a522107410f466625e962a5f2f51c1178"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startListItem</b> ()=0</td></tr>
+<tr class="separator:a522107410f466625e962a5f2f51c1178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41d01b1043fec91bef19d7632492d63f" id="r_a41d01b1043fec91bef19d7632492d63f"><td class="memItemLeft" align="right" valign="top"><a id="a41d01b1043fec91bef19d7632492d63f" name="a41d01b1043fec91bef19d7632492d63f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endListItem</b> ()=0</td></tr>
+<tr class="separator:a41d01b1043fec91bef19d7632492d63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a97e4c74212cb4ae239de20892f1537" id="r_a9a97e4c74212cb4ae239de20892f1537"><td class="memItemLeft" align="right" valign="top"><a id="a9a97e4c74212cb4ae239de20892f1537" name="a9a97e4c74212cb4ae239de20892f1537"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endList</b> ()=0</td></tr>
+<tr class="separator:a9a97e4c74212cb4ae239de20892f1537"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52044d80b355926d3d6bc1689dc16c95" id="r_a52044d80b355926d3d6bc1689dc16c95"><td class="memItemLeft" align="right" valign="top"><a id="a52044d80b355926d3d6bc1689dc16c95" name="a52044d80b355926d3d6bc1689dc16c95"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startBlockquote</b> ()=0</td></tr>
+<tr class="separator:a52044d80b355926d3d6bc1689dc16c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf9637cd5c621edc779158db91715145" id="r_abf9637cd5c621edc779158db91715145"><td class="memItemLeft" align="right" valign="top"><a id="abf9637cd5c621edc779158db91715145" name="abf9637cd5c621edc779158db91715145"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endBlockquote</b> ()=0</td></tr>
+<tr class="separator:abf9637cd5c621edc779158db91715145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a224c9ca4b661bd146b2c54049514bb" id="r_a5a224c9ca4b661bd146b2c54049514bb"><td class="memItemLeft" align="right" valign="top"><a id="a5a224c9ca4b661bd146b2c54049514bb" name="a5a224c9ca4b661bd146b2c54049514bb"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>horizontalRule</b> ()=0</td></tr>
+<tr class="separator:a5a224c9ca4b661bd146b2c54049514bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd087fbc08b1ed8003c026aed9b9c310" id="r_afd087fbc08b1ed8003c026aed9b9c310"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd087fbc08b1ed8003c026aed9b9c310">startTable</a> ()</td></tr>
+<tr class="separator:afd087fbc08b1ed8003c026aed9b9c310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae89c1d6b6a06fd3116c1c0f69a32835c" id="r_ae89c1d6b6a06fd3116c1c0f69a32835c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae89c1d6b6a06fd3116c1c0f69a32835c">startTableHead</a> ()</td></tr>
+<tr class="separator:ae89c1d6b6a06fd3116c1c0f69a32835c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288bb023461d55c3069f2e45c2377ad5" id="r_a288bb023461d55c3069f2e45c2377ad5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a288bb023461d55c3069f2e45c2377ad5">endTableHead</a> ()</td></tr>
+<tr class="separator:a288bb023461d55c3069f2e45c2377ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62d5f797ed8083520585a9da2c735ca" id="r_ab62d5f797ed8083520585a9da2c735ca"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab62d5f797ed8083520585a9da2c735ca">startTableBody</a> ()</td></tr>
+<tr class="separator:ab62d5f797ed8083520585a9da2c735ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a446ae120d64d9d65c3151355f1e1c578" id="r_a446ae120d64d9d65c3151355f1e1c578"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a446ae120d64d9d65c3151355f1e1c578">endTableBody</a> ()</td></tr>
+<tr class="separator:a446ae120d64d9d65c3151355f1e1c578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aada5475839fa867407243ebd4488a2e9" id="r_aada5475839fa867407243ebd4488a2e9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aada5475839fa867407243ebd4488a2e9">startTableRow</a> ()</td></tr>
+<tr class="separator:aada5475839fa867407243ebd4488a2e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68db7af12f9310bf45db61c3cc9276cd" id="r_a68db7af12f9310bf45db61c3cc9276cd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68db7af12f9310bf45db61c3cc9276cd">endTableRow</a> ()</td></tr>
+<tr class="separator:a68db7af12f9310bf45db61c3cc9276cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6cdafd7eeddc30067ee9554d043f8a" id="r_aeb6cdafd7eeddc30067ee9554d043f8a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb6cdafd7eeddc30067ee9554d043f8a">startTableCell</a> (<a class="el" href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2f">ETableAlign</a> align)</td></tr>
+<tr class="separator:aeb6cdafd7eeddc30067ee9554d043f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdd1bc0f431c9338fe97127021a57c28" id="r_acdd1bc0f431c9338fe97127021a57c28"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdd1bc0f431c9338fe97127021a57c28">endTableCell</a> ()</td></tr>
+<tr class="separator:acdd1bc0f431c9338fe97127021a57c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae68befd41e35d506e1197d21bedf83ab" id="r_ae68befd41e35d506e1197d21bedf83ab"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae68befd41e35d506e1197d21bedf83ab">endTable</a> ()</td></tr>
+<tr class="separator:ae68befd41e35d506e1197d21bedf83ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a15466a22a96b48f67f18ad73309c0e" id="r_a3a15466a22a96b48f67f18ad73309c0e"><td class="memItemLeft" align="right" valign="top"><a id="a3a15466a22a96b48f67f18ad73309c0e" name="a3a15466a22a96b48f67f18ad73309c0e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>text</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> txt)=0</td></tr>
+<tr class="separator:a3a15466a22a96b48f67f18ad73309c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1605987af2a7350848d00e2882436c09" id="r_a1605987af2a7350848d00e2882436c09"><td class="memItemLeft" align="right" valign="top"><a id="a1605987af2a7350848d00e2882436c09" name="a1605987af2a7350848d00e2882436c09"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startEmphasis</b> ()=0</td></tr>
+<tr class="separator:a1605987af2a7350848d00e2882436c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf7e7d47ced7cf45e94a470ba60cfee0" id="r_acf7e7d47ced7cf45e94a470ba60cfee0"><td class="memItemLeft" align="right" valign="top"><a id="acf7e7d47ced7cf45e94a470ba60cfee0" name="acf7e7d47ced7cf45e94a470ba60cfee0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endEmphasis</b> ()=0</td></tr>
+<tr class="separator:acf7e7d47ced7cf45e94a470ba60cfee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae02b0e5b9cac1d7e319799c7616a66c3" id="r_ae02b0e5b9cac1d7e319799c7616a66c3"><td class="memItemLeft" align="right" valign="top"><a id="ae02b0e5b9cac1d7e319799c7616a66c3" name="ae02b0e5b9cac1d7e319799c7616a66c3"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startStrong</b> ()=0</td></tr>
+<tr class="separator:ae02b0e5b9cac1d7e319799c7616a66c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35de4d6346ea3498ba8155b3b684ddd8" id="r_a35de4d6346ea3498ba8155b3b684ddd8"><td class="memItemLeft" align="right" valign="top"><a id="a35de4d6346ea3498ba8155b3b684ddd8" name="a35de4d6346ea3498ba8155b3b684ddd8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endStrong</b> ()=0</td></tr>
+<tr class="separator:a35de4d6346ea3498ba8155b3b684ddd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6924fb2dfdee13cfe56e067006f798f8" id="r_a6924fb2dfdee13cfe56e067006f798f8"><td class="memItemLeft" align="right" valign="top"><a id="a6924fb2dfdee13cfe56e067006f798f8" name="a6924fb2dfdee13cfe56e067006f798f8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startDelete</b> ()=0</td></tr>
+<tr class="separator:a6924fb2dfdee13cfe56e067006f798f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a481176568384f8b73872ab951249def7" id="r_a481176568384f8b73872ab951249def7"><td class="memItemLeft" align="right" valign="top"><a id="a481176568384f8b73872ab951249def7" name="a481176568384f8b73872ab951249def7"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endDelete</b> ()=0</td></tr>
+<tr class="separator:a481176568384f8b73872ab951249def7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa11c7678498fb1321ba4deb7aff85005" id="r_aa11c7678498fb1321ba4deb7aff85005"><td class="memItemLeft" align="right" valign="top"><a id="aa11c7678498fb1321ba4deb7aff85005" name="aa11c7678498fb1321ba4deb7aff85005"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>codeSpan</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> code)=0</td></tr>
+<tr class="separator:aa11c7678498fb1321ba4deb7aff85005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeb643c12a8ecde5b70c6ba8ba3ef4b4" id="r_aaeb643c12a8ecde5b70c6ba8ba3ef4b4"><td class="memItemLeft" align="right" valign="top"><a id="aaeb643c12a8ecde5b70c6ba8ba3ef4b4" name="aaeb643c12a8ecde5b70c6ba8ba3ef4b4"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startLink</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> url)=0</td></tr>
+<tr class="separator:aaeb643c12a8ecde5b70c6ba8ba3ef4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6e0064011ea2fa62283c258e24fc9a" id="r_aac6e0064011ea2fa62283c258e24fc9a"><td class="memItemLeft" align="right" valign="top"><a id="aac6e0064011ea2fa62283c258e24fc9a" name="aac6e0064011ea2fa62283c258e24fc9a"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endLink</b> ()=0</td></tr>
+<tr class="separator:aac6e0064011ea2fa62283c258e24fc9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01803acd098722bcb6d633ae0f53df32" id="r_a01803acd098722bcb6d633ae0f53df32"><td class="memItemLeft" align="right" valign="top"><a id="a01803acd098722bcb6d633ae0f53df32" name="a01803acd098722bcb6d633ae0f53df32"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>image</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> alt, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> url)=0</td></tr>
+<tr class="separator:a01803acd098722bcb6d633ae0f53df32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ae68befd41e35d506e1197d21bedf83ab" name="ae68befd41e35d506e1197d21bedf83ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae68befd41e35d506e1197d21bedf83ab">&#9670;&#160;</a></span>endTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::endTable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>表格结束 </p>
+
+<p>被 <a class="el" href="classast_1_1MarkdownANSI.html#a838a31cb9b912c6a6341dcf2405be3b8">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#a32085d162d4495dd1f2f6f6fb7b9d0c3">ast::MarkdownHTML</a> 重载.</p>
+
+</div>
+</div>
+<a id="a446ae120d64d9d65c3151355f1e1c578" name="a446ae120d64d9d65c3151355f1e1c578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446ae120d64d9d65c3151355f1e1c578">&#9670;&#160;</a></span>endTableBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::endTableBody </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>表体区域结束 </p>
+
+<p>被 <a class="el" href="classast_1_1MarkdownANSI.html#ab3aec4bc3f00d1533e4cda3e2d1af842">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#a3d19214559c3d69c956f9462895d2d3f">ast::MarkdownHTML</a> 重载.</p>
+
+</div>
+</div>
+<a id="acdd1bc0f431c9338fe97127021a57c28" name="acdd1bc0f431c9338fe97127021a57c28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdd1bc0f431c9338fe97127021a57c28">&#9670;&#160;</a></span>endTableCell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::endTableCell </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>表格单元格结束 </p>
+
+<p>被 <a class="el" href="classast_1_1MarkdownANSI.html#aec09b6b34e22bcbde1116ccb7777bec1">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#a82699d44a51c4388142e9d005bc78051">ast::MarkdownHTML</a> 重载.</p>
+
+</div>
+</div>
+<a id="a288bb023461d55c3069f2e45c2377ad5" name="a288bb023461d55c3069f2e45c2377ad5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a288bb023461d55c3069f2e45c2377ad5">&#9670;&#160;</a></span>endTableHead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::endTableHead </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>表头区域结束 </p>
+
+<p>被 <a class="el" href="classast_1_1MarkdownANSI.html#ae5c27c803640746c07e3444785877f9e">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#a5d9fafc2c3a05670ce235dc75e6f9092">ast::MarkdownHTML</a> 重载.</p>
+
+</div>
+</div>
+<a id="a68db7af12f9310bf45db61c3cc9276cd" name="a68db7af12f9310bf45db61c3cc9276cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68db7af12f9310bf45db61c3cc9276cd">&#9670;&#160;</a></span>endTableRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::endTableRow </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>表格行结束 </p>
+
+<p>被 <a class="el" href="classast_1_1MarkdownANSI.html#a09d985a244b39de0deddcc2737c4c725">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#afac1124861b74916841a424435d8218d">ast::MarkdownHTML</a> 重载.</p>
+
+</div>
+</div>
+<a id="a2e7f2ba77284c710488dcb78bf2d91e3" name="a2e7f2ba77284c710488dcb78bf2d91e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e7f2ba77284c710488dcb78bf2d91e3">&#9670;&#160;</a></span>startHeading()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::startHeading </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>level</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">force</td><td>是否强制换行 force为true时，表示强制换行，此时html输出为<br  />
+ force为false时，表示不强制换行，仅告知此时有个换行，各渲染器自行决定怎么处理 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1MarkdownANSI.html#a92b2ffceb204f640b26eaf2d2af123e2">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#a70ac5dc49072cd539c7cf412179b9827">ast::MarkdownHTML</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="afd087fbc08b1ed8003c026aed9b9c310" name="afd087fbc08b1ed8003c026aed9b9c310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd087fbc08b1ed8003c026aed9b9c310">&#9670;&#160;</a></span>startTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::startTable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>表格开始 </p>
+
+<p>被 <a class="el" href="classast_1_1MarkdownANSI.html#ae76f669d3ac844f8c5547b41e4a54376">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#a99c6f0bcda0a986e3e62c83157356598">ast::MarkdownHTML</a> 重载.</p>
+
+</div>
+</div>
+<a id="ab62d5f797ed8083520585a9da2c735ca" name="ab62d5f797ed8083520585a9da2c735ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab62d5f797ed8083520585a9da2c735ca">&#9670;&#160;</a></span>startTableBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::startTableBody </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>表体区域开始 </p>
+
+<p>被 <a class="el" href="classast_1_1MarkdownANSI.html#ae1feafb92d52cf03db6675dd5ef45de4">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#a235f0ab9d7fafb0398237653ace8f934">ast::MarkdownHTML</a> 重载.</p>
+
+</div>
+</div>
+<a id="aeb6cdafd7eeddc30067ee9554d043f8a" name="aeb6cdafd7eeddc30067ee9554d043f8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb6cdafd7eeddc30067ee9554d043f8a">&#9670;&#160;</a></span>startTableCell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::startTableCell </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2f">ETableAlign</a></td>          <td class="paramname"><span class="paramname"><em>align</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>表格单元格开始 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">align</td><td>本列对齐方式（由分隔行 :&mdash; 语法确定） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>被 <a class="el" href="classast_1_1MarkdownANSI.html#a2f67a1f718b7ab1b403d0f5b4938b0d6">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#afdc4b05fe8da2901cd785a945dd8a1b8">ast::MarkdownHTML</a> 重载.</p>
+
+</div>
+</div>
+<a id="ae89c1d6b6a06fd3116c1c0f69a32835c" name="ae89c1d6b6a06fd3116c1c0f69a32835c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae89c1d6b6a06fd3116c1c0f69a32835c">&#9670;&#160;</a></span>startTableHead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::startTableHead </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>表头区域开始 </p>
+
+<p>被 <a class="el" href="classast_1_1MarkdownANSI.html#aaf24bf083f347a1fdfb3d6e30f7cfd19">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#af2fdd5a126387dda176e39f35b0cd1f1">ast::MarkdownHTML</a> 重载.</p>
+
+</div>
+</div>
+<a id="aada5475839fa867407243ebd4488a2e9" name="aada5475839fa867407243ebd4488a2e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aada5475839fa867407243ebd4488a2e9">&#9670;&#160;</a></span>startTableRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::MarkdownSax::startTableRow </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>表格行开始 </p>
+
+<p>被 <a class="el" href="classast_1_1MarkdownANSI.html#a391bd47f1e3a57074e79a7dc3eb26e87">ast::MarkdownANSI</a> , 以及 <a class="el" href="classast_1_1MarkdownHTML.html#a55991c04d8ede61786ea5ab030239555">ast::MarkdownHTML</a> 重载.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/ParseFormat/Markdown/<a class="el" href="MarkdownSax_8hpp_source.html">MarkdownSax.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1MarkdownSax.html">MarkdownSax</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::PilotRecorder类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1PilotRecorder.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#signals">信号</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="classast_1_1PilotRecorder-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::PilotRecorder类 参考<div class="ingroups"><a class="el" href="group__UiPilot.html">UiPilot</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="PilotRecorder_8hpp_source.html">PilotRecorder.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::PilotRecorder 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1PilotRecorder.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
+信号</h2></td></tr>
+<tr class="memitem:ab797bf8c4a25284ed89b0cc0cd893ac0" id="r_ab797bf8c4a25284ed89b0cc0cd893ac0"><td class="memItemLeft" align="right" valign="top"><a id="ab797bf8c4a25284ed89b0cc0cd893ac0" name="ab797bf8c4a25284ed89b0cc0cd893ac0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>stepRecorded</b> (int index, const std::string &amp;description)</td></tr>
+<tr class="separator:ab797bf8c4a25284ed89b0cc0cd893ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65ccd04f7ca1fa89b95728004da27f6a" id="r_a65ccd04f7ca1fa89b95728004da27f6a"><td class="memItemLeft" align="right" valign="top"><a id="a65ccd04f7ca1fa89b95728004da27f6a" name="a65ccd04f7ca1fa89b95728004da27f6a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>recordingStarted</b> ()</td></tr>
+<tr class="separator:a65ccd04f7ca1fa89b95728004da27f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad76e65e8b12f847a82a5e259a35acb90" id="r_ad76e65e8b12f847a82a5e259a35acb90"><td class="memItemLeft" align="right" valign="top"><a id="ad76e65e8b12f847a82a5e259a35acb90" name="ad76e65e8b12f847a82a5e259a35acb90"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>recordingStopped</b> ()</td></tr>
+<tr class="separator:ad76e65e8b12f847a82a5e259a35acb90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0603f2b37e014f3f72c9393307621e58" id="r_a0603f2b37e014f3f72c9393307621e58"><td class="memItemLeft" align="right" valign="top"><a id="a0603f2b37e014f3f72c9393307621e58" name="a0603f2b37e014f3f72c9393307621e58"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>recordingPaused</b> ()</td></tr>
+<tr class="separator:a0603f2b37e014f3f72c9393307621e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a012e807189ad394f5ec618b078c0f88b" id="r_a012e807189ad394f5ec618b078c0f88b"><td class="memItemLeft" align="right" valign="top"><a id="a012e807189ad394f5ec618b078c0f88b" name="a012e807189ad394f5ec618b078c0f88b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>recordingResumed</b> ()</td></tr>
+<tr class="separator:a012e807189ad394f5ec618b078c0f88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a030b20efe7bfae351866114d44f2edea" id="r_a030b20efe7bfae351866114d44f2edea"><td class="memItemLeft" align="right" valign="top"><a id="a030b20efe7bfae351866114d44f2edea" name="a030b20efe7bfae351866114d44f2edea"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PilotRecorder</b> (<a class="el" href="classast_1_1PilotAgent.html">PilotAgent</a> *agent, QObject *parent=nullptr)</td></tr>
+<tr class="separator:a030b20efe7bfae351866114d44f2edea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6448ca64a4c0de95e8d57a17045a400b" id="r_a6448ca64a4c0de95e8d57a17045a400b"><td class="memItemLeft" align="right" valign="top"><a id="a6448ca64a4c0de95e8d57a17045a400b" name="a6448ca64a4c0de95e8d57a17045a400b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> ()</td></tr>
+<tr class="separator:a6448ca64a4c0de95e8d57a17045a400b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdbafaf9884318526a2ddad249267c85" id="r_abdbafaf9884318526a2ddad249267c85"><td class="memItemLeft" align="right" valign="top"><a id="abdbafaf9884318526a2ddad249267c85" name="abdbafaf9884318526a2ddad249267c85"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> ()</td></tr>
+<tr class="separator:abdbafaf9884318526a2ddad249267c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0808ab20cf365799f97ba9429f05ec0" id="r_af0808ab20cf365799f97ba9429f05ec0"><td class="memItemLeft" align="right" valign="top"><a id="af0808ab20cf365799f97ba9429f05ec0" name="af0808ab20cf365799f97ba9429f05ec0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pause</b> ()</td></tr>
+<tr class="separator:af0808ab20cf365799f97ba9429f05ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a073272ca951f543bedd95a6562cd1dc8" id="r_a073272ca951f543bedd95a6562cd1dc8"><td class="memItemLeft" align="right" valign="top"><a id="a073272ca951f543bedd95a6562cd1dc8" name="a073272ca951f543bedd95a6562cd1dc8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resume</b> ()</td></tr>
+<tr class="separator:a073272ca951f543bedd95a6562cd1dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acca66d525323492c1eed03dd1946c000" id="r_acca66d525323492c1eed03dd1946c000"><td class="memItemLeft" align="right" valign="top"><a id="acca66d525323492c1eed03dd1946c000" name="acca66d525323492c1eed03dd1946c000"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRecording</b> () const</td></tr>
+<tr class="separator:acca66d525323492c1eed03dd1946c000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25f5128561a14e7d373a5d505b0fe94a" id="r_a25f5128561a14e7d373a5d505b0fe94a"><td class="memItemLeft" align="right" valign="top"><a id="a25f5128561a14e7d373a5d505b0fe94a" name="a25f5128561a14e7d373a5d505b0fe94a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPaused</b> () const</td></tr>
+<tr class="separator:a25f5128561a14e7d373a5d505b0fe94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4b85ec4f78af23c7c5aa72c67aa28c" id="r_a0a4b85ec4f78af23c7c5aa72c67aa28c"><td class="memItemLeft" align="right" valign="top"><a id="a0a4b85ec4f78af23c7c5aa72c67aa28c" name="a0a4b85ec4f78af23c7c5aa72c67aa28c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>stepCount</b> () const</td></tr>
+<tr class="separator:a0a4b85ec4f78af23c7c5aa72c67aa28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1661ef17f6b844ec158bac87008eba6c" id="r_a1661ef17f6b844ec158bac87008eba6c"><td class="memItemLeft" align="right" valign="top"><a id="a1661ef17f6b844ec158bac87008eba6c" name="a1661ef17f6b844ec158bac87008eba6c"></a>
+const <a class="el" href="structast_1_1RecordStep.html">RecordStep</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>stepAt</b> (int index) const</td></tr>
+<tr class="separator:a1661ef17f6b844ec158bac87008eba6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbb6e900bf1be7c19158182ca33d9167" id="r_adbb6e900bf1be7c19158182ca33d9167"><td class="memItemLeft" align="right" valign="top"><a id="adbb6e900bf1be7c19158182ca33d9167" name="adbb6e900bf1be7c19158182ca33d9167"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toJson</b> () const</td></tr>
+<tr class="separator:adbb6e900bf1be7c19158182ca33d9167"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae45c228846406cebb072058c33db08a3" id="r_ae45c228846406cebb072058c33db08a3"><td class="memItemLeft" align="right" valign="top"><a id="ae45c228846406cebb072058c33db08a3" name="ae45c228846406cebb072058c33db08a3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>saveToFile</b> (const std::string &amp;path) const</td></tr>
+<tr class="separator:ae45c228846406cebb072058c33db08a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65766566e8bf5aa2a6318712a301c6cc" id="r_a65766566e8bf5aa2a6318712a301c6cc"><td class="memItemLeft" align="right" valign="top"><a id="a65766566e8bf5aa2a6318712a301c6cc" name="a65766566e8bf5aa2a6318712a301c6cc"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>polish</b> ()</td></tr>
+<tr class="separator:a65766566e8bf5aa2a6318712a301c6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f3dd9bdddab2cef7cd6f3f4ab11cb8" id="r_a24f3dd9bdddab2cef7cd6f3f4ab11cb8"><td class="memItemLeft" align="right" valign="top"><a id="a24f3dd9bdddab2cef7cd6f3f4ab11cb8" name="a24f3dd9bdddab2cef7cd6f3f4ab11cb8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>handleComboChange</b> (QComboBox *combo)</td></tr>
+<tr class="separator:a24f3dd9bdddab2cef7cd6f3f4ab11cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc02f74f9393006a88fe40e73c2fd1b5" id="r_acc02f74f9393006a88fe40e73c2fd1b5"><td class="memItemLeft" align="right" valign="top"><a id="acc02f74f9393006a88fe40e73c2fd1b5" name="acc02f74f9393006a88fe40e73c2fd1b5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>handleDialogFinished</b> (QDialog *dlg, int result)</td></tr>
+<tr class="separator:acc02f74f9393006a88fe40e73c2fd1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a2b2b683e4fd8a1c2f0cef0985f3edca4" id="r_a2b2b683e4fd8a1c2f0cef0985f3edca4"><td class="memItemLeft" align="right" valign="top"><a id="a2b2b683e4fd8a1c2f0cef0985f3edca4" name="a2b2b683e4fd8a1c2f0cef0985f3edca4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>eventFilter</b> (QObject *obj, QEvent *event) override</td></tr>
+<tr class="separator:a2b2b683e4fd8a1c2f0cef0985f3edca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>界面操作录制器 </p>
+<p>通过全局事件过滤器截获用户操作，转为 <a class="el" href="structast_1_1RecordStep.html" title="录制步骤结构">RecordStep</a> 序列， 导出为结构化 JSON 或自然语言脚本。 </p>
+</div><hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUiPilot/Recorder/<a class="el" href="PilotRecorder_8hpp_source.html">PilotRecorder.hpp</a></li>
+<li>src/AstUiPilot/Recorder/<a class="el" href="PilotRecorder_8cpp.html">PilotRecorder.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1PilotRecorder.html">PilotRecorder</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

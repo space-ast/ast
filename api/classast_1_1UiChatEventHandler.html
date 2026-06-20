@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::UiChatEventHandler类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1UiChatEventHandler.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-slots">Public 槽</a> &#124;
+<a href="#signals">信号</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1UiChatEventHandler-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::UiChatEventHandler类 参考<div class="ingroups"><a class="el" href="group__UiAI.html">UiAI</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="UiChatEventHandler_8hpp_source.html">UiChatEventHandler.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::UiChatEventHandler 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1UiChatEventHandler.png" usemap="#ast::UiChatEventHandler_map" alt=""/>
+  <map id="ast::UiChatEventHandler_map" name="ast::UiChatEventHandler_map">
+<area href="classast_1_1ChatEventHandler.html" title="流式聊天事件处理器" alt="ast::ChatEventHandler" shape="rect" coords="158,0,306,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-slots" name="pub-slots"></a>
+Public 槽</h2></td></tr>
+<tr class="memitem:a06162dee0b30fc4f2180d69fd550b682" id="r_a06162dee0b30fc4f2180d69fd550b682"><td class="memItemLeft" align="right" valign="top"><a id="a06162dee0b30fc4f2180d69fd550b682" name="a06162dee0b30fc4f2180d69fd550b682"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cancel</b> ()</td></tr>
+<tr class="separator:a06162dee0b30fc4f2180d69fd550b682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7c927b73cf3a4a4190fe349374ccd8c" id="r_ab7c927b73cf3a4a4190fe349374ccd8c"><td class="memItemLeft" align="right" valign="top"><a id="ab7c927b73cf3a4a4190fe349374ccd8c" name="ab7c927b73cf3a4a4190fe349374ccd8c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
+<tr class="separator:ab7c927b73cf3a4a4190fe349374ccd8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
+信号</h2></td></tr>
+<tr class="memitem:a2dcd9766189003ed2b27e3bbacea558a" id="r_a2dcd9766189003ed2b27e3bbacea558a"><td class="memItemLeft" align="right" valign="top"><a id="a2dcd9766189003ed2b27e3bbacea558a" name="a2dcd9766189003ed2b27e3bbacea558a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>contentChunk</b> (const QString &amp;chunk)</td></tr>
+<tr class="separator:a2dcd9766189003ed2b27e3bbacea558a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada89e3ded00017e74fddf64f2f0fb496" id="r_ada89e3ded00017e74fddf64f2f0fb496"><td class="memItemLeft" align="right" valign="top"><a id="ada89e3ded00017e74fddf64f2f0fb496" name="ada89e3ded00017e74fddf64f2f0fb496"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>htmlChunk</b> (const QString &amp;html)</td></tr>
+<tr class="separator:ada89e3ded00017e74fddf64f2f0fb496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae744178c9277a1b8dc42706f892ecd10" id="r_ae744178c9277a1b8dc42706f892ecd10"><td class="memItemLeft" align="right" valign="top"><a id="ae744178c9277a1b8dc42706f892ecd10" name="ae744178c9277a1b8dc42706f892ecd10"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>contentComplete</b> (const QString &amp;text)</td></tr>
+<tr class="separator:ae744178c9277a1b8dc42706f892ecd10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c8b4cd4bf47e1ce6463d0e44e17b849" id="r_a4c8b4cd4bf47e1ce6463d0e44e17b849"><td class="memItemLeft" align="right" valign="top"><a id="a4c8b4cd4bf47e1ce6463d0e44e17b849" name="a4c8b4cd4bf47e1ce6463d0e44e17b849"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reasoningChunk</b> (const QString &amp;reasoning)</td></tr>
+<tr class="separator:a4c8b4cd4bf47e1ce6463d0e44e17b849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4745ea07392b37210192a8f4416ada0" id="r_ab4745ea07392b37210192a8f4416ada0"><td class="memItemLeft" align="right" valign="top"><a id="ab4745ea07392b37210192a8f4416ada0" name="ab4745ea07392b37210192a8f4416ada0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reasoningComplete</b> (const QString &amp;reasoning)</td></tr>
+<tr class="separator:ab4745ea07392b37210192a8f4416ada0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d8d8d523f381b8e781f95dc937d623d" id="r_a4d8d8d523f381b8e781f95dc937d623d"><td class="memItemLeft" align="right" valign="top"><a id="a4d8d8d523f381b8e781f95dc937d623d" name="a4d8d8d523f381b8e781f95dc937d623d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>toolCallRequest</b> (const QString &amp;callId, const QString &amp;funcName, const QString &amp;args)</td></tr>
+<tr class="separator:a4d8d8d523f381b8e781f95dc937d623d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27afd3f82a9881dbe11615df936ede4e" id="r_a27afd3f82a9881dbe11615df936ede4e"><td class="memItemLeft" align="right" valign="top"><a id="a27afd3f82a9881dbe11615df936ede4e" name="a27afd3f82a9881dbe11615df936ede4e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>toolCallResult</b> (const QString &amp;callId, const QString &amp;funcName, const QString &amp;output)</td></tr>
+<tr class="separator:a27afd3f82a9881dbe11615df936ede4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca32a6d4e74b76468cff5f551bca216" id="r_aeca32a6d4e74b76468cff5f551bca216"><td class="memItemLeft" align="right" valign="top"><a id="aeca32a6d4e74b76468cff5f551bca216" name="aeca32a6d4e74b76468cff5f551bca216"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>completed</b> ()</td></tr>
+<tr class="separator:aeca32a6d4e74b76468cff5f551bca216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3010b19723ef64e1fb6c5c765a748f50" id="r_a3010b19723ef64e1fb6c5c765a748f50"><td class="memItemLeft" align="right" valign="top"><a id="a3010b19723ef64e1fb6c5c765a748f50" name="a3010b19723ef64e1fb6c5c765a748f50"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>errorOccurred</b> (const QString &amp;errMsg)</td></tr>
+<tr class="separator:a3010b19723ef64e1fb6c5c765a748f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a2cbc7ce6fc75f89daf353dc0cbed70e9" id="r_a2cbc7ce6fc75f89daf353dc0cbed70e9"><td class="memItemLeft" align="right" valign="top"><a id="a2cbc7ce6fc75f89daf353dc0cbed70e9" name="a2cbc7ce6fc75f89daf353dc0cbed70e9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>UiChatEventHandler</b> (QObject *parent=nullptr)</td></tr>
+<tr class="separator:a2cbc7ce6fc75f89daf353dc0cbed70e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc2381ee7522905e85367ab0db14321f" id="r_afc2381ee7522905e85367ab0db14321f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc2381ee7522905e85367ab0db14321f">onContentChunk</a> (const std::string &amp;text) override</td></tr>
+<tr class="separator:afc2381ee7522905e85367ab0db14321f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f085f1da25b0a16a8ab3ccbed2d98a1" id="r_a0f085f1da25b0a16a8ab3ccbed2d98a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f085f1da25b0a16a8ab3ccbed2d98a1">onContentComplete</a> (const std::string &amp;text) override</td></tr>
+<tr class="separator:a0f085f1da25b0a16a8ab3ccbed2d98a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e79c616060b8e8610196345cf9f524b" id="r_a2e79c616060b8e8610196345cf9f524b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e79c616060b8e8610196345cf9f524b">onReasoningChunk</a> (const std::string &amp;reasoning) override</td></tr>
+<tr class="separator:a2e79c616060b8e8610196345cf9f524b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a060fadc60d9cd14997d60f8343e599fe" id="r_a060fadc60d9cd14997d60f8343e599fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a060fadc60d9cd14997d60f8343e599fe">onReasoningComplete</a> (const std::string &amp;reasoning) override</td></tr>
+<tr class="separator:a060fadc60d9cd14997d60f8343e599fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c87c6286e91f148167f285b7261a208" id="r_a0c87c6286e91f148167f285b7261a208"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c87c6286e91f148167f285b7261a208">onToolCallRequest</a> (const std::string &amp;toolCallId, const std::string &amp;functionName, const std::string &amp;arguments) override</td></tr>
+<tr class="separator:a0c87c6286e91f148167f285b7261a208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b2620149cd1fb9495349e918c802085" id="r_a4b2620149cd1fb9495349e918c802085"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b2620149cd1fb9495349e918c802085">onToolCallResult</a> (const std::string &amp;toolCallId, const std::string &amp;functionName, const std::string &amp;result) override</td></tr>
+<tr class="separator:a4b2620149cd1fb9495349e918c802085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a839aedb8899e2c51d52facc244978f97" id="r_a839aedb8899e2c51d52facc244978f97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a839aedb8899e2c51d52facc244978f97">onComplete</a> () override</td></tr>
+<tr class="separator:a839aedb8899e2c51d52facc244978f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00f256f1938897ff4e5fc26d1453ad04" id="r_a00f256f1938897ff4e5fc26d1453ad04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00f256f1938897ff4e5fc26d1453ad04">onError</a> (const std::string &amp;error) override</td></tr>
+<tr class="separator:a00f256f1938897ff4e5fc26d1453ad04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2bda89467bbf7952156cce260d716a7" id="r_ac2bda89467bbf7952156cce260d716a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2bda89467bbf7952156cce260d716a7">isCancelled</a> () const override</td></tr>
+<tr class="separator:ac2bda89467bbf7952156cce260d716a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1ChatEventHandler"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ChatEventHandler')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ChatEventHandler.html">ast::ChatEventHandler</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>流式聊天事件的 Qt 信号桥接器 </p>
+<p>同时继承 QObject 和 ChatEventHandler。 在工作线程中调用 <a class="el" href="classast_1_1ChatEventHandler.html" title="流式聊天事件处理器">ChatEventHandler</a> 虚方法， 内部通过 emit 将事件转发到主线程的槽函数。 内置 <a class="el" href="classast_1_1MarkdownHTMLRenderer.html" title="HTML 流式渲染器">MarkdownHTMLRenderer</a> 进行流式 Markdown→HTML 转换。 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="ac2bda89467bbf7952156cce260d716a7" name="ac2bda89467bbf7952156cce260d716a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2bda89467bbf7952156cce260d716a7">&#9670;&#160;</a></span>isCancelled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::UiChatEventHandler::isCancelled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检查是否被取消（线程安全） </p>
+
+<p>重载 <a class="el" href="classast_1_1ChatEventHandler.html#a0df6aa606f0d6e0d06d054ba69d2f568">ast::ChatEventHandler</a> .</p>
+
+</div>
+</div>
+<a id="a839aedb8899e2c51d52facc244978f97" name="a839aedb8899e2c51d52facc244978f97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a839aedb8899e2c51d52facc244978f97">&#9670;&#160;</a></span>onComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::UiChatEventHandler::onComplete </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>本轮对话完成 </p>
+
+<p>重载 <a class="el" href="classast_1_1ChatEventHandler.html#a395c23c62dce53083eb1c54f00384894">ast::ChatEventHandler</a> .</p>
+
+</div>
+</div>
+<a id="afc2381ee7522905e85367ab0db14321f" name="afc2381ee7522905e85367ab0db14321f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc2381ee7522905e85367ab0db14321f">&#9670;&#160;</a></span>onContentChunk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::UiChatEventHandler::onContentChunk </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>收到一块文本内容（delta） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>文本增量（可能是一个或几个 token） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="classast_1_1ChatEventHandler.html#a9ce76e9d4a8bfd678370300eec4c9637">ast::ChatEventHandler</a> .</p>
+
+</div>
+</div>
+<a id="a0f085f1da25b0a16a8ab3ccbed2d98a1" name="a0f085f1da25b0a16a8ab3ccbed2d98a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f085f1da25b0a16a8ab3ccbed2d98a1">&#9670;&#160;</a></span>onContentComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::UiChatEventHandler::onContentComplete </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>收到完整文本内容 </p>
+
+<p>重载 <a class="el" href="classast_1_1ChatEventHandler.html#ae27e203440a5572a6151e5e036ee9f85">ast::ChatEventHandler</a> .</p>
+
+</div>
+</div>
+<a id="a00f256f1938897ff4e5fc26d1453ad04" name="a00f256f1938897ff4e5fc26d1453ad04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00f256f1938897ff4e5fc26d1453ad04">&#9670;&#160;</a></span>onError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::UiChatEventHandler::onError </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>error</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>发生错误 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>错误描述 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="classast_1_1ChatEventHandler.html#abff8eed9ef1c36677efc81298c5068ef">ast::ChatEventHandler</a> .</p>
+
+</div>
+</div>
+<a id="a2e79c616060b8e8610196345cf9f524b" name="a2e79c616060b8e8610196345cf9f524b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e79c616060b8e8610196345cf9f524b">&#9670;&#160;</a></span>onReasoningChunk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::UiChatEventHandler::onReasoningChunk </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>reasoning</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>收到一块推理内容（delta） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reasoning</td><td>推理内容增量 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="classast_1_1ChatEventHandler.html#a7688fd68818dd37b53fafe23ab6f7cef">ast::ChatEventHandler</a> .</p>
+
+</div>
+</div>
+<a id="a060fadc60d9cd14997d60f8343e599fe" name="a060fadc60d9cd14997d60f8343e599fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a060fadc60d9cd14997d60f8343e599fe">&#9670;&#160;</a></span>onReasoningComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::UiChatEventHandler::onReasoningComplete </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>reasoning</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>收到完整推理内容 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reasoning</td><td>推理内容 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="classast_1_1ChatEventHandler.html#a427faafaa950fa33e6652c61e4d1603d">ast::ChatEventHandler</a> .</p>
+
+</div>
+</div>
+<a id="a0c87c6286e91f148167f285b7261a208" name="a0c87c6286e91f148167f285b7261a208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c87c6286e91f148167f285b7261a208">&#9670;&#160;</a></span>onToolCallRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::UiChatEventHandler::onToolCallRequest </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>toolCallId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>functionName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>arguments</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>LLM 请求调用工具（含完整函数名和参数） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toolCallId</td><td>工具调用 ID </td></tr>
+    <tr><td class="paramname">functionName</td><td>函数名称 </td></tr>
+    <tr><td class="paramname">arguments</td><td>参数字符串（JSON 格式） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="classast_1_1ChatEventHandler.html#a3d35cf709df391788218826509a0089a">ast::ChatEventHandler</a> .</p>
+
+</div>
+</div>
+<a id="a4b2620149cd1fb9495349e918c802085" name="a4b2620149cd1fb9495349e918c802085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b2620149cd1fb9495349e918c802085">&#9670;&#160;</a></span>onToolCallResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::UiChatEventHandler::onToolCallResult </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>toolCallId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>functionName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>工具执行完毕，返回结果 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toolCallId</td><td>工具调用 ID </td></tr>
+    <tr><td class="paramname">functionName</td><td>函数名称 </td></tr>
+    <tr><td class="paramname">result</td><td>执行结果字符串 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="classast_1_1ChatEventHandler.html#af449669c4e9da2f99bacc6c07ebbb3d6">ast::ChatEventHandler</a> .</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUiAI/Chat/<a class="el" href="UiChatEventHandler_8hpp_source.html">UiChatEventHandler.hpp</a></li>
+<li>src/AstUiAI/Chat/<a class="el" href="UiChatEventHandler_8cpp.html">UiChatEventHandler.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1UiChatEventHandler.html">UiChatEventHandler</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

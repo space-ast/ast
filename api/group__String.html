@@ -161,6 +161,8 @@ typedef <a class="el" href="classast_1_1StringViewBasic.html">StringViewBasic</a
 <tr class="separator:gaf2fc97e4c61a4d07cf3301c4487027b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga40d79277119322d1fb84debba51a5767" id="r_ga40d79277119322d1fb84debba51a5767"><td class="memItemLeft" align="right" valign="top">AST_UTIL_CAPI errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga40d79277119322d1fb84debba51a5767">ast::aWideToAnsi</a> (const wchar_t *wide, std::string &amp;ansi)</td></tr>
 <tr class="separator:ga40d79277119322d1fb84debba51a5767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0feedc4943291a26c649f9f6e804db59" id="r_ga0feedc4943291a26c649f9f6e804db59"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0feedc4943291a26c649f9f6e804db59">ast::aAnsiToUtf8</a> (const char *ansi)</td></tr>
+<tr class="separator:ga0feedc4943291a26c649f9f6e804db59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1d8d99844ba8cd0d871d5d0079c4732b" id="r_ga1d8d99844ba8cd0d871d5d0079c4732b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1d8d99844ba8cd0d871d5d0079c4732b">ast::aUtf8ToWide</a> (const char *utf8, std::wstring &amp;wide)</td></tr>
 <tr class="separator:ga1d8d99844ba8cd0d871d5d0079c4732b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga063e56df85d78ec910b924e67c2ba181" id="r_ga063e56df85d78ec910b924e67c2ba181"><td class="memItemLeft" align="right" valign="top"><a id="ga063e56df85d78ec910b924e67c2ba181" name="ga063e56df85d78ec910b924e67c2ba181"></a>
@@ -213,6 +215,32 @@ template&lt;typename _Char &gt; </td></tr>
 <tr class="separator:gae39b83d7c4abb5c6defc168892ef5169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">函数说明</h2>
+<a id="ga0feedc4943291a26c649f9f6e804db59" name="ga0feedc4943291a26c649f9f6e804db59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0feedc4943291a26c649f9f6e804db59">&#9670;&#160;</a></span>aAnsiToUtf8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::string ast::aAnsiToUtf8 </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>ansi</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将ANSI编码的字符串转换为UTF-8编码 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ansi</td><td>输入ANSI编码的字符串 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>UTF-8编码的字符串 </dd></dl>
+
+</div>
+</div>
 <a id="gaf2fc97e4c61a4d07cf3301c4487027b2" name="gaf2fc97e4c61a4d07cf3301c4487027b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaf2fc97e4c61a4d07cf3301c4487027b2">&#9670;&#160;</a></span>aAnsiToWide()</h2>
 

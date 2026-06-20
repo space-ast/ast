@@ -106,24 +106,45 @@ $(function(){initNavTree('LLMConfig_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1LLMConfig.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1LLMConfig.html">LLMConfig</a></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_class" href="classast_1_1LLMConfig.html">LLMConfig</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="classast_1_1LLMConfig.html">~LLMConfig</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::string model_;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">float</span> temperature_;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/JsonValue.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>JsonValue;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classast_1_1LLMConfig.html">   38</a></span><span class="keyword">class </span>AST_AI_API <a class="code hl_class" href="classast_1_1LLMConfig.html">LLMConfig</a></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1LLMConfig.html">LLMConfig</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1LLMConfig.html">~LLMConfig</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1LLMConfig.html#a0f40f6d97133059ceecdedc1f745bd6f">   45</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1LLMConfig.html#a0f40f6d97133059ceecdedc1f745bd6f">setModel</a>(<span class="keyword">const</span> std::string&amp; model) { model_ = model; }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1LLMConfig.html#a00159639f9316224e20562860ef94f06">   47</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classast_1_1LLMConfig.html#a00159639f9316224e20562860ef94f06">model</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> model_; }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1LLMConfig.html#a2ba68b851bff55832e0b6eea54a731fb">   50</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1LLMConfig.html#a2ba68b851bff55832e0b6eea54a731fb">setTemperature</a>(<span class="keywordtype">float</span> temperature) { temperature_ = temperature; }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1LLMConfig.html#aad64c102978bd70183a5bd156345c193">   52</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classast_1_1LLMConfig.html#aad64c102978bd70183a5bd156345c193">temperature</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> temperature_; }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1LLMConfig.html#a6ccb1032e2f4c6e702f09f80933f2aa5">   55</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1LLMConfig.html#a6ccb1032e2f4c6e702f09f80933f2aa5">setExtraBody</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; extra) { extraBody_ = extra; }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1LLMConfig.html#abd02927c76a55221188b6a74aa0c725d">   57</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; <a class="code hl_function" href="classast_1_1LLMConfig.html#abd02927c76a55221188b6a74aa0c725d">extraBody</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> extraBody_; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::string model_ = <span class="stringliteral">&quot;deepseek-v4-flash&quot;</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">float</span> temperature_ = 0.2f;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a> extraBody_;  </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
 </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1LLMConfig_html"><div class="ttname"><a href="classast_1_1LLMConfig.html">ast::LLMConfig</a></div><div class="ttdef"><b>定义</b> LLMConfig.hpp:34</div></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1LLMConfig_html"><div class="ttname"><a href="classast_1_1LLMConfig.html">ast::LLMConfig</a></div><div class="ttdoc">LLM请求配置</div><div class="ttdef"><b>定义</b> LLMConfig.hpp:39</div></div>
+<div class="ttc" id="aclassast_1_1LLMConfig_html_a00159639f9316224e20562860ef94f06"><div class="ttname"><a href="classast_1_1LLMConfig.html#a00159639f9316224e20562860ef94f06">ast::LLMConfig::model</a></div><div class="ttdeci">const std::string &amp; model() const</div><div class="ttdoc">获取模型名称</div><div class="ttdef"><b>定义</b> LLMConfig.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1LLMConfig_html_a0f40f6d97133059ceecdedc1f745bd6f"><div class="ttname"><a href="classast_1_1LLMConfig.html#a0f40f6d97133059ceecdedc1f745bd6f">ast::LLMConfig::setModel</a></div><div class="ttdeci">void setModel(const std::string &amp;model)</div><div class="ttdoc">设置模型名称</div><div class="ttdef"><b>定义</b> LLMConfig.hpp:45</div></div>
+<div class="ttc" id="aclassast_1_1LLMConfig_html_a2ba68b851bff55832e0b6eea54a731fb"><div class="ttname"><a href="classast_1_1LLMConfig.html#a2ba68b851bff55832e0b6eea54a731fb">ast::LLMConfig::setTemperature</a></div><div class="ttdeci">void setTemperature(float temperature)</div><div class="ttdoc">设置温度参数</div><div class="ttdef"><b>定义</b> LLMConfig.hpp:50</div></div>
+<div class="ttc" id="aclassast_1_1LLMConfig_html_a6ccb1032e2f4c6e702f09f80933f2aa5"><div class="ttname"><a href="classast_1_1LLMConfig.html#a6ccb1032e2f4c6e702f09f80933f2aa5">ast::LLMConfig::setExtraBody</a></div><div class="ttdeci">void setExtraBody(const JsonValue &amp;extra)</div><div class="ttdoc">设置提供者特有的额外请求体字段（如DeepSeek的thinking）</div><div class="ttdef"><b>定义</b> LLMConfig.hpp:55</div></div>
+<div class="ttc" id="aclassast_1_1LLMConfig_html_aad64c102978bd70183a5bd156345c193"><div class="ttname"><a href="classast_1_1LLMConfig.html#aad64c102978bd70183a5bd156345c193">ast::LLMConfig::temperature</a></div><div class="ttdeci">float temperature() const</div><div class="ttdoc">获取温度参数</div><div class="ttdef"><b>定义</b> LLMConfig.hpp:52</div></div>
+<div class="ttc" id="aclassast_1_1LLMConfig_html_abd02927c76a55221188b6a74aa0c725d"><div class="ttname"><a href="classast_1_1LLMConfig.html#abd02927c76a55221188b6a74aa0c725d">ast::LLMConfig::extraBody</a></div><div class="ttdeci">const JsonValue &amp; extraBody() const</div><div class="ttdoc">获取提供者特有的额外请求体字段</div><div class="ttdef"><b>定义</b> LLMConfig.hpp:57</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

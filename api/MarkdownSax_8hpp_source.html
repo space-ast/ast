@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/ParseFormat/Markdown/MarkdownSax.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('MarkdownSax_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MarkdownSax.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="MarkdownSax_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/StringView.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2f">   35</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2f">ETableAlign</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    eDefault = 0,  </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_enumvalue" href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2fa97d352658db7b34c35502f9cd535e48b">eLeft</a>    = 1,  </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_enumvalue" href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2fa220067f8b2018584c34a90d950f9bd9c">eCenter</a>  = 2,  </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2faf47864efb86f863a0080026825b1303d">eRight</a>   = 3,  </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html">   44</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1MarkdownSax.html">MarkdownSax</a></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1MarkdownSax.html">~MarkdownSax</a>() {};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">// 文档生命周期</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startDocument() = 0;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endDocument() = 0;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// ---- 块级元素 ----</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// virtual void newline(bool force=false) {};</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#a2e7f2ba77284c710488dcb78bf2d91e3">   60</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#a2e7f2ba77284c710488dcb78bf2d91e3">startHeading</a>(<span class="keywordtype">int</span> level) = 0;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endHeading(<span class="keywordtype">int</span> level) = 0;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startParagraph() = 0;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endParagraph() = 0;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startCodeBlock(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> language) = 0;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> codeLine(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> line) = 0;  <span class="comment">// 代码行</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endCodeBlock() = 0;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startList(<span class="keywordtype">bool</span> ordered) = 0;   <span class="comment">// true: 有序, false: 无序</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startListItem() = 0;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endListItem() = 0;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endList() = 0;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startBlockquote() = 0;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endBlockquote() = 0;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> horizontalRule() = 0;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// ---- 表格（GFM 扩展） ----</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#afd087fbc08b1ed8003c026aed9b9c310">   82</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#afd087fbc08b1ed8003c026aed9b9c310">startTable</a>() {}</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#ae89c1d6b6a06fd3116c1c0f69a32835c">   84</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#ae89c1d6b6a06fd3116c1c0f69a32835c">startTableHead</a>() {}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#a288bb023461d55c3069f2e45c2377ad5">   86</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#a288bb023461d55c3069f2e45c2377ad5">endTableHead</a>() {}</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#ab62d5f797ed8083520585a9da2c735ca">   88</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#ab62d5f797ed8083520585a9da2c735ca">startTableBody</a>() {}</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#a446ae120d64d9d65c3151355f1e1c578">   90</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#a446ae120d64d9d65c3151355f1e1c578">endTableBody</a>() {}</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#aada5475839fa867407243ebd4488a2e9">   92</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#aada5475839fa867407243ebd4488a2e9">startTableRow</a>() {}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#a68db7af12f9310bf45db61c3cc9276cd">   94</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#a68db7af12f9310bf45db61c3cc9276cd">endTableRow</a>() {}</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#aeb6cdafd7eeddc30067ee9554d043f8a">   97</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#aeb6cdafd7eeddc30067ee9554d043f8a">startTableCell</a>(<a class="code hl_enumeration" href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2f">ETableAlign</a> align) { (void)align; }</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#acdd1bc0f431c9338fe97127021a57c28">   99</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#acdd1bc0f431c9338fe97127021a57c28">endTableCell</a>() {}</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classast_1_1MarkdownSax.html#ae68befd41e35d506e1197d21bedf83ab">  101</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1MarkdownSax.html#ae68befd41e35d506e1197d21bedf83ab">endTable</a>() {}</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// ---- 行内元素 ----</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> text(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> txt) = 0;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startEmphasis() = 0;     <span class="comment">// 斜体</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endEmphasis() = 0;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startStrong() = 0;       <span class="comment">// 粗体</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endStrong() = 0;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startDelete() = 0;      <span class="comment">// 删除线</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endDelete() = 0;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> codeSpan(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> code) = 0;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startLink(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> url) = 0;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> endLink() = 0;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> image(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> alt, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> url) = 0;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
+</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html"><div class="ttname"><a href="classast_1_1MarkdownSax.html">ast::MarkdownSax</a></div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:45</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_a288bb023461d55c3069f2e45c2377ad5"><div class="ttname"><a href="classast_1_1MarkdownSax.html#a288bb023461d55c3069f2e45c2377ad5">ast::MarkdownSax::endTableHead</a></div><div class="ttdeci">virtual void endTableHead()</div><div class="ttdoc">表头区域结束</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:86</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_a2e7f2ba77284c710488dcb78bf2d91e3"><div class="ttname"><a href="classast_1_1MarkdownSax.html#a2e7f2ba77284c710488dcb78bf2d91e3">ast::MarkdownSax::startHeading</a></div><div class="ttdeci">virtual void startHeading(int level)=0</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_a446ae120d64d9d65c3151355f1e1c578"><div class="ttname"><a href="classast_1_1MarkdownSax.html#a446ae120d64d9d65c3151355f1e1c578">ast::MarkdownSax::endTableBody</a></div><div class="ttdeci">virtual void endTableBody()</div><div class="ttdoc">表体区域结束</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:90</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_a68db7af12f9310bf45db61c3cc9276cd"><div class="ttname"><a href="classast_1_1MarkdownSax.html#a68db7af12f9310bf45db61c3cc9276cd">ast::MarkdownSax::endTableRow</a></div><div class="ttdeci">virtual void endTableRow()</div><div class="ttdoc">表格行结束</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:94</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_aada5475839fa867407243ebd4488a2e9"><div class="ttname"><a href="classast_1_1MarkdownSax.html#aada5475839fa867407243ebd4488a2e9">ast::MarkdownSax::startTableRow</a></div><div class="ttdeci">virtual void startTableRow()</div><div class="ttdoc">表格行开始</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:92</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_ab62d5f797ed8083520585a9da2c735ca"><div class="ttname"><a href="classast_1_1MarkdownSax.html#ab62d5f797ed8083520585a9da2c735ca">ast::MarkdownSax::startTableBody</a></div><div class="ttdeci">virtual void startTableBody()</div><div class="ttdoc">表体区域开始</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:88</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_acdd1bc0f431c9338fe97127021a57c28"><div class="ttname"><a href="classast_1_1MarkdownSax.html#acdd1bc0f431c9338fe97127021a57c28">ast::MarkdownSax::endTableCell</a></div><div class="ttdeci">virtual void endTableCell()</div><div class="ttdoc">表格单元格结束</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:99</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_ae68befd41e35d506e1197d21bedf83ab"><div class="ttname"><a href="classast_1_1MarkdownSax.html#ae68befd41e35d506e1197d21bedf83ab">ast::MarkdownSax::endTable</a></div><div class="ttdeci">virtual void endTable()</div><div class="ttdoc">表格结束</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:101</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_ae89c1d6b6a06fd3116c1c0f69a32835c"><div class="ttname"><a href="classast_1_1MarkdownSax.html#ae89c1d6b6a06fd3116c1c0f69a32835c">ast::MarkdownSax::startTableHead</a></div><div class="ttdeci">virtual void startTableHead()</div><div class="ttdoc">表头区域开始</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:84</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_aeb6cdafd7eeddc30067ee9554d043f8a"><div class="ttname"><a href="classast_1_1MarkdownSax.html#aeb6cdafd7eeddc30067ee9554d043f8a">ast::MarkdownSax::startTableCell</a></div><div class="ttdeci">virtual void startTableCell(ETableAlign align)</div><div class="ttdoc">表格单元格开始</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:97</div></div>
+<div class="ttc" id="aclassast_1_1MarkdownSax_html_afd087fbc08b1ed8003c026aed9b9c310"><div class="ttname"><a href="classast_1_1MarkdownSax.html#afd087fbc08b1ed8003c026aed9b9c310">ast::MarkdownSax::startTable</a></div><div class="ttdeci">virtual void startTable()</div><div class="ttdoc">表格开始</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:82</div></div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
+<div class="ttc" id="anamespaceast_html_a8a0cb8cd899337b4bc595bc1a1939b2f"><div class="ttname"><a href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2f">ast::ETableAlign</a></div><div class="ttdeci">ETableAlign</div><div class="ttdoc">表格列对齐方式</div><div class="ttdef"><b>定义</b> MarkdownSax.hpp:36</div></div>
+<div class="ttc" id="anamespaceast_html_a8a0cb8cd899337b4bc595bc1a1939b2fa220067f8b2018584c34a90d950f9bd9c"><div class="ttname"><a href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2fa220067f8b2018584c34a90d950f9bd9c">ast::ETableAlign::eCenter</a></div><div class="ttdeci">@ eCenter</div><div class="ttdoc">居中对齐 :—:</div></div>
+<div class="ttc" id="anamespaceast_html_a8a0cb8cd899337b4bc595bc1a1939b2fa97d352658db7b34c35502f9cd535e48b"><div class="ttname"><a href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2fa97d352658db7b34c35502f9cd535e48b">ast::ETableAlign::eLeft</a></div><div class="ttdeci">@ eLeft</div><div class="ttdoc">左对齐 :—</div></div>
+<div class="ttc" id="anamespaceast_html_a8a0cb8cd899337b4bc595bc1a1939b2faf47864efb86f863a0080026825b1303d"><div class="ttname"><a href="namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2faf47864efb86f863a0080026825b1303d">ast::ETableAlign::eRight</a></div><div class="ttdeci">@ eRight</div><div class="ttdoc">右对齐 —:</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_480cf6b53fcea3873823fd76d21e216e.html">ParseFormat</a></li><li class="navelem"><a class="el" href="dir_a2e1d1227cce4baaca3039d3f166a508.html">Markdown</a></li><li class="navelem"><a class="el" href="MarkdownSax_8hpp.html">MarkdownSax.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

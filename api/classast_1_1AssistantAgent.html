@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::AssistantAgent类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1AssistantAgent.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classast_1_1AssistantAgent-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::AssistantAgent类 参考<div class="ingroups"><a class="el" href="group__Chat.html">Chat</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="AssistantAgent_8hpp_source.html">AssistantAgent.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::AssistantAgent 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1AssistantAgent.png" usemap="#ast::AssistantAgent_map" alt=""/>
+  <map id="ast::AssistantAgent_map" name="ast::AssistantAgent_map">
+<area href="classast_1_1ChatAgent.html" title="聊天智能体抽象基类" alt="ast::ChatAgent" shape="rect" coords="0,0,117,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a98cb696680c557554a9fe31c06069a8d" id="r_a98cb696680c557554a9fe31c06069a8d"><td class="memItemLeft" align="right" valign="top"><a id="a98cb696680c557554a9fe31c06069a8d" name="a98cb696680c557554a9fe31c06069a8d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AssistantAgent</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="#ad6630a75d59377d6526630a149900525">systemPrompt</a>)</td></tr>
+<tr class="separator:a98cb696680c557554a9fe31c06069a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2d94c8a5302591901b57b9e7e4c64a3" id="r_ae2d94c8a5302591901b57b9e7e4c64a3"><td class="memItemLeft" align="right" valign="top"><a id="ae2d94c8a5302591901b57b9e7e4c64a3" name="ae2d94c8a5302591901b57b9e7e4c64a3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AssistantAgent</b> (<a class="el" href="classast_1_1AssistantAgent.html">AssistantAgent</a> &amp;&amp;)=default</td></tr>
+<tr class="separator:ae2d94c8a5302591901b57b9e7e4c64a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f05b9f5d79296e9a7000fc5f43db865" id="r_a2f05b9f5d79296e9a7000fc5f43db865"><td class="memItemLeft" align="right" valign="top"><a id="a2f05b9f5d79296e9a7000fc5f43db865" name="a2f05b9f5d79296e9a7000fc5f43db865"></a>
+<a class="el" href="classast_1_1AssistantAgent.html">AssistantAgent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classast_1_1AssistantAgent.html">AssistantAgent</a> &amp;&amp;)=default</td></tr>
+<tr class="separator:a2f05b9f5d79296e9a7000fc5f43db865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56787e58511281ee989b1b065b21283e" id="r_a56787e58511281ee989b1b065b21283e"><td class="memItemLeft" align="right" valign="top"><a id="a56787e58511281ee989b1b065b21283e" name="a56787e58511281ee989b1b065b21283e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSystemPrompt</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> prompt)</td></tr>
+<tr class="separator:a56787e58511281ee989b1b065b21283e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6630a75d59377d6526630a149900525" id="r_ad6630a75d59377d6526630a149900525"><td class="memItemLeft" align="right" valign="top"><a id="ad6630a75d59377d6526630a149900525" name="ad6630a75d59377d6526630a149900525"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>systemPrompt</b> () const</td></tr>
+<tr class="separator:ad6630a75d59377d6526630a149900525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5602b43c788e17416a3d22f8f6c145a8" id="r_a5602b43c788e17416a3d22f8f6c145a8"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a5602b43c788e17416a3d22f8f6c145a8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ChatTool.html">ChatTool</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5602b43c788e17416a3d22f8f6c145a8">addTool</a> (Func func)</td></tr>
+<tr class="separator:a5602b43c788e17416a3d22f8f6c145a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa17c81a9f4a1f83f3c5ed73b115f8d2b" id="r_aa17c81a9f4a1f83f3c5ed73b115f8d2b"><td class="memItemLeft" align="right" valign="top"><a id="aa17c81a9f4a1f83f3c5ed73b115f8d2b" name="aa17c81a9f4a1f83f3c5ed73b115f8d2b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addTool</b> (std::unique_ptr&lt; <a class="el" href="classast_1_1ChatTool.html">ChatTool</a> &gt; tool)</td></tr>
+<tr class="separator:aa17c81a9f4a1f83f3c5ed73b115f8d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5c54c793063dccbc098ecfe30d89810" id="r_af5c54c793063dccbc098ecfe30d89810"><td class="memItemLeft" align="right" valign="top"><a id="af5c54c793063dccbc098ecfe30d89810" name="af5c54c793063dccbc098ecfe30d89810"></a>
+<a class="el" href="classast_1_1ChatTools.html">ChatTools</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>tools</b> ()</td></tr>
+<tr class="separator:af5c54c793063dccbc098ecfe30d89810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab44beedd29df2aa380b52db0eed762a" id="r_aab44beedd29df2aa380b52db0eed762a"><td class="memItemLeft" align="right" valign="top"><a id="aab44beedd29df2aa380b52db0eed762a" name="aab44beedd29df2aa380b52db0eed762a"></a>
+<a class="el" href="classast_1_1LLMConfig.html">LLMConfig</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>config</b> ()</td></tr>
+<tr class="separator:aab44beedd29df2aa380b52db0eed762a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4fc910907550f53b95d6c24283a5304" id="r_ad4fc910907550f53b95d6c24283a5304"><td class="memItemLeft" align="right" valign="top"><a id="ad4fc910907550f53b95d6c24283a5304" name="ad4fc910907550f53b95d6c24283a5304"></a>
+const <a class="el" href="classast_1_1LLMConfig.html">LLMConfig</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>config</b> () const</td></tr>
+<tr class="separator:ad4fc910907550f53b95d6c24283a5304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4dd940eb31d38fc2e07ab5d44ae75e3" id="r_ad4dd940eb31d38fc2e07ab5d44ae75e3"><td class="memItemLeft" align="right" valign="top"><a id="ad4dd940eb31d38fc2e07ab5d44ae75e3" name="ad4dd940eb31d38fc2e07ab5d44ae75e3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setClient</b> (std::unique_ptr&lt; <a class="el" href="classast_1_1LLMClient.html">LLMClient</a> &gt; <a class="el" href="#a8c09a165431885e812820edc76a50015">client</a>)</td></tr>
+<tr class="separator:ad4dd940eb31d38fc2e07ab5d44ae75e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c09a165431885e812820edc76a50015" id="r_a8c09a165431885e812820edc76a50015"><td class="memItemLeft" align="right" valign="top"><a id="a8c09a165431885e812820edc76a50015" name="a8c09a165431885e812820edc76a50015"></a>
+<a class="el" href="classast_1_1LLMClient.html">LLMClient</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>client</b> ()</td></tr>
+<tr class="separator:a8c09a165431885e812820edc76a50015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7196ff7b6c87f63311bccf4f77a72dd5" id="r_a7196ff7b6c87f63311bccf4f77a72dd5"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7196ff7b6c87f63311bccf4f77a72dd5">run</a> (<a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;messages) override</td></tr>
+<tr class="separator:a7196ff7b6c87f63311bccf4f77a72dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad56e30258e67f74783a8eab84a83a9fd" id="r_ad56e30258e67f74783a8eab84a83a9fd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad56e30258e67f74783a8eab84a83a9fd">run</a> (<a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;messages, int maxSteps)</td></tr>
+<tr class="separator:ad56e30258e67f74783a8eab84a83a9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae635dedc1de01dcb0c0d3936fc3794ed" id="r_ae635dedc1de01dcb0c0d3936fc3794ed"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae635dedc1de01dcb0c0d3936fc3794ed">runOneStep</a> (<a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;messages)</td></tr>
+<tr class="separator:ae635dedc1de01dcb0c0d3936fc3794ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd13e224d950833aa0e525fe82c78fa1" id="r_acd13e224d950833aa0e525fe82c78fa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd13e224d950833aa0e525fe82c78fa1">handleToolCalls</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;toolCalls, <a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;messages)</td></tr>
+<tr class="separator:acd13e224d950833aa0e525fe82c78fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c4e91c6d0a1b734e0d7c4a22916b5eb" id="r_a4c4e91c6d0a1b734e0d7c4a22916b5eb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c4e91c6d0a1b734e0d7c4a22916b5eb">handleToolCall</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;toolCall)</td></tr>
+<tr class="separator:a4c4e91c6d0a1b734e0d7c4a22916b5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8727e3f190caa5077ff6c4b32c53c368" id="r_a8727e3f190caa5077ff6c4b32c53c368"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8727e3f190caa5077ff6c4b32c53c368">runStream</a> (<a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;messages, <a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;handler) override</td></tr>
+<tr class="separator:a8727e3f190caa5077ff6c4b32c53c368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee02308d4829ccf66f73f03339c422c5" id="r_aee02308d4829ccf66f73f03339c422c5"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee02308d4829ccf66f73f03339c422c5">runStream</a> (<a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;messages, <a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;handler, int maxSteps)</td></tr>
+<tr class="separator:aee02308d4829ccf66f73f03339c422c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5d2c4ef2ab3956c0dfb0ea0f795466f" id="r_af5d2c4ef2ab3956c0dfb0ea0f795466f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5d2c4ef2ab3956c0dfb0ea0f795466f">runOneStepStream</a> (<a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;messages, <a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;handler)</td></tr>
+<tr class="separator:af5d2c4ef2ab3956c0dfb0ea0f795466f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28543e9339f44a39491037b9956c6cb9" id="r_a28543e9339f44a39491037b9956c6cb9"><td class="memItemLeft" align="right" valign="top"><a id="a28543e9339f44a39491037b9956c6cb9" name="a28543e9339f44a39491037b9956c6cb9"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>lastError</b> () const</td></tr>
+<tr class="separator:a28543e9339f44a39491037b9956c6cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1ChatAgent"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ChatAgent')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ChatAgent.html">ast::ChatAgent</a></td></tr>
+<tr class="memitem:a42ebfba767a0330a2c08aa73c6150fe7 inherit pub_methods_classast_1_1ChatAgent" id="r_a42ebfba767a0330a2c08aa73c6150fe7"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setName</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1ChatAgent.html#a2b908789ba19f3db3b4bedcfcb157c6e">name</a>)</td></tr>
+<tr class="separator:a42ebfba767a0330a2c08aa73c6150fe7 inherit pub_methods_classast_1_1ChatAgent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b908789ba19f3db3b4bedcfcb157c6e inherit pub_methods_classast_1_1ChatAgent" id="r_a2b908789ba19f3db3b4bedcfcb157c6e"><td class="memItemLeft" align="right" valign="top">
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const</td></tr>
+<tr class="separator:a2b908789ba19f3db3b4bedcfcb157c6e inherit pub_methods_classast_1_1ChatAgent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a1f7e3096a01a8798b86843bc37c99984" id="r_a1f7e3096a01a8798b86843bc37c99984"><td class="memItemLeft" align="right" valign="top"><a id="a1f7e3096a01a8798b86843bc37c99984" name="a1f7e3096a01a8798b86843bc37c99984"></a>
+static <a class="el" href="classast_1_1AssistantAgent.html">AssistantAgent</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DefaultAgent</b> ()</td></tr>
+<tr class="separator:a1f7e3096a01a8798b86843bc37c99984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b850cd2c9af74eb350b3f24de6df086" id="r_a1b850cd2c9af74eb350b3f24de6df086"><td class="memItemLeft" align="right" valign="top"><a id="a1b850cd2c9af74eb350b3f24de6df086" name="a1b850cd2c9af74eb350b3f24de6df086"></a>
+static <a class="el" href="classast_1_1AssistantAgent.html">AssistantAgent</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>NewDefaultAgent</b> ()</td></tr>
+<tr class="separator:a1b850cd2c9af74eb350b3f24de6df086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2049c86f4100bd4598f2f2acb4e65849" id="r_a2049c86f4100bd4598f2f2acb4e65849"><td class="memItemLeft" align="right" valign="top"><a id="a2049c86f4100bd4598f2f2acb4e65849" name="a2049c86f4100bd4598f2f2acb4e65849"></a>
+static <a class="el" href="classast_1_1AssistantAgent.html">AssistantAgent</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SpaceEngineer</b> ()</td></tr>
+<tr class="separator:a2049c86f4100bd4598f2f2acb4e65849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a749b0a2535cece266c981ee0bf3ceb3d" id="r_a749b0a2535cece266c981ee0bf3ceb3d"><td class="memItemLeft" align="right" valign="top"><a id="a749b0a2535cece266c981ee0bf3ceb3d" name="a749b0a2535cece266c981ee0bf3ceb3d"></a>
+static <a class="el" href="classast_1_1AssistantAgent.html">AssistantAgent</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>NewSpaceEngineer</b> ()</td></tr>
+<tr class="separator:a749b0a2535cece266c981ee0bf3ceb3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pro_attribs_classast_1_1ChatAgent"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1ChatAgent')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1ChatAgent.html">ast::ChatAgent</a></td></tr>
+<tr class="memitem:a5f9f61c57cf2618d7df88bb9fe70abfc inherit pro_attribs_classast_1_1ChatAgent" id="r_a5f9f61c57cf2618d7df88bb9fe70abfc"><td class="memItemLeft" align="right" valign="top">
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
+<tr class="separator:a5f9f61c57cf2618d7df88bb9fe70abfc inherit pro_attribs_classast_1_1ChatAgent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>聊天智能体 </p>
+<p>定义智能体的身份、能力、配置和LLM客户端。 智能体本身无状态，同一个智能体实例可参与多个不同的对话。 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a5602b43c788e17416a3d22f8f6c145a8" name="a5602b43c788e17416a3d22f8f6c145a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5602b43c788e17416a3d22f8f6c145a8">&#9670;&#160;</a></span>addTool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Func &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1ChatTool.html">ChatTool</a> * ast::AssistantAgent::addTool </td>
+          <td>(</td>
+          <td class="paramtype">Func</td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>添加工具（通过函数指针/lambda） </p>
+<dl class="section return"><dt>返回</dt><dd>工具指针（非拥有，生命周期由ChatAgent管理） </dd></dl>
+
+</div>
+</div>
+<a id="a4c4e91c6d0a1b734e0d7c4a22916b5eb" name="a4c4e91c6d0a1b734e0d7c4a22916b5eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c4e91c6d0a1b734e0d7c4a22916b5eb">&#9670;&#160;</a></span>handleToolCall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ast::AssistantAgent::handleToolCall </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>toolCall</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>处理单个工具调用 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toolCall</td><td>单个工具调用 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd13e224d950833aa0e525fe82c78fa1" name="acd13e224d950833aa0e525fe82c78fa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd13e224d950833aa0e525fe82c78fa1">&#9670;&#160;</a></span>handleToolCalls()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::AssistantAgent::handleToolCalls </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>toolCalls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>messages</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>处理工具调用 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toolCalls</td><td>工具调用数组 </td></tr>
+    <tr><td class="paramname">messages</td><td>消息历史 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7196ff7b6c87f63311bccf4f77a72dd5" name="a7196ff7b6c87f63311bccf4f77a72dd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7196ff7b6c87f63311bccf4f77a72dd5">&#9670;&#160;</a></span>run() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::AssistantAgent::run </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>messages</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行智能体逻辑 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">messages</td><td>消息历史（可修改） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，0表示成功 </dd></dl>
+
+<p>实现了 <a class="el" href="classast_1_1ChatAgent.html#a1db1259db905e2f364f958413d9ecad2">ast::ChatAgent</a>.</p>
+
+</div>
+</div>
+<a id="ad56e30258e67f74783a8eab84a83a9fd" name="ad56e30258e67f74783a8eab84a83a9fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad56e30258e67f74783a8eab84a83a9fd">&#9670;&#160;</a></span>run() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::AssistantAgent::run </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>messages</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxSteps</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>执行多步推理（包含工具调用循环） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">messages</td><td>消息历史 </td></tr>
+    <tr><td class="paramname">maxSteps</td><td>最大推理步数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，0表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="ae635dedc1de01dcb0c0d3936fc3794ed" name="ae635dedc1de01dcb0c0d3936fc3794ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae635dedc1de01dcb0c0d3936fc3794ed">&#9670;&#160;</a></span>runOneStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::AssistantAgent::runOneStep </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>messages</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>执行单步推理 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">messages</td><td>消息历史 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，0表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="af5d2c4ef2ab3956c0dfb0ea0f795466f" name="af5d2c4ef2ab3956c0dfb0ea0f795466f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5d2c4ef2ab3956c0dfb0ea0f795466f">&#9670;&#160;</a></span>runOneStepStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::AssistantAgent::runOneStepStream </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>messages</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>handler</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>执行单步推理（流式） </p>
+<p>在 LLM 生成过程中实时分发事件到 handler。 流式完成后将完整消息追加到 messages。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">messages</td><td>消息历史 </td></tr>
+    <tr><td class="paramname">handler</td><td>事件处理器 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，0表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="a8727e3f190caa5077ff6c4b32c53c368" name="a8727e3f190caa5077ff6c4b32c53c368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8727e3f190caa5077ff6c4b32c53c368">&#9670;&#160;</a></span>runStream() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::AssistantAgent::runStream </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>messages</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>handler</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行智能体逻辑（流式） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">messages</td><td>消息历史（可修改） </td></tr>
+    <tr><td class="paramname">handler</td><td>事件处理器（实时接收 delta 事件） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，0表示成功 </dd></dl>
+
+<p>实现了 <a class="el" href="classast_1_1ChatAgent.html#afa7f9681350abda19e722c65536d811f">ast::ChatAgent</a>.</p>
+
+</div>
+</div>
+<a id="aee02308d4829ccf66f73f03339c422c5" name="aee02308d4829ccf66f73f03339c422c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee02308d4829ccf66f73f03339c422c5">&#9670;&#160;</a></span>runStream() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::AssistantAgent::runStream </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatMessages.html">ChatMessages</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>messages</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>handler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxSteps</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>执行多步推理（含工具调用循环，流式） </p>
+<p>每步推理调用 <a class="el" href="#af5d2c4ef2ab3956c0dfb0ea0f795466f" title="执行单步推理（流式）">runOneStepStream()</a>，实时分派文本/推理事件。 工具调用请求和执行结果事件在各步之间触发。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">messages</td><td>消息历史 </td></tr>
+    <tr><td class="paramname">handler</td><td>事件处理器 </td></tr>
+    <tr><td class="paramname">maxSteps</td><td>最大推理步数（默认 10） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，0表示成功 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstAI/Agent/<a class="el" href="AssistantAgent_8hpp_source.html">AssistantAgent.hpp</a></li>
+<li>src/AstAI/Agent/<a class="el" href="AssistantAgent_8cpp.html">AssistantAgent.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1AssistantAgent.html">AssistantAgent</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

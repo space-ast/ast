@@ -12,5 +12,6 @@ var Environment_8hpp =
     [ "aStdInIsTerminal", "Environment_8hpp.html#ga402c35c20112c81a16c5410823e030ca", null ],
     [ "aStdOutIsFile", "Environment_8hpp.html#ga038a62d786234b02f668f9460bbd86f6", null ],
     [ "aStdOutIsTerminal", "Environment_8hpp.html#gaef5625c409a6ef4a8ddf3e4b2aff79b5", null ],
-    [ "aTerminalSupportColor", "Environment_8hpp.html#gaf933b51a61fdbc6724497ceae15bcb17", null ]
+    [ "aTerminalSupportColor", "Environment_8hpp.html#gaf933b51a61fdbc6724497ceae15bcb17", null ],
+    [ "aTerminalWidth", "Environment_8hpp.html#gae7deb716bae3511d5ad91dad9696fdf4", null ]
 ];

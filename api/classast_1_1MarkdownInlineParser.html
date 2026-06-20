@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::MarkdownInlineParser类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1MarkdownInlineParser.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1MarkdownInlineParser-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::MarkdownInlineParser类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="MarkdownInlineParser_8hpp_source.html">MarkdownInlineParser.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a8410846bf2bd0317e224eed2d66e3674" id="r_a8410846bf2bd0317e224eed2d66e3674"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8410846bf2bd0317e224eed2d66e3674">EStateFlags</a> : int { <br />
+&#160;&#160;<a class="el" href="#a8410846bf2bd0317e224eed2d66e3674a44b1b229235e5fce2a2d39a657b7ce0d">ePlain</a> = 0x00
+, <a class="el" href="#a8410846bf2bd0317e224eed2d66e3674abac65ad2365fb7e108767e040d20eb63">eEscape</a> = 0x02
+, <a class="el" href="#a8410846bf2bd0317e224eed2d66e3674aaf358773e2b80b68e05f2d914fc04150">eEmphasis</a> = 0x04
+, <a class="el" href="#a8410846bf2bd0317e224eed2d66e3674a8d96aaf9178731535d82727cc13f5592">eStrong</a> = 0x08
+, <br />
+&#160;&#160;<a class="el" href="#a8410846bf2bd0317e224eed2d66e3674a79f3d037a952cea388c3b0b3fbfc2f80">eStrongEmphasis</a> = eEmphasis | eStrong
+, <a class="el" href="#a8410846bf2bd0317e224eed2d66e3674adc483630592ca5333ad2e2bb7880256e">eDelete</a> = 0x10
+<br />
+ }</td></tr>
+<tr class="separator:a8410846bf2bd0317e224eed2d66e3674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba33e9b4a8d46c58b1ae60bf010f6f1e" id="r_aba33e9b4a8d46c58b1ae60bf010f6f1e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba33e9b4a8d46c58b1ae60bf010f6f1e">EParseMode</a> { <br />
+&#160;&#160;<a class="el" href="#aba33e9b4a8d46c58b1ae60bf010f6f1eab4f88a7e09f780f6246448ebb0f6a44b">eNormal</a>
+, <a class="el" href="#aba33e9b4a8d46c58b1ae60bf010f6f1ea2e7c11b3383e1b7e2f630b1b9e91c6a2">eCodeSpan</a>
+, <a class="el" href="#aba33e9b4a8d46c58b1ae60bf010f6f1ea79c6e6b057e063ca6ab984dd1da3133b">eLinkText</a>
+, <a class="el" href="#aba33e9b4a8d46c58b1ae60bf010f6f1ead9acb972a12c5c1b6be866c4a0d2b5c1">eLinkTextEnd</a>
+, <br />
+&#160;&#160;<a class="el" href="#aba33e9b4a8d46c58b1ae60bf010f6f1eae16259318374cae9c1fd39c52a09dedc">eLinkURL</a>
+, <a class="el" href="#aba33e9b4a8d46c58b1ae60bf010f6f1eabb7794ddd54121aba50a7b0b64a80a6e">eImageAlt</a>
+, <a class="el" href="#aba33e9b4a8d46c58b1ae60bf010f6f1eaa4bcc2dd25766793614cb744e2d9a173">eImageAltEnd</a>
+, <a class="el" href="#aba33e9b4a8d46c58b1ae60bf010f6f1ea1e3cf1639510495087013788296c306c">eImageURL</a>
+<br />
+ }</td></tr>
+<tr class="separator:aba33e9b4a8d46c58b1ae60bf010f6f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a7a69087add42a2480c98238d8faa1eca" id="r_a7a69087add42a2480c98238d8faa1eca"><td class="memItemLeft" align="right" valign="top"><a id="a7a69087add42a2480c98238d8faa1eca" name="a7a69087add42a2480c98238d8faa1eca"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>MarkdownInlineParser</b> (<a class="el" href="classast_1_1MarkdownSax.html">MarkdownSax</a> &amp;sax)</td></tr>
+<tr class="separator:a7a69087add42a2480c98238d8faa1eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d0feaa2bfa8e2c23a3abd1fd495a49a" id="r_a9d0feaa2bfa8e2c23a3abd1fd495a49a"><td class="memItemLeft" align="right" valign="top"><a id="a9d0feaa2bfa8e2c23a3abd1fd495a49a" name="a9d0feaa2bfa8e2c23a3abd1fd495a49a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>feed</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> chunk)</td></tr>
+<tr class="separator:a9d0feaa2bfa8e2c23a3abd1fd495a49a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaabba2c10f5a8e67a5eb7049d44d316" id="r_aaaabba2c10f5a8e67a5eb7049d44d316"><td class="memItemLeft" align="right" valign="top"><a id="aaaabba2c10f5a8e67a5eb7049d44d316" name="aaaabba2c10f5a8e67a5eb7049d44d316"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>feed</b> (char c, std::string &amp;result)</td></tr>
+<tr class="separator:aaaabba2c10f5a8e67a5eb7049d44d316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a311fa71a42f48b7b26f15c01990887b6" id="r_a311fa71a42f48b7b26f15c01990887b6"><td class="memItemLeft" align="right" valign="top"><a id="a311fa71a42f48b7b26f15c01990887b6" name="a311fa71a42f48b7b26f15c01990887b6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>finish</b> ()</td></tr>
+<tr class="separator:a311fa71a42f48b7b26f15c01990887b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5bd89e7f0f916bb76e95871f4f74bd3" id="r_ae5bd89e7f0f916bb76e95871f4f74bd3"><td class="memItemLeft" align="right" valign="top"><a id="ae5bd89e7f0f916bb76e95871f4f74bd3" name="ae5bd89e7f0f916bb76e95871f4f74bd3"></a>
+std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>result</b> ()</td></tr>
+<tr class="separator:ae5bd89e7f0f916bb76e95871f4f74bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b56fb103eaeee0fe887169b11f6d097" id="r_a2b56fb103eaeee0fe887169b11f6d097"><td class="memItemLeft" align="right" valign="top"><a id="a2b56fb103eaeee0fe887169b11f6d097" name="a2b56fb103eaeee0fe887169b11f6d097"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>flushPending</b> (std::string &amp;result)</td></tr>
+<tr class="separator:a2b56fb103eaeee0fe887169b11f6d097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc74ca7acfa1cf04420f06aeecab2ba" id="r_a0dc74ca7acfa1cf04420f06aeecab2ba"><td class="memItemLeft" align="right" valign="top"><a id="a0dc74ca7acfa1cf04420f06aeecab2ba" name="a0dc74ca7acfa1cf04420f06aeecab2ba"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>flushCell</b> ()</td></tr>
+<tr class="separator:a0dc74ca7acfa1cf04420f06aeecab2ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Markdown内联文本状态机（流式输入输出SAX事件驱动） </p>
+</div><h2 class="groupheader">成员枚举类型说明</h2>
+<a id="aba33e9b4a8d46c58b1ae60bf010f6f1e" name="aba33e9b4a8d46c58b1ae60bf010f6f1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba33e9b4a8d46c58b1ae60bf010f6f1e">&#9670;&#160;</a></span>EParseMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#aba33e9b4a8d46c58b1ae60bf010f6f1e">ast::MarkdownInlineParser::EParseMode</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析模式 —— 控制当前在解析哪种高层结构 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="aba33e9b4a8d46c58b1ae60bf010f6f1eab4f88a7e09f780f6246448ebb0f6a44b" name="aba33e9b4a8d46c58b1ae60bf010f6f1eab4f88a7e09f780f6246448ebb0f6a44b"></a>eNormal&#160;</td><td class="fielddoc"><p>普通内联文本 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba33e9b4a8d46c58b1ae60bf010f6f1ea2e7c11b3383e1b7e2f630b1b9e91c6a2" name="aba33e9b4a8d46c58b1ae60bf010f6f1ea2e7c11b3383e1b7e2f630b1b9e91c6a2"></a>eCodeSpan&#160;</td><td class="fielddoc"><p>行内代码 <code>...</code> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba33e9b4a8d46c58b1ae60bf010f6f1ea79c6e6b057e063ca6ab984dd1da3133b" name="aba33e9b4a8d46c58b1ae60bf010f6f1ea79c6e6b057e063ca6ab984dd1da3133b"></a>eLinkText&#160;</td><td class="fielddoc"><p>链接文本 [...] </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba33e9b4a8d46c58b1ae60bf010f6f1ead9acb972a12c5c1b6be866c4a0d2b5c1" name="aba33e9b4a8d46c58b1ae60bf010f6f1ead9acb972a12c5c1b6be866c4a0d2b5c1"></a>eLinkTextEnd&#160;</td><td class="fielddoc"><p>链接文本刚看到 ]，等待 ( 确认 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba33e9b4a8d46c58b1ae60bf010f6f1eae16259318374cae9c1fd39c52a09dedc" name="aba33e9b4a8d46c58b1ae60bf010f6f1eae16259318374cae9c1fd39c52a09dedc"></a>eLinkURL&#160;</td><td class="fielddoc"><p>链接 URL (...) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba33e9b4a8d46c58b1ae60bf010f6f1eabb7794ddd54121aba50a7b0b64a80a6e" name="aba33e9b4a8d46c58b1ae60bf010f6f1eabb7794ddd54121aba50a7b0b64a80a6e"></a>eImageAlt&#160;</td><td class="fielddoc"><p>图片 Alt ![... </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba33e9b4a8d46c58b1ae60bf010f6f1eaa4bcc2dd25766793614cb744e2d9a173" name="aba33e9b4a8d46c58b1ae60bf010f6f1eaa4bcc2dd25766793614cb744e2d9a173"></a>eImageAltEnd&#160;</td><td class="fielddoc"><p>图片 Alt 刚看到 ]，等待 ( 确认 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba33e9b4a8d46c58b1ae60bf010f6f1ea1e3cf1639510495087013788296c306c" name="aba33e9b4a8d46c58b1ae60bf010f6f1ea1e3cf1639510495087013788296c306c"></a>eImageURL&#160;</td><td class="fielddoc"><p>图片 URL (...) </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a8410846bf2bd0317e224eed2d66e3674" name="a8410846bf2bd0317e224eed2d66e3674"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8410846bf2bd0317e224eed2d66e3674">&#9670;&#160;</a></span>EStateFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a8410846bf2bd0317e224eed2d66e3674">ast::MarkdownInlineParser::EStateFlags</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>内联格式状态标志位 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a8410846bf2bd0317e224eed2d66e3674a44b1b229235e5fce2a2d39a657b7ce0d" name="a8410846bf2bd0317e224eed2d66e3674a44b1b229235e5fce2a2d39a657b7ce0d"></a>ePlain&#160;</td><td class="fielddoc"><p>普通状态 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8410846bf2bd0317e224eed2d66e3674abac65ad2365fb7e108767e040d20eb63" name="a8410846bf2bd0317e224eed2d66e3674abac65ad2365fb7e108767e040d20eb63"></a>eEscape&#160;</td><td class="fielddoc"><p>转义状态 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8410846bf2bd0317e224eed2d66e3674aaf358773e2b80b68e05f2d914fc04150" name="a8410846bf2bd0317e224eed2d66e3674aaf358773e2b80b68e05f2d914fc04150"></a>eEmphasis&#160;</td><td class="fielddoc"><p>斜体状态 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8410846bf2bd0317e224eed2d66e3674a8d96aaf9178731535d82727cc13f5592" name="a8410846bf2bd0317e224eed2d66e3674a8d96aaf9178731535d82727cc13f5592"></a>eStrong&#160;</td><td class="fielddoc"><p>加粗状态 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8410846bf2bd0317e224eed2d66e3674a79f3d037a952cea388c3b0b3fbfc2f80" name="a8410846bf2bd0317e224eed2d66e3674a79f3d037a952cea388c3b0b3fbfc2f80"></a>eStrongEmphasis&#160;</td><td class="fielddoc"><p>加粗斜体状态 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8410846bf2bd0317e224eed2d66e3674adc483630592ca5333ad2e2bb7880256e" name="a8410846bf2bd0317e224eed2d66e3674adc483630592ca5333ad2e2bb7880256e"></a>eDelete&#160;</td><td class="fielddoc"><p>删除线状态 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/ParseFormat/Markdown/<a class="el" href="MarkdownInlineParser_8hpp_source.html">MarkdownInlineParser.hpp</a></li>
+<li>src/AstUtil/ParseFormat/Markdown/<a class="el" href="MarkdownInlineParser_8cpp.html">MarkdownInlineParser.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1MarkdownInlineParser.html">MarkdownInlineParser</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -99,8 +99,9 @@ $(function(){initNavTree('classast_1_1LLMClient.html',''); initResizable(true); 
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="classast_1_1LLMClient-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::LLMClient类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::LLMClient类 参考<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__Chat.html">Chat</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -113,15 +114,142 @@ $(function(){initNavTree('classast_1_1LLMClient.html',''); initResizable(true); 
  <div class="center">
   <img src="classast_1_1LLMClient.png" usemap="#ast::LLMClient_map" alt=""/>
   <map id="ast::LLMClient_map" name="ast::LLMClient_map">
-<area href="classast_1_1Anthropic.html" title="Anthropic客户端接口" alt="ast::Anthropic" shape="rect" coords="0,56,91,80"/>
-<area href="classast_1_1OpenAI.html" title="OpenAI客户端" alt="ast::OpenAI" shape="rect" coords="101,56,192,80"/>
+<area href="classast_1_1Anthropic.html" title="Anthropic客户端接口" alt="ast::Anthropic" shape="rect" coords="0,56,92,80"/>
+<area href="classast_1_1OpenAI.html" title="OpenAI客户端" alt="ast::OpenAI" shape="rect" coords="102,56,194,80"/>
+<area href="classast_1_1DeepSeek.html" title="DeepSeek API客户端" alt="ast::DeepSeek" shape="rect" coords="102,112,194,136"/>
   </map>
 </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a92935822dc6ad0bf6932ce6cca091919" id="r_a92935822dc6ad0bf6932ce6cca091919"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92935822dc6ad0bf6932ce6cca091919">chat</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;request, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;response)=0</td></tr>
+<tr class="separator:a92935822dc6ad0bf6932ce6cca091919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dd95655b97e33284db4f58d3d288dfe" id="r_a5dd95655b97e33284db4f58d3d288dfe"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dd95655b97e33284db4f58d3d288dfe">chatStream</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;request, <a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;handler, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;accumulatedResult)</td></tr>
+<tr class="separator:a5dd95655b97e33284db4f58d3d288dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c9d2019ed4ea6474a37222791303028" id="r_a2c9d2019ed4ea6474a37222791303028"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c9d2019ed4ea6474a37222791303028">chat</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;request)</td></tr>
+<tr class="separator:a2c9d2019ed4ea6474a37222791303028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>大语言模型客户端接口 </p>
-<p>该接口定义了大预言客户端的基本操作，包括发送请求、接收响应等。 </p><dl class="section note"><dt>注解</dt><dd>该接口是抽象类，仅定义了基本的操作，具体实现需要根据不同的LLM模型进行。 </dd></dl>
-</div><hr/>该类的文档由以下文件生成:<ul>
+<p>子类只需实现一个纯虚方法即可完成对接 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a2c9d2019ed4ea6474a37222791303028" name="a2c9d2019ed4ea6474a37222791303028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c9d2019ed4ea6474a37222791303028">&#9670;&#160;</a></span>chat() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> ast::LLMClient::chat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>发送聊天请求（便捷封装，内部调用上面的虚方法） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>请求参数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>响应内容，失败时返回包含error字段的JsonValue </dd></dl>
+
+</div>
+</div>
+<a id="a92935822dc6ad0bf6932ce6cca091919" name="a92935822dc6ad0bf6932ce6cca091919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92935822dc6ad0bf6932ce6cca091919">&#9670;&#160;</a></span>chat() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual errc_t ast::LLMClient::chat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>发送聊天请求（纯虚接口，子类必须实现） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>请求参数（JSON格式，包含messages、model、temperature等字段） </td></tr>
+    <tr><td class="paramname">response</td><td>响应参数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，0表示成功 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1OpenAI.html#ad6370a554b50d52da40ed6715b0873da">ast::OpenAI</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a5dd95655b97e33284db4f58d3d288dfe" name="a5dd95655b97e33284db4f58d3d288dfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dd95655b97e33284db4f58d3d288dfe">&#9670;&#160;</a></span>chatStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::LLMClient::chatStream </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>handler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>accumulatedResult</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>发送流式聊天请求 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>请求参数（JSON格式，含 stream:true） </td></tr>
+    <tr><td class="paramname">handler</td><td>事件处理器（实时接收 delta 事件） </td></tr>
+    <tr><td class="paramname">accumulatedResult</td><td>累计响应（从 SSE deltas 重组的完整 JSON，与非流式格式相同） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，0表示成功 </dd></dl>
+
+<p>被 <a class="el" href="classast_1_1OpenAI.html#abf33ed4bed5bf9d55fdabc218e57229a">ast::OpenAI</a> 重载.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstAI/Providers/<a class="el" href="LLMClient_8hpp_source.html">LLMClient.hpp</a></li>
+<li>src/AstAI/Providers/<a class="el" href="LLMClient_8cpp.html">LLMClient.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

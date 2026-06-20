@@ -112,41 +112,55 @@ $(function(){initNavTree('UiCommandTree_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">class </span>Segment;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classast_1_1UiCommandTree.html">   31</a></span><span class="keyword">class </span>AST_GUI_API <a class="code hl_class" href="classast_1_1UiCommandTree.html">UiCommandTree</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1UiObjectTree.html">UiObjectTree</a></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    Q_OBJECT</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiCommandTree.html">UiCommandTree</a>(QWidget* parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> setSequence(<a class="code hl_class" href="classast_1_1Sequence.html">MainSequence</a>* sequence);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1Command.html">Command</a>* selectedCommand() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> removeSelectedCommand();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>signals:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1UiCommandTree.html#a229cad5811db36c4b216ba0cc798117e">   49</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiCommandTree.html#a229cad5811db36c4b216ba0cc798117e">commandSelected</a>(<a class="code hl_class" href="classast_1_1Command.html">Command</a>* command);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1UiCommandTree.html#ace9c15d312e6367994bf6a58dfe22021">   52</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiCommandTree.html#ace9c15d312e6367994bf6a58dfe22021">treeModified</a>();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> dropEvent(QDropEvent* event) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> contextMenuEvent(QContextMenuEvent* event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">class </span>UiCommandTreeItem;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classast_1_1UiCommandTree.html">   32</a></span><span class="keyword">class </span>AST_GUI_API <a class="code hl_class" href="classast_1_1UiCommandTree.html">UiCommandTree</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1UiObjectTree.html">UiObjectTree</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    Q_OBJECT</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiCommandTree.html">UiCommandTree</a>(QWidget* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> setSequence(<a class="code hl_class" href="classast_1_1Sequence.html">MainSequence</a>* sequence);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1Command.html">Command</a>* selectedCommand() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> removeSelectedCommand();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>signals:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1UiCommandTree.html#a229cad5811db36c4b216ba0cc798117e">   50</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiCommandTree.html#a229cad5811db36c4b216ba0cc798117e">commandSelected</a>(<a class="code hl_class" href="classast_1_1Command.html">Command</a>* command);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1UiCommandTree.html#ace9c15d312e6367994bf6a58dfe22021">   53</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiCommandTree.html#ace9c15d312e6367994bf6a58dfe22021">treeModified</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classast_1_1UiCommandTree.html#a158a5e88f67ef74c3ed5d490b540e8c3">   56</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiCommandTree.html#a158a5e88f67ef74c3ed5d490b540e8c3">commandInserted</a>(<a class="code hl_class" href="classast_1_1Command.html">Command</a>* command);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;Sequence&gt;</a> sequence_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1UiCommandTree.html#a92f678acb1a7d161a1c187d2ed43004c">   59</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiCommandTree.html#a92f678acb1a7d161a1c187d2ed43004c">commandSummaryRequested</a>(<a class="code hl_class" href="classast_1_1Command.html">Command</a>* command);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> dropEvent(QDropEvent* event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> contextMenuEvent(QContextMenuEvent* event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> insertCommandRelativeToItem(<a class="code hl_class" href="classast_1_1UiCommandTreeItem.html">UiCommandTreeItem</a>* item, <span class="keyword">const</span> QString&amp; typeName, <span class="keywordtype">bool</span> above);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    QMenu* createInsertMenu(<span class="keyword">const</span> QString&amp; title);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> handleInsertAction(QAction* action, <a class="code hl_class" href="classast_1_1UiCommandTreeItem.html">UiCommandTreeItem</a>* item, <span class="keywordtype">bool</span> above);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;Sequence&gt;</a> sequence_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
 </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aUiObjectTree_8hpp_html"><div class="ttname"><a href="UiObjectTree_8hpp.html">UiObjectTree.hpp</a></div><div class="ttdoc">通用对象树控件，显示 ObjectManager 中所有对象的层级关系</div></div>
 <div class="ttc" id="aclassast_1_1Command_html"><div class="ttname"><a href="classast_1_1Command.html">ast::Command</a></div><div class="ttdoc">命令（虚基类），用于定义任务序列中的命令，例如初始状态、轨道机动、轨道预报等</div><div class="ttdef"><b>定义</b> Command.hpp:42</div></div>
 <div class="ttc" id="aclassast_1_1Sequence_html"><div class="ttname"><a href="classast_1_1Sequence.html">ast::Sequence</a></div><div class="ttdoc">任务序列段，内部包含多个任务命令或轨道段，并会按顺序执行</div><div class="ttdef"><b>定义</b> Sequence.hpp:43</div></div>
-<div class="ttc" id="aclassast_1_1UiCommandTree_html"><div class="ttname"><a href="classast_1_1UiCommandTree.html">ast::UiCommandTree</a></div><div class="ttdoc">任务段树控件，继承 UiObjectTree，支持拖拽排序、右键菜单、序列同步</div><div class="ttdef"><b>定义</b> UiCommandTree.hpp:32</div></div>
+<div class="ttc" id="aclassast_1_1UiCommandTreeItem_html"><div class="ttname"><a href="classast_1_1UiCommandTreeItem.html">ast::UiCommandTreeItem</a></div><div class="ttdoc">Segment 对象树项</div><div class="ttdef"><b>定义</b> UiCommandTreeItem.hpp:32</div></div>
+<div class="ttc" id="aclassast_1_1UiCommandTree_html"><div class="ttname"><a href="classast_1_1UiCommandTree.html">ast::UiCommandTree</a></div><div class="ttdoc">任务段树控件，继承 UiObjectTree，支持拖拽排序、右键菜单、序列同步</div><div class="ttdef"><b>定义</b> UiCommandTree.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1UiCommandTree_html_a158a5e88f67ef74c3ed5d490b540e8c3"><div class="ttname"><a href="classast_1_1UiCommandTree.html#a158a5e88f67ef74c3ed5d490b540e8c3">ast::UiCommandTree::commandInserted</a></div><div class="ttdeci">void commandInserted(Command *command)</div><div class="ttdoc">当通过右键菜单插入新命令后发出</div></div>
 <div class="ttc" id="aclassast_1_1UiCommandTree_html_a229cad5811db36c4b216ba0cc798117e"><div class="ttname"><a href="classast_1_1UiCommandTree.html#a229cad5811db36c4b216ba0cc798117e">ast::UiCommandTree::commandSelected</a></div><div class="ttdeci">void commandSelected(Command *command)</div><div class="ttdoc">当用户在树中选中任务命令时发出</div></div>
+<div class="ttc" id="aclassast_1_1UiCommandTree_html_a92f678acb1a7d161a1c187d2ed43004c"><div class="ttname"><a href="classast_1_1UiCommandTree.html#a92f678acb1a7d161a1c187d2ed43004c">ast::UiCommandTree::commandSummaryRequested</a></div><div class="ttdeci">void commandSummaryRequested(Command *command)</div><div class="ttdoc">当用户通过右键菜单请求命令概要时发出</div></div>
 <div class="ttc" id="aclassast_1_1UiCommandTree_html_ace9c15d312e6367994bf6a58dfe22021"><div class="ttname"><a href="classast_1_1UiCommandTree.html#ace9c15d312e6367994bf6a58dfe22021">ast::UiCommandTree::treeModified</a></div><div class="ttdeci">void treeModified()</div><div class="ttdoc">当树结构被拖拽或删除修改后发出</div></div>
 <div class="ttc" id="aclassast_1_1UiObjectTree_html"><div class="ttname"><a href="classast_1_1UiObjectTree.html">ast::UiObjectTree</a></div><div class="ttdoc">通用对象树控件，支持显示全部对象或以指定节点为根的子树</div><div class="ttdef"><b>定义</b> UiObjectTree.hpp:31</div></div>
 <div class="ttc" id="aclassast_1_1WeakPtr_html"><div class="ttname"><a href="classast_1_1WeakPtr.html">ast::WeakPtr</a></div><div class="ttdoc">弱引用指针</div><div class="ttdef"><b>定义</b> WeakPtr.hpp:35</div></div>

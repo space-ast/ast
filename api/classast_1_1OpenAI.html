@@ -115,7 +115,8 @@ $(function(){initNavTree('classast_1_1OpenAI.html',''); initResizable(true); });
  <div class="center">
   <img src="classast_1_1OpenAI.png" usemap="#ast::OpenAI_map" alt=""/>
   <map id="ast::OpenAI_map" name="ast::OpenAI_map">
-<area href="classast_1_1LLMClient.html" title="大语言模型客户端接口" alt="ast::LLMClient" shape="rect" coords="0,0,91,24"/>
+<area href="classast_1_1LLMClient.html" title="大语言模型客户端接口" alt="ast::LLMClient" shape="rect" coords="0,0,92,24"/>
+<area href="classast_1_1DeepSeek.html" title="DeepSeek API客户端" alt="ast::DeepSeek" shape="rect" coords="0,112,92,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -126,15 +127,19 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a8012765259c3b37f938caeff6cb6be8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd1d8c30b15405536e5bcb9a7265f67f" id="r_abd1d8c30b15405536e5bcb9a7265f67f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd1d8c30b15405536e5bcb9a7265f67f">OpenAI</a> (const std::string &amp;apiKey, const std::string &amp;baseUrl)</td></tr>
 <tr class="separator:abd1d8c30b15405536e5bcb9a7265f67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9774896a3e01d38bcb7830a4a1ab6fc" id="r_ad9774896a3e01d38bcb7830a4a1ab6fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9774896a3e01d38bcb7830a4a1ab6fc">chat</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;request)</td></tr>
-<tr class="separator:ad9774896a3e01d38bcb7830a4a1ab6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6617f3efbc1df0ca945f522635aa80cd" id="r_a6617f3efbc1df0ca945f522635aa80cd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6617f3efbc1df0ca945f522635aa80cd">chat</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;request, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;response)</td></tr>
-<tr class="separator:a6617f3efbc1df0ca945f522635aa80cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6370a554b50d52da40ed6715b0873da" id="r_ad6370a554b50d52da40ed6715b0873da"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6370a554b50d52da40ed6715b0873da">chat</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;request, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;response) override</td></tr>
+<tr class="separator:ad6370a554b50d52da40ed6715b0873da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf33ed4bed5bf9d55fdabc218e57229a" id="r_abf33ed4bed5bf9d55fdabc218e57229a"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf33ed4bed5bf9d55fdabc218e57229a">chatStream</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;request, <a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;handler, <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;accumulatedResult) override</td></tr>
+<tr class="separator:abf33ed4bed5bf9d55fdabc218e57229a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a3775d392c28123f2730167ee6b91ae" id="r_a2a3775d392c28123f2730167ee6b91ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a3775d392c28123f2730167ee6b91ae">setApiKey</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> apiKey)</td></tr>
 <tr class="separator:a2a3775d392c28123f2730167ee6b91ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e662fd613512f974b998a38515437a4" id="r_a9e662fd613512f974b998a38515437a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e662fd613512f974b998a38515437a4">setBaseUrl</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> baseUrl)</td></tr>
 <tr class="separator:a9e662fd613512f974b998a38515437a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c9d2019ed4ea6474a37222791303028" id="r_a2c9d2019ed4ea6474a37222791303028"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c9d2019ed4ea6474a37222791303028">chat</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;request)</td></tr>
+<tr class="separator:a2c9d2019ed4ea6474a37222791303028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1LLMClient"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1LLMClient')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1LLMClient.html">ast::LLMClient</a></td></tr>
+<tr class="memitem:a2c9d2019ed4ea6474a37222791303028 inherit pub_methods_classast_1_1LLMClient" id="r_a2c9d2019ed4ea6474a37222791303028"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1LLMClient.html#a2c9d2019ed4ea6474a37222791303028">chat</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;request)</td></tr>
+<tr class="separator:a2c9d2019ed4ea6474a37222791303028 inherit pub_methods_classast_1_1LLMClient"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
@@ -179,14 +184,14 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ba
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="ad9774896a3e01d38bcb7830a4a1ab6fc" name="ad9774896a3e01d38bcb7830a4a1ab6fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9774896a3e01d38bcb7830a4a1ab6fc">&#9670;&#160;</a></span>chat() <span class="overload">[1/2]</span></h2>
+<a id="a2c9d2019ed4ea6474a37222791303028" name="a2c9d2019ed4ea6474a37222791303028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c9d2019ed4ea6474a37222791303028">&#9670;&#160;</a></span>chat() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> ast::OpenAI::chat </td>
+          <td class="memname"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> ast::LLMClient::chat </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span></td><td>)</td>
           <td></td>
@@ -194,22 +199,25 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ba
       </table>
 </div><div class="memdoc">
 
-<p>聊天 </p>
+<p>发送聊天请求（便捷封装，内部调用上面的虚方法） </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">request</td><td>请求参数 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>响应参数 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>响应内容，失败时返回包含error字段的JsonValue </dd></dl>
 
 </div>
 </div>
-<a id="a6617f3efbc1df0ca945f522635aa80cd" name="a6617f3efbc1df0ca945f522635aa80cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6617f3efbc1df0ca945f522635aa80cd">&#9670;&#160;</a></span>chat() <span class="overload">[2/2]</span></h2>
+<a id="ad6370a554b50d52da40ed6715b0873da" name="ad6370a554b50d52da40ed6715b0873da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6370a554b50d52da40ed6715b0873da">&#9670;&#160;</a></span>chat() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">errc_t ast::OpenAI::chat </td>
@@ -222,6 +230,11 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ba
           <td class="paramtype"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>聊天 </p>
@@ -233,6 +246,55 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ba
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+<p>实现了 <a class="el" href="classast_1_1LLMClient.html#a92935822dc6ad0bf6932ce6cca091919">ast::LLMClient</a>.</p>
+
+</div>
+</div>
+<a id="abf33ed4bed5bf9d55fdabc218e57229a" name="abf33ed4bed5bf9d55fdabc218e57229a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf33ed4bed5bf9d55fdabc218e57229a">&#9670;&#160;</a></span>chatStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::OpenAI::chatStream </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>handler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>accumulatedResult</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>流式聊天（SSE） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>请求参数（含 stream:true） </td></tr>
+    <tr><td class="paramname">handler</td><td>事件处理器 </td></tr>
+    <tr><td class="paramname">accumulatedResult</td><td>累计响应（从 SSE deltas 重组的完整 JSON） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+<p>重载 <a class="el" href="classast_1_1LLMClient.html#a5dd95655b97e33284db4f58d3d288dfe">ast::LLMClient</a> .</p>
 
 </div>
 </div>

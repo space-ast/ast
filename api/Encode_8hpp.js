@@ -1,5 +1,6 @@
 var Encode_8hpp =
 [
+    [ "aAnsiToUtf8", "Encode_8hpp.html#ga0feedc4943291a26c649f9f6e804db59", null ],
     [ "aAnsiToWide", "Encode_8hpp.html#gaf2fc97e4c61a4d07cf3301c4487027b2", null ],
     [ "aCRTIsUTF8", "Encode_8hpp.html#ga3f19f6dfcf855f14a41c5aadac0d53ac", null ],
     [ "aCRTToWide", "Encode_8hpp.html#ga7a393fd60e66dd4d4fa767568e4c2f50", null ],

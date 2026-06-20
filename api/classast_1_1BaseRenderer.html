@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::BaseRenderer类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1BaseRenderer.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1BaseRenderer-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::BaseRenderer类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BaseRenderer_8hpp_source.html">BaseRenderer.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::BaseRenderer 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1BaseRenderer.png" usemap="#ast::BaseRenderer_map" alt=""/>
+  <map id="ast::BaseRenderer_map" name="ast::BaseRenderer_map">
+<area href="classast_1_1MarkdownANSIRenderer.html" title="ANSI 流式渲染器" alt="ast::MarkdownANSIRenderer" shape="rect" coords="0,56,180,80"/>
+<area href="classast_1_1MarkdownHTMLRenderer.html" title="HTML 流式渲染器" alt="ast::MarkdownHTMLRenderer" shape="rect" coords="190,56,370,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ac097bdb47cd30f95c304eb35574b8b38" id="r_ac097bdb47cd30f95c304eb35574b8b38"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac097bdb47cd30f95c304eb35574b8b38">operator()</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> chunk)</td></tr>
+<tr class="separator:ac097bdb47cd30f95c304eb35574b8b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d378c962d363a61ddb97aa29758b785" id="r_a4d378c962d363a61ddb97aa29758b785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d378c962d363a61ddb97aa29758b785">print</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> chunk)</td></tr>
+<tr class="separator:a4d378c962d363a61ddb97aa29758b785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b96d59a872ef5890f22393cf72c4b12" id="r_a8b96d59a872ef5890f22393cf72c4b12"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b96d59a872ef5890f22393cf72c4b12">feed</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> chunk, std::string &amp;accumulated)=0</td></tr>
+<tr class="separator:a8b96d59a872ef5890f22393cf72c4b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ecdeb5e042b9ba31cb58bd1be1489c" id="r_a06ecdeb5e042b9ba31cb58bd1be1489c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06ecdeb5e042b9ba31cb58bd1be1489c">end</a> (std::string &amp;remaining)=0</td></tr>
+<tr class="separator:a06ecdeb5e042b9ba31cb58bd1be1489c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a100571503ac458be9057166a09ac8c7a" id="r_a100571503ac458be9057166a09ac8c7a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a100571503ac458be9057166a09ac8c7a">reset</a> ()=0</td></tr>
+<tr class="separator:a100571503ac458be9057166a09ac8c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>流式文本格式转换器 </p>
+<p>根据渲染规则将流式文本渲染为字符串，可以用于LLM流式输出的渲染 可以覆盖以下功能：</p><ul>
+<li>将markdown渲染为普通文本、ANSI转义序列、html等；</li>
+<li>将html渲染为普通文本、markdown等 </li>
+</ul>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a06ecdeb5e042b9ba31cb58bd1be1489c" name="a06ecdeb5e042b9ba31cb58bd1be1489c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06ecdeb5e042b9ba31cb58bd1be1489c">&#9670;&#160;</a></span>end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::BaseRenderer::end </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>remaining</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>停止渲染，并返回缓冲区中还未渲染的字符 </p>
+
+<p>在 <a class="el" href="classast_1_1MarkdownANSIRenderer.html#a90f90fc66f6de80c431420b10227e244">ast::MarkdownANSIRenderer</a> , 以及 <a class="el" href="classast_1_1MarkdownHTMLRenderer.html#a0f68324473f9107b6b79891f28ffe3b8">ast::MarkdownHTMLRenderer</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a8b96d59a872ef5890f22393cf72c4b12" name="a8b96d59a872ef5890f22393cf72c4b12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b96d59a872ef5890f22393cf72c4b12">&#9670;&#160;</a></span>feed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::BaseRenderer::feed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>chunk</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>accumulated</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>接受一个字符串，渲染为对应的字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chunk</td><td>字符块 </td></tr>
+    <tr><td class="paramname">accumulated</td><td>输出字符串，会将渲染结果追加到accumulated中 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1MarkdownANSIRenderer.html#aa5810ec1697d0814142692ef5920873d">ast::MarkdownANSIRenderer</a> , 以及 <a class="el" href="classast_1_1MarkdownHTMLRenderer.html#a18b8da7d1ce0e2941b6ee01532a0dcfc">ast::MarkdownHTMLRenderer</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ac097bdb47cd30f95c304eb35574b8b38" name="ac097bdb47cd30f95c304eb35574b8b38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac097bdb47cd30f95c304eb35574b8b38">&#9670;&#160;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ast::BaseRenderer::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>chunk</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>渲染一个字符串块 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chunk</td><td>字符块 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>渲染结果 </dd></dl>
+
+</div>
+</div>
+<a id="a4d378c962d363a61ddb97aa29758b785" name="a4d378c962d363a61ddb97aa29758b785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d378c962d363a61ddb97aa29758b785">&#9670;&#160;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::BaseRenderer::print </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>chunk</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将渲染结果写入文件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chunk</td><td>字符块 </td></tr>
+    <tr><td class="paramname">fp</td><td>文件指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a100571503ac458be9057166a09ac8c7a" name="a100571503ac458be9057166a09ac8c7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a100571503ac458be9057166a09ac8c7a">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::BaseRenderer::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>重置渲染状态机 </p>
+
+<p>在 <a class="el" href="classast_1_1MarkdownANSIRenderer.html#a81f9e1d69f88d4168d2da6e285a9be1f">ast::MarkdownANSIRenderer</a> , 以及 <a class="el" href="classast_1_1MarkdownHTMLRenderer.html#ad5ab9778ee1dc0093aee46e7d87bfc3b">ast::MarkdownHTMLRenderer</a> 内被实现.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/ParseFormat/Markdown/<a class="el" href="BaseRenderer_8hpp_source.html">BaseRenderer.hpp</a></li>
+<li>src/AstUtil/ParseFormat/Markdown/<b>BaseRenderer.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1BaseRenderer.html">BaseRenderer</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

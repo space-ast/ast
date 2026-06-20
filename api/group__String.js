@@ -1,6 +1,7 @@
 var group__String =
 [
     [ "ast::StringViewBasic< _Char >", "classast_1_1StringViewBasic.html", null ],
+    [ "ast::aAnsiToUtf8", "group__String.html#ga0feedc4943291a26c649f9f6e804db59", null ],
     [ "ast::aAnsiToWide", "group__String.html#gaf2fc97e4c61a4d07cf3301c4487027b2", null ],
     [ "ast::aAsciiStrToLower", "group__String.html#ga681ef188a882f2e8fdf9b8c8e50ec43f", null ],
     [ "ast::aAsciiStrToUpper", "group__String.html#ga4b6cb9cc23c061e592fe4a40ff42d890", null ],
