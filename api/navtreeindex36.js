@@ -1,5 +1,9 @@
 var NAVTREEINDEX36 =
 {
+"classast_1_1ScStateCalcLongitude.html":[2,0,0,651],
+"classast_1_1ScStateCalcLongitude.html":[3,0,0,650],
+"classast_1_1ScStateCalcLongitudeRate.html":[2,0,0,652],
+"classast_1_1ScStateCalcLongitudeRate.html":[3,0,0,651],
 "classast_1_1ScStateCalcMCSDeltaV.html":[2,0,0,663],
 "classast_1_1ScStateCalcMCSDeltaV.html":[3,0,0,662],
 "classast_1_1ScStateCalcMCSDeltaVSquared.html":[2,0,0,664],
@@ -245,9 +249,5 @@ var NAVTREEINDEX36 =
 "classast_1_1Scenario.html#a54e4e3433a2044bc7372db4ebffe2404":[2,0,0,548,1],
 "classast_1_1Scenario.html#a54e4e3433a2044bc7372db4ebffe2404":[3,0,0,547,1],
 "classast_1_1Scenario.html#a5c50d997d7f136227e0698c2f2fe938d":[2,0,0,548,6],
-"classast_1_1Scenario.html#a5c50d997d7f136227e0698c2f2fe938d":[3,0,0,547,6],
-"classast_1_1Scenario.html#a5d6565f06b6be9db2a2c40316764e1d2":[2,0,0,548,12],
-"classast_1_1Scenario.html#a5d6565f06b6be9db2a2c40316764e1d2":[3,0,0,547,12],
-"classast_1_1Scenario.html#a6d1d4dafdac38429f13a076df9142bc2":[2,0,0,548,2],
-"classast_1_1Scenario.html#a6d1d4dafdac38429f13a076df9142bc2":[3,0,0,547,2]
+"classast_1_1Scenario.html#a5c50d997d7f136227e0698c2f2fe938d":[3,0,0,547,6]
 };

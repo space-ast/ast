@@ -2424,6 +2424,8 @@ var namespaceast =
     [ "aSMAToSParam", "group__Orbit.html#ga58481d4e11cac545c86b73019e854e59", null ],
     [ "aSMinAxToSMA", "group__Orbit.html#ga94434d9d496526076d21e26c8527aa50", null ],
     [ "aSnopt_Load", "namespaceast.html#ad58bab1e7f3d254721b5cbd0ef30299a", null ],
+    [ "aSolveQuadratic", "namespaceast.html#a62966be34e8b8d2dafa952a2eee28a4b", null ],
+    [ "aSolveQuadraticComplex", "namespaceast.html#a1bfd97fe212865f04dc48e5f3e79414c", null ],
     [ "aSpaceObject_GetReferenceVehicle", "namespaceast.html#aca90054f47905f59270738482f4378a7", null ],
     [ "aSpaceObject_GetReferenceVehicleLink", "namespaceast.html#a53b517690d4d043bf79a2fb35fd86c43", null ],
     [ "aSpaceObject_SetReferenceVehicle", "namespaceast.html#a0e9729fb90d67faafec2435a814d25ac", null ],

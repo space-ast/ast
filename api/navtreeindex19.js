@@ -1,5 +1,9 @@
 var NAVTREEINDEX19 =
 {
+"classast_1_1CelestialBody.html#a1a14bc3007d6149bfdb723caae04c5d7":[0,1,6,0,56],
+"classast_1_1CelestialBody.html#a1f7101ee589b855385bcfa3e074a07d8":[0,1,6,0,18],
+"classast_1_1CelestialBody.html#a264ba3ef2af9a1e852211fa23ed88458":[0,1,6,0,42],
+"classast_1_1CelestialBody.html#a2d9d8b5b0627fec3a63b69362abd01c0":[0,1,6,0,39],
 "classast_1_1CelestialBody.html#a3052451caff277bd1cc568ada3b01916":[0,1,6,0,48],
 "classast_1_1CelestialBody.html#a33a059f3a4383fdab0ee4f2fe4e5b669":[0,1,6,0,12],
 "classast_1_1CelestialBody.html#a37be45e77c2538d3d9a7d95092340143":[0,1,6,0,41],
@@ -245,9 +249,5 @@ var NAVTREEINDEX19 =
 "classast_1_1CommandParams.html":[3,0,0,140],
 "classast_1_1CommandResult.html":[2,0,0,142],
 "classast_1_1CommandResult.html":[3,0,0,141],
-"classast_1_1CommandTrie.html":[2,0,0,143],
-"classast_1_1CommandTrie.html":[3,0,0,142],
-"classast_1_1CommandTrieNodeWrap.html":[2,0,0,144],
-"classast_1_1CommandTrieNodeWrap.html":[3,0,0,143],
-"classast_1_1CommandTrie_1_1Node.html":[2,0,0,143,0]
+"classast_1_1CommandTrie.html":[2,0,0,143]
 };

@@ -1,5 +1,9 @@
 var NAVTREEINDEX35 =
 {
+"classast_1_1RoundRobinGroupChat.html#a1ce9e287b520748bfd75df9b1b887eff":[2,0,0,543,5],
+"classast_1_1RoundRobinGroupChat.html#a1ce9e287b520748bfd75df9b1b887eff":[3,0,0,542,5],
+"classast_1_1RoundRobinGroupChat.html#a37ae664624eaaf50c0fcb018ac9f092c":[2,0,0,543,7],
+"classast_1_1RoundRobinGroupChat.html#a37ae664624eaaf50c0fcb018ac9f092c":[3,0,0,542,7],
 "classast_1_1RoundRobinGroupChat.html#a40438f120e31844a90d8cee5fc01a597":[2,0,0,543,0],
 "classast_1_1RoundRobinGroupChat.html#a40438f120e31844a90d8cee5fc01a597":[3,0,0,542,0],
 "classast_1_1RoundRobinGroupChat.html#a5cb37ccbd6b41612cee6b38f757b7910":[2,0,0,543,6],
@@ -245,9 +249,5 @@ var NAVTREEINDEX35 =
 "classast_1_1ScStateCalcLongDriftRate.html":[2,0,0,650],
 "classast_1_1ScStateCalcLongDriftRate.html":[3,0,0,649],
 "classast_1_1ScStateCalcLongPeriapsis.html":[2,0,0,653],
-"classast_1_1ScStateCalcLongPeriapsis.html":[3,0,0,652],
-"classast_1_1ScStateCalcLongitude.html":[2,0,0,651],
-"classast_1_1ScStateCalcLongitude.html":[3,0,0,650],
-"classast_1_1ScStateCalcLongitudeRate.html":[2,0,0,652],
-"classast_1_1ScStateCalcLongitudeRate.html":[3,0,0,651]
+"classast_1_1ScStateCalcLongPeriapsis.html":[3,0,0,652]
 };

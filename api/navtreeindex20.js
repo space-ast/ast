@@ -1,5 +1,9 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1CommandTrie.html":[3,0,0,142],
+"classast_1_1CommandTrieNodeWrap.html":[2,0,0,144],
+"classast_1_1CommandTrieNodeWrap.html":[3,0,0,143],
+"classast_1_1CommandTrie_1_1Node.html":[2,0,0,143,0],
 "classast_1_1CommandTrie_1_1Node.html":[3,0,0,142,0],
 "classast_1_1CommandTrie_1_1Node.html#a1cbaf63ae42f0d403734d15b24a69275":[2,0,0,143,0,1],
 "classast_1_1CommandTrie_1_1Node.html#a1cbaf63ae42f0d403734d15b24a69275":[3,0,0,142,0,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1DetectorUserSelect.html":[3,0,0,193],
 "classast_1_1DetectorUserSelect.html#a9eaafe8feb63d1bce4dee7084e00a122":[2,0,0,194,1],
 "classast_1_1DetectorUserSelect.html#a9eaafe8feb63d1bce4dee7084e00a122":[3,0,0,193,1],
-"classast_1_1DetectorUserSelect.html#abfeb0211f25e9bd8980beb7f8e960524":[2,0,0,194,0],
-"classast_1_1DetectorUserSelect.html#abfeb0211f25e9bd8980beb7f8e960524":[3,0,0,193,0],
-"classast_1_1DetectorXYPlaneCross.html":[2,0,0,195],
-"classast_1_1DetectorXYPlaneCross.html":[3,0,0,194],
-"classast_1_1DetectorXYPlaneCross.html#adb6ba9dba8bb1ae973dd3d934d6f648d":[2,0,0,195,0]
+"classast_1_1DetectorUserSelect.html#abfeb0211f25e9bd8980beb7f8e960524":[2,0,0,194,0]
 };
