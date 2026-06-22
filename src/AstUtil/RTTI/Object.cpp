@@ -313,7 +313,8 @@ Object::~Object()
     - 对于栈上的对象，不要在这里调用decWeakRef，避免对栈内存调用operator delete.
     - 对于栈上的对象，同样将强引用计数设置为-1，标识对象是否已经被析构了. 
     */
-    this->refcnt_ = static_cast<uint32_t>(-1); // 标识对象是否被析构. bit mask indicate whether object is destructed.
+    
+    setDestructed(); // @fixme 这里和 ~Referenced 中的 setDestructed() 重复了，但是 setDestructed() 必须在removeNode之前调用
     if(index_ != static_cast<uint32_t>(INVALID_ID))
     {
         errc_t rc = ObjectManager::CurrentInstance().removeNode(index_);
