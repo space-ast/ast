@@ -107,48 +107,46 @@ $(function(){initNavTree('Expr_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/Object.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstScript/ScriptAPI.hpp&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">class </span>Value;   </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html">   38</a></span><span class="keyword">class </span>AST_SCRIPT_API <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Object.html">Object</a></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">using </span>Object::Object;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1Expr.html">~Expr</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html#aaa77763d4fa220e0929e3727db60ab1b">   44</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Expr.html#aaa77763d4fa220e0929e3727db60ab1b">setName</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name)<span class="keyword"> override</span>{}</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html#a7ef002de0ea5ff35b9837426a94d11a2">   48</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Expr.html#a7ef002de0ea5ff35b9837426a94d11a2">accept</a>(<a class="code hl_class" href="classast_1_1ExprVisitor.html">ExprVisitor</a>&amp; visitor) = 0;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5">   52</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1Value.html">Value</a>* <a class="code hl_function" href="classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5">eval</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expand() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0">   57</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0">setValue</a>(<a class="code hl_class" href="classast_1_1Value.html">Value</a>* val) {<span class="keywordflow">return</span> eErrorReadonly;};</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">virtual</span> errc_t setValueDouble(<span class="keywordtype">double</span> val);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">virtual</span> errc_t getValueDouble(<span class="keywordtype">double</span>&amp; val) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a">   68</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a">getExpression</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* context=<span class="keyword">nullptr</span>) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/ObjectNamed.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstScript/ScriptAPI.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">class </span>Value;   </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html">   39</a></span><span class="keyword">class </span>AST_SCRIPT_API <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1ObjectNamed.html">ObjectNamed</a>  <span class="comment">// 表达式需要名称吗??</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">using </span>ObjectNamed::ObjectNamed;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1Expr.html">~Expr</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html#a7ef002de0ea5ff35b9837426a94d11a2">   47</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1Expr.html#a7ef002de0ea5ff35b9837426a94d11a2">accept</a>(<a class="code hl_class" href="classast_1_1ExprVisitor.html">ExprVisitor</a>&amp; visitor) = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5">   51</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1Value.html">Value</a>* <a class="code hl_function" href="classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5">eval</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expand() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0">   56</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0">setValue</a>(<a class="code hl_class" href="classast_1_1Value.html">Value</a>* val) {<span class="keywordflow">return</span> eErrorReadonly;};</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">virtual</span> errc_t setValueDouble(<span class="keywordtype">double</span> val);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">virtual</span> errc_t getValueDouble(<span class="keywordtype">double</span>&amp; val) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a">   67</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a">getExpression</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* context=<span class="keyword">nullptr</span>) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>};</div>
 </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1ExprVisitor_html"><div class="ttname"><a href="classast_1_1ExprVisitor.html">ast::ExprVisitor</a></div><div class="ttdoc">表达式访问器</div><div class="ttdef"><b>定义</b> ExprVisitor.hpp:62</div></div>
-<div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:39</div></div>
+<div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1Expr_html_a7ef002de0ea5ff35b9837426a94d11a2"><div class="ttname"><a href="classast_1_1Expr.html#a7ef002de0ea5ff35b9837426a94d11a2">ast::Expr::accept</a></div><div class="ttdeci">virtual void accept(ExprVisitor &amp;visitor)=0</div><div class="ttdoc">接受表达式访问者</div></div>
-<div class="ttc" id="aclassast_1_1Expr_html_a85450ce6cabc0714e99c9690900f7fd0"><div class="ttname"><a href="classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0">ast::Expr::setValue</a></div><div class="ttdeci">virtual errc_t setValue(Value *val)</div><div class="ttdoc">设置表达式的值</div><div class="ttdef"><b>定义</b> Expr.hpp:57</div></div>
+<div class="ttc" id="aclassast_1_1Expr_html_a85450ce6cabc0714e99c9690900f7fd0"><div class="ttname"><a href="classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0">ast::Expr::setValue</a></div><div class="ttdeci">virtual errc_t setValue(Value *val)</div><div class="ttdoc">设置表达式的值</div><div class="ttdef"><b>定义</b> Expr.hpp:56</div></div>
 <div class="ttc" id="aclassast_1_1Expr_html_a913b88ed7be4b5016cb722035a804ba5"><div class="ttname"><a href="classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5">ast::Expr::eval</a></div><div class="ttdeci">virtual Value * eval() const =0</div><div class="ttdoc">求值</div></div>
-<div class="ttc" id="aclassast_1_1Expr_html_aaa77763d4fa220e0929e3727db60ab1b"><div class="ttname"><a href="classast_1_1Expr.html#aaa77763d4fa220e0929e3727db60ab1b">ast::Expr::setName</a></div><div class="ttdeci">void setName(StringView name) override</div><div class="ttdoc">设置对象的名称</div><div class="ttdef"><b>定义</b> Expr.hpp:44</div></div>
 <div class="ttc" id="aclassast_1_1Expr_html_abc5ee070c08edb6a5bb1faa55858083a"><div class="ttname"><a href="classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a">ast::Expr::getExpression</a></div><div class="ttdeci">virtual std::string getExpression(Object *context=nullptr) const =0</div><div class="ttdoc">获取表达式的字符串表示</div></div>
+<div class="ttc" id="aclassast_1_1ObjectNamed_html"><div class="ttname"><a href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></div><div class="ttdoc">命名对象</div><div class="ttdef"><b>定义</b> ObjectNamed.hpp:36</div></div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:99</div></div>
-<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1Value_html"><div class="ttname"><a href="classast_1_1Value.html">ast::Value</a></div><div class="ttdoc">值对象基类</div><div class="ttdef"><b>定义</b> Value.hpp:43</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

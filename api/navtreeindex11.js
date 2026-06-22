@@ -1,5 +1,9 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcLongPeriapsis_8hpp_source.html":[4,0,0,7,7,1,0,9,9],
+"ScStateCalcLongitudeRate_8cpp.html":[4,0,0,7,7,1,0,9,6],
+"ScStateCalcLongitudeRate_8hpp.html":[4,0,0,7,7,1,0,9,7],
+"ScStateCalcLongitudeRate_8hpp_source.html":[4,0,0,7,7,1,0,9,7],
 "ScStateCalcLongitude_8cpp.html":[4,0,0,7,7,1,0,9,4],
 "ScStateCalcLongitude_8hpp.html":[4,0,0,7,7,1,0,9,5],
 "ScStateCalcLongitude_8hpp_source.html":[4,0,0,7,7,1,0,9,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcSpacecraftMass_8hpp_source.html":[4,0,0,7,7,1,0,15,195],
 "ScStateCalcTangentialRate_8cpp.html":[4,0,0,7,7,1,0,15,200],
 "ScStateCalcTangentialRate_8hpp.html":[4,0,0,7,7,1,0,15,201],
-"ScStateCalcTangentialRate_8hpp_source.html":[4,0,0,7,7,1,0,15,201],
-"ScStateCalcTangential_8cpp.html":[4,0,0,7,7,1,0,15,198],
-"ScStateCalcTangential_8hpp.html":[4,0,0,7,7,1,0,15,199],
-"ScStateCalcTangential_8hpp_source.html":[4,0,0,7,7,1,0,15,199],
-"ScStateCalcTemperature_8cpp.html":[4,0,0,7,7,1,0,15,202]
+"ScStateCalcTangentialRate_8hpp_source.html":[4,0,0,7,7,1,0,15,201]
 };

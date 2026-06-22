@@ -415,6 +415,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "ast::LLMConfig", "classast_1_1LLMConfig.html", null ],
+    [ "ast::LoaderContext", "classast_1_1LoaderContext.html", null ],
     [ "ast::LocaleGuard", "classast_1_1LocaleGuard.html", null ],
     [ "ast::LoggerStream", "classast_1_1LoggerStream.html", null ],
     [ "ast::LongDuration", "classast_1_1LongDuration.html", null ],
@@ -481,61 +482,6 @@ var hierarchy =
     [ "ast::NutationSeries", "classast_1_1NutationSeries.html", null ],
     [ "ast::NutationTerm", "classast_1_1NutationTerm.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
-      [ "ast::Expr", "classast_1_1Expr.html", [
-        [ "ast::ExprAttribute", "classast_1_1ExprAttribute.html", null ],
-        [ "ast::ExprCalculationBase", "classast_1_1ExprCalculationBase.html", [
-          [ "ast::ExprCalculation", "classast_1_1ExprCalculation.html", null ],
-          [ "ast::ExprCurrentScStateCalculation", "classast_1_1ExprCurrentScStateCalculation.html", null ]
-        ] ],
-        [ "ast::ExprCall", "classast_1_1ExprCall.html", null ],
-        [ "ast::ExprCondition", "classast_1_1ExprCondition.html", null ],
-        [ "ast::ExprContainer", "classast_1_1ExprContainer.html", [
-          [ "ast::ExprBlock", "classast_1_1ExprBlock.html", null ],
-          [ "ast::ExprCatHorizontal", "classast_1_1ExprCatHorizontal.html", null ],
-          [ "ast::ExprCatVertical", "classast_1_1ExprCatVertical.html", null ],
-          [ "ast::ExprVector", "classast_1_1ExprVector.html", null ]
-        ] ],
-        [ "ast::ExprIf", "classast_1_1ExprIf.html", null ],
-        [ "ast::ExprLoop", "classast_1_1ExprLoop.html", [
-          [ "ast::ExprForRange", "classast_1_1ExprForRange.html", null ],
-          [ "ast::ExprWhile", "classast_1_1ExprWhile.html", null ]
-        ] ],
-        [ "ast::ExprMacroExpand", "classast_1_1ExprMacroExpand.html", null ],
-        [ "ast::ExprMatch", "classast_1_1ExprMatch.html", null ],
-        [ "ast::ExprRange", "classast_1_1ExprRange.html", null ],
-        [ "ast::Op", "classast_1_1Op.html", [
-          [ "ast::OpAssign", "classast_1_1OpAssign.html", null ],
-          [ "ast::OpBin", "classast_1_1OpBin.html", null ],
-          [ "ast::OpUnary", "classast_1_1OpUnary.html", null ]
-        ] ],
-        [ "ast::Symbol", "classast_1_1Symbol.html", null ],
-        [ "ast::Value", "classast_1_1Value.html", [
-          [ "ast::ValArray< T, 1 >", "classast_1_1ValArray.html", [
-            [ "ast::ValVector< T >", "classast_1_1ValVector.html", null ]
-          ] ],
-          [ "ast::ValScalar< bool >", "classast_1_1ValScalar.html", [
-            [ "ast::ValBool", "classast_1_1ValBool.html", null ]
-          ] ],
-          [ "ast::ValScalar< double >", "classast_1_1ValScalar.html", [
-            [ "ast::ValDouble", "classast_1_1ValDouble.html", null ]
-          ] ],
-          [ "ast::ValScalar< int >", "classast_1_1ValScalar.html", [
-            [ "ast::ValInt", "classast_1_1ValInt.html", null ]
-          ] ],
-          [ "ast::Macro", "classast_1_1Macro.html", [
-            [ "ast::Function", "classast_1_1Function.html", null ]
-          ] ],
-          [ "ast::ValArray< T, NDIM >", "classast_1_1ValArray.html", null ],
-          [ "ast::ValDict", "classast_1_1ValDict.html", null ],
-          [ "ast::ValNamedVector", "classast_1_1ValNamedVector.html", null ],
-          [ "ast::ValNull", "classast_1_1ValNull.html", null ],
-          [ "ast::ValQuantity", "classast_1_1ValQuantity.html", null ],
-          [ "ast::ValRange", "classast_1_1ValRange.html", null ],
-          [ "ast::ValScalar< Scalar >", "classast_1_1ValScalar.html", null ],
-          [ "ast::ValString", "classast_1_1ValString.html", null ]
-        ] ],
-        [ "ast::Variable", "classast_1_1Variable.html", null ]
-      ] ],
       [ "ast::MockObject", "classast_1_1MockObject.html", null ],
       [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
         [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
@@ -639,6 +585,61 @@ var hierarchy =
           [ "ast::EventTimeExplicit", "classast_1_1EventTimeExplicit.html", null ],
           [ "ast::EventTimeFallback", "classast_1_1EventTimeFallback.html", null ],
           [ "ast::EventTimeLinkTo", "classast_1_1EventTimeLinkTo.html", null ]
+        ] ],
+        [ "ast::Expr", "classast_1_1Expr.html", [
+          [ "ast::ExprAttribute", "classast_1_1ExprAttribute.html", null ],
+          [ "ast::ExprCalculationBase", "classast_1_1ExprCalculationBase.html", [
+            [ "ast::ExprCalculation", "classast_1_1ExprCalculation.html", null ],
+            [ "ast::ExprCurrentScStateCalculation", "classast_1_1ExprCurrentScStateCalculation.html", null ]
+          ] ],
+          [ "ast::ExprCall", "classast_1_1ExprCall.html", null ],
+          [ "ast::ExprCondition", "classast_1_1ExprCondition.html", null ],
+          [ "ast::ExprContainer", "classast_1_1ExprContainer.html", [
+            [ "ast::ExprBlock", "classast_1_1ExprBlock.html", null ],
+            [ "ast::ExprCatHorizontal", "classast_1_1ExprCatHorizontal.html", null ],
+            [ "ast::ExprCatVertical", "classast_1_1ExprCatVertical.html", null ],
+            [ "ast::ExprVector", "classast_1_1ExprVector.html", null ]
+          ] ],
+          [ "ast::ExprIf", "classast_1_1ExprIf.html", null ],
+          [ "ast::ExprLoop", "classast_1_1ExprLoop.html", [
+            [ "ast::ExprForRange", "classast_1_1ExprForRange.html", null ],
+            [ "ast::ExprWhile", "classast_1_1ExprWhile.html", null ]
+          ] ],
+          [ "ast::ExprMacroExpand", "classast_1_1ExprMacroExpand.html", null ],
+          [ "ast::ExprMatch", "classast_1_1ExprMatch.html", null ],
+          [ "ast::ExprRange", "classast_1_1ExprRange.html", null ],
+          [ "ast::Op", "classast_1_1Op.html", [
+            [ "ast::OpAssign", "classast_1_1OpAssign.html", null ],
+            [ "ast::OpBin", "classast_1_1OpBin.html", null ],
+            [ "ast::OpUnary", "classast_1_1OpUnary.html", null ]
+          ] ],
+          [ "ast::Symbol", "classast_1_1Symbol.html", null ],
+          [ "ast::Value", "classast_1_1Value.html", [
+            [ "ast::ValArray< T, 1 >", "classast_1_1ValArray.html", [
+              [ "ast::ValVector< T >", "classast_1_1ValVector.html", null ]
+            ] ],
+            [ "ast::ValScalar< bool >", "classast_1_1ValScalar.html", [
+              [ "ast::ValBool", "classast_1_1ValBool.html", null ]
+            ] ],
+            [ "ast::ValScalar< double >", "classast_1_1ValScalar.html", [
+              [ "ast::ValDouble", "classast_1_1ValDouble.html", null ]
+            ] ],
+            [ "ast::ValScalar< int >", "classast_1_1ValScalar.html", [
+              [ "ast::ValInt", "classast_1_1ValInt.html", null ]
+            ] ],
+            [ "ast::Macro", "classast_1_1Macro.html", [
+              [ "ast::Function", "classast_1_1Function.html", null ]
+            ] ],
+            [ "ast::ValArray< T, NDIM >", "classast_1_1ValArray.html", null ],
+            [ "ast::ValDict", "classast_1_1ValDict.html", null ],
+            [ "ast::ValNamedVector", "classast_1_1ValNamedVector.html", null ],
+            [ "ast::ValNull", "classast_1_1ValNull.html", null ],
+            [ "ast::ValQuantity", "classast_1_1ValQuantity.html", null ],
+            [ "ast::ValRange", "classast_1_1ValRange.html", null ],
+            [ "ast::ValScalar< Scalar >", "classast_1_1ValScalar.html", null ],
+            [ "ast::ValString", "classast_1_1ValString.html", null ]
+          ] ],
+          [ "ast::Variable", "classast_1_1Variable.html", null ]
         ] ],
         [ "ast::FeasibleRegionConstraint", "classast_1_1FeasibleRegionConstraint.html", null ],
         [ "ast::FeasibleRegionVariable", "classast_1_1FeasibleRegionVariable.html", null ],

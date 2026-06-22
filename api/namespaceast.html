@@ -834,6 +834,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1LLMConfig.html">LLMConfig</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1LoaderContext.html">LoaderContext</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1LocaleGuard.html">LocaleGuard</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1LoggerStream.html">LoggerStream</a></td></tr>
@@ -4916,8 +4918,8 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadSolarRadiation
 <tr class="separator:a36f0705f4f8761cd91885b482b96344b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9cfdaafcfee7be95236aa5554456d93" id="r_ab9cfdaafcfee7be95236aa5554456d93"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9cfdaafcfee7be95236aa5554456d93">aLoadManeuver</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Maneuver.html">Maneuver</a> &amp;maneuver)</td></tr>
 <tr class="separator:ab9cfdaafcfee7be95236aa5554456d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0fc06314edb6a77d363cff11d78fb70" id="r_aa0fc06314edb6a77d363cff11d78fb70"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0fc06314edb6a77d363cff11d78fb70">aLoadMissionCommand</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Command.html">MissionCommand</a> &gt; &amp;missionCommand)</td></tr>
-<tr class="separator:aa0fc06314edb6a77d363cff11d78fb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ed355a7a298bdd93ef7cab6363f4b53" id="r_a4ed355a7a298bdd93ef7cab6363f4b53"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ed355a7a298bdd93ef7cab6363f4b53">aLoadMissionCommand</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Command.html">MissionCommand</a> &gt; &amp;missionCommand, const <a class="el" href="classast_1_1LoaderContext.html">LoaderContext</a> *context=nullptr)</td></tr>
+<tr class="separator:a4ed355a7a298bdd93ef7cab6363f4b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa29c9f543f5fc78b8f0d99236fc9232" id="r_aaa29c9f543f5fc78b8f0d99236fc9232"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa29c9f543f5fc78b8f0d99236fc9232">aLoadMissionCommand</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Command.html">MissionCommand</a> &gt; &amp;missionCommand)</td></tr>
 <tr class="separator:aaa29c9f543f5fc78b8f0d99236fc9232"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a085f3b961746fd9b6860771311421a56" id="r_a085f3b961746fd9b6860771311421a56"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a085f3b961746fd9b6860771311421a56">aLoadDifferentialCorrectorProfile</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1DifferentialCorrectorProfile.html">DifferentialCorrectorProfile</a> &amp;profile)</td></tr>
@@ -4957,14 +4959,17 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadStoppingCondit
 <tr class="memitem:abcb721d899f5b4f67873b2cde69d130f" id="r_abcb721d899f5b4f67873b2cde69d130f"><td class="memItemLeft" align="right" valign="top"><a id="abcb721d899f5b4f67873b2cde69d130f" name="abcb721d899f5b4f67873b2cde69d130f"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadStoppingConditions</b> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;dict, <a class="el" href="classast_1_1Propagate.html">Propagate</a> &amp;propagate)</td></tr>
 <tr class="separator:abcb721d899f5b4f67873b2cde69d130f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15715d2b1dda5a4cfb10ffba8e04f6d5" id="r_a15715d2b1dda5a4cfb10ffba8e04f6d5"><td class="memItemLeft" align="right" valign="top"><a id="a15715d2b1dda5a4cfb10ffba8e04f6d5" name="a15715d2b1dda5a4cfb10ffba8e04f6d5"></a>
+<a class="el" href="classast_1_1HPOP.html">HPOP</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>aResolvePropagatorFromFile</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath)</td></tr>
+<tr class="separator:a15715d2b1dda5a4cfb10ffba8e04f6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa74ae00c6d7786335cbbd0f220e5b656" id="r_aa74ae00c6d7786335cbbd0f220e5b656"><td class="memItemLeft" align="right" valign="top"><a id="aa74ae00c6d7786335cbbd0f220e5b656" name="aa74ae00c6d7786335cbbd0f220e5b656"></a>
 <a class="el" href="classast_1_1HPOP.html">HPOP</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>aResolveBuiltinPropagator</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> propagatorName)</td></tr>
 <tr class="separator:aa74ae00c6d7786335cbbd0f220e5b656"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84eafe9c2bced49cef18712a4b32ff59" id="r_a84eafe9c2bced49cef18712a4b32ff59"><td class="memItemLeft" align="right" valign="top"><a id="a84eafe9c2bced49cef18712a4b32ff59" name="a84eafe9c2bced49cef18712a4b32ff59"></a>
-<a class="el" href="classast_1_1HPOP.html">HPOP</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>aResolvePropagator</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> propagatorName)</td></tr>
-<tr class="separator:a84eafe9c2bced49cef18712a4b32ff59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44d3c2a6ca5fc9778cfc3c3234626854" id="r_a44d3c2a6ca5fc9778cfc3c3234626854"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44d3c2a6ca5fc9778cfc3c3234626854">aLoadPropagate</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1Propagate.html">Propagate</a> &amp;propagate)</td></tr>
-<tr class="separator:a44d3c2a6ca5fc9778cfc3c3234626854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabe6a74ffc7521e9991862373145ffd8" id="r_aabe6a74ffc7521e9991862373145ffd8"><td class="memItemLeft" align="right" valign="top"><a id="aabe6a74ffc7521e9991862373145ffd8" name="aabe6a74ffc7521e9991862373145ffd8"></a>
+<a class="el" href="classast_1_1HPOP.html">HPOP</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>aResolvePropagator</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> propagatorName, const <a class="el" href="classast_1_1LoaderContext.html">LoaderContext</a> *context=nullptr)</td></tr>
+<tr class="separator:aabe6a74ffc7521e9991862373145ffd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c1a27362aad24b518a4447cfc9f181b" id="r_a4c1a27362aad24b518a4447cfc9f181b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c1a27362aad24b518a4447cfc9f181b">aLoadPropagate</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1Propagate.html">Propagate</a> &amp;propagate, const <a class="el" href="classast_1_1LoaderContext.html">LoaderContext</a> *context=nullptr)</td></tr>
+<tr class="separator:a4c1a27362aad24b518a4447cfc9f181b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a579b913efbf8f4d2dc1ffb98a7cfb82b" id="r_a579b913efbf8f4d2dc1ffb98a7cfb82b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a579b913efbf8f4d2dc1ffb98a7cfb82b">aLoadPropagate</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Propagate.html">Propagate</a> &amp;propagate)</td></tr>
 <tr class="separator:a579b913efbf8f4d2dc1ffb98a7cfb82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8179a7b26a687f20a900502d34ed4c83" id="r_a8179a7b26a687f20a900502d34ed4c83"><td class="memItemLeft" align="right" valign="top"><a id="a8179a7b26a687f20a900502d34ed4c83" name="a8179a7b26a687f20a900502d34ed4c83"></a>
@@ -5002,8 +5007,8 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadShooterControl
 <tr class="separator:ad101545dd69509cdf642d552f6cd4667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef5dcbbc1252c39adc7b1e2f59da07da" id="r_aef5dcbbc1252c39adc7b1e2f59da07da"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef5dcbbc1252c39adc7b1e2f59da07da">aLoadSegment</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;dict, <a class="el" href="classast_1_1Segment.html">Segment</a> &amp;segment)</td></tr>
 <tr class="separator:aef5dcbbc1252c39adc7b1e2f59da07da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08f918c7ddde0137d2cd2baa655814e1" id="r_a08f918c7ddde0137d2cd2baa655814e1"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08f918c7ddde0137d2cd2baa655814e1">aLoadSequence</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1Sequence.html">Sequence</a> &amp;sequence)</td></tr>
-<tr class="separator:a08f918c7ddde0137d2cd2baa655814e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b945855279217bbbb3fd4c80c811e57" id="r_a7b945855279217bbbb3fd4c80c811e57"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b945855279217bbbb3fd4c80c811e57">aLoadSequence</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1Sequence.html">Sequence</a> &amp;sequence, const <a class="el" href="classast_1_1LoaderContext.html">LoaderContext</a> *context=nullptr)</td></tr>
+<tr class="separator:a7b945855279217bbbb3fd4c80c811e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab48efe26930d2a372c98541f967a6540" id="r_ab48efe26930d2a372c98541f967a6540"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab48efe26930d2a372c98541f967a6540">aLoadSequence</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Sequence.html">Sequence</a> &amp;sequence)</td></tr>
 <tr class="separator:ab48efe26930d2a372c98541f967a6540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9eee862b8fecb8f713a27ee161e815d" id="r_ae9eee862b8fecb8f713a27ee161e815d"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9eee862b8fecb8f713a27ee161e815d">aLoadSpacecraftState</a> (const <a class="el" href="classast_1_1Value.html">Value</a> &amp;value, <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;spacecraftState)</td></tr>
@@ -6157,6 +6162,12 @@ template&lt;&gt; </td></tr>
 <tr class="memitem:aa62fcd90855d354c5d4962a3579c9acc" id="r_aa62fcd90855d354c5d4962a3579c9acc"><td class="memItemLeft" align="right" valign="top"><a id="aa62fcd90855d354c5d4962a3579c9acc" name="aa62fcd90855d354c5d4962a3579c9acc"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aTestSerializeCpp</b> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
 <tr class="separator:aa62fcd90855d354c5d4962a3579c9acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af933f158361caed56da1361c7787c0a8" id="r_af933f158361caed56da1361c7787c0a8"><td class="memItemLeft" align="right" valign="top"><a id="af933f158361caed56da1361c7787c0a8" name="af933f158361caed56da1361c7787c0a8"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aTestSegment</b> (<a class="el" href="classast_1_1Segment.html">Segment</a> &amp;segment)</td></tr>
+<tr class="separator:af933f158361caed56da1361c7787c0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95bd390018fcb1761531150c346f3966" id="r_a95bd390018fcb1761531150c346f3966"><td class="memItemLeft" align="right" valign="top"><a id="a95bd390018fcb1761531150c346f3966" name="a95bd390018fcb1761531150c346f3966"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aTestSequence</b> (<a class="el" href="classast_1_1Sequence.html">Sequence</a> &amp;sequence)</td></tr>
+<tr class="separator:a95bd390018fcb1761531150c346f3966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70b04637597c04ff24192771596dbb6d" id="r_a70b04637597c04ff24192771596dbb6d"><td class="memItemLeft" align="right" valign="top"><a id="a70b04637597c04ff24192771596dbb6d" name="a70b04637597c04ff24192771596dbb6d"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aTestWithEmptyEphemeris</b> (<a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
 <tr class="separator:a70b04637597c04ff24192771596dbb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -13327,8 +13338,8 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
 
 </div>
 </div>
-<a id="aa0fc06314edb6a77d363cff11d78fb70" name="aa0fc06314edb6a77d363cff11d78fb70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0fc06314edb6a77d363cff11d78fb70">&#9670;&#160;</a></span>aLoadMissionCommand() <span class="overload">[1/2]</span></h2>
+<a id="a4ed355a7a298bdd93ef7cab6363f4b53" name="a4ed355a7a298bdd93ef7cab6363f4b53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed355a7a298bdd93ef7cab6363f4b53">&#9670;&#160;</a></span>aLoadMissionCommand() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13341,7 +13352,12 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Command.html">MissionCommand</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>missionCommand</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt; <a class="el" href="classast_1_1Command.html">MissionCommand</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>missionCommand</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1LoaderContext.html">LoaderContext</a> *</td>          <td class="paramname"><span class="paramname"><em>context</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -13651,8 +13667,8 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
 
 </div>
 </div>
-<a id="a44d3c2a6ca5fc9778cfc3c3234626854" name="a44d3c2a6ca5fc9778cfc3c3234626854"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44d3c2a6ca5fc9778cfc3c3234626854">&#9670;&#160;</a></span>aLoadPropagate() <span class="overload">[1/2]</span></h2>
+<a id="a4c1a27362aad24b518a4447cfc9f181b" name="a4c1a27362aad24b518a4447cfc9f181b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c1a27362aad24b518a4447cfc9f181b">&#9670;&#160;</a></span>aLoadPropagate() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13665,7 +13681,12 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1Propagate.html">Propagate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>propagate</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Propagate.html">Propagate</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>propagate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1LoaderContext.html">LoaderContext</a> *</td>          <td class="paramname"><span class="paramname"><em>context</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -13675,6 +13696,7 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
   <table class="params">
     <tr><td class="paramname">value</td><td>值 </td></tr>
     <tr><td class="paramname">propagate</td><td>输出的 propagate 对象 </td></tr>
+    <tr><td class="paramname">context</td><td>加载上下文 </td></tr>
   </table>
   </dd>
 </dl>
@@ -14188,8 +14210,8 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
 
 </div>
 </div>
-<a id="a08f918c7ddde0137d2cd2baa655814e1" name="a08f918c7ddde0137d2cd2baa655814e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08f918c7ddde0137d2cd2baa655814e1">&#9670;&#160;</a></span>aLoadSequence() <span class="overload">[1/2]</span></h2>
+<a id="a7b945855279217bbbb3fd4c80c811e57" name="a7b945855279217bbbb3fd4c80c811e57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b945855279217bbbb3fd4c80c811e57">&#9670;&#160;</a></span>aLoadSequence() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -14202,7 +14224,12 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1Sequence.html">Sequence</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sequence</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Sequence.html">Sequence</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sequence</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1LoaderContext.html">LoaderContext</a> *</td>          <td class="paramname"><span class="paramname"><em>context</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

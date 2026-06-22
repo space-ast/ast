@@ -111,15 +111,16 @@ $(function(){initNavTree('PropagateLoader_8hpp_source.html',''); initResizable(t
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>Propagate;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>Value;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>AST_LOADER_API errc_t <a class="code hl_function" href="namespaceast.html#a44d3c2a6ca5fc9778cfc3c3234626854">aLoadPropagate</a>(<span class="keyword">const</span> Value&amp; value, Propagate&amp; propagate);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>AST_LOADER_API errc_t <a class="code hl_function" href="namespaceast.html#a44d3c2a6ca5fc9778cfc3c3234626854">aLoadPropagate</a>(StringView filepath, Propagate&amp; propagate);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="anamespaceast_html_a44d3c2a6ca5fc9778cfc3c3234626854"><div class="ttname"><a href="namespaceast.html#a44d3c2a6ca5fc9778cfc3c3234626854">ast::aLoadPropagate</a></div><div class="ttdeci">errc_t aLoadPropagate(const Value &amp;value, Propagate &amp;propagate)</div><div class="ttdoc">从值加载 propagate 任务</div><div class="ttdef"><b>定义</b> PropagateLoader.cpp:176</div></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>LoaderContext;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>AST_LOADER_API errc_t <a class="code hl_function" href="namespaceast.html#a4c1a27362aad24b518a4447cfc9f181b">aLoadPropagate</a>(<span class="keyword">const</span> Value&amp; value, Propagate&amp; propagate, <span class="keyword">const</span> LoaderContext* context = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_LOADER_API errc_t <a class="code hl_function" href="namespaceast.html#a4c1a27362aad24b518a4447cfc9f181b">aLoadPropagate</a>(StringView filepath, Propagate&amp; propagate);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="anamespaceast_html_a4c1a27362aad24b518a4447cfc9f181b"><div class="ttname"><a href="namespaceast.html#a4c1a27362aad24b518a4447cfc9f181b">ast::aLoadPropagate</a></div><div class="ttdeci">errc_t aLoadPropagate(const Value &amp;value, Propagate &amp;propagate, const LoaderContext *context)</div><div class="ttdoc">从值加载 propagate 任务</div><div class="ttdef"><b>定义</b> PropagateLoader.cpp:189</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

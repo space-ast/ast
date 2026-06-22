@@ -1,5 +1,9 @@
 var NAVTREEINDEX10 =
 {
+"ScStateCalcArgPeriapsis_8cpp.html":[4,0,0,7,7,1,0,10,8],
+"ScStateCalcArgPeriapsis_8hpp.html":[4,0,0,7,7,1,0,10,9],
+"ScStateCalcArgPeriapsis_8hpp_source.html":[4,0,0,7,7,1,0,10,9],
+"ScStateCalcAtmosDensity_8cpp.html":[4,0,0,7,7,1,0,6,0],
 "ScStateCalcAtmosDensity_8hpp.html":[4,0,0,7,7,1,0,6,1],
 "ScStateCalcAtmosDensity_8hpp_source.html":[4,0,0,7,7,1,0,6,1],
 "ScStateCalcAtmosPressure_8cpp.html":[4,0,0,7,7,1,0,6,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcLongDriftRate_8hpp.html":[4,0,0,7,7,1,0,15,81],
 "ScStateCalcLongDriftRate_8hpp_source.html":[4,0,0,7,7,1,0,15,81],
 "ScStateCalcLongPeriapsis_8cpp.html":[4,0,0,7,7,1,0,9,8],
-"ScStateCalcLongPeriapsis_8hpp.html":[4,0,0,7,7,1,0,9,9],
-"ScStateCalcLongPeriapsis_8hpp_source.html":[4,0,0,7,7,1,0,9,9],
-"ScStateCalcLongitudeRate_8cpp.html":[4,0,0,7,7,1,0,9,6],
-"ScStateCalcLongitudeRate_8hpp.html":[4,0,0,7,7,1,0,9,7],
-"ScStateCalcLongitudeRate_8hpp_source.html":[4,0,0,7,7,1,0,9,7]
+"ScStateCalcLongPeriapsis_8hpp.html":[4,0,0,7,7,1,0,9,9]
 };

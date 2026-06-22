@@ -411,6 +411,7 @@ var annotated_dup =
       [ "LineTarget", "classast_1_1LineTarget.html", null ],
       [ "LLMClient", "classast_1_1LLMClient.html", "classast_1_1LLMClient" ],
       [ "LLMConfig", "classast_1_1LLMConfig.html", "classast_1_1LLMConfig" ],
+      [ "LoaderContext", "classast_1_1LoaderContext.html", "classast_1_1LoaderContext" ],
       [ "LocaleGuard", "classast_1_1LocaleGuard.html", "classast_1_1LocaleGuard" ],
       [ "LoggerStream", "classast_1_1LoggerStream.html", "classast_1_1LoggerStream" ],
       [ "LongDuration", "classast_1_1LongDuration.html", "classast_1_1LongDuration" ],

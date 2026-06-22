@@ -4,8 +4,8 @@ var classast_1_1Expr =
     [ "eval", "classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5", null ],
     [ "getExpression", "classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a", null ],
     [ "getValueDouble", "classast_1_1Expr.html#a6b561fecb35ac85ae15267fe3b6db182", null ],
-    [ "Object", "classast_1_1Expr.html#abbd67af553bb0841192dfacd0f0e9578", null ],
-    [ "setName", "classast_1_1Expr.html#aaa77763d4fa220e0929e3727db60ab1b", null ],
+    [ "ObjectNamed", "classast_1_1Expr.html#a8f3686db877d835e7261614d560086d3", null ],
+    [ "ObjectNamed", "classast_1_1Expr.html#ad4baf0cd548ba50a3a7446899ff4a188", null ],
     [ "setValue", "classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0", null ],
     [ "setValueDouble", "classast_1_1Expr.html#a3348b92819eed530c27c3b1b89725a30", null ]
 ];

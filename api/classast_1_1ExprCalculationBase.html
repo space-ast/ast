@@ -111,18 +111,17 @@ $(function(){initNavTree('classast_1_1ExprCalculationBase.html',''); initResizab
  <div class="center">
   <img src="classast_1_1ExprCalculationBase.png" usemap="#ast::ExprCalculationBase_map" alt=""/>
   <map id="ast::ExprCalculationBase_map" name="ast::ExprCalculationBase_map">
-<area href="classast_1_1Expr.html" title="表达式基类" alt="ast::Expr" shape="rect" coords="109,56,318,80"/>
+<area href="classast_1_1Expr.html" title="表达式基类" alt="ast::Expr" shape="rect" coords="109,112,318,136"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="109,56,318,80"/>
 <area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="109,0,318,24"/>
-<area href="classast_1_1ExprCalculation.html" alt="ast::ExprCalculation" shape="rect" coords="0,168,209,192"/>
-<area href="classast_1_1ExprCurrentScStateCalculation.html" alt="ast::ExprCurrentScStateCalculation" shape="rect" coords="219,168,428,192"/>
+<area href="classast_1_1ExprCalculation.html" alt="ast::ExprCalculation" shape="rect" coords="0,224,209,248"/>
+<area href="classast_1_1ExprCurrentScStateCalculation.html" alt="ast::ExprCurrentScStateCalculation" shape="rect" coords="219,224,428,248"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 额外继承的成员函数</h2></td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Expr"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Expr')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Expr.html">ast::Expr</a></td></tr>
-<tr class="memitem:aaa77763d4fa220e0929e3727db60ab1b inherit pub_methods_classast_1_1Expr" id="r_aaa77763d4fa220e0929e3727db60ab1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#aaa77763d4fa220e0929e3727db60ab1b">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>) override</td></tr>
-<tr class="separator:aaa77763d4fa220e0929e3727db60ab1b inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ef002de0ea5ff35b9837426a94d11a2 inherit pub_methods_classast_1_1Expr" id="r_a7ef002de0ea5ff35b9837426a94d11a2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#a7ef002de0ea5ff35b9837426a94d11a2">accept</a> (<a class="el" href="classast_1_1ExprVisitor.html">ExprVisitor</a> &amp;visitor)=0</td></tr>
 <tr class="separator:a7ef002de0ea5ff35b9837426a94d11a2 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a913b88ed7be4b5016cb722035a804ba5 inherit pub_methods_classast_1_1Expr" id="r_a913b88ed7be4b5016cb722035a804ba5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Value.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5">eval</a> () const =0</td></tr>
@@ -138,20 +137,21 @@ $(function(){initNavTree('classast_1_1ExprCalculationBase.html',''); initResizab
 <tr class="separator:a6b561fecb35ac85ae15267fe3b6db182 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc5ee070c08edb6a5bb1faa55858083a inherit pub_methods_classast_1_1Expr" id="r_abc5ee070c08edb6a5bb1faa55858083a"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a">getExpression</a> (<a class="el" href="classast_1_1Object.html">Object</a> *context=nullptr) const =0</td></tr>
 <tr class="separator:abc5ee070c08edb6a5bb1faa55858083a inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a921512461677e101f481c240a963f6f8 inherit pub_methods_classast_1_1Expr" id="r_a921512461677e101f481c240a963f6f8"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> ()</td></tr>
-<tr class="separator:a921512461677e101f481c240a963f6f8 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e2ce8041e46f520a6f50b2d661245b9 inherit pub_methods_classast_1_1Expr" id="r_a3e2ce8041e46f520a6f50b2d661245b9"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope)</td></tr>
-<tr class="separator:a3e2ce8041e46f520a6f50b2d661245b9 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62f159ae7909680956affebd590f1783 inherit pub_methods_classast_1_1Expr" id="r_a62f159ae7909680956affebd590f1783"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (std::nullptr_t)</td></tr>
-<tr class="separator:a62f159ae7909680956affebd590f1783 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbd67af553bb0841192dfacd0f0e9578 inherit pub_methods_classast_1_1Expr" id="r_abbd67af553bb0841192dfacd0f0e9578"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#abbd67af553bb0841192dfacd0f0e9578">Object</a> (<a class="el" href="structast_1_1initial__strong__ref__t.html">initial_strong_ref_t</a>)</td></tr>
-<tr class="separator:abbd67af553bb0841192dfacd0f0e9578 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26df1078be6121773b18dd5c5092432e inherit pub_methods_classast_1_1Expr" id="r_a26df1078be6121773b18dd5c5092432e"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;obj)</td></tr>
-<tr class="separator:a26df1078be6121773b18dd5c5092432e inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1Expr" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
+<tr class="separator:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1Expr" id="r_ad4baf0cd548ba50a3a7446899ff4a188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Expr.html#ad4baf0cd548ba50a3a7446899ff4a188">ObjectNamed</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>)</td></tr>
+<tr class="separator:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1Expr"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
+<tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
+<tr class="separator:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1ObjectNamed" id="r_ad4baf0cd548ba50a3a7446899ff4a188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#ad4baf0cd548ba50a3a7446899ff4a188">ObjectNamed</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>)</td></tr>
+<tr class="separator:ad4baf0cd548ba50a3a7446899ff4a188 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb1a89f4242cdf4ec00565ad72eff1b9 inherit pub_methods_classast_1_1ObjectNamed" id="r_afb1a89f4242cdf4ec00565ad72eff1b9"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#afb1a89f4242cdf4ec00565ad72eff1b9">getName</a> () const override</td></tr>
+<tr class="separator:afb1a89f4242cdf4ec00565ad72eff1b9 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3548f088559bf32c2d2bc4df19dc80 inherit pub_methods_classast_1_1ObjectNamed" id="r_abd3548f088559bf32c2d2bc4df19dc80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ObjectNamed.html#abd3548f088559bf32c2d2bc4df19dc80">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f">name</a>) override</td></tr>
+<tr class="separator:abd3548f088559bf32c2d2bc4df19dc80 inherit pub_methods_classast_1_1ObjectNamed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="memitem:a3e2ce8041e46f520a6f50b2d661245b9 inherit pub_methods_classast_1_1Object" id="r_a3e2ce8041e46f520a6f50b2d661245b9"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope)</td></tr>
@@ -165,8 +165,6 @@ $(function(){initNavTree('classast_1_1ExprCalculationBase.html',''); initResizab
 <tr class="separator:ad5992c59eef6fd156988573616d3e8d5 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa74b57ccf8714c96db2380b65a921181 inherit pub_methods_classast_1_1Object" id="r_aa74b57ccf8714c96db2380b65a921181"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#aa74b57ccf8714c96db2380b65a921181">getRepresentation</a> () const</td></tr>
 <tr class="separator:aa74b57ccf8714c96db2380b65a921181 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af67a932f9e931527a18ce0c714ba11d0 inherit pub_methods_classast_1_1Object" id="r_af67a932f9e931527a18ce0c714ba11d0"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html#af67a932f9e931527a18ce0c714ba11d0">getName</a> () const</td></tr>
-<tr class="separator:af67a932f9e931527a18ce0c714ba11d0 inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a446065f1684af869d91a610b6cf5a80f inherit pub_methods_classast_1_1Object" id="r_a446065f1684af869d91a610b6cf5a80f"><td class="memItemLeft" align="right" valign="top">
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const</td></tr>
 <tr class="separator:a446065f1684af869d91a610b6cf5a80f inherit pub_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>

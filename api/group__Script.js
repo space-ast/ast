@@ -7,8 +7,8 @@ var group__Script =
       [ "eval", "classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5", null ],
       [ "getExpression", "classast_1_1Expr.html#abc5ee070c08edb6a5bb1faa55858083a", null ],
       [ "getValueDouble", "classast_1_1Expr.html#a6b561fecb35ac85ae15267fe3b6db182", null ],
-      [ "Object", "classast_1_1Expr.html#abbd67af553bb0841192dfacd0f0e9578", null ],
-      [ "setName", "classast_1_1Expr.html#aaa77763d4fa220e0929e3727db60ab1b", null ],
+      [ "ObjectNamed", "classast_1_1Expr.html#a8f3686db877d835e7261614d560086d3", null ],
+      [ "ObjectNamed", "classast_1_1Expr.html#ad4baf0cd548ba50a3a7446899ff4a188", null ],
       [ "setValue", "classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0", null ],
       [ "setValueDouble", "classast_1_1Expr.html#a3348b92819eed530c27c3b1b89725a30", null ]
     ] ],
@@ -310,7 +310,6 @@ var group__Script =
       [ "eval", "classast_1_1Variable.html#afac6cb1f63d69e3b16d3a6574663b75f", null ],
       [ "getExpression", "classast_1_1Variable.html#ae475c52c0cc50180629330be52727999", null ],
       [ "getInnerExpression", "classast_1_1Variable.html#a8400b3f1497384dc6331010d219fcb37", null ],
-      [ "getName", "classast_1_1Variable.html#a9cd1cb9775f359f4479e3186f4a0636b", null ],
       [ "isBind", "classast_1_1Variable.html#ae431e1bf9a0bbbe624f58e5ae400d84b", null ],
       [ "setBindExpr", "classast_1_1Variable.html#aaed54e38f8cbee0c27d6bdbb9aff2a75", null ],
       [ "setExpr", "classast_1_1Variable.html#ac448448ba0d1cc14fc06831d68d8bca9", null ],
@@ -321,12 +320,10 @@ var group__Script =
       [ "setExpr", "classast_1_1Variable.html#a50c15fd08ee502c645eefebc7168e4a0", null ],
       [ "setExpr", "classast_1_1Variable.html#aa65e4d87b8c376fe9022c53870929168", null ],
       [ "setExpr", "classast_1_1Variable.html#a72ca11ecd06682a9e19012beee4cc082", null ],
-      [ "setName", "classast_1_1Variable.html#af74131f887fac6e910593a58e9c0c68c", null ],
       [ "setValue", "classast_1_1Variable.html#a75cd5ce77e7e48a8290ab16b307220ab", null ],
       [ "bind_", "classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6", null ],
       [ "desc_", "classast_1_1Variable.html#a34441040a42bb7a98dee0f13cec32ab9", null ],
-      [ "expr_", "classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4", null ],
-      [ "name_", "classast_1_1Variable.html#af714280a090507605c2b4fa9a07375d5", null ]
+      [ "expr_", "classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4", null ]
     ] ],
     [ "ast::IterateFunc", "group__Script.html#gac92a2124b66c8a652bceedb7da6a1b63", null ],
     [ "ast::OpAssignFunc", "group__Script.html#ga4a3435fb2657aa607b7c2dab49eb8cc4", null ],

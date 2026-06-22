@@ -107,11 +107,16 @@ $(function(){initNavTree('TestWithSTK_8cpp.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="TestWithSTK_8hpp_source.html">TestWithSTK.hpp</a>&quot;</code><br />
 <code>#include &quot;AstCore/BuiltinFrame.hpp&quot;</code><br />
+<code>#include &quot;AstCore/Propagate.hpp&quot;</code><br />
+<code>#include &quot;AstCore/InitialState.hpp&quot;</code><br />
+<code>#include &quot;AstCore/OrbitElement.hpp&quot;</code><br />
 <code>#include &quot;AstSim/Mover.hpp&quot;</code><br />
+<code>#include &quot;AstSim/MotionMissionCommand.hpp&quot;</code><br />
 <code>#include &quot;AstLoader/MoverLoader.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/IO.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ColoredPrint.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
 <code>#include &quot;AstMath/UnarySolver.hpp&quot;</code><br />
 <code>#include &quot;AstMath/Vector.hpp&quot;</code><br />
 </div><table class="memberdecls">
@@ -127,6 +132,12 @@ $(function(){initNavTree('TestWithSTK_8cpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:af933f158361caed56da1361c7787c0a8" id="r_af933f158361caed56da1361c7787c0a8"><td class="memItemLeft" align="right" valign="top"><a id="af933f158361caed56da1361c7787c0a8" name="af933f158361caed56da1361c7787c0a8"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTestSegment</b> (<a class="el" href="classast_1_1Segment.html">Segment</a> &amp;segment)</td></tr>
+<tr class="separator:af933f158361caed56da1361c7787c0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95bd390018fcb1761531150c346f3966" id="r_a95bd390018fcb1761531150c346f3966"><td class="memItemLeft" align="right" valign="top"><a id="a95bd390018fcb1761531150c346f3966" name="a95bd390018fcb1761531150c346f3966"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTestSequence</b> (<a class="el" href="classast_1_1Sequence.html">Sequence</a> &amp;sequence)</td></tr>
+<tr class="separator:a95bd390018fcb1761531150c346f3966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70b04637597c04ff24192771596dbb6d" id="r_a70b04637597c04ff24192771596dbb6d"><td class="memItemLeft" align="right" valign="top"><a id="a70b04637597c04ff24192771596dbb6d" name="a70b04637597c04ff24192771596dbb6d"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTestWithEmptyEphemeris</b> (<a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
 <tr class="separator:a70b04637597c04ff24192771596dbb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>

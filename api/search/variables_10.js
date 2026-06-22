@@ -4,7 +4,7 @@ var searchData=
   ['pa_1',['Pa',['../Unit_8cpp.html#a8f2eae1a22b0ecea5e3f608a4fe35ee8',1,'ast::units']]],
   ['pa_5f_2',['pa_',['../classast_1_1FundamentalArguments.html#ae096ee5835b894f6f122fe19ee906ba7',1,'ast::FundamentalArguments']]],
   ['parent_3',['parent',['../structast_1_1WasmObjectInfo.html#a48b85ddd84b58b52ce4d21f90054ab21',1,'ast::WasmObjectInfo::parent'],['../structast_1_1WasmClassInfo.html#ab50d7ebb765b8460efbfd0767cc056b4',1,'ast::WasmClassInfo::parent']]],
-  ['parent_5f_4',['parent_',['../classast_1_1SymbolScope.html#a102e82bd472b0f616c4f714c5772d876',1,'ast::SymbolScope::parent_'],['../classast_1_1Class.html#aab8a7ee295668f8949f980ca72c7482f',1,'ast::Class::parent_']]],
+  ['parent_5f_4',['parent_',['../classast_1_1LoaderContext.html#a462078649ca7d0cd6449c8a3482a79b9',1,'ast::LoaderContext::parent_'],['../classast_1_1SymbolScope.html#a102e82bd472b0f616c4f714c5772d876',1,'ast::SymbolScope::parent_'],['../classast_1_1Class.html#aab8a7ee295668f8949f980ca72c7482f',1,'ast::Class::parent_']]],
   ['parentinfo_5',['parentInfo',['../structast_1_1RecordStep.html#a4b6e63d75336221fa52cc11dd5263022',1,'ast::RecordStep']]],
   ['parenttype_6',['parentType',['../structast_1_1QuickTypeEntry.html#af7f89dae73b0e47a4f06ca21b183ed03',1,'ast::QuickTypeEntry']]],
   ['parser_5f_7',['parser_',['../classast_1_1GravityFieldLoader.html#acb6ea8a76a32480231faa91179626ad9',1,'ast::GravityFieldLoader']]],

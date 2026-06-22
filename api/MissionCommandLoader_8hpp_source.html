@@ -117,17 +117,19 @@ $(function(){initNavTree('MissionCommandLoader_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>AST_LOADER_API errc_t <a class="code hl_function" href="namespaceast.html#aa0fc06314edb6a77d363cff11d78fb70">aLoadMissionCommand</a>(<span class="keyword">const</span> Value&amp; value, SharedPtr&lt;MissionCommand&gt;&amp; missionCommand);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_LOADER_API errc_t <a class="code hl_function" href="namespaceast.html#aa0fc06314edb6a77d363cff11d78fb70">aLoadMissionCommand</a>(StringView filepath, SharedPtr&lt;MissionCommand&gt;&amp; missionCommand);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">class </span>LoaderContext;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>AST_LOADER_API errc_t <a class="code hl_function" href="namespaceast.html#a4ed355a7a298bdd93ef7cab6363f4b53">aLoadMissionCommand</a>(<span class="keyword">const</span> Value&amp; value, SharedPtr&lt;MissionCommand&gt;&amp; missionCommand, <span class="keyword">const</span> LoaderContext* context = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>AST_LOADER_API errc_t <a class="code hl_function" href="namespaceast.html#a4ed355a7a298bdd93ef7cab6363f4b53">aLoadMissionCommand</a>(StringView filepath, SharedPtr&lt;MissionCommand&gt;&amp; missionCommand);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aInitialStateLoader_8hpp_html"><div class="ttname"><a href="InitialStateLoader_8hpp.html">InitialStateLoader.hpp</a></div></div>
 <div class="ttc" id="aManeuverLoader_8hpp_html"><div class="ttname"><a href="ManeuverLoader_8hpp.html">ManeuverLoader.hpp</a></div></div>
 <div class="ttc" id="aReturnLoader_8hpp_html"><div class="ttname"><a href="ReturnLoader_8hpp.html">ReturnLoader.hpp</a></div></div>
 <div class="ttc" id="aSequenceLoader_8hpp_html"><div class="ttname"><a href="SequenceLoader_8hpp.html">SequenceLoader.hpp</a></div></div>
 <div class="ttc" id="aTargeterSequenceLoader_8hpp_html"><div class="ttname"><a href="TargeterSequenceLoader_8hpp.html">TargeterSequenceLoader.hpp</a></div></div>
-<div class="ttc" id="anamespaceast_html_aa0fc06314edb6a77d363cff11d78fb70"><div class="ttname"><a href="namespaceast.html#aa0fc06314edb6a77d363cff11d78fb70">ast::aLoadMissionCommand</a></div><div class="ttdeci">errc_t aLoadMissionCommand(const Value &amp;value, SharedPtr&lt; MissionCommand &gt; &amp;missionCommand)</div><div class="ttdoc">从值加载任务命令</div><div class="ttdef"><b>定义</b> MissionCommandLoader.cpp:39</div></div>
+<div class="ttc" id="anamespaceast_html_a4ed355a7a298bdd93ef7cab6363f4b53"><div class="ttname"><a href="namespaceast.html#a4ed355a7a298bdd93ef7cab6363f4b53">ast::aLoadMissionCommand</a></div><div class="ttdeci">errc_t aLoadMissionCommand(const Value &amp;value, SharedPtr&lt; MissionCommand &gt; &amp;missionCommand, const LoaderContext *context)</div><div class="ttdoc">从值加载任务命令</div><div class="ttdef"><b>定义</b> MissionCommandLoader.cpp:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
