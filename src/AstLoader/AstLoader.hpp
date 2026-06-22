@@ -19,6 +19,8 @@
 #include "AstLoader/GMATScriptParser.hpp"
 #include "AstLoader/InitialStateLoader.hpp"
 #include "AstLoader/LineTargetLoader.hpp"
+#include "AstLoader/LoaderCommon.hpp"
+#include "AstLoader/LoaderContext.hpp"
 #include "AstLoader/MTOLoader.hpp"
 #include "AstLoader/ManeuverLoader.hpp"
 #include "AstLoader/MissionCommandLoader.hpp"

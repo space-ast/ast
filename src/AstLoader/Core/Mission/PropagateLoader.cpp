@@ -20,6 +20,7 @@
 
 #include "AstCore/Propagate.hpp"
 #include "AstCore/DetectorAllHeaders.hpp"
+#include "AstLoader/LoaderContext.hpp"
 #include "AstLoader/ValXMLLoader.hpp"
 #include "AstLoader/ResultLoader.hpp"
 #include "AstLoader/SegmentLoader.hpp"
@@ -145,35 +146,47 @@ errc_t aLoadStoppingConditions(const Value& dict, Propagate& propagate)
 }
 
 
-HPOP* aResolveBuiltinPropagator(StringView propagatorName)
+HPOP* aResolvePropagatorFromFile(StringView filepath)
 {
-    std::string datadir = aDataDirGet();
-    std::string filepath = datadir + "/Propagator/" + std::string(propagatorName) + ".Propagator";
     ScopedPtr<HPOP> hpop = new HPOP();
     errc_t rc = aLoadPropagator(filepath, *hpop);
     if(rc == eNoError)
     {
-        hpop->setName(propagatorName);
         auto propagator = hpop.release();
         aAddObject(propagator);
         return propagator;
     }
     else
     {
-        aError("failed to load propagator '%s'", filepath.c_str());
+        aError("failed to load propagator '%.*s'", filepath.size(), filepath.data());
     }
     return nullptr;
 }
 
-HPOP* aResolvePropagator(StringView propagatorName)
+HPOP* aResolveBuiltinPropagator(StringView propagatorName)
+{
+    std::string datadir = aDataDirGet();
+    std::string filepath = datadir + "/Propagator/" + std::string(propagatorName) + ".Propagator";
+    return aResolvePropagatorFromFile(filepath);
+}
+
+class LoaderContext;
+
+HPOP* aResolvePropagator(StringView propagatorName, const LoaderContext* context = nullptr)
 {
     HPOP* hpop = (HPOP*)aFindObject(HPOP::StaticType(), propagatorName);
     if(hpop)
         return hpop;
-    return aResolveBuiltinPropagator(propagatorName);
+    hpop = aResolveBuiltinPropagator(propagatorName);
+    if(!hpop && context)
+    {
+        std::string filepath = context->scenarioDir_ + "/Astrogator/Propagators/" + std::string(propagatorName) + ".Propagator";
+        hpop = aResolvePropagatorFromFile(filepath);
+    }
+    return hpop;
 }
 
-errc_t aLoadPropagate(const Value& value, Propagate& propagate)
+errc_t aLoadPropagate(const Value& value, Propagate& propagate, const LoaderContext* context)
 {
     errc_t rc;
     const std::string type = value["Type"];
@@ -189,7 +202,7 @@ errc_t aLoadPropagate(const Value& value, Propagate& propagate)
     // 加载预报器
     {
         std::string propagatorName = value["Propagator"];
-        HPOP* propagator = aResolvePropagator(propagatorName);
+        HPOP* propagator = aResolvePropagator(propagatorName, context);
         if(!propagator)
         {
             aError("failed to resolve propagator '%s'", propagatorName.c_str());

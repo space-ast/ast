@@ -1,9 +1,9 @@
 ///
-/// @file      SequenceLoader.hpp
+/// @file      LoaderCommon.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-04-15
+/// @date      2026-06-22
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -28,23 +28,6 @@ AST_NAMESPACE_BEGIN
     @addtogroup 
     @{
 */
-
-class Sequence;
-class Value;
-class LoaderContext;
-
-
-/// @brief 从值加载序列
-/// @param value 值
-/// @param sequence 序列对象
-/// @return errc_t 错误码，0表示成功
-AST_LOADER_API errc_t aLoadSequence(const Value& value, Sequence& sequence, const LoaderContext* context = nullptr);
-
-/// @brief 从文件加载序列
-/// @param filepath 文件路径
-/// @param sequence 序列对象
-/// @return errc_t 错误码，0表示成功
-AST_LOADER_API errc_t aLoadSequence(StringView filepath, Sequence& sequence);
 
 
 /*! @} */

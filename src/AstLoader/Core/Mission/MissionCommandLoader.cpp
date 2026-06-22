@@ -36,7 +36,7 @@
 AST_NAMESPACE_BEGIN
 
 
-errc_t aLoadMissionCommand(const Value& value, SharedPtr<MissionCommand>& missionCommand)
+errc_t aLoadMissionCommand(const Value& value, SharedPtr<MissionCommand>& missionCommand, const LoaderContext* context)
 {
     std::string type = value["Type"];
     if(type == "Sequence")
@@ -58,7 +58,7 @@ errc_t aLoadMissionCommand(const Value& value, SharedPtr<MissionCommand>& missio
     {
         SharedPtr<Propagate> propagate = new Propagate();
         missionCommand = propagate;
-        return aLoadPropagate(value, *propagate);
+        return aLoadPropagate(value, *propagate, context);
     }
     else if(type == "End")
     {

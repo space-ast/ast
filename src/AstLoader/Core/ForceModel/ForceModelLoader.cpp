@@ -392,6 +392,7 @@ errc_t aLoadForceModel(const Value& value, HPOPForceModel& forceModel)
             std::string category = force["Category"];
             if(category == "Atmospheric Models")
             {
+                forceModel.useDrag(true);
                 errc_t rc = aLoadDragForce(force, forceModel.drag());
                 if(rc)
                 {
@@ -400,6 +401,7 @@ errc_t aLoadForceModel(const Value& value, HPOPForceModel& forceModel)
             }
             else if(category == "SRP Models")
             {
+                forceModel.useSRP(true);
                 errc_t rc = aLoadSolarRadiationPressure(force, forceModel.srp(), forceModel.centralBody());
                 if(rc)
                 {

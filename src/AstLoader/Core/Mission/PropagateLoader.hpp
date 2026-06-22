@@ -31,12 +31,14 @@ AST_NAMESPACE_BEGIN
 
 class Propagate;
 class Value;
+class LoaderContext;
 
 /// @brief 从值加载 propagate 任务
 /// @param value 值
 /// @param propagate 输出的 propagate 对象
+/// @param context 加载上下文
 /// @return errc_t 错误码，0表示成功
-AST_LOADER_API errc_t aLoadPropagate(const Value& value, Propagate& propagate);
+AST_LOADER_API errc_t aLoadPropagate(const Value& value, Propagate& propagate, const LoaderContext* context = nullptr);
 
 
 /// @brief 加载 propagate 任务
