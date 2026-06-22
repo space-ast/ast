@@ -76,15 +76,25 @@ FreeRreturnTargetFunction FreeRreturnTargetFunction::Case2()
     return problem;
 }
 
-int FreeRreturnTargetFunction::operator()(const double* variable, double* constraint) const{
+
+
+int FreeRreturnTargetFunction::operator()(const double* variable, double* constraint) const
+{
+    const Input& input = (const Input&)*variable;
+    Output& output = (Output&)*constraint;
+    return this->operator()(input, output);
+}
+
+int FreeRreturnTargetFunction::operator()(const Input& input, Output& output) const
+{
     // 输入变量
-    const double varEpoch     = variable[0];            ///<  epoch 轨道历元（单位：秒）
-    const double varRAAN      = variable[1];            ///<  RAAN 升交点赤经（单位：rad）
-    const double varImpulse   = variable[2];            ///< 脉冲机动速度增量（单位： m/s）
+    const double varEpoch     = input.epoch_;              ///<  epoch 轨道历元（单位：秒）
+    const double varRAAN      = input.raan_;               ///<  RAAN 升交点赤经（单位：rad）
+    const double varImpulse   = input.impulse_;            ///< 脉冲机动速度增量（单位： m/s）
     // 输出约束
-    double& cnstrAltOfMoonPeri     = constraint[0];     ///< 近月点高度约束   (单位：m)
-    double& cnstrEarthInclination  = constraint[1];     ///< 地球轨道倾角约束 (单位：rad)
-    double& cnstrAltOfEarthPeri    = constraint[2];     ///< 近地点高度约束  (单位：m)
+    double& cnstrAltOfMoonPeri     = output.altOfMoonPeri_;      ///< 近月点高度约束   (单位：m)
+    double& cnstrEarthInclination  = output.earthInclination_;   ///< 地球轨道倾角约束 (单位：rad)
+    double& cnstrAltOfEarthPeri    = output.altOfEarthPeri_;     ///< 近地点高度约束  (单位：m)
     // 全程力模型
     HPOPForceModel forceModel;
     forceModel.useMoonGravity(true);
