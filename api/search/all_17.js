@@ -31,7 +31,7 @@ var searchData=
   ['weakptr_3c_20ast_3a_3aspaceobject_20_3e_28',['WeakPtr&lt; ast::SpaceObject &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
   ['weakptr_3c_20ast_3a_3astudyworkbench_20_3e_29',['WeakPtr&lt; ast::StudyWorkbench &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
   ['weakptr_3c_20ast_3a_3asweepstudy_20_3e_30',['WeakPtr&lt; ast::SweepStudy &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
-  ['weakrefcount_31',['weakRefCount',['../classast_1_1Object.html#a0413d6286436cde9376cee0cdaba541b',1,'ast::Object']]],
+  ['weakrefcount_31',['weakRefCount',['../classast_1_1Referenced.html#a3ddb7d1e47dc803e64c64a03ba110d68',1,'ast::Referenced']]],
   ['weekdayfullname_32',['weekDayFullName',['../group__Time.html#ga869fb2e76bb442c8175c0a297ddb8098',1,'ast::Date']]],
   ['weekdayshortname_33',['weekDayShortName',['../group__Time.html#ga75e4609fe91cfe5858ac5b32b0ae6994',1,'ast::Date']]],
   ['widget_34',['widget',['../classast_1_1PilotAgent.html#a250f37d0f629e57cf7731722f57f9751',1,'ast::PilotAgent']]],

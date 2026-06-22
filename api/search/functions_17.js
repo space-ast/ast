@@ -2,7 +2,7 @@ var searchData=
 [
   ['w_0',['w',['../classast_1_1Quaternion.html#abf34f1d3eadf0c11d520bfebd571a2d2',1,'ast::Quaternion::w() const'],['../classast_1_1Quaternion.html#a2f285c146ad2c66d87600b30ce4db809',1,'ast::Quaternion::w()']]],
   ['waitforidle_1',['waitForIdle',['../classast_1_1PilotAgent.html#a6a96d5af3aff82d75f3e7bda5ebaba00',1,'ast::PilotAgent']]],
-  ['weakrefcount_2',['weakRefCount',['../classast_1_1Object.html#a0413d6286436cde9376cee0cdaba541b',1,'ast::Object']]],
+  ['weakrefcount_2',['weakRefCount',['../classast_1_1Referenced.html#a3ddb7d1e47dc803e64c64a03ba110d68',1,'ast::Referenced']]],
   ['weekdayfullname_3',['weekDayFullName',['../group__Time.html#ga869fb2e76bb442c8175c0a297ddb8098',1,'ast::Date']]],
   ['weekdayshortname_4',['weekDayShortName',['../group__Time.html#ga75e4609fe91cfe5858ac5b32b0ae6994',1,'ast::Date']]],
   ['widget_5',['widget',['../classast_1_1PilotAgent.html#a250f37d0f629e57cf7731722f57f9751',1,'ast::PilotAgent']]],

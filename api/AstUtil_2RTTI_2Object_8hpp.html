@@ -104,8 +104,7 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp.html',''); initResizable(tr
 <a href="#define-members">宏定义</a> &#124;
 <a href="#typedef-members">类型定义</a> &#124;
 <a href="#enum-members">枚举</a> &#124;
-<a href="#func-members">函数</a> &#124;
-<a href="#var-members">变量</a>  </div>
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">Object.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
@@ -113,11 +112,10 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp.html',''); initResizable(tr
 <code>#include &quot;AstUtil/SharedPtr.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ScopedPtr.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ReflectAPI.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Referenced.hpp&quot;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &lt;assert.h&gt;</code><br />
-<code>#include &lt;atomic&gt;</code><br />
 <code>#include &quot;AstUtil/Attribute.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Class.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/WeakPtr.hpp&quot;</code><br />
@@ -126,8 +124,6 @@ $(function(){initNavTree('AstUtil_2RTTI_2Object_8hpp.html',''); initResizable(tr
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1initial__strong__ref__t.html">ast::initial_strong_ref_t</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1has__own__getType.html">ast::has_own_getType&lt; T &gt;</a></td></tr>
@@ -207,12 +203,6 @@ template&lt;typename T &gt; </td></tr>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga93de1dc3502c5568487f5db4fdf6f6d8"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewObject</b> (<a class="el" href="classast_1_1Object.html">Object</a> *parentScope, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> objectName)</td></tr>
 <tr class="separator:ga93de1dc3502c5568487f5db4fdf6f6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-变量</h2></td></tr>
-<tr class="memitem:gab8eabf88f57939fed5cd91bc72d44e62" id="r_gab8eabf88f57939fed5cd91bc72d44e62"><td class="memItemLeft" align="right" valign="top">
-constexpr <a class="el" href="structast_1_1initial__strong__ref__t.html">initial_strong_ref_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::initial_strong_ref</b> {}</td></tr>
-<tr class="separator:gab8eabf88f57939fed5cd91bc72d44e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

@@ -22,7 +22,7 @@ var dir_f086dbc8bbdaf6c80c8dc7e81d9f967a =
     [ "ObjectProtocol.hpp", "ObjectProtocol_8hpp.html", "ObjectProtocol_8hpp" ],
     [ "ObjectResolver.hpp", "ObjectResolver_8hpp.html", "ObjectResolver_8hpp" ],
     [ "Referenced.cpp", "Referenced_8cpp.html", null ],
-    [ "Referenced.hpp", "Referenced_8hpp.html", null ],
+    [ "Referenced.hpp", "Referenced_8hpp.html", "Referenced_8hpp" ],
     [ "RTTIAPI.cpp", "RTTIAPI_8cpp.html", "RTTIAPI_8cpp" ],
     [ "RTTIAPI.hpp", "RTTIAPI_8hpp.html", "RTTIAPI_8hpp" ],
     [ "ScopedPtr.hpp", "AstUtil_2RTTI_2ScopedPtr_8hpp.html", "AstUtil_2RTTI_2ScopedPtr_8hpp" ],

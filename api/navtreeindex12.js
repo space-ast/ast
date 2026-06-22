@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcTangentialRate_8hpp_source.html":[4,0,0,7,7,1,0,15,201],
 "ScStateCalcTangential_8cpp.html":[4,0,0,7,7,1,0,15,198],
 "ScStateCalcTangential_8hpp.html":[4,0,0,7,7,1,0,15,199],
 "ScStateCalcTangential_8hpp_source.html":[4,0,0,7,7,1,0,15,199],
@@ -248,6 +249,5 @@ var NAVTREEINDEX12 =
 "Simulation_8hpp.html":[4,0,0,7,8,1,16],
 "Simulation_8hpp_source.html":[4,0,0,7,8,1,16],
 "SnoptAPI_8cpp.html":[4,0,0,14,19],
-"SnoptAPI_8cpp.html#a0f9bcdfb91b3ba378a36e767d424824e":[4,0,0,14,19,0],
-"SnoptAPI_8cpp.html#ad58bab1e7f3d254721b5cbd0ef30299a":[4,0,0,14,19,1]
+"SnoptAPI_8cpp.html#a0f9bcdfb91b3ba378a36e767d424824e":[4,0,0,14,19,0]
 };

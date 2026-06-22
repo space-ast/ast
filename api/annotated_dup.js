@@ -580,6 +580,7 @@ var annotated_dup =
       [ "Radar", "classast_1_1Radar.html", null ],
       [ "Receiver", "classast_1_1Receiver.html", null ],
       [ "RecordStep", "structast_1_1RecordStep.html", "structast_1_1RecordStep" ],
+      [ "Referenced", "classast_1_1Referenced.html", "classast_1_1Referenced" ],
       [ "RelativityCorrection", "classast_1_1RelativityCorrection.html", null ],
       [ "RepeatingOrbitDesigner", "classast_1_1RepeatingOrbitDesigner.html", "classast_1_1RepeatingOrbitDesigner" ],
       [ "RepeatingSunSyncOrbitDesigner", "classast_1_1RepeatingSunSyncOrbitDesigner.html", "classast_1_1RepeatingSunSyncOrbitDesigner" ],

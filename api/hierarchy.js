@@ -481,514 +481,6 @@ var hierarchy =
     [ "ast::NutationCache", "structast_1_1NutationCache.html", null ],
     [ "ast::NutationSeries", "classast_1_1NutationSeries.html", null ],
     [ "ast::NutationTerm", "classast_1_1NutationTerm.html", null ],
-    [ "ast::Object", "classast_1_1Object.html", [
-      [ "ast::MockObject", "classast_1_1MockObject.html", null ],
-      [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
-        [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
-        [ "ast::AgScriptingToolCalcObjWrap", "classast_1_1AgScriptingToolCalcObjWrap.html", null ],
-        [ "ast::Antenna", "classast_1_1Antenna.html", null ],
-        [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
-        [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
-        [ "ast::AttitudeProfile", "classast_1_1AttitudeProfile.html", null ],
-        [ "ast::Axes", "classast_1_1Axes.html", [
-          [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
-            [ "ast::AxesBodyFixed", "classast_1_1AxesBodyFixed.html", null ],
-            [ "ast::AxesBodyInertial", "classast_1_1AxesBodyInertial.html", null ],
-            [ "ast::AxesBodyMOD", "classast_1_1AxesBodyMOD.html", null ],
-            [ "ast::AxesBodyTOD", "classast_1_1AxesBodyTOD.html", null ]
-          ] ],
-          [ "ast::AxesFrozen", "classast_1_1AxesFrozen.html", null ],
-          [ "ast::AxesFrozenAtEventTime", "classast_1_1AxesFrozenAtEventTime.html", null ],
-          [ "ast::AxesICRF", "classast_1_1AxesICRF.html", null ],
-          [ "ast::AxesLinkTo", "classast_1_1AxesLinkTo.html", null ],
-          [ "ast::AxesRoot", "classast_1_1AxesRoot.html", null ]
-        ] ],
-        [ "ast::BodyOrientation", "classast_1_1BodyOrientation.html", [
-          [ "ast::EarthOrientation", "classast_1_1EarthOrientation.html", null ],
-          [ "ast::MoonOrientation", "classast_1_1MoonOrientation.html", null ],
-          [ "ast::NoopOrientation", "classast_1_1NoopOrientation.html", null ],
-          [ "ast::RotationalData", "classast_1_1RotationalData.html", null ]
-        ] ],
-        [ "ast::BodyShape", "classast_1_1BodyShape.html", [
-          [ "ast::EllipsoidShape", "classast_1_1EllipsoidShape.html", null ],
-          [ "ast::NoopShape", "classast_1_1NoopShape.html", null ],
-          [ "ast::SphereShape", "classast_1_1SphereShape.html", null ],
-          [ "ast::SpheroidShape", "classast_1_1SpheroidShape.html", null ]
-        ] ],
-        [ "ast::Burn", "classast_1_1Burn.html", [
-          [ "ast::BurnCollocation", "classast_1_1BurnCollocation.html", null ],
-          [ "ast::BurnFinite", "classast_1_1BurnFinite.html", null ],
-          [ "ast::BurnImpulsive", "classast_1_1BurnImpulsive.html", null ]
-        ] ],
-        [ "ast::Chain", "classast_1_1Chain.html", null ],
-        [ "ast::CommSystem", "classast_1_1CommSystem.html", null ],
-        [ "ast::Command", "classast_1_1Command.html", [
-          [ "ast::End", "classast_1_1End.html", null ],
-          [ "ast::FeasibleRegionStudy", "classast_1_1FeasibleRegionStudy.html", null ],
-          [ "ast::OptimizationStudy", "classast_1_1OptimizationStudy.html", null ],
-          [ "ast::Return", "classast_1_1Return.html", null ],
-          [ "ast::Segment", "classast_1_1Segment.html", [
-            [ "ast::InitialState", "classast_1_1InitialState.html", null ],
-            [ "ast::LandingSite", "classast_1_1LandingSite.html", null ],
-            [ "ast::Maneuver", "classast_1_1Maneuver.html", null ],
-            [ "ast::Propagate", "classast_1_1Propagate.html", null ],
-            [ "ast::SegmentGraph", "classast_1_1SegmentGraph.html", null ],
-            [ "ast::Sequence", "classast_1_1Sequence.html", [
-              [ "ast::TargeterSequence", "classast_1_1TargeterSequence.html", null ]
-            ] ]
-          ] ],
-          [ "ast::Stop", "classast_1_1Stop.html", null ],
-          [ "ast::StudyWorkbench", "classast_1_1StudyWorkbench.html", null ],
-          [ "ast::SweepStudy", "classast_1_1SweepStudy.html", null ],
-          [ "ast::TargeterProfile", "classast_1_1TargeterProfile.html", [
-            [ "ast::DifferentialCorrectorProfile", "classast_1_1DifferentialCorrectorProfile.html", null ],
-            [ "ast::ScriptingToolProfile", "classast_1_1ScriptingToolProfile.html", null ]
-          ] ],
-          [ "ast::UncertaintyStudy", "classast_1_1UncertaintyStudy.html", null ]
-        ] ],
-        [ "ast::Constellation", "classast_1_1Constellation.html", null ],
-        [ "ast::CoverageDefinition", "classast_1_1CoverageDefinition.html", null ],
-        [ "ast::EventDetector", "classast_1_1EventDetector.html", [
-          [ "ast::DetectorAccess", "classast_1_1DetectorAccess.html", null ],
-          [ "ast::DetectorAltitude", "classast_1_1DetectorAltitude.html", null ],
-          [ "ast::DetectorAlwaysTripped", "classast_1_1DetectorAlwaysTripped.html", null ],
-          [ "ast::DetectorAscendingNode", "classast_1_1DetectorAscendingNode.html", null ],
-          [ "ast::DetectorBodyRelated", "classast_1_1DetectorBodyRelated.html", [
-            [ "ast::DetectorApoapsis", "classast_1_1DetectorApoapsis.html", null ],
-            [ "ast::DetectorPeriapsis", "classast_1_1DetectorPeriapsis.html", null ]
-          ] ],
-          [ "ast::DetectorCartesian", "classast_1_1DetectorCartesian.html", null ],
-          [ "ast::DetectorDeltaV", "classast_1_1DetectorDeltaV.html", null ],
-          [ "ast::DetectorDescendingNode", "classast_1_1DetectorDescendingNode.html", null ],
-          [ "ast::DetectorDuration", "classast_1_1DetectorDuration.html", null ],
-          [ "ast::DetectorEpoch", "classast_1_1DetectorEpoch.html", null ],
-          [ "ast::DetectorFrameRelated", "classast_1_1DetectorFrameRelated.html", null ],
-          [ "ast::DetectorLighting", "classast_1_1DetectorLighting.html", null ],
-          [ "ast::DetectorMeanAnomaly", "classast_1_1DetectorMeanAnomaly.html", null ],
-          [ "ast::DetectorPointRelated", "classast_1_1DetectorPointRelated.html", [
-            [ "ast::DetectorRMagnitude", "classast_1_1DetectorRMagnitude.html", null ]
-          ] ],
-          [ "ast::DetectorTrueAnomaly", "classast_1_1DetectorTrueAnomaly.html", null ],
-          [ "ast::DetectorUserSelect", "classast_1_1DetectorUserSelect.html", null ],
-          [ "ast::DetectorXYPlaneCross", "classast_1_1DetectorXYPlaneCross.html", null ],
-          [ "ast::DetectorYZPlaneCross", "classast_1_1DetectorYZPlaneCross.html", null ],
-          [ "ast::DetectorZXPlaneCross", "classast_1_1DetectorZXPlaneCross.html", null ],
-          [ "ast::EventDetectorGeneric< Func >", "classast_1_1EventDetectorGeneric.html", null ],
-          [ "ast::StopCondition", "classast_1_1StopCondition.html", null ]
-        ] ],
-        [ "ast::EventInterval", "classast_1_1EventInterval.html", [
-          [ "ast::EventIntervalExplicit", "classast_1_1EventIntervalExplicit.html", null ],
-          [ "ast::EventIntervalFallback", "classast_1_1EventIntervalFallback.html", null ],
-          [ "ast::EventIntervalLinkTo", "classast_1_1EventIntervalLinkTo.html", null ]
-        ] ],
-        [ "ast::EventTime", "classast_1_1EventTime.html", [
-          [ "ast::EventTimeExplicit", "classast_1_1EventTimeExplicit.html", null ],
-          [ "ast::EventTimeFallback", "classast_1_1EventTimeFallback.html", null ],
-          [ "ast::EventTimeLinkTo", "classast_1_1EventTimeLinkTo.html", null ]
-        ] ],
-        [ "ast::Expr", "classast_1_1Expr.html", [
-          [ "ast::ExprAttribute", "classast_1_1ExprAttribute.html", null ],
-          [ "ast::ExprCalculationBase", "classast_1_1ExprCalculationBase.html", [
-            [ "ast::ExprCalculation", "classast_1_1ExprCalculation.html", null ],
-            [ "ast::ExprCurrentScStateCalculation", "classast_1_1ExprCurrentScStateCalculation.html", null ]
-          ] ],
-          [ "ast::ExprCall", "classast_1_1ExprCall.html", null ],
-          [ "ast::ExprCondition", "classast_1_1ExprCondition.html", null ],
-          [ "ast::ExprContainer", "classast_1_1ExprContainer.html", [
-            [ "ast::ExprBlock", "classast_1_1ExprBlock.html", null ],
-            [ "ast::ExprCatHorizontal", "classast_1_1ExprCatHorizontal.html", null ],
-            [ "ast::ExprCatVertical", "classast_1_1ExprCatVertical.html", null ],
-            [ "ast::ExprVector", "classast_1_1ExprVector.html", null ]
-          ] ],
-          [ "ast::ExprIf", "classast_1_1ExprIf.html", null ],
-          [ "ast::ExprLoop", "classast_1_1ExprLoop.html", [
-            [ "ast::ExprForRange", "classast_1_1ExprForRange.html", null ],
-            [ "ast::ExprWhile", "classast_1_1ExprWhile.html", null ]
-          ] ],
-          [ "ast::ExprMacroExpand", "classast_1_1ExprMacroExpand.html", null ],
-          [ "ast::ExprMatch", "classast_1_1ExprMatch.html", null ],
-          [ "ast::ExprRange", "classast_1_1ExprRange.html", null ],
-          [ "ast::Op", "classast_1_1Op.html", [
-            [ "ast::OpAssign", "classast_1_1OpAssign.html", null ],
-            [ "ast::OpBin", "classast_1_1OpBin.html", null ],
-            [ "ast::OpUnary", "classast_1_1OpUnary.html", null ]
-          ] ],
-          [ "ast::Symbol", "classast_1_1Symbol.html", null ],
-          [ "ast::Value", "classast_1_1Value.html", [
-            [ "ast::ValArray< T, 1 >", "classast_1_1ValArray.html", [
-              [ "ast::ValVector< T >", "classast_1_1ValVector.html", null ]
-            ] ],
-            [ "ast::ValScalar< bool >", "classast_1_1ValScalar.html", [
-              [ "ast::ValBool", "classast_1_1ValBool.html", null ]
-            ] ],
-            [ "ast::ValScalar< double >", "classast_1_1ValScalar.html", [
-              [ "ast::ValDouble", "classast_1_1ValDouble.html", null ]
-            ] ],
-            [ "ast::ValScalar< int >", "classast_1_1ValScalar.html", [
-              [ "ast::ValInt", "classast_1_1ValInt.html", null ]
-            ] ],
-            [ "ast::Macro", "classast_1_1Macro.html", [
-              [ "ast::Function", "classast_1_1Function.html", null ]
-            ] ],
-            [ "ast::ValArray< T, NDIM >", "classast_1_1ValArray.html", null ],
-            [ "ast::ValDict", "classast_1_1ValDict.html", null ],
-            [ "ast::ValNamedVector", "classast_1_1ValNamedVector.html", null ],
-            [ "ast::ValNull", "classast_1_1ValNull.html", null ],
-            [ "ast::ValQuantity", "classast_1_1ValQuantity.html", null ],
-            [ "ast::ValRange", "classast_1_1ValRange.html", null ],
-            [ "ast::ValScalar< Scalar >", "classast_1_1ValScalar.html", null ],
-            [ "ast::ValString", "classast_1_1ValString.html", null ]
-          ] ],
-          [ "ast::Variable", "classast_1_1Variable.html", null ]
-        ] ],
-        [ "ast::FeasibleRegionConstraint", "classast_1_1FeasibleRegionConstraint.html", null ],
-        [ "ast::FeasibleRegionVariable", "classast_1_1FeasibleRegionVariable.html", null ],
-        [ "ast::FieldOfView", "classast_1_1FieldOfView.html", [
-          [ "ast::FOVConical", "classast_1_1FOVConical.html", null ],
-          [ "ast::FOVCustom", "classast_1_1FOVCustom.html", null ],
-          [ "ast::FOVHalfPower", "classast_1_1FOVHalfPower.html", null ],
-          [ "ast::FOVRectangular", "classast_1_1FOVRectangular.html", null ],
-          [ "ast::FOVSAR", "classast_1_1FOVSAR.html", null ],
-          [ "ast::FOVSimpleCone", "classast_1_1FOVSimpleCone.html", null ]
-        ] ],
-        [ "ast::FigureOfMerit", "classast_1_1FigureOfMerit.html", [
-          [ "ast::AttitudeFigureOfMerit", "classast_1_1AttitudeFigureOfMerit.html", null ]
-        ] ],
-        [ "ast::ForceModel", "classast_1_1ForceModel.html", [
-          [ "ast::BodyAttraction", "classast_1_1BodyAttraction.html", [
-            [ "ast::GravityForce", "classast_1_1GravityForce.html", null ],
-            [ "ast::PointMassForce", "classast_1_1PointMassForce.html", null ]
-          ] ],
-          [ "ast::DragForce", "classast_1_1DragForce.html", null ],
-          [ "ast::RelativityCorrection", "classast_1_1RelativityCorrection.html", null ],
-          [ "ast::SolarRadiationPressure", "classast_1_1SolarRadiationPressure.html", null ],
-          [ "ast::ThirdBodyForce", "classast_1_1ThirdBodyForce.html", null ]
-        ] ],
-        [ "ast::Frame", "classast_1_1Frame.html", [
-          [ "ast::FrameAssembly", "classast_1_1FrameAssembly.html", null ],
-          [ "ast::FrameICRF", "classast_1_1FrameICRF.html", null ],
-          [ "ast::FrameRoot", "classast_1_1FrameRoot.html", null ],
-          [ "ast::FrameWithEpoch", "classast_1_1FrameWithEpoch.html", null ]
-        ] ],
-        [ "ast::HPOP", "classast_1_1HPOP.html", null ],
-        [ "ast::HPOPForceModel", "classast_1_1HPOPForceModel.html", null ],
-        [ "ast::IODEIntegrator", "classast_1_1IODEIntegrator.html", [
-          [ "ast::ODEIntegrator", "classast_1_1ODEIntegrator.html", [
-            [ "ast::ODEFixedStepIntegrator", "classast_1_1ODEFixedStepIntegrator.html", [
-              [ "ast::ODEVarStepIntegrator", "classast_1_1ODEVarStepIntegrator.html", [
-                [ "ast::RKCK", "classast_1_1RKCK.html", null ],
-                [ "ast::RKF45", "classast_1_1RKF45.html", null ],
-                [ "ast::RKF56", "classast_1_1RKF56.html", null ],
-                [ "ast::RKF78", "classast_1_1RKF78.html", null ]
-              ] ],
-              [ "ast::RK4", "classast_1_1RK4.html", null ],
-              [ "ast::RK8", "classast_1_1RK8.html", null ],
-              [ "ast::RKV8", "classast_1_1RKV8.html", null ]
-            ] ]
-          ] ]
-        ] ],
-        [ "ast::LineTarget", "classast_1_1LineTarget.html", null ],
-        [ "ast::MTO", "classast_1_1MTO.html", null ],
-        [ "ast::MotionProfile", "classast_1_1MotionProfile.html", [
-          [ "ast::MotionBallistic", "classast_1_1MotionBallistic.html", null ],
-          [ "ast::MotionExternalEphemeris", "classast_1_1MotionExternalEphemeris.html", null ],
-          [ "ast::MotionGreatArc", "classast_1_1MotionGreatArc.html", null ],
-          [ "ast::MotionMissionCommand", "classast_1_1MotionMissionCommand.html", null ],
-          [ "ast::MotionSimpleAscent", "classast_1_1MotionSimpleAscent.html", null ],
-          [ "ast::MotionWithIntervalStep", "classast_1_1MotionWithIntervalStep.html", [
-            [ "ast::MotionOrbitDynamics", "classast_1_1MotionOrbitDynamics.html", [
-              [ "ast::MotionHPOP", "classast_1_1MotionHPOP.html", null ],
-              [ "ast::MotionJ2Analytical", "classast_1_1MotionJ2Analytical.html", null ],
-              [ "ast::MotionJ4Analytical", "classast_1_1MotionJ4Analytical.html", null ],
-              [ "ast::MotionTwoBody", "classast_1_1MotionTwoBody.html", null ]
-            ] ],
-            [ "ast::MotionSGP4", "classast_1_1MotionSGP4.html", null ],
-            [ "ast::MotionSPICE", "classast_1_1MotionSPICE.html", null ]
-          ] ]
-        ] ],
-        [ "ast::ObjectCalculation", "classast_1_1ObjectCalculation.html", [
-          [ "ast::ScStateCalculation", "classast_1_1ScStateCalculation.html", [
-            [ "ast::ScStateCalc1PtAccess", "classast_1_1ScStateCalc1PtAccess.html", null ],
-            [ "ast::ScStateCalcAbsoluteValue", "classast_1_1ScStateCalcAbsoluteValue.html", null ],
-            [ "ast::ScStateCalcAltitude", "classast_1_1ScStateCalcAltitude.html", null ],
-            [ "ast::ScStateCalcAltitudeOfApoapsis", "classast_1_1ScStateCalcAltitudeOfApoapsis.html", null ],
-            [ "ast::ScStateCalcAltitudeOfPeriapsis", "classast_1_1ScStateCalcAltitudeOfPeriapsis.html", null ],
-            [ "ast::ScStateCalcAltitudeRate", "classast_1_1ScStateCalcAltitudeRate.html", null ],
-            [ "ast::ScStateCalcAngle", "classast_1_1ScStateCalcAngle.html", null ],
-            [ "ast::ScStateCalcAngularMomentum", "classast_1_1ScStateCalcAngularMomentum.html", null ],
-            [ "ast::ScStateCalcAppSolTime", "classast_1_1ScStateCalcAppSolTime.html", null ],
-            [ "ast::ScStateCalcArgPeriapsis", "classast_1_1ScStateCalcArgPeriapsis.html", null ],
-            [ "ast::ScStateCalcAtmosDensity", "classast_1_1ScStateCalcAtmosDensity.html", null ],
-            [ "ast::ScStateCalcAtmosPressure", "classast_1_1ScStateCalcAtmosPressure.html", null ],
-            [ "ast::ScStateCalcAtmosTemperature", "classast_1_1ScStateCalcAtmosTemperature.html", null ],
-            [ "ast::ScStateCalcAzimuth", "classast_1_1ScStateCalcAzimuth.html", null ],
-            [ "ast::ScStateCalcAzimuthRate", "classast_1_1ScStateCalcAzimuthRate.html", null ],
-            [ "ast::ScStateCalcBDotRCalc", "classast_1_1ScStateCalcBDotRCalc.html", null ],
-            [ "ast::ScStateCalcBDotTCalc", "classast_1_1ScStateCalcBDotTCalc.html", null ],
-            [ "ast::ScStateCalcBMagCalc", "classast_1_1ScStateCalcBMagCalc.html", null ],
-            [ "ast::ScStateCalcBThetaCalc", "classast_1_1ScStateCalcBThetaCalc.html", null ],
-            [ "ast::ScStateCalcBetaAngle", "classast_1_1ScStateCalcBetaAngle.html", null ],
-            [ "ast::ScStateCalcBodyRelated", "classast_1_1ScStateCalcBodyRelated.html", [
-              [ "ast::ScStateCalcEccentricity", "classast_1_1ScStateCalcEccentricity.html", null ],
-              [ "ast::ScStateCalcRadiusOfApoapsis", "classast_1_1ScStateCalcRadiusOfApoapsis.html", null ],
-              [ "ast::ScStateCalcTrueAnomaly", "classast_1_1ScStateCalcTrueAnomaly.html", null ]
-            ] ],
-            [ "ast::ScStateCalcC3Energy", "classast_1_1ScStateCalcC3Energy.html", null ],
-            [ "ast::ScStateCalcCd", "classast_1_1ScStateCalcCd.html", null ],
-            [ "ast::ScStateCalcCloseApproachBearing", "classast_1_1ScStateCalcCloseApproachBearing.html", null ],
-            [ "ast::ScStateCalcCloseApproachCosBearing", "classast_1_1ScStateCalcCloseApproachCosBearing.html", null ],
-            [ "ast::ScStateCalcCloseApproachDistance", "classast_1_1ScStateCalcCloseApproachDistance.html", null ],
-            [ "ast::ScStateCalcCloseApproachMag", "classast_1_1ScStateCalcCloseApproachMag.html", null ],
-            [ "ast::ScStateCalcCloseApproachSpeed", "classast_1_1ScStateCalcCloseApproachSpeed.html", null ],
-            [ "ast::ScStateCalcCloseApproachTheta", "classast_1_1ScStateCalcCloseApproachTheta.html", null ],
-            [ "ast::ScStateCalcCloseApproachX", "classast_1_1ScStateCalcCloseApproachX.html", null ],
-            [ "ast::ScStateCalcCloseApproachY", "classast_1_1ScStateCalcCloseApproachY.html", null ],
-            [ "ast::ScStateCalcCosineVFPA", "classast_1_1ScStateCalcCosineVFPA.html", null ],
-            [ "ast::ScStateCalcCr", "classast_1_1ScStateCalcCr.html", null ],
-            [ "ast::ScStateCalcCrossSectionalArea", "classast_1_1ScStateCalcCrossSectionalArea.html", null ],
-            [ "ast::ScStateCalcCrossTrack", "classast_1_1ScStateCalcCrossTrack.html", null ],
-            [ "ast::ScStateCalcCrossTrackRate", "classast_1_1ScStateCalcCrossTrackRate.html", null ],
-            [ "ast::ScStateCalcDamageFlux", "classast_1_1ScStateCalcDamageFlux.html", null ],
-            [ "ast::ScStateCalcDamageMassFlux", "classast_1_1ScStateCalcDamageMassFlux.html", null ],
-            [ "ast::ScStateCalcDec", "classast_1_1ScStateCalcDec.html", null ],
-            [ "ast::ScStateCalcDecRate", "classast_1_1ScStateCalcDecRate.html", null ],
-            [ "ast::ScStateCalcDelaunayG", "classast_1_1ScStateCalcDelaunayG.html", null ],
-            [ "ast::ScStateCalcDelaunayH", "classast_1_1ScStateCalcDelaunayH.html", null ],
-            [ "ast::ScStateCalcDelaunayL", "classast_1_1ScStateCalcDelaunayL.html", null ],
-            [ "ast::ScStateCalcDeltaDec", "classast_1_1ScStateCalcDeltaDec.html", null ],
-            [ "ast::ScStateCalcDeltaFromMaster", "classast_1_1ScStateCalcDeltaFromMaster.html", null ],
-            [ "ast::ScStateCalcDeltaRA", "classast_1_1ScStateCalcDeltaRA.html", null ],
-            [ "ast::ScStateCalcDeltaV", "classast_1_1ScStateCalcDeltaV.html", null ],
-            [ "ast::ScStateCalcDeltaVSquared", "classast_1_1ScStateCalcDeltaVSquared.html", null ],
-            [ "ast::ScStateCalcDensity", "classast_1_1ScStateCalcDensity.html", null ],
-            [ "ast::ScStateCalcDiffAcrossSegmentOtherSat", "classast_1_1ScStateCalcDiffAcrossSegmentOtherSat.html", null ],
-            [ "ast::ScStateCalcDifference", "classast_1_1ScStateCalcDifference.html", null ],
-            [ "ast::ScStateCalcDifferenceOtherSegment", "classast_1_1ScStateCalcDifferenceOtherSegment.html", null ],
-            [ "ast::ScStateCalcDotProduct", "classast_1_1ScStateCalcDotProduct.html", null ],
-            [ "ast::ScStateCalcDragArea", "classast_1_1ScStateCalcDragArea.html", null ],
-            [ "ast::ScStateCalcDragForce", "classast_1_1ScStateCalcDragForce.html", null ],
-            [ "ast::ScStateCalcDuration", "classast_1_1ScStateCalcDuration.html", null ],
-            [ "ast::ScStateCalcEarthMeanLocTimeAN", "classast_1_1ScStateCalcEarthMeanLocTimeAN.html", null ],
-            [ "ast::ScStateCalcEarthMeanSolTime", "classast_1_1ScStateCalcEarthMeanSolTime.html", null ],
-            [ "ast::ScStateCalcEccAnomaly", "classast_1_1ScStateCalcEccAnomaly.html", null ],
-            [ "ast::ScStateCalcElevation", "classast_1_1ScStateCalcElevation.html", null ],
-            [ "ast::ScStateCalcElevationRate", "classast_1_1ScStateCalcElevationRate.html", null ],
-            [ "ast::ScStateCalcEpoch", "classast_1_1ScStateCalcEpoch.html", null ],
-            [ "ast::ScStateCalcEquinoctialH", "classast_1_1ScStateCalcEquinoctialH.html", null ],
-            [ "ast::ScStateCalcEquinoctialK", "classast_1_1ScStateCalcEquinoctialK.html", null ],
-            [ "ast::ScStateCalcEquinoctialP", "classast_1_1ScStateCalcEquinoctialP.html", null ],
-            [ "ast::ScStateCalcEquinoctialQ", "classast_1_1ScStateCalcEquinoctialQ.html", null ],
-            [ "ast::ScStateCalcFPA", "classast_1_1ScStateCalcFPA.html", null ],
-            [ "ast::ScStateCalcFlightPathAngle", "classast_1_1ScStateCalcFlightPathAngle.html", null ],
-            [ "ast::ScStateCalcFrameRelated", "classast_1_1ScStateCalcFrameRelated.html", [
-              [ "ast::ScStateCalcArgLat", "classast_1_1ScStateCalcArgLat.html", null ],
-              [ "ast::ScStateCalcVMag", "classast_1_1ScStateCalcVMag.html", null ],
-              [ "ast::ScStateCalcVx", "classast_1_1ScStateCalcVx.html", null ],
-              [ "ast::ScStateCalcVy", "classast_1_1ScStateCalcVy.html", null ],
-              [ "ast::ScStateCalcVz", "classast_1_1ScStateCalcVz.html", null ]
-            ] ],
-            [ "ast::ScStateCalcFuelMass", "classast_1_1ScStateCalcFuelMass.html", null ],
-            [ "ast::ScStateCalcGravCoeff", "classast_1_1ScStateCalcGravCoeff.html", null ],
-            [ "ast::ScStateCalcHeightAboveTerrain", "classast_1_1ScStateCalcHeightAboveTerrain.html", null ],
-            [ "ast::ScStateCalcImpactFlux", "classast_1_1ScStateCalcImpactFlux.html", null ],
-            [ "ast::ScStateCalcImpactMassFlux", "classast_1_1ScStateCalcImpactMassFlux.html", null ],
-            [ "ast::ScStateCalcInAsympDec", "classast_1_1ScStateCalcInAsympDec.html", null ],
-            [ "ast::ScStateCalcInAsympRA", "classast_1_1ScStateCalcInAsympRA.html", null ],
-            [ "ast::ScStateCalcInTrack", "classast_1_1ScStateCalcInTrack.html", null ],
-            [ "ast::ScStateCalcInTrackRate", "classast_1_1ScStateCalcInTrackRate.html", null ],
-            [ "ast::ScStateCalcInVAzP", "classast_1_1ScStateCalcInVAzP.html", null ],
-            [ "ast::ScStateCalcInclination", "classast_1_1ScStateCalcInclination.html", null ],
-            [ "ast::ScStateCalcInertDeltaVMag", "classast_1_1ScStateCalcInertDeltaVMag.html", null ],
-            [ "ast::ScStateCalcInertDeltaVx", "classast_1_1ScStateCalcInertDeltaVx.html", null ],
-            [ "ast::ScStateCalcInertDeltaVy", "classast_1_1ScStateCalcInertDeltaVy.html", null ],
-            [ "ast::ScStateCalcInertDeltaVz", "classast_1_1ScStateCalcInertDeltaVz.html", null ],
-            [ "ast::ScStateCalcJScript", "classast_1_1ScStateCalcJScript.html", null ],
-            [ "ast::ScStateCalcLatitude", "classast_1_1ScStateCalcLatitude.html", null ],
-            [ "ast::ScStateCalcLatitudeRate", "classast_1_1ScStateCalcLatitudeRate.html", null ],
-            [ "ast::ScStateCalcLightSpeed", "classast_1_1ScStateCalcLightSpeed.html", null ],
-            [ "ast::ScStateCalcLocalAppSolLon", "classast_1_1ScStateCalcLocalAppSolLon.html", null ],
-            [ "ast::ScStateCalcLonOfAscNode", "classast_1_1ScStateCalcLonOfAscNode.html", null ],
-            [ "ast::ScStateCalcLongDriftRate", "classast_1_1ScStateCalcLongDriftRate.html", null ],
-            [ "ast::ScStateCalcLongPeriapsis", "classast_1_1ScStateCalcLongPeriapsis.html", null ],
-            [ "ast::ScStateCalcLongitude", "classast_1_1ScStateCalcLongitude.html", null ],
-            [ "ast::ScStateCalcLongitudeRate", "classast_1_1ScStateCalcLongitudeRate.html", null ],
-            [ "ast::ScStateCalcMCSDeltaV", "classast_1_1ScStateCalcMCSDeltaV.html", null ],
-            [ "ast::ScStateCalcMCSDeltaVSquared", "classast_1_1ScStateCalcMCSDeltaVSquared.html", null ],
-            [ "ast::ScStateCalcMagFieldDipoleL", "classast_1_1ScStateCalcMagFieldDipoleL.html", null ],
-            [ "ast::ScStateCalcMagneticFieldForce", "classast_1_1ScStateCalcMagneticFieldForce.html", null ],
-            [ "ast::ScStateCalcMagneticFieldStrength", "classast_1_1ScStateCalcMagneticFieldStrength.html", null ],
-            [ "ast::ScStateCalcManeuverSpecificImpulse", "classast_1_1ScStateCalcManeuverSpecificImpulse.html", null ],
-            [ "ast::ScStateCalcManeuverTotalMassFlowRate", "classast_1_1ScStateCalcManeuverTotalMassFlowRate.html", null ],
-            [ "ast::ScStateCalcMass", "classast_1_1ScStateCalcMass.html", null ],
-            [ "ast::ScStateCalcMatlab", "classast_1_1ScStateCalcMatlab.html", null ],
-            [ "ast::ScStateCalcMaximumValue", "classast_1_1ScStateCalcMaximumValue.html", null ],
-            [ "ast::ScStateCalcMeanAnomaly", "classast_1_1ScStateCalcMeanAnomaly.html", null ],
-            [ "ast::ScStateCalcMeanEarthLon", "classast_1_1ScStateCalcMeanEarthLon.html", null ],
-            [ "ast::ScStateCalcMeanEclipticLon", "classast_1_1ScStateCalcMeanEclipticLon.html", null ],
-            [ "ast::ScStateCalcMeanLongitude", "classast_1_1ScStateCalcMeanLongitude.html", null ],
-            [ "ast::ScStateCalcMeanMotion", "classast_1_1ScStateCalcMeanMotion.html", null ],
-            [ "ast::ScStateCalcMinimumValue", "classast_1_1ScStateCalcMinimumValue.html", null ],
-            [ "ast::ScStateCalcMu", "classast_1_1ScStateCalcMu.html", null ],
-            [ "ast::ScStateCalcNegative", "classast_1_1ScStateCalcNegative.html", null ],
-            [ "ast::ScStateCalcNormal", "classast_1_1ScStateCalcNormal.html", null ],
-            [ "ast::ScStateCalcNormalRate", "classast_1_1ScStateCalcNormalRate.html", null ],
-            [ "ast::ScStateCalcOrbitDelaunayG", "classast_1_1ScStateCalcOrbitDelaunayG.html", null ],
-            [ "ast::ScStateCalcOrbitDelaunayH", "classast_1_1ScStateCalcOrbitDelaunayH.html", null ],
-            [ "ast::ScStateCalcOrbitDelaunayL", "classast_1_1ScStateCalcOrbitDelaunayL.html", null ],
-            [ "ast::ScStateCalcOrbitPeriod", "classast_1_1ScStateCalcOrbitPeriod.html", null ],
-            [ "ast::ScStateCalcOrbitSemiLatusRectum", "classast_1_1ScStateCalcOrbitSemiLatusRectum.html", null ],
-            [ "ast::ScStateCalcOrbitStateValue", "classast_1_1ScStateCalcOrbitStateValue.html", null ],
-            [ "ast::ScStateCalcOutAsympDec", "classast_1_1ScStateCalcOutAsympDec.html", null ],
-            [ "ast::ScStateCalcOutAsympRA", "classast_1_1ScStateCalcOutAsympRA.html", null ],
-            [ "ast::ScStateCalcOutVAzP", "classast_1_1ScStateCalcOutVAzP.html", null ],
-            [ "ast::ScStateCalcPerl", "classast_1_1ScStateCalcPerl.html", null ],
-            [ "ast::ScStateCalcPointRelated", "classast_1_1ScStateCalcPointRelated.html", [
-              [ "ast::ScStateCalcRMag", "classast_1_1ScStateCalcRMag.html", null ]
-            ] ],
-            [ "ast::ScStateCalcPosDiffMagOthSeg", "classast_1_1ScStateCalcPosDiffMagOthSeg.html", null ],
-            [ "ast::ScStateCalcPosVelDiffMagOthSeg", "classast_1_1ScStateCalcPosVelDiffMagOthSeg.html", null ],
-            [ "ast::ScStateCalcPower", "classast_1_1ScStateCalcPower.html", null ],
-            [ "ast::ScStateCalcPressure", "classast_1_1ScStateCalcPressure.html", null ],
-            [ "ast::ScStateCalcPropellantMass", "classast_1_1ScStateCalcPropellantMass.html", null ],
-            [ "ast::ScStateCalcRA", "classast_1_1ScStateCalcRA.html", null ],
-            [ "ast::ScStateCalcRAAN", "classast_1_1ScStateCalcRAAN.html", null ],
-            [ "ast::ScStateCalcRARate", "classast_1_1ScStateCalcRARate.html", null ],
-            [ "ast::ScStateCalcRadPressureArea", "classast_1_1ScStateCalcRadPressureArea.html", null ],
-            [ "ast::ScStateCalcRadPressureCoefficient", "classast_1_1ScStateCalcRadPressureCoefficient.html", null ],
-            [ "ast::ScStateCalcRadial", "classast_1_1ScStateCalcRadial.html", null ],
-            [ "ast::ScStateCalcRadialRate", "classast_1_1ScStateCalcRadialRate.html", null ],
-            [ "ast::ScStateCalcRadius", "classast_1_1ScStateCalcRadius.html", null ],
-            [ "ast::ScStateCalcRadiusOfPeriapsis", "classast_1_1ScStateCalcRadiusOfPeriapsis.html", null ],
-            [ "ast::ScStateCalcRange", "classast_1_1ScStateCalcRange.html", null ],
-            [ "ast::ScStateCalcRangeRate", "classast_1_1ScStateCalcRangeRate.html", null ],
-            [ "ast::ScStateCalcRectifiedLongitude", "classast_1_1ScStateCalcRectifiedLongitude.html", null ],
-            [ "ast::ScStateCalcReentryDeceleration", "classast_1_1ScStateCalcReentryDeceleration.html", null ],
-            [ "ast::ScStateCalcRefRad", "classast_1_1ScStateCalcRefRad.html", null ],
-            [ "ast::ScStateCalcReflectionCoefficient", "classast_1_1ScStateCalcReflectionCoefficient.html", null ],
-            [ "ast::ScStateCalcRelAOLMaster", "classast_1_1ScStateCalcRelAOLMaster.html", null ],
-            [ "ast::ScStateCalcRelGroundTrackError", "classast_1_1ScStateCalcRelGroundTrackError.html", null ],
-            [ "ast::ScStateCalcRepGrTrackErr", "classast_1_1ScStateCalcRepGrTrackErr.html", null ],
-            [ "ast::ScStateCalcRightAscension", "classast_1_1ScStateCalcRightAscension.html", null ],
-            [ "ast::ScStateCalcSEETMagFieldFieldLineSepAngle", "classast_1_1ScStateCalcSEETMagFieldFieldLineSepAngle.html", null ],
-            [ "ast::ScStateCalcSEETSAAFlux", "classast_1_1ScStateCalcSEETSAAFlux.html", null ],
-            [ "ast::ScStateCalcSRPArea", "classast_1_1ScStateCalcSRPArea.html", null ],
-            [ "ast::ScStateCalcSTMVelXVelX", "classast_1_1ScStateCalcSTMVelXVelX.html", null ],
-            [ "ast::ScStateCalcSTMVelXVelY", "classast_1_1ScStateCalcSTMVelXVelY.html", null ],
-            [ "ast::ScStateCalcSTMVelXVelZ", "classast_1_1ScStateCalcSTMVelXVelZ.html", null ],
-            [ "ast::ScStateCalcSTMVelYVelX", "classast_1_1ScStateCalcSTMVelYVelX.html", null ],
-            [ "ast::ScStateCalcSTMVelYVelY", "classast_1_1ScStateCalcSTMVelYVelY.html", null ],
-            [ "ast::ScStateCalcSTMVelYVelZ", "classast_1_1ScStateCalcSTMVelYVelZ.html", null ],
-            [ "ast::ScStateCalcSTMVelZVelX", "classast_1_1ScStateCalcSTMVelZVelX.html", null ],
-            [ "ast::ScStateCalcSTMVelZVelY", "classast_1_1ScStateCalcSTMVelZVelY.html", null ],
-            [ "ast::ScStateCalcSTMVelZVelZ", "classast_1_1ScStateCalcSTMVelZVelZ.html", null ],
-            [ "ast::ScStateCalcScalar", "classast_1_1ScStateCalcScalar.html", null ],
-            [ "ast::ScStateCalcScript", "classast_1_1ScStateCalcScript.html", [
-              [ "ast::ScStateCalcVBScript", "classast_1_1ScStateCalcVBScript.html", null ]
-            ] ],
-            [ "ast::ScStateCalcSemiLatusRectum", "classast_1_1ScStateCalcSemiLatusRectum.html", null ],
-            [ "ast::ScStateCalcSemiMajorAxis", "classast_1_1ScStateCalcSemiMajorAxis.html", null ],
-            [ "ast::ScStateCalcSequenceDeltaV", "classast_1_1ScStateCalcSequenceDeltaV.html", null ],
-            [ "ast::ScStateCalcSequenceDeltaVSquared", "classast_1_1ScStateCalcSequenceDeltaVSquared.html", null ],
-            [ "ast::ScStateCalcSignedEccentricity", "classast_1_1ScStateCalcSignedEccentricity.html", null ],
-            [ "ast::ScStateCalcSolarPhaseAngle", "classast_1_1ScStateCalcSolarPhaseAngle.html", null ],
-            [ "ast::ScStateCalcSolarPressure", "classast_1_1ScStateCalcSolarPressure.html", null ],
-            [ "ast::ScStateCalcSolarRadiationForce", "classast_1_1ScStateCalcSolarRadiationForce.html", null ],
-            [ "ast::ScStateCalcSpacecraftMass", "classast_1_1ScStateCalcSpacecraftMass.html", null ],
-            [ "ast::ScStateCalcTangential", "classast_1_1ScStateCalcTangential.html", null ],
-            [ "ast::ScStateCalcTangentialRate", "classast_1_1ScStateCalcTangentialRate.html", null ],
-            [ "ast::ScStateCalcTemperature", "classast_1_1ScStateCalcTemperature.html", null ],
-            [ "ast::ScStateCalcThrust", "classast_1_1ScStateCalcThrust.html", null ],
-            [ "ast::ScStateCalcTimeDifference", "classast_1_1ScStateCalcTimeDifference.html", null ],
-            [ "ast::ScStateCalcTimePastAscNode", "classast_1_1ScStateCalcTimePastAscNode.html", null ],
-            [ "ast::ScStateCalcTimePastPeriapsis", "classast_1_1ScStateCalcTimePastPeriapsis.html", null ],
-            [ "ast::ScStateCalcTrueLong", "classast_1_1ScStateCalcTrueLong.html", null ],
-            [ "ast::ScStateCalcUserValue", "classast_1_1ScStateCalcUserValue.html", null ],
-            [ "ast::ScStateCalcVAz", "classast_1_1ScStateCalcVAz.html", null ],
-            [ "ast::ScStateCalcVGTAngle", "classast_1_1ScStateCalcVGTAngle.html", null ],
-            [ "ast::ScStateCalcValueAtSegmentOtherSat", "classast_1_1ScStateCalcValueAtSegmentOtherSat.html", null ],
-            [ "ast::ScStateCalcValueOtherSegment", "classast_1_1ScStateCalcValueOtherSegment.html", null ],
-            [ "ast::ScStateCalcVectorX", "classast_1_1ScStateCalcVectorX.html", null ],
-            [ "ast::ScStateCalcVectorY", "classast_1_1ScStateCalcVectorY.html", null ],
-            [ "ast::ScStateCalcVectorZ", "classast_1_1ScStateCalcVectorZ.html", null ],
-            [ "ast::ScStateCalcVelDiffMagOthSeg", "classast_1_1ScStateCalcVelDiffMagOthSeg.html", null ],
-            [ "ast::ScStateCalcVelocity", "classast_1_1ScStateCalcVelocity.html", null ],
-            [ "ast::ScStateCalcX", "classast_1_1ScStateCalcX.html", null ],
-            [ "ast::ScStateCalcY", "classast_1_1ScStateCalcY.html", null ],
-            [ "ast::ScStateCalcZ", "classast_1_1ScStateCalcZ.html", null ]
-          ] ],
-          [ "ast::SegmentCalculation", "classast_1_1SegmentCalculation.html", [
-            [ "ast::LandingSiteCalcSunAzimuth", "classast_1_1LandingSiteCalcSunAzimuth.html", null ],
-            [ "ast::LandingSiteCalculation", "classast_1_1LandingSiteCalculation.html", [
-              [ "ast::LandingSiteCalcSunElevation", "classast_1_1LandingSiteCalcSunElevation.html", null ]
-            ] ]
-          ] ],
-          [ "ast::StateCalculation", "classast_1_1StateCalculation.html", null ]
-        ] ],
-        [ "ast::ObjectLinkTo", "classast_1_1ObjectLinkTo.html", null ],
-        [ "ast::Planet", "classast_1_1Planet.html", null ],
-        [ "ast::Point", "classast_1_1Point.html", [
-          [ "ast::CelestialBody", "classast_1_1CelestialBody.html", null ],
-          [ "ast::Ephemeris", "classast_1_1Ephemeris.html", [
-            [ "ast::BodyEphemeris", "classast_1_1BodyEphemeris.html", [
-              [ "ast::BodyEphemerisDE", "classast_1_1BodyEphemerisDE.html", null ],
-              [ "ast::BodyEphemerisNoop", "classast_1_1BodyEphemerisNoop.html", null ],
-              [ "ast::BodyEphemerisSPK", "classast_1_1BodyEphemerisSPK.html", null ]
-            ] ],
-            [ "ast::EphemerisLagrangeVar", "classast_1_1EphemerisLagrangeVar.html", null ],
-            [ "ast::EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", null ],
-            [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ]
-          ] ],
-          [ "ast::Facility", "classast_1_1Facility.html", [
-            [ "ast::GroundStation", "classast_1_1GroundStation.html", null ],
-            [ "ast::Place", "classast_1_1Place.html", null ],
-            [ "ast::Target", "classast_1_1Target.html", null ]
-          ] ],
-          [ "ast::Mover", "classast_1_1Mover.html", [
-            [ "ast::Aircraft", "classast_1_1Aircraft.html", null ],
-            [ "ast::GroundVehicle", "classast_1_1GroundVehicle.html", null ],
-            [ "ast::Missile", "classast_1_1Missile.html", null ],
-            [ "ast::Ship", "classast_1_1Ship.html", null ],
-            [ "ast::SpaceObject", "classast_1_1SpaceObject.html", [
-              [ "ast::Asteroid", "classast_1_1Asteroid.html", null ],
-              [ "ast::Spacecraft", "classast_1_1Spacecraft.html", [
-                [ "ast::LaunchVehicle", "classast_1_1LaunchVehicle.html", null ],
-                [ "ast::Satellite", "classast_1_1Satellite.html", null ]
-              ] ]
-            ] ],
-            [ "ast::Submarine", "classast_1_1Submarine.html", null ]
-          ] ],
-          [ "ast::PointBodyCenter", "classast_1_1PointBodyCenter.html", null ],
-          [ "ast::PointRoot", "classast_1_1PointRoot.html", null ],
-          [ "ast::PointSSBarycenter", "classast_1_1PointSSBarycenter.html", null ],
-          [ "ast::Sensor", "classast_1_1Sensor.html", null ]
-        ] ],
-        [ "ast::Radar", "classast_1_1Radar.html", null ],
-        [ "ast::Receiver", "classast_1_1Receiver.html", null ],
-        [ "ast::ScriptingToolAttr", "classast_1_1ScriptingToolAttr.html", null ],
-        [ "ast::ScriptingToolParameter", "classast_1_1ScriptingToolParameter.html", null ],
-        [ "ast::ScriptingToolParameterEnumChoice", "classast_1_1ScriptingToolParameterEnumChoice.html", null ],
-        [ "ast::ShooterControl", "classast_1_1ShooterControl.html", null ],
-        [ "ast::ShooterResult", "classast_1_1ShooterResult.html", null ],
-        [ "ast::SolarSystem", "classast_1_1SolarSystem.html", null ],
-        [ "ast::SpacecraftState", "classast_1_1SpacecraftState.html", null ],
-        [ "ast::Star", "classast_1_1Star.html", null ],
-        [ "ast::State", "classast_1_1State.html", [
-          [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
-          [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ]
-        ] ],
-        [ "ast::SweepOutput", "classast_1_1SweepOutput.html", null ],
-        [ "ast::SweepVariable", "classast_1_1SweepVariable.html", null ],
-        [ "ast::TargeterGraph", "classast_1_1TargeterGraph.html", null ],
-        [ "ast::TargeterGraphControlOptions", "classast_1_1TargeterGraphControlOptions.html", null ],
-        [ "ast::TargeterGraphResultOptions", "classast_1_1TargeterGraphResultOptions.html", null ],
-        [ "ast::Transmitter", "classast_1_1Transmitter.html", null ],
-        [ "ast::Volumetric", "classast_1_1Volumetric.html", null ]
-      ] ],
-      [ "ast::Scenario", "classast_1_1Scenario.html", null ],
-      [ "ast::Struct", "classast_1_1Struct.html", [
-        [ "ast::Class", "classast_1_1Class.html", null ]
-      ] ]
-    ] ],
     [ "ast::object_ptr_holder< ObjectType >", "structast_1_1object__ptr__holder.html", null ],
     [ "ast::object_ptr_holder< Object >", "structast_1_1object__ptr__holder_3_01Object_01_4.html", null ],
     [ "ast::object_ptr_holder< object_type >", "structast_1_1object__ptr__holder.html", null ],
@@ -1182,6 +674,516 @@ var hierarchy =
       [ "ast::EditFigureOverlay", "classast_1_1EditFigureOverlay.html", null ]
     ] ],
     [ "ast::RecordStep", "structast_1_1RecordStep.html", null ],
+    [ "ast::Referenced", "classast_1_1Referenced.html", [
+      [ "ast::Object", "classast_1_1Object.html", [
+        [ "ast::MockObject", "classast_1_1MockObject.html", null ],
+        [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
+          [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
+          [ "ast::AgScriptingToolCalcObjWrap", "classast_1_1AgScriptingToolCalcObjWrap.html", null ],
+          [ "ast::Antenna", "classast_1_1Antenna.html", null ],
+          [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
+          [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
+          [ "ast::AttitudeProfile", "classast_1_1AttitudeProfile.html", null ],
+          [ "ast::Axes", "classast_1_1Axes.html", [
+            [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
+              [ "ast::AxesBodyFixed", "classast_1_1AxesBodyFixed.html", null ],
+              [ "ast::AxesBodyInertial", "classast_1_1AxesBodyInertial.html", null ],
+              [ "ast::AxesBodyMOD", "classast_1_1AxesBodyMOD.html", null ],
+              [ "ast::AxesBodyTOD", "classast_1_1AxesBodyTOD.html", null ]
+            ] ],
+            [ "ast::AxesFrozen", "classast_1_1AxesFrozen.html", null ],
+            [ "ast::AxesFrozenAtEventTime", "classast_1_1AxesFrozenAtEventTime.html", null ],
+            [ "ast::AxesICRF", "classast_1_1AxesICRF.html", null ],
+            [ "ast::AxesLinkTo", "classast_1_1AxesLinkTo.html", null ],
+            [ "ast::AxesRoot", "classast_1_1AxesRoot.html", null ]
+          ] ],
+          [ "ast::BodyOrientation", "classast_1_1BodyOrientation.html", [
+            [ "ast::EarthOrientation", "classast_1_1EarthOrientation.html", null ],
+            [ "ast::MoonOrientation", "classast_1_1MoonOrientation.html", null ],
+            [ "ast::NoopOrientation", "classast_1_1NoopOrientation.html", null ],
+            [ "ast::RotationalData", "classast_1_1RotationalData.html", null ]
+          ] ],
+          [ "ast::BodyShape", "classast_1_1BodyShape.html", [
+            [ "ast::EllipsoidShape", "classast_1_1EllipsoidShape.html", null ],
+            [ "ast::NoopShape", "classast_1_1NoopShape.html", null ],
+            [ "ast::SphereShape", "classast_1_1SphereShape.html", null ],
+            [ "ast::SpheroidShape", "classast_1_1SpheroidShape.html", null ]
+          ] ],
+          [ "ast::Burn", "classast_1_1Burn.html", [
+            [ "ast::BurnCollocation", "classast_1_1BurnCollocation.html", null ],
+            [ "ast::BurnFinite", "classast_1_1BurnFinite.html", null ],
+            [ "ast::BurnImpulsive", "classast_1_1BurnImpulsive.html", null ]
+          ] ],
+          [ "ast::Chain", "classast_1_1Chain.html", null ],
+          [ "ast::CommSystem", "classast_1_1CommSystem.html", null ],
+          [ "ast::Command", "classast_1_1Command.html", [
+            [ "ast::End", "classast_1_1End.html", null ],
+            [ "ast::FeasibleRegionStudy", "classast_1_1FeasibleRegionStudy.html", null ],
+            [ "ast::OptimizationStudy", "classast_1_1OptimizationStudy.html", null ],
+            [ "ast::Return", "classast_1_1Return.html", null ],
+            [ "ast::Segment", "classast_1_1Segment.html", [
+              [ "ast::InitialState", "classast_1_1InitialState.html", null ],
+              [ "ast::LandingSite", "classast_1_1LandingSite.html", null ],
+              [ "ast::Maneuver", "classast_1_1Maneuver.html", null ],
+              [ "ast::Propagate", "classast_1_1Propagate.html", null ],
+              [ "ast::SegmentGraph", "classast_1_1SegmentGraph.html", null ],
+              [ "ast::Sequence", "classast_1_1Sequence.html", [
+                [ "ast::TargeterSequence", "classast_1_1TargeterSequence.html", null ]
+              ] ]
+            ] ],
+            [ "ast::Stop", "classast_1_1Stop.html", null ],
+            [ "ast::StudyWorkbench", "classast_1_1StudyWorkbench.html", null ],
+            [ "ast::SweepStudy", "classast_1_1SweepStudy.html", null ],
+            [ "ast::TargeterProfile", "classast_1_1TargeterProfile.html", [
+              [ "ast::DifferentialCorrectorProfile", "classast_1_1DifferentialCorrectorProfile.html", null ],
+              [ "ast::ScriptingToolProfile", "classast_1_1ScriptingToolProfile.html", null ]
+            ] ],
+            [ "ast::UncertaintyStudy", "classast_1_1UncertaintyStudy.html", null ]
+          ] ],
+          [ "ast::Constellation", "classast_1_1Constellation.html", null ],
+          [ "ast::CoverageDefinition", "classast_1_1CoverageDefinition.html", null ],
+          [ "ast::EventDetector", "classast_1_1EventDetector.html", [
+            [ "ast::DetectorAccess", "classast_1_1DetectorAccess.html", null ],
+            [ "ast::DetectorAltitude", "classast_1_1DetectorAltitude.html", null ],
+            [ "ast::DetectorAlwaysTripped", "classast_1_1DetectorAlwaysTripped.html", null ],
+            [ "ast::DetectorAscendingNode", "classast_1_1DetectorAscendingNode.html", null ],
+            [ "ast::DetectorBodyRelated", "classast_1_1DetectorBodyRelated.html", [
+              [ "ast::DetectorApoapsis", "classast_1_1DetectorApoapsis.html", null ],
+              [ "ast::DetectorPeriapsis", "classast_1_1DetectorPeriapsis.html", null ]
+            ] ],
+            [ "ast::DetectorCartesian", "classast_1_1DetectorCartesian.html", null ],
+            [ "ast::DetectorDeltaV", "classast_1_1DetectorDeltaV.html", null ],
+            [ "ast::DetectorDescendingNode", "classast_1_1DetectorDescendingNode.html", null ],
+            [ "ast::DetectorDuration", "classast_1_1DetectorDuration.html", null ],
+            [ "ast::DetectorEpoch", "classast_1_1DetectorEpoch.html", null ],
+            [ "ast::DetectorFrameRelated", "classast_1_1DetectorFrameRelated.html", null ],
+            [ "ast::DetectorLighting", "classast_1_1DetectorLighting.html", null ],
+            [ "ast::DetectorMeanAnomaly", "classast_1_1DetectorMeanAnomaly.html", null ],
+            [ "ast::DetectorPointRelated", "classast_1_1DetectorPointRelated.html", [
+              [ "ast::DetectorRMagnitude", "classast_1_1DetectorRMagnitude.html", null ]
+            ] ],
+            [ "ast::DetectorTrueAnomaly", "classast_1_1DetectorTrueAnomaly.html", null ],
+            [ "ast::DetectorUserSelect", "classast_1_1DetectorUserSelect.html", null ],
+            [ "ast::DetectorXYPlaneCross", "classast_1_1DetectorXYPlaneCross.html", null ],
+            [ "ast::DetectorYZPlaneCross", "classast_1_1DetectorYZPlaneCross.html", null ],
+            [ "ast::DetectorZXPlaneCross", "classast_1_1DetectorZXPlaneCross.html", null ],
+            [ "ast::EventDetectorGeneric< Func >", "classast_1_1EventDetectorGeneric.html", null ],
+            [ "ast::StopCondition", "classast_1_1StopCondition.html", null ]
+          ] ],
+          [ "ast::EventInterval", "classast_1_1EventInterval.html", [
+            [ "ast::EventIntervalExplicit", "classast_1_1EventIntervalExplicit.html", null ],
+            [ "ast::EventIntervalFallback", "classast_1_1EventIntervalFallback.html", null ],
+            [ "ast::EventIntervalLinkTo", "classast_1_1EventIntervalLinkTo.html", null ]
+          ] ],
+          [ "ast::EventTime", "classast_1_1EventTime.html", [
+            [ "ast::EventTimeExplicit", "classast_1_1EventTimeExplicit.html", null ],
+            [ "ast::EventTimeFallback", "classast_1_1EventTimeFallback.html", null ],
+            [ "ast::EventTimeLinkTo", "classast_1_1EventTimeLinkTo.html", null ]
+          ] ],
+          [ "ast::Expr", "classast_1_1Expr.html", [
+            [ "ast::ExprAttribute", "classast_1_1ExprAttribute.html", null ],
+            [ "ast::ExprCalculationBase", "classast_1_1ExprCalculationBase.html", [
+              [ "ast::ExprCalculation", "classast_1_1ExprCalculation.html", null ],
+              [ "ast::ExprCurrentScStateCalculation", "classast_1_1ExprCurrentScStateCalculation.html", null ]
+            ] ],
+            [ "ast::ExprCall", "classast_1_1ExprCall.html", null ],
+            [ "ast::ExprCondition", "classast_1_1ExprCondition.html", null ],
+            [ "ast::ExprContainer", "classast_1_1ExprContainer.html", [
+              [ "ast::ExprBlock", "classast_1_1ExprBlock.html", null ],
+              [ "ast::ExprCatHorizontal", "classast_1_1ExprCatHorizontal.html", null ],
+              [ "ast::ExprCatVertical", "classast_1_1ExprCatVertical.html", null ],
+              [ "ast::ExprVector", "classast_1_1ExprVector.html", null ]
+            ] ],
+            [ "ast::ExprIf", "classast_1_1ExprIf.html", null ],
+            [ "ast::ExprLoop", "classast_1_1ExprLoop.html", [
+              [ "ast::ExprForRange", "classast_1_1ExprForRange.html", null ],
+              [ "ast::ExprWhile", "classast_1_1ExprWhile.html", null ]
+            ] ],
+            [ "ast::ExprMacroExpand", "classast_1_1ExprMacroExpand.html", null ],
+            [ "ast::ExprMatch", "classast_1_1ExprMatch.html", null ],
+            [ "ast::ExprRange", "classast_1_1ExprRange.html", null ],
+            [ "ast::Op", "classast_1_1Op.html", [
+              [ "ast::OpAssign", "classast_1_1OpAssign.html", null ],
+              [ "ast::OpBin", "classast_1_1OpBin.html", null ],
+              [ "ast::OpUnary", "classast_1_1OpUnary.html", null ]
+            ] ],
+            [ "ast::Symbol", "classast_1_1Symbol.html", null ],
+            [ "ast::Value", "classast_1_1Value.html", [
+              [ "ast::ValArray< T, 1 >", "classast_1_1ValArray.html", [
+                [ "ast::ValVector< T >", "classast_1_1ValVector.html", null ]
+              ] ],
+              [ "ast::ValScalar< bool >", "classast_1_1ValScalar.html", [
+                [ "ast::ValBool", "classast_1_1ValBool.html", null ]
+              ] ],
+              [ "ast::ValScalar< double >", "classast_1_1ValScalar.html", [
+                [ "ast::ValDouble", "classast_1_1ValDouble.html", null ]
+              ] ],
+              [ "ast::ValScalar< int >", "classast_1_1ValScalar.html", [
+                [ "ast::ValInt", "classast_1_1ValInt.html", null ]
+              ] ],
+              [ "ast::Macro", "classast_1_1Macro.html", [
+                [ "ast::Function", "classast_1_1Function.html", null ]
+              ] ],
+              [ "ast::ValArray< T, NDIM >", "classast_1_1ValArray.html", null ],
+              [ "ast::ValDict", "classast_1_1ValDict.html", null ],
+              [ "ast::ValNamedVector", "classast_1_1ValNamedVector.html", null ],
+              [ "ast::ValNull", "classast_1_1ValNull.html", null ],
+              [ "ast::ValQuantity", "classast_1_1ValQuantity.html", null ],
+              [ "ast::ValRange", "classast_1_1ValRange.html", null ],
+              [ "ast::ValScalar< Scalar >", "classast_1_1ValScalar.html", null ],
+              [ "ast::ValString", "classast_1_1ValString.html", null ]
+            ] ],
+            [ "ast::Variable", "classast_1_1Variable.html", null ]
+          ] ],
+          [ "ast::FeasibleRegionConstraint", "classast_1_1FeasibleRegionConstraint.html", null ],
+          [ "ast::FeasibleRegionVariable", "classast_1_1FeasibleRegionVariable.html", null ],
+          [ "ast::FieldOfView", "classast_1_1FieldOfView.html", [
+            [ "ast::FOVConical", "classast_1_1FOVConical.html", null ],
+            [ "ast::FOVCustom", "classast_1_1FOVCustom.html", null ],
+            [ "ast::FOVHalfPower", "classast_1_1FOVHalfPower.html", null ],
+            [ "ast::FOVRectangular", "classast_1_1FOVRectangular.html", null ],
+            [ "ast::FOVSAR", "classast_1_1FOVSAR.html", null ],
+            [ "ast::FOVSimpleCone", "classast_1_1FOVSimpleCone.html", null ]
+          ] ],
+          [ "ast::FigureOfMerit", "classast_1_1FigureOfMerit.html", [
+            [ "ast::AttitudeFigureOfMerit", "classast_1_1AttitudeFigureOfMerit.html", null ]
+          ] ],
+          [ "ast::ForceModel", "classast_1_1ForceModel.html", [
+            [ "ast::BodyAttraction", "classast_1_1BodyAttraction.html", [
+              [ "ast::GravityForce", "classast_1_1GravityForce.html", null ],
+              [ "ast::PointMassForce", "classast_1_1PointMassForce.html", null ]
+            ] ],
+            [ "ast::DragForce", "classast_1_1DragForce.html", null ],
+            [ "ast::RelativityCorrection", "classast_1_1RelativityCorrection.html", null ],
+            [ "ast::SolarRadiationPressure", "classast_1_1SolarRadiationPressure.html", null ],
+            [ "ast::ThirdBodyForce", "classast_1_1ThirdBodyForce.html", null ]
+          ] ],
+          [ "ast::Frame", "classast_1_1Frame.html", [
+            [ "ast::FrameAssembly", "classast_1_1FrameAssembly.html", null ],
+            [ "ast::FrameICRF", "classast_1_1FrameICRF.html", null ],
+            [ "ast::FrameRoot", "classast_1_1FrameRoot.html", null ],
+            [ "ast::FrameWithEpoch", "classast_1_1FrameWithEpoch.html", null ]
+          ] ],
+          [ "ast::HPOP", "classast_1_1HPOP.html", null ],
+          [ "ast::HPOPForceModel", "classast_1_1HPOPForceModel.html", null ],
+          [ "ast::IODEIntegrator", "classast_1_1IODEIntegrator.html", [
+            [ "ast::ODEIntegrator", "classast_1_1ODEIntegrator.html", [
+              [ "ast::ODEFixedStepIntegrator", "classast_1_1ODEFixedStepIntegrator.html", [
+                [ "ast::ODEVarStepIntegrator", "classast_1_1ODEVarStepIntegrator.html", [
+                  [ "ast::RKCK", "classast_1_1RKCK.html", null ],
+                  [ "ast::RKF45", "classast_1_1RKF45.html", null ],
+                  [ "ast::RKF56", "classast_1_1RKF56.html", null ],
+                  [ "ast::RKF78", "classast_1_1RKF78.html", null ]
+                ] ],
+                [ "ast::RK4", "classast_1_1RK4.html", null ],
+                [ "ast::RK8", "classast_1_1RK8.html", null ],
+                [ "ast::RKV8", "classast_1_1RKV8.html", null ]
+              ] ]
+            ] ]
+          ] ],
+          [ "ast::LineTarget", "classast_1_1LineTarget.html", null ],
+          [ "ast::MTO", "classast_1_1MTO.html", null ],
+          [ "ast::MotionProfile", "classast_1_1MotionProfile.html", [
+            [ "ast::MotionBallistic", "classast_1_1MotionBallistic.html", null ],
+            [ "ast::MotionExternalEphemeris", "classast_1_1MotionExternalEphemeris.html", null ],
+            [ "ast::MotionGreatArc", "classast_1_1MotionGreatArc.html", null ],
+            [ "ast::MotionMissionCommand", "classast_1_1MotionMissionCommand.html", null ],
+            [ "ast::MotionSimpleAscent", "classast_1_1MotionSimpleAscent.html", null ],
+            [ "ast::MotionWithIntervalStep", "classast_1_1MotionWithIntervalStep.html", [
+              [ "ast::MotionOrbitDynamics", "classast_1_1MotionOrbitDynamics.html", [
+                [ "ast::MotionHPOP", "classast_1_1MotionHPOP.html", null ],
+                [ "ast::MotionJ2Analytical", "classast_1_1MotionJ2Analytical.html", null ],
+                [ "ast::MotionJ4Analytical", "classast_1_1MotionJ4Analytical.html", null ],
+                [ "ast::MotionTwoBody", "classast_1_1MotionTwoBody.html", null ]
+              ] ],
+              [ "ast::MotionSGP4", "classast_1_1MotionSGP4.html", null ],
+              [ "ast::MotionSPICE", "classast_1_1MotionSPICE.html", null ]
+            ] ]
+          ] ],
+          [ "ast::ObjectCalculation", "classast_1_1ObjectCalculation.html", [
+            [ "ast::ScStateCalculation", "classast_1_1ScStateCalculation.html", [
+              [ "ast::ScStateCalc1PtAccess", "classast_1_1ScStateCalc1PtAccess.html", null ],
+              [ "ast::ScStateCalcAbsoluteValue", "classast_1_1ScStateCalcAbsoluteValue.html", null ],
+              [ "ast::ScStateCalcAltitude", "classast_1_1ScStateCalcAltitude.html", null ],
+              [ "ast::ScStateCalcAltitudeOfApoapsis", "classast_1_1ScStateCalcAltitudeOfApoapsis.html", null ],
+              [ "ast::ScStateCalcAltitudeOfPeriapsis", "classast_1_1ScStateCalcAltitudeOfPeriapsis.html", null ],
+              [ "ast::ScStateCalcAltitudeRate", "classast_1_1ScStateCalcAltitudeRate.html", null ],
+              [ "ast::ScStateCalcAngle", "classast_1_1ScStateCalcAngle.html", null ],
+              [ "ast::ScStateCalcAngularMomentum", "classast_1_1ScStateCalcAngularMomentum.html", null ],
+              [ "ast::ScStateCalcAppSolTime", "classast_1_1ScStateCalcAppSolTime.html", null ],
+              [ "ast::ScStateCalcArgPeriapsis", "classast_1_1ScStateCalcArgPeriapsis.html", null ],
+              [ "ast::ScStateCalcAtmosDensity", "classast_1_1ScStateCalcAtmosDensity.html", null ],
+              [ "ast::ScStateCalcAtmosPressure", "classast_1_1ScStateCalcAtmosPressure.html", null ],
+              [ "ast::ScStateCalcAtmosTemperature", "classast_1_1ScStateCalcAtmosTemperature.html", null ],
+              [ "ast::ScStateCalcAzimuth", "classast_1_1ScStateCalcAzimuth.html", null ],
+              [ "ast::ScStateCalcAzimuthRate", "classast_1_1ScStateCalcAzimuthRate.html", null ],
+              [ "ast::ScStateCalcBDotRCalc", "classast_1_1ScStateCalcBDotRCalc.html", null ],
+              [ "ast::ScStateCalcBDotTCalc", "classast_1_1ScStateCalcBDotTCalc.html", null ],
+              [ "ast::ScStateCalcBMagCalc", "classast_1_1ScStateCalcBMagCalc.html", null ],
+              [ "ast::ScStateCalcBThetaCalc", "classast_1_1ScStateCalcBThetaCalc.html", null ],
+              [ "ast::ScStateCalcBetaAngle", "classast_1_1ScStateCalcBetaAngle.html", null ],
+              [ "ast::ScStateCalcBodyRelated", "classast_1_1ScStateCalcBodyRelated.html", [
+                [ "ast::ScStateCalcEccentricity", "classast_1_1ScStateCalcEccentricity.html", null ],
+                [ "ast::ScStateCalcRadiusOfApoapsis", "classast_1_1ScStateCalcRadiusOfApoapsis.html", null ],
+                [ "ast::ScStateCalcTrueAnomaly", "classast_1_1ScStateCalcTrueAnomaly.html", null ]
+              ] ],
+              [ "ast::ScStateCalcC3Energy", "classast_1_1ScStateCalcC3Energy.html", null ],
+              [ "ast::ScStateCalcCd", "classast_1_1ScStateCalcCd.html", null ],
+              [ "ast::ScStateCalcCloseApproachBearing", "classast_1_1ScStateCalcCloseApproachBearing.html", null ],
+              [ "ast::ScStateCalcCloseApproachCosBearing", "classast_1_1ScStateCalcCloseApproachCosBearing.html", null ],
+              [ "ast::ScStateCalcCloseApproachDistance", "classast_1_1ScStateCalcCloseApproachDistance.html", null ],
+              [ "ast::ScStateCalcCloseApproachMag", "classast_1_1ScStateCalcCloseApproachMag.html", null ],
+              [ "ast::ScStateCalcCloseApproachSpeed", "classast_1_1ScStateCalcCloseApproachSpeed.html", null ],
+              [ "ast::ScStateCalcCloseApproachTheta", "classast_1_1ScStateCalcCloseApproachTheta.html", null ],
+              [ "ast::ScStateCalcCloseApproachX", "classast_1_1ScStateCalcCloseApproachX.html", null ],
+              [ "ast::ScStateCalcCloseApproachY", "classast_1_1ScStateCalcCloseApproachY.html", null ],
+              [ "ast::ScStateCalcCosineVFPA", "classast_1_1ScStateCalcCosineVFPA.html", null ],
+              [ "ast::ScStateCalcCr", "classast_1_1ScStateCalcCr.html", null ],
+              [ "ast::ScStateCalcCrossSectionalArea", "classast_1_1ScStateCalcCrossSectionalArea.html", null ],
+              [ "ast::ScStateCalcCrossTrack", "classast_1_1ScStateCalcCrossTrack.html", null ],
+              [ "ast::ScStateCalcCrossTrackRate", "classast_1_1ScStateCalcCrossTrackRate.html", null ],
+              [ "ast::ScStateCalcDamageFlux", "classast_1_1ScStateCalcDamageFlux.html", null ],
+              [ "ast::ScStateCalcDamageMassFlux", "classast_1_1ScStateCalcDamageMassFlux.html", null ],
+              [ "ast::ScStateCalcDec", "classast_1_1ScStateCalcDec.html", null ],
+              [ "ast::ScStateCalcDecRate", "classast_1_1ScStateCalcDecRate.html", null ],
+              [ "ast::ScStateCalcDelaunayG", "classast_1_1ScStateCalcDelaunayG.html", null ],
+              [ "ast::ScStateCalcDelaunayH", "classast_1_1ScStateCalcDelaunayH.html", null ],
+              [ "ast::ScStateCalcDelaunayL", "classast_1_1ScStateCalcDelaunayL.html", null ],
+              [ "ast::ScStateCalcDeltaDec", "classast_1_1ScStateCalcDeltaDec.html", null ],
+              [ "ast::ScStateCalcDeltaFromMaster", "classast_1_1ScStateCalcDeltaFromMaster.html", null ],
+              [ "ast::ScStateCalcDeltaRA", "classast_1_1ScStateCalcDeltaRA.html", null ],
+              [ "ast::ScStateCalcDeltaV", "classast_1_1ScStateCalcDeltaV.html", null ],
+              [ "ast::ScStateCalcDeltaVSquared", "classast_1_1ScStateCalcDeltaVSquared.html", null ],
+              [ "ast::ScStateCalcDensity", "classast_1_1ScStateCalcDensity.html", null ],
+              [ "ast::ScStateCalcDiffAcrossSegmentOtherSat", "classast_1_1ScStateCalcDiffAcrossSegmentOtherSat.html", null ],
+              [ "ast::ScStateCalcDifference", "classast_1_1ScStateCalcDifference.html", null ],
+              [ "ast::ScStateCalcDifferenceOtherSegment", "classast_1_1ScStateCalcDifferenceOtherSegment.html", null ],
+              [ "ast::ScStateCalcDotProduct", "classast_1_1ScStateCalcDotProduct.html", null ],
+              [ "ast::ScStateCalcDragArea", "classast_1_1ScStateCalcDragArea.html", null ],
+              [ "ast::ScStateCalcDragForce", "classast_1_1ScStateCalcDragForce.html", null ],
+              [ "ast::ScStateCalcDuration", "classast_1_1ScStateCalcDuration.html", null ],
+              [ "ast::ScStateCalcEarthMeanLocTimeAN", "classast_1_1ScStateCalcEarthMeanLocTimeAN.html", null ],
+              [ "ast::ScStateCalcEarthMeanSolTime", "classast_1_1ScStateCalcEarthMeanSolTime.html", null ],
+              [ "ast::ScStateCalcEccAnomaly", "classast_1_1ScStateCalcEccAnomaly.html", null ],
+              [ "ast::ScStateCalcElevation", "classast_1_1ScStateCalcElevation.html", null ],
+              [ "ast::ScStateCalcElevationRate", "classast_1_1ScStateCalcElevationRate.html", null ],
+              [ "ast::ScStateCalcEpoch", "classast_1_1ScStateCalcEpoch.html", null ],
+              [ "ast::ScStateCalcEquinoctialH", "classast_1_1ScStateCalcEquinoctialH.html", null ],
+              [ "ast::ScStateCalcEquinoctialK", "classast_1_1ScStateCalcEquinoctialK.html", null ],
+              [ "ast::ScStateCalcEquinoctialP", "classast_1_1ScStateCalcEquinoctialP.html", null ],
+              [ "ast::ScStateCalcEquinoctialQ", "classast_1_1ScStateCalcEquinoctialQ.html", null ],
+              [ "ast::ScStateCalcFPA", "classast_1_1ScStateCalcFPA.html", null ],
+              [ "ast::ScStateCalcFlightPathAngle", "classast_1_1ScStateCalcFlightPathAngle.html", null ],
+              [ "ast::ScStateCalcFrameRelated", "classast_1_1ScStateCalcFrameRelated.html", [
+                [ "ast::ScStateCalcArgLat", "classast_1_1ScStateCalcArgLat.html", null ],
+                [ "ast::ScStateCalcVMag", "classast_1_1ScStateCalcVMag.html", null ],
+                [ "ast::ScStateCalcVx", "classast_1_1ScStateCalcVx.html", null ],
+                [ "ast::ScStateCalcVy", "classast_1_1ScStateCalcVy.html", null ],
+                [ "ast::ScStateCalcVz", "classast_1_1ScStateCalcVz.html", null ]
+              ] ],
+              [ "ast::ScStateCalcFuelMass", "classast_1_1ScStateCalcFuelMass.html", null ],
+              [ "ast::ScStateCalcGravCoeff", "classast_1_1ScStateCalcGravCoeff.html", null ],
+              [ "ast::ScStateCalcHeightAboveTerrain", "classast_1_1ScStateCalcHeightAboveTerrain.html", null ],
+              [ "ast::ScStateCalcImpactFlux", "classast_1_1ScStateCalcImpactFlux.html", null ],
+              [ "ast::ScStateCalcImpactMassFlux", "classast_1_1ScStateCalcImpactMassFlux.html", null ],
+              [ "ast::ScStateCalcInAsympDec", "classast_1_1ScStateCalcInAsympDec.html", null ],
+              [ "ast::ScStateCalcInAsympRA", "classast_1_1ScStateCalcInAsympRA.html", null ],
+              [ "ast::ScStateCalcInTrack", "classast_1_1ScStateCalcInTrack.html", null ],
+              [ "ast::ScStateCalcInTrackRate", "classast_1_1ScStateCalcInTrackRate.html", null ],
+              [ "ast::ScStateCalcInVAzP", "classast_1_1ScStateCalcInVAzP.html", null ],
+              [ "ast::ScStateCalcInclination", "classast_1_1ScStateCalcInclination.html", null ],
+              [ "ast::ScStateCalcInertDeltaVMag", "classast_1_1ScStateCalcInertDeltaVMag.html", null ],
+              [ "ast::ScStateCalcInertDeltaVx", "classast_1_1ScStateCalcInertDeltaVx.html", null ],
+              [ "ast::ScStateCalcInertDeltaVy", "classast_1_1ScStateCalcInertDeltaVy.html", null ],
+              [ "ast::ScStateCalcInertDeltaVz", "classast_1_1ScStateCalcInertDeltaVz.html", null ],
+              [ "ast::ScStateCalcJScript", "classast_1_1ScStateCalcJScript.html", null ],
+              [ "ast::ScStateCalcLatitude", "classast_1_1ScStateCalcLatitude.html", null ],
+              [ "ast::ScStateCalcLatitudeRate", "classast_1_1ScStateCalcLatitudeRate.html", null ],
+              [ "ast::ScStateCalcLightSpeed", "classast_1_1ScStateCalcLightSpeed.html", null ],
+              [ "ast::ScStateCalcLocalAppSolLon", "classast_1_1ScStateCalcLocalAppSolLon.html", null ],
+              [ "ast::ScStateCalcLonOfAscNode", "classast_1_1ScStateCalcLonOfAscNode.html", null ],
+              [ "ast::ScStateCalcLongDriftRate", "classast_1_1ScStateCalcLongDriftRate.html", null ],
+              [ "ast::ScStateCalcLongPeriapsis", "classast_1_1ScStateCalcLongPeriapsis.html", null ],
+              [ "ast::ScStateCalcLongitude", "classast_1_1ScStateCalcLongitude.html", null ],
+              [ "ast::ScStateCalcLongitudeRate", "classast_1_1ScStateCalcLongitudeRate.html", null ],
+              [ "ast::ScStateCalcMCSDeltaV", "classast_1_1ScStateCalcMCSDeltaV.html", null ],
+              [ "ast::ScStateCalcMCSDeltaVSquared", "classast_1_1ScStateCalcMCSDeltaVSquared.html", null ],
+              [ "ast::ScStateCalcMagFieldDipoleL", "classast_1_1ScStateCalcMagFieldDipoleL.html", null ],
+              [ "ast::ScStateCalcMagneticFieldForce", "classast_1_1ScStateCalcMagneticFieldForce.html", null ],
+              [ "ast::ScStateCalcMagneticFieldStrength", "classast_1_1ScStateCalcMagneticFieldStrength.html", null ],
+              [ "ast::ScStateCalcManeuverSpecificImpulse", "classast_1_1ScStateCalcManeuverSpecificImpulse.html", null ],
+              [ "ast::ScStateCalcManeuverTotalMassFlowRate", "classast_1_1ScStateCalcManeuverTotalMassFlowRate.html", null ],
+              [ "ast::ScStateCalcMass", "classast_1_1ScStateCalcMass.html", null ],
+              [ "ast::ScStateCalcMatlab", "classast_1_1ScStateCalcMatlab.html", null ],
+              [ "ast::ScStateCalcMaximumValue", "classast_1_1ScStateCalcMaximumValue.html", null ],
+              [ "ast::ScStateCalcMeanAnomaly", "classast_1_1ScStateCalcMeanAnomaly.html", null ],
+              [ "ast::ScStateCalcMeanEarthLon", "classast_1_1ScStateCalcMeanEarthLon.html", null ],
+              [ "ast::ScStateCalcMeanEclipticLon", "classast_1_1ScStateCalcMeanEclipticLon.html", null ],
+              [ "ast::ScStateCalcMeanLongitude", "classast_1_1ScStateCalcMeanLongitude.html", null ],
+              [ "ast::ScStateCalcMeanMotion", "classast_1_1ScStateCalcMeanMotion.html", null ],
+              [ "ast::ScStateCalcMinimumValue", "classast_1_1ScStateCalcMinimumValue.html", null ],
+              [ "ast::ScStateCalcMu", "classast_1_1ScStateCalcMu.html", null ],
+              [ "ast::ScStateCalcNegative", "classast_1_1ScStateCalcNegative.html", null ],
+              [ "ast::ScStateCalcNormal", "classast_1_1ScStateCalcNormal.html", null ],
+              [ "ast::ScStateCalcNormalRate", "classast_1_1ScStateCalcNormalRate.html", null ],
+              [ "ast::ScStateCalcOrbitDelaunayG", "classast_1_1ScStateCalcOrbitDelaunayG.html", null ],
+              [ "ast::ScStateCalcOrbitDelaunayH", "classast_1_1ScStateCalcOrbitDelaunayH.html", null ],
+              [ "ast::ScStateCalcOrbitDelaunayL", "classast_1_1ScStateCalcOrbitDelaunayL.html", null ],
+              [ "ast::ScStateCalcOrbitPeriod", "classast_1_1ScStateCalcOrbitPeriod.html", null ],
+              [ "ast::ScStateCalcOrbitSemiLatusRectum", "classast_1_1ScStateCalcOrbitSemiLatusRectum.html", null ],
+              [ "ast::ScStateCalcOrbitStateValue", "classast_1_1ScStateCalcOrbitStateValue.html", null ],
+              [ "ast::ScStateCalcOutAsympDec", "classast_1_1ScStateCalcOutAsympDec.html", null ],
+              [ "ast::ScStateCalcOutAsympRA", "classast_1_1ScStateCalcOutAsympRA.html", null ],
+              [ "ast::ScStateCalcOutVAzP", "classast_1_1ScStateCalcOutVAzP.html", null ],
+              [ "ast::ScStateCalcPerl", "classast_1_1ScStateCalcPerl.html", null ],
+              [ "ast::ScStateCalcPointRelated", "classast_1_1ScStateCalcPointRelated.html", [
+                [ "ast::ScStateCalcRMag", "classast_1_1ScStateCalcRMag.html", null ]
+              ] ],
+              [ "ast::ScStateCalcPosDiffMagOthSeg", "classast_1_1ScStateCalcPosDiffMagOthSeg.html", null ],
+              [ "ast::ScStateCalcPosVelDiffMagOthSeg", "classast_1_1ScStateCalcPosVelDiffMagOthSeg.html", null ],
+              [ "ast::ScStateCalcPower", "classast_1_1ScStateCalcPower.html", null ],
+              [ "ast::ScStateCalcPressure", "classast_1_1ScStateCalcPressure.html", null ],
+              [ "ast::ScStateCalcPropellantMass", "classast_1_1ScStateCalcPropellantMass.html", null ],
+              [ "ast::ScStateCalcRA", "classast_1_1ScStateCalcRA.html", null ],
+              [ "ast::ScStateCalcRAAN", "classast_1_1ScStateCalcRAAN.html", null ],
+              [ "ast::ScStateCalcRARate", "classast_1_1ScStateCalcRARate.html", null ],
+              [ "ast::ScStateCalcRadPressureArea", "classast_1_1ScStateCalcRadPressureArea.html", null ],
+              [ "ast::ScStateCalcRadPressureCoefficient", "classast_1_1ScStateCalcRadPressureCoefficient.html", null ],
+              [ "ast::ScStateCalcRadial", "classast_1_1ScStateCalcRadial.html", null ],
+              [ "ast::ScStateCalcRadialRate", "classast_1_1ScStateCalcRadialRate.html", null ],
+              [ "ast::ScStateCalcRadius", "classast_1_1ScStateCalcRadius.html", null ],
+              [ "ast::ScStateCalcRadiusOfPeriapsis", "classast_1_1ScStateCalcRadiusOfPeriapsis.html", null ],
+              [ "ast::ScStateCalcRange", "classast_1_1ScStateCalcRange.html", null ],
+              [ "ast::ScStateCalcRangeRate", "classast_1_1ScStateCalcRangeRate.html", null ],
+              [ "ast::ScStateCalcRectifiedLongitude", "classast_1_1ScStateCalcRectifiedLongitude.html", null ],
+              [ "ast::ScStateCalcReentryDeceleration", "classast_1_1ScStateCalcReentryDeceleration.html", null ],
+              [ "ast::ScStateCalcRefRad", "classast_1_1ScStateCalcRefRad.html", null ],
+              [ "ast::ScStateCalcReflectionCoefficient", "classast_1_1ScStateCalcReflectionCoefficient.html", null ],
+              [ "ast::ScStateCalcRelAOLMaster", "classast_1_1ScStateCalcRelAOLMaster.html", null ],
+              [ "ast::ScStateCalcRelGroundTrackError", "classast_1_1ScStateCalcRelGroundTrackError.html", null ],
+              [ "ast::ScStateCalcRepGrTrackErr", "classast_1_1ScStateCalcRepGrTrackErr.html", null ],
+              [ "ast::ScStateCalcRightAscension", "classast_1_1ScStateCalcRightAscension.html", null ],
+              [ "ast::ScStateCalcSEETMagFieldFieldLineSepAngle", "classast_1_1ScStateCalcSEETMagFieldFieldLineSepAngle.html", null ],
+              [ "ast::ScStateCalcSEETSAAFlux", "classast_1_1ScStateCalcSEETSAAFlux.html", null ],
+              [ "ast::ScStateCalcSRPArea", "classast_1_1ScStateCalcSRPArea.html", null ],
+              [ "ast::ScStateCalcSTMVelXVelX", "classast_1_1ScStateCalcSTMVelXVelX.html", null ],
+              [ "ast::ScStateCalcSTMVelXVelY", "classast_1_1ScStateCalcSTMVelXVelY.html", null ],
+              [ "ast::ScStateCalcSTMVelXVelZ", "classast_1_1ScStateCalcSTMVelXVelZ.html", null ],
+              [ "ast::ScStateCalcSTMVelYVelX", "classast_1_1ScStateCalcSTMVelYVelX.html", null ],
+              [ "ast::ScStateCalcSTMVelYVelY", "classast_1_1ScStateCalcSTMVelYVelY.html", null ],
+              [ "ast::ScStateCalcSTMVelYVelZ", "classast_1_1ScStateCalcSTMVelYVelZ.html", null ],
+              [ "ast::ScStateCalcSTMVelZVelX", "classast_1_1ScStateCalcSTMVelZVelX.html", null ],
+              [ "ast::ScStateCalcSTMVelZVelY", "classast_1_1ScStateCalcSTMVelZVelY.html", null ],
+              [ "ast::ScStateCalcSTMVelZVelZ", "classast_1_1ScStateCalcSTMVelZVelZ.html", null ],
+              [ "ast::ScStateCalcScalar", "classast_1_1ScStateCalcScalar.html", null ],
+              [ "ast::ScStateCalcScript", "classast_1_1ScStateCalcScript.html", [
+                [ "ast::ScStateCalcVBScript", "classast_1_1ScStateCalcVBScript.html", null ]
+              ] ],
+              [ "ast::ScStateCalcSemiLatusRectum", "classast_1_1ScStateCalcSemiLatusRectum.html", null ],
+              [ "ast::ScStateCalcSemiMajorAxis", "classast_1_1ScStateCalcSemiMajorAxis.html", null ],
+              [ "ast::ScStateCalcSequenceDeltaV", "classast_1_1ScStateCalcSequenceDeltaV.html", null ],
+              [ "ast::ScStateCalcSequenceDeltaVSquared", "classast_1_1ScStateCalcSequenceDeltaVSquared.html", null ],
+              [ "ast::ScStateCalcSignedEccentricity", "classast_1_1ScStateCalcSignedEccentricity.html", null ],
+              [ "ast::ScStateCalcSolarPhaseAngle", "classast_1_1ScStateCalcSolarPhaseAngle.html", null ],
+              [ "ast::ScStateCalcSolarPressure", "classast_1_1ScStateCalcSolarPressure.html", null ],
+              [ "ast::ScStateCalcSolarRadiationForce", "classast_1_1ScStateCalcSolarRadiationForce.html", null ],
+              [ "ast::ScStateCalcSpacecraftMass", "classast_1_1ScStateCalcSpacecraftMass.html", null ],
+              [ "ast::ScStateCalcTangential", "classast_1_1ScStateCalcTangential.html", null ],
+              [ "ast::ScStateCalcTangentialRate", "classast_1_1ScStateCalcTangentialRate.html", null ],
+              [ "ast::ScStateCalcTemperature", "classast_1_1ScStateCalcTemperature.html", null ],
+              [ "ast::ScStateCalcThrust", "classast_1_1ScStateCalcThrust.html", null ],
+              [ "ast::ScStateCalcTimeDifference", "classast_1_1ScStateCalcTimeDifference.html", null ],
+              [ "ast::ScStateCalcTimePastAscNode", "classast_1_1ScStateCalcTimePastAscNode.html", null ],
+              [ "ast::ScStateCalcTimePastPeriapsis", "classast_1_1ScStateCalcTimePastPeriapsis.html", null ],
+              [ "ast::ScStateCalcTrueLong", "classast_1_1ScStateCalcTrueLong.html", null ],
+              [ "ast::ScStateCalcUserValue", "classast_1_1ScStateCalcUserValue.html", null ],
+              [ "ast::ScStateCalcVAz", "classast_1_1ScStateCalcVAz.html", null ],
+              [ "ast::ScStateCalcVGTAngle", "classast_1_1ScStateCalcVGTAngle.html", null ],
+              [ "ast::ScStateCalcValueAtSegmentOtherSat", "classast_1_1ScStateCalcValueAtSegmentOtherSat.html", null ],
+              [ "ast::ScStateCalcValueOtherSegment", "classast_1_1ScStateCalcValueOtherSegment.html", null ],
+              [ "ast::ScStateCalcVectorX", "classast_1_1ScStateCalcVectorX.html", null ],
+              [ "ast::ScStateCalcVectorY", "classast_1_1ScStateCalcVectorY.html", null ],
+              [ "ast::ScStateCalcVectorZ", "classast_1_1ScStateCalcVectorZ.html", null ],
+              [ "ast::ScStateCalcVelDiffMagOthSeg", "classast_1_1ScStateCalcVelDiffMagOthSeg.html", null ],
+              [ "ast::ScStateCalcVelocity", "classast_1_1ScStateCalcVelocity.html", null ],
+              [ "ast::ScStateCalcX", "classast_1_1ScStateCalcX.html", null ],
+              [ "ast::ScStateCalcY", "classast_1_1ScStateCalcY.html", null ],
+              [ "ast::ScStateCalcZ", "classast_1_1ScStateCalcZ.html", null ]
+            ] ],
+            [ "ast::SegmentCalculation", "classast_1_1SegmentCalculation.html", [
+              [ "ast::LandingSiteCalcSunAzimuth", "classast_1_1LandingSiteCalcSunAzimuth.html", null ],
+              [ "ast::LandingSiteCalculation", "classast_1_1LandingSiteCalculation.html", [
+                [ "ast::LandingSiteCalcSunElevation", "classast_1_1LandingSiteCalcSunElevation.html", null ]
+              ] ]
+            ] ],
+            [ "ast::StateCalculation", "classast_1_1StateCalculation.html", null ]
+          ] ],
+          [ "ast::ObjectLinkTo", "classast_1_1ObjectLinkTo.html", null ],
+          [ "ast::Planet", "classast_1_1Planet.html", null ],
+          [ "ast::Point", "classast_1_1Point.html", [
+            [ "ast::CelestialBody", "classast_1_1CelestialBody.html", null ],
+            [ "ast::Ephemeris", "classast_1_1Ephemeris.html", [
+              [ "ast::BodyEphemeris", "classast_1_1BodyEphemeris.html", [
+                [ "ast::BodyEphemerisDE", "classast_1_1BodyEphemerisDE.html", null ],
+                [ "ast::BodyEphemerisNoop", "classast_1_1BodyEphemerisNoop.html", null ],
+                [ "ast::BodyEphemerisSPK", "classast_1_1BodyEphemerisSPK.html", null ]
+              ] ],
+              [ "ast::EphemerisLagrangeVar", "classast_1_1EphemerisLagrangeVar.html", null ],
+              [ "ast::EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", null ],
+              [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ]
+            ] ],
+            [ "ast::Facility", "classast_1_1Facility.html", [
+              [ "ast::GroundStation", "classast_1_1GroundStation.html", null ],
+              [ "ast::Place", "classast_1_1Place.html", null ],
+              [ "ast::Target", "classast_1_1Target.html", null ]
+            ] ],
+            [ "ast::Mover", "classast_1_1Mover.html", [
+              [ "ast::Aircraft", "classast_1_1Aircraft.html", null ],
+              [ "ast::GroundVehicle", "classast_1_1GroundVehicle.html", null ],
+              [ "ast::Missile", "classast_1_1Missile.html", null ],
+              [ "ast::Ship", "classast_1_1Ship.html", null ],
+              [ "ast::SpaceObject", "classast_1_1SpaceObject.html", [
+                [ "ast::Asteroid", "classast_1_1Asteroid.html", null ],
+                [ "ast::Spacecraft", "classast_1_1Spacecraft.html", [
+                  [ "ast::LaunchVehicle", "classast_1_1LaunchVehicle.html", null ],
+                  [ "ast::Satellite", "classast_1_1Satellite.html", null ]
+                ] ]
+              ] ],
+              [ "ast::Submarine", "classast_1_1Submarine.html", null ]
+            ] ],
+            [ "ast::PointBodyCenter", "classast_1_1PointBodyCenter.html", null ],
+            [ "ast::PointRoot", "classast_1_1PointRoot.html", null ],
+            [ "ast::PointSSBarycenter", "classast_1_1PointSSBarycenter.html", null ],
+            [ "ast::Sensor", "classast_1_1Sensor.html", null ]
+          ] ],
+          [ "ast::Radar", "classast_1_1Radar.html", null ],
+          [ "ast::Receiver", "classast_1_1Receiver.html", null ],
+          [ "ast::ScriptingToolAttr", "classast_1_1ScriptingToolAttr.html", null ],
+          [ "ast::ScriptingToolParameter", "classast_1_1ScriptingToolParameter.html", null ],
+          [ "ast::ScriptingToolParameterEnumChoice", "classast_1_1ScriptingToolParameterEnumChoice.html", null ],
+          [ "ast::ShooterControl", "classast_1_1ShooterControl.html", null ],
+          [ "ast::ShooterResult", "classast_1_1ShooterResult.html", null ],
+          [ "ast::SolarSystem", "classast_1_1SolarSystem.html", null ],
+          [ "ast::SpacecraftState", "classast_1_1SpacecraftState.html", null ],
+          [ "ast::Star", "classast_1_1Star.html", null ],
+          [ "ast::State", "classast_1_1State.html", [
+            [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
+            [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ]
+          ] ],
+          [ "ast::SweepOutput", "classast_1_1SweepOutput.html", null ],
+          [ "ast::SweepVariable", "classast_1_1SweepVariable.html", null ],
+          [ "ast::TargeterGraph", "classast_1_1TargeterGraph.html", null ],
+          [ "ast::TargeterGraphControlOptions", "classast_1_1TargeterGraphControlOptions.html", null ],
+          [ "ast::TargeterGraphResultOptions", "classast_1_1TargeterGraphResultOptions.html", null ],
+          [ "ast::Transmitter", "classast_1_1Transmitter.html", null ],
+          [ "ast::Volumetric", "classast_1_1Volumetric.html", null ]
+        ] ],
+        [ "ast::Scenario", "classast_1_1Scenario.html", null ],
+        [ "ast::Struct", "classast_1_1Struct.html", [
+          [ "ast::Class", "classast_1_1Class.html", null ]
+        ] ]
+      ] ]
+    ] ],
     [ "ast::Rotation", "classast_1_1Rotation.html", [
       [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ]
     ] ],

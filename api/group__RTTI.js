@@ -21,16 +21,10 @@ var group__RTTI =
       [ "object", "classast_1_1AttributeBasic.html#a60806045117ed7b2c0f01ffd7db5f74d", null ],
       [ "property", "classast_1_1AttributeBasic.html#a9d5c09a4dd620ab0c9ae659c9f6eeb87", null ]
     ] ],
-    [ "ast::initial_strong_ref_t", "structast_1_1initial__strong__ref__t.html", null ],
     [ "ast::Object", "classast_1_1Object.html", [
-      [ "Object", "classast_1_1Object.html#abbd67af553bb0841192dfacd0f0e9578", null ],
       [ "addDelayedLink", "classast_1_1Object.html#adf7b91848543c240be28885c981d2241", null ],
       [ "addDelayedLinkIfFailed", "classast_1_1Object.html#a5ce58e227924271e34486ce9bfd8ce0a", null ],
       [ "attr", "classast_1_1Object.html#a0192227e3d8184f7a6d75dec82993170", null ],
-      [ "decRef", "classast_1_1Object.html#aa4697ffa258dc386c82f6e496ee6f513", null ],
-      [ "decRefNoDelete", "classast_1_1Object.html#aecd84a95fab6db0c0efb7fb34863b11c", null ],
-      [ "decWeakRef", "classast_1_1Object.html#a892866e72d85db8cc1431fb0dff1d871", null ],
-      [ "destruct", "classast_1_1Object.html#ac7badb24d788afd6fa3e0bc4ef91569e", null ],
       [ "displayName", "classast_1_1Object.html#a6ec5c1d0b95276034ead107916464adb", null ],
       [ "getAttrBool", "classast_1_1Object.html#a83991aa13c3c8eaf8d878c3e37ac4281", null ],
       [ "getAttrBool", "classast_1_1Object.html#a798f984235c3fa36ea82198b109f5ea3", null ],
@@ -48,14 +42,11 @@ var group__RTTI =
       [ "getProperty", "classast_1_1Object.html#ae3f855bf1ea116440b9f5ee84ed6cd7f", null ],
       [ "getRepresentation", "classast_1_1Object.html#aa74b57ccf8714c96db2380b65a921181", null ],
       [ "getType", "classast_1_1Object.html#ad5992c59eef6fd156988573616d3e8d5", null ],
-      [ "incRef", "classast_1_1Object.html#a200ecf89b239336aae46e9b2e6045f7c", null ],
-      [ "incWeakRef", "classast_1_1Object.html#a318851ef5849dfb6c7555ba0b47c533d", null ],
-      [ "isDestructed", "classast_1_1Object.html#a6fd5f058fcc84490d373f3194a001397", null ],
       [ "isOfType", "group__RTTI.html#ga1508a5d286ff71fbd38229332d704ab3", null ],
       [ "isOfType", "classast_1_1Object.html#a556816669dc1c7bdd0b609af9b51c765", null ],
       [ "isOfType", "classast_1_1Object.html#a3001b127c00fd68e312f7143ddb8a197", null ],
       [ "name", "classast_1_1Object.html#a446065f1684af869d91a610b6cf5a80f", null ],
-      [ "refCount", "classast_1_1Object.html#a91ca8d28b3a279e60ce673d69b5a545b", null ],
+      [ "Referenced", "classast_1_1Object.html#a5d9d87925ad59fbb791680e64d45faf5", null ],
       [ "resolveLinks", "classast_1_1Object.html#a2e876146a8f6465fecc865e755b41dbe", null ],
       [ "setAttrBool", "classast_1_1Object.html#a5072bda9b7931524868edbf014d4ff92", null ],
       [ "setAttrDouble", "classast_1_1Object.html#acac18023e736d3e498ab1cf2965b9abf", null ],
@@ -65,8 +56,7 @@ var group__RTTI =
       [ "setName", "classast_1_1Object.html#acc2a2818368480221962859732cb167a", null ],
       [ "setParentScope", "classast_1_1Object.html#aa1dc2f5c87a654f28c43a1d038928cc3", null ],
       [ "showEditDialog", "classast_1_1Object.html#a0f0495a9547b1a91a95c0be865ee7f42", null ],
-      [ "type", "classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157", null ],
-      [ "weakRefCount", "classast_1_1Object.html#a0413d6286436cde9376cee0cdaba541b", null ]
+      [ "type", "classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157", null ]
     ] ],
     [ "ast::has_own_getType< T >", "structast_1_1has__own__getType.html", null ],
     [ "ast::ObjectCalculation", "classast_1_1ObjectCalculation.html", [
@@ -297,6 +287,5 @@ var group__RTTI =
     [ "ast::aRemoveObject", "group__RTTI.html#ga334bcde83ae54454d0f62b3c53819bd0", null ],
     [ "ast::aResolveObject", "group__RTTI.html#ga01f212ce5ae211ac8c18065e71ae18c0", null ],
     [ "ast::aSetParentScope", "group__RTTI.html#ga7ed60d1a7c0c2d4cbbd535e0b4f2b051", null ],
-    [ "ast::Object::isOfType", "group__RTTI.html#ga1508a5d286ff71fbd38229332d704ab3", null ],
-    [ "ast::initial_strong_ref", "group__RTTI.html#gab8eabf88f57939fed5cd91bc72d44e62", null ]
+    [ "ast::Object::isOfType", "group__RTTI.html#ga1508a5d286ff71fbd38229332d704ab3", null ]
 ];

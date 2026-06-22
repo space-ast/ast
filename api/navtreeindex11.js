@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcLongPeriapsis_8hpp.html":[4,0,0,7,7,1,0,9,9],
 "ScStateCalcLongPeriapsis_8hpp_source.html":[4,0,0,7,7,1,0,9,9],
 "ScStateCalcLongitudeRate_8cpp.html":[4,0,0,7,7,1,0,9,6],
 "ScStateCalcLongitudeRate_8hpp.html":[4,0,0,7,7,1,0,9,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcSpacecraftMass_8hpp.html":[4,0,0,7,7,1,0,15,195],
 "ScStateCalcSpacecraftMass_8hpp_source.html":[4,0,0,7,7,1,0,15,195],
 "ScStateCalcTangentialRate_8cpp.html":[4,0,0,7,7,1,0,15,200],
-"ScStateCalcTangentialRate_8hpp.html":[4,0,0,7,7,1,0,15,201],
-"ScStateCalcTangentialRate_8hpp_source.html":[4,0,0,7,7,1,0,15,201]
+"ScStateCalcTangentialRate_8hpp.html":[4,0,0,7,7,1,0,15,201]
 };

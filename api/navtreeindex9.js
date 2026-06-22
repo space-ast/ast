@@ -95,6 +95,7 @@ var NAVTREEINDEX9 =
 "RecordStep_8hpp_source.html":[4,0,0,21,1,3],
 "Referenced_8cpp.html":[4,0,0,24,7,21],
 "Referenced_8hpp.html":[4,0,0,24,7,22],
+"Referenced_8hpp.html#ab8eabf88f57939fed5cd91bc72d44e62":[4,0,0,24,7,22,2],
 "Referenced_8hpp_source.html":[4,0,0,24,7,22],
 "RelativityCorrection_8cpp.html":[4,0,0,7,5,12],
 "RelativityCorrection_8hpp.html":[4,0,0,7,5,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "ScStateCalcAppSolTime_8hpp.html":[4,0,0,7,7,1,0,18,1],
 "ScStateCalcAppSolTime_8hpp_source.html":[4,0,0,7,7,1,0,18,1],
 "ScStateCalcArgLat_8cpp.html":[4,0,0,7,7,1,0,10,6],
-"ScStateCalcArgLat_8hpp.html":[4,0,0,7,7,1,0,10,7],
-"ScStateCalcArgLat_8hpp_source.html":[4,0,0,7,7,1,0,10,7]
+"ScStateCalcArgLat_8hpp.html":[4,0,0,7,7,1,0,10,7]
 };
