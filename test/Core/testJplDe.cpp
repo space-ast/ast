@@ -24,6 +24,7 @@
 #include "ast/Vector.hpp"
 #include "ast/FileSystem.hpp"
 #include "ast/Literals.hpp"
+#include "ast/Euler.hpp"
 
 AST_USING_NAMESPACE
 
@@ -139,7 +140,7 @@ TEST(JplDe, GetLibration)
     EXPECT_FALSE(err);
     
     auto time = TimePoint::FromUTC({2025, 12, 6, 4, 0, 0});
-    Vector3d ang, angRate;
+    Euler ang, angRate;
     
     // 测试获取月面天平动的函数
     err = jplDe.getLibration(time, ang, angRate);

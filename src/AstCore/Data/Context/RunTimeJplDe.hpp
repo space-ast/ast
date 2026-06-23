@@ -70,14 +70,17 @@ AST_CORE_CAPI errc_t aJplDeGetNutation(
     double& deps
 );
 
-/// @brief 获取JPL DE星历数据的月面天平动相关角度
+
+/// @brief 获取JPL DE星历数据的月球天平动相关角度（Euler）
 /// @param time 
 /// @param ang  - 从ICRF到月球惯性主轴坐标系的转角(rad)
 ///             - [omega,i,u],[进动角,章动角,自转角],按照313顺序旋转
+/// @param angRate - 旋转角速度(rad/s)
 /// @return 
 AST_CORE_API errc_t aJplDeGetLibration(
-    const TimePoint& time,
-    Vector3d& ang
+    const TimePoint &time, 
+    Euler &ang, 
+    Euler& angRate
 );
 
 

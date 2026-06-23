@@ -31,7 +31,7 @@ errc_t RotationalData::load(StringView filepath)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
-        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
+        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     BKVItemView item;
@@ -146,6 +146,11 @@ void RotationalData::getICRFToFixedTransform(const TimePoint& tp, KinematicRotat
 
 void RotationalData::getICRFToInertialMatrix(const TimePoint &tp, Matrix3d &matrix) const
 {
+    /*
+    Inertial 就是 rotationEpoch 对应历元下的 TOD 坐标系
+    这个和地球惯性系不同: 
+    地球J2000.0惯性系是 J2000.0 历元时刻的 MOD 坐标系
+    */
     double rightAscension = rightAscension_.evaluateZero();
     double declination = declination_.evaluateZero();
     double rotation = 0;

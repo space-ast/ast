@@ -519,10 +519,10 @@ errc_t aJplDeGetNutation(const TimePoint &time, double &dpsi, double &deps)
     return context->jplDe()->getNutation(time, dpsi, deps);
 }
 
-errc_t aJplDeGetLibration(const TimePoint& time, Vector3d& ang)
+errc_t aJplDeGetLibration(const TimePoint &time, Euler &ang, Euler& angRate)
 {
     auto context = aDataContext_EnsureCurrent();
-    return context->jplDe()->getLibration(time, ang);
+    return context->jplDe()->getLibration(time, ang, angRate);
 }
 
 errc_t aJplDeGetLibration(const TimePoint &time, Euler &ang)

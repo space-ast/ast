@@ -24,12 +24,16 @@
 #include "AstMath/Vector.hpp"
 #include "AstMath/AttitudeConvert.hpp"
 #include "AstMath/Rotation.hpp"
+#include "AstMath/KinematicRotation.hpp"
 #include "AstMath/Euler.hpp"
 #include "AstUtil/Literals.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Math.hpp"
 
 AST_NAMESPACE_BEGIN
 using namespace _AST literals;
+
+// #define _AST_DEBUG_MOON_FRAME
 
 errc_t aEarthICRFToMoonICRF(const TimePoint &tp, const Vector3d &posInEarthICRF, Vector3d &posInMoonICRF)
 {
@@ -57,6 +61,50 @@ errc_t aICRFToMoonPrincipalAxesTransform(const TimePoint &tp, Rotation &rotation
     aEuler313ToMatrix(ang, rotation.getMatrix());
     return eNoError;
 }
+
+errc_t aICRFToMoonPrincipalAxesTransform(const TimePoint& tp, KinematicRotation& rotation)
+{
+    Euler ang{}, angRate{};
+    errc_t rc = aJplDeGetLibration(tp, ang, angRate);
+    if(rc) return rc;
+    aEuler313ToMatrix(ang, rotation.getMatrix());
+    // 计算ICRF系下，PA相对于ICRF系的角速度
+    // @todo 考虑将下面的逻辑提取出来一个函数
+    {
+        double s1, c1, s2, c2;
+        sincos(ang.angle1(), &s1, &c1);
+        sincos(ang.angle2(), &s2, &c2);
+        Vector3d rotationRate
+        {
+             angRate.angle3() * s1 * s2 + angRate.angle2() * c1,
+            -angRate.angle3() * c1 * s2 + angRate.angle2() * s1,
+             angRate.angle3() * c2 + angRate.angle1()
+        };
+        rotation.setRotationRate(rotationRate);
+    }
+
+    #ifdef _AST_DEBUG_MOON_FRAME
+    {
+        // 计算PA系下，PA相对于ICRF系的角速度
+        double s2, c2, s3, c3;
+        sincos(ang.angle2(), &s2, &c2);
+        sincos(ang.angle3(), &s3, &c3);
+        Vector3d rotationRateInPA
+        {
+             angRate.angle2() * c3 + angRate.angle1() * s2 * s3,
+            -angRate.angle2() * s3 + angRate.angle1() * s2 * c3,
+             angRate.angle3() + angRate.angle1() * c2
+        };
+        Vector3d rotationRateInICRF = rotation.getRotation().transformVectorInv(rotationRateInPA);
+        Vector3d rotationRate = rotation.getRotationRate();
+        printf("rotationRateInICRF: %.15g, %.15g, %.15g\n", rotationRateInICRF.x(), rotationRateInICRF.y(), rotationRateInICRF.z());
+        printf("rotationRate      : %.15g, %.15g, %.15g\n", rotationRate.x(), rotationRate.y(), rotationRate.z());
+    }
+    #endif
+    return eNoError;
+}
+
+
 
 errc_t aMoonPAToMeanEarthTransform(Rotation &rotation)
 {
@@ -118,8 +166,25 @@ errc_t aICRFToMoonMeanEarthTransform_DE(const TimePoint &tp, Rotation &rotation)
     return rc;
 }
 
+errc_t aICRFToMoonMeanEarthTransform_DE(const TimePoint &tp, KinematicRotation &rotation)
+{
+    errc_t rc = aICRFToMoonPrincipalAxesTransform(tp, rotation);
+    if (rc != eNoError) return rc;
+    Rotation rotation2;
+    rc = aMoonPAToMeanEarthTransform(rotation2);
+    if (rc != eNoError) return rc;
+    // @note 这里不需要处理角速度，PA和MeanEarth之间不存在旋转角速度，只有一个静态旋转
+    rotation.getRotation() *= rotation2;
+    return rc;
+}
 
 errc_t aICRFToMoonMeanEarthTransform(const TimePoint &tp, Rotation &rotation)
+{
+    return aICRFToMoonMeanEarthTransform_DE(tp, rotation);
+}
+
+
+errc_t aICRFToMoonMeanEarthTransform(const TimePoint &tp, KinematicRotation &rotation)
 {
     return aICRFToMoonMeanEarthTransform_DE(tp, rotation);
 }

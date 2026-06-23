@@ -26,6 +26,7 @@
 #include "ast/Rotation.hpp"
 #include "ast/Literals.hpp"
 #include "ast/Test.hpp"
+#include "ast/CelestialBody.hpp"
 
 
 AST_USING_NAMESPACE
@@ -111,6 +112,53 @@ TEST_F(MoonFrameTest, ICRFToMoonMeanEarthTransform)
     }
 }
 
+
+TEST_F(MoonFrameTest, MoonICRFToFixed)
+{
+    auto moon = aGetMoon();
+    ASSERT_TRUE(moon != nullptr);
+    auto icrf = aAxesICRF();
+    auto inertial = moon->getAxesInertial();
+    auto fixed = moon->getAxesFixed();
+    // test ICRF to Inertial
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 3, 22, 0, 0, 0);
+        Rotation rotation;
+        icrf->getTransformTo(inertial, tp, rotation);
+        Vector3d posICRF{2000_km, 3000_km, 4000_km};
+        Vector3d posInertial;
+        rotation.transformVector(posICRF, posInertial);
+        printf("posInertial: %.15f, %.15f, %.15f\n", posInertial[0], posInertial[1], posInertial[2]);
+        Vector3d posInertialExpected{1832.5467826059721119_km, 4478.5059101219530930_km, 2363.2090687375125526_km};
+        EXPECT_NEAR(posInertial[0], posInertialExpected[0], 1e-8);
+        EXPECT_NEAR(posInertial[1], posInertialExpected[1], 1e-8);
+        EXPECT_NEAR(posInertial[2], posInertialExpected[2], 1e-9);
+    }
+    // test ICRF to Fixed
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+        KinematicRotation rotation;
+        icrf->getTransformTo(fixed, tp, rotation);
+        Vector3d posICRF{2000_km, 3000_km, 4000_km};
+        Vector3d velICRF{100_m/s, 200_m/s, 300_m/s};
+        Vector3d posFixed;
+        Vector3d velFixed;
+        rotation.transformVectorVelocity(posICRF, velICRF, posFixed, velFixed);
+        printf("posFixed: %.15f, %.15f, %.15f\n", posFixed[0], posFixed[1], posFixed[2]);
+        printf("velFixed: %.15f, %.15f, %.15f\n", velFixed[0], velFixed[1], velFixed[2]);
+        
+        Vector3d posFixedExpected{-2168.4231068207191129_km, -4185.4503133240195893_km, 2603.8331176367364606_km};
+        Vector3d velFixedExpected{-122.6377326825566172_m/s, -287.3392504434122543_m/s, 204.0934756090281894_m/s};
+        
+        EXPECT_NEAR(posFixed[0], posFixedExpected[0], 1e-8);
+        EXPECT_NEAR(posFixed[1], posFixedExpected[1], 1e-8);
+        EXPECT_NEAR(posFixed[2], posFixedExpected[2], 1e-9);
+
+        EXPECT_NEAR(velFixed[0], velFixedExpected[0], 1e-8);
+        EXPECT_NEAR(velFixed[1], velFixedExpected[1], 1e-8);
+        EXPECT_NEAR(velFixed[2], velFixedExpected[2], 1e-9);
+    }
+}
 
 
 GTEST_MAIN()

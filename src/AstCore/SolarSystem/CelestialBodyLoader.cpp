@@ -307,7 +307,7 @@ errc_t CelestialBody::loadEarth(BKVParser &parser)
 
 errc_t CelestialBody::loadMoon(BKVParser &parser)
 {
-    this->orientation_ = new MoonOrientation();
+    SharedPtr<MoonOrientation> moonOrientation = new MoonOrientation();
 
     BKVParser::EToken token;
     BKVItemView item;
@@ -327,6 +327,19 @@ errc_t CelestialBody::loadMoon(BKVParser &parser)
             }
         }
     }while(token != BKVParser::eEOF);
+
+    // 加载后处理
+    {
+        // 加载旋转系数
+        fs::path filepath = parser.getFilePath();
+        filepath = filepath.parent_path() / "MoonAttitude2000.rot";
+        errc_t rc = moonOrientation->rotationalData().load(filepath.string());
+        if(rc){
+            aWarning("failed to load MoonAttitude2000.rot file '%s'", filepath.string().c_str());
+        }
+        // 设置为当前的天体指向
+        this->orientation_ = moonOrientation;
+    }
     return eNoError;
 }
 
