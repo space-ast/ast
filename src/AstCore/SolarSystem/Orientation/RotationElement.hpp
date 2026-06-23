@@ -56,6 +56,8 @@ public:
 protected:
     friend class RotationalData;
 
+    /// @brief 计算导数值
+    double evaluateDot(bool isRotation, double t, double d) const;
     /// @brief 计算多项式项和三角函数项
     double evaluate(double t_or_d,double t, double d) const;
     /// @brief 计算t=d=0时的多项式项和三角函数项

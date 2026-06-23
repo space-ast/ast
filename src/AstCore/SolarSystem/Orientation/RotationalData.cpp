@@ -136,9 +136,12 @@ void RotationalData::getICRFToFixedTransform(const TimePoint &tp, Rotation &rota
 
 void RotationalData::getICRFToFixedTransform(const TimePoint& tp, KinematicRotation &rotation) const
 {
+    double d = tp.daysFrom(rotationEpoch_);
+    double t = d / kDaysPerJulianCentury;
     this->getICRFToFixedMatrix(tp, rotation.getMatrix());
-    /// @bug 这里需要实现角速度的计算
-    rotation.setRotationRate(Vector3d::Zero());
+    double rotationRate = rotation_.evaluateDot(true, t, d);
+    Vector3d angvel{0,0,rotationRate};
+    rotation.setRotationRate(rotation.getRotation().transformVectorInv(angvel));
 }
 
 void RotationalData::getICRFToInertialMatrix(const TimePoint &tp, Matrix3d &matrix) const
