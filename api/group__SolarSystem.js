@@ -137,6 +137,7 @@ var group__SolarSystem =
     [ "ast::RotationElement", "classast_1_1RotationElement.html", [
       [ "Coefficient", "structast_1_1RotationElement_1_1Coefficient.html", null ],
       [ "evaluate", "classast_1_1RotationElement.html#a087ffed37fee180ca5a767ef0160e034", null ],
+      [ "evaluateDot", "classast_1_1RotationElement.html#af6d41e5e3e634dc84664eb4f917281aa", null ],
       [ "evaluatePoly", "classast_1_1RotationElement.html#a63c1349c0602031e346d5c1cf5026965", null ],
       [ "evaluatePolyZero", "classast_1_1RotationElement.html#ae5b557f446687f751b8dabddec3bab63", null ],
       [ "evaluateZero", "classast_1_1RotationElement.html#aea22c9fc9d14ad8d5930023571a016da", null ]

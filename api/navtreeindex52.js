@@ -1,5 +1,6 @@
 var NAVTREEINDEX52 =
 {
+"namespaceast.html#ad3df7d208f12b9eacec0be8f0c0ef9a6ab35c8b56ebeeb5ba38c4738b255e5045":[2,0,0,1043,3],
 "namespaceast.html#ad3df7d208f12b9eacec0be8f0c0ef9a6afc1562897d7a104314be6e7d2cdc8696":[2,0,0,1043,0],
 "namespaceast.html#ad42eebb88466c04d863c92eb9c452550":[2,0,0,1555],
 "namespaceast.html#ad4d33fedb094a2588449938697651f14":[2,0,0,1270],
@@ -248,6 +249,5 @@ var NAVTREEINDEX52 =
 "namespacemembers_t.html":[2,1,0,20],
 "namespacemembers_type.html":[2,1,3],
 "namespacemembers_u.html":[2,1,0,21],
-"namespacemembers_vars.html":[2,1,2],
-"namespaces.html":[2,0]
+"namespacemembers_vars.html":[2,1,2]
 };
