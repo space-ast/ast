@@ -41,7 +41,7 @@ var AstCore_2Data_2Context_2RunTime_8cpp =
     [ "aJplDeClose", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga86326fcd6c451bdbaff8e7d5cecd9215", null ],
     [ "aJplDeGetInterval", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga5de66a30a52c73c428ccde6cbe571538", null ],
     [ "aJplDeGetLibration", "AstCore_2Data_2Context_2RunTime_8cpp.html#gad6348953410e1b5de4b5ee538db9f654", null ],
-    [ "aJplDeGetLibration", "AstCore_2Data_2Context_2RunTime_8cpp.html#gac62e0c9b88e684ccae7162dfd53a97b7", null ],
+    [ "aJplDeGetLibration", "AstCore_2Data_2Context_2RunTime_8cpp.html#gae35ae0a08c56a0bbd6cdf8bf08129c6a", null ],
     [ "aJplDeGetNutation", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga6e42534eca512b4717d3cc68f2e47bcc", null ],
     [ "aJplDeGetPosICRF", "AstCore_2Data_2Context_2RunTime_8cpp.html#gad530216cfe97223b2814407f6d2fa8fb", null ],
     [ "aJplDeGetPosVelICRF", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga661ae47f751ba36a708531f5ee98c87f", null ],

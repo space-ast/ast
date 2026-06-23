@@ -1,6 +1,5 @@
 var NAVTREEINDEX34 =
 {
-"classast_1_1PropertyTimePoint.html#aada9bcc5c15f450eb49877e1b82dd2d5":[0,6,4,0,6],
 "classast_1_1PropertyTimePoint.html#ab79e4b56e7006fa8bc8ad3a005831005":[0,6,4,0,9],
 "classast_1_1PropertyTimePoint.html#ab7a025a4c5201dede794a75050cadc2a":[0,6,4,0,5],
 "classast_1_1PropertyTimePoint.html#aba6dcfbc25c5608cf45b6288c5397c78":[0,6,4,0,4],
@@ -249,5 +248,6 @@ var NAVTREEINDEX34 =
 "classast_1_1Rotation.html#adf36ce33841e51755e40463726c68fe7":[3,0,0,541,1],
 "classast_1_1Rotation.html#aef7576cddcf892008f9537f297f17568":[2,0,0,542,9],
 "classast_1_1Rotation.html#aef7576cddcf892008f9537f297f17568":[3,0,0,541,9],
-"classast_1_1Rotation.html#af23a0573077dd94dc06f82b871ffff37":[2,0,0,542,15]
+"classast_1_1Rotation.html#af23a0573077dd94dc06f82b871ffff37":[2,0,0,542,15],
+"classast_1_1Rotation.html#af23a0573077dd94dc06f82b871ffff37":[3,0,0,541,15]
 };

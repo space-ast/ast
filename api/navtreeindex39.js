@@ -1,6 +1,5 @@
 var NAVTREEINDEX39 =
 {
-"classast_1_1StateKeplerian.html#a3bb11f5ea8492d0443a67602b95e5934":[3,0,0,826,56],
 "classast_1_1StateKeplerian.html#a3e0b961d4f6442ec814903f2377fc612":[2,0,0,827,8],
 "classast_1_1StateKeplerian.html#a3e0b961d4f6442ec814903f2377fc612":[3,0,0,826,8],
 "classast_1_1StateKeplerian.html#a405abcade190925e5774539bc26d356a":[2,0,0,827,40],
@@ -249,5 +248,6 @@ var NAVTREEINDEX39 =
 "classast_1_1TLE.html#a58ec6d8707a10376611667aef83fedaf":[3,0,0,863,1],
 "classast_1_1TLE.html#a69ff93bc0a91d95a535e645baa6db473":[2,0,0,864,0],
 "classast_1_1TLE.html#a69ff93bc0a91d95a535e645baa6db473":[3,0,0,863,0],
-"classast_1_1TLE.html#af991bb54bc000d5b6b59956f9cfb51d9":[2,0,0,864,2]
+"classast_1_1TLE.html#af991bb54bc000d5b6b59956f9cfb51d9":[2,0,0,864,2],
+"classast_1_1TLE.html#af991bb54bc000d5b6b59956f9cfb51d9":[3,0,0,863,2]
 };

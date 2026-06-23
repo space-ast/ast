@@ -209,8 +209,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aDataContext_Set
 <tr class="separator:gad530216cfe97223b2814407f6d2fa8fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6e42534eca512b4717d3cc68f2e47bcc" id="r_ga6e42534eca512b4717d3cc68f2e47bcc"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6e42534eca512b4717d3cc68f2e47bcc">ast::aJplDeGetNutation</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;dpsi, double &amp;deps)</td></tr>
 <tr class="separator:ga6e42534eca512b4717d3cc68f2e47bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac62e0c9b88e684ccae7162dfd53a97b7" id="r_gac62e0c9b88e684ccae7162dfd53a97b7"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac62e0c9b88e684ccae7162dfd53a97b7">ast::aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;ang)</td></tr>
-<tr class="separator:gac62e0c9b88e684ccae7162dfd53a97b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae35ae0a08c56a0bbd6cdf8bf08129c6a" id="r_gae35ae0a08c56a0bbd6cdf8bf08129c6a"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae35ae0a08c56a0bbd6cdf8bf08129c6a">ast::aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;ang, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;angRate)</td></tr>
+<tr class="separator:gae35ae0a08c56a0bbd6cdf8bf08129c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad6348953410e1b5de4b5ee538db9f654" id="r_gad6348953410e1b5de4b5ee538db9f654"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad6348953410e1b5de4b5ee538db9f654">ast::aJplDeGetLibration</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;ang)</td></tr>
 <tr class="separator:gad6348953410e1b5de4b5ee538db9f654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5de66a30a52c73c428ccde6cbe571538" id="r_ga5de66a30a52c73c428ccde6cbe571538"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5de66a30a52c73c428ccde6cbe571538">ast::aJplDeGetInterval</a> (<a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;interval)</td></tr>
@@ -653,8 +653,8 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kSiz
 
 </div>
 </div>
-<a id="gac62e0c9b88e684ccae7162dfd53a97b7" name="gac62e0c9b88e684ccae7162dfd53a97b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac62e0c9b88e684ccae7162dfd53a97b7">&#9670;&#160;</a></span>aJplDeGetLibration() <span class="overload">[2/2]</span></h2>
+<a id="gae35ae0a08c56a0bbd6cdf8bf08129c6a" name="gae35ae0a08c56a0bbd6cdf8bf08129c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae35ae0a08c56a0bbd6cdf8bf08129c6a">&#9670;&#160;</a></span>aJplDeGetLibration() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -667,12 +667,17 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kSiz
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>ang</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Euler.html">Euler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ang</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Euler.html">Euler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>angRate</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>获取JPL DE星历数据的月面天平动相关角度 </p>
+<p>获取JPL DE星历数据的月球天平动相关角度（Euler） </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">time</td><td></td></tr>
@@ -680,6 +685,7 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kSiz
 <li>[omega,i,u],[进动角,章动角,自转角],按照313顺序旋转 </li>
 </ul>
 </td></tr>
+    <tr><td class="paramname">angRate</td><td>- 旋转角速度(rad/s) </td></tr>
   </table>
   </dd>
 </dl>

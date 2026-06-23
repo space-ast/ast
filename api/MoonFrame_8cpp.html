@@ -110,9 +110,11 @@ $(function(){initNavTree('MoonFrame_8cpp.html',''); initResizable(true); });
 <code>#include &quot;AstMath/Vector.hpp&quot;</code><br />
 <code>#include &quot;AstMath/AttitudeConvert.hpp&quot;</code><br />
 <code>#include &quot;AstMath/Rotation.hpp&quot;</code><br />
+<code>#include &quot;AstMath/KinematicRotation.hpp&quot;</code><br />
 <code>#include &quot;AstMath/Euler.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Literals.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Math.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -127,6 +129,8 @@ $(function(){initNavTree('MoonFrame_8cpp.html',''); initResizable(true); });
 <tr class="separator:gac4cb0c04a3075ed00c0906a3603cb465"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5649d62c4fbf03490485578745115047" id="r_ga5649d62c4fbf03490485578745115047"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga5649d62c4fbf03490485578745115047">ast::aICRFToMoonPrincipalAxesTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:ga5649d62c4fbf03490485578745115047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1752874591532332cdec759a1b960761" id="r_ga1752874591532332cdec759a1b960761"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga1752874591532332cdec759a1b960761">ast::aICRFToMoonPrincipalAxesTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga1752874591532332cdec759a1b960761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga478c92068ff794d3a174ef74f8e12d28" id="r_ga478c92068ff794d3a174ef74f8e12d28"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga478c92068ff794d3a174ef74f8e12d28">ast::aMoonPAToMeanEarthTransform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:ga478c92068ff794d3a174ef74f8e12d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacfb694e39e2f40201048d92b35d61bb8" id="r_gacfb694e39e2f40201048d92b35d61bb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gacfb694e39e2f40201048d92b35d61bb8">ast::aMoonPA430ToMeanEarthTransform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
@@ -137,10 +141,14 @@ $(function(){initNavTree('MoonFrame_8cpp.html',''); initResizable(true); });
 <tr class="separator:ga5f51855b91a4c8377f6a38b2cf3ca113"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad81fe2d454105845c8d8e8d95ffa815c" id="r_gad81fe2d454105845c8d8e8d95ffa815c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gad81fe2d454105845c8d8e8d95ffa815c">ast::aMoonPA403ToMeanEarthTransform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:gad81fe2d454105845c8d8e8d95ffa815c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad85ae3b98cf89f6da30d48c1dead63ef" id="r_gad85ae3b98cf89f6da30d48c1dead63ef"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gad85ae3b98cf89f6da30d48c1dead63ef">ast::aICRFToMoonMeanEarthTransform_DE</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
-<tr class="separator:gad85ae3b98cf89f6da30d48c1dead63ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga64a47ca85b6f7462333b5ea26cd1a83c" id="r_ga64a47ca85b6f7462333b5ea26cd1a83c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga64a47ca85b6f7462333b5ea26cd1a83c">ast::aICRFToMoonMeanEarthTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
-<tr class="separator:ga64a47ca85b6f7462333b5ea26cd1a83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee8dc1c77cd55883f31a798676bb95c7" id="r_gaee8dc1c77cd55883f31a798676bb95c7"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gaee8dc1c77cd55883f31a798676bb95c7">ast::aICRFToMoonMeanEarthTransform_DE</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gaee8dc1c77cd55883f31a798676bb95c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab591046a388a02b4d0a68c2e4a9fdb24" id="r_gab591046a388a02b4d0a68c2e4a9fdb24"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gab591046a388a02b4d0a68c2e4a9fdb24">ast::aICRFToMoonMeanEarthTransform_DE</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gab591046a388a02b4d0a68c2e4a9fdb24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15c393596e19be6de494f46071132c9d" id="r_ga15c393596e19be6de494f46071132c9d"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga15c393596e19be6de494f46071132c9d">ast::aICRFToMoonMeanEarthTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga15c393596e19be6de494f46071132c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d58feafaf43e5bd0d9c2c9d56405cf5" id="r_ga7d58feafaf43e5bd0d9c2c9d56405cf5"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga7d58feafaf43e5bd0d9c2c9d56405cf5">ast::aICRFToMoonMeanEarthTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga7d58feafaf43e5bd0d9c2c9d56405cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>~ </p>

@@ -1,5 +1,7 @@
 var NAVTREEINDEX53 =
 {
+"namespacemembers_u.html":[2,1,0,21],
+"namespacemembers_vars.html":[2,1,2],
 "namespaces.html":[2,0],
 "nrlmsise-00_8h_source.html":[4,0,0,26,0,0,0],
 "nrlmsise-00_8hpp_source.html":[4,0,0,26,0,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX53 =
 "structast_1_1SummarySection.html#a6976b5cf3bd0a4203989b0536cf9bdc3":[3,0,0,838,2],
 "structast_1_1SummarySection.html#aa831126b0e45a4e18f4172174566d126":[2,0,0,839,1],
 "structast_1_1SummarySection.html#aa831126b0e45a4e18f4172174566d126":[3,0,0,838,1],
-"structast_1_1SummarySection.html#abeefee873dd13efe8ef91b21ce7d75f3":[2,0,0,839,0],
-"structast_1_1SummarySection.html#abeefee873dd13efe8ef91b21ce7d75f3":[3,0,0,838,0],
-"structast_1_1TreeBuildOptions.html":[2,0,0,869]
+"structast_1_1SummarySection.html#abeefee873dd13efe8ef91b21ce7d75f3":[2,0,0,839,0]
 };
