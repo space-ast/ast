@@ -262,6 +262,42 @@ errc_t CelestialBody::getPosVel(const TimePoint &tp, Vector3d &pos, Vector3d &ve
     return getPosVelICRF(tp, pos, vel);
 }
 
+BodyEphemeris* CelestialBody::getEphemeris(EEphemerisSource ephemerisSource) const
+{
+    switch(ephemerisSource){
+    case EEphemerisSource::eBodyEphemeris:
+        return ephemeris_.get();
+    case EEphemerisSource::eJplDE:
+    {
+        if(!ephemerisDE_)
+        {
+            ephemerisDE_ = new BodyEphemerisDE(const_cast<CelestialBody*>(this));
+        }
+        return ephemerisDE_.get();
+    }
+    case EEphemerisSource::eJplSpice:
+    {
+        if(!ephemerisSpice_)
+        {
+            ephemerisSpice_ = new BodyEphemerisSPK(const_cast<CelestialBody*>(this));
+        }
+        return ephemerisSpice_.get();
+    }
+    case EEphemerisSource::eJplSpiceBarycenter:
+    {
+        if(!ephemerisSpiceBarycenter_)
+        {
+            ESpiceId barycenterId = aGetPlanetBarycenterId(ESpiceId(this->jplSpiceId_));
+            ephemerisSpiceBarycenter_ = new BodyEphemerisSPK(barycenterId);
+        }
+        return ephemerisSpiceBarycenter_.get();
+    }
+    default:
+        aError("unsupported ephemeris source %d, defaulting to body ephemeris", (int)(ephemerisSource));
+        return ephemeris_.get();
+    }
+}
+
 Axes *CelestialBody::getAxes(StringView name) const
 {
     /// @todo 这里考虑使用哈希表来存储映射关系

@@ -38,7 +38,7 @@ BlockThirdBodyPointMass::BlockThirdBodyPointMass()
 
 }
 
-BlockThirdBodyPointMass::BlockThirdBodyPointMass(CelestialBody* thirdBody, double thirdBodyGM, Frame* propagationFrame)
+BlockThirdBodyPointMass::BlockThirdBodyPointMass(Point* thirdBody, double thirdBodyGM, Frame* propagationFrame)
     : BlockDerivative{}
     , posCBI{&vectorBuffer}
     , accThirdBody{&vectorBuffer}

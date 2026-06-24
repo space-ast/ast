@@ -67,7 +67,7 @@ class AST_CORE_API BlockThirdBodyGravity : public BlockDerivative
 {
 public:
     BlockThirdBodyGravity();
-    explicit BlockThirdBodyGravity(CelestialBody* thirdBody, GravityField&& gravityField,
+    explicit BlockThirdBodyGravity(Point* thirdBody, GravityField&& gravityField,
                                    int degree, int order, Axes* gravityAxes,
                                    Frame* propagationFrame);
 
@@ -83,12 +83,12 @@ protected:
 private:
     void init();
 private:
-    CelestialBody* thirdBody_{};                              ///< 三体
-    HAxes          gravityAxes_;                              ///< 三体重力场固连系
-    HAxes          propagationAxes_;                          ///< 预报系轴系
-    Frame*         propagationFrame_{};                       ///< 预报系（用于获取三体位置）
-    GravityCalculatorDefault gravityCalculator_;              ///< 重力计算器
-    bool           considerVariations_{false};                ///< 是否考虑重力场系数长期变化
+    Point* thirdBody_{};                              ///< 三体
+    HAxes  gravityAxes_;                              ///< 三体重力场固连系
+    HAxes  propagationAxes_;                          ///< 预报系轴系
+    Frame* propagationFrame_{};                       ///< 预报系（用于获取三体位置）
+    GravityCalculatorDefault gravityCalculator_;      ///< 重力计算器
+    bool   considerVariations_{false};                ///< 是否考虑重力场系数长期变化
 };
 
 AST_NAMESPACE_END

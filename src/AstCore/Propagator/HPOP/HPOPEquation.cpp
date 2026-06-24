@@ -102,6 +102,11 @@ static Axes* aGetGravityAxes(const GravityField& gravityField, const Body& body)
     return body.getAxesFixed();
 }
 
+static Point* aGetBodyEphemeris(const Body& body, EEphemerisSource ephemerisSource)
+{
+    return body.getEphemeris(ephemerisSource);
+}
+
 errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const SpacecraftParam &spacecraftParam)
 {
     // 检查中心天体
@@ -270,6 +275,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 aWarning("third body pointer is null, skipping this third body.");
                 continue;
             }
+            Point* bodyEphemeris = aGetBodyEphemeris(*body3rd, thirdBody.ephemerisSource());
             if(thirdBody.bodyAttractionType() == EBodyAttractionType::eGravity)
             {
                 // 三体使用球谐重力场
@@ -283,7 +289,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                     return err;
                 }
                 auto gravityAxes = aGetGravityAxes(gravityField, *body3rd);
-                auto* block = new BlockThirdBodyGravity(body3rd, std::move(gravityField),
+                auto* block = new BlockThirdBodyGravity(bodyEphemeris, std::move(gravityField),
                                                         gravity.maxDegree_, gravity.maxOrder_,
                                                         gravityAxes, propFrame);
                 block->setConsiderVariations(gravity.useSecularVariations_);
@@ -293,7 +299,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             {
                 // 三体使用点质量引力（默认行为）
                 double gm = thirdBody.pointMass().getGM(body3rd);
-                derivativeBlock = new BlockThirdBodyPointMass(body3rd, gm, propFrame);
+                derivativeBlock = new BlockThirdBodyPointMass(bodyEphemeris, gm, propFrame);
                 this->addBlock(derivativeBlock);
             }
         }

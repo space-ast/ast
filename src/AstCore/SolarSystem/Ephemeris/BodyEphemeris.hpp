@@ -60,7 +60,6 @@ public:
     virtual errc_t getInterval(TimeInterval& interval) const override = 0;
 };
 
-const int iii = sizeof(BodyEphemeris);
 
 /*! @} */
 

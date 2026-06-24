@@ -50,7 +50,7 @@ BlockThirdBodyGravity::BlockThirdBodyGravity()
     init();
 }
 
-BlockThirdBodyGravity::BlockThirdBodyGravity(CelestialBody* thirdBody, GravityField&& gravityField,
+BlockThirdBodyGravity::BlockThirdBodyGravity(Point* thirdBody, GravityField&& gravityField,
                                              int degree, int order, Axes* gravityAxes,
                                              Frame* propagationFrame)
     : BlockDerivative{}

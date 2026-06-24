@@ -48,6 +48,17 @@ class CelestialBody;
 using Body = CelestialBody;
 
 
+/// @brief 星历来源
+enum class EEphemerisSource
+{
+    eBodyEphemeris,      ///< 天体星历
+    eJplDE,              ///< JPL DE 星历
+    eJplSpice,           ///< JPL SPICE 星历
+    eJplSpiceBarycenter, ///< JPL SPICE 行星系质心星历
+};
+
+
+
 /// @brief 从天体重力场文件中读取其引力常数
 /// @param body 中心天体
 /// @param gravityModel 重力场模型
@@ -162,6 +173,8 @@ PROPERTIES: // 天体的形状、重力场、星历、姿态
     /// @brief 获取天体姿态
     BodyOrientation* getOrientation() const { return orientation_.get(); }
     BodyOrientation* orientation() const {return orientation_.get(); }
+public:
+    BodyEphemeris* getEphemeris(EEphemerisSource ephemerisSource) const;
 public:
     /// @brief 获取天体重力场
     const GravityField& getGravityField() const { return gravityField_; }
@@ -314,25 +327,29 @@ protected:
 
     A_DISABLE_COPY(CelestialBody)
 private:
-    WeakPtr<SolarSystem>        solarSystem_;              ///< 太阳系指针
-    SharedPtr<CelestialBody>    parent_;                   ///< 父天体
-    double                      gm_{0.0};                  ///< 引力常数
-    double                      systemGM_{0.0};            ///< 系统引力常数
-    double                      radius_{0.0};              ///< 天体半径
-    int                         jplSpiceId_{-1};           ///< JPL SPICE ID
-    int                         jplIndex_{-1};             ///< JPL DE Index
-    GravityField                gravityField_;             ///< 重力场
-    SharedPtr<BodyShape>        shape_;                    ///< 天体形状
-    SharedPtr<BodyOrientation>  orientation_;              ///< 天体姿态
-    SharedPtr<BodyEphemeris>    ephemeris_;                ///< 天体星历
+    WeakPtr<SolarSystem>        solarSystem_;                    ///< 太阳系指针
+    SharedPtr<CelestialBody>    parent_;                         ///< 父天体
+    double                      gm_{0.0};                        ///< 引力常数
+    double                      systemGM_{0.0};                  ///< 系统引力常数
+    double                      radius_{0.0};                    ///< 天体半径
+    int                         jplSpiceId_{-1};                 ///< JPL SPICE ID
+    int                         jplIndex_{-1};                   ///< JPL DE Index
+    GravityField                gravityField_;                   ///< 重力场
+    SharedPtr<BodyShape>        shape_;                          ///< 天体形状
+    SharedPtr<BodyOrientation>  orientation_;                    ///< 天体姿态
+    SharedPtr<BodyEphemeris>    ephemeris_;                      ///< 天体星历
 
-    SharedPtr<AxesBodyInertial> axesInertial_;             ///< 天体惯性轴
-    SharedPtr<AxesBodyFixed>    axesFixed_;                ///< 天体固定轴
-    SharedPtr<AxesBodyMOD>      axesMOD_;                  ///< 天体MOD轴
-    SharedPtr<AxesBodyTOD>      axesTOD_;                  ///< 天体TOD轴
+    SharedPtr<AxesBodyInertial> axesInertial_;                   ///< 天体惯性轴
+    SharedPtr<AxesBodyFixed>    axesFixed_;                      ///< 天体固定轴
+    SharedPtr<AxesBodyMOD>      axesMOD_;                        ///< 天体MOD轴
+    SharedPtr<AxesBodyTOD>      axesTOD_;                        ///< 天体TOD轴
 
-    mutable WeakPtr<Frame>      frameInertial_;            ///< 天体惯性坐标系
-    mutable WeakPtr<Frame>      frameFixed_;               ///< 天体固连坐标系
+    mutable WeakPtr<Frame>      frameInertial_;                  ///< 天体惯性坐标系
+    mutable WeakPtr<Frame>      frameFixed_;                     ///< 天体固连坐标系
+
+    mutable SharedPtr<BodyEphemeris> ephemerisDE_;               ///< 天体DE星历
+    mutable SharedPtr<BodyEphemeris> ephemerisSpice_;            ///< 天体SPICE星历(spk)
+    mutable SharedPtr<BodyEphemeris> ephemerisSpiceBarycenter_;  ///< 天体星系质心SPICE星历(考虑其卫星时的天体系质心)
 };
 
 
