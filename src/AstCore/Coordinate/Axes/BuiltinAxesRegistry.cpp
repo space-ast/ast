@@ -79,6 +79,14 @@ errc_t BuiltinAxesRegistry::init()
     axesMap_["DE-140"] = aAxesDE140();
     axesMap_["DE-142"] = aAxesDE142();
     axesMap_["DE-143"] = aAxesDE143();
+
+    axesMap_["MeanEarth"] = aAxesMeanEarth();
+    axesMap_["PrincipalAxes"] = aAxesPA();
+    axesMap_["PrincipalAxes_403"] = aAxesPA403();
+    axesMap_["PrincipalAxes_418"] = aAxesPA418();
+    axesMap_["PrincipalAxes_421"] = aAxesPA421();
+    axesMap_["PrincipalAxes_430"] = aAxesPA430();
+
     return eNoError;
 }
 

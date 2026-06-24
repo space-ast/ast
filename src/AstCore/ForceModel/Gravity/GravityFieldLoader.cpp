@@ -416,6 +416,9 @@ errc_t loadGravityFieldSTK(GravityFieldLoaderContext& ctx)
             }else if(aEqualsIgnoreCase(item.key(), "IncludesPermTide"))
             {
                 gf.includesPermTide_ = item.value().toBool();
+            }else if(aEqualsIgnoreCase(item.key(), "ReferenceFrame"))
+            {
+                gf.referenceFrame_ = item.value().toString();
             }
         }
     }while(token != BKVParser::EToken::eEOF);

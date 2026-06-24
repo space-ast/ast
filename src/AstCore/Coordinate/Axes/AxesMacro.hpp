@@ -35,6 +35,8 @@ class KinematicRotation;
 class Rotation;
 
 
+/// @brief 声明轴系类
+/// @param NAME 轴系名称
 #define _AST_DECL_AXES(NAME) \
     class AST_CORE_API Axes##NAME : public Axes \
     { \
@@ -51,6 +53,9 @@ class Rotation;
         return Axes##NAME::Instance();\
     }\
 
+/// @brief 实现轴系类
+/// @param NAME 轴系名称
+/// @param PARENT 父轴系名称
 #define _AST_IMPL_AXES_BASE(NAME, PARENT)\
     Axes##NAME* Axes##NAME::Instance() \
     { \
@@ -62,6 +67,10 @@ class Rotation;
         return Axes##PARENT::Instance();\
     }\
 
+/// @brief 定义轴系之间的动态变换关系
+/// 动态变换关系是指：轴系之间的旋转关系随时间变化，存在相对旋转速度
+/// @param NAME 轴系名称
+/// @param PARENT 父轴系名称
 #define _AST_IMPL_AXES_DYNAMIC(NAME, PARENT) \
     _AST_IMPL_AXES_BASE(NAME, PARENT)\
     errc_t Axes##NAME::getTransform(const TimePoint &tp, Rotation &rotation) const\
@@ -75,7 +84,11 @@ class Rotation;
         return eNoError;\
     }\
 
-#define _AST_IMPL_AXES_INERTIAL(NAME, PARENT) \
+/// @brief 定义轴系之间的静态变换关系
+/// 静态变换关系是指：轴系之间的旋转关系与时间无关，其相对旋转速度为0
+/// @param NAME 轴系名称
+/// @param PARENT 父轴系名称
+#define _AST_IMPL_AXES_STATIC(NAME, PARENT) \
     _AST_IMPL_AXES_BASE(NAME, PARENT)\
     errc_t Axes##NAME::getTransform(const TimePoint &tp, Rotation &rotation) const\
     {\
@@ -89,7 +102,11 @@ class Rotation;
         return eNoError;\
     }\
 
-#define _AST_IMPL_AXES_PSEUDO_INERTIAL(NAME, PARENT) \
+/// @brief 定义伪静态变换关系
+/// 伪静态变换关系是指：轴系之间的旋转关系随时间变化，但是变化非常缓慢，故认为其相对旋转速度为0
+/// @param NAME 轴系名称
+/// @param PARENT 父轴系名称
+#define _AST_IMPL_AXES_PSEUDO_STATIC(NAME, PARENT) \
     _AST_IMPL_AXES_BASE(NAME, PARENT)\
     errc_t Axes##NAME::getTransform(const TimePoint &tp, Rotation &rotation) const\
     {\

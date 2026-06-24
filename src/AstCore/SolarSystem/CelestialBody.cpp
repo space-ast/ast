@@ -173,6 +173,9 @@ CelestialBody::CelestialBody(CelestialBody *parentBody)
 {
     parent_ = parentBody;
     this->setParentScope(parentBody);
+    if (parentBody) {
+        solarSystem_ = parentBody->getSolarSystem();
+    }
 }
 
 

@@ -137,10 +137,22 @@ void aMoonPA430ToMeanEarthTransform(Rotation &rotation)
     aEuler321ToMatrix(angle, rotation.getMatrix());
 }
 
+void aMoonMeanEarthToPA430Transform(Rotation &rotation)
+{
+    aMoonPA430ToMeanEarthTransform(rotation);
+    rotation = rotation.inverse();
+}
+
 void aMoonPA421ToMeanEarthTransform(Rotation &rotation)
 {
     Euler angle{-67.92_arcsec, -78.56_arcsec, -0.30_arcsec};
     aEuler321ToMatrix(angle, rotation.getMatrix());
+}
+
+void aMoonMeanEarthToPA421Transform(Rotation &rotation)
+{
+    aMoonPA421ToMeanEarthTransform(rotation);
+    rotation = rotation.inverse();
 }
 
 void aMoonPA418ToMeanEarthTransform(Rotation &rotation)
@@ -149,10 +161,22 @@ void aMoonPA418ToMeanEarthTransform(Rotation &rotation)
     aEuler321ToMatrix(angle, rotation.getMatrix());
 }
 
+void aMoonMeanEarthToPA418Transform(Rotation &rotation)
+{
+    aMoonPA418ToMeanEarthTransform(rotation);
+    rotation = rotation.inverse();
+}
+
 void aMoonPA403ToMeanEarthTransform(Rotation &rotation)
 {
     Euler angle{-63.8986_arcsec, -79.0768_arcsec, -0.1462_arcsec};
     aEuler321ToMatrix(angle, rotation.getMatrix());
+}
+
+void aMoonMeanEarthToPA403Transform(Rotation &rotation)
+{
+    aMoonPA403ToMeanEarthTransform(rotation);
+    rotation = rotation.inverse();
 }
 
 errc_t aICRFToMoonMeanEarthTransform_DE(const TimePoint &tp, Rotation &rotation)

@@ -76,6 +76,32 @@ errc_t HPOPEquation::initialize()
     return this->initializeFromForceModel(this->forceModel_, this->spacecraftParam_);
 }
 
+/// @brief 获取重力场坐标系
+/// @param gravityField 重力场系数
+/// @param body 中心天体
+/// @return 重力场坐标系
+static Axes* aGetGravityAxes(const GravityField& gravityField, const Body& body)
+{
+    // 如果指定了重力场参考系，使用该参考系
+    if(!gravityField.referenceFrame().empty())
+    {
+        Axes* axes = body.getAxes(gravityField.referenceFrame());
+        if(axes != nullptr)
+            return axes;
+        aWarning("gravity field reference frame '%s' not found in body '%s'.", gravityField.referenceFrame().c_str(), body.getName().c_str());
+    }
+    // 如果是月球，使用月球的惯性主轴PrincipalAxes
+    // 月球的固连系一般为MeanEarth系，与PrincipalAxes存在偏置
+    if(body.isLuna())
+    {
+        auto axes = body.getAxes("PrincipalAxes");
+        if(axes != nullptr)
+            return axes;
+        aWarning("PrincipalAxes not found in body '%s'.", body.getName().c_str());
+    }
+    return body.getAxesFixed();
+}
+
 errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const SpacecraftParam &spacecraftParam)
 {
     // 检查中心天体
@@ -142,8 +168,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                     return err;
                 }
                 auto propAxes = propFrame->getAxes();
-                /// @todo 这里要根据重力场的配置来获取重力场坐标系
-                auto gravityAxes = body->getAxesFixed(); 
+                auto gravityAxes = aGetGravityAxes(gravityField, *body); 
                 /// @todo 这里产生了一次重力场系数复制，有一定的优化空间
                 BlockGravity* blockGravity = new BlockGravity(gravityField, gravity.maxDegree_, gravity.maxOrder_, gravityAxes, propAxes);
                 // 设置是否考虑重力场系数变化
@@ -226,6 +251,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             {
                 eclipseCalculator->setOccultingBodies(forceModel.srp().eclipsingBodies_); // 设置遮挡体列表
             }
+            // eclipseCalculator 的所有权转移给 blockSRP
             BlockSRP* blockSRP = new BlockSRP(eclipseCalculator, spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame);
             blockSRP->setSunPosition(forceModel.srp().sunPosition_); // 设置太阳位置
             this->addBlock(blockSRP);

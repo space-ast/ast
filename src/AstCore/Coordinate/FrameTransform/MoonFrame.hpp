@@ -111,12 +111,26 @@ AST_CORE_CAPI void aMoonPA430ToMeanEarthTransform(
     Rotation&        rotation
 );
 
+/// @brief 计算月球MeanEarth系到月球主轴系(PA430)的转换
+/// @param rotation 旋转
+/// @return errc_t 错误码
+AST_CORE_CAPI void aMoonMeanEarthToPA430Transform(
+    Rotation&        rotation
+);
+
 
 /// @brief 计算月球主轴系(PA421)到月球MeanEarth系的转换
 /// @param rotation 旋转
 /// @return errc_t 错误码
 AST_CORE_CAPI void aMoonPA421ToMeanEarthTransform(
     Rotation& rotation
+);
+
+/// @brief 计算月球MeanEarth系到月球主轴系(PA421)的转换
+/// @param rotation 旋转
+/// @return errc_t 错误码
+AST_CORE_CAPI void aMoonMeanEarthToPA421Transform(
+    Rotation&        rotation
 );
 
 
@@ -127,12 +141,27 @@ AST_CORE_CAPI void aMoonPA418ToMeanEarthTransform(
     Rotation&        rotation
 );
 
+/// @brief 计算月球MeanEarth系到月球主轴系(PA418)的转换
+/// @param rotation 旋转
+/// @return errc_t 错误码
+AST_CORE_CAPI void aMoonMeanEarthToPA418Transform(
+    Rotation&        rotation
+);
+
 
 /// @brief 计算月球主轴系(PA403)到月球MeanEarth系的转换
 /// @param rotation 旋转
 /// @return errc_t 错误码
 AST_CORE_CAPI void aMoonPA403ToMeanEarthTransform(
     Rotation& rotation
+);
+
+
+/// @brief 计算月球MeanEarth系到月球主轴系(PA403)的转换
+/// @param rotation 旋转
+/// @return errc_t 错误码
+AST_CORE_CAPI void aMoonMeanEarthToPA403Transform(
+    Rotation&        rotation
 );
 
 /// @brief 计算月球ICRF坐标系到月球MeanEarth系的转换(依赖DE星历)

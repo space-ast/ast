@@ -58,8 +58,8 @@ public:
     static CelestialBody* Resolve(StringView value);
     
     CelestialBody();
-    CelestialBody(SolarSystem* solarSystem);
-    CelestialBody(CelestialBody* parentBody);
+    explicit CelestialBody(SolarSystem* solarSystem);
+    explicit CelestialBody(CelestialBody* parentBody);
     ~CelestialBody();
 
     /// @brief 获取JPL SPICE ID
@@ -117,6 +117,9 @@ public:
 
     /// @brief 是否为地球
     bool isEarth() const { return jplIndex_ == JplDe::eEarth; }
+
+    /// @brief 是否为月球
+    bool isLuna() const { return jplIndex_ == JplDe::eMoon; }
 
     /// @brief 获取天体位置（ICRF）
     /// @param  tp          - 时间点
