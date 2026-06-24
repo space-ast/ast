@@ -132,7 +132,7 @@ var searchData=
   ['polynomial_5f_129',['polynomial_',['../classast_1_1NutationSeries.html#acb06c074179b2189105972ccb894510b',1,'ast::NutationSeries']]],
   ['pos_130',['pos',['../classast_1_1CartState.html#a9d4e1b44868926a5bbaba631d580d113',1,'ast::CartState']]],
   ['pos_5f_131',['pos_',['../classast_1_1CartState.html#a5e0b9acca331852128aee2d0702f3840',1,'ast::CartState']]],
-  ['poscbi_132',['posCBI',['../classast_1_1BlockThirdBodyPointMass.html#a0c3cf77ffc048273dabab29c7675467e',1,'ast::BlockThirdBodyPointMass']]],
+  ['poscbi_132',['posCBI',['../classast_1_1BlockThirdBodyGravity.html#a75bef1f0eb38e486be8795df2c99980f',1,'ast::BlockThirdBodyGravity::posCBI'],['../classast_1_1BlockThirdBodyPointMass.html#a0c3cf77ffc048273dabab29c7675467e',1,'ast::BlockThirdBodyPointMass::posCBI']]],
   ['position_133',['position',['../classast_1_1LandingSite.html#ae197970440ebe8d49b74679eec96dcc8',1,'ast::LandingSite']]],
   ['position_5f_134',['position_',['../classast_1_1BlockSRP.html#a087a7321e4b77cfe82ab453d884a0829',1,'ast::BlockSRP::position_'],['../classast_1_1WayPoint.html#a104aa36f3989a2343ef44651f3b7a7dd',1,'ast::WayPoint::position_']]],
   ['positionderivative_5f_135',['positionDerivative_',['../classast_1_1BlockMotion.html#a2d9cd111f95d6dcb19bf48907ee08680',1,'ast::BlockMotion']]],

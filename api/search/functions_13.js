@@ -80,7 +80,7 @@ var searchData=
   ['setconeangle_77',['setConeAngle',['../classast_1_1FOVSimpleCone.html#a10496bfa794b6c8928a6e2f0b6754ac1',1,'ast::FOVSimpleCone']]],
   ['setconfig_78',['setConfig',['../classast_1_1StartupConfig.html#a5b0375d4a43b9aae3211dade49a7f1dd',1,'ast::StartupConfig']]],
   ['setconfigraw_79',['setConfigRaw',['../classast_1_1StartupConfig.html#a96e0150a261829108f1959baea023e27',1,'ast::StartupConfig']]],
-  ['setconsidervariations_80',['setConsiderVariations',['../classast_1_1BlockGravity.html#a7ce6707068fde7ba180ddc5a3260ff9b',1,'ast::BlockGravity']]],
+  ['setconsidervariations_80',['setConsiderVariations',['../classast_1_1BlockGravity.html#a7ce6707068fde7ba180ddc5a3260ff9b',1,'ast::BlockGravity::setConsiderVariations()'],['../classast_1_1BlockThirdBodyGravity.html#aa54583bf10b5441c7c3d55e84366bfa6',1,'ast::BlockThirdBodyGravity::setConsiderVariations()']]],
   ['setconstructor_81',['setConstructor',['../classast_1_1Class.html#ac8924b03c261b1252e68229d1135f672',1,'ast::Class::setConstructor(FConstructor constructor)'],['../classast_1_1Class.html#a52ff111feaae1fda4e3af690b2985133',1,'ast::Class::setConstructor()']]],
   ['setcontent_82',['setContent',['../classast_1_1ChatMessage.html#ad7ce02151cc232232ab3b767f3b54867',1,'ast::ChatMessage::setContent()'],['../classast_1_1UiChatMessageItem.html#aac7b583661ddee133c87bf6281f1aeb5',1,'ast::UiChatMessageItem::setContent()']]],
   ['setcurrent_83',['setCurrent',['../classast_1_1Dimension.html#a82b0ccba0fef1df739d54040e94d3bd1',1,'ast::Dimension']]],

@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"Environment_8cpp.html":[4,0,0,24,5,6],
+"Environment_8hpp.html":[4,0,0,24,5,7],
+"Environment_8hpp_source.html":[4,0,0,24,5,7],
 "EphemerisFileParser_8cpp.html":[4,0,0,7,4,1,0],
 "EphemerisFileParser_8hpp.html":[4,0,0,7,4,1,1],
 "EphemerisFileParser_8hpp_source.html":[4,0,0,7,4,1,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "GFOccultationSearch_8cpp.html":[4,0,0,2,1,10],
 "GFOccultationSearch_8hpp.html":[4,0,0,2,1,11],
 "GFOccultationSearch_8hpp_source.html":[4,0,0,2,1,11],
-"GFPhaseAngleSearch_8cpp.html":[4,0,0,2,1,12],
-"GFPhaseAngleSearch_8hpp.html":[4,0,0,2,1,13],
-"GFPhaseAngleSearch_8hpp_source.html":[4,0,0,2,1,13],
-"GFRangeRateSearch_8cpp.html":[4,0,0,2,1,14]
+"GFPhaseAngleSearch_8cpp.html":[4,0,0,2,1,12]
 };

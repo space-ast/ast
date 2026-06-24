@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"ScStateCalcAppSolTime_8hpp_source.html":[4,0,0,7,7,1,0,18,1],
+"ScStateCalcArgLat_8cpp.html":[4,0,0,7,7,1,0,10,6],
+"ScStateCalcArgLat_8hpp.html":[4,0,0,7,7,1,0,10,7],
 "ScStateCalcArgLat_8hpp_source.html":[4,0,0,7,7,1,0,10,7],
 "ScStateCalcArgPeriapsis_8cpp.html":[4,0,0,7,7,1,0,10,8],
 "ScStateCalcArgPeriapsis_8hpp.html":[4,0,0,7,7,1,0,10,9],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcLonOfAscNode_8cpp.html":[4,0,0,7,7,1,0,10,18],
 "ScStateCalcLonOfAscNode_8hpp.html":[4,0,0,7,7,1,0,10,19],
 "ScStateCalcLonOfAscNode_8hpp_source.html":[4,0,0,7,7,1,0,10,19],
-"ScStateCalcLongDriftRate_8cpp.html":[4,0,0,7,7,1,0,15,80],
-"ScStateCalcLongDriftRate_8hpp.html":[4,0,0,7,7,1,0,15,81],
-"ScStateCalcLongDriftRate_8hpp_source.html":[4,0,0,7,7,1,0,15,81],
-"ScStateCalcLongPeriapsis_8cpp.html":[4,0,0,7,7,1,0,9,8]
+"ScStateCalcLongDriftRate_8cpp.html":[4,0,0,7,7,1,0,15,80]
 };

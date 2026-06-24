@@ -218,6 +218,7 @@ var hierarchy =
         [ "ast::BlockMass", "classast_1_1BlockMass.html", null ],
         [ "ast::BlockMotion", "classast_1_1BlockMotion.html", null ],
         [ "ast::BlockSRP", "classast_1_1BlockSRP.html", null ],
+        [ "ast::BlockThirdBodyGravity", "classast_1_1BlockThirdBodyGravity.html", null ],
         [ "ast::BlockThirdBodyPointMass", "classast_1_1BlockThirdBodyPointMass.html", null ],
         [ "ast::BlockTransform", "classast_1_1BlockTransform.html", null ],
         [ "ast::BlockTwoBody", "classast_1_1BlockTwoBody.html", null ]

@@ -18,6 +18,8 @@ var dir_9dab22312cd66344d65619a2229a5619 =
     [ "BlockRelativity.hpp", "BlockRelativity_8hpp.html", null ],
     [ "BlockSRP.cpp", "BlockSRP_8cpp.html", "BlockSRP_8cpp" ],
     [ "BlockSRP.hpp", "BlockSRP_8hpp.html", "BlockSRP_8hpp" ],
+    [ "BlockThirdBodyGravity.cpp", "BlockThirdBodyGravity_8cpp.html", null ],
+    [ "BlockThirdBodyGravity.hpp", "BlockThirdBodyGravity_8hpp.html", "BlockThirdBodyGravity_8hpp" ],
     [ "BlockThirdBodyPointMass.cpp", "BlockThirdBodyPointMass_8cpp.html", null ],
     [ "BlockThirdBodyPointMass.hpp", "BlockThirdBodyPointMass_8hpp.html", "BlockThirdBodyPointMass_8hpp" ],
     [ "BlockTransform.cpp", "BlockTransform_8cpp.html", null ],

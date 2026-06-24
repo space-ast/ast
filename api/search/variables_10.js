@@ -12,7 +12,7 @@ var searchData=
   ['pluto_5f_9',['pluto_',['../classast_1_1SolarSystem.html#a474fcf5c78757cf432116359035d822b',1,'ast::SolarSystem']]],
   ['polynomial_5f_10',['polynomial_',['../classast_1_1NutationSeries.html#acb06c074179b2189105972ccb894510b',1,'ast::NutationSeries']]],
   ['pos_5f_11',['pos_',['../classast_1_1CartState.html#a5e0b9acca331852128aee2d0702f3840',1,'ast::CartState']]],
-  ['poscbi_12',['posCBI',['../classast_1_1BlockThirdBodyPointMass.html#a0c3cf77ffc048273dabab29c7675467e',1,'ast::BlockThirdBodyPointMass']]],
+  ['poscbi_12',['posCBI',['../classast_1_1BlockThirdBodyGravity.html#a75bef1f0eb38e486be8795df2c99980f',1,'ast::BlockThirdBodyGravity::posCBI'],['../classast_1_1BlockThirdBodyPointMass.html#a0c3cf77ffc048273dabab29c7675467e',1,'ast::BlockThirdBodyPointMass::posCBI']]],
   ['position_5f_13',['position_',['../classast_1_1BlockSRP.html#a087a7321e4b77cfe82ab453d884a0829',1,'ast::BlockSRP::position_'],['../classast_1_1WayPoint.html#a104aa36f3989a2343ef44651f3b7a7dd',1,'ast::WayPoint::position_']]],
   ['positionderivative_5f_14',['positionDerivative_',['../classast_1_1BlockMotion.html#a2d9cd111f95d6dcb19bf48907ee08680',1,'ast::BlockMotion']]],
   ['positions_5f_15',['positions_',['../classast_1_1EphemerisLagrangeVar.html#afa75a1734a4ede9835cb08490b78eaae',1,'ast::EphemerisLagrangeVar']]],

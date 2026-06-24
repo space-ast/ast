@@ -214,5 +214,6 @@ var group__SolarSystem =
       [ "ast::eUranus", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca33ed480577f0941d6f06edc02db252f3", null ],
       [ "ast::eNeptune", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca41bf4942660be6baa64cda6737e211fe", null ],
       [ "ast::ePluto", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca9e3a839ed230390bb5b416d7771f14ab", null ]
-    ] ]
+    ] ],
+    [ "ast::aGetGravityParameter", "group__SolarSystem.html#gab64788f28e42df0d75074fd8a520a03b", null ]
 ];

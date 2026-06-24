@@ -102,6 +102,7 @@ $(function(){initNavTree('group__SolarSystem.html',''); initResizable(true); });
 <a href="#nested-classes">类</a> &#124;
 <a href="#typedef-members">类型定义</a> &#124;
 <a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a> &#124;
 <a href="#var-members">变量</a>  </div>
   <div class="headertitle"><div class="title">太阳系<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a></div></div></div>
 </div><!--header-->
@@ -269,6 +270,11 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::PBody</b> = <a 
  }</td></tr>
 <tr class="separator:ga8222cfd87a81c1bb00e762d67be68f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:gab64788f28e42df0d75074fd8a520a03b" id="r_gab64788f28e42df0d75074fd8a520a03b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab64788f28e42df0d75074fd8a520a03b">ast::aGetGravityParameter</a> (const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;body, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> gravityModel)</td></tr>
+<tr class="separator:gab64788f28e42df0d75074fd8a520a03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 变量</h2></td></tr>
 <tr class="memitem:ga96348f9dc63131e0ed0f96f1648fc0fd" id="r_ga96348f9dc63131e0ed0f96f1648fc0fd"><td class="memItemLeft" align="right" valign="top"><a id="ga96348f9dc63131e0ed0f96f1648fc0fd" name="ga96348f9dc63131e0ed0f96f1648fc0fd"></a>
@@ -334,6 +340,38 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::iii</b> = s
 <tr><td class="fieldname"><a id="gga8222cfd87a81c1bb00e762d67be68f1ca9e3a839ed230390bb5b416d7771f14ab" name="gga8222cfd87a81c1bb00e762d67be68f1ca9e3a839ed230390bb5b416d7771f14ab"></a>ePluto&#160;</td><td class="fielddoc"><p>冥王星 </p>
 </td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="gab64788f28e42df0d75074fd8a520a03b" name="gab64788f28e42df0d75074fd8a520a03b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab64788f28e42df0d75074fd8a520a03b">&#9670;&#160;</a></span>aGetGravityParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI double ast::aGetGravityParameter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>gravityModel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从天体重力场文件中读取其重力常数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">body</td><td>中心天体 </td></tr>
+    <tr><td class="paramname">gravityModel</td><td>重力场模型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>重力常数gm，单位：m³/s² </dd></dl>
 
 </div>
 </div>

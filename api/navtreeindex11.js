@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcLongDriftRate_8hpp.html":[4,0,0,7,7,1,0,15,81],
+"ScStateCalcLongDriftRate_8hpp_source.html":[4,0,0,7,7,1,0,15,81],
+"ScStateCalcLongPeriapsis_8cpp.html":[4,0,0,7,7,1,0,9,8],
 "ScStateCalcLongPeriapsis_8hpp.html":[4,0,0,7,7,1,0,9,9],
 "ScStateCalcLongPeriapsis_8hpp_source.html":[4,0,0,7,7,1,0,9,9],
 "ScStateCalcLongitudeRate_8cpp.html":[4,0,0,7,7,1,0,9,6],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcSolarRadiationForce_8hpp.html":[4,0,0,7,7,1,0,15,193],
 "ScStateCalcSolarRadiationForce_8hpp_source.html":[4,0,0,7,7,1,0,15,193],
 "ScStateCalcSpacecraftMass_8cpp.html":[4,0,0,7,7,1,0,15,194],
-"ScStateCalcSpacecraftMass_8hpp.html":[4,0,0,7,7,1,0,15,195],
-"ScStateCalcSpacecraftMass_8hpp_source.html":[4,0,0,7,7,1,0,15,195],
-"ScStateCalcTangentialRate_8cpp.html":[4,0,0,7,7,1,0,15,200],
-"ScStateCalcTangentialRate_8hpp.html":[4,0,0,7,7,1,0,15,201]
+"ScStateCalcSpacecraftMass_8hpp.html":[4,0,0,7,7,1,0,15,195]
 };
