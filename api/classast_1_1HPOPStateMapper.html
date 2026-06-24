@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::HPOPStateMapper类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1HPOPStateMapper.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1HPOPStateMapper-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::HPOPStateMapper类 参考<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::HPOPStateMapper 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1HPOPStateMapper.png" usemap="#ast::HPOPStateMapper_map" alt=""/>
+  <map id="ast::HPOPStateMapper_map" name="ast::HPOPStateMapper_map">
+<area href="classast_1_1StateMapper.html" title="状态映射器" alt="ast::StateMapper" shape="rect" coords="0,0,141,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a8e43dc5996e6497d93b68ec8c9800285" id="r_a8e43dc5996e6497d93b68ec8c9800285"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e43dc5996e6497d93b68ec8c9800285">toState</a> (const double *y, double x, <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;state) const override</td></tr>
+<tr class="separator:a8e43dc5996e6497d93b68ec8c9800285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b6506bc3d8bde2fd2af0f9875d341e6" id="r_a9b6506bc3d8bde2fd2af0f9875d341e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b6506bc3d8bde2fd2af0f9875d341e6">fromState</a> (const <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;state, double *y, double &amp;x) const override</td></tr>
+<tr class="separator:a9b6506bc3d8bde2fd2af0f9875d341e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1StateMapper"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1StateMapper')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1StateMapper.html">ast::StateMapper</a></td></tr>
+<tr class="memitem:ae916ffd22239e3659c02dd352ab5048e inherit pub_methods_classast_1_1StateMapper" id="r_ae916ffd22239e3659c02dd352ab5048e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1StateMapper.html#ae916ffd22239e3659c02dd352ab5048e">toTime</a> (double x, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time) const</td></tr>
+<tr class="separator:ae916ffd22239e3659c02dd352ab5048e inherit pub_methods_classast_1_1StateMapper"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ec1a5a6735d4356bd4b0ff1d7a126c inherit pub_methods_classast_1_1StateMapper" id="r_ab0ec1a5a6735d4356bd4b0ff1d7a126c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1StateMapper.html#ab0ec1a5a6735d4356bd4b0ff1d7a126c">fromTime</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;x) const</td></tr>
+<tr class="separator:ab0ec1a5a6735d4356bd4b0ff1d7a126c inherit pub_methods_classast_1_1StateMapper"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2040049c8cc86be12751eb60683f36c9 inherit pub_methods_classast_1_1StateMapper" id="r_a2040049c8cc86be12751eb60683f36c9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1StateMapper.html#a2040049c8cc86be12751eb60683f36c9">epoch</a> () const</td></tr>
+<tr class="separator:a2040049c8cc86be12751eb60683f36c9 inherit pub_methods_classast_1_1StateMapper"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19bc9917b4fc007fe851caa0c525d02f inherit pub_methods_classast_1_1StateMapper" id="r_a19bc9917b4fc007fe851caa0c525d02f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1StateMapper.html#a19bc9917b4fc007fe851caa0c525d02f">setEpoch</a> (<a class="el" href="classast_1_1TimePoint.html">TimePoint</a> <a class="el" href="classast_1_1StateMapper.html#a2040049c8cc86be12751eb60683f36c9">epoch</a>)</td></tr>
+<tr class="separator:a19bc9917b4fc007fe851caa0c525d02f inherit pub_methods_classast_1_1StateMapper"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a9b6506bc3d8bde2fd2af0f9875d341e6" name="a9b6506bc3d8bde2fd2af0f9875d341e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b6506bc3d8bde2fd2af0f9875d341e6">&#9670;&#160;</a></span>fromState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::HPOPStateMapper::fromState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将状态量映射到状态向量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>航天器状态 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>状态向量指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>实现了 <a class="el" href="classast_1_1StateMapper.html#a1f1ebe4ee656582f5e52c0ed086bb641">ast::StateMapper</a>.</p>
+
+</div>
+</div>
+<a id="a8e43dc5996e6497d93b68ec8c9800285" name="a8e43dc5996e6497d93b68ec8c9800285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e43dc5996e6497d93b68ec8c9800285">&#9670;&#160;</a></span>toState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::HPOPStateMapper::toState </td>
+          <td>(</td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将状态向量映射到状态量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>状态向量指针 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">state</td><td>航天器状态 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>实现了 <a class="el" href="classast_1_1StateMapper.html#acbf3e56739edfd516050730c92080089">ast::StateMapper</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Propagator/HPOP/<a class="el" href="HPOP_8cpp.html">HPOP.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1HPOPStateMapper.html">HPOPStateMapper</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

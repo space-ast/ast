@@ -8,7 +8,7 @@ var dir_99d89bf1bb3c699199c624a04c84ff81 =
     [ "DataPort.hpp", "DataPort_8hpp.html", "DataPort_8hpp" ],
     [ "FuncBlock.cpp", "FuncBlock_8cpp.html", null ],
     [ "FuncBlock.hpp", "FuncBlock_8hpp.html", "FuncBlock_8hpp" ],
-    [ "HPOP.cpp", "HPOP_8cpp.html", null ],
+    [ "HPOP.cpp", "HPOP_8cpp.html", "HPOP_8cpp" ],
     [ "HPOP.hpp", "HPOP_8hpp.html", null ],
     [ "HPOPEquation.cpp", "HPOPEquation_8cpp.html", null ],
     [ "HPOPEquation.hpp", "HPOPEquation_8hpp.html", "HPOPEquation_8hpp" ],
@@ -18,5 +18,7 @@ var dir_99d89bf1bb3c699199c624a04c84ff81 =
     [ "Simulation.cpp", "Simulation_8cpp.html", null ],
     [ "Simulation.hpp", "Simulation_8hpp.html", null ],
     [ "SimulationAPI.cpp", "SimulationAPI_8cpp.html", "SimulationAPI_8cpp" ],
-    [ "SimulationAPI.hpp", "SimulationAPI_8hpp.html", "SimulationAPI_8hpp" ]
+    [ "SimulationAPI.hpp", "SimulationAPI_8hpp.html", "SimulationAPI_8hpp" ],
+    [ "StateMapper.cpp", "StateMapper_8cpp.html", null ],
+    [ "StateMapper.hpp", "StateMapper_8hpp.html", "StateMapper_8hpp" ]
 ];

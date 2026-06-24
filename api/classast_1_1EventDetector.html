@@ -159,8 +159,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a4a80c100ee93f203300fd6c6c538e43d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a281b62793ed301061e760066093792b4" id="r_a281b62793ed301061e760066093792b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a281b62793ed301061e760066093792b4">isAngle</a> () const</td></tr>
 <tr class="separator:a281b62793ed301061e760066093792b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a216414de99f2655e62234d6ad2660431" id="r_a216414de99f2655e62234d6ad2660431"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ODEEventDetector.html">ODEEventDetector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a216414de99f2655e62234d6ad2660431">newODEEventDetector</a> () const</td></tr>
-<tr class="separator:a216414de99f2655e62234d6ad2660431"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af094998a39dc002ca8e58af968cdac99" id="r_af094998a39dc002ca8e58af968cdac99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ODEEventDetector.html">ODEEventDetector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af094998a39dc002ca8e58af968cdac99">newODEEventDetector</a> (<a class="el" href="classast_1_1StateMapper.html">StateMapper</a> *stateMapper) const</td></tr>
+<tr class="separator:af094998a39dc002ca8e58af968cdac99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dec77b147f33b862b0ecc0dad2b88f8" id="r_a0dec77b147f33b862b0ecc0dad2b88f8"><td class="memItemLeft" align="right" valign="top"><a id="a0dec77b147f33b862b0ecc0dad2b88f8" name="a0dec77b147f33b862b0ecc0dad2b88f8"></a>
 <a class="el" href="classast_1_1ODEEventDetector.html#ac1de44b6cd73fb6989716b0821ce656b">EDirection</a>&#160;</td><td class="memItemRight" valign="bottom"><b>direction</b> () const</td></tr>
 <tr class="separator:a0dec77b147f33b862b0ecc0dad2b88f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -408,6 +408,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>事件检测开关函数与目标值的差值 </dd></dl>
 
+<p>被 <a class="el" href="classast_1_1DetectorEpoch.html#ab8c9990550692ecb5bca0e09a6457aca">ast::DetectorEpoch</a> 重载.</p>
+
 </div>
 </div>
 <a id="a4a80c100ee93f203300fd6c6c538e43d" name="a4a80c100ee93f203300fd6c6c538e43d"></a>
@@ -509,8 +511,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 
 </div>
 </div>
-<a id="a216414de99f2655e62234d6ad2660431" name="a216414de99f2655e62234d6ad2660431"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a216414de99f2655e62234d6ad2660431">&#9670;&#160;</a></span>newODEEventDetector()</h2>
+<a id="af094998a39dc002ca8e58af968cdac99" name="af094998a39dc002ca8e58af968cdac99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af094998a39dc002ca8e58af968cdac99">&#9670;&#160;</a></span>newODEEventDetector()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -518,13 +520,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
         <tr>
           <td class="memname"><a class="el" href="classast_1_1ODEEventDetector.html">ODEEventDetector</a> * ast::EventDetector::newODEEventDetector </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StateMapper.html">StateMapper</a> *</td>          <td class="paramname"><span class="paramname"><em>stateMapper</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>创建ODE事件检测器实例 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stateMapper</td><td>状态映射器 </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>返回</dt><dd>ODE事件检测器实例指针 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>ODE事件检测器实例的生命周期由调用方负责管理，调用方需要在使用完成后调用析构函数释放资源 </dd></dl>
 

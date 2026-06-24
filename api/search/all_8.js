@@ -34,5 +34,6 @@ var searchData=
   ['hpopforcemodel_31',['HPOPForceModel',['../classast_1_1HPOPForceModel.html',1,'ast']]],
   ['hpopforcemodel_2ecpp_32',['HPOPForceModel.cpp',['../HPOPForceModel_8cpp.html',1,'']]],
   ['hpopforcemodel_2ehpp_33',['HPOPForceModel.hpp',['../HPOPForceModel_8hpp.html',1,'']]],
-  ['htmlchunk_34',['htmlChunk',['../classast_1_1UiChatEventHandler.html#ada89e3ded00017e74fddf64f2f0fb496',1,'ast::UiChatEventHandler']]]
+  ['hpopstatemapper_34',['HPOPStateMapper',['../classast_1_1HPOPStateMapper.html',1,'ast']]],
+  ['htmlchunk_35',['htmlChunk',['../classast_1_1UiChatEventHandler.html#ada89e3ded00017e74fddf64f2f0fb496',1,'ast::UiChatEventHandler']]]
 ];

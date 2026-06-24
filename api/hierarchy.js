@@ -1204,6 +1204,7 @@ var hierarchy =
     ] ],
     [ "ast::ScopedPtr< ast::Ephemeris >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::HPOPEquation >", "classast_1_1ScopedPtr.html", null ],
+    [ "ast::ScopedPtr< ast::StateMapper >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtrDeleter< T, typename >", "structast_1_1ScopedPtrDeleter.html", null ],
     [ "ast::ScopedPtrDeleter< std::FILE >", "structast_1_1ScopedPtrDeleter_3_01std_1_1FILE_01_4.html", null ],
     [ "ast::ScopedPtrDeleter< T, typename std::enable_if< std::is_base_of< Object, T >::value >::type >", "structast_1_1ScopedPtrDeleter_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_fb1b9be9ff001b0d07c8cc184fa0e786.html", null ],
@@ -1299,6 +1300,9 @@ var hierarchy =
     [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >", "classast_1_1strings__internal_1_1Splitter.html", null ],
     [ "ast::StackFrame", "classast_1_1StackFrame.html", null ],
     [ "ast::StartupConfig", "classast_1_1StartupConfig.html", null ],
+    [ "ast::StateMapper", "classast_1_1StateMapper.html", [
+      [ "ast::HPOPStateMapper", "classast_1_1HPOPStateMapper.html", null ]
+    ] ],
     [ "ast::StringViewBasic< _Char >", "classast_1_1StringViewBasic.html", null ],
     [ "ast::StringViewBasic< char >", "classast_1_1StringViewBasic.html", null ],
     [ "ast::SummarySection", "structast_1_1SummarySection.html", null ],

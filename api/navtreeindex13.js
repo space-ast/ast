@@ -124,6 +124,9 @@ var NAVTREEINDEX13 =
 "StateKeplerian_8hpp.html#aebc46f63d4ca7b01bd3e9718282bc9b3a05ce665c049e975f4102e98ba3b29ba3":[4,0,0,7,7,6,5,1,1],
 "StateKeplerian_8hpp.html#aebc46f63d4ca7b01bd3e9718282bc9b3a3776991e2d9ed4127ed93a2522ad9fe7":[4,0,0,7,7,6,5,1,0],
 "StateKeplerian_8hpp_source.html":[4,0,0,7,7,6,5],
+"StateMapper_8cpp.html":[4,0,0,7,8,1,19],
+"StateMapper_8hpp.html":[4,0,0,7,8,1,20],
+"StateMapper_8hpp_source.html":[4,0,0,7,8,1,20],
 "StateVector_8cpp.html":[4,0,0,2,0,16],
 "StateVector_8hpp.html":[4,0,0,2,0,17],
 "StateVector_8hpp_source.html":[4,0,0,2,0,17],
@@ -246,8 +249,5 @@ var NAVTREEINDEX13 =
 "TestJson_8cpp.html":[4,0,0,19,3],
 "TestJson_8cpp.html#ae02cb19477b7407ee27626fe8a7f95c3":[4,0,0,19,3,0],
 "TestJson_8hpp.html":[4,0,0,19,4],
-"TestJson_8hpp.html#ae02cb19477b7407ee27626fe8a7f95c3":[4,0,0,19,4,0],
-"TestJson_8hpp_source.html":[4,0,0,19,4],
-"TestMarkdown_8cpp.html":[4,0,0,19,5],
-"TestMarkdown_8hpp.html":[4,0,0,19,6]
+"TestJson_8hpp.html#ae02cb19477b7407ee27626fe8a7f95c3":[4,0,0,19,4,0]
 };

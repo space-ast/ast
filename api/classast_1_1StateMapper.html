@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::StateMapper类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1StateMapper.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1StateMapper-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::StateMapper类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="StateMapper_8hpp_source.html">StateMapper.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::StateMapper 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1StateMapper.png" usemap="#ast::StateMapper_map" alt=""/>
+  <map id="ast::StateMapper_map" name="ast::StateMapper_map">
+<area href="classast_1_1HPOPStateMapper.html" alt="ast::HPOPStateMapper" shape="rect" coords="0,56,141,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:acbf3e56739edfd516050730c92080089" id="r_acbf3e56739edfd516050730c92080089"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbf3e56739edfd516050730c92080089">toState</a> (const double *y, double x, <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;state) const =0</td></tr>
+<tr class="separator:acbf3e56739edfd516050730c92080089"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f1ebe4ee656582f5e52c0ed086bb641" id="r_a1f1ebe4ee656582f5e52c0ed086bb641"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f1ebe4ee656582f5e52c0ed086bb641">fromState</a> (const <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;state, double *y, double &amp;x) const =0</td></tr>
+<tr class="separator:a1f1ebe4ee656582f5e52c0ed086bb641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae916ffd22239e3659c02dd352ab5048e" id="r_ae916ffd22239e3659c02dd352ab5048e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae916ffd22239e3659c02dd352ab5048e">toTime</a> (double x, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time) const</td></tr>
+<tr class="separator:ae916ffd22239e3659c02dd352ab5048e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ec1a5a6735d4356bd4b0ff1d7a126c" id="r_ab0ec1a5a6735d4356bd4b0ff1d7a126c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0ec1a5a6735d4356bd4b0ff1d7a126c">fromTime</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;x) const</td></tr>
+<tr class="separator:ab0ec1a5a6735d4356bd4b0ff1d7a126c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2040049c8cc86be12751eb60683f36c9" id="r_a2040049c8cc86be12751eb60683f36c9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2040049c8cc86be12751eb60683f36c9">epoch</a> () const</td></tr>
+<tr class="separator:a2040049c8cc86be12751eb60683f36c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19bc9917b4fc007fe851caa0c525d02f" id="r_a19bc9917b4fc007fe851caa0c525d02f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19bc9917b4fc007fe851caa0c525d02f">setEpoch</a> (<a class="el" href="classast_1_1TimePoint.html">TimePoint</a> <a class="el" href="#a2040049c8cc86be12751eb60683f36c9">epoch</a>)</td></tr>
+<tr class="separator:a19bc9917b4fc007fe851caa0c525d02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>状态映射器 </p>
+<p>状态映射器用于将积分器的状态向量映射到物理量，例如位置、速度等 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a2040049c8cc86be12751eb60683f36c9" name="a2040049c8cc86be12751eb60683f36c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2040049c8cc86be12751eb60683f36c9">&#9670;&#160;</a></span>epoch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp; ast::StateMapper::epoch </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取参考历元 </p>
+<dl class="section return"><dt>返回</dt><dd>参考历元 </dd></dl>
+
+</div>
+</div>
+<a id="a1f1ebe4ee656582f5e52c0ed086bb641" name="a1f1ebe4ee656582f5e52c0ed086bb641"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f1ebe4ee656582f5e52c0ed086bb641">&#9670;&#160;</a></span>fromState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::StateMapper::fromState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将状态量映射到状态向量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>航天器状态 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>状态向量指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1HPOPStateMapper.html#a9b6506bc3d8bde2fd2af0f9875d341e6">ast::HPOPStateMapper</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ab0ec1a5a6735d4356bd4b0ff1d7a126c" name="ab0ec1a5a6735d4356bd4b0ff1d7a126c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ec1a5a6735d4356bd4b0ff1d7a126c">&#9670;&#160;</a></span>fromTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::StateMapper::fromTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将时间点映射到自变量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>时间点 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>自变量 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a19bc9917b4fc007fe851caa0c525d02f" name="a19bc9917b4fc007fe851caa0c525d02f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19bc9917b4fc007fe851caa0c525d02f">&#9670;&#160;</a></span>setEpoch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::StateMapper::setEpoch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1TimePoint.html">TimePoint</a></td>          <td class="paramname"><span class="paramname"><em>epoch</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置参考历元 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">epoch</td><td>参考历元 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acbf3e56739edfd516050730c92080089" name="acbf3e56739edfd516050730c92080089"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbf3e56739edfd516050730c92080089">&#9670;&#160;</a></span>toState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::StateMapper::toState </td>
+          <td>(</td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将状态向量映射到状态量 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>状态向量指针 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">state</td><td>航天器状态 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1HPOPStateMapper.html#a8e43dc5996e6497d93b68ec8c9800285">ast::HPOPStateMapper</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ae916ffd22239e3659c02dd352ab5048e" name="ae916ffd22239e3659c02dd352ab5048e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae916ffd22239e3659c02dd352ab5048e">&#9670;&#160;</a></span>toTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::StateMapper::toTime </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将自变量映射到时间点 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>自变量 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">time</td><td>时间点 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Propagator/HPOP/<a class="el" href="StateMapper_8hpp_source.html">StateMapper.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1StateMapper.html">StateMapper</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>
