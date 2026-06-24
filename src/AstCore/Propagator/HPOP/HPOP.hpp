@@ -26,6 +26,7 @@
 #include "AstUtil/Object.hpp"
 #include "AstUtil/ObjectNamed.hpp"
 #include "AstCore/CelestialBody.hpp"
+#include "AstCore/StateMapper.hpp"
 #include <string>
 #include <vector>
 
@@ -96,7 +97,8 @@ protected:
     HPOPEquation* equation() const;
 private:
     mutable ScopedPtr<HPOPEquation> equation_;       ///< 高精度轨道预报方程
-    mutable SharedPtr<ODEIntegrator> integrator_;   ///< 高精度轨道预报积分器
+    mutable SharedPtr<ODEIntegrator> integrator_;    ///< 高精度轨道预报积分器
+    ScopedPtr<StateMapper> stateMapper_;             ///< 状态映射器
 };
 
 

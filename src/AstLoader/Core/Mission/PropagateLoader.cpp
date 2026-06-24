@@ -20,6 +20,7 @@
 
 #include "AstCore/Propagate.hpp"
 #include "AstCore/DetectorAllHeaders.hpp"
+#include "AstCore/TimePoint.hpp"
 #include "AstLoader/LoaderContext.hpp"
 #include "AstLoader/ValXMLLoader.hpp"
 #include "AstLoader/ResultLoader.hpp"
@@ -43,6 +44,12 @@ errc_t aLoadEventDetector(const Value& value, DetectorPointRelated& detector)
 {
     std::string pointName = value["CalcObjectAttributes"]["ReferencePoint"];
     detector.setPointByName(pointName);
+    return 0;
+}
+
+errc_t aLoadEventDetector(const Value& value, DetectorEpoch& detector)
+{
+    detector.setGoal(TimePoint::Parse(value["TripValue"].toString()));
     return 0;
 }
 
@@ -90,6 +97,12 @@ errc_t aLoadStoppingCondition(const Value& value, SharedPtr<EventDetector>& even
         auto detectorLighting = aNewObject<DetectorLighting>(scope);
         // aLoadEventDetector(value, *detectorLighting);
         eventDetector = detectorLighting;
+    }
+    else if(type == "Epoch")
+    {
+        auto detectorEpoch = aNewObject<DetectorEpoch>(scope);
+        aLoadEventDetector(value, *detectorEpoch);
+        eventDetector = detectorEpoch;
     }
     else if(type == "UserSelect")
     {

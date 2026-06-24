@@ -24,10 +24,48 @@
 #include "AstMath/Vector.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstCore/EventDetector.hpp"
+#include "AstCore/StateMapper.hpp"
+#include "AstCore/SpacecraftState.hpp"
 
 AST_NAMESPACE_BEGIN
 
-HPOP::HPOP() = default;
+
+class HPOPStateMapper final: public StateMapper
+{
+public:
+    HPOPStateMapper() = default;
+    ~HPOPStateMapper() override = default;
+    void toState(const double* y, double x, SpacecraftState& state) const override
+    {
+        // 设置轨道历元
+        TimePoint time;
+        toTime(x, time);
+        state.setStateEpoch(time);
+
+        // 设置轨道状态
+        // @todo 这里需要处理其他一般情况
+        CartState* cartState = (CartState*)y;
+        state.setState(*cartState);
+    }
+    void fromState(const SpacecraftState& state, double* y, double& x) const override
+    {
+        // 获取轨道历元
+        TimePoint time;
+        state.getStateEpoch(time);
+        fromTime(time, x);
+
+        // 获取轨道状态
+        // @todo 这里需要处理其他一般情况
+        CartState* cartState = (CartState*)y;
+        state.getState(*cartState);
+    }
+};
+
+HPOP::HPOP()
+    : stateMapper_(new HPOPStateMapper())
+{
+
+}
 
 HPOP::~HPOP() = default;
 
@@ -91,7 +129,9 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector
         aError("dimension of equation is not 6");
         return -1;
     }
+    // 设置参考历元
     equation_->setEpoch(startTime);
+    stateMapper_->setEpoch(startTime);
     array6d y = {position.x(), position.y(), position.z(), velocity.x(), velocity.y(), velocity.z()};
     double duration = targetTime - startTime;
     double t = 0;
@@ -121,7 +161,7 @@ errc_t HPOP::initialize()
 void HPOP::addEventDetector(EventDetector* eventDetector)
 {
     if(!eventDetector) return;
-    this->getIntegrator()->addEventDetector(eventDetector->newODEEventDetector());
+    this->getIntegrator()->addEventDetector(eventDetector->newODEEventDetector(stateMapper_.get()));
 }
 
 void HPOP::clearEventDetectors()
