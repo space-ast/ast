@@ -102,8 +102,7 @@ $(function(){initNavTree('group__SolarSystem.html',''); initResizable(true); });
 <a href="#nested-classes">类</a> &#124;
 <a href="#typedef-members">类型定义</a> &#124;
 <a href="#enum-members">枚举</a> &#124;
-<a href="#func-members">函数</a> &#124;
-<a href="#var-members">变量</a>  </div>
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">太阳系<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a></div></div></div>
 </div><!--header-->
 <div class="contents">
@@ -157,6 +156,12 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::PBody</b> = <a 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
+<tr class="memitem:gac22db6298835f5ffbad88bd9c01c4d08" id="r_gac22db6298835f5ffbad88bd9c01c4d08"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac22db6298835f5ffbad88bd9c01c4d08">ast::EEphemerisSource</a> { <a class="el" href="#ggac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5">ast::EEphemerisSource::eBodyEphemeris</a>
+, <a class="el" href="#ggac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8">ast::EEphemerisSource::eJplDE</a>
+, <a class="el" href="#ggac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6">ast::EEphemerisSource::eJplSpice</a>
+, <a class="el" href="#ggac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996">ast::EEphemerisSource::eJplSpiceBarycenter</a>
+ }</td></tr>
+<tr class="separator:gac22db6298835f5ffbad88bd9c01c4d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8222cfd87a81c1bb00e762d67be68f1c" id="r_ga8222cfd87a81c1bb00e762d67be68f1c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8222cfd87a81c1bb00e762d67be68f1c">ast::ESpiceId</a> { <br />
 &#160;&#160;<a class="el" href="#gga8222cfd87a81c1bb00e762d67be68f1ca9e531996d499e7a8d75167d73dc15d6b">ast::eSolarSystemBarycenter</a> = 0
 , <a class="el" href="#gga8222cfd87a81c1bb00e762d67be68f1cab2f187de490efbfa0aab79672e74abe3">ast::eMercuryBarycenter</a> = 1
@@ -276,14 +281,42 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::PBody</b> = <a 
 <tr class="separator:gab64788f28e42df0d75074fd8a520a03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5fda1feda60f45c14f5d2418943dd50a" id="r_ga5fda1feda60f45c14f5d2418943dd50a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ga8222cfd87a81c1bb00e762d67be68f1c">ESpiceId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5fda1feda60f45c14f5d2418943dd50a">ast::aGetPlanetBarycenterId</a> (<a class="el" href="#ga8222cfd87a81c1bb00e762d67be68f1c">ESpiceId</a> planetId)</td></tr>
 <tr class="separator:ga5fda1feda60f45c14f5d2418943dd50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-变量</h2></td></tr>
-<tr class="memitem:ga96348f9dc63131e0ed0f96f1648fc0fd" id="r_ga96348f9dc63131e0ed0f96f1648fc0fd"><td class="memItemLeft" align="right" valign="top"><a id="ga96348f9dc63131e0ed0f96f1648fc0fd" name="ga96348f9dc63131e0ed0f96f1648fc0fd"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::iii</b> = sizeof(<a class="el" href="classast_1_1BodyEphemeris.html">BodyEphemeris</a>)</td></tr>
-<tr class="separator:ga96348f9dc63131e0ed0f96f1648fc0fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">枚举类型说明</h2>
+<a id="gac22db6298835f5ffbad88bd9c01c4d08" name="gac22db6298835f5ffbad88bd9c01c4d08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac22db6298835f5ffbad88bd9c01c4d08">&#9670;&#160;</a></span>EEphemerisSource</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gac22db6298835f5ffbad88bd9c01c4d08">ast::EEphemerisSource</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>星历来源 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ggac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5" name="ggac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5"></a>eBodyEphemeris&#160;</td><td class="fielddoc"><p>天体星历 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8" name="ggac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8"></a>eJplDE&#160;</td><td class="fielddoc"><p>JPL DE 星历 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6" name="ggac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6"></a>eJplSpice&#160;</td><td class="fielddoc"><p>JPL SPICE 星历 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996" name="ggac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996"></a>eJplSpiceBarycenter&#160;</td><td class="fielddoc"><p>JPL SPICE 行星系质心星历 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a id="ga8222cfd87a81c1bb00e762d67be68f1c" name="ga8222cfd87a81c1bb00e762d67be68f1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga8222cfd87a81c1bb00e762d67be68f1c">&#9670;&#160;</a></span>ESpiceId</h2>
 

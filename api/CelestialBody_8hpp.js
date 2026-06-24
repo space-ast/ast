@@ -4,6 +4,12 @@ var CelestialBody_8hpp =
     [ "HCelestialBody", "CelestialBody_8hpp.html#ga3b2fe87cceca735335ef7ade4e48add5", null ],
     [ "PBody", "CelestialBody_8hpp.html#gac670e719678a85c5d087d62383061f8f", null ],
     [ "PCelestialBody", "CelestialBody_8hpp.html#ga37239c4cb3486ba286d79abaf2070c74", null ],
+    [ "EEphemerisSource", "CelestialBody_8hpp.html#gac22db6298835f5ffbad88bd9c01c4d08", [
+      [ "eBodyEphemeris", "CelestialBody_8hpp.html#ggac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5", null ],
+      [ "eJplDE", "CelestialBody_8hpp.html#ggac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8", null ],
+      [ "eJplSpice", "CelestialBody_8hpp.html#ggac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6", null ],
+      [ "eJplSpiceBarycenter", "CelestialBody_8hpp.html#ggac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996", null ]
+    ] ],
     [ "ESpiceId", "CelestialBody_8hpp.html#ga8222cfd87a81c1bb00e762d67be68f1c", [
       [ "eSolarSystemBarycenter", "CelestialBody_8hpp.html#gga8222cfd87a81c1bb00e762d67be68f1ca9e531996d499e7a8d75167d73dc15d6b", null ],
       [ "eMercuryBarycenter", "CelestialBody_8hpp.html#gga8222cfd87a81c1bb00e762d67be68f1cab2f187de490efbfa0aab79672e74abe3", null ],

@@ -1,10 +1,5 @@
 var NAVTREEINDEX21 =
 {
-"classast_1_1DetectorFrameRelated.html":[2,0,0,188],
-"classast_1_1DetectorFrameRelated.html":[3,0,0,187],
-"classast_1_1DetectorLighting.html":[2,0,0,189],
-"classast_1_1DetectorLighting.html":[3,0,0,188],
-"classast_1_1DetectorLighting.html#a4bca05fb075d19e01cabd49729344ad1":[2,0,0,189,0],
 "classast_1_1DetectorLighting.html#a4bca05fb075d19e01cabd49729344ad1":[3,0,0,188,0],
 "classast_1_1DetectorMeanAnomaly.html":[2,0,0,190],
 "classast_1_1DetectorMeanAnomaly.html":[3,0,0,189],
@@ -249,5 +244,10 @@ var NAVTREEINDEX21 =
 "classast_1_1EphemerisTwoBody.html#a502c57806f0f0daf34ea7f2f13b800c1":[3,0,0,213,2],
 "classast_1_1EphemerisTwoBody.html#a7905713c7c9fd84ebb74759e09771887":[2,0,0,214,0],
 "classast_1_1EphemerisTwoBody.html#a7905713c7c9fd84ebb74759e09771887":[3,0,0,213,0],
-"classast_1_1EphemerisTwoBody.html#a7a9faa06761688a6ba07518aef813bad":[2,0,0,214,1]
+"classast_1_1EphemerisTwoBody.html#a7a9faa06761688a6ba07518aef813bad":[2,0,0,214,1],
+"classast_1_1EphemerisTwoBody.html#a7a9faa06761688a6ba07518aef813bad":[3,0,0,213,1],
+"classast_1_1EquinElem.html":[0,1,4,12],
+"classast_1_1EquinElem.html#a0e57cdad3d38b7bb25f08361b5a28ffe":[0,1,4,12,3],
+"classast_1_1EquinElem.html#a31b2d9cafebb800bc00e3aca20f0dd48":[0,1,4,12,2],
+"classast_1_1EquinElem.html#a3e83e3e396633690125f0784ec58329f":[0,1,4,12,5]
 };

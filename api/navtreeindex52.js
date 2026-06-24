@@ -21,11 +21,6 @@ var NAVTREEINDEX52 =
 "namespaceast.html#ac04d75d90835f370e9fe31cc06211ddd":[2,0,0,1423],
 "namespaceast.html#ac126ab85f3dd7a0f600812bec69dbc1e":[2,0,0,2057],
 "namespaceast.html#ac1d7c916606754e1dc51c9a0ac158fec":[2,0,0,1794],
-"namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08":[2,0,0,1023],
-"namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6":[2,0,0,1023,2],
-"namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996":[2,0,0,1023,3],
-"namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5":[2,0,0,1023,0],
-"namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8":[2,0,0,1023,1],
 "namespaceast.html#ac237e89fe6b85442a08fc47d06d11c4b":[2,0,0,1354],
 "namespaceast.html#ac2f4b938ad0de31f9e9a8c2ed0112b56":[2,0,0,1767],
 "namespaceast.html#ac369fccff4a6149a461eca26e77940df":[2,0,0,1604],
@@ -249,5 +244,10 @@ var NAVTREEINDEX52 =
 "namespaceast_1_1literals.html#af2c6bf04dacf1e87018f6b42ed46f9ec":[2,0,0,2,8],
 "namespaceast_1_1math.html":[0,2,0,0],
 "namespaceast_1_1math.html#a04a4b8d988da2035897df6832c1182d5":[2,0,0,3,8],
-"namespaceast_1_1math.html#a762ef5701ce8b50600daa804623886da":[2,0,0,3,1]
+"namespaceast_1_1math.html#a762ef5701ce8b50600daa804623886da":[2,0,0,3,1],
+"namespaceast_1_1math.html#a7cdd6932f756ddd49b3afe080e33d857":[2,0,0,3,5],
+"namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e":[2,0,0,3,3],
+"namespaceast_1_1math.html#ad55476707790d13c96d9eef28526cbcf":[2,0,0,3,4],
+"namespaceast_1_1math.html#ad7d48b99658c1144283823aa76621adf":[2,0,0,3,7],
+"namespaceast_1_1math.html#af4d91cee65bbdc213a65c66832b1dd8c":[2,0,0,3,6]
 };

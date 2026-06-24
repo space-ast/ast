@@ -1311,11 +1311,11 @@ var namespaceast =
       [ "eLittleEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526ae3046b598c718c3efb499423ed6272ec", null ],
       [ "eBigEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526aa62c0343340b8ffd29f021d1546be637", null ]
     ] ],
-    [ "EEphemerisSource", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08", [
-      [ "eBodyEphemeris", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5", null ],
-      [ "eJplDE", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8", null ],
-      [ "eJplSpice", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6", null ],
-      [ "eJplSpiceBarycenter", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996", null ]
+    [ "EEphemerisSource", "group__SolarSystem.html#gac22db6298835f5ffbad88bd9c01c4d08", [
+      [ "eBodyEphemeris", "group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5", null ],
+      [ "eJplDE", "group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8", null ],
+      [ "eJplSpice", "group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6", null ],
+      [ "eJplSpiceBarycenter", "group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996", null ]
     ] ],
     [ "EEphemerisType", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fda", [
       [ "eSTKEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaacfe6ae2811cf686d13e436f286a65c1d", null ],

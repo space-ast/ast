@@ -1,10 +1,5 @@
 var NAVTREEINDEX35 =
 {
-"classast_1_1Rotation.html#a0f2bc3cd07e82a337e823379122844f0":[2,0,0,544,12],
-"classast_1_1Rotation.html#a0f2bc3cd07e82a337e823379122844f0":[3,0,0,543,12],
-"classast_1_1Rotation.html#a2fd42528a61cf9d3a0835a20fa2c4fa3":[2,0,0,544,6],
-"classast_1_1Rotation.html#a2fd42528a61cf9d3a0835a20fa2c4fa3":[3,0,0,543,6],
-"classast_1_1Rotation.html#a3d78420da24d3cc9fce0a5904b3fee34":[2,0,0,544,22],
 "classast_1_1Rotation.html#a3d78420da24d3cc9fce0a5904b3fee34":[3,0,0,543,22],
 "classast_1_1Rotation.html#a49cbe7086d19c2608cd6bdcf60500bed":[2,0,0,544,3],
 "classast_1_1Rotation.html#a49cbe7086d19c2608cd6bdcf60500bed":[3,0,0,543,3],
@@ -249,5 +244,10 @@ var NAVTREEINDEX35 =
 "classast_1_1ScStateCalcEccAnomaly.html":[2,0,0,622],
 "classast_1_1ScStateCalcEccAnomaly.html":[3,0,0,621],
 "classast_1_1ScStateCalcEccentricity.html":[2,0,0,623],
-"classast_1_1ScStateCalcEccentricity.html":[3,0,0,622]
+"classast_1_1ScStateCalcEccentricity.html":[3,0,0,622],
+"classast_1_1ScStateCalcElevation.html":[2,0,0,624],
+"classast_1_1ScStateCalcElevation.html":[3,0,0,623],
+"classast_1_1ScStateCalcElevationRate.html":[2,0,0,625],
+"classast_1_1ScStateCalcElevationRate.html":[3,0,0,624],
+"classast_1_1ScStateCalcEpoch.html":[2,0,0,626]
 };

@@ -192,6 +192,12 @@ var group__SolarSystem =
     [ "ast::HCelestialBody", "group__SolarSystem.html#ga3b2fe87cceca735335ef7ade4e48add5", null ],
     [ "ast::PBody", "group__SolarSystem.html#gac670e719678a85c5d087d62383061f8f", null ],
     [ "ast::PCelestialBody", "group__SolarSystem.html#ga37239c4cb3486ba286d79abaf2070c74", null ],
+    [ "ast::EEphemerisSource", "group__SolarSystem.html#gac22db6298835f5ffbad88bd9c01c4d08", [
+      [ "ast::EEphemerisSource::eBodyEphemeris", "group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5", null ],
+      [ "ast::EEphemerisSource::eJplDE", "group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8", null ],
+      [ "ast::EEphemerisSource::eJplSpice", "group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6", null ],
+      [ "ast::EEphemerisSource::eJplSpiceBarycenter", "group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996", null ]
+    ] ],
     [ "ast::ESpiceId", "group__SolarSystem.html#ga8222cfd87a81c1bb00e762d67be68f1c", [
       [ "ast::eSolarSystemBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1ca9e531996d499e7a8d75167d73dc15d6b", null ],
       [ "ast::eMercuryBarycenter", "group__SolarSystem.html#gga8222cfd87a81c1bb00e762d67be68f1cab2f187de490efbfa0aab79672e74abe3", null ],
