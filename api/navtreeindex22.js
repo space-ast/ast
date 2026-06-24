@@ -1,5 +1,6 @@
 var NAVTREEINDEX22 =
 {
+"classast_1_1EphemerisTwoBody.html#a7a9faa06761688a6ba07518aef813bad":[3,0,0,213,1],
 "classast_1_1EquinElem.html":[0,1,4,12],
 "classast_1_1EquinElem.html#a0e57cdad3d38b7bb25f08361b5a28ffe":[0,1,4,12,3],
 "classast_1_1EquinElem.html#a31b2d9cafebb800bc00e3aca20f0dd48":[0,1,4,12,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX22 =
 "classast_1_1FOVHalfPower.html#a0ee229dcf9952b86292b90e89b002e5c":[2,0,0,261,5],
 "classast_1_1FOVHalfPower.html#a0ee229dcf9952b86292b90e89b002e5c":[3,0,0,260,5],
 "classast_1_1FOVHalfPower.html#a15d9f46dc9e5eb98799abe9660e60e05":[2,0,0,261,2],
-"classast_1_1FOVHalfPower.html#a15d9f46dc9e5eb98799abe9660e60e05":[3,0,0,260,2],
-"classast_1_1FOVHalfPower.html#a30a7ff787db178a88b422be7fe46ad2a":[2,0,0,261,8]
+"classast_1_1FOVHalfPower.html#a15d9f46dc9e5eb98799abe9660e60e05":[3,0,0,260,2]
 };

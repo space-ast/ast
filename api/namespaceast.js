@@ -1314,7 +1314,8 @@ var namespaceast =
     [ "EEphemerisSource", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08", [
       [ "eBodyEphemeris", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5", null ],
       [ "eJplDE", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8", null ],
-      [ "eJplSpice", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6", null ]
+      [ "eJplSpice", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6", null ],
+      [ "eJplSpiceBarycenter", "namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996", null ]
     ] ],
     [ "EEphemerisType", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fda", [
       [ "eSTKEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaacfe6ae2811cf686d13e436f286a65c1d", null ],
@@ -1337,6 +1338,7 @@ var namespaceast =
     ] ],
     [ "EGMSource", "group__ForceModel.html#gae12dca510680d7ff59d3e93fb379eba9", [
       [ "eBodyGravity", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ac17e2e87b6c84f56634797d3b1990fe5", null ],
+      [ "eSystemGravity", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a314ebc5a1ac89ebd09538736ac6438eb", null ],
       [ "eJplDE", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8", null ],
       [ "eSpecifiedValue", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6", null ]
     ] ],
@@ -2009,6 +2011,7 @@ var namespaceast =
     [ "aGetOutputPortSignal", "namespaceast.html#a33d0f2fd3f50f38098e542fe9ff44189", null ],
     [ "aGetOutputPortWidth", "namespaceast.html#ae692331576d0a2db7402b684d8c3dd1b", null ],
     [ "aGetParentScope", "group__RTTI.html#ga25a796d58add8beaf21d2c9a61b0434d", null ],
+    [ "aGetPlanetBarycenterId", "group__SolarSystem.html#ga5fda1feda60f45c14f5d2418943dd50a", null ],
     [ "aGetPluto", "group__Data.html#ga9964cd04be056643339e57340ba71b71", null ],
     [ "aGetProcAddress", "group__Platform.html#ga0f4600dceeffcc4993b66d33a3b8e680", null ],
     [ "aGetSaturn", "group__Data.html#ga63e6186026fde76382aec3fca10b3a02", null ],

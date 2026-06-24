@@ -120,68 +120,70 @@ $(function(){initNavTree('ThirdBodyForce_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5">eBodyEphemeris</a>,      </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_enumvalue" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8">eJplDE</a>,              </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_enumvalue" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6">eJplSpice</a>,           </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_enumvalue" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996">eJplSpiceBarycenter</a>, </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
 </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1ThirdBodyForce.html">   47</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1ForceModel.html">ForceModel</a></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>(<a class="code hl_class" href="classast_1_1CelestialBody.html">CelestialBody</a>* body)</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        : body_(body)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {}</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1ThirdBodyForce.html#add04beb3726c5815c93faf2d7c9cf972">   60</a></span>    <a class="code hl_class" href="classast_1_1GravityForce.html">GravityForce</a>&amp; <a class="code hl_function" href="classast_1_1ThirdBodyForce.html#add04beb3726c5815c93faf2d7c9cf972">gravity</a>(){<span class="keywordflow">return</span> gravity_;}</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GravityForce.html">GravityForce</a>&amp; gravity()<span class="keyword"> const </span>{<span class="keywordflow">return</span> gravity_;}</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1ThirdBodyForce.html#a1f7733a71b5cacbda3e7fb5e5d46b625">   65</a></span>    <a class="code hl_class" href="classast_1_1PointMassForce.html">PointMassForce</a>&amp; <a class="code hl_function" href="classast_1_1ThirdBodyForce.html#a1f7733a71b5cacbda3e7fb5e5d46b625">pointMass</a>(){<span class="keywordflow">return</span> pointMass_;}</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1PointMassForce.html">PointMassForce</a>&amp; pointMass()<span class="keyword"> const </span>{<span class="keywordflow">return</span> pointMass_;}</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    BodyAttraction&amp; bodyAttraction();</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">const</span> BodyAttraction&amp; bodyAttraction() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    EBodyAttractionType bodyAttractionType() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> setAttractionType(EBodyAttractionType type);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    CelestialBody* body() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> setBody(CelestialBody* body);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classast_1_1ThirdBodyForce.html#a0f95a60aa7ffc61a5b0429f104fda332">   91</a></span>    <a class="code hl_enumeration" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08">EEphemerisSource</a> <a class="code hl_function" href="classast_1_1ThirdBodyForce.html#a0f95a60aa7ffc61a5b0429f104fda332">ephemerisSource</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> ephemerisSource_;}</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classast_1_1ThirdBodyForce.html#ae6ed2c30e66766561011e67c8b6fa26a">   94</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ThirdBodyForce.html#ae6ed2c30e66766561011e67c8b6fa26a">setEphemerisSource</a>(<a class="code hl_enumeration" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08">EEphemerisSource</a> source){ephemerisSource_ = source;}</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">HCelestialBody</a> body_;                                                       </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_enumeration" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08">EEphemerisSource</a> ephemerisSource_{EEphemerisSource::eBodyEphemeris};        </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    EBodyAttractionType attractionType_{EBodyAttractionType::ePointMass};       </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    PointMassForce pointMass_{};                                                </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    GravityForce gravity_{};                                                    </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>};</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1ThirdBodyForce.html">   48</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1ForceModel.html">ForceModel</a></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classast_1_1ThirdBodyForce.html">ThirdBodyForce</a>(<a class="code hl_class" href="classast_1_1CelestialBody.html">CelestialBody</a>* body)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        : body_(body)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classast_1_1ThirdBodyForce.html#add04beb3726c5815c93faf2d7c9cf972">   61</a></span>    <a class="code hl_class" href="classast_1_1GravityForce.html">GravityForce</a>&amp; <a class="code hl_function" href="classast_1_1ThirdBodyForce.html#add04beb3726c5815c93faf2d7c9cf972">gravity</a>(){<span class="keywordflow">return</span> gravity_;}</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GravityForce.html">GravityForce</a>&amp; gravity()<span class="keyword"> const </span>{<span class="keywordflow">return</span> gravity_;}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1ThirdBodyForce.html#a1f7733a71b5cacbda3e7fb5e5d46b625">   66</a></span>    <a class="code hl_class" href="classast_1_1PointMassForce.html">PointMassForce</a>&amp; <a class="code hl_function" href="classast_1_1ThirdBodyForce.html#a1f7733a71b5cacbda3e7fb5e5d46b625">pointMass</a>(){<span class="keywordflow">return</span> pointMass_;}</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1PointMassForce.html">PointMassForce</a>&amp; pointMass()<span class="keyword"> const </span>{<span class="keywordflow">return</span> pointMass_;}</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    BodyAttraction&amp; bodyAttraction();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">const</span> BodyAttraction&amp; bodyAttraction() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    EBodyAttractionType bodyAttractionType() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> setAttractionType(EBodyAttractionType type);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    CelestialBody* body() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> setBody(CelestialBody* body);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classast_1_1ThirdBodyForce.html#a0f95a60aa7ffc61a5b0429f104fda332">   92</a></span>    <a class="code hl_enumeration" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08">EEphemerisSource</a> <a class="code hl_function" href="classast_1_1ThirdBodyForce.html#a0f95a60aa7ffc61a5b0429f104fda332">ephemerisSource</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> ephemerisSource_;}</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classast_1_1ThirdBodyForce.html#ae6ed2c30e66766561011e67c8b6fa26a">   95</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ThirdBodyForce.html#ae6ed2c30e66766561011e67c8b6fa26a">setEphemerisSource</a>(<a class="code hl_enumeration" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08">EEphemerisSource</a> source){ephemerisSource_ = source;}</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">HCelestialBody</a> body_;                                                       </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_enumeration" href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08">EEphemerisSource</a> ephemerisSource_{EEphemerisSource::eBodyEphemeris};        </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    EBodyAttractionType attractionType_{EBodyAttractionType::ePointMass};       </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    PointMassForce pointMass_{};                                                </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    GravityForce gravity_{};                                                    </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>};</div>
 </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aBodyAttraction_8hpp_html"><div class="ttname"><a href="BodyAttraction_8hpp.html">BodyAttraction.hpp</a></div></div>
 <div class="ttc" id="aclassast_1_1CelestialBody_html"><div class="ttname"><a href="classast_1_1CelestialBody.html">ast::CelestialBody</a></div><div class="ttdoc">天体</div><div class="ttdef"><b>定义</b> CelestialBody.hpp:60</div></div>
-<div class="ttc" id="aclassast_1_1ForceModel_html"><div class="ttname"><a href="classast_1_1ForceModel.html">ast::ForceModel</a></div><div class="ttdoc">力模型</div><div class="ttdef"><b>定义</b> ForceModel.hpp:54</div></div>
+<div class="ttc" id="aclassast_1_1ForceModel_html"><div class="ttname"><a href="classast_1_1ForceModel.html">ast::ForceModel</a></div><div class="ttdoc">力模型</div><div class="ttdef"><b>定义</b> ForceModel.hpp:55</div></div>
 <div class="ttc" id="aclassast_1_1GravityForce_html"><div class="ttname"><a href="classast_1_1GravityForce.html">ast::GravityForce</a></div><div class="ttdef"><b>定义</b> GravityForce.hpp:43</div></div>
 <div class="ttc" id="aclassast_1_1PointMassForce_html"><div class="ttname"><a href="classast_1_1PointMassForce.html">ast::PointMassForce</a></div><div class="ttdoc">点质量引力模型/</div><div class="ttdef"><b>定义</b> PointMassForce.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr&lt; CelestialBody &gt;</a></div></div>
-<div class="ttc" id="aclassast_1_1ThirdBodyForce_html"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html">ast::ThirdBodyForce</a></div><div class="ttdoc">三体引力模型</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:48</div></div>
-<div class="ttc" id="aclassast_1_1ThirdBodyForce_html_a0f95a60aa7ffc61a5b0429f104fda332"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html#a0f95a60aa7ffc61a5b0429f104fda332">ast::ThirdBodyForce::ephemerisSource</a></div><div class="ttdeci">EEphemerisSource ephemerisSource() const</div><div class="ttdoc">获取星历来源</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:91</div></div>
-<div class="ttc" id="aclassast_1_1ThirdBodyForce_html_a1f7733a71b5cacbda3e7fb5e5d46b625"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html#a1f7733a71b5cacbda3e7fb5e5d46b625">ast::ThirdBodyForce::pointMass</a></div><div class="ttdeci">PointMassForce &amp; pointMass()</div><div class="ttdoc">获取点质量引力模型</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:65</div></div>
-<div class="ttc" id="aclassast_1_1ThirdBodyForce_html_add04beb3726c5815c93faf2d7c9cf972"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html#add04beb3726c5815c93faf2d7c9cf972">ast::ThirdBodyForce::gravity</a></div><div class="ttdeci">GravityForce &amp; gravity()</div><div class="ttdoc">获取引力场模型</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:60</div></div>
-<div class="ttc" id="aclassast_1_1ThirdBodyForce_html_ae6ed2c30e66766561011e67c8b6fa26a"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html#ae6ed2c30e66766561011e67c8b6fa26a">ast::ThirdBodyForce::setEphemerisSource</a></div><div class="ttdeci">void setEphemerisSource(EEphemerisSource source)</div><div class="ttdoc">设置星历来源</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:94</div></div>
-<div class="ttc" id="agroup__ForceModel_html_ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8"><div class="ttname"><a href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8">ast::EGMSource::eJplDE</a></div><div class="ttdeci">@ eJplDE</div><div class="ttdoc">来自JPL DE文件</div></div>
+<div class="ttc" id="aclassast_1_1ThirdBodyForce_html"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html">ast::ThirdBodyForce</a></div><div class="ttdoc">三体引力模型</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:49</div></div>
+<div class="ttc" id="aclassast_1_1ThirdBodyForce_html_a0f95a60aa7ffc61a5b0429f104fda332"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html#a0f95a60aa7ffc61a5b0429f104fda332">ast::ThirdBodyForce::ephemerisSource</a></div><div class="ttdeci">EEphemerisSource ephemerisSource() const</div><div class="ttdoc">获取星历来源</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:92</div></div>
+<div class="ttc" id="aclassast_1_1ThirdBodyForce_html_a1f7733a71b5cacbda3e7fb5e5d46b625"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html#a1f7733a71b5cacbda3e7fb5e5d46b625">ast::ThirdBodyForce::pointMass</a></div><div class="ttdeci">PointMassForce &amp; pointMass()</div><div class="ttdoc">获取点质量引力模型</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:66</div></div>
+<div class="ttc" id="aclassast_1_1ThirdBodyForce_html_add04beb3726c5815c93faf2d7c9cf972"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html#add04beb3726c5815c93faf2d7c9cf972">ast::ThirdBodyForce::gravity</a></div><div class="ttdeci">GravityForce &amp; gravity()</div><div class="ttdoc">获取引力场模型</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:61</div></div>
+<div class="ttc" id="aclassast_1_1ThirdBodyForce_html_ae6ed2c30e66766561011e67c8b6fa26a"><div class="ttname"><a href="classast_1_1ThirdBodyForce.html#ae6ed2c30e66766561011e67c8b6fa26a">ast::ThirdBodyForce::setEphemerisSource</a></div><div class="ttdeci">void setEphemerisSource(EEphemerisSource source)</div><div class="ttdoc">设置星历来源</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:95</div></div>
+<div class="ttc" id="agroup__ForceModel_html_ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8"><div class="ttname"><a href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8">ast::EGMSource::eJplDE</a></div><div class="ttdeci">@ eJplDE</div><div class="ttdoc">来自JPL DE星历的引力常数</div></div>
 <div class="ttc" id="anamespaceast_html_ac22db6298835f5ffbad88bd9c01c4d08"><div class="ttname"><a href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08">ast::EEphemerisSource</a></div><div class="ttdeci">EEphemerisSource</div><div class="ttdoc">星历来源</div><div class="ttdef"><b>定义</b> ThirdBodyForce.hpp:39</div></div>
 <div class="ttc" id="anamespaceast_html_ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6"><div class="ttname"><a href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6">ast::EEphemerisSource::eJplSpice</a></div><div class="ttdeci">@ eJplSpice</div><div class="ttdoc">JPL SPICE 星历</div></div>
+<div class="ttc" id="anamespaceast_html_ac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996"><div class="ttname"><a href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996">ast::EEphemerisSource::eJplSpiceBarycenter</a></div><div class="ttdeci">@ eJplSpiceBarycenter</div><div class="ttdoc">JPL SPICE 行星系质心星历</div></div>
 <div class="ttc" id="anamespaceast_html_ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5"><div class="ttname"><a href="namespaceast.html#ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5">ast::EEphemerisSource::eBodyEphemeris</a></div><div class="ttdeci">@ eBodyEphemeris</div><div class="ttdoc">天体星历</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

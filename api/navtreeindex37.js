@@ -1,5 +1,6 @@
 var NAVTREEINDEX37 =
 {
+"classast_1_1ScStateCalcUserValue.html":[2,0,0,749],
 "classast_1_1ScStateCalcUserValue.html":[3,0,0,748],
 "classast_1_1ScStateCalcVAz.html":[2,0,0,752],
 "classast_1_1ScStateCalcVAz.html":[3,0,0,751],
@@ -248,6 +249,5 @@ var NAVTREEINDEX37 =
 "classast_1_1SimpleOrbitDesigner.html#af5535608e9335d5ebec7c27668b63158":[0,1,4,6,15],
 "classast_1_1SimpleOrbitDesigner.html#af8e00f8a3e4e8c7ed50a90f3168effe9":[0,1,4,6,10],
 "classast_1_1SinCos.html":[0,6,12],
-"classast_1_1SolarRadiationPressure.html":[2,0,0,788],
-"classast_1_1SolarRadiationPressure.html":[3,0,0,787]
+"classast_1_1SolarRadiationPressure.html":[2,0,0,788]
 };

@@ -2574,6 +2574,7 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
  }</td></tr>
 <tr class="separator:ga2bf48439a4f7c7769a0f7e017ef7f055"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae12dca510680d7ff59d3e93fb379eba9" id="r_gae12dca510680d7ff59d3e93fb379eba9"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ForceModel.html#gae12dca510680d7ff59d3e93fb379eba9">EGMSource</a> { <a class="el" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ac17e2e87b6c84f56634797d3b1990fe5">EGMSource::eBodyGravity</a>
+, <a class="el" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a314ebc5a1ac89ebd09538736ac6438eb">EGMSource::eSystemGravity</a>
 , <a class="el" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8">EGMSource::eJplDE</a>
 , <a class="el" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6">EGMSource::eSpecifiedValue</a>
  }</td></tr>
@@ -2591,6 +2592,7 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <tr class="memitem:ac22db6298835f5ffbad88bd9c01c4d08" id="r_ac22db6298835f5ffbad88bd9c01c4d08"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac22db6298835f5ffbad88bd9c01c4d08">EEphemerisSource</a> { <a class="el" href="#ac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5">eBodyEphemeris</a>
 , <a class="el" href="#ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8">eJplDE</a>
 , <a class="el" href="#ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6">eJplSpice</a>
+, <a class="el" href="#ac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996">eJplSpiceBarycenter</a>
  }</td></tr>
 <tr class="separator:ac22db6298835f5ffbad88bd9c01c4d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9845a533634a5314f75b3fa04dc274ba" id="r_a9845a533634a5314f75b3fa04dc274ba"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9845a533634a5314f75b3fa04dc274ba">EFOVType</a> { <br />
@@ -4482,6 +4484,8 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aStellarAberrationF
 <tr class="separator:aa180f90d12f4e1da707a022fc998aa91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab64788f28e42df0d75074fd8a520a03b" id="r_gab64788f28e42df0d75074fd8a520a03b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SolarSystem.html#gab64788f28e42df0d75074fd8a520a03b">aGetGravityParameter</a> (const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;body, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> gravityModel)</td></tr>
 <tr class="separator:gab64788f28e42df0d75074fd8a520a03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5fda1feda60f45c14f5d2418943dd50a" id="r_ga5fda1feda60f45c14f5d2418943dd50a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__SolarSystem.html#ga8222cfd87a81c1bb00e762d67be68f1c">ESpiceId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SolarSystem.html#ga5fda1feda60f45c14f5d2418943dd50a">aGetPlanetBarycenterId</a> (<a class="el" href="group__SolarSystem.html#ga8222cfd87a81c1bb00e762d67be68f1c">ESpiceId</a> planetId)</td></tr>
+<tr class="separator:ga5fda1feda60f45c14f5d2418943dd50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c4db3a67bbd0771748a0b1a9a70a8d1" id="r_a5c4db3a67bbd0771748a0b1a9a70a8d1"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c4db3a67bbd0771748a0b1a9a70a8d1">aLoadBody</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="group__SolarSystem.html#ga3b2fe87cceca735335ef7ade4e48add5">HCelestialBody</a> &amp;body)</td></tr>
 <tr class="separator:a5c4db3a67bbd0771748a0b1a9a70a8d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad088c8a2d3a1a68850d5b43e53be4a24" id="r_gad088c8a2d3a1a68850d5b43e53be4a24"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#gad088c8a2d3a1a68850d5b43e53be4a24">aMoonFullName</a> (int month)</td></tr>
@@ -7884,6 +7888,8 @@ constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>kId
 <tr><td class="fieldname"><a id="ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8" name="ac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8"></a>eJplDE&#160;</td><td class="fielddoc"><p>JPL DE 星历 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6" name="ac22db6298835f5ffbad88bd9c01c4d08a1bc2f748b2796166c34c5b64d777bac6"></a>eJplSpice&#160;</td><td class="fielddoc"><p>JPL SPICE 星历 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996" name="ac22db6298835f5ffbad88bd9c01c4d08a2b01b38f3e16ea45bc56484bbbfc4996"></a>eJplSpiceBarycenter&#160;</td><td class="fielddoc"><p>JPL SPICE 行星系质心星历 </p>
 </td></tr>
 </table>
 

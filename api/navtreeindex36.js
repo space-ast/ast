@@ -1,5 +1,6 @@
 var NAVTREEINDEX36 =
 {
+"classast_1_1ScStateCalcElevation.html":[2,0,0,624],
 "classast_1_1ScStateCalcElevation.html":[3,0,0,623],
 "classast_1_1ScStateCalcElevationRate.html":[2,0,0,625],
 "classast_1_1ScStateCalcElevationRate.html":[3,0,0,624],
@@ -248,6 +249,5 @@ var NAVTREEINDEX36 =
 "classast_1_1ScStateCalcTrueAnomaly.html":[2,0,0,746],
 "classast_1_1ScStateCalcTrueAnomaly.html":[3,0,0,745],
 "classast_1_1ScStateCalcTrueLong.html":[2,0,0,747],
-"classast_1_1ScStateCalcTrueLong.html":[3,0,0,746],
-"classast_1_1ScStateCalcUserValue.html":[2,0,0,749]
+"classast_1_1ScStateCalcTrueLong.html":[3,0,0,746]
 };

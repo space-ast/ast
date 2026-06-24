@@ -1,5 +1,6 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1ColoredSurfaceEnrichment.html":[2,0,0,137],
 "classast_1_1ColoredSurfaceEnrichment.html":[3,0,0,136],
 "classast_1_1ColoredSurfaceEnrichment.html#a7ae9c506441ed4effb8deb0e84e4922a":[2,0,0,137,0],
 "classast_1_1ColoredSurfaceEnrichment.html#a7ae9c506441ed4effb8deb0e84e4922a":[3,0,0,136,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1DetectorEpoch.html#ab8c9990550692ecb5bca0e09a6457aca":[2,0,0,187,0],
 "classast_1_1DetectorEpoch.html#ab8c9990550692ecb5bca0e09a6457aca":[3,0,0,186,0],
 "classast_1_1DetectorEpoch.html#af349d47a567d2bfa7678a6c532314faa":[2,0,0,187,1],
-"classast_1_1DetectorEpoch.html#af349d47a567d2bfa7678a6c532314faa":[3,0,0,186,1],
-"classast_1_1DetectorFrameRelated.html":[2,0,0,188]
+"classast_1_1DetectorEpoch.html#af349d47a567d2bfa7678a6c532314faa":[3,0,0,186,1]
 };
