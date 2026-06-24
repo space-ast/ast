@@ -6,7 +6,7 @@ var searchData=
   ['abstol_5f_3',['absTol_',['../classast_1_1UnarySolver.html#a278e223855671c9d6a1b31ab23f73adf',1,'ast::UnarySolver']]],
   ['acceleration_5f_4',['acceleration_',['../classast_1_1WayPoint.html#ac544ada0d6af25eaa00b4e0e3581fc33',1,'ast::WayPoint']]],
   ['accsrp_5f_5',['accSRP_',['../classast_1_1BlockSRP.html#aa9e697295c87509f332182d44fb1e0a2',1,'ast::BlockSRP']]],
-  ['accthirdbody_6',['accThirdBody',['../classast_1_1BlockThirdBody.html#ab8a00ba244acf86dd4c3170786bfe1ad',1,'ast::BlockThirdBody']]],
+  ['accthirdbody_6',['accThirdBody',['../classast_1_1BlockThirdBodyPointMass.html#a081074195c46b3314be95c9e6a5ec4fc',1,'ast::BlockThirdBodyPointMass']]],
   ['action_7',['action',['../structast_1_1RecordStep.html#a61ec4a52c0af5674bdc4c1e6cd0f3317',1,'ast::RecordStep']]],
   ['allocator_5f_8',['allocator_',['../classast_1_1CorVector.html#a9ad9b9cb9ab5dfee51adce5cf9a7ed42',1,'ast::CorVector']]],
   ['allowcomment_5f_9',['allowComment_',['../classast_1_1BKVParser.html#a738ba19baafea456ca1eae248f2c750a',1,'ast::BKVParser']]],

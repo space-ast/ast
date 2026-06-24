@@ -157,7 +157,7 @@ var namespaceast =
     [ "BlockSwitch", "classast_1_1BlockSwitch.html", "classast_1_1BlockSwitch" ],
     [ "BlockSystem", "classast_1_1BlockSystem.html", "classast_1_1BlockSystem" ],
     [ "BlockTerminator", "classast_1_1BlockTerminator.html", "classast_1_1BlockTerminator" ],
-    [ "BlockThirdBody", "classast_1_1BlockThirdBody.html", "classast_1_1BlockThirdBody" ],
+    [ "BlockThirdBodyPointMass", "classast_1_1BlockThirdBodyPointMass.html", "classast_1_1BlockThirdBodyPointMass" ],
     [ "BlockTransform", "classast_1_1BlockTransform.html", "classast_1_1BlockTransform" ],
     [ "BlockTwoBody", "classast_1_1BlockTwoBody.html", "classast_1_1BlockTwoBody" ],
     [ "BlockUnaryMinus", "classast_1_1BlockUnaryMinus.html", "classast_1_1BlockUnaryMinus" ],

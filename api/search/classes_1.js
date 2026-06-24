@@ -41,7 +41,7 @@ var searchData=
   ['blockswitch_38',['BlockSwitch',['../classast_1_1BlockSwitch.html',1,'ast']]],
   ['blocksystem_39',['BlockSystem',['../classast_1_1BlockSystem.html',1,'ast']]],
   ['blockterminator_40',['BlockTerminator',['../classast_1_1BlockTerminator.html',1,'ast']]],
-  ['blockthirdbody_41',['BlockThirdBody',['../classast_1_1BlockThirdBody.html',1,'ast']]],
+  ['blockthirdbodypointmass_41',['BlockThirdBodyPointMass',['../classast_1_1BlockThirdBodyPointMass.html',1,'ast']]],
   ['blocktransform_42',['BlockTransform',['../classast_1_1BlockTransform.html',1,'ast']]],
   ['blocktwobody_43',['BlockTwoBody',['../classast_1_1BlockTwoBody.html',1,'ast']]],
   ['blockunaryminus_44',['BlockUnaryMinus',['../classast_1_1BlockUnaryMinus.html',1,'ast']]],
