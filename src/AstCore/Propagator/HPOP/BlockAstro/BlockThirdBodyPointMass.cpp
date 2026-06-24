@@ -1,5 +1,5 @@
 ///
-/// @file      BlockThirdBody.cpp
+/// @file      BlockThirdBodyPointMass.cpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -18,7 +18,7 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "BlockThirdBody.hpp"
+#include "BlockThirdBodyPointMass.hpp"
 #include "AstCore/RunTime.hpp"
 #include "AstCore/JplDe.hpp"
 #include "AstCore/CelestialBody.hpp"
@@ -32,13 +32,13 @@ AST_NAMESPACE_BEGIN
 
 using namespace math;
 
-BlockThirdBody::BlockThirdBody()
-    : BlockThirdBody{aGetMoon(), kMoonGrav, aFrameECI()}
+BlockThirdBodyPointMass::BlockThirdBodyPointMass()
+    : BlockThirdBodyPointMass{aGetMoon(), kMoonGrav, aFrameECI()}
 {
 
 }
 
-BlockThirdBody::BlockThirdBody(CelestialBody* thirdBody, double thirdBodyGM, Frame* propagationFrame)
+BlockThirdBodyPointMass::BlockThirdBodyPointMass(CelestialBody* thirdBody, double thirdBodyGM, Frame* propagationFrame)
     : BlockDerivative{}
     , posCBI{&vectorBuffer}
     , accThirdBody{&vectorBuffer}
@@ -85,7 +85,7 @@ BlockThirdBody::BlockThirdBody(CelestialBody* thirdBody, double thirdBodyGM, Fra
     };
 }
 
-errc_t BlockThirdBody::run(const SimTime &simTime)
+errc_t BlockThirdBodyPointMass::run(const SimTime &simTime)
 {
     assert(propagationFrame_ != nullptr);
     assert(thirdBody_ != nullptr);

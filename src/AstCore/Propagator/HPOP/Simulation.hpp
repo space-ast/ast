@@ -41,7 +41,7 @@
 // Astrodynamics blocks
 #include "AstCore/BlockDynamicSystem.hpp"
 #include "AstCore/BlockRelativity.hpp"
-#include "AstCore/BlockThirdBody.hpp"
+#include "AstCore/BlockThirdBodyPointMass.hpp"
 #include "AstCore/BlockTwoBody.hpp"
 #include "AstCore/BlockGravity.hpp"
 #include "AstCore/BlockMotion.hpp"

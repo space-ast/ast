@@ -269,16 +269,16 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         {
             auto body3rd = thirdBody.body();
             double gm = thirdBody.pointMass().getGM(body3rd);
-            derivativeBlock = new BlockThirdBody(body3rd, gm, propFrame);
+            derivativeBlock = new BlockThirdBodyPointMass(body3rd, gm, propFrame);
             this->addBlock(derivativeBlock);
         }
     }
 
-    // [月球特定的逻辑，待废弃] 
+    // [月球特定的逻辑，待废弃]
     // 添加月球引力函数块
     if(forceModel.useMoonGravity())
     {
-        derivativeBlock = new BlockThirdBody(aGetMoon(), forceModel.moonGravity(), propFrame);
+        derivativeBlock = new BlockThirdBodyPointMass(aGetMoon(), forceModel.moonGravity(), propFrame);
         this->addBlock(derivativeBlock);
     }
     return eNoError;

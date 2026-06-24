@@ -48,7 +48,7 @@
 #include "AstCore/BlockSwitch.hpp"
 #include "AstCore/BlockSystem.hpp"
 #include "AstCore/BlockTerminator.hpp"
-#include "AstCore/BlockThirdBody.hpp"
+#include "AstCore/BlockThirdBodyPointMass.hpp"
 #include "AstCore/BlockToFile.hpp"
 #include "AstCore/BlockTransform.hpp"
 #include "AstCore/BlockTwoBody.hpp"

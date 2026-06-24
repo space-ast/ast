@@ -1,5 +1,5 @@
 ///
-/// @file      BlockThirdBody.hpp
+/// @file      BlockThirdBodyPointMass.hpp
 /// @brief     ~
 /// @details   ~
 /// @author    axel
@@ -27,7 +27,7 @@
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 三体引力函数块
+/// @brief 三体点质量引力函数块
 /// @details
 /// 计算第三天体的点质量引力摄动加速度（直接引力与间接引力之差）。
 ///
@@ -48,11 +48,11 @@ AST_NAMESPACE_BEGIN
 ///
 /// 导数端口：
 ///   - "Vel"：速度导数（3维），累加三体引力加速度
-class AST_CORE_API BlockThirdBody : public BlockDerivative
+class AST_CORE_API BlockThirdBodyPointMass : public BlockDerivative
 {
 public:
-    BlockThirdBody();
-    explicit BlockThirdBody(CelestialBody* thirdBody, double thirdBodyGM, Frame* propagationFrame);
+    BlockThirdBodyPointMass();
+    explicit BlockThirdBodyPointMass(CelestialBody* thirdBody, double thirdBodyGM, Frame* propagationFrame);
 
     errc_t run(const SimTime& simTime) override;
 protected:
