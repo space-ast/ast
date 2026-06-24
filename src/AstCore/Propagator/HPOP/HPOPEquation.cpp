@@ -266,7 +266,10 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         {
             auto body3rd = thirdBody.body();
             if(body3rd == nullptr)
+            {
+                aWarning("third body pointer is null, skipping this third body.");
                 continue;
+            }
             if(thirdBody.bodyAttractionType() == EBodyAttractionType::eGravity)
             {
                 // 三体使用球谐重力场
@@ -279,7 +282,6 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                     aError("Failed to load third body gravity field from file: '%s'", gravity.model_.c_str());
                     return err;
                 }
-                auto propAxes = propFrame->getAxes();
                 auto gravityAxes = aGetGravityAxes(gravityField, *body3rd);
                 auto* block = new BlockThirdBodyGravity(body3rd, std::move(gravityField),
                                                         gravity.maxDegree_, gravity.maxOrder_,

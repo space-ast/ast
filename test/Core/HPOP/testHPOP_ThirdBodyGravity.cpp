@@ -1,5 +1,5 @@
 ///
-/// @file      testBlockThirdBodyGravity.cpp
+/// @file      testHPOP_ThirdBodyGravity.cpp
 /// @brief     三体重力场函数块单元测试
 /// @details   ~
 /// @author    axel
