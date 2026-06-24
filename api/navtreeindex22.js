@@ -1,5 +1,6 @@
 var NAVTREEINDEX22 =
 {
+"classast_1_1EventDetector.html#a281b62793ed301061e760066093792b4":[3,0,0,215,3],
 "classast_1_1EventDetector.html#a4a80c100ee93f203300fd6c6c538e43d":[2,0,0,216,1],
 "classast_1_1EventDetector.html#a4a80c100ee93f203300fd6c6c538e43d":[3,0,0,215,1],
 "classast_1_1EventDetector.html#aef7de50faf0c059fb2f83789e719bb96":[2,0,0,216,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX22 =
 "classast_1_1FOVRectangular.html#a0b393213c8b8970a864ef71c6f497e87":[3,0,0,260,0],
 "classast_1_1FOVRectangular.html#a5e218af670eb66a09bd918555d57b81d":[2,0,0,261,3],
 "classast_1_1FOVRectangular.html#a5e218af670eb66a09bd918555d57b81d":[3,0,0,260,3],
-"classast_1_1FOVRectangular.html#a96528b9c68c838f1e9e77eccd948efba":[2,0,0,261,4],
-"classast_1_1FOVRectangular.html#a96528b9c68c838f1e9e77eccd948efba":[3,0,0,260,4]
+"classast_1_1FOVRectangular.html#a96528b9c68c838f1e9e77eccd948efba":[2,0,0,261,4]
 };

@@ -1,5 +1,16 @@
 var NAVTREEINDEX35 =
 {
+"classast_1_1Rotation.html#acfa9239fd1f4263d2b01c5d507faaead":[3,0,0,541,5],
+"classast_1_1Rotation.html#add716f70e0a431099eac1f015acc87bb":[2,0,0,542,16],
+"classast_1_1Rotation.html#add716f70e0a431099eac1f015acc87bb":[3,0,0,541,16],
+"classast_1_1Rotation.html#adeb93109e695abcd2121a7f057935772":[2,0,0,542,19],
+"classast_1_1Rotation.html#adeb93109e695abcd2121a7f057935772":[3,0,0,541,19],
+"classast_1_1Rotation.html#adf36ce33841e51755e40463726c68fe7":[2,0,0,542,1],
+"classast_1_1Rotation.html#adf36ce33841e51755e40463726c68fe7":[3,0,0,541,1],
+"classast_1_1Rotation.html#aef7576cddcf892008f9537f297f17568":[2,0,0,542,9],
+"classast_1_1Rotation.html#aef7576cddcf892008f9537f297f17568":[3,0,0,541,9],
+"classast_1_1Rotation.html#af23a0573077dd94dc06f82b871ffff37":[2,0,0,542,15],
+"classast_1_1Rotation.html#af23a0573077dd94dc06f82b871ffff37":[3,0,0,541,15],
 "classast_1_1Rotation.html#affa7511f3d325c6c9d767f78ff921575":[2,0,0,542,17],
 "classast_1_1Rotation.html#affa7511f3d325c6c9d767f78ff921575":[3,0,0,541,17],
 "classast_1_1RotationElement.html":[0,1,6,10],
@@ -238,16 +249,5 @@ var NAVTREEINDEX35 =
 "classast_1_1ScStateCalcHeightAboveTerrain.html":[3,0,0,633],
 "classast_1_1ScStateCalcImpactFlux.html":[2,0,0,635],
 "classast_1_1ScStateCalcImpactFlux.html":[3,0,0,634],
-"classast_1_1ScStateCalcImpactMassFlux.html":[2,0,0,636],
-"classast_1_1ScStateCalcImpactMassFlux.html":[3,0,0,635],
-"classast_1_1ScStateCalcInAsympDec.html":[2,0,0,637],
-"classast_1_1ScStateCalcInAsympDec.html":[3,0,0,636],
-"classast_1_1ScStateCalcInAsympRA.html":[2,0,0,638],
-"classast_1_1ScStateCalcInAsympRA.html":[3,0,0,637],
-"classast_1_1ScStateCalcInTrack.html":[2,0,0,644],
-"classast_1_1ScStateCalcInTrack.html":[3,0,0,643],
-"classast_1_1ScStateCalcInTrackRate.html":[2,0,0,645],
-"classast_1_1ScStateCalcInTrackRate.html":[3,0,0,644],
-"classast_1_1ScStateCalcInVAzP.html":[2,0,0,646],
-"classast_1_1ScStateCalcInVAzP.html":[3,0,0,645]
+"classast_1_1ScStateCalcImpactMassFlux.html":[2,0,0,636]
 };

@@ -248,6 +248,6 @@ var NAVTREEINDEX18 =
 "classast_1_1CartState.html#ae20efc3b1b6040350ac27807c43fb197":[0,1,4,9,1],
 "classast_1_1CelestialBody.html":[0,1,6,0],
 "classast_1_1CelestialBody.html#a08d858b6ef5a4022d61bac5a7d3db1be":[0,1,6,0,19],
-"classast_1_1CelestialBody.html#a09412a1a3e5bd24296efb950d27ece22":[0,1,6,0,33],
-"classast_1_1CelestialBody.html#a09ce8f3ef50f43f5862ae58aa097d581":[0,1,6,0,40]
+"classast_1_1CelestialBody.html#a09412a1a3e5bd24296efb950d27ece22":[0,1,6,0,34],
+"classast_1_1CelestialBody.html#a09ce8f3ef50f43f5862ae58aa097d581":[0,1,6,0,41]
 };

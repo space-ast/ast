@@ -177,10 +177,10 @@ $(function(){initNavTree('group__Coordinate.html',''); initResizable(true); });
 <tr class="separator:ga2ae53db6c66d92935ceb675326843ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacef77f457b73be4b0908cf23b0316efc" id="r_gacef77f457b73be4b0908cf23b0316efc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacef77f457b73be4b0908cf23b0316efc">_AST_IMPL_AXES_DYNAMIC</a>(NAME,  PARENT)</td></tr>
 <tr class="separator:gacef77f457b73be4b0908cf23b0316efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga94d432b4938c85f1ee7c20bc13a9feb5" id="r_ga94d432b4938c85f1ee7c20bc13a9feb5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga94d432b4938c85f1ee7c20bc13a9feb5">_AST_IMPL_AXES_INERTIAL</a>(NAME,  PARENT)</td></tr>
-<tr class="separator:ga94d432b4938c85f1ee7c20bc13a9feb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8743702c99f06a983806f7c83870b853" id="r_ga8743702c99f06a983806f7c83870b853"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8743702c99f06a983806f7c83870b853">_AST_IMPL_AXES_PSEUDO_INERTIAL</a>(NAME,  PARENT)</td></tr>
-<tr class="separator:ga8743702c99f06a983806f7c83870b853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacca5c7d53e3fe8792f53b11d8873002b" id="r_gacca5c7d53e3fe8792f53b11d8873002b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacca5c7d53e3fe8792f53b11d8873002b">_AST_IMPL_AXES_STATIC</a>(NAME,  PARENT)</td></tr>
+<tr class="separator:gacca5c7d53e3fe8792f53b11d8873002b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95a548759506b7b6bd0c58d8eb6b8182" id="r_ga95a548759506b7b6bd0c58d8eb6b8182"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga95a548759506b7b6bd0c58d8eb6b8182">_AST_IMPL_AXES_PSEUDO_STATIC</a>(NAME,  PARENT)</td></tr>
+<tr class="separator:ga95a548759506b7b6bd0c58d8eb6b8182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga56f5f47a02b36e2d2dc8eef305a60436" id="r_ga56f5f47a02b36e2d2dc8eef305a60436"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga56f5f47a02b36e2d2dc8eef305a60436">_AST_DECL_POINT</a>(NAME)</td></tr>
 <tr class="separator:ga56f5f47a02b36e2d2dc8eef305a60436"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7571af3640f51e145b86c071c4d1cb67" id="r_ga7571af3640f51e145b86c071c4d1cb67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7571af3640f51e145b86c071c4d1cb67">_AST_IMPL_POINT</a>(NAME,  FRAME)</td></tr>
@@ -449,12 +449,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aJ2000ToDE143Tra
 <tr class="separator:ga478c92068ff794d3a174ef74f8e12d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacfb694e39e2f40201048d92b35d61bb8" id="r_gacfb694e39e2f40201048d92b35d61bb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacfb694e39e2f40201048d92b35d61bb8">ast::aMoonPA430ToMeanEarthTransform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:gacfb694e39e2f40201048d92b35d61bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d34e115acb03e18fae1f0a481ace3d5" id="r_ga9d34e115acb03e18fae1f0a481ace3d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9d34e115acb03e18fae1f0a481ace3d5">ast::aMoonMeanEarthToPA430Transform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga9d34e115acb03e18fae1f0a481ace3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9e24bf77f39aa4c4fcf6c01b4c01a8cc" id="r_ga9e24bf77f39aa4c4fcf6c01b4c01a8cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9e24bf77f39aa4c4fcf6c01b4c01a8cc">ast::aMoonPA421ToMeanEarthTransform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:ga9e24bf77f39aa4c4fcf6c01b4c01a8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7948522b17d7e409d5ee1b3a7683c9f7" id="r_ga7948522b17d7e409d5ee1b3a7683c9f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7948522b17d7e409d5ee1b3a7683c9f7">ast::aMoonMeanEarthToPA421Transform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga7948522b17d7e409d5ee1b3a7683c9f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5f51855b91a4c8377f6a38b2cf3ca113" id="r_ga5f51855b91a4c8377f6a38b2cf3ca113"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5f51855b91a4c8377f6a38b2cf3ca113">ast::aMoonPA418ToMeanEarthTransform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:ga5f51855b91a4c8377f6a38b2cf3ca113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad374a2907fed51f9b2a60a6f134bd1eb" id="r_gad374a2907fed51f9b2a60a6f134bd1eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad374a2907fed51f9b2a60a6f134bd1eb">ast::aMoonMeanEarthToPA418Transform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gad374a2907fed51f9b2a60a6f134bd1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad81fe2d454105845c8d8e8d95ffa815c" id="r_gad81fe2d454105845c8d8e8d95ffa815c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad81fe2d454105845c8d8e8d95ffa815c">ast::aMoonPA403ToMeanEarthTransform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:gad81fe2d454105845c8d8e8d95ffa815c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga654d671ab3164928f7ac1c26037d974e" id="r_ga654d671ab3164928f7ac1c26037d974e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga654d671ab3164928f7ac1c26037d974e">ast::aMoonMeanEarthToPA403Transform</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga654d671ab3164928f7ac1c26037d974e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaee8dc1c77cd55883f31a798676bb95c7" id="r_gaee8dc1c77cd55883f31a798676bb95c7"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaee8dc1c77cd55883f31a798676bb95c7">ast::aICRFToMoonMeanEarthTransform_DE</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:gaee8dc1c77cd55883f31a798676bb95c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab591046a388a02b4d0a68c2e4a9fdb24" id="r_gab591046a388a02b4d0a68c2e4a9fdb24"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab591046a388a02b4d0a68c2e4a9fdb24">ast::aICRFToMoonMeanEarthTransform_DE</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
@@ -548,6 +556,14 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
 <div class="line">        <span class="keywordflow">return</span> Axes##NAME::Instance();\</div>
 <div class="line">    }\</div>
 </div><!-- fragment -->
+<p>声明轴系类 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">NAME</td><td>轴系名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ga56f5f47a02b36e2d2dc8eef305a60436" name="ga56f5f47a02b36e2d2dc8eef305a60436"></a>
@@ -609,6 +625,15 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
 <div class="line">        <span class="keywordflow">return</span> Axes##PARENT::Instance();\</div>
 <div class="line">    }\</div>
 </div><!-- fragment -->
+<p>实现轴系类 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">NAME</td><td>轴系名称 </td></tr>
+    <tr><td class="paramname">PARENT</td><td>父轴系名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="gacef77f457b73be4b0908cf23b0316efc" name="gacef77f457b73be4b0908cf23b0316efc"></a>
@@ -629,7 +654,7 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
         </tr>
       </table>
 </div><div class="memdoc">
-<b>值:</b><div class="fragment"><div class="line">    _AST_IMPL_AXES_BASE(NAME, PARENT)\</div>
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="#ga2ae53db6c66d92935ceb675326843ef7">_AST_IMPL_AXES_BASE</a>(NAME, PARENT)\</div>
 <div class="line">    errc_t Axes##NAME::getTransform(<span class="keyword">const</span> TimePoint &amp;tp, Rotation &amp;rotation) <span class="keyword">const</span>\</div>
 <div class="line">    {\</div>
 <div class="line">        a##PARENT##To##NAME##Transform(tp, rotation);\</div>
@@ -640,17 +665,27 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
 <div class="line">        a##PARENT##To##NAME##Transform(tp, rotation);\</div>
 <div class="line">        <span class="keywordflow">return</span> eNoError;\</div>
 <div class="line">    }\</div>
+<div class="ttc" id="agroup__Coordinate_html_ga2ae53db6c66d92935ceb675326843ef7"><div class="ttname"><a href="#ga2ae53db6c66d92935ceb675326843ef7">_AST_IMPL_AXES_BASE</a></div><div class="ttdeci">#define _AST_IMPL_AXES_BASE(NAME, PARENT)</div><div class="ttdoc">实现轴系类</div><div class="ttdef"><b>定义</b> AxesMacro.hpp:59</div></div>
 </div><!-- fragment -->
+<p>定义轴系之间的动态变换关系 动态变换关系是指：轴系之间的旋转关系随时间变化，存在相对旋转速度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">NAME</td><td>轴系名称 </td></tr>
+    <tr><td class="paramname">PARENT</td><td>父轴系名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="ga94d432b4938c85f1ee7c20bc13a9feb5" name="ga94d432b4938c85f1ee7c20bc13a9feb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga94d432b4938c85f1ee7c20bc13a9feb5">&#9670;&#160;</a></span>_AST_IMPL_AXES_INERTIAL</h2>
+<a id="ga95a548759506b7b6bd0c58d8eb6b8182" name="ga95a548759506b7b6bd0c58d8eb6b8182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga95a548759506b7b6bd0c58d8eb6b8182">&#9670;&#160;</a></span>_AST_IMPL_AXES_PSEUDO_STATIC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _AST_IMPL_AXES_INERTIAL</td>
+          <td class="memname">#define _AST_IMPL_AXES_PSEUDO_STATIC</td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>NAME</em></span>, </td>
         </tr>
@@ -661,40 +696,7 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
         </tr>
       </table>
 </div><div class="memdoc">
-<b>值:</b><div class="fragment"><div class="line">    _AST_IMPL_AXES_BASE(NAME, PARENT)\</div>
-<div class="line">    errc_t Axes##NAME::getTransform(<span class="keyword">const</span> TimePoint &amp;tp, Rotation &amp;rotation) <span class="keyword">const</span>\</div>
-<div class="line">    {\</div>
-<div class="line">        a##PARENT##To##NAME##Transform(rotation);\</div>
-<div class="line">        <span class="keywordflow">return</span> eNoError;\</div>
-<div class="line">    }\</div>
-<div class="line">    errc_t Axes##NAME::getTransform(<span class="keyword">const</span> TimePoint &amp;tp, KinematicRotation &amp;rotation) <span class="keyword">const</span>\</div>
-<div class="line">    {\</div>
-<div class="line">        a##PARENT##To##NAME##Transform(rotation.getRotation());\</div>
-<div class="line">        rotation.setRotationRate(Vector3d::Zero());\</div>
-<div class="line">        <span class="keywordflow">return</span> eNoError;\</div>
-<div class="line">    }\</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ga8743702c99f06a983806f7c83870b853" name="ga8743702c99f06a983806f7c83870b853"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8743702c99f06a983806f7c83870b853">&#9670;&#160;</a></span>_AST_IMPL_AXES_PSEUDO_INERTIAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define _AST_IMPL_AXES_PSEUDO_INERTIAL</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>NAME</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>PARENT</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>值:</b><div class="fragment"><div class="line">    _AST_IMPL_AXES_BASE(NAME, PARENT)\</div>
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="#ga2ae53db6c66d92935ceb675326843ef7">_AST_IMPL_AXES_BASE</a>(NAME, PARENT)\</div>
 <div class="line">    errc_t Axes##NAME::getTransform(<span class="keyword">const</span> TimePoint &amp;tp, Rotation &amp;rotation) <span class="keyword">const</span>\</div>
 <div class="line">    {\</div>
 <div class="line">        a##PARENT##To##NAME##Transform(tp, rotation);\</div>
@@ -707,6 +709,57 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
 <div class="line">        <span class="keywordflow">return</span> eNoError;\</div>
 <div class="line">    }\</div>
 </div><!-- fragment -->
+<p>定义伪静态变换关系 伪静态变换关系是指：轴系之间的旋转关系随时间变化，但是变化非常缓慢，故认为其相对旋转速度为0 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">NAME</td><td>轴系名称 </td></tr>
+    <tr><td class="paramname">PARENT</td><td>父轴系名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacca5c7d53e3fe8792f53b11d8873002b" name="gacca5c7d53e3fe8792f53b11d8873002b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacca5c7d53e3fe8792f53b11d8873002b">&#9670;&#160;</a></span>_AST_IMPL_AXES_STATIC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _AST_IMPL_AXES_STATIC</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>NAME</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>PARENT</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="#ga2ae53db6c66d92935ceb675326843ef7">_AST_IMPL_AXES_BASE</a>(NAME, PARENT)\</div>
+<div class="line">    errc_t Axes##NAME::getTransform(<span class="keyword">const</span> TimePoint &amp;tp, Rotation &amp;rotation) <span class="keyword">const</span>\</div>
+<div class="line">    {\</div>
+<div class="line">        a##PARENT##To##NAME##Transform(rotation);\</div>
+<div class="line">        <span class="keywordflow">return</span> eNoError;\</div>
+<div class="line">    }\</div>
+<div class="line">    errc_t Axes##NAME::getTransform(<span class="keyword">const</span> TimePoint &amp;tp, KinematicRotation &amp;rotation) <span class="keyword">const</span>\</div>
+<div class="line">    {\</div>
+<div class="line">        a##PARENT##To##NAME##Transform(rotation.getRotation());\</div>
+<div class="line">        rotation.setRotationRate(Vector3d::Zero());\</div>
+<div class="line">        <span class="keywordflow">return</span> eNoError;\</div>
+<div class="line">    }\</div>
+</div><!-- fragment -->
+<p>定义轴系之间的静态变换关系 静态变换关系是指：轴系之间的旋转关系与时间无关，其相对旋转速度为0 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">NAME</td><td>轴系名称 </td></tr>
+    <tr><td class="paramname">PARENT</td><td>父轴系名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ga7571af3640f51e145b86c071c4d1cb67" name="ga7571af3640f51e145b86c071c4d1cb67"></a>
@@ -3376,6 +3429,110 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ga654d671ab3164928f7ac1c26037d974e" name="ga654d671ab3164928f7ac1c26037d974e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga654d671ab3164928f7ac1c26037d974e">&#9670;&#160;</a></span>aMoonMeanEarthToPA403Transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aMoonMeanEarthToPA403Transform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算月球MeanEarth系到月球主轴系(PA403)的转换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rotation</td><td>旋转 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="gad374a2907fed51f9b2a60a6f134bd1eb" name="gad374a2907fed51f9b2a60a6f134bd1eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad374a2907fed51f9b2a60a6f134bd1eb">&#9670;&#160;</a></span>aMoonMeanEarthToPA418Transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aMoonMeanEarthToPA418Transform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算月球MeanEarth系到月球主轴系(PA418)的转换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rotation</td><td>旋转 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga7948522b17d7e409d5ee1b3a7683c9f7" name="ga7948522b17d7e409d5ee1b3a7683c9f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7948522b17d7e409d5ee1b3a7683c9f7">&#9670;&#160;</a></span>aMoonMeanEarthToPA421Transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aMoonMeanEarthToPA421Transform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算月球MeanEarth系到月球主轴系(PA421)的转换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rotation</td><td>旋转 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga9d34e115acb03e18fae1f0a481ace3d5" name="ga9d34e115acb03e18fae1f0a481ace3d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9d34e115acb03e18fae1f0a481ace3d5">&#9670;&#160;</a></span>aMoonMeanEarthToPA430Transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aMoonMeanEarthToPA430Transform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算月球MeanEarth系到月球主轴系(PA430)的转换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rotation</td><td>旋转 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
 </div>
 </div>

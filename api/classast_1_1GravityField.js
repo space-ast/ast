@@ -18,6 +18,7 @@ var classast_1_1GravityField =
     [ "load", "classast_1_1GravityField.html#a83a222d8174d7a9b5372caff13a55e1d", null ],
     [ "normalize", "classast_1_1GravityField.html#af17fec0a0bb6df99fb140e7fb98e431a", null ],
     [ "normalized", "classast_1_1GravityField.html#a67d66b1cc10f2a359eb98891f66485be", null ],
+    [ "referenceFrame", "classast_1_1GravityField.html#accaba553f3475e812f608b057458b21f", null ],
     [ "secularVariations", "classast_1_1GravityField.html#a68e24530da76b82b3bae0a1020c34b3d", null ],
     [ "unnormalize", "classast_1_1GravityField.html#ae34a200427b3ee8dac132bb57be27598", null ],
     [ "unnormalized", "classast_1_1GravityField.html#ace10e8e9a61a6fea914b1130db459297", null ],
@@ -31,6 +32,7 @@ var classast_1_1GravityField =
     [ "model_", "classast_1_1GravityField.html#a5787cef48f07d8e20f80d020cefaa2a9", null ],
     [ "normalized_", "classast_1_1GravityField.html#abf41169c929d25e079209590ebdf3f5a", null ],
     [ "refDistance_", "classast_1_1GravityField.html#abb600bf03f4fd719313dae90cbdb3682", null ],
+    [ "referenceFrame_", "classast_1_1GravityField.html#a1e401d616042426f4de626f34fc3502f", null ],
     [ "secularVariations_", "classast_1_1GravityField.html#a46b930560380307e591baa7368ff43d0", null ],
     [ "sinCoeff_", "classast_1_1GravityField.html#ae3ab861d3a10664e253e4d599dcc929d", null ]
 ];

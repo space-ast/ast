@@ -41,8 +41,13 @@ var searchData=
   ['_5faparseint_5fsimple_38',['_aParseInt_Simple',['../group__ParseFormat.html#ga9094e80cc609991a4a1ceac40cb73666',1,'ast']]],
   ['_5faparseint_5fstringstream_39',['_aParseInt_StringStream',['../group__ParseFormat.html#ga0597f0179945ef9b3bcfb8571de167aa',1,'ast']]],
   ['_5faskipunknownblock_40',['_aSkipUnknownBlock',['../namespaceast.html#a727de32fe5f31a1185eb96c57c31a1df',1,'ast']]],
-  ['_5fast_5fdef_5fop_5fsv_41',['_AST_DEF_OP_SV',['../AstMath_2Array_2MathOperator_8hpp.html#ac9e493001955b1fb246d65c0cf4f6a12',1,'MathOperator.hpp']]],
-  ['_5fast_5fempty_5ffunction_42',['_AST_EMPTY_FUNCTION',['../NoPlot_8hpp.html#a07b0b7977be73a8f2f992e02faf01357',1,'NoPlot.hpp']]],
-  ['_5fast_5fempty_5fplot_5ffunction_43',['_AST_EMPTY_PLOT_FUNCTION',['../NoPlot_8hpp.html#ab315664950797c9f47a9d58604332b95',1,'NoPlot.hpp']]],
-  ['_5fatimezonedatedifference_44',['_aTimeZoneDateDifference',['../namespaceast.html#a81334076dec89ffde7d43d67aa9d53da',1,'ast']]]
+  ['_5fast_5fdecl_5faxes_41',['_AST_DECL_AXES',['../group__Coordinate.html#ga0c3f048e08ff4f813d34370132a791a3',1,'AxesMacro.hpp']]],
+  ['_5fast_5fdef_5fop_5fsv_42',['_AST_DEF_OP_SV',['../AstMath_2Array_2MathOperator_8hpp.html#ac9e493001955b1fb246d65c0cf4f6a12',1,'MathOperator.hpp']]],
+  ['_5fast_5fempty_5ffunction_43',['_AST_EMPTY_FUNCTION',['../NoPlot_8hpp.html#a07b0b7977be73a8f2f992e02faf01357',1,'NoPlot.hpp']]],
+  ['_5fast_5fempty_5fplot_5ffunction_44',['_AST_EMPTY_PLOT_FUNCTION',['../NoPlot_8hpp.html#ab315664950797c9f47a9d58604332b95',1,'NoPlot.hpp']]],
+  ['_5fast_5fimpl_5faxes_5fbase_45',['_AST_IMPL_AXES_BASE',['../group__Coordinate.html#ga2ae53db6c66d92935ceb675326843ef7',1,'AxesMacro.hpp']]],
+  ['_5fast_5fimpl_5faxes_5fdynamic_46',['_AST_IMPL_AXES_DYNAMIC',['../group__Coordinate.html#gacef77f457b73be4b0908cf23b0316efc',1,'AxesMacro.hpp']]],
+  ['_5fast_5fimpl_5faxes_5fpseudo_5fstatic_47',['_AST_IMPL_AXES_PSEUDO_STATIC',['../group__Coordinate.html#ga95a548759506b7b6bd0c58d8eb6b8182',1,'AxesMacro.hpp']]],
+  ['_5fast_5fimpl_5faxes_5fstatic_48',['_AST_IMPL_AXES_STATIC',['../group__Coordinate.html#gacca5c7d53e3fe8792f53b11d8873002b',1,'AxesMacro.hpp']]],
+  ['_5fatimezonedatedifference_49',['_aTimeZoneDateDifference',['../namespaceast.html#a81334076dec89ffde7d43d67aa9d53da',1,'ast']]]
 ];

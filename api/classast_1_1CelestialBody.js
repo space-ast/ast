@@ -32,6 +32,7 @@ var classast_1_1CelestialBody =
     [ "getSolarSystem", "classast_1_1CelestialBody.html#a668d0987523588a036c046fd22f39d55", null ],
     [ "getSystemGM", "classast_1_1CelestialBody.html#a9234119f1b8c604e8c2a0531e6ebc55b", null ],
     [ "isEarth", "classast_1_1CelestialBody.html#aa929791242e4840e147e5c7d6c8a96cf", null ],
+    [ "isLuna", "classast_1_1CelestialBody.html#ae95a3a2f66d4042a085f0df12ea64b61", null ],
     [ "load", "classast_1_1CelestialBody.html#a893e27f747b61b94dc90eb0c4d7b12d8", null ],
     [ "loadAstroDefinition", "classast_1_1CelestialBody.html#a09412a1a3e5bd24296efb950d27ece22", null ],
     [ "loadEarth", "classast_1_1CelestialBody.html#a3e404c8602864890a82cd72b905a33a9", null ],

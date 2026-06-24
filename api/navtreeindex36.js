@@ -1,5 +1,16 @@
 var NAVTREEINDEX36 =
 {
+"classast_1_1ScStateCalcImpactMassFlux.html":[3,0,0,635],
+"classast_1_1ScStateCalcInAsympDec.html":[2,0,0,637],
+"classast_1_1ScStateCalcInAsympDec.html":[3,0,0,636],
+"classast_1_1ScStateCalcInAsympRA.html":[2,0,0,638],
+"classast_1_1ScStateCalcInAsympRA.html":[3,0,0,637],
+"classast_1_1ScStateCalcInTrack.html":[2,0,0,644],
+"classast_1_1ScStateCalcInTrack.html":[3,0,0,643],
+"classast_1_1ScStateCalcInTrackRate.html":[2,0,0,645],
+"classast_1_1ScStateCalcInTrackRate.html":[3,0,0,644],
+"classast_1_1ScStateCalcInVAzP.html":[2,0,0,646],
+"classast_1_1ScStateCalcInVAzP.html":[3,0,0,645],
 "classast_1_1ScStateCalcInclination.html":[2,0,0,639],
 "classast_1_1ScStateCalcInclination.html":[3,0,0,638],
 "classast_1_1ScStateCalcInertDeltaVMag.html":[2,0,0,640],
@@ -238,16 +249,5 @@ var NAVTREEINDEX36 =
 "classast_1_1ScStateCalcVelocity.html":[3,0,0,755],
 "classast_1_1ScStateCalcVx.html":[2,0,0,759],
 "classast_1_1ScStateCalcVx.html":[3,0,0,758],
-"classast_1_1ScStateCalcVy.html":[2,0,0,760],
-"classast_1_1ScStateCalcVy.html":[3,0,0,759],
-"classast_1_1ScStateCalcVz.html":[2,0,0,761],
-"classast_1_1ScStateCalcVz.html":[3,0,0,760],
-"classast_1_1ScStateCalcX.html":[2,0,0,762],
-"classast_1_1ScStateCalcX.html":[3,0,0,761],
-"classast_1_1ScStateCalcY.html":[2,0,0,763],
-"classast_1_1ScStateCalcY.html":[3,0,0,762],
-"classast_1_1ScStateCalcZ.html":[2,0,0,764],
-"classast_1_1ScStateCalcZ.html":[3,0,0,763],
-"classast_1_1ScStateCalculation.html":[2,0,0,746],
-"classast_1_1ScStateCalculation.html":[3,0,0,745]
+"classast_1_1ScStateCalcVy.html":[2,0,0,760]
 };

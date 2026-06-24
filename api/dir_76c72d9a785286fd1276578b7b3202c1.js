@@ -20,7 +20,7 @@ var dir_76c72d9a785286fd1276578b7b3202c1 =
     [ "AxesLinkTo.cpp", "AxesLinkTo_8cpp.html", null ],
     [ "AxesLinkTo.hpp", "AxesLinkTo_8hpp.html", "AxesLinkTo_8hpp" ],
     [ "AxesMacro.cpp", "AxesMacro_8cpp.html", null ],
-    [ "AxesMacro.hpp", "AxesMacro_8hpp.html", null ],
+    [ "AxesMacro.hpp", "AxesMacro_8hpp.html", "AxesMacro_8hpp" ],
     [ "AxesRoot.cpp", "AxesRoot_8cpp.html", null ],
     [ "AxesRoot.hpp", "AxesRoot_8hpp.html", null ],
     [ "BuiltinAxes.cpp", "BuiltinAxes_8cpp.html", "BuiltinAxes_8cpp" ],
