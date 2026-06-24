@@ -40,6 +40,7 @@ enum class EEphemerisSource
     eBodyEphemeris,      ///< 天体星历
     eJplDE,              ///< JPL DE 星历
     eJplSpice,           ///< JPL SPICE 星历
+    eJplSpiceBarycenter, ///< JPL SPICE 行星系质心星历
 };
 
 

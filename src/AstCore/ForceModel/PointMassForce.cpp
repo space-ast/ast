@@ -40,6 +40,10 @@ double PointMassForce::getGM(CelestialBody* body) const
         aWarning("unsupported feature: JPL DE gravity gm source, use body gm instead.");
         return body->getGM();
     }
+    else if(gmSource_ == EGMSource::eSystemGravity)
+    {
+        return body->getSystemGM();
+    }
     if(gmSource_ != EGMSource::eBodyGravity)
     {
         aError("unsupported gm source type: %d, use body gm instead.", gmSource_);

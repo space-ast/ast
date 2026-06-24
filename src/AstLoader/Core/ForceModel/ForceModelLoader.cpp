@@ -96,6 +96,8 @@ errc_t aLoadPointMassForce(const Value& value, PointMassForce& pointMassForce)
         const std::string gravSource = valGravSource;
         if(gravSource == "Cb File")
             pointMassForce.gmSource_ = EGMSource::eBodyGravity;
+        else if(gravSource == "Cb File - System")
+            pointMassForce.gmSource_ = EGMSource::eSystemGravity;
         else if(gravSource == "DE File")
             pointMassForce.gmSource_ = EGMSource::eJplDE;
         else if(gravSource == "User Specified")
@@ -137,6 +139,8 @@ errc_t aLoadThirdBodyForce(const Value& value, ThirdBodyForce& thirdBodyForce)
             thirdBodyForce.setEphemerisSource(EEphemerisSource::eJplDE);
         else if(ephemerisSource == "SPICE Body Centered")
             thirdBodyForce.setEphemerisSource(EEphemerisSource::eJplSpice);
+        else if(ephemerisSource == "SPICE Barycenter")
+            thirdBodyForce.setEphemerisSource(EEphemerisSource::eJplSpiceBarycenter);
         else{
             aWarning("unsupported ephemeris source '%s', default to Body Ephemeris", ephemerisSource.c_str());
             thirdBodyForce.setEphemerisSource(EEphemerisSource::eBodyEphemeris);

@@ -74,6 +74,7 @@ jobs:
           xmake r testSpiceZpr
           xmake r testState
           xmake r testGUI
+          xmake r bmRunTime
           xmake test
           lcov --directory . --capture --include */src/* --output-file coverage.info 
       

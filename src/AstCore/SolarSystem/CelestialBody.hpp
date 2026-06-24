@@ -48,10 +48,10 @@ class CelestialBody;
 using Body = CelestialBody;
 
 
-/// @brief 从天体重力场文件中读取其重力常数
+/// @brief 从天体重力场文件中读取其引力常数
 /// @param body 中心天体
 /// @param gravityModel 重力场模型
-/// @return 重力常数gm，单位：m³/s²
+/// @return 引力常数gm，单位：m³/s²
 AST_CORE_CAPI double aGetGravityParameter(const Body& body, StringView gravityModel);
 
 
@@ -99,10 +99,10 @@ public:
     /// @brief 获取天体半径
     double getRadius() const { return radius_; }
 
-    /// @brief 获取引力常数
+    /// @brief 获取天体的引力常数
     double getGM() const { return gm_; }
 
-    /// @brief 获取系统引力常数
+    /// @brief 获取天体系引力常数（考虑天体的卫星）
     double getSystemGM() const { return systemGM_; }
 
     /// @brief 设置重力模型
@@ -336,6 +336,12 @@ private:
 };
 
 
+enum ESpiceId;
+
+/// @brief 获取行星系质心ID
+/// @param planetId 行星ID
+/// @return 行星系质心ID
+ESpiceId aGetPlanetBarycenterId(ESpiceId planetId);
 
 
 /// @brief  SPICE 天体ID

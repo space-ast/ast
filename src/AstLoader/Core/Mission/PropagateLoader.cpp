@@ -123,7 +123,7 @@ errc_t aLoadStoppingCondition(const Value& value, SharedPtr<EventDetector>& even
         
         // @fixme TripValue 有可能是日期类型，需要特殊处理
         auto& tripValue = value["TripValue"];
-        if(!tripValue.isNull())
+        if(tripValue.isDouble())
             eventDetector->setGoal(tripValue);
 
         auto& repeatCount = value["RepeatCount"];

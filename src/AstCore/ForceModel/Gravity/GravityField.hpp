@@ -47,7 +47,7 @@ class AST_CORE_API GravityFieldHead
 public:
     errc_t load(StringView filepath, StringView dirpath=StringView());
     
-    /// @brief 获取重力场的中心天体重力常数
+    /// @brief 获取重力场的中心天体引力常数
     double getGM() const { return gm_; }
 
     /// @brief 获取重力场的参考系名称
@@ -58,7 +58,7 @@ protected:
     std::string centralBody_;               ///< 中心天体名称
     std::string model_;                     ///< 重力场模型名称
     std::string referenceFrame_;            ///< 重力场的参考系名称：例如月球的重力场参考系 PrincipalAxes_421、PrincipalAxes_403等，默认为天体固连系
-    double gm_{0};                          ///< 中心天体重力常数
+    double gm_{0};                          ///< 中心天体引力常数
     double refDistance_{0};                 ///< 参考距离
     bool normalized_{false};                ///< 是否归一化
     bool includesPermTide_{false};          ///< 是否包含永久潮汐: 若为true，则重力场为零潮汐模型(zero-tide)，保留了永久性隆起；反之则为无潮汐模型(tide-free)，不包含任何潮汐变形
@@ -131,8 +131,8 @@ public:
     /// @return 是否有效
     bool isValidDegreeOrder(int degree, int order) const;
     
-    /// @brief 获取中心天体重力常数
-    /// @return 中心天体重力常数
+    /// @brief 获取中心天体引力常数
+    /// @return 中心天体引力常数
     double getGM() const { return gm_; }
 
     /// @brief 获取参考距离

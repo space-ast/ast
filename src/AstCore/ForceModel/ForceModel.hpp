@@ -42,8 +42,9 @@ enum class ESunPosition
 /// @brief 引力常数来源
 enum class EGMSource
 {
-    eBodyGravity,           ///< 来自天体重力场
-    eJplDE,                 ///< 来自JPL DE文件
+    eBodyGravity,           ///< 天体的引力常数
+    eSystemGravity,         ///< 天体系引力常数（考虑天体的卫星）
+    eJplDE,                 ///< 来自JPL DE星历的引力常数
     eSpecifiedValue,        ///< 用户指定的引力常数
 };
 

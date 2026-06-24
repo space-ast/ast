@@ -421,5 +421,16 @@ Axes *CelestialBody::getEpochAxesReference() const
     }
 }
 
+
+ESpiceId aGetPlanetBarycenterId(ESpiceId planetId)
+{
+    std::div_t result = std::div(planetId, 100);
+    if(result.rem == 99 && result.quot < 10)
+    {
+        return static_cast<ESpiceId>(result.quot);
+    }
+    return planetId;
+}
+
 AST_NAMESPACE_END
 
