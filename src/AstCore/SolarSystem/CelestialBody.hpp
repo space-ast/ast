@@ -47,6 +47,14 @@ AST_NAMESPACE_BEGIN
 class CelestialBody;
 using Body = CelestialBody;
 
+
+/// @brief 从天体重力场文件中读取其重力常数
+/// @param body 中心天体
+/// @param gravityModel 重力场模型
+/// @return 重力常数gm，单位：m³/s²
+AST_CORE_CAPI double aGetGravityParameter(const Body& body, StringView gravityModel);
+
+
 /// @brief 天体
 class AST_CORE_API CelestialBody : public Point
 {

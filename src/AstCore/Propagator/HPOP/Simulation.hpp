@@ -42,6 +42,7 @@
 #include "AstCore/BlockDynamicSystem.hpp"
 #include "AstCore/BlockRelativity.hpp"
 #include "AstCore/BlockThirdBodyPointMass.hpp"
+#include "AstCore/BlockThirdBodyGravity.hpp"
 #include "AstCore/BlockTwoBody.hpp"
 #include "AstCore/BlockGravity.hpp"
 #include "AstCore/BlockMotion.hpp"

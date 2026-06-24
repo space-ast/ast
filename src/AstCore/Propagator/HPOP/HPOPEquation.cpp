@@ -152,13 +152,10 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             auto& gravity = *gravityPtr;
             // 如果重力场的阶数为0，说明是二体引力，直接添加二体引力函数块即可
             if(0 == gravity.maxDegree_){
-                GravityFieldHead gfHead;
-                errc_t err = gfHead.load(gravity.model_, body->getDirpath());
-                if(err != eNoError){
-                    aError("Failed to load gravity field head from file: '%s'", gravity.model_.c_str());
-                    return err;
-                }
-                derivativeBlock = new BlockTwoBody(gfHead.getGM());
+                double gm = aGetGravityParameter(*body, gravity.model_);
+                if(gm == 0)
+                    return eErrorInvalidParam;
+                derivativeBlock = new BlockTwoBody(gm);
                 this->addBlock(derivativeBlock);
             }else{
                 GravityField gravityField;
@@ -268,9 +265,35 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         for(auto& thirdBody: thirdBodies)
         {
             auto body3rd = thirdBody.body();
-            double gm = thirdBody.pointMass().getGM(body3rd);
-            derivativeBlock = new BlockThirdBodyPointMass(body3rd, gm, propFrame);
-            this->addBlock(derivativeBlock);
+            if(body3rd == nullptr)
+                continue;
+            if(thirdBody.bodyAttractionType() == EBodyAttractionType::eGravity)
+            {
+                // 三体使用球谐重力场
+                auto& gravity = thirdBody.gravity();
+                // @todo 如果 0 == gravity.maxDegree_，可以使用点质量引力简化计算逻辑
+                GravityField gravityField;
+                errc_t err = gravityField.load(gravity.model_, gravity.maxDegree_, gravity.maxOrder_, body3rd->getDirpath());
+                if(err != eNoError)
+                {
+                    aError("Failed to load third body gravity field from file: '%s'", gravity.model_.c_str());
+                    return err;
+                }
+                auto propAxes = propFrame->getAxes();
+                auto gravityAxes = aGetGravityAxes(gravityField, *body3rd);
+                auto* block = new BlockThirdBodyGravity(body3rd, std::move(gravityField),
+                                                        gravity.maxDegree_, gravity.maxOrder_,
+                                                        gravityAxes, propFrame);
+                block->setConsiderVariations(gravity.useSecularVariations_);
+                this->addBlock(block);
+            }
+            else
+            {
+                // 三体使用点质量引力（默认行为）
+                double gm = thirdBody.pointMass().getGM(body3rd);
+                derivativeBlock = new BlockThirdBodyPointMass(body3rd, gm, propFrame);
+                this->addBlock(derivativeBlock);
+            }
         }
     }
 

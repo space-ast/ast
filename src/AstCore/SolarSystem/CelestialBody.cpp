@@ -43,6 +43,18 @@
 AST_NAMESPACE_BEGIN
 
 
+double aGetGravityParameter(const Body& body, StringView gravityModel)
+{
+    GravityFieldHead gfHead;
+    errc_t err = gfHead.load(gravityModel, body.getDirpath());
+    if(err != eNoError){
+        aError("Failed to load gravity field head from file: '%.*s'", gravityModel.size(), gravityModel.data());
+        return 0;
+    }
+    return gfHead.getGM();
+}
+
+
 CelestialBody* CelestialBody::Resolve(StringView value)
 {
     (void)N_("SolarSystemBarycenter");

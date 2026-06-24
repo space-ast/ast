@@ -49,6 +49,7 @@
 #include "AstCore/BlockSystem.hpp"
 #include "AstCore/BlockTerminator.hpp"
 #include "AstCore/BlockThirdBodyPointMass.hpp"
+#include "AstCore/BlockThirdBodyGravity.hpp"
 #include "AstCore/BlockToFile.hpp"
 #include "AstCore/BlockTransform.hpp"
 #include "AstCore/BlockTwoBody.hpp"
