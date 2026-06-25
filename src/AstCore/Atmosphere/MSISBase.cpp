@@ -39,7 +39,7 @@ public:
 MSISBase::MSISBase(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap)
     : AtmosphereBase(frame, bodyShape, f107Daily, f107Average, ap)
 {
-    static_assert(sizeof(storage_) == sizeof(MSISBase::WorkSpace), "storage_ size must be same as WorkSpace");
+    static_assert(sizeof(storage_) >= sizeof(MSISBase::WorkSpace), "storage_ size must not be less than WorkSpace");
     new (&storage_) WorkSpace;
 }
 

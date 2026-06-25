@@ -75,7 +75,7 @@ NRLMSIS00::NRLMSIS00(Frame* ecf, BodyShape* bodyShape, double f107Daily, double 
     : AtmosphereBase(ecf, bodyShape, f107Daily, f107Average, ap)
 {
     new (&storage_) NRLMSISE();
-    static_assert(sizeof(storage_) == sizeof(NRLMSISE), "storage_ size must be same as NRLMSISE");
+    static_assert(sizeof(storage_) >= sizeof(NRLMSISE), "storage_ size must not be less than NRLMSISE");
 }
 
 NRLMSIS00::~NRLMSIS00()
