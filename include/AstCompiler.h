@@ -326,6 +326,34 @@
 #   define A_DEBUG_BREAK() ::raise(SIGTRAP)
 #endif
 
+
+// 警告抑制宏 — 用于暂时屏蔽某个源文件或代码段内的全部编译警告
+// 用法：在源文件开头或需要屏蔽的代码段前后分别放置 BEGIN / END 宏
+#if defined(A_MSVC)
+#   define A_SUPPRESS_WARNINGS_BEGIN __pragma(warning(push, 0))
+#   define A_SUPPRESS_WARNINGS_END   __pragma(warning(pop))
+#elif defined(A_CLANG)
+#   define A_SUPPRESS_WARNINGS_BEGIN                         \
+        _Pragma("clang diagnostic push")                      \
+        _Pragma("clang diagnostic ignored \"-Weverything\"")
+#   define A_SUPPRESS_WARNINGS_END                           \
+        _Pragma("clang diagnostic pop")
+#elif defined(A_GCC)
+#   define A_SUPPRESS_WARNINGS_BEGIN                         \
+        _Pragma("GCC diagnostic push")                        \
+        _Pragma("GCC diagnostic ignored \"-Wall\"")           \
+        _Pragma("GCC diagnostic ignored \"-Wextra\"")         \
+        _Pragma("GCC diagnostic ignored \"-Wpedantic\"")      \
+        _Pragma("GCC diagnostic ignored \"-Wconversion\"")    \
+        _Pragma("GCC diagnostic ignored \"-Wsign-conversion\"")
+#   define A_SUPPRESS_WARNINGS_END                           \
+        _Pragma("GCC diagnostic pop")
+#else
+#   define A_SUPPRESS_WARNINGS_BEGIN
+#   define A_SUPPRESS_WARNINGS_END
+#endif
+
+
 /// 为支持随机访问的数值类型容器类型定义迭代器标准函数
 #define A_DEF_ITERABLE(Scalar, Data, Size)                                      \
     size_t size() const noexcept{ return (Size) ;}                              \

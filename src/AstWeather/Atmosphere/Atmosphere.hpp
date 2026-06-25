@@ -37,7 +37,7 @@ AST_NAMESPACE_BEGIN
 */
 
 
-AST_WEATHER_CAPI double aAtmDensUSSA1976(double alt);
+AST_WEATHER_CAPI double aUSSA1976(double alt);
 
 
 /*! @} */

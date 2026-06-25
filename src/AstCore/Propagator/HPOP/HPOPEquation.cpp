@@ -25,6 +25,8 @@
 #include "AstCore/BuiltinFrame.hpp"         //
 #include "AstCore/RunTimeSolarSystem.hpp"   // for aGetSun()
 #include "AstCore/NRLMSIS00.hpp"
+#include "AstCore/MSISE90.hpp"
+#include "AstCore/MSIS86.hpp"
 #include "AstWeather/GeomagneticIndex.hpp"  // for aKpToAp, aApToKp
 #include "AstCore/NoneEclipseCalculator.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"
@@ -105,6 +107,48 @@ static Axes* aGetGravityAxes(const GravityField& gravityField, const Body& body)
 static Point* aGetBodyEphemeris(const Body& body, EEphemerisSource ephemerisSource)
 {
     return body.getEphemeris(ephemerisSource);
+}
+
+static Atmosphere* aNewAtmosphere(const Body& body, const DragForce& drag)
+{
+    AtmosphereBase* atmosphere = nullptr;
+    double kp = drag.kp_;
+    double ap = aKpToAp(kp);
+    Frame* frame = body.getFrameFixed();
+    BodyShape* shape = body.getShape();
+    double f10p7Daily = drag.f10p7Daily_;
+    double f10p7Average = drag.f10p7Average_;
+    if(f10p7Average < 40)
+    {
+        f10p7Average = 40;
+        aWarning("f10p7Average is less than 40, using 40 as default.");
+    }
+    if(f10p7Daily < 40)
+    {
+        f10p7Daily = 40;
+        aWarning("f10p7Daily is less than 40, using 40 as default.");
+    }
+
+    auto atmDensityModel = drag.atmDensityModel_;
+    if(atmDensityModel == EAtmDensityModel::eMSIS1986)
+    {
+        atmosphere = new MSIS86(frame, shape, f10p7Daily, f10p7Average, ap);
+    }
+    else if(atmDensityModel == EAtmDensityModel::eMSISE1990)
+    {
+        atmosphere = new MSISE90(frame, shape, f10p7Daily, f10p7Average, ap);
+    }
+    else if(atmDensityModel == EAtmDensityModel::eNRLMSISE2000)
+    {
+        atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, ap);
+    }
+    else
+    {
+        aWarning("atmosphere '%d' is not supported, using default model 'NRLMSIS00'.", atmDensityModel);
+        atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, ap);
+    }
+    atmosphere->setUseApproximateAltitude(drag.useApproxAltForDrag_);
+    return atmosphere;
 }
 
 errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const SpacecraftParam &spacecraftParam)
@@ -204,11 +248,8 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         // 添加质量函数块
         blockMass = new BlockMass(spacecraftParam.mass());
         this->addBlock(blockMass);
-
-        double kp = forceModel.drag().kp_;
-        double ap = aKpToAp(kp);
-        NRLMSIS00* atmosphere = new NRLMSIS00(body->getFrameFixed(), body->getShape(), forceModel.drag().f10p7Daily_, forceModel.drag().f10p7Average_, ap);
-        atmosphere->setUseApproximateAltitude(forceModel.drag().useApproxAltForDrag_);
+        
+        Atmosphere* atmosphere = aNewAtmosphere(*body, forceModel.drag());
         // atmosphere 的所有权转移给 blockDrag
         derivativeBlock = new BlockDrag(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame);
         this->addBlock(derivativeBlock);

@@ -358,7 +358,7 @@ enum ESpiceId: int;
 /// @brief 获取行星系质心ID
 /// @param planetId 行星ID
 /// @return 行星系质心ID
-ESpiceId aGetPlanetBarycenterId(ESpiceId planetId);
+AST_CORE_CAPI ESpiceId aGetPlanetBarycenterId(ESpiceId planetId);
 
 
 /// @brief  SPICE 天体ID

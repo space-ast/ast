@@ -53,7 +53,173 @@ class HPOPTest : public ::testing::Test
 };
 
 
+/// @brief 测试大气阻力摄动（MSIS86 模型）
+TEST_F(HPOPTest, Drag_MSIS86)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
 
+    forceModel.useDrag(true);
+    forceModel.drag().atmDensityModel_ = EAtmDensityModel::eMSIS1986;
+    forceModel.drag().useApproxAltForDrag_ = false;
+    forceModel.drag().f10p7Average_ = 150;
+    forceModel.drag().f10p7Daily_ = 150;
+    forceModel.drag().kp_ = 3.0;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setDragArea(20);
+    scParam.setCd(2.2);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 6, 17, 0, 0, 0);
+    Vector3d pos{6.8781400000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.6900888731120158e+03, 3.6324218847438560e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+
+    Vector3d posExpect{ 6.0735523802171685e+06,  1.1177155532492716e+06,  3.0115244635127960e+06 };
+    Vector3d velExpect{ -2.0127449234117348e+03, 7.2138267230884767e+03, 1.3944090160026465e+03};
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-5);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-5);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-7);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-7);
+}
+
+
+/// @brief 测试大气阻力摄动（MSISE90 模型）
+TEST_F(HPOPTest, Drag_MSISE90)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useDrag(true);
+    forceModel.drag().atmDensityModel_ = EAtmDensityModel::eMSISE1990;
+    forceModel.drag().useApproxAltForDrag_ = false;
+    forceModel.drag().f10p7Average_ = 150;
+    forceModel.drag().f10p7Daily_ = 150;
+    forceModel.drag().kp_ = 3.0;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setDragArea(20);
+    scParam.setCd(2.2);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 6, 17, 0, 0, 0);
+    Vector3d pos{6.8781400000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.6900888731120158e+03, 3.6324218847438560e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+
+    Vector3d posExpect{ 6.0704715211070320e+06,  1.1286418571327669e+06,  3.0136259849788244e+06 };
+    Vector3d velExpect{ -2.0240508646207834e+03,  7.2117524559037665e+03,  1.3887784485845330e+03};
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-5);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-5);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-7);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-7);
+}
+
+
+
+/// @brief 测试大气阻力摄动（NRLMSISE2000 模型）
+TEST_F(HPOPTest, Drag_NRLMSISE2000)
+{
+    HPOPForceModel forceModel;
+    forceModel.gravity().maxDegree_ = 21;
+    forceModel.gravity().maxOrder_ = 21;
+    forceModel.gravity().model_ = "EGM2008";
+    forceModel.gravity().useSecularVariations_ = false;
+    forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
+
+    forceModel.useDrag(true);
+    forceModel.drag().atmDensityModel_ = EAtmDensityModel::eNRLMSISE2000;
+    forceModel.drag().useApproxAltForDrag_ = false;
+    forceModel.drag().f10p7Average_ = 150;
+    forceModel.drag().f10p7Daily_ = 150;
+    forceModel.drag().kp_ = 3.0;
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setDragArea(20);
+    scParam.setCd(2.2);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forceModel);
+    propagator.setSpacecraftParam(scParam);
+    EXPECT_EQ(err, 0);
+    auto integrator = propagator.getIntegrator();
+    auto varStepIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator);
+    if(varStepIntegrator)
+    {
+        varStepIntegrator->setUseFixedStep(true);
+        varStepIntegrator->setStepSize(60);
+    }
+    auto start = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 6, 17, 0, 0, 0);
+    Vector3d pos{6.8781400000000000e+06, 0.0, 0.0};
+    Vector3d vel{0.0000000000000000e+00, 6.6900888731120158e+03, 3.6324218847438560e+03};
+    err = propagator.propagate(start, end, pos, vel);
+    EXPECT_EQ(err, 0);
+    printf("end: %s\n", end.toString().c_str());
+    printf("pos: %s\n", pos.toString().c_str());
+    printf("vel: %s\n", vel.toString().c_str());
+
+
+    Vector3d posExpect{ 6.0727343209944004e+06,  1.1205317606959976e+06,  3.0120554995662356e+06 };
+    Vector3d velExpect{ -2.0156613271822021e+03,  7.2133223946848639e+03,  1.3929662087240408e+03};
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-4);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-4);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-7);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-7);
+}
 
 /// @brief 测试大气阻力摄动（近似海拔模式）
 /// @details
@@ -107,12 +273,12 @@ TEST_F(HPOPTest, Drag_ApproximateAltitude)
 
     Vector3d posExpect{ 6.0718101518087089e+06, 1.1238242325263233e+06, 3.0126906601675297e+06};
     Vector3d velExpect{ -2.0190679823240823e+03, 7.2126951799608260e+03, 1.3912689672060314e+03};
-    EXPECT_NEAR(pos[0],  posExpect[0], 1);
-    EXPECT_NEAR(pos[1],  posExpect[1], 1);
-    EXPECT_NEAR(pos[2],  posExpect[2], 1);
-    EXPECT_NEAR(vel[0],  velExpect[0], 1e-3);
-    EXPECT_NEAR(vel[1],  velExpect[1], 1e-3);
-    EXPECT_NEAR(vel[2],  velExpect[2], 1e-3);
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-4);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-4);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-7);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-7);
 }
 
 
