@@ -353,7 +353,7 @@ private:
 };
 
 
-enum ESpiceId;
+enum ESpiceId: int;
 
 /// @brief 获取行星系质心ID
 /// @param planetId 行星ID
@@ -363,7 +363,7 @@ ESpiceId aGetPlanetBarycenterId(ESpiceId planetId);
 
 /// @brief  SPICE 天体ID
 /// @see spicelib/zzidmap.for
-enum ESpiceId
+enum ESpiceId: int
 {
     eSolarSystemBarycenter  = 0,    ///< 太阳系质心
     eMercuryBarycenter      = 1,    ///< 水星系质心
