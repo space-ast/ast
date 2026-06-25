@@ -100,5 +100,5 @@ var CelestialBody_8hpp =
       [ "eCharon", "CelestialBody_8hpp.html#gga09e00b45b91dd0d93686ec56c2c5139aa337403c00241828f75e2cc279f279ba5", null ]
     ] ],
     [ "aGetGravityParameter", "CelestialBody_8hpp.html#gab64788f28e42df0d75074fd8a520a03b", null ],
-    [ "aGetPlanetBarycenterId", "CelestialBody_8hpp.html#ga5fda1feda60f45c14f5d2418943dd50a", null ]
+    [ "aGetPlanetBarycenterId", "CelestialBody_8hpp.html#ga69c60ac06762dfec3f237f83ffcd71f9", null ]
 ];

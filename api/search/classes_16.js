@@ -26,5 +26,6 @@ var searchData=
   ['weakptr_3c_20ast_3a_3astudyworkbench_20_3e_23',['WeakPtr&lt; ast::StudyWorkbench &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
   ['weakptr_3c_20ast_3a_3asweepstudy_20_3e_24',['WeakPtr&lt; ast::SweepStudy &gt;',['../classast_1_1WeakPtr.html',1,'ast']]],
   ['workingdirectory_25',['WorkingDirectory',['../classast_1_1WorkingDirectory.html',1,'ast']]],
-  ['workspace_26',['Workspace',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html',1,'ast::ODEFixedStepIntegrator']]]
+  ['workspace_26',['WorkSpace',['../classast_1_1MSISBase_1_1WorkSpace.html',1,'ast::MSISBase']]],
+  ['workspace_27',['Workspace',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html',1,'ast::ODEFixedStepIntegrator']]]
 ];

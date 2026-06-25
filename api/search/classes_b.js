@@ -16,7 +16,9 @@ var searchData=
   ['localeguard_13',['LocaleGuard',['../classast_1_1LocaleGuard.html',1,'ast']]],
   ['loggerstream_14',['LoggerStream',['../classast_1_1LoggerStream.html',1,'ast']]],
   ['longduration_15',['LongDuration',['../classast_1_1LongDuration.html',1,'ast']]],
-  ['lower6_5f1_5f_16',['lower6_1_',['../structlower6__1__.html',1,'']]],
-  ['lowermatrix_17',['LowerMatrix',['../classast_1_1LowerMatrix.html',1,'ast']]],
-  ['lowermatrix_3c_20double_20_3e_18',['LowerMatrix&lt; double &gt;',['../classast_1_1LowerMatrix.html',1,'ast']]]
+  ['lowermatrix_16',['LowerMatrix',['../classast_1_1LowerMatrix.html',1,'ast']]],
+  ['lowermatrix_3c_20double_20_3e_17',['LowerMatrix&lt; double &gt;',['../classast_1_1LowerMatrix.html',1,'ast']]],
+  ['lowerrecord_18',['lowerrecord',['../structlowerrecord.html',1,'']]],
+  ['lpolyrecord_19',['lpolyrecord',['../structlpolyrecord.html',1,'']]],
+  ['lsqvrecord_20',['lsqvrecord',['../structlsqvrecord.html',1,'']]]
 ];

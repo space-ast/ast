@@ -300,7 +300,7 @@ var searchData=
   ['setupdatemode_297',['setUpdateMode',['../classast_1_1FOVSAR.html#aaec1d3bd6c0e462fa7c7e34af988cf5a',1,'ast::FOVSAR']]],
   ['setupperlimit_298',['setUpperLimit',['../classast_1_1BlockDeadZone.html#abab6bc25b9ada61d50abc3493e7d6c32',1,'ast::BlockDeadZone::setUpperLimit()'],['../classast_1_1BlockSaturation.html#ab0957e49227f5e4387494bce2946e6b5',1,'ast::BlockSaturation::setUpperLimit()']]],
   ['seturl_299',['setUrl',['../classast_1_1NetworkRequest.html#a35c0fae8c3a42f837bf02bb61c462c45',1,'ast::NetworkRequest']]],
-  ['setuseapproximatealtitude_300',['setUseApproximateAltitude',['../classast_1_1NRLMSIS00.html#a78bba7366b8aa70a90583ac2dec2a78c',1,'ast::NRLMSIS00']]],
+  ['setuseapproximatealtitude_300',['setUseApproximateAltitude',['../classast_1_1AtmosphereBase.html#aa55ef156bdbab9ec50956c103add453f',1,'ast::AtmosphereBase']]],
   ['setusefixedstep_301',['setUseFixedStep',['../classast_1_1ODEVarStepIntegrator.html#a6b8bddb1dd20818eab21478af1c65a5f',1,'ast::ODEVarStepIntegrator']]],
   ['setusemaxstep_302',['setUseMaxStep',['../classast_1_1ODEVarStepIntegrator.html#a4d498fc2a6b27f39224c5090e515857d',1,'ast::ODEVarStepIntegrator']]],
   ['setuseminstep_303',['setUseMinStep',['../classast_1_1ODEVarStepIntegrator.html#a128eb6c95f284c2aa75f981fd9e2b6af',1,'ast::ODEVarStepIntegrator']]],

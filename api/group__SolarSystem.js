@@ -222,5 +222,5 @@ var group__SolarSystem =
       [ "ast::ePluto", "group__SolarSystem.html#gga09e00b45b91dd0d93686ec56c2c5139aa9e3a839ed230390bb5b416d7771f14ab", null ]
     ] ],
     [ "ast::aGetGravityParameter", "group__SolarSystem.html#gab64788f28e42df0d75074fd8a520a03b", null ],
-    [ "ast::aGetPlanetBarycenterId", "group__SolarSystem.html#ga5fda1feda60f45c14f5d2418943dd50a", null ]
+    [ "ast::aGetPlanetBarycenterId", "group__SolarSystem.html#ga69c60ac06762dfec3f237f83ffcd71f9", null ]
 ];

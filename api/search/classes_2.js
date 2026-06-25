@@ -61,7 +61,8 @@ var searchData=
   ['csatellite_58',['CSatellite',['../classast_1_1CSatellite.html',1,'ast::CSatellite'],['../classAstCOMLib_1_1CSatellite.html',1,'AstCOMLib::CSatellite']]],
   ['csavo_59',['CSaVO',['../classast_1_1CSaVO.html',1,'ast::CSaVO'],['../classAstCOMLib_1_1CSaVO.html',1,'AstCOMLib::CSaVO']]],
   ['cscenario_60',['CScenario',['../classast_1_1CScenario.html',1,'ast::CScenario'],['../classAstCOMLib_1_1CScenario.html',1,'AstCOMLib::CScenario']]],
-  ['cvevosystemscollection_61',['CVeVOSystemsCollection',['../classast_1_1CVeVOSystemsCollection.html',1,'ast::CVeVOSystemsCollection'],['../classAstCOMLib_1_1CVeVOSystemsCollection.html',1,'AstCOMLib::CVeVOSystemsCollection']]],
-  ['cvevosystemselement_62',['CVeVOSystemsElement',['../classast_1_1CVeVOSystemsElement.html',1,'ast::CVeVOSystemsElement'],['../classAstCOMLib_1_1CVeVOSystemsElement.html',1,'AstCOMLib::CVeVOSystemsElement']]],
-  ['cylindricaleclipsecalculator_63',['CylindricalEclipseCalculator',['../classast_1_1CylindricalEclipseCalculator.html',1,'ast']]]
+  ['cswrecord_61',['cswrecord',['../structcswrecord.html',1,'']]],
+  ['cvevosystemscollection_62',['CVeVOSystemsCollection',['../classast_1_1CVeVOSystemsCollection.html',1,'ast::CVeVOSystemsCollection'],['../classAstCOMLib_1_1CVeVOSystemsCollection.html',1,'AstCOMLib::CVeVOSystemsCollection']]],
+  ['cvevosystemselement_63',['CVeVOSystemsElement',['../classast_1_1CVeVOSystemsElement.html',1,'ast::CVeVOSystemsElement'],['../classAstCOMLib_1_1CVeVOSystemsElement.html',1,'AstCOMLib::CVeVOSystemsElement']]],
+  ['cylindricaleclipsecalculator_64',['CylindricalEclipseCalculator',['../classast_1_1CylindricalEclipseCalculator.html',1,'ast']]]
 ];

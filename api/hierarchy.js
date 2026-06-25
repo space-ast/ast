@@ -19,7 +19,13 @@ var hierarchy =
     [ "ast::args_t", "structast_1_1args__t.html", null ],
     [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
     [ "ast::Atmosphere", "classast_1_1Atmosphere.html", [
-      [ "ast::NRLMSIS00", "classast_1_1NRLMSIS00.html", null ]
+      [ "ast::AtmosphereBase", "classast_1_1AtmosphereBase.html", [
+        [ "ast::MSISBase", "classast_1_1MSISBase.html", [
+          [ "ast::MSIS86", "classast_1_1MSIS86.html", null ],
+          [ "ast::MSISE90", "classast_1_1MSISE90.html", null ],
+          [ "ast::NRLMSIS00", "classast_1_1NRLMSIS00.html", null ]
+        ] ]
+      ] ]
     ] ],
     [ "ast::AttributeBasic< ObjectType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
     [ "ast::AttributeBasic< Object, Property >", "classast_1_1AttributeBasic.html", null ],
@@ -147,6 +153,7 @@ var hierarchy =
     [ "AstCOMLib::CSatellite", "classAstCOMLib_1_1CSatellite.html", null ],
     [ "AstCOMLib::CSaVO", "classAstCOMLib_1_1CSaVO.html", null ],
     [ "AstCOMLib::CScenario", "classAstCOMLib_1_1CScenario.html", null ],
+    [ "cswrecord", "structcswrecord.html", null ],
     [ "AstCOMLib::CVeVOSystemsCollection", "classAstCOMLib_1_1CVeVOSystemsCollection.html", null ],
     [ "AstCOMLib::CVeVOSystemsElement", "classAstCOMLib_1_1CVeVOSystemsElement.html", null ],
     [ "ast::DAF_CommentArea", "structast_1_1DAF__CommentArea.html", null ],
@@ -159,6 +166,7 @@ var hierarchy =
     [ "ast::DataPort", "classast_1_1DataPort.html", null ],
     [ "ast::Date", "classast_1_1Date.html", null ],
     [ "ast::DateTime", "classast_1_1DateTime.html", null ],
+    [ "datimerecord", "structdatimerecord.html", null ],
     [ "ast::DaySecDuration", "classast_1_1DaySecDuration.html", null ],
     [ "ast::debin_header", "structast_1_1debin__header.html", null ],
     [ "ast::Debugger", "classast_1_1Debugger.html", null ],
@@ -171,6 +179,7 @@ var hierarchy =
     [ "ast::fs_simple::directory_iterator", "classast_1_1fs__simple_1_1directory__iterator.html", null ],
     [ "ast::TimeInterval::DiscreteEpochSecondRange", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html", null ],
     [ "ast::TimeInterval::DiscreteTimePointRange", "classast_1_1TimeInterval_1_1DiscreteTimePointRange.html", null ],
+    [ "dmixrecord", "structdmixrecord.html", null ],
     [ "doublecomplex", "structdoublecomplex.html", null ],
     [ "ast::EclipseCalculator", "classast_1_1EclipseCalculator.html", [
       [ "ast::ConeEclipseCalculator", "classast_1_1ConeEclipseCalculator.html", null ],
@@ -208,6 +217,7 @@ var hierarchy =
     [ "ast::FieldOfViewVisitor", "classast_1_1FieldOfViewVisitor.html", null ],
     [ "ast::figure_silencer", "classast_1_1figure__silencer.html", null ],
     [ "ast::fs_simple::file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
+    [ "fitrecord", "structfitrecord.html", null ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
       [ "ast::BlockAbs", "classast_1_1BlockAbs.html", null ],
       [ "ast::BlockConstant", "classast_1_1BlockConstant.html", null ],
@@ -267,6 +277,7 @@ var hierarchy =
     ] ],
     [ "ast::GravityFieldLoader", "classast_1_1GravityFieldLoader.html", null ],
     [ "ast::GravityFieldSecularVariations", "classast_1_1GravityFieldSecularVariations.html", null ],
+    [ "gts3crecord", "structgts3crecord.html", null ],
     [ "ast::GUIInterface", "classast_1_1GUIInterface.html", [
       [ "ast::GUIInterfaceImpl", "classast_1_1GUIInterfaceImpl.html", null ]
     ] ],
@@ -420,9 +431,11 @@ var hierarchy =
     [ "ast::LocaleGuard", "classast_1_1LocaleGuard.html", null ],
     [ "ast::LoggerStream", "classast_1_1LoggerStream.html", null ],
     [ "ast::LongDuration", "classast_1_1LongDuration.html", null ],
-    [ "lower6_1_", "structlower6__1__.html", null ],
     [ "ast::LowerMatrix< _Scalar >", "classast_1_1LowerMatrix.html", null ],
     [ "ast::LowerMatrix< double >", "classast_1_1LowerMatrix.html", null ],
+    [ "lowerrecord", "structlowerrecord.html", null ],
+    [ "lpolyrecord", "structlpolyrecord.html", null ],
+    [ "lsqvrecord", "structlsqvrecord.html", null ],
     [ "ast::detail::make_arg_pair< Tag, Pos >", "structast_1_1detail_1_1make__arg__pair.html", null ],
     [ "ast::MarkdownBlockParser", "classast_1_1MarkdownBlockParser.html", null ],
     [ "ast::MarkdownInlineParser", "classast_1_1MarkdownInlineParser.html", null ],
@@ -436,20 +449,22 @@ var hierarchy =
     [ "ast::MatrixMN< _Scalar, Row, Col >", "classast_1_1MatrixMN.html", null ],
     [ "ast::MatrixMN< _Scalar, 3, 3 >", "classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html", null ],
     [ "ast::MatrixMN< double, 3, 3 >", "classast_1_1MatrixMN.html", null ],
-    [ "mavg6_1_", "structmavg6__1__.html", null ],
+    [ "mavgrecord", "structmavgrecord.html", null ],
     [ "ast::strings_internal::MaxSplitsImpl< Delimiter >", "classast_1_1strings__internal_1_1MaxSplitsImpl.html", null ],
     [ "ast::detail::MemberPtrTag", "structast_1_1detail_1_1MemberPtrTag.html", null ],
+    [ "mesorecord", "structmesorecord.html", null ],
     [ "ast::MessageLogContext", "classast_1_1MessageLogContext.html", null ],
     [ "ast::MessageLogger", "classast_1_1MessageLogger.html", null ],
     [ "MessageVector", null, [
       [ "ast::ChatMessages", "classast_1_1ChatMessages.html", null ]
     ] ],
-    [ "metsel_1_", "structmetsel__1__.html", null ],
+    [ "metselrecord", "structmetselrecord.html", null ],
     [ "ast::MissionCommandVisitor", "classast_1_1MissionCommandVisitor.html", null ],
     [ "ast::MockUninitializedPointer", "classast_1_1MockUninitializedPointer.html", null ],
     [ "ast::ModEquinElem", "classast_1_1ModEquinElem.html", null ],
     [ "ast::ModOrbElem", "classast_1_1ModOrbElem.html", null ],
     [ "ast::MotionProfileVisitor", "classast_1_1MotionProfileVisitor.html", null ],
+    [ "msisrecord", "structmsisrecord.html", null ],
     [ "Multitype", "unionMultitype.html", null ],
     [ "Namelist", "structNamelist.html", null ],
     [ "ast::NameValuePair< T >", "classast_1_1NameValuePair.html", null ],
@@ -522,8 +537,8 @@ var hierarchy =
       [ "ast::HPOPEquation", "classast_1_1HPOPEquation.html", null ],
       [ "ast::ODEGeneric< Func >", "classast_1_1ODEGeneric.html", null ]
     ] ],
-    [ "parm6_1_", "structparm6__1__.html", null ],
-    [ "parm6_2_", "structparm6__2__.html", null ],
+    [ "parmbrecord", "structparmbrecord.html", null ],
+    [ "parmrecord", "structparmrecord.html", null ],
     [ "ast::Parser", "classast_1_1Parser.html", null ],
     [ "ast::fs_simple::path", "classast_1_1fs__simple_1_1path.html", null ],
     [ "ast::PilotPipeServer", "classast_1_1PilotPipeServer.html", null ],
@@ -1391,6 +1406,7 @@ var hierarchy =
     [ "ast::WeakPtr< ast::StudyWorkbench >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SweepStudy >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", null ],
+    [ "ast::MSISBase::WorkSpace", "classast_1_1MSISBase_1_1WorkSpace.html", null ],
     [ "ast::XMLDocument", "classast_1_1XMLDocument.html", null ],
     [ "ast::XMLNode", "classast_1_1XMLNode.html", null ],
     [ "ast::XMLSax", "classast_1_1XMLSax.html", [

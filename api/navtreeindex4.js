@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"Endian_8cpp.html":[4,0,0,24,5,4],
+"Endian_8hpp.html":[4,0,0,24,5,5],
+"Endian_8hpp_source.html":[4,0,0,24,5,5],
 "Environment_8cpp.html":[4,0,0,24,5,6],
 "Environment_8hpp.html":[4,0,0,24,5,7],
 "Environment_8hpp_source.html":[4,0,0,24,5,7],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "GFIlluminationAnglesSearch_8cpp.html":[4,0,0,2,1,8],
 "GFIlluminationAnglesSearch_8hpp.html":[4,0,0,2,1,9],
 "GFIlluminationAnglesSearch_8hpp_source.html":[4,0,0,2,1,9],
-"GFOccultationSearch_8cpp.html":[4,0,0,2,1,10],
-"GFOccultationSearch_8hpp.html":[4,0,0,2,1,11],
-"GFOccultationSearch_8hpp_source.html":[4,0,0,2,1,11],
-"GFPhaseAngleSearch_8cpp.html":[4,0,0,2,1,12]
+"GFOccultationSearch_8cpp.html":[4,0,0,2,1,10]
 };

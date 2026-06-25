@@ -43,7 +43,8 @@ var searchData=
   ['workfinished_40',['workFinished',['../classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d',1,'ast::UiChatWorker']]],
   ['workingdirectory_41',['WorkingDirectory',['../classast_1_1WorkingDirectory.html',1,'ast::WorkingDirectory'],['../classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97',1,'ast::WorkingDirectory::WorkingDirectory()']]],
   ['workingdirectory_2ehpp_42',['WorkingDirectory.hpp',['../WorkingDirectory_8hpp.html',1,'']]],
-  ['workspace_43',['Workspace',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html',1,'ast::ODEFixedStepIntegrator']]],
-  ['workstateobserver_5f_44',['workStateObserver_',['../classast_1_1ODEIntegrator.html#a4a919ef0c3f1c8bad5446e00b6619d3d',1,'ast::ODEIntegrator']]],
-  ['writeonly_45',['writeOnly',['../classast_1_1Property.html#a77d1be8b056e8c12e3868dcc5b7ac06f',1,'ast::Property']]]
+  ['workspace_43',['WorkSpace',['../classast_1_1MSISBase_1_1WorkSpace.html',1,'ast::MSISBase']]],
+  ['workspace_44',['Workspace',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html',1,'ast::ODEFixedStepIntegrator']]],
+  ['workstateobserver_5f_45',['workStateObserver_',['../classast_1_1ODEIntegrator.html#a4a919ef0c3f1c8bad5446e00b6619d3d',1,'ast::ODEIntegrator']]],
+  ['writeonly_46',['writeOnly',['../classast_1_1Property.html#a77d1be8b056e8c12e3868dcc5b7ac06f',1,'ast::Property']]]
 ];
