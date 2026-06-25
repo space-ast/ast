@@ -23,6 +23,7 @@
 #include <utility>
 #ifdef AST_WITH_FMT
 #include <fmt/core.h>
+#include <fmt/format.h>
 #endif
 
 AST_NAMESPACE_BEGIN
