@@ -87,5 +87,6 @@ var searchData=
   ['unitmanager_84',['UnitManager',['../classast_1_1UnitManager.html',1,'ast']]],
   ['unitrep_85',['UnitRep',['../classast_1_1Unit_1_1UnitRep.html',1,'ast::Unit']]],
   ['userproxyagent_86',['UserProxyAgent',['../classast_1_1UserProxyAgent.html',1,'ast']]],
-  ['utcscale_87',['UTCScale',['../classast_1_1UTCScale.html',1,'ast']]]
+  ['ussa1976_87',['USSA1976',['../classast_1_1USSA1976.html',1,'ast']]],
+  ['utcscale_88',['UTCScale',['../classast_1_1UTCScale.html',1,'ast']]]
 ];

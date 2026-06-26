@@ -1,5 +1,6 @@
 var classast_1_1AtmosphereBase =
 [
+    [ "getAltitude", "classast_1_1AtmosphereBase.html#a21a17a4acdb2e7cc8e58debec75f7c92", null ],
     [ "getDensity", "classast_1_1AtmosphereBase.html#ad52df15166e3bd1ab8afe89fc7bb3ee2", null ],
     [ "getFrame", "classast_1_1AtmosphereBase.html#a5bb6beed3597296887c3b7f9812dbe44", null ],
     [ "getGeodetic", "classast_1_1AtmosphereBase.html#a7f930cc722cd1c485a0483e22f1ce965", null ],

@@ -103,6 +103,9 @@ var NAVTREEINDEX14 =
 "Types_8cpp.html":[4,0,0,16,0,7],
 "Types_8hpp.html":[4,0,0,16,0,8],
 "Types_8hpp_source.html":[4,0,0,16,0,8],
+"USSA1976_8cpp.html":[4,0,0,7,1,12],
+"USSA1976_8hpp.html":[4,0,0,7,1,13],
+"USSA1976_8hpp_source.html":[4,0,0,7,1,13],
 "UiAnalyzerMainWindow_8cpp.html":[4,0,0,9,0,0],
 "UiAnalyzerMainWindow_8hpp.html":[4,0,0,9,0,1],
 "UiAnalyzerMainWindow_8hpp_source.html":[4,0,0,9,0,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX14 =
 "UiODEVarStepIntegrator_8hpp_source.html":[4,0,0,9,6,3],
 "UiObjectTreeItem_8cpp.html":[4,0,0,9,4,1,6],
 "UiObjectTreeItem_8hpp.html":[4,0,0,9,4,1,7],
-"UiObjectTreeItem_8hpp_source.html":[4,0,0,9,4,1,7],
-"UiObjectTree_8cpp.html":[4,0,0,9,4,1,4],
-"UiObjectTree_8hpp.html":[4,0,0,9,4,1,5],
-"UiObjectTree_8hpp_source.html":[4,0,0,9,4,1,5]
+"UiObjectTreeItem_8hpp_source.html":[4,0,0,9,4,1,7]
 };

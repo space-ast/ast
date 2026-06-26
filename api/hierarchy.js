@@ -24,7 +24,8 @@ var hierarchy =
           [ "ast::MSIS86", "classast_1_1MSIS86.html", null ],
           [ "ast::MSISE90", "classast_1_1MSISE90.html", null ],
           [ "ast::NRLMSIS00", "classast_1_1NRLMSIS00.html", null ]
-        ] ]
+        ] ],
+        [ "ast::USSA1976", "classast_1_1USSA1976.html", null ]
       ] ]
     ] ],
     [ "ast::AttributeBasic< ObjectType, PropertyType >", "classast_1_1AttributeBasic.html", null ],

@@ -1,5 +1,15 @@
 var NAVTREEINDEX21 =
 {
+"classast_1_1DetectorAccess.html#a2fee844fefe50d0d792acf8713d7b0d2":[2,0,0,178,0],
+"classast_1_1DetectorAccess.html#a2fee844fefe50d0d792acf8713d7b0d2":[3,0,0,177,0],
+"classast_1_1DetectorAltitude.html":[2,0,0,179],
+"classast_1_1DetectorAltitude.html":[3,0,0,178],
+"classast_1_1DetectorAltitude.html#ab7713d186a20810d93cd34e626a57e38":[2,0,0,179,0],
+"classast_1_1DetectorAltitude.html#ab7713d186a20810d93cd34e626a57e38":[3,0,0,178,0],
+"classast_1_1DetectorAlwaysTripped.html":[2,0,0,180],
+"classast_1_1DetectorAlwaysTripped.html":[3,0,0,179],
+"classast_1_1DetectorAlwaysTripped.html#ad2831eff59e8e18b731338f03aad4bfa":[2,0,0,180,0],
+"classast_1_1DetectorAlwaysTripped.html#ad2831eff59e8e18b731338f03aad4bfa":[3,0,0,179,0],
 "classast_1_1DetectorApoapsis.html":[2,0,0,181],
 "classast_1_1DetectorApoapsis.html":[3,0,0,180],
 "classast_1_1DetectorApoapsis.html#a94c36e51b2a333f3c0ad1493338c193d":[2,0,0,181,0],
@@ -239,15 +249,5 @@ var NAVTREEINDEX21 =
 "classast_1_1Ephemeris.html":[3,0,0,210],
 "classast_1_1Ephemeris.html#a06a246408fb1849a591caf69652b6048":[2,0,0,211,1],
 "classast_1_1Ephemeris.html#a06a246408fb1849a591caf69652b6048":[3,0,0,210,1],
-"classast_1_1Ephemeris.html#a64b01d7b6cd466b4bc6a1134da2e69f7":[2,0,0,211,2],
-"classast_1_1Ephemeris.html#a64b01d7b6cd466b4bc6a1134da2e69f7":[3,0,0,210,2],
-"classast_1_1Ephemeris.html#ac731ef1a7ad86ab8dff2fc569b9fe3d1":[2,0,0,211,0],
-"classast_1_1Ephemeris.html#ac731ef1a7ad86ab8dff2fc569b9fe3d1":[3,0,0,210,0],
-"classast_1_1EphemerisFileParser.html":[2,0,0,212],
-"classast_1_1EphemerisFileParser.html":[3,0,0,211],
-"classast_1_1EphemerisLagrangeVar.html":[2,0,0,213],
-"classast_1_1EphemerisLagrangeVar.html":[3,0,0,212],
-"classast_1_1EphemerisLagrangeVar.html#a06a7e408aa0f8579cf3016de7dfe26a2":[2,0,0,213,4],
-"classast_1_1EphemerisLagrangeVar.html#a06a7e408aa0f8579cf3016de7dfe26a2":[3,0,0,212,4],
-"classast_1_1EphemerisLagrangeVar.html#a414a413a20b740331cb6a665cc981302":[2,0,0,213,5]
+"classast_1_1Ephemeris.html#a64b01d7b6cd466b4bc6a1134da2e69f7":[2,0,0,211,2]
 };

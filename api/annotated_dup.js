@@ -1016,6 +1016,7 @@ var annotated_dup =
       [ "UnitConverter", "classast_1_1UnitConverter.html", "classast_1_1UnitConverter" ],
       [ "UnitManager", "classast_1_1UnitManager.html", "classast_1_1UnitManager" ],
       [ "UserProxyAgent", "classast_1_1UserProxyAgent.html", "classast_1_1UserProxyAgent" ],
+      [ "USSA1976", "classast_1_1USSA1976.html", "classast_1_1USSA1976" ],
       [ "UTCScale", "classast_1_1UTCScale.html", null ],
       [ "ValArray", "classast_1_1ValArray.html", "classast_1_1ValArray" ],
       [ "ValBool", "classast_1_1ValBool.html", null ],

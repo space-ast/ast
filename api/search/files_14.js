@@ -168,6 +168,8 @@ var searchData=
   ['unitparser_2ehpp_165',['UnitParser.hpp',['../UnitParser_8hpp.html',1,'']]],
   ['userproxyagent_2ecpp_166',['UserProxyAgent.cpp',['../UserProxyAgent_8cpp.html',1,'']]],
   ['userproxyagent_2ehpp_167',['UserProxyAgent.hpp',['../UserProxyAgent_8hpp.html',1,'']]],
-  ['util_2ecpp_168',['Util.cpp',['../Util_8cpp.html',1,'']]],
-  ['util_2ehpp_169',['Util.hpp',['../Util_8hpp.html',1,'']]]
+  ['ussa1976_2ecpp_168',['USSA1976.cpp',['../USSA1976_8cpp.html',1,'']]],
+  ['ussa1976_2ehpp_169',['USSA1976.hpp',['../USSA1976_8hpp.html',1,'']]],
+  ['util_2ecpp_170',['Util.cpp',['../Util_8cpp.html',1,'']]],
+  ['util_2ehpp_171',['Util.hpp',['../Util_8hpp.html',1,'']]]
 ];

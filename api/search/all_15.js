@@ -285,9 +285,12 @@ var searchData=
   ['userproxyagent_2ecpp_282',['UserProxyAgent.cpp',['../UserProxyAgent_8cpp.html',1,'']]],
   ['userproxyagent_2ehpp_283',['UserProxyAgent.hpp',['../UserProxyAgent_8hpp.html',1,'']]],
   ['usesecularvariations_5f_284',['useSecularVariations_',['../classast_1_1GravityForce.html#a0156f872a48f03ab0d72785a7e0cb144',1,'ast::GravityForce']]],
-  ['ut1_5futc_285',['ut1_utc',['../structast_1_1EOP_1_1Entry.html#a44c6e2f8a8b505a18e0b6ee047b2d3ac',1,'ast::EOP::Entry']]],
-  ['utc2et_286',['utc2et',['../group__Spice.html#ga4f205815708e303f060b016040e999fd',1,'ast']]],
-  ['utcscale_287',['UTCScale',['../classast_1_1UTCScale.html',1,'ast']]],
-  ['util_2ecpp_288',['Util.cpp',['../Util_8cpp.html',1,'']]],
-  ['util_2ehpp_289',['Util.hpp',['../Util_8hpp.html',1,'']]]
+  ['ussa1976_285',['USSA1976',['../classast_1_1USSA1976.html',1,'ast']]],
+  ['ussa1976_2ecpp_286',['USSA1976.cpp',['../USSA1976_8cpp.html',1,'']]],
+  ['ussa1976_2ehpp_287',['USSA1976.hpp',['../USSA1976_8hpp.html',1,'']]],
+  ['ut1_5futc_288',['ut1_utc',['../structast_1_1EOP_1_1Entry.html#a44c6e2f8a8b505a18e0b6ee047b2d3ac',1,'ast::EOP::Entry']]],
+  ['utc2et_289',['utc2et',['../group__Spice.html#ga4f205815708e303f060b016040e999fd',1,'ast']]],
+  ['utcscale_290',['UTCScale',['../classast_1_1UTCScale.html',1,'ast']]],
+  ['util_2ecpp_291',['Util.cpp',['../Util_8cpp.html',1,'']]],
+  ['util_2ehpp_292',['Util.hpp',['../Util_8hpp.html',1,'']]]
 ];

@@ -11,5 +11,7 @@ var dir_5b17ea73c95a1e4bace30f4613654d1e =
     [ "MSISE90.cpp", "MSISE90_8cpp.html", null ],
     [ "MSISE90.hpp", "MSISE90_8hpp.html", "MSISE90_8hpp" ],
     [ "NRLMSIS00.cpp", "NRLMSIS00_8cpp.html", null ],
-    [ "NRLMSIS00.hpp", "NRLMSIS00_8hpp.html", "NRLMSIS00_8hpp" ]
+    [ "NRLMSIS00.hpp", "NRLMSIS00_8hpp.html", "NRLMSIS00_8hpp" ],
+    [ "USSA1976.cpp", "USSA1976_8cpp.html", null ],
+    [ "USSA1976.hpp", "USSA1976_8hpp.html", "USSA1976_8hpp" ]
 ];

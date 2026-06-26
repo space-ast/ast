@@ -1,5 +1,15 @@
 var NAVTREEINDEX37 =
 {
+"classast_1_1ScStateCalcSTMVelZVelX.html":[2,0,0,740],
+"classast_1_1ScStateCalcSTMVelZVelX.html":[3,0,0,739],
+"classast_1_1ScStateCalcSTMVelZVelY.html":[2,0,0,741],
+"classast_1_1ScStateCalcSTMVelZVelY.html":[3,0,0,740],
+"classast_1_1ScStateCalcSTMVelZVelZ.html":[2,0,0,742],
+"classast_1_1ScStateCalcSTMVelZVelZ.html":[3,0,0,741],
+"classast_1_1ScStateCalcScalar.html":[2,0,0,720],
+"classast_1_1ScStateCalcScalar.html":[3,0,0,719],
+"classast_1_1ScStateCalcScript.html":[2,0,0,721],
+"classast_1_1ScStateCalcScript.html":[3,0,0,720],
 "classast_1_1ScStateCalcScript.html#af223c4ea826603fb4792323a2b34b106":[2,0,0,721,0],
 "classast_1_1ScStateCalcScript.html#af223c4ea826603fb4792323a2b34b106":[3,0,0,720,0],
 "classast_1_1ScStateCalcSemiLatusRectum.html":[2,0,0,724],
@@ -239,15 +249,5 @@ var NAVTREEINDEX37 =
 "classast_1_1Ship.html":[3,0,0,781],
 "classast_1_1ShooterControl.html":[2,0,0,783],
 "classast_1_1ShooterControl.html":[3,0,0,782],
-"classast_1_1ShooterControl.html#a5048e64de56f0eea643759e3a2b51116":[2,0,0,783,0],
-"classast_1_1ShooterControl.html#a5048e64de56f0eea643759e3a2b51116":[3,0,0,782,0],
-"classast_1_1ShooterControl.html#a8169afbe0308a90ca42548e68c06046c":[2,0,0,783,1],
-"classast_1_1ShooterControl.html#a8169afbe0308a90ca42548e68c06046c":[3,0,0,782,1],
-"classast_1_1ShooterResult.html":[2,0,0,784],
-"classast_1_1ShooterResult.html":[3,0,0,783],
-"classast_1_1ShooterResult.html#af915116c41a5a51d8e11ff78f146cfa7":[2,0,0,784,0],
-"classast_1_1ShooterResult.html#af915116c41a5a51d8e11ff78f146cfa7":[3,0,0,783,0],
-"classast_1_1ShortDuration.html":[0,1,7,2],
-"classast_1_1SimEngine.html":[2,0,0,786],
-"classast_1_1SimEngine.html":[3,0,0,785]
+"classast_1_1ShooterControl.html#a5048e64de56f0eea643759e3a2b51116":[2,0,0,783,0]
 };
