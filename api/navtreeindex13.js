@@ -1,5 +1,8 @@
 var NAVTREEINDEX13 =
 {
+"SimulationAPI_8hpp.html":[4,0,0,7,8,1,18],
+"SimulationAPI_8hpp.html#a09abe7229223cffbe1af1f9f30d6e4b7":[4,0,0,7,8,1,18,0],
+"SimulationAPI_8hpp.html#a30843f3a4f566f1d18f40a96041bde54":[4,0,0,7,8,1,18,7],
 "SimulationAPI_8hpp.html#a3287f1604c2b8863930e77e7465d861d":[4,0,0,7,8,1,18,10],
 "SimulationAPI_8hpp.html#a33d0f2fd3f50f38098e542fe9ff44189":[4,0,0,7,8,1,18,8],
 "SimulationAPI_8hpp.html#a47a1d1ae2184d0c97a4959492ea25303":[4,0,0,7,8,1,18,2],
@@ -193,6 +196,13 @@ var NAVTREEINDEX13 =
 "Submarine_8cpp.html":[4,0,0,17,3,62],
 "Submarine_8hpp.html":[4,0,0,17,3,63],
 "Submarine_8hpp_source.html":[4,0,0,17,3,63],
+"SunPosition_8cpp.html":[4,0,0,7,10,12],
+"SunPosition_8hpp.html":[4,0,0,7,10,13],
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055":[4,0,0,7,10,13,0],
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a0d8db97ecea9e6f09617cc60746e1c01":[4,0,0,7,10,13,0,1],
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a993c607f86d04aaa19681df339689592":[4,0,0,7,10,13,0,0],
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055ac4b72ddf63a9b2b2bca0c2bcc02842c8":[4,0,0,7,10,13,0,2],
+"SunPosition_8hpp_source.html":[4,0,0,7,10,13],
 "SunSynchronousOrbitDesigner_8cpp.html":[4,0,0,7,7,4,21],
 "SunSynchronousOrbitDesigner_8hpp.html":[4,0,0,7,7,4,22],
 "SunSynchronousOrbitDesigner_8hpp_source.html":[4,0,0,7,7,4,22],
@@ -239,15 +249,5 @@ var NAVTREEINDEX13 =
 "TargeterSequenceLoader_8hpp.html":[4,0,0,10,1,2,21],
 "TargeterSequenceLoader_8hpp.html#a50edd46d67e640a5f3271402deab044e":[4,0,0,10,1,2,21,1],
 "TargeterSequenceLoader_8hpp.html#aaab36525f8f6c36f48aedf0dd1ecd769":[4,0,0,10,1,2,21,0],
-"TargeterSequenceLoader_8hpp_source.html":[4,0,0,10,1,2,21],
-"TargeterSequence_8cpp.html":[4,0,0,7,7,3,34],
-"TargeterSequence_8hpp.html":[4,0,0,7,7,3,35],
-"TargeterSequence_8hpp_source.html":[4,0,0,7,7,3,35],
-"Terminal_8cpp.html":[4,0,0,24,5,27],
-"Terminal_8hpp.html":[4,0,0,24,5,28],
-"Terminal_8hpp_source.html":[4,0,0,24,5,28],
-"TerminationCondition_8cpp.html":[4,0,0,0,2,15],
-"TerminationCondition_8hpp_source.html":[4,0,0,0,2,16],
-"TestConfig_8cpp.html":[4,0,0,19,1],
-"TestConfig_8cpp.html#a0e24c5375dc2a1ac080587d2d92a8fb2":[4,0,0,19,1,2]
+"TargeterSequenceLoader_8hpp_source.html":[4,0,0,10,1,2,21]
 };

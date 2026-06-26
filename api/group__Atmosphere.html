@@ -108,10 +108,93 @@ $(function(){initNavTree('group__Atmosphere.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:gab93cd609ebc908a11e29170b858ff2e0" id="r_gab93cd609ebc908a11e29170b858ff2e0"><td class="memItemLeft" align="right" valign="top"><a id="gab93cd609ebc908a11e29170b858ff2e0" name="gab93cd609ebc908a11e29170b858ff2e0"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aUSSA1976</b> (double alt)</td></tr>
+<tr class="memitem:gab93cd609ebc908a11e29170b858ff2e0" id="r_gab93cd609ebc908a11e29170b858ff2e0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab93cd609ebc908a11e29170b858ff2e0">ast::aUSSA1976</a> (double alt)</td></tr>
 <tr class="separator:gab93cd609ebc908a11e29170b858ff2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5b44d44447964fb436232131e83c8a6" id="r_gae5b44d44447964fb436232131e83c8a6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae5b44d44447964fb436232131e83c8a6">ast::aJacchiaRoberts</a> (double height, const Vector3d &amp;space_craft, const Vector3d &amp;sun, double a1_time, double tkp, double xtemp)</td></tr>
+<tr class="separator:gae5b44d44447964fb436232131e83c8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">函数说明</h2>
+<a id="gae5b44d44447964fb436232131e83c8a6" name="gae5b44d44447964fb436232131e83c8a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5b44d44447964fb436232131e83c8a6">&#9670;&#160;</a></span>aJacchiaRoberts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_WEATHER_CAPI double ast::aJacchiaRoberts </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>space_craft</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>sun</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a1_time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tkp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>xtemp</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JaciachiaRoberts大气模型 </p>
+<p>函数的注释原文请参考 val_atm_jr.cpp 和 <a class="el" href="val__atm__jr_8h_source.html">val_atm_jr.h</a> </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">height</td><td>地理高度 [m] </td></tr>
+    <tr><td class="paramname">space_craft</td><td>TOD GCI 坐标系下的卫星位置 [m] </td></tr>
+    <tr><td class="paramname">sun</td><td>TOD GCI 坐标系下的太阳向量 [m] </td></tr>
+    <tr><td class="paramname">a1_time</td><td>儒略日减去2430000（即相对于1941-01-05 12:00:00的天数）[A.1 时间系统] </td></tr>
+    <tr><td class="paramname">tkp</td><td>地磁指数 [Kp] </td></tr>
+    <tr><td class="paramname">xtemp</td><td>外大气层温度[K] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>大气密度 [kg/m³] </dd></dl>
+
+</div>
+</div>
+<a id="gab93cd609ebc908a11e29170b858ff2e0" name="gab93cd609ebc908a11e29170b858ff2e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab93cd609ebc908a11e29170b858ff2e0">&#9670;&#160;</a></span>aUSSA1976()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_WEATHER_CAPI double ast::aUSSA1976 </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>alt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>USSA1976大气模型 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alt</td><td>高度 [m] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>大气密度 [kg/m³] </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

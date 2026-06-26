@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['f107average_5f_0',['F107Average_',['../classast_1_1AtmosphereBase.html#a0520dc4969c1134589eb031771cef194',1,'ast::AtmosphereBase']]],
-  ['f107daily_5f_1',['F107Daily_',['../classast_1_1AtmosphereBase.html#a79c29c7e1347e8123a8021cd3251c004',1,'ast::AtmosphereBase']]],
+  ['f107average_5f_0',['F107Average_',['../classast_1_1MSISBase.html#a78590ee2a568f8f8d10d94b0082beebe',1,'ast::MSISBase']]],
+  ['f107daily_5f_1',['F107Daily_',['../classast_1_1MSISBase.html#aa2524294bf6164742edacdafdc645862',1,'ast::MSISBase']]],
   ['f10p7average_5f_2',['f10p7Average_',['../classast_1_1DragForce.html#a457c2aa252d085b9e377133b9fa8af04',1,'ast::DragForce']]],
   ['f10p7daily_5f_3',['f10p7Daily_',['../classast_1_1DragForce.html#a0699a3feadd9ee089dde5ea6645533df',1,'ast::DragForce']]],
   ['f_5f_4',['f_',['../classast_1_1FundamentalArguments.html#a74d7f58e0f547eccfca2651331be7a8f',1,'ast::FundamentalArguments::f_'],['../classast_1_1ModEquinElem.html#acf5868e16af6f2c772c8ad1ed1784c4e',1,'ast::ModEquinElem::f_']]],

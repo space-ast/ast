@@ -1,5 +1,8 @@
 var NAVTREEINDEX9 =
 {
+"PropertyAll_8hpp.html":[4,0,0,24,7,0,8],
+"PropertyAll_8hpp_source.html":[4,0,0,24,7,0,8],
+"PropertyBool_8cpp.html":[4,0,0,24,7,0,9],
 "PropertyBool_8hpp.html":[4,0,0,24,7,0,10],
 "PropertyBool_8hpp_source.html":[4,0,0,24,7,0,10],
 "PropertyDouble_8cpp.html":[4,0,0,24,7,0,11],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "ScStateCalcAllHeaders_8hpp_source.html":[4,0,0,7,7,1,0,15,1],
 "ScStateCalcAltitudeOfApoapsis_8cpp.html":[4,0,0,7,7,1,0,10,0],
 "ScStateCalcAltitudeOfApoapsis_8hpp.html":[4,0,0,7,7,1,0,10,1],
-"ScStateCalcAltitudeOfApoapsis_8hpp_source.html":[4,0,0,7,7,1,0,10,1],
-"ScStateCalcAltitudeOfPeriapsis_8cpp.html":[4,0,0,7,7,1,0,10,2],
-"ScStateCalcAltitudeOfPeriapsis_8hpp.html":[4,0,0,7,7,1,0,10,3],
-"ScStateCalcAltitudeOfPeriapsis_8hpp_source.html":[4,0,0,7,7,1,0,10,3]
+"ScStateCalcAltitudeOfApoapsis_8hpp_source.html":[4,0,0,7,7,1,0,10,1]
 };

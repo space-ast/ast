@@ -277,8 +277,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::PBody</b> = <a 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:gab64788f28e42df0d75074fd8a520a03b" id="r_gab64788f28e42df0d75074fd8a520a03b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab64788f28e42df0d75074fd8a520a03b">ast::aGetGravityParameter</a> (const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;body, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> gravityModel)</td></tr>
-<tr class="separator:gab64788f28e42df0d75074fd8a520a03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga02c88a250b518d7443303fc58b1f417e" id="r_ga02c88a250b518d7443303fc58b1f417e"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga02c88a250b518d7443303fc58b1f417e">ast::aGetGravityParameter</a> (const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;body, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> gravityModel, double &amp;gm)</td></tr>
+<tr class="separator:ga02c88a250b518d7443303fc58b1f417e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga69c60ac06762dfec3f237f83ffcd71f9" id="r_ga69c60ac06762dfec3f237f83ffcd71f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ga09e00b45b91dd0d93686ec56c2c5139a">ESpiceId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga69c60ac06762dfec3f237f83ffcd71f9">ast::aGetPlanetBarycenterId</a> (<a class="el" href="#ga09e00b45b91dd0d93686ec56c2c5139a">ESpiceId</a> planetId)</td></tr>
 <tr class="separator:ga69c60ac06762dfec3f237f83ffcd71f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -379,21 +379,26 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::PBody</b> = <a 
 </div>
 </div>
 <h2 class="groupheader">函数说明</h2>
-<a id="gab64788f28e42df0d75074fd8a520a03b" name="gab64788f28e42df0d75074fd8a520a03b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab64788f28e42df0d75074fd8a520a03b">&#9670;&#160;</a></span>aGetGravityParameter()</h2>
+<a id="ga02c88a250b518d7443303fc58b1f417e" name="ga02c88a250b518d7443303fc58b1f417e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga02c88a250b518d7443303fc58b1f417e">&#9670;&#160;</a></span>aGetGravityParameter()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AST_CORE_CAPI double ast::aGetGravityParameter </td>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aGetGravityParameter </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>gravityModel</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>gravityModel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>gm</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -403,10 +408,11 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::PBody</b> = <a 
   <table class="params">
     <tr><td class="paramname">body</td><td>中心天体 </td></tr>
     <tr><td class="paramname">gravityModel</td><td>重力场模型 </td></tr>
+    <tr><td class="paramname">gm</td><td>输出引力常数，单位：m³/s² </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>引力常数gm，单位：m³/s² </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
 </div>
 </div>

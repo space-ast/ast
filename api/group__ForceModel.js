@@ -1,6 +1,7 @@
 var group__ForceModel =
 [
     [ "ast::DragForce", "classast_1_1DragForce.html", [
+      [ "ap", "classast_1_1DragForce.html#aa5d5686455f9b97d09c13ab7a83a2f31", null ],
       [ "atmBlendingRange_", "classast_1_1DragForce.html#aa5c25dfc58fc0f5e4ac88ea517b7a9e5", null ],
       [ "atmDensityModel_", "classast_1_1DragForce.html#a8ceb489be79f230715a868b632abd3f2", null ],
       [ "f10p7Average_", "classast_1_1DragForce.html#a457c2aa252d085b9e377133b9fa8af04", null ],
@@ -21,6 +22,5 @@ var group__ForceModel =
       [ "ast::EGMSource::eSystemGravity", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a314ebc5a1ac89ebd09538736ac6438eb", null ],
       [ "ast::EGMSource::eJplDE", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8", null ],
       [ "ast::EGMSource::eSpecifiedValue", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6", null ]
-    ] ],
-    [ "ast::ESunPosition", "group__ForceModel.html#ga2bf48439a4f7c7769a0f7e017ef7f055", null ]
+    ] ]
 ];

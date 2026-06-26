@@ -20,6 +20,7 @@ var hierarchy =
     [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
     [ "ast::Atmosphere", "classast_1_1Atmosphere.html", [
       [ "ast::AtmosphereBase", "classast_1_1AtmosphereBase.html", [
+        [ "ast::JacchiaRoberts", "classast_1_1JacchiaRoberts.html", null ],
         [ "ast::MSISBase", "classast_1_1MSISBase.html", [
           [ "ast::MSIS86", "classast_1_1MSIS86.html", null ],
           [ "ast::MSISE90", "classast_1_1MSISE90.html", null ],
@@ -196,6 +197,7 @@ var hierarchy =
     ] ],
     [ "ast::EquinElem", "classast_1_1EquinElem.html", null ],
     [ "ast::Euler", "classast_1_1Euler.html", null ],
+    [ "ExoTemps", "classExoTemps.html", null ],
     [ "ast::ExprVisitor", "classast_1_1ExprVisitor.html", [
       [ "ast::ExprExpandVisitor", "classast_1_1ExprExpandVisitor.html", null ]
     ] ],

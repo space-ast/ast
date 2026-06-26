@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcLatitudeRate_8cpp.html":[4,0,0,7,7,1,0,15,76],
+"ScStateCalcLatitudeRate_8hpp.html":[4,0,0,7,7,1,0,15,77],
+"ScStateCalcLatitudeRate_8hpp_source.html":[4,0,0,7,7,1,0,15,77],
 "ScStateCalcLatitude_8cpp.html":[4,0,0,7,7,1,0,15,74],
 "ScStateCalcLatitude_8hpp.html":[4,0,0,7,7,1,0,15,75],
 "ScStateCalcLatitude_8hpp_source.html":[4,0,0,7,7,1,0,15,75],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcSequenceDeltaVSquared_8cpp.html":[4,0,0,7,7,1,0,15,184],
 "ScStateCalcSequenceDeltaVSquared_8hpp.html":[4,0,0,7,7,1,0,15,185],
 "ScStateCalcSequenceDeltaVSquared_8hpp_source.html":[4,0,0,7,7,1,0,15,185],
-"ScStateCalcSequenceDeltaV_8cpp.html":[4,0,0,7,7,1,0,15,182],
-"ScStateCalcSequenceDeltaV_8hpp.html":[4,0,0,7,7,1,0,15,183],
-"ScStateCalcSequenceDeltaV_8hpp_source.html":[4,0,0,7,7,1,0,15,183],
-"ScStateCalcSignedEccentricity_8cpp.html":[4,0,0,7,7,1,0,15,186]
+"ScStateCalcSequenceDeltaV_8cpp.html":[4,0,0,7,7,1,0,15,182]
 };

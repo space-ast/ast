@@ -1,5 +1,8 @@
 var NAVTREEINDEX8 =
 {
+"NutationSeries_8hpp.html":[4,0,0,7,3,3,6],
+"NutationSeries_8hpp_source.html":[4,0,0,7,3,3,6],
+"NutationTerm_8cpp.html":[4,0,0,7,3,3,7],
 "NutationTerm_8hpp.html":[4,0,0,7,3,3,8],
 "NutationTerm_8hpp_source.html":[4,0,0,7,3,3,8],
 "OArchive_8hpp.html":[4,0,0,24,8,0,6],
@@ -246,8 +249,5 @@ var NAVTREEINDEX8 =
 "PropagatorLoader_8hpp_source.html":[4,0,0,10,1,3,1],
 "Propagator_8cpp.html":[4,0,0,7,8,8],
 "Propagator_8hpp.html":[4,0,0,7,8,9],
-"Propagator_8hpp_source.html":[4,0,0,7,8,9],
-"PropertyAll_8hpp.html":[4,0,0,24,7,0,8],
-"PropertyAll_8hpp_source.html":[4,0,0,24,7,0,8],
-"PropertyBool_8cpp.html":[4,0,0,24,7,0,9]
+"Propagator_8hpp_source.html":[4,0,0,7,8,9]
 };

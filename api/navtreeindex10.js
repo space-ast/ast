@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"ScStateCalcAltitudeOfPeriapsis_8cpp.html":[4,0,0,7,7,1,0,10,2],
+"ScStateCalcAltitudeOfPeriapsis_8hpp.html":[4,0,0,7,7,1,0,10,3],
+"ScStateCalcAltitudeOfPeriapsis_8hpp_source.html":[4,0,0,7,7,1,0,10,3],
 "ScStateCalcAltitudeRate_8cpp.html":[4,0,0,7,7,1,0,9,2],
 "ScStateCalcAltitudeRate_8hpp.html":[4,0,0,7,7,1,0,9,3],
 "ScStateCalcAltitudeRate_8hpp_source.html":[4,0,0,7,7,1,0,9,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcInertDeltaVz_8hpp_source.html":[4,0,0,7,7,1,0,15,67],
 "ScStateCalcJScript_8cpp.html":[4,0,0,7,7,1,0,16,0],
 "ScStateCalcJScript_8hpp.html":[4,0,0,7,7,1,0,16,1],
-"ScStateCalcJScript_8hpp_source.html":[4,0,0,7,7,1,0,16,1],
-"ScStateCalcLatitudeRate_8cpp.html":[4,0,0,7,7,1,0,15,76],
-"ScStateCalcLatitudeRate_8hpp.html":[4,0,0,7,7,1,0,15,77],
-"ScStateCalcLatitudeRate_8hpp_source.html":[4,0,0,7,7,1,0,15,77]
+"ScStateCalcJScript_8hpp_source.html":[4,0,0,7,7,1,0,16,1]
 };

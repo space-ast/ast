@@ -108,46 +108,37 @@ $(function(){initNavTree('ForceModel_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/Object.hpp&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/ObjectNamed.hpp&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="group__ForceModel.html#ga2bf48439a4f7c7769a0f7e017ef7f055">   35</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group__ForceModel.html#ga2bf48439a4f7c7769a0f7e017ef7f055">ESunPosition</a></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    eTrue,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    eApparentSunToTrueCB,</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    eApparent,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstCore/SunPosition.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="group__ForceModel.html#gae12dca510680d7ff59d3e93fb379eba9">   38</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group__ForceModel.html#gae12dca510680d7ff59d3e93fb379eba9">EGMSource</a></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ac17e2e87b6c84f56634797d3b1990fe5">eBodyGravity</a>,           </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_enumvalue" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a314ebc5a1ac89ebd09538736ac6438eb">eSystemGravity</a>,         </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_enumvalue" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8">eJplDE</a>,                 </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_enumvalue" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6">eSpecifiedValue</a>,        </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="group__ForceModel.html#gae12dca510680d7ff59d3e93fb379eba9">   43</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group__ForceModel.html#gae12dca510680d7ff59d3e93fb379eba9">EGMSource</a></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_enumvalue" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ac17e2e87b6c84f56634797d3b1990fe5">eBodyGravity</a>,           </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_enumvalue" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a314ebc5a1ac89ebd09538736ac6438eb">eSystemGravity</a>,         </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_enumvalue" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8">eJplDE</a>,                 </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_enumvalue" href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6">eSpecifiedValue</a>,        </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1ForceModel.html">   49</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1ForceModel.html">ForceModel</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1ObjectNamed.html">ObjectNamed</a></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1ForceModel.html">ForceModel</a>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="classast_1_1ForceModel.html">ForceModel</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1ForceModel.html">~ForceModel</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
 </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1ForceModel.html">   54</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1ForceModel.html">ForceModel</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1ObjectNamed.html">ObjectNamed</a></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1ForceModel.html">ForceModel</a>)</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="classast_1_1ForceModel.html">ForceModel</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1ForceModel.html">~ForceModel</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
-</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1ForceModel_html"><div class="ttname"><a href="classast_1_1ForceModel.html">ast::ForceModel</a></div><div class="ttdoc">力模型</div><div class="ttdef"><b>定义</b> ForceModel.hpp:55</div></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1ForceModel_html"><div class="ttname"><a href="classast_1_1ForceModel.html">ast::ForceModel</a></div><div class="ttdoc">力模型</div><div class="ttdef"><b>定义</b> ForceModel.hpp:50</div></div>
 <div class="ttc" id="aclassast_1_1ObjectNamed_html"><div class="ttname"><a href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></div><div class="ttdoc">命名对象</div><div class="ttdef"><b>定义</b> ObjectNamed.hpp:36</div></div>
-<div class="ttc" id="agroup__ForceModel_html_ga2bf48439a4f7c7769a0f7e017ef7f055"><div class="ttname"><a href="group__ForceModel.html#ga2bf48439a4f7c7769a0f7e017ef7f055">ast::ESunPosition</a></div><div class="ttdeci">ESunPosition</div><div class="ttdoc">太阳位置</div><div class="ttdef"><b>定义</b> ForceModel.hpp:36</div></div>
-<div class="ttc" id="agroup__ForceModel_html_gae12dca510680d7ff59d3e93fb379eba9"><div class="ttname"><a href="group__ForceModel.html#gae12dca510680d7ff59d3e93fb379eba9">ast::EGMSource</a></div><div class="ttdeci">EGMSource</div><div class="ttdoc">引力常数来源</div><div class="ttdef"><b>定义</b> ForceModel.hpp:44</div></div>
+<div class="ttc" id="agroup__ForceModel_html_gae12dca510680d7ff59d3e93fb379eba9"><div class="ttname"><a href="group__ForceModel.html#gae12dca510680d7ff59d3e93fb379eba9">ast::EGMSource</a></div><div class="ttdeci">EGMSource</div><div class="ttdoc">引力常数来源</div><div class="ttdef"><b>定义</b> ForceModel.hpp:39</div></div>
 <div class="ttc" id="agroup__ForceModel_html_ggae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6"><div class="ttname"><a href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6">ast::EGMSource::eSpecifiedValue</a></div><div class="ttdeci">@ eSpecifiedValue</div><div class="ttdoc">用户指定的引力常数</div></div>
 <div class="ttc" id="agroup__ForceModel_html_ggae12dca510680d7ff59d3e93fb379eba9a314ebc5a1ac89ebd09538736ac6438eb"><div class="ttname"><a href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a314ebc5a1ac89ebd09538736ac6438eb">ast::EGMSource::eSystemGravity</a></div><div class="ttdeci">@ eSystemGravity</div><div class="ttdoc">天体系引力常数（考虑天体的卫星）</div></div>
 <div class="ttc" id="agroup__ForceModel_html_ggae12dca510680d7ff59d3e93fb379eba9ac17e2e87b6c84f56634797d3b1990fe5"><div class="ttname"><a href="group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ac17e2e87b6c84f56634797d3b1990fe5">ast::EGMSource::eBodyGravity</a></div><div class="ttdeci">@ eBodyGravity</div><div class="ttdoc">天体的引力常数</div></div>

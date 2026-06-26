@@ -412,6 +412,7 @@ var namespaceast =
     [ "J2Analytical", "classast_1_1J2Analytical.html", "classast_1_1J2Analytical" ],
     [ "J2J4Analytical", "classast_1_1J2J4Analytical.html", "classast_1_1J2J4Analytical" ],
     [ "J4Analytical", "classast_1_1J4Analytical.html", "classast_1_1J4Analytical" ],
+    [ "JacchiaRoberts", "classast_1_1JacchiaRoberts.html", "classast_1_1JacchiaRoberts" ],
     [ "JavaSerializer", "classast_1_1JavaSerializer.html", "classast_1_1JavaSerializer" ],
     [ "JplDe", "classast_1_1JplDe.html", "classast_1_1JplDe" ],
     [ "JplSpk", "classast_1_1JplSpk.html", "classast_1_1JplSpk" ],
@@ -1627,10 +1628,10 @@ var namespaceast =
       [ "eKeplerian", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0ac29f4242fedd02baf87fbc607461696c", null ],
       [ "eUnknown", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0a64c3acc11ffdb1be30ea339290bd1508", null ]
     ] ],
-    [ "ESunPosition", "group__ForceModel.html#ga2bf48439a4f7c7769a0f7e017ef7f055", [
-      [ "eTrue", "group__ForceModel.html#gga2bf48439a4f7c7769a0f7e017ef7f055a993c607f86d04aaa19681df339689592", null ],
-      [ "eApparentSunToTrueCB", "group__ForceModel.html#gga2bf48439a4f7c7769a0f7e017ef7f055a0d8db97ecea9e6f09617cc60746e1c01", null ],
-      [ "eApparent", "group__ForceModel.html#gga2bf48439a4f7c7769a0f7e017ef7f055ac4b72ddf63a9b2b2bca0c2bcc02842c8", null ]
+    [ "ESunPosition", "namespaceast.html#a2bf48439a4f7c7769a0f7e017ef7f055", [
+      [ "eTrue", "namespaceast.html#a2bf48439a4f7c7769a0f7e017ef7f055a993c607f86d04aaa19681df339689592", null ],
+      [ "eApparentSunToTrueCB", "namespaceast.html#a2bf48439a4f7c7769a0f7e017ef7f055a0d8db97ecea9e6f09617cc60746e1c01", null ],
+      [ "eApparent", "namespaceast.html#a2bf48439a4f7c7769a0f7e017ef7f055ac4b72ddf63a9b2b2bca0c2bcc02842c8", null ]
     ] ],
     [ "ETableAlign", "namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2f", [
       [ "eDefault", "namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2faaf71f03861810014d736fcbae9d6050e", null ],
@@ -1990,7 +1991,7 @@ var namespaceast =
     [ "aGetEpoch", "group__Data.html#ga1113e5f1f7eb8d2579d81f23832d2a59", null ],
     [ "aGetFilePath", "group__Platform.html#ga696e5be3337a541eac1e81388379802f", null ],
     [ "aGetFilePath", "group__Platform.html#ga37ceb5060ff95143bf4fe04cd905d7bf", null ],
-    [ "aGetGravityParameter", "group__SolarSystem.html#gab64788f28e42df0d75074fd8a520a03b", null ],
+    [ "aGetGravityParameter", "group__SolarSystem.html#ga02c88a250b518d7443303fc58b1f417e", null ],
     [ "aGetInputPortDataType", "namespaceast.html#a09abe7229223cffbe1af1f9f30d6e4b7", null ],
     [ "aGetInputPortRealSignal", "namespaceast.html#af168d1051b28363b8fb28f9d9568ddb0", null ],
     [ "aGetInputPortSignal", "namespaceast.html#a47a1d1ae2184d0c97a4959492ea25303", null ],
@@ -2106,6 +2107,7 @@ var namespaceast =
     [ "aJ2Period", "group__Orbit.html#gac4d6914c90df0d4ca29864f0c1d9568f", null ],
     [ "aJ4AnalyticalProp", "group__Propagator.html#ga16d10b2160991f648da7a9ab8c3219b3", null ],
     [ "aJ4AnalyticalProp", "group__Propagator.html#gaed79bad16236c17b5a9497a47aecdce7", null ],
+    [ "aJacchiaRoberts", "group__Atmosphere.html#gae5b44d44447964fb436232131e83c8a6", null ],
     [ "aJDToDate", "group__Time.html#ga9d18f7fc7e53783f07a94bc9d9c8e041", null ],
     [ "aJDToDateAtNoon", "group__Time.html#ga35c2ecd6ca4483da7789a270a3060c9d", null ],
     [ "aJDToDateTime", "group__Time.html#gafae79be801e3e4cb55fcd602d71c08cd", null ],
@@ -2591,6 +2593,7 @@ var namespaceast =
     [ "aUnitsGetByDimension", "group__Quantity.html#ga2576d704a908b0589a6974073c6d8c9a", null ],
     [ "aUranusPosInICRF", "group__Coordinate.html#gabd9b98c500bfcdfbe0cb615a44184b3a", null ],
     [ "aUranusPosVelInICRF", "group__Coordinate.html#ga0160b3673ad02c539da1d37bdbb8fd8e", null ],
+    [ "aUSSA1976", "group__Atmosphere.html#gab93cd609ebc908a11e29170b858ff2e0", null ],
     [ "aUT1MinusUTC_UTC", "group__Data.html#ga69f5ec58e4208c07a64e3b6533a97da4", null ],
     [ "aUTCToTAI", "group__Time.html#gaa012e9e94ac44c98735e064693c98eec", null ],
     [ "aUTCToTT", "group__Time.html#gaf212737f7d12b94d383c4e48796a6f33", null ],

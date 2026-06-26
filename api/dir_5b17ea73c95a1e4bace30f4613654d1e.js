@@ -4,6 +4,8 @@ var dir_5b17ea73c95a1e4bace30f4613654d1e =
     [ "Atmosphere.hpp", "AstCore_2Atmosphere_2Atmosphere_8hpp.html", "AstCore_2Atmosphere_2Atmosphere_8hpp" ],
     [ "AtmosphereBase.cpp", "AtmosphereBase_8cpp.html", null ],
     [ "AtmosphereBase.hpp", "AtmosphereBase_8hpp.html", "AtmosphereBase_8hpp" ],
+    [ "JacchiaRoberts.cpp", "JacchiaRoberts_8cpp.html", null ],
+    [ "JacchiaRoberts.hpp", "JacchiaRoberts_8hpp.html", "JacchiaRoberts_8hpp" ],
     [ "MSIS86.cpp", "MSIS86_8cpp.html", null ],
     [ "MSIS86.hpp", "MSIS86_8hpp.html", "MSIS86_8hpp" ],
     [ "MSISBase.cpp", "MSISBase_8cpp.html", "MSISBase_8cpp" ],

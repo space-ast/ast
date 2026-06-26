@@ -70,6 +70,7 @@ var group__Time =
     [ "ast::JulianDate", "classast_1_1JulianDate.html", [
       [ "dayFractional", "classast_1_1JulianDate.html#a84787d21f050ff5bafec038662a82316", null ],
       [ "daysFromJ2000", "classast_1_1JulianDate.html#a1b8919d5d7d7431a64b6f75b2bc8d7cc", null ],
+      [ "daysFromJulianDate", "classast_1_1JulianDate.html#a32a6a2a8d202fa8a36d36c2f879cc71e", null ],
       [ "getDaySecond", "classast_1_1JulianDate.html#af47f69daa5495951188d61deee09bf3a", null ],
       [ "impreciseDay", "classast_1_1JulianDate.html#a5aca597dc00265b589bb18a8c8ee3cb8", null ],
       [ "julianCenturyFromJ2000", "classast_1_1JulianDate.html#a78f5cb882407ed72bdae2df223968ee1", null ],

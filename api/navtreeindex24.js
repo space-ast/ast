@@ -1,5 +1,11 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1FrameRoot.html#aad2eb60eb0e53b3b08428208d8d5c351":[0,1,0,9,4],
+"classast_1_1FrameRoot.html#afd13ab5a3e93641a0c55ee288ee3bdc8":[0,1,0,9,2],
+"classast_1_1FrameWithEpoch.html":[2,0,0,270],
+"classast_1_1FrameWithEpoch.html":[3,0,0,269],
+"classast_1_1FrameWithEpoch.html#a1cb7a7bc1d67acb3ccbffcedfff170e2":[2,0,0,270,4],
+"classast_1_1FrameWithEpoch.html#a1cb7a7bc1d67acb3ccbffcedfff170e2":[3,0,0,269,4],
 "classast_1_1FrameWithEpoch.html#a2c92b8da68e4390903172fda42c3f5b0":[2,0,0,270,5],
 "classast_1_1FrameWithEpoch.html#a2c92b8da68e4390903172fda42c3f5b0":[3,0,0,269,5],
 "classast_1_1FrameWithEpoch.html#a5267d054cfa0791862f37047c3dfeef6":[2,0,0,270,1],
@@ -243,11 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1GlobalContext.html#a788925c4722877fbb344ab5712b1f7b9":[0,1,1,1,0],
 "classast_1_1GlobalContext.html#acc1e339a77947a88a072b385d96094e0":[0,1,1,1,1],
 "classast_1_1GravityCalculator.html":[2,0,0,282],
-"classast_1_1GravityCalculator.html":[3,0,0,281],
-"classast_1_1GravityCalculator.html#a13f7592832fd03f89cb176992f08995b":[2,0,0,282,4],
-"classast_1_1GravityCalculator.html#a13f7592832fd03f89cb176992f08995b":[3,0,0,281,4],
-"classast_1_1GravityCalculator.html#a1e643a734d78d52fb3b50945ac6f67b5":[2,0,0,282,8],
-"classast_1_1GravityCalculator.html#a1e643a734d78d52fb3b50945ac6f67b5":[3,0,0,281,8],
-"classast_1_1GravityCalculator.html#a2085c78cfe75bd0a4fe53b3c42c6fd8a":[2,0,0,282,3],
-"classast_1_1GravityCalculator.html#a2085c78cfe75bd0a4fe53b3c42c6fd8a":[3,0,0,281,3]
+"classast_1_1GravityCalculator.html":[3,0,0,281]
 };

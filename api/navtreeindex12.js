@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcSequenceDeltaV_8hpp.html":[4,0,0,7,7,1,0,15,183],
+"ScStateCalcSequenceDeltaV_8hpp_source.html":[4,0,0,7,7,1,0,15,183],
+"ScStateCalcSignedEccentricity_8cpp.html":[4,0,0,7,7,1,0,15,186],
 "ScStateCalcSignedEccentricity_8hpp.html":[4,0,0,7,7,1,0,15,187],
 "ScStateCalcSignedEccentricity_8hpp_source.html":[4,0,0,7,7,1,0,15,187],
 "ScStateCalcSolarPhaseAngle_8cpp.html":[4,0,0,7,7,1,0,15,188],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "SimulationAPI_8cpp.html#a8b89b9ad7d5122d815cd2d844361be30":[4,0,0,7,8,1,17,6],
 "SimulationAPI_8cpp.html#ae692331576d0a2db7402b684d8c3dd1b":[4,0,0,7,8,1,17,9],
 "SimulationAPI_8cpp.html#af168d1051b28363b8fb28f9d9568ddb0":[4,0,0,7,8,1,17,1],
-"SimulationAPI_8cpp.html#af5441328b5602713639d73364ef1b3cf":[4,0,0,7,8,1,17,4],
-"SimulationAPI_8hpp.html":[4,0,0,7,8,1,18],
-"SimulationAPI_8hpp.html#a09abe7229223cffbe1af1f9f30d6e4b7":[4,0,0,7,8,1,18,0],
-"SimulationAPI_8hpp.html#a30843f3a4f566f1d18f40a96041bde54":[4,0,0,7,8,1,18,7]
+"SimulationAPI_8cpp.html#af5441328b5602713639d73364ef1b3cf":[4,0,0,7,8,1,17,4]
 };

@@ -11,5 +11,7 @@ var dir_5e18b0e3c7e597f0270d6c7f05b2b910 =
     [ "SolarSystem.cpp", "SolarSystem_8cpp.html", null ],
     [ "SolarSystem.hpp", "SolarSystem_8hpp.html", null ],
     [ "SolarSystemLoader.cpp", "SolarSystemLoader_8cpp.html", null ],
-    [ "SolarSystemLoader.hpp", "SolarSystemLoader_8hpp.html", null ]
+    [ "SolarSystemLoader.hpp", "SolarSystemLoader_8hpp.html", null ],
+    [ "SunPosition.cpp", "SunPosition_8cpp.html", null ],
+    [ "SunPosition.hpp", "SunPosition_8hpp.html", "SunPosition_8hpp" ]
 ];
