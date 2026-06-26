@@ -34,7 +34,6 @@ class AST_CORE_API AtmosphereBase: public Atmosphere
 {
 public:
     AtmosphereBase(Frame* frame, BodyShape* bodyShape);
-    AtmosphereBase(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap);
     ~AtmosphereBase() override = default;
 
     /// @brief 获取大气密度
@@ -64,13 +63,8 @@ public:
     /// @param altitude 高度（单位：米），根据是否使用近似高度计算，其返回值不同
     double getAltitude(const Vector3d& posInBodyFixed) const;
 protected:
-    static void getMSISParam(const TimePoint& tp, double lon, int& dayOfYear, double& secOfDay, double& lst);
-protected:
     Frame* frame_{nullptr};              ///< 大气模型的参考坐标系
     BodyShape* bodyShape_{nullptr};      ///< 大气模型对应天体形状
-    double F107Daily_{0.0};              ///< F10.7 指数
-    double F107Average_{0.0};            ///< F10.7 指数的平均值
-    double ap_{0.0};                     ///< 地磁指数
     bool useApproximateAltitude_{false}; ///< 是否使用近似高度计算
 };
 

@@ -62,8 +62,9 @@ enum class EEphemerisSource
 /// @brief 从天体重力场文件中读取其引力常数
 /// @param body 中心天体
 /// @param gravityModel 重力场模型
-/// @return 引力常数gm，单位：m³/s²
-AST_CORE_CAPI double aGetGravityParameter(const Body& body, StringView gravityModel);
+/// @param gm 输出引力常数，单位：m³/s²
+/// @return errc_t 错误码
+AST_CORE_CAPI errc_t aGetGravityParameter(const Body& body, StringView gravityModel, double& gm);
 
 
 /// @brief 天体

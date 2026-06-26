@@ -21,7 +21,6 @@
 #include "AtmosphereBase.hpp"
 #include "AstCore/GeodeticPoint.hpp"
 #include "AstCore/SpheroidShape.hpp"
-#include "AstCore/TimePoint.hpp"
 #include <cassert>
 
 AST_NAMESPACE_BEGIN
@@ -34,16 +33,6 @@ AtmosphereBase::AtmosphereBase(Frame * frame, BodyShape * bodyShape)
 	assert(bodyShape != nullptr);
 }
 
-AtmosphereBase::AtmosphereBase(Frame * frame, BodyShape * bodyShape, double f107Daily, double f107Average, double ap)
-    : frame_{frame}
-    , bodyShape_{bodyShape}
-    , F107Daily_{f107Daily}
-    , F107Average_{f107Average}
-    , ap_{ap}
-{
-	assert(bodyShape != nullptr);
-	assert(frame != nullptr);
-}
 
 void AtmosphereBase::getGeodetic(const Vector3d &posInBodyFixed, double &latitude, double &longitude, double &altitude) const
 {
@@ -100,14 +89,7 @@ double AtmosphereBase::getAltitude(const Vector3d &posInBodyFixed) const
 	}
 }
 
-void AtmosphereBase::getMSISParam(const TimePoint &tp, double lon, int &dayOfYear, double &secOfDay, double &lst)
-{
-	DateTime dateTime;
-    aTimePointToUTC(tp, dateTime);
-    dayOfYear = dateTime.dayOfYear();
-    secOfDay = dateTime.secOfDay();
-	lst = secOfDay / 3600 + lon * kRadToTimeHour;
-}
+
 
 AST_NAMESPACE_END
 

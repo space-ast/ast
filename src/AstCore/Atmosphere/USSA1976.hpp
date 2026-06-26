@@ -30,6 +30,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+/// @brief USSA1976大气模型
 class AST_CORE_API USSA1976: public AtmosphereBase
 {
 public:

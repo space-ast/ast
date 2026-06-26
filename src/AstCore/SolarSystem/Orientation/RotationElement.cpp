@@ -43,7 +43,7 @@ double RotationElement::evaluateDot(bool isRotation, double t, double d) const
         for(auto& coeff : coefficients_)
         {
             double arg = coeff.constant_ + coeff.rate_ * d + coeff.rateDot_ * t * t;
-            dot += coeff.amplitude_ * sin(arg) * (coeff.rate_ + 2 * coeff.rateDot_ * t / kDaysPerJulianCentury);
+            dot += -coeff.amplitude_ * sin(arg) * (coeff.rate_ + 2 * coeff.rateDot_ * t / kDaysPerJulianCentury);
         }   
     }
     if(isRotation){

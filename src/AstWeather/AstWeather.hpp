@@ -12,3 +12,5 @@
 #include "AstWeather/igrf.hpp"
 #include "AstWeather/nrlmsise-00.h"
 #include "AstWeather/nrlmsise-00.hpp"
+#include "AstWeather/val_always.h"
+#include "AstWeather/val_atm_jr.h"

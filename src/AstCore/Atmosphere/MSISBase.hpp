@@ -39,6 +39,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+/// @brief MSIS86大气模型基类
 class AST_CORE_API MSISBase : public AtmosphereBase
 {
 public:
@@ -51,6 +52,12 @@ protected:
     lpolytype& lpoly() const;
     fittype& fit() const;
     lsqvtype& lsqv() const;
+protected:
+    static void getMSISParam(const TimePoint& tp, double lon, int& dayOfYear, double& secOfDay, double& lst);
+protected:
+    double F107Daily_{0.0};              ///< F10.7 指数
+    double F107Average_{0.0};            ///< F10.7 指数的平均值
+    double ap_{0.0};                     ///< 地磁指数
 private:
     mutable std::aligned_storage<57000>::type storage_;
 };

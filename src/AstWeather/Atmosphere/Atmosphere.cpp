@@ -20,6 +20,8 @@
 
 #include "Atmosphere.hpp"
 #include "AstWeather/atmos76.hpp"
+#include "AstWeather/val_atm_jr.h"
+#include "AstMath/Vector.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -34,6 +36,17 @@ double aUSSA1976(double alt)
 
     const double RHOZERO = 1.225; // 海平面标准密度, kg/m³
     return sigma * RHOZERO;
+}
+
+double aJacchiaRoberts(
+    double height, const Vector3d &space_craft, const Vector3d &sun, 
+    double a1_time, double tkp, double xtemp
+)
+{
+    height /= 1000.0;
+    auto space_craft_temp = space_craft / 1000;
+    double rho = jac_rob(height, space_craft_temp.data(), sun.normalized().data(), a1_time, tkp, xtemp);
+    return rho * 1000.0;
 }
 
 AST_NAMESPACE_END

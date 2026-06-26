@@ -21,14 +21,17 @@
 #include "HPOPEquation.hpp"
 #include "HPOP.hpp"                         // for HPOPForceModel
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Math.hpp"
 #include "AstCore/Simulation.hpp"           // for blocks
 #include "AstCore/BuiltinFrame.hpp"         //
 #include "AstCore/RunTimeSolarSystem.hpp"   // for aGetSun()
+
 #include "AstCore/NRLMSIS00.hpp"
 #include "AstCore/MSISE90.hpp"
 #include "AstCore/MSIS86.hpp"
 #include "AstCore/USSA1976.hpp"
-#include "AstWeather/GeomagneticIndex.hpp"  // for aKpToAp, aApToKp
+#include "AstCore/JacchiaRoberts.hpp"
+
 #include "AstCore/NoneEclipseCalculator.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"
 #include "AstCore/CylindricalEclipseCalculator.hpp"
@@ -110,11 +113,24 @@ static Point* aGetBodyEphemeris(const Body& body, EEphemerisSource ephemerisSour
     return body.getEphemeris(ephemerisSource);
 }
 
+static double clamp_f10p7(double value)
+{
+    if(value < 40.0)
+    {
+        aWarning("f10p7 is less than 40, using 40 as default.");
+        return 40.0;
+    }
+    else if(value > 10000.0)
+    {
+        aWarning("f10p7 is greater than 10000, using 10000 as upper bound.");
+        return 10000.0;
+    }
+    return value;
+}
+
 static Atmosphere* aNewAtmosphere(const DragForce& drag)
 {
     AtmosphereBase* atmosphere = nullptr;
-    double kp = drag.kp_;
-    double ap = aKpToAp(kp);
 
     // 目前的大气模型都是地球的大气模型
     auto earth = aGetEarth();
@@ -124,40 +140,39 @@ static Atmosphere* aNewAtmosphere(const DragForce& drag)
     BodyShape* shape = earth->getShape();
     Frame* frame = earth->getFrameFixed();
 
-    double f10p7Daily = drag.f10p7Daily_;
-    double f10p7Average = drag.f10p7Average_;
-    if(f10p7Average < 40)
-    {
-        f10p7Average = 40;
-        aWarning("f10p7Average is less than 40, using 40 as default.");
-    }
-    if(f10p7Daily < 40)
-    {
-        f10p7Daily = 40;
-        aWarning("f10p7Daily is less than 40, using 40 as default.");
-    }
+    double f10p7Daily   = clamp_f10p7(drag.f10p7Daily_);
+    double f10p7Average = clamp_f10p7(drag.f10p7Average_);
+
+    
+
 
     auto atmDensityModel = drag.atmDensityModel_;
     if(atmDensityModel == EAtmDensityModel::eMSIS1986)
     {
-        atmosphere = new MSIS86(frame, shape, f10p7Daily, f10p7Average, ap);
+        atmosphere = new MSIS86(frame, shape, f10p7Daily, f10p7Average, drag.ap());
     }
     else if(atmDensityModel == EAtmDensityModel::eMSISE1990)
     {
-        atmosphere = new MSISE90(frame, shape, f10p7Daily, f10p7Average, ap);
+        atmosphere = new MSISE90(frame, shape, f10p7Daily, f10p7Average, drag.ap());
     }
     else if(atmDensityModel == EAtmDensityModel::eNRLMSISE2000)
     {
-        atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, ap);
+        atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, drag.ap());
     }
     else if(atmDensityModel == EAtmDensityModel::e1976Standard)
     {
         atmosphere = new USSA1976(frame, shape);
     }
+    else if(atmDensityModel == EAtmDensityModel::eJacchiaRoberts)
+    {
+        auto jr = new JacchiaRoberts(frame, shape, aGetSun(), f10p7Daily, f10p7Average, drag.kp_);
+        jr->setSunPosition(drag.sunPosition_);
+        atmosphere = jr;
+    }
     else
     {
         aWarning("atmosphere '%d' is not supported, using default model 'NRLMSIS00'.", atmDensityModel);
-        atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, ap);
+        atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, drag.ap());
     }
     atmosphere->setUseApproximateAltitude(drag.useApproxAltForDrag_);
     return atmosphere;
@@ -213,9 +228,10 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             auto& gravity = *gravityPtr;
             // 如果重力场的阶数为0，说明是二体引力，直接添加二体引力函数块即可
             if(0 == gravity.maxDegree_){
-                double gm = aGetGravityParameter(*body, gravity.model_);
-                if(gm == 0)
-                    return eErrorInvalidParam;
+                double gm;
+                errc_t err = aGetGravityParameter(*body, gravity.model_, gm);
+                if(err != eNoError)
+                    return err;
                 derivativeBlock = new BlockTwoBody(gm);
                 this->addBlock(derivativeBlock);
             }else{

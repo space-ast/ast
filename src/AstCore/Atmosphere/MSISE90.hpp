@@ -31,6 +31,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+/// @brief MSISE90大气模型
 class AST_CORE_API MSISE90 final: public MSISBase
 {
 public:

@@ -78,7 +78,7 @@ TEST_F(BlockThirdBodyGravityTest, PointMassDegeneracy)
     auto thirdBody = forceModelPointMass.addThirdBody("Moon");
     
     thirdBody->pointMass().gmSource_ = EGMSource::eSpecifiedValue;
-    thirdBody->pointMass().specifiedGM_ = aGetGravityParameter(*thirdBody->body(), "GL0420A");
+    aGetGravityParameter(*thirdBody->body(), "GL0420A", thirdBody->pointMass().specifiedGM_);
 
     SpacecraftParam scParam;
     scParam.setDryMass(1000_kg);
@@ -150,7 +150,7 @@ TEST_F(BlockThirdBodyGravityTest, NonSphericalEffect)
 
     auto thirdBody = forceModelPointMass.addThirdBody("Moon");
     thirdBody->pointMass().gmSource_ = EGMSource::eSpecifiedValue;
-    thirdBody->pointMass().specifiedGM_ = aGetGravityParameter(*thirdBody->body(), "GL0420A");
+    aGetGravityParameter(*thirdBody->body(), "GL0420A", thirdBody->pointMass().specifiedGM_);
 
     SpacecraftParam scParam;
     scParam.setDryMass(1000_kg);

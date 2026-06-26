@@ -20,6 +20,7 @@
 
 #include "MSISBase.hpp"
 #include "AstWeather/MSIS_Vers.h"
+#include "AstCore/TimePoint.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -37,7 +38,10 @@ public:
 };
 
 MSISBase::MSISBase(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap)
-    : AtmosphereBase(frame, bodyShape, f107Daily, f107Average, ap)
+    : AtmosphereBase(frame, bodyShape)
+    , F107Daily_{f107Daily}
+    , F107Average_{f107Average}
+    , ap_{ap}
 {
     static_assert(sizeof(storage_) >= sizeof(MSISBase::WorkSpace), "storage_ size must not be less than WorkSpace");
     new (&storage_) WorkSpace;
@@ -53,5 +57,14 @@ lpolytype& MSISBase::lpoly() const { return workSpace().lpoly_; }
 fittype& MSISBase::fit() const { return workSpace().fit_; }
 lsqvtype& MSISBase::lsqv() const { return workSpace().lsqv_; }
 
+
+void MSISBase::getMSISParam(const TimePoint &tp, double lon, int &dayOfYear, double &secOfDay, double &lst)
+{
+	DateTime dateTime;
+    aTimePointToUTC(tp, dateTime);
+    dayOfYear = dateTime.dayOfYear();
+    secOfDay = dateTime.secOfDay();
+	lst = secOfDay / 3600 + lon * kRadToTimeHour;
+}
 
 AST_NAMESPACE_END

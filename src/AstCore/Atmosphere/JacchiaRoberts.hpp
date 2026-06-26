@@ -1,9 +1,9 @@
 ///
-/// @file      ForceModel.hpp
+/// @file      JacchiaRoberts.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-04-21
+/// @date      2026-06-26
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -21,39 +21,33 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/Object.hpp"
-#include "AstUtil/ObjectNamed.hpp"
+#include "AstCore/AtmosphereBase.hpp"
 #include "AstCore/SunPosition.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup ForceModel
+    @addtogroup 
     @{
 */
 
-
-
-/// @brief 引力常数来源
-enum class EGMSource
-{
-    eBodyGravity,           ///< 天体的引力常数
-    eSystemGravity,         ///< 天体系引力常数（考虑天体的卫星）
-    eJplDE,                 ///< 来自JPL DE星历的引力常数
-    eSpecifiedValue,        ///< 用户指定的引力常数
-};
-
-
-/// @brief 力模型
-/// @details 力模型用于表示动力学系统中的摄动力，例如重力、大气阻力、太阳光压、三体摄动等
-class AST_CORE_API ForceModel: public ObjectNamed
+/// @brief Jacchia Roberts大气模型
+class AST_CORE_API JacchiaRoberts final: public AtmosphereBase
 {
 public:
-    AST_OBJECT(ForceModel)
+    JacchiaRoberts(Frame* frame, BodyShape* bodyShape, CelestialBody* sun, double f107Daily, double f107Average, double kp);
+    
+    double getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) const override;
 
-    ForceModel() = default;
-    virtual ~ForceModel() = default;
-
+    void setSunPosition(ESunPosition sunPosition){sunPosition_ = sunPosition;}
+    ESunPosition getSunPosition() const {return sunPosition_;}
+private:
+    CelestialBody* sun_{nullptr};
+    double F107Daily_{0.0};
+    double F107Average_{0.0};
+    double kp_{0};
+    ESunPosition sunPosition_{ESunPosition::eTrue};
 };
 
 /*! @} */

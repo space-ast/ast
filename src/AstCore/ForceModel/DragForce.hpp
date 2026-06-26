@@ -72,6 +72,10 @@ public:
     DragForce() = default;
     ~DragForce() = default;
 
+    /// @brief 地磁活动 ap 指数
+    double ap() const;
+
+public:
     /// @name 大气密度模型配置
     /// @{
     EAtmDensityModel atmDensityModel_{EAtmDensityModel::e1976Standard};         ///< 主大气密度模型

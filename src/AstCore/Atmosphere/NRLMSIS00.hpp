@@ -37,6 +37,7 @@ class NRLMSISE;
 
 #ifdef _AST_USE_MSIS_VERS_FOR_NRLMSIS00
 
+/// @brief NRLMSIS00大气模型基类
 class AST_CORE_API NRLMSIS00 final: public MSISBase
 {
 public:
