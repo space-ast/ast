@@ -7,6 +7,7 @@
 #include "AstWeather/Magnetosphere.hpp"
 #include "AstWeather/aep8.hpp"
 #include "AstWeather/atmos76.h"
+#include "AstWeather/atmos76.hpp"
 #include "AstWeather/atmosapi.h"
 #include "AstWeather/igrf.hpp"
 #include "AstWeather/nrlmsise-00.h"

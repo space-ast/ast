@@ -27,6 +27,7 @@
 #include "AstCore/NRLMSIS00.hpp"
 #include "AstCore/MSISE90.hpp"
 #include "AstCore/MSIS86.hpp"
+#include "AstCore/USSA1976.hpp"
 #include "AstWeather/GeomagneticIndex.hpp"  // for aKpToAp, aApToKp
 #include "AstCore/NoneEclipseCalculator.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"
@@ -109,13 +110,20 @@ static Point* aGetBodyEphemeris(const Body& body, EEphemerisSource ephemerisSour
     return body.getEphemeris(ephemerisSource);
 }
 
-static Atmosphere* aNewAtmosphere(const Body& body, const DragForce& drag)
+static Atmosphere* aNewAtmosphere(const DragForce& drag)
 {
     AtmosphereBase* atmosphere = nullptr;
     double kp = drag.kp_;
     double ap = aKpToAp(kp);
-    Frame* frame = body.getFrameFixed();
-    BodyShape* shape = body.getShape();
+
+    // 目前的大气模型都是地球的大气模型
+    auto earth = aGetEarth();
+    if(!earth)
+        return nullptr;
+    
+    BodyShape* shape = earth->getShape();
+    Frame* frame = earth->getFrameFixed();
+
     double f10p7Daily = drag.f10p7Daily_;
     double f10p7Average = drag.f10p7Average_;
     if(f10p7Average < 40)
@@ -141,6 +149,10 @@ static Atmosphere* aNewAtmosphere(const Body& body, const DragForce& drag)
     else if(atmDensityModel == EAtmDensityModel::eNRLMSISE2000)
     {
         atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, ap);
+    }
+    else if(atmDensityModel == EAtmDensityModel::e1976Standard)
+    {
+        atmosphere = new USSA1976(frame, shape);
     }
     else
     {
@@ -249,7 +261,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         blockMass = new BlockMass(spacecraftParam.mass());
         this->addBlock(blockMass);
         
-        Atmosphere* atmosphere = aNewAtmosphere(*body, forceModel.drag());
+        Atmosphere* atmosphere = aNewAtmosphere(forceModel.drag());
         // atmosphere 的所有权转移给 blockDrag
         derivativeBlock = new BlockDrag(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame);
         this->addBlock(derivativeBlock);

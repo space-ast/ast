@@ -502,6 +502,7 @@
 #include "AstCore/TraitPosVel.hpp"
 #include "AstCore/TraitValue.hpp"
 #include "AstCore/TwoBody.hpp"
+#include "AstCore/USSA1976.hpp"
 #include "AstCore/VariableList.hpp"
 #include "AstCore/Vector.hpp"
 #include "AstCore/WeakPtr.hpp"

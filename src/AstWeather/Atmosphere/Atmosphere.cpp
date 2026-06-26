@@ -19,10 +19,22 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Atmosphere.hpp"
+#include "AstWeather/atmos76.hpp"
 
 
 AST_NAMESPACE_BEGIN
 
+
+double aUSSA1976(double alt)
+{
+    double sigma, delta, theta;
+    Atmosphere(alt/1000.0, sigma, delta, theta);
+    A_UNUSED(delta);
+    A_UNUSED(theta);
+
+    const double RHOZERO = 1.225; // 海平面标准密度, kg/m³
+    return sigma * RHOZERO;
+}
 
 AST_NAMESPACE_END
 

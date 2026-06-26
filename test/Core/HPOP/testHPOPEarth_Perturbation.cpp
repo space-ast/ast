@@ -63,6 +63,7 @@ TEST_F(HPOPTest, Earth_Moon_Transfer_Backward_Propagation)
     forceModel.gravity().solidTideType_ = ESolidTideType::eNone;
 
     forceModel.useDrag(true);
+    forceModel.drag().atmDensityModel_ = EAtmDensityModel::eNRLMSISE2000;
     forceModel.drag().f10p7Average_ = 15.0;
     forceModel.drag().f10p7Daily_ = 15.0;
     forceModel.drag().kp_ = 3;

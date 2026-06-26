@@ -339,13 +339,14 @@
 #   define A_SUPPRESS_WARNINGS_END                           \
         _Pragma("clang diagnostic pop")
 #elif defined(A_GCC)
-#   define A_SUPPRESS_WARNINGS_BEGIN                         \
-        _Pragma("GCC diagnostic push")                        \
-        _Pragma("GCC diagnostic ignored \"-Wall\"")           \
-        _Pragma("GCC diagnostic ignored \"-Wextra\"")         \
-        _Pragma("GCC diagnostic ignored \"-Wpedantic\"")      \
-        _Pragma("GCC diagnostic ignored \"-Wconversion\"")    \
-        _Pragma("GCC diagnostic ignored \"-Wsign-conversion\"")
+#   define A_SUPPRESS_WARNINGS_BEGIN                                 \
+        _Pragma("GCC diagnostic push")                               \
+        _Pragma("GCC diagnostic ignored \"-Wall\"")                  \
+        _Pragma("GCC diagnostic ignored \"-Wextra\"")                \
+        _Pragma("GCC diagnostic ignored \"-Wpedantic\"")             \
+        _Pragma("GCC diagnostic ignored \"-Wconversion\"")           \
+        _Pragma("GCC diagnostic ignored \"-Wsign-conversion\"")      \
+	_Pragma("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")
 #   define A_SUPPRESS_WARNINGS_END                           \
         _Pragma("GCC diagnostic pop")
 #else

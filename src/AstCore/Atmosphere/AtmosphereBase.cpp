@@ -26,6 +26,14 @@
 
 AST_NAMESPACE_BEGIN
 
+AtmosphereBase::AtmosphereBase(Frame * frame, BodyShape * bodyShape)
+    : frame_{frame}
+    , bodyShape_{bodyShape}
+{
+	assert(frame != nullptr);
+	assert(bodyShape != nullptr);
+}
+
 AtmosphereBase::AtmosphereBase(Frame * frame, BodyShape * bodyShape, double f107Daily, double f107Average, double ap)
     : frame_{frame}
     , bodyShape_{bodyShape}
@@ -70,7 +78,29 @@ void AtmosphereBase::getGeodetic(const Vector3d &posInBodyFixed, double &latitud
 	}
 }
 
-void AtmosphereBase::getMSISParam(const TimePoint &tp, double lon, int &dayOfYear, double& secOfDay, double &lst)
+double AtmosphereBase::getAltitude(const Vector3d &posInBodyFixed) const
+{
+    if(A_UNLIKELY(useApproximateAltitude_))
+	{
+		if(auto spheroidShape = aobject_cast<SpheroidShape*>(bodyShape_))
+		{
+			double flatFactor = spheroidShape->flatFactor();
+			double majorAxis = spheroidShape->majorAxis();
+			double xy = hypot(posInBodyFixed.x(), posInBodyFixed.y());
+			double latsph = std::atan2(posInBodyFixed.z(), xy);   // 球形下的纬度，atan2 安全处理 xy==0（极点）
+			double r = hypot(xy, posInBodyFixed.z());
+			double altitude = r - majorAxis * (1 - flatFactor) / sqrt(1 - (2 * flatFactor - flatFactor * flatFactor) * square(cos(latsph)));
+			return altitude;
+		}
+	}
+	{
+		GeodeticPoint geodeticPoint;
+		bodyShape_->transform(posInBodyFixed, geodeticPoint);
+		return geodeticPoint.altitude();
+	}
+}
+
+void AtmosphereBase::getMSISParam(const TimePoint &tp, double lon, int &dayOfYear, double &secOfDay, double &lst)
 {
 	DateTime dateTime;
     aTimePointToUTC(tp, dateTime);

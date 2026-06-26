@@ -33,6 +33,7 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API AtmosphereBase: public Atmosphere
 {
 public:
+    AtmosphereBase(Frame* frame, BodyShape* bodyShape);
     AtmosphereBase(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap);
     ~AtmosphereBase() override = default;
 
@@ -57,6 +58,11 @@ public:
     /// @param longitude 经度（单位：弧度）
     /// @param altitude 高度（单位：米），根据是否使用近似高度计算，其返回值不同
     void getGeodetic(const Vector3d& posInBodyFixed, double& latitude, double& longitude, double& altitude) const;
+
+    /// @brief 获取位置的高度
+    /// @param posInBodyFixed 当前位置(相对于getFrame()返回的坐标系)
+    /// @param altitude 高度（单位：米），根据是否使用近似高度计算，其返回值不同
+    double getAltitude(const Vector3d& posInBodyFixed) const;
 protected:
     static void getMSISParam(const TimePoint& tp, double lon, int& dayOfYear, double& secOfDay, double& lst);
 protected:
