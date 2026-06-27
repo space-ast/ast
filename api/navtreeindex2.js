@@ -1,5 +1,13 @@
 var NAVTREEINDEX2 =
 {
+"BlockSubtract_8hpp.html":[4,0,0,7,8,1,1,2,15],
+"BlockSubtract_8hpp_source.html":[4,0,0,7,8,1,1,2,15],
+"BlockSum_8cpp.html":[4,0,0,7,8,1,1,2,16],
+"BlockSum_8hpp.html":[4,0,0,7,8,1,1,2,17],
+"BlockSum_8hpp_source.html":[4,0,0,7,8,1,1,2,17],
+"BlockSwitch_8cpp.html":[4,0,0,7,8,1,1,3,0],
+"BlockSwitch_8hpp.html":[4,0,0,7,8,1,1,3,1],
+"BlockSwitch_8hpp_source.html":[4,0,0,7,8,1,1,3,1],
 "BlockSystem_8cpp.html":[4,0,0,7,8,1,2],
 "BlockSystem_8hpp.html":[4,0,0,7,8,1,3],
 "BlockSystem_8hpp_source.html":[4,0,0,7,8,1,3],
@@ -241,13 +249,5 @@ var NAVTREEINDEX2 =
 "CommandAPI_8cpp.html#a7526e8a8739b9c370c24b9fc4c614bb8":[4,0,0,5,1,0],
 "CommandAPI_8cpp.html#a8a42111e3aaf39be5f1bda3a3ffa444f":[4,0,0,5,1,1],
 "CommandAPI_8hpp.html":[4,0,0,5,2],
-"CommandAPI_8hpp.html#a7526e8a8739b9c370c24b9fc4c614bb8":[4,0,0,5,2,1],
-"CommandAPI_8hpp.html#a8a42111e3aaf39be5f1bda3a3ffa444f":[4,0,0,5,2,2],
-"CommandAPI_8hpp_source.html":[4,0,0,5,2],
-"CommandDispatcher_8hpp_source.html":[4,0,0,5,3],
-"CommandInit_8cpp.html":[4,0,0,5,4],
-"CommandInit_8cpp.html#abb88200e691e251dde882083f2c01143":[4,0,0,5,4,0],
-"CommandInit_8hpp.html":[4,0,0,5,5],
-"CommandInit_8hpp_source.html":[4,0,0,5,5],
-"CommandRouting_8cpp.html":[4,0,0,5,6]
+"CommandAPI_8hpp.html#a7526e8a8739b9c370c24b9fc4c614bb8":[4,0,0,5,2,1]
 };

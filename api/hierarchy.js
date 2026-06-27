@@ -20,6 +20,7 @@ var hierarchy =
     [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
     [ "ast::Atmosphere", "classast_1_1Atmosphere.html", [
       [ "ast::AtmosphereBase", "classast_1_1AtmosphereBase.html", [
+        [ "ast::HarrisPriester", "classast_1_1HarrisPriester.html", null ],
         [ "ast::JacchiaRoberts", "classast_1_1JacchiaRoberts.html", null ],
         [ "ast::MSISBase", "classast_1_1MSISBase.html", [
           [ "ast::MSIS86", "classast_1_1MSIS86.html", null ],

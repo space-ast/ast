@@ -347,6 +347,7 @@ var annotated_dup =
       [ "GroundVehicle", "classast_1_1GroundVehicle.html", null ],
       [ "GUIInterface", "classast_1_1GUIInterface.html", "classast_1_1GUIInterface" ],
       [ "GUIInterfaceImpl", "classast_1_1GUIInterfaceImpl.html", "classast_1_1GUIInterfaceImpl" ],
+      [ "HarrisPriester", "classast_1_1HarrisPriester.html", "classast_1_1HarrisPriester" ],
       [ "has_own_getType", "structast_1_1has__own__getType.html", null ],
       [ "HPOP", "classast_1_1HPOP.html", "classast_1_1HPOP" ],
       [ "HPOPEquation", "classast_1_1HPOPEquation.html", "classast_1_1HPOPEquation" ],

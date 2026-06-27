@@ -1,5 +1,13 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcSemiLatusRectum_8hpp_source.html":[4,0,0,7,7,1,0,15,179],
+"ScStateCalcSemiMajorAxis_8cpp.html":[4,0,0,7,7,1,0,15,180],
+"ScStateCalcSemiMajorAxis_8hpp.html":[4,0,0,7,7,1,0,15,181],
+"ScStateCalcSemiMajorAxis_8hpp_source.html":[4,0,0,7,7,1,0,15,181],
+"ScStateCalcSequenceDeltaVSquared_8cpp.html":[4,0,0,7,7,1,0,15,184],
+"ScStateCalcSequenceDeltaVSquared_8hpp.html":[4,0,0,7,7,1,0,15,185],
+"ScStateCalcSequenceDeltaVSquared_8hpp_source.html":[4,0,0,7,7,1,0,15,185],
+"ScStateCalcSequenceDeltaV_8cpp.html":[4,0,0,7,7,1,0,15,182],
 "ScStateCalcSequenceDeltaV_8hpp.html":[4,0,0,7,7,1,0,15,183],
 "ScStateCalcSequenceDeltaV_8hpp_source.html":[4,0,0,7,7,1,0,15,183],
 "ScStateCalcSignedEccentricity_8cpp.html":[4,0,0,7,7,1,0,15,186],
@@ -241,13 +249,5 @@ var NAVTREEINDEX12 =
 "SimulationAPI_8cpp.html#a09abe7229223cffbe1af1f9f30d6e4b7":[4,0,0,7,8,1,17,0],
 "SimulationAPI_8cpp.html#a30843f3a4f566f1d18f40a96041bde54":[4,0,0,7,8,1,17,7],
 "SimulationAPI_8cpp.html#a3287f1604c2b8863930e77e7465d861d":[4,0,0,7,8,1,17,10],
-"SimulationAPI_8cpp.html#a33d0f2fd3f50f38098e542fe9ff44189":[4,0,0,7,8,1,17,8],
-"SimulationAPI_8cpp.html#a47a1d1ae2184d0c97a4959492ea25303":[4,0,0,7,8,1,17,2],
-"SimulationAPI_8cpp.html#a50f8dc49a8317b1153e6f3950e1d8769":[4,0,0,7,8,1,17,5],
-"SimulationAPI_8cpp.html#a535095762f75138397446877ff73879f":[4,0,0,7,8,1,17,11],
-"SimulationAPI_8cpp.html#a88ba3135befc3979999d5b460c2e273a":[4,0,0,7,8,1,17,3],
-"SimulationAPI_8cpp.html#a8b89b9ad7d5122d815cd2d844361be30":[4,0,0,7,8,1,17,6],
-"SimulationAPI_8cpp.html#ae692331576d0a2db7402b684d8c3dd1b":[4,0,0,7,8,1,17,9],
-"SimulationAPI_8cpp.html#af168d1051b28363b8fb28f9d9568ddb0":[4,0,0,7,8,1,17,1],
-"SimulationAPI_8cpp.html#af5441328b5602713639d73364ef1b3cf":[4,0,0,7,8,1,17,4]
+"SimulationAPI_8cpp.html#a33d0f2fd3f50f38098e542fe9ff44189":[4,0,0,7,8,1,17,8]
 };

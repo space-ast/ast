@@ -706,6 +706,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GUIInterfaceImpl.html">GUIInterfaceImpl</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1HarrisPriester.html">HarrisPriester</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1has__own__getType.html">has_own_getType</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1HPOP.html">HPOP</a></td></tr>
@@ -7055,6 +7057,8 @@ A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aPa
 <tr class="separator:gab93cd609ebc908a11e29170b858ff2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae5b44d44447964fb436232131e83c8a6" id="r_gae5b44d44447964fb436232131e83c8a6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Atmosphere.html#gae5b44d44447964fb436232131e83c8a6">aJacchiaRoberts</a> (double height, const Vector3d &amp;space_craft, const Vector3d &amp;sun, double a1_time, double tkp, double xtemp)</td></tr>
 <tr class="separator:gae5b44d44447964fb436232131e83c8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b8036931a9cee539bed4bda0d6403c" id="r_a00b8036931a9cee539bed4bda0d6403c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00b8036931a9cee539bed4bda0d6403c">aHarrisPriester</a> (const Vector3d &amp;pos, const Vector3d &amp;sunpos, double altitude, double f107, int n)</td></tr>
+<tr class="separator:a00b8036931a9cee539bed4bda0d6403c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e5673d90678cfc7aefa1426ccdb13c3" id="r_a6e5673d90678cfc7aefa1426ccdb13c3"><td class="memItemLeft" align="right" valign="top"><a id="a6e5673d90678cfc7aefa1426ccdb13c3" name="a6e5673d90678cfc7aefa1426ccdb13c3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>LowerAtmosphere</b> (const double alt, double &amp;sigma, double &amp;delta, double &amp;theta)</td></tr>
 <tr class="separator:a6e5673d90678cfc7aefa1426ccdb13c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -11700,6 +11704,56 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
 
 <p>获取GUI接口实现类实例 </p>
 <dl class="section return"><dt>返回</dt><dd>GUI接口实现类实例 </dd></dl>
+
+</div>
+</div>
+<a id="a00b8036931a9cee539bed4bda0d6403c" name="a00b8036931a9cee539bed4bda0d6403c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00b8036931a9cee539bed4bda0d6403c">&#9670;&#160;</a></span>aHarrisPriester()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_WEATHER_CAPI double ast::aHarrisPriester </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>sunpos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>altitude</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>f107</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>通过HarrisPriester模型计算大气密度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>位置 [m] </td></tr>
+    <tr><td class="paramname">sunpos</td><td>太阳位置 [m] </td></tr>
+    <tr><td class="paramname">altitude</td><td>海拔高度 [m] </td></tr>
+    <tr><td class="paramname">f107</td><td>F10.7 太阳辐射通量 </td></tr>
+    <tr><td class="paramname">n</td><td>余弦指数 [2-6] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>大气密度 [kg/m³] </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>输入的位置向量和太阳位置向量必须在同一个坐标系下 </dd></dl>
 
 </div>
 </div>

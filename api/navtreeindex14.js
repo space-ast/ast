@@ -1,5 +1,13 @@
 var NAVTREEINDEX14 =
 {
+"TargeterProfile_8hpp_source.html":[4,0,0,7,7,3,0,12],
+"TargeterSequenceLoader_8cpp.html":[4,0,0,10,1,2,20],
+"TargeterSequenceLoader_8cpp.html#a50edd46d67e640a5f3271402deab044e":[4,0,0,10,1,2,20,1],
+"TargeterSequenceLoader_8cpp.html#aaab36525f8f6c36f48aedf0dd1ecd769":[4,0,0,10,1,2,20,0],
+"TargeterSequenceLoader_8hpp.html":[4,0,0,10,1,2,21],
+"TargeterSequenceLoader_8hpp.html#a50edd46d67e640a5f3271402deab044e":[4,0,0,10,1,2,21,1],
+"TargeterSequenceLoader_8hpp.html#aaab36525f8f6c36f48aedf0dd1ecd769":[4,0,0,10,1,2,21,0],
+"TargeterSequenceLoader_8hpp_source.html":[4,0,0,10,1,2,21],
 "TargeterSequence_8cpp.html":[4,0,0,7,7,3,34],
 "TargeterSequence_8hpp.html":[4,0,0,7,7,3,35],
 "TargeterSequence_8hpp_source.html":[4,0,0,7,7,3,35],
@@ -113,9 +121,9 @@ var NAVTREEINDEX14 =
 "Types_8cpp.html":[4,0,0,16,0,7],
 "Types_8hpp.html":[4,0,0,16,0,8],
 "Types_8hpp_source.html":[4,0,0,16,0,8],
-"USSA1976_8cpp.html":[4,0,0,7,1,14],
-"USSA1976_8hpp.html":[4,0,0,7,1,15],
-"USSA1976_8hpp_source.html":[4,0,0,7,1,15],
+"USSA1976_8cpp.html":[4,0,0,7,1,16],
+"USSA1976_8hpp.html":[4,0,0,7,1,17],
+"USSA1976_8hpp_source.html":[4,0,0,7,1,17],
 "UiAnalyzerMainWindow_8cpp.html":[4,0,0,9,0,0],
 "UiAnalyzerMainWindow_8hpp.html":[4,0,0,9,0,1],
 "UiAnalyzerMainWindow_8hpp_source.html":[4,0,0,9,0,1],
@@ -241,13 +249,5 @@ var NAVTREEINDEX14 =
 "UiMotionProfile_8cpp.html":[4,0,0,9,8,1],
 "UiMotionProfile_8hpp.html":[4,0,0,9,8,2],
 "UiMotionProfile_8hpp_source.html":[4,0,0,9,8,2],
-"UiMotionSPICE_8hpp_source.html":[4,0,0,9,8,3],
-"UiMotionTwoBody_8cpp.html":[4,0,0,9,8,4],
-"UiMotionTwoBody_8hpp.html":[4,0,0,9,8,5],
-"UiMotionTwoBody_8hpp_source.html":[4,0,0,9,8,5],
-"UiNewObjectDialog_8cpp.html":[4,0,0,9,13,2],
-"UiNewObjectDialog_8hpp.html":[4,0,0,9,13,3],
-"UiNewObjectDialog_8hpp_source.html":[4,0,0,9,13,3],
-"UiNewObjectQuickDialog_8cpp.html":[4,0,0,9,13,4],
-"UiNewObjectQuickDialog_8hpp.html":[4,0,0,9,13,5]
+"UiMotionSPICE_8hpp_source.html":[4,0,0,9,8,3]
 };
