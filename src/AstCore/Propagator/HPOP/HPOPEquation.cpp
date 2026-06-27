@@ -32,6 +32,7 @@
 #include "AstCore/USSA1976.hpp"
 #include "AstCore/JacchiaRoberts.hpp"
 #include "AstCore/HarrisPriester.hpp"
+#include "AstCore/DTM2012.hpp"
 
 #include "AstCore/NoneEclipseCalculator.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"
@@ -131,7 +132,6 @@ static double clamp_f10p7(double value)
 
 static Atmosphere* aNewAtmosphere(const DragForce& drag)
 {
-    AtmosphereBase* atmosphere = nullptr;
 
     // 目前的大气模型都是地球的大气模型
     auto earth = aGetEarth();
@@ -145,38 +145,54 @@ static Atmosphere* aNewAtmosphere(const DragForce& drag)
     double f10p7Average = clamp_f10p7(drag.f10p7Average_);
 
     
-
-
+    AtmosphereBase* atmosphere = nullptr;
     auto atmDensityModel = drag.atmDensityModel_;
-    if(atmDensityModel == EAtmDensityModel::eMSIS1986)
     {
-        atmosphere = new MSIS86(frame, shape, f10p7Daily, f10p7Average, drag.ap());
+        if(atmDensityModel == EAtmDensityModel::eMSIS1986)
+        {
+            atmosphere = new MSIS86(frame, shape, f10p7Daily, f10p7Average, drag.ap());
+        }
+        else if(atmDensityModel == EAtmDensityModel::eMSISE1990)
+        {
+            atmosphere = new MSISE90(frame, shape, f10p7Daily, f10p7Average, drag.ap());
+        }
+        else if(atmDensityModel == EAtmDensityModel::eNRLMSISE2000)
+        {
+            atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, drag.ap());
+        }
+        else if(atmDensityModel == EAtmDensityModel::e1976Standard)
+        {
+            atmosphere = new USSA1976(frame, shape);
+        }
+        else if(atmDensityModel == EAtmDensityModel::eJacchiaRoberts)
+        {
+            auto jr = new JacchiaRoberts(frame, shape, aGetSun(), f10p7Daily, f10p7Average, drag.kp_);
+            jr->setSunPosition(drag.sunPosition_);
+            atmosphere = jr;
+        }
+        else if(atmDensityModel == EAtmDensityModel::eHarrisPriester)
+        {
+            auto hp = new HarrisPriester(frame, shape, aGetSun(), f10p7Average);
+            hp->setSunPosition(drag.sunPosition_);
+            atmosphere = hp;
+        }
+        else if(atmDensityModel == EAtmDensityModel::eDTM2012)
+        {
+            auto dtm = new DTM2012(frame, shape, f10p7Daily, f10p7Average, drag.kp_,
+                                earth->getDirpath() + "/DTM/dtm_2012_NF.dat");
+            if (!dtm->isInitialized())
+            {
+                aWarning("DTM2012 initialization failed");
+                delete dtm;
+            }
+            else
+            {
+                atmosphere = dtm;
+            }
+        }
     }
-    else if(atmDensityModel == EAtmDensityModel::eMSISE1990)
-    {
-        atmosphere = new MSISE90(frame, shape, f10p7Daily, f10p7Average, drag.ap());
-    }
-    else if(atmDensityModel == EAtmDensityModel::eNRLMSISE2000)
-    {
-        atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, drag.ap());
-    }
-    else if(atmDensityModel == EAtmDensityModel::e1976Standard)
-    {
-        atmosphere = new USSA1976(frame, shape);
-    }
-    else if(atmDensityModel == EAtmDensityModel::eJacchiaRoberts)
-    {
-        auto jr = new JacchiaRoberts(frame, shape, aGetSun(), f10p7Daily, f10p7Average, drag.kp_);
-        jr->setSunPosition(drag.sunPosition_);
-        atmosphere = jr;
-    }
-    else if(atmDensityModel == EAtmDensityModel::eHarrisPriester)
-    {
-        auto hp = new HarrisPriester(frame, shape, aGetSun(), f10p7Average);
-        hp->setSunPosition(drag.sunPosition_);
-        atmosphere = hp;
-    }
-    else
+
+    if(!atmosphere)
     {
         aWarning("atmosphere '%d' is not supported, using default model 'NRLMSIS00'.", atmDensityModel);
         atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, drag.ap());

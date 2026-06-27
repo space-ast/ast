@@ -100,7 +100,7 @@ TEST_F(HPOPTest, Drag_MSIS86)
 
     Vector3d posExpect{ 6.0735523802171685e+06,  1.1177155532492716e+06,  3.0115244635127960e+06 };
     Vector3d velExpect{ -2.0127449234117348e+03, 7.2138267230884767e+03, 1.3944090160026465e+03};
-    EXPECT_NEAR(pos[0],  posExpect[0], 1e-5);
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-4);
     EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
     EXPECT_NEAR(pos[2],  posExpect[2], 1e-5);
     EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);

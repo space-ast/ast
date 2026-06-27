@@ -113,6 +113,7 @@
 #include "AstCore/DetectorYZPlaneCross.hpp"
 #include "AstCore/DetectorZXPlaneCross.hpp"
 #include "AstCore/DifferentialCorrectorProfile.hpp"
+#include "AstCore/DTM2012.hpp"
 #include "AstCore/DragForce.hpp"
 #include "AstCore/Duration.hpp"
 #include "AstCore/EOP.hpp"
