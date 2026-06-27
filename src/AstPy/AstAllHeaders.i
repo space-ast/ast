@@ -208,6 +208,7 @@
 %include "../AstUtil/Util/LocaleGuard.hpp"
 %include "../AstUtil/Util/Math.hpp"
 %include "../AstMath/ODE/ODEStateObserver.hpp"
+%include "../AstCore/Atmosphere/HarrisPriester.hpp"
 %include "../AstCore/Atmosphere/JacchiaRoberts.hpp"
 %include "../AstCore/Atmosphere/MSISBase.hpp"
 %include "../AstCore/Atmosphere/USSA1976.hpp"

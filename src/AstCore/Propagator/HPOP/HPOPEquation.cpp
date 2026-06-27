@@ -31,6 +31,7 @@
 #include "AstCore/MSIS86.hpp"
 #include "AstCore/USSA1976.hpp"
 #include "AstCore/JacchiaRoberts.hpp"
+#include "AstCore/HarrisPriester.hpp"
 
 #include "AstCore/NoneEclipseCalculator.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"
@@ -168,6 +169,12 @@ static Atmosphere* aNewAtmosphere(const DragForce& drag)
         auto jr = new JacchiaRoberts(frame, shape, aGetSun(), f10p7Daily, f10p7Average, drag.kp_);
         jr->setSunPosition(drag.sunPosition_);
         atmosphere = jr;
+    }
+    else if(atmDensityModel == EAtmDensityModel::eHarrisPriester)
+    {
+        auto hp = new HarrisPriester(frame, shape, aGetSun(), f10p7Average);
+        hp->setSunPosition(drag.sunPosition_);
+        atmosphere = hp;
     }
     else
     {

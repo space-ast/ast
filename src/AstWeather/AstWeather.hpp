@@ -3,6 +3,7 @@
 #include "AstWeather/Atmosphere.hpp"
 #include "AstWeather/Debris.hpp"
 #include "AstWeather/GeomagneticIndex.hpp"
+#include "AstWeather/HarrisPriester.hpp"
 #include "AstWeather/MSIS_Vers.h"
 #include "AstWeather/Magnetosphere.hpp"
 #include "AstWeather/aep8.hpp"
