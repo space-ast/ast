@@ -1,5 +1,6 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1TimeInterval.html#ae9cca3fa3413cfe17480ed72f7091c16":[0,1,7,8,0],
 "classast_1_1TimeInterval.html#af8b57ad51e894ef855fd9abb0a8f4729":[0,1,7,8,12],
 "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html":[0,1,7,10],
 "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html":[0,1,7,10,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1UiChatPanel.html#a2065119387e437fea6414ebc02545591":[0,10,5,7],
 "classast_1_1UiChatPanel.html#a2eebe55f909db8ca113f0196921ebc9b":[0,10,5,3],
 "classast_1_1UiChatPanel.html#a3af838d0951ff6df1dca70c5d222a61d":[0,10,5,1],
-"classast_1_1UiChatPanel.html#a43c0c5df13809d953827aca3fdf34897":[0,10,5,5],
-"classast_1_1UiChatPanel.html#a46c0ca73787e6e1a1fba16070b95fd72":[0,10,5,4]
+"classast_1_1UiChatPanel.html#a43c0c5df13809d953827aca3fdf34897":[0,10,5,5]
 };

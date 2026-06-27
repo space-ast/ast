@@ -31,6 +31,8 @@ var namespaceast =
       [ "operator\"\"_g", "namespaceast_1_1literals.html#ac07c9db4486273bddf36caa0e9e889b4", null ],
       [ "operator\"\"_h", "namespaceast_1_1literals.html#a78095a424fd22108911a0d85ae56d13f", null ],
       [ "operator\"\"_h", "namespaceast_1_1literals.html#aa7dd550cd1c54eabcc7db38d1be4c1b1", null ],
+      [ "operator\"\"_hour", "namespaceast_1_1literals.html#a23b761f96fb5018f922ec1a1babfe741", null ],
+      [ "operator\"\"_hour", "namespaceast_1_1literals.html#aaa3ef685789c834b391f3e3f8dd9084d", null ],
       [ "operator\"\"_kg", "namespaceast_1_1literals.html#ad573f72fc547d07eefc72c8fff500cc6", null ],
       [ "operator\"\"_kg", "namespaceast_1_1literals.html#a63ac7f25fc03b609269712c56d6080c5", null ],
       [ "operator\"\"_km", "namespaceast_1_1literals.html#ab4c8a2ff92ad4609634ae546fdf37b13", null ],

@@ -1,6 +1,7 @@
 var classast_1_1SpaceWeather =
 [
     [ "Entry", "structast_1_1SpaceWeather_1_1Entry.html", null ],
+    [ "findFluxIndex", "classast_1_1SpaceWeather.html#a01759b967504ae6b45c70a1618fcc28b", null ],
     [ "getApDaily", "classast_1_1SpaceWeather.html#a176a0e6500431ae9089063eb4be8b830", null ],
     [ "getApDaily_UTCMJD", "classast_1_1SpaceWeather.html#a7149c42dc30e8a8e146c752d54fb2ef4", null ],
     [ "getEntry", "classast_1_1SpaceWeather.html#a62eeb080c4796fbe607025afd41c591c", null ],

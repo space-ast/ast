@@ -1,5 +1,6 @@
 var NAVTREEINDEX39 =
 {
+"classast_1_1SpheroidShape.html#ab6f4ed930e79cbac6d2237acd4866468":[2,0,0,810,5],
 "classast_1_1SpheroidShape.html#ab6f4ed930e79cbac6d2237acd4866468":[3,0,0,809,5],
 "classast_1_1SpheroidShape.html#add0d8aa433371a72de19f57ac7f43fdd":[2,0,0,810,0],
 "classast_1_1SpheroidShape.html#add0d8aa433371a72de19f57ac7f43fdd":[3,0,0,809,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX39 =
 "classast_1_1StateKeplerian.html#ad9d0c93ec4f66f5d8522a9bfd04931da":[2,0,0,838,11],
 "classast_1_1StateKeplerian.html#ad9d0c93ec4f66f5d8522a9bfd04931da":[3,0,0,837,11],
 "classast_1_1StateKeplerian.html#adabedd4d416029d70a0649bb47bedda0":[2,0,0,838,51],
-"classast_1_1StateKeplerian.html#adabedd4d416029d70a0649bb47bedda0":[3,0,0,837,51],
-"classast_1_1StateKeplerian.html#add0db14feed66b60724c37037f53ce2d":[2,0,0,838,25]
+"classast_1_1StateKeplerian.html#adabedd4d416029d70a0649bb47bedda0":[3,0,0,837,51]
 };
