@@ -22,9 +22,13 @@
 #include "HPOP.hpp"                         // for HPOPForceModel
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Math.hpp"
+#include "AstUtil/ScopedPtr.hpp"
+
 #include "AstCore/Simulation.hpp"           // for blocks
 #include "AstCore/BuiltinFrame.hpp"         //
 #include "AstCore/RunTimeSolarSystem.hpp"   // for aGetSun()
+#include "AstCore/SpaceWeather.hpp"
+#include "AstCore/ConstantSpaceWeather.hpp"
 
 #include "AstCore/NRLMSIS00.hpp"
 #include "AstCore/MSISE90.hpp"
@@ -141,8 +145,34 @@ static Atmosphere* aNewAtmosphere(const DragForce& drag)
     BodyShape* shape = earth->getShape();
     Frame* frame = earth->getFrameFixed();
 
-    double f10p7Daily   = clamp_f10p7(drag.f10p7Daily_);
+    double f10p7Daily = clamp_f10p7(drag.f10p7Daily_);
     double f10p7Average = clamp_f10p7(drag.f10p7Average_);
+
+
+    ScopedPtr<SpaceWeatherProvider> spaceWeather;
+    // 伪循环用于执行后备方案
+    do {
+        if (drag.useFluxApFile_)
+        {
+            auto swfile = new SpaceWeather();
+            spaceWeather = swfile;
+            // @todo: 这里可以添加缓存机制，避免重复加载相同的文件
+            errc_t err = swfile->load(drag.fluxApFile_);
+            if (!err)
+            {
+                break;
+            }
+            else
+            {
+                aWarning("failed to load space weather file '%s', using constant space weather instead.", drag.fluxApFile_.c_str());
+            }
+        }
+        // 后备方案
+        {
+            spaceWeather = new ConstantSpaceWeather(f10p7Daily, f10p7Average, drag.ap(), drag.kp_);
+        }
+    }while(false);
+    
 
     
     AtmosphereBase* atmosphere = nullptr;
@@ -150,15 +180,15 @@ static Atmosphere* aNewAtmosphere(const DragForce& drag)
     {
         if(atmDensityModel == EAtmDensityModel::eMSIS1986)
         {
-            atmosphere = new MSIS86(frame, shape, f10p7Daily, f10p7Average, drag.ap());
+            atmosphere = new MSIS86(frame, shape, spaceWeather.release());
         }
         else if(atmDensityModel == EAtmDensityModel::eMSISE1990)
         {
-            atmosphere = new MSISE90(frame, shape, f10p7Daily, f10p7Average, drag.ap());
+            atmosphere = new MSISE90(frame, shape, spaceWeather.release());
         }
         else if(atmDensityModel == EAtmDensityModel::eNRLMSISE2000)
         {
-            atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, drag.ap());
+            atmosphere = new NRLMSIS00(frame, shape, spaceWeather.release());
         }
         else if(atmDensityModel == EAtmDensityModel::e1976Standard)
         {

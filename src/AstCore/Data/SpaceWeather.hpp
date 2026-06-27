@@ -130,6 +130,8 @@ protected:
 
     void findEntryIndex(double mjdUTC, int& index, double& frac) const;
 
+    void findFluxIndex(double mjdUTC, int& index, double& frac) const;
+
 protected:
     std::vector<Entry> data_;
     int startMJD_ = 0;

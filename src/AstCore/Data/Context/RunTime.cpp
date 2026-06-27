@@ -216,7 +216,7 @@ errc_t aInitializeByDefault(DataContext* context)
     err |= context->leapSecond()->loadDefault();
     err |= context->jplDe()->openDefault();
     err |= context->eop()->loadDefault();
-    err |= context->spaceWeather()->loadDefault();
+    //err |= context->spaceWeather()->loadDefault();
     err |= context->iauXYSPrecomputed()->loadDefault();
     err |= context->solarSystem()->loadDefault();
     const std::string spkdir = aGetDefaultSPKDir();
@@ -259,7 +259,7 @@ errc_t aInitializeByConfig(DataContext* context, const InitalizeConfig& config)
     err |= context->leapSecond()->load(config.leapSecondFile_.string());
     err |= context->jplDe()->open(config.jplDeFile_.c_str());
     err |= context->eop()->load(config.eopFile_.string());
-    err |= context->spaceWeather()->load(config.spaceWeatherFile_.string());
+    // err |= context->spaceWeather()->load(config.spaceWeatherFile_.string());
     err |= context->iauXYSPrecomputed()->load(config.iauXYSPrecomputedFile_.string());
     err |= context->solarSystem()->load(config.solarSystemDir_.string());
     err |= loadSPK(config.spkFiles_);

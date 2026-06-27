@@ -69,8 +69,8 @@ public:
     LeapSecond* leapSecond() {return &m_leapSecond;}
 
 	/// @brief 空间天气数据
-	const SpaceWeather* spaceWeather() const{return &m_spaceWeather;}
-    SpaceWeather* spaceWeather() {return &m_spaceWeather;}
+	// const SpaceWeather* spaceWeather() const{return &m_spaceWeather;}
+    // SpaceWeather* spaceWeather() {return &m_spaceWeather;}
 
 	/// @brief 数据目录
     std::string& dataDir() {return m_dataDir;}
@@ -101,7 +101,7 @@ protected:
 	SharedPtr<SolarSystem>  m_solarSystem{new SolarSystem("SolarSystem")};	///< 太阳系数据
 	EOP		    			m_eop;											///< 地球指向数据
 	LeapSecond  			m_leapSecond;									///< 闰秒数据
-	SpaceWeather            m_spaceWeather;									///< 空间天气数据
+	// SpaceWeather            m_spaceWeather;									///< 空间天气数据
     JplDe                   m_jplDe;										///< JPL DE星历数据
 	IAUXYSPrecomputed       m_iauXYSPrecomputed;							///< IAU XYS预计算数据 @todo: 这个考虑更改为静态数据
     std::string     		m_dataDir;										///< 数据目录

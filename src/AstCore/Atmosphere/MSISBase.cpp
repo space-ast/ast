@@ -22,6 +22,7 @@
 #include "AstWeather/MSIS_Vers.h"
 #include "AstWeather/GeomagneticIndex.hpp"
 #include "AstCore/TimePoint.hpp"
+#include "AstUtil/Literals.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -92,7 +93,9 @@ void MSISBase::getSpaceWeather(const TimePoint &tp, double &f107, double &f107Av
 {
     if (spaceWeather_)
     {
-        f107 = spaceWeather_->getF10p7Daily(tp);
+        // f107 - daily f10.7 flux for previous day
+        // 根据注释 msis 需要 space weather 数据的前一天，所以减去 1 天
+        f107 = spaceWeather_->getF10p7Daily(tp - 1_day);
         f107Average = spaceWeather_->getF10p7Average(tp);
         ap = spaceWeather_->getApDaily(tp);
     }
