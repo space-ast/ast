@@ -1,5 +1,7 @@
 var NAVTREEINDEX13 =
 {
+"SimpleOrbitDesigner_8cpp.html":[4,0,0,7,7,4,17],
+"SimpleOrbitDesigner_8hpp.html":[4,0,0,7,7,4,18],
 "SimpleOrbitDesigner_8hpp_source.html":[4,0,0,7,7,4,18],
 "SimulationAPI_8cpp.html":[4,0,0,7,8,1,17],
 "SimulationAPI_8cpp.html#a09abe7229223cffbe1af1f9f30d6e4b7":[4,0,0,7,8,1,17,0],
@@ -57,10 +59,12 @@ var NAVTREEINDEX13 =
 "SpaceObject_8hpp.html#a53b517690d4d043bf79a2fb35fd86c43":[4,0,0,17,3,59,2],
 "SpaceObject_8hpp.html#aca90054f47905f59270738482f4378a7":[4,0,0,17,3,59,1],
 "SpaceObject_8hpp_source.html":[4,0,0,17,3,59],
-"SpaceWeather_8cpp.html":[4,0,0,7,4,10],
-"SpaceWeather_8cpp.html#a278d65ce490cc6ae03b27ae4f97ba731":[4,0,0,7,4,10,0],
-"SpaceWeather_8hpp.html":[4,0,0,7,4,11],
-"SpaceWeather_8hpp_source.html":[4,0,0,7,4,11],
+"SpaceWeatherProvider_8hpp.html":[4,0,0,7,4,13],
+"SpaceWeatherProvider_8hpp_source.html":[4,0,0,7,4,13],
+"SpaceWeather_8cpp.html":[4,0,0,7,4,11],
+"SpaceWeather_8cpp.html#a278d65ce490cc6ae03b27ae4f97ba731":[4,0,0,7,4,11,0],
+"SpaceWeather_8hpp.html":[4,0,0,7,4,12],
+"SpaceWeather_8hpp_source.html":[4,0,0,7,4,12],
 "SpacecraftParam_8cpp.html":[4,0,0,7,7,5,0],
 "SpacecraftParam_8hpp.html":[4,0,0,7,7,5,1],
 "SpacecraftParam_8hpp_source.html":[4,0,0,7,7,5,1],
@@ -86,9 +90,9 @@ var NAVTREEINDEX13 =
 "SpheroidShape_8cpp.html":[4,0,0,7,6,3,0,8],
 "SpheroidShape_8hpp.html":[4,0,0,7,6,3,0,9],
 "SpheroidShape_8hpp_source.html":[4,0,0,7,6,3,0,9],
-"SpiceAPI_8cpp.html":[4,0,0,7,4,12],
-"SpiceAPI_8hpp.html":[4,0,0,7,4,13],
-"SpiceAPI_8hpp_source.html":[4,0,0,7,4,13],
+"SpiceAPI_8cpp.html":[4,0,0,7,4,14],
+"SpiceAPI_8hpp.html":[4,0,0,7,4,15],
+"SpiceAPI_8hpp_source.html":[4,0,0,7,4,15],
 "SpiceBodyRegistry_8cpp.html":[4,0,0,18,0,0],
 "SpiceBodyRegistry_8hpp.html":[4,0,0,18,0,1],
 "SpiceBodyRegistry_8hpp_source.html":[4,0,0,18,0,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX13 =
 "TargetLoader_8hpp_source.html":[4,0,0,10,4,55],
 "Target_8cpp.html":[4,0,0,17,3,64],
 "Target_8hpp.html":[4,0,0,17,3,65],
-"Target_8hpp_source.html":[4,0,0,17,3,65],
-"TargeterGraph_8cpp.html":[4,0,0,7,7,3,0,9],
-"TargeterGraph_8hpp.html":[4,0,0,7,7,3,0,10],
-"TargeterGraph_8hpp_source.html":[4,0,0,7,7,3,0,10],
-"TargeterProfileLoader_8cpp.html":[4,0,0,10,1,2,0,7]
+"Target_8hpp_source.html":[4,0,0,17,3,65]
 };

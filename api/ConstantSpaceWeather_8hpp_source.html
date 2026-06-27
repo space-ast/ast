@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Data/ConstantSpaceWeather.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ConstantSpaceWeather_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ConstantSpaceWeather.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ConstantSpaceWeather_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="SpaceWeatherProvider_8hpp.html">SpaceWeatherProvider.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html">   49</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1ConstantSpaceWeather.html">ConstantSpaceWeather</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1SpaceWeatherProvider.html">SpaceWeatherProvider</a></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a67c30363b336d11502910beb98a08b2a">   53</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> kDefaultAp         = 15.0;   </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#af2b731417b4993c1a6fce2714a3dee32">   54</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> kDefaultKp         = 3.0;    </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a838d113edd0a785454f07597e4d0dc66">   55</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> kDefaultF10p7Daily = 150.0;  </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a4934f616c386d86c763c28e7b4eac285">   56</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> kDefaultF10p7Avg   = 150.0;  </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a71b3287b2cb19e3dc7bf48d628cae4b1">   59</a></span>    <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#a71b3287b2cb19e3dc7bf48d628cae4b1">ConstantSpaceWeather</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a1e1939a11f3a49425fbe2498a2f626e2">   66</a></span>    <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#a1e1939a11f3a49425fbe2498a2f626e2">ConstantSpaceWeather</a>(<span class="keywordtype">double</span> f10p7Daily, <span class="keywordtype">double</span> f10p7Average, <span class="keywordtype">double</span> ap, <span class="keywordtype">double</span> kp)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        : f10p7Daily_(f10p7Daily)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        , f10p7Average_(f10p7Average)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        , ap_(ap)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        , kp_(kp)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {}</div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_class" href="classast_1_1ConstantSpaceWeather.html">~ConstantSpaceWeather</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// --- SpaceWeatherProvider 接口实现 ---</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a3a7e7f1a7ac4d88e2cfd996562056e5d">   77</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#a3a7e7f1a7ac4d88e2cfd996562056e5d">getApDaily</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp;)<span class="keyword"> const override       </span>{ <span class="keywordflow">return</span> ap_; }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#aadc131b3f273d8f75f0e65e6246fac20">   78</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#aadc131b3f273d8f75f0e65e6246fac20">getKpDaily</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp;)<span class="keyword"> const override       </span>{ <span class="keywordflow">return</span> kp_; }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#acefd9efa3a947d005173db2992966623">   79</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#acefd9efa3a947d005173db2992966623">getF10p7Daily</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp;)<span class="keyword"> const override    </span>{ <span class="keywordflow">return</span> f10p7Daily_; }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#aba003b5e243e52939f9e770bbc9eab5b">   80</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#aba003b5e243e52939f9e770bbc9eab5b">getF10p7Average</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp;)<span class="keyword"> const override  </span>{ <span class="keywordflow">return</span> f10p7Average_; }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// --- 配置方法 ---</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#aae22533b9c4d29751685f71a7f3ed4b1">   85</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#aae22533b9c4d29751685f71a7f3ed4b1">setAp</a>(<span class="keywordtype">double</span> ap)                   { ap_ = ap; }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#ac7a39e3e1fc5c792f90340c000c5c26a">   87</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#ac7a39e3e1fc5c792f90340c000c5c26a">getAp</a>()<span class="keyword"> const                    </span>{ <span class="keywordflow">return</span> ap_; }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a0783fe404d6e0d54790a8b7b56e9676f">   90</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#a0783fe404d6e0d54790a8b7b56e9676f">setKp</a>(<span class="keywordtype">double</span> kp)                   { kp_ = kp; }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#ac8e1d8652235551dc6aaa24edd1f3aee">   92</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#ac8e1d8652235551dc6aaa24edd1f3aee">getKp</a>()<span class="keyword"> const                    </span>{ <span class="keywordflow">return</span> kp_; }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a409e51118f4621b1f3ea256d6c762b3f">   95</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#a409e51118f4621b1f3ea256d6c762b3f">setF10p7Daily</a>(<span class="keywordtype">double</span> f10p7)        { f10p7Daily_ = f10p7; }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a3979f88f47caef3bf733b000bb398f92">   97</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#a3979f88f47caef3bf733b000bb398f92">getF10p7Daily</a>()<span class="keyword"> const            </span>{ <span class="keywordflow">return</span> f10p7Daily_; }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a5f83735816e9b4f93f9ef59c6ffd058b">  100</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#a5f83735816e9b4f93f9ef59c6ffd058b">setF10p7Average</a>(<span class="keywordtype">double</span> f10p7Avg)   { f10p7Average_ = f10p7Avg; }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#aed2868cd57e0011dcb5e2246c8aaa9e5">  102</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1ConstantSpaceWeather.html#aed2868cd57e0011dcb5e2246c8aaa9e5">getF10p7Average</a>()<span class="keyword"> const          </span>{ <span class="keywordflow">return</span> f10p7Average_; }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#aae8956d3da0c6318313007cda4e88fd3">  105</a></span>    <span class="keywordtype">double</span> f10p7Daily_   = kDefaultF10p7Daily;  </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a38bae4dc45879a42b611617c0120c7d7">  106</a></span>    <span class="keywordtype">double</span> f10p7Average_ = kDefaultF10p7Avg;    </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#ac930d336d268d1cdb831852f4d5239ed">  107</a></span>    <span class="keywordtype">double</span> ap_           = kDefaultAp;          </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classast_1_1ConstantSpaceWeather.html#a123ec17a5c3a905fe4ec2a9fd080f4d7">  108</a></span>    <span class="keywordtype">double</span> kp_           = kDefaultKp;          </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>};</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aSpaceWeatherProvider_8hpp_html"><div class="ttname"><a href="SpaceWeatherProvider_8hpp.html">SpaceWeatherProvider.hpp</a></div><div class="ttdoc">空间天气数据提供者抽象接口</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html">ast::ConstantSpaceWeather</a></div><div class="ttdoc">恒定空间天气数据提供者</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:50</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_a0783fe404d6e0d54790a8b7b56e9676f"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#a0783fe404d6e0d54790a8b7b56e9676f">ast::ConstantSpaceWeather::setKp</a></div><div class="ttdeci">void setKp(double kp)</div><div class="ttdoc">设置Kp日平均值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:90</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_a1e1939a11f3a49425fbe2498a2f626e2"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#a1e1939a11f3a49425fbe2498a2f626e2">ast::ConstantSpaceWeather::ConstantSpaceWeather</a></div><div class="ttdeci">ConstantSpaceWeather(double f10p7Daily, double f10p7Average, double ap, double kp)</div><div class="ttdoc">构造，指定所有空间天气指数</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:66</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_a3979f88f47caef3bf733b000bb398f92"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#a3979f88f47caef3bf733b000bb398f92">ast::ConstantSpaceWeather::getF10p7Daily</a></div><div class="ttdeci">double getF10p7Daily() const</div><div class="ttdoc">获取F10p7单日值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:97</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_a3a7e7f1a7ac4d88e2cfd996562056e5d"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#a3a7e7f1a7ac4d88e2cfd996562056e5d">ast::ConstantSpaceWeather::getApDaily</a></div><div class="ttdeci">double getApDaily(const TimePoint &amp;) const override</div><div class="ttdoc">获取指定时间的Ap日平均值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:77</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_a409e51118f4621b1f3ea256d6c762b3f"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#a409e51118f4621b1f3ea256d6c762b3f">ast::ConstantSpaceWeather::setF10p7Daily</a></div><div class="ttdeci">void setF10p7Daily(double f10p7)</div><div class="ttdoc">设置F10.7单日值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:95</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_a5f83735816e9b4f93f9ef59c6ffd058b"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#a5f83735816e9b4f93f9ef59c6ffd058b">ast::ConstantSpaceWeather::setF10p7Average</a></div><div class="ttdeci">void setF10p7Average(double f10p7Avg)</div><div class="ttdoc">设置F10.7平均值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:100</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_a71b3287b2cb19e3dc7bf48d628cae4b1"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#a71b3287b2cb19e3dc7bf48d628cae4b1">ast::ConstantSpaceWeather::ConstantSpaceWeather</a></div><div class="ttdeci">ConstantSpaceWeather()=default</div><div class="ttdoc">构造，使用默认中等太阳活动水平值</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_aadc131b3f273d8f75f0e65e6246fac20"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#aadc131b3f273d8f75f0e65e6246fac20">ast::ConstantSpaceWeather::getKpDaily</a></div><div class="ttdeci">double getKpDaily(const TimePoint &amp;) const override</div><div class="ttdoc">获取指定时间的Kp日平均值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:78</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_aae22533b9c4d29751685f71a7f3ed4b1"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#aae22533b9c4d29751685f71a7f3ed4b1">ast::ConstantSpaceWeather::setAp</a></div><div class="ttdeci">void setAp(double ap)</div><div class="ttdoc">设置Ap日平均值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:85</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_aba003b5e243e52939f9e770bbc9eab5b"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#aba003b5e243e52939f9e770bbc9eab5b">ast::ConstantSpaceWeather::getF10p7Average</a></div><div class="ttdeci">double getF10p7Average(const TimePoint &amp;) const override</div><div class="ttdoc">获取指定时间的F10.7平均观测值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:80</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_ac7a39e3e1fc5c792f90340c000c5c26a"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#ac7a39e3e1fc5c792f90340c000c5c26a">ast::ConstantSpaceWeather::getAp</a></div><div class="ttdeci">double getAp() const</div><div class="ttdoc">获取Ap日平均值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:87</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_ac8e1d8652235551dc6aaa24edd1f3aee"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#ac8e1d8652235551dc6aaa24edd1f3aee">ast::ConstantSpaceWeather::getKp</a></div><div class="ttdeci">double getKp() const</div><div class="ttdoc">获取Kp日平均值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:92</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_acefd9efa3a947d005173db2992966623"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#acefd9efa3a947d005173db2992966623">ast::ConstantSpaceWeather::getF10p7Daily</a></div><div class="ttdeci">double getF10p7Daily(const TimePoint &amp;) const override</div><div class="ttdoc">获取指定时间的F10.7单日观测值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:79</div></div>
+<div class="ttc" id="aclassast_1_1ConstantSpaceWeather_html_aed2868cd57e0011dcb5e2246c8aaa9e5"><div class="ttname"><a href="classast_1_1ConstantSpaceWeather.html#aed2868cd57e0011dcb5e2246c8aaa9e5">ast::ConstantSpaceWeather::getF10p7Average</a></div><div class="ttdeci">double getF10p7Average() const</div><div class="ttdoc">获取F10p7平均值</div><div class="ttdef"><b>定义</b> ConstantSpaceWeather.hpp:102</div></div>
+<div class="ttc" id="aclassast_1_1SpaceWeatherProvider_html"><div class="ttname"><a href="classast_1_1SpaceWeatherProvider.html">ast::SpaceWeatherProvider</a></div><div class="ttdoc">空间天气数据提供者抽象接口</div><div class="ttdef"><b>定义</b> SpaceWeatherProvider.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:107</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_a0626de0dc3d3eb2f19b4cf1f78690c4.html">Data</a></li><li class="navelem"><a class="el" href="ConstantSpaceWeather_8hpp.html">ConstantSpaceWeather.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

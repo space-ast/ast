@@ -1,5 +1,25 @@
 var group__Data =
 [
+    [ "ast::ConstantSpaceWeather", "classast_1_1ConstantSpaceWeather.html", [
+      [ "ConstantSpaceWeather", "classast_1_1ConstantSpaceWeather.html#a71b3287b2cb19e3dc7bf48d628cae4b1", null ],
+      [ "ConstantSpaceWeather", "classast_1_1ConstantSpaceWeather.html#a1e1939a11f3a49425fbe2498a2f626e2", null ],
+      [ "getAp", "classast_1_1ConstantSpaceWeather.html#ac7a39e3e1fc5c792f90340c000c5c26a", null ],
+      [ "getApDaily", "classast_1_1ConstantSpaceWeather.html#a3a7e7f1a7ac4d88e2cfd996562056e5d", null ],
+      [ "getF10p7Average", "classast_1_1ConstantSpaceWeather.html#aed2868cd57e0011dcb5e2246c8aaa9e5", null ],
+      [ "getF10p7Average", "classast_1_1ConstantSpaceWeather.html#aba003b5e243e52939f9e770bbc9eab5b", null ],
+      [ "getF10p7Daily", "classast_1_1ConstantSpaceWeather.html#a3979f88f47caef3bf733b000bb398f92", null ],
+      [ "getF10p7Daily", "classast_1_1ConstantSpaceWeather.html#acefd9efa3a947d005173db2992966623", null ],
+      [ "getKp", "classast_1_1ConstantSpaceWeather.html#ac8e1d8652235551dc6aaa24edd1f3aee", null ],
+      [ "getKpDaily", "classast_1_1ConstantSpaceWeather.html#aadc131b3f273d8f75f0e65e6246fac20", null ],
+      [ "setAp", "classast_1_1ConstantSpaceWeather.html#aae22533b9c4d29751685f71a7f3ed4b1", null ],
+      [ "setF10p7Average", "classast_1_1ConstantSpaceWeather.html#a5f83735816e9b4f93f9ef59c6ffd058b", null ],
+      [ "setF10p7Daily", "classast_1_1ConstantSpaceWeather.html#a409e51118f4621b1f3ea256d6c762b3f", null ],
+      [ "setKp", "classast_1_1ConstantSpaceWeather.html#a0783fe404d6e0d54790a8b7b56e9676f", null ],
+      [ "ap_", "classast_1_1ConstantSpaceWeather.html#ac930d336d268d1cdb831852f4d5239ed", null ],
+      [ "f10p7Average_", "classast_1_1ConstantSpaceWeather.html#a38bae4dc45879a42b611617c0120c7d7", null ],
+      [ "f10p7Daily_", "classast_1_1ConstantSpaceWeather.html#aae8956d3da0c6318313007cda4e88fd3", null ],
+      [ "kp_", "classast_1_1ConstantSpaceWeather.html#a123ec17a5c3a905fe4ec2a9fd080f4d7", null ]
+    ] ],
     [ "ast::DataContext", "classast_1_1DataContext.html", [
       [ "config", "classast_1_1DataContext.html#a073f8155a29574c5d7d9ab2347698e47", null ],
       [ "dataDir", "classast_1_1DataContext.html#a21fda55c34849ca1f11b0988534751f0", null ],
@@ -109,10 +129,24 @@ var group__Data =
     ] ],
     [ "ast::SpaceWeather", "classast_1_1SpaceWeather.html", [
       [ "Entry", "structast_1_1SpaceWeather_1_1Entry.html", null ],
+      [ "getApDaily", "classast_1_1SpaceWeather.html#a176a0e6500431ae9089063eb4be8b830", null ],
+      [ "getApDaily_UTCMJD", "classast_1_1SpaceWeather.html#a7149c42dc30e8a8e146c752d54fb2ef4", null ],
       [ "getEntry", "classast_1_1SpaceWeather.html#a62eeb080c4796fbe607025afd41c591c", null ],
+      [ "getF10p7Average", "classast_1_1SpaceWeather.html#adc7c29f16725873a7651fefc82b2c91b", null ],
+      [ "getF10p7Average_UTCMJD", "classast_1_1SpaceWeather.html#a402e8a441763dbdaf7712498d8ce92c5", null ],
+      [ "getF10p7Daily", "classast_1_1SpaceWeather.html#a0fdf63c648e64b5f3d22bc6f0af4a7c6", null ],
+      [ "getF10p7Daily_UTCMJD", "classast_1_1SpaceWeather.html#ac6df105efe6bbcbe5dc0fab95d3734ef", null ],
+      [ "getKpDaily", "classast_1_1SpaceWeather.html#ab8e75a534fc6ba10064b6250a9f6d6a9", null ],
+      [ "getKpDaily_UTCMJD", "classast_1_1SpaceWeather.html#a75b061c8e8334746ad9e44e2dedf5358", null ],
       [ "load", "classast_1_1SpaceWeather.html#a09ac9fdce0c9117cb61c9a45b4f4333e", null ],
       [ "loadDefault", "classast_1_1SpaceWeather.html#a6693321ec0f60edad3b06fa90badfae4", null ],
       [ "setEntry", "classast_1_1SpaceWeather.html#abfe0c5e3caf08112eb897770e4378dbd", null ]
+    ] ],
+    [ "ast::SpaceWeatherProvider", "classast_1_1SpaceWeatherProvider.html", [
+      [ "getApDaily", "classast_1_1SpaceWeatherProvider.html#a7b3e13a7ad98dca360a9a18c4a05fc0e", null ],
+      [ "getF10p7Average", "classast_1_1SpaceWeatherProvider.html#a7cb957a6b3a28cf715a9288872d6df2a", null ],
+      [ "getF10p7Daily", "classast_1_1SpaceWeatherProvider.html#ace7491f8d2df075583ce44a3ce97e93d", null ],
+      [ "getKpDaily", "classast_1_1SpaceWeatherProvider.html#a151685dc4b937e9de353bc1db2b69363", null ]
     ] ],
     [ "ast::SpiceAPI", "classast_1_1SpiceAPI.html", [
       [ "SpiceAPI", "classast_1_1SpiceAPI.html#a01e2f277bc757e4a1a3c2c9ea3ad9703", null ],

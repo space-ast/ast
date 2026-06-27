@@ -21,6 +21,8 @@ var NAVTREEINDEX3 =
 "ConeEclipseCalculator_8cpp.html":[4,0,0,7,6,0,0],
 "ConeEclipseCalculator_8hpp.html":[4,0,0,7,6,0,1],
 "ConeEclipseCalculator_8hpp_source.html":[4,0,0,7,6,0,1],
+"ConstantSpaceWeather_8hpp.html":[4,0,0,7,4,2],
+"ConstantSpaceWeather_8hpp_source.html":[4,0,0,7,4,2],
 "Constants_8hpp.html":[4,0,0,24,10,3],
 "Constants_8hpp_source.html":[4,0,0,24,10,3],
 "ConstellationLoader_8cpp.html":[4,0,0,10,4,17],
@@ -228,9 +230,9 @@ var NAVTREEINDEX3 =
 "Duration_8cpp.html":[4,0,0,7,11,7],
 "Duration_8hpp.html":[4,0,0,7,11,8],
 "Duration_8hpp_source.html":[4,0,0,7,11,8],
-"EOP_8cpp.html":[4,0,0,7,4,2],
-"EOP_8hpp.html":[4,0,0,7,4,3],
-"EOP_8hpp_source.html":[4,0,0,7,4,3],
+"EOP_8cpp.html":[4,0,0,7,4,3],
+"EOP_8hpp.html":[4,0,0,7,4,4],
+"EOP_8hpp_source.html":[4,0,0,7,4,4],
 "EarthFrame_8cpp.html":[4,0,0,7,3,2,0],
 "EarthFrame_8hpp.html":[4,0,0,7,3,2,1],
 "EarthFrame_8hpp_source.html":[4,0,0,7,3,2,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "Eclipse_8hpp.html":[4,0,0,7,6,0,5],
 "Eclipse_8hpp.html#a70a0b7cb997e3f78fb987a86fdacfd96":[4,0,0,7,6,0,5,1],
 "Eclipse_8hpp.html#af10d58260509e430f1a999b0715f025a":[4,0,0,7,6,0,5,0],
-"Eclipse_8hpp_source.html":[4,0,0,7,6,0,5],
-"EditFigureDialog_8cpp.html":[4,0,0,3,0,4],
-"EditFigureDialog_8hpp.html":[4,0,0,3,0,5]
+"Eclipse_8hpp_source.html":[4,0,0,7,6,0,5]
 };

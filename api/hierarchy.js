@@ -1238,6 +1238,7 @@ var hierarchy =
     ] ],
     [ "ast::ScopedPtr< ast::Ephemeris >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::HPOPEquation >", "classast_1_1ScopedPtr.html", null ],
+    [ "ast::ScopedPtr< ast::SpaceWeatherProvider >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::StateMapper >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtrDeleter< T, typename >", "structast_1_1ScopedPtrDeleter.html", null ],
     [ "ast::ScopedPtrDeleter< std::FILE >", "structast_1_1ScopedPtrDeleter_3_01std_1_1FILE_01_4.html", null ],
@@ -1307,7 +1308,10 @@ var hierarchy =
     [ "ast::SpacecraftParam", "classast_1_1SpacecraftParam.html", [
       [ "ast::SpacecraftState", "classast_1_1SpacecraftState.html", null ]
     ] ],
-    [ "ast::SpaceWeather", "classast_1_1SpaceWeather.html", null ],
+    [ "ast::SpaceWeatherProvider", "classast_1_1SpaceWeatherProvider.html", [
+      [ "ast::ConstantSpaceWeather", "classast_1_1ConstantSpaceWeather.html", null ],
+      [ "ast::SpaceWeather", "classast_1_1SpaceWeather.html", null ]
+    ] ],
     [ "ast::Span< T, Extent >", "classast_1_1Span.html", null ],
     [ "ast::SpanStorage< T, Extent >", "classast_1_1SpanStorage.html", null ],
     [ "ast::SpanStorage< T, dynamic_extent >", "classast_1_1SpanStorage_3_01T_00_01dynamic__extent_01_4.html", null ],

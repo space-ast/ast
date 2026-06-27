@@ -122,39 +122,42 @@ $(function(){initNavTree('NRLMSIS00_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1NRLMSIS00.html">NRLMSIS00</a>(<a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* frame, <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* bodyShape, <span class="keywordtype">double</span> f107Daily, <span class="keywordtype">double</span> f107Average, <span class="keywordtype">double</span> ap);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1AtmosphereBase.html#ad52df15166e3bd1ab8afe89fc7bb3ee2">getDensity</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, <span class="keyword">const</span> Vector3d&amp; posInBodyFixed) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classast_1_1NRLMSIS00.html">NRLMSIS00</a>(<a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* frame, <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* bodyShape, <a class="code hl_class" href="classast_1_1SpaceWeatherProvider.html">SpaceWeatherProvider</a>* spaceWeather);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1AtmosphereBase.html#ad52df15166e3bd1ab8afe89fc7bb3ee2">getDensity</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, <span class="keyword">const</span> Vector3d&amp; posInBodyFixed) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
 </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1NRLMSIS00.html">NRLMSIS00</a> final: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1AtmosphereBase.html">AtmosphereBase</a></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="classast_1_1NRLMSIS00.html">NRLMSIS00</a>(<a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* ecf, <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* bodyShape, <span class="keywordtype">double</span> f107Daily, <span class="keywordtype">double</span> f107Average, <span class="keywordtype">double</span> ap);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="classast_1_1NRLMSIS00.html">~NRLMSIS00</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1AtmosphereBase.html#ad52df15166e3bd1ab8afe89fc7bb3ee2">getDensity</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, <span class="keyword">const</span> Vector3d&amp; posInBodyFixed) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1NRLMSIS00.html">NRLMSIS00</a> final: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1AtmosphereBase.html">AtmosphereBase</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classast_1_1NRLMSIS00.html">NRLMSIS00</a>(<a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* ecf, <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* bodyShape, <span class="keywordtype">double</span> f107Daily, <span class="keywordtype">double</span> f107Average, <span class="keywordtype">double</span> ap);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classast_1_1NRLMSIS00.html">~NRLMSIS00</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classast_1_1NRLMSISE.html">NRLMSISE</a>&amp; nrlmsise()<span class="keyword"> const </span>{<span class="keywordflow">return</span> *<span class="keyword">reinterpret_cast&lt;</span><a class="code hl_class" href="classast_1_1NRLMSISE.html">NRLMSISE</a>*<span class="keyword">&gt;</span>(&amp;storage_);}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1AtmosphereBase.html#ad52df15166e3bd1ab8afe89fc7bb3ee2">getDensity</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, <span class="keyword">const</span> Vector3d&amp; posInBodyFixed) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">mutable</span> std::aligned_storage&lt;624&gt;::type storage_;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classast_1_1NRLMSISE.html">NRLMSISE</a>&amp; nrlmsise()<span class="keyword"> const </span>{<span class="keywordflow">return</span> *<span class="keyword">reinterpret_cast&lt;</span><a class="code hl_class" href="classast_1_1NRLMSISE.html">NRLMSISE</a>*<span class="keyword">&gt;</span>(&amp;storage_);}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">mutable</span> std::aligned_storage&lt;624&gt;::type storage_;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="ttc" id="aMSISBase_8hpp_html"><div class="ttname"><a href="MSISBase_8hpp.html">MSISBase.hpp</a></div></div>
 <div class="ttc" id="aclassast_1_1AtmosphereBase_html"><div class="ttname"><a href="classast_1_1AtmosphereBase.html">ast::AtmosphereBase</a></div><div class="ttdef"><b>定义</b> AtmosphereBase.hpp:34</div></div>
 <div class="ttc" id="aclassast_1_1AtmosphereBase_html_ad52df15166e3bd1ab8afe89fc7bb3ee2"><div class="ttname"><a href="classast_1_1AtmosphereBase.html#ad52df15166e3bd1ab8afe89fc7bb3ee2">ast::AtmosphereBase::getDensity</a></div><div class="ttdeci">double getDensity(const TimePoint &amp;tp, const Vector3d &amp;posInBodyFixed) const override=0</div><div class="ttdoc">获取大气密度</div></div>
 <div class="ttc" id="aclassast_1_1BodyShape_html"><div class="ttname"><a href="classast_1_1BodyShape.html">ast::BodyShape</a></div><div class="ttdoc">天体形状基类</div><div class="ttdef"><b>定义</b> BodyShape.hpp:33</div></div>
 <div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系类</div><div class="ttdef"><b>定义</b> Frame.hpp:60</div></div>
-<div class="ttc" id="aclassast_1_1MSISBase_html"><div class="ttname"><a href="classast_1_1MSISBase.html">ast::MSISBase</a></div><div class="ttdoc">MSIS86大气模型基类</div><div class="ttdef"><b>定义</b> MSISBase.hpp:44</div></div>
+<div class="ttc" id="aclassast_1_1MSISBase_html"><div class="ttname"><a href="classast_1_1MSISBase.html">ast::MSISBase</a></div><div class="ttdoc">MSIS86大气模型基类</div><div class="ttdef"><b>定义</b> MSISBase.hpp:46</div></div>
 <div class="ttc" id="aclassast_1_1NRLMSIS00_html"><div class="ttname"><a href="classast_1_1NRLMSIS00.html">ast::NRLMSIS00</a></div><div class="ttdoc">NRLMSIS00大气模型基类</div><div class="ttdef"><b>定义</b> NRLMSIS00.hpp:42</div></div>
 <div class="ttc" id="aclassast_1_1NRLMSISE_html"><div class="ttname"><a href="classast_1_1NRLMSISE.html">ast::NRLMSISE</a></div><div class="ttdef"><b>定义</b> nrlmsise-00.hpp:172</div></div>
+<div class="ttc" id="aclassast_1_1SpaceWeatherProvider_html"><div class="ttname"><a href="classast_1_1SpaceWeatherProvider.html">ast::SpaceWeatherProvider</a></div><div class="ttdoc">空间天气数据提供者抽象接口</div><div class="ttdef"><b>定义</b> SpaceWeatherProvider.hpp:43</div></div>
 <div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:107</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,5 +1,9 @@
 var NAVTREEINDEX14 =
 {
+"TargeterGraph_8cpp.html":[4,0,0,7,7,3,0,9],
+"TargeterGraph_8hpp.html":[4,0,0,7,7,3,0,10],
+"TargeterGraph_8hpp_source.html":[4,0,0,7,7,3,0,10],
+"TargeterProfileLoader_8cpp.html":[4,0,0,10,1,2,0,7],
 "TargeterProfileLoader_8cpp.html#a3ac1c5e75fc911681156cb8c35d81b45":[4,0,0,10,1,2,0,7,0],
 "TargeterProfileLoader_8hpp.html":[4,0,0,10,1,2,0,8],
 "TargeterProfileLoader_8hpp.html#a3ac1c5e75fc911681156cb8c35d81b45":[4,0,0,10,1,2,0,8,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX14 =
 "UiInteger_8cpp.html":[4,0,0,9,4,13],
 "UiInteger_8hpp.html":[4,0,0,9,4,14],
 "UiInteger_8hpp_source.html":[4,0,0,9,4,14],
-"UiMainWindow_8cpp.html":[4,0,0,9,13,0],
-"UiMainWindow_8hpp.html":[4,0,0,9,13,1],
-"UiMainWindow_8hpp_source.html":[4,0,0,9,13,1],
-"UiManeuver_8cpp.html":[4,0,0,9,7,11],
-"UiManeuver_8hpp.html":[4,0,0,9,7,12]
+"UiMainWindow_8cpp.html":[4,0,0,9,13,0]
 };

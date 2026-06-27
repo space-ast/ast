@@ -19,7 +19,7 @@ var searchData=
   ['angle_5f_16',['angle_',['../classast_1_1AngleAxis.html#ad376babc6f29ee3aa253c16347edc1cf',1,'ast::AngleAxis']]],
   ['angvel_5f_17',['angvel_',['../classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523',1,'ast::KinematicRotation']]],
   ['anutation_18',['aNutation',['../namespaceast.html#ac67e70e7a0b4e22fbf6b82741c20e724',1,'ast']]],
-  ['ap_5f_19',['ap_',['../classast_1_1MSISBase.html#a57ed87aab4a6ec750a71fdd44546a23b',1,'ast::MSISBase']]],
+  ['ap_5f_19',['ap_',['../classast_1_1ConstantSpaceWeather.html#ac930d336d268d1cdb831852f4d5239ed',1,'ast::ConstantSpaceWeather']]],
   ['apogeealtitude_5f_20',['apogeeAltitude_',['../classast_1_1CriticallyInclinedOrbitDesigner.html#a8018a444a9b3d68e544376e75d4d09c3',1,'ast::CriticallyInclinedOrbitDesigner']]],
   ['applicable_21',['applicable',['../structast_1_1SummarySection.html#abeefee873dd13efe8ef91b21ce7d75f3',1,'ast::SummarySection']]],
   ['arcsec_22',['arcsec',['../Unit_8cpp.html#a4269fe8d0f2f532e585768ed1c5cfb76',1,'ast::units']]],

@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"EditFigureDialog_8cpp.html":[4,0,0,3,0,4],
+"EditFigureDialog_8hpp.html":[4,0,0,3,0,5],
 "EditFigureDialog_8hpp_source.html":[4,0,0,3,0,5],
 "EditFigureOverlay_8cpp.html":[4,0,0,3,0,6],
 "EditFigureOverlay_8cpp.html#a139cf95da066e73a56b9d9a399ea6a10":[4,0,0,3,0,6,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "FundamentalArguments_8cpp.html#a1b9159b0e123b3109b2efc385bd6c8f9":[4,0,0,7,3,3,0,1],
 "FundamentalArguments_8cpp.html#a8eae24d01051b469c69252dbdaff3236":[4,0,0,7,3,3,0,2],
 "FundamentalArguments_8hpp.html":[4,0,0,7,3,3,1],
-"FundamentalArguments_8hpp.html#a172620ae0b5ae03e7ab90c426f27ae85":[4,0,0,7,3,3,1,1],
-"FundamentalArguments_8hpp.html#a1b9159b0e123b3109b2efc385bd6c8f9":[4,0,0,7,3,3,1,2],
-"FundamentalArguments_8hpp.html#a8eae24d01051b469c69252dbdaff3236":[4,0,0,7,3,3,1,3]
+"FundamentalArguments_8hpp.html#a172620ae0b5ae03e7ab90c426f27ae85":[4,0,0,7,3,3,1,1]
 };
