@@ -24,7 +24,9 @@
 *     *****************************************************************       */
 
 #include <math.h>
-#include <io.h>      
+#if defined(_WIN32)
+#include <io.h>    
+#endif  
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

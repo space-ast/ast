@@ -20,6 +20,7 @@
 
 #include "MSISBase.hpp"
 #include "AstWeather/MSIS_Vers.h"
+#include "AstWeather/GeomagneticIndex.hpp"
 #include "AstCore/TimePoint.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -38,10 +39,14 @@ public:
 };
 
 MSISBase::MSISBase(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap)
+    : MSISBase(frame, bodyShape, NewConstantSpaceWeather(f107Daily, f107Average, ap))
+{
+
+}
+
+MSISBase::MSISBase(Frame *frame, BodyShape *bodyShape, SpaceWeatherProvider *spaceWeather)
     : AtmosphereBase(frame, bodyShape)
-    , F107Daily_{f107Daily}
-    , F107Average_{f107Average}
-    , ap_{ap}
+    , spaceWeather_(spaceWeather)
 {
     static_assert(sizeof(storage_) >= sizeof(MSISBase::WorkSpace), "storage_ size must not be less than WorkSpace");
     new (&storage_) WorkSpace;
@@ -50,6 +55,22 @@ MSISBase::MSISBase(Frame* frame, BodyShape* bodyShape, double f107Daily, double 
 MSISBase::~MSISBase()
 {
     workSpace().~WorkSpace();
+}
+
+void MSISBase::setSpaceWeatherProvider(SpaceWeatherProvider *spaceWeather)
+{
+    if(spaceWeather != nullptr)
+        spaceWeather_ = spaceWeather;
+}
+
+void MSISBase::setConstantSpaceWeather(double f107Daily, double f107Average, double ap)
+{
+    spaceWeather_ = NewConstantSpaceWeather(f107Daily, f107Average, ap);
+}
+
+SpaceWeatherProvider *MSISBase::NewConstantSpaceWeather(double f107Daily, double f107Average, double ap)
+{
+    return new ConstantSpaceWeather(f107Daily, f107Average, ap, aApToKp(ap));
 }
 
 msistype& MSISBase::msis() const { return workSpace().msis_; }
@@ -65,6 +86,23 @@ void MSISBase::getMSISParam(const TimePoint &tp, double lon, int &dayOfYear, dou
     dayOfYear = dateTime.dayOfYear();
     secOfDay = dateTime.secOfDay();
 	lst = secOfDay / 3600 + lon * kRadToTimeHour;
+}
+
+void MSISBase::getSpaceWeather(const TimePoint &tp, double &f107, double &f107Average, double &ap) const
+{
+    if (spaceWeather_)
+    {
+        f107 = spaceWeather_->getF10p7Daily(tp);
+        f107Average = spaceWeather_->getF10p7Average(tp);
+        ap = spaceWeather_->getApDaily(tp);
+    }
+    else
+    {
+        aWarning("space weather provider is not set");
+        f107 = 0.0;
+        f107Average = 0.0;
+        ap = 0.0;
+    }
 }
 
 AST_NAMESPACE_END

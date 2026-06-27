@@ -13,7 +13,7 @@
 #include "DTM2012.hpp"
 
 #include "AstUtil/Logger.hpp"
-#include "AstWeather/Atmosphere/DTM_12/DTM_12.h"
+#include "AstWeather/DTM_12.h"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/JulianDate.hpp"
 #include "AstCore/DateTime.hpp"

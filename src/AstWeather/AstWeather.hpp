@@ -1,6 +1,7 @@
 // AstWeather 工程聚合头文件
 #include "AstWeather/AstWeatherGlobal.h"
 #include "AstWeather/Atmosphere.hpp"
+#include "AstWeather/DTM_12.h"
 #include "AstWeather/Debris.hpp"
 #include "AstWeather/GeomagneticIndex.hpp"
 #include "AstWeather/HarrisPriester.hpp"

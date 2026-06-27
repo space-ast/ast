@@ -36,6 +36,8 @@ class AST_CORE_API MSISE90 final: public MSISBase
 {
 public:
     MSISE90(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap);
+    MSISE90(Frame* frame, BodyShape* bodyShape, SpaceWeatherProvider* spaceWeather);
+
     double getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) const override;
 private:
 

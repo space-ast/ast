@@ -42,6 +42,8 @@ class AST_CORE_API NRLMSIS00 final: public MSISBase
 {
 public:
     NRLMSIS00(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap);
+    NRLMSIS00(Frame* frame, BodyShape* bodyShape, SpaceWeatherProvider* spaceWeather);
+
     double getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) const override;
 };
 

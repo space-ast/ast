@@ -22,6 +22,8 @@
 
 #include "AstGlobal.h"
 #include "AtmosphereBase.hpp"
+#include "AstCore/ConstantSpaceWeather.hpp"
+#include "AstUtil/ScopedPtr.hpp"
 #include <type_traits>
 
 
@@ -45,7 +47,12 @@ class AST_CORE_API MSISBase : public AtmosphereBase
 public:
     class WorkSpace;
     MSISBase(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap);
+    MSISBase(Frame* frame, BodyShape* bodyShape, SpaceWeatherProvider* spaceWeather);
     ~MSISBase();
+
+    void setSpaceWeatherProvider(SpaceWeatherProvider* spaceWeather);
+    void setConstantSpaceWeather(double f107Daily, double f107Average, double ap);
+    static SpaceWeatherProvider* NewConstantSpaceWeather(double f107Daily, double f107Average, double ap);
 protected:
     WorkSpace& workSpace() const { return *reinterpret_cast<WorkSpace*>(&storage_); }
     msistype& msis() const;
@@ -54,10 +61,9 @@ protected:
     lsqvtype& lsqv() const;
 protected:
     static void getMSISParam(const TimePoint& tp, double lon, int& dayOfYear, double& secOfDay, double& lst);
+    void getSpaceWeather(const TimePoint& tp, double& f107, double& f107Average, double& ap) const;
 protected:
-    double F107Daily_{0.0};              ///< F10.7 指数
-    double F107Average_{0.0};            ///< F10.7 指数的平均值
-    double ap_{0.0};                     ///< 地磁指数
+    ScopedPtr<SpaceWeatherProvider> spaceWeather_;    ///< 空间天气数据源
 private:
     mutable std::aligned_storage<57000>::type storage_;
 };

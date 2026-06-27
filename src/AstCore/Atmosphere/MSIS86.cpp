@@ -29,7 +29,13 @@ AST_NAMESPACE_BEGIN
 using namespace MSIS_Vers;
 
 MSIS86::MSIS86(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap)
-    : MSISBase(frame, bodyShape, f107Daily, f107Average, ap)
+    : MSIS86(frame, bodyShape, NewConstantSpaceWeather(f107Daily, f107Average, ap))
+{
+    
+}
+
+MSIS86::MSIS86(Frame *frame, BodyShape *bodyShape, SpaceWeatherProvider *spaceWeather)
+    : MSISBase(frame, bodyShape, spaceWeather)
 {
     msis86init(this->msis());
     int sv[26]{
@@ -52,18 +58,18 @@ double MSIS86::getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) c
     alt /= 1e3;
 	lat = rad2deg(lat);
 	lon = rad2deg(lon);
-    double f107A = this->F107Average_;
-    double f107 = this->F107Daily_;
+    double f107, f107A, ap;
+    this->getSpaceWeather(tp, f107, f107A, ap);
 
 	int mass = 48;
-    std::array<double, 8> ap{};
-    ap[1] = ap_;
+    std::array<double, 8> apArray{};
+    apArray[1] = ap;
     std::array<double, 10> d{};
     std::array<double, 3> t{};
 	gts5(
         this->msis(), this->lpoly(), this->lsqv(), 
         dayOfYear, secOfDay, alt, lat, lon, lst,
-        f107A, f107, ap.data(), mass, d.data(), t.data()
+        f107A, f107, apArray.data(), mass, d.data(), t.data()
     );
     return d[6];
 }

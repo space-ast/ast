@@ -23,6 +23,8 @@
 #include "AstUtil/String.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstCore/Date.hpp"
+#include "AstCore/TimePoint.hpp"
+#include "AstCore/JulianDate.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -247,6 +249,149 @@ void SpaceWeather::findEntryIndex(double mjdUTC, int & index, double & frac) con
         frac = 0;
         return;
     }
+}
+
+// ============================================================
+// 查询接口实现
+// ============================================================
+
+double SpaceWeather::getApDaily(const TimePoint& tp) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getApDaily_UTCMJD(aJDToMJD_Imprecise(jdUTC));
+}
+
+double SpaceWeather::getApDaily_UTCMJD(double mjdUTC) const
+{
+    if(data_.empty()){
+        return 0.0;
+    }
+    int index;
+    double frac;
+    findEntryIndex(mjdUTC, index, frac);
+    if(index < 0){
+        return 0.0;
+    }
+
+    double val0 = (double)data_[index].ApAvg;
+    return val0;
+
+    // if(frac <= 0.0 || index + 1 >= (int)data_.size()){
+    //     return val0;
+    // }
+    // 
+    // double val1 = (double)data_[index + 1].ApAvg;
+    // return val0 + (val1 - val0) * frac;
+}
+
+double SpaceWeather::getKpDaily(const TimePoint& tp) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getKpDaily_UTCMJD(aJDToMJD_Imprecise(jdUTC));
+}
+
+double SpaceWeather::getKpDaily_UTCMJD(double mjdUTC) const
+{
+    if(data_.empty()){
+        return 0.0;
+    }
+    int index;
+    double frac;
+    findEntryIndex(mjdUTC, index, frac);
+    if(index < 0){
+        return 0.0;
+    }
+
+    // KpSum是8个Kp值的和(Kp*10单位)，日平均 = KpSum / 8 / 10 = KpSum / 80
+    double val0 = data_[index].KpSum / 80.0;
+    return val0;
+    // if(frac <= 0.0 || index + 1 >= (int)data_.size()){
+    //     return val0;
+    // }
+    // 
+    // double val1 = data_[index + 1].KpSum / 80.0;
+    // return val0 + (val1 - val0) * frac;
+}
+
+double SpaceWeather::getF10p7Daily(const TimePoint& tp) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getF10p7Daily_UTCMJD(aJDToMJD_Imprecise(jdUTC));
+}
+
+double SpaceWeather::getF10p7Daily_UTCMJD(double mjdUTC) const
+{
+    if(data_.empty()){
+        return 0.0;
+    }
+    int index;
+    double frac;
+    findEntryIndex(mjdUTC, index, frac);
+    if(index < 0){
+        return 0.0;
+    }
+
+    // 优先使用F10.7观测值；若不可用则回退到调整值
+    double val0 = data_[index].F10p7Obs;
+    if(val0 <= 0.0){
+        val0 = data_[index].F10p7Adj;
+    }
+    
+    return val0;
+
+    // if(frac <= 0.0 || index + 1 >= (int)data_.size()){
+    //     return val0;
+    // }
+    // 
+    // double val1 = data_[index + 1].F10p7Obs;
+    // if(val1 <= 0.0){
+    //     val1 = data_[index + 1].F10p7Adj;
+    // }
+    // 
+    // // 线性插值
+    // return val0 + (val1 - val0) * frac;
+}
+
+double SpaceWeather::getF10p7Average(const TimePoint& tp) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getF10p7Average_UTCMJD(aJDToMJD_Imprecise(jdUTC));
+}
+
+double SpaceWeather::getF10p7Average_UTCMJD(double mjdUTC) const
+{
+    if(data_.empty()){
+        return 0.0;
+    }
+    int index;
+    double frac;
+    findEntryIndex(mjdUTC, index, frac);
+    if(index < 0){
+        return 0.0;
+    }
+
+    // 使用以当天为中心的81天平均值(调整到1 AU)
+    double val0 = data_[index].F10p7ObsCtr81;
+    if(val0 <= 0.0){
+        // 回退：使用最近81天平均值
+        val0 = data_[index].F10p7ObsLst81;
+    }
+    return val0;
+
+    // if(frac <= 0.0 || index + 1 >= (int)data_.size()){
+    //     return val0;
+    // }
+    // double val1 = data_[index + 1].F10p7ObsCtr81;
+    // if(val1 <= 0.0){
+    //     val1 = data_[index + 1].F10p7ObsLst81;
+    // }
+    // 
+    // // 线性插值
+    // return val0 + (val1 - val0) * frac;
 }
 
 AST_NAMESPACE_END
