@@ -522,6 +522,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DragForce.html">DragForce</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DTM2012.html">DTM2012</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EarthOrientation.html">EarthOrientation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EclipseCalculator.html">EclipseCalculator</a></td></tr>
@@ -3429,6 +3431,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>aCommandDispatcherIni
 <tr class="memitem:a0cd223ea56417555939b72ea5100b35d" id="r_a0cd223ea56417555939b72ea5100b35d"><td class="memItemLeft" align="right" valign="top"><a id="a0cd223ea56417555939b72ea5100b35d" name="a0cd223ea56417555939b72ea5100b35d"></a>
 <a class="el" href="interfaceIObject.html">IObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>aComGetObject</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
 <tr class="separator:a0cd223ea56417555939b72ea5100b35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5146a3aaf07deefd222469bbf19cb007" id="r_a5146a3aaf07deefd222469bbf19cb007"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5146a3aaf07deefd222469bbf19cb007">aLoadDTM2012Coefficients</a> (const std::string &amp;path, <a class="el" href="structpardtmtype.html">pardtmtype</a> &amp;pardtm)</td></tr>
+<tr class="separator:a5146a3aaf07deefd222469bbf19cb007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a5ca8ec83957041eb2db0be7c7ed17d" id="r_a7a5ca8ec83957041eb2db0be7c7ed17d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Geometry.html#ga52cecc91460a5123ebbfa0a7a4c7b0f9">HAxes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a5ca8ec83957041eb2db0be7c7ed17d">aMakeEpochAxes</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *sourceAxes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Axes.html">Axes</a> *referenceAxes)</td></tr>
 <tr class="separator:a7a5ca8ec83957041eb2db0be7c7ed17d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac48ceaea02d34488736f041f814d2d1" id="r_aac48ceaea02d34488736f041f814d2d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Geometry.html#ga52cecc91460a5123ebbfa0a7a4c7b0f9">HAxes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac48ceaea02d34488736f041f814d2d1">aMakeEpochAxes</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *sourceAxes, <a class="el" href="classast_1_1EventTime.html">EventTime</a> *time, <a class="el" href="classast_1_1Axes.html">Axes</a> *referenceAxes)</td></tr>
@@ -13067,6 +13071,38 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>errc_t 加载结果 </dd></dl>
+
+</div>
+</div>
+<a id="a5146a3aaf07deefd222469bbf19cb007" name="a5146a3aaf07deefd222469bbf19cb007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5146a3aaf07deefd222469bbf19cb007">&#9670;&#160;</a></span>aLoadDTM2012Coefficients()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aLoadDTM2012Coefficients </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpardtmtype.html">pardtmtype</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pardtm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从文件加载 <a class="el" href="classast_1_1DTM2012.html" title="DTM-2012大气模型">DTM2012</a> 系数 </p>
+<p>从文件加载DTM2012系数</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>系数文件路径 </td></tr>
+    <tr><td class="paramname">pardtm</td><td>输出：温度/密度系数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 表示加载成功，否则返回错误码 </dd></dl>
 
 </div>
 </div>

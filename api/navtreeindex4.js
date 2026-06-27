@@ -1,5 +1,11 @@
 var NAVTREEINDEX4 =
 {
+"EditFigureDialog_8hpp_source.html":[4,0,0,3,0,5],
+"EditFigureOverlay_8cpp.html":[4,0,0,3,0,6],
+"EditFigureOverlay_8cpp.html#a139cf95da066e73a56b9d9a399ea6a10":[4,0,0,3,0,6,0],
+"EditFigureOverlay_8hpp.html":[4,0,0,3,0,7],
+"EditFigureOverlay_8hpp_source.html":[4,0,0,3,0,7],
+"EllipsoidShape_8cpp.html":[4,0,0,7,6,3,0,2],
 "EllipsoidShape_8hpp.html":[4,0,0,7,6,3,0,3],
 "EllipsoidShape_8hpp_source.html":[4,0,0,7,6,3,0,3],
 "Encode_8cpp.html":[4,0,0,24,9,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX4 =
 "FundamentalArguments_8hpp.html":[4,0,0,7,3,3,1],
 "FundamentalArguments_8hpp.html#a172620ae0b5ae03e7ab90c426f27ae85":[4,0,0,7,3,3,1,1],
 "FundamentalArguments_8hpp.html#a1b9159b0e123b3109b2efc385bd6c8f9":[4,0,0,7,3,3,1,2],
-"FundamentalArguments_8hpp.html#a8eae24d01051b469c69252dbdaff3236":[4,0,0,7,3,3,1,3],
-"FundamentalArguments_8hpp_source.html":[4,0,0,7,3,3,1],
-"GFAngularSeparationSearch_8cpp.html":[4,0,0,2,1,2],
-"GFAngularSeparationSearch_8hpp.html":[4,0,0,2,1,3],
-"GFAngularSeparationSearch_8hpp_source.html":[4,0,0,2,1,3],
-"GFCoordinateSearch_8cpp.html":[4,0,0,2,1,4],
-"GFCoordinateSearch_8hpp.html":[4,0,0,2,1,5]
+"FundamentalArguments_8hpp.html#a8eae24d01051b469c69252dbdaff3236":[4,0,0,7,3,3,1,3]
 };

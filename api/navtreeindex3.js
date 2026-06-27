@@ -62,6 +62,12 @@ var NAVTREEINDEX3 =
 "CylindricalEclipseCalculator_8hpp_source.html":[4,0,0,7,6,0,3],
 "DAFParser_8cpp.html":[4,0,0,24,4,4,0],
 "DAFParser_8hpp_source.html":[4,0,0,24,4,4,1],
+"DTM2012_8cpp.html":[4,0,0,7,1,4],
+"DTM2012_8cpp.html#a5146a3aaf07deefd222469bbf19cb007":[4,0,0,7,1,4,1],
+"DTM2012_8hpp.html":[4,0,0,7,1,5],
+"DTM2012_8hpp.html#a5146a3aaf07deefd222469bbf19cb007":[4,0,0,7,1,5,1],
+"DTM2012_8hpp_source.html":[4,0,0,7,1,5],
+"DTM__12_8h_source.html":[4,0,0,26,0,0,0],
 "DataContext_8cpp.html":[4,0,0,7,4,0,0],
 "DataContext_8hpp.html":[4,0,0,7,4,0,1],
 "DataContext_8hpp_source.html":[4,0,0,7,4,0,1],
@@ -243,11 +249,5 @@ var NAVTREEINDEX3 =
 "Eclipse_8hpp.html#af10d58260509e430f1a999b0715f025a":[4,0,0,7,6,0,5,0],
 "Eclipse_8hpp_source.html":[4,0,0,7,6,0,5],
 "EditFigureDialog_8cpp.html":[4,0,0,3,0,4],
-"EditFigureDialog_8hpp.html":[4,0,0,3,0,5],
-"EditFigureDialog_8hpp_source.html":[4,0,0,3,0,5],
-"EditFigureOverlay_8cpp.html":[4,0,0,3,0,6],
-"EditFigureOverlay_8cpp.html#a139cf95da066e73a56b9d9a399ea6a10":[4,0,0,3,0,6,0],
-"EditFigureOverlay_8hpp.html":[4,0,0,3,0,7],
-"EditFigureOverlay_8hpp_source.html":[4,0,0,3,0,7],
-"EllipsoidShape_8cpp.html":[4,0,0,7,6,3,0,2]
+"EditFigureDialog_8hpp.html":[4,0,0,3,0,5]
 };

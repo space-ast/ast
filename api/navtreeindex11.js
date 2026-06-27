@@ -1,5 +1,11 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcInertDeltaVMag_8hpp.html":[4,0,0,7,7,1,0,15,61],
+"ScStateCalcInertDeltaVMag_8hpp_source.html":[4,0,0,7,7,1,0,15,61],
+"ScStateCalcInertDeltaVx_8cpp.html":[4,0,0,7,7,1,0,15,62],
+"ScStateCalcInertDeltaVx_8hpp.html":[4,0,0,7,7,1,0,15,63],
+"ScStateCalcInertDeltaVx_8hpp_source.html":[4,0,0,7,7,1,0,15,63],
+"ScStateCalcInertDeltaVy_8cpp.html":[4,0,0,7,7,1,0,15,64],
 "ScStateCalcInertDeltaVy_8hpp.html":[4,0,0,7,7,1,0,15,65],
 "ScStateCalcInertDeltaVy_8hpp_source.html":[4,0,0,7,7,1,0,15,65],
 "ScStateCalcInertDeltaVz_8cpp.html":[4,0,0,7,7,1,0,15,66],
@@ -243,11 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcSTMVelZVelZ_8hpp.html":[4,0,0,7,7,1,0,3,17],
 "ScStateCalcSTMVelZVelZ_8hpp_source.html":[4,0,0,7,7,1,0,3,17],
 "ScStateCalcScalar_8cpp.html":[4,0,0,7,7,1,0,15,172],
-"ScStateCalcScalar_8hpp.html":[4,0,0,7,7,1,0,15,173],
-"ScStateCalcScalar_8hpp_source.html":[4,0,0,7,7,1,0,15,173],
-"ScStateCalcScript_8cpp.html":[4,0,0,7,7,1,0,16,4],
-"ScStateCalcScript_8hpp.html":[4,0,0,7,7,1,0,16,5],
-"ScStateCalcScript_8hpp_source.html":[4,0,0,7,7,1,0,16,5],
-"ScStateCalcSemiLatusRectum_8cpp.html":[4,0,0,7,7,1,0,15,178],
-"ScStateCalcSemiLatusRectum_8hpp.html":[4,0,0,7,7,1,0,15,179]
+"ScStateCalcScalar_8hpp.html":[4,0,0,7,7,1,0,15,173]
 };

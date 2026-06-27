@@ -59,7 +59,7 @@ var searchData=
   ['ishexdigit_56',['isHexDigit',['../namespaceast.html#a212db34da83ee26fa1f671ba8a2367c9',1,'ast']]],
   ['isidle_57',['isIdle',['../classast_1_1MarkdownTableParser.html#a54ec39bcd0a65703e5cfee9b2fbd4729',1,'ast::MarkdownTableParser']]],
   ['isincludespermtide_58',['isIncludesPermTide',['../classast_1_1GravityField.html#a12782ab8c83938c09335a8becb08016b',1,'ast::GravityField']]],
-  ['isinitialized_59',['isInitialized',['../classast_1_1DataContext.html#a9e049e190ef1ff098dae6d3048a803cd',1,'ast::DataContext']]],
+  ['isinitialized_59',['isInitialized',['../classast_1_1DTM2012.html#a5fcd896adba790c718a14c621dd133aa',1,'ast::DTM2012::isInitialized()'],['../classast_1_1DataContext.html#a9e049e190ef1ff098dae6d3048a803cd',1,'ast::DataContext::isInitialized()']]],
   ['isleapyear_60',['isLeapYear',['../group__Time.html#ga47ee05579fd4388bc089ce1c2004b7f3',1,'ast::Date']]],
   ['isloaded_61',['isLoaded',['../classast_1_1IAUXYS.html#a3b949fb47ac94ed843137acec7efb837',1,'ast::IAUXYS::isLoaded()'],['../classast_1_1NutationSeries.html#a53b6a80145eeb09fcce894a5676ec2cf',1,'ast::NutationSeries::isLoaded()'],['../classast_1_1SpiceAPI.html#aa07c808d950e6e4438bea95bc6c63cbb',1,'ast::SpiceAPI::isLoaded()'],['../classast_1_1PythonAPI.html#a545d04fe5086d257e517b91cf4814b51',1,'ast::PythonAPI::isLoaded()']]],
   ['isluna_62',['isLuna',['../classast_1_1CelestialBody.html#ae95a3a2f66d4042a085f0df12ea64b61',1,'ast::CelestialBody']]],

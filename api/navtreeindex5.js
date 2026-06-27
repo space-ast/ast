@@ -1,5 +1,11 @@
 var NAVTREEINDEX5 =
 {
+"FundamentalArguments_8hpp_source.html":[4,0,0,7,3,3,1],
+"GFAngularSeparationSearch_8cpp.html":[4,0,0,2,1,2],
+"GFAngularSeparationSearch_8hpp.html":[4,0,0,2,1,3],
+"GFAngularSeparationSearch_8hpp_source.html":[4,0,0,2,1,3],
+"GFCoordinateSearch_8cpp.html":[4,0,0,2,1,4],
+"GFCoordinateSearch_8hpp.html":[4,0,0,2,1,5],
 "GFCoordinateSearch_8hpp_source.html":[4,0,0,2,1,5],
 "GFDistanceSearch_8cpp.html":[4,0,0,2,1,6],
 "GFDistanceSearch_8hpp.html":[4,0,0,2,1,7],
@@ -225,9 +231,9 @@ var NAVTREEINDEX5 =
 "JScript_8cpp.html":[4,0,0,16,3,3],
 "JScript_8hpp.html":[4,0,0,16,3,4],
 "JScript_8hpp_source.html":[4,0,0,16,3,4],
-"JacchiaRoberts_8cpp.html":[4,0,0,7,1,6],
-"JacchiaRoberts_8hpp.html":[4,0,0,7,1,7],
-"JacchiaRoberts_8hpp_source.html":[4,0,0,7,1,7],
+"JacchiaRoberts_8cpp.html":[4,0,0,7,1,8],
+"JacchiaRoberts_8hpp.html":[4,0,0,7,1,9],
+"JacchiaRoberts_8hpp_source.html":[4,0,0,7,1,9],
 "JavaSerializer_8cpp.html":[4,0,0,24,8,3],
 "JavaSerializer_8hpp.html":[4,0,0,24,8,4],
 "JavaSerializer_8hpp_source.html":[4,0,0,24,8,4],
@@ -243,11 +249,5 @@ var NAVTREEINDEX5 =
 "JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfa6fdd3bcda1605303d4ec096736b1eda7":[4,0,0,7,4,4,1,14],
 "JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfa8421925d400c6353be725e5d203a72a7":[4,0,0,7,4,4,1,3],
 "JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfa9c26cba396f5c3edd74b7e40bdc91a81":[4,0,0,7,4,4,1,11],
-"JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfabc21a713b957f07a5c5dd4903314e0e8":[4,0,0,7,4,4,1,2],
-"JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfabf801f109a2d482e89bb91f3ce02bf67":[4,0,0,7,4,4,1,10],
-"JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfacb763434a44618b03294c79f8c818f64":[4,0,0,7,4,4,1,12],
-"JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfaf0d387c42ebe862b738f7cc8f3902952":[4,0,0,7,4,4,1,9],
-"JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfafa4ba5ef8b80084b8cfb20328a7719e9":[4,0,0,7,4,4,1,5],
-"JplDe_8hpp.html":[4,0,0,7,4,5],
-"JplDe_8hpp_source.html":[4,0,0,7,4,5]
+"JplDe_8cpp.html#ad226f5138693fa4cb352f8c2201281dfabc21a713b957f07a5c5dd4903314e0e8":[4,0,0,7,4,4,1,2]
 };

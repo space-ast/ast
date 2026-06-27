@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "a_structtype", "structa__structtype.html", null ],
     [ "ast::AEP8Data", "classast_1_1AEP8Data.html", null ],
     [ "ast::AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
     [ "alist", "structalist.html", null ],
@@ -20,6 +21,7 @@ var hierarchy =
     [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
     [ "ast::Atmosphere", "classast_1_1Atmosphere.html", [
       [ "ast::AtmosphereBase", "classast_1_1AtmosphereBase.html", [
+        [ "ast::DTM2012", "classast_1_1DTM2012.html", null ],
         [ "ast::HarrisPriester", "classast_1_1HarrisPriester.html", null ],
         [ "ast::JacchiaRoberts", "classast_1_1JacchiaRoberts.html", null ],
         [ "ast::MSISBase", "classast_1_1MSISBase.html", [
@@ -152,6 +154,7 @@ var hierarchy =
     [ "ast::ComObjectManager", "classast_1_1ComObjectManager.html", null ],
     [ "complex", "structcomplex.html", null ],
     [ "ast::ExprIf::ConditionBranch", "structast_1_1ExprIf_1_1ConditionBranch.html", null ],
+    [ "constype", "structconstype.html", null ],
     [ "ast::CorVector< T >", "classast_1_1CorVector.html", null ],
     [ "AstCOMLib::CSatellite", "classAstCOMLib_1_1CSatellite.html", null ],
     [ "AstCOMLib::CSaVO", "classAstCOMLib_1_1CSaVO.html", null ],
@@ -170,7 +173,9 @@ var hierarchy =
     [ "ast::Date", "classast_1_1Date.html", null ],
     [ "ast::DateTime", "classast_1_1DateTime.html", null ],
     [ "datimerecord", "structdatimerecord.html", null ],
+    [ "datmotype", "structdatmotype.html", null ],
     [ "ast::DaySecDuration", "classast_1_1DaySecDuration.html", null ],
+    [ "ddtm_12type", "structddtm__12type.html", null ],
     [ "ast::debin_header", "structast_1_1debin__header.html", null ],
     [ "ast::Debugger", "classast_1_1Debugger.html", null ],
     [ "ast::detail::decode_impl< Tag, Pos, Count >", "structast_1_1detail_1_1decode__impl.html", null ],
@@ -184,11 +189,16 @@ var hierarchy =
     [ "ast::TimeInterval::DiscreteTimePointRange", "classast_1_1TimeInterval_1_1DiscreteTimePointRange.html", null ],
     [ "dmixrecord", "structdmixrecord.html", null ],
     [ "doublecomplex", "structdoublecomplex.html", null ],
+    [ "DTM_12type", "structDTM__12type.html", null ],
+    [ "dtm_daterectype", "structdtm__daterectype.html", null ],
+    [ "dtm_unctype", "structdtm__unctype.html", null ],
+    [ "dtmindextype", "structdtmindextype.html", null ],
     [ "ast::EclipseCalculator", "classast_1_1EclipseCalculator.html", [
       [ "ast::ConeEclipseCalculator", "classast_1_1ConeEclipseCalculator.html", null ],
       [ "ast::CylindricalEclipseCalculator", "classast_1_1CylindricalEclipseCalculator.html", null ],
       [ "ast::NoneEclipseCalculator", "classast_1_1NoneEclipseCalculator.html", null ]
     ] ],
+    [ "eclipttype", "structeclipttype.html", null ],
     [ "ast::EOP::Entry", "structast_1_1EOP_1_1Entry.html", null ],
     [ "ast::LeapSecond::Entry", "structast_1_1LeapSecond_1_1Entry.html", null ],
     [ "ast::SpaceWeather::Entry", "structast_1_1SpaceWeather_1_1Entry.html", null ],
@@ -202,6 +212,7 @@ var hierarchy =
     [ "ast::ExprVisitor", "classast_1_1ExprVisitor.html", [
       [ "ast::ExprExpandVisitor", "classast_1_1ExprExpandVisitor.html", null ]
     ] ],
+    [ "f_structtype", "structf__structtype.html", null ],
     [ "ast::Field", "classast_1_1Field.html", [
       [ "ast::Property", "classast_1_1Property.html", [
         [ "ast::PropertyBool", "classast_1_1PropertyBool.html", null ],
@@ -288,6 +299,7 @@ var hierarchy =
     [ "ast::has_own_getType< T >", "structast_1_1has__own__getType.html", null ],
     [ "std::hash< _AST StringViewBasic< _Char > >", "structstd_1_1hash_3_01__AST_01StringViewBasic_3_01__Char_01_4_01_4.html", null ],
     [ "std::hash< _AST WeakPtr< _Object > >", "structstd_1_1hash_3_01__AST_01WeakPtr_3_01__Object_01_4_01_4.html", null ],
+    [ "hlocaltype", "structhlocaltype.html", null ],
     [ "ast::IAUXYS", "classast_1_1IAUXYS.html", null ],
     [ "ast::IAUXYSPrecomputed", "classast_1_1IAUXYSPrecomputed.html", null ],
     [ "icilist", "structicilist.html", null ],
@@ -344,6 +356,7 @@ var hierarchy =
       [ "ast::IVeVOSystemsElementImpl< T, piid >", "classast_1_1IVeVOSystemsElementImpl.html", null ]
     ] ],
     [ "ast::ActiveScriptExecutor::Impl", "classast_1_1ActiveScriptExecutor_1_1Impl.html", null ],
+    [ "ast::DTM2012::Impl", "structast_1_1DTM2012_1_1Impl.html", null ],
     [ "ast::NetworkImplWinHTTP::Impl", "classast_1_1NetworkImplWinHTTP_1_1Impl.html", null ],
     [ "ast::NetworkImplWinINet::Impl", "classast_1_1NetworkImplWinINet_1_1Impl.html", null ],
     [ "ast::QwtBackend::Impl", "structast_1_1QwtBackend_1_1Impl.html", null ],
@@ -541,12 +554,14 @@ var hierarchy =
       [ "ast::HPOPEquation", "classast_1_1HPOPEquation.html", null ],
       [ "ast::ODEGeneric< Func >", "classast_1_1ODEGeneric.html", null ]
     ] ],
+    [ "pardtmtype", "structpardtmtype.html", null ],
     [ "parmbrecord", "structparmbrecord.html", null ],
     [ "parmrecord", "structparmrecord.html", null ],
     [ "ast::Parser", "classast_1_1Parser.html", null ],
     [ "ast::fs_simple::path", "classast_1_1fs__simple_1_1path.html", null ],
     [ "ast::PilotPipeServer", "classast_1_1PilotPipeServer.html", null ],
     [ "ast::PilotPolisher", "classast_1_1PilotPolisher.html", null ],
+    [ "plgdtmtype", "structplgdtmtype.html", null ],
     [ "ast::PoleMotion", "structast_1_1PoleMotion.html", null ],
     [ "ast::PoleMotionSXY", "structast_1_1PoleMotionSXY.html", null ],
     [ "ast::Polynomial", "classast_1_1Polynomial.html", null ],
