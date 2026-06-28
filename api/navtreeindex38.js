@@ -1,5 +1,7 @@
 var NAVTREEINDEX38 =
 {
+"classast_1_1SegmentCalculation.html#af72831e031fc93668cd36193f6b2337a":[2,0,0,777,0],
+"classast_1_1SegmentCalculation.html#af72831e031fc93668cd36193f6b2337a":[3,0,0,776,0],
 "classast_1_1SegmentGraph.html":[2,0,0,779],
 "classast_1_1SegmentGraph.html":[3,0,0,778],
 "classast_1_1SegmentGraph.html#a0fb1b41a7b3dfa6d0de2fe56f08925ef":[2,0,0,779,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX38 =
 "classast_1_1SpheroidShape.html#a2dd2a98719c5260fe02605c7e80d2ab3":[2,0,0,810,4],
 "classast_1_1SpheroidShape.html#a2dd2a98719c5260fe02605c7e80d2ab3":[3,0,0,809,4],
 "classast_1_1SpheroidShape.html#a39d467691eacd497439633a5c318536b":[2,0,0,810,2],
-"classast_1_1SpheroidShape.html#a39d467691eacd497439633a5c318536b":[3,0,0,809,2],
-"classast_1_1SpheroidShape.html#a76b111a7094d292bae479802dbdbcf43":[2,0,0,810,3],
-"classast_1_1SpheroidShape.html#a76b111a7094d292bae479802dbdbcf43":[3,0,0,809,3]
+"classast_1_1SpheroidShape.html#a39d467691eacd497439633a5c318536b":[3,0,0,809,2]
 };

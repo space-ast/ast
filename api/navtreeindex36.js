@@ -1,5 +1,7 @@
 var NAVTREEINDEX36 =
 {
+"classast_1_1ScStateCalcAtmosDensity.html":[2,0,0,582],
+"classast_1_1ScStateCalcAtmosDensity.html":[3,0,0,581],
 "classast_1_1ScStateCalcAtmosPressure.html":[2,0,0,583],
 "classast_1_1ScStateCalcAtmosPressure.html":[3,0,0,582],
 "classast_1_1ScStateCalcAtmosTemperature.html":[2,0,0,584],
@@ -247,7 +249,5 @@ var NAVTREEINDEX36 =
 "classast_1_1ScStateCalcPower.html":[2,0,0,700],
 "classast_1_1ScStateCalcPower.html":[3,0,0,699],
 "classast_1_1ScStateCalcPressure.html":[2,0,0,701],
-"classast_1_1ScStateCalcPressure.html":[3,0,0,700],
-"classast_1_1ScStateCalcPropellantMass.html":[2,0,0,702],
-"classast_1_1ScStateCalcPropellantMass.html":[3,0,0,701]
+"classast_1_1ScStateCalcPressure.html":[3,0,0,700]
 };

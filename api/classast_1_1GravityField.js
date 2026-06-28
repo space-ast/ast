@@ -1,5 +1,6 @@
 var classast_1_1GravityField =
 [
+    [ "applyPermanentTideC20Correction", "classast_1_1GravityField.html#a73bcedb5dce153e1a53e4abbe79b078a", null ],
     [ "getCentralBodyName", "classast_1_1GravityField.html#ab0a82dbd82e1c829db425f3c501c0df8", null ],
     [ "getCnm", "classast_1_1GravityField.html#a009bfd08da4f331e0b7b3e9868b53a57", null ],
     [ "getGM", "classast_1_1GravityField.html#ad5185b59b2ede5b0fafe25e310fd0e49", null ],

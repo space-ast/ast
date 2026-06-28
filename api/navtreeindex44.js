@@ -1,5 +1,7 @@
 var NAVTREEINDEX44 =
 {
+"classast_1_1ValNamedVector.html#ab31bcdf7f09149697bca61499a9959b6":[2,0,0,977,0],
+"classast_1_1ValNamedVector.html#ab31bcdf7f09149697bca61499a9959b6":[3,0,0,976,0],
 "classast_1_1ValNamedVector.html#aff4d1842f2b55215fee626de18addb79":[2,0,0,977,1],
 "classast_1_1ValNamedVector.html#aff4d1842f2b55215fee626de18addb79":[3,0,0,976,1],
 "classast_1_1ValNull.html":[0,3,37],
@@ -247,7 +249,5 @@ var NAVTREEINDEX44 =
 "classast_1_1strings__internal_1_1ByChar.html":[3,0,0,3,3],
 "classast_1_1strings__internal_1_1ByLength.html":[3,0,0,3,4],
 "classast_1_1strings__internal_1_1ByRepeatedChar.html":[3,0,0,3,5],
-"classast_1_1strings__internal_1_1ByRepeatedWhitespace.html":[3,0,0,3,6],
-"classast_1_1strings__internal_1_1ByString.html":[3,0,0,3,7],
-"classast_1_1strings__internal_1_1MaxSplitsImpl.html":[3,0,0,3,9]
+"classast_1_1strings__internal_1_1ByRepeatedWhitespace.html":[3,0,0,3,6]
 };

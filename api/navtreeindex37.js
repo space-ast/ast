@@ -1,5 +1,7 @@
 var NAVTREEINDEX37 =
 {
+"classast_1_1ScStateCalcPropellantMass.html":[2,0,0,702],
+"classast_1_1ScStateCalcPropellantMass.html":[3,0,0,701],
 "classast_1_1ScStateCalcRA.html":[2,0,0,703],
 "classast_1_1ScStateCalcRA.html":[3,0,0,702],
 "classast_1_1ScStateCalcRAAN.html":[2,0,0,704],
@@ -247,7 +249,5 @@ var NAVTREEINDEX37 =
 "classast_1_1SegmentCalculation.html":[2,0,0,777],
 "classast_1_1SegmentCalculation.html":[3,0,0,776],
 "classast_1_1SegmentCalculation.html#a65684ff1de70ecdc6f0bd872473d869f":[2,0,0,777,1],
-"classast_1_1SegmentCalculation.html#a65684ff1de70ecdc6f0bd872473d869f":[3,0,0,776,1],
-"classast_1_1SegmentCalculation.html#af72831e031fc93668cd36193f6b2337a":[2,0,0,777,0],
-"classast_1_1SegmentCalculation.html#af72831e031fc93668cd36193f6b2337a":[3,0,0,776,0]
+"classast_1_1SegmentCalculation.html#a65684ff1de70ecdc6f0bd872473d869f":[3,0,0,776,1]
 };

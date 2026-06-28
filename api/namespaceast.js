@@ -2766,6 +2766,7 @@ var namespaceast =
     [ "kEarthFlatFact", "group__Util.html#ga545278c3fd822e6757b280c4f11dc5e9", null ],
     [ "kEarthGrav", "group__Util.html#gaeff597f6c83772d38e4416b276404133", null ],
     [ "kEarthGrav_EGM2008", "group__Util.html#ga7f91f9bb3dc51eb0cfd91dd198b34442", null ],
+    [ "kEarthK20LoveNumber", "group__Util.html#ga35202c4362988f14ef453ecdde528f80", null ],
     [ "kEarthMinRadius", "group__Util.html#ga04a8e4bb2908dc1333582498431a621e", null ],
     [ "kEarthRadius", "group__Util.html#ga8097fe65924ebf1023138deae089104f", null ],
     [ "kEarthSiderealDay", "group__Util.html#ga47ee52a201a06156d648414de6e9d9b5", null ],

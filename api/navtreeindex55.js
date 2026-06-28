@@ -1,5 +1,8 @@
 var NAVTREEINDEX55 =
 {
+"structast_1_1WasmObjectInfo.html#a48b85ddd84b58b52ce4d21f90054ab21":[3,0,0,994,3],
+"structast_1_1WasmObjectInfo.html#a70f82e170ca44543ca20a77ec51d99d4":[2,0,0,995,2],
+"structast_1_1WasmObjectInfo.html#a70f82e170ca44543ca20a77ec51d99d4":[3,0,0,994,2],
 "structast_1_1WasmObjectInfo.html#aeaa7e63803e294e64456149fed9ef8d4":[2,0,0,995,1],
 "structast_1_1WasmObjectInfo.html#aeaa7e63803e294e64456149fed9ef8d4":[3,0,0,994,1],
 "structast_1_1WasmObjectInfo.html#af2e4892a058fb8a884de130d3a5ed7b9":[2,0,0,995,4],

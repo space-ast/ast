@@ -152,6 +152,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setModelName</b> (<a 
 <tr class="separator:a91c361e7ae41455bd164122e91e693ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12782ab8c83938c09335a8becb08016b" id="r_a12782ab8c83938c09335a8becb08016b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12782ab8c83938c09335a8becb08016b">isIncludesPermTide</a> () const</td></tr>
 <tr class="separator:a12782ab8c83938c09335a8becb08016b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73bcedb5dce153e1a53e4abbe79b078a" id="r_a73bcedb5dce153e1a53e4abbe79b078a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73bcedb5dce153e1a53e4abbe79b078a">applyPermanentTideC20Correction</a> (double k20)</td></tr>
+<tr class="separator:a73bcedb5dce153e1a53e4abbe79b078a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44be0250f4ec6169de2c4162143360da" id="r_a44be0250f4ec6169de2c4162143360da"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44be0250f4ec6169de2c4162143360da">getSnm</a> (int n, int <a class="el" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a>) const</td></tr>
 <tr class="separator:a44be0250f4ec6169de2c4162143360da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a009bfd08da4f331e0b7b3e9868b53a57" id="r_a009bfd08da4f331e0b7b3e9868b53a57"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a009bfd08da4f331e0b7b3e9868b53a57">getCnm</a> (int n, int <a class="el" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a>) const</td></tr>
@@ -290,6 +292,32 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>re
 <div class="textblock"><p>重力场系数 </p>
 <p>包含重力场的头信息和系数矩阵，如Sn、Cn等。 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
+<a id="a73bcedb5dce153e1a53e4abbe79b078a" name="a73bcedb5dce153e1a53e4abbe79b078a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73bcedb5dce153e1a53e4abbe79b078a">&#9670;&#160;</a></span>applyPermanentTideC20Correction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::GravityField::applyPermanentTideC20Correction </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>k20</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>施加永久潮汐C20修正（无潮汐 → 零潮汐） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k20</td><td>2阶位Love数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>仅对无潮汐模型(includesPermTide_==false)生效，已是零潮汐模型则不做任何操作。 **当前仅支持地球**，A₀和H₀为日月对地球的潮汐势参数， 非地球天体会发出警告并跳过修正。 修正公式: ΔC̄20 = A₀·H₀·k20 来源: IERS 2010 TN36 第6章 第6.2.2节 公式(6.14) (p.88) 其中 A₀=4.4228×10⁻⁸, H₀=−0.31460, k20名义值=0.30190 (表6.3) </dd></dl>
+
+</div>
+</div>
 <a id="ab0a82dbd82e1c829db425f3c501c0df8" name="ab0a82dbd82e1c829db425f3c501c0df8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0a82dbd82e1c829db425f3c501c0df8">&#9670;&#160;</a></span>getCentralBodyName()</h2>
 

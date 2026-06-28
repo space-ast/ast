@@ -1,5 +1,7 @@
 var NAVTREEINDEX35 =
 {
+"classast_1_1Quaternion.html#a11df4a94ed81c80b6e4c95ca6821bf52":[0,2,1,2,17],
+"classast_1_1Quaternion.html#a19883c31504c687288ae7860b86deca8":[0,2,1,2,29],
 "classast_1_1Quaternion.html#a1c57c73d886111aaf291167635821f5c":[0,2,1,2,10],
 "classast_1_1Quaternion.html#a2f285c146ad2c66d87600b30ce4db809":[0,2,1,2,23],
 "classast_1_1Quaternion.html#a3184b5f50da9c8118b611baccf0ac7ac":[0,2,1,2,9],
@@ -247,7 +249,5 @@ var NAVTREEINDEX35 =
 "classast_1_1ScStateCalcArgLat.html#a25c877a8f2b01086337d26a4189f7f95":[2,0,0,580,0],
 "classast_1_1ScStateCalcArgLat.html#a25c877a8f2b01086337d26a4189f7f95":[3,0,0,579,0],
 "classast_1_1ScStateCalcArgPeriapsis.html":[2,0,0,581],
-"classast_1_1ScStateCalcArgPeriapsis.html":[3,0,0,580],
-"classast_1_1ScStateCalcAtmosDensity.html":[2,0,0,582],
-"classast_1_1ScStateCalcAtmosDensity.html":[3,0,0,581]
+"classast_1_1ScStateCalcArgPeriapsis.html":[3,0,0,580]
 };

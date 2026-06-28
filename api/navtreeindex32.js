@@ -1,5 +1,7 @@
 var NAVTREEINDEX32 =
 {
+"classast_1_1NutationSeries.html#a53b6a80145eeb09fcce894a5676ec2cf":[2,0,0,447,2],
+"classast_1_1NutationSeries.html#a53b6a80145eeb09fcce894a5676ec2cf":[3,0,0,446,2],
 "classast_1_1NutationSeries.html#a5d74590b9b10f9f6433049776406d24b":[2,0,0,447,7],
 "classast_1_1NutationSeries.html#a5d74590b9b10f9f6433049776406d24b":[3,0,0,446,7],
 "classast_1_1NutationSeries.html#a6817e86576b412fc31635322362787ad":[2,0,0,447,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX32 =
 "classast_1_1ObjectManager.html#a96fdb8d4b60e0d6c74266a1dd233b911":[2,0,0,459,8],
 "classast_1_1ObjectManager.html#a96fdb8d4b60e0d6c74266a1dd233b911":[3,0,0,458,8],
 "classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f":[2,0,0,459,5],
-"classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f":[3,0,0,458,5],
-"classast_1_1ObjectManager.html#aaae37ad27754f2c130726e0ae70e9c4a":[2,0,0,459,16],
-"classast_1_1ObjectManager.html#aaae37ad27754f2c130726e0ae70e9c4a":[3,0,0,458,16]
+"classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f":[3,0,0,458,5]
 };
