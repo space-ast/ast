@@ -146,7 +146,17 @@ public:
     /// @brief 是否包含潮汐
     /// @return 是否包含潮汐
     bool isIncludesPermTide() const { return includesPermTide_; }
-    
+
+    /// @brief 施加永久潮汐C20修正（无潮汐 → 零潮汐）
+    /// @param k20 2阶位Love数
+    /// @note 仅对无潮汐模型(includesPermTide_==false)生效，已是零潮汐模型则不做任何操作。
+    ///       **当前仅支持地球**，A₀和H₀为日月对地球的潮汐势参数，
+    ///       非地球天体会发出警告并跳过修正。
+    ///       修正公式: ΔC̄20 = A₀·H₀·k20
+    ///       来源: IERS 2010 TN36 第6章 第6.2.2节 公式(6.14) (p.88)
+    ///       其中 A₀=4.4228×10⁻⁸, H₀=−0.31460, k20名义值=0.30190 (表6.3)
+    void applyPermanentTideC20Correction(double k20);
+
     /// @brief 获取Snm系数
     /// @param n 阶数
     /// @param m 次数

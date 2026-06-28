@@ -38,6 +38,8 @@
 #include "AstCore/HarrisPriester.hpp"
 #include "AstCore/DTM2012.hpp"
 
+#include "AstUtil/Constants.h"
+
 #include "AstCore/NoneEclipseCalculator.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"
 #include "AstCore/CylindricalEclipseCalculator.hpp"
@@ -117,6 +119,32 @@ static Axes* aGetGravityAxes(const GravityField& gravityField, const Body& body)
 static Point* aGetBodyEphemeris(const Body& body, EEphemerisSource ephemerisSource)
 {
     return body.getEphemeris(ephemerisSource);
+}
+
+/// @brief 根据 GravityForce 配置加载重力场系数，并施加永久潮汐修正（如适用）
+/// @param gravity 重力场配置
+/// @param body 中心天体
+/// @param[out] outGravityField 输出的重力场
+/// @return 错误码
+static errc_t aLoadGravityField(const GravityForce& gravity, const Body& body, GravityField& outGravityField)
+{
+    errc_t err = outGravityField.load(gravity.model_, gravity.maxDegree_, gravity.maxOrder_, body.getDirpath());
+    if(err != eNoError)
+    {
+        aError("Failed to load gravity field '%s' for body '%s'.", gravity.model_.c_str(), body.getName().c_str());
+        return err;
+    }
+    // 施加永久固体潮汐修正（仅对地球无潮汐模型且 solidTideType_==ePermanentOnly 时生效，
+    // 非地球天体或已是零潮汐模型则在 applyPermanentTideC20Correction 内部跳过）
+    // 参考: IERS 2010 TN36 第6章 第6.2.2节 公式(6.13)-(6.14) (p.88)
+    if(body.isEarth())
+    {
+        if(gravity.solidTideType_ == ESolidTideType::ePermanentOnly)
+        {
+            outGravityField.applyPermanentTideC20Correction(kEarthK20LoveNumber);
+        }
+    }
+    return eNoError;
 }
 
 static double clamp_f10p7(double value)
@@ -295,11 +323,8 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 this->addBlock(derivativeBlock);
             }else{
                 GravityField gravityField;
-                errc_t err = gravityField.load(gravity.model_, gravity.maxDegree_, gravity.maxOrder_, body->getDirpath());
-                if(err != eNoError){
-                    aError("Failed to load gravity field from file: '%s'", gravity.model_.c_str());
-                    return err;
-                }
+                errc_t err = aLoadGravityField(gravity, *body, gravityField);
+                if(err != eNoError) return err;
                 auto propAxes = propFrame->getAxes();
                 auto gravityAxes = aGetGravityAxes(gravityField, *body); 
                 /// @todo 这里产生了一次重力场系数复制，有一定的优化空间
@@ -410,12 +435,8 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 auto& gravity = thirdBody.gravity();
                 // @todo 如果 0 == gravity.maxDegree_，可以使用点质量引力简化计算逻辑
                 GravityField gravityField;
-                errc_t err = gravityField.load(gravity.model_, gravity.maxDegree_, gravity.maxOrder_, body3rd->getDirpath());
-                if(err != eNoError)
-                {
-                    aError("Failed to load third body gravity field from file: '%s'", gravity.model_.c_str());
-                    return err;
-                }
+                errc_t err = aLoadGravityField(gravity, *body3rd, gravityField);
+                if(err != eNoError) return err;
                 auto gravityAxes = aGetGravityAxes(gravityField, *body3rd);
                 auto* block = new BlockThirdBodyGravity(bodyEphemeris, std::move(gravityField),
                                                         gravity.maxDegree_, gravity.maxOrder_,

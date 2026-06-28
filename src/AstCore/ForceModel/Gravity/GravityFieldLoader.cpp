@@ -504,10 +504,16 @@ errc_t loadGravityFieldGFC(GravityFieldLoaderContext& ctx)
                 }
                 else if(aEqualsIgnoreCase(item.key(), "tide_system"))
                 {
+                    // GFC格式(ICGEM)潮汐系统标识:
+                    //   "tide_free"  → 无潮汐模型 (不含永久潮汐变形)
+                    //   "zero tide"  → 零潮汐模型 (含永久潮汐变形)
+                    // 字段名和取值定义: ICGEM 格式规范 (International Centre for Global Earth Models)
+                    //   规范主页: http://icgem.gfz-potsdam.de/ 或者 https://icgem.gfz.de/home
+                    // 三种潮汐系统的物理含义: IERS 2010 TN36 第1.1节 (p.15)
                     if(aEqualsIgnoreCase(item.value(), "tide_free")){
-                        // todo
+                        gf.includesPermTide_ = false;
                     }else if(aEqualsIgnoreCase(item.value(), "zero tide")){
-                        // todo
+                        gf.includesPermTide_ = true;
                     }
                 }
                 else if(aEqualsIgnoreCase(item.key(), "J2-DOT"))

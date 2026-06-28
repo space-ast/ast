@@ -95,6 +95,10 @@ constexpr double kEarthRadius_CGCS2000        = 6378137.0;
 constexpr double kEarthMinRadius_CGCS2000     = 6356752.31414;
 constexpr double kEarthFlatFact_CGCS2000      = 1/298.257222101;
 
+// 潮汐相关常量
+// 参考: IERS Conventions (2010), Technical Note 36 (TN36)
+constexpr double kEarthK20LoveNumber = 0.30190;                  ///< 地球2阶位Love数 k20 — IERS 2010 TN36 第6章 第6.2.1节 表6.3 (p.83, 滞弹性地球名义值)
+
 
 // 月球相关常量
 
