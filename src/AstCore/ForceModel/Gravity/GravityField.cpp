@@ -253,13 +253,13 @@ void GravityField::applyPermanentTideC20Correction(double k20)
     // 已经是零潮汐模型，无需修正
     if(includesPermTide_)
     {
-        aWarning("applyPermanentTideC20Correction: 已经是零潮汐模型，无需修正。");
+        aWarning("已经是零潮汐模型，无需修正。");
         return;
     }
     // 阶数至少需要到2
     if(maxDegree_ < 2)
     {
-        aWarning("applyPermanentTideC20Correction: 阶数至少需要到2，当前阶数为 %d。", maxDegree_);
+        aWarning("阶数至少需要到2，当前阶数为 %d。", maxDegree_);
         return;
     }
 
@@ -268,7 +268,7 @@ void GravityField::applyPermanentTideC20Correction(double k20)
     // 而非此处硬编码的地球值。
     if(!aEqualsIgnoreCase(centralBody_, "Earth"))
     {
-        aWarning("applyPermanentTideC20Correction: 当前仅支持地球, 天体 '%s' 的永久潮汐修正已跳过。",
+        aWarning("当前仅支持地球, 天体 '%s' 的永久潮汐修正已跳过。",
                  centralBody_.c_str());
         return;
     }
