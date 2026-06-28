@@ -220,15 +220,25 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
             forceModel_.drag().geoMagFluxSource_ = EGeoMagFluxSource::eAp;
         }else{
             // @todo 处理其他磁通量源
+            aWarning("unsupported flux source: %s", value.toString().c_str());
         }
     }
     else if(aEqualsIgnoreCase(key, "GeoMagneticFluxUpdateMethod")){
         if(aEqualsIgnoreCase(value, "Daily")){
             forceModel_.drag().geoMagFluxUpdateRate_ = EGeoMagFluxUpdateRate::eDaily;
-        }else{
-            // @todo 处理其他更新方法
         }
-        // @todo 处理其他更新方法
+        else if(aEqualsIgnoreCase(value, "3Hourly"))
+        {
+            forceModel_.drag().geoMagFluxUpdateRate_ = EGeoMagFluxUpdateRate::e3Hourly;
+        }
+        else{
+            // @todo 处理其他更新方法
+            aWarning("unsupported update method: %s", value.toString().c_str());
+            if(value.toStringView().find("3Hourly")!=StringView::npos)
+            {
+                forceModel_.drag().geoMagFluxUpdateRate_ = EGeoMagFluxUpdateRate::e3Hourly;
+            }
+        }
     }
     else if(aEqualsIgnoreCase(key, "GeoMagneticFluxInterpSubSamplingRatio")){
         forceModel_.drag().geoMagFluxInterpSubSamplingRatio_ = value.toDouble();
@@ -279,6 +289,10 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         } else if(aEqualsIgnoreCase(value, "True")){
             forceModel_.srp().sunPosition_ = ESunPosition::eTrue;
         }
+        else{
+            // @todo 处理其他太阳位置
+            aWarning("unsupported sun position: %s", value.toString().c_str());
+        }
     }
     else if(aEqualsIgnoreCase(key, "DetectShadowBoundaries")){
         forceModel_.srp().detectShadowBoundaries_ = value.toBool();
@@ -292,6 +306,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
             forceModel_.srp().shadowModel_ = EShadowModel::eNone;
         }else{
             // @todo 处理其他阴影模型
+            aWarning("unsupported shadow model: %s", value.toString().c_str());
         }
     }
     

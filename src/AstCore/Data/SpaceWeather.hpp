@@ -44,9 +44,9 @@ public:
         int mjd;
         int BSRN;
         int ND;
-        int Kp1, Kp2, Kp3, Kp4, Kp5, Kp6, Kp7, Kp8;
+        int Kp[8];
         int KpSum;
-        int Ap1, Ap2, Ap3, Ap4, Ap5, Ap6, Ap7, Ap8;
+        int Ap[8];
         int ApAvg;
         double Cp;
         int C9;
@@ -93,6 +93,13 @@ public:
     /// @param mjdUTC 简约儒略日(UTC时间)
     /// @return 对应的MJD的Ap值
     double getApDaily_UTCMJD(double mjdUTC) const;
+
+    /// @brief 获取从指定时间向前回溯的连续3小时间隔Ap值列表
+    /// @param tp 参考时间点
+    /// @param apList 输出缓冲区（apList[0]=当前块, apList[1]=3小时前, ...）
+    /// @param maxLookback 最多回溯的块数
+    /// @return 实际填充的块数，0表示无数据
+    int getAp3HourlyList(const TimePoint& tp, double* apList, int maxLookback) const override;
 
     /// @brief 获取指定时间的Kp的单日平均值
     /// @param tp 时间点

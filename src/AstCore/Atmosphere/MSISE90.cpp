@@ -50,27 +50,15 @@ MSISE90::MSISE90(Frame *frame, BodyShape *bodyShape, SpaceWeatherProvider *space
 
 double MSISE90::getDensity(const TimePoint &tp, const Vector3d &posInBodyFixed) const
 {
-    double lat, lon, alt;
-    this->getGeodetic(posInBodyFixed, lat, lon, alt);
-    int dayOfYear;
-    double secOfDay, lst;
-    this->getMSISParam(tp, lon, dayOfYear, secOfDay, lst);
+    MSISParam param;
+    this->getMSISParam(tp, posInBodyFixed, param);
 
-    alt /= 1e3;
-	lat = rad2deg(lat);
-	lon = rad2deg(lon);
-    double f107, f107A, ap;
-    this->getSpaceWeather(tp, f107, f107A, ap);
-
-	int mass = 48;
-    std::array<double, 8> apArray{};
-    apArray[1] = ap;
     std::array<double, 10> d{};
     std::array<double, 3> t{};
 	gtd6(
-        this->msis(), this->lpoly(), this->fit(), this->lsqv(), 
-        dayOfYear, secOfDay, alt, lat, lon, lst,
-        f107A, f107, apArray.data(), mass, d.data(), t.data()
+        this->msis(), this->lpoly(), this->fit(), this->lsqv(),
+        param.dayOfYear, param.secOfDay, param.alt, param.lat, param.lon, param.lst,
+        param.f107A, param.f107, param.ap.data()-1, param.mass, d.data(), t.data()
     );
     return d[6];
 }

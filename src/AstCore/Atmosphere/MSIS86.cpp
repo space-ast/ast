@@ -1,7 +1,7 @@
 ///
 /// @file      MSIS86.cpp
-/// @brief     
-/// @details   
+/// @brief
+/// @details
 /// @author    axel
 /// @date      2026-06-25
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -10,9 +10,9 @@
 /// 本软件基于 Apache 2.0 开源许可证分发。
 /// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
 /// 许可证全文请见：
-/// 
+///
 ///    http://www.apache.org/licenses/LICENSE-2.0
-/// 
+///
 /// 重要须知：
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
@@ -31,7 +31,7 @@ using namespace MSIS_Vers;
 MSIS86::MSIS86(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap)
     : MSIS86(frame, bodyShape, NewConstantSpaceWeather(f107Daily, f107Average, ap))
 {
-    
+
 }
 
 MSIS86::MSIS86(Frame *frame, BodyShape *bodyShape, SpaceWeatherProvider *spaceWeather)
@@ -49,27 +49,15 @@ MSIS86::MSIS86(Frame *frame, BodyShape *bodyShape, SpaceWeatherProvider *spaceWe
 
 double MSIS86::getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) const
 {
-    double lat, lon, alt;
-    this->getGeodetic(posInBodyFixed, lat, lon, alt);
-    int dayOfYear;
-    double secOfDay, lst;
-    this->getMSISParam(tp, lon, dayOfYear, secOfDay, lst);
+    MSISParam param;
+    this->getMSISParam(tp, posInBodyFixed, param);
 
-    alt /= 1e3;
-	lat = rad2deg(lat);
-	lon = rad2deg(lon);
-    double f107, f107A, ap;
-    this->getSpaceWeather(tp, f107, f107A, ap);
-
-	int mass = 48;
-    std::array<double, 8> apArray{};
-    apArray[1] = ap;
     std::array<double, 10> d{};
     std::array<double, 3> t{};
 	gts5(
-        this->msis(), this->lpoly(), this->lsqv(), 
-        dayOfYear, secOfDay, alt, lat, lon, lst,
-        f107A, f107, apArray.data(), mass, d.data(), t.data()
+        this->msis(), this->lpoly(), this->lsqv(),
+        param.dayOfYear, param.secOfDay, param.alt, param.lat, param.lon, param.lst,
+        param.f107A, param.f107, param.ap.data()-1, param.mass, d.data(), t.data()
     );
     return d[6];
 }

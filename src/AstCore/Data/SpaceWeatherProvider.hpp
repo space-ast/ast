@@ -63,6 +63,15 @@ public:
     /// @param tp 时间点
     /// @return 以输入时间为中心的81天平均F10.7观测值（调整到1 AU），无数据时返回0.0
     virtual double getF10p7Average(const TimePoint& tp) const = 0;
+
+    /// @brief 获取从指定时间向前回溯的连续3小时间隔Ap值列表
+    /// @param tp 参考时间点（tp所在3小时UTC块 = apList[0]）
+    /// @param apList 输出缓冲区（apList[0]=当前块, apList[1]=3小时前, apList[2]=6小时前, ...）
+    /// @param maxLookback 最多回溯的块数（通常最多20，即60小时）
+    /// @return 实际填充的块数。返回0表示无3小时间隔数据，调用者应回退到每日Ap模式。
+    ///         默认实现返回0（子类需override以提供真实数据）。
+    virtual int getAp3HourlyList(const TimePoint& tp, double* apList, int maxLookback) const
+    { return 0; }
 };
 
 /*! @} */

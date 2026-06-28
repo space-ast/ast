@@ -174,21 +174,27 @@ static Atmosphere* aNewAtmosphere(const DragForce& drag)
     }while(false);
     
 
-    
+    auto geoMagFluxUpdateRate = drag.geoMagFluxUpdateRate_;
     AtmosphereBase* atmosphere = nullptr;
     auto atmDensityModel = drag.atmDensityModel_;
     {
         if(atmDensityModel == EAtmDensityModel::eMSIS1986)
         {
-            atmosphere = new MSIS86(frame, shape, spaceWeather.release());
+            auto misi86 = new MSIS86(frame, shape, spaceWeather.release());
+            misi86->setUseDailyAp(geoMagFluxUpdateRate==EGeoMagFluxUpdateRate::eDaily);
+            atmosphere = misi86;
         }
         else if(atmDensityModel == EAtmDensityModel::eMSISE1990)
         {
-            atmosphere = new MSISE90(frame, shape, spaceWeather.release());
+            auto misi90 = new MSISE90(frame, shape, spaceWeather.release());
+            misi90->setUseDailyAp(geoMagFluxUpdateRate==EGeoMagFluxUpdateRate::eDaily);
+            atmosphere = misi90;
         }
         else if(atmDensityModel == EAtmDensityModel::eNRLMSISE2000)
         {
-            atmosphere = new NRLMSIS00(frame, shape, spaceWeather.release());
+            auto misi000 = new NRLMSIS00(frame, shape, spaceWeather.release());
+            misi000->setUseDailyAp(geoMagFluxUpdateRate==EGeoMagFluxUpdateRate::eDaily);
+            atmosphere = misi000;
         }
         else if(atmDensityModel == EAtmDensityModel::e1976Standard)
         {

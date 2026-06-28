@@ -28,6 +28,7 @@
 #include "AstCore/JulianDate.hpp"
 
 #define _AST_USE_FLUX_INTERPOLATION // 是否对Flux进行插值
+// #define _AST_DEBUG_SPACE_WEATHER
 
 AST_NAMESPACE_BEGIN
 
@@ -62,23 +63,11 @@ errc_t loadSpaceWeather(BKVParser& parser, int numPoints, std::vector<SpaceWeath
         entry.BSRN = aParseInt(line.substr(11, 4));
         entry.ND = aParseInt(line.substr(16, 2));
 
-        aParseInt(line.substr(19, 2), entry.Kp1);
-        aParseInt(line.substr(22, 2), entry.Kp2);
-        aParseInt(line.substr(25, 2), entry.Kp3);
-        aParseInt(line.substr(28, 2), entry.Kp4);
-        aParseInt(line.substr(31, 2), entry.Kp5);
-        aParseInt(line.substr(34, 2), entry.Kp6);
-        aParseInt(line.substr(37, 2), entry.Kp7);
-        aParseInt(line.substr(40, 2), entry.Kp8);
+        for(int j = 0; j < 8; ++j)
+            aParseInt(line.substr(19 + j * 3, 2), entry.Kp[j]);
         aParseInt(line.substr(43, 3), entry.KpSum);
-        aParseInt(line.substr(47, 3), entry.Ap1);
-        aParseInt(line.substr(51, 3), entry.Ap2);
-        aParseInt(line.substr(55, 3), entry.Ap3);
-        aParseInt(line.substr(59, 3), entry.Ap4);
-        aParseInt(line.substr(63, 3), entry.Ap5);
-        aParseInt(line.substr(67, 3), entry.Ap6);
-        aParseInt(line.substr(71, 3), entry.Ap7);
-        aParseInt(line.substr(75, 3), entry.Ap8);
+        for(int j = 0; j < 8; ++j)
+            aParseInt(line.substr(47 + j * 4, 3), entry.Ap[j]);
         aParseInt(line.substr(79, 3), entry.ApAvg);
         aParseDouble(line.substr(83, 3), entry.Cp);
         aParseInt(line.substr(87, 1), entry.C9);
@@ -286,6 +275,48 @@ double SpaceWeather::getApDaily_UTCMJD(double mjdUTC) const
     // 
     // double val1 = (double)data_[index + 1].ApAvg;
     // return val0 + (val1 - val0) * frac;
+}
+
+int SpaceWeather::getAp3HourlyList(const TimePoint& tp, double* apList, int maxLookback) const
+{
+    if(data_.empty() || maxLookback <= 0){
+        return 0;
+    }
+
+    // 使用DateTime（与MSISBase::getMSISParam一致），避免MJD浮点转换在3h边界上的精度差异
+    DateTime dateTime;
+    aTimePointToUTC(tp, dateTime);
+    int mjdInt = aDateToMJD(dateTime.date());  // 整数MJD，无浮点误差
+    double secOfDay = dateTime.secOfDay();      // 基于整数时分秒，与getMSISParam一致
+    int curBlock = (int)floor(secOfDay / 10800.0);
+
+#ifdef _AST_DEBUG_SPACE_WEATHER
+    if (fabs(secOfDay - 10800 * curBlock) < 1)
+    {
+        A_DEBUG_BREAK();
+    }
+#endif
+
+    if(curBlock < 0) curBlock = 0;
+    if(curBlock >= 8) curBlock = 7;  // 边界保护
+
+    int filled = 0;
+    for(int i = 0; i < maxLookback; ++i)
+    {
+        int totalBlock = mjdInt * 8 + curBlock - i;
+        if(totalBlock < 0) break;  // 超出数据范围
+
+        int targetMJD = totalBlock / 8;
+        int targetBlock = totalBlock % 8;
+
+        const Entry* entry = getEntry(targetMJD);
+        if(entry == nullptr) break;  // 该日无数据
+
+        // 从Entry中提取对应的Ap值 (Ap[0]~Ap[7])
+        apList[i] = (double)entry->Ap[targetBlock];
+        ++filled;
+    }
+    return filled;
 }
 
 double SpaceWeather::getKpDaily(const TimePoint& tp) const
