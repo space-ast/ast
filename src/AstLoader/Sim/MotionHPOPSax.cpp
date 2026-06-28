@@ -22,11 +22,13 @@
 #include "CommonlyUsedHeaders.hpp"
 #include "AstCore/HPOP.hpp"
 #include "AstUtil/BKVParser.hpp"
+#include "AstUtil/FileSystem.hpp"
 
 #include "AstMath/RKF78.hpp"
 #include "AstMath/RK4.hpp"
 #include "AstMath/RKF45.hpp"
 #include "AstMath/RKF56.hpp"
+#include <limits>
 
 AST_NAMESPACE_BEGIN
 
@@ -211,7 +213,30 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         forceModel_.drag().useFluxApFile_ = value.toBool();
     }
     else if(aEqualsIgnoreCase(key, "FluxApFile")){
-        forceModel_.drag().fluxApFile_ = value.toString();
+        fs::path filepath = value.toString();
+        if(filepath.is_relative())
+        {
+            #ifdef _WIN32
+            for(int i=9;i<=13;i++)
+            {
+                char path[_MAX_PATH];
+                snprintf(path, sizeof(path), "C:/ProgramData/AGI/STK %d (x64)/DynamicEarthData/%s", i, filepath.string().c_str());
+                if(fs::exists(path))
+                {
+                    filepath = fs::path(path);
+                    break;
+                }
+                snprintf(path, sizeof(path), "C:/ProgramData/AGI/STK %d/DynamicEarthData/%s", i, filepath.string().c_str());
+                if(fs::exists(path))
+                {
+                    filepath = fs::path(path);
+                    break;
+                }
+            }
+            #endif
+        }
+        forceModel_.drag().fluxApFile_ = filepath;
+
     }
     else if(aEqualsIgnoreCase(key, "GeoMagneticFluxSource")){
         if(aEqualsIgnoreCase(value, "Kp")){

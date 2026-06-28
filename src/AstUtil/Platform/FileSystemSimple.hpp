@@ -142,6 +142,38 @@ namespace fs_simple
             return path_.substr(0, pos);
         }
 
+        bool is_absolute() const
+        {
+            if (path_.empty()) return false;
+
+        #ifdef _WIN32
+            // UNC 路径 (\\server\share\...)
+            if (path_.size() >= 2 && is_separator(path_[0]) && is_separator(path_[1]))
+                return true;
+
+            // 盘符路径 (C:\... 或 C:/...)
+            if (path_.size() >= 3
+                && ((path_[0] >= 'A' && path_[0] <= 'Z') || (path_[0] >= 'a' && path_[0] <= 'z'))
+                && path_[1] == ':'
+                && is_separator(path_[2]))
+                return true;
+
+            // 仅根目录 (\... 或 /...)
+            if (is_separator(path_[0]))
+                return true;
+
+            return false;
+        #else
+            // POSIX: 以 / 开头即为绝对路径
+            return is_separator(path_[0]);
+        #endif
+        }
+
+        bool is_relative() const
+        {
+            return !is_absolute();
+        }
+
         bool empty() const
         {
             return path_.empty();
