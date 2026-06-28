@@ -141,6 +141,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a176a0e6500431ae9089063eb4be8b830"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7149c42dc30e8a8e146c752d54fb2ef4" id="r_a7149c42dc30e8a8e146c752d54fb2ef4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7149c42dc30e8a8e146c752d54fb2ef4">getApDaily_UTCMJD</a> (double mjdUTC) const</td></tr>
 <tr class="separator:a7149c42dc30e8a8e146c752d54fb2ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a444a4398b7ebbeb2f5b27f7094c11b" id="r_a2a444a4398b7ebbeb2f5b27f7094c11b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a444a4398b7ebbeb2f5b27f7094c11b">getAp3HourlyList</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double *apList, int maxLookback) const override</td></tr>
+<tr class="separator:a2a444a4398b7ebbeb2f5b27f7094c11b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8e75a534fc6ba10064b6250a9f6d6a9" id="r_ab8e75a534fc6ba10064b6250a9f6d6a9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8e75a534fc6ba10064b6250a9f6d6a9">getKpDaily</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp) const override</td></tr>
 <tr class="separator:ab8e75a534fc6ba10064b6250a9f6d6a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75b061c8e8334746ad9e44e2dedf5358" id="r_a75b061c8e8334746ad9e44e2dedf5358"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75b061c8e8334746ad9e44e2dedf5358">getKpDaily_UTCMJD</a> (double mjdUTC) const</td></tr>
@@ -217,6 +219,53 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>endMJD_</b> = 0</td></
 </table>
 </div><div class="memdoc">
 <p>&lt; 1991-05-31, 观测站搬迁日</p>
+
+</div>
+</div>
+<a id="a2a444a4398b7ebbeb2f5b27f7094c11b" name="a2a444a4398b7ebbeb2f5b27f7094c11b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a444a4398b7ebbeb2f5b27f7094c11b">&#9670;&#160;</a></span>getAp3HourlyList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ast::SpaceWeather::getAp3HourlyList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>apList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxLookback</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取从指定时间向前回溯的连续3小时间隔Ap值列表 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>参考时间点 </td></tr>
+    <tr><td class="paramname">apList</td><td>输出缓冲区（apList[0]=当前块, apList[1]=3小时前, ...） </td></tr>
+    <tr><td class="paramname">maxLookback</td><td>最多回溯的块数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>实际填充的块数，0表示无数据 </dd></dl>
+
+<p>重载 <a class="el" href="classast_1_1SpaceWeatherProvider.html#a8b05be42c953a25a7c2baaa266c1a02b">ast::SpaceWeatherProvider</a> .</p>
 
 </div>
 </div>

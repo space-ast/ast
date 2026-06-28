@@ -481,6 +481,7 @@ var hierarchy =
     [ "ast::ModEquinElem", "classast_1_1ModEquinElem.html", null ],
     [ "ast::ModOrbElem", "classast_1_1ModOrbElem.html", null ],
     [ "ast::MotionProfileVisitor", "classast_1_1MotionProfileVisitor.html", null ],
+    [ "ast::MSISBase::MSISParam", "structast_1_1MSISBase_1_1MSISParam.html", null ],
     [ "msisrecord", "structmsisrecord.html", null ],
     [ "Multitype", "unionMultitype.html", null ],
     [ "Namelist", "structNamelist.html", null ],

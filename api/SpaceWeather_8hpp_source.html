@@ -121,9 +121,9 @@ $(function(){initNavTree('SpaceWeather_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">int</span> mjd;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordtype">int</span> BSRN;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">int</span> ND;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">int</span> Kp1, Kp2, Kp3, Kp4, Kp5, Kp6, Kp7, Kp8;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">int</span> Kp[8];</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">int</span> KpSum;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">int</span> Ap1, Ap2, Ap3, Ap4, Ap5, Ap6, Ap7, Ap8;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">int</span> Ap[8];</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">int</span> ApAvg;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordtype">double</span> Cp;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">int</span> C9;</div>
@@ -153,39 +153,42 @@ $(function(){initNavTree('SpaceWeather_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">double</span> getApDaily_UTCMJD(<span class="keywordtype">double</span> mjdUTC) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1SpaceWeatherProvider.html#a151685dc4b937e9de353bc1db2b69363">getKpDaily</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">double</span> getKpDaily_UTCMJD(<span class="keywordtype">double</span> mjdUTC) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1SpaceWeatherProvider.html#ace7491f8d2df075583ce44a3ce97e93d">getF10p7Daily</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">double</span> getF10p7Daily_UTCMJD(<span class="keywordtype">double</span> mjdUTC) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1SpaceWeatherProvider.html#a7cb957a6b3a28cf715a9288872d6df2a">getF10p7Average</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">double</span> getF10p7Average_UTCMJD(<span class="keywordtype">double</span> mjdUTC) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keyword">static</span> errc_t load(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filepath, std::vector&lt;Entry&gt;&amp; data);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1SpaceWeatherProvider.html#a8b05be42c953a25a7c2baaa266c1a02b">getAp3HourlyList</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, <span class="keywordtype">double</span>* apList, <span class="keywordtype">int</span> maxLookback) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1SpaceWeatherProvider.html#a151685dc4b937e9de353bc1db2b69363">getKpDaily</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">double</span> getKpDaily_UTCMJD(<span class="keywordtype">double</span> mjdUTC) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1SpaceWeatherProvider.html#ace7491f8d2df075583ce44a3ce97e93d">getF10p7Daily</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">double</span> getF10p7Daily_UTCMJD(<span class="keywordtype">double</span> mjdUTC) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1SpaceWeatherProvider.html#a7cb957a6b3a28cf715a9288872d6df2a">getF10p7Average</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">void</span> findEntryIndex(<span class="keywordtype">double</span> mjdUTC, <span class="keywordtype">int</span>&amp; index, <span class="keywordtype">double</span>&amp; frac) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">void</span> findFluxIndex(<span class="keywordtype">double</span> mjdUTC, <span class="keywordtype">int</span>&amp; index, <span class="keywordtype">double</span>&amp; frac) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordtype">double</span> getF10p7Average_UTCMJD(<span class="keywordtype">double</span> mjdUTC) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    std::vector&lt;Entry&gt; data_;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordtype">int</span> startMJD_ = 0;</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">int</span> endMJD_ = 0;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>};</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keyword">static</span> errc_t load(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filepath, std::vector&lt;Entry&gt;&amp; data);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">void</span> findEntryIndex(<span class="keywordtype">double</span> mjdUTC, <span class="keywordtype">int</span>&amp; index, <span class="keywordtype">double</span>&amp; frac) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordtype">void</span> findFluxIndex(<span class="keywordtype">double</span> mjdUTC, <span class="keywordtype">int</span>&amp; index, <span class="keywordtype">double</span>&amp; frac) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    std::vector&lt;Entry&gt; data_;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordtype">int</span> startMJD_ = 0;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">int</span> endMJD_ = 0;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>};</div>
 </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aSpaceWeatherProvider_8hpp_html"><div class="ttname"><a href="SpaceWeatherProvider_8hpp.html">SpaceWeatherProvider.hpp</a></div><div class="ttdoc">空间天气数据提供者抽象接口</div></div>
 <div class="ttc" id="aclassast_1_1SpaceWeatherProvider_html"><div class="ttname"><a href="classast_1_1SpaceWeatherProvider.html">ast::SpaceWeatherProvider</a></div><div class="ttdoc">空间天气数据提供者抽象接口</div><div class="ttdef"><b>定义</b> SpaceWeatherProvider.hpp:43</div></div>
 <div class="ttc" id="aclassast_1_1SpaceWeatherProvider_html_a151685dc4b937e9de353bc1db2b69363"><div class="ttname"><a href="classast_1_1SpaceWeatherProvider.html#a151685dc4b937e9de353bc1db2b69363">ast::SpaceWeatherProvider::getKpDaily</a></div><div class="ttdeci">virtual double getKpDaily(const TimePoint &amp;tp) const =0</div><div class="ttdoc">获取指定时间的Kp日平均值</div></div>
 <div class="ttc" id="aclassast_1_1SpaceWeatherProvider_html_a7b3e13a7ad98dca360a9a18c4a05fc0e"><div class="ttname"><a href="classast_1_1SpaceWeatherProvider.html#a7b3e13a7ad98dca360a9a18c4a05fc0e">ast::SpaceWeatherProvider::getApDaily</a></div><div class="ttdeci">virtual double getApDaily(const TimePoint &amp;tp) const =0</div><div class="ttdoc">获取指定时间的Ap日平均值</div></div>
 <div class="ttc" id="aclassast_1_1SpaceWeatherProvider_html_a7cb957a6b3a28cf715a9288872d6df2a"><div class="ttname"><a href="classast_1_1SpaceWeatherProvider.html#a7cb957a6b3a28cf715a9288872d6df2a">ast::SpaceWeatherProvider::getF10p7Average</a></div><div class="ttdeci">virtual double getF10p7Average(const TimePoint &amp;tp) const =0</div><div class="ttdoc">获取指定时间的F10.7平均观测值</div></div>
+<div class="ttc" id="aclassast_1_1SpaceWeatherProvider_html_a8b05be42c953a25a7c2baaa266c1a02b"><div class="ttname"><a href="classast_1_1SpaceWeatherProvider.html#a8b05be42c953a25a7c2baaa266c1a02b">ast::SpaceWeatherProvider::getAp3HourlyList</a></div><div class="ttdeci">virtual int getAp3HourlyList(const TimePoint &amp;tp, double *apList, int maxLookback) const</div><div class="ttdoc">获取从指定时间向前回溯的连续3小时间隔Ap值列表</div><div class="ttdef"><b>定义</b> SpaceWeatherProvider.hpp:73</div></div>
 <div class="ttc" id="aclassast_1_1SpaceWeatherProvider_html_ace7491f8d2df075583ce44a3ce97e93d"><div class="ttname"><a href="classast_1_1SpaceWeatherProvider.html#ace7491f8d2df075583ce44a3ce97e93d">ast::SpaceWeatherProvider::getF10p7Daily</a></div><div class="ttdeci">virtual double getF10p7Daily(const TimePoint &amp;tp) const =0</div><div class="ttdoc">获取指定时间的F10.7单日观测值</div></div>
 <div class="ttc" id="aclassast_1_1SpaceWeather_html"><div class="ttname"><a href="classast_1_1SpaceWeather.html">ast::SpaceWeather</a></div><div class="ttdoc">空间天气数据</div><div class="ttdef"><b>定义</b> SpaceWeather.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>

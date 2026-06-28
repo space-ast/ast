@@ -1,5 +1,9 @@
 var NAVTREEINDEX55 =
 {
+"structast_1_1WasmObjectInfo.html#aeaa7e63803e294e64456149fed9ef8d4":[2,0,0,995,1],
+"structast_1_1WasmObjectInfo.html#aeaa7e63803e294e64456149fed9ef8d4":[3,0,0,994,1],
+"structast_1_1WasmObjectInfo.html#af2e4892a058fb8a884de130d3a5ed7b9":[2,0,0,995,4],
+"structast_1_1WasmObjectInfo.html#af2e4892a058fb8a884de130d3a5ed7b9":[3,0,0,994,4],
 "structast_1_1XYSCache.html":[2,0,0,1006],
 "structast_1_1XYSCache.html":[3,0,0,1005],
 "structast_1_1args__t.html":[2,0,0,19],

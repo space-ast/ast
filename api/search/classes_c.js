@@ -57,7 +57,8 @@ var searchData=
   ['msis86_54',['MSIS86',['../classast_1_1MSIS86.html',1,'ast']]],
   ['msisbase_55',['MSISBase',['../classast_1_1MSISBase.html',1,'ast']]],
   ['msise90_56',['MSISE90',['../classast_1_1MSISE90.html',1,'ast']]],
-  ['msisrecord_57',['msisrecord',['../structmsisrecord.html',1,'']]],
-  ['mto_58',['MTO',['../classast_1_1MTO.html',1,'ast']]],
-  ['multitype_59',['Multitype',['../unionMultitype.html',1,'']]]
+  ['msisparam_57',['MSISParam',['../structast_1_1MSISBase_1_1MSISParam.html',1,'ast::MSISBase']]],
+  ['msisrecord_58',['msisrecord',['../structmsisrecord.html',1,'']]],
+  ['mto_59',['MTO',['../classast_1_1MTO.html',1,'ast']]],
+  ['multitype_60',['Multitype',['../unionMultitype.html',1,'']]]
 ];
