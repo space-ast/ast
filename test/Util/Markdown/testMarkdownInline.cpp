@@ -400,8 +400,8 @@ TEST(MarkdownParserInlineTest, ChineseCodeSpan)
 
 TEST(MarkdownParserInlineTest, ChineseLink)
 {
-    testInlineHTML("[项目主页](https://space-ast.github.io)",
-                         "<a href=\"https://space-ast.github.io\">项目主页</a>");
+    testInlineHTML("[项目主页](https://www.deepseek.com)",
+                         "<a href=\"https://www.deepseek.com\">项目主页</a>");
 }
 
 // ============================================================================

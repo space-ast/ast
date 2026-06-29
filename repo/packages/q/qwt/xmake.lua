@@ -4,7 +4,6 @@ package("qwt")
     set_license("LGPL-2.1")
 
     -- add_urls("https://gitee.com/czyt1988/QWT.git", "https://github.com/czyt1988/QWT.git")
-    -- add_urls("https://github.com/space-ast/qwt.git")
     -- add_versions("v7.2.2-dev", "master")
     -- add_versions("v7.2.1", "v7.2.1")
     -- add_configs("qt_sdkver", {description = "Qt SDK version to use.", default = "auto"})
