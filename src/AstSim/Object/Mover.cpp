@@ -36,6 +36,21 @@ errc_t Mover::generateEphemeris()
     return rc;
 }
 
+errc_t Mover::generateEphemerisSimple()
+{
+    if(!motionProfile_)
+        return eErrorNullPtr;
+    return motionProfile_->makeEphemerisSimple(ephemeris_);
+}
+
+
+errc_t Mover::generateEphemerisSpec()
+{
+    if(!motionProfile_)
+        return eErrorNullPtr;
+    return motionProfile_->makeEphemerisSpec(ephemeris_);
+}
+
 /*
 采用委托模式（Delegate Pattern）实现运行时动态切换星历实现
 

@@ -125,6 +125,7 @@
 #include "AstCore/EllipsoidShape.hpp"
 #include "AstCore/End.hpp"
 #include "AstCore/Ephemeris.hpp"
+#include "AstCore/EphemerisBinary.hpp"
 #include "AstCore/EphemerisFileParser.hpp"
 #include "AstCore/EphemerisLagrangeFixed.hpp"
 #include "AstCore/EphemerisLagrangeVar.hpp"
