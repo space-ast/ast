@@ -1,5 +1,8 @@
 var NAVTREEINDEX15 =
 {
+"UiInitialState_8hpp_source.html":[4,0,0,9,7,10],
+"UiInteger_8cpp.html":[4,0,0,9,4,13],
+"UiInteger_8hpp.html":[4,0,0,9,4,14],
 "UiInteger_8hpp_source.html":[4,0,0,9,4,14],
 "UiMainWindow_8cpp.html":[4,0,0,9,13,0],
 "UiMainWindow_8hpp.html":[4,0,0,9,13,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX15 =
 "ValScalar_8hpp_source.html":[4,0,0,16,9,18],
 "ValString_8cpp.html":[4,0,0,16,9,19],
 "ValString_8hpp.html":[4,0,0,16,9,20],
-"ValString_8hpp_source.html":[4,0,0,16,9,20],
-"ValVector_8hpp.html":[4,0,0,16,9,23],
-"ValVector_8hpp_source.html":[4,0,0,16,9,23],
-"ValXMLLoader_8cpp.html":[4,0,0,10,1,2,22]
+"ValString_8hpp_source.html":[4,0,0,16,9,20]
 };

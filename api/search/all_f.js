@@ -115,7 +115,7 @@ var searchData=
   ['opbinregistry_112',['OpBinRegistry',['../classast_1_1OpBinRegistry.html',1,'ast']]],
   ['opbinregistry_2ecpp_113',['OpBinRegistry.cpp',['../OpBinRegistry_8cpp.html',1,'']]],
   ['opbinregistry_2ehpp_114',['OpBinRegistry.hpp',['../OpBinRegistry_8hpp.html',1,'']]],
-  ['open_115',['open',['../classast_1_1JplDe.html#a727b248bd76d1b029b7bf9041cb8fc14',1,'ast::JplDe::open()'],['../classast_1_1JplSpk.html#ae3420b50dd1e5350538b48973b4f12f9',1,'ast::JplSpk::open()'],['../classast_1_1BaseParser.html#a668c69dc73c3e8e0ed327e6af19d569d',1,'ast::BaseParser::open()'],['../classast_1_1DAFParser.html#a668c69dc73c3e8e0ed327e6af19d569d',1,'ast::DAFParser::open()']]],
+  ['open_115',['open',['../classast_1_1JplDe.html#a727b248bd76d1b029b7bf9041cb8fc14',1,'ast::JplDe::open()'],['../classast_1_1JplSpk.html#ae3420b50dd1e5350538b48973b4f12f9',1,'ast::JplSpk::open()'],['../classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206',1,'ast::EphemerisBinary::open()'],['../classast_1_1BaseParser.html#a668c69dc73c3e8e0ed327e6af19d569d',1,'ast::BaseParser::open()'],['../classast_1_1DAFParser.html#a668c69dc73c3e8e0ed327e6af19d569d',1,'ast::DAFParser::open()']]],
   ['openai_116',['OpenAI',['../classast_1_1OpenAI.html',1,'ast::OpenAI'],['../classast_1_1OpenAI.html#a8012765259c3b37f938caeff6cb6be8a',1,'ast::OpenAI::OpenAI()'],['../classast_1_1OpenAI.html#abd1d8c30b15405536e5bcb9a7265f67f',1,'ast::OpenAI::OpenAI(const std::string &amp;apiKey, const std::string &amp;baseUrl)']]],
   ['openai_2ecpp_117',['OpenAI.cpp',['../OpenAI_8cpp.html',1,'']]],
   ['openai_2ehpp_118',['OpenAI.hpp',['../OpenAI_8hpp.html',1,'']]],

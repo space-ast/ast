@@ -2,6 +2,8 @@ var dir_e03a83bcb1705dd3b38446b3d75e2ce5 =
 [
     [ "Ephemeris.cpp", "Ephemeris_8cpp.html", null ],
     [ "Ephemeris.hpp", "Ephemeris_8hpp.html", "Ephemeris_8hpp" ],
+    [ "EphemerisBinary.cpp", "EphemerisBinary_8cpp.html", null ],
+    [ "EphemerisBinary.hpp", "EphemerisBinary_8hpp.html", "EphemerisBinary_8hpp" ],
     [ "EphemerisLagrangeFixed.cpp", "EphemerisLagrangeFixed_8cpp.html", null ],
     [ "EphemerisLagrangeFixed.hpp", "EphemerisLagrangeFixed_8hpp.html", null ],
     [ "EphemerisLagrangeVar.cpp", "EphemerisLagrangeVar_8cpp.html", null ],

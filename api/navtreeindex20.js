@@ -1,5 +1,8 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d":[0,0,4,10],
+"classast_1_1ChatSession.html#aff78bde4d6eb89080e41effa825ad27e":[0,0,4,7],
+"classast_1_1ChatTool.html":[0,0,6],
 "classast_1_1ChatTool.html#a0c14607c52c49667765ab24353969e6c":[0,0,6,6],
 "classast_1_1ChatTool.html#a29060b7310c58f2cbb2a0173ff8714b4":[0,0,6,0],
 "classast_1_1ChatTool.html#a5fa9e5866e57cbbee97b14a469ed2f4b":[0,0,6,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1DataContext.html#af02ea834b7ce89ae6a1e6c876230d770":[0,1,1,1,15],
 "classast_1_1DataContext.html#afefd18987d378043a66082691085b19d":[0,1,1,1,11],
 "classast_1_1DataPort.html":[2,0,0,171],
-"classast_1_1DataPort.html":[3,0,0,170],
-"classast_1_1DataPort.html#a02626ecb7dbab28e52c9d23364f05ebd":[2,0,0,171,2],
-"classast_1_1DataPort.html#a02626ecb7dbab28e52c9d23364f05ebd":[3,0,0,170,2],
-"classast_1_1DataPort.html#a11886a60b2cbec2699179fa0d088e65b":[2,0,0,171,4]
+"classast_1_1DataPort.html":[3,0,0,170]
 };

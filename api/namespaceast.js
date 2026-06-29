@@ -292,6 +292,7 @@ var namespaceast =
     [ "End", "classast_1_1End.html", "classast_1_1End" ],
     [ "EOP", "classast_1_1EOP.html", "classast_1_1EOP" ],
     [ "Ephemeris", "classast_1_1Ephemeris.html", "classast_1_1Ephemeris" ],
+    [ "EphemerisBinary", "classast_1_1EphemerisBinary.html", "classast_1_1EphemerisBinary" ],
     [ "EphemerisFileParser", "classast_1_1EphemerisFileParser.html", null ],
     [ "EphemerisLagrangeVar", "classast_1_1EphemerisLagrangeVar.html", "classast_1_1EphemerisLagrangeVar" ],
     [ "EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", "classast_1_1EphemerisMultiSegment" ],

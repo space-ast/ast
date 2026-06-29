@@ -1164,6 +1164,7 @@ var hierarchy =
                 [ "ast::BodyEphemerisNoop", "classast_1_1BodyEphemerisNoop.html", null ],
                 [ "ast::BodyEphemerisSPK", "classast_1_1BodyEphemerisSPK.html", null ]
               ] ],
+              [ "ast::EphemerisBinary", "classast_1_1EphemerisBinary.html", null ],
               [ "ast::EphemerisLagrangeVar", "classast_1_1EphemerisLagrangeVar.html", null ],
               [ "ast::EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", null ],
               [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ]
