@@ -1308,7 +1308,7 @@ void InitSPW
 				  &a_indexes[idx].am[8]);
 
 #else
-			  sscanf_s(longstr1, "%i %i %i %4i %4i %4i %4i %4i %4i %4i %4i %4i ", &a_indexes[idx].month, &tmpa, &tmpb, 
+			  sscanf(longstr1, "%i %i %i %4i %4i %4i %4i %4i %4i %4i %4i %4i ", &a_indexes[idx].month, &tmpa, &tmpb, 
 				  &a_indexes[idx].mean_am, &a_indexes[idx].am[1], &a_indexes[idx].am[2], &a_indexes[idx].am[3],
 				  &a_indexes[idx].am[4], &a_indexes[idx].am[5], &a_indexes[idx].am[6], &a_indexes[idx].am[7], 
 				  &a_indexes[idx].am[8]);
@@ -1582,7 +1582,7 @@ void DTMInit
 #endif
 	//scanf( "%s",&titre );
     fgets( longstr1,210,infile);
-    sscanf_s( longstr1,"%i",&npdtm );
+    sscanf( longstr1,"%i",&npdtm );
 
     //	  fgets( longstr1,210,infile); re-process the line
 #ifdef _MSC_VER

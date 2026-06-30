@@ -635,7 +635,7 @@ void MarkdownANSI::endTable()
             int excess = total - termWidth;
             for (int j = 0; j < nCols && excess > 0; ++j)
             {
-                int reduce = std::min(excess, colWidths[j] - 4);
+                int reduce = (std::min)(excess, colWidths[j] - 4);
                 colWidths[j] -= reduce;
                 excess -= reduce;
             }
