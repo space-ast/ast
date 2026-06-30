@@ -63,6 +63,13 @@ AST_UTIL_CAPI errc_t aNetworkRequest(const NetworkRequest& request, NetworkRespo
 /// @return 错误码
 AST_UTIL_CAPI errc_t aNetworkRequestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver);
 
+/// @brief 下载 URL 内容并直接写入文件
+/// @details 发送 HTTP GET 请求，将响应内容写入指定文件路径。
+/// @param url 下载地址
+/// @param filepath 目标文件路径
+/// @return eNoError 表示下载成功
+AST_UTIL_CAPI errc_t aDownloadFile(const std::string& url, const std::string& filepath);
+
 
 /// 设置网络实现
 /// @details   设置网络实现，用于在不同接口实现之间切换

@@ -1,0 +1,5 @@
+target("AppDataUpdate")
+    add_rules("ast.qt.widgetapp")
+    add_files("**.cpp")
+    add_files("AppDataUpdate.rc")
+    add_deps("AstUiDataUpdate", "AstCore")

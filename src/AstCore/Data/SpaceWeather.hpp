@@ -71,6 +71,9 @@ public:
     /// @return 错误码
     errc_t load(StringView filepath);
 
+    /// @brief 获取数据大小
+    size_t size() const { return data_.size(); }
+
     /// @brief 获取指定MJD的空间天气数据条目
     /// @param mjd 简约儒略日(UTC时间)
     /// @return 空间天气数据条目指针
@@ -132,9 +135,14 @@ public:
     /// @param mjdUTC 简约儒略日(UTC时间)
     /// @return 对应的MJD的F10.7平均观测值
     double getF10p7Average_UTCMJD(double mjdUTC) const;
-protected:
+
+    /// @brief 加载空间天气数据文件到指定容器（用于校验等场景）
+    /// @param filepath 文件路径
+    /// @param data 输出容器
+    /// @return 错误码
     static errc_t load(StringView filepath, std::vector<Entry>& data);
 
+protected:
     void findEntryIndex(double mjdUTC, int& index, double& frac) const;
 
     void findFluxIndex(double mjdUTC, int& index, double& frac) const;

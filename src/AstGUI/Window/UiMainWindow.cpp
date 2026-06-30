@@ -25,6 +25,7 @@
 #include "AstGUI/UiCommon.hpp"
 #include "AstGUI/UiObjectTree.hpp"
 #include "AstUiAI/UiChatDockWidget.hpp"
+#include "AstUiDataUpdate/UiDataUpdate.hpp"
 #include "AstAI/ChatSession.hpp"
 #include "AstAI/AssistantAgent.hpp"
 #include "AstUtil/RTTIAPI.hpp"
@@ -191,6 +192,14 @@ QWidget* UiMainWindow::createRibbonPage(int index)
                     chatDock_->setVisible(!chatDock_->isVisible());
             });
             layout->addWidget(aiBtn);
+        }
+        {
+            auto* dataBtn = createRibbonButton(tr("数据更新"), missionIcon("Refresh"), page);
+            connect(dataBtn, &QToolButton::clicked, this, [this]() {
+                UiDataUpdate dlg(this);
+                dlg.exec();
+            });
+            layout->addWidget(dataBtn);
         }
         break;
 

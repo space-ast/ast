@@ -46,7 +46,7 @@ end
 
 
 -- GUI测试代码
-if has_package("qt5widgets") then
+if has_package("qt5base") then
     local test_files = os.files("GUI/**.cpp")
     for _, file in ipairs(test_files) do
         -- local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")

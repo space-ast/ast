@@ -839,6 +839,10 @@
         <source>AI 助手</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>数据更新</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UiMotionTwoBody</name>
