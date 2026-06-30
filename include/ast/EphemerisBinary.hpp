@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Orbit/Ephemeris/EphemerisBinary.hpp"
+#include "AstCore/EphemerisBinary.hpp"
