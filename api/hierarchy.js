@@ -560,6 +560,7 @@ var hierarchy =
     [ "parmrecord", "structparmrecord.html", null ],
     [ "ast::Parser", "classast_1_1Parser.html", null ],
     [ "ast::fs_simple::path", "classast_1_1fs__simple_1_1path.html", null ],
+    [ "ast::MotionHPOPSax::PhysicalParam", "structast_1_1MotionHPOPSax_1_1PhysicalParam.html", null ],
     [ "ast::PilotPipeServer", "classast_1_1PilotPipeServer.html", null ],
     [ "ast::PilotPolisher", "classast_1_1PilotPolisher.html", null ],
     [ "plgdtmtype", "structplgdtmtype.html", null ],
