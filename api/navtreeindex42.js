@@ -1,5 +1,8 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1UiChatMainWidget.html#a4cf215bcfcd88f44eccc13b107776a4e":[0,10,2,2],
+"classast_1_1UiChatMainWidget.html#a7d300f5572f9333493ec6a7016bae86b":[0,10,2,0],
+"classast_1_1UiChatMainWidget.html#ae940e3978030aeaff52cc1ad976257a4":[0,10,2,3],
 "classast_1_1UiChatMessageItem.html":[0,10,3],
 "classast_1_1UiChatMessageItem.html#a4ef8f8966d5c870f38dbd542ac54e0db":[0,10,3,3],
 "classast_1_1UiChatMessageItem.html#a796dbd1843ce78436d4dd058ccbcd5dd":[0,10,3,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1UiQuantity.html#a16a124c3f22e8303b3396a0e296efe85":[0,9,3,6],
 "classast_1_1UiQuantity.html#a2136077e991881affe099d594344c820":[0,9,3,0],
 "classast_1_1UiQuantity.html#a32a39bdf006f4f8216f8683e34d6e3a7":[0,9,3,16],
-"classast_1_1UiQuantity.html#a3a93abd0d0859035e6330af53aab967c":[0,9,3,9],
-"classast_1_1UiQuantity.html#a3b250de1ee70aee863b8de5cda4e953b":[0,9,3,10],
-"classast_1_1UiQuantity.html#a3f74845a3a7c8339c9fc8102485bb557":[0,9,3,5],
-"classast_1_1UiQuantity.html#a481122ae0e746a799ff54b2b116ebceb":[0,9,3,2]
+"classast_1_1UiQuantity.html#a3a93abd0d0859035e6330af53aab967c":[0,9,3,9]
 };

@@ -1072,6 +1072,7 @@ var namespaceast =
     [ "VectorN< _Scalar, 3 >", "classast_1_1VectorN_3_01__Scalar_00_013_01_4.html", null ],
     [ "VectorX", "classast_1_1VectorX.html", null ],
     [ "VehiclePathData", "structast_1_1VehiclePathData.html", null ],
+    [ "Version", "classast_1_1Version.html", "classast_1_1Version" ],
     [ "Volumetric", "classast_1_1Volumetric.html", null ],
     [ "WasmClassInfo", "structast_1_1WasmClassInfo.html", "structast_1_1WasmClassInfo" ],
     [ "WasmObjectInfo", "structast_1_1WasmObjectInfo.html", "structast_1_1WasmObjectInfo" ],

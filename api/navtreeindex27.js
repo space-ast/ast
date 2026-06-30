@@ -1,5 +1,8 @@
 var NAVTREEINDEX27 =
 {
+"classast_1_1J2J4Analytical.html#a7b0fbd3170a83c2a6d4489151c059b41":[0,1,5,2,7],
+"classast_1_1J2J4Analytical.html#a9910ce3bb4991ceca4bbbf7d663b363e":[0,1,5,2,9],
+"classast_1_1J2J4Analytical.html#aaeea89b23dc87fbac5d0a1c7e351fb67":[0,1,5,2,0],
 "classast_1_1J2J4Analytical.html#acc7b0f95b2d9ab3d93816342de4ef8f5":[0,1,5,2,6],
 "classast_1_1J2J4Analytical.html#ae912a66519280df7e3ec4ffb44a3943a":[0,1,5,2,5],
 "classast_1_1J2J4Analytical.html#aff2faf61ab24ec5ea7c262117f8a4b1c":[0,1,5,2,13],
@@ -246,8 +249,5 @@ var NAVTREEINDEX27 =
 "classast_1_1KinematicRotation.html#a4e3e8c0cb9f92338f1b6ded0211e9d70":[2,0,0,353,18],
 "classast_1_1KinematicRotation.html#a4e3e8c0cb9f92338f1b6ded0211e9d70":[3,0,0,352,18],
 "classast_1_1KinematicRotation.html#a5faeeda5e7a1db19b0b1cb74f9aea923":[2,0,0,353,9],
-"classast_1_1KinematicRotation.html#a5faeeda5e7a1db19b0b1cb74f9aea923":[3,0,0,352,9],
-"classast_1_1KinematicRotation.html#a710d49d2e5b51f6433181ecd97a7187a":[2,0,0,353,21],
-"classast_1_1KinematicRotation.html#a710d49d2e5b51f6433181ecd97a7187a":[3,0,0,352,21],
-"classast_1_1KinematicRotation.html#a720283109431ea071832f1b863d9f4b8":[2,0,0,353,6]
+"classast_1_1KinematicRotation.html#a5faeeda5e7a1db19b0b1cb74f9aea923":[3,0,0,352,9]
 };

@@ -22,5 +22,7 @@ var dir_1d596027c2fe9b93d9e6a4ea9df9dfd2 =
     [ "StartupConfig.cpp", "StartupConfig_8cpp.html", null ],
     [ "StartupConfig.hpp", "StartupConfig_8hpp.html", "StartupConfig_8hpp" ],
     [ "TypeTraits.hpp", "TypeTraits_8hpp_source.html", null ],
+    [ "Version.cpp", "Version_8cpp.html", null ],
+    [ "Version.hpp", "Version_8hpp.html", "Version_8hpp" ],
     [ "WorkingDirectory.hpp", "WorkingDirectory_8hpp.html", null ]
 ];

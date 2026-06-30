@@ -1,5 +1,8 @@
 var NAVTREEINDEX18 =
 {
+"classast_1_1BlockGain.html":[3,0,0,63],
+"classast_1_1BlockGain.html#a4d092188c1ba98558eb369afccefc384":[2,0,0,64,0],
+"classast_1_1BlockGain.html#a4d092188c1ba98558eb369afccefc384":[3,0,0,63,0],
 "classast_1_1BlockGravity.html":[2,0,0,65],
 "classast_1_1BlockGravity.html":[3,0,0,64],
 "classast_1_1BlockGravity.html#a7ce6707068fde7ba180ddc5a3260ff9b":[2,0,0,65,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX18 =
 "classast_1_1BuildTarget.html#a230759033d26dcb822581047f381ac02":[3,0,0,97,17],
 "classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24":[2,0,0,98,7],
 "classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24":[3,0,0,97,7],
-"classast_1_1BuildTarget.html#a4a09807fcd24f7b8a82525536570ea31":[2,0,0,98,11],
-"classast_1_1BuildTarget.html#a4a09807fcd24f7b8a82525536570ea31":[3,0,0,97,11],
-"classast_1_1BuildTarget.html#a5276888e6af4f512083dac435a4daaf7":[2,0,0,98,6],
-"classast_1_1BuildTarget.html#a5276888e6af4f512083dac435a4daaf7":[3,0,0,97,6]
+"classast_1_1BuildTarget.html#a4a09807fcd24f7b8a82525536570ea31":[2,0,0,98,11]
 };

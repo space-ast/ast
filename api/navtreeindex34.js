@@ -1,5 +1,8 @@
 var NAVTREEINDEX34 =
 {
+"classast_1_1PointRoot.html#ac26fe31c18ce0d4d72f95d4bcb5a5bd0":[0,1,0,11,1],
+"classast_1_1PointRoot.html#ac81402a14eba578b906ced49c069e6a0":[0,1,0,11,2],
+"classast_1_1PointSSBarycenter.html":[0,1,0,12],
 "classast_1_1PointSSBarycenter.html#a5b86fb5e195778b19bd6ddffa3d08950":[0,1,0,12,0],
 "classast_1_1PointSSBarycenter.html#a910d244422f8cddf062510af02813506":[0,1,0,12,2],
 "classast_1_1PointSSBarycenter.html#adae8a58f274f31f03c59bf0f76649399":[0,1,0,12,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX34 =
 "classast_1_1Quantity.html#aa01eb8c8abfb269c461e9605517a6c1d":[0,6,3,0,16],
 "classast_1_1Quantity.html#aa4ba87f976a1bdca3c068e91cafc7284":[0,6,3,0,1],
 "classast_1_1Quantity.html#aa92663d72c24fb8df5dba1c37f3bd1b7":[0,6,3,0,20],
-"classast_1_1Quantity.html#abcff1fb55869dbd60709752c0ec663c2":[0,6,3,0,9],
-"classast_1_1Quantity.html#ac3de253a185cc6ef30398e2d6d2343bd":[0,6,3,0,30],
-"classast_1_1Quantity.html#ac919c6d9f38c327aa414ef6918892098":[0,6,3,0,34],
-"classast_1_1Quantity.html#ac988a30e183d70dcae9d3c0ab4a758d4":[0,6,3,0,0]
+"classast_1_1Quantity.html#abcff1fb55869dbd60709752c0ec663c2":[0,6,3,0,9]
 };

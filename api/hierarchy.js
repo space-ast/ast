@@ -1400,6 +1400,7 @@ var hierarchy =
     [ "ast::VectorN< _Scalar, 3 >", "classast_1_1VectorN_3_01__Scalar_00_013_01_4.html", null ],
     [ "ast::VectorX< _Scalar >", "classast_1_1VectorX.html", null ],
     [ "ast::VehiclePathData", "structast_1_1VehiclePathData.html", null ],
+    [ "ast::Version", "classast_1_1Version.html", null ],
     [ "Qwt3D::VertexEnrichment", null, [
       [ "ast::ColoredSurfaceEnrichment", "classast_1_1ColoredSurfaceEnrichment.html", null ]
     ] ],
