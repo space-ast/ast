@@ -1,8 +1,6 @@
 var AstCore_2Data_2Context_2RunTime_8cpp =
 [
-    [ "ast::InitalizeConfig", "structast_1_1InitalizeConfig.html", "structast_1_1InitalizeConfig" ],
     [ "ast::XYSCache", "structast_1_1XYSCache.html", null ],
-    [ "AST_DEFAULT_FILE_LEAPSECOND", "AstCore_2Data_2Context_2RunTime_8cpp.html#a5805211b4ae656f073656aa14cc7fd44", null ],
     [ "aDataContext_EnsureCurrent", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga362102d8c58857b6e3d6b48b83bd0944", null ],
     [ "aDataContext_GetConfig", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga93abea7bea04f5667e212fb829e51cb7", null ],
     [ "aDataContext_GetCurrent", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga40dcbf6fa05827fe9b7a7837a01105bd", null ],
@@ -20,6 +18,7 @@ var AstCore_2Data_2Context_2RunTime_8cpp =
     [ "aGetDefaultSPKDir", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga6421fe800633fc257cea57b0d0eea01c", null ],
     [ "aGetEarth", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga6a91df2c2ab249279ee7f949d16dce7d", null ],
     [ "aGetEMBarycenter", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga47273e9f78df27ff3d50232d7249ed16", null ],
+    [ "aGetInitalizeConfig", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga5aa1179cc5dd10f29ac2a0491b6b1fa9", null ],
     [ "aGetJupiter", "AstCore_2Data_2Context_2RunTime_8cpp.html#gaa946dd4a18e60a17709cdcb0ef01d867", null ],
     [ "aGetMars", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga46f1d294e8e89a04cb3d8720721fc04c", null ],
     [ "aGetMercury", "AstCore_2Data_2Context_2RunTime_8cpp.html#gab2beaa2fb58589b75c8e8d943742d1e0", null ],
@@ -35,7 +34,6 @@ var AstCore_2Data_2Context_2RunTime_8cpp =
     [ "aGlobalContext_Get", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga4ccfea60ec40a0b914aee9714febd94e", null ],
     [ "aGlobalContext_GetIAUXYS", "AstCore_2Data_2Context_2RunTime_8cpp.html#gab6179a360a2bb2fa49e90ed13801fb7f", null ],
     [ "aInitialize", "AstCore_2Data_2Context_2RunTime_8cpp.html#gab8a08c106d3feb750fdda376651fe6bc", null ],
-    [ "aInitializeByConfig", "AstCore_2Data_2Context_2RunTime_8cpp.html#a8a6704684e07c0f417feb7b999857798", null ],
     [ "aInitializeByConfig", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga6e69b33e4e4f1493b29ea7f4492b2f12", null ],
     [ "aInitializeConfig", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga950d27b4d045b30589976f1125c168ba", null ],
     [ "aJplDeClose", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga86326fcd6c451bdbaff8e7d5cecd9215", null ],

@@ -22,9 +22,11 @@ var searchData=
   ['unnormalize_19',['unnormalize',['../classast_1_1GravityField.html#ae34a200427b3ee8dac132bb57be27598',1,'ast::GravityField']]],
   ['unnormalized_20',['unnormalized',['../classast_1_1GravityField.html#ace10e8e9a61a6fea914b1130db459297',1,'ast::GravityField']]],
   ['update_21',['update',['../classast_1_1AstGfxAPI.html#afd49c639f629c3b985309f0bd2d62963',1,'ast::AstGfxAPI::update()'],['../classast_1_1GfxCelestialBody.html#a4a13e86d282d1805f2e66f1982400fc5',1,'ast::GfxCelestialBody::update()'],['../classast_1_1GfxSolarSystem.html#a657b97b3ca30eb37db1d3a1affe2c8e7',1,'ast::GfxSolarSystem::update()']]],
-  ['updatevariations_22',['updateVariations',['../classast_1_1GravityCalculator.html#ab8660ebd38215545274e4412274970fd',1,'ast::GravityCalculator::updateVariations()'],['../classast_1_1GravityField.html#a314fc8aa383f24fbadb0c6e9acf97398',1,'ast::GravityField::updateVariations()']]],
-  ['url_23',['url',['../classast_1_1NetworkRequest.html#a7ad685f8c1c032e2ce181b0d2d462ffe',1,'ast::NetworkRequest']]],
-  ['useapproximatealtitude_24',['useApproximateAltitude',['../classast_1_1AtmosphereBase.html#a7b2f77b272c403c208e4c025d69c9ec3',1,'ast::AtmosphereBase']]],
-  ['user_25',['User',['../classast_1_1ChatMessage.html#a04f593494de4e59b374c6e979fe20001',1,'ast::ChatMessage']]],
-  ['utc2et_26',['utc2et',['../group__Spice.html#ga4f205815708e303f060b016040e999fd',1,'ast']]]
+  ['updatealloutdated_22',['updateAllOutdated',['../classast_1_1DataUpdater.html#a8bc325a3f70d5b88f960068de116b352',1,'ast::DataUpdater']]],
+  ['updatefile_23',['updateFile',['../classast_1_1DataUpdater.html#ac234006a171acbda7e7c6536134e5830',1,'ast::DataUpdater']]],
+  ['updatevariations_24',['updateVariations',['../classast_1_1GravityCalculator.html#ab8660ebd38215545274e4412274970fd',1,'ast::GravityCalculator::updateVariations()'],['../classast_1_1GravityField.html#a314fc8aa383f24fbadb0c6e9acf97398',1,'ast::GravityField::updateVariations()']]],
+  ['url_25',['url',['../classast_1_1NetworkRequest.html#a7ad685f8c1c032e2ce181b0d2d462ffe',1,'ast::NetworkRequest']]],
+  ['useapproximatealtitude_26',['useApproximateAltitude',['../classast_1_1AtmosphereBase.html#a7b2f77b272c403c208e4c025d69c9ec3',1,'ast::AtmosphereBase']]],
+  ['user_27',['User',['../classast_1_1ChatMessage.html#a04f593494de4e59b374c6e979fe20001',1,'ast::ChatMessage']]],
+  ['utc2et_28',['utc2et',['../group__Spice.html#ga4f205815708e303f060b016040e999fd',1,'ast']]]
 ];

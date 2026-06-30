@@ -45,6 +45,19 @@ var group__Data =
       [ "iauXYS", "classast_1_1GlobalContext.html#a788925c4722877fbb344ab5712b1f7b9", null ],
       [ "m_iauXYS", "classast_1_1GlobalContext.html#acc1e339a77947a88a072b385d96094e0", null ]
     ] ],
+    [ "ast::InitalizeConfig", "structast_1_1InitalizeConfig.html", [
+      [ "dataDir_", "structast_1_1InitalizeConfig.html#a6eca3d591b561accceed3ff00d8093aa", null ],
+      [ "eopFile_", "structast_1_1InitalizeConfig.html#abe706403e84d5295d32d4495d7fac6d4", null ],
+      [ "iausFile_", "structast_1_1InitalizeConfig.html#a6f8d1f838e40561d07f4f6857fa4cd27", null ],
+      [ "iauxFile_", "structast_1_1InitalizeConfig.html#ad6dc790cd5ce07fdd4ee274eb0b97ffc", null ],
+      [ "iauXYSPrecomputedFile_", "structast_1_1InitalizeConfig.html#ad7ccdb077a0d35beb9d95fc2d5a122ed", null ],
+      [ "iauyFile_", "structast_1_1InitalizeConfig.html#a60723326806c66140c688ac0f241157b", null ],
+      [ "jplDeFile_", "structast_1_1InitalizeConfig.html#a201a6cfb5b930e6a5c8958cd017e38be", null ],
+      [ "leapSecondFile_", "structast_1_1InitalizeConfig.html#a1622cf2dc70ef0003fdede3ea060148d", null ],
+      [ "solarSystemDir_", "structast_1_1InitalizeConfig.html#ad478dd55b9b22f0331b73af64d2113fa", null ],
+      [ "spaceWeatherFile_", "structast_1_1InitalizeConfig.html#a4795aa1a58b70c3c5d2b6959936e3a51", null ],
+      [ "spkFiles_", "structast_1_1InitalizeConfig.html#a51fcfed8c44f352a6cc18801760ec5c2", null ]
+    ] ],
     [ "ast::PoleMotion", "structast_1_1PoleMotion.html", [
       [ "y", "structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4", null ]
     ] ],
@@ -140,7 +153,8 @@ var group__Data =
       [ "getKpDaily_UTCMJD", "classast_1_1SpaceWeather.html#a75b061c8e8334746ad9e44e2dedf5358", null ],
       [ "load", "classast_1_1SpaceWeather.html#a09ac9fdce0c9117cb61c9a45b4f4333e", null ],
       [ "loadDefault", "classast_1_1SpaceWeather.html#a6693321ec0f60edad3b06fa90badfae4", null ],
-      [ "setEntry", "classast_1_1SpaceWeather.html#abfe0c5e3caf08112eb897770e4378dbd", null ]
+      [ "setEntry", "classast_1_1SpaceWeather.html#abfe0c5e3caf08112eb897770e4378dbd", null ],
+      [ "size", "classast_1_1SpaceWeather.html#ad3ba9924d985cf147592bb29ab4a2b10", null ]
     ] ],
     [ "ast::SpaceWeatherProvider", "classast_1_1SpaceWeatherProvider.html", [
       [ "getAp3HourlyList", "classast_1_1SpaceWeatherProvider.html#a8b05be42c953a25a7c2baaa266c1a02b", null ],
@@ -193,6 +207,7 @@ var group__Data =
     [ "ast::aGetEarth", "group__Data.html#ga6a91df2c2ab249279ee7f949d16dce7d", null ],
     [ "ast::aGetEMBarycenter", "group__Data.html#ga47273e9f78df27ff3d50232d7249ed16", null ],
     [ "ast::aGetEpoch", "group__Data.html#ga1113e5f1f7eb8d2579d81f23832d2a59", null ],
+    [ "ast::aGetInitalizeConfig", "group__Data.html#ga5aa1179cc5dd10f29ac2a0491b6b1fa9", null ],
     [ "ast::aGetJupiter", "group__Data.html#gaa946dd4a18e60a17709cdcb0ef01d867", null ],
     [ "ast::aGetMars", "group__Data.html#ga46f1d294e8e89a04cb3d8720721fc04c", null ],
     [ "ast::aGetMercury", "group__Data.html#gab2beaa2fb58589b75c8e8d943742d1e0", null ],

@@ -14,5 +14,6 @@ var classast_1_1SpaceWeather =
     [ "getKpDaily_UTCMJD", "classast_1_1SpaceWeather.html#a75b061c8e8334746ad9e44e2dedf5358", null ],
     [ "load", "classast_1_1SpaceWeather.html#a09ac9fdce0c9117cb61c9a45b4f4333e", null ],
     [ "loadDefault", "classast_1_1SpaceWeather.html#a6693321ec0f60edad3b06fa90badfae4", null ],
-    [ "setEntry", "classast_1_1SpaceWeather.html#abfe0c5e3caf08112eb897770e4378dbd", null ]
+    [ "setEntry", "classast_1_1SpaceWeather.html#abfe0c5e3caf08112eb897770e4378dbd", null ],
+    [ "size", "classast_1_1SpaceWeather.html#ad3ba9924d985cf147592bb29ab4a2b10", null ]
 ];

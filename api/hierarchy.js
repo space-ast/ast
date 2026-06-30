@@ -169,7 +169,9 @@ var hierarchy =
     [ "ast::DAF_SPKSummaryRecords", "structast_1_1DAF__SPKSummaryRecords.html", null ],
     [ "ast::DAF_SummaryRecords", "structast_1_1DAF__SummaryRecords.html", null ],
     [ "ast::DataContext", "classast_1_1DataContext.html", null ],
+    [ "ast::DataUpdater::DataFileEntry", "structast_1_1DataUpdater_1_1DataFileEntry.html", null ],
     [ "ast::DataPort", "classast_1_1DataPort.html", null ],
+    [ "ast::DataUpdater", "classast_1_1DataUpdater.html", null ],
     [ "ast::Date", "classast_1_1Date.html", null ],
     [ "ast::DateTime", "classast_1_1DateTime.html", null ],
     [ "datimerecord", "structdatimerecord.html", null ],
@@ -586,6 +588,7 @@ var hierarchy =
     [ "ast::PythonAPI", "classast_1_1PythonAPI.html", null ],
     [ "QDialog", null, [
       [ "ast::EditFigureDialog", "classast_1_1EditFigureDialog.html", null ],
+      [ "ast::UiDataUpdate", "classast_1_1UiDataUpdate.html", null ],
       [ "ast::UiNewObjectDialog", "classast_1_1UiNewObjectDialog.html", null ],
       [ "ast::UiNewObjectQuickDialog", "classast_1_1UiNewObjectQuickDialog.html", null ],
       [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ],

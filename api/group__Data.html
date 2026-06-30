@@ -100,6 +100,7 @@ $(function(){initNavTree('group__Data.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
 <a href="#func-members">函数</a> &#124;
 <a href="#var-members">变量</a>  </div>
   <div class="headertitle"><div class="title">数据读取<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a></div></div></div>
@@ -116,6 +117,8 @@ $(function(){initNavTree('group__Data.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GlobalContext.html">ast::GlobalContext</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1InitalizeConfig.html">ast::InitalizeConfig</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1PoleMotion.html">ast::PoleMotion</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EOP.html">ast::EOP</a></td></tr>
@@ -131,8 +134,16 @@ $(function(){initNavTree('group__Data.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SpiceAPI.html">ast::SpiceAPI</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:gad05cb223f6538e3c07ef9ae82e77f16f" id="r_gad05cb223f6538e3c07ef9ae82e77f16f"><td class="memItemLeft" align="right" valign="top"><a id="gad05cb223f6538e3c07ef9ae82e77f16f" name="gad05cb223f6538e3c07ef9ae82e77f16f"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::StringVector</b> = std::vector&lt;std::string&gt;</td></tr>
+<tr class="separator:gad05cb223f6538e3c07ef9ae82e77f16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:ga5aa1179cc5dd10f29ac2a0491b6b1fa9" id="r_ga5aa1179cc5dd10f29ac2a0491b6b1fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5aa1179cc5dd10f29ac2a0491b6b1fa9">ast::aGetInitalizeConfig</a> (<a class="el" href="structast_1_1InitalizeConfig.html">InitalizeConfig</a> &amp;config)</td></tr>
+<tr class="separator:ga5aa1179cc5dd10f29ac2a0491b6b1fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab8a08c106d3feb750fdda376651fe6bc" id="r_gab8a08c106d3feb750fdda376651fe6bc"><td class="memItemLeft" align="right" valign="top"><a id="gab8a08c106d3feb750fdda376651fe6bc" name="gab8a08c106d3feb750fdda376651fe6bc"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aInitialize</b> ()</td></tr>
 <tr class="separator:gab8a08c106d3feb750fdda376651fe6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -592,6 +603,32 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kSiz
 
 <p>获取参考历元 </p>
 <dl class="section return"><dt>返回</dt><dd>参考历元 </dd></dl>
+
+</div>
+</div>
+<a id="ga5aa1179cc5dd10f29ac2a0491b6b1fa9" name="ga5aa1179cc5dd10f29ac2a0491b6b1fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5aa1179cc5dd10f29ac2a0491b6b1fa9">&#9670;&#160;</a></span>aGetInitalizeConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aGetInitalizeConfig </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structast_1_1InitalizeConfig.html">InitalizeConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取初始化配置 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">config</td><td>初始化配置 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 </div>
 </div>

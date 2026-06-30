@@ -1,10 +1,10 @@
 var searchData=
 [
   ['i_5f_0',['i_',['../classast_1_1OrbElem.html#ab4b515a19fd93ee943a2cb182b9f08a2',1,'ast::OrbElem::i_'],['../classast_1_1ModOrbElem.html#aea0475affb1e77a6ea962f4b6269a4b2',1,'ast::ModOrbElem::i_']]],
-  ['iausfile_5f_1',['iausFile_',['../structast_1_1InitalizeConfig.html#a31c64b846d4897908e61a9167b8b7a0c',1,'ast::InitalizeConfig']]],
-  ['iauxfile_5f_2',['iauxFile_',['../structast_1_1InitalizeConfig.html#a9f7551779769a9be86d550df86b1a359',1,'ast::InitalizeConfig']]],
-  ['iauxysprecomputedfile_5f_3',['iauXYSPrecomputedFile_',['../structast_1_1InitalizeConfig.html#a6e2183bc7fe2879222fd6e4f5d360f01',1,'ast::InitalizeConfig']]],
-  ['iauyfile_5f_4',['iauyFile_',['../structast_1_1InitalizeConfig.html#aaa8732511edfd21a0c997c6417d8590e',1,'ast::InitalizeConfig']]],
+  ['iausfile_5f_1',['iausFile_',['../structast_1_1InitalizeConfig.html#a6f8d1f838e40561d07f4f6857fa4cd27',1,'ast::InitalizeConfig']]],
+  ['iauxfile_5f_2',['iauxFile_',['../structast_1_1InitalizeConfig.html#ad6dc790cd5ce07fdd4ee274eb0b97ffc',1,'ast::InitalizeConfig']]],
+  ['iauxysprecomputedfile_5f_3',['iauXYSPrecomputedFile_',['../structast_1_1InitalizeConfig.html#ad7ccdb077a0d35beb9d95fc2d5a122ed',1,'ast::InitalizeConfig']]],
+  ['iauyfile_5f_4',['iauyFile_',['../structast_1_1InitalizeConfig.html#a60723326806c66140c688ac0f241157b',1,'ast::InitalizeConfig']]],
   ['ibexp_5f_5',['ibexp_',['../classast_1_1TwoLineElement.html#a824947aed05a067bec4cca2b834f2c9b',1,'ast::TwoLineElement']]],
   ['id_6',['id',['../structast_1_1WasmObjectInfo.html#aeaa7e63803e294e64456149fed9ef8d4',1,'ast::WasmObjectInfo']]],
   ['iexp_5f_7',['iexp_',['../classast_1_1TwoLineElement.html#a082b817d0fb15253d68f3932dfa5979f',1,'ast::TwoLineElement']]],
@@ -28,8 +28,9 @@ var searchData=
   ['isinit_5f_25',['isInit_',['../classast_1_1SolarSystem.html#a62116574b5a26af266075674c9c6722a',1,'ast::SolarSystem']]],
   ['isintervalcached_5f_26',['isIntervalCached_',['../classast_1_1JplSpk.html#aa92e240fce8ac0389f0caa6f7acce87e',1,'ast::JplSpk']]],
   ['isloaded_5f_27',['isLoaded_',['../classast_1_1IAUXYS.html#ab8872368ab4a6040eded4117a44484fd',1,'ast::IAUXYS']]],
-  ['issameendian_5f_28',['isSameEndian_',['../classast_1_1DAFParser.html#ab8039a409504d55b2be173ff7807d4a4',1,'ast::DAFParser']]],
-  ['issin_5f_29',['isSin_',['../structast_1_1GravityFieldSecularVariations_1_1Variation.html#a3108c5f27de9b7f8fb736ea81534b2f0',1,'ast::GravityFieldSecularVariations::Variation']]],
-  ['isvalidfile_5f_30',['isValidFile_',['../classast_1_1DAFParser.html#a3ca018e7a7259e9a150e9685c4db706a',1,'ast::DAFParser']]],
-  ['ival_31',['ival',['../structast_1_1DAF__SummaryRecords.html#a130fc80796fa04596fa29feca5706f1c',1,'ast::DAF_SummaryRecords']]]
+  ['isoutdated_28',['isOutdated',['../structast_1_1DataUpdater_1_1DataFileEntry.html#a36a52f5b9870b4e8ff39d0d8329a8dc9',1,'ast::DataUpdater::DataFileEntry']]],
+  ['issameendian_5f_29',['isSameEndian_',['../classast_1_1DAFParser.html#ab8039a409504d55b2be173ff7807d4a4',1,'ast::DAFParser']]],
+  ['issin_5f_30',['isSin_',['../structast_1_1GravityFieldSecularVariations_1_1Variation.html#a3108c5f27de9b7f8fb736ea81534b2f0',1,'ast::GravityFieldSecularVariations::Variation']]],
+  ['isvalidfile_5f_31',['isValidFile_',['../classast_1_1DAFParser.html#a3ca018e7a7259e9a150e9685c4db706a',1,'ast::DAFParser']]],
+  ['ival_32',['ival',['../structast_1_1DAF__SummaryRecords.html#a130fc80796fa04596fa29feca5706f1c',1,'ast::DAF_SummaryRecords']]]
 ];

@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::DataUpdater类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1DataUpdater.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1DataUpdater-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::DataUpdater类 参考<div class="ingroups"><a class="el" href="group__DataUpdate.html">数据更新</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="DataUpdater_8hpp_source.html">DataUpdater.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1DataUpdater_1_1DataFileEntry.html">DataFileEntry</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a7d2b49cc7ff382292e2cadb6d0970dea" id="r_a7d2b49cc7ff382292e2cadb6d0970dea"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structast_1_1DataUpdater_1_1DataFileEntry.html">DataFileEntry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d2b49cc7ff382292e2cadb6d0970dea">refreshFileList</a> () const</td></tr>
+<tr class="separator:a7d2b49cc7ff382292e2cadb6d0970dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99feeb2970eafd205ae57fe0e088154b" id="r_a99feeb2970eafd205ae57fe0e088154b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99feeb2970eafd205ae57fe0e088154b">listBackups</a> (const <a class="el" href="structast_1_1DataUpdater_1_1DataFileEntry.html">DataFileEntry</a> &amp;entry) const</td></tr>
+<tr class="separator:a99feeb2970eafd205ae57fe0e088154b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac234006a171acbda7e7c6536134e5830" id="r_ac234006a171acbda7e7c6536134e5830"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac234006a171acbda7e7c6536134e5830">updateFile</a> (<a class="el" href="structast_1_1DataUpdater_1_1DataFileEntry.html">DataFileEntry</a> &amp;entry)</td></tr>
+<tr class="separator:ac234006a171acbda7e7c6536134e5830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bc325a3f70d5b88f960068de116b352" id="r_a8bc325a3f70d5b88f960068de116b352"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bc325a3f70d5b88f960068de116b352">updateAllOutdated</a> ()</td></tr>
+<tr class="separator:a8bc325a3f70d5b88f960068de116b352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>动态数据更新器 </p>
+<p>管理动态数据文件（EOP、空间天气等）的在线更新。 负责下载、校验、备份和替换数据文件。</p>
+<p>使用示例： </p><div class="fragment"><div class="line"><a class="code hl_class" href="classast_1_1DataUpdater.html">DataUpdater</a> updater;</div>
+<div class="line"><span class="keyword">auto</span> files = updater.<a class="code hl_function" href="#a7d2b49cc7ff382292e2cadb6d0970dea">refreshFileList</a>();</div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; f : files) {</div>
+<div class="line">    <span class="keywordflow">if</span> (f.isOutdated) {</div>
+<div class="line">        updater.<a class="code hl_function" href="#ac234006a171acbda7e7c6536134e5830">updateFile</a>(f);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassast_1_1DataUpdater_html"><div class="ttname"><a href="classast_1_1DataUpdater.html">ast::DataUpdater</a></div><div class="ttdoc">动态数据更新器</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:51</div></div>
+<div class="ttc" id="aclassast_1_1DataUpdater_html_a7d2b49cc7ff382292e2cadb6d0970dea"><div class="ttname"><a href="#a7d2b49cc7ff382292e2cadb6d0970dea">ast::DataUpdater::refreshFileList</a></div><div class="ttdeci">std::vector&lt; DataFileEntry &gt; refreshFileList() const</div><div class="ttdoc">刷新数据文件列表</div><div class="ttdef"><b>定义</b> DataUpdater.cpp:233</div></div>
+<div class="ttc" id="aclassast_1_1DataUpdater_html_ac234006a171acbda7e7c6536134e5830"><div class="ttname"><a href="#ac234006a171acbda7e7c6536134e5830">ast::DataUpdater::updateFile</a></div><div class="ttdeci">errc_t updateFile(DataFileEntry &amp;entry)</div><div class="ttdoc">更新指定数据文件</div><div class="ttdef"><b>定义</b> DataUpdater.cpp:300</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">成员函数说明</h2>
+<a id="a99feeb2970eafd205ae57fe0e088154b" name="a99feeb2970eafd205ae57fe0e088154b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99feeb2970eafd205ae57fe0e088154b">&#9670;&#160;</a></span>listBackups()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; ast::DataUpdater::listBackups </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structast_1_1DataUpdater_1_1DataFileEntry.html">DataFileEntry</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>entry</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取指定数据文件的所有备份路径 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entry</td><td>数据文件条目 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>备份文件路径列表（按时间排序，最新的在最后） </dd></dl>
+
+</div>
+</div>
+<a id="a7d2b49cc7ff382292e2cadb6d0970dea" name="a7d2b49cc7ff382292e2cadb6d0970dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d2b49cc7ff382292e2cadb6d0970dea">&#9670;&#160;</a></span>refreshFileList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structast_1_1DataUpdater_1_1DataFileEntry.html">DataUpdater::DataFileEntry</a> &gt; ast::DataUpdater::refreshFileList </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>刷新数据文件列表 </p>
+<p>扫描本地数据文件，读取各文件的日期和备份数，判断是否过期。 </p><dl class="section return"><dt>返回</dt><dd>数据文件条目列表 </dd></dl>
+
+</div>
+</div>
+<a id="a8bc325a3f70d5b88f960068de116b352" name="a8bc325a3f70d5b88f960068de116b352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bc325a3f70d5b88f960068de116b352">&#9670;&#160;</a></span>updateAllOutdated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ast::DataUpdater::updateAllOutdated </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>更新所有过期文件 </p>
+<dl class="section return"><dt>返回</dt><dd>成功更新的文件数量（0 表示无需更新或全部失败） </dd></dl>
+
+</div>
+</div>
+<a id="ac234006a171acbda7e7c6536134e5830" name="ac234006a171acbda7e7c6536134e5830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac234006a171acbda7e7c6536134e5830">&#9670;&#160;</a></span>updateFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::DataUpdater::updateFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structast_1_1DataUpdater_1_1DataFileEntry.html">DataFileEntry</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>entry</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>更新指定数据文件 </p>
+<p>从 Celestrak 下载最新数据，校验后写入本地文件。 更新前旧文件会被备份到 data/.backups/ 目录。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">entry</td><td>数据文件条目，更新成功后 fileDate/isOutdated/lastError 会被刷新 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 表示更新成功 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstDataUpdate/<a class="el" href="DataUpdater_8hpp_source.html">DataUpdater.hpp</a></li>
+<li>src/AstDataUpdate/<a class="el" href="DataUpdater_8cpp.html">DataUpdater.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1DataUpdater.html">DataUpdater</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

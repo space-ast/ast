@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstDataUpdate/DataUpdater.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('DataUpdater_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">DataUpdater.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="DataUpdater_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="AstDataUpdateGlobal_8hpp.html">AstDataUpdateGlobal.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="};">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1DataUpdater.html">   50</a></span><span class="keyword">class </span>AST_DATAUPDATE_API <a class="code hl_class" href="classast_1_1DataUpdater.html">DataUpdater</a></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structast_1_1DataUpdater_1_1DataFileEntry.html">   54</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1DataUpdater_1_1DataFileEntry.html">DataFileEntry</a></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structast_1_1DataUpdater_1_1DataFileEntry.html#ab7489cedfca0e6267850cbdd6c00eec5">   56</a></span>        std::string <a class="code hl_variable" href="structast_1_1DataUpdater_1_1DataFileEntry.html#ab7489cedfca0e6267850cbdd6c00eec5">name</a>;          </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structast_1_1DataUpdater_1_1DataFileEntry.html#a74288e80a47dd03b22017cdd016b3bf6">   57</a></span>        std::string <a class="code hl_variable" href="structast_1_1DataUpdater_1_1DataFileEntry.html#a74288e80a47dd03b22017cdd016b3bf6">description</a>;   </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structast_1_1DataUpdater_1_1DataFileEntry.html#a0cceccedc9890305a7f0a9219c7b595d">   58</a></span>        std::string <a class="code hl_variable" href="structast_1_1DataUpdater_1_1DataFileEntry.html#a0cceccedc9890305a7f0a9219c7b595d">url</a>;           </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structast_1_1DataUpdater_1_1DataFileEntry.html#acdd77b34c9cdab50b9fa89b9aa322ada">   59</a></span>        std::string <a class="code hl_variable" href="structast_1_1DataUpdater_1_1DataFileEntry.html#acdd77b34c9cdab50b9fa89b9aa322ada">localPath</a>;     </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structast_1_1DataUpdater_1_1DataFileEntry.html#abd4da4bbb7d9722e274a852c899449e4">   60</a></span>        std::string <a class="code hl_variable" href="structast_1_1DataUpdater_1_1DataFileEntry.html#abd4da4bbb7d9722e274a852c899449e4">fileDate</a>;      </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structast_1_1DataUpdater_1_1DataFileEntry.html#aa27836300fcf0fe5c86d5798802d76d2">   61</a></span>        <span class="keywordtype">int</span>         <a class="code hl_variable" href="structast_1_1DataUpdater_1_1DataFileEntry.html#aa27836300fcf0fe5c86d5798802d76d2">backupCount</a>;   </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structast_1_1DataUpdater_1_1DataFileEntry.html#a709a696470e82b8899cadf57fa92f009">   62</a></span>        <span class="keywordtype">int</span>         <a class="code hl_variable" href="structast_1_1DataUpdater_1_1DataFileEntry.html#a709a696470e82b8899cadf57fa92f009">maxAgeDays</a>;    </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structast_1_1DataUpdater_1_1DataFileEntry.html#a36a52f5b9870b4e8ff39d0d8329a8dc9">   63</a></span>        <span class="keywordtype">bool</span>        <a class="code hl_variable" href="structast_1_1DataUpdater_1_1DataFileEntry.html#a36a52f5b9870b4e8ff39d0d8329a8dc9">isOutdated</a>;    </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structast_1_1DataUpdater_1_1DataFileEntry.html#a403244258667e2fbd425dd50341a1a5a">   64</a></span>        errc_t      <a class="code hl_variable" href="structast_1_1DataUpdater_1_1DataFileEntry.html#a403244258667e2fbd425dd50341a1a5a">lastError</a>;     </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    };</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1DataUpdater.html">DataUpdater</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1DataUpdater.html">~DataUpdater</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    std::vector&lt;DataFileEntry&gt; refreshFileList() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    std::vector&lt;std::string&gt; listBackups(<span class="keyword">const</span> <a class="code hl_struct" href="structast_1_1DataUpdater_1_1DataFileEntry.html">DataFileEntry</a>&amp; entry) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    errc_t updateFile(<a class="code hl_struct" href="structast_1_1DataUpdater_1_1DataFileEntry.html">DataFileEntry</a>&amp; entry);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">int</span> updateAllOutdated();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">static</span> std::string readUpdatedField(<span class="keyword">const</span> std::string&amp; filepath);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">static</span> std::string backupDir();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">static</span> std::string makeBackupName(<span class="keyword">const</span> std::string&amp; filename);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>};</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aAstDataUpdateGlobal_8hpp_html"><div class="ttname"><a href="AstDataUpdateGlobal_8hpp.html">AstDataUpdateGlobal.hpp</a></div><div class="ttdoc">AstDataUpdate 模块全局定义</div></div>
+<div class="ttc" id="aclassast_1_1DataUpdater_html"><div class="ttname"><a href="classast_1_1DataUpdater.html">ast::DataUpdater</a></div><div class="ttdoc">动态数据更新器</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:51</div></div>
+<div class="ttc" id="astructast_1_1DataUpdater_1_1DataFileEntry_html"><div class="ttname"><a href="structast_1_1DataUpdater_1_1DataFileEntry.html">ast::DataUpdater::DataFileEntry</a></div><div class="ttdoc">数据文件条目信息</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:55</div></div>
+<div class="ttc" id="astructast_1_1DataUpdater_1_1DataFileEntry_html_a0cceccedc9890305a7f0a9219c7b595d"><div class="ttname"><a href="structast_1_1DataUpdater_1_1DataFileEntry.html#a0cceccedc9890305a7f0a9219c7b595d">ast::DataUpdater::DataFileEntry::url</a></div><div class="ttdeci">std::string url</div><div class="ttdoc">下载 URL（Celestrak）</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:58</div></div>
+<div class="ttc" id="astructast_1_1DataUpdater_1_1DataFileEntry_html_a36a52f5b9870b4e8ff39d0d8329a8dc9"><div class="ttname"><a href="structast_1_1DataUpdater_1_1DataFileEntry.html#a36a52f5b9870b4e8ff39d0d8329a8dc9">ast::DataUpdater::DataFileEntry::isOutdated</a></div><div class="ttdeci">bool isOutdated</div><div class="ttdoc">是否建议更新</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:63</div></div>
+<div class="ttc" id="astructast_1_1DataUpdater_1_1DataFileEntry_html_a403244258667e2fbd425dd50341a1a5a"><div class="ttname"><a href="structast_1_1DataUpdater_1_1DataFileEntry.html#a403244258667e2fbd425dd50341a1a5a">ast::DataUpdater::DataFileEntry::lastError</a></div><div class="ttdeci">errc_t lastError</div><div class="ttdoc">上次更新错误码（eNoError 表示成功）</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:64</div></div>
+<div class="ttc" id="astructast_1_1DataUpdater_1_1DataFileEntry_html_a709a696470e82b8899cadf57fa92f009"><div class="ttname"><a href="structast_1_1DataUpdater_1_1DataFileEntry.html#a709a696470e82b8899cadf57fa92f009">ast::DataUpdater::DataFileEntry::maxAgeDays</a></div><div class="ttdeci">int maxAgeDays</div><div class="ttdoc">过期阈值（天数）</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:62</div></div>
+<div class="ttc" id="astructast_1_1DataUpdater_1_1DataFileEntry_html_a74288e80a47dd03b22017cdd016b3bf6"><div class="ttname"><a href="structast_1_1DataUpdater_1_1DataFileEntry.html#a74288e80a47dd03b22017cdd016b3bf6">ast::DataUpdater::DataFileEntry::description</a></div><div class="ttdeci">std::string description</div><div class="ttdoc">详细说明</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:57</div></div>
+<div class="ttc" id="astructast_1_1DataUpdater_1_1DataFileEntry_html_aa27836300fcf0fe5c86d5798802d76d2"><div class="ttname"><a href="structast_1_1DataUpdater_1_1DataFileEntry.html#aa27836300fcf0fe5c86d5798802d76d2">ast::DataUpdater::DataFileEntry::backupCount</a></div><div class="ttdeci">int backupCount</div><div class="ttdoc">已有备份数量</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:61</div></div>
+<div class="ttc" id="astructast_1_1DataUpdater_1_1DataFileEntry_html_ab7489cedfca0e6267850cbdd6c00eec5"><div class="ttname"><a href="structast_1_1DataUpdater_1_1DataFileEntry.html#ab7489cedfca0e6267850cbdd6c00eec5">ast::DataUpdater::DataFileEntry::name</a></div><div class="ttdeci">std::string name</div><div class="ttdoc">显示名称，如 &quot;EOP (地球定向参数)&quot;</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:56</div></div>
+<div class="ttc" id="astructast_1_1DataUpdater_1_1DataFileEntry_html_abd4da4bbb7d9722e274a852c899449e4"><div class="ttname"><a href="structast_1_1DataUpdater_1_1DataFileEntry.html#abd4da4bbb7d9722e274a852c899449e4">ast::DataUpdater::DataFileEntry::fileDate</a></div><div class="ttdeci">std::string fileDate</div><div class="ttdoc">文件内部记录的数据日期（UPDATED 字段）</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:60</div></div>
+<div class="ttc" id="astructast_1_1DataUpdater_1_1DataFileEntry_html_acdd77b34c9cdab50b9fa89b9aa322ada"><div class="ttname"><a href="structast_1_1DataUpdater_1_1DataFileEntry.html#acdd77b34c9cdab50b9fa89b9aa322ada">ast::DataUpdater::DataFileEntry::localPath</a></div><div class="ttdeci">std::string localPath</div><div class="ttdoc">本地文件绝对路径（来自 InitalizeConfig）</div><div class="ttdef"><b>定义</b> DataUpdater.hpp:59</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_3fce7cc50e629f479eb0cacb838b1ab0.html">AstDataUpdate</a></li><li class="navelem"><a class="el" href="DataUpdater_8hpp.html">DataUpdater.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

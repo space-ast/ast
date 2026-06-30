@@ -99,7 +99,10 @@ $(function(){initNavTree('AstCore_2Data_2Context_2RunTime_8hpp.html',''); initRe
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">类</a> &#124;
 <a href="#namespaces">命名空间</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
 <a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">RunTime.hpp 文件参考</div></div>
 </div><!--header-->
@@ -108,16 +111,60 @@ $(function(){initNavTree('AstCore_2Data_2Context_2RunTime_8hpp.html',''); initRe
 <code>#include &quot;AstUtil/RunTime.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="RunTimeData_8hpp_source.html">RunTimeData.hpp</a>&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="AstCore_2Data_2Context_2RunTime_8hpp_source.html">浏览该文件的源代码.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1InitalizeConfig.html">ast::InitalizeConfig</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a5805211b4ae656f073656aa14cc7fd44" id="r_a5805211b4ae656f073656aa14cc7fd44"><td class="memItemLeft" align="right" valign="top"><a id="a5805211b4ae656f073656aa14cc7fd44" name="a5805211b4ae656f073656aa14cc7fd44"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_FILE_LEAPSECOND</b>&#160;&#160;&#160;&quot;Time/Leap_Second.dat&quot;</td></tr>
+<tr class="separator:a5805211b4ae656f073656aa14cc7fd44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae70dfb64ce7816e171f6914dc337a470" id="r_ae70dfb64ce7816e171f6914dc337a470"><td class="memItemLeft" align="right" valign="top"><a id="ae70dfb64ce7816e171f6914dc337a470" name="ae70dfb64ce7816e171f6914dc337a470"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_FILE_JPLDE</b>&#160;&#160;&#160;&quot;SolarSystem/plneph.430&quot;</td></tr>
+<tr class="separator:ae70dfb64ce7816e171f6914dc337a470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a635af9536d0fad02fa6a6a3a9e62a0b2" id="r_a635af9536d0fad02fa6a6a3a9e62a0b2"><td class="memItemLeft" align="right" valign="top"><a id="a635af9536d0fad02fa6a6a3a9e62a0b2" name="a635af9536d0fad02fa6a6a3a9e62a0b2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_FILE_EOP</b>&#160;&#160;&#160;&quot;SolarSystem/Earth/EOP-All.txt&quot;</td></tr>
+<tr class="separator:a635af9536d0fad02fa6a6a3a9e62a0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a475c0624f49fe749c7f1c2e18efaa963" id="r_a475c0624f49fe749c7f1c2e18efaa963"><td class="memItemLeft" align="right" valign="top"><a id="a475c0624f49fe749c7f1c2e18efaa963" name="a475c0624f49fe749c7f1c2e18efaa963"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_FILE_SPACEWEATHER</b>&#160;&#160;&#160;&quot;SolarSystem/Earth/SW-Last5Years.txt&quot;</td></tr>
+<tr class="separator:a475c0624f49fe749c7f1c2e18efaa963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d00b0aa68e86dbba7ab3fa147ee472f" id="r_a4d00b0aa68e86dbba7ab3fa147ee472f"><td class="memItemLeft" align="right" valign="top"><a id="a4d00b0aa68e86dbba7ab3fa147ee472f" name="a4d00b0aa68e86dbba7ab3fa147ee472f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_FILE_IAUX</b>&#160;&#160;&#160;&quot;IERS-conventions/2010/tab5.2a.txt&quot;</td></tr>
+<tr class="separator:a4d00b0aa68e86dbba7ab3fa147ee472f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3039ffbd58756c0411a1f1ec1cfd6ede" id="r_a3039ffbd58756c0411a1f1ec1cfd6ede"><td class="memItemLeft" align="right" valign="top"><a id="a3039ffbd58756c0411a1f1ec1cfd6ede" name="a3039ffbd58756c0411a1f1ec1cfd6ede"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_FILE_IAUY</b>&#160;&#160;&#160;&quot;IERS-conventions/2010/tab5.2b.txt&quot;</td></tr>
+<tr class="separator:a3039ffbd58756c0411a1f1ec1cfd6ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a908a571d4f81e80962c01d8b407d09ea" id="r_a908a571d4f81e80962c01d8b407d09ea"><td class="memItemLeft" align="right" valign="top"><a id="a908a571d4f81e80962c01d8b407d09ea" name="a908a571d4f81e80962c01d8b407d09ea"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_FILE_IAUS</b>&#160;&#160;&#160;&quot;IERS-conventions/2010/tab5.2d.txt&quot;</td></tr>
+<tr class="separator:a908a571d4f81e80962c01d8b407d09ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e5376089107836be579edd6b6053b0d" id="r_a7e5376089107836be579edd6b6053b0d"><td class="memItemLeft" align="right" valign="top"><a id="a7e5376089107836be579edd6b6053b0d" name="a7e5376089107836be579edd6b6053b0d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_FILE_IAUXYS_PRECOMPUTED</b>&#160;&#160;&#160;&quot;Test/ICRF/IAU2006_XYS.dat&quot;</td></tr>
+<tr class="separator:a7e5376089107836be579edd6b6053b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cc1768917c179ab072ea2f33431ecc4" id="r_a4cc1768917c179ab072ea2f33431ecc4"><td class="memItemLeft" align="right" valign="top"><a id="a4cc1768917c179ab072ea2f33431ecc4" name="a4cc1768917c179ab072ea2f33431ecc4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_DIR_SOLARSYSTEM</b>&#160;&#160;&#160;&quot;SolarSystem/&quot;</td></tr>
+<tr class="separator:a4cc1768917c179ab072ea2f33431ecc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:gad05cb223f6538e3c07ef9ae82e77f16f" id="r_gad05cb223f6538e3c07ef9ae82e77f16f"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::StringVector</b> = std::vector&lt;std::string&gt;</td></tr>
+<tr class="separator:gad05cb223f6538e3c07ef9ae82e77f16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:ga5aa1179cc5dd10f29ac2a0491b6b1fa9" id="r_ga5aa1179cc5dd10f29ac2a0491b6b1fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Data.html#ga5aa1179cc5dd10f29ac2a0491b6b1fa9">ast::aGetInitalizeConfig</a> (<a class="el" href="structast_1_1InitalizeConfig.html">InitalizeConfig</a> &amp;config)</td></tr>
+<tr class="separator:ga5aa1179cc5dd10f29ac2a0491b6b1fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab8a08c106d3feb750fdda376651fe6bc" id="r_gab8a08c106d3feb750fdda376651fe6bc"><td class="memItemLeft" align="right" valign="top">
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aInitialize</b> ()</td></tr>
 <tr class="separator:gab8a08c106d3feb750fdda376651fe6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
