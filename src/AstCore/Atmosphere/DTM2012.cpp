@@ -85,10 +85,10 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
 #endif
 
     // 读标题行
-    fgets(longstr1, 110, infile);
+    (void)fgets(longstr1, 110, infile);
 
     // 读参数数量行并校验
-    fgets(longstr1, 210, infile);
+    (void)fgets(longstr1, 210, infile);
     sscanf(longstr1, "%i", &npdtm);
 
     if (npdtm != kDTM2012ExpectedNpdtm)
@@ -104,7 +104,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes ONE
     {
         int i_local = 1;
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                        &j_test,  &pardtm.tt.T_one,  &pardtm.dtt.T_one,
@@ -135,7 +135,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in LAT
     for (i = 1; i < Nb_lat; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_lat[i],  &pardtm.dtt.T_lat[i],
@@ -166,7 +166,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in Flux
     for (i = 1; i < Nb_flux; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_flux[i],  &pardtm.dtt.T_flux[i],
@@ -197,7 +197,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in kp
     for (i = 1; i < Nb_kp; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_kp[i],  &pardtm.dtt.T_kp[i],
@@ -228,7 +228,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in SLat
     for (i = 1; i < Nb_SLat; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_SLat[i],  &pardtm.dtt.T_SLat[i],
@@ -259,7 +259,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in SASLat
     for (i = 1; i < Nb_SASLat; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_SASLat[i],  &pardtm.dtt.T_SASLat[i],
@@ -290,7 +290,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in NSLat
     for (i = 1; i < Nb_NSLat; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_NSLat[i],  &pardtm.dtt.T_NSLat[i],
@@ -321,7 +321,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in SANSLat
     for (i = 1; i < Nb_SANSLat; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_SANSLat[i],  &pardtm.dtt.T_SANSLat[i],
@@ -352,7 +352,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in DiAn
     for (i = 1; i < Nb_DiAn; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_DiAn[i],  &pardtm.dtt.T_DiAn[i],
@@ -383,7 +383,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in SDiAn
     for (i = 1; i < Nb_SDiAn; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_SDiAn[i],  &pardtm.dtt.T_SDiAn[i],
@@ -414,7 +414,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in TDi
     for (i = 1; i < Nb_TDi; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_TDi[i],  &pardtm.dtt.T_TDi[i],
@@ -445,7 +445,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in AMg
     for (i = 1; i < Nb_AMg; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_AMg[i],  &pardtm.dtt.T_AMg[i],
@@ -476,7 +476,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in Lon
     for (i = 1; i < Nb_Lon; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_Lon[i],  &pardtm.dtt.T_Lon[i],
@@ -507,7 +507,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     // ...... termes in dPhas
     for (i = 1; i < Nb_dPhas; i++)
     {
-        fgets(longstr1, 210, infile);
+        (void)fgets(longstr1, 210, infile);
 #ifdef _MSC_VER
         sscanf_s(longstr1, " %4d %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf %13lf %9lf",
                   &j_test,  &pardtm.tt.T_dPhas[i],  &pardtm.dtt.T_dPhas[i],
