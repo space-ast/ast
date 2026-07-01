@@ -349,6 +349,7 @@
 	_Pragma("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")    \
         _Pragma("GCC diagnostic ignored \"-Wunused-but-set-variable\"")\
         _Pragma("GCC diagnostic ignored \"-Wunused-variable\"")\
+        _Pragma("GCC diagnostic ignored \"-Wunused-result\"")\
         _Pragma("GCC diagnostic ignored \"-Wformat=\"")\
         _Pragma("GCC diagnostic ignored \"-Wstringop-truncation\"")\
 
