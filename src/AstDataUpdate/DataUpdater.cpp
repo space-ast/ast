@@ -147,7 +147,8 @@ static std::string makeTimestamp()
 {
     std::time_t now = std::time(nullptr);
     std::tm* local = std::localtime(&now);
-    char buf[20];
+    // 缓冲区需足够大以消除 GCC format-truncation 警告
+    char buf[80];
     snprintf(buf, sizeof(buf), "%04d%02d%02d_%02d%02d%02d",
              local->tm_year + 1900, local->tm_mon + 1, local->tm_mday,
              local->tm_hour, local->tm_min, local->tm_sec);
