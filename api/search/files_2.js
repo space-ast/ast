@@ -80,12 +80,14 @@ var searchData=
   ['coveragedefinitionloader_2ehpp_77',['CoverageDefinitionLoader.hpp',['../CoverageDefinitionLoader_8hpp.html',1,'']]],
   ['cppserializer_2ecpp_78',['CppSerializer.cpp',['../CppSerializer_8cpp.html',1,'']]],
   ['cppserializer_2ehpp_79',['CppSerializer.hpp',['../CppSerializer_8hpp.html',1,'']]],
-  ['criticallyinclinedorbitdesigner_2ecpp_80',['CriticallyInclinedOrbitDesigner.cpp',['../CriticallyInclinedOrbitDesigner_8cpp.html',1,'']]],
-  ['criticallyinclinedorbitdesigner_2ehpp_81',['CriticallyInclinedOrbitDesigner.hpp',['../CriticallyInclinedOrbitDesigner_8hpp.html',1,'']]],
-  ['criticallyinclinedsunsyncorbitdesigner_2ecpp_82',['CriticallyInclinedSunSyncOrbitDesigner.cpp',['../CriticallyInclinedSunSyncOrbitDesigner_8cpp.html',1,'']]],
-  ['criticallyinclinedsunsyncorbitdesigner_2ehpp_83',['CriticallyInclinedSunSyncOrbitDesigner.hpp',['../CriticallyInclinedSunSyncOrbitDesigner_8hpp.html',1,'']]],
-  ['crt_2ecpp_84',['CRT.cpp',['../CRT_8cpp.html',1,'']]],
-  ['crt_2ehpp_85',['CRT.hpp',['../CRT_8hpp.html',1,'']]],
-  ['cylindricaleclipsecalculator_2ecpp_86',['CylindricalEclipseCalculator.cpp',['../CylindricalEclipseCalculator_8cpp.html',1,'']]],
-  ['cylindricaleclipsecalculator_2ehpp_87',['CylindricalEclipseCalculator.hpp',['../CylindricalEclipseCalculator_8hpp.html',1,'']]]
+  ['crashhandler_2ecpp_80',['CrashHandler.cpp',['../CrashHandler_8cpp.html',1,'']]],
+  ['crashhandler_2ehpp_81',['CrashHandler.hpp',['../CrashHandler_8hpp.html',1,'']]],
+  ['criticallyinclinedorbitdesigner_2ecpp_82',['CriticallyInclinedOrbitDesigner.cpp',['../CriticallyInclinedOrbitDesigner_8cpp.html',1,'']]],
+  ['criticallyinclinedorbitdesigner_2ehpp_83',['CriticallyInclinedOrbitDesigner.hpp',['../CriticallyInclinedOrbitDesigner_8hpp.html',1,'']]],
+  ['criticallyinclinedsunsyncorbitdesigner_2ecpp_84',['CriticallyInclinedSunSyncOrbitDesigner.cpp',['../CriticallyInclinedSunSyncOrbitDesigner_8cpp.html',1,'']]],
+  ['criticallyinclinedsunsyncorbitdesigner_2ehpp_85',['CriticallyInclinedSunSyncOrbitDesigner.hpp',['../CriticallyInclinedSunSyncOrbitDesigner_8hpp.html',1,'']]],
+  ['crt_2ecpp_86',['CRT.cpp',['../CRT_8cpp.html',1,'']]],
+  ['crt_2ehpp_87',['CRT.hpp',['../CRT_8hpp.html',1,'']]],
+  ['cylindricaleclipsecalculator_2ecpp_88',['CylindricalEclipseCalculator.cpp',['../CylindricalEclipseCalculator_8cpp.html',1,'']]],
+  ['cylindricaleclipsecalculator_2ehpp_89',['CylindricalEclipseCalculator.hpp',['../CylindricalEclipseCalculator_8hpp.html',1,'']]]
 ];

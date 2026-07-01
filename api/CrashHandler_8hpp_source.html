@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstFault/CrashHandler.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('CrashHandler_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CrashHandler.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="CrashHandler_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="group__Fault.html#gaa39e749171bca970ab7dcdd968b6e33f">   39</a></span><span class="keyword">typedef</span> void (*ACrashCallback)(<span class="keyword">const</span> <span class="keywordtype">char</span>* crashType, <span class="keywordtype">int</span> signalNum,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                                <span class="keyword">const</span> <span class="keywordtype">void</span>* faultAddr,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                                <span class="keywordtype">void</span>* <span class="keyword">const</span>* stackFrames, <span class="keywordtype">int</span> frameCount);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>AST_FAULT_CAPI errc_t <a class="code hl_function" href="group__Fault.html#gaa5d7e9270c70ab9390e193036951656f">aCrashHandlerInstall</a>(ACrashCallback callback);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_FAULT_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Fault.html#gac53e57db0a7a4d875512372f4c180303">aCrashHandlerUninstall</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>AST_FAULT_CAPI errc_t <a class="code hl_function" href="group__Fault.html#ga5efbf17394e9c54dd8a2d59bac4baf9c">aCrashHandlerSetLogDir</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* dir);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AST_FAULT_API <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="group__Fault.html#ga79783271477ef741ff791dc7c946e5da">aCrashHandlerLastLogPath</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>AST_FAULT_CAPI errc_t <a class="code hl_function" href="group__Fault.html#ga55077fa33582c28c9868a5ce250a62aa">aCrashResolveSymbols</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* logPath, <span class="keyword">const</span> <span class="keywordtype">char</span>* outPath);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_FAULT_CAPI errc_t <a class="code hl_function" href="group__Fault.html#ga370a28e1932acde7510e3852ce70d7d9">aCrashSetReporterCommand</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* command);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>AST_FAULT_API <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="group__Fault.html#ga6daa5711aa17b0ee813180ca20a72e5b">aCrashGetReporterCommand</a>();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="agroup__Fault_html_ga370a28e1932acde7510e3852ce70d7d9"><div class="ttname"><a href="group__Fault.html#ga370a28e1932acde7510e3852ce70d7d9">ast::aCrashSetReporterCommand</a></div><div class="ttdeci">errc_t aCrashSetReporterCommand(const char *command)</div><div class="ttdoc">设置崩溃后的报告命令</div><div class="ttdef"><b>定义</b> CrashHandler.cpp:1094</div></div>
+<div class="ttc" id="agroup__Fault_html_ga55077fa33582c28c9868a5ce250a62aa"><div class="ttname"><a href="group__Fault.html#ga55077fa33582c28c9868a5ce250a62aa">ast::aCrashResolveSymbols</a></div><div class="ttdeci">errc_t aCrashResolveSymbols(const char *logPath, const char *outPath)</div><div class="ttdoc">解析崩溃日志中的堆栈地址，附加符号信息</div><div class="ttdef"><b>定义</b> CrashHandler.cpp:1411</div></div>
+<div class="ttc" id="agroup__Fault_html_ga5efbf17394e9c54dd8a2d59bac4baf9c"><div class="ttname"><a href="group__Fault.html#ga5efbf17394e9c54dd8a2d59bac4baf9c">ast::aCrashHandlerSetLogDir</a></div><div class="ttdeci">errc_t aCrashHandlerSetLogDir(const char *dir)</div><div class="ttdoc">设置崩溃日志输出目录</div><div class="ttdef"><b>定义</b> CrashHandler.cpp:986</div></div>
+<div class="ttc" id="agroup__Fault_html_ga6daa5711aa17b0ee813180ca20a72e5b"><div class="ttname"><a href="group__Fault.html#ga6daa5711aa17b0ee813180ca20a72e5b">ast::aCrashGetReporterCommand</a></div><div class="ttdeci">const char * aCrashGetReporterCommand()</div><div class="ttdoc">获取当前设置的报告命令</div><div class="ttdef"><b>定义</b> CrashHandler.cpp:1116</div></div>
+<div class="ttc" id="agroup__Fault_html_ga79783271477ef741ff791dc7c946e5da"><div class="ttname"><a href="group__Fault.html#ga79783271477ef741ff791dc7c946e5da">ast::aCrashHandlerLastLogPath</a></div><div class="ttdeci">const char * aCrashHandlerLastLogPath()</div><div class="ttdoc">获取最后一次崩溃日志的完整路径</div><div class="ttdef"><b>定义</b> CrashHandler.cpp:1005</div></div>
+<div class="ttc" id="agroup__Fault_html_gaa5d7e9270c70ab9390e193036951656f"><div class="ttname"><a href="group__Fault.html#gaa5d7e9270c70ab9390e193036951656f">ast::aCrashHandlerInstall</a></div><div class="ttdeci">errc_t aCrashHandlerInstall(ACrashCallback callback)</div><div class="ttdoc">安装崩溃处理器</div><div class="ttdef"><b>定义</b> CrashHandler.cpp:929</div></div>
+<div class="ttc" id="agroup__Fault_html_gac53e57db0a7a4d875512372f4c180303"><div class="ttname"><a href="group__Fault.html#gac53e57db0a7a4d875512372f4c180303">ast::aCrashHandlerUninstall</a></div><div class="ttdeci">void aCrashHandlerUninstall()</div><div class="ttdoc">卸载崩溃处理器</div><div class="ttdef"><b>定义</b> CrashHandler.cpp:967</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_09db07afdde71d13df9a731c09bf7cab.html">AstFault</a></li><li class="navelem"><a class="el" href="CrashHandler_8hpp.html">CrashHandler.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

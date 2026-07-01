@@ -1352,7 +1352,7 @@ var searchData=
   ['subunitlist_1349',['SubUnitList',['../classast_1_1Unit.html#a01b17f5310556fe6de956612053581eb',1,'ast::Unit']]],
   ['subunitlistconst_1350',['SubUnitListConst',['../classast_1_1Unit.html#a1deb9340a4f6a0844a583001edf41593',1,'ast::Unit']]],
   ['subunits_5f_1351',['subUnits_',['../classast_1_1Unit_1_1UnitRep.html#a183874826df2371d1aaf0fa6aa838fbd',1,'ast::Unit::UnitRep']]],
-  ['summaries_1352',['summaries',['../structast_1_1DAF__SummaryRecords.html#a4aa87379ac2c9755615cee6fcc6cb81c',1,'ast::DAF_SummaryRecords']]],
+  ['summaries_1352',['summaries',['../structast_1_1DAF__SummaryRecords.html#a333d58e552a14b63621755d3e496bac0',1,'ast::DAF_SummaryRecords']]],
   ['summarysection_1353',['SummarySection',['../structast_1_1SummarySection.html',1,'ast']]],
   ['sun_5f_1354',['sun_',['../classast_1_1SolarSystem.html#ae0679a4c0eedb7641a108d8d9769d2d2',1,'ast::SolarSystem']]],
   ['sunposition_2ecpp_1355',['SunPosition.cpp',['../SunPosition_8cpp.html',1,'']]],

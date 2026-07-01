@@ -1,5 +1,9 @@
 var NAVTREEINDEX17 =
 {
+"classast_1_1AttitudeCoverage.html":[3,0,0,24],
+"classast_1_1AttitudeFigureOfMerit.html":[2,0,0,26],
+"classast_1_1AttitudeFigureOfMerit.html":[3,0,0,25],
+"classast_1_1AttitudeProfile.html":[2,0,0,27],
 "classast_1_1AttitudeProfile.html":[3,0,0,26],
 "classast_1_1AttributeBasic.html":[0,8,4,3],
 "classast_1_1AttributeBasic.html#a60806045117ed7b2c0f01ffd7db5f74d":[0,8,4,3,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX17 =
 "classast_1_1BlockDynamicSystem.html#a773f8ea7c1f4b9d829796c2275d77d1b":[3,0,0,62,10],
 "classast_1_1BlockDynamicSystem.html#a83376015af4e65e0fc11b511e1a4e540":[2,0,0,63,7],
 "classast_1_1BlockDynamicSystem.html#a83376015af4e65e0fc11b511e1a4e540":[3,0,0,62,7],
-"classast_1_1BlockDynamicSystem.html#a8b3d105586f012b38b057a91ae2760f5":[2,0,0,63,4],
-"classast_1_1BlockDynamicSystem.html#a8b3d105586f012b38b057a91ae2760f5":[3,0,0,62,4],
-"classast_1_1BlockDynamicSystem.html#ab38a85d780f2341506825916754cacd4":[2,0,0,63,1],
-"classast_1_1BlockDynamicSystem.html#ab38a85d780f2341506825916754cacd4":[3,0,0,62,1],
-"classast_1_1BlockDynamicSystem.html#ab39b3425b52c256ac4af8a7e1ac8d836":[2,0,0,63,13]
+"classast_1_1BlockDynamicSystem.html#a8b3d105586f012b38b057a91ae2760f5":[2,0,0,63,4]
 };

@@ -2328,6 +2328,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>PEventTime</b> = <a 
 <tr class="memitem:a1b543ecc9e2e46da9d7f88bc1d369d2c" id="r_a1b543ecc9e2e46da9d7f88bc1d369d2c"><td class="memItemLeft" align="right" valign="top"><a id="a1b543ecc9e2e46da9d7f88bc1d369d2c" name="a1b543ecc9e2e46da9d7f88bc1d369d2c"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>HEventTime</b> = <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1EventTime.html">EventTime</a>&gt;</td></tr>
 <tr class="separator:a1b543ecc9e2e46da9d7f88bc1d369d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa39e749171bca970ab7dcdd968b6e33f" id="r_gaa39e749171bca970ab7dcdd968b6e33f"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Fault.html#gaa39e749171bca970ab7dcdd968b6e33f">ACrashCallback</a>) (const char *crashType, int signalNum, const void *faultAddr, void *const *stackFrames, int frameCount)</td></tr>
+<tr class="separator:gaa39e749171bca970ab7dcdd968b6e33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4310f5ef8866c414401fddce57586f75" id="r_a4310f5ef8866c414401fddce57586f75"><td class="memItemLeft" align="right" valign="top"><a id="a4310f5ef8866c414401fddce57586f75" name="a4310f5ef8866c414401fddce57586f75"></a>
 typedef QWidget *(*&#160;</td><td class="memItemRight" valign="bottom"><b>FNewEditWidget</b>) (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
 <tr class="separator:a4310f5ef8866c414401fddce57586f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2846,12 +2848,30 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <b>eApparent</b>
  }</td></tr>
 <tr class="separator:a2bf48439a4f7c7769a0f7e017ef7f055"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aace64e17ce3d290d155a6f9cc2289992" id="r_aace64e17ce3d290d155a6f9cc2289992"><td class="memItemLeft" align="right" valign="top"><a id="aace64e17ce3d290d155a6f9cc2289992" name="aace64e17ce3d290d155a6f9cc2289992"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>COL_NAME</b> = 0
+<tr class="memitem:a11e1e1d38bd9a4ee2a2189958958dfe4" id="r_a11e1e1d38bd9a4ee2a2189958958dfe4"><td class="memItemLeft" align="right" valign="top"><a id="a11e1e1d38bd9a4ee2a2189958958dfe4" name="a11e1e1d38bd9a4ee2a2189958958dfe4"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kMaxPath</b> = 512
+ }</td></tr>
+<tr class="separator:a11e1e1d38bd9a4ee2a2189958958dfe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aace64e17ce3d290d155a6f9cc2289992" id="r_aace64e17ce3d290d155a6f9cc2289992"><td class="memItemLeft" align="right" valign="top"><a id="aace64e17ce3d290d155a6f9cc2289992" name="aace64e17ce3d290d155a6f9cc2289992"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kReportBufferSize</b> = 16384
+ }</td></tr>
+<tr class="separator:aace64e17ce3d290d155a6f9cc2289992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83fcc8c48f72a3eeed3f184286e9347f" id="r_a83fcc8c48f72a3eeed3f184286e9347f"><td class="memItemLeft" align="right" valign="top"><a id="a83fcc8c48f72a3eeed3f184286e9347f" name="a83fcc8c48f72a3eeed3f184286e9347f"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kMaxStackFrames</b> = 128
+ }</td></tr>
+<tr class="separator:a83fcc8c48f72a3eeed3f184286e9347f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada0cf11a34db419d663fd9c7fbf10f98" id="r_ada0cf11a34db419d663fd9c7fbf10f98"><td class="memItemLeft" align="right" valign="top"><a id="ada0cf11a34db419d663fd9c7fbf10f98" name="ada0cf11a34db419d663fd9c7fbf10f98"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kAltStackSize</b> = 16384
+ }</td></tr>
+<tr class="separator:ada0cf11a34db419d663fd9c7fbf10f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82f2843bc989eecb3ee2ca749615c015" id="r_a82f2843bc989eecb3ee2ca749615c015"><td class="memItemLeft" align="right" valign="top"><a id="a82f2843bc989eecb3ee2ca749615c015" name="a82f2843bc989eecb3ee2ca749615c015"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kModuleInfoSize</b> = 4096
+ }</td></tr>
+<tr class="separator:a82f2843bc989eecb3ee2ca749615c015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a571a9aa9a0d405214905fe0b31e3d383" id="r_a571a9aa9a0d405214905fe0b31e3d383"><td class="memItemLeft" align="right" valign="top"><a id="a571a9aa9a0d405214905fe0b31e3d383" name="a571a9aa9a0d405214905fe0b31e3d383"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kSignalNameCount</b> = 32
+ }</td></tr>
+<tr class="separator:a571a9aa9a0d405214905fe0b31e3d383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac13a9c098b6368f2d73d61bed3b324ec" id="r_ac13a9c098b6368f2d73d61bed3b324ec"><td class="memItemLeft" align="right" valign="top"><a id="ac13a9c098b6368f2d73d61bed3b324ec" name="ac13a9c098b6368f2d73d61bed3b324ec"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>COL_NAME</b> = 0
 , <b>COL_EXPR</b> = 1
 , <b>COL_VALUE</b> = 2
 , <b>COL_DESC</b> = 3
  }</td></tr>
-<tr class="separator:aace64e17ce3d290d155a6f9cc2289992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ac13a9c098b6368f2d73d61bed3b324ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6011ae7fca2f0496d357328007421cd3" id="r_a6011ae7fca2f0496d357328007421cd3"><td class="memItemLeft" align="right" valign="top"><a id="a6011ae7fca2f0496d357328007421cd3" name="a6011ae7fca2f0496d357328007421cd3"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>EODEAction</b> { <b>eContinue</b> = 0
 , <b>eStop</b> = 1
  }</td></tr>
@@ -2932,9 +2952,9 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <br />
  }</td></tr>
 <tr class="separator:ga737f9c579e31cebe46bb5406d9a08cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacf47765b3debdc569a49073eaa3fd1d1" id="r_gacf47765b3debdc569a49073eaa3fd1d1"><td class="memItemLeft" align="right" valign="top"><a id="gacf47765b3debdc569a49073eaa3fd1d1" name="gacf47765b3debdc569a49073eaa3fd1d1"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>eIterBegin</b> =0
+<tr class="memitem:ga607349b4f82dd4df95c2b8fde2f7cfc7" id="r_ga607349b4f82dd4df95c2b8fde2f7cfc7"><td class="memItemLeft" align="right" valign="top"><a id="ga607349b4f82dd4df95c2b8fde2f7cfc7" name="ga607349b4f82dd4df95c2b8fde2f7cfc7"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>eIterBegin</b> =0
  }</td></tr>
-<tr class="separator:gacf47765b3debdc569a49073eaa3fd1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga607349b4f82dd4df95c2b8fde2f7cfc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedeaa12b4f41b37c84e1d36771ed5a87" id="r_aedeaa12b4f41b37c84e1d36771ed5a87"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedeaa12b4f41b37c84e1d36771ed5a87">EScriptLanguage</a> { <br />
 &#160;&#160;<a class="el" href="#aedeaa12b4f41b37c84e1d36771ed5a87a396fd0c3b77fbe85c1bd262ef45153d4">ePython</a>
 , <a class="el" href="#aedeaa12b4f41b37c84e1d36771ed5a87a34db16b18558ab7103753cafada72e1b">eMATLAB</a>
@@ -3033,9 +3053,9 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <a class="el" href="#a8a0cb8cd899337b4bc595bc1a1939b2faf47864efb86f863a0080026825b1303d">eRight</a> = 3
  }</td></tr>
 <tr class="separator:a8a0cb8cd899337b4bc595bc1a1939b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga31a4a74ee430b9f65281addd9c2a5012" id="r_ga31a4a74ee430b9f65281addd9c2a5012"><td class="memItemLeft" align="right" valign="top"><a id="ga31a4a74ee430b9f65281addd9c2a5012" name="ga31a4a74ee430b9f65281addd9c2a5012"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kDefaultFormatDoubleEps</b> = -1
+<tr class="memitem:gaa3bed780ca673e91c471fa0f2c3b6836" id="r_gaa3bed780ca673e91c471fa0f2c3b6836"><td class="memItemLeft" align="right" valign="top"><a id="gaa3bed780ca673e91c471fa0f2c3b6836" name="gaa3bed780ca673e91c471fa0f2c3b6836"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kDefaultFormatDoubleEps</b> = -1
  }</td></tr>
-<tr class="separator:ga31a4a74ee430b9f65281addd9c2a5012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gaa3bed780ca673e91c471fa0f2c3b6836"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e508696256a2c3780c71d54a51d5672" id="r_a2e508696256a2c3780c71d54a51d5672"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e508696256a2c3780c71d54a51d5672">EXMLNodeType</a> { <br />
 &#160;&#160;<a class="el" href="#a2e508696256a2c3780c71d54a51d5672a3a9a2d7cbd285f70b2e8b13258bf89a6">eElement</a>
 , <a class="el" href="#a2e508696256a2c3780c71d54a51d5672a8c15e6038102a3065760b26043b9c162">eText</a>
@@ -3050,19 +3070,19 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <a class="el" href="group__Platform.html#ggae5cf4de7adb0a012861b982458f81526aa62c0343340b8ffd29f021d1546be637">eBigEndian</a>
  }</td></tr>
 <tr class="separator:gae5cf4de7adb0a012861b982458f81526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a607349b4f82dd4df95c2b8fde2f7cfc7" id="r_a607349b4f82dd4df95c2b8fde2f7cfc7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<a class="el" href="#a607349b4f82dd4df95c2b8fde2f7cfc7a51ade9114aeb32f473ac34c8d0fba502">kIdxMass</a>
-, <a class="el" href="#a607349b4f82dd4df95c2b8fde2f7cfc7a3fbf8243db82a52492253f039651a70d">kIdxLength</a>
-, <a class="el" href="#a607349b4f82dd4df95c2b8fde2f7cfc7a35ba10cc1dd630da6eb3f4542a8921e3">kIdxAngle</a>
-, <a class="el" href="#a607349b4f82dd4df95c2b8fde2f7cfc7af15113453302983425d85b2e144ab3e9">kIdxTime</a>
+<tr class="memitem:af3667e79a176c3a06866693b09370aaa" id="r_af3667e79a176c3a06866693b09370aaa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="#af3667e79a176c3a06866693b09370aaaa51ade9114aeb32f473ac34c8d0fba502">kIdxMass</a>
+, <a class="el" href="#af3667e79a176c3a06866693b09370aaaa3fbf8243db82a52492253f039651a70d">kIdxLength</a>
+, <a class="el" href="#af3667e79a176c3a06866693b09370aaaa35ba10cc1dd630da6eb3f4542a8921e3">kIdxAngle</a>
+, <a class="el" href="#af3667e79a176c3a06866693b09370aaaaf15113453302983425d85b2e144ab3e9">kIdxTime</a>
 , <br />
-&#160;&#160;<a class="el" href="#a607349b4f82dd4df95c2b8fde2f7cfc7ac6c6959b45383d04df3ae436c8c018ca">kIdxTemperature</a>
-, <a class="el" href="#a607349b4f82dd4df95c2b8fde2f7cfc7ae0291d339236ac9f041fdb8b2b8ec901">kIdxCurrent</a>
-, <a class="el" href="#a607349b4f82dd4df95c2b8fde2f7cfc7ae5e65b9d8f4b68b8a1725a33178588fc">kIdxDateTime</a>
-, <a class="el" href="#a607349b4f82dd4df95c2b8fde2f7cfc7a77167b6a2fef55b749b0470575aa8006">kIdxLuminous</a>
+&#160;&#160;<a class="el" href="#af3667e79a176c3a06866693b09370aaaac6c6959b45383d04df3ae436c8c018ca">kIdxTemperature</a>
+, <a class="el" href="#af3667e79a176c3a06866693b09370aaaae0291d339236ac9f041fdb8b2b8ec901">kIdxCurrent</a>
+, <a class="el" href="#af3667e79a176c3a06866693b09370aaaae5e65b9d8f4b68b8a1725a33178588fc">kIdxDateTime</a>
+, <a class="el" href="#af3667e79a176c3a06866693b09370aaaa77167b6a2fef55b749b0470575aa8006">kIdxLuminous</a>
 <br />
  }</td></tr>
-<tr class="separator:a607349b4f82dd4df95c2b8fde2f7cfc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:af3667e79a176c3a06866693b09370aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab30969f1d9a484eedacefdc5a6953f14" id="r_ab30969f1d9a484eedacefdc5a6953f14"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab30969f1d9a484eedacefdc5a6953f14">EDimension</a> : dimension_t { <br />
 &#160;&#160;<a class="el" href="#ab30969f1d9a484eedacefdc5a6953f14a40180dbf986774f37463e57071df86fb">eUnit</a> = dimensions::kUnit
 , <a class="el" href="#ab30969f1d9a484eedacefdc5a6953f14ae916a836776f210c45a720500eff6c01">eLength</a> = dimensions::kLength
@@ -3093,9 +3113,9 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <br />
  }</td></tr>
 <tr class="separator:ab30969f1d9a484eedacefdc5a6953f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2b2f079b630a7398433b44d44b7a485e" id="r_ga2b2f079b630a7398433b44d44b7a485e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="group__RTTI.html#gga2b2f079b630a7398433b44d44b7a485eabb2ccfb13bbc2fc2827f77f2a3556ea2">INVALID_ID</a> = -1
+<tr class="memitem:ga9d8eaafcdb4b132609abade3fcde032e" id="r_ga9d8eaafcdb4b132609abade3fcde032e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="group__RTTI.html#gga9d8eaafcdb4b132609abade3fcde032eabb2ccfb13bbc2fc2827f77f2a3556ea2">INVALID_ID</a> = -1
  }</td></tr>
-<tr class="separator:ga2b2f079b630a7398433b44d44b7a485e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga9d8eaafcdb4b132609abade3fcde032e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0969f4ec02ccfb10a27176152916d2c9" id="r_ga0969f4ec02ccfb10a27176152916d2c9"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__RTTI.html#ga0969f4ec02ccfb10a27176152916d2c9">EObjectFlags</a> : uint32_t { <br />
 &#160;&#160;<a class="el" href="group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9abe988781e4e1de1c6a36fb698afbbe1f">EObjectFlags::eNone</a> = 0
 , <a class="el" href="group__RTTI.html#gga0969f4ec02ccfb10a27176152916d2c9aafaeea00b3e1b1c667d8701a3ec8c634">EObjectFlags::eReadOnly</a> = 0x01
@@ -4889,6 +4909,20 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1JulianDate.html">JulianDate</a>&
 <tr class="memitem:ga4072062cf6f3d7e162c8476b5430820d" id="r_ga4072062cf6f3d7e162c8476b5430820d"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>aTDBToTT</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmTDB)</td></tr>
 <tr class="separator:ga4072062cf6f3d7e162c8476b5430820d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa5d7e9270c70ab9390e193036951656f" id="r_gaa5d7e9270c70ab9390e193036951656f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Fault.html#gaa5d7e9270c70ab9390e193036951656f">aCrashHandlerInstall</a> (<a class="el" href="group__Fault.html#gaa39e749171bca970ab7dcdd968b6e33f">ACrashCallback</a> callback)</td></tr>
+<tr class="separator:gaa5d7e9270c70ab9390e193036951656f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac53e57db0a7a4d875512372f4c180303" id="r_gac53e57db0a7a4d875512372f4c180303"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Fault.html#gac53e57db0a7a4d875512372f4c180303">aCrashHandlerUninstall</a> ()</td></tr>
+<tr class="separator:gac53e57db0a7a4d875512372f4c180303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5efbf17394e9c54dd8a2d59bac4baf9c" id="r_ga5efbf17394e9c54dd8a2d59bac4baf9c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Fault.html#ga5efbf17394e9c54dd8a2d59bac4baf9c">aCrashHandlerSetLogDir</a> (const char *dir)</td></tr>
+<tr class="separator:ga5efbf17394e9c54dd8a2d59bac4baf9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79783271477ef741ff791dc7c946e5da" id="r_ga79783271477ef741ff791dc7c946e5da"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Fault.html#ga79783271477ef741ff791dc7c946e5da">aCrashHandlerLastLogPath</a> ()</td></tr>
+<tr class="separator:ga79783271477ef741ff791dc7c946e5da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga370a28e1932acde7510e3852ce70d7d9" id="r_ga370a28e1932acde7510e3852ce70d7d9"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Fault.html#ga370a28e1932acde7510e3852ce70d7d9">aCrashSetReporterCommand</a> (const char *command)</td></tr>
+<tr class="separator:ga370a28e1932acde7510e3852ce70d7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6daa5711aa17b0ee813180ca20a72e5b" id="r_ga6daa5711aa17b0ee813180ca20a72e5b"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Fault.html#ga6daa5711aa17b0ee813180ca20a72e5b">aCrashGetReporterCommand</a> ()</td></tr>
+<tr class="separator:ga6daa5711aa17b0ee813180ca20a72e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55077fa33582c28c9868a5ce250a62aa" id="r_ga55077fa33582c28c9868a5ce250a62aa"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Fault.html#ga55077fa33582c28c9868a5ce250a62aa">aCrashResolveSymbols</a> (const char *logPath, const char *outPath)</td></tr>
+<tr class="separator:ga55077fa33582c28c9868a5ce250a62aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6857563c4d6529cdac216270da3656ff" id="r_a6857563c4d6529cdac216270da3656ff"><td class="memItemLeft" align="right" valign="top"><a id="a6857563c4d6529cdac216270da3656ff" name="a6857563c4d6529cdac216270da3656ff"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>AstGfxInitialize</b> ()</td></tr>
 <tr class="separator:a6857563c4d6529cdac216270da3656ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -7698,8 +7732,8 @@ constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>kId
 </div>
 </div>
 <h2 class="groupheader">枚举类型说明</h2>
-<a id="a607349b4f82dd4df95c2b8fde2f7cfc7" name="a607349b4f82dd4df95c2b8fde2f7cfc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a607349b4f82dd4df95c2b8fde2f7cfc7">&#9670;&#160;</a></span>anonymous enum</h2>
+<a id="af3667e79a176c3a06866693b09370aaa" name="af3667e79a176c3a06866693b09370aaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3667e79a176c3a06866693b09370aaa">&#9670;&#160;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7710,21 +7744,21 @@ constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>kId
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a607349b4f82dd4df95c2b8fde2f7cfc7a51ade9114aeb32f473ac34c8d0fba502" name="a607349b4f82dd4df95c2b8fde2f7cfc7a51ade9114aeb32f473ac34c8d0fba502"></a>kIdxMass&#160;</td><td class="fielddoc"><p>质量 </p>
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="af3667e79a176c3a06866693b09370aaaa51ade9114aeb32f473ac34c8d0fba502" name="af3667e79a176c3a06866693b09370aaaa51ade9114aeb32f473ac34c8d0fba502"></a>kIdxMass&#160;</td><td class="fielddoc"><p>质量 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a607349b4f82dd4df95c2b8fde2f7cfc7a3fbf8243db82a52492253f039651a70d" name="a607349b4f82dd4df95c2b8fde2f7cfc7a3fbf8243db82a52492253f039651a70d"></a>kIdxLength&#160;</td><td class="fielddoc"><p>长度 </p>
+<tr><td class="fieldname"><a id="af3667e79a176c3a06866693b09370aaaa3fbf8243db82a52492253f039651a70d" name="af3667e79a176c3a06866693b09370aaaa3fbf8243db82a52492253f039651a70d"></a>kIdxLength&#160;</td><td class="fielddoc"><p>长度 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a607349b4f82dd4df95c2b8fde2f7cfc7a35ba10cc1dd630da6eb3f4542a8921e3" name="a607349b4f82dd4df95c2b8fde2f7cfc7a35ba10cc1dd630da6eb3f4542a8921e3"></a>kIdxAngle&#160;</td><td class="fielddoc"><p>角度[辅助量纲] </p>
+<tr><td class="fieldname"><a id="af3667e79a176c3a06866693b09370aaaa35ba10cc1dd630da6eb3f4542a8921e3" name="af3667e79a176c3a06866693b09370aaaa35ba10cc1dd630da6eb3f4542a8921e3"></a>kIdxAngle&#160;</td><td class="fielddoc"><p>角度[辅助量纲] </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a607349b4f82dd4df95c2b8fde2f7cfc7af15113453302983425d85b2e144ab3e9" name="a607349b4f82dd4df95c2b8fde2f7cfc7af15113453302983425d85b2e144ab3e9"></a>kIdxTime&#160;</td><td class="fielddoc"><p>时间 </p>
+<tr><td class="fieldname"><a id="af3667e79a176c3a06866693b09370aaaaf15113453302983425d85b2e144ab3e9" name="af3667e79a176c3a06866693b09370aaaaf15113453302983425d85b2e144ab3e9"></a>kIdxTime&#160;</td><td class="fielddoc"><p>时间 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a607349b4f82dd4df95c2b8fde2f7cfc7ac6c6959b45383d04df3ae436c8c018ca" name="a607349b4f82dd4df95c2b8fde2f7cfc7ac6c6959b45383d04df3ae436c8c018ca"></a>kIdxTemperature&#160;</td><td class="fielddoc"><p>温度 </p>
+<tr><td class="fieldname"><a id="af3667e79a176c3a06866693b09370aaaac6c6959b45383d04df3ae436c8c018ca" name="af3667e79a176c3a06866693b09370aaaac6c6959b45383d04df3ae436c8c018ca"></a>kIdxTemperature&#160;</td><td class="fielddoc"><p>温度 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a607349b4f82dd4df95c2b8fde2f7cfc7ae0291d339236ac9f041fdb8b2b8ec901" name="a607349b4f82dd4df95c2b8fde2f7cfc7ae0291d339236ac9f041fdb8b2b8ec901"></a>kIdxCurrent&#160;</td><td class="fielddoc"><p>电流 </p>
+<tr><td class="fieldname"><a id="af3667e79a176c3a06866693b09370aaaae0291d339236ac9f041fdb8b2b8ec901" name="af3667e79a176c3a06866693b09370aaaae0291d339236ac9f041fdb8b2b8ec901"></a>kIdxCurrent&#160;</td><td class="fielddoc"><p>电流 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a607349b4f82dd4df95c2b8fde2f7cfc7ae5e65b9d8f4b68b8a1725a33178588fc" name="a607349b4f82dd4df95c2b8fde2f7cfc7ae5e65b9d8f4b68b8a1725a33178588fc"></a>kIdxDateTime&#160;</td><td class="fielddoc"><p>日期时间[动力学扩展量纲] </p>
+<tr><td class="fieldname"><a id="af3667e79a176c3a06866693b09370aaaae5e65b9d8f4b68b8a1725a33178588fc" name="af3667e79a176c3a06866693b09370aaaae5e65b9d8f4b68b8a1725a33178588fc"></a>kIdxDateTime&#160;</td><td class="fielddoc"><p>日期时间[动力学扩展量纲] </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a607349b4f82dd4df95c2b8fde2f7cfc7a77167b6a2fef55b749b0470575aa8006" name="a607349b4f82dd4df95c2b8fde2f7cfc7a77167b6a2fef55b749b0470575aa8006"></a>kIdxLuminous&#160;</td><td class="fielddoc"><p>发光强度 </p>
+<tr><td class="fieldname"><a id="af3667e79a176c3a06866693b09370aaaa77167b6a2fef55b749b0470575aa8006" name="af3667e79a176c3a06866693b09370aaaa77167b6a2fef55b749b0470575aa8006"></a>kIdxLuminous&#160;</td><td class="fielddoc"><p>发光强度 </p>
 </td></tr>
 </table>
 

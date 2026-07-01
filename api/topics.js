@@ -11,6 +11,7 @@ var topics =
     [ "工具模块", "group__Util.html", "group__Util" ],
     [ "空间天气模型", "group__Weather.html", "group__Weather" ],
     [ "AstCOM", "group__AstCOM.html", "group__AstCOM" ],
+    [ "Fault", "group__Fault.html", "group__Fault" ],
     [ "GUI", "group__GUI.html", "group__GUI" ],
     [ "UiAI", "group__UiAI.html", "group__UiAI" ],
     [ "Network", "group__Network.html", "group__Network" ],
