@@ -1084,9 +1084,9 @@ static void _aCrashSpawnReporter(const char* logPath)
     {
         // 默认：写入 stderr
         const char* msg = "\n*** Application crashed. Report saved to: ";
-        write(STDERR_FILENO, msg, strlen(msg));
-        write(STDERR_FILENO, logPath, strlen(logPath));
-        write(STDERR_FILENO, "\n", 1);
+        if (write(STDERR_FILENO, msg, strlen(msg)) < 0) {}
+        if (write(STDERR_FILENO, logPath, strlen(logPath)) < 0) {}
+        if (write(STDERR_FILENO, "\n", 1) < 0) {}
     }
 #endif
 }
