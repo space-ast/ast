@@ -550,7 +550,7 @@ static bool _aCrashWriteReportFile(const char* crashType, int signalNum, const v
 
         // 保存最后日志路径
         int j = 0;
-        while (filepath[j] && j < kMaxPath - 1) {
+        while (j < kMaxPath - 1 && filepath[j]) {
             g_lastLogPath[j] = filepath[j];
             ++j;
         }
@@ -578,7 +578,7 @@ static bool _aCrashWriteReportFile(const char* crashType, int signalNum, const v
         // 更新 lastLogPath
         const char* fallback = "crash_report.log";
         int j = 0;
-        while (fallback[j] && j < kMaxPath - 1) { g_lastLogPath[j] = fallback[j]; ++j; }
+        while (j < kMaxPath - 1 && fallback[j]) { g_lastLogPath[j] = fallback[j]; ++j; }
         g_lastLogPath[j] = '\0';
     }
 
@@ -597,7 +597,7 @@ static bool _aCrashWriteReportFile(const char* crashType, int signalNum, const v
 
         const char* fallback = "crash_report.log";
         int j = 0;
-        while (fallback[j] && j < kMaxPath - 1) { g_lastLogPath[j] = fallback[j]; ++j; }
+        while (j < kMaxPath - 1 && fallback[j]) { g_lastLogPath[j] = fallback[j]; ++j; }
         g_lastLogPath[j] = '\0';
     }
 
@@ -638,9 +638,8 @@ static void _aCrashLinuxHandler(int signum, siginfo_t* info, void* /*ucontext*/)
     // 递归守卫
     if (g_crashRecursionGuard.fetch_add(1, std::memory_order_relaxed) > 0)
     {
-        // 递归崩溃：恢复默认处理器后退出
+        // 递归崩溃：恢复默认处理器并强制退出
         signal(signum, SIG_DFL);
-        raise(signum);
         _exit(128 + signum);
     }
 
@@ -989,7 +988,7 @@ errc_t aCrashHandlerSetLogDir(const char* dir)
         return eError;
 
     int i = 0;
-    while (dir[i] && i < kMaxPath - 2)
+    while (i < kMaxPath - 2 && dir[i])
     {
         g_logDir[i] = dir[i];
         ++i;
@@ -1100,7 +1099,7 @@ errc_t aCrashSetReporterCommand(const char* command)
     }
 
     int i = 0;
-    while (command[i] && i < kMaxPath - 2)
+    while (i < kMaxPath - 2 && command[i])
     {
         g_reporterCmd[i] = command[i];
         ++i;

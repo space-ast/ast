@@ -80,7 +80,7 @@ void CrashDialog::parseLogFile()
 
 void CrashDialog::setupUi()
 {
-    setWindowTitle(QString::fromUtf8("程序遇到问题"));
+    setWindowTitle(tr("程序遇到问题"));
     setMinimumSize(460, 420);
     setMaximumSize(560, 620);
 
@@ -94,7 +94,7 @@ void CrashDialog::setupUi()
     // ---- 图标 ----
     m_iconLabel = new QLabel(this);
     m_iconLabel->setAlignment(Qt::AlignCenter);
-    m_iconLabel->setText(QString::fromUtf8("⚠️"));  // ⚠️
+    m_iconLabel->setText(tr("⚠️"));  // ⚠️
     QFont iconFont = m_iconLabel->font();
     iconFont.setPointSize(36);
     m_iconLabel->setFont(iconFont);
@@ -104,7 +104,7 @@ void CrashDialog::setupUi()
     m_messageLabel = new QLabel(this);
     m_messageLabel->setAlignment(Qt::AlignCenter);
     m_messageLabel->setWordWrap(true);
-    m_messageLabel->setText(QString::fromUtf8(
+    m_messageLabel->setText(tr(
         "<p style='font-size:14px;'>"
         "<b>程序遇到了问题，需要关闭。</b></p>"
         "<p style='font-size:12px; color:#666;'>"
@@ -113,19 +113,19 @@ void CrashDialog::setupUi()
     mainLayout->addWidget(m_messageLabel);
 
     // ---- 用户描述 ----
-    auto* descLabel = new QLabel(QString::fromUtf8(
+    auto* descLabel = new QLabel(tr(
         "请描述您刚才进行什么操作时遇到了这个问题："), this);
     descLabel->setStyleSheet("font-size:12px;");
     mainLayout->addWidget(descLabel);
 
     m_descriptionEdit = new QTextEdit(this);
     m_descriptionEdit->setMaximumHeight(80);
-    m_descriptionEdit->setPlaceholderText(QString::fromUtf8(
+    m_descriptionEdit->setPlaceholderText(tr(
         "（可选）例如：点击导出按钮后程序闪退..."));
     mainLayout->addWidget(m_descriptionEdit);
 
     // ---- 详情折叠 ----
-    m_detailsToggle = new QPushButton(QString::fromUtf8("▶ 查看详细技术信息"), this);
+    m_detailsToggle = new QPushButton(tr("▶ 查看详细技术信息"), this);
     m_detailsToggle->setFlat(true);
     m_detailsToggle->setCursor(Qt::PointingHandCursor);
     m_detailsToggle->setStyleSheet(
@@ -174,7 +174,7 @@ void CrashDialog::setupUi()
     auto* btnLayout = new QHBoxLayout();
     btnLayout->setSpacing(12);
 
-    m_sendBtn = new QPushButton(QString::fromUtf8("✉ 发送反馈（推荐）"), this);
+    m_sendBtn = new QPushButton(tr("✉ 发送反馈（推荐）"), this);
     m_sendBtn->setMinimumHeight(36);
     m_sendBtn->setCursor(Qt::PointingHandCursor);
     m_sendBtn->setStyleSheet(
@@ -184,7 +184,7 @@ void CrashDialog::setupUi()
         "QPushButton:disabled { background: #CCC; }");
     connect(m_sendBtn, &QPushButton::clicked, this, &CrashDialog::onSendReport);
 
-    m_restartBtn = new QPushButton(QString::fromUtf8("↻ 重启程序"), this);
+    m_restartBtn = new QPushButton(tr("↻ 重启程序"), this);
     m_restartBtn->setMinimumHeight(36);
     m_restartBtn->setCursor(Qt::PointingHandCursor);
     m_restartBtn->setStyleSheet(
@@ -206,7 +206,7 @@ void CrashDialog::setupUi()
         m_restartBtn->setVisible(false);
 
     // ---- 关闭按钮 ----
-    m_closeBtn = new QPushButton(QString::fromUtf8("关闭"), this);
+    m_closeBtn = new QPushButton(tr("关闭"), this);
     m_closeBtn->setFlat(true);
     m_closeBtn->setCursor(Qt::PointingHandCursor);
     m_closeBtn->setStyleSheet(
@@ -266,16 +266,16 @@ void CrashDialog::onSendReport()
 
         if (reply->error() == QNetworkReply::NoError)
         {
-            m_sendBtn->setText(QString::fromUtf8("✔ 感谢您的反馈！"));
+            m_sendBtn->setText(tr("✔ 感谢您的反馈！"));
             m_sendBtn->setEnabled(false);
-            m_messageLabel->setText(QString::fromUtf8(
+            m_messageLabel->setText(tr(
                 "<p style='font-size:14px; color:#107C10;'><b>"
                 "反馈已发送，感谢您的帮助！</b></p>"));
         }
         else
         {
             m_messageLabel->setText(m_messageLabel->text() +
-                QString::fromUtf8("<p style='color:#D83B01; font-size:12px;'>"
+                tr("<p style='color:#D83B01; font-size:12px;'>"
                                   "发送失败，请检查网络连接。</p>"));
         }
     });
@@ -294,14 +294,14 @@ void CrashDialog::onToggleDetails()
     bool visible = !m_detailsPanel->isVisible();
     m_detailsPanel->setVisible(visible);
     m_detailsToggle->setText(visible
-        ? QString::fromUtf8("▼ 隐藏详细技术信息")
-        : QString::fromUtf8("▶ 查看详细技术信息"));
+        ? tr("▼ 隐藏详细技术信息")
+        : tr("▶ 查看详细技术信息"));
 }
 
 void CrashDialog::setUploadingState(bool uploading)
 {
     m_sendBtn->setEnabled(!uploading);
     m_sendBtn->setText(uploading
-        ? QString::fromUtf8("⏳ 正在发送...")
-        : QString::fromUtf8("✉ 发送反馈（推荐）"));
+        ? tr("⏳ 正在发送...")
+        : tr("✉ 发送反馈（推荐）"));
 }

@@ -360,7 +360,7 @@ static ExoTemps exotherm (const double space_craft[2],
 //    con_l                    Series expansion coefficients for height > 125 km
 //                            (in jr_drag header file)
    {
-   ExoTemps exotemps;
+   ExoTemps exotemps = {};
    double c_star[5], aux[4][2];
    const short int na=5;
 
@@ -763,7 +763,7 @@ double jac_rob (const double& height,
 
    /* Compute height dependent density */
    double density;
-   ExoTemps exotemps;
+   ExoTemps exotemps = {};
    if (height<=90.0)
       {
       density = rho_zero;

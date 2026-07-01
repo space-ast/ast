@@ -113,10 +113,9 @@ void BlockThirdBodyGravity::init()
 
 errc_t BlockThirdBodyGravity::run(const SimTime& simTime)
 {
-    assert(propagationFrame_ != nullptr);
-    assert(propagationAxes_ != nullptr);
-    assert(gravityAxes_ != nullptr);
-    assert(thirdBody_ != nullptr);
+    // @todo 将这里的空指针检查移动到初始阶段里
+    if (!propagationFrame_ || !propagationAxes_ || !gravityAxes_ || !thirdBody_)
+        return eErrorNullPtr;
 
     auto& tp = simTime.timePoint();
 

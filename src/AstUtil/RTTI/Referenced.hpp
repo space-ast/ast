@@ -47,7 +47,7 @@ public:
     {}
     /// @brief 构造函数，用于初始化对象的强引用计数为1
     /// @param initial_strong_ref_t 初始化强引用计数的标记
-    Referenced(initial_strong_ref_t)
+    explicit Referenced(initial_strong_ref_t)
         : refcnt_{1}
         , weakrefcnt_{1}
     {}

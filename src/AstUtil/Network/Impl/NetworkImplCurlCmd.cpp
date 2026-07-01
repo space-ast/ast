@@ -76,18 +76,21 @@ namespace
     {
 #ifdef _WIN32
         // Windows 下（cmd.exe）使用双引号包裹，内部双引号转义为 \"
+        // 反斜杠仅在紧跟双引号或位于字符串末尾时才需要转义（翻倍）
         std::string escaped;
-        escaped.reserve(s.size() * 2 + 4); // 预留足够空间
+        escaped.reserve(s.size() * 2 + 4);
         escaped += '"';
-        for (char c : s) {
+        for (size_t i = 0; i < s.size(); ++i) {
+            char c = s[i];
             if (c == '"') {
                 escaped += '\\';
                 escaped += '"';
             } else if (c == '\\') {
-                // 保留反斜杠，但如果后面紧跟双引号，需要再额外添加一个反斜杠
-                // 这里简化处理：将每个反斜杠都转义为两个反斜杠（更安全）
+                // 仅当反斜杠后紧跟双引号（或位于末尾，此时后跟闭合双引号）时才翻倍
                 escaped += '\\';
-                escaped += '\\';
+                if (i + 1 < s.size() && s[i + 1] == '"') {
+                    escaped += '\\';  // 额外转义：\" → \\"
+                }
             } else {
                 escaped += c;
             }

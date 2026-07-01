@@ -132,16 +132,23 @@ errc_t EphemerisBinary::open(const std::string& filepath)
     double   epochFrac = 0, startTime = 0, stopTime = 0;
     uint64_t pointCount = 0, nameLen = 0;
 
-    file.read(reinterpret_cast<char*>(&magic),      sizeof(magic));
-    file.read(reinterpret_cast<char*>(&version),     sizeof(version));
-    file.read(reinterpret_cast<char*>(&epochInt),    sizeof(epochInt));
-    file.read(reinterpret_cast<char*>(&epochFrac),   sizeof(epochFrac));
-    file.read(reinterpret_cast<char*>(&pointCount),  sizeof(pointCount));
-    file.read(reinterpret_cast<char*>(&startTime),   sizeof(startTime));
-    file.read(reinterpret_cast<char*>(&stopTime),    sizeof(stopTime));
-    file.read(reinterpret_cast<char*>(&nameLen),     sizeof(nameLen));
+    if (!file.read(reinterpret_cast<char*>(&magic),      sizeof(magic)) ||
+        !file.read(reinterpret_cast<char*>(&version),     sizeof(version)) ||
+        !file.read(reinterpret_cast<char*>(&epochInt),    sizeof(epochInt)) ||
+        !file.read(reinterpret_cast<char*>(&epochFrac),   sizeof(epochFrac)) ||
+        !file.read(reinterpret_cast<char*>(&pointCount),  sizeof(pointCount)) ||
+        !file.read(reinterpret_cast<char*>(&startTime),   sizeof(startTime)) ||
+        !file.read(reinterpret_cast<char*>(&stopTime),    sizeof(stopTime)) ||
+        !file.read(reinterpret_cast<char*>(&nameLen),     sizeof(nameLen)))
+    {
+        return eErrorInvalidFile;
+    }
 
     if (magic != MAGIC || version != VERSION)
+        return eErrorInvalidFile;
+
+    // Validate nameLen to prevent excessive memory allocation
+    if (nameLen > 256)
         return eErrorInvalidFile;
 
     filepath_ = filepath;
@@ -151,8 +158,12 @@ errc_t EphemerisBinary::open(const std::string& filepath)
     interval_.setStartStop(startTime, stopTime);
 
     // Read frame name
-    frameName_.resize(nameLen);
-    file.read(&frameName_[0], static_cast<std::streamsize>(nameLen));
+    if (nameLen > 0)
+    {
+        frameName_.resize(nameLen);
+        if (!file.read(&frameName_[0], static_cast<std::streamsize>(nameLen)))
+            return eErrorInvalidFile;
+    }
 
     // Resolve frame by name
     Frame* resolvedFrame = aResolveFrame(frameName_);

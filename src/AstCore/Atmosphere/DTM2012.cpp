@@ -12,6 +12,8 @@
 
 #include "DTM2012.hpp"
 
+#include <cmath>
+
 #include "AstUtil/Logger.hpp"
 #include "AstWeather/DTM_12.h"
 #include "AstCore/TimePoint.hpp"
@@ -595,16 +597,9 @@ double DTM2012::getDensity(const TimePoint &tp, const Vector3d &posInBodyFixed) 
     double hl = (2.0 * pi / 24.0) * ((nsec / 3600.0) + (lonDeg / 15.0));
 
     // 归一化到 [0, 2*pi]
-    if (hl > 2.0 * pi)
-    {
-        while (hl > 2.0 * pi)
-            hl -= 2.0 * pi;
-    }
-    else if (hl < 0.0)
-    {
-        while (hl < 0.0)
-            hl += 2.0 * pi;
-    }
+    hl = std::fmod(hl, 2.0 * pi);
+    if (hl < 0.0)
+        hl += 2.0 * pi;
 
     // =========================================================================
     // 准备 DTM2012 核心计算所需的输入参数

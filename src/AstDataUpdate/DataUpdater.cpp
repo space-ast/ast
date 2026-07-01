@@ -164,7 +164,7 @@ static int countBackups(const std::string& backupDir, const std::string& localPa
     for (auto& p : fs::directory_iterator(backupDir))
     {
         std::string fname = p.path().filename().string();
-        if (fname.find(baseName + ".") == 0)
+        if (fname.compare(0, baseName.size() + 1, baseName + ".") == 0)
             ++count;
     }
     return count;
@@ -292,7 +292,7 @@ std::vector<std::string> DataUpdater::listBackups(const DataFileEntry& entry) co
     for (auto& p : fs::directory_iterator(bdir))
     {
         std::string fname = p.path().filename().string();
-        if (fname.find(baseName + ".") == 0)
+        if (fname.compare(0, baseName.size() + 1, baseName + ".") == 0)
             result.push_back(p.path().string());
     }
     return result;
