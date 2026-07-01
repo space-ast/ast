@@ -1,18 +1,19 @@
 ﻿set_group("test")
 add_deps(
-    "AstCore", 
-    "AstUtil", 
-    "AstOpt", 
-    "AstMock", 
-    "AstMath", 
-    "AstScript", 
-    "AstWeather", 
-    "AstSPICE", 
+    "AstCore",
+    "AstUtil",
+    "AstOpt",
+    "AstMock",
+    "AstMath",
+    "AstScript",
+    "AstWeather",
+    "AstSPICE",
     "AstSim",
     "AstLoader",
     "AstAI",
     "AstCmd",
-    "AstTest"
+    "AstTest",
+    "AstFault"
 )
 
 if is_plat("windows") and has_config("with_com") then

@@ -21,6 +21,9 @@
 
 AST_NAMESPACE_BEGIN
 
+// 静态常量类外定义（GCC/MinGW 需要，MSVC 可省略）
+constexpr size_t EphemerisBinary::WINDOW_SIZE;
+
 EphemerisBinary* EphemerisBinary::New()
 {
     return new EphemerisBinary();
