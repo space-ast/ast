@@ -134,11 +134,13 @@ $(function(){initNavTree('group__AstReport.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ReportStyle.html">ast::ReportStyle</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ReportGenerateOptions.html">ast::ReportGenerateOptions</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ga357e2b73403629388140a7ff7ff002bf" id="r_ga357e2b73403629388140a7ff7ff002bf"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga357e2b73403629388140a7ff7ff002bf">ast::aWriteReport</a> (const <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;report, const <a class="el" href="classast_1_1Object.html">Object</a> *object, FILE *file)</td></tr>
-<tr class="separator:ga357e2b73403629388140a7ff7ff002bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a0911cdaf9c176d52f98ba3725f68f1" id="r_ga5a0911cdaf9c176d52f98ba3725f68f1"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5a0911cdaf9c176d52f98ba3725f68f1">ast::aWriteReport</a> (const <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;report, const <a class="el" href="classast_1_1Object.html">Object</a> *object, FILE *file, const <a class="el" href="classast_1_1ReportGenerateOptions.html">ReportGenerateOptions</a> &amp;options)</td></tr>
+<tr class="separator:ga5a0911cdaf9c176d52f98ba3725f68f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3179bada8b77578372137b6bc51891af" id="r_ga3179bada8b77578372137b6bc51891af"><td class="memTemplParams" colspan="2"><a id="ga3179bada8b77578372137b6bc51891af" name="ga3179bada8b77578372137b6bc51891af"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga3179bada8b77578372137b6bc51891af"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::DataSeries::DataSeries</b> (const std::string &amp;name, const std::vector&lt; T &gt; &amp;data)</td></tr>
@@ -172,8 +174,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::TypedDataSeries&
 <tr class="separator:ga50a7bf060c746872119702e0f8e6154a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">函数说明</h2>
-<a id="ga357e2b73403629388140a7ff7ff002bf" name="ga357e2b73403629388140a7ff7ff002bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga357e2b73403629388140a7ff7ff002bf">&#9670;&#160;</a></span>aWriteReport()</h2>
+<a id="ga5a0911cdaf9c176d52f98ba3725f68f1" name="ga5a0911cdaf9c176d52f98ba3725f68f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5a0911cdaf9c176d52f98ba3725f68f1">&#9670;&#160;</a></span>aWriteReport()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,7 +193,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::TypedDataSeries&
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>&#160;)</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1ReportGenerateOptions.html">ReportGenerateOptions</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>options</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

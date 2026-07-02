@@ -1,5 +1,6 @@
 var NAVTREEINDEX47 =
 {
+"group__Attitude.html#gaf8884f3b155e95ce4bac9fe5b88b8549":[0,3,1,8],
 "group__Chat.html":[0,0],
 "group__Container.html":[0,8,0],
 "group__Coordinate.html":[0,1,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX47 =
 "group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa":[0,3,3,10],
 "group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05":[0,3,3,11],
 "group__NLE.html#ga771d73ba9a27d2e576e456870e706c69":[0,3,3,8],
-"group__NLE.html#gaab129d64b6af3006ace3ea69e1f238ef":[0,3,3,12],
-"group__NLE.html#gab0dea09a12487e53d0b32c0af1d2d597":[0,3,3,13]
+"group__NLE.html#gaab129d64b6af3006ace3ea69e1f238ef":[0,3,3,12]
 };

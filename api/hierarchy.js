@@ -1232,6 +1232,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "ast::ReportElement", "classast_1_1ReportElement.html", null ],
+    [ "ast::ReportGenerateOptions", "classast_1_1ReportGenerateOptions.html", null ],
     [ "ast::ReportLine", "classast_1_1ReportLine.html", null ],
     [ "ast::ReportSection", "classast_1_1ReportSection.html", null ],
     [ "ast::ReportStyle", "classast_1_1ReportStyle.html", null ],

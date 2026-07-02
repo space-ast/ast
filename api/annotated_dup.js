@@ -604,6 +604,7 @@ var annotated_dup =
       [ "RepeatingOrbitDesigner", "classast_1_1RepeatingOrbitDesigner.html", "classast_1_1RepeatingOrbitDesigner" ],
       [ "RepeatingSunSyncOrbitDesigner", "classast_1_1RepeatingSunSyncOrbitDesigner.html", "classast_1_1RepeatingSunSyncOrbitDesigner" ],
       [ "ReportElement", "classast_1_1ReportElement.html", "classast_1_1ReportElement" ],
+      [ "ReportGenerateOptions", "classast_1_1ReportGenerateOptions.html", null ],
       [ "ReportLine", "classast_1_1ReportLine.html", "classast_1_1ReportLine" ],
       [ "ReportSection", "classast_1_1ReportSection.html", "classast_1_1ReportSection" ],
       [ "ReportStyle", "classast_1_1ReportStyle.html", "classast_1_1ReportStyle" ],
