@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class HarrisPriester: public AtmosphereBase
+class AST_CORE_API HarrisPriester: public AtmosphereBase
 {
 public:
     HarrisPriester(Frame* frame, BodyShape* bodyShape, CelestialBody* sun, double f107);
