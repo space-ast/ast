@@ -248,7 +248,15 @@ var namespaceast =
     [ "DAF_SummaryRecords", "structast_1_1DAF__SummaryRecords.html", "structast_1_1DAF__SummaryRecords" ],
     [ "DAFParser", "classast_1_1DAFParser.html", "classast_1_1DAFParser" ],
     [ "DataContext", "classast_1_1DataContext.html", "classast_1_1DataContext" ],
+    [ "DataElement", "classast_1_1DataElement.html", null ],
+    [ "DataFrame", "classast_1_1DataFrame.html", "classast_1_1DataFrame" ],
     [ "DataPort", "classast_1_1DataPort.html", "classast_1_1DataPort" ],
+    [ "DataSeries", "classast_1_1DataSeries.html", "classast_1_1DataSeries" ],
+    [ "DataTypeTraits", "structast_1_1DataTypeTraits.html", null ],
+    [ "DataTypeTraits< double >", "structast_1_1DataTypeTraits_3_01double_01_4.html", null ],
+    [ "DataTypeTraits< int >", "structast_1_1DataTypeTraits_3_01int_01_4.html", null ],
+    [ "DataTypeTraits< std::string >", "structast_1_1DataTypeTraits_3_01std_1_1string_01_4.html", null ],
+    [ "DataTypeTraits< TimePoint >", "structast_1_1DataTypeTraits_3_01TimePoint_01_4.html", null ],
     [ "DataUpdater", "classast_1_1DataUpdater.html", "classast_1_1DataUpdater" ],
     [ "Date", "classast_1_1Date.html", "classast_1_1Date" ],
     [ "DateTime", "classast_1_1DateTime.html", "classast_1_1DateTime" ],
@@ -965,6 +973,7 @@ var namespaceast =
     [ "TreeBuildOptions", "structast_1_1TreeBuildOptions.html", "structast_1_1TreeBuildOptions" ],
     [ "TwoBody", "classast_1_1TwoBody.html", null ],
     [ "TwoLineElement", "classast_1_1TwoLineElement.html", "classast_1_1TwoLineElement" ],
+    [ "TypedDataSeries", "classast_1_1TypedDataSeries.html", "classast_1_1TypedDataSeries" ],
     [ "UiAnalyzerMainWindow", "classast_1_1UiAnalyzerMainWindow.html", "classast_1_1UiAnalyzerMainWindow" ],
     [ "UiAttributeTree", "classast_1_1UiAttributeTree.html", "classast_1_1UiAttributeTree" ],
     [ "UiAttributeTreeItem", "classast_1_1UiAttributeTreeItem.html", "classast_1_1UiAttributeTreeItem" ],
@@ -1285,11 +1294,13 @@ var namespaceast =
     [ "EConvergenceCriteria", "namespaceast.html#afdad28878a123864652dd130092859d5", [
       [ "eEqualityConstraintsWithinTolerance", "namespaceast.html#afdad28878a123864652dd130092859d5a3ab2093c52ba0e59bfd612809f6ee17b", null ]
     ] ],
-    [ "EDataType", "group__AstReport.html#ga64b97b96596ad9c168c928e97cf07395", [
-      [ "eFloat", "group__AstReport.html#gga64b97b96596ad9c168c928e97cf07395a9b9526f83cc144a1ee8dfa49d1c45863", null ],
-      [ "eInt", "group__AstReport.html#gga64b97b96596ad9c168c928e97cf07395ab811883d0eea431e27438596857a9e86", null ],
-      [ "eString", "group__AstReport.html#gga64b97b96596ad9c168c928e97cf07395afd94ed04f3a7c67da610ca46950edc26", null ],
-      [ "eDateTime", "group__AstReport.html#gga64b97b96596ad9c168c928e97cf07395a83e155cad29f707b54862217392d885d", null ]
+    [ "EDataType", "namespaceast.html#a64b97b96596ad9c168c928e97cf07395", [
+      [ "eDouble", "namespaceast.html#a64b97b96596ad9c168c928e97cf07395afb0a96d3d1a0e6fab85b4b99b193d204", null ],
+      [ "eFloat", "namespaceast.html#a64b97b96596ad9c168c928e97cf07395a9b9526f83cc144a1ee8dfa49d1c45863", null ],
+      [ "eInt", "namespaceast.html#a64b97b96596ad9c168c928e97cf07395ab811883d0eea431e27438596857a9e86", null ],
+      [ "eString", "namespaceast.html#a64b97b96596ad9c168c928e97cf07395afd94ed04f3a7c67da610ca46950edc26", null ],
+      [ "eTimePoint", "namespaceast.html#a64b97b96596ad9c168c928e97cf07395ad3caac67a3efcaa57ceeaec627dafc31", null ],
+      [ "eDateTime", "namespaceast.html#a64b97b96596ad9c168c928e97cf07395a83e155cad29f707b54862217392d885d", null ]
     ] ],
     [ "EDeDataCode", "namespaceast.html#ad226f5138693fa4cb352f8c2201281df", [
       [ "eDeMercury", "namespaceast.html#ad226f5138693fa4cb352f8c2201281dfa5021d524bf20d8ee639c87eafef2d77f", null ],
@@ -1347,14 +1358,14 @@ var namespaceast =
       [ "eCCSDSEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa7ca7a72c3d848d95299ee58c39392a9b", null ],
       [ "eITCEphemeris", "namespaceast.html#a364fd776aa5b05ed45dae4534b252fdaa86c385cc832c655877c33a1bf1f6ac6a", null ]
     ] ],
-    [ "EExpandMethod", "group__AstReport.html#ga9c5e3a291abba7aa635c81b30cddd90b", [
-      [ "eNone", "group__AstReport.html#gga9c5e3a291abba7aa635c81b30cddd90babe988781e4e1de1c6a36fb698afbbe1f", null ],
-      [ "eAll", "group__AstReport.html#gga9c5e3a291abba7aa635c81b30cddd90ba205a605c9a22391af5e09fa60fe30678", null ],
-      [ "eSelected", "group__AstReport.html#gga9c5e3a291abba7aa635c81b30cddd90ba0b2e6ccf9feb0525821bd29972651381", null ]
+    [ "EExpandMethod", "namespaceast.html#a9c5e3a291abba7aa635c81b30cddd90b", [
+      [ "eNone", "namespaceast.html#a9c5e3a291abba7aa635c81b30cddd90babe988781e4e1de1c6a36fb698afbbe1f", null ],
+      [ "eAll", "namespaceast.html#a9c5e3a291abba7aa635c81b30cddd90ba205a605c9a22391af5e09fa60fe30678", null ],
+      [ "eSelected", "namespaceast.html#a9c5e3a291abba7aa635c81b30cddd90ba0b2e6ccf9feb0525821bd29972651381", null ]
     ] ],
-    [ "EFillPattern", "group__AstReport.html#ga921f611b60c40e6077f2237aca95e401", [
-      [ "eNone", "group__AstReport.html#gga921f611b60c40e6077f2237aca95e401abe988781e4e1de1c6a36fb698afbbe1f", null ],
-      [ "eSolid", "group__AstReport.html#gga921f611b60c40e6077f2237aca95e401aa56571af665c58edeef828a9f179f9e4", null ]
+    [ "EFillPattern", "namespaceast.html#a921f611b60c40e6077f2237aca95e401", [
+      [ "eNone", "namespaceast.html#a921f611b60c40e6077f2237aca95e401abe988781e4e1de1c6a36fb698afbbe1f", null ],
+      [ "eSolid", "namespaceast.html#a921f611b60c40e6077f2237aca95e401aa56571af665c58edeef828a9f179f9e4", null ]
     ] ],
     [ "EFiniteDifferenceMethod", "namespaceast.html#a506f55f4c4e8b79920188af9804ad018", [
       [ "eForwardDifference", "namespaceast.html#a506f55f4c4e8b79920188af9804ad018a61156c9f5b21c0aa1c95727cfb0e841c", null ],
@@ -1388,11 +1399,11 @@ var namespaceast =
       [ "eArray", "group__ParseFormat.html#gga6bceb3e7a191b76ce5708a7eea693d08a859997d3d472c83372c6e0179d2025bb", null ],
       [ "eObject", "group__ParseFormat.html#gga6bceb3e7a191b76ce5708a7eea693d08ac92038caaf313844f673a690ac5c88bf", null ]
     ] ],
-    [ "ELineStyle", "group__AstReport.html#ga1b12362b746c96e6e241a11faad03424", [
-      [ "eSolid", "group__AstReport.html#gga1b12362b746c96e6e241a11faad03424aa56571af665c58edeef828a9f179f9e4", null ],
-      [ "eDash", "group__AstReport.html#gga1b12362b746c96e6e241a11faad03424acf99bf87d82d9ed26f9150b73cd92ad1", null ],
-      [ "eDot", "group__AstReport.html#gga1b12362b746c96e6e241a11faad03424a0f28bd9114b711d300698b48d1ef98d0", null ],
-      [ "eDashDot", "group__AstReport.html#gga1b12362b746c96e6e241a11faad03424aeb895be8400218eb227c92897dc8c8ca", null ]
+    [ "ELineStyle", "namespaceast.html#a1b12362b746c96e6e241a11faad03424", [
+      [ "eSolid", "namespaceast.html#a1b12362b746c96e6e241a11faad03424aa56571af665c58edeef828a9f179f9e4", null ],
+      [ "eDash", "namespaceast.html#a1b12362b746c96e6e241a11faad03424acf99bf87d82d9ed26f9150b73cd92ad1", null ],
+      [ "eDot", "namespaceast.html#a1b12362b746c96e6e241a11faad03424a0f28bd9114b711d300698b48d1ef98d0", null ],
+      [ "eDashDot", "namespaceast.html#a1b12362b746c96e6e241a11faad03424aeb895be8400218eb227c92897dc8c8ca", null ]
     ] ],
     [ "ELogicalOperatorType", "namespaceast.html#a65999e43b74f73ebbbf95a9eea2e4269", [
       [ "eAnd", "namespaceast.html#a65999e43b74f73ebbbf95a9eea2e4269ae8b511f162a3e5ae4ba68f1661a5ce5a", null ],
@@ -1496,13 +1507,13 @@ var namespaceast =
       [ "eRAAN", "namespaceast.html#aebc46f63d4ca7b01bd3e9718282bc9b3a3776991e2d9ed4127ed93a2522ad9fe7", null ],
       [ "eLAN", "namespaceast.html#aebc46f63d4ca7b01bd3e9718282bc9b3a05ce665c049e975f4102e98ba3b29ba3", null ]
     ] ],
-    [ "EPointStyle", "group__AstReport.html#ga49842d0cf3f87b1eb7593f098056a72d", [
-      [ "eNone", "group__AstReport.html#gga49842d0cf3f87b1eb7593f098056a72dabe988781e4e1de1c6a36fb698afbbe1f", null ],
-      [ "eSquare", "group__AstReport.html#gga49842d0cf3f87b1eb7593f098056a72da9e77d5bed5785e1bc18f60678d78d8f7", null ],
-      [ "eCircle", "group__AstReport.html#gga49842d0cf3f87b1eb7593f098056a72dad0138f16f71875936a9c3a4e07c5a9fb", null ],
-      [ "eDiamond", "group__AstReport.html#gga49842d0cf3f87b1eb7593f098056a72da473f5f5ee5e2c717fcaea06d66782ae2", null ],
-      [ "eTriangle", "group__AstReport.html#gga49842d0cf3f87b1eb7593f098056a72da103456eafc4c68697acb2bbb0bd4bc3c", null ],
-      [ "eCross", "group__AstReport.html#gga49842d0cf3f87b1eb7593f098056a72dadac17302bf9c21f079989f7ec7ccbb7b", null ]
+    [ "EPointStyle", "namespaceast.html#a49842d0cf3f87b1eb7593f098056a72d", [
+      [ "eNone", "namespaceast.html#a49842d0cf3f87b1eb7593f098056a72dabe988781e4e1de1c6a36fb698afbbe1f", null ],
+      [ "eSquare", "namespaceast.html#a49842d0cf3f87b1eb7593f098056a72da9e77d5bed5785e1bc18f60678d78d8f7", null ],
+      [ "eCircle", "namespaceast.html#a49842d0cf3f87b1eb7593f098056a72dad0138f16f71875936a9c3a4e07c5a9fb", null ],
+      [ "eDiamond", "namespaceast.html#a49842d0cf3f87b1eb7593f098056a72da473f5f5ee5e2c717fcaea06d66782ae2", null ],
+      [ "eTriangle", "namespaceast.html#a49842d0cf3f87b1eb7593f098056a72da103456eafc4c68697acb2bbb0bd4bc3c", null ],
+      [ "eCross", "namespaceast.html#a49842d0cf3f87b1eb7593f098056a72dadac17302bf9c21f079989f7ec7ccbb7b", null ]
     ] ],
     [ "EPositionType", "namespaceast.html#a9de38fd17316aadc192e14bfee3a2c30", [
       [ "eTrueAnomaly", "namespaceast.html#a9de38fd17316aadc192e14bfee3a2c30a207a52997130815e48e5570ca4c634be", null ],
@@ -1669,11 +1680,11 @@ var namespaceast =
       [ "eKeplerian", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0ac29f4242fedd02baf87fbc607461696c", null ],
       [ "eUnknown", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0a64c3acc11ffdb1be30ea339290bd1508", null ]
     ] ],
-    [ "EStyleType", "group__AstReport.html#ga87334cd2f848ef4c75290166d5612b39", [
-      [ "eTabular", "group__AstReport.html#gga87334cd2f848ef4c75290166d5612b39a08eee8cd41a5a88232c09a844c6926a6", null ],
-      [ "eGraph2D", "group__AstReport.html#gga87334cd2f848ef4c75290166d5612b39a5afcadf51254a6f9cd9914d3f1831c73", null ],
-      [ "eFixed", "group__AstReport.html#gga87334cd2f848ef4c75290166d5612b39a2eec4822798fb8c96b4fd915bf11836c", null ],
-      [ "eGraph3D", "group__AstReport.html#gga87334cd2f848ef4c75290166d5612b39aa12bab28adae5c2d7f2e1d5059afe608", null ]
+    [ "EStyleType", "namespaceast.html#a87334cd2f848ef4c75290166d5612b39", [
+      [ "eTabular", "namespaceast.html#a87334cd2f848ef4c75290166d5612b39a08eee8cd41a5a88232c09a844c6926a6", null ],
+      [ "eGraph2D", "namespaceast.html#a87334cd2f848ef4c75290166d5612b39a5afcadf51254a6f9cd9914d3f1831c73", null ],
+      [ "eFixed", "namespaceast.html#a87334cd2f848ef4c75290166d5612b39a2eec4822798fb8c96b4fd915bf11836c", null ],
+      [ "eGraph3D", "namespaceast.html#a87334cd2f848ef4c75290166d5612b39aa12bab28adae5c2d7f2e1d5059afe608", null ]
     ] ],
     [ "ESunPosition", "namespaceast.html#a2bf48439a4f7c7769a0f7e017ef7f055", [
       [ "eTrue", "namespaceast.html#a2bf48439a4f7c7769a0f7e017ef7f055a993c607f86d04aaa19681df339689592", null ],

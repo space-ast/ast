@@ -188,7 +188,8 @@ var searchData=
   ['type_5ffrom_5ftag_3c_20type_5fint_20_3e_185',['type_from_tag&lt; type_int &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__int_01_4.html',1,'ast::detail']]],
   ['type_5ffrom_5ftag_3c_20type_5fobject_20_3e_186',['type_from_tag&lt; type_object &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__object_01_4.html',1,'ast::detail']]],
   ['type_5ffrom_5ftag_3c_20type_5fstring_20_3e_187',['type_from_tag&lt; type_string &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__string_01_4.html',1,'ast::detail']]],
-  ['typename_188',['typeName',['../structast_1_1QuickTypeEntry.html#a267340cf55ac2e8eacc08645791d777b',1,'ast::QuickTypeEntry']]],
-  ['types_2ecpp_189',['Types.cpp',['../Types_8cpp.html',1,'']]],
-  ['types_2ehpp_190',['Types.hpp',['../Types_8hpp.html',1,'']]]
+  ['typeddataseries_188',['TypedDataSeries',['../classast_1_1TypedDataSeries.html',1,'ast::TypedDataSeries&lt; T &gt;'],['../group__AstReport.html#gafd6d80b3fdba97e42efd3b6b9c492eaf',1,'ast::TypedDataSeries::TypedDataSeries()']]],
+  ['typename_189',['typeName',['../structast_1_1QuickTypeEntry.html#a267340cf55ac2e8eacc08645791d777b',1,'ast::QuickTypeEntry']]],
+  ['types_2ecpp_190',['Types.cpp',['../Types_8cpp.html',1,'']]],
+  ['types_2ehpp_191',['Types.hpp',['../Types_8hpp.html',1,'']]]
 ];

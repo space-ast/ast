@@ -169,8 +169,18 @@ var hierarchy =
     [ "ast::DAF_SPKSummaryRecords", "structast_1_1DAF__SPKSummaryRecords.html", null ],
     [ "ast::DAF_SummaryRecords", "structast_1_1DAF__SummaryRecords.html", null ],
     [ "ast::DataContext", "classast_1_1DataContext.html", null ],
+    [ "ast::DataElement", "classast_1_1DataElement.html", null ],
     [ "ast::DataUpdater::DataFileEntry", "structast_1_1DataUpdater_1_1DataFileEntry.html", null ],
+    [ "ast::DataFrame", "classast_1_1DataFrame.html", null ],
     [ "ast::DataPort", "classast_1_1DataPort.html", null ],
+    [ "ast::DataSeries", "classast_1_1DataSeries.html", [
+      [ "ast::TypedDataSeries< T >", "classast_1_1TypedDataSeries.html", null ]
+    ] ],
+    [ "ast::DataTypeTraits< T >", "structast_1_1DataTypeTraits.html", null ],
+    [ "ast::DataTypeTraits< double >", "structast_1_1DataTypeTraits_3_01double_01_4.html", null ],
+    [ "ast::DataTypeTraits< int >", "structast_1_1DataTypeTraits_3_01int_01_4.html", null ],
+    [ "ast::DataTypeTraits< std::string >", "structast_1_1DataTypeTraits_3_01std_1_1string_01_4.html", null ],
+    [ "ast::DataTypeTraits< TimePoint >", "structast_1_1DataTypeTraits_3_01TimePoint_01_4.html", null ],
     [ "ast::DataUpdater", "classast_1_1DataUpdater.html", null ],
     [ "ast::Date", "classast_1_1Date.html", null ],
     [ "ast::DateTime", "classast_1_1DateTime.html", null ],
