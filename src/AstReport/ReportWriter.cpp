@@ -21,6 +21,7 @@
 #include "ReportWriter.hpp"
 #include "AstUtil/Object.hpp"
 #include "AstReport/DataSeries.hpp"
+#include "AstReport/DataFrame.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -37,7 +38,7 @@ static std::string _aGetElementValue(const Object* object, const ReportElement& 
 }
 
 /// @brief 写出表格报表
-static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FILE* file)
+static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FILE* file, const ReportGenerateOptions& options)
 {
     // 收集所有 Element（展平 Section → Line → Element 到表头行）
     struct ColumnInfo
@@ -46,7 +47,12 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
         std::string         title;
         int                 width;
     };
+
     std::vector<ColumnInfo> columns;
+    DataFrame df;
+    df.reserve(20);
+
+    int rows = 0; // @todo 根据 options.interval_ 计算数据行数
 
     for (const auto& sec : report.sections_)
     {
@@ -64,10 +70,14 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
                 std::string service = elem.service_;
                 std::string type = elem.type_;
                 std::string element = elem.element_;
+                EDataType dataType = elem.dataType_;
+
+                df.addColumn(elem.title_, dataType, rows);
 
                 (void)service;
                 (void)type;
                 (void)element;
+                (void)dataType;
             }
         }
     }
@@ -118,7 +128,7 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
 
 // ---- 公开接口 ----
 
-errc_t aWriteReport(const ReportStyle& report, const Object* object, FILE* file)
+errc_t aWriteReport(const ReportStyle& report, const Object* object, FILE* file, const ReportGenerateOptions& options)
 {
     if (!file || !object)
         return eErrorInvalidFile;
@@ -126,7 +136,7 @@ errc_t aWriteReport(const ReportStyle& report, const Object* object, FILE* file)
     switch (report.styleType_)
     {
         case EStyleType::eTabular:
-            return _aWriteTabular(report, object, file);
+            return _aWriteTabular(report, object, file, options);
 
         case EStyleType::eGraph2D:
         case EStyleType::eGraph3D:
