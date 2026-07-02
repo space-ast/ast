@@ -1,5 +1,5 @@
 // AstReport 工程聚合头文件
-#include "AstReport/DataElement.hpp"
-#include "AstReport/DataLine.hpp"
-#include "AstReport/DataReport.hpp"
-#include "AstReport/DataSection.hpp"
+#include "AstReport/ReportElement.hpp"
+#include "AstReport/ReportLine.hpp"
+#include "AstReport/ReportStyle.hpp"
+#include "AstReport/ReportSection.hpp"

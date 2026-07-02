@@ -1,7 +1,7 @@
 ///
-/// @file      DataSection.hpp
+/// @file      ReportSection.hpp
 /// @brief     报表数据段定义
-/// @details   定义报表中的数据段（DataSection）类型，
+/// @details   定义报表中的数据段（ReportSection）类型，
 ///            对应 ReportStyle 文件中的 Section 块。
 /// @author    axel
 /// @date      2026-07-02
@@ -22,7 +22,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "DataLine.hpp"
+#include "ReportLine.hpp"
 
 #include <string>
 #include <vector>
@@ -37,7 +37,7 @@ AST_NAMESPACE_BEGIN
 /// @brief 报表数据段
 /// @details 对应 ReportStyle 文件中的 Section 块。
 ///          一个 Section 包含多个 Line，每个 Line 包含多个 Element。
-class AST_REPORT_API DataSection
+class AST_REPORT_API ReportSection
 {
 public:
     std::string name_;             ///< 段名称（如 "Section 1"）
@@ -48,7 +48,7 @@ public:
     bool        showIntervals_ = false;
     int         numIntervals_  = 0;
 
-    std::vector<DataLine> lines_;
+    std::vector<ReportLine> lines_;
 };
 
 /*! @} */

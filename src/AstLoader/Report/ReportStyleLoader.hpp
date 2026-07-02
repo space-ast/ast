@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstReport/DataReport.hpp"
+#include "AstReport/ReportStyle.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -37,13 +37,13 @@ class BKVParser;
 /// @param filepath 文件路径（.rst 或 .rsg 文件）
 /// @param report   [out] 报表样式数据
 /// @return 错误码
-AST_LOADER_API errc_t aLoadReportStyle(StringView filepath, DataReport& report);
+AST_LOADER_API errc_t aLoadReportStyle(StringView filepath, ReportStyle& report);
 
 /// @brief 从已打开的 BKVParser 加载报表样式
 /// @param parser  已定位到 ReportStyle 块内部的 BKVParser
 /// @param report  [out] 报表样式数据
 /// @return 错误码
-AST_LOADER_API errc_t aLoadReportStyle(BKVParser& parser, DataReport& report);
+AST_LOADER_API errc_t aLoadReportStyle(BKVParser& parser, ReportStyle& report);
 
 /*! @} */
 

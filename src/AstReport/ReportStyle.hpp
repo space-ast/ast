@@ -1,7 +1,7 @@
 ///
-/// @file      DataReport.hpp
+/// @file      ReportStyle.hpp
 /// @brief     报表样式定义
-/// @details   定义报表样式（DataReport）类型及相关枚举，
+/// @details   定义报表样式（ReportStyle）类型及相关枚举，
 ///            对应 ReportStyle 文件的完整结构。
 /// @author    axel
 /// @date      2026-07-02
@@ -22,7 +22,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "DataSection.hpp"
+#include "ReportSection.hpp"
 #include "AstUtil/Color.hpp"
 
 #include <string>
@@ -35,12 +35,12 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-// 枚举定义见 DataElement.hpp
+// 枚举定义见 ReportElement.hpp
 
 /// @brief 报表样式
 /// @details 对应 ReportStyle 文件的完整结构，包含文件头属性、图形显示参数
 ///          以及按 Section → Line → Element 组织的报表数据列定义。
-class AST_REPORT_API DataReport
+class AST_REPORT_API ReportStyle
 {
 public:
     // ---- 标识 ----
@@ -72,7 +72,7 @@ public:
     int    legendStatus_     = 1;
 
     // ---- 数据段 ----
-    std::vector<DataSection> sections_;
+    std::vector<ReportSection> sections_;
 };
 
 /*! @} */

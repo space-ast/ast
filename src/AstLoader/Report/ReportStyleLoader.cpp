@@ -2,7 +2,7 @@
 /// @file      ReportStyleLoader.cpp
 /// @brief     报表样式加载器实现
 /// @details   使用 BKVParser 解析 ReportStyle 文件（.rst/.rsg），
-///            将解析结果填充到 DataReport 结构中。
+///            将解析结果填充到 ReportStyle 结构中。
 /// @author    axel
 /// @date      2026-07-02
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -21,19 +21,19 @@
 
 #include "ReportStyleLoader.hpp"
 #include "CommonlyUsedHeaders.hpp"
-#include "AstReport/DataReport.hpp"
+#include "AstReport/ReportStyle.hpp"
 #include "AstUtil/ParseFormat.hpp"
 
 AST_NAMESPACE_BEGIN
 
 // ---- 前向声明内部辅助函数 ----
 
-static errc_t _aLoadClassId(BKVParser& parser, DataReport& report);
-static errc_t _aLoadHeader(BKVParser& parser, DataReport& report);
-static errc_t _aLoadSection(BKVParser& parser, DataSection& section);
-static errc_t _aLoadLine(BKVParser& parser, DataLine& line);
-static errc_t _aLoadElement(BKVParser& parser, DataElement& element);
-static errc_t _aLoadUnits(BKVParser& parser, DataUnits& units);
+static errc_t _aLoadClassId(BKVParser& parser, ReportStyle& report);
+static errc_t _aLoadHeader(BKVParser& parser, ReportStyle& report);
+static errc_t _aLoadSection(BKVParser& parser, ReportSection& section);
+static errc_t _aLoadLine(BKVParser& parser, ReportLine& line);
+static errc_t _aLoadElement(BKVParser& parser, ReportElement& element);
+static errc_t _aLoadUnits(BKVParser& parser, ReportUnits& units);
 static Color  _aParseStyleColor(const ValueView& value);
 
 
@@ -182,7 +182,7 @@ static EExpandMethod _aParseExpandMethod(int value)
 
 // ---- ClassId 块 ----
 
-static errc_t _aLoadClassId(BKVParser& parser, DataReport& report)
+static errc_t _aLoadClassId(BKVParser& parser, ReportStyle& report)
 {
     BKVItemView item;
     while (true)
@@ -210,7 +210,7 @@ static errc_t _aLoadClassId(BKVParser& parser, DataReport& report)
 
 // ---- Header 块 ----
 
-static errc_t _aLoadHeader(BKVParser& parser, DataReport& report)
+static errc_t _aLoadHeader(BKVParser& parser, ReportStyle& report)
 {
     BKVItemView item;
     while (true)
@@ -282,7 +282,7 @@ static errc_t _aLoadHeader(BKVParser& parser, DataReport& report)
 
 // ---- Section 块 ----
 
-static errc_t _aLoadSection(BKVParser& parser, DataSection& section)
+static errc_t _aLoadSection(BKVParser& parser, ReportSection& section)
 {
     BKVItemView item;
     while (true)
@@ -331,7 +331,7 @@ static errc_t _aLoadSection(BKVParser& parser, DataSection& section)
 
 // ---- Line 块 ----
 
-static errc_t _aLoadLine(BKVParser& parser, DataLine& line)
+static errc_t _aLoadLine(BKVParser& parser, ReportLine& line)
 {
     BKVItemView item;
     while (true)
@@ -370,7 +370,7 @@ static errc_t _aLoadLine(BKVParser& parser, DataLine& line)
 
 // ---- Element 块 ----
 
-static errc_t _aLoadElement(BKVParser& parser, DataElement& element)
+static errc_t _aLoadElement(BKVParser& parser, ReportElement& element)
 {
     BKVItemView item;
     while (true)
@@ -457,7 +457,7 @@ static errc_t _aLoadElement(BKVParser& parser, DataElement& element)
 
 // ---- Units 块 ----
 
-static errc_t _aLoadUnits(BKVParser& parser, DataUnits& units)
+static errc_t _aLoadUnits(BKVParser& parser, ReportUnits& units)
 {
     BKVItemView item;
     while (true)
@@ -567,7 +567,7 @@ static errc_t _aLoadUnits(BKVParser& parser, DataUnits& units)
 // ---- 公开接口 ----
 
 /// @brief 从文件路径加载报表样式
-errc_t aLoadReportStyle(StringView filepath, DataReport& report)
+errc_t aLoadReportStyle(StringView filepath, ReportStyle& report)
 {
     BKVParser parser(filepath);
     if (!parser.isOpen())
@@ -598,7 +598,7 @@ errc_t aLoadReportStyle(StringView filepath, DataReport& report)
 }
 
 /// @brief 从已打开的 BKVParser 加载报表样式
-errc_t aLoadReportStyle(BKVParser& parser, DataReport& report)
+errc_t aLoadReportStyle(BKVParser& parser, ReportStyle& report)
 {
     BKVItemView item;
     while (true)

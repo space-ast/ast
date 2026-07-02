@@ -1,7 +1,7 @@
 ///
-/// @file      DataElement.hpp
+/// @file      ReportElement.hpp
 /// @brief     报表数据元素定义
-/// @details   定义报表中的数据元素（DataElement）和单位（DataUnits）类型，
+/// @details   定义报表中的数据元素（ReportElement）和单位（ReportUnits）类型，
 ///            对应 ReportStyle 文件中的 Element 和 Units 块。
 /// @author    axel
 /// @date      2026-07-02
@@ -92,7 +92,7 @@ enum class EExpandMethod : int
 /// @brief 报表数据元素中的单位定义
 /// @details 对应 ReportStyle 文件中 Element 内嵌的 Units 块。
 ///          所有字段均为可选，空字符串表示使用场景默认单位。
-struct AST_REPORT_API DataUnits
+struct AST_REPORT_API ReportUnits
 {
     std::string distanceUnit_;
     std::string timeUnit_;
@@ -140,7 +140,7 @@ struct AST_REPORT_API DataUnits
 /// @brief 报表数据元素
 /// @details 对应 ReportStyle 文件中 Section/Line 内的 Element 块，
 ///          描述单个数据列（表格报告）或数据序列（图形样式）的属性和数据来源。
-class AST_REPORT_API DataElement
+class AST_REPORT_API ReportElement
 {
 public:
     // ---- 标识 ----
@@ -182,7 +182,7 @@ public:
     // ---- 其他 ----
     int  propMask_     = 0;
     bool useScenUnits_ = true;   ///< 是否使用场景单位（No 时启用自定义 units_）
-    DataUnits units_;            ///< 自定义单位（仅当 useScenUnits_ == false 时有效）
+    ReportUnits units_;            ///< 自定义单位（仅当 useScenUnits_ == false 时有效）
 };
 
 /*! @} */
