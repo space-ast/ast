@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcFrameRelated_8cpp.html":[4,0,0,7,7,1,0,0,2],
+"ScStateCalcFrameRelated_8hpp.html":[4,0,0,7,7,1,0,0,3],
+"ScStateCalcFrameRelated_8hpp_source.html":[4,0,0,7,7,1,0,0,3],
 "ScStateCalcFuelMass_8cpp.html":[4,0,0,7,7,1,0,15,46],
 "ScStateCalcFuelMass_8hpp.html":[4,0,0,7,7,1,0,15,47],
 "ScStateCalcFuelMass_8hpp_source.html":[4,0,0,7,7,1,0,15,47],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcRightAscension_8cpp.html":[4,0,0,7,7,1,0,15,170],
 "ScStateCalcRightAscension_8hpp.html":[4,0,0,7,7,1,0,15,171],
 "ScStateCalcRightAscension_8hpp_source.html":[4,0,0,7,7,1,0,15,171],
-"ScStateCalcSEETMagFieldFieldLineSepAngle_8cpp.html":[4,0,0,7,7,1,0,15,174],
-"ScStateCalcSEETMagFieldFieldLineSepAngle_8hpp.html":[4,0,0,7,7,1,0,15,175],
-"ScStateCalcSEETMagFieldFieldLineSepAngle_8hpp_source.html":[4,0,0,7,7,1,0,15,175],
-"ScStateCalcSEETSAAFlux_8cpp.html":[4,0,0,7,7,1,0,15,176]
+"ScStateCalcSEETMagFieldFieldLineSepAngle_8cpp.html":[4,0,0,7,7,1,0,15,174]
 };

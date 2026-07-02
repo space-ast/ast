@@ -10,7 +10,7 @@ var searchData=
   ['second_5f_7',['second_',['../classast_1_1Time.html#a22cecce12e0d43b36797b1b691fb7721',1,'ast::Time']]],
   ['secularvariations_5f_8',['secularVariations_',['../classast_1_1GravityField.html#a46b930560380307e591baa7368ff43d0',1,'ast::GravityField']]],
   ['semimajoraxis_5f_9',['semimajorAxis_',['../classast_1_1SimpleOrbitDesigner.html#a6e57d80dcb3500400d1d9444c7c6a7fa',1,'ast::SimpleOrbitDesigner']]],
-  ['service_5f_10',['service_',['../classast_1_1DataElement.html#a81ac85f096c1aa30346198db749d9042',1,'ast::DataElement']]],
+  ['service_5f_10',['service_',['../classast_1_1ReportElement.html#a6b1ec998afa9bd175e449e9d3cd37e27',1,'ast::ReportElement']]],
   ['shadowmodel_5f_11',['shadowModel_',['../classast_1_1SolarRadiationPressure.html#ae6e3c1d878756f6b8e8b47613e6ca0e8',1,'ast::SolarRadiationPressure']]],
   ['shapetype_5f_12',['shapeType_',['../classast_1_1StateKeplerian.html#a666a7f30b5225199af10ea2d96af3095',1,'ast::StateKeplerian']]],
   ['showcomponents_13',['showComponents',['../structast_1_1TreeBuildOptions.html#ab92ec522a917a51ee2a0611804f0349c',1,'ast::TreeBuildOptions']]],

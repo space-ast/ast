@@ -2,7 +2,7 @@ var searchData=
 [
   ['b1900_0',['b1900',['../group__Spice.html#ga840c1478e8c535f6105c0c16a048190c',1,'ast']]],
   ['b1950_1',['b1950',['../group__Spice.html#ga1c965afa318862a1d267f929c0803a38',1,'ast']]],
-  ['backgroundcolor_5f_2',['backgroundColor_',['../classast_1_1DataReport.html#a68e3e67bf0f046b3952c2ff84bf81c55',1,'ast::DataReport']]],
+  ['backgroundcolor_5f_2',['backgroundColor_',['../classast_1_1ReportStyle.html#a73aee70b243f83bd07617c037458f30d',1,'ast::ReportStyle']]],
   ['backtrace_3',['BackTrace',['../classast_1_1BackTrace.html',1,'ast']]],
   ['backtrace_2ehpp_4',['BackTrace.hpp',['../BackTrace_8hpp.html',1,'']]],
   ['backupcount_5',['backupCount',['../structast_1_1DataUpdater_1_1DataFileEntry.html#aa27836300fcf0fe5c86d5798802d76d2',1,'ast::DataUpdater::DataFileEntry']]],

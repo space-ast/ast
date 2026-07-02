@@ -728,7 +728,7 @@ var searchData=
   ['serializerfactory_725',['SerializerFactory',['../classast_1_1SerializerFactory.html',1,'ast']]],
   ['serializerfactory_2ecpp_726',['SerializerFactory.cpp',['../SerializerFactory_8cpp.html',1,'']]],
   ['serializerfactory_2ehpp_727',['SerializerFactory.hpp',['../SerializerFactory_8hpp.html',1,'']]],
-  ['service_5f_728',['service_',['../classast_1_1DataElement.html#a81ac85f096c1aa30346198db749d9042',1,'ast::DataElement']]],
+  ['service_5f_728',['service_',['../classast_1_1ReportElement.html#a6b1ec998afa9bd175e449e9d3cd37e27',1,'ast::ReportElement']]],
   ['session_729',['session',['../classast_1_1UiChatMainWidget.html#a4cf215bcfcd88f44eccc13b107776a4e',1,'ast::UiChatMainWidget::session()'],['../classast_1_1UiChatPanel.html#aa7729f1315d4f01452fb27f890324114',1,'ast::UiChatPanel::session()'],['../classast_1_1PilotSession.html#a7a219a41540c3da62806718a29233c67',1,'ast::PilotSession::session()']]],
   ['setabstol_730',['setAbsTol',['../classast_1_1UnarySolver.html#aff655ba2415cd81bde896134a6de1ba0',1,'ast::UnarySolver']]],
   ['setagent_731',['setAgent',['../classast_1_1ChatSession.html#a79d7c1e5e3fcf6874305504691d3daba',1,'ast::ChatSession']]],

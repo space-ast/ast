@@ -1,5 +1,8 @@
 var NAVTREEINDEX13 =
 {
+"Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6ab35c8b56ebeeb5ba38c4738b255e5045":[4,0,0,28,8,14,1,3],
+"Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6afc1562897d7a104314be6e7d2cdc8696":[4,0,0,28,8,14,1,0],
+"Serializer_8hpp_source.html":[4,0,0,28,8,14],
 "Ship_8cpp.html":[4,0,0,20,3,54],
 "Ship_8hpp.html":[4,0,0,20,3,55],
 "Ship_8hpp_source.html":[4,0,0,20,3,55],
@@ -246,8 +249,5 @@ var NAVTREEINDEX13 =
 "SunPosition_8cpp.html":[4,0,0,7,10,12],
 "SunPosition_8hpp.html":[4,0,0,7,10,13],
 "SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055":[4,0,0,7,10,13,0],
-"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a0d8db97ecea9e6f09617cc60746e1c01":[4,0,0,7,10,13,0,1],
-"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a993c607f86d04aaa19681df339689592":[4,0,0,7,10,13,0,0],
-"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055ac4b72ddf63a9b2b2bca0c2bcc02842c8":[4,0,0,7,10,13,0,2],
-"SunPosition_8hpp_source.html":[4,0,0,7,10,13]
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a0d8db97ecea9e6f09617cc60746e1c01":[4,0,0,7,10,13,0,1]
 };

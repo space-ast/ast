@@ -91,7 +91,7 @@ var searchData=
   ['class_2ehpp_88',['Class.hpp',['../Class_8hpp.html',1,'']]],
   ['classification_5f_89',['classification_',['../classast_1_1TwoLineElement.html#afaf3e113768134d8c15ea2a3a15b9f80',1,'ast::TwoLineElement']]],
   ['classjsonschemastr_90',['classJsonSchemaStr',['../classast_1_1WasmRuntimeProtocol.html#afba6dfb7ce3e38550efde55deff70a08',1,'ast::WasmRuntimeProtocol']]],
-  ['classname_5f_91',['className_',['../classast_1_1DataReport.html#adb92e525d5775eb06133b95171fcf068',1,'ast::DataReport::className_'],['../classast_1_1DataSection.html#aaf5bdbe27575de85327ad2bfbdfb5826',1,'ast::DataSection::className_']]],
+  ['classname_5f_91',['className_',['../classast_1_1ReportSection.html#a9f0e91b9be924b903260979190b83ba9',1,'ast::ReportSection::className_'],['../classast_1_1ReportStyle.html#aed1ecb2780ecf4d19179a6d44851cc2b',1,'ast::ReportStyle::className_']]],
   ['classregistry_92',['ClassRegistry',['../classast_1_1ClassRegistry.html',1,'ast']]],
   ['classregistry_2ecpp_93',['ClassRegistry.cpp',['../ClassRegistry_8cpp.html',1,'']]],
   ['classregistry_2ehpp_94',['ClassRegistry.hpp',['../ClassRegistry_8hpp.html',1,'']]],

@@ -7,7 +7,7 @@ var searchData=
   ['eclipsingbodies_5f_4',['eclipsingBodies_',['../classast_1_1SolarRadiationPressure.html#a6b5dcc609cd0dbaa7a52a2247e91ceeb',1,'ast::SolarRadiationPressure']]],
   ['eclipt_5',['eclipt',['../structast_1_1DTM2012_1_1Impl.html#acea1d83de731c25706529797beb07b8c',1,'ast::DTM2012::Impl']]],
   ['elapsedtime_5f_6',['elapsedTime_',['../classast_1_1SimTime.html#a4789315b6db8c9cafeb5cf8abadd8081',1,'ast::SimTime']]],
-  ['element_5f_7',['element_',['../classast_1_1DataElement.html#a859c0f25a8ef03a848f71729357dcdca',1,'ast::DataElement']]],
+  ['element_5f_7',['element_',['../classast_1_1ReportElement.html#a73a387e6c92176aaea355cc64c377126',1,'ast::ReportElement']]],
   ['elementnumber_5f_8',['elementNumber_',['../classast_1_1TwoLineElement.html#aa3f9fdd199e7a9eb799ca400f981b0fa',1,'ast::TwoLineElement']]],
   ['elements_9',['elements',['../structast_1_1DAF__ElementRecords.html#acd52bdf5b2c30f437e789becaa2e186e',1,'ast::DAF_ElementRecords']]],
   ['elements_5f_10',['elements_',['../classast_1_1MotionSGP4.html#a89fa49eb62ed3e4020c8f2241b4c8aba',1,'ast::MotionSGP4']]],
@@ -27,6 +27,6 @@ var searchData=
   ['errortolerance_5f_24',['errorTolerance_',['../classast_1_1MotionHPOPSax.html#a779e4188e1adbf25fa2b09820a9a8810',1,'ast::MotionHPOPSax']]],
   ['errstring_5f_25',['errString_',['../classast_1_1Interpreter.html#a5d7a5b673c762bf5dc91fd1b79005167',1,'ast::Interpreter']]],
   ['eventdetectorlist_5f_26',['eventDetectorList_',['../classast_1_1ODEIntegrator.html#ad03353fdea45aa002356a2659684e7e7',1,'ast::ODEIntegrator']]],
-  ['expandmethod_5f_27',['expandMethod_',['../classast_1_1DataSection.html#a472401c1755d2f7c6e706b319734b473',1,'ast::DataSection']]],
+  ['expandmethod_5f_27',['expandMethod_',['../classast_1_1ReportSection.html#a6c115b416c9dadc248b2606e7cf8a394',1,'ast::ReportSection']]],
   ['expr_5f_28',['expr_',['../classast_1_1OpUnary.html#adb8d60139a47699215f9219ba4b83532',1,'ast::OpUnary::expr_'],['../classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4',1,'ast::Variable::expr_']]]
 ];

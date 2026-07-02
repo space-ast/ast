@@ -1,5 +1,8 @@
 var NAVTREEINDEX15 =
 {
+"UiEventDetectorList_8hpp.html":[4,0,0,11,11,1],
+"UiEventDetectorList_8hpp_source.html":[4,0,0,11,11,1],
+"UiEventDetector_8cpp.html":[4,0,0,11,9,4],
 "UiEventDetector_8hpp.html":[4,0,0,11,9,5],
 "UiEventDetector_8hpp_source.html":[4,0,0,11,9,5],
 "UiEventInterval_8cpp.html":[4,0,0,11,4,8],
@@ -246,8 +249,5 @@ var NAVTREEINDEX15 =
 "VBScript_8cpp.html":[4,0,0,19,3,12],
 "VBScript_8hpp.html":[4,0,0,19,3,13],
 "VBScript_8hpp_source.html":[4,0,0,19,3,13],
-"ValArray_8cpp.html":[4,0,0,19,9,0],
-"ValArray_8hpp.html":[4,0,0,19,9,1],
-"ValArray_8hpp_source.html":[4,0,0,19,9,1],
-"ValBool_8cpp.html":[4,0,0,19,9,2]
+"ValArray_8cpp.html":[4,0,0,19,9,0]
 };

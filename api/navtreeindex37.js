@@ -1,5 +1,8 @@
 var NAVTREEINDEX37 =
 {
+"classast_1_1ScStateCalcLongPeriapsis.html":[2,0,0,668],
+"classast_1_1ScStateCalcLongPeriapsis.html":[3,0,0,667],
+"classast_1_1ScStateCalcLongitude.html":[2,0,0,666],
 "classast_1_1ScStateCalcLongitude.html":[3,0,0,665],
 "classast_1_1ScStateCalcLongitudeRate.html":[2,0,0,667],
 "classast_1_1ScStateCalcLongitudeRate.html":[3,0,0,666],
@@ -246,8 +249,5 @@ var NAVTREEINDEX37 =
 "classast_1_1Scenario.html#a474f54cc0d76278131c3202c558c681c":[2,0,0,566,4],
 "classast_1_1Scenario.html#a474f54cc0d76278131c3202c558c681c":[3,0,0,565,4],
 "classast_1_1Scenario.html#a54e4e3433a2044bc7372db4ebffe2404":[2,0,0,566,1],
-"classast_1_1Scenario.html#a54e4e3433a2044bc7372db4ebffe2404":[3,0,0,565,1],
-"classast_1_1Scenario.html#a5c50d997d7f136227e0698c2f2fe938d":[2,0,0,566,6],
-"classast_1_1Scenario.html#a5c50d997d7f136227e0698c2f2fe938d":[3,0,0,565,6],
-"classast_1_1Scenario.html#a5d6565f06b6be9db2a2c40316764e1d2":[2,0,0,566,12]
+"classast_1_1Scenario.html#a54e4e3433a2044bc7372db4ebffe2404":[3,0,0,565,1]
 };

@@ -1,17 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"MSISE90_8cpp.html":[4,0,0,7,1,14],
-"MSISE90_8hpp.html":[4,0,0,7,1,15],
-"MSISE90_8hpp_source.html":[4,0,0,7,1,15],
-"MSIS__Vers_8h_source.html":[4,0,0,30,0,3,0],
-"MTOLoader_8cpp.html":[4,0,0,12,5,36],
-"MTOLoader_8cpp.html#a31d4ec5ea65fae28ce30fa97319ad52e":[4,0,0,12,5,36,0],
-"MTOLoader_8hpp.html":[4,0,0,12,5,37],
-"MTOLoader_8hpp.html#a31d4ec5ea65fae28ce30fa97319ad52e":[4,0,0,12,5,37,0],
-"MTOLoader_8hpp_source.html":[4,0,0,12,5,37],
-"MTO_8cpp.html":[4,0,0,20,3,38],
-"MTO_8hpp.html":[4,0,0,20,3,39],
-"MTO_8hpp_source.html":[4,0,0,20,3,39],
 "Macro_8hpp.html":[4,0,0,19,6,0],
 "Macro_8hpp_source.html":[4,0,0,19,6,0],
 "Magnetosphere_8cpp.html":[4,0,0,30,2,4],
@@ -249,5 +237,17 @@ var NAVTREEINDEX7 =
 "NetworkImplWinHTTP_8hpp_source.html":[4,0,0,28,3,0,2],
 "NetworkImplWinINet_8cpp.html":[4,0,0,28,3,0,3],
 "NetworkImplWinINet_8hpp.html":[4,0,0,28,3,0,4],
-"NetworkImplWinINet_8hpp_source.html":[4,0,0,28,3,0,4]
+"NetworkImplWinINet_8hpp_source.html":[4,0,0,28,3,0,4],
+"NetworkInterface_8cpp.html":[4,0,0,28,3,6],
+"NetworkInterface_8hpp.html":[4,0,0,28,3,7],
+"NetworkInterface_8hpp_source.html":[4,0,0,28,3,7],
+"NetworkRequest_8cpp.html":[4,0,0,28,3,8],
+"NetworkRequest_8hpp.html":[4,0,0,28,3,9],
+"NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3f":[4,0,0,28,3,9,1],
+"NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa1929dcb2c6bd4267ec3fb10a33e0ec8e":[4,0,0,28,3,9,1,7],
+"NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa5587bfd7e57adbb7650fba14793c9a6b":[4,0,0,28,3,9,1,0],
+"NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa64c3acc11ffdb1be30ea339290bd1508":[4,0,0,28,3,9,1,9],
+"NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa80489e06dd23509fc45d4dea235b175e":[4,0,0,28,3,9,1,1],
+"NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa884fd8777b228c63388fd108895217bf":[4,0,0,28,3,9,1,6],
+"NetworkRequest_8hpp.html#afda769e799815f9e238fec24fb39ee3fa92e5778ba7e95d2174375c5eec10bdd3":[4,0,0,28,3,9,1,8]
 };

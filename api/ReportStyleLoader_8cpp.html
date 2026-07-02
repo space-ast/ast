@@ -106,7 +106,7 @@ $(function(){initNavTree('ReportStyleLoader_8cpp.html',''); initResizable(true);
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ReportStyleLoader_8hpp_source.html">ReportStyleLoader.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="CommonlyUsedHeaders_8hpp_source.html">CommonlyUsedHeaders.hpp</a>&quot;</code><br />
-<code>#include &quot;AstReport/DataReport.hpp&quot;</code><br />
+<code>#include &quot;AstReport/ReportStyle.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ParseFormat.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -116,14 +116,14 @@ $(function(){initNavTree('ReportStyleLoader_8cpp.html',''); initResizable(true);
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ga943a0724d42c6e0501cfcedcf06b6112" id="r_ga943a0724d42c6e0501cfcedcf06b6112"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__AstLoader.html#ga943a0724d42c6e0501cfcedcf06b6112">ast::aLoadReportStyle</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1DataReport.html">DataReport</a> &amp;report)</td></tr>
-<tr class="separator:ga943a0724d42c6e0501cfcedcf06b6112"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadddcecafa0cd482ef790706aef39934a" id="r_gadddcecafa0cd482ef790706aef39934a"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__AstLoader.html#gadddcecafa0cd482ef790706aef39934a">ast::aLoadReportStyle</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1DataReport.html">DataReport</a> &amp;report)</td></tr>
-<tr class="separator:gadddcecafa0cd482ef790706aef39934a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c9939a512be49d91d5b359871ecf2e8" id="r_ga8c9939a512be49d91d5b359871ecf2e8"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__AstLoader.html#ga8c9939a512be49d91d5b359871ecf2e8">ast::aLoadReportStyle</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;report)</td></tr>
+<tr class="separator:ga8c9939a512be49d91d5b359871ecf2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c556da93483ebd3b68fc2494c787302" id="r_ga0c556da93483ebd3b68fc2494c787302"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__AstLoader.html#ga0c556da93483ebd3b68fc2494c787302">ast::aLoadReportStyle</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;report)</td></tr>
+<tr class="separator:ga0c556da93483ebd3b68fc2494c787302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>报表样式加载器实现 </p>
-<p>使用 BKVParser 解析 ReportStyle 文件（.rst/.rsg）， 将解析结果填充到 DataReport 结构中。 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<p>使用 BKVParser 解析 ReportStyle 文件（.rst/.rsg）， 将解析结果填充到 ReportStyle 结构中。 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
 <dl class="section date"><dt>日期</dt><dd>2026-07-02 </dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, SpaceAST项目.</dd></dl>
 <p>SpaceAST项目（https://github.com/space-ast/ast） 本软件基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>

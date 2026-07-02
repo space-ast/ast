@@ -169,13 +169,8 @@ var hierarchy =
     [ "ast::DAF_SPKSummaryRecords", "structast_1_1DAF__SPKSummaryRecords.html", null ],
     [ "ast::DAF_SummaryRecords", "structast_1_1DAF__SummaryRecords.html", null ],
     [ "ast::DataContext", "classast_1_1DataContext.html", null ],
-    [ "ast::DataElement", "classast_1_1DataElement.html", null ],
     [ "ast::DataUpdater::DataFileEntry", "structast_1_1DataUpdater_1_1DataFileEntry.html", null ],
-    [ "ast::DataLine", "classast_1_1DataLine.html", null ],
     [ "ast::DataPort", "classast_1_1DataPort.html", null ],
-    [ "ast::DataReport", "classast_1_1DataReport.html", null ],
-    [ "ast::DataSection", "classast_1_1DataSection.html", null ],
-    [ "ast::DataUnits", "structast_1_1DataUnits.html", null ],
     [ "ast::DataUpdater", "classast_1_1DataUpdater.html", null ],
     [ "ast::Date", "classast_1_1Date.html", null ],
     [ "ast::DateTime", "classast_1_1DateTime.html", null ],
@@ -1226,6 +1221,11 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "ast::ReportElement", "classast_1_1ReportElement.html", null ],
+    [ "ast::ReportLine", "classast_1_1ReportLine.html", null ],
+    [ "ast::ReportSection", "classast_1_1ReportSection.html", null ],
+    [ "ast::ReportStyle", "classast_1_1ReportStyle.html", null ],
+    [ "ast::ReportUnits", "structast_1_1ReportUnits.html", null ],
     [ "ast::Rotation", "classast_1_1Rotation.html", [
       [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ]
     ] ],

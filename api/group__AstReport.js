@@ -1,34 +1,34 @@
 var group__AstReport =
 [
-    [ "ast::DataUnits", "structast_1_1DataUnits.html", null ],
-    [ "ast::DataElement", "classast_1_1DataElement.html", [
-      [ "dataType_", "classast_1_1DataElement.html#aab50643b8d7d5776c3cf67a666e2af7b", null ],
-      [ "element_", "classast_1_1DataElement.html#a859c0f25a8ef03a848f71729357dcdca", null ],
-      [ "format_", "classast_1_1DataElement.html#a5000f16e5e907a1a63adf484e9fe77be", null ],
-      [ "indepVarName_", "classast_1_1DataElement.html#a6c1aeafa8efe4d66f78745a439ac6fbd", null ],
-      [ "isIndepVar_", "classast_1_1DataElement.html#a6f42208dc14af8b656f836ad15fa2f75", null ],
-      [ "name_", "classast_1_1DataElement.html#a35872b7da628b1759b35bed3008457ab", null ],
-      [ "service_", "classast_1_1DataElement.html#a81ac85f096c1aa30346198db749d9042", null ],
-      [ "title_", "classast_1_1DataElement.html#a115d359cfae2c2e391e9c9d7ea9f7df7", null ],
-      [ "type_", "classast_1_1DataElement.html#a58af004f829601ea2838f581d917fbd6", null ],
-      [ "units_", "classast_1_1DataElement.html#a4ee2c936aabf8e15522f7428a859b33a", null ],
-      [ "unitType_", "classast_1_1DataElement.html#a7a549b7666db26b8a186e5ff770ae786", null ],
-      [ "useScenUnits_", "classast_1_1DataElement.html#af25a9404208dd568cd90dfb76843cadd", null ]
+    [ "ast::ReportUnits", "structast_1_1ReportUnits.html", null ],
+    [ "ast::ReportElement", "classast_1_1ReportElement.html", [
+      [ "dataType_", "classast_1_1ReportElement.html#aa7bbde0aed324ee0ec880a77e1c8fed1", null ],
+      [ "element_", "classast_1_1ReportElement.html#a73a387e6c92176aaea355cc64c377126", null ],
+      [ "format_", "classast_1_1ReportElement.html#a9925a7692f061906f45996e5ddf0bf21", null ],
+      [ "indepVarName_", "classast_1_1ReportElement.html#a031fbaa431e6e2e11bd06d4d7b48d3b0", null ],
+      [ "isIndepVar_", "classast_1_1ReportElement.html#a20731f62614f1466b9f4a32efe8c333a", null ],
+      [ "name_", "classast_1_1ReportElement.html#a22f2ee4cb0109fb0633ae8369eb006b5", null ],
+      [ "service_", "classast_1_1ReportElement.html#a6b1ec998afa9bd175e449e9d3cd37e27", null ],
+      [ "title_", "classast_1_1ReportElement.html#ad5fa11d638d15e7670616808f7d6a386", null ],
+      [ "type_", "classast_1_1ReportElement.html#a2f76c07ddfba438bfb1f83982dd22c7f", null ],
+      [ "units_", "classast_1_1ReportElement.html#a00df29adb14e659dc5727713f8a659d1", null ],
+      [ "unitType_", "classast_1_1ReportElement.html#a9af7d2b94c9577c6889f065de32b2c93", null ],
+      [ "useScenUnits_", "classast_1_1ReportElement.html#abbaac084933f4984e97809d64d7bf7cc", null ]
     ] ],
-    [ "ast::DataLine", "classast_1_1DataLine.html", [
-      [ "name_", "classast_1_1DataLine.html#a4fc8d571bf41eb3972571a7692760336", null ],
-      [ "title_", "classast_1_1DataLine.html#acbaa68972f4742065dcc75459ea223ad", null ]
+    [ "ast::ReportLine", "classast_1_1ReportLine.html", [
+      [ "name_", "classast_1_1ReportLine.html#a95c1533ab1787f95478bbc13286bf6f5", null ],
+      [ "title_", "classast_1_1ReportLine.html#a5b8806530e7375ce99604273ce0be65f", null ]
     ] ],
-    [ "ast::DataReport", "classast_1_1DataReport.html", [
-      [ "backgroundColor_", "classast_1_1DataReport.html#a68e3e67bf0f046b3952c2ff84bf81c55", null ],
-      [ "className_", "classast_1_1DataReport.html#adb92e525d5775eb06133b95171fcf068", null ],
-      [ "name_", "classast_1_1DataReport.html#a38c632b06109a4d46fa7fe8f47ddade5", null ],
-      [ "title_", "classast_1_1DataReport.html#a47899cc767a257c9064ebb3a61ba1076", null ]
+    [ "ast::ReportSection", "classast_1_1ReportSection.html", [
+      [ "className_", "classast_1_1ReportSection.html#a9f0e91b9be924b903260979190b83ba9", null ],
+      [ "expandMethod_", "classast_1_1ReportSection.html#a6c115b416c9dadc248b2606e7cf8a394", null ],
+      [ "name_", "classast_1_1ReportSection.html#a754c133f471fdf043a773b4188812695", null ]
     ] ],
-    [ "ast::DataSection", "classast_1_1DataSection.html", [
-      [ "className_", "classast_1_1DataSection.html#aaf5bdbe27575de85327ad2bfbdfb5826", null ],
-      [ "expandMethod_", "classast_1_1DataSection.html#a472401c1755d2f7c6e706b319734b473", null ],
-      [ "name_", "classast_1_1DataSection.html#a1dcc1a1210f6cce65cec57e5184092ea", null ]
+    [ "ast::ReportStyle", "classast_1_1ReportStyle.html", [
+      [ "backgroundColor_", "classast_1_1ReportStyle.html#a73aee70b243f83bd07617c037458f30d", null ],
+      [ "className_", "classast_1_1ReportStyle.html#aed1ecb2780ecf4d19179a6d44851cc2b", null ],
+      [ "name_", "classast_1_1ReportStyle.html#ab95255946d2db8b4c4874e4a141cb965", null ],
+      [ "title_", "classast_1_1ReportStyle.html#adbac9b3d4c90ca5d35a75307c0d74710", null ]
     ] ],
     [ "ast::EDataType", "group__AstReport.html#ga64b97b96596ad9c168c928e97cf07395", null ],
     [ "ast::EExpandMethod", "group__AstReport.html#ga9c5e3a291abba7aa635c81b30cddd90b", null ],
@@ -45,5 +45,6 @@ var group__AstReport =
       [ "ast::EStyleType::eGraph2D", "group__AstReport.html#gga87334cd2f848ef4c75290166d5612b39a5afcadf51254a6f9cd9914d3f1831c73", null ],
       [ "ast::EStyleType::eFixed", "group__AstReport.html#gga87334cd2f848ef4c75290166d5612b39a2eec4822798fb8c96b4fd915bf11836c", null ],
       [ "ast::EStyleType::eGraph3D", "group__AstReport.html#gga87334cd2f848ef4c75290166d5612b39aa12bab28adae5c2d7f2e1d5059afe608", null ]
-    ] ]
+    ] ],
+    [ "ast::aWriteReport", "group__AstReport.html#ga357e2b73403629388140a7ff7ff002bf", null ]
 ];

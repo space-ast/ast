@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcSEETMagFieldFieldLineSepAngle_8hpp.html":[4,0,0,7,7,1,0,15,175],
+"ScStateCalcSEETMagFieldFieldLineSepAngle_8hpp_source.html":[4,0,0,7,7,1,0,15,175],
+"ScStateCalcSEETSAAFlux_8cpp.html":[4,0,0,7,7,1,0,15,176],
 "ScStateCalcSEETSAAFlux_8hpp.html":[4,0,0,7,7,1,0,15,177],
 "ScStateCalcSEETSAAFlux_8hpp_source.html":[4,0,0,7,7,1,0,15,177],
 "ScStateCalcSRPArea_8cpp.html":[4,0,0,7,7,1,0,15,196],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6":[4,0,0,28,8,14,1],
 "Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6a0d58232a9f7accac3393a7553c31083c":[4,0,0,28,8,14,1,2],
 "Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6a396fd0c3b77fbe85c1bd262ef45153d4":[4,0,0,28,8,14,1,4],
-"Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6a4d8376840c388f8fac5b6ca6ddca20ec":[4,0,0,28,8,14,1,1],
-"Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6ab35c8b56ebeeb5ba38c4738b255e5045":[4,0,0,28,8,14,1,3],
-"Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6afc1562897d7a104314be6e7d2cdc8696":[4,0,0,28,8,14,1,0],
-"Serializer_8hpp_source.html":[4,0,0,28,8,14]
+"Serializer_8hpp.html#ad3df7d208f12b9eacec0be8f0c0ef9a6a4d8376840c388f8fac5b6ca6ddca20ec":[4,0,0,28,8,14,1,1]
 };

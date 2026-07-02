@@ -1,5 +1,8 @@
 var NAVTREEINDEX14 =
 {
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a993c607f86d04aaa19681df339689592":[4,0,0,7,10,13,0,0],
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055ac4b72ddf63a9b2b2bca0c2bcc02842c8":[4,0,0,7,10,13,0,2],
+"SunPosition_8hpp_source.html":[4,0,0,7,10,13],
 "SunSynchronousOrbitDesigner_8cpp.html":[4,0,0,7,7,4,21],
 "SunSynchronousOrbitDesigner_8hpp.html":[4,0,0,7,7,4,22],
 "SunSynchronousOrbitDesigner_8hpp_source.html":[4,0,0,7,7,4,22],
@@ -246,8 +249,5 @@ var NAVTREEINDEX14 =
 "UiEventDetectorEditor_8cpp.html":[4,0,0,11,9,6],
 "UiEventDetectorEditor_8hpp.html":[4,0,0,11,9,7],
 "UiEventDetectorEditor_8hpp_source.html":[4,0,0,11,9,7],
-"UiEventDetectorList_8cpp.html":[4,0,0,11,11,0],
-"UiEventDetectorList_8hpp.html":[4,0,0,11,11,1],
-"UiEventDetectorList_8hpp_source.html":[4,0,0,11,11,1],
-"UiEventDetector_8cpp.html":[4,0,0,11,9,4]
+"UiEventDetectorList_8cpp.html":[4,0,0,11,11,0]
 };

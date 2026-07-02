@@ -7,7 +7,7 @@ var searchData=
   ['children_4',['children',['../structast_1_1WasmObjectInfo.html#a23a1817bb7d274a598fe35d075f5586a',1,'ast::WasmObjectInfo']]],
   ['children_5f_5',['children_',['../classast_1_1CommandTrie_1_1Node.html#a45bc8a82c9251e14f48166f1fd1b999a',1,'ast::CommandTrie::Node']]],
   ['classification_5f_6',['classification_',['../classast_1_1TwoLineElement.html#afaf3e113768134d8c15ea2a3a15b9f80',1,'ast::TwoLineElement']]],
-  ['classname_5f_7',['className_',['../classast_1_1DataReport.html#adb92e525d5775eb06133b95171fcf068',1,'ast::DataReport::className_'],['../classast_1_1DataSection.html#aaf5bdbe27575de85327ad2bfbdfb5826',1,'ast::DataSection::className_']]],
+  ['classname_5f_7',['className_',['../classast_1_1ReportSection.html#a9f0e91b9be924b903260979190b83ba9',1,'ast::ReportSection::className_'],['../classast_1_1ReportStyle.html#aed1ecb2780ecf4d19179a6d44851cc2b',1,'ast::ReportStyle::className_']]],
   ['cm_8',['cm',['../Unit_8cpp.html#a303e4126abedb9af71391110b791f9ce',1,'ast::units']]],
   ['coeff_5f_9',['coeff_',['../classast_1_1GravityFieldLoader.html#a612f301ad2a075b814daf792fca7a4d7',1,'ast::GravityFieldLoader']]],
   ['commands_5f_10',['commands_',['../classast_1_1SegmentGraph.html#a0fb1b41a7b3dfa6d0de2fe56f08925ef',1,'ast::SegmentGraph']]],

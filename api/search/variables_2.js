@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['backgroundcolor_5f_0',['backgroundColor_',['../classast_1_1DataReport.html#a68e3e67bf0f046b3952c2ff84bf81c55',1,'ast::DataReport']]],
+  ['backgroundcolor_5f_0',['backgroundColor_',['../classast_1_1ReportStyle.html#a73aee70b243f83bd07617c037458f30d',1,'ast::ReportStyle']]],
   ['backupcount_1',['backupCount',['../structast_1_1DataUpdater_1_1DataFileEntry.html#aa27836300fcf0fe5c86d5798802d76d2',1,'ast::DataUpdater::DataFileEntry']]],
   ['bind_5f_2',['bind_',['../classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6',1,'ast::Variable']]],
   ['block_3',['block',['../structast_1_1ExprIf_1_1ConditionBranch.html#a55ab8704a7d70be2ee498e964dc4cbfc',1,'ast::ExprIf::ConditionBranch']]],

@@ -4,7 +4,7 @@ var searchData=
   ['dat_1',['dat',['../structast_1_1EOP_1_1Entry.html#a6517b482b8f6b403fd3ab313ede9dca8',1,'ast::EOP::Entry']]],
   ['data_5f_2',['data_',['../classast_1_1LowerMatrix.html#a1c3ebaaf1d34451485c68ffd3fe29bd8',1,'ast::LowerMatrix::data_'],['../classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html#a67fb22197f1a01bf499e23f926eb5059',1,'ast::MatrixMN&lt; _Scalar, 3, 3 &gt;::data_'],['../classast_1_1ValArray.html#a23b7d75dffbb7227d2ad5c90366cba49',1,'ast::ValArray::data_'],['../classast_1_1CorVector.html#a102f70342aad1debc88867576900006b',1,'ast::CorVector::data_']]],
   ['datadir_5f_3',['dataDir_',['../structast_1_1InitalizeConfig.html#a6eca3d591b561accceed3ff00d8093aa',1,'ast::InitalizeConfig']]],
-  ['datatype_5f_4',['dataType_',['../classast_1_1DataElement.html#aab50643b8d7d5776c3cf67a666e2af7b',1,'ast::DataElement']]],
+  ['datatype_5f_4',['dataType_',['../classast_1_1ReportElement.html#aa7bbde0aed324ee0ec880a77e1c8fed1',1,'ast::ReportElement']]],
   ['date_5f_5',['date_',['../classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4',1,'ast::DateTime']]],
   ['datmo_6',['datmo',['../structast_1_1DTM2012_1_1Impl.html#abe4b67a5b576d2c83f85b74c59fdd0a0',1,'ast::DTM2012::Impl']]],
   ['day_7',['day',['../Unit_8cpp.html#a46331518b0993f7058b537530ef94a33',1,'ast::units']]],

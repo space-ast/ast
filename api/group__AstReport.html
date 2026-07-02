@@ -100,7 +100,8 @@ $(function(){initNavTree('group__AstReport.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
-<a href="#enum-members">枚举</a>  </div>
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">AstReport</div></div>
 </div><!--header-->
 <div class="contents">
@@ -108,15 +109,15 @@ $(function(){initNavTree('group__AstReport.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1DataUnits.html">ast::DataUnits</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1ReportUnits.html">ast::ReportUnits</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DataElement.html">ast::DataElement</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ReportElement.html">ast::ReportElement</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DataLine.html">ast::DataLine</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ReportLine.html">ast::ReportLine</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DataReport.html">ast::DataReport</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ReportSection.html">ast::ReportSection</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DataSection.html">ast::DataSection</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ReportStyle.html">ast::ReportStyle</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -159,6 +160,11 @@ $(function(){initNavTree('group__AstReport.html',''); initResizable(true); });
 , <b>eSelected</b> = 2
  }</td></tr>
 <tr class="separator:ga9c5e3a291abba7aa635c81b30cddd90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga357e2b73403629388140a7ff7ff002bf" id="r_ga357e2b73403629388140a7ff7ff002bf"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga357e2b73403629388140a7ff7ff002bf">ast::aWriteReport</a> (const <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;report, const <a class="el" href="classast_1_1Object.html">Object</a> *object, FILE *file)</td></tr>
+<tr class="separator:ga357e2b73403629388140a7ff7ff002bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">枚举类型说明</h2>
 <a id="ga1b12362b746c96e6e241a11faad03424" name="ga1b12362b746c96e6e241a11faad03424"></a>
@@ -226,6 +232,44 @@ $(function(){initNavTree('group__AstReport.html',''); initResizable(true); });
 <tr><td class="fieldname"><a id="gga87334cd2f848ef4c75290166d5612b39aa12bab28adae5c2d7f2e1d5059afe608" name="gga87334cd2f848ef4c75290166d5612b39aa12bab28adae5c2d7f2e1d5059afe608"></a>eGraph3D&#160;</td><td class="fielddoc"><p>3D 图形 </p>
 </td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga357e2b73403629388140a7ff7ff002bf" name="ga357e2b73403629388140a7ff7ff002bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga357e2b73403629388140a7ff7ff002bf">&#9670;&#160;</a></span>aWriteReport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_REPORT_API errc_t ast::aWriteReport </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>report</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据报表模板生成对象的数据报告 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>输出流 </td></tr>
+    <tr><td class="paramname">report</td><td>报表模板定义（Section → Line → Element 结构） </td></tr>
+    <tr><td class="paramname">object</td><td>数据源对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 </div>
 </div>
