@@ -387,7 +387,6 @@
 %include "../AstCore/Geometry/Surface/BodyShape/BodyShape.hpp"
 %include "../AstCore/Orbit/Burn/Burn.hpp"
 %include "../AstCore/Orbit/Mission/Command.hpp"
-%include "../AstCore/Orbit/Mission/Profile/ScriptingToolTypes.hpp"
 %include "../AstCore/Orbit/Mission/Profile/TargeterGraph.hpp"
 %include "../AstCore/Propagator/EventDetector/EventDetector.hpp"
 %include "../AstCore/SolarSystem/Orientation/BodyOrientation.hpp"

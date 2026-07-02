@@ -1,0 +1,6 @@
+target("AstReport")
+    set_kind("shared")
+    add_files("**.cpp")
+    add_headerfiles("**.hpp", {prefixdir="AstReport"})
+    add_deps("AstUtil")
+    add_defines("AST_BUILD_LIB_REPORT")

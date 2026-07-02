@@ -462,7 +462,6 @@
 #include "AstCore/ScStateCalculation.hpp"
 #include "AstCore/ScopedPtr.hpp"
 #include "AstCore/ScriptingToolProfile.hpp"
-#include "AstCore/ScriptingToolTypes.hpp"
 #include "AstCore/Segment.hpp"
 #include "AstCore/SegmentCalculation.hpp"
 #include "AstCore/SegmentGraph.hpp"
