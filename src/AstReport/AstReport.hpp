@@ -1,5 +1,10 @@
 // AstReport 工程聚合头文件
+#include "AstReport/AstReportGlobal.hpp"
+#include "AstReport/DataElement.hpp"
+#include "AstReport/DataGroup.hpp"
+#include "AstReport/DataSeries.hpp"
 #include "AstReport/ReportElement.hpp"
 #include "AstReport/ReportLine.hpp"
-#include "AstReport/ReportStyle.hpp"
 #include "AstReport/ReportSection.hpp"
+#include "AstReport/ReportStyle.hpp"
+#include "AstReport/ReportWriter.hpp"

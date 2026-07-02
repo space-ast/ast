@@ -20,6 +20,7 @@
 
 #include "ReportWriter.hpp"
 #include "AstUtil/Object.hpp"
+#include "AstReport/DataSeries.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -59,6 +60,14 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
                 col.title = elem.title_.empty() ? elem.name_ : elem.title_;
                 col.width = std::max(static_cast<int>(col.title.size()), 12);
                 columns.push_back(col);
+
+                std::string service = elem.service_;
+                std::string type = elem.type_;
+                std::string element = elem.element_;
+
+                (void)service;
+                (void)type;
+                (void)element;
             }
         }
     }
