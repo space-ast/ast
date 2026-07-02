@@ -43,6 +43,20 @@
 AST_NAMESPACE_BEGIN
 
 
+errc_t aGetGravityParameter(const Body& body, StringView gravityModel, double& gm)
+{
+    GravityFieldHead gfHead;
+    errc_t err = gfHead.load(gravityModel, body.getDirpath());
+    if(err != eNoError){
+        aError("Failed to load gravity field head from file: '%.*s'", (int)gravityModel.size(), gravityModel.data());
+        gm = 0;
+        return err;
+    }
+    gm = gfHead.getGM();
+    return eNoError;
+}
+
+
 CelestialBody* CelestialBody::Resolve(StringView value)
 {
     (void)N_("SolarSystemBarycenter");
@@ -173,6 +187,9 @@ CelestialBody::CelestialBody(CelestialBody *parentBody)
 {
     parent_ = parentBody;
     this->setParentScope(parentBody);
+    if (parentBody) {
+        solarSystem_ = parentBody->getSolarSystem();
+    }
 }
 
 
@@ -245,6 +262,42 @@ errc_t CelestialBody::getPos(const TimePoint &tp, Vector3d &pos) const
 errc_t CelestialBody::getPosVel(const TimePoint &tp, Vector3d &pos, Vector3d &vel) const
 {
     return getPosVelICRF(tp, pos, vel);
+}
+
+BodyEphemeris* CelestialBody::getEphemeris(EEphemerisSource ephemerisSource) const
+{
+    switch(ephemerisSource){
+    case EEphemerisSource::eBodyEphemeris:
+        return ephemeris_.get();
+    case EEphemerisSource::eJplDE:
+    {
+        if(!ephemerisDE_)
+        {
+            ephemerisDE_ = new BodyEphemerisDE(const_cast<CelestialBody*>(this));
+        }
+        return ephemerisDE_.get();
+    }
+    case EEphemerisSource::eJplSpice:
+    {
+        if(!ephemerisSpice_)
+        {
+            ephemerisSpice_ = new BodyEphemerisSPK(const_cast<CelestialBody*>(this));
+        }
+        return ephemerisSpice_.get();
+    }
+    case EEphemerisSource::eJplSpiceBarycenter:
+    {
+        if(!ephemerisSpiceBarycenter_)
+        {
+            ESpiceId barycenterId = aGetPlanetBarycenterId(ESpiceId(this->jplSpiceId_));
+            ephemerisSpiceBarycenter_ = new BodyEphemerisSPK(barycenterId);
+        }
+        return ephemerisSpiceBarycenter_.get();
+    }
+    default:
+        aError("unsupported ephemeris source %d, defaulting to body ephemeris", (int)(ephemerisSource));
+        return ephemeris_.get();
+    }
 }
 
 Axes *CelestialBody::getAxes(StringView name) const
@@ -404,6 +457,17 @@ Axes *CelestialBody::getEpochAxesReference() const
     }else{
         return this->getAxesInertial();
     }
+}
+
+
+ESpiceId aGetPlanetBarycenterId(ESpiceId planetId)
+{
+    std::div_t result = std::div(planetId, 100);
+    if(result.rem == 99 && result.quot < 10)
+    {
+        return static_cast<ESpiceId>(result.quot);
+    }
+    return planetId;
 }
 
 AST_NAMESPACE_END

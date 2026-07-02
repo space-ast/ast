@@ -138,19 +138,10 @@ public:
     /// @retval             - 错误码
     errc_t		getLibration(
         const TimePoint& time,
-        Vector3d& ang,
-        Vector3d& angRate
+        Euler& ang,
+        Euler& angRate
     );
     
-    /// @brief  获取对应时间点的月球天平动角相关角度
-    /// @param  time        - 时间点
-    /// @param  ang         - 从ICRF到月球惯性主轴坐标系的转角(rad)
-    ///                     - [omega,i,u],[进动角,章动角,自转角],按照313顺序旋转
-    /// @retval             - 错误码
-    errc_t       getLibration(
-        const TimePoint& time,
-        Vector3d& ang
-    );
 
     /// @brief  获取对应时间点的月球天平动相关角度（Euler）
     /// @param  time        - 时间点

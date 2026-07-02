@@ -35,11 +35,15 @@ Variable* Variable::New()
 
 
 Variable::Variable(StringView name, Expr *expr, bool bind)
-    : name_(name), expr_(expr), bind_(bind)
-{};
+    : expr_(expr)
+    , bind_(bind)
+{
+    this->setName(name);
+};
 
 Variable::Variable(Expr *expr, bool bind)
-    : name_{}, expr_(expr), bind_(bind)
+    : expr_(expr)
+    , bind_(bind)
 {};
 
 Value *Variable::eval() const

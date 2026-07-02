@@ -34,13 +34,6 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 星历来源
-enum class EEphemerisSource
-{
-    eBodyEphemeris,      ///< 天体星历
-    eJplDE,              ///< JPL DE 星历
-    eJplSpice,           ///< JPL SPICE 星历
-};
 
 
 /// @brief 三体引力模型

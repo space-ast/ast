@@ -20,16 +20,69 @@
 
 #include "TestWithSTK.hpp"
 #include "AstCore/BuiltinFrame.hpp"
+#include "AstCore/Propagate.hpp"
+#include "AstCore/InitialState.hpp"
+#include "AstCore/OrbitElement.hpp"
 #include "AstSim/Mover.hpp"
+#include "AstSim/MotionMissionCommand.hpp"
 #include "AstLoader/MoverLoader.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/ColoredPrint.hpp"
 #include "AstUtil/StringView.hpp"
+#include "AstUtil/Logger.hpp"
 #include "AstMath/UnarySolver.hpp"  // for aIsClose
 #include "AstMath/Vector.hpp"
 
 
 AST_NAMESPACE_BEGIN
+
+class Sequence;
+class Propagate;
+
+errc_t aTestSegment(Segment& segment)
+{
+    std::string name = segment.name();
+    auto outputState = segment.getOutputState();                 AST_CHECK_NULLPTR(outputState);
+    SharedPtr<Frame> frame = outputState->getFrame();            AST_CHECK_NULLPTR(frame);
+    
+    CartState cartStateExpect;
+    errc_t rc = outputState->getStateIn(frame, cartStateExpect); AST_CHECK_ERRCODE(rc, "failed to get state in cartesian frame");
+    rc = segment.execute();                                      AST_CHECK_ERRCODE(rc, "failed to execute segment");
+    
+    CartState cartStateActual;
+    rc = outputState->getStateIn(frame, cartStateActual);         AST_CHECK_ERRCODE(rc, "failed to get state in cartesian frame after segment");
+
+    ast_printf("cartStateExpect: %s\n", cartStateExpect.toString().c_str());
+    ast_printf("cartStateActual: %s\n", cartStateActual.toString().c_str());
+
+    bool isSame = true;
+    for(int i=0; i<6; i++)
+    {
+        if(!aIsClose(cartStateExpect[i], cartStateActual[i], 1e-6))
+        {
+            isSame = false;
+        }
+    }
+    if(!isSame)
+    {
+        aWarning("segment %s output state is not same as expect", name.c_str());
+        return eErrorInvalidParam;
+    }
+    return eNoError;
+}
+
+errc_t aTestSequence(Sequence& sequence)
+{
+    errc_t rc = 0;
+    for (auto& command : sequence.getCommands())
+    {
+        if (auto segment = aobject_cast<Segment*>(command.get()))
+        {
+            rc |= aTestSegment(*segment);
+        }
+    }
+    return rc;
+}
 
 errc_t aTestWithEmptyEphemeris(Mover& mover)
 {
@@ -145,21 +198,29 @@ errc_t aTestFromSTKFile_ThrowException(StringView filepath)
 
     status.keyValue("mover name", mover.getName().c_str());
 
-    status.info("testing ephemeris...");
-
-    auto ephem_readed = mover.getEphemeris();
-    if(ephem_readed == nullptr)
-    {
-        status.failed("ephemeris is null");
-        return aTestWithEmptyEphemeris(mover);
-    }
-
     auto motion = mover.getMotionProfile();
     if(motion == nullptr)
     {
         status.failed("motion profile is null");
         return eErrorParse;
     }
+
+    // 如果是任务序列运动模型
+    if(auto* mission = aobject_cast<MotionMissionCommand*>(motion))
+    {
+        auto& sequence = mission->getSequence();
+        return aTestSequence(sequence);
+    }
+
+    status.info("testing ephemeris...");
+
+    auto ephem_readed = mover.getEphemeris();
+    if (ephem_readed == nullptr)
+    {
+        status.failed("ephemeris is null");
+        return aTestWithEmptyEphemeris(mover);
+    }
+
    
     status.keyValue("motion type", motion->typeName().c_str());
     

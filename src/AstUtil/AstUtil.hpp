@@ -151,6 +151,7 @@
 #include "AstUtil/UnitParser.hpp"
 #include "AstUtil/ValueView.hpp"
 #include "AstUtil/Vector.hpp"
+#include "AstUtil/Version.hpp"
 #include "AstUtil/WeakPtr.hpp"
 #include "AstUtil/WorkingDirectory.hpp"
 #include "AstUtil/XML.hpp"

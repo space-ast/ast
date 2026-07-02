@@ -46,16 +46,22 @@ class AST_CORE_API GravityFieldHead
 {
 public:
     errc_t load(StringView filepath, StringView dirpath=StringView());
+    
+    /// @brief 获取重力场的中心天体引力常数
     double getGM() const { return gm_; }
+
+    /// @brief 获取重力场的参考系名称
+    const std::string& referenceFrame() const { return referenceFrame_; }
 protected:
     int maxDegree_{0};                      ///< 最大阶数
     int maxOrder_{0};                       ///< 最大次数
     std::string centralBody_;               ///< 中心天体名称
     std::string model_;                     ///< 重力场模型名称
-    double gm_{0};                          ///< 中心天体重力常数
+    std::string referenceFrame_;            ///< 重力场的参考系名称：例如月球的重力场参考系 PrincipalAxes_421、PrincipalAxes_403等，默认为天体固连系
+    double gm_{0};                          ///< 中心天体引力常数
     double refDistance_{0};                 ///< 参考距离
     bool normalized_{false};                ///< 是否归一化
-    bool includesPermTide_{false};          ///< 是否包含潮汐
+    bool includesPermTide_{false};          ///< 是否包含永久潮汐: 若为true，则重力场为零潮汐模型(zero-tide)，保留了永久性隆起；反之则为无潮汐模型(tide-free)，不包含任何潮汐变形
 };
 
 /// @brief 重力场长期变化
@@ -85,10 +91,13 @@ public:
     GravityField();
     ~GravityField() = default;
 
+    using GravityFieldHead::referenceFrame;
+    
     using GravityFieldHead::maxDegree_;
     using GravityFieldHead::maxOrder_;
     using GravityFieldHead::centralBody_;
     using GravityFieldHead::model_;
+    using GravityFieldHead::referenceFrame_;
     using GravityFieldHead::gm_;
     using GravityFieldHead::refDistance_;
     using GravityFieldHead::normalized_;
@@ -122,8 +131,8 @@ public:
     /// @return 是否有效
     bool isValidDegreeOrder(int degree, int order) const;
     
-    /// @brief 获取中心天体重力常数
-    /// @return 中心天体重力常数
+    /// @brief 获取中心天体引力常数
+    /// @return 中心天体引力常数
     double getGM() const { return gm_; }
 
     /// @brief 获取参考距离
@@ -137,7 +146,17 @@ public:
     /// @brief 是否包含潮汐
     /// @return 是否包含潮汐
     bool isIncludesPermTide() const { return includesPermTide_; }
-    
+
+    /// @brief 施加永久潮汐C20修正（无潮汐 → 零潮汐）
+    /// @param k20 2阶位Love数
+    /// @note 仅对无潮汐模型(includesPermTide_==false)生效，已是零潮汐模型则不做任何操作。
+    ///       **当前仅支持地球**，A₀和H₀为日月对地球的潮汐势参数，
+    ///       非地球天体会发出警告并跳过修正。
+    ///       修正公式: ΔC̄20 = A₀·H₀·k20
+    ///       来源: IERS 2010 TN36 第6章 第6.2.2节 公式(6.14) (p.88)
+    ///       其中 A₀=4.4228×10⁻⁸, H₀=−0.31460, k20名义值=0.30190 (表6.3)
+    void applyPermanentTideC20Correction(double k20);
+
     /// @brief 获取Snm系数
     /// @param n 阶数
     /// @param m 次数

@@ -34,10 +34,23 @@ public:
     OrbElem initOrbitElement_;
     double initImpulse_;
 
+    struct Input
+    {
+        double epoch_;
+        double raan_;
+        double impulse_;
+    };
+    struct Output
+    {
+        double altOfMoonPeri_;
+        double earthInclination_;
+        double altOfEarthPeri_;
+    };
 
     static FreeRreturnTargetFunction Case1();
     static FreeRreturnTargetFunction Case2();
 
+    int operator()(const Input& input, Output& output) const;
     int operator()(const double* variable, double* constraint) const;
 };
 

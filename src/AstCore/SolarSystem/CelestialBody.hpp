@@ -47,6 +47,26 @@ AST_NAMESPACE_BEGIN
 class CelestialBody;
 using Body = CelestialBody;
 
+
+/// @brief 星历来源
+enum class EEphemerisSource
+{
+    eBodyEphemeris,      ///< 天体星历
+    eJplDE,              ///< JPL DE 星历
+    eJplSpice,           ///< JPL SPICE 星历
+    eJplSpiceBarycenter, ///< JPL SPICE 行星系质心星历
+};
+
+
+
+/// @brief 从天体重力场文件中读取其引力常数
+/// @param body 中心天体
+/// @param gravityModel 重力场模型
+/// @param gm 输出引力常数，单位：m³/s²
+/// @return errc_t 错误码
+AST_CORE_CAPI errc_t aGetGravityParameter(const Body& body, StringView gravityModel, double& gm);
+
+
 /// @brief 天体
 class AST_CORE_API CelestialBody : public Point
 {
@@ -58,8 +78,8 @@ public:
     static CelestialBody* Resolve(StringView value);
     
     CelestialBody();
-    CelestialBody(SolarSystem* solarSystem);
-    CelestialBody(CelestialBody* parentBody);
+    explicit CelestialBody(SolarSystem* solarSystem);
+    explicit CelestialBody(CelestialBody* parentBody);
     ~CelestialBody();
 
     /// @brief 获取JPL SPICE ID
@@ -91,10 +111,10 @@ public:
     /// @brief 获取天体半径
     double getRadius() const { return radius_; }
 
-    /// @brief 获取引力常数
+    /// @brief 获取天体的引力常数
     double getGM() const { return gm_; }
 
-    /// @brief 获取系统引力常数
+    /// @brief 获取天体系引力常数（考虑天体的卫星）
     double getSystemGM() const { return systemGM_; }
 
     /// @brief 设置重力模型
@@ -117,6 +137,9 @@ public:
 
     /// @brief 是否为地球
     bool isEarth() const { return jplIndex_ == JplDe::eEarth; }
+
+    /// @brief 是否为月球
+    bool isLuna() const { return jplIndex_ == JplDe::eMoon; }
 
     /// @brief 获取天体位置（ICRF）
     /// @param  tp          - 时间点
@@ -151,6 +174,8 @@ PROPERTIES: // 天体的形状、重力场、星历、姿态
     /// @brief 获取天体姿态
     BodyOrientation* getOrientation() const { return orientation_.get(); }
     BodyOrientation* orientation() const {return orientation_.get(); }
+public:
+    BodyEphemeris* getEphemeris(EEphemerisSource ephemerisSource) const;
 public:
     /// @brief 获取天体重力场
     const GravityField& getGravityField() const { return gravityField_; }
@@ -303,33 +328,43 @@ protected:
 
     A_DISABLE_COPY(CelestialBody)
 private:
-    WeakPtr<SolarSystem>        solarSystem_;              ///< 太阳系指针
-    SharedPtr<CelestialBody>    parent_;                   ///< 父天体
-    double                      gm_{0.0};                  ///< 引力常数
-    double                      systemGM_{0.0};            ///< 系统引力常数
-    double                      radius_{0.0};              ///< 天体半径
-    int                         jplSpiceId_{-1};           ///< JPL SPICE ID
-    int                         jplIndex_{-1};             ///< JPL DE Index
-    GravityField                gravityField_;             ///< 重力场
-    SharedPtr<BodyShape>        shape_;                    ///< 天体形状
-    SharedPtr<BodyOrientation>  orientation_;              ///< 天体姿态
-    SharedPtr<BodyEphemeris>    ephemeris_;                ///< 天体星历
+    WeakPtr<SolarSystem>        solarSystem_;                    ///< 太阳系指针
+    SharedPtr<CelestialBody>    parent_;                         ///< 父天体
+    double                      gm_{0.0};                        ///< 引力常数
+    double                      systemGM_{0.0};                  ///< 系统引力常数
+    double                      radius_{0.0};                    ///< 天体半径
+    int                         jplSpiceId_{-1};                 ///< JPL SPICE ID
+    int                         jplIndex_{-1};                   ///< JPL DE Index
+    GravityField                gravityField_;                   ///< 重力场
+    SharedPtr<BodyShape>        shape_;                          ///< 天体形状
+    SharedPtr<BodyOrientation>  orientation_;                    ///< 天体姿态
+    SharedPtr<BodyEphemeris>    ephemeris_;                      ///< 天体星历
 
-    SharedPtr<AxesBodyInertial> axesInertial_;             ///< 天体惯性轴
-    SharedPtr<AxesBodyFixed>    axesFixed_;                ///< 天体固定轴
-    SharedPtr<AxesBodyMOD>      axesMOD_;                  ///< 天体MOD轴
-    SharedPtr<AxesBodyTOD>      axesTOD_;                  ///< 天体TOD轴
+    SharedPtr<AxesBodyInertial> axesInertial_;                   ///< 天体惯性轴
+    SharedPtr<AxesBodyFixed>    axesFixed_;                      ///< 天体固定轴
+    SharedPtr<AxesBodyMOD>      axesMOD_;                        ///< 天体MOD轴
+    SharedPtr<AxesBodyTOD>      axesTOD_;                        ///< 天体TOD轴
 
-    mutable WeakPtr<Frame>      frameInertial_;            ///< 天体惯性坐标系
-    mutable WeakPtr<Frame>      frameFixed_;               ///< 天体固连坐标系
+    mutable WeakPtr<Frame>      frameInertial_;                  ///< 天体惯性坐标系
+    mutable WeakPtr<Frame>      frameFixed_;                     ///< 天体固连坐标系
+
+    mutable SharedPtr<BodyEphemeris> ephemerisDE_;               ///< 天体DE星历
+    mutable SharedPtr<BodyEphemeris> ephemerisSpice_;            ///< 天体SPICE星历(spk)
+    mutable SharedPtr<BodyEphemeris> ephemerisSpiceBarycenter_;  ///< 天体星系质心SPICE星历(考虑其卫星时的天体系质心)
 };
 
 
+enum ESpiceId: int;
+
+/// @brief 获取行星系质心ID
+/// @param planetId 行星ID
+/// @return 行星系质心ID
+AST_CORE_CAPI ESpiceId aGetPlanetBarycenterId(ESpiceId planetId);
 
 
 /// @brief  SPICE 天体ID
 /// @see spicelib/zzidmap.for
-enum ESpiceId
+enum ESpiceId: int
 {
     eSolarSystemBarycenter  = 0,    ///< 太阳系质心
     eMercuryBarycenter      = 1,    ///< 水星系质心

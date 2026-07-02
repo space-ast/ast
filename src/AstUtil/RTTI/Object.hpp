@@ -24,11 +24,10 @@
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include "AstUtil/ReflectAPI.hpp"
+#include "AstUtil/Referenced.hpp"
 #include <type_traits>  // for std::decay, std::remove_pointer, std::remove_reference
 #include <string>       // for std::string
 #include <stdint.h>     // for uint32_t
-#include <assert.h>     // for assert
-#include <atomic>       // for std::atomic
 
 AST_NAMESPACE_BEGIN
 
@@ -77,9 +76,6 @@ enum {
     INVALID_ID = -1, ///< 无效对象ID
 };
 
-struct initial_strong_ref_t {};                      ///< 初始化强引用计数的标记
-constexpr initial_strong_ref_t initial_strong_ref{}; ///< 初始化强引用计数的标记值
-
 /// @brief 对象标志位
 enum class EObjectFlags: uint32_t
 {
@@ -95,7 +91,7 @@ A_ENUM_CLASS_FLAGS(EObjectFlags)
 
 /// @brief 对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能
 /// @details 参考了Qt的QObject类、UE的UObject类、以及Python的PyObject等类的设计和实现
-class AST_UTIL_API Object
+class AST_UTIL_API Object: public Referenced
 {
 public:
     /// @brief 解析字符串
@@ -109,19 +105,12 @@ public:
     // friend uint32_t aObject_DecWeakRef(Object* obj);
     // friend bool aObject_IsDestructed(const Object* obj);
     
-    Object()
-        : refcnt_{0}
-        , weakrefcnt_{1}
-    {}
+    using Referenced::Referenced;
+    Object() = default;
     explicit Object(Object* parentScope);
     Object(std::nullptr_t);
     
-    /// @brief 构造函数，用于初始化对象的强引用计数为1
-    /// @param initial_strong_ref_t 初始化强引用计数的标记
-    Object(initial_strong_ref_t)
-        : refcnt_{1}
-        , weakrefcnt_{1}
-    {}
+
 public:
     static Class staticType;
     static void ClassInit(Class* cls);
@@ -292,78 +281,6 @@ public: // 对象ID
     /// @param T 类型参数
     template<typename T>
     bool isOfType() const;
-
-public: // 引用计数
-    /// @brief 获取强引用计数
-    /// @return uint32_t 强引用计数
-    uint32_t refCount() const{return refcnt_;}
-
-    /// @brief 获取弱引用计数
-    /// @return uint32_t 弱引用计数
-    uint32_t weakRefCount() const{return weakrefcnt_;}
-
-    /// @brief 判断对象是否被析构
-    /// @return bool 是否已析构
-    bool     isDestructed() const{return aObject_IsDestructed(this);}
-
-    /// @brief 析构对象，仅当强引用计数为0时才会被调用
-    /// @details 析构对象时，会先将弱引用计数减1，若弱引用计数为0，则会调用析构函数
-    /// @warning 对于栈上的对象，不要调用该函数，避免对栈内存调用 delete 导致崩溃
-    void     destruct()
-    {
-        #ifndef NDEBUG
-        if(refcnt_ != 0)
-        {
-            printf("object ref count is not 0, can not destruct");
-        }
-        #endif
-        assert(refcnt_ == 0);  // 只能直接删除不采用共享引用计数管理的对象
-        this->_destruct();
-    }
-
-    /// @brief 增加弱引用计数
-    /// @return uint32_t 新的弱引用计数
-    uint32_t incWeakRef()
-    {
-        return aObject_IncWeakRef(this);
-    }
-
-    /// @brief 减少弱引用计数
-    /// @return uint32_t 新的弱引用计数
-    uint32_t decWeakRef()
-    {
-        return aObject_DecWeakRef(this);
-    }
-
-    /// @brief 增加强引用计数
-    /// @return uint32_t 新的强引用计数
-    uint32_t incRef()
-    {
-        return aObject_IncRef(this);
-    }
-
-    /// @brief 减少强引用计数
-    /// @return uint32_t 新的强引用计数
-    uint32_t decRef()
-    {
-        return aObject_DecRef(this);
-    }
-
-    /// @brief 减少强引用计数，不删除对象
-    /// @return uint32_t 新的强引用计数
-    uint32_t decRefNoDelete()
-    {
-        return --refcnt_;
-    }
-private:
-    /// @brief 析构对象，仅当强引用计数为0时才会被调用
-    /// @warning 对于栈上的对象，不要调用该函数，避免对栈内存调用 delete 导致崩溃
-    /// @details 析构对象时，会先将弱引用计数减1，若弱引用计数为0，则会调用析构函数
-    void    _destruct()
-    {
-        this->~Object();
-        this->decWeakRef();
-    }
 public: // 延迟链接
     /// @brief 添加延迟链接
     /// @param link 延迟链接函数
@@ -410,47 +327,8 @@ protected:
     {
         return *this;
     }
-public: // 实参依赖查找（ADL）
-    A_ALWAYS_INLINE 
-    friend uint32_t aObject_IncRef(Object* obj)
-    {
-        return ++(obj->refcnt_);
-    }
-    A_ALWAYS_INLINE 
-    friend uint32_t aObject_DecRef(Object* obj)
-    {
-        if (obj->refcnt_ == 1) {
-            obj->_destruct();
-            return 0;
-        }
-        return --(obj->refcnt_);
-    }
-    A_ALWAYS_INLINE 
-    friend uint32_t aObject_IncWeakRef(Object* obj)
-    {
-        return ++(obj->weakrefcnt_);
-    }
-    A_ALWAYS_INLINE 
-    friend uint32_t aObject_DecWeakRef(Object* obj)
-    {
-        if (obj->weakrefcnt_ == 1) {
-            operator delete(obj);
-            return 0;
-        }
-        else {
-            return --(obj->weakrefcnt_);
-        }
-    }
-    A_ALWAYS_INLINE 
-    friend bool aObject_IsDestructed(const Object *obj)
-    {
-        return obj->refcnt_ == static_cast<uint32_t>(-1);
-    }
-
 private:
     // Class*                type_;                                     ///< 类型元信息，同时用于标识对象是否被析构(废弃，采用虚函数`getType()`实现)
-    std::atomic<uint32_t>    refcnt_{0};                                ///< 强引用计数，给SharedPtr使用（是否考虑废弃共享引用计数，全面采用父子对象进行内存管理？）
-    std::atomic<uint32_t>    weakrefcnt_{1};                            ///< 弱引用计数，给WeakPtr使用
     uint32_t                 index_{static_cast<uint32_t>(INVALID_ID)}; ///< 对象索引，用于唯一标识对象
     EObjectFlags             flags_{};                                  ///< 对象标志位，用于存储对象的额外信息
 };

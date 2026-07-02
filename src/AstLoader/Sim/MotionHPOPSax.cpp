@@ -22,16 +22,18 @@
 #include "CommonlyUsedHeaders.hpp"
 #include "AstCore/HPOP.hpp"
 #include "AstUtil/BKVParser.hpp"
+#include "AstUtil/FileSystem.hpp"
 
 #include "AstMath/RKF78.hpp"
 #include "AstMath/RK4.hpp"
 #include "AstMath/RKF45.hpp"
 #include "AstMath/RKF56.hpp"
+#include <limits>
 
 AST_NAMESPACE_BEGIN
 
 
-errc_t _aLoadSolarPressureModel(BKVParser& parser, double massAtEpoch, SolarRadiationPressure& srp)
+errc_t _aLoadSolarPressureModel(BKVParser& parser, MotionHPOPSax::PhysicalParam& param)
 {
     BKVParser::EToken token;
     BKVItemView item;
@@ -39,10 +41,10 @@ errc_t _aLoadSolarPressureModel(BKVParser& parser, double massAtEpoch, SolarRadi
         token = parser.getNext(item);
         if(token == BKVParser::eKeyValue){
             if(aEqualsIgnoreCase(item.key(), "Coefficient")){
-                // srp.coefficient_ = item.value().toDouble();
+                param.srpCoefficient_ = item.value().toDouble();
             }
             else if(aEqualsIgnoreCase(item.key(), "Area")){
-                // srp.areaMassRatio_ = item.value().toDouble() / massAtEpoch;
+                param.srpArea_ = item.value().toDouble();
             }
             else if(aEqualsIgnoreCase(item.key(), "ReflectionModel")){
                 // @todo 解析反射模型
@@ -118,6 +120,9 @@ errc_t MotionHPOPSax::begin(StringView name)
             }
         }while(token != BKVParser::eBlockEnd && token != BKVParser::eEOF);
         return eNoError;
+    }
+    else if(aEqualsIgnoreCase(name, "SolarPressureModel")){
+        return _aLoadSolarPressureModel(parser_, spacecraftParam_);
     }
     else{
         return MotionOrbitDynamicsSax::begin(name);
@@ -211,7 +216,30 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         forceModel_.drag().useFluxApFile_ = value.toBool();
     }
     else if(aEqualsIgnoreCase(key, "FluxApFile")){
-        forceModel_.drag().fluxApFile_ = value.toString();
+        fs::path filepath = value.toString();
+        if(filepath.is_relative())
+        {
+            #ifdef _WIN32
+            for(int i=9;i<=13;i++)
+            {
+                char path[_MAX_PATH];
+                snprintf(path, sizeof(path), "C:/ProgramData/AGI/STK %d (x64)/DynamicEarthData/%s", i, filepath.string().c_str());
+                if(fs::exists(path))
+                {
+                    filepath = fs::path(path);
+                    break;
+                }
+                snprintf(path, sizeof(path), "C:/ProgramData/AGI/STK %d/DynamicEarthData/%s", i, filepath.string().c_str());
+                if(fs::exists(path))
+                {
+                    filepath = fs::path(path);
+                    break;
+                }
+            }
+            #endif
+        }
+        forceModel_.drag().fluxApFile_ = filepath;
+
     }
     else if(aEqualsIgnoreCase(key, "GeoMagneticFluxSource")){
         if(aEqualsIgnoreCase(value, "Kp")){
@@ -220,15 +248,25 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
             forceModel_.drag().geoMagFluxSource_ = EGeoMagFluxSource::eAp;
         }else{
             // @todo 处理其他磁通量源
+            aWarning("unsupported flux source: %s", value.toString().c_str());
         }
     }
     else if(aEqualsIgnoreCase(key, "GeoMagneticFluxUpdateMethod")){
         if(aEqualsIgnoreCase(value, "Daily")){
             forceModel_.drag().geoMagFluxUpdateRate_ = EGeoMagFluxUpdateRate::eDaily;
-        }else{
-            // @todo 处理其他更新方法
         }
-        // @todo 处理其他更新方法
+        else if(aEqualsIgnoreCase(value, "3Hourly"))
+        {
+            forceModel_.drag().geoMagFluxUpdateRate_ = EGeoMagFluxUpdateRate::e3Hourly;
+        }
+        else{
+            // @todo 处理其他更新方法
+            aWarning("unsupported update method: %s", value.toString().c_str());
+            if(value.toStringView().find("3Hourly")!=StringView::npos)
+            {
+                forceModel_.drag().geoMagFluxUpdateRate_ = EGeoMagFluxUpdateRate::e3Hourly;
+            }
+        }
     }
     else if(aEqualsIgnoreCase(key, "GeoMagneticFluxInterpSubSamplingRatio")){
         forceModel_.drag().geoMagFluxInterpSubSamplingRatio_ = value.toDouble();
@@ -237,7 +275,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         spacecraftParam_.dragCoefficient_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "AreaMassRatio")){
-        spacecraftParam_.areaMassRatio_ = value.toDouble();
+        spacecraftParam_.dragAreaMassRatio_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "DragCorrectionType")){
         // @todo 处理DragCorrectionType
@@ -266,11 +304,6 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
     else if(aEqualsIgnoreCase(key, "UseSRP")){
         forceModel_.useSRP(value.toBool());
     }
-    else if(aEqualsIgnoreCase(key, "SolarPressureModel")){
-        double mass = this->getMass();
-        errc_t rc = _aLoadSolarPressureModel(parser_, mass, forceModel_.srp());
-        A_UNUSED(rc);
-    }
     else if(aEqualsIgnoreCase(key, "SunPosition")){
         if(aEqualsIgnoreCase(value, "ApparentSunToTrueCB")){
             forceModel_.srp().sunPosition_ = ESunPosition::eApparentSunToTrueCB;
@@ -278,6 +311,10 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
             forceModel_.srp().sunPosition_ = ESunPosition::eApparent;
         } else if(aEqualsIgnoreCase(value, "True")){
             forceModel_.srp().sunPosition_ = ESunPosition::eTrue;
+        }
+        else{
+            // @todo 处理其他太阳位置
+            aWarning("unsupported sun position: %s", value.toString().c_str());
         }
     }
     else if(aEqualsIgnoreCase(key, "DetectShadowBoundaries")){
@@ -288,10 +325,12 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
             forceModel_.srp().shadowModel_ = EShadowModel::eDualCone;
         } else if(aEqualsIgnoreCase(value, "Cylindrical")){
             forceModel_.srp().shadowModel_ = EShadowModel::eCylindrical;
-        } else if(aEqualsIgnoreCase(value, "None")){
+        } else if(aEqualsIgnoreCase(value, "NoShadow") || aEqualsIgnoreCase(value, "None")){
             forceModel_.srp().shadowModel_ = EShadowModel::eNone;
-        }else{
+        }
+        else{
             // @todo 处理其他阴影模型
+            aWarning("unsupported shadow model: %s", value.toString().c_str());
         }
     }
     
@@ -469,7 +508,10 @@ errc_t MotionHPOPSax::getMotion(ScopedPtr<MotionProfile> &motion)
     scParam.setFuelMass(0);
     scParam.setDryMass(mass);
     scParam.setCd(spacecraftParam_.dragCoefficient_);
-    scParam.setDragArea(spacecraftParam_.areaMassRatio_ * mass);
+    scParam.setDragArea(spacecraftParam_.dragAreaMassRatio_ * mass);
+    scParam.setCr(spacecraftParam_.srpCoefficient_);
+    scParam.setSrpArea(spacecraftParam_.srpArea_);
+    
     motionHPOP->setSpacecraftParam(scParam);
     
     auto body = vehiclePathData_.centralBody_; AST_CHECK_NULLPTR(body);

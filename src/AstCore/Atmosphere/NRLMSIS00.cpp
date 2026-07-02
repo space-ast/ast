@@ -19,22 +19,59 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "NRLMSIS00.hpp"
-#include "AstCore/BodyShape.hpp"
-#include "AstCore/SpheroidShape.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstWeather/nrlmsise-00.hpp"
+#include "AstWeather/MSIS_Vers.h"
 
 AST_NAMESPACE_BEGIN
 
+#ifdef _AST_USE_MSIS_VERS_FOR_NRLMSIS00
+
+using namespace MSIS_Vers;
+
+NRLMSIS00::NRLMSIS00(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap)
+    : NRLMSIS00(frame, bodyShape, NewConstantSpaceWeather(f107Daily, f107Average, ap))
+{
+	
+}
+
+
+NRLMSIS00::NRLMSIS00(Frame* frame, BodyShape* bodyShape, SpaceWeatherProvider* spaceWeather)
+    : MSISBase(frame, bodyShape, spaceWeather)
+{
+	msis00init(this->msis());
+	int sv[26]{
+        0,
+        1,1,1,1,1,1,1,1,1,1,
+        1,1,1,1,1,1,1,1,1,1,
+        1,1,1,1,1
+    };
+    tselec(this->msis().csw, sv);
+}
+
+
+double NRLMSIS00::getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) const
+{
+    MSISParam param;
+    this->getMSISParam(tp, posInBodyFixed, param);
+
+    std::array<double, 10> d{};
+    std::array<double, 3> t{};
+	gtd7d(
+        this->msis(), this->lpoly(), this->fit(), this->lsqv(),
+		param.dayOfYear, param.secOfDay, param.alt, param.lat, param.lon, param.lst,
+        param.f107A, param.f107, param.ap.data()-1, param.mass, d.data(), t.data()
+    );
+    return d[6];
+}
+
+#else
+
 NRLMSIS00::NRLMSIS00(Frame* ecf, BodyShape* bodyShape, double f107Daily, double f107Average, double ap)
-    : earthFixedFrame_{ecf}
-    , bodyShape_{bodyShape}
-    , F107Daily_{f107Daily}
-    , F107Average_{f107Average}
-    , ap_{ap}
+    : AtmosphereBase(ecf, bodyShape, f107Daily, f107Average, ap)
 {
     new (&storage_) NRLMSISE();
-    static_assert(sizeof(storage_) == sizeof(NRLMSISE), "storage_ size must be same as NRLMSISE");
+    static_assert(sizeof(storage_) >= sizeof(NRLMSISE), "storage_ size must not be less than NRLMSISE");
 }
 
 NRLMSIS00::~NRLMSIS00()
@@ -46,8 +83,8 @@ NRLMSIS00::~NRLMSIS00()
 double NRLMSIS00::getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) const
 {
     assert(bodyShape_ != nullptr);
-    assert(earthFixedFrame_ != nullptr);
-
+    assert(frame_ != nullptr);
+    
     #define USE_METER 1
 		// for correctness with parallel, with some loss of efficiency for single thread
 		auto& nrlmsise00 = this->nrlmsise(); 
@@ -63,48 +100,12 @@ double NRLMSIS00::getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed
 			// swc
 			{}
 		};
-        DateTime dateTime;
-        aTimePointToUTC(tp, dateTime);
-        auto dayOfYear = dateTime.dayOfYear();
-        auto secOfDay = dateTime.secOfDay();
 		double lat, lon, alt;
+		this->getGeodetic(posInBodyFixed, lat, lon, alt);
 
-		// 伪循环确保使用保底算法，如果其他算法计算完成则直接跳出伪循环
-		do
-		{
-			if(A_UNLIKELY(useApproximateAltitude_))
-			{
-				// 参考 #hpop/approximateAltitudeComputation.htm
-
-				if(auto spheroidShape = aobject_cast<SpheroidShape*>(bodyShape_))
-				{
-					double flatFactor = spheroidShape->flatFactor();
-					double majorAxis = spheroidShape->majorAxis();
-					double xy = hypot(posInBodyFixed.x(), posInBodyFixed.y());
-					double latsph = std::atan2(posInBodyFixed.z(), xy);   // 球形下的纬度，atan2 安全处理 xy==0（极点）
-					double r = hypot(xy, posInBodyFixed.z());
-					alt = r - majorAxis * (1 - flatFactor) / sqrt(1 - (2 * flatFactor - flatFactor * flatFactor) * square(cos(latsph)));
-
-					// @todo 这里要考虑怎么高效计算地大地纬度，例如不经过迭代计算
-					GeodeticPoint geodeticPoint;
-					bodyShape_->transform(posInBodyFixed, geodeticPoint);
-					lat = geodeticPoint.latitude();
-					lon = geodeticPoint.longitude();
-					break;
-				}
-			}
-
-			{
-				GeodeticPoint geodeticPoint;
-				bodyShape_->transform(posInBodyFixed, geodeticPoint);
-				lat = geodeticPoint.latitude();
-				lon = geodeticPoint.longitude();
-				alt = geodeticPoint.altitude();
-				break;
-			}
-		} while(false);
-
-
+		int dayOfYear;
+		double secOfDay, lst;
+		this->getMSISParam(tp, lon, dayOfYear, secOfDay, lst);
 
 		nrlmsise_input  input;
 		input.year = 2000; 
@@ -113,7 +114,7 @@ double NRLMSIS00::getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed
 		input.alt = alt/1e3; 
 		input.g_lat = rad2deg(lat);  
 		input.g_long = rad2deg(lon);
-		input.lst = secOfDay / 3600 + input.g_long / 15;
+		input.lst = lst;
 		if (input.lst > 12.0)
 			input.lst -=  24.0;
 		if (input.lst < -12.0)
@@ -155,5 +156,6 @@ double NRLMSIS00::getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed
 	#endif
 }
 
+#endif
 
 AST_NAMESPACE_END

@@ -26,6 +26,8 @@
 #include "AstUtil/NetworkImplWinINet.hpp"
 #include "AstUtil/NetworkImplCurlCmd.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/FileSystem.hpp"
+#include "AstUtil/IO.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -112,5 +114,48 @@ errc_t aNetworkRequestStream(const NetworkRequest& request, NetworkStreamReceive
     return impl->requestStream(request, receiver);
 }
 
+
+errc_t aDownloadFile(const std::string& url, const std::string& filepath)
+{
+    NetworkRequest request;
+    request.setMethod(ENetworkRequestMethod::eGet);
+    request.setUrl(url);
+
+    NetworkResponse response;
+    errc_t err = aNetworkRequest(request, response);
+    if (err) return err;
+
+    if (response.statusCode() != 200)
+    {
+        aError("aDownloadFile: HTTP %d for %s", response.statusCode(), url.c_str());
+        return eErrorInvalidFile;
+    }
+
+    const std::string& body = response.body();
+    if (body.empty())
+    {
+        aError("aDownloadFile: empty body for %s", url.c_str());
+        return eErrorInvalidFile;
+    }
+
+    FILE* fp = posix::fopen(filepath.c_str(), "wb");
+    if (!fp)
+    {
+        aError("aDownloadFile: cannot open %s", filepath.c_str());
+        return eErrorInvalidFile;
+    }
+
+    size_t written = fwrite(body.data(), 1, body.size(), fp);
+    fclose(fp);
+
+    if (written != body.size())
+    {
+        aError("aDownloadFile: write incomplete for %s", filepath.c_str());
+        fs::remove(filepath);
+        return eErrorInvalidFile;
+    }
+
+    return eNoError;
+}
 
 AST_NAMESPACE_END

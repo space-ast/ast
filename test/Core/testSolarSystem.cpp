@@ -34,8 +34,8 @@ AST_USING_NAMESPACE
 
 TEST(SolarSystem, load)
 {
-    SolarSystem system;
-    errc_t rc = system.load(aDataDirGet() + "/SolarSystem");
+    SharedPtr<SolarSystem> system = new SolarSystem;
+    errc_t rc = system->load(aDataDirGet() + "/SolarSystem");
     EXPECT_EQ(rc, 0);
 }
 

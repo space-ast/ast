@@ -187,7 +187,7 @@ double Value::toDouble() const
             return ret;
         }
     }
-    aError("Value is not an arithmetic value and is not a valid arithmetic string");
+    aError("Value '%s' is not an arithmetic value and is not a valid arithmetic string", toString().c_str());
     return std::numeric_limits<double>::quiet_NaN();
 }
 int Value::toInt() const

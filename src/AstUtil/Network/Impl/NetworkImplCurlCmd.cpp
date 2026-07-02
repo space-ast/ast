@@ -67,11 +67,37 @@ namespace
         }
     }
 
-    // 使用单引号包裹参数，并对参数内部的单引号进行转义。
+
+    // 在 Windows 下（cmd.exe）中，双引号包裹参数，内部双引号转义为 \"
+    // 在 Linux 下（bash）中，使用单引号包裹参数，并对参数内部的单引号进行转义。
     // 单引号字符串内所有 shell 特殊字符 ($, `, \, !, 等) 均失去特殊含义，
     // 仅单引号自身需要处理：将 ' 替换为 '\''（结束单引号、转义单引号、重新开始单引号）
     std::string escapeForShell(const std::string& s)
     {
+#ifdef _WIN32
+        // Windows 下（cmd.exe）使用双引号包裹，内部双引号转义为 \"
+        // 反斜杠仅在紧跟双引号或位于字符串末尾时才需要转义（翻倍）
+        std::string escaped;
+        escaped.reserve(s.size() * 2 + 4);
+        escaped += '"';
+        for (size_t i = 0; i < s.size(); ++i) {
+            char c = s[i];
+            if (c == '"') {
+                escaped += '\\';
+                escaped += '"';
+            } else if (c == '\\') {
+                // 仅当反斜杠后紧跟双引号（或位于末尾，此时后跟闭合双引号）时才翻倍
+                escaped += '\\';
+                if (i + 1 < s.size() && s[i + 1] == '"') {
+                    escaped += '\\';  // 额外转义：\" → \\"
+                }
+            } else {
+                escaped += c;
+            }
+        }
+        escaped += '"';
+        return escaped;
+#else
         std::string escaped;
         escaped.reserve(s.size() + 4);
         escaped += '\'';
@@ -84,6 +110,7 @@ namespace
         }
         escaped += '\'';
         return escaped;
+#endif
     }
 
     // 去除字符串两端的空白（用于解析头部）

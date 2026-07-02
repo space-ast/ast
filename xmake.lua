@@ -132,6 +132,11 @@ if is_plat("wasm") then
     set_toolchains("emcc@emscripten")
 end
 
+-- 系统内置的库（一般不需要下载和安装）
+add_requires("openmp", {optional = true})                                       -- 可选的OpenMP库，用于并行计算
+add_requires("opengl", {optional = true})                                       -- 可选的OpenGL库，用于图形渲染
+add_requires("glu", {optional = true})                                          -- 可选的GLU库，用于3D模型渲染
+
 -- 下载并安装第三方库（可选）
 add_requires("python 3.x", {optional = true})                                   -- 可选的Python库，用于编译python库
 add_requires("swig >=4.2", {optional = true})                                   -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.2 才支持 enum class : type
@@ -140,8 +145,6 @@ add_requires("benchmark", {optional = true})                                    
 add_requires("replxx", {optional = true})                                       -- 可选的replxx库，用于命令行交互
 add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
 add_requires("openframes", {optional = true})                                   -- 可选的OpenFrames库，用于三维可视化
-add_requires("opengl", {optional = true})                                       -- 可选的OpenGL库，用于图形渲染
-add_requires("glu", {optional = true})                                          -- 可选的GLU库，用于3D模型渲染
 add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
 add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
 add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算

@@ -204,6 +204,18 @@ namespace literals
     {
         return val * kHourToSec;
     }
+
+    /// @param val 小时值
+    inline constexpr double operator ""_hour(long double val)
+    {
+        return val * kHourToSec;
+    }
+
+    /// @param val 小时值
+    inline constexpr double operator ""_hour(unsigned long long val)
+    {
+        return static_cast<double>(val) * kHourToSec;
+    }
     
     /// @param val 天数值
     inline constexpr double operator ""_day(long double val)

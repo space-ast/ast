@@ -29,6 +29,32 @@
 
 AST_NAMESPACE_BEGIN
 
+double RotationElement::evaluateDot(bool isRotation, double t, double d) const
+{
+    double dot = 0;
+    if(isSine_){
+        for(auto& coeff : coefficients_){
+            double arg = coeff.constant_ + coeff.rate_ * d + coeff.rateDot_ * t * t;
+            dot += coeff.amplitude_ * cos(arg) * (coeff.rate_ + 2 * coeff.rateDot_ * t / kDaysPerJulianCentury);
+        }   
+    }
+    else
+    {
+        for(auto& coeff : coefficients_)
+        {
+            double arg = coeff.constant_ + coeff.rate_ * d + coeff.rateDot_ * t * t;
+            dot += -coeff.amplitude_ * sin(arg) * (coeff.rate_ + 2 * coeff.rateDot_ * t / kDaysPerJulianCentury);
+        }   
+    }
+    if(isRotation){
+        dot += this->rate_ + 2 * this->rateDot_ * t / kDaysPerJulianCentury;
+    }else{
+        dot += (this->rate_ + 2 * this->rateDot_ * t)/ kDaysPerJulianCentury;
+    }
+    // 将单位从 rad/day 转换为 rad/sec
+    dot /= kSecondsPerDay;
+    return dot;
+}
 
 double RotationElement::evaluate(double t_or_d,double t, double d) const
 {

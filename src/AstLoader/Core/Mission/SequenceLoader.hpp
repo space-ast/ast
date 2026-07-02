@@ -31,13 +31,14 @@ AST_NAMESPACE_BEGIN
 
 class Sequence;
 class Value;
+class LoaderContext;
 
 
 /// @brief 从值加载序列
 /// @param value 值
 /// @param sequence 序列对象
 /// @return errc_t 错误码，0表示成功
-AST_LOADER_API errc_t aLoadSequence(const Value& value, Sequence& sequence);
+AST_LOADER_API errc_t aLoadSequence(const Value& value, Sequence& sequence, const LoaderContext* context = nullptr);
 
 /// @brief 从文件加载序列
 /// @param filepath 文件路径

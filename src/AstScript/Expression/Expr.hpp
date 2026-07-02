@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
+#include "AstUtil/ObjectNamed.hpp"
 #include "AstScript/ScriptAPI.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -35,13 +36,11 @@ class Value;
 /// 表达式可以嵌套组合，形成复杂的计算逻辑
 /// 表达式的特点是“可以求值”，即每个表达式在求值后都会产生一个结果值
 /// @ingroup Script
-class AST_SCRIPT_API Expr: public Object
+class AST_SCRIPT_API Expr: public ObjectNamed  // 表达式需要名称吗??
 {
 public:
-    using Object::Object;
+    using ObjectNamed::ObjectNamed;
     ~Expr() override = default;
-
-    void setName(StringView name) override{}
 
     /// @brief 接受表达式访问者
     /// @param visitor 表达式访问者对象

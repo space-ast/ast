@@ -31,34 +31,32 @@ void MoonOrientation::getICRFToFixedTransform(const TimePoint &tp, Rotation &rot
 
 void MoonOrientation::getICRFToFixedTransform(const TimePoint &tp, KinematicRotation &rotation) const
 {
-    aICRFToMoonMeanEarthTransform(tp, rotation.getRotation());
-    /// @todo 实现动力学旋转
-    rotation.setRotationRate(Vector3d::Zero());
+    aICRFToMoonMeanEarthTransform(tp, rotation);
 }
 
 void MoonOrientation::getICRFToInertialTransform(const TimePoint &tp, Rotation &rotation) const
 {
-    /// @todo 实现月球惯性系变换
+    rotationalData().getICRFToInertialTransform(tp, rotation);
 }
 
 Axes *MoonOrientation::getMODParent() const
 {
-    return aAxesICRF();
+    return rotationalData().getMODParent();
 }
 
 void MoonOrientation::getMODTransform(const TimePoint &tp, Rotation &rot) const
 {
-    /// @todo 实现月球MOD系变换
+    rotationalData().getMODTransform(tp, rot);
 }
 
 Axes *MoonOrientation::getTODParent() const
 {
-    return aAxesICRF();
+    return rotationalData().getTODParent();
 }
 
 void MoonOrientation::getTODTransform(const TimePoint &tp, Rotation &rot) const
 {
-    /// @todo 实现月球TOD系变换
+    rotationalData().getTODTransform(tp, rot);
 }
 
 AST_NAMESPACE_END

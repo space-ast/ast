@@ -20,6 +20,8 @@
 
 #include "AstCore/Propagate.hpp"
 #include "AstCore/DetectorAllHeaders.hpp"
+#include "AstCore/TimePoint.hpp"
+#include "AstLoader/LoaderContext.hpp"
 #include "AstLoader/ValXMLLoader.hpp"
 #include "AstLoader/ResultLoader.hpp"
 #include "AstLoader/SegmentLoader.hpp"
@@ -42,6 +44,12 @@ errc_t aLoadEventDetector(const Value& value, DetectorPointRelated& detector)
 {
     std::string pointName = value["CalcObjectAttributes"]["ReferencePoint"];
     detector.setPointByName(pointName);
+    return 0;
+}
+
+errc_t aLoadEventDetector(const Value& value, DetectorEpoch& detector)
+{
+    detector.setGoal(TimePoint::Parse(value["TripValue"].toString()));
     return 0;
 }
 
@@ -90,6 +98,12 @@ errc_t aLoadStoppingCondition(const Value& value, SharedPtr<EventDetector>& even
         // aLoadEventDetector(value, *detectorLighting);
         eventDetector = detectorLighting;
     }
+    else if(type == "Epoch")
+    {
+        auto detectorEpoch = aNewObject<DetectorEpoch>(scope);
+        aLoadEventDetector(value, *detectorEpoch);
+        eventDetector = detectorEpoch;
+    }
     else if(type == "UserSelect")
     {
         auto detectorUserSelect = aNewObject<DetectorUserSelect>(scope);
@@ -109,7 +123,7 @@ errc_t aLoadStoppingCondition(const Value& value, SharedPtr<EventDetector>& even
         
         // @fixme TripValue 有可能是日期类型，需要特殊处理
         auto& tripValue = value["TripValue"];
-        if(!tripValue.isNull())
+        if(tripValue.isDouble())
             eventDetector->setGoal(tripValue);
 
         auto& repeatCount = value["RepeatCount"];
@@ -145,35 +159,47 @@ errc_t aLoadStoppingConditions(const Value& dict, Propagate& propagate)
 }
 
 
-HPOP* aResolveBuiltinPropagator(StringView propagatorName)
+HPOP* aResolvePropagatorFromFile(StringView filepath)
 {
-    std::string datadir = aDataDirGet();
-    std::string filepath = datadir + "/Propagator/" + std::string(propagatorName) + ".Propagator";
     ScopedPtr<HPOP> hpop = new HPOP();
     errc_t rc = aLoadPropagator(filepath, *hpop);
     if(rc == eNoError)
     {
-        hpop->setName(propagatorName);
         auto propagator = hpop.release();
         aAddObject(propagator);
         return propagator;
     }
     else
     {
-        aError("failed to load propagator '%s'", filepath.c_str());
+        aError("failed to load propagator '%.*s'", filepath.size(), filepath.data());
     }
     return nullptr;
 }
 
-HPOP* aResolvePropagator(StringView propagatorName)
+HPOP* aResolveBuiltinPropagator(StringView propagatorName)
+{
+    std::string datadir = aDataDirGet();
+    std::string filepath = datadir + "/Propagator/" + std::string(propagatorName) + ".Propagator";
+    return aResolvePropagatorFromFile(filepath);
+}
+
+class LoaderContext;
+
+HPOP* aResolvePropagator(StringView propagatorName, const LoaderContext* context = nullptr)
 {
     HPOP* hpop = (HPOP*)aFindObject(HPOP::StaticType(), propagatorName);
     if(hpop)
         return hpop;
-    return aResolveBuiltinPropagator(propagatorName);
+    hpop = aResolveBuiltinPropagator(propagatorName);
+    if(!hpop && context)
+    {
+        std::string filepath = context->scenarioDir_ + "/Astrogator/Propagators/" + std::string(propagatorName) + ".Propagator";
+        hpop = aResolvePropagatorFromFile(filepath);
+    }
+    return hpop;
 }
 
-errc_t aLoadPropagate(const Value& value, Propagate& propagate)
+errc_t aLoadPropagate(const Value& value, Propagate& propagate, const LoaderContext* context)
 {
     errc_t rc;
     const std::string type = value["Type"];
@@ -189,7 +215,7 @@ errc_t aLoadPropagate(const Value& value, Propagate& propagate)
     // 加载预报器
     {
         std::string propagatorName = value["Propagator"];
-        HPOP* propagator = aResolvePropagator(propagatorName);
+        HPOP* propagator = aResolvePropagator(propagatorName, context);
         if(!propagator)
         {
             aError("failed to resolve propagator '%s'", propagatorName.c_str());

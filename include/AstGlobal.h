@@ -335,6 +335,15 @@
 #endif
 #define AST_ANALYZER_CAPI A_DECL_EXTERN_C AST_ANALYZER_API
 
+
+// ast项目故障捕获模块导出声明
+#ifdef AST_BUILD_LIB_FAULT
+#    define AST_FAULT_API A_DECL_EXPORT
+#else
+#    define AST_FAULT_API A_DECL_IMPORT
+#endif
+#define AST_FAULT_CAPI A_DECL_EXTERN_C AST_FAULT_API
+
 #ifndef AST_PROJECT_NAME
 #   define AST_PROJECT_NAME "ast"
 #endif

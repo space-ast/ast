@@ -22,6 +22,7 @@
 #include "AstMath/ODEEventDetector.hpp"
 #include "AstMath/Bracket.hpp"
 #include "AstCore/SpacecraftState.hpp"
+#include "AstCore/StateMapper.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Math.hpp"
 
@@ -34,23 +35,27 @@ namespace{
 class ODEEventDetectorWrap: public ODEEventDetector
 {
 public:
-    ODEEventDetectorWrap(EventDetector* eventDetector)
+    ODEEventDetectorWrap(EventDetector* eventDetector, StateMapper* stateMapper)
         : eventDetector_(eventDetector)
+        , stateMapper_(stateMapper)
     {
         spacecraftState_ = SpacecraftState::NewDefault();
     }
     ~ODEEventDetectorWrap() override = default;
     double getValue(const double* y, double x) const override
     {
-        // @todo 这里需要处理其他一般情况
-        CartState* cartState = (CartState*)y;
-        spacecraftState_->getOrbitState()->setState(*cartState);
+        stateMapper_->toState(y, x, *spacecraftState_);
         return eventDetector_->getValue(*spacecraftState_, x);
     }
-
+    double getDifference(const double* y,double x) const override
+    {
+        stateMapper_->toState(y, x, *spacecraftState_);
+        return eventDetector_->getDifference(*spacecraftState_, x);
+    }
 private:
     SharedPtr<SpacecraftState> spacecraftState_;    ///< 航天状态实例指针
     SharedPtr<EventDetector> eventDetector_;        ///< 事件检测器实例指针
+    StateMapper* stateMapper_;                      ///< 状态映射器指针
 };
 
 
@@ -82,18 +87,20 @@ public:
 }
 
 
-ODEEventDetector* EventDetector::newODEEventDetector() const
+ODEEventDetector* EventDetector::newODEEventDetector(StateMapper* stateMapper) const
 {
+    assert(stateMapper != nullptr);
+    
     // 这里需要根据是否为角度量来选择不同的包装类
     bool isAngle = this->isAngle();
     ODEEventDetectorWrap* odeEventDetector;
     if(isAngle)
     {
-        odeEventDetector = new ODEEventDetectorWrapForAngle(const_cast<EventDetector*>(this));
+        odeEventDetector = new ODEEventDetectorWrapForAngle(const_cast<EventDetector*>(this), stateMapper);
     }
     else
     {
-        odeEventDetector = new ODEEventDetectorWrap(const_cast<EventDetector*>(this));
+        odeEventDetector = new ODEEventDetectorWrap(const_cast<EventDetector*>(this), stateMapper);
     }
     odeEventDetector->setRepeatCount(repeatCount_);
     odeEventDetector->setGoal(goal_);

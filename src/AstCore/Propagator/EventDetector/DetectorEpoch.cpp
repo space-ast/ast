@@ -19,10 +19,38 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "DetectorEpoch.hpp"
+#include "AstCore/SpacecraftState.hpp"
 
 AST_NAMESPACE_BEGIN
-double DetectorEpoch::getValue(const SpacecraftState& state, double t) const { return 0.0; }
 
+double DetectorEpoch::getValue(const SpacecraftState& state, double t) const 
+{ 
+    TimePoint tp;
+    errc_t rc = state.getStateEpoch(tp);
+    if(rc != eNoError)
+    {
+        aError("failed to get state epoch");
+        return 0.0;
+    }
+    return tp.toEpochSecond(); 
+}
 
+double DetectorEpoch::getDifference(const SpacecraftState& state, double t) const 
+{ 
+    TimePoint tp;
+    errc_t rc = state.getStateEpoch(tp);
+    if(rc != eNoError)
+    {
+        aError("failed to get state epoch");
+        return 0.0;
+    }
+    return tp.durationFrom(goal_); 
+}
+
+void DetectorEpoch::setGoal(const TimePoint& time)
+{
+    this->goal_ = time;
+    this->EventDetector::setGoal(time.toEpochSecond());
+}
 
 AST_NAMESPACE_END

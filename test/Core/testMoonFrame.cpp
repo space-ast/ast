@@ -26,6 +26,7 @@
 #include "ast/Rotation.hpp"
 #include "ast/Literals.hpp"
 #include "ast/Test.hpp"
+#include "ast/CelestialBody.hpp"
 
 
 AST_USING_NAMESPACE
@@ -112,5 +113,112 @@ TEST_F(MoonFrameTest, ICRFToMoonMeanEarthTransform)
 }
 
 
+TEST_F(MoonFrameTest, MoonICRFToFixed)
+{
+    auto moon = aGetMoon();
+    ASSERT_TRUE(moon != nullptr);
+    auto icrf = aAxesICRF();
+    auto inertial = moon->getAxesInertial();
+    auto fixed = moon->getAxesFixed();
+    // test ICRF to Inertial
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 3, 22, 0, 0, 0);
+        Rotation rotation;
+        icrf->getTransformTo(inertial, tp, rotation);
+        Vector3d posICRF{2000_km, 3000_km, 4000_km};
+        Vector3d posInertial;
+        rotation.transformVector(posICRF, posInertial);
+        printf("posInertial: %.15f, %.15f, %.15f\n", posInertial[0], posInertial[1], posInertial[2]);
+        Vector3d posInertialExpected{1832.5467826059721119_km, 4478.5059101219530930_km, 2363.2090687375125526_km};
+        EXPECT_NEAR(posInertial[0], posInertialExpected[0], 1e-8);
+        EXPECT_NEAR(posInertial[1], posInertialExpected[1], 1e-8);
+        EXPECT_NEAR(posInertial[2], posInertialExpected[2], 1e-9);
+    }
+    // test ICRF to Fixed
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+        KinematicRotation rotation;
+        icrf->getTransformTo(fixed, tp, rotation);
+        Vector3d posICRF{2000_km, 3000_km, 4000_km};
+        Vector3d velICRF{100_m/s, 200_m/s, 300_m/s};
+        Vector3d posFixed;
+        Vector3d velFixed;
+        rotation.transformVectorVelocity(posICRF, velICRF, posFixed, velFixed);
+        printf("posFixed: %.15f, %.15f, %.15f\n", posFixed[0], posFixed[1], posFixed[2]);
+        printf("velFixed: %.15f, %.15f, %.15f\n", velFixed[0], velFixed[1], velFixed[2]);
+        
+        Vector3d posFixedExpected{-2168.4231068207191129_km, -4185.4503133240195893_km, 2603.8331176367364606_km};
+        Vector3d velFixedExpected{-122.6377326825566172_m/s, -287.3392504434122543_m/s, 204.0934756090281894_m/s};
+        
+        EXPECT_NEAR(posFixed[0], posFixedExpected[0], 1e-8);
+        EXPECT_NEAR(posFixed[1], posFixedExpected[1], 1e-8);
+        EXPECT_NEAR(posFixed[2], posFixedExpected[2], 1e-9);
+
+        EXPECT_NEAR(velFixed[0], velFixedExpected[0], 1e-8);
+        EXPECT_NEAR(velFixed[1], velFixedExpected[1], 1e-8);
+        EXPECT_NEAR(velFixed[2], velFixedExpected[2], 1e-9);
+    }
+}
+
+
+TEST_F(MoonFrameTest, MoonPrincipalAxes)
+{
+    auto moon = aGetMoon();
+    ASSERT_TRUE(moon != nullptr);
+    auto inertial = moon->getAxesInertial();
+    auto pa403 = moon->getAxes("PrincipalAxes_403");
+    auto pa418 = moon->getAxes("PrincipalAxes_418");
+    auto pa = moon->getAxes("PrincipalAxes");
+    ASSERT_TRUE(inertial != nullptr);
+    ASSERT_TRUE(pa403 != nullptr);
+    ASSERT_TRUE(pa418 != nullptr);
+    ASSERT_TRUE(pa != nullptr);
+    // test Inertial to PA403
+    {
+        auto tp = "2026-06-09 00:00:00"_utc;
+        Vector3d posMoonInertial{2000_km, 3000_km, 4000_km};
+        Vector3d velMoonInertial{100_m/s, 200_m/s, 300_m/s};
+        Vector3d posMoonPA403;
+        Vector3d velMoonPA403;
+        KinematicRotation rotation;
+        inertial->getTransformTo(pa403, tp, rotation);
+        rotation.transformVectorVelocity(posMoonInertial, velMoonInertial, posMoonPA403, velMoonPA403);
+        Vector3d posExpected{-2136.6079165018709318_km, -2635.7972644377359757_km, 4181.8033660042037809_km};
+        Vector3d velExpected{-115.1143331527156448_m/s, -172.0341467514254816_m/s, 311.0138275890610657_m/s};
+        printf("posMoonPA403: %.15f, %.15f, %.15f\n", posMoonPA403[0], posMoonPA403[1], posMoonPA403[2]);
+        printf("velMoonPA403: %.15f, %.15f, %.15f\n", velMoonPA403[0], velMoonPA403[1], velMoonPA403[2]);
+
+        EXPECT_NEAR(posMoonPA403[0], posExpected[0], 1e-8);
+        EXPECT_NEAR(posMoonPA403[1], posExpected[1], 1e-8);
+        EXPECT_NEAR(posMoonPA403[2], posExpected[2], 1e-9);
+
+        EXPECT_NEAR(velMoonPA403[0], velExpected[0], 1e-8);
+        EXPECT_NEAR(velMoonPA403[1], velExpected[1], 1e-8);
+        EXPECT_NEAR(velMoonPA403[2], velExpected[2], 1e-9);
+    }
+    // test Inertial to PA
+    {
+        auto tp = "2026-06-09 00:00:00"_utc;
+        Vector3d posMoonInertial{2000_km, 3000_km, 4000_km};
+        Vector3d velMoonInertial{100_m/s, 200_m/s, 300_m/s};
+        Vector3d posMoonPA;
+        Vector3d velMoonPA;
+        KinematicRotation rotation;
+        inertial->getTransformTo(pa, tp, rotation);
+        rotation.transformVectorVelocity(posMoonInertial, velMoonInertial, posMoonPA, velMoonPA);
+        Vector3d posExpected{-2136.6447978866440280_km, -2635.7563912223972693_km, 4181.8102842900734686_km};
+        Vector3d velExpected{-115.1166486312233417_m/s, -172.0318870059388132_m/s, 311.0142205082832447_m/s};
+        printf("posMoonPA: %.15f, %.15f, %.15f\n", posMoonPA[0], posMoonPA[1], posMoonPA[2]);
+        printf("velMoonPA: %.15f, %.15f, %.15f\n", velMoonPA[0], velMoonPA[1], velMoonPA[2]);
+
+        EXPECT_NEAR(posMoonPA[0], posExpected[0], 1e-8);
+        EXPECT_NEAR(posMoonPA[1], posExpected[1], 1e-8);
+        EXPECT_NEAR(posMoonPA[2], posExpected[2], 1e-9);
+
+        EXPECT_NEAR(velMoonPA[0], velExpected[0], 1e-8);
+        EXPECT_NEAR(velMoonPA[1], velExpected[1], 1e-8);
+        EXPECT_NEAR(velMoonPA[2], velExpected[2], 1e-9);
+    }
+}
 
 GTEST_MAIN()

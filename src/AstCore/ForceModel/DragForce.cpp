@@ -19,9 +19,13 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "DragForce.hpp"
+#include "AstWeather/GeomagneticIndex.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
+double DragForce::ap() const
+{
+    return aKpToAp(kp_);
+}
 
 AST_NAMESPACE_END

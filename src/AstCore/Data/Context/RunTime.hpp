@@ -24,7 +24,17 @@
 #include "AstUtil/RunTime.hpp"
 #include "RunTimeData.hpp"
 #include <string>
+#include <vector>
  
+#define AST_DEFAULT_FILE_LEAPSECOND             "Time/Leap_Second.dat"
+#define AST_DEFAULT_FILE_JPLDE                  "SolarSystem/plneph.430"
+#define AST_DEFAULT_FILE_EOP                    "SolarSystem/Earth/EOP-All.txt"
+#define AST_DEFAULT_FILE_SPACEWEATHER           "SolarSystem/Earth/SW-Last5Years.txt"
+#define AST_DEFAULT_FILE_IAUX                   "IERS-conventions/2010/tab5.2a.txt"
+#define AST_DEFAULT_FILE_IAUY                   "IERS-conventions/2010/tab5.2b.txt"
+#define AST_DEFAULT_FILE_IAUS                   "IERS-conventions/2010/tab5.2d.txt"
+#define AST_DEFAULT_FILE_IAUXYS_PRECOMPUTED     "Test/ICRF/IAU2006_XYS.dat"
+#define AST_DEFAULT_DIR_SOLARSYSTEM             "SolarSystem/"
 
 
 AST_NAMESPACE_BEGIN
@@ -41,6 +51,28 @@ class IAUXYS;
 class IAUXYSPrecomputed;
 class SolarSystem;
 class StartupConfig;
+using StringVector = std::vector<std::string>;
+
+/// @brief 初始化配置
+struct InitalizeConfig
+{
+    std::string dataDir_;                  ///< 数据目录路径
+    std::string leapSecondFile_;           ///< 跳秒文件路径
+    std::string jplDeFile_;                ///< JPL DE文件路径
+    std::string eopFile_;                  ///< EOP文件路径
+    std::string spaceWeatherFile_;         ///< 空间天气文件路径
+    std::string iauxFile_;                 ///< IAU-X系数文件路径
+    std::string iauyFile_;                 ///< IAU-Y系数文件路径
+    std::string iausFile_;                 ///< IAU-Z系数文件路径
+    std::string iauXYSPrecomputedFile_;    ///< IAU-XYS预计算数据文件路径
+    std::string solarSystemDir_;           ///< 太阳系目录路径
+    StringVector spkFiles_;                ///< SPK文件路径列表
+};
+
+/// @brief 获取初始化配置
+/// @param[out] config 初始化配置
+/// @return 错误码
+AST_CORE_CAPI void aGetInitalizeConfig(InitalizeConfig& config);
 
 /// @brief 初始化
 AST_CORE_CAPI errc_t aInitialize();

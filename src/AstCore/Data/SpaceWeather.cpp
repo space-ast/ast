@@ -22,7 +22,13 @@
 #include "AstUtil/BKVParser.hpp"
 #include "AstUtil/String.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Literals.hpp"
 #include "AstCore/Date.hpp"
+#include "AstCore/TimePoint.hpp"
+#include "AstCore/JulianDate.hpp"
+
+#define _AST_USE_FLUX_INTERPOLATION // 是否对Flux进行插值
+// #define _AST_DEBUG_SPACE_WEATHER
 
 AST_NAMESPACE_BEGIN
 
@@ -57,23 +63,11 @@ errc_t loadSpaceWeather(BKVParser& parser, int numPoints, std::vector<SpaceWeath
         entry.BSRN = aParseInt(line.substr(11, 4));
         entry.ND = aParseInt(line.substr(16, 2));
 
-        aParseInt(line.substr(19, 2), entry.Kp1);
-        aParseInt(line.substr(22, 2), entry.Kp2);
-        aParseInt(line.substr(25, 2), entry.Kp3);
-        aParseInt(line.substr(28, 2), entry.Kp4);
-        aParseInt(line.substr(31, 2), entry.Kp5);
-        aParseInt(line.substr(34, 2), entry.Kp6);
-        aParseInt(line.substr(37, 2), entry.Kp7);
-        aParseInt(line.substr(40, 2), entry.Kp8);
+        for(int j = 0; j < 8; ++j)
+            aParseInt(line.substr(19 + j * 3, 2), entry.Kp[j]);
         aParseInt(line.substr(43, 3), entry.KpSum);
-        aParseInt(line.substr(47, 3), entry.Ap1);
-        aParseInt(line.substr(51, 3), entry.Ap2);
-        aParseInt(line.substr(55, 3), entry.Ap3);
-        aParseInt(line.substr(59, 3), entry.Ap4);
-        aParseInt(line.substr(63, 3), entry.Ap5);
-        aParseInt(line.substr(67, 3), entry.Ap6);
-        aParseInt(line.substr(71, 3), entry.Ap7);
-        aParseInt(line.substr(75, 3), entry.Ap8);
+        for(int j = 0; j < 8; ++j)
+            aParseInt(line.substr(47 + j * 4, 3), entry.Ap[j]);
         aParseInt(line.substr(79, 3), entry.ApAvg);
         aParseDouble(line.substr(83, 3), entry.Cp);
         aParseInt(line.substr(87, 1), entry.C9);
@@ -247,6 +241,213 @@ void SpaceWeather::findEntryIndex(double mjdUTC, int & index, double & frac) con
         frac = 0;
         return;
     }
+}
+
+// ============================================================
+// 查询接口实现
+// ============================================================
+
+double SpaceWeather::getApDaily(const TimePoint& tp) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getApDaily_UTCMJD(aJDToMJD_Imprecise(jdUTC));
+}
+
+double SpaceWeather::getApDaily_UTCMJD(double mjdUTC) const
+{
+    if(data_.empty()){
+        return 0.0;
+    }
+    int index;
+    double frac;
+    findEntryIndex(mjdUTC, index, frac);
+    if(index < 0){
+        return 0.0;
+    }
+
+    double val0 = (double)data_[index].ApAvg;
+    return val0;
+
+    // if(frac <= 0.0 || index + 1 >= (int)data_.size()){
+    //     return val0;
+    // }
+    // 
+    // double val1 = (double)data_[index + 1].ApAvg;
+    // return val0 + (val1 - val0) * frac;
+}
+
+int SpaceWeather::getAp3HourlyList(const TimePoint& tp, double* apList, int maxLookback) const
+{
+    if(data_.empty() || maxLookback <= 0){
+        return 0;
+    }
+
+    // 使用DateTime（与MSISBase::getMSISParam一致），避免MJD浮点转换在3h边界上的精度差异
+    DateTime dateTime;
+    aTimePointToUTC(tp, dateTime);
+    int mjdInt = aDateToMJD(dateTime.date());  // 整数MJD，无浮点误差
+    double secOfDay = dateTime.secOfDay();      // 基于整数时分秒，与getMSISParam一致
+    int curBlock = (int)floor(secOfDay / 10800.0);
+
+#ifdef _AST_DEBUG_SPACE_WEATHER
+    if (fabs(secOfDay - 10800 * curBlock) < 1)
+    {
+        A_DEBUG_BREAK();
+    }
+#endif
+
+    if(curBlock < 0) curBlock = 0;
+    if(curBlock >= 8) curBlock = 7;  // 边界保护
+
+    int filled = 0;
+    for(int i = 0; i < maxLookback; ++i)
+    {
+        int totalBlock = mjdInt * 8 + curBlock - i;
+        if(totalBlock < 0) break;  // 超出数据范围
+
+        int targetMJD = totalBlock / 8;
+        int targetBlock = totalBlock % 8;
+
+        const Entry* entry = getEntry(targetMJD);
+        if(entry == nullptr) break;  // 该日无数据
+
+        // 从Entry中提取对应的Ap值 (Ap[0]~Ap[7])
+        apList[i] = (double)entry->Ap[targetBlock];
+        ++filled;
+    }
+    return filled;
+}
+
+double SpaceWeather::getKpDaily(const TimePoint& tp) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getKpDaily_UTCMJD(aJDToMJD_Imprecise(jdUTC));
+}
+
+double SpaceWeather::getKpDaily_UTCMJD(double mjdUTC) const
+{
+    if(data_.empty()){
+        return 0.0;
+    }
+    int index;
+    double frac;
+    findEntryIndex(mjdUTC, index, frac);
+    if(index < 0){
+        return 0.0;
+    }
+
+    // KpSum是8个Kp值的和(Kp*10单位)，日平均 = KpSum / 8 / 10 = KpSum / 80
+    double val0 = data_[index].KpSum / 80.0;
+    return val0;
+    // if(frac <= 0.0 || index + 1 >= (int)data_.size()){
+    //     return val0;
+    // }
+    // 
+    // double val1 = data_[index + 1].KpSum / 80.0;
+    // return val0 + (val1 - val0) * frac;
+}
+
+double SpaceWeather::getF10p7Daily(const TimePoint& tp) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getF10p7Daily_UTCMJD(aJDToMJD_Imprecise(jdUTC));
+}
+
+double SpaceWeather::getF10p7Daily_UTCMJD(double mjdUTC) const
+{
+    if(data_.empty()){
+        return 0.0;
+    }
+    int index;
+    double frac;
+    findFluxIndex(mjdUTC, index, frac);
+    
+    if(index < 0){
+        return 0.0;
+    }
+
+    // 优先使用F10.7观测值；若不可用则回退到调整值
+    double val0 = data_[index].F10p7Obs;
+    if(val0 <= 0.0){
+        val0 = data_[index].F10p7Adj;
+    }
+    #ifndef _AST_USE_FLUX_INTERPOLATION
+    return val0;
+    #else
+    if(frac <= 0.0 || index + 1 >= (int)data_.size()){
+        return val0;
+    }
+
+    double val1 = data_[index + 1].F10p7Obs;
+    if(val1 <= 0.0){
+        val1 = data_[index + 1].F10p7Adj;
+    }
+
+    // 线性插值
+    return val0 + (val1 - val0) * frac;
+    #endif
+}
+
+double SpaceWeather::getF10p7Average(const TimePoint& tp) const
+{
+    JulianDate jdUTC;
+    aTimePointToUTC(tp, jdUTC);
+    return getF10p7Average_UTCMJD(aJDToMJD_Imprecise(jdUTC));
+}
+
+double SpaceWeather::getF10p7Average_UTCMJD(double mjdUTC) const
+{
+    if(data_.empty()){
+        return 0.0;
+    }
+    int index;
+    double frac;
+    findFluxIndex(mjdUTC, index, frac);
+    if(index < 0){
+        return 0.0;
+    }
+
+    // 使用以当天为中心的81天平均值
+    double val0 = data_[index].F10p7ObsCtr81;
+    if(val0 <= 0.0){
+        // 回退：使用最近81天平均值
+        val0 = data_[index].F10p7ObsLst81;
+    }
+    #ifndef _AST_USE_FLUX_INTERPOLATION
+    return val0;
+    #else
+
+    if(frac <= 0.0 || index + 1 >= (int)data_.size()){
+        return val0;
+    }
+    double val1 = data_[index + 1].F10p7ObsCtr81;
+    if(val1 <= 0.0){
+        val1 = data_[index + 1].F10p7ObsLst81;
+    }
+    
+    // 线性插值
+    return val0 + (val1 - val0) * frac;
+    #endif
+}
+
+void SpaceWeather::findFluxIndex(double mjdUTC, int & index, double & frac) const
+{
+    /*
+     * F10.7 观测时间偏移
+     *
+     * F10.7每天只测量一次，测量时刻为 UTC 20:00（1991-05-31 之前为 17:00 UTC，对应观测站搬迁）。
+     *
+     * @see https://celestrak.org/SpaceData/SpaceWx-format.php
+     */
+    constexpr double kF107RefMJD = 18408.0;  ///< 1991-05-31, 观测站搬迁日
+    double f107Offset = (mjdUTC < kF107RefMJD) ? 17.0/24.0: 20.0/24.0;
+
+    double queryMJD = mjdUTC - f107Offset;
+
+    findEntryIndex(queryMJD, index, frac);
 }
 
 AST_NAMESPACE_END

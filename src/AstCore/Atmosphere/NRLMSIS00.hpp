@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Atmosphere.hpp"
+#include "MSISBase.hpp"
 #include <type_traits>
 
 AST_NAMESPACE_BEGIN
@@ -33,8 +33,23 @@ AST_NAMESPACE_BEGIN
 
 class NRLMSISE;
 
+#define _AST_USE_MSIS_VERS_FOR_NRLMSIS00
+
+#ifdef _AST_USE_MSIS_VERS_FOR_NRLMSIS00
+
+/// @brief NRLMSIS00大气模型基类
+class AST_CORE_API NRLMSIS00 final: public MSISBase
+{
+public:
+    NRLMSIS00(Frame* frame, BodyShape* bodyShape, double f107Daily, double f107Average, double ap);
+    NRLMSIS00(Frame* frame, BodyShape* bodyShape, SpaceWeatherProvider* spaceWeather);
+
+    double getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) const override;
+};
+
+#else
 /// @brief NRLMSIS00大气模型
-class AST_CORE_API NRLMSIS00 final: public Atmosphere
+class AST_CORE_API NRLMSIS00 final: public AtmosphereBase
 {
 public:
     NRLMSIS00(Frame* ecf, BodyShape* bodyShape, double f107Daily, double f107Average, double ap);
@@ -42,26 +57,14 @@ public:
 
     double getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) const override;
 
-    Frame* getFrame() const override{return earthFixedFrame_;}
-
-    /// @brief 是否使用近似高度计算
-    bool useApproximateAltitude() const {return useApproximateAltitude_;}
-
-    /// @brief 设置是否使用近似高度计算
-    void setUseApproximateAltitude(bool useApproximateAltitude) {useApproximateAltitude_ = useApproximateAltitude;}
-
+    
 private:
     NRLMSISE& nrlmsise() const {return *reinterpret_cast<NRLMSISE*>(&storage_);}
 private:
     mutable std::aligned_storage<624>::type storage_;
-private:
-    Frame* earthFixedFrame_{nullptr};
-    BodyShape* bodyShape_{nullptr};
-    double F107Daily_{0.0};
-    double F107Average_{0.0};
-    double ap_{0.0};
-    bool useApproximateAltitude_{false};
 };
+
+#endif
 
 
 /*! @} */
