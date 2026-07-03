@@ -382,6 +382,7 @@ var annotated_dup =
       [ "Interpreter", "classast_1_1Interpreter.html", "classast_1_1Interpreter" ],
       [ "InterpreterContext", "classast_1_1InterpreterContext.html", null ],
       [ "Interval", "classast_1_1Interval.html", "classast_1_1Interval" ],
+      [ "IntervalList", "classast_1_1IntervalList.html", "classast_1_1IntervalList" ],
       [ "InvokeHelper", "classast_1_1InvokeHelper.html", null ],
       [ "IObjectImpl", "classast_1_1IObjectImpl.html", "classast_1_1IObjectImpl" ],
       [ "IODEIntegrator", "classast_1_1IODEIntegrator.html", "classast_1_1IODEIntegrator" ],

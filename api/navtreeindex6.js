@@ -15,6 +15,9 @@ var NAVTREEINDEX6 =
 "Interpreter_8hpp.html#a6559d1cbce02f1b37fa1c5f0689083d2":[4,0,0,19,5,4,1],
 "Interpreter_8hpp.html#a886a573a393f59506295db7b4c740360":[4,0,0,19,5,4,3],
 "Interpreter_8hpp_source.html":[4,0,0,19,5,4],
+"IntervalList_8cpp.html":[4,0,0,7,11,11],
+"IntervalList_8hpp.html":[4,0,0,7,11,12],
+"IntervalList_8hpp_source.html":[4,0,0,7,11,12],
 "Interval_8cpp.html":[4,0,0,7,11,9],
 "Interval_8hpp.html":[4,0,0,7,11,10],
 "Interval_8hpp_source.html":[4,0,0,7,11,10],
@@ -100,9 +103,9 @@ var NAVTREEINDEX6 =
 "Julia_8cpp.html":[4,0,0,19,3,5],
 "Julia_8hpp.html":[4,0,0,19,3,6],
 "Julia_8hpp_source.html":[4,0,0,19,3,6],
-"JulianDate_8cpp.html":[4,0,0,7,11,11],
-"JulianDate_8hpp.html":[4,0,0,7,11,12],
-"JulianDate_8hpp_source.html":[4,0,0,7,11,12],
+"JulianDate_8cpp.html":[4,0,0,7,11,13],
+"JulianDate_8hpp.html":[4,0,0,7,11,14],
+"JulianDate_8hpp_source.html":[4,0,0,7,11,14],
 "KVParser_8cpp.html":[4,0,0,28,4,2,0],
 "KVParser_8hpp.html":[4,0,0,28,4,2,1],
 "KVParser_8hpp_source.html":[4,0,0,28,4,2,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "LocalHorizonalFrame_8cpp.html#ae37cf89ecf7a5a9f24db02a7bdd1ee5b":[4,0,0,7,3,2,4,9],
 "LocalHorizonalFrame_8cpp.html#aff2288f2bae71a06b1f524e890dbd26a":[4,0,0,7,3,2,4,8],
 "LocalHorizonalFrame_8hpp.html":[4,0,0,7,3,2,5],
-"LocalHorizonalFrame_8hpp.html#a3f5ba89cce85b1a42267d47f6c38d9db":[4,0,0,7,3,2,5,3],
-"LocalHorizonalFrame_8hpp.html#a60ff691a79a0dbb2a56c22c14f220f0e":[4,0,0,7,3,2,5,5],
-"LocalHorizonalFrame_8hpp.html#a72a28528fa7f6008a62df069411ede03":[4,0,0,7,3,2,5,11],
-"LocalHorizonalFrame_8hpp.html#a73770dc514a1654458eee93c45d31b7b":[4,0,0,7,3,2,5,12]
+"LocalHorizonalFrame_8hpp.html#a3f5ba89cce85b1a42267d47f6c38d9db":[4,0,0,7,3,2,5,3]
 };

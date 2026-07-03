@@ -1,5 +1,8 @@
 var NAVTREEINDEX18 =
 {
+"classast_1_1BisectionSolver.html#a29f815d4ba5860c6f5a0f557d83cf4bf":[0,3,3,0,1],
+"classast_1_1BisectionSolver.html#a85ed3aeddc5f0eb1a5851a1e5b3dce1c":[0,3,3,0,0],
+"classast_1_1BlockAbs.html":[2,0,0,55],
 "classast_1_1BlockAbs.html":[3,0,0,54],
 "classast_1_1BlockAbs.html#afe60c536d3bc2f3d98b8e93f88bfa12e":[2,0,0,55,0],
 "classast_1_1BlockAbs.html#afe60c536d3bc2f3d98b8e93f88bfa12e":[3,0,0,54,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX18 =
 "classast_1_1BlockUnaryMinus.html":[2,0,0,85],
 "classast_1_1BlockUnaryMinus.html":[3,0,0,84],
 "classast_1_1BlockUnaryMinus.html#a0e3a1e39fe0575e8f00ebec1d4f42a63":[2,0,0,85,0],
-"classast_1_1BlockUnaryMinus.html#a0e3a1e39fe0575e8f00ebec1d4f42a63":[3,0,0,84,0],
-"classast_1_1BodyAttraction.html":[2,0,0,86],
-"classast_1_1BodyAttraction.html":[3,0,0,85],
-"classast_1_1BodyAttraction.html#a250e0402a1ec08ef9f9434d7faa30bd8":[2,0,0,86,2]
+"classast_1_1BlockUnaryMinus.html#a0e3a1e39fe0575e8f00ebec1d4f42a63":[3,0,0,84,0]
 };

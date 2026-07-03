@@ -390,6 +390,7 @@ var hierarchy =
     [ "ast::Interpreter", "classast_1_1Interpreter.html", null ],
     [ "ast::InterpreterContext", "classast_1_1InterpreterContext.html", null ],
     [ "ast::Interval", "classast_1_1Interval.html", null ],
+    [ "ast::IntervalList", "classast_1_1IntervalList.html", null ],
     [ "ast::IOrbitDesigner", "classast_1_1IOrbitDesigner.html", [
       [ "ast::BaseOrbitDesigner", "classast_1_1BaseOrbitDesigner.html", [
         [ "ast::CircularOrbitDesigner", "classast_1_1CircularOrbitDesigner.html", null ],

@@ -1,5 +1,8 @@
 var NAVTREEINDEX9 =
 {
+"PilotPolisher_8cpp.html":[4,0,0,25,9],
+"PilotPolisher_8hpp.html":[4,0,0,25,10],
+"PilotPolisher_8hpp_source.html":[4,0,0,25,10],
 "PilotRecorder_8cpp.html":[4,0,0,25,1,0],
 "PilotRecorder_8hpp.html":[4,0,0,25,1,1],
 "PilotRecorder_8hpp_source.html":[4,0,0,25,1,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "RidderSolver_8cpp.html":[4,0,0,13,4,0,5],
 "RidderSolver_8hpp.html":[4,0,0,13,4,0,6],
 "RidderSolver_8hpp_source.html":[4,0,0,13,4,0,6],
-"RotationElement_8cpp.html":[4,0,0,7,10,1,9],
-"RotationElement_8hpp.html":[4,0,0,7,10,1,10],
-"RotationElement_8hpp_source.html":[4,0,0,7,10,1,10],
-"Rotation_8cpp.html":[4,0,0,13,6,4]
+"RotationElement_8cpp.html":[4,0,0,7,10,1,9]
 };

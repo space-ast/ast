@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"RotationElement_8hpp.html":[4,0,0,7,10,1,10],
+"RotationElement_8hpp_source.html":[4,0,0,7,10,1,10],
+"Rotation_8cpp.html":[4,0,0,13,6,4],
 "Rotation_8hpp.html":[4,0,0,13,6,5],
 "Rotation_8hpp_source.html":[4,0,0,13,6,5],
 "RotationalData_8cpp.html":[4,0,0,7,10,1,7],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcDifference_8hpp.html":[4,0,0,7,7,1,0,15,31],
 "ScStateCalcDifference_8hpp_source.html":[4,0,0,7,7,1,0,15,31],
 "ScStateCalcDotProduct_8hpp.html":[4,0,0,7,7,1,0,12,2],
-"ScStateCalcDotProduct_8hpp_source.html":[4,0,0,7,7,1,0,12,2],
-"ScStateCalcDragArea_8cpp.html":[4,0,0,7,7,1,0,17,4],
-"ScStateCalcDragArea_8hpp.html":[4,0,0,7,7,1,0,17,5],
-"ScStateCalcDragArea_8hpp_source.html":[4,0,0,7,7,1,0,17,5]
+"ScStateCalcDotProduct_8hpp_source.html":[4,0,0,7,7,1,0,12,2]
 };

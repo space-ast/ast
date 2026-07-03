@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"LocalHorizonalFrame_8hpp.html#a60ff691a79a0dbb2a56c22c14f220f0e":[4,0,0,7,3,2,5,5],
+"LocalHorizonalFrame_8hpp.html#a72a28528fa7f6008a62df069411ede03":[4,0,0,7,3,2,5,11],
+"LocalHorizonalFrame_8hpp.html#a73770dc514a1654458eee93c45d31b7b":[4,0,0,7,3,2,5,12],
 "LocalHorizonalFrame_8hpp.html#a760d8d0022e16361b9438272f28170d5":[4,0,0,7,3,2,5,2],
 "LocalHorizonalFrame_8hpp.html#a86f59a0167f81fe8d55a824b14151711":[4,0,0,7,3,2,5,10],
 "LocalHorizonalFrame_8hpp.html#a8ce82f884b66909d057457414655b2e0":[4,0,0,7,3,2,5,1],
@@ -157,8 +160,8 @@ var NAVTREEINDEX7 =
 "MockUninitializedPointer_8cpp.html":[4,0,0,14,15],
 "MockUninitializedPointer_8hpp.html":[4,0,0,14,16],
 "MockUninitializedPointer_8hpp_source.html":[4,0,0,14,16],
-"ModJulianDate_8hpp.html":[4,0,0,7,11,13],
-"ModJulianDate_8hpp_source.html":[4,0,0,7,11,13],
+"ModJulianDate_8hpp.html":[4,0,0,7,11,15],
+"ModJulianDate_8hpp_source.html":[4,0,0,7,11,15],
 "MolniyaOrbitDesigner_8cpp.html":[4,0,0,7,7,4,8],
 "MolniyaOrbitDesigner_8hpp.html":[4,0,0,7,7,4,9],
 "MolniyaOrbitDesigner_8hpp_source.html":[4,0,0,7,7,4,9],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "NLESolver_8cpp.html":[4,0,0,16,7],
 "NLESolver_8hpp.html":[4,0,0,16,8],
 "NLESolver_8hpp_source.html":[4,0,0,16,8],
-"NLE_8hpp.html":[4,0,0,13,4,1],
-"NLE_8hpp_source.html":[4,0,0,13,4,1],
-"NLPIpoptSolver_8cpp.html":[4,0,0,16,9],
-"NLPIpoptSolver_8hpp.html":[4,0,0,16,10]
+"NLE_8hpp.html":[4,0,0,13,4,1]
 };

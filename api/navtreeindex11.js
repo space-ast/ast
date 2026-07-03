@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcDragArea_8cpp.html":[4,0,0,7,7,1,0,17,4],
+"ScStateCalcDragArea_8hpp.html":[4,0,0,7,7,1,0,17,5],
+"ScStateCalcDragArea_8hpp_source.html":[4,0,0,7,7,1,0,17,5],
 "ScStateCalcDragForce_8cpp.html":[4,0,0,7,7,1,0,11,4],
 "ScStateCalcDragForce_8hpp.html":[4,0,0,7,7,1,0,11,5],
 "ScStateCalcDragForce_8hpp_source.html":[4,0,0,7,7,1,0,11,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcRadPressureArea_8cpp.html":[4,0,0,7,7,1,0,15,146],
 "ScStateCalcRadPressureArea_8hpp.html":[4,0,0,7,7,1,0,15,147],
 "ScStateCalcRadPressureArea_8hpp_source.html":[4,0,0,7,7,1,0,15,147],
-"ScStateCalcRadPressureCoefficient_8cpp.html":[4,0,0,7,7,1,0,15,148],
-"ScStateCalcRadPressureCoefficient_8hpp.html":[4,0,0,7,7,1,0,15,149],
-"ScStateCalcRadPressureCoefficient_8hpp_source.html":[4,0,0,7,7,1,0,15,149],
-"ScStateCalcRadialRate_8cpp.html":[4,0,0,7,7,1,0,15,142]
+"ScStateCalcRadPressureCoefficient_8cpp.html":[4,0,0,7,7,1,0,15,148]
 };

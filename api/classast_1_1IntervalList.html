@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::IntervalList类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1IntervalList.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classast_1_1IntervalList-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::IntervalList类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Time.html">时间转换</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="IntervalList_8hpp_source.html">IntervalList.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a5b9af0f5857a6e8d25e70c31c2c2fa9c" id="r_a5b9af0f5857a6e8d25e70c31c2c2fa9c"><td class="memItemLeft" align="right" valign="top"><a id="a5b9af0f5857a6e8d25e70c31c2c2fa9c" name="a5b9af0f5857a6e8d25e70c31c2c2fa9c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>iterator</b> = std::vector&lt;<a class="el" href="classast_1_1Interval.html">Interval</a>&gt;::iterator</td></tr>
+<tr class="separator:a5b9af0f5857a6e8d25e70c31c2c2fa9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2058a58600c39da33b27d6bfa0fbb9e2" id="r_a2058a58600c39da33b27d6bfa0fbb9e2"><td class="memItemLeft" align="right" valign="top"><a id="a2058a58600c39da33b27d6bfa0fbb9e2" name="a2058a58600c39da33b27d6bfa0fbb9e2"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b> = std::vector&lt;<a class="el" href="classast_1_1Interval.html">Interval</a>&gt;::const_iterator</td></tr>
+<tr class="separator:a2058a58600c39da33b27d6bfa0fbb9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ab921b3d96938e867ad8b1cdca9f76afe" id="r_ab921b3d96938e867ad8b1cdca9f76afe"><td class="memItemLeft" align="right" valign="top"><a id="ab921b3d96938e867ad8b1cdca9f76afe" name="ab921b3d96938e867ad8b1cdca9f76afe"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IntervalList</b> ()=default</td></tr>
+<tr class="separator:ab921b3d96938e867ad8b1cdca9f76afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b7c00df937adfb7cbb79afbbd4d6dbf" id="r_a5b7c00df937adfb7cbb79afbbd4d6dbf"><td class="memItemLeft" align="right" valign="top"><a id="a5b7c00df937adfb7cbb79afbbd4d6dbf" name="a5b7c00df937adfb7cbb79afbbd4d6dbf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~IntervalList</b> ()=default</td></tr>
+<tr class="separator:a5b7c00df937adfb7cbb79afbbd4d6dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dfd52d82cf76ac4fa5fd73b04ce8039" id="r_a0dfd52d82cf76ac4fa5fd73b04ce8039"><td class="memItemLeft" align="right" valign="top"><a id="a0dfd52d82cf76ac4fa5fd73b04ce8039" name="a0dfd52d82cf76ac4fa5fd73b04ce8039"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IntervalList</b> (const <a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;)=default</td></tr>
+<tr class="separator:a0dfd52d82cf76ac4fa5fd73b04ce8039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a418599386babde306d59b6b83493bd" id="r_a1a418599386babde306d59b6b83493bd"><td class="memItemLeft" align="right" valign="top"><a id="a1a418599386babde306d59b6b83493bd" name="a1a418599386babde306d59b6b83493bd"></a>
+<a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;)=default</td></tr>
+<tr class="separator:a1a418599386babde306d59b6b83493bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11201e655aa4e7b0b9a50d5189379085" id="r_a11201e655aa4e7b0b9a50d5189379085"><td class="memItemLeft" align="right" valign="top"><a id="a11201e655aa4e7b0b9a50d5189379085" name="a11201e655aa4e7b0b9a50d5189379085"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IntervalList</b> (<a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a11201e655aa4e7b0b9a50d5189379085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23cae2f176152f840fba0ce5fdbcb395" id="r_a23cae2f176152f840fba0ce5fdbcb395"><td class="memItemLeft" align="right" valign="top"><a id="a23cae2f176152f840fba0ce5fdbcb395" name="a23cae2f176152f840fba0ce5fdbcb395"></a>
+<a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a23cae2f176152f840fba0ce5fdbcb395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740f5e1314c5c971b3106dbed5ce1f25" id="r_a740f5e1314c5c971b3106dbed5ce1f25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a740f5e1314c5c971b3106dbed5ce1f25">IntervalList</a> (std::initializer_list&lt; <a class="el" href="classast_1_1Interval.html">Interval</a> &gt; il)</td></tr>
+<tr class="separator:a740f5e1314c5c971b3106dbed5ce1f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2b2dbed0c043e28f138956d67f574b4" id="r_aa2b2dbed0c043e28f138956d67f574b4"><td class="memItemLeft" align="right" valign="top"><a id="aa2b2dbed0c043e28f138956d67f574b4" name="aa2b2dbed0c043e28f138956d67f574b4"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const noexcept</td></tr>
+<tr class="separator:aa2b2dbed0c043e28f138956d67f574b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a464b137f431fe04c915a1b4597909872" id="r_a464b137f431fe04c915a1b4597909872"><td class="memItemLeft" align="right" valign="top"><a id="a464b137f431fe04c915a1b4597909872" name="a464b137f431fe04c915a1b4597909872"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> () const noexcept</td></tr>
+<tr class="separator:a464b137f431fe04c915a1b4597909872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa31069aa510e07eaba1f1bd45762bf26" id="r_aa31069aa510e07eaba1f1bd45762bf26"><td class="memItemLeft" align="right" valign="top"><a id="aa31069aa510e07eaba1f1bd45762bf26" name="aa31069aa510e07eaba1f1bd45762bf26"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reserve</b> (size_t n)</td></tr>
+<tr class="separator:aa31069aa510e07eaba1f1bd45762bf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67d9e24f9592302471790ef8d25efa29" id="r_a67d9e24f9592302471790ef8d25efa29"><td class="memItemLeft" align="right" valign="top"><a id="a67d9e24f9592302471790ef8d25efa29" name="a67d9e24f9592302471790ef8d25efa29"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="separator:a67d9e24f9592302471790ef8d25efa29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c3906146850f2e290b55820647877db" id="r_a2c3906146850f2e290b55820647877db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Interval.html">Interval</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c3906146850f2e290b55820647877db">operator[]</a> (size_t i)</td></tr>
+<tr class="separator:a2c3906146850f2e290b55820647877db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a469ea794079dadb1f1437eb25bcd6d1b" id="r_a469ea794079dadb1f1437eb25bcd6d1b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1Interval.html">Interval</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a469ea794079dadb1f1437eb25bcd6d1b">operator[]</a> (size_t i) const</td></tr>
+<tr class="separator:a469ea794079dadb1f1437eb25bcd6d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a220e70521dfd783230d5ccfd3e58ce6b" id="r_a220e70521dfd783230d5ccfd3e58ce6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Interval.html">Interval</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a220e70521dfd783230d5ccfd3e58ce6b">at</a> (size_t i)</td></tr>
+<tr class="separator:a220e70521dfd783230d5ccfd3e58ce6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73590de3937af2089a629e43bad11035" id="r_a73590de3937af2089a629e43bad11035"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1Interval.html">Interval</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73590de3937af2089a629e43bad11035">at</a> (size_t i) const</td></tr>
+<tr class="separator:a73590de3937af2089a629e43bad11035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36fb86e9446712b286c883d7028ebdc6" id="r_a36fb86e9446712b286c883d7028ebdc6"><td class="memItemLeft" align="right" valign="top"><a id="a36fb86e9446712b286c883d7028ebdc6" name="a36fb86e9446712b286c883d7028ebdc6"></a>
+iterator&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<tr class="separator:a36fb86e9446712b286c883d7028ebdc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1beee24b1ce4aa5088e1e986e099741d" id="r_a1beee24b1ce4aa5088e1e986e099741d"><td class="memItemLeft" align="right" valign="top"><a id="a1beee24b1ce4aa5088e1e986e099741d" name="a1beee24b1ce4aa5088e1e986e099741d"></a>
+iterator&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<tr class="separator:a1beee24b1ce4aa5088e1e986e099741d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a169ed026927223f80a5bedce735bd6de" id="r_a169ed026927223f80a5bedce735bd6de"><td class="memItemLeft" align="right" valign="top"><a id="a169ed026927223f80a5bedce735bd6de" name="a169ed026927223f80a5bedce735bd6de"></a>
+const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const</td></tr>
+<tr class="separator:a169ed026927223f80a5bedce735bd6de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04c7263f753da9982d210183e3da9f2e" id="r_a04c7263f753da9982d210183e3da9f2e"><td class="memItemLeft" align="right" valign="top"><a id="a04c7263f753da9982d210183e3da9f2e" name="a04c7263f753da9982d210183e3da9f2e"></a>
+const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const</td></tr>
+<tr class="separator:a04c7263f753da9982d210183e3da9f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab71136ff00ff8d30f4de6662180ee9fe" id="r_ab71136ff00ff8d30f4de6662180ee9fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab71136ff00ff8d30f4de6662180ee9fe">push_back</a> (const <a class="el" href="classast_1_1Interval.html">Interval</a> &amp;interval)</td></tr>
+<tr class="separator:ab71136ff00ff8d30f4de6662180ee9fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ba7c6d57f77696aa24e04f9794e5176" id="r_a0ba7c6d57f77696aa24e04f9794e5176"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ba7c6d57f77696aa24e04f9794e5176">push_back</a> (double start, double stop)</td></tr>
+<tr class="separator:a0ba7c6d57f77696aa24e04f9794e5176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20961df74833ea70257485e52ae93a00" id="r_a20961df74833ea70257485e52ae93a00"><td class="memItemLeft" align="right" valign="top"><a id="a20961df74833ea70257485e52ae93a00" name="a20961df74833ea70257485e52ae93a00"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pop_back</b> ()</td></tr>
+<tr class="separator:a20961df74833ea70257485e52ae93a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a720807d1ffbbd2ee3f40330de00b66c8" id="r_a720807d1ffbbd2ee3f40330de00b66c8"><td class="memItemLeft" align="right" valign="top"><a id="a720807d1ffbbd2ee3f40330de00b66c8" name="a720807d1ffbbd2ee3f40330de00b66c8"></a>
+std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>intervals</b> () noexcept</td></tr>
+<tr class="separator:a720807d1ffbbd2ee3f40330de00b66c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a523dabb79633c19c81a1cb2fbf27f26a" id="r_a523dabb79633c19c81a1cb2fbf27f26a"><td class="memItemLeft" align="right" valign="top"><a id="a523dabb79633c19c81a1cb2fbf27f26a" name="a523dabb79633c19c81a1cb2fbf27f26a"></a>
+const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>intervals</b> () const noexcept</td></tr>
+<tr class="separator:a523dabb79633c19c81a1cb2fbf27f26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79f910eaf448e03f372b56b2eb4147d6" id="r_a79f910eaf448e03f372b56b2eb4147d6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79f910eaf448e03f372b56b2eb4147d6">totalDuration</a> () const</td></tr>
+<tr class="separator:a79f910eaf448e03f372b56b2eb4147d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53363bef3c6c5f3f299d3f2d6a876ac0" id="r_a53363bef3c6c5f3f299d3f2d6a876ac0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53363bef3c6c5f3f299d3f2d6a876ac0">contains</a> (double t) const</td></tr>
+<tr class="separator:a53363bef3c6c5f3f299d3f2d6a876ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6940df80cfdfd08696ee58e79caf83a4" id="r_a6940df80cfdfd08696ee58e79caf83a4"><td class="memItemLeft" align="right" valign="top">AST_CORE_API <a class="el" href="classast_1_1IntervalList.html">IntervalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6940df80cfdfd08696ee58e79caf83a4">merged</a> () const</td></tr>
+<tr class="separator:a6940df80cfdfd08696ee58e79caf83a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3157341c2565a2ea25cc3f8604aa869" id="r_af3157341c2565a2ea25cc3f8604aa869"><td class="memItemLeft" align="right" valign="top">AST_CORE_API <a class="el" href="classast_1_1IntervalList.html">IntervalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3157341c2565a2ea25cc3f8604aa869">intersect</a> (const <a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;other) const</td></tr>
+<tr class="separator:af3157341c2565a2ea25cc3f8604aa869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6080a4827605b7eee72f86372d0f1150" id="r_a6080a4827605b7eee72f86372d0f1150"><td class="memItemLeft" align="right" valign="top">AST_CORE_API <a class="el" href="classast_1_1IntervalList.html">IntervalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6080a4827605b7eee72f86372d0f1150">unite</a> (const <a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;other) const</td></tr>
+<tr class="separator:a6080a4827605b7eee72f86372d0f1150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadfc1333b03a6ebbae59449b4e502159" id="r_aadfc1333b03a6ebbae59449b4e502159"><td class="memItemLeft" align="right" valign="top">AST_CORE_API <a class="el" href="classast_1_1IntervalList.html">IntervalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadfc1333b03a6ebbae59449b4e502159">subtract</a> (const <a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;other) const</td></tr>
+<tr class="separator:aadfc1333b03a6ebbae59449b4e502159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a149e52e0aeb38f406ae45e38542eb8ee" id="r_a149e52e0aeb38f406ae45e38542eb8ee"><td class="memItemLeft" align="right" valign="top">AST_CORE_API <a class="el" href="classast_1_1TimeList.html">TimeList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a149e52e0aeb38f406ae45e38542eb8ee">discrete</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, double step) const</td></tr>
+<tr class="separator:a149e52e0aeb38f406ae45e38542eb8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a17b4ec0da52eb6c5383ca55d63d2ac2e" id="r_a17b4ec0da52eb6c5383ca55d63d2ac2e"><td class="memItemLeft" align="right" valign="top">static AST_CORE_API <a class="el" href="classast_1_1IntervalList.html">IntervalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17b4ec0da52eb6c5383ca55d63d2ac2e">FromIntervals</a> (const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a> &gt; &amp;<a class="el" href="#a720807d1ffbbd2ee3f40330de00b66c8">intervals</a>)</td></tr>
+<tr class="separator:a17b4ec0da52eb6c5383ca55d63d2ac2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>相对时段列表 </p>
+<p>相对时段列表以 std::vector&lt;<a class="el" href="classast_1_1Interval.html" title="相对时间区间">Interval</a>&gt; 的形式存储一组相对时间区间。</p>
+<p>存储模型：</p><ul>
+<li>intervals_ : std::vector&lt;<a class="el" href="classast_1_1Interval.html" title="相对时间区间">Interval</a>&gt; — 相对时间区间列表</li>
+</ul>
+<p>不假设列表有序或非重叠。使用方式与 std::vector&lt;<a class="el" href="classast_1_1Interval.html" title="相对时间区间">Interval</a>&gt; 一致， 同时提供集合运算方法（合并、交集、并集、差集）。</p>
+<p>典型用途：</p><ul>
+<li>覆盖分析（卫星何时可见）</li>
+<li>约束满足（多约束交集）</li>
+<li>可用窗口（通信时段）</li>
+<li>间隙分析</li>
+</ul>
+<dl class="section note"><dt>注解</dt><dd>列表可以无序。集合运算（merged、intersect 等）内部会先排序合并。 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>在使用相对时段列表时，需要明确基准时间点（epoch）。 </dd></dl>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a740f5e1314c5c971b3106dbed5ce1f25" name="a740f5e1314c5c971b3106dbed5ce1f25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740f5e1314c5c971b3106dbed5ce1f25">&#9670;&#160;</a></span>IntervalList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::IntervalList::IntervalList </td>
+          <td>(</td>
+          <td class="paramtype">std::initializer_list&lt; <a class="el" href="classast_1_1Interval.html">Interval</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>il</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从初始化列表构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">il</td><td>初始化列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a220e70521dfd783230d5ccfd3e58ce6b" name="a220e70521dfd783230d5ccfd3e58ce6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a220e70521dfd783230d5ccfd3e58ce6b">&#9670;&#160;</a></span>at() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Interval.html">Interval</a> &amp; ast::IntervalList::at </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>访问第 i 个区间（边界检查） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>第 i 个区间 </dd></dl>
+
+</div>
+</div>
+<a id="a73590de3937af2089a629e43bad11035" name="a73590de3937af2089a629e43bad11035"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73590de3937af2089a629e43bad11035">&#9670;&#160;</a></span>at() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classast_1_1Interval.html">Interval</a> &amp; ast::IntervalList::at </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>访问第 i 个区间（边界检查） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>第 i 个区间 </dd></dl>
+
+</div>
+</div>
+<a id="a53363bef3c6c5f3f299d3f2d6a876ac0" name="a53363bef3c6c5f3f299d3f2d6a876ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53363bef3c6c5f3f299d3f2d6a876ac0">&#9670;&#160;</a></span>contains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::IntervalList::contains </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检查时间点 t 是否落在任一区间内 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>时间点（相对秒数） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否在任一区间内 </dd></dl>
+
+</div>
+</div>
+<a id="a149e52e0aeb38f406ae45e38542eb8ee" name="a149e52e0aeb38f406ae45e38542eb8ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a149e52e0aeb38f406ae45e38542eb8ee">&#9670;&#160;</a></span>discrete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1TimeList.html">TimeList</a> ast::IntervalList::discrete </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>epoch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>step</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将每个区间按步长离散化，拼接为 <a class="el" href="classast_1_1TimeList.html" title="时间点列表">TimeList</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">epoch</td><td>参考历元 </td></tr>
+    <tr><td class="paramname">step</td><td>离散化步长（秒） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classast_1_1TimeList.html" title="时间点列表">TimeList</a> 离散化的时间点列表 </dd></dl>
+
+</div>
+</div>
+<a id="a17b4ec0da52eb6c5383ca55d63d2ac2e" name="a17b4ec0da52eb6c5383ca55d63d2ac2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17b4ec0da52eb6c5383ca55d63d2ac2e">&#9670;&#160;</a></span>FromIntervals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1IntervalList.html">IntervalList</a> ast::IntervalList::FromIntervals </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>intervals</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从区间向量构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">intervals</td><td>区间向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classast_1_1IntervalList.html" title="相对时段列表">IntervalList</a> </dd></dl>
+
+</div>
+</div>
+<a id="af3157341c2565a2ea25cc3f8604aa869" name="af3157341c2565a2ea25cc3f8604aa869"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3157341c2565a2ea25cc3f8604aa869">&#9670;&#160;</a></span>intersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1IntervalList.html">IntervalList</a> ast::IntervalList::intersect </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>交集：同时属于当前列表和 other 的时段 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>另一个时段列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>交集 </dd></dl>
+
+</div>
+</div>
+<a id="a6940df80cfdfd08696ee58e79caf83a4" name="a6940df80cfdfd08696ee58e79caf83a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6940df80cfdfd08696ee58e79caf83a4">&#9670;&#160;</a></span>merged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1IntervalList.html">IntervalList</a> ast::IntervalList::merged </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>合并重叠/相邻区间 </p>
+<p>将列表中的区间按 start 排序，合并重叠或相邻的区间， 返回排序后无重叠的区间列表。 </p><dl class="section return"><dt>返回</dt><dd>合并后的 <a class="el" href="classast_1_1IntervalList.html" title="相对时段列表">IntervalList</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2c3906146850f2e290b55820647877db" name="a2c3906146850f2e290b55820647877db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c3906146850f2e290b55820647877db">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Interval.html">Interval</a> &amp; ast::IntervalList::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>访问第 i 个区间（无边界检查） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a469ea794079dadb1f1437eb25bcd6d1b" name="a469ea794079dadb1f1437eb25bcd6d1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a469ea794079dadb1f1437eb25bcd6d1b">&#9670;&#160;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classast_1_1Interval.html">Interval</a> &amp; ast::IntervalList::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>访问第 i 个区间（无边界检查） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>索引 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab71136ff00ff8d30f4de6662180ee9fe" name="ab71136ff00ff8d30f4de6662180ee9fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab71136ff00ff8d30f4de6662180ee9fe">&#9670;&#160;</a></span>push_back() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::IntervalList::push_back </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Interval.html">Interval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>interval</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>追加一个区间 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interval</td><td>区间 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0ba7c6d57f77696aa24e04f9794e5176" name="a0ba7c6d57f77696aa24e04f9794e5176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ba7c6d57f77696aa24e04f9794e5176">&#9670;&#160;</a></span>push_back() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::IntervalList::push_back </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>stop</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>追加一个区间 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>开始时间（秒） </td></tr>
+    <tr><td class="paramname">stop</td><td>结束时间（秒） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aadfc1333b03a6ebbae59449b4e502159" name="aadfc1333b03a6ebbae59449b4e502159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadfc1333b03a6ebbae59449b4e502159">&#9670;&#160;</a></span>subtract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1IntervalList.html">IntervalList</a> ast::IntervalList::subtract </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>差集：属于当前列表但不属于 other 的时段 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>另一个时段列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>差集 </dd></dl>
+
+</div>
+</div>
+<a id="a79f910eaf448e03f372b56b2eb4147d6" name="a79f910eaf448e03f372b56b2eb4147d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79f910eaf448e03f372b56b2eb4147d6">&#9670;&#160;</a></span>totalDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::IntervalList::totalDuration </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>总时长（所有区间 duration 之和，不考虑重叠） </p>
+<dl class="section return"><dt>返回</dt><dd>总时长（秒） </dd></dl>
+
+</div>
+</div>
+<a id="a6080a4827605b7eee72f86372d0f1150" name="a6080a4827605b7eee72f86372d0f1150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6080a4827605b7eee72f86372d0f1150">&#9670;&#160;</a></span>unite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1IntervalList.html">IntervalList</a> ast::IntervalList::unite </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>并集：属于当前列表或 other 的时段 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>另一个时段列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>并集 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Time/<a class="el" href="IntervalList_8hpp_source.html">IntervalList.hpp</a></li>
+<li>src/AstCore/Time/<a class="el" href="IntervalList_8cpp.html">IntervalList.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1IntervalList.html">IntervalList</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>
