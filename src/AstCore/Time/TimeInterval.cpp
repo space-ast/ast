@@ -56,13 +56,13 @@ errc_t TimeInterval::discrete(const TimePoint &epoch, double step, std::vector<d
         return eErrorInvalidParam;
     }
     ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration() / step) + 1);
-    times.reserve(nnodes);
+    times.resize(nnodes);
     double offset = getStart() - epoch;
     
     for(ptrdiff_t i = 0; i < nnodes-1; i++){
-        times.push_back(offset + i * step);
+        times[i] = offset + i * step;
     }
-    times.push_back(getStop() - epoch);
+    times[nnodes-1] = getStop() - epoch;
     return eNoError;
 }
 

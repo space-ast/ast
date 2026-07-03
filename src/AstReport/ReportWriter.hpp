@@ -48,7 +48,7 @@ public:
 /// @param report 报表模板定义（Section → Line → Element 结构）
 /// @param object 数据源对象
 /// @return 错误码
-AST_REPORT_API errc_t aWriteReport(const ReportStyle& report, const Object* object, FILE* file, const ReportGenerateOptions& options);
+AST_REPORT_API errc_t aWriteReport(const ReportStyle& report, const Object* object, FILE* file, const ReportGenerateOptions& options = ReportGenerateOptions{});
 
 /*! @} */
 
