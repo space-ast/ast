@@ -500,6 +500,7 @@
 #include "AstCore/ThirdBodyForce.hpp"
 #include "AstCore/Time.hpp"
 #include "AstCore/TimeInterval.hpp"
+#include "AstCore/TimeIntervalList.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/TimeScale.hpp"
 #include "AstCore/TimeSystem.hpp"

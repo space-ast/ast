@@ -97,6 +97,14 @@ public:
     IntervalList(std::initializer_list<Interval> il)
         : intervals_(il) {}
 
+    explicit IntervalList(const std::vector<Interval>& intervals)
+        : intervals_(intervals) 
+    {}
+
+    explicit IntervalList(std::vector<Interval>&& intervals)
+        : intervals_(std::move(intervals)) 
+    {}
+    
     // ————————————————————————
     // 容量
     // ————————————————————————
@@ -245,9 +253,14 @@ public:
     // ————————————————————————
 
     /// @brief 将每个区间按步长离散化，拼接为 TimeList
+    /// @details 区间为闭区间 [start, stop]，两端点均会被包含在输出中。
+    ///          对每个区间，生成序列 start, start+step, start+2*step, ... 直至 stop
+    ///          （最后一个点始终为 stop，即使它不落在步长网格上）。
+    ///          例如：[0, 10] step=3 → {0, 3, 6, 9, 10}
+    ///                [0, 10] step=2 → {0, 2, 4, 6, 8, 10}
     /// @param epoch 参考历元
-    /// @param step 离散化步长（秒）
-    /// @return TimeList 离散化的时间点列表
+    /// @param step 离散化步长（秒，必须 > 0）
+    /// @return TimeList 离散化后的时间点列表
     AST_CORE_API
     TimeList discrete(const TimePoint& epoch, double step) const;
 
