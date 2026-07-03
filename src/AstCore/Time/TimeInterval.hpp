@@ -297,7 +297,7 @@ inline TimeInterval::DiscreteTimePointRange TimeInterval::discrete(double step) 
     if (step <= 0.0 || dur <= 0.0) {
         return DiscreteTimePointRange(*this, step, 0);
     }
-    size_t n = static_cast<size_t>(std::ceil(dur / step));
+    size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
     return DiscreteTimePointRange(*this, step, n);
 }
 
@@ -307,7 +307,7 @@ inline TimeInterval::DiscreteEpochSecondRange TimeInterval::discrete(const TimeP
     if (step <= 0.0 || dur <= 0.0) {
         return DiscreteEpochSecondRange(0.0, step, 0.0, 0);
     }
-    size_t n = static_cast<size_t>(std::ceil(dur / step));
+    size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
     double offset = getStart() - epoch;
     double stopOffset = getStop() - epoch;
     return DiscreteEpochSecondRange(offset, step, stopOffset, n);

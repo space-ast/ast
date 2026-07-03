@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "DataSeries.hpp"
-#include "AstCore/Time/TimePoint.hpp"
+#include "AstCore/TimePoint.hpp"
 
 #include <stdlib.h>     // malloc, free
 #include <string.h>     // memcpy
@@ -447,8 +447,6 @@ void DataSeries::resize(size_t n)
 void DataSeries::sort(bool ascending)
 {
     if (size_ <= 1) return;
-
-    size_t elemSize = _aDataTypeSize(type_);
 
     if (type_ == EDataType::eDouble)
     {
