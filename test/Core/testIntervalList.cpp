@@ -699,9 +699,9 @@ TEST(IntervalList, LargeValues)
     EXPECT_DOUBLE_EQ(list.totalDuration(), 2e12);
 }
 
-TEST(IntervalList, DegenerateInterval)
+TEST(IntervalList, ReversedInterval)
 {
-    // stop < start 的"反向"区间（数据层面允许存储）
+    // stop < start 的反向区间（数据层面允许存储）
     IntervalList list = {{10.0, 0.0}};
     EXPECT_EQ(list.size(), 1u);
     EXPECT_DOUBLE_EQ(list[0].start_, 10.0);
@@ -771,7 +771,7 @@ TEST(IntervalList, ContainsWithNegativeIntervals)
     EXPECT_FALSE(list.contains(-1.0));  // 在间隙中
 }
 
-TEST(IntervalList, ContainsDegenerateInterval)
+TEST(IntervalList, ContainsReversedInterval)
 {
     // 反向区间 [10, 0]，contains 检查 t >= 10 && t <= 0，永远为 false
     IntervalList list = {{10.0, 0.0}};
@@ -876,6 +876,138 @@ TEST(IntervalList, MergedDoesNotModifyOriginal)
     EXPECT_DOUBLE_EQ(list[0].stop_, copy[0].stop_);
     EXPECT_DOUBLE_EQ(list[1].start_, copy[1].start_);
     EXPECT_DOUBLE_EQ(list[1].stop_, copy[1].stop_);
+}
+
+
+// ————————————————————————
+// 原地合并（mergeInPlace）
+// ————————————————————————
+
+TEST(IntervalList, MergeInPlaceEmpty)
+{
+    IntervalList list;
+    list.mergeInPlace();
+    EXPECT_TRUE(list.empty());
+}
+
+TEST(IntervalList, MergeInPlaceSingle)
+{
+    IntervalList list = {{0.0, 10.0}};
+    list.mergeInPlace();
+
+    EXPECT_EQ(list.size(), 1u);
+    EXPECT_DOUBLE_EQ(list[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(list[0].stop_, 10.0);
+}
+
+TEST(IntervalList, MergeInPlaceNonOverlapping)
+{
+    IntervalList list = {
+        {20.0, 30.0},
+        {0.0, 10.0},   // 无序
+    };
+    list.mergeInPlace();
+
+    EXPECT_EQ(list.size(), 2u);
+    EXPECT_DOUBLE_EQ(list[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(list[0].stop_, 10.0);
+    EXPECT_DOUBLE_EQ(list[1].start_, 20.0);
+    EXPECT_DOUBLE_EQ(list[1].stop_, 30.0);
+}
+
+TEST(IntervalList, MergeInPlaceOverlapping)
+{
+    IntervalList list = {
+        {0.0, 10.0},
+        {5.0, 15.0},
+    };
+    list.mergeInPlace();
+
+    EXPECT_EQ(list.size(), 1u);
+    EXPECT_DOUBLE_EQ(list[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(list[0].stop_, 15.0);
+}
+
+TEST(IntervalList, MergeInPlaceAdjacent)
+{
+    IntervalList list = {
+        {0.0, 10.0},
+        {10.0, 20.0},
+    };
+    list.mergeInPlace();
+
+    EXPECT_EQ(list.size(), 1u);
+    EXPECT_DOUBLE_EQ(list[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(list[0].stop_, 20.0);
+}
+
+TEST(IntervalList, MergeInPlaceComplex)
+{
+    IntervalList list = {
+        {0.0, 10.0},
+        {5.0, 15.0},
+        {20.0, 30.0},
+        {25.0, 35.0},
+        {40.0, 50.0},
+    };
+    list.mergeInPlace();
+
+    EXPECT_EQ(list.size(), 3u);
+    EXPECT_DOUBLE_EQ(list[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(list[0].stop_, 15.0);
+    EXPECT_DOUBLE_EQ(list[1].start_, 20.0);
+    EXPECT_DOUBLE_EQ(list[1].stop_, 35.0);
+    EXPECT_DOUBLE_EQ(list[2].start_, 40.0);
+    EXPECT_DOUBLE_EQ(list[2].stop_, 50.0);
+}
+
+TEST(IntervalList, MergeInPlaceContainment)
+{
+    IntervalList list = {
+        {0.0, 100.0},
+        {20.0, 30.0},
+    };
+    list.mergeInPlace();
+
+    EXPECT_EQ(list.size(), 1u);
+    EXPECT_DOUBLE_EQ(list[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(list[0].stop_, 100.0);
+}
+
+TEST(IntervalList, MergeInPlaceIdempotent)
+{
+    IntervalList list = {
+        {20.0, 30.0},
+        {0.0, 10.0},
+    };
+    list.mergeInPlace();
+    // 再次调用应不变
+    list.mergeInPlace();
+
+    EXPECT_EQ(list.size(), 2u);
+    EXPECT_DOUBLE_EQ(list[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(list[0].stop_, 10.0);
+    EXPECT_DOUBLE_EQ(list[1].start_, 20.0);
+    EXPECT_DOUBLE_EQ(list[1].stop_, 30.0);
+}
+
+TEST(IntervalList, MergeInPlaceWithZeroDuration)
+{
+    IntervalList list = {
+        {0.0, 10.0},
+        {5.0, 5.0},
+        {15.0, 15.0},
+        {20.0, 30.0},
+    };
+    list.mergeInPlace();
+
+    EXPECT_EQ(list.size(), 3u);
+    EXPECT_DOUBLE_EQ(list[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(list[0].stop_, 10.0);
+    EXPECT_DOUBLE_EQ(list[1].start_, 15.0);
+    EXPECT_DOUBLE_EQ(list[1].stop_, 15.0);
+    EXPECT_DOUBLE_EQ(list[2].start_, 20.0);
+    EXPECT_DOUBLE_EQ(list[2].stop_, 30.0);
 }
 
 

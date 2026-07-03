@@ -423,7 +423,7 @@ int main()
     // ================================================================
     // 仿真参数
     // ================================================================
-    const int    NUM_SATELLITES = 10000;          // 卫星数量
+    const int    NUM_SATELLITES = 100000;          // 卫星数量
     const double DURATION       = 10_day;           // 预报时长: 1天
     const double STEP_SIZE      = 60.0;            // 星历步长: 60秒
     const int    PROGRESS_STEP  = 100;             // 每处理 N 颗卫星输出一次进度

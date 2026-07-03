@@ -20,8 +20,8 @@
 
 #include "IntervalList.hpp"
 #include "TimeList.hpp"
-#include "TimeInterval.hpp"
 #include <algorithm>
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
@@ -44,50 +44,56 @@ IntervalList IntervalList::FromIntervals(const std::vector<Interval>& intervals)
 
 IntervalList IntervalList::merged() const
 {
+    IntervalList result = *this;
+    result.mergeInPlace();
+    return result;
+}
+
+void IntervalList::mergeInPlace()
+{
     if (intervals_.empty())
     {
-        return IntervalList();
+        return;
     }
 
-    // 复制并排序
-    std::vector<Interval> sorted = intervals_;
-    std::sort(sorted.begin(), sorted.end(),
+    // 原地排序
+    std::sort(intervals_.begin(), intervals_.end(),
               [](const Interval& a, const Interval& b) {
                   return a.start_ < b.start_;
               });
 
-    IntervalList result;
-    result.intervals_.push_back(sorted[0]);
-
-    for (size_t i = 1; i < sorted.size(); ++i)
+    // 原地合并相邻或重叠的区间
+    size_t writeIdx = 0;
+    for (size_t i = 1; i < intervals_.size(); ++i)
     {
-        Interval& last = result.intervals_.back();
-        const Interval& curr = sorted[i];
-
-        if (curr.start_ <= last.stop_)
+        if (intervals_[i].start_ <= intervals_[writeIdx].stop_)
         {
-            // 重叠或相邻，合并
-            if (curr.stop_ > last.stop_)
+            // 重叠或相邻，扩展当前区间
+            if (intervals_[i].stop_ > intervals_[writeIdx].stop_)
             {
-                last.stop_ = curr.stop_;
+                intervals_[writeIdx].stop_ = intervals_[i].stop_;
             }
         }
         else
         {
-            // 不重叠，追加新区间
-            result.intervals_.push_back(curr);
+            // 不重叠，写入下一个位置
+            ++writeIdx;
+            intervals_[writeIdx] = intervals_[i];
         }
     }
 
-    return result;
+    // 截断多余元素
+    intervals_.resize(writeIdx + 1);
 }
 
 IntervalList IntervalList::intersect(const IntervalList& other) const
 {
-    IntervalList a = this->merged();
+    IntervalList a = *this;
+    a.mergeInPlace();
     IntervalList b = other.merged();
 
     IntervalList result;
+    result.intervals_.reserve(a.size() + b.size());
 
     size_t i = 0, j = 0;
     while (i < a.size() && j < b.size())
@@ -120,15 +126,18 @@ IntervalList IntervalList::unite(const IntervalList& other) const
     result.intervals_.reserve(intervals_.size() + other.intervals_.size());
     result.intervals_.insert(result.intervals_.end(), intervals_.begin(), intervals_.end());
     result.intervals_.insert(result.intervals_.end(), other.intervals_.begin(), other.intervals_.end());
-    return result.merged();
+    result.mergeInPlace();
+    return result;
 }
 
 IntervalList IntervalList::subtract(const IntervalList& other) const
 {
-    IntervalList a = this->merged();
+    IntervalList a = *this;
+    a.mergeInPlace();
     IntervalList b = other.merged();
 
     IntervalList result;
+    result.intervals_.reserve(a.size() + b.size());
 
     size_t j = 0;
     for (size_t i = 0; i < a.size(); ++i)
@@ -179,15 +188,37 @@ TimeList IntervalList::discrete(const TimePoint& epoch, double step) const
 {
     TimeList result(epoch);
 
-    if (step <= 0.0 || intervals_.empty())
+    if (step <= 0.0)
     {
         return result;
     }
 
-    for (const auto& iv : intervals_)
+    // 先合并重叠区间，避免重叠区域产生重复时间点
+    IntervalList mergedList = *this;
+    mergedList.mergeInPlace();
+    if (mergedList.empty())
     {
-        TimeInterval ti(epoch, iv.start_, iv.stop_);
-        ti.discrete(epoch, step, result.seconds());
+        return result;
+    }
+
+    for (const auto& iv : mergedList)
+    {
+        double dur = iv.duration();
+        if (dur <= 0.0)
+        {
+            continue;
+        }
+
+        // 直接从 Interval 的相對秒数生成离散时间点，绕过 TimeInterval 中间层
+        auto& secs = result.seconds();
+        ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(dur / step) + 1);
+        secs.reserve(secs.size() + nnodes);
+
+        for (ptrdiff_t i = 0; i < nnodes - 1; ++i)
+        {
+            secs.push_back(iv.start_ + i * step);
+        }
+        secs.push_back(iv.stop_);
     }
 
     return result;

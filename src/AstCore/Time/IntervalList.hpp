@@ -161,6 +161,7 @@ public:
     void push_back(double start, double stop) { intervals_.push_back({start, stop}); }
 
     /// @brief 移除最后一个区间
+    /// @warning 调用前应确保列表非空，否则行为未定义（与 std::vector 一致）
     void pop_back() { intervals_.pop_back(); }
 
     // ————————————————————————
@@ -177,13 +178,16 @@ public:
     // 查询
     // ————————————————————————
 
-    /// @brief 总时长（所有区间 duration 之和，不考虑重叠）
+    /// @brief 总时长（所有区间 duration 之和，不考虑重叠；反向区间贡献为 0）
     /// @return 总时长（秒）
     double totalDuration() const
     {
         double total = 0.0;
         for (const auto& iv : intervals_)
-            total += iv.duration();
+        {
+            double d = iv.duration();
+            total += (d > 0.0) ? d : 0.0;
+        }
         return total;
     }
 
@@ -210,6 +214,13 @@ public:
     /// @return 合并后的 IntervalList
     AST_CORE_API
     IntervalList merged() const;
+
+    /// @brief 原地合并重叠/相邻区间
+    /// @details 直接修改当前对象，将其区间按 start 排序后合并重叠或相邻的区间。
+    ///          合并后列表有序且无重叠。
+    /// @note 若需保留原始数据，请使用 merged() 获取副本。
+    AST_CORE_API
+    void mergeInPlace();
 
     /// @brief 交集：同时属于当前列表和 other 的时段
     /// @param other 另一个时段列表
