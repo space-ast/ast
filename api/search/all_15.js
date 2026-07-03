@@ -257,7 +257,7 @@ var searchData=
   ['unitconverter_254',['UnitConverter',['../classast_1_1UnitConverter.html',1,'ast']]],
   ['unitconverter_2ecpp_255',['UnitConverter.cpp',['../UnitConverter_8cpp.html',1,'']]],
   ['unitconverter_2ehpp_256',['UnitConverter.hpp',['../UnitConverter_8hpp.html',1,'']]],
-  ['unite_257',['unite',['../classast_1_1IntervalList.html#a6080a4827605b7eee72f86372d0f1150',1,'ast::IntervalList']]],
+  ['unite_257',['unite',['../classast_1_1IntervalList.html#a6080a4827605b7eee72f86372d0f1150',1,'ast::IntervalList::unite()'],['../classast_1_1TimeIntervalList.html#a7a13f044985ececfe0205a4c238b4021',1,'ast::TimeIntervalList::unite()']]],
   ['unitmanager_258',['UnitManager',['../classast_1_1UnitManager.html',1,'ast']]],
   ['unitmanager_2ecpp_259',['UnitManager.cpp',['../UnitManager_8cpp.html',1,'']]],
   ['unitmanager_2ehpp_260',['UnitManager.hpp',['../UnitManager_8hpp.html',1,'']]],

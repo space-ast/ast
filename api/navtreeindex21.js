@@ -1,5 +1,8 @@
 var NAVTREEINDEX21 =
 {
+"classast_1_1CriticallyInclinedOrbitDesigner.html#ac30518fe8ebeaf8f9190426e0f5ed075":[0,1,4,3,4],
+"classast_1_1CriticallyInclinedOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[0,1,4,3,3],
+"classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89dd":[0,1,4,3,0],
 "classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89dda2c960f38133fb827437b72b59d64875e":[0,1,4,3,0,1],
 "classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89ddafff03efdc0d42aec622a56e1c3cc69ad":[0,1,4,3,0,0],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html":[2,0,0,155],
@@ -246,8 +249,5 @@ var NAVTREEINDEX21 =
 "classast_1_1DifferentialCorrectorProfile.html#a1b2b1a5e2b63291a84daebccda5f88f9":[2,0,0,210,0],
 "classast_1_1DifferentialCorrectorProfile.html#a1b2b1a5e2b63291a84daebccda5f88f9":[3,0,0,209,0],
 "classast_1_1DifferentialCorrectorProfile.html#a22cc9d5a42bc1e4b86fdee310016af07":[2,0,0,210,3],
-"classast_1_1DifferentialCorrectorProfile.html#a22cc9d5a42bc1e4b86fdee310016af07":[3,0,0,209,3],
-"classast_1_1DifferentialCorrectorProfile.html#a8d3ef63da516d74ad6283962a8424fc2":[2,0,0,210,1],
-"classast_1_1DifferentialCorrectorProfile.html#a8d3ef63da516d74ad6283962a8424fc2":[3,0,0,209,1],
-"classast_1_1DifferentialCorrectorProfile.html#af4233d9d20d90361313485cbc1172761":[2,0,0,210,2]
+"classast_1_1DifferentialCorrectorProfile.html#a22cc9d5a42bc1e4b86fdee310016af07":[3,0,0,209,3]
 };

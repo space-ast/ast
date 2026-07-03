@@ -18,7 +18,7 @@ var searchData=
   ['unit_5fmultiply_15',['unit_multiply',['../namespaceast.html#aa5ff8b62295a7e770ee4a6f4d8763f2b',1,'ast']]],
   ['unit_5fpower_16',['unit_power',['../namespaceast.html#a49d13854b5b3a8bf42c2b26669f74e9a',1,'ast']]],
   ['unit_5fsetname_17',['unit_setname',['../namespaceast.html#a67c45427ea5818e47ec662b5e76f9ba6',1,'ast']]],
-  ['unite_18',['unite',['../classast_1_1IntervalList.html#a6080a4827605b7eee72f86372d0f1150',1,'ast::IntervalList']]],
+  ['unite_18',['unite',['../classast_1_1IntervalList.html#a6080a4827605b7eee72f86372d0f1150',1,'ast::IntervalList::unite()'],['../classast_1_1TimeIntervalList.html#a7a13f044985ececfe0205a4c238b4021',1,'ast::TimeIntervalList::unite()']]],
   ['unload_19',['unload',['../classast_1_1EOP.html#ad22f08d4b6dd5af598de1f9986225d85',1,'ast::EOP::unload()'],['../classast_1_1SpiceAPI.html#a624af589af418c88f74350867335a51d',1,'ast::SpiceAPI::unload()'],['../classast_1_1PythonAPI.html#a63ff9f392f8dcd9e0d658a72cf0454ad',1,'ast::PythonAPI::unload()']]],
   ['unnormalize_20',['unnormalize',['../classast_1_1GravityField.html#ae34a200427b3ee8dac132bb57be27598',1,'ast::GravityField']]],
   ['unnormalized_21',['unnormalized',['../classast_1_1GravityField.html#ace10e8e9a61a6fea914b1130db459297',1,'ast::GravityField']]],

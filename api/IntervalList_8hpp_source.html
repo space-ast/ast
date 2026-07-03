@@ -151,144 +151,152 @@ $(function(){initNavTree('IntervalList_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        : intervals_(il) {}</div>
 </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment">// 容量</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a>(<span class="keyword">const</span> std::vector&lt;Interval&gt;&amp; intervals)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        : intervals_(intervals) </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    {}</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#aa2b2dbed0c043e28f138956d67f574b4">  105</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1IntervalList.html#aa2b2dbed0c043e28f138956d67f574b4">size</a>() const noexcept { <span class="keywordflow">return</span> intervals_.size(); }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a464b137f431fe04c915a1b4597909872">  108</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a464b137f431fe04c915a1b4597909872">empty</a>() const noexcept { <span class="keywordflow">return</span> intervals_.empty(); }</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#aa31069aa510e07eaba1f1bd45762bf26">  111</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1IntervalList.html#aa31069aa510e07eaba1f1bd45762bf26">reserve</a>(<span class="keywordtype">size_t</span> n) { intervals_.reserve(n); }</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a67d9e24f9592302471790ef8d25efa29">  114</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a67d9e24f9592302471790ef8d25efa29">clear</a>() { intervals_.clear(); }</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="comment">// 元素访问</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a2c3906146850f2e290b55820647877db">  122</a></span>    <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a2c3906146850f2e290b55820647877db">operator[]</a>(<span class="keywordtype">size_t</span> i) { <span class="keywordflow">return</span> intervals_[i]; }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">explicit</span> IntervalList(std::vector&lt;Interval&gt;&amp;&amp; intervals)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        : intervals_(std::move(intervals)) </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {}</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// 容量</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#aa2b2dbed0c043e28f138956d67f574b4">  113</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1IntervalList.html#aa2b2dbed0c043e28f138956d67f574b4">size</a>() const noexcept { <span class="keywordflow">return</span> intervals_.size(); }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a464b137f431fe04c915a1b4597909872">  116</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a464b137f431fe04c915a1b4597909872">empty</a>() const noexcept { <span class="keywordflow">return</span> intervals_.empty(); }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#aa31069aa510e07eaba1f1bd45762bf26">  119</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1IntervalList.html#aa31069aa510e07eaba1f1bd45762bf26">reserve</a>(<span class="keywordtype">size_t</span> n) { intervals_.reserve(n); }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a67d9e24f9592302471790ef8d25efa29">  122</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a67d9e24f9592302471790ef8d25efa29">clear</a>() { intervals_.clear(); }</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a469ea794079dadb1f1437eb25bcd6d1b">  126</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a469ea794079dadb1f1437eb25bcd6d1b">operator[]</a>(<span class="keywordtype">size_t</span> i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> intervals_[i]; }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="comment">// 元素访问</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="comment">// ————————————————————————</span></div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a220e70521dfd783230d5ccfd3e58ce6b">  131</a></span>    <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a220e70521dfd783230d5ccfd3e58ce6b">at</a>(<span class="keywordtype">size_t</span> i)             { <span class="keywordflow">return</span> intervals_.at(i); }</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a73590de3937af2089a629e43bad11035">  136</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a73590de3937af2089a629e43bad11035">at</a>(<span class="keywordtype">size_t</span> i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> intervals_.at(i); }</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="comment">// 迭代器</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keyword">using </span>iterator               = std::vector&lt;Interval&gt;::iterator;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keyword">using </span>const_iterator         = std::vector&lt;Interval&gt;::const_iterator;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    iterator begin()             { <span class="keywordflow">return</span> intervals_.begin(); }</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    iterator end()               { <span class="keywordflow">return</span> intervals_.end(); }</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    const_iterator begin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> intervals_.begin(); }</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    const_iterator end()<span class="keyword">   const </span>{ <span class="keywordflow">return</span> intervals_.end(); }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a2c3906146850f2e290b55820647877db">  130</a></span>    <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a2c3906146850f2e290b55820647877db">operator[]</a>(<span class="keywordtype">size_t</span> i) { <span class="keywordflow">return</span> intervals_[i]; }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a469ea794079dadb1f1437eb25bcd6d1b">  134</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a469ea794079dadb1f1437eb25bcd6d1b">operator[]</a>(<span class="keywordtype">size_t</span> i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> intervals_[i]; }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a220e70521dfd783230d5ccfd3e58ce6b">  139</a></span>    <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a220e70521dfd783230d5ccfd3e58ce6b">at</a>(<span class="keywordtype">size_t</span> i)             { <span class="keywordflow">return</span> intervals_.at(i); }</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a73590de3937af2089a629e43bad11035">  144</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a73590de3937af2089a629e43bad11035">at</a>(<span class="keywordtype">size_t</span> i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> intervals_.at(i); }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="comment">// 迭代器</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="comment">// ————————————————————————</span></div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="comment">// 修改</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#ab71136ff00ff8d30f4de6662180ee9fe">  156</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1IntervalList.html#ab71136ff00ff8d30f4de6662180ee9fe">push_back</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; interval) { intervals_.push_back(interval); }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keyword">using </span>iterator               = std::vector&lt;Interval&gt;::iterator;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keyword">using </span>const_iterator         = std::vector&lt;Interval&gt;::const_iterator;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    iterator begin()             { <span class="keywordflow">return</span> intervals_.begin(); }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    iterator end()               { <span class="keywordflow">return</span> intervals_.end(); }</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    const_iterator begin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> intervals_.begin(); }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    const_iterator end()<span class="keyword">   const </span>{ <span class="keywordflow">return</span> intervals_.end(); }</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a0ba7c6d57f77696aa24e04f9794e5176">  161</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a0ba7c6d57f77696aa24e04f9794e5176">push_back</a>(<span class="keywordtype">double</span> start, <span class="keywordtype">double</span> stop) { intervals_.push_back({start, stop}); }</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a20961df74833ea70257485e52ae93a00">  165</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a20961df74833ea70257485e52ae93a00">pop_back</a>() { intervals_.pop_back(); }</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="comment">// 底层容器访问</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="comment">// 修改</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#ab71136ff00ff8d30f4de6662180ee9fe">  164</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1IntervalList.html#ab71136ff00ff8d30f4de6662180ee9fe">push_back</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; interval) { intervals_.push_back(interval); }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a0ba7c6d57f77696aa24e04f9794e5176">  169</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a0ba7c6d57f77696aa24e04f9794e5176">push_back</a>(<span class="keywordtype">double</span> start, <span class="keywordtype">double</span> stop) { intervals_.push_back({start, stop}); }</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a720807d1ffbbd2ee3f40330de00b66c8">  172</a></span>    std::vector&lt;Interval&gt;&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a720807d1ffbbd2ee3f40330de00b66c8">intervals</a>() noexcept { <span class="keywordflow">return</span> intervals_; }</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a523dabb79633c19c81a1cb2fbf27f26a">  175</a></span>    <span class="keyword">const</span> std::vector&lt;Interval&gt;&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a523dabb79633c19c81a1cb2fbf27f26a">intervals</a>() const noexcept { <span class="keywordflow">return</span> intervals_; }</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a20961df74833ea70257485e52ae93a00">  173</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a20961df74833ea70257485e52ae93a00">pop_back</a>() { intervals_.pop_back(); }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="comment">// 底层容器访问</span></div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="comment">// 查询</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a79f910eaf448e03f372b56b2eb4147d6">  183</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a79f910eaf448e03f372b56b2eb4147d6">totalDuration</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordtype">double</span> total = 0.0;</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; iv : intervals_)</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        {</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            <span class="keywordtype">double</span> d = iv.duration();</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            total += (d &gt; 0.0) ? d : 0.0;</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        }</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="keywordflow">return</span> total;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a720807d1ffbbd2ee3f40330de00b66c8">  180</a></span>    std::vector&lt;Interval&gt;&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a720807d1ffbbd2ee3f40330de00b66c8">intervals</a>() noexcept { <span class="keywordflow">return</span> intervals_; }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a523dabb79633c19c81a1cb2fbf27f26a">  183</a></span>    <span class="keyword">const</span> std::vector&lt;Interval&gt;&amp; <a class="code hl_function" href="classast_1_1IntervalList.html#a523dabb79633c19c81a1cb2fbf27f26a">intervals</a>() const noexcept { <span class="keywordflow">return</span> intervals_; }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="comment">// 查询</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a79f910eaf448e03f372b56b2eb4147d6">  191</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a79f910eaf448e03f372b56b2eb4147d6">totalDuration</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keywordtype">double</span> total = 0.0;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; iv : intervals_)</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keywordtype">double</span> d = iv.duration();</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            total += (d &gt; 0.0) ? d : 0.0;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        }</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">return</span> total;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    }</div>
 </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="foldopen" id="foldopen00197" data-start="{" data-end="}">
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a53363bef3c6c5f3f299d3f2d6a876ac0">  197</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a53363bef3c6c5f3f299d3f2d6a876ac0">contains</a>(<span class="keywordtype">double</span> t)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; iv : intervals_)</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        {</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>            <span class="keywordflow">if</span> (t &gt;= iv.start_ &amp;&amp; t &lt;= iv.stop_)</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        }</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="foldopen" id="foldopen00205" data-start="{" data-end="}">
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="classast_1_1IntervalList.html#a53363bef3c6c5f3f299d3f2d6a876ac0">  205</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1IntervalList.html#a53363bef3c6c5f3f299d3f2d6a876ac0">contains</a>(<span class="keywordtype">double</span> t)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; iv : intervals_)</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        {</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            <span class="keywordflow">if</span> (t &gt;= iv.start_ &amp;&amp; t &lt;= iv.stop_)</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        }</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    }</div>
 </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="comment">// 集合运算</span></div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    AST_CORE_API</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a> merged() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    AST_CORE_API</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">void</span> mergeInPlace();</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    AST_CORE_API</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a> intersect(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a>&amp; other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    AST_CORE_API</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a> unite(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a>&amp; other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    AST_CORE_API</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a> subtract(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a>&amp; other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="comment">// 与 TimeList 互转</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="comment">// ————————————————————————</span></div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    AST_CORE_API</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <a class="code hl_class" href="classast_1_1TimeList.html">TimeList</a> discrete(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; epoch, <span class="keywordtype">double</span> step) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    std::vector&lt;Interval&gt; intervals_;   </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>};</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="comment">// 集合运算</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    AST_CORE_API</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a> merged() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    AST_CORE_API</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordtype">void</span> mergeInPlace();</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    AST_CORE_API</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a> intersect(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    AST_CORE_API</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a> unite(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    AST_CORE_API</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a> subtract(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1IntervalList.html">IntervalList</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="comment">// 与 TimeList 互转</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="comment">// ————————————————————————</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    AST_CORE_API</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <a class="code hl_class" href="classast_1_1TimeList.html">TimeList</a> discrete(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; epoch, <span class="keywordtype">double</span> step) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    std::vector&lt;Interval&gt; intervals_;   </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>};</div>
 </div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aInterval_8hpp_html"><div class="ttname"><a href="Interval_8hpp.html">Interval.hpp</a></div></div>
 <div class="ttc" id="aTimePoint_8hpp_html"><div class="ttname"><a href="TimePoint_8hpp.html">TimePoint.hpp</a></div><div class="ttdoc">绝对时间点</div></div>
 <div class="ttc" id="aclassast_1_1IntervalList_html"><div class="ttname"><a href="classast_1_1IntervalList.html">ast::IntervalList</a></div><div class="ttdoc">相对时段列表</div><div class="ttdef"><b>定义</b> IntervalList.hpp:58</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a0ba7c6d57f77696aa24e04f9794e5176"><div class="ttname"><a href="classast_1_1IntervalList.html#a0ba7c6d57f77696aa24e04f9794e5176">ast::IntervalList::push_back</a></div><div class="ttdeci">void push_back(double start, double stop)</div><div class="ttdoc">追加一个区间</div><div class="ttdef"><b>定义</b> IntervalList.hpp:161</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a0ba7c6d57f77696aa24e04f9794e5176"><div class="ttname"><a href="classast_1_1IntervalList.html#a0ba7c6d57f77696aa24e04f9794e5176">ast::IntervalList::push_back</a></div><div class="ttdeci">void push_back(double start, double stop)</div><div class="ttdoc">追加一个区间</div><div class="ttdef"><b>定义</b> IntervalList.hpp:169</div></div>
 <div class="ttc" id="aclassast_1_1IntervalList_html_a0dfd52d82cf76ac4fa5fd73b04ce8039"><div class="ttname"><a href="classast_1_1IntervalList.html#a0dfd52d82cf76ac4fa5fd73b04ce8039">ast::IntervalList::IntervalList</a></div><div class="ttdeci">IntervalList(const IntervalList &amp;)=default</div><div class="ttdoc">拷贝构造</div></div>
 <div class="ttc" id="aclassast_1_1IntervalList_html_a11201e655aa4e7b0b9a50d5189379085"><div class="ttname"><a href="classast_1_1IntervalList.html#a11201e655aa4e7b0b9a50d5189379085">ast::IntervalList::IntervalList</a></div><div class="ttdeci">IntervalList(IntervalList &amp;&amp;) noexcept=default</div><div class="ttdoc">移动构造</div></div>
 <div class="ttc" id="aclassast_1_1IntervalList_html_a1a418599386babde306d59b6b83493bd"><div class="ttname"><a href="classast_1_1IntervalList.html#a1a418599386babde306d59b6b83493bd">ast::IntervalList::operator=</a></div><div class="ttdeci">IntervalList &amp; operator=(const IntervalList &amp;)=default</div><div class="ttdoc">拷贝赋值</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a20961df74833ea70257485e52ae93a00"><div class="ttname"><a href="classast_1_1IntervalList.html#a20961df74833ea70257485e52ae93a00">ast::IntervalList::pop_back</a></div><div class="ttdeci">void pop_back()</div><div class="ttdoc">移除最后一个区间</div><div class="ttdef"><b>定义</b> IntervalList.hpp:165</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a220e70521dfd783230d5ccfd3e58ce6b"><div class="ttname"><a href="classast_1_1IntervalList.html#a220e70521dfd783230d5ccfd3e58ce6b">ast::IntervalList::at</a></div><div class="ttdeci">Interval &amp; at(size_t i)</div><div class="ttdoc">访问第 i 个区间（边界检查）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:131</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a2c3906146850f2e290b55820647877db"><div class="ttname"><a href="classast_1_1IntervalList.html#a2c3906146850f2e290b55820647877db">ast::IntervalList::operator[]</a></div><div class="ttdeci">Interval &amp; operator[](size_t i)</div><div class="ttdoc">访问第 i 个区间（无边界检查）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:122</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a464b137f431fe04c915a1b4597909872"><div class="ttname"><a href="classast_1_1IntervalList.html#a464b137f431fe04c915a1b4597909872">ast::IntervalList::empty</a></div><div class="ttdeci">bool empty() const noexcept</div><div class="ttdoc">判断列表是否为空</div><div class="ttdef"><b>定义</b> IntervalList.hpp:108</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a469ea794079dadb1f1437eb25bcd6d1b"><div class="ttname"><a href="classast_1_1IntervalList.html#a469ea794079dadb1f1437eb25bcd6d1b">ast::IntervalList::operator[]</a></div><div class="ttdeci">const Interval &amp; operator[](size_t i) const</div><div class="ttdoc">访问第 i 个区间（无边界检查）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:126</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a523dabb79633c19c81a1cb2fbf27f26a"><div class="ttname"><a href="classast_1_1IntervalList.html#a523dabb79633c19c81a1cb2fbf27f26a">ast::IntervalList::intervals</a></div><div class="ttdeci">const std::vector&lt; Interval &gt; &amp; intervals() const noexcept</div><div class="ttdoc">获取底层区间向量（只读）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:175</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a53363bef3c6c5f3f299d3f2d6a876ac0"><div class="ttname"><a href="classast_1_1IntervalList.html#a53363bef3c6c5f3f299d3f2d6a876ac0">ast::IntervalList::contains</a></div><div class="ttdeci">bool contains(double t) const</div><div class="ttdoc">检查时间点 t 是否落在任一区间内</div><div class="ttdef"><b>定义</b> IntervalList.hpp:197</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a20961df74833ea70257485e52ae93a00"><div class="ttname"><a href="classast_1_1IntervalList.html#a20961df74833ea70257485e52ae93a00">ast::IntervalList::pop_back</a></div><div class="ttdeci">void pop_back()</div><div class="ttdoc">移除最后一个区间</div><div class="ttdef"><b>定义</b> IntervalList.hpp:173</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a220e70521dfd783230d5ccfd3e58ce6b"><div class="ttname"><a href="classast_1_1IntervalList.html#a220e70521dfd783230d5ccfd3e58ce6b">ast::IntervalList::at</a></div><div class="ttdeci">Interval &amp; at(size_t i)</div><div class="ttdoc">访问第 i 个区间（边界检查）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:139</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a2c3906146850f2e290b55820647877db"><div class="ttname"><a href="classast_1_1IntervalList.html#a2c3906146850f2e290b55820647877db">ast::IntervalList::operator[]</a></div><div class="ttdeci">Interval &amp; operator[](size_t i)</div><div class="ttdoc">访问第 i 个区间（无边界检查）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:130</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a464b137f431fe04c915a1b4597909872"><div class="ttname"><a href="classast_1_1IntervalList.html#a464b137f431fe04c915a1b4597909872">ast::IntervalList::empty</a></div><div class="ttdeci">bool empty() const noexcept</div><div class="ttdoc">判断列表是否为空</div><div class="ttdef"><b>定义</b> IntervalList.hpp:116</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a469ea794079dadb1f1437eb25bcd6d1b"><div class="ttname"><a href="classast_1_1IntervalList.html#a469ea794079dadb1f1437eb25bcd6d1b">ast::IntervalList::operator[]</a></div><div class="ttdeci">const Interval &amp; operator[](size_t i) const</div><div class="ttdoc">访问第 i 个区间（无边界检查）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:134</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a523dabb79633c19c81a1cb2fbf27f26a"><div class="ttname"><a href="classast_1_1IntervalList.html#a523dabb79633c19c81a1cb2fbf27f26a">ast::IntervalList::intervals</a></div><div class="ttdeci">const std::vector&lt; Interval &gt; &amp; intervals() const noexcept</div><div class="ttdoc">获取底层区间向量（只读）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:183</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a53363bef3c6c5f3f299d3f2d6a876ac0"><div class="ttname"><a href="classast_1_1IntervalList.html#a53363bef3c6c5f3f299d3f2d6a876ac0">ast::IntervalList::contains</a></div><div class="ttdeci">bool contains(double t) const</div><div class="ttdoc">检查时间点 t 是否落在任一区间内</div><div class="ttdef"><b>定义</b> IntervalList.hpp:205</div></div>
 <div class="ttc" id="aclassast_1_1IntervalList_html_a5b7c00df937adfb7cbb79afbbd4d6dbf"><div class="ttname"><a href="classast_1_1IntervalList.html#a5b7c00df937adfb7cbb79afbbd4d6dbf">ast::IntervalList::~IntervalList</a></div><div class="ttdeci">~IntervalList()=default</div><div class="ttdoc">析构函数</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a67d9e24f9592302471790ef8d25efa29"><div class="ttname"><a href="classast_1_1IntervalList.html#a67d9e24f9592302471790ef8d25efa29">ast::IntervalList::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">清空列表</div><div class="ttdef"><b>定义</b> IntervalList.hpp:114</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a720807d1ffbbd2ee3f40330de00b66c8"><div class="ttname"><a href="classast_1_1IntervalList.html#a720807d1ffbbd2ee3f40330de00b66c8">ast::IntervalList::intervals</a></div><div class="ttdeci">std::vector&lt; Interval &gt; &amp; intervals() noexcept</div><div class="ttdoc">获取底层区间向量（可修改）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:172</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a73590de3937af2089a629e43bad11035"><div class="ttname"><a href="classast_1_1IntervalList.html#a73590de3937af2089a629e43bad11035">ast::IntervalList::at</a></div><div class="ttdeci">const Interval &amp; at(size_t i) const</div><div class="ttdoc">访问第 i 个区间（边界检查）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:136</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_a79f910eaf448e03f372b56b2eb4147d6"><div class="ttname"><a href="classast_1_1IntervalList.html#a79f910eaf448e03f372b56b2eb4147d6">ast::IntervalList::totalDuration</a></div><div class="ttdeci">double totalDuration() const</div><div class="ttdoc">总时长（所有区间 duration 之和，不考虑重叠；反向区间贡献为 0）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:183</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_aa2b2dbed0c043e28f138956d67f574b4"><div class="ttname"><a href="classast_1_1IntervalList.html#aa2b2dbed0c043e28f138956d67f574b4">ast::IntervalList::size</a></div><div class="ttdeci">size_t size() const noexcept</div><div class="ttdoc">返回区间数量</div><div class="ttdef"><b>定义</b> IntervalList.hpp:105</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_aa31069aa510e07eaba1f1bd45762bf26"><div class="ttname"><a href="classast_1_1IntervalList.html#aa31069aa510e07eaba1f1bd45762bf26">ast::IntervalList::reserve</a></div><div class="ttdeci">void reserve(size_t n)</div><div class="ttdoc">预留容量</div><div class="ttdef"><b>定义</b> IntervalList.hpp:111</div></div>
-<div class="ttc" id="aclassast_1_1IntervalList_html_ab71136ff00ff8d30f4de6662180ee9fe"><div class="ttname"><a href="classast_1_1IntervalList.html#ab71136ff00ff8d30f4de6662180ee9fe">ast::IntervalList::push_back</a></div><div class="ttdeci">void push_back(const Interval &amp;interval)</div><div class="ttdoc">追加一个区间</div><div class="ttdef"><b>定义</b> IntervalList.hpp:156</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a67d9e24f9592302471790ef8d25efa29"><div class="ttname"><a href="classast_1_1IntervalList.html#a67d9e24f9592302471790ef8d25efa29">ast::IntervalList::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">清空列表</div><div class="ttdef"><b>定义</b> IntervalList.hpp:122</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a720807d1ffbbd2ee3f40330de00b66c8"><div class="ttname"><a href="classast_1_1IntervalList.html#a720807d1ffbbd2ee3f40330de00b66c8">ast::IntervalList::intervals</a></div><div class="ttdeci">std::vector&lt; Interval &gt; &amp; intervals() noexcept</div><div class="ttdoc">获取底层区间向量（可修改）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:180</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a73590de3937af2089a629e43bad11035"><div class="ttname"><a href="classast_1_1IntervalList.html#a73590de3937af2089a629e43bad11035">ast::IntervalList::at</a></div><div class="ttdeci">const Interval &amp; at(size_t i) const</div><div class="ttdoc">访问第 i 个区间（边界检查）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:144</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_a79f910eaf448e03f372b56b2eb4147d6"><div class="ttname"><a href="classast_1_1IntervalList.html#a79f910eaf448e03f372b56b2eb4147d6">ast::IntervalList::totalDuration</a></div><div class="ttdeci">double totalDuration() const</div><div class="ttdoc">总时长（所有区间 duration 之和，不考虑重叠；反向区间贡献为 0）</div><div class="ttdef"><b>定义</b> IntervalList.hpp:191</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_aa2b2dbed0c043e28f138956d67f574b4"><div class="ttname"><a href="classast_1_1IntervalList.html#aa2b2dbed0c043e28f138956d67f574b4">ast::IntervalList::size</a></div><div class="ttdeci">size_t size() const noexcept</div><div class="ttdoc">返回区间数量</div><div class="ttdef"><b>定义</b> IntervalList.hpp:113</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_aa31069aa510e07eaba1f1bd45762bf26"><div class="ttname"><a href="classast_1_1IntervalList.html#aa31069aa510e07eaba1f1bd45762bf26">ast::IntervalList::reserve</a></div><div class="ttdeci">void reserve(size_t n)</div><div class="ttdoc">预留容量</div><div class="ttdef"><b>定义</b> IntervalList.hpp:119</div></div>
+<div class="ttc" id="aclassast_1_1IntervalList_html_ab71136ff00ff8d30f4de6662180ee9fe"><div class="ttname"><a href="classast_1_1IntervalList.html#ab71136ff00ff8d30f4de6662180ee9fe">ast::IntervalList::push_back</a></div><div class="ttdeci">void push_back(const Interval &amp;interval)</div><div class="ttdoc">追加一个区间</div><div class="ttdef"><b>定义</b> IntervalList.hpp:164</div></div>
 <div class="ttc" id="aclassast_1_1IntervalList_html_ab921b3d96938e867ad8b1cdca9f76afe"><div class="ttname"><a href="classast_1_1IntervalList.html#ab921b3d96938e867ad8b1cdca9f76afe">ast::IntervalList::IntervalList</a></div><div class="ttdeci">IntervalList()=default</div><div class="ttdoc">默认构造函数</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html"><div class="ttname"><a href="classast_1_1Interval.html">ast::Interval</a></div><div class="ttdoc">相对时间区间</div><div class="ttdef"><b>定义</b> Interval.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1TimeList_html"><div class="ttname"><a href="classast_1_1TimeList.html">ast::TimeList</a></div><div class="ttdoc">时间点列表</div><div class="ttdef"><b>定义</b> TimeList.hpp:48</div></div>

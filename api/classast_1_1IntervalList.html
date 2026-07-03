@@ -140,6 +140,12 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a23cae2f176152f840fba0ce5fdbcb395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a740f5e1314c5c971b3106dbed5ce1f25" id="r_a740f5e1314c5c971b3106dbed5ce1f25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a740f5e1314c5c971b3106dbed5ce1f25">IntervalList</a> (std::initializer_list&lt; <a class="el" href="classast_1_1Interval.html">Interval</a> &gt; il)</td></tr>
 <tr class="separator:a740f5e1314c5c971b3106dbed5ce1f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56499c60a5797dbd4f01aa272837030e" id="r_a56499c60a5797dbd4f01aa272837030e"><td class="memItemLeft" align="right" valign="top"><a id="a56499c60a5797dbd4f01aa272837030e" name="a56499c60a5797dbd4f01aa272837030e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IntervalList</b> (const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a> &gt; &amp;<a class="el" href="#a720807d1ffbbd2ee3f40330de00b66c8">intervals</a>)</td></tr>
+<tr class="separator:a56499c60a5797dbd4f01aa272837030e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3929bcad0a140ee49c6904cde9e89755" id="r_a3929bcad0a140ee49c6904cde9e89755"><td class="memItemLeft" align="right" valign="top"><a id="a3929bcad0a140ee49c6904cde9e89755" name="a3929bcad0a140ee49c6904cde9e89755"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IntervalList</b> (std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a> &gt; &amp;&amp;<a class="el" href="#a720807d1ffbbd2ee3f40330de00b66c8">intervals</a>)</td></tr>
+<tr class="separator:a3929bcad0a140ee49c6904cde9e89755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2b2dbed0c043e28f138956d67f574b4" id="r_aa2b2dbed0c043e28f138956d67f574b4"><td class="memItemLeft" align="right" valign="top"><a id="aa2b2dbed0c043e28f138956d67f574b4" name="aa2b2dbed0c043e28f138956d67f574b4"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const noexcept</td></tr>
 <tr class="separator:aa2b2dbed0c043e28f138956d67f574b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -378,14 +384,14 @@ const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a
 </div><div class="memdoc">
 
 <p>将每个区间按步长离散化，拼接为 <a class="el" href="classast_1_1TimeList.html" title="时间点列表">TimeList</a> </p>
-<dl class="params"><dt>参数</dt><dd>
+<p>区间为闭区间 [start, stop]，两端点均会被包含在输出中。 对每个区间，生成序列 start, start+step, start+2*step, ... 直至 stop （最后一个点始终为 stop，即使它不落在步长网格上）。 例如：[0, 10] step=3 → {0, 3, 6, 9, 10} [0, 10] step=2 → {0, 2, 4, 6, 8, 10} </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">epoch</td><td>参考历元 </td></tr>
-    <tr><td class="paramname">step</td><td>离散化步长（秒） </td></tr>
+    <tr><td class="paramname">step</td><td>离散化步长（秒，必须 &gt; 0） </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd><a class="el" href="classast_1_1TimeList.html" title="时间点列表">TimeList</a> 离散化的时间点列表 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classast_1_1TimeList.html" title="时间点列表">TimeList</a> 离散化后的时间点列表 </dd></dl>
 
 </div>
 </div>

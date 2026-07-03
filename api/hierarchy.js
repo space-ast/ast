@@ -1377,6 +1377,7 @@ var hierarchy =
     ] ],
     [ "ast::Time", "classast_1_1Time.html", null ],
     [ "ast::TimeInterval", "classast_1_1TimeInterval.html", null ],
+    [ "ast::TimeIntervalList", "classast_1_1TimeIntervalList.html", null ],
     [ "ast::TimeList", "classast_1_1TimeList.html", null ],
     [ "ast::TimePoint", "classast_1_1TimePoint.html", null ],
     [ "ast::TimeScale", "classast_1_1TimeScale.html", null ],
