@@ -6,6 +6,7 @@ var classast_1_1TimeInterval =
     [ "discrete", "classast_1_1TimeInterval.html#a25199f4d9dc4a4f6a0d2aa4c4da17dd5", null ],
     [ "discrete", "group__Time.html#gabe360a12179445a578f36cbb87b55aee", null ],
     [ "discrete", "classast_1_1TimeInterval.html#ab4e87be3e6cc73a9607e1328e7f667d6", null ],
+    [ "discrete", "classast_1_1TimeInterval.html#a7bbb9555502514a2d431a0a814dc331b", null ],
     [ "duration", "classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f", null ],
     [ "getStart", "classast_1_1TimeInterval.html#a2cc19db7dc279938cd333aaee7345cbc", null ],
     [ "getStop", "classast_1_1TimeInterval.html#a1cf2e038267e85c9a0a98f308e522a6f", null ],

@@ -1,5 +1,8 @@
 var NAVTREEINDEX38 =
 {
+"classast_1_1ScStateCalcTrueLong.html":[2,0,0,767],
+"classast_1_1ScStateCalcTrueLong.html":[3,0,0,766],
+"classast_1_1ScStateCalcUserValue.html":[2,0,0,769],
 "classast_1_1ScStateCalcUserValue.html":[3,0,0,768],
 "classast_1_1ScStateCalcVAz.html":[2,0,0,772],
 "classast_1_1ScStateCalcVAz.html":[3,0,0,771],
@@ -246,8 +249,5 @@ var NAVTREEINDEX38 =
 "classast_1_1SolarRadiationPressure.html":[3,0,0,807],
 "classast_1_1SolarRadiationPressure.html#a40f6f6c83a804f425fb170690dbdfbac":[2,0,0,808,0],
 "classast_1_1SolarRadiationPressure.html#a40f6f6c83a804f425fb170690dbdfbac":[3,0,0,807,0],
-"classast_1_1SolarRadiationPressure.html#a6b5dcc609cd0dbaa7a52a2247e91ceeb":[2,0,0,808,2],
-"classast_1_1SolarRadiationPressure.html#a6b5dcc609cd0dbaa7a52a2247e91ceeb":[3,0,0,807,2],
-"classast_1_1SolarRadiationPressure.html#a77909811c966c50c0563e04d47b2fdf4":[2,0,0,808,1],
-"classast_1_1SolarRadiationPressure.html#a77909811c966c50c0563e04d47b2fdf4":[3,0,0,807,1]
+"classast_1_1SolarRadiationPressure.html#a6b5dcc609cd0dbaa7a52a2247e91ceeb":[2,0,0,808,2]
 };

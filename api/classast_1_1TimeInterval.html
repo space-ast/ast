@@ -153,6 +153,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> (
 <tr class="separator:a25199f4d9dc4a4f6a0d2aa4c4da17dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4e87be3e6cc73a9607e1328e7f667d6" id="r_ab4e87be3e6cc73a9607e1328e7f667d6"><td class="memItemLeft" align="right" valign="top">AST_CORE_API errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4e87be3e6cc73a9607e1328e7f667d6">discrete</a> (double step, std::vector&lt; <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &gt; &amp;times) const</td></tr>
 <tr class="separator:ab4e87be3e6cc73a9607e1328e7f667d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bbb9555502514a2d431a0a814dc331b" id="r_a7bbb9555502514a2d431a0a814dc331b"><td class="memItemLeft" align="right" valign="top">AST_CORE_API errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bbb9555502514a2d431a0a814dc331b">discrete</a> (double step, <a class="el" href="classast_1_1TimeList.html">TimeList</a> &amp;times) const</td></tr>
+<tr class="separator:a7bbb9555502514a2d431a0a814dc331b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabe360a12179445a578f36cbb87b55aee" id="r_gabe360a12179445a578f36cbb87b55aee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteTimePointRange.html">DiscreteTimePointRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#gabe360a12179445a578f36cbb87b55aee">discrete</a> (double step) const</td></tr>
 <tr class="separator:gabe360a12179445a578f36cbb87b55aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabf30f22652768af0923dcc7729e84cb5" id="r_gabf30f22652768af0923dcc7729e84cb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html">DiscreteEpochSecondRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#gabf30f22652768af0923dcc7729e84cb5">discrete</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, double step) const</td></tr>
@@ -254,7 +256,7 @@ static <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a>&#160;
 </div>
 <h2 class="groupheader">成员函数说明</h2>
 <a id="a25199f4d9dc4a4f6a0d2aa4c4da17dd5" name="a25199f4d9dc4a4f6a0d2aa4c4da17dd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25199f4d9dc4a4f6a0d2aa4c4da17dd5">&#9670;&#160;</a></span>discrete() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a25199f4d9dc4a4f6a0d2aa4c4da17dd5">&#9670;&#160;</a></span>discrete() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -291,7 +293,7 @@ static <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a>&#160;
 </div>
 </div>
 <a id="ab4e87be3e6cc73a9607e1328e7f667d6" name="ab4e87be3e6cc73a9607e1328e7f667d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4e87be3e6cc73a9607e1328e7f667d6">&#9670;&#160;</a></span>discrete() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e87be3e6cc73a9607e1328e7f667d6">&#9670;&#160;</a></span>discrete() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,6 +316,37 @@ static <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a>&#160;
   <table class="params">
     <tr><td class="paramname">step</td><td>离散化步长（秒） </td></tr>
     <tr><td class="paramname">times</td><td>输出离散化时间点 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a7bbb9555502514a2d431a0a814dc331b" name="a7bbb9555502514a2d431a0a814dc331b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bbb9555502514a2d431a0a814dc331b">&#9670;&#160;</a></span>discrete() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::TimeInterval::discrete </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>step</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1TimeList.html">TimeList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>times</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将时间区间离散化 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">step</td><td>离散化步长（秒） </td></tr>
+    <tr><td class="paramname">times</td><td>输出离散化时间点列表 </td></tr>
   </table>
   </dd>
 </dl>

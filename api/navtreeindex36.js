@@ -1,5 +1,8 @@
 var NAVTREEINDEX36 =
 {
+"classast_1_1Rotation.html#a0edf972909466a1016f968b162d251b6":[2,0,0,567,10],
+"classast_1_1Rotation.html#a0edf972909466a1016f968b162d251b6":[3,0,0,566,10],
+"classast_1_1Rotation.html#a0f2bc3cd07e82a337e823379122844f0":[2,0,0,567,12],
 "classast_1_1Rotation.html#a0f2bc3cd07e82a337e823379122844f0":[3,0,0,566,12],
 "classast_1_1Rotation.html#a2fd42528a61cf9d3a0835a20fa2c4fa3":[2,0,0,567,6],
 "classast_1_1Rotation.html#a2fd42528a61cf9d3a0835a20fa2c4fa3":[3,0,0,566,6],
@@ -246,8 +249,5 @@ var NAVTREEINDEX36 =
 "classast_1_1ScStateCalcEarthMeanSolTime.html":[2,0,0,641],
 "classast_1_1ScStateCalcEarthMeanSolTime.html":[3,0,0,640],
 "classast_1_1ScStateCalcEccAnomaly.html":[2,0,0,642],
-"classast_1_1ScStateCalcEccAnomaly.html":[3,0,0,641],
-"classast_1_1ScStateCalcEccentricity.html":[2,0,0,643],
-"classast_1_1ScStateCalcEccentricity.html":[3,0,0,642],
-"classast_1_1ScStateCalcElevation.html":[2,0,0,644]
+"classast_1_1ScStateCalcEccAnomaly.html":[3,0,0,641]
 };

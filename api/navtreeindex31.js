@@ -1,5 +1,8 @@
 var NAVTREEINDEX31 =
 {
+"classast_1_1MotionJ4Analytical.html":[2,0,0,413],
+"classast_1_1MotionJ4Analytical.html":[3,0,0,412],
+"classast_1_1MotionJ4Analytical.html#a36021c84d16dde637b86e27733ccc74f":[2,0,0,413,2],
 "classast_1_1MotionJ4Analytical.html#a36021c84d16dde637b86e27733ccc74f":[3,0,0,412,2],
 "classast_1_1MotionJ4Analytical.html#a5c339b92f79febd3acc3919955bc930c":[2,0,0,413,1],
 "classast_1_1MotionJ4Analytical.html#a5c339b92f79febd3acc3919955bc930c":[3,0,0,412,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX31 =
 "classast_1_1NLPProblem.html#afcea04c6c23a0a724457ca9ea640a138":[2,0,0,446,23],
 "classast_1_1NLPProblem.html#afcea04c6c23a0a724457ca9ea640a138":[3,0,0,445,23],
 "classast_1_1NRLMSIS00.html":[2,0,0,453],
-"classast_1_1NRLMSIS00.html":[3,0,0,452],
-"classast_1_1NRLMSIS00.html#a95fdba7a4435c1ea962b989201493fc9":[2,0,0,453,0],
-"classast_1_1NRLMSIS00.html#a95fdba7a4435c1ea962b989201493fc9":[3,0,0,452,0],
-"classast_1_1NRLMSISE.html":[2,0,0,454]
+"classast_1_1NRLMSIS00.html":[3,0,0,452]
 };

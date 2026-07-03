@@ -1,5 +1,8 @@
 var NAVTREEINDEX37 =
 {
+"classast_1_1ScStateCalcEccentricity.html":[2,0,0,643],
+"classast_1_1ScStateCalcEccentricity.html":[3,0,0,642],
+"classast_1_1ScStateCalcElevation.html":[2,0,0,644],
 "classast_1_1ScStateCalcElevation.html":[3,0,0,643],
 "classast_1_1ScStateCalcElevationRate.html":[2,0,0,645],
 "classast_1_1ScStateCalcElevationRate.html":[3,0,0,644],
@@ -246,8 +249,5 @@ var NAVTREEINDEX37 =
 "classast_1_1ScStateCalcTimePastPeriapsis.html":[2,0,0,765],
 "classast_1_1ScStateCalcTimePastPeriapsis.html":[3,0,0,764],
 "classast_1_1ScStateCalcTrueAnomaly.html":[2,0,0,766],
-"classast_1_1ScStateCalcTrueAnomaly.html":[3,0,0,765],
-"classast_1_1ScStateCalcTrueLong.html":[2,0,0,767],
-"classast_1_1ScStateCalcTrueLong.html":[3,0,0,766],
-"classast_1_1ScStateCalcUserValue.html":[2,0,0,769]
+"classast_1_1ScStateCalcTrueAnomaly.html":[3,0,0,765]
 };
