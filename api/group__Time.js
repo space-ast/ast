@@ -137,14 +137,16 @@ var group__Time =
       [ "discrete", "classast_1_1TimeInterval.html#a7bbb9555502514a2d431a0a814dc331b", null ],
       [ "duration", "classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f", null ],
       [ "getStart", "classast_1_1TimeInterval.html#a2cc19db7dc279938cd333aaee7345cbc", null ],
-      [ "getStop", "classast_1_1TimeInterval.html#a1cf2e038267e85c9a0a98f308e522a6f", null ],
+      [ "getStop", "classast_1_1TimeInterval.html#ab467b273cd33f97b6053596fec9d3286", null ],
       [ "merge", "group__Time.html#ga9e1d8fc152b9efe4b7a44ee9b4826511", null ],
       [ "setInfinite", "classast_1_1TimeInterval.html#a0ddd950e3f25705ae1a1504c89c94778", null ],
+      [ "setStart", "classast_1_1TimeInterval.html#a5add87f6c3b7011c28cf377bb28e9c82", null ],
       [ "setStartStop", "classast_1_1TimeInterval.html#a5e5f7ceb13304d50bb6449cf73255a43", null ],
       [ "setStartStop", "classast_1_1TimeInterval.html#af8b57ad51e894ef855fd9abb0a8f4729", null ],
+      [ "setStop", "classast_1_1TimeInterval.html#af0680c56b4ce36144d5cb33601452bbd", null ],
       [ "setZero", "classast_1_1TimeInterval.html#a52844685e45a000dcc28792c5e10093a", null ],
       [ "start", "classast_1_1TimeInterval.html#a92ad94094486d2c3b3207f5bdbfa6e7b", null ],
-      [ "stop", "classast_1_1TimeInterval.html#ae80b54c37f8194ec4eb707d08f0bfe84", null ],
+      [ "stop", "classast_1_1TimeInterval.html#a84c8351775a794c668e5208c920f7563", null ],
       [ "toString", "classast_1_1TimeInterval.html#a9f131f0bfd39eb0ebe807981f6836f86", null ]
     ] ],
     [ "ast::TimeInterval::DiscreteTimePointRange", "classast_1_1TimeInterval_1_1DiscreteTimePointRange.html", [

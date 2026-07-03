@@ -1,5 +1,7 @@
 var NAVTREEINDEX45 =
 {
+"classast_1_1VectorN_3_01__Scalar_00_013_01_4.html":[0,3,0,7],
+"classast_1_1VectorX.html":[0,3,0,8],
 "classast_1_1Version.html":[2,0,0,1009],
 "classast_1_1Version.html":[3,0,0,1008],
 "classast_1_1Version.html#a664f2dfa1aef52faaacb8c19dd88e870":[2,0,0,1009,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX45 =
 "dir_289a06db8913b8ab1cde044a5c07f0d4.html":[4,0,0,7,10,1],
 "dir_2a969930e1083724931c9d79b0ad2b52.html":[4,0,0,19,4],
 "dir_2e9f91c7599233286751c0c6dd268920.html":[4,0,0,7,7,1,0,12],
-"dir_2f4ee3f8fb923e45f719538569fb5db6.html":[4,0,0,30,2,1],
-"dir_2f65d2ac78b42f3a996d1455feea2c20.html":[4,0,0,13,4,0,0],
-"dir_31515de02407b27498818b9363e93461.html":[4,0,0,28,4,1]
+"dir_2f4ee3f8fb923e45f719538569fb5db6.html":[4,0,0,30,2,1]
 };

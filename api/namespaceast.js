@@ -2697,7 +2697,7 @@ var namespaceast =
     [ "aWideToAnsi", "group__String.html#ga40d79277119322d1fb84debba51a5767", null ],
     [ "aWideToCRT", "group__String.html#gade923a9e656922dfc6d2057be1848fee", null ],
     [ "aWideToUtf8", "group__String.html#ga0ce21ee7c26f4dad9deb2e598f10e84c", null ],
-    [ "aWriteReport", "group__AstReport.html#ga5a0911cdaf9c176d52f98ba3725f68f1", null ],
+    [ "aWriteReport", "group__AstReport.html#ga7e5d872f241e5beb5c4c9beaace1ed47", null ],
     [ "axisar", "group__Spice.html#gaa492a6a07aed235f9ef4ea65c0ec1017", null ],
     [ "aXYCorrection", "group__Data.html#ga8299cf8ede911cc33e4931a4dd17ec4d", null ],
     [ "aXYS", "group__Data.html#ga9a5d3605c09a1dc93ef5f96227ef897d", null ],

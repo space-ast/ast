@@ -1,5 +1,7 @@
 var NAVTREEINDEX55 =
 {
+"structast_1_1DAF__FileRecord.html#a1587d1fac8eb89702e8e633c0892d7b0":[2,0,0,164,8],
+"structast_1_1DAF__FileRecord.html#a1587d1fac8eb89702e8e633c0892d7b0":[3,0,0,163,8],
 "structast_1_1DAF__FileRecord.html#a179eb0068e27670d98dba46f32c5d39b":[2,0,0,164,6],
 "structast_1_1DAF__FileRecord.html#a179eb0068e27670d98dba46f32c5d39b":[3,0,0,163,6],
 "structast_1_1DAF__FileRecord.html#a192e1ddbc2228d64a713d97462863803":[2,0,0,164,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX55 =
 "structast_1_1TreeBuildOptions.html":[3,0,0,894],
 "structast_1_1TreeBuildOptions.html#ab92ec522a917a51ee2a0611804f0349c":[2,0,0,895,0],
 "structast_1_1TreeBuildOptions.html#ab92ec522a917a51ee2a0611804f0349c":[3,0,0,894,0],
-"structast_1_1VehiclePathData.html":[2,0,0,1008],
-"structast_1_1VehiclePathData.html":[3,0,0,1007],
-"structast_1_1WasmClassInfo.html":[2,0,0,1011]
+"structast_1_1VehiclePathData.html":[2,0,0,1008]
 };

@@ -60,7 +60,7 @@ var group__AstReport =
     ] ],
     [ "ast::ReportGenerateOptions", "classast_1_1ReportGenerateOptions.html", null ],
     [ "ast::TypedDataSeries::at", "group__AstReport.html#gaf9ddb8b4d3b4ff15dabcf57a498d8c82", null ],
-    [ "ast::aWriteReport", "group__AstReport.html#ga5a0911cdaf9c176d52f98ba3725f68f1", null ],
+    [ "ast::aWriteReport", "group__AstReport.html#ga7e5d872f241e5beb5c4c9beaace1ed47", null ],
     [ "ast::DataSeries::DataSeries", "group__AstReport.html#ga3179bada8b77578372137b6bc51891af", null ],
     [ "ast::TypedDataSeries::TypedDataSeries", "group__AstReport.html#gafd6d80b3fdba97e42efd3b6b9c492eaf", null ]
 ];
