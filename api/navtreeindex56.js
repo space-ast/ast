@@ -1,5 +1,6 @@
 var NAVTREEINDEX56 =
 {
+"structast_1_1WasmClassInfo.html":[3,0,0,1010],
 "structast_1_1WasmClassInfo.html#a2adc5d959b9a87f70f9bcb0a94622c82":[2,0,0,1011,0],
 "structast_1_1WasmClassInfo.html#a2adc5d959b9a87f70f9bcb0a94622c82":[3,0,0,1010,0],
 "structast_1_1WasmClassInfo.html#ab50d7ebb765b8460efbfd0767cc056b4":[2,0,0,1011,1],

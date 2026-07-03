@@ -176,8 +176,7 @@ const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () 
 <tr class="separator:ab71136ff00ff8d30f4de6662180ee9fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ba7c6d57f77696aa24e04f9794e5176" id="r_a0ba7c6d57f77696aa24e04f9794e5176"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ba7c6d57f77696aa24e04f9794e5176">push_back</a> (double start, double stop)</td></tr>
 <tr class="separator:a0ba7c6d57f77696aa24e04f9794e5176"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20961df74833ea70257485e52ae93a00" id="r_a20961df74833ea70257485e52ae93a00"><td class="memItemLeft" align="right" valign="top"><a id="a20961df74833ea70257485e52ae93a00" name="a20961df74833ea70257485e52ae93a00"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pop_back</b> ()</td></tr>
+<tr class="memitem:a20961df74833ea70257485e52ae93a00" id="r_a20961df74833ea70257485e52ae93a00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20961df74833ea70257485e52ae93a00">pop_back</a> ()</td></tr>
 <tr class="separator:a20961df74833ea70257485e52ae93a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a720807d1ffbbd2ee3f40330de00b66c8" id="r_a720807d1ffbbd2ee3f40330de00b66c8"><td class="memItemLeft" align="right" valign="top"><a id="a720807d1ffbbd2ee3f40330de00b66c8" name="a720807d1ffbbd2ee3f40330de00b66c8"></a>
 std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>intervals</b> () noexcept</td></tr>
@@ -191,6 +190,8 @@ const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a
 <tr class="separator:a53363bef3c6c5f3f299d3f2d6a876ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6940df80cfdfd08696ee58e79caf83a4" id="r_a6940df80cfdfd08696ee58e79caf83a4"><td class="memItemLeft" align="right" valign="top">AST_CORE_API <a class="el" href="classast_1_1IntervalList.html">IntervalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6940df80cfdfd08696ee58e79caf83a4">merged</a> () const</td></tr>
 <tr class="separator:a6940df80cfdfd08696ee58e79caf83a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af773057b9405dd6be3aa879b98934f38" id="r_af773057b9405dd6be3aa879b98934f38"><td class="memItemLeft" align="right" valign="top">AST_CORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af773057b9405dd6be3aa879b98934f38">mergeInPlace</a> ()</td></tr>
+<tr class="separator:af773057b9405dd6be3aa879b98934f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3157341c2565a2ea25cc3f8604aa869" id="r_af3157341c2565a2ea25cc3f8604aa869"><td class="memItemLeft" align="right" valign="top">AST_CORE_API <a class="el" href="classast_1_1IntervalList.html">IntervalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3157341c2565a2ea25cc3f8604aa869">intersect</a> (const <a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;other) const</td></tr>
 <tr class="separator:af3157341c2565a2ea25cc3f8604aa869"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6080a4827605b7eee72f86372d0f1150" id="r_a6080a4827605b7eee72f86372d0f1150"><td class="memItemLeft" align="right" valign="top">AST_CORE_API <a class="el" href="classast_1_1IntervalList.html">IntervalList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6080a4827605b7eee72f86372d0f1150">unite</a> (const <a class="el" href="classast_1_1IntervalList.html">IntervalList</a> &amp;other) const</td></tr>
@@ -468,6 +469,26 @@ const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a
 
 </div>
 </div>
+<a id="af773057b9405dd6be3aa879b98934f38" name="af773057b9405dd6be3aa879b98934f38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af773057b9405dd6be3aa879b98934f38">&#9670;&#160;</a></span>mergeInPlace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::IntervalList::mergeInPlace </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>原地合并重叠/相邻区间 </p>
+<p>直接修改当前对象，将其区间按 start 排序后合并重叠或相邻的区间。 合并后列表有序且无重叠。 </p><dl class="section note"><dt>注解</dt><dd>若需保留原始数据，请使用 <a class="el" href="#a6940df80cfdfd08696ee58e79caf83a4" title="合并重叠/相邻区间">merged()</a> 获取副本。 </dd></dl>
+
+</div>
+</div>
 <a id="a2c3906146850f2e290b55820647877db" name="a2c3906146850f2e290b55820647877db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c3906146850f2e290b55820647877db">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
 
@@ -531,6 +552,34 @@ const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a20961df74833ea70257485e52ae93a00" name="a20961df74833ea70257485e52ae93a00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20961df74833ea70257485e52ae93a00">&#9670;&#160;</a></span>pop_back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::IntervalList::pop_back </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>移除最后一个区间 </p>
+<dl class="section warning"><dt>警告</dt><dd>调用前应确保列表非空，否则行为未定义（与 std::vector 一致） </dd></dl>
 
 </div>
 </div>
@@ -654,7 +703,7 @@ const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a
 </table>
 </div><div class="memdoc">
 
-<p>总时长（所有区间 duration 之和，不考虑重叠） </p>
+<p>总时长（所有区间 duration 之和，不考虑重叠；反向区间贡献为 0） </p>
 <dl class="section return"><dt>返回</dt><dd>总时长（秒） </dd></dl>
 
 </div>

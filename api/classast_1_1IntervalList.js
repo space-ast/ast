@@ -15,6 +15,7 @@ var classast_1_1IntervalList =
     [ "intervals", "classast_1_1IntervalList.html#a523dabb79633c19c81a1cb2fbf27f26a", null ],
     [ "intervals", "classast_1_1IntervalList.html#a720807d1ffbbd2ee3f40330de00b66c8", null ],
     [ "merged", "classast_1_1IntervalList.html#a6940df80cfdfd08696ee58e79caf83a4", null ],
+    [ "mergeInPlace", "classast_1_1IntervalList.html#af773057b9405dd6be3aa879b98934f38", null ],
     [ "operator=", "classast_1_1IntervalList.html#a1a418599386babde306d59b6b83493bd", null ],
     [ "operator=", "classast_1_1IntervalList.html#a23cae2f176152f840fba0ce5fdbcb395", null ],
     [ "operator[]", "classast_1_1IntervalList.html#a2c3906146850f2e290b55820647877db", null ],

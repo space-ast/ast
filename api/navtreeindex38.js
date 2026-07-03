@@ -1,5 +1,6 @@
 var NAVTREEINDEX38 =
 {
+"classast_1_1ScStateCalcSemiMajorAxis.html":[2,0,0,742],
 "classast_1_1ScStateCalcSemiMajorAxis.html":[3,0,0,741],
 "classast_1_1ScStateCalcSequenceDeltaV.html":[2,0,0,743],
 "classast_1_1ScStateCalcSequenceDeltaV.html":[3,0,0,742],
@@ -248,6 +249,5 @@ var NAVTREEINDEX38 =
 "classast_1_1SimTime.html#a59766153e616ae1fb3b61071c2d3a931":[2,0,0,805,5],
 "classast_1_1SimTime.html#a59766153e616ae1fb3b61071c2d3a931":[3,0,0,804,5],
 "classast_1_1SimTime.html#a5e87cc497e9a3ecfa2ef3d142dc91f88":[2,0,0,805,0],
-"classast_1_1SimTime.html#a5e87cc497e9a3ecfa2ef3d142dc91f88":[3,0,0,804,0],
-"classast_1_1SimTime.html#abfa4af669f0e09ce2b31c7ac9c7f728a":[2,0,0,805,3]
+"classast_1_1SimTime.html#a5e87cc497e9a3ecfa2ef3d142dc91f88":[3,0,0,804,0]
 };
