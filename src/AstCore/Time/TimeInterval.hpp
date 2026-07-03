@@ -159,6 +159,13 @@ public:
     AST_CORE_API
     errc_t discrete(double step, std::vector<TimePoint>& times) const;
 
+    /// @brief 将时间区间离散化
+    /// @param step 离散化步长（秒）
+    /// @param times 输出离散化时间点列表
+    /// @return errc_t 错误码
+    AST_CORE_API
+    errc_t discrete(double step, TimeList& times) const;
+
     class DiscreteTimePointRange;
     class DiscreteEpochSecondRange;
 

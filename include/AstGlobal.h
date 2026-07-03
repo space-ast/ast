@@ -486,6 +486,7 @@ class Property;              ///< 属性
 using Type = Class;          ///< 类型
 
 class TimePoint;            ///< 时间点
+class TimeList;             ///< 时间点列表
 class TimeInterval;         ///< 时间段
 class JulianDate;           ///< 儒略日
 class ModJulianDate;        ///< 简约儒略日
