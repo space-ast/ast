@@ -167,12 +167,12 @@ public:
     class DiscreteTimePointRange;
     class DiscreteEpochSecondRange;
 
-    /// @brief 将时间区间离散化
+    /// @brief 将时间区间离散化为时间点
     /// @param step 离散化步长（秒）
     /// @return 离散化时间点范围
     DiscreteTimePointRange discrete(double step) const;
 
-    /// @brief 将时间区间离散化
+    /// @brief 将时间区间离散化为相对秒
     /// @param epoch 时间区间的基准时间点
     /// @param step 离散化步长（秒）
     /// @return 离散化时间点范围

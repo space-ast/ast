@@ -141,6 +141,14 @@ public:
     template<typename T>
     void resize(size_t n, const T& value);
 
+    /// @brief 重置元素类型及大小（先销毁旧数据再按新类型重建）
+    template<typename T>
+    void reset(size_t n);
+
+    /// @brief 重置元素类型及大小（先销毁旧数据再按新类型重建，带填充值）
+    template<typename T>
+    void reset(size_t n, const T& value);
+
     template<typename T>
     void pushBack(const T& value);
 
@@ -415,6 +423,38 @@ inline void VariantVector::resize(size_t n, const T& value)
         for (size_t i = n; i < size_; ++i)
             p[i].~T();
         size_ = n;
+    }
+}
+
+// ---- reset ----
+
+template<typename T>
+inline void VariantVector::reset(size_t n)
+{
+    destroy();
+    ensureType<T>();
+    reserve<T>(n);
+
+    T* p = static_cast<T*>(data_);
+    while (size_ < n)
+    {
+        ::new (static_cast<void*>(&p[size_])) T();
+        ++size_;
+    }
+}
+
+template<typename T>
+inline void VariantVector::reset(size_t n, const T& value)
+{
+    destroy();
+    ensureType<T>();
+    reserve<T>(n);
+
+    T* p = static_cast<T*>(data_);
+    while (size_ < n)
+    {
+        ::new (static_cast<void*>(&p[size_])) T(value);
+        ++size_;
     }
 }
 

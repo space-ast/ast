@@ -28,6 +28,7 @@
 #ifdef _WIN32
 #include <windows.h>            // for Windows API
 #include <io.h>                 // for _get_osfhandle
+#include <wchar.h>              // for _wfopen, _wfreopen, _vwprintf_l, _vwfprintf_l
 #else
 #include <limits.h>             // for PATH_MAX
 #include <fcntl.h>              // for fcntl, F_GETPATH

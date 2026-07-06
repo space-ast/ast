@@ -39,8 +39,11 @@ public:
     DataGroupTimeVar() = default;
     ~DataGroupTimeVar() = default;
 
-protected:
-    virtual errc_t calculate(const TimeList& timeList, /*这里要加什么输出参数?...*/) const = 0;
+    /// @brief 计算数据组
+    /// @param timeList 时间列表
+    /// @param result 结果向量
+    /// @return errc_t 错误码
+    virtual errc_t calculate(const TimeList& timeList, VariantVector& result) const = 0;
 };
 
 

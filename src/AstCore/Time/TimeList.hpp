@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "TimePoint.hpp"
+#include <iterator>
 #include <vector>
 
 AST_NAMESPACE_BEGIN
@@ -156,6 +157,85 @@ public:
 	{
 		return epoch_.shiftedBySecond(seconds_[i]);
 	}
+
+	/// @brief 访问第 i 个时间点（无边界检查）
+	/// @param i 索引
+	/// @return epoch_ + seconds_[i]
+	TimePoint operator[](size_t i) const { return epoch_.shiftedBySecond(seconds_[i]); }
+
+	/// @brief 访问第 i 个时间点（边界检查）
+	/// @param i 索引
+	/// @return epoch_ + seconds_[i]
+	/// @throws std::out_of_range 若 i >= size()
+	TimePoint at(size_t i) const { return epoch_.shiftedBySecond(seconds_.at(i)); }
+
+	// ————————————————————————
+	// 迭代器
+	// ————————————————————————
+
+	/// @brief 随机访问常量迭代器
+	/// @details 内部持有秒偏移量指针和历元指针，
+	///          解引用时计算 epoch_->shiftedBySecond(*data_) 并返回 TimePoint。
+	class const_iterator
+	{
+	public:
+		using iterator_category = std::random_access_iterator_tag;
+		using value_type        = TimePoint;
+		using difference_type   = std::ptrdiff_t;
+		using pointer           = const TimePoint*;
+		using reference         = TimePoint;  // 按值返回
+
+		const_iterator() = default;
+
+		const_iterator(const double* data, const TimePoint* epoch)
+			: data_(data), epoch_(epoch) {}
+
+		/// @brief 解引用：计算 epoch_->shiftedBySecond(*data_)
+		TimePoint operator*() const { return epoch_->shiftedBySecond(*data_); }
+
+		/// @brief 下标访问
+		TimePoint operator[](difference_type n) const { return epoch_->shiftedBySecond(data_[n]); }
+
+		const_iterator& operator++()                           { ++data_; return *this; }
+		const_iterator  operator++(int)                        { auto tmp = *this; ++data_; return tmp; }
+		const_iterator& operator--()                           { --data_; return *this; }
+		const_iterator  operator--(int)                        { auto tmp = *this; --data_; return tmp; }
+		const_iterator& operator+=(difference_type n)          { data_ += n; return *this; }
+		const_iterator& operator-=(difference_type n)          { data_ -= n; return *this; }
+
+		const_iterator  operator+(difference_type n)  const     { return {data_ + n, epoch_}; }
+		const_iterator  operator-(difference_type n)  const     { return {data_ - n, epoch_}; }
+		difference_type operator-(const const_iterator& o) const { return data_ - o.data_; }
+
+		bool operator==(const const_iterator& o) const { return data_ == o.data_; }
+		bool operator!=(const const_iterator& o) const { return data_ != o.data_; }
+		bool operator< (const const_iterator& o) const { return data_ <  o.data_; }
+		bool operator> (const const_iterator& o) const { return data_ >  o.data_; }
+		bool operator<=(const const_iterator& o) const { return data_ <= o.data_; }
+		bool operator>=(const const_iterator& o) const { return data_ >= o.data_; }
+
+	private:
+		const double*    data_  = nullptr;
+		const TimePoint* epoch_ = nullptr;
+	};
+
+	/// @brief difference_type + const_iterator（非成员运算符）
+	friend const_iterator operator+(typename const_iterator::difference_type n, const const_iterator& it)
+	{
+		return it + n;
+	}
+
+	using iterator               = const_iterator;
+	using value_type             = TimePoint;
+	using size_type              = size_t;
+	using difference_type        = std::ptrdiff_t;
+
+	iterator       begin()       { return {seconds_.data(), &epoch_}; }
+	iterator       end()         { return {seconds_.data() + seconds_.size(), &epoch_}; }
+	const_iterator begin() const { return {seconds_.data(), &epoch_}; }
+	const_iterator end()   const { return {seconds_.data() + seconds_.size(), &epoch_}; }
+	const_iterator cbegin()const { return begin(); }
+	const_iterator cend()  const { return end(); }
 
 private:
 	std::vector<double> seconds_;   ///< 相对于 epoch_ 的秒偏移量

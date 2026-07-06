@@ -524,6 +524,8 @@ class Dimension;            ///< 量纲
 class Unit;                 ///< 单位
 class Quantity;             ///< 数量值
 
+class VariantVector;        ///< 变类型向量
+
 #endif
 
 

@@ -2,7 +2,7 @@
     set_kind("shared")
     add_files("**.cpp")
     add_files("**.cxx")
-    add_files("**.cc")
+    add_files("Platform/IO.cpp", {unity_group="IO"})
     add_headerfiles("**.hpp", {prefixdir="AstUtil"})
     add_headerfiles("**.h", {prefixdir="AstUtil"})
     add_headerfiles("../../include/ast/*", {prefixdir="ast"})
