@@ -1,5 +1,11 @@
 var NAVTREEINDEX9 =
 {
+"PhaseAngle_8cpp.html":[4,0,0,2,0,12],
+"PhaseAngle_8hpp.html":[4,0,0,2,0,13],
+"PhaseAngle_8hpp_source.html":[4,0,0,2,0,13],
+"PilotAgent_8cpp.html":[4,0,0,25,3],
+"PilotAgent_8hpp.html":[4,0,0,25,4],
+"PilotAgent_8hpp_source.html":[4,0,0,25,4],
 "PilotBoot_8cpp.html":[4,0,0,26,0],
 "PilotCommander_8cpp.html":[4,0,0,25,5],
 "PilotCommander_8hpp.html":[4,0,0,25,6],
@@ -243,11 +249,5 @@ var NAVTREEINDEX9 =
 "Resolve_8hpp.html":[4,0,0,7,9,5],
 "Resolve_8hpp.html#a7aa7c9486109b1d453c71ce12a13ae1b":[4,0,0,7,9,5,2],
 "Resolve_8hpp.html#a7d1d6b04e91c5753adbb3e79f3e0bfb0":[4,0,0,7,9,5,1],
-"Resolve_8hpp.html#ab5b2a3ed3b861d8097375453514a754e":[4,0,0,7,9,5,0],
-"Resolve_8hpp.html#ac1d7c916606754e1dc51c9a0ac158fec":[4,0,0,7,9,5,4],
-"Resolve_8hpp.html#aff39b959ca7752837773d21c48183af1":[4,0,0,7,9,5,3],
-"Resolve_8hpp_source.html":[4,0,0,7,9,5],
-"ResultLoader_8cpp.html":[4,0,0,12,1,2,10],
-"ResultLoader_8hpp.html":[4,0,0,12,1,2,11],
-"ResultLoader_8hpp_source.html":[4,0,0,12,1,2,11]
+"Resolve_8hpp.html#ab5b2a3ed3b861d8097375453514a754e":[4,0,0,7,9,5,0]
 };
