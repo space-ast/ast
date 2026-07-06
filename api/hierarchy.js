@@ -175,6 +175,7 @@ var hierarchy =
     [ "ast::DataGroupVector::Data", "structast_1_1DataGroupVector_1_1Data.html", null ],
     [ "ast::DataContext", "classast_1_1DataContext.html", null ],
     [ "ast::DataElement", "classast_1_1DataElement.html", null ],
+    [ "ast::DataElements", "classast_1_1DataElements.html", null ],
     [ "ast::DataUpdater::DataFileEntry", "structast_1_1DataUpdater_1_1DataFileEntry.html", null ],
     [ "ast::DataFrame", "classast_1_1DataFrame.html", null ],
     [ "ast::DataGroup", "classast_1_1DataGroup.html", [

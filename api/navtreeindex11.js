@@ -1,5 +1,11 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcDeltaRA_8hpp.html":[4,0,0,7,7,1,0,15,27],
+"ScStateCalcDeltaRA_8hpp_source.html":[4,0,0,7,7,1,0,15,27],
+"ScStateCalcDeltaVSquared_8cpp.html":[4,0,0,7,7,1,0,11,2],
+"ScStateCalcDeltaVSquared_8hpp.html":[4,0,0,7,7,1,0,11,3],
+"ScStateCalcDeltaVSquared_8hpp_source.html":[4,0,0,7,7,1,0,11,3],
+"ScStateCalcDeltaV_8cpp.html":[4,0,0,7,7,1,0,11,0],
 "ScStateCalcDeltaV_8hpp.html":[4,0,0,7,7,1,0,11,1],
 "ScStateCalcDeltaV_8hpp_source.html":[4,0,0,7,7,1,0,11,1],
 "ScStateCalcDensity_8cpp.html":[4,0,0,7,7,1,0,6,6],
@@ -243,11 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcPosVelDiffMagOthSeg_8hpp_source.html":[4,0,0,7,7,1,0,15,131],
 "ScStateCalcPower_8cpp.html":[4,0,0,7,7,1,0,15,132],
 "ScStateCalcPower_8hpp.html":[4,0,0,7,7,1,0,15,133],
-"ScStateCalcPower_8hpp_source.html":[4,0,0,7,7,1,0,15,133],
-"ScStateCalcPressure_8cpp.html":[4,0,0,7,7,1,0,15,134],
-"ScStateCalcPressure_8hpp.html":[4,0,0,7,7,1,0,15,135],
-"ScStateCalcPressure_8hpp_source.html":[4,0,0,7,7,1,0,15,135],
-"ScStateCalcPropellantMass_8cpp.html":[4,0,0,7,7,1,0,15,136],
-"ScStateCalcPropellantMass_8hpp.html":[4,0,0,7,7,1,0,15,137],
-"ScStateCalcPropellantMass_8hpp_source.html":[4,0,0,7,7,1,0,15,137]
+"ScStateCalcPower_8hpp_source.html":[4,0,0,7,7,1,0,15,133]
 };

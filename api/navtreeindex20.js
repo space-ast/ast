@@ -1,5 +1,11 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1CelestialBody.html#ac13331296652904a16665245bbf8d54e":[0,1,6,0,2],
+"classast_1_1CelestialBody.html#acb63ef5296d536d7e5a256b2169cbf06":[0,1,6,0,56],
+"classast_1_1CelestialBody.html#acd1771311b5ced7a41d2d611f56863a9":[0,1,6,0,60],
+"classast_1_1CelestialBody.html#ad97ffad75d805afca9119ca411b94daa":[0,1,6,0,20],
+"classast_1_1CelestialBody.html#ad9e3b3c10d621bb16624001599208522":[0,1,6,0,8],
+"classast_1_1CelestialBody.html#ae95a3a2f66d4042a085f0df12ea64b61":[0,1,6,0,32],
 "classast_1_1CelestialBody.html#aea5b357c8bad555dffc0ef8e83427f46":[0,1,6,0,16],
 "classast_1_1CelestialBody.html#aec82e44805799a9ea672d9ec12d456fd":[0,1,6,0,38],
 "classast_1_1CelestialBody.html#afc58e4321b52ad7be3c25450a0f3f3f4":[0,1,6,0,27],
@@ -243,11 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1ConstantSpaceWeather.html#aed2868cd57e0011dcb5e2246c8aaa9e5":[0,1,1,0,4],
 "classast_1_1Constellation.html":[2,0,0,150],
 "classast_1_1Constellation.html":[3,0,0,149],
-"classast_1_1CorVector.html":[0,8,0,0],
-"classast_1_1CorVector.html#a102f70342aad1debc88867576900006b":[0,8,0,0,5],
-"classast_1_1CorVector.html#a9ad9b9cb9ab5dfee51adce5cf9a7ed42":[0,8,0,0,4],
-"classast_1_1CorVector.html#a9d8cd60ac0f55e1c06b60a9691456aed":[0,8,0,0,2],
-"classast_1_1CorVector.html#aa9f4cf8a5557db2093e47a32c58fb667":[0,8,0,0,3],
-"classast_1_1CorVector.html#ad189ee7ec64af1def41a8ec9ecce1c77":[0,8,0,0,1],
-"classast_1_1CorVector.html#ae2160345db2574af3870ddfd366b5fbc":[0,8,0,0,6]
+"classast_1_1CorVector.html":[0,8,0,0]
 };

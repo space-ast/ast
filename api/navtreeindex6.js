@@ -1,5 +1,11 @@
 var NAVTREEINDEX6 =
 {
+"IdentifierAPI_8hpp.html#a9f13c984939e10872c86273bdb598753":[4,0,0,28,2,3,1],
+"IdentifierAPI_8hpp.html#aa00df30bb5fa0d73800e2dc4e993f237":[4,0,0,28,2,3,0],
+"IdentifierAPI_8hpp.html#aee223619146482bb4212ef2208253f31":[4,0,0,28,2,3,2],
+"IdentifierAPI_8hpp.html#af3019a30928e0863f4c8ce3c516bee90":[4,0,0,28,2,3,3],
+"IdentifierAPI_8hpp_source.html":[4,0,0,28,2,3],
+"IdentifierTable_8cpp.html":[4,0,0,28,2,4],
 "IdentifierTable_8hpp.html":[4,0,0,28,2,5],
 "IdentifierTable_8hpp_source.html":[4,0,0,28,2,5],
 "Identifier_8cpp.html":[4,0,0,28,2,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX6 =
 "Literals_8hpp.html#af11fab1d040c1dfc47d10aa468c4ca6f":[4,0,0,28,10,8,5],
 "Literals_8hpp.html#af2c6bf04dacf1e87018f6b42ed46f9ec":[4,0,0,28,10,8,8],
 "Literals_8hpp_source.html":[4,0,0,28,10,8],
-"LoaderCommon_8hpp.html":[4,0,0,12,0,0],
-"LoaderCommon_8hpp_source.html":[4,0,0,12,0,0],
-"LoaderContext_8hpp.html":[4,0,0,12,0,1],
-"LoaderContext_8hpp_source.html":[4,0,0,12,0,1],
-"LocalBuffer_8hpp_source.html":[4,0,0,28,10,9],
-"LocalHorizonalFrame_8cpp.html":[4,0,0,7,3,2,4],
-"LocalHorizonalFrame_8cpp.html#a3f5ba89cce85b1a42267d47f6c38d9db":[4,0,0,7,3,2,4,3]
+"LoaderCommon_8hpp.html":[4,0,0,12,0,0]
 };

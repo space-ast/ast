@@ -98,11 +98,200 @@ $(function(){initNavTree('classast_1_1DataElement.html',''); initResizable(true)
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1DataElement-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::DataElement类 参考</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="DataElement_8hpp_source.html">DataElement.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a63645cf1853f595fb57bd9a4f7333f26" id="r_a63645cf1853f595fb57bd9a4f7333f26"><td class="memItemLeft" align="right" valign="top"><a id="a63645cf1853f595fb57bd9a4f7333f26" name="a63645cf1853f595fb57bd9a4f7333f26"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DataElement</b> ()=default</td></tr>
+<tr class="separator:a63645cf1853f595fb57bd9a4f7333f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f9206d161b430df93ca0ff6c40d3de7" id="r_a9f9206d161b430df93ca0ff6c40d3de7"><td class="memItemLeft" align="right" valign="top"><a id="a9f9206d161b430df93ca0ff6c40d3de7" name="a9f9206d161b430df93ca0ff6c40d3de7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~DataElement</b> ()=default</td></tr>
+<tr class="separator:a9f9206d161b430df93ca0ff6c40d3de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51667f13818adf5747c8c4d104876283" id="r_a51667f13818adf5747c8c4d104876283"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51667f13818adf5747c8c4d104876283">name</a> () const</td></tr>
+<tr class="separator:a51667f13818adf5747c8c4d104876283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e1292160f688f9a1554ca85533a647" id="r_a60e1292160f688f9a1554ca85533a647"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60e1292160f688f9a1554ca85533a647">setName</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="#a51667f13818adf5747c8c4d104876283">name</a>)</td></tr>
+<tr class="separator:a60e1292160f688f9a1554ca85533a647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a133eb8fe3635efc6371bbfa9c1b9fa7c" id="r_a133eb8fe3635efc6371bbfa9c1b9fa7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a133eb8fe3635efc6371bbfa9c1b9fa7c">setExtractFunc</a> (<a class="el" href="namespaceast.html#ab29e98fdfd1b12c4ea4308318e7a00fc">ElementExtractFunc</a> <a class="el" href="#af362f1a47dcbbc923bb2689617aa94c3">extractFunc</a>)</td></tr>
+<tr class="separator:a133eb8fe3635efc6371bbfa9c1b9fa7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af362f1a47dcbbc923bb2689617aa94c3" id="r_af362f1a47dcbbc923bb2689617aa94c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceast.html#ab29e98fdfd1b12c4ea4308318e7a00fc">ElementExtractFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af362f1a47dcbbc923bb2689617aa94c3">extractFunc</a> () const</td></tr>
+<tr class="separator:af362f1a47dcbbc923bb2689617aa94c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2325d5dd65d45895013e72cbb46aca4" id="r_ae2325d5dd65d45895013e72cbb46aca4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2325d5dd65d45895013e72cbb46aca4">extract</a> (const <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;data, <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;element) const</td></tr>
+<tr class="separator:ae2325d5dd65d45895013e72cbb46aca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>数据元素 — 封装数据提取逻辑的可配置单元 </p>
+<p><a class="el" href="classast_1_1DataElement.html" title="数据元素 — 封装数据提取逻辑的可配置单元">DataElement</a> 持有一个名称和一个提取函数指针， 通过 <a class="el" href="#ae2325d5dd65d45895013e72cbb46aca4" title="执行数据提取">extract()</a> 方法调用注册的提取函数，从 <a class="el" href="classast_1_1VariantVector.html" title="变类型向量容器">VariantVector</a> 中抽取子数据。 典型用法：为报表的每一列或每一行注册对应的提取函数， 遍历数据时调用 <a class="el" href="#ae2325d5dd65d45895013e72cbb46aca4" title="执行数据提取">extract()</a> 逐项填充报表单元格。 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="ae2325d5dd65d45895013e72cbb46aca4" name="ae2325d5dd65d45895013e72cbb46aca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2325d5dd65d45895013e72cbb46aca4">&#9670;&#160;</a></span>extract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::DataElement::extract </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>element</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行数据提取 </p>
+<p>调用已注册的提取函数，从输入数据中提取子集到输出向量。 调用前需确保已通过 <a class="el" href="#a133eb8fe3635efc6371bbfa9c1b9fa7c" title="注册数据提取函数">setExtractFunc()</a> 注册有效的提取函数。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>输入数据向量（源数据） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">element</td><td>输出数据向量（提取结果） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af362f1a47dcbbc923bb2689617aa94c3" name="af362f1a47dcbbc923bb2689617aa94c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af362f1a47dcbbc923bb2689617aa94c3">&#9670;&#160;</a></span>extractFunc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceast.html#ab29e98fdfd1b12c4ea4308318e7a00fc">ElementExtractFunc</a> ast::DataElement::extractFunc </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取已注册的提取函数 </p>
+<dl class="section return"><dt>返回</dt><dd>提取函数指针，若未注册则返回 nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a51667f13818adf5747c8c4d104876283" name="a51667f13818adf5747c8c4d104876283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51667f13818adf5747c8c4d104876283">&#9670;&#160;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ast::DataElement::name </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取数据元素名称 </p>
+<dl class="section return"><dt>返回</dt><dd>数据元素名称的常量引用 </dd></dl>
+
+</div>
+</div>
+<a id="a133eb8fe3635efc6371bbfa9c1b9fa7c" name="a133eb8fe3635efc6371bbfa9c1b9fa7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a133eb8fe3635efc6371bbfa9c1b9fa7c">&#9670;&#160;</a></span>setExtractFunc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::DataElement::setExtractFunc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceast.html#ab29e98fdfd1b12c4ea4308318e7a00fc">ElementExtractFunc</a></td>          <td class="paramname"><span class="paramname"><em>extractFunc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>注册数据提取函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">extractFunc</td><td>提取函数指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a60e1292160f688f9a1554ca85533a647" name="a60e1292160f688f9a1554ca85533a647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60e1292160f688f9a1554ca85533a647">&#9670;&#160;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::DataElement::setName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置数据元素名称 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>新的名称字符串视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>src/AstReport/Data/<a class="el" href="DataElement_8cpp.html">DataElement.cpp</a></li>
+<li>src/AstReport/Data/<a class="el" href="DataElement_8hpp_source.html">DataElement.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

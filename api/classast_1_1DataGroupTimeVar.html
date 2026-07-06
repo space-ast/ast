@@ -126,6 +126,8 @@ $(function(){initNavTree('classast_1_1DataGroupTimeVar.html',''); initResizable(
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a96e6451ed9a1f20d8ec9463127af9318" id="r_a96e6451ed9a1f20d8ec9463127af9318"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96e6451ed9a1f20d8ec9463127af9318">calculate</a> (const <a class="el" href="classast_1_1TimeList.html">TimeList</a> &amp;timeList, <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;result) const =0</td></tr>
 <tr class="separator:a96e6451ed9a1f20d8ec9463127af9318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22abee4b93ad16c5237e3517cad42740" id="r_a22abee4b93ad16c5237e3517cad42740"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22abee4b93ad16c5237e3517cad42740">extract</a> (const <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;data, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;result) const =0</td></tr>
+<tr class="separator:a22abee4b93ad16c5237e3517cad42740"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1DataGroup"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1DataGroup')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1DataGroup.html">ast::DataGroup</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
@@ -169,6 +171,51 @@ Public 成员函数</h2></td></tr>
 <dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
 <p>在 <a class="el" href="classast_1_1DataGroupAttitude.html#a9841d5efc7fcedd5c92ee1a6b32e4491">ast::DataGroupAttitude</a>, <a class="el" href="classast_1_1DataGroupOrbit.html#a3df8cc6bf461f00979dde00344cbb31c">ast::DataGroupOrbit</a>, <a class="el" href="classast_1_1DataGroupTrajectory.html#a417497c53f47e4f75f1a54d972ee04c4">ast::DataGroupTrajectory</a> , 以及 <a class="el" href="classast_1_1DataGroupVector.html#ab3de2eb49e8155ff202c7e02480bf346">ast::DataGroupVector</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a22abee4b93ad16c5237e3517cad42740" name="a22abee4b93ad16c5237e3517cad42740"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22abee4b93ad16c5237e3517cad42740">&#9670;&#160;</a></span>extract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual errc_t ast::DataGroupTimeVar::extract </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从数据组中提取子数据 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>数据向量 </td></tr>
+    <tr><td class="paramname">name</td><td>数据名 </td></tr>
+    <tr><td class="paramname">result</td><td>结果向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
 </div>
 </div>
