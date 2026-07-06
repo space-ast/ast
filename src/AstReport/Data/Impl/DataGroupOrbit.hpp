@@ -34,6 +34,7 @@ AST_NAMESPACE_BEGIN
 */
 
 
+/// @brief 轨道数据组
 class DataGroupOrbit : public DataGroupTimeVar
 {
 public:

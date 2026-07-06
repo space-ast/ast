@@ -1,5 +1,5 @@
 ///
-/// @file      DataGroupTrajectory.hpp
+/// @file      DataGroupAttitude.hpp
 /// @brief     
 /// @details   
 /// @author    axel
@@ -22,10 +22,9 @@
 
 #include "AstGlobal.h"
 #include "AstReport/DataGroupTimeVar.hpp"
-#include "AstCore/Point.hpp"
-#include "AstCore/Frame.hpp"
-#include "AstMath/Vector.hpp"
 #include "AstUtil/Span.hpp"
+#include "AstCore/Axes.hpp"
+#include "AstMath/KinematicRotation.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -35,29 +34,29 @@ AST_NAMESPACE_BEGIN
 */
 
 
-/// @brief 轨迹数据组
-class DataGroupTrajectory : public DataGroupTimeVar
+/// @brief 姿态数据组
+class DataGroupAttitude : public DataGroupTimeVar
 {
 public:
     struct Data
     {
-        Vector3d pos_{};
-        Vector3d vel_{};
+        KinematicRotation rotation;
     };
-    DataGroupTrajectory() = default;
-    ~DataGroupTrajectory() = default;
+    DataGroupAttitude() = default;
+    ~DataGroupAttitude() = default;
 public:
     errc_t calculate(const TimeList& timeList, VariantVector& result) const override;
 public:
     errc_t calculate(const TimeList& timeList, std::vector<Data>& result) const;
     errc_t calculate(const TimeList& timeList, Span<Data> result) const;
 public:
-    Point* getPoint() const { return point_.get(); }
-    Frame* getFrame() const { return frame_.get(); }
+    Axes* getAxes() const { return axes_.get(); }
+    Axes* getReferenceAxes() const { return referenceAxes_.get(); }
 private:
-    WeakPtr<Point> point_;
-    WeakPtr<Frame> frame_;
+    WeakPtr<Axes> axes_;                ///< 姿态轴
+    WeakPtr<Axes> referenceAxes_;       ///< 参考轴
 };
+
 
 /*! @} */
 
