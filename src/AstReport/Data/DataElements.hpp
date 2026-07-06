@@ -1,9 +1,9 @@
 ///
-/// @file      DataElement.cpp
+/// @file      DataElements.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-07-02
+/// @date      2026-07-06
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -18,14 +18,37 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
+#pragma once
+
+#include "AstGlobal.h"
 #include "DataElement.hpp"
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
-void aExtractNoop(const VariantVector &data, VariantVector &element)
+/*!
+    @addtogroup 
+    @{
+*/
+
+
+/// @brief 数据元素容器
+class DataElements
 {
-    // do nothing here
-}
+public:
+    DataElements() = default;
+    ~DataElements() = default;
+
+    /// @brief 获取数据元素
+    const DataElement* getElement(StringView name) const;
+
+    /// @brief 添加数据元素
+    void addElement(const DataElement& element);
+private:
+    std::vector<DataElement> elements_;
+};
+
+
+/*! @} */
 
 AST_NAMESPACE_END
-

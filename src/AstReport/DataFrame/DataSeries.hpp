@@ -103,11 +103,15 @@ public:
     void resize(size_t n);
     void sort(bool ascending = true);
 
+    // ---- 数据访问 ----
+
+    const VariantVector& data() const { return data_; }
+    VariantVector& data() { return data_; }
 protected:
     friend class DataFrame;
 
-    std::string name_;
-    VariantVector data_;
+    std::string name_;          ///< 数据名称
+    VariantVector data_;        ///< 数据向量
 };
 
 

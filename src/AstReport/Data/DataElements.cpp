@@ -1,9 +1,9 @@
 ///
-/// @file      DataElement.cpp
+/// @file      DataElements.cpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-07-02
+/// @date      2026-07-06
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -18,13 +18,25 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "DataElement.hpp"
+#include "DataElements.hpp"
 
 AST_NAMESPACE_BEGIN
 
-void aExtractNoop(const VariantVector &data, VariantVector &element)
+const DataElement* DataElements::getElement(StringView name) const
 {
-    // do nothing here
+    for (const auto& element : elements_)
+    {
+        if (name == element.name())
+        {
+            return &element;
+        }
+    }
+    return nullptr;
+}
+
+void DataElements::addElement(const DataElement &element)
+{
+    elements_.push_back(element);
 }
 
 AST_NAMESPACE_END
