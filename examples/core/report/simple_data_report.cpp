@@ -283,11 +283,12 @@ void exDataInterval()
 {
     // 1. 根数据结构体列表
     std::vector<Interval> intervals = {{0, 100}, {100, 200}, {200, 300}};
+    size_t size = intervals.size();
 
     // 3. 计算数据元素列表
-    std::vector<double> start;
-    std::vector<double> stop;
-    std::vector<double> duration;
+    std::vector<double> start(size);
+    std::vector<double> stop(size);
+    std::vector<double> duration(size);
     std::transform(intervals.begin(), intervals.end(), start.begin(), [](const Interval& i) { return i.start_; });
     std::transform(intervals.begin(), intervals.end(), stop.begin(), [](const Interval& i) { return i.stop_; });
     std::transform(intervals.begin(), intervals.end(), duration.begin(), [](const Interval& i) { return i.duration(); });
