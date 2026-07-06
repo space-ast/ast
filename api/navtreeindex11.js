@@ -1,5 +1,9 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcDifference_8hpp.html":[4,0,0,7,7,1,0,15,31],
+"ScStateCalcDifference_8hpp_source.html":[4,0,0,7,7,1,0,15,31],
+"ScStateCalcDotProduct_8hpp.html":[4,0,0,7,7,1,0,12,2],
+"ScStateCalcDotProduct_8hpp_source.html":[4,0,0,7,7,1,0,12,2],
 "ScStateCalcDragArea_8cpp.html":[4,0,0,7,7,1,0,17,4],
 "ScStateCalcDragArea_8hpp.html":[4,0,0,7,7,1,0,17,5],
 "ScStateCalcDragArea_8hpp_source.html":[4,0,0,7,7,1,0,17,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcRA_8hpp_source.html":[4,0,0,7,7,1,0,15,139],
 "ScStateCalcRMag_8cpp.html":[4,0,0,7,7,1,0,2,0],
 "ScStateCalcRMag_8hpp.html":[4,0,0,7,7,1,0,2,1],
-"ScStateCalcRMag_8hpp_source.html":[4,0,0,7,7,1,0,2,1],
-"ScStateCalcRadPressureArea_8cpp.html":[4,0,0,7,7,1,0,15,146],
-"ScStateCalcRadPressureArea_8hpp.html":[4,0,0,7,7,1,0,15,147],
-"ScStateCalcRadPressureArea_8hpp_source.html":[4,0,0,7,7,1,0,15,147],
-"ScStateCalcRadPressureCoefficient_8cpp.html":[4,0,0,7,7,1,0,15,148]
+"ScStateCalcRMag_8hpp_source.html":[4,0,0,7,7,1,0,2,1]
 };

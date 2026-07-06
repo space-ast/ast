@@ -172,6 +172,9 @@ var hierarchy =
     [ "ast::DataElement", "classast_1_1DataElement.html", null ],
     [ "ast::DataUpdater::DataFileEntry", "structast_1_1DataUpdater_1_1DataFileEntry.html", null ],
     [ "ast::DataFrame", "classast_1_1DataFrame.html", null ],
+    [ "ast::DataGroup", "classast_1_1DataGroup.html", [
+      [ "ast::DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", null ]
+    ] ],
     [ "ast::DataPort", "classast_1_1DataPort.html", null ],
     [ "ast::DataSeries", "classast_1_1DataSeries.html", [
       [ "ast::TypedDataSeries< T >", "classast_1_1TypedDataSeries.html", null ]

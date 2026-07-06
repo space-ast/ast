@@ -1,5 +1,9 @@
 var NAVTREEINDEX15 =
 {
+"UiCelestialBody_8cpp.html":[4,0,0,11,10,1],
+"UiCelestialBody_8hpp.html":[4,0,0,11,10,2],
+"UiCelestialBody_8hpp_source.html":[4,0,0,11,10,2],
+"UiChatDockWidget_8cpp.html":[4,0,0,23,1,0],
 "UiChatDockWidget_8hpp.html":[4,0,0,23,1,1],
 "UiChatDockWidget_8hpp_source.html":[4,0,0,23,1,1],
 "UiChatEventHandler_8cpp.html":[4,0,0,23,0,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX15 =
 "UnitParser_8hpp.html":[4,0,0,28,6,13],
 "UnitParser_8hpp_source.html":[4,0,0,28,6,13],
 "Unit_8cpp.html":[4,0,0,28,6,6],
-"Unit_8cpp.html#a0990e0945adaa6e0b651b1c2e194f6cb":[4,0,0,28,6,6,32],
-"Unit_8cpp.html#a0fe52e4a38940eea606c33210cf9f1d2":[4,0,0,28,6,6,33],
-"Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8":[4,0,0,28,6,6,42],
-"Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5":[4,0,0,28,6,6,14],
-"Unit_8cpp.html#a2d6fb503bf6082f07cb7c76eb28dd653":[4,0,0,28,6,6,35]
+"Unit_8cpp.html#a0990e0945adaa6e0b651b1c2e194f6cb":[4,0,0,28,6,6,32]
 };

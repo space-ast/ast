@@ -250,6 +250,8 @@ var namespaceast =
     [ "DataContext", "classast_1_1DataContext.html", "classast_1_1DataContext" ],
     [ "DataElement", "classast_1_1DataElement.html", null ],
     [ "DataFrame", "classast_1_1DataFrame.html", "classast_1_1DataFrame" ],
+    [ "DataGroup", "classast_1_1DataGroup.html", null ],
+    [ "DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", null ],
     [ "DataPort", "classast_1_1DataPort.html", "classast_1_1DataPort" ],
     [ "DataSeries", "classast_1_1DataSeries.html", "classast_1_1DataSeries" ],
     [ "DataTypeTraits", "structast_1_1DataTypeTraits.html", null ],

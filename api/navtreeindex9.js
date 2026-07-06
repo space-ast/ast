@@ -1,5 +1,9 @@
 var NAVTREEINDEX9 =
 {
+"PilotPipeServer_8hpp_source.html":[4,0,0,25,8],
+"PilotPlayer_8cpp.html":[4,0,0,25,0,0],
+"PilotPlayer_8hpp.html":[4,0,0,25,0,1],
+"PilotPlayer_8hpp_source.html":[4,0,0,25,0,1],
 "PilotPolisher_8cpp.html":[4,0,0,25,9],
 "PilotPolisher_8hpp.html":[4,0,0,25,10],
 "PilotPolisher_8hpp_source.html":[4,0,0,25,10],
@@ -245,9 +249,5 @@ var NAVTREEINDEX9 =
 "ReturnLoader_8hpp_source.html":[4,0,0,12,1,2,13],
 "Return_8cpp.html":[4,0,0,7,7,3,24],
 "Return_8hpp.html":[4,0,0,7,7,3,25],
-"Return_8hpp_source.html":[4,0,0,7,7,3,25],
-"RidderSolver_8cpp.html":[4,0,0,13,4,0,5],
-"RidderSolver_8hpp.html":[4,0,0,13,4,0,6],
-"RidderSolver_8hpp_source.html":[4,0,0,13,4,0,6],
-"RotationElement_8cpp.html":[4,0,0,7,10,1,9]
+"Return_8hpp_source.html":[4,0,0,7,7,3,25]
 };

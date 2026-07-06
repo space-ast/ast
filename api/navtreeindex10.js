@@ -1,5 +1,9 @@
 var NAVTREEINDEX10 =
 {
+"RidderSolver_8cpp.html":[4,0,0,13,4,0,5],
+"RidderSolver_8hpp.html":[4,0,0,13,4,0,6],
+"RidderSolver_8hpp_source.html":[4,0,0,13,4,0,6],
+"RotationElement_8cpp.html":[4,0,0,7,10,1,9],
 "RotationElement_8hpp.html":[4,0,0,7,10,1,10],
 "RotationElement_8hpp_source.html":[4,0,0,7,10,1,10],
 "Rotation_8cpp.html":[4,0,0,13,6,4],
@@ -245,9 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcDifferenceOtherSegment_8cpp.html":[4,0,0,7,7,1,0,15,32],
 "ScStateCalcDifferenceOtherSegment_8hpp.html":[4,0,0,7,7,1,0,15,33],
 "ScStateCalcDifferenceOtherSegment_8hpp_source.html":[4,0,0,7,7,1,0,15,33],
-"ScStateCalcDifference_8cpp.html":[4,0,0,7,7,1,0,15,30],
-"ScStateCalcDifference_8hpp.html":[4,0,0,7,7,1,0,15,31],
-"ScStateCalcDifference_8hpp_source.html":[4,0,0,7,7,1,0,15,31],
-"ScStateCalcDotProduct_8hpp.html":[4,0,0,7,7,1,0,12,2],
-"ScStateCalcDotProduct_8hpp_source.html":[4,0,0,7,7,1,0,12,2]
+"ScStateCalcDifference_8cpp.html":[4,0,0,7,7,1,0,15,30]
 };

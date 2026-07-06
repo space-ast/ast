@@ -121,6 +121,10 @@ var NAVTREEINDEX3 =
 "DataFrame_8cpp.html":[4,0,0,18,1,0],
 "DataFrame_8hpp.html":[4,0,0,18,1,1],
 "DataFrame_8hpp_source.html":[4,0,0,18,1,1],
+"DataGroupFixed_8hpp_source.html":[4,0,0,18,0,4],
+"DataGroupInterval_8hpp_source.html":[4,0,0,18,0,5],
+"DataGroupTimeVar_8hpp.html":[4,0,0,18,0,6],
+"DataGroupTimeVar_8hpp_source.html":[4,0,0,18,0,6],
 "DataGroup_8cpp.html":[4,0,0,18,0,2],
 "DataGroup_8hpp.html":[4,0,0,18,0,3],
 "DataGroup_8hpp_source.html":[4,0,0,18,0,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX3 =
 "Dimension_8hpp.html":[4,0,0,28,6,1],
 "Dimension_8hpp.html#a0d25748c4c13cedd010bd2742ee3b56c":[4,0,0,28,6,1,12],
 "Dimension_8hpp.html#a0d4b4bb523a789e6b63bb92057d72b4a":[4,0,0,28,6,1,11],
-"Dimension_8hpp.html#a2dac8318df7088a10c912ec894c27a1e":[4,0,0,28,6,1,15],
-"Dimension_8hpp.html#a43e28a808d32e53cc4d7b0649aea9bd8":[4,0,0,28,6,1,3],
-"Dimension_8hpp.html#a651e8b0eb4da4a185c63d53826c57f93":[4,0,0,28,6,1,10],
-"Dimension_8hpp.html#a6589a009751d5129bc8061d4a432f22b":[4,0,0,28,6,1,16],
-"Dimension_8hpp.html#a66356b3c1665ac2eea3a7f3c32ac598f":[4,0,0,28,6,1,5]
+"Dimension_8hpp.html#a2dac8318df7088a10c912ec894c27a1e":[4,0,0,28,6,1,15]
 };
