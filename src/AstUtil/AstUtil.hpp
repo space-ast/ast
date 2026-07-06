@@ -150,6 +150,7 @@
 #include "AstUtil/UnitManager.hpp"
 #include "AstUtil/UnitParser.hpp"
 #include "AstUtil/ValueView.hpp"
+#include "AstUtil/VariantVector.hpp"
 #include "AstUtil/Vector.hpp"
 #include "AstUtil/Version.hpp"
 #include "AstUtil/WeakPtr.hpp"

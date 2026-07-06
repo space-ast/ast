@@ -1,9 +1,9 @@
 ///
-/// @file      DataGroup.hpp
+/// @file      DataGroupTimeVar.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-07-02
+/// @date      2026-07-05
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -21,6 +21,8 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "DataGroup.hpp"
+#include "AstCore/TimeList.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -30,12 +32,17 @@ AST_NAMESPACE_BEGIN
 */
 
 
-/// @brief 数据组基类
-class DataGroup
+/// @brief 随时间变化的数据组
+class DataGroupTimeVar : public DataGroup
 {
 public:
-    virtual ~DataGroup() = default;
+    DataGroupTimeVar() = default;
+    ~DataGroupTimeVar() = default;
+
+protected:
+    virtual errc_t calculate(const TimeList& timeList, /*这里要加什么输出参数?...*/) const = 0;
 };
+
 
 
 
