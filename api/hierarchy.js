@@ -186,14 +186,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "ast::DataPort", "classast_1_1DataPort.html", null ],
-    [ "ast::DataSeries", "classast_1_1DataSeries.html", [
-      [ "ast::TypedDataSeries< T >", "classast_1_1TypedDataSeries.html", null ]
-    ] ],
-    [ "ast::DataTypeTraits< T >", "structast_1_1DataTypeTraits.html", null ],
-    [ "ast::DataTypeTraits< double >", "structast_1_1DataTypeTraits_3_01double_01_4.html", null ],
-    [ "ast::DataTypeTraits< int >", "structast_1_1DataTypeTraits_3_01int_01_4.html", null ],
-    [ "ast::DataTypeTraits< std::string >", "structast_1_1DataTypeTraits_3_01std_1_1string_01_4.html", null ],
-    [ "ast::DataTypeTraits< TimePoint >", "structast_1_1DataTypeTraits_3_01TimePoint_01_4.html", null ],
+    [ "ast::DataSeries", "classast_1_1DataSeries.html", null ],
     [ "ast::DataUpdater", "classast_1_1DataUpdater.html", null ],
     [ "ast::Date", "classast_1_1Date.html", null ],
     [ "ast::DateTime", "classast_1_1DateTime.html", null ],

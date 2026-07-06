@@ -3,7 +3,7 @@ var searchData=
   ['data_0',['data',['../classast_1_1LeapSecond.html#ad26abd55dcfde8429fcd3997f943f77f',1,'ast::LeapSecond']]],
   ['datadir_1',['dataDir',['../classast_1_1DataContext.html#a21fda55c34849ca1f11b0988534751f0',1,'ast::DataContext']]],
   ['dataframe_2',['DataFrame',['../classast_1_1DataFrame.html#a48748a4b6e4ca7858e37d3a5d2f820b0',1,'ast::DataFrame::DataFrame()'],['../classast_1_1DataFrame.html#aeb23e9524c6ba6b07f38a281da85ff7d',1,'ast::DataFrame::DataFrame(const std::string &amp;name)']]],
-  ['dataseries_3',['DataSeries',['../group__AstReport.html#ga3179bada8b77578372137b6bc51891af',1,'ast::DataSeries::DataSeries()'],['../classast_1_1TypedDataSeries.html#a3179bada8b77578372137b6bc51891af',1,'ast::TypedDataSeries::DataSeries()']]],
+  ['dataseries_3',['DataSeries',['../group__AstReport.html#ga3179bada8b77578372137b6bc51891af',1,'ast::DataSeries']]],
   ['datetime_4',['DateTime',['../classast_1_1Dimension.html#a888d13a20f595abd66674fb16ca077b0',1,'ast::Dimension']]],
   ['day_5',['Day',['../classast_1_1Unit.html#a084a663d4f357e0a21dba0cfe0adf7ef',1,'ast::Unit']]],
   ['day_6',['day',['../classast_1_1DaySecDuration.html#a8fce61ded9db355640c584990ccae370',1,'ast::DaySecDuration']]],

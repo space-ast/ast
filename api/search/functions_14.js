@@ -82,6 +82,5 @@ var searchData=
   ['treemodified_79',['treeModified',['../classast_1_1UiCommandTree.html#ace9c15d312e6367994bf6a58dfe22021',1,'ast::UiCommandTree']]],
   ['triggeraction_80',['triggerAction',['../classast_1_1PilotAgent.html#a4475c22e7d730ff618f9840cd3d0ddad',1,'ast::PilotAgent']]],
   ['tryload_81',['tryload',['../classast_1_1SpiceAPI.html#afa3c55166e2fa8b79b3091c1f1cd8b2f',1,'ast::SpiceAPI::tryload()'],['../classast_1_1PythonAPI.html#a1b20b1a04a53fd2cc87795aefbbfeb8c',1,'ast::PythonAPI::tryload()']]],
-  ['type_82',['type',['../classast_1_1BKVNode.html#aa764560a757a7aa7e1ea9628b4ff8e3d',1,'ast::BKVNode::type()'],['../classast_1_1JsonValue.html#a6c065b53b1e58b18b122a5bd3dd65bf9',1,'ast::JsonValue::type()'],['../classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157',1,'ast::Object::type()']]],
-  ['typeddataseries_83',['TypedDataSeries',['../group__AstReport.html#gafd6d80b3fdba97e42efd3b6b9c492eaf',1,'ast::TypedDataSeries']]]
+  ['type_82',['type',['../classast_1_1BKVNode.html#aa764560a757a7aa7e1ea9628b4ff8e3d',1,'ast::BKVNode::type()'],['../classast_1_1JsonValue.html#a6c065b53b1e58b18b122a5bd3dd65bf9',1,'ast::JsonValue::type()'],['../classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157',1,'ast::Object::type()']]]
 ];

@@ -13,20 +13,10 @@ var group__AstReport =
       [ "operator[]", "classast_1_1DataFrame.html#a8f4cbc2adb7690f19abedc5739ad0aea", null ],
       [ "removeColumn", "classast_1_1DataFrame.html#afdc0e37d79effc9e18d973ea25fb7019", null ]
     ] ],
-    [ "ast::TypedDataSeries< T >", "classast_1_1TypedDataSeries.html", [
-      [ "TypedDataSeries", "group__AstReport.html#gafd6d80b3fdba97e42efd3b6b9c492eaf", null ],
-      [ "at", "group__AstReport.html#gaf9ddb8b4d3b4ff15dabcf57a498d8c82", null ],
-      [ "DataSeries", "classast_1_1TypedDataSeries.html#a3179bada8b77578372137b6bc51891af", null ]
-    ] ],
-    [ "ast::DataTypeTraits< T >", "structast_1_1DataTypeTraits.html", null ],
-    [ "ast::DataTypeTraits< double >", "structast_1_1DataTypeTraits_3_01double_01_4.html", null ],
-    [ "ast::DataTypeTraits< int >", "structast_1_1DataTypeTraits_3_01int_01_4.html", null ],
-    [ "ast::DataTypeTraits< std::string >", "structast_1_1DataTypeTraits_3_01std_1_1string_01_4.html", null ],
-    [ "ast::DataTypeTraits< TimePoint >", "structast_1_1DataTypeTraits_3_01TimePoint_01_4.html", null ],
     [ "ast::DataSeries", "classast_1_1DataSeries.html", [
       [ "DataSeries", "group__AstReport.html#ga3179bada8b77578372137b6bc51891af", null ],
-      [ "allocateRaw", "classast_1_1DataSeries.html#ae6263eb14be77184631e7233e6c3f732", null ],
-      [ "as", "classast_1_1DataSeries.html#a462264a5db6559e4a4d96bfc674cac5a", null ]
+      [ "as", "classast_1_1DataSeries.html#a6834bfece805de1dc4a4ca03f1e03bea", null ],
+      [ "asSpan", "classast_1_1DataSeries.html#abb7281f573aec9ce076869352a36c661", null ]
     ] ],
     [ "ast::ReportUnits", "structast_1_1ReportUnits.html", null ],
     [ "ast::ReportElement", "classast_1_1ReportElement.html", [
@@ -59,8 +49,6 @@ var group__AstReport =
       [ "title_", "classast_1_1ReportStyle.html#adbac9b3d4c90ca5d35a75307c0d74710", null ]
     ] ],
     [ "ast::ReportGenerateOptions", "classast_1_1ReportGenerateOptions.html", null ],
-    [ "ast::TypedDataSeries::at", "group__AstReport.html#gaf9ddb8b4d3b4ff15dabcf57a498d8c82", null ],
     [ "ast::aWriteReport", "group__AstReport.html#ga7e5d872f241e5beb5c4c9beaace1ed47", null ],
-    [ "ast::DataSeries::DataSeries", "group__AstReport.html#ga3179bada8b77578372137b6bc51891af", null ],
-    [ "ast::TypedDataSeries::TypedDataSeries", "group__AstReport.html#gafd6d80b3fdba97e42efd3b6b9c492eaf", null ]
+    [ "ast::DataSeries::DataSeries", "group__AstReport.html#ga3179bada8b77578372137b6bc51891af", null ]
 ];

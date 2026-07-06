@@ -34,6 +34,5 @@ var searchData=
   ['type_5ffrom_5ftag_3c_20type_5fint_20_3e_31',['type_from_tag&lt; type_int &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__int_01_4.html',1,'ast::detail']]],
   ['type_5ffrom_5ftag_3c_20type_5fobject_20_3e_32',['type_from_tag&lt; type_object &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__object_01_4.html',1,'ast::detail']]],
   ['type_5ffrom_5ftag_3c_20type_5fstring_20_3e_33',['type_from_tag&lt; type_string &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__string_01_4.html',1,'ast::detail']]],
-  ['typeddataseries_34',['TypedDataSeries',['../classast_1_1TypedDataSeries.html',1,'ast']]],
-  ['typeops_35',['TypeOps',['../structast_1_1VariantVector_1_1TypeOps.html',1,'ast::VariantVector']]]
+  ['typeops_34',['TypeOps',['../structast_1_1VariantVector_1_1TypeOps.html',1,'ast::VariantVector']]]
 ];
