@@ -9,9 +9,10 @@ var searchData=
   ['hash_6',['hash',['../classast_1_1Identifier.html#a7a303077a0d9cec5bc441cc10e37c3cd',1,'ast::Identifier']]],
   ['hassymbol_7',['hasSymbol',['../classast_1_1SymbolScope.html#a87d9d72d99a3ec8ada91b8fcece99590',1,'ast::SymbolScope']]],
   ['hastoolcalls_8',['hasToolCalls',['../classast_1_1ChatMessage.html#a49184d500b0dcc3f708ea2ac1b401450',1,'ast::ChatMessage']]],
-  ['headers_9',['headers',['../classast_1_1NetworkRequest.html#acf6095f104f8f736cae35968d57a96d8',1,'ast::NetworkRequest::headers()'],['../classast_1_1NetworkResponse.html#aa39078c2f594579ce43e5ff1fa3f82cb',1,'ast::NetworkResponse::headers()']]],
-  ['helptext_10',['helpText',['../classast_1_1PilotCommander.html#a4b2d2cc3377114cc9a92bba53656e4f6',1,'ast::PilotCommander']]],
-  ['highlight_11',['highlight',['../classast_1_1PilotAgent.html#abf3bd21af5de363930706bd59d088e0b',1,'ast::PilotAgent']]],
-  ['hour_12',['Hour',['../classast_1_1Unit.html#a9e9bfde7a46a15bc4a0f55756212a404',1,'ast::Unit']]],
-  ['htmlchunk_13',['htmlChunk',['../classast_1_1UiChatEventHandler.html#ada89e3ded00017e74fddf64f2f0fb496',1,'ast::UiChatEventHandler']]]
+  ['hastype_9',['hasType',['../classast_1_1VariantVector.html#a7c8b854c5aa9230a37adbed97a99ae04',1,'ast::VariantVector']]],
+  ['headers_10',['headers',['../classast_1_1NetworkRequest.html#acf6095f104f8f736cae35968d57a96d8',1,'ast::NetworkRequest::headers()'],['../classast_1_1NetworkResponse.html#aa39078c2f594579ce43e5ff1fa3f82cb',1,'ast::NetworkResponse::headers()']]],
+  ['helptext_11',['helpText',['../classast_1_1PilotCommander.html#a4b2d2cc3377114cc9a92bba53656e4f6',1,'ast::PilotCommander']]],
+  ['highlight_12',['highlight',['../classast_1_1PilotAgent.html#abf3bd21af5de363930706bd59d088e0b',1,'ast::PilotAgent']]],
+  ['hour_13',['Hour',['../classast_1_1Unit.html#a9e9bfde7a46a15bc4a0f55756212a404',1,'ast::Unit']]],
+  ['htmlchunk_14',['htmlChunk',['../classast_1_1UiChatEventHandler.html#ada89e3ded00017e74fddf64f2f0fb496',1,'ast::UiChatEventHandler']]]
 ];

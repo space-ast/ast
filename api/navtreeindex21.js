@@ -1,5 +1,8 @@
 var NAVTREEINDEX21 =
 {
+"classast_1_1CriticallyInclinedOrbitDesigner.html#a84c82c89bab8f7d058ecabd3299d5b9e":[0,1,4,3,8],
+"classast_1_1CriticallyInclinedOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[0,1,4,3,5],
+"classast_1_1CriticallyInclinedOrbitDesigner.html#abbb8b4a847bcd3b3e97f919c3169148c":[0,1,4,3,6],
 "classast_1_1CriticallyInclinedOrbitDesigner.html#ac30518fe8ebeaf8f9190426e0f5ed075":[0,1,4,3,4],
 "classast_1_1CriticallyInclinedOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[0,1,4,3,3],
 "classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89dd":[0,1,4,3,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX21 =
 "classast_1_1DifferentialCorrector.html":[3,0,0,208],
 "classast_1_1DifferentialCorrectorProfile.html":[2,0,0,210],
 "classast_1_1DifferentialCorrectorProfile.html":[3,0,0,209],
-"classast_1_1DifferentialCorrectorProfile.html#a1b2b1a5e2b63291a84daebccda5f88f9":[2,0,0,210,0],
-"classast_1_1DifferentialCorrectorProfile.html#a1b2b1a5e2b63291a84daebccda5f88f9":[3,0,0,209,0],
-"classast_1_1DifferentialCorrectorProfile.html#a22cc9d5a42bc1e4b86fdee310016af07":[2,0,0,210,3],
-"classast_1_1DifferentialCorrectorProfile.html#a22cc9d5a42bc1e4b86fdee310016af07":[3,0,0,209,3]
+"classast_1_1DifferentialCorrectorProfile.html#a1b2b1a5e2b63291a84daebccda5f88f9":[2,0,0,210,0]
 };

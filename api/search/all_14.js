@@ -198,6 +198,7 @@ var searchData=
   ['type_5ffrom_5ftag_3c_20type_5fstring_20_3e_195',['type_from_tag&lt; type_string &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__string_01_4.html',1,'ast::detail']]],
   ['typeddataseries_196',['TypedDataSeries',['../classast_1_1TypedDataSeries.html',1,'ast::TypedDataSeries&lt; T &gt;'],['../group__AstReport.html#gafd6d80b3fdba97e42efd3b6b9c492eaf',1,'ast::TypedDataSeries::TypedDataSeries()']]],
   ['typename_197',['typeName',['../structast_1_1QuickTypeEntry.html#a267340cf55ac2e8eacc08645791d777b',1,'ast::QuickTypeEntry']]],
-  ['types_2ecpp_198',['Types.cpp',['../Types_8cpp.html',1,'']]],
-  ['types_2ehpp_199',['Types.hpp',['../Types_8hpp.html',1,'']]]
+  ['typeops_198',['TypeOps',['../structast_1_1VariantVector_1_1TypeOps.html',1,'ast::VariantVector']]],
+  ['types_2ecpp_199',['Types.cpp',['../Types_8cpp.html',1,'']]],
+  ['types_2ehpp_200',['Types.hpp',['../Types_8hpp.html',1,'']]]
 ];

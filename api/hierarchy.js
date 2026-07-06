@@ -1394,6 +1394,7 @@ var hierarchy =
     [ "ast::detail::type_from_tag< type_int >", "structast_1_1detail_1_1type__from__tag_3_01type__int_01_4.html", null ],
     [ "ast::detail::type_from_tag< type_object >", "structast_1_1detail_1_1type__from__tag_3_01type__object_01_4.html", null ],
     [ "ast::detail::type_from_tag< type_string >", "structast_1_1detail_1_1type__from__tag_3_01type__string_01_4.html", null ],
+    [ "ast::VariantVector::TypeOps", "structast_1_1VariantVector_1_1TypeOps.html", null ],
     [ "ast::UnaryVectorFunc", "classast_1_1UnaryVectorFunc.html", [
       [ "ast::Interpolator", "classast_1_1Interpolator.html", null ],
       [ "ast::UnaryScalarFunc", "classast_1_1UnaryScalarFunc.html", [
@@ -1408,6 +1409,7 @@ var hierarchy =
     [ "ast::ValueView", "classast_1_1ValueView.html", null ],
     [ "Vardesc", "structVardesc.html", null ],
     [ "ast::VariableList", "classast_1_1VariableList.html", null ],
+    [ "ast::VariantVector", "classast_1_1VariantVector.html", null ],
     [ "ast::GravityFieldSecularVariations::Variation", "structast_1_1GravityFieldSecularVariations_1_1Variation.html", null ],
     [ "std::vector", null, [
       [ "ast::CommandParams", "classast_1_1CommandParams.html", null ],
