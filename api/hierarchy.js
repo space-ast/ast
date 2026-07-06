@@ -154,6 +154,7 @@ var hierarchy =
     [ "ast::ComObjectManager", "classast_1_1ComObjectManager.html", null ],
     [ "complex", "structcomplex.html", null ],
     [ "ast::ExprIf::ConditionBranch", "structast_1_1ExprIf_1_1ConditionBranch.html", null ],
+    [ "ast::TimeList::const_iterator", "classast_1_1TimeList_1_1const__iterator.html", null ],
     [ "constype", "structconstype.html", null ],
     [ "ast::CorVector< T >", "classast_1_1CorVector.html", null ],
     [ "AstCOMLib::CSatellite", "classAstCOMLib_1_1CSatellite.html", null ],
@@ -168,12 +169,17 @@ var hierarchy =
     [ "ast::DAF_NameRecords", "structast_1_1DAF__NameRecords.html", null ],
     [ "ast::DAF_SPKSummaryRecords", "structast_1_1DAF__SPKSummaryRecords.html", null ],
     [ "ast::DAF_SummaryRecords", "structast_1_1DAF__SummaryRecords.html", null ],
+    [ "ast::DataGroupOrbit::Data", "structast_1_1DataGroupOrbit_1_1Data.html", null ],
+    [ "ast::DataGroupTrajectory::Data", "structast_1_1DataGroupTrajectory_1_1Data.html", null ],
     [ "ast::DataContext", "classast_1_1DataContext.html", null ],
     [ "ast::DataElement", "classast_1_1DataElement.html", null ],
     [ "ast::DataUpdater::DataFileEntry", "structast_1_1DataUpdater_1_1DataFileEntry.html", null ],
     [ "ast::DataFrame", "classast_1_1DataFrame.html", null ],
     [ "ast::DataGroup", "classast_1_1DataGroup.html", [
-      [ "ast::DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", null ]
+      [ "ast::DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", [
+        [ "ast::DataGroupOrbit", "classast_1_1DataGroupOrbit.html", null ],
+        [ "ast::DataGroupTrajectory", "classast_1_1DataGroupTrajectory.html", null ]
+      ] ]
     ] ],
     [ "ast::DataPort", "classast_1_1DataPort.html", null ],
     [ "ast::DataSeries", "classast_1_1DataSeries.html", [

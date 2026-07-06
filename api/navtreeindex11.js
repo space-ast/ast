@@ -1,5 +1,11 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcDiffAcrossSegmentOtherSat_8hpp.html":[4,0,0,7,7,1,0,15,29],
+"ScStateCalcDiffAcrossSegmentOtherSat_8hpp_source.html":[4,0,0,7,7,1,0,15,29],
+"ScStateCalcDifferenceOtherSegment_8cpp.html":[4,0,0,7,7,1,0,15,32],
+"ScStateCalcDifferenceOtherSegment_8hpp.html":[4,0,0,7,7,1,0,15,33],
+"ScStateCalcDifferenceOtherSegment_8hpp_source.html":[4,0,0,7,7,1,0,15,33],
+"ScStateCalcDifference_8cpp.html":[4,0,0,7,7,1,0,15,30],
 "ScStateCalcDifference_8hpp.html":[4,0,0,7,7,1,0,15,31],
 "ScStateCalcDifference_8hpp_source.html":[4,0,0,7,7,1,0,15,31],
 "ScStateCalcDotProduct_8hpp.html":[4,0,0,7,7,1,0,12,2],
@@ -243,11 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcRAAN_8hpp_source.html":[4,0,0,7,7,1,0,10,23],
 "ScStateCalcRARate_8cpp.html":[4,0,0,7,7,1,0,15,154],
 "ScStateCalcRARate_8hpp.html":[4,0,0,7,7,1,0,15,155],
-"ScStateCalcRARate_8hpp_source.html":[4,0,0,7,7,1,0,15,155],
-"ScStateCalcRA_8cpp.html":[4,0,0,7,7,1,0,15,138],
-"ScStateCalcRA_8hpp.html":[4,0,0,7,7,1,0,15,139],
-"ScStateCalcRA_8hpp_source.html":[4,0,0,7,7,1,0,15,139],
-"ScStateCalcRMag_8cpp.html":[4,0,0,7,7,1,0,2,0],
-"ScStateCalcRMag_8hpp.html":[4,0,0,7,7,1,0,2,1],
-"ScStateCalcRMag_8hpp_source.html":[4,0,0,7,7,1,0,2,1]
+"ScStateCalcRARate_8hpp_source.html":[4,0,0,7,7,1,0,15,155]
 };

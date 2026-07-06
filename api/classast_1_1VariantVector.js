@@ -6,5 +6,7 @@ var classast_1_1VariantVector =
     [ "elementSize", "classast_1_1VariantVector.html#af18426ccafe2d9cd1feff71afe212ff1", null ],
     [ "elementType", "classast_1_1VariantVector.html#abace9b1015ffd7d7d5c765a68f013af4", null ],
     [ "hasType", "classast_1_1VariantVector.html#a7c8b854c5aa9230a37adbed97a99ae04", null ],
-    [ "ops", "classast_1_1VariantVector.html#a1ee3db6238c6a31fc5575a5d42c1839f", null ]
+    [ "ops", "classast_1_1VariantVector.html#a1ee3db6238c6a31fc5575a5d42c1839f", null ],
+    [ "reset", "group__Container.html#gaae10a74e26a901f36f274a71b3d96533", null ],
+    [ "reset", "group__Container.html#ga894f0935af890975e10727c3d07b65e3", null ]
 ];

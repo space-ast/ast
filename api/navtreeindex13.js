@@ -1,5 +1,11 @@
 var NAVTREEINDEX13 =
 {
+"SecantSolver_8cpp.html":[4,0,0,13,4,0,7],
+"SecantSolver_8hpp.html":[4,0,0,13,4,0,8],
+"SecantSolver_8hpp_source.html":[4,0,0,13,4,0,8],
+"SegmentCalculation_8cpp.html":[4,0,0,7,7,1,4],
+"SegmentCalculation_8hpp.html":[4,0,0,7,7,1,5],
+"SegmentCalculation_8hpp_source.html":[4,0,0,7,7,1,5],
 "SegmentGraph_8cpp.html":[4,0,0,7,7,3,28],
 "SegmentGraph_8hpp.html":[4,0,0,7,7,3,29],
 "SegmentGraph_8hpp_source.html":[4,0,0,7,7,3,29],
@@ -243,11 +249,5 @@ var NAVTREEINDEX13 =
 "StateKeplerian_8hpp.html#aebc46f63d4ca7b01bd3e9718282bc9b3a3776991e2d9ed4127ed93a2522ad9fe7":[4,0,0,7,7,6,5,1,0],
 "StateKeplerian_8hpp_source.html":[4,0,0,7,7,6,5],
 "StateMapper_8cpp.html":[4,0,0,7,8,1,19],
-"StateMapper_8hpp.html":[4,0,0,7,8,1,20],
-"StateMapper_8hpp_source.html":[4,0,0,7,8,1,20],
-"StateVector_8cpp.html":[4,0,0,2,0,16],
-"StateVector_8hpp.html":[4,0,0,2,0,17],
-"StateVector_8hpp_source.html":[4,0,0,2,0,17],
-"State_8cpp.html":[4,0,0,7,7,6,0],
-"State_8hpp.html":[4,0,0,7,7,6,1]
+"StateMapper_8hpp.html":[4,0,0,7,8,1,20]
 };

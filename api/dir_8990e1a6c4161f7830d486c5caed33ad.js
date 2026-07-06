@@ -23,7 +23,7 @@ var dir_8990e1a6c4161f7830d486c5caed33ad =
     [ "TimeIntervalList.cpp", "TimeIntervalList_8cpp.html", null ],
     [ "TimeIntervalList.hpp", "TimeIntervalList_8hpp.html", null ],
     [ "TimeList.cpp", "TimeList_8cpp.html", null ],
-    [ "TimeList.hpp", "TimeList_8hpp.html", null ],
+    [ "TimeList.hpp", "TimeList_8hpp.html", "TimeList_8hpp" ],
     [ "TimePoint.hpp", "TimePoint_8hpp.html", "TimePoint_8hpp" ],
     [ "TimeScale.cpp", "TimeScale_8cpp.html", null ],
     [ "TimeScale.hpp", "TimeScale_8hpp.html", "TimeScale_8hpp" ],

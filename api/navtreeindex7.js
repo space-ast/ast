@@ -1,5 +1,11 @@
 var NAVTREEINDEX7 =
 {
+"LocalHorizonalFrame_8cpp.html#a8ce82f884b66909d057457414655b2e0":[4,0,0,7,3,2,4,1],
+"LocalHorizonalFrame_8cpp.html#a97aa6b083ef3c87bcffb1cf6765a3042":[4,0,0,7,3,2,4,13],
+"LocalHorizonalFrame_8cpp.html#a99ad52ef016bbfea9b3b58f23993fa64":[4,0,0,7,3,2,4,4],
+"LocalHorizonalFrame_8cpp.html#a9b67074d1a1091c1e9fbb62417446f50":[4,0,0,7,3,2,4,7],
+"LocalHorizonalFrame_8cpp.html#ac237e89fe6b85442a08fc47d06d11c4b":[4,0,0,7,3,2,4,6],
+"LocalHorizonalFrame_8cpp.html#ad9ab68876744e149579c3feb94123348":[4,0,0,7,3,2,4,0],
 "LocalHorizonalFrame_8cpp.html#ae37cf89ecf7a5a9f24db02a7bdd1ee5b":[4,0,0,7,3,2,4,9],
 "LocalHorizonalFrame_8cpp.html#aff2288f2bae71a06b1f524e890dbd26a":[4,0,0,7,3,2,4,8],
 "LocalHorizonalFrame_8hpp.html":[4,0,0,7,3,2,5],
@@ -243,11 +249,5 @@ var NAVTREEINDEX7 =
 "MoverLoader_8cpp.html#af2007e77252d8608e7402a6287cbf235":[4,0,0,12,5,34,0],
 "MoverLoader_8hpp.html":[4,0,0,12,5,35],
 "MoverLoader_8hpp.html#af2007e77252d8608e7402a6287cbf235":[4,0,0,12,5,35,0],
-"MoverLoader_8hpp_source.html":[4,0,0,12,5,35],
-"Mover_8cpp.html":[4,0,0,20,3,36],
-"Mover_8hpp.html":[4,0,0,20,3,37],
-"Mover_8hpp_source.html":[4,0,0,20,3,37],
-"NLEMinpackSolver_8cpp.html":[4,0,0,16,5],
-"NLEMinpackSolver_8hpp.html":[4,0,0,16,6],
-"NLEMinpackSolver_8hpp_source.html":[4,0,0,16,6]
+"MoverLoader_8hpp_source.html":[4,0,0,12,5,35]
 };

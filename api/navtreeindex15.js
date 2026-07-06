@@ -1,5 +1,11 @@
 var NAVTREEINDEX15 =
 {
+"UiBurnEditor_8cpp.html":[4,0,0,11,9,0],
+"UiBurnEditor_8hpp.html":[4,0,0,11,9,1],
+"UiBurnEditor_8hpp_source.html":[4,0,0,11,9,1],
+"UiBurnImpulsive_8cpp.html":[4,0,0,11,9,2],
+"UiBurnImpulsive_8hpp.html":[4,0,0,11,9,3],
+"UiBurnImpulsive_8hpp_source.html":[4,0,0,11,9,3],
 "UiCelestialBody_8cpp.html":[4,0,0,11,10,1],
 "UiCelestialBody_8hpp.html":[4,0,0,11,10,2],
 "UiCelestialBody_8hpp_source.html":[4,0,0,11,10,2],
@@ -243,11 +249,5 @@ var NAVTREEINDEX15 =
 "UnitConverter_8hpp.html":[4,0,0,28,6,9],
 "UnitConverter_8hpp_source.html":[4,0,0,28,6,9],
 "UnitManager_8cpp.html":[4,0,0,28,6,10],
-"UnitManager_8hpp.html":[4,0,0,28,6,11],
-"UnitManager_8hpp_source.html":[4,0,0,28,6,11],
-"UnitParser_8cpp.html":[4,0,0,28,6,12],
-"UnitParser_8hpp.html":[4,0,0,28,6,13],
-"UnitParser_8hpp_source.html":[4,0,0,28,6,13],
-"Unit_8cpp.html":[4,0,0,28,6,6],
-"Unit_8cpp.html#a0990e0945adaa6e0b651b1c2e194f6cb":[4,0,0,28,6,6,32]
+"UnitManager_8hpp.html":[4,0,0,28,6,11]
 };

@@ -1,5 +1,11 @@
 var NAVTREEINDEX10 =
 {
+"ReturnLoader_8cpp.html":[4,0,0,12,1,2,12],
+"ReturnLoader_8hpp.html":[4,0,0,12,1,2,13],
+"ReturnLoader_8hpp_source.html":[4,0,0,12,1,2,13],
+"Return_8cpp.html":[4,0,0,7,7,3,24],
+"Return_8hpp.html":[4,0,0,7,7,3,25],
+"Return_8hpp_source.html":[4,0,0,7,7,3,25],
 "RidderSolver_8cpp.html":[4,0,0,13,4,0,5],
 "RidderSolver_8hpp.html":[4,0,0,13,4,0,6],
 "RidderSolver_8hpp_source.html":[4,0,0,13,4,0,6],
@@ -243,11 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcDensity_8cpp.html":[4,0,0,7,7,1,0,6,6],
 "ScStateCalcDensity_8hpp.html":[4,0,0,7,7,1,0,6,7],
 "ScStateCalcDensity_8hpp_source.html":[4,0,0,7,7,1,0,6,7],
-"ScStateCalcDiffAcrossSegmentOtherSat_8cpp.html":[4,0,0,7,7,1,0,15,28],
-"ScStateCalcDiffAcrossSegmentOtherSat_8hpp.html":[4,0,0,7,7,1,0,15,29],
-"ScStateCalcDiffAcrossSegmentOtherSat_8hpp_source.html":[4,0,0,7,7,1,0,15,29],
-"ScStateCalcDifferenceOtherSegment_8cpp.html":[4,0,0,7,7,1,0,15,32],
-"ScStateCalcDifferenceOtherSegment_8hpp.html":[4,0,0,7,7,1,0,15,33],
-"ScStateCalcDifferenceOtherSegment_8hpp_source.html":[4,0,0,7,7,1,0,15,33],
-"ScStateCalcDifference_8cpp.html":[4,0,0,7,7,1,0,15,30]
+"ScStateCalcDiffAcrossSegmentOtherSat_8cpp.html":[4,0,0,7,7,1,0,15,28]
 };
