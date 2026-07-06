@@ -118,10 +118,8 @@ protected:
 template<typename T>
 inline DataSeries::DataSeries(const std::string& name, const std::vector<T>& data)
     : name_(name)
+    , data_(VariantVector::fromVector(data))
 {
-    data_.reserve<T>(data.size());
-    for (size_t i = 0; i < data.size(); ++i)
-        data_.pushBack<T>(data[i]);
 }
 
 /*! @} */

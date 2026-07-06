@@ -50,6 +50,8 @@ static void _aInitByType(VariantVector& v, EDataType type, size_t size)
     case EDataType::eTimePoint:
         v.resize<TimePoint>(size);
         break;
+    default:
+        break;  // 未知类型：保持 VariantVector 默认状态，调用方自行检查
     }
 }
 
@@ -67,7 +69,7 @@ static void _aResizeByElementType(VariantVector& v, size_t n)
     else if (ti == typeid(TimePoint))
         v.resize<TimePoint>(n);
     else
-        v.resize<double>(n);
+        v.resize<double>(n);  // 空/无类型 Vector：默认按 double 初始化
 }
 
 // ======================
@@ -163,8 +165,6 @@ double DataSeries::stddev() const
     if (data_.size() == 0 || !data_.hasType())
         return std::numeric_limits<double>::quiet_NaN();
 
-    const auto& ti = data_.elementType();
-
     double m = mean();
     double total = 0.0;
 
@@ -228,29 +228,10 @@ void DataSeries::sort(bool ascending)
     }
     else if(std::string* base = data_.as<std::string>())
     {
-        std::vector<size_t> idx(data_.size());
-        for (size_t i = 0; i < data_.size(); ++i) idx[i] = i;
-
         if (ascending)
-        {
-            std::sort(idx.begin(), idx.end(), [base](size_t a, size_t b) {
-                return base[a] < base[b];
-            });
-        }
+            std::sort(base, base + data_.size(), std::less<std::string>());
         else
-        {
-            std::sort(idx.begin(), idx.end(), [base](size_t a, size_t b) {
-                return base[a] > base[b];
-            });
-        }
-
-        std::vector<std::string> tmp(data_.size());
-        for (size_t i = 0; i < data_.size(); ++i)
-            tmp[i] = std::move(base[idx[i]]);
-        for (size_t i = 0; i < data_.size(); ++i)
-            base[i].~string();
-        for (size_t i = 0; i < data_.size(); ++i)
-            new (base + i) std::string(std::move(tmp[i]));
+            std::sort(base, base + data_.size(), std::greater<std::string>());
     }
 }
 
