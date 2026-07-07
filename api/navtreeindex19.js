@@ -1,5 +1,9 @@
 var NAVTREEINDEX19 =
 {
+"classast_1_1BrenthSolver.html#a85ed3aeddc5f0eb1a5851a1e5b3dce1c":[0,3,3,2,0],
+"classast_1_1BrenthSolver.html#a9ce01f876fde324f992b2b1ac1d9caeb":[0,3,3,2,3],
+"classast_1_1BrentqSolver.html":[0,3,3,1],
+"classast_1_1BrentqSolver.html#a0b2c399a057a12d30e61768e5304390d":[0,3,3,1,1],
 "classast_1_1BrentqSolver.html#a10e51810834979c771e146426d6e86f3":[0,3,3,1,2],
 "classast_1_1BrentqSolver.html#a85ed3aeddc5f0eb1a5851a1e5b3dce1c":[0,3,3,1,0],
 "classast_1_1BrentqSolver.html#a9ce01f876fde324f992b2b1ac1d9caeb":[0,3,3,1,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX19 =
 "classast_1_1ChatMessages.html#a12ca31f60364612286e73d695f68bbe4":[3,0,0,118,6],
 "classast_1_1ChatMessages.html#a2fe36238d97f5d7b319fc3d858327887":[2,0,0,119,3],
 "classast_1_1ChatMessages.html#a2fe36238d97f5d7b319fc3d858327887":[3,0,0,118,3],
-"classast_1_1ChatMessages.html#a42dc88ee5bf2cd28a57dd90bacde4266":[2,0,0,119,2],
-"classast_1_1ChatMessages.html#a42dc88ee5bf2cd28a57dd90bacde4266":[3,0,0,118,2],
-"classast_1_1ChatMessages.html#a5193a7d1f47b461c93fa542fe8bc282c":[2,0,0,119,1],
-"classast_1_1ChatMessages.html#a5193a7d1f47b461c93fa542fe8bc282c":[3,0,0,118,1],
-"classast_1_1ChatMessages.html#a690e98f0350e219c9dbd33b5b9ab6225":[2,0,0,119,4]
+"classast_1_1ChatMessages.html#a42dc88ee5bf2cd28a57dd90bacde4266":[2,0,0,119,2]
 };

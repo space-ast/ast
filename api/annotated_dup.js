@@ -1043,6 +1043,8 @@ var annotated_dup =
       [ "Variable", "classast_1_1Variable.html", "classast_1_1Variable" ],
       [ "VariableList", "classast_1_1VariableList.html", null ],
       [ "VBScriptExecutor", "classast_1_1VBScriptExecutor.html", null ],
+      [ "Vector", "classast_1_1Vector.html", "classast_1_1Vector" ],
+      [ "VectorDisplacement", "classast_1_1VectorDisplacement.html", "classast_1_1VectorDisplacement" ],
       [ "VectorN", "classast_1_1VectorN.html", null ],
       [ "VectorN< _Scalar, 3 >", "classast_1_1VectorN_3_01__Scalar_00_013_01_4.html", null ],
       [ "VectorX", "classast_1_1VectorX.html", null ],

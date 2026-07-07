@@ -8,5 +8,5 @@ var dir_7e568bcc270a806f3066a2d2cf14e75e =
     [ "Plane.hpp", "Plane_8hpp_source.html", null ],
     [ "Point.cpp", "Point_8cpp.html", null ],
     [ "Point.hpp", "Point_8hpp.html", null ],
-    [ "Vector.hpp", "AstCore_2Geometry_2Euclid_2Vector_8hpp_source.html", null ]
+    [ "Vector.hpp", "AstCore_2Geometry_2Euclid_2Vector_8hpp.html", "AstCore_2Geometry_2Euclid_2Vector_8hpp" ]
 ];

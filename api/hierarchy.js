@@ -1217,6 +1217,9 @@ var hierarchy =
           [ "ast::TargeterGraphControlOptions", "classast_1_1TargeterGraphControlOptions.html", null ],
           [ "ast::TargeterGraphResultOptions", "classast_1_1TargeterGraphResultOptions.html", null ],
           [ "ast::Transmitter", "classast_1_1Transmitter.html", null ],
+          [ "ast::Vector", "classast_1_1Vector.html", [
+            [ "ast::VectorDisplacement", "classast_1_1VectorDisplacement.html", null ]
+          ] ],
           [ "ast::Volumetric", "classast_1_1Volumetric.html", null ]
         ] ],
         [ "ast::Scenario", "classast_1_1Scenario.html", null ],
