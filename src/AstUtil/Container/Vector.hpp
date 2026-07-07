@@ -30,8 +30,8 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-template<typename T>
-using Vector = std::vector<T>;
+//template<typename T>
+//using Vector = std::vector<T>;
 
 /*! @} */
 
