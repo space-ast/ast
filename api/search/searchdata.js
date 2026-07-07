@@ -6,13 +6,12 @@ var indexSectionsWithContent =
   3: "abcdefghijklmnopqrstuvwxz",
   4: "_abcdefghijklmnopqrstuvwxyz~",
   5: "_abcdefghijklmnopqrstuvwxy",
-  6: "abefhioprsu",
+  6: "abfhioprsu",
   7: "e",
   8: "eikn",
-  9: "o",
-  10: "_aiopt",
-  11: "acfgnsu几单向坐大太姿字容工常平插数文时磁空脚航轨运非",
-  12: "bs列待🛰"
+  9: "_aiopt",
+  10: "acfgnsu几单向坐大太姿字容工常平插数文时磁空脚航轨运非",
+  11: "bs列待🛰"
 };
 
 var indexSectionNames =
@@ -26,10 +25,9 @@ var indexSectionNames =
   6: "typedefs",
   7: "enums",
   8: "enumvalues",
-  9: "related",
-  10: "defines",
-  11: "groups",
-  12: "pages"
+  9: "defines",
+  10: "groups",
+  11: "pages"
 };
 
 var indexSectionLabels =
@@ -43,9 +41,8 @@ var indexSectionLabels =
   6: "类型定义",
   7: "枚举",
   8: "枚举值",
-  9: "友元",
-  10: "宏定义",
-  11: "组",
-  12: "页"
+  9: "宏定义",
+  10: "组",
+  11: "页"
 };
 
