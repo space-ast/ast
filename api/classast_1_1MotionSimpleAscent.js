@@ -1,6 +1,7 @@
 var classast_1_1MotionSimpleAscent =
 [
     [ "accept", "classast_1_1MotionSimpleAscent.html#ab598b59df70f50b5e7deba0392a1e281", null ],
+    [ "getBody", "classast_1_1MotionSimpleAscent.html#a4bd3c39e8a8a474f562c93c602699391", null ],
     [ "getBurnoutAltitude", "classast_1_1MotionSimpleAscent.html#a180137fcb2209ac7ebafe3a7a911932d", null ],
     [ "getBurnoutLatitude", "classast_1_1MotionSimpleAscent.html#a6dd1031f21d0d11336cc4cbb51d1c0ea", null ],
     [ "getBurnoutLongitude", "classast_1_1MotionSimpleAscent.html#aab1490ee709d91433ef0e652aac7a6f8", null ],
@@ -14,6 +15,7 @@ var classast_1_1MotionSimpleAscent =
     [ "getUseScenTime", "classast_1_1MotionSimpleAscent.html#ad90758bb574b549d0c85353a54918719", null ],
     [ "makeEphemerisSimple", "classast_1_1MotionSimpleAscent.html#a4ec891f95667ba0adfbc277908e41984", null ],
     [ "makeEphemerisSpec", "classast_1_1MotionSimpleAscent.html#a86d681e0f5a629b164d6d0f8ba0544ea", null ],
+    [ "setBody", "classast_1_1MotionSimpleAscent.html#a82237fa39fc777b95f562f860a9fdad9", null ],
     [ "setBurnoutPosition", "classast_1_1MotionSimpleAscent.html#a870e1f766921ef843d3a1a55efbc4388", null ],
     [ "setBurnoutTime", "classast_1_1MotionSimpleAscent.html#a8c4cd8c1d919694266ec25609e20cc95", null ],
     [ "setBurnoutVelocity", "classast_1_1MotionSimpleAscent.html#a87d685990bd4aef3422d5211c7d7165a", null ],

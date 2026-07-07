@@ -180,7 +180,8 @@ var menudata={children:[
 {text:"类型定义",url:"functions_type.html"},
 {text:"枚举",url:"functions_enum.html"},
 {text:"枚举值",url:"functions_eval.html",children:[
-{text:"e",url:"functions_eval.html#index_e"}]}]}]},
+{text:"e",url:"functions_eval.html#index_e"}]},
+{text:"相关符号",url:"functions_rela.html"}]}]},
 {text:"文件",url:"files.html",children:[
 {text:"文件列表",url:"files.html"},
 {text:"文件成员",url:"globals.html",children:[

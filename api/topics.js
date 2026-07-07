@@ -13,6 +13,8 @@ var topics =
     [ "AstCOM", "group__AstCOM.html", "group__AstCOM" ],
     [ "Fault", "group__Fault.html", "group__Fault" ],
     [ "GUI", "group__GUI.html", "group__GUI" ],
+    [ "AstLoader", "group__AstLoader.html", "group__AstLoader" ],
+    [ "AstReport", "group__AstReport.html", "group__AstReport" ],
     [ "UiAI", "group__UiAI.html", "group__UiAI" ],
     [ "Network", "group__Network.html", "group__Network" ],
     [ "Serde", "group__Serde.html", "group__Serde" ]
