@@ -24,6 +24,7 @@
  
  
 
+#include <algorithm>
 
 #include "NLPSnoptSolver.hpp"
 #ifdef AST_WITH_SNOPT
@@ -141,9 +142,10 @@ errc_t NLPProblem::evalNLENNZJacCOOSnJac(int ndim, const double* x_initguess, in
 		rw = new doublereal[lenrw];
 
 		// Copy in old values, previously set
-		long mlencw = lencw < tlencw ? lencw : tlencw;
-		long mleniw = leniw < tleniw ? leniw : tleniw;
-		long mlenrw = lenrw < tlenrw ? lenrw : tlenrw;
+		// Use std::min to limit copy size to the smaller of source/destination buffers
+		long mlencw = std::min(lencw, tlencw);
+		long mleniw = std::min(leniw, tleniw);
+		long mlenrw = std::min(lenrw, tlenrw);
 
 		memcpy(cw, tcw, 8 * mlencw * sizeof(char));
 		memcpy(iw, tiw, mleniw * sizeof(long));
@@ -348,9 +350,10 @@ errc_t CNLPSnoptSolver::Solve(INLPProblem& prob, VectorXd& xopt)
 		rw = new doublereal[lenrw];
 
 		// Copy in old values, previously set
-		long mlencw = lencw < tlencw ? lencw : tlencw;
-		long mleniw = leniw < tleniw ? leniw : tleniw;
-		long mlenrw = lenrw < tlenrw ? lenrw : tlenrw;
+		// Use std::min to limit copy size to the smaller of source/destination buffers
+		long mlencw = std::min(lencw, tlencw);
+		long mleniw = std::min(leniw, tleniw);
+		long mlenrw = std::min(lenrw, tlenrw);
 
 		memcpy(cw, tcw, 8 * mlencw * sizeof(char));
 		memcpy(iw, tiw, mleniw * sizeof(long));

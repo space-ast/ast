@@ -309,9 +309,12 @@ errc_t aWideToCRT(const wchar_t* wide, std::string& crt)
     #endif
 
     // 首先获取所需的缓冲区大小
+    // Note: wide pointer is already validated at function entry
     size_t size = func(nullptr, wide, 0);
     if (size == static_cast<size_t>(-1)) {
-        size = wcslen(wide) * 4;
+        // Fallback: calculate size assuming NULL-terminated wide string
+        size_t wide_len = wcslen(wide);
+        size = wide_len * 4;
     }
 
     // 分配缓冲区并转换
@@ -343,8 +346,10 @@ errc_t aCRTToWide(const char* crt, std::wstring& wide)
     #endif
 
     // 首先获取所需的缓冲区大小
+    // Note: crt pointer is already validated at function entry
     size_t size = func(nullptr, crt, 0);
     if (size == static_cast<size_t>(-1)) {
+        // Fallback: calculate size assuming NULL-terminated CRT string
         size = strlen(crt);
     }
 

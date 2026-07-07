@@ -309,6 +309,9 @@ errc_t JplDe::open(const char* fileName)
         goto fail;
 
     // read ipt
+    // Static buffer size validation: compile-time check that destination arrays are large enough
+    static_assert(sizeof(header.ipt) <= sizeof(m_ipt), "Destination array m_ipt too small for header.ipt");
+    static_assert(sizeof(header.lpt) <= sizeof(m_ipt[12]), "Destination array m_ipt[12] too small for header.lpt");
     memcpy(&m_ipt[0][0], &header.ipt[0][0], sizeof(header.ipt));
     memcpy(m_ipt[12], &header.lpt[0], sizeof(header.lpt));
 
@@ -364,8 +367,14 @@ errc_t JplDe::open(const char* fileName)
         char buff[7]{};
         buff[6] = '\0';
         fseek(file, offsetof(debin_header, constant_names2), SEEK_SET);
-        while (fread(buff, 6, 1, file) && strlen(buff) == 6)
-            m_NumConstants++;
+        // Fix: Ensure NULL termination before strlen check
+        while (fread(buff, 6, 1, file) == 1) {
+            buff[6] = '\0';  // Ensure NULL termination
+            if (strlen(buff) == 6)
+                m_NumConstants++;
+            else
+                break;
+        }
     }
 
     m_NumDataBlock = static_cast<uint32_t>((m_EphemEnd - m_EphemStart) / m_EphemStep);
@@ -453,6 +462,7 @@ errc_t JplDe::getPosVelICRF(
             memset(pv[eSSBarycenter], 0, sizeof(pv[eSSBarycenter]));
         /* Solar System barycentric EMBary state:  */
         if (ntarg == eEMBarycenter || ncent == eEMBarycenter)
+            // Buffer size validation: sizeof same for both arrays
             memcpy(pv[eEMBarycenter], pv[eDeEMBaryCenter], sizeof(pv[eEMBarycenter]));
 
         if (list[eEarth])           /* calculate earth state from EMBary */

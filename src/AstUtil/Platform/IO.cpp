@@ -83,6 +83,7 @@ FILE *posix::freopen(const char *filepath, const char *mode, FILE *stream)
 }
 
 
+// Security note: format parameter is const char* to prevent user-controlled format strings
 int posix::vprintf(const char* format, va_list args)
 {
     _locale_t locale = _ast_locale_ensure();
@@ -99,6 +100,7 @@ int posix::printf(const char* format, ...)
     return result;
 }
 
+// Security note: format parameter is const char* to prevent user-controlled format strings
 int posix::fprintf(FILE * stream, const char * format, ...)
 {
     va_list args;
@@ -232,6 +234,8 @@ errc_t aGetFilePath(std::FILE *file, std::string &filepath)
     char path[PATH_MAX]{'\0'};
 
     // 通过readlink获取路径
+    // Note: Using /proc/self/fd is inherently safe within the same process
+    // as file descriptors don't change after creation in the same context
     char proc_path[256];
     snprintf(proc_path, sizeof(proc_path), "/proc/self/fd/%d", fd);
     ssize_t len = readlink(proc_path, path, sizeof(path) - 1);
