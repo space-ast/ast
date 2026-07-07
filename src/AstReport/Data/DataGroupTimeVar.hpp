@@ -45,12 +45,7 @@ public:
     /// @return errc_t 错误码
     virtual errc_t calculate(const TimeList& timeList, VariantVector& result) const = 0;
 
-    /// @brief 从数据组中提取子数据
-    /// @param data 数据向量
-    /// @param name 数据名
-    /// @param result 结果向量
-    /// @return errc_t 错误码
-    virtual errc_t extract(const VariantVector& data, StringView name, VariantVector& result) const = 0;
+
 };
 
 

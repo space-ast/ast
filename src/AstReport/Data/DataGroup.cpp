@@ -19,9 +19,20 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "DataGroup.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
+errc_t DataGroup::extract(const VariantVector &data, StringView name, VariantVector &result) const
+{
+    auto& elements = getElements();
+    auto element = elements.find(name);
+    if(!element)
+    {
+        aError("Element not found");
+        return eErrorNotFound;
+    }
+    return element->extract(data, result);
+}
 
 AST_NAMESPACE_END

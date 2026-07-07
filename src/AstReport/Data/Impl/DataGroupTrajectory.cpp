@@ -23,6 +23,11 @@
 
 AST_NAMESPACE_BEGIN
 
+DataElements DataGroupTrajectory::Elements()
+{
+    return DataElements();
+}
+
 errc_t DataGroupTrajectory::calculate(const TimeList& timeList, VariantVector& result) const
 {
     size_t size = timeList.size();
@@ -30,7 +35,11 @@ errc_t DataGroupTrajectory::calculate(const TimeList& timeList, VariantVector& r
     return calculate(timeList, result.asSpan<Data>());
 }
 
-
+const DataElements &DataGroupTrajectory::getElements() const
+{
+    static DataElements elements = Elements();
+    return elements;
+}
 
 errc_t DataGroupTrajectory::calculate(const TimeList& timeList, std::vector<Data>& result) const
 {

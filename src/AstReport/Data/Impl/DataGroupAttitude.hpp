@@ -42,10 +42,13 @@ public:
     {
         KinematicRotation rotation;
     };
+    static DataElements Elements();
+
     DataGroupAttitude() = default;
     ~DataGroupAttitude() = default;
 public:
     errc_t calculate(const TimeList& timeList, VariantVector& result) const override;
+    const DataElements& getElements() const override;
 public:
     errc_t calculate(const TimeList& timeList, std::vector<Data>& result) const;
     errc_t calculate(const TimeList& timeList, Span<Data> result) const;

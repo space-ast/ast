@@ -21,6 +21,8 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "DataElements.hpp"
+#include "AstUtil/StringView.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -35,6 +37,15 @@ class DataGroup
 {
 public:
     virtual ~DataGroup() = default;
+
+    virtual const DataElements& getElements() const = 0;
+
+    /// @brief 从数据组中提取数据
+    /// @param data 数据
+    /// @param name 数据名称
+    /// @param result 结果
+    /// @return 错误码
+    errc_t extract(const VariantVector& data, StringView name, VariantVector& result) const;
 };
 
 

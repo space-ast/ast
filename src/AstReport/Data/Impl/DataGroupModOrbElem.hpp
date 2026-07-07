@@ -1,9 +1,9 @@
 ///
-/// @file      DataElement.cpp
+/// @file      DataGroupModOrbElem.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-07-02
+/// @date      2026-07-07
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -18,15 +18,40 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "DataElement.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "AstReport/DataGroupTimeVar.hpp"
+#include "AstCore/Frame.hpp"
+#include "AstCore/Vector.hpp"
+#include "AstCore/OrbitElement.hpp"
 
 AST_NAMESPACE_BEGIN
 
-errc_t aExtractNoop(const VariantVector &data, VariantVector &element)
+/*!
+    @addtogroup 
+    @{
+*/
+
+class DataGroupModOrbElem : public DataGroupTimeVar
 {
-    // do nothing here
-    return -1;
-}
+public:
+    struct Data
+    {
+        ModOrbElem modOrbElem_;
+    };
+    static DataElements Elements();
+    DataGroupModOrbElem() = default;
+    ~DataGroupModOrbElem() = default;
+public:
+    
+    const DataElements &getElements() const override;
+private:
+    WeakPtr<Point> point_;
+    WeakPtr<Frame> frame_;
+};
+
+
+/*! @} */
 
 AST_NAMESPACE_END
-

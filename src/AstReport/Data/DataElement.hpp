@@ -36,11 +36,11 @@ AST_NAMESPACE_BEGIN
 ///          从输入数据向量 data 中提取子集，写入输出向量 element。
 /// @param[in]  data    输入数据向量（源数据）
 /// @param[out] element 输出数据向量（提取结果）
-typedef void (*ElementExtractFunc)(const VariantVector& data, VariantVector& element);
+typedef errc_t (*ElementExtractFunc)(const VariantVector& data, VariantVector& element);
 
 
 /// @brief 空提取函数 — 不执行任何操作
-AST_REPORT_CAPI void aExtractNoop(const VariantVector& data, VariantVector& element);
+AST_REPORT_CAPI errc_t aExtractNoop(const VariantVector& data, VariantVector& element);
 
 
 /// @brief 数据元素 — 封装数据提取逻辑的可配置单元
@@ -82,7 +82,7 @@ public:
     ///          调用前需确保已通过 setExtractFunc() 注册有效的提取函数。
     /// @param[in]  data    输入数据向量（源数据）
     /// @param[out] element 输出数据向量（提取结果）
-    void extract(const VariantVector& data, VariantVector& element) const { extractFunc_(data, element); }
+    errc_t extract(const VariantVector& data, VariantVector& element) const { return extractFunc_(data, element); }
 
 
 private:

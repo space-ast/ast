@@ -43,10 +43,12 @@ public:
         Vector3d vector;
         Vector3d velocity;
     };
+    static DataElements Elements();
     DataGroupVector() = default;
     ~DataGroupVector() = default;
 public:
     errc_t calculate(const TimeList& timeList, VariantVector& result) const override;
+    const DataElements& getElements() const override;
 public:
     errc_t calculate(const TimeList& timeList, std::vector<Data>& result) const;
     errc_t calculate(const TimeList& timeList, Span<Data> result) const;

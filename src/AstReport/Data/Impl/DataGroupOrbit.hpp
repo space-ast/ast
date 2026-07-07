@@ -44,10 +44,12 @@ public:
         Vector3d pos_{};
         Vector3d vel_{};
     };
+    static DataElements Elements();
     DataGroupOrbit() = default;
     ~DataGroupOrbit() = default;
 public:
     errc_t calculate(const TimeList& timeList, VariantVector& result) const override;
+    const DataElements& getElements() const override;
 public:
     errc_t calculate(const TimeList& timeList, std::vector<Data>& result) const;
     errc_t calculate(const TimeList& timeList, Span<Data> result) const;

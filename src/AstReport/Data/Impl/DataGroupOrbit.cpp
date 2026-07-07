@@ -27,11 +27,22 @@
 
 AST_NAMESPACE_BEGIN
 
+DataElements DataGroupOrbit::Elements()
+{
+    return DataElements();
+}
+
 errc_t DataGroupOrbit::calculate(const TimeList &timeList, VariantVector &result) const
 {
     size_t size = timeList.size();
     result.reset<Data>(size);
     return calculate(timeList, result.asSpan<Data>());
+}
+
+const DataElements &DataGroupOrbit::getElements() const
+{
+    static DataElements elements = Elements();
+    return elements;
 }
 
 errc_t DataGroupOrbit::calculate(const TimeList &timeList, std::vector<Data>& result) const

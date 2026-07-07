@@ -41,6 +41,7 @@ public:
 
     /// @brief 获取数据元素
     const DataElement* getElement(StringView name) const;
+    const DataElement* find(StringView name) const{return getElement(name);}
 
     /// @brief 添加数据元素
     void addElement(const DataElement& element);
