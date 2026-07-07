@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstReport/AstReportGlobal.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('AstReportGlobal_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AstReportGlobal.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="AstReportGlobal_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// ---- 枚举定义 ----</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39">   36</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39">EStyleType</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_enumvalue" href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39a08eee8cd41a5a88232c09a844c6926a6">eTabular</a> = 0,   </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_enumvalue" href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39a5afcadf51254a6f9cd9914d3f1831c73">eGraph2D</a> = 1,   </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39a2eec4822798fb8c96b4fd915bf11836c">eFixed</a>   = 2,   </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_enumvalue" href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39aa12bab28adae5c2d7f2e1d5059afe608">eGraph3D</a> = 3    </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespaceast.html#a64b97b96596ad9c168c928e97cf07395">   45</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a64b97b96596ad9c168c928e97cf07395">EDataType</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    eDouble    = 0,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    eFloat     = eDouble,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    eInt       = 1,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    eString    = 2,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    eTimePoint = 3,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    eDateTime  = eTimePoint</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespaceast.html#a1b12362b746c96e6e241a11faad03424">   56</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a1b12362b746c96e6e241a11faad03424">ELineStyle</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_enumvalue" href="namespaceast.html#a1b12362b746c96e6e241a11faad03424aa56571af665c58edeef828a9f179f9e4">eSolid</a>   = 0,   </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_enumvalue" href="namespaceast.html#a1b12362b746c96e6e241a11faad03424acf99bf87d82d9ed26f9150b73cd92ad1">eDash</a>    = 1,   </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_enumvalue" href="namespaceast.html#a1b12362b746c96e6e241a11faad03424a0f28bd9114b711d300698b48d1ef98d0">eDot</a>     = 2,   </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_enumvalue" href="namespaceast.html#a1b12362b746c96e6e241a11faad03424aeb895be8400218eb227c92897dc8c8ca">eDashDot</a> = 3    </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="};">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="namespaceast.html#a49842d0cf3f87b1eb7593f098056a72d">   65</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a49842d0cf3f87b1eb7593f098056a72d">EPointStyle</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    eNone     = 0,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    eSquare   = 1,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    eCircle   = 2,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    eDiamond  = 3,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    eTriangle = 4,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    eCross    = 5</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="namespaceast.html#a921f611b60c40e6077f2237aca95e401">   76</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a921f611b60c40e6077f2237aca95e401">EFillPattern</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    eNone  = 0,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_enumvalue" href="namespaceast.html#a1b12362b746c96e6e241a11faad03424aa56571af665c58edeef828a9f179f9e4">eSolid</a> = 1</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>};</div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="};">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="namespaceast.html#a9c5e3a291abba7aa635c81b30cddd90b">   83</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a9c5e3a291abba7aa635c81b30cddd90b">EExpandMethod</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    eNone     = 0,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    eAll      = 1,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    eSelected = 2</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="anamespaceast_html_a1b12362b746c96e6e241a11faad03424"><div class="ttname"><a href="namespaceast.html#a1b12362b746c96e6e241a11faad03424">ast::ELineStyle</a></div><div class="ttdeci">ELineStyle</div><div class="ttdoc">图形线型</div><div class="ttdef"><b>定义</b> AstReportGlobal.hpp:57</div></div>
+<div class="ttc" id="anamespaceast_html_a1b12362b746c96e6e241a11faad03424a0f28bd9114b711d300698b48d1ef98d0"><div class="ttname"><a href="namespaceast.html#a1b12362b746c96e6e241a11faad03424a0f28bd9114b711d300698b48d1ef98d0">ast::ELineStyle::eDot</a></div><div class="ttdeci">@ eDot</div><div class="ttdoc">点线</div></div>
+<div class="ttc" id="anamespaceast_html_a1b12362b746c96e6e241a11faad03424aa56571af665c58edeef828a9f179f9e4"><div class="ttname"><a href="namespaceast.html#a1b12362b746c96e6e241a11faad03424aa56571af665c58edeef828a9f179f9e4">ast::ELineStyle::eSolid</a></div><div class="ttdeci">@ eSolid</div><div class="ttdoc">实线</div></div>
+<div class="ttc" id="anamespaceast_html_a1b12362b746c96e6e241a11faad03424acf99bf87d82d9ed26f9150b73cd92ad1"><div class="ttname"><a href="namespaceast.html#a1b12362b746c96e6e241a11faad03424acf99bf87d82d9ed26f9150b73cd92ad1">ast::ELineStyle::eDash</a></div><div class="ttdeci">@ eDash</div><div class="ttdoc">虚线</div></div>
+<div class="ttc" id="anamespaceast_html_a1b12362b746c96e6e241a11faad03424aeb895be8400218eb227c92897dc8c8ca"><div class="ttname"><a href="namespaceast.html#a1b12362b746c96e6e241a11faad03424aeb895be8400218eb227c92897dc8c8ca">ast::ELineStyle::eDashDot</a></div><div class="ttdeci">@ eDashDot</div><div class="ttdoc">点划线</div></div>
+<div class="ttc" id="anamespaceast_html_a49842d0cf3f87b1eb7593f098056a72d"><div class="ttname"><a href="namespaceast.html#a49842d0cf3f87b1eb7593f098056a72d">ast::EPointStyle</a></div><div class="ttdeci">EPointStyle</div><div class="ttdoc">图形点标记样式</div><div class="ttdef"><b>定义</b> AstReportGlobal.hpp:66</div></div>
+<div class="ttc" id="anamespaceast_html_a64b97b96596ad9c168c928e97cf07395"><div class="ttname"><a href="namespaceast.html#a64b97b96596ad9c168c928e97cf07395">ast::EDataType</a></div><div class="ttdeci">EDataType</div><div class="ttdoc">数据元素的数据类型</div><div class="ttdef"><b>定义</b> AstReportGlobal.hpp:46</div></div>
+<div class="ttc" id="anamespaceast_html_a87334cd2f848ef4c75290166d5612b39"><div class="ttname"><a href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39">ast::EStyleType</a></div><div class="ttdeci">EStyleType</div><div class="ttdoc">报表样式类型</div><div class="ttdef"><b>定义</b> AstReportGlobal.hpp:37</div></div>
+<div class="ttc" id="anamespaceast_html_a87334cd2f848ef4c75290166d5612b39a08eee8cd41a5a88232c09a844c6926a6"><div class="ttname"><a href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39a08eee8cd41a5a88232c09a844c6926a6">ast::EStyleType::eTabular</a></div><div class="ttdeci">@ eTabular</div><div class="ttdoc">表格报告（.rst 文件）</div></div>
+<div class="ttc" id="anamespaceast_html_a87334cd2f848ef4c75290166d5612b39a2eec4822798fb8c96b4fd915bf11836c"><div class="ttname"><a href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39a2eec4822798fb8c96b4fd915bf11836c">ast::EStyleType::eFixed</a></div><div class="ttdeci">@ eFixed</div><div class="ttdoc">固定格式报告</div></div>
+<div class="ttc" id="anamespaceast_html_a87334cd2f848ef4c75290166d5612b39a5afcadf51254a6f9cd9914d3f1831c73"><div class="ttname"><a href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39a5afcadf51254a6f9cd9914d3f1831c73">ast::EStyleType::eGraph2D</a></div><div class="ttdeci">@ eGraph2D</div><div class="ttdoc">2D 图形（.rsg 文件）</div></div>
+<div class="ttc" id="anamespaceast_html_a87334cd2f848ef4c75290166d5612b39aa12bab28adae5c2d7f2e1d5059afe608"><div class="ttname"><a href="namespaceast.html#a87334cd2f848ef4c75290166d5612b39aa12bab28adae5c2d7f2e1d5059afe608">ast::EStyleType::eGraph3D</a></div><div class="ttdeci">@ eGraph3D</div><div class="ttdoc">3D 图形</div></div>
+<div class="ttc" id="anamespaceast_html_a921f611b60c40e6077f2237aca95e401"><div class="ttname"><a href="namespaceast.html#a921f611b60c40e6077f2237aca95e401">ast::EFillPattern</a></div><div class="ttdeci">EFillPattern</div><div class="ttdoc">图形填充图案</div><div class="ttdef"><b>定义</b> AstReportGlobal.hpp:77</div></div>
+<div class="ttc" id="anamespaceast_html_a9c5e3a291abba7aa635c81b30cddd90b"><div class="ttname"><a href="namespaceast.html#a9c5e3a291abba7aa635c81b30cddd90b">ast::EExpandMethod</a></div><div class="ttdeci">EExpandMethod</div><div class="ttdoc">Section 展开方式</div><div class="ttdef"><b>定义</b> AstReportGlobal.hpp:84</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a105694cfba257ed811e2b6f8279bf3c.html">AstReport</a></li><li class="navelem"><a class="el" href="AstReportGlobal_8hpp.html">AstReportGlobal.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

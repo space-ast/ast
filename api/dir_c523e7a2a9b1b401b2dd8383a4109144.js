@@ -7,5 +7,7 @@ var dir_c523e7a2a9b1b401b2dd8383a4109144 =
     [ "OrderedMap.hpp", "OrderedMap_8hpp.html", null ],
     [ "Span.cpp", "Span_8cpp.html", null ],
     [ "Span.hpp", "Span_8hpp.html", null ],
+    [ "VariantVector.cpp", "VariantVector_8cpp.html", null ],
+    [ "VariantVector.hpp", "VariantVector_8hpp.html", null ],
     [ "Vector.hpp", "AstUtil_2Container_2Vector_8hpp.html", null ]
 ];

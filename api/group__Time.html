@@ -122,6 +122,8 @@ $(function(){initNavTree('group__Time.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DaySecDuration.html">ast::DaySecDuration</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1IntervalList.html">ast::IntervalList</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1JulianDate.html">ast::JulianDate</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ModJulianDate.html">ast::ModJulianDate</a></td></tr>
@@ -133,6 +135,10 @@ $(function(){initNavTree('group__Time.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteTimePointRange.html">ast::TimeInterval::DiscreteTimePointRange</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html">ast::TimeInterval::DiscreteEpochSecondRange</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimeIntervalList.html">ast::TimeIntervalList</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimeList.html">ast::TimeList</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimePoint.html">ast::TimePoint</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2764,7 +2770,7 @@ template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </
 </table>
 </div><div class="memdoc">
 
-<p>将时间区间离散化 </p>
+<p>将时间区间离散化为相对秒 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">epoch</td><td>时间区间的基准时间点 </td></tr>
@@ -2799,7 +2805,7 @@ template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </
 </table>
 </div><div class="memdoc">
 
-<p>将时间区间离散化 </p>
+<p>将时间区间离散化为时间点 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">step</td><td>离散化步长（秒） </td></tr>
