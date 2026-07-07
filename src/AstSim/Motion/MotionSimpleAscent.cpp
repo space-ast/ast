@@ -36,19 +36,20 @@ MotionSimpleAscent::MotionSimpleAscent()
 {
 }
 
-/// @brief 生成特定星历
-/// @param eph 星历指针
-/// @return 错误码
-errc_t MotionSimpleAscent::makeEphemerisSpec(ScopedPtr<Ephemeris>& eph) const
+Body *MotionSimpleAscent::getBody() const
 {
-    // 实现特定星历生成逻辑
-    // 基于配置的上升阶段参数计算轨迹
-    return eNoError;
+    auto body = body_.get();
+    if(!body)
+        return aGetEarth();
+    return body;
 }
 
-/// @brief 生成简单星历
-/// @param eph 星历指针
-/// @return 错误码
+
+errc_t MotionSimpleAscent::makeEphemerisSpec(ScopedPtr<Ephemeris>& eph) const
+{
+    return makeEphemerisSimple(eph);
+}
+
 errc_t MotionSimpleAscent::makeEphemerisSimple(ScopedPtr<Ephemeris>& eph) const
 {
     // 实现简单星历生成逻辑
@@ -56,11 +57,10 @@ errc_t MotionSimpleAscent::makeEphemerisSimple(ScopedPtr<Ephemeris>& eph) const
     return eNoError;
 }
 
-/// @brief 接受访问者
-/// @param visitor 访问者
 void MotionSimpleAscent::accept(MotionProfileVisitor& visitor)
 {
-    // 实现访问者模式
+    visitor.visit(*this);
 }
+
 
 AST_NAMESPACE_END

@@ -21,10 +21,12 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstSim/MotionWithIntervalStep.hpp"
 #include "AstCore/Time.hpp"
 #include "AstCore/Object.hpp"
+#include "AstCore/GeodeticPoint.hpp"
 #include "AstSim/MotionProfile.hpp"
+#include "AstSim/MotionWithIntervalStep.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
@@ -57,7 +59,13 @@ public:
     /// @brief 接受访问者
     /// @param visitor 访问者
     void accept(MotionProfileVisitor& visitor) override;
-    
+
+    /// @brief 获取天体
+    Body* getBody() const;
+
+    /// @brief 设置天体
+    void setBody(Body* body) { body_ = body; }
+       
     /// @brief 设置发射时间
     /// @param time 发射时间
     void setLaunchTime(const TimePoint& time) { launchTime_ = time; }
@@ -88,22 +96,20 @@ public:
     /// @param altitude 高度（米）
     void setLaunchPosition(double latitude, double longitude, double altitude)
     {
-        launchLatitude_ = latitude;
-        launchLongitude_ = longitude;
-        launchAltitude_ = altitude;
+        launchPosition_ = GeodeticPoint(latitude, longitude, altitude);
     }
     
     /// @brief 获取发射纬度
     /// @return 发射纬度（度）
-    double getLaunchLatitude() const { return launchLatitude_; }
+    double getLaunchLatitude() const { return launchPosition_.latitude(); }
     
     /// @brief 获取发射经度
     /// @return 发射经度（度）
-    double getLaunchLongitude() const { return launchLongitude_; }
+    double getLaunchLongitude() const { return launchPosition_.longitude(); }
     
     /// @brief 获取发射高度
     /// @return 发射高度（米）
-    double getLaunchAltitude() const { return launchAltitude_; }
+    double getLaunchAltitude() const { return launchPosition_.altitude(); }
     
     /// @brief 设置关机位置
     /// @param latitude 纬度（度）
@@ -111,22 +117,20 @@ public:
     /// @param altitude 高度（米）
     void setBurnoutPosition(double latitude, double longitude, double altitude)
     {
-        burnoutLatitude_ = latitude;
-        burnoutLongitude_ = longitude;
-        burnoutAltitude_ = altitude;
+        this->burnoutPosition_ = GeodeticPoint(latitude, longitude, altitude);
     }
     
     /// @brief 获取关机纬度
     /// @return 关机纬度（度）
-    double getBurnoutLatitude() const { return burnoutLatitude_; }
+    double getBurnoutLatitude() const { return burnoutPosition_.latitude(); }
     
     /// @brief 获取关机经度
     /// @return 关机经度（度）
-    double getBurnoutLongitude() const { return burnoutLongitude_; }
+    double getBurnoutLongitude() const { return burnoutPosition_.longitude(); }
     
     /// @brief 获取关机高度
     /// @return 关机高度（米）
-    double getBurnoutAltitude() const { return burnoutAltitude_; }
+    double getBurnoutAltitude() const { return burnoutPosition_.altitude(); }
     
     /// @brief 设置关机速度
     /// @param velocity 关机速度（米/秒）
@@ -148,15 +152,11 @@ private:
     TimePoint launchTime_;          ///< 发射时间
     bool useScenTime_;              ///< 是否使用场景时间
     TimePoint burnoutTime_;         ///< 关机时间
-    double launchLatitude_;         ///< 发射纬度（度）
-    double launchLongitude_;        ///< 发射经度（度）
-    double launchAltitude_;         ///< 发射高度（米）
-    double burnoutLatitude_;        ///< 关机纬度（度）
-    double burnoutLongitude_;       ///< 关机经度（度）
-    double burnoutAltitude_;        ///< 关机高度（米）
+    WeakPtr<CelestialBody> body_;   ///< 天体
+    GeodeticPoint launchPosition_;  ///< 发射位置
+    GeodeticPoint burnoutPosition_; ///< 关机位置
     double burnoutVelocity_;        ///< 关机速度（米/秒）
     double granularity_;            ///< 时间粒度（秒）
-
 };
 
 /*! @} */
