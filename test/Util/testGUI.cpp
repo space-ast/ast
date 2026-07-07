@@ -17,9 +17,9 @@
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 
-#include "AstUtil/GUI.hpp"
-#include "AstUtil/GUIInterface.hpp"
-#include "AstTest/Test.h"
+#include "ast/GUI.hpp"
+#include "ast/GUIInterface.hpp"
+#include "ast/Test.h"
 #include <cstdio>
 
 AST_USING_NAMESPACE
@@ -82,4 +82,11 @@ TEST(GUI, NoopMethods)
 }
 
 
-GTEST_MAIN()
+//GTEST_MAIN()
+int main(int argc, char **argv) {
+    if(aIsCI())
+        return 0;
+    printf("Running main() from %s\n", __FILE__); 
+    testing::InitGoogleTest(&argc, argv); 
+    return RUN_ALL_TESTS(); 
+}

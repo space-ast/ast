@@ -62,6 +62,10 @@ public:
 
     errc_t setValue(Value* val) override;
 
+    errc_t setValueDouble(double val) override;
+
+    errc_t getValueDouble(double& val) const override;
+
     std::string getExpression(Object* context=nullptr) const override;
 
 public:

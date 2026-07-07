@@ -752,6 +752,7 @@ bool setScriptVariableByEx(IDispatch* pGlobalDisp, const std::wstring& name, con
     if (FAILED(hr) || !pDispEx) return false;
 
     // 2. 获取或创建属性的 DISPID
+    /// @bug `pDispEx->GetDispID` 这个逻辑在低版本的jscript动态库中执行会报错 
     DISPID dispid;
     hr = pDispEx->GetDispID(const_cast<BSTR>(name.c_str()), fdexNameEnsure, &dispid);
     if (FAILED(hr))
@@ -788,7 +789,7 @@ IUnknown* _resolveRootDispatch()
 {
     AST_USING_NAMESPACE
     using FuncType = decltype(&aComObjectRoot);
-    FuncType func = (FuncType)aResolveProcAddress(AST_APPEND_DEBUG("AstCOM"), A_STR(aComObjectRoot));
+    FuncType func = (FuncType)aResolveProcAddress(AST_LIB_LINKNAME("AstCOM"), A_STR(aComObjectRoot));
     if (func)
         return func();
     return nullptr;

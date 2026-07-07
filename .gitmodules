@@ -1,12 +1,15 @@
+[submodule "data"]
+	path = data
+	url = https://github.com/space-ast/ast-data.git
+[submodule "docs"]
+	path = docs
+	url = https://github.com/space-ast/ast-docs.git
 [submodule "thirdparty/libf2c"]
 	path = thirdparty/libf2c
 	url = https://github.com/space-ast/libf2c.git
 [submodule "thirdparty/matplotplusplus"]
 	path = thirdparty/matplotplusplus
 	url = https://github.com/space-ast/matplotplusplus.git
-[submodule "data"]
-	path = data
-	url = https://github.com/space-ast/ast-data.git
 [submodule "thirdparty/cspice-windows"]
 	path = thirdparty/cspice-windows
 	url = https://github.com/space-ast/cspice
@@ -15,3 +18,9 @@
 	path = thirdparty/cspice-linux
 	url = https://github.com/space-ast/cspice
 	branch = linux
+[submodule "thirdparty/QWT"]
+	path = thirdparty/QWT
+	url = https://github.com/space-ast/qwt
+[submodule "thirdparty/OpenFrames"]
+	path = thirdparty/OpenFrames
+	url = https://github.com/space-ast/OpenFrames

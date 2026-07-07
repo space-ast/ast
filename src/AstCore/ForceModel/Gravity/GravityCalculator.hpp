@@ -35,8 +35,12 @@ class GravityCalculator1;
 class GravityCalculator2;
 class GravityCalculator3;
 
-//#define _AST_ENABLE_GRAVITY_CALCULATOR_1
-using GravityCalculatorDefault = GravityCalculator3;
+#ifdef _AST_USE_GRAVITY_CALCULATOR_1
+    #define _AST_ENABLE_GRAVITY_CALCULATOR_1
+    using GravityCalculatorDefault = GravityCalculator1;
+#else
+    using GravityCalculatorDefault = GravityCalculator3;
+#endif
 
 /// @brief 重力加速度计算类
 class AST_CORE_API GravityCalculator
@@ -60,6 +64,10 @@ public:
     /// @brief 获取重力场系数
     /// @return 重力场系数
     const GravityField& getGravityField() const { return gravityField_; }
+
+    /// @brief 更新重力场系数变化
+    /// @param tp 时间点
+    void updateVariations(const TimePoint& tp){gravityField_.updateVariations(tp);}
 
     // 在这里不能公开提供返回可修改引用接口，否则会导致重力场系数等参数被修改
     // 
@@ -102,9 +110,10 @@ protected:
 #ifdef _AST_ENABLE_GRAVITY_CALCULATOR_1
 
 /// @brief 重力加速度计算类1
-class AST_CORE_API GravityCalculator1: public GravityCalculator
+class AST_CORE_API GravityCalculator1 final: public GravityCalculator
 {
 public:
+    GravityCalculator1();
     GravityCalculator1(const GravityField &gravityField, int degree, int order);
     ~GravityCalculator1();
 
@@ -119,7 +128,7 @@ protected:
 
 
 /// @brief 重力加速度计算类2 - Holmes-Featherstone算法
-class AST_CORE_API GravityCalculator2: public GravityCalculator
+class AST_CORE_API GravityCalculator2 final: public GravityCalculator
 {
 public:
     GravityCalculator2(const GravityField &gravityField, int degree, int order);
@@ -163,7 +172,7 @@ private:
 
 /// @brief 重力加速度计算类3
 /// @details Pines算法，来自GMAT的实现
-class AST_CORE_API GravityCalculator3: public GravityCalculator
+class AST_CORE_API GravityCalculator3 final: public GravityCalculator
 {
 public:
     GravityCalculator3();
@@ -194,7 +203,7 @@ private:
 };
 
 
-class AST_CORE_API GravityCalculator4: public GravityCalculator
+class AST_CORE_API GravityCalculator4 final: public GravityCalculator
 {
 public:
     using GravityCalculator::GravityCalculator;
@@ -203,7 +212,7 @@ public:
 };
 
 
-class AST_CORE_API GravityCalculator5: public GravityCalculator
+class AST_CORE_API GravityCalculator5 final: public GravityCalculator
 {
 public:
     using GravityCalculator::GravityCalculator;

@@ -20,14 +20,18 @@
 
 #include "Network.hpp"
 #include "NetworkInterface.hpp"
-#include "Impl/NetworkImplWinHTTP.hxx"
-#include "Impl/NetworkImplWinINet.hxx"
-#include "Impl/NetworkImplCurlCmd.hxx"
+#include <atomic>
+#include "NetworkStreamReceiver.hpp"
+#include "AstUtil/NetworkImplWinHTTP.hpp"
+#include "AstUtil/NetworkImplWinINet.hpp"
+#include "AstUtil/NetworkImplCurlCmd.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/FileSystem.hpp"
+#include "AstUtil/IO.hpp"
 
 AST_NAMESPACE_BEGIN
 
-static NetworkInterface* s_interface = nullptr;
+static std::atomic<NetworkInterface*> s_interface{nullptr};
 
 
 
@@ -70,7 +74,7 @@ errc_t aNetworkSetImpl(ENetworkImplType impltype)
         aError("given network implementation not supported, try to use default implementation instead");
         impl = aNetworkGetImplDefault();
     }
-    s_interface = impl;
+    s_interface.store(impl, std::memory_order_release);
     return eNoError;
 }
 
@@ -78,22 +82,80 @@ void aNetworkSetImpl(NetworkInterface* impl)
 {
     if (impl == nullptr)
         return;
-    s_interface = impl;
+    s_interface.store(impl, std::memory_order_release);
 }
 
 
 
 errc_t aNetworkRequest(const NetworkRequest& request, NetworkResponse& response)
 {
-    if (s_interface == nullptr)
+    auto* impl = s_interface.load(std::memory_order_acquire);
+    if (impl == nullptr)
     {
-        s_interface = aNetworkGetImplDefault();
-        if (s_interface == nullptr)
+        impl = aNetworkGetImplDefault();
+        if (impl == nullptr)
             return eErrorNullPtr;
+        s_interface.store(impl, std::memory_order_release);
     }
-    return s_interface->request(request, response);
+    return impl->request(request, response);
 }
 
 
+errc_t aNetworkRequestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver)
+{
+    auto* impl = s_interface.load(std::memory_order_acquire);
+    if (impl == nullptr)
+    {
+        impl = aNetworkGetImplDefault();
+        if (impl == nullptr)
+            return eErrorNullPtr;
+        s_interface.store(impl, std::memory_order_release);
+    }
+    return impl->requestStream(request, receiver);
+}
+
+
+errc_t aDownloadFile(const std::string& url, const std::string& filepath)
+{
+    NetworkRequest request;
+    request.setMethod(ENetworkRequestMethod::eGet);
+    request.setUrl(url);
+
+    NetworkResponse response;
+    errc_t err = aNetworkRequest(request, response);
+    if (err) return err;
+
+    if (response.statusCode() != 200)
+    {
+        aError("aDownloadFile: HTTP %d for %s", response.statusCode(), url.c_str());
+        return eErrorInvalidFile;
+    }
+
+    const std::string& body = response.body();
+    if (body.empty())
+    {
+        aError("aDownloadFile: empty body for %s", url.c_str());
+        return eErrorInvalidFile;
+    }
+
+    FILE* fp = posix::fopen(filepath.c_str(), "wb");
+    if (!fp)
+    {
+        aError("aDownloadFile: cannot open %s", filepath.c_str());
+        return eErrorInvalidFile;
+    }
+
+    size_t written = fwrite(body.data(), 1, body.size(), fp);
+    fclose(fp);
+
+    if (written != body.size())
+    {
+        aError("aDownloadFile: write incomplete for %s", filepath.c_str());
+        fs::remove(filepath);
+        return eErrorInvalidFile;
+    }
+
+    return eNoError;
+}
 
 AST_NAMESPACE_END

@@ -21,6 +21,7 @@
 #include "DetectorYZPlaneCross.hpp"
 
 AST_NAMESPACE_BEGIN
+double DetectorYZPlaneCross::getValue(const SpacecraftState& state, double t) const { return 0.0; }
 
 
 

@@ -1,6 +1,6 @@
-#include "AstCore/BuiltinAxes.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstMath/Rotation.hpp"
+#include "ast/BuiltinAxes.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/Rotation.hpp"
 #include <stdio.h>
 
 AST_USING_NAMESPACE

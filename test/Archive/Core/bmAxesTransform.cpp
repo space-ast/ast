@@ -19,14 +19,14 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstCore/AxesTransform.hpp"
-#include "AstCore/Axes.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/EarthFrame.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstMath/Matrix.hpp"
-#include "AstMath/Rotation.hpp"
-#include "AstMath/KinematicRotation.hpp"
+#include "ast/FrameTransform.hpp"
+#include "ast/Axes.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/EarthFrame.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Matrix.hpp"
+#include "ast/Rotation.hpp"
+#include "ast/KinematicRotation.hpp"
 #include <benchmark/benchmark.h>
 
 AST_USING_NAMESPACE

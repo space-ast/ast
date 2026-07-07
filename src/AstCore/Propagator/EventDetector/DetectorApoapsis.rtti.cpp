@@ -12,7 +12,8 @@ static bool DetectorApoapsis_ClassInited = (DetectorApoapsis::ClassInit(&Detecto
 void DetectorApoapsis::ClassInit(Class* cls)
 {
 
-    cls->setName("DetectorApoapsis");
+    cls->setName(NC_("Class", "DetectorApoapsis"));
+    cls->setDesc(u8R"(近心点事件检测器)");
     cls->addToRegistry();
     cls->setParent<DetectorBodyRelated>();
     cls->setConstructor<DetectorApoapsis>();

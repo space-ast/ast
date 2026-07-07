@@ -1,9 +1,9 @@
-#include "AstCore/RunTime.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/FrameTransform.hpp"
-#include "AstCore/JplDe.hpp"
-#include "AstCore/EOP.hpp"
-#include "AstMath/Vector.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/FrameTransform.hpp"
+#include "ast/JplDe.hpp"
+#include "ast/EOP.hpp"
+#include "ast/Vector.hpp"
 #include <cstdio>
 
 AST_USING_NAMESPACE

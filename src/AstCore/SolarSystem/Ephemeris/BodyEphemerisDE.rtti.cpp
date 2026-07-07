@@ -12,7 +12,7 @@ static bool BodyEphemerisDE_ClassInited = (BodyEphemerisDE::ClassInit(&BodyEphem
 void BodyEphemerisDE::ClassInit(Class* cls)
 {
 
-    cls->setName("BodyEphemerisDE");
+    cls->setName(NC_("Class", "BodyEphemerisDE"));
     cls->addToRegistry();
     cls->setParent<BodyEphemeris>();
     cls->setConstructor<BodyEphemerisDE>();

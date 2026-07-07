@@ -147,13 +147,18 @@ public:
     double julianCenturyFromJ2000() const{
         return daysFromJ2000() / kDaysPerJulianCentury;
     }
-    /// @brief 计算儒略日与 J2000.0 历元的时间差（儒略日）
+    /// @brief 计算儒略日与 J2000.0 历元的天数差
     double daysFromJ2000() const{
-        return ((day_ - kJ2000Epoch) + dayFractional());
+        return daysFromJulianDate(kJ2000Epoch);
     }
     /// @brief 计算儒略日与 J2000.0 历元的时间差（秒）
     double secondsFromJ2000() const{
         return (day_ - kJ2000Epoch) * kSecondsPerDay + second_;
+    }
+    /// @brief 计算儒略日与另一个儒略日的天数差
+    double daysFromJulianDate(double jd) const
+    {
+        return ((day_ - jd) + dayFractional());
     }
 public:
     JulianDate& operator += (double sec)

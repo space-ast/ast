@@ -1,21 +1,23 @@
 ﻿set_group("test")
 add_deps(
-    "AstCore", 
-    "AstUtil", 
-    "AstOpt", 
-    "AstMock", 
-    "AstMath", 
-    "AstScript", 
-    "AstWeather", 
-    "AstSPICE", 
+    "AstCore",
+    "AstUtil",
+    "AstOpt",
+    "AstMock",
+    "AstMath",
+    "AstScript",
+    "AstWeather",
+    "AstSPICE",
     "AstSim",
     "AstLoader",
     "AstAI",
     "AstCmd",
-    "AstTest"
+    "AstTest",
+    "AstFault"
 )
 
-if is_plat("windows") then
+if is_plat("windows") and has_config("with_com") then
+    add_defines("AST_WITH_COM")
     add_deps("AstCOM")
 end
 
@@ -45,7 +47,7 @@ end
 
 
 -- GUI测试代码
-if has_package("qt5widgets") then
+if has_package("qt5base") then
     local test_files = os.files("GUI/**.cpp")
     for _, file in ipairs(test_files) do
         -- local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
@@ -54,8 +56,9 @@ if has_package("qt5widgets") then
             add_rules("qt.widgetapp")
             set_values("windows.subsystem", "console")
             add_files(file)
-            add_deps("AstGUI")
+            add_deps("AstGUI", "AstChart")
             add_frameworks("QtWidgets", "QtGui", "QtCore")
+            add_packages("qwt")
         target_end()
     end
 end

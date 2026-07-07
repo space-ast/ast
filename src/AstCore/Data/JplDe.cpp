@@ -702,16 +702,12 @@ errc_t JplDe::getNutation(
 
 errc_t JplDe::getLibration(
     const TimePoint& time,
-    Vector3d& ang,
-    Vector3d& angRate)
+    Euler& ang,
+    Euler& angRate)
 {
     return this->getState(time, eDeLibration, ang.data(), angRate.data());
 }
 
-errc_t JplDe::getLibration(const TimePoint &time, Vector3d &ang)
-{
-    return this->getState(time, eDeLibration, ang.data(), nullptr);
-}
 
 errc_t JplDe::getLibration(const TimePoint &time, Euler &ang)
 {

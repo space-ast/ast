@@ -12,13 +12,16 @@ static bool CelestialBody_ClassInited = (CelestialBody::ClassInit(&CelestialBody
 void CelestialBody::ClassInit(Class* cls)
 {
 
-    cls->setName("CelestialBody");
+    cls->setName(NC_("Class", "CelestialBody"));
     cls->setDesc(u8R"(天体)");
     cls->addToRegistry();
     cls->setParent<Point>();
     cls->setConstructor<CelestialBody>();
     cls->setResolve<CelestialBody>();
 
+    cls->addProperty("Shape", aNewPropertyObject<CelestialBody, BodyShape, &CelestialBody::shape>());
+    cls->addProperty("Ephemeris", aNewPropertyObject<CelestialBody, BodyEphemeris, &CelestialBody::ephemeris>());
+    cls->addProperty("Orientation", aNewPropertyObject<CelestialBody, BodyOrientation, &CelestialBody::orientation>());
 }
 
 AST_NAMESPACE_END

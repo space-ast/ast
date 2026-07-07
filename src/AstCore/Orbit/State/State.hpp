@@ -86,7 +86,7 @@ public:
     /// @return PState 状态指针
     static PState New(State& state, EStateType type);
 protected:
-    State(const State& state) = default; // 怎么处理深拷贝? 现在默认浅拷贝
+    State(const State& state);
 public:
     /// @brief 获取状态类型
     /// @return EStateType 状态类型

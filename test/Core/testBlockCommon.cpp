@@ -18,9 +18,9 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/Simulation.hpp"
-#include "AstCore/SimulationAPI.hpp"
-#include "AstTest/Test.h"
+#include "ast/Simulation.hpp"
+#include "ast/SimulationAPI.hpp"
+#include "ast/Test.h"
 
 
 AST_USING_NAMESPACE

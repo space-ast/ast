@@ -1,6 +1,6 @@
 #include "AstGlobal.h"
-#include "AstCore/SolarRadiationPressure.hpp"
-#include "AstGUI/UiSolarRadiationPressure.hpp"
+#include "ast/SolarRadiationPressure.hpp"
+#include "ast/UiSolarRadiationPressure.hpp"
 #include <QApplication>
 
 AST_USING_NAMESPACE

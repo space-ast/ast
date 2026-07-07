@@ -1,0 +1,1 @@
+#include "AstScript/Symbol.hpp"

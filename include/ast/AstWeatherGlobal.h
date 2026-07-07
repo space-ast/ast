@@ -1,0 +1,1 @@
+#include "AstWeather/AstWeatherGlobal.h"

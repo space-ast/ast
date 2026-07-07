@@ -18,13 +18,13 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstMath/Zeros.hpp"
-#include "AstMath/SecantSolver.hpp"
-#include "AstMath/BrentSolver.hpp"
-#include "AstMath/BisectionSolver.hpp"
-#include "AstMath/RidderSolver.hpp"
-#include "AstTest/Test.hpp"
-#include "AstMath/Function.hpp"
+#include "ast/Zeros.hpp"
+#include "ast/SecantSolver.hpp"
+#include "ast/BrentSolver.hpp"
+#include "ast/BisectionSolver.hpp"
+#include "ast/RidderSolver.hpp"
+#include "ast/Test.hpp"
+#include "ast/Function.hpp"
 #include <cmath>
 
 // 定义π的值，因为C++11不支持std::numbers::pi

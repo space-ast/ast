@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "BodyOrientation.hpp"
+#include "RotationalData.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -33,6 +34,7 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API MoonOrientation : public BodyOrientation
 {
 public:
+    AST_OBJECT(MoonOrientation)
     MoonOrientation() = default;
     ~MoonOrientation() override = default;
     void getICRFToFixedTransform(const TimePoint& tp, Rotation &rotation) const override;
@@ -42,6 +44,11 @@ public:
     void getMODTransform(const TimePoint& tp, Rotation &rot) const override;
     Axes* getTODParent() const override;
     void getTODTransform(const TimePoint& tp, Rotation &rot) const override;
+public:
+    RotationalData& rotationalData(){return rotation_;}
+    const RotationalData& rotationalData() const {return rotation_;}
+private:
+    RotationalData rotation_;       ///< 月球的旋转系数
 };
 
 /*! @} */

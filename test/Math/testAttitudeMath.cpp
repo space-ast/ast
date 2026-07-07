@@ -6,14 +6,14 @@
 /// @date      2026-04-14
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 
-#include "AstMath/AttitudeConvert.hpp"
-#include "AstMath/Euler.hpp"
-#include "AstMath/AngleAxis.hpp"
-#include "AstMath/Quaternion.hpp"
-#include "AstMath/Matrix.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/AttitudeConvert.hpp"
+#include "ast/Euler.hpp"
+#include "ast/AngleAxis.hpp"
+#include "ast/Quaternion.hpp"
+#include "ast/Matrix.hpp"
+#include "ast/AstTestMacro.h"
 #include <cmath>
-#include "AstCore/Constants.h"
+#include "ast/Constants.h"
 
 AST_USING_NAMESPACE
 

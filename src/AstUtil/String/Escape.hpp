@@ -31,6 +31,26 @@ AST_NAMESPACE_BEGIN
 */
 
 
+/// @brief ANSI 转义序列
+/// @details 用于控制终端（命令行、控制台）的显示效果，例如改变文字颜色、背景色、移动光标、清除屏幕等
+namespace escape
+{
+    constexpr char kReset[]       = "\033[0m";        ///< 重置所有属性
+    constexpr char kBold[]        = "\033[1m";        ///< 加粗
+    constexpr char kItalic[]      = "\033[3m";        ///< 斜体
+    constexpr char kUnderline[]   = "\033[4m";        ///< 下划线
+    constexpr char kStrike[]      = "\033[9m";        ///< 删除线
+    
+    constexpr char kBlue[]        = "\033[34m";       ///< 蓝色
+    constexpr char kCyan[]        = "\033[36m";       ///< 青色
+    constexpr char kDim[]         = "\033[2m";        ///< 暗淡
+    constexpr char kYellow[]      = "\033[33m";       ///< 黄色
+    constexpr char kBrightWhite[] = "\033[97m";       ///< 亮白色
+    constexpr char kBrightCyan[]  = "\033[96m";       ///< 亮青色
+}
+
+
+
 
 /// @brief 解析C风格转义序列
 /// @details 解析'source'字符串中的C风格转义序列，将它们替换为对应的字符

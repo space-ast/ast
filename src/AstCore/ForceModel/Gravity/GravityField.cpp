@@ -20,6 +20,8 @@
 
 #include "GravityField.hpp"
 #include "GravityFieldLoader.hpp"
+#include "AstUtil/String.hpp"
+#include "AstUtil/Logger.hpp"
 #include <cmath>
 
 
@@ -154,6 +156,42 @@ GravityField GravityField::unnormalized() const
     return gf_unnormalized;
 }
 
+void GravityField::updateVariations(const TimePoint& epoch)
+{
+    auto& variations = this->secularVariations_;
+    double dyr = epoch.daysFrom(variations.referenceEpoch_) / (365.25);     // 时间间隔（年）
+    for(auto& variation : variations.variations_)
+    {
+
+        int degree = variation.degree_;
+        int order = variation.order_;
+        bool isValid = this->isValidDegreeOrder(degree, order);
+        if(A_UNLIKELY(!isValid)) continue;
+
+        // 根据长期变化率计算当前时刻的系数
+        double currentCoefficient = variation.originalCoefficient_ + variation.linearRate_ * dyr;
+        if(A_UNLIKELY(variations.normalized_ != this->normalized_))
+        {
+            if(!this->normalized_)
+            {
+                gfUnnormalize(degree, order, currentCoefficient);
+            }
+            else
+            {
+                gfNormalize(degree, order, currentCoefficient);
+            }
+        }
+        // 更新重力场系数
+        if(variation.isSin_)
+        {
+            snm(degree, order) = currentCoefficient;
+        }
+        else
+        {
+            cnm(degree, order) = currentCoefficient;
+        }
+    }
+}
 
 void GravityField::initCoeffMatrices()
 {
@@ -208,6 +246,64 @@ double GravityField::getCnmUnnormalized(int n, int m) const
 double GravityField::getJn(int n) const
 {
     return -getCnmUnnormalized(n, 0);
+}
+
+void GravityField::applyPermanentTideC20Correction(double k20)
+{
+    // 已经是零潮汐模型，无需修正
+    if(includesPermTide_)
+    {
+        aWarning("已经是零潮汐模型，无需修正。");
+        return;
+    }
+    // 阶数至少需要到2
+    if(maxDegree_ < 2)
+    {
+        aWarning("阶数至少需要到2，当前阶数为 %d。", maxDegree_);
+        return;
+    }
+
+    // 当前实现仅适用于地球 — A₀ 和 H₀ 是基于日月对地球的潮汐势计算得到的。
+    // 其他天体（火星、月球等）的永久潮汐修正需要使用该天体对应的潮汐参数，
+    // 而非此处硬编码的地球值。
+    if(!aEqualsIgnoreCase(centralBody_, "Earth"))
+    {
+        aWarning("当前仅支持地球, 天体 '%s' 的永久潮汐修正已跳过。",
+                 centralBody_.c_str());
+        return;
+    }
+
+    // 无潮汐 → 零潮汐 C20 修正
+    //
+    // 参考: IERS Conventions (2010), Technical Note 36 (TN36)
+    //       第6章 "Geopotential", 第6.2.2节 "Treatment of the permanent tide" (p.88)
+    //       公式(6.13): C̄20zt = C̄20 − C̄20perm
+    //       公式(6.14): C̄20perm = A₀·H₀·k20 = (4.4228×10⁻⁸)·(−0.31460)·k20
+    //
+    // 其中:
+    //   A₀ = 4.4228×10⁻⁸ — 2阶带谐归一化因子
+    //   H₀ = −0.31460    — 2阶带谐潮汐势均值 (Cartwright-Tayler规范)
+    //   k20 = 0.30190    — 名义Love数 (表6.3, p.83, 滞弹性地球)
+    //
+    // 零潮汐C20更负（永久潮汐隆起使地球扁率增大，J2增大）
+    // 以归一化系数计，修正量 ΔC̄20 ≈ −4.201×10⁻⁹ (k20=0.30190)
+    // 对EGM2008而言，零潮汐与无潮汐C20之差为 −4.1736×10⁻⁹ (TN36原文)
+    constexpr double A0 = 4.4228e-8;
+    constexpr double H0 = -0.31460;
+    double deltaC20Normalized = A0 * H0 * k20;  // 负值，约 −1.3914×10⁻⁸ × k20
+
+    if(normalized_)
+    {
+        cosCoeff_(2, 0) += deltaC20Normalized;  // deltaC20Normalized < 0
+    }
+    else
+    {
+        // 非归一化状态: C20 = C̄20 × √5
+        constexpr double sqrt5 = 2.23606797749979;
+        cosCoeff_(2, 0) += deltaC20Normalized * sqrt5;
+    }
+
+    includesPermTide_ = true; // 修正后标记为零潮汐模型
 }
 
 AST_NAMESPACE_END

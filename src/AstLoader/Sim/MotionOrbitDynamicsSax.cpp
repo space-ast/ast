@@ -35,6 +35,10 @@ errc_t MotionOrbitDynamicsSax::begin(StringView name)
             token = parser_.getNext(item);
         }while(token != BKVParser::eBlockEnd && token != BKVParser::eEOF);
     }
+    else
+    {
+        _aSkipUnknownBlock(parser_, name);
+    }
     return eNoError;
 }
 

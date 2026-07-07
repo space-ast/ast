@@ -21,6 +21,7 @@
 #include "ScriptAPI.hpp"
 #include "AstScript/AllHeaders.hpp"
 #include "AstScript/IteratePredefined.hpp"
+#include "AstScript/ExprExpandVisitor.hpp"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/Quantity.hpp"
 
@@ -121,14 +122,37 @@ Expr *aParseExpr(StringView script)
     return Parser::parseExpr(script);
 }
 
-Value *aEval(StringView script)
+Expr* aExpandExpr(Expr* expr)
 {
-    SharedPtr<Expr> expr = Parser::parseExpr(script);
-    if(!expr.get()){
+    if(!expr){
         return nullptr;
     }
-    expr = expr->eval();
-    return (Value*)expr.take();
+    ExprExpandVisitor visitor;
+    expr->accept(visitor);
+    return visitor.takeResult();
+}
+
+Expr *aExpand(StringView script)
+{
+    SharedPtr<Expr> expr = aParseExpr(script);
+    if(!expr){
+        return nullptr;
+    }
+    expr = aExpandExpr(expr);
+    return expr.take();
+}
+
+Value *aEval(StringView script)
+{
+    SharedPtr<Value> value;
+    {
+        SharedPtr<Expr> expr = aParseExpr(script);
+        if(!expr.get()){
+            return nullptr;
+        }
+        value = expr->eval();
+    }
+    return value.take();
 }
 
 Value *aEvalExpr(Expr *expr)
@@ -281,6 +305,31 @@ static void assignop_split(EOpAssignType op, EOpBinType& opbin)
     }
 }
 
+/// @brief 尝试将左值解析为变量并执行赋值/绑定操作
+/// @return true 表示成功找到变量并执行操作，false 表示左值不是变量
+static bool tryAssignToVar(Expr* left, Expr* right, bool useBind)
+{
+    // 外部已检查空指针，无需重复检查
+    // if(!left || !right){
+    //     return false;
+    // }
+    Variable* var = aobject_cast<Variable*>(left);
+    if (!var) {
+        Symbol* sym = aobject_cast<Symbol*>(left);
+        if (sym) {
+            var = aobject_cast<Variable*>(sym->resolve());
+        }
+    }
+    if (var) {
+        if (useBind)
+            var->bind(right);
+        else
+            var->setExpr(right);
+        return true;
+    }
+    return false;
+}
+
 Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
 {
     if(!left || !right){
@@ -297,10 +346,7 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     }
     case eDelayAssign:
     {
-        SharedPtr<Expr> leftExpr = left->exec();
-        if(auto var = dynamic_cast<Variable*>(leftExpr.get())){
-            var->setExpr(right);
-        }else{
+        if (!tryAssignToVar(left, right, false)) {
             aError("Left is not a variable");
             return nullptr;
         }
@@ -308,10 +354,7 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     }
     case eBindAssign:
     {
-        SharedPtr<Expr> leftExpr = left->exec();
-        if(auto var = dynamic_cast<Variable*>(leftExpr.get())){
-            var->bind(right);
-        }else{
+        if (!tryAssignToVar(left, right, true)) {
             aError("Left is not a variable");
             return nullptr;
         }

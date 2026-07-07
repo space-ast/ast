@@ -19,9 +19,32 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Expr.hpp"
+#include "AstScript/Value.hpp"
+#include "AstScript/ScriptAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
+Expr* Expr::expand() const
+{
+    return aExpandExpr(const_cast<Expr*>(this));
+}
+
+errc_t Expr::setValueDouble(double val) 
+{
+    SharedPtr<Value> value = aNewValueDouble(val);
+    return setValue(value.get());
+}
+
+errc_t Expr::getValueDouble(double& val) const
+{
+    SharedPtr<Value> value = this->eval();
+    if (value == nullptr)
+    {
+        return eErrorInvalidValue;
+    }
+    val = value->toDouble();
+    return eNoError;
+}
 
 
 AST_NAMESPACE_END

@@ -24,16 +24,19 @@
 #include "AstGUI/UiState.hpp"
 #include "AstGUI/UiQuantity.hpp"
 #include "AstGUI/UiTimePoint.hpp"
-#include <QComboBox>
+#include <QLineEdit>
+
+class QPushButton;
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup
     @{
 */
 
 class StateCartesian;
+class Frame;
 
 class AST_GUI_API UiStateCartesian: public UiState
 {
@@ -49,13 +52,18 @@ public:
 
     void setStateCartesian(StateCartesian* state);
     StateCartesian* getStateCartesian() const;
+
+private slots:
+    void onSelectFrame();
+
 signals:
     void stateCartesianChanged(StateCartesian* state);
 private:
     // 左侧控件
     UiTimePoint* epochEdit_{nullptr};
-    QComboBox* frameCombo_{nullptr};
-    
+    QLineEdit*   frameEdit_{nullptr};
+    QPushButton* frameSelectBtn_{nullptr};
+
     // 右侧控件
     UiQuantity* posXEdit_{nullptr};
     UiQuantity* posYEdit_{nullptr};

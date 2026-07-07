@@ -1,7 +1,7 @@
-#include "AstCore/TwoBody.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstUtil/Constants.h"
+#include "ast/TwoBody.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Constants.h"
 #include <iostream>
 #include <iomanip>
 #include <cmath>

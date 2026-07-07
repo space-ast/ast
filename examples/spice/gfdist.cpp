@@ -5,9 +5,9 @@
 #include <stdio.h>
 #include <clocale>
 #include "SpiceUsr.h"
-#include "AstCore/RunTime.hpp"
-#include "AstUtil/Environment.hpp"
-#include "AstTest/TestConfig.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Environment.hpp"
+#include "ast/TestConfig.hpp"
 
 
 AST_USING_NAMESPACE

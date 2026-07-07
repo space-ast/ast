@@ -1,4 +1,3 @@
-#include "JScriptExecutor.hpp"
 ///
 /// @file      JScriptExecutor.cpp
 /// @brief     

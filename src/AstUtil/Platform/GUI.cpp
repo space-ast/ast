@@ -22,6 +22,7 @@
 #include <cstdlib>
 #include <string.h>
 
+
 AST_NAMESPACE_BEGIN
 
 bool aCanDisplayGUI() {
@@ -47,6 +48,8 @@ bool aCanDisplayGUI() {
         }
         
         return false;
+    #elif defined(A_WASM)
+        return true;
     #else
         // 其他平台默认返回false
         return false;

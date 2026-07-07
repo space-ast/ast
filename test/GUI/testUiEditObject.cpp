@@ -4,7 +4,7 @@
 /// @details   
 /// @author    axel
 /// @date      2026-04-02
-/// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
+/// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
 /// 本软件基于 Apache 2.0 开源许可证分发。
@@ -18,11 +18,11 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstUtil/Object.hpp"
-#include "AstUtil/RTTIAPI.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstTest/Test.h"
-#include "AstSim/MotionTwoBody.hpp"
+#include "ast/Object.hpp"
+#include "ast/RTTIAPI.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Test.h"
+#include "ast/MotionTwoBody.hpp"
 
 AST_USING_NAMESPACE
 

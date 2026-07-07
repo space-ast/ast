@@ -18,14 +18,14 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstSim/Mover.hpp"
-#include "AstSim/Aircraft.hpp"
-#include "AstSim/Satellite.hpp"
-#include "AstLoader/MoverLoader.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstTest/Test.h"
-#include "AstUtil/StringView.hpp"
-#include "AstMath/Vector.hpp"
+#include "ast/Mover.hpp"
+#include "ast/Aircraft.hpp"
+#include "ast/Satellite.hpp"
+#include "ast/MoverLoader.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Test.h"
+#include "ast/StringView.hpp"
+#include "ast/Vector.hpp"
 #include <string>
 
 

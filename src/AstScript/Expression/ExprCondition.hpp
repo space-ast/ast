@@ -45,6 +45,9 @@ public:
     errc_t setValue(Value* val) override;
     std::string getExpression(Object* context=nullptr) const override;
 
+    Expr* condition() const { return condition_.get(); }
+    Expr* thenExpr() const { return thenExpr_.get(); }
+    Expr* elseExpr() const { return elseExpr_.get(); }
 private:
     SharedPtr<Expr> condition_; ///< 条件表达式
     SharedPtr<Expr> thenExpr_;  ///< 条件为真时的表达式

@@ -19,10 +19,10 @@
  
 
 
-#include "AstCore/MathOperator.hpp"
-#include "AstCore/Vector.hpp"
-#include "AstCore/Matrix.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/MathOperator.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Matrix.hpp"
+#include "ast/AstTestMacro.h"
 #include <vector>
 #include <array>
 #include <cstdio>

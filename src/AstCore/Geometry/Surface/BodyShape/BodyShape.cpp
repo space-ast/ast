@@ -19,9 +19,30 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "BodyShape.hpp"
+#include "AstCore/SphereShape.hpp"
+#include "AstCore/SpheroidShape.hpp"
+#include "AstCore/EllipsoidShape.hpp"
+#include "AstUtil/SharedPtr.hpp"
+#include "AstUtil/Constants.h"
 
 AST_NAMESPACE_BEGIN
 
+BodyShape::BodyShape()
+{
+    // 默认为组件对象
+    this->setIsComponent(true);
+}
 
+BodyShape* aWGS84Spheroid()
+{
+    static SharedPtr<BodyShape> bodyShape = SpheroidShape::NewFromMajorAxisFlatFactor(kEarthRadius_WGS84, kEarthFlatFact_WGS84);
+    return bodyShape.get();
+}
+
+BodyShape* aCGCS2000Spheroid()
+{
+    static SharedPtr<BodyShape> bodyShape = SpheroidShape::NewFromMajorAxisFlatFactor(kEarthRadius_CGCS2000, kEarthFlatFact_CGCS2000);
+    return bodyShape.get();
+}
 
 AST_NAMESPACE_END

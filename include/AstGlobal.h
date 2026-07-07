@@ -52,9 +52,9 @@
 // 请确保整个项目中使用一致的配置，避免混用不同配置的库文件和头文件
 
 
-#define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间
+#define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间(如果关闭，需要同步更改rules.lua里的qt.moc.flags)
 // #define AST_USE_CRT_SAFE                      // 是否使用CRT安全函数，例如_wfopen_s、_wfreopen_s等
-                                                 //（已废弃，这些函数不用共享文件，即同时打开相同文件，在一些情况下有问题）
+                                                 //（已废弃，这些函数无法共享文件，即同时打开相同文件，在一些情况下有问题）
 
 // #define AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库的一些函数
 // #define AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
@@ -94,10 +94,23 @@
 #   define _AST_ENABLE_DEBUG_SUFFIX  // 内部宏，标识是否启用了调试库后缀
 #   define AST_APPEND_DEBUG(NAME) NAME _AST_DEBUG_SUFFIX
 #else
+#   define _AST_DEBUG_SUFFIX ""
 #   undef  _AST_ENABLE_DEBUG_SUFFIX
 #   define AST_APPEND_DEBUG(NAME) NAME
 #endif
 
+// 库链接名称前缀
+#ifndef _AST_LIB_PREFIX
+#   define _AST_LIB_PREFIX ""
+#endif
+
+// 库链接名称后缀
+#ifndef _AST_LIB_SUFFIX
+#   define _AST_LIB_SUFFIX _AST_DEBUG_SUFFIX
+#endif
+
+// 库链接名称
+#define AST_LIB_LINKNAME(NAME) _AST_LIB_PREFIX  NAME  _AST_LIB_SUFFIX
 
 // 定义访问函数
 #define AST_DEF_ACCESS_METHOD(TYPE, NAME) TYPE NAME() const{return NAME##_;} TYPE& NAME(){return NAME##_;}
@@ -118,6 +131,23 @@
 #   define aText(x) (reinterpret_cast<const char*>(u8 ## x))
 #else
 #   define aText(x) (u8 ## x)
+#endif
+
+// 用于标记翻译字符串，不进行即时翻译
+#ifndef N_
+    #define N_(String) String
+#endif
+
+// 用于标记带上下文的翻译字符串，不进行即时翻译
+#ifndef NC_
+    #define NC_(Context, String) String
+#endif
+
+
+#if defined(AST_BUILD_LIB) && defined(_MSC_VER)
+// 在编译ast库时指定代码内的字符串使用utf-8编码
+// 不编译ast库时屏蔽该指令，以避免污染其他项目的字符串编码
+#   pragma execution_character_set("utf-8")
 #endif
 
 
@@ -187,6 +217,14 @@
 #endif
 #define AST_MOCK_CAPI A_DECL_EXTERN_C AST_MOCK_API
 
+// ast项目绘图模块导出声明
+#ifdef AST_BUILD_LIB_PLOT
+#    define AST_PLOT_API A_DECL_EXPORT
+#else
+#    define AST_PLOT_API A_DECL_IMPORT
+#endif
+#define AST_PLOT_CAPI A_DECL_EXTERN_C AST_PLOT_API
+
 // ast项目GUI模块导出声明
 #ifdef AST_BUILD_LIB_GUI
 #    define AST_GUI_API A_DECL_EXPORT
@@ -194,6 +232,14 @@
 #    define AST_GUI_API A_DECL_IMPORT
 #endif
 #define AST_GUI_CAPI A_DECL_EXTERN_C AST_GUI_API
+
+// ast项目Chart模块导出声明
+#ifdef AST_BUILD_LIB_CHART
+#    define AST_CHART_API A_DECL_EXPORT
+#else
+#    define AST_CHART_API A_DECL_IMPORT
+#endif
+#define AST_CHART_CAPI A_DECL_EXTERN_C AST_CHART_API
 
 // ast项目可视化模块导出声明
 #ifdef AST_BUILD_LIB_GFX
@@ -255,6 +301,13 @@
 #endif
 #define AST_AI_CAPI A_DECL_EXTERN_C AST_AI_API
 
+// ast项目UiPilot模块导出声明
+#ifdef AST_BUILD_LIB_UIPILOT
+#    define AST_UIPILOT_API A_DECL_EXPORT
+#else
+#    define AST_UIPILOT_API A_DECL_IMPORT
+#endif
+#define AST_UIPILOT_CAPI A_DECL_EXTERN_C AST_UIPILOT_API
 
 // ast项目COM封装模块导出声明
 #ifdef AST_BUILD_LIB_COM
@@ -282,9 +335,36 @@
 #endif
 #define AST_ANALYZER_CAPI A_DECL_EXTERN_C AST_ANALYZER_API
 
+
+// ast项目故障捕获模块导出声明
+#ifdef AST_BUILD_LIB_FAULT
+#    define AST_FAULT_API A_DECL_EXPORT
+#else
+#    define AST_FAULT_API A_DECL_IMPORT
+#endif
+#define AST_FAULT_CAPI A_DECL_EXTERN_C AST_FAULT_API
+
 #ifndef AST_PROJECT_NAME
 #   define AST_PROJECT_NAME "ast"
 #endif
+
+// ast项目UiAI模块导出声明
+#ifdef AST_BUILD_LIB_UIAI
+#    define AST_UIAI_API A_DECL_EXPORT
+#else
+#    define AST_UIAI_API A_DECL_IMPORT
+#endif
+#define AST_UIAI_CAPI A_DECL_EXTERN_C AST_UIAI_API
+
+
+// ast项目UiUtil模块导出声明
+#ifdef AST_BUILD_LIB_UIUTIL
+#    define AST_UIUTIL_API A_DECL_EXPORT
+#else
+#    define AST_UIUTIL_API A_DECL_IMPORT
+#endif
+#define AST_UIUTIL_CAPI A_DECL_EXTERN_C AST_UIUTIL_API
+
 
 AST_NAMESPACE_BEGIN
 
@@ -331,7 +411,8 @@ typedef enum EError
  * 通过这些标注，反射工具(例如libclang)可以识别这些类型，提取其属性元信息，然后生成相应代码，例如动态反射、序列化
  * 使用 `_d` 后缀，表示 dimension 和 double，避免了使用 `_t` 后缀与标准库 `time_t` 的冲突
  */ 
-typedef double length_d, mass_d, time_d, area_d, speed_d, force_d, energy_d, power_d, angle_d, angvel_d; 
+typedef double length_d, mass_d, time_d, area_d, speed_d, force_d, energy_d, 
+    power_d, angle_d, angvel_d, temperature_d, density_d, pressure_d; 
 
 
 typedef int errc_t;           ///< 错误码类型(error code type)
@@ -379,10 +460,16 @@ class CartState;             ///< 直角坐标
 class ModOrbElem;            ///< 改进轨道根数
 class OrbElem;               ///< 经典轨道根数
 
-class State;
-class StateCartesian;
-class StateKeplerian;
-class SpacecraftState;
+class GeodeticPoint;         ///< 大地坐标
+class TrackingCoordinates;   ///< 测量/跟踪坐标(AER)
+using AER = TrackingCoordinates;
+
+class State;                 ///< 状态
+class StateCartesian;        ///< 直角坐标状态
+class StateKeplerian;        ///< 经典轨道状态
+class SpacecraftState;       ///< 航天器状态
+
+class SpacecraftParam;       ///< 航天器参数
 
 class Object;                ///< 对象
 class Class;                 ///< 类
@@ -403,15 +490,19 @@ class Frame;                 ///< 坐标系
 class Axes;                  ///< 坐标轴
 class Point;                 ///< 坐标点
 class CelestialBody;         ///< 天体
+class BodyShape;             ///< 天体形状
 using Body = CelestialBody;  
 
 class EventTime;             ///< 事件时间
 class EventInterval;         ///< 事件时间段
 
+class EventDetector;         ///< 事件检测器
+
 class Identifier;           ///< 标识符
 class Value;                ///< 值
 class Expr;                 ///< 表达式
 class Variable;             ///< 变量
+class Interpreter;          ///< 解释器
 
 class BKVParser;            ///< BKV解析器
 class JsonValue;            ///< JSON值

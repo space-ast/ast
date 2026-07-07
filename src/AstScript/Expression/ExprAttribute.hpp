@@ -57,6 +57,10 @@ public:
     /// @return 设置结果
     errc_t setValue(Value* value) override;
 
+    errc_t setValueDouble(double val) override;
+
+    errc_t getValueDouble(double& val) const override;
+
     /// 获取表达式字符串
     /// @return 表达式字符串
     /// @details 获取表达式字符串，用于调试和显示

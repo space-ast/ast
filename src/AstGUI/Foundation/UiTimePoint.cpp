@@ -24,7 +24,7 @@
 
 AST_NAMESPACE_BEGIN
 
-UiTimePoint::UiTimePoint(QWidget* parent) : QLineEdit(parent)
+UiTimePoint::UiTimePoint(QWidget* parent) : UiValueEdit(parent)
 {
     // 设置默认时间为当前时间
     TimePoint now{}; // = TimePoint::TodayUTC();
@@ -34,7 +34,7 @@ UiTimePoint::UiTimePoint(QWidget* parent) : QLineEdit(parent)
     setToolTipDuration(0);
     
     // 连接信号和槽
-    connect(this, &QLineEdit::editingFinished, this, &UiTimePoint::updateTimePoint);
+    connect(this, &UiValueEdit::editingFinished, this, &UiTimePoint::updateTimePoint);
 }
 
 void UiTimePoint::setTimePoint(const TimePoint& timePoint)
@@ -57,12 +57,10 @@ void UiTimePoint::updateTimePoint()
     if(rc){
         aError("failed to parse time point '%s'", timeStr.c_str());
         // 显示错误提示
-        setStyleSheet("background-color: #FFCCCC;");
-        setToolTip(tr("time format error, please input correct time format"));
+        setError(tr("时间格式错误，请输入正确的时间格式"));
     }else{
         // 解析成功，恢复默认样式
-        setStyleSheet("");
-        setToolTip("");
+        setNormal();
         setTimePoint(tp);
         emit timePointChanged(tp);
     }

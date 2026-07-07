@@ -47,6 +47,8 @@ enum class EBodyAttractionType
 class AST_CORE_API BodyAttraction: public ForceModel
 {
 public:
+    AST_OBJECT(BodyAttraction)
+    
     /// @brief 获取引力模型类型
     /// @return 引力模型类型
     virtual EBodyAttractionType getBodyAttractionType() const = 0;

@@ -57,17 +57,22 @@ void ObjectNode::clear()
 
 errc_t ObjectNode::setParent(ObjectNode *parent)
 {
-    if(!parent)
-        return eErrorNullInput;
     if(this->parentNode_ == parent)
-        return 0;
+        return eNoError;
+    if(!parent)
+    {
+        if(this->parentNode_){
+            this->parentNode_->removeChild(this);
+        }
+        return eNoError;
+    }
     this->incRef();
     if(this->parentNode_){
         this->parentNode_->removeChild(this);
     }
     this->parentNode_ = parent;
     parent->children_.push_back(this);
-    return 0;
+    return eNoError;
 }
 
 void ObjectNode::incRef()

@@ -246,14 +246,15 @@ constexpr EDimension pow(EDimension dimension, int n) noexcept
 // @brief 量纲索引枚举类
 enum
 {
-    kIdxMass,
-    kIdxLength,
-    kIdxAngle,
-    kIdxTime,
-    kIdxTemperature,
-    kIdxCurrent,
-    kIdxAmount,
-    kIdxLuminous,
+    kIdxMass,           ///< 质量
+    kIdxLength,         ///< 长度
+    kIdxAngle,          ///< 角度[辅助量纲]
+    kIdxTime,           ///< 时间
+    kIdxTemperature,    ///< 温度
+    kIdxCurrent,        ///< 电流
+    kIdxDateTime,       ///< 日期时间[动力学扩展量纲]
+    // kIdxAmount,      ///< 物质的量: 这个基本量纲在动力学中基本用不到，故不启用
+    kIdxLuminous,       ///< 发光强度
 };
 
 namespace dimensions
@@ -266,7 +267,8 @@ namespace dimensions
     constexpr dimension_t kTime               = 1 << kIdxTime * 4;                  
     constexpr dimension_t kCurrent            = 1 << kIdxCurrent * 4;               
     constexpr dimension_t kTemperature        = 1 << kIdxTemperature * 4;           
-    constexpr dimension_t kAmount             = 1 << kIdxAmount * 4;                
+    constexpr dimension_t kDateTime           = 1 << kIdxDateTime * 4;              
+    //constexpr dimension_t kAmount           = 1 << kIdxAmount * 4;   
     constexpr dimension_t kLuminous           = 1 << kIdxLuminous * 4;              
     // 辅助量纲 
     constexpr dimension_t kAngle              = 1 << kIdxAngle * 4;                 
@@ -284,7 +286,8 @@ namespace dimensions
     constexpr dimension_t kPressure           = dim_divide(kForce, kArea);  
     constexpr dimension_t kEnergy             = dim_product(kForce, kLength);       
     constexpr dimension_t kPower              = dim_divide(kEnergy, kTime);       
-    constexpr dimension_t kFrequency          = dim_divide(kUnit, kTime);         
+    constexpr dimension_t kFrequency          = dim_divide(kUnit, kTime);
+    constexpr dimension_t kDensity            = dim_divide(kMass, kVolume);
 };
 
 /// @brief 量纲枚举类
@@ -300,7 +303,8 @@ typedef enum class EDimension : dimension_t
     eTime               = dimensions::kTime,                 ///< 时间T      (相应的基本单位: s)
     eCurrent            = dimensions::kCurrent,              ///< 电流I      (相应的基本单位: A)
     eTemperature        = dimensions::kTemperature,          ///< 温度Θ      (相应的基本单位: K)
-    eAmount             = dimensions::kAmount,               ///< 物质量N    (相应的基本单位: mol)
+    eDateTime           = dimensions::kDateTime,             ///< 日期时间    动力学扩展量纲
+    //eAmount             = dimensions::kAmount,             ///< 物质量N    (相应的基本单位: mol)
     eLuminous           = dimensions::kLuminous,             ///< 发光强度J  (相应的基本单位: cd)
     // 辅助量纲 
     eAngle              = dimensions::kAngle,                ///< 角度
@@ -319,6 +323,7 @@ typedef enum class EDimension : dimension_t
     eEnergy             = dimensions::kEnergy,               ///< 能量   M·L^2·T^-2
     ePower              = dimensions::kPower,                ///< 功率   M·L^2·T^-3
     eFrequency          = dimensions::kFrequency,            ///< 频率   T^-1
+    eDensity            = dimensions::kDensity,              ///< 密度   M·L^-3
 
 } AEDimension;
 
@@ -372,8 +377,12 @@ public:
     static constexpr Dimension Current() { return Dimension(EDimension::eCurrent); }
     /// @brief 获取温度量纲
     static constexpr Dimension Temperature() { return Dimension(EDimension::eTemperature); }
+    /// @brief 获取日期时间量纲
+    static constexpr Dimension DateTime() { return Dimension(EDimension::eDateTime); }
+
     /// @brief 获取物质量量纲
-    static constexpr Dimension Amount() { return Dimension(EDimension::eAmount); }
+    // static constexpr Dimension Amount() { return Dimension(EDimension::eAmount); }
+    
     /// @brief 获取发光强度量纲
     static constexpr Dimension Luminous() { return Dimension(EDimension::eLuminous); }
     /// @brief 获取角度量纲
@@ -400,6 +409,8 @@ public:
     static constexpr Dimension Frequency() noexcept { return Dimension(EDimension::eFrequency); }
     /// @brief 获取力量纲
     static constexpr Dimension Force() noexcept{ return Dimension(EDimension::eForce); }
+    /// @brief 获取密度量纲
+    static constexpr Dimension Density() noexcept{ return Dimension(EDimension::eDensity); }
 public:
     /// @brief 获取量纲的名称
     std::string name() const { return aDimName(value()); }
@@ -479,8 +490,13 @@ public:
     A_CONSTEXPR_CXX14 int getAngle() const noexcept { return  dim_get_exponent(dimension_, kIdxAngle);}
     /// @brief 获取量纲中的温度维度
     A_CONSTEXPR_CXX14 int getTemperature() const noexcept { return  dim_get_exponent(dimension_, kIdxTemperature);}
+    
+    /// @brief 获取量纲中的日期时间维度
+    A_CONSTEXPR_CXX14 int getDateTime() const noexcept { return  dim_get_exponent(dimension_, kIdxDateTime);}
+
     /// @brief 获取量纲中的物质量维度
-    A_CONSTEXPR_CXX14 int getAmount() const noexcept { return  dim_get_exponent(dimension_, kIdxAmount);}
+    // A_CONSTEXPR_CXX14 int getAmount() const noexcept { return  dim_get_exponent(dimension_, kIdxAmount);}
+    
     /// @brief 获取量纲中的发光强度维度
     A_CONSTEXPR_CXX14 int getLuminous() const noexcept { return  dim_get_exponent(dimension_, kIdxLuminous);}
 
@@ -520,12 +536,20 @@ public:
         dimension_ = (EDimension)dim_set_exponent(dimension_, kIdxTemperature, n);
         return *this;
     }
-    /// @brief 设置量纲中的物质量维度
-    A_CONSTEXPR_CXX14 Dimension& setAmount(int n) noexcept
+    /// @brief 设置量纲中的日期时间维度
+    A_CONSTEXPR_CXX14 Dimension& setDateTime(int n) noexcept
     {
-        dimension_ = (EDimension)dim_set_exponent(dimension_, kIdxAmount, n);
+        dimension_ = (EDimension)dim_set_exponent(dimension_, kIdxDateTime, n);
         return *this;
     }
+    
+    /// @brief 设置量纲中的物质量维度
+    // A_CONSTEXPR_CXX14 Dimension& setAmount(int n) noexcept
+    // {
+    //     dimension_ = (EDimension)dim_set_exponent(dimension_, kIdxAmount, n);
+    //     return *this;
+    // }
+
     /// @brief 设置量纲中的发光强度维度
     A_CONSTEXPR_CXX14 Dimension& setLuminous(int n) noexcept
     {

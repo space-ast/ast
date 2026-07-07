@@ -31,7 +31,7 @@
 
 AST_NAMESPACE_BEGIN
 
-errc_t aLoadSequence(const Value& dictRoot, Sequence& sequence)
+errc_t aLoadSequence(const Value& dictRoot, Sequence& sequence, const LoaderContext* context)
 {
     std::string type = dictRoot["Type"].toString();
     if(type != "Sequence" && type != "TargeterSequence")
@@ -59,7 +59,7 @@ errc_t aLoadSequence(const Value& dictRoot, Sequence& sequence)
             auto& name = item.first;
             const auto& dictSegment = *item.second;
             HMissionCommand command;
-            errc_t rc = aLoadMissionCommand(dictSegment, command);
+            errc_t rc = aLoadMissionCommand(dictSegment, command, context);
             if(!rc && command != nullptr)
             {
                 command->setName(name);

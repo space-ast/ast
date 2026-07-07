@@ -1,0 +1,1 @@
+#include "AstCore/RepeatingSunSyncOrbitDesigner.hpp"

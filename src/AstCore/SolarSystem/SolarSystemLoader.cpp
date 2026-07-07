@@ -27,7 +27,7 @@ AST_NAMESPACE_BEGIN
 
 errc_t SolarSystem::load(StringView dirpath)
 {
-    init();
+    initPredefined();
     errc_t rc = 0;
     fs::path path = std::string(dirpath);
     fs::file_status status = fs::status(path);

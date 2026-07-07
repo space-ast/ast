@@ -20,10 +20,8 @@
 
 #include "CelestialBody.hpp"
 #include "SolarSystem.hpp"
+#include "AstCore/NoopShape.hpp"
 #include "AstCore/NoopOrientation.hpp"
-#include "AstCore/RotationalData.hpp"
-#include "AstCore/EarthOrientation.hpp"
-#include "AstCore/MoonOrientation.hpp"
 #include "AstCore/BodyEphemerisDE.hpp"
 #include "AstCore/BodyEphemerisSPK.hpp"
 #include "AstCore/BodyEphemerisNoop.hpp"
@@ -32,38 +30,143 @@
 #include "AstCore/BuiltinAxes.hpp"
 #include "AstCore/SolarSystem.hpp"
 #include "AstCore/RunTime.hpp"
+#include "AstCore/Resolve.hpp"
 #include "AstUtil/Class.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/String.hpp"
-#include "AstUtil/BKVParser.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/FileSystem.hpp"
-#include "AstCore/Resolve.hpp"
+#include "AstUtil/RTTIAPI.hpp"
+#include "AstUtil/I18n.hpp"         // for N_
 
 
 AST_NAMESPACE_BEGIN
 
 
+errc_t aGetGravityParameter(const Body& body, StringView gravityModel, double& gm)
+{
+    GravityFieldHead gfHead;
+    errc_t err = gfHead.load(gravityModel, body.getDirpath());
+    if(err != eNoError){
+        aError("Failed to load gravity field head from file: '%.*s'", (int)gravityModel.size(), gravityModel.data());
+        gm = 0;
+        return err;
+    }
+    gm = gfHead.getGM();
+    return eNoError;
+}
+
+
 CelestialBody* CelestialBody::Resolve(StringView value)
 {
+    (void)N_("SolarSystemBarycenter");
+    (void)N_("EarthMoonBarycenter");
+    (void)N_("Mercury");
+    (void)N_("Venus");
+    (void)N_("Earth");
+    (void)N_("Mars");
+    (void)N_("Jupiter");
+    (void)N_("Saturn");
+    (void)N_("Uranus");
+    (void)N_("Neptune");
+    (void)N_("Pluto");
+    (void)N_("Moon");
+    (void)N_("Sun");
+
+    // 火星卫星
+    (void)N_("Phobos");
+    (void)N_("Deimos");
+
+    // 木星卫星
+    (void)N_("Io");
+    (void)N_("Europa");
+    (void)N_("Ganymede");
+    (void)N_("Callisto");
+    (void)N_("Amalthea");
+    (void)N_("Himalia");
+    (void)N_("Elara");
+    (void)N_("Pasiphae");
+    (void)N_("Sinope");
+    (void)N_("Lysithea");
+    (void)N_("Carme");
+    (void)N_("Ananke");
+    (void)N_("Leda");
+    (void)N_("Thebe");
+    (void)N_("Adrastea");
+    (void)N_("Metis");
+
+    // 土星卫星
+    (void)N_("Mimas");
+    (void)N_("Enceladus");
+    (void)N_("Tethys");
+    (void)N_("Dione");
+    (void)N_("Rhea");
+    (void)N_("Titan");
+    (void)N_("Hyperion");
+    (void)N_("Iapetus");
+    (void)N_("Phoebe");
+    (void)N_("Janus");
+    (void)N_("Epimetheus");
+    (void)N_("Helene");
+    (void)N_("Telesto");
+    (void)N_("Calypso");
+    (void)N_("Atlas");
+    (void)N_("Prometheus");
+    (void)N_("Pandora");
+    (void)N_("Pan");
+    (void)N_("Methone");
+    (void)N_("Pallene");
+    (void)N_("Polydeuces");
+    (void)N_("Daphnis");
+    (void)N_("Anthe");
+    (void)N_("Aegaeon");
+
+    // 天王星卫星
+    (void)N_("Ariel");
+    (void)N_("Umbriel");
+    (void)N_("Titania");
+    (void)N_("Oberon");
+    (void)N_("Miranda");
+    (void)N_("Cordelia");
+    (void)N_("Ophelia");
+    (void)N_("Bianca");
+    (void)N_("Cressida");
+    (void)N_("Desdemona");
+    (void)N_("Juliet");
+    (void)N_("Portia");
+    (void)N_("Rosalind");
+    (void)N_("Belinda");
+    (void)N_("Puck");
+
+    // 海王星卫星
+    (void)N_("Triton");
+    (void)N_("Nereid");
+    (void)N_("Naiad");
+    (void)N_("Thalassa");
+    (void)N_("Despina");
+    (void)N_("Galatea");
+    (void)N_("Larissa");
+    (void)N_("Proteus");
+
+    // 冥王星卫星
+    (void)N_("Charon");
+
+    // 行星质心
+    (void)N_("MercuryBarycenter");
+    (void)N_("VenusBarycenter");
+    (void)N_("MarsBarycenter");
+    (void)N_("JupiterBarycenter");
+    (void)N_("SaturnBarycenter");
+    (void)N_("UranusBarycenter");
+    (void)N_("NeptuneBarycenter");
+    (void)N_("PlutoBarycenter");
+
     return aResolveBody(value);
 }
 
 CelestialBody::CelestialBody()
-    : CelestialBody(StringView{})
 {
-    
-}
-
-CelestialBody::CelestialBody(SolarSystem *solarSystem)
-    : CelestialBody(StringView{}, solarSystem)
-{
-}
-
-CelestialBody::CelestialBody(StringView name, SolarSystem *solarSystem)
-    : solarSystem_(solarSystem)
-    , name_{name}
-{
+    shape_        = new NoopShape();
     orientation_  = new NoopOrientation();
     ephemeris_    = new BodyEphemerisDE(this);
     axesFixed_    = AxesBodyFixed::New(this);
@@ -71,6 +174,25 @@ CelestialBody::CelestialBody(StringView name, SolarSystem *solarSystem)
     axesMOD_      = AxesBodyMOD::New(this);
     axesTOD_      = AxesBodyTOD::New(this);
 }
+
+CelestialBody::CelestialBody(SolarSystem *solarSystem)
+    : CelestialBody()
+{
+    solarSystem_ = solarSystem;
+    this->setParentScope(solarSystem);
+}
+
+CelestialBody::CelestialBody(CelestialBody *parentBody)
+    : CelestialBody()
+{
+    parent_ = parentBody;
+    this->setParentScope(parentBody);
+    if (parentBody) {
+        solarSystem_ = parentBody->getSolarSystem();
+    }
+}
+
+
 
 CelestialBody::~CelestialBody()
 {
@@ -87,7 +209,7 @@ void CelestialBody::setJplIndex(int index)
 std::string CelestialBody::getDirpath() const
 {
     if(auto ss = solarSystem_.get()){
-        return fs::path(ss->getDirpath()) / name_;
+        return fs::path(ss->getDirpath()) / name();
     }
     return std::string();
 }
@@ -97,62 +219,6 @@ SolarSystem *CelestialBody::getSolarSystem() const
     return solarSystem_.get();
 }
 
-errc_t CelestialBody::load(StringView filepath)
-{
-    fs::path path = std::string(filepath);
-    if(!fs::is_regular_file(path))
-    {
-        path = path / (path.filename().string() + ".cb");
-        if(!fs::is_regular_file(path))
-        {
-            return eErrorInvalidFile;
-        }
-    }
-    BKVParser parser(path.string());
-    if(!parser.isOpen())
-    {
-        aError("failed to open file %s", path.string().c_str());
-        return eErrorInvalidFile;
-    }
-    BKVItemView item;
-    BKVParser::EToken token;
-    do{
-        token = parser.getNext(item);
-        if(token == BKVParser::eKeyValue){
-            if(aEqualsIgnoreCase(item.key(), "Name")){
-                name_ = item.value().toString();
-            }
-            else if(aEqualsIgnoreCase(item.key(), "ReadOnly"))
-            {
-                // todo
-            }
-        }else if(token == BKVParser::eBlockBegin){
-            if(aEqualsIgnoreCase(item.value(), "AstroDefinition")){
-                errc_t rc = loadAstroDefinition(parser);
-                if(rc) return rc;
-            }else if(aEqualsIgnoreCase(item.value(), "SpinData")){
-                errc_t rc = loadSpinData(parser);
-                if(rc) return rc;
-            }else if(aEqualsIgnoreCase(item.value(), "EphemerisData")){
-                errc_t rc = loadEphemerisData(parser);
-                if(rc) return rc;
-            }else if(aEqualsIgnoreCase(item.value(), "Earth")){
-                errc_t rc = loadEarth(parser);
-                if(rc) return rc;
-            }else if(aEqualsIgnoreCase(item.value(), "Moon")){
-                errc_t rc = loadMoon(parser);
-                if(rc) return rc;
-            }else if(aEqualsIgnoreCase(item.value(), "MeanEarthDefinition")){
-                errc_t rc = loadMeanEarthDefinition(parser);
-                if(rc) return rc;
-            }
-        }else if(token == BKVParser::eBlockEnd){
-
-        }
-    }while(token != BKVParser::eEOF);
-
-    return eNoError;
-}
 
 errc_t CelestialBody::setGravityModel(StringView model)
 {
@@ -164,7 +230,7 @@ errc_t CelestialBody::setGravityModel(StringView model)
             filepath = ss->getDirpath();
         else
             filepath = SolarSystem::defaultSolarSystemDir();
-        filepath = filepath / this->name_ / std::string(model);
+        filepath = filepath / this->name() / std::string(model);
         rc = this->loadGravityModel(filepath.string());
         if(rc){
             aError("failed to load gravity model '%.*s'", (int)model.size(), model.data());
@@ -196,6 +262,42 @@ errc_t CelestialBody::getPos(const TimePoint &tp, Vector3d &pos) const
 errc_t CelestialBody::getPosVel(const TimePoint &tp, Vector3d &pos, Vector3d &vel) const
 {
     return getPosVelICRF(tp, pos, vel);
+}
+
+BodyEphemeris* CelestialBody::getEphemeris(EEphemerisSource ephemerisSource) const
+{
+    switch(ephemerisSource){
+    case EEphemerisSource::eBodyEphemeris:
+        return ephemeris_.get();
+    case EEphemerisSource::eJplDE:
+    {
+        if(!ephemerisDE_)
+        {
+            ephemerisDE_ = new BodyEphemerisDE(const_cast<CelestialBody*>(this));
+        }
+        return ephemerisDE_.get();
+    }
+    case EEphemerisSource::eJplSpice:
+    {
+        if(!ephemerisSpice_)
+        {
+            ephemerisSpice_ = new BodyEphemerisSPK(const_cast<CelestialBody*>(this));
+        }
+        return ephemerisSpice_.get();
+    }
+    case EEphemerisSource::eJplSpiceBarycenter:
+    {
+        if(!ephemerisSpiceBarycenter_)
+        {
+            ESpiceId barycenterId = aGetPlanetBarycenterId(ESpiceId(this->jplSpiceId_));
+            ephemerisSpiceBarycenter_ = new BodyEphemerisSPK(barycenterId);
+        }
+        return ephemerisSpiceBarycenter_.get();
+    }
+    default:
+        aError("unsupported ephemeris source %d, defaulting to body ephemeris", (int)(ephemerisSource));
+        return ephemeris_.get();
+    }
 }
 
 Axes *CelestialBody::getAxes(StringView name) const
@@ -307,6 +409,47 @@ HFrame CelestialBody::makeFrameICRF() const
     return makeFrame(aAxesICRF());
 }
 
+
+Frame *CelestialBody::getFrameInertial() const
+{
+    auto frame = frameInertial_.get();
+    if(frame)
+    {
+        return frame;
+    }
+    else
+    {
+        HFrame frame = aFindChild<Frame*>(const_cast<CelestialBody*>(this), "Inertial");
+        if(!frame){
+            frame = makeFrameInertial();
+            frame->setName("Inertial");
+            frame->setParentScope(const_cast<CelestialBody*>(this));
+        }
+        frameInertial_ = frame;
+        return frame;
+    }
+}
+
+Frame *CelestialBody::getFrameFixed() const
+{
+    auto frame = frameFixed_.get();
+    if(frame)
+    {
+        return frame;
+    }
+    else
+    {
+        HFrame frame = aFindChild<Frame*>(const_cast<CelestialBody*>(this), "Fixed");
+        if(!frame){
+            frame = makeFrameFixed();
+            frame->setName("Fixed");
+            frame->setParentScope(const_cast<CelestialBody*>(this));
+        }
+        frameFixed_ = frame;
+        return frame;
+    }
+}
+
 Axes *CelestialBody::getEpochAxesReference() const
 {
     if(this->isEarth()){
@@ -316,230 +459,15 @@ Axes *CelestialBody::getEpochAxesReference() const
     }
 }
 
-errc_t CelestialBody::loadGravityModel(StringView model)
+
+ESpiceId aGetPlanetBarycenterId(ESpiceId planetId)
 {
-    return gravityField_.load(model, 6, 6, getDirpath());
-}
-
-errc_t CelestialBody::loadAstroDefinition(BKVParser &parser)
-{
-    BKVParser::EToken token;
-    BKVItemView item;
-    do{
-        token = parser.getNext(item);
-        if(token == BKVParser::eKeyValue){
-            if(aEqualsIgnoreCase(item.key(), "GravityModel")){
-                std::string model = item.value().toString();
-                fs::path filepath = parser.getFilePath();
-                /*!
-                @bug
-                如果model 被恶意写成 ../../../../etc/passwd，
-                拼接后就成了 /home/user/project/configs/../../../../etc/passwd，
-                经过路径解析后可能指向 /etc/passwd，从而读取系统关键文件。
-                */
-                filepath = filepath.parent_path() / model;
-                errc_t rc = this->loadGravityModel(filepath.string());
-                if(rc) return rc;
-            }
-            else if(aEqualsIgnoreCase(item.key(), "Gm")){
-                gm_ = item.value().toDouble();
-            }else if(aEqualsIgnoreCase(item.key(), "SystemGM")){
-                systemGM_ = item.value().toDouble();
-            }else if(aEqualsIgnoreCase(item.key(), "ShapeName")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "Shape")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "Radius")){
-                // todo
-                radius_ = item.value().toDouble();
-            }
-            else if(aEqualsIgnoreCase(item.key(), "MajorAxis")){
-                // todo
-                radius_ = item.value().toDouble();
-            }else if(aEqualsIgnoreCase(item.key(), "MiddleAxis")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "MinorAxis")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "MaxAltitude")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "RefDistance")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "MinRadius")){
-                // todo 
-            }else if(aEqualsIgnoreCase(item.key(), "DTEDSearchScale")){
-                // todo 
-            }else if(aEqualsIgnoreCase(item.key(), "ParentName")){
-                // todo 
-            }else if(aEqualsIgnoreCase(item.key(), "PathGenerator")){
-                // todo
-            }
-        }else if(token == BKVParser::eBlockBegin){
-
-        }else if(token == BKVParser::eBlockEnd){
-            if(aEqualsIgnoreCase(item.value(), "AstroDefinition")){
-                break;
-            }
-        }
-    }while(token != BKVParser::eEOF);
-    return eNoError;
-}
-
-errc_t CelestialBody::loadSpinData(BKVParser &parser)
-{
-    BKVParser::EToken token;
-    BKVItemView item;
-    do{
-        token = parser.getNext(item);
-        if(token == BKVParser::eKeyValue){
-            if(aEqualsIgnoreCase(item.key(), "RotationDefinitionFile")){
-                auto rotData = new RotationalData();
-                std::string model = item.value().toString();
-                fs::path filepath = parser.getFilePath();
-                filepath = filepath.parent_path() / model;
-                errc_t rc = rotData->load(filepath.string());
-                this->orientation_ = rotData;
-                if(rc) return rc;
-            }
-        }
-        else if(token == BKVParser::eBlockEnd)
-        {
-            if(aEqualsIgnoreCase(item.value(), "SpinData")){
-                break;
-            }
-        }
-    }while(token != BKVParser::eEOF);
-    return eNoError;
-}
-
-errc_t CelestialBody::loadEphemerisData(BKVParser & parser)
-{
-    BKVParser::EToken token;
-    BKVItemView item;
-    do{
-        token = parser.getNext(item);
-        if(token == BKVParser::eKeyValue){
-            if(aEqualsIgnoreCase(item.key(), "EphemerisSource")){
-                if(aEqualsIgnoreCase(item.value(), "JplDe")){
-                    ephemeris_ = new BodyEphemerisDE(jplIndex_);
-                }else if(aEqualsIgnoreCase(item.value(), "JplSpice")){
-                    auto ephemerisSPK = new BodyEphemerisSPK(jplSpiceId_);
-                    std::string spkDir = aGetConfigValue("SPK_DIR").toString();
-                    if(spkDir.empty())
-                        spkDir = aGetDefaultSPKDir();
-                    std::string spkFile = spkDir + "/" + aAsciiStrToLower(name_) + ".bsp";
-                    if(fs::is_regular_file(spkFile)){
-                        errc_t rc = ephemerisSPK->openSPKFile(spkFile);
-                        if(rc){
-                            aWarning("failed to open SPK file '%s'", spkFile.c_str());
-                        }
-                    }
-                    ephemeris_ = ephemerisSPK;
-                }
-            }else if(aEqualsIgnoreCase(item.key(), "JplSpiceId")){
-                jplSpiceId_ = item.value().toInt();
-            }else if(aEqualsIgnoreCase(item.key(), "JplIndex")){
-                jplIndex_ = item.value().toInt();
-            }
-        }
-        else if(token == BKVParser::eBlockEnd)
-        {
-            if(aEqualsIgnoreCase(item.value(), "EphemerisData")){
-                break;
-            }
-        }
-    }while(token != BKVParser::eEOF);
-    return eNoError;
-}
-
-errc_t CelestialBody::loadEarth(BKVParser &parser)
-{
-    this->orientation_ = new EarthOrientation();
-
-    BKVParser::EToken token;
-    BKVItemView item;
-    do{
-        token = parser.getNext(item);
-        if(token == BKVParser::eKeyValue){
-            if(aEqualsIgnoreCase(item.key(), "UseFK5IAU76Theory")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "ICRFTheory")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "ICRF_XYS_Algorithm")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "NutationUpdateInterval")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "ApplyPoleWander")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "OceanTideFilename")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "IAU1980NUTATIONMETHOD")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "UseUpdatedEquationOfEquinox")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "UtmReferenceEllipsoid")){
-                // todo
-            }
-        }
-        else if(token == BKVParser::eBlockEnd)
-        {
-            if(aEqualsIgnoreCase(item.value(), "Earth")){
-                break;
-            }
-        }
-    }while(token != BKVParser::eEOF);
-    return eNoError;
-}
-
-errc_t CelestialBody::loadMoon(BKVParser &parser)
-{
-    this->orientation_ = new MoonOrientation();
-
-    BKVParser::EToken token;
-    BKVItemView item;
-    do{
-        token = parser.getNext(item);
-        if(token == BKVParser::eKeyValue){
-            if(aEqualsIgnoreCase(item.key(), "FixedFrame")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "FixedFrameForGravity")){
-                // todo
-            }
-        }
-        else if(token == BKVParser::eBlockEnd)
-        {
-            if(aEqualsIgnoreCase(item.value(), "Moon")){
-                break;
-            }
-        }
-    }while(token != BKVParser::eEOF);
-    return eNoError;
-}
-
-errc_t CelestialBody::loadMeanEarthDefinition(BKVParser &parser)
-{
-    BKVParser::EToken token;
-    BKVItemView item;
-    do{
-        token = parser.getNext(item);
-        if(token == BKVParser::eKeyValue){
-            if(aEqualsIgnoreCase(item.key(), "DeNum")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "XAngle")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "YAngle")){
-                // todo
-            }else if(aEqualsIgnoreCase(item.key(), "ZAngle")){
-                // todo
-            }
-        }
-        else if(token == BKVParser::eBlockEnd)
-        {
-            if(aEqualsIgnoreCase(item.value(), "MeanEarthDefinition")){
-                break;
-            }
-        }
-    }while(token != BKVParser::eEOF);
-    return eNoError;
+    std::div_t result = std::div(planetId, 100);
+    if(result.rem == 99 && result.quot < 10)
+    {
+        return static_cast<ESpiceId>(result.quot);
+    }
+    return planetId;
 }
 
 AST_NAMESPACE_END

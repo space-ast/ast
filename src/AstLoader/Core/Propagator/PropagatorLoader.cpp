@@ -19,7 +19,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "PropagatorLoader.hpp"
-#include "ForceModelLoader.hpp"
+#include "AstLoader/ForceModelLoader.hpp"
+#include "AstLoader/LoaderCommon.hpp"
 #include "AstCore/HPOP.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/Logger.hpp"
@@ -45,6 +46,14 @@ errc_t aLoadPropagator(const Value& value, HPOP& propagator)
     {
         aError("invalid type, expect 'NumericalPropagatorWrapper'");
         return eErrorInvalidParam;
+    }
+    // 加载名称
+    {
+        const std::string& name = value.getName();
+        if(!name.empty())
+        {
+            propagator.setName(name);
+        }
     }
     // 加载数值积分器
     ScopedPtr<ODEIntegrator> integrator;

@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/ReflectAPI.hpp"
+#include "AstCore/TimePoint.hpp"
 
 AST_NAMESPACE_BEGIN
 

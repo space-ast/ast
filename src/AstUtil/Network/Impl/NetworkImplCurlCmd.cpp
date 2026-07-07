@@ -19,9 +19,10 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "NetworkImplCurlCmd.hxx"
+#include "NetworkImplCurlCmd.hpp"
 #include "AstUtil/NetworkRequest.hpp"
 #include "AstUtil/NetworkResponse.hpp"
+#include "AstUtil/NetworkStreamReceiver.hpp"
 #include <cstdio>
 #include <cstdlib>
 #include <string>
@@ -66,30 +67,50 @@ namespace
         }
     }
 
-    // 转义单引号，以便在单引号字符串中安全使用
+
+    // 在 Windows 下（cmd.exe）中，双引号包裹参数，内部双引号转义为 \"
+    // 在 Linux 下（bash）中，使用单引号包裹参数，并对参数内部的单引号进行转义。
+    // 单引号字符串内所有 shell 特殊字符 ($, `, \, !, 等) 均失去特殊含义，
+    // 仅单引号自身需要处理：将 ' 替换为 '\''（结束单引号、转义单引号、重新开始单引号）
     std::string escapeForShell(const std::string& s)
     {
-        /*!
-        @todo 
-        escapeForShell 函数的实现存在安全风险。它仅转义了双引号，但在 Shell 环境下，
-        双引号内的 $, `, \ 等字符仍具有特殊含义。
-        如果 request.url() 或请求头包含恶意构造的字符串（例如 $(命令)），
-        可能会导致命令注入攻击。考虑使用更完备的转义逻辑，
-        或者考虑使用不经过 Shell 的进程启动方式（如 Windows 的 CreateProcess 或 Unix 的 execvp）
-        */
-
+#ifdef _WIN32
+        // Windows 下（cmd.exe）使用双引号包裹，内部双引号转义为 \"
+        // 反斜杠仅在紧跟双引号或位于字符串末尾时才需要转义（翻倍）
         std::string escaped;
-        escaped.reserve(s.size() + 2);
-        escaped = "\"";
+        escaped.reserve(s.size() * 2 + 4);
+        escaped += '"';
+        for (size_t i = 0; i < s.size(); ++i) {
+            char c = s[i];
+            if (c == '"') {
+                escaped += '\\';
+                escaped += '"';
+            } else if (c == '\\') {
+                // 仅当反斜杠后紧跟双引号（或位于末尾，此时后跟闭合双引号）时才翻倍
+                escaped += '\\';
+                if (i + 1 < s.size() && s[i + 1] == '"') {
+                    escaped += '\\';  // 额外转义：\" → \\"
+                }
+            } else {
+                escaped += c;
+            }
+        }
+        escaped += '"';
+        return escaped;
+#else
+        std::string escaped;
+        escaped.reserve(s.size() + 4);
+        escaped += '\'';
         for (char c : s)
         {
-            if (c == '"')
-                escaped += "\\\"";
+            if (c == '\'')
+                escaped += "'\\''";
             else
                 escaped += c;
         }
-        escaped += "\"";
+        escaped += '\'';
         return escaped;
+#endif
     }
 
     // 去除字符串两端的空白（用于解析头部）
@@ -109,14 +130,18 @@ NetworkImplCurlCmd* NetworkImplCurlCmd::Instance()
     return &instance;
 }
 
-errc_t NetworkImplCurlCmd::request(const NetworkRequest& request, NetworkResponse& response)
+errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver)
 {
     // 如果没有 URL，直接返回错误
     if (request.url().empty())
         return -1;
 
-    // 构建 curl 命令参数
-    std::string command = "curl -s -S -i -L";  // -L 跟随重定向
+    // 构建 curl 命令参数:
+    //   -L 跟随重定向  -N 禁用输出缓冲
+    //   --connect-timeout 30  连接超时 (秒)
+    //   --max-time 300        总体请求超时 (秒)
+    std::string command = "curl -s -S -i -L -N"
+                          " --connect-timeout 30 --max-time 300";  
 
     // 请求方法
     command += " -X " + std::string(methodToString(request.method()));
@@ -151,7 +176,10 @@ errc_t NetworkImplCurlCmd::request(const NetworkRequest& request, NetworkRespons
         {
             std::ofstream tmpFile(tmpFilePath, std::ios::binary);
             if (!tmpFile)
+            {
+                std::remove(tmpFilePath.c_str());
                 return -2;
+            }
             tmpFile.write(request.body().data(), request.body().size());
             tmpFile.close();
         }
@@ -173,71 +201,97 @@ errc_t NetworkImplCurlCmd::request(const NetworkRequest& request, NetworkRespons
         return -3;
     }
 
-    // 读取全部输出
-    std::vector<char> buffer(4096);
-    std::string rawResponse;
-    while (std::fread(buffer.data(), sizeof(char), buffer.size(), pipe) > 0)
+    // 禁用管道缓冲以便及时读取
+    setvbuf(pipe, NULL, _IONBF, 0);
+
+    // Phase 1: 读取并解析 HTTP 响应头（直到遇到空行）
+    std::string headerBuf;
+    int statusCode = 0;
+    std::map<std::string, std::string> respHeaders;
+    bool headersDone = false;
+
+    char lineBuffer[8192];
+    while (!headersDone && std::fgets(lineBuffer, sizeof(lineBuffer), pipe))
     {
-        rawResponse.append(buffer.data());
+        std::string line(lineBuffer);
+        // 去除行尾的 \r\n 或 \n
+        while (!line.empty() && (line.back() == '\n' || line.back() == '\r'))
+            line.pop_back();
+
+        if (line.empty())
+        {
+            // 空行 = header/body 分隔
+            headersDone = true;
+            break;
+        }
+
+        // 状态行
+        if (line.find("HTTP/") == 0)
+        {
+            std::istringstream statusLine(line);
+            std::string httpVersion;
+            statusLine >> httpVersion >> statusCode;
+        }
+        else
+        {
+            // 头部行
+            size_t colonPos = line.find(':');
+            if (colonPos != std::string::npos)
+            {
+                std::string key = trim(line.substr(0, colonPos));
+                std::string value = trim(line.substr(colonPos + 1));
+                respHeaders[key] = value;
+            }
+        }
+    }
+
+    if (!headersDone)
+    {
+        int status = pclose(pipe);
+        A_UNUSED(status);
+        if (!tmpFilePath.empty())
+            std::remove(tmpFilePath.c_str());
+        receiver.onError(-5);
+        return -5;
+    }
+
+    // 验证状态码解析
+    if (statusCode == 0)
+    {
+        if (!tmpFilePath.empty())
+            std::remove(tmpFilePath.c_str());
+        int status = pclose(pipe);
+        if (status != 0)
+            return -4;
+        receiver.onError(-6);
+        return -6;
+    }
+
+    // 通知响应头
+    receiver.onHeaders(statusCode, respHeaders);
+
+    // Phase 2: 流式读取 body
+    char buffer[4096];
+    size_t bytesRead;
+    while ((bytesRead = std::fread(buffer, 1, sizeof(buffer), pipe)) > 0)
+    {
+        errc_t rc = receiver.onData(buffer, bytesRead);
+        if (rc != 0)
+            break;  // 接收器取消
     }
 
     int status = pclose(pipe);
     if (!tmpFilePath.empty())
         std::remove(tmpFilePath.c_str());
 
-    // 检查 curl 自身是否成功执行
+    receiver.onComplete();
+
     if (status != 0)
         return -4;
 
-    // ---------- 解析 HTTP 响应 ----------
-    std::istringstream stream(rawResponse);
-    std::string line;
-
-    // 1. 状态行
-    if (!std::getline(stream, line))
-        return -5;
-    // 示例: "HTTP/1.1 200 OK"
-    line = trim(line);
-    if (line.empty())
-        return -5;
-    // 提取状态码（第二个字段）
-    std::istringstream statusLine(line);
-    std::string httpVersion;
-    int statusCode = 0;
-    statusLine >> httpVersion >> statusCode;
-    if (statusCode == 0)
-        return -6;
-    response.setStatusCode(statusCode);
-
-    // 2. 头部
-    std::map<std::string, std::string> respHeaders;
-    while (std::getline(stream, line))
-    {
-        line = trim(line);
-        if (line.empty())   // 空行表示头部结束
-            break;
-        size_t colonPos = line.find(':');
-        if (colonPos == std::string::npos)
-            continue;       // 忽略不合法行
-        std::string key = trim(line.substr(0, colonPos));
-        std::string value = trim(line.substr(colonPos + 1));
-        respHeaders[key] = value;
-    }
-    response.setHeaders(respHeaders);
-
-    // 3. 主体（剩余所有内容）
-    std::string body;
-    while (std::getline(stream, line))
-    {
-        body += line + "\n";
-    }
-    // 注意：如果原始响应没有最后的换行，上面会多一个 '\n'，但无伤大雅
-    if (!body.empty() && body.back() == '\n')
-        body.pop_back();   // 去掉最后多加的换行符
-    response.setBody(body);
-
     return 0;
 }
+
 
 bool NetworkImplCurlCmd::isSupported() const
 {

@@ -18,8 +18,9 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/RunTime.hpp"
-#include "AstCore/DataContext.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/DataContext.hpp"
+#include "ast/SharedPtr.hpp"
 #include "benchmark/benchmark.h"
 
 AST_USING_NAMESPACE
@@ -101,10 +102,10 @@ BENCHMARK(bmInitialize_IAUXYSPrecomputed);
 
 void bmInitialize_SolarSystem(benchmark::State& state)
 {
-    SolarSystem solarSystem;
+    SharedPtr<SolarSystem> solarSystem = new SolarSystem();
     for (auto _ : state)
     {
-        errc_t rc = solarSystem.loadDefault();
+        errc_t rc = solarSystem->loadDefault();
         benchmark::DoNotOptimize(rc);
     }
 }
@@ -114,11 +115,11 @@ BENCHMARK(bmInitialize_SolarSystem);
 
 void bmInitialize_Earth(benchmark::State& state)
 {
-    CelestialBody earth;
+    SharedPtr<CelestialBody> earth = new CelestialBody();
     std::string filepath = aDataDirGet() + "/SolarSystem/Earth/Earth.cb";
     for (auto _ : state)
     {
-        errc_t rc = earth.load(filepath);
+        errc_t rc = earth->load(filepath);
         benchmark::DoNotOptimize(rc);
     }
 }
@@ -128,11 +129,11 @@ BENCHMARK(bmInitialize_Earth);
 
 void bmInitialize_Moon(benchmark::State& state)
 {
-    CelestialBody moon;
+    SharedPtr<CelestialBody> moon = new CelestialBody();
     std::string filepath = aDataDirGet() + "/SolarSystem/Moon/Moon.cb";
     for (auto _ : state)
     {
-        errc_t rc = moon.load(filepath);
+        errc_t rc = moon->load(filepath);
         benchmark::DoNotOptimize(rc);
     }
 }

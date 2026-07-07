@@ -12,7 +12,7 @@ static bool MotionTwoBody_ClassInited = (MotionTwoBody::ClassInit(&MotionTwoBody
 void MotionTwoBody::ClassInit(Class* cls)
 {
 
-    cls->setName("MotionTwoBody");
+    cls->setName(NC_("Class", "MotionTwoBody"));
     cls->setDesc(u8R"(二体问题轨道动力学模型)");
     cls->addToRegistry();
     cls->setParent<MotionOrbitDynamics>();

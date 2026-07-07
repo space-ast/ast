@@ -1,4 +1,6 @@
 // AstAnalyzer 工程聚合头文件
-#include "AstAnalyzer/AnalyzerConstraint.hpp"
-#include "AstAnalyzer/AnalyzerVariable.hpp"
-#include "AstAnalyzer/TraverseSearchAnalyzer.hpp"
+#include "AstAnalyzer/FeasibleRegionStudy.hpp"
+#include "AstAnalyzer/OptimizationStudy.hpp"
+#include "AstAnalyzer/StudyWorkbench.hpp"
+#include "AstAnalyzer/SweepStudy.hpp"
+#include "AstAnalyzer/UncertaintyStudy.hpp"

@@ -21,13 +21,62 @@
 
 #include "OpenAI.hpp"
 #include "AstUtil/Network.hpp"
+#include "AstUtil/NetworkStreamReceiver.hpp"
 #include "AstUtil/JsonValue.hpp"
 #include "AstUtil/Posix.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstAI/ChatEventHandler.hpp"
+#include "SSEParser.hpp"
 #include <sstream>
 #include <iostream>
 
 AST_NAMESPACE_BEGIN
+
+
+// ── OpenAI::chatStream() ─────────────────────────────────────────────
+
+errc_t OpenAI::chatStream(const JsonValue& request,
+                          ChatEventHandler& handler,
+                          JsonValue& accumulatedResult)
+{
+    // 1. 确保使用流式模式（直接拷贝，避免序列化/反序列化开销）
+    JsonValue streamRequest = request;
+    streamRequest["stream"] = true;
+
+    // 2. 构建网络请求
+    std::string baseUrl = this->baseUrl();
+    if (!baseUrl.empty() && baseUrl.back() == '/')
+        baseUrl.pop_back();
+
+    NetworkRequest networkRequest;
+    networkRequest.setMethod(ENetworkRequestMethod::ePost);
+    networkRequest.setUrl(baseUrl + "/chat/completions");
+    networkRequest.setBody(streamRequest.toJsonString());
+    networkRequest.addHeader("Content-Type", "application/json");
+    if (!apiKey().empty())
+        networkRequest.addHeader("Authorization", "Bearer " + apiKey());
+
+    // 3. 发送流式请求
+    SSEParser sseParser(handler);
+    errc_t error = aNetworkRequestStream(networkRequest, sseParser);
+    if (error != 0)
+    {
+        handler.onError("network request failed, error code: " + std::to_string(error));
+        return error;
+    }
+
+    // 4. 检查 SSE 级别错误（HTTP 非 200 等）
+    if (sseParser.hasError())
+    {
+        // handler.onError() 已在 SSEParser::onHeaders/onError 中调用过
+        return -1;
+    }
+
+    // 5. 构建累计结果（与非流式 chat() 返回格式相同）
+    accumulatedResult = sseParser.buildResult();
+
+    return 0;
+}
 
 
 OpenAI::OpenAI() 
@@ -140,19 +189,6 @@ std::string OpenAI::chat(const std::string& model, const std::vector<ChatMessage
 #endif
 
 
-JsonValue OpenAI::chat(const JsonValue &request)
-{
-    JsonValue response;
-    errc_t error = chat(request, response);
-    if(error != 0)
-    {
-        aError("failed to call ai api for chat completions, error: %d", error);   
-        return JsonValue();
-    }
-    return response;
-}
-
-
 errc_t OpenAI::chat(const JsonValue &request, JsonValue &response)
 {
     // 确保 baseUrl 结尾没有斜杠
@@ -180,7 +216,7 @@ errc_t OpenAI::chat(const JsonValue &request, JsonValue &response)
         error = networkResponse.toJson(response);
         if(error != 0)
         {
-            aError("failed to parse response body, error: %d", error);   
+            aError("failed to parse response body, response: \n%s\n", networkResponse.body().c_str());   
         }
     }
     return error;

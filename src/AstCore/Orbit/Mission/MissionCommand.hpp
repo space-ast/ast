@@ -33,36 +33,8 @@ AST_NAMESPACE_BEGIN
 */
 
 
-class MissionCommand;
-using PMissianCommand = MissionCommand*;
-using HMissionCommand = SharedPtr<MissionCommand>;
-
-/// @brief 任务命令（虚基类），用于定义任务序列中的任务命令，例如初始状态、轨道机动、轨道预报等
-/// @details 任务命令负责执行任务序列中的任务
-/// 参考GMAT的GmatCommand.hpp
-class AST_CORE_API MissionCommand: public Command
-{
-public:
-    AST_OBJECT(MissionCommand)
-
-    /// @brief 控制命令
-    enum EControlCommand
-    {
-        eReturn = -999,         ///< 返回到上级
-        eStop = -1999,          ///< 停止任务序列
-        eBreak = -2999,         ///< 跳出当前任务序列
-        eContinue = -3999,      ///< 继续当前任务序列的下一次执行
-    };
-    MissionCommand() = default;
-    ~MissionCommand() override = default;
-public:
-    /// @brief 执行任务
-    /// @return 错误码
-    virtual errc_t execute() override= 0;
-private:
-    
-};
-
+using MissionCommand = Command;
+using HMissionCommand = HCommand;
 
 
 /*! @} */

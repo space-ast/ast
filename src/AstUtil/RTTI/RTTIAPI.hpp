@@ -86,18 +86,6 @@ AST_UTIL_API Object* aGetClassDefaultObject(Class* cls);
 AST_UTIL_CAPI Object* aNewObject(StringView typeName, Object* parentScope=nullptr);
 
 
-/// @brief 创建对象，返回裸指针
-/// @details 根据类名创建对象
-/// @param parentScope 父作用域指针
-/// @return 对象指针
-template<typename T>
-T* aNewObject(Object* parentScope=nullptr)
-{
-    T* obj = new T();
-    aSetParentScope(obj, parentScope);
-    return obj;
-}
-
 /// @brief 删除对象
 /// @details 用于释放对象裸指针对应的内存
 /// @warning 不要用于智能指针管理的对象，否则会导致未定义行为
@@ -106,10 +94,10 @@ AST_UTIL_CAPI void aDeleteObject(Object* obj);
 
 /// @brief 创建对象，返回智能指针
 /// @details 根据类名创建对象
-/// @param name 类名
+/// @param typeName 类名
 /// @param parentScope 父作用域指针
 /// @return 对象智能指针
-AST_UTIL_API SharedPtr<Object> aMakeObject(StringView name, Object* parentScope=nullptr);
+AST_UTIL_API SharedPtr<Object> aMakeObject(StringView typeName, Object* parentScope=nullptr);
 
 
 

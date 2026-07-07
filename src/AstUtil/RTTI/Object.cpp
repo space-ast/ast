@@ -28,6 +28,7 @@
 #include "AstUtil/RTTIAPI.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ObjectLinker.hpp"
+#include "AstUtil/I18n.hpp"            
 
 AST_NAMESPACE_BEGIN
  
@@ -60,7 +61,7 @@ const std::string empty;
 
 std::string Object::getRepresentation() const
 {
-    return empty;
+    return getName();
 }
 
 
@@ -69,9 +70,16 @@ const std::string &Object::getName() const
     return empty;
 }
 
+std::string Object::displayName() const
+{
+    if(readOnly())
+        return tr(getName().c_str());
+    return getName();
+}
+
 errc_t Object::showEditDialog()
 {
-    return aUiEditObject(this);
+    return aEditObject(this);
 }
 
 Attribute Object::attr(StringView path)
@@ -259,6 +267,45 @@ bool Object::isOfType(StringView typeName) const
     return false;
 }
 
+
+void Object::setReadOnly(bool readOnly)
+{
+    if(readOnly)
+        flags_ |= EObjectFlags::eReadOnly;
+    else
+        flags_ &= ~EObjectFlags::eReadOnly;
+}
+
+void Object::setActive(bool active)
+{
+    if(active)
+        flags_ &= ~EObjectFlags::eInActive;
+    else
+        flags_ |= EObjectFlags::eInActive;
+}
+
+void Object::setIsComponent(bool isComponent)
+{
+    if(isComponent)
+        flags_ |= EObjectFlags::eComponent;
+    else
+        flags_ &= ~EObjectFlags::eComponent;
+}
+
+void Object::setIsEntity(bool isEntity)
+{
+    if(isEntity)
+        flags_ |= EObjectFlags::eEntity;
+    else
+        flags_ &= ~EObjectFlags::eEntity;
+}
+
+
+const char* Object::tr(const char* msg) const
+{
+    return aTranslate(getType()->name().c_str(), msg);
+}
+
 Object::~Object()
 {
     /*
@@ -266,7 +313,8 @@ Object::~Object()
     - 对于栈上的对象，不要在这里调用decWeakRef，避免对栈内存调用operator delete.
     - 对于栈上的对象，同样将强引用计数设置为-1，标识对象是否已经被析构了. 
     */
-    this->refcnt_ = static_cast<uint32_t>(-1); // 标识对象是否被析构. bit mask indicate whether object is destructed.
+    
+    setDestructed(); // @fixme 这里和 ~Referenced 中的 setDestructed() 重复了，但是 setDestructed() 必须在removeNode之前调用
     if(index_ != static_cast<uint32_t>(INVALID_ID))
     {
         errc_t rc = ObjectManager::CurrentInstance().removeNode(index_);

@@ -12,7 +12,7 @@ static bool AreaTarget_ClassInited = (AreaTarget::ClassInit(&AreaTarget::staticT
 void AreaTarget::ClassInit(Class* cls)
 {
 
-    cls->setName("AreaTarget");
+    cls->setName(NC_("Class", "AreaTarget"));
     cls->setDesc(u8R"(区域目标对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

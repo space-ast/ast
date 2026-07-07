@@ -22,9 +22,11 @@
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstGUI/ObjectEditRegistry.hpp"
+#include "AstGUI/AstGUIAPI.hpp"
 #include <QWidget>
 #include <QEvent>
 #include <QEventLoop>
+#include <QApplication>
 
 AST_NAMESPACE_BEGIN
 
@@ -68,6 +70,14 @@ GUIInterfaceImpl* GUIInterfaceImpl::Instance()
     return &instance;
 }
 
+GUIInterfaceImpl::GUIInterfaceImpl()
+{
+    if(!qApp)
+    {
+        aGUIInit();
+    }
+}
+
 errc_t GUIInterfaceImpl::editObject(Object *object)
 {
     QWidget* editWidget = ObjectEditRegistry::Instance().newEditWidget(object);
@@ -87,6 +97,21 @@ Object* GUIInterfaceImpl::selectObject(StringView typeName)
     aError("selectObject not implemented");
     return nullptr;
 }
+
+// @todo 这里需要使用凤凰单例模式避免悬挂指针问题
+
+A_THREAD_LOCAL std::string translateCache_;
+
+const char* GUIInterfaceImpl::translate(const char* msgctxt, const char* msgid)
+{
+    auto app = qApp;
+    if(app){
+        translateCache_ = app->translate(msgctxt, msgid).toStdString();
+        return translateCache_.c_str();
+    }
+    return msgid;
+}
+
 
 GUIInterface* aGUIInterfaceImpl()
 {

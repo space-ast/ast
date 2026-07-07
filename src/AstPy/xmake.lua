@@ -1,7 +1,7 @@
 
 
 target("AstPy")
-    if has_package("python") and has_package("swig") then
+    if has_package("python") and has_package("swig") and not is_plat("mingw") then
         add_packages("swig")
         add_packages("python")
     else

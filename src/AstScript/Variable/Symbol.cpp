@@ -27,7 +27,7 @@ AST_NAMESPACE_BEGIN
 
 Value *Symbol::eval() const
 {
-    auto expr = exec();
+    auto expr = resolve();
     if(A_UNLIKELY(!expr))
     {
         // aError("symbol %s is not found", name_.c_str());
@@ -36,20 +36,10 @@ Value *Symbol::eval() const
     return expr->eval();
 }
 
-Expr *Symbol::exec() const
-{
-    auto expr = aScript_ResolveSymbol(this);
-    if(A_UNLIKELY(!expr))
-    {
-        aError("symbol %s is not found", name_.c_str());
-        return nullptr;
-    }
-    return expr->exec();  // @fixme: 这里是否需要递归执行？
-}
 
 errc_t Symbol::setValue(Value *value)
 {
-    SharedPtr<Expr> expr = exec();
+    SharedPtr<Expr> expr = resolve();
     if(A_UNLIKELY(!expr))
     {
         aError("symbol %s is not found", name_.c_str());
@@ -57,6 +47,19 @@ errc_t Symbol::setValue(Value *value)
     }
     return expr->setValue(value);
 }
+
+
+Expr *Symbol::resolve() const
+{
+    auto expr = aScript_ResolveSymbol(this);
+    if(A_UNLIKELY(!expr))
+    {
+        aError("symbol %s is not found", name_.c_str());
+        return nullptr;
+    }
+    return expr;  
+}
+
 
 AST_NAMESPACE_END
 

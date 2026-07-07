@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ValXMLLoader.hpp"
+#include "AstLoader/LoaderCommon.hpp"
 #include "AstScript/ValDict.hpp"
 #include "AstScript/Value.hpp"
 #include "AstScript/ScriptAPI.hpp"
@@ -193,10 +194,15 @@ public:
                     context.value_ = aNewValueQuantity(quantity);
                 }
             }
-            else if(!context.value_)
+            else // class 为其他类型，则为对象
             {
-                context.value_ = ValDict::New();
-            }
+                if(!context.value_)
+                {
+                    context.value_ = ValDict::New();
+                }
+                // 设置名称
+                context.value_->setName(context.name_);
+            } 
             ParseContext* parentContextPtr = getParentContext();
             if(parentContextPtr)
             {
@@ -319,6 +325,16 @@ public:
                 context.value_ = aNewValueString(text);
             }
         }
+        else if(context.class_ == "SCOPE")
+        {
+            // 设置Scope名称为其父节点VAR的名称
+            if(parentContextPtr && context.value_)
+            {
+                if(auto dict = context.value_->toValDict()){
+                    dict->setName(parentContextPtr->name_);
+                }
+            }
+        }
         else if(!context.value_)
         {
             context.value_ = ValDict::New();
@@ -346,6 +362,10 @@ private:
 
 errc_t aLoadValue(XMLParser& parser, SharedPtr<Value>& value)
 {
+    if (!parser.isOpen())
+    {
+        return eErrorNotFound;
+    }
     errc_t rc;
     auto token = parser.getNext();
     if(token == XMLParser::eComment)

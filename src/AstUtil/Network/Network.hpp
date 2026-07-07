@@ -36,6 +36,7 @@ AST_NAMESPACE_BEGIN
 class NetworkRequest;
 class NetworkResponse;
 class NetworkInterface;
+class NetworkStreamReceiver;
 
 /// 网络实现
 enum class ENetworkImplType {
@@ -54,6 +55,20 @@ enum class ENetworkImplType {
 /// 因为该接口的其中一个实现使用了临时文件与curl命令行工具交互，存在安全风险
 /// @return 错误码
 AST_UTIL_CAPI errc_t aNetworkRequest(const NetworkRequest& request, NetworkResponse& response);
+
+/// 发送流式网络请求
+/// @details 发送网络请求，数据到达时通过 receiver 逐块回调
+/// @param request 网络请求
+/// @param receiver 流式数据接收器
+/// @return 错误码
+AST_UTIL_CAPI errc_t aNetworkRequestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver);
+
+/// @brief 下载 URL 内容并直接写入文件
+/// @details 发送 HTTP GET 请求，将响应内容写入指定文件路径。
+/// @param url 下载地址
+/// @param filepath 目标文件路径
+/// @return eNoError 表示下载成功
+AST_UTIL_CAPI errc_t aDownloadFile(const std::string& url, const std::string& filepath);
 
 
 /// 设置网络实现

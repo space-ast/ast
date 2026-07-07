@@ -33,17 +33,33 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+template<typename ObjectType>
+struct object_ptr_holder
+{
+    typedef ObjectType* type;
+};
+
+template<>
+struct object_ptr_holder<Object>
+{
+    typedef WeakPtr<Object> type;
+};
+
 
 class Property;
 class Object;
 /// @brief 对象的特定属性
-template<typename ObjectPtrType=WeakPtr<Object>, typename PropertyType=Property>
+template<typename ObjectType=Object, typename PropertyType=Property>
 class AttributeBasic
 {
 public:
+    typedef ObjectType object_type;
+    typedef PropertyType property_type;
+    typedef typename object_ptr_holder<object_type>::type object_ptr_holder_type;
+
     AttributeBasic() = default;
     
-    AttributeBasic(ObjectPtrType object, PropertyType* property)
+    AttributeBasic(ObjectType* object, PropertyType* property)
         : object_(object)
         , property_(property)
     {
@@ -51,6 +67,12 @@ public:
     
     bool isValid() const {return object_ && property_;}
 
+    /// @brief 获取属性所属的对象
+    object_type* object() const { return getObject(); }
+
+    /// @brief 获取属性对应的属性描述符
+    property_type* property() const { return property_; }
+    
     EValueType getValueType() const {
         if(!property_) return EValueType::eInvalid;
         return property_->getValueType();
@@ -188,20 +210,22 @@ public:
         return *this;
     }
 protected:
-    void* getObject() const;
+    object_type* getObject() const;
 protected:
-    ObjectPtrType object_{};
-    PropertyType* property_{nullptr};
+    object_ptr_holder_type object_{};
+    property_type* property_{nullptr};
 };
 
 template<>
-inline void* AttributeBasic<WeakPtr<Object>, Property>::getObject() const
+inline typename AttributeBasic<Object, Property>::object_type* 
+AttributeBasic<Object, Property>::getObject() const
 {
     return object_.get();
 }
 
 template<typename ObjectPtrType, typename PropertyType>
-inline void* AttributeBasic<ObjectPtrType, PropertyType>::getObject() const
+inline typename AttributeBasic<ObjectPtrType, PropertyType>::object_type* 
+AttributeBasic<ObjectPtrType, PropertyType>::getObject() const
 {
     return object_;
 }

@@ -53,6 +53,11 @@ AST_UTIL_API bool aIsGitlabCI();
 AST_UTIL_API bool aTerminalSupportColor();
 
 
+/// @brief 获取终端窗口宽度（列数）
+/// @return 终端宽度（列），若无法获取则返回默认值 80
+AST_UTIL_API int aTerminalWidth();
+
+
 /// @brief 获取当前项目的名称
 /// @return 项目的名称
 AST_UTIL_API StringView aProjectName();

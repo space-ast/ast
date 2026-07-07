@@ -18,17 +18,17 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/StateCartesian.hpp"
-#include "AstCore/StateKeplerian.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstCore/BuiltinAxes.hpp"
-#include "AstCore/SOFA.hpp"
-#include "AstCore/EOP.hpp"
-#include "AstCore/EarthFrame.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstUtil/Math.hpp"
-#include "AstTest/Test.hpp"
+#include "ast/StateCartesian.hpp"
+#include "ast/StateKeplerian.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/BuiltinAxes.hpp"
+#include "ast/SOFA.hpp"
+#include "ast/EOP.hpp"
+#include "ast/EarthFrame.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Math.hpp"
+#include "ast/Test.hpp"
 
 AST_USING_NAMESPACE
 

@@ -18,8 +18,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstCore/Time.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/Time.hpp"
+#include "ast/AstTestMacro.h"
 #include <cstdio>
 
 TEST(Time, BasicConstructor) 

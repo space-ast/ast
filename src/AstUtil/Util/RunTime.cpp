@@ -134,7 +134,7 @@ errc_t aDataDir(std::string& datadir)
 {
     if(A_UNLIKELY(!fDataDir))
     {
-        fDataDir = (DataDirFunc)aResolveProcAddress(AST_APPEND_DEBUG("AstCore"), "aDataDirGet");
+        fDataDir = (DataDirFunc)aResolveProcAddress(AST_LIB_LINKNAME("AstCore"), "aDataDirGet");
         if(!fDataDir){
             aError("failed to load 'AstCore' and resolve function 'aDataDirGet'");
             fDataDir = &aDataDirGetDefault;

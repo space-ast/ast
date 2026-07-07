@@ -21,6 +21,7 @@
 #include "Encode.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringView.hpp"
+#include <cstdlib>      // for std::atexit
 #include <vector>
 #include <memory>
 #include <stdexcept>
@@ -64,6 +65,14 @@ errc_t aWideToAnsi(const wchar_t* wide, std::string& ansi)
     return eErrorInvalidParam;
 }
 
+std::string aAnsiToUtf8(const char* ansi)
+{
+    std::wstring wide;
+    aAnsiToWide(ansi, wide);
+    std::string utf8;
+    aWideToUtf8(wide.c_str(), utf8);
+    return utf8;
+}
 
 struct LocaleDeleter
 {
@@ -76,8 +85,45 @@ struct LocaleDeleter
 };
 
 
-A_THREAD_LOCAL std::unique_ptr<std::remove_pointer<_locale_t>::type, LocaleDeleter> t_ansi_locale;    // ANSI locale
-A_THREAD_LOCAL std::unique_ptr<std::remove_pointer<_locale_t>::type, LocaleDeleter> t_utf8_locale;     // utf-8 locale
+class LocaleHolder
+{
+public:
+    LocaleHolder() = default;
+    explicit LocaleHolder(_locale_t locale)
+        : locale_(locale)
+    {
+    }
+    ~LocaleHolder()
+    {
+        reset();
+    }
+    operator bool() const
+    {
+        return locale_ != nullptr;
+    }
+    _locale_t get() const
+    {
+        return locale_;
+    }
+    void reset()
+    {
+        if (locale_) {
+            _free_locale(locale_);
+            locale_ = nullptr;
+        }
+    }
+    void reset(_locale_t locale)
+    {
+        reset();
+        locale_ = locale;
+    }
+public:
+    _locale_t locale_{nullptr};
+};
+
+
+A_THREAD_LOCAL LocaleHolder t_ansi_locale;    // ANSI locale
+A_THREAD_LOCAL LocaleHolder t_utf8_locale;     // utf-8 locale
 
 _locale_t aUTF8Locale()
 {
@@ -92,6 +138,7 @@ _locale_t aUTF8Locale()
     };
 
     if (A_UNLIKELY(!t_utf8_locale)) {
+        // 这里使用凤凰单例模式，解决全局变量的析构顺序问题
         // 设置控制台I/O编码为UTF-8
         {
             SetConsoleOutputCP(CP_UTF8);
@@ -101,6 +148,9 @@ _locale_t aUTF8Locale()
             _locale_t locale = _create_locale(LC_CTYPE, locale_str);
             if (locale) {
                 t_utf8_locale.reset(locale);
+                std::atexit([]() {
+                    t_utf8_locale.reset();
+                });
                 break;
             }
         }
@@ -114,7 +164,11 @@ _locale_t aUTF8Locale()
 _locale_t aAnsiLocale()
 {
     if (A_UNLIKELY(!t_ansi_locale)) {
+        // 这里使用凤凰单例模式，解决全局变量的析构顺序问题
         t_ansi_locale.reset(_create_locale(LC_CTYPE, ""));
+        std::atexit([]() {
+            t_ansi_locale.reset();
+        });
         if (!t_ansi_locale) {
             aError("failed to create ANSI locale");
         }
@@ -184,7 +238,7 @@ std::string aWideToUtf8(const wchar_t* wide)
 
 #else
 
-#if defined(__wasm__)
+#if defined(A_WASM)
 errc_t aUtf8ToWide(const char* utf8, std::wstring& wide) {
     aError("utf8ToWide not supported on wasm");
     return -1;

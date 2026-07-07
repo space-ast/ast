@@ -2,6 +2,7 @@
 #include "AstCore/ThirdBodyForce.hpp"
 #include "AstCore/CelestialBody.hpp"
 #include <QGroupBox>
+#include <QDebug>
 
 AST_NAMESPACE_BEGIN
 
@@ -30,12 +31,12 @@ void UiThirdBodyForce::setupUi()
     
     // 基本信息
     thirdBodyLayout_ = new QHBoxLayout();
-    thirdBodyLabel_ = new QLabel("三体:", this);
+    thirdBodyLabel_ = new QLabel(tr("三体:"), this);
     thirdBodyCombo_ = new QComboBox(this);
-    modeLabel_ = new QLabel("模式:", this);
+    modeLabel_ = new QLabel(tr("模式:"), this);
     modeCombo_ = new QComboBox(this);
-    modeCombo_->addItem("引力场");
-    modeCombo_->addItem("点质量");
+    modeCombo_->addItem(tr("引力场"));
+    modeCombo_->addItem(tr("点质量"));
     thirdBodyLayout_->addWidget(thirdBodyLabel_);
     thirdBodyLayout_->addWidget(thirdBodyCombo_);
     thirdBodyLayout_->addWidget(modeLabel_);
@@ -44,7 +45,7 @@ void UiThirdBodyForce::setupUi()
     
     // 星历来源
     ephemerisLayout_ = new QHBoxLayout();
-    ephemerisLabel_ = new QLabel("星历来源:", this);
+    ephemerisLabel_ = new QLabel(tr("星历来源:"), this);
     ephemerisCombo_ = new QComboBox(this);
     ephemerisLayout_->addWidget(ephemerisLabel_);
     ephemerisLayout_->addWidget(ephemerisCombo_);
@@ -67,19 +68,6 @@ void UiThirdBodyForce::setupUi()
     // 移除这两个容器布局的默认内边距
     gravityFieldLayout_->setContentsMargins(0, 0, 0, 0);
     pointMassLayout_->setContentsMargins(0, 0, 0, 0);
-
-    // 移除引力场配置的默认内边距
-    auto gravityLayout = gravityForceWidget_->layout();
-    if (gravityLayout) {
-        gravityLayout->setContentsMargins(0, 0, 0, 0);
-    }
-
-    // 移除点质量配置的默认内边距
-    auto pointMassLayout = pointMassForceWidget_->layout();
-    if (pointMassLayout) {
-        pointMassLayout->setContentsMargins(0, 0, 0, 0);
-    }
-
     
     // 连接信号槽
     connect(modeCombo_, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &UiThirdBodyForce::onModeChanged);
@@ -187,9 +175,9 @@ void UiThirdBodyForce::applyTo(ThirdBodyForce* thirdBody)
 void UiThirdBodyForce::refreshEphemerisSource()
 {
     ephemerisCombo_->clear();
-    ephemerisCombo_->addItem("SPICE 天体中心");
+    ephemerisCombo_->addItem(tr("SPICE 天体中心"));
     ephemerisCombo_->addItem("JPL DE");
-    ephemerisCombo_->addItem("天体");
+    ephemerisCombo_->addItem(tr("天体"));
 }
 
 void UiThirdBodyForce::refreshAttractionType()

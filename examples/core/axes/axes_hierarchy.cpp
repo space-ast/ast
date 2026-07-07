@@ -1,5 +1,5 @@
-#include "AstCore/BuiltinAxes.hpp"
-#include "AstCore/TimePoint.hpp"
+#include "ast/BuiltinAxes.hpp"
+#include "ast/TimePoint.hpp"
 #include <stdio.h>
 
 AST_USING_NAMESPACE

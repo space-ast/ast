@@ -24,10 +24,19 @@
 
 AST_NAMESPACE_BEGIN
 
+SpacecraftState::SpacecraftState()
+{
+    setIsComponent(true);
+}
+
 State* SpacecraftState::getOrbitState() const
 {
     if(!orbitState_)
-        const_cast<SpacecraftState*>(this)->orbitState_ = State::NewDefault();
+    {
+        auto self = const_cast<SpacecraftState*>(this);
+        self->orbitState_ = State::NewDefault();
+        self->orbitState_->setParentScope(self);
+    }
     return orbitState_;
 }
 

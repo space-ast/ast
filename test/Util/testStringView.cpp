@@ -1,5 +1,5 @@
 ﻿#include "AstGlobal.h"
-#include "AstUtil/StringView.hpp"
+#include "ast/StringView.hpp"
 #include <string>
 #if _HAS_CXX17
 #include <string_view>

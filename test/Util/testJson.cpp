@@ -18,12 +18,12 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstUtil/JsonValue.hpp"
-#include "AstTest/Test.h"
-#include "AstTest/TestJson.hpp"
-#include "AstUtil/JsonValue.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstScript/ValDict.hpp"
+#include "ast/JsonValue.hpp"
+#include "ast/Test.h"
+#include "ast/TestJson.hpp"
+#include "ast/JsonValue.hpp"
+#include "ast/IO.hpp"
+#include "ast/ValDict.hpp"
 
 #ifdef _WIN32
 #include <Windows.h>

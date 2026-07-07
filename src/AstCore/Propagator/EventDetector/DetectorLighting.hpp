@@ -33,6 +33,7 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API DetectorLighting : public EventDetector
 {
 public:
+    AST_OBJECT(DetectorLighting)
     DetectorLighting() = default;
     ~DetectorLighting() = default;
 

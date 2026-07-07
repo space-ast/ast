@@ -30,7 +30,13 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 坐标系转换计算块
+/// @brief 坐标系转换函数块（待实现）
+/// @details
+/// 计划实现通用的坐标系变换功能，将信号在不同参考系之间转换。
+///
+/// 当前 run() 返回 -1（未实现）。
+///
+/// @todo 待实现：定义输入/输出端口，实现位置/速度/加速度的坐标系变换
 class AST_CORE_API BlockTransform : public BlockDerivative
 {
 public:
@@ -39,7 +45,7 @@ public:
 
     errc_t run(const SimTime& simTime) override;
 protected:
-    
+
 };
 
 /*! @} */

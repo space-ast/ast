@@ -31,12 +31,14 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+/// @brief 近拱点事件检测器
 class AST_CORE_API DetectorPeriapsis : public DetectorBodyRelated
 {
 public:
     AST_OBJECT(DetectorPeriapsis)
 
     static DetectorPeriapsis* New();
+    static SharedPtr<DetectorPeriapsis> MakeShared();
 
     DetectorPeriapsis();
 

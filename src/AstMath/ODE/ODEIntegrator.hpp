@@ -48,8 +48,7 @@ public:
     virtual errc_t initialize(ODE& ode) = 0;
 
 
-    /// @brief 积分ODE
-    /// @details 积分ODE，将积分结果存储在y中
+    /// @brief 从当前时间t开始积分到最终时间tf，直到事件检测器触发事件或者积分到最终时间tf，并将积分结果存储在y中
     /// @param[in] ode 常微分方程对象
     /// @param[in,out] y 状态向量
     /// @param[in,out] t 当前时间
@@ -57,17 +56,18 @@ public:
     virtual errc_t integrate(ODE& ode, double* y,double& t, double tf) = 0;
 
 
-    /// @brief 积分ODE一步
-    /// @details 积分ODE一步，将积分结果存储在y中
-    ///          如果是变步长积分器，步长会根据误差自动调整
-    ///          如果是定步长积分器，步长会固定为初始步长
+    /// @brief 从当前时间t朝着最终时间tf方向积分一步，并将积分结果存储在y中
+    ///        如果当前时间t已经到达最终时间tf，则直接返回
+    ///        如果是变步长积分器，步长会根据误差自动调整
+    ///        如果是定步长积分器，步长会固定为初始步长
     /// @param[in] ode 常微分方程对象
     /// @param[in,out] y 状态向量
     /// @param[in,out] t 当前时间
     /// @param[in] tf 最终时间
-    virtual errc_t integrateStep(ODE& ode, double* y, double& t, double tf) = 0;
+    virtual errc_t integrateOneStep(ODE& ode, double* y, double& t, double tf) = 0;
 
-    /// @brief 执行一步积分
+    /// @brief 执行一步积分（执行单次步进）
+    /// @details 这个函数是积分器最底层的实现，一般是采用多步法对ODE进行单次步进
     /// @param ode 常微分方程对象
     /// @param[in,out] y 状态向量
     /// @param t0 当前时间
@@ -144,6 +144,10 @@ public:
     /// @details 清除所有添加的事件检测器
     void clearEventDetectors();
 
+    /// @brief 清除所有状态观察者
+    /// @details 清除所有添加的状态观察者
+    void clearStateObservers();
+
     /// @brief 添加状态观察者
     /// @details 添加一个状态观察者，用于观察ODE的状态
     /// @param observer 状态观察者对象
@@ -196,6 +200,9 @@ public:
     /// @details 获取当前积分步的临时状态向量
     /// @return 当前积分步的临时状态向量
     double* stateTemp() { return stateTemp_; }
+protected:
+    errc_t integrateOneFixedStep(ODE& ode, double absStepSize, double* y, double& t, double tf);
+    errc_t integrateFixedStep(ODE& ode, double absStepSize, double* y, double& t, double tf, int* pNumSteps=nullptr);
 protected:
     friend class ODEInnerStateObserver;
     void initWorkStateObserver();

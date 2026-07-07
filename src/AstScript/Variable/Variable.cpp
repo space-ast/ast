@@ -35,11 +35,15 @@ Variable* Variable::New()
 
 
 Variable::Variable(StringView name, Expr *expr, bool bind)
-    : name_(name), expr_(expr), bind_(bind)
-{};
+    : expr_(expr)
+    , bind_(bind)
+{
+    this->setName(name);
+};
 
 Variable::Variable(Expr *expr, bool bind)
-    : name_{}, expr_(expr), bind_(bind)
+    : expr_(expr)
+    , bind_(bind)
 {};
 
 Value *Variable::eval() const
@@ -116,9 +120,7 @@ errc_t Variable::setExpr(bool value)
 
 errc_t Variable::bind(Expr *expr)
 {
-    expr_ = expr;
-    bind_ = true;
-    return eNoError;
+    return setBindExpr(expr);
 }
 
 std::string Variable::value() const
@@ -166,6 +168,15 @@ errc_t Variable::setValue(StringView value)
         }
     }
     return setValue(aNewValue(value));
+}
+
+
+std::string Variable::getInnerExpression() const
+{
+    if(expr_.get() == nullptr) {
+        return {};
+    }
+    return expr_->getExpression();
 }
 
 AST_NAMESPACE_END

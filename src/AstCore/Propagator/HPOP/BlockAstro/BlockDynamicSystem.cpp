@@ -95,14 +95,13 @@ errc_t BlockDynamicSystem::initialize()
 
 errc_t BlockDynamicSystem::sortBlocks()
 {
+    /// @todo 考虑使用拓扑排序算法对模型进行排序，例如Kahn 算法或者DFS 算法
     size_t size = blocks_.size();
     for(size_t index=0;index<size;index++)
     {
-        auto frontBlock = blocks_[index];
         for(size_t laterIndex=index+1;laterIndex<size;laterIndex++)
         {
-            auto laterBlock = blocks_[laterIndex];
-            if(aAstroBlockDependentOn(frontBlock, laterBlock))
+            if(aAstroBlockDependentOn(blocks_[index], blocks_[laterIndex]))
             {
                 std::swap(blocks_[laterIndex],blocks_[index]);
             }
@@ -170,6 +169,9 @@ errc_t BlockDynamicSystem::createStateMap()
     {
         auto name = stateIdentifiers[index];
         auto width = stateDimensions[index];
+        // @todo 
+        // 这里会覆盖map里面已有的block的输出量
+        // 应该在这里将所有block的outputPorts里的信号指针替换为最新的
         stateMap_[name] = state_.data() + offset;
         derivativeMap_[name] = derivative_.data() + offset;
         offset += width;
@@ -196,7 +198,7 @@ errc_t BlockDynamicSystem::connectSignalsByNames()
                 port.setSignal(iter->second);
             }else{
                 // 未找到所需状态量信号
-                aError("state %s is not found for block", name->c_str());
+                aError("state '%s' is not found for block", name->c_str());
                 return -1;
             }
         }
@@ -216,7 +218,7 @@ errc_t BlockDynamicSystem::connectSignalsByNames()
                 port.setSignal(iter->second);
             }else{
                 // 未找到所需导数信号
-                aError("derivative %s is not found for block", name->c_str());
+                aError("derivative '%s' is not found for block", name->c_str());
                 return -1;
             }
         }

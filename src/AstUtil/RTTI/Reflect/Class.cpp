@@ -40,6 +40,12 @@ Object* Class::cast(Object* obj) const
     return nullptr;
 }
 
+const Object* Class::cast(const Object* obj) const
+{
+    return this->cast(const_cast<Object*>(obj));
+}
+
+
 void Class::addToRegistry() const
 {
     aRegisterClass(const_cast<Class*>(this));
@@ -65,6 +71,28 @@ Object *Class::getDefaultObject() const
         return defaultObject_.get();
     const_cast<Class*>(this)->defaultObject_ = newObject(nullptr);
     return defaultObject_.get();
+}
+
+void Class::getAllProperties(std::vector<Property*>& out, bool overwriteSameName) const
+{
+    if(parent_)
+        parent_->getAllProperties(out, overwriteSameName);
+    if(overwriteSameName)
+    {
+        for(auto* prop : properties_)
+        {
+            // 查找是否有同名属性（来自父类）
+            auto it = std::find_if(out.begin(), out.end(), [&](Property* p) { return p->name() == prop->name(); });
+            if(it == out.end())
+                out.push_back(prop);
+            else
+                *it = prop;
+        }
+    }
+    else
+    {
+        out.insert(out.end(), properties_.begin(), properties_.end());
+    }
 }
 
 AST_NAMESPACE_END

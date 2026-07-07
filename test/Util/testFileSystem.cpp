@@ -26,8 +26,8 @@
 #include <windows.h>
 #endif
 
-#include "AstUtil/FileSystem.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/FileSystem.hpp"
+#include "ast/AstTestMacro.h"
 #include <iostream>
 #include <fstream>
 #include <clocale>

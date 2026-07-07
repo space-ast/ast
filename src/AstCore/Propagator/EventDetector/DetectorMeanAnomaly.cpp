@@ -21,6 +21,7 @@
 #include "DetectorMeanAnomaly.hpp"
 
 AST_NAMESPACE_BEGIN
+double DetectorMeanAnomaly::getValue(const SpacecraftState& state, double t) const { return 0.0; }
 
 
 

@@ -12,7 +12,7 @@ static bool Return_ClassInited = (Return::ClassInit(&Return::staticType), true);
 void Return::ClassInit(Class* cls)
 {
 
-    cls->setName("Return");
+    cls->setName(NC_("Class", "Return"));
     cls->setDesc(u8R"(返回段，用于停止当前任务序列Sequence的执行，并返回到上一级的Sequence)");
     cls->addToRegistry();
     cls->setParent<MissionCommand>();

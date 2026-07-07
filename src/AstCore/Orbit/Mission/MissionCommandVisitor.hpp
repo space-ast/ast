@@ -21,15 +21,15 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "MissionCommand.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup
     @{
 */
 
-class MissionCommand;
 class InitialState;
 class Propagate;
 class Maneuver;

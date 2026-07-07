@@ -67,6 +67,12 @@ public:
     /// @return std::string 表达式的字符串表示
     std::string getExpression(Object* context=nullptr) const override;
 
+    /// @brief 获取循环条件表达式
+    Expr* condition() const { return condition_.get(); }
+
+    /// @brief 获取循环体表达式
+    Expr* body() const { return body_.get(); }
+
 protected:
     SharedPtr<Expr> condition_; ///< 循环条件表达式
     SharedPtr<Expr> body_;      ///< 循环体
@@ -104,6 +110,15 @@ public:
     /// @param context 可选的上下文对象，用于解析变量等
     /// @return std::string 表达式的字符串表示
     std::string getExpression(Object* context=nullptr) const override;
+
+    /// @brief 获取循环变量表达式
+    Expr* variable() const { return variable_.get(); }
+
+    /// @brief 获取范围表达式
+    Expr* range() const { return range_.get(); }
+
+    /// @brief 获取循环体表达式
+    Expr* body() const { return body_.get(); }
 
 protected:
     SharedPtr<Expr> variable_; ///< 循环变量

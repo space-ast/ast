@@ -189,6 +189,19 @@ enum EColor: color_t {
     eYellowGreen     	    = rgb(154, 205, 50),             	///< 黄绿色
 };
 
+namespace colors
+{
+    constexpr EColor red = eRed;
+    constexpr EColor green = eGreen;
+    constexpr EColor blue = eBlue;
+    constexpr EColor yellow = eYellow;
+    constexpr EColor white = eWhite;
+    constexpr EColor black = eBlack;
+
+    // ... 其他颜色
+}
+
+
 /*! @} */
 
 

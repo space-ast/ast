@@ -39,7 +39,7 @@ GUIInterface *GUIInterface::CurrentInstance()
     if(g_guiInstance == nullptr)
     {
         using functype = decltype(&aGUIInterfaceImpl);
-        functype func = (functype)aResolveProcAddress(AST_APPEND_DEBUG("AstGUI"), A_STR(aGUIInterfaceImpl));
+        functype func = (functype)aResolveProcAddress(AST_LIB_LINKNAME("AstGUI"), A_STR(aGUIInterfaceImpl));
         if(func){
             g_guiInstance = func();
         }else{
@@ -70,6 +70,13 @@ Object *GUIInterface::selectObject(StringView typeName)
     aError("noop: selectObject not implemented");
     return nullptr;
 }
+
+const char* GUIInterface::translate(const char* msgctxt, const char* msgid)
+{
+    return msgid;
+}
+
+
 
 AST_NAMESPACE_END
 

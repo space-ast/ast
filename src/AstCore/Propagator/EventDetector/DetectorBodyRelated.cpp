@@ -40,4 +40,10 @@ void DetectorBodyRelated::setBodyByName(StringView bodyName)
     addDelayedLinkIfFailed(resolveFunc);
 }
 
+void DetectorBodyRelated::setBody(StringView bodyName)
+{
+    setBodyByName(bodyName);
+}
+
+
 AST_NAMESPACE_END

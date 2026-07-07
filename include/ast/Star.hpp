@@ -1,0 +1,1 @@
+#include "AstSim/Star.hpp"

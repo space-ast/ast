@@ -23,15 +23,16 @@
 
 AST_NAMESPACE_BEGIN
 
-bool SymbolScope::addSymbol(StringView name, Expr* expr)
+errc_t SymbolScope::addSymbol(StringView name, Expr* expr)
 {
-    // 如果符号已存在，则返回false
-    if (symbols_.find(std::string(name)) != symbols_.end()) {
-        return false;
+    // 如果符号已存在，则返回eErrorInvalidParam
+    std::string key(name);
+    if (symbols_.find(key) != symbols_.end()) {
+        return eErrorInvalidParam;
     }
 
-    symbols_[std::string(name)] = expr;
-    return true;
+    symbols_[std::move(key)] = expr;
+    return eNoError;
 }
 
 void SymbolScope::setSymbol(StringView name, Expr* expr)
@@ -70,15 +71,15 @@ Expr *SymbolScope::resolveSymbol(StringView name)
     return var;
 }
 
-bool SymbolScope::removeSymbol(StringView name)
+errc_t SymbolScope::removeSymbol(StringView name)
 {
     auto it = symbols_.find(std::string(name));
     if (it != symbols_.end()) {
         symbols_.erase(it);
-        return true;
+        return eNoError;
     }
 
-    return false;
+    return eErrorNotFound;
 }
 
 bool SymbolScope::hasSymbol(StringView name, bool searchParent) const

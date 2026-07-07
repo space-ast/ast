@@ -24,6 +24,7 @@
 #include "AstUtil/MathDegree.hpp"
 #include "AstUtil/Constants.h"
 #include <cmath>
+#include <cassert>
 #include <algorithm>
 
 AST_NAMESPACE_BEGIN
@@ -98,6 +99,61 @@ Scalar aMin(Scalar a, Scalar b)
 
 using std::max;
 using std::min;
+
+/// @brief 对值进行范围限制
+/// @param val 输入值
+/// @param low 最小值
+/// @param high 最大值
+/// @return 限制后的值
+template<typename T>
+A_CONSTEXPR_CXX14 const T& clamp(const T& val, const T& low, const T& high)
+{
+    #ifdef A_CXX14
+    assert(low <= high && "low must be less than or equal to high");
+    if(val < low){
+        return low;
+    }
+    if(val > high){
+        return high;
+    }
+    return val;
+    #else
+    return (val < low) ? low : ((val > high) ? high : val);
+    #endif
+}
+
+
+/// @brief 安全反正弦，参数自动箝位到 [-1, 1]
+/// @param x 正弦值
+/// @return 反正弦值（弧度）
+A_ALWAYS_INLINE double asinSafe(double x)
+{
+    return std::asin(clamp(x, -1.0, 1.0));
+}
+
+/// @brief 安全反余弦，参数自动箝位到 [-1, 1]
+/// @param x 余弦值
+/// @return 反余弦值（弧度）
+A_ALWAYS_INLINE double acosSafe(double x)
+{
+    return std::acos(clamp(x, -1.0, 1.0));
+}
+
+/// @brief 安全平方根，参数自动箝位到 [0, +∞]
+/// @param x 输入值
+/// @return 平方根值
+A_ALWAYS_INLINE double sqrtSafe(double x)
+{
+    return std::sqrt((std::max)(x, 0.0));
+}
+
+/// @brief 计算平方
+/// @param x 输入值
+template<typename Scalar>
+Scalar square(Scalar x)
+{
+    return x * x;
+}
 
 
 /// @brief 将角度量规范化到指定起始范围

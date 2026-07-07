@@ -559,6 +559,19 @@ void JsonValue::insert(const std::string& name, JsonValue value)
     }
 }
 
+
+void JsonValue::prepend(JsonValue value)
+{
+    if(type_ == EJsonValueType::eNull)
+    {
+        this->setArray({});
+    }
+    if (type_ == EJsonValueType::eArray)
+    {
+        value_.array_->insert(value_.array_->begin(), value);
+    }
+}
+
 void JsonValue::append(JsonValue value)
 {
     if(type_ == EJsonValueType::eNull)

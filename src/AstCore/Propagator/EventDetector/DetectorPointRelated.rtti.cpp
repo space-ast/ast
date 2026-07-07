@@ -12,7 +12,7 @@ static bool DetectorPointRelated_ClassInited = (DetectorPointRelated::ClassInit(
 void DetectorPointRelated::ClassInit(Class* cls)
 {
 
-    cls->setName("DetectorPointRelated");
+    cls->setName(NC_("Class", "DetectorPointRelated"));
     cls->addToRegistry();
     cls->setParent<EventDetector>();
     cls->setConstructor<DetectorPointRelated>();

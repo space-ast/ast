@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "SpiceZpr.hpp"
-#include "AstCore/AxesTransform.hpp"
+#include "AstCore/FrameTransform.hpp"
 #include "AstCore/Axes.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/CelestialBody.hpp"

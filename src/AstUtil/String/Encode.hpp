@@ -49,6 +49,10 @@ AST_UTIL_CAPI errc_t aAnsiToWide(const char* ansi, std::wstring& wide);
 /// @warning 仅在Windows平台上实现
 AST_UTIL_CAPI errc_t aWideToAnsi(const wchar_t* wide, std::string& ansi);
 
+/// @brief 将ANSI编码的字符串转换为UTF-8编码
+/// @param ansi 输入ANSI编码的字符串
+/// @return UTF-8编码的字符串
+AST_UTIL_API std::string aAnsiToUtf8(const char* ansi);
 
 /// @brief 将UTF-8编码的字符串转换为宽字符编码
 /// @param utf8 输入UTF-8编码的字符串

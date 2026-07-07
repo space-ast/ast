@@ -40,6 +40,7 @@ public:
     AST_PROPERT(scale)
     AST_PROPERT(tolerance)
     AST_PROPERT(totalCorrection)
+    AST_PROPERT(expr)
     static ShooterControl* New();
     
     ShooterControl() = default;
@@ -67,14 +68,14 @@ PROPERTIES:
     double totalCorrection() const { return totalCorrection_; }
     void setTotalCorrection(double totalCorrection) { totalCorrection_ = totalCorrection; }
 
+    Expr* expr() const { return expr_.get(); }
+    void setExpr(Expr* expr) { expr_ = expr; }
+public:
     /// @brief 设置变量的值
     errc_t setValue(double value) const;
 
     /// @brief 获取变量的值
     errc_t getValue(double& value) const;
-
-    Expr* expr() const { return expr_.get(); }
-    void setExpr(Expr* expr) { expr_ = expr; }
 private:
     bool active_{true};             ///< 是否激活
     WeakPtr<Expr> expr_;            ///< 表达式

@@ -81,7 +81,7 @@ public:
     /// @brief 获取目标在指定时刻的原始位置（相对于其星历参考系）
     /// @details 直接从SPK内核文件中读取数据，返回目标在给定时刻相对于该段定义的参考系的位置。
     ///          不执行任何坐标转换
-    /// @param et      相对于J2000 TDB的历元（秒）
+    /// @param et      相对于J2000 TDB历元的秒数
     /// @param target  目标的NAIF ID代码
     /// @param[out] pos  位置向量 (x, y, z)，单位米(m)
     /// @return 错误码，成功返回0，失败返回非0值（如时间超出时间区间、目标不存在等）
@@ -91,14 +91,14 @@ public:
     /// @details 从SPK文件中查找给定目标在给定时间的SPK段描述符。
     ///          如果目标在给定时间没有对应的段，返回nullptr。
     /// @param target  目标的NAIF ID代码
-    /// @param et      相对于J2000 TDB的历元（秒）
+    /// @param et      相对于J2000 TDB历元的秒数
     /// @return 指向SPK段描述符的指针如果未找到）
     const SPK_Descriptor* findSpkDescriptor(int target, double et) const;
     
     /// @brief 获取目标在指定时刻的原始位置和速度（相对于其星历参考系）
     /// @details 直接从SPK内核文件中读取数据，返回目标在给定时刻相对于该段定义的参考系的位置和速度。
     ///          不执行任何坐标转换
-    /// @param et      相对于J2000 TDB的历元（秒）
+    /// @param et      相对于J2000 TDB历元的秒数
     /// @param target  目标的NAIF ID代码
     /// @param[out] pos  位置向量 (x, y, z)，单位米(m)
     /// @param[out] vel  速度向量 (vx, vy, vz)，单位米/秒(m/s)

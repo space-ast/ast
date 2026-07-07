@@ -19,11 +19,11 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstCore/EphemerisFileParser.hpp"
-#include "AstCore/STKEphemerisFileParser.hpp"
-#include "AstCore/EphemerisLagrangeVar.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstTest/Test.h"
+#include "ast/EphemerisFileParser.hpp"
+#include "ast/STKEphemerisFileParser.hpp"
+#include "ast/EphemerisLagrangeVar.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Test.h"
 
 
 AST_USING_NAMESPACE

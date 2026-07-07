@@ -48,8 +48,8 @@ void aTimePointToUTC(const TimePoint &time, JulianDate &jdUTC)
 void aTimePointToTT(const TimePoint &time, JulianDate &jdTT)
 {
     jdTT = epochTTJulianDate;
-    int day1 = static_cast<int>(time.integerPart()/86400U);
-    int day2 = static_cast<int>(time.fractionalPart()/86400U);
+    int day1 = static_cast<int>(time.integerPart()/86400LL);
+    int day2 = static_cast<int>(time.fractionalPart()/86400LL);
     double sec1 = static_cast<double>(time.integerPart() - (day1)*86400LL);
     double sec2 = static_cast<double>(time.fractionalPart() - (day2)*86400LL);
     jdTT.day() += day1 + day2;
@@ -60,8 +60,8 @@ void aTimePointToTT(const TimePoint &time, JulianDate &jdTT)
 void aTimePointToTAI(const TimePoint &time, JulianDate &jdTAI)
 {
     jdTAI = epochTAIJulianDate;
-    int day1 = static_cast<int>(time.integerPart()/86400U);
-    int day2 = static_cast<int>(time.fractionalPart()/86400U);
+    int day1 = static_cast<int>(time.integerPart()/86400LL);
+    int day2 = static_cast<int>(time.fractionalPart()/86400LL);
     double sec1 = static_cast<double>(time.integerPart() - (day1)*86400LL);
     double sec2 = static_cast<double>(time.fractionalPart() - (day2)*86400LL);
     jdTAI.day() += day1 + day2;
@@ -93,7 +93,7 @@ void aTimePointToTT(const TimePoint& time, DateTime& dttmTT)
 void aTimePointToTDB(const TimePoint& time, DateTime& dttmTDB)
 {
     JulianDate jdTDB{};
-    aTimePointToUT1(time, jdTDB);
+    aTimePointToTDB(time, jdTDB);
     aJDToDateTime(jdTDB, dttmTDB);
     dttmTDB.normalize();  // 在这里确保TDB时间是标准化的
 }
@@ -233,6 +233,13 @@ TimePoint TimePoint::FromUTC(const DateTime &dttmUTC)
     return TimePoint::FromTAI(jdTAI);
 }
 
+TimePoint TimePoint::FromBJT(const DateTime& dttmBJT)
+{
+    auto dttmUTC = dttmBJT;
+    dttmUTC.addHours(-8);
+    return TimePoint::FromUTC(dttmUTC);
+}
+
 TimePoint TimePoint::FromTAI(const DateTime& dttmTAI)
 {
     JulianDate jdTAI{};
@@ -291,5 +298,16 @@ TimePoint TimePoint::Parse(StringView str)
     }
     return time;
 }
+
+TimePoint TimePoint::ParseUTC(StringView str)
+{
+    return TimePoint::FromUTC(DateTime::Parse(str));
+}
+
+TimePoint TimePoint::ParseBJT(StringView str)
+{
+    return TimePoint::FromBJT(DateTime::Parse(str));
+}
+
 
 AST_NAMESPACE_END

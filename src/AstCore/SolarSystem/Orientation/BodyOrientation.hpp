@@ -38,6 +38,7 @@ class KinematicRotation;
 class AST_CORE_API BodyOrientation: public ObjectNamed
 {
 public:
+    AST_OBJECT(BodyOrientation)
     BodyOrientation() = default;
     
 

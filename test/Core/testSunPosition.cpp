@@ -19,12 +19,12 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstTest/AstTestMacro.h"
-#include "AstCore/JplDe.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/Vector.hpp"
-#include "AstUtil/Literals.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/JplDe.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Literals.hpp"
 
 AST_USING_NAMESPACE
 

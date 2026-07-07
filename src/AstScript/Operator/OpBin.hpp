@@ -42,11 +42,14 @@ public:
     virtual ~OpBin() = default;
     Value* eval() const override;
     std::string getExpression(Object* context=nullptr) const override;
+    EOpBinType op() const {return op_;}
+    SharedPtr<Expr> left() const {return left_;}
+    SharedPtr<Expr> right() const {return right_;}
 protected:
     EOpBinType   op_;        ///< 运算符
     SharedPtr<Expr>       left_;      ///< 左操作数
     SharedPtr<Expr>       right_;     ///< 右操作数
-
+private:
     mutable std::atomic<OpBinFunc> func_{nullptr};      ///< 运算符函数指针
     mutable std::atomic<Class*>    leftType_{nullptr};  ///< 左操作数类型
     mutable std::atomic<Class*>    rightType_{nullptr}; ///< 右操作数类型
