@@ -35,6 +35,7 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API EarthOrientation final: public BodyOrientation
 {
 public:
+    AST_OBJECT(EarthOrientation)
     EarthOrientation() = default;
     ~EarthOrientation() override = default;
     void getICRFToFixedTransform(const TimePoint& tp, Rotation &rotation) const override;

@@ -57,6 +57,10 @@ public:
     void setVelocities(std::vector<Vector3d>&& velocities){velocities_ = std::move(velocities);}
     void setEpoch(const TimePoint& epoch){epoch_ = epoch;}
     void setInterpolateOrder(int order){interpolateOrder_ = order;}
+    const TimePoint& getEpoch() const{return epoch_;}
+    const std::vector<double>&   getTimes()     const{return times_;}
+    const std::vector<Vector3d>& getPositions() const{return positions_;}
+    const std::vector<Vector3d>& getVelocities()const{return velocities_;}
 public:
     size_t size() const{return times_.size();}
 private:

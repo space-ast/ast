@@ -12,7 +12,7 @@ static bool EventDetector_ClassInited = (EventDetector::ClassInit(&EventDetector
 void EventDetector::ClassInit(Class* cls)
 {
 
-    cls->setName("EventDetector");
+    cls->setName(NC_("Class", "EventDetector"));
     cls->setDesc(u8R"(事件检测基类 事件检测基类，用于检测事件是否发生。 参考orekit的EventDetector类)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

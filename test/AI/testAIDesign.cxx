@@ -18,23 +18,23 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstAI/ChatSession.hpp"
-#include "AstAI/AgentSession.hpp"
-#include "AstAI/AgentUtil.hpp"
-#include "AstSim/Satellite.hpp"
-#include "AstSim/Facility.hpp"
-#include "AstSim/MotionTwoBody.hpp"
-#include "AstSim/MotionJ2Analytical.hpp"
-#include "AstCore/StateCartesian.hpp"
-#include "AstCore/StateKeplerian.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstUtil/RTTIAPI.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstMath/ODEIntegrator.hpp"
-#include "AstMath/RKF78.hpp"
-#include "AstTest/Test.h"
+#include "ast/ChatSession.hpp"
+#include "ast/AgentSession.hpp"
+#include "ast/AgentUtil.hpp"
+#include "ast/Satellite.hpp"
+#include "ast/Facility.hpp"
+#include "ast/MotionTwoBody.hpp"
+#include "ast/MotionJ2Analytical.hpp"
+#include "ast/StateCartesian.hpp"
+#include "ast/StateKeplerian.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/IO.hpp"
+#include "ast/RTTIAPI.hpp"
+#include "ast/Literals.hpp"
+#include "ast/ODEIntegrator.hpp"
+#include "ast/RKF78.hpp"
+#include "ast/Test.h"
 
 AST_USING_NAMESPACE
 
@@ -47,7 +47,7 @@ TEST(AIDesignTest, MissionDesign)
     aRemoveAllObjects();
     const char* message = u8"帮我创建一个霍曼转移任务序列";
     AgentSession session;
-    std::string response = session.sendMessage(message);
+    std::string response = session.chat(message);
 }
 
 TEST(AIDesignTest, ClassAnalysis)
@@ -58,12 +58,12 @@ TEST(AIDesignTest, ClassAnalysis)
     {
         const char* message = u8"软件支持哪些移动对象？";
         AgentSession session;
-        session.sendMessage(message);
+        session.chat(message);
     }
     {
         const char* message = u8"软件能支持什么场景的建模分析？";
         AgentSession session;
-        session.sendMessage(message);
+        session.chat(message);
     }
 
 }
@@ -77,7 +77,7 @@ TEST(AIDesignTest, RKF78)
     aRemoveAllObjects();
     const char* message = u8"帮我新建一个积分器, RKF78吧";
     AgentSession session;
-    std::string response = session.sendMessage(message);
+    std::string response = session.chat(message);
     ODEIntegrator* integrator = dynamic_cast<ODEIntegrator*>(aFindObject(ODEIntegrator::StaticType()));
     ASSERT_TRUE(integrator != nullptr);
     RKF78* rkf78 = dynamic_cast<RKF78*>(integrator);
@@ -97,7 +97,7 @@ TEST(AIDesignTest, ShowEditDialog)
         - 轨道历元是2026-04-24 00:00:00
         - 圆轨道高度是 500km, 倾角91度, 升交点赤经20°, 纬度幅角40°
         )";
-    std::string response = session.sendMessage(message);
+    std::string response = session.chat(message);
     
 }
 
@@ -114,7 +114,7 @@ TEST(AIDesignTest, WalkerDesign)
     - 轨道高度大约 500km
     - 设计参数(i:T:P:F) = 55°:24:6:1
     )";
-    session.sendMessage(message);
+    session.chat(message);
     clock_t endTime = clock();
     printf("WalkerDesign time: %f s\n", double(endTime - startTime) / CLOCKS_PER_SEC);
     std::vector<Object*> objects = aFindObjects(Satellite::StaticType());
@@ -132,7 +132,7 @@ TEST(AIDesignTest, Facility)
     aRemoveAllObjects();
     AgentSession session;
     const char* message = u8"帮我插入一个地面站，位置在海口";
-    session.sendMessage(message);
+    session.chat(message);
     Facility* facility = dynamic_cast<Facility*>(aFindObject(Facility::StaticType()));
     ASSERT_TRUE(facility != nullptr);
     EXPECT_NEAR(facility->latitude(), 20.0_deg, 0.5_deg);
@@ -150,7 +150,7 @@ TEST(AIDesignTest, SSODesign)
     AgentSession session;
     
     const char* message = u8"帮我设计一个太阳同步轨道";
-    session.sendMessage(message);
+    session.chat(message);
     Satellite* satellite = dynamic_cast<Satellite*>(aFindObject(Satellite::StaticType()));
     ast_printf("%s\n", aObjectToJson(satellite).toJsonString(2).c_str());
     ASSERT_TRUE(satellite != nullptr);
@@ -174,7 +174,7 @@ TEST(AIDesignTest, Satellite)
     - 初始状态是 100km, 200e3, 300km, 3km/s, 2200m/s, 1km/s
     - 预报器是J2解析预报器
     )";
-    std::string response = session.sendMessage(message);
+    std::string response = session.chat(message);
     Satellite* satellite = dynamic_cast<Satellite*>(aFindObject(Satellite::StaticType()));
     ASSERT_TRUE(satellite != nullptr);
     EXPECT_EQ(satellite->getName(), "TestSatellite");
@@ -208,7 +208,7 @@ TEST(AIDesignTest, MotionTwoBody)
     - 轨道历元是 2026-04-23 00:00:00
     - 初始状态是 100km, 200e3, 300km, 3km/s, 2200m/s, 1km/s
     )";
-    std::string response = session.sendMessage(message);
+    std::string response = session.chat(message);
     MotionTwoBody* motion = dynamic_cast<MotionTwoBody*>(aFindObject(MotionTwoBody::StaticType()));
     ASSERT_TRUE(motion != nullptr);
     StateCartesian* state = dynamic_cast<StateCartesian*>(motion->getInitialState());
@@ -238,7 +238,7 @@ TEST(AIDesignTest, StateKeplerian)
         });
     for (auto& message : messages)
     {
-        std::string response = session.sendMessage(message);
+        std::string response = session.chat(message);
     }
     StateKeplerian* state = dynamic_cast<StateKeplerian*>(aFindObject(StateKeplerian::StaticType()));
     ASSERT_TRUE(state != nullptr);
@@ -268,7 +268,7 @@ TEST(AIDesignTest, StateCartesian)
     });
     for(auto& message : messages)
     {
-        std::string response = session.sendMessage(message);
+        std::string response = session.chat(message);
     }
     StateCartesian* state = dynamic_cast<StateCartesian*>(aFindObject(StateCartesian::StaticType()));
     ASSERT_TRUE(state != nullptr);

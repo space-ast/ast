@@ -12,7 +12,7 @@ static bool InitialState_ClassInited = (InitialState::ClassInit(&InitialState::s
 void InitialState::ClassInit(Class* cls)
 {
 
-    cls->setName("InitialState");
+    cls->setName(NC_("Class", "InitialState"));
     cls->setDesc(u8R"(初始轨道段，用于建模任务序列(MissionCommand)中的初始状态任务)");
     cls->addToRegistry();
     cls->setParent<Segment>();

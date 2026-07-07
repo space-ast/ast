@@ -12,7 +12,7 @@ static bool HPOP_ClassInited = (HPOP::ClassInit(&HPOP::staticType), true);
 void HPOP::ClassInit(Class* cls)
 {
 
-    cls->setName("HPOP");
+    cls->setName(NC_("Class", "HPOP"));
     cls->setDesc(u8R"(高精度轨道预报器)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

@@ -19,14 +19,52 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ObjectManager.hpp"
+#include <cstdlib>
+#include <type_traits>
 #include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
+namespace {
+std::aligned_storage<sizeof(ObjectManager), alignof(ObjectManager)>::type buf;  // 单例存储区
+bool singletonDestroyed = false;                                                // 单例是否已销毁
+struct SingletonGuard {
+    SingletonGuard() {
+        new(&buf) ObjectManager;
+        singletonDestroyed = false;
+    }
+    ~SingletonGuard() {
+        reinterpret_cast<ObjectManager*>(&buf)->~ObjectManager();
+        // 注意要在析构后再将标志位设置为 true，顺序不能弄反，否则会导致在没有析构时就再次构造单例，产生未定义行为
+        singletonDestroyed = true;
+    }
+};
+}
+
 ObjectManager &ObjectManager::CurrentInstance()
 {
-    static ObjectManager instance;
-    return instance;
+    static SingletonGuard guard;
+
+    // 采用凤凰单例模式安全承接调用，避免 use-after-destroy。
+    if (A_UNLIKELY(singletonDestroyed))
+    {
+        new(&buf) ObjectManager;
+        singletonDestroyed = false;
+        std::atexit([]() {
+            if(!singletonDestroyed)
+            {
+                reinterpret_cast<ObjectManager*>(&buf)->~ObjectManager();
+                // 注意要在析构后再将标志位设置为 true，顺序不能弄反，否则会导致在没有析构时就再次构造单例，产生未定义行为
+                singletonDestroyed = true;
+            }
+        });
+    }
+    return *reinterpret_cast<ObjectManager*>(&buf);
+}
+
+ObjectManager::~ObjectManager()
+{
+    removeAllObjects();
 }
 
 Object* ObjectManager::getObject(uint32_t index)
@@ -103,8 +141,16 @@ void ObjectManager::removeAllObjects()
 
 errc_t ObjectManager::setParentScope(Object *obj, Object *parentScope)
 {
-    if(!obj || !parentScope)
+    if(!obj)
         return -1;
+    if(parentScope == nullptr)
+    {
+        if(obj->index_ != static_cast<uint32_t>(INVALID_ID))
+        {
+            objects_[obj->index_]->setParent(nullptr);
+        }
+        return eNoError;
+    }
     uint32_t parentScopeIndex = addObject(parentScope);
     if(parentScopeIndex == static_cast<uint32_t>(INVALID_ID))
         return -1;
@@ -223,9 +269,24 @@ std::vector<Object*> ObjectManager::getAllObjects()
     std::vector<Object*> objects;
     for(auto objNode : objects_)
     {
-        if(!objNode->expired())
+        auto object = objNode->getObject();
+        if(object)
         {
-            objects.push_back(objNode->object_.get());
+            objects.push_back(object);
+        }
+    }
+    return objects;
+}
+
+std::vector<Object*> ObjectManager::getRootObjects()
+{
+    std::vector<Object*> objects;
+    for(auto objNode : objects_)
+    {
+        auto object = objNode->getObject();
+        if(object && !objNode->parentNode_)
+        {
+            objects.push_back(object);
         }
     }
     return objects;

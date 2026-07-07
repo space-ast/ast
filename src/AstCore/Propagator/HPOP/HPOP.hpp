@@ -26,6 +26,7 @@
 #include "AstUtil/Object.hpp"
 #include "AstUtil/ObjectNamed.hpp"
 #include "AstCore/CelestialBody.hpp"
+#include "AstCore/StateMapper.hpp"
 #include <string>
 #include <vector>
 
@@ -54,6 +55,17 @@ public:
     errc_t setForceModel(HPOPForceModel&& forcemodel);
     errc_t setForceModel(const HPOPForceModel& forcemodel);
 
+    /// @brief 获取力模型
+    HPOPForceModel& forceModel();
+
+    void setSpacecraftParam(const SpacecraftParam& spacecraftParam);
+
+    /// @brief 获取航天器参数
+    const SpacecraftParam& spacecraftParam() const;
+
+    /// @brief 获取预报坐标系
+    Frame* propagationFrame() const;
+
     /// @brief 设置预报坐标系
     errc_t setPropagationFrame(Frame* frame);
 
@@ -74,11 +86,19 @@ public:
 
     /// @brief 初始化
     errc_t initialize();
+
+    /// @brief 添加事件检测器
+    /// @param[in] eventDetector 事件检测器实例指针
+    void addEventDetector(EventDetector* eventDetector);
+
+    /// @brief 清除所有事件检测器
+    void clearEventDetectors();
 protected:
-    HPOPEquation* equation();
-protected:
-    ScopedPtr<HPOPEquation> equation_;              ///< 高精度轨道预报方程
-    mutable ScopedPtr<ODEIntegrator> integrator_;   ///< 高精度轨道预报积分器
+    HPOPEquation* equation() const;
+private:
+    mutable ScopedPtr<HPOPEquation> equation_;       ///< 高精度轨道预报方程
+    mutable SharedPtr<ODEIntegrator> integrator_;    ///< 高精度轨道预报积分器
+    ScopedPtr<StateMapper> stateMapper_;             ///< 状态映射器
 };
 
 

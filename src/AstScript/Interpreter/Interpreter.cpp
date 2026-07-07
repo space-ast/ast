@@ -24,6 +24,18 @@
 AST_NAMESPACE_BEGIN
 
 
+
+Interpreter::Interpreter()
+    : symbolScope_(new SymbolScope())
+{
+}
+
+Interpreter::Interpreter(ISymbolScope* symbolScope)
+    : symbolScope_(symbolScope)
+{
+    
+}
+
 Interpreter::~Interpreter()
 {
     aScript_RemoveInterpreter(this);
@@ -32,9 +44,25 @@ Interpreter::~Interpreter()
 void Interpreter::interpret(StringView code)
 {
     InterpreterContext _(this);     ///< 解释器上下文守卫
-    
-    
+    SharedPtr<Value> value = aEval(code);
 }
+
+Interpreter* aNewInterpreter()
+{
+    return new Interpreter();
+}
+
+
+Interpreter* aNewInterpreter(ISymbolScope* symbolScope)
+{
+    return new Interpreter(symbolScope);
+}
+
+void aDelInterpreter(Interpreter* interpreter)
+{
+    delete interpreter;
+}
+
 
 AST_NAMESPACE_END
 

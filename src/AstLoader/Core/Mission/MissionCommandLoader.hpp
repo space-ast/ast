@@ -28,20 +28,21 @@
 #include "TargeterSequenceLoader.hpp"
 #include "ReturnLoader.hpp"
 #include "AstUtil/SharedPtr.hpp"
+#include "AstCore/MissionCommand.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup
     @{
 */
 
-class MissionCommand;
+class LoaderContext;
 
 /// @brief 从值加载任务命令
 /// @param value 值
 /// @param missionCommand 任务命令对象
-AST_LOADER_API errc_t aLoadMissionCommand(const Value& value, SharedPtr<MissionCommand>& missionCommand);
+AST_LOADER_API errc_t aLoadMissionCommand(const Value& value, SharedPtr<MissionCommand>& missionCommand, const LoaderContext* context = nullptr);
 
 /// @brief 从文件加载任务命令
 /// @param filepath 文件路径

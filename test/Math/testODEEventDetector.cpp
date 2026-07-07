@@ -18,11 +18,11 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstMath/ODE.hpp"
-#include "AstMath/ODEEventDetector.hpp"
-#include "AstUtil/Constants.h"
-#include "AstUtil/Literals.hpp"
-#include "AstTest/Test.h"
+#include "ast/ODE.hpp"
+#include "ast/ODEEventDetector.hpp"
+#include "ast/Constants.h"
+#include "ast/Literals.hpp"
+#include "ast/Test.h"
 
 AST_USING_NAMESPACE
 using namespace _AST literals;

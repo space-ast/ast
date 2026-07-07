@@ -34,11 +34,10 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API SegmentCalculation: public ObjectCalculation
 {
 public:
+    AST_OBJECT(SegmentCalculation)
     Class* getExpectedType() const override {return Segment::StaticType();};
     errc_t calculateNoCheckType(const Object* obj, double& result) override;
     virtual errc_t calculate(const Segment& segment, double& result) = 0;
-protected:
-
 };
 
 /*! @} */

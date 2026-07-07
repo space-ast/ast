@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/StringView.hpp"
+#include "SpaceWeatherProvider.hpp"
 #include <vector>
 
 AST_NAMESPACE_BEGIN
@@ -35,7 +36,7 @@ AST_NAMESPACE_BEGIN
 /// @details 
 /// 支持加载从Celestrak网站下载的空间天气数据文件。
 /// @see https://celestrak.org/SpaceData/SpaceWx-format.php
-class AST_CORE_API SpaceWeather
+class AST_CORE_API SpaceWeather: public SpaceWeatherProvider
 {
 public:
     /// @brief 空间天气数据条目
@@ -43,9 +44,9 @@ public:
         int mjd;
         int BSRN;
         int ND;
-        int Kp1, Kp2, Kp3, Kp4, Kp5, Kp6, Kp7, Kp8;
+        int Kp[8];
         int KpSum;
-        int Ap1, Ap2, Ap3, Ap4, Ap5, Ap6, Ap7, Ap8;
+        int Ap[8];
         int ApAvg;
         double Cp;
         int C9;
@@ -70,8 +71,11 @@ public:
     /// @return 错误码
     errc_t load(StringView filepath);
 
+    /// @brief 获取数据大小
+    size_t size() const { return data_.size(); }
+
     /// @brief 获取指定MJD的空间天气数据条目
-    /// @param mjd 简约儒略日
+    /// @param mjd 简约儒略日(UTC时间)
     /// @return 空间天气数据条目指针
     /// @details 如果MJD不存在，则返回nullptr。
     const Entry* getEntry(int mjd) const;
@@ -81,10 +85,67 @@ public:
     /// @param entry 空间天气数据条目
     /// @return 错误码
     errc_t setEntry(int mjd, const Entry& entry);
-protected:
+
+public:
+    /// @brief 获取指定时间的Ap的单日平均值
+    /// @param tp 时间点
+    /// @return 对应的时间点的Ap值
+    double getApDaily(const TimePoint& tp) const override;
+
+    /// @brief 获取指定时间的Ap的单日平均值
+    /// @param mjdUTC 简约儒略日(UTC时间)
+    /// @return 对应的MJD的Ap值
+    double getApDaily_UTCMJD(double mjdUTC) const;
+
+    /// @brief 获取从指定时间向前回溯的连续3小时间隔Ap值列表
+    /// @param tp 参考时间点
+    /// @param apList 输出缓冲区（apList[0]=当前块, apList[1]=3小时前, ...）
+    /// @param maxLookback 最多回溯的块数
+    /// @return 实际填充的块数，0表示无数据
+    int getAp3HourlyList(const TimePoint& tp, double* apList, int maxLookback) const override;
+
+    /// @brief 获取指定时间的Kp的单日平均值
+    /// @param tp 时间点
+    /// @return 对应的时间点的Kp值
+    double getKpDaily(const TimePoint& tp) const override;
+
+    /// @brief 获取指定时间的Kp的单日平均值
+    /// @param mjdUTC 简约儒略日(UTC时间)
+    /// @return 对应的MJD的Kp值
+    double getKpDaily_UTCMJD(double mjdUTC) const;
+
+
+    /// @brief 获取指定时间的F10.7单日观测值
+    /// @param tp 时间点
+    /// @return 对应的时间点的F10.7单日观测值
+    double getF10p7Daily(const TimePoint& tp) const override;
+
+    /// @brief 获取指定时间的F10.7单日观测值
+    /// @param mjdUTC 简约儒略日(UTC时间)
+    /// @return 对应的MJD的F10.7单日观测值
+    double getF10p7Daily_UTCMJD(double mjdUTC) const;
+
+
+    /// @brief 获取指定时间的F10.7平均观测值(以输入时间为中心的81天平均观测值)
+    /// @param tp 时间点
+    /// @return 对应的时间点的F10.7平均观测值
+    double getF10p7Average(const TimePoint& tp) const override;
+
+    /// @brief 获取指定时间的F10.7平均观测值(以输入时间为中心的81天平均观测值)
+    /// @param mjdUTC 简约儒略日(UTC时间)
+    /// @return 对应的MJD的F10.7平均观测值
+    double getF10p7Average_UTCMJD(double mjdUTC) const;
+
+    /// @brief 加载空间天气数据文件到指定容器（用于校验等场景）
+    /// @param filepath 文件路径
+    /// @param data 输出容器
+    /// @return 错误码
     static errc_t load(StringView filepath, std::vector<Entry>& data);
 
+protected:
     void findEntryIndex(double mjdUTC, int& index, double& frac) const;
+
+    void findFluxIndex(double mjdUTC, int& index, double& frac) const;
 
 protected:
     std::vector<Entry> data_;

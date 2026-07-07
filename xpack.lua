@@ -35,7 +35,8 @@ xpack("ast")
 
         -- 添加所有工程目标，排除AstGfx和AstGUI
         for targetname, _ in pairs(project.targets()) do
-            if targetname:startswith("Ast") and targetname ~= "AstGfx" and targetname ~= "AstGUI" then
+            if targetname:startswith("Ast") and targetname ~= "AstGfx" 
+            and targetname ~= "AstGUI" and not targetname:startswith("AstUi") then
                 package:add("targets", targetname)
             end
         end

@@ -340,11 +340,12 @@ public:
     {
         return Unit("K", 1.0, EDimension::eTemperature);
     }
+    
     /// @brief  mole单位
-    static Unit Mole()
-    {
-        return Unit("mol", 1.0, EDimension::eAmount);
-    }
+    // static Unit Mole()
+    // {
+    //     return Unit("mol", 1.0, EDimension::eAmount);
+    // }
 
     // 下面是组合单位
 

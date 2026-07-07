@@ -71,7 +71,7 @@ constexpr double kGrav = 6.673e-11;				                                         
 constexpr double kEarthGrav = 3.986004418e14;		                                        ///< 地球引力常数 (WGS84) [m^3/s^2]
 constexpr double kEarthGrav_EGM2008 = 3.986004415e14;                                       ///< 地球引力常数 (EGM2008) [m^3/s^2]
 constexpr double kEarthRadius = 6378137.0;				                                    ///< 地球赤道半径 (WGS84)[m]
-constexpr double kEarthMinRadius = 6.35675231424E6;		                                    ///< 地球最小(南北极)半径 (WGS84)[m]
+constexpr double kEarthMinRadius = 6356752.31424;		                                    ///< 地球最小(南北极)半径 (WGS84)[m]
 constexpr double kEarthFlatFact = 3.35281066475E-3;		                                    ///< 地球扁率 (WGS84), f=1-b/a
 constexpr double kEarthSiderealDay  = 86164.09054;                                          ///< 地球平恒星日 [s]
 constexpr double kEarthSiderealYear = 365.25636;                                            ///< 地球平恒星年 [day]
@@ -82,6 +82,22 @@ constexpr double kEarthAngVel = 7.292115146706979e-5;		                         
 // @fixme 这里应该使用恒星日吧
 // constexpr double kEarthMeanMotion = 1.9910643985790994404796035026544e-7;	            ///< 地球公转平均角速度 (2pi/365.2420897/86400) rad/sec
 // constexpr double kEarthMeanMotion = kTwoPI / (kEarthSiderealYear * 86400);
+
+
+// WGS84相关常量
+constexpr double kEarthRadius_WGS84        = 6378137.0;
+constexpr double kEarthMinRadius_WGS84     = 6356752.31424;
+constexpr double kEarthFlatFact_WGS84      = 3.35281066475E-3; // (1/298.257223563)
+
+
+// CGCS2000相关常量
+constexpr double kEarthRadius_CGCS2000        = 6378137.0;
+constexpr double kEarthMinRadius_CGCS2000     = 6356752.31414;
+constexpr double kEarthFlatFact_CGCS2000      = 1/298.257222101;
+
+// 潮汐相关常量
+// 参考: IERS Conventions (2010), Technical Note 36 (TN36)
+constexpr double kEarthK20LoveNumber = 0.30190;                  ///< 地球2阶位Love数 k20 — IERS 2010 TN36 第6章 第6.2.1节 表6.3 (p.83, 滞弹性地球名义值)
 
 
 // 月球相关常量
@@ -137,7 +153,8 @@ constexpr double kSaturnMinRadius = 5.43640000000000e+007;     ///< 土星最小
 constexpr double kSunGrav = 1.327122E20;				        ///< 太阳引力常数 [m^3/s^2]
 constexpr double kSunRadius = 695990000.0;				        ///< 太阳半径 [m]
 constexpr double kSunMinRadius = 695990000.0;                   ///< 太阳最小半径
-                                                                     
+constexpr double kSunLuminosity = 3.839E26;                     ///< 太阳光度 [W] (Carrol & Ostlie, 2007) An Introduction to Modern Astrophysics
+constexpr double kSolarConstant = 1367.0;                       ///< 太阳常数（1AU处总太阳辐照度）[W/m²]                                                                     
                                                                      
                                                                      
 // 天王星相关常量                                                    
@@ -204,23 +221,25 @@ constexpr double kDaysPerJulianYear = 365.25;              ///< 儒略年天数
 constexpr double kSecondsPerDay   = 86400.0;               ///< 一天的秒数
 constexpr double kSecondsPerHour = 3600.0;                 ///< 一小时的秒数
 constexpr double kSecondsPerMinute = 60.0;                 ///< 一分钟的秒数
-constexpr double kSecondsPerJulianYear = 31557600.0;        ///< 儒略年秒数(kDaysPerJulianYear * kSecondsPerDay)
+constexpr double kSecondsPerJulianYear = 31557600.0;       ///< 儒略年秒数(kDaysPerJulianYear * kSecondsPerDay)
 
 // 角度单位转换常数
 
-constexpr double kRadToDeg     = 57.2957795130823208767;		        ///< 弧度到角度 180.0/kPI
-constexpr double kDegToRad     = 0.017453292519943295769236907684886;	///< 角度到弧度 kPI/180.0
-constexpr double kArcSecToRad  = 4.848136811095359935899141e-6;         ///< 弧秒到弧度 kDegToRad/3600.0 度分秒的秒
-constexpr double kArcMinToRad  = 2.9088820866572159615394846141477e-4;	///< 弧分到弧度 kDegToRad/60.0 度分秒的分
-constexpr double kTimeSecToRad = 7.2722052166430399038487115353692e-5;	///< 时间秒到弧度，时分秒的秒
-constexpr double kTimeMinToRad = 0.0043633231299858239423092269212215;	///< 时间分到弧度，时分秒的分
+constexpr double kDegToRad      = 0.017453292519943295769236907684886;	///< 角度到弧度 kPI/180.0
+constexpr double kArcSecToRad   = 4.848136811095359935899141e-6;        ///< 弧秒到弧度 kDegToRad/3600.0 度分秒的秒
+constexpr double kArcMinToRad   = 2.9088820866572159615394846141477e-4;	///< 弧分到弧度 kDegToRad/60.0 度分秒的分
+constexpr double kTimeSecToRad  = 7.2722052166430399038487115353692e-5;	///< 时间秒到弧度，时分秒的秒
+constexpr double kTimeMinToRad  = 0.0043633231299858239423092269212215;	///< 时间分到弧度，时分秒的分
+constexpr double kTimeHourToRad = kDegToRad * 15.0;	                    ///< 时间时到弧度，时分秒的时
 constexpr double kRevolutionToRad = kTwoPI;                             ///< 周期数到弧度 2.0 * kPI
 
+constexpr double kRadToDeg      = 57.2957795130823208767;		        ///< 弧度到角度 180.0/kPI
+constexpr double kRadToTimeHour = kRadToDeg / 15.0;	                    ///< 弧度到时间时，度分秒的时
 
 /// @brief 获取真空中的光速
 /// @details 这个函数接口是为了应对未来可能允许在软件运行时修改光速的情况
 /// @return 光速
-A_ALWAYS_INLINE double aLightSpeed() noexcept
+A_ALWAYS_INLINE constexpr double aLightSpeed() noexcept
 {
     return kLightSpeed;
 }

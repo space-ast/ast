@@ -39,7 +39,7 @@ class Class;
 /// @details   ~
 /// @param     object 要编辑的对象
 /// @return    errc_t  错误码
-AST_UTIL_CAPI errc_t aUiEditObject(Object *object);
+AST_UTIL_CAPI errc_t aEditObject(Object *object);
 
 
 
@@ -47,7 +47,7 @@ AST_UTIL_CAPI errc_t aUiEditObject(Object *object);
 /// @details   ~
 /// @param     typeName 对象类型名
 /// @return    Object*  选择的对象指针
-AST_UTIL_CAPI Object* aUiSelectObject(StringView typeName);
+AST_UTIL_CAPI Object* aSelectObject(StringView typeName);
 
 
 /*! @} */

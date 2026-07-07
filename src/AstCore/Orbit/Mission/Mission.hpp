@@ -32,5 +32,5 @@
 #include "Sequence.hpp"
 #include "Stop.hpp"
 
-#include "MissionModerator.hpp"
+#include "MainSequence.hpp"
 #include "MissionCommandVisitor.hpp"

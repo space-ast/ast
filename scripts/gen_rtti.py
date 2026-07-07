@@ -81,6 +81,9 @@ class TypeMapper:
         'power_d': PropertyType.DOUBLE,
         'angle_d': PropertyType.DOUBLE,
         'angvel_d': PropertyType.DOUBLE,
+        'temperature_d': PropertyType.DOUBLE,
+        'density_d': PropertyType.DOUBLE,
+        'pressure_d': PropertyType.DOUBLE,
         'float': PropertyType.DOUBLE,
         
         # int类型
@@ -235,7 +238,7 @@ class BaseHeaderAnalyzer:
         lines.append("{")
         
         lines.append("")  # 空行
-        lines.append(f"    cls->setName(\"{class_info.name}\");")
+        lines.append(f"    cls->setName(NC_(\"Class\", \"{class_info.name}\"));")
         if class_info.desc:
             lines.append(f'    cls->setDesc(u8R"({class_info.desc})");')
         lines.append(f"    cls->addToRegistry();")
@@ -254,7 +257,7 @@ class BaseHeaderAnalyzer:
         # 生成addProperty调用
         for _, prop_info in class_info.properties.items():
             prop_name = prop_info.name  # 使用原始属性名
-            if prop_info.type_name in ['length_d', 'mass_d', 'time_d', 'area_d', 'speed_d', 'force_d', 'energy_d', 'power_d', 'angle_d', 'angvel_d']:
+            if prop_info.type_name in ['length_d', 'mass_d', 'time_d', 'area_d', 'speed_d', 'force_d', 'energy_d', 'power_d', 'angle_d', 'angvel_d', 'temperature_d', 'density_d', 'pressure_d']:
                 # 量纲类型
                 dimension_map = {
                     'length_d': 'Dimension::Length()',
@@ -266,13 +269,18 @@ class BaseHeaderAnalyzer:
                     'energy_d': 'Dimension::Energy()',
                     'power_d': 'Dimension::Power()',
                     'angle_d': 'Dimension::Angle()',
-                    'angvel_d': 'Dimension::AngularVelocity()'
+                    'angvel_d': 'Dimension::AngularVelocity()',
+                    'temperature_d': 'Dimension::Temperature()',
+                    'density_d': 'Dimension::Density()',
+                    'pressure_d': 'Dimension::Pressure()'
                 }
                 dimension = dimension_map.get(prop_info.type_name, 'Dimension::None()')
                 if prop_info.getter and prop_info.setter:
                     lines.append(f'    cls->addProperty("{prop_name}", aNewPropertyQuantity<{class_info.name}, &{class_info.name}::{prop_info.getter}, &{class_info.name}::{prop_info.setter}>({dimension}));')
                 elif prop_info.getter:
                     lines.append(f'    cls->addProperty("{prop_name}", aNewPropertyQuantity<{class_info.name}, &{class_info.name}::{prop_info.getter}>({dimension}));')
+                else:
+                    lines.append(f'    cls->addProperty("{prop_name}", aNewPropertyQuantityMem<{class_info.name}, &{class_info.name}::{prop_info.original_name}>({dimension}));')
             elif prop_info.property_type == PropertyType.OBJECT:
                 # 对象类型
                 prop_func = TypeMapper.get_property_function(prop_info.property_type)

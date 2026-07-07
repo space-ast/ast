@@ -142,9 +142,9 @@ AST_NAMESPACE_END
 namespace std
 {
     template<typename _Object>
-    struct hash<ast::WeakPtr<_Object>>
+    struct hash<_AST WeakPtr<_Object>>
     {
-        size_t operator()(const ast::WeakPtr<_Object>& ptr) const
+        size_t operator()(const _AST WeakPtr<_Object>& ptr) const
         {
             return hash<_Object*>()(ptr.get());
         }

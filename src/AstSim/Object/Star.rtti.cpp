@@ -12,7 +12,7 @@ static bool Star_ClassInited = (Star::ClassInit(&Star::staticType), true);
 void Star::ClassInit(Class* cls)
 {
 
-    cls->setName("Star");
+    cls->setName(NC_("Class", "Star"));
     cls->setDesc(u8R"(恒星对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

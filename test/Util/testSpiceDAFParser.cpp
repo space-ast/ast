@@ -18,13 +18,13 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstUtil/DAFParser.hpp"
-#include "AstUtil/SPKParser.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstTest/Test.hpp"
-#include "AstUtil/Environment.hpp"
+#include "ast/DAFParser.hpp"
+#include "ast/SPKParser.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Test.hpp"
+#include "ast/Environment.hpp"
 #include <iostream>
 #include <clocale>
 

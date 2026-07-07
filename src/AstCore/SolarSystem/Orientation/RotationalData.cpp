@@ -31,7 +31,7 @@ errc_t RotationalData::load(StringView filepath)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
-        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
+        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     BKVItemView item;
@@ -136,13 +136,21 @@ void RotationalData::getICRFToFixedTransform(const TimePoint &tp, Rotation &rota
 
 void RotationalData::getICRFToFixedTransform(const TimePoint& tp, KinematicRotation &rotation) const
 {
+    double d = tp.daysFrom(rotationEpoch_);
+    double t = d / kDaysPerJulianCentury;
     this->getICRFToFixedMatrix(tp, rotation.getMatrix());
-    /// @bug 这里需要实现角速度的计算
-    rotation.setRotationRate(Vector3d::Zero());
+    double rotationRate = rotation_.evaluateDot(true, t, d);
+    Vector3d angvel{0,0,rotationRate};
+    rotation.setRotationRate(rotation.getRotation().transformVectorInv(angvel));
 }
 
 void RotationalData::getICRFToInertialMatrix(const TimePoint &tp, Matrix3d &matrix) const
 {
+    /*
+    Inertial 就是 rotationEpoch 对应历元下的 TOD 坐标系
+    这个和地球惯性系不同: 
+    地球J2000.0惯性系是 J2000.0 历元时刻的 MOD 坐标系
+    */
     double rightAscension = rightAscension_.evaluateZero();
     double declination = declination_.evaluateZero();
     double rotation = 0;
@@ -172,6 +180,14 @@ Axes *RotationalData::getTODParent() const
 void RotationalData::getTODTransform(const TimePoint &tp, Rotation &rot) const
 {
     return getICRFToTODTransform(tp, rot);
+}
+
+void RotationalData::getInertialToFixedTransform(const TimePoint &tp, Rotation &rotation) const
+{
+    Rotation rot1, rot2;
+    this->getICRFToInertialTransform(tp, rot1);
+    this->getICRFToFixedTransform(tp, rot2);
+    rotation = rot1.inverse().composed(rot2);
 }
 
 void RotationalData::getICRFToTODMatrix(const TimePoint &tp, Matrix3d &matrix) const

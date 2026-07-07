@@ -1,0 +1,703 @@
+///
+/// @file      InlineTextRenderer.cpp
+/// @brief     行内文本渲染器 — 流式状态机实现
+/// @author    axel
+/// @date      2026-06-15
+/// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
+
+#include "InlineTextRenderer.hpp"
+#include "AstUtil/Escape.hpp"
+#include <algorithm>
+#include <cstring>
+
+AST_NAMESPACE_BEGIN
+
+// ============================================================================
+// ANSI 转义序列
+// ============================================================================
+
+using namespace escape;
+
+// ============================================================================
+// 公开接口
+// ============================================================================
+
+void InlineTextRenderer::feed(StringView chunk, std::string& accumulated)
+{
+	for (auto c : chunk)
+		feedChar(c, accumulated);
+}
+
+void InlineTextRenderer::end(std::string& remaining)
+{
+	// 关闭所有活跃行内样式
+	closeAllInline(remaining);
+
+	// 刷新未闭合的扫描内容
+	if (scanMode_ == SCAN_MARKER)
+	{
+		flushPendingAsLiteral(remaining);
+	}
+	else if (scanMode_ == SCAN_LINK_EXPECT_PAREN)
+	{
+		remaining += '[';
+		resolveInlineContent(linkText_, remaining);
+		remaining += ']';
+		linkText_.clear();
+		remaining += pending_;
+		pending_.clear();
+	}
+	else if (scanMode_ != SCAN_NONE)
+	{
+		// 未闭合的行内标记 — 关闭样式，内容当字面量
+		closeAllInline(remaining);
+		remaining += pending_;
+		pending_.clear();
+	}
+
+	// 刷新 pending_ 剩余
+	if (!pending_.empty())
+	{
+		remaining += pending_;
+		pending_.clear();
+	}
+
+	reset();
+}
+
+void InlineTextRenderer::reset()
+{
+	pending_.clear();
+	linkText_.clear();
+
+	activeStyles_ = STYLE_NONE;
+	scanMode_     = SCAN_NONE;
+	closeChar_    = 0;
+	closeLen_     = 0;
+	italicMarker_ = 0;
+
+	atLineStart_ = true;
+	escapeNext_  = false;
+}
+
+// ============================================================================
+// ANSI 辅助
+// ============================================================================
+
+const char* InlineTextRenderer::ansiOpen(int style)
+{
+	switch (style)
+	{
+	case STYLE_BOLD:   return kBold;
+	case STYLE_ITALIC: return kItalic;
+	case STYLE_CODE:   return kCyan;
+	case STYLE_STRIKE: return kStrike;
+	default:           return "";
+	}
+}
+
+const char* InlineTextRenderer::ansiReset() { return kReset; }
+
+void InlineTextRenderer::emitActiveStyles(std::string& buffer)
+{
+	if (activeStyles_ & STYLE_BOLD)   buffer += kBold;
+	if (activeStyles_ & STYLE_ITALIC) buffer += kItalic;
+	if (activeStyles_ & STYLE_CODE)   buffer += kCyan;
+	if (activeStyles_ & STYLE_STRIKE) buffer += kStrike;
+}
+
+void InlineTextRenderer::emitStyleTransition(std::string& buffer, int oldStyles, int newStyles)
+{
+	if (oldStyles == newStyles) return;
+
+	if (newStyles == STYLE_NONE) { buffer += kReset; return; }
+	if (oldStyles != STYLE_NONE)  buffer += kReset;
+
+	if (newStyles & STYLE_BOLD)   buffer += kBold;
+	if (newStyles & STYLE_ITALIC) buffer += kItalic;
+	if (newStyles & STYLE_CODE)   buffer += kCyan;
+	if (newStyles & STYLE_STRIKE) buffer += kStrike;
+}
+
+void InlineTextRenderer::closeAllInline(std::string& buffer)
+{
+	if (activeStyles_ != STYLE_NONE)
+	{
+		buffer += kReset;
+		activeStyles_ = STYLE_NONE;
+	}
+	italicMarker_ = 0;
+}
+
+bool InlineTextRenderer::isInlineMarker(char c)
+{
+	return c == '*' || c == '_' || c == '`' || c == '[' || c == '~';
+}
+
+void InlineTextRenderer::flushPendingAsLiteral(std::string& buffer)
+{
+	buffer += pending_;
+	pending_.clear();
+}
+
+// ============================================================================
+// 闭合标记查找（用于递归行内解析）
+// ============================================================================
+static size_t findClosing(const std::string& s, size_t start,
+                          const char* marker, int markerLen)
+{
+	char m0 = marker[0];
+	char m1 = (markerLen > 1) ? marker[1] : 0;
+
+	for (size_t i = start; i < s.size(); ++i)
+	{
+		// 跳过转义
+		if (s[i] == '\\' && i + 1 < s.size()) { ++i; continue; }
+
+		if (s[i] != m0) continue;
+
+		if (markerLen == 1)
+		{
+			// 单字符标记：确保不是双字符的一部分
+			if (m0 == '*' && i + 1 < s.size() && s[i + 1] == '*') continue;
+			if (m0 == '_' && i + 1 < s.size() && s[i + 1] == '_') continue;
+			if (m0 == '~' && i + 1 < s.size() && s[i + 1] == '~') continue;
+			return i;
+		}
+		else
+		{
+			if (i + 1 < s.size() && s[i + 1] == m1) return i;
+		}
+	}
+	return std::string::npos;
+}
+
+// ============================================================================
+// 递归行内内容解析
+// ============================================================================
+void InlineTextRenderer::resolveInlineContent(const std::string& text, std::string& buffer)
+{
+	size_t pos = 0;
+	while (pos < text.size())
+	{
+		char c = text[pos];
+
+		// ---- 转义 ----
+		if (c == '\\' && pos + 1 < text.size())
+		{
+			buffer += text[pos + 1];
+			pos += 2;
+			continue;
+		}
+
+		// ---- 粗体 **...** ----
+		if (c == '*' && pos + 1 < text.size() && text[pos + 1] == '*')
+		{
+			size_t end = findClosing(text, pos + 2, "**", 2);
+			if (end != std::string::npos)
+			{
+				std::string inner = text.substr(pos + 2, end - pos - 2);
+				int old = activeStyles_;
+				activeStyles_ |= STYLE_BOLD;
+				emitStyleTransition(buffer, old, activeStyles_);
+				resolveInlineContent(inner, buffer);
+				activeStyles_ = old;
+				emitStyleTransition(buffer, activeStyles_ | STYLE_BOLD, activeStyles_);
+				pos = end + 2;
+				continue;
+			}
+		}
+
+		// ---- 斜体 *...*（不匹配 **） ----
+		if (c == '*' && !(activeStyles_ & STYLE_BOLD))
+		{
+			size_t end = findClosing(text, pos + 1, "*", 1);
+			if (end != std::string::npos)
+			{
+				std::string inner = text.substr(pos + 1, end - pos - 1);
+				int old = activeStyles_;
+				activeStyles_ |= STYLE_ITALIC;
+				italicMarker_ = '*';
+				emitStyleTransition(buffer, old, activeStyles_);
+				resolveInlineContent(inner, buffer);
+				activeStyles_ = old;
+				italicMarker_ = 0;
+				emitStyleTransition(buffer, activeStyles_ | STYLE_ITALIC, activeStyles_);
+				pos = end + 1;
+				continue;
+			}
+		}
+
+		// ---- 斜体 _..._ ----
+		if (c == '_')
+		{
+			size_t end = findClosing(text, pos + 1, "_", 1);
+			if (end != std::string::npos)
+			{
+				std::string inner = text.substr(pos + 1, end - pos - 1);
+				int old = activeStyles_;
+				activeStyles_ |= STYLE_ITALIC;
+				italicMarker_ = '_';
+				emitStyleTransition(buffer, old, activeStyles_);
+				resolveInlineContent(inner, buffer);
+				activeStyles_ = old;
+				italicMarker_ = 0;
+				emitStyleTransition(buffer, activeStyles_ | STYLE_ITALIC, activeStyles_);
+				pos = end + 1;
+				continue;
+			}
+		}
+
+		// ---- 行内代码 `...` ----
+		if (c == '`')
+		{
+			size_t end = text.find('`', pos + 1);
+			if (end != std::string::npos)
+			{
+				std::string code = text.substr(pos + 1, end - pos - 1);
+				int old = activeStyles_;
+				activeStyles_ |= STYLE_CODE;
+				emitStyleTransition(buffer, old, activeStyles_);
+				buffer += code; // 代码内容不做递归解析
+				activeStyles_ = old;
+				emitStyleTransition(buffer, activeStyles_ | STYLE_CODE, activeStyles_);
+				pos = end + 1;
+				continue;
+			}
+		}
+
+		// ---- 删除线 ~~...~~ ----
+		if (c == '~' && pos + 1 < text.size() && text[pos + 1] == '~')
+		{
+			size_t end = findClosing(text, pos + 2, "~~", 2);
+			if (end != std::string::npos)
+			{
+				std::string inner = text.substr(pos + 2, end - pos - 2);
+				int old = activeStyles_;
+				activeStyles_ |= STYLE_STRIKE;
+				emitStyleTransition(buffer, old, activeStyles_);
+				resolveInlineContent(inner, buffer);
+				activeStyles_ = old;
+				emitStyleTransition(buffer, activeStyles_ | STYLE_STRIKE, activeStyles_);
+				pos = end + 2;
+				continue;
+			}
+		}
+
+		// ---- 链接 [text](url) ----
+		if (c == '[')
+		{
+			size_t cb = text.find(']', pos + 1);
+			if (cb != std::string::npos && cb + 1 < text.size() && text[cb + 1] == '(')
+			{
+				size_t ce = text.find(')', cb + 2);
+				if (ce != std::string::npos)
+				{
+					std::string lt  = text.substr(pos + 1, cb - pos - 1);
+					std::string url = text.substr(cb + 2, ce - cb - 2);
+
+					buffer += kUnderline;
+					buffer += kBlue;
+					resolveInlineContent(lt, buffer);
+					buffer += kReset;
+					emitActiveStyles(buffer);
+					buffer += " (";
+					buffer += kBlue;
+					buffer += url;
+					buffer += kReset;
+					emitActiveStyles(buffer);
+					buffer += ")";
+
+					pos = ce + 1;
+					continue;
+				}
+			}
+		}
+
+		// 普通字符
+		buffer += c;
+		++pos;
+	}
+}
+
+// ============================================================================
+// 行内扫描：从 SCAN_MARKER 判定标记类型
+// ============================================================================
+void InlineTextRenderer::startInlineScan(std::string& buffer)
+{
+	if (pending_.empty()) return;
+
+	char c0 = pending_[0];
+
+	// ---- '*'：需第 2 字符区分粗体/斜体 ----
+	if (c0 == '*')
+	{
+		if (pending_.size() >= 2 && pending_[1] == '*')
+		{
+			pending_.clear();
+			scanMode_  = SCAN_BOLD;
+			closeChar_ = '*';
+			closeLen_  = 2;
+			int old = activeStyles_;
+			activeStyles_ |= STYLE_BOLD;
+			emitStyleTransition(buffer, old, activeStyles_);
+			return;
+		}
+		if (pending_.size() >= 2)
+		{
+			// * + 非* → 斜体
+			pending_.erase(0, 1);
+			scanMode_  = SCAN_ITALIC;
+			closeChar_ = '*';
+			closeLen_  = 1;
+			italicMarker_ = '*';
+			int old = activeStyles_;
+			activeStyles_ |= STYLE_ITALIC;
+			emitStyleTransition(buffer, old, activeStyles_);
+			return;
+		}
+		return; // 等待更多
+	}
+
+	// ---- '_'：单字符判斜体 ----
+	if (c0 == '_')
+	{
+		if (pending_.size() >= 2 && pending_[1] == '_')
+		{
+			flushPendingAsLiteral(buffer);
+			scanMode_ = SCAN_NONE;
+			return;
+		}
+		pending_.erase(0, 1);
+		scanMode_  = SCAN_ITALIC;
+		closeChar_ = '_';
+		closeLen_  = 1;
+		italicMarker_ = '_';
+		int old = activeStyles_;
+		activeStyles_ |= STYLE_ITALIC;
+		emitStyleTransition(buffer, old, activeStyles_);
+		return;
+	}
+
+	// ---- '~'：需第 2 字符 ----
+	if (c0 == '~')
+	{
+		if (pending_.size() >= 2 && pending_[1] == '~')
+		{
+			pending_.clear();
+			scanMode_  = SCAN_STRIKE;
+			closeChar_ = '~';
+			closeLen_  = 2;
+			int old = activeStyles_;
+			activeStyles_ |= STYLE_STRIKE;
+			emitStyleTransition(buffer, old, activeStyles_);
+			return;
+		}
+		if (pending_.size() >= 2)
+		{
+			flushPendingAsLiteral(buffer);
+			scanMode_ = SCAN_NONE;
+			return;
+		}
+		return; // 等待更多
+	}
+
+	// ---- '`'：行内代码 ----
+	if (c0 == '`')
+	{
+		pending_.erase(0, 1);
+		scanMode_  = SCAN_CODE;
+		closeChar_ = '`';
+		closeLen_  = 1;
+		int old = activeStyles_;
+		activeStyles_ |= STYLE_CODE;
+		emitStyleTransition(buffer, old, activeStyles_);
+		return;
+	}
+
+	// ---- '['：链接 ----
+	if (c0 == '[')
+	{
+		pending_.erase(0, 1);
+		scanMode_ = SCAN_LINK_TEXT;
+		return;
+	}
+
+	flushPendingAsLiteral(buffer);
+	scanMode_ = SCAN_NONE;
+}
+
+// ============================================================================
+// 行内扫描：检查最新字符是否闭合当前标记
+// ============================================================================
+void InlineTextRenderer::continueScan(std::string& buffer)
+{
+	switch (scanMode_)
+	{
+	case SCAN_ITALIC:
+		if (pending_.size() >= 1 && pending_.back() == closeChar_)
+		{
+			bool esc = (pending_.size() >= 2 && pending_[pending_.size() - 2] == '\\');
+			if (!esc)
+			{
+				std::string inner = pending_.substr(0, pending_.size() - 1);
+				pending_.clear();
+				scanMode_ = SCAN_NONE;
+				int old = activeStyles_;
+				activeStyles_ &= ~STYLE_ITALIC;
+				italicMarker_ = 0;
+				resolveInlineContent(inner, buffer);
+				emitStyleTransition(buffer, old, activeStyles_);
+			}
+		}
+		break;
+
+	case SCAN_BOLD:
+		if (pending_.size() >= 2 &&
+		    pending_[pending_.size() - 2] == '*' &&
+		    pending_[pending_.size() - 1] == '*')
+		{
+			bool esc = (pending_.size() >= 3 && pending_[pending_.size() - 3] == '\\');
+			if (!esc)
+			{
+				std::string inner = pending_.substr(0, pending_.size() - 2);
+				pending_.clear();
+				scanMode_ = SCAN_NONE;
+				int old = activeStyles_;
+				activeStyles_ &= ~STYLE_BOLD;
+				resolveInlineContent(inner, buffer);
+				emitStyleTransition(buffer, old, activeStyles_);
+			}
+		}
+		break;
+
+	case SCAN_CODE:
+		if (pending_.size() >= 1 && pending_.back() == '`')
+		{
+			bool esc = (pending_.size() >= 2 && pending_[pending_.size() - 2] == '\\');
+			if (!esc)
+			{
+				std::string code = pending_.substr(0, pending_.size() - 1);
+				pending_.clear();
+				scanMode_ = SCAN_NONE;
+				int old = activeStyles_;
+				activeStyles_ &= ~STYLE_CODE;
+				buffer += code;
+				emitStyleTransition(buffer, old, activeStyles_);
+			}
+		}
+		break;
+
+	case SCAN_STRIKE:
+		if (pending_.size() >= 2 &&
+		    pending_[pending_.size() - 2] == '~' &&
+		    pending_[pending_.size() - 1] == '~')
+		{
+			bool esc = (pending_.size() >= 3 && pending_[pending_.size() - 3] == '\\');
+			if (!esc)
+			{
+				std::string inner = pending_.substr(0, pending_.size() - 2);
+				pending_.clear();
+				scanMode_ = SCAN_NONE;
+				int old = activeStyles_;
+				activeStyles_ &= ~STYLE_STRIKE;
+				resolveInlineContent(inner, buffer);
+				emitStyleTransition(buffer, old, activeStyles_);
+			}
+		}
+		break;
+
+	case SCAN_LINK_TEXT:
+		if (pending_.size() >= 1 && pending_.back() == ']')
+		{
+			linkText_ = pending_.substr(0, pending_.size() - 1);
+			pending_.clear();
+			scanMode_ = SCAN_LINK_EXPECT_PAREN;
+		}
+		break;
+
+	case SCAN_LINK_EXPECT_PAREN:
+		if (pending_.size() >= 1 && pending_[0] == '(')
+		{
+			pending_.erase(0, 1);
+			scanMode_ = SCAN_LINK_URL;
+		}
+		else if (pending_.size() >= 1)
+		{
+			// 不是链接，回退
+			buffer += '[';
+			resolveInlineContent(linkText_, buffer);
+			buffer += ']';
+			linkText_.clear();
+			buffer += pending_;
+			pending_.clear();
+			scanMode_ = SCAN_NONE;
+		}
+		break;
+
+	case SCAN_LINK_URL:
+		if (pending_.size() >= 1 && pending_.back() == ')')
+		{
+			std::string url = pending_.substr(0, pending_.size() - 1);
+			pending_.clear();
+			scanMode_ = SCAN_NONE;
+
+			buffer += kUnderline;
+			buffer += kBlue;
+			resolveInlineContent(linkText_, buffer);
+			buffer += kReset;
+			emitActiveStyles(buffer);
+			buffer += " (";
+			buffer += kBlue;
+			buffer += url;
+			buffer += kReset;
+			emitActiveStyles(buffer);
+			buffer += ")";
+			linkText_.clear();
+		}
+		break;
+
+	default:
+		break;
+	}
+}
+
+// ============================================================================
+// 换行 / 转义
+// ============================================================================
+void InlineTextRenderer::handleNewline(std::string& buffer)
+{
+	// 1. 处理扫描中的未闭合状态
+	if (scanMode_ == SCAN_MARKER)
+	{
+		flushPendingAsLiteral(buffer);
+		scanMode_ = SCAN_NONE;
+	}
+	else if (scanMode_ == SCAN_LINK_EXPECT_PAREN)
+	{
+		buffer += '[';
+		resolveInlineContent(linkText_, buffer);
+		buffer += ']';
+		linkText_.clear();
+		buffer += pending_;
+		pending_.clear();
+		scanMode_ = SCAN_NONE;
+	}
+	else if (scanMode_ != SCAN_NONE)
+	{
+		// 未闭合的行内标记 — 强制关闭样式，内容当字面量
+		closeAllInline(buffer);
+		buffer += pending_;
+		pending_.clear();
+		scanMode_ = SCAN_NONE;
+	}
+
+	// 2. 关闭所有活跃行内样式
+	closeAllInline(buffer);
+
+	// 3. 输出换行
+	buffer += '\n';
+
+	// 4. 重置行级状态
+	atLineStart_ = true;
+	pending_.clear();
+	scanMode_ = SCAN_NONE;
+}
+
+// ============================================================================
+// 转义处理
+// ============================================================================
+void InlineTextRenderer::handleEscape(char c, std::string& buffer)
+{
+	escapeNext_ = false;
+
+	if (c == '\n')
+	{
+		// 行尾反斜杠 → 硬换行（Markdown 中的 \<newline> = <br>）
+		handleNewline(buffer);
+		return;
+	}
+
+	// 输出转义字符的字面值
+	buffer += c;
+
+	// 如果正在行内扫描，保留 \ 以便递归解析时正确处理
+	if (scanMode_ != SCAN_NONE)
+	{
+		pending_ += '\\';
+		pending_ += c;
+	}
+}
+
+// ============================================================================
+// 核心分发器 feedChar()
+// ============================================================================
+void InlineTextRenderer::feedChar(char c, std::string& buffer)
+{
+	// ---- 1. 转义 ----
+	if (escapeNext_)
+	{
+		handleEscape(c, buffer);
+		return;
+	}
+
+	if (c == '\\')
+	{
+		escapeNext_ = true;
+		return;
+	}
+
+	// ---- 2. 换行 ----
+	if (c == '\n')
+	{
+		handleNewline(buffer);
+		return;
+	}
+
+	// ---- 3. 行内扫描模式 ----
+	if (scanMode_ != SCAN_NONE)
+	{
+		if (scanMode_ == SCAN_MARKER)
+		{
+			pending_ += c;
+			startInlineScan(buffer);
+			return;
+		}
+
+		pending_ += c;
+		continueScan(buffer);
+		return;
+	}
+
+	// ---- 4. 行首 ----
+	if (atLineStart_)
+	{
+		atLineStart_ = false;
+
+		if (isInlineMarker(c))
+		{
+			pending_ += c;
+			scanMode_ = SCAN_MARKER;
+			startInlineScan(buffer);
+		}
+		else
+		{
+			buffer += c;
+		}
+		return;
+	}
+
+	// ---- 5. 行内标记起始 ----
+	if (isInlineMarker(c))
+	{
+		pending_ += c;
+		scanMode_ = SCAN_MARKER;
+		startInlineScan(buffer);
+		return;
+	}
+
+	// ---- 6. 普通字符 ----
+	buffer += c;
+}
+
+AST_NAMESPACE_END

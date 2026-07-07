@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-#include "AstMock/MockCache.hpp"
+#include "ast/MockCache.hpp"
 #include "benchmark/benchmark.h"
 
 AST_USING_NAMESPACE

@@ -57,7 +57,7 @@ public:
     errc_t integrate(ODE& ode, double* y, double& t, double tf) final;
 
     /// @see ODEIntegrator
-    errc_t integrateStep(ODE& ode, double* y, double& t, double tf) final;
+    errc_t integrateOneStep(ODE& ode, double* y, double& t, double tf) final;
 
     /// @brief 设置最大绝对误差
     void setMaxAbsErr(double maxAbsErr){maxAbsErr_ = maxAbsErr;};
@@ -95,8 +95,8 @@ public:
     bool getUseMaxStep() const{return useMaxStep_;};
 
     /// @brief 设置是否使用固定步长
-    // void setUseFixedStep(bool useFixedStep){useFixedStep_ = useFixedStep;};
-    // bool getUseFixedStep() const{return useFixedStep_;};
+    void setUseFixedStep(bool useFixedStep){useFixedStep_ = useFixedStep;};
+    bool getUseFixedStep() const{return useFixedStep_;};
 
     /// @brief 设置初始步长
     void setInitialStepSize(double initialStepSize){setStepSize(initialStepSize);};
@@ -118,7 +118,7 @@ protected:
 PROPERTIES:
     bool useMinStep_;           ///< 是否使用最小步长
     bool useMaxStep_;           ///< 是否使用最大步长
-    // bool useFixedStepSize_;     ///< 是否使用固定步长
+    bool useFixedStep_;         ///< 是否使用固定步长
     bool warnOnMinStep_;        ///< 是否警告最小步长
     int  maxStepAttempts_;      ///< 自适应步长尝试次数
     double minStepSize_;        ///< 最小步长

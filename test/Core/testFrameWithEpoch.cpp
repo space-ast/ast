@@ -17,11 +17,11 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/FrameWithEpoch.hpp"
-#include "AstCore/PointRoot.hpp"
-#include "AstCore/AxesRoot.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/FrameWithEpoch.hpp"
+#include "ast/PointRoot.hpp"
+#include "ast/AxesRoot.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/AstTestMacro.h"
 
 AST_USING_NAMESPACE
 

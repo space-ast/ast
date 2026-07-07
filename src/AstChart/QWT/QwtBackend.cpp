@@ -1,0 +1,457 @@
+///
+/// @file      QwtBackend.cpp
+/// @brief     matplot++ Qwt backend implementation
+/// @details   Implements matplot++ backend_interface using QwtFigure for Qt/Qwt rendering
+/// @author    axel
+/// @date      2026-05-19
+/// @copyright 版权所有 (C) 2025-present, ast项目.
+///
+/// ast项目（https://github.com/space-ast/ast）
+/// 本项目基于 Apache 2.0 开源许可证分发。
+/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
+/// 许可证全文请见：
+///
+///    http://www.apache.org/licenses/LICENSE-2.0
+///
+/// 重要须知：
+/// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
+/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
+/// 使用本软件所产生的风险，需由您自行承担。
+
+#include <QPen>
+#include <QBrush>
+#include "QwtBackend.hpp"
+#include "QwtPlotVisitor.hpp"
+#include "ColoredSurfacePlot.hpp"
+#include "UiFigure.hpp"
+
+#include <matplot/core/axes_type.h>
+#include <matplot/core/figure_type.h>
+#include <matplot/backend/backend_registry.h>
+
+#include <qwt_figure.h>
+#include <qwt_plot.h>
+#include <qwt_plot_grid.h>
+#include <qwt_plot_renderer.h>
+#include <qwt_text.h>
+#include <qwt_plot_layout.h>
+#include <qwt_scale_widget.h>
+#include <qwt_legend.h>
+#include <qwt_plot_legenditem.h>
+#include <qwt3d_surfaceplot.h>
+
+#include <matplot/axes_objects/surface.h>
+
+#include <QApplication>
+#include <QEventLoop>
+#include <QColor>
+#include <QFont>
+#include <QLayout>
+#include <QMainWindow>
+#include <QDebug>
+
+#include <string>
+
+AST_NAMESPACE_BEGIN
+
+class UiFigure;
+struct QwtBackend::Impl {
+public:
+    static constexpr unsigned int kDefaultWidth = 560;
+    static constexpr unsigned int kDefaultHeight = 420;
+    static constexpr unsigned int kDefaultPosX = 680;
+    static constexpr unsigned int kDefaultPosY = 558;
+public:
+    matplot::figure_type* pltfigure_{nullptr};
+    QPointer<UiFigure> uifigure_;
+    unsigned int width_ {kDefaultWidth};
+    unsigned int height_{kDefaultHeight};
+    unsigned int pos_x_ {kDefaultPosX};
+    unsigned int pos_y_ {kDefaultPosY};
+    std::string window_title_;
+public:
+    UiFigure* getUiFigure();
+    UiFigure* getUiFigure(matplot::figure_type* f);
+    void renderFigure(matplot::figure_type* f, UiFigure* fig);
+};
+
+UiFigure* QwtBackend::Impl::getUiFigure() {
+    if (!uifigure_.isNull()) {
+        return uifigure_;
+    }
+    if(pltfigure_)
+    {
+        auto* uifigure = new UiFigure(pltfigure_);
+        uifigure->setFigureSize(static_cast<int>(this->width_),
+                                static_cast<int>(this->height_));
+        if (!this->window_title_.empty()) {
+            uifigure->setWindowTitle(QString::fromStdString(this->window_title_));
+        }
+        this->uifigure_ = uifigure;
+    }
+    return uifigure_;
+}
+
+
+UiFigure* QwtBackend::Impl::getUiFigure(matplot::figure_type* f) {
+    pltfigure_ = f;
+    return getUiFigure();
+}
+
+
+
+QwtBackend::QwtBackend() : impl_(new Impl()) {
+    if (!qApp) {
+        QApplication::setAttribute(Qt::AA_EnableHighDpiScaling); // 启用高DPI缩放
+        QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);    // 启用高分辨率位图支持
+        QApplication::setAttribute(Qt::AA_ShareOpenGLContexts);  // 共享OpenGL上下文
+        static int argc = 0;
+        static char* argv[] = {nullptr};
+        new QApplication(argc, argv);
+    }
+}
+
+QwtBackend::~QwtBackend() {
+    if(impl_->uifigure_) {
+        impl_->uifigure_->deleteLater();
+    }
+}
+
+bool QwtBackend::consumes_gnuplot_commands() { return false; }
+
+bool QwtBackend::is_interactive() { return true; }
+
+static std::string empty_string{};
+
+const std::string& QwtBackend::output() { return empty_string; }
+
+const std::string& QwtBackend::output_format() { return empty_string; }
+
+bool QwtBackend::output(const std::string& filename) 
+{
+    auto iter = filename.find_last_of('.');
+    if(iter == std::string::npos) {
+        return false;
+    }
+    std::string format = filename.substr(iter + 1);
+    std::transform(format.begin(), format.end(), format.begin(), ::toupper);
+    if (format == "PNG" || format == "JPG" || format == "BMP" || format == "SVG" || format == "PDF") {
+        return output(filename, format);
+    }
+    else {
+        return output(filename, "PNG");
+    }
+}
+
+bool QwtBackend::output(const std::string& filename, const std::string& outputformat) {
+    UiFigure* uifigure = impl_->getUiFigure();
+    if(!uifigure || filename.empty()) {
+        return false;
+    }
+    QwtFigure* qwtfigure = uifigure->qwtfigure();
+    if(!qwtfigure) {
+        return false;
+    }
+    std::string format = outputformat;
+    std::transform(format.begin(), format.end(), format.begin(), ::toupper);
+    if (format == "PNG" || format == "JPG" || format == "BMP") {
+        QPixmap pixmap = qwtfigure->saveFig();
+        return pixmap.save(QString::fromStdString(filename), format.c_str());
+    } 
+    else 
+    {
+        auto plots = qwtfigure->allAxes();
+        if (plots.size() == 1) {
+            QwtPlotRenderer renderer;
+            renderer.renderDocument(plots.first(),
+                QString::fromStdString(filename),
+                format.c_str(),
+                QSizeF(impl_->width_ * 25.4 / 96.0, impl_->height_ * 25.4 / 96.0));  // px→mm @96DPI
+            return true;
+        } else {
+            QPixmap pixmap = qwtfigure->saveFig();
+            return pixmap.save(QString::fromStdString(filename), format.c_str());
+        }
+    }
+}
+
+unsigned int QwtBackend::width() { return impl_->width_; }
+unsigned int QwtBackend::height() { return impl_->height_; }
+void QwtBackend::width(unsigned int w) { impl_->width_ = w; }
+void QwtBackend::height(unsigned int h) { impl_->height_ = h; }
+
+unsigned int QwtBackend::position_x() { return impl_->pos_x_; }
+unsigned int QwtBackend::position_y() { return impl_->pos_y_; }
+void QwtBackend::position_x(unsigned int x) { impl_->pos_x_ = x; }
+void QwtBackend::position_y(unsigned int y) { impl_->pos_y_ = y; }
+
+void QwtBackend::window_title(const std::string& title) {
+    impl_->window_title_ = title;
+}
+
+std::string QwtBackend::window_title() {
+    return impl_->window_title_;
+}
+
+bool QwtBackend::new_frame() { return true; }
+
+bool QwtBackend::render_data() {
+    if (auto* uifigure = impl_->getUiFigure()) {
+        uifigure->replotAll();
+    }
+    return true;
+}
+
+bool QwtBackend::should_close() { return false; }
+
+bool QwtBackend::supports_fonts() { return true; }
+
+void QwtBackend::show(matplot::figure_type* f) {
+    UiFigure* uifigure = impl_->getUiFigure(f);
+
+    // 包在 QMainWindow 中，QOpenGLWidget (surface) 需要 QMainWindow 祖先
+    QMainWindow* mw = new QMainWindow();
+    uifigure->setParent(mw);
+    mw->setCentralWidget(uifigure);
+    //mw->resize(uifigure->sizeHint());
+    mw->move(uifigure->pos());
+
+    impl_->renderFigure(f, uifigure);              // 创建所有子部件
+
+    mw->show();
+    mw->raise();
+    mw->setWindowTitle(uifigure->windowTitle());
+    mw->setAttribute(Qt::WA_DeleteOnClose);
+
+    QEventLoop loop;
+    QObject::connect(mw, &QObject::destroyed, &loop, &QEventLoop::quit);
+    loop.exec();
+}
+
+void QwtBackend::draw(matplot::figure_type* f) {
+    UiFigure* uifigure = impl_->getUiFigure(f);
+    impl_->renderFigure(f, uifigure);
+}
+
+
+
+void QwtBackend::Impl::renderFigure(matplot::figure_type* f, UiFigure* uifigure) {
+    auto qwtfigure = uifigure->qwtfigure();
+
+    qwtfigure->clear();
+
+    qwtfigure->setFaceColor(toQColor(f->color()));
+
+    if (!this->window_title_.empty()) {
+        qwtfigure->setWindowTitle(QString::fromStdString(this->window_title_));
+    }
+
+    // 绘图字体
+    QFont figureFont(QString::fromStdString(f->font()), static_cast<int>(f->font_size()));
+
+    for (auto& axes : f->children()) {
+        auto pos = axes->position();
+        float qwtTop = 1.0f - pos[1] - pos[3];
+
+        // 检测是否包含 surface（3D 绘图）
+        bool hasSurface = false;
+        for (auto& obj : axes->children()) {
+            if (dynamic_cast<matplot::surface*>(obj.get())) {
+                hasSurface = true;
+                break;
+            }
+        }
+
+        if (hasSurface) {
+            // [重要]: 必须让 QMainWindow 显示，否则 OpenGLWidget 无法创建 GL 上下文
+            if (auto mw = qobject_cast<QMainWindow*>(qwtfigure->window())) {
+                mw->show();
+            }
+            if(!f->custom_color())
+            {
+                qwtfigure->setFaceColor(Qt::white);
+            }
+            auto* surface3d = new ColoredSurfacePlot(qwtfigure);
+            surface3d->setRotation(axes->elevation(), 0, -axes->azimuth());  // 视角
+            surface3d->setTitle(QString::fromStdString(axes->title()));
+            // surface3d->setBackgroundColor(Qwt3D::RGBA(axes->color()[1], axes->color()[2], axes->color()[3], 1 - axes->color()[0]));
+            // QOpenGLWidget 需要非零尺寸才能创建 GL 上下文
+            // surface3d->resize(static_cast<int>(impl_->width_ * pos[2]),
+            //                   static_cast<int>(impl_->height_ * pos[3]));
+            qwtfigure->addWidget(surface3d, pos[0], qwtTop, pos[2], pos[3]);
+            // fig->addWidget(surface3d, 0., 0., 1., 1.);
+            surface3d->show();
+            QwtPlotVisitor visitor(surface3d);
+            for (auto& obj : axes->children()) {
+                obj->accept(visitor);
+            }
+            // 显示颜色图例(colorbar)
+            if(axes->cb_axis().visible())
+            {
+                surface3d->showColorLegend(true);
+            }
+        } else {
+            auto* plot = new QwtPlot(qwtfigure);
+
+            auto xlim = axes->xlim();
+            auto ylim = axes->ylim();
+            plot->setAxisScale(QwtPlot::xBottom, xlim[0], xlim[1]);
+            plot->setAxisScale(QwtPlot::yLeft, ylim[0], ylim[1]);
+
+            // 坐标轴轴背景颜色
+            plot->setCanvasBackground(QBrush(toQColor(axes->color())));
+
+            // 坐标轴字体
+            auto axesFontFamily = QString::fromStdString(axes->font());
+            int axesFontSize = static_cast<int>(axes->font_size());
+            if (!axesFontFamily.isEmpty() && axesFontSize > 0) {
+                QFont axesFont(axesFontFamily, axesFontSize);
+                plot->setAxisFont(QwtPlot::xBottom, axesFont);
+                plot->setAxisFont(QwtPlot::yLeft, axesFont);
+            } else {
+                plot->setAxisFont(QwtPlot::xBottom, figureFont);
+                plot->setAxisFont(QwtPlot::yLeft, figureFont);
+            }
+
+            // 坐标轴标题
+            if (axes->title_visible() && !axes->title().empty()) {
+                QwtText titleText(QString::fromStdString(axes->title()));
+                titleText.setColor(toQColor(axes->title_color()));
+                auto titleFontFamily = QString::fromStdString(axes->font());
+                int titleFontSize = static_cast<int>(axes->font_size() * axes->title_font_size_multiplier());
+                if (!titleFontFamily.isEmpty() && titleFontSize > 0) {
+                    titleText.setFont(QFont(titleFontFamily, titleFontSize));
+                }
+                plot->setTitle(titleText);
+            }
+
+            // 坐标轴标签
+            auto& xLabel = axes->x_axis().label();
+            if (!xLabel.empty() && axes->x_axis().visible()) {
+                QwtText xLabelText(QString::fromStdString(xLabel));
+                xLabelText.setColor(toQColor(axes->x_axis().color()));
+                plot->setAxisTitle(QwtPlot::xBottom, xLabelText);
+            }
+            auto& yLabel = axes->y_axis().label();
+            if (!yLabel.empty() && axes->y_axis().visible()) {
+                QwtText yLabelText(QString::fromStdString(yLabel));
+                yLabelText.setColor(toQColor(axes->y_axis().color()));
+                plot->setAxisTitle(QwtPlot::yLeft, yLabelText);
+            }
+
+            // 坐标轴可见性
+            plot->setAxisVisible(QwtPlot::xBottom, axes->x_axis().visible());
+            plot->setAxisVisible(QwtPlot::yLeft, axes->y_axis().visible());
+            plot->setAxisVisible(QwtPlot::xTop, axes->x2_axis().visible());
+            plot->setAxisVisible(QwtPlot::yRight, axes->y2_axis().visible());
+
+
+            // 网格
+            if (axes->grid()) {
+                QwtPlotGrid* grid = new QwtPlotGrid();
+                grid->enableXMin(true);
+                grid->enableYMin(true);
+                grid->setPen(QPen(QColor(200, 200, 200), 0.5, Qt::DotLine));
+                grid->attach(plot);
+            }
+
+            // 计算轴装饰占用的像素，补偿归一化坐标使 canvas 精确定位
+            QFont axisFont = plot->axisFont(QwtPlot::xBottom);
+            double leftDeco = 0, rightDeco = 0, bottomDeco = 0, topDeco = 0;
+            if (axes->y_axis().visible() && plot->axisScaleDraw(QwtPlot::yLeft)) {
+                leftDeco = plot->axisScaleDraw(QwtPlot::yLeft)->extent(axisFont);
+            }
+            if (axes->x_axis().visible() && plot->axisScaleDraw(QwtPlot::xBottom)) {
+                bottomDeco = plot->axisScaleDraw(QwtPlot::xBottom)->extent(axisFont);
+            }
+            double figW = static_cast<double>(this->width_);
+            double figH = static_cast<double>(this->height_);
+            qwtfigure->addAxes(plot,
+                pos[0] - leftDeco / figW,
+                qwtTop - topDeco / figH,
+                pos[2] + (leftDeco + rightDeco) / figW,
+                pos[3] + (topDeco + bottomDeco) / figH
+            );
+            // 必须手动 show 才能在已显示的窗口中显示新增的子控件
+            plot->show();
+            auto legend = axes->legend();
+            bool showLegend = legend && legend->visible();
+            // 显示图例
+            if(showLegend)
+            {
+                QwtPlotLegendItem* plotLegend = new QwtPlotLegendItem();
+                plotLegend->setMaxColumns(1);
+                QPen borderPen(Qt::black);
+                borderPen.setWidth(0.5);
+                plotLegend->setBorderPen(borderPen);
+                plotLegend->setBackgroundBrush(QBrush(Qt::white));
+                auto& items = plot->itemList();
+                auto& children = axes->children();
+                int lastItemSize = items.size();
+                auto& strings = legend->strings();
+                QwtPlotVisitor visitor(plot);
+                for (size_t i = 0; i < children.size(); i++) {
+                    auto& child = children[i];
+                    child->accept(visitor);
+                    if(items.size() > lastItemSize)
+                    {
+                        auto item = items.back();
+                        if(!child->display_name().empty())
+                        {
+                            item->setTitle(QString::fromUtf8(child->display_name().c_str()));
+                        }
+                        else if(i < strings.size() && !strings[i].empty())
+                        {
+                            item->setTitle(QString::fromUtf8(strings[i].c_str()));
+                        }
+                        else
+                        {
+                            // 如果数据项没有显示名称，或者图例字符串为空，表示主动隐藏该数据项的图例
+                            item->setItemAttribute(QwtPlotItem::Legend, false);
+                        }
+                        lastItemSize = items.size();
+                    }
+                }
+                // 注意：图例必须在所有数据项之后添加，否则会导致图例显示错误
+                plotLegend->attach(plot);
+            }
+            else{
+                plot->insertLegend(nullptr);
+                QwtPlotVisitor visitor(plot);
+                for (auto& obj : axes->children()) {
+                    obj->accept(visitor);
+                }
+            }
+            
+        }
+    }
+
+    // 强制刷新布局并显示：已显示的 figure 在 clear+重建后，新添加的子控件默认隐藏，
+    // 必须手动 show + updateGeometry + replotAll
+    // for (auto* plot : qwtfigure->allAxes()) {
+    //     plot->setVisible(true);
+    // }
+    // qwtfigure->updateGeometry();
+    // uifigure->replotAll();
+
+    // 刷新原始轴范围记录：clear+重建后旧 QwtPlot 指针已失效，需重新采集
+    uifigure->refreshOriginalLimits();
+
+    // 同步工具栏按钮状态与 matplot 数据模型（图例/网格/色条初始可见性）
+    uifigure->syncToolbarState();
+
+    // 恢复导航状态（数据拾取/平移/放大模式在 clear+重建后需重新安装交互器）
+    uifigure->restoreNavigationState();
+
+    // 恢复编辑模式（overlay + element picker）
+    uifigure->restoreEditModeIfNeeded();
+}
+
+void aUseQwtBackend() {
+    matplot::register_backend("qwt", []() -> matplot::backend::backend_interface* {
+        return new QwtBackend();
+    });
+    matplot::change_default_backend("qwt");
+}
+
+AST_NAMESPACE_END

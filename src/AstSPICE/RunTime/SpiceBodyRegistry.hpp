@@ -35,16 +35,16 @@ AST_NAMESPACE_BEGIN
 class AST_SPICE_API SpiceBodyRegistry
 {
 public:
-    SpiceBodyRegistry() = default;
+    SpiceBodyRegistry();
     explicit SpiceBodyRegistry(bool whetherInit);
-    ~SpiceBodyRegistry() = default;
+    ~SpiceBodyRegistry();
     static SpiceBodyRegistry& Instance();
 
     PBody findBody(StringView name) const;
     PBody findBody(int id) const;
     errc_t init();
 protected:
-    SolarSystem solarSystem_;
+    SharedPtr<SolarSystem> solarSystem_;
 };
 
 /*! @} */

@@ -18,10 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstUtil/XMLParser.hpp"
-#include "AstUtil/XMLSax.hpp"
-#include "AstUtil/XMLDocument.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/XMLParser.hpp"
+#include "ast/XMLSax.hpp"
+#include "ast/XMLDocument.hpp"
+#include "ast/AstTestMacro.h"
 #include <string>
 #include <vector>
 #include <memory>

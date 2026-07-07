@@ -43,14 +43,16 @@ enum class EShadowModel
 
 /// @brief 太阳辐射压力
 /// @details 太阳辐射压力模型
-class SolarRadiationPressure: public ForceModel
+class AST_CORE_API SolarRadiationPressure: public ForceModel
 {
 public:
+    AST_OBJECT(SolarRadiationPressure)
+    
     ESunPosition sunPosition_{ESunPosition::eTrue};      ///< 太阳位置
-    bool detectShadowBoundaries_{false};                 ///< 是否检测阴影边界
-    EShadowModel shadowModel_{EShadowModel::eNone};      ///< 阴影模型类型
+    bool detectShadowBoundaries_{false};                 ///< 是否检测阴影边界[暂不支持该参数]
+    EShadowModel shadowModel_{EShadowModel::eDualCone};  ///< 阴影模型类型
     std::vector<HCelestialBody> eclipsingBodies_;        ///< 遮挡天体列表
-    double atmAltForEclipse_{0.0};                       ///< 用于计算阴影边界的大气高度
+    double atmAltForEclipse_{0.0};                       ///< 用于计算阴影边界的大气高度[暂不支持该参数]
 };
 
 

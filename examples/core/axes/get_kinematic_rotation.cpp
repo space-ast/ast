@@ -1,7 +1,7 @@
-#include "AstCore/BuiltinAxes.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstMath/KinematicRotation.hpp"
-#include "AstMath/Matrix.hpp"
+#include "ast/BuiltinAxes.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/KinematicRotation.hpp"
+#include "ast/Matrix.hpp"
 #include <stdio.h>
 
 AST_USING_NAMESPACE

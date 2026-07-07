@@ -31,8 +31,15 @@ AST_NAMESPACE_BEGIN
 */
 
 
-// DeepSeek 提供了与 OpenAI 相同的 API 接口，因此可以直接使用 OpenAI 类来调用 DeepSeek 的 API
-using DeepSeek = OpenAI;
+/// @brief     DeepSeek API客户端
+/// @details   兼容OpenAI规范，默认使用DeepSeek API端点
+class AST_AI_API DeepSeek: public OpenAI
+{
+public:
+    /// @brief 默认构造函数
+    /// @details 从环境变量读取API密钥，若未设置baseUrl则使用DeepSeek默认端点
+    DeepSeek();
+};
 
 /*! @} */
 

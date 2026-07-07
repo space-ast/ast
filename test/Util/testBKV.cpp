@@ -18,15 +18,15 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstTest/Test.h"
-#include "AstUtil/BKVSaxPrint.hpp"
-#include "AstUtil/BKVParser.hpp"
-#include "AstUtil/StringView.hpp"
-#include "AstUtil/Color.hpp"
-#include "AstUtil/ColorNamed.hpp"
-#include "AstUtil/FileSystem.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstCore/RunTime.hpp"
+#include "ast/Test.h"
+#include "ast/BKVSaxPrint.hpp"
+#include "ast/BKVParser.hpp"
+#include "ast/StringView.hpp"
+#include "ast/Color.hpp"
+#include "ast/ColorNamed.hpp"
+#include "ast/FileSystem.hpp"
+#include "ast/IO.hpp"
+#include "ast/RunTime.hpp"
 
 AST_USING_NAMESPACE
 

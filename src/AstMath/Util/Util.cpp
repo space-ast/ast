@@ -19,8 +19,11 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Util.hpp"
+#include <cmath>
+#include <utility>
 #ifdef AST_WITH_FMT
 #include <fmt/core.h>
+#include <fmt/format.h>
 #endif
 
 AST_NAMESPACE_BEGIN
@@ -52,5 +55,109 @@ void aColMajorMatrixPrint(const double *matrix, int rows, int cols, FILE *file)
     std::string str = aColMajorMatrixToString(matrix, rows, cols);
     fprintf(file, "%s", str.c_str());
 }
+
+int aSolveQuadratic(double a, double b, double c, double& root1, double& root2)
+{
+    // 退化为线性方程 bx + c = 0
+    if (a == 0.0)
+    {
+        if (b == 0.0)
+        {
+            return 0; // 无解
+        }
+        root1 = -c / b;
+        root2 = root1;
+        return 1;
+    }
+
+    const double discriminant = b * b - 4.0 * a * c;
+
+    if (discriminant < 0.0)
+    {
+        return 0; // 一对共轭复根，无实根
+    }
+
+    if (discriminant == 0.0)
+    {
+        root1 = -b / (2.0 * a);
+        root2 = root1;
+        return 1; // 重根
+    }
+
+    // 数值稳定的求根公式：避免相消误差
+    const double sqrtD = std::sqrt(discriminant);
+    if (b > 0.0)
+    {
+        root1 = (-b - sqrtD) / (2.0 * a);
+    }
+    else
+    {
+        root1 = (-b + sqrtD) / (2.0 * a);
+    }
+    root2 = c / (a * root1); // 利用 Viète 定理：root1 * root2 = c/a
+
+    // 确保 root1 是较小的根
+    if (root1 > root2)
+    {
+        std::swap(root1, root2);
+    }
+
+    return 2;
+}
+
+
+void aSolveQuadraticComplex(double a, double b, double c,
+                           std::complex<double>& root1,
+                           std::complex<double>& root2)
+{
+    using Complex = std::complex<double>;
+
+    // 退化为线性方程 bx + c = 0
+    if (a == 0.0)
+    {
+        if (b == 0.0)
+        {
+            root1 = root2 = Complex{};
+            return; // 无解
+        }
+        root1 = root2 = Complex(-c / b, 0.0);
+        return;
+    }
+
+    const double discriminant = b * b - 4.0 * a * c;
+
+    if (discriminant >= 0.0)
+    {
+        // 实根（数值稳定算法）
+        const double sqrtD = std::sqrt(discriminant);
+        double r1, r2;
+        if (b > 0.0)
+        {
+            r1 = (-b - sqrtD) / (2.0 * a);
+        }
+        else
+        {
+            r1 = (-b + sqrtD) / (2.0 * a);
+        }
+        r2 = c / (a * r1);
+
+        if (r1 > r2)
+        {
+            std::swap(r1, r2);
+        }
+
+        root1 = Complex(r1, 0.0);
+        root2 = Complex(r2, 0.0);
+    }
+    else
+    {
+        // 共轭复根
+        const double realPart = -b / (2.0 * a);
+        const double imagPart = std::sqrt(-discriminant) / (2.0 * a);
+        root1 = Complex(realPart, -std::abs(imagPart));
+        root2 = Complex(realPart,  std::abs(imagPart));
+    }
+}
+
 
 AST_NAMESPACE_END

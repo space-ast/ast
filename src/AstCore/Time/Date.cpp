@@ -81,7 +81,7 @@ int aDaysInMonthByYear(int month, int year)
 	};
 
 	if (A_UNLIKELY(month < 1 || month > 12)) {
-		aWarning("month: %d is out of range [1, 12]", month);
+		// aWarning("month: %d is out of range [1, 12]", month);
 		int ryear = (int)floor((month - 1) / 12.);
 		month -= ryear * 12;
 		year += ryear;

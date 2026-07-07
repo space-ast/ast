@@ -23,10 +23,49 @@
 #include "AstMath/ODE.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstCore/EventDetector.hpp"
+#include "AstCore/StateMapper.hpp"
+#include "AstCore/SpacecraftState.hpp"
 
 AST_NAMESPACE_BEGIN
 
-HPOP::HPOP() = default;
+
+class HPOPStateMapper final: public StateMapper
+{
+public:
+    HPOPStateMapper() = default;
+    ~HPOPStateMapper() override = default;
+    void toState(const double* y, double x, SpacecraftState& state) const override
+    {
+        // 设置轨道历元
+        TimePoint time;
+        toTime(x, time);
+        state.setStateEpoch(time);
+
+        // 设置轨道状态
+        // @todo 这里需要处理其他一般情况
+        CartState* cartState = (CartState*)y;
+        state.setState(*cartState);
+    }
+    void fromState(const SpacecraftState& state, double* y, double& x) const override
+    {
+        // 获取轨道历元
+        TimePoint time;
+        state.getStateEpoch(time);
+        fromTime(time, x);
+
+        // 获取轨道状态
+        // @todo 这里需要处理其他一般情况
+        CartState* cartState = (CartState*)y;
+        state.getState(*cartState);
+    }
+};
+
+HPOP::HPOP()
+    : stateMapper_(new HPOPStateMapper())
+{
+
+}
 
 HPOP::~HPOP() = default;
 
@@ -40,9 +79,35 @@ errc_t HPOP::setForceModel(const HPOPForceModel& forcemodel)
     return equation()->setForceModel(forcemodel);
 }
 
+HPOPForceModel& HPOP::forceModel()
+{
+    return equation()->forceModel();
+}
+
+void HPOP::setSpacecraftParam(const SpacecraftParam& spacecraftParam)
+{
+    equation()->setSpacecraftParam(spacecraftParam);
+}
+
+const SpacecraftParam& HPOP::spacecraftParam() const
+{
+    return equation()->spacecraftParam();
+}
+
+Frame* HPOP::propagationFrame() const
+{
+    return equation_->getPropagationFrame();
+}
+
 errc_t HPOP::setPropagationFrame(Frame *frame)
 {
     return equation_->setPropagationFrame(frame);
+}
+
+void HPOP::setIntegrator(ODEIntegrator *integrator)
+{
+    if(integrator)
+        integrator_ = integrator;
 }
 
 ODEIntegrator *HPOP::getIntegrator() const
@@ -54,22 +119,6 @@ ODEIntegrator *HPOP::getIntegrator() const
     return integrator_;
 }
 
-errc_t HPOP::initialize()
-{
-    if (!equation_){
-        equation_ = new HPOPEquation();
-    }
-    if (!integrator_){
-        integrator_ = new RKF78();
-    }
-    equation_->initialize();
-    // err |= integrator_->initialize(equation_);
-    return 0;
-}
-
-
-
-
 errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector3d &position, Vector3d &velocity)
 {
     errc_t err = this->initialize();
@@ -80,7 +129,9 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector
         aError("dimension of equation is not 6");
         return -1;
     }
+    // 设置参考历元
     equation_->setEpoch(startTime);
+    stateMapper_->setEpoch(startTime);
     array6d y = {position.x(), position.y(), position.z(), velocity.x(), velocity.y(), velocity.z()};
     double duration = targetTime - startTime;
     double t = 0;
@@ -94,14 +145,32 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector
 }
 
 
-void HPOP::setIntegrator(ODEIntegrator *integrator)
+errc_t HPOP::initialize()
 {
-    if(integrator)
-        integrator_ = integrator;
+    if (!equation_){
+        equation_ = new HPOPEquation();
+    }
+    if (!integrator_){
+        integrator_ = new RKF78();
+    }
+    return equation_->initialize();
+    // err |= integrator_->initialize(equation_);
 }
 
 
-HPOPEquation* HPOP::equation()
+void HPOP::addEventDetector(EventDetector* eventDetector)
+{
+    if(!eventDetector) return;
+    this->getIntegrator()->addEventDetector(eventDetector->newODEEventDetector(stateMapper_.get()));
+}
+
+void HPOP::clearEventDetectors()
+{
+    this->getIntegrator()->clearEventDetectors();
+}
+
+
+HPOPEquation* HPOP::equation() const
 {
     if(!equation_){
         equation_ = new HPOPEquation();

@@ -18,11 +18,12 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/RotationalData.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstUtil/Logger.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstTest/Test.hpp"
+#include "ast/RotationalData.hpp"
+#include "ast/KinematicRotation.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/Logger.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Test.hpp"
 #include <vector>
 #include <string>
 
@@ -59,7 +60,21 @@ TEST(RotationalData, MarsAttitude2000)
     std::string datadir = aDataDirGet();
     errc_t rc = data.load(datadir + "/SolarSystem/Mars/MarsAttitude2000.rot");
     EXPECT_EQ(rc, eNoError);
-    // test Fixed Frame
+    // test Inertial to Fixed Frame
+    {
+        auto tp = TimePoint::FromUTC(2026, 6, 9, 0, 0, 0);
+        Rotation rotation;
+        data.getInertialToFixedTransform(tp, rotation);
+        Vector3d posICRF{3.6961900000000000e+06, 0.0000000000000000e+00, 0.0000000000000000e+00};
+        Vector3d posFixed = rotation.transformVector(posICRF);
+        printf("posICRF: %s\n", posICRF.toString().c_str());
+        printf("posFixed: %s\n", posFixed.toString().c_str());
+        Vector3d posFixedExpect {-992.529459388687883_km, 3560.436011991111627_km, -1.092182414950934_km};
+        EXPECT_NEAR(posFixedExpect[0], posFixed[0], 1e-4);
+        EXPECT_NEAR(posFixedExpect[1], posFixed[1], 1e-4);
+        EXPECT_NEAR(posFixedExpect[2], posFixed[2], 1e-8);
+    }
+    // test ICRF to Fixed Frame
     {
         auto tp = TimePoint::FromUTC(2026, 2, 20, 0, 0, 0);
         Rotation rotation;
@@ -73,7 +88,31 @@ TEST(RotationalData, MarsAttitude2000)
         EXPECT_NEAR(posFixedExpect[1], posFixed[1], 1e-4);
         EXPECT_NEAR(posFixedExpect[2], posFixed[2], 1e-8);
     }
-    // test Inertial Frame
+    // test ICRF to Fixed Frame with velocity
+    {
+        auto tp = TimePoint::FromUTC(2026, 2, 20, 0, 0, 0);
+        KinematicRotation rotation;
+        data.getICRFToFixedTransform(tp, rotation);
+        Vector3d posICRF{1000_km, 3000_km, 4000_km};
+        Vector3d velICRF{200_m/s, 300_m/s, 400_m/s};
+        Vector3d posFixed, velFixed;
+        rotation.transformVectorVelocity(posICRF, velICRF, posFixed, velFixed);
+        printf("posICRF: %s\n", posICRF.toString().c_str());
+        printf("velICRF: %s\n", velICRF.toString().c_str());
+        printf("posFixed: %s\n", posFixed.toString().c_str());
+        printf("velFixed: %s\n", velFixed.toString().c_str());
+        Vector3d posFixedExpect {-2059074.881399545352906, -3990737.457134430315, 2415414.080652357825 };
+        Vector3d velFixedExpect {-567.5069813814213830_m/s, -210.5576407980583724_m/s, 286.1539854124279145_m/s};
+        
+        EXPECT_NEAR(posFixedExpect[0], posFixed[0], 1e-4);
+        EXPECT_NEAR(posFixedExpect[1], posFixed[1], 1e-4);
+        EXPECT_NEAR(posFixedExpect[2], posFixed[2], 1e-8); 
+
+        EXPECT_NEAR(velFixedExpect[0], velFixed[0], 1e-7);
+        EXPECT_NEAR(velFixedExpect[1], velFixed[1], 1e-7);
+        EXPECT_NEAR(velFixedExpect[2], velFixed[2], 1e-7);
+    }
+    // test ICRF to Inertial Frame
     {
         auto tp = TimePoint::FromUTC(2026, 2, 20, 0, 0, 0);
         Rotation rotation;
@@ -87,7 +126,7 @@ TEST(RotationalData, MarsAttitude2000)
         EXPECT_NEAR(posInertialExpect[1], posInertial[1], 1e-9);
         EXPECT_NEAR(posInertialExpect[2], posInertial[2], 1e-9);
     }
-    // test TOD Frame
+    // test ICRF to TOD Frame
     {
         auto tp = TimePoint::FromUTC(2026, 2, 20, 0, 0, 0);
         Rotation rotation;
@@ -101,7 +140,7 @@ TEST(RotationalData, MarsAttitude2000)
         EXPECT_NEAR(posTODExpect[1], posTOD[1], 1e-9);
         EXPECT_NEAR(posTODExpect[2], posTOD[2], 1e-9);
     }
-    // test MOD Frame
+    // test ICRF to MOD Frame
     {
         auto tp = TimePoint::FromUTC(2026, 2, 20, 0, 0, 0);
         Rotation rotation;
@@ -125,7 +164,7 @@ TEST(RotationalData, NeptuneAttitude2000)
     std::string datadir = aDataDirGet();
     errc_t rc = data.load(datadir + "/SolarSystem/Neptune/NeptuneAttitude2000.rot");
     EXPECT_EQ(rc, eNoError);
-    // test Fixed Frame
+    // test ICRF to Fixed Frame
     {
         auto tp = TimePoint::FromUTC(2026, 2, 22, 0, 0, 0);
         Rotation rotation;
@@ -138,6 +177,31 @@ TEST(RotationalData, NeptuneAttitude2000)
         EXPECT_NEAR(posFixedExpect[0], posFixed[0], 1e-4);
         EXPECT_NEAR(posFixedExpect[1], posFixed[1], 1e-4);
         EXPECT_NEAR(posFixedExpect[2], posFixed[2], 1e-8);
+    }
+    // test ICRF to Fixed Frame with velocity
+    {
+        auto tp = TimePoint::FromUTC(2026, 2, 22, 0, 0, 0);
+        KinematicRotation rotation;
+        data.getICRFToFixedTransform(tp, rotation);
+        Vector3d posICRF{5000_km, 4000_km, 3000_km};
+        Vector3d velICRF{100_m/s, 200_m/s, 300_m/s};
+        Vector3d posFixed, velFixed;
+        rotation.transformVectorVelocity(posICRF, velICRF, posFixed, velFixed);
+        printf("posICRF: %s\n", posICRF.toString().c_str());
+        printf("velICRF: %s\n", velICRF.toString().c_str());
+        printf("posFixed: %s\n", posFixed.toString().c_str());
+        printf("velFixed: %s\n", velFixed.toString().c_str());
+
+        Vector3d posFixedExpect {-5882.733663869602424_km, 3702.339432079606468_km, 1298.509672526069835_km};
+        Vector3d velFixedExpect {44.6370476819352007_m/s, 625.4785967611113620_m/s, 113.0941058437464903_m/s};
+
+        EXPECT_NEAR(posFixedExpect[0], posFixed[0], 1e-4);
+        EXPECT_NEAR(posFixedExpect[1], posFixed[1], 1e-4);
+        EXPECT_NEAR(posFixedExpect[2], posFixed[2], 1e-8);
+
+        EXPECT_NEAR(velFixedExpect[0], velFixed[0], 1e-4);
+        EXPECT_NEAR(velFixedExpect[1], velFixed[1], 1e-4);
+        EXPECT_NEAR(velFixedExpect[2], velFixed[2], 1e-8);
     }
     // test Inertial Frame
     {

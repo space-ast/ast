@@ -30,13 +30,13 @@ void UiSolarRadiationPressure::setupUi()
     mainLayout_ = new QVBoxLayout(this);
     
     // 模型配置
-    modelGroup_ = new QGroupBox("模型", this);
+    modelGroup_ = new QGroupBox(tr("模型"), this);
     modelLayout_ = new QGridLayout(modelGroup_);
     
     typeLayout_ = new QHBoxLayout();
-    typeLabel_ = new QLabel("类型:", this);
+    typeLabel_ = new QLabel(tr("类型:"), this);
     typeCombo_ = new QComboBox(this);
-    typeCombo_->addItem("球形");
+    typeCombo_->addItem(tr("球形"));
     typeLayout_->addWidget(typeLabel_);
     typeLayout_->addWidget(typeCombo_);
     modelLayout_->addLayout(typeLayout_, 0, 0, 1, 2);
@@ -50,50 +50,50 @@ void UiSolarRadiationPressure::setupUi()
     modelLayout_->addLayout(crLayout_, 1, 0);
     
     areaMassLayout_ = new QHBoxLayout();
-    areaMassLabel_ = new QLabel("面积/质量:", this);
+    areaMassLabel_ = new QLabel(tr("面积/质量:"), this);
     areaMassEdit_ = new UiQuantity(this);
-    areaMassEdit_->setValueInUnit(0.02, Unit("m^2/kg"));
+    areaMassEdit_->setDimension(Dimension::Area() / Dimension::Mass());
     areaMassLayout_->addWidget(areaMassLabel_);
     areaMassLayout_->addWidget(areaMassEdit_);
     modelLayout_->addLayout(areaMassLayout_, 1, 1);
     
     // 阴影模型
-    shadowGroup_ = new QGroupBox("阴影模型", this);
+    shadowGroup_ = new QGroupBox(tr("阴影模型"), this);
     shadowLayout_ = new QGridLayout(shadowGroup_);
     
     shadowModelLayout_ = new QHBoxLayout();
-    shadowModelLabel_ = new QLabel("阴影模型:", this);
+    shadowModelLabel_ = new QLabel(tr("阴影模型:"), this);
     shadowModelCombo_ = new QComboBox(this);
     shadowModelLayout_->addWidget(shadowModelLabel_);
     shadowModelLayout_->addWidget(shadowModelCombo_);
     shadowLayout_->addLayout(shadowModelLayout_, 0, 0, 1, 2);
     
     boundaryMitigationLayout_ = new QHBoxLayout();
-    boundaryMitigationCheck_ = new QCheckBox("使用阴影边界缓解", this);
+    boundaryMitigationCheck_ = new QCheckBox(tr("使用阴影边界缓解"), this);
     boundaryMitigationLayout_->addWidget(boundaryMitigationCheck_);
     shadowLayout_->addLayout(boundaryMitigationLayout_, 1, 0, 1, 2);
     
     sunPositionLayout_ = new QHBoxLayout();
-    sunPositionLabel_ = new QLabel("太阳位置计算方法:", this);
+    sunPositionLabel_ = new QLabel(tr("太阳位置计算方法:"), this);
     sunPositionCombo_ = new QComboBox(this);
     sunPositionLayout_->addWidget(sunPositionLabel_);
     sunPositionLayout_->addWidget(sunPositionCombo_);
     shadowLayout_->addLayout(sunPositionLayout_, 2, 0, 1, 2);
     
     atmAltLayout_ = new QHBoxLayout();
-    atmAltLabel_ = new QLabel("中心天体大气高度:", this);
+    atmAltLabel_ = new QLabel(tr("中心天体大气高度:"), this);
     atmAltEdit_ = new UiQuantity(this);
-    atmAltEdit_->setValueInUnit(0.0, Unit("km"));
+    atmAltEdit_->setDimension(Dimension::Length());
     atmAltLayout_->addWidget(atmAltLabel_);
     atmAltLayout_->addWidget(atmAltEdit_);
     shadowLayout_->addLayout(atmAltLayout_, 3, 0, 1, 2);
     
     // 遮挡天体
-    eclipsingGroup_ = new QGroupBox("遮挡天体", this);
+    eclipsingGroup_ = new QGroupBox(tr("遮挡天体"), this);
     eclipsingLayout_ = new QHBoxLayout(eclipsingGroup_);
     
     availableLayout_ = new QVBoxLayout();
-    availableLabel_ = new QLabel("可用", this);
+    availableLabel_ = new QLabel(tr("可用"), this);
     availableList_ = new QListWidget(this);
     availableLayout_->addWidget(availableLabel_);
     availableLayout_->addWidget(availableList_);
@@ -107,7 +107,7 @@ void UiSolarRadiationPressure::setupUi()
     buttonsLayout_->addStretch();
     
     assignedLayout_ = new QVBoxLayout();
-    assignedLabel_ = new QLabel("已分配", this);
+    assignedLabel_ = new QLabel(tr("已分配"), this);
     assignedList_ = new QListWidget(this);
     assignedLayout_->addWidget(assignedLabel_);
     assignedLayout_->addWidget(assignedList_);
@@ -197,31 +197,31 @@ void UiSolarRadiationPressure::applyTo(SolarRadiationPressure* srp)
 void UiSolarRadiationPressure::refreshShadowModel()
 {
     shadowModelCombo_->clear();
-    shadowModelCombo_->addItem("无");
-    shadowModelCombo_->addItem("柱形");
-    shadowModelCombo_->addItem("双锥");
+    shadowModelCombo_->addItem(tr("无"));
+    shadowModelCombo_->addItem(tr("柱形"));
+    shadowModelCombo_->addItem(tr("双锥"));
 }
 
 void UiSolarRadiationPressure::refreshSunPosition()
 {
     sunPositionCombo_->clear();
-    sunPositionCombo_->addItem("真实太阳位置");
-    sunPositionCombo_->addItem("视太阳到真实中心天体");
-    sunPositionCombo_->addItem("视太阳位置");
+    sunPositionCombo_->addItem(tr("真实太阳位置"));
+    sunPositionCombo_->addItem(tr("视太阳到真实中心天体"));
+    sunPositionCombo_->addItem(tr("视太阳位置"));
 }
 
 void UiSolarRadiationPressure::refreshCelestialBodies()
 {
     availableList_->clear();
     // 这里应该添加实际的天体列表，暂时添加一些示例
-    availableList_->addItem("地球");
-    availableList_->addItem("月球");
-    availableList_->addItem("太阳");
-    availableList_->addItem("水星");
-    availableList_->addItem("金星");
-    availableList_->addItem("火星");
-    availableList_->addItem("木星");
-    availableList_->addItem("土星");
+    availableList_->addItem(tr("地球"));
+    availableList_->addItem(tr("月球"));
+    availableList_->addItem(tr("太阳"));
+    availableList_->addItem(tr("水星"));
+    availableList_->addItem(tr("金星"));
+    availableList_->addItem(tr("火星"));
+    availableList_->addItem(tr("木星"));
+    availableList_->addItem(tr("土星"));
 }
 
 void UiSolarRadiationPressure::addEclipsingBody()

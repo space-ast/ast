@@ -56,7 +56,7 @@ UiCelestialBody::UiCelestialBody(QWidget* parent)
     // 引力参数 (GM)
     physicsLayout->addWidget(new QLabel(tr("引力参数 (GM)"), this), 0, 0);
     gmEdit_ = new UiQuantity(this);
-    gmEdit_->setQuantity(Quantity(0, km * km * km / s / s));
+    gmEdit_->setDimension(Dimension::Volume() / Dimension::Time().pow(2));
     physicsLayout->addWidget(gmEdit_, 0, 1);
     
     // 母天体
@@ -78,12 +78,12 @@ UiCelestialBody::UiCelestialBody(QWidget* parent)
     QHBoxLayout* gravityLayout = new QHBoxLayout(gravityGroup);
     
     gravityModelCombo_ = new QComboBox(this);
-    gravityModelCombo_->addItem(tr("Point Mass"));
-    gravityModelCombo_->addItem(tr("ZonalsToJ2"));
-    gravityModelCombo_->addItem(tr("ZonalsToJ4"));
+    gravityModelCombo_->addItem(tr("点质量"));
+    gravityModelCombo_->addItem(tr("J2带谐项"));
+    gravityModelCombo_->addItem(tr("J4带谐项"));
     gravityLayout->addWidget(gravityModelCombo_);
     
-    gravityModelDetailsBtn_ = new QPushButton(tr("Details..."), this);
+    gravityModelDetailsBtn_ = new QPushButton(tr("详情..."), this);
     gravityLayout->addWidget(gravityModelDetailsBtn_);
     gravityLayout->addStretch();
     
@@ -96,26 +96,26 @@ UiCelestialBody::UiCelestialBody(QWidget* parent)
     // 形状类型
     shapeLayout->addWidget(new QLabel(tr("类型"), this), 0, 0);
     shapeCombo_ = new QComboBox(this);
-    shapeCombo_->addItem(tr("Sphere"));
-    shapeCombo_->addItem(tr("Triaxial Ellipsoid"));
+    shapeCombo_->addItem(tr("球体"));
+    shapeCombo_->addItem(tr("椭球"));
     shapeLayout->addWidget(shapeCombo_, 0, 1);
     
     // 半长轴
     shapeLayout->addWidget(new QLabel(tr("半长轴"), this), 1, 0);
     semiMajorAxisEdit_ = new UiQuantity(this);
-    semiMajorAxisEdit_->setQuantity(Quantity(0, km));
+    semiMajorAxisEdit_->setDimension(Dimension::Length());
     shapeLayout->addWidget(semiMajorAxisEdit_, 1, 1);
     
     // 半中轴
     shapeLayout->addWidget(new QLabel(tr("半中轴"), this), 2, 0);
     semiIntermediateAxisEdit_ = new UiQuantity(this);
-    semiIntermediateAxisEdit_->setQuantity(Quantity(0, km));
+    semiIntermediateAxisEdit_->setDimension(Dimension::Length());
     shapeLayout->addWidget(semiIntermediateAxisEdit_, 2, 1);
     
     // 半短轴
     shapeLayout->addWidget(new QLabel(tr("半短轴"), this), 3, 0);
     semiMinorAxisEdit_ = new UiQuantity(this);
-    semiMinorAxisEdit_->setQuantity(Quantity(0, km));
+    semiMinorAxisEdit_->setDimension(Dimension::Length());
     shapeLayout->addWidget(semiMinorAxisEdit_, 3, 1);
     
     mainLayout->addWidget(shapeGroup);
@@ -125,10 +125,10 @@ UiCelestialBody::UiCelestialBody(QWidget* parent)
     QHBoxLayout* orientationLayout = new QHBoxLayout(orientationGroup);
     
     orientationCombo_ = new QComboBox(this);
-    orientationCombo_->addItem(tr("Rotation Coefficients File"));
+    orientationCombo_->addItem(tr("旋转系数文件"));
     orientationLayout->addWidget(orientationCombo_);
     
-    orientationDetailsBtn_ = new QPushButton(tr("Details..."), this);
+    orientationDetailsBtn_ = new QPushButton(tr("详情..."), this);
     orientationLayout->addWidget(orientationDetailsBtn_);
     orientationLayout->addStretch();
     
@@ -141,11 +141,11 @@ UiCelestialBody::UiCelestialBody(QWidget* parent)
     // 星历类型
     ephemerisLayout->addWidget(new QLabel(tr("类型"), this), 0, 0);
     ephemerisCombo_ = new QComboBox(this);
-    ephemerisCombo_->addItem(tr("JPL SPICE"));
+    ephemerisCombo_->addItem(("JPL SPICE"));
     ephemerisLayout->addWidget(ephemerisCombo_, 0, 1);
     
     // SPICE ID
-    ephemerisLayout->addWidget(new QLabel(tr("SPICE ID"), this), 1, 0);
+    ephemerisLayout->addWidget(new QLabel(tr("SPICE 编号"), this), 1, 0);
     spiceIdLabel_ = new QLabel(this);
     ephemerisLayout->addWidget(spiceIdLabel_, 1, 1);
     
@@ -171,9 +171,8 @@ void UiCelestialBody::refreshUi()
         nameEdit_->blockSignals(false);
         
         // 物理参数
-        double gm_km = body->getGM() / 1e9;  // 转换为 km³/s²
         gmEdit_->blockSignals(true);
-        gmEdit_->setQuantity(Quantity(gm_km, km * km * km / s / s));
+        gmEdit_->setValueSI(body->getGM());
         gmEdit_->blockSignals(false);
         
         // 母天体
@@ -203,15 +202,15 @@ void UiCelestialBody::refreshUi()
         {
             A_UNUSED(shape);
             semiMajorAxisEdit_->blockSignals(true);
-            semiMajorAxisEdit_->setQuantity(Quantity(body->getRadius() / 1000.0, km));
+            semiMajorAxisEdit_->setValueSI(body->getRadius());
             semiMajorAxisEdit_->blockSignals(false);
-            
+
             semiIntermediateAxisEdit_->blockSignals(true);
-            semiIntermediateAxisEdit_->setQuantity(Quantity(body->getRadius() / 1000.0, km));
+            semiIntermediateAxisEdit_->setValueSI(body->getRadius());
             semiIntermediateAxisEdit_->blockSignals(false);
-            
+
             semiMinorAxisEdit_->blockSignals(true);
-            semiMinorAxisEdit_->setQuantity(Quantity(body->getRadius() / 1000.0, km));
+            semiMinorAxisEdit_->setValueSI(body->getRadius());
             semiMinorAxisEdit_->blockSignals(false);
         }
         

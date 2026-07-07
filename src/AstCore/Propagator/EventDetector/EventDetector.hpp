@@ -23,13 +23,14 @@
 #include "AstGlobal.h"
 #include "AstMath/ODEEventDetector.hpp"
 #include "AstUtil/ObjectNamed.hpp"
+#include "AstUtil/Dimension.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
 class SpacecraftState;
-
 class ODEEventDetector;
+class StateMapper;
 
 /// @brief 事件检测基类
 /// 事件检测基类，用于检测事件是否发生。
@@ -58,15 +59,20 @@ public:
     /// @return 事件检测开关函数的值
     virtual double getValue(const SpacecraftState& state, double t) const = 0;
 
+    /// @brief 获取事件检测开关函数的量纲
+    /// @return 事件检测开关函数的量纲
+    virtual Dimension getDimension() const {return EDimension::eUnit;}
+
     /// @brief 是否为角度事件检测器
     /// @return 是否为角度事件检测器
-    virtual bool isAngle() const {return false;}
+    bool isAngle() const {return getDimension() == EDimension::eAngle;}
 public:
     
     /// @brief 创建ODE事件检测器实例
+    /// @param stateMapper 状态映射器
     /// @return ODE事件检测器实例指针
     /// @note ODE事件检测器实例的生命周期由调用方负责管理，调用方需要在使用完成后调用析构函数释放资源
-    ODEEventDetector* newODEEventDetector() const;
+    ODEEventDetector* newODEEventDetector(StateMapper* stateMapper) const;
     
 public: // rtti 暂时不支持枚举类型
 

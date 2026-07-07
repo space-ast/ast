@@ -20,10 +20,36 @@
 
 #include "PointMassForce.hpp"
 #include "ForceModel.hpp"
+#include "AstCore/CelestialBody.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
+double PointMassForce::getGM(CelestialBody* body) const
+{
+    if(gmSource_ == EGMSource::eSpecifiedValue)
+    {
+        return specifiedGM_;
+    }
+    if(!body)
+    {
+        aError("null body pointer in PointMassForce::getGM()");
+        return 0.0;
+    }
+    if(gmSource_ == EGMSource::eJplDE)
+    {
+        aWarning("unsupported feature: JPL DE gravity gm source, use body gm instead.");
+        return body->getGM();
+    }
+    else if(gmSource_ == EGMSource::eSystemGravity)
+    {
+        return body->getSystemGM();
+    }
+    if(gmSource_ != EGMSource::eBodyGravity)
+    {
+        aError("unsupported gm source type: %d, use body gm instead.", gmSource_);
+    }
+    return body->getGM();
+}
 
 
 AST_NAMESPACE_END

@@ -42,6 +42,7 @@
 #include "AstSim/CoverageDefinition.hpp"
 #include "AstSim/Facility.hpp"
 #include "AstSim/FigureOfMerit.hpp"
+#include "AstSim/GroundStation.hpp"
 #include "AstSim/GroundVehicle.hpp"
 #include "AstSim/LaunchVehicle.hpp"
 #include "AstSim/LineTarget.hpp"

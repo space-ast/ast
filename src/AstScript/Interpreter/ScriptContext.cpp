@@ -20,6 +20,7 @@
 
 #include "ScriptContext.hpp"
 #include "AstScript/Symbol.hpp"
+#include "AstScript/Variable.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/IO.hpp"
 #include "Interpreter.hpp"  
@@ -48,6 +49,8 @@ public:
     /// @param     interpreter 解释器指针
     void setInterpreter(Interpreter* interpreter)
     {
+        if(!interpreter)
+            return;
         interpreter_ = interpreter;
     }
     /// @brief     获取解释器指针
@@ -74,6 +77,16 @@ Interpreter *aScript_GetInterpreter()
 }
 
 
+Interpreter *aScript_SwapInterpreter(Interpreter* interpreter)
+{
+    if(!interpreter)
+        return nullptr;
+    auto oldInterpreter = tCurrentScriptContext.interpreter();
+    tCurrentScriptContext.setInterpreter(interpreter);
+    return oldInterpreter;
+}
+
+
 void aScript_SetInterpreter(Interpreter* interpreter)
 {
     tCurrentScriptContext.setInterpreter(interpreter);
@@ -89,7 +102,7 @@ void aScript_RemoveInterpreter(Interpreter* interpreter)
     }
 }
 
-SymbolScope *aScript_CurrentSymbolScope()
+ISymbolScope *aScript_CurrentSymbolScope()
 {
     auto interpreter = aScript_GetInterpreter();
     if(interpreter)
@@ -97,6 +110,37 @@ SymbolScope *aScript_CurrentSymbolScope()
         return interpreter->currentScope();
     }
     return nullptr;
+}
+
+void aScript_AddSymbol(Variable* var)
+{
+    if(A_UNLIKELY(!var))
+    {
+        aError("var is null");
+        return;
+    }
+    aScript_AddSymbol(var->name(), var);
+}
+
+
+void aScript_AddSymbol(StringView name, Expr* expr)
+{
+    if(A_UNLIKELY(!expr))
+    {
+        aError("expr is null");
+        return;
+    }
+    auto symbolScope = aScript_CurrentSymbolScope();
+    if(A_UNLIKELY(!symbolScope))
+    {
+        aError("symbol scope is null");
+        return;
+    }
+    auto err = symbolScope->addSymbol(name, expr);
+    if(A_UNLIKELY(err != eNoError))
+    {
+        aError("addSymbol failed: symbol already exists");
+    }
 }
 
 Expr *aScript_FindSymbol(StringView name)

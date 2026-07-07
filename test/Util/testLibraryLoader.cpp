@@ -17,9 +17,9 @@
 /// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 
-#include "AstUtil/LibraryLoader.hpp"
-#include "AstUtil/Posix.hpp"
-#include "AstTest/Test.h"
+#include "ast/LibraryLoader.hpp"
+#include "ast/Posix.hpp"
+#include "ast/Test.h"
 
 #ifdef _WIN32
 #include <windows.h>

@@ -19,6 +19,8 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "SpiceAPI.hpp"
+#include <cstdlib>              // for atexit
+#include <type_traits>          // for aligned_storage
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstCore/RunTimeConfig.hpp"
@@ -111,10 +113,41 @@ bool funcarray_isfull(const SpiceAPI::funcarray& funcs)
     return true;
 }
 
+namespace{
+std::aligned_storage<sizeof(SpiceAPI), alignof(SpiceAPI)>::type buf;  // 单例存储区
+bool singletonDestroyed = false;                                       // 单例是否已销毁
+struct SingletonGuard {
+    SingletonGuard(){
+        new(&buf) SpiceAPI(true);
+        singletonDestroyed = false;
+    }
+    ~SingletonGuard() {
+        reinterpret_cast<SpiceAPI*>(&buf)->~SpiceAPI();
+        // 注意要在析构后再将标志位设置为 true，顺序不能弄反，否则会导致在没有析构时就再次构造单例，产生未定义行为
+        singletonDestroyed = true;
+    }
+};
+}
+
 SpiceAPI* SpiceAPI::Instance()
 {
-    static SpiceAPI instance_{true};
-    return &instance_;
+    static SingletonGuard guard;
+
+    // 采用凤凰单例模式安全承接调用，避免 use-after-destroy。
+    if (A_UNLIKELY(singletonDestroyed))
+    {
+        new(&buf) SpiceAPI(false);
+        singletonDestroyed = false;
+        atexit([]() {
+            if(!singletonDestroyed)
+            {
+                reinterpret_cast<SpiceAPI*>(&buf)->~SpiceAPI();
+                // 注意要在析构后再将标志位设置为 true，顺序不能弄反，否则会导致在没有析构时就再次构造单例，产生未定义行为
+                singletonDestroyed = true;
+            }
+        });
+    }
+    return reinterpret_cast<SpiceAPI*>(&buf);
 }
 
 SpiceAPI::SpiceAPI(bool shouldLoadDynamicLib)
@@ -182,8 +215,12 @@ errc_t SpiceAPI::tryload(const std::vector<std::string>& libpaths)
 errc_t SpiceAPI::unload()
 {
     if(library_)
-        return aFreeLibrary(library_);
-    functions_ = funcarray{};
+    {
+        errc_t rc = aFreeLibrary(library_);
+        library_ = nullptr;
+        functions_ = funcarray{};
+        return rc;
+    }
     return eNoError;
 }
 
@@ -251,7 +288,7 @@ errc_t SpiceAPI::spkuef(int handle)
     functype spkuef_c = reinterpret_cast<functype>(functions_[ispkuef]);
     if(!spkuef_c)
     {
-        aError(kSpiceUnloadError);
+        // aError(kSpiceUnloadError);
         return eErrorNullPtr;
     }
     if(handle >= (spiceproto::SpiceInt)spk_handles_.size() || handle < 0)
@@ -349,7 +386,7 @@ errc_t SpiceAPI::checkerror()
     {
         // 这里必须重置一下，否则后续调用会一直报错...
         reset();
-        return -1;
+        return eError;
     }
     return eNoError;
 }

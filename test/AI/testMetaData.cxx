@@ -18,12 +18,12 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstAI/AgentUtil.hpp"
-#include "AstUtil/RTTIAPI.hpp"
-#include "AstSim/MotionTwoBody.hpp"
-#include "AstUtil/JsonValue.hpp"
-#include "AstUtil/IO.hpp"
-#include "AstTest/Test.h"
+#include "ast/AgentUtil.hpp"
+#include "ast/RTTIAPI.hpp"
+#include "ast/MotionTwoBody.hpp"
+#include "ast/JsonValue.hpp"
+#include "ast/IO.hpp"
+#include "ast/Test.h"
 
 AST_USING_NAMESPACE
 

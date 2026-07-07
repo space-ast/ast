@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/ObjectNamed.hpp"
+#include "AstUtil/Dimension.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -56,6 +57,12 @@ public:
     /// @return 错误码
     virtual errc_t calculateNoCheckType(const Object* obj, double& result) = 0;
 
+    /// @brief 获取计算结果的量纲
+    virtual Dimension getDimension() const {return EDimension::eUnit;}
+
+    /// @brief 检查计算结果是否为角度量纲
+    bool isAngle() const {return getDimension() == EDimension::eAngle;}
+    
     /// @brief 计算结果
     /// @param obj 要计算的对象
     /// @param result 计算结果

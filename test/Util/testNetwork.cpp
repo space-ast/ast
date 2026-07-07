@@ -21,13 +21,13 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/Network.hpp"
-#include "AstTest/Test.h"
+#include "ast/Network.hpp"
+#include "ast/Test.h"
 
 AST_USING_NAMESPACE
 
-// const std::string kHttpTestRoot = "https://postman-echo.com";
-const std::string kHttpTestRoot = "https://httpbin.org";
+const std::string kHttpTestRoot = "https://postman-echo.com";
+// const std::string kHttpTestRoot = "https://httpbin.org";
 
 TEST(NetworkTest, RequestGet)
 {

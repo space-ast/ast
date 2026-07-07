@@ -12,7 +12,7 @@ static bool FrameAssembly_ClassInited = (FrameAssembly::ClassInit(&FrameAssembly
 void FrameAssembly::ClassInit(Class* cls)
 {
 
-    cls->setName("FrameAssembly");
+    cls->setName(NC_("Class", "FrameAssembly"));
     cls->setDesc(u8R"(组装坐标系)");
     cls->addToRegistry();
     cls->setParent<Frame>();

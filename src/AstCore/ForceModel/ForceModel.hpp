@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
 #include "AstUtil/ObjectNamed.hpp"
+#include "AstCore/SunPosition.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,19 +32,14 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 太阳位置
-enum class ESunPosition
-{
-    eTrue,
-    eApparentSunToTrueCB,
-    eApparent,
-};
+
 
 /// @brief 引力常数来源
 enum class EGMSource
 {
-    eBodyGravity,           ///< 来自天体重力场
-    eJplDE,                 ///< 来自JPL DE文件
+    eBodyGravity,           ///< 天体的引力常数
+    eSystemGravity,         ///< 天体系引力常数（考虑天体的卫星）
+    eJplDE,                 ///< 来自JPL DE星历的引力常数
     eSpecifiedValue,        ///< 用户指定的引力常数
 };
 
@@ -53,6 +49,8 @@ enum class EGMSource
 class AST_CORE_API ForceModel: public ObjectNamed
 {
 public:
+    AST_OBJECT(ForceModel)
+
     ForceModel() = default;
     virtual ~ForceModel() = default;
 

@@ -20,9 +20,9 @@
  
  
 
-#include "AstCore/TwoBody.hpp"
-#include "AstCore/Vector.hpp"
-#include "AstTest/AstTestMacro.h"
+#include "ast/TwoBody.hpp"
+#include "ast/Vector.hpp"
+#include "ast/AstTestMacro.h"
 
 
 TEST(TwoBodyTest, Prop)

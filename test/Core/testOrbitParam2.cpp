@@ -17,9 +17,9 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/OrbitParam.hpp"
-#include "AstCore/Constants.h"
-#include "AstTest/AstTestMacro.h"
+#include "ast/OrbitParam.hpp"
+#include "ast/Constants.h"
+#include "ast/AstTestMacro.h"
 #include <cstdio>
 
 AST_USING_NAMESPACE

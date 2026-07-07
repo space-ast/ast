@@ -26,6 +26,7 @@
 #include "AstCore/SimTime.hpp"
 #include "AstCore/HPOPForceModel.hpp"
 #include "AstCore/Frame.hpp"
+#include "AstCore/SpacecraftParam.hpp"
 #include <memory>
 
 
@@ -60,11 +61,24 @@ public:
     errc_t setForceModel(HPOPForceModel&& forceModel);
     errc_t setForceModel(const HPOPForceModel& forceModel);
 
+    /// @brief 获取HPOP力模型
+    HPOPForceModel& forceModel() { return forceModel_; }
+    const HPOPForceModel& forceModel() const { return forceModel_; }
+
+    /// @brief 设置航天器参数
+    void setSpacecraftParam(const SpacecraftParam& spacecraftParam);
+
+    /// @brief 获取航天器参数
+    const SpacecraftParam& spacecraftParam() const { return spacecraftParam_; }
+
     /// @brief 设置预报坐标系
     errc_t setPropagationFrame(Frame* frame);
 
     /// @brief 获取预报坐标系
-    Frame* getPropagationFrame() const{return propFrame_;}
+    Frame* getPropagationFrame() const;
+
+    /// @brief 获取中心天体
+    Body* getCentralBody() const;
 protected:
     /// @brief 添加函数块
     void addBlock(FuncBlock* block);
@@ -76,13 +90,14 @@ public:
     /// @brief 初始化仿真引擎
     errc_t initialize();
 protected:
-    errc_t initializeFromForceModel(const HPOPForceModel& forceModel);
-    errc_t initBlocks(const HPOPForceModel& forceModel);
-protected:
-    BlockDynamicSystem      dynamicSystem_; ///< 动力学系统
-    TimePoint               epoch_{};         ///< 仿真的参考历元
-    HPOPForceModel          forceModel_;    ///< 力模型配置
-    HFrame                  propFrame_;     ///< 预报坐标系
+    errc_t initializeFromForceModel(const HPOPForceModel& forceModel, const SpacecraftParam& spacecraftParam);
+    errc_t initBlocks(const HPOPForceModel& forceModel, const SpacecraftParam &spacecraftParam);
+private:
+    BlockDynamicSystem      dynamicSystem_;     ///< 动力学系统
+    TimePoint               epoch_{};           ///< 仿真的参考历元
+    HPOPForceModel          forceModel_{};      ///< 力模型配置
+    SpacecraftParam         spacecraftParam_{}; ///< 航天器参数
+    HFrame                  propFrame_;         ///< 预报坐标系
 };
 
 AST_NAMESPACE_END

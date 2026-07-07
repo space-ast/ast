@@ -39,6 +39,7 @@ public:
     AST_PROPERT(body)
 public:
     void setBodyByName(StringView bodyName);
+    void setBody(StringView bodyName);
 PROPERTIES:
     Body* body() const {return body_.get();}
     void setBody(Body* body) {body_ = body;}

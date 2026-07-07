@@ -87,6 +87,8 @@ std::string aGetModulePathFromAddress(void *addr)
     else {
         aError("failed to call GetModuleHandleExW");
     }
+#elif defined(A_WASM)
+    aError("WASM not support get module path from address");
 #else
     // Unix-like平台实现 (Linux, macOS等)
     Dl_info dlInfo;
@@ -161,6 +163,8 @@ std::string aExePath()
     else {
         aError("failed to call sysctl");
     }
+#elif defined(A_WASM)
+    aError("WASM not support get exe path");
 #else
     // Linux及其他Unix-like系统实现
     char buffer[PATH_MAX] = { 0 };

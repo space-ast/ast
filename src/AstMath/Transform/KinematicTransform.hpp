@@ -57,6 +57,8 @@ public:
 
     using Transform::getTranslation;
     using Transform::setTranslation;
+    using Transform::transformPosition;
+    using Transform::getRotation;
 
     /// @brief 获取变换
     /// @return 变换

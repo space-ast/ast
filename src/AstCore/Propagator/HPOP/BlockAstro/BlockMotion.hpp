@@ -26,8 +26,20 @@
 
 AST_NAMESPACE_BEGIN
 
-/// @brief     运动学块
-/// @details   求解位置的导数
+/// @brief 运动学函数块
+/// @details
+/// 实现最基本的运动学关系：位置导数等于速度。
+///
+/// 方程：
+///   dr/dt = v
+///
+/// 输入端口：
+///   - "Vel"：速度向量（3维）
+///
+/// 导数端口：
+///   - "Pos"：位置导数（3维），直接赋值为当前速度
+///
+/// @note 当前使用直接赋值（=）而非累加（+=），假设只有此块贡献位置导数
 class AST_CORE_API BlockMotion : public BlockDerivative
 {
 public:

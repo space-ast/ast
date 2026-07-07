@@ -31,6 +31,12 @@ DetectorPeriapsis* DetectorPeriapsis::New()
     return new DetectorPeriapsis();
 }
 
+SharedPtr<DetectorPeriapsis> DetectorPeriapsis::MakeShared()
+{
+    return new DetectorPeriapsis();
+}
+
+
 DetectorPeriapsis::DetectorPeriapsis()
 {
     this->setDirection(EDirection::eIncrease);
@@ -39,11 +45,8 @@ DetectorPeriapsis::DetectorPeriapsis()
 double DetectorPeriapsis::getValue(const SpacecraftState& scState, double t) const
 {
     auto body = this->body();
-    A_UNUSED(body);
-    auto state = scState.getOrbitState();
-    // @todo: 处理其他天体的情况
     CartState cartState;
-    errc_t rc = state->getState(cartState);
+    errc_t rc = scState.getStateInBodyInertial(body, cartState);
     if(rc)
         aWarning("failed to get state");
     double v = cartState.vel().dot(cartState.pos().normalized());    

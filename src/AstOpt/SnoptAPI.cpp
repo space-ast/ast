@@ -1,5 +1,5 @@
 /// @file      SnoptAPI.cpp
-/// @brief     
+/// @brief
 /// @details   ~
 /// @author    axel
 /// @date      27.11.2025
@@ -9,11 +9,11 @@
 /// 本项目基于 Apache 2.0 开源许可证分发。
 /// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
 /// 许可证全文请见：
-/// 
+///
 ///    http://www.apache.org/licenses/LICENSE-2.0
-/// 
+///
 /// 重要须知：
-/// 软件按“现有状态”提供，无任何明示或暗示的担保条件。
+/// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
@@ -44,7 +44,7 @@ SnoptCAPI* aSnopt_Load(const char* sharedLibPath)
     }
     else {
         std::lock_guard<std::mutex> lock(s_snoptMutex); // 使用互斥锁保护加载过程
-		// 双重检查
+        // 双重检查
         if (s_snoptLibHandle) {
             return &s_snoptAPI;
         }
@@ -52,8 +52,12 @@ SnoptCAPI* aSnopt_Load(const char* sharedLibPath)
         s_snoptLibHandle = aLoadLibrary(sharedLibPath);
         if (s_snoptLibHandle) {
             s_snoptAPI.snopta = decltype(&snoptproto::snopta_)(aGetProcAddress(s_snoptLibHandle, A_STR(snopta_)));
+            s_snoptAPI.sninit = decltype(&snoptproto::sninit_)(aGetProcAddress(s_snoptLibHandle, A_STR(sninit_)));
+            s_snoptAPI.snjac  = decltype(&snoptproto::snjac_)(aGetProcAddress(s_snoptLibHandle, A_STR(snjac_)));
             s_snoptAPI.snmema = decltype(&snoptproto::snmema_)(aGetProcAddress(s_snoptLibHandle, A_STR(snmema_)));
-            s_snoptAPI.snjac = decltype(&snoptproto::snjac_)(aGetProcAddress(s_snoptLibHandle, A_STR(snjac_)));
+            s_snoptAPI.snseti = decltype(&snoptproto::snseti_)(aGetProcAddress(s_snoptLibHandle, A_STR(snseti_)));
+            s_snoptAPI.snsetr = decltype(&snoptproto::snsetr_)(aGetProcAddress(s_snoptLibHandle, A_STR(snsetr_)));
+            s_snoptAPI.snset  = decltype(&snoptproto::snset_)(aGetProcAddress(s_snoptLibHandle, A_STR(snset_)));
 
             for (auto func : s_snoptAPI) {
                 if (func == nullptr) {
@@ -103,6 +107,7 @@ SnoptCAPI* aSnopt_Get()
         return &s_snoptAPI;
     return nullptr;
 }
+
 
 
 

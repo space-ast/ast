@@ -65,12 +65,17 @@ enum class EGeoMagFluxUpdateRate
 };
 
 /// @brief 大气阻力模型
-class DragForce : public ForceModel
+class AST_CORE_API DragForce : public ForceModel
 {
 public:
+    AST_OBJECT(DragForce)
     DragForce() = default;
     ~DragForce() = default;
 
+    /// @brief 地磁活动 ap 指数
+    double ap() const;
+
+public:
     /// @name 大气密度模型配置
     /// @{
     EAtmDensityModel atmDensityModel_{EAtmDensityModel::e1976Standard};         ///< 主大气密度模型
@@ -85,9 +90,9 @@ public:
 
     /// @name 手动输入的太阳/地磁指数（useFluxApFile_ == false 时生效）
     /// @{
-    double f10p7Average_{0.0};                                                  ///< 平均 F10.7 太阳射电流量
-    double f10p7Daily_{0.0};                                                    ///< 当日 F10.7 太阳射电流量
-    double kp_{0.0};                                                            ///< 地磁活动 Kp 指数
+    double f10p7Average_{150.0};                                                ///< 平均 F10.7 太阳射电流量
+    double f10p7Daily_{150.0};                                                  ///< 当日 F10.7 太阳射电流量
+    double kp_{3.0};                                                            ///< 地磁活动 Kp 指数
     /// @}
 
     /// @name 文件数据配置参数（useFluxApFile_ == true 时生效）

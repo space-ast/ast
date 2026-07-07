@@ -8,16 +8,19 @@ import os
 import re
 import zipfile
 import shutil
+import subprocess
+import argparse
+import stat
 
 # 项目根目录
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 # 版本声明正则表达式
 # 只匹配文件开头的版权声明，不匹配函数注释
-VERSION_HEADER_PATTERN = re.compile(r'\A\s*(///.*(?:\r?\n))+')
+VERSION_HEADER_PATTERN = re.compile(r'\A(\s*///[^\n]*\n?)+')
 
 # 需要处理的文件扩展名
-SOURCE_EXTENSIONS = ['.cpp', '.h', '.hpp', '.c', ".cpp0", ".0cpp"]
+SOURCE_EXTENSIONS = ['.cpp', '.h', '.hpp', '.c', ".cxx", ".inl", ".cpp0", ".0cpp", ".bak", ".cpp.bak"]
 
 # 需要转换编码的目录
 ENCODE_DIRS = ['examples', 'test']
@@ -25,19 +28,33 @@ ENCODE_DIRS = ['examples', 'test']
 # 需要删除的文件
 FILES_TO_DELETE = [
     os.path.join(ROOT_DIR, 'README_zh.md'),
-    os.path.join(ROOT_DIR, 'README.md')
+    os.path.join(ROOT_DIR, 'README.md'),
+    os.path.join(ROOT_DIR, 'src/README.dox'),
+    os.path.join(ROOT_DIR, 'test/Util/testIO.cpp'),
+    os.path.join(ROOT_DIR, "xpack.lua"),
+    os.path.join(ROOT_DIR, "doxyfile"),
+    os.path.join(ROOT_DIR, ".gitmodules")
 ]
 
 # 压缩包名称
 ZIP_NAME = 'ast-nt.zip'
 
 # 排除的目录
-EXCLUDE_DIRS = ['data', 'docs', '.git', 'build', '.xmake', ".trae", ".vscode", ".github", 
-                ".vs", "thirdparty", "vs2015", "vs2026", "vsxmake2022", "vsxmake2026",
+EXCLUDE_DIRS = ['data', "doc", 'docs', 'build', "thirdparty", "artifacts",
+                ".claude", ".github", ".trae", ".vs", ".vscode", '.xmake', '.git', 
+                "__pycache__", 
+                "vs2015", "vs2026", "vsxmake2022", "vsxmake2026",
                 "node_modules"]
 
 # 空行替换内容（可配置）
-EMPTY_LINE_REPLACEMENT = '// 请不要修改此文件(do not modify this file)'  # 默认替换为空字符串，即删除空行
+EMPTY_LINE_REPLACEMENT = '// 警告：请不要修改此文件，所进行的修改都会被覆盖。为避免丢失，不要修改此文件的代码。'  # 默认替换为空字符串，即删除空行
+
+
+def ensure_writable(file_path):
+    """确保文件可写（Windows 下清除只读属性）"""
+    if not os.access(file_path, os.W_OK):
+        os.chmod(file_path, stat.S_IWRITE | stat.S_IREAD)
+
 
 # 合并模块源文件
 def merge_module_sources():
@@ -101,82 +118,97 @@ def restore_module_sources():
 
 def remove_version_header(file_path):
     """删除文件开头的连续注释块（以 /// 开头）以及中间的空行"""
-    # 用 utf-8-sig 读取，自动跳过可能存在的 BOM
     with open(file_path, 'r', encoding='utf-8-sig') as f:
-        lines = f.readlines()
+        content = f.read()
 
-    # 找到第一个既不是 /// 注释也不是空行的行的索引
-    start_idx = 0
-    for i, line in enumerate(lines):
-        stripped = line.lstrip()  # 去除行首空白，便于判断
-        if stripped.startswith('///') or stripped == '' or stripped.isspace():
-            # 注释行或空行，继续跳过
-            continue
-        else:
-            # 遇到有效代码行，从此处开始保留
-            start_idx = i
-            break
-    else:
-        # 如果整个文件都是注释/空行，则保留原文件不变（防止清空文件）
+    match = VERSION_HEADER_PATTERN.match(content)
+    if not match:
+        return
+
+    new_content = content[match.end():]
+    if not new_content:
+        # 整个文件都是注释/空行，保留原文件不变
         print(f"All lines are comments/empty, skipping: {file_path}")
         return
 
-    # 如果有被跳过的行，则写回文件（使用无 BOM 的 UTF-8 编码）
-    if start_idx > 0:
-        new_lines = lines[start_idx:]
-        with open(file_path, 'w', encoding='utf-8') as f:
-            f.writelines(new_lines)
-        print(f"Removed version header from: {file_path}")
+    ensure_writable(file_path)
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    print(f"Removed version header from: {file_path}")
 
 def convert_to_utf8_bom(file_path):
     """将文件转换为utf8-bom编码"""
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
         content = f.read()
-    
+
+    ensure_writable(file_path)
     with open(file_path, 'w', encoding='utf-8-sig') as f:
         f.write(content)
     print(f"Converted to utf8-bom: {file_path}")
 
+# C++ 原始字符串字面量正则：R"delimiter(content)delimiter"
+RAW_STRING_PATTERN = re.compile(r'R"([^(\s]*)\(.*?\)\1"', re.DOTALL)
+
+
 def replace_empty_lines(file_path):
-    """替换文件中的空行为指定内容"""
+    """替换文件中的空行为指定内容，跳过原始字符串字面量内部的空行"""
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-        lines = f.readlines()
-    
+        content = f.read()
+
+    # 找出所有原始字符串字面量的起止位置
+    raw_spans = [(m.start(), m.end()) for m in RAW_STRING_PATTERN.finditer(content)]
+
+    lines = content.splitlines(keepends=True)
     new_lines = []
+    pos = 0
+
     for line in lines:
+        line_start = pos
+        line_end = pos + len(line)
+        pos = line_end
+
         if line.strip() == '':
-            # 空行，替换为指定内容
-            if EMPTY_LINE_REPLACEMENT:
-                new_lines.append(EMPTY_LINE_REPLACEMENT + '\n')
-            # 如果替换内容为空，则不添加该行
-        else:
-            new_lines.append(line)
-    
+            # 检查该空行是否位于某个原始字符串字面量内部
+            in_raw = any(line_start >= start and line_end <= end
+                         for start, end in raw_spans)
+            if not in_raw:
+                if EMPTY_LINE_REPLACEMENT:
+                    new_lines.append(EMPTY_LINE_REPLACEMENT + '\n')
+                # 如果替换内容为空，则不添加该行
+                continue
+
+        new_lines.append(line)
+
+    ensure_writable(file_path)
     with open(file_path, 'w', encoding='utf-8') as f:
         f.writelines(new_lines)
     print(f"Replaced empty lines in: {file_path}")
 
-def process_files():
-    """处理所有文件"""
+def remove_version_headers():
+    """遍历所有源文件，删除文件开头的版本声明注释块"""
     for root, dirs, files in os.walk(ROOT_DIR):
-        # 跳过不需要处理的目录
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-        
         for file in files:
-            file_path = os.path.join(root, file)
-            ext = os.path.splitext(file)[1]
-            
-            # 删除版本声明
-            if ext in SOURCE_EXTENSIONS:
-                remove_version_header(file_path)
-            
-            # 转换编码
-            if any(encode_dir in root for encode_dir in ENCODE_DIRS) and ext in SOURCE_EXTENSIONS:
-                convert_to_utf8_bom(file_path)
-            
-            # 替换空行（只处理.hpp和.cpp文件）
-            if ext in ['.cpp']:
-                replace_empty_lines(file_path)
+            if os.path.splitext(file)[1] in SOURCE_EXTENSIONS:
+                remove_version_header(os.path.join(root, file))
+
+
+def convert_encoding_to_utf8_bom():
+    """将所有源文件转换为 UTF-8-BOM 编码"""
+    for root, dirs, files in os.walk(ROOT_DIR):
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        for file in files:
+            if os.path.splitext(file)[1] in SOURCE_EXTENSIONS:
+                convert_to_utf8_bom(os.path.join(root, file))
+
+
+def replace_empty_lines_in_cpp():
+    """遍历所有 .cpp 文件，将空行替换为警告注释"""
+    for root, dirs, files in os.walk(ROOT_DIR):
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        for file in files:
+            if file.endswith('.cpp'):
+                replace_empty_lines(os.path.join(root, file))
 
 def delete_files():
     """删除指定文件"""
@@ -294,37 +326,52 @@ def count_code_lines():
     
     return total_lines
 
-def main():
-    """主函数"""
-    print("Starting release process...")
-    
-    # 处理文件
-    process_files()
-    
-    # 删除指定文件
-    delete_files()
-
-    # 合并模块源文件
-    merge_module_sources()
-    
-    
-    # 创建压缩包
-    create_zip()
-    
-    # 复原所有被修改的文件，但排除脚本本身
-    import subprocess
-    print("Restoring modified files...")
-    # 首先获取脚本的相对路径
+def restore_all_files():
+    """通过 git checkout 复原所有被修改的文件，并清理合并产生的临时文件"""
     script_rel_path = os.path.relpath(__file__, ROOT_DIR)
-    # 执行git checkout，排除脚本本身
     subprocess.run(['git', 'add', script_rel_path], cwd=ROOT_DIR, check=True)
     subprocess.run(['git', 'checkout', '--', '.'], cwd=ROOT_DIR, check=True)
     restore_module_sources()
     print("Files restored successfully!")
 
-    # 统计代码行数
+
+def main():
+    """主函数"""
+    parser = argparse.ArgumentParser(description='Release to module nt')
+    parser.add_argument('--no-merge', action='store_false', dest='merge', default=True,
+                        help='不合并模块源文件')
+    parser.add_argument('--no-replace-empty', action='store_false', dest='replace_empty', default=True,
+                        help='不替换 .cpp 文件中的空行')
+    args = parser.parse_args()
+
+    print("Starting release process...")
+
+    print("Deleting specified files...")
+    delete_files()
+
+    print("Removing version headers...")
+    remove_version_headers()
+
+    if args.replace_empty:
+        print("Replacing empty lines in .cpp files...")
+        replace_empty_lines_in_cpp()
+
+    if args.merge:
+        print("Merging module sources...")
+        merge_module_sources()
+
+    print("Converting encoding to UTF-8-BOM...")
+    convert_encoding_to_utf8_bom()
+
+    print("Creating zip archive...")
+    create_zip()
+
+    print("Restoring modified files...")
+    restore_all_files()
+
+    print("Counting code lines...")
     count_code_lines()
-    
+
     print("Release process completed!")
 
 if __name__ == '__main__':

@@ -18,9 +18,9 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstUtil/Dimension.hpp"
-#include "AstTest/AstTestMacro.h"
-#include "AstUtil/IO.hpp"
+#include "ast/Dimension.hpp"
+#include "ast/AstTestMacro.h"
+#include "ast/IO.hpp"
 
 AST_USING_NAMESPACE
 
@@ -36,7 +36,7 @@ TEST(Dimension, BasicDimensions)
     EXPECT_EQ(unit.getAngle(), 0);
     EXPECT_EQ(unit.getCurrent(), 0);
     EXPECT_EQ(unit.getTemperature(), 0);
-    EXPECT_EQ(unit.getAmount(), 0);
+    // EXPECT_EQ(unit.getAmount(), 0);
     EXPECT_EQ(unit.getLuminous(), 0);
 
     // 测试质量量纲
@@ -67,8 +67,8 @@ TEST(Dimension, BasicDimensions)
     Dimension temperature(EDimension::eTemperature);
     EXPECT_EQ(temperature.getTemperature(), 1);
 
-    Dimension amount(EDimension::eAmount);
-    EXPECT_EQ(amount.getAmount(), 1);
+    // Dimension amount(EDimension::eAmount);
+    // EXPECT_EQ(amount.getAmount(), 1);
 
     Dimension luminous(EDimension::eLuminous);
     EXPECT_EQ(luminous.getLuminous(), 1);
@@ -87,7 +87,7 @@ TEST(Dimension, StaticFactoryMethods)
     EXPECT_EQ(Dimension::Time().value(), EDimension::eTime);
     EXPECT_EQ(Dimension::Current().value(), EDimension::eCurrent);
     EXPECT_EQ(Dimension::Temperature().value(), EDimension::eTemperature);
-    EXPECT_EQ(Dimension::Amount().value(), EDimension::eAmount);
+    // EXPECT_EQ(Dimension::Amount().value(), EDimension::eAmount);
     EXPECT_EQ(Dimension::Luminous().value(), EDimension::eLuminous);
     EXPECT_EQ(Dimension::Angle().value(), EDimension::eAngle);
 }
@@ -326,8 +326,8 @@ TEST(Dimension, SetInterface)
         EXPECT_EQ(dim.getTemperature(), 0);
         
         // 测试setAmount
-        dim.setAmount(1);
-        EXPECT_EQ(dim.getAmount(), 1);
+        // dim.setAmount(1);
+        // EXPECT_EQ(dim.getAmount(), 1);
         
         // 测试setLuminous
         dim.setLuminous(-1);
@@ -343,7 +343,7 @@ TEST(Dimension, SetInterface)
            .setCurrent(4)
            .setAngle(-5)
            .setTemperature(6)
-           .setAmount(-7)
+           //.setAmount(-7)
            .setLuminous(0);
         
         EXPECT_EQ(dim.getMass(), 1);
@@ -352,7 +352,7 @@ TEST(Dimension, SetInterface)
         EXPECT_EQ(dim.getCurrent(), 4);
         EXPECT_EQ(dim.getAngle(), -5);
         EXPECT_EQ(dim.getTemperature(), 6);
-        EXPECT_EQ(dim.getAmount(), -7);
+        // EXPECT_EQ(dim.getAmount(), -7);
         EXPECT_EQ(dim.getLuminous(), 0);
     }
     
@@ -438,8 +438,8 @@ TEST(Dimension, SymbolAndName)
         EXPECT_EQ(Dimension::Temperature().name(), "Temperature");
         EXPECT_EQ(Dimension::Temperature().symbol(), aText("Θ"));
         
-        EXPECT_EQ(Dimension::Amount().name(), "Amount of Substance");
-        EXPECT_EQ(Dimension::Amount().symbol(), "N");
+        // EXPECT_EQ(Dimension::Amount().name(), "Amount of Substance");
+        // EXPECT_EQ(Dimension::Amount().symbol(), "N");
         
         EXPECT_EQ(Dimension::Luminous().name(), "Luminous Intensity");
         EXPECT_EQ(Dimension::Luminous().symbol(), "J");

@@ -20,6 +20,8 @@
 
 #include "MotionMissionCommand.hpp"
 #include "AstSim/MotionProfileVisitor.hpp"
+#include "AstCore/MainSequence.hpp"
+#include "AstUtil/RTTIAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -27,6 +29,11 @@ AST_NAMESPACE_BEGIN
 MotionMissionCommand* MotionMissionCommand::New()
 {
     return new MotionMissionCommand();
+}
+
+MotionMissionCommand::MotionMissionCommand()
+{
+    mainSequence_ = aNewObject<MainSequence>(this);
 }
 
 errc_t MotionMissionCommand::makeEphemerisSpec(ScopedPtr<Ephemeris>& eph) const

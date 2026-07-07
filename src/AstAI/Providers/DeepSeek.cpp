@@ -19,9 +19,15 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "DeepSeek.hpp"
+#include "AstUtil/Posix.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
+DeepSeek::DeepSeek()
+{
+    // 环境变量优先，若未设置则使用DeepSeek默认端点
+    if(baseUrl().empty())
+        setBaseUrl("https://api.deepseek.com/v1");
+}
 
 AST_NAMESPACE_END

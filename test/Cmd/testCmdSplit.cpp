@@ -21,8 +21,8 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCmd/CommandDispatcher.hpp"
-#include "AstTest/Test.h"
+#include "ast/CommandDispatcher.hpp"
+#include "ast/Test.h"
 
 
 AST_USING_NAMESPACE

@@ -77,8 +77,22 @@ errc_t ExprAttribute::setValue(Value *value)
 
 std::string ExprAttribute::getExpression(Object *context) const
 {
-    aWarning("not implemented");
+    // @todo 需要处理名称为空的情况
+    auto* obj = attribute_.object();
+    auto* prop = attribute_.property();
+    if (obj && prop)
+        return obj->getName() + "." + prop->name();
     return {};
+}
+
+errc_t ExprAttribute::setValueDouble(double val)
+{
+    return attribute_.setValueDouble(val);
+}
+
+errc_t ExprAttribute::getValueDouble(double& val) const
+{
+    return attribute_.getValueDouble(val);
 }
 
 AST_NAMESPACE_END

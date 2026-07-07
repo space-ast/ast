@@ -34,7 +34,7 @@
 
 
 AST_NAMESPACE_BEGIN
-
+using namespace math;
 
 
 errc_t aRotationMatrix(double angle, int axis, Matrix3d &mtx)
@@ -282,7 +282,39 @@ errc_t _aEulerToMatrix(const Euler& euler, int seq, Matrix3d& mtx)
 	return rc;
 }
 
-// matrix and euler convertion
+
+// matrix and euler convertion(2 angles)
+
+void aEuler32ToMatrix(const array2d& euler, Matrix3d& mtx)
+{
+	double a1 = euler[0];
+	double a2 = euler[1];
+	double cosa1, sina1, cosa2, sina2;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	mtx = {
+		cosa1 * cosa2,   sina1 * cosa2,  -sina2,
+		-sina1,          cosa1,          0.,
+		cosa1 * sina2,   sina1 * sina2,  cosa2
+	};
+}
+
+void aEuler31ToMatrix(const array2d& euler, Matrix3d& mtx)
+{
+	double a1 = euler[0];
+	double a2 = euler[1];
+	double cosa1, sina1, cosa2, sina2;
+	sincos(a1, &sina1, &cosa1);
+	sincos(a2, &sina2, &cosa2);
+	mtx = {
+		cosa1,           sina1,          0,
+		-cosa2 * sina1,  cosa1 * cosa2,  sina2,
+		sina1 * sina2,   - cosa1 * sina2,  cosa2
+	};
+}
+
+
+// matrix and euler convertion(3 angles)
 
 
 void aEuler123ToMatrix(const Euler& euler, Matrix3d& mtx)
@@ -307,7 +339,7 @@ void aMatrixToEuler123(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(2, 0)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(-mtx(2, 1), mtx(2, 2));
-		euler.angle2() = asin(mtx(2, 0));
+		euler.angle2() = asinSafe(mtx(2, 0));
 		euler.angle3() = atan2(-mtx(1, 0), mtx(0, 0));
 	}
 	else {              // angle2 旋转90°/270°时有奇异
@@ -339,7 +371,7 @@ void aMatrixToEuler231(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(0, 1)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(-mtx(0, 2), mtx(0, 0));
-		euler.angle2() = asin(mtx(0, 1));
+		euler.angle2() = asinSafe(mtx(0, 1));
 		euler.angle3() = atan2(-mtx(2, 1), mtx(1, 1));
 	}
 	else {              // angle2 旋转90°/270°时有奇异
@@ -372,7 +404,7 @@ void aMatrixToEuler312(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(1, 2)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(-mtx(1, 0), mtx(1, 1));
-		euler.angle2() = asin(mtx(1, 2));
+		euler.angle2() = asinSafe(mtx(1, 2));
 		euler.angle3() = atan2(-mtx(0, 2), mtx(2, 2));
 	}
 	else {              // angle2 旋转90°/270°时有奇异
@@ -407,7 +439,7 @@ void aMatrixToEuler321(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(0, 2)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(0, 1), mtx(0, 0));
-		euler.angle2() = -asin(mtx(0, 2));
+		euler.angle2() = -asinSafe(mtx(0, 2));
 		euler.angle3() = atan2(mtx(1, 2), mtx(2, 2));
 	}
 	else {            // angle2 旋转90°/270°时有奇异
@@ -439,7 +471,7 @@ void aMatrixToEuler213(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(2, 1)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(2, 0), mtx(2, 2));
-		euler.angle2() = -asin(mtx(2, 1));
+		euler.angle2() = -asinSafe(mtx(2, 1));
 		euler.angle3() = atan2(mtx(0, 1), mtx(1, 1));
 	}
 	else {            // 旋转90°/270°时有奇异
@@ -471,7 +503,7 @@ void aMatrixToEuler132(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(1, 0)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(1, 2), mtx(1, 1));
-		euler.angle2() = -asin(mtx(1, 0));
+		euler.angle2() = -asinSafe(mtx(1, 0));
 		euler.angle3() = atan2(mtx(2, 0), mtx(0, 0));
 	}
 	else {            // 旋转90°/270°时有奇异
@@ -505,7 +537,7 @@ void aMatrixToEuler121(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(0, 0)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(0, 1), -mtx(0, 2));
-		euler.angle2() = acos(mtx(0, 0));
+		euler.angle2() = acosSafe(mtx(0, 0));
 		euler.angle3() = atan2(mtx(1, 0), mtx(2, 0));
 	}
 	else {            // angle2 旋转 0°/180°时有奇异
@@ -540,7 +572,7 @@ void aMatrixToEuler232(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(1, 1)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(1, 2), -mtx(1, 0));
-		euler.angle2() = acos(mtx(1, 1));
+		euler.angle2() = acosSafe(mtx(1, 1));
 		euler.angle3() = atan2(mtx(2, 1), mtx(0, 1));
 	}
 	else {            // 旋转 0°/180°时有奇异
@@ -563,7 +595,7 @@ void aEuler313ToMatrix(const Euler& euler, Matrix3d& mtx)
 	sincos(a2, &sina2, &cosa2);
 	sincos(a3, &sina3, &cosa3);
 	mtx = {
-		cos(a1) * cosa3 - cosa2 * sina1 * sina3, cosa3 * sina1 + cosa1 * cosa2 * sina3, sina2 * sina3,
+		cosa1 * cosa3 - cosa2 * sina1 * sina3, cosa3 * sina1 + cosa1 * cosa2 * sina3, sina2 * sina3,
 		-cosa1 * sina3 - cosa2 * cosa3 * sina1, cosa1 * cosa2 * cosa3 - sina1 * sina3, cosa3 * sina2,
 		sina1 * sina2,                          -cosa1 * sina2,         cosa2
 	};
@@ -575,7 +607,7 @@ void aMatrixToEuler313(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(2, 2)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(2, 0), -mtx(2, 1));
-		euler.angle2() = acos(mtx(2, 2));
+		euler.angle2() = acosSafe(mtx(2, 2));
 		euler.angle3() = atan2(mtx(0, 2), mtx(1, 2));
 	}
 	else {            // 旋转 0°/180°时有奇异
@@ -610,7 +642,7 @@ void aMatrixToEuler131(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(0, 0)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(0, 2), mtx(0, 1));
-		euler.angle2() = acos(mtx(0, 0));
+		euler.angle2() = acosSafe(mtx(0, 0));
 		euler.angle3() = atan2(mtx(2, 0), -mtx(1, 0));
 	}
 	else {            // 旋转 0°/180°时有奇异
@@ -645,7 +677,7 @@ void aMatrixToEuler212(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(1, 1)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(1, 0), mtx(1, 2));
-		euler.angle2() = acos(mtx(1, 1));
+		euler.angle2() = acosSafe(mtx(1, 1));
 		euler.angle3() = atan2(mtx(0, 1), -mtx(2, 1));
 	}
 	else {            // 旋转 0°/180°时有奇异
@@ -699,7 +731,7 @@ void aMatrixToEuler323(const Matrix3d& mtx, Euler& euler)
 	if (std::abs(mtx(2, 2)) < 1. - TO_EULER_EPS)
 	{
 		euler.angle1() = atan2(mtx(2, 1), mtx(2, 0));
-		euler.angle2() = acos(mtx(2, 2));
+		euler.angle2() = acosSafe(mtx(2, 2));
 		euler.angle3() = atan2(mtx(1, 2), -mtx(0, 2));
 	}
 	else {            // 旋转 0°/180°时有奇异

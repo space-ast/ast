@@ -59,7 +59,7 @@ void UiHPOPForceModel::setupUi()
     // 引力模型标签页
     gravityTab_ = new QWidget(this);
     gravityTabLayout_ = new QVBoxLayout(gravityTab_);
-    tabWidget_->addTab(gravityTab_, "引力模型");
+    tabWidget_->addTab(gravityTab_, u8"引力模型");
     
     gravityWidget_ = new UiGravityForce(gravityTab_);
     gravityTabLayout_->addWidget(gravityWidget_);
@@ -67,7 +67,7 @@ void UiHPOPForceModel::setupUi()
     // 三体引力标签页
     thirdBodyTab_ = new QWidget(this);
     thirdBodyTabLayout_ = new QVBoxLayout(thirdBodyTab_);
-    tabWidget_->addTab(thirdBodyTab_, "三体引力");
+    tabWidget_->addTab(thirdBodyTab_, u8"三体引力");
     
     thirdBodyWidget_ = new UiThirdBodyForceList(thirdBodyTab_);
     thirdBodyTabLayout_->addWidget(thirdBodyWidget_);
@@ -75,7 +75,7 @@ void UiHPOPForceModel::setupUi()
     // 大气阻力标签页
     dragTab_ = new QWidget(this);
     dragTabLayout_ = new QVBoxLayout(dragTab_);
-    tabWidget_->addTab(dragTab_, "大气阻力");
+    tabWidget_->addTab(dragTab_, u8"大气阻力");
     
     dragWidget_ = new UiDragForce(dragTab_);
     dragTabLayout_->addWidget(dragWidget_);
@@ -83,7 +83,7 @@ void UiHPOPForceModel::setupUi()
     // 太阳光压标签页
     srpTab_ = new QWidget(this);
     srpTabLayout_ = new QVBoxLayout(srpTab_);
-    tabWidget_->addTab(srpTab_, "太阳光压");
+    tabWidget_->addTab(srpTab_, u8"太阳光压");
     
     srpWidget_ = new UiSolarRadiationPressure(srpTab_);
     srpTabLayout_->addWidget(srpWidget_);

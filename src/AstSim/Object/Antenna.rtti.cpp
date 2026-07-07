@@ -12,7 +12,7 @@ static bool Antenna_ClassInited = (Antenna::ClassInit(&Antenna::staticType), tru
 void Antenna::ClassInit(Class* cls)
 {
 
-    cls->setName("Antenna");
+    cls->setName(NC_("Class", "Antenna"));
     cls->setDesc(u8R"(天线对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

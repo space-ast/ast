@@ -25,7 +25,7 @@
 AST_NAMESPACE_BEGIN
 
 
-errc_t aUiEditObject(Object *object)
+errc_t aEditObject(Object *object)
 {
     GUIInterface *gui = GUIInterface::CurrentInstance();
     if (gui == nullptr)
@@ -35,7 +35,7 @@ errc_t aUiEditObject(Object *object)
     return gui->editObject(object);
 }
 
-Object *aUiSelectObject(StringView typeName)
+Object *aSelectObject(StringView typeName)
 {
     GUIInterface *gui = GUIInterface::CurrentInstance();
     if (gui == nullptr)

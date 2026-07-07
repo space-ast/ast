@@ -18,18 +18,18 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/FrameTransform.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstCore/Frame.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/MoonFrame.hpp"
-#include "AstCore/JplDe.hpp"
-#include "AstMath/Transform.hpp"
-#include "AstMath/KinematicTransform.hpp"
-#include "AstMath/Matrix.hpp"
-#include "AstUtil/Literals.hpp"
-#include "AstTest/Test.h"
+#include "ast/FrameTransform.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/Frame.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/MoonFrame.hpp"
+#include "ast/JplDe.hpp"
+#include "ast/Transform.hpp"
+#include "ast/KinematicTransform.hpp"
+#include "ast/Matrix.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Test.h"
 
 AST_USING_NAMESPACE
 

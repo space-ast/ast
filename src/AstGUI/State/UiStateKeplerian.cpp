@@ -19,12 +19,16 @@
 
 #include "UiStateKeplerian.hpp"
 #include "AstCore/StateKeplerian.hpp"
+#include "AstCore/State.hpp"
+#include "AstCore/Frame.hpp"
+#include "AstGUI/UiSelectFrame.hpp"
 #include "AstUtil/Unit.hpp"
 #include "AstUtil/Quantity.hpp"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QComboBox>
+#include <QPushButton>
 
 AST_NAMESPACE_BEGIN
 
@@ -55,10 +59,20 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     
     // 坐标系
     QLabel* frameLabel = new QLabel(tr("坐标系"), this);
-    frameCombo_ = new QComboBox(this);
-    frameCombo_->addItem(tr("ICRF"));
+    frameEdit_ = new QLineEdit(this);
+    frameEdit_->setReadOnly(true);
+    frameEdit_->setText(("ICRF"));
+    frameSelectBtn_ = new QPushButton(("..."), this);
+    frameSelectBtn_->setFixedWidth(30);
+    frameSelectBtn_->setToolTip(tr("选择坐标系 (天体 + 类型)"));
+    auto* frameWidget = new QWidget(this);
+    frameWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    auto* frameBar = new QHBoxLayout(frameWidget);
+    frameBar->setContentsMargins(0, 0, 0, 0);
+    frameBar->addWidget(frameEdit_);
+    frameBar->addWidget(frameSelectBtn_);
     mainLayout->addWidget(frameLabel, row, 0);
-    mainLayout->addWidget(frameCombo_, row, 2);
+    mainLayout->addWidget(frameWidget, row, 2);
     row++;
     
     // 轨道大小
@@ -73,7 +87,7 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     sizeTypeCombo_->addItem(tr("平均角速度"), static_cast<int>(ESizeType::eMeanMotion));
 
     sizeEdit_ = new UiQuantity(this);
-    sizeEdit_->setQuantity(Quantity(6678137));
+    sizeEdit_->setDimension(Dimension::Length());
     mainLayout->addWidget(sizeLabel_, row, 0);
     mainLayout->addWidget(sizeTypeCombo_, row, 1);
     mainLayout->addWidget(sizeEdit_, row, 2);
@@ -89,7 +103,7 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     shapeTypeCombo_->addItem(tr("近地点半径"), static_cast<int>(EShapeType::ePeriRad));
 
     shapeEdit_ = new UiQuantity(this);
-    shapeEdit_->setQuantity(Quantity(0.0));
+    shapeEdit_->setDimension(Dimension::Unit());
     mainLayout->addWidget(shapeLabel_, row, 0);
     mainLayout->addWidget(shapeTypeCombo_, row, 1);
     mainLayout->addWidget(shapeEdit_, row, 2);
@@ -98,7 +112,7 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     // 倾角
     incLabel_ = new QLabel(tr("倾角"), this);
     incEdit_ = new UiQuantity(this);
-    incEdit_->setQuantity(Quantity(0.0, deg));
+    incEdit_->setDimension(Dimension::Angle());
     mainLayout->addWidget(incLabel_, row, 0);
     mainLayout->addWidget(incEdit_, row, 2);
     row++;
@@ -110,7 +124,7 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     orientationTypeCombo_->addItem(tr("升交点经度"), static_cast<int>(EOrientationType::eLAN));
     
     orientationEdit_ = new UiQuantity(this);
-    orientationEdit_->setQuantity(Quantity(0.0, deg));
+    orientationEdit_->setDimension(Dimension::Angle());
     mainLayout->addWidget(orientationLabel_, row, 0);
     mainLayout->addWidget(orientationTypeCombo_, row, 1);
     mainLayout->addWidget(orientationEdit_, row, 2);
@@ -119,7 +133,7 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     // 近地点幅角
     argPeriLabel_ = new QLabel(tr("近地点幅角"), this);
     argPeriEdit_ = new UiQuantity(this);
-    argPeriEdit_->setQuantity(Quantity(0.0, deg));
+    argPeriEdit_->setDimension(Dimension::Angle());
     mainLayout->addWidget(argPeriLabel_, row, 0);
     mainLayout->addWidget(argPeriEdit_, row, 2);
     row++;
@@ -137,12 +151,14 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     // positionTypeCombo_->addItem(tr("过升交点时刻"), static_cast<int>(EPositionType::eTimeOfAscNodePassage));
 
     positionEdit_ = new UiQuantity(this);
-    positionEdit_->setQuantity(Quantity(0.0, deg));
+    positionEdit_->setDimension(Dimension::Angle());
     mainLayout->addWidget(positionLabel_, row, 0);
     mainLayout->addWidget(positionTypeCombo_, row, 1);
     mainLayout->addWidget(positionEdit_, row, 2);
     row++;
-    
+
+    mainLayout->setRowStretch(row, 1);
+
     setLayout(mainLayout);
 
     // 连接信号槽
@@ -157,7 +173,21 @@ UiStateKeplerian::UiStateKeplerian(QWidget *parent) : UiState(parent)
     connect(argPeriEdit_, &UiQuantity::quantityChanged, this, &UiStateKeplerian::onArgPeriChanged);
     connect(positionEdit_, &UiQuantity::quantityChanged, this, &UiStateKeplerian::onPositionParamChanged);
     connect(positionTypeCombo_, &QComboBox::currentTextChanged, this, &UiStateKeplerian::onPositionTypeChanged);
-    connect(frameCombo_, &QComboBox::currentTextChanged, this, &UiStateKeplerian::onFrameChanged);
+    connect(frameSelectBtn_, &QPushButton::clicked, this, &UiStateKeplerian::onSelectFrame);
+}
+
+void UiStateKeplerian::onSelectFrame()
+{
+    auto* state = getStateKeplerian();
+    if (!state)
+        return;
+
+    auto* frame = aUiSelectFrame();
+    if (frame)
+    {
+        state->changeFrame(frame);
+        this->refreshUi();
+    }
 }
 
 void UiStateKeplerian::refreshUi()
@@ -361,13 +391,16 @@ void UiStateKeplerian::refreshSizeParam()
         case ESizeType::ePeriAlt:
         case ESizeType::eApoRad:
         case ESizeType::ePeriRad:
-            sizeEdit_->setQuantity(Quantity(sizeParam, m));
+            sizeEdit_->setDimension(Dimension::Length());
+            sizeEdit_->setValueSI(sizeParam);
             break;
         case ESizeType::ePeriod:
-            sizeEdit_->setQuantity(Quantity(sizeParam, s));
+            sizeEdit_->setDimension(Dimension::Time());
+            sizeEdit_->setValueSI(sizeParam);
             break;
         case ESizeType::eMeanMotion:
-            sizeEdit_->setQuantity(Quantity(sizeParam, rad / s));
+            sizeEdit_->setDimension(Dimension::AngularVelocity());
+            sizeEdit_->setValueSI(sizeParam);
             break;
         }
     }
@@ -396,13 +429,15 @@ void UiStateKeplerian::refreshShapeParam()
         double shapeParam = state->getShapeParam();
         switch(shapeType){
         case EShapeType::eEcc:
-            shapeEdit_->setQuantity(Quantity(shapeParam));
+            shapeEdit_->setDimension(Dimension::Unit());
+            shapeEdit_->setValueSI(shapeParam);
             break;
         case EShapeType::eApoAlt:
         case EShapeType::ePeriAlt:
         case EShapeType::eApoRad:
         case EShapeType::ePeriRad:
-            shapeEdit_->setQuantity(Quantity(shapeParam, m));
+            shapeEdit_->setDimension(Dimension::Length());
+            shapeEdit_->setValueSI(shapeParam);
             break;
         }
     }
@@ -428,7 +463,7 @@ void UiStateKeplerian::refreshOrientationParam()
     if (auto state = getStateKeplerian())
     {
         double orientationParam = state->getOrientationParam();
-        orientationEdit_->setQuantity(Quantity(orientationParam, rad));
+        orientationEdit_->setValueSI(orientationParam);
     }
 }
 
@@ -458,11 +493,13 @@ void UiStateKeplerian::refreshPositionParam()
         case EPositionType::eMeanAnomaly:
         case EPositionType::eEccAnomaly:
         case EPositionType::eArgLat:
-            positionEdit_->setQuantity(Quantity(positionParam, rad));
+            positionEdit_->setDimension(Dimension::Angle());
+            positionEdit_->setValueSI(positionParam);
             break;
         case EPositionType::eTimePastPeri:
         case EPositionType::eTimePastAscNode:
-            positionEdit_->setQuantity(Quantity(positionParam, s));
+            positionEdit_->setDimension(Dimension::Time());
+            positionEdit_->setValueSI(positionParam);
             break;
         case EPositionType::eTimeOfPeriPassage:
         case EPositionType::eTimeOfAscNodePassage:
@@ -483,8 +520,11 @@ void UiStateKeplerian::refreshEpoch()
 
 void UiStateKeplerian::refreshFrame()
 {
-    // 坐标系暂时只支持ICRF
-    frameCombo_->setCurrentIndex(0);
+    if (auto* state = getStateKeplerian())
+    {
+        if (auto* frame = state->getFrame())
+            frameEdit_->setText(QString::fromUtf8(frame->getRepresentation().c_str()));
+    }
 }
 
 void UiStateKeplerian::refreshInc()

@@ -1,0 +1,1 @@
+#include "AstGUI/UiMotionProfile.hpp"

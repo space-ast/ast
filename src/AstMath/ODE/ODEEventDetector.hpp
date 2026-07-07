@@ -50,13 +50,13 @@ public:
     /// @param x 当前积分变量
     /// @param y 当前状态向量
     /// @return 用于事件检测的开关函数值与目标值的差值
-    virtual double getDifference(const double* y,double x) const{return getValue(y, x) - goal_;}
+    virtual double getDifference(const double* y, double x) const{return getValue(y, x) - goal_;}
 
     /// @brief 用于事件检测的开关函数值
     /// @param y 当前状态向量
     /// @param x 当前积分变量
     /// @return 用于事件检测的开关函数值
-    virtual double getValue(const double* y,double x) const = 0;
+    virtual double getValue(const double* y, double x) const = 0;
 
     /// @brief 判断括号区间内是否存在该事件
     /// @param bracket 括号区间

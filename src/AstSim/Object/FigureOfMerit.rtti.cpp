@@ -12,7 +12,7 @@ static bool FigureOfMerit_ClassInited = (FigureOfMerit::ClassInit(&FigureOfMerit
 void FigureOfMerit::ClassInit(Class* cls)
 {
 
-    cls->setName("FigureOfMerit");
+    cls->setName(NC_("Class", "FigureOfMerit"));
     cls->setDesc(u8R"(性能指标对象)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();

@@ -108,13 +108,62 @@ void Sequence::linkCommands()
 void Sequence::setCommands(const std::vector<HMissionCommand>& commands)
 {
     commands_ = commands;
+    for(auto& command : commands_)
+        command->setParentScope(this);
     linkCommands();
 }
 
 void Sequence::setCommands(std::vector<HMissionCommand>&& commands)
 {
     commands_ = std::move(commands);
+    for(auto& command : commands_)
+        command->setParentScope(this);
     linkCommands();
+}
+
+void Sequence::addCommand(MissionCommand* command)
+{
+    if (!command)
+        return;
+    HMissionCommand keepAlive(command);
+    command->removeFromParentSequence();
+    command->setParentScope(this);
+    commands_.push_back(keepAlive);
+    linkCommands();
+}
+
+void Sequence::insertCommand(int index, MissionCommand* command)
+{
+    if (!command)
+        return;
+    HMissionCommand keepAlive(command);
+    command->removeFromParentSequence();
+    command->setParentScope(this);
+    commands_.insert(commands_.begin() + index, keepAlive);
+    linkCommands();
+}
+
+
+errc_t Sequence::removeCommand(MissionCommand* command)
+{
+    if (!command)
+        return eErrorNullInput;
+    for (size_t i=0; i<commands_.size(); i++)
+    {
+        auto& commandPtr = commands_[i];
+        if(auto cmd = commandPtr.get())
+        {
+            if(cmd == command)
+            {
+                if(command->getParentScope() == this)
+                    command->setParentScope(nullptr);
+                commands_.erase(commands_.begin() + i);
+                linkCommands();
+                return eNoError;
+            }
+        }
+    }
+    return eErrorNotFound;
 }
 
 Segment* Sequence::getSegmentByPath(StringView path)

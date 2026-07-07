@@ -29,6 +29,9 @@ def gen_module_header(srcroot, incroot):
 
 def clean_header(incroot):
     for root, dirnames, filenames in os.walk(incroot):
+        # 跳过 ast/ 目录，该目录由 gen_ast_forward.py 管理
+        if "ast" in dirnames:
+            dirnames.remove("ast")
         for file in filenames:
             if not file.endswith(".h") and not file.endswith(".hpp"):
                 continue   
@@ -52,7 +55,8 @@ def clean_header(incroot):
 
 if __name__ == "__main__":
     try:
-        rootdir = os.path.dirname(__file__)
+        scriptpath = os.path.realpath(__file__)
+        rootdir = os.path.dirname(scriptpath)
         rootdir = os.path.dirname(rootdir)
         print("rootdir", rootdir) 
         os.chdir(rootdir)

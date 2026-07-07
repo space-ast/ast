@@ -17,6 +17,7 @@
  */
 #pragma once
 #include "nrlmsise-00.h"
+#include "AstGlobal.h"
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------- INPUT ----------------------------- */
@@ -166,9 +167,8 @@
 /* --------------------------- PROTOTYPES ---------------------------- */
 /* ------------------------------------------------------------------- */
 #define NRLMSISE00_CONST  const
-namespace ast
-{
-	class CNRLMSISE00
+AST_NAMESPACE_BEGIN
+	class AST_WEATHER_API NRLMSISE
 	{
 
 	public:
@@ -261,7 +261,7 @@ namespace ast
 		double apdf, apt[4];
 	};
 
-}
+AST_NAMESPACE_END
 
 /* ------------------------------------------------------------------- */
 /* ----------------------- COMPILATION TWEAKS ------------------------ */

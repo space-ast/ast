@@ -17,7 +17,7 @@
 /// 软件按“现有状态”提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
- 
+
 #pragma once
 
 
@@ -46,6 +46,28 @@
 // 判断是否是vc
 #if defined(_MSC_VER)
 #   define A_MSVC _MSC_VER
+#endif
+
+// 平台检测宏
+
+// 判断是否是windows
+#if defined(_WIN32)
+#   define A_WINDOWS
+#endif
+
+// 判断是否是linux
+#if defined(__linux__) || defined(__linux)
+#   define A_LINUX
+#endif
+
+// 判断是否是macosx
+#if defined(__MACOSX__) || defined(__APPLE__)
+#   define A_APPLE
+#endif
+
+// 判断是否是wasm
+#if defined(__wasm__)
+#   define A_WASM
 #endif
 
 // 内置函数检测
@@ -304,6 +326,41 @@
 #   define A_DEBUG_BREAK() ::raise(SIGTRAP)
 #endif
 
+
+// 警告抑制宏 — 用于暂时屏蔽某个源文件或代码段内的全部编译警告
+// 用法：在源文件开头或需要屏蔽的代码段前后分别放置 BEGIN / END 宏
+#if defined(A_MSVC)
+#   define A_SUPPRESS_WARNINGS_BEGIN __pragma(warning(push, 0))
+#   define A_SUPPRESS_WARNINGS_END   __pragma(warning(pop))
+#elif defined(A_CLANG)
+#   define A_SUPPRESS_WARNINGS_BEGIN                         \
+        _Pragma("clang diagnostic push")                      \
+        _Pragma("clang diagnostic ignored \"-Weverything\"")
+#   define A_SUPPRESS_WARNINGS_END                           \
+        _Pragma("clang diagnostic pop")
+#elif defined(A_GCC)
+#   define A_SUPPRESS_WARNINGS_BEGIN                                   \
+        _Pragma("GCC diagnostic push")                                 \
+        _Pragma("GCC diagnostic ignored \"-Wall\"")                    \
+        _Pragma("GCC diagnostic ignored \"-Wextra\"")                  \
+        _Pragma("GCC diagnostic ignored \"-Wpedantic\"")               \
+        _Pragma("GCC diagnostic ignored \"-Wconversion\"")             \
+        _Pragma("GCC diagnostic ignored \"-Wsign-conversion\"")        \
+	_Pragma("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")    \
+        _Pragma("GCC diagnostic ignored \"-Wunused-but-set-variable\"")\
+        _Pragma("GCC diagnostic ignored \"-Wunused-variable\"")\
+        _Pragma("GCC diagnostic ignored \"-Wunused-result\"")\
+        _Pragma("GCC diagnostic ignored \"-Wformat=\"")\
+        _Pragma("GCC diagnostic ignored \"-Wstringop-truncation\"")\
+
+#   define A_SUPPRESS_WARNINGS_END                           \
+        _Pragma("GCC diagnostic pop")
+#else
+#   define A_SUPPRESS_WARNINGS_BEGIN
+#   define A_SUPPRESS_WARNINGS_END
+#endif
+
+
 /// 为支持随机访问的数值类型容器类型定义迭代器标准函数
 #define A_DEF_ITERABLE(Scalar, Data, Size)                                      \
     size_t size() const noexcept{ return (Size) ;}                              \
@@ -327,4 +384,17 @@
 #define A_DISABLE_COPY(Class) \
     Class(const Class&) = delete; \
     Class& operator=(const Class&) = delete;
+    
+
+/// 为枚举类型定义位操作符
+/// @note __underlying_type 是事实标准的编译器内建类型萃取，MSVC 2015+、GCC 4.x+、Clang 3.x+ 均支持
+#define A_ENUM_CLASS_FLAGS(Enum) \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum& operator|=(Enum& Lhs, Enum Rhs) { return Lhs = (Enum)((__underlying_type(Enum))Lhs | (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum& operator&=(Enum& Lhs, Enum Rhs) { return Lhs = (Enum)((__underlying_type(Enum))Lhs & (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum& operator^=(Enum& Lhs, Enum Rhs) { return Lhs = (Enum)((__underlying_type(Enum))Lhs ^ (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum  operator| (Enum  Lhs, Enum Rhs) { return (Enum)((__underlying_type(Enum))Lhs | (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum  operator& (Enum  Lhs, Enum Rhs) { return (Enum)((__underlying_type(Enum))Lhs & (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum  operator^ (Enum  Lhs, Enum Rhs) { return (Enum)((__underlying_type(Enum))Lhs ^ (__underlying_type(Enum))Rhs); } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 bool  operator! (Enum  E)             { return !(__underlying_type(Enum))E; } \
+	A_ALWAYS_INLINE A_CONSTEXPR_CXX14 Enum  operator~ (Enum  E)             { return (Enum)~(__underlying_type(Enum))E; }
     

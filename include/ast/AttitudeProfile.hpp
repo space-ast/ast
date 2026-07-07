@@ -1,0 +1,1 @@
+#include "AstSim/AttitudeProfile.hpp"

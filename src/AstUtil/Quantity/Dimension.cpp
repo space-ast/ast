@@ -87,7 +87,8 @@ std::string aDimName(EDimension dimension)
     case EDimension::eTime: return "Time";
     case EDimension::eCurrent: return "Electric Current";
     case EDimension::eTemperature: return "Temperature";
-    case EDimension::eAmount: return "Amount of Substance";
+    case EDimension::eDateTime: return "DateTime";
+    //case EDimension::eAmount: return "Amount of Substance";
     case EDimension::eLuminous: return "Luminous Intensity";
     case EDimension::eAngle: return "Angle";
     case EDimension::eAngVel: return "Angular Velocity";
@@ -100,6 +101,7 @@ std::string aDimName(EDimension dimension)
     case EDimension::eEnergy: return "Energy";
     case EDimension::ePower: return "Power";
     case EDimension::eFrequency: return "Frequency";
+    case EDimension::eDensity: return "Density";
     }
     return aDimSymbol(dimension);
 }
@@ -155,7 +157,8 @@ std::string aDimBasicSymbol(EDimension dimension)
     case EDimension::eTime: return "T";
     case EDimension::eCurrent: return "I";
     case EDimension::eTemperature: return aText("\u0398");  // Θ
-    case EDimension::eAmount: return "N";
+    //case EDimension::eAmount: return "N";
+    case EDimension::eDateTime: return "D";
     case EDimension::eLuminous: return "J";
     case EDimension::eAngle:return "A";
     default:

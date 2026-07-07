@@ -18,13 +18,13 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstCore/PlanetPoint.hpp"
-#include "AstCore/RunTime.hpp"
-#include "AstCore/JplDe.hpp"
-#include "AstCore/TimePoint.hpp"
-#include "AstCore/CelestialBody.hpp"
-#include "AstMath/Vector.hpp"
-#include "AstTest/Test.hpp"
+#include "ast/PlanetPoint.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/JplDe.hpp"
+#include "ast/TimePoint.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/Vector.hpp"
+#include "ast/Test.hpp"
 
 AST_USING_NAMESPACE
 
@@ -60,13 +60,13 @@ TEST(PlanetPointTest, getPosICRF)
         }\
     }\
     
-    _AST_TEST_PLANET_POS_DE(Mercury);
-    _AST_TEST_PLANET_POS_DE(Venus);
+    _AST_TEST_PLANET_POS_SPK(Mercury);
+    _AST_TEST_PLANET_POS_SPK(Venus);
     _AST_TEST_PLANET_POS_DE(Earth);
     _AST_TEST_PLANET_POS_SPK(Mars);
     _AST_TEST_PLANET_POS_SPK(Jupiter);
-    _AST_TEST_PLANET_POS_DE(Saturn);
-    _AST_TEST_PLANET_POS_DE(Uranus);
+    _AST_TEST_PLANET_POS_SPK(Saturn);
+    _AST_TEST_PLANET_POS_SPK(Uranus);
     _AST_TEST_PLANET_POS_SPK(Neptune);
     _AST_TEST_PLANET_POS_DE(Moon);
     _AST_TEST_PLANET_POS_DE(Sun);
@@ -111,13 +111,13 @@ TEST(PlanetPointTest, getPosVelICRF)
     }\
 
 
-    _AST_TEST_PLANET_POSVEL_DE(Mercury);
-    _AST_TEST_PLANET_POSVEL_DE(Venus);
+    _AST_TEST_PLANET_POSVEL_SPK(Mercury);
+    _AST_TEST_PLANET_POSVEL_SPK(Venus);
     _AST_TEST_PLANET_POSVEL_DE(Earth);
     _AST_TEST_PLANET_POSVEL_SPK(Mars);
     _AST_TEST_PLANET_POSVEL_SPK(Jupiter);
-    _AST_TEST_PLANET_POSVEL_DE(Saturn);
-    _AST_TEST_PLANET_POSVEL_DE(Uranus);
+    _AST_TEST_PLANET_POSVEL_SPK(Saturn);
+    _AST_TEST_PLANET_POSVEL_SPK(Uranus);
     _AST_TEST_PLANET_POSVEL_SPK(Neptune);
     _AST_TEST_PLANET_POSVEL_DE(Moon);
     _AST_TEST_PLANET_POSVEL_DE(Sun);

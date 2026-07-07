@@ -293,6 +293,69 @@ errc_t loadGravityFieldATK(GravityFieldLoaderContext& ctx)
     return eNoError;
 }
 
+errc_t loadGravityFieldSecularVariations(GravityFieldLoaderContext& ctx, GravityFieldSecularVariations& variations)
+{
+    BKVParser::EToken token;
+    BKVItemView item;
+    variations.variations_.clear();
+    do{
+        token = ctx.parser_.getNext(item);
+        if(token == BKVParser::eKeyValue)
+        {
+            if(aEqualsIgnoreCase(item.key(), "RefEpochTDT"))
+            {
+                variations.referenceEpoch_ = TimePoint::FromImpreciseJDTT(item.value().toDouble());
+            }
+            else if(aEqualsIgnoreCase(item.key(), "LinearRate"))
+            {
+                std::vector<ValueView> items = aStrSplit(item.value(), ByRepeatedWhitespace(), SkipEmpty());
+                if(items.size() != 4){
+                    aError("invalid linear rate format");
+                    return eErrorParse;
+                }
+                GravityFieldSecularVariations::Variation variation{};
+                
+                variation.isSin_ = aEqualsIgnoreCase(items[0], "Sin");
+                variation.degree_ = items[1].toInt();
+                variation.order_ = items[2].toInt();
+                variation.linearRate_ = items[3].toDouble();
+                variations.variations_.push_back(variation);
+            }
+        }
+        else if(token == BKVParser::eBlockEnd)
+        {
+            break;
+        }
+
+    }while(token != BKVParser::eEOF);
+    return eNoError;
+}
+
+void postProcessGravityFieldSecularVariations(GravityField& gf)
+{
+    auto& secularVariations = gf.secularVariations();
+    secularVariations.normalized_ = gf.normalized_;
+    for(auto& variation : secularVariations.variations_)
+    {
+        int degree = variation.degree_;
+        int order = variation.order_;
+        if(gf.isValidDegreeOrder(degree, order)){
+            if(variation.isSin_){
+                variation.originalCoefficient_ = gf.snm(degree, order);
+            }else{
+                variation.originalCoefficient_ = gf.cnm(degree, order);
+            }
+        }
+        else
+        {
+            // 忽略超出最大阶数的系数
+            aWarning("invalid degree or order: %d %d, with max degree %d and max order %d", 
+                degree, order, gf.getMaxDegree(), gf.getMaxOrder()
+            );
+        }
+    }
+}
+
 errc_t loadGravityFieldSTK(GravityFieldLoaderContext& ctx)
 {
     BKVParser::EToken token;
@@ -312,15 +375,22 @@ errc_t loadGravityFieldSTK(GravityFieldLoaderContext& ctx)
                     aError("failed to load gravity field coefficients");
                     return rc;
                 }
+                // 重力场长期变化率加载逻辑的后处理
+                postProcessGravityFieldSecularVariations(gf);
                 if(skipRest){
                     goto endparse;
                 }
+            }
+            else if(aEqualsIgnoreCase(item.value(), "SecularVariations"))
+            {
+                loadGravityFieldSecularVariations(ctx, gf.secularVariations());
             }
         }
         else if(token == BKVParser::eBlockEnd)
         {
             // pass
-        }else if(token == BKVParser::eKeyValue)
+        }
+        else if(token == BKVParser::eKeyValue)
         {
             if(aEqualsIgnoreCase(item.key(), "Model"))
             {
@@ -346,6 +416,9 @@ errc_t loadGravityFieldSTK(GravityFieldLoaderContext& ctx)
             }else if(aEqualsIgnoreCase(item.key(), "IncludesPermTide"))
             {
                 gf.includesPermTide_ = item.value().toBool();
+            }else if(aEqualsIgnoreCase(item.key(), "ReferenceFrame"))
+            {
+                gf.referenceFrame_ = item.value().toString();
             }
         }
     }while(token != BKVParser::EToken::eEOF);
@@ -431,10 +504,16 @@ errc_t loadGravityFieldGFC(GravityFieldLoaderContext& ctx)
                 }
                 else if(aEqualsIgnoreCase(item.key(), "tide_system"))
                 {
+                    // GFC格式(ICGEM)潮汐系统标识:
+                    //   "tide_free"  → 无潮汐模型 (不含永久潮汐变形)
+                    //   "zero tide"  → 零潮汐模型 (含永久潮汐变形)
+                    // 字段名和取值定义: ICGEM 格式规范 (International Centre for Global Earth Models)
+                    //   规范主页: http://icgem.gfz-potsdam.de/ 或者 https://icgem.gfz.de/home
+                    // 三种潮汐系统的物理含义: IERS 2010 TN36 第1.1节 (p.15)
                     if(aEqualsIgnoreCase(item.value(), "tide_free")){
-                        // todo
+                        gf.includesPermTide_ = false;
                     }else if(aEqualsIgnoreCase(item.value(), "zero tide")){
-                        // todo
+                        gf.includesPermTide_ = true;
                     }
                 }
                 else if(aEqualsIgnoreCase(item.key(), "J2-DOT"))

@@ -1,0 +1,1 @@
+#include "AstUtil/Class.hpp"

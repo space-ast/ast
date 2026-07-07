@@ -26,6 +26,7 @@
 #include "AstCore/JulianDate.hpp"    
 #include "AstCore/DateTime.hpp"
 #include "AstCore/RunTime.hpp"
+#include "AstUtil/StringView.hpp"
 #include <stdint.h>                 // for int64_t
 
 AST_NAMESPACE_BEGIN
@@ -134,6 +135,10 @@ public:
     AST_CORE_API
     static TimePoint FromUTC(const DateTime& dttmUTC);
 
+    /// @brief 从北京时日期时间创建时间点
+    AST_CORE_API
+    static TimePoint FromBJT(const DateTime& dttmBJT);
+
     /// @brief 从原子时TAI日期时间创建时间点
     AST_CORE_API
     static TimePoint FromTAI(const DateTime& dttmTAI);
@@ -168,6 +173,13 @@ public:
     AST_CORE_API
     static TimePoint Parse(StringView str);
 
+    /// @brief 从字符串解析UTC时间
+    AST_CORE_API
+    static TimePoint ParseUTC(StringView str);
+
+    /// @brief 从字符串解析北京时间
+    AST_CORE_API
+    static TimePoint ParseBJT(StringView str);
 public:
     /// @brief 时间点的整数秒数部分
     int64_t integerPart() const { return duration_.integer_; }
@@ -296,6 +308,24 @@ public:
     LongDuration    duration_;
 };
 
+
+/// @brief 从UTC字符串解析时间点
+inline TimePoint operator ""_utc(const char* str, size_t len)
+{
+    return TimePoint::ParseUTC(StringView(str, len));
+}
+
+/// @brief 从北京时字符串解析时间点
+inline TimePoint operator ""_bjt(const char* str, size_t len)
+{
+    return TimePoint::ParseBJT(StringView(str, len));
+}
+
+/// @brief 从时间点字符串解析时间点
+inline TimePoint operator ""_timepoint(const char* str, size_t len)
+{
+    return TimePoint::Parse(StringView(str, len));
+}
 
 // typedef TimePoint<TDBScale, LongDuration> TDBTime;
 // typedef TimePoint<TTScale, LongDuration> TTTime;

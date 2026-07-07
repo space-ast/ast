@@ -31,9 +31,10 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 相对论修正模型
-class RelativityCorrection: public ForceModel
+class AST_CORE_API RelativityCorrection: public ForceModel
 {
 public:
+    AST_OBJECT(RelativityCorrection)
     
 };
 

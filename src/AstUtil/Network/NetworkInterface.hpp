@@ -23,13 +23,16 @@
 #include "AstGlobal.h"
 #include "NetworkRequest.hpp"
 #include "NetworkResponse.hpp"
+#include "NetworkStreamReceiver.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup
     @{
 */
+
+class NetworkStreamReceiver;
 
 // 判断 HTTP 方法是否允许携带请求体
 AST_UTIL_API bool aMethodAllowsBody(const std::string& method);
@@ -44,16 +47,28 @@ class NetworkInterface
 {
 public:
     NetworkInterface() = default;
-    
+
     virtual ~NetworkInterface() = default;
-    
+
     /// 发送网络请求
     /// @details   发送网络请求，返回网络响应
     /// @param request 网络请求
     /// @param response 网络响应
     /// @note 该接口会阻塞调用线程，直到网络请求完成或超时为止
     /// @return 错误码
-    virtual errc_t request(const NetworkRequest& request, NetworkResponse& response) = 0;
+    errc_t request(const NetworkRequest& request, NetworkResponse& response)
+    {
+        CollectingStreamReceiver collector(response);
+        return requestStream(request, collector);
+    }
+
+    /// @brief 发送流式网络请求
+    /// @details 与 request() 不同，该方法在数据到达时立即通过 receiver 回调
+    /// @param request 网络请求
+    /// @param receiver 流式数据接收器
+    /// @return 错误码
+    virtual errc_t requestStream(const NetworkRequest& request,
+                                 NetworkStreamReceiver& receiver) = 0;
 
     /// @brief 检查是否支持该网络实现
     /// @details 检查该网络实现是否在当前操作系统上受支持，例如：

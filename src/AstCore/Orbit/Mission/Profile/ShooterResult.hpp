@@ -39,6 +39,7 @@ public:
     AST_PROPERT(tolerance)
     AST_PROPERT(valid)
     AST_PROPERT(weight)
+    AST_PROPERT(expr)
     static ShooterResult* New();
 
     ShooterResult() = default;

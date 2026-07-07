@@ -139,6 +139,8 @@ public:
     /// @brief 获取工具调用ID
     std::string toolCallId() const { return toolCallId_; }
     
+    /// @brief 是否有工具调用
+    bool hasToolCalls() const { return toolCalls_.isArray() && toolCalls_.size() > 0; }
 
     /// @brief 设置工具调用列表
     void setToolCalls(const JsonValue& toolCalls) { toolCalls_ = toolCalls; }

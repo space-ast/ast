@@ -6,8 +6,8 @@
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 
-#include "AstGUI/UiCelestialBody.hpp"
-#include "AstCore/CelestialBody.hpp"
+#include "ast/UiCelestialBody.hpp"
+#include "ast/CelestialBody.hpp"
 #include <QApplication>
 #include <QMainWindow>
 #include <QVBoxLayout>
@@ -37,7 +37,8 @@ int main(int argc, char* argv[])
     layout->addLayout(buttonLayout);
     
     // 创建天体
-    CelestialBody* body = new CelestialBody("Earth");
+    auto* body = new CelestialBody();
+    body->setName("Earth");
     body->setJplSpiceId(399);
     uiCelestialBody->setCelestialBody(body);
     

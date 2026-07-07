@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/ObjectCalculation.hpp"
+#include "AstUtil/Dimension.hpp"
 #include "AstCore/SpacecraftState.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -42,9 +43,6 @@ public:
     Class* getExpectedType() const override {return SpacecraftState::StaticType();};
     errc_t calculateNoCheckType(const Object* obj, double& result) override;
     virtual errc_t calculate(const SpacecraftState& scState, double& result) = 0;
-    virtual bool isAngle() const {return false;}
-protected:
-    
 };
 
 /*! @} */

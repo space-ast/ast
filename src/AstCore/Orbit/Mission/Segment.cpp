@@ -19,16 +19,18 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Segment.hpp"
-#include "SpacecraftState.hpp"
+#include "AstCore/SpacecraftState.hpp"
 
 AST_NAMESPACE_BEGIN
 
 Segment::Segment()
     : MissionCommand()
     , inputState_()
-    , outputState_(new SpacecraftState())
+    , outputState_(aNewObject<SpacecraftState>(this, "OutputState"))
 {
     
 }
+
+
 
 AST_NAMESPACE_END

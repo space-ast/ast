@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include "AstUtil/FileSystem.hpp"
-#include "AstUtil/Environment.hpp"
-#include "AstTest/TestConfig.hpp"
+#include "ast/FileSystem.hpp"
+#include "ast/Environment.hpp"
+#include "ast/TestConfig.hpp"
 
 AST_USING_NAMESPACE
 int main(){

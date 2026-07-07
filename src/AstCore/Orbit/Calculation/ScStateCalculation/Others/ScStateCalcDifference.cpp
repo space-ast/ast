@@ -60,11 +60,11 @@ errc_t ScStateCalcDifference::calculate(const SpacecraftState& state, double& re
     return rc;
 }
 
-bool ScStateCalcDifference::isAngle() const
+Dimension ScStateCalcDifference::getDimension() const
 {
     if(auto calculation = calculation_.get())
-        return calculation->isAngle();
-    return false;
+        return calculation->getDimension();
+    return Dimension::Unit();
 }
 
 AST_NAMESPACE_END

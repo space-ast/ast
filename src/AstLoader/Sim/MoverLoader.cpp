@@ -20,6 +20,7 @@
 
 #include "MoverLoader.hpp"
 #include "CommonlyUsedHeaders.hpp"
+#include "AstLoader/LoaderContext.hpp"
 #include "MotionTwoBodySax.hpp"
 #include "MotionJ2AnalyticalSax.hpp"
 #include "MotionJ4AnalyticalSax.hpp"
@@ -36,6 +37,7 @@
 #include "AstSim/MotionMissionCommand.hpp"
 #include "AstUtil/Literals.hpp"
 #include "AstUtil/StringUtil.hpp"
+#include "AstUtil/FileSystem.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -648,7 +650,10 @@ errc_t _aLoadAstrogator(BKVParser& parser, const VehiclePathData& VehiclePathDat
         {
             auto motionMissionCommand = MotionMissionCommand::New();
             motionProfile = motionMissionCommand;
-            rc = aLoadSequence(dictSequence, motionMissionCommand->getSequence());
+            LoaderContext context;
+            context.filepath_ = parser.getFilePath();
+            context.scenarioDir_ = fs::path(context.filepath_).parent_path();
+            rc = aLoadSequence(dictSequence, motionMissionCommand->getSequence(), &context);
             if(rc)
                 aError("failed to load MainSEQUENCE");
         }

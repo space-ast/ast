@@ -1,7 +1,7 @@
 //#define AST_WITH_ABSEIL
 #ifdef AST_WITH_ABSEIL
 #include "absl/strings/str_split.h"
-#include "AstUtil/StringSplit.hpp"
+#include "ast/StringSplit.hpp"
 #include <benchmark/benchmark.h>
 
 void bmStringViewSplitAbseil(benchmark::State& state)

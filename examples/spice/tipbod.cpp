@@ -1,6 +1,6 @@
 #ifndef AST_NO_CSPICE
 #include "SpiceUsr.h"
-#include "AstTest/TestConfig.hpp"
+#include "ast/TestConfig.hpp"
 
 AST_USING_NAMESPACE
 
