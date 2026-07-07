@@ -20,6 +20,7 @@
 
 #include "DataGroupVector.hpp"
 #include "AstUtil/VariantVector.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -51,8 +52,30 @@ errc_t DataGroupVector::calculate(const TimeList &timeList, std::vector<Data> &r
 
 errc_t DataGroupVector::calculate(const TimeList &timeList, Span<Data> result) const
 {
-    // @todo 实现计算
-    return -1;
+    auto vector = this->getVector();
+    auto axes = this->getAxes();
+    if (vector == nullptr || axes == nullptr)
+    {
+        aError("vector or axes is null");
+        return eErrorNullPtr;
+    }
+    size_t size = timeList.size();
+    if (size != result.size())
+    {
+        aError("timeList size is not equal to result size");
+        return eErrorInvalidParam;
+    }
+
+    errc_t rc = 0;
+    for (size_t i = 0; i < size; ++i)
+    {
+        Data& data = result[i];
+        errc_t err = vector->getVectorIn(axes, timeList[i], data.vector, data.velocity);
+        if(err != eNoError)
+            rc = err;
+    }
+
+    return rc;
 }
 
 AST_NAMESPACE_END

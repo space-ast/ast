@@ -50,6 +50,36 @@ public:
   /// @param vel 输出参数，向量的速度向量
   /// @return 错误码
   virtual errc_t getVector(const TimePoint &tp, Vector3d &vec, Vector3d &vel) const = 0;
+
+  /// @brief 获取向量在指定轴系下的值
+  /// @param targetAxes 目标轴系指针
+  /// @param tp 时间点
+  /// @param vec 输出参数，向量在目标轴系下的值
+  /// @return 错误码
+  errc_t getVectorIn(Axes *targetAxes, const TimePoint &tp, Vector3d &vec) const;
+
+  /// @brief 获取向量在指定轴系下的值和速度
+  /// @param targetAxes 目标轴系指针
+  /// @param tp 时间点
+  /// @param vec 输出参数，向量在目标轴系下的值
+  /// @param vel 输出参数，向量的速度向量在目标轴系下的值
+  /// @return 错误码
+  errc_t getVectorIn(Axes *targetAxes, const TimePoint &tp, Vector3d &vec, Vector3d &vel) const;
+
+  /// @brief 获取向量在指定坐标系下的值（仅使用坐标系的轴系部分，忽略原点平移）
+  /// @param targetFrame 目标坐标系指针
+  /// @param tp 时间点
+  /// @param vec 输出参数，向量在目标坐标系下的值
+  /// @return 错误码
+  errc_t getVectorIn(Frame *targetFrame, const TimePoint &tp, Vector3d &vec) const;
+
+  /// @brief 获取向量在指定坐标系下的值和速度（仅使用坐标系的轴系部分，忽略原点平移）
+  /// @param targetFrame 目标坐标系指针
+  /// @param tp 时间点
+  /// @param vec 输出参数，向量在目标坐标系下的值
+  /// @param vel 输出参数，向量的速度向量在目标坐标系下的值
+  /// @return 错误码
+  errc_t getVectorIn(Frame *targetFrame, const TimePoint &tp, Vector3d &vec, Vector3d &vel) const;
 };
 
 AST_NAMESPACE_END

@@ -52,8 +52,11 @@ public:
 public:
     errc_t calculate(const TimeList& timeList, std::vector<Data>& result) const;
     errc_t calculate(const TimeList& timeList, Span<Data> result) const;
-
+public:
+    Vector* getVector() const{return vector_.get();}
+    Axes* getAxes() const{return axes_.get();}
 private:
+    WeakPtr<Vector> vector_;                ///< 向量
     WeakPtr<Axes> axes_;                    ///< 坐标系
 };
 
