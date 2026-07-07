@@ -154,7 +154,6 @@ var hierarchy =
     [ "ast::ComObjectManager", "classast_1_1ComObjectManager.html", null ],
     [ "complex", "structcomplex.html", null ],
     [ "ast::ExprIf::ConditionBranch", "structast_1_1ExprIf_1_1ConditionBranch.html", null ],
-    [ "ast::TimeList::const_iterator", "classast_1_1TimeList_1_1const__iterator.html", null ],
     [ "constype", "structconstype.html", null ],
     [ "ast::CorVector< T >", "classast_1_1CorVector.html", null ],
     [ "AstCOMLib::CSatellite", "classAstCOMLib_1_1CSatellite.html", null ],
@@ -169,25 +168,9 @@ var hierarchy =
     [ "ast::DAF_NameRecords", "structast_1_1DAF__NameRecords.html", null ],
     [ "ast::DAF_SPKSummaryRecords", "structast_1_1DAF__SPKSummaryRecords.html", null ],
     [ "ast::DAF_SummaryRecords", "structast_1_1DAF__SummaryRecords.html", null ],
-    [ "ast::DataGroupAttitude::Data", "structast_1_1DataGroupAttitude_1_1Data.html", null ],
-    [ "ast::DataGroupOrbit::Data", "structast_1_1DataGroupOrbit_1_1Data.html", null ],
-    [ "ast::DataGroupTrajectory::Data", "structast_1_1DataGroupTrajectory_1_1Data.html", null ],
-    [ "ast::DataGroupVector::Data", "structast_1_1DataGroupVector_1_1Data.html", null ],
     [ "ast::DataContext", "classast_1_1DataContext.html", null ],
-    [ "ast::DataElement", "classast_1_1DataElement.html", null ],
-    [ "ast::DataElements", "classast_1_1DataElements.html", null ],
     [ "ast::DataUpdater::DataFileEntry", "structast_1_1DataUpdater_1_1DataFileEntry.html", null ],
-    [ "ast::DataFrame", "classast_1_1DataFrame.html", null ],
-    [ "ast::DataGroup", "classast_1_1DataGroup.html", [
-      [ "ast::DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", [
-        [ "ast::DataGroupAttitude", "classast_1_1DataGroupAttitude.html", null ],
-        [ "ast::DataGroupOrbit", "classast_1_1DataGroupOrbit.html", null ],
-        [ "ast::DataGroupTrajectory", "classast_1_1DataGroupTrajectory.html", null ],
-        [ "ast::DataGroupVector", "classast_1_1DataGroupVector.html", null ]
-      ] ]
-    ] ],
     [ "ast::DataPort", "classast_1_1DataPort.html", null ],
-    [ "ast::DataSeries", "classast_1_1DataSeries.html", null ],
     [ "ast::DataUpdater", "classast_1_1DataUpdater.html", null ],
     [ "ast::Date", "classast_1_1Date.html", null ],
     [ "ast::DateTime", "classast_1_1DateTime.html", null ],
@@ -397,7 +380,6 @@ var hierarchy =
     [ "ast::Interpreter", "classast_1_1Interpreter.html", null ],
     [ "ast::InterpreterContext", "classast_1_1InterpreterContext.html", null ],
     [ "ast::Interval", "classast_1_1Interval.html", null ],
-    [ "ast::IntervalList", "classast_1_1IntervalList.html", null ],
     [ "ast::IOrbitDesigner", "classast_1_1IOrbitDesigner.html", [
       [ "ast::BaseOrbitDesigner", "classast_1_1BaseOrbitDesigner.html", [
         [ "ast::CircularOrbitDesigner", "classast_1_1CircularOrbitDesigner.html", null ],
@@ -737,6 +719,7 @@ var hierarchy =
         [ "ast::MockObject", "classast_1_1MockObject.html", null ],
         [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
           [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
+          [ "ast::AgScriptingToolCalcObjWrap", "classast_1_1AgScriptingToolCalcObjWrap.html", null ],
           [ "ast::Antenna", "classast_1_1Antenna.html", null ],
           [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
           [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
@@ -1216,6 +1199,9 @@ var hierarchy =
           ] ],
           [ "ast::Radar", "classast_1_1Radar.html", null ],
           [ "ast::Receiver", "classast_1_1Receiver.html", null ],
+          [ "ast::ScriptingToolAttr", "classast_1_1ScriptingToolAttr.html", null ],
+          [ "ast::ScriptingToolParameter", "classast_1_1ScriptingToolParameter.html", null ],
+          [ "ast::ScriptingToolParameterEnumChoice", "classast_1_1ScriptingToolParameterEnumChoice.html", null ],
           [ "ast::ShooterControl", "classast_1_1ShooterControl.html", null ],
           [ "ast::ShooterResult", "classast_1_1ShooterResult.html", null ],
           [ "ast::SolarSystem", "classast_1_1SolarSystem.html", null ],
@@ -1231,6 +1217,9 @@ var hierarchy =
           [ "ast::TargeterGraphControlOptions", "classast_1_1TargeterGraphControlOptions.html", null ],
           [ "ast::TargeterGraphResultOptions", "classast_1_1TargeterGraphResultOptions.html", null ],
           [ "ast::Transmitter", "classast_1_1Transmitter.html", null ],
+          [ "ast::Vector", "classast_1_1Vector.html", [
+            [ "ast::VectorDisplacement", "classast_1_1VectorDisplacement.html", null ]
+          ] ],
           [ "ast::Volumetric", "classast_1_1Volumetric.html", null ]
         ] ],
         [ "ast::Scenario", "classast_1_1Scenario.html", null ],
@@ -1239,12 +1228,6 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
-    [ "ast::ReportElement", "classast_1_1ReportElement.html", null ],
-    [ "ast::ReportGenerateOptions", "classast_1_1ReportGenerateOptions.html", null ],
-    [ "ast::ReportLine", "classast_1_1ReportLine.html", null ],
-    [ "ast::ReportSection", "classast_1_1ReportSection.html", null ],
-    [ "ast::ReportStyle", "classast_1_1ReportStyle.html", null ],
-    [ "ast::ReportUnits", "structast_1_1ReportUnits.html", null ],
     [ "ast::Rotation", "classast_1_1Rotation.html", [
       [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ]
     ] ],
@@ -1384,8 +1367,6 @@ var hierarchy =
     ] ],
     [ "ast::Time", "classast_1_1Time.html", null ],
     [ "ast::TimeInterval", "classast_1_1TimeInterval.html", null ],
-    [ "ast::TimeIntervalList", "classast_1_1TimeIntervalList.html", null ],
-    [ "ast::TimeList", "classast_1_1TimeList.html", null ],
     [ "ast::TimePoint", "classast_1_1TimePoint.html", null ],
     [ "ast::TimeScale", "classast_1_1TimeScale.html", null ],
     [ "ast::TLE", "classast_1_1TLE.html", null ],
@@ -1401,7 +1382,6 @@ var hierarchy =
     [ "ast::detail::type_from_tag< type_int >", "structast_1_1detail_1_1type__from__tag_3_01type__int_01_4.html", null ],
     [ "ast::detail::type_from_tag< type_object >", "structast_1_1detail_1_1type__from__tag_3_01type__object_01_4.html", null ],
     [ "ast::detail::type_from_tag< type_string >", "structast_1_1detail_1_1type__from__tag_3_01type__string_01_4.html", null ],
-    [ "ast::VariantVector::TypeOps", "structast_1_1VariantVector_1_1TypeOps.html", null ],
     [ "ast::UnaryVectorFunc", "classast_1_1UnaryVectorFunc.html", [
       [ "ast::Interpolator", "classast_1_1Interpolator.html", null ],
       [ "ast::UnaryScalarFunc", "classast_1_1UnaryScalarFunc.html", [
@@ -1416,7 +1396,6 @@ var hierarchy =
     [ "ast::ValueView", "classast_1_1ValueView.html", null ],
     [ "Vardesc", "structVardesc.html", null ],
     [ "ast::VariableList", "classast_1_1VariableList.html", null ],
-    [ "ast::VariantVector", "classast_1_1VariantVector.html", null ],
     [ "ast::GravityFieldSecularVariations::Variation", "structast_1_1GravityFieldSecularVariations_1_1Variation.html", null ],
     [ "std::vector", null, [
       [ "ast::CommandParams", "classast_1_1CommandParams.html", null ],
