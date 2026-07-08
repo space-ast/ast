@@ -177,7 +177,6 @@ var NAVTREEINDEX3 =
 "DataGroupQuats_8hpp.html":[4,0,0,18,0,0,1,21],
 "DataGroupQuats_8hpp_source.html":[4,0,0,18,0,0,1,21],
 "DataGroupSpherical_8cpp.html":[4,0,0,18,0,0,1,22],
-"DataGroupSpherical_8cpp.html#ab686c38c261095f4e21a5b1c72edcbb0":[4,0,0,18,0,0,1,22,0],
 "DataGroupSpherical_8hpp.html":[4,0,0,18,0,0,1,23],
 "DataGroupSpherical_8hpp_source.html":[4,0,0,18,0,0,1,23],
 "DataGroupTimeVar_8hpp.html":[4,0,0,18,0,9],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "DetectorDeltaV_8hpp.html":[4,0,0,7,8,0,16],
 "DetectorDeltaV_8hpp_source.html":[4,0,0,7,8,0,16],
 "DetectorDescendingNode_8cpp.html":[4,0,0,7,8,0,17],
-"DetectorDescendingNode_8hpp.html":[4,0,0,7,8,0,18]
+"DetectorDescendingNode_8hpp.html":[4,0,0,7,8,0,18],
+"DetectorDescendingNode_8hpp_source.html":[4,0,0,7,8,0,18]
 };

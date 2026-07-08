@@ -22,7 +22,7 @@ var dir_d7b194428d82c9cd61c44e0a4e550ccd =
     [ "DataGroupPointPrv.hpp", "DataGroupPointPrv_8hpp.html", "DataGroupPointPrv_8hpp" ],
     [ "DataGroupQuats.cpp", "DataGroupQuats_8cpp.html", null ],
     [ "DataGroupQuats.hpp", "DataGroupQuats_8hpp.html", "DataGroupQuats_8hpp" ],
-    [ "DataGroupSpherical.cpp", "DataGroupSpherical_8cpp.html", "DataGroupSpherical_8cpp" ],
+    [ "DataGroupSpherical.cpp", "DataGroupSpherical_8cpp.html", null ],
     [ "DataGroupSpherical.hpp", "DataGroupSpherical_8hpp.html", "DataGroupSpherical_8hpp" ],
     [ "DataGroupVectorPrv.cpp", "DataGroupVectorPrv_8cpp.html", null ],
     [ "DataGroupVectorPrv.hpp", "DataGroupVectorPrv_8hpp.html", "DataGroupVectorPrv_8hpp" ]

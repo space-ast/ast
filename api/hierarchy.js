@@ -141,6 +141,7 @@ var hierarchy =
     [ "AstCOMLib::CObject", "classAstCOMLib_1_1CObject.html", null ],
     [ "AstCOMLib::CObjectRoot", "classAstCOMLib_1_1CObjectRoot.html", null ],
     [ "ast::RotationElement::Coefficient", "structast_1_1RotationElement_1_1Coefficient.html", null ],
+    [ "ast::ColData", "structast_1_1ColData.html", null ],
     [ "ast::Color", "classast_1_1Color.html", null ],
     [ "Qwt3D::Color", null, [
       [ "ast::CDataColor", "classast_1_1CDataColor.html", null ]
@@ -1369,7 +1370,15 @@ var hierarchy =
       [ "ast::SpaceWeather", "classast_1_1SpaceWeather.html", null ]
     ] ],
     [ "ast::Span< T, Extent >", "classast_1_1Span.html", null ],
+    [ "ast::Span< ast::TimePoint >", "classast_1_1Span.html", null ],
+    [ "ast::Span< double >", "classast_1_1Span.html", null ],
+    [ "ast::Span< int >", "classast_1_1Span.html", null ],
+    [ "ast::Span< std::string >", "classast_1_1Span.html", null ],
     [ "ast::SpanStorage< T, Extent >", "classast_1_1SpanStorage.html", null ],
+    [ "ast::SpanStorage< ast::TimePoint, dynamic_extent >", "classast_1_1SpanStorage.html", null ],
+    [ "ast::SpanStorage< double, dynamic_extent >", "classast_1_1SpanStorage.html", null ],
+    [ "ast::SpanStorage< int, dynamic_extent >", "classast_1_1SpanStorage.html", null ],
+    [ "ast::SpanStorage< std::string, dynamic_extent >", "classast_1_1SpanStorage.html", null ],
     [ "ast::SpanStorage< T, dynamic_extent >", "classast_1_1SpanStorage_3_01T_00_01dynamic__extent_01_4.html", null ],
     [ "ast::Sparse", "classast_1_1Sparse.html", null ],
     [ "ast::SpiceAPI", "classast_1_1SpiceAPI.html", null ],

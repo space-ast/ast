@@ -99,20 +99,53 @@ $(function(){initNavTree('ReportWriter_8cpp.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">类</a> &#124;
 <a href="#namespaces">命名空间</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
 <a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">ReportWriter.cpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ReportWriter_8hpp_source.html">ReportWriter.hpp</a>&quot;</code><br />
 <code>#include &quot;AstUtil/Object.hpp&quot;</code><br />
-<code>#include &quot;AstReport/DataSeries.hpp&quot;</code><br />
-<code>#include &quot;AstReport/DataFrame.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/VariantVector.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
+<code>#include &quot;AstCore/CelestialBody.hpp&quot;</code><br />
+<code>#include &quot;AstCore/Frame.hpp&quot;</code><br />
+<code>#include &quot;AstCore/Point.hpp&quot;</code><br />
+<code>#include &quot;AstCore/Axes.hpp&quot;</code><br />
+<code>#include &quot;AstCore/RunTimeSolarSystem.hpp&quot;</code><br />
+<code>#include &quot;AstCore/TimeList.hpp&quot;</code><br />
+<code>#include &quot;AstCore/TimePoint.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="DataGroupCartPos_8hpp_source.html">Data/Impl/DataProvider/DataGroupCartPos.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="DataGroupCartVel_8hpp_source.html">Data/Impl/DataProvider/DataGroupCartVel.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="DataGroupModOrbElem_8hpp_source.html">Data/Impl/DataProvider/DataGroupModOrbElem.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="DataGroupLLAState_8hpp_source.html">Data/Impl/DataProvider/DataGroupLLAState.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="DataGroupLLRState_8hpp_source.html">Data/Impl/DataProvider/DataGroupLLRState.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="DataGroupSpherical_8hpp_source.html">Data/Impl/DataProvider/DataGroupSpherical.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="DataGroupEquinElem_8hpp_source.html">Data/Impl/DataProvider/DataGroupEquinElem.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="DataGroupBetaAngle_8hpp_source.html">Data/Impl/DataProvider/DataGroupBetaAngle.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="DataGroupQuats_8hpp_source.html">Data/Impl/DataProvider/DataGroupQuats.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="DataGroupEuler_8hpp_source.html">Data/Impl/DataProvider/DataGroupEuler.hpp</a>&quot;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1ColData.html">ast::ColData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a56789bc7149aa74a1549b47b13203106" id="r_a56789bc7149aa74a1549b47b13203106"><td class="memItemLeft" align="right" valign="top"><a id="a56789bc7149aa74a1549b47b13203106" name="a56789bc7149aa74a1549b47b13203106"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ADataGroupFactory</b> = <a class="el" href="classast_1_1DataGroupTimeVar.html">DataGroupTimeVar</a>* (*)(const <a class="el" href="classast_1_1Object.html">Object</a>*, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> type)</td></tr>
+<tr class="separator:a56789bc7149aa74a1549b47b13203106"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>

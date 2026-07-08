@@ -186,6 +186,7 @@ var annotated_dup =
       [ "CNLPSnoptSolver", "classast_1_1CNLPSnoptSolver.html", null ],
       [ "CObject", "classast_1_1CObject.html", null ],
       [ "CObjectRoot", "classast_1_1CObjectRoot.html", "classast_1_1CObjectRoot" ],
+      [ "ColData", "structast_1_1ColData.html", null ],
       [ "CollectingStreamReceiver", "classast_1_1CollectingStreamReceiver.html", "classast_1_1CollectingStreamReceiver" ],
       [ "Color", "classast_1_1Color.html", null ],
       [ "ColorButton", "classast_1_1ColorButton.html", null ],

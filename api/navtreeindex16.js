@@ -1,6 +1,5 @@
 var NAVTREEINDEX16 =
 {
-"UiStudyWorkbench_8hpp_source.html":[4,0,0,11,0,5],
 "UiSweepOutputList_8cpp.html":[4,0,0,11,0,6],
 "UiSweepOutputList_8hpp.html":[4,0,0,11,0,7],
 "UiSweepOutputList_8hpp_source.html":[4,0,0,11,0,7],
@@ -249,5 +248,6 @@ var NAVTREEINDEX16 =
 "XML_8hpp.html":[4,0,0,28,4,5,0],
 "XML_8hpp_source.html":[4,0,0,28,4,5,0],
 "XmlSerializer_8cpp.html":[4,0,0,28,8,17],
-"XmlSerializer_8hpp.html":[4,0,0,28,8,18]
+"XmlSerializer_8hpp.html":[4,0,0,28,8,18],
+"XmlSerializer_8hpp_source.html":[4,0,0,28,8,18]
 };

@@ -384,6 +384,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1CObjectRoot.html">CObjectRoot</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1ColData.html">ColData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1CollectingStreamReceiver.html">CollectingStreamReceiver</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Color.html">Color</a></td></tr>
@@ -2458,6 +2460,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ODE</b> = <a class="
 <tr class="separator:a556c864e79d6a749bb7e2aae55fcac57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcf330c515e8b762d7ba159e53a5adb6" id="r_adcf330c515e8b762d7ba159e53a5adb6"><td class="memItemLeft" align="right" valign="top">typedef errc_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcf330c515e8b762d7ba159e53a5adb6">ElementExtractFunc</a>) (const <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;data, <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;element)</td></tr>
 <tr class="separator:adcf330c515e8b762d7ba159e53a5adb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56789bc7149aa74a1549b47b13203106" id="r_a56789bc7149aa74a1549b47b13203106"><td class="memItemLeft" align="right" valign="top"><a id="a56789bc7149aa74a1549b47b13203106" name="a56789bc7149aa74a1549b47b13203106"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ADataGroupFactory</b> = <a class="el" href="classast_1_1DataGroupTimeVar.html">DataGroupTimeVar</a>* (*)(const <a class="el" href="classast_1_1Object.html">Object</a>*, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> type)</td></tr>
+<tr class="separator:a56789bc7149aa74a1549b47b13203106"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga33b0083252c4606fe2c63aa003f3bc91" id="r_ga33b0083252c4606fe2c63aa003f3bc91"><td class="memItemLeft" align="right" valign="top">
 typedef <a class="el" href="classast_1_1Value.html">Value</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><b>OpBinFunc</b>) (<a class="el" href="classast_1_1Value.html">Value</a> *left, <a class="el" href="classast_1_1Value.html">Value</a> *right)</td></tr>
 <tr class="separator:ga33b0083252c4606fe2c63aa003f3bc91"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -5937,8 +5942,6 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aExtractNoop</b> (c
 <tr class="separator:a5ab362604aeeba794b32bb45c6450d03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a095a7c2c3cecaadf9fdd41996e008a9a" id="r_a095a7c2c3cecaadf9fdd41996e008a9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a095a7c2c3cecaadf9fdd41996e008a9a">aQuatAngvelToEuler</a> (const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat, const Vector3d &amp;angvel, int rotationOrder, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;angles, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;rates)</td></tr>
 <tr class="separator:a095a7c2c3cecaadf9fdd41996e008a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab686c38c261095f4e21a5b1c72edcbb0" id="r_ab686c38c261095f4e21a5b1c72edcbb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab686c38c261095f4e21a5b1c72edcbb0">aCalcFlightPathAngles</a> (const Vector3d &amp;pos, const Vector3d &amp;vel, double &amp;flightPathAngle, double &amp;flightPathAzimuth)</td></tr>
-<tr class="separator:ab686c38c261095f4e21a5b1c72edcbb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7e5d872f241e5beb5c4c9beaace1ed47" id="r_ga7e5d872f241e5beb5c4c9beaace1ed47"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__AstReport.html#ga7e5d872f241e5beb5c4c9beaace1ed47">aWriteReport</a> (const <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;report, const <a class="el" href="classast_1_1Object.html">Object</a> *object, FILE *file, const <a class="el" href="classast_1_1ReportGenerateOptions.html">ReportGenerateOptions</a> &amp;options=<a class="el" href="classast_1_1ReportGenerateOptions.html">ReportGenerateOptions</a>{})</td></tr>
 <tr class="separator:ga7e5d872f241e5beb5c4c9beaace1ed47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa7636ba38dc8241ffb082cc8ccb252f3" id="r_gaa7636ba38dc8241ffb082cc8ccb252f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Variable.html">Variable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gaa7636ba38dc8241ffb082cc8ccb252f3">aNewVariable</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr=nullptr, bool bind=false)</td></tr>
@@ -10294,49 +10297,6 @@ template&lt;&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>贝塔角 (弧度) </dd></dl>
-
-</div>
-</div>
-<a id="ab686c38c261095f4e21a5b1c72edcbb0" name="ab686c38c261095f4e21a5b1c72edcbb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab686c38c261095f4e21a5b1c72edcbb0">&#9670;&#160;</a></span>aCalcFlightPathAngles()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ast::aCalcFlightPathAngles </td>
-          <td>(</td>
-          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>flightPathAngle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>flightPathAzimuth</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>计算水平航迹角和惯性航迹方位角 </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000037">待办事项</a></b></dt><dd>待测试验证 </dd></dl>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td>位置矢量 </td></tr>
-    <tr><td class="paramname">vel</td><td>速度矢量 </td></tr>
-    <tr><td class="paramname">flightPathAngle</td><td>输出：水平航迹角 (弧度), asin(v_radial/|v|) </td></tr>
-    <tr><td class="paramname">flightPathAzimuth</td><td>输出：惯性航迹方位角 (弧度), 从惯性北向东量 </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

@@ -1,6 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"OpUnaryPredefined_8cpp.html#a4b5d7bbb5a304ba130e8a121fa95b50d":[4,0,0,19,7,0,7,0],
 "OpUnaryPredefined_8cpp.html#ab8215bee1f7972135050c701e7536848":[4,0,0,19,7,0,7,4],
 "OpUnaryPredefined_8cpp.html#af2690a2337d317a94c1b8e2a73438f3f":[4,0,0,19,7,0,7,2],
 "OpUnaryPredefined_8hpp.html":[4,0,0,19,7,0,8],
@@ -249,5 +248,6 @@ var NAVTREEINDEX9 =
 "RadarLoader_8hpp.html":[4,0,0,12,5,45],
 "RadarLoader_8hpp.html#a900f09e61570bbad8649fecddceb2da5":[4,0,0,12,5,45,0],
 "RadarLoader_8hpp_source.html":[4,0,0,12,5,45],
-"Radar_8cpp.html":[4,0,0,20,3,44]
+"Radar_8cpp.html":[4,0,0,20,3,44],
+"Radar_8hpp.html":[4,0,0,20,3,45]
 };

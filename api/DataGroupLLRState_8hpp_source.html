@@ -149,16 +149,18 @@ $(function(){initNavTree('DataGroupLLRState_8hpp_source.html',''); initResizable
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    errc_t calculate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimeList.html">TimeList</a>&amp; timeList, std::vector&lt;Data&gt;&amp; result) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    errc_t calculate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimeList.html">TimeList</a>&amp; timeList, <a class="code hl_class" href="classast_1_1Span.html">Span&lt;Data&gt;</a> result) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_class" href="classast_1_1Point.html">Point</a>* getScPoint()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> scPoint_.get(); }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_class" href="classast_1_1Point.html">Point</a>* getPoint()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> scPoint_.get(); }</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* getFrame()<span class="keyword">   const </span>{ <span class="keywordflow">return</span> frame_.get(); }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    WeakPtr&lt;Point&gt; scPoint_;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    WeakPtr&lt;Frame&gt; frame_;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>};</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> setPoint(Point* p) { scPoint_ = p; }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> setFrame(Frame* f)   { frame_ = f; }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    WeakPtr&lt;Point&gt; scPoint_;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    WeakPtr&lt;Frame&gt; frame_;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>};</div>
 </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1DataElements_html"><div class="ttname"><a href="classast_1_1DataElements.html">ast::DataElements</a></div><div class="ttdoc">数据元素容器</div><div class="ttdef"><b>定义</b> DataElements.hpp:90</div></div>
 <div class="ttc" id="aclassast_1_1DataGroupLLRState_html"><div class="ttname"><a href="classast_1_1DataGroupLLRState.html">ast::DataGroupLLRState</a></div><div class="ttdoc">LLR 球坐标状态数据组 — 纬度、经度、地心距及变化率</div><div class="ttdef"><b>定义</b> DataGroupLLRState.hpp:42</div></div>
 <div class="ttc" id="aclassast_1_1DataGroupTimeVar_html"><div class="ttname"><a href="classast_1_1DataGroupTimeVar.html">ast::DataGroupTimeVar</a></div><div class="ttdoc">随时间变化的数据组</div><div class="ttdef"><b>定义</b> DataGroupTimeVar.hpp:37</div></div>

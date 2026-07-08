@@ -153,18 +153,20 @@ $(function(){initNavTree('DataGroupEuler_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    Axes* getAxes()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> axes_.get(); }</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    Axes* getReferenceAxes()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> referenceAxes_.get(); }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">int</span>  getRotationOrder()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rotationOrder_; }</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> setRotationOrder(<span class="keywordtype">int</span> order) { rotationOrder_ = order; }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    WeakPtr&lt;Axes&gt; axes_;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    WeakPtr&lt;Axes&gt; referenceAxes_;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">int</span> rotationOrder_{Euler::eXYX};</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> setAxes(Axes* a)          { axes_ = a; }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> setReferenceAxes(Axes* a) { referenceAxes_ = a; }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">int</span>  getRotationOrder()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rotationOrder_; }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> setRotationOrder(<span class="keywordtype">int</span> order) { rotationOrder_ = order; }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    WeakPtr&lt;Axes&gt; axes_;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    WeakPtr&lt;Axes&gt; referenceAxes_;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">int</span> rotationOrder_{Euler::eXYX};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
 </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1DataGroupEuler_html"><div class="ttname"><a href="classast_1_1DataGroupEuler.html">ast::DataGroupEuler</a></div><div class="ttdoc">欧拉角姿态数据组 — 欧拉角 A, B, C 及角速率 (转序 121)</div><div class="ttdef"><b>定义</b> DataGroupEuler.hpp:44</div></div>
 <div class="ttc" id="aclassast_1_1DataGroupTimeVar_html"><div class="ttname"><a href="classast_1_1DataGroupTimeVar.html">ast::DataGroupTimeVar</a></div><div class="ttdoc">随时间变化的数据组</div><div class="ttdef"><b>定义</b> DataGroupTimeVar.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1Euler_html"><div class="ttname"><a href="classast_1_1Euler.html">ast::Euler</a></div><div class="ttdoc">欧拉角</div><div class="ttdef"><b>定义</b> Euler.hpp:31</div></div>

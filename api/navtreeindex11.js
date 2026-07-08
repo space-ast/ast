@@ -1,6 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"ScStateCalcCloseApproachX_8hpp.html":[4,0,0,7,7,1,0,8,13],
 "ScStateCalcCloseApproachX_8hpp_source.html":[4,0,0,7,7,1,0,8,13],
 "ScStateCalcCloseApproachY_8cpp.html":[4,0,0,7,7,1,0,8,14],
 "ScStateCalcCloseApproachY_8hpp.html":[4,0,0,7,7,1,0,8,15],
@@ -249,5 +248,6 @@ var NAVTREEINDEX11 =
 "ScStateCalcMu_8hpp_source.html":[4,0,0,7,7,1,0,4,3],
 "ScStateCalcNegative_8cpp.html":[4,0,0,7,7,1,0,15,102],
 "ScStateCalcNegative_8hpp.html":[4,0,0,7,7,1,0,15,103],
-"ScStateCalcNegative_8hpp_source.html":[4,0,0,7,7,1,0,15,103]
+"ScStateCalcNegative_8hpp_source.html":[4,0,0,7,7,1,0,15,103],
+"ScStateCalcNormalRate_8cpp.html":[4,0,0,7,7,1,0,15,106]
 };
