@@ -21,6 +21,7 @@
 #include "DataGroupModOrbElem.hpp"
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/OrbitElement.hpp"
+#include "AstUtil/Dimension.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -29,47 +30,68 @@ DataElements DataGroupModOrbElem::Elements()
 {
     DataElements elements;
     // 1. Time (自变量)
-    elements.addElement<Data, const TimePoint&, &Data::getTime>("Time");
+    elements.addElement<Data, const TimePoint&, &Data::getTime>
+    ("Time", Dimension::DateTime());
     // 2. Semi-major Axis
-    elements.addElement<Data, double, &Data::getSMA>("Semi-major Axis");
+    elements.addElement<Data, double, &Data::getSMA>
+    ("Semi-major Axis", Dimension::Length());
     // 3. Eccentricity
-    elements.addElement<Data, double, &Data::getEcc>("Eccentricity");
+    elements.addElement<Data, double, &Data::getEcc>
+    ("Eccentricity", Dimension::Unit());
     // 4. Inclination
-    elements.addElement<Data, double, &Data::getInc>("Inclination");
+    elements.addElement<Data, double, &Data::getInc>
+    ("Inclination", Dimension::Angle());
     // 5. RAAN
-    elements.addElement<Data, double, &Data::getRAAN>("RAAN");
+    elements.addElement<Data, double, &Data::getRAAN>
+    ("RAAN", Dimension::Angle());
     // 6. Arg of Perigee
-    elements.addElement<Data, double, &Data::getArgPeri>("Arg of Perigee");
+    elements.addElement<Data, double, &Data::getArgPeri>
+    ("Arg of Perigee", Dimension::Angle());
     // 7. True Anomaly
-    elements.addElement<Data, double, &Data::getTrueAnomaly>("True Anomaly");
+    elements.addElement<Data, double, &Data::getTrueAnomaly>
+    ("True Anomaly", Dimension::Angle());
     // 8. Mean Anomaly
-    elements.addElement<Data, double, &Data::getMeanAnomaly>("Mean Anomaly");
+    elements.addElement<Data, double, &Data::getMeanAnomaly>
+    ("Mean Anomaly", Dimension::Angle());
     // 9. Arg of Latitude
-    elements.addElement<Data, double, &Data::getArgLat>("Arg of Latitude");
+    elements.addElement<Data, double, &Data::getArgLat>
+    ("Arg of Latitude", Dimension::Angle());
     // 10. Apogee Altitude
-    elements.addElement<Data, double, &Data::getApoAlt>("Apogee Altitude");
+    elements.addElement<Data, double, &Data::getApoAlt>
+    ("Apogee Altitude", Dimension::Length());
     // 11. Apogee Radius
-    elements.addElement<Data, double, &Data::getApoRad>("Apogee Radius");
+    elements.addElement<Data, double, &Data::getApoRad>
+    ("Apogee Radius", Dimension::Length());
     // 12. Perigee Altitude
-    elements.addElement<Data, double, &Data::getPeriAlt>("Perigee Altitude");
+    elements.addElement<Data, double, &Data::getPeriAlt>
+    ("Perigee Altitude", Dimension::Length());
     // 13. Perigee Radius
-    elements.addElement<Data, double, &Data::getPeriRad>("Perigee Radius");
+    elements.addElement<Data, double, &Data::getPeriRad>
+    ("Perigee Radius", Dimension::Length());
     // 14. Mean Motion (Revs/Day)
-    elements.addElement<Data, double, &Data::getMeanMotion>("Mean Motion (Revs/Day)");
+    elements.addElement<Data, double, &Data::getMeanMotion>
+    ("Mean Motion (Revs/Day)", Dimension::Unit());
     // 15. Lon Ascn Node — 需要 Axes 参数，暂不支持
-    // elements.addElement<Data, double, &Data::getLAN>("Lon Ascn Node");
+    // elements.addElement<Data, double, &Data::getLAN>
+    // ("Lon Ascn Node", Dimension::Angle());
     // 16. Eccentric Anomaly
-    elements.addElement<Data, double, &Data::getEccAnomaly>("Eccentric Anomaly");
+    elements.addElement<Data, double, &Data::getEccAnomaly>
+    ("Eccentric Anomaly", Dimension::Angle());
     // 17. Time Past AN
-    elements.addElement<Data, double, &Data::getTimePastAscNode>("Time Past AN");
+    elements.addElement<Data, double, &Data::getTimePastAscNode>
+    ("Time Past AN", Dimension::Time());
     // 18. Time Past Perigee
-    elements.addElement<Data, double, &Data::getTimePastPeri>("Time Past Perigee");
+    elements.addElement<Data, double, &Data::getTimePastPeri>
+    ("Time Past Perigee", Dimension::Time());
     // 19. Period
-    elements.addElement<Data, double, &Data::getPeriod>("Period");
+    elements.addElement<Data, double, &Data::getPeriod>
+    ("Period", Dimension::Time());
     // 20. Longitude of Perigee
-    elements.addElement<Data, double, &Data::getLongitudeOfPeri>("Longitude of Perigee");
+    elements.addElement<Data, double, &Data::getLongitudeOfPeri>
+    ("Longitude of Perigee", Dimension::Angle());
     // 21. Mean Longitude
-    elements.addElement<Data, double, &Data::getMeanLongitude>("Mean Longitude");
+    elements.addElement<Data, double, &Data::getMeanLongitude>
+    ("Mean Longitude", Dimension::Angle());
     return elements;
 }
 
@@ -128,9 +150,13 @@ errc_t DataGroupModOrbElem::calculate(const TimeList &timeList, Span<Data> resul
         data.time_ = timeList[i];
         Vector3d pos, vel;
         errc_t err = point->getPosVelIn(frame, data.time_, pos, vel);
-        if(err != eNoError) rc = err;
+        if(err != eNoError) {
+            rc = err;
+            continue;
+        }
         err = aCartToModOrbElem(pos, vel, gm, data.modOrbElem_);
-        if(err != eNoError) rc = err;
+        if(err != eNoError) 
+            rc = err;
     }
 
     return rc;

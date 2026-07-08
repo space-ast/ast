@@ -68,14 +68,6 @@ public:
     /// @param name 新的名称字符串
     void setName(const char* name){ name_ = name; }
 
-    /// @brief 获取数据元素描述
-    /// @return 数据元素描述的常量引用
-    const char* description() const { return description_; }
-
-    /// @brief 设置数据元素描述
-    /// @param description 新的描述字符串
-    void setDescription(const char* description){ description_ = description; }
-
     /// @brief 获取数据元素的量纲
     /// @return 数据元素的量纲
     Dimension dimension() const { return dimension_; }
@@ -86,7 +78,7 @@ public:
 
     /// @brief 注册数据提取函数
     /// @param extractFunc 提取函数指针
-    void setExtractFunc(ElementExtractFunc extractFunc){ extractFunc_ = extractFunc; }
+    void setExtractFunc(ElementExtractFunc extractFunc);
 
     /// @brief 获取已注册的提取函数
     /// @return 提取函数指针，若未注册则返回 nullptr
@@ -103,7 +95,6 @@ public:
 
 private:
     const char* name_{""};                              ///< 数据名称
-    const char* description_{""};                       ///< 数据描述
     Dimension dimension_{Dimension::Unit()};            ///< 数据量纲(仅对double类型有效)
     ElementExtractFunc extractFunc_{&aExtractNoop};     ///< 提取函数指针，用于从数据向量中提取子数据
 };

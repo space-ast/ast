@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "DataElement.hpp"
+#include <cassert>
 
 AST_NAMESPACE_BEGIN
 
@@ -26,6 +27,12 @@ errc_t aExtractNoop(const VariantVector &data, VariantVector &element)
 {
     // do nothing here
     return -1;
+}
+
+void DataElement::setExtractFunc(ElementExtractFunc extractFunc)
+{
+    assert(extractFunc);
+    extractFunc_ = extractFunc;
 }
 
 AST_NAMESPACE_END

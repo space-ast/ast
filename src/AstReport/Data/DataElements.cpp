@@ -19,16 +19,26 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "DataElements.hpp"
+#include <cassert>
 
 AST_NAMESPACE_BEGIN
 
 const DataElement* DataElements::getElement(StringView name) const
 {
+    // 检查直接名称
     for (const auto& element : elements_)
     {
         if (name == element.name())
         {
             return &element;
+        }
+    }
+    // 检查别名
+    for (const auto& alias : aliasMap_)
+    {
+        if (name == alias.first)
+        {
+            return find(alias.second);
         }
     }
     return nullptr;
@@ -37,6 +47,12 @@ const DataElement* DataElements::getElement(StringView name) const
 void DataElements::addElement(const DataElement &element)
 {
     elements_.push_back(element);
+}
+
+void DataElements::addAlias(const char *alias, const char *name)
+{
+    assert(strcmp(alias, name) != 0);
+    aliasMap_.push_back({alias, name});
 }
 
 AST_NAMESPACE_END

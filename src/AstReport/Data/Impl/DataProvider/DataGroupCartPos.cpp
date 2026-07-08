@@ -21,20 +21,21 @@
 #include "DataGroupCartPos.hpp"
 #include "AstUtil/VariantVector.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Dimension.hpp"
 
 AST_NAMESPACE_BEGIN
 
 DataElements DataGroupCartPos::Elements()
 {
     DataElements elements;
-    // 1. Time (独立变量)
-    elements.addElement<Data, const TimePoint&, &Data::getTime>("Time");
-    // 2. x
-    elements.addElement<Data, double, &Data::getX>("x");
-    // 3. y
-    elements.addElement<Data, double, &Data::getY>("y");
-    // 4. z
-    elements.addElement<Data, double, &Data::getZ>("z");
+    elements.addElement<Data, const TimePoint&, &Data::getTime>
+    ("Time", Dimension::DateTime());
+    elements.addElement<Data, double, &Data::getX>
+    ("x", Dimension::Length());
+    elements.addElement<Data, double, &Data::getY>
+    ("y", Dimension::Length());
+    elements.addElement<Data, double, &Data::getZ>
+    ("z", Dimension::Length());
     return elements;
 }
 

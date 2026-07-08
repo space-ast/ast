@@ -24,7 +24,9 @@
 #include "DataElement.hpp"
 #include "AstUtil/Dimension.hpp"
 #include "AstUtil/VariantVector.hpp"
+#include <map>
 #include <vector>
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
@@ -93,21 +95,27 @@ public:
     /// @brief 获取数据元素
     const DataElement* getElement(StringView name) const;
     const DataElement* find(StringView name) const{return getElement(name);}
+    
+    /// @brief 获取所有数据元素
+    const std::vector<DataElement>& getElements() const { return elements_; }
 
     /// @brief 添加数据元素
     void addElement(const DataElement& element);
 
+    /// @brief 添加别名
+    /// @param alias 别名
+    /// @param name 数据元素名称
+    void addAlias(const char* alias, const char* name);
 
     /// @brief 添加数据元素（成员变量版本）
     /// @tparam T 数据类类型
     /// @tparam MemberType 成员变量类型
     /// @tparam Member 成员变量指针
     template<typename T, typename MemberType, MemberType T::*Member>
-    void addElement(const char* name, const char* description="", Dimension dimension = Dimension::Unit())
+    void addElement(const char* name, Dimension dimension = Dimension::Unit())
     {
         DataElement element;
         element.setName(name);
-        element.setDescription(description);
         element.setDimension(dimension);
         element.setExtractFunc(detail::makeExtractFunc<T, MemberType, Member>());
         addElement(element);
@@ -118,20 +126,21 @@ public:
     /// @tparam Ret getter 返回值类型
     /// @tparam Getter const 成员函数指针
     template<typename T, typename Ret, Ret (T::*Getter)() const>
-    void addElement(const char* name, const char* description="", Dimension dimension = Dimension::Unit())
+    void addElement(const char* name, Dimension dimension = Dimension::Unit())
     {
         DataElement element;
         element.setName(name);
-        element.setDescription(description);
         element.setDimension(dimension);
         element.setExtractFunc(detail::makeExtractFunc<T, Ret, Getter>());
         addElement(element);
     }
     
 private:
-    std::vector<DataElement> elements_;
+    std::vector<DataElement> elements_;                             ///< 数据元素列表
+    std::vector<std::pair<std::string, std::string>> aliasMap_;     ///< 别名映射
 };
 
+const int i = sizeof(DataElements);
 
 /*! @} */
 

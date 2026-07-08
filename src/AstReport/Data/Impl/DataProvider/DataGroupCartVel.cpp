@@ -21,26 +21,39 @@
 #include "DataGroupCartVel.hpp"
 #include "AstUtil/VariantVector.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Dimension.hpp"
 
 AST_NAMESPACE_BEGIN
 
 DataElements DataGroupCartVel::Elements()
 {
     DataElements elements;
+    elements.addElement<Data, const TimePoint&, &Data::getTime>
     // 1. Time (独立变量)
-    elements.addElement<Data, const TimePoint&, &Data::getTime>("Time");
+    ("Time", Dimension::DateTime());
     // 2. vx
-    elements.addElement<Data, double, &Data::getVX>("vx");
+    elements.addElement<Data, double, &Data::getVX>
+    ("vx", Dimension::Speed());
     // 3. vy
-    elements.addElement<Data, double, &Data::getVY>("vy");
+    elements.addElement<Data, double, &Data::getVY>
+    ("vy", Dimension::Speed());
     // 4. vz
-    elements.addElement<Data, double, &Data::getVZ>("vz");
+    elements.addElement<Data, double, &Data::getVZ>
+    ("vz", Dimension::Speed());
     // 5. speed — 速率（速度大小）
-    elements.addElement<Data, double, &Data::getSpeed>("speed");
+    elements.addElement<Data, double, &Data::getSpeed>
+    ("speed", Dimension::Speed());
     // 6. vr — 径向速度
-    elements.addElement<Data, double, &Data::getRadialVel>("vr");
+    elements.addElement<Data, double, &Data::getRadialVel>
+    ("radial", Dimension::Speed());
     // 7. vi — 迹向速度
-    elements.addElement<Data, double, &Data::getInTrackVel>("vi");
+    elements.addElement<Data, double, &Data::getInTrackVel>
+    ("in-track", Dimension::Speed());
+
+    // 添加别名
+    elements.addAlias("x", "vx");
+    elements.addAlias("y", "vy");
+    elements.addAlias("z", "vz");
     return elements;
 }
 

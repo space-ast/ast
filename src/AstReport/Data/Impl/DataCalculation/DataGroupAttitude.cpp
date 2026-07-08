@@ -74,7 +74,7 @@ errc_t DataGroupAttitude::calculate(const TimeList &timeList, Span<Data> result)
     {
         Data& data = result[i];
         errc_t err = axes->getTransformFrom(referenceAxes, timeList[i], data.rotation);
-        if(rc != eNoError)
+        if(err != eNoError)
             rc = err;
     }
     return rc;
