@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"DetectorXYPlaneCross_8cpp.html":[4,0,0,7,8,0,39],
+"DetectorXYPlaneCross_8hpp.html":[4,0,0,7,8,0,40],
 "DetectorXYPlaneCross_8hpp_source.html":[4,0,0,7,8,0,40],
 "DetectorYZPlaneCross_8cpp.html":[4,0,0,7,8,0,41],
 "DetectorYZPlaneCross_8hpp.html":[4,0,0,7,8,0,42],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "FOVCustom_8hpp_source.html":[4,0,0,7,6,2,7],
 "FOVHalfPower_8cpp.html":[4,0,0,7,6,2,8],
 "FOVHalfPower_8hpp.html":[4,0,0,7,6,2,9],
-"FOVHalfPower_8hpp_source.html":[4,0,0,7,6,2,9],
-"FOVRectangular_8cpp.html":[4,0,0,7,6,2,10],
-"FOVRectangular_8hpp.html":[4,0,0,7,6,2,11]
+"FOVHalfPower_8hpp_source.html":[4,0,0,7,6,2,9]
 };

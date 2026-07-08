@@ -1,5 +1,10 @@
 var group__Geometry =
 [
+    [ "ast::Angle", "classast_1_1Angle.html", [
+      [ "getAngle", "classast_1_1Angle.html#ab1d5d5666f02d8142d9cbfc603fe9406", null ],
+      [ "getAngle", "classast_1_1Angle.html#a067625657abc77fcdf8afbc4f85d8211", null ],
+      [ "getAngle", "classast_1_1Angle.html#a6b300eadb55d5e3f1de80bcf3d8cb184", null ]
+    ] ],
     [ "ast::Axes", "classast_1_1Axes.html", [
       [ "getAncestor", "classast_1_1Axes.html#a8bb0ec4400a447244023d2ae1d1b7f3f", null ],
       [ "getDepth", "classast_1_1Axes.html#a082aa5ded08dac84022d64d59df3d9e2", null ],
@@ -35,8 +40,25 @@ var group__Geometry =
       [ "getPosVelIn", "classast_1_1Point.html#a9e550d526c8935563d3fb205ac7fb70e", null ],
       [ "toBody", "classast_1_1Point.html#a3b46eeef9261d63d8418c7c3d1784e74", null ]
     ] ],
+    [ "ast::Vector", "classast_1_1Vector.html", [
+      [ "getAxes", "classast_1_1Vector.html#abc54d14e0bd4ab41db32e5e371dff839", null ],
+      [ "getVector", "classast_1_1Vector.html#a21b2924f7c1daf1920f7ce99f7d18e07", null ],
+      [ "getVector", "classast_1_1Vector.html#af9d96fb66103cf655ff81e985068bb51", null ],
+      [ "getVectorIn", "classast_1_1Vector.html#a712b0645aacf94f2561e58a7abb4ecf8", null ],
+      [ "getVectorIn", "classast_1_1Vector.html#aee95209bed14765f2a0505eef5f4b1c4", null ],
+      [ "getVectorIn", "classast_1_1Vector.html#adf3c8eb879c7e9837672452f59f4e44b", null ],
+      [ "getVectorIn", "classast_1_1Vector.html#a910ade491d93244f97f46c23f0137cbc", null ]
+    ] ],
+    [ "ast::HAngle", "group__Geometry.html#ga0c68218f2168dda4e4ea8111f2368fb1", null ],
     [ "ast::HAxes", "group__Geometry.html#ga52cecc91460a5123ebbfa0a7a4c7b0f9", null ],
+    [ "ast::HFrame", "group__Geometry.html#gab94af565f9e33f444abcd912e6135cbd", null ],
+    [ "ast::HPoint", "group__Geometry.html#gaa1852f65d885b1cd555183345c99cec8", null ],
+    [ "ast::HVector", "group__Geometry.html#ga628b0ba86e81b7c7d57cf5fdc1e674b1", null ],
+    [ "ast::PAngle", "group__Geometry.html#ga32188c5b5a52de8e0c7e49b153b78ca2", null ],
     [ "ast::PAxes", "group__Geometry.html#ga13750cf42b939efb70ef39e92c5eade8", null ],
+    [ "ast::PFrame", "group__Geometry.html#ga2dc6e719459f9795d6954e1ce6b2b572", null ],
+    [ "ast::PPoint", "group__Geometry.html#ga7ebf47c650029bacb1fae24682d1b217", null ],
+    [ "ast::PVector", "group__Geometry.html#ga7e89f801d20d9ca4dc58041420a598c4", null ],
     [ "ast::aAxesTransform", "group__Geometry.html#gade0110d2c04736f0da03998811b0709e", null ],
     [ "ast::aAxesTransform", "group__Geometry.html#ga8df2c7bf8191ebe4fd5f05e4a36ef6a1", null ],
     [ "ast::aAxesTransform", "group__Geometry.html#ga496c2284c6a9df869188557591e913f7", null ],

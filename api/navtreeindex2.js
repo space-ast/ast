@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"BlockLogicalOperator_8hpp.html#a65999e43b74f73ebbbf95a9eea2e4269ae8b511f162a3e5ae4ba68f1661a5ce5a":[4,0,0,7,8,1,1,1,1,1,0],
+"BlockLogicalOperator_8hpp_source.html":[4,0,0,7,8,1,1,1,1],
 "BlockMass_8cpp.html":[4,0,0,7,8,1,0,10],
 "BlockMass_8hpp.html":[4,0,0,7,8,1,0,11],
 "BlockMass_8hpp_source.html":[4,0,0,7,8,1,0,11],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "Chat_8cpp.html#a98cbf7b53cd1c1d9c68c9d4d79720078":[4,0,0,0,2,2,1],
 "Chat_8cpp.html#aaa48b499a9b2e5d0d612b032f1c06a1c":[4,0,0,0,2,2,0],
 "Chat_8cpp.html#adeb5e8896cae3226158893db398a0468":[4,0,0,0,2,2,3],
-"Chat_8cpp.html#ae5796187432989719446a132b3777006":[4,0,0,0,2,2,2],
-"Chat_8hpp.html":[4,0,0,0,2,3],
-"Chat_8hpp.html#a98cbf7b53cd1c1d9c68c9d4d79720078":[4,0,0,0,2,3,1]
+"Chat_8cpp.html#ae5796187432989719446a132b3777006":[4,0,0,0,2,2,2]
 };

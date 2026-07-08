@@ -62,6 +62,7 @@ var annotated_dup =
       [ "AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
       [ "AgentSession", "classast_1_1AgentSession.html", null ],
       [ "Aircraft", "classast_1_1Aircraft.html", null ],
+      [ "Angle", "classast_1_1Angle.html", "classast_1_1Angle" ],
       [ "AngleAxis", "classast_1_1AngleAxis.html", "classast_1_1AngleAxis" ],
       [ "AngularSeparation", "classast_1_1AngularSeparation.html", null ],
       [ "AngularSize", "classast_1_1AngularSize.html", null ],

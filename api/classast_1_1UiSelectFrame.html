@@ -141,7 +141,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setBody</b> (<a class
 <tr class="separator:a7c60da715d9ddda4df3ecf5bf4d0b430"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>坐标系选择器 — 天体 + <a class="el" href="classast_1_1Frame.html" title="坐标系类">Frame</a> 双列表选择 </p>
+<div class="textblock"><p>坐标系选择器 — 天体 + <a class="el" href="classast_1_1Frame.html" title="坐标系抽象基类">Frame</a> 双列表选择 </p>
 <pre class="fragment"> [天体列表]        [坐标系列表]
  Earth         →  Inertial
  Moon              ICRF
@@ -149,7 +149,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setBody</b> (<a class
  ...               ...
 </pre><p>数据源:</p><ul>
 <li>天体: <a class="el" href="group__Data.html#gaf6a3c7cc9ccf2f22d0e1922a9f541bff" title="获取太阳系">aGetSolarSystem()</a> → aFindChildren(CelestialBody)</li>
-<li><a class="el" href="classast_1_1Frame.html" title="坐标系类">Frame</a>: aFindChildren(body, Frame::StaticType()) 若为空则先调用工厂方法创建并注册到天体下，再重新查询 </li>
+<li><a class="el" href="classast_1_1Frame.html" title="坐标系抽象基类">Frame</a>: aFindChildren(body, Frame::StaticType()) 若为空则先调用工厂方法创建并注册到天体下，再重新查询 </li>
 </ul>
 </div><hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstGUI/Foundation/<a class="el" href="UiSelectFrame_8hpp_source.html">UiSelectFrame.hpp</a></li>

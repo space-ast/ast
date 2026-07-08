@@ -115,7 +115,7 @@ $(function(){initNavTree('classast_1_1AxesICRF.html',''); initResizable(true); }
  <div class="center">
   <img src="classast_1_1AxesICRF.png" usemap="#ast::AxesICRF_map" alt=""/>
   <map id="ast::AxesICRF_map" name="ast::AxesICRF_map">
-<area href="classast_1_1Axes.html" title="轴系类" alt="ast::Axes" shape="rect" coords="0,168,110,192"/>
+<area href="classast_1_1Axes.html" title="轴系抽象基类" alt="ast::Axes" shape="rect" coords="0,168,110,192"/>
 <area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="0,112,110,136"/>
 <area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="0,56,110,80"/>
 <area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="0,0,110,24"/>
@@ -354,7 +354,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div><div class="memdoc">
 
 <p>获取当前轴系的父轴系 </p>
-<dl class="section return"><dt>返回</dt><dd>父轴系 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>父轴系指针，根轴系返回 nullptr </dd></dl>
 
 <p>实现了 <a class="el" href="classast_1_1Axes.html#a61cb4c23db728cedf78474866f8e9650">ast::Axes</a>.</p>
 
@@ -387,11 +387,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取当前轴系相对于父轴系的运动学旋转信息 </p>
+<p>获取当前轴系相对于父轴系的运动学旋转变换 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出的运动学旋转信息 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，运动学旋转变换（包含角速度） </td></tr>
   </table>
   </dd>
 </dl>
@@ -428,11 +428,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取当前轴系相对于父轴系的旋转信息 </p>
+<p>获取当前轴系相对于父轴系的旋转变换 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出的旋转信息 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，旋转变换 </td></tr>
   </table>
   </dd>
 </dl>

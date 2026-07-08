@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"Chat_8hpp.html":[4,0,0,0,2,3],
+"Chat_8hpp.html#a98cbf7b53cd1c1d9c68c9d4d79720078":[4,0,0,0,2,3,1],
 "Chat_8hpp.html#aaa48b499a9b2e5d0d612b032f1c06a1c":[4,0,0,0,2,3,0],
 "Chat_8hpp.html#adeb5e8896cae3226158893db398a0468":[4,0,0,0,2,3,3],
 "Chat_8hpp.html#ae5796187432989719446a132b3777006":[4,0,0,0,2,3,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "DetectorTrueAnomaly_8hpp_source.html":[4,0,0,7,8,0,36],
 "DetectorUserSelect_8cpp.html":[4,0,0,7,8,0,37],
 "DetectorUserSelect_8hpp.html":[4,0,0,7,8,0,38],
-"DetectorUserSelect_8hpp_source.html":[4,0,0,7,8,0,38],
-"DetectorXYPlaneCross_8cpp.html":[4,0,0,7,8,0,39],
-"DetectorXYPlaneCross_8hpp.html":[4,0,0,7,8,0,40]
+"DetectorUserSelect_8hpp_source.html":[4,0,0,7,8,0,38]
 };

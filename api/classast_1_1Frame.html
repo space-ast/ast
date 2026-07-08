@@ -329,8 +329,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <tr class="separator:a069a70787164bcec7311d5916913317e inherit pro_methods_classast_1_1Referenced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>坐标系类 </p>
-<p>坐标系类表示一个三维空间中的坐标系，包含了坐标系的变换信息。 </p>
+<div class="textblock"><p>坐标系抽象基类 </p>
+<p>坐标系是一种几何元素，由原点（Point）和轴系（Axes）组成， 定义了三维空间中的一个完整参考系（同时包含平移和旋转信息）。 所有具体坐标系类型（ICRF、地固系、当地水平系等）均派生自此类。 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="afdd735ece565c5f8d73ecbc7cea7aef5" name="afdd735ece565c5f8d73ecbc7cea7aef5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afdd735ece565c5f8d73ecbc7cea7aef5">&#9670;&#160;</a></span>getAxes()</h2>
@@ -355,8 +355,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取当前坐标系的轴系。 </p>
-<dl class="section return"><dt>返回</dt><dd>轴系 </dd></dl>
+<p>获取当前坐标系的轴系 </p>
+<p>轴系定义了坐标轴的旋转方向。纯虚方法，子类必须实现。 </p><dl class="section return"><dt>返回</dt><dd>轴系指针 </dd></dl>
 
 <p>在 <a class="el" href="classast_1_1FrameAssembly.html#a1f06ad5026d0aabe77cf610fc3a0f96a">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#a260d7334947877b0bb213cb6ca49d034">ast::FrameICRF</a>, <a class="el" href="classast_1_1FrameRoot.html#a33ecb5aa45fa06de1be92645e451ee0a">ast::FrameRoot</a> , 以及 <a class="el" href="classast_1_1FrameWithEpoch.html#a9499ffb3b0c8a303fb985fad8cff3443">ast::FrameWithEpoch</a> 内被实现.</p>
 
@@ -378,7 +378,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div><div class="memdoc">
 
 <p>获取当前坐标系中心对应的天体 </p>
-<dl class="section return"><dt>返回</dt><dd>天体 </dd></dl>
+<p>如果当前坐标系的原点是天体，则返回该天体；否则返回 nullptr。 </p><dl class="section return"><dt>返回</dt><dd>天体 </dd></dl>
 
 </div>
 </div>
@@ -398,7 +398,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div><div class="memdoc">
 
 <p>获取当前坐标系中心对应天体的引力参数 </p>
-<dl class="section return"><dt>返回</dt><dd>引力参数 </dd></dl>
+<p>通过 <a class="el" href="#ab93a40aa12f5406970000533bdfd5f55" title="获取当前坐标系中心对应的天体">getBody()</a> 查找天体后返回其 GM 值。 </p><dl class="section return"><dt>返回</dt><dd>引力参数 GM（km³/s²） </dd></dl>
 
 </div>
 </div>
@@ -425,8 +425,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取当前坐标系的原点。 </p>
-<dl class="section return"><dt>返回</dt><dd>原点 </dd></dl>
+<p>获取当前坐标系的原点 </p>
+<p>原点定义了坐标系的平移位置。纯虚方法，子类必须实现。 </p><dl class="section return"><dt>返回</dt><dd>原点指针 </dd></dl>
 
 <p>在 <a class="el" href="classast_1_1FrameICRF.html#a09dc67cccdf7b92d53a356594390d902">ast::FrameICRF</a>, <a class="el" href="classast_1_1FrameRoot.html#a30da38b2a44ba8c769f903eeabe4c6d4">ast::FrameRoot</a> , 以及 <a class="el" href="classast_1_1FrameWithEpoch.html#a5267d054cfa0791862f37047c3dfeef6">ast::FrameWithEpoch</a> 内被实现.</p>
 
@@ -456,7 +456,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div><div class="memdoc">
 
 <p>获取当前坐标系的父坐标系 </p>
-<dl class="section return"><dt>返回</dt><dd>父坐标系 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>父坐标系指针，根坐标系返回 nullptr </dd></dl>
 
 <p>被 <a class="el" href="classast_1_1FrameAssembly.html#af0eb575ef414753a239864a33bf302de">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#a6daa55a8192ea14876a7d71440c1f355">ast::FrameICRF</a> , 以及 <a class="el" href="classast_1_1FrameRoot.html#afd13ab5a3e93641a0c55ee288ee3bdc8">ast::FrameRoot</a> 重载.</p>
 
@@ -485,7 +485,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取当前坐标系的表示 </p>
+<p>获取当前坐标系的路径表示 </p>
+<p>沿父坐标系链向上组合，返回完整的路径字符串，如 "Earth/ITRF"。 </p><dl class="section return"><dt>返回</dt><dd>路径字符串 </dd></dl>
 
 <p>重载 <a class="el" href="classast_1_1Object.html#aa74b57ccf8714c96db2380b65a921181">ast::Object</a> .</p>
 
@@ -522,7 +523,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">transform</td><td>输出的运动学变换 </td></tr>
+    <tr><td class="paramname">transform</td><td>输出参数，运动学变换（包含速度项） </td></tr>
   </table>
   </dd>
 </dl>
@@ -563,7 +564,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">transform</td><td>输出的变换 </td></tr>
+    <tr><td class="paramname">transform</td><td>输出参数，变换 </td></tr>
   </table>
   </dd>
 </dl>
@@ -777,13 +778,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div><div class="memdoc">
 
 <p>解析坐标系 </p>
-<dl class="params"><dt>参数</dt><dd>
+<p>根据名称或路径字符串查找已注册的坐标系实例。 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>坐标系的名称/路径等 </td></tr>
+    <tr><td class="paramname">value</td><td>坐标系的名称或路径 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>坐标系 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>坐标系指针，未找到时返回 nullptr </dd></dl>
 
 </div>
 </div>

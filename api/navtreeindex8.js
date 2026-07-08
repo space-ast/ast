@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"MotionProfile_8hpp.html":[4,0,0,20,2,18],
+"MotionProfile_8hpp_source.html":[4,0,0,20,2,18],
 "MotionRealTime_8hpp_source.html":[4,0,0,20,2,19],
 "MotionSGP4_8cpp.html":[4,0,0,20,2,20],
 "MotionSGP4_8hpp.html":[4,0,0,20,2,21],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "OrbitElement_8cpp.html#a598a3330b3c21701223ee0ca14316eca":[4,0,0,7,7,11,0],
 "OrbitElement_8hpp.html":[4,0,0,7,7,12],
 "OrbitElement_8hpp_source.html":[4,0,0,7,7,12],
-"OrbitParam_8cpp.html":[4,0,0,7,7,13],
-"OrbitParam_8cpp.html#a598a3330b3c21701223ee0ca14316eca":[4,0,0,7,7,13,0],
-"OrbitParam_8hpp.html":[4,0,0,7,7,14]
+"OrbitParam_8cpp.html":[4,0,0,7,7,13]
 };

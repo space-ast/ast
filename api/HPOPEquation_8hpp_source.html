@@ -166,7 +166,7 @@ $(function(){initNavTree('HPOPEquation_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>               epoch_{};           </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    HPOPForceModel          forceModel_{};      </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    SpacecraftParam         spacecraftParam_{}; </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    HFrame                  propFrame_;         </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_typedef" href="group__Geometry.html#gab94af565f9e33f444abcd912e6135cbd">HFrame</a>                  propFrame_;         </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>};</div>
 </div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
@@ -174,7 +174,7 @@ $(function(){initNavTree('HPOPEquation_8hpp_source.html',''); initResizable(true
 <div class="ttc" id="aclassast_1_1BlockDerivative_html"><div class="ttname"><a href="classast_1_1BlockDerivative.html">ast::BlockDerivative</a></div><div class="ttdoc">导数函数块</div><div class="ttdef"><b>定义</b> BlockDerivative.hpp:46</div></div>
 <div class="ttc" id="aclassast_1_1BlockDynamicSystem_html"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html">ast::BlockDynamicSystem</a></div><div class="ttdoc">动力学系统</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:61</div></div>
 <div class="ttc" id="aclassast_1_1CelestialBody_html"><div class="ttname"><a href="classast_1_1CelestialBody.html">ast::CelestialBody</a></div><div class="ttdoc">天体</div><div class="ttdef"><b>定义</b> CelestialBody.hpp:72</div></div>
-<div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系类</div><div class="ttdef"><b>定义</b> Frame.hpp:60</div></div>
+<div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系抽象基类</div><div class="ttdef"><b>定义</b> Frame.hpp:62</div></div>
 <div class="ttc" id="aclassast_1_1FuncBlock_html"><div class="ttname"><a href="classast_1_1FuncBlock.html">ast::FuncBlock</a></div><div class="ttdoc">函数块/功能块</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:41</div></div>
 <div class="ttc" id="aclassast_1_1HPOPEquation_html"><div class="ttname"><a href="classast_1_1HPOPEquation.html">ast::HPOPEquation</a></div><div class="ttdoc">高精度轨道预报方程</div><div class="ttdef"><b>定义</b> HPOPEquation.hpp:47</div></div>
 <div class="ttc" id="aclassast_1_1HPOPEquation_html_a3781b50840cde28f0f2d5133cc099b37"><div class="ttname"><a href="classast_1_1HPOPEquation.html#a3781b50840cde28f0f2d5133cc099b37">ast::HPOPEquation::forceModel</a></div><div class="ttdeci">HPOPForceModel &amp; forceModel()</div><div class="ttdoc">获取HPOP力模型</div><div class="ttdef"><b>定义</b> HPOPEquation.hpp:65</div></div>
@@ -186,6 +186,7 @@ $(function(){initNavTree('HPOPEquation_8hpp_source.html',''); initResizable(true
 <div class="ttc" id="aclassast_1_1OrdinaryDifferentialEquation_html_af9a8fb3d5c59b75b6439743cd3638ac9"><div class="ttname"><a href="classast_1_1OrdinaryDifferentialEquation.html#af9a8fb3d5c59b75b6439743cd3638ac9">ast::OrdinaryDifferentialEquation::evaluate</a></div><div class="ttdeci">virtual errc_t evaluate(const double *y, double *dy, double t)=0</div><div class="ttdoc">计算常微分方程在给定时间点和状态下的导数。</div></div>
 <div class="ttc" id="aclassast_1_1SpacecraftParam_html"><div class="ttname"><a href="classast_1_1SpacecraftParam.html">ast::SpacecraftParam</a></div><div class="ttdoc">航天器参数</div><div class="ttdef"><b>定义</b> SpacecraftParam.hpp:34</div></div>
 <div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:107</div></div>
+<div class="ttc" id="agroup__Geometry_html_gab94af565f9e33f444abcd912e6135cbd"><div class="ttname"><a href="group__Geometry.html#gab94af565f9e33f444abcd912e6135cbd">ast::HFrame</a></div><div class="ttdeci">SharedPtr&lt; Frame &gt; HFrame</div><div class="ttdoc">坐标系句柄(handle to frame)</div><div class="ttdef"><b>定义</b> Frame.hpp:158</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

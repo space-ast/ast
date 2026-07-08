@@ -745,6 +745,7 @@ var hierarchy =
         [ "ast::MockObject", "classast_1_1MockObject.html", null ],
         [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
           [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
+          [ "ast::Angle", "classast_1_1Angle.html", null ],
           [ "ast::Antenna", "classast_1_1Antenna.html", null ],
           [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
           [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],

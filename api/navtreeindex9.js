@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"OrbitParam_8cpp.html#a598a3330b3c21701223ee0ca14316eca":[4,0,0,7,7,13,0],
+"OrbitParam_8hpp.html":[4,0,0,7,7,14],
 "OrbitParam_8hpp_source.html":[4,0,0,7,7,14],
 "OrbitalPrecession_8cpp.html":[4,0,0,7,7,9],
 "OrbitalPrecession_8hpp.html":[4,0,0,7,7,10],
@@ -56,7 +58,7 @@ var NAVTREEINDEX9 =
 "Place_8cpp.html":[4,0,0,20,3,40],
 "Place_8hpp.html":[4,0,0,20,3,41],
 "Place_8hpp_source.html":[4,0,0,20,3,41],
-"Plane_8hpp_source.html":[4,0,0,7,6,1,5],
+"Plane_8hpp_source.html":[4,0,0,7,6,1,6],
 "PlanetFrame_8cpp.html":[4,0,0,7,3,2,10],
 "PlanetFrame_8hpp.html":[4,0,0,7,3,2,11],
 "PlanetFrame_8hpp_source.html":[4,0,0,7,3,2,11],
@@ -89,9 +91,9 @@ var NAVTREEINDEX9 =
 "PointSSBarycenter_8cpp.html":[4,0,0,7,3,4,9],
 "PointSSBarycenter_8hpp.html":[4,0,0,7,3,4,10],
 "PointSSBarycenter_8hpp_source.html":[4,0,0,7,3,4,10],
-"Point_8cpp.html":[4,0,0,7,6,1,6],
-"Point_8hpp.html":[4,0,0,7,6,1,7],
-"Point_8hpp_source.html":[4,0,0,7,6,1,7],
+"Point_8cpp.html":[4,0,0,7,6,1,7],
+"Point_8hpp.html":[4,0,0,7,6,1,8],
+"Point_8hpp_source.html":[4,0,0,7,6,1,8],
 "PointingDirection_8cpp.html":[4,0,0,2,0,14],
 "PointingDirection_8hpp.html":[4,0,0,2,0,15],
 "PointingDirection_8hpp_source.html":[4,0,0,2,0,15],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "ReportElement_8hpp.html":[4,0,0,18,5],
 "ReportElement_8hpp_source.html":[4,0,0,18,5],
 "ReportLine_8cpp.html":[4,0,0,18,6],
-"ReportLine_8hpp.html":[4,0,0,18,7],
-"ReportLine_8hpp_source.html":[4,0,0,18,7],
-"ReportSection_8cpp.html":[4,0,0,18,8]
+"ReportLine_8hpp.html":[4,0,0,18,7]
 };

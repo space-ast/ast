@@ -1,5 +1,7 @@
 var NAVTREEINDEX14 =
 {
+"StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658c":[4,0,0,7,7,6,5,4],
+"StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658ca0e2073f32f9206cb73bdea469c7366ae":[4,0,0,7,7,6,5,4,5],
 "StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658ca313a4466fde74774f7c84e67e730a06c":[4,0,0,7,7,6,5,4,1],
 "StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658ca5909f91eca1fed37fa5b96d4f3cf33a2":[4,0,0,7,7,6,5,4,2],
 "StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658ca6a21361f2cee5a142d0556289b01e913":[4,0,0,7,7,6,5,4,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX14 =
 "TwoBody_8cpp.html":[4,0,0,7,8,10],
 "TwoBody_8cpp.html#a576e27d6ac7a3bed49e448e9b092a4ba":[4,0,0,7,8,10,0],
 "TwoBody_8hpp.html":[4,0,0,7,8,11],
-"TwoBody_8hpp_source.html":[4,0,0,7,8,11],
-"TypeTraits_8hpp_source.html":[4,0,0,28,10,21],
-"Type_8hpp.html":[4,0,0,28,7,27]
+"TwoBody_8hpp_source.html":[4,0,0,7,8,11]
 };

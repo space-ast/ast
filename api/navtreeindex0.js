@@ -53,7 +53,9 @@ var NAVTREEINDEX0 =
 "AngleAxis_8cpp.html":[4,0,0,13,1,0],
 "AngleAxis_8hpp.html":[4,0,0,13,1,1],
 "AngleAxis_8hpp_source.html":[4,0,0,13,1,1],
-"Angle_8hpp_source.html":[4,0,0,7,6,1,0],
+"Angle_8cpp.html":[4,0,0,7,6,1,0],
+"Angle_8hpp.html":[4,0,0,7,6,1,1],
+"Angle_8hpp_source.html":[4,0,0,7,6,1,1],
 "AngularSeparation_8cpp.html":[4,0,0,2,0,0],
 "AngularSeparation_8hpp.html":[4,0,0,2,0,1],
 "AngularSeparation_8hpp_source.html":[4,0,0,2,0,1],
@@ -129,9 +131,9 @@ var NAVTREEINDEX0 =
 "AstCore_2Data_2Context_2RunTime_8cpp.html":[4,0,0,7,4,0,4],
 "AstCore_2Data_2Context_2RunTime_8hpp.html":[4,0,0,7,4,0,5],
 "AstCore_2Data_2Context_2RunTime_8hpp_source.html":[4,0,0,7,4,0,5],
-"AstCore_2Geometry_2Euclid_2Vector_8cpp.html":[4,0,0,7,6,1,8],
-"AstCore_2Geometry_2Euclid_2Vector_8hpp.html":[4,0,0,7,6,1,9],
-"AstCore_2Geometry_2Euclid_2Vector_8hpp_source.html":[4,0,0,7,6,1,9],
+"AstCore_2Geometry_2Euclid_2Vector_8cpp.html":[4,0,0,7,6,1,9],
+"AstCore_2Geometry_2Euclid_2Vector_8hpp.html":[4,0,0,7,6,1,10],
+"AstCore_2Geometry_2Euclid_2Vector_8hpp_source.html":[4,0,0,7,6,1,10],
 "AstCore_2RTTI_2PropertyTimePoint_8cpp.html":[4,0,0,7,9,0],
 "AstCore_2RTTI_2PropertyTimePoint_8hpp.html":[4,0,0,7,9,1],
 "AstCore_2RTTI_2PropertyTimePoint_8hpp_source.html":[4,0,0,7,9,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "AstUiAIGlobal_8hpp.html":[4,0,0,23,3],
 "AstUiAIGlobal_8hpp_source.html":[4,0,0,23,3],
 "AstUiAI_8hpp_source.html":[4,0,0,23,2],
-"AstUiDataUpdateGlobal_8hpp.html":[4,0,0,24,1],
-"AstUiDataUpdateGlobal_8hpp_source.html":[4,0,0,24,1],
-"AstUiDataUpdate_8hpp_source.html":[4,0,0,24,0]
+"AstUiDataUpdateGlobal_8hpp.html":[4,0,0,24,1]
 };

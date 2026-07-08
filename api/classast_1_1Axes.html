@@ -329,8 +329,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <tr class="separator:a069a70787164bcec7311d5916913317e inherit pro_methods_classast_1_1Referenced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>轴系类 </p>
-<p>轴系类表示一个三维空间中的轴系，包含了轴系的旋转信息。 </p>
+<div class="textblock"><p>轴系抽象基类 </p>
+<p>轴系是一种几何元素，表示三维空间中的一组正交坐标轴方向。 所有具体轴系类型（地固系、惯性系、冻结系等）均派生自此类。 轴系通过父子关系构成树形层级，根轴系通常为惯性空间（如 ICRF）。 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a8bb0ec4400a447244023d2ae1d1b7f3f" name="a8bb0ec4400a447244023d2ae1d1b7f3f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8bb0ec4400a447244023d2ae1d1b7f3f">&#9670;&#160;</a></span>getAncestor()</h2>
@@ -347,14 +347,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
       </table>
 </div><div class="memdoc">
 
-<p>获取当前轴系的祖先轴系 </p>
+<p>获取当前轴系指定深度的祖先轴系 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">depth</td><td>祖先轴系的深度 </td></tr>
+    <tr><td class="paramname">depth</td><td>目标祖先的深度 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>祖先轴系 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>祖先轴系指针，若 depth 超出范围则返回 nullptr </dd></dl>
 
 </div>
 </div>
@@ -374,7 +374,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div><div class="memdoc">
 
 <p>获取当前轴系的深度 </p>
-<dl class="section return"><dt>返回</dt><dd>深度 </dd></dl>
+<p>根轴系深度为 0，每增加一级父轴系深度加 1。 </p><dl class="section return"><dt>返回</dt><dd>深度值 </dd></dl>
 
 </div>
 </div>
@@ -402,7 +402,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div><div class="memdoc">
 
 <p>获取当前轴系的父轴系 </p>
-<dl class="section return"><dt>返回</dt><dd>父轴系 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>父轴系指针，根轴系返回 nullptr </dd></dl>
 
 <p>在 <a class="el" href="classast_1_1AxesBodyFixed.html#adfbe61a14eb4b20cacbd113271375eda">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2e0e3330db547e9904b348cc30d44d35">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#afcc73f9511666cf42c2f1d0ad803b23c">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a8d704c7140c235fe09df5056de66e9fe">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a53411e370b539ea7014b66819f0b6664">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a7d358e5e6e3e6c58ac9f865723fd8feb">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#a0b1009ad635c8058bd70d3178e8dbe47">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#abb4cab385bf21851f374dcd045c8cc77">ast::AxesRoot</a> 内被实现.</p>
 
@@ -435,11 +435,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取当前轴系相对于父轴系的运动学旋转信息 </p>
+<p>获取当前轴系相对于父轴系的运动学旋转变换 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出的运动学旋转信息 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，运动学旋转变换（包含角速度） </td></tr>
   </table>
   </dd>
 </dl>
@@ -476,11 +476,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取当前轴系相对于父轴系的旋转信息 </p>
+<p>获取当前轴系相对于父轴系的旋转变换 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出的旋转信息 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，旋转变换 </td></tr>
   </table>
   </dd>
 </dl>
@@ -522,12 +522,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取源轴系到当前轴系的运动学旋转变换。 </p>
+<p>获取源轴系到当前轴系的运动学旋转变换 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td>源轴系 </td></tr>
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出的运动学旋转变换 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，运动学旋转变换（包含角速度） </td></tr>
   </table>
   </dd>
 </dl>
@@ -567,12 +567,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取源轴系到当前轴系的旋转变换。 </p>
+<p>获取源轴系到当前轴系的旋转变换 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td>源轴系 </td></tr>
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出的旋转变换 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，旋转变换 </td></tr>
   </table>
   </dd>
 </dl>
@@ -607,11 +607,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取当前轴系相对于父轴系的运动学旋转信息。 </p>
+<p>获取当前轴系相对于父轴系的运动学旋转变换 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出的运动学旋转信息 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，运动学旋转变换（包含角速度） </td></tr>
   </table>
   </dd>
 </dl>
@@ -646,11 +646,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取当前轴系相对于父轴系的旋转信息。 </p>
+<p>获取当前轴系相对于父轴系的旋转变换 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出的旋转信息 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，旋转变换 </td></tr>
   </table>
   </dd>
 </dl>
@@ -690,12 +690,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取当前轴系到目标轴系的运动学旋转变换。 </p>
+<p>获取当前轴系到目标轴系的运动学旋转变换 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">target</td><td>目标轴系 </td></tr>
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出的运动学旋转变换 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，运动学旋转变换（包含角速度） </td></tr>
   </table>
   </dd>
 </dl>
@@ -740,7 +740,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
   <table class="params">
     <tr><td class="paramname">target</td><td>目标轴系 </td></tr>
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出的旋转变换 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，旋转变换 </td></tr>
   </table>
   </dd>
 </dl>
