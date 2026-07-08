@@ -30,18 +30,19 @@
 #include "AstCore/RunTimeSolarSystem.hpp"
 #include "AstCore/TimeList.hpp"
 #include "AstCore/TimePoint.hpp"
+#include "AstCore/Resolve.hpp"
 
 // DataGroup provider
-#include "Data/Impl/DataProvider/DataGroupCartPos.hpp"
-#include "Data/Impl/DataProvider/DataGroupCartVel.hpp"
-#include "Data/Impl/DataProvider/DataGroupModOrbElem.hpp"
-#include "Data/Impl/DataProvider/DataGroupLLAState.hpp"
-#include "Data/Impl/DataProvider/DataGroupLLRState.hpp"
-#include "Data/Impl/DataProvider/DataGroupSpherical.hpp"
-#include "Data/Impl/DataProvider/DataGroupEquinElem.hpp"
-#include "Data/Impl/DataProvider/DataGroupBetaAngle.hpp"
-#include "Data/Impl/DataProvider/DataGroupQuats.hpp"
-#include "Data/Impl/DataProvider/DataGroupEuler.hpp"
+#include "AstReport/DataGroupCartPos.hpp"
+#include "AstReport/DataGroupCartVel.hpp"
+#include "AstReport/DataGroupModOrbElem.hpp"
+#include "AstReport/DataGroupLLAState.hpp"
+#include "AstReport/DataGroupLLRState.hpp"
+#include "AstReport/DataGroupSpherical.hpp"
+#include "AstReport/DataGroupEquinElem.hpp"
+#include "AstReport/DataGroupBetaAngle.hpp"
+#include "AstReport/DataGroupQuats.hpp"
+#include "AstReport/DataGroupEuler.hpp"
 
 #include <unordered_map>
 #include <memory>
@@ -55,17 +56,8 @@ AST_NAMESPACE_BEGIN
 static Frame* _aFrameFromType(StringView type)
 {
     auto* earth = aGetEarth();
-    if (!earth) return nullptr;
 
-    if (type == "Fixed")
-        return earth->getFrameFixed();
-    if (type == "J2000")
-        return earth->makeFrameJ2000();
-    if (type == "TOD" || type == "TrueOfDate")
-        return earth->makeFrameTOD();
-    if (type == "MOD" || type == "MeanOfDate")
-        return earth->makeFrameMOD();
-    return earth->getFrame();  // 默认 ICRF
+    return aObject_GetFrame(earth, type);
 }
 
 /// @brief 生成等步长时间列表
@@ -88,25 +80,31 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
     {"CartPos", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
+        Frame* frame = _aFrameFromType(type);
+        if (!frame) return nullptr;
         auto* dg = new DataGroupCartPos();
         dg->setPoint(point);
-        dg->setFrame(_aFrameFromType(type));
+        dg->setFrame(frame);
         return dg;
     }},
     {"CartVel", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
+        Frame* frame = _aFrameFromType(type);
+        if (!frame) return nullptr;
         auto* dg = new DataGroupCartVel();
         dg->setPoint(point);
-        dg->setFrame(_aFrameFromType(type));
+        dg->setFrame(frame);
         return dg;
     }},
     {"ModOrbElem", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
+        Frame* frame = _aFrameFromType(type);
+        if (!frame) return nullptr;
         auto* dg = new DataGroupModOrbElem();
         dg->setPoint(point);
-        dg->setFrame(_aFrameFromType(type));
+        dg->setFrame(frame);
         return dg;
     }},
     {"LLAState", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
@@ -122,33 +120,41 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
     {"LLRState", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
+        Frame* frame = _aFrameFromType(type);
+        if (!frame) return nullptr;
         auto* dg = new DataGroupLLRState();
         dg->setPoint(point);
-        dg->setFrame(_aFrameFromType(type));
+        dg->setFrame(frame);
         return dg;
     }},
     {"Spherical", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
+        Frame* frame = _aFrameFromType(type);
+        if (!frame) return nullptr;
         auto* dg = new DataGroupSpherical();
         dg->setPoint(point);
-        dg->setFrame(_aFrameFromType(type));
+        dg->setFrame(frame);
         return dg;
     }},
     {"EquinElem", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
+        Frame* frame = _aFrameFromType(type);
+        if (!frame) return nullptr;
         auto* dg = new DataGroupEquinElem();
         dg->setPoint(point);
-        dg->setFrame(_aFrameFromType(type));
+        dg->setFrame(frame);
         return dg;
     }},
     {"BetaAngle", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
+        Frame* frame = _aFrameFromType(type);
+        if (!frame) return nullptr;
         auto* dg = new DataGroupBetaAngle();
         dg->setPoint(point);
-        dg->setFrame(_aFrameFromType(type));
+        dg->setFrame(frame);
         dg->setSunPoint(aGetSun());
         dg->setMoonPoint(aGetMoon());
         return dg;
@@ -227,7 +233,10 @@ static void _aCacheSpan(ColData& col)
     }
     else
     {
+        aWarning("unknown element type '%s' in column '%s', skipping output",
+                 ti.name(), col.title.c_str());
         col.dataType = EDataType::eFloat;
+        col.data.clear();  // 清空数据，确保 hasType() 返回 false，输出时跳过
     }
 }
 
@@ -359,19 +368,27 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
     {
         for (const auto& col : columns)
         {
+            // 跳过无数据的列（extract 失败或未计算），输出占位符
+            if (!col.data.hasType())
+            {
+                std::fprintf(file, "%-*s  ", col.width, "--");
+                continue;
+            }
             switch (col.dataType)
             {
             case EDataType::eFloat:
             {
                 double v = col.dSpan[row];
-                std::string fmt;
                 if (col.element && !col.element->format_.empty())
-                    fmt = "%" + col.element->format_;
+                {
+                    std::string fmt = "%" + col.element->format_;
+                    std::fprintf(file, fmt.c_str(), v);
+                }
                 else
-                    fmt = "%";
-                fmt += "f";
-                // 构建格式串如 "%*.6f"
-                std::fprintf(file, "%*.*f  ", col.width, 6, v);
+                {
+                    std::fprintf(file, "%*.*f", col.width, 6, v);
+                }
+                std::fprintf(file, "  ");
                 break;
             }
             case EDataType::eDateTime:
