@@ -16186,13 +16186,14 @@ template&lt;typename Func &gt; </div>
 </div><div class="memdoc">
 
 <p>将四元数和体轴角速度转换为欧拉角及欧拉角速率 </p>
+<p>通过构建运动学矩阵 M = [c1|c2|c3] 并求逆，支持全部 12 种转序。 symmetry (i==k) 时 det = sin(θ₂)，TaitBryan (i≠k) 时 det = cos(θ₂)。 </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000033">待办事项</a></b></dt><dd>待测试验证 </dd></dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">quat</td><td>四元数 </td></tr>
     <tr><td class="paramname">angvel</td><td>体轴角速度 </td></tr>
-    <tr><td class="paramname">seq</td><td>欧拉角转序 </td></tr>
+    <tr><td class="paramname">rotationOrder</td><td>欧拉角转序 (如 Euler::eZYX, Euler::eXYX) </td></tr>
     <tr><td class="paramname">angles</td><td>输出欧拉角 </td></tr>
-    <tr><td class="paramname">rates</td><td>输出欧拉角速率（万向节死锁时返回零） </td></tr>
+    <tr><td class="paramname">rates</td><td>输出欧拉角速率（死锁时返回零） </td></tr>
   </table>
   </dd>
 </dl>
