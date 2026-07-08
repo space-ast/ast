@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"DetectorDescendingNode_8hpp_source.html":[4,0,0,7,8,0,18],
+"DetectorDuration_8cpp.html":[4,0,0,7,8,0,19],
 "DetectorDuration_8hpp.html":[4,0,0,7,8,0,20],
 "DetectorDuration_8hpp_source.html":[4,0,0,7,8,0,20],
 "DetectorEpoch_8cpp.html":[4,0,0,7,8,0,21],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "ExprExpandVisitor_8cpp.html":[4,0,0,19,0,2],
 "ExprExpandVisitor_8hpp.html":[4,0,0,19,0,3],
 "ExprExpandVisitor_8hpp_source.html":[4,0,0,19,0,3],
-"ExprIf_8cpp.html":[4,0,0,19,2,16],
-"ExprIf_8hpp.html":[4,0,0,19,2,17],
-"ExprIf_8hpp_source.html":[4,0,0,19,2,17]
+"ExprIf_8cpp.html":[4,0,0,19,2,16]
 };

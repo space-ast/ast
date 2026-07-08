@@ -182,6 +182,7 @@ var hierarchy =
     [ "ast::DataGroupOrbit::Data", "structast_1_1DataGroupOrbit_1_1Data.html", null ],
     [ "ast::DataGroupPointPrv::Data", "structast_1_1DataGroupPointPrv_1_1Data.html", null ],
     [ "ast::DataGroupQuats::Data", "structast_1_1DataGroupQuats_1_1Data.html", null ],
+    [ "ast::DataGroupSpherical::Data", "structast_1_1DataGroupSpherical_1_1Data.html", null ],
     [ "ast::DataGroupTrajectory::Data", "structast_1_1DataGroupTrajectory_1_1Data.html", null ],
     [ "ast::DataGroupVector::Data", "structast_1_1DataGroupVector_1_1Data.html", null ],
     [ "ast::DataGroupVectorPrv::Data", "structast_1_1DataGroupVectorPrv_1_1Data.html", null ],
@@ -205,6 +206,7 @@ var hierarchy =
         [ "ast::DataGroupOrbit", "classast_1_1DataGroupOrbit.html", null ],
         [ "ast::DataGroupPointPrv", "classast_1_1DataGroupPointPrv.html", null ],
         [ "ast::DataGroupQuats", "classast_1_1DataGroupQuats.html", null ],
+        [ "ast::DataGroupSpherical", "classast_1_1DataGroupSpherical.html", null ],
         [ "ast::DataGroupTrajectory", "classast_1_1DataGroupTrajectory.html", null ],
         [ "ast::DataGroupVector", "classast_1_1DataGroupVector.html", null ],
         [ "ast::DataGroupVectorPrv", "classast_1_1DataGroupVectorPrv.html", null ]

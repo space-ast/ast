@@ -12,9 +12,9 @@ var dir_d7b194428d82c9cd61c44e0a4e550ccd =
     [ "DataGroupEquinElem.hpp", "DataGroupEquinElem_8hpp.html", "DataGroupEquinElem_8hpp" ],
     [ "DataGroupEuler.cpp", "DataGroupEuler_8cpp.html", "DataGroupEuler_8cpp" ],
     [ "DataGroupEuler.hpp", "DataGroupEuler_8hpp.html", "DataGroupEuler_8hpp" ],
-    [ "DataGroupLLAState.cpp", "DataGroupLLAState_8cpp.html", "DataGroupLLAState_8cpp" ],
+    [ "DataGroupLLAState.cpp", "DataGroupLLAState_8cpp.html", null ],
     [ "DataGroupLLAState.hpp", "DataGroupLLAState_8hpp.html", "DataGroupLLAState_8hpp" ],
-    [ "DataGroupLLRState.cpp", "DataGroupLLRState_8cpp.html", "DataGroupLLRState_8cpp" ],
+    [ "DataGroupLLRState.cpp", "DataGroupLLRState_8cpp.html", null ],
     [ "DataGroupLLRState.hpp", "DataGroupLLRState_8hpp.html", "DataGroupLLRState_8hpp" ],
     [ "DataGroupModOrbElem.cpp", "DataGroupModOrbElem_8cpp.html", null ],
     [ "DataGroupModOrbElem.hpp", "DataGroupModOrbElem_8hpp.html", "DataGroupModOrbElem_8hpp" ],
@@ -22,6 +22,8 @@ var dir_d7b194428d82c9cd61c44e0a4e550ccd =
     [ "DataGroupPointPrv.hpp", "DataGroupPointPrv_8hpp.html", "DataGroupPointPrv_8hpp" ],
     [ "DataGroupQuats.cpp", "DataGroupQuats_8cpp.html", null ],
     [ "DataGroupQuats.hpp", "DataGroupQuats_8hpp.html", "DataGroupQuats_8hpp" ],
+    [ "DataGroupSpherical.cpp", "DataGroupSpherical_8cpp.html", "DataGroupSpherical_8cpp" ],
+    [ "DataGroupSpherical.hpp", "DataGroupSpherical_8hpp.html", "DataGroupSpherical_8hpp" ],
     [ "DataGroupVectorPrv.cpp", "DataGroupVectorPrv_8cpp.html", null ],
     [ "DataGroupVectorPrv.hpp", "DataGroupVectorPrv_8hpp.html", "DataGroupVectorPrv_8hpp" ]
 ];

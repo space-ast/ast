@@ -239,6 +239,7 @@ var annotated_dup =
       [ "DataGroupOrbit", "classast_1_1DataGroupOrbit.html", "classast_1_1DataGroupOrbit" ],
       [ "DataGroupPointPrv", "classast_1_1DataGroupPointPrv.html", "classast_1_1DataGroupPointPrv" ],
       [ "DataGroupQuats", "classast_1_1DataGroupQuats.html", "classast_1_1DataGroupQuats" ],
+      [ "DataGroupSpherical", "classast_1_1DataGroupSpherical.html", "classast_1_1DataGroupSpherical" ],
       [ "DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", "classast_1_1DataGroupTimeVar" ],
       [ "DataGroupTrajectory", "classast_1_1DataGroupTrajectory.html", "classast_1_1DataGroupTrajectory" ],
       [ "DataGroupVector", "classast_1_1DataGroupVector.html", "classast_1_1DataGroupVector" ],
