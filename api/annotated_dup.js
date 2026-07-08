@@ -226,6 +226,8 @@ var annotated_dup =
       [ "DataFrame", "classast_1_1DataFrame.html", "classast_1_1DataFrame" ],
       [ "DataGroup", "classast_1_1DataGroup.html", "classast_1_1DataGroup" ],
       [ "DataGroupAttitude", "classast_1_1DataGroupAttitude.html", "classast_1_1DataGroupAttitude" ],
+      [ "DataGroupCartPos", "classast_1_1DataGroupCartPos.html", "classast_1_1DataGroupCartPos" ],
+      [ "DataGroupCartVel", "classast_1_1DataGroupCartVel.html", "classast_1_1DataGroupCartVel" ],
       [ "DataGroupModOrbElem", "classast_1_1DataGroupModOrbElem.html", "classast_1_1DataGroupModOrbElem" ],
       [ "DataGroupOrbit", "classast_1_1DataGroupOrbit.html", "classast_1_1DataGroupOrbit" ],
       [ "DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", "classast_1_1DataGroupTimeVar" ],

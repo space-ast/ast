@@ -170,6 +170,8 @@ var hierarchy =
     [ "ast::DAF_SPKSummaryRecords", "structast_1_1DAF__SPKSummaryRecords.html", null ],
     [ "ast::DAF_SummaryRecords", "structast_1_1DAF__SummaryRecords.html", null ],
     [ "ast::DataGroupAttitude::Data", "structast_1_1DataGroupAttitude_1_1Data.html", null ],
+    [ "ast::DataGroupCartPos::Data", "structast_1_1DataGroupCartPos_1_1Data.html", null ],
+    [ "ast::DataGroupCartVel::Data", "structast_1_1DataGroupCartVel_1_1Data.html", null ],
     [ "ast::DataGroupModOrbElem::Data", "structast_1_1DataGroupModOrbElem_1_1Data.html", null ],
     [ "ast::DataGroupOrbit::Data", "structast_1_1DataGroupOrbit_1_1Data.html", null ],
     [ "ast::DataGroupTrajectory::Data", "structast_1_1DataGroupTrajectory_1_1Data.html", null ],
@@ -182,6 +184,8 @@ var hierarchy =
     [ "ast::DataGroup", "classast_1_1DataGroup.html", [
       [ "ast::DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", [
         [ "ast::DataGroupAttitude", "classast_1_1DataGroupAttitude.html", null ],
+        [ "ast::DataGroupCartPos", "classast_1_1DataGroupCartPos.html", null ],
+        [ "ast::DataGroupCartVel", "classast_1_1DataGroupCartVel.html", null ],
         [ "ast::DataGroupModOrbElem", "classast_1_1DataGroupModOrbElem.html", null ],
         [ "ast::DataGroupOrbit", "classast_1_1DataGroupOrbit.html", null ],
         [ "ast::DataGroupTrajectory", "classast_1_1DataGroupTrajectory.html", null ],
@@ -1464,6 +1468,7 @@ var hierarchy =
     [ "ast::WeakPtr< ast::SpaceObject >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::StudyWorkbench >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SweepStudy >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::Vector >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", null ],
     [ "ast::MSISBase::WorkSpace", "classast_1_1MSISBase_1_1WorkSpace.html", null ],
     [ "ast::XMLDocument", "classast_1_1XMLDocument.html", null ],

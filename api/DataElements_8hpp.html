@@ -100,12 +100,15 @@ $(function(){initNavTree('DataElements_8hpp.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
-<a href="#namespaces">命名空间</a>  </div>
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">DataElements.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="DataElement_8hpp_source.html">DataElement.hpp</a>&quot;</code><br />
+<code>#include &quot;AstUtil/Dimension.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/VariantVector.hpp&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="DataElements_8hpp_source.html">浏览该文件的源代码.</a></p>
@@ -119,6 +122,12 @@ $(function(){initNavTree('DataElements_8hpp.html',''); initResizable(true); });
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ac9626cf5ee5ebb79852dcb8b8913f3c4" id="r_ac9626cf5ee5ebb79852dcb8b8913f3c4"><td class="memTemplParams" colspan="2">template&lt;typename T , typename MemberType , MemberType T::* Member&gt; </td></tr>
+<tr class="memitem:ac9626cf5ee5ebb79852dcb8b8913f3c4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceast.html#adcf330c515e8b762d7ba159e53a5adb6">ElementExtractFunc</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac9626cf5ee5ebb79852dcb8b8913f3c4">ast::detail::makeExtractFunc</a> ()</td></tr>
+<tr class="separator:ac9626cf5ee5ebb79852dcb8b8913f3c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
@@ -130,7 +139,41 @@ $(function(){initNavTree('DataElements_8hpp.html',''); initResizable(true); });
 <p>SpaceAST项目（https://github.com/space-ast/ast） 本软件基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 <p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">函数说明</h2>
+<a id="ac9626cf5ee5ebb79852dcb8b8913f3c4" name="ac9626cf5ee5ebb79852dcb8b8913f3c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9626cf5ee5ebb79852dcb8b8913f3c4">&#9670;&#160;</a></span>makeExtractFunc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename MemberType , MemberType T::* Member&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ElementExtractFunc ast::detail::makeExtractFunc </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>生成成员变量提取函数 </p>
+<p>生成成员函数(getter)提取函数</p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>数据类类型 </td></tr>
+    <tr><td class="paramname">MemberType</td><td>成员变量类型 </td></tr>
+    <tr><td class="paramname">Member</td><td>成员变量指针</td></tr>
+    <tr><td class="paramname">T</td><td>数据类类型 </td></tr>
+    <tr><td class="paramname">Ret</td><td>getter 返回值类型 </td></tr>
+    <tr><td class="paramname">Getter</td><td>const 成员函数指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

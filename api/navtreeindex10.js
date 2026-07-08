@@ -1,5 +1,13 @@
 var NAVTREEINDEX10 =
 {
+"ReportStyleLoader_8hpp.html":[4,0,0,12,4,1],
+"ReportStyleLoader_8hpp_source.html":[4,0,0,12,4,1],
+"ReportStyle_8cpp.html":[4,0,0,18,10],
+"ReportStyle_8hpp.html":[4,0,0,18,11],
+"ReportStyle_8hpp_source.html":[4,0,0,18,11],
+"ReportWriter_8cpp.html":[4,0,0,18,12],
+"ReportWriter_8hpp.html":[4,0,0,18,13],
+"ReportWriter_8hpp_source.html":[4,0,0,18,13],
 "Resolve_8cpp.html":[4,0,0,7,9,4],
 "Resolve_8cpp.html#a7aa7c9486109b1d453c71ce12a13ae1b":[4,0,0,7,9,4,2],
 "Resolve_8cpp.html#a7d1d6b04e91c5753adbb3e79f3e0bfb0":[4,0,0,7,9,4,1],
@@ -241,13 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcDelaunayG_8cpp.html":[4,0,0,7,7,1,0,5,0],
 "ScStateCalcDelaunayG_8hpp.html":[4,0,0,7,7,1,0,5,1],
 "ScStateCalcDelaunayG_8hpp_source.html":[4,0,0,7,7,1,0,5,1],
-"ScStateCalcDelaunayH_8cpp.html":[4,0,0,7,7,1,0,5,2],
-"ScStateCalcDelaunayH_8hpp.html":[4,0,0,7,7,1,0,5,3],
-"ScStateCalcDelaunayH_8hpp_source.html":[4,0,0,7,7,1,0,5,3],
-"ScStateCalcDelaunayL_8cpp.html":[4,0,0,7,7,1,0,5,4],
-"ScStateCalcDelaunayL_8hpp.html":[4,0,0,7,7,1,0,5,5],
-"ScStateCalcDelaunayL_8hpp_source.html":[4,0,0,7,7,1,0,5,5],
-"ScStateCalcDeltaDec_8cpp.html":[4,0,0,7,7,1,0,15,22],
-"ScStateCalcDeltaDec_8hpp.html":[4,0,0,7,7,1,0,15,23],
-"ScStateCalcDeltaDec_8hpp_source.html":[4,0,0,7,7,1,0,15,23]
+"ScStateCalcDelaunayH_8cpp.html":[4,0,0,7,7,1,0,5,2]
 };

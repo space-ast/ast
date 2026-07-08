@@ -1,5 +1,13 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1CelestialBody.html#a87f25ac5cb7d38dba0be5352b2c176f3":[0,1,6,0,51],
+"classast_1_1CelestialBody.html#a893e27f747b61b94dc90eb0c4d7b12d8":[0,1,6,0,33],
+"classast_1_1CelestialBody.html#a8c87de0bd89de627fe1727f647f62288":[0,1,6,0,50],
+"classast_1_1CelestialBody.html#a9234119f1b8c604e8c2a0531e6ebc55b":[0,1,6,0,30],
+"classast_1_1CelestialBody.html#a97e7b651a47bb774f30d1c7c56ba01e8":[0,1,6,0,39],
+"classast_1_1CelestialBody.html#a9a88a639e22509c81821b0e0c134f767":[0,1,6,0,28],
+"classast_1_1CelestialBody.html#a9bfb7aec65e3772f6cd4b7105037cecc":[0,1,6,0,44],
+"classast_1_1CelestialBody.html#aa7c2d646d8e836996c70591dbeb3c910":[0,1,6,0,7],
 "classast_1_1CelestialBody.html#aa7eb7b4fe71b5911887d12b8f15c085a":[0,1,6,0,55],
 "classast_1_1CelestialBody.html#aa929791242e4840e147e5c7d6c8a96cf":[0,1,6,0,31],
 "classast_1_1CelestialBody.html#aac2be47141564e831fde370631d78f49":[0,1,6,0,21],
@@ -241,13 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1ConstantSpaceWeather.html#a1e1939a11f3a49425fbe2498a2f626e2":[0,1,1,0,1],
 "classast_1_1ConstantSpaceWeather.html#a38bae4dc45879a42b611617c0120c7d7":[0,1,1,0,15],
 "classast_1_1ConstantSpaceWeather.html#a3979f88f47caef3bf733b000bb398f92":[0,1,1,0,6],
-"classast_1_1ConstantSpaceWeather.html#a3a7e7f1a7ac4d88e2cfd996562056e5d":[0,1,1,0,3],
-"classast_1_1ConstantSpaceWeather.html#a409e51118f4621b1f3ea256d6c762b3f":[0,1,1,0,12],
-"classast_1_1ConstantSpaceWeather.html#a5f83735816e9b4f93f9ef59c6ffd058b":[0,1,1,0,11],
-"classast_1_1ConstantSpaceWeather.html#a71b3287b2cb19e3dc7bf48d628cae4b1":[0,1,1,0,0],
-"classast_1_1ConstantSpaceWeather.html#aadc131b3f273d8f75f0e65e6246fac20":[0,1,1,0,9],
-"classast_1_1ConstantSpaceWeather.html#aae22533b9c4d29751685f71a7f3ed4b1":[0,1,1,0,10],
-"classast_1_1ConstantSpaceWeather.html#aae8956d3da0c6318313007cda4e88fd3":[0,1,1,0,16],
-"classast_1_1ConstantSpaceWeather.html#aba003b5e243e52939f9e770bbc9eab5b":[0,1,1,0,5],
-"classast_1_1ConstantSpaceWeather.html#ac7a39e3e1fc5c792f90340c000c5c26a":[0,1,1,0,2]
+"classast_1_1ConstantSpaceWeather.html#a3a7e7f1a7ac4d88e2cfd996562056e5d":[0,1,1,0,3]
 };

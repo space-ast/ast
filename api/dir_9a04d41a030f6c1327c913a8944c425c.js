@@ -1,13 +1,5 @@
 var dir_9a04d41a030f6c1327c913a8944c425c =
 [
-    [ "DataGroupAttitude.cpp", "DataGroupAttitude_8cpp.html", null ],
-    [ "DataGroupAttitude.hpp", "DataGroupAttitude_8hpp.html", "DataGroupAttitude_8hpp" ],
-    [ "DataGroupModOrbElem.cpp", "DataGroupModOrbElem_8cpp.html", null ],
-    [ "DataGroupModOrbElem.hpp", "DataGroupModOrbElem_8hpp.html", "DataGroupModOrbElem_8hpp" ],
-    [ "DataGroupOrbit.cpp", "DataGroupOrbit_8cpp.html", null ],
-    [ "DataGroupOrbit.hpp", "DataGroupOrbit_8hpp.html", "DataGroupOrbit_8hpp" ],
-    [ "DataGroupTrajectory.cpp", "DataGroupTrajectory_8cpp.html", null ],
-    [ "DataGroupTrajectory.hpp", "DataGroupTrajectory_8hpp.html", "DataGroupTrajectory_8hpp" ],
-    [ "DataGroupVector.cpp", "DataGroupVector_8cpp.html", null ],
-    [ "DataGroupVector.hpp", "DataGroupVector_8hpp.html", "DataGroupVector_8hpp" ]
+    [ "DataCalculation", "dir_c9c581e8c5e78145ccc68e7f41827307.html", "dir_c9c581e8c5e78145ccc68e7f41827307" ],
+    [ "DataProvider", "dir_d7b194428d82c9cd61c44e0a4e550ccd.html", "dir_d7b194428d82c9cd61c44e0a4e550ccd" ]
 ];

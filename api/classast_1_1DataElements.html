@@ -118,10 +118,109 @@ const <a class="el" href="classast_1_1DataElement.html">DataElement</a> *&#160;<
 <tr class="memitem:a7d9cf6722db704022131c338196415d1" id="r_a7d9cf6722db704022131c338196415d1"><td class="memItemLeft" align="right" valign="top"><a id="a7d9cf6722db704022131c338196415d1" name="a7d9cf6722db704022131c338196415d1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addElement</b> (const <a class="el" href="classast_1_1DataElement.html">DataElement</a> &amp;element)</td></tr>
 <tr class="separator:a7d9cf6722db704022131c338196415d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac033b70ea5e22f91fbb89d34ab77f8c0" id="r_ac033b70ea5e22f91fbb89d34ab77f8c0"><td class="memTemplParams" colspan="2">template&lt;typename T , typename MemberType , MemberType T::* Member&gt; </td></tr>
+<tr class="memitem:ac033b70ea5e22f91fbb89d34ab77f8c0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac033b70ea5e22f91fbb89d34ab77f8c0">addElement</a> (const char *name, const char *description=&quot;&quot;, <a class="el" href="classast_1_1Dimension.html">Dimension</a> dimension=<a class="el" href="classast_1_1Dimension.html#ac2223db93b2e3c26bf7c08aa2d0fb15d">Dimension::Unit</a>())</td></tr>
+<tr class="separator:ac033b70ea5e22f91fbb89d34ab77f8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac033b70ea5e22f91fbb89d34ab77f8c0" id="r_ac033b70ea5e22f91fbb89d34ab77f8c0"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Ret , Ret(T::*)() const Getter&gt; </td></tr>
+<tr class="memitem:ac033b70ea5e22f91fbb89d34ab77f8c0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac033b70ea5e22f91fbb89d34ab77f8c0">addElement</a> (const char *name, const char *description=&quot;&quot;, <a class="el" href="classast_1_1Dimension.html">Dimension</a> dimension=<a class="el" href="classast_1_1Dimension.html#ac2223db93b2e3c26bf7c08aa2d0fb15d">Dimension::Unit</a>())</td></tr>
+<tr class="separator:ac033b70ea5e22f91fbb89d34ab77f8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>数据元素容器 </p>
-</div><hr/>该类的文档由以下文件生成:<ul>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="ac033b70ea5e22f91fbb89d34ab77f8c0" name="ac033b70ea5e22f91fbb89d34ab77f8c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac033b70ea5e22f91fbb89d34ab77f8c0">&#9670;&#160;</a></span>addElement() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename MemberType , MemberType T::* Member&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::DataElements::addElement </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>description</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Dimension.html">Dimension</a></td>          <td class="paramname"><span class="paramname"><em>dimension</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classast_1_1Dimension.html#ac2223db93b2e3c26bf7c08aa2d0fb15d">Dimension::Unit</a>()</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>添加数据元素（成员变量版本） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>数据类类型 </td></tr>
+    <tr><td class="paramname">MemberType</td><td>成员变量类型 </td></tr>
+    <tr><td class="paramname">Member</td><td>成员变量指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac033b70ea5e22f91fbb89d34ab77f8c0" name="ac033b70ea5e22f91fbb89d34ab77f8c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac033b70ea5e22f91fbb89d34ab77f8c0">&#9670;&#160;</a></span>addElement() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Ret , Ret(T::*)() const Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::DataElements::addElement </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>description</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Dimension.html">Dimension</a></td>          <td class="paramname"><span class="paramname"><em>dimension</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classast_1_1Dimension.html#ac2223db93b2e3c26bf7c08aa2d0fb15d">Dimension::Unit</a>()</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>添加数据元素（const 成员函数版本） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>数据类类型 </td></tr>
+    <tr><td class="paramname">Ret</td><td>getter 返回值类型 </td></tr>
+    <tr><td class="paramname">Getter</td><td>const 成员函数指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstReport/Data/<a class="el" href="DataElements_8hpp_source.html">DataElements.hpp</a></li>
 <li>src/AstReport/Data/<a class="el" href="DataElements_8cpp.html">DataElements.cpp</a></li>
 </ul>
