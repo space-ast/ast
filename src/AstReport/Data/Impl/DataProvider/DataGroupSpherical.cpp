@@ -22,9 +22,12 @@
 #include "AstUtil/VariantVector.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Dimension.hpp"
+#include "AstUtil/Math.hpp"
 
 AST_NAMESPACE_BEGIN
 
+namespace
+{
 
 /// @brief 计算水平航迹角和惯性航迹方位角
 /// @todo 待测试验证
@@ -46,10 +49,7 @@ void aCalcFlightPathAngles(const Vector3d& pos, const Vector3d& vel,
 
     // 水平航迹角 = asin(v_radial / v)
     double vRadial = pos.dot(vel) / r;
-    double sinGamma = vRadial / v;
-    if(sinGamma > 1.0) sinGamma = 1.0;
-    else if(sinGamma < -1.0) sinGamma = -1.0;
-    flightPathAngle = std::asin(sinGamma);
+    flightPathAngle = asinSafe(vRadial / v);
 
     // 惯性当地方向矢量
     Vector3d rHat = pos / r;
@@ -72,6 +72,8 @@ void aCalcFlightPathAngles(const Vector3d& pos, const Vector3d& vel,
     // 航迹方位角 = atan2(v_east, v_north), 从惯性北向东量
     flightPathAzimuth = std::atan2(vel.dot(eHat), vel.dot(nHat));
 }
+
+} // namespace
 
 DataElements DataGroupSpherical::Elements()
 {
@@ -144,7 +146,7 @@ errc_t DataGroupSpherical::calculate(const TimeList& timeList, Span<Data> result
         double r = pos.norm();
         data.radius_ = r;
         data.rightAscen_ = (r < 1e-12) ? 0.0 : std::atan2(pos.y(), pos.x());
-        data.declination_ = (r < 1e-12) ? 0.0 : std::asin(pos.z() / r);
+        data.declination_ = (r < 1e-12) ? 0.0 : asinSafe(pos.z() / r);
 
         data.inertialVel_ = vel.norm();
 

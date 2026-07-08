@@ -40,7 +40,7 @@ class DataGroupEquinElem : public DataGroupTimeVar
 public:
     struct Data
     {
-        EquinElem equinElem_;
+        EquinElem equinElem_{};
         double    gm_{};
         TimePoint time_;
 
@@ -51,7 +51,7 @@ public:
         double getP()                        const { return equinElem_.p(); }
         double getQ()                        const { return equinElem_.q(); }
         double getMeanLon()                  const { return equinElem_.lambda(); }
-        double getMeanMotion()               const { return std::sqrt(gm_ / (equinElem_.a() * equinElem_.a() * equinElem_.a())); }
+        double getMeanMotion()               const { return equinElem_.a() > 0.0 ? aSMAToMeanMotion(equinElem_.a(), gm_) : 0.0; }
 
         // 以下元素需要额外基础设施支持，暂未实现：
         // const char* getDirection() const;  // DataType 2 (string), "Prograde"/"Retrograde"
