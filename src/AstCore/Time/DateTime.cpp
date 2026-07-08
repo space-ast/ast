@@ -107,6 +107,7 @@ void aDateTimeNormalizeUTC(DateTime& dttm)
         double second_new;
         int mjd2;
         for (;;) {
+            // @todo 这里的计算效率可以进行优化，否则在异常情况下会循环次数过多，导致软件卡死
             mjd2 = mjd1 + dday;
             double leap2 = aLeapSecondUTCMJD(mjd2);
             minute_new = minute - dday * 1440;

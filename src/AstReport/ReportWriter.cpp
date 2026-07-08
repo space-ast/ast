@@ -183,48 +183,47 @@ struct ColData
     const ReportElement* element;
     std::string title;
     int  width;
-    int  rows;
 
     EDataType dataType;
+    VariantVector data;  // 持有列数据，Span 指向此处
 
-    // 缓存 Span（每种类型一个有效）
+    // 缓存 Span（每种类型一个有效，指向 data 内部缓冲区）
     Span<double>      dSpan;
     Span<int>         iSpan;
     Span<TimePoint>   tSpan;
     Span<std::string> sSpan;
 };
 
-/// @brief 从 VariantVector 推断类型并缓存 Span 到 ColData
-static void _aCacheSpan(ColData& col, VariantVector& vec)
+/// @brief 从 ColData::data 推断类型并缓存 Span
+static void _aCacheSpan(ColData& col)
 {
-    if (!vec.hasType())
+    if (!col.data.hasType())
     {
         col.dataType = EDataType::eFloat;
         return;
     }
 
-    col.rows = static_cast<int>(vec.size());
-    const auto& ti = vec.elementType();
+    const auto& ti = col.data.elementType();
 
     if (ti == typeid(TimePoint))
     {
         col.dataType = EDataType::eDateTime;
-        col.tSpan    = vec.asSpan<TimePoint>();
+        col.tSpan    = col.data.asSpan<TimePoint>();
     }
     else if (ti == typeid(double))
     {
         col.dataType = EDataType::eFloat;
-        col.dSpan    = vec.asSpan<double>();
+        col.dSpan    = col.data.asSpan<double>();
     }
     else if (ti == typeid(int))
     {
         col.dataType = EDataType::eInt;
-        col.iSpan    = vec.asSpan<int>();
+        col.iSpan    = col.data.asSpan<int>();
     }
     else if (ti == typeid(std::string))
     {
         col.dataType = EDataType::eString;
-        col.sSpan    = vec.asSpan<std::string>();
+        col.sSpan    = col.data.asSpan<std::string>();
     }
     else
     {
@@ -237,6 +236,7 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
 {
     // ---- 1. 展平所有 Element → 列描述（保持顺序） ----
     std::vector<ColData> columns;
+    columns.reserve(16);
 
     for (const auto& sec : report.sections_)
     {
@@ -249,7 +249,6 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
                 col.title    = elem.title_.empty() ? elem.name_ : elem.title_;
                 col.width    = std::max(static_cast<int>(col.title.size()), 12);
                 col.dataType = EDataType::eFloat;
-                col.rows     = 0;
                 columns.push_back(col);
             }
         }
@@ -307,8 +306,7 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
         // 对该组内每个 element 提取列
         for (size_t idx : indices)
         {
-            VariantVector colVec;
-            err = dg->extract(calcResult, columns[idx].element->element_, colVec);
+            err = dg->extract(calcResult, columns[idx].element->element_, columns[idx].data);
             if (err != eNoError)
             {
                 aError("extract '%s' failed for service %s: %d",
@@ -316,7 +314,7 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
                 continue;
             }
 
-            _aCacheSpan(columns[idx], colVec);
+            _aCacheSpan(columns[idx]);
         }
     }
 
@@ -342,8 +340,22 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
     }
     std::fprintf(file, "\n");
 
+    // 校验所有列行数一致，取最小值防越界
+    int nRows = static_cast<int>(timeList.size());
+    for (const auto& col : columns)
+    {
+        if (!col.data.hasType()) continue;
+        int colSize = static_cast<int>(col.data.size());
+        if (colSize < nRows)
+        {
+            aWarning("column '%s' has fewer rows (%d) than expected (%d)",
+                     col.title.c_str(), colSize, nRows);
+            nRows = colSize;
+        }
+    }
+
     // 数据行
-    for (int row = 0; row < columns[0].rows; ++row)
+    for (int row = 0; row < nRows; ++row)
     {
         for (const auto& col : columns)
         {
