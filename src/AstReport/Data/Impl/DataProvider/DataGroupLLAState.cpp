@@ -29,6 +29,9 @@
 
 AST_NAMESPACE_BEGIN
 
+namespace
+{
+
 /// @brief 计算 LLA 变化率
 /// @todo 待测试验证
 /// @param lat 大地纬度 (弧度)
@@ -74,9 +77,11 @@ void aCalcLLARates(double lat, double lon, double alt, const Vector3d& vel,
     else
         lonRate = 0.0;
 
-    // 纬度变化率 = -北向速度分量 / (M + h)
-    latRate = -vel.dot(north) / (M + alt);
+    // 纬度变化率 = 北向速度分量 / (M + h)
+    latRate = vel.dot(north) / (M + alt);
 }
+
+} // namespace
 
 DataElements DataGroupLLAState::Elements()
 {

@@ -22,9 +22,12 @@
 #include "AstUtil/VariantVector.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Dimension.hpp"
+#include "AstUtil/Math.hpp"
 
 AST_NAMESPACE_BEGIN
 
+namespace
+{
 
 /// @brief 笛卡尔坐标转球坐标 (LLR) 及变化率
 /// @todo 待测试验证
@@ -46,7 +49,7 @@ void aCartesianToSpherical(const Vector3d& pos, const Vector3d& vel,
 
     rad = r;
     lon = std::atan2(y, x);
-    lat = (r < 1e-12) ? 0.0 : std::asin(z / r);
+    lat = (r < 1e-12) ? 0.0 : asinSafe(z / r);
 
     // 径向速度
     if(r < 1e-12)
@@ -69,8 +72,15 @@ void aCartesianToSpherical(const Vector3d& pos, const Vector3d& vel,
 
     // 纬度变化率: dφ/dt = (vz*r - dr/dt*z) / (r * sqrt(x²+y²))
     double rho = std::sqrt(r2);
+    if(rho < 1e-12)
+    {
+        latRate = 0.0;
+        return;
+    }
     latRate = (vel.z() * r - radRate * z) / (r * rho);
 }
+
+} // namespace
 
 DataElements DataGroupLLRState::Elements()
 {
