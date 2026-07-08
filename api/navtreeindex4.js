@@ -1,5 +1,13 @@
 var NAVTREEINDEX4 =
 {
+"DetectorEpoch_8hpp.html":[4,0,0,7,8,0,22],
+"DetectorEpoch_8hpp_source.html":[4,0,0,7,8,0,22],
+"DetectorFrameRelated_8cpp.html":[4,0,0,7,8,0,23],
+"DetectorFrameRelated_8hpp.html":[4,0,0,7,8,0,24],
+"DetectorFrameRelated_8hpp_source.html":[4,0,0,7,8,0,24],
+"DetectorLighting_8cpp.html":[4,0,0,7,8,0,25],
+"DetectorLighting_8hpp.html":[4,0,0,7,8,0,26],
+"DetectorLighting_8hpp_source.html":[4,0,0,7,8,0,26],
 "DetectorMeanAnomaly_8cpp.html":[4,0,0,7,8,0,27],
 "DetectorMeanAnomaly_8hpp.html":[4,0,0,7,8,0,28],
 "DetectorMeanAnomaly_8hpp_source.html":[4,0,0,7,8,0,28],
@@ -241,13 +249,5 @@ var NAVTREEINDEX4 =
 "ExprIf_8hpp_source.html":[4,0,0,19,2,17],
 "ExprLoop_8cpp.html":[4,0,0,19,2,18],
 "ExprLoop_8hpp.html":[4,0,0,19,2,19],
-"ExprLoop_8hpp_source.html":[4,0,0,19,2,19],
-"ExprMacroExpand_8cpp.html":[4,0,0,19,2,20],
-"ExprMacroExpand_8hpp.html":[4,0,0,19,2,21],
-"ExprMacroExpand_8hpp_source.html":[4,0,0,19,2,21],
-"ExprMatch_8cpp.html":[4,0,0,19,2,22],
-"ExprMatch_8hpp.html":[4,0,0,19,2,23],
-"ExprMatch_8hpp_source.html":[4,0,0,19,2,23],
-"ExprRange_8cpp.html":[4,0,0,19,2,24],
-"ExprRange_8hpp.html":[4,0,0,19,2,25]
+"ExprLoop_8hpp_source.html":[4,0,0,19,2,19]
 };

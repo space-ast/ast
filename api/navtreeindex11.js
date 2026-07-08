@@ -1,5 +1,13 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcCosineVFPA_8cpp.html":[4,0,0,7,7,1,0,15,6],
+"ScStateCalcCosineVFPA_8hpp.html":[4,0,0,7,7,1,0,15,7],
+"ScStateCalcCosineVFPA_8hpp_source.html":[4,0,0,7,7,1,0,15,7],
+"ScStateCalcCr_8cpp.html":[4,0,0,7,7,1,0,17,2],
+"ScStateCalcCr_8hpp.html":[4,0,0,7,7,1,0,17,3],
+"ScStateCalcCr_8hpp_source.html":[4,0,0,7,7,1,0,17,3],
+"ScStateCalcCrossSectionalArea_8cpp.html":[4,0,0,7,7,1,0,15,8],
+"ScStateCalcCrossSectionalArea_8hpp.html":[4,0,0,7,7,1,0,15,9],
 "ScStateCalcCrossSectionalArea_8hpp_source.html":[4,0,0,7,7,1,0,15,9],
 "ScStateCalcCrossTrackRate_8cpp.html":[4,0,0,7,7,1,0,15,12],
 "ScStateCalcCrossTrackRate_8hpp.html":[4,0,0,7,7,1,0,15,13],
@@ -241,13 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcNormalRate_8hpp.html":[4,0,0,7,7,1,0,15,107],
 "ScStateCalcNormalRate_8hpp_source.html":[4,0,0,7,7,1,0,15,107],
 "ScStateCalcNormal_8cpp.html":[4,0,0,7,7,1,0,15,104],
-"ScStateCalcNormal_8hpp.html":[4,0,0,7,7,1,0,15,105],
-"ScStateCalcNormal_8hpp_source.html":[4,0,0,7,7,1,0,15,105],
-"ScStateCalcOrbitDelaunayG_8cpp.html":[4,0,0,7,7,1,0,15,108],
-"ScStateCalcOrbitDelaunayG_8hpp.html":[4,0,0,7,7,1,0,15,109],
-"ScStateCalcOrbitDelaunayG_8hpp_source.html":[4,0,0,7,7,1,0,15,109],
-"ScStateCalcOrbitDelaunayH_8cpp.html":[4,0,0,7,7,1,0,15,110],
-"ScStateCalcOrbitDelaunayH_8hpp.html":[4,0,0,7,7,1,0,15,111],
-"ScStateCalcOrbitDelaunayH_8hpp_source.html":[4,0,0,7,7,1,0,15,111],
-"ScStateCalcOrbitDelaunayL_8cpp.html":[4,0,0,7,7,1,0,15,112]
+"ScStateCalcNormal_8hpp.html":[4,0,0,7,7,1,0,15,105]
 };
