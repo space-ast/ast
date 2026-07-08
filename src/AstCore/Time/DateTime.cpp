@@ -26,6 +26,7 @@
 #include <ctime>
 #include <iomanip>
 #include <sstream>
+#include <climits>
 #include <cmath>
 
 AST_NAMESPACE_BEGIN
