@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstReport/Data/Impl/DataProvider/DataGroupVectorPrv.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('DataGroupVectorPrv_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">DataGroupVectorPrv.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="DataGroupVectorPrv_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstReport/DataGroupTimeVar.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;AstCore/Vector.hpp&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;AstCore/Axes.hpp&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;AstUtil/Span.hpp&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1DataGroupVectorPrv.html">   40</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1DataGroupVectorPrv.html">DataGroupVectorPrv</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1DataGroupTimeVar.html">DataGroupTimeVar</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structast_1_1DataGroupVectorPrv_1_1Data.html">   43</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1DataGroupVectorPrv_1_1Data.html">Data</a></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a> time_;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structast_1_1DataGroupVectorPrv_1_1Data.html#a835ea109511442afe4f5f19afa3e0768">   46</a></span>        Vector3d  <a class="code hl_variable" href="structast_1_1DataGroupVectorPrv_1_1Data.html#a835ea109511442afe4f5f19afa3e0768">vector_</a>;   </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structast_1_1DataGroupVectorPrv_1_1Data.html#a6b1e7d9066f7a47d8342466c626fed25">   47</a></span>        Vector3d  <a class="code hl_variable" href="structast_1_1DataGroupVectorPrv_1_1Data.html#a6b1e7d9066f7a47d8342466c626fed25">velocity_</a>; </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; getTime()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> time_; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="comment">// 分量 &amp; 模</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">double</span> getX()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> vector_.x(); }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">double</span> getY()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> vector_.y(); }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">double</span> getZ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> vector_.z(); }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">double</span> getMagnitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> vector_.norm(); }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="comment">// 方向余弦</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordtype">double</span> getXOverMag()<span class="keyword"> const </span>{ <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a> = vector_.norm(); <span class="keywordflow">return</span> (m &lt; 1e-12) ? 0.0 : vector_.x() / <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a>; }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordtype">double</span> getYOverMag()<span class="keyword"> const </span>{ <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a> = vector_.norm(); <span class="keywordflow">return</span> (m &lt; 1e-12) ? 0.0 : vector_.y() / <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a>; }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordtype">double</span> getZOverMag()<span class="keyword"> const </span>{ <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a> = vector_.norm(); <span class="keywordflow">return</span> (m &lt; 1e-12) ? 0.0 : vector_.z() / <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a>; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">// 球面角</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">double</span> getRightAscension()<span class="keyword">    const </span>{ <span class="keywordflow">return</span> std::atan2(vector_.y(), vector_.x()); }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordtype">double</span> getDeclination()<span class="keyword">       const </span>{ <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a> = vector_.norm(); <span class="keywordflow">return</span> (m &lt; 1e-12) ? 0.0 : std::asin(vector_.z() / m); }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordtype">double</span> getCoDeclination()<span class="keyword">     const </span>{ <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a> = vector_.norm(); <span class="keywordflow">return</span> (m &lt; 1e-12) ? 0.0 : std::acos(vector_.z() / m); }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordtype">double</span> getNegativeDeclination()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> -getDeclination(); }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="comment">// 方向角 (与各轴的夹角)</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordtype">double</span> getDirectionAngleX()<span class="keyword"> const </span>{ <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a> = vector_.norm(); <span class="keywordflow">return</span> (m &lt; 1e-12) ? 0.0 : std::acos(vector_.x() / m); }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordtype">double</span> getDirectionAngleY()<span class="keyword"> const </span>{ <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a> = vector_.norm(); <span class="keywordflow">return</span> (m &lt; 1e-12) ? 0.0 : std::acos(vector_.y() / m); }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordtype">double</span> getDirectionAngleZ()<span class="keyword"> const </span>{ <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a> = vector_.norm(); <span class="keywordflow">return</span> (m &lt; 1e-12) ? 0.0 : std::acos(vector_.z() / m); }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">// 导数</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordtype">double</span> getDerivativeX()<span class="keyword">         const </span>{ <span class="keywordflow">return</span> velocity_.x(); }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordtype">double</span> getDerivativeY()<span class="keyword">         const </span>{ <span class="keywordflow">return</span> velocity_.y(); }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordtype">double</span> getDerivativeZ()<span class="keyword">         const </span>{ <span class="keywordflow">return</span> velocity_.z(); }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordtype">double</span> getDerivativeMagnitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> velocity_.norm(); }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    };</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">static</span> DataElements Elements();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    DataGroupVectorPrv() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    ~DataGroupVectorPrv() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    errc_t calculate(<span class="keyword">const</span> TimeList&amp; timeList, VariantVector&amp; result) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">const</span> DataElements&amp; getElements() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    errc_t calculate(<span class="keyword">const</span> TimeList&amp; timeList, std::vector&lt;Data&gt;&amp; result) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    errc_t calculate(<span class="keyword">const</span> TimeList&amp; timeList, Span&lt;Data&gt; result) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    Vector* getVector()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> vector_.get(); }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    Axes*   getAxes()<span class="keyword">   const </span>{ <span class="keywordflow">return</span> axes_.get(); }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    WeakPtr&lt;Vector&gt; vector_;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    WeakPtr&lt;Axes&gt;   axes_;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
+</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aUnit_8cpp_html_a6b2069a36f88d45a8bd6a9e61d760296"><div class="ttname"><a href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">ast::units::m</a></div><div class="ttdeci">Unit m</div><div class="ttdoc">米</div><div class="ttdef"><b>定义</b> Unit.cpp:426</div></div>
+<div class="ttc" id="aclassast_1_1DataGroupTimeVar_html"><div class="ttname"><a href="classast_1_1DataGroupTimeVar.html">ast::DataGroupTimeVar</a></div><div class="ttdoc">随时间变化的数据组</div><div class="ttdef"><b>定义</b> DataGroupTimeVar.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1DataGroupVectorPrv_html"><div class="ttname"><a href="classast_1_1DataGroupVectorPrv.html">ast::DataGroupVectorPrv</a></div><div class="ttdoc">向量数据组 (派生量) — 分量、模、方向余弦、球面角、方向角、导数</div><div class="ttdef"><b>定义</b> DataGroupVectorPrv.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:107</div></div>
+<div class="ttc" id="astructast_1_1DataGroupVectorPrv_1_1Data_html"><div class="ttname"><a href="structast_1_1DataGroupVectorPrv_1_1Data.html">ast::DataGroupVectorPrv::Data</a></div><div class="ttdef"><b>定义</b> DataGroupVectorPrv.hpp:44</div></div>
+<div class="ttc" id="astructast_1_1DataGroupVectorPrv_1_1Data_html_a6b1e7d9066f7a47d8342466c626fed25"><div class="ttname"><a href="structast_1_1DataGroupVectorPrv_1_1Data.html#a6b1e7d9066f7a47d8342466c626fed25">ast::DataGroupVectorPrv::Data::velocity_</a></div><div class="ttdeci">Vector3d velocity_</div><div class="ttdoc">向量的时间导数</div><div class="ttdef"><b>定义</b> DataGroupVectorPrv.hpp:47</div></div>
+<div class="ttc" id="astructast_1_1DataGroupVectorPrv_1_1Data_html_a835ea109511442afe4f5f19afa3e0768"><div class="ttname"><a href="structast_1_1DataGroupVectorPrv_1_1Data.html#a835ea109511442afe4f5f19afa3e0768">ast::DataGroupVectorPrv::Data::vector_</a></div><div class="ttdeci">Vector3d vector_</div><div class="ttdoc">向量</div><div class="ttdef"><b>定义</b> DataGroupVectorPrv.hpp:46</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a105694cfba257ed811e2b6f8279bf3c.html">AstReport</a></li><li class="navelem"><a class="el" href="dir_75beebfe98a363421cc4d60e2b83fbf4.html">Data</a></li><li class="navelem"><a class="el" href="dir_9a04d41a030f6c1327c913a8944c425c.html">Impl</a></li><li class="navelem"><a class="el" href="dir_d7b194428d82c9cd61c44e0a4e550ccd.html">DataProvider</a></li><li class="navelem"><a class="el" href="DataGroupVectorPrv_8hpp.html">DataGroupVectorPrv.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>
