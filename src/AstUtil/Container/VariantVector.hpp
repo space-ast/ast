@@ -63,7 +63,11 @@ public:
 
 private:
     // ---- 分配头：嵌入在 data_ 指向的分配块前方 ----
-    struct alignas(std::max_align_t) Header
+    struct
+#ifndef SWIG
+    alignas(std::max_align_t)  // SWIG 不支持 alignas，需用宏保护
+#endif
+    Header
     {
         const TypeOps*       ops;           ///< 类型操作表指针
         const std::type_info* typeInfo;     ///< 元素类型信息指针
