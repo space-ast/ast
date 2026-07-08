@@ -26,6 +26,14 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Geometry
+    @{
+*/
+
+/// @brief 向量抽象基类
+/// @details 向量是一种几何元素，表示三维空间中具有大小和方向的量。
+///          所有具体向量类型（计算向量、常量向量等）均派生自此类。
 class AST_CORE_API Vector : public ObjectNamed
 {
 public:
@@ -81,5 +89,10 @@ public:
   /// @return 错误码
   errc_t getVectorIn(Frame *targetFrame, const TimePoint &tp, Vector3d &vec, Vector3d &vel) const;
 };
+
+using PVector = Vector*;                ///< 向量指针(pointer to vector)
+using HVector = SharedPtr<Vector>;      ///< 向量句柄(handle to vector)
+
+/*! @} */
 
 AST_NAMESPACE_END

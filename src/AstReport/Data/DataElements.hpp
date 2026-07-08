@@ -52,7 +52,7 @@ namespace detail
         {
             auto span = data.asSpan<const T>();
             if (!span.data()) return -1;
-            using ElementType = std::remove_cv_t<std::remove_reference_t<MemberType>>;
+            using ElementType = typename std::remove_cv<typename std::remove_reference<MemberType>::type>::type;
             element.reset<ElementType>(span.size());
             auto* out = element.as<ElementType>();
             if (!out) return -1;
@@ -73,7 +73,7 @@ namespace detail
         {
             auto span = data.asSpan<const T>();
             if (!span.data()) return -1;
-            using ElementType = std::remove_cv_t<std::remove_reference_t<Ret>>;
+            using ElementType = typename std::remove_cv<typename std::remove_reference<Ret>::type>::type;
             element.reset<ElementType>(span.size());
             auto* out = element.as<ElementType>();
             if (!out) return -1;
