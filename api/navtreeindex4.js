@@ -1,5 +1,10 @@
 var NAVTREEINDEX4 =
 {
+"DetectorTrueAnomaly_8hpp.html":[4,0,0,7,8,0,36],
+"DetectorTrueAnomaly_8hpp_source.html":[4,0,0,7,8,0,36],
+"DetectorUserSelect_8cpp.html":[4,0,0,7,8,0,37],
+"DetectorUserSelect_8hpp.html":[4,0,0,7,8,0,38],
+"DetectorUserSelect_8hpp_source.html":[4,0,0,7,8,0,38],
 "DetectorXYPlaneCross_8cpp.html":[4,0,0,7,8,0,39],
 "DetectorXYPlaneCross_8hpp.html":[4,0,0,7,8,0,40],
 "DetectorXYPlaneCross_8hpp_source.html":[4,0,0,7,8,0,40],
@@ -244,10 +249,5 @@ var NAVTREEINDEX4 =
 "FOVConical_8cpp.html":[4,0,0,7,6,2,4],
 "FOVConical_8hpp.html":[4,0,0,7,6,2,5],
 "FOVConical_8hpp_source.html":[4,0,0,7,6,2,5],
-"FOVCustom_8cpp.html":[4,0,0,7,6,2,6],
-"FOVCustom_8hpp.html":[4,0,0,7,6,2,7],
-"FOVCustom_8hpp_source.html":[4,0,0,7,6,2,7],
-"FOVHalfPower_8cpp.html":[4,0,0,7,6,2,8],
-"FOVHalfPower_8hpp.html":[4,0,0,7,6,2,9],
-"FOVHalfPower_8hpp_source.html":[4,0,0,7,6,2,9]
+"FOVCustom_8cpp.html":[4,0,0,7,6,2,6]
 };

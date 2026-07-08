@@ -470,6 +470,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DataGroupCartVel.html">DataGroupCartVel</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DataGroupEuler.html">DataGroupEuler</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DataGroupModOrbElem.html">DataGroupModOrbElem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DataGroupOrbit.html">DataGroupOrbit</a></td></tr>
@@ -5915,6 +5917,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>aSnopt_Unload</b> ()<
 <tr class="memitem:a60b4ce9899721cb417d4b1051b40be2e" id="r_a60b4ce9899721cb417d4b1051b40be2e"><td class="memItemLeft" align="right" valign="top"><a id="a60b4ce9899721cb417d4b1051b40be2e" name="a60b4ce9899721cb417d4b1051b40be2e"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aExtractNoop</b> (const <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;data, <a class="el" href="classast_1_1VariantVector.html">VariantVector</a> &amp;element)</td></tr>
 <tr class="separator:a60b4ce9899721cb417d4b1051b40be2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a095a7c2c3cecaadf9fdd41996e008a9a" id="r_a095a7c2c3cecaadf9fdd41996e008a9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a095a7c2c3cecaadf9fdd41996e008a9a">aQuatAngvelToEuler</a> (const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat, const Vector3d &amp;angvel, int rotationOrder, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;angles, <a class="el" href="classast_1_1Euler.html">Euler</a> &amp;rates)</td></tr>
+<tr class="separator:a095a7c2c3cecaadf9fdd41996e008a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7e5d872f241e5beb5c4c9beaace1ed47" id="r_ga7e5d872f241e5beb5c4c9beaace1ed47"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__AstReport.html#ga7e5d872f241e5beb5c4c9beaace1ed47">aWriteReport</a> (const <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;report, const <a class="el" href="classast_1_1Object.html">Object</a> *object, FILE *file, const <a class="el" href="classast_1_1ReportGenerateOptions.html">ReportGenerateOptions</a> &amp;options=<a class="el" href="classast_1_1ReportGenerateOptions.html">ReportGenerateOptions</a>{})</td></tr>
 <tr class="separator:ga7e5d872f241e5beb5c4c9beaace1ed47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa7636ba38dc8241ffb082cc8ccb252f3" id="r_gaa7636ba38dc8241ffb082cc8ccb252f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Variable.html">Variable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Script.html#gaa7636ba38dc8241ffb082cc8ccb252f3">aNewVariable</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1Expr.html">Expr</a> *expr=nullptr, bool bind=false)</td></tr>
@@ -16144,6 +16148,54 @@ template&lt;typename Func &gt; </div>
 
 <p>初始化Qt应用程序 </p>
 <dl class="section return"><dt>返回</dt><dd>errc_t </dd></dl>
+
+</div>
+</div>
+<a id="a095a7c2c3cecaadf9fdd41996e008a9a" name="a095a7c2c3cecaadf9fdd41996e008a9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a095a7c2c3cecaadf9fdd41996e008a9a">&#9670;&#160;</a></span>aQuatAngvelToEuler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::aQuatAngvelToEuler </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>angvel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>rotationOrder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Euler.html">Euler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>angles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Euler.html">Euler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rates</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将四元数和体轴角速度转换为欧拉角及欧拉角速率 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">quat</td><td>四元数 </td></tr>
+    <tr><td class="paramname">angvel</td><td>体轴角速度 </td></tr>
+    <tr><td class="paramname">seq</td><td>欧拉角转序 </td></tr>
+    <tr><td class="paramname">angles</td><td>输出欧拉角 </td></tr>
+    <tr><td class="paramname">rates</td><td>输出欧拉角速率（万向节死锁时返回零） </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -229,6 +229,7 @@ var annotated_dup =
       [ "DataGroupAttitude", "classast_1_1DataGroupAttitude.html", "classast_1_1DataGroupAttitude" ],
       [ "DataGroupCartPos", "classast_1_1DataGroupCartPos.html", "classast_1_1DataGroupCartPos" ],
       [ "DataGroupCartVel", "classast_1_1DataGroupCartVel.html", "classast_1_1DataGroupCartVel" ],
+      [ "DataGroupEuler", "classast_1_1DataGroupEuler.html", "classast_1_1DataGroupEuler" ],
       [ "DataGroupModOrbElem", "classast_1_1DataGroupModOrbElem.html", "classast_1_1DataGroupModOrbElem" ],
       [ "DataGroupOrbit", "classast_1_1DataGroupOrbit.html", "classast_1_1DataGroupOrbit" ],
       [ "DataGroupQuats", "classast_1_1DataGroupQuats.html", "classast_1_1DataGroupQuats" ],
