@@ -147,6 +147,9 @@ var NAVTREEINDEX3 =
 "DataGroupOrbit_8cpp.html":[4,0,0,18,0,0,0,2],
 "DataGroupOrbit_8hpp.html":[4,0,0,18,0,0,0,3],
 "DataGroupOrbit_8hpp_source.html":[4,0,0,18,0,0,0,3],
+"DataGroupQuats_8cpp.html":[4,0,0,18,0,0,1,6],
+"DataGroupQuats_8hpp.html":[4,0,0,18,0,0,1,7],
+"DataGroupQuats_8hpp_source.html":[4,0,0,18,0,0,1,7],
 "DataGroupTimeVar_8hpp.html":[4,0,0,18,0,9],
 "DataGroupTimeVar_8hpp_source.html":[4,0,0,18,0,9],
 "DataGroupTrajectory_8cpp.html":[4,0,0,18,0,0,0,4],
@@ -246,8 +249,5 @@ var NAVTREEINDEX3 =
 "DetectorUserSelect_8hpp.html":[4,0,0,7,8,0,38],
 "DetectorUserSelect_8hpp_source.html":[4,0,0,7,8,0,38],
 "DetectorXYPlaneCross_8cpp.html":[4,0,0,7,8,0,39],
-"DetectorXYPlaneCross_8hpp.html":[4,0,0,7,8,0,40],
-"DetectorXYPlaneCross_8hpp_source.html":[4,0,0,7,8,0,40],
-"DetectorYZPlaneCross_8cpp.html":[4,0,0,7,8,0,41],
-"DetectorYZPlaneCross_8hpp.html":[4,0,0,7,8,0,42]
+"DetectorXYPlaneCross_8hpp.html":[4,0,0,7,8,0,40]
 };

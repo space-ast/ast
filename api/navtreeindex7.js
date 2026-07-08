@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"Literals_8hpp.html#abde92cf5f25ada5bfe409de36295c59e":[4,0,0,28,10,8,9],
+"Literals_8hpp.html#ac07c9db4486273bddf36caa0e9e889b4":[4,0,0,28,10,8,13],
+"Literals_8hpp.html#ac6a292274cfd596c85b05d6cbf0153ef":[4,0,0,28,10,8,44],
 "Literals_8hpp.html#aceb9bef91cffb399ead643bba3528915":[4,0,0,28,10,8,26],
 "Literals_8hpp.html#ad4a530d5fcb3c2c2343def8dcbde3aa2":[4,0,0,28,10,8,11],
 "Literals_8hpp.html#ad573f72fc547d07eefc72c8fff500cc6":[4,0,0,28,10,8,18],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "MotionProfileVisitor_8hpp_source.html":[4,0,0,20,4,1],
 "MotionProfile_8cpp.html":[4,0,0,20,2,17],
 "MotionProfile_8hpp.html":[4,0,0,20,2,18],
-"MotionProfile_8hpp_source.html":[4,0,0,20,2,18],
-"MotionRealTime_8hpp_source.html":[4,0,0,20,2,19],
-"MotionSGP4_8cpp.html":[4,0,0,20,2,20],
-"MotionSGP4_8hpp.html":[4,0,0,20,2,21]
+"MotionProfile_8hpp_source.html":[4,0,0,20,2,18]
 };

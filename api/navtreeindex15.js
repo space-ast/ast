@@ -1,5 +1,8 @@
 var NAVTREEINDEX15 =
 {
+"Type_8hpp_source.html":[4,0,0,28,7,27],
+"Types_8cpp.html":[4,0,0,19,0,7],
+"Types_8hpp.html":[4,0,0,19,0,8],
 "Types_8hpp_source.html":[4,0,0,19,0,8],
 "USSA1976_8cpp.html":[4,0,0,7,1,18],
 "USSA1976_8hpp.html":[4,0,0,7,1,19],
@@ -246,8 +249,5 @@ var NAVTREEINDEX15 =
 "UiUtil_8hpp.html#a1aea09041fc21b14cac46c8eeeb65bd6":[4,0,0,27,2,1],
 "UiUtil_8hpp.html#a3be5879a93328a85c3c6dcabc2ae2135":[4,0,0,27,2,0],
 "UiUtil_8hpp.html#a80c8e10785201cf6925de19a6daf6c1a":[4,0,0,27,2,2],
-"UiUtil_8hpp_source.html":[4,0,0,27,2],
-"UiValueEdit_8cpp.html":[4,0,0,11,4,25],
-"UiValueEdit_8hpp.html":[4,0,0,11,4,26],
-"UiValueEdit_8hpp_source.html":[4,0,0,11,4,26]
+"UiUtil_8hpp_source.html":[4,0,0,27,2]
 };

@@ -1,5 +1,8 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1CelestialBody.html#a729ed0351ad2106a6ba2920285d326f8":[0,1,6,0,1],
+"classast_1_1CelestialBody.html#a82a634abbda5bab8fdb3d6fd4864a93d":[0,1,6,0,58],
+"classast_1_1CelestialBody.html#a85f0090b4702bb649fe090eb10e59c36":[0,1,6,0,59],
 "classast_1_1CelestialBody.html#a87f25ac5cb7d38dba0be5352b2c176f3":[0,1,6,0,51],
 "classast_1_1CelestialBody.html#a893e27f747b61b94dc90eb0c4d7b12d8":[0,1,6,0,33],
 "classast_1_1CelestialBody.html#a8c87de0bd89de627fe1727f647f62288":[0,1,6,0,50],
@@ -246,8 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1ConstantSpaceWeather.html":[0,1,1,0],
 "classast_1_1ConstantSpaceWeather.html#a0783fe404d6e0d54790a8b7b56e9676f":[0,1,1,0,13],
 "classast_1_1ConstantSpaceWeather.html#a123ec17a5c3a905fe4ec2a9fd080f4d7":[0,1,1,0,17],
-"classast_1_1ConstantSpaceWeather.html#a1e1939a11f3a49425fbe2498a2f626e2":[0,1,1,0,1],
-"classast_1_1ConstantSpaceWeather.html#a38bae4dc45879a42b611617c0120c7d7":[0,1,1,0,15],
-"classast_1_1ConstantSpaceWeather.html#a3979f88f47caef3bf733b000bb398f92":[0,1,1,0,6],
-"classast_1_1ConstantSpaceWeather.html#a3a7e7f1a7ac4d88e2cfd996562056e5d":[0,1,1,0,3]
+"classast_1_1ConstantSpaceWeather.html#a1e1939a11f3a49425fbe2498a2f626e2":[0,1,1,0,1]
 };

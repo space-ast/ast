@@ -174,6 +174,7 @@ var hierarchy =
     [ "ast::DataGroupCartVel::Data", "structast_1_1DataGroupCartVel_1_1Data.html", null ],
     [ "ast::DataGroupModOrbElem::Data", "structast_1_1DataGroupModOrbElem_1_1Data.html", null ],
     [ "ast::DataGroupOrbit::Data", "structast_1_1DataGroupOrbit_1_1Data.html", null ],
+    [ "ast::DataGroupQuats::Data", "structast_1_1DataGroupQuats_1_1Data.html", null ],
     [ "ast::DataGroupTrajectory::Data", "structast_1_1DataGroupTrajectory_1_1Data.html", null ],
     [ "ast::DataGroupVector::Data", "structast_1_1DataGroupVector_1_1Data.html", null ],
     [ "ast::DataContext", "classast_1_1DataContext.html", null ],
@@ -188,6 +189,7 @@ var hierarchy =
         [ "ast::DataGroupCartVel", "classast_1_1DataGroupCartVel.html", null ],
         [ "ast::DataGroupModOrbElem", "classast_1_1DataGroupModOrbElem.html", null ],
         [ "ast::DataGroupOrbit", "classast_1_1DataGroupOrbit.html", null ],
+        [ "ast::DataGroupQuats", "classast_1_1DataGroupQuats.html", null ],
         [ "ast::DataGroupTrajectory", "classast_1_1DataGroupTrajectory.html", null ],
         [ "ast::DataGroupVector", "classast_1_1DataGroupVector.html", null ]
       ] ]

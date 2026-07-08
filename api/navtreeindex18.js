@@ -1,5 +1,8 @@
 var NAVTREEINDEX18 =
 {
+"classast_1_1BaseGroupChat.html":[3,0,0,40],
+"classast_1_1BaseGroupChat.html#a010a0fd3d9fc772fada5698bd89cda75":[2,0,0,41,0],
+"classast_1_1BaseGroupChat.html#a010a0fd3d9fc772fada5698bd89cda75":[3,0,0,40,0],
 "classast_1_1BaseOrbitDesigner.html":[0,1,4,1],
 "classast_1_1BaseOrbitDesigner.html#a12873c1bbc41bbbc56bf664c57a66146":[0,1,4,1,2],
 "classast_1_1BaseOrbitDesigner.html#a1e99899c3a40a482a0702bdf69bdc794":[0,1,4,1,4],
@@ -246,8 +249,5 @@ var NAVTREEINDEX18 =
 "classast_1_1BlockSystem.html#a22638623cc156afc6da579be545feeb9":[2,0,0,79,2],
 "classast_1_1BlockSystem.html#a22638623cc156afc6da579be545feeb9":[3,0,0,78,2],
 "classast_1_1BlockSystem.html#a4e38b31588a60e91a81c2eb1862212c3":[2,0,0,79,1],
-"classast_1_1BlockSystem.html#a4e38b31588a60e91a81c2eb1862212c3":[3,0,0,78,1],
-"classast_1_1BlockSystem.html#ab38a85d780f2341506825916754cacd4":[2,0,0,79,0],
-"classast_1_1BlockSystem.html#ab38a85d780f2341506825916754cacd4":[3,0,0,78,0],
-"classast_1_1BlockTerminator.html":[2,0,0,80]
+"classast_1_1BlockSystem.html#a4e38b31588a60e91a81c2eb1862212c3":[3,0,0,78,1]
 };

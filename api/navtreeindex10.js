@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"ReportSection_8hpp.html":[4,0,0,18,9],
+"ReportSection_8hpp_source.html":[4,0,0,18,9],
+"ReportStyleLoader_8cpp.html":[4,0,0,12,4,0],
 "ReportStyleLoader_8hpp.html":[4,0,0,12,4,1],
 "ReportStyleLoader_8hpp_source.html":[4,0,0,12,4,1],
 "ReportStyle_8cpp.html":[4,0,0,18,10],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcDec_8cpp.html":[4,0,0,7,7,1,0,15,18],
 "ScStateCalcDec_8hpp.html":[4,0,0,7,7,1,0,15,19],
 "ScStateCalcDec_8hpp_source.html":[4,0,0,7,7,1,0,15,19],
-"ScStateCalcDelaunayG_8cpp.html":[4,0,0,7,7,1,0,5,0],
-"ScStateCalcDelaunayG_8hpp.html":[4,0,0,7,7,1,0,5,1],
-"ScStateCalcDelaunayG_8hpp_source.html":[4,0,0,7,7,1,0,5,1],
-"ScStateCalcDelaunayH_8cpp.html":[4,0,0,7,7,1,0,5,2]
+"ScStateCalcDelaunayG_8cpp.html":[4,0,0,7,7,1,0,5,0]
 };

@@ -94,7 +94,7 @@ var searchData=
   ['setdaysecond_91',['setDaySecond',['../classast_1_1JulianDate.html#adf1272b09b6178310814e64c8559dd71',1,'ast::JulianDate::setDaySecond()'],['../classast_1_1ModJulianDate.html#adf1272b09b6178310814e64c8559dd71',1,'ast::ModJulianDate::setDaySecond()']]],
   ['setdefaultdata_92',['setDefaultData',['../classast_1_1LeapSecond.html#a547b20b20d6e93be2de6874f542dfa49',1,'ast::LeapSecond']]],
   ['setdesc_93',['setDesc',['../classast_1_1Field.html#a859c6776b0df38d55343e9e938137d86',1,'ast::Field::setDesc()'],['../classast_1_1Struct.html#ad6926ee266c12c5641627bc4212c0fbc',1,'ast::Struct::setDesc()']]],
-  ['setdescription_94',['setDescription',['../classast_1_1ChatTool.html#ad801b83e965db510c3d60f6bbdb80c74',1,'ast::ChatTool::setDescription()'],['../classast_1_1DataElement.html#a9f459155a436281af33c1ff5800ff908',1,'ast::DataElement::setDescription()']]],
+  ['setdescription_94',['setDescription',['../classast_1_1ChatTool.html#ad801b83e965db510c3d60f6bbdb80c74',1,'ast::ChatTool']]],
   ['setdestination_95',['setDestination',['../classast_1_1VectorDisplacement.html#a945abd81b41d6703071c5f6a06114e2c',1,'ast::VectorDisplacement']]],
   ['setdetailedterrainhorizon_96',['setDetailedTerrainHorizon',['../classast_1_1FieldOfView.html#a6941aa22d836b53802af0f1cde542561',1,'ast::FieldOfView']]],
   ['setdifferenceordertouse_97',['setDifferenceOrderToUse',['../classast_1_1ScStateCalcDifference.html#a8bc1fcd0e6dcf65d5e47bd5462b63940',1,'ast::ScStateCalcDifference']]],
