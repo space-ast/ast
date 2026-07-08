@@ -111,7 +111,7 @@ errc_t DataGroupVectorPrv::calculate(const TimeList& timeList, Span<Data> result
     {
         Data& data = result[i];
         data.time_ = timeList[i];
-        errc_t err = vector->getVectorIn(axes, data.time_, data.vector, data.velocity);
+        errc_t err = vector->getVectorIn(axes, data.time_, data.vector_, data.velocity_);
         if(err != eNoError)
             rc = err;
     }
