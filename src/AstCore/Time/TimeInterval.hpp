@@ -66,7 +66,10 @@ public:
         return interval;
     }
 
-    TimeInterval() = default;
+    TimeInterval() 
+        : start_{}
+        , stop_{} 
+    {}
     ~TimeInterval() = default;
 
     /// @brief 构造函数

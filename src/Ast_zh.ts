@@ -906,6 +906,10 @@
         <source>StudyWorkbench</source>
         <translation>分析工作台</translation>
     </message>
+    <message>
+        <source>Angle</source>
+        <translation>角度</translation>
+    </message>
 </context>
 <context>
     <name>SolarSystem</name>
