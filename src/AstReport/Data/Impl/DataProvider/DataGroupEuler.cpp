@@ -27,23 +27,76 @@
 
 AST_NAMESPACE_BEGIN
 
+namespace
+{
+    /// @brief 绕指定轴旋转向量的分量
+    /// @param v   输入向量
+    /// @param axis 旋转轴 (0=X, 1=Y, 2=Z)
+    /// @param c   cos(角度)
+    /// @param s   sin(角度)
+    Vector3d rotateVector(const Vector3d& v, int axis, double c, double s)
+    {
+        switch (axis)
+        {
+            case 0: return {v.x(), c * v.y() - s * v.z(), s * v.y() + c * v.z()};
+            case 1: return {c * v.x() + s * v.z(), v.y(), -s * v.x() + c * v.z()};
+            case 2: return {c * v.x() - s * v.y(), s * v.x() + c * v.y(), v.z()};
+            default: return v;
+        }
+    }
+
+    /// @brief 欧拉角转序分解为三个轴序号 (0=X, 1=Y, 2=Z)
+    inline void decomposeOrder(int order, int& i, int& j, int& k)
+    {
+        i = (order / 100) % 10 - 1;
+        j = (order / 10)  % 10 - 1;
+        k =  order        % 10 - 1;
+    }
+} // namespace
+
+
 /// @brief 将四元数和体轴角速度转换为欧拉角及欧拉角速率
+/// @details 通过构建运动学矩阵 M = [c1|c2|c3] 并求逆，支持全部 12 种转序。
+///          symmetry (i==k) 时 det = sin(θ₂)，TaitBryan (i≠k) 时 det = cos(θ₂)。
+/// @todo 待测试验证
 /// @param quat 四元数
 /// @param angvel 体轴角速度
-/// @param seq 欧拉角转序
+/// @param rotationOrder 欧拉角转序 (如 Euler::eZYX, Euler::eXYX)
 /// @param angles 输出欧拉角
-/// @param rates 输出欧拉角速率（万向节死锁时返回零）
+/// @param rates 输出欧拉角速率（死锁时返回零）
 void aQuatAngvelToEuler(const Quaternion& quat, const Vector3d& angvel, int rotationOrder,
                          Euler& angles, Euler& rates)
 {
     angles.fromQuat(quat, rotationOrder);
 
-    double A = angles.angle1();
-    double B = angles.angle2();
-    double sinA = std::sin(A), cosA = std::cos(A);
-    double sinB = std::sin(B);
+    int i, j, k;
+    decomposeOrder(rotationOrder, i, j, k);
+    double a = angles.angle1();
+    double b = angles.angle2();
+    double ca = std::cos(a), sa = std::sin(a);
+    double cb = std::cos(b), sb = std::sin(b);
 
-    if(std::fabs(sinB) < 1e-12)
+    // 构建运动学矩阵 M = [c1 | c2 | c3]
+    // c₁ = eᵢ
+    Vector3d e{}; 
+    e.data()[i] = 1.0;
+    Vector3d c1 = e;  
+    e.data()[i] = 0.0;
+    // c₂ = Rᵢ(α) · eⱼ
+    e.data()[j] = 1.0;
+    Vector3d c2 = rotateVector(e, i, ca, sa);
+    e.data()[j] = 0.0;
+    // c₃ = Rᵢ(α) · Rⱼ(β) · eₖ
+    e.data()[k] = 1.0;
+    Vector3d tmp = rotateVector(e, j, cb, sb);
+    Vector3d c3  = rotateVector(tmp, i, ca, sa);
+
+    // det(M)
+    double det = c1.x() * (c2.y() * c3.z() - c2.z() * c3.y())
+               + c1.y() * (c2.z() * c3.x() - c2.x() * c3.z())
+               + c1.z() * (c2.x() * c3.y() - c2.y() * c3.x());
+
+    if (std::fabs(det) < 1e-12)
     {
         rates.angle1() = 0.0;
         rates.angle2() = 0.0;
@@ -51,11 +104,11 @@ void aQuatAngvelToEuler(const Quaternion& quat, const Vector3d& angvel, int rota
         return;
     }
 
-    double cotB = std::cos(B) / sinB;
-    double cscB = 1.0 / sinB;
-    rates.angle1() = angvel.x() - sinA * cotB * angvel.y() - cosA * cotB * angvel.z();
-    rates.angle2() = cosA * angvel.y() - sinA * angvel.z();
-    rates.angle3() = sinA * cscB * angvel.y() + cosA * cscB * angvel.z();
+    // M⁻¹ 的第 r 行 = (c_{r+1} × c_{r+2})^T / det  (索引回绕)
+    double invDet = 1.0 / det;
+    rates.angle1() = c2.cross(c3).dot(angvel) * invDet;
+    rates.angle2() = c3.cross(c1).dot(angvel) * invDet;
+    rates.angle3() = c1.cross(c2).dot(angvel) * invDet;
 }
 
 
