@@ -514,4 +514,5 @@
 #include "AstCore/USSA1976.hpp"
 #include "AstCore/VariableList.hpp"
 #include "AstCore/Vector.hpp"
+#include "AstCore/VectorDisplacement.hpp"
 #include "AstCore/WeakPtr.hpp"

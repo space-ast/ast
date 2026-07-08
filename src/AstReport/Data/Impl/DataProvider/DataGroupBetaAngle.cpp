@@ -82,7 +82,7 @@ errc_t DataGroupBetaAngle::calculate(const TimeList& timeList, std::vector<Data>
 
 errc_t DataGroupBetaAngle::calculate(const TimeList& timeList, Span<Data> result) const
 {
-    Point* scPoint = this->getScPoint();
+    Point* scPoint = this->getPoint();
     Frame* frame = this->getFrame();
     Point* sunPoint = this->getSunPoint();
     Point* moonPoint = this->getMoonPoint();

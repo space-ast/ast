@@ -72,6 +72,8 @@ public:
 public:
     Axes* getAxes() const { return axes_.get(); }
     Axes* getReferenceAxes() const { return referenceAxes_.get(); }
+    void setAxes(Axes* a)          { axes_ = a; }
+    void setReferenceAxes(Axes* a) { referenceAxes_ = a; }
 
     int  getRotationOrder() const { return rotationOrder_; }
     void setRotationOrder(int order) { rotationOrder_ = order; }

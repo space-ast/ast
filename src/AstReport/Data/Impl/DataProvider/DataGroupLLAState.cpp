@@ -138,7 +138,7 @@ errc_t DataGroupLLAState::calculate(const TimeList& timeList, std::vector<Data>&
 
 errc_t DataGroupLLAState::calculate(const TimeList& timeList, Span<Data> result) const
 {
-    Point* scPoint = this->getScPoint();
+    Point* scPoint = this->getPoint();
     Body* body = this->getBody();
     if(!scPoint || !body)
     {

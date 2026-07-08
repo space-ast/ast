@@ -124,7 +124,7 @@ errc_t DataGroupLLRState::calculate(const TimeList& timeList, std::vector<Data>&
 
 errc_t DataGroupLLRState::calculate(const TimeList& timeList, Span<Data> result) const
 {
-    Point* scPoint = this->getScPoint();
+    Point* scPoint = this->getPoint();
     Frame* frame = this->getFrame();
     if(!scPoint || !frame)
     {

@@ -63,10 +63,14 @@ public:
     errc_t calculate(const TimeList& timeList, std::vector<Data>& result) const;
     errc_t calculate(const TimeList& timeList, Span<Data> result) const;
 public:
-    Point* getScPoint()   const { return scPoint_.get(); }
+    Point* getPoint()   const { return scPoint_.get(); }
     Frame* getFrame()     const { return frame_.get(); }
     Point* getSunPoint()  const { return sunPoint_.get(); }
     Point* getMoonPoint() const { return moonPoint_.get(); }
+    void setPoint(Point* p)   { scPoint_ = p; }
+    void setFrame(Frame* f)     { frame_ = f; }
+    void setSunPoint(Point* p)  { sunPoint_ = p; }
+    void setMoonPoint(Point* p) { moonPoint_ = p; }
 private:
     WeakPtr<Point> scPoint_;
     WeakPtr<Frame> frame_;
