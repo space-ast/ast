@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/StringView.hpp"
+#include "AstUtil/Dimension.hpp"
 #include <string>
 
 AST_NAMESPACE_BEGIN
@@ -61,12 +62,27 @@ public:
 
     /// @brief 获取数据元素名称
     /// @return 数据元素名称的常量引用
-    const std::string& name() const { return name_; }
+    const char* name() const { return name_; }
 
     /// @brief 设置数据元素名称
-    /// @param name 新的名称字符串视图
-    void setName(StringView name){ name_ = std::string(name); }
+    /// @param name 新的名称字符串
+    void setName(const char* name){ name_ = name; }
 
+    /// @brief 获取数据元素描述
+    /// @return 数据元素描述的常量引用
+    const char* description() const { return description_; }
+
+    /// @brief 设置数据元素描述
+    /// @param description 新的描述字符串
+    void setDescription(const char* description){ description_ = description; }
+
+    /// @brief 获取数据元素的量纲
+    /// @return 数据元素的量纲
+    Dimension dimension() const { return dimension_; }
+
+    /// @brief 设置数据元素的量纲
+    /// @param dimension 新的量纲
+    void setDimension(Dimension dimension){ dimension_ = dimension; }
 
     /// @brief 注册数据提取函数
     /// @param extractFunc 提取函数指针
@@ -86,7 +102,9 @@ public:
 
 
 private:
-    std::string name_;                                  ///< 数据名称
+    const char* name_{""};                              ///< 数据名称
+    const char* description_{""};                       ///< 数据描述
+    Dimension dimension_{Dimension::Unit()};            ///< 数据量纲(仅对double类型有效)
     ElementExtractFunc extractFunc_{&aExtractNoop};     ///< 提取函数指针，用于从数据向量中提取子数据
 };
 

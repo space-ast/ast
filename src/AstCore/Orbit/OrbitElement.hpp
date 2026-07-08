@@ -182,6 +182,12 @@ public:
     /// @brief 计算纬度幅角
     double getArgLat() const {return aTrueToArgLat(getTrueAnomaly(), getArgPeri());}
 
+    /// @brief 计算近拱点经度
+    double getLongitudeOfPeri() const {return aArgPeriToLongPeri(getArgPeri(), getRAAN());}
+
+    /// @brief 计算平均经度
+    double getMeanLongitude() const {return getLongitudeOfPeri() + getMeanAnomaly();}
+
     /// @brief 计算过近地点后经过的时间
     double getTimePastPeri(double gm) const{return aTrueToTimePastPeri(getTrueAnomaly(), getSMA(), getEcc(), gm);}
 

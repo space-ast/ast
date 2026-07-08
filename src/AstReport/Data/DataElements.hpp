@@ -22,6 +22,8 @@
 
 #include "AstGlobal.h"
 #include "DataElement.hpp"
+#include "AstUtil/Dimension.hpp"
+#include "AstUtil/VariantVector.hpp"
 #include <vector>
 
 AST_NAMESPACE_BEGIN
@@ -30,6 +32,55 @@ AST_NAMESPACE_BEGIN
     @addtogroup 
     @{
 */
+
+
+/// @brief 数据元素容器
+class DataElements;
+
+namespace detail
+{
+    /// @brief 生成成员变量提取函数
+    /// @tparam T 数据类类型
+    /// @tparam MemberType 成员变量类型
+    /// @tparam Member 成员变量指针
+    template<typename T, typename MemberType, MemberType T::*Member>
+    ElementExtractFunc makeExtractFunc()
+    {
+        return [](const VariantVector& data, VariantVector& element) -> errc_t
+        {
+            auto span = data.asSpan<const T>();
+            if (!span.data()) return -1;
+            using ElementType = std::remove_cv_t<std::remove_reference_t<MemberType>>;
+            element.reset<ElementType>(span.size());
+            auto* out = element.as<ElementType>();
+            if (!out) return -1;
+            for (size_t i = 0; i < span.size(); ++i)
+                out[i] = span[i].*Member;
+            return 0;
+        };
+    }
+
+    /// @brief 生成成员函数(getter)提取函数
+    /// @tparam T 数据类类型
+    /// @tparam Ret getter 返回值类型
+    /// @tparam Getter const 成员函数指针
+    template<typename T, typename Ret, Ret (T::*Getter)() const>
+    ElementExtractFunc makeExtractFunc()
+    {
+        return [](const VariantVector& data, VariantVector& element) -> errc_t
+        {
+            auto span = data.asSpan<const T>();
+            if (!span.data()) return -1;
+            using ElementType = std::remove_cv_t<std::remove_reference_t<Ret>>;
+            element.reset<ElementType>(span.size());
+            auto* out = element.as<ElementType>();
+            if (!out) return -1;
+            for (size_t i = 0; i < span.size(); ++i)
+                out[i] = (span[i].*Getter)();
+            return 0;
+        };
+    }
+} // namespace detail
 
 
 /// @brief 数据元素容器
@@ -45,6 +96,38 @@ public:
 
     /// @brief 添加数据元素
     void addElement(const DataElement& element);
+
+
+    /// @brief 添加数据元素（成员变量版本）
+    /// @tparam T 数据类类型
+    /// @tparam MemberType 成员变量类型
+    /// @tparam Member 成员变量指针
+    template<typename T, typename MemberType, MemberType T::*Member>
+    void addElement(const char* name, const char* description="", Dimension dimension = Dimension::Unit())
+    {
+        DataElement element;
+        element.setName(name);
+        element.setDescription(description);
+        element.setDimension(dimension);
+        element.setExtractFunc(detail::makeExtractFunc<T, MemberType, Member>());
+        addElement(element);
+    }
+
+    /// @brief 添加数据元素（const 成员函数版本）
+    /// @tparam T 数据类类型
+    /// @tparam Ret getter 返回值类型
+    /// @tparam Getter const 成员函数指针
+    template<typename T, typename Ret, Ret (T::*Getter)() const>
+    void addElement(const char* name, const char* description="", Dimension dimension = Dimension::Unit())
+    {
+        DataElement element;
+        element.setName(name);
+        element.setDescription(description);
+        element.setDimension(dimension);
+        element.setExtractFunc(detail::makeExtractFunc<T, Ret, Getter>());
+        addElement(element);
+    }
+    
 private:
     std::vector<DataElement> elements_;
 };
