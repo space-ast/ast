@@ -258,6 +258,7 @@ var namespaceast =
     [ "DataGroupBetaAngle", "classast_1_1DataGroupBetaAngle.html", "classast_1_1DataGroupBetaAngle" ],
     [ "DataGroupCartPos", "classast_1_1DataGroupCartPos.html", "classast_1_1DataGroupCartPos" ],
     [ "DataGroupCartVel", "classast_1_1DataGroupCartVel.html", "classast_1_1DataGroupCartVel" ],
+    [ "DataGroupEquinElem", "classast_1_1DataGroupEquinElem.html", "classast_1_1DataGroupEquinElem" ],
     [ "DataGroupEuler", "classast_1_1DataGroupEuler.html", "classast_1_1DataGroupEuler" ],
     [ "DataGroupLLAState", "classast_1_1DataGroupLLAState.html", "classast_1_1DataGroupLLAState" ],
     [ "DataGroupLLRState", "classast_1_1DataGroupLLRState.html", "classast_1_1DataGroupLLRState" ],

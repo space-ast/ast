@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"ReceiverLoader_8cpp.html":[4,0,0,12,5,46],
+"ReceiverLoader_8cpp.html#afade84f712ca97c32e872f9d38f982ea":[4,0,0,12,5,46,0],
+"ReceiverLoader_8hpp.html":[4,0,0,12,5,47],
 "ReceiverLoader_8hpp.html#afade84f712ca97c32e872f9d38f982ea":[4,0,0,12,5,47,0],
 "ReceiverLoader_8hpp_source.html":[4,0,0,12,5,47],
 "Receiver_8cpp.html":[4,0,0,20,3,46],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "ScStateCalcCloseApproachTheta_8hpp_source.html":[4,0,0,7,7,1,0,8,11],
 "ScStateCalcCloseApproachX_8cpp.html":[4,0,0,7,7,1,0,8,12],
 "ScStateCalcCloseApproachX_8hpp.html":[4,0,0,7,7,1,0,8,13],
-"ScStateCalcCloseApproachX_8hpp_source.html":[4,0,0,7,7,1,0,8,13],
-"ScStateCalcCloseApproachY_8cpp.html":[4,0,0,7,7,1,0,8,14],
-"ScStateCalcCloseApproachY_8hpp.html":[4,0,0,7,7,1,0,8,15],
-"ScStateCalcCloseApproachY_8hpp_source.html":[4,0,0,7,7,1,0,8,15]
+"ScStateCalcCloseApproachX_8hpp_source.html":[4,0,0,7,7,1,0,8,13]
 };

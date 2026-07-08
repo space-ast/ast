@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcNormalRate_8hpp_source.html":[4,0,0,7,7,1,0,15,107],
+"ScStateCalcNormal_8cpp.html":[4,0,0,7,7,1,0,15,104],
+"ScStateCalcNormal_8hpp.html":[4,0,0,7,7,1,0,15,105],
 "ScStateCalcNormal_8hpp_source.html":[4,0,0,7,7,1,0,15,105],
 "ScStateCalcOrbitDelaunayG_8cpp.html":[4,0,0,7,7,1,0,15,108],
 "ScStateCalcOrbitDelaunayG_8hpp.html":[4,0,0,7,7,1,0,15,109],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcVelocity_8hpp_source.html":[4,0,0,7,7,1,0,2,3],
 "ScStateCalcVx_8cpp.html":[4,0,0,7,7,1,0,2,6],
 "ScStateCalcVx_8hpp.html":[4,0,0,7,7,1,0,2,7],
-"ScStateCalcVx_8hpp_source.html":[4,0,0,7,7,1,0,2,7],
-"ScStateCalcVy_8cpp.html":[4,0,0,7,7,1,0,2,8],
-"ScStateCalcVy_8hpp.html":[4,0,0,7,7,1,0,2,9],
-"ScStateCalcVy_8hpp_source.html":[4,0,0,7,7,1,0,2,9]
+"ScStateCalcVx_8hpp_source.html":[4,0,0,7,7,1,0,2,7]
 };
