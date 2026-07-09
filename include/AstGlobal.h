@@ -293,6 +293,15 @@
 #define AST_LOADER_CAPI A_DECL_EXTERN_C AST_LOADER_API
 
 
+// ast项目报表模块导出声明
+#ifdef AST_BUILD_LIB_REPORT
+#    define AST_REPORT_API A_DECL_EXPORT
+#else
+#    define AST_REPORT_API A_DECL_IMPORT
+#endif
+#define AST_REPORT_CAPI A_DECL_EXTERN_C AST_REPORT_API
+
+
 // ast项目AI模块导出声明
 #ifdef AST_BUILD_LIB_AI
 #    define AST_AI_API A_DECL_EXPORT
@@ -477,7 +486,11 @@ class Property;              ///< 属性
 using Type = Class;          ///< 类型
 
 class TimePoint;            ///< 时间点
+class TimeList;             ///< 时间点列表
 class TimeInterval;         ///< 时间段
+class TimeIntervalList;     ///< 绝对时间段列表
+class Interval;             ///< 相对时间段
+class IntervalList;         ///< 相对时间段列表
 class JulianDate;           ///< 儒略日
 class ModJulianDate;        ///< 简约儒略日
 
@@ -510,6 +523,8 @@ class JsonValue;            ///< JSON值
 class Dimension;            ///< 量纲
 class Unit;                 ///< 单位
 class Quantity;             ///< 数量值
+
+class VariantVector;        ///< 变类型向量
 
 #endif
 

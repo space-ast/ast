@@ -34,6 +34,9 @@ AST_NAMESPACE_BEGIN
 class Frame;
 class CelestialBody;
 
+/// @brief 点抽象基类
+/// @details 点是一种几何元素，表示三维空间中的一个位置。
+///          所有具体点类型（天体中心点、行星历表点等）均派生自此类。
 class AST_CORE_API Point: public ObjectNamed
 {
 public:
@@ -79,6 +82,9 @@ public:
     errc_t getPosVelIn(Frame* frame, const TimePoint& tp, Vector3d& pos, Vector3d& vel) const;
 
 };
+
+using PPoint = Point*;                ///< 点指针(pointer to point)
+using HPoint = SharedPtr<Point>;      ///< 点句柄(handle to point)
 
 /*! @} */
 

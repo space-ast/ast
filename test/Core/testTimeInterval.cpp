@@ -105,65 +105,66 @@ TEST(TimeInterval, Discrete)
         TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
         TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 1, 0, 0.0);
         TimeInterval interval(start, stop);
-        
+
         std::vector<double> times;
         errc_t rc = interval.discrete(epoch, 1800.0, times);  // 30分钟步长
-        
-        // nnodes = ceil(3600/1800) = 2
-        // 所以输出 2 个节点: 起点 和 终点
+
+        // nnodes = ceil(3600/1800) + 1 = 3
+        // 输出 3 个节点: 起点, 中点, 终点
         EXPECT_EQ(rc, eNoError);
-        EXPECT_EQ(times.size(), 2u);
+        EXPECT_EQ(times.size(), 3u);
         EXPECT_NEAR(times[0], 0.0, 1e-9);
-        EXPECT_NEAR(times[1], 3600.0, 1e-9);
+        EXPECT_NEAR(times[1], 1800.0, 1e-9);
+        EXPECT_NEAR(times[2], 3600.0, 1e-9);
     }
-    
+
     // 测试时长不是步长整数倍的情况
     {
         TimePoint epoch = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
         TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
         TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 1, 30, 0.0);  // 1.5小时
         TimeInterval interval(start, stop);
-        
+
         std::vector<double> times;
         errc_t rc = interval.discrete(epoch, 1800.0, times);  // 30分钟步长
-        
-        // nnodes = ceil(5400/1800) = 3
-        // 输出 3 个节点
+
+        // nnodes = ceil(5400/1800) + 1 = 4
+        // 输出 4 个节点：0, 1800, 3600, 5400
         EXPECT_EQ(rc, eNoError);
-        EXPECT_EQ(times.size(), 3u);
+        EXPECT_EQ(times.size(), 4u);
         EXPECT_NEAR(times[0], 0.0, 1e-9);
         EXPECT_NEAR(times[1], 1800.0, 1e-9);
-        EXPECT_NEAR(times[2], 5400.0, 1e-9);
+        EXPECT_NEAR(times[2], 3600.0, 1e-9);
+        EXPECT_NEAR(times[3], 5400.0, 1e-9);
     }
-    
+
     // 测试离散化为绝对时间点
     {
         TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
         TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 0, 30, 0.0);
         TimeInterval interval(start, stop);
-        
+
         std::vector<TimePoint> times;
         errc_t rc = interval.discrete(600.0, times);  // 10分钟步长
-        
-        // nnodes = ceil(1800/600) = 3
+
+        // nnodes = ceil(1800/600) + 1 = 4
         EXPECT_EQ(rc, eNoError);
-        EXPECT_EQ(times.size(), 3u);
+        EXPECT_EQ(times.size(), 4u);
     }
-    
+
     // 测试单步长覆盖整个区间
     {
         TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
         TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 0, 10, 0.0);
         TimeInterval interval(start, stop);
-        
+
         std::vector<TimePoint> times;
         errc_t rc = interval.discrete(600.0, times);  // 10分钟步长，正好等于区间
-        
-        // nnodes = ceil(600/600) = 1, 但实际应该至少有起点和终点
-        // 检查实现：nnodes <= 0 会报错，所以 nnodes=1 时
-        // 循环 for(i=0; i<0; i++) 不执行，然后添加终点
+
+        // nnodes = ceil(600/600) + 1 = 2
+        // 输出 2 个节点：起点 和 终点
         EXPECT_EQ(rc, eNoError);
-        EXPECT_EQ(times.size(), 1u);  // 只有终点
+        EXPECT_EQ(times.size(), 2u);
     }
 }
 
@@ -193,24 +194,24 @@ TEST(TimeInterval, Iterator)
         {
             count++;
         }
-        // nnodes = ceil(3600/1800) = 2
-        EXPECT_EQ(count, 2u);
+        // nnodes = ceil(3600/1800) + 1 = 3
+        EXPECT_EQ(count, 3u);
     }
-    
+
     // 测试相对时间的迭代器
     {
         TimePoint epoch = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
         TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
         TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 1, 0, 0.0);
         TimeInterval interval(start, stop);
-        
+
         auto range = interval.discrete(epoch, 1800.0);
         size_t count = 0;
         for(auto it = range.begin(); it != range.end(); ++it)
         {
             count++;
         }
-        EXPECT_EQ(count, 2u);
+        EXPECT_EQ(count, 3u);
     }
 }
 

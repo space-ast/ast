@@ -17,7 +17,7 @@
 
 **space-ast** (/æst/) 是一个专注于航天仿真领域的算法库，提供了轨道力学、姿态控制、轨迹规划等核心算法的现代C++实现。
 
-如果你想要了解更多，请参考：[使用指南](https://space-ast.github.io/ast/), [API文档](https://space-ast.github.io/ast/api/), [Github](https://github.com/space-ast/ast)以及 [Gitee](https://gitee.com/space-ast/ast) 和 [GitCode](https://gitcode.com/space-ast/ast)。
+如果你想要了解更多，请参考：[版本下载](https://github.com/space-ast/ast/releases), [使用指南](https://space-ast.github.io/ast/), [API文档](https://space-ast.github.io/ast/api/), [Github](https://github.com/space-ast/ast)以及 [Gitee](https://gitee.com/space-ast/ast) 和 [GitCode](https://gitcode.com/space-ast/ast)。
 
 ## 🚀 核心特性
 
@@ -164,7 +164,7 @@ const kEps15 = 1e-15;
 
 ## 📚 参考资料
 
-ast项目的开发参考和使用了很多资料与工具，感谢所有开源社区贡献者的辛勤工作，以及航天仿真领域研究人员的理论贡献，这些宝贵的资源为ast项目的开发提供了坚实的基础。
+本项目的开发参考和使用了很多资料与工具，感谢所有开源社区贡献者的辛勤工作、航天仿真领域研究人员的理论贡献，以及行业标杆软件的启发，这些宝贵的资源为ast项目的开发提供了坚实的基础。
 
 ### 💻 开源代码
 
@@ -185,6 +185,14 @@ ast项目的开发参考和使用了很多资料与工具，感谢所有开源�
 - [julia](https://julialang.org/): 一种高性能的动态编程语言，专为科学计算和数值分析而设计
 - [glibc](https://www.gnu.org/software/libc/): GNU C库，提供了C语言标准库的实现
 - [abseil](https://abseil.io/): 一个C++库，提供了许多常用的功能，如字符串处理、内存管理、并发编程等，是Google开源的一个项目
+
+### 🛰️ 行业软件
+
+以下行业软件为航天仿真领域的标杆工具，其功能设计为本项目提供了重要参考：
+
+- [STK](https://www.ansys.com/products/missions/ansys-stk): Ansys公司（原AGI）的商业航天任务分析、设计与可视化软件，广泛用于航天任务全生命周期
+- [FreeFlyer](https://ai-solutions.com/): a.i. solutions公司的商业航天任务设计与分析软件，支持轨道规划、机动分析和星座设计
+- [Copernicus](https://www.nasa.gov/general/copernicus/): NASA开发的航天任务轨迹设计与优化软件，支持从近地轨道到深空探测的全场景轨迹规划
 
 ## 🔗 项目依赖
 

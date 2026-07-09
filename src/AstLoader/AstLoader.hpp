@@ -39,6 +39,7 @@
 #include "AstLoader/PropagatorLoader.hpp"
 #include "AstLoader/RadarLoader.hpp"
 #include "AstLoader/ReceiverLoader.hpp"
+#include "AstLoader/ReportStyleLoader.hpp"
 #include "AstLoader/ResultLoader.hpp"
 #include "AstLoader/ReturnLoader.hpp"
 #include "AstLoader/ScenarioLoader.hpp"

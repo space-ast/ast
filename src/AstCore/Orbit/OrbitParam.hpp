@@ -584,13 +584,13 @@ inline double aArgLatToTrue(double argLat, double argPeri);
 /// @param argPeri 近地点幅角 [rad]
 /// @param raan 升交点赤经 [rad]
 /// @return 真近点经度 [rad]
-AST_CORE_CAPI double    aTrueToTrueLong    (double trueAnomaly, double argPeri, double raan);
+A_ALWAYS_INLINE double    aTrueToTrueLong    (double trueAnomaly, double argPeri, double raan){return trueAnomaly + argPeri + raan;}
 
 /// @brief 近地点幅角转换为近地点经度
 /// @param argPeri 近地点幅角 [rad]
 /// @param raan 升交点赤经 [rad]
 /// @return 近地点经度 [rad]
-AST_CORE_CAPI double    aArgPeriToLongPeri (double argPeri, double raan);
+A_ALWAYS_INLINE double    aArgPeriToLongPeri (double argPeri, double raan){return argPeri + raan;}
 
 
 /// @brief 升交点赤经转换为升交点经度

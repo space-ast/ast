@@ -26,6 +26,14 @@
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup Geometry
+    @{
+*/
+
+/// @brief 向量抽象基类
+/// @details 向量是一种几何元素，表示三维空间中具有大小和方向的量。
+///          所有具体向量类型（计算向量、常量向量等）均派生自此类。
 class AST_CORE_API Vector : public ObjectNamed
 {
 public:
@@ -50,6 +58,41 @@ public:
   /// @param vel 输出参数，向量的速度向量
   /// @return 错误码
   virtual errc_t getVector(const TimePoint &tp, Vector3d &vec, Vector3d &vel) const = 0;
+
+  /// @brief 获取向量在指定轴系下的值
+  /// @param targetAxes 目标轴系指针
+  /// @param tp 时间点
+  /// @param vec 输出参数，向量在目标轴系下的值
+  /// @return 错误码
+  errc_t getVectorIn(Axes *targetAxes, const TimePoint &tp, Vector3d &vec) const;
+
+  /// @brief 获取向量在指定轴系下的值和速度
+  /// @param targetAxes 目标轴系指针
+  /// @param tp 时间点
+  /// @param vec 输出参数，向量在目标轴系下的值
+  /// @param vel 输出参数，向量的速度向量在目标轴系下的值
+  /// @return 错误码
+  errc_t getVectorIn(Axes *targetAxes, const TimePoint &tp, Vector3d &vec, Vector3d &vel) const;
+
+  /// @brief 获取向量在指定坐标系下的值（仅使用坐标系的轴系部分，忽略原点平移）
+  /// @param targetFrame 目标坐标系指针
+  /// @param tp 时间点
+  /// @param vec 输出参数，向量在目标坐标系下的值
+  /// @return 错误码
+  errc_t getVectorIn(Frame *targetFrame, const TimePoint &tp, Vector3d &vec) const;
+
+  /// @brief 获取向量在指定坐标系下的值和速度（仅使用坐标系的轴系部分，忽略原点平移）
+  /// @param targetFrame 目标坐标系指针
+  /// @param tp 时间点
+  /// @param vec 输出参数，向量在目标坐标系下的值
+  /// @param vel 输出参数，向量的速度向量在目标坐标系下的值
+  /// @return 错误码
+  errc_t getVectorIn(Frame *targetFrame, const TimePoint &tp, Vector3d &vec, Vector3d &vel) const;
 };
+
+using PVector = Vector*;                ///< 向量指针(pointer to vector)
+using HVector = SharedPtr<Vector>;      ///< 向量句柄(handle to vector)
+
+/*! @} */
 
 AST_NAMESPACE_END

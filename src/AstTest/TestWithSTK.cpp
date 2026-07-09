@@ -240,6 +240,12 @@ errc_t aTestFromSTKFile_ThrowException(StringView filepath)
     ephem_simple_generated = temp.release();
     status.assert(rc);
 
+    if(ephem_simple_generated == nullptr)
+    {
+        status.failed("simple ephemeris is null");
+        return eErrorParse;
+    }
+
     SharedPtr<Ephemeris> ephem_spec_generated;
     if(motion->toHPOP())
     {
@@ -254,6 +260,11 @@ errc_t aTestFromSTKFile_ThrowException(StringView filepath)
         status.assert(rc);
     }
 
+    if(ephem_spec_generated == nullptr)
+    {
+        status.failed("specific ephemeris is null");
+        return eErrorParse;
+    }
 
     std::vector<TimePoint> timePointsToCheck;
     {

@@ -414,7 +414,7 @@ void _aSkipUnknownBlock(BKVParser &parser, StringView blockName)
         }
         else if(token == BKVParser::eBlockEnd)
         {
-            if(blockDepth == 0 && aEqualsIgnoreCase(item.value(), blockName)){
+            if(blockDepth == 0 && aEqualsIgnoreCase(item.value(), blockNameStr)){
                 break;
             }
             blockDepth--;

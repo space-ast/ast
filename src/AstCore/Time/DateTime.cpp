@@ -26,6 +26,7 @@
 #include <ctime>
 #include <iomanip>
 #include <sstream>
+#include <climits>
 #include <cmath>
 
 AST_NAMESPACE_BEGIN
@@ -106,7 +107,9 @@ void aDateTimeNormalizeUTC(DateTime& dttm)
         int minute_new;
         double second_new;
         int mjd2;
-        for (;;) {
+        // @todo 这里逐天调整日期太慢了，考虑优化一下性能
+        const int kMaxLeapIter = INT_MAX; // 最大迭代次数，防止无限循环
+        for (int i = 0; i < kMaxLeapIter; ++i) {
             mjd2 = mjd1 + dday;
             double leap2 = aLeapSecondUTCMJD(mjd2);
             minute_new = minute - dday * 1440;

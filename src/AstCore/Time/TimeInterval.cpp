@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "TimeInterval.hpp"
+#include "TimeList.hpp"
 #include <cmath>
 
 AST_NAMESPACE_BEGIN
@@ -50,35 +51,53 @@ errc_t aTimeIntervalParse(StringView strStart, StringView strStop, TimeInterval 
 
 errc_t TimeInterval::discrete(const TimePoint &epoch, double step, std::vector<double> &times) const
 {
-    ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration() / step));
-    if(nnodes <= 0){
-        aError("number of nodes (%ld) is invalid", nnodes);
+    if (step <= 0.0 || duration() <= 0.0){
+        aError("discrete: invalid step (%f) or duration (%f)", step, duration());
         return eErrorInvalidParam;
     }
-    times.reserve(nnodes);
+    ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration() / step) + 1);
+    times.resize(nnodes);
     double offset = getStart() - epoch;
     
     for(ptrdiff_t i = 0; i < nnodes-1; i++){
-        times.push_back(offset + i * step);
+        times[i] = offset + i * step;
     }
-    times.push_back(getStop() - epoch);
+    times[nnodes-1] = getStop() - epoch;
     return eNoError;
 }
 
 errc_t TimeInterval::discrete(double step, std::vector<TimePoint> &times) const
 {
-    ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration() / step));
-    if(nnodes <= 0){
-        aError("number of nodes (%ld) is invalid", nnodes);
+    if (step <= 0.0 || duration() <= 0.0){
+        aError("discrete: invalid step (%f) or duration (%f)", step, duration());
         return eErrorInvalidParam;
     }
-    times.reserve(nnodes);
+    ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration() / step) + 1);
+    times.resize(nnodes);
     TimePoint start = getStart();
     
     for(ptrdiff_t i = 0; i < nnodes-1; i++){
-        times.push_back(start + i * step);
+        times[i] = start + i * step;
     }
-    times.push_back(getStop());
+    times[nnodes-1] = getStop();
+    return eNoError;
+}
+
+errc_t TimeInterval::discrete(double step, TimeList& times) const
+{
+    double duration = this->duration();
+    if (step <= 0.0 || duration <= 0.0){
+        aError("discrete: invalid step (%f) or duration (%f)", step, duration);
+        return eErrorInvalidParam;
+    }
+    ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration / step) + 1);
+    times.seconds().resize(nnodes);
+    times.setEpoch(getStart());
+
+    for(ptrdiff_t i = 0; i < nnodes-1; i++){
+        times.seconds()[i] = (i * step);
+    }
+    times.seconds()[nnodes-1] = duration;
     return eNoError;
 }
 

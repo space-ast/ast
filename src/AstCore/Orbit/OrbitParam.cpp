@@ -498,15 +498,6 @@ double	aTrueToTimePastPeri(double trueAnomaly, double semiMajorAxis, double ecce
 }
 
 
-double	aTrueToTrueLong(double trueAnomaly, double argPeri, double raan)
-{
-    return trueAnomaly + argPeri + raan;
-}
-
-double	aArgPeriToLongPeri(double argPeri, double raan)
-{
-    return argPeri + raan;
-}
 
 double aRAANToLAN(double raan, Axes* inertialAxes, const TimePoint& timeOfAscNodePassage, Axes* bodyFixedAxes)
 {

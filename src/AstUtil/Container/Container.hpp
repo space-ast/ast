@@ -24,6 +24,8 @@
 #include "CorVector.hpp"
 #include "Vector.hpp"
 #include "Span.hpp"
+#include "VariantVector.hpp"
+#include "OrderedMap.hpp"
 
 AST_NAMESPACE_BEGIN
 
