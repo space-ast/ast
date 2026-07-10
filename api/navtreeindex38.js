@@ -1,5 +1,17 @@
 var NAVTREEINDEX38 =
 {
+"classast_1_1ScStateCalcEquinoctialH.html":[2,0,0,665],
+"classast_1_1ScStateCalcEquinoctialH.html":[3,0,0,664],
+"classast_1_1ScStateCalcEquinoctialK.html":[2,0,0,666],
+"classast_1_1ScStateCalcEquinoctialK.html":[3,0,0,665],
+"classast_1_1ScStateCalcEquinoctialP.html":[2,0,0,667],
+"classast_1_1ScStateCalcEquinoctialP.html":[3,0,0,666],
+"classast_1_1ScStateCalcEquinoctialQ.html":[2,0,0,668],
+"classast_1_1ScStateCalcEquinoctialQ.html":[3,0,0,667],
+"classast_1_1ScStateCalcFPA.html":[2,0,0,670],
+"classast_1_1ScStateCalcFPA.html":[3,0,0,669],
+"classast_1_1ScStateCalcFlightPathAngle.html":[2,0,0,669],
+"classast_1_1ScStateCalcFlightPathAngle.html":[3,0,0,668],
 "classast_1_1ScStateCalcFrameRelated.html":[2,0,0,671],
 "classast_1_1ScStateCalcFrameRelated.html":[3,0,0,670],
 "classast_1_1ScStateCalcFuelMass.html":[2,0,0,672],
@@ -237,17 +249,5 @@ var NAVTREEINDEX38 =
 "classast_1_1ScStateCalcVAz.html":[2,0,0,790],
 "classast_1_1ScStateCalcVAz.html":[3,0,0,789],
 "classast_1_1ScStateCalcVBScript.html":[2,0,0,791],
-"classast_1_1ScStateCalcVBScript.html":[3,0,0,790],
-"classast_1_1ScStateCalcVBScript.html#ad2c9be669dd961974c32bbefec5718ad":[2,0,0,791,0],
-"classast_1_1ScStateCalcVBScript.html#ad2c9be669dd961974c32bbefec5718ad":[3,0,0,790,0],
-"classast_1_1ScStateCalcVGTAngle.html":[2,0,0,797],
-"classast_1_1ScStateCalcVGTAngle.html":[3,0,0,796],
-"classast_1_1ScStateCalcVMag.html":[2,0,0,798],
-"classast_1_1ScStateCalcVMag.html":[3,0,0,797],
-"classast_1_1ScStateCalcValueAtSegmentOtherSat.html":[2,0,0,788],
-"classast_1_1ScStateCalcValueAtSegmentOtherSat.html":[3,0,0,787],
-"classast_1_1ScStateCalcValueOtherSegment.html":[2,0,0,789],
-"classast_1_1ScStateCalcValueOtherSegment.html":[3,0,0,788],
-"classast_1_1ScStateCalcVectorX.html":[2,0,0,792],
-"classast_1_1ScStateCalcVectorX.html":[3,0,0,791]
+"classast_1_1ScStateCalcVBScript.html":[3,0,0,790]
 };

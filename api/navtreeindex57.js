@@ -1,5 +1,17 @@
 var NAVTREEINDEX57 =
 {
+"structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4":[0,1,1,4,0],
+"structast_1_1PoleMotionSXY.html":[2,0,0,535],
+"structast_1_1PoleMotionSXY.html":[3,0,0,534],
+"structast_1_1QuickTypeEntry.html":[2,0,0,560],
+"structast_1_1QuickTypeEntry.html":[3,0,0,559],
+"structast_1_1QuickTypeEntry.html#a018b08ad471250cdbda57906a0a69dec":[2,0,0,560,0],
+"structast_1_1QuickTypeEntry.html#a018b08ad471250cdbda57906a0a69dec":[3,0,0,559,0],
+"structast_1_1QuickTypeEntry.html#a267340cf55ac2e8eacc08645791d777b":[2,0,0,560,2],
+"structast_1_1QuickTypeEntry.html#a267340cf55ac2e8eacc08645791d777b":[3,0,0,559,2],
+"structast_1_1QuickTypeEntry.html#af7f89dae73b0e47a4f06ca21b183ed03":[2,0,0,560,1],
+"structast_1_1QuickTypeEntry.html#af7f89dae73b0e47a4f06ca21b183ed03":[3,0,0,559,1],
+"structast_1_1QwtBackend_1_1Impl.html":[2,0,0,561,0],
 "structast_1_1QwtBackend_1_1Impl.html":[3,0,0,560,0],
 "structast_1_1RecordStep.html":[0,7,6],
 "structast_1_1RecordStep.html#a072ca789181a51bfc5dad1bb63b29c6a":[0,7,6,6],

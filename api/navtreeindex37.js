@@ -1,5 +1,17 @@
 var NAVTREEINDEX37 =
 {
+"classast_1_1Rotation.html#a49cbe7086d19c2608cd6bdcf60500bed":[2,0,0,585,3],
+"classast_1_1Rotation.html#a49cbe7086d19c2608cd6bdcf60500bed":[3,0,0,584,3],
+"classast_1_1Rotation.html#a4e3e8c0cb9f92338f1b6ded0211e9d70":[2,0,0,585,24],
+"classast_1_1Rotation.html#a4e3e8c0cb9f92338f1b6ded0211e9d70":[3,0,0,584,24],
+"classast_1_1Rotation.html#a50cec167123f47d0c75dc381449d5545":[2,0,0,585,0],
+"classast_1_1Rotation.html#a50cec167123f47d0c75dc381449d5545":[3,0,0,584,0],
+"classast_1_1Rotation.html#a704b1e1b7ec3d0e94a7664da6e37a2ca":[2,0,0,585,21],
+"classast_1_1Rotation.html#a704b1e1b7ec3d0e94a7664da6e37a2ca":[3,0,0,584,21],
+"classast_1_1Rotation.html#a720283109431ea071832f1b863d9f4b8":[2,0,0,585,13],
+"classast_1_1Rotation.html#a720283109431ea071832f1b863d9f4b8":[3,0,0,584,13],
+"classast_1_1Rotation.html#a7e7ab0b605030de8473f76e7b7f79cc6":[2,0,0,585,18],
+"classast_1_1Rotation.html#a7e7ab0b605030de8473f76e7b7f79cc6":[3,0,0,584,18],
 "classast_1_1Rotation.html#a7f7b4d0505a9ed34e081b9ea256d5663":[2,0,0,585,14],
 "classast_1_1Rotation.html#a7f7b4d0505a9ed34e081b9ea256d5663":[3,0,0,584,14],
 "classast_1_1Rotation.html#a8b29ac4c982ee36c3a7dabba29c09576":[2,0,0,585,4],
@@ -237,17 +249,5 @@ var NAVTREEINDEX37 =
 "classast_1_1ScStateCalcElevationRate.html":[2,0,0,663],
 "classast_1_1ScStateCalcElevationRate.html":[3,0,0,662],
 "classast_1_1ScStateCalcEpoch.html":[2,0,0,664],
-"classast_1_1ScStateCalcEpoch.html":[3,0,0,663],
-"classast_1_1ScStateCalcEquinoctialH.html":[2,0,0,665],
-"classast_1_1ScStateCalcEquinoctialH.html":[3,0,0,664],
-"classast_1_1ScStateCalcEquinoctialK.html":[2,0,0,666],
-"classast_1_1ScStateCalcEquinoctialK.html":[3,0,0,665],
-"classast_1_1ScStateCalcEquinoctialP.html":[2,0,0,667],
-"classast_1_1ScStateCalcEquinoctialP.html":[3,0,0,666],
-"classast_1_1ScStateCalcEquinoctialQ.html":[2,0,0,668],
-"classast_1_1ScStateCalcEquinoctialQ.html":[3,0,0,667],
-"classast_1_1ScStateCalcFPA.html":[2,0,0,670],
-"classast_1_1ScStateCalcFPA.html":[3,0,0,669],
-"classast_1_1ScStateCalcFlightPathAngle.html":[2,0,0,669],
-"classast_1_1ScStateCalcFlightPathAngle.html":[3,0,0,668]
+"classast_1_1ScStateCalcEpoch.html":[3,0,0,663]
 };

@@ -1,5 +1,17 @@
 var NAVTREEINDEX39 =
 {
+"classast_1_1ScStateCalcVBScript.html#ad2c9be669dd961974c32bbefec5718ad":[2,0,0,791,0],
+"classast_1_1ScStateCalcVBScript.html#ad2c9be669dd961974c32bbefec5718ad":[3,0,0,790,0],
+"classast_1_1ScStateCalcVGTAngle.html":[2,0,0,797],
+"classast_1_1ScStateCalcVGTAngle.html":[3,0,0,796],
+"classast_1_1ScStateCalcVMag.html":[2,0,0,798],
+"classast_1_1ScStateCalcVMag.html":[3,0,0,797],
+"classast_1_1ScStateCalcValueAtSegmentOtherSat.html":[2,0,0,788],
+"classast_1_1ScStateCalcValueAtSegmentOtherSat.html":[3,0,0,787],
+"classast_1_1ScStateCalcValueOtherSegment.html":[2,0,0,789],
+"classast_1_1ScStateCalcValueOtherSegment.html":[3,0,0,788],
+"classast_1_1ScStateCalcVectorX.html":[2,0,0,792],
+"classast_1_1ScStateCalcVectorX.html":[3,0,0,791],
 "classast_1_1ScStateCalcVectorY.html":[2,0,0,793],
 "classast_1_1ScStateCalcVectorY.html":[3,0,0,792],
 "classast_1_1ScStateCalcVectorZ.html":[2,0,0,794],
@@ -237,17 +249,5 @@ var NAVTREEINDEX39 =
 "classast_1_1SolarRadiationPressure.html#a8d4afddf226572309ed10e267561c35c":[3,0,0,825,4],
 "classast_1_1SolarRadiationPressure.html#ae6e3c1d878756f6b8e8b47613e6ca0e8":[2,0,0,826,3],
 "classast_1_1SolarRadiationPressure.html#ae6e3c1d878756f6b8e8b47613e6ca0e8":[3,0,0,825,3],
-"classast_1_1SolarSystem.html":[0,1,6,11],
-"classast_1_1SolarSystem.html#a00ab55b3f026a57e64b222d167aa2340":[0,1,6,11,25],
-"classast_1_1SolarSystem.html#a0107e9e57231843a22c4f7950becdbf3":[0,1,6,11,3],
-"classast_1_1SolarSystem.html#a0c58f211acc4f53f78fd0cf8bf291509":[0,1,6,11,26],
-"classast_1_1SolarSystem.html#a0e218b19775bea73cb014daabc8a5be0":[0,1,6,11,29],
-"classast_1_1SolarSystem.html#a12b141fb28691a7bf2e0a4f0718c94ed":[0,1,6,11,22],
-"classast_1_1SolarSystem.html#a16e6c3628a9b9a173b277e9c0250c3e3":[0,1,6,11,7],
-"classast_1_1SolarSystem.html#a1f50f6d3be257a43fbcf2d95c277a3f5":[0,1,6,11,30],
-"classast_1_1SolarSystem.html#a245d5ae8a51b1358fefeb0c54153895b":[0,1,6,11,35],
-"classast_1_1SolarSystem.html#a2fb43e96dd5539dea731f14395eda7ed":[0,1,6,11,9],
-"classast_1_1SolarSystem.html#a3402fcc40c322cd39e7b527cefa6aed6":[0,1,6,11,27],
-"classast_1_1SolarSystem.html#a34a1b5d1ad9439c205f398ef55ee64c7":[0,1,6,11,31],
-"classast_1_1SolarSystem.html#a3ae9e4d9c4a6edfdaa93fa7abc92c7c3":[0,1,6,11,32]
+"classast_1_1SolarSystem.html":[0,1,6,11]
 };
