@@ -88,6 +88,20 @@ public:
     /// @return 计算次数
     int getOrder() const { return order_; }
 
+    /// @brief 设置计算梯度时使用的阶数
+    void setDegreeForGradient(int degree);
+
+    /// @brief 设置计算梯度时使用的阶数
+    void setOrderForGradient(int order);
+
+    /// @brief 获取计算梯度时使用的阶数
+    /// @return 计算梯度时使用的阶数
+    int getDegreeForGradient() const { return degreeForGradient_; }
+
+    /// @brief 获取计算梯度时使用的次数
+    /// @return 计算梯度时使用的次数
+    int getOrderForGradient() const { return orderForGradient_; }
+    
     virtual ~GravityCalculator () = default;
 
     /// @brief 计算摄动加速度
@@ -105,6 +119,8 @@ protected:
     GravityField gravityField_;        ///< 重力场系数
     int degree_{0};                    ///< 计算所使用的阶数
     int order_{0};                     ///< 计算所使用的次数
+    int degreeForGradient_{0};         ///< 计算梯度时使用的阶数
+    int orderForGradient_{0};          ///< 计算梯度时使用的次数
 };
 
 #ifdef _AST_ENABLE_GRAVITY_CALCULATOR_1
@@ -181,7 +197,10 @@ public:
 
     ~GravityCalculator3() override;
     
-    void calcPertAcceleration (const Vector3d &positionCBF, Vector3d &accelerationCBF) final;
+    void calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF) final;
+    void calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF, Matrix3d &gradient);
+    template<bool fillgradient>
+    void calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF, Matrix3d *gradient);
 protected:
     void init();
     void deinit();

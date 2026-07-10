@@ -47,6 +47,12 @@ GravityCalculator::GravityCalculator(GravityField &&gravityField, int degree, in
     initDegreeOrder(degree, order);
 }
 
+void GravityCalculator::setDegreeForGradient(int degree)
+{
+    this->degreeForGradient_ = std::min(degree_, degree);
+    this->orderForGradient_  = std::min(order_,  degree);
+}
+
 void GravityCalculator::calcTotalAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF)
 {
     calcPertAcceleration(positionCBF, accelerationCBF);
