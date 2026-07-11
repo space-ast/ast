@@ -22,8 +22,31 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstMath/Vector.hpp"
+#include "AstMath/Matrix.hpp"
 
 AST_NAMESPACE_BEGIN
+
+void aPointMassField(const Vector3d& position, double GM,
+                        Vector3d& acceleration, Matrix3d& hessian)
+{
+    // a = -GM/r³ · r
+    // H = -GM/r³ · I + 3·GM/r⁵ · (r ⊗ r)
+    const double r2    = position.squaredNorm();
+    const double r     = std::sqrt(r2);
+    const double factor = GM / (r2 * r);         // GM/r³
+    const double cAcc  = -factor;                // 加速度系数：-GM/r³
+    const double cOff  = 3.0 * factor / r2;      // 外积项系数：3·GM/r⁵
+
+    for (int i = 0; i < 3; ++i)
+    {
+        acceleration[i] = cAcc * position[i];
+        for (int j = 0; j < 3; ++j)
+        {
+            hessian(i, j) = cOff * position[i] * position[j];
+        }
+        hessian(i, i) += cAcc;
+    }
+}
 
 GravityCalculator::GravityCalculator()
     : gravityField_{}

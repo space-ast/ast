@@ -22,6 +22,8 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstMath/Vector.hpp"
+#include "AstMath/Matrix.hpp"
+#include "AstMath/MathOperator.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -387,6 +389,15 @@ void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vecto
 void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF, Matrix3d &gradient)
 {
     calcPertAcceleration<true>(positionCBF, accelerationCBF, &gradient);
+}
+void GravityCalculator3::calcTotalAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF, Matrix3d &gradient)
+{
+    aPointMassField(positionCBF, getGravityField().getGM(), accelerationCBF, gradient);
+    Vector3d accPert;
+    Matrix3d hessianPert;
+    calcPertAcceleration(positionCBF, accPert, hessianPert);
+    accelerationCBF = accelerationCBF + accPert;
+    gradient = gradient + hessianPert;
 }
 
 AST_NAMESPACE_END
