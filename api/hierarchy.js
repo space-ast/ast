@@ -285,10 +285,13 @@ var hierarchy =
       [ "ast::BlockDeadZone", "classast_1_1BlockDeadZone.html", null ],
       [ "ast::BlockDerivative", "classast_1_1BlockDerivative.html", [
         [ "ast::BlockDrag", "classast_1_1BlockDrag.html", null ],
-        [ "ast::BlockGravity", "classast_1_1BlockGravity.html", null ],
+        [ "ast::BlockGravity", "classast_1_1BlockGravity.html", [
+          [ "ast::BlockGravityPartial", "classast_1_1BlockGravityPartial.html", null ]
+        ] ],
         [ "ast::BlockMass", "classast_1_1BlockMass.html", null ],
         [ "ast::BlockMotion", "classast_1_1BlockMotion.html", null ],
         [ "ast::BlockSRP", "classast_1_1BlockSRP.html", null ],
+        [ "ast::BlockStateTransitionMatrix", "classast_1_1BlockStateTransitionMatrix.html", null ],
         [ "ast::BlockThirdBodyGravity", "classast_1_1BlockThirdBodyGravity.html", null ],
         [ "ast::BlockThirdBodyPointMass", "classast_1_1BlockThirdBodyPointMass.html", null ],
         [ "ast::BlockTransform", "classast_1_1BlockTransform.html", null ],
@@ -513,6 +516,7 @@ var hierarchy =
     [ "ast::MatrixMN< _Scalar, Row, Col >", "classast_1_1MatrixMN.html", null ],
     [ "ast::MatrixMN< _Scalar, 3, 3 >", "classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html", null ],
     [ "ast::MatrixMN< double, 3, 3 >", "classast_1_1MatrixMN.html", null ],
+    [ "ast::MatrixMN< double, 6, 6 >", "classast_1_1MatrixMN.html", null ],
     [ "mavgrecord", "structmavgrecord.html", null ],
     [ "ast::strings_internal::MaxSplitsImpl< Delimiter >", "classast_1_1strings__internal_1_1MaxSplitsImpl.html", null ],
     [ "ast::detail::MemberPtrTag", "structast_1_1detail_1_1MemberPtrTag.html", null ],

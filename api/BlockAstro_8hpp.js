@@ -9,7 +9,9 @@ var BlockAstro_8hpp =
     [ "kIdentifierAccSRP", "BlockAstro_8hpp.html#a6404e2219c60d4bc860475da9d89a902", null ],
     [ "kIdentifierAccThirdBody", "BlockAstro_8hpp.html#a32cfec6e07e5f520fc088c5fe6108bd3", null ],
     [ "kIdentifierAccTwoBody", "BlockAstro_8hpp.html#aee66052114665396c79f7a67a9abc8a1", null ],
+    [ "kIdentifierAMatrix", "BlockAstro_8hpp.html#adaf3cd14221e10b48575f4cd5ac0826d", null ],
     [ "kIdentifierMass", "BlockAstro_8hpp.html#adeb147c13df5c1948fbf6d410b14e486", null ],
     [ "kIdentifierPos", "BlockAstro_8hpp.html#ada215baa026cee87f784445ce0d59b87", null ],
+    [ "kIdentifierSTM", "BlockAstro_8hpp.html#af4f7aa1db15bc820875f51b0b963118e", null ],
     [ "kIdentifierVel", "BlockAstro_8hpp.html#a139a8a9fc523333100dbb1534fd6a0dc", null ]
 ];

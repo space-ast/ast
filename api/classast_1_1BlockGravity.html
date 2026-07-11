@@ -100,6 +100,8 @@ $(function(){initNavTree('classast_1_1BlockGravity.html',''); initResizable(true
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1BlockGravity-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::BlockGravity类 参考</div></div>
 </div><!--header-->
@@ -114,8 +116,9 @@ $(function(){initNavTree('classast_1_1BlockGravity.html',''); initResizable(true
  <div class="center">
   <img src="classast_1_1BlockGravity.png" usemap="#ast::BlockGravity_map" alt=""/>
   <map id="ast::BlockGravity_map" name="ast::BlockGravity_map">
-<area href="classast_1_1BlockDerivative.html" title="导数函数块" alt="ast::BlockDerivative" shape="rect" coords="0,56,123,80"/>
-<area href="classast_1_1FuncBlock.html" title="函数块/功能块" alt="ast::FuncBlock" shape="rect" coords="0,0,123,24"/>
+<area href="classast_1_1BlockDerivative.html" title="导数函数块" alt="ast::BlockDerivative" shape="rect" coords="0,56,142,80"/>
+<area href="classast_1_1FuncBlock.html" title="函数块/功能块" alt="ast::FuncBlock" shape="rect" coords="0,0,142,24"/>
+<area href="classast_1_1BlockGravityPartial.html" title="重力场偏导数（梯度）函数块" alt="ast::BlockGravityPartial" shape="rect" coords="0,168,142,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -127,8 +130,8 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:abfd862b1a132f347958f6bb7f3e6d02c" id="r_abfd862b1a132f347958f6bb7f3e6d02c"><td class="memItemLeft" align="right" valign="top"><a id="abfd862b1a132f347958f6bb7f3e6d02c" name="abfd862b1a132f347958f6bb7f3e6d02c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BlockGravity</b> (<a class="el" href="classast_1_1GravityField.html">GravityField</a> &amp;&amp;gravityField, int degree, int order, <a class="el" href="classast_1_1Axes.html">Axes</a> *gravityAxes=nullptr, <a class="el" href="classast_1_1Axes.html">Axes</a> *propagationAxes=nullptr)</td></tr>
 <tr class="separator:abfd862b1a132f347958f6bb7f3e6d02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a921513f986371f869b59b734ba5cfff2" id="r_a921513f986371f869b59b734ba5cfff2"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a921513f986371f869b59b734ba5cfff2">run</a> (const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;simTime) final</td></tr>
-<tr class="separator:a921513f986371f869b59b734ba5cfff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3aa7d2147d7db01dc7494d282bf94c9" id="r_af3aa7d2147d7db01dc7494d282bf94c9"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3aa7d2147d7db01dc7494d282bf94c9">run</a> (const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;simTime) override</td></tr>
+<tr class="separator:af3aa7d2147d7db01dc7494d282bf94c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ce6707068fde7ba180ddc5a3260ff9b" id="r_a7ce6707068fde7ba180ddc5a3260ff9b"><td class="memItemLeft" align="right" valign="top"><a id="a7ce6707068fde7ba180ddc5a3260ff9b" name="a7ce6707068fde7ba180ddc5a3260ff9b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setConsiderVariations</b> (bool considerVariations)</td></tr>
 <tr class="separator:a7ce6707068fde7ba180ddc5a3260ff9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,13 +185,38 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <tr class="memitem:ac93da2888c1a3cf60550bbac3a6aaa85 inherit pub_methods_classast_1_1FuncBlock" id="r_ac93da2888c1a3cf60550bbac3a6aaa85"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#ac93da2888c1a3cf60550bbac3a6aaa85">getOutputPortWidth</a> (size_t portIndex)</td></tr>
 <tr class="separator:ac93da2888c1a3cf60550bbac3a6aaa85 inherit pub_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
-额外继承的成员函数</h2></td></tr>
-<tr class="inherit_header pub_static_methods_classast_1_1FuncBlock"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1FuncBlock')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1FuncBlock.html">ast::FuncBlock</a></td></tr>
-<tr class="memitem:ac36d87e6254623a078cbb18739264816 inherit pub_static_methods_classast_1_1FuncBlock" id="r_ac36d87e6254623a078cbb18739264816"><td class="memItemLeft" align="right" valign="top">static errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#ac36d87e6254623a078cbb18739264816">connect</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *src, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> srcPortName, <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *dst, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dstPortName)</td></tr>
-<tr class="separator:ac36d87e6254623a078cbb18739264816 inherit pub_static_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c9137e7b1df3441af1c003d450a85c2 inherit pub_static_methods_classast_1_1FuncBlock" id="r_a9c9137e7b1df3441af1c003d450a85c2"><td class="memItemLeft" align="right" valign="top">static errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#a9c9137e7b1df3441af1c003d450a85c2">connect</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *src, size_t srcPortIndex, <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *dst, size_t dstPortIndex)</td></tr>
-<tr class="separator:a9c9137e7b1df3441af1c003d450a85c2 inherit pub_static_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a0df72093428b9c0c48baebf686c73bb6" id="r_a0df72093428b9c0c48baebf686c73bb6"><td class="memItemLeft" align="right" valign="top"><a id="a0df72093428b9c0c48baebf686c73bb6" name="a0df72093428b9c0c48baebf686c73bb6"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>prepare</b> (const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;simTime, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:a0df72093428b9c0c48baebf686c73bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a39a893dc50bb3ea09a8fabb9e9177a33" id="r_a39a893dc50bb3ea09a8fabb9e9177a33"><td class="memItemLeft" align="right" valign="top"><a id="a39a893dc50bb3ea09a8fabb9e9177a33" name="a39a893dc50bb3ea09a8fabb9e9177a33"></a>
+<a class="el" href="group__Geometry.html#ga52cecc91460a5123ebbfa0a7a4c7b0f9">HAxes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gravityAxes_</b></td></tr>
+<tr class="separator:a39a893dc50bb3ea09a8fabb9e9177a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2571399a390546fa721f27323c2b2e3d" id="r_a2571399a390546fa721f27323c2b2e3d"><td class="memItemLeft" align="right" valign="top"><a id="a2571399a390546fa721f27323c2b2e3d" name="a2571399a390546fa721f27323c2b2e3d"></a>
+<a class="el" href="group__Geometry.html#ga52cecc91460a5123ebbfa0a7a4c7b0f9">HAxes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>propagationAxes_</b></td></tr>
+<tr class="separator:a2571399a390546fa721f27323c2b2e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c0b1bf649359f6393a234406da13157" id="r_a6c0b1bf649359f6393a234406da13157"><td class="memItemLeft" align="right" valign="top"><a id="a6c0b1bf649359f6393a234406da13157" name="a6c0b1bf649359f6393a234406da13157"></a>
+Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>posPtr_</b> {&amp;<a class="el" href="#a45cdbab9fe8c492115a7057d61e94875">vectorBuffer_</a>}</td></tr>
+<tr class="separator:a6c0b1bf649359f6393a234406da13157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5072d45ae461ff36a3f140badb720916" id="r_a5072d45ae461ff36a3f140badb720916"><td class="memItemLeft" align="right" valign="top"><a id="a5072d45ae461ff36a3f140badb720916" name="a5072d45ae461ff36a3f140badb720916"></a>
+Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>accGravityPtr_</b> {&amp;<a class="el" href="#a45cdbab9fe8c492115a7057d61e94875">vectorBuffer_</a>}</td></tr>
+<tr class="separator:a5072d45ae461ff36a3f140badb720916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65eca9a55dec171af243476acd6a7764" id="r_a65eca9a55dec171af243476acd6a7764"><td class="memItemLeft" align="right" valign="top"><a id="a65eca9a55dec171af243476acd6a7764" name="a65eca9a55dec171af243476acd6a7764"></a>
+Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>velocityDerivativePtr_</b> {&amp;<a class="el" href="#a45cdbab9fe8c492115a7057d61e94875">vectorBuffer_</a>}</td></tr>
+<tr class="separator:a65eca9a55dec171af243476acd6a7764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45cdbab9fe8c492115a7057d61e94875" id="r_a45cdbab9fe8c492115a7057d61e94875"><td class="memItemLeft" align="right" valign="top"><a id="a45cdbab9fe8c492115a7057d61e94875" name="a45cdbab9fe8c492115a7057d61e94875"></a>
+Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>vectorBuffer_</b> {}</td></tr>
+<tr class="separator:a45cdbab9fe8c492115a7057d61e94875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5718a224cb4bff62edde0db55afd6d9" id="r_ab5718a224cb4bff62edde0db55afd6d9"><td class="memItemLeft" align="right" valign="top"><a id="ab5718a224cb4bff62edde0db55afd6d9" name="ab5718a224cb4bff62edde0db55afd6d9"></a>
+<a class="el" href="classast_1_1GravityCalculator3.html">GravityCalculatorDefault</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gravityCalculator_</b></td></tr>
+<tr class="separator:ab5718a224cb4bff62edde0db55afd6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70e28678ec27469bbc3a89e62de71928" id="r_a70e28678ec27469bbc3a89e62de71928"><td class="memItemLeft" align="right" valign="top"><a id="a70e28678ec27469bbc3a89e62de71928" name="a70e28678ec27469bbc3a89e62de71928"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>considerVariations_</b> {false}</td></tr>
+<tr class="separator:a70e28678ec27469bbc3a89e62de71928"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classast_1_1BlockDerivative"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1BlockDerivative')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1BlockDerivative.html">ast::BlockDerivative</a></td></tr>
 <tr class="memitem:ac869516d83ef23185f2f1cadb151c573 inherit pro_attribs_classast_1_1BlockDerivative" id="r_ac869516d83ef23185f2f1cadb151c573"><td class="memItemLeft" align="right" valign="top">
 std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>derivativePorts_</b></td></tr>
@@ -200,6 +228,14 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <tr class="memitem:aece1c71a258a490d4fc63df2f3b911be inherit pro_attribs_classast_1_1FuncBlock" id="r_aece1c71a258a490d4fc63df2f3b911be"><td class="memItemLeft" align="right" valign="top">
 std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>outputPorts_</b></td></tr>
 <tr class="separator:aece1c71a258a490d4fc63df2f3b911be inherit pro_attribs_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pub_static_methods_classast_1_1FuncBlock"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1FuncBlock')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1FuncBlock.html">ast::FuncBlock</a></td></tr>
+<tr class="memitem:ac36d87e6254623a078cbb18739264816 inherit pub_static_methods_classast_1_1FuncBlock" id="r_ac36d87e6254623a078cbb18739264816"><td class="memItemLeft" align="right" valign="top">static errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#ac36d87e6254623a078cbb18739264816">connect</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *src, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> srcPortName, <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *dst, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dstPortName)</td></tr>
+<tr class="separator:ac36d87e6254623a078cbb18739264816 inherit pub_static_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c9137e7b1df3441af1c003d450a85c2 inherit pub_static_methods_classast_1_1FuncBlock" id="r_a9c9137e7b1df3441af1c003d450a85c2"><td class="memItemLeft" align="right" valign="top">static errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#a9c9137e7b1df3441af1c003d450a85c2">connect</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *src, size_t srcPortIndex, <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *dst, size_t dstPortIndex)</td></tr>
+<tr class="separator:a9c9137e7b1df3441af1c003d450a85c2 inherit pub_static_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>重力场函数块 </p>
@@ -221,8 +257,8 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 </ul>
 <dl class="section note"><dt>注解</dt><dd>当 degree=0 时退化为二体引力，此时应使用 <a class="el" href="classast_1_1BlockTwoBody.html" title="二体引力函数块">BlockTwoBody</a> 以提高效率 </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
-<a id="a921513f986371f869b59b734ba5cfff2" name="a921513f986371f869b59b734ba5cfff2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a921513f986371f869b59b734ba5cfff2">&#9670;&#160;</a></span>run()</h2>
+<a id="af3aa7d2147d7db01dc7494d282bf94c9" name="af3aa7d2147d7db01dc7494d282bf94c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3aa7d2147d7db01dc7494d282bf94c9">&#9670;&#160;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,7 +275,7 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -254,6 +290,8 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 <p>实现了 <a class="el" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">ast::FuncBlock</a>.</p>
+
+<p>被 <a class="el" href="classast_1_1BlockGravityPartial.html#a1f4766673d052d63b8a14f503360bd40">ast::BlockGravityPartial</a> 重载.</p>
 
 </div>
 </div>

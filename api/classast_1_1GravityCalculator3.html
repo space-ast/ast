@@ -136,6 +136,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>calcPertAcceleration<
 template&lt;bool fillgradient&gt; </td></tr>
 <tr class="memitem:aa4ce547ee6f4ed50d0e1b36cd5f3aa51"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>calcPertAcceleration</b> (const Vector3d &amp;positionCBF, Vector3d &amp;accelerationCBF, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> *gradient)</td></tr>
 <tr class="separator:aa4ce547ee6f4ed50d0e1b36cd5f3aa51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44529a2ace5d27612f4f877584fcd358" id="r_a44529a2ace5d27612f4f877584fcd358"><td class="memItemLeft" align="right" valign="top"><a id="a44529a2ace5d27612f4f877584fcd358" name="a44529a2ace5d27612f4f877584fcd358"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>calcTotalAcceleration</b> (const Vector3d &amp;positionCBF, Vector3d &amp;accelerationCBF, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;gradient)</td></tr>
+<tr class="separator:a44529a2ace5d27612f4f877584fcd358"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2085c78cfe75bd0a4fe53b3c42c6fd8a" id="r_a2085c78cfe75bd0a4fe53b3c42c6fd8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2085c78cfe75bd0a4fe53b3c42c6fd8a">calcTotalAcceleration</a> (const Vector3d &amp;positionCBF, Vector3d &amp;accelerationCBF)</td></tr>
+<tr class="separator:a2085c78cfe75bd0a4fe53b3c42c6fd8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1GravityCalculator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1GravityCalculator')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1GravityCalculator.html">ast::GravityCalculator</a></td></tr>
 <tr class="memitem:a8404681942399c5b44555eae43547b81 inherit pub_methods_classast_1_1GravityCalculator" id="r_a8404681942399c5b44555eae43547b81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GravityCalculator.html#a8404681942399c5b44555eae43547b81">GravityCalculator</a> (const <a class="el" href="classast_1_1GravityField.html">GravityField</a> &amp;gravityField, int degree=-1, int order=-1)</td></tr>
 <tr class="separator:a8404681942399c5b44555eae43547b81 inherit pub_methods_classast_1_1GravityCalculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,7 +164,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setOrderForGradient</
 <tr class="separator:a75739a3554b3eea390ec0e3d136782ec inherit pub_methods_classast_1_1GravityCalculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae44075c7ca9b9fce26554ed15b61e93a inherit pub_methods_classast_1_1GravityCalculator" id="r_ae44075c7ca9b9fce26554ed15b61e93a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GravityCalculator.html#ae44075c7ca9b9fce26554ed15b61e93a">getOrderForGradient</a> () const</td></tr>
 <tr class="separator:ae44075c7ca9b9fce26554ed15b61e93a inherit pub_methods_classast_1_1GravityCalculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2085c78cfe75bd0a4fe53b3c42c6fd8a inherit pub_methods_classast_1_1GravityCalculator" id="r_a2085c78cfe75bd0a4fe53b3c42c6fd8a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GravityCalculator.html#a2085c78cfe75bd0a4fe53b3c42c6fd8a">calcTotalAcceleration</a> (const Vector3d &amp;positionCBF, Vector3d &amp;accelerationCBF)</td></tr>
+<tr class="memitem:a2085c78cfe75bd0a4fe53b3c42c6fd8a inherit pub_methods_classast_1_1GravityCalculator" id="r_a2085c78cfe75bd0a4fe53b3c42c6fd8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GravityCalculator.html#a2085c78cfe75bd0a4fe53b3c42c6fd8a">calcTotalAcceleration</a> (const Vector3d &amp;positionCBF, Vector3d &amp;accelerationCBF)</td></tr>
 <tr class="separator:a2085c78cfe75bd0a4fe53b3c42c6fd8a inherit pub_methods_classast_1_1GravityCalculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
@@ -235,6 +240,36 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>orderForGradient_</b> 
 </dl>
 
 <p>实现了 <a class="el" href="classast_1_1GravityCalculator.html#a4c56ea3e0471dd9d27379f3e14e2524a">ast::GravityCalculator</a>.</p>
+
+</div>
+</div>
+<a id="a2085c78cfe75bd0a4fe53b3c42c6fd8a" name="a2085c78cfe75bd0a4fe53b3c42c6fd8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2085c78cfe75bd0a4fe53b3c42c6fd8a">&#9670;&#160;</a></span>calcTotalAcceleration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::GravityCalculator::calcTotalAcceleration </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>positionCBF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>accelerationCBF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算总加速度（包含摄动项） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">positionCBF</td><td>位置向量（天体固连系） </td></tr>
+    <tr><td class="paramname">accelerationCBF</td><td>总加速度向量（天体固连系） </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

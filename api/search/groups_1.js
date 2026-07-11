@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['chat_0',['Chat',['../group__Chat.html',1,'']]]
+  ['blockastro_0',['BlockAstro',['../group__BlockAstro.html',1,'']]]
 ];
