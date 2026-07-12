@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstCore/BlockDrag.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -28,6 +29,12 @@ AST_NAMESPACE_BEGIN
     @addtogroup 
     @{
 */
+
+class BlockDragPartial : public BlockDrag
+{
+public:
+    using BlockDrag::BlockDrag;
+};
 
 
 

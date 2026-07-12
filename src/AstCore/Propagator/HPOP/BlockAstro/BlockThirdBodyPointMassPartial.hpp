@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstCore/BlockThirdBodyPointMass.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -29,7 +30,11 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-
+class BlockThirdBodyPointMassPartial : public BlockThirdBodyPointMass
+{
+public:
+    using BlockThirdBodyPointMass::BlockThirdBodyPointMass;
+};
 
 /*! @} */
 

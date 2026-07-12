@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstCore/BlockMotion.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -29,6 +30,11 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+class BlockMotionPartial : public BlockMotion
+{
+public:
+    using BlockMotion::BlockMotion;
+};
 
 
 /*! @} */
