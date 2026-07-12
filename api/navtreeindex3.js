@@ -1,5 +1,9 @@
 var NAVTREEINDEX3 =
 {
+"ChatConsole_8cpp.html":[4,0,0,0,2,4],
+"ChatConsole_8hpp.html":[4,0,0,0,2,5],
+"ChatConsole_8hpp_source.html":[4,0,0,0,2,5],
+"ChatEventHandler_8hpp.html":[4,0,0,0,2,6],
 "ChatEventHandler_8hpp_source.html":[4,0,0,0,2,6],
 "ChatMessage_8cpp.html":[4,0,0,0,2,7],
 "ChatMessage_8hpp.html":[4,0,0,0,2,8],
@@ -245,9 +249,5 @@ var NAVTREEINDEX3 =
 "DeepSeek_8cpp.html":[4,0,0,0,3,2],
 "DeepSeek_8hpp.html":[4,0,0,0,3,3],
 "DeepSeek_8hpp_source.html":[4,0,0,0,3,3],
-"DetectorAccess_8cpp.html":[4,0,0,7,8,0,0],
-"DetectorAccess_8hpp.html":[4,0,0,7,8,0,1],
-"DetectorAccess_8hpp_source.html":[4,0,0,7,8,0,1],
-"DetectorAllHeaders_8hpp.html":[4,0,0,7,8,0,2],
-"DetectorAllHeaders_8hpp_source.html":[4,0,0,7,8,0,2]
+"DetectorAccess_8cpp.html":[4,0,0,7,8,0,0]
 };

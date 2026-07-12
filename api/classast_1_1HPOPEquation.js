@@ -6,7 +6,6 @@ var classast_1_1HPOPEquation =
     [ "getCentralBody", "classast_1_1HPOPEquation.html#a46adfa72fee77b96503650068189e6d2", null ],
     [ "getDimension", "classast_1_1HPOPEquation.html#a19111441810fd464cd417971458af223", null ],
     [ "getPropagationFrame", "classast_1_1HPOPEquation.html#ae1e2847670ece5a486304476405abb07", null ],
-    [ "initBlocks", "classast_1_1HPOPEquation.html#ad9e3f5712891b486a354197f8cfeb933", null ],
     [ "initialize", "classast_1_1HPOPEquation.html#a08f9f6984e58afba8c53ae3f7622c181", null ],
     [ "setEpoch", "classast_1_1HPOPEquation.html#a4c7205d86fc1057cf517d1fe33f743ed", null ],
     [ "setForceModel", "classast_1_1HPOPEquation.html#abd47cf4c49147751303d4ddc11556f8a", null ],

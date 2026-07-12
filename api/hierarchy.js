@@ -19,6 +19,7 @@ var hierarchy =
     [ "ast::detail::arg_pair< Pos, T >", "structast_1_1detail_1_1arg__pair.html", null ],
     [ "ast::args_t", "structast_1_1args__t.html", null ],
     [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
+    [ "ast::AstroBlockFactory", "classast_1_1AstroBlockFactory.html", null ],
     [ "ast::Atmosphere", "classast_1_1Atmosphere.html", [
       [ "ast::AtmosphereBase", "classast_1_1AtmosphereBase.html", [
         [ "ast::DTM2012", "classast_1_1DTM2012.html", null ],
@@ -284,18 +285,30 @@ var hierarchy =
       [ "ast::BlockConstant", "classast_1_1BlockConstant.html", null ],
       [ "ast::BlockDeadZone", "classast_1_1BlockDeadZone.html", null ],
       [ "ast::BlockDerivative", "classast_1_1BlockDerivative.html", [
-        [ "ast::BlockDrag", "classast_1_1BlockDrag.html", null ],
+        [ "ast::BlockDrag", "classast_1_1BlockDrag.html", [
+          [ "ast::BlockDragPartial", "classast_1_1BlockDragPartial.html", null ]
+        ] ],
         [ "ast::BlockGravity", "classast_1_1BlockGravity.html", [
           [ "ast::BlockGravityPartial", "classast_1_1BlockGravityPartial.html", null ]
         ] ],
         [ "ast::BlockMass", "classast_1_1BlockMass.html", null ],
-        [ "ast::BlockMotion", "classast_1_1BlockMotion.html", null ],
-        [ "ast::BlockSRP", "classast_1_1BlockSRP.html", null ],
+        [ "ast::BlockMotion", "classast_1_1BlockMotion.html", [
+          [ "ast::BlockMotionPartial", "classast_1_1BlockMotionPartial.html", null ]
+        ] ],
+        [ "ast::BlockSRP", "classast_1_1BlockSRP.html", [
+          [ "ast::BlockSRPPartial", "classast_1_1BlockSRPPartial.html", null ]
+        ] ],
         [ "ast::BlockStateTransitionMatrix", "classast_1_1BlockStateTransitionMatrix.html", null ],
-        [ "ast::BlockThirdBodyGravity", "classast_1_1BlockThirdBodyGravity.html", null ],
-        [ "ast::BlockThirdBodyPointMass", "classast_1_1BlockThirdBodyPointMass.html", null ],
+        [ "ast::BlockThirdBodyGravity", "classast_1_1BlockThirdBodyGravity.html", [
+          [ "ast::BlockThirdBodyGravityPartial", "classast_1_1BlockThirdBodyGravityPartial.html", null ]
+        ] ],
+        [ "ast::BlockThirdBodyPointMass", "classast_1_1BlockThirdBodyPointMass.html", [
+          [ "ast::BlockThirdBodyPointMassPartial", "classast_1_1BlockThirdBodyPointMassPartial.html", null ]
+        ] ],
         [ "ast::BlockTransform", "classast_1_1BlockTransform.html", null ],
-        [ "ast::BlockTwoBody", "classast_1_1BlockTwoBody.html", null ]
+        [ "ast::BlockTwoBody", "classast_1_1BlockTwoBody.html", [
+          [ "ast::BlockTwoBodyPartial", "classast_1_1BlockTwoBodyPartial.html", null ]
+        ] ]
       ] ],
       [ "ast::BlockDivide", "classast_1_1BlockDivide.html", null ],
       [ "ast::BlockDot", "classast_1_1BlockDot.html", null ],

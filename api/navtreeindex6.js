@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"GfxMain_8hpp_source.html":[4,0,0,10,10],
+"GfxSolarSystem_8cpp.html":[4,0,0,10,11],
+"GfxSolarSystem_8hpp.html":[4,0,0,10,12],
+"GfxSolarSystem_8hpp_source.html":[4,0,0,10,12],
 "GfxSpacecraft_8cpp.html":[4,0,0,10,13],
 "GfxSpacecraft_8hpp.html":[4,0,0,10,14],
 "GfxSpacecraft_8hpp_source.html":[4,0,0,10,14],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "Lexer_8cpp.html#a1629d9da225d9e02df44b7677ed7ef8e":[4,0,0,19,8,0,0],
 "Lexer_8cpp.html#a212db34da83ee26fa1f671ba8a2367c9":[4,0,0,19,8,0,1],
 "Lexer_8cpp.html#a7355dae83cf21fdd8862a4f2e84dc01d":[4,0,0,19,8,0,2],
-"Lexer_8hpp.html":[4,0,0,19,8,1],
-"Lexer_8hpp_source.html":[4,0,0,19,8,1],
-"LibraryLoader_8cpp.html":[4,0,0,28,5,17],
-"LibraryLoader_8hpp.html":[4,0,0,28,5,18],
-"LibraryLoader_8hpp_source.html":[4,0,0,28,5,18]
+"Lexer_8hpp.html":[4,0,0,19,8,1]
 };

@@ -182,7 +182,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr
 <tr class="memitem:a55195e3fffc6c39aef596d04efe0f828" id="r_a55195e3fffc6c39aef596d04efe0f828"><td class="memItemLeft" align="right" valign="top"><a id="a55195e3fffc6c39aef596d04efe0f828" name="a55195e3fffc6c39aef596d04efe0f828"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>initializeFromForceModel</b> (const <a class="el" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a> &amp;<a class="el" href="#a3781b50840cde28f0f2d5133cc099b37">forceModel</a>, const <a class="el" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a> &amp;<a class="el" href="#a48f5e5b45d26f867468fae817362c71a">spacecraftParam</a>)</td></tr>
 <tr class="separator:a55195e3fffc6c39aef596d04efe0f828"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9e3f5712891b486a354197f8cfeb933" id="r_ad9e3f5712891b486a354197f8cfeb933"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9e3f5712891b486a354197f8cfeb933">initBlocks</a> (const <a class="el" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a> &amp;<a class="el" href="#a3781b50840cde28f0f2d5133cc099b37">forceModel</a>, const <a class="el" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a> &amp;<a class="el" href="#a48f5e5b45d26f867468fae817362c71a">spacecraftParam</a>)</td></tr>
+<tr class="memitem:ad9e3f5712891b486a354197f8cfeb933" id="r_ad9e3f5712891b486a354197f8cfeb933"><td class="memItemLeft" align="right" valign="top"><a id="ad9e3f5712891b486a354197f8cfeb933" name="ad9e3f5712891b486a354197f8cfeb933"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>initBlocks</b> (const <a class="el" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a> &amp;<a class="el" href="#a3781b50840cde28f0f2d5133cc099b37">forceModel</a>, const <a class="el" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a> &amp;<a class="el" href="#a48f5e5b45d26f867468fae817362c71a">spacecraftParam</a>)</td></tr>
 <tr class="separator:ad9e3f5712891b486a354197f8cfeb933"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
@@ -272,36 +273,6 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>initializeFromForce
 
 </div>
 </div>
-<a id="ad9e3f5712891b486a354197f8cfeb933" name="ad9e3f5712891b486a354197f8cfeb933"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9e3f5712891b486a354197f8cfeb933">&#9670;&#160;</a></span>initBlocks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">errc_t ast::HPOPEquation::initBlocks </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>forceModel</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>spacecraftParam</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">待办事项</a></b></dt><dd>这里产生了一次重力场系数复制，有一定的优化空间 </dd></dl>
-
-</div>
-</div>
 <a id="a614d07c9f40b07b5a20160f824e45d1b" name="a614d07c9f40b07b5a20160f824e45d1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a614d07c9f40b07b5a20160f824e45d1b">&#9670;&#160;</a></span>setPropagationFrame()</h2>
 
@@ -318,9 +289,9 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>initializeFromForce
 </div><div class="memdoc">
 
 <p>设置预报坐标系 </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000024">待办事项</a></b></dt><dd>这里还需要检查frame是否是准惯性系 </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000025">待办事项</a></b></dt><dd></dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000026">待办事项</a></b></dt><dd>这里要注意处理propFrame_和centralBody_不一致的情况 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">待办事项</a></b></dt><dd>这里还需要检查frame是否是准惯性系 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000024">待办事项</a></b></dt><dd></dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000025">待办事项</a></b></dt><dd>这里要注意处理propFrame_和centralBody_不一致的情况 </dd></dl>
 
 </div>
 </div>
