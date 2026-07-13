@@ -77,7 +77,7 @@ var searchData=
   ['markdowntableparser_2ehpp_74',['MarkdownTableParser.hpp',['../MarkdownTableParser_8hpp.html',1,'']]],
   ['mars_5f_75',['mars_',['../classast_1_1SolarSystem.html#a34a1b5d1ad9439c205f398ef55ee64c7',1,'ast::SolarSystem']]],
   ['mass_76',['Mass',['../classast_1_1Dimension.html#a60dcb6c9614eb4f51fabe29a3837908c',1,'ast::Dimension']]],
-  ['mass_5f_77',['mass_',['../classast_1_1BlockMass.html#a99bcb412afa5f92bbb2019286913816b',1,'ast::BlockMass::mass_'],['../classast_1_1BlockSRP.html#a417849b0093d6e4cfb018a74b62795d2',1,'ast::BlockSRP::mass_']]],
+  ['mass_5f_77',['mass_',['../classast_1_1BlockDrag.html#a258ff19f29da6d2f69a175ccb1af602b',1,'ast::BlockDrag::mass_'],['../classast_1_1BlockMass.html#a99bcb412afa5f92bbb2019286913816b',1,'ast::BlockMass::mass_'],['../classast_1_1BlockSRP.html#a417849b0093d6e4cfb018a74b62795d2',1,'ast::BlockSRP::mass_']]],
   ['massptr_5f_78',['massPtr_',['../classast_1_1BlockMass.html#a736a59e290771484a7797f55c7586ad8',1,'ast::BlockMass']]],
   ['match_79',['match',['../classast_1_1Parser.html#a44fef303ad78d081b03399e8c524a1b9',1,'ast::Parser']]],
   ['math_2ehpp_80',['Math.hpp',['../Math_8hpp.html',1,'']]],

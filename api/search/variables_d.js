@@ -16,7 +16,7 @@ var searchData=
   ['m_5fsolarsystem_13',['m_solarSystem',['../classast_1_1DataContext.html#a64ab62d1e6f919061c60e328c7f3f3a3',1,'ast::DataContext']]],
   ['m_5fstream_14',['m_stream',['../classast_1_1LoggerStream.html#a2d318dc5987cef0bbe3f03fe64552e70',1,'ast::LoggerStream']]],
   ['mars_5f_15',['mars_',['../classast_1_1SolarSystem.html#a34a1b5d1ad9439c205f398ef55ee64c7',1,'ast::SolarSystem']]],
-  ['mass_5f_16',['mass_',['../classast_1_1BlockMass.html#a99bcb412afa5f92bbb2019286913816b',1,'ast::BlockMass::mass_'],['../classast_1_1BlockSRP.html#a417849b0093d6e4cfb018a74b62795d2',1,'ast::BlockSRP::mass_']]],
+  ['mass_5f_16',['mass_',['../classast_1_1BlockDrag.html#a258ff19f29da6d2f69a175ccb1af602b',1,'ast::BlockDrag::mass_'],['../classast_1_1BlockMass.html#a99bcb412afa5f92bbb2019286913816b',1,'ast::BlockMass::mass_'],['../classast_1_1BlockSRP.html#a417849b0093d6e4cfb018a74b62795d2',1,'ast::BlockSRP::mass_']]],
   ['massptr_5f_17',['massPtr_',['../classast_1_1BlockMass.html#a736a59e290771484a7797f55c7586ad8',1,'ast::BlockMass']]],
   ['maxabserr_5f_18',['maxAbsErr_',['../classast_1_1ODEVarStepIntegrator.html#ad43f15bfff065def5ea76f63b58ba109',1,'ast::ODEVarStepIntegrator']]],
   ['maxagedays_19',['maxAgeDays',['../structast_1_1DataUpdater_1_1DataFileEntry.html#a709a696470e82b8899cadf57fa92f009',1,'ast::DataUpdater::DataFileEntry']]],

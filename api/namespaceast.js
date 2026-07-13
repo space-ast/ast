@@ -142,7 +142,7 @@ var namespaceast =
     [ "BlockDivide", "classast_1_1BlockDivide.html", "classast_1_1BlockDivide" ],
     [ "BlockDot", "classast_1_1BlockDot.html", "classast_1_1BlockDot" ],
     [ "BlockDrag", "classast_1_1BlockDrag.html", "classast_1_1BlockDrag" ],
-    [ "BlockDragPartial", "classast_1_1BlockDragPartial.html", null ],
+    [ "BlockDragPartial", "classast_1_1BlockDragPartial.html", "classast_1_1BlockDragPartial" ],
     [ "BlockDynamicSystem", "classast_1_1BlockDynamicSystem.html", "classast_1_1BlockDynamicSystem" ],
     [ "BlockGain", "classast_1_1BlockGain.html", "classast_1_1BlockGain" ],
     [ "BlockGravity", "classast_1_1BlockGravity.html", "classast_1_1BlockGravity" ],

@@ -15,7 +15,7 @@ var searchData=
   ['polynomial_5f_12',['polynomial_',['../classast_1_1NutationSeries.html#acb06c074179b2189105972ccb894510b',1,'ast::NutationSeries']]],
   ['pos_5f_13',['pos_',['../classast_1_1CartState.html#a5e0b9acca331852128aee2d0702f3840',1,'ast::CartState::pos_'],['../structast_1_1DataGroupCartVel_1_1Data.html#a45aee0d0c1a4ee0d0da0eb48d6c17826',1,'ast::DataGroupCartVel::Data::pos_']]],
   ['poscbi_14',['posCBI',['../classast_1_1BlockThirdBodyGravity.html#a75bef1f0eb38e486be8795df2c99980f',1,'ast::BlockThirdBodyGravity::posCBI'],['../classast_1_1BlockThirdBodyPointMass.html#a0c3cf77ffc048273dabab29c7675467e',1,'ast::BlockThirdBodyPointMass::posCBI'],['../classast_1_1BlockTwoBody.html#aebfae8dca471114652426b70c4c1305f',1,'ast::BlockTwoBody::posCBI']]],
-  ['position_5f_15',['position_',['../classast_1_1BlockSRP.html#a087a7321e4b77cfe82ab453d884a0829',1,'ast::BlockSRP::position_'],['../classast_1_1WayPoint.html#a104aa36f3989a2343ef44651f3b7a7dd',1,'ast::WayPoint::position_']]],
+  ['position_5f_15',['position_',['../classast_1_1BlockDrag.html#a4642ed6a87011a6df19c752fae17e157',1,'ast::BlockDrag::position_'],['../classast_1_1BlockSRP.html#a087a7321e4b77cfe82ab453d884a0829',1,'ast::BlockSRP::position_'],['../classast_1_1WayPoint.html#a104aa36f3989a2343ef44651f3b7a7dd',1,'ast::WayPoint::position_']]],
   ['positionderivative_5f_16',['positionDerivative_',['../classast_1_1BlockMotion.html#a2d9cd111f95d6dcb19bf48907ee08680',1,'ast::BlockMotion']]],
   ['positions_5f_17',['positions_',['../classast_1_1EphemerisLagrangeVar.html#afa75a1734a4ede9835cb08490b78eaae',1,'ast::EphemerisLagrangeVar']]],
   ['positiontype_5f_18',['positionType_',['../classast_1_1StateKeplerian.html#ad3165abd763f4fc1958ec7627284f86c',1,'ast::StateKeplerian']]],
@@ -27,7 +27,7 @@ var searchData=
   ['printrefcount_24',['printRefCount',['../structast_1_1ObjectPrintConfig.html#add5d9c56d4043b0907c82b79e6eb3f6d',1,'ast::ObjectPrintConfig']]],
   ['printweakrefcount_25',['printWeakRefCount',['../structast_1_1ObjectPrintConfig.html#a78c249248d7de674b115073411094a1b',1,'ast::ObjectPrintConfig']]],
   ['propagationaxes_5f_26',['propagationAxes_',['../classast_1_1BlockGravity.html#a2571399a390546fa721f27323c2b2e3d',1,'ast::BlockGravity']]],
-  ['propagationframe_5f_27',['propagationFrame_',['../structast_1_1MotionOrbitDynamics_1_1PropagationParams.html#a9368630ab7dfb4c9c82cceeccc66a4a1',1,'ast::MotionOrbitDynamics::PropagationParams::propagationFrame_'],['../classast_1_1MotionOrbitDynamics.html#aca91e26e808514cbae9bbe3e8eb6bf79',1,'ast::MotionOrbitDynamics::propagationFrame_']]],
+  ['propagationframe_5f_27',['propagationFrame_',['../classast_1_1BlockDrag.html#af16cf273abd4f6bdac394b5a5fbe28a1',1,'ast::BlockDrag::propagationFrame_'],['../structast_1_1MotionOrbitDynamics_1_1PropagationParams.html#a9368630ab7dfb4c9c82cceeccc66a4a1',1,'ast::MotionOrbitDynamics::PropagationParams::propagationFrame_'],['../classast_1_1MotionOrbitDynamics.html#aca91e26e808514cbae9bbe3e8eb6bf79',1,'ast::MotionOrbitDynamics::propagationFrame_']]],
   ['properties_5f_28',['properties_',['../classast_1_1Struct.html#a3d7a6ce52a19de2b50275f2fa7f7b3f9',1,'ast::Struct']]],
   ['propertymap_5f_29',['propertyMap_',['../classast_1_1Struct.html#a62cdd6cda64494ea46ebd985e9b4169d',1,'ast::Struct']]],
   ['pstnul_30',['pstnul',['../structast_1_1DAF__FileRecord.html#ad311bd512ed672bee5193b0e30fef442',1,'ast::DAF_FileRecord']]]
