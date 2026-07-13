@@ -24,6 +24,7 @@
 #include "BlockAstro.hpp"
 #include "AstCore/BlockSystem.hpp"
 #include "AstCore/BlockDerivative.hpp"
+#include "AstCore/SimTime.hpp"
 #include <unordered_map>
 
 AST_NAMESPACE_BEGIN

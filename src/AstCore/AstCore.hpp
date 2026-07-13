@@ -3,6 +3,7 @@
 #include "AstCore/Angle.hpp"
 #include "AstCore/AstCoreC.h"
 #include "AstCore/AstCoreGlobal.h"
+#include "AstCore/AstroBlockFactory.hpp"
 #include "AstCore/Atmosphere.hpp"
 #include "AstCore/AtmosphereBase.hpp"
 #include "AstCore/AttitudeConvert.hpp"
