@@ -1,5 +1,9 @@
 var NAVTREEINDEX38 =
 {
+"classast_1_1ScStateCalcAzimuth.html":[3,0,0,623],
+"classast_1_1ScStateCalcAzimuthRate.html":[2,0,0,625],
+"classast_1_1ScStateCalcAzimuthRate.html":[3,0,0,624],
+"classast_1_1ScStateCalcBDotRCalc.html":[2,0,0,626],
 "classast_1_1ScStateCalcBDotRCalc.html":[3,0,0,625],
 "classast_1_1ScStateCalcBDotTCalc.html":[2,0,0,627],
 "classast_1_1ScStateCalcBDotTCalc.html":[3,0,0,626],
@@ -245,9 +249,5 @@ var NAVTREEINDEX38 =
 "classast_1_1ScStateCalcRA.html":[3,0,0,741],
 "classast_1_1ScStateCalcRAAN.html":[2,0,0,743],
 "classast_1_1ScStateCalcRAAN.html":[3,0,0,742],
-"classast_1_1ScStateCalcRARate.html":[2,0,0,753],
-"classast_1_1ScStateCalcRARate.html":[3,0,0,752],
-"classast_1_1ScStateCalcRMag.html":[2,0,0,762],
-"classast_1_1ScStateCalcRMag.html":[3,0,0,761],
-"classast_1_1ScStateCalcRadPressureArea.html":[2,0,0,749]
+"classast_1_1ScStateCalcRARate.html":[2,0,0,753]
 };

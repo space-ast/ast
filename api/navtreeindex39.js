@@ -1,5 +1,9 @@
 var NAVTREEINDEX39 =
 {
+"classast_1_1ScStateCalcRARate.html":[3,0,0,752],
+"classast_1_1ScStateCalcRMag.html":[2,0,0,762],
+"classast_1_1ScStateCalcRMag.html":[3,0,0,761],
+"classast_1_1ScStateCalcRadPressureArea.html":[2,0,0,749],
 "classast_1_1ScStateCalcRadPressureArea.html":[3,0,0,748],
 "classast_1_1ScStateCalcRadPressureCoefficient.html":[2,0,0,750],
 "classast_1_1ScStateCalcRadPressureCoefficient.html":[3,0,0,749],
@@ -245,9 +249,5 @@ var NAVTREEINDEX39 =
 "classast_1_1Sensor.html":[3,0,0,818],
 "classast_1_1Sensor.html#a16a4178ca034dda6f4cad0397223cead":[2,0,0,819,2],
 "classast_1_1Sensor.html#a16a4178ca034dda6f4cad0397223cead":[3,0,0,818,2],
-"classast_1_1Sensor.html#a2276254a201e395f1c90b91c48514fb3":[2,0,0,819,4],
-"classast_1_1Sensor.html#a2276254a201e395f1c90b91c48514fb3":[3,0,0,818,4],
-"classast_1_1Sensor.html#a75924c914238f78fd6bb233a4caa8d8d":[2,0,0,819,3],
-"classast_1_1Sensor.html#a75924c914238f78fd6bb233a4caa8d8d":[3,0,0,818,3],
-"classast_1_1Sensor.html#a7db075c885e5b5addbb5f221fac321da":[2,0,0,819,1]
+"classast_1_1Sensor.html#a2276254a201e395f1c90b91c48514fb3":[2,0,0,819,4]
 };

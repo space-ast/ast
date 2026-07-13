@@ -122,17 +122,21 @@ $(function(){initNavTree('BlockGravityPartial_8hpp_source.html',''); initResizab
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1BlockGravityPartial.html">BlockGravityPartial</a>(<a class="code hl_class" href="classast_1_1GravityField.html">GravityField</a> &amp;&amp;gravityField, <span class="keywordtype">int</span> degree, <span class="keywordtype">int</span> order,</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                        <a class="code hl_class" href="classast_1_1Axes.html">Axes</a>* gravityAxes=<span class="keyword">nullptr</span>, <a class="code hl_class" href="classast_1_1Axes.html">Axes</a>* propagationAxes=<span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    errc_t <a class="code hl_function" href="classast_1_1BlockGravity.html#af3aa7d2147d7db01dc7494d282bf94c9">run</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SimTime.html">SimTime</a>&amp; simTime) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> init();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>* aMatrixPtr_{&amp;aMatrixBuffer_};   </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>  aMatrixBuffer_{};               </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> setDegreeForPartial(<span class="keywordtype">int</span> degree){this-&gt;gravityCalculator_.setDegreeForPartial(degree);}</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> setOrderForPartial(<span class="keywordtype">int</span> order){this-&gt;gravityCalculator_.setOrderForPartial(order);}</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    errc_t <a class="code hl_function" href="classast_1_1BlockGravity.html#af3aa7d2147d7db01dc7494d282bf94c9">run</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SimTime.html">SimTime</a>&amp; simTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> init();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>* aMatrixPtr_{&amp;aMatrixBuffer_};   </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>  aMatrixBuffer_{};               </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>};</div>
 </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aBlockGravity_8hpp_html"><div class="ttname"><a href="BlockGravity_8hpp.html">BlockGravity.hpp</a></div><div class="ttdoc">~</div></div>
 <div class="ttc" id="aclassast_1_1Axes_html"><div class="ttname"><a href="classast_1_1Axes.html">ast::Axes</a></div><div class="ttdoc">轴系抽象基类</div><div class="ttdef"><b>定义</b> Axes.hpp:72</div></div>
 <div class="ttc" id="aclassast_1_1BlockGravityPartial_html"><div class="ttname"><a href="classast_1_1BlockGravityPartial.html">ast::BlockGravityPartial</a></div><div class="ttdoc">重力场偏导数（梯度）函数块</div><div class="ttdef"><b>定义</b> BlockGravityPartial.hpp:61</div></div>
