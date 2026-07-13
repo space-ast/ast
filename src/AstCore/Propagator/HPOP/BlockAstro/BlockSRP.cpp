@@ -34,28 +34,6 @@ AST_NAMESPACE_BEGIN
 
 using namespace math;
 
-/// @brief 1 AU处的太阳辐射压力 [N/m²]，使用太阳光度计算得到
-/// @details
-/// 由太阳光度推导：
-///   Φ(1AU) = L_sun / (4π · AU²)          — 1AU处的辐射通量 [W/m²]
-///   P_1AU  = Φ(1AU) / c                  — 1AU处的辐射压力 [N/m²]
-///          = L_sun / (4π · AU² · c)
-///
-/// 代入：
-///   L_sun = 3.839×10²⁶ W (Carrol & Ostlie, 2007)
-///   AU    = 1.49597870691×10¹¹ m
-///   c     = 2.99792458×10⁸ m/s
-///
-///   P_1AU ≈ 4.553×10⁻⁶ N/m²
-constexpr double kSolarPressureAt1AU_FromLuminosity = kSunLuminosity / (4.0 * kPI * kAU * kAU * kLightSpeed);
-
-/// @brief 1 AU处的太阳辐射压力 [N/m²]，使用太阳常数计算得到
-/// @details
-///   P_1AU = Φ(1AU) / c ≈ 1367 / 2.99792458e8 ≈ 4.560e-6 N/m²
-constexpr double kSolarPressureAt1AU_FromSolarConstant = kSolarConstant / kLightSpeed;
-
-/// @brief 1 AU处的太阳辐射压力 [N/m²]，目前使用光度计算的值，也可以切换为使用太阳常数计算的值
-constexpr double kSolarPressureAt1AU = kSolarPressureAt1AU_FromLuminosity;  
 
 
 BlockSRP::BlockSRP()

@@ -50,6 +50,120 @@ class HPOPSTMTest : public ::testing::Test
     }
 };
 
+
+
+TEST_F(HPOPSTMTest, SRP)
+{
+    HPOPForceModel forcemodel;
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 2;
+    forcemodel.gravity().maxOrder_ = 2;
+    forcemodel.useSTM(true);
+
+    forcemodel.useSRP(true);
+    forcemodel.srp().shadowModel_ = EShadowModel::eNone;
+
+
+    HPOP propagator;
+    auto integrator = propagator.getIntegrator();
+    auto varstep = dynamic_cast<ODEVarStepIntegrator*>(integrator);
+    if (varstep)
+    {
+        varstep->setUseFixedStep(true);
+        varstep->setStepSize(60_s);
+    }
+
+    errc_t err = propagator.setForceModel(forcemodel);
+    ASSERT_EQ(err, eNoError);
+
+    auto start = TimePoint::FromUTC(2026, 1, 20, 4, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 1, 21, 4, 0, 0);
+
+    CartState state;
+    state.position() = Vector3d{6678137, 0, 0};
+    state.velocity() = Vector3d{0, 6789.53029, 3686.414173};
+
+    Matrix6d stm = Matrix6d{};
+    // 初始化 STM = I
+    for (int i = 0; i < 6; ++i)
+        stm(i, i) = 1.0;
+
+    err = propagator.propagate(start, end, state, stm);
+    EXPECT_EQ(err, eNoError);
+
+    // 输出最终状态
+    printf("pos:  %s\n", state.position().toString().c_str());
+    printf("vel:  %s\n", state.velocity().toString().c_str());
+
+    CartState stateEpected{
+        6307.2828377535297477_km, -2085.5301569741272942_km, -674.9101124419729558_km,
+        2.4945902167702645_km_s, 6.3651844352300415_km_s, 3.6002209801539498_km_s  
+    };
+
+    // 验证轨道状态与无 STM 预报一致
+    EXPECT_NEAR(state.position()[0],  stateEpected.position()[0], 1e-4);
+    EXPECT_NEAR(state.position()[1],  stateEpected.position()[1], 1e-4);
+    EXPECT_NEAR(state.position()[2],  stateEpected.position()[2], 1e-4);
+    EXPECT_NEAR(state.velocity()[0],  stateEpected.velocity()[0], 1e-7);
+    EXPECT_NEAR(state.velocity()[1],  stateEpected.velocity()[1], 1e-7);
+    EXPECT_NEAR(state.velocity()[2],  stateEpected.velocity()[2], 1e-7);
+
+    // STM 基本性质验证
+    // Φ(0) = I, 经过 1 天后 Φ 应有显著非零元素
+    double maxOffDiag = 0.0;
+    for (int i = 0; i < 6; ++i)
+        for (int j = 0; j < 6; ++j)
+            if (i != j)
+                maxOffDiag = std::max(maxOffDiag, std::abs(stm(i, j)));
+    EXPECT_GT(maxOffDiag, 1e-6);  // 非对角元应有非零值
+
+    Matrix6d stmExpected = {
+          -96.2210901213182552,                                                    
+           -0.0829293116792611,                                                    
+           -0.1154391644976363,                                                    
+         -388.4268275231244729,                                                    
+       -73813.1581151504651643,                                                    
+       -40141.7090697997191455,                                                    
+         -248.4085000242674539,                                                    
+            0.9273087881269143,                                                    
+           -0.0248502096696227,                                                    
+          -16.1494647379734566,                                                    
+      -188686.7639074014732614,                                                    
+      -102537.8412709504482336,                                                    
+         -140.7014635838022514,                                                    
+           -0.0374836607519025,                                                    
+            0.9551680617216222,                                                    
+          -36.2366875651771068,                                                    
+      -106810.9351355284452438,                                                    
+       -58320.2518653219667613,                                                    
+            0.3292397630946990,                                                    
+            0.0002309155340086,                                                    
+            0.0001118106553987,                                                    
+            1.1635354279695280,                                                    
+          250.2521770919222774,                                                    
+          136.0763853253391460,                                                    
+           -0.1089328421445964,                                                    
+            0.0003741164000570,                                                    
+            0.0000696853857296,                                                    
+            0.0008791837603719,                                                    
+          -81.8258477831011675,                                                    
+          -45.0390439353445444,                                                    
+           -0.0354373049045328,                                                    
+            0.0000841288382496,                                                    
+            0.0002919639547697, 
+            0.0829214902532831,
+          -26.9389637420383892,
+          -13.6852949524531198,
+    };
+    for(int i=0;i<6;i++)
+    {
+        for(int j=0;j<6;j++)
+        {
+            EXPECT_NEAR(stm(i,j), stmExpected(i,j), fabs(stmExpected(i,j)) * 1e-8);
+        }
+    }
+}
+
 TEST_F(HPOPSTMTest, Drag)
 {
     HPOPForceModel forcemodel;
