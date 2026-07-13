@@ -70,10 +70,14 @@ GravityCalculator::GravityCalculator(GravityField &&gravityField, int degree, in
     initDegreeOrder(degree, order);
 }
 
-void GravityCalculator::setDegreeForGradient(int degree)
+void GravityCalculator::setDegreeForPartial(unsigned int degree)
 {
-    this->degreeForGradient_ = std::min(degree_, degree);
-    this->orderForGradient_  = std::min(order_,  degree);
+    this->degreeForPartial_ = std::min(degree_, degree);
+}
+
+void GravityCalculator::setOrderForPartial(unsigned int order)
+{
+    this->orderForPartial_ = std::min(std::min(order_, order), degreeForPartial_);
 }
 
 void GravityCalculator::calcTotalAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF)

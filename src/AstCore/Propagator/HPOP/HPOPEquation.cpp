@@ -328,6 +328,14 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 auto propAxes = propFrame->getAxes();
                 auto gravityAxes = aGetGravityAxes(gravityField, *body);
                 BlockGravity* blockGravity = factory.createGravityBlock(std::move(gravityField), gravity.maxDegree_, gravity.maxOrder_, gravityAxes, propAxes);
+                // @todo 考虑统一处理 useSTM 带来的特殊参数设置
+                if(forceModel.useSTM())
+                {
+                    // @todo 避免类型强制转换
+                    BlockGravityPartial* blockGravityPartial = static_cast<BlockGravityPartial*>(blockGravity);
+                    blockGravityPartial->setDegreeForPartial(gravity.maxDegreeForPartial_);
+                    blockGravityPartial->setOrderForPartial(gravity.maxOrderForPartial_);
+                }
                 // 设置是否考虑重力场系数变化
                 blockGravity->setConsiderVariations(gravity.useSecularVariations_);
                 this->addBlock(blockGravity);

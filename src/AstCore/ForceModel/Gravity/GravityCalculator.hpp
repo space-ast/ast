@@ -107,19 +107,19 @@ public:
     /// @return 计算次数
     int getOrder() const { return order_; }
 
-    /// @brief 设置计算梯度时使用的阶数
-    void setDegreeForGradient(int degree);
+    /// @brief 设置计算偏导数时使用的阶数
+    void setDegreeForPartial(unsigned int degree);
 
-    /// @brief 设置计算梯度时使用的阶数
-    void setOrderForGradient(int order);
+    /// @brief 设置计算偏导数时使用的次数
+    void setOrderForPartial(unsigned int order);
 
-    /// @brief 获取计算梯度时使用的阶数
-    /// @return 计算梯度时使用的阶数
-    int getDegreeForGradient() const { return degreeForGradient_; }
+    /// @brief 获取计算偏导数时使用的阶数
+    /// @return 计算偏导数时使用的阶数
+    int getDegreeForPartial() const { return degreeForPartial_; }
 
-    /// @brief 获取计算梯度时使用的次数
-    /// @return 计算梯度时使用的次数
-    int getOrderForGradient() const { return orderForGradient_; }
+    /// @brief 获取计算偏导数时使用的次数
+    /// @return 计算偏导数时使用的次数
+    int getOrderForPartial() const { return orderForPartial_; }
     
     virtual ~GravityCalculator () = default;
 
@@ -135,11 +135,11 @@ public:
 private:
     void initDegreeOrder(int degree, int order);
 protected:
-    GravityField gravityField_;        ///< 重力场系数
-    int degree_{0};                    ///< 计算所使用的阶数
-    int order_{0};                     ///< 计算所使用的次数
-    int degreeForGradient_{0};         ///< 计算梯度时使用的阶数
-    int orderForGradient_{0};          ///< 计算梯度时使用的次数
+    GravityField gravityField_;                 ///< 重力场系数
+    unsigned int degree_{0};                    ///< 计算所使用的阶数
+    unsigned int order_{0};                     ///< 计算所使用的次数
+    unsigned int degreeForPartial_{0};          ///< 计算偏导数时使用的阶数
+    unsigned int orderForPartial_{0};           ///< 计算偏导数时使用的次数
 };
 
 #ifdef _AST_ENABLE_GRAVITY_CALCULATOR_1

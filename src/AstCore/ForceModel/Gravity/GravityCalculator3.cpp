@@ -296,7 +296,7 @@ inline void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF
             // Truncate the gradient at GRADIENT_MAX x GRADIENT_MAX
             if (fillgradient)
             {
-                if ((m <= getOrderForGradient()) && (n <= getDegreeForGradient()))
+                if ((m <= getOrderForPartial()) && (n <= getDegreeForPartial()))
                 {
                     // Pines Equation 27 (Part of)
                     // 2015.09.18 GMT-5295 m<=2  -> m<=1

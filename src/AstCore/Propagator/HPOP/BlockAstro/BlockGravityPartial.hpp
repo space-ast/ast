@@ -67,6 +67,10 @@ public:
     BlockGravityPartial(GravityField &&gravityField, int degree, int order,
                         Axes* gravityAxes=nullptr, Axes* propagationAxes=nullptr);
 
+    void setDegreeForPartial(int degree){this->gravityCalculator_.setDegreeForPartial(degree);}
+    
+    void setOrderForPartial(int order){this->gravityCalculator_.setOrderForPartial(order);}
+
     errc_t run(const SimTime& simTime) override;
 private:
     void init();
