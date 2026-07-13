@@ -177,8 +177,9 @@ errc_t BlockDynamicSystem::createStateMap()
 
     {
         int totalWidth = 0;
-        std::vector<int> widths;           // 状态量维度
-        std::vector<Identifier*> identifiers;  // 状态量标识符
+        std::vector<int> widths;                    // 状态量维度
+        std::vector<Identifier*> identifiers;       // 状态量标识符
+        std::vector<DataPort*> accumulatePorts;     // 累加状态量输出端口
         
         for(auto block: blocks_)
         {
@@ -190,6 +191,7 @@ errc_t BlockDynamicSystem::createStateMap()
                 auto name = port.name_;
                 if(port.getMode() == DataPort::eAccumulate)
                 {
+                    accumulatePorts.push_back(&port);
                     auto iter = std::find(identifiers.begin(), identifiers.end(), name);
                     if(iter == identifiers.end())
                     {
@@ -211,7 +213,12 @@ errc_t BlockDynamicSystem::createStateMap()
                 else
                 {
                     // 如果状态量映射表中不存在该状态量，则添加
-                    stateMap_.emplace(name, port.getSignal<double>());
+                    auto result = stateMap_.emplace(name, port.getSignal<double>());
+                    // 如果状态量映射表中已存在该状态量，则更新信号指针
+                    if(!result.second)
+                    {
+                        port.setSignal<double>(stateMap_[name]);
+                    }
                 }
             }
         }
@@ -226,6 +233,11 @@ errc_t BlockDynamicSystem::createStateMap()
             auto width = widths[index];
             stateMap_.emplace(name, accumulate_.data() + offset);
             offset += width;
+        }
+        // 设置累加状态量信号
+        for(auto& port : accumulatePorts)
+        {
+            port->setSignal<double>(stateMap_[port->name_]);
         }
     }
 
@@ -253,22 +265,6 @@ errc_t BlockDynamicSystem::connectSignalsByNames()
             }else{
                 // 未找到所需状态量信号
                 aError("state '%s' is not found for input port", name->c_str());
-                return -1;
-            }
-        }
-        auto& outputPorts = block->getOutputPorts();
-        for(auto& port : outputPorts)
-        {
-            // 连接信号
-            auto name = port.name_;
-            auto iter = stateMap_.find(name);
-            if(A_LIKELY(iter != stateMap_.end()))
-            {
-                // 连接状态量信号
-                port.setSignal(iter->second);
-            }else{
-                // 未找到所需状态量信号
-                aError("state '%s' is not found for output port", name->c_str());
                 return -1;
             }
         }
