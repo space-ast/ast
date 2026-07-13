@@ -1,5 +1,15 @@
 var NAVTREEINDEX37 =
 {
+"classast_1_1Quaternion.html#a0b07113349ff7e9c4d90df6d69c081c8":[0,3,1,2,30],
+"classast_1_1Quaternion.html#a11df4a94ed81c80b6e4c95ca6821bf52":[0,3,1,2,17],
+"classast_1_1Quaternion.html#a19883c31504c687288ae7860b86deca8":[0,3,1,2,29],
+"classast_1_1Quaternion.html#a1c57c73d886111aaf291167635821f5c":[0,3,1,2,10],
+"classast_1_1Quaternion.html#a2f285c146ad2c66d87600b30ce4db809":[0,3,1,2,23],
+"classast_1_1Quaternion.html#a3184b5f50da9c8118b611baccf0ac7ac":[0,3,1,2,9],
+"classast_1_1Quaternion.html#a3cfd36d7117f3d0b80e08717f2c7afb9":[0,3,1,2,8],
+"classast_1_1Quaternion.html#a4449514b848865c74301f84599ff83d8":[0,3,1,2,0],
+"classast_1_1Quaternion.html#a4610df7892c4a844901a28a72b7c782b":[0,3,1,2,13],
+"classast_1_1Quaternion.html#a46f6d04de44d3e7e0f59c01b62c0574f":[0,3,1,2,1],
 "classast_1_1Quaternion.html#a47524a1bc4cf57c3d54d0c296f97723b":[0,3,1,2,15],
 "classast_1_1Quaternion.html#a47c7dcdee58301b110cc8019390553fc":[0,3,1,2,18],
 "classast_1_1Quaternion.html#a6410723ce2acffdbc89e6e2579aed765":[0,3,1,2,3],
@@ -239,15 +249,5 @@ var NAVTREEINDEX37 =
 "classast_1_1SSEParser.html#adbb3b9bc5baa61a5649a4473c1f00ba8":[3,0,0,869,1],
 "classast_1_1SSEParser.html#afcc67a33f3786a87cc0238456c72bebb":[2,0,0,870,4],
 "classast_1_1SSEParser.html#afcc67a33f3786a87cc0238456c72bebb":[3,0,0,869,4],
-"classast_1_1STKEphemerisFileParser.html":[2,0,0,881],
-"classast_1_1STKEphemerisFileParser.html":[3,0,0,880],
-"classast_1_1Satellite.html":[2,0,0,600],
-"classast_1_1Satellite.html":[3,0,0,599],
-"classast_1_1ScStateCalc1PtAccess.html":[2,0,0,610],
-"classast_1_1ScStateCalc1PtAccess.html":[3,0,0,609],
-"classast_1_1ScStateCalcAbsoluteValue.html":[2,0,0,611],
-"classast_1_1ScStateCalcAbsoluteValue.html":[3,0,0,610],
-"classast_1_1ScStateCalcAltitude.html":[2,0,0,612],
-"classast_1_1ScStateCalcAltitude.html":[3,0,0,611],
-"classast_1_1ScStateCalcAltitudeOfApoapsis.html":[2,0,0,613]
+"classast_1_1STKEphemerisFileParser.html":[2,0,0,881]
 };

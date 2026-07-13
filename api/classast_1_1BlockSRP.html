@@ -117,7 +117,7 @@ $(function(){initNavTree('classast_1_1BlockSRP.html',''); initResizable(true); }
   <map id="ast::BlockSRP_map" name="ast::BlockSRP_map">
 <area href="classast_1_1BlockDerivative.html" title="导数函数块" alt="ast::BlockDerivative" shape="rect" coords="0,56,125,80"/>
 <area href="classast_1_1FuncBlock.html" title="函数块/功能块" alt="ast::FuncBlock" shape="rect" coords="0,0,125,24"/>
-<area href="classast_1_1BlockSRPPartial.html" alt="ast::BlockSRPPartial" shape="rect" coords="0,168,125,192"/>
+<area href="classast_1_1BlockSRPPartial.html" title="太阳辐射压力偏导数（梯度）函数块" alt="ast::BlockSRPPartial" shape="rect" coords="0,168,125,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -125,8 +125,8 @@ $(function(){initNavTree('classast_1_1BlockSRP.html',''); initResizable(true); }
 Public 成员函数</h2></td></tr>
 <tr class="memitem:acb37565e90a6af19f77964e4278c9fde" id="r_acb37565e90a6af19f77964e4278c9fde"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb37565e90a6af19f77964e4278c9fde">BlockSRP</a> (<a class="el" href="classast_1_1EclipseCalculator.html">EclipseCalculator</a> *eclipseCalculator, double cr, double srpArea, <a class="el" href="classast_1_1Frame.html">Frame</a> *propagationFrame)</td></tr>
 <tr class="separator:acb37565e90a6af19f77964e4278c9fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d4795d5e3a7337b341dc74e16366e0f" id="r_a8d4795d5e3a7337b341dc74e16366e0f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d4795d5e3a7337b341dc74e16366e0f">run</a> (const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;simTime) final</td></tr>
-<tr class="separator:a8d4795d5e3a7337b341dc74e16366e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82f7379fb78b3f045169cfde9009d01d" id="r_a82f7379fb78b3f045169cfde9009d01d"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82f7379fb78b3f045169cfde9009d01d">run</a> (const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;simTime) override</td></tr>
+<tr class="separator:a82f7379fb78b3f045169cfde9009d01d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac11253c731d3a68802ef13080454a393" id="r_ac11253c731d3a68802ef13080454a393"><td class="memItemLeft" align="right" valign="top"><a id="ac11253c731d3a68802ef13080454a393" name="ac11253c731d3a68802ef13080454a393"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setSunPosition</b> (<a class="el" href="namespaceast.html#a2bf48439a4f7c7769a0f7e017ef7f055">ESunPosition</a> sunPosition)</td></tr>
 <tr class="separator:ac11253c731d3a68802ef13080454a393"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,6 +203,21 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>doubleBuffer_</b> {
 <tr class="memitem:af6958849646fef747e35200f9142a4e1" id="r_af6958849646fef747e35200f9142a4e1"><td class="memItemLeft" align="right" valign="top"><a id="af6958849646fef747e35200f9142a4e1" name="af6958849646fef747e35200f9142a4e1"></a>
 Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>vectorBuffer_</b> {}</td></tr>
 <tr class="separator:af6958849646fef747e35200f9142a4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6374500d31398165205416060759354" id="r_ae6374500d31398165205416060759354"><td class="memItemLeft" align="right" valign="top"><a id="ae6374500d31398165205416060759354" name="ae6374500d31398165205416060759354"></a>
+<a class="el" href="classast_1_1EclipseCalculator.html">EclipseCalculator</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>eclipseCalculator_</b> {}</td></tr>
+<tr class="separator:ae6374500d31398165205416060759354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afebc1a5f54332bb4300d232e99bb392b" id="r_afebc1a5f54332bb4300d232e99bb392b"><td class="memItemLeft" align="right" valign="top"><a id="afebc1a5f54332bb4300d232e99bb392b" name="afebc1a5f54332bb4300d232e99bb392b"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>cr_</b> {1.0}</td></tr>
+<tr class="separator:afebc1a5f54332bb4300d232e99bb392b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d0a6a188e603636e0e61bae4b9f8605" id="r_a0d0a6a188e603636e0e61bae4b9f8605"><td class="memItemLeft" align="right" valign="top"><a id="a0d0a6a188e603636e0e61bae4b9f8605" name="a0d0a6a188e603636e0e61bae4b9f8605"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>srpArea_</b> {20.0}</td></tr>
+<tr class="separator:a0d0a6a188e603636e0e61bae4b9f8605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20068022a60a2bed5b5cac121961b222" id="r_a20068022a60a2bed5b5cac121961b222"><td class="memItemLeft" align="right" valign="top"><a id="a20068022a60a2bed5b5cac121961b222" name="a20068022a60a2bed5b5cac121961b222"></a>
+<a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>propagationFrame_</b> {}</td></tr>
+<tr class="separator:a20068022a60a2bed5b5cac121961b222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a132388846c864a5c32294b1e3ebc9e3a" id="r_a132388846c864a5c32294b1e3ebc9e3a"><td class="memItemLeft" align="right" valign="top"><a id="a132388846c864a5c32294b1e3ebc9e3a" name="a132388846c864a5c32294b1e3ebc9e3a"></a>
+<a class="el" href="namespaceast.html#a2bf48439a4f7c7769a0f7e017ef7f055">ESunPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sunPosition_</b> {ESunPosition::eTrue}</td></tr>
+<tr class="separator:a132388846c864a5c32294b1e3ebc9e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classast_1_1BlockDerivative"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1BlockDerivative')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1BlockDerivative.html">ast::BlockDerivative</a></td></tr>
 <tr class="memitem:ac869516d83ef23185f2f1cadb151c573 inherit pro_attribs_classast_1_1BlockDerivative" id="r_ac869516d83ef23185f2f1cadb151c573"><td class="memItemLeft" align="right" valign="top">
 std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>derivativePorts_</b></td></tr>
@@ -269,8 +284,8 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="a8d4795d5e3a7337b341dc74e16366e0f" name="a8d4795d5e3a7337b341dc74e16366e0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d4795d5e3a7337b341dc74e16366e0f">&#9670;&#160;</a></span>run()</h2>
+<a id="a82f7379fb78b3f045169cfde9009d01d" name="a82f7379fb78b3f045169cfde9009d01d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82f7379fb78b3f045169cfde9009d01d">&#9670;&#160;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,7 +302,7 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -303,6 +318,8 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">待办事项</a></b></dt><dd>目前总是使用真太阳位置进行计算，是否需要考虑使用视太阳位置进行计算？ </dd></dl>
 
 <p>实现了 <a class="el" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">ast::FuncBlock</a>.</p>
+
+<p>被 <a class="el" href="classast_1_1BlockSRPPartial.html#a892e1875552dd570ed8c8bed18d3f4ad">ast::BlockSRPPartial</a> 重载.</p>
 
 </div>
 </div>

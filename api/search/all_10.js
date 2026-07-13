@@ -174,7 +174,7 @@ var searchData=
   ['propagate_2ehpp_171',['Propagate.hpp',['../Propagate_8hpp.html',1,'']]],
   ['propagationaxes_5f_172',['propagationAxes_',['../classast_1_1BlockGravity.html#a2571399a390546fa721f27323c2b2e3d',1,'ast::BlockGravity']]],
   ['propagationframe_173',['propagationFrame',['../classast_1_1HPOP.html#a45c5dfd2a1129f2b01c41a1698b7a484',1,'ast::HPOP']]],
-  ['propagationframe_5f_174',['propagationFrame_',['../classast_1_1BlockDrag.html#af16cf273abd4f6bdac394b5a5fbe28a1',1,'ast::BlockDrag::propagationFrame_'],['../structast_1_1MotionOrbitDynamics_1_1PropagationParams.html#a9368630ab7dfb4c9c82cceeccc66a4a1',1,'ast::MotionOrbitDynamics::PropagationParams::propagationFrame_'],['../classast_1_1MotionOrbitDynamics.html#aca91e26e808514cbae9bbe3e8eb6bf79',1,'ast::MotionOrbitDynamics::propagationFrame_']]],
+  ['propagationframe_5f_174',['propagationFrame_',['../classast_1_1BlockDrag.html#af16cf273abd4f6bdac394b5a5fbe28a1',1,'ast::BlockDrag::propagationFrame_'],['../classast_1_1BlockSRP.html#a20068022a60a2bed5b5cac121961b222',1,'ast::BlockSRP::propagationFrame_'],['../structast_1_1MotionOrbitDynamics_1_1PropagationParams.html#a9368630ab7dfb4c9c82cceeccc66a4a1',1,'ast::MotionOrbitDynamics::PropagationParams::propagationFrame_'],['../classast_1_1MotionOrbitDynamics.html#aca91e26e808514cbae9bbe3e8eb6bf79',1,'ast::MotionOrbitDynamics::propagationFrame_']]],
   ['propagationparams_175',['PropagationParams',['../structast_1_1MotionOrbitDynamics_1_1PropagationParams.html',1,'ast::MotionOrbitDynamics']]],
   ['propagator_176',['Propagator',['../classast_1_1Propagator.html',1,'ast']]],
   ['propagator_2ecpp_177',['Propagator.cpp',['../Propagator_8cpp.html',1,'']]],

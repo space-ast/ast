@@ -20,5 +20,5 @@ var searchData=
   ['constructor_5f_17',['constructor_',['../classast_1_1Class.html#a46ecef03de9c1200a1e8d1a4225a1de6',1,'ast::Class']]],
   ['conversionfactor_5f_18',['conversionFactor_',['../classast_1_1UnitConverter.html#a5c84584ded9cb366c3003f7665cdedbf',1,'ast::UnitConverter']]],
   ['coscoeff_5f_19',['cosCoeff_',['../classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7',1,'ast::GravityField']]],
-  ['cr_5f_20',['cr_',['../classast_1_1SpacecraftParam.html#a011dcca23aa96514c8e4e97508f1fe84',1,'ast::SpacecraftParam']]]
+  ['cr_5f_20',['cr_',['../classast_1_1SpacecraftParam.html#a011dcca23aa96514c8e4e97508f1fe84',1,'ast::SpacecraftParam::cr_'],['../classast_1_1BlockSRP.html#afebc1a5f54332bb4300d232e99bb392b',1,'ast::BlockSRP::cr_']]]
 ];
