@@ -45,7 +45,7 @@ class AST_CORE_API BlockMotion : public BlockDerivative
 public:
     BlockMotion();
 
-    errc_t run(const SimTime& simTime) final;
+    errc_t run(const SimTime& simTime) override;
 
 protected:
     Vector3d* velocity_{&vectorBuffer};            ///< 速度

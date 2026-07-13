@@ -22,10 +22,12 @@
 #include "HPOPEquation.hpp"
 #include "AstMath/ODE.hpp"
 #include "AstMath/Vector.hpp"
+#include "AstMath/Matrix.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstCore/EventDetector.hpp"
 #include "AstCore/StateMapper.hpp"
 #include "AstCore/SpacecraftState.hpp"
+#include "AstCore/OrbitElement.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -144,6 +146,34 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector
     return err;
 }
 
+errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, CartState &state, Matrix6d &stm)
+{
+    errc_t err = this->initialize();
+    if (err)
+        return err;
+    const int dim = equation_->getDimension();
+    constexpr int dimexpected = 6 + 36;
+    if (dim != dimexpected){
+        aError("dimension of equation is not 42");
+        return -1;
+    }
+    // 设置参考历元
+    equation_->setEpoch(startTime);
+    stateMapper_->setEpoch(startTime);
+    std::array<double, dimexpected> y;
+    memcpy(y.data(), &state, sizeof(CartState));
+    memcpy(&y[6], &stm, sizeof(Matrix6d));
+
+    double duration = targetTime - startTime;
+    double t = 0;
+    err = integrator_->integrate(*equation_,  y.data(), t, duration);
+    if(t != duration && !err){
+        targetTime = startTime + t;
+    }
+    memcpy(&state, y.data(), sizeof(CartState));
+    memcpy(&stm, &y[6], sizeof(Matrix6d));
+    return err;
+}
 
 errc_t HPOP::initialize()
 {

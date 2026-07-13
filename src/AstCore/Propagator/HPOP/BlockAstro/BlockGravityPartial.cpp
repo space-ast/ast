@@ -53,7 +53,7 @@ BlockGravityPartial::BlockGravityPartial(GravityField &&gravityField, int degree
 void BlockGravityPartial::init()
 {
     static auto identifierAMatrix = aIdentifier(kIdentifierAMatrix);
-    inputPorts_.push_back({identifierAMatrix, (signal_t*)&aMatrixPtr_, 36, DataPort::eDouble});
+    outputPorts_.push_back({identifierAMatrix, (signal_t*)&aMatrixPtr_, 36, DataPort::eDouble, DataPort::eAccumulate});
 }
 
 

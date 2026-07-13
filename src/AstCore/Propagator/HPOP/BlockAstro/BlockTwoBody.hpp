@@ -57,7 +57,7 @@ public:
     errc_t run(const SimTime& simTime) override;
 private:
     void init();
-private:
+protected:
     Vector3d* posCBI;                               ///< 位置
     Vector3d* accTwoBody;                           ///< 二体加速度
     Vector3d* velocityDerivative_{&vectorBuffer};   ///< 速度导数

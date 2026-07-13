@@ -27,6 +27,7 @@
 #include "AstUtil/ObjectNamed.hpp"
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/StateMapper.hpp"
+#include "AstCore/OrbitElement.hpp"
 #include <string>
 #include <vector>
 
@@ -75,14 +76,25 @@ public:
     /// @brief 获取积分器
     ODEIntegrator* getIntegrator() const;
 
-    /// @brief 轨道预报
-    /// 考虑到有停止条件，所以预报结束时间同时也是一个输出参数
+    /// @brief 轨道预报，直到达到结束时间或者触发由addEventDetector添加的事件
+    /// @details 考虑到有事件触发的预报停止条件，所以预报结束时间同时也是一个输出参数
     /// @param[in]      startTime   预报起始时间
     /// @param[in,out]  targetTime  预报结束时间
     /// @param[in,out]  position    输出位置向量
     /// @param[in,out]  velocity    输出速度向量
     /// @return errc_t  错误码
     errc_t propagate(const TimePoint& startTime, TimePoint& targetTime, Vector3d& position, Vector3d& velocity);
+    errc_t propagate(const TimePoint& startTime, TimePoint& targetTime, CartState& state){return propagate(startTime, targetTime, state.position(), state.velocity());}
+
+
+    /// @brief 带状态转换矩阵的轨道预报，直到达到结束时间或者触发由addEventDetector添加的事件
+    /// @details 考虑到有事件触发的预报停止条件，所以预报结束时间同时也是一个输出参数
+    /// @param[in]      startTime   预报起始时间
+    /// @param[in,out]  targetTime  预报结束时间
+    /// @param[in,out]  state       输出状态向量
+    /// @param[in,out]  stm         输出状态转换矩阵
+    /// @return errc_t  错误码
+    errc_t propagate(const TimePoint& startTime, TimePoint& targetTime, CartState& state, Matrix6d& stm);
 
     /// @brief 初始化
     errc_t initialize();

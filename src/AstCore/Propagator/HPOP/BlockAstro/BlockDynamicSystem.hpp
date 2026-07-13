@@ -91,6 +91,10 @@ public:
     /// @param value 状态量导数值
     void fillDerivativeData(double value) { std::fill(derivative_.begin(), derivative_.end(), value); }
 
+    /// @brief 填充累加状态量数据
+    /// @param value 累加状态量值
+    void fillAccumulateData(double value) { std::fill(accumulate_.begin(), accumulate_.end(), value); }
+
     /// @brief 初始化
     errc_t initialize();
 
@@ -121,11 +125,15 @@ public:
     /// @brief 重置动力学系统
     void reset();
 
+    /// @brief 执行动力学系统
+    errc_t run(const SimTime& simTime) final;
+
 protected:
     using StateMap = std::unordered_map<Identifier*, double*>;
 
     std::vector<BlockDerivative*>   derivativeBlocks_;  // 状态量导数函数块
     std::vector<double>             state_;             // 状态量
+    std::vector<double>             accumulate_;        // 累加状态量
     std::vector<double>             derivative_;        // 状态量导数
     StateMap                        stateMap_;          // 状态量映射表
     StateMap                        derivativeMap_;     // 状态量导数映射表

@@ -43,10 +43,7 @@ void BlockStateTransitionMatrix::init()
             (signal_t*)&aMatrixPtr_,
             36,
             DataPort::eDouble
-        }
-    };
-
-    outputPorts_ = {
+        },
         // 状态转换矩阵 Φ（6×6 = 36 元素，行优先）
         // 该端口信号会被 BlockDynamicSystem::createStateMap() 重定向到状态向量
         // 积分器负责更新 Φ，本块在 run() 中读取 Φ 用于计算 dΦ/dt

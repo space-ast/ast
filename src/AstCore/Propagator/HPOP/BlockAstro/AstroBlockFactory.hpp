@@ -133,7 +133,7 @@ public:
         else
             return new BlockThirdBodyPointMass(ephemeris, GM, frame);
     }
-
+    BlockStateTransitionMatrix* createStateTransitionMatrixBlock() { return new BlockStateTransitionMatrix(); }
 private:
     bool useSTM_;
 };

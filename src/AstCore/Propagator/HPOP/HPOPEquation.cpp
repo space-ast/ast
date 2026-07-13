@@ -71,10 +71,9 @@ errc_t HPOPEquation::evaluate(const double* y, double* dy, const double t)
     SimTime time;                                   // 仿真时间
     time.setTimePoint(epoch_ + t);                  // 设置仿真时间点
     time.setElapsedTime(t);                         // 设置仿真的相对时间
-    dynamicSystem_.fillDerivativeData(0.0);         // 填充导数数据为0
     // @bug setStateData 必须要求状态量和导数量的排列和维度与输入数据的一致
     dynamicSystem_.setStateData(y);                 // 设置状态数据
-    errc_t err = dynamicSystem_.run(time);           // 执行动力学系统
+    errc_t err = dynamicSystem_.run(time);          // 执行动力学系统
     dynamicSystem_.getDerivativeData(dy);           // 获取导数数据
     return err;                                     // 返回错误码
 }
@@ -459,6 +458,12 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     if(forceModel.useMoonGravity())
     {
         this->addBlock(factory.createThirdBodyPointMassBlock(aGetMoon(), forceModel.moonGravity(), propFrame));
+    }
+
+    // 添加 STM 状态转换矩阵函数块
+    if(forceModel.useSTM())
+    {
+        this->addBlock(factory.createStateTransitionMatrixBlock());
     }
     return eNoError;
 }
