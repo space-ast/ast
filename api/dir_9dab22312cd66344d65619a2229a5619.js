@@ -20,7 +20,7 @@ var dir_9dab22312cd66344d65619a2229a5619 =
     [ "BlockMotion.cpp", "BlockMotion_8cpp.html", null ],
     [ "BlockMotion.hpp", "BlockMotion_8hpp.html", "BlockMotion_8hpp" ],
     [ "BlockMotionPartial.cpp", "BlockMotionPartial_8cpp.html", null ],
-    [ "BlockMotionPartial.hpp", "BlockMotionPartial_8hpp.html", "BlockMotionPartial_8hpp" ],
+    [ "BlockMotionPartial.hpp", "BlockMotionPartial_8hpp.html", null ],
     [ "BlockRelativity.cpp", "BlockRelativity_8cpp.html", null ],
     [ "BlockRelativity.hpp", "BlockRelativity_8hpp.html", null ],
     [ "BlockSRP.cpp", "BlockSRP_8cpp.html", "BlockSRP_8cpp" ],
@@ -42,5 +42,5 @@ var dir_9dab22312cd66344d65619a2229a5619 =
     [ "BlockTwoBody.cpp", "BlockTwoBody_8cpp.html", null ],
     [ "BlockTwoBody.hpp", "BlockTwoBody_8hpp.html", "BlockTwoBody_8hpp" ],
     [ "BlockTwoBodyPartial.cpp", "BlockTwoBodyPartial_8cpp.html", null ],
-    [ "BlockTwoBodyPartial.hpp", "BlockTwoBodyPartial_8hpp.html", "BlockTwoBodyPartial_8hpp" ]
+    [ "BlockTwoBodyPartial.hpp", "BlockTwoBodyPartial_8hpp.html", null ]
 ];

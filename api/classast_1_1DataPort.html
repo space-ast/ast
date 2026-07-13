@@ -112,19 +112,27 @@ $(function(){initNavTree('classast_1_1DataPort.html',''); initResizable(true); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public 类型</h2></td></tr>
-<tr class="memitem:a5e6882bcc973fd708da1e4f351a66c44" id="r_a5e6882bcc973fd708da1e4f351a66c44"><td class="memItemLeft" align="right" valign="top"><a id="a5e6882bcc973fd708da1e4f351a66c44" name="a5e6882bcc973fd708da1e4f351a66c44"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>EValueType</b> { <br />
-&#160;&#160;<b>eInvalid</b> =-1
-, <b>eDouble</b> =0
-, <b>eFloat</b> =1
-, <b>eInt</b>
+<tr class="memitem:a82d0c9ea43b7a72d6b8dcc3cade435fa" id="r_a82d0c9ea43b7a72d6b8dcc3cade435fa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435fa">EValueType</a> : int8_t { <br />
+&#160;&#160;<a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435faaa24c5d938bef90dd44f57314f65e4699">eInvalid</a> =-1
+, <a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435faaa722bb750917ae0975594728b66149fa">eDouble</a> =0
+, <a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435faa0c6994eccd9eae8c2b03905bf8d1c3e0">eFloat</a> =1
+, <a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435faa21c81a6555b12be541a29dd84186dd9d">eInt</a> =2
 , <br />
-&#160;&#160;<b>eBoolean</b>
+&#160;&#160;<a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435faa0c3c6d6cbe756e851b0f80d6dc8db460">eBoolean</a> =3
 <br />
  }</td></tr>
-<tr class="separator:a5e6882bcc973fd708da1e4f351a66c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a82d0c9ea43b7a72d6b8dcc3cade435fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21106a4370b30f3068d0f47437c6658f" id="r_a21106a4370b30f3068d0f47437c6658f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21106a4370b30f3068d0f47437c6658f">EModeType</a> : int8_t { <a class="el" href="#a21106a4370b30f3068d0f47437c6658fa234f64915ee6bb76c59671914e9faa6d">eAny</a> = -1
+, <a class="el" href="#a21106a4370b30f3068d0f47437c6658fa2a7bdd92d479f7066428d613058fcd46">eAssign</a> = 0
+, <a class="el" href="#a21106a4370b30f3068d0f47437c6658fa698c0421622f91b9b0f7370749ec8273">eAccumulate</a> = 1
+ }</td></tr>
+<tr class="separator:a21106a4370b30f3068d0f47437c6658f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
+<tr class="memitem:a4ea3bb1b513e457f9bbd0b120d1d15f9" id="r_a4ea3bb1b513e457f9bbd0b120d1d15f9"><td class="memItemLeft" align="right" valign="top"><a id="a4ea3bb1b513e457f9bbd0b120d1d15f9" name="a4ea3bb1b513e457f9bbd0b120d1d15f9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DataPort</b> (<a class="el" href="classast_1_1Identifier.html">Identifier</a> *name, signal_t *signalPtr, int width, <a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435fa">EValueType</a> type, <a class="el" href="#a21106a4370b30f3068d0f47437c6658f">EModeType</a> mode=<a class="el" href="#a21106a4370b30f3068d0f47437c6658fa234f64915ee6bb76c59671914e9faa6d">eAny</a>)</td></tr>
+<tr class="separator:a4ea3bb1b513e457f9bbd0b120d1d15f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a725333b55cd9c5896e6a06e3b91759d7" id="r_a725333b55cd9c5896e6a06e3b91759d7"><td class="memItemLeft" align="right" valign="top"><a id="a725333b55cd9c5896e6a06e3b91759d7" name="a725333b55cd9c5896e6a06e3b91759d7"></a>
 AST_CORE_API errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>connect</b> (<a class="el" href="classast_1_1DataPort.html">DataPort</a> *dst)</td></tr>
 <tr class="separator:a725333b55cd9c5896e6a06e3b91759d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,7 +140,7 @@ AST_CORE_API errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>connec
 <tr class="separator:ad94a62475895a2478528afb540bcf0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25a718dda268078c96209d3049b3ecee" id="r_a25a718dda268078c96209d3049b3ecee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25a718dda268078c96209d3049b3ecee">getWidth</a> () const</td></tr>
 <tr class="separator:a25a718dda268078c96209d3049b3ecee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60f748faa6b42696ba9926c3ec1e54bf" id="r_a60f748faa6b42696ba9926c3ec1e54bf"><td class="memItemLeft" align="right" valign="top">EValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60f748faa6b42696ba9926c3ec1e54bf">getDataType</a> () const</td></tr>
+<tr class="memitem:a60f748faa6b42696ba9926c3ec1e54bf" id="r_a60f748faa6b42696ba9926c3ec1e54bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435fa">EValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60f748faa6b42696ba9926c3ec1e54bf">getDataType</a> () const</td></tr>
 <tr class="separator:a60f748faa6b42696ba9926c3ec1e54bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02626ecb7dbab28e52c9d23364f05ebd" id="r_a02626ecb7dbab28e52c9d23364f05ebd"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02626ecb7dbab28e52c9d23364f05ebd">getSignalDouble</a> () const</td></tr>
 <tr class="separator:a02626ecb7dbab28e52c9d23364f05ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,6 +162,8 @@ AST_CORE_API errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>connec
 <tr class="separator:a7e323e32e7dc572bae45525f63f20c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11886a60b2cbec2699179fa0d088e65b" id="r_a11886a60b2cbec2699179fa0d088e65b"><td class="memItemLeft" align="right" valign="top">signal_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11886a60b2cbec2699179fa0d088e65b">getSignalPtr</a> () const</td></tr>
 <tr class="separator:a11886a60b2cbec2699179fa0d088e65b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacdfe7391e349ce5701db223173a0628" id="r_aacdfe7391e349ce5701db223173a0628"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a21106a4370b30f3068d0f47437c6658f">EModeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacdfe7391e349ce5701db223173a0628">getMode</a> () const</td></tr>
+<tr class="separator:aacdfe7391e349ce5701db223173a0628"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
@@ -173,12 +183,64 @@ signal_t *&#160;</td><td class="memItemRight" valign="bottom"><b>signalPtr_</b><
 int&#160;</td><td class="memItemRight" valign="bottom"><b>width_</b></td></tr>
 <tr class="separator:a7af44933dd2d189fcd825047f605626a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9232e19783152cab0e3b285da07ac7c" id="r_ab9232e19783152cab0e3b285da07ac7c"><td class="memItemLeft" align="right" valign="top"><a id="ab9232e19783152cab0e3b285da07ac7c" name="ab9232e19783152cab0e3b285da07ac7c"></a>
-EValueType&#160;</td><td class="memItemRight" valign="bottom"><b>type_</b></td></tr>
+<a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435fa">EValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>type_</b></td></tr>
 <tr class="separator:ab9232e19783152cab0e3b285da07ac7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a987c352479736dac36de325236257ddb" id="r_a987c352479736dac36de325236257ddb"><td class="memItemLeft" align="right" valign="top"><a id="a987c352479736dac36de325236257ddb" name="a987c352479736dac36de325236257ddb"></a>
+<a class="el" href="#a21106a4370b30f3068d0f47437c6658f">EModeType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mode_</b> {<a class="el" href="#a21106a4370b30f3068d0f47437c6658fa234f64915ee6bb76c59671914e9faa6d">eAny</a>}</td></tr>
+<tr class="separator:a987c352479736dac36de325236257ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>数据端口 </p>
-</div><h2 class="groupheader">成员函数说明</h2>
+</div><h2 class="groupheader">成员枚举类型说明</h2>
+<a id="a21106a4370b30f3068d0f47437c6658f" name="a21106a4370b30f3068d0f47437c6658f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21106a4370b30f3068d0f47437c6658f">&#9670;&#160;</a></span>EModeType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a21106a4370b30f3068d0f47437c6658f">ast::DataPort::EModeType</a> : int8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a21106a4370b30f3068d0f47437c6658fa234f64915ee6bb76c59671914e9faa6d" name="a21106a4370b30f3068d0f47437c6658fa234f64915ee6bb76c59671914e9faa6d"></a>eAny&#160;</td><td class="fielddoc"><p>任意模式 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a21106a4370b30f3068d0f47437c6658fa2a7bdd92d479f7066428d613058fcd46" name="a21106a4370b30f3068d0f47437c6658fa2a7bdd92d479f7066428d613058fcd46"></a>eAssign&#160;</td><td class="fielddoc"><p>赋值模式（=），单一贡献者 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a21106a4370b30f3068d0f47437c6658fa698c0421622f91b9b0f7370749ec8273" name="a21106a4370b30f3068d0f47437c6658fa698c0421622f91b9b0f7370749ec8273"></a>eAccumulate&#160;</td><td class="fielddoc"><p>累加模式（+=），多贡献者 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a82d0c9ea43b7a72d6b8dcc3cade435fa" name="a82d0c9ea43b7a72d6b8dcc3cade435fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82d0c9ea43b7a72d6b8dcc3cade435fa">&#9670;&#160;</a></span>EValueType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435fa">ast::DataPort::EValueType</a> : int8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a82d0c9ea43b7a72d6b8dcc3cade435faaa24c5d938bef90dd44f57314f65e4699" name="a82d0c9ea43b7a72d6b8dcc3cade435faaa24c5d938bef90dd44f57314f65e4699"></a>eInvalid&#160;</td><td class="fielddoc"><p>无效数据类型 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a82d0c9ea43b7a72d6b8dcc3cade435faaa722bb750917ae0975594728b66149fa" name="a82d0c9ea43b7a72d6b8dcc3cade435faaa722bb750917ae0975594728b66149fa"></a>eDouble&#160;</td><td class="fielddoc"><p>double值 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a82d0c9ea43b7a72d6b8dcc3cade435faa0c6994eccd9eae8c2b03905bf8d1c3e0" name="a82d0c9ea43b7a72d6b8dcc3cade435faa0c6994eccd9eae8c2b03905bf8d1c3e0"></a>eFloat&#160;</td><td class="fielddoc"><p>float值 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a82d0c9ea43b7a72d6b8dcc3cade435faa21c81a6555b12be541a29dd84186dd9d" name="a82d0c9ea43b7a72d6b8dcc3cade435faa21c81a6555b12be541a29dd84186dd9d"></a>eInt&#160;</td><td class="fielddoc"><p>int值 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a82d0c9ea43b7a72d6b8dcc3cade435faa0c3c6d6cbe756e851b0f80d6dc8db460" name="a82d0c9ea43b7a72d6b8dcc3cade435faa0c3c6d6cbe756e851b0f80d6dc8db460"></a>eBoolean&#160;</td><td class="fielddoc"><p>boolean值 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
 <a id="a60f748faa6b42696ba9926c3ec1e54bf" name="a60f748faa6b42696ba9926c3ec1e54bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60f748faa6b42696ba9926c3ec1e54bf">&#9670;&#160;</a></span>getDataType()</h2>
 
@@ -189,7 +251,7 @@ EValueType&#160;</td><td class="memItemRight" valign="bottom"><b>type_</b></td><
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">EValueType ast::DataPort::getDataType </td>
+          <td class="memname"><a class="el" href="#a82d0c9ea43b7a72d6b8dcc3cade435fa">EValueType</a> ast::DataPort::getDataType </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -204,6 +266,34 @@ EValueType&#160;</td><td class="memItemRight" valign="bottom"><b>type_</b></td><
 
 <p>获取数据端口的数据类型 </p>
 <dl class="section return"><dt>返回</dt><dd>数据类型 </dd></dl>
+
+</div>
+</div>
+<a id="aacdfe7391e349ce5701db223173a0628" name="aacdfe7391e349ce5701db223173a0628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacdfe7391e349ce5701db223173a0628">&#9670;&#160;</a></span>getMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a21106a4370b30f3068d0f47437c6658f">EModeType</a> ast::DataPort::getMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取数据端口的数据模式 </p>
+<dl class="section return"><dt>返回</dt><dd>数据模式 </dd></dl>
 
 </div>
 </div>

@@ -152,6 +152,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setIntegrator</b> (<a
 <tr class="separator:a6b39183be54694b152d01ee57170fa16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7730a7e7ca7125c8780c5118f1e6ff5" id="r_ae7730a7e7ca7125c8780c5118f1e6ff5"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7730a7e7ca7125c8780c5118f1e6ff5">propagate</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;startTime, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;targetTime, Vector3d &amp;position, Vector3d &amp;velocity)</td></tr>
 <tr class="separator:ae7730a7e7ca7125c8780c5118f1e6ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62f90196f95cc3cb261930c99767693" id="r_ab62f90196f95cc3cb261930c99767693"><td class="memItemLeft" align="right" valign="top"><a id="ab62f90196f95cc3cb261930c99767693" name="ab62f90196f95cc3cb261930c99767693"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>propagate</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;startTime, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;targetTime, <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state)</td></tr>
+<tr class="separator:ab62f90196f95cc3cb261930c99767693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86f3fd08d7ffb2767ce06dca0438f325" id="r_a86f3fd08d7ffb2767ce06dca0438f325"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86f3fd08d7ffb2767ce06dca0438f325">propagate</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;startTime, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;targetTime, <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state, <a class="el" href="classast_1_1MatrixMN.html">Matrix6d</a> &amp;stm)</td></tr>
+<tr class="separator:a86f3fd08d7ffb2767ce06dca0438f325"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97b91190d3858e3ad750e33992031180" id="r_a97b91190d3858e3ad750e33992031180"><td class="memItemLeft" align="right" valign="top"><a id="a97b91190d3858e3ad750e33992031180" name="a97b91190d3858e3ad750e33992031180"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</td></tr>
 <tr class="separator:a97b91190d3858e3ad750e33992031180"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -368,8 +373,51 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 </div>
 </div>
+<a id="a86f3fd08d7ffb2767ce06dca0438f325" name="a86f3fd08d7ffb2767ce06dca0438f325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86f3fd08d7ffb2767ce06dca0438f325">&#9670;&#160;</a></span>propagate() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::HPOP::propagate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>startTime</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>targetTime</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1CartState.html">CartState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix6d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>stm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>带状态转换矩阵的轨道预报，直到达到结束时间或者触发由addEventDetector添加的事件 </p>
+<p>考虑到有事件触发的预报停止条件，所以预报结束时间同时也是一个输出参数 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">startTime</td><td>预报起始时间 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">targetTime</td><td>预报结束时间 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">state</td><td>输出状态向量 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">stm</td><td>输出状态转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+</div>
+</div>
 <a id="ae7730a7e7ca7125c8780c5118f1e6ff5" name="ae7730a7e7ca7125c8780c5118f1e6ff5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7730a7e7ca7125c8780c5118f1e6ff5">&#9670;&#160;</a></span>propagate()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7730a7e7ca7125c8780c5118f1e6ff5">&#9670;&#160;</a></span>propagate() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -397,8 +445,8 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
       </table>
 </div><div class="memdoc">
 
-<p>轨道预报 考虑到有停止条件，所以预报结束时间同时也是一个输出参数 </p>
-<dl class="params"><dt>参数</dt><dd>
+<p>轨道预报，直到达到结束时间或者触发由addEventDetector添加的事件 </p>
+<p>考虑到有事件触发的预报停止条件，所以预报结束时间同时也是一个输出参数 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">startTime</td><td>预报起始时间 </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">targetTime</td><td>预报结束时间 </td></tr>

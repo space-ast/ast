@@ -106,22 +106,33 @@ $(function(){initNavTree('BlockMotionPartial_8hpp_source.html',''); initResizabl
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/BlockMotion.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1BlockMotionPartial.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1BlockMotionPartial.html">BlockMotionPartial</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1BlockMotion.html">BlockMotion</a></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">using </span>BlockMotion::BlockMotion;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="BlockMotion_8hpp.html">BlockMotion.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstMath/Matrix.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="};">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classast_1_1BlockMotionPartial.html">   58</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1BlockMotionPartial.html">BlockMotionPartial</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1BlockMotion.html">BlockMotion</a></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="classast_1_1BlockMotionPartial.html">BlockMotionPartial</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    errc_t <a class="code hl_function" href="classast_1_1BlockMotion.html#a9590a23cae8e7361e5c38d687e9daa33">run</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SimTime.html">SimTime</a>&amp; simTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> init();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>* aMatrixPtr_{&amp;aMatrixBuffer_};   </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>  aMatrixBuffer_{};               </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>};</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1BlockMotionPartial_html"><div class="ttname"><a href="classast_1_1BlockMotionPartial.html">ast::BlockMotionPartial</a></div><div class="ttdef"><b>定义</b> BlockMotionPartial.hpp:34</div></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aBlockMotion_8hpp_html"><div class="ttname"><a href="BlockMotion_8hpp.html">BlockMotion.hpp</a></div><div class="ttdoc">~</div></div>
+<div class="ttc" id="aclassast_1_1BlockMotionPartial_html"><div class="ttname"><a href="classast_1_1BlockMotionPartial.html">ast::BlockMotionPartial</a></div><div class="ttdoc">运动学偏导数函数块</div><div class="ttdef"><b>定义</b> BlockMotionPartial.hpp:59</div></div>
 <div class="ttc" id="aclassast_1_1BlockMotion_html"><div class="ttname"><a href="classast_1_1BlockMotion.html">ast::BlockMotion</a></div><div class="ttdoc">运动学函数块</div><div class="ttdef"><b>定义</b> BlockMotion.hpp:44</div></div>
+<div class="ttc" id="aclassast_1_1BlockMotion_html_a9590a23cae8e7361e5c38d687e9daa33"><div class="ttname"><a href="classast_1_1BlockMotion.html#a9590a23cae8e7361e5c38d687e9daa33">ast::BlockMotion::run</a></div><div class="ttdeci">errc_t run(const SimTime &amp;simTime) override</div><div class="ttdoc">计算函数块</div><div class="ttdef"><b>定义</b> BlockMotion.cpp:59</div></div>
+<div class="ttc" id="aclassast_1_1MatrixMN_html"><div class="ttname"><a href="classast_1_1MatrixMN.html">ast::MatrixMN&lt; double, 6, 6 &gt;</a></div></div>
+<div class="ttc" id="aclassast_1_1SimTime_html"><div class="ttname"><a href="classast_1_1SimTime.html">ast::SimTime</a></div><div class="ttdoc">仿真时间</div><div class="ttdef"><b>定义</b> SimTime.hpp:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

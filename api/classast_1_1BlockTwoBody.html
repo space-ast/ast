@@ -100,6 +100,7 @@ $(function(){initNavTree('classast_1_1BlockTwoBody.html',''); initResizable(true
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1BlockTwoBody-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::BlockTwoBody类 参考</div></div>
 </div><!--header-->
@@ -116,7 +117,7 @@ $(function(){initNavTree('classast_1_1BlockTwoBody.html',''); initResizable(true
   <map id="ast::BlockTwoBody_map" name="ast::BlockTwoBody_map">
 <area href="classast_1_1BlockDerivative.html" title="导数函数块" alt="ast::BlockDerivative" shape="rect" coords="0,56,153,80"/>
 <area href="classast_1_1FuncBlock.html" title="函数块/功能块" alt="ast::FuncBlock" shape="rect" coords="0,0,153,24"/>
-<area href="classast_1_1BlockTwoBodyPartial.html" alt="ast::BlockTwoBodyPartial" shape="rect" coords="0,168,153,192"/>
+<area href="classast_1_1BlockTwoBodyPartial.html" title="二体引力偏导数（梯度）函数块" alt="ast::BlockTwoBodyPartial" shape="rect" coords="0,168,153,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -160,9 +161,9 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <tr class="separator:a8c4dea4839ed707f7c23a5600a276f47 inherit pub_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b9dc6277cc4d9936f87e4caeb688cd0 inherit pub_methods_classast_1_1FuncBlock" id="r_a2b9dc6277cc4d9936f87e4caeb688cd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataPort.html">DataPort</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#a2b9dc6277cc4d9936f87e4caeb688cd0">getOutputPort</a> (size_t portIndex)</td></tr>
 <tr class="separator:a2b9dc6277cc4d9936f87e4caeb688cd0 inherit pub_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a007a82408f36828f84cd8324cf6627f4 inherit pub_methods_classast_1_1FuncBlock" id="r_a007a82408f36828f84cd8324cf6627f4"><td class="memItemLeft" align="right" valign="top">DataPort::EValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#a007a82408f36828f84cd8324cf6627f4">getInputPortDataType</a> (size_t portIndex)</td></tr>
+<tr class="memitem:a007a82408f36828f84cd8324cf6627f4 inherit pub_methods_classast_1_1FuncBlock" id="r_a007a82408f36828f84cd8324cf6627f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataPort.html#a82d0c9ea43b7a72d6b8dcc3cade435fa">DataPort::EValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#a007a82408f36828f84cd8324cf6627f4">getInputPortDataType</a> (size_t portIndex)</td></tr>
 <tr class="separator:a007a82408f36828f84cd8324cf6627f4 inherit pub_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38b810b2b15cd0698b4f702e035756c9 inherit pub_methods_classast_1_1FuncBlock" id="r_a38b810b2b15cd0698b4f702e035756c9"><td class="memItemLeft" align="right" valign="top">DataPort::EValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#a38b810b2b15cd0698b4f702e035756c9">getOutputPortDataType</a> (size_t portIndex)</td></tr>
+<tr class="memitem:a38b810b2b15cd0698b4f702e035756c9 inherit pub_methods_classast_1_1FuncBlock" id="r_a38b810b2b15cd0698b4f702e035756c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DataPort.html#a82d0c9ea43b7a72d6b8dcc3cade435fa">DataPort::EValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#a38b810b2b15cd0698b4f702e035756c9">getOutputPortDataType</a> (size_t portIndex)</td></tr>
 <tr class="separator:a38b810b2b15cd0698b4f702e035756c9 inherit pub_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad57a2c5a6f3cf120959dd8b7608649ab inherit pub_methods_classast_1_1FuncBlock" id="r_ad57a2c5a6f3cf120959dd8b7608649ab"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#ad57a2c5a6f3cf120959dd8b7608649ab">getInputPortSignal</a> (size_t portIndex)</td></tr>
 <tr class="separator:ad57a2c5a6f3cf120959dd8b7608649ab inherit pub_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,13 +178,23 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <tr class="memitem:ac93da2888c1a3cf60550bbac3a6aaa85 inherit pub_methods_classast_1_1FuncBlock" id="r_ac93da2888c1a3cf60550bbac3a6aaa85"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#ac93da2888c1a3cf60550bbac3a6aaa85">getOutputPortWidth</a> (size_t portIndex)</td></tr>
 <tr class="separator:ac93da2888c1a3cf60550bbac3a6aaa85 inherit pub_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
-额外继承的成员函数</h2></td></tr>
-<tr class="inherit_header pub_static_methods_classast_1_1FuncBlock"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1FuncBlock')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1FuncBlock.html">ast::FuncBlock</a></td></tr>
-<tr class="memitem:ac36d87e6254623a078cbb18739264816 inherit pub_static_methods_classast_1_1FuncBlock" id="r_ac36d87e6254623a078cbb18739264816"><td class="memItemLeft" align="right" valign="top">static errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#ac36d87e6254623a078cbb18739264816">connect</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *src, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> srcPortName, <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *dst, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dstPortName)</td></tr>
-<tr class="separator:ac36d87e6254623a078cbb18739264816 inherit pub_static_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c9137e7b1df3441af1c003d450a85c2 inherit pub_static_methods_classast_1_1FuncBlock" id="r_a9c9137e7b1df3441af1c003d450a85c2"><td class="memItemLeft" align="right" valign="top">static errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#a9c9137e7b1df3441af1c003d450a85c2">connect</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *src, size_t srcPortIndex, <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *dst, size_t dstPortIndex)</td></tr>
-<tr class="separator:a9c9137e7b1df3441af1c003d450a85c2 inherit pub_static_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:aebfae8dca471114652426b70c4c1305f" id="r_aebfae8dca471114652426b70c4c1305f"><td class="memItemLeft" align="right" valign="top"><a id="aebfae8dca471114652426b70c4c1305f" name="aebfae8dca471114652426b70c4c1305f"></a>
+Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>posCBI</b></td></tr>
+<tr class="separator:aebfae8dca471114652426b70c4c1305f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af707d44c1fc5ac3af6e82e59f55c67d6" id="r_af707d44c1fc5ac3af6e82e59f55c67d6"><td class="memItemLeft" align="right" valign="top"><a id="af707d44c1fc5ac3af6e82e59f55c67d6" name="af707d44c1fc5ac3af6e82e59f55c67d6"></a>
+Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>accTwoBody</b></td></tr>
+<tr class="separator:af707d44c1fc5ac3af6e82e59f55c67d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88f76ce302922ce43c964b6e87d14e4b" id="r_a88f76ce302922ce43c964b6e87d14e4b"><td class="memItemLeft" align="right" valign="top"><a id="a88f76ce302922ce43c964b6e87d14e4b" name="a88f76ce302922ce43c964b6e87d14e4b"></a>
+Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>velocityDerivative_</b> {&amp;<a class="el" href="#a1f4d89d1ead1ac92468d69054a6e2fad">vectorBuffer</a>}</td></tr>
+<tr class="separator:a88f76ce302922ce43c964b6e87d14e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f4d89d1ead1ac92468d69054a6e2fad" id="r_a1f4d89d1ead1ac92468d69054a6e2fad"><td class="memItemLeft" align="right" valign="top"><a id="a1f4d89d1ead1ac92468d69054a6e2fad" name="a1f4d89d1ead1ac92468d69054a6e2fad"></a>
+Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>vectorBuffer</b></td></tr>
+<tr class="separator:a1f4d89d1ead1ac92468d69054a6e2fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b8df0284a67098923f748cf923724f3" id="r_a7b8df0284a67098923f748cf923724f3"><td class="memItemLeft" align="right" valign="top"><a id="a7b8df0284a67098923f748cf923724f3" name="a7b8df0284a67098923f748cf923724f3"></a>
+AST_PROPERTIES&#160;</td><td class="memItemRight" valign="bottom">: double twoBodyGM_</td></tr>
+<tr class="separator:a7b8df0284a67098923f748cf923724f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classast_1_1BlockDerivative"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1BlockDerivative')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1BlockDerivative.html">ast::BlockDerivative</a></td></tr>
 <tr class="memitem:ac869516d83ef23185f2f1cadb151c573 inherit pro_attribs_classast_1_1BlockDerivative" id="r_ac869516d83ef23185f2f1cadb151c573"><td class="memItemLeft" align="right" valign="top">
 std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>derivativePorts_</b></td></tr>
@@ -195,6 +206,14 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <tr class="memitem:aece1c71a258a490d4fc63df2f3b911be inherit pro_attribs_classast_1_1FuncBlock" id="r_aece1c71a258a490d4fc63df2f3b911be"><td class="memItemLeft" align="right" valign="top">
 std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>outputPorts_</b></td></tr>
 <tr class="separator:aece1c71a258a490d4fc63df2f3b911be inherit pro_attribs_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pub_static_methods_classast_1_1FuncBlock"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1FuncBlock')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1FuncBlock.html">ast::FuncBlock</a></td></tr>
+<tr class="memitem:ac36d87e6254623a078cbb18739264816 inherit pub_static_methods_classast_1_1FuncBlock" id="r_ac36d87e6254623a078cbb18739264816"><td class="memItemLeft" align="right" valign="top">static errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#ac36d87e6254623a078cbb18739264816">connect</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *src, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> srcPortName, <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *dst, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dstPortName)</td></tr>
+<tr class="separator:ac36d87e6254623a078cbb18739264816 inherit pub_static_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c9137e7b1df3441af1c003d450a85c2 inherit pub_static_methods_classast_1_1FuncBlock" id="r_a9c9137e7b1df3441af1c003d450a85c2"><td class="memItemLeft" align="right" valign="top">static errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#a9c9137e7b1df3441af1c003d450a85c2">connect</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *src, size_t srcPortIndex, <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *dst, size_t dstPortIndex)</td></tr>
+<tr class="separator:a9c9137e7b1df3441af1c003d450a85c2 inherit pub_static_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>二体引力函数块 </p>
@@ -245,6 +264,8 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 <p>实现了 <a class="el" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">ast::FuncBlock</a>.</p>
+
+<p>被 <a class="el" href="classast_1_1BlockTwoBodyPartial.html#a07e2dcf98e693007f17167cb50e8a25b">ast::BlockTwoBodyPartial</a> 重载.</p>
 
 </div>
 </div>
