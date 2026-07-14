@@ -64,7 +64,7 @@ BlockDragPartial::BlockDragPartial(Atmosphere* atmosphere, double dragCoefficien
 void BlockDragPartial::init()
 {
     static auto identifierAMatrix = aIdentifier(kIdentifierAMatrix);
-    static auto identAccSensDrag = aIdentifier(kIdentifierAccSensitivityToDrag);
+    static auto identAccSensDrag = aIdentifier(kIdentifierAccSensitivityWrtDrag);
     outputPorts_.insert(outputPorts_.end(), {
         {identifierAMatrix, (signal_t*)&aMatrixPtr_, 36, DataPort::eDouble, DataPort::eAccumulate},
         {identAccSensDrag, (signal_t*)&accSensitivityToDrag_, 3, DataPort::eDouble}

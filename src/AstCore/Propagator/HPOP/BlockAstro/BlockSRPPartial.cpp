@@ -49,7 +49,7 @@ BlockSRPPartial::BlockSRPPartial(EclipseCalculator* eclipseCalculator, double cr
 void BlockSRPPartial::init()
 {
     static auto identifierAMatrix = aIdentifier(kIdentifierAMatrix);
-    static auto identAccSensSRP = aIdentifier(kIdentifierAccSensitivityToSRP);
+    static auto identAccSensSRP = aIdentifier(kIdentifierAccSensitivityWrtSRP);
     outputPorts_.insert(outputPorts_.end(), {
         {identifierAMatrix, (signal_t*)&aMatrixPtr_, 36, DataPort::eDouble, DataPort::eAccumulate},
         {identAccSensSRP, (signal_t*)&accSensitivityToSRP_, 3, DataPort::eDouble}

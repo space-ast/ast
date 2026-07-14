@@ -62,6 +62,28 @@ public:
         CartState* cartState = (CartState*)y;
         state.getState(*cartState);
     }
+    void toState(const double* y, double x, CartState& state) const override
+    {
+        // 设置轨道状态
+        // @todo 这里需要处理其他一般情况
+        CartState* cartState = (CartState*)y;
+        state = *cartState;
+    }
+    errc_t toStateTransitionMatrix(const double* y, double x, Matrix6d& stm) const override
+    {
+        // @todo 这里需要处理其他一般情况
+        return 0;
+    }
+    errc_t toStateSensitivityWrtDrag(const double* y, double x, Vector6d& stateSensWrtDrag) const override
+    {
+        // @todo 这里需要处理其他一般情况
+        return 0;
+    }
+    errc_t toStateSensitivityWrtSRP(const double* y, double x, Vector6d& stateSensWrtSRP) const override
+    {
+        // @todo 这里需要处理其他一般情况
+        return 0;
+    }
 };
 
 HPOP::HPOP()
@@ -190,7 +212,7 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, CartSt
 
 errc_t HPOP::propagate(const TimePoint& startTime, TimePoint& targetTime,
                        CartState& state, Matrix6d& stm,
-                       Vector6d& stateSensToDrag, Vector6d& stateSensToSRP)
+                       Vector6d& stateSensWrtDrag, Vector6d& stateSensWrtSRP)
 {
     errc_t err = this->initialize();
     if (err)
@@ -219,16 +241,16 @@ errc_t HPOP::propagate(const TimePoint& startTime, TimePoint& targetTime,
     size_t idxDragSens = (size_t)-1;
     size_t idxSRPSens = (size_t)-1;
     if (hasB) {
-        idxDragSens = dynSys.getStateIndex(kIdentifierStateSensitivityToDrag);
+        idxDragSens = dynSys.getStateIndex(kIdentifierStateSensitivityWrtDrag);
         if (idxDragSens == (size_t)-1) {
-            aError("failed to find StateSensitivityToDrag in state vector");
+            aError("failed to find StateSensitivityWrtDrag in state vector");
             return -1;
         }
     }
     if (hasK) {
-        idxSRPSens = dynSys.getStateIndex(kIdentifierStateSensitivityToSRP);
+        idxSRPSens = dynSys.getStateIndex(kIdentifierStateSensitivityWrtSRP);
         if (idxSRPSens == (size_t)-1) {
-            aError("failed to find StateSensitivityToSRP in state vector");
+            aError("failed to find StateSensitivityWrtSRP in state vector");
             return -1;
         }
     }
@@ -239,10 +261,10 @@ errc_t HPOP::propagate(const TimePoint& startTime, TimePoint& targetTime,
     memcpy(&y[idxVel], state.velocity().data(), 3 * sizeof(double));
     memcpy(&y[idxSTM], &stm, sizeof(Matrix6d));
     if (hasB) {
-        memcpy(&y[idxDragSens], stateSensToDrag.data(), 6 * sizeof(double));
+        memcpy(&y[idxDragSens], stateSensWrtDrag.data(), 6 * sizeof(double));
     }
     if (hasK) {
-        memcpy(&y[idxSRPSens], stateSensToSRP.data(), 6 * sizeof(double));
+        memcpy(&y[idxSRPSens], stateSensWrtSRP.data(), 6 * sizeof(double));
     }
 
     err = integrateState(startTime, targetTime, y.data());
@@ -253,10 +275,10 @@ errc_t HPOP::propagate(const TimePoint& startTime, TimePoint& targetTime,
     memcpy(state.velocity().data(), &y[idxVel], 3 * sizeof(double));
     memcpy(&stm, &y[idxSTM], sizeof(Matrix6d));
     if (hasB) {
-        memcpy(stateSensToDrag.data(), &y[idxDragSens], 6 * sizeof(double));
+        memcpy(stateSensWrtDrag.data(), &y[idxDragSens], 6 * sizeof(double));
     }
     if (hasK) {
-        memcpy(stateSensToSRP.data(), &y[idxSRPSens], 6 * sizeof(double));
+        memcpy(stateSensWrtSRP.data(), &y[idxSRPSens], 6 * sizeof(double));
     }
 
     return err;

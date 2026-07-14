@@ -55,10 +55,10 @@ constexpr const char* kIdentifierAccRelativity = "AccRelativity";   ///< 相对�
 constexpr const char* kIdentifierAccDrag = "AccDrag";               ///< 大气阻力加速度（3维向量）
 constexpr const char* kIdentifierAccSRP = "AccSRP";                 ///< 太阳辐射压力加速度（3维向量）
 
-constexpr const char* kIdentifierStateSensitivityToDrag = "StateSensitivityToDrag";  ///< Ψ_B：状态对弹道系数的偏导（6维向量）
-constexpr const char* kIdentifierStateSensitivityToSRP  = "StateSensitivityToSRP";   ///< Ψ_K：状态对SRP综合参数的偏导（6维向量）
-constexpr const char* kIdentifierAccSensitivityToDrag   = "AccSensitivityToDrag";    ///< ∂a_drag/∂B：阻力加速度对弹道系数的偏导（3维向量）
-constexpr const char* kIdentifierAccSensitivityToSRP    = "AccSensitivityToSRP";     ///< ∂a_srp/∂K：SRP加速度对SRP综合参数的偏导（3维向量）
+constexpr const char* kIdentifierStateSensitivityWrtDrag = "StateSensitivityWrtDrag";  ///< Ψ_B：状态对弹道系数(B=Cd*A/m)的偏导（6维向量）
+constexpr const char* kIdentifierStateSensitivityWrtSRP  = "StateSensitivityWrtSRP";   ///< Ψ_K：状态对SRP综合参数(K=Cr*A/m)的的偏导（6维向量）
+constexpr const char* kIdentifierAccSensitivityWrtDrag   = "AccSensitivityWrtDrag";    ///< ∂a_drag/∂B：阻力加速度对弹道系数的偏导（3维向量）
+constexpr const char* kIdentifierAccSensitivityWrtSRP    = "AccSensitivityWrtSRP";     ///< ∂a_srp/∂K：SRP加速度对SRP综合参数的偏导（3维向量）
 
 /// @}
 

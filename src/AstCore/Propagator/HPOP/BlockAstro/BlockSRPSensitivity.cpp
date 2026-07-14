@@ -36,8 +36,8 @@ BlockSRPSensitivity::BlockSRPSensitivity()
 void BlockSRPSensitivity::init()
 {
     static auto identifierAMatrix = aIdentifier(kIdentifierAMatrix);
-    static auto identStateSensSRP = aIdentifier(kIdentifierStateSensitivityToSRP);
-    static auto identAccSensSRP = aIdentifier(kIdentifierAccSensitivityToSRP);
+    static auto identStateSensSRP = aIdentifier(kIdentifierStateSensitivityWrtSRP);
+    static auto identAccSensSRP = aIdentifier(kIdentifierAccSensitivityWrtSRP);
 
     inputPorts_ = {
         {identifierAMatrix, (signal_t*)&aMatrixPtr_, 36, DataPort::eDouble},

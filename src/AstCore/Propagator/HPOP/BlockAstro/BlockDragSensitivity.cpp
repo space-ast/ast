@@ -36,8 +36,8 @@ BlockDragSensitivity::BlockDragSensitivity()
 void BlockDragSensitivity::init()
 {
     static auto identifierAMatrix = aIdentifier(kIdentifierAMatrix);
-    static auto identStateSensDrag = aIdentifier(kIdentifierStateSensitivityToDrag);
-    static auto identAccSensDrag = aIdentifier(kIdentifierAccSensitivityToDrag);
+    static auto identStateSensDrag = aIdentifier(kIdentifierStateSensitivityWrtDrag);
+    static auto identAccSensDrag = aIdentifier(kIdentifierAccSensitivityWrtDrag);
 
     inputPorts_ = {
         {identifierAMatrix, (signal_t*)&aMatrixPtr_, 36, DataPort::eDouble},

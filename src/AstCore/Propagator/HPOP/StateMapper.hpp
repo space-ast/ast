@@ -22,6 +22,9 @@
 
 #include "AstGlobal.h"
 #include "AstCore/TimePoint.hpp"
+#include "AstCore/OrbitElement.hpp"
+#include "AstMath/Vector.hpp"
+#include "AstMath/Matrix.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -47,6 +50,37 @@ public:
     /// @param[in] state 航天器状态
     /// @param[out] y 状态向量指针
     virtual void fromState(const SpacecraftState& state, double* y, double& x) const = 0;
+
+    /// @brief 将状态向量映射到笛卡尔状态
+    /// @param[in] y 状态向量指针
+    /// @param[out] state 笛卡尔状态
+    virtual void toState(const double* y, double x, CartState& state) const = 0;
+    CartState toCartState(const double* y, double x) const{CartState state{}; toState(y, x, state); return state;}
+
+    /// @brief 将状态向量映射到状态转移矩阵
+    /// @param[in] y 状态向量指针
+    /// @param[in] x 自变量
+    /// @param[out] stm 状态转移矩阵
+    /// @return errc_t 错误码
+    virtual errc_t toStateTransitionMatrix(const double* y, double x, Matrix6d& stm) const = 0;
+    Matrix6d toStateTransitionMatrix(const double* y, double x) const{Matrix6d stm{}; toStateTransitionMatrix(y, x, stm); return stm;}
+
+    /// @brief 将状态向量映射到状态相对于弹道系数B的敏感性向量(笛卡尔状态量对阻力弹道系数(B = Cd·A/m)的偏导)
+    /// @param[in] y 状态向量指针
+    /// @param[in] x 自变量
+    /// @param[out] stateSensToDrag 状态敏感性向量
+    /// @return errc_t 错误码
+    virtual errc_t toStateSensitivityWrtDrag(const double* y, double x, Vector6d& stateSensWrtDrag) const = 0;
+    Vector6d toStateSensitivityWrtDrag(const double* y, double x) const{Vector6d stateSensWrtDrag{}; toStateSensitivityWrtDrag(y, x, stateSensWrtDrag); return stateSensWrtDrag;}
+
+    /// @brief 将状态向量映射到状态相对于SRP综合参数K的敏感性向量(笛卡尔状态量对SRP综合参数(K = Cr·A/m)的偏导)
+    /// @param[in] y 状态向量指针
+    /// @param[in] x 自变量
+    /// @param[out] stateSensWrtSRP 状态敏感性向量
+    /// @return errc_t 错误码
+    virtual errc_t toStateSensitivityWrtSRP(const double* y, double x, Vector6d& stateSensWrtSRP) const = 0;
+    Vector6d toStateSensitivityWrtSRP(const double* y, double x) const{Vector6d stateSensWrtSRP{}; toStateSensitivityWrtSRP(y, x, stateSensWrtSRP); return stateSensWrtSRP;}
+
 
     /// @brief 将自变量映射到时间点
     /// @param[in] x 自变量
