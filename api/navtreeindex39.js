@@ -1,5 +1,16 @@
 var NAVTREEINDEX39 =
 {
+"classast_1_1ScStateCalcLongitude.html":[3,0,0,703],
+"classast_1_1ScStateCalcLongitudeRate.html":[2,0,0,705],
+"classast_1_1ScStateCalcLongitudeRate.html":[3,0,0,704],
+"classast_1_1ScStateCalcMCSDeltaV.html":[2,0,0,716],
+"classast_1_1ScStateCalcMCSDeltaV.html":[3,0,0,715],
+"classast_1_1ScStateCalcMCSDeltaVSquared.html":[2,0,0,717],
+"classast_1_1ScStateCalcMCSDeltaVSquared.html":[3,0,0,716],
+"classast_1_1ScStateCalcMagFieldDipoleL.html":[2,0,0,708],
+"classast_1_1ScStateCalcMagFieldDipoleL.html":[3,0,0,707],
+"classast_1_1ScStateCalcMagneticFieldForce.html":[2,0,0,709],
+"classast_1_1ScStateCalcMagneticFieldForce.html":[3,0,0,708],
 "classast_1_1ScStateCalcMagneticFieldStrength.html":[2,0,0,710],
 "classast_1_1ScStateCalcMagneticFieldStrength.html":[3,0,0,709],
 "classast_1_1ScStateCalcManeuverSpecificImpulse.html":[2,0,0,711],
@@ -238,16 +249,5 @@ var NAVTREEINDEX39 =
 "classast_1_1Scenario.html#a54e4e3433a2044bc7372db4ebffe2404":[3,0,0,603,1],
 "classast_1_1Scenario.html#a5c50d997d7f136227e0698c2f2fe938d":[2,0,0,604,6],
 "classast_1_1Scenario.html#a5c50d997d7f136227e0698c2f2fe938d":[3,0,0,603,6],
-"classast_1_1Scenario.html#a5d6565f06b6be9db2a2c40316764e1d2":[2,0,0,604,12],
-"classast_1_1Scenario.html#a5d6565f06b6be9db2a2c40316764e1d2":[3,0,0,603,12],
-"classast_1_1Scenario.html#a6d1d4dafdac38429f13a076df9142bc2":[2,0,0,604,2],
-"classast_1_1Scenario.html#a6d1d4dafdac38429f13a076df9142bc2":[3,0,0,603,2],
-"classast_1_1Scenario.html#a6ec9d7b47cc8127819c9039e9839a1c4":[2,0,0,604,7],
-"classast_1_1Scenario.html#a6ec9d7b47cc8127819c9039e9839a1c4":[3,0,0,603,7],
-"classast_1_1Scenario.html#a7b8d62d59f200a67217604990f710298":[2,0,0,604,0],
-"classast_1_1Scenario.html#a7b8d62d59f200a67217604990f710298":[3,0,0,603,0],
-"classast_1_1Scenario.html#aae49fcf2f78c55ae90ac5aac1cb8e0eb":[2,0,0,604,3],
-"classast_1_1Scenario.html#aae49fcf2f78c55ae90ac5aac1cb8e0eb":[3,0,0,603,3],
-"classast_1_1Scenario.html#ab72676b9e50fed7d9e0f89af4430341f":[2,0,0,604,13],
-"classast_1_1Scenario.html#ab72676b9e50fed7d9e0f89af4430341f":[3,0,0,603,13]
+"classast_1_1Scenario.html#a5d6565f06b6be9db2a2c40316764e1d2":[2,0,0,604,12]
 };

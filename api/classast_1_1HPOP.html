@@ -157,11 +157,14 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>propagate</b> (cons
 <tr class="separator:ab62f90196f95cc3cb261930c99767693"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86f3fd08d7ffb2767ce06dca0438f325" id="r_a86f3fd08d7ffb2767ce06dca0438f325"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86f3fd08d7ffb2767ce06dca0438f325">propagate</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;startTime, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;targetTime, <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state, <a class="el" href="classast_1_1MatrixMN.html">Matrix6d</a> &amp;stm)</td></tr>
 <tr class="separator:a86f3fd08d7ffb2767ce06dca0438f325"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2125a0307f18c8da5abfd1fa87970eab" id="r_a2125a0307f18c8da5abfd1fa87970eab"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2125a0307f18c8da5abfd1fa87970eab">propagate</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;startTime, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;targetTime, <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state, <a class="el" href="classast_1_1MatrixMN.html">Matrix6d</a> &amp;stm, Vector6d &amp;stateSensToDrag, Vector6d &amp;stateSensToSRP)</td></tr>
-<tr class="separator:a2125a0307f18c8da5abfd1fa87970eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a807929d7049132054f6a11daa0c49ba4" id="r_a807929d7049132054f6a11daa0c49ba4"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a807929d7049132054f6a11daa0c49ba4">propagate</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;startTime, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;targetTime, <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state, <a class="el" href="classast_1_1MatrixMN.html">Matrix6d</a> &amp;stm, Vector6d &amp;stateSensWrtDrag, Vector6d &amp;stateSensWrtSRP)</td></tr>
+<tr class="separator:a807929d7049132054f6a11daa0c49ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97b91190d3858e3ad750e33992031180" id="r_a97b91190d3858e3ad750e33992031180"><td class="memItemLeft" align="right" valign="top"><a id="a97b91190d3858e3ad750e33992031180" name="a97b91190d3858e3ad750e33992031180"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</td></tr>
 <tr class="separator:a97b91190d3858e3ad750e33992031180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758e4dcdbe1fb8410cf48f29ba5c99cf" id="r_a758e4dcdbe1fb8410cf48f29ba5c99cf"><td class="memItemLeft" align="right" valign="top"><a id="a758e4dcdbe1fb8410cf48f29ba5c99cf" name="a758e4dcdbe1fb8410cf48f29ba5c99cf"></a>
+<a class="el" href="classast_1_1StateMapper.html">StateMapper</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>stateMapper</b> () const</td></tr>
+<tr class="separator:a758e4dcdbe1fb8410cf48f29ba5c99cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17be20cd12190596f3802c3976dcadd8" id="r_a17be20cd12190596f3802c3976dcadd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17be20cd12190596f3802c3976dcadd8">addEventDetector</a> (<a class="el" href="classast_1_1EventDetector.html">EventDetector</a> *eventDetector)</td></tr>
 <tr class="separator:a17be20cd12190596f3802c3976dcadd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3209e7dfccd8904d4d2481150f625103" id="r_a3209e7dfccd8904d4d2481150f625103"><td class="memItemLeft" align="right" valign="top"><a id="a3209e7dfccd8904d4d2481150f625103" name="a3209e7dfccd8904d4d2481150f625103"></a>
@@ -409,8 +412,8 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">startTime</td><td>预报起始时间 </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">targetTime</td><td>预报结束时间 </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">state</td><td>输出状态向量 </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">stm</td><td>输出状态转换矩阵 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">state</td><td>状态向量 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">stm</td><td>状态转换矩阵 </td></tr>
   </table>
   </dd>
 </dl>
@@ -418,8 +421,8 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 </div>
 </div>
-<a id="a2125a0307f18c8da5abfd1fa87970eab" name="a2125a0307f18c8da5abfd1fa87970eab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2125a0307f18c8da5abfd1fa87970eab">&#9670;&#160;</a></span>propagate() <span class="overload">[2/3]</span></h2>
+<a id="a807929d7049132054f6a11daa0c49ba4" name="a807929d7049132054f6a11daa0c49ba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a807929d7049132054f6a11daa0c49ba4">&#9670;&#160;</a></span>propagate() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,12 +450,12 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Vector6d &amp;</td>          <td class="paramname"><span class="paramname"><em>stateSensToDrag</em></span>, </td>
+          <td class="paramtype">Vector6d &amp;</td>          <td class="paramname"><span class="paramname"><em>stateSensWrtDrag</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Vector6d &amp;</td>          <td class="paramname"><span class="paramname"><em>stateSensToSRP</em></span>&#160;)</td>
+          <td class="paramtype">Vector6d &amp;</td>          <td class="paramname"><span class="paramname"><em>stateSensWrtSRP</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -464,10 +467,10 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">startTime</td><td>预报起始时间 </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">targetTime</td><td>预报结束时间 </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">state</td><td>输出位置速度状态 </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">stm</td><td>输出状态转换矩阵 Φ (6×6) </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">stateSensToDrag</td><td>输出敏感度向量 ∂[r,v]/∂B (6×1) </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">stateSensToSRP</td><td>输出敏感度向量 ∂[r,v]/∂K (6×1) </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">state</td><td>位置速度状态 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">stm</td><td>状态转换矩阵 Φ (6×6) </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">stateSensWrtDrag</td><td>敏感度向量 ∂[r,v]/∂B (6×1) </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">stateSensWrtSRP</td><td>敏感度向量 ∂[r,v]/∂K (6×1) </td></tr>
   </table>
   </dd>
 </dl>
@@ -511,8 +514,8 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">startTime</td><td>预报起始时间 </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">targetTime</td><td>预报结束时间 </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">position</td><td>输出位置向量 </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">velocity</td><td>输出速度向量 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">position</td><td>位置向量 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">velocity</td><td>速度向量 </td></tr>
   </table>
   </dd>
 </dl>

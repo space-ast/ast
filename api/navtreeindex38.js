@@ -1,5 +1,16 @@
 var NAVTREEINDEX38 =
 {
+"classast_1_1RoundRobinGroupChat.html#a1ce9e287b520748bfd75df9b1b887eff":[3,0,0,598,5],
+"classast_1_1RoundRobinGroupChat.html#a37ae664624eaaf50c0fcb018ac9f092c":[2,0,0,599,7],
+"classast_1_1RoundRobinGroupChat.html#a37ae664624eaaf50c0fcb018ac9f092c":[3,0,0,598,7],
+"classast_1_1RoundRobinGroupChat.html#a40438f120e31844a90d8cee5fc01a597":[2,0,0,599,0],
+"classast_1_1RoundRobinGroupChat.html#a40438f120e31844a90d8cee5fc01a597":[3,0,0,598,0],
+"classast_1_1RoundRobinGroupChat.html#a5cb37ccbd6b41612cee6b38f757b7910":[2,0,0,599,6],
+"classast_1_1RoundRobinGroupChat.html#a5cb37ccbd6b41612cee6b38f757b7910":[3,0,0,598,6],
+"classast_1_1RoundRobinGroupChat.html#a5e70d41f945e811a02bfc72623317cd8":[2,0,0,599,1],
+"classast_1_1RoundRobinGroupChat.html#a5e70d41f945e811a02bfc72623317cd8":[3,0,0,598,1],
+"classast_1_1RoundRobinGroupChat.html#a6b40e00831f931c66367269f76970e0f":[2,0,0,599,2],
+"classast_1_1RoundRobinGroupChat.html#a6b40e00831f931c66367269f76970e0f":[3,0,0,598,2],
 "classast_1_1RoundRobinGroupChat.html#a899d28287f3715d992fcb9adfa9a936f":[2,0,0,599,4],
 "classast_1_1RoundRobinGroupChat.html#a899d28287f3715d992fcb9adfa9a936f":[3,0,0,598,4],
 "classast_1_1RoundRobinGroupChat.html#acf54f74cf23cec1a301c3e3ce3234e67":[2,0,0,599,8],
@@ -238,16 +249,5 @@ var NAVTREEINDEX38 =
 "classast_1_1ScStateCalcLongDriftRate.html":[3,0,0,702],
 "classast_1_1ScStateCalcLongPeriapsis.html":[2,0,0,706],
 "classast_1_1ScStateCalcLongPeriapsis.html":[3,0,0,705],
-"classast_1_1ScStateCalcLongitude.html":[2,0,0,704],
-"classast_1_1ScStateCalcLongitude.html":[3,0,0,703],
-"classast_1_1ScStateCalcLongitudeRate.html":[2,0,0,705],
-"classast_1_1ScStateCalcLongitudeRate.html":[3,0,0,704],
-"classast_1_1ScStateCalcMCSDeltaV.html":[2,0,0,716],
-"classast_1_1ScStateCalcMCSDeltaV.html":[3,0,0,715],
-"classast_1_1ScStateCalcMCSDeltaVSquared.html":[2,0,0,717],
-"classast_1_1ScStateCalcMCSDeltaVSquared.html":[3,0,0,716],
-"classast_1_1ScStateCalcMagFieldDipoleL.html":[2,0,0,708],
-"classast_1_1ScStateCalcMagFieldDipoleL.html":[3,0,0,707],
-"classast_1_1ScStateCalcMagneticFieldForce.html":[2,0,0,709],
-"classast_1_1ScStateCalcMagneticFieldForce.html":[3,0,0,708]
+"classast_1_1ScStateCalcLongitude.html":[2,0,0,704]
 };

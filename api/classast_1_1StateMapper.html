@@ -124,6 +124,26 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:acbf3e56739edfd516050730c92080089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f1ebe4ee656582f5e52c0ed086bb641" id="r_a1f1ebe4ee656582f5e52c0ed086bb641"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f1ebe4ee656582f5e52c0ed086bb641">fromState</a> (const <a class="el" href="classast_1_1SpacecraftState.html">SpacecraftState</a> &amp;state, double *y, double &amp;x) const =0</td></tr>
 <tr class="separator:a1f1ebe4ee656582f5e52c0ed086bb641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a738cb9cf5b6476330cc1027e5a735c21" id="r_a738cb9cf5b6476330cc1027e5a735c21"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a738cb9cf5b6476330cc1027e5a735c21">toState</a> (const double *y, <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state) const =0</td></tr>
+<tr class="separator:a738cb9cf5b6476330cc1027e5a735c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a895a6e0c441a9321bf4947de7c7a30a2" id="r_a895a6e0c441a9321bf4947de7c7a30a2"><td class="memItemLeft" align="right" valign="top"><a id="a895a6e0c441a9321bf4947de7c7a30a2" name="a895a6e0c441a9321bf4947de7c7a30a2"></a>
+<a class="el" href="classast_1_1CartState.html">CartState</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toCartState</b> (const double *y) const</td></tr>
+<tr class="separator:a895a6e0c441a9321bf4947de7c7a30a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf0f13af75dcb3f3fbf139c5c4ca617e" id="r_abf0f13af75dcb3f3fbf139c5c4ca617e"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf0f13af75dcb3f3fbf139c5c4ca617e">toStateTransitionMatrix</a> (const double *y, <a class="el" href="classast_1_1MatrixMN.html">Matrix6d</a> &amp;stm) const =0</td></tr>
+<tr class="separator:abf0f13af75dcb3f3fbf139c5c4ca617e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cde91de434aa8585abe9dee9eded6a9" id="r_a6cde91de434aa8585abe9dee9eded6a9"><td class="memItemLeft" align="right" valign="top"><a id="a6cde91de434aa8585abe9dee9eded6a9" name="a6cde91de434aa8585abe9dee9eded6a9"></a>
+<a class="el" href="classast_1_1MatrixMN.html">Matrix6d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toStateTransitionMatrix</b> (const double *y) const</td></tr>
+<tr class="separator:a6cde91de434aa8585abe9dee9eded6a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c8d42cbbbd6951cf6909b269cd97cf5" id="r_a3c8d42cbbbd6951cf6909b269cd97cf5"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c8d42cbbbd6951cf6909b269cd97cf5">toStateSensitivityWrtDrag</a> (const double *y, Vector6d &amp;stateSensWrtDrag) const =0</td></tr>
+<tr class="separator:a3c8d42cbbbd6951cf6909b269cd97cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5636be3f085ca15e46bd1ba96b4289b4" id="r_a5636be3f085ca15e46bd1ba96b4289b4"><td class="memItemLeft" align="right" valign="top"><a id="a5636be3f085ca15e46bd1ba96b4289b4" name="a5636be3f085ca15e46bd1ba96b4289b4"></a>
+Vector6d&#160;</td><td class="memItemRight" valign="bottom"><b>toStateSensitivityWrtDrag</b> (const double *y) const</td></tr>
+<tr class="separator:a5636be3f085ca15e46bd1ba96b4289b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab22bb936029e8755ed1f9f6df4af0738" id="r_ab22bb936029e8755ed1f9f6df4af0738"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab22bb936029e8755ed1f9f6df4af0738">toStateSensitivityWrtSRP</a> (const double *y, Vector6d &amp;stateSensWrtSRP) const =0</td></tr>
+<tr class="separator:ab22bb936029e8755ed1f9f6df4af0738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cce4967a3718f98aec357102f873f17" id="r_a5cce4967a3718f98aec357102f873f17"><td class="memItemLeft" align="right" valign="top"><a id="a5cce4967a3718f98aec357102f873f17" name="a5cce4967a3718f98aec357102f873f17"></a>
+Vector6d&#160;</td><td class="memItemRight" valign="bottom"><b>toStateSensitivityWrtSRP</b> (const double *y) const</td></tr>
+<tr class="separator:a5cce4967a3718f98aec357102f873f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae916ffd22239e3659c02dd352ab5048e" id="r_ae916ffd22239e3659c02dd352ab5048e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae916ffd22239e3659c02dd352ab5048e">toTime</a> (double x, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time) const</td></tr>
 <tr class="separator:ae916ffd22239e3659c02dd352ab5048e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0ec1a5a6735d4356bd4b0ff1d7a126c" id="r_ab0ec1a5a6735d4356bd4b0ff1d7a126c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0ec1a5a6735d4356bd4b0ff1d7a126c">fromTime</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;x) const</td></tr>
@@ -281,8 +301,48 @@ Public 成员函数</h2></td></tr>
 
 </div>
 </div>
+<a id="a738cb9cf5b6476330cc1027e5a735c21" name="a738cb9cf5b6476330cc1027e5a735c21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a738cb9cf5b6476330cc1027e5a735c21">&#9670;&#160;</a></span>toState() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ast::StateMapper::toState </td>
+          <td>(</td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1CartState.html">CartState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将状态向量映射到笛卡尔状态 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>状态向量指针 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">state</td><td>笛卡尔状态 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classast_1_1HPOPStateMapper.html#a08dd89aa45b285ec728c0876419cf383">ast::HPOPStateMapper</a> 内被实现.</p>
+
+</div>
+</div>
 <a id="acbf3e56739edfd516050730c92080089" name="acbf3e56739edfd516050730c92080089"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbf3e56739edfd516050730c92080089">&#9670;&#160;</a></span>toState()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acbf3e56739edfd516050730c92080089">&#9670;&#160;</a></span>toState() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -323,6 +383,129 @@ Public 成员函数</h2></td></tr>
 </dl>
 
 <p>在 <a class="el" href="classast_1_1HPOPStateMapper.html#a8e43dc5996e6497d93b68ec8c9800285">ast::HPOPStateMapper</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a3c8d42cbbbd6951cf6909b269cd97cf5" name="a3c8d42cbbbd6951cf6909b269cd97cf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c8d42cbbbd6951cf6909b269cd97cf5">&#9670;&#160;</a></span>toStateSensitivityWrtDrag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual errc_t ast::StateMapper::toStateSensitivityWrtDrag </td>
+          <td>(</td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector6d &amp;</td>          <td class="paramname"><span class="paramname"><em>stateSensWrtDrag</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将状态向量映射到状态相对于弹道系数B的敏感性向量(笛卡尔状态量对阻力弹道系数(B = Cd·A/m)的偏导) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>状态向量指针 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stateSensToDrag</td><td>状态敏感性向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1HPOPStateMapper.html#afcc7f8b017d898b461b987f566f6fe44">ast::HPOPStateMapper</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ab22bb936029e8755ed1f9f6df4af0738" name="ab22bb936029e8755ed1f9f6df4af0738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab22bb936029e8755ed1f9f6df4af0738">&#9670;&#160;</a></span>toStateSensitivityWrtSRP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual errc_t ast::StateMapper::toStateSensitivityWrtSRP </td>
+          <td>(</td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector6d &amp;</td>          <td class="paramname"><span class="paramname"><em>stateSensWrtSRP</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将状态向量映射到状态相对于SRP综合参数K的敏感性向量(笛卡尔状态量对SRP综合参数(K = Cr·A/m)的偏导) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>状态向量指针 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stateSensWrtSRP</td><td>状态敏感性向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1HPOPStateMapper.html#ab028e9e3a5e8e013da0e9c754bdf20f0">ast::HPOPStateMapper</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="abf0f13af75dcb3f3fbf139c5c4ca617e" name="abf0f13af75dcb3f3fbf139c5c4ca617e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf0f13af75dcb3f3fbf139c5c4ca617e">&#9670;&#160;</a></span>toStateTransitionMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual errc_t ast::StateMapper::toStateTransitionMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1MatrixMN.html">Matrix6d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>stm</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将状态向量映射到状态转移矩阵 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>状态向量指针 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stm</td><td>状态转移矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1HPOPStateMapper.html#a4388cfdff3c15657e3e18c0983a7e3be">ast::HPOPStateMapper</a> 内被实现.</p>
 
 </div>
 </div>

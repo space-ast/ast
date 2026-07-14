@@ -1,5 +1,16 @@
 var NAVTREEINDEX30 =
 {
+"classast_1_1KernelPool.html#adbf466d51dece62be2d971faf1edcb04":[3,0,0,388,7],
+"classast_1_1KinematicRotation.html":[2,0,0,390],
+"classast_1_1KinematicRotation.html":[3,0,0,389],
+"classast_1_1KinematicRotation.html#a088bae2548fbc4d1153ceac5dd26882e":[2,0,0,390,17],
+"classast_1_1KinematicRotation.html#a088bae2548fbc4d1153ceac5dd26882e":[3,0,0,389,17],
+"classast_1_1KinematicRotation.html#a0e2af3e0f26250f08eaf54655f6a57d1":[2,0,0,390,19],
+"classast_1_1KinematicRotation.html#a0e2af3e0f26250f08eaf54655f6a57d1":[3,0,0,389,19],
+"classast_1_1KinematicRotation.html#a254e9380af5fc710dea75053b6b819ce":[2,0,0,390,14],
+"classast_1_1KinematicRotation.html#a254e9380af5fc710dea75053b6b819ce":[3,0,0,389,14],
+"classast_1_1KinematicRotation.html#a262da130868caf4121f044987790da1f":[2,0,0,390,2],
+"classast_1_1KinematicRotation.html#a262da130868caf4121f044987790da1f":[3,0,0,389,2],
 "classast_1_1KinematicRotation.html#a295e3d0b96942f0246fc4211fbb7254a":[2,0,0,390,4],
 "classast_1_1KinematicRotation.html#a295e3d0b96942f0246fc4211fbb7254a":[3,0,0,389,4],
 "classast_1_1KinematicRotation.html#a3beb4321f1643ac94191d8c1d98e5d13":[2,0,0,390,15],
@@ -238,16 +249,5 @@ var NAVTREEINDEX30 =
 "classast_1_1LoaderContext.html#a181a2eb46c694384b83f91c4a0ddbe43":[3,0,0,404,2],
 "classast_1_1LoaderContext.html#a462078649ca7d0cd6449c8a3482a79b9":[2,0,0,405,1],
 "classast_1_1LoaderContext.html#a462078649ca7d0cd6449c8a3482a79b9":[3,0,0,404,1],
-"classast_1_1LoaderContext.html#abe0c2c2de13a8a541aa5e0b970296d0d":[2,0,0,405,0],
-"classast_1_1LoaderContext.html#abe0c2c2de13a8a541aa5e0b970296d0d":[3,0,0,404,0],
-"classast_1_1LocaleGuard.html":[2,0,0,406],
-"classast_1_1LocaleGuard.html":[3,0,0,405],
-"classast_1_1LocaleGuard.html#a88496c851987f0fa00b5bfcf3075e11d":[2,0,0,406,0],
-"classast_1_1LocaleGuard.html#a88496c851987f0fa00b5bfcf3075e11d":[3,0,0,405,0],
-"classast_1_1LoggerStream.html":[0,8,9],
-"classast_1_1LoggerStream.html#a2d318dc5987cef0bbe3f03fe64552e70":[0,8,9,2],
-"classast_1_1LoggerStream.html#a8f0f7526bf75400264415fa1ed9dbd43":[0,8,9,1],
-"classast_1_1LoggerStream.html#adcba4f13ec12b96f15b868fe51c0e187":[0,8,9,0],
-"classast_1_1LongDuration.html":[0,1,7,3],
-"classast_1_1LongDuration.html#a88e5385bb8f19ac2a692d21402036d4b":[0,1,7,3,1]
+"classast_1_1LoaderContext.html#abe0c2c2de13a8a541aa5e0b970296d0d":[2,0,0,405,0]
 };
