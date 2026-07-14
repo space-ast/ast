@@ -60,10 +60,10 @@ protected:
     Vector3d* accThirdBody{&vectorBuffer};          ///< 三体加速度
     Vector3d* velocityDerivative_{&vectorBuffer};   ///< 速度导数
     Vector3d vectorBuffer{};                        ///< 向量缓冲区
-private:
+protected:
     Point* thirdBody_{};                    ///< 三体
-    double thirdBodyGM_;                          ///< 三体引力常量
-    Frame* propagationFrame_{};                     ///< 预报系
+    double thirdBodyGM_;                    ///< 三体引力常量
+    Frame* propagationFrame_{};             ///< 预报系
 };  
 
 AST_NAMESPACE_END

@@ -82,7 +82,7 @@ protected:
     Vector3d vectorBuffer{};                                  ///< 向量缓冲区
 private:
     void init();
-private:
+protected:
     Point* thirdBody_{};                              ///< 三体
     HAxes  gravityAxes_;                              ///< 三体重力场固连系
     HAxes  propagationAxes_;                          ///< 预报系轴系
