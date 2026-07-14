@@ -77,6 +77,9 @@ public:
     BlockDragPartial(Atmosphere* atmosphere, double dragCoefficient, double dragArea, Frame* propagationFrame);
 
     errc_t run(const SimTime& simTime) override;
+
+    /// @brief 设置是否启用弹道系数B敏感度传播
+    void setUseDragSensitivity(bool v) { useDragSensitivity_ = v; }
 private:
     void init();
 
@@ -98,6 +101,10 @@ private:
 
     Matrix6d* aMatrixPtr_{&aMatrixBuffer_};   ///< A 矩阵指针（6×6）
     Matrix6d  aMatrixBuffer_{};               ///< A 矩阵缓冲区
+
+    bool      useDragSensitivity_{false};                             ///< 是否启用弹道系数B敏感度传播
+    Vector3d* accSensitivityToDrag_{&accSensitivityToDragBuffer_};   ///< ∂a_drag/∂B 强迫项输出
+    Vector3d  accSensitivityToDragBuffer_{};                          ///< 强迫项缓冲区
 };
 
 /*! @} */

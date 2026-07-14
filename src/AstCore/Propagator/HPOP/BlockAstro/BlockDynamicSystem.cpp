@@ -22,6 +22,7 @@
 #include "AstCore/BlockDerivative.hpp"
 #include "AstUtil/Identifier.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/IdentifierAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -82,6 +83,25 @@ errc_t BlockDynamicSystem::run(const SimTime &simTime)
 void BlockDynamicSystem::addBlock(BlockDerivative* block)
 {
     return addDerivativeBlock(block);
+}
+
+size_t BlockDynamicSystem::getStateIndex(Identifier *id) const
+{
+    auto iter = derivativeMap_.find(id);
+    if(iter != derivativeMap_.end())
+    {
+        const double* data = iter->second;
+        size_t index = data - derivative_.data();
+        if(A_UNLIKELY(index >= derivative_.size()))
+            return -1;
+        return index;
+    }
+    return -1;
+}
+
+size_t BlockDynamicSystem::getStateIndex(StringView name) const
+{
+    return getStateIndex(aIdentifier(name));
 }
 
 errc_t BlockDynamicSystem::initialize()

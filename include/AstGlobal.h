@@ -448,9 +448,10 @@ template<typename _Scalar, size_t M, size_t N>
 class MatrixMN;
 
 typedef VectorN<double, 3> Vector3d;
+typedef VectorN<double, 6> Vector6d;
 
 typedef MatrixMN<double, 3, 3> Matrix3d;
-
+typedef MatrixMN<double, 8, 8> Matrix8d;
 typedef MatrixMN<double, 6, 6> Matrix6d;
 
 

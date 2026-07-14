@@ -49,7 +49,11 @@ BlockSRPPartial::BlockSRPPartial(EclipseCalculator* eclipseCalculator, double cr
 void BlockSRPPartial::init()
 {
     static auto identifierAMatrix = aIdentifier(kIdentifierAMatrix);
-    outputPorts_.push_back({identifierAMatrix, (signal_t*)&aMatrixPtr_, 36, DataPort::eDouble, DataPort::eAccumulate});
+    static auto identAccSensSRP = aIdentifier(kIdentifierAccSensitivityToSRP);
+    outputPorts_.insert(outputPorts_.end(), {
+        {identifierAMatrix, (signal_t*)&aMatrixPtr_, 36, DataPort::eDouble, DataPort::eAccumulate},
+        {identAccSensSRP, (signal_t*)&accSensitivityToSRP_, 3, DataPort::eDouble}
+    });
 }
 
 errc_t BlockSRPPartial::run(const SimTime& simTime)
@@ -152,6 +156,13 @@ errc_t BlockSRPPartial::run(const SimTime& simTime)
                 A(3 + i, j) += da_dr;
             }
         }
+    }
+
+    // SRP 综合参数 K 敏感度强迫项: ∂a_srp/∂K = a_srp / K
+    // K = Cr·A/m，强迫项为 3维加速度向量
+    if (useSRPSensitivity_) {
+        double oneOverK = *mass_ / (cr_ * srpArea_);
+        *accSensitivityToSRP_ = (*accSRP_) * oneOverK;
     }
 
     return eNoError;

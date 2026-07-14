@@ -64,7 +64,11 @@ BlockDragPartial::BlockDragPartial(Atmosphere* atmosphere, double dragCoefficien
 void BlockDragPartial::init()
 {
     static auto identifierAMatrix = aIdentifier(kIdentifierAMatrix);
-    outputPorts_.push_back({identifierAMatrix, (signal_t*)&aMatrixPtr_, 36, DataPort::eDouble, DataPort::eAccumulate});
+    static auto identAccSensDrag = aIdentifier(kIdentifierAccSensitivityToDrag);
+    outputPorts_.insert(outputPorts_.end(), {
+        {identifierAMatrix, (signal_t*)&aMatrixPtr_, 36, DataPort::eDouble, DataPort::eAccumulate},
+        {identAccSensDrag, (signal_t*)&accSensitivityToDrag_, 3, DataPort::eDouble}
+    });
 }
 
 errc_t BlockDragPartial::run(const SimTime& simTime)
@@ -178,6 +182,13 @@ errc_t BlockDragPartial::run(const SimTime& simTime)
                 for (int j = 0; j < 3; ++j)
                     A(3 + i, j) += daDrDensity(i, j);
         }
+    }
+
+    // 弹道系数 B 敏感度强迫项: ∂a_drag/∂B = a_drag / B
+    // B = Cd·A/m，强迫项为 3维加速度向量
+    if (useDragSensitivity_) {
+        double oneOverB = *mass_ / (dragCoefficient_ * dragArea_);
+        *accSensitivityToDrag_ = accDrag * oneOverB;
     }
 
     return eNoError;

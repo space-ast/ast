@@ -80,6 +80,13 @@ public:
     /// @return 状态量导数数据指针
     const double* getDerivativeData() const { return derivative_.data(); }
 
+    /// @brief 获取状态量索引
+    /// @param id 状态量标识符指针
+    /// @return 状态量索引，若未找到则返回 -1
+    /// @note 状态量索引从 0 开始
+    size_t getStateIndex(Identifier* id) const;
+    size_t getStateIndex(StringView name) const;
+
     /// @brief 填充状态量数据
     /// @param y 状态量数据指针
     void setStateData(const double* y) { std::copy(y, y + this->size(), state_.begin()); }
@@ -130,6 +137,7 @@ public:
     errc_t run(const SimTime& simTime) final;
 
 protected:
+    A_DISABLE_COPY(BlockDynamicSystem);
     using StateMap = std::unordered_map<Identifier*, double*>;
 
     std::vector<BlockDerivative*>   derivativeBlocks_;  // 状态量导数函数块

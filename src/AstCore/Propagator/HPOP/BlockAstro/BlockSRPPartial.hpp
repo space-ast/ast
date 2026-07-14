@@ -76,11 +76,18 @@ public:
     BlockSRPPartial(EclipseCalculator* eclipseCalculator, double cr, double srpArea, Frame* propagationFrame);
 
     errc_t run(const SimTime& simTime) override;
+
+    /// @brief 设置是否启用SRP综合参数K敏感度传播
+    void setUseSRPSensitivity(bool v) { useSRPSensitivity_ = v; }
 private:
     void init();
 
     Matrix6d* aMatrixPtr_{&aMatrixBuffer_};   ///< A 矩阵指针（6×6）
     Matrix6d  aMatrixBuffer_{};               ///< A 矩阵缓冲区
+
+    bool      useSRPSensitivity_{false};                              ///< 是否启用SRP综合参数K敏感度传播
+    Vector3d* accSensitivityToSRP_{&accSensitivityToSRPBuffer_};     ///< ∂a_srp/∂K 强迫项输出
+    Vector3d  accSensitivityToSRPBuffer_{};                           ///< 强迫项缓冲区
 };
 
 /*! @} */

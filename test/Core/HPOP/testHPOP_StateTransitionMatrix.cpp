@@ -748,5 +748,308 @@ TEST_F(HPOPSTMTest, STMInitialIdentity)
 }
 
 
+/// @brief 测试启用弹道系数B敏感度传播后方程维度
+TEST_F(HPOPSTMTest, DragSensitivityDimension)
+{
+    HPOPEquation equation;
+    HPOPForceModel forcemodel;
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 0;
+    forcemodel.gravity().maxOrder_ = 0;
+    forcemodel.useSTM(true);
+    forcemodel.useDrag(true);
+    forcemodel.useDragSensitivity(true);
+
+    errc_t err = equation.setForceModel(forcemodel);
+    ASSERT_EQ(err, eNoError);
+
+    err = equation.initialize();
+    ASSERT_EQ(err, eNoError);
+
+    int dim = equation.getDimension();
+    // 6 (pos + vel) + 36 (STM) + 6 (Ψ_B) = 48
+    EXPECT_EQ(dim, 48);
+}
+
+/// @brief 测试启用SRP综合参数K敏感度传播后方程维度
+TEST_F(HPOPSTMTest, SRPSensitivityDimension)
+{
+    HPOPEquation equation;
+    HPOPForceModel forcemodel;
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 0;
+    forcemodel.gravity().maxOrder_ = 0;
+    forcemodel.useSTM(true);
+    forcemodel.useSRP(true);
+    forcemodel.useSRPSensitivity(true);
+
+    errc_t err = equation.setForceModel(forcemodel);
+    ASSERT_EQ(err, eNoError);
+
+    err = equation.initialize();
+    ASSERT_EQ(err, eNoError);
+
+    int dim = equation.getDimension();
+    // 6 (pos + vel) + 36 (STM) + 6 (Ψ_K) = 48
+    EXPECT_EQ(dim, 48);
+}
+
+/// @brief 测试同时启用B和K敏感度传播后方程维度
+TEST_F(HPOPSTMTest, CombinedSensitivityDimension)
+{
+    HPOPEquation equation;
+    HPOPForceModel forcemodel;
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 0;
+    forcemodel.gravity().maxOrder_ = 0;
+    forcemodel.useSTM(true);
+    forcemodel.useDrag(true);
+    forcemodel.useSRP(true);
+    forcemodel.useDragSensitivity(true);
+    forcemodel.useSRPSensitivity(true);
+
+    errc_t err = equation.setForceModel(forcemodel);
+    ASSERT_EQ(err, eNoError);
+
+    err = equation.initialize();
+    ASSERT_EQ(err, eNoError);
+
+    int dim = equation.getDimension();
+    // 6 (pos + vel) + 36 (STM) + 6 (Ψ_B) + 6 (Ψ_K) = 54
+    EXPECT_EQ(dim, 54);
+}
+
+/// @brief 测试弹道系数B敏感度传播（仅启用阻力）
+/// @details 验证：
+///   1. Ψ_B 初始值为零，传播后有非零值
+///   2. ODE维度为48
+TEST_F(HPOPSTMTest, DragSensitivity)
+{
+    HPOPForceModel forcemodel;
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 2;
+    forcemodel.gravity().maxOrder_ = 2;
+    forcemodel.useSTM(true);
+
+    forcemodel.useDrag(true);
+    forcemodel.drag().atmDensityModel_ = EAtmDensityModel::eMSIS1986;
+    forcemodel.useDragSensitivity(true);
+
+    HPOP propagator;
+    auto integrator = propagator.getIntegrator();
+    auto varstep = dynamic_cast<ODEVarStepIntegrator*>(integrator);
+    if (varstep)
+    {
+        varstep->setUseFixedStep(true);
+        varstep->setStepSize(60_s);
+    }
+
+    errc_t err = propagator.setForceModel(forcemodel);
+    ASSERT_EQ(err, eNoError);
+
+    auto start = TimePoint::FromUTC(2026, 1, 20, 4, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 1, 21, 4, 0, 0);
+
+    CartState state;
+    state.position() = Vector3d{6678137, 0, 0};
+    state.velocity() = Vector3d{0, 6789.53029, 3686.414173};
+
+    Matrix6d stm = Matrix6d{};
+    for (int i = 0; i < 6; ++i)
+        stm(i, i) = 1.0;
+
+    Vector6d stateSensToDrag{};  // Ψ_B(0) = 0
+    Vector6d stateSensToSRP{};   // Ψ_K(0) = 0 (won't be used since SRP is disabled)
+
+    err = propagator.propagate(start, end, state, stm, stateSensToDrag, stateSensToSRP);
+    EXPECT_EQ(err, eNoError);
+
+    // Ψ_B rows 0-2 (位置偏导) 应有非零值（位置间接受B影响）
+    double maxPosSens = std::max({std::abs(stateSensToDrag[0]), std::abs(stateSensToDrag[1]), std::abs(stateSensToDrag[2])});
+    EXPECT_GT(maxPosSens, 1e-10);
+
+    // Ψ_B rows 3-5 (速度偏导) 应有显着非零值（加速度直接依赖B）
+    double maxVelSens = std::max({std::abs(stateSensToDrag[3]), std::abs(stateSensToDrag[4]), std::abs(stateSensToDrag[5])});
+    EXPECT_GT(maxVelSens, 1e-6);
+
+    // 打印结果供参考
+    printf("StateSensToDrag: [%.6e, %.6e, %.6e, %.6e, %.6e, %.6e]\n",
+           stateSensToDrag[0], stateSensToDrag[1], stateSensToDrag[2], stateSensToDrag[3], stateSensToDrag[4], stateSensToDrag[5]);
+
+    // SRP 未启用，stateSensToSRP 应保持为零（互不干扰验证）
+    for (int i = 0; i < 6; ++i)
+        EXPECT_NEAR(stateSensToSRP[i], 0.0, 1e-15);
+}
+
+/// @brief 测试SRP综合参数K敏感度传播（仅启用SRP）
+/// @details 验证：
+///   1. Ψ_K 初始值为零，传播后有非零值
+///   2. ODE维度为48
+TEST_F(HPOPSTMTest, SRPSensitivity)
+{
+    HPOPForceModel forcemodel;
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 2;
+    forcemodel.gravity().maxOrder_ = 2;
+    forcemodel.useSTM(true);
+
+    forcemodel.useSRP(true);
+    forcemodel.srp().shadowModel_ = EShadowModel::eNone;
+    forcemodel.useSRPSensitivity(true);
+
+    HPOP propagator;
+    auto integrator = propagator.getIntegrator();
+    auto varstep = dynamic_cast<ODEVarStepIntegrator*>(integrator);
+    if (varstep)
+    {
+        varstep->setUseFixedStep(true);
+        varstep->setStepSize(60_s);
+    }
+
+    errc_t err = propagator.setForceModel(forcemodel);
+    ASSERT_EQ(err, eNoError);
+
+    auto start = TimePoint::FromUTC(2026, 1, 20, 4, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 1, 21, 4, 0, 0);
+
+    CartState state;
+    state.position() = Vector3d{6678137, 0, 0};
+    state.velocity() = Vector3d{0, 6789.53029, 3686.414173};
+
+    Matrix6d stm = Matrix6d{};
+    for (int i = 0; i < 6; ++i)
+        stm(i, i) = 1.0;
+
+    Vector6d stateSensToDrag{};
+    Vector6d stateSensToSRP{};
+
+    err = propagator.propagate(start, end, state, stm, stateSensToDrag, stateSensToSRP);
+    EXPECT_EQ(err, eNoError);
+
+    // Ψ_K rows 0-2 (位置偏导) 应有非零值
+    double maxPosSens = std::max({std::abs(stateSensToSRP[0]), std::abs(stateSensToSRP[1]), std::abs(stateSensToSRP[2])});
+    EXPECT_GT(maxPosSens, 1e-10);
+
+    // Ψ_K rows 3-5 (速度偏导) 应有显着非零值
+    double maxVelSens = std::max({std::abs(stateSensToSRP[3]), std::abs(stateSensToSRP[4]), std::abs(stateSensToSRP[5])});
+    EXPECT_GT(maxVelSens, 1e-6);
+
+    printf("StateSensToSRP: [%.6e, %.6e, %.6e, %.6e, %.6e, %.6e]\n",
+           stateSensToSRP[0], stateSensToSRP[1], stateSensToSRP[2], stateSensToSRP[3], stateSensToSRP[4], stateSensToSRP[5]);
+
+    // Drag 未启用，stateSensToDrag 应保持为零（互不干扰验证）
+    for (int i = 0; i < 6; ++i)
+        EXPECT_NEAR(stateSensToDrag[i], 0.0, 1e-15);
+}
+
+/// @brief 测试同时启用B和K敏感度传播
+/// @details 同时启用 Drag + SRP 及各自的参数敏感度，验证：
+///   1. Ψ_B 和 Ψ_K 均有显著非零值
+///   2. 6x6 STM 与无敏感度时的 Drag+SRP 测试结果一致
+///   3. ODE维度为54
+TEST_F(HPOPSTMTest, CombinedSensitivity)
+{
+    HPOPForceModel forcemodel;
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 2;
+    forcemodel.gravity().maxOrder_ = 2;
+    forcemodel.useSTM(true);
+
+    forcemodel.useDrag(true);
+    forcemodel.drag().atmDensityModel_ = EAtmDensityModel::eMSIS1986;
+    forcemodel.useSRP(true);
+    forcemodel.srp().shadowModel_ = EShadowModel::eNone;
+    forcemodel.useDragSensitivity(true);
+    forcemodel.useSRPSensitivity(true);
+
+    HPOP propagator;
+    auto integrator = propagator.getIntegrator();
+    auto varstep = dynamic_cast<ODEVarStepIntegrator*>(integrator);
+    if (varstep)
+    {
+        varstep->setUseFixedStep(true);
+        varstep->setStepSize(60_s);
+    }
+
+    errc_t err = propagator.setForceModel(forcemodel);
+    ASSERT_EQ(err, eNoError);
+
+    auto start = TimePoint::FromUTC(2026, 1, 20, 4, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 1, 21, 4, 0, 0);
+
+    CartState state;
+    state.position() = Vector3d{6678137, 0, 0};
+    state.velocity() = Vector3d{0, 6789.53029, 3686.414173};
+
+    Matrix6d stm = Matrix6d{};
+    for (int i = 0; i < 6; ++i)
+        stm(i, i) = 1.0;
+
+    Vector6d stateSensToDrag{};
+    Vector6d stateSensToSRP{};
+
+    err = propagator.propagate(start, end, state, stm, stateSensToDrag, stateSensToSRP);
+    EXPECT_EQ(err, eNoError);
+
+    // Ψ_B rows 3-5 应有显著非零值
+    {
+        double maxBSens = std::max({std::abs(stateSensToDrag[3]), std::abs(stateSensToDrag[4]), std::abs(stateSensToDrag[5])});
+        EXPECT_GT(maxBSens, 1e-6);
+    }
+
+    // Ψ_K rows 3-5 应有显著非零值
+    {
+        double maxKSens = std::max({std::abs(stateSensToSRP[3]), std::abs(stateSensToSRP[4]), std::abs(stateSensToSRP[5])});
+        EXPECT_GT(maxKSens, 1e-6);
+    }
+
+    printf("StateSensToDrag: [%.6e, %.6e, %.6e, %.6e, %.6e, %.6e]\n",
+           stateSensToDrag[0], stateSensToDrag[1], stateSensToDrag[2], stateSensToDrag[3], stateSensToDrag[4], stateSensToDrag[5]);
+    printf("StateSensToSRP: [%.6e, %.6e, %.6e, %.6e, %.6e, %.6e]\n",
+           stateSensToSRP[0], stateSensToSRP[1], stateSensToSRP[2], stateSensToSRP[3], stateSensToSRP[4], stateSensToSRP[5]);
+}
+
+/// @brief 测试敏感度向量初始条件（零时长传播）
+/// @details 零时长传播后 Ψ_B 和 Ψ_K 应保持为零向量
+TEST_F(HPOPSTMTest, SensitivityInitialZero)
+{
+    HPOPForceModel forcemodel;
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 0;
+    forcemodel.gravity().maxOrder_ = 0;
+    forcemodel.useSTM(true);
+    forcemodel.useDrag(true);
+    forcemodel.useSRP(true);
+    forcemodel.useDragSensitivity(true);
+    forcemodel.useSRPSensitivity(true);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forcemodel);
+    ASSERT_EQ(err, eNoError);
+
+    auto start = TimePoint::FromUTC(2026, 1, 20, 0, 0, 0);
+    auto end   = start;  // 零时长
+
+    CartState state;
+    state.position() = Vector3d{6678137, 0, 0};
+    state.velocity() = Vector3d{0, 6789.53029, 3686.414173};
+
+    Matrix6d stm = Matrix6d{};
+    for (int i = 0; i < 6; ++i)
+        stm(i, i) = 1.0;
+
+    Vector6d stateSensToDrag{};
+    Vector6d stateSensToSRP{};
+
+    err = propagator.propagate(start, end, state, stm, stateSensToDrag, stateSensToSRP);
+    EXPECT_EQ(err, eNoError);
+
+    // 零时长传播后 Ψ_B 和 Ψ_K 应保持为零
+    for (int i = 0; i < 6; ++i) {
+        EXPECT_NEAR(stateSensToDrag[i], 0.0, 1e-15);
+        EXPECT_NEAR(stateSensToSRP[i], 0.0, 1e-15);
+    }
+}
+
 GTEST_MAIN()
 

@@ -38,6 +38,8 @@
 #include "AstCore/BlockThirdBodyPointMass.hpp"
 #include "AstCore/BlockThirdBodyPointMassPartial.hpp"
 #include "AstCore/BlockStateTransitionMatrix.hpp"
+#include "AstCore/BlockDragSensitivity.hpp"
+#include "AstCore/BlockSRPSensitivity.hpp"
 #include "AstCore/Axes.hpp"
 #include "AstCore/Atmosphere.hpp"
 #include "AstCore/EclipseCalculator.hpp"
@@ -134,6 +136,11 @@ public:
             return new BlockThirdBodyPointMass(ephemeris, GM, frame);
     }
     BlockStateTransitionMatrix* createStateTransitionMatrixBlock() { return new BlockStateTransitionMatrix(); }
+
+    // ── 参数敏感度传播 ──
+
+    BlockDragSensitivity* createDragSensitivityBlock() { return new BlockDragSensitivity(); }
+    BlockSRPSensitivity* createSRPSensitivityBlock() { return new BlockSRPSensitivity(); }
 private:
     bool useSTM_;
 };

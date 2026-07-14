@@ -96,6 +96,22 @@ public:
     /// @return errc_t  错误码
     errc_t propagate(const TimePoint& startTime, TimePoint& targetTime, CartState& state, Matrix6d& stm);
 
+    /// @brief 带状态转换矩阵和参数敏感度的轨道预报，直到达到结束时间或者触发由addEventDetector添加的事件
+    /// @details 考虑到有事件触发的预报停止条件，所以预报结束时间同时也是一个输出参数
+    /// 同时预报 6×6 STM 和两个 6×1 参数敏感度向量：
+    ///   - 末端状态对阻力弹道系数(B = Cd·A/m)的偏导 ∂[r,v]/∂B
+    ///   - 末端状态对SRP综合参数(K = Cr·A/m)的偏导 ∂[r,v]/∂K
+    /// @param[in]      startTime        预报起始时间
+    /// @param[in,out]  targetTime       预报结束时间
+    /// @param[in,out]  state            输出位置速度状态
+    /// @param[in,out]  stm              输出状态转换矩阵 Φ (6×6)
+    /// @param[in,out]  stateSensToDrag  输出敏感度向量 ∂[r,v]/∂B (6×1)
+    /// @param[in,out]  stateSensToSRP   输出敏感度向量 ∂[r,v]/∂K (6×1)
+    /// @return errc_t  错误码
+    errc_t propagate(const TimePoint& startTime, TimePoint& targetTime,
+                     CartState& state, Matrix6d& stm,
+                     Vector6d& stateSensToDrag, Vector6d& stateSensToSRP);
+
     /// @brief 初始化
     errc_t initialize();
 
@@ -108,6 +124,13 @@ public:
 protected:
     HPOPEquation* equation() const;
 private:
+    /// @brief 设置参考历元并执行数值积分
+    /// @param[in]     startTime   预报起始时间
+    /// @param[in,out] targetTime  预报结束时间（事件触发时会被截断）
+    /// @param[in,out] y           状态向量
+    /// @return errc_t 错误码
+    errc_t integrateState(const TimePoint& startTime, TimePoint& targetTime, double* y);
+
     mutable ScopedPtr<HPOPEquation> equation_;       ///< 高精度轨道预报方程
     mutable SharedPtr<ODEIntegrator> integrator_;    ///< 高精度轨道预报积分器
     ScopedPtr<StateMapper> stateMapper_;             ///< 状态映射器

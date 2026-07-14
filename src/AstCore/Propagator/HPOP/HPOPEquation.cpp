@@ -370,7 +370,11 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
 
         Atmosphere* atmosphere = aNewAtmosphere(forceModel.drag());
         // atmosphere 的所有权转移给 blockDrag
-        this->addBlock(factory.createDragBlock(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame));
+        BlockDrag* blockDrag = factory.createDragBlock(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame);
+        if (forceModel.useSTM()) {
+            static_cast<BlockDragPartial*>(blockDrag)->setUseDragSensitivity(forceModel.useDragSensitivity());
+        }
+        this->addBlock(blockDrag);
     }
 
     // 添加太阳辐射压力函数块
@@ -415,6 +419,9 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             // eclipseCalculator 的所有权转移给 blockSRP
             BlockSRP* blockSRP = factory.createSRPBlock(eclipseCalculator, spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame);
             blockSRP->setSunPosition(forceModel.srp().sunPosition_); // 设置太阳位置
+            if (forceModel.useSTM()) {
+                static_cast<BlockSRPPartial*>(blockSRP)->setUseSRPSensitivity(forceModel.useSRPSensitivity());
+            }
             this->addBlock(blockSRP);
         }
         else
@@ -472,6 +479,12 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     if(forceModel.useSTM())
     {
         this->addBlock(factory.createStateTransitionMatrixBlock());
+        if (forceModel.useDragSensitivity()) {
+            this->addBlock(factory.createDragSensitivityBlock());
+        }
+        if (forceModel.useSRPSensitivity()) {
+            this->addBlock(factory.createSRPSensitivityBlock());
+        }
     }
     return eNoError;
 }
