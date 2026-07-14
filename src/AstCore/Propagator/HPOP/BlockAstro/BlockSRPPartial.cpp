@@ -72,6 +72,11 @@ errc_t BlockSRPPartial::run(const SimTime& simTime)
     if (lightingRatio == 0)
     {
         *accSRP_ = Vector3d::Zero();
+        // 这里不能直接返回，因为 accSensitivityToSRP_ 也需要设置为零
+        if (useSRPSensitivity_) 
+        {
+            *accSensitivityToSRP_ = Vector3d::Zero();
+        }
         return eNoError;
     }
 
