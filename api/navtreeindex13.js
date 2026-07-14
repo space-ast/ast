@@ -1,5 +1,15 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcTrueLong_8hpp_source.html":[4,0,0,7,7,1,0,10,35],
+"ScStateCalcUserValue_8cpp.html":[4,0,0,7,7,1,0,15,208],
+"ScStateCalcUserValue_8hpp.html":[4,0,0,7,7,1,0,15,209],
+"ScStateCalcUserValue_8hpp_source.html":[4,0,0,7,7,1,0,15,209],
+"ScStateCalcVAz_8cpp.html":[4,0,0,7,7,1,0,15,214],
+"ScStateCalcVAz_8hpp.html":[4,0,0,7,7,1,0,15,215],
+"ScStateCalcVAz_8hpp_source.html":[4,0,0,7,7,1,0,15,215],
+"ScStateCalcVBScript_8cpp.html":[4,0,0,7,7,1,0,16,6],
+"ScStateCalcVBScript_8hpp.html":[4,0,0,7,7,1,0,16,7],
+"ScStateCalcVBScript_8hpp_source.html":[4,0,0,7,7,1,0,16,7],
 "ScStateCalcVGTAngle_8cpp.html":[4,0,0,7,7,1,0,19,7],
 "ScStateCalcVGTAngle_8hpp.html":[4,0,0,7,7,1,0,19,8],
 "ScStateCalcVGTAngle_8hpp_source.html":[4,0,0,7,7,1,0,19,8],
@@ -239,15 +249,5 @@ var NAVTREEINDEX13 =
 "SpaceObject_8hpp_source.html":[4,0,0,20,3,59],
 "SpaceWeatherProvider_8hpp.html":[4,0,0,7,4,13],
 "SpaceWeatherProvider_8hpp_source.html":[4,0,0,7,4,13],
-"SpaceWeather_8cpp.html":[4,0,0,7,4,11],
-"SpaceWeather_8cpp.html#a278d65ce490cc6ae03b27ae4f97ba731":[4,0,0,7,4,11,0],
-"SpaceWeather_8hpp.html":[4,0,0,7,4,12],
-"SpaceWeather_8hpp_source.html":[4,0,0,7,4,12],
-"SpacecraftParam_8cpp.html":[4,0,0,7,7,5,0],
-"SpacecraftParam_8hpp.html":[4,0,0,7,7,5,1],
-"SpacecraftParam_8hpp_source.html":[4,0,0,7,7,5,1],
-"SpacecraftStateLoader_8cpp.html":[4,0,0,12,1,2,18],
-"SpacecraftStateLoader_8cpp.html#ae9eee862b8fecb8f713a27ee161e815d":[4,0,0,12,1,2,18,0],
-"SpacecraftStateLoader_8hpp.html":[4,0,0,12,1,2,19],
-"SpacecraftStateLoader_8hpp.html#ae9eee862b8fecb8f713a27ee161e815d":[4,0,0,12,1,2,19,0]
+"SpaceWeather_8cpp.html":[4,0,0,7,4,11]
 };

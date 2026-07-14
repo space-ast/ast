@@ -288,6 +288,7 @@ var hierarchy =
         [ "ast::BlockDrag", "classast_1_1BlockDrag.html", [
           [ "ast::BlockDragPartial", "classast_1_1BlockDragPartial.html", null ]
         ] ],
+        [ "ast::BlockDragSensitivity", "classast_1_1BlockDragSensitivity.html", null ],
         [ "ast::BlockGravity", "classast_1_1BlockGravity.html", [
           [ "ast::BlockGravityPartial", "classast_1_1BlockGravityPartial.html", null ]
         ] ],
@@ -298,6 +299,7 @@ var hierarchy =
         [ "ast::BlockSRP", "classast_1_1BlockSRP.html", [
           [ "ast::BlockSRPPartial", "classast_1_1BlockSRPPartial.html", null ]
         ] ],
+        [ "ast::BlockSRPSensitivity", "classast_1_1BlockSRPSensitivity.html", null ],
         [ "ast::BlockStateTransitionMatrix", "classast_1_1BlockStateTransitionMatrix.html", null ],
         [ "ast::BlockThirdBodyGravity", "classast_1_1BlockThirdBodyGravity.html", [
           [ "ast::BlockThirdBodyGravityPartial", "classast_1_1BlockThirdBodyGravityPartial.html", null ]

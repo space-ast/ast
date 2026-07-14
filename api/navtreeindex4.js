@@ -1,5 +1,15 @@
 var NAVTREEINDEX4 =
 {
+"Debug_8cpp.html":[4,0,0,28,10,4],
+"Debug_8hpp.html":[4,0,0,28,10,5],
+"Debug_8hpp_source.html":[4,0,0,28,10,5],
+"Debugger_8cpp.html":[4,0,0,19,1,2],
+"Debugger_8hpp.html":[4,0,0,19,1,3],
+"Debugger_8hpp_source.html":[4,0,0,19,1,3],
+"DeepSeek_8cpp.html":[4,0,0,0,3,2],
+"DeepSeek_8hpp.html":[4,0,0,0,3,3],
+"DeepSeek_8hpp_source.html":[4,0,0,0,3,3],
+"DetectorAccess_8cpp.html":[4,0,0,7,8,0,0],
 "DetectorAccess_8hpp.html":[4,0,0,7,8,0,1],
 "DetectorAccess_8hpp_source.html":[4,0,0,7,8,0,1],
 "DetectorAllHeaders_8hpp.html":[4,0,0,7,8,0,2],
@@ -239,15 +249,5 @@ var NAVTREEINDEX4 =
 "EventTimeExplicit_8hpp.html":[4,0,0,7,11,0,1,3],
 "EventTimeExplicit_8hpp_source.html":[4,0,0,7,11,0,1,3],
 "EventTimeFallback_8cpp.html":[4,0,0,7,11,0,1,4],
-"EventTimeFallback_8hpp.html":[4,0,0,7,11,0,1,5],
-"EventTimeFallback_8hpp_source.html":[4,0,0,7,11,0,1,5],
-"EventTimeLinkTo_8cpp.html":[4,0,0,7,11,0,1,6],
-"EventTimeLinkTo_8hpp.html":[4,0,0,7,11,0,1,7],
-"EventTimeLinkTo_8hpp_source.html":[4,0,0,7,11,0,1,7],
-"EventTime_8cpp.html":[4,0,0,7,11,0,1,0],
-"EventTime_8hpp.html":[4,0,0,7,11,0,1,1],
-"EventTime_8hpp_source.html":[4,0,0,7,11,0,1,1],
-"ExecCmdResult_8cpp.html":[4,0,0,6,8],
-"ExecCmdResult_8hpp.html":[4,0,0,6,9],
-"ExecCmdResult_8hpp_source.html":[4,0,0,6,9]
+"EventTimeFallback_8hpp.html":[4,0,0,7,11,0,1,5]
 };

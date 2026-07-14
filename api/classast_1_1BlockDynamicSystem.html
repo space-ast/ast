@@ -101,6 +101,7 @@ $(function(){initNavTree('classast_1_1BlockDynamicSystem.html',''); initResizabl
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pro-types">Protected 类型</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1BlockDynamicSystem-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::BlockDynamicSystem类 参考</div></div>
@@ -131,6 +132,11 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a773f8ea7c1f4b9d829796c2275d77d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83376015af4e65e0fc11b511e1a4e540" id="r_a83376015af4e65e0fc11b511e1a4e540"><td class="memItemLeft" align="right" valign="top">const double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83376015af4e65e0fc11b511e1a4e540">getDerivativeData</a> () const</td></tr>
 <tr class="separator:a83376015af4e65e0fc11b511e1a4e540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3f275c6e258c474e5cbbed3810449c1" id="r_ac3f275c6e258c474e5cbbed3810449c1"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3f275c6e258c474e5cbbed3810449c1">getStateIndex</a> (<a class="el" href="classast_1_1Identifier.html">Identifier</a> *id) const</td></tr>
+<tr class="separator:ac3f275c6e258c474e5cbbed3810449c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09ba11eb878eaaf1ba4876754d24ff0f" id="r_a09ba11eb878eaaf1ba4876754d24ff0f"><td class="memItemLeft" align="right" valign="top"><a id="a09ba11eb878eaaf1ba4876754d24ff0f" name="a09ba11eb878eaaf1ba4876754d24ff0f"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getStateIndex</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name) const</td></tr>
+<tr class="separator:a09ba11eb878eaaf1ba4876754d24ff0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab39b3425b52c256ac4af8a7e1ac8d836" id="r_ab39b3425b52c256ac4af8a7e1ac8d836"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab39b3425b52c256ac4af8a7e1ac8d836">setStateData</a> (const double *y)</td></tr>
 <tr class="separator:ab39b3425b52c256ac4af8a7e1ac8d836"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cf1bc1ef79ecbf0f72f66ac46c32de4" id="r_a6cf1bc1ef79ecbf0f72f66ac46c32de4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cf1bc1ef79ecbf0f72f66ac46c32de4">getDerivativeData</a> (double *dydt) const</td></tr>
@@ -217,6 +223,12 @@ Protected 类型</h2></td></tr>
 <tr class="memitem:af9a2744fb7a6f21d447cc436a841c27d" id="r_af9a2744fb7a6f21d447cc436a841c27d"><td class="memItemLeft" align="right" valign="top"><a id="af9a2744fb7a6f21d447cc436a841c27d" name="af9a2744fb7a6f21d447cc436a841c27d"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>StateMap</b> = std::unordered_map&lt;<a class="el" href="classast_1_1Identifier.html">Identifier</a>*, double*&gt;</td></tr>
 <tr class="separator:af9a2744fb7a6f21d447cc436a841c27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a30f73abdff4a7c0a0400742865e0d4bb" id="r_a30f73abdff4a7c0a0400742865e0d4bb"><td class="memItemLeft" align="right" valign="top"><a id="a30f73abdff4a7c0a0400742865e0d4bb" name="a30f73abdff4a7c0a0400742865e0d4bb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>A_DISABLE_COPY</b> (<a class="el" href="classast_1_1BlockDynamicSystem.html">BlockDynamicSystem</a>)</td></tr>
+<tr class="separator:a30f73abdff4a7c0a0400742865e0d4bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
@@ -535,6 +547,33 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 
 <p>获取状态量数据指针 </p>
 <dl class="section return"><dt>返回</dt><dd>状态量数据指针 </dd></dl>
+
+</div>
+</div>
+<a id="ac3f275c6e258c474e5cbbed3810449c1" name="ac3f275c6e258c474e5cbbed3810449c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3f275c6e258c474e5cbbed3810449c1">&#9670;&#160;</a></span>getStateIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ast::BlockDynamicSystem::getStateIndex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Identifier.html">Identifier</a> *</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取状态量索引 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>状态量标识符指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>状态量索引，若未找到则返回 -1 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>状态量索引从 0 开始 </dd></dl>
 
 </div>
 </div>

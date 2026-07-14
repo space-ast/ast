@@ -28,6 +28,12 @@ var searchData=
   ['updatevariations_25',['updateVariations',['../classast_1_1GravityCalculator.html#ab8660ebd38215545274e4412274970fd',1,'ast::GravityCalculator::updateVariations()'],['../classast_1_1GravityField.html#a314fc8aa383f24fbadb0c6e9acf97398',1,'ast::GravityField::updateVariations()']]],
   ['url_26',['url',['../classast_1_1NetworkRequest.html#a7ad685f8c1c032e2ce181b0d2d462ffe',1,'ast::NetworkRequest']]],
   ['useapproximatealtitude_27',['useApproximateAltitude',['../classast_1_1AtmosphereBase.html#a7b2f77b272c403c208e4c025d69c9ec3',1,'ast::AtmosphereBase']]],
-  ['user_28',['User',['../classast_1_1ChatMessage.html#a04f593494de4e59b374c6e979fe20001',1,'ast::ChatMessage']]],
-  ['utc2et_29',['utc2et',['../group__Spice.html#ga4f205815708e303f060b016040e999fd',1,'ast']]]
+  ['usedrag_28',['useDrag',['../classast_1_1HPOPForceModel.html#a26eb22a26ba6a071ae82957db55e8c1a',1,'ast::HPOPForceModel']]],
+  ['usedragsensitivity_29',['useDragSensitivity',['../classast_1_1HPOPForceModel.html#a80735758f18e66e82030200d353c1714',1,'ast::HPOPForceModel']]],
+  ['user_30',['User',['../classast_1_1ChatMessage.html#a04f593494de4e59b374c6e979fe20001',1,'ast::ChatMessage']]],
+  ['userelativitycorrection_31',['useRelativityCorrection',['../classast_1_1HPOPForceModel.html#aedfcda13637f81a8cbb12b57b1fd9001',1,'ast::HPOPForceModel']]],
+  ['usesrp_32',['useSRP',['../classast_1_1HPOPForceModel.html#a9a85f97bfa82c0f27c39f71b2a70cf3d',1,'ast::HPOPForceModel']]],
+  ['usesrpsensitivity_33',['useSRPSensitivity',['../classast_1_1HPOPForceModel.html#a28eacd119175783c017af84095c336e5',1,'ast::HPOPForceModel']]],
+  ['usestm_34',['useSTM',['../classast_1_1HPOPForceModel.html#a49df17f3ff562d44ae18e0736da63af7',1,'ast::HPOPForceModel']]],
+  ['utc2et_35',['utc2et',['../group__Spice.html#ga4f205815708e303f060b016040e999fd',1,'ast']]]
 ];

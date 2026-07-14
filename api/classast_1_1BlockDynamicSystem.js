@@ -12,6 +12,7 @@ var classast_1_1BlockDynamicSystem =
     [ "getDerivativeData", "classast_1_1BlockDynamicSystem.html#a6cf1bc1ef79ecbf0f72f66ac46c32de4", null ],
     [ "getDimension", "classast_1_1BlockDynamicSystem.html#aeb9078a191446bdba8b8867dd036d0e1", null ],
     [ "getStateData", "classast_1_1BlockDynamicSystem.html#a773f8ea7c1f4b9d829796c2275d77d1b", null ],
+    [ "getStateIndex", "classast_1_1BlockDynamicSystem.html#ac3f275c6e258c474e5cbbed3810449c1", null ],
     [ "initialize", "classast_1_1BlockDynamicSystem.html#a03a9105f126bfaf40324c28802e24bc6", null ],
     [ "reset", "classast_1_1BlockDynamicSystem.html#a584b629039b50fc779be23fbd316eea1", null ],
     [ "run", "classast_1_1BlockDynamicSystem.html#a2a128849187f9a9b2c69272a0025e307", null ],

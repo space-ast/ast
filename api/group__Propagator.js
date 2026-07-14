@@ -7,6 +7,7 @@ var group__Propagator =
       [ "getIntegrator", "classast_1_1HPOP.html#a6b39183be54694b152d01ee57170fa16", null ],
       [ "initialize", "classast_1_1HPOP.html#a97b91190d3858e3ad750e33992031180", null ],
       [ "propagate", "classast_1_1HPOP.html#a86f3fd08d7ffb2767ce06dca0438f325", null ],
+      [ "propagate", "classast_1_1HPOP.html#a2125a0307f18c8da5abfd1fa87970eab", null ],
       [ "propagate", "classast_1_1HPOP.html#ae7730a7e7ca7125c8780c5118f1e6ff5", null ],
       [ "propagationFrame", "classast_1_1HPOP.html#a45c5dfd2a1129f2b01c41a1698b7a484", null ],
       [ "setForceModel", "classast_1_1HPOP.html#aa503633338d058119bccbc870ecf5485", null ],

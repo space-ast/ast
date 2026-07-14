@@ -1,6 +1,7 @@
 var classast_1_1HPOPEquation =
 [
     [ "addBlock", "classast_1_1HPOPEquation.html#a99d97e96c5df622ab2a2e389fb1bd761", null ],
+    [ "dynamicSystem", "classast_1_1HPOPEquation.html#aa2ba5abf2b785a8fcec679c622ac8931", null ],
     [ "evaluate", "classast_1_1HPOPEquation.html#ad8e55b9036d041f549364a841a2d1e97", null ],
     [ "forceModel", "classast_1_1HPOPEquation.html#a3781b50840cde28f0f2d5133cc099b37", null ],
     [ "getCentralBody", "classast_1_1HPOPEquation.html#a46adfa72fee77b96503650068189e6d2", null ],
