@@ -169,12 +169,15 @@ errc_t BlockDragPartial::run(const SimTime& simTime)
                 for (int j = 0; j < 3; ++j)
                     A(3 + i, j) += factorR * D_omegaCross(i, j);
         }
-
-        // 密度梯度项（通过高度有限差分计算）
-        Matrix3d daDrDensity = computeDensityGradientContribution(relVelocity, relSpeed, k, tp, posInAtmosFrame, density, rotToAtmos);
-        for (int i = 0; i < 3; ++i)
-            for (int j = 0; j < 3; ++j)
-                A(3 + i, j) += daDrDensity(i, j);
+        constexpr bool useDensityGradientTerm = true;
+        if(useDensityGradientTerm)
+        {
+            // 密度梯度项（通过高度有限差分计算）
+            Matrix3d daDrDensity = computeDensityGradientContribution(relVelocity, relSpeed, k, tp, posInAtmosFrame, density, rotToAtmos);
+            for (int i = 0; i < 3; ++i)
+                for (int j = 0; j < 3; ++j)
+                    A(3 + i, j) += daDrDensity(i, j);
+        }
     }
 
     return eNoError;
