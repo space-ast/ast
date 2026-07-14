@@ -42,6 +42,7 @@ AST_NAMESPACE_BEGIN
 class HPOPEquation; 
 class ODEIntegrator;
 class HPOPForceModel;
+class HPOPStateMapper;
 
 /// @brief 高精度轨道预报器
 class AST_CORE_API HPOP: public ObjectNamed
@@ -115,6 +116,9 @@ public:
     /// @brief 初始化
     errc_t initialize();
 
+    /// @brief 获取状态映射器
+    StateMapper* stateMapper() const;
+
     /// @brief 添加事件检测器
     /// @param[in] eventDetector 事件检测器实例指针
     void addEventDetector(EventDetector* eventDetector);
@@ -133,7 +137,7 @@ private:
 
     mutable ScopedPtr<HPOPEquation> equation_;       ///< 高精度轨道预报方程
     mutable SharedPtr<ODEIntegrator> integrator_;    ///< 高精度轨道预报积分器
-    ScopedPtr<StateMapper> stateMapper_;             ///< 状态映射器
+    ScopedPtr<HPOPStateMapper> stateMapper_;         ///< 状态映射器
 };
 
 

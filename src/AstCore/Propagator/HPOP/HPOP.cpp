@@ -38,52 +38,119 @@ class HPOPStateMapper final: public StateMapper
 public:
     HPOPStateMapper() = default;
     ~HPOPStateMapper() override = default;
+
+    // ── 配置 ─────────────────────────────────────────────
+
+    /// @brief 设置各分量在状态向量中的索引
+    void setStateIndices(size_t idxPos, size_t idxVel, size_t idxSTM=-1,
+                         size_t idxDragSens=-1, size_t idxSRPSens=-1)
+    {
+        idxPos_      = idxPos;
+        idxVel_      = idxVel;
+        idxSTM_      = idxSTM;
+        idxDragSens_ = idxDragSens;
+        idxSRPSens_  = idxSRPSens;
+    }
+
+    // ── to* — 从状态向量 y 读取到类型化对象（解包） ─────
+
+    /// @name 位置/速度基础访问
+    /// @{
+    void toPos(const double* y, double* pos) const
+    {
+        memcpy(pos, &y[idxPos_], 3 * sizeof(double));
+    }
+    void toVel(const double* y, double* vel) const
+    {
+        memcpy(vel, &y[idxVel_], 3 * sizeof(double));
+    }
+    /// @}
+
+    void toState(const double* y, CartState& state) const override
+    {
+        toPos(y, state.position().data());
+        toVel(y, state.velocity().data());
+    }
     void toState(const double* y, double x, SpacecraftState& state) const override
     {
-        // 设置轨道历元
         TimePoint time;
         toTime(x, time);
         state.setStateEpoch(time);
+        CartState cartState;
+        toState(y, cartState);
+        state.setState(cartState);
+    }
 
-        // 设置轨道状态
-        // @todo 这里需要处理其他一般情况
-        CartState* cartState = (CartState*)y;
-        state.setState(*cartState);
+    errc_t toStateTransitionMatrix(const double* y, Matrix6d& stm) const override
+    {
+        if (idxSTM_ == (size_t)-1)
+            return -1;
+        memcpy(&stm, &y[idxSTM_], sizeof(Matrix6d));
+        return 0;
+    }
+    errc_t toStateSensitivityWrtDrag(const double* y, Vector6d& sens) const override
+    {
+        if (idxDragSens_ == (size_t)-1)
+            return -1;
+        memcpy(sens.data(), &y[idxDragSens_], 6 * sizeof(double));
+        return 0;
+    }
+    errc_t toStateSensitivityWrtSRP(const double* y, Vector6d& sens) const override
+    {
+        if (idxSRPSens_ == (size_t)-1)
+            return -1;
+        memcpy(sens.data(), &y[idxSRPSens_], 6 * sizeof(double));
+        return 0;
+    }
+
+    // ── from* — 从类型化对象写入状态向量 y（打包） ─────
+
+    /// @name 位置/速度基础访问
+    /// @{
+    void fromPos(const double* pos, double* y) const
+    {
+        memcpy(&y[idxPos_], pos, 3 * sizeof(double));
+    }
+    void fromVel(const double* vel, double* y) const
+    {
+        memcpy(&y[idxVel_], vel, 3 * sizeof(double));
+    }
+    /// @}
+
+    void fromState(const CartState& state, double* y) const
+    {
+        fromPos(state.position().data(), y);
+        fromVel(state.velocity().data(), y);
     }
     void fromState(const SpacecraftState& state, double* y, double& x) const override
     {
-        // 获取轨道历元
         TimePoint time;
         state.getStateEpoch(time);
         fromTime(time, x);
+        CartState cartState;
+        state.getState(cartState);
+        fromState(cartState, y);
+    }
 
-        // 获取轨道状态
-        // @todo 这里需要处理其他一般情况
-        CartState* cartState = (CartState*)y;
-        state.getState(*cartState);
-    }
-    void toState(const double* y, double x, CartState& state) const override
+    void fromStateTransitionMatrix(const Matrix6d& stm, double* y) const
     {
-        // 设置轨道状态
-        // @todo 这里需要处理其他一般情况
-        CartState* cartState = (CartState*)y;
-        state = *cartState;
+        memcpy(&y[idxSTM_], &stm, sizeof(Matrix6d));
     }
-    errc_t toStateTransitionMatrix(const double* y, double x, Matrix6d& stm) const override
+    void fromStateSensitivityWrtDrag(const Vector6d& sens, double* y) const
     {
-        // @todo 这里需要处理其他一般情况
-        return 0;
+        memcpy(&y[idxDragSens_], sens.data(), 6 * sizeof(double));
     }
-    errc_t toStateSensitivityWrtDrag(const double* y, double x, Vector6d& stateSensWrtDrag) const override
+    void fromStateSensitivityWrtSRP(const Vector6d& sens, double* y) const
     {
-        // @todo 这里需要处理其他一般情况
-        return 0;
+        memcpy(&y[idxSRPSens_], sens.data(), 6 * sizeof(double));
     }
-    errc_t toStateSensitivityWrtSRP(const double* y, double x, Vector6d& stateSensWrtSRP) const override
-    {
-        // @todo 这里需要处理其他一般情况
-        return 0;
-    }
+
+private:
+    size_t idxPos_      = 0;           ///< Pos 在状态向量中的起始索引，默认 0（基本 6-DOF 情况）
+    size_t idxVel_      = 3;           ///< Vel 在状态向量中的起始索引，默认 3（基本 6-DOF 情况）
+    size_t idxSTM_      = (size_t)-1;  ///< STM 在状态向量中的起始索引
+    size_t idxDragSens_ = (size_t)-1;  ///< Drag 敏感度在状态向量中的起始索引
+    size_t idxSRPSens_  = (size_t)-1;  ///< SRP 敏感度在状态向量中的起始索引
 };
 
 HPOP::HPOP()
@@ -163,15 +230,17 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector
         return -1;
     }
 
+    stateMapper_->setStateIndices(idxPos, idxVel);
+
     array6d y;
-    memcpy(&y[idxPos], position.data(), 3 * sizeof(double));
-    memcpy(&y[idxVel], velocity.data(), 3 * sizeof(double));
+    stateMapper_->fromPos(position.data(), y.data());
+    stateMapper_->fromVel(velocity.data(), y.data());
 
     err = integrateState(startTime, targetTime, y.data());
     if (err) return err;
 
-    memcpy(position.data(), &y[idxPos], 3 * sizeof(double));
-    memcpy(velocity.data(), &y[idxVel], 3 * sizeof(double));
+    stateMapper_->toPos(y.data(), position.data());
+    stateMapper_->toVel(y.data(), velocity.data());
     return err;
 }
 
@@ -196,17 +265,17 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, CartSt
         return -1;
     }
 
+    stateMapper_->setStateIndices(idxPos, idxVel, idxSTM);
+
     std::array<double, dimexpected> y;
-    memcpy(&y[idxPos], state.position().data(), 3 * sizeof(double));
-    memcpy(&y[idxVel], state.velocity().data(), 3 * sizeof(double));
-    memcpy(&y[idxSTM], &stm, sizeof(Matrix6d));
+    stateMapper_->fromState(state, y.data());
+    stateMapper_->fromStateTransitionMatrix(stm, y.data());
 
     err = integrateState(startTime, targetTime, y.data());
     if (err) return err;
 
-    memcpy(state.position().data(), &y[idxPos], 3 * sizeof(double));
-    memcpy(state.velocity().data(), &y[idxVel], 3 * sizeof(double));
-    memcpy(&stm, &y[idxSTM], sizeof(Matrix6d));
+    stateMapper_->toState(y.data(), state);
+    stateMapper_->toStateTransitionMatrix(y.data(), stm);
     return err;
 }
 
@@ -255,30 +324,28 @@ errc_t HPOP::propagate(const TimePoint& startTime, TimePoint& targetTime,
         }
     }
 
-    // 打包状态向量
+    stateMapper_->setStateIndices(idxPos, idxVel, idxSTM, idxDragSens, idxSRPSens);
+
     std::vector<double> y(dim);
-    memcpy(&y[idxPos], state.position().data(), 3 * sizeof(double));
-    memcpy(&y[idxVel], state.velocity().data(), 3 * sizeof(double));
-    memcpy(&y[idxSTM], &stm, sizeof(Matrix6d));
+    stateMapper_->fromState(state, y.data());
+    stateMapper_->fromStateTransitionMatrix(stm, y.data());
     if (hasB) {
-        memcpy(&y[idxDragSens], stateSensWrtDrag.data(), 6 * sizeof(double));
+        stateMapper_->fromStateSensitivityWrtDrag(stateSensWrtDrag, y.data());
     }
     if (hasK) {
-        memcpy(&y[idxSRPSens], stateSensWrtSRP.data(), 6 * sizeof(double));
+        stateMapper_->fromStateSensitivityWrtSRP(stateSensWrtSRP, y.data());
     }
 
     err = integrateState(startTime, targetTime, y.data());
     if (err) return err;
 
-    // 解包状态向量
-    memcpy(state.position().data(), &y[idxPos], 3 * sizeof(double));
-    memcpy(state.velocity().data(), &y[idxVel], 3 * sizeof(double));
-    memcpy(&stm, &y[idxSTM], sizeof(Matrix6d));
+    stateMapper_->toState(y.data(), state);
+    stateMapper_->toStateTransitionMatrix(y.data(), stm);
     if (hasB) {
-        memcpy(stateSensWrtDrag.data(), &y[idxDragSens], 6 * sizeof(double));
+        stateMapper_->toStateSensitivityWrtDrag(y.data(), stateSensWrtDrag);
     }
     if (hasK) {
-        memcpy(stateSensWrtSRP.data(), &y[idxSRPSens], 6 * sizeof(double));
+        stateMapper_->toStateSensitivityWrtSRP(y.data(), stateSensWrtSRP);
     }
 
     return err;
@@ -309,6 +376,10 @@ errc_t HPOP::initialize()
     // err |= integrator_->initialize(equation_);
 }
 
+StateMapper* HPOP::stateMapper() const
+{
+    return stateMapper_.get();
+}
 
 void HPOP::addEventDetector(EventDetector* eventDetector)
 {
