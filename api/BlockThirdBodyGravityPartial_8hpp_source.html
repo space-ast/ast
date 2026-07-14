@@ -107,20 +107,44 @@ $(function(){initNavTree('BlockThirdBodyGravityPartial_8hpp_source.html',''); in
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/BlockThirdBodyGravity.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classast_1_1BlockThirdBodyGravityPartial.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1BlockThirdBodyGravityPartial.html">BlockThirdBodyGravityPartial</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1BlockThirdBodyGravity.html">BlockThirdBodyGravity</a></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">using </span>BlockThirdBodyGravity::BlockThirdBodyGravity;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstMath/Matrix.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="};">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classast_1_1BlockThirdBodyGravityPartial.html">   71</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1BlockThirdBodyGravityPartial.html">BlockThirdBodyGravityPartial</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1BlockThirdBodyGravity.html">BlockThirdBodyGravity</a></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_class" href="classast_1_1BlockThirdBodyGravityPartial.html">BlockThirdBodyGravityPartial</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1BlockThirdBodyGravityPartial.html">BlockThirdBodyGravityPartial</a>(<a class="code hl_class" href="classast_1_1Point.html">Point</a>* thirdBody, <a class="code hl_class" href="classast_1_1GravityField.html">GravityField</a>&amp;&amp; gravityField,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                                          <span class="keywordtype">int</span> degree, <span class="keywordtype">int</span> order, <a class="code hl_class" href="classast_1_1Axes.html">Axes</a>* gravityAxes,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                                          <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* propagationFrame);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    errc_t <a class="code hl_function" href="classast_1_1BlockThirdBodyGravity.html#a716fffd94035a601f89f6b32639a97ed">run</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SimTime.html">SimTime</a>&amp; simTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classast_1_1BlockThirdBodyGravityPartial.html#a0ab8277af3b2e5770cdbcb357669b58d">   82</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockThirdBodyGravityPartial.html#a0ab8277af3b2e5770cdbcb357669b58d">setDegreeForPartial</a>(<span class="keywordtype">int</span> degree) { gravityCalculator_.setDegreeForPartial(degree); }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1BlockThirdBodyGravityPartial.html#a682045695673e140dbc37791eec97489">   85</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockThirdBodyGravityPartial.html#a682045695673e140dbc37791eec97489">setOrderForPartial</a>(<span class="keywordtype">int</span> order) { gravityCalculator_.setOrderForPartial(order); }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">void</span> init();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>* aMatrixPtr_{&amp;aMatrixBuffer_};   </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    Matrix6d  aMatrixBuffer_{};               </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1BlockThirdBodyGravityPartial_html"><div class="ttname"><a href="classast_1_1BlockThirdBodyGravityPartial.html">ast::BlockThirdBodyGravityPartial</a></div><div class="ttdef"><b>定义</b> BlockThirdBodyGravityPartial.hpp:34</div></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1Axes_html"><div class="ttname"><a href="classast_1_1Axes.html">ast::Axes</a></div><div class="ttdoc">轴系抽象基类</div><div class="ttdef"><b>定义</b> Axes.hpp:72</div></div>
+<div class="ttc" id="aclassast_1_1BlockThirdBodyGravityPartial_html"><div class="ttname"><a href="classast_1_1BlockThirdBodyGravityPartial.html">ast::BlockThirdBodyGravityPartial</a></div><div class="ttdoc">三体球谐重力偏导数（梯度）函数块</div><div class="ttdef"><b>定义</b> BlockThirdBodyGravityPartial.hpp:72</div></div>
+<div class="ttc" id="aclassast_1_1BlockThirdBodyGravityPartial_html_a0ab8277af3b2e5770cdbcb357669b58d"><div class="ttname"><a href="classast_1_1BlockThirdBodyGravityPartial.html#a0ab8277af3b2e5770cdbcb357669b58d">ast::BlockThirdBodyGravityPartial::setDegreeForPartial</a></div><div class="ttdeci">void setDegreeForPartial(int degree)</div><div class="ttdoc">设置计算偏导数时使用的重力场阶数（可小于加速度计算阶数以节省计算）</div><div class="ttdef"><b>定义</b> BlockThirdBodyGravityPartial.hpp:82</div></div>
+<div class="ttc" id="aclassast_1_1BlockThirdBodyGravityPartial_html_a682045695673e140dbc37791eec97489"><div class="ttname"><a href="classast_1_1BlockThirdBodyGravityPartial.html#a682045695673e140dbc37791eec97489">ast::BlockThirdBodyGravityPartial::setOrderForPartial</a></div><div class="ttdeci">void setOrderForPartial(int order)</div><div class="ttdoc">设置计算偏导数时使用的重力场次数（可小于加速度计算次数以节省计算）</div><div class="ttdef"><b>定义</b> BlockThirdBodyGravityPartial.hpp:85</div></div>
 <div class="ttc" id="aclassast_1_1BlockThirdBodyGravity_html"><div class="ttname"><a href="classast_1_1BlockThirdBodyGravity.html">ast::BlockThirdBodyGravity</a></div><div class="ttdoc">三体重力场函数块</div><div class="ttdef"><b>定义</b> BlockThirdBodyGravity.hpp:67</div></div>
+<div class="ttc" id="aclassast_1_1BlockThirdBodyGravity_html_a716fffd94035a601f89f6b32639a97ed"><div class="ttname"><a href="classast_1_1BlockThirdBodyGravity.html#a716fffd94035a601f89f6b32639a97ed">ast::BlockThirdBodyGravity::run</a></div><div class="ttdeci">errc_t run(const SimTime &amp;simTime) override</div><div class="ttdoc">计算函数块</div><div class="ttdef"><b>定义</b> BlockThirdBodyGravity.cpp:114</div></div>
+<div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系抽象基类</div><div class="ttdef"><b>定义</b> Frame.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1GravityField_html"><div class="ttname"><a href="classast_1_1GravityField.html">ast::GravityField</a></div><div class="ttdoc">重力场系数</div><div class="ttdef"><b>定义</b> GravityField.hpp:88</div></div>
+<div class="ttc" id="aclassast_1_1MatrixMN_html"><div class="ttname"><a href="classast_1_1MatrixMN.html">ast::MatrixMN&lt; double, 6, 6 &gt;</a></div></div>
+<div class="ttc" id="aclassast_1_1Point_html"><div class="ttname"><a href="classast_1_1Point.html">ast::Point</a></div><div class="ttdoc">点抽象基类</div><div class="ttdef"><b>定义</b> Point.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1SimTime_html"><div class="ttname"><a href="classast_1_1SimTime.html">ast::SimTime</a></div><div class="ttdoc">仿真时间</div><div class="ttdef"><b>定义</b> SimTime.hpp:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

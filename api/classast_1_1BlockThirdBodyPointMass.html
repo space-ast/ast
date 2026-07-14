@@ -117,7 +117,7 @@ $(function(){initNavTree('classast_1_1BlockThirdBodyPointMass.html',''); initRes
   <map id="ast::BlockThirdBodyPointMass_map" name="ast::BlockThirdBodyPointMass_map">
 <area href="classast_1_1BlockDerivative.html" title="导数函数块" alt="ast::BlockDerivative" shape="rect" coords="0,56,217,80"/>
 <area href="classast_1_1FuncBlock.html" title="函数块/功能块" alt="ast::FuncBlock" shape="rect" coords="0,0,217,24"/>
-<area href="classast_1_1BlockThirdBodyPointMassPartial.html" alt="ast::BlockThirdBodyPointMassPartial" shape="rect" coords="0,168,217,192"/>
+<area href="classast_1_1BlockThirdBodyPointMassPartial.html" title="三体点质量引力偏导数（梯度）函数块" alt="ast::BlockThirdBodyPointMassPartial" shape="rect" coords="0,168,217,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -192,6 +192,15 @@ Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>velocityDerivat
 <tr class="memitem:a6305a064a3361d2827d2971e3eeda634" id="r_a6305a064a3361d2827d2971e3eeda634"><td class="memItemLeft" align="right" valign="top"><a id="a6305a064a3361d2827d2971e3eeda634" name="a6305a064a3361d2827d2971e3eeda634"></a>
 Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>vectorBuffer</b> {}</td></tr>
 <tr class="separator:a6305a064a3361d2827d2971e3eeda634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a140b5d3f034db2b0bc54dcee02225899" id="r_a140b5d3f034db2b0bc54dcee02225899"><td class="memItemLeft" align="right" valign="top"><a id="a140b5d3f034db2b0bc54dcee02225899" name="a140b5d3f034db2b0bc54dcee02225899"></a>
+<a class="el" href="classast_1_1Point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>thirdBody_</b> {}</td></tr>
+<tr class="separator:a140b5d3f034db2b0bc54dcee02225899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce328327609d551191705eb896948e4" id="r_afce328327609d551191705eb896948e4"><td class="memItemLeft" align="right" valign="top"><a id="afce328327609d551191705eb896948e4" name="afce328327609d551191705eb896948e4"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>thirdBodyGM_</b></td></tr>
+<tr class="separator:afce328327609d551191705eb896948e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15c420d2d778a0a5665d97e0f311e56f" id="r_a15c420d2d778a0a5665d97e0f311e56f"><td class="memItemLeft" align="right" valign="top"><a id="a15c420d2d778a0a5665d97e0f311e56f" name="a15c420d2d778a0a5665d97e0f311e56f"></a>
+<a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>propagationFrame_</b> {}</td></tr>
+<tr class="separator:a15c420d2d778a0a5665d97e0f311e56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classast_1_1BlockDerivative"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1BlockDerivative')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1BlockDerivative.html">ast::BlockDerivative</a></td></tr>
 <tr class="memitem:ac869516d83ef23185f2f1cadb151c573 inherit pro_attribs_classast_1_1BlockDerivative" id="r_ac869516d83ef23185f2f1cadb151c573"><td class="memItemLeft" align="right" valign="top">
 std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>derivativePorts_</b></td></tr>
@@ -260,6 +269,8 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 <p>实现了 <a class="el" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">ast::FuncBlock</a>.</p>
+
+<p>被 <a class="el" href="classast_1_1BlockThirdBodyPointMassPartial.html#ace1d237e7265be1bd8f0e3f69ac8dda1">ast::BlockThirdBodyPointMassPartial</a> 重载.</p>
 
 </div>
 </div>

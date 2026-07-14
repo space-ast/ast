@@ -117,7 +117,7 @@ $(function(){initNavTree('classast_1_1BlockThirdBodyGravity.html',''); initResiz
   <map id="ast::BlockThirdBodyGravity_map" name="ast::BlockThirdBodyGravity_map">
 <area href="classast_1_1BlockDerivative.html" title="导数函数块" alt="ast::BlockDerivative" shape="rect" coords="0,56,200,80"/>
 <area href="classast_1_1FuncBlock.html" title="函数块/功能块" alt="ast::FuncBlock" shape="rect" coords="0,0,200,24"/>
-<area href="classast_1_1BlockThirdBodyGravityPartial.html" alt="ast::BlockThirdBodyGravityPartial" shape="rect" coords="0,168,200,192"/>
+<area href="classast_1_1BlockThirdBodyGravityPartial.html" title="三体球谐重力偏导数（梯度）函数块" alt="ast::BlockThirdBodyGravityPartial" shape="rect" coords="0,168,200,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -195,6 +195,24 @@ Vector3d *&#160;</td><td class="memItemRight" valign="bottom"><b>velocityDerivat
 <tr class="memitem:acaf644588bc859b59d2926662cb1fd3e" id="r_acaf644588bc859b59d2926662cb1fd3e"><td class="memItemLeft" align="right" valign="top"><a id="acaf644588bc859b59d2926662cb1fd3e" name="acaf644588bc859b59d2926662cb1fd3e"></a>
 Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>vectorBuffer</b> {}</td></tr>
 <tr class="separator:acaf644588bc859b59d2926662cb1fd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49ed6d4d32d7c924641529d774519e4e" id="r_a49ed6d4d32d7c924641529d774519e4e"><td class="memItemLeft" align="right" valign="top"><a id="a49ed6d4d32d7c924641529d774519e4e" name="a49ed6d4d32d7c924641529d774519e4e"></a>
+<a class="el" href="classast_1_1Point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>thirdBody_</b> {}</td></tr>
+<tr class="separator:a49ed6d4d32d7c924641529d774519e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e354b54fe8a42b200f0675bb6c0e699" id="r_a0e354b54fe8a42b200f0675bb6c0e699"><td class="memItemLeft" align="right" valign="top"><a id="a0e354b54fe8a42b200f0675bb6c0e699" name="a0e354b54fe8a42b200f0675bb6c0e699"></a>
+<a class="el" href="group__Geometry.html#ga52cecc91460a5123ebbfa0a7a4c7b0f9">HAxes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gravityAxes_</b></td></tr>
+<tr class="separator:a0e354b54fe8a42b200f0675bb6c0e699"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6f49efb2ccc508dc9411d4a5692100c" id="r_ae6f49efb2ccc508dc9411d4a5692100c"><td class="memItemLeft" align="right" valign="top"><a id="ae6f49efb2ccc508dc9411d4a5692100c" name="ae6f49efb2ccc508dc9411d4a5692100c"></a>
+<a class="el" href="group__Geometry.html#ga52cecc91460a5123ebbfa0a7a4c7b0f9">HAxes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>propagationAxes_</b></td></tr>
+<tr class="separator:ae6f49efb2ccc508dc9411d4a5692100c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b0bccad8c71fef82ed52aac8d7222d8" id="r_a0b0bccad8c71fef82ed52aac8d7222d8"><td class="memItemLeft" align="right" valign="top"><a id="a0b0bccad8c71fef82ed52aac8d7222d8" name="a0b0bccad8c71fef82ed52aac8d7222d8"></a>
+<a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>propagationFrame_</b> {}</td></tr>
+<tr class="separator:a0b0bccad8c71fef82ed52aac8d7222d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1abb5843b76ac484e59554376009bb1" id="r_ad1abb5843b76ac484e59554376009bb1"><td class="memItemLeft" align="right" valign="top"><a id="ad1abb5843b76ac484e59554376009bb1" name="ad1abb5843b76ac484e59554376009bb1"></a>
+<a class="el" href="classast_1_1GravityCalculator3.html">GravityCalculatorDefault</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gravityCalculator_</b></td></tr>
+<tr class="separator:ad1abb5843b76ac484e59554376009bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44590e7fc977c51b461bb4182e33f650" id="r_a44590e7fc977c51b461bb4182e33f650"><td class="memItemLeft" align="right" valign="top"><a id="a44590e7fc977c51b461bb4182e33f650" name="a44590e7fc977c51b461bb4182e33f650"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>considerVariations_</b> {false}</td></tr>
+<tr class="separator:a44590e7fc977c51b461bb4182e33f650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classast_1_1BlockDerivative"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1BlockDerivative')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1BlockDerivative.html">ast::BlockDerivative</a></td></tr>
 <tr class="memitem:ac869516d83ef23185f2f1cadb151c573 inherit pro_attribs_classast_1_1BlockDerivative" id="r_ac869516d83ef23185f2f1cadb151c573"><td class="memItemLeft" align="right" valign="top">
 std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>derivativePorts_</b></td></tr>
@@ -274,6 +292,8 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 <p>实现了 <a class="el" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">ast::FuncBlock</a>.</p>
+
+<p>被 <a class="el" href="classast_1_1BlockThirdBodyGravityPartial.html#a5fbc65e0284d7bb7e6bb7323299c5b07">ast::BlockThirdBodyGravityPartial</a> 重载.</p>
 
 </div>
 </div>

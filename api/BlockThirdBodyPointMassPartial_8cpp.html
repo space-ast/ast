@@ -104,6 +104,11 @@ $(function(){initNavTree('BlockThirdBodyPointMassPartial_8cpp.html',''); initRes
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="BlockThirdBodyPointMassPartial_8hpp_source.html">BlockThirdBodyPointMassPartial.hpp</a>&quot;</code><br />
+<code>#include &quot;AstCore/BlockAstro.hpp&quot;</code><br />
+<code>#include &quot;AstCore/GravityCalculator.hpp&quot;</code><br />
+<code>#include &quot;AstCore/Point.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/IdentifierAPI.hpp&quot;</code><br />
+<code>#include &quot;AstMath/MathOperator.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -111,10 +116,8 @@ $(function(){initNavTree('BlockThirdBodyPointMassPartial_8cpp.html',''); initRes
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p><br  />
- </p>
-<p><br  />
- </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<div class="textblock"><p>三体点质量引力偏导数（梯度）函数块实现 </p>
+<p>继承 BlockThirdBodyPointMass，重写 run() 以同时计算加速度和梯度 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
 <dl class="section date"><dt>日期</dt><dd>2026-07-11 </dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, SpaceAST项目.</dd></dl>
 <p>SpaceAST项目（https://github.com/space-ast/ast） 本软件基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
