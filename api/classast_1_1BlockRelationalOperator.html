@@ -124,6 +124,12 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a24d765b1bb5d412076b0e89b2395ffae" id="r_a24d765b1bb5d412076b0e89b2395ffae"><td class="memItemLeft" align="right" valign="top"><a id="a24d765b1bb5d412076b0e89b2395ffae" name="a24d765b1bb5d412076b0e89b2395ffae"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BlockRelationalOperator</b> (<a class="el" href="namespaceast.html#a11d9a447a3f9d9c3fef650baf82bc59a">ERelationalOperatorType</a> type=<a class="el" href="namespaceast.html#a11d9a447a3f9d9c3fef650baf82bc59aad641b5cd19a5befb96881807bf8f58ba">ERelationalOperatorType::eEqual</a>)</td></tr>
 <tr class="separator:a24d765b1bb5d412076b0e89b2395ffae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d964f53baef57163539cb740ad72f29" id="r_a1d964f53baef57163539cb740ad72f29"><td class="memItemLeft" align="right" valign="top"><a id="a1d964f53baef57163539cb740ad72f29" name="a1d964f53baef57163539cb740ad72f29"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BlockRelationalOperator</b> (const <a class="el" href="classast_1_1BlockRelationalOperator.html">BlockRelationalOperator</a> &amp;)=delete</td></tr>
+<tr class="separator:a1d964f53baef57163539cb740ad72f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011d2cad43d8381d7eba5f6d7b78cfd1" id="r_a011d2cad43d8381d7eba5f6d7b78cfd1"><td class="memItemLeft" align="right" valign="top"><a id="a011d2cad43d8381d7eba5f6d7b78cfd1" name="a011d2cad43d8381d7eba5f6d7b78cfd1"></a>
+<a class="el" href="classast_1_1BlockRelationalOperator.html">BlockRelationalOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classast_1_1BlockRelationalOperator.html">BlockRelationalOperator</a> &amp;)=delete</td></tr>
+<tr class="separator:a011d2cad43d8381d7eba5f6d7b78cfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad96654f5bf43d8b438a470aff12682a5" id="r_ad96654f5bf43d8b438a470aff12682a5"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad96654f5bf43d8b438a470aff12682a5">run</a> (const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;simTime) override</td></tr>
 <tr class="separator:ad96654f5bf43d8b438a470aff12682a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeeae5c35dc395ff8f8485c92ae54749c" id="r_aeeae5c35dc395ff8f8485c92ae54749c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeeae5c35dc395ff8f8485c92ae54749c">setOperatorType</a> (<a class="el" href="namespaceast.html#a11d9a447a3f9d9c3fef650baf82bc59a">ERelationalOperatorType</a> type)</td></tr>
@@ -189,10 +195,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>outputBuffer_</b> {0}<
 <tr class="separator:af0f8b59322de420bedc2cd05e44c3046"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classast_1_1FuncBlock"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classast_1_1FuncBlock')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classast_1_1FuncBlock.html">ast::FuncBlock</a></td></tr>
 <tr class="memitem:a4e50711b7458870339e195e895a7892e inherit pro_attribs_classast_1_1FuncBlock" id="r_a4e50711b7458870339e195e895a7892e"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inputPorts_</b></td></tr>
+std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inputPorts_</b> {}</td></tr>
 <tr class="separator:a4e50711b7458870339e195e895a7892e inherit pro_attribs_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aece1c71a258a490d4fc63df2f3b911be inherit pro_attribs_classast_1_1FuncBlock" id="r_aece1c71a258a490d4fc63df2f3b911be"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>outputPorts_</b></td></tr>
+std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>outputPorts_</b> {}</td></tr>
 <tr class="separator:aece1c71a258a490d4fc63df2f3b911be inherit pro_attribs_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>

@@ -288,7 +288,7 @@ $(function(){initNavTree('FileSystemSimple_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            <span class="keywordflow">return</span> (path_);</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        }</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        string_type path_;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        string_type path_{};</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    };</div>
 </div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
@@ -340,7 +340,7 @@ $(function(){initNavTree('FileSystemSimple_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        AST_UTIL_API</div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <a class="code hl_class" href="classast_1_1fs__simple_1_1file__status.html">file_status</a> status() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        _AST_FS <a class="code hl_class" href="classast_1_1fs__simple_1_1path.html">path</a> path_;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        _AST_FS <a class="code hl_class" href="classast_1_1fs__simple_1_1path.html">path</a> path_{};</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    };</div>
 </div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
@@ -349,7 +349,7 @@ $(function(){initNavTree('FileSystemSimple_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="classast_1_1fs__simple_1_1directory__iterator.html">  259</a></span>    <span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1fs__simple_1_1directory__iterator.html">directory_iterator</a></div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    {</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <a class="code hl_class" href="classast_1_1fs__simple_1_1directory__iterator.html">directory_iterator</a>() : impl_(<span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <a class="code hl_class" href="classast_1_1fs__simple_1_1directory__iterator.html">directory_iterator</a>() : impl_(<span class="keyword">nullptr</span>), entry_()</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        {}</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1fs__simple_1_1directory__iterator.html">directory_iterator</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1fs__simple_1_1path.html">path</a>&amp; p);</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        <a class="code hl_class" href="classast_1_1fs__simple_1_1directory__iterator.html">~directory_iterator</a>() = <span class="keywordflow">default</span>;</div>
