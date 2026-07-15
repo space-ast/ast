@@ -67,6 +67,10 @@ public:
     {
     public:
         Workspace();
+
+        Workspace(const Workspace&) = delete;
+        Workspace& operator=(const Workspace&) = delete;
+
         ~Workspace();
         void reset(int dimension, int stage);
         void clear();

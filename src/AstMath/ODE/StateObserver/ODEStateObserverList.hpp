@@ -46,7 +46,7 @@ public:
     ODEStateObserver& operator[](size_t index) { return *observers_[index]; }
     const ODEStateObserver& operator[](size_t index) const { return *observers_[index]; }
 protected:
-    std::vector<ODEStateObserver*> observers_;
+    std::vector<ODEStateObserver*> observers_{};
 };
 
 AST_NAMESPACE_END
