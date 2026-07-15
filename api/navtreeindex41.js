@@ -1,5 +1,7 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1SolarSystem.html#ae0679a4c0eedb7641a108d8d9769d2d2":[0,1,6,11,40],
+"classast_1_1SolarSystem.html#ae59cb7566b86ae10ae1439229fe41590":[0,1,6,11,37],
 "classast_1_1SolarSystem.html#af41e3aea49eec17b6722c835fa2f2f33":[0,1,6,11,18],
 "classast_1_1SolarSystem.html#af6350a447e1fbe7fcc6def88f9f965a9":[0,1,6,11,17],
 "classast_1_1SpaceObject.html":[2,0,0,843],
@@ -247,7 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1StateKeplerian.html#a2726ec77de2de02da2c489de0f29a237":[2,0,0,879,46],
 "classast_1_1StateKeplerian.html#a2726ec77de2de02da2c489de0f29a237":[3,0,0,878,46],
 "classast_1_1StateKeplerian.html#a2cf4411ca3b7a5fa08f511765fe09421":[2,0,0,879,21],
-"classast_1_1StateKeplerian.html#a2cf4411ca3b7a5fa08f511765fe09421":[3,0,0,878,21],
-"classast_1_1StateKeplerian.html#a2e010c1daaef9b46940626f839bd4bf4":[2,0,0,879,27],
-"classast_1_1StateKeplerian.html#a2e010c1daaef9b46940626f839bd4bf4":[3,0,0,878,27]
+"classast_1_1StateKeplerian.html#a2cf4411ca3b7a5fa08f511765fe09421":[3,0,0,878,21]
 };

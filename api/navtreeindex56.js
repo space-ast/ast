@@ -1,5 +1,7 @@
 var NAVTREEINDEX56 =
 {
+"namespaceast.html#adb786ad34e543a259ae24486eeffe1c4":[2,0,0,1630],
+"namespaceast.html#adc3245c2c9c2b4b462f39bef37b772b1":[2,0,0,1148],
 "namespaceast.html#adc39c8c0cd761513be036aa514379197":[2,0,0,1988],
 "namespaceast.html#adcf330c515e8b762d7ba159e53a5adb6":[2,0,0,1059],
 "namespaceast.html#add40f0b982539d1547eb983876a69b2b":[2,0,0,1692],
@@ -247,7 +249,5 @@ var NAVTREEINDEX56 =
 "resource_8h_source.html":[4,0,0,6,0,0],
 "secant_8c.html":[4,0,0,13,4,0,0,0],
 "snopt__ast_8h_source.html":[4,0,0,16,18],
-"structAMatrix3d.html":[3,0,5],
-"structAVector3d.html":[3,0,7],
-"structDTM__12type.html":[3,0,18]
+"structAMatrix3d.html":[3,0,5]
 };

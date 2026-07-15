@@ -100,6 +100,7 @@ $(function(){initNavTree('classast_1_1BlockThirdBodyGravity.html',''); initResiz
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1BlockThirdBodyGravity-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::BlockThirdBodyGravity类 参考</div></div>
@@ -181,6 +182,11 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <tr class="memitem:ac93da2888c1a3cf60550bbac3a6aaa85 inherit pub_methods_classast_1_1FuncBlock" id="r_ac93da2888c1a3cf60550bbac3a6aaa85"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FuncBlock.html#ac93da2888c1a3cf60550bbac3a6aaa85">getOutputPortWidth</a> (size_t portIndex)</td></tr>
 <tr class="separator:ac93da2888c1a3cf60550bbac3a6aaa85 inherit pub_methods_classast_1_1FuncBlock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:aa331ec971387d8d69143c34886bd11b1" id="r_aa331ec971387d8d69143c34886bd11b1"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa331ec971387d8d69143c34886bd11b1">prepare</a> (const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;simTime, Vector3d &amp;thirdBodyPos, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:aa331ec971387d8d69143c34886bd11b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:a75bef1f0eb38e486be8795df2c99980f" id="r_a75bef1f0eb38e486be8795df2c99980f"><td class="memItemLeft" align="right" valign="top"><a id="a75bef1f0eb38e486be8795df2c99980f" name="a75bef1f0eb38e486be8795df2c99980f"></a>
@@ -259,6 +265,51 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 </ul>
 <dl class="section see"><dt>参见</dt><dd><a class="el" href="classast_1_1BlockThirdBodyPointMass.html" title="三体点质量引力函数块">BlockThirdBodyPointMass</a>, <a class="el" href="classast_1_1BlockGravity.html" title="重力场函数块">BlockGravity</a> </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
+<a id="aa331ec971387d8d69143c34886bd11b1" name="aa331ec971387d8d69143c34886bd11b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa331ec971387d8d69143c34886bd11b1">&#9670;&#160;</a></span>prepare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::BlockThirdBodyGravity::prepare </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1SimTime.html">SimTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>simTime</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>thirdBodyPos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>准备计算：空指针检查、获取第三体位置、计算旋转变换、更新重力场系数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">simTime</td><td>当前仿真时间 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">thirdBodyPos</td><td>第三体在预报系中的位置 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rotation</td><td>从预报系到第三体固连系的旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 成功，否则返回错误码 </dd></dl>
+
+</div>
+</div>
 <a id="a716fffd94035a601f89f6b32639a97ed" name="a716fffd94035a601f89f6b32639a97ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a716fffd94035a601f89f6b32639a97ed">&#9670;&#160;</a></span>run()</h2>
 

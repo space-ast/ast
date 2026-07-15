@@ -1,5 +1,7 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1EclipseCalculator.html#a8eac2e5ac7d392b85d655415348fae21":[3,0,0,242,5],
+"classast_1_1EclipseCalculator.html#affd34206966cf4e4fbe893c3ca7f06f3":[2,0,0,243,4],
 "classast_1_1EclipseCalculator.html#affd34206966cf4e4fbe893c3ca7f06f3":[3,0,0,242,4],
 "classast_1_1EditFigureDialog.html":[2,0,0,244],
 "classast_1_1EditFigureDialog.html":[3,0,0,243],
@@ -247,7 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1ExprForRange.html#ae284dbe229037f1e9fe679dbdb9a8f0f":[0,4,12,8],
 "classast_1_1ExprForRange.html#aeff7b3dcd5ec7bb84b048edab83da5f1":[0,4,12,3],
 "classast_1_1ExprIf.html":[0,4,9],
-"classast_1_1ExprIf.html#a431061ddeafcf3e98460b8222aada704":[0,4,9,5],
-"classast_1_1ExprIf.html#a48f8217e1b153d77fcc0b08391c6e45f":[0,4,9,1],
-"classast_1_1ExprIf.html#a66a5d167a3af7e7b85e26f27927614b2":[0,4,9,2]
+"classast_1_1ExprIf.html#a431061ddeafcf3e98460b8222aada704":[0,4,9,5]
 };

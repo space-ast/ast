@@ -1,5 +1,7 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1BodyEphemeris.html":[0,1,6,1],
+"classast_1_1BodyEphemeris.html#a1f5651a840f20ee9ede887d151f234a2":[0,1,6,1,4],
 "classast_1_1BodyEphemeris.html#a7bc37bb40921dc485a458130051f7e0e":[0,1,6,1,2],
 "classast_1_1BodyEphemeris.html#aa09c59ec72c50e271aa5a56e6d594912":[0,1,6,1,0],
 "classast_1_1BodyEphemeris.html#ad3a62ffd699511e16a2c09dee7e8a6c5":[0,1,6,1,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1ChatEventHandler.html#a395c23c62dce53083eb1c54f00384894":[0,0,3,1],
 "classast_1_1ChatEventHandler.html#a3d35cf709df391788218826509a0089a":[0,0,3,7],
 "classast_1_1ChatEventHandler.html#a427faafaa950fa33e6652c61e4d1603d":[0,0,3,6],
-"classast_1_1ChatEventHandler.html#a7688fd68818dd37b53fafe23ab6f7cef":[0,0,3,5],
-"classast_1_1ChatEventHandler.html#a9ce76e9d4a8bfd678370300eec4c9637":[0,0,3,2],
-"classast_1_1ChatEventHandler.html#abff8eed9ef1c36677efc81298c5068ef":[0,0,3,4]
+"classast_1_1ChatEventHandler.html#a7688fd68818dd37b53fafe23ab6f7cef":[0,0,3,5]
 };

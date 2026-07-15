@@ -1,5 +1,7 @@
 var NAVTREEINDEX22 =
 {
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[2,0,0,168,0],
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[3,0,0,167,0],
 "classast_1_1CylindricalEclipseCalculator.html":[2,0,0,174],
 "classast_1_1CylindricalEclipseCalculator.html":[3,0,0,173],
 "classast_1_1CylindricalEclipseCalculator.html#aff1aaf6e583769a185d238cd665d7832":[2,0,0,174,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX22 =
 "classast_1_1DataPort.html#af7dcaefd249328f9a042fb4f7a612668":[2,0,0,205,4],
 "classast_1_1DataPort.html#af7dcaefd249328f9a042fb4f7a612668":[3,0,0,204,4],
 "classast_1_1DataSeries.html":[0,15,1],
-"classast_1_1DataSeries.html#a571e2f3c816c4365e196c04758ebd076":[0,15,1,4],
-"classast_1_1DataSeries.html#a6834bfece805de1dc4a4ca03f1e03bea":[0,15,1,1],
-"classast_1_1DataSeries.html#a97cdc624adbd48798bea609c65f69165":[0,15,1,3]
+"classast_1_1DataSeries.html#a571e2f3c816c4365e196c04758ebd076":[0,15,1,4]
 };

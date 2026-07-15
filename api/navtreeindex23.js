@@ -1,5 +1,7 @@
 var NAVTREEINDEX23 =
 {
+"classast_1_1DataSeries.html#a6834bfece805de1dc4a4ca03f1e03bea":[0,15,1,1],
+"classast_1_1DataSeries.html#a97cdc624adbd48798bea609c65f69165":[0,15,1,3],
 "classast_1_1DataSeries.html#abb7281f573aec9ce076869352a36c661":[0,15,1,2],
 "classast_1_1DataUpdater.html":[0,2,0],
 "classast_1_1DataUpdater.html#a7d2b49cc7ff382292e2cadb6d0970dea":[0,2,0,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX23 =
 "classast_1_1EclipseCalculator.html#a3d9d53e46875ceb9059ce04fc5f3255e":[3,0,0,242,0],
 "classast_1_1EclipseCalculator.html#a8501eca05db0e7d12516e20695b2702d":[2,0,0,243,2],
 "classast_1_1EclipseCalculator.html#a8501eca05db0e7d12516e20695b2702d":[3,0,0,242,2],
-"classast_1_1EclipseCalculator.html#a8eac2e5ac7d392b85d655415348fae21":[2,0,0,243,5],
-"classast_1_1EclipseCalculator.html#a8eac2e5ac7d392b85d655415348fae21":[3,0,0,242,5],
-"classast_1_1EclipseCalculator.html#affd34206966cf4e4fbe893c3ca7f06f3":[2,0,0,243,4]
+"classast_1_1EclipseCalculator.html#a8eac2e5ac7d392b85d655415348fae21":[2,0,0,243,5]
 };

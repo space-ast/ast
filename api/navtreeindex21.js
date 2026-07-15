@@ -1,5 +1,7 @@
 var NAVTREEINDEX21 =
 {
+"classast_1_1ChatEventHandler.html#a9ce76e9d4a8bfd678370300eec4c9637":[0,0,3,2],
+"classast_1_1ChatEventHandler.html#abff8eed9ef1c36677efc81298c5068ef":[0,0,3,4],
 "classast_1_1ChatEventHandler.html#ae27e203440a5572a6151e5e036ee9f85":[0,0,3,3],
 "classast_1_1ChatEventHandler.html#af449669c4e9da2f99bacc6c07ebbb3d6":[0,0,3,8],
 "classast_1_1ChatMessage.html":[2,0,0,129],
@@ -247,7 +249,5 @@ var NAVTREEINDEX21 =
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[2,0,0,168,2],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[3,0,0,167,2],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a9915f8a8cb630477b553049104b9b801":[2,0,0,168,4],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a9915f8a8cb630477b553049104b9b801":[3,0,0,167,4],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[2,0,0,168,0],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[3,0,0,167,0]
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a9915f8a8cb630477b553049104b9b801":[3,0,0,167,4]
 };

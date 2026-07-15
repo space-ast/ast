@@ -1,5 +1,6 @@
 var classast_1_1BlockThirdBodyGravity =
 [
+    [ "prepare", "classast_1_1BlockThirdBodyGravity.html#aa331ec971387d8d69143c34886bd11b1", null ],
     [ "run", "classast_1_1BlockThirdBodyGravity.html#a716fffd94035a601f89f6b32639a97ed", null ],
     [ "setConsiderVariations", "classast_1_1BlockThirdBodyGravity.html#aa54583bf10b5441c7c3d55e84366bfa6", null ],
     [ "accThirdBody", "classast_1_1BlockThirdBodyGravity.html#aeb98fe1bc6dbc5c8e4b35fb2fc00a08c", null ],
