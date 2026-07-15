@@ -11,12 +11,12 @@ var classast_1_1DataContext =
     [ "setDataDir", "classast_1_1DataContext.html#a55723c2bde9815b7c68eb3f42f47c23e", null ],
     [ "setEpoch", "classast_1_1DataContext.html#ad707287da6e562678dfe48f80e59b7a1", null ],
     [ "solarSystem", "classast_1_1DataContext.html#a12c161c9f2a2dce896249e216112b1df", null ],
-    [ "m_config", "classast_1_1DataContext.html#afefd18987d378043a66082691085b19d", null ],
-    [ "m_dataDir", "classast_1_1DataContext.html#aab49aca89b54823adbd51caeecbd5cfa", null ],
-    [ "m_eop", "classast_1_1DataContext.html#ae1fde47899a36efe881fef87f650564b", null ],
-    [ "m_epoch", "classast_1_1DataContext.html#a490a64f91a789525f385cfc46036d5f5", null ],
-    [ "m_iauXYSPrecomputed", "classast_1_1DataContext.html#af02ea834b7ce89ae6a1e6c876230d770", null ],
-    [ "m_jplDe", "classast_1_1DataContext.html#a97db12cb921881440250009358e33d8e", null ],
-    [ "m_leapSecond", "classast_1_1DataContext.html#a8fd0e689bb94439d32c652bb5860aa3b", null ],
-    [ "m_solarSystem", "classast_1_1DataContext.html#a64ab62d1e6f919061c60e328c7f3f3a3", null ]
+    [ "config_", "classast_1_1DataContext.html#a519e24f8eba13e67bf3086f66d7892bd", null ],
+    [ "dataDir_", "classast_1_1DataContext.html#a05214c0fe88aadbf57aea8ba7861827f", null ],
+    [ "eop_", "classast_1_1DataContext.html#af4c713af68c05ce6f2b7b599072824ef", null ],
+    [ "epoch_", "classast_1_1DataContext.html#a342c1ab4dd0200d7a80cb7b182e7bb32", null ],
+    [ "iauXYSPrecomputed_", "classast_1_1DataContext.html#a18d6e04bf9fe895e33441f8354fac7f5", null ],
+    [ "jplDe_", "classast_1_1DataContext.html#a4a5a090af679b313c86448e3ac7a19f6", null ],
+    [ "leapSecond_", "classast_1_1DataContext.html#a1c7284d6bd3e71fbadb5bec16a855bae", null ],
+    [ "solarSystem_", "classast_1_1DataContext.html#a6f746233d2079ec8a48bd81384f81410", null ]
 ];

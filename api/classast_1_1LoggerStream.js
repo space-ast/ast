@@ -1,6 +1,6 @@
 var classast_1_1LoggerStream =
 [
-    [ "m_context", "classast_1_1LoggerStream.html#adcba4f13ec12b96f15b868fe51c0e187", null ],
-    [ "m_level", "classast_1_1LoggerStream.html#a8f0f7526bf75400264415fa1ed9dbd43", null ],
-    [ "m_stream", "classast_1_1LoggerStream.html#a2d318dc5987cef0bbe3f03fe64552e70", null ]
+    [ "context_", "classast_1_1LoggerStream.html#a3f40e27fbda036aea2f60aaee465f86c", null ],
+    [ "level_", "classast_1_1LoggerStream.html#a4658cc0ec095f17ad26122064f50c157", null ],
+    [ "stream_", "classast_1_1LoggerStream.html#ab41ff0925dd6f723b568a7b19f131f9e", null ]
 ];

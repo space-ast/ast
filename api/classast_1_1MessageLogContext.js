@@ -1,7 +1,7 @@
 var classast_1_1MessageLogContext =
 [
-    [ "category", "classast_1_1MessageLogContext.html#aaee29b1c7e70bd6995e43699bbc36398", null ],
-    [ "file", "classast_1_1MessageLogContext.html#a9f537a6a6f84ef460305bfdb49400fe4", null ],
-    [ "function", "classast_1_1MessageLogContext.html#ad382c95f9cf23ea66c95459d2f5f5028", null ],
-    [ "line", "classast_1_1MessageLogContext.html#ae51f8a567ad6c79e927d47860fb11c92", null ]
+    [ "category_", "classast_1_1MessageLogContext.html#ac84754ba5c61b791f510d42cbd3c74d4", null ],
+    [ "file_", "classast_1_1MessageLogContext.html#a74848679defb23ed768575e24654ec4e", null ],
+    [ "function_", "classast_1_1MessageLogContext.html#a2f64b3faf20f60d7de9fa5a119c84899", null ],
+    [ "line_", "classast_1_1MessageLogContext.html#a94bee0a376b805df49f5083c1be154de", null ]
 ];

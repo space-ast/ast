@@ -9,15 +9,15 @@ var group__Util =
     [ "ast::literals", "namespaceast_1_1literals.html", null ],
     [ "ast::Color", "classast_1_1Color.html", null ],
     [ "ast::MessageLogContext", "classast_1_1MessageLogContext.html", [
-      [ "category", "classast_1_1MessageLogContext.html#aaee29b1c7e70bd6995e43699bbc36398", null ],
-      [ "file", "classast_1_1MessageLogContext.html#a9f537a6a6f84ef460305bfdb49400fe4", null ],
-      [ "function", "classast_1_1MessageLogContext.html#ad382c95f9cf23ea66c95459d2f5f5028", null ],
-      [ "line", "classast_1_1MessageLogContext.html#ae51f8a567ad6c79e927d47860fb11c92", null ]
+      [ "category_", "classast_1_1MessageLogContext.html#ac84754ba5c61b791f510d42cbd3c74d4", null ],
+      [ "file_", "classast_1_1MessageLogContext.html#a74848679defb23ed768575e24654ec4e", null ],
+      [ "function_", "classast_1_1MessageLogContext.html#a2f64b3faf20f60d7de9fa5a119c84899", null ],
+      [ "line_", "classast_1_1MessageLogContext.html#a94bee0a376b805df49f5083c1be154de", null ]
     ] ],
     [ "ast::LoggerStream", "classast_1_1LoggerStream.html", [
-      [ "m_context", "classast_1_1LoggerStream.html#adcba4f13ec12b96f15b868fe51c0e187", null ],
-      [ "m_level", "classast_1_1LoggerStream.html#a8f0f7526bf75400264415fa1ed9dbd43", null ],
-      [ "m_stream", "classast_1_1LoggerStream.html#a2d318dc5987cef0bbe3f03fe64552e70", null ]
+      [ "context_", "classast_1_1LoggerStream.html#a3f40e27fbda036aea2f60aaee465f86c", null ],
+      [ "level_", "classast_1_1LoggerStream.html#a4658cc0ec095f17ad26122064f50c157", null ],
+      [ "stream_", "classast_1_1LoggerStream.html#ab41ff0925dd6f723b568a7b19f131f9e", null ]
     ] ],
     [ "ast::NoopStream", "classast_1_1NoopStream.html", null ],
     [ "ast::MessageLogger", "classast_1_1MessageLogger.html", null ],
