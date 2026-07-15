@@ -76,6 +76,12 @@ public:
     /// @brief 设置是否考虑重力场系数长期变化
     void setConsiderVariations(bool considerVariations) { considerVariations_ = considerVariations; }
 protected:
+    /// @brief 准备计算：空指针检查、获取第三体位置、计算旋转变换、更新重力场系数
+    /// @param simTime 当前仿真时间
+    /// @param[out] thirdBodyPos 第三体在预报系中的位置
+    /// @param[out] rotation 从预报系到第三体固连系的旋转变换
+    /// @return eNoError 成功，否则返回错误码
+    errc_t prepare(const SimTime& simTime, Vector3d& thirdBodyPos, Rotation& rotation);
     Vector3d* posCBI{&vectorBuffer};                          ///< 位置（以中心天体为参考）
     Vector3d* accThirdBody{&vectorBuffer};                    ///< 三体重力加速度（输出）
     Vector3d* velocityDerivative_{&vectorBuffer};             ///< 速度导数

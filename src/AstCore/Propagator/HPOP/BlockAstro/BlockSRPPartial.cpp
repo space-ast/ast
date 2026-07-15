@@ -104,6 +104,11 @@ errc_t BlockSRPPartial::run(const SimTime& simTime)
     if (A_UNLIKELY(err != eNoError))
     {
         aError("failed to calculate sun position");
+        *accSRP_ = Vector3d::Zero();
+        if (useSRPSensitivity_)
+        {
+            *accSensitivityToSRP_ = Vector3d::Zero();
+        }
         return err;
     }
 
@@ -115,6 +120,10 @@ errc_t BlockSRPPartial::run(const SimTime& simTime)
     {
         aError("spacecraft mass is zero or negative (%f), cannot compute SRP acceleration", mass);
         *accSRP_ = Vector3d::Zero();
+        if (useSRPSensitivity_)
+        {
+            *accSensitivityToSRP_ = Vector3d::Zero();
+        }
         return eErrorInvalidParam;
     }
 
@@ -163,11 +172,13 @@ errc_t BlockSRPPartial::run(const SimTime& simTime)
         }
     }
 
-    // SRP 综合参数 K 敏感度强迫项: ∂a_srp/∂K = a_srp / K
+    // SRP 综合参数 K 敏感度强迫项: ∂a_srp/∂K
     // K = Cr·A/m，强迫项为 3维加速度向量
+    // a_srp = -ν · K · P₁AU · AU² / r³ · scToSun
+    // ∂a_srp/∂K = -ν · P₁AU · AU² / r³ · scToSun  （与 K 无关，直接计算避免除零）
     if (useSRPSensitivity_) {
-        double oneOverK = *mass_ / (cr_ * srpArea_);
-        *accSensitivityToSRP_ = (*accSRP_) * oneOverK;
+        double da_dK = -lightingRatio * kSolarPressureAt1AU * (kAU * kAU) / (r * rSqr);
+        *accSensitivityToSRP_ = da_dK * scToSun;
     }
 
     return eNoError;

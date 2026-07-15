@@ -457,6 +457,13 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                     gravityAxes, propFrame
                 );
                 block->setConsiderVariations(gravity.useSecularVariations_);
+                if(forceModel.useSTM())
+                {
+                    // @todo 避免类型强制转换
+                    BlockThirdBodyGravityPartial* blockPartial = static_cast<BlockThirdBodyGravityPartial*>(block);
+                    blockPartial->setDegreeForPartial(gravity.maxDegreeForPartial_);
+                    blockPartial->setOrderForPartial(gravity.maxOrderForPartial_);
+                }
                 this->addBlock(block);
             }
             else

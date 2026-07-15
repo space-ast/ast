@@ -111,7 +111,7 @@ void BlockThirdBodyGravity::init()
     };
 }
 
-errc_t BlockThirdBodyGravity::run(const SimTime& simTime)
+errc_t BlockThirdBodyGravity::prepare(const SimTime& simTime, Vector3d& thirdBodyPos, Rotation& rotation)
 {
     // @todo 将这里的空指针检查移动到初始阶段里
     if (!propagationFrame_ || !propagationAxes_ || !gravityAxes_ || !thirdBody_)
@@ -120,7 +120,6 @@ errc_t BlockThirdBodyGravity::run(const SimTime& simTime)
     auto& tp = simTime.timePoint();
 
     // 1. 获取第三体在预报系中的位置
-    Vector3d thirdBodyPos;
     errc_t err = thirdBody_->getPosIn(propagationFrame_, tp, thirdBodyPos);
     if (A_UNLIKELY(err != eNoError))
     {
@@ -128,30 +127,43 @@ errc_t BlockThirdBodyGravity::run(const SimTime& simTime)
         return err;
     }
 
-    // 2. 计算航天器相对第三体的位置: r_rel = r - r₃
-    Vector3d relPos = (*posCBI) - thirdBodyPos;
-
-    // 3. 将相对位置变换到第三体固连系
-    Vector3d relPosGravityAxes;
-    Vector3d accGravityAxes;
-    Rotation rotation;
+    // 2. 计算从预报系到第三体固连系的旋转矩阵
     errc_t rc = aAxesTransform(propagationAxes_, gravityAxes_, tp, rotation);
     if (A_UNLIKELY(rc != eNoError))
     {
         aError("failed to transform from propagation axes to gravity axes");
         return rc;
     }
-    relPosGravityAxes = rotation.transformVector(relPos);
 
-    // 4. 在第三体固连系中计算球谐重力加速度（含中心项）
+    // 3. 若启用，更新重力场系数长期变化
     if (considerVariations_)
         gravityCalculator_.updateVariations(tp);
+
+    return eNoError;
+}
+
+errc_t BlockThirdBodyGravity::run(const SimTime& simTime)
+{
+    Vector3d thirdBodyPos;
+    Rotation rotation;
+    errc_t err = prepare(simTime, thirdBodyPos, rotation);
+    if (A_UNLIKELY(err != eNoError))
+        return err;
+
+    // 1. 计算航天器相对第三体的位置: r_rel = r - r₃
+    Vector3d relPos = (*posCBI) - thirdBodyPos;
+
+    // 2. 将相对位置变换到第三体固连系
+    Vector3d relPosGravityAxes = rotation.transformVector(relPos);
+
+    // 3. 在第三体固连系中计算球谐重力加速度（含中心项）
+    Vector3d accGravityAxes;
     gravityCalculator_.calcTotalAcceleration(relPosGravityAxes, accGravityAxes);
 
-    // 5. 将加速度逆变换回报系 → 直接项
+    // 4. 将加速度逆变换回报系 → 直接项
     Vector3d accDirect = rotation.transformVectorInv(accGravityAxes);
 
-    // 6. 计算间接项：中心天体在第三体引力场中的加速度
+    // 5. 计算间接项：中心天体在第三体引力场中的加速度
     //    中心天体相对第三体的位置为 -r₃，通过 calcTotalAcceleration
     //    可同时包含中心项与摄动项，确保 degree>0 时间接项也计入非球形影响
     Vector3d centralBodyRelPos = -thirdBodyPos;
@@ -173,7 +185,7 @@ errc_t BlockThirdBodyGravity::run(const SimTime& simTime)
     }
     #endif
 
-    // 7. 总摄动 = 直接项 − 间接项
+    // 6. 总摄动 = 直接项 − 间接项
     Vector3d accTotal = accDirect - accIndirect;
 
     *accThirdBody = accTotal;
