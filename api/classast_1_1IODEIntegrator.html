@@ -442,8 +442,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>从当前时间t朝着最终时间tf方向积分一步，并将积分结果存储在y中 如果当前时间t已经到达最终时间tf，则直接返回 如果是变步长积分器，步长会根据误差自动调整 如果是定步长积分器，步长会固定为初始步长 </p>
-<dl class="params"><dt>参数</dt><dd>
+<p>朝目标时刻执行单步积分 </p>
+<p>从当前时间t朝着最终时间tf方向积分一步，并将积分结果存储在y中 如果当前时间t已经到达最终时间tf，则直接返回 如果是变步长积分器，步长会根据误差要求自动调整 如果是定步长积分器，步长会固定为初始步长 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ode</td><td>常微分方程对象 </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">y</td><td>状态向量 </td></tr>
@@ -494,7 +494,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>执行一步积分（执行单次步进） </p>
+<p>按指定步长执行一步积分（执行单次步进） </p>
 <p>这个函数是积分器最底层的实现，一般是采用多步法对ODE进行单次步进 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">ode</td><td>常微分方程对象 </td></tr>

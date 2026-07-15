@@ -739,7 +739,18 @@ template&lt;typename Func &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section see"><dt>参见</dt><dd><a class="el" href="classast_1_1ODEIntegrator.html" title="ODE 积分器">ODEIntegrator</a> </dd></dl>
+
+<p>执行单步变步长积分 </p>
+<p>从当前时刻 t 向目标时刻 tf 积分一步。若启用固定步长模式， 则直接委托给固定步长单步积分；否则采用变步长方式，在循环中 尝试当前步长、检查局部截断误差，若误差不满足要求则缩小步长 后重试，直到误差达标或达到最大尝试次数。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ode</td><td>微分方程右端函数 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">y</td><td>积分状态向量，积分完成后被更新为一步后的新状态 </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">t</td><td>当前时刻，积分完成后被更新为一步后的时刻 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tf</td><td>目标终止时刻（单步积分的目标时刻） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，eNoError 表示成功 </dd></dl>
 
 <p>重载 <a class="el" href="classast_1_1ODEFixedStepIntegrator.html#a12b1606ea78a6927c77890d51ba5930b">ast::ODEFixedStepIntegrator</a> .</p>
 

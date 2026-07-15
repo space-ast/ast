@@ -205,7 +205,7 @@ var group__Time =
       [ "operator[]", "classast_1_1TimeList.html#a37f25ba8b44cffb4a5d093b19905e3a6", null ],
       [ "setEpoch", "classast_1_1TimeList.html#a3d830b5c26511c1056f44f3591c29ce3", null ],
       [ "timePoint", "classast_1_1TimeList.html#a6805f88d351b8fb264948cfd3a9d837b", null ],
-      [ "operator+", "classast_1_1TimeList.html#afd9bbcccba8b18d2f18dc0ed83b356cb", null ]
+      [ "operator+", "classast_1_1TimeList.html#a689fe6d300c01d06ab1257b264545575", null ]
     ] ],
     [ "ast::TimePoint", "classast_1_1TimePoint.html", [
       [ "daysFrom", "classast_1_1TimePoint.html#afcfd4ed71772ea2071a59198c89a25fb", null ],
