@@ -103,7 +103,7 @@ void UiMainWindow::setupUi()
 // 顶部 Ribbon
 // ============================================================================
 
-static const char* kRibbonTabs[] = {
+static const char* kRibbonTabsMainWindow[] = {
     u8"建模", u8"分析"
 };
 
@@ -120,7 +120,7 @@ QWidget* UiMainWindow::setupRibbon()
     ribbonTabBar_->setObjectName(QStringLiteral("RibbonTabBar"));
     ribbonTabBar_->setExpanding(false);
     ribbonTabBar_->setDrawBase(false);
-    for (const char* tab : kRibbonTabs)
+    for (const char* tab : kRibbonTabsMainWindow)
         ribbonTabBar_->addTab(QString::fromUtf8(tab));
     ribbonLayout->addWidget(ribbonTabBar_);
 

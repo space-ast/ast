@@ -125,7 +125,8 @@ public:
 
     /// @brief 清除所有事件检测器
     void clearEventDetectors();
-protected:
+
+    /// @brief 获取轨道预报方程
     HPOPEquation* equation() const;
 private:
     /// @brief 设置参考历元并执行数值积分

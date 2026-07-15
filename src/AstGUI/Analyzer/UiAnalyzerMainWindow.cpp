@@ -69,7 +69,7 @@ void UiAnalyzerMainWindow::setupUi()
 // Ribbon
 // ============================================================================
 
-static const char* kRibbonTabs[] = {
+static const char* kRibbonTabsAnalyzer[] = {
     u8"分析", u8"建模"
 };
 
@@ -86,7 +86,7 @@ QWidget* UiAnalyzerMainWindow::setupRibbon()
     ribbonTabBar_->setObjectName(QStringLiteral("RibbonTabBar"));
     ribbonTabBar_->setExpanding(false);
     ribbonTabBar_->setDrawBase(false);
-    for (const char* tab : kRibbonTabs)
+    for (const char* tab : kRibbonTabsAnalyzer)
         ribbonTabBar_->addTab(QString::fromUtf8(tab));
     ribbonLayout->addWidget(ribbonTabBar_);
 
