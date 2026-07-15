@@ -57,56 +57,56 @@ class DataContext
 public:
 
 	/// @brief 太阳系数据
-	const SolarSystem* solarSystem() const{return m_solarSystem;}
-    SolarSystem* solarSystem() {return m_solarSystem;}
+	const SolarSystem* solarSystem() const{return solarSystem_;}
+    SolarSystem* solarSystem() {return solarSystem_;}
 
 	/// @brief 地球指向数据
-	const EOP* eop() const{return &m_eop;}
-    EOP* eop() {return &m_eop;}
+	const EOP* eop() const{return &eop_;}
+    EOP* eop() {return &eop_;}
 
 	/// @brief 闰秒数据
-	const LeapSecond* leapSecond() const{return &m_leapSecond;}
-    LeapSecond* leapSecond() {return &m_leapSecond;}
+	const LeapSecond* leapSecond() const{return &leapSecond_;}
+    LeapSecond* leapSecond() {return &leapSecond_;}
 
 	/// @brief 空间天气数据
-	// const SpaceWeather* spaceWeather() const{return &m_spaceWeather;}
-    // SpaceWeather* spaceWeather() {return &m_spaceWeather;}
+	// const SpaceWeather* spaceWeather() const{return &spaceWeather_;}
+    // SpaceWeather* spaceWeather() {return &spaceWeather_;}
 
 	/// @brief 数据目录
-    std::string& dataDir() {return m_dataDir;}
-    
+    std::string& dataDir() {return dataDir_;}
+
 	/// @brief 设置数据目录
-	void setDataDir(StringView dir){m_dataDir = std::string(dir);}
+	void setDataDir(StringView dir){dataDir_ = std::string(dir);}
 
 	/// @brief JPL DE星历数据
-    const JplDe* jplDe() const {return &m_jplDe;}
-    JplDe* jplDe() {return &m_jplDe;}
+    const JplDe* jplDe() const {return &jplDe_;}
+    JplDe* jplDe() {return &jplDe_;}
 
 	/// @brief IAU XYS预计算数据
-	const IAUXYSPrecomputed* iauXYSPrecomputed() const {return &m_iauXYSPrecomputed;}
-    IAUXYSPrecomputed* iauXYSPrecomputed() {return &m_iauXYSPrecomputed;}
-	
+	const IAUXYSPrecomputed* iauXYSPrecomputed() const {return &iauXYSPrecomputed_;}
+    IAUXYSPrecomputed* iauXYSPrecomputed() {return &iauXYSPrecomputed_;}
+
 	/// @brief 参考历元
-    TimePoint& epoch() {return m_epoch;}
+    TimePoint& epoch() {return epoch_;}
 	/// @brief 设置参考历元
-	void setEpoch(TimePoint tp){m_epoch = tp;}
+	void setEpoch(TimePoint tp){epoch_ = tp;}
 
 	/// @brief 配置
-	const StartupConfig* config() const {return &m_config;}
-	StartupConfig* config() {return &m_config;}
+	const StartupConfig* config() const {return &config_;}
+	StartupConfig* config() {return &config_;}
 
 	/// @brief 是否初始化
-	bool isInitialized() const {return !m_dataDir.empty();}
+	bool isInitialized() const {return !dataDir_.empty();}
 protected:
-	SharedPtr<SolarSystem>  m_solarSystem{new SolarSystem("SolarSystem")};	///< 太阳系数据
-	EOP		    			m_eop;											///< 地球指向数据
-	LeapSecond  			m_leapSecond;									///< 闰秒数据
-	// SpaceWeather            m_spaceWeather;									///< 空间天气数据
-    JplDe                   m_jplDe;										///< JPL DE星历数据
-	IAUXYSPrecomputed       m_iauXYSPrecomputed;							///< IAU XYS预计算数据 @todo: 这个考虑更改为静态数据
-    std::string     		m_dataDir;										///< 数据目录
-	TimePoint				m_epoch{};										///< 参考历元
-	StartupConfig           m_config;										///< 配置
+	SharedPtr<SolarSystem>  solarSystem_{new SolarSystem("SolarSystem")};	///< 太阳系数据
+	EOP		    			eop_;											///< 地球指向数据
+	LeapSecond  			leapSecond_;									///< 闰秒数据
+	// SpaceWeather          spaceWeather_;									///< 空间天气数据
+    JplDe                   jplDe_;											///< JPL DE星历数据
+	IAUXYSPrecomputed       iauXYSPrecomputed_;						///< IAU XYS预计算数据 @todo: 这个考虑更改为静态数据
+    std::string     		dataDir_;										///< 数据目录
+	TimePoint				epoch_{};										///< 参考历元
+	StartupConfig           config_;										///< 配置
 };
 
 constexpr size_t kSizeOfDataContext = sizeof(DataContext);

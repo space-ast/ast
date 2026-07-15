@@ -65,25 +65,25 @@ class ScopedPtr
 {
 public:
     ScopedPtr(T* ptr)
-        :m_pointer{ ptr }
+        :pointer_{ ptr }
     { }
     ScopedPtr()
-        :m_pointer{ nullptr }
+        :pointer_{ nullptr }
     {}
     ScopedPtr(std::nullptr_t)
-        :m_pointer{ nullptr }
+        :pointer_{ nullptr }
     {
     }
     /// @brief 移动构造函数
     ScopedPtr(ScopedPtr&& other)
-        :m_pointer{ other.m_pointer }
+        :pointer_{ other.pointer_ }
     {
-        other.m_pointer = nullptr;
+        other.pointer_ = nullptr;
     }
     /// @brief 移动赋值运算符
     ScopedPtr& operator=(ScopedPtr&& other)
     {
-        std::swap(m_pointer, other.m_pointer);
+        std::swap(pointer_, other.pointer_);
         return *this;
     }
     ScopedPtr& operator=(T* ptr)
@@ -97,20 +97,20 @@ public:
     }
     void reset(T* ptr)
     {
-        auto oldPtr = m_pointer;
-        m_pointer = ptr;
+        auto oldPtr = pointer_;
+        pointer_ = ptr;
         this->_delete(oldPtr);
     }
     T* get() const
     {
-        return m_pointer;
+        return pointer_;
     }
-    T* operator->() const{return m_pointer;}
-    operator T*() const{return m_pointer;}
+    T* operator->() const{return pointer_;}
+    operator T*() const{return pointer_;}
     T* release()
     {
-        T* ptr = m_pointer;
-        m_pointer = nullptr;
+        T* ptr = pointer_;
+        pointer_ = nullptr;
         return ptr;
     }
 private:
@@ -118,7 +118,7 @@ private:
     ScopedPtr& operator =(const ScopedPtr&) = delete;
     void _delete()
     {
-        this->_delete(m_pointer);
+        this->_delete(pointer_);
     }
     void _delete(T* ptr)
     {
@@ -126,7 +126,7 @@ private:
             ScopedPtrDeleter<T>::cleanup(ptr);
     }
 protected:
-    T* m_pointer{nullptr};
+    T* pointer_{nullptr};
 };
  
 AST_NAMESPACE_END

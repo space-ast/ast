@@ -54,22 +54,22 @@ class MessageLogContext
 {
 public:
     MessageLogContext()
-        : line(0)
-        , file(nullptr)
-        , function(nullptr)
-        , category(nullptr)
+        : line_{0}
+        , file_{nullptr}
+        , function_{nullptr}
+        , category_{nullptr}
     {}
     MessageLogContext(const char* fileName, int lineNumber, const char* functionName, const char* categoryName = nullptr)
-        : line(lineNumber)
-        , file(fileName)
-        , function(functionName)
-        , category(categoryName)
+        : line_{lineNumber}
+        , file_{fileName}
+        , function_{functionName}
+        , category_{categoryName}
     {}
 
-    int   line;             ///< 行数
-    const char* file;       ///< 文件
-    const char* function;   ///< 函数 
-    const char* category;   ///< 分类
+    int   line_{};             ///< 行数
+    const char* file_{};       ///< 文件
+    const char* function_{};   ///< 函数
+    const char* category_{};   ///< 分类
 };
 
 
@@ -81,20 +81,23 @@ class LoggerStream
 {
 public:
     LoggerStream(ELogLevel level, const MessageLogContext& context)
-        : m_context{ context }
-        , m_level{ level }
+        : context_{ context }
+        , level_{ level }
+        , stream_{}
     {}
     LoggerStream(ELogLevel level, const char* fileName, int lineNumber, const char* functionName, const char* categoryName = nullptr)
-        :m_context{ fileName, lineNumber, functionName, categoryName }
-        , m_level{ level }
+        : context_{ fileName, lineNumber, functionName, categoryName }
+        , level_{ level }
+        , stream_{}
     {}
     LoggerStream(const LoggerStream& other)
-        :m_context{ other.m_context }
-        , m_level{ other.m_level }
+        : context_{ other.context_ }
+        , level_{ other.level_ }
+        , stream_{}
     {}
     ~LoggerStream()
     {
-        aLogMessage(m_level, m_context, m_stream.str().c_str());
+        aLogMessage(level_, context_, stream_.str().c_str());
     }
     inline LoggerStream& space()
     {
@@ -150,12 +153,12 @@ public:
     }
     inline std::ostringstream& stream()
     {
-        return m_stream;
+        return stream_;
     }
 protected:
-    MessageLogContext   m_context;    ///< 上下文信息
-    ELogLevel		    m_level;      ///< 等级
-    std::ostringstream  m_stream;     ///< 缓冲区
+    MessageLogContext   context_;    ///< 上下文信息
+    ELogLevel           level_;      ///< 等级
+    std::ostringstream  stream_;     ///< 缓冲区
 };
 
 class NoopStream
@@ -177,52 +180,52 @@ class MessageLogger
 {
 public:
     MessageLogger()
-        :m_context{}
+        :context_{}
     {}
     MessageLogger(const char* file, int line, const char* function)
-        : m_context{file, line, function}
+        : context_{file, line, function}
     {}
     template<typename ...Args>
     inline void debug(const char* msg, Args&& ...args) const
     {
-        aLogMessage(ELogLevel::eDebug, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eDebug, context_, msg, std::forward<Args>(args)...);
     };
     template<typename ...Args>
     inline void noDebug(const char*, Args&& ...args) const{}
     template<typename ...Args>
     void info(const char* msg, Args&& ...args) const
     {
-        aLogMessage(ELogLevel::eInfo, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eInfo, context_, msg, std::forward<Args>(args)...);
     }
     template<typename ...Args>
     inline void warning(const char* msg, Args&& ...args) const
     {
-        aLogMessage(ELogLevel::eWarning, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eWarning, context_, msg, std::forward<Args>(args)...);
     }
     template<typename ...Args>
     inline void error(const char* msg, Args&& ...args) const
     {
-        aLogMessage(ELogLevel::eError, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eError, context_, msg, std::forward<Args>(args)...);
     }
     template<typename ...Args>
     inline void critical(const char* msg, Args&& ...args) const
     {
-        aLogMessage(ELogLevel::eCritical, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eCritical, context_, msg, std::forward<Args>(args)...);
     }
     template<typename ...Args>
     inline void fatal(const char* msg, Args&& ...args) const
     {
-        aLogMessage(ELogLevel::eFatal, m_context, msg, std::forward<Args>(args)...);
+        aLogMessage(ELogLevel::eFatal, context_, msg, std::forward<Args>(args)...);
     }
-    inline LoggerStream debug() const{return LoggerStream(ELogLevel::eDebug, m_context); }
+    inline LoggerStream debug() const{return LoggerStream(ELogLevel::eDebug, context_); }
     inline NoopStream   noDebug() const{ return NoopStream(); }
-    inline LoggerStream info() const{return LoggerStream(ELogLevel::eInfo, m_context); }
-    inline LoggerStream warning() const{return LoggerStream(ELogLevel::eWarning, m_context);}
-    inline LoggerStream error() const{return LoggerStream(ELogLevel::eError, m_context);}
-    inline LoggerStream critical() const{return LoggerStream(ELogLevel::eCritical, m_context); };
-    inline LoggerStream fatal() const{return LoggerStream(ELogLevel::eFatal, m_context); };
+    inline LoggerStream info() const{return LoggerStream(ELogLevel::eInfo, context_); }
+    inline LoggerStream warning() const{return LoggerStream(ELogLevel::eWarning, context_);}
+    inline LoggerStream error() const{return LoggerStream(ELogLevel::eError, context_);}
+    inline LoggerStream critical() const{return LoggerStream(ELogLevel::eCritical, context_); };
+    inline LoggerStream fatal() const{return LoggerStream(ELogLevel::eFatal, context_); };
 private:
-    MessageLogContext m_context;
+    MessageLogContext context_;
 };
 
 /*! @} */

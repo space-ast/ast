@@ -85,7 +85,7 @@ def merge_module_sources():
             # 合并文件内容
             with open(merged_file_path, 'w', encoding='utf-8-sig') as merged_file:
                 for cpp_file in cpp_files:
-                    with open(cpp_file, 'r', encoding='utf-8', errors='ignore') as f:
+                    with open(cpp_file, 'r', encoding='utf-8-sig', errors='ignore') as f:
                         content = f.read()
                         # 写入文件内容，添加文件分隔符
                         merged_file.write(f"// ====== {os.path.relpath(cpp_file, module_path).replace("\\", "/")} ======\n")
@@ -132,13 +132,13 @@ def remove_version_header(file_path):
         return
 
     ensure_writable(file_path)
-    with open(file_path, 'w', encoding='utf-8') as f:
+    with open(file_path, 'w', encoding='utf-8-sig') as f:
         f.write(new_content)
     print(f"Removed version header from: {file_path}")
 
 def convert_to_utf8_bom(file_path):
     """将文件转换为utf8-bom编码"""
-    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+    with open(file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
         content = f.read()
 
     ensure_writable(file_path)
@@ -152,7 +152,7 @@ RAW_STRING_PATTERN = re.compile(r'R"([^(\s]*)\(.*?\)\1"', re.DOTALL)
 
 def replace_empty_lines(file_path):
     """替换文件中的空行为指定内容，跳过原始字符串字面量内部的空行"""
-    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+    with open(file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
         content = f.read()
 
     # 找出所有原始字符串字面量的起止位置
@@ -180,7 +180,7 @@ def replace_empty_lines(file_path):
         new_lines.append(line)
 
     ensure_writable(file_path)
-    with open(file_path, 'w', encoding='utf-8') as f:
+    with open(file_path, 'w', encoding='utf-8-sig') as f:
         f.writelines(new_lines)
     print(f"Replaced empty lines in: {file_path}")
 
@@ -261,7 +261,7 @@ def count_code_lines():
                 if file.endswith('.hpp') or file.endswith('.cpp'):
                     file_path = os.path.join(root, file)
                     try:
-                        with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                        with open(file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
                             lines = len(f.readlines())
                             total_lines += lines
                             total_files += 1
@@ -291,7 +291,7 @@ def count_code_lines():
             if file.endswith('.hpp') or file.endswith('.cpp'):
                 file_path = os.path.join(root, file)
                 try:
-                    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                    with open(file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
                         lines = len(f.readlines())
                         total_lines += lines
                         total_files += 1

@@ -33,14 +33,14 @@ class SharedPtr
 {
 public:
     SharedPtr()
-        :m_object{ nullptr }
+        :object_{ nullptr }
     {}
     SharedPtr(std::nullptr_t)
-        :m_object{ nullptr }
+        :object_{ nullptr }
     {
     }
     SharedPtr(_Object* obj)
-        :m_object{ obj }
+        :object_{ obj }
     {
         _incRef();
     }
@@ -60,11 +60,11 @@ public:
 
     SharedPtr& operator=(_Object* obj)
     {
-        if(obj != m_object){ 
+        if(obj != object_){ 
             if(obj)
                 obj->incRef();
             _decRef();
-            m_object = obj;
+            object_ = obj;
         }
         return *this;
     }
@@ -77,47 +77,47 @@ public:
     // explicit 
     operator _Object*() const
     {
-        return m_object;
+        return object_;
     }
     explicit operator bool() const
     {
-        return m_object != nullptr;
+        return object_ != nullptr;
     }
     _Object* operator->() const
     {
-        return m_object;
+        return object_;
     }
     _Object* get() const
     {
-        return m_object;
+        return object_;
     }
     _Object* take()
     {
-        _Object* obj = m_object;
+        _Object* obj = object_;
         if(obj){
             obj->decRefNoDelete();
-            m_object = nullptr;
+            object_ = nullptr;
         }
         return obj;
     }
     void reset()
     {
         _decRef();
-        m_object = nullptr;
+        object_ = nullptr;
     }
 protected:
     void _incRef()
     {
-        if(m_object)
-            m_object->incRef();
+        if(object_)
+            object_->incRef();
     }
     void _decRef()
     {
-        if(m_object)
-            m_object->decRef();
+        if(object_)
+            object_->decRef();
     }
 protected:
-    _Object* m_object{nullptr};
+    _Object* object_{nullptr};
 };
 
 

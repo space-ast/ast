@@ -35,20 +35,20 @@ class WeakPtr
 {
 public:
     WeakPtr()
-        :m_object{ nullptr }
+        :object_{ nullptr }
     {
     }
     WeakPtr(std::nullptr_t)
-        :m_object{ nullptr }
+        :object_{ nullptr }
     {
     }
     WeakPtr(_Object* obj)
-        :m_object{ obj }
+        :object_{ obj }
     {
         _incWeakRef();
     }
     WeakPtr(const WeakPtr& ptr)
-        :WeakPtr{ ptr.m_object }
+        :WeakPtr{ ptr.object_ }
     {
     }
     ~WeakPtr()
@@ -57,9 +57,9 @@ public:
     }
     WeakPtr& operator=(_Object* obj)
     {
-        if (obj != m_object) {
+        if (obj != object_) {
             _decWeakRef();
-            m_object = obj;
+            object_ = obj;
             _incWeakRef();
         }
         return *this;
@@ -72,7 +72,7 @@ public:
     WeakPtr& operator=(const WeakPtr& ptr)
     {
         if (this != &ptr) {
-            this->operator=(ptr.m_object);
+            this->operator=(ptr.object_);
         }
         return *this;
     }
@@ -85,20 +85,20 @@ public:
         if (expired()) {
             return nullptr;
         }
-        return m_object;
+        return object_;
     }
     bool expired() const
     {
-        return !m_object || aObject_IsDestructed(m_object);
+        return !object_ || aObject_IsDestructed(object_);
     }
     void reset()
     {
         _decWeakRef();
-        m_object = nullptr;
+        object_ = nullptr;
     }
     _Object* operator->() const
     {
-        return m_object;
+        return object_;
     }
     // operator _Object*() const
     // {
@@ -110,29 +110,29 @@ public:
     }
     bool operator==(const WeakPtr& other) const
     {
-        return m_object == other.m_object;
+        return object_ == other.object_;
     }
     bool operator!=(const WeakPtr& other) const
     {
-        return m_object != other.m_object;
+        return object_ != other.object_;
     }
     bool operator<(const WeakPtr& other) const
     {
-        return m_object < other.m_object;
+        return object_ < other.object_;
     }
 private:
     void _incWeakRef()
     {
-        if(m_object)
-            aObject_IncWeakRef(m_object);
+        if(object_)
+            aObject_IncWeakRef(object_);
     }
     void _decWeakRef()
     {
-        if(m_object)
-            aObject_DecWeakRef(m_object);
+        if(object_)
+            aObject_DecWeakRef(object_);
     }
 protected:
-    _Object* m_object{nullptr};
+    _Object* object_{nullptr};
 };
 
 

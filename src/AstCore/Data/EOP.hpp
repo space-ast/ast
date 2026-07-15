@@ -84,7 +84,7 @@ public:
     static errc_t load(StringView filepath, std::vector<Entry>& data);
 
     /// @brief 获取数据大小
-    size_t size() const { return m_data.size(); }
+    size_t size() const { return data_.size(); }
 
     /// @brief 获取指定MJD的EOP条目
     /// @param mjd 简约儒略日
@@ -200,7 +200,7 @@ protected:
     template<double Entry::* Member>
     A_ALWAYS_INLINE double getValue(size_t index, double frac) const
     {
-        return m_data[index].*Member + frac * (m_data[index+1].*Member - m_data[index].*Member);
+        return data_[index].*Member + frac * (data_[index+1].*Member - data_[index].*Member);
     }
 
     /// @brief 查找时间点对应的索引和插值系数
@@ -210,9 +210,9 @@ protected:
     /// @param frac 插值系数
     void findEntryIndex(double mjdUTC, int& index, double& frac) const;
 protected:
-    std::vector<Entry> m_data;
-    int m_startMJD = 0;
-    int m_endMJD = 0;
+    std::vector<Entry> data_;
+    int startMJD_ = 0;
+    int endMJD_ = 0;
 };
 
 

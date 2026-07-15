@@ -58,26 +58,26 @@ public:
     static const size_type npos = static_cast<size_type>(-1);
 
 private:
-    const _Char* m_data;
-    size_type m_size;
+    const _Char* data_;
+    size_type size_;
 
 public:
     // 构造函数
     constexpr StringViewBasic() noexcept
-        : m_data(nullptr), m_size(0)
+        : data_(nullptr), size_(0)
     {}
 
     constexpr StringViewBasic(const _Char* str) noexcept
-        : m_data(str), m_size(str ? traits_type::length(str) : 0)
+        : data_(str), size_(str ? traits_type::length(str) : 0)
     {}
 
     constexpr StringViewBasic(const _Char* str, size_type len) noexcept
-        : m_data(str), m_size(len)
+        : data_(str), size_(len)
     {}
 
     template<typename _Allocator>
     StringViewBasic(const std::basic_string<_Char, std::char_traits<_Char>, _Allocator>& str) noexcept
-        : m_data(str.data()), m_size(str.size())
+        : data_(str.data()), size_(str.size())
     {}
 
     // 拷贝构造和赋值
@@ -88,54 +88,54 @@ public:
     // 容量相关
     constexpr size_type size() const noexcept
     {
-        return m_size;
+        return size_;
     }
     constexpr size_type length() const noexcept
     {
-        return m_size;
+        return size_;
     }
     constexpr bool empty() const noexcept
     {
-        return m_size == 0;
+        return size_ == 0;
     }
 
     // 元素访问
     constexpr const _Char& operator[](size_type pos) const noexcept
     {
-        return m_data[pos];
+        return data_[pos];
     }
 
     constexpr const _Char& front() const noexcept
     {
-        return m_data[0];
+        return data_[0];
     }
 
     constexpr const _Char& back() const noexcept
     {
-        return m_data[m_size - 1];
+        return data_[size_ - 1];
     }
 
     constexpr const _Char* data() const noexcept
     {
-        return m_data;
+        return data_;
     }
 
     // 迭代器
     constexpr const_iterator begin() const noexcept
     {
-        return m_data;
+        return data_;
     }
     constexpr const_iterator end() const noexcept
     {
-        return m_data + m_size;
+        return data_ + size_;
     }
     constexpr const_iterator cbegin() const noexcept
     {
-        return m_data;
+        return data_;
     }
     constexpr const_iterator cend() const noexcept
     {
-        return m_data + m_size;
+        return data_ + size_;
     }
 
     const_reverse_iterator rbegin() const noexcept
@@ -158,50 +158,50 @@ public:
     // 修改操作（不修改底层数据，只修改视图）
     void remove_prefix(size_type n) noexcept
     {
-        if (n > m_size) n = m_size;
-        m_data += n;
-        m_size -= n;
+        if (n > size_) n = size_;
+        data_ += n;
+        size_ -= n;
     }
 
     void remove_suffix(size_type n) noexcept
     {
-        if (n > m_size) n = m_size;
-        m_size -= n;
+        if (n > size_) n = size_;
+        size_ -= n;
     }
 
     void swap(StringViewBasic& other) noexcept
     {
-        std::swap(m_data, other.m_data);
-        std::swap(m_size, other.m_size);
+        std::swap(data_, other.data_);
+        std::swap(size_, other.size_);
     }
 
     // 子串操作
     StringViewBasic substr(size_type pos = 0, size_type count = npos) const
     {
-        if (pos > m_size) {
+        if (pos > size_) {
             // 抛出异常或返回空视图
             return StringViewBasic();
         }
-        size_type rlen = (std::min)(count, m_size - pos);
-        return StringViewBasic(m_data + pos, rlen);
+        size_type rlen = (std::min)(count, size_ - pos);
+        return StringViewBasic(data_ + pos, rlen);
     }
 
     // 比较操作
     int compare(StringViewBasic other) const noexcept
     {
-        size_type len = (std::min)(m_size, other.m_size);
-        int result = traits_type::compare(m_data, other.m_data, len);
+        size_type len = (std::min)(size_, other.size_);
+        int result = traits_type::compare(data_, other.data_, len);
         if (result != 0) return result;
-        if (m_size < other.m_size) return -1;
-        if (m_size > other.m_size) return 1;
+        if (size_ < other.size_) return -1;
+        if (size_ > other.size_) return 1;
         return 0;
     }
 
     bool operator==(StringViewBasic other) const noexcept
     {
-        return m_size == other.m_size &&
-            (m_data == other.m_data ||
-                traits_type::compare(m_data, other.m_data, m_size) == 0);
+        return size_ == other.size_ &&
+            (data_ == other.data_ ||
+                traits_type::compare(data_, other.data_, size_) == 0);
     }
 
     bool operator!=(StringViewBasic other) const noexcept
@@ -232,22 +232,22 @@ public:
     // 查找操作
     size_type find(_Char ch, size_type pos = 0) const noexcept
     {
-        if (pos >= m_size) return npos;
-        const _Char* result = traits_type::find(m_data + pos, m_size - pos, ch);
-        return result ? static_cast<size_type>(result - m_data) : npos;
+        if (pos >= size_) return npos;
+        const _Char* result = traits_type::find(data_ + pos, size_ - pos, ch);
+        return result ? static_cast<size_type>(result - data_) : npos;
     }
 
     size_type find(StringViewBasic str, size_type pos = 0) const noexcept
     {
-        if (pos > m_size || str.size() + pos> m_size)
+        if (pos > size_ || str.size() + pos> size_)
             return npos;
 
-        const _Char* start = m_data + pos;
-        const _Char* end = m_data + m_size - str.size() + 1;
+        const _Char* start = data_ + pos;
+        const _Char* end = data_ + size_ - str.size() + 1;
 
         for (const _Char* p = start; p < end; ++p) {
             if (traits_type::compare(p, str.data(), str.size()) == 0) {
-                return static_cast<size_type>(p - m_data);
+                return static_cast<size_type>(p - data_);
             }
         }
 
@@ -256,11 +256,11 @@ public:
 
     size_type rfind(_Char ch, size_type pos = npos) const noexcept
     {
-        if (m_size == 0) return npos;
-        if (pos >= m_size) pos = m_size - 1;
+        if (size_ == 0) return npos;
+        if (pos >= size_) pos = size_ - 1;
 
         for (size_type i = pos + 1; i > 0; --i) {
-            if (m_data[i - 1] == ch) {
+            if (data_[i - 1] == ch) {
                 return i - 1;
             }
         }
@@ -276,11 +276,11 @@ public:
 
     size_type find_first_of(StringViewBasic str, size_type pos = 0) const noexcept
     {
-        if (pos >= m_size || str.empty()) return npos;
+        if (pos >= size_ || str.empty()) return npos;
 
-        for (size_type i = pos; i < m_size; ++i) {
+        for (size_type i = pos; i < size_; ++i) {
             for (size_type j = 0; j < str.size(); ++j) {
-                if (m_data[i] == str[j]) {
+                if (data_[i] == str[j]) {
                     return i;
                 }
             }
@@ -297,12 +297,12 @@ public:
 
     size_type find_last_of(StringViewBasic str, size_type pos = npos) const noexcept
     {
-        if (m_size == 0 || str.empty()) return npos;
-        if (pos >= m_size) pos = m_size - 1;
+        if (size_ == 0 || str.empty()) return npos;
+        if (pos >= size_) pos = size_ - 1;
 
         for (size_type i = pos + 1; i > 0; --i) {
             for (size_type j = 0; j < str.size(); ++j) {
-                if (m_data[i - 1] == str[j]) {
+                if (data_[i - 1] == str[j]) {
                     return i - 1;
                 }
             }
@@ -314,8 +314,8 @@ public:
     // 检查是否以指定前缀/后缀开头/结尾
     bool starts_with(StringViewBasic str) const noexcept
     {
-        return m_size >= str.size() &&
-            traits_type::compare(m_data, str.data(), str.size()) == 0;
+        return size_ >= str.size() &&
+            traits_type::compare(data_, str.data(), str.size()) == 0;
     }
 
     bool starts_with(_Char ch) const noexcept
@@ -325,8 +325,8 @@ public:
 
     bool ends_with(StringViewBasic str) const noexcept
     {
-        return m_size >= str.size() &&
-            traits_type::compare(m_data + m_size - str.size(), str.data(), str.size()) == 0;
+        return size_ >= str.size() &&
+            traits_type::compare(data_ + size_ - str.size(), str.data(), str.size()) == 0;
     }
 
     bool ends_with(_Char ch) const noexcept
@@ -337,14 +337,14 @@ public:
     // 转换为字符串
     // std::basic_string<_Char> to_string() const noexcept
     // {
-    //     return std::basic_string<_Char>(m_data, m_size);
+    //     return std::basic_string<_Char>(data_, size_);
     // }
 
     // 显式转换到 std::string
     explicit 
     operator std::basic_string<_Char>() const noexcept
     {
-        return std::basic_string<_Char>(m_data, m_size);
+        return std::basic_string<_Char>(data_, size_);
     }
 private:
     typedef std::char_traits<_Char> traits_type;
