@@ -72,6 +72,10 @@ class AST_CORE_API BlockStateTransitionMatrix : public BlockDerivative
 {
 public:
     BlockStateTransitionMatrix();
+
+    BlockStateTransitionMatrix(const BlockStateTransitionMatrix&) = delete;
+    BlockStateTransitionMatrix& operator=(const BlockStateTransitionMatrix&) = delete;
+
     ~BlockStateTransitionMatrix() override = default;
 
     errc_t run(const SimTime& simTime) override;

@@ -75,6 +75,9 @@ public:
     BlockSRPPartial();
     BlockSRPPartial(EclipseCalculator* eclipseCalculator, double cr, double srpArea, Frame* propagationFrame);
 
+    BlockSRPPartial(const BlockSRPPartial&) = delete;
+    BlockSRPPartial& operator=(const BlockSRPPartial&) = delete;
+
     errc_t run(const SimTime& simTime) override;
 
     /// @brief 设置是否启用SRP综合参数K敏感度传播

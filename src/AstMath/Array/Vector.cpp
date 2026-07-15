@@ -20,7 +20,14 @@
 
 #include "Vector.hpp"
 #ifdef AST_WITH_FMT
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Weffc++"
+#endif
 #include <fmt/format.h>
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
 #endif
 
 AST_NAMESPACE_BEGIN

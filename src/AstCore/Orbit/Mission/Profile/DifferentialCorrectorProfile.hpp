@@ -152,7 +152,7 @@ public:
     ShooterResult* getResult(StringView name) const;
     ShooterControl* getControl(StringView name) const;
 private:
-    mutable WeakPtr<Command> relatedCommand_;
+    mutable WeakPtr<Command> relatedCommand_{};
 
     EConvergenceCriteria convergenceCriteria_{EConvergenceCriteria::eEqualityConstraintsWithinTolerance};
     EFiniteDifferenceMethod finiteDifferenceMethod_{EFiniteDifferenceMethod::eForwardDifference};
@@ -169,10 +169,10 @@ private:
     bool useHomotopy_ = false;
     bool useLineSearch_ = false;
 
-    ControlVector controls_;
-    ResultVector results_;
-    TargeterGraphVector graphs_;
-    SharedPtr<ScriptingToolProfile> scriptingTool_;
+    ControlVector controls_{};
+    ResultVector results_{};
+    TargeterGraphVector graphs_{};
+    SharedPtr<ScriptingToolProfile> scriptingTool_{};
 };
 
 /*! @} */

@@ -61,7 +61,7 @@ public:
     const_iterator end() const { return variables_.end(); }
 
 private:
-    ListType variables_;        ///< 变量列表
+    ListType variables_{};        ///< 变量列表
 };
 
 

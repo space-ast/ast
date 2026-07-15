@@ -37,9 +37,10 @@ rule("ast")
             target:add("cxflags", "-Werror=uninitialized")
             target:add("cxflags", "-Werror=init-self")
             target:add("cxflags", "-Werror=maybe-uninitialized")
-            target:add("cxflags", "-Werror=effc++")
             target:add("cxflags", "-Werror=missing-field-initializers")
-            target:add("cxflags", "-Werror=reorder")
+            -- C++ 专用警告
+            target:add("cxxflags", "-Werror=effc++")
+            target:add("cxxflags", "-Werror=reorder")
         end
         if target:kind() == "binary" then
             if target:plat() == "windows" then

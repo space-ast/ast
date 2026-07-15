@@ -121,6 +121,10 @@ class VectorX
 public:
     VectorX();
     VectorX(size_t size);
+
+    VectorX(const VectorX&) = delete;
+    VectorX& operator=(const VectorX&) = delete;
+
     ~VectorX();
 
     void resize(size_t size);
