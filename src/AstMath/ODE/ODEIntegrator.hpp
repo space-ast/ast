@@ -56,9 +56,10 @@ public:
     virtual errc_t integrate(ODE& ode, double* y,double& t, double tf) = 0;
 
 
-    /// @brief 从当前时间t朝着最终时间tf方向积分一步，并将积分结果存储在y中
+    /// @brief 朝目标时刻执行单步积分
+    /// @details 从当前时间t朝着最终时间tf方向积分一步，并将积分结果存储在y中
     ///        如果当前时间t已经到达最终时间tf，则直接返回
-    ///        如果是变步长积分器，步长会根据误差自动调整
+    ///        如果是变步长积分器，步长会根据误差要求自动调整
     ///        如果是定步长积分器，步长会固定为初始步长
     /// @param[in] ode 常微分方程对象
     /// @param[in,out] y 状态向量
@@ -66,7 +67,7 @@ public:
     /// @param[in] tf 最终时间
     virtual errc_t integrateOneStep(ODE& ode, double* y, double& t, double tf) = 0;
 
-    /// @brief 执行一步积分（执行单次步进）
+    /// @brief 按指定步长执行一步积分（执行单次步进）
     /// @details 这个函数是积分器最底层的实现，一般是采用多步法对ODE进行单次步进
     /// @param ode 常微分方程对象
     /// @param[in,out] y 状态向量

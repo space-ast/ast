@@ -56,7 +56,16 @@ public:
     /// @see ODEIntegrator
     errc_t integrate(ODE& ode, double* y, double& t, double tf) final;
 
-    /// @see ODEIntegrator
+    /// @brief 执行单步变步长积分
+    /// @details 从当前时刻 t 向目标时刻 tf 积分一步。若启用固定步长模式，
+    ///          则直接委托给固定步长单步积分；否则采用变步长方式，在循环中
+    ///          尝试当前步长、检查局部截断误差，若误差不满足要求则缩小步长
+    ///          后重试，直到误差达标或达到最大尝试次数。
+    /// @param[in]     ode 微分方程右端函数
+    /// @param[in,out] y   积分状态向量，积分完成后被更新为一步后的新状态
+    /// @param[in,out] t   当前时刻，积分完成后被更新为一步后的时刻
+    /// @param[in]     tf  目标终止时刻（单步积分的目标时刻）
+    /// @return 错误码，eNoError 表示成功
     errc_t integrateOneStep(ODE& ode, double* y, double& t, double tf) final;
 
     /// @brief 设置最大绝对误差

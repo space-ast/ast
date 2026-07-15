@@ -76,6 +76,7 @@ jobs:
           xmake r testGUI
           xmake r bmRunTime
           xmake r testHPOPEarth_Drag
+          xmake r testHPOP_StateTransitionMatrix
           xmake test
           lcov --directory . --capture --include */src/* --output-file coverage.info 
       
