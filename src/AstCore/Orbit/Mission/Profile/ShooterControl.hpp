@@ -78,7 +78,7 @@ public:
     errc_t getValue(double& value) const;
 private:
     bool active_{true};             ///< 是否激活
-    WeakPtr<Expr> expr_;            ///< 表达式
+    WeakPtr<Expr> expr_{};            ///< 表达式
     double correction_{0.0};        ///< 修正值
     double maxStep_{100.0};         ///< 最大步长
     double perturbation_{0.1};      ///< 扰动值

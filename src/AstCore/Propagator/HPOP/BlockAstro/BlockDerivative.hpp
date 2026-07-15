@@ -53,7 +53,7 @@ public:
     std::vector<DataPort>& getDerivativePorts() { return derivativePorts_; }
     
 protected:
-    std::vector<DataPort> derivativePorts_;  // 导数端口
+    std::vector<DataPort> derivativePorts_{};  // 导数端口
 };
 
 AST_NAMESPACE_END

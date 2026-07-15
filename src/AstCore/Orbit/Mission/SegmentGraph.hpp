@@ -43,7 +43,7 @@ public:
 public:
     errc_t execute() override;
 public:
-    std::vector<HMissionCommand> commands_;     ///< 任务命令序列
+    std::vector<HMissionCommand> commands_{};     ///< 任务命令序列
 };
 
 

@@ -44,6 +44,10 @@ class AST_CORE_API BlockMass: public BlockDerivative
 {
 public:
     explicit BlockMass(double mass);
+
+    BlockMass(const BlockMass&) = delete;
+    BlockMass& operator=(const BlockMass&) = delete;
+
     ~BlockMass();
     errc_t run(const SimTime& simTime) final{return 0;}
 protected:

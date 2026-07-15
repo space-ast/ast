@@ -141,11 +141,11 @@ private:
     bool                        useSTM_{false};                     ///< 是否使用状态转换矩阵
     bool                        useDragSensitivity_{false};         ///< 是否启用弹道系数B敏感度预报
     bool                        useSRPSensitivity_{false};          ///< 是否启用SRP综合参数K敏感度预报
-    SharedPtr<Body>             centralBody_;                       ///< 中心天体(定义引力场模型所属天体，以及进行轨道预报的坐标系)
-    DragForce                   drag_;                              ///< 大气阻力
-    SolarRadiationPressure      srp_;                               ///< 太阳辐射压模型
-    ThirdBodyList               thirdBodies_;                       ///< 三体引力 
-    ClonePtr<BodyAttraction>    bodyAttraction_;                    ///< 中心天体引力模型(二体或者引力场)
+    SharedPtr<Body>             centralBody_{};                      ///< 中心天体(定义引力场模型所属天体，以及进行轨道预报的坐标系)
+    DragForce                   drag_{};                             ///< 大气阻力
+    SolarRadiationPressure      srp_{};                              ///< 太阳辐射压模型
+    ThirdBodyList               thirdBodies_{};                      ///< 三体引力
+    ClonePtr<BodyAttraction>    bodyAttraction_{};                   ///< 中心天体引力模型(二体或者引力场)
 
     bool useMoonGravity_{false};
     double moonGravity_{kMoonGrav};

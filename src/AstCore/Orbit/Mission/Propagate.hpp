@@ -82,8 +82,8 @@ PROPERTIES:
     bool overrideMaxPropTime() const { return overrideMaxPropTime_; }
     void setOverrideMaxPropTime(bool overrideMaxPropTime) { overrideMaxPropTime_ = overrideMaxPropTime; }
 private:
-    WeakPtr<HPOP> propagator_;                                    ///< 轨道预报器
-    std::vector<SharedPtr<EventDetector>> eventDetectors_;        ///< 事件检测器
+    WeakPtr<HPOP> propagator_{};                                    ///< 轨道预报器
+    std::vector<SharedPtr<EventDetector>> eventDetectors_{};        ///< 事件检测器
     double minPropTime_{0};                                       ///< 最小预报时间??
     double maxPropTime_{8640000};                                 ///< 最大预报时间
     bool useMaxPropTime_{true};                                   ///< 是否使用最大预报时间

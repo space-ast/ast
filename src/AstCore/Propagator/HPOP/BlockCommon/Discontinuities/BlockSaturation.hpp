@@ -31,6 +31,9 @@ class AST_CORE_API BlockSaturation: public FuncBlock
 public:
     explicit BlockSaturation(double lowerLimit = -1.0, double upperLimit = 1.0);
 
+    BlockSaturation(const BlockSaturation&) = delete;
+    BlockSaturation& operator=(const BlockSaturation&) = delete;
+
     errc_t run(const SimTime &simTime) override;
     
     /// @brief 设置下限

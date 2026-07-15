@@ -31,6 +31,9 @@ class AST_CORE_API BlockProduct: public FuncBlock
 public:
     BlockProduct();
 
+    BlockProduct(const BlockProduct&) = delete;
+    BlockProduct& operator=(const BlockProduct&) = delete;
+
     errc_t run(const SimTime &simTime) override;
 
 protected:

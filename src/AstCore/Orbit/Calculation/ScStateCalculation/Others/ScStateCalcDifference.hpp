@@ -55,8 +55,8 @@ public:
 protected:
     Segment* getSegment();
 private:
-    WeakPtr<Segment> segment_;
-    WeakPtr<ScStateCalculation> calculation_;
+    WeakPtr<Segment> segment_{};
+    WeakPtr<ScStateCalculation> calculation_{};
     EDifferenceOrderToUse differenceOrderToUse_{EDifferenceOrderToUse::eCurrentMinusInitial};
 };
 

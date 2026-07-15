@@ -188,7 +188,7 @@ public:
     Vector3d transformVectorInv(const Vector3d& vector) const;
 
 protected:
-    Matrix3d matrix_;
+    Matrix3d matrix_{};
 };
 
 

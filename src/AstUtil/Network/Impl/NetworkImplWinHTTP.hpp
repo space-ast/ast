@@ -40,7 +40,10 @@ public:
     static NetworkImplWinHTTP* Instance();
     
     NetworkImplWinHTTP();
-    
+
+    NetworkImplWinHTTP(const NetworkImplWinHTTP&) = delete;
+    NetworkImplWinHTTP& operator=(const NetworkImplWinHTTP&) = delete;
+
     virtual ~NetworkImplWinHTTP();
     
     virtual errc_t requestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver) override;

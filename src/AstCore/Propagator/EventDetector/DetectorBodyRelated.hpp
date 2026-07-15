@@ -44,7 +44,7 @@ PROPERTIES:
     Body* body() const {return body_.get();}
     void setBody(Body* body) {body_ = body;}
 private:
-    WeakPtr<Body> body_;
+    WeakPtr<Body> body_{};
 };
 
 

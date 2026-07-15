@@ -30,6 +30,9 @@ class AST_CORE_API BlockUnaryMinus : public FuncBlock
 public:
     BlockUnaryMinus();
 
+    BlockUnaryMinus(const BlockUnaryMinus&) = delete;
+    BlockUnaryMinus& operator=(const BlockUnaryMinus&) = delete;
+
     errc_t run(const SimTime &simTime) override;
 protected:
     double* input_{nullptr};  // 输入值

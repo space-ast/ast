@@ -137,7 +137,7 @@ protected:
 protected:
     constexpr static uint32_t kDefaultMaxObjectCount = static_cast<uint32_t>(-1) - 1;
 
-    std::vector<ObjectNode*> objects_;                      ///< 所有对象节点
+    std::vector<ObjectNode*> objects_{};                      ///< 所有对象节点
     uint32_t nextIndex_{0};                                 ///< 下一个索引
     uint32_t maxObjectCount_{kDefaultMaxObjectCount};       ///< 最大对象数量
 };

@@ -38,8 +38,13 @@ class AST_UTIL_API ObjectNode
 {
 public:
     ObjectNode() = default;
+
+    ObjectNode(const ObjectNode&) = delete;
+    ObjectNode& operator=(const ObjectNode&) = delete;
+
     explicit ObjectNode(Object* object)
         : object_(object)
+        , children_()
     {}
     friend class ObjectManager;
     ~ObjectNode() = default;

@@ -67,9 +67,9 @@ private:
     int findIndex(double delta) const;
 protected:
     SharedPtr<Frame>      frame_;                   ///< 参考坐标系
-    std::vector<double>   times_;                   ///< 时间(单位：秒)
-    std::vector<Vector3d> positions_;               ///< 位置(单位：米)
-    std::vector<Vector3d> velocities_;              ///< 速度(单位：米/秒)
+    std::vector<double>   times_{};                  ///< 时间(单位：秒)
+    std::vector<Vector3d> positions_{};              ///< 位置(单位：米)
+    std::vector<Vector3d> velocities_{};             ///< 速度(单位：米/秒)
     TimePoint             epoch_{};                 ///< 历元时间
     double                averageStep_{60};         ///< 平均时间步长，用于估计插值开始的时间
     int                   interpolateOrder_{5};     ///< 插值阶数

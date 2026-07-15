@@ -30,6 +30,9 @@ class AST_CORE_API BlockDeadZone : public FuncBlock
 public:
     BlockDeadZone();
 
+    BlockDeadZone(const BlockDeadZone&) = delete;
+    BlockDeadZone& operator=(const BlockDeadZone&) = delete;
+
     errc_t run(const SimTime &simTime) override;
     
     /// @brief 设置死区下限

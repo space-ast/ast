@@ -97,16 +97,16 @@ private:
     Interval            interval_{};              ///< 星历时间范围，相对于历元时间
     double              averageStep_{60.0};       ///< 平均时间步长，用于估算索引
     size_t              pointCount_{0};           ///< 总星历点数
-    std::string         filepath_;                ///< 二进制文件路径
-    std::string         frameName_;               ///< 坐标系名称
-    mutable SharedPtr<Frame> frame_;              ///< 解析后的坐标系指针
+    std::string         filepath_{};               ///< 二进制文件路径
+    std::string         frameName_{};              ///< 坐标系名称
+    mutable SharedPtr<Frame> frame_{};             ///< 解析后的坐标系指针
 
     // 固定窗口缓存
     static constexpr size_t HEADER_BASE = 56;    // 基础头大小 (不含变长帧名)
     static constexpr size_t POINT_BYTES = 56;    // 7 doubles per point
-    mutable std::vector<double>   winTimes_;     ///< 窗口内的时间 (秒, 相对历元)
-    mutable std::vector<Vector3d> winPos_;       ///< 窗口内的位置
-    mutable std::vector<Vector3d> winVel_;       ///< 窗口内的速度
+    mutable std::vector<double>   winTimes_{};    ///< 窗口内的时间 (秒, 相对历元)
+    mutable std::vector<Vector3d> winPos_{};      ///< 窗口内的位置
+    mutable std::vector<Vector3d> winVel_{};      ///< 窗口内的速度
     mutable size_t winStart_{0};                  ///< 窗口在文件中的起始索引
 };
 

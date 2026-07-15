@@ -61,6 +61,9 @@ public:
     JplDe();
     ~JplDe();
 
+    JplDe(const JplDe&) = delete;
+    JplDe& operator=(const JplDe&) = delete;
+
     /// @brief  打开JPL DE文件
     /// @param  filepath - JPL DE文件路径
     /// @retval          - 错误码

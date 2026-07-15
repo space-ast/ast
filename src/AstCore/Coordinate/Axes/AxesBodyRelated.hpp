@@ -38,6 +38,9 @@ class AST_CORE_API AxesBodyRelated : public Axes
 public:
     explicit AxesBodyRelated(CelestialBody* body);
     ~AxesBodyRelated() override = default;
+
+    AxesBodyRelated(const AxesBodyRelated&) = delete;
+    AxesBodyRelated& operator=(const AxesBodyRelated&) = delete;
 protected:
     /// @brief 获取天体的姿态/指向
     BodyOrientation* getBodyOrientation() const;

@@ -214,6 +214,9 @@ public:
     GravityCalculator3(const GravityField &gravityField, int degree, int order);
     GravityCalculator3(GravityField &&gravityField, int degree, int order);
 
+    GravityCalculator3(const GravityCalculator3&) = delete;
+    GravityCalculator3& operator=(const GravityCalculator3&) = delete;
+
     ~GravityCalculator3() override;
     
     void calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF) final;

@@ -37,7 +37,10 @@ class AST_CORE_API JacchiaRoberts final: public AtmosphereBase
 {
 public:
     JacchiaRoberts(Frame* frame, BodyShape* bodyShape, CelestialBody* sun, double f107Daily, double f107Average, double kp);
-    
+
+    JacchiaRoberts(const JacchiaRoberts&) = delete;
+    JacchiaRoberts& operator=(const JacchiaRoberts&) = delete;
+
     double getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) const override;
 
     void setSunPosition(ESunPosition sunPosition){sunPosition_ = sunPosition;}

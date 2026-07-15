@@ -35,7 +35,7 @@ class AngleAxis
 {
 public:
     /// @brief 轴角类默认构造函数，这里不进行任何初始化，也不初始化为0
-    AngleAxis(){};
+    AngleAxis() : axis_(), angle_() {};
 
     /// @brief 轴角类构造函数
     /// @param axis 旋转轴

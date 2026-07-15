@@ -30,6 +30,9 @@ class AST_CORE_API BlockAbs : public FuncBlock
 public:
     BlockAbs();
 
+    BlockAbs(const BlockAbs&) = delete;
+    BlockAbs& operator=(const BlockAbs&) = delete;
+
     errc_t run(const SimTime &simTime) override;
 protected:
     double* input_{nullptr};  // 输入值

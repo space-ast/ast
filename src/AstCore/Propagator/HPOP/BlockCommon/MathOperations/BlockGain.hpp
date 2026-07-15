@@ -32,6 +32,10 @@ class AST_CORE_API BlockGain : public FuncBlock
 {
 public:
     BlockGain();
+
+    BlockGain(const BlockGain&) = delete;
+    BlockGain& operator=(const BlockGain&) = delete;
+
     ~BlockGain() = default;
 
     errc_t run(const SimTime& simTime) override;

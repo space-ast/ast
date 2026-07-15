@@ -61,8 +61,8 @@ public:
     const Vector3d& impulse() const {return impulse_;}
     void setImpulse(const Vector3d& value) {impulse_ = value;}
 private:
-    WeakPtr<Axes> axes_;
-    Vector3d impulse_;
+    WeakPtr<Axes> axes_{};
+    Vector3d impulse_{};
 };
 
 

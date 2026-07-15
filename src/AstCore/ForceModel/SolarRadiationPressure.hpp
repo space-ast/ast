@@ -51,7 +51,7 @@ public:
     ESunPosition sunPosition_{ESunPosition::eTrue};      ///< 太阳位置
     bool detectShadowBoundaries_{false};                 ///< 是否检测阴影边界[暂不支持该参数]
     EShadowModel shadowModel_{EShadowModel::eDualCone};  ///< 阴影模型类型
-    std::vector<HCelestialBody> eclipsingBodies_;        ///< 遮挡天体列表
+    std::vector<HCelestialBody> eclipsingBodies_{};        ///< 遮挡天体列表
     double atmAltForEclipse_{0.0};                       ///< 用于计算阴影边界的大气高度[暂不支持该参数]
 };
 

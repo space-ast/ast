@@ -30,8 +30,10 @@ class ODEIntegrator;
 class AST_MATH_API ODEInnerStateObserver : public ODEStateObserver
 {
 public:
-    explicit ODEInnerStateObserver(ODEIntegrator* integrator) 
+    explicit ODEInnerStateObserver(ODEIntegrator* integrator)
         : integrator_(integrator) {}
+    ODEInnerStateObserver(const ODEInnerStateObserver&) = delete;
+    ODEInnerStateObserver& operator=(const ODEInnerStateObserver&) = delete;
     ~ODEInnerStateObserver() = default;
     EODEAction onStateUpdate(double* y, double& x, ODEIntegrator* integrator) final;
 protected:

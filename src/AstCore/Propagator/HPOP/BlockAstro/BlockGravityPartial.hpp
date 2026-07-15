@@ -67,6 +67,9 @@ public:
     BlockGravityPartial(GravityField &&gravityField, int degree, int order,
                         Axes* gravityAxes=nullptr, Axes* propagationAxes=nullptr);
 
+    BlockGravityPartial(const BlockGravityPartial&) = delete;
+    BlockGravityPartial& operator=(const BlockGravityPartial&) = delete;
+
     void setDegreeForPartial(int degree){this->gravityCalculator_.setDegreeForPartial(degree);}
     
     void setOrderForPartial(int order){this->gravityCalculator_.setOrderForPartial(order);}

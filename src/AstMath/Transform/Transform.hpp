@@ -111,8 +111,8 @@ public:
     Vector3d transformPosition(const Vector3d& position) const;
 
 protected:
-    Vector3d translation_;  ///< 平移
-    Rotation rotation_;     ///< 旋转
+    Vector3d translation_{};  ///< 平移
+    Rotation rotation_{};     ///< 旋转
 };
 
 A_ALWAYS_INLINE Transform::Transform(const Vector3d &trans, const Rotation &rot)

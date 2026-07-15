@@ -102,6 +102,9 @@ public:
     Impl() : library_(nullptr) {
         loadLibrary();
     }
+
+    Impl(const Impl&) = delete;
+    Impl& operator=(const Impl&) = delete;
     
     ~Impl() {
         unloadLibrary();

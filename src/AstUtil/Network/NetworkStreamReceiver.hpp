@@ -74,7 +74,7 @@ class AST_UTIL_API CollectingStreamReceiver : public NetworkStreamReceiver
 {
 public:
     explicit CollectingStreamReceiver(NetworkResponse& response)
-        : response_(response) {}
+        : response_(response), body_() {}
 
     void onHeaders(int statusCode,
                    const std::map<std::string, std::string>& headers) override

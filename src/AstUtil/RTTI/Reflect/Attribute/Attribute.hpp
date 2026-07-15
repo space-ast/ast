@@ -58,7 +58,10 @@ public:
     typedef typename object_ptr_holder<object_type>::type object_ptr_holder_type;
 
     AttributeBasic() = default;
-    
+
+    AttributeBasic(const AttributeBasic&) = default;
+    AttributeBasic& operator=(const AttributeBasic&) = default;
+
     AttributeBasic(ObjectType* object, PropertyType* property)
         : object_(object)
         , property_(property)
