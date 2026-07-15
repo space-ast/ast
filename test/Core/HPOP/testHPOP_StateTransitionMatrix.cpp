@@ -1009,6 +1009,176 @@ TEST_F(HPOPSTMTest, CombinedSensitivity)
            stateSensToSRP[0], stateSensToSRP[1], stateSensToSRP[2], stateSensToSRP[3], stateSensToSRP[4], stateSensToSRP[5]);
 }
 
+/// @brief 测试 STM + 参数敏感度逐帧采集（StateObserver 机制）
+/// @details
+/// 模拟 stm.cpp 示例的使用场景：
+/// 在 JGM3(2,2) + Drag(MSIS86) + SRP(DualCone) 力模型下，
+/// 同时启用 STM、Drag敏感度和SRP敏感度，通过 StateObserver 逐帧采集
+/// 每步的位置、速度、STM 和敏感度向量。
+/// 验证：
+///   1. 预报成功完成
+///   2. StateObserver 采集到了积分帧数据
+///   3. 最终位置/速度与预期值一致
+///   4. STM、Drag敏感度、SRP敏感度均有非零值
+///   5. 首帧时间为 0，末帧时间接近预报时长
+TEST_F(HPOPSTMTest, STM_StateObserver_Collection)
+{
+    HPOPForceModel forcemodel;
+    forcemodel.gravity().model_ = "JGM3";
+    forcemodel.gravity().maxDegree_ = 2;
+    forcemodel.gravity().maxOrder_ = 2;
+    forcemodel.useSTM(true);
+
+    forcemodel.useDrag(true);
+    forcemodel.drag().atmDensityModel_ = EAtmDensityModel::eMSIS1986;
+
+    forcemodel.useSRP(true);
+    forcemodel.srp().shadowModel_ = EShadowModel::eDualCone;
+
+    forcemodel.useDragSensitivity(true);
+    forcemodel.useSRPSensitivity(true);
+
+    SpacecraftParam scParam;
+    scParam.setDryMass(1000.0);
+    scParam.setFuelMass(0.0);
+    scParam.setDragArea(20.0);
+    scParam.setCd(2.2);
+    scParam.setSrpArea(20.0);
+    scParam.setCr(1.0);
+
+    HPOP propagator;
+    errc_t err = propagator.setForceModel(forcemodel);
+    ASSERT_EQ(err, eNoError);
+    propagator.setSpacecraftParam(scParam);
+
+    auto start = TimePoint::FromUTC(2026, 1, 20, 4, 0, 0);
+    auto end   = TimePoint::FromUTC(2026, 1, 21, 4, 0, 0);
+
+    CartState state;
+    state.position() = Vector3d{6678137, 0, 0};
+    state.velocity() = Vector3d{0, 6789.53029, 3686.414173};
+
+    Matrix6d stm{};
+    for (int i = 0; i < 6; ++i)
+        stm(i, i) = 1.0;
+
+    Vector6d stateSensWrtDrag{};
+    Vector6d stateSensWrtSRP{};
+
+    // 设置积分器固定步长 60s
+    auto integrator = propagator.getIntegrator();
+    auto varintegrator = dynamic_cast<ODEVarStepIntegrator*>(integrator);
+    ASSERT_NE(varintegrator, nullptr);
+    varintegrator->setUseFixedStep(true);
+    varintegrator->setStepSize(60_s);
+
+    // 注册 observer：每步采集帧数据
+    struct StmFrame
+    {
+        double   time{};
+        CartState state{};
+        Matrix6d stm{};
+        Vector6d dragSens{};
+        Vector6d srpSens{};
+    };
+    std::vector<StmFrame> frames;
+    auto* mapper = propagator.stateMapper();
+    ASSERT_NE(mapper, nullptr);
+
+    integrator->addStateObserver([&frames, mapper](double* y, double& x, ODEIntegrator*) {
+        StmFrame f;
+        f.time = x;
+        mapper->toState(y, f.state);
+        mapper->toStateTransitionMatrix(y, f.stm);
+        mapper->toStateSensitivityWrtDrag(y, f.dragSens);
+        mapper->toStateSensitivityWrtSRP(y, f.srpSens);
+        frames.push_back(f);
+    });
+
+    // 预报
+    err = propagator.propagate(start, end, state, stm,
+                               stateSensWrtDrag, stateSensWrtSRP);
+    EXPECT_EQ(err, eNoError);
+
+    integrator->clearStateObservers();
+
+    // 验证帧数据被采集（固定步长 60s，24h 应有约 1440 帧）
+    EXPECT_GT(frames.size(), 0u);
+    printf("# frames=%zu\n", frames.size());
+
+    // 验证最终状态
+    printf("# final pos:  %s\n", state.position().toString().c_str());
+    printf("# final vel:  %s\n", state.velocity().toString().c_str());
+    printf("# final dragSens: [%.6e, %.6e, %.6e, %.6e, %.6e, %.6e]\n",
+           stateSensWrtDrag[0], stateSensWrtDrag[1], stateSensWrtDrag[2],
+           stateSensWrtDrag[3], stateSensWrtDrag[4], stateSensWrtDrag[5]);
+    printf("# final srpSens:  [%.6e, %.6e, %.6e, %.6e, %.6e, %.6e]\n",
+           stateSensWrtSRP[0], stateSensWrtSRP[1], stateSensWrtSRP[2],
+           stateSensWrtSRP[3], stateSensWrtSRP[4], stateSensWrtSRP[5]);
+
+    // ── 验证最终状态（基准值来自 stm.cpp 示例） ──
+    EXPECT_NEAR(state.position()[0], 6426310.1944292756,  1e-6);
+    EXPECT_NEAR(state.position()[1], -1729560.6268997970, 1e-6);
+    EXPECT_NEAR(state.position()[2], -474610.30727389897, 1e-6);
+    EXPECT_NEAR(state.velocity()[0], 2024.3270414323702,  1e-6);
+
+    // ── 验证 STM（基准值来自 stm.cpp 示例） ──
+    // Φ(0)=I, 经过 1 天后应有显著非对角元
+    double maxOffDiag = 0.0;
+    for (int i = 0; i < 6; ++i)
+        for (int j = 0; j < 6; ++j)
+            if (i != j)
+                maxOffDiag = std::max(maxOffDiag, std::abs(stm(i, j)));
+    EXPECT_GT(maxOffDiag, 1e-6);
+
+    // STM 第一行基准值验证
+    EXPECT_NEAR(stm(0,0), -82.465447186568412,       1e-8);
+    EXPECT_NEAR(stm(0,1),   0.00053472762888822495,  1e-8);
+    EXPECT_NEAR(stm(0,2),  -0.070726596660925997,    1e-8);
+    EXPECT_NEAR(stm(0,3), -253.93305481600945,       1e-8);
+
+    // ── 验证 Drag 敏感度（基准值来自 stm.cpp 示例） ──
+    EXPECT_NEAR(stateSensWrtDrag[0],  2503942.6140104369,  1e-6);
+    EXPECT_NEAR(stateSensWrtDrag[1],  8509256.7297997586,  1e-6);
+    EXPECT_NEAR(stateSensWrtDrag[2],  4763867.5046518976,  1e-6);
+    EXPECT_NEAR(stateSensWrtDrag[3], -11240.949623401957,  1e-6);
+
+    double maxDragSens = 0.0;
+    for (int i = 0; i < 6; ++i)
+        maxDragSens = std::max(maxDragSens, std::abs(stateSensWrtDrag[i]));
+    EXPECT_GT(maxDragSens, 1e-6);
+
+    // ── 验证 SRP 敏感度（基准值来自 stm.cpp 示例） ──
+    EXPECT_NEAR(stateSensWrtSRP[0], -390.37047021941561,  1e-8);
+    EXPECT_NEAR(stateSensWrtSRP[1], -554.73057392318208,  1e-8);
+    EXPECT_NEAR(stateSensWrtSRP[2], -331.79228369067152,  1e-8);
+    EXPECT_NEAR(stateSensWrtSRP[3],    0.60926698269460056, 1e-8);
+
+    double maxSRPSens = 0.0;
+    for (int i = 0; i < 6; ++i)
+        maxSRPSens = std::max(maxSRPSens, std::abs(stateSensWrtSRP[i]));
+    EXPECT_GT(maxSRPSens, 1e-6);
+
+    // 验证帧数据一致性：首帧时间应为 0，末帧应为 86400s 附近
+    EXPECT_NEAR(frames.front().time, 0.0, 1e-10);
+    EXPECT_NEAR(frames.back().time, 86400.0, 60.0);
+
+    // 验证帧内数据与最终状态一致（最后一帧应等于最终输出）
+    const auto& lastFrame = frames.back();
+    for (int i = 0; i < 3; ++i)
+    {
+        EXPECT_NEAR(lastFrame.state.position()[i], state.position()[i], 1e-10);
+        EXPECT_NEAR(lastFrame.state.velocity()[i], state.velocity()[i], 1e-10);
+    }
+    for (int i = 0; i < 6; ++i)
+    {
+        for (int j = 0; j < 6; ++j)
+            EXPECT_NEAR(lastFrame.stm(i, j), stm(i, j), 1e-10);
+        EXPECT_NEAR(lastFrame.dragSens[i], stateSensWrtDrag[i], 1e-10);
+        EXPECT_NEAR(lastFrame.srpSens[i], stateSensWrtSRP[i], 1e-10);
+    }
+}
+
 /// @brief 测试敏感度向量初始条件（零时长传播）
 /// @details 零时长传播后 Ψ_B 和 Ψ_K 应保持为零向量
 TEST_F(HPOPSTMTest, SensitivityInitialZero)
