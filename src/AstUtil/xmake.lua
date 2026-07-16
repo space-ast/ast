@@ -9,4 +9,8 @@
     add_headerfiles("../../include/AstGlobal.h")
     add_headerfiles("../../include/AstCompiler.h")
     add_defines("AST_BUILD_LIB_UTIL")
-    -- add_extrafiles("xmake.lua")    
+    -- add_extrafiles("xmake.lua")   
+    if is_plat("linux") then
+        add_syslinks("dl")
+    end
+
