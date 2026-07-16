@@ -34,7 +34,7 @@ AST_NAMESPACE_BEGIN
 class AngleAxis
 {
 public:
-    /// @brief 轴角类默认构造函数，这里不进行任何初始化，也不初始化为0
+    /// @brief 轴角类默认构造函数，对成员进行值初始化（基础类型初始化为0）
     AngleAxis() : axis_(), angle_() {};
 
     /// @brief 轴角类构造函数
