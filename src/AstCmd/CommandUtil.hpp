@@ -65,7 +65,9 @@ constexpr bool is_type(const char* s, int p, const char* type) {
 // 辅助递归函数，比较类型字符串并检查终止字符
 constexpr bool is_type_impl(const char* s, int p, const char* type, int i) {
     return type[i] == '\0'
-               ? (s[p + i] == '>' || s[p + i] == ':')
+               // 使用 | 而不是 ||，使用 || 运算符在一些旧编译器中无法编译期求值，
+               // 可能因为 || 的短路求值特性，一些旧编译器实现存在缺陷
+               ? ((s[p + i] == '>') | (s[p + i] == ':'))
                : (s[p + i] == type[i] && is_type_impl(s, p, type, i + 1));
 }
 
