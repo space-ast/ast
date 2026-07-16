@@ -201,10 +201,10 @@ void EditFigureDialog::onTreeSelectionChanged()
             auto& items = axes->children();
             if (ndItemIndex >= 0 && ndItemIndex < static_cast<int>(items.size())) {
                 auto& obj = items[ndItemIndex];
-                if (auto* line = dynamic_cast<matplot::line*>(obj.get())) {
+                if (auto* line = dynamic_cast<class matplot::line*>(obj.get())) {
                     linePage_->load(line, ndItemIndex);
                     stack_->setCurrentIndex(2);
-                } else if (auto* surf = dynamic_cast<matplot::surface*>(obj.get())) {
+                } else if (auto* surf = dynamic_cast<class matplot::surface*>(obj.get())) {
                     surfacePage_->load(surf, ndItemIndex);
                     stack_->setCurrentIndex(3);
                 } else {
