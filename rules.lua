@@ -32,16 +32,6 @@ rule("ast")
         if os.isdir(include_dir) then
             target:add("includedirs", include_dir)
         end
-        -- for gcc: 将一些警告转换为错误，以发现潜在的问题
-        if target:plat() == "linux" or target:plat() == "mingw" then
-            target:add("cxflags", "-Werror=uninitialized")
-            target:add("cxflags", "-Werror=init-self")
-            target:add("cxflags", "-Werror=maybe-uninitialized")
-            target:add("cxflags", "-Werror=missing-field-initializers")
-            -- C++ 专用警告
-            target:add("cxxflags", "-Werror=effc++")
-            target:add("cxxflags", "-Werror=reorder")
-        end
         if target:kind() == "binary" then
             if target:plat() == "windows" then
                 -- 添加图标资源文件

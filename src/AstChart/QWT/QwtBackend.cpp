@@ -65,12 +65,12 @@ public:
     static constexpr unsigned int kDefaultPosY = 558;
 public:
     matplot::figure_type* pltfigure_{nullptr};
-    QPointer<UiFigure> uifigure_;
+    QPointer<UiFigure> uifigure_{};
     unsigned int width_ {kDefaultWidth};
     unsigned int height_{kDefaultHeight};
     unsigned int pos_x_ {kDefaultPosX};
     unsigned int pos_y_ {kDefaultPosY};
-    std::string window_title_;
+    std::string window_title_{};
 public:
     UiFigure* getUiFigure();
     UiFigure* getUiFigure(matplot::figure_type* f);

@@ -48,14 +48,14 @@ private:
     enum NodeType { TypeFigure, TypeAxes, TypePlotItem };
     enum DataRole { TypeRole = Qt::UserRole, AxesIndexRole = Qt::UserRole + 1, ItemIndexRole = Qt::UserRole + 2 };
 
-    matplot::figure_type* figure_;
-    QTreeWidget* tree_;
-    QStackedWidget* stack_;
-    AxesPropertyPage* axesPage_;
-    LinePropertyPage* linePage_;
-    SurfacePropertyPage* surfacePage_;
-    QWidget* placeholder_;
-    QPushButton* applyBtn_;
+    matplot::figure_type* figure_{};
+    QTreeWidget* tree_{};
+    QStackedWidget* stack_{};
+    AxesPropertyPage* axesPage_{};
+    LinePropertyPage* linePage_{};
+    SurfacePropertyPage* surfacePage_{};
+    QWidget* placeholder_{};
+    QPushButton* applyBtn_{};
 };
 
 AST_NAMESPACE_END

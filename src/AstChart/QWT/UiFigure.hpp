@@ -153,19 +153,19 @@ private:
     QAction*                                pickNearestAction_ = nullptr;
     QMenu*                                  dataPickMenu_ = nullptr;
     QToolButton*                            dataPickBtn_ = nullptr;
-    QMap<QwtPlot*, AxisLimits>              originalLimits_;
-    QList<QPointer<QwtPlotPanner>>          panners_;
-    QList<QPointer<QwtPlotCanvasZoomer>>    zoomers_;
-    QList<QPointer<QwtPlotSeriesDataPicker>> dataPickers_;
-    QScopedPointer<QwtPlotSeriesDataPickerGroup> dataPickerGroup_;
+    QMap<QwtPlot*, AxisLimits>              originalLimits_{};
+    QList<QPointer<QwtPlotPanner>>          panners_{};
+    QList<QPointer<QwtPlotCanvasZoomer>>    zoomers_{};
+    QList<QPointer<QwtPlotSeriesDataPicker>> dataPickers_{};
+    QScopedPointer<QwtPlotSeriesDataPickerGroup> dataPickerGroup_{};
 
     // 编辑模式
     QAction*                                editModeAction_ = nullptr;
-    QScopedPointer<QwtFigureWidgetOverlay>  overlay_;
+    QScopedPointer<QwtFigureWidgetOverlay>  overlay_{};
 
     // 属性检查器
     QAction*                                propertiesAction_ = nullptr;
-    QPointer<EditFigureDialog>              propertiesDialog_;
+    QPointer<EditFigureDialog>              propertiesDialog_{};
 };
 
 AST_NAMESPACE_END
