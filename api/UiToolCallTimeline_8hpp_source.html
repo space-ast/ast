@@ -150,15 +150,15 @@ $(function(){initNavTree('UiToolCallTimeline_8hpp_source.html',''); initResizabl
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">struct </span>Entry</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        QString toolCallId;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        QString functionName;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        QString arguments;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        QString result;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        QString toolCallId{};</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        QString functionName{};</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        QString arguments{};</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        QString result{};</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_enumeration" href="group__UiAI.html#ga101136608862295c65fbd660783ecdd7">EToolCallState</a> state{};</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordtype">bool</span>    detailExpanded = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    };</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    QVector&lt;Entry&gt;  entries_;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    QVector&lt;Entry&gt;  entries_{};</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">bool</span>            collapsed_ = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// UI 部件</span></div>
