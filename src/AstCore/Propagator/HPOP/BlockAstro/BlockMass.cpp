@@ -35,7 +35,7 @@ BlockMass::BlockMass(double mass)
             identifierMass,
             (signal_t*)&massPtr_,
             1,
-            DataPort::eDouble,
+            DataPort::eDouble
         }
     };
 }

@@ -32,6 +32,32 @@ class CelestialBody;
 class Frame;
 class SimTime;
 
+
+/// @brief 1 AU处的太阳辐射压力 [N/m²]，使用太阳光度计算得到
+/// @details
+/// 由太阳光度推导：
+///   Φ(1AU) = L_sun / (4π · AU²)          — 1AU处的辐射通量 [W/m²]
+///   P_1AU  = Φ(1AU) / c                  — 1AU处的辐射压力 [N/m²]
+///          = L_sun / (4π · AU² · c)
+///
+/// 代入：
+///   L_sun = 3.839×10²⁶ W (Carrol & Ostlie, 2007)
+///   AU    = 1.49597870691×10¹¹ m
+///   c     = 2.99792458×10⁸ m/s
+///
+///   P_1AU ≈ 4.553×10⁻⁶ N/m²
+constexpr double kSolarPressureAt1AU_FromLuminosity = kSunLuminosity / (4.0 * kPI * kAU * kAU * kLightSpeed);
+
+/// @brief 1 AU处的太阳辐射压力 [N/m²]，使用太阳常数计算得到
+/// @details
+///   P_1AU = Φ(1AU) / c ≈ 1367 / 2.99792458e8 ≈ 4.560e-6 N/m²
+constexpr double kSolarPressureAt1AU_FromSolarConstant = kSolarConstant / kLightSpeed;
+
+/// @brief 1 AU处的太阳辐射压力 [N/m²]，目前使用光度计算的值，也可以切换为使用太阳常数计算的值
+constexpr double kSolarPressureAt1AU = kSolarPressureAt1AU_FromLuminosity;  
+
+
+
 /// @brief 太阳辐射压力函数块
 /// @details
 /// 计算太阳辐射压力加速度，添加到速度导数上。
@@ -59,7 +85,7 @@ public:
 
     ~BlockSRP() override;
 
-    errc_t run(const SimTime& simTime) final;
+    errc_t run(const SimTime& simTime) override;
 public:
     void setSunPosition(ESunPosition sunPosition){sunPosition_ = sunPosition;}
 protected:
@@ -71,7 +97,7 @@ protected:
     double doubleBuffer_{};                         ///< 浮点数缓冲区
     Vector3d vectorBuffer_{};                       ///< 向量缓冲区
 
-private:
+protected:
     EclipseCalculator* eclipseCalculator_{};        ///< 阴影光照计算器
     double cr_{1.0};                                ///< 光压系数
     double srpArea_{20.0};                          ///< SRP面积 [m^2]

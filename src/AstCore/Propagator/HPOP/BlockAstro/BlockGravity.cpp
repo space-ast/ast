@@ -105,26 +105,32 @@ void BlockGravity::init()
     };
 }
 
-
+errc_t BlockGravity::prepare(const SimTime &simTime, Rotation &rotation)
+{
+    auto& tp = simTime.timePoint();
+    // 根据长期变化率更新重力场系数
+    if(considerVariations_)
+        gravityCalculator_.updateVariations(tp);
+    // 求解坐标转换矩阵
+    return aAxesTransform(propagationAxes_, gravityAxes_, tp, rotation);
+}
 
 errc_t BlockGravity::run(const SimTime &simTime)
 {
-    Vector3d posInGravityAxes;  // 位置(重力坐标系下)
-    Vector3d accInGravityAxes;  // 重力加速度(重力坐标系下)
-    auto& tp = simTime.timePoint();
     Rotation rotation;
-    errc_t rc = aAxesTransform(propagationAxes_, gravityAxes_, tp, rotation);
+    errc_t rc = prepare(simTime, rotation);
     if (A_UNLIKELY(rc != eNoError))
     {
         aError("failed to transform from propagation axes to gravity axes");
         return rc;
     }
-
+    Vector3d posInGravityAxes;  // 位置(重力坐标系下)
+    Vector3d accInGravityAxes;  // 重力加速度(重力坐标系下)
+    // 将位置变换预报坐标系到重力场坐标系
     posInGravityAxes = rotation.transformVector(*posPtr_);
-    // 根据长期变化率更新重力场系数
-    if(considerVariations_)
-        gravityCalculator_.updateVariations(tp);
+    // 计算总加速度（中心天体 + 摄动，重力坐标系下）
     gravityCalculator_.calcTotalAcceleration(posInGravityAxes, accInGravityAxes);
+    // 将加速度变换回报坐标系：a_prop = Rᵀ · a_grav
     Vector3d accInPropagationAxes = rotation.transformVectorInv(accInGravityAxes);
     *accGravityPtr_ = accInPropagationAxes;
     *velocityDerivativePtr_ += accInPropagationAxes;

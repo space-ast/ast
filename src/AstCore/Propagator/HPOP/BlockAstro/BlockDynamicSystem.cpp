@@ -22,6 +22,7 @@
 #include "AstCore/BlockDerivative.hpp"
 #include "AstUtil/Identifier.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/IdentifierAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -71,9 +72,36 @@ void BlockDynamicSystem::reset()
     this->derivativeMap_.clear();
 }
 
+errc_t BlockDynamicSystem::run(const SimTime &simTime)
+{
+    this->fillDerivativeData(0.0);      // 填充导数数据为0
+    this->fillAccumulateData(0.0);      // 填充累加状态量数据为0
+    return this->BlockSystem::run(simTime);
+}
+
+
 void BlockDynamicSystem::addBlock(BlockDerivative* block)
 {
     return addDerivativeBlock(block);
+}
+
+size_t BlockDynamicSystem::getStateIndex(Identifier *id) const
+{
+    auto iter = derivativeMap_.find(id);
+    if(iter != derivativeMap_.end())
+    {
+        const double* data = iter->second;
+        size_t index = data - derivative_.data();
+        if(A_UNLIKELY(index >= derivative_.size()))
+            return -1;
+        return index;
+    }
+    return -1;
+}
+
+size_t BlockDynamicSystem::getStateIndex(StringView name) const
+{
+    return getStateIndex(aIdentifier(name));
 }
 
 errc_t BlockDynamicSystem::initialize()
@@ -113,69 +141,127 @@ errc_t BlockDynamicSystem::sortBlocks()
 /// @brief 创建状态量映射表
 errc_t BlockDynamicSystem::createStateMap()
 {
-    // size_t size = derivativeBlocks_.size();
-    int totalStateDimension = 0;
-    std::vector<int> stateDimensions;           // 状态量维度
-    std::vector<Identifier*> stateIdentifiers;  // 状态量标识符
-
-    for(auto block: blocks_)
     {
-        // 遍历该函数块的所有输出端口
-        auto& outputPorts = block->getOutputPorts();
-        for(auto& port : outputPorts)
-        {
-            // 汇总所有状态量信号
-            auto name = port.name_;
-            stateMap_[name] = port.getSignal<double>();
-        }
-    }
+        int totalWidth = 0;
+        std::vector<int> widths;           // 状态量维度
+        std::vector<Identifier*> identifiers;  // 状态量标识符
 
-    // 遍历所有的状态量导数，统计微分状态量的维度
-    for(auto block:derivativeBlocks_)
-    {
-        // 遍历该函数块的所有导数端口
-        auto& derivativePorts = block->getDerivativePorts();
-        for(auto& port : derivativePorts)
+        // 遍历所有的状态量导数，统计微分状态量的维度
+        for(auto block:derivativeBlocks_)
         {
-            auto name = port.name_;
-            auto iter = std::find(stateIdentifiers.begin(), stateIdentifiers.end(), name);
-            if(iter == stateIdentifiers.end())
+            // 遍历该函数块的所有导数端口
+            auto& derivativePorts = block->getDerivativePorts();
+            for(auto& port : derivativePorts)
             {
-                // 未添加过该状态量
-                int width = port.getWidth();
-                stateIdentifiers.push_back(name);
-                stateDimensions.push_back(width);
-                totalStateDimension += width;
-            }else{
-                // 已经添加过该状态量
-                // 检查状态量维度是否一致
-                if(port.getWidth() != stateDimensions[iter - stateIdentifiers.begin()])
+                auto name = port.name_;
+                auto iter = std::find(identifiers.begin(), identifiers.end(), name);
+                if(iter == identifiers.end())
                 {
-                    aError("state dimension of %s is not consistent", name->c_str());
-                    return -1;
+                    // 未添加过该状态量
+                    int width = port.getWidth();
+                    identifiers.push_back(name);
+                    widths.push_back(width);
+                    totalWidth += width;
+                }else{
+                    // 已经添加过该状态量
+                    // 检查状态量维度是否一致
+                    if(port.getWidth() != widths[iter - identifiers.begin()])
+                    {
+                        aError("state dimension of %s is not consistent", name->c_str());
+                        return -1;
+                    }
+                    // @todo: 检测状态量是否支持累加，避免意外的覆盖
                 }
-                // @todo: 检测状态量是否支持累加，避免意外的覆盖
             }
         }
-    }
-    
-    // 分配状态量和导数向量
-    state_.resize(totalStateDimension);
-    derivative_.resize(totalStateDimension);
+        
+        // 分配状态量和导数向量
+        state_.resize(totalWidth);
+        derivative_.resize(totalWidth);
 
-    // 初始化状态量映射表
-    int offset = 0;
-    for(size_t index=0;index<stateIdentifiers.size();index++)
-    {
-        auto name = stateIdentifiers[index];
-        auto width = stateDimensions[index];
-        // @todo 
-        // 这里会覆盖map里面已有的block的输出量
-        // 应该在这里将所有block的outputPorts里的信号指针替换为最新的
-        stateMap_[name] = state_.data() + offset;
-        derivativeMap_[name] = derivative_.data() + offset;
-        offset += width;
+        // 初始化状态量映射表
+        int offset = 0;
+        for(size_t index=0;index<identifiers.size();index++)
+        {
+            auto name = identifiers[index];
+            auto width = widths[index];
+            // @note 
+            // 这里将导数对应的状态量插入到了stateMap_中
+            // 在后面的逻辑里会根据状态量映射表，将所有block的outputPorts里的信号指针替换为最新的
+            // 所以这里的逻辑一定要在遍历输出端口汇总输出状态量之前执行
+            stateMap_.emplace(name, state_.data() + offset);
+            derivativeMap_.emplace(name, derivative_.data() + offset);
+            offset += width;
+        }
     }
+
+    {
+        int totalWidth = 0;
+        std::vector<int> widths;                    // 状态量维度
+        std::vector<Identifier*> identifiers;       // 状态量标识符
+        std::vector<DataPort*> accumulatePorts;     // 累加状态量输出端口
+        
+        for(auto block: blocks_)
+        {
+            // 遍历该函数块的所有输出端口
+            auto& outputPorts = block->getOutputPorts();
+            for(auto& port : outputPorts)
+            {
+                // 汇总所有状态量信号
+                auto name = port.name_;
+                if(port.getMode() == DataPort::eAccumulate)
+                {
+                    accumulatePorts.push_back(&port);
+                    auto iter = std::find(identifiers.begin(), identifiers.end(), name);
+                    if(iter == identifiers.end())
+                    {
+                        // 未添加过该状态量
+                        int width = port.getWidth();
+                        identifiers.push_back(name);
+                        widths.push_back(width);
+                        totalWidth += width;
+                    }else{
+                        // 已经添加过该状态量
+                        // 检查状态量维度是否一致
+                        if(port.getWidth() != widths[iter - identifiers.begin()])
+                        {
+                            aError("state dimension of %s is not consistent", name->c_str());
+                            return -1;
+                        }
+                    }
+                }
+                else
+                {
+                    // 如果状态量映射表中不存在该状态量，则添加
+                    auto result = stateMap_.emplace(name, port.getSignal<double>());
+                    // 如果状态量映射表中已存在该状态量，则更新信号指针
+                    if(!result.second)
+                    {
+                        port.setSignal<double>(stateMap_[name]);
+                    }
+                }
+            }
+        }
+        // 分配状态量和导数向量
+        accumulate_.resize(totalWidth);
+
+        // 初始化状态量映射表
+        int offset = 0;
+        for(size_t index=0;index<identifiers.size();index++)
+        {
+            auto name = identifiers[index];
+            auto width = widths[index];
+            stateMap_.emplace(name, accumulate_.data() + offset);
+            offset += width;
+        }
+        // 设置累加状态量信号
+        for(auto& port : accumulatePorts)
+        {
+            port->setSignal<double>(stateMap_[port->name_]);
+        }
+    }
+
+    
     return 0;
 }
 
@@ -198,7 +284,7 @@ errc_t BlockDynamicSystem::connectSignalsByNames()
                 port.setSignal(iter->second);
             }else{
                 // 未找到所需状态量信号
-                aError("state '%s' is not found for block", name->c_str());
+                aError("state '%s' is not found for input port", name->c_str());
                 return -1;
             }
         }

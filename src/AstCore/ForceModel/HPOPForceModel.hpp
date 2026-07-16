@@ -56,14 +56,29 @@ public:
 
     bool useCentralBodyAttraction() const{return useCentralBodyAttraction_;}
     
+    /// @brief 是否启用阻力模型
     bool useDrag() const{return useDrag_;}
     void useDrag(bool useDrag){useDrag_ = useDrag;}
 
+    /// @brief 是否启用太阳辐射压模型
     bool useSRP() const{return useSRP_;}
     void useSRP(bool useSRP){useSRP_ = useSRP;}
 
+    /// @brief 是否启用相对论修正模型
     bool useRelativityCorrection() const{return useRelativityCorrection_;}
     void useRelativityCorrection(bool useRelativityCorrection){useRelativityCorrection_ = useRelativityCorrection;}
+
+    /// @brief 是否启用状态转移矩阵预报
+    bool useSTM() const{return useSTM_;}
+    void useSTM(bool useSTM){useSTM_ = useSTM;}
+
+    /// @brief 是否启用弹道系数B敏感度预报
+    bool useDragSensitivity() const{return useDragSensitivity_;}
+    void useDragSensitivity(bool v){useDragSensitivity_ = v;}
+
+    /// @brief 是否启用SRP综合参数K敏感度预报
+    bool useSRPSensitivity() const{return useSRPSensitivity_;}
+    void useSRPSensitivity(bool v){useSRPSensitivity_ = v;}
 
     /// @brief 获取中心天体
     Body* centralBody() const;
@@ -123,6 +138,9 @@ private:
     bool                        useSRP_{false};                     ///< 是否使用太阳辐射压模型
     bool                        useRelativityCorrection_{false};    ///< 是否使用相对论修正
     bool                        useCentralBodyAttraction_{true};    ///< 是否使用中心天体引力模型
+    bool                        useSTM_{false};                     ///< 是否使用状态转换矩阵
+    bool                        useDragSensitivity_{false};         ///< 是否启用弹道系数B敏感度预报
+    bool                        useSRPSensitivity_{false};          ///< 是否启用SRP综合参数K敏感度预报
     SharedPtr<Body>             centralBody_;                       ///< 中心天体(定义引力场模型所属天体，以及进行轨道预报的坐标系)
     DragForce                   drag_;                              ///< 大气阻力
     SolarRadiationPressure      srp_;                               ///< 太阳辐射压模型

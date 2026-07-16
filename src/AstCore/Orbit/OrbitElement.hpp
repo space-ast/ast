@@ -58,11 +58,15 @@ public:
     /// @return 位置
     const Vector3d& pos() const {return pos_;} 
     Vector3d& pos() {return pos_;}
+    const Vector3d& position() const {return pos_;} 
+    Vector3d& position() {return pos_;}
 
     /// @brief 获取速度
     /// @return 速度
     const Vector3d& vel() const {return vel_;} 
     Vector3d& vel() {return vel_;}
+    const Vector3d& velocity() const {return vel_;} 
+    Vector3d& velocity() {return vel_;}
 
     double& x() {return pos_.x();}
     double& y() {return pos_.y();}

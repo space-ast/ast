@@ -32,14 +32,22 @@ typedef signal_t* signalsignal_t;       // 信号指针(指向信号的指针/�
 class DataPort
 {
 public:
-    enum EValueType{
-        eInvalid=-1,
-        eDouble=0,
-        eFloat=1,
-        eInt,
-        eBoolean,
+    enum EValueType: int8_t{
+        eInvalid=-1,        ///< 无效数据类型
+        eDouble=0,          ///< double值
+        eFloat=1,           ///< float值
+        eInt=2,             ///< int值
+        eBoolean=3,         ///< boolean值
+    };
+    enum EModeType: int8_t {
+        eAny = -1,         ///< 任意模式
+        eAssign = 0,       ///< 赋值模式（=），单一贡献者
+        eAccumulate = 1    ///< 累加模式（+=），多贡献者
     };
     // DataPort() = default;
+    DataPort(Identifier* name, signal_t* signalPtr, int width, EValueType type, EModeType mode = eAny)
+        : name_(name), signalPtr_(signalPtr), width_(width), type_(type), mode_(mode)
+    {}
     ~DataPort() = default;
 
     AST_CORE_API
@@ -107,11 +115,15 @@ public:
     /// @return 信号指针(指向数据指针的指针)
     signal_t* getSignalPtr() const{ return signalPtr_; }
 
+    /// @brief 获取数据端口的数据模式
+    /// @return 数据模式
+    EModeType getMode() const{ return mode_; }
 public:
     Identifier* name_;              ///< 端口名称
     signal_t*   signalPtr_;         ///< 信号指针(指向数据指针的指针)
     int         width_;             ///< 数据宽度
     EValueType  type_;              ///< 数据类型
+    EModeType   mode_{eAny};        ///< 数据模式
     // Dimension   dimension_;      ///< 数据量纲 @todo: 支持数据量纲
 };
 

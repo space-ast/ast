@@ -123,9 +123,9 @@ void EditFigureDialog::buildTree()
                 name = tr("元素 %1").arg(static_cast<int>(j + 1));
             itemNode->setText(0, name);
             // 根据对象类型设置图标
-            if (dynamic_cast<matplot::line*>(obj.get()))
+            if (dynamic_cast<class matplot::line*>(obj.get()))
                 itemNode->setIcon(0, lineIcon);
-            else if (dynamic_cast<matplot::surface*>(obj.get()))
+            else if (dynamic_cast<class matplot::surface*>(obj.get()))
                 itemNode->setIcon(0, surfaceIcon);
             else
                 itemNode->setIcon(0, elementIcon);
@@ -201,10 +201,10 @@ void EditFigureDialog::onTreeSelectionChanged()
             auto& items = axes->children();
             if (ndItemIndex >= 0 && ndItemIndex < static_cast<int>(items.size())) {
                 auto& obj = items[ndItemIndex];
-                if (auto* line = dynamic_cast<matplot::line*>(obj.get())) {
+                if (auto* line = dynamic_cast<class matplot::line*>(obj.get())) {
                     linePage_->load(line, ndItemIndex);
                     stack_->setCurrentIndex(2);
-                } else if (auto* surf = dynamic_cast<matplot::surface*>(obj.get())) {
+                } else if (auto* surf = dynamic_cast<class matplot::surface*>(obj.get())) {
                     surfacePage_->load(surf, ndItemIndex);
                     stack_->setCurrentIndex(3);
                 } else {
@@ -243,9 +243,9 @@ void EditFigureDialog::onApply()
             auto& items = axes->children();
             if (ndItemIndex >= 0 && ndItemIndex < static_cast<int>(items.size())) {
                 auto& obj = items[ndItemIndex];
-                if (auto* line = dynamic_cast<matplot::line*>(obj.get()))
+                if (auto* line = dynamic_cast<class matplot::line*>(obj.get()))
                     linePage_->apply(line);
-                else if (auto* surf = dynamic_cast<matplot::surface*>(obj.get()))
+                else if (auto* surf = dynamic_cast<class matplot::surface*>(obj.get()))
                     surfacePage_->apply(surf);
             }
         }

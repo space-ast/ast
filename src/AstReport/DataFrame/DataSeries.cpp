@@ -26,6 +26,7 @@
 #include <limits>
 #include <algorithm>
 #include <typeinfo>
+#include <functional>   // for std::greater  std::less
 
 AST_NAMESPACE_BEGIN
 

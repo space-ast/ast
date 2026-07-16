@@ -85,19 +85,19 @@ static errc_t loadEOP(BKVParser& parser, int numlines, std::vector<EOP::Entry>& 
 
 errc_t EOP::load(StringView filepath)
 {
-    errc_t err = load(filepath, m_data);
-    if(!m_data.empty()){
-        m_startMJD = m_data.front().mjd;
-        m_endMJD = m_data.back().mjd;
+    errc_t err = load(filepath, data_);
+    if(!data_.empty()){
+        startMJD_ = data_.front().mjd;
+        endMJD_ = data_.back().mjd;
     }
     return err;
 }
 
 void EOP::unload()
 {
-    m_data.clear();
-    m_startMJD = 0;
-    m_endMJD = 0;
+    data_.clear();
+    startMJD_ = 0;
+    endMJD_ = 0;
 }
 
 errc_t EOP::load(StringView filepath, std::vector<Entry>& data)
@@ -155,10 +155,10 @@ const EOP::Entry *EOP::getEntry(int mjd) const
     int index = 0;
     double frac = 0.0;
     findEntryIndex(mjd, index, frac);
-    if(index < 0 || index >= (int)m_data.size() - 1){
+    if(index < 0 || index >= (int)data_.size() - 1){
         return nullptr;
     }
-    return &m_data[index];
+    return &data_[index];
 }
 
 errc_t EOP::setEntry(int mjd, const Entry &entry)
@@ -166,10 +166,10 @@ errc_t EOP::setEntry(int mjd, const Entry &entry)
     int index = 0;
     double frac = 0.0;
     findEntryIndex(mjd, index, frac);
-    if(index < 0 || index >= (int)m_data.size() - 1){
+    if(index < 0 || index >= (int)data_.size() - 1){
         return eErrorInvalidParam;
     }
-    m_data[index] = entry;
+    data_[index] = entry;
     return eNoError;
 }
 
@@ -194,7 +194,7 @@ double EOP::getUT1MinusUTC_UTCMJD(double mjdUTC) const
     if(index < 0){
         return 0.0;
     }
-    if(index >= (int)m_data.size() - 1){
+    if(index >= (int)data_.size() - 1){
         return 0.0; 
     }
     return getValue<&Entry::ut1_utc>(index, frac);
@@ -218,7 +218,7 @@ void EOP::getPoleMotionUTCMJD(double mjdUTC, double &x, double &y) const
     int index = 0;
     double frac = 0.0;
     findEntryIndex(mjdUTC, index, frac);
-    if(index < 0 || index >= (int)m_data.size() - 1){
+    if(index < 0 || index >= (int)data_.size() - 1){
         x = 0.0;
         y = 0.0;
         return;
@@ -245,7 +245,7 @@ double EOP::getLOD_UTCMJD(double mjdUTC) const
     int index = 0;
     double frac = 0.0;
     findEntryIndex(mjdUTC, index, frac);
-    if(index < 0 || index >= (int)m_data.size() - 1){
+    if(index < 0 || index >= (int)data_.size() - 1){
         return 0.0;
     }
     return getValue<&Entry::lod>(index, frac);
@@ -269,7 +269,7 @@ void EOP::getXYCorrectionUTCMJD(double mjdUTC, array2d &xyCorrection) const
     int index = 0;
     double frac = 0.0;
     findEntryIndex(mjdUTC, index, frac);
-    if(index < 0 || index >= (int)m_data.size() - 1){
+    if(index < 0 || index >= (int)data_.size() - 1){
         xyCorrection = {0, 0};
         return;
     }
@@ -282,9 +282,9 @@ void EOP::findEntryIndex(double mjdUTC, int &index, double &frac) const
     // @todo: 与SpaceWeather.cpp中的实现是一致的，考虑怎么抽取公共代码
 
     // 猜测索引
-    index = (int)(mjdUTC - m_startMJD);
-    if(index >= (int)m_data.size()){
-        index = (int)m_data.size() - 1;
+    index = (int)(mjdUTC - startMJD_);
+    if(index >= (int)data_.size()){
+        index = (int)data_.size() - 1;
         frac = 0;
     }
     if(index < 0){
@@ -292,11 +292,11 @@ void EOP::findEntryIndex(double mjdUTC, int &index, double &frac) const
         frac = 0;
         return;
     }
-    if(mjdUTC < this->m_data[index].mjd){
+    if(mjdUTC < this->data_[index].mjd){
         for(int i=index-1;i >=0;i--){
-            if(mjdUTC >= this->m_data[i].mjd){
+            if(mjdUTC >= this->data_[i].mjd){
                 index = i;
-                frac = (mjdUTC - m_data[index].mjd) / (m_data[index+1].mjd - m_data[index].mjd);
+                frac = (mjdUTC - data_[index].mjd) / (data_[index+1].mjd - data_[index].mjd);
                 return;
             }
         }
@@ -304,14 +304,14 @@ void EOP::findEntryIndex(double mjdUTC, int &index, double &frac) const
         frac = 0;
         return;
     }else{
-        for(int i=index+1;i < (int)m_data.size();i++){
-            if(mjdUTC < this->m_data[i].mjd){
+        for(int i=index+1;i < (int)data_.size();i++){
+            if(mjdUTC < this->data_[i].mjd){
                 index = i-1;
-                frac = (mjdUTC - m_data[index].mjd) / (m_data[index+1].mjd - m_data[index].mjd);
+                frac = (mjdUTC - data_[index].mjd) / (data_[index+1].mjd - data_[index].mjd);
                 return;
             }
         }
-        index = (int)m_data.size() - 1;
+        index = (int)data_.size() - 1;
         frac = 0;
         return;
     }

@@ -39,10 +39,10 @@ public:
     ~GlobalContext() = default;
 
     /// @brief IAU XYS数据
-	const IAUXYS* iauXYS() const {return &m_iauXYS;}
-    IAUXYS* iauXYS() {return &m_iauXYS;}
+	const IAUXYS* iauXYS() const {return &iauXYS_;}
+    IAUXYS* iauXYS() {return &iauXYS_;}
 protected:
-	IAUXYS                  m_iauXYS;				///< IAU XYS数据 @todo: 这个考虑更改为静态数据
+	IAUXYS                  iauXYS_;				///< IAU XYS数据 @todo: 这个考虑更改为静态数据
 };
 
 /*! @} */

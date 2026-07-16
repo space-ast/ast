@@ -22,11 +22,15 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstMath/Vector.hpp"
+#include "AstMath/Matrix.hpp"
+#include "AstMath/MathOperator.hpp"
 
 AST_NAMESPACE_BEGIN
 
 typedef int Integer;
 typedef double Real;
+
+// Pines算法，来自GMAT的实现
 
 static void AllocateArray(Real**& a, const Integer& nn, const Integer& excess)
 {
@@ -192,9 +196,11 @@ void GravityCalculator3::deinit()
     DeallocateArray(VR22,NN,0);
 }
 
-void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF)
+template <bool fillgradient>
+inline void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF, Matrix3d *gradientPtr)
 {
-    const bool fillgradient = false;
+    // Pines算法，来自GMAT的实现
+
     auto& pos = positionCBF;
     auto& acc = accelerationCBF;
     const int MM = getOrder();
@@ -236,38 +242,38 @@ void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vecto
     // initialize recursion
     Real rho = FieldRadius/r;
     Real rho_np1 = -Factor/r * rho;   // rho(0) ,Ref[3], Eq 26 , factor = mu for gravity
-    // Real rho_np2 = rho_np1 * rho;
+    Real rho_np2 = rho_np1 * rho;
     Real a1 = 0;
     Real a2 = 0;
     Real a3 = 0;
     Real a4 = 0;
-    // Real a11 = 0;
-    // Real a12 = 0;
-    // Real a13 = 0;
-    // Real a14 = 0;
-    // Real a23 = 0;
-    // Real a24 = 0;
-    // Real a33 = 0;
-    // Real a34 = 0;
-    // Real a44 = 0;
+    Real a11 = 0;
+    Real a12 = 0;
+    Real a13 = 0;
+    Real a14 = 0;
+    Real a23 = 0;
+    Real a24 = 0;
+    Real a33 = 0;
+    Real a34 = 0;
+    Real a44 = 0;
     Real sqrt2 = sqrt (Real(2)); 
     for (Integer n=1;  n<=NN && n<=nn;  ++n)
     {
         rho_np1 *= rho;
-        // rho_np2 *= rho;
+        rho_np2 *= rho;
         Real sum1 = 0;
         Real sum2 = 0;
         Real sum3 = 0;
         Real sum4 = 0;
-        // Real sum11 = 0;
-        // Real sum12 = 0;
-        // Real sum13 = 0;
-        // Real sum14 = 0;
-        // Real sum23 = 0;
-        // Real sum24 = 0;
-        // Real sum33 = 0;
-        // Real sum34 = 0;
-        // Real sum44 = 0;
+        Real sum11 = 0;
+        Real sum12 = 0;
+        Real sum13 = 0;
+        Real sum14 = 0;
+        Real sum23 = 0;
+        Real sum24 = 0;
+        Real sum33 = 0;
+        Real sum34 = 0;
+        Real sum44 = 0;
 
         for (Integer m=0;  m <= n && m<=MM && m<=mm;  ++m) // wcs - removed "m<=n"
         {
@@ -287,6 +293,45 @@ void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vecto
             sum3 +=     Avv01 * D;
             sum4 +=     Avv11 * D;
 
+            // Truncate the gradient at GRADIENT_MAX x GRADIENT_MAX
+            if (fillgradient)
+            {
+                if ((m <= getOrderForPartial()) && (n <= getDegreeForPartial()))
+                {
+                    // Pines Equation 27 (Part of)
+                    // 2015.09.18 GMT-5295 m<=2  -> m<=1
+                    Real G = m<=1 ? 0 : (Cval*Re[m-2] + Sval*Im[m-2]) * sqrt2;
+                    Real H = m<=1 ? 0 : (Sval*Re[m-2] - Cval*Im[m-2]) * sqrt2;
+                    // Correct for normalization
+                    Real Avv02 = VR02[n][m] * A[n][m+2];
+                    Real Avv12 = VR12[n][m] * A[n+1][m+2];
+                    Real Avv22 = VR22[n][m] * A[n+2][m+2];
+                    if (std::isnan(Avv02) || std::isinf(Avv02))
+                        Avv02 = 0.0;  // ************** wcs added ****
+
+                    // Pines Equation 36 (Part of)
+                    sum11 += m*(m-1) * Avv00 * G;
+                    sum12 += m*(m-1) * Avv00 * H;
+                    sum13 += m       * Avv01 * E;
+                    sum14 += m       * Avv11 * E;
+                    sum23 += m       * Avv01 * F;
+                    sum24 += m       * Avv11 * F;
+                    sum33 +=           Avv02 * D;
+                    sum34 +=           Avv12 * D;
+                    sum44 +=           Avv22 * D;
+                }
+                else
+                {
+                    // if (matrixTruncationWasPosted == false)
+                    // {
+                    //     MessageInterface::ShowMessage("*** WARNING *** Gradient data "
+                    //         "for the state transition matrix and A-matrix "
+                    //         "computations are truncated at degree and order "
+                    //         "<= %d.\n", gradientlimit);
+                    //     matrixTruncationWasPosted = true;
+                    // }
+                }
+            } 
         }
         // Pines Equation 30 and 30b (Part of)
         Real rr = rho_np1/FieldRadius;
@@ -294,13 +339,65 @@ void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vecto
         a2 += rr*sum2;
         a3 += rr*sum3;
         a4 -= rr*sum4;
+        if (fillgradient)
+        {
+            // Pines Equation 36 (Part of)
+            a11 += rho_np2/FieldRadius/FieldRadius*sum11;
+            a12 += rho_np2/FieldRadius/FieldRadius*sum12;
+            a13 += rho_np2/FieldRadius/FieldRadius*sum13;
+            a14 -= rho_np2/FieldRadius/FieldRadius*sum14;
+            a23 += rho_np2/FieldRadius/FieldRadius*sum23;
+            a24 -= rho_np2/FieldRadius/FieldRadius*sum24;
+            a33 += rho_np2/FieldRadius/FieldRadius*sum33;
+            a34 -= rho_np2/FieldRadius/FieldRadius*sum34;
+            a44 += rho_np2/FieldRadius/FieldRadius*sum44;
+            #ifdef DEBUG_GRADIENT
+            //   MessageInterface::ShowMessage("In Harmonic::CalField, fillgradient = %s\n", (fillgradient? "true" : "false"));
+            //   MessageInterface::ShowMessage("a33   = %12.10f\n", a33);
+            //   MessageInterface::ShowMessage("sum33 = %12.10f\n", sum33);
+            //   MessageInterface::ShowMessage("u     = %12.10f\n", u);
+            //   MessageInterface::ShowMessage("a44   = %12.10f\n", a44);
+            //   MessageInterface::ShowMessage("a34   = %12.10f\n", a34);
+            #endif
+        }
     }
 
     // Pines Equation 31 
     acc[0] = a1+a4*s;
     acc[1] = a2+a4*t;
     acc[2] = a3+a4*u;
-}   
+    if (fillgradient)
+    {
+        auto& gradient = *gradientPtr;
+        // Pines Equation 37
+        gradient(0,0) =  a11 + s*s*a44 + a4/r + 2*s*a14;
+        gradient(1,1) = -a11 + t*t*a44 + a4/r + 2*t*a24;
+        gradient(2,2) =  a33 + u*u*a44 + a4/r + 2*u*a34;
+        gradient(0,1) =
+        gradient(1,0) =  a12 + s*t*a44 + s*a24 + t*a14;
+        gradient(0,2) =
+        gradient(2,0) =  a13 + s*u*a44 + s*a34 + u*a14;
+        gradient(1,2) =
+        gradient(2,1) =  a23 + t*u*a44 + u*a24 + t*a34;
+    }
+}
 
+void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF)
+{
+    calcPertAcceleration<false>(positionCBF, accelerationCBF, nullptr);
+}
+void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF, Matrix3d &gradient)
+{
+    calcPertAcceleration<true>(positionCBF, accelerationCBF, &gradient);
+}
+void GravityCalculator3::calcTotalAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF, Matrix3d &gradient)
+{
+    aPointMassField(positionCBF, getGravityField().getGM(), accelerationCBF, gradient);
+    Vector3d accPert;
+    Matrix3d hessianPert;
+    calcPertAcceleration(positionCBF, accPert, hessianPert);
+    accelerationCBF = accelerationCBF + accPert;
+    gradient = gradient + hessianPert;
+}
 
 AST_NAMESPACE_END

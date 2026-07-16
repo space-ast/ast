@@ -41,7 +41,7 @@ ODEFixedStepIntegrator::Workspace::Workspace()
     // , y_(nullptr)
     // , ynew_(nullptr)
     // , ystep_(nullptr)
-    , nextAbsStepSize_(0)
+    , nextAbsStepSize_(60) // 这里初始为60，避免初始值为0时的无限循环
 {
 
 }

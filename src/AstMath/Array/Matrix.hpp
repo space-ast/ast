@@ -171,6 +171,7 @@ public:
     constexpr size_t col() const{return Col;}
     constexpr Scalar* data() const{return (Scalar*)this;}
     Scalar operator[](size_t idx) const{return data()[idx];}
+    Scalar& operator[](size_t idx) {return data()[idx];}
     Scalar operator()(size_t idx) const {return data()[idx]; }
     Scalar& operator()(size_t idx)  {return data()[idx]; }
     Scalar operator()(size_t row, size_t col) const {return data_[row][col]; }
@@ -196,6 +197,7 @@ public:
     constexpr size_t col() const{return Col;}
     constexpr Scalar* data() const{return (Scalar*)this;}
     Scalar operator[](size_t idx) const{return data()[idx];}
+    Scalar& operator[](size_t idx) {return data()[idx];}
     Scalar operator()(size_t idx) const {return data()[idx]; }
     Scalar& operator()(size_t idx)  {return data()[idx]; }
     Scalar operator()(size_t row, size_t col) const {return data_[row][col]; }
@@ -212,6 +214,7 @@ public:
 
 
 typedef MatrixMN<double, 3, 3> Matrix3d;
+typedef MatrixMN<double, 6, 6> Matrix6d;
 
 template <typename _Scalar>
 A_ALWAYS_INLINE typename MatrixMN<_Scalar, 3, 3>::Self MatrixMN<_Scalar, 3, 3>::transpose() const
@@ -244,6 +247,6 @@ A_ALWAYS_INLINE typename MatrixMN<_Scalar, 3, 3>::Self &MatrixMN<_Scalar, 3, 3>:
 AST_NAMESPACE_END
 
 AST_DECL_TYPE_ALIAS(Matrix3d)
-
+AST_DECL_TYPE_ALIAS(Matrix6d)
 
 

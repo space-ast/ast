@@ -25,7 +25,8 @@
 #include "AstUtil/Constants.h"
 #include <stdlib.h>    // for malloc
 #include <string>      // for std::string
- 
+#include <string.h>    // for memset
+
 AST_NAMESPACE_BEGIN
 
 /*!

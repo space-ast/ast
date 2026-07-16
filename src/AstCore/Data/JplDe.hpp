@@ -155,7 +155,7 @@ public:
     
     /// @brief  获取JPL DE文件的星历版本
     /// @retval             - 星历版本
-    uint32_t getEphemVersion() const{ return m_EphemVerion; }
+    uint32_t getEphemVersion() const{ return ephemVersion_; }
 
 
     /// @brief  获取JPL DE星历数据的时间间隔
@@ -171,20 +171,20 @@ private:
     errc_t         getState(const TimePoint& time, int dataid, double pos[], double vel[]);
     errc_t         getState(const TimePoint& time, int datalist[11], double statelist[11][6]);
 protected:
-    bool        m_IsSameEndian;        // 二进制文件与系统大小端是否一致
-    uint32_t    m_EphemVerion{ 0 };    // De星历版本
-    uint32_t    m_NumConstants{};        // 文件的常量个数
-    uint32_t    m_NumDataBlock{0};     // 星历总的数据块个数      
-    uint32_t    m_NumCoeff{};            // 星历每个数据块的系数数量
-    uint32_t    m_ipt[15][3]{};        // 数据指针[数据起始位置；每个坐标分量的数据量；子块个数：如4代表了32天要分为四块，每个子块包含了8天的数据]
-    double      m_EphemStart{0};       // 星历起始时间(JED)
-    double      m_EphemEnd{0};         // 星历结束时间(JED)
-    double      m_EphemStep{0};        // 星历每个数据块的天数
-    double      m_AU{};                  // 光速 km
-    double      m_EMMassRatio{};         // 地球月球质量比
-    FILE*       m_DeFile{ NULL };      // De二进制文件
-    double**    m_DataBlocks{NULL};    // 星历数据块的内存缓存
-    std::mutex  m_DataBlockMutex;      // 数据块缓存互斥锁
+    bool        isSameEndian_;        // 二进制文件与系统大小端是否一致
+    uint32_t    ephemVersion_{ 0 };    // De星历版本
+    uint32_t    numConstants_{};        // 文件的常量个数
+    uint32_t    numDataBlock_{0};     // 星历总的数据块个数      
+    uint32_t    numCoeff_{};            // 星历每个数据块的系数数量
+    uint32_t    ipt_[15][3]{};        // 数据指针[数据起始位置；每个坐标分量的数据量；子块个数：如4代表了32天要分为四块，每个子块包含了8天的数据]
+    double      ephemStart_{0};       // 星历起始时间(JED)
+    double      ephemEnd_{0};         // 星历结束时间(JED)
+    double      ephemStep_{0};        // 星历每个数据块的天数
+    double      au_{};                  // 光速 km
+    double      emMassRatio_{};         // 地球月球质量比
+    FILE*       deFile_{ NULL };      // De二进制文件
+    double**    dataBlocks_{NULL};    // 星历数据块的内存缓存
+    std::mutex  dataBlockMutex_;      // 数据块缓存互斥锁
 };
 
 

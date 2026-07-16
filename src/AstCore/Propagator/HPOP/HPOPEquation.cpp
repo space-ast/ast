@@ -43,6 +43,7 @@
 #include "AstCore/NoneEclipseCalculator.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"
 #include "AstCore/CylindricalEclipseCalculator.hpp"
+#include "AstCore/AstroBlockFactory.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -70,10 +71,9 @@ errc_t HPOPEquation::evaluate(const double* y, double* dy, const double t)
     SimTime time;                                   // 仿真时间
     time.setTimePoint(epoch_ + t);                  // 设置仿真时间点
     time.setElapsedTime(t);                         // 设置仿真的相对时间
-    dynamicSystem_.fillDerivativeData(0.0);         // 填充导数数据为0
     // @bug setStateData 必须要求状态量和导数量的排列和维度与输入数据的一致
     dynamicSystem_.setStateData(y);                 // 设置状态数据
-    errc_t err = dynamicSystem_.run(time);           // 执行动力学系统
+    errc_t err = dynamicSystem_.run(time);          // 执行动力学系统
     dynamicSystem_.getDerivativeData(dy);           // 获取导数数据
     return err;                                     // 返回错误码
 }
@@ -297,16 +297,17 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         }
     }
     // 将力模型配置转换为动力学系统的一个个函数块
-    BlockDerivative* derivativeBlock;
     auto& bodyAttraction = forceModel.bodyAttraction();
+
+    // 创建块工厂（根据是否启用 STM 决定 new 哪个类型）
+    AstroBlockFactory factory(forceModel.useSTM());
 
     // 重置动力学系统
     this->reset();
 
     // 添加运动学函数块
     // 先添加运动学函数块，再添加其他块，确保Pos状态在状态量列表的开头
-    derivativeBlock = new BlockMotion();
-    this->addBlock(derivativeBlock);
+    this->addBlock(factory.createMotionBlock());
 
     
     if(body && forceModel.useCentralBodyAttraction()){
@@ -319,16 +320,22 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 errc_t err = aGetGravityParameter(*body, gravity.model_, gm);
                 if(err != eNoError)
                     return err;
-                derivativeBlock = new BlockTwoBody(gm);
-                this->addBlock(derivativeBlock);
+                this->addBlock(factory.createTwoBodyBlock(gm));
             }else{
                 GravityField gravityField;
                 errc_t err = aLoadGravityField(gravity, *body, gravityField);
                 if(err != eNoError) return err;
                 auto propAxes = propFrame->getAxes();
-                auto gravityAxes = aGetGravityAxes(gravityField, *body); 
-                /// @todo 这里产生了一次重力场系数复制，有一定的优化空间
-                BlockGravity* blockGravity = new BlockGravity(gravityField, gravity.maxDegree_, gravity.maxOrder_, gravityAxes, propAxes);
+                auto gravityAxes = aGetGravityAxes(gravityField, *body);
+                BlockGravity* blockGravity = factory.createGravityBlock(std::move(gravityField), gravity.maxDegree_, gravity.maxOrder_, gravityAxes, propAxes);
+                // @todo 考虑统一处理 useSTM 带来的特殊参数设置
+                if(forceModel.useSTM())
+                {
+                    // @todo 避免类型强制转换
+                    BlockGravityPartial* blockGravityPartial = static_cast<BlockGravityPartial*>(blockGravity);
+                    blockGravityPartial->setDegreeForPartial(gravity.maxDegreeForPartial_);
+                    blockGravityPartial->setOrderForPartial(gravity.maxOrderForPartial_);
+                }
                 // 设置是否考虑重力场系数变化
                 blockGravity->setConsiderVariations(gravity.useSecularVariations_);
                 this->addBlock(blockGravity);
@@ -338,7 +345,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         else if(auto pointMassPtr = bodyAttraction.asPointMassForce())
         {
             double gm = pointMassPtr->getGM(body);
-            this->addBlock(new BlockTwoBody(gm));
+            this->addBlock(factory.createTwoBodyBlock(gm));
         }
         else
         {
@@ -358,13 +365,16 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     if(forceModel.useDrag())
     {
         // 添加质量函数块
-        blockMass = new BlockMass(spacecraftParam.mass());
+        blockMass = factory.createMassBlock(spacecraftParam.mass());
         this->addBlock(blockMass);
-        
+
         Atmosphere* atmosphere = aNewAtmosphere(forceModel.drag());
         // atmosphere 的所有权转移给 blockDrag
-        derivativeBlock = new BlockDrag(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame);
-        this->addBlock(derivativeBlock);
+        BlockDrag* blockDrag = factory.createDragBlock(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame);
+        if (forceModel.useSTM()) {
+            static_cast<BlockDragPartial*>(blockDrag)->setUseDragSensitivity(forceModel.useDragSensitivity());
+        }
+        this->addBlock(blockDrag);
     }
 
     // 添加太阳辐射压力函数块
@@ -376,7 +386,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         {
             if(!blockMass)
             {
-                blockMass = new BlockMass(spacecraftParam.mass());
+                blockMass = factory.createMassBlock(spacecraftParam.mass());
                 this->addBlock(blockMass);
             }
             auto shadowModel = forceModel.srp().shadowModel_;
@@ -407,8 +417,11 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 eclipseCalculator->setOccultingBodies(forceModel.srp().eclipsingBodies_); // 设置遮挡体列表
             }
             // eclipseCalculator 的所有权转移给 blockSRP
-            BlockSRP* blockSRP = new BlockSRP(eclipseCalculator, spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame);
+            BlockSRP* blockSRP = factory.createSRPBlock(eclipseCalculator, spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame);
             blockSRP->setSunPosition(forceModel.srp().sunPosition_); // 设置太阳位置
+            if (forceModel.useSTM()) {
+                static_cast<BlockSRPPartial*>(blockSRP)->setUseSRPSensitivity(forceModel.useSRPSensitivity());
+            }
             this->addBlock(blockSRP);
         }
         else
@@ -438,18 +451,26 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 errc_t err = aLoadGravityField(gravity, *body3rd, gravityField);
                 if(err != eNoError) return err;
                 auto gravityAxes = aGetGravityAxes(gravityField, *body3rd);
-                auto* block = new BlockThirdBodyGravity(bodyEphemeris, std::move(gravityField),
-                                                        gravity.maxDegree_, gravity.maxOrder_,
-                                                        gravityAxes, propFrame);
+                auto* block = factory.createThirdBodyGravityBlock(
+                    bodyEphemeris, std::move(gravityField),
+                    gravity.maxDegree_, gravity.maxOrder_,
+                    gravityAxes, propFrame
+                );
                 block->setConsiderVariations(gravity.useSecularVariations_);
+                if(forceModel.useSTM())
+                {
+                    // @todo 避免类型强制转换
+                    BlockThirdBodyGravityPartial* blockPartial = static_cast<BlockThirdBodyGravityPartial*>(block);
+                    blockPartial->setDegreeForPartial(gravity.maxDegreeForPartial_);
+                    blockPartial->setOrderForPartial(gravity.maxOrderForPartial_);
+                }
                 this->addBlock(block);
             }
             else
             {
                 // 三体使用点质量引力（默认行为）
                 double gm = thirdBody.pointMass().getGM(body3rd);
-                derivativeBlock = new BlockThirdBodyPointMass(bodyEphemeris, gm, propFrame);
-                this->addBlock(derivativeBlock);
+                this->addBlock(factory.createThirdBodyPointMassBlock(bodyEphemeris, gm, propFrame));
             }
         }
     }
@@ -458,8 +479,19 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     // 添加月球引力函数块
     if(forceModel.useMoonGravity())
     {
-        derivativeBlock = new BlockThirdBodyPointMass(aGetMoon(), forceModel.moonGravity(), propFrame);
-        this->addBlock(derivativeBlock);
+        this->addBlock(factory.createThirdBodyPointMassBlock(aGetMoon(), forceModel.moonGravity(), propFrame));
+    }
+
+    // 添加 STM 状态转换矩阵函数块
+    if(forceModel.useSTM())
+    {
+        this->addBlock(factory.createStateTransitionMatrixBlock());
+        if (forceModel.useDragSensitivity()) {
+            this->addBlock(factory.createDragSensitivityBlock());
+        }
+        if (forceModel.useSRPSensitivity()) {
+            this->addBlock(factory.createSRPSensitivityBlock());
+        }
     }
     return eNoError;
 }

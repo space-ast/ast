@@ -220,7 +220,7 @@ public:
 	};
 
 	/// @brief difference_type + const_iterator（非成员运算符）
-	friend const_iterator operator+(typename const_iterator::difference_type n, const const_iterator& it)
+	friend const_iterator operator+(const_iterator::difference_type n, const const_iterator& it)
 	{
 		return it + n;
 	}

@@ -65,44 +65,44 @@ public:
 	/// @brief 设置四元数为单位四元数
 	void setIdentity(){ *this = {1,0,0,0};}
 	/// @brief 四元数的实部
-	double qs() const{return m_qs;}
+	double qs() const{return qs_;}
 	/// @brief 四元数的虚部x
-	double qx() const{return m_qx;}
+	double qx() const{return qx_;}
 	/// @brief 四元数的虚部y
-	double qy() const{return m_qy;}
+	double qy() const{return qy_;}
 	/// @brief 四元数的虚部z
-	double qz() const{return m_qz;}
+	double qz() const{return qz_;}
 	/// @brief 四元数的实部
-	double& qs(){return m_qs;}
+	double& qs(){return qs_;}
 	/// @brief 四元数的虚部x
-	double& qx(){return m_qx;}
+	double& qx(){return qx_;}
 	/// @brief 四元数的虚部y
-	double& qy(){return m_qy;}
+	double& qy(){return qy_;}
 	/// @brief 四元数的虚部z
-	double& qz(){return m_qz;}
+	double& qz(){return qz_;}
 	/// @brief 四元数的虚部向量
-	const Vector3d& vec() const {return (const Vector3d&)m_qx;}
+	const Vector3d& vec() const {return (const Vector3d&)qx_;}
 
 public:
 	// 兼容Eigen接口
 
 	/// @brief 四元数的虚部x
-	double x() const{return m_qx;}
+	double x() const{return qx_;}
 	/// @brief 四元数的虚部y
-	double y() const{return m_qy;}
+	double y() const{return qy_;}
 	/// @brief 四元数的虚部z
-	double z() const{return m_qz;}
+	double z() const{return qz_;}
 	/// @brief 四元数的实部
-	double w() const{return m_qs;}
+	double w() const{return qs_;}
 
 	/// @brief 四元数的虚部x
-	double& x(){return m_qx;}
+	double& x(){return qx_;}
 	/// @brief 四元数的虚部y
-	double& y(){return m_qy;}
+	double& y(){return qy_;}
 	/// @brief 四元数的虚部z
-	double& z(){return m_qz;}
+	double& z(){return qz_;}
 	/// @brief 四元数的实部
-	double& w(){return m_qs;}
+	double& w(){return qs_;}
 
 	A_DEF_POD_ITERABLE(double)
 public:
@@ -162,10 +162,10 @@ public:
 
 public:
 	// 设置为public仅为实现聚合初始化，不要直接访问成员变量
-	double m_qs;
-	double m_qx;
-	double m_qy;
-	double m_qz;
+	double qs_;
+	double qx_;
+	double qy_;
+	double qz_;
 };
 
 

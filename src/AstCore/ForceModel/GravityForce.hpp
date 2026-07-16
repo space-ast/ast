@@ -50,8 +50,10 @@ public:
 public:
     // 模型与阶次
     std::string model_{};                                  ///< 中心天体重力场模型(模型名称或者引力场文件路径)
-    int maxDegree_{2};                                     ///< 中心天体重力场计算阶数
+    int maxDegree_{0};                                     ///< 中心天体重力场计算阶数
     int maxOrder_{0};                                      ///< 中心天体重力场计算次数
+    int maxDegreeForPartial_{-1};                          ///< 用于偏导数计算的重力场最大阶数，-1 表示与 maxDegree_ 相同
+    int maxOrderForPartial_{-1};                           ///< 用于偏导数计算的重力场最大次数，-1 表示与 maxOrder_ 相同
     bool useSecularVariations_{false};                     ///< 是否考虑引力场的长期变化
     // 固体潮汐配置参数
     ESolidTideType solidTideType_{ESolidTideType::eNone};  ///< 潮汐类型

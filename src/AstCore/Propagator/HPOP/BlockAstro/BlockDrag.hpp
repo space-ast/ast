@@ -61,9 +61,9 @@ public:
 
     ~BlockDrag() override;
 
-    errc_t run(const SimTime& simTime) final;
+    errc_t run(const SimTime& simTime) override;
 
-private:
+protected:
     Vector3d* position_{&vectorBuffer_};             ///< 位置（预报坐标系下）
     Vector3d* velocity_{&vectorBuffer_};             ///< 速度（预报坐标系下）
     Vector3d* accDrag_{&vectorBuffer_};              ///< 阻力加速度
@@ -71,7 +71,7 @@ private:
     double* mass_{&doubleBuffer_};                   ///< 质量
     double doubleBuffer_{};                          ///< 浮点数缓冲区
     Vector3d vectorBuffer_{};                        ///< 向量缓冲区
-private:
+protected:
     Atmosphere* atmosphere_{};                       ///< 大气模型
     double dragCoefficient_{};                       ///< 阻力系数
     double dragArea_{};                              ///< 阻力面积

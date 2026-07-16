@@ -49,3 +49,8 @@
 #include "AstCore/BlockDrag.hpp"
 #include "AstCore/BlockSRP.hpp"
 #include "AstCore/BlockMass.hpp"
+#include "AstCore/BlockGravityPartial.hpp"
+#include "AstCore/BlockStateTransitionMatrix.hpp"
+#include "AstCore/BlockDragSensitivity.hpp"
+#include "AstCore/BlockSRPSensitivity.hpp"
+#include "AstCore/AstroBlockFactory.hpp"

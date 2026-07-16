@@ -168,47 +168,77 @@ errc_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf
 
 errc_t ODEVarStepIntegrator::integrateOneStep(ODE &ode, double* y, double &t, double tf)
 {
-    // 检查是否使用固定步长积分
+    // 若用户设置了固定步长模式，则直接调用固定步长单步积分
     if((this->getUseFixedStep()))
     {
         return this->integrateOneFixedStep(ode, this->getStepSize(), y, t, tf);
     }
 
     auto& wrk = this->getWorkspace();
+
+    // 取工作空间中缓存的下一步绝对步长作为本次尝试的初始步长
     double& absh = wrk.nextAbsStepSize_;
+
+    // 计算从当前时刻到目标时刻的步长和方向
     double step = tf - t;
-    int tdir = sign(step);
+    int tdir = sign(step);                // 积分方向：+1 为正向，-1 为反向
     double stepabs = std::abs(step);
+
+    // 若剩余时间跨度小于当前拟用步长，则将步长截断为剩余跨度
     if(stepabs < absh)
     {
         absh = stepabs;
     }
-    // errc_t err;
+
     bool isOK = false;
-    int numAttempts = 0;
+    int numAttempts = 0;                   // 当前步的尝试次数计数器
     const double* y0 = y;
     // double* yf = y;
     double h;
-    do{
+
+    // 保存积分前的状态，供误差不满足时回退使用
+    std::copy_n(y0, wrk.dimension_, this->stateAtStepStart_);
+
+    // 变步长尝试循环：反复尝试当前步长直到局部误差满足要求
+    while(true){
+        // 合成带方向的步长
         h = absh * tdir;
+
+        // 调用底层单步公式（如 RKF、DOPRI 等）执行一次试探积分
         if(errc_t rc = this->singleStep(ode, y, t, h))
         {
             return rc;
         }
-        isOK = this->isErrorMeet(absh, y0, y);
-        if(this->useMinStep_){
-            absh = std::max(absh, this->minStepSize_);
-        }
-        if(this->useMaxStep_){
-            absh = std::min(absh, this->maxStepSize_);
-        }
-        if(numAttempts ++ >= this->maxStepAttempts_)
+
+        // 检查局部截断误差是否在容许范围内
+        isOK = this->isErrorMeet(absh, this->stateAtStepStart_, y);
+        if(isOK)
         {
-            aWarning("Max iteration reached.");
-            return EError::eErrorMaxIter;
+            // 误差达标：更新时间并返回成功
+            t += h;
+            return eNoError;
         }
-    }while(!isOK);
-    t += h;
+        else
+        {
+            // 误差不达标：将状态恢复至积分前的值
+            std::copy_n(this->stateAtStepStart_, wrk.dimension_, y);
+
+            // 确保缩小后的步长不越过用户设定的最小/最大步长界限
+            if(this->useMinStep_){
+                absh = std::max(absh, this->minStepSize_);
+            }
+            if(this->useMaxStep_){
+                absh = std::min(absh, this->maxStepSize_);
+            }
+
+            // 超过最大尝试次数则终止并返回错误
+            if(numAttempts ++ >= this->maxStepAttempts_)
+            {
+                aWarning("Max iteration reached.");
+                return EError::eErrorMaxIter;
+            }
+        }
+    }
     return eNoError;
 }
 

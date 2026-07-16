@@ -11,6 +11,7 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QFileInfo>
+#include <QLabel>
 
 int main(int argc, char* argv[])
 {

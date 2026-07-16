@@ -96,7 +96,7 @@ errc_t LeapSecond::loadATK(FILE* file)
             return eErrorInvalidFile;
         }
     }
-    m_data = std::move(data);
+    data_ = std::move(data);
     return eNoError;
 }
 
@@ -152,7 +152,7 @@ errc_t LeapSecond::loadSTK(FILE *file)
             return eErrorInvalidFile;
         }
     }
-    m_data = std::move(data);
+    data_ = std::move(data);
     return eNoError;
 }
 
@@ -208,7 +208,7 @@ errc_t LeapSecond::loadHPIERS(FILE* file)
         return eErrorInvalidFile;
     }
 
-    m_data = std::move(data);
+    data_ = std::move(data);
     return eNoError;
 }
 
@@ -244,7 +244,7 @@ errc_t LeapSecond::loadSpice(FILE* file)
                 entry.leapSecond = leapsec.toInt();
                 data.push_back(entry);
             }
-            m_data = std::move(data);
+            data_ = std::move(data);
             return eNoError;
         }
     };
@@ -310,7 +310,7 @@ errc_t LeapSecond::loadATK(StringView filepath)
 
 void LeapSecond::setDefaultData()
 {
-    m_data = {
+    data_ = {
         {41317, 10},
         {41499, 11},
         {41683, 12},
@@ -348,10 +348,10 @@ void LeapSecond::setData(const std::vector<int>& mjd, const std::vector<int>& ta
         aWarning("try to set leap second data with different size of mjd and taiMinusUTC");
     }
     size_t line = std::min(mjd.size(), taiMinusUTC.size());
-    m_data.resize(line);
+    data_.resize(line);
     for (size_t i = 0; i < line; i++) {
-        m_data[i].mjd = mjd[i];
-        m_data[i].leapSecond = taiMinusUTC[i];
+        data_[i].mjd = mjd[i];
+        data_[i].leapSecond = taiMinusUTC[i];
     }
 }
 
@@ -371,14 +371,14 @@ double LeapSecond::leapSecondTAI(ImpreciseJD jdTAI)
 double LeapSecond::leapSecondTAIMJD(ImpreciseMJD mjdTAI)
 {
     double mjdtai = mjdTAI;
-    int i = (int)m_data.size() - 1;
+    int i = (int)data_.size() - 1;
     while (i >= 0) {
-        if (mjdtai - m_data[i].leapSecond / 86400. >= m_data[i].mjd) {
-            return m_data[i].leapSecond;
+        if (mjdtai - data_[i].leapSecond / 86400. >= data_[i].mjd) {
+            return data_[i].leapSecond;
         }
         i--;
     }
-    return m_data[0].leapSecond;
+    return data_[0].leapSecond;
 }
 
 double LeapSecond::getLodUTC(const Date& utcDate)
@@ -389,11 +389,11 @@ double LeapSecond::getLodUTC(const Date& utcDate)
 double LeapSecond::getLodUTCMJD(ImpreciseMJD mjd)
 {
     const double sec = 86400;
-    int i = (int)m_data.size() - 1;
+    int i = (int)data_.size() - 1;
     while (i >= 1) {
-        if (mjd >= m_data[i].mjd - 1) {
-            if (mjd < m_data[i].mjd) {
-                return sec - m_data[i - 1].leapSecond + m_data[i].leapSecond;
+        if (mjd >= data_[i].mjd - 1) {
+            if (mjd < data_[i].mjd) {
+                return sec - data_[i - 1].leapSecond + data_[i].leapSecond;
             }
             else {
                 return sec;
@@ -422,10 +422,10 @@ double LeapSecond::leapSecondUTCMJD(ImpreciseMJD mjdUTC)
 1968  Feb.  1 - 1972  Jan.  1     4.213 170 0s +        ""
     */
     double mjd = mjdUTC;
-    int i = (int)m_data.size() - 1;
+    int i = (int)data_.size() - 1;
     while (i >= 0) {
-        if (mjd >= m_data[i].mjd) {
-            return m_data[i].leapSecond;
+        if (mjd >= data_[i].mjd) {
+            return data_[i].leapSecond;
         }
         i--;
     }
@@ -483,8 +483,8 @@ double LeapSecond::leapSecondUTCMJD(ImpreciseMJD mjdUTC)
             return dsec + 4.2131700;
     }
 #else
-    if(m_data.size() > 0)
-        return m_data[0].leapSecond;
+    if(data_.size() > 0)
+        return data_[0].leapSecond;
     else
         return 0;
 #endif

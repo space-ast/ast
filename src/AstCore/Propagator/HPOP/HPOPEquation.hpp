@@ -65,6 +65,10 @@ public:
     HPOPForceModel& forceModel() { return forceModel_; }
     const HPOPForceModel& forceModel() const { return forceModel_; }
 
+    /// @brief 获取动力学系统
+    const BlockDynamicSystem& dynamicSystem() const { return dynamicSystem_; }
+    BlockDynamicSystem& dynamicSystem() { return dynamicSystem_; }
+
     /// @brief 设置航天器参数
     void setSpacecraftParam(const SpacecraftParam& spacecraftParam);
 

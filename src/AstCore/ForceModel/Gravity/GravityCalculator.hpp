@@ -31,6 +31,25 @@
 
 AST_NAMESPACE_BEGIN
 
+/// @brief 计算质点引力场（加速度及 Hessian）
+/// @details
+/// 点质量引力场在给定位置的场强（加速度）和场梯度（Hessian）：
+///
+///   a = -GM/r³ · r
+///   H = -GM/r³ · I + 3·GM/r⁵ · (r ⊗ r)
+///
+/// 其中：
+///   GM  = 引力常数
+///   r   = 位置向量，r = |r|
+///   I   = 3×3 单位矩阵
+///   r⊗r = 位置向量的外积（3×3 对称矩阵）
+///
+/// @param position     位置向量（相对于引力源，任意坐标系）
+/// @param GM           引力常数 [km³/s²]
+/// @param[out] acceleration 场强（引力加速度，与 position 同坐标系）
+/// @param[out] hessian      场梯度 ∂a/∂r（3×3 矩阵，与 position 同坐标系）
+AST_CORE_API void aPointMassField(const Vector3d& position, double GM, Vector3d& acceleration, Matrix3d& hessian);
+
 class GravityCalculator1;
 class GravityCalculator2;
 class GravityCalculator3;
@@ -88,6 +107,20 @@ public:
     /// @return 计算次数
     int getOrder() const { return order_; }
 
+    /// @brief 设置计算偏导数时使用的阶数
+    void setDegreeForPartial(unsigned int degree);
+
+    /// @brief 设置计算偏导数时使用的次数
+    void setOrderForPartial(unsigned int order);
+
+    /// @brief 获取计算偏导数时使用的阶数
+    /// @return 计算偏导数时使用的阶数
+    int getDegreeForPartial() const { return degreeForPartial_; }
+
+    /// @brief 获取计算偏导数时使用的次数
+    /// @return 计算偏导数时使用的次数
+    int getOrderForPartial() const { return orderForPartial_; }
+    
     virtual ~GravityCalculator () = default;
 
     /// @brief 计算摄动加速度
@@ -98,13 +131,15 @@ public:
     /// @brief 计算总加速度（包含摄动项）
     /// @param positionCBF 位置向量（天体固连系）
     /// @param accelerationCBF 总加速度向量（天体固连系）
-    virtual void calcTotalAcceleration (const Vector3d &positionCBF, Vector3d &accelerationCBF);
+    void calcTotalAcceleration (const Vector3d &positionCBF, Vector3d &accelerationCBF);
 private:
     void initDegreeOrder(int degree, int order);
 protected:
-    GravityField gravityField_;        ///< 重力场系数
-    int degree_{0};                    ///< 计算所使用的阶数
-    int order_{0};                     ///< 计算所使用的次数
+    GravityField gravityField_;                 ///< 重力场系数
+    unsigned int degree_{0};                    ///< 计算所使用的阶数
+    unsigned int order_{0};                     ///< 计算所使用的次数
+    unsigned int degreeForPartial_{0};          ///< 计算偏导数时使用的阶数
+    unsigned int orderForPartial_{0};           ///< 计算偏导数时使用的次数
 };
 
 #ifdef _AST_ENABLE_GRAVITY_CALCULATOR_1
@@ -181,7 +216,12 @@ public:
 
     ~GravityCalculator3() override;
     
-    void calcPertAcceleration (const Vector3d &positionCBF, Vector3d &accelerationCBF) final;
+    void calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF) final;
+    void calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF, Matrix3d &gradient);
+    template<bool fillgradient>
+    void calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF, Matrix3d *gradient);
+    using GravityCalculator::calcTotalAcceleration;
+    void calcTotalAcceleration (const Vector3d &positionCBF, Vector3d &accelerationCBF, Matrix3d &gradient);
 protected:
     void init();
     void deinit();

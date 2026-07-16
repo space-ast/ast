@@ -57,13 +57,17 @@ public:
     BlockGravity(const GravityField &gravityField, int degree, int order, Axes* gravityAxes=nullptr, Axes* propagationAxes=nullptr);
     BlockGravity(GravityField &&gravityField, int degree, int order, Axes* gravityAxes=nullptr, Axes* propagationAxes=nullptr);
 
-    errc_t run(const SimTime& simTime) final;
+    errc_t run(const SimTime& simTime) override;
 
     /// @brief 设置是否考虑重力场系数变化
     void setConsiderVariations(bool considerVariations){considerVariations_ = considerVariations;}
+protected:
+    // 运行前的公共参数准备
+    errc_t prepare(const SimTime& simTime, Rotation& rotation);
+
 private:
     void init();
-private:
+protected:
     HAxes                    gravityAxes_;                              ///< 重力坐标系
     HAxes                    propagationAxes_;                          ///< 预报坐标系
     Vector3d*                posPtr_{&vectorBuffer_};                   ///< 位置(预报坐标系下)

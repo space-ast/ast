@@ -186,12 +186,12 @@ static_assert(
 
 JplDe::JplDe()
     : 
-      m_IsSameEndian{true}
-    , m_NumDataBlock(0)
-    , m_EphemStart(0)
-    , m_EphemEnd(0)
-    , m_DeFile(nullptr)
-    , m_DataBlocks (nullptr)
+      isSameEndian_{true}
+    , numDataBlock_(0)
+    , ephemStart_(0)
+    , ephemEnd_(0)
+    , deFile_(nullptr)
+    , dataBlocks_ (nullptr)
 {
 
 }
@@ -203,31 +203,31 @@ JplDe::~JplDe()
 
 errc_t JplDe::getInterval(TimeInterval &interval) const
 {
-    TimePoint start = TimePoint::FromTDB(JulianDate::FromImpreciseDay(m_EphemStart));
-    TimePoint stop  = TimePoint::FromTDB(JulianDate::FromImpreciseDay(m_EphemEnd));
+    TimePoint start = TimePoint::FromTDB(JulianDate::FromImpreciseDay(ephemStart_));
+    TimePoint stop  = TimePoint::FromTDB(JulianDate::FromImpreciseDay(ephemEnd_));
     interval.setStartStop(start, stop);
     return eNoError;
 }
 
 int JplDe::readDataBlock(size_t idx)
 {
-    assert(idx < m_NumDataBlock && idx >= 0);
-    if (m_DataBlocks && idx < m_NumDataBlock && idx >= 0)
+    assert(idx < numDataBlock_ && idx >= 0);
+    if (dataBlocks_ && idx < numDataBlock_ && idx >= 0)
     {
-        std::lock_guard<std::mutex> _(m_DataBlockMutex);
-        if (m_DataBlocks[idx]) {  // has data cache
+        std::lock_guard<std::mutex> _(dataBlockMutex_);
+        if (dataBlocks_[idx]) {  // has data cache
             return 0;
         }
-        std::unique_ptr<double[]> block_ptr(new double[m_NumCoeff]);
+        std::unique_ptr<double[]> block_ptr(new double[numCoeff_]);
         auto block = block_ptr.get();
-        if (fseek(m_DeFile, long(idx + 2) * m_NumCoeff * (int)sizeof(double), SEEK_SET))
+        if (fseek(deFile_, long(idx + 2) * numCoeff_ * (int)sizeof(double), SEEK_SET))
             return JPL_EPH_READ_ERROR;
-        if (fread(block, sizeof(double), (size_t)m_NumCoeff, m_DeFile) != (size_t)m_NumCoeff)
+        if (fread(block, sizeof(double), (size_t)numCoeff_, deFile_) != (size_t)numCoeff_)
             return JPL_EPH_READ_ERROR;
-        if (!m_IsSameEndian)
-            swap_64_bit_val(block, m_NumCoeff);
+        if (!isSameEndian_)
+            swap_64_bit_val(block, numCoeff_);
         ;
-        m_DataBlocks[idx] = block_ptr.release();  // 转移所有权到 m_DataBlocks[idx]
+        dataBlocks_[idx] = block_ptr.release();  // 转移所有权到 dataBlocks_[idx]
         return 0;
     }
     else {
@@ -251,23 +251,23 @@ errc_t JplDe::getState(const TimePoint& time, int datalist[11], double statelist
 
 void JplDe::close()
 {
-    if (m_DeFile) {
-        fclose(m_DeFile);
-        m_DeFile = NULL;
-        m_EphemStart = 0;
-        m_EphemEnd = 0;
+    if (deFile_) {
+        fclose(deFile_);
+        deFile_ = NULL;
+        ephemStart_ = 0;
+        ephemEnd_ = 0;
     }
-    if (m_DataBlocks) {
+    if (dataBlocks_) {
         double* block = NULL;
-        for (size_t i = 0; i < m_NumDataBlock; i++) {
-            block = m_DataBlocks[i];
+        for (size_t i = 0; i < numDataBlock_; i++) {
+            block = dataBlocks_[i];
             if (block) {
                 delete[] block;
             }
         }
-        delete[] m_DataBlocks;
-        m_DataBlocks = NULL;
-        m_NumDataBlock = 0;
+        delete[] dataBlocks_;
+        dataBlocks_ = NULL;
+        numDataBlock_ = 0;
     }
 }
 
@@ -284,33 +284,33 @@ errc_t JplDe::open(const char* fileName)
         goto fail;
     }
     if ((uint32_t)header.ncon > (uint32_t)65536) {
-        m_IsSameEndian = false;
+        isSameEndian_ = false;
     }
     else {
-        m_IsSameEndian = true;
+        isSameEndian_ = true;
     }
-    m_EphemEnd = header.ephem_end;
-    m_EphemStart = header.ephem_start;
-    m_EphemStep = header.ephem_step;
-    m_EphemVerion = header.numde;
-    m_NumConstants = header.ncon;
-    m_AU = header.au;
-    m_EMMassRatio = header.emrat;
-    if (!m_IsSameEndian) {
-        swap_64_bit_val(&m_EphemEnd);
-        swap_64_bit_val(&m_EphemStart);
-        swap_64_bit_val(&m_EphemStep);
-        swap_64_bit_val(&m_AU);
-        swap_64_bit_val(&m_EMMassRatio);
-        swap_32_bit_val(&m_EphemVerion);
-        swap_32_bit_val(&m_NumConstants);
+    ephemEnd_ = header.ephem_end;
+    ephemStart_ = header.ephem_start;
+    ephemStep_ = header.ephem_step;
+    ephemVersion_ = header.numde;
+    numConstants_ = header.ncon;
+    au_ = header.au;
+    emMassRatio_ = header.emrat;
+    if (!isSameEndian_) {
+        swap_64_bit_val(&ephemEnd_);
+        swap_64_bit_val(&ephemStart_);
+        swap_64_bit_val(&ephemStep_);
+        swap_64_bit_val(&au_);
+        swap_64_bit_val(&emMassRatio_);
+        swap_32_bit_val(&ephemVersion_);
+        swap_32_bit_val(&numConstants_);
     }
-    if (m_EMMassRatio > 81.3008 || m_EMMassRatio < 81.30055)
+    if (emMassRatio_ > 81.3008 || emMassRatio_ < 81.30055)
         goto fail;
 
     // read ipt
-    memcpy(&m_ipt[0][0], &header.ipt[0][0], sizeof(header.ipt));
-    memcpy(m_ipt[12], &header.lpt[0], sizeof(header.lpt));
+    memcpy(&ipt_[0][0], &header.ipt[0][0], sizeof(header.ipt));
+    memcpy(ipt_[12], &header.lpt[0], sizeof(header.lpt));
 
 
     /* It's a little tricky to tell if an ephemeris really has  */
@@ -320,35 +320,35 @@ errc_t JplDe::open(const char* fileName)
     /*    Also:  certain ephems I've generated with ncon capped */
     /* at 400 have no TT-TDB data.  So if ncon == 400,  don't   */
     /* try to read such data;  you may get garbage.             */
-    if (m_EphemVerion >= 430 && m_NumConstants != 400)
+    if (ephemVersion_ >= 430 && numConstants_ != 400)
     {
-        if (m_NumConstants > 400) {
-            fseek(file, (size_t)(m_NumConstants - 400) * 6 + offsetof(debin_header, constant_names2), SEEK_SET);
+        if (numConstants_ > 400) {
+            fseek(file, (size_t)(numConstants_ - 400) * 6 + offsetof(debin_header, constant_names2), SEEK_SET);
         }
-        if (fread(&m_ipt[13][0], sizeof(int32_t), 6, file) != 6)
+        if (fread(&ipt_[13][0], sizeof(int32_t), 6, file) != 6)
             goto fail;
     }
     else /* mark header data as invalid */
     {
-        m_ipt[13][0] = (uint32_t)-1;  // 0xFFFF
+        ipt_[13][0] = (uint32_t)-1;  // 0xFFFF
     }
-    if (!m_IsSameEndian)
+    if (!isSameEndian_)
     {
-        swap_32_bit_val(&m_ipt[0][0], sizeof(m_ipt) / 4);
+        swap_32_bit_val(&ipt_[0][0], sizeof(ipt_) / 4);
     }
     /* if these don't add up correctly, */
     /* zero them out (they've garbage data) */
-    if (m_ipt[13][0] != m_ipt[12][0] + m_ipt[12][1] * m_ipt[12][2] * 3 ||
-        m_ipt[14][0] != m_ipt[13][0] + m_ipt[13][1] * m_ipt[13][2] * 3)
+    if (ipt_[13][0] != ipt_[12][0] + ipt_[12][1] * ipt_[12][2] * 3 ||
+        ipt_[14][0] != ipt_[13][0] + ipt_[13][1] * ipt_[13][2] * 3)
     {     /* not valid pointers to TT-TDB data */
         for (int i = 13; i < 15; i++)
             for (int j = 0; j < 3; j++)
-                m_ipt[i][j] = 0;
+                ipt_[i][j] = 0;
     }
 
-    m_NumCoeff = 2;  // start jed and end jed 
+    numCoeff_ = 2;  // start jed and end jed 
     for (int i = 0; i < 15; i++)
-        m_NumCoeff += m_ipt[i][1] * m_ipt[i][2] * dimension(i);
+        numCoeff_ += ipt_[i][1] * ipt_[i][2] * dimension(i);
 
 
     /* If there are more than 400 constants,  the names of       */
@@ -359,19 +359,19 @@ errc_t JplDe::open(const char* fileName)
     /* see how many constants there _really_ are.  Older readers */
     /* will just see 400 names and won't know about the others.  */
     /* But on the upside,  they won't crash.                     */
-    if (m_NumConstants == 400)
+    if (numConstants_ == 400)
     {
         char buff[7]{};
         buff[6] = '\0';
         fseek(file, offsetof(debin_header, constant_names2), SEEK_SET);
         while (fread(buff, 6, 1, file) && strlen(buff) == 6)
-            m_NumConstants++;
+            numConstants_++;
     }
 
-    m_NumDataBlock = static_cast<uint32_t>((m_EphemEnd - m_EphemStart) / m_EphemStep);
-    m_DataBlocks = new double* [m_NumDataBlock]{};
-    memset(m_DataBlocks, 0, sizeof(double*) * m_NumDataBlock);
-    m_DeFile = file;
+    numDataBlock_ = static_cast<uint32_t>((ephemEnd_ - ephemStart_) / ephemStep_);
+    dataBlocks_ = new double* [numDataBlock_]{};
+    memset(dataBlocks_, 0, sizeof(double*) * numDataBlock_);
+    deFile_ = file;
     return eNoError;
 fail:
     if (file) {
@@ -457,7 +457,7 @@ errc_t JplDe::getPosVelICRF(
 
         if (list[eEarth])           /* calculate earth state from EMBary */
             for (int i = 0; i < list[eDeEMBaryCenter] * 3; ++i)
-                pv[eEarth][i] -= pv[eDeMoon][i] / (1.0 + m_EMMassRatio);
+                pv[eEarth][i] -= pv[eDeMoon][i] / (1.0 + emMassRatio_);
 
         if (list[eMoon]) /* calculate Solar System barycentric moon state */
             for (int i = 0; i < list[eMoon] * 3; ++i)
@@ -500,16 +500,16 @@ errc_t JplDe::getStateTDB(const JulianDate& jdTDB, int cblist[11], double pv[11]
         ncm = 3
     };
     double P_Sum[ncm], V_Sum[ncm];
-    if (jed < m_EphemStart || jed >= m_EphemEnd)
+    if (jed < ephemStart_ || jed >= ephemEnd_)
         return(JPL_EPH_OUTSIDE_RANGE);
-    size_t idx_block = static_cast<size_t>((jed - m_EphemStart) / m_EphemStep);
-    const double* dataBlock = m_DataBlocks[idx_block];
+    size_t idx_block = static_cast<size_t>((jed - ephemStart_) / ephemStep_);
+    const double* dataBlock = dataBlocks_[idx_block];
     if (!dataBlock) {
         int res = this->readDataBlock(idx_block);
         if (res) {
             return res;
         }
-        dataBlock = m_DataBlocks[idx_block];
+        dataBlock = dataBlocks_[idx_block];
     }
     auto ts = dataBlock[0];
     auto te = dataBlock[1];
@@ -519,13 +519,13 @@ errc_t JplDe::getStateTDB(const JulianDate& jdTDB, int cblist[11], double pv[11]
 
     for (int target = 0; target <= eSun; target++)
     {
-        if (cblist[target]) // && num_interval == m_ipt[target][2]) 
+        if (cblist[target]) // && num_interval == ipt_[target][2]) 
         {
-            const auto ncf = m_ipt[target][1];                   /*      Number of coeff's     */
+            const auto ncf = ipt_[target][1];                   /*      Number of coeff's     */
             assert(ncf < MAX_CHEBY);
 
             // n_interval相同的话，tc也是相同的，切比雪夫多项式插值系数也相同，减少计算量;
-            const auto num_interval = m_ipt[target][2];
+            const auto num_interval = ipt_[target][2];
             auto& inter_coeff = interCoeffArray[log2n(num_interval)];
             if (inter_coeff.n_pos_coeff == -1) {
                 inter_coeff.tspan = (te - ts) / num_interval;
@@ -544,7 +544,7 @@ errc_t JplDe::getStateTDB(const JulianDate& jdTDB, int cblist[11], double pv[11]
                 inter_coeff.twot = tc * 2.0;
             }
 
-            const auto coeff = dataBlock + (m_ipt[target][0] - 1 + ncm * inter_coeff.idx_interval * ncf);
+            const auto coeff = dataBlock + (ipt_[target][0] - 1 + ncm * inter_coeff.idx_interval * ncf);
             /* ------------------------------------    */
             /*   Compute interpolating polynomials     */
             /* ----------------------------------------*/
@@ -603,28 +603,28 @@ errc_t JplDe::getStateTDB(const JulianDate& jdTDB, int ntarg, double pos[], doub
         aError("\n ntarg out of range, must <= eDeTT_TDB(14) \n");
         return JPL_EPH_INVALID_INDEX;
     }
-    if (jed < m_EphemStart || jed >= m_EphemEnd)
+    if (jed < ephemStart_ || jed >= ephemEnd_)
         return(JPL_EPH_OUTSIDE_RANGE);
     /*--------------------------------------------------------------------------*/
     /* Initialize memory coefficient array.                                      */
     /*--------------------------------------------------------------------------*/
-    size_t idx_block = static_cast<size_t>((jed - m_EphemStart) / m_EphemStep);
+    size_t idx_block = static_cast<size_t>((jed - ephemStart_) / ephemStep_);
     // @todo: 位于区间交界处，作为哪个区间计算？
-    const double* dataBlock = m_DataBlocks[idx_block];
+    const double* dataBlock = dataBlocks_[idx_block];
     if (!dataBlock) {
         int res = this->readDataBlock(idx_block);
         if (res) {
             return res;
         }
-        dataBlock = m_DataBlocks[idx_block];
+        dataBlock = dataBlocks_[idx_block];
     }
 
     /*--------------------------------------------------------------------------*/
     /* Read the coefficients from the binary record.                            */
     /*--------------------------------------------------------------------------*/
-    const auto idx = m_ipt[ntarg][0];                   /*      Coeff array entry point */
-    const auto ncf = m_ipt[ntarg][1];                   /*      Number of coeff's       */
-    const auto num_interval = m_ipt[ntarg][2];                   /*      Number of subintervals  */
+    const auto idx = ipt_[ntarg][0];                   /*      Coeff array entry point */
+    const auto ncf = ipt_[ntarg][1];                   /*      Number of coeff's       */
+    const auto num_interval = ipt_[ntarg][2];                   /*      Number of subintervals  */
     if (idx == 0) {
         return JPL_EPH_QUANTITY_NOT_IN_EPHEMERIS;
     }
@@ -726,7 +726,7 @@ errc_t JplDe::getPosICRF(
 
 bool JplDe::isOpen() const
 {
-    return m_DeFile != NULL;
+    return deFile_ != NULL;
 }
 
     

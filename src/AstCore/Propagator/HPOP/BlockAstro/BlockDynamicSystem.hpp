@@ -24,6 +24,7 @@
 #include "BlockAstro.hpp"
 #include "AstCore/BlockSystem.hpp"
 #include "AstCore/BlockDerivative.hpp"
+#include "AstCore/SimTime.hpp"
 #include <unordered_map>
 
 AST_NAMESPACE_BEGIN
@@ -79,6 +80,13 @@ public:
     /// @return 状态量导数数据指针
     const double* getDerivativeData() const { return derivative_.data(); }
 
+    /// @brief 获取状态量索引
+    /// @param id 状态量标识符指针
+    /// @return 状态量索引，若未找到则返回 -1
+    /// @note 状态量索引从 0 开始
+    size_t getStateIndex(Identifier* id) const;
+    size_t getStateIndex(StringView name) const;
+
     /// @brief 填充状态量数据
     /// @param y 状态量数据指针
     void setStateData(const double* y) { std::copy(y, y + this->size(), state_.begin()); }
@@ -90,6 +98,10 @@ public:
     /// @brief 填充状态量导数数据
     /// @param value 状态量导数值
     void fillDerivativeData(double value) { std::fill(derivative_.begin(), derivative_.end(), value); }
+
+    /// @brief 填充累加状态量数据
+    /// @param value 累加状态量值
+    void fillAccumulateData(double value) { std::fill(accumulate_.begin(), accumulate_.end(), value); }
 
     /// @brief 初始化
     errc_t initialize();
@@ -121,11 +133,16 @@ public:
     /// @brief 重置动力学系统
     void reset();
 
+    /// @brief 执行动力学系统
+    errc_t run(const SimTime& simTime) final;
+
 protected:
+    A_DISABLE_COPY(BlockDynamicSystem);
     using StateMap = std::unordered_map<Identifier*, double*>;
 
     std::vector<BlockDerivative*>   derivativeBlocks_;  // 状态量导数函数块
     std::vector<double>             state_;             // 状态量
+    std::vector<double>             accumulate_;        // 累加状态量
     std::vector<double>             derivative_;        // 状态量导数
     StateMap                        stateMap_;          // 状态量映射表
     StateMap                        derivativeMap_;     // 状态量导数映射表
