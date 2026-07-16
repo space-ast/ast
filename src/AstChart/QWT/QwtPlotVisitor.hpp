@@ -46,11 +46,11 @@ public:
     explicit QwtPlotVisitor(ColoredSurfacePlot* surface);
     ~QwtPlotVisitor() override;
 
-    void visit(matplot::line& l) override;
-    void visit(matplot::histogram& h) override;
-    void visit(matplot::function_line& fl) override;
-    void visit(matplot::stair& s) override;
-    void visit(matplot::surface& s) override;
+    void visit(class matplot::line& l) override;
+    void visit(class matplot::histogram& h) override;
+    void visit(class matplot::function_line& fl) override;
+    void visit(class matplot::stair& s) override;
+    void visit(class matplot::surface& s) override;
 
 private:
     QwtPlot* plot_{nullptr};

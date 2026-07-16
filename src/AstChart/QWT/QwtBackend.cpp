@@ -256,7 +256,7 @@ void QwtBackend::Impl::renderFigure(matplot::figure_type* f, UiFigure* uifigure)
         // 检测是否包含 surface（3D 绘图）
         bool hasSurface = false;
         for (auto& obj : axes->children()) {
-            if (dynamic_cast<matplot::surface*>(obj.get())) {
+            if (dynamic_cast<class matplot::surface*>(obj.get())) {
                 hasSurface = true;
                 break;
             }

@@ -477,7 +477,7 @@ void AggVisitor::drawAxes() {
 
         for (size_t i = 0; i < axes_->children().size(); ++i) {
             auto child = axes_->children()[i];
-            auto lptr = std::dynamic_pointer_cast<matplot::line>(child);
+            auto lptr = std::dynamic_pointer_cast<class matplot::line>(child);
             
             if(!lptr) continue;
             LineStyle ls = from_line(*lptr);

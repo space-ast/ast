@@ -86,8 +86,8 @@ class SurfacePropertyPage : public QWidget {
     Q_OBJECT
 public:
     explicit SurfacePropertyPage(QWidget* parent = nullptr);
-    void load(matplot::surface* surf, int index);
-    void apply(matplot::surface* surf);
+    void load(class matplot::surface* surf, int index);
+    void apply(class matplot::surface* surf);
 
 private:
     void setupUi();
