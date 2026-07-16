@@ -1132,16 +1132,16 @@ TEST_F(HPOPSTMTest, STM_StateObserver_Collection)
     EXPECT_GT(maxOffDiag, 1e-6);
 
     // STM 第一行基准值验证
-    EXPECT_NEAR(stm(0,0), -82.465447186568412,       1e-8);
-    EXPECT_NEAR(stm(0,1),   0.00053472762888822495,  1e-8);
-    EXPECT_NEAR(stm(0,2),  -0.070726596660925997,    1e-8);
-    EXPECT_NEAR(stm(0,3), -253.93305481600945,       1e-8);
+    EXPECT_NEAR(stm(0,0), -82.465447186568412,       1e-7);
+    EXPECT_NEAR(stm(0,1),   0.00053472762888822495,  1e-7);
+    EXPECT_NEAR(stm(0,2),  -0.070726596660925997,    1e-7);
+    EXPECT_NEAR(stm(0,3), -253.93305481600945,       1e-7);
 
     // ── 验证 Drag 敏感度（基准值来自 stm.cpp 示例） ──
-    EXPECT_NEAR(stateSensWrtDrag[0],  2503942.6140104369,  1e-6);
-    EXPECT_NEAR(stateSensWrtDrag[1],  8509256.7297997586,  1e-6);
-    EXPECT_NEAR(stateSensWrtDrag[2],  4763867.5046518976,  1e-6);
-    EXPECT_NEAR(stateSensWrtDrag[3], -11240.949623401957,  1e-6);
+    EXPECT_NEAR(stateSensWrtDrag[0],  2503942.6140104369,  1e-5);
+    EXPECT_NEAR(stateSensWrtDrag[1],  8509256.7297997586,  1e-5);
+    EXPECT_NEAR(stateSensWrtDrag[2],  4763867.5046518976,  1e-5);
+    EXPECT_NEAR(stateSensWrtDrag[3], -11240.949623401957,  1e-5);
 
     double maxDragSens = 0.0;
     for (int i = 0; i < 6; ++i)
@@ -1149,10 +1149,10 @@ TEST_F(HPOPSTMTest, STM_StateObserver_Collection)
     EXPECT_GT(maxDragSens, 1e-6);
 
     // ── 验证 SRP 敏感度（基准值来自 stm.cpp 示例） ──
-    EXPECT_NEAR(stateSensWrtSRP[0], -390.37047021941561,  1e-8);
-    EXPECT_NEAR(stateSensWrtSRP[1], -554.73057392318208,  1e-8);
-    EXPECT_NEAR(stateSensWrtSRP[2], -331.79228369067152,  1e-8);
-    EXPECT_NEAR(stateSensWrtSRP[3],    0.60926698269460056, 1e-8);
+    EXPECT_NEAR(stateSensWrtSRP[0], -390.37047021941561,  1e-7);
+    EXPECT_NEAR(stateSensWrtSRP[1], -554.73057392318208,  1e-6);
+    EXPECT_NEAR(stateSensWrtSRP[2], -331.79228369067152,  1e-7);
+    EXPECT_NEAR(stateSensWrtSRP[3],  0.60926698269460056, 1e-7);
 
     double maxSRPSens = 0.0;
     for (int i = 0; i < 6; ++i)

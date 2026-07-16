@@ -25,25 +25,25 @@ public:
     void drawAxes();
 
     // ---- visit 重载 ----
-    void visit(matplot::line& l) override;
+    void visit(class matplot::line& l) override;
 
     // 以下暂为空实现
-    void visit(matplot::histogram&) override {}
-    void visit(matplot::function_line&) override {}
-    void visit(matplot::stair&) override {}
-    void visit(matplot::string_function&) override {}
-    void visit(matplot::bars&) override {}
-    void visit(matplot::error_bar&) override {}
-    void visit(matplot::filled_area&) override {}
-    void visit(matplot::surface&) override {}
-    void visit(matplot::matrix&) override {}
-    void visit(matplot::vectors&) override {}
-    void visit(matplot::network&) override {}
-    void visit(matplot::parallel_lines&) override {}
-    void visit(matplot::labels&) override {}
-    void visit(matplot::box_chart&) override {}
-    void visit(matplot::circles&) override {}
-    void visit(matplot::contours&) override {}
+    void visit(class matplot::histogram&) override {}
+    void visit(class matplot::function_line&) override {}
+    void visit(class matplot::stair&) override {}
+    void visit(class matplot::string_function&) override {}
+    void visit(class matplot::bars&) override {}
+    void visit(class matplot::error_bar&) override {}
+    void visit(class matplot::filled_area&) override {}
+    void visit(class matplot::surface&) override {}
+    void visit(class matplot::matrix&) override {}
+    void visit(class matplot::vectors&) override {}
+    void visit(class matplot::network&) override {}
+    void visit(class matplot::parallel_lines&) override {}
+    void visit(class matplot::labels&) override {}
+    void visit(class matplot::box_chart&) override {}
+    void visit(class matplot::circles&) override {}
+    void visit(class matplot::contours&) override {}
 
 private:
     /// 构建 data → pixel (Y-up) 变换矩阵

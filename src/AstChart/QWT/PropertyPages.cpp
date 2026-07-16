@@ -382,7 +382,7 @@ void SurfacePropertyPage::setupUi()
     mainLayout->addStretch();
 }
 
-void SurfacePropertyPage::load(matplot::surface* surf, int /*index*/)
+void SurfacePropertyPage::load(class matplot::surface* surf, int /*index*/)
 {
     if (!surf) return;
 
@@ -397,7 +397,7 @@ void SurfacePropertyPage::load(matplot::surface* surf, int /*index*/)
         colorbarVisible_->setChecked(parent->cb_axis().visible());
 }
 
-void SurfacePropertyPage::apply(matplot::surface* surf)
+void SurfacePropertyPage::apply(class matplot::surface* surf)
 {
     if (!surf) return;
 

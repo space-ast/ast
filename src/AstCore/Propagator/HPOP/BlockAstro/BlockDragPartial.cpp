@@ -184,11 +184,12 @@ errc_t BlockDragPartial::run(const SimTime& simTime)
         }
     }
 
-    // 弹道系数 B 敏感度强迫项: ∂a_drag/∂B = a_drag / B
-    // B = Cd·A/m，强迫项为 3维加速度向量
+    // 弹道系数 B 敏感度强迫项: ∂a_drag/∂B
+    // B = Cd·A/m
+    // a_drag = -½ · B · ρ · |v_rel| · v_rel
+    // ∂a_drag/∂B = -½ · ρ · |v_rel| · v_rel （直接计算，避免除零）
     if (useDragSensitivity_) {
-        double oneOverB = *mass_ / (dragCoefficient_ * dragArea_);
-        *accSensitivityToDrag_ = accDrag * oneOverB;
+        *accSensitivityToDrag_ = (-0.5 * density * relSpeed) * relVelocity;
     }
 
     return eNoError;

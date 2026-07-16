@@ -104,8 +104,8 @@ public:
     explicit SurfacePropertyPage(QWidget* parent = nullptr);
     SurfacePropertyPage(const SurfacePropertyPage&) = delete;
     SurfacePropertyPage& operator=(const SurfacePropertyPage&) = delete;
-    void load(matplot::surface* surf, int index);
-    void apply(matplot::surface* surf);
+    void load(class matplot::surface* surf, int index);
+    void apply(class matplot::surface* surf);
 
 private:
     void setupUi();

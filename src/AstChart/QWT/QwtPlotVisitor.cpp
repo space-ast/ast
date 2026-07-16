@@ -272,7 +272,7 @@ void QwtPlotVisitor::visit(matplot::stair& s) {
     curve->attach(plot_);
 }
 
-void QwtPlotVisitor::visit(matplot::surface& s) {
+void QwtPlotVisitor::visit(class matplot::surface& s) {
     if (!surface_) return;
 
     auto& X = s.X_data();

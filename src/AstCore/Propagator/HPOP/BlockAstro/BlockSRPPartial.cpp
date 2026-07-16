@@ -58,15 +58,28 @@ void BlockSRPPartial::init()
 
 errc_t BlockSRPPartial::run(const SimTime& simTime)
 {
-    assert(eclipseCalculator_);
-    assert(propagationFrame_);
+    if (A_UNLIKELY(!eclipseCalculator_) || A_UNLIKELY(!propagationFrame_))
+    {
+        aError("BlockSRPPartial: eclipseCalculator or propagationFrame is null");
+        *accSRP_ = Vector3d::Zero();
+        if (useSRPSensitivity_)
+            *accSensitivityToSRP_ = Vector3d::Zero();
+        return eErrorNullInput;
+    }
 
     // ── 复用 BlockSRP 的 SRP 加速度计算逻辑 ──
     // @todo 这里的计算逻辑和 BlockSRP 中的 run() 重复，需要考虑怎么复用计算逻辑
 
     auto& tp = simTime.timePoint();
     auto sun = eclipseCalculator_->lightSource();
-    assert(sun);
+    if (A_UNLIKELY(!sun))
+    {
+        aError("BlockSRPPartial: sun (light source) is null");
+        *accSRP_ = Vector3d::Zero();
+        if (useSRPSensitivity_)
+            *accSensitivityToSRP_ = Vector3d::Zero();
+        return eErrorNullInput;
+    }
 
     double lightingRatio = eclipseCalculator_->getLightingRatio(tp, *position_, propagationFrame_);
     if (lightingRatio == 0)
