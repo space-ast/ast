@@ -127,33 +127,31 @@ $(function(){initNavTree('UiInitialState_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiInitialState.html">UiInitialState</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* <span class="keywordtype">object</span>, QWidget* parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiInitialState.html">UiInitialState</a>(QWidget* parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1UiInitialState.html">~UiInitialState</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classast_1_1UiInitialState.html">UiInitialState</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiInitialState.html">UiInitialState</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="classast_1_1UiInitialState.html">UiInitialState</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiInitialState.html">UiInitialState</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> setInitialState(<a class="code hl_class" href="classast_1_1InitialState.html">InitialState</a>* state);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classast_1_1InitialState.html">InitialState</a>* getInitialState() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">private</span> slots:</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> onStateTypeChanged(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> onStateChanged(<a class="code hl_class" href="classast_1_1State.html">State</a>* state);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> setupUi();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> setupElementsTab(QWidget* tab);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> rebuildFromSpacecraftState(<a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>* scState);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    QTabWidget*         tabWidget_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    QComboBox*          stateTypeCombo_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classast_1_1UiStateEditor.html">UiStateEditor</a>*      stateEditor_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="classast_1_1UiSpacecraftParams.html">UiSpacecraftParams</a>* scParamsEditor_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_class" href="classast_1_1UiFuelTank.html">UiFuelTank</a>*         fuelTankEditor_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> setInitialState(<a class="code hl_class" href="classast_1_1InitialState.html">InitialState</a>* state);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classast_1_1InitialState.html">InitialState</a>* getInitialState() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> onStateTypeChanged(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> onStateChanged(<a class="code hl_class" href="classast_1_1State.html">State</a>* state);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> setupUi();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> setupElementsTab(QWidget* tab);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> rebuildFromSpacecraftState(<a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>* scState);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    QTabWidget*         tabWidget_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    QComboBox*          stateTypeCombo_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classast_1_1UiStateEditor.html">UiStateEditor</a>*      stateEditor_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="classast_1_1UiSpacecraftParams.html">UiSpacecraftParams</a>* scParamsEditor_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classast_1_1UiFuelTank.html">UiFuelTank</a>*         fuelTankEditor_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1InitialState_html"><div class="ttname"><a href="classast_1_1InitialState.html">ast::InitialState</a></div><div class="ttdoc">初始轨道段，用于建模任务序列(MissionCommand)中的初始状态任务</div><div class="ttdef"><b>定义</b> InitialState.hpp:38</div></div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:95</div></div>
-<div class="ttc" id="aclassast_1_1SpacecraftState_html"><div class="ttname"><a href="classast_1_1SpacecraftState.html">ast::SpacecraftState</a></div><div class="ttdoc">航天器状态，包含轨道状态、航天器参数（质量、面积、阻力系数、光压、密度、压力、温度等）</div><div class="ttdef"><b>定义</b> SpacecraftState.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1SpacecraftState_html"><div class="ttname"><a href="classast_1_1SpacecraftState.html">ast::SpacecraftState</a></div><div class="ttdoc">航天器状态，包含轨道状态、航天器参数（质量、面积、阻力系数、光压、密度、压力、温度等）</div><div class="ttdef"><b>定义</b> SpacecraftState.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1State_html"><div class="ttname"><a href="classast_1_1State.html">ast::State</a></div><div class="ttdoc">航天器状态</div><div class="ttdef"><b>定义</b> State.hpp:53</div></div>
 <div class="ttc" id="aclassast_1_1UiFuelTank_html"><div class="ttname"><a href="classast_1_1UiFuelTank.html">ast::UiFuelTank</a></div><div class="ttdoc">燃料储罐编辑器</div><div class="ttdef"><b>定义</b> UiFuelTank.hpp:34</div></div>
 <div class="ttc" id="aclassast_1_1UiInitialState_html"><div class="ttname"><a href="classast_1_1UiInitialState.html">ast::UiInitialState</a></div><div class="ttdoc">InitialState 段编辑器</div><div class="ttdef"><b>定义</b> UiInitialState.hpp:39</div></div>

@@ -129,27 +129,25 @@ $(function(){initNavTree('LagrangeInterpolator_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    LagrangeInterpolator(<span class="keywordtype">int</span> order, <span class="keywordtype">bool</span> fixedStep, <span class="keywordtype">double</span> step);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    ~LagrangeInterpolator() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    LagrangeInterpolator(<span class="keyword">const</span> LagrangeInterpolator&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    LagrangeInterpolator&amp; operator=(<span class="keyword">const</span> LagrangeInterpolator&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> evaluate(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span>* out) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">int</span> getDimension() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">double</span>* workArray_;     </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">double</span>* denomArray_;    </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">double</span>* xtable_;        </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">double</span>* ytable_;        </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">int</span> dimtable_;          </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">int</span> dim_;               </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">int</span> order_;             </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>};</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> evaluate(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span>* out) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">int</span> getDimension() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">double</span>* workArray_;     </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">double</span>* denomArray_;    </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">double</span>* xtable_;        </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">double</span>* ytable_;        </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">int</span> dimtable_;          </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">int</span> dim_;               </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">int</span> order_;             </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>};</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aInterpolator_8hpp_html"><div class="ttname"><a href="Interpolator_8hpp.html">Interpolator.hpp</a></div><div class="ttdoc">~</div></div>
 <div class="ttc" id="agroup__Interpolator_html_ga10fc0aa510281e31ca4c663494074400"><div class="ttname"><a href="group__Interpolator.html#ga10fc0aa510281e31ca4c663494074400">ast::aLagrangeInterpolateDenomArray</a></div><div class="ttdeci">void aLagrangeInterpolateDenomArray(int n, double step, double *denomArray)</div><div class="ttdoc">计算拉格朗日插值的分母数组</div><div class="ttdef"><b>定义</b> LagrangeInterpolator.cpp:110</div></div>
 <div class="ttc" id="agroup__Interpolator_html_ga57a9be52506d2085036239d5b56ed7b5"><div class="ttname"><a href="group__Interpolator.html#ga57a9be52506d2085036239d5b56ed7b5">ast::aLagrangeInterpolate</a></div><div class="ttdeci">void aLagrangeInterpolate(const double arrX[], const double tableY[], int n, int dimy, double x, double *y)</div><div class="ttdoc">拉格朗日插值</div><div class="ttdef"><b>定义</b> LagrangeInterpolator.cpp:27</div></div>

@@ -124,34 +124,31 @@ $(function(){initNavTree('UiWorkbenchExprPicker_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiWorkbenchExprPicker.html">UiWorkbenchExprPicker</a>(<a class="code hl_class" href="classast_1_1StudyWorkbench.html">StudyWorkbench</a>* workbench, QWidget* parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classast_1_1UiWorkbenchExprPicker.html">UiWorkbenchExprPicker</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiWorkbenchExprPicker.html">UiWorkbenchExprPicker</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="classast_1_1UiWorkbenchExprPicker.html">UiWorkbenchExprPicker</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiWorkbenchExprPicker.html">UiWorkbenchExprPicker</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1UiWorkbenchExprPicker.html#a675894087b6fd6694baeed0a3f31ed2b">   46</a></span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* <a class="code hl_function" href="classast_1_1UiWorkbenchExprPicker.html#a675894087b6fd6694baeed0a3f31ed2b">selectedExpr</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> selectedExpr_; }</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1UiWorkbenchExprPicker.html#a675894087b6fd6694baeed0a3f31ed2b">   49</a></span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* <a class="code hl_function" href="classast_1_1UiWorkbenchExprPicker.html#a675894087b6fd6694baeed0a3f31ed2b">selectedExpr</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> selectedExpr_; }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">private</span> slots:</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> onAdvanced();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> onVariableSelected(<a class="code hl_class" href="classast_1_1Variable.html">Variable</a>* variable);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> accept() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> onAdvanced();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> onVariableSelected(<a class="code hl_class" href="classast_1_1Variable.html">Variable</a>* variable);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> accept() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> setupUi();</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> setupUi();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classast_1_1StudyWorkbench.html">StudyWorkbench</a>* workbench_;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>*           selectedExpr_ = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="classast_1_1StudyWorkbench.html">StudyWorkbench</a>* workbench_;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classast_1_1Expr.html">Expr</a>*           selectedExpr_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classast_1_1UiVariableList.html">UiVariableList</a>* inputList_{};</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    UiVariableList* outputList_{};</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    QPushButton*    advancedBtn_{};</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="classast_1_1UiVariableList.html">UiVariableList</a>* inputList_;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classast_1_1UiVariableList.html">UiVariableList</a>* outputList_;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    QPushButton*    advancedBtn_;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1StudyWorkbench_html"><div class="ttname"><a href="classast_1_1StudyWorkbench.html">ast::StudyWorkbench</a></div><div class="ttdoc">研究工作台，用于参数扫描研究、优化研究、不确定性分析、区间分析等分析</div><div class="ttdef"><b>定义</b> StudyWorkbench.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1UiVariableList_html"><div class="ttname"><a href="classast_1_1UiVariableList.html">ast::UiVariableList</a></div><div class="ttdoc">变量列表编辑控件，以表格形式管理脚本变量的增删改</div><div class="ttdef"><b>定义</b> UiVariableList.hpp:38</div></div>
 <div class="ttc" id="aclassast_1_1UiWorkbenchExprPicker_html"><div class="ttname"><a href="classast_1_1UiWorkbenchExprPicker.html">ast::UiWorkbenchExprPicker</a></div><div class="ttdoc">从 StudyWorkbench 的输入/输出变量中选择表达式</div><div class="ttdef"><b>定义</b> UiWorkbenchExprPicker.hpp:38</div></div>
-<div class="ttc" id="aclassast_1_1UiWorkbenchExprPicker_html_a675894087b6fd6694baeed0a3f31ed2b"><div class="ttname"><a href="classast_1_1UiWorkbenchExprPicker.html#a675894087b6fd6694baeed0a3f31ed2b">ast::UiWorkbenchExprPicker::selectedExpr</a></div><div class="ttdeci">Expr * selectedExpr() const</div><div class="ttdoc">获取用户选中的表达式（Variable 即 Expr）</div><div class="ttdef"><b>定义</b> UiWorkbenchExprPicker.hpp:49</div></div>
+<div class="ttc" id="aclassast_1_1UiWorkbenchExprPicker_html_a675894087b6fd6694baeed0a3f31ed2b"><div class="ttname"><a href="classast_1_1UiWorkbenchExprPicker.html#a675894087b6fd6694baeed0a3f31ed2b">ast::UiWorkbenchExprPicker::selectedExpr</a></div><div class="ttdeci">Expr * selectedExpr() const</div><div class="ttdoc">获取用户选中的表达式（Variable 即 Expr）</div><div class="ttdef"><b>定义</b> UiWorkbenchExprPicker.hpp:46</div></div>
 <div class="ttc" id="aclassast_1_1Variable_html"><div class="ttname"><a href="classast_1_1Variable.html">ast::Variable</a></div><div class="ttdoc">变量</div><div class="ttdef"><b>定义</b> Variable.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -135,43 +135,41 @@ $(function(){initNavTree('UiToolCallCard_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                            QWidget* parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="classast_1_1UiToolCallCard.html">~UiToolCallCard</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="classast_1_1UiToolCallCard.html">UiToolCallCard</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiToolCallCard.html">UiToolCallCard</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classast_1_1UiToolCallCard.html">UiToolCallCard</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiToolCallCard.html">UiToolCallCard</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> setState(<a class="code hl_enumeration" href="group__UiAI.html#ga101136608862295c65fbd660783ecdd7">EToolCallState</a> state);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> setResult(<span class="keyword">const</span> QString&amp; result);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classast_1_1UiToolCallCard.html#a7f6bbe0bcb96cddc469d8108e2636252">   64</a></span>    QString <a class="code hl_function" href="classast_1_1UiToolCallCard.html#a7f6bbe0bcb96cddc469d8108e2636252">toolCallId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> toolCallId_; }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classast_1_1UiToolCallCard.html#aa5fc4b7c7f8b9a3d9d4d70543299228f">   67</a></span>    QString <a class="code hl_function" href="classast_1_1UiToolCallCard.html#aa5fc4b7c7f8b9a3d9d4d70543299228f">functionName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> functionName_; }</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">private</span> Q_SLOTS:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> toggleExpanded();</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> setupUi();</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> updateAppearance();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    QString         toolCallId_;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    QString         functionName_;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    QString         arguments_;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    QString         result_{};</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    EToolCallState  state_{EToolCallState::eRunning};</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">bool</span>            expanded_{<span class="keyword">false</span>};</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    QPushButton*    headerButton_ = <span class="keyword">nullptr</span>;  <span class="comment">// 标题栏按钮</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    QWidget*        detailWidget_ = <span class="keyword">nullptr</span>;  <span class="comment">// 详情区域</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    QTextEdit*      argsView_ = <span class="keyword">nullptr</span>;      <span class="comment">// 参数显示</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    QTextEdit*      resultView_ = <span class="keyword">nullptr</span>;    <span class="comment">// 结果显示</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    QLabel*         statusLabel_ = <span class="keyword">nullptr</span>;   <span class="comment">// 状态标签</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> setState(<a class="code hl_enumeration" href="group__UiAI.html#ga101136608862295c65fbd660783ecdd7">EToolCallState</a> state);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> setResult(<span class="keyword">const</span> QString&amp; result);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1UiToolCallCard.html#a7f6bbe0bcb96cddc469d8108e2636252">   62</a></span>    QString <a class="code hl_function" href="classast_1_1UiToolCallCard.html#a7f6bbe0bcb96cddc469d8108e2636252">toolCallId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> toolCallId_; }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1UiToolCallCard.html#aa5fc4b7c7f8b9a3d9d4d70543299228f">   65</a></span>    QString <a class="code hl_function" href="classast_1_1UiToolCallCard.html#aa5fc4b7c7f8b9a3d9d4d70543299228f">functionName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> functionName_; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span> Q_SLOTS:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> toggleExpanded();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> setupUi();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> updateAppearance();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    QString         toolCallId_;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    QString         functionName_;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    QString         arguments_;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    QString         result_;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_enumeration" href="group__UiAI.html#ga101136608862295c65fbd660783ecdd7">EToolCallState</a>  state_{EToolCallState::eRunning};</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">bool</span>            expanded_{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    QPushButton*    headerButton_ = <span class="keyword">nullptr</span>;  <span class="comment">// 标题栏按钮</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    QWidget*        detailWidget_ = <span class="keyword">nullptr</span>;  <span class="comment">// 详情区域</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    QTextEdit*      argsView_ = <span class="keyword">nullptr</span>;      <span class="comment">// 参数显示</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    QTextEdit*      resultView_ = <span class="keyword">nullptr</span>;    <span class="comment">// 结果显示</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    QLabel*         statusLabel_ = <span class="keyword">nullptr</span>;   <span class="comment">// 状态标签</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
 </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1UiToolCallCard_html"><div class="ttname"><a href="classast_1_1UiToolCallCard.html">ast::UiToolCallCard</a></div><div class="ttdoc">工具调用卡片部件</div><div class="ttdef"><b>定义</b> UiToolCallCard.hpp:39</div></div>
-<div class="ttc" id="aclassast_1_1UiToolCallCard_html_a7f6bbe0bcb96cddc469d8108e2636252"><div class="ttname"><a href="classast_1_1UiToolCallCard.html#a7f6bbe0bcb96cddc469d8108e2636252">ast::UiToolCallCard::toolCallId</a></div><div class="ttdeci">QString toolCallId() const</div><div class="ttdoc">获取工具调用 ID</div><div class="ttdef"><b>定义</b> UiToolCallCard.hpp:64</div></div>
-<div class="ttc" id="aclassast_1_1UiToolCallCard_html_aa5fc4b7c7f8b9a3d9d4d70543299228f"><div class="ttname"><a href="classast_1_1UiToolCallCard.html#aa5fc4b7c7f8b9a3d9d4d70543299228f">ast::UiToolCallCard::functionName</a></div><div class="ttdeci">QString functionName() const</div><div class="ttdoc">获取函数名称</div><div class="ttdef"><b>定义</b> UiToolCallCard.hpp:67</div></div>
+<div class="ttc" id="aclassast_1_1UiToolCallCard_html_a7f6bbe0bcb96cddc469d8108e2636252"><div class="ttname"><a href="classast_1_1UiToolCallCard.html#a7f6bbe0bcb96cddc469d8108e2636252">ast::UiToolCallCard::toolCallId</a></div><div class="ttdeci">QString toolCallId() const</div><div class="ttdoc">获取工具调用 ID</div><div class="ttdef"><b>定义</b> UiToolCallCard.hpp:62</div></div>
+<div class="ttc" id="aclassast_1_1UiToolCallCard_html_aa5fc4b7c7f8b9a3d9d4d70543299228f"><div class="ttname"><a href="classast_1_1UiToolCallCard.html#aa5fc4b7c7f8b9a3d9d4d70543299228f">ast::UiToolCallCard::functionName</a></div><div class="ttdeci">QString functionName() const</div><div class="ttdoc">获取函数名称</div><div class="ttdef"><b>定义</b> UiToolCallCard.hpp:65</div></div>
 <div class="ttc" id="agroup__UiAI_html_ga101136608862295c65fbd660783ecdd7"><div class="ttname"><a href="group__UiAI.html#ga101136608862295c65fbd660783ecdd7">ast::EToolCallState</a></div><div class="ttdeci">EToolCallState</div><div class="ttdoc">工具调用状态</div><div class="ttdef"><b>定义</b> UiToolCallCard.hpp:31</div></div>
 <div class="ttc" id="agroup__UiAI_html_gga101136608862295c65fbd660783ecdd7a27a410c6b361732f3b4237bff6478a44"><div class="ttname"><a href="group__UiAI.html#gga101136608862295c65fbd660783ecdd7a27a410c6b361732f3b4237bff6478a44">ast::EToolCallState::eSuccess</a></div><div class="ttdeci">@ eSuccess</div><div class="ttdoc">成功</div></div>
 <div class="ttc" id="agroup__UiAI_html_gga101136608862295c65fbd660783ecdd7a946db550abb284f3a919132343c4d984"><div class="ttname"><a href="group__UiAI.html#gga101136608862295c65fbd660783ecdd7a946db550abb284f3a919132343c4d984">ast::EToolCallState::eError</a></div><div class="ttdeci">@ eError</div><div class="ttdoc">失败</div></div>

@@ -124,77 +124,76 @@ $(function(){initNavTree('UiVariableList_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    Q_OBJECT</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiVariableList.html">UiVariableList</a>(QWidget* parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1UiVariableList.html">UiVariableList</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiVariableList.html">UiVariableList</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1UiVariableList.html">UiVariableList</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiVariableList.html">UiVariableList</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> setVariableList(<a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>* variableList, <a class="code hl_class" href="classast_1_1Object.html">Object</a>* owner);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> setInterpreter(<a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* interpreter, <a class="code hl_class" href="classast_1_1Object.html">Object</a>* owner);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> setToolbarVisible(<span class="keywordtype">bool</span> visible);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> refreshUi();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classast_1_1Variable.html">Variable</a>* selectedVariable() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>* variableList() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* interpreter() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> addExpression(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr, <span class="keywordtype">bool</span> bind);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classast_1_1UiVariableList.html#a5970948a5a747018c1b74de1defc0893">   76</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1UiVariableList.html#a5970948a5a747018c1b74de1defc0893">addBindExpression</a>(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr){<span class="keywordflow">return</span> addExpression(expr, <span class="keyword">true</span>);}</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> setVariableList(<a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>* variableList, <a class="code hl_class" href="classast_1_1Object.html">Object</a>* owner);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> setInterpreter(<a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* interpreter, <a class="code hl_class" href="classast_1_1Object.html">Object</a>* owner);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> setToolbarVisible(<span class="keywordtype">bool</span> visible);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> refreshUi();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classast_1_1Variable.html">Variable</a>* selectedVariable() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>* variableList() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>* interpreter() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> addExpression(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr, <span class="keywordtype">bool</span> bind);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1UiVariableList.html#a5970948a5a747018c1b74de1defc0893">   74</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1UiVariableList.html#a5970948a5a747018c1b74de1defc0893">addBindExpression</a>(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr){<span class="keywordflow">return</span> addExpression(expr, <span class="keyword">true</span>);}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> addExpression(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr){<span class="keywordflow">return</span> addExpression(expr, <span class="keyword">false</span>);}</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> addExpression(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr){<span class="keywordflow">return</span> addExpression(expr, <span class="keyword">false</span>);}</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>signals:</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classast_1_1UiVariableList.html#a03fbe840b29662b6a301f4dc199e94f0">   83</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiVariableList.html#a03fbe840b29662b6a301f4dc199e94f0">variableSelected</a>(<a class="code hl_class" href="classast_1_1Variable.html">Variable</a>* variable);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classast_1_1UiVariableList.html#aa1a0945e306882af6426e50a78f7f86e">   86</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiVariableList.html#aa1a0945e306882af6426e50a78f7f86e">variableListChanged</a>();</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classast_1_1UiVariableList.html#a104c22eae35954a69f31755ff1a123f6">   89</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiVariableList.html#a104c22eae35954a69f31755ff1a123f6">variableFocused</a>();</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classast_1_1UiVariableList.html#a66e955170639a4e2d0635fbf540e1882">   92</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiVariableList.html#a66e955170639a4e2d0635fbf540e1882">variableDoubleClicked</a>(<a class="code hl_class" href="classast_1_1Variable.html">Variable</a>* variable);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">private</span> slots:</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">void</span> onSelectionChanged();</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> onAddVariable();</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> onRemoveVariable();</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> onCellChanged(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span> onRefresh();</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> setupUi();</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">bool</span> eventFilter(QObject* obj, QEvent* event) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> syncOrderFromTable();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    QVBoxLayout*    mainLayout_{};</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    QTableWidget*   tableWidget_{};</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    QHBoxLayout*    buttonLayout_{};</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    QToolButton*    addButton_{};</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    QToolButton*    removeButton_{};</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    QToolButton*    refreshButton_{};</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    VariableList*   variableList_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    WeakPtr&lt;Object&gt; variableListOwner_{};</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    Interpreter*    interpreter_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    WeakPtr&lt;Object&gt; interpreterOwner_{};</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>signals:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classast_1_1UiVariableList.html#a03fbe840b29662b6a301f4dc199e94f0">   81</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiVariableList.html#a03fbe840b29662b6a301f4dc199e94f0">variableSelected</a>(<a class="code hl_class" href="classast_1_1Variable.html">Variable</a>* variable);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classast_1_1UiVariableList.html#aa1a0945e306882af6426e50a78f7f86e">   84</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiVariableList.html#aa1a0945e306882af6426e50a78f7f86e">variableListChanged</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classast_1_1UiVariableList.html#a104c22eae35954a69f31755ff1a123f6">   87</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiVariableList.html#a104c22eae35954a69f31755ff1a123f6">variableFocused</a>();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classast_1_1UiVariableList.html#a66e955170639a4e2d0635fbf540e1882">   90</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiVariableList.html#a66e955170639a4e2d0635fbf540e1882">variableDoubleClicked</a>(<a class="code hl_class" href="classast_1_1Variable.html">Variable</a>* variable);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> onSelectionChanged();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> onAddVariable();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">void</span> onRemoveVariable();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> onCellChanged(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> onRefresh();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> setupUi();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">bool</span> eventFilter(QObject* obj, QEvent* event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> syncOrderFromTable();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    QVBoxLayout*    mainLayout_;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    QTableWidget*   tableWidget_;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    QHBoxLayout*    buttonLayout_;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    QToolButton*    addButton_;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    QToolButton*    removeButton_;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    QToolButton*    refreshButton_;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_class" href="classast_1_1VariableList.html">VariableList</a>*   variableList_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;Object&gt;</a> variableListOwner_;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_class" href="classast_1_1Interpreter.html">Interpreter</a>*    interpreter_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;Object&gt;</a> interpreterOwner_;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
 </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1Interpreter_html"><div class="ttname"><a href="classast_1_1Interpreter.html">ast::Interpreter</a></div><div class="ttdoc">解释器</div><div class="ttdef"><b>定义</b> Interpreter.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:95</div></div>
 <div class="ttc" id="aclassast_1_1UiVariableList_html"><div class="ttname"><a href="classast_1_1UiVariableList.html">ast::UiVariableList</a></div><div class="ttdoc">变量列表编辑控件，以表格形式管理脚本变量的增删改</div><div class="ttdef"><b>定义</b> UiVariableList.hpp:38</div></div>
 <div class="ttc" id="aclassast_1_1UiVariableList_html_a03fbe840b29662b6a301f4dc199e94f0"><div class="ttname"><a href="classast_1_1UiVariableList.html#a03fbe840b29662b6a301f4dc199e94f0">ast::UiVariableList::variableSelected</a></div><div class="ttdeci">void variableSelected(Variable *variable)</div><div class="ttdoc">选中变量变化</div></div>
 <div class="ttc" id="aclassast_1_1UiVariableList_html_a104c22eae35954a69f31755ff1a123f6"><div class="ttname"><a href="classast_1_1UiVariableList.html#a104c22eae35954a69f31755ff1a123f6">ast::UiVariableList::variableFocused</a></div><div class="ttdeci">void variableFocused()</div><div class="ttdoc">用户选中了变量（用于通知外部联动控件）</div></div>
-<div class="ttc" id="aclassast_1_1UiVariableList_html_a5970948a5a747018c1b74de1defc0893"><div class="ttname"><a href="classast_1_1UiVariableList.html#a5970948a5a747018c1b74de1defc0893">ast::UiVariableList::addBindExpression</a></div><div class="ttdeci">void addBindExpression(Expr *expr)</div><div class="ttdoc">输入表达式，新建与表达式双向绑定的变量并追加到列表末尾</div><div class="ttdef"><b>定义</b> UiVariableList.hpp:76</div></div>
+<div class="ttc" id="aclassast_1_1UiVariableList_html_a5970948a5a747018c1b74de1defc0893"><div class="ttname"><a href="classast_1_1UiVariableList.html#a5970948a5a747018c1b74de1defc0893">ast::UiVariableList::addBindExpression</a></div><div class="ttdeci">void addBindExpression(Expr *expr)</div><div class="ttdoc">输入表达式，新建与表达式双向绑定的变量并追加到列表末尾</div><div class="ttdef"><b>定义</b> UiVariableList.hpp:74</div></div>
 <div class="ttc" id="aclassast_1_1UiVariableList_html_a66e955170639a4e2d0635fbf540e1882"><div class="ttname"><a href="classast_1_1UiVariableList.html#a66e955170639a4e2d0635fbf540e1882">ast::UiVariableList::variableDoubleClicked</a></div><div class="ttdeci">void variableDoubleClicked(Variable *variable)</div><div class="ttdoc">用户双击了某个变量行</div></div>
 <div class="ttc" id="aclassast_1_1UiVariableList_html_aa1a0945e306882af6426e50a78f7f86e"><div class="ttname"><a href="classast_1_1UiVariableList.html#aa1a0945e306882af6426e50a78f7f86e">ast::UiVariableList::variableListChanged</a></div><div class="ttdeci">void variableListChanged()</div><div class="ttdoc">变量列表已修改（增/删/编辑/拖拽排序）</div></div>
 <div class="ttc" id="aclassast_1_1VariableList_html"><div class="ttname"><a href="classast_1_1VariableList.html">ast::VariableList</a></div><div class="ttdoc">变量列表</div><div class="ttdef"><b>定义</b> VariableList.hpp:38</div></div>
 <div class="ttc" id="aclassast_1_1Variable_html"><div class="ttname"><a href="classast_1_1Variable.html">ast::Variable</a></div><div class="ttdoc">变量</div><div class="ttdef"><b>定义</b> Variable.hpp:40</div></div>
+<div class="ttc" id="aclassast_1_1WeakPtr_html"><div class="ttname"><a href="classast_1_1WeakPtr.html">ast::WeakPtr</a></div><div class="ttdoc">弱引用指针</div><div class="ttdef"><b>定义</b> WeakPtr.hpp:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

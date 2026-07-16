@@ -201,11 +201,11 @@ $(function(){initNavTree('AssistantAgent_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    errc_t parseResponseMessage(<a class="code hl_class" href="classast_1_1JsonValue.html">JsonValue</a>&amp; response, <a class="code hl_class" href="classast_1_1ChatMessage.html">ChatMessage</a>&amp; outMessage);</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    std::string                    systemPrompt_{};</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    ChatTools                      tools_{};</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    LLMConfig                      config_{};</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    std::unique_ptr&lt;LLMClient&gt;     client_{};                 </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    std::string                    lastError_{};              </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    std::string                    systemPrompt_;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>                      tools_;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <a class="code hl_class" href="classast_1_1LLMConfig.html">LLMConfig</a>                      config_;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    std::unique_ptr&lt;LLMClient&gt;     client_;                 </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    std::string                    lastError_;              </div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordtype">int</span>                            maxToolIterations_{10};  </div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>};</div>
 </div>
