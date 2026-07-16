@@ -129,7 +129,7 @@ public:
 
 
 protected:
-    std::vector<Entry> data_;
+    std::vector<Entry> data_{};
 };
 
 

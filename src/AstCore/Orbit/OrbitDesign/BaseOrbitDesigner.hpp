@@ -40,7 +40,7 @@ class AST_CORE_API IOrbitDesigner
 {
 public:
     IOrbitDesigner() = default;
-    ~IOrbitDesigner() = default;
+    virtual ~IOrbitDesigner() = default;
 
     virtual errc_t getOrbitEpoch(TimePoint& orbitEpoch) const = 0;
 

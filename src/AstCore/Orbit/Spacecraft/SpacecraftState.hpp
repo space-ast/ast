@@ -146,7 +146,7 @@ public:
     errc_t getStateEpoch(TimePoint& stateEpoch) const;
     void copyFrom(const SpacecraftState& srcState);
 private:
-    HState orbitState_;                 ///< 轨道状态
+    HState orbitState_{};                ///< 轨道状态
 };
 
 

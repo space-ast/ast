@@ -32,6 +32,7 @@ BuiltinAxesRegistry &BuiltinAxesRegistry::Instance()
 }
 
 BuiltinAxesRegistry::BuiltinAxesRegistry(bool shouldInitialize)
+    : axesMap_()
 {
     if (shouldInitialize)
     {

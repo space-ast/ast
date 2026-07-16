@@ -49,7 +49,7 @@ PROPERTIES:
     Burn* burn() const {return burn_.get();}
     void setBurn(Burn* burn);
 private:
-    WeakPtr<Burn> burn_;        ///< 发动机点火
+    WeakPtr<Burn> burn_{};       ///< 发动机点火
 };
 
 

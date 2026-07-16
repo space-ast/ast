@@ -103,7 +103,7 @@ public:
     /// @return 函数值
     double eval(double x) const;
 protected:
-    std::vector<double> coeffs_;
+    std::vector<double> coeffs_{};
 };
 
 

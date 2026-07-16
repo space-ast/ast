@@ -148,7 +148,7 @@ protected:
     void findFluxIndex(double mjdUTC, int& index, double& frac) const;
 
 protected:
-    std::vector<Entry> data_;
+    std::vector<Entry> data_{};
     int startMJD_ = 0;
     int endMJD_ = 0;
 };

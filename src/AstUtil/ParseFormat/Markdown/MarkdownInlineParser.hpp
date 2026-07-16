@@ -118,10 +118,10 @@ private:
     char emphDelim_   = 0;                             ///< 打开当前斜体的定界符类型（* 或 _）
     EStateFlags pendingState_ = EStateFlags::ePlain;    ///< 待处理格式位掩码
     EParseMode  mode_ = EParseMode::eNormal;            ///< 当前解析模式
-    std::string result_;                                ///< feed(StringView) 的输出缓冲
-    std::string linkText_;                              ///< 链接文本 / 图片 Alt 缓冲
-    std::string linkUrl_;                               ///< 链接 URL / 图片 URL 缓冲
-    std::string codeBuf_;                               ///< 行内代码内容缓冲
+    std::string result_{};                               ///< feed(StringView) 的输出缓冲
+    std::string linkText_{};                             ///< 链接文本 / 图片 Alt 缓冲
+    std::string linkUrl_{};                              ///< 链接 URL / 图片 URL 缓冲
+    std::string codeBuf_{};                              ///< 行内代码内容缓冲
     char   delimRunChar_ = 0;                           ///< 当前待提交定界符游程的类型（* 或 _, 0 = 无）
     int    delimRunLen_ = 0;                            ///< 当前待提交定界符游程的长度
     char   runPrevChar_ = 0;                            ///< 紧邻定界符游程之前的字符

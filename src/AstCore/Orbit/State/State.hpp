@@ -217,9 +217,9 @@ PROPERTIES:
     void setStateEpoch(EventTime* stateEpoch);
 
 protected:
-    SharedPtr<Frame>        frame_;                ///< 参考坐标系
+    SharedPtr<Frame>        frame_{};               ///< 参考坐标系
     double                  gm_{0};                ///< 引力常数
-    SharedPtr<EventTime>    stateEpoch_;           ///< 状态历元时间
+    SharedPtr<EventTime>    stateEpoch_{};          ///< 状态历元时间
 };
 
 /*! @} */

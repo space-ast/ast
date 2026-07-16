@@ -44,7 +44,7 @@ PROPERTIES:
     Frame* frame() const { return frame_.get(); }
     void setFrame(Frame* frame) { frame_ = frame; }
 private:
-    WeakPtr<Frame> frame_;
+    WeakPtr<Frame> frame_{};
 };
 
 /*! @} */

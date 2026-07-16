@@ -54,7 +54,7 @@ public:
 
     std::string getExpression(Object* object) const override;
 private:
-    VectorType vector_;
+    VectorType vector_{};
 };
 
 

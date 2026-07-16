@@ -46,6 +46,7 @@ BlockThirdBodyGravity::BlockThirdBodyGravity()
     , gravityAxes_{nullptr}
     , propagationAxes_{nullptr}
     , propagationFrame_{nullptr}
+    , gravityCalculator_()
 {
     init();
 }

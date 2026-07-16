@@ -39,6 +39,11 @@ AST_NAMESPACE_BEGIN
 
 
 // 1. 实现 IDispatch 的全局函数提供者
+
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wnon-virtual-dtor"
+#endif
 class ActiveScriptGlobalFunctions final: public IDispatch {
 private:
     LONG m_ref;
@@ -112,6 +117,9 @@ public:
         return DISP_E_MEMBERNOTFOUND;
     }
 };
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
 
 
 /*! @} */

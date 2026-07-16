@@ -77,9 +77,9 @@ public:
     /// @brief 设置冻结时间点
     void setEpoch(const TimePoint& epoch);
 protected:
-    SharedPtr<Axes>         referenceAxes_;     ///< 参考轴系
-    SharedPtr<Axes>         axes_;              ///< 冻结轴系
-    SharedPtr<EventTime>    epoch_;             ///< 冻结时间
+    SharedPtr<Axes>         referenceAxes_{};    ///< 参考轴系
+    SharedPtr<Axes>         axes_{};             ///< 冻结轴系
+    SharedPtr<EventTime>    epoch_{};            ///< 冻结时间
 };
 
 /*! @} */

@@ -72,9 +72,9 @@ public:
     A_DISABLE_COPY(LocaleGuard);
 
 private:
-    bool active_;            // 是否需要在析构时恢复
-    int category_;           // 影响哪个 locale 类别（LC_ALL, LC_CTYPE 等）
-    std::string old_locale_; // 保存的原 locale 字符串
+    bool active_{};           // 是否需要在析构时恢复
+    int category_{};          // 影响哪个 locale 类别（LC_ALL, LC_CTYPE 等）
+    std::string old_locale_{};// 保存的原 locale 字符串
 };
 
 /*! @} */

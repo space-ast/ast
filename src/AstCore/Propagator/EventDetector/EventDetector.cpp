@@ -36,11 +36,15 @@ class ODEEventDetectorWrap: public ODEEventDetector
 {
 public:
     ODEEventDetectorWrap(EventDetector* eventDetector, StateMapper* stateMapper)
-        : eventDetector_(eventDetector)
+        : spacecraftState_()
+        , eventDetector_(eventDetector)
         , stateMapper_(stateMapper)
     {
         spacecraftState_ = SpacecraftState::NewDefault();
     }
+
+    ODEEventDetectorWrap(const ODEEventDetectorWrap&) = delete;
+    ODEEventDetectorWrap& operator=(const ODEEventDetectorWrap&) = delete;
     ~ODEEventDetectorWrap() override = default;
     double getValue(const double* y, double x) const override
     {

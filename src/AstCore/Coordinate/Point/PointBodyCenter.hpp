@@ -37,6 +37,10 @@ class AST_CORE_API PointBodyCenter final: public Point
 {
 public:
     PointBodyCenter() = default;
+
+    PointBodyCenter(const PointBodyCenter&) = delete;
+    PointBodyCenter& operator=(const PointBodyCenter&) = delete;
+
     explicit PointBodyCenter(CelestialBody* body);
     ~PointBodyCenter() = default;
     CelestialBody* getBody() const{ return body_; }

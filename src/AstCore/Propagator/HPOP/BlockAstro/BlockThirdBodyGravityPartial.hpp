@@ -72,6 +72,10 @@ class AST_CORE_API BlockThirdBodyGravityPartial : public BlockThirdBodyGravity
 {
 public:
     BlockThirdBodyGravityPartial();
+
+    BlockThirdBodyGravityPartial(const BlockThirdBodyGravityPartial&) = delete;
+    BlockThirdBodyGravityPartial& operator=(const BlockThirdBodyGravityPartial&) = delete;
+
     explicit BlockThirdBodyGravityPartial(Point* thirdBody, GravityField&& gravityField,
                                           int degree, int order, Axes* gravityAxes,
                                           Frame* propagationFrame);

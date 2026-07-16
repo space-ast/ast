@@ -83,7 +83,7 @@ public:
 
 protected:
     std::unique_ptr<ISymbolScope> symbolScope_;       ///< 当前作用域
-    std::string errString_;                           ///< 错误字符串
+    std::string errString_{};                          ///< 错误字符串
 };
 
 

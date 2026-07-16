@@ -33,7 +33,7 @@ AST_NAMESPACE_BEGIN
 class BKVItem : public BKVNode
 {
 public:
-    BKVItem() : BKVNode(eItem) {}
+    BKVItem() : BKVNode(eItem), key_(), value_() {}
     /// @brief 键值对项节点（BlockKeyValueItemNode）
     BKVItem(StringView key, ValueView value)
         : BKVNode{eItem}

@@ -125,6 +125,7 @@ namespace
 }  // anonymous namespace
 
 Version::Version(StringView version)
+    : prerelease_(), build_()
 {
     *this = Parse(version);
 }

@@ -145,6 +145,7 @@ errc_t AEP8Data::load(StringView filepath)
 }
 
 AEPDataCollection::AEPDataCollection()
+    : ae8max_(), ae8min_(), ap8min_(), ap8max_()
 {
     errc_t rc = loadDefault();
     if(rc)

@@ -51,7 +51,7 @@ public:
     double longitude() const {return position_.longitude();}
     double altitude() const {return position_.altitude();}
 private:
-    SharedPtr<Body>     body_;                ///< 天体名称
+    SharedPtr<Body>     body_{};               ///< 天体名称
     GeodeticPoint       position_{};          ///< 质心位置点
 };
 

@@ -39,6 +39,7 @@ class WorkingDirectory
 {
 public:
     explicit WorkingDirectory(StringView path)
+        : oldpath_(), curpath_()
     {
         oldpath_ = posix::getcwd();
         /// @todo 需要考虑如何避免创建临时std::string对象 

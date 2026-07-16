@@ -40,13 +40,18 @@ public:
     AST_OBJECT(BodyEphemerisSPK)
     AST_PROPERT(SpiceIndex)
     BodyEphemerisSPK() = default;
+
+    BodyEphemerisSPK(const BodyEphemerisSPK&) = delete;
+    BodyEphemerisSPK& operator=(const BodyEphemerisSPK&) = delete;
     
     BodyEphemerisSPK(int spiceIndex)
         : spiceIndex_(spiceIndex)
+        , spk_()
     {}
     BodyEphemerisSPK(CelestialBody* body)
         : body_(body)
         , spiceIndex_(body->getJplSpiceId())
+        , spk_()
     {}
 
     ~BodyEphemerisSPK() override = default;
@@ -67,7 +72,7 @@ PROPERTIES:
 protected:
     CelestialBody* body_{nullptr};
     int            spiceIndex_{-1};
-    JplSpk         spk_;
+    JplSpk         spk_{};
 };
 
 

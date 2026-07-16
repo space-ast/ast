@@ -74,8 +74,8 @@ PROPERTIES:
     Frame* getPropagationFrame() const { return propagationFrame_.get(); }
     void setPropagationFrame(Frame* frame) { propagationFrame_ = frame; }
 protected:
-    SharedPtr<State>            initialState_;          ///< 初始状态
-    SharedPtr<Frame>            propagationFrame_;      ///< 预报坐标系
+    SharedPtr<State>            initialState_{};         ///< 初始状态
+    SharedPtr<Frame>            propagationFrame_{};     ///< 预报坐标系
 };
 
 /*! @} */

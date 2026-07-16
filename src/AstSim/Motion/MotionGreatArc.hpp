@@ -69,8 +69,8 @@ public:
     const WayPointVector& getWayPoints() const{return wayPoints_;}
     void setWayPoints(const WayPointVector& wayPoints){wayPoints_ = wayPoints;}
 private:
-    SharedPtr<EventTime> startTime_;        ///< 开始时间
-    WayPointVector wayPoints_;              ///< 路径点
+    SharedPtr<EventTime> startTime_{};       ///< 开始时间
+    WayPointVector wayPoints_{};             ///< 路径点
 };
 
 /*! @} */

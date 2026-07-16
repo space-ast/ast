@@ -67,6 +67,10 @@ class AST_CORE_API BlockThirdBodyGravity : public BlockDerivative
 {
 public:
     BlockThirdBodyGravity();
+
+    BlockThirdBodyGravity(const BlockThirdBodyGravity&) = delete;
+    BlockThirdBodyGravity& operator=(const BlockThirdBodyGravity&) = delete;
+
     explicit BlockThirdBodyGravity(Point* thirdBody, GravityField&& gravityField,
                                    int degree, int order, Axes* gravityAxes,
                                    Frame* propagationFrame);

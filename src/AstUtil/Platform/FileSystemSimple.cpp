@@ -57,12 +57,15 @@ namespace fs_simple
         path base_path; 
         bool data_valid;
     
-        impl(const path& p) 
+        impl(const path& p)
             : handle(INVALID_HANDLE_VALUE)
             , base_path(p)
             , data_valid{false}
         {
         }
+
+        impl(const impl&) = delete;
+        impl& operator=(const impl&) = delete;
 
         bool valid() const
         {
@@ -195,8 +198,8 @@ namespace fs_simple
     };
 #endif
 
-    directory_iterator::directory_iterator(const path& p) 
-        : impl_(std::make_shared<impl>(p))
+    directory_iterator::directory_iterator(const path& p)
+        : impl_(std::make_shared<impl>(p)), entry_()
     {
         if (impl_->first())
         {

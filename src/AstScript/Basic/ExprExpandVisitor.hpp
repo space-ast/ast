@@ -74,7 +74,7 @@ public:
     void setResult(Expr* result) {result_ = result;}
 private:
     void visitValue(Value& value);
-    SharedPtr<Expr> result_;
+    SharedPtr<Expr> result_{};
 };
 
 #endif

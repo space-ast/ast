@@ -28,6 +28,7 @@ AST_NAMESPACE_BEGIN
 
 JsonDomSax::JsonDomSax(JsonValue& result)
     : error_(false)
+    , stack_()
     , internalResult_()
     , result_(result)
 {

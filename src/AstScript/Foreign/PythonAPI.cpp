@@ -81,6 +81,7 @@ PythonAPI* PythonAPI::Instance()
 
 
 PythonAPI::PythonAPI(bool shouldLoadDynamicLib)
+    : mutex_()
 {
     if(shouldLoadDynamicLib)
     {

@@ -210,7 +210,7 @@ protected:
     /// @param frac 插值系数
     void findEntryIndex(double mjdUTC, int& index, double& frac) const;
 protected:
-    std::vector<Entry> data_;
+    std::vector<Entry> data_{};
     int startMJD_ = 0;
     int endMJD_ = 0;
 };

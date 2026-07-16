@@ -72,8 +72,8 @@ PROPERTIES:
     Axes* getAxes() const final { return axes_.get(); }
     void setAxes(Axes* axes) { axes_ = axes; }
 protected:
-    SharedPtr<Point> origin_;    ///< 原点
-    SharedPtr<Axes>  axes_;      ///< 轴系统
+    SharedPtr<Point> origin_{};   ///< 原点
+    SharedPtr<Axes>  axes_{};     ///< 轴系统
 };
 
 /*! @} */

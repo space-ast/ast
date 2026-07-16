@@ -49,7 +49,7 @@ public:
 public:
     Axes* resolve(Object* scope) const;
 private:
-    std::string objectType_;
+    std::string objectType_{};
 };
 
 /*! @} */

@@ -117,8 +117,8 @@ protected:
 
     Unit* _getSiUnitCache(Dimension dim);
 protected:
-    std::unordered_map<std::string, Unit*> units_;       ///< 单位映射表
-    std::map<Dimension, Unit*> siUnits_;                 ///< 国际制单位映射表
+    std::unordered_map<std::string, Unit*> units_{};      ///< 单位映射表
+    std::map<Dimension, Unit*> siUnits_{};                ///< 国际制单位映射表
 };
 
 /*! @} */

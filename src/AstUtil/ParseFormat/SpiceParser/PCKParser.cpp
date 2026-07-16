@@ -30,7 +30,7 @@ static_assert(sizeof(std::vector<double>) == sizeof(std::vector<int>), "std::vec
 PCKParser::PCKParser()
     : BaseParser()
     , keyBuffer_(1024)
-    //, valueBuffer_(2048)
+    , valueBuffer_()
     , inDataBlock_(false)
 {
 
@@ -39,7 +39,7 @@ PCKParser::PCKParser()
 PCKParser::PCKParser(StringView filepath)
     : BaseParser(filepath)
     , keyBuffer_(1024)
-    // , valueBuffer_(2048)
+    , valueBuffer_()
     , inDataBlock_(false)
 {
 

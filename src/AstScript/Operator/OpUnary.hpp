@@ -36,7 +36,7 @@ public:
     AST_EXPR(OpUnary)
 
     OpUnary(EOpUnaryType op, Expr* expr)
-        : op_(op), expr_(expr)
+        : op_(op), expr_(expr), cache_mutex_()
     {};
     virtual ~OpUnary() = default;
     Value* eval() const override;

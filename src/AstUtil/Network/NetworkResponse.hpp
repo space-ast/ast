@@ -74,8 +74,8 @@ public:
 
 private:
     int statusCode_ = 0;                         ///< 网络响应状态码码
-    std::string body_;                           ///< 网络响应体
-    std::map<std::string, std::string> headers_; ///< 网络响应头
+    std::string body_{};                          ///< 网络响应体
+    std::map<std::string, std::string> headers_{}; ///< 网络响应头
 };
 
 /*! @} */

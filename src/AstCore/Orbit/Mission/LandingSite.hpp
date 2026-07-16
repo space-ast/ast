@@ -59,7 +59,7 @@ public: /* 配置属性 */
     void setEpoch(const TimePoint& epoch) { epoch_ = epoch; }
 private:
     TimePoint     epoch_{};        ///< 着陆时间
-    WeakPtr<Body> body_;           ///< 着陆天体
+    WeakPtr<Body> body_{};          ///< 着陆天体
     GeodeticPoint position_{};     ///< 着陆点位置
 };
 

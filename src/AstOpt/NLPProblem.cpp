@@ -97,7 +97,7 @@ void aPrintSparityPatternCOO(int nnz, int* iFun, int* jVar, int idx_style)
 }
 
 NLPProblem::NLPProblem(INLPProblem* problem)
-	:m_problem{problem}
+	:m_problem{problem}, m_probInfo()
 {
 	assert(problem != nullptr);
 	// 1. 获取非线性问题的维度

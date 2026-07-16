@@ -45,6 +45,10 @@ public:
     explicit GravityFieldLoader(StringView dirpath)
         : dirpath_(dirpath)
     {}
+
+    GravityFieldLoader(const GravityFieldLoader&) = delete;
+    GravityFieldLoader& operator=(const GravityFieldLoader&) = delete;
+
     GravityFieldLoader(int maxLoadDegree, int maxLoadOrder, StringView dirpath)
         : dirpath_(dirpath), maxLoadDegree_(maxLoadDegree), maxLoadOrder_(maxLoadOrder)
     {}
@@ -69,10 +73,10 @@ public:
     void setMaxLoadOrder(int maxLoadOrder) { maxLoadOrder_ = maxLoadOrder; }
 
 public:    
-    BKVParser parser_;                      ///< 解析器
+    BKVParser parser_{};                     ///< 解析器
     GravityFieldHead* head_{nullptr};       ///< 重力场头
     GravityField* coeff_{nullptr};          ///< 重力场系数
-    StringView dirpath_;                    ///< 重力场模型文件所在目录路径
+    StringView dirpath_{};                    ///< 重力场模型文件所在目录路径
     int maxLoadDegree_ {-1};                ///< 最大加载阶数
     int maxLoadOrder_ {-1};                 ///< 最大加载次数
 };

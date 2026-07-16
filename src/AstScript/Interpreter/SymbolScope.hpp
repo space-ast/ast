@@ -68,6 +68,9 @@ public:
     /// @brief 默认构造函数
     SymbolScope() = default;
 
+    SymbolScope(const SymbolScope&) = delete;
+    SymbolScope& operator=(const SymbolScope&) = delete;
+
     /// @brief 构造函数，指定父符号作用域
     /// @param parent 父符号作用域指针
     explicit SymbolScope(SymbolScope* parent)
@@ -113,7 +116,7 @@ public:
     void setParent(SymbolScope* parent);
 
 protected:
-    SymbolMap    symbols_;              ///< 符号作用域中的符号
+    SymbolMap    symbols_{};             ///< 符号作用域中的符号
     SymbolScope* parent_ = nullptr;     ///< 父符号作用域指针
 };
 

@@ -140,12 +140,12 @@ protected:
     A_DISABLE_COPY(BlockDynamicSystem);
     using StateMap = std::unordered_map<Identifier*, double*>;
 
-    std::vector<BlockDerivative*>   derivativeBlocks_;  // 状态量导数函数块
-    std::vector<double>             state_;             // 状态量
-    std::vector<double>             accumulate_;        // 累加状态量
-    std::vector<double>             derivative_;        // 状态量导数
-    StateMap                        stateMap_;          // 状态量映射表
-    StateMap                        derivativeMap_;     // 状态量导数映射表
+    std::vector<BlockDerivative*>   derivativeBlocks_{}; // 状态量导数函数块
+    std::vector<double>             state_{};            // 状态量
+    std::vector<double>             accumulate_{};       // 累加状态量
+    std::vector<double>             derivative_{};       // 状态量导数
+    StateMap                        stateMap_{};         // 状态量映射表
+    StateMap                        derivativeMap_{};    // 状态量导数映射表
 };
 
 

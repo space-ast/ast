@@ -105,7 +105,7 @@ public:
     /// @param[in] epoch 参考历元
     void setEpoch(TimePoint epoch){epoch_ = epoch;}
 private:
-    TimePoint epoch_;   ///< 参考历元
+    TimePoint epoch_{};   ///< 参考历元
 };
 
 /*! @} */

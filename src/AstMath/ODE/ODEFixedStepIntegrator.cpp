@@ -111,7 +111,7 @@ ODEFixedStepIntegrator::Workspace::~Workspace()
 }
 
 ODEFixedStepIntegrator::ODEFixedStepIntegrator()
-    : stepSize_(60)
+    : workspace_(), stepSize_(60)
 {
 
 }

@@ -42,7 +42,7 @@ public:
 	const IAUXYS* iauXYS() const {return &iauXYS_;}
     IAUXYS* iauXYS() {return &iauXYS_;}
 protected:
-	IAUXYS                  iauXYS_;				///< IAU XYS数据 @todo: 这个考虑更改为静态数据
+	IAUXYS                  iauXYS_{};				///< IAU XYS数据 @todo: 这个考虑更改为静态数据
 };
 
 /*! @} */

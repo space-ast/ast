@@ -149,14 +149,14 @@ public:
     double getGranularity() const { return granularity_; }
     
 private:
-    TimePoint launchTime_;          ///< 发射时间
-    bool useScenTime_;              ///< 是否使用场景时间
-    TimePoint burnoutTime_;         ///< 关机时间
-    WeakPtr<CelestialBody> body_;   ///< 天体
-    GeodeticPoint launchPosition_;  ///< 发射位置
-    GeodeticPoint burnoutPosition_; ///< 关机位置
-    double burnoutVelocity_;        ///< 关机速度（米/秒）
-    double granularity_;            ///< 时间粒度（秒）
+    TimePoint launchTime_{};          ///< 发射时间
+    bool useScenTime_{};              ///< 是否使用场景时间
+    TimePoint burnoutTime_{};         ///< 关机时间
+    WeakPtr<CelestialBody> body_{};   ///< 天体
+    GeodeticPoint launchPosition_{};  ///< 发射位置
+    GeodeticPoint burnoutPosition_{}; ///< 关机位置
+    double burnoutVelocity_{};        ///< 关机速度（米/秒）
+    double granularity_{};            ///< 时间粒度（秒）
 };
 
 /*! @} */

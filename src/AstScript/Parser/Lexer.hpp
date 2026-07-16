@@ -114,11 +114,14 @@ public:
     };
 
 public:
-    explicit Lexer(Scanner* scanner) 
+    explicit Lexer(Scanner* scanner)
         : scanner_(scanner)
         // , line_(1)
-        , current_lexeme_() 
+        , current_lexeme_()
     {}
+
+    Lexer(const Lexer&) = delete;
+    Lexer& operator=(const Lexer&) = delete;
     
     /// @brief 获取下一个令牌
     ETokenType getNextToken();

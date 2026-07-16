@@ -40,7 +40,10 @@ public:
     static NetworkImplWinINet* Instance();
 
     NetworkImplWinINet();
-    
+
+    NetworkImplWinINet(const NetworkImplWinINet&) = delete;
+    NetworkImplWinINet& operator=(const NetworkImplWinINet&) = delete;
+
     virtual ~NetworkImplWinINet();
 
 
