@@ -122,23 +122,25 @@ $(function(){initNavTree('UiFuelTank_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiFuelTank.html">UiFuelTank</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a>* <span class="keywordtype">object</span>, QWidget* parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UiFuelTank.html">UiFuelTank</a>(QWidget* parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="classast_1_1UiFuelTank.html">~UiFuelTank</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> setSpacecraftState(<a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>* state);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>* getSpacecraftState() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> setupUi();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> refreshFromState(<a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>* state);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// 燃料储罐参数控件</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>*     tankPressureEdit_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>*     tankTemperatureEdit_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>*     fuelDensityEdit_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>*     fuelMassEdit_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_class" href="classast_1_1UiFuelTank.html">UiFuelTank</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiFuelTank.html">UiFuelTank</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1UiFuelTank.html">UiFuelTank</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiFuelTank.html">UiFuelTank</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> setSpacecraftState(<a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>* state);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>* getSpacecraftState() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> setupUi();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> refreshFromState(<a class="code hl_class" href="classast_1_1SpacecraftState.html">SpacecraftState</a>* state);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// 燃料储罐参数控件</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>*     tankPressureEdit_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>*     tankTemperatureEdit_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>*     fuelDensityEdit_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="classast_1_1UiQuantity.html">UiQuantity</a>*     fuelMassEdit_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
 </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:95</div></div>
 <div class="ttc" id="aclassast_1_1SpacecraftState_html"><div class="ttname"><a href="classast_1_1SpacecraftState.html">ast::SpacecraftState</a></div><div class="ttdoc">航天器状态，包含轨道状态、航天器参数（质量、面积、阻力系数、光压、密度、压力、温度等）</div><div class="ttdef"><b>定义</b> SpacecraftState.hpp:43</div></div>
 <div class="ttc" id="aclassast_1_1UiFuelTank_html"><div class="ttname"><a href="classast_1_1UiFuelTank.html">ast::UiFuelTank</a></div><div class="ttdoc">燃料储罐编辑器</div><div class="ttdef"><b>定义</b> UiFuelTank.hpp:34</div></div>
