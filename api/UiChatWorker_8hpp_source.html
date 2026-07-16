@@ -130,33 +130,36 @@ $(function(){initNavTree('UiChatWorker_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classast_1_1UiChatWorker.html">~UiChatWorker</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1UiChatWorker.html#abad195eddfedd8700247fa32259c338d">   59</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classast_1_1UiChatWorker.html#abad195eddfedd8700247fa32259c338d">response</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> response_; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="classast_1_1UiChatWorker.html">UiChatWorker</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiChatWorker.html">UiChatWorker</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="classast_1_1UiChatWorker.html">UiChatWorker</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1UiChatWorker.html">UiChatWorker</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1UiChatWorker.html#a8408a13f68755f800aa2979db0608bc9">   62</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1UiChatWorker.html#a8408a13f68755f800aa2979db0608bc9">errorCode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> errorCode_; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1UiChatWorker.html#abad195eddfedd8700247fa32259c338d">   62</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classast_1_1UiChatWorker.html#abad195eddfedd8700247fa32259c338d">response</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> response_; }</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>Q_SIGNALS:</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d">   67</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d">workFinished</a>(<span class="keywordtype">int</span> errorCode);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> run() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1UiChatWorker.html#a8408a13f68755f800aa2979db0608bc9">   65</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1UiChatWorker.html#a8408a13f68755f800aa2979db0608bc9">errorCode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> errorCode_; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>Q_SIGNALS:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d">   70</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d">workFinished</a>(<span class="keywordtype">int</span> errorCode);</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_class" href="classast_1_1ChatSession.html">ChatSession</a>*        session_;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    QString             userMessage_;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    QPointer&lt;UiChatEventHandler&gt; handler_;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">int</span>                 maxToolIterations_;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::string         response_;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">int</span>                 errorCode_{0};</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> run() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_class" href="classast_1_1ChatSession.html">ChatSession</a>*        session_;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    QString             userMessage_;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    QPointer&lt;UiChatEventHandler&gt; handler_;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">int</span>                 maxToolIterations_;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::string         response_{}; </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">int</span>                 errorCode_{0};</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
 </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1ChatSession_html"><div class="ttname"><a href="classast_1_1ChatSession.html">ast::ChatSession</a></div><div class="ttdoc">聊天会话</div><div class="ttdef"><b>定义</b> ChatSession.hpp:44</div></div>
 <div class="ttc" id="aclassast_1_1UiChatEventHandler_html"><div class="ttname"><a href="classast_1_1UiChatEventHandler.html">ast::UiChatEventHandler</a></div><div class="ttdoc">流式聊天事件的 Qt 信号桥接器</div><div class="ttdef"><b>定义</b> UiChatEventHandler.hpp:44</div></div>
 <div class="ttc" id="aclassast_1_1UiChatWorker_html"><div class="ttname"><a href="classast_1_1UiChatWorker.html">ast::UiChatWorker</a></div><div class="ttdoc">后台 LLM 对话工作线程</div><div class="ttdef"><b>定义</b> UiChatWorker.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1UiChatWorker_html_a822d314e526c0f9a6fdc870e787f1d6d"><div class="ttname"><a href="classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d">ast::UiChatWorker::workFinished</a></div><div class="ttdeci">void workFinished(int errorCode)</div><div class="ttdoc">工作完成</div></div>
-<div class="ttc" id="aclassast_1_1UiChatWorker_html_a8408a13f68755f800aa2979db0608bc9"><div class="ttname"><a href="classast_1_1UiChatWorker.html#a8408a13f68755f800aa2979db0608bc9">ast::UiChatWorker::errorCode</a></div><div class="ttdeci">int errorCode() const</div><div class="ttdoc">获取错误码</div><div class="ttdef"><b>定义</b> UiChatWorker.hpp:62</div></div>
-<div class="ttc" id="aclassast_1_1UiChatWorker_html_abad195eddfedd8700247fa32259c338d"><div class="ttname"><a href="classast_1_1UiChatWorker.html#abad195eddfedd8700247fa32259c338d">ast::UiChatWorker::response</a></div><div class="ttdeci">const std::string &amp; response() const</div><div class="ttdoc">获取本轮对话的最终响应</div><div class="ttdef"><b>定义</b> UiChatWorker.hpp:59</div></div>
+<div class="ttc" id="aclassast_1_1UiChatWorker_html_a8408a13f68755f800aa2979db0608bc9"><div class="ttname"><a href="classast_1_1UiChatWorker.html#a8408a13f68755f800aa2979db0608bc9">ast::UiChatWorker::errorCode</a></div><div class="ttdeci">int errorCode() const</div><div class="ttdoc">获取错误码</div><div class="ttdef"><b>定义</b> UiChatWorker.hpp:65</div></div>
+<div class="ttc" id="aclassast_1_1UiChatWorker_html_abad195eddfedd8700247fa32259c338d"><div class="ttname"><a href="classast_1_1UiChatWorker.html#abad195eddfedd8700247fa32259c338d">ast::UiChatWorker::response</a></div><div class="ttdeci">const std::string &amp; response() const</div><div class="ttdoc">获取本轮对话的最终响应</div><div class="ttdef"><b>定义</b> UiChatWorker.hpp:62</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

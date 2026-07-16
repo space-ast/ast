@@ -118,26 +118,28 @@ $(function(){initNavTree('ColoredSurfaceEnrichment_8hpp_source.html',''); initRe
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1ColoredSurfaceEnrichment.html">ColoredSurfaceEnrichment</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1ColoredSurfaceEnrichment.html">ColoredSurfaceEnrichment</a>(Qwt3D::PLOTSTYLE plotStyle)</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        : plotStyle_(plotStyle) {}</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1ColoredSurfaceEnrichment.html">ColoredSurfaceEnrichment</a>* clone()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classast_1_1ColoredSurfaceEnrichment.html">ColoredSurfaceEnrichment</a>(*<span class="keyword">this</span>); }</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> drawBegin() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> draw(Qwt3D::Triple <span class="keyword">const</span> &amp;) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> setData(<span class="keyword">const</span> Qwt3D::GridData* grid);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> setPlotStyle(Qwt3D::PLOTSTYLE plotStyle){plotStyle_ = plotStyle;}</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    Qwt3D::PLOTSTYLE plotStyle()<span class="keyword"> const </span>{<span class="keywordflow">return</span> plotStyle_;}</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">const</span> Qwt3D::SurfacePlot* surface() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">const</span> Qwt3D::GridData* grid_{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    Qwt3D::PLOTSTYLE plotStyle_{Qwt3D::WIREFRAME};</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> drawFaces();               </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> drawColoredMeshLines();    </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1ColoredSurfaceEnrichment.html">ColoredSurfaceEnrichment</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1ColoredSurfaceEnrichment.html">ColoredSurfaceEnrichment</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classast_1_1ColoredSurfaceEnrichment.html">ColoredSurfaceEnrichment</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1ColoredSurfaceEnrichment.html">ColoredSurfaceEnrichment</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="classast_1_1ColoredSurfaceEnrichment.html">ColoredSurfaceEnrichment</a>* clone()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="classast_1_1ColoredSurfaceEnrichment.html">ColoredSurfaceEnrichment</a>(*<span class="keyword">this</span>); }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> drawBegin() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> draw(Qwt3D::Triple <span class="keyword">const</span> &amp;) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> setData(<span class="keyword">const</span> Qwt3D::GridData* grid);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> setPlotStyle(Qwt3D::PLOTSTYLE plotStyle){plotStyle_ = plotStyle;}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    Qwt3D::PLOTSTYLE plotStyle()<span class="keyword"> const </span>{<span class="keywordflow">return</span> plotStyle_;}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">const</span> Qwt3D::SurfacePlot* surface() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> Qwt3D::GridData* grid_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    Qwt3D::PLOTSTYLE plotStyle_{Qwt3D::WIREFRAME};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> drawFaces();               </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> drawColoredMeshLines();    </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
 </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1ColoredSurfaceEnrichment_html"><div class="ttname"><a href="classast_1_1ColoredSurfaceEnrichment.html">ast::ColoredSurfaceEnrichment</a></div><div class="ttdef"><b>定义</b> ColoredSurfaceEnrichment.hpp:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

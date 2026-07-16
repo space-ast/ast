@@ -121,9 +121,9 @@ $(function(){initNavTree('OrderedMap_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">using </span>map_type = std::unordered_map&lt;Key, std::size_t&gt;;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">// 按插入顺序存储键值对</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    vector_type items_;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    vector_type items_{};</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// 键到下标位置的快速映射</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    map_type index_map_;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    map_type index_map_{};</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">public</span>: <span class="comment">// ---------- 迭代器支持 ----------</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">using </span>iterator = <span class="keyword">typename</span> vector_type::iterator;</div>

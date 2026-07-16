@@ -283,8 +283,8 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordtype">void</span>        copyFrom(const VariantVector&amp; other);</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keywordtype">void</span>        moveFrom(VariantVector&amp; other) noexcept;</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    Header*       header()       noexcept;</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    const Header* header() const noexcept;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    inline Header*       header()       noexcept;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    inline const Header* header() const noexcept;</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    template&lt;typename T&gt;</div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keywordtype">void</span> ensureType();</div>
@@ -687,7 +687,7 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span> </div>
 <div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aSpan_8hpp_html"><div class="ttname"><a href="Span_8hpp.html">Span.hpp</a></div></div>
-<div class="ttc" id="aUnit_8cpp_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:435</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:436</div></div>
 <div class="ttc" id="aclassast_1_1Span_html"><div class="ttname"><a href="classast_1_1Span.html">ast::Span</a></div><div class="ttdoc">非拥有的连续对象序列视图</div><div class="ttdef"><b>定义</b> Span.hpp:71</div></div>
 <div class="ttc" id="aclassast_1_1VariantVector_html"><div class="ttname"><a href="classast_1_1VariantVector.html">ast::VariantVector</a></div><div class="ttdoc">变类型向量容器</div><div class="ttdef"><b>定义</b> VariantVector.hpp:59</div></div>
 <div class="ttc" id="aclassast_1_1VariantVector_html_a1ee3db6238c6a31fc5575a5d42c1839f"><div class="ttname"><a href="classast_1_1VariantVector.html#a1ee3db6238c6a31fc5575a5d42c1839f">ast::VariantVector::ops</a></div><div class="ttdeci">const TypeOps * ops() const noexcept</div><div class="ttdoc">获取 TypeOps 指针（未设置类型时返回 nullptr）</div><div class="ttdef"><b>定义</b> VariantVector.hpp:123</div></div>

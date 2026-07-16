@@ -136,7 +136,7 @@ $(function(){initNavTree('ChatMessage_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1ChatMessage.html#a1bd970b3c636a2f1ea2fc69409116529">   60</a></span>    <a class="code hl_function" href="classast_1_1ChatMessage.html#a1bd970b3c636a2f1ea2fc69409116529">ChatMessage</a>(<a class="code hl_enumeration" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719">EChatRole</a> role, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> content)</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        : role_(role), content_(content) </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        : role_(role), name_(), content_(content), reasoningContent_(), toolCallId_(), toolCalls_()</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {}</div>
 </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
@@ -208,11 +208,11 @@ $(function(){initNavTree('ChatMessage_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <a class="code hl_enumeration" href="namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719">EChatRole</a>        role_{EChatRole::eUser};           </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    std::string      name_;                             </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    std::string      content_;                          </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    std::string      reasoningContent_;                 </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    std::string      toolCallId_;                       </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    JsonValue        toolCalls_;                        </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    std::string      name_{};                            </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    std::string      content_{};                         </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    std::string      reasoningContent_{};                </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    std::string      toolCallId_{};                      </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    JsonValue        toolCalls_{};                       </div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>};</div>
 </div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>

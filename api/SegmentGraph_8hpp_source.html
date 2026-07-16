@@ -123,7 +123,7 @@ $(function(){initNavTree('SegmentGraph_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    errc_t <a class="code hl_function" href="classast_1_1Segment.html#a081cf5c764b36a5f2f2eb994fc3f68a7">execute</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1SegmentGraph.html#a0fb1b41a7b3dfa6d0de2fe56f08925ef">   46</a></span>    std::vector&lt;HMissionCommand&gt; <a class="code hl_variable" href="classast_1_1SegmentGraph.html#a0fb1b41a7b3dfa6d0de2fe56f08925ef">commands_</a>;     </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1SegmentGraph.html#a0fb1b41a7b3dfa6d0de2fe56f08925ef">   46</a></span>    std::vector&lt;HMissionCommand&gt; commands_{};     </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
 </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
@@ -132,7 +132,6 @@ $(function(){initNavTree('SegmentGraph_8hpp_source.html',''); initResizable(true
 <div class="ttc" id="aSegment_8hpp_html"><div class="ttname"><a href="Segment_8hpp.html">Segment.hpp</a></div></div>
 <div class="ttc" id="aSequence_8hpp_html"><div class="ttname"><a href="Sequence_8hpp.html">Sequence.hpp</a></div></div>
 <div class="ttc" id="aclassast_1_1SegmentGraph_html"><div class="ttname"><a href="classast_1_1SegmentGraph.html">ast::SegmentGraph</a></div><div class="ttdoc">轨道段框图，用类似simulink的框图描述复杂、多航天的航天任务中的轨道任务段</div><div class="ttdef"><b>定义</b> SegmentGraph.hpp:37</div></div>
-<div class="ttc" id="aclassast_1_1SegmentGraph_html_a0fb1b41a7b3dfa6d0de2fe56f08925ef"><div class="ttname"><a href="classast_1_1SegmentGraph.html#a0fb1b41a7b3dfa6d0de2fe56f08925ef">ast::SegmentGraph::commands_</a></div><div class="ttdeci">std::vector&lt; HMissionCommand &gt; commands_</div><div class="ttdoc">任务命令序列</div><div class="ttdef"><b>定义</b> SegmentGraph.hpp:46</div></div>
 <div class="ttc" id="aclassast_1_1Segment_html"><div class="ttname"><a href="classast_1_1Segment.html">ast::Segment</a></div><div class="ttdoc">轨道段（虚基类），用于描述任务序列中的轨道段，例如初始状态段、轨道机动段、轨道预报段等</div><div class="ttdef"><b>定义</b> Segment.hpp:45</div></div>
 <div class="ttc" id="aclassast_1_1Segment_html_a081cf5c764b36a5f2f2eb994fc3f68a7"><div class="ttname"><a href="classast_1_1Segment.html#a081cf5c764b36a5f2f2eb994fc3f68a7">ast::Segment::execute</a></div><div class="ttdeci">virtual errc_t execute() override=0</div><div class="ttdoc">执行任务</div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -288,7 +288,7 @@ $(function(){initNavTree('FileSystemSimple_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            <span class="keywordflow">return</span> (path_);</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        }</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        string_type path_;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        string_type path_{};</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    };</div>
 </div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
@@ -340,7 +340,7 @@ $(function(){initNavTree('FileSystemSimple_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        AST_UTIL_API</div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <a class="code hl_class" href="classast_1_1fs__simple_1_1file__status.html">file_status</a> status() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        _AST_FS <a class="code hl_class" href="classast_1_1fs__simple_1_1path.html">path</a> path_;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        _AST_FS <a class="code hl_class" href="classast_1_1fs__simple_1_1path.html">path</a> path_{};</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    };</div>
 </div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
@@ -349,7 +349,7 @@ $(function(){initNavTree('FileSystemSimple_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="classast_1_1fs__simple_1_1directory__iterator.html">  259</a></span>    <span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1fs__simple_1_1directory__iterator.html">directory_iterator</a></div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    {</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <a class="code hl_class" href="classast_1_1fs__simple_1_1directory__iterator.html">directory_iterator</a>() : impl_(<span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <a class="code hl_class" href="classast_1_1fs__simple_1_1directory__iterator.html">directory_iterator</a>() : impl_(<span class="keyword">nullptr</span>), entry_()</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        {}</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1fs__simple_1_1directory__iterator.html">directory_iterator</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1fs__simple_1_1path.html">path</a>&amp; p);</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        <a class="code hl_class" href="classast_1_1fs__simple_1_1directory__iterator.html">~directory_iterator</a>() = <span class="keywordflow">default</span>;</div>
@@ -451,8 +451,8 @@ $(function(){initNavTree('FileSystemSimple_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
 <div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aUnit_8cpp_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:435</div></div>
-<div class="ttc" id="aUnit_8cpp_html_a8c7d84c2b89aa838db8477fc949f8e08"><div class="ttname"><a href="Unit_8cpp.html#a8c7d84c2b89aa838db8477fc949f8e08">ast::units::none</a></div><div class="ttdeci">Unit none</div><div class="ttdoc">无单位</div><div class="ttdef"><b>定义</b> Unit.cpp:421</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:436</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a8c7d84c2b89aa838db8477fc949f8e08"><div class="ttname"><a href="Unit_8cpp.html#a8c7d84c2b89aa838db8477fc949f8e08">ast::units::none</a></div><div class="ttdeci">Unit none</div><div class="ttdoc">无单位</div><div class="ttdef"><b>定义</b> Unit.cpp:422</div></div>
 <div class="ttc" id="aclassast_1_1fs__simple_1_1directory__entry_html"><div class="ttname"><a href="classast_1_1fs__simple_1_1directory__entry.html">ast::fs_simple::directory_entry</a></div><div class="ttdef"><b>定义</b> FileSystemSimple.hpp:241</div></div>
 <div class="ttc" id="aclassast_1_1fs__simple_1_1directory__iterator_html"><div class="ttname"><a href="classast_1_1fs__simple_1_1directory__iterator.html">ast::fs_simple::directory_iterator</a></div><div class="ttdef"><b>定义</b> FileSystemSimple.hpp:260</div></div>
 <div class="ttc" id="aclassast_1_1fs__simple_1_1file__status_html"><div class="ttname"><a href="classast_1_1fs__simple_1_1file__status.html">ast::fs_simple::file_status</a></div><div class="ttdef"><b>定义</b> FileSystemSimple.hpp:223</div></div>
@@ -460,7 +460,7 @@ $(function(){initNavTree('FileSystemSimple_8hpp_source.html',''); initResizable(
 <div class="ttc" id="aclassast_1_1fs__simple_1_1path_html"><div class="ttname"><a href="classast_1_1fs__simple_1_1path.html">ast::fs_simple::path</a></div><div class="ttdef"><b>定义</b> FileSystemSimple.hpp:67</div></div>
 <div class="ttc" id="aclassast_1_1fs__simple_1_1path_html_ab3ec59766cd251d311a99d6ba9aa32a3"><div class="ttname"><a href="classast_1_1fs__simple_1_1path.html#ab3ec59766cd251d311a99d6ba9aa32a3">ast::fs_simple::path::stem</a></div><div class="ttdeci">path stem() const</div><div class="ttdoc">获取文件名的无扩展名部分</div><div class="ttdef"><b>定义</b> FileSystemSimple.hpp:130</div></div>
 <div class="ttc" id="anamespaceast_html_a76bc86e8c16de763ba5587da00e48d10"><div class="ttname"><a href="namespaceast.html#a76bc86e8c16de763ba5587da00e48d10">ast::operator/</a></div><div class="ttdeci">constexpr EDimension operator/(EDimension dim1, EDimension dim2) noexcept</div><div class="ttdoc">量纲除法运算符</div><div class="ttdef"><b>定义</b> Dimension.hpp:232</div></div>
-<div class="ttc" id="astructast_1_1fs__simple_1_1directory__iterator_1_1impl_html"><div class="ttname"><a href="structast_1_1fs__simple_1_1directory__iterator_1_1impl.html">ast::fs_simple::directory_iterator::impl</a></div><div class="ttdef"><b>定义</b> FileSystemSimple.cpp:133</div></div>
+<div class="ttc" id="astructast_1_1fs__simple_1_1directory__iterator_1_1impl_html"><div class="ttname"><a href="structast_1_1fs__simple_1_1directory__iterator_1_1impl.html">ast::fs_simple::directory_iterator::impl</a></div><div class="ttdef"><b>定义</b> FileSystemSimple.cpp:136</div></div>
 <div class="ttc" id="astructast_1_1fs__simple_1_1space__info_html"><div class="ttname"><a href="structast_1_1fs__simple_1_1space__info.html">ast::fs_simple::space_info</a></div><div class="ttdef"><b>定义</b> FileSystemSimple.hpp:332</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

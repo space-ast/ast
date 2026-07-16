@@ -234,7 +234,7 @@ $(function(){initNavTree('DifferentialCorrectorProfile_8hpp_source.html',''); in
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <a class="code hl_class" href="classast_1_1ShooterResult.html">ShooterResult</a>* getResult(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_class" href="classast_1_1ShooterControl.html">ShooterControl</a>* getControl(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> name) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;Command&gt;</a> relatedCommand_;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classast_1_1WeakPtr.html">WeakPtr&lt;Command&gt;</a> relatedCommand_{};</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <a class="code hl_enumeration" href="namespaceast.html#afdad28878a123864652dd130092859d5">EConvergenceCriteria</a> convergenceCriteria_{EConvergenceCriteria::eEqualityConstraintsWithinTolerance};</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <a class="code hl_enumeration" href="namespaceast.html#a506f55f4c4e8b79920188af9804ad018">EFiniteDifferenceMethod</a> finiteDifferenceMethod_{EFiniteDifferenceMethod::eForwardDifference};</div>
@@ -251,10 +251,10 @@ $(function(){initNavTree('DifferentialCorrectorProfile_8hpp_source.html',''); in
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">bool</span> useHomotopy_ = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordtype">bool</span> useLineSearch_ = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    ControlVector controls_;</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    ResultVector results_;</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    TargeterGraphVector graphs_;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;ScriptingToolProfile&gt;</a> scriptingTool_;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    ControlVector controls_{};</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    ResultVector results_{};</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    TargeterGraphVector graphs_{};</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;ScriptingToolProfile&gt;</a> scriptingTool_{};</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>};</div>
 </div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>

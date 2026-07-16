@@ -117,23 +117,21 @@ $(function(){initNavTree('ReportSection_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1ReportSection.html">   40</a></span><span class="keyword">class </span>AST_REPORT_API <a class="code hl_class" href="classast_1_1ReportSection.html">ReportSection</a></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1ReportSection.html#a754c133f471fdf043a773b4188812695">   43</a></span>    std::string <a class="code hl_variable" href="classast_1_1ReportSection.html#a754c133f471fdf043a773b4188812695">name_</a>;             </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1ReportSection.html#a9f0e91b9be924b903260979190b83ba9">   44</a></span>    std::string <a class="code hl_variable" href="classast_1_1ReportSection.html#a9f0e91b9be924b903260979190b83ba9">className_</a>;        </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classast_1_1ReportSection.html#a754c133f471fdf043a773b4188812695">   43</a></span>    std::string name_{};             </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1ReportSection.html#a9f0e91b9be924b903260979190b83ba9">   44</a></span>    std::string className_{};        </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span>        nameInTitle_ = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1ReportSection.html#a6c115b416c9dadc248b2606e7cf8a394">   46</a></span>    <a class="code hl_enumeration" href="namespaceast.html#a9c5e3a291abba7aa635c81b30cddd90b">EExpandMethod</a> expandMethod_ = EExpandMethod::eNone; </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">int</span>         propMask_     = 2;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">bool</span>        showIntervals_ = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">int</span>         numIntervals_  = 0;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::vector&lt;ReportLine&gt; lines_;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::vector&lt;ReportLine&gt; lines_{};</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
 </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aReportLine_8hpp_html"><div class="ttname"><a href="ReportLine_8hpp.html">ReportLine.hpp</a></div><div class="ttdoc">报表数据行定义</div></div>
 <div class="ttc" id="aclassast_1_1ReportSection_html"><div class="ttname"><a href="classast_1_1ReportSection.html">ast::ReportSection</a></div><div class="ttdoc">报表数据段</div><div class="ttdef"><b>定义</b> ReportSection.hpp:41</div></div>
-<div class="ttc" id="aclassast_1_1ReportSection_html_a754c133f471fdf043a773b4188812695"><div class="ttname"><a href="classast_1_1ReportSection.html#a754c133f471fdf043a773b4188812695">ast::ReportSection::name_</a></div><div class="ttdeci">std::string name_</div><div class="ttdoc">段名称（如 &quot;Section 1&quot;）</div><div class="ttdef"><b>定义</b> ReportSection.hpp:43</div></div>
-<div class="ttc" id="aclassast_1_1ReportSection_html_a9f0e91b9be924b903260979190b83ba9"><div class="ttname"><a href="classast_1_1ReportSection.html#a9f0e91b9be924b903260979190b83ba9">ast::ReportSection::className_</a></div><div class="ttdeci">std::string className_</div><div class="ttdoc">对象类型名（如 &quot;Satellite&quot;, &quot;Facility&quot;）</div><div class="ttdef"><b>定义</b> ReportSection.hpp:44</div></div>
 <div class="ttc" id="anamespaceast_html_a9c5e3a291abba7aa635c81b30cddd90b"><div class="ttname"><a href="namespaceast.html#a9c5e3a291abba7aa635c81b30cddd90b">ast::EExpandMethod</a></div><div class="ttdeci">EExpandMethod</div><div class="ttdoc">Section 展开方式</div><div class="ttdef"><b>定义</b> AstReportGlobal.hpp:84</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

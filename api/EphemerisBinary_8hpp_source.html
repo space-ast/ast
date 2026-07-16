@@ -150,16 +150,16 @@ $(function(){initNavTree('EphemerisBinary_8hpp_source.html',''); initResizable(t
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>            interval_{};              </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">double</span>              averageStep_{60.0};       </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">size_t</span>              pointCount_{0};           </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    std::string         filepath_;                </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    std::string         frameName_;               </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Frame&gt;</a> frame_;              </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    std::string         filepath_{};               </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    std::string         frameName_{};              </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;Frame&gt;</a> frame_{};             </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// 固定窗口缓存</span></div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> HEADER_BASE = 56;    <span class="comment">// 基础头大小 (不含变长帧名)</span></div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> POINT_BYTES = 56;    <span class="comment">// 7 doubles per point</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">mutable</span> std::vector&lt;double&gt;   winTimes_;     </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">mutable</span> std::vector&lt;Vector3d&gt; winPos_;       </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">mutable</span> std::vector&lt;Vector3d&gt; winVel_;       </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">mutable</span> std::vector&lt;double&gt;   winTimes_{};    </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">mutable</span> std::vector&lt;Vector3d&gt; winPos_{};      </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">mutable</span> std::vector&lt;Vector3d&gt; winVel_{};      </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">mutable</span> <span class="keywordtype">size_t</span> winStart_{0};                  </div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>};</div>
 </div>
