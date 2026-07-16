@@ -58,7 +58,7 @@ public:
     /// @param role 消息角色
     /// @param content 消息内容
     ChatMessage(EChatRole role, StringView content)
-        : role_(role), content_(content) 
+        : role_(role), content_(content), name_(), reasoningContent_(), toolCallId_(), toolCalls_()
     {}
 
     /// @brief 析构函数

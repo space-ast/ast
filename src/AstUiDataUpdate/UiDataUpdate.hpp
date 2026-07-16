@@ -37,6 +37,9 @@ public:
     explicit UiDataUpdate(QWidget* parent = nullptr);
     ~UiDataUpdate() override;
 
+    UiDataUpdate(const UiDataUpdate&) = delete;
+    UiDataUpdate& operator=(const UiDataUpdate&) = delete;
+
     /// @brief 取消所有进行中的更新任务（关闭对话框时调用）
     void reject() override;
 
@@ -52,7 +55,7 @@ private:
     void refreshTable();
     void setRowStatus(int row, const DataUpdater::DataFileEntry& entry);
 
-    DataUpdater         updater_;
+    DataUpdater         updater_{};
     std::atomic<bool>   cancelPending_{false};
     QTableWidget*  table_        = nullptr;
     QPushButton*   refreshBtn_   = nullptr;

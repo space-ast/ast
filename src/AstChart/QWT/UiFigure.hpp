@@ -55,6 +55,8 @@ public:
     explicit UiFigure(matplot::figure_type* pltfigure, QWidget* parent = nullptr);
 
     ~UiFigure() override;
+    UiFigure(const UiFigure&) = delete;
+    UiFigure& operator=(const UiFigure&) = delete;
 
     /// @brief 获取内部的 QwtFigure
     QwtFigure* qwtfigure() const { return qwtfigure_; }

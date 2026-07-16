@@ -51,6 +51,8 @@ public:
 
     /// @brief 析构函数
     ~UiPilotConsole() override;
+    UiPilotConsole(const UiPilotConsole&) = delete;
+    UiPilotConsole& operator=(const UiPilotConsole&) = delete;
 
     /// @brief 向输出区域追加文本
     void appendOutput(const QString& text);

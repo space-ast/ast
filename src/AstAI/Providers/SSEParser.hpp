@@ -74,15 +74,15 @@ private:
 
     ChatEventHandler& handler_;
     bool thoughtCompleted_{false};   // 是否已完成推理/思考内容
-    std::string       buffer_;
-    std::string       error_;
+    std::string       buffer_{};
+    std::string       error_{};
 
-    std::string id_;
-    std::string model_;
-    std::string accumulatedContent_;
-    std::string accumulatedReasoning_;
-    std::string finishReason_;
-    std::map<int, AccumulatedToolCall> toolCallsByIndex_;
+    std::string id_{};
+    std::string model_{};
+    std::string accumulatedContent_{};
+    std::string accumulatedReasoning_{};
+    std::string finishReason_{};
+    std::map<int, AccumulatedToolCall> toolCallsByIndex_{};
 };
 
 

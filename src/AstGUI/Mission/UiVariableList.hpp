@@ -39,6 +39,8 @@ class AST_GUI_API UiVariableList : public QWidget
     Q_OBJECT
 public:
     explicit UiVariableList(QWidget* parent = nullptr);
+    UiVariableList(const UiVariableList&) = delete;
+    UiVariableList& operator=(const UiVariableList&) = delete;
 
     /// @brief 设置要编辑的变量列表（裸指针，不持有所有权）
     /// @param variableList 要编辑的变量列表，被owner对象持有

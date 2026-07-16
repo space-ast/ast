@@ -42,6 +42,8 @@ public:
     explicit UiInitialState(Object* object, QWidget* parent = nullptr);
     explicit UiInitialState(QWidget* parent = nullptr);
     ~UiInitialState() override;
+    UiInitialState(const UiInitialState&) = delete;
+    UiInitialState& operator=(const UiInitialState&) = delete;
 
     void setInitialState(InitialState* state);
     InitialState* getInitialState() const;

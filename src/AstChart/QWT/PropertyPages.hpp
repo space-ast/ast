@@ -29,6 +29,8 @@ class ColorButton : public QPushButton {
     Q_OBJECT
 public:
     explicit ColorButton(QWidget* parent = nullptr);
+    ColorButton(const ColorButton&) = delete;
+    ColorButton& operator=(const ColorButton&) = delete;
     QColor color() const { return color_; }
     void setColor(const QColor& c);
 signals:

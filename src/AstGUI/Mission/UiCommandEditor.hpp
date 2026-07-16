@@ -42,6 +42,8 @@ class AST_GUI_API UiCommandEditor : public QStackedWidget
 public:
     explicit UiCommandEditor(QWidget* parent = nullptr);
     ~UiCommandEditor() override;
+    UiCommandEditor(const UiCommandEditor&) = delete;
+    UiCommandEditor& operator=(const UiCommandEditor&) = delete;
 
     /// @brief 编辑指定命令 — 根据 RTTI 类型切换编辑器
     void editCommand(MissionCommand* cmd);

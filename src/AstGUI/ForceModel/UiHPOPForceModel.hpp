@@ -54,6 +54,8 @@ class AST_GUI_API UiHPOPForceModel: public UiObject
 {
     Q_OBJECT
 public:
+    UiHPOPForceModel(const UiHPOPForceModel&) = delete;
+    UiHPOPForceModel& operator=(const UiHPOPForceModel&) = delete;
     UiHPOPForceModel(Object* object, QWidget *parent = nullptr);
     UiHPOPForceModel(QWidget *parent = nullptr);
     ~UiHPOPForceModel() = default;

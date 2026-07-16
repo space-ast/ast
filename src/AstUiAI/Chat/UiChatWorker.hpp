@@ -55,6 +55,9 @@ public:
 
     ~UiChatWorker() override;
 
+    UiChatWorker(const UiChatWorker&) = delete;
+    UiChatWorker& operator=(const UiChatWorker&) = delete;
+
     /// @brief 获取本轮对话的最终响应
     const std::string& response() const { return response_; }
 

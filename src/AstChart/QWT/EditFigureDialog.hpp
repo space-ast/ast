@@ -31,6 +31,8 @@ class AST_CHART_API EditFigureDialog : public QDialog {
     Q_OBJECT
 public:
     explicit EditFigureDialog(matplot::figure_type* figure, QWidget* parent = nullptr);
+    EditFigureDialog(const EditFigureDialog&) = delete;
+    EditFigureDialog& operator=(const EditFigureDialog&) = delete;
 
     void selectPlotItem(int axesIndex, int itemIndex);
 

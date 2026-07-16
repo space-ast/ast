@@ -53,6 +53,8 @@ public:
     explicit UiChatPanel(ChatSession* session, QWidget* parent = nullptr);
 
     ~UiChatPanel() override;
+    UiChatPanel(const UiChatPanel&) = delete;
+    UiChatPanel& operator=(const UiChatPanel&) = delete;
 
     /// @brief 获取关联的聊天会话
     ChatSession* session() const { return session_; }

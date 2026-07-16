@@ -42,6 +42,8 @@ class AST_UIPILOT_API PilotRecorder : public QObject
 public:
     explicit PilotRecorder(PilotAgent* agent, QObject* parent = nullptr);
     ~PilotRecorder() override;
+    PilotRecorder(const PilotRecorder&) = delete;
+    PilotRecorder& operator=(const PilotRecorder&) = delete;
 
     // ---- 生命周期 ----
     void start();

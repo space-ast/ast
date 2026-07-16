@@ -38,6 +38,8 @@ class AST_GUI_API UiBurnEditor : public QWidget
 public:
     explicit UiBurnEditor(QWidget* parent = nullptr);
     ~UiBurnEditor() override;
+    UiBurnEditor(const UiBurnEditor&) = delete;
+    UiBurnEditor& operator=(const UiBurnEditor&) = delete;
 
     void setBurn(Burn* burn);
     void clear();

@@ -37,6 +37,9 @@ public:
 
     ~UiObjectTree() override;
 
+    UiObjectTree(const UiObjectTree&) = delete;
+    UiObjectTree& operator=(const UiObjectTree&) = delete;
+
     /// @brief 重建对象树，根据当前根节点设置确定显示范围
     void refresh();
 
@@ -75,7 +78,7 @@ signals:
     void objectDoubleClicked(Object* object);
 
 protected:
-    TreeBuildOptions buildOptions_; ///< 对象树构建选项
+    TreeBuildOptions buildOptions_{}; ///< 对象树构建选项
 
 private:
     UiObjectTreeItem* rootItem_ = nullptr;

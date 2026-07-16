@@ -47,13 +47,13 @@ protected:
     double rightAscension_ = 0.0;
     double trueAnomaly_ = 0.0;
     double timeStep_ = 0.0;
-    std::string orbElemCoordSys_;
-    SharedPtr<Axes> orbElemCoordAxes_;
-    std::string propagationCoordSys_;
-    SharedPtr<Axes> propagationCoordAxes_;
+    std::string orbElemCoordSys_{};
+    SharedPtr<Axes> orbElemCoordAxes_{};
+    std::string propagationCoordSys_{};
+    SharedPtr<Axes> propagationCoordAxes_{};
     int displayCoordType_ = 0;
-    std::string displayCoordSys_;
-    SharedPtr<Axes> displayCoordAxes_;
+    std::string displayCoordSys_{};
+    SharedPtr<Axes> displayCoordAxes_{};
 };
 
 

@@ -89,7 +89,7 @@ public:
 
     /// @brief 填充状态量数据
     /// @param y 状态量数据指针
-    void setStateData(const double* y) { std::copy(y, y + this->size(), state_.begin()); }
+    void setStateData(const double* y) { state_.assign(y, y + this->size()); }
 
     /// @brief 获取状态量导数数据指针
     /// @param dydt 状态量导数数据指针

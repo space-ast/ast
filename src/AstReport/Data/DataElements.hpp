@@ -136,8 +136,8 @@ public:
     }
     
 private:
-    std::vector<DataElement> elements_;                             ///< 数据元素列表
-    std::vector<std::pair<std::string, std::string>> aliasMap_;     ///< 别名映射
+    std::vector<DataElement> elements_{};                            ///< 数据元素列表
+    std::vector<std::pair<std::string, std::string>> aliasMap_{};    ///< 别名映射
 };
 
 const int i = sizeof(DataElements);

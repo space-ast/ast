@@ -48,6 +48,8 @@ public:
     explicit UiStateKeplerian(Object* object, QWidget *parent = nullptr);
     explicit UiStateKeplerian(QWidget *parent = nullptr);
     ~UiStateKeplerian() = default;
+    UiStateKeplerian(const UiStateKeplerian&) = delete;
+    UiStateKeplerian& operator=(const UiStateKeplerian&) = delete;
 
     StateKeplerian* getStateKeplerian() const;
     void setStateKeplerian(StateKeplerian* state);

@@ -37,6 +37,8 @@ class AST_GUI_API UiFilePath: public QWidget
     Q_OBJECT
 
 public:
+    UiFilePath(const UiFilePath&) = delete;
+    UiFilePath& operator=(const UiFilePath&) = delete;
     UiFilePath(QWidget* parent = nullptr);
     
     /// @brief 设置文件路径
@@ -67,8 +69,8 @@ private slots:
     void onEditingFinished();
 private:
     UiValueEdit* lineEdit_{nullptr};
-    QString currentPath_;
-    QString filter_;
+    QString currentPath_{};
+    QString filter_{};
 };
 
 /*! @} */

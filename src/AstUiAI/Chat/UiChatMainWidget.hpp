@@ -40,6 +40,8 @@ public:
     explicit UiChatMainWidget(ChatSession* session, QWidget* parent = nullptr);
 
     ~UiChatMainWidget() override;
+    UiChatMainWidget(const UiChatMainWidget&) = delete;
+    UiChatMainWidget& operator=(const UiChatMainWidget&) = delete;
 
     /// @brief 获取聊天面板
     UiChatPanel* chatPanel() const { return chatPanel_; }

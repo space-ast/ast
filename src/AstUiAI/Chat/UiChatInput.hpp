@@ -34,6 +34,9 @@ public:
     explicit UiChatInput(QWidget* parent = nullptr);
     ~UiChatInput() override;
 
+    UiChatInput(const UiChatInput&) = delete;
+    UiChatInput& operator=(const UiChatInput&) = delete;
+
     /// @brief 设置发送按钮是否可用
     void setSendEnabled(bool enabled);
 

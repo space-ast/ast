@@ -31,6 +31,8 @@ public:
     UiODEVarStepIntegrator(Object* object, QWidget *parent = nullptr);
     UiODEVarStepIntegrator(QWidget *parent = nullptr);
     ~UiODEVarStepIntegrator() = default;
+    UiODEVarStepIntegrator(const UiODEVarStepIntegrator&) = delete;
+    UiODEVarStepIntegrator& operator=(const UiODEVarStepIntegrator&) = delete;
 
     ODEVarStepIntegrator* getODEVarStepIntegrator() const;
     void setODEVarStepIntegrator(ODEVarStepIntegrator* integrator);

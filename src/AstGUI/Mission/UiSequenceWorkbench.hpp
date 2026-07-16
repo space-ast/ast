@@ -45,6 +45,8 @@ public:
     explicit UiSequenceWorkbench(QWidget* parent = nullptr);
     explicit UiSequenceWorkbench(Object* sequence, QWidget* parent = nullptr);
     ~UiSequenceWorkbench() override;
+    UiSequenceWorkbench(const UiSequenceWorkbench&) = delete;
+    UiSequenceWorkbench& operator=(const UiSequenceWorkbench&) = delete;
 
     /// @brief 设置外部 MainSequence（裸指针，不持有所有权）
     void setSequence(Sequence* sequence);

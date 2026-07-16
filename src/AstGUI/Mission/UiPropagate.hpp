@@ -42,6 +42,8 @@ public:
     explicit UiPropagate(Object* object, QWidget* parent = nullptr);
     explicit UiPropagate(QWidget* parent = nullptr);
     ~UiPropagate() override;
+    UiPropagate(const UiPropagate&) = delete;
+    UiPropagate& operator=(const UiPropagate&) = delete;
 
     void setPropagate(Propagate* prop);
     Propagate* getPropagate() const;

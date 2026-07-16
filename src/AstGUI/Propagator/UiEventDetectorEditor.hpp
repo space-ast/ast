@@ -35,6 +35,8 @@ class AST_GUI_API UiEventDetectorEditor : public QStackedWidget
 public:
     explicit UiEventDetectorEditor(QWidget* parent = nullptr);
     ~UiEventDetectorEditor() override;
+    UiEventDetectorEditor(const UiEventDetectorEditor&) = delete;
+    UiEventDetectorEditor& operator=(const UiEventDetectorEditor&) = delete;
 
     void setDetector(EventDetector* det);
     EventDetector* getDetector() const;

@@ -41,6 +41,8 @@ public:
     explicit UiEventDetectorList(Object* object, QWidget* parent = nullptr);
     explicit UiEventDetectorList(QWidget* parent = nullptr);
     ~UiEventDetectorList() override;
+    UiEventDetectorList(const UiEventDetectorList&) = delete;
+    UiEventDetectorList& operator=(const UiEventDetectorList&) = delete;
 
     void setPropagate(Propagate* prop);
     Propagate* getPropagate() const;

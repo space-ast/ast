@@ -39,6 +39,8 @@ class AST_GUI_API UiODEIntegratorEditor : public QWidget
 public:
     explicit UiODEIntegratorEditor(QWidget* parent = nullptr);
     ~UiODEIntegratorEditor() override;
+    UiODEIntegratorEditor(const UiODEIntegratorEditor&) = delete;
+    UiODEIntegratorEditor& operator=(const UiODEIntegratorEditor&) = delete;
 
     void setIntegrator(ODEIntegrator* integrator);
     ODEIntegrator* getIntegrator() const;

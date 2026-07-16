@@ -103,8 +103,8 @@ protected:
     }
 protected:
     size_t currentDepth_{0};                ///< 当前解析深度，1表示根元素
-    std::vector<ParseContext> stack_;       ///< 解析上下文栈
-    SharedPtr<Value> value_;                ///< 当前解析到的值
+    std::vector<ParseContext> stack_{};      ///< 解析上下文栈
+    SharedPtr<Value> value_{};               ///< 当前解析到的值
 };
 
 class ValXMLSax: public ValXMLSaxBase

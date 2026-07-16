@@ -37,6 +37,8 @@ class AST_GUI_API UiSweepVariableList : public QWidget
     Q_OBJECT
 public:
     explicit UiSweepVariableList(QWidget* parent = nullptr);
+    UiSweepVariableList(const UiSweepVariableList&) = delete;
+    UiSweepVariableList& operator=(const UiSweepVariableList&) = delete;
 
     /// @brief 绑定 SweepStudy，用于读写变量
     void setStudy(SweepStudy* study);

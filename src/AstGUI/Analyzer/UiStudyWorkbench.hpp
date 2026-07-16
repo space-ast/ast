@@ -42,6 +42,9 @@ class AST_GUI_API UiStudyWorkbench : public QWidget
 public:
     explicit UiStudyWorkbench(QWidget* parent = nullptr);
 
+    UiStudyWorkbench(const UiStudyWorkbench&) = delete;
+    UiStudyWorkbench& operator=(const UiStudyWorkbench&) = delete;
+
     /// @brief 绑定要编辑的 StudyWorkbench
     void setStudyWorkbench(StudyWorkbench* analyzer);
 
@@ -55,16 +58,16 @@ private:
     void setupUi();
     void rebuildCommandEditor();
 
-    WeakPtr<StudyWorkbench> analyzer_;
+    WeakPtr<StudyWorkbench> analyzer_{};
 
-    QSplitter*           varSplitter_;
-    UiExpressionBrowser* expressionBrowser_;
-    QTabWidget*          tabWidget_;
-    QSplitter*           splitter_;
-    UiVariableList*      inputsEditor_;
-    UiVariableList*      outputsEditor_;
-    QStackedWidget*      commandStack_;
-    QLabel*              placeholderLabel_;
+    QSplitter*           varSplitter_{};
+    UiExpressionBrowser* expressionBrowser_{};
+    QTabWidget*          tabWidget_{};
+    QSplitter*           splitter_{};
+    UiVariableList*      inputsEditor_{};
+    UiVariableList*      outputsEditor_{};
+    QStackedWidget*      commandStack_{};
+    QLabel*              placeholderLabel_{};
 };
 
 AST_NAMESPACE_END

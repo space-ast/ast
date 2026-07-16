@@ -51,6 +51,8 @@ public:
                             QWidget* parent = nullptr);
 
     ~UiToolCallCard() override;
+    UiToolCallCard(const UiToolCallCard&) = delete;
+    UiToolCallCard& operator=(const UiToolCallCard&) = delete;
 
     /// @brief 设置工具调用状态
     void setState(EToolCallState state);

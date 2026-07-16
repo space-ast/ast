@@ -42,6 +42,8 @@ class AST_GUI_API UiSweepStudy : public QWidget
     Q_OBJECT
 public:
     explicit UiSweepStudy(QWidget* parent = nullptr);
+    UiSweepStudy(const UiSweepStudy&) = delete;
+    UiSweepStudy& operator=(const UiSweepStudy&) = delete;
 
     /// @brief 绑定要编辑的 SweepStudy
     void setAnalyzer(SweepStudy* analyzer);

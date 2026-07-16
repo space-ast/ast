@@ -42,6 +42,9 @@ public:
     /// @param parent   父窗口
     explicit UiWorkbenchExprPicker(StudyWorkbench* workbench, QWidget* parent = nullptr);
 
+    UiWorkbenchExprPicker(const UiWorkbenchExprPicker&) = delete;
+    UiWorkbenchExprPicker& operator=(const UiWorkbenchExprPicker&) = delete;
+
     /// @brief 获取用户选中的表达式（Variable 即 Expr）
     Expr* selectedExpr() const { return selectedExpr_; }
 

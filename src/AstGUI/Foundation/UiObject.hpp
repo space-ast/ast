@@ -49,7 +49,7 @@ public:
     /// @param object 关联的对象指针
     void setObject(Object* object);
 private:
-    WeakPtr<Object> object_;
+    WeakPtr<Object> object_{};
 };
 
 

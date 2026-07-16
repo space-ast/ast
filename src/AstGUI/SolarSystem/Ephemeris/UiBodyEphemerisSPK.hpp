@@ -41,6 +41,8 @@ public:
     UiBodyEphemerisSPK(Object* object, QWidget *parent = nullptr);
     UiBodyEphemerisSPK(QWidget *parent = nullptr);
     ~UiBodyEphemerisSPK() = default;
+    UiBodyEphemerisSPK(const UiBodyEphemerisSPK&) = delete;
+    UiBodyEphemerisSPK& operator=(const UiBodyEphemerisSPK&) = delete;
 
     void refreshUi();
     void apply();

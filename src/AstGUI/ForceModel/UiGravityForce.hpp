@@ -25,6 +25,8 @@ public:
     UiGravityForce(Object* object, QWidget *parent = nullptr);
     UiGravityForce(QWidget *parent = nullptr);
     ~UiGravityForce() = default;
+    UiGravityForce(const UiGravityForce&) = delete;
+    UiGravityForce& operator=(const UiGravityForce&) = delete;
 
     GravityForce* getGravityForce() const;
     void setGravityForce(GravityForce* gravity);

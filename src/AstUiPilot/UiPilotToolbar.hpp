@@ -33,6 +33,8 @@ public:
     explicit UiPilotToolbar(PilotCommander* commander, PilotSession* session,
                             PilotRecorder* recorder, QWidget* parent = nullptr);
     ~UiPilotToolbar() override;
+    UiPilotToolbar(const UiPilotToolbar&) = delete;
+    UiPilotToolbar& operator=(const UiPilotToolbar&) = delete;
 
 Q_SIGNALS:
     void consoleToggleRequested();

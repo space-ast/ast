@@ -40,7 +40,7 @@ class DataGroupAttitude : public DataGroupTimeVar
 public:
     struct Data
     {
-        KinematicRotation rotation;
+        KinematicRotation rotation{};
     };
     static DataElements Elements();
 

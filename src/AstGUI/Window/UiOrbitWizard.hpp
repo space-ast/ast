@@ -43,6 +43,8 @@ class AST_GUI_API UiOrbitWizard : public QDialog
 public:
     explicit UiOrbitWizard(QWidget *parent = nullptr);
     ~UiOrbitWizard();
+    UiOrbitWizard(const UiOrbitWizard&) = delete;
+    UiOrbitWizard& operator=(const UiOrbitWizard&) = delete;
 
 private:
     void setupUi();

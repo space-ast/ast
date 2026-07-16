@@ -36,6 +36,8 @@ class AST_UIAI_API UiChatMessageList : public QWidget
 public:
     explicit UiChatMessageList(QWidget* parent = nullptr);
     ~UiChatMessageList() override;
+    UiChatMessageList(const UiChatMessageList&) = delete;
+    UiChatMessageList& operator=(const UiChatMessageList&) = delete;
 
     /// @brief 追加一条消息
     /// @return 新创建的消息部件指针

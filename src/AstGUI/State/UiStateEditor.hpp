@@ -45,6 +45,8 @@ class AST_GUI_API UiStateEditor : public QWidget
 public:
     explicit UiStateEditor(QWidget* parent = nullptr);
     ~UiStateEditor() override;
+    UiStateEditor(const UiStateEditor&) = delete;
+    UiStateEditor& operator=(const UiStateEditor&) = delete;
 
     /// @brief 设置要编辑的 State，根据 RTTI 类型切换子编辑器
     void setState(State* state);

@@ -61,8 +61,8 @@ private:
     double startValue_{0.0};        ///< 变量的起始值
     double endValue_{0.0};          ///< 变量的结束值
     double stepSize_{0.0};          ///< 分析步长
-    SharedPtr<Expr> expr_;          ///< 遍历表达式
-    std::vector<double> values_;    ///< 值列表
+    SharedPtr<Expr> expr_{};         ///< 遍历表达式
+    std::vector<double> values_{};   ///< 值列表
 };
 
 
@@ -80,8 +80,8 @@ public:
     const std::vector<double>& values() const {return values_;}
 
 private:
-    SharedPtr<Expr> expr_;          ///< 结果表达式
-    std::vector<double> values_;    ///< 约束值列表
+    SharedPtr<Expr> expr_{};          ///< 结果表达式
+    std::vector<double> values_{};    ///< 约束值列表
 };
 
 
@@ -143,9 +143,9 @@ private:
     /// @brief 将步索引转换为各变量索引
     void stepIndexToVarIndices(int stepIndex, std::vector<int>& indices) const;
 
-    VariableList variables_;                            ///< 变量列表
-    OutputList outputs_;                                ///< 输出列表
-    mutable WeakPtr<Command> relatedCommand_;           ///< 关联的执行命令
+    VariableList variables_{};                            ///< 变量列表
+    OutputList outputs_{};                                ///< 输出列表
+    mutable WeakPtr<Command> relatedCommand_{};           ///< 关联的执行命令
 };
 
 /*! @} */

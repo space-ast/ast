@@ -44,6 +44,9 @@ public:
     explicit UiAnalyzerMainWindow(QWidget* parent = nullptr);
     ~UiAnalyzerMainWindow() override;
 
+    UiAnalyzerMainWindow(const UiAnalyzerMainWindow&) = delete;
+    UiAnalyzerMainWindow& operator=(const UiAnalyzerMainWindow&) = delete;
+
     /// @brief 获取内部 UiStudyWorkbench 编辑器
     UiStudyWorkbench* studyWorkbenchEditor() const { return basicEditor_; }
 

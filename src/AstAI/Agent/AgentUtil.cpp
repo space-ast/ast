@@ -45,7 +45,8 @@ namespace{
         {
         }
         PropertyVisitorImplForObjectJson(JsonValue& json, int maxDepth)
-            : json_(json)
+            : internalJson_()
+            , json_(json)
             , maxDepth_(maxDepth)
         {
         }

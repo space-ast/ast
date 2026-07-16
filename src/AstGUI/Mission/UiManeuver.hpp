@@ -37,6 +37,8 @@ public:
     explicit UiManeuver(Object* object, QWidget* parent = nullptr);
     explicit UiManeuver(QWidget* parent = nullptr);
     ~UiManeuver() override;
+    UiManeuver(const UiManeuver&) = delete;
+    UiManeuver& operator=(const UiManeuver&) = delete;
 
     void setManeuver(Maneuver* maneuver);
     Maneuver* getManeuver() const;

@@ -38,6 +38,8 @@ public:
     explicit UiSequence(Object* object, QWidget* parent = nullptr);
     explicit UiSequence(QWidget* parent = nullptr);
     ~UiSequence() override;
+    UiSequence(const UiSequence&) = delete;
+    UiSequence& operator=(const UiSequence&) = delete;
 
     void setSequence(Sequence* seq);
     Sequence* getSequence() const;
@@ -59,6 +61,9 @@ public:
     explicit UiTargeterSequence(Object* object, QWidget* parent = nullptr);
     explicit UiTargeterSequence(QWidget* parent = nullptr);
     ~UiTargeterSequence() override;
+
+    UiTargeterSequence(const UiTargeterSequence&) = delete;
+    UiTargeterSequence& operator=(const UiTargeterSequence&) = delete;
 
     void setTargeterSequence(TargeterSequence* seq);
     TargeterSequence* getTargeterSequence() const;

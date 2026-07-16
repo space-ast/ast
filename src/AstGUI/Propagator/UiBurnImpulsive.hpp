@@ -38,6 +38,8 @@ public:
     explicit UiBurnImpulsive(Object* object, QWidget* parent = nullptr);
     explicit UiBurnImpulsive(QWidget* parent = nullptr);
     ~UiBurnImpulsive() override = default;
+    UiBurnImpulsive(const UiBurnImpulsive&) = delete;
+    UiBurnImpulsive& operator=(const UiBurnImpulsive&) = delete;
 
     void setBurn(Burn* burn);
     BurnImpulsive* getBurnImpulsive() const;

@@ -46,6 +46,8 @@ class UiMainWindow : public QMainWindow
 public:
     explicit UiMainWindow(QWidget *parent = nullptr);
     ~UiMainWindow();
+    UiMainWindow(const UiMainWindow&) = delete;
+    UiMainWindow& operator=(const UiMainWindow&) = delete;
 
 private:
     void setupUi();

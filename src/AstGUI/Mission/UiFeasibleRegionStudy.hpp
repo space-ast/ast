@@ -47,6 +47,8 @@ public:
     explicit UiFeasibleRegionStudy(Object* object, QWidget* parent = nullptr);
     explicit UiFeasibleRegionStudy(QWidget* parent = nullptr);
     ~UiFeasibleRegionStudy() override;
+    UiFeasibleRegionStudy(const UiFeasibleRegionStudy&) = delete;
+    UiFeasibleRegionStudy& operator=(const UiFeasibleRegionStudy&) = delete;
 
     void setStudy(FeasibleRegionStudy* study);
     FeasibleRegionStudy* getStudy() const;

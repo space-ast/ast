@@ -52,6 +52,8 @@ public:
     UiMotionTwoBody(Object* object, QWidget *parent = nullptr);
     UiMotionTwoBody(QWidget *parent = nullptr);
     ~UiMotionTwoBody() = default;
+    UiMotionTwoBody(const UiMotionTwoBody&) = delete;
+    UiMotionTwoBody& operator=(const UiMotionTwoBody&) = delete;
 
     MotionTwoBody* getMotionTwoBody() const;
     void setMotionTwoBody(MotionTwoBody* motion);

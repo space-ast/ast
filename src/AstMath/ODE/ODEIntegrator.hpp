@@ -40,7 +40,10 @@ class ODEEventDetector;
 class AST_MATH_API IODEIntegrator: public ObjectNamed
 {
 public:
+    IODEIntegrator() = default;
     virtual ~IODEIntegrator() {};
+    IODEIntegrator(const IODEIntegrator&) = delete;
+    IODEIntegrator& operator=(const IODEIntegrator&) = delete;
 
     /// @brief 初始化积分器
     /// @details 初始化积分器，设置ODE的维度和步长等参数

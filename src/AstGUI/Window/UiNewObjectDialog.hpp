@@ -44,6 +44,8 @@ class AST_GUI_API UiNewObjectDialog : public QDialog
 public:
     explicit UiNewObjectDialog(QWidget* parent = nullptr);
     ~UiNewObjectDialog() override;
+    UiNewObjectDialog(const UiNewObjectDialog&) = delete;
+    UiNewObjectDialog& operator=(const UiNewObjectDialog&) = delete;
 
     /// @brief 获取用户选择的类型名
     QString selectedTypeName() const;

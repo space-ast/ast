@@ -71,11 +71,11 @@ errc_t _aLoadJ4Perturbation(BKVParser& parser, const VehiclePathData& VehiclePat
 errc_t _aLoadSGP4(BKVParser& parser, const VehiclePathData& vehiclePathData, ScopedPtr<MotionProfile>& motionProfile)
 {
     struct {
-        std::string SSCNumber_;
-        std::string intlDesignator_;
-        std::string commonName_;
-        std::vector<TwoLineElement> elements_;
-        SharedPtr<EventInterval> interval_;
+        std::string SSCNumber_{};
+        std::string intlDesignator_{};
+        std::string commonName_{};
+        std::vector<TwoLineElement> elements_{};
+        SharedPtr<EventInterval> interval_{};
         double timeStep_ = 0.0;
         TimePoint startTime_{};
         TimePoint stopTime_{};

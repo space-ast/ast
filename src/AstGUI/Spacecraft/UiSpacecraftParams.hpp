@@ -37,6 +37,8 @@ public:
     explicit UiSpacecraftParams(Object* object, QWidget* parent = nullptr);
     explicit UiSpacecraftParams(QWidget* parent = nullptr);
     ~UiSpacecraftParams() override;
+    UiSpacecraftParams(const UiSpacecraftParams&) = delete;
+    UiSpacecraftParams& operator=(const UiSpacecraftParams&) = delete;
 
     void setSpacecraftState(SpacecraftState* state);
     SpacecraftState* getSpacecraftState() const;

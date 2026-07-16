@@ -28,6 +28,8 @@ public:
     UiThirdBodyForce(Object* object, QWidget *parent = nullptr);
     UiThirdBodyForce(QWidget *parent = nullptr);
     ~UiThirdBodyForce() = default;
+    UiThirdBodyForce(const UiThirdBodyForce&) = delete;
+    UiThirdBodyForce& operator=(const UiThirdBodyForce&) = delete;
 
     ThirdBodyForce* getThirdBodyForce() const;
     void setThirdBodyForce(ThirdBodyForce* thirdBody);

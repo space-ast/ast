@@ -38,6 +38,8 @@ class AST_GUI_API UiBodyEphemerisDE: public UiObject
     Q_OBJECT
 public:
     explicit UiBodyEphemerisDE(Object* object, QWidget *parent = nullptr);
+    UiBodyEphemerisDE(const UiBodyEphemerisDE&) = delete;
+    UiBodyEphemerisDE& operator=(const UiBodyEphemerisDE&) = delete;
     explicit UiBodyEphemerisDE(QWidget *parent = nullptr);
     ~UiBodyEphemerisDE() = default;
 

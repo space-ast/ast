@@ -44,6 +44,8 @@ public:
                                QWidget* parent = nullptr);
 
     ~UiChatMessageItem() override;
+    UiChatMessageItem(const UiChatMessageItem&) = delete;
+    UiChatMessageItem& operator=(const UiChatMessageItem&) = delete;
 
     /// @brief 设置消息内容（替换全部）
     void setContent(const QString& content);

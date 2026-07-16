@@ -45,6 +45,8 @@ public:
     explicit QwtPlotVisitor(QwtPlot* plot);
     explicit QwtPlotVisitor(ColoredSurfacePlot* surface);
     ~QwtPlotVisitor() override;
+    QwtPlotVisitor(const QwtPlotVisitor&) = delete;
+    QwtPlotVisitor& operator=(const QwtPlotVisitor&) = delete;
 
     void visit(matplot::line& l) override;
     void visit(matplot::histogram& h) override;
