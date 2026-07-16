@@ -21,6 +21,7 @@
 #include "MockBuffer.hpp"
 #include "AstMath/LagrangeInterpolator.hpp"
 #include <stdlib.h> // for malloc and free
+#include <malloc.h> // for alloca
 
 AST_NAMESPACE_BEGIN
 

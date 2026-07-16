@@ -23,6 +23,8 @@ class AST_UIPILOT_API PilotPolisher
 {
 public:
     PilotPolisher();
+    PilotPolisher(const PilotPolisher&) = delete;
+    PilotPolisher& operator=(const PilotPolisher&) = delete;
     ~PilotPolisher();
 
     /// @brief 对步骤列表进行 LLM 润色
@@ -34,7 +36,7 @@ public:
     static const char* systemPrompt();
 
 private:
-    ChatSession* chatSession_;
+    ChatSession* chatSession_{};
 };
 
 AST_NAMESPACE_END

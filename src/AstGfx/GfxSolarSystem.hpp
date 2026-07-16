@@ -40,7 +40,9 @@ class AST_GFX_API GfxSolarSystem {
 public:
     /// @brief 构造函数
     GfxSolarSystem();
-    
+    GfxSolarSystem(const GfxSolarSystem&) = delete;
+    GfxSolarSystem& operator=(const GfxSolarSystem&) = delete;
+
     /// @brief 析构函数
     ~GfxSolarSystem();
     
@@ -82,13 +84,13 @@ public:
     
 private:
     /// @brief 太阳系根节点
-    osg::Group* m_root;
+    osg::Group* m_root{};
     
     /// @brief 天体列表
-    std::vector<GfxCelestialBody*> m_celestialBodies;
+    std::vector<GfxCelestialBody*> m_celestialBodies{};
     
     /// @brief 轨道线列表
-    std::vector<osg::Node*> m_orbitLines;
+    std::vector<osg::Node*> m_orbitLines{};
 };
 
 AST_NAMESPACE_END

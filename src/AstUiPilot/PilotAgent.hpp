@@ -133,10 +133,10 @@ private:
     bool autoSnapshot_ = false;          ///< 是否自动生成快照
 
     // ---- ref 映射 ----
-    QHash<QWidget*, int> widgetToRef_;   ///< widget* → ref编号
-    QHash<int, QWidget*> refToWidget_;   ///< ref编号 → widget*
-    QHash<QAction*, int> actionToRef_;   ///< action* → ref编号
-    QHash<int, QAction*> refToAction_;   ///< ref编号 → action*
+    QHash<QWidget*, int> widgetToRef_{};   ///< widget* → ref编号
+    QHash<int, QWidget*> refToWidget_{};   ///< ref编号 → widget*
+    QHash<QAction*, int> actionToRef_{};   ///< action* → ref编号
+    QHash<int, QAction*> refToAction_{};   ///< ref编号 → action*
 
     int nextRef_ = 1;                    ///< 下一个可用的ref编号
     static PilotAgent* s_instance;      ///< 全局单例

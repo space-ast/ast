@@ -44,6 +44,8 @@ public:
     /// @param commander 命令调度器
     /// @param pid 目标进程 PID（用于构造唯一的 pipe 名称）
     explicit PilotPipeServer(PilotCommander* commander, unsigned long pid);
+    PilotPipeServer(const PilotPipeServer&) = delete;
+    PilotPipeServer& operator=(const PilotPipeServer&) = delete;
 
     /// @brief 析构函数，自动停止服务
     ~PilotPipeServer();
@@ -64,10 +66,10 @@ private:
     /// @brief 服务线程主循环
     void serverLoop();
 
-    PilotCommander*    commander_;
-    unsigned long      pid_;
+    PilotCommander*    commander_{};
+    unsigned long      pid_{};
     std::atomic<bool>  running_{false};
-    std::thread        serverThread_;
+    std::thread        serverThread_{};
 };
 
 /*! @} */

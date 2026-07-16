@@ -40,7 +40,9 @@ class GfxMain {
 public:
     /// @brief 构造函数
     GfxMain();
-    
+    GfxMain(const GfxMain&) = delete;
+    GfxMain& operator=(const GfxMain&) = delete;
+
     /// @brief 析构函数
     ~GfxMain();
     
@@ -67,10 +69,10 @@ public:
     
 private:
     /// @brief OSG查看器
-    osgViewer::Viewer* m_viewer;
+    osgViewer::Viewer* m_viewer{};
     
     /// @brief 场景根节点
-    osg::Group* m_root;
+    osg::Group* m_root{};
     
     /// @brief 初始化场景
     bool initScene();

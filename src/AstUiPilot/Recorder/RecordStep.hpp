@@ -68,16 +68,16 @@ inline ERecordAction recordActionFromString(const std::string& s)
 /// @brief 录制步骤结构
 struct RecordStep
 {
-    ERecordAction action;           ///< 操作类型
-    std::string   widgetClass;      ///< 控件类名
-    std::string   widgetText;       ///< 按钮文本 / 标签文本 / combo当前项
-    std::string   widgetObjName;    ///< Qt objectName
-    std::string   widgetAccName;    ///< accessibleName
-    std::string   parentInfo;       ///< 父控件描述
-    std::string   value;            ///< fill的值 / select的选项 / press的键名
+    ERecordAction action{};           ///< 操作类型
+    std::string   widgetClass{};      ///< 控件类名
+    std::string   widgetText{};       ///< 按钮文本 / 标签文本 / combo当前项
+    std::string   widgetObjName{};    ///< Qt objectName
+    std::string   widgetAccName{};    ///< accessibleName
+    std::string   parentInfo{};       ///< 父控件描述
+    std::string   value{};            ///< fill的值 / select的选项 / press的键名
     int64_t       timestampMs = 0;  ///< 相对录制开始的时间偏移
     int           siblingIndex = -1;///< 同级同类控件中的序号
-    std::string   naturalLanguage;  ///< 自然语言描述
+    std::string   naturalLanguage{};  ///< 自然语言描述
 
     /// @brief 生成模板描述
     std::string toTemplate() const;

@@ -97,8 +97,8 @@ private:
     PilotSession*  session_;
     PilotRecorder* recorder_;
     std::atomic<bool> running_{true};
-    std::thread     stdinThread_;
-    std::function<void(const std::string&)> outputCb_;
+    std::thread     stdinThread_{};
+    std::function<void(const std::string&)> outputCb_{};
 };
 
 /*! @} */
