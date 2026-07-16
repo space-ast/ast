@@ -2,7 +2,9 @@
 
 #if defined(AST_WITH_MATPLOT) && defined(AST_WITH_AGG)
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/util/visitor.h>
+A_SUPPRESS_WARNINGS_END
 
 #include "AggRenderer.hpp"
 
@@ -13,6 +15,9 @@ AST_NAMESPACE_BEGIN
 class AggVisitor : public matplot::visitor {
 public:
     AggVisitor(AggRenderer& renderer, double fig_w, double fig_h);
+
+    AggVisitor(const AggVisitor&) = delete;
+    AggVisitor& operator=(const AggVisitor&) = delete;
 
     void setAxes(const matplot::axes_type& axes);
 
@@ -46,11 +51,11 @@ private:
     const agg::trans_affine& getTransform() const{return trans_;}
 
     AggRenderer& renderer_;
-    double fig_w_, fig_h_;
+    double fig_w_{}, fig_h_{};
 
     const matplot::axes_type* axes_{nullptr};
     double xmin_{0.0}, xmax_{1.0}, ymin_{0.0}, ymax_{1.0};
-    agg::trans_affine trans_;
+    agg::trans_affine trans_{};
 };
 
 AST_NAMESPACE_END

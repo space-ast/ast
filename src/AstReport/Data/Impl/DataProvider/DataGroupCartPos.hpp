@@ -64,8 +64,8 @@ public:
     void setPoint(Point* p) { point_ = p; }
     void setFrame(Frame* f) { frame_ = f; }
 private:
-    WeakPtr<Point> point_;
-    WeakPtr<Frame> frame_;
+    WeakPtr<Point> point_{};
+    WeakPtr<Frame> frame_{};
 };
 
 

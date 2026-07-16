@@ -26,7 +26,9 @@
 #endif
 
 #ifdef _AST_USE_MATPLOT
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/matplot.h>
+A_SUPPRESS_WARNINGS_END
 #else
 #include "NoPlot.hpp"
 #endif

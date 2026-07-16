@@ -61,7 +61,7 @@ public:
     const std::string& name() const { return name_; }
 
 protected:
-    std::string name_;  ///< 智能体名称
+    std::string name_{}; ///< 智能体名称
 };
 
 /*! @} */

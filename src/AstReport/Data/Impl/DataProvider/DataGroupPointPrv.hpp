@@ -96,8 +96,8 @@ public:
     Point* getPoint() const { return point_.get(); }
     Frame* getFrame() const { return frame_.get(); }
 private:
-    WeakPtr<Point> point_;
-    WeakPtr<Frame> frame_;
+    WeakPtr<Point> point_{};
+    WeakPtr<Frame> frame_{};
 };
 
 

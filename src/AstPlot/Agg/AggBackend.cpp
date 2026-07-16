@@ -22,8 +22,10 @@
 #if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOT)
 
 #include <cstdio>
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/core/figure_type.h>
 #include <matplot/core/axes_type.h>
+A_SUPPRESS_WARNINGS_END
 
 #include "AggRenderer.hpp"
 #include "AggVisitor.hpp"
@@ -38,7 +40,7 @@ struct AggBackend::Impl {
 
     std::string window_title_ = "Figure";
 
-    std::unique_ptr<AggRenderer> renderer_;
+    std::unique_ptr<AggRenderer> renderer_{};
     matplot::figure_type* figure_ = nullptr;
 };
 

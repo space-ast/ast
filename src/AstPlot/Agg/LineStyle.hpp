@@ -4,8 +4,10 @@
 
 #if defined(AST_WITH_AGG) 
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include "agg/agg_color_rgba.h"
 #include "agg/agg_math_stroke.h"
+A_SUPPRESS_WARNINGS_END
 #include "path_converters.h"  // e_snap_mode
 
 
@@ -22,7 +24,7 @@ struct LineStyle {
     e_snap_mode snap = SNAP_AUTO;
 
     double  dash_offset = 0.0;
-    std::vector<double> dash_pattern;   // 空 = 实线, 单位 pt (已按 lw 缩放)
+    std::vector<double> dash_pattern{};  // 空 = 实线, 单位 pt (已按 lw 缩放)
 
     bool simplify = true;
     double simplify_threshold = 0.111111; // M_SQRT2/9 ≈ matplot default

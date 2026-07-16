@@ -1037,8 +1037,9 @@ static void _aCrashSpawnReporter(const char* logPath)
         cmdLine[pos++] = '"';
         cmdLine[pos] = '\0';
 
-        STARTUPINFOA si = { sizeof(STARTUPINFOA) };
-        PROCESS_INFORMATION pi = {};
+        STARTUPINFOA si{};
+        si.cb = sizeof(STARTUPINFOA);
+        PROCESS_INFORMATION pi{};
         si.dwFlags = STARTF_USESHOWWINDOW;
         si.wShowWindow = SW_SHOW;
 

@@ -33,6 +33,8 @@ public:
 
     explicit PilotPlayer(PilotSession* session, QObject* parent = nullptr);
     ~PilotPlayer() override;
+    PilotPlayer(const PilotPlayer&) = delete;
+    PilotPlayer& operator=(const PilotPlayer&) = delete;
 
     // ---- 加载 ----
     bool loadScript(const std::string& filePath);

@@ -25,6 +25,7 @@
 #include "ColoredSurfacePlot.hpp"
 #include "UiFigure.hpp"
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/core/axes_type.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/backend/backend_registry.h>
@@ -41,6 +42,7 @@
 #include <qwt3d_surfaceplot.h>
 
 #include <matplot/axes_objects/surface.h>
+A_SUPPRESS_WARNINGS_END
 
 #include <QApplication>
 #include <QEventLoop>

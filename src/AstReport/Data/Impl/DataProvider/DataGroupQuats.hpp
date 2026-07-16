@@ -87,8 +87,8 @@ public:
     void setAxes(Axes* a)          { axes_ = a; }
     void setReferenceAxes(Axes* a) { referenceAxes_ = a; }
 private:
-    WeakPtr<Axes> axes_;                ///< 姿态轴
-    WeakPtr<Axes> referenceAxes_;       ///< 参考轴
+    WeakPtr<Axes> axes_{};                ///< 姿态轴
+    WeakPtr<Axes> referenceAxes_{};       ///< 参考轴
 };
 
 

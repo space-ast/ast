@@ -37,9 +37,9 @@ class TLE
 public:
     bool empty() const{return line1_.empty();}
 public:
-    std::string name_;      ///< 卫星名称
-    std::string line1_;     ///< 第一行
-    std::string line2_;     ///< 第二行
+    std::string name_{};     ///< 卫星名称
+    std::string line1_{};    ///< 第一行
+    std::string line2_{};    ///< 第二行
 };
 
 enum class ETLESource
@@ -66,8 +66,8 @@ public:
         {ETLESource::eFile};                 
     ESwitchMethod switch_method_ ///< 切换方法
         {ESwitchMethod::eEpoch};  
-    TimePoint switchEpoch_;      ///< 切换历元
-    TLE tle_;                    ///< TLE 数据
+    TimePoint switchEpoch_{};     ///< 切换历元
+    TLE tle_{};                   ///< TLE 数据
     double epochTime_{0.0};           ///< 历元时间
     double meanMotionDotTime_{0.0};   ///< 平均运动导数
     double motionDotDot_{0.0};        ///< 平均运动二阶导数
@@ -98,10 +98,10 @@ public:
     errc_t makeEphemerisSimple(ScopedPtr<Ephemeris>& eph) const override;
     void accept(MotionProfileVisitor& visitor) override;
 public:
-    std::string SSCNumber_;                 ///< SSC 编号字符串
-    std::string intlDesignator_;            ///< 
-    std::string commonName_;                ///< 通用名称
-    std::vector<TwoLineElement> elements_;  ///< 两行元素列表
+    std::string SSCNumber_{};                ///< SSC 编号字符串
+    std::string intlDesignator_{};           ///<
+    std::string commonName_{};               ///< 通用名称
+    std::vector<TwoLineElement> elements_{}; ///< 两行元素列表
 };
 
 /*! @} */

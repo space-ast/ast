@@ -77,15 +77,15 @@ private:
 
     struct Entry
     {
-        QString toolCallId;
-        QString functionName;
-        QString arguments;
-        QString result;
+        QString toolCallId{};
+        QString functionName{};
+        QString arguments{};
+        QString result{};
         EToolCallState state{};
         bool    detailExpanded = false;
     };
 
-    QVector<Entry>  entries_;
+    QVector<Entry>  entries_{};
     bool            collapsed_ = true;
 
     // UI 部件

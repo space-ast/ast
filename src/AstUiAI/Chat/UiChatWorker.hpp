@@ -77,7 +77,7 @@ private:
     QString             userMessage_;
     QPointer<UiChatEventHandler> handler_;
     int                 maxToolIterations_;
-    std::string         response_;
+    std::string         response_{}; 
     int                 errorCode_{0};
 };
 

@@ -24,7 +24,9 @@
 #include "AstGlobal.h"
 
 #if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOT)
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/backend/backend_interface.h>
+A_SUPPRESS_WARNINGS_END
 
 #include <memory>
 #include <string>

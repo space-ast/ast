@@ -76,7 +76,7 @@ private:
     QString         toolCallId_;
     QString         functionName_;
     QString         arguments_;
-    QString         result_;
+    QString         result_{};
     EToolCallState  state_{EToolCallState::eRunning};
     bool            expanded_{false};
 

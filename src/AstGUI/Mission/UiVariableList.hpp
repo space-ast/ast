@@ -103,17 +103,17 @@ private:
     bool eventFilter(QObject* obj, QEvent* event) override;
     void syncOrderFromTable();
 
-    QVBoxLayout*    mainLayout_;
-    QTableWidget*   tableWidget_;
-    QHBoxLayout*    buttonLayout_;
-    QToolButton*    addButton_;
-    QToolButton*    removeButton_;
-    QToolButton*    refreshButton_;
+    QVBoxLayout*    mainLayout_{};
+    QTableWidget*   tableWidget_{};
+    QHBoxLayout*    buttonLayout_{};
+    QToolButton*    addButton_{};
+    QToolButton*    removeButton_{};
+    QToolButton*    refreshButton_{};
 private:
     VariableList*   variableList_ = nullptr;
-    WeakPtr<Object> variableListOwner_;
+    WeakPtr<Object> variableListOwner_{};
     Interpreter*    interpreter_ = nullptr;
-    WeakPtr<Object> interpreterOwner_;
+    WeakPtr<Object> interpreterOwner_{};
 };
 
 AST_NAMESPACE_END

@@ -231,8 +231,8 @@ private:
     void        copyFrom(const VariantVector& other);
     void        moveFrom(VariantVector& other) noexcept;
 
-    Header*       header()       noexcept;
-    const Header* header() const noexcept;
+    inline Header*       header()       noexcept;
+    inline const Header* header() const noexcept;
 
     /// @brief 确保类型已设置并校验一致性
     /// @tparam T 期望的元素类型

@@ -47,9 +47,9 @@ struct SegmentContext
     const SpacecraftState*   outputState = nullptr;
     const State*             orbitState = nullptr;
     Frame*                   frame = nullptr;
-    CartState                cart;
-    ModOrbElem               moe;
-    TimePoint                stateEpoch;
+    CartState                cart{}; 
+    ModOrbElem               moe{}; 
+    TimePoint                stateEpoch{}; 
 
     /// @brief 上下文数据是否完整可用
     bool valid() const { return orbitState != nullptr; }

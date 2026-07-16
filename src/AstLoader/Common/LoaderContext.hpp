@@ -36,8 +36,8 @@ class LoaderContext
 {
 public:
     LoaderContext* parent_{nullptr};        ///< 父上下文
-    std::string scenarioDir_;               ///< 场景目录
-    std::string filepath_;                  ///< 文件路径
+    std::string scenarioDir_{};               ///< 场景目录
+    std::string filepath_{};                  ///< 文件路径
 };
 
 

@@ -22,6 +22,7 @@
 #include "ColoredSurfacePlot.hpp"
 #include "ColoredSurfaceEnrichment.hpp"
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/axes_objects/function_line.h>
 #include <matplot/axes_objects/histogram.h>
 #include <matplot/axes_objects/line.h>
@@ -29,6 +30,7 @@
 #include <matplot/axes_objects/surface.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/core/axes_type.h>
+A_SUPPRESS_WARNINGS_END
 
 #include <qwt_plot.h>
 #include <qwt_plot_curve.h>

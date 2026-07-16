@@ -110,7 +110,7 @@ namespace{
         }
         JsonValue& json() { return json_; }
     private:
-        JsonValue internalJson_;
+        JsonValue internalJson_{}; 
         JsonValue& json_;
         int maxDepth_{0};
     };
@@ -217,7 +217,7 @@ namespace{
         }
         JsonValue& json() { return json_; }
     private:
-        JsonValue internalJson_;
+        JsonValue internalJson_{}; 
         JsonValue& json_;
         int maxDepth_{0};
     };

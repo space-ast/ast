@@ -59,9 +59,9 @@ private:
     StudyWorkbench* workbench_;
     Expr*           selectedExpr_ = nullptr;
 
-    UiVariableList* inputList_;
-    UiVariableList* outputList_;
-    QPushButton*    advancedBtn_;
+    UiVariableList* inputList_{};
+    UiVariableList* outputList_{};
+    QPushButton*    advancedBtn_{};
 };
 
 AST_NAMESPACE_END

@@ -40,15 +40,15 @@ AST_NAMESPACE_BEGIN
 class AST_REPORT_API ReportSection
 {
 public:
-    std::string name_;             ///< 段名称（如 "Section 1"）
-    std::string className_;        ///< 对象类型名（如 "Satellite", "Facility"）
+    std::string name_{};             ///< 段名称（如 "Section 1"）
+    std::string className_{};        ///< 对象类型名（如 "Satellite", "Facility"）
     bool        nameInTitle_ = true;
     EExpandMethod expandMethod_ = EExpandMethod::eNone; ///< 展开方式
     int         propMask_     = 2;
     bool        showIntervals_ = false;
     int         numIntervals_  = 0;
 
-    std::vector<ReportLine> lines_;
+    std::vector<ReportLine> lines_{};
 };
 
 /*! @} */

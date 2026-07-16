@@ -78,8 +78,8 @@ public:
     int  getRotationOrder() const { return rotationOrder_; }
     void setRotationOrder(int order) { rotationOrder_ = order; }
 private:
-    WeakPtr<Axes> axes_;
-    WeakPtr<Axes> referenceAxes_;
+    WeakPtr<Axes> axes_{};
+    WeakPtr<Axes> referenceAxes_{};
     int rotationOrder_{Euler::eXYX};
 };
 

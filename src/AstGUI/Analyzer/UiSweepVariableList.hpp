@@ -71,11 +71,11 @@ private:
         VAR_COUNT
     };
 
-    WeakPtr<SweepStudy> study_;
+    WeakPtr<SweepStudy> study_{};
 
-    QTableWidget* table_;
-    QPushButton*  addBtn_;
-    QPushButton*  removeBtn_;
+    QTableWidget* table_{};
+    QPushButton*  addBtn_{};
+    QPushButton*  removeBtn_{};
 };
 
 AST_NAMESPACE_END

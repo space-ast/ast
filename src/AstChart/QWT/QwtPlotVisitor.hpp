@@ -21,7 +21,9 @@
 #pragma once
 
 #include "AstGlobal.h"
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/util/visitor.h>
+A_SUPPRESS_WARNINGS_END
 #include <array>
 #include <QColor>
 

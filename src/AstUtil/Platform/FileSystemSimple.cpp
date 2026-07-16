@@ -145,6 +145,10 @@ namespace fs_simple
         {
             
         }
+
+        impl(const impl&) = delete;
+        impl& operator=(const impl&) = delete;
+        
         bool valid() const
         {
             return direntry != nullptr;

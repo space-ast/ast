@@ -62,10 +62,10 @@ public:
 private:
     struct AccumulatedToolCall
     {
-        std::string id;
-        std::string type;
-        std::string functionName;
-        std::string functionArguments;
+        std::string id{};
+        std::string type{};
+        std::string functionName{};
+        std::string functionArguments{};
     };
 
     void processBuffer();

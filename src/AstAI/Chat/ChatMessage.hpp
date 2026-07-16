@@ -58,7 +58,7 @@ public:
     /// @param role 消息角色
     /// @param content 消息内容
     ChatMessage(EChatRole role, StringView content)
-        : role_(role), content_(content), name_(), reasoningContent_(), toolCallId_(), toolCalls_()
+        : role_(role), name_(), content_(content), reasoningContent_(), toolCallId_(), toolCalls_()
     {}
 
     /// @brief 析构函数
@@ -150,11 +150,11 @@ public:
 
 private:
     EChatRole        role_{EChatRole::eUser};           ///< 消息角色
-    std::string      name_;                             ///< 角色名称
-    std::string      content_;                          ///< 消息内容
-    std::string      reasoningContent_;                 ///< 推理内容（当角色为ASSISTANT时使用）
-    std::string      toolCallId_;                       ///< 工具调用ID（当角色为TOOL时使用）
-    JsonValue        toolCalls_;                        ///< 工具调用列表
+    std::string      name_{};                            ///< 角色名称
+    std::string      content_{};                         ///< 消息内容
+    std::string      reasoningContent_{};                ///< 推理内容（当角色为ASSISTANT时使用）
+    std::string      toolCallId_{};                      ///< 工具调用ID（当角色为TOOL时使用）
+    JsonValue        toolCalls_{};                       ///< 工具调用列表
 };
 
 

@@ -111,7 +111,7 @@ protected:
     friend class DataFrame;
 
     std::string name_;          ///< 数据名称
-    VariantVector data_;        ///< 数据向量
+    VariantVector data_{};       ///< 数据向量
 };
 
 

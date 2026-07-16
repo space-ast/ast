@@ -23,9 +23,11 @@
 #include "EditFigureOverlay.hpp"
 #include "EditFigureDialog.hpp"
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/core/axes_type.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/freestanding/plot.h>
+A_SUPPRESS_WARNINGS_END
 
 #include <QVBoxLayout>
 #include <QToolBar>

@@ -163,11 +163,11 @@ private:
     errc_t parseResponseMessage(JsonValue& response, ChatMessage& outMessage);
 
 private:
-    std::string                    systemPrompt_;
-    ChatTools                      tools_;
-    LLMConfig                      config_;
-    std::unique_ptr<LLMClient>     client_;                 ///< LLM客户端（run()前必须设置）
-    std::string                    lastError_;              ///< 最后一次错误信息
+    std::string                    systemPrompt_{};
+    ChatTools                      tools_{};
+    LLMConfig                      config_{};
+    std::unique_ptr<LLMClient>     client_{};                 ///< LLM客户端（run()前必须设置）
+    std::string                    lastError_{};              ///< 最后一次错误信息
     int                            maxToolIterations_{10};  ///< 最大工具调用次数（默认10次）
 };
 

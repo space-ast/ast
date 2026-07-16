@@ -67,7 +67,7 @@ public:
     CommandHandler* handler() { return handler_; }
     void setHandler(CommandHandler* handler) { handler_ = handler; }
 private:
-    CommandParams params_;              ///< 命令参数
+    CommandParams params_{};             ///< 命令参数
     CommandHandler* handler_{nullptr};  ///< 命令处理函数
 };
 
@@ -108,15 +108,15 @@ public:
         }
     public:
         int                             numParams_{-1};     ///< 该键值之后的参数数量， -1 表示未初始化
-        std::string                     key_;               ///< 键值
-        std::shared_ptr<CommandHandler> handler_;           ///< 命令处理函数
-        std::vector<Node>               children_;          ///< 子节点
+        std::string                     key_{};              ///< 键值
+        std::shared_ptr<CommandHandler> handler_{};          ///< 命令处理函数
+        std::vector<Node>               children_{};         ///< 子节点
     };
     Node& addRule(StringView tmpl);
     void addRule(StringView tmpl, std::shared_ptr<CommandHandler> handler);
     errc_t find(StringView text, RoutingHandleResult& result) const;
 private:
-    Node root_;
+    Node root_{};
 };
 
 

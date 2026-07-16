@@ -38,7 +38,7 @@ class DataGroupModOrbElem : public DataGroupTimeVar
 public:
     struct Data
     {
-        ModOrbElem modOrbElem_;
+        ModOrbElem modOrbElem_{};
         double bodyRadius_{};
         double gm_{};
         TimePoint time_{};
@@ -80,8 +80,8 @@ public:
     void setPoint(Point* p) { point_ = p; }
     void setFrame(Frame* f) { frame_ = f; }
 private:
-    WeakPtr<Point> point_;
-    WeakPtr<Frame> frame_;
+    WeakPtr<Point> point_{};
+    WeakPtr<Frame> frame_{};
 };
 
 

@@ -72,7 +72,7 @@ private:
 
     QTableWidget* table_{};
     QPushButton*  addBtn_{};
-    QPushButton*  removeBtn_;
+    QPushButton*  removeBtn_{}; 
 };
 
 AST_NAMESPACE_END

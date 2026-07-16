@@ -60,7 +60,7 @@ public:
 public:
     Angle* getAngle() const { return angle_.get(); }
 private:
-    WeakPtr<Angle> angle_;
+    WeakPtr<Angle> angle_{};
 };
 
 

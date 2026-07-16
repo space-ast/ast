@@ -76,7 +76,7 @@ private:
     QPushButton*     propertySelectButton_ = nullptr;
     QPushButton*     calculationSelectButton_ = nullptr;
     WeakPtr<Object>  currentObject_ = nullptr;
-    SharedPtr<Expr>  selectedExpr_;
+    SharedPtr<Expr>  selectedExpr_{}; 
 };
 
 AST_NAMESPACE_END

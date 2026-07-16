@@ -38,10 +38,10 @@ AST_NAMESPACE_BEGIN
 namespace{
 
 struct ParseContext{
-    std::string name_;
-    std::string class_;
-    std::string text_;
-    SharedPtr<Value> value_;
+    std::string name_{};
+    std::string class_{};
+    std::string text_{};
+    SharedPtr<Value> value_{};
 };
 
 class ValXMLSaxBase: public XMLSax

@@ -76,7 +76,7 @@ private:
     EChatRole   role_;
     QLabel*     roleLabel_ = nullptr;     // 角色标签（"你" / "助手"）
     QTextEdit*  contentEdit_ = nullptr;   // 消息内容（支持富文本）
-    QString     accumulatedHtml_;          // 累积的 HTML（用于流式渲染 setHtml）
+    QString     accumulatedHtml_{};         // 累积的 HTML（用于流式渲染 setHtml）
     int         cachedDocHeight_ = 0;     // 上次计算的文档高度，避免循环
 };
 

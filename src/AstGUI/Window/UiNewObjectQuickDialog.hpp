@@ -103,7 +103,7 @@ private:
     // 状态
     int           selectedEntry_ = -1;
     Object*       selectedParent_ = nullptr;
-    QString       createdObjectName_;
+    QString       createdObjectName_{};
 };
 
 AST_NAMESPACE_END

@@ -105,7 +105,7 @@ private:
 
     std::string                    name_{};
     std::vector<DataSeries>        columns_{};
-    std::map<std::string, size_t>  index_;  ///< 列名 → columns_ 下标
+    std::map<std::string, size_t>  index_{}; ///< 列名 → columns_ 下标
 };
 
 /*! @} */

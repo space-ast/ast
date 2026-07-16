@@ -104,8 +104,8 @@ public:
     void handleToolCalls(const JsonValue& toolCalls);
 
 private:
-    mutable std::unique_ptr<AssistantAgent> agent_;     ///< 助手智能体
-    ChatMessages messages_;                             ///< 消息历史
+    mutable std::unique_ptr<AssistantAgent> agent_{};     ///< 助手智能体
+    ChatMessages messages_{};                             ///< 消息历史
 };
 
 /*! @} */

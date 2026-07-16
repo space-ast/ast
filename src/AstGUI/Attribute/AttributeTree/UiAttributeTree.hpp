@@ -56,7 +56,7 @@ private:
     /// @brief 递归遍历继承链，收集所有属性
     void collectProperties(Class* type, std::vector<Property*>& out) const;
 
-    WeakPtr<Object> rootObject_;
+    WeakPtr<Object> rootObject_{};
 };
 
 AST_NAMESPACE_END
