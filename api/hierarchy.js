@@ -1279,7 +1279,10 @@ var hierarchy =
           [ "ast::TargeterGraphResultOptions", "classast_1_1TargeterGraphResultOptions.html", null ],
           [ "ast::Transmitter", "classast_1_1Transmitter.html", null ],
           [ "ast::Vector", "classast_1_1Vector.html", [
-            [ "ast::VectorDisplacement", "classast_1_1VectorDisplacement.html", null ]
+            [ "ast::VectorCross", "classast_1_1VectorCross.html", null ],
+            [ "ast::VectorDisplacement", "classast_1_1VectorDisplacement.html", null ],
+            [ "ast::VectorFixed", "classast_1_1VectorFixed.html", null ],
+            [ "ast::VectorFixedAtEpoch", "classast_1_1VectorFixedAtEpoch.html", null ]
           ] ],
           [ "ast::Volumetric", "classast_1_1Volumetric.html", null ]
         ] ],
@@ -1371,6 +1374,7 @@ var hierarchy =
     [ "ast::SharedPtr< CelestialBody >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< Frame >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< State >", "classast_1_1SharedPtr.html", null ],
+    [ "ast::SharedPtr< Vector >", "classast_1_1SharedPtr.html", null ],
     [ "ast::ShortDuration", "classast_1_1ShortDuration.html", null ],
     [ "ast::SimEngine", "classast_1_1SimEngine.html", null ],
     [ "ast::SimTime", "classast_1_1SimTime.html", null ],
