@@ -3,6 +3,8 @@ name: 编译
 on:
   pull_request:
   push:
+    branches:
+      - '**'  # 仅分支推送触发，忽略 tag 推送（tag 和 release:published 会出现并发组冲突）
   release:
     types: [published]
 
