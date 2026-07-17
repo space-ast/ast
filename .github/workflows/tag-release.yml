@@ -1,0 +1,62 @@
+name: 标签与发布
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'xmake.lua'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tag-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  tag-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 提取版本号
+        id: version
+        shell: bash
+        run: |
+          VERSION=$(sed -n 's/^[[:space:]]*set_version("\([0-9]\+\.[0-9]\+\(\.[0-9]\+\)\?\)".*/\1/p' xmake.lua | head -1)
+          if [ -z "$VERSION" ]; then
+            echo "::error::无法从 xmake.lua 中提取版本号"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+          echo "已提取版本号: $VERSION → 标签: v$VERSION"
+
+      - name: 检查标签是否已存在
+        id: check_tag
+        shell: bash
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "标签 $TAG 已存在，跳过创建"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 创建标签与发布
+        if: steps.check_tag.outputs.exists == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          gh release create "$TAG" \
+            --title "$TAG" \
+            --generate-notes \
+            --target "${{ github.sha }}"
+          echo "标签与发布 $TAG 已创建"
