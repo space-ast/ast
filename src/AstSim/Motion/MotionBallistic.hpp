@@ -175,21 +175,21 @@ public:
     double getLaunchApogeeAlt() const { return launchApogeeAlt_; }
     
 private:
-    TimePoint launchTime_;      ///< 发射时间
-    TimePoint impactTime_;      ///< 撞击时间
-    double launchLatitude_;     ///< 发射纬度（度）
-    double launchLongitude_;    ///< 发射经度（度）
-    double launchAltitude_;     ///< 发射高度（米）
-    double impactLatitude_;     ///< 撞击纬度（度）
-    double impactLongitude_;    ///< 撞击经度（度）
-    double impactAltitude_;     ///< 撞击高度（米）
-    double launchVelocity_;     ///< 发射速度（米/秒）
-    double launchAzimuth_;      ///< 发射方位角（度）
-    double launchElevation_;    ///< 发射仰角（度）
-    double launchDuration_;     ///< 发射持续时间（秒）
-    int launchType_;            ///< 发射类型
-    int launchControl_;         ///< 发射控制
-    double launchApogeeAlt_;    ///< 近地点高度（米）
+    TimePoint launchTime_{};      ///< 发射时间
+    TimePoint impactTime_{};      ///< 撞击时间
+    double launchLatitude_{};     ///< 发射纬度（度）
+    double launchLongitude_{};    ///< 发射经度（度）
+    double launchAltitude_{};     ///< 发射高度（米）
+    double impactLatitude_{};     ///< 撞击纬度（度）
+    double impactLongitude_{};    ///< 撞击经度（度）
+    double impactAltitude_{};     ///< 撞击高度（米）
+    double launchVelocity_{};     ///< 发射速度（米/秒）
+    double launchAzimuth_{};      ///< 发射方位角（度）
+    double launchElevation_{};    ///< 发射仰角（度）
+    double launchDuration_{};     ///< 发射持续时间（秒）
+    int launchType_{};            ///< 发射类型
+    int launchControl_{};         ///< 发射控制
+    double launchApogeeAlt_{};    ///< 近地点高度（米）
 
 };
 

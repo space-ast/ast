@@ -59,11 +59,11 @@ protected:
 protected:
     BKVParser& parser_;
     const VehiclePathData& vehiclePathData_;
-    SharedPtr<EventTime> ephemSmartEpoch_;
-    SharedPtr<EventInterval> ephemSmartInterval_;
-    TimePoint ephemEpoch_;
-    TimePoint startTime_;
-    TimePoint stopTime_;
+    SharedPtr<EventTime> ephemSmartEpoch_{};
+    SharedPtr<EventInterval> ephemSmartInterval_{};
+    TimePoint ephemEpoch_{};
+    TimePoint startTime_{};
+    TimePoint stopTime_{};
     bool useScenTime_ = false;
 };
 

@@ -75,9 +75,9 @@ public:
     /// @return JSON值
     JsonValue toJson() const;
 private:
-    std::string name_;              ///< 工具名称
-    std::string description_;       ///< 工具描述
-    JsonValue parameters_;          ///< 工具参数schema
+    std::string name_{};              ///< 工具名称
+    std::string description_{};       ///< 工具描述
+    JsonValue parameters_{};          ///< 工具参数schema
 };
 
 /// @brief 通用模板封装

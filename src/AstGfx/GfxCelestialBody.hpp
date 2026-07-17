@@ -51,7 +51,9 @@ public:
     /// @param radius 天体半径
     /// @param color 天体颜色
     GfxCelestialBody(const std::string& name, double radius, const osg::Vec4& color = osg::Vec4(1.0f, 1.0f, 1.0f, 1.0f));
-    
+    GfxCelestialBody(const GfxCelestialBody&) = delete;
+    GfxCelestialBody& operator=(const GfxCelestialBody&) = delete;
+
     /// @brief 析构函数
     ~GfxCelestialBody();
     
@@ -145,16 +147,16 @@ private:
     double m_currentOrbit;
     
     /// @brief 天体的位置姿态变换节点
-    osg::PositionAttitudeTransform* m_pat;
-    
+    osg::PositionAttitudeTransform* m_pat{};
+
     /// @brief 天体的形状节点
-    osg::ShapeDrawable* m_shapeDrawable;
-    
+    osg::ShapeDrawable* m_shapeDrawable{};
+
     /// @brief 天体的材质
-    osg::Material* m_material;
-    
+    osg::Material* m_material{};
+
     /// @brief 天体的纹理
-    osg::Texture2D* m_texture;
+    osg::Texture2D* m_texture{};
     
     /// @brief 创建天体模型
     bool createModel();

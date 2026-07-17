@@ -37,6 +37,8 @@ class AST_GUI_API UiSweepOutputList : public QWidget
     Q_OBJECT
 public:
     explicit UiSweepOutputList(QWidget* parent = nullptr);
+    UiSweepOutputList(const UiSweepOutputList&) = delete;
+    UiSweepOutputList& operator=(const UiSweepOutputList&) = delete;
 
     /// @brief 绑定 SweepStudy，用于读写输出
     void setStudy(SweepStudy* study);
@@ -66,11 +68,11 @@ private:
         OUT_COUNT
     };
 
-    WeakPtr<SweepStudy> study_;
+    WeakPtr<SweepStudy> study_{};
 
-    QTableWidget* table_;
-    QPushButton*  addBtn_;
-    QPushButton*  removeBtn_;
+    QTableWidget* table_{};
+    QPushButton*  addBtn_{};
+    QPushButton*  removeBtn_{}; 
 };
 
 AST_NAMESPACE_END

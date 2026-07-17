@@ -45,6 +45,8 @@ public:
     explicit UiStateCartesian(Object* object, QWidget *parent = nullptr);
     explicit UiStateCartesian(QWidget *parent = nullptr);
     ~UiStateCartesian() = default;
+    UiStateCartesian(const UiStateCartesian&) = delete;
+    UiStateCartesian& operator=(const UiStateCartesian&) = delete;
 
     void refreshUi();
     void apply();

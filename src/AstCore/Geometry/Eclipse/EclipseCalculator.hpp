@@ -63,7 +63,7 @@ public:
     void addOccultingBody(HCelestialBody occultingBody) {occultingBodies_.push_back(occultingBody);}
 protected:
     HCelestialBody lightSource_{nullptr};           ///< 光源体
-    std::vector<HCelestialBody> occultingBodies_;   ///< 阴影体列表
+    std::vector<HCelestialBody> occultingBodies_{};   ///< 阴影体列表
 };
 
 

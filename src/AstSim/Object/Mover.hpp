@@ -103,10 +103,10 @@ public:
     State* getInitialState() const;
 
 protected:
-    std::string                 name_;                  ///< 名称
-    WeakPtr<MotionProfile>      motionProfile_;         ///< 运动定义
-    WeakPtr<AttitudeProfile>    attitudeProfile_;       ///< 姿态定义
-    ScopedPtr<Ephemeris>        ephemeris_;             ///< 星历
+    std::string                 name_{};                 ///< 名称
+    WeakPtr<MotionProfile>      motionProfile_{};        ///< 运动定义
+    WeakPtr<AttitudeProfile>    attitudeProfile_{};      ///< 姿态定义
+    ScopedPtr<Ephemeris>        ephemeris_{};            ///< 星历
 };
 
 /*! @} */

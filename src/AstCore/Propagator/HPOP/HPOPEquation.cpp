@@ -48,7 +48,7 @@
 AST_NAMESPACE_BEGIN
 
 HPOPEquation::HPOPEquation()
-    : propFrame_{}
+    : dynamicSystem_(), propFrame_{}
 {
 
 }

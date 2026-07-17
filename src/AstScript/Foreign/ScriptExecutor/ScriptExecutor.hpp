@@ -66,8 +66,8 @@ public:
     const std::string& error() const { return error_; }
     Value* value() const { return value_.get(); }
 
-    std::string error_;         ///< 错误信息
-    SharedPtr<Value> value_;    ///< 返回值
+    std::string error_{};         ///< 错误信息
+    SharedPtr<Value> value_{};    ///< 返回值
 };
 
 /// @brief 脚本执行器，用于执行外部脚本

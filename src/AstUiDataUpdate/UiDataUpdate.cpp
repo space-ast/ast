@@ -309,7 +309,7 @@ void UiDataUpdate::onUpdateAll()
     {
         std::atomic<int> done{0};
         std::atomic<int> success{0};
-        int total;
+        int total{};
     };
     auto ctx = std::make_shared<Context>();
     ctx->total = pending.size();

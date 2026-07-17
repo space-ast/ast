@@ -90,7 +90,7 @@ public:
     Vector* getVector() const { return vector_.get(); }
     Axes*   getAxes()   const { return axes_.get(); }
 private:
-    WeakPtr<Vector> vector_;
+    WeakPtr<Vector> vector_{};
     WeakPtr<Axes>   axes_;
 };
 

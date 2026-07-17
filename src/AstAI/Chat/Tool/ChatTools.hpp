@@ -72,7 +72,7 @@ public:
     bool empty() const {return tools_.empty();}
 private:
     A_DISABLE_COPY(ChatTools);
-    std::vector<std::unique_ptr<ChatTool>> tools_;
+    std::vector<std::unique_ptr<ChatTool>> tools_{};
 };
 
 

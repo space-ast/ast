@@ -71,8 +71,8 @@ PROPERTIES:
     Body* body() const {return position_.body();}
     void setBody(Body* body) {position_.setBody(body);}
 protected:
-    std::string name_;
-    CentroidPosition position_;
+    std::string name_{};
+    CentroidPosition position_{};
 };
 
 /*! @} */

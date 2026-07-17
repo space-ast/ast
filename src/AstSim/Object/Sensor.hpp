@@ -58,9 +58,9 @@ public:
     FieldOfView* getFieldOfView() const { return fov_; }
 
 private:
-    std::string name_;               ///< 传感器名称
-    WeakPtr<Point> location_;        ///< 传感器位置点, 这里使用弱引用
-    SharedPtr<FieldOfView> fov_;     ///< 传感器视场定义
+    std::string name_{};              ///< 传感器名称
+    WeakPtr<Point> location_{};       ///< 传感器位置点, 这里使用弱引用
+    SharedPtr<FieldOfView> fov_{};    ///< 传感器视场定义
 };
 
 /*! @} */

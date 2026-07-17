@@ -204,7 +204,7 @@ namespace fs_simple
             return (path_);
         }
     private:
-        string_type path_;
+        string_type path_{};
     };
 
     // 文件类型枚举
@@ -252,14 +252,14 @@ namespace fs_simple
         AST_UTIL_API
         file_status status() const;
     private:
-        _AST_FS path path_;
+        _AST_FS path path_{};
     };
 
     // 目录迭代器
     class AST_UTIL_API directory_iterator
     {
     public:
-        directory_iterator() : impl_(nullptr)
+        directory_iterator() : impl_(nullptr), entry_()
         {}
         explicit directory_iterator(const path& p);
         ~directory_iterator() = default;

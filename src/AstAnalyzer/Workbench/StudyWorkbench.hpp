@@ -62,9 +62,9 @@ public:
     /// @brief 获取脚本解释器
     Interpreter* interpreter() const {return interpreter_.get();}
 private:
-    VariableList inputs_;                               ///< 输入变量列表
-    VariableList outputs_;                              ///< 输出变量列表
-    mutable WeakPtr<Command> relatedCommand_;           ///< 所关联的执行命令
+    VariableList inputs_{};                               ///< 输入变量列表
+    VariableList outputs_{};                              ///< 输出变量列表
+    mutable WeakPtr<Command> relatedCommand_{};           ///< 所关联的执行命令
 private:
     mutable std::unique_ptr<Interpreter> interpreter_;  ///< 解释器
 };

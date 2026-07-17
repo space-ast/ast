@@ -189,10 +189,12 @@ struct SPK_Type20_Trailer {
 #pragma pack(pop)
 
 SPKParser::SPKParser()
+    : spkDescriptors_(), buffer_()
 {
 }
 
 SPKParser::SPKParser(StringView filepath)
+    : spkDescriptors_(), buffer_()
 {
     parse(filepath);
 }

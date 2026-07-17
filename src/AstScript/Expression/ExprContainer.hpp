@@ -57,7 +57,7 @@ public:
     /// @return 表达式容器引用
     const VectorType& children() const { return elems_; }
 protected:
-    VectorType elems_;      ///< 表达式容器
+    VectorType elems_{};     ///< 表达式容器
 };
 
 AST_NAMESPACE_END

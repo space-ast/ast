@@ -52,6 +52,10 @@ class AST_CORE_API BlockThirdBodyPointMass : public BlockDerivative
 {
 public:
     BlockThirdBodyPointMass();
+
+    BlockThirdBodyPointMass(const BlockThirdBodyPointMass&) = delete;
+    BlockThirdBodyPointMass& operator=(const BlockThirdBodyPointMass&) = delete;
+
     explicit BlockThirdBodyPointMass(Point* thirdBody, double thirdBodyGM, Frame* propagationFrame);
 
     errc_t run(const SimTime& simTime) override;

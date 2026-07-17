@@ -49,8 +49,8 @@ protected:
     /// @brief 创建脚本执行器
     virtual ScriptExecutor* newScriptExecutor() const = 0;
 private:
-    std::string expression_;     ///< 脚本表达式
-    VariableList variables_;     ///< 脚本变量列表
+    std::string expression_{};     ///< 脚本表达式
+    VariableList variables_{};     ///< 脚本变量列表
 };
 
 

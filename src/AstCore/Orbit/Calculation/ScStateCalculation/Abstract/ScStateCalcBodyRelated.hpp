@@ -43,7 +43,7 @@ PROPERTIES:
     Body* body() const { return body_.get(); }
     void setBody(Body* body) { body_ = body; }
 private:
-    WeakPtr<CelestialBody> body_;
+    WeakPtr<CelestialBody> body_{};
 };
 
 /*! @} */

@@ -47,7 +47,7 @@ PROPERTIES:
     ScStateCalculation* calculation() const{return calculation_.get();}
     void setCalculation(ScStateCalculation* calculation){calculation_ = calculation;}
 private:
-    WeakPtr<ScStateCalculation> calculation_;
+    WeakPtr<ScStateCalculation> calculation_{};
 };
 
 /*! @} */

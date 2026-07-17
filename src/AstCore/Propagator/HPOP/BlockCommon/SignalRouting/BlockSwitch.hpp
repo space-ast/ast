@@ -31,6 +31,9 @@ class AST_CORE_API BlockSwitch: public FuncBlock
 public:
     BlockSwitch();
 
+    BlockSwitch(const BlockSwitch&) = delete;
+    BlockSwitch& operator=(const BlockSwitch&) = delete;
+
     errc_t run(const SimTime &simTime) override;
     
     /// @brief 设置阈值

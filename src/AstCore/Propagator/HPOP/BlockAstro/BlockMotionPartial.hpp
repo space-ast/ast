@@ -60,6 +60,9 @@ class AST_CORE_API BlockMotionPartial : public BlockMotion
 public:
     BlockMotionPartial();
 
+    BlockMotionPartial(const BlockMotionPartial&) = delete;
+    BlockMotionPartial& operator=(const BlockMotionPartial&) = delete;
+
     errc_t run(const SimTime& simTime) override;
 private:
     void init();

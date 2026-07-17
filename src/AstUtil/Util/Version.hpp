@@ -89,8 +89,8 @@ private:
     int major_{-1};                 ///< 主版本号
     int minor_{0};                  ///< 次版本号
     int patch_{0};                  ///< 修订版本号
-    std::string prerelease_;        ///< 预发布版本号
-    std::string build_;             ///< 构建版本号
+    std::string prerelease_{};       ///< 预发布版本号
+    std::string build_{};            ///< 构建版本号
 };
 
 /*! @} */

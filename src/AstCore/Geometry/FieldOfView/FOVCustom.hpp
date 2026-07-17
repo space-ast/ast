@@ -52,7 +52,7 @@ public:
     const std::vector<Vector3d>& getVertices() const { return vertices_; }
     
 private:
-    std::vector<Vector3d> vertices_;  ///< 自定义视场的顶点列表
+    std::vector<Vector3d> vertices_{};  ///< 自定义视场的顶点列表
 };
 
 AST_NAMESPACE_END

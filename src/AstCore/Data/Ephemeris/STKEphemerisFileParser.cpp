@@ -90,17 +90,17 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
     BKVParser::EToken token;
     BKVItemView item;
     struct {
-        std::string binaryFileName_;                           ///< 二进制文件名称
+        std::string binaryFileName_{};                           ///< 二进制文件名称
         int numberOfEphemerisPoints_{0};                       ///< 星历点数
         TimePoint scenarioEpoch_{};                            ///< 场景时间点
         EInterpolationMethod interpolationMethod_{eUnknown};   ///< 插值方法
         int interpolationSamplesM1_{5};                        ///< 插值样本数减1(Minus 1)，相当于插值阶数
         double distanceUnitFactor_{1.0};                       ///< 距离单位的因子
-        HBody body_;                                           ///< 天体
-        HFrame frame_;                                         ///< 坐标系
-        std::vector<Vector3d> positions_;                      ///< 位置序列
-        std::vector<Vector3d> velocities_;                     ///< 速度序列
-        std::vector<double>   times_;                          ///< 时间序列
+        HBody body_{};                                          ///< 天体
+        HFrame frame_{};                                        ///< 坐标系
+        std::vector<Vector3d> positions_{};                     ///< 位置序列
+        std::vector<Vector3d> velocities_{};                    ///< 速度序列
+        std::vector<double>   times_{};                         ///< 时间序列
     } data;
     
     // 解析文件头部

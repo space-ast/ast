@@ -4,6 +4,7 @@
 
 #if defined(AST_WITH_AGG)
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include "agg/agg_basics.h"
 #include "agg/agg_rendering_buffer.h"
 #include "agg/agg_rasterizer_scanline_aa.h"
@@ -18,6 +19,7 @@
 #include "agg/agg_trans_affine.h"
 #include "agg/agg_color_rgba.h"
 #include "agg/agg_gsv_text.h"
+A_SUPPRESS_WARNINGS_END
 
 #include "LineStyle.hpp"
 
@@ -90,13 +92,13 @@ private:
     unsigned int width_, height_;
     double dpi_;
 
-    agg::int8u* pixBuffer_;
-    agg::rendering_buffer rbuf_;
-    pixfmt_type pixFmt_;
-    renderer_base_type renBase_;
-    renderer_aa_type renAA_;
-    rasterizer_type ras_;
-    scanline_type sl_;
+    agg::int8u* pixBuffer_{};
+    agg::rendering_buffer rbuf_{};
+    pixfmt_type pixFmt_{};
+    renderer_base_type renBase_{};
+    renderer_aa_type renAA_{};
+    rasterizer_type ras_{};
+    scanline_type sl_{};
 };
 
 

@@ -88,15 +88,18 @@ private:
 class AST_SCRIPT_API FileScanner : public Scanner
 {
 public:
-    explicit FileScanner(FILE* file) 
-        : file_(file), current_char_(0), next_char_(0), at_end_(false) 
+    explicit FileScanner(FILE* file)
+        : file_(file), current_char_(0), next_char_(0), at_end_(false)
     {
         // 预读取两个字符
         current_char_ = std::fgetc(file_);
         next_char_ = std::fgetc(file_);
         at_end_ = (current_char_ == EOF);
     }
-    
+
+    FileScanner(const FileScanner&) = delete;
+    FileScanner& operator=(const FileScanner&) = delete;
+
     ~FileScanner() override;
     
     char consume() override;

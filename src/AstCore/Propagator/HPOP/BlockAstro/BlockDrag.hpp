@@ -57,6 +57,10 @@ class AST_CORE_API BlockDrag: public BlockDerivative
 {
 public:
     BlockDrag();
+
+    BlockDrag(const BlockDrag&) = delete;
+    BlockDrag& operator=(const BlockDrag&) = delete;
+
     BlockDrag(Atmosphere* atmosphere, double dragCoefficient, double dragArea, Frame* propagationFrame);
 
     ~BlockDrag() override;

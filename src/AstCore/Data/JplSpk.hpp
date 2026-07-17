@@ -104,7 +104,7 @@ public:
         std::vector<int>& ids
     ) const;
 protected:
-    std::string spkfile_;                   ///< SPK文件路径
+    std::string spkfile_{};                  ///< SPK文件路径
     int handle_{0};                         ///< 库句柄
     mutable bool isIntervalCached_{false};  ///< 是否缓存了时间间隔
     mutable TimeInterval intervalCache_{};  ///< 时间间隔缓存

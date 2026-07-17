@@ -27,6 +27,9 @@ public:
     CrashDialog(const QString& logPath, const QString& appPath,
                 const QString& uploadUrl, QWidget* parent = nullptr);
 
+    CrashDialog(const CrashDialog&) = delete;
+    CrashDialog& operator=(const CrashDialog&) = delete;
+
 private slots:
     void onSendReport();
     void onRestart();
@@ -42,21 +45,21 @@ private:
     QString m_uploadUrl;
 
     // 从日志中解析的信息
-    QString m_crashType;
-    QString m_crashTime;
-    QString m_pid;
-    QStringList m_stackFrames;
+    QString m_crashType{};
+    QString m_crashTime{};
+    QString m_pid{};
+    QStringList m_stackFrames{};
 
     // UI 组件
-    QLabel* m_iconLabel;
-    QLabel* m_messageLabel;
-    QTextEdit* m_descriptionEdit;
-    QPushButton* m_detailsToggle;
-    QWidget* m_detailsPanel;
-    QLabel* m_detailsContent;
-    QPushButton* m_sendBtn;
-    QPushButton* m_restartBtn;
-    QPushButton* m_closeBtn;
+    QLabel* m_iconLabel{};
+    QLabel* m_messageLabel{};
+    QTextEdit* m_descriptionEdit{};
+    QPushButton* m_detailsToggle{};
+    QWidget* m_detailsPanel{};
+    QLabel* m_detailsContent{};
+    QPushButton* m_sendBtn{};
+    QPushButton* m_restartBtn{};
+    QPushButton* m_closeBtn{};
 
     QNetworkAccessManager* m_network;
 };

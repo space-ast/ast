@@ -40,10 +40,10 @@ AST_NAMESPACE_BEGIN
 class AST_REPORT_API ReportLine
 {
 public:
-    std::string name_;    ///< 行名称（如 "Line 1"）
-    std::string title_;   ///< 图形样式的 Y 轴/序列标题（表格样式不适用）
+    std::string name_{};   ///< 行名称（如 "Line 1"）
+    std::string title_{};  ///< 图形样式的 Y 轴/序列标题（表格样式不适用）
 
-    std::vector<ReportElement> elements_;
+    std::vector<ReportElement> elements_{};
 };
 
 /*! @} */

@@ -154,7 +154,7 @@ private:
 };
 
 HPOP::HPOP()
-    : stateMapper_(new HPOPStateMapper())
+    : equation_(), integrator_(), stateMapper_(new HPOPStateMapper())
 {
 
 }

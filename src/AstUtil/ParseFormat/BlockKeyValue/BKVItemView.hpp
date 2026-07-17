@@ -45,8 +45,8 @@ public:
     ValueView& value()  { return value_; }
     
 public:
-    StringView key_;       ///< 键
-    ValueView value_;      ///< 值
+    StringView key_{};      ///< 键
+    ValueView value_{};     ///< 值
 };
 
 

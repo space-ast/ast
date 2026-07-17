@@ -54,6 +54,8 @@ public:
 
     /// @brief 析构函数
     ~PilotCommander() override;
+    PilotCommander(const PilotCommander&) = delete;
+    PilotCommander& operator=(const PilotCommander&) = delete;
 
     /// @brief 执行命令字符串（线程安全）
     /// @param line 命令文本
@@ -95,8 +97,8 @@ private:
     PilotSession*  session_;
     PilotRecorder* recorder_;
     std::atomic<bool> running_{true};
-    std::thread     stdinThread_;
-    std::function<void(const std::string&)> outputCb_;
+    std::thread     stdinThread_{};
+    std::function<void(const std::string&)> outputCb_{};
 };
 
 /*! @} */

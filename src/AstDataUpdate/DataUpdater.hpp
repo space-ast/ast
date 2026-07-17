@@ -53,15 +53,15 @@ public:
     /// @brief 数据文件条目信息
     struct DataFileEntry
     {
-        std::string name;          ///< 显示名称，如 "EOP (地球定向参数)"
-        std::string description;   ///< 详细说明
-        std::string url;           ///< 下载 URL（Celestrak）
-        std::string localPath;     ///< 本地文件绝对路径（来自 InitalizeConfig）
-        std::string fileDate;      ///< 文件内部记录的数据日期（UPDATED 字段）
-        int         backupCount;   ///< 已有备份数量
-        int         maxAgeDays;    ///< 过期阈值（天数）
-        bool        isOutdated;    ///< 是否建议更新
-        errc_t      lastError;     ///< 上次更新错误码（eNoError 表示成功）
+        std::string name{};          ///< 显示名称，如 "EOP (地球定向参数)"
+        std::string description{};   ///< 详细说明
+        std::string url{};           ///< 下载 URL（Celestrak）
+        std::string localPath{};     ///< 本地文件绝对路径（来自 InitalizeConfig）
+        std::string fileDate{};      ///< 文件内部记录的数据日期（UPDATED 字段）
+        int         backupCount{};   ///< 已有备份数量
+        int         maxAgeDays{};    ///< 过期阈值（天数）
+        bool        isOutdated{};    ///< 是否建议更新
+        errc_t      lastError{};     ///< 上次更新错误码（eNoError 表示成功）
     };
 
     DataUpdater() = default;

@@ -30,6 +30,10 @@ class AST_CORE_API BlockSin : public FuncBlock
 {
 public:
     BlockSin();
+
+    BlockSin(const BlockSin&) = delete;
+    BlockSin& operator=(const BlockSin&) = delete;
+
     ~BlockSin() = default;
 
     errc_t run(const SimTime& simTime) final;

@@ -34,6 +34,10 @@ class AST_UTIL_API  BKVSaxPrint : public BKVSax
 {
 public:
     BKVSaxPrint();
+
+    BKVSaxPrint(const BKVSaxPrint&) = delete;
+    BKVSaxPrint& operator=(const BKVSaxPrint&) = delete;
+
     explicit BKVSaxPrint(StringView filepath);
     ~BKVSaxPrint();
     errc_t begin(StringView name) override;

@@ -31,6 +31,9 @@ class AST_CORE_API BlockConstant: public FuncBlock
 public:
     explicit BlockConstant(double value = 0.0);
 
+    BlockConstant(const BlockConstant&) = delete;
+    BlockConstant& operator=(const BlockConstant&) = delete;
+
     errc_t run(const SimTime &simTime) override;
     
     /// @brief 设置常量值

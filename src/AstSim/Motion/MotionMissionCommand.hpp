@@ -58,7 +58,7 @@ public:
     errc_t makeEphemerisSimple(ScopedPtr<Ephemeris>& eph) const override;
     void accept(MotionProfileVisitor& visitor) override;
 private:
-    SharedPtr<MainSequence> mainSequence_;      ///< 任务序列协调器
+    SharedPtr<MainSequence> mainSequence_{};     ///< 任务序列协调器
 };
 
 /*! @} */

@@ -37,6 +37,8 @@ public:
     explicit UiFuelTank(Object* object, QWidget* parent = nullptr);
     explicit UiFuelTank(QWidget* parent = nullptr);
     ~UiFuelTank() override;
+    UiFuelTank(const UiFuelTank&) = delete;
+    UiFuelTank& operator=(const UiFuelTank&) = delete;
 
     void setSpacecraftState(SpacecraftState* state);
     SpacecraftState* getSpacecraftState() const;

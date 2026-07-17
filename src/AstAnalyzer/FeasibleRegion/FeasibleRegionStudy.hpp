@@ -62,11 +62,11 @@ public:
     errc_t setValue(double value);
 
 private:
-    SharedPtr<Expr> expr_;          ///< 变量表达式
+    SharedPtr<Expr> expr_{};         ///< 变量表达式
     double lower_{};                ///< 下界
     double upper_{};                ///< 上界
     int steps_{10};                 ///< 采样点数（默认 10）
-    std::vector<double> values_;    ///< 采样值列表
+    std::vector<double> values_{};   ///< 采样值列表
 };
 
 
@@ -107,7 +107,7 @@ private:
     bool exclude_{};                ///< true: 排除区间（可行域为区间补集）; false: 包含区间（可行域为区间本身）
     double lower_{};                ///< 下界值（仅当 useLower_=true 时有效）
     double upper_{};                ///< 上界值（仅当 useUpper_=true 时有效）
-    SharedPtr<Expr> expr_;          ///< 约束表达式
+    SharedPtr<Expr> expr_{};          ///< 约束表达式
 };
 
 
@@ -160,9 +160,9 @@ public:
     errc_t executeStep(int stepIndex, bool& isFeasible);
 
 private:
-    VariableList variables_;                            ///< 变量列表
-    ConstraintList constraints_;                        ///< 约束列表
-    mutable WeakPtr<Command> relatedCommand_;           ///< 关联的执行命令
+    VariableList variables_{};                           ///< 变量列表
+    ConstraintList constraints_{};                       ///< 约束列表
+    mutable WeakPtr<Command> relatedCommand_{};          ///< 关联的执行命令
 };
 
 /*! @} */

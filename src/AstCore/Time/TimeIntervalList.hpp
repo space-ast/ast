@@ -273,7 +273,7 @@ public:
 
 private:
     TimePoint    epoch_{};   ///< 参考历元
-    IntervalList intervals_; ///< 相对时间区间列表（相对于 epoch_）
+    IntervalList intervals_{}; ///< 相对时间区间列表（相对于 epoch_）
 };
 
 

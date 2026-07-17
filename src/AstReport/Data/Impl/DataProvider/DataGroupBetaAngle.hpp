@@ -72,10 +72,10 @@ public:
     void setSunPoint(Point* p)  { sunPoint_ = p; }
     void setMoonPoint(Point* p) { moonPoint_ = p; }
 private:
-    WeakPtr<Point> scPoint_;
-    WeakPtr<Frame> frame_;
-    WeakPtr<Point> sunPoint_;
-    WeakPtr<Point> moonPoint_;
+    WeakPtr<Point> scPoint_{};
+    WeakPtr<Frame> frame_{};
+    WeakPtr<Point> sunPoint_{};
+    WeakPtr<Point> moonPoint_{};
 };
 
 

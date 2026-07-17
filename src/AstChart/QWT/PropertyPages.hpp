@@ -29,6 +29,8 @@ class ColorButton : public QPushButton {
     Q_OBJECT
 public:
     explicit ColorButton(QWidget* parent = nullptr);
+    ColorButton(const ColorButton&) = delete;
+    ColorButton& operator=(const ColorButton&) = delete;
     QColor color() const { return color_; }
     void setColor(const QColor& c);
 signals:
@@ -36,7 +38,7 @@ signals:
 private slots:
     void onClick();
 private:
-    QColor color_;
+    QColor color_{};
 };
 
 /// @brief 坐标轴属性编辑页
@@ -44,21 +46,32 @@ class AxesPropertyPage : public QWidget {
     Q_OBJECT
 public:
     explicit AxesPropertyPage(QWidget* parent = nullptr);
+    AxesPropertyPage(const AxesPropertyPage&) = delete;
+    AxesPropertyPage& operator=(const AxesPropertyPage&) = delete;
     void load(matplot::axes_type* axes, int index);
     void apply(matplot::axes_type* axes);
 
 private:
     void setupUi();
-    QDoubleSpinBox* posLeft_, *posBottom_, *posW_, *posH_;
-    QLineEdit* titleEdit_;
-    QComboBox* fontCombo_;
-    QDoubleSpinBox* fontSize_;
-    QDoubleSpinBox* titleFontSizeMultiplier_;
-    ColorButton* titleColorBtn_, *bgColorBtn_;
-    QLineEdit* xLabelEdit_, *yLabelEdit_;
-    QDoubleSpinBox* xMin_, *xMax_, *yMin_, *yMax_;
-    QCheckBox* xVisible_, *yVisible_;
-    QCheckBox* gridVisible_;
+    QDoubleSpinBox* posLeft_{};
+    QDoubleSpinBox* posBottom_{};
+    QDoubleSpinBox* posW_{};
+    QDoubleSpinBox* posH_{};
+    QLineEdit* titleEdit_{};
+    QComboBox* fontCombo_{};
+    QDoubleSpinBox* fontSize_{};
+    QDoubleSpinBox* titleFontSizeMultiplier_{};
+    ColorButton* titleColorBtn_{};
+    ColorButton* bgColorBtn_{};
+    QLineEdit* xLabelEdit_{};
+    QLineEdit* yLabelEdit_{};
+    QDoubleSpinBox* xMin_{};
+    QDoubleSpinBox* xMax_{};
+    QDoubleSpinBox* yMin_{};
+    QDoubleSpinBox* yMax_{};
+    QCheckBox* xVisible_{};
+    QCheckBox* yVisible_{};
+    QCheckBox* gridVisible_{};
 };
 
 /// @brief 折线/散点属性编辑页
@@ -66,19 +79,22 @@ class LinePropertyPage : public QWidget {
     Q_OBJECT
 public:
     explicit LinePropertyPage(QWidget* parent = nullptr);
+    LinePropertyPage(const LinePropertyPage&) = delete;
+    LinePropertyPage& operator=(const LinePropertyPage&) = delete;
     void load(class matplot::line* line, int index);
     void apply(class matplot::line* line);
 
 private:
     void setupUi();
-    QLineEdit* nameEdit_;
-    ColorButton* lineColorBtn_;
-    QComboBox* lineStyleCombo_;
-    QDoubleSpinBox* lineWidth_;
-    QComboBox* markerCombo_;
-    QDoubleSpinBox* markerSize_;
-    ColorButton* markerColorBtn_, *markerFaceBtn_;
-    QCheckBox* visibleCheck_;
+    QLineEdit* nameEdit_{};
+    ColorButton* lineColorBtn_{};
+    QComboBox* lineStyleCombo_{};
+    QDoubleSpinBox* lineWidth_{};
+    QComboBox* markerCombo_{};
+    QDoubleSpinBox* markerSize_{};
+    ColorButton* markerColorBtn_{};
+    ColorButton* markerFaceBtn_{};
+    QCheckBox* visibleCheck_{};
 };
 
 /// @brief 曲面属性编辑页
@@ -86,18 +102,20 @@ class SurfacePropertyPage : public QWidget {
     Q_OBJECT
 public:
     explicit SurfacePropertyPage(QWidget* parent = nullptr);
+    SurfacePropertyPage(const SurfacePropertyPage&) = delete;
+    SurfacePropertyPage& operator=(const SurfacePropertyPage&) = delete;
     void load(class matplot::surface* surf, int index);
     void apply(class matplot::surface* surf);
 
 private:
     void setupUi();
-    QLineEdit* nameEdit_;
-    QCheckBox* surfaceVisible_;
-    QCheckBox* lightingCheck_;
-    QDoubleSpinBox* faceAlpha_;
-    ColorButton* edgeColorBtn_;
-    QDoubleSpinBox* edgeWidth_;
-    QCheckBox* colorbarVisible_;
+    QLineEdit* nameEdit_{};
+    QCheckBox* surfaceVisible_{};
+    QCheckBox* lightingCheck_{};
+    QDoubleSpinBox* faceAlpha_{};
+    ColorButton* edgeColorBtn_{};
+    QDoubleSpinBox* edgeWidth_{};
+    QCheckBox* colorbarVisible_{};
 };
 
 AST_NAMESPACE_END

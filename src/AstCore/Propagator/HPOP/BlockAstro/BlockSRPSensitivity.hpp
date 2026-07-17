@@ -56,6 +56,10 @@ class AST_CORE_API BlockSRPSensitivity : public BlockDerivative
 {
 public:
     BlockSRPSensitivity();
+
+    BlockSRPSensitivity(const BlockSRPSensitivity&) = delete;
+    BlockSRPSensitivity& operator=(const BlockSRPSensitivity&) = delete;
+
     ~BlockSRPSensitivity() override = default;
 
     errc_t run(const SimTime& simTime) override;

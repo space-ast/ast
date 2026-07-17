@@ -86,7 +86,7 @@ public:
     /// @brief 设置星历来源
     void setEphemerisSource(EEphemerisSource source){ephemerisSource_ = source;}
 private:
-    HCelestialBody body_;                                                       ///< 天体
+    HCelestialBody body_{};                                                       ///< 天体
     EEphemerisSource ephemerisSource_{EEphemerisSource::eBodyEphemeris};        ///< 星历来源
     EBodyAttractionType attractionType_{EBodyAttractionType::ePointMass};       ///< 引力类型
     PointMassForce pointMass_{};                                                ///< 点质量引力模型

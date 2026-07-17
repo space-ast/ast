@@ -160,27 +160,27 @@ protected:
 	using BodyVector = std::vector<SharedPtr<CelestialBody>>;
 
 	
-	SharedPtr<CelestialBody> solarSystemBarycenter_; ///< 太阳系质心
-	SharedPtr<CelestialBody> earthMoonBarycenter_;	 ///< 地月质心
+	SharedPtr<CelestialBody> solarSystemBarycenter_{}; ///< 太阳系质心
+	SharedPtr<CelestialBody> earthMoonBarycenter_{};	 ///< 地月质心
  
-	SharedPtr<CelestialBody> mercury_;				 ///< 水星
-	SharedPtr<CelestialBody> venus_;				 ///< 金星
-    SharedPtr<CelestialBody> earth_;				 ///< 地球
-    SharedPtr<CelestialBody> mars_;					 ///< 火星
-	SharedPtr<CelestialBody> jupiter_;				 ///< 木星
-	SharedPtr<CelestialBody> saturn_;				 ///< 土星
-	SharedPtr<CelestialBody> uranus_;				 ///< 天王星
-	SharedPtr<CelestialBody> neptune_;				 ///< 海王星
-	SharedPtr<CelestialBody> pluto_;				 ///< 冥王星
-    SharedPtr<CelestialBody> moon_;					 ///< 月球
-	SharedPtr<CelestialBody> sun_;					 ///< 太阳
+	SharedPtr<CelestialBody> mercury_{};				 ///< 水星
+	SharedPtr<CelestialBody> venus_{};				 ///< 金星
+    SharedPtr<CelestialBody> earth_{};				 ///< 地球
+    SharedPtr<CelestialBody> mars_{};					 ///< 火星
+	SharedPtr<CelestialBody> jupiter_{};				 ///< 木星
+	SharedPtr<CelestialBody> saturn_{};				 ///< 土星
+	SharedPtr<CelestialBody> uranus_{};				 ///< 天王星
+	SharedPtr<CelestialBody> neptune_{};				 ///< 海王星
+	SharedPtr<CelestialBody> pluto_{};				 ///< 冥王星
+    SharedPtr<CelestialBody> moon_{};					 ///< 月球
+	SharedPtr<CelestialBody> sun_{};					 ///< 太阳
  
-	BodyVector bodies_;							 	 ///< 太阳系天体集合
-	mutable BodyNameMap  nameMap_;					 ///< 太阳系天体映射表，可能存在别名映射
-	mutable BodyIndexMap jplIndexMap_;				 ///< 太阳系天体映射表，根据JPL索引映射
-	mutable BodyIndexMap spiceIdMap_;				 ///< 太阳系天体映射表，根据SPICE ID映射
+	BodyVector bodies_{};							 	 ///< 太阳系天体集合
+	mutable BodyNameMap  nameMap_{};					 ///< 太阳系天体映射表，可能存在别名映射
+	mutable BodyIndexMap jplIndexMap_{};				 ///< 太阳系天体映射表，根据JPL索引映射
+	mutable BodyIndexMap spiceIdMap_{};				 ///< 太阳系天体映射表，根据SPICE ID映射
 	bool			     isInit_{false};			 ///<  是否已初始化
-	std::string          dirpath_;				 	 ///< 太阳系数据目录路径
+	std::string          dirpath_{};				 	 ///< 太阳系数据目录路径
 };
 
 

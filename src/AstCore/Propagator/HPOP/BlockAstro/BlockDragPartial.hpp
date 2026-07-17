@@ -74,6 +74,10 @@ class AST_CORE_API BlockDragPartial : public BlockDrag
 {
 public:
     BlockDragPartial();
+
+    BlockDragPartial(const BlockDragPartial&) = delete;
+    BlockDragPartial& operator=(const BlockDragPartial&) = delete;
+
     BlockDragPartial(Atmosphere* atmosphere, double dragCoefficient, double dragArea, Frame* propagationFrame);
 
     errc_t run(const SimTime& simTime) override;

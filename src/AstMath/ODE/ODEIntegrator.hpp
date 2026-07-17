@@ -40,7 +40,10 @@ class ODEEventDetector;
 class AST_MATH_API IODEIntegrator: public ObjectNamed
 {
 public:
+    IODEIntegrator() = default;
     virtual ~IODEIntegrator() {};
+    IODEIntegrator(const IODEIntegrator&) = delete;
+    IODEIntegrator& operator=(const IODEIntegrator&) = delete;
 
     /// @brief 初始化积分器
     /// @details 初始化积分器，设置ODE的维度和步长等参数
@@ -211,8 +214,8 @@ protected:
 protected:
     ODE* ode_{nullptr};                                     ///< ODE方程
     ODEStateObserver* workStateObserver_{nullptr};          ///< 状态观察者
-    ODEEventDetectorList eventDetectorList_;                ///< 事件检测器列表
-    ODEStateObserverList stateObserverList_;                ///< 状态观察者列表
+    ODEEventDetectorList eventDetectorList_{};               ///< 事件检测器列表
+    ODEStateObserverList stateObserverList_{};               ///< 状态观察者列表
     ODEInnerStateObserver* innerStateObserver_{nullptr};    ///< 内部状态观察者
     double* stateAtStepStart_{nullptr};                     ///< 当前积分步的开始状态
     double* stateAtStepEnd_{nullptr};                       ///< 当前积分步的结束状态

@@ -238,7 +238,7 @@ public:
 	const_iterator cend()  const { return end(); }
 
 private:
-	std::vector<double> seconds_;   ///< 相对于 epoch_ 的秒偏移量
+	std::vector<double> seconds_{};   ///< 相对于 epoch_ 的秒偏移量
 	TimePoint           epoch_{};   ///< 参考历元
 };
 

@@ -107,7 +107,7 @@ Q_SIGNALS:
 
 private:
     std::atomic<bool>       cancelled_{false};
-    MarkdownHTMLRenderer    mdRenderer_;        // 流式 Markdown→HTML 渲染器
+    MarkdownHTMLRenderer    mdRenderer_{};        // 流式 Markdown→HTML 渲染器
 };
 
 /*! @} */

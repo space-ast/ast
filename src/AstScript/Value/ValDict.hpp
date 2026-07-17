@@ -53,7 +53,7 @@ public:
 protected:
     std::string toJsonString(int indent, int currentIndent) const;
 protected:
-    MapType map_;
+    MapType map_{};
 };
 
 /*! @} */

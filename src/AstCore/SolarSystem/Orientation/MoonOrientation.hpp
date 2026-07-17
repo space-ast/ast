@@ -48,7 +48,7 @@ public:
     RotationalData& rotationalData(){return rotation_;}
     const RotationalData& rotationalData() const {return rotation_;}
 private:
-    RotationalData rotation_;       ///< 月球的旋转系数
+    RotationalData rotation_{};       ///< 月球的旋转系数
 };
 
 /*! @} */

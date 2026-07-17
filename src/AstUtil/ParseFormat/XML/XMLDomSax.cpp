@@ -24,8 +24,8 @@
 
 AST_NAMESPACE_BEGIN
 
-XMLDomSax::XMLDomSax(XMLNode& root) 
-    : root_(root) {
+XMLDomSax::XMLDomSax(XMLNode& root)
+    : root_(root), nodeStack_() {
 }
 
 XMLDomSax::~XMLDomSax() {

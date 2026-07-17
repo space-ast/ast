@@ -56,6 +56,10 @@ class AST_CORE_API BlockDragSensitivity : public BlockDerivative
 {
 public:
     BlockDragSensitivity();
+
+    BlockDragSensitivity(const BlockDragSensitivity&) = delete;
+    BlockDragSensitivity& operator=(const BlockDragSensitivity&) = delete;
+
     ~BlockDragSensitivity() override = default;
 
     errc_t run(const SimTime& simTime) override;

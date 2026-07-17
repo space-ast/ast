@@ -106,9 +106,9 @@ public:
 
 private:
     ENetworkRequestMethod method_{ENetworkRequestMethod::eGet};      ///< 网络请求方法
-    std::string url_;                                                ///< 网络请求 URL
-    std::string body_;                                               ///< 网络请求体
-    std::map<std::string, std::string> headers_;                     ///< 网络请求头
+    std::string url_{};                                               ///< 网络请求 URL
+    std::string body_{};                                              ///< 网络请求体
+    std::map<std::string, std::string> headers_{};                    ///< 网络请求头
 };
 
 /*! @} */

@@ -36,6 +36,9 @@ class AST_CORE_API HarrisPriester: public AtmosphereBase
 public:
     HarrisPriester(Frame* frame, BodyShape* bodyShape, CelestialBody* sun, double f107);
 
+    HarrisPriester(const HarrisPriester&) = delete;
+    HarrisPriester& operator=(const HarrisPriester&) = delete;
+
     double getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed) const override;
 
     void setSunPosition(ESunPosition sunPosition){sunPosition_ = sunPosition;}

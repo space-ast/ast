@@ -53,7 +53,7 @@ public:
     void registerClass(Class* cls);
     void registerClass(Class* cls, StringView name);
 protected:
-    ClassMap classMap_;
+    ClassMap classMap_{};
 };
 
 #endif

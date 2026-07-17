@@ -46,7 +46,7 @@ public:
     void addRuleHandler(StringView tmpl, std::shared_ptr<CommandHandler> handler);
     CommandTrie::Node& addRule(StringView tmpl);
 private:
-    CommandTrie trie_;  ///< 命令路由树
+    CommandTrie trie_{}; ///< 命令路由树
 };
 
 

@@ -41,6 +41,8 @@ public:
     explicit UiEventDetector(Object* object, QWidget* parent = nullptr);
     explicit UiEventDetector(QWidget* parent = nullptr);
     ~UiEventDetector() override;
+    UiEventDetector(const UiEventDetector&) = delete;
+    UiEventDetector& operator=(const UiEventDetector&) = delete;
 
     void setEventDetector(EventDetector* det);
     EventDetector* getEventDetector() const;

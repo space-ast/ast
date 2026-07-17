@@ -126,7 +126,7 @@ public:
         value_, DelimiterType(delimiter), strings_internal::AllowEmpty());
     }
 public:
-    StringView  value_;
+    StringView  value_{};
 };
 
 

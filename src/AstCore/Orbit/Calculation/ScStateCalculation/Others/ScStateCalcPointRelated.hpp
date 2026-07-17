@@ -41,7 +41,7 @@ PROPERTIES:
     Point* point() const { return point_.get(); }
     void setPoint(Point* point) { point_ = point; }
 private:
-    WeakPtr<Point> point_;      ///< 点
+    WeakPtr<Point> point_{};      ///< 点
 };
 
 /*! @} */

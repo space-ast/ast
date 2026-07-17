@@ -25,7 +25,7 @@
 
 AST_NAMESPACE_BEGIN
 
-ExprIf::ExprIf(){}
+ExprIf::ExprIf() : conditionBranches_(), elseBlock_(){}
 
 ExprIf::ExprIf(Expr * condition, Expr * block)
     :ExprIf()

@@ -35,6 +35,7 @@ BlockGravity::BlockGravity()
     , accGravityPtr_{&vectorBuffer_}
     , velocityDerivativePtr_{&vectorBuffer_}
     , vectorBuffer_{}
+    , gravityCalculator_()
 {
     init();
 }

@@ -33,7 +33,7 @@ AST_NAMESPACE_BEGIN
 class AST_UTIL_API Field
 {
 public:
-    Field(){}
+    Field() : name_(), desc_() {}
 
     explicit Field(StringView name, StringView desc = "")
         : name_(name), desc_(desc)

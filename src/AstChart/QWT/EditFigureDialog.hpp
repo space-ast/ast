@@ -31,6 +31,8 @@ class AST_CHART_API EditFigureDialog : public QDialog {
     Q_OBJECT
 public:
     explicit EditFigureDialog(matplot::figure_type* figure, QWidget* parent = nullptr);
+    EditFigureDialog(const EditFigureDialog&) = delete;
+    EditFigureDialog& operator=(const EditFigureDialog&) = delete;
 
     void selectPlotItem(int axesIndex, int itemIndex);
 
@@ -46,14 +48,14 @@ private:
     enum NodeType { TypeFigure, TypeAxes, TypePlotItem };
     enum DataRole { TypeRole = Qt::UserRole, AxesIndexRole = Qt::UserRole + 1, ItemIndexRole = Qt::UserRole + 2 };
 
-    matplot::figure_type* figure_;
-    QTreeWidget* tree_;
-    QStackedWidget* stack_;
-    AxesPropertyPage* axesPage_;
-    LinePropertyPage* linePage_;
-    SurfacePropertyPage* surfacePage_;
-    QWidget* placeholder_;
-    QPushButton* applyBtn_;
+    matplot::figure_type* figure_{};
+    QTreeWidget* tree_{};
+    QStackedWidget* stack_{};
+    AxesPropertyPage* axesPage_{};
+    LinePropertyPage* linePage_{};
+    SurfacePropertyPage* surfacePage_{};
+    QWidget* placeholder_{};
+    QPushButton* applyBtn_{};
 };
 
 AST_NAMESPACE_END

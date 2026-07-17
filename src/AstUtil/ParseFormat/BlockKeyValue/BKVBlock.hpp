@@ -33,7 +33,7 @@ AST_NAMESPACE_BEGIN
 class BKVBlock : public BKVNode
 {
 public:
-    BKVBlock() : BKVNode(eBlock) {}
+    BKVBlock() : BKVNode(eBlock), name_(), children_() {}
 private:
     std::string name_;      // 块名
     std::vector<std::unique_ptr<BKVNode>> children_;

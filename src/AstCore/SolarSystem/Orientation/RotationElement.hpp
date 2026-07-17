@@ -72,7 +72,7 @@ protected:
     double rate_ {0.0};
     double rateDot_ {0.0};
     bool isSine_ {false};
-    std::vector<Coefficient> coefficients_;
+    std::vector<Coefficient> coefficients_{};
 };
 
 

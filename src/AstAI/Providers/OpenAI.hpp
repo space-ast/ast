@@ -91,8 +91,8 @@ protected:
     const std::string& apiKey() const { return apiKey_; }
     const std::string& baseUrl() const { return baseUrl_; }
 private:
-    std::string apiKey_;          ///< API密钥
-    std::string baseUrl_;         ///< API基础URL
+    std::string apiKey_{};         ///< API密钥
+    std::string baseUrl_{};        ///< API基础URL
 };
 
 /*! @} */

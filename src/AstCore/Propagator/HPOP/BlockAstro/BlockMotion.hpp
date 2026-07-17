@@ -45,6 +45,9 @@ class AST_CORE_API BlockMotion : public BlockDerivative
 public:
     BlockMotion();
 
+    BlockMotion(const BlockMotion&) = delete;
+    BlockMotion& operator=(const BlockMotion&) = delete;
+
     errc_t run(const SimTime& simTime) override;
 
 protected:

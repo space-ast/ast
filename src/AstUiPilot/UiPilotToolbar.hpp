@@ -33,6 +33,8 @@ public:
     explicit UiPilotToolbar(PilotCommander* commander, PilotSession* session,
                             PilotRecorder* recorder, QWidget* parent = nullptr);
     ~UiPilotToolbar() override;
+    UiPilotToolbar(const UiPilotToolbar&) = delete;
+    UiPilotToolbar& operator=(const UiPilotToolbar&) = delete;
 
 Q_SIGNALS:
     void consoleToggleRequested();
@@ -71,34 +73,34 @@ private:
     void scrollToBottom();
     void rebuildStepListFromRecorder();
 
-    PilotCommander*  commander_;
-    PilotSession*    session_;
-    PilotRecorder*   recorder_;
+    PilotCommander*  commander_{};
+    PilotSession*    session_{};
+    PilotRecorder*   recorder_{};
     PilotPlayer*     player_ = nullptr;
 
     // 顶部
-    QLabel*          recIndicator_;
-    QLabel*          elapsedLabel_;
-    QLabel*          stepStatLabel_;
+    QLabel*          recIndicator_{};
+    QLabel*          elapsedLabel_{};
+    QLabel*          stepStatLabel_{};
 
     // 步骤
-    QListWidget*     stepList_;
+    QListWidget*     stepList_{};
 
     // 底部按钮
-    QPushButton*     recordBtn_;      // ⏺ 开始录制 / ⏹ 停止录制
-    QPushButton*     pauseBtn_;       // ⏸ 暂停 / ▶ 继续
-    QPushButton*     replayBtn_;      // ▶ 回放 / ⏹ 停止回放
-    QPushButton*     polishBtn_;      // 💎 润色
-    QPushButton*     copyBtn_;        // 📋 复制
+    QPushButton*     recordBtn_{};      // ⏺ 开始录制 / ⏹ 停止录制
+    QPushButton*     pauseBtn_{};       // ⏸ 暂停 / ▶ 继续
+    QPushButton*     replayBtn_{};      // ▶ 回放 / ⏹ 停止回放
+    QPushButton*     polishBtn_{};      // 💎 润色
+    QPushButton*     copyBtn_{};        // 📋 复制
 
     // 计时
-    QTimer*          elapsedTimer_;
-    QElapsedTimer    recordingStart_;
+    QTimer*          elapsedTimer_{};
+    QElapsedTimer    recordingStart_{};
     int              stepCount_  = 0;
     EState           state_      = EState::Idle;
 
     // 拖拽
-    QPoint           dragStartPos_;
+    QPoint           dragStartPos_{};
     bool             dragging_   = false;
 };
 

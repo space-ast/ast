@@ -28,6 +28,8 @@ public:
     UiThirdBodyForceList(Object* object, QWidget *parent = nullptr);
     UiThirdBodyForceList(QWidget *parent = nullptr);
     ~UiThirdBodyForceList() = default;
+    UiThirdBodyForceList(const UiThirdBodyForceList&) = delete;
+    UiThirdBodyForceList& operator=(const UiThirdBodyForceList&) = delete;
 
     HPOPForceModel* getHPOPForceModel() const;
     void setHPOPForceModel(HPOPForceModel* hpop);

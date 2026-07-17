@@ -44,6 +44,8 @@ public:
     UiDragForce(Object* object, QWidget *parent = nullptr);
     UiDragForce(QWidget *parent = nullptr);
     ~UiDragForce() = default;
+    UiDragForce(const UiDragForce&) = delete;
+    UiDragForce& operator=(const UiDragForce&) = delete;
 
     DragForce* getDragForce() const;
     void setDragForce(DragForce* drag);

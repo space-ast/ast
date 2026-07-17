@@ -23,9 +23,11 @@
 #include "EditFigureOverlay.hpp"
 #include "EditFigureDialog.hpp"
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/core/axes_type.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/freestanding/plot.h>
+A_SUPPRESS_WARNINGS_END
 
 #include <QVBoxLayout>
 #include <QToolBar>
@@ -67,9 +69,11 @@ public:
     ~figure_silencer() {
         figure_->quiet_mode(previous_quiet_mode_);
     }
+    figure_silencer(const figure_silencer&) = delete;
+    figure_silencer& operator=(const figure_silencer&) = delete;
 private:
     figure_type *figure_;
-    bool previous_quiet_mode_;
+    bool previous_quiet_mode_{};
 };
 UiFigure::UiFigure(matplot::figure_type* pltfigure, QWidget* parent)
     : QWidget(parent)

@@ -30,6 +30,9 @@ class AST_CORE_API BlockDot : public FuncBlock
 public:
     BlockDot();
 
+    BlockDot(const BlockDot&) = delete;
+    BlockDot& operator=(const BlockDot&) = delete;
+
     errc_t run(const SimTime &simTime) override;
 protected:
     double* vector1_{nullptr};  // 第一个向量

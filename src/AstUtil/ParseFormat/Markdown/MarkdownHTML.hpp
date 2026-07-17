@@ -126,13 +126,13 @@ private:
     void appendNewline();
 
     // ---- 输出缓冲 ----
-    std::string output_;
+    std::string output_{};
 
     // ---- 格式化控制 ----
     bool compact_ = false;              ///< true=紧凑输出，false=格式化输出
 
     // ---- 块级状态 ----
-    std::vector<bool> listStack_;   ///< 列表类型栈: true=有序, false=无序
+    std::vector<bool> listStack_{}; ///< 列表类型栈: true=有序, false=无序
     int  blockquoteDepth_ = 0;      ///< 块引用嵌套深度
     int  lastEndListDepth_ = -1;    ///< 最近一次 endList 后的栈深度，用于 endListItem 判断子列表换行
 
@@ -140,7 +140,7 @@ private:
     bool inTableHead_ = false;      ///< 当前是否在表头区域内
 
     // ---- 链接状态 ----
-    std::string linkUrl_;
+    std::string linkUrl_{};
 };
 
 

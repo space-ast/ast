@@ -51,7 +51,7 @@ public:
     errc_t execute() override;
 
 private:
-    std::vector<HTargeterProfile> profiles_;
+    std::vector<HTargeterProfile> profiles_{};
 };
 
 

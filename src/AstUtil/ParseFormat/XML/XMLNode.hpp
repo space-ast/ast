@@ -161,8 +161,8 @@ private:
 private:
     EXMLNodeType kind_{EXMLNodeType::eElement};      ///< 节点类型
     std::string nameOrText_{};                       ///< 节点名称或文本
-    std::vector<HXMLNode> children_;                 ///< 子节点列表
-    std::map<std::string, GenericValue> attributes_; ///< 属性列表
+    std::vector<HXMLNode> children_{};                ///< 子节点列表
+    std::map<std::string, GenericValue> attributes_{}; ///< 属性列表
 };
 
 /*! @} */

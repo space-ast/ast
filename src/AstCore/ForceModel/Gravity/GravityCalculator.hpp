@@ -183,25 +183,25 @@ private:
 
 private:
     /// @brief 递归系数 g_{n,m}/√j
-    std::vector<double> gnmOj_;
-    
+    std::vector<double> gnmOj_{};
+
     /// @brief 递归系数 h_{n,m}/√j
-    std::vector<double> hnmOj_;
-    
+    std::vector<double> hnmOj_{};
+
     /// @brief 递归系数 e_{n,m}
-    std::vector<double> enm_;
-    
+    std::vector<double> enm_{};
+
     /// @brief 缩放扇区项 Pbar_{m,m}/u^m × 2^{-SCALING}
-    std::vector<double> sectorial_;
+    std::vector<double> sectorial_{};
 private:
-    std::vector<double> pnm0Plus2;
-    std::vector<double> pnm0Plus1;
-    std::vector<double> pnm0;
-    std::vector<double> pnm1;
+    std::vector<double> pnm0Plus2{};
+    std::vector<double> pnm0Plus1{};
+    std::vector<double> pnm0{};
+    std::vector<double> pnm1{};
 private:
-    std::vector<double> aOrN;
-    std::vector<double> cosLambdaN;
-    std::vector<double> sinLambdaN;
+    std::vector<double> aOrN{};
+    std::vector<double> cosLambdaN{};
+    std::vector<double> sinLambdaN{};
 };
 
 
@@ -213,6 +213,9 @@ public:
     GravityCalculator3();
     GravityCalculator3(const GravityField &gravityField, int degree, int order);
     GravityCalculator3(GravityField &&gravityField, int degree, int order);
+
+    GravityCalculator3(const GravityCalculator3&) = delete;
+    GravityCalculator3& operator=(const GravityCalculator3&) = delete;
 
     ~GravityCalculator3() override;
     

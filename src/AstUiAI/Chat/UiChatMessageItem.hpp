@@ -44,6 +44,8 @@ public:
                                QWidget* parent = nullptr);
 
     ~UiChatMessageItem() override;
+    UiChatMessageItem(const UiChatMessageItem&) = delete;
+    UiChatMessageItem& operator=(const UiChatMessageItem&) = delete;
 
     /// @brief 设置消息内容（替换全部）
     void setContent(const QString& content);
@@ -74,7 +76,7 @@ private:
     EChatRole   role_;
     QLabel*     roleLabel_ = nullptr;     // 角色标签（"你" / "助手"）
     QTextEdit*  contentEdit_ = nullptr;   // 消息内容（支持富文本）
-    QString     accumulatedHtml_;          // 累积的 HTML（用于流式渲染 setHtml）
+    QString     accumulatedHtml_{};         // 累积的 HTML（用于流式渲染 setHtml）
     int         cachedDocHeight_ = 0;     // 上次计算的文档高度，避免循环
 };
 

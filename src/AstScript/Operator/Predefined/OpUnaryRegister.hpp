@@ -63,7 +63,7 @@ public:
         map_[OpUnaryKey{static_cast<int>(op), type}] = func;
     }
 protected:
-    OpUnaryMap map_;
+    OpUnaryMap map_{};
 };
 #endif
 

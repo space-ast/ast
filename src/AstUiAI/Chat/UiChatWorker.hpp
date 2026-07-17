@@ -55,6 +55,9 @@ public:
 
     ~UiChatWorker() override;
 
+    UiChatWorker(const UiChatWorker&) = delete;
+    UiChatWorker& operator=(const UiChatWorker&) = delete;
+
     /// @brief 获取本轮对话的最终响应
     const std::string& response() const { return response_; }
 
@@ -74,7 +77,7 @@ private:
     QString             userMessage_;
     QPointer<UiChatEventHandler> handler_;
     int                 maxToolIterations_;
-    std::string         response_;
+    std::string         response_{}; 
     int                 errorCode_{0};
 };
 

@@ -46,7 +46,7 @@ public:
     void clearBlocks();
 
 protected:
-    std::vector<FuncBlock*> blocks_;    // 子系统块中的函数块
+    std::vector<FuncBlock*> blocks_{};    // 子系统块中的函数块
 };
 
 

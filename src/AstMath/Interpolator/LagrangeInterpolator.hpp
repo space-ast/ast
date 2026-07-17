@@ -84,6 +84,8 @@ public:
 
     /// @brief 析构函数
     ~LagrangeInterpolator() override;
+    LagrangeInterpolator(const LagrangeInterpolator&) = delete;
+    LagrangeInterpolator& operator=(const LagrangeInterpolator&) = delete;
 
     /// @brief 计算插值结果
     /// @param x 输入值

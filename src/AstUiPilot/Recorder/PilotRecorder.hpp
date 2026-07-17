@@ -42,6 +42,8 @@ class AST_UIPILOT_API PilotRecorder : public QObject
 public:
     explicit PilotRecorder(PilotAgent* agent, QObject* parent = nullptr);
     ~PilotRecorder() override;
+    PilotRecorder(const PilotRecorder&) = delete;
+    PilotRecorder& operator=(const PilotRecorder&) = delete;
 
     // ---- 生命周期 ----
     void start();
@@ -88,8 +90,8 @@ private:
     void flushPendingEdit();
     void populateWidgetInfo(RecordStep& step, QWidget* w);
 
-    PilotAgent* agent_;
-    QList<RecordStep> steps_;
+    PilotAgent* agent_{};
+    QList<RecordStep> steps_{};
     bool recording_ = false;
     bool paused_    = false;
     int64_t startTime_ = 0;
@@ -97,15 +99,15 @@ private:
     // 双击检测
     QWidget* lastClickedWidget_ = nullptr;
     int clickCount_ = 0;
-    QElapsedTimer clickTimer_;
+    QElapsedTimer clickTimer_{};
 
     // 拖拽跟踪
     QWidget* dragSourceWidget_ = nullptr;
-    QString  dragSourceText_;
+    QString  dragSourceText_{};
 
     // 输入框编辑跟踪
     QWidget* editWidget_ = nullptr;
-    QString  editBeforeText_;
+    QString  editBeforeText_{};
 };
 
 /*! @} */

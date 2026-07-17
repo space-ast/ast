@@ -59,7 +59,7 @@ public:
 private:
     std::string model_ = "deepseek-v4-flash";
     float temperature_ = 0.2f;
-    JsonValue extraBody_;  ///< 提供者特有的额外请求体字段
+    JsonValue extraBody_{}; ///< 提供者特有的额外请求体字段
 };
 
 /*! @} */

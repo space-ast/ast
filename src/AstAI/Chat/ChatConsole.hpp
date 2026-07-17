@@ -70,7 +70,7 @@ public:
 private:
     void outputText(const std::string& text);
 
-    RendererType renderer_;
+    RendererType renderer_{};
     bool     rawOutput_ = false;
 };
 

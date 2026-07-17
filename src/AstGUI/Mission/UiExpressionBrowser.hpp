@@ -42,6 +42,8 @@ class AST_GUI_API UiExpressionBrowser : public QWidget
     Q_OBJECT
 public:
     explicit UiExpressionBrowser(QWidget* parent = nullptr);
+    UiExpressionBrowser(const UiExpressionBrowser&) = delete;
+    UiExpressionBrowser& operator=(const UiExpressionBrowser&) = delete;
 
     /// @brief 获取选中的表达式，无选中时返回 nullptr
     Expr* selectedExpression() const { return selectedExpr_.get(); }
@@ -74,7 +76,7 @@ private:
     QPushButton*     propertySelectButton_ = nullptr;
     QPushButton*     calculationSelectButton_ = nullptr;
     WeakPtr<Object>  currentObject_ = nullptr;
-    SharedPtr<Expr>  selectedExpr_;
+    SharedPtr<Expr>  selectedExpr_{}; 
 };
 
 AST_NAMESPACE_END

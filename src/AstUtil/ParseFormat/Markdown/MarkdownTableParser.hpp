@@ -133,16 +133,16 @@ private:
     bool charConsumed_ = true;
 
     // 行缓冲（逐字符累积，\n 时处理并清空）
-    std::string rowBuf_;
+    std::string rowBuf_{};
 
     // 表头缓冲（分隔行确认前暂存）
-    std::vector<std::string> headerCells_;
+    std::vector<std::string> headerCells_{};
 
     // 列对齐（分隔行解析后确定）
-    std::vector<ETableAlign> colAligns_;
+    std::vector<ETableAlign> colAligns_{};
 
     // 回退文本（表格未确认时，累积的原始行文本，用于回退为段落）
-    std::string abortBuf_;
+    std::string abortBuf_{};
 };
 
 

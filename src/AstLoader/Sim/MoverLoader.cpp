@@ -71,11 +71,11 @@ errc_t _aLoadJ4Perturbation(BKVParser& parser, const VehiclePathData& VehiclePat
 errc_t _aLoadSGP4(BKVParser& parser, const VehiclePathData& vehiclePathData, ScopedPtr<MotionProfile>& motionProfile)
 {
     struct {
-        std::string SSCNumber_;
-        std::string intlDesignator_;
-        std::string commonName_;
-        std::vector<TwoLineElement> elements_;
-        SharedPtr<EventInterval> interval_;
+        std::string SSCNumber_{};
+        std::string intlDesignator_{};
+        std::string commonName_{};
+        std::vector<TwoLineElement> elements_{};
+        SharedPtr<EventInterval> interval_{};
         double timeStep_ = 0.0;
         TimePoint startTime_{};
         TimePoint stopTime_{};
@@ -214,7 +214,7 @@ errc_t _aLoadHPOP(BKVParser& parser, const VehiclePathData& vehiclePathData, Sco
 errc_t _aLoadSPICE(BKVParser& parser, const VehiclePathData& vehiclePathData, ScopedPtr<MotionProfile>& motionProfile)
 {
     struct {
-        std::string filename_;
+        std::string filename_{};
         int satelliteID_{-1};
         int segmentNumber_{1};
         double stepSize_{60.0};
@@ -223,7 +223,7 @@ errc_t _aLoadSPICE(BKVParser& parser, const VehiclePathData& vehiclePathData, Sc
         bool use3rdOrderDelay_{false};
         TimePoint startTime_{};
         TimePoint stopTime_{};
-        SharedPtr<EventInterval> ephemSmartInterval_;
+        SharedPtr<EventInterval> ephemSmartInterval_{};
     } data;
 
 
@@ -305,8 +305,8 @@ errc_t _aLoadSPICE(BKVParser& parser, const VehiclePathData& vehiclePathData, Sc
 errc_t _aLoadBallistic(BKVParser& parser, const VehiclePathData& vehiclePathData, ScopedPtr<MotionProfile>& motionProfile)
 {
     struct {
-        TimePoint launchTime_;
-        TimePoint impactTime_;
+        TimePoint launchTime_{};
+        TimePoint impactTime_{};
         double launchLatitude_{0.0};
         double launchLongitude_{0.0};
         double launchAltitude_{0.0};
@@ -408,9 +408,9 @@ errc_t _aLoadBallistic(BKVParser& parser, const VehiclePathData& vehiclePathData
 errc_t _aLoadSimpleAscent(BKVParser& parser, const VehiclePathData& vehiclePathData, ScopedPtr<MotionProfile>& motionProfile)
 {
     struct {
-        TimePoint launchTime_;
+        TimePoint launchTime_{};
         bool useScenTime_{false};
-        TimePoint burnoutTime_;
+        TimePoint burnoutTime_{};
         double launchLatitude_{0.0};
         double launchLongitude_{0.0};
         double launchAltitude_{0.0};
@@ -501,18 +501,18 @@ errc_t _aLoadGreatArc(BKVParser& parser, const VehiclePathData& vehiclePathData,
 {
     struct {
         int versionIndicator_{0};
-        std::string method_;
+        std::string method_{};
         TimePoint timeOfFirstWaypoint_{};
         bool useScenTime_{false};
         double arcGranularity_{0.0};
         double defaultRate_{0.0};
         double defaultAltitude_{0.0};
         double defaultTurnRadius_{0.0};
-        std::string altRef_;
-        std::string altInterpMethod_;
+        std::string altRef_{};
+        std::string altInterpMethod_{};
         int numberOfWaypoints_{0};
-        std::vector<WayPoint> waypoints_;
-        SharedPtr<EventInterval> arcSmartInterval_;
+        std::vector<WayPoint> waypoints_{};
+        SharedPtr<EventInterval> arcSmartInterval_{};
     } data;
 
     while(1)
@@ -605,7 +605,7 @@ errc_t _aLoadExternExternalEphemeris(BKVParser& parser, const VehiclePathData& V
     BKVItemView item;
     BKVParser::EToken token;
     struct {
-        std::string filename_;
+        std::string filename_{};
     } data;
     do{
         token = parser.getNext(item);

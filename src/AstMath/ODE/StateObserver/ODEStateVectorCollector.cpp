@@ -23,7 +23,7 @@
 AST_NAMESPACE_BEGIN
 
 ODEStateVectorCollector::ODEStateVectorCollector(int ndim)
-    : ndim_(ndim)
+    : ndim_(ndim), x_(), y_()
 {
     // x_.reserve(1024);
     // y_.reserve(1024);

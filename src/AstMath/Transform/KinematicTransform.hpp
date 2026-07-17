@@ -143,8 +143,8 @@ private:
     KinematicRotation& kinematicRotation() { return reinterpret_cast<KinematicRotation&>(rotation_); }
     const KinematicRotation& kinematicRotation() const { return reinterpret_cast<const KinematicRotation&>(rotation_); }
 protected:
-    Vector3d angvel_;
-    Vector3d velocity_;
+    Vector3d angvel_{};
+    Vector3d velocity_{};
 };
 
 A_ALWAYS_INLINE KinematicTransform KinematicTransform::Identity()

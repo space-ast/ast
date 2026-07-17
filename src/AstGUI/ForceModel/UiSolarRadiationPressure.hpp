@@ -26,6 +26,8 @@ public:
     UiSolarRadiationPressure(Object* object, QWidget *parent = nullptr);
     UiSolarRadiationPressure(QWidget *parent = nullptr);
     ~UiSolarRadiationPressure() = default;
+    UiSolarRadiationPressure(const UiSolarRadiationPressure&) = delete;
+    UiSolarRadiationPressure& operator=(const UiSolarRadiationPressure&) = delete;
 
     SolarRadiationPressure* getSolarRadiationPressure() const;
     void setSolarRadiationPressure(SolarRadiationPressure* srp);

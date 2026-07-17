@@ -2,11 +2,13 @@
 
 #if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOT)
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/core/axes_type.h>
 #include <matplot/core/axis_type.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/axes_objects/line.h>
 #include <matplot/util/colors.h>
+A_SUPPRESS_WARNINGS_END
 
 #include "AggRenderer.hpp"
 #include "LineStyle.hpp"

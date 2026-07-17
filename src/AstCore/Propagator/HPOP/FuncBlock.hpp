@@ -151,8 +151,8 @@ public:
     static errc_t connect(FuncBlock* src, size_t srcPortIndex, FuncBlock* dst, size_t dstPortIndex);
 
 protected:
-    std::vector<DataPort> inputPorts_;
-    std::vector<DataPort> outputPorts_;
+    std::vector<DataPort> inputPorts_{};
+    std::vector<DataPort> outputPorts_{};
 };
 
 AST_NAMESPACE_END

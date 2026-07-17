@@ -72,9 +72,9 @@ public:
     /// @return 积分器
     ODEIntegrator* getIntegrator() const;
 private:
-    HPOPForceModel forceModel_;             ///< 力模型
-    SpacecraftParam spacecraftParam_;       ///< 航天器参数
-    SharedPtr<ODEIntegrator> integrator_;   ///< 积分器
+    HPOPForceModel forceModel_{};            ///< 力模型
+    SpacecraftParam spacecraftParam_{};      ///< 航天器参数
+    SharedPtr<ODEIntegrator> integrator_{};  ///< 积分器
 };
 
 /*! @} */

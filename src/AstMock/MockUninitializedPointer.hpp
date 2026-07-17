@@ -36,6 +36,9 @@ public:
     MockUninitializedPointer();
     ~MockUninitializedPointer();
 
+    MockUninitializedPointer(const MockUninitializedPointer&) = delete;
+    MockUninitializedPointer& operator=(const MockUninitializedPointer&) = delete;
+
     void doSomething();
 private:
     Object* object_{};

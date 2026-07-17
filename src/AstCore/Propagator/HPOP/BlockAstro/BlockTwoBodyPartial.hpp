@@ -64,6 +64,10 @@ class AST_CORE_API BlockTwoBodyPartial : public BlockTwoBody
 {
 public:
     BlockTwoBodyPartial();
+
+    BlockTwoBodyPartial(const BlockTwoBodyPartial&) = delete;
+    BlockTwoBodyPartial& operator=(const BlockTwoBodyPartial&) = delete;
+
     explicit BlockTwoBodyPartial(double twoBodyGM);
 
     errc_t run(const SimTime& simTime) override;

@@ -30,6 +30,9 @@ class AST_CORE_API BlockSign : public FuncBlock
 public:
     BlockSign();
 
+    BlockSign(const BlockSign&) = delete;
+    BlockSign& operator=(const BlockSign&) = delete;
+
     errc_t run(const SimTime &simTime) override;
 protected:
     double* input_{nullptr};  // 输入值

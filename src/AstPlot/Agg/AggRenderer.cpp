@@ -6,7 +6,9 @@
 #include <cstring>
 #include <stdexcept>
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include "agg/agg_conv_dash.h"
+A_SUPPRESS_WARNINGS_END
 
 #include "path_converters.h"
 

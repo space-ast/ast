@@ -39,6 +39,8 @@ public:
     explicit UiChatDockWidget(ChatSession* session, QWidget* parent = nullptr);
 
     ~UiChatDockWidget() override;
+    UiChatDockWidget(const UiChatDockWidget&) = delete;
+    UiChatDockWidget& operator=(const UiChatDockWidget&) = delete;
 
     /// @brief 获取内部的聊天主控件
     UiChatMainWidget* chatWidget() const { return chatWidget_; }

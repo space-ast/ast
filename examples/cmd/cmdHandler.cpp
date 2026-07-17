@@ -18,7 +18,7 @@ constexpr int find_closing(const char* s, int p) {
 
 constexpr bool is_type_impl(const char* s, int p, const char* type, int i) {
     return type[i] == '\0'
-               ? (s[p + i] == '>' || s[p + i] == ':')
+               ? ((s[p + i] == '>') | (s[p + i] == ':'))
                : (s[p + i] == type[i] && is_type_impl(s, p, type, i + 1));
 }
 

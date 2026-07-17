@@ -39,6 +39,10 @@ public:
     AST_OBJECT(ObjectLinkTo)
 
     ObjectLinkTo() = default;
+
+    ObjectLinkTo(const ObjectLinkTo&) = delete;
+    ObjectLinkTo& operator=(const ObjectLinkTo&) = delete;
+
     ~ObjectLinkTo() = default;
 
     void setResolvedName(const std::string& name);
@@ -51,8 +55,8 @@ public:
     
     Object* resolve() const;
 private:
-    mutable WeakPtr<Object> resolvedObject_;        ///< 已解析的对象
-    std::string resolvedName_;                      ///< 用于解析的名称
+    mutable WeakPtr<Object> resolvedObject_{};        ///< 已解析的对象
+    std::string resolvedName_{};                      ///< 用于解析的名称
     Class* resolvedType_{nullptr};                  ///< 用于解析的类型
 };
 

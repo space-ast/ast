@@ -64,7 +64,7 @@ public:
         map_[OpBinKey{static_cast<int>(op), leftType, rightType}] = func;
     }
 protected:
-    OpBinMap map_;
+    OpBinMap map_{};
 };
 
 #endif

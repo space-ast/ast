@@ -265,7 +265,7 @@ public:
     TimeList discrete(const TimePoint& epoch, double step) const;
 
 private:
-    std::vector<Interval> intervals_;   ///< 相对时间区间列表
+    std::vector<Interval> intervals_{};   ///< 相对时间区间列表
 };
 
 

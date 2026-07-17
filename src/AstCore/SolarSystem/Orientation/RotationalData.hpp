@@ -111,10 +111,10 @@ public:
     
 
 protected:
-    TimePoint rotationEpoch_;           ///< 旋转历元
-    RotationElement rightAscension_;
-    RotationElement declination_;
-    RotationElement rotation_;
+    TimePoint rotationEpoch_{};          ///< 旋转历元
+    RotationElement rightAscension_{};
+    RotationElement declination_{};
+    RotationElement rotation_{};
 };
 
 /*! @} */

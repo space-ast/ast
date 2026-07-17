@@ -54,6 +54,8 @@ class AST_GUI_API UiHPOPForceModel: public UiObject
 {
     Q_OBJECT
 public:
+    UiHPOPForceModel(const UiHPOPForceModel&) = delete;
+    UiHPOPForceModel& operator=(const UiHPOPForceModel&) = delete;
     UiHPOPForceModel(Object* object, QWidget *parent = nullptr);
     UiHPOPForceModel(QWidget *parent = nullptr);
     ~UiHPOPForceModel() = default;
@@ -68,28 +70,28 @@ private slots:
     void applyTo(HPOPForceModel* hpop);
 private:
     // 布局
-    QVBoxLayout* mainLayout_;
-    QTabWidget* tabWidget_;
+    QVBoxLayout* mainLayout_{};
+    QTabWidget* tabWidget_{};
     
     // 引力模型标签页
-    QWidget* gravityTab_;
-    QVBoxLayout* gravityTabLayout_;
-    UiGravityForce* gravityWidget_;
+    QWidget* gravityTab_{};
+    QVBoxLayout* gravityTabLayout_{};
+    UiGravityForce* gravityWidget_{};
     
     // 三体引力配置
-    QWidget* thirdBodyTab_;
-    QVBoxLayout* thirdBodyTabLayout_;
-    UiThirdBodyForceList* thirdBodyWidget_;
+    QWidget* thirdBodyTab_{};
+    QVBoxLayout* thirdBodyTabLayout_{};
+    UiThirdBodyForceList* thirdBodyWidget_{};
     
     // 大气阻力标签页
-    QWidget* dragTab_;
-    QVBoxLayout* dragTabLayout_;
-    UiDragForce* dragWidget_;
+    QWidget* dragTab_{};
+    QVBoxLayout* dragTabLayout_{};
+    UiDragForce* dragWidget_{};
     
     // 太阳光压标签页
-    QWidget* srpTab_;
-    QVBoxLayout* srpTabLayout_;
-    UiSolarRadiationPressure* srpWidget_;
+    QWidget* srpTab_{};
+    QVBoxLayout* srpTabLayout_{};
+    UiSolarRadiationPressure* srpWidget_{};
     
 
 };

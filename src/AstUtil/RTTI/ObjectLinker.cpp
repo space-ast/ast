@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 class ObjectLinkerManager
 {
 public:
-    ObjectLinkerManager() = default;
+    ObjectLinkerManager() : linkers_() {}
 
     ~ObjectLinkerManager() = default;
 

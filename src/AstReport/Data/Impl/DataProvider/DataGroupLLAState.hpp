@@ -44,13 +44,13 @@ class DataGroupLLAState : public DataGroupTimeVar
 public:
     struct Data
     {
-        TimePoint     time_;
-        GeodeticPoint detic_;
-        double        centricLat_;
-        double        centricLon_;
-        double        latRate_;
-        double        lonRate_;
-        double        altRate_;
+        TimePoint     time_{};
+        GeodeticPoint detic_{};
+        double        centricLat_{};
+        double        centricLon_{};
+        double        latRate_{};
+        double        lonRate_{};
+        double        altRate_{};
 
         const TimePoint& getTime()       const { return time_; }
         double           getLat()        const { return detic_.latitude(); }
@@ -87,8 +87,8 @@ public:
     void setPoint(Point* p) { scPoint_ = p; }
     void setBody(Body* b)     { body_ = b; }
 private:
-    WeakPtr<Point> scPoint_;
-    WeakPtr<Body>  body_;
+    WeakPtr<Point> scPoint_{};
+    WeakPtr<Body>  body_{};
 };
 
 

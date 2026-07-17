@@ -60,15 +60,17 @@ public:
 private:
     /// @brief 构造函数（私有，单例模式）
     AstGfxAPI();
-    
+    AstGfxAPI(const AstGfxAPI&) = delete;
+    AstGfxAPI& operator=(const AstGfxAPI&) = delete;
+
     /// @brief 析构函数（私有，单例模式）
     ~AstGfxAPI();
     
     /// @brief 主可视化系统
-    GfxMain* m_gfxMain;
+    GfxMain* m_gfxMain{};
     
     /// @brief 太阳系可视化系统
-    GfxSolarSystem* m_solarSystem;
+    GfxSolarSystem* m_solarSystem{};
 };
 
 /// @brief 初始化可视化系统

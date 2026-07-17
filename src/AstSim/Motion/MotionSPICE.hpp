@@ -56,7 +56,7 @@ public:
 protected:
     int spiceIndex_{};                    ///< SPICE星历索引号
 private:
-    JplSpk spk_;                        ///< SPICE星历接口
+    JplSpk spk_{};                       ///< SPICE星历接口
 };
 
 /*! @} */

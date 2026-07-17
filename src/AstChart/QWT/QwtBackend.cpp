@@ -25,6 +25,7 @@
 #include "ColoredSurfacePlot.hpp"
 #include "UiFigure.hpp"
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/core/axes_type.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/backend/backend_registry.h>
@@ -41,6 +42,7 @@
 #include <qwt3d_surfaceplot.h>
 
 #include <matplot/axes_objects/surface.h>
+A_SUPPRESS_WARNINGS_END
 
 #include <QApplication>
 #include <QEventLoop>
@@ -63,12 +65,12 @@ public:
     static constexpr unsigned int kDefaultPosY = 558;
 public:
     matplot::figure_type* pltfigure_{nullptr};
-    QPointer<UiFigure> uifigure_;
+    QPointer<UiFigure> uifigure_{};
     unsigned int width_ {kDefaultWidth};
     unsigned int height_{kDefaultHeight};
     unsigned int pos_x_ {kDefaultPosX};
     unsigned int pos_y_ {kDefaultPosY};
-    std::string window_title_;
+    std::string window_title_{};
 public:
     UiFigure* getUiFigure();
     UiFigure* getUiFigure(matplot::figure_type* f);

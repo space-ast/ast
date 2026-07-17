@@ -39,6 +39,9 @@ class AST_CORE_API BlockLogicalOperator: public FuncBlock
 public:
     explicit BlockLogicalOperator(ELogicalOperatorType type = ELogicalOperatorType::eAnd);
 
+    BlockLogicalOperator(const BlockLogicalOperator&) = delete;
+    BlockLogicalOperator& operator=(const BlockLogicalOperator&) = delete;
+
     errc_t run(const SimTime &simTime) override;
     
     /// @brief 设置逻辑运算符类型

@@ -35,6 +35,10 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 航天器状态，包含轨道状态、航天器参数（质量、面积、阻力系数、光压、密度、压力、温度等）
 /// @details 参考orekit的SpacecraftState类
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wnon-virtual-dtor"
+#endif
 class AST_CORE_API SpacecraftState: public ObjectNamed, public SpacecraftParam
 {
 public:
@@ -142,7 +146,7 @@ public:
     errc_t getStateEpoch(TimePoint& stateEpoch) const;
     void copyFrom(const SpacecraftState& srcState);
 private:
-    HState orbitState_;                 ///< 轨道状态
+    HState orbitState_{};                ///< 轨道状态
 };
 
 
@@ -150,4 +154,7 @@ using ScState = SpacecraftState;
 
 /*! @} */
 
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
 AST_NAMESPACE_END

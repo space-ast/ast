@@ -36,6 +36,9 @@ public:
     AtmosphereBase(Frame* frame, BodyShape* bodyShape);
     ~AtmosphereBase() override = default;
 
+    AtmosphereBase(const AtmosphereBase&) = delete;
+    AtmosphereBase& operator=(const AtmosphereBase&) = delete;
+
     /// @brief 获取大气密度
     /// @param tp 当前时间
     /// @param posInBodyFixed 当前位置(相对于getFrame()返回的坐标系)

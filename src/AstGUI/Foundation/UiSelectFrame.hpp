@@ -50,6 +50,8 @@ class AST_GUI_API UiSelectFrame : public QWidget
 public:
     explicit UiSelectFrame(QWidget* parent = nullptr);
     ~UiSelectFrame() override;
+    UiSelectFrame(const UiSelectFrame&) = delete;
+    UiSelectFrame& operator=(const UiSelectFrame&) = delete;
 
     Frame* getSelectedFrame();
     void setSelectedFrame(Frame* frame);

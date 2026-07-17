@@ -56,17 +56,17 @@ using StringVector = std::vector<std::string>;
 /// @brief 初始化配置
 struct InitalizeConfig
 {
-    std::string dataDir_;                  ///< 数据目录路径
-    std::string leapSecondFile_;           ///< 跳秒文件路径
-    std::string jplDeFile_;                ///< JPL DE文件路径
-    std::string eopFile_;                  ///< EOP文件路径
-    std::string spaceWeatherFile_;         ///< 空间天气文件路径
-    std::string iauxFile_;                 ///< IAU-X系数文件路径
-    std::string iauyFile_;                 ///< IAU-Y系数文件路径
-    std::string iausFile_;                 ///< IAU-Z系数文件路径
-    std::string iauXYSPrecomputedFile_;    ///< IAU-XYS预计算数据文件路径
-    std::string solarSystemDir_;           ///< 太阳系目录路径
-    StringVector spkFiles_;                ///< SPK文件路径列表
+    std::string dataDir_{};                 ///< 数据目录路径
+    std::string leapSecondFile_{};          ///< 跳秒文件路径
+    std::string jplDeFile_{};                ///< JPL DE文件路径
+    std::string eopFile_{};                  ///< EOP文件路径
+    std::string spaceWeatherFile_{};         ///< 空间天气文件路径
+    std::string iauxFile_{};                 ///< IAU-X系数文件路径
+    std::string iauyFile_{};                 ///< IAU-Y系数文件路径
+    std::string iausFile_{};                 ///< IAU-Z系数文件路径
+    std::string iauXYSPrecomputedFile_{};    ///< IAU-XYS预计算数据文件路径
+    std::string solarSystemDir_{};           ///< 太阳系目录路径
+    StringVector spkFiles_{};                ///< SPK文件路径列表
 };
 
 /// @brief 获取初始化配置

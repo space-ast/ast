@@ -762,7 +762,6 @@ static std::string toolDrag(const JsonValue& args)
     if (!dstW) return "目标元素无效";
 
     QPoint srcPt = srcW->mapToGlobal(srcW->rect().center());
-    QPoint dstPt = dstW->mapToGlobal(dstW->rect().center());
     QTest::mousePress(srcW, Qt::LeftButton, Qt::NoModifier, srcW->rect().center());
     QTest::mouseMove(dstW, dstW->mapFromGlobal(srcPt));
     QTest::mouseMove(dstW, dstW->rect().center());

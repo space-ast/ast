@@ -36,7 +36,7 @@ AST_NAMESPACE_BEGIN
 
 struct VehiclePathData
 {
-    SharedPtr<CelestialBody> centralBody_;
+    SharedPtr<CelestialBody> centralBody_{};
     bool storeEphemeris_ = false;
     bool smoothInterp_ = false;
 };

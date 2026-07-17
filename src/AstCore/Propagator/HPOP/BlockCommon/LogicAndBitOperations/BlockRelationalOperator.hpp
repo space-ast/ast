@@ -41,6 +41,9 @@ class AST_CORE_API BlockRelationalOperator: public FuncBlock
 public:
     explicit BlockRelationalOperator(ERelationalOperatorType type = ERelationalOperatorType::eEqual);
 
+    BlockRelationalOperator(const BlockRelationalOperator&) = delete;
+    BlockRelationalOperator& operator=(const BlockRelationalOperator&) = delete;
+
     errc_t run(const SimTime &simTime) override;
     
     /// @brief 设置关系运算符类型

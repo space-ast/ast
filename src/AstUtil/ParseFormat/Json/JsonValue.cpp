@@ -58,70 +58,69 @@ JsonValue JsonValue::FromFile(const StringView filePath)
 
 // 默认构造函数
 JsonValue::JsonValue()
-    : type_(EJsonValueType::eNull)
+    : type_(EJsonValueType::eNull), value_()
 {
-    value_.boolean_ = false; // 初始化联合体
 }
 
 // 布尔值构造函数
 JsonValue::JsonValue(bool value)
-    : type_(EJsonValueType::eBool)
+    : type_(EJsonValueType::eBool), value_()
 {
     value_.boolean_ = value;
 }
 
 // 整数构造函数
 JsonValue::JsonValue(int value)
-    : type_(EJsonValueType::eNumber)
+    : type_(EJsonValueType::eNumber), value_()
 {
     value_.number_ = static_cast<double>(value);
 }
 
 // 双精度浮点数构造函数
 JsonValue::JsonValue(double value)
-    : type_(EJsonValueType::eNumber)
+    : type_(EJsonValueType::eNumber), value_()
 {
     value_.number_ = value;
 }
 
 // 字符串构造函数（C字符串）
 JsonValue::JsonValue(const char* value)
-    : type_(EJsonValueType::eString)
+    : type_(EJsonValueType::eString), value_()
 {
     value_.string_ = new std::string(value);
 }
 
 // 字符串构造函数
 JsonValue::JsonValue(const std::string& value)
-    : type_(EJsonValueType::eString)
+    : type_(EJsonValueType::eString), value_()
 {
     value_.string_ = new std::string(value);
 }
 
 // 字符串视图构造函数
 JsonValue::JsonValue(StringView value)
-    : type_(EJsonValueType::eString)
+    : type_(EJsonValueType::eString), value_()
 {
     value_.string_ = new std::string(value.data(), value.size());
 }
 
 // 数组构造函数
 JsonValue::JsonValue(const std::vector<JsonValue>& values)
-    : type_(EJsonValueType::eArray)
+    : type_(EJsonValueType::eArray), value_()
 {
     value_.array_ = new std::vector<JsonValue>(values);
 }
 
 // 对象构造函数
 JsonValue::JsonValue(const std::map<std::string, JsonValue>& values)
-    : type_(EJsonValueType::eObject)
+    : type_(EJsonValueType::eObject), value_()
 {
     value_.object_ = new std::map<std::string, JsonValue>(values);
 }
 
 // 拷贝构造函数
 JsonValue::JsonValue(const JsonValue& other)
-    : type_(other.type_)
+    : type_(other.type_), value_()
 {
     switch (type_)
     {
@@ -148,7 +147,7 @@ JsonValue::JsonValue(const JsonValue& other)
 
 // 移动构造函数
 JsonValue::JsonValue(JsonValue&& other) noexcept
-    : type_(other.type_)
+    : type_(other.type_), value_()
 {
     value_ = other.value_;
     other.value_ = {};

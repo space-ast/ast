@@ -37,7 +37,7 @@ public:
 
 public:
     OpBin(EOpBinType op, Expr* left, Expr* right)
-        : op_(op), left_(left), right_(right)
+        : op_(op), left_(left), right_(right), cache_mutex_()
     {};
     virtual ~OpBin() = default;
     Value* eval() const override;

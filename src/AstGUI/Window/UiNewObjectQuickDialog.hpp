@@ -57,6 +57,8 @@ class AST_GUI_API UiNewObjectQuickDialog : public QDialog
 public:
     explicit UiNewObjectQuickDialog(QWidget* parent = nullptr);
     ~UiNewObjectQuickDialog() override;
+    UiNewObjectQuickDialog(const UiNewObjectQuickDialog&) = delete;
+    UiNewObjectQuickDialog& operator=(const UiNewObjectQuickDialog&) = delete;
 
     /// @brief 获取创建成功后的对象显示名称（用于状态栏提示）
     QString createdObjectName() const;
@@ -101,7 +103,7 @@ private:
     // 状态
     int           selectedEntry_ = -1;
     Object*       selectedParent_ = nullptr;
-    QString       createdObjectName_;
+    QString       createdObjectName_{};
 };
 
 AST_NAMESPACE_END

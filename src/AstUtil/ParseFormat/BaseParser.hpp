@@ -56,6 +56,10 @@ class AST_UTIL_API BaseParser
 {
 public:
     BaseParser();
+
+    BaseParser(const BaseParser&) = delete;
+    BaseParser& operator=(const BaseParser&) = delete;
+
     explicit BaseParser(StringView filepath);
     ~BaseParser();
 
@@ -160,7 +164,7 @@ protected:
 private:
     FILE*             file_{nullptr};           ///< 文件指针
     bool              fileBorrowed_{false};     ///< 是否从外部借用文件指针
-    std::vector<char> lineBuffer_;               ///< 行缓冲区
+    std::vector<char> lineBuffer_{};              ///< 行缓冲区
 };
 
 

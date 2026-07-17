@@ -20,6 +20,8 @@ public:
     UiPointMassForce(Object* object, QWidget *parent = nullptr);
     UiPointMassForce(QWidget *parent = nullptr);
     ~UiPointMassForce() = default;
+    UiPointMassForce(const UiPointMassForce&) = delete;
+    UiPointMassForce& operator=(const UiPointMassForce&) = delete;
 
     PointMassForce* getPointMassForce() const;
     void setPointMassForce(PointMassForce* pointMass);

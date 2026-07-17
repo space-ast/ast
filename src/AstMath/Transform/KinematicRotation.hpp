@@ -122,7 +122,7 @@ public:
     /// @param velocityOut 变换后的速度
     void transformVectorVelocityInv(const Vector3d& vector, const Vector3d& velocity, Vector3d& vectorOut, Vector3d& velocityOut) const;
 protected:
-    Vector3d angvel_;       ///< 角速度
+    Vector3d angvel_{};       ///< 角速度
 };
 
 A_ALWAYS_INLINE KinematicRotation KinematicRotation::Identity()

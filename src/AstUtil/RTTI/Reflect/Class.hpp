@@ -46,6 +46,9 @@ public:
 
     using Struct::Struct;
 
+    Class(const Class&) = default;
+    Class& operator=(const Class&) = default;
+
     /// @brief 构造函数
     /// @param parent 父类指针
     explicit Class(Class* parent = nullptr);

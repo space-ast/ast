@@ -59,7 +59,7 @@ public:
     /// @param stepSize 预报步长
     void setStepSize(double stepSize) { stepSize_ = stepSize; }
 protected:
-    SharedPtr<EventInterval>    interval_;              ///< 时间段
+    SharedPtr<EventInterval>    interval_{};             ///< 时间段
     double                      stepSize_{60.0};        ///< 生成星历步长
 };
 

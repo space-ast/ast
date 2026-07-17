@@ -8,8 +8,10 @@
 
 #if defined(AST_WITH_AGG)
 
+A_SUPPRESS_WARNINGS_BEGIN
 #include "agg/agg_clip_liang_barsky.h"
 #include "agg/agg_conv_segmentator.h"
+
 
 #include "mpl_utils.h"
 
@@ -477,4 +479,5 @@ private:
 };
 
 
+A_SUPPRESS_WARNINGS_END
 #endif // AST_WITH_AGG

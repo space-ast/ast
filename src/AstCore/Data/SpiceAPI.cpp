@@ -151,6 +151,7 @@ SpiceAPI* SpiceAPI::Instance()
 }
 
 SpiceAPI::SpiceAPI(bool shouldLoadDynamicLib)
+    : spk_handles_(), mutex_()
 {
     if(shouldLoadDynamicLib)
     {

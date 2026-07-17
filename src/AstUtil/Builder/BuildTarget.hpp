@@ -162,13 +162,13 @@ public: // 编译、链接、构建、运行、打包等接口
     errc_t run();
     
 protected:
-    std::string name_;                     ///< 目标名称
+    std::string name_{};                    ///< 目标名称
     EKind kind_{EKind::eBinary};           ///< 目标类型
-    std::vector<std::string> files_;       ///< 源文件列表
-    std::vector<std::string> includeDirs_; ///< 包含目录列表
-    std::vector<std::string> linkDirs_;    ///< 链接目录列表
-    std::vector<std::string> defines_;     ///< 宏定义列表
-    std::vector<std::string> links_;       ///< 链接库列表
+    std::vector<std::string> files_{};      ///< 源文件列表
+    std::vector<std::string> includeDirs_{};///< 包含目录列表
+    std::vector<std::string> linkDirs_{};   ///< 链接目录列表
+    std::vector<std::string> defines_{};    ///< 宏定义列表
+    std::vector<std::string> links_{};      ///< 链接库列表
 };
 
 /*! @} */

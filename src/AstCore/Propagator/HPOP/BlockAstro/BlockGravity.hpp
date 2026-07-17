@@ -57,6 +57,9 @@ public:
     BlockGravity(const GravityField &gravityField, int degree, int order, Axes* gravityAxes=nullptr, Axes* propagationAxes=nullptr);
     BlockGravity(GravityField &&gravityField, int degree, int order, Axes* gravityAxes=nullptr, Axes* propagationAxes=nullptr);
 
+    BlockGravity(const BlockGravity&) = delete;
+    BlockGravity& operator=(const BlockGravity&) = delete;
+
     errc_t run(const SimTime& simTime) override;
 
     /// @brief 设置是否考虑重力场系数变化

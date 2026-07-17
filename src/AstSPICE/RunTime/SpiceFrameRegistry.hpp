@@ -46,7 +46,7 @@ public:
 
 private:
     using FrameMap = std::unordered_map<std::string, HFrame>;
-    FrameMap frameMap_;
+    FrameMap frameMap_{};
 };
 
 

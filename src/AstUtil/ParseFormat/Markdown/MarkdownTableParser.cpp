@@ -17,6 +17,7 @@ AST_NAMESPACE_BEGIN
 MarkdownTableParser::MarkdownTableParser(MarkdownSax& sax)
     : sax_(sax)
     , inlineSM_(sax)
+    , rowBuf_(), headerCells_(), colAligns_(), abortBuf_()
 {
 }
 

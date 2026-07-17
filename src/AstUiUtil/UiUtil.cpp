@@ -41,6 +41,9 @@ public:
         if (sem_) sem_->release();
     }
 
+    CallableEvent(const CallableEvent&) = delete;
+    CallableEvent& operator=(const CallableEvent&) = delete;
+
 private:
     std::function<void()> func_;
     QSemaphore* sem_;

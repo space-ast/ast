@@ -45,7 +45,7 @@ public:
     Point* point() const { return point_.get(); }
     void setPoint(Point* point) { point_ = point; }
 private:
-    WeakPtr<Point> point_;
+    WeakPtr<Point> point_{};
 };
 
 /*! @} */

@@ -53,6 +53,8 @@ public:
     explicit UiChatPanel(ChatSession* session, QWidget* parent = nullptr);
 
     ~UiChatPanel() override;
+    UiChatPanel(const UiChatPanel&) = delete;
+    UiChatPanel& operator=(const UiChatPanel&) = delete;
 
     /// @brief 获取关联的聊天会话
     ChatSession* session() const { return session_; }
@@ -110,8 +112,8 @@ private:
     UiChatMessageItem*      streamingItem_ = nullptr;   // 正在流式填充的助手消息
     UiToolCallTimeline*     toolTimeline_ = nullptr;    // 当前回合的工具调用时间线
     QTimer*                 throttleTimer_ = nullptr;   // 40ms 节流定时器
-    QString                 pendingHtml_;               // 累积的 HTML（定时器触发后一次性渲染）
-    std::string             accumulatedText_;            // 累积的流式文本
+    QString                 pendingHtml_{};               // 累积的 HTML（定时器触发后一次性渲染）
+    std::string             accumulatedText_{};            // 累积的流式文本
     bool                    busy_{false};
 };
 

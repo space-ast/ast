@@ -32,6 +32,9 @@ class AST_CORE_API BlockSum: public FuncBlock
 public:
     BlockSum();
 
+    BlockSum(const BlockSum&) = delete;
+    BlockSum& operator=(const BlockSum&) = delete;
+
     errc_t run(const SimTime &simTime) override;
 protected:
     double* input1_{nullptr};

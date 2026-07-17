@@ -39,6 +39,8 @@ class AST_GUI_API UiVariableList : public QWidget
     Q_OBJECT
 public:
     explicit UiVariableList(QWidget* parent = nullptr);
+    UiVariableList(const UiVariableList&) = delete;
+    UiVariableList& operator=(const UiVariableList&) = delete;
 
     /// @brief 设置要编辑的变量列表（裸指针，不持有所有权）
     /// @param variableList 要编辑的变量列表，被owner对象持有
@@ -101,17 +103,17 @@ private:
     bool eventFilter(QObject* obj, QEvent* event) override;
     void syncOrderFromTable();
 
-    QVBoxLayout*    mainLayout_;
-    QTableWidget*   tableWidget_;
-    QHBoxLayout*    buttonLayout_;
-    QToolButton*    addButton_;
-    QToolButton*    removeButton_;
-    QToolButton*    refreshButton_;
+    QVBoxLayout*    mainLayout_{};
+    QTableWidget*   tableWidget_{};
+    QHBoxLayout*    buttonLayout_{};
+    QToolButton*    addButton_{};
+    QToolButton*    removeButton_{};
+    QToolButton*    refreshButton_{};
 private:
     VariableList*   variableList_ = nullptr;
-    WeakPtr<Object> variableListOwner_;
+    WeakPtr<Object> variableListOwner_{};
     Interpreter*    interpreter_ = nullptr;
-    WeakPtr<Object> interpreterOwner_;
+    WeakPtr<Object> interpreterOwner_{};
 };
 
 AST_NAMESPACE_END

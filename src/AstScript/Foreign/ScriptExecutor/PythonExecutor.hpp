@@ -38,6 +38,10 @@ class AST_SCRIPT_API PythonExecutor : public ScriptExecutor
 {
 public:
     PythonExecutor();
+
+    PythonExecutor(const PythonExecutor&) = delete;
+    PythonExecutor& operator=(const PythonExecutor&) = delete;
+
     ~PythonExecutor() override;
 
     errc_t initialize() override;
@@ -67,7 +71,7 @@ protected:
 protected:
     PythonAPI* api_;
     PyObject* globals_{nullptr};  // 私有无名 dict，每个 executor 独立命名空间
-    mutable std::string lastError_;
+    mutable std::string lastError_{};
 };
 
 AST_NAMESPACE_END

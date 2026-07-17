@@ -8,7 +8,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "../Recorder/RecordStep.hpp"
+#include "AstUiPilot/RecordStep.hpp"
 #include <QObject>
 #include <vector>
 #include <string>
@@ -33,6 +33,8 @@ public:
 
     explicit PilotPlayer(PilotSession* session, QObject* parent = nullptr);
     ~PilotPlayer() override;
+    PilotPlayer(const PilotPlayer&) = delete;
+    PilotPlayer& operator=(const PilotPlayer&) = delete;
 
     // ---- 加载 ----
     bool loadScript(const std::string& filePath);
@@ -66,11 +68,11 @@ private:
     void continuePlayback();  // 延迟继续
 
     PilotSession* session_;
-    std::vector<RecordStep> steps_;
+    std::vector<RecordStep> steps_{};
     int currentIndex_ = -1;
     bool running_ = false;
     bool paused_ = false;
-    std::string lastError_;
+    std::string lastError_{};
 };
 
 /*! @} */

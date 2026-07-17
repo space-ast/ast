@@ -48,6 +48,8 @@ public:
 
     /// @brief 析构函数
     ~PilotSession() override;
+    PilotSession(const PilotSession&) = delete;
+    PilotSession& operator=(const PilotSession&) = delete;
 
     /// @brief 执行自然语言指令
     /// @param command 用户指令

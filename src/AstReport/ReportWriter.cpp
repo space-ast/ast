@@ -186,18 +186,18 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
 /// @brief 列数据 — extract 后的带类型列及其缓存 Span
 struct ColData
 {
-    const ReportElement* element;
-    std::string title;
-    int  width;
+    const ReportElement* element{};
+    std::string title{};
+    int  width{};
 
-    EDataType dataType;
-    VariantVector data;  // 持有列数据，Span 指向此处
+    EDataType dataType{};
+    VariantVector data{};  // 持有列数据，Span 指向此处
 
     // 缓存 Span（每种类型一个有效，指向 data 内部缓冲区）
-    Span<double>      dSpan;
-    Span<int>         iSpan;
-    Span<TimePoint>   tSpan;
-    Span<std::string> sSpan;
+    Span<double>      dSpan{};
+    Span<int>         iSpan{};
+    Span<TimePoint>   tSpan{};
+    Span<std::string> sSpan{};
 };
 
 /// @brief 从 ColData::data 推断类型并缓存 Span

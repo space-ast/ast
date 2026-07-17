@@ -99,14 +99,14 @@ public:
 	bool isInitialized() const {return !dataDir_.empty();}
 protected:
 	SharedPtr<SolarSystem>  solarSystem_{new SolarSystem("SolarSystem")};	///< 太阳系数据
-	EOP		    			eop_;											///< 地球指向数据
-	LeapSecond  			leapSecond_;									///< 闰秒数据
+	EOP		    			eop_{};											///< 地球指向数据
+	LeapSecond  			leapSecond_{};									///< 闰秒数据
 	// SpaceWeather          spaceWeather_;									///< 空间天气数据
-    JplDe                   jplDe_;											///< JPL DE星历数据
-	IAUXYSPrecomputed       iauXYSPrecomputed_;						///< IAU XYS预计算数据 @todo: 这个考虑更改为静态数据
-    std::string     		dataDir_;										///< 数据目录
+    JplDe                   jplDe_{};											///< JPL DE星历数据
+	IAUXYSPrecomputed       iauXYSPrecomputed_{};								///< IAU XYS预计算数据 @todo: 这个考虑更改为静态数据
+    std::string     		dataDir_{};										///< 数据目录
 	TimePoint				epoch_{};										///< 参考历元
-	StartupConfig           config_;										///< 配置
+	StartupConfig           config_{};										///< 配置
 };
 
 constexpr size_t kSizeOfDataContext = sizeof(DataContext);

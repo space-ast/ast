@@ -36,7 +36,7 @@ public:
 
 private:
     // ---- 缓冲区与游标 ----
-    std::vector<char> buffer_;      ///< 字符缓冲区（包含待解析内容）
+    std::vector<char> buffer_{};     ///< 字符缓冲区（包含待解析内容）
     size_t           currentPos_{0};///< 当前解析位置
 
     // ---- 文件读取 ----

@@ -65,9 +65,9 @@ public:
     UiAttributeTreeItem* clone() const override;
 
 private:
-    Attribute   attr_;   ///< 对象-属性绑定器
-    std::string name_;   ///< 属性名缓存（Property::name()）
-    std::string desc_;   ///< 属性描述缓存（Property::desc()）
+    Attribute   attr_{};   ///< 对象-属性绑定器
+    std::string name_{};   ///< 属性名缓存（Property::name()）
+    std::string desc_{};   ///< 属性描述缓存（Property::desc()）
 };
 
 AST_NAMESPACE_END

@@ -81,7 +81,7 @@ PState State::New(State &state, EStateType type)
 }
 
 State::State(const State& state)
-    : gm_{state.gm_}
+    : frame_(), gm_{state.gm_}, stateEpoch_()
 {
     auto frame = state.frame_;
     auto epoch = state.stateEpoch_;

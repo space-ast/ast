@@ -37,7 +37,7 @@ public:
     void setGoal(const TimePoint& time);
     const TimePoint& goal() const{return goal_;}
 private:
-    TimePoint goal_;        ///< 目标时间
+    TimePoint goal_{};        ///< 目标时间
 };
 
 AST_NAMESPACE_END

@@ -89,19 +89,27 @@ public:
 
     /// @brief 填充状态量数据
     /// @param y 状态量数据指针
-    void setStateData(const double* y) { std::copy(y, y + this->size(), state_.begin()); }
+    void setStateData(const double* y) { state_.assign(y, y + this->size()); }
+
+    #ifdef _MSC_VER
+    #pragma warning(push, 0)
+    #endif
 
     /// @brief 获取状态量导数数据指针
     /// @param dydt 状态量导数数据指针
-    void getDerivativeData(double* dydt) const { std::copy(derivative_.begin(), derivative_.end(), dydt); }
+    void getDerivativeData(double* dydt) const { std::copy_n(derivative_.begin(), derivative_.size(), dydt); }
 
     /// @brief 填充状态量导数数据
     /// @param value 状态量导数值
-    void fillDerivativeData(double value) { std::fill(derivative_.begin(), derivative_.end(), value); }
+    void fillDerivativeData(double value) { std::fill_n(derivative_.begin(), derivative_.size(), value); }
 
     /// @brief 填充累加状态量数据
     /// @param value 累加状态量值
-    void fillAccumulateData(double value) { std::fill(accumulate_.begin(), accumulate_.end(), value); }
+    void fillAccumulateData(double value) { std::fill_n(accumulate_.begin(), accumulate_.size(), value); }
+    
+    #ifdef _MSC_VER
+    #pragma warning(pop)
+    #endif
 
     /// @brief 初始化
     errc_t initialize();
@@ -140,12 +148,12 @@ protected:
     A_DISABLE_COPY(BlockDynamicSystem);
     using StateMap = std::unordered_map<Identifier*, double*>;
 
-    std::vector<BlockDerivative*>   derivativeBlocks_;  // 状态量导数函数块
-    std::vector<double>             state_;             // 状态量
-    std::vector<double>             accumulate_;        // 累加状态量
-    std::vector<double>             derivative_;        // 状态量导数
-    StateMap                        stateMap_;          // 状态量映射表
-    StateMap                        derivativeMap_;     // 状态量导数映射表
+    std::vector<BlockDerivative*>   derivativeBlocks_{}; // 状态量导数函数块
+    std::vector<double>             state_{};            // 状态量
+    std::vector<double>             accumulate_{};       // 累加状态量
+    std::vector<double>             derivative_{};       // 状态量导数
+    StateMap                        stateMap_{};         // 状态量映射表
+    StateMap                        derivativeMap_{};    // 状态量导数映射表
 };
 
 

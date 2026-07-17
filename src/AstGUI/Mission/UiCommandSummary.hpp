@@ -47,9 +47,9 @@ struct SegmentContext
     const SpacecraftState*   outputState = nullptr;
     const State*             orbitState = nullptr;
     Frame*                   frame = nullptr;
-    CartState                cart;
-    ModOrbElem               moe;
-    TimePoint                stateEpoch;
+    CartState                cart{}; 
+    ModOrbElem               moe{}; 
+    TimePoint                stateEpoch{}; 
 
     /// @brief 上下文数据是否完整可用
     bool valid() const { return orbitState != nullptr; }
@@ -85,6 +85,8 @@ public:
     explicit UiCommandSummary(Object* object, QWidget* parent = nullptr);
     explicit UiCommandSummary(QWidget* parent = nullptr);
     ~UiCommandSummary() override;
+    UiCommandSummary(const UiCommandSummary&) = delete;
+    UiCommandSummary& operator=(const UiCommandSummary&) = delete;
 
     /// @brief 设置要显示概要的命令
     void setCommand(Command* command);

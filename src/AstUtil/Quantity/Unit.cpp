@@ -402,6 +402,7 @@ void aUnitFactorize(Unit &unit, double &scale)
 }
 
 Unit::Unit(StringView name)
+    : rep_()
 {
     errc_t err = aUnitParse(name, *this);
     if(err != 0)

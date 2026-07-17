@@ -29,8 +29,14 @@
 AST_NAMESPACE_BEGIN
 
 class ActiveScriptExecutor::Impl{};
-ActiveScriptExecutor::ActiveScriptExecutor(){aError("ActiveScriptExecutor not supported on this platform");}
-ActiveScriptExecutor::ActiveScriptExecutor(const wchar_t* progId){}
+ActiveScriptExecutor::ActiveScriptExecutor()
+    : impl_(nullptr)
+{
+    aError("ActiveScriptExecutor not supported on this platform");
+}
+ActiveScriptExecutor::ActiveScriptExecutor(const wchar_t* progId)
+    : impl_(nullptr)
+{}
 ActiveScriptExecutor::~ActiveScriptExecutor() = default;
 errc_t ActiveScriptExecutor::initialize() {return -1;};
 void ActiveScriptExecutor::finalize() {}
@@ -204,9 +210,17 @@ void VariantToValue(const VARIANT& v, SharedPtr<Value>& value)
 
 // 站点实现（简化版，仅实现IActiveScriptSite的部分方法）
 
+
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wnon-virtual-dtor"
+#endif
 class SimpleActiveScriptSite final: public IActiveScriptSite
 {
 public:
+    SimpleActiveScriptSite(const SimpleActiveScriptSite&) = delete;
+    SimpleActiveScriptSite& operator=(const SimpleActiveScriptSite&) = delete;
+
     SimpleActiveScriptSite()
     {
         globalFunctions_ = new ActiveScriptGlobalFunctions();
@@ -298,9 +312,12 @@ public:
     bool hasError() const {return !lastError_.empty();}
 private:
     LONG ref_ = 1;
-    std::string lastError_;
+    std::string lastError_{};
     ActiveScriptGlobalFunctions* globalFunctions_ = nullptr;
 };
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
 
 
 
@@ -310,7 +327,7 @@ class CoInitializeGuard
 public:
     CoInitializeGuard(COINIT initFlags) {hr_ = CoInitializeEx(nullptr, initFlags);}
     ~CoInitializeGuard() {if (SUCCEEDED(hr_)) CoUninitialize();}
-    HRESULT hr_;
+    HRESULT hr_{};
 };
 
 /// 确保当前线程 COM 已初始化
@@ -330,9 +347,12 @@ public:
     IDispatch*                  pGlobal = nullptr;          ///< 脚本全局对象的 IDispatch
     SimpleActiveScriptSite*     pSite = nullptr;            ///< 脚本站点
     std::wstring                progId = L"JScript";        ///< 默认脚本引擎
-    
+
 public:
     Impl() = default;
+
+    Impl(const Impl&) = delete;
+    Impl& operator=(const Impl&) = delete;
     
     ~Impl()
     {

@@ -352,6 +352,8 @@
         _Pragma("GCC diagnostic ignored \"-Wunused-result\"")\
         _Pragma("GCC diagnostic ignored \"-Wformat=\"")\
         _Pragma("GCC diagnostic ignored \"-Wstringop-truncation\"")\
+        _Pragma("GCC diagnostic ignored \"-Weffc++\"")\
+        _Pragma("GCC diagnostic ignored \"-Wnon-virtual-dtor\"")\
 
 #   define A_SUPPRESS_WARNINGS_END                           \
         _Pragma("GCC diagnostic pop")

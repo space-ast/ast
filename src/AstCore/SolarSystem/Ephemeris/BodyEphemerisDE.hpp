@@ -39,6 +39,9 @@ public:
     AST_PROPERT(JplIndex)
     BodyEphemerisDE() = default;
 
+    BodyEphemerisDE(const BodyEphemerisDE&) = delete;
+    BodyEphemerisDE& operator=(const BodyEphemerisDE&) = delete;
+
     BodyEphemerisDE(int jplIndex)
         : jplIndex_(jplIndex)
     {}

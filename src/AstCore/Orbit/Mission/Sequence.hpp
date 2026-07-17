@@ -94,8 +94,8 @@ protected:
     void linkCommands();
 private:
     int repeatCount_{1};                                    ///< 重复次数
-    std::vector<HMissionCommand> commands_;                 ///< 任务命令序列
-    SharedPtr<ScriptingToolProfile> scriptingTool_;         ///< 脚本工具
+    std::vector<HMissionCommand> commands_{};                 ///< 任务命令序列
+    SharedPtr<ScriptingToolProfile> scriptingTool_{};         ///< 脚本工具
 };
 
 

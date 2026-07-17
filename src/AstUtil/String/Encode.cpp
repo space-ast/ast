@@ -89,6 +89,10 @@ class LocaleHolder
 {
 public:
     LocaleHolder() = default;
+
+    LocaleHolder(const LocaleHolder&) = delete;
+    LocaleHolder& operator=(const LocaleHolder&) = delete;
+
     explicit LocaleHolder(_locale_t locale)
         : locale_(locale)
     {

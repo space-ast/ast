@@ -44,9 +44,9 @@ private:
     using map_type = std::unordered_map<Key, std::size_t>;
     
     // 按插入顺序存储键值对
-    vector_type items_;
+    vector_type items_{};
     // 键到下标位置的快速映射
-    map_type index_map_;
+    map_type index_map_{};
 public: // ---------- 迭代器支持 ----------
 
     using iterator = typename vector_type::iterator;

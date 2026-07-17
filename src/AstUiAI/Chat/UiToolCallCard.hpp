@@ -51,6 +51,8 @@ public:
                             QWidget* parent = nullptr);
 
     ~UiToolCallCard() override;
+    UiToolCallCard(const UiToolCallCard&) = delete;
+    UiToolCallCard& operator=(const UiToolCallCard&) = delete;
 
     /// @brief 设置工具调用状态
     void setState(EToolCallState state);
@@ -74,7 +76,7 @@ private:
     QString         toolCallId_;
     QString         functionName_;
     QString         arguments_;
-    QString         result_;
+    QString         result_{};
     EToolCallState  state_{EToolCallState::eRunning};
     bool            expanded_{false};
 

@@ -76,6 +76,10 @@ class AST_CORE_API BlockSRP : public BlockDerivative
 {
 public:
     BlockSRP();
+
+    BlockSRP(const BlockSRP&) = delete;
+    BlockSRP& operator=(const BlockSRP&) = delete;
+
     /// @param sun 太阳
     /// @param cr 光压系数
     /// @param srpArea SRP面积

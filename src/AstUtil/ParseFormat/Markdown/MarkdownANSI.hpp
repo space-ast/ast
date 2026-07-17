@@ -145,13 +145,13 @@ private:
     };
 
     // ---- 输出缓冲 ----
-    std::string output_;
+    std::string output_{};
 
     // ---- 行内状态 ----
     int activeStyles_ = STYLE_NONE;
 
     // ---- 块级状态 ----
-    std::vector<BlockFrame> blockStack_;
+    std::vector<BlockFrame> blockStack_{};
 
     /// @brief 列表栈帧（支持嵌套列表的逐级编号与缩进）
     struct ListFrame
@@ -159,7 +159,7 @@ private:
         bool ordered;       ///< true=有序, false=无序
         int  itemNumber;    ///< 当前级已输出的列表项序号（0=尚未开始第一项）
     };
-    std::vector<ListFrame> listStack_;
+    std::vector<ListFrame> listStack_{};
 
     bool inCodeBlock_    = false;
     int  codeLineNumber_ = 0;
@@ -167,13 +167,13 @@ private:
     // ---- 表格缓冲 ----
     struct CellData
     {
-        std::string rendered;   ///< ANSI 渲染后的内容（含转义序列）
+        std::string rendered{};  ///< ANSI 渲染后的内容（含转义序列）
         int         width = 0;  ///< 净显示宽度（剔除转义序列后）
         ETableAlign align = ETableAlign::eDefault;
     };
     struct RowData
     {
-        std::vector<CellData> cells;
+        std::vector<CellData> cells{};
         bool isHeader = false;
     };
 
@@ -181,13 +181,13 @@ private:
     bool   inTableHead_   = false;   ///< 当前是否在表头区域
     bool   inCell_        = false;   ///< 当前是否在 cell 内（inline 事件重定向到 cellContent_）
     ETableAlign cellAlign_ = ETableAlign::eDefault;  ///< 当前 cell 对齐方式
-    std::string cellContent_;        ///< cell 内容缓冲（独立于 output_，跨 chunk 不丢失）
+    std::string cellContent_{};       ///< cell 内容缓冲（独立于 output_，跨 chunk 不丢失）
     bool   truncateCells_ = true;     ///< 是否截断超出列宽的单元格（默认开启）
-    RowData currentRow_;             ///< 当前行缓冲
-    std::vector<RowData> tableRows_; ///< 表格所有行（含表头）
+    RowData currentRow_{};            ///< 当前行缓冲
+    std::vector<RowData> tableRows_{}; ///< 表格所有行（含表头）
 
     // ---- 链接状态 ----
-    std::string linkUrl_;
+    std::string linkUrl_{};
 };
 
 /*! @} */

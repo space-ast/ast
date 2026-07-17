@@ -32,6 +32,8 @@ class AST_MATH_API ODEEventObserver: public ODEStateObserver
 {
 public:
     ODEEventObserver() = default;
+    ODEEventObserver(const ODEEventObserver&) = delete;
+    ODEEventObserver& operator=(const ODEEventObserver&) = delete;
     explicit ODEEventObserver(ODEEventDetector* detector);
     ~ODEEventObserver() override;
     EODEAction onStateUpdate(double* y, double& x, ODEIntegrator* integrator) final;

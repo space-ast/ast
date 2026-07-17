@@ -40,6 +40,8 @@ class AST_GUI_API UiTimeInterval : public QWidget
 public:
     explicit UiTimeInterval(QWidget* parent = nullptr);
     ~UiTimeInterval() = default;
+    UiTimeInterval(const UiTimeInterval&) = delete;
+    UiTimeInterval& operator=(const UiTimeInterval&) = delete;
     
     /// @brief 设置时间区间
     /// @param timeInterval 时间区间

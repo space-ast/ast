@@ -44,6 +44,8 @@ class AST_GUI_API UiNewObjectDialog : public QDialog
 public:
     explicit UiNewObjectDialog(QWidget* parent = nullptr);
     ~UiNewObjectDialog() override;
+    UiNewObjectDialog(const UiNewObjectDialog&) = delete;
+    UiNewObjectDialog& operator=(const UiNewObjectDialog&) = delete;
 
     /// @brief 获取用户选择的类型名
     QString selectedTypeName() const;
@@ -59,13 +61,13 @@ private:
 
     struct ClassInfo
     {
-        std::string name;
-        std::string desc;
-        Class*      cls;
+        std::string name{}; 
+        std::string desc{}; 
+        Class*      cls{}; 
     };
 
-    std::vector<ClassInfo> allClasses_;   ///< 全部可创建的类型（未过滤）
-    mutable QString         generatedName_; ///< 自动生成的对象名（延迟计算，故为 mutable）
+    std::vector<ClassInfo> allClasses_{}; ///< 全部可创建的类型（未过滤）
+    mutable QString         generatedName_{}; ///< 自动生成的对象名（延迟计算，故为 mutable）
 
     QLineEdit*   searchEdit_ = nullptr;
     QListWidget* typeList_ = nullptr;

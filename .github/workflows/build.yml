@@ -18,9 +18,9 @@ jobs:
         group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-${{ matrix.os }}-${{ matrix.arch }}-build
         cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
-          # WyriHaximus/github-action-get-previous-tag@master need it
+          # Need full history for git tag operations
           fetch-depth: 0
           submodules: true
       - uses: xmake-io/github-action-setup-xmake@v1
@@ -31,7 +31,7 @@ jobs:
 
       # Cache xmake dependencies
       - name: 配置依赖缓存
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: xmake-cache
           key: build-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v1
@@ -82,14 +82,32 @@ jobs:
           xmake f -cy --with_test=y -m release
           xmake pack -f zip -o artifacts/ --basename=SpaceAST
       
-      - name: 获取上一个tag
-        id: previoustag
-        uses: WyriHaximus/github-action-get-previous-tag@master
+      - name: 获取发布信息
+        id: release-info
+        shell: bash
+        run: |
+          # Map runner OS to friendly name
+          case "${{ matrix.os }}" in
+            windows-*) echo "plat=windows" >> $GITHUB_OUTPUT ;;
+            ubuntu-*)  echo "plat=linux" >> $GITHUB_OUTPUT ;;
+            *)         echo "plat=${{ matrix.os }}" >> $GITHUB_OUTPUT ;;
+          esac
+          # Map arch to friendly name (x86_64 for Linux x64)
+          case "${{ matrix.os }}" in
+            ubuntu-*)
+              case "${{ matrix.arch }}" in
+                x64)   echo "arch=x86_64" >> $GITHUB_OUTPUT ;;
+                arm64) echo "arch=arm64" >> $GITHUB_OUTPUT ;;
+                *)     echo "arch=${{ matrix.arch }}" >> $GITHUB_OUTPUT ;;
+              esac ;;
+            *)
+              echo "arch=${{ matrix.arch }}" >> $GITHUB_OUTPUT ;;
+          esac
 
       - name: 上传产物
         uses: actions/upload-artifact@v4
         with:
-          name: SpaceAST-${{ matrix.os }}-${{ matrix.arch }}.zip
+          name: SpaceAST-${{ steps.release-info.outputs.plat }}-${{ steps.release-info.outputs.arch }}
           path: artifacts/SpaceAST.zip
            
       - name: 发布产物
@@ -100,15 +118,24 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-${{ steps.previoustag.outputs.tag }}-${{ matrix.os }}-${{ matrix.arch }}.zip
+          asset_name: SpaceAST-${{ github.event.release.tag_name }}-${{ steps.release-info.outputs.plat }}-${{ steps.release-info.outputs.arch }}.zip
           asset_content_type: application/zip
+      
+      - name: 更新 nightly tag
+        if: github.ref == 'refs/heads/master' && matrix.os == 'windows-2022' && matrix.arch == 'x64'
+        shell: bash
+        run: |
+          git tag -f nightly "${{ github.sha }}"
+          git push -f origin nightly
 
-      - name: 更新dev版本的发布产物
+      - name: 更新 nightly prerelease
         if: github.ref == 'refs/heads/master'
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-dev-${{ matrix.os }}-${{ matrix.arch }}.zip
-          tag: ${{ steps.previoustag.outputs.tag }}
+          asset_name: SpaceAST-nightly-${{ steps.release-info.outputs.plat }}-${{ steps.release-info.outputs.arch }}.zip
+          tag: nightly
           overwrite: true
+          prerelease: true
+          release_name: Nightly Build

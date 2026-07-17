@@ -45,7 +45,7 @@ HFrameWithEpoch FrameWithEpoch::MakeShared(Point *origin, Axes *axes, EventTime 
 }
 
 FrameWithEpoch::FrameWithEpoch()
-    : frozenAxes_{new AxesFrozenAtEventTime()}
+    : origin_(), frozenAxes_{new AxesFrozenAtEventTime()}, sourceAxes_()
 {
 }
 

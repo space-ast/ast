@@ -21,7 +21,9 @@
 #pragma once
 
 #include "AstGlobal.h"
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/backend/backend_interface.h>
+A_SUPPRESS_WARNINGS_END
 #include <memory>
 #include <string>
 

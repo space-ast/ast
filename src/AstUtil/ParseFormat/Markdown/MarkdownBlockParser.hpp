@@ -131,14 +131,14 @@ private:
     std::unique_ptr<MarkdownTableParser> tableSM_;
 
     EState state_ = EState::eLineStart;
-    std::vector<BlockFrame> blockStack_;
+    std::vector<BlockFrame> blockStack_{};
 
     // 分类缓冲（行首判定用，最多缓冲几个字符）
-    std::string classBuf_;
+    std::string classBuf_{};
     // 行内内容缓冲（分类确认后，累积待喂入 inlineSM 的内容）
-    std::string contentBuf_;
+    std::string contentBuf_{};
     // 代码块行缓冲（仅代码块内逐行检测关界围栏）
-    std::string codeLineBuf_;
+    std::string codeLineBuf_{};
 
     // ---- 标题状态 ----
     int headingLevel_ = 0;
@@ -146,7 +146,7 @@ private:
     // ---- 代码围栏状态 ----
     char codeFenceChar_ = 0;
     int  codeFenceCount_ = 0;
-    std::string codeFenceLang_;
+    std::string codeFenceLang_{};
 
     // ---- 列表状态 ----
     bool inList_           = false;

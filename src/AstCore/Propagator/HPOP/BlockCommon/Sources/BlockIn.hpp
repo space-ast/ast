@@ -31,6 +31,9 @@ class AST_CORE_API BlockIn: public FuncBlock
 public:
     BlockIn();
 
+    BlockIn(const BlockIn&) = delete;
+    BlockIn& operator=(const BlockIn&) = delete;
+
     errc_t run(const SimTime &simTime) override;
     
     /// @brief 设置输入值

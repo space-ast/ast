@@ -37,6 +37,8 @@ class AST_GUI_API UiResultView : public QWidget
     Q_OBJECT
 public:
     explicit UiResultView(QWidget* parent = nullptr);
+    UiResultView(const UiResultView&) = delete;
+    UiResultView& operator=(const UiResultView&) = delete;
 
     /// @brief 初始化表格列头
     /// @param variableNames 变量名列表
@@ -61,11 +63,11 @@ public:
 private:
     void setupUi();
 
-    QVBoxLayout*  layout_;
-    QTableWidget* table_;
-    QProgressBar* progressBar_;
-    QLabel*       progressLabel_;
-    QLabel*       timeLabel_;
+    QVBoxLayout*  layout_{};
+    QTableWidget* table_{};
+    QProgressBar* progressBar_{};
+    QLabel*       progressLabel_{};
+    QLabel*       timeLabel_{};
 };
 
 AST_NAMESPACE_END

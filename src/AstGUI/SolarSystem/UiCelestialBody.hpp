@@ -29,6 +29,8 @@ public:
     UiCelestialBody(Object* object, QWidget* parent = nullptr);
     UiCelestialBody(QWidget* parent = nullptr);
     ~UiCelestialBody() = default;
+    UiCelestialBody(const UiCelestialBody&) = delete;
+    UiCelestialBody& operator=(const UiCelestialBody&) = delete;
 
     void refreshUi();
     void apply();

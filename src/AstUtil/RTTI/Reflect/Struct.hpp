@@ -39,6 +39,10 @@ class AST_UTIL_API Struct: public Object
 public:
     Struct()
         : Object(initial_strong_ref)
+        , name_()
+        , desc_()
+        , properties_()
+        , propertyMap_()
     {
         this->setReadOnly(true);
     }

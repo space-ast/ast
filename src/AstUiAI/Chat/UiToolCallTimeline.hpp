@@ -41,6 +41,8 @@ class AST_UIAI_API UiToolCallTimeline : public QWidget
 public:
     explicit UiToolCallTimeline(QWidget* parent = nullptr);
     ~UiToolCallTimeline() override;
+    UiToolCallTimeline(const UiToolCallTimeline&) = delete;
+    UiToolCallTimeline& operator=(const UiToolCallTimeline&) = delete;
 
     /// @brief 添加一条工具调用条目
     /// @param toolCallId 工具调用 ID
@@ -75,15 +77,15 @@ private:
 
     struct Entry
     {
-        QString toolCallId;
-        QString functionName;
-        QString arguments;
-        QString result;
+        QString toolCallId{};
+        QString functionName{};
+        QString arguments{};
+        QString result{};
         EToolCallState state{};
         bool    detailExpanded = false;
     };
 
-    QVector<Entry>  entries_;
+    QVector<Entry>  entries_{};
     bool            collapsed_ = true;
 
     // UI 部件

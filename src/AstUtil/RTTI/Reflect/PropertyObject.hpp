@@ -40,6 +40,10 @@ public:
     using OutputType = Object*;
 public:
     PropertyObject() = default;
+
+    PropertyObject(const PropertyObject&) = delete;
+    PropertyObject& operator=(const PropertyObject&) = delete;
+
     PropertyObject(FPropertyGet getter, FPropertySet setter, Class* cls);
 
     errc_t getValueBool(const void* container, bool& value) override;

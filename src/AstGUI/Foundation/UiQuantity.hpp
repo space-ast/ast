@@ -43,6 +43,8 @@ class AST_GUI_API UiQuantity: public UiValueEdit
 
 public:
     explicit UiQuantity(QWidget* parent = nullptr);
+    UiQuantity(const UiQuantity&) = delete;
+    UiQuantity& operator=(const UiQuantity&) = delete;
 
     /// @brief 设置数量值
     /// @param quantity 数量值
@@ -125,7 +127,7 @@ private slots:
 private:
     void updateQuantity();
     void updateArrowIcon();
-    Quantity currentQuantity_;
+    Quantity currentQuantity_{};
     QAction* actionSwitchUnit_{nullptr};
     bool dimensionLocked_{true};
 };

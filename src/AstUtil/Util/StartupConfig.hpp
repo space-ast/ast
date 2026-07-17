@@ -111,8 +111,8 @@ protected:
     std::string decodeConfig(StringView value);
 protected:
     using ConfigMap = std::unordered_map<std::string, GenericValue>;
-    ConfigMap configMap_;
-    std::string filepath_;
+    ConfigMap configMap_{};
+    std::string filepath_{};
 };
 
 

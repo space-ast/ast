@@ -21,7 +21,9 @@
 #pragma once
 
 #include "AstGlobal.h"
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/util/visitor.h>
+A_SUPPRESS_WARNINGS_END
 #include <array>
 #include <QColor>
 
@@ -45,6 +47,8 @@ public:
     explicit QwtPlotVisitor(QwtPlot* plot);
     explicit QwtPlotVisitor(ColoredSurfacePlot* surface);
     ~QwtPlotVisitor() override;
+    QwtPlotVisitor(const QwtPlotVisitor&) = delete;
+    QwtPlotVisitor& operator=(const QwtPlotVisitor&) = delete;
 
     void visit(class matplot::line& l) override;
     void visit(class matplot::histogram& h) override;

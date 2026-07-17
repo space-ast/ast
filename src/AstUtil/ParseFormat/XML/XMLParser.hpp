@@ -134,11 +134,11 @@ private: // XML 片段解析函数
     void skipWhitespace();
 private:
     size_t pos_{0};                        ///< 当前解析位置
-    std::vector<char> buffer_;             ///< 缓冲区
-    XMLSax::AttributeList attributes_;     ///< 属性列表
-    StringView nameOrText_;                ///< 元素名称或文本内容
+    std::vector<char> buffer_{};           ///< 缓冲区
+    XMLSax::AttributeList attributes_{};   ///< 属性列表
+    StringView nameOrText_{};              ///< 元素名称或文本内容
     bool selfClosingTag_{false};           ///< 自闭合标签标志
-    std::string unescapedText_;            ///< 未转义的文本内容
+    std::string unescapedText_{};          ///< 未转义的文本内容
 };
 
 

@@ -7,10 +7,12 @@
 ///
 
 #include "PropertyPages.hpp"
+A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/core/axes_type.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/axes_objects/line.h>
 #include <matplot/axes_objects/surface.h>
+A_SUPPRESS_WARNINGS_END
 #include <QFormLayout>
 #include <QVBoxLayout>
 #include <QGroupBox>

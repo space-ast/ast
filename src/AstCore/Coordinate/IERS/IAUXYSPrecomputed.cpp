@@ -30,6 +30,7 @@
 AST_NAMESPACE_BEGIN
 
 IAUXYSPrecomputed::IAUXYSPrecomputed()
+    : xys_points_(), denom_array_(), time_array_()
 {
     
 }

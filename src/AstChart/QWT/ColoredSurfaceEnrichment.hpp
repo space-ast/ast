@@ -41,6 +41,8 @@ public:
     ColoredSurfaceEnrichment() = default;
     explicit ColoredSurfaceEnrichment(Qwt3D::PLOTSTYLE plotStyle)
         : plotStyle_(plotStyle) {}
+    ColoredSurfaceEnrichment(const ColoredSurfaceEnrichment&) = default;
+    ColoredSurfaceEnrichment& operator=(const ColoredSurfaceEnrichment&) = default;
     ColoredSurfaceEnrichment* clone() const override { return new ColoredSurfaceEnrichment(*this); }
     void drawBegin() override;
     void draw(Qwt3D::Triple const &) override;

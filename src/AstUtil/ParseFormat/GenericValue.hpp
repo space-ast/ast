@@ -54,7 +54,7 @@ public:
     const std::string& value() const { return value_; }
     const char* c_str() const { return value_.c_str(); }
 protected:
-    std::string value_;
+    std::string value_{};
 };
 
 AST_NAMESPACE_END
