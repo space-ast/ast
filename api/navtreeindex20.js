@@ -1,14 +1,5 @@
 var NAVTREEINDEX20 =
 {
-"classast_1_1BodyAttraction.html#a250e0402a1ec08ef9f9434d7faa30bd8":[3,0,0,97,2],
-"classast_1_1BodyAttraction.html#aa144f721141dde46bcb03b65880be2fc":[2,0,0,98,0],
-"classast_1_1BodyAttraction.html#aa144f721141dde46bcb03b65880be2fc":[3,0,0,97,0],
-"classast_1_1BodyAttraction.html#aa6e1554366bd471e51b46110b09ad641":[2,0,0,98,3],
-"classast_1_1BodyAttraction.html#aa6e1554366bd471e51b46110b09ad641":[3,0,0,97,3],
-"classast_1_1BodyAttraction.html#ad91e7d3b7b397d1fc9d62613eb4e1ab1":[2,0,0,98,1],
-"classast_1_1BodyAttraction.html#ad91e7d3b7b397d1fc9d62613eb4e1ab1":[3,0,0,97,1],
-"classast_1_1BodyAttraction.html#ae71e7843f765000620fcc1c0155cb696":[2,0,0,98,4],
-"classast_1_1BodyAttraction.html#ae71e7843f765000620fcc1c0155cb696":[3,0,0,97,4],
 "classast_1_1BodyEphemeris.html":[0,1,6,1],
 "classast_1_1BodyEphemeris.html#a1f5651a840f20ee9ede887d151f234a2":[0,1,6,1,4],
 "classast_1_1BodyEphemeris.html#a7bc37bb40921dc485a458130051f7e0e":[0,1,6,1,2],
@@ -249,5 +240,14 @@ var NAVTREEINDEX20 =
 "classast_1_1ChatConsole.html#a50d157274745f09229051277a32720da":[0,0,2,0],
 "classast_1_1ChatConsole.html#a882313cd34c77cdfd63172a81995606c":[0,0,2,6],
 "classast_1_1ChatConsole.html#a8d3e2c16a239096a5874f79b3723f486":[0,0,2,7],
-"classast_1_1ChatConsole.html#a9d1979800f2e64089fd19e347f3cbe0b":[0,0,2,1]
+"classast_1_1ChatConsole.html#a9d1979800f2e64089fd19e347f3cbe0b":[0,0,2,1],
+"classast_1_1ChatConsole.html#aa61a3ad6adbe1c0a8c32d22d571d3175":[0,0,2,4],
+"classast_1_1ChatConsole.html#abfc23e33b3cff9764cd92cbc254c246c":[0,0,2,5],
+"classast_1_1ChatConsole.html#ad8bdac1e423f7499ceb9c5dba4bfa269":[0,0,2,2],
+"classast_1_1ChatEventHandler.html":[0,0,3],
+"classast_1_1ChatEventHandler.html#a0df6aa606f0d6e0d06d054ba69d2f568":[0,0,3,0],
+"classast_1_1ChatEventHandler.html#a395c23c62dce53083eb1c54f00384894":[0,0,3,1],
+"classast_1_1ChatEventHandler.html#a3d35cf709df391788218826509a0089a":[0,0,3,7],
+"classast_1_1ChatEventHandler.html#a427faafaa950fa33e6652c61e4d1603d":[0,0,3,6],
+"classast_1_1ChatEventHandler.html#a7688fd68818dd37b53fafe23ab6f7cef":[0,0,3,5]
 };
