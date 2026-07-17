@@ -7,6 +7,7 @@ target("AstCOM")
     add_files("**.rc")
     set_kind("shared")
     add_headerfiles("**.hpp", {prefixdir="AstCOM"})
+    add_headerfiles("**.h", {prefixdir="AstCOM"})
     add_defines("AST_BUILD_LIB_COM")  -- 编译AstCOM库
     add_defines("_USRDLL")            -- 定义CAtlDllModuleT变量时需要
     add_defines("UNICODE", "_UNICODE", "_ATL_UNICODE") -- 编译为使用UNICODE宽字符

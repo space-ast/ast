@@ -1,6 +1,7 @@
 target("AstAnalyzer")
     set_kind("shared")
     add_headerfiles("**.hpp", {prefixdir="AstAnalyzer"})
+    add_headerfiles("**.h", {prefixdir="AstAnalyzer"})
     add_files("**.cpp")
     add_deps("AstCore")
     add_defines("AST_BUILD_LIB_ANALYZER")

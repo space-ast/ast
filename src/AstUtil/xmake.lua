@@ -5,6 +5,7 @@
     add_files("Platform/IO.cpp", {unity_group="IO"})
     add_headerfiles("**.hpp", {prefixdir="AstUtil"})
     add_headerfiles("**.h", {prefixdir="AstUtil"})
+    -- 下面的全局头文件由AstUtil工程在发布时复制到include目录下 
     add_headerfiles("../../include/ast/*", {prefixdir="ast"})
     add_headerfiles("../../include/AstGlobal.h")
     add_headerfiles("../../include/AstCompiler.h")

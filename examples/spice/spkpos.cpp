@@ -7,7 +7,7 @@
 #include "ast/TestConfig.hpp"
 #include "ast/CelestialBody.hpp"
 
-#ifndef AST_NO_CSPICE
+#ifdef AST_WITH_CSPICE
 #include "SpiceUsr.h"
 #endif
 
@@ -16,7 +16,7 @@ int main() {
     AST_USING_NAMESPACE
     if(aIsCI()) return 0;
 
-#ifndef AST_NO_CSPICE
+#ifdef AST_WITH_CSPICE
     std::cout << "=== SPICE 计算火星相对于地球位置示例 ===" << std::endl;
     
     

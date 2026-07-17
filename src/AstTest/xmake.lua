@@ -1,5 +1,6 @@
 target("AstTest")
     add_headerfiles("**.hpp", {prefixdir="AstTest"})
+    add_headerfiles("**.h", {prefixdir="AstTest"})
     add_files("**.cpp")
     set_kind("shared")
     add_deps("AstUtil", "AstMath", "AstCore", "AstSim", "AstScript", "AstLoader")

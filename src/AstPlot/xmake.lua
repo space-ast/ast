@@ -1,5 +1,6 @@
 target("AstPlot")
     set_kind("shared")
     add_headerfiles("**.hpp", {prefixdir="AstPlot"})
+    add_headerfiles("**.h", {prefixdir="AstPlot"})
     add_files("**.cpp")
     add_defines("AST_BUILD_LIB_PLOT", "NOMINMAX")

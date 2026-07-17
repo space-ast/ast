@@ -1,7 +1,7 @@
 /*
    Program gfdist_ex1
 */
-#ifndef AST_NO_CSPICE
+#ifdef AST_WITH_CSPICE
 #include <stdio.h>
 #include <clocale>
 #include "SpiceUsr.h"

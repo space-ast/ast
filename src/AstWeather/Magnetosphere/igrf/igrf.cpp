@@ -24,7 +24,7 @@
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/RunTime.hpp"
 
-#ifndef AST_NO_LIBF2C
+#ifdef AST_WITH_LIBF2C
 #include "f2c.h"
 
 extern "C"{
@@ -46,7 +46,7 @@ AST_NAMESPACE_BEGIN
 
 void igrf(double lon, double lat, double height, double year, double &xl, double &bbx)
 {
-#ifndef AST_NO_LIBF2C
+#ifdef AST_WITH_LIBF2C
     fs::path datadir = aDataDir();
     datadir /= AST_DEFAULT_DIR_IGRF;
     // 切换工作目录到 igrf 数据目录

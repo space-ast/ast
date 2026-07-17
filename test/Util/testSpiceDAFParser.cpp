@@ -28,7 +28,7 @@
 #include <iostream>
 #include <clocale>
 
-#ifndef AST_NO_CSPICE
+#ifdef AST_WITH_CSPICE
 #include "SpiceUsr.h"
 #endif
 
@@ -54,7 +54,7 @@ TEST(SpiceSPKParser, getPosNative)
     const std::string kernel = aTestGetConfigValue("SPK_FILE").toString();
 
     SPKParser parser(kernel);
-    #ifndef AST_NO_CSPICE
+    #ifdef AST_WITH_CSPICE
     furnsh_c(kernel.c_str());
     #endif
 
@@ -77,7 +77,7 @@ TEST(SpiceSPKParser, getPosNative)
         Vector3d pos, vel;
         errc_t err = parser.getPosVelNative(et, bodid, pos, vel);
         EXPECT_EQ(err, eNoError);
-    #ifndef AST_NO_CSPICE
+    #ifdef AST_WITH_CSPICE
         furnsh_c(kernel.c_str());
         double posvel_c[6];
         spkssb_c(bodid, et, "J2000", posvel_c);

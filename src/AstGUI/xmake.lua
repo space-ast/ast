@@ -6,6 +6,7 @@
     -- add_files("../../data/*.qrc")
     -- add_files("**.ui")
     add_headerfiles("**.hpp", {prefixdir="AstGUI"})
+    add_headerfiles("**.h", {prefixdir="AstGUI"})
     add_deps(
         "AstUtil", "AstSim", "AstCore", "AstMath", "AstAnalyzer", "AstLoader",
         "AstUiAI", "AstUiUtil", "AstUiDataUpdate"

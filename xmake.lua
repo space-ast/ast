@@ -200,24 +200,18 @@ add_requireconfs("qwt.qt5base", qt_config)
 if has_package("fmt") then
     add_packages("fmt")
     add_defines("AST_WITH_FMT")
-else
-    add_defines("AST_NO_FMT")
 end
 
 -- 添加Eigen库依赖（可选）
 if has_package("eigen") then
     add_defines("AST_WITH_EIGEN")
     add_packages("eigen")
-else
-    add_defines("AST_NO_EIGEN")
 end
 
 -- 添加cspice库依赖（可选）
 if has_package("cspice") then
     add_packages("cspice")
     add_defines("AST_WITH_CSPICE")
-else
-    add_defines("AST_NO_CSPICE")
 end
 
 
@@ -230,24 +224,18 @@ end
 if has_package("matplotplusplus") then
     add_packages("matplotplusplus")
     add_defines("AST_WITH_MATPLOT")
-else 
-    add_defines("AST_NO_MATPLOT")
 end
 
 -- 添加libintl库依赖（可选）
 -- if has_package("libintl") then
 --     add_packages("libintl")
 --     add_defines("AST_WITH_LIBINTL")
--- else 
---     add_defines("AST_NO_LIBINTL")
 -- end
 
 -- 添加nlohmann_json库依赖（可选）
 -- if has_package("nlohmann_json") then
 --     add_packages("nlohmann_json")
 --     add_defines("AST_WITH_NLOHMANN_JSON")
--- else
---     add_defines("AST_NO_NLOHMANN_JSON")
 -- end
 
 
@@ -255,24 +243,18 @@ end
 -- if has_package("jsoncpp") then
 --     add_packages("jsoncpp")
 --     add_defines("AST_WITH_JSONCPP")
--- else
---     add_defines("AST_NO_JSONCPP")
 -- end
 
 -- -- 添加curl库依赖（可选）
 -- if has_package("curl") then
 --     add_packages("curl")
 --     add_defines("AST_WITH_CURL")
--- else
---     add_defines("AST_NO_CURL")
 -- end
 
 -- 添加nodeeditor库依赖（可选）
 -- if has_package("nodeeditor") then
 --     add_packages("nodeeditor")
 --     add_defines("AST_WITH_NODEEDITOR")
--- else
---     add_defines("AST_NO_NODEEDITOR")
 -- end
 
 
