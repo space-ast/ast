@@ -136,58 +136,66 @@ $(function(){initNavTree('BlockDynamicSystem_8hpp_source.html',''); initResizabl
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classast_1_1BlockDynamicSystem.html#ab39b3425b52c256ac4af8a7e1ac8d836">   92</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockDynamicSystem.html#ab39b3425b52c256ac4af8a7e1ac8d836">setStateData</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>* y) { state_.assign(y, y + this-&gt;size()); }</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classast_1_1BlockDynamicSystem.html#a6cf1bc1ef79ecbf0f72f66ac46c32de4">   96</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockDynamicSystem.html#a6cf1bc1ef79ecbf0f72f66ac46c32de4">getDerivativeData</a>(<span class="keywordtype">double</span>* dydt)<span class="keyword"> const </span>{ std::copy(derivative_.begin(), derivative_.end(), dydt); }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">    #ifdef _MSC_VER</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">    #pragma warning(push, 0)</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">    #endif</span></div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classast_1_1BlockDynamicSystem.html#ab8342d2f286b2711fc20017f84694931">  100</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockDynamicSystem.html#ab8342d2f286b2711fc20017f84694931">fillDerivativeData</a>(<span class="keywordtype">double</span> value) { std::fill(derivative_.begin(), derivative_.end(), value); }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classast_1_1BlockDynamicSystem.html#a6cf1bc1ef79ecbf0f72f66ac46c32de4">  100</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockDynamicSystem.html#a6cf1bc1ef79ecbf0f72f66ac46c32de4">getDerivativeData</a>(<span class="keywordtype">double</span>* dydt)<span class="keyword"> const </span>{ std::copy_n(derivative_.begin(), derivative_.size(), dydt); }</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classast_1_1BlockDynamicSystem.html#aeda283455a1ca35501f02de65318275d">  104</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockDynamicSystem.html#aeda283455a1ca35501f02de65318275d">fillAccumulateData</a>(<span class="keywordtype">double</span> value) { std::fill(accumulate_.begin(), accumulate_.end(), value); }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classast_1_1BlockDynamicSystem.html#ab8342d2f286b2711fc20017f84694931">  104</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockDynamicSystem.html#ab8342d2f286b2711fc20017f84694931">fillDerivativeData</a>(<span class="keywordtype">double</span> value) { std::fill_n(derivative_.begin(), derivative_.size(), value); }</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    errc_t initialize();</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    errc_t sortBlocks();</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    errc_t createStateMap();</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    errc_t connectSignalsByNames();</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockSystem.html#ab38a85d780f2341506825916754cacd4">addBlock</a>(<a class="code hl_class" href="classast_1_1BlockDerivative.html">BlockDerivative</a>* block);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">void</span> addDerivativeBlock(<a class="code hl_class" href="classast_1_1BlockDerivative.html">BlockDerivative</a>* block);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classast_1_1BlockDynamicSystem.html#aeda283455a1ca35501f02de65318275d">  108</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockDynamicSystem.html#aeda283455a1ca35501f02de65318275d">fillAccumulateData</a>(<span class="keywordtype">double</span> value) { std::fill_n(accumulate_.begin(), accumulate_.size(), value); }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">    #ifdef _MSC_VER</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">    #pragma warning(pop)</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    errc_t initialize();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    errc_t sortBlocks();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    errc_t createStateMap();</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    errc_t connectSignalsByNames();</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keyword">using </span>BlockSystem::addBlock;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockSystem.html#ab38a85d780f2341506825916754cacd4">addBlock</a>(<a class="code hl_class" href="classast_1_1BlockDerivative.html">BlockDerivative</a>* block);</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockSystem.html#a4e38b31588a60e91a81c2eb1862212c3">clearBlocks</a>();</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordtype">void</span> reset();</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    errc_t <a class="code hl_function" href="classast_1_1BlockSystem.html#a8ff7c0538c385cc639ad0edf0f551769">run</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SimTime.html">SimTime</a>&amp; simTime) <span class="keyword">final</span>;</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    A_DISABLE_COPY(<a class="code hl_class" href="classast_1_1BlockDynamicSystem.html">BlockDynamicSystem</a>);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keyword">using </span>StateMap = std::unordered_map&lt;Identifier*, double*&gt;;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    std::vector&lt;BlockDerivative*&gt;   derivativeBlocks_{}; <span class="comment">// 状态量导数函数块</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    std::vector&lt;double&gt;             state_{};            <span class="comment">// 状态量</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    std::vector&lt;double&gt;             accumulate_{};       <span class="comment">// 累加状态量</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    std::vector&lt;double&gt;             derivative_{};       <span class="comment">// 状态量导数</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    StateMap                        stateMap_{};         <span class="comment">// 状态量映射表</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    StateMap                        derivativeMap_{};    <span class="comment">// 状态量导数映射表</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>};</div>
-</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">void</span> addDerivativeBlock(<a class="code hl_class" href="classast_1_1BlockDerivative.html">BlockDerivative</a>* block);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keyword">using </span>BlockSystem::addBlock;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1BlockSystem.html#a4e38b31588a60e91a81c2eb1862212c3">clearBlocks</a>();</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordtype">void</span> reset();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    errc_t <a class="code hl_function" href="classast_1_1BlockSystem.html#a8ff7c0538c385cc639ad0edf0f551769">run</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SimTime.html">SimTime</a>&amp; simTime) <span class="keyword">final</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    A_DISABLE_COPY(<a class="code hl_class" href="classast_1_1BlockDynamicSystem.html">BlockDynamicSystem</a>);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keyword">using </span>StateMap = std::unordered_map&lt;Identifier*, double*&gt;;</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    std::vector&lt;BlockDerivative*&gt;   derivativeBlocks_{}; <span class="comment">// 状态量导数函数块</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    std::vector&lt;double&gt;             state_{};            <span class="comment">// 状态量</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    std::vector&lt;double&gt;             accumulate_{};       <span class="comment">// 累加状态量</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    std::vector&lt;double&gt;             derivative_{};       <span class="comment">// 状态量导数</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    StateMap                        stateMap_{};         <span class="comment">// 状态量映射表</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    StateMap                        derivativeMap_{};    <span class="comment">// 状态量导数映射表</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>};</div>
+</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aBlockAstro_8hpp_html"><div class="ttname"><a href="BlockAstro_8hpp.html">BlockAstro.hpp</a></div><div class="ttdoc">~</div></div>
 <div class="ttc" id="aclassast_1_1BlockDerivative_html"><div class="ttname"><a href="classast_1_1BlockDerivative.html">ast::BlockDerivative</a></div><div class="ttdoc">导数函数块</div><div class="ttdef"><b>定义</b> BlockDerivative.hpp:46</div></div>
 <div class="ttc" id="aclassast_1_1BlockDynamicSystem_html"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html">ast::BlockDynamicSystem</a></div><div class="ttdoc">动力学系统</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:62</div></div>
-<div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_a6cf1bc1ef79ecbf0f72f66ac46c32de4"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#a6cf1bc1ef79ecbf0f72f66ac46c32de4">ast::BlockDynamicSystem::getDerivativeData</a></div><div class="ttdeci">void getDerivativeData(double *dydt) const</div><div class="ttdoc">获取状态量导数数据指针</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:96</div></div>
+<div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_a6cf1bc1ef79ecbf0f72f66ac46c32de4"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#a6cf1bc1ef79ecbf0f72f66ac46c32de4">ast::BlockDynamicSystem::getDerivativeData</a></div><div class="ttdeci">void getDerivativeData(double *dydt) const</div><div class="ttdoc">获取状态量导数数据指针</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:100</div></div>
 <div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_a773f8ea7c1f4b9d829796c2275d77d1b"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#a773f8ea7c1f4b9d829796c2275d77d1b">ast::BlockDynamicSystem::getStateData</a></div><div class="ttdeci">const double * getStateData() const</div><div class="ttdoc">获取状态量数据指针</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:77</div></div>
 <div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_a83376015af4e65e0fc11b511e1a4e540"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#a83376015af4e65e0fc11b511e1a4e540">ast::BlockDynamicSystem::getDerivativeData</a></div><div class="ttdeci">const double * getDerivativeData() const</div><div class="ttdoc">获取状态量导数数据指针</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:81</div></div>
 <div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_ab39b3425b52c256ac4af8a7e1ac8d836"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#ab39b3425b52c256ac4af8a7e1ac8d836">ast::BlockDynamicSystem::setStateData</a></div><div class="ttdeci">void setStateData(const double *y)</div><div class="ttdoc">填充状态量数据</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:92</div></div>
-<div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_ab8342d2f286b2711fc20017f84694931"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#ab8342d2f286b2711fc20017f84694931">ast::BlockDynamicSystem::fillDerivativeData</a></div><div class="ttdeci">void fillDerivativeData(double value)</div><div class="ttdoc">填充状态量导数数据</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:100</div></div>
+<div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_ab8342d2f286b2711fc20017f84694931"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#ab8342d2f286b2711fc20017f84694931">ast::BlockDynamicSystem::fillDerivativeData</a></div><div class="ttdeci">void fillDerivativeData(double value)</div><div class="ttdoc">填充状态量导数数据</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:104</div></div>
 <div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_ac4e0bf064e2643dbfea6976b95aefcf8"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#ac4e0bf064e2643dbfea6976b95aefcf8">ast::BlockDynamicSystem::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdoc">获取状态量大小</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:69</div></div>
 <div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_aeb9078a191446bdba8b8867dd036d0e1"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#aeb9078a191446bdba8b8867dd036d0e1">ast::BlockDynamicSystem::getDimension</a></div><div class="ttdeci">int getDimension() const</div><div class="ttdoc">获取状态量维度</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:73</div></div>
-<div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_aeda283455a1ca35501f02de65318275d"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#aeda283455a1ca35501f02de65318275d">ast::BlockDynamicSystem::fillAccumulateData</a></div><div class="ttdeci">void fillAccumulateData(double value)</div><div class="ttdoc">填充累加状态量数据</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:104</div></div>
+<div class="ttc" id="aclassast_1_1BlockDynamicSystem_html_aeda283455a1ca35501f02de65318275d"><div class="ttname"><a href="classast_1_1BlockDynamicSystem.html#aeda283455a1ca35501f02de65318275d">ast::BlockDynamicSystem::fillAccumulateData</a></div><div class="ttdeci">void fillAccumulateData(double value)</div><div class="ttdoc">填充累加状态量数据</div><div class="ttdef"><b>定义</b> BlockDynamicSystem.hpp:108</div></div>
 <div class="ttc" id="aclassast_1_1BlockSystem_html"><div class="ttname"><a href="classast_1_1BlockSystem.html">ast::BlockSystem</a></div><div class="ttdoc">子系统块(subsystem block)</div><div class="ttdef"><b>定义</b> BlockSystem.hpp:34</div></div>
 <div class="ttc" id="aclassast_1_1BlockSystem_html_a4e38b31588a60e91a81c2eb1862212c3"><div class="ttname"><a href="classast_1_1BlockSystem.html#a4e38b31588a60e91a81c2eb1862212c3">ast::BlockSystem::clearBlocks</a></div><div class="ttdeci">void clearBlocks()</div><div class="ttdoc">清除子系统中的所有函数块</div><div class="ttdef"><b>定义</b> BlockSystem.cpp:51</div></div>
 <div class="ttc" id="aclassast_1_1BlockSystem_html_a8ff7c0538c385cc639ad0edf0f551769"><div class="ttname"><a href="classast_1_1BlockSystem.html#a8ff7c0538c385cc639ad0edf0f551769">ast::BlockSystem::run</a></div><div class="ttdeci">errc_t run(const SimTime &amp;simTime) override</div><div class="ttdoc">计算函数块</div><div class="ttdef"><b>定义</b> BlockSystem.cpp:36</div></div>
