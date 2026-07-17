@@ -51,7 +51,8 @@ jobs:
       - name: 创建标签与发布
         if: steps.check_tag.outputs.exists == 'false'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 必须使用 PAT 而非 GITHUB_TOKEN，否则无法触发下游的 release:published 事件
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         shell: bash
         run: |
           TAG="${{ steps.version.outputs.tag }}"
