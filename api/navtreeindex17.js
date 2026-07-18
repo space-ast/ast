@@ -1,5 +1,6 @@
 var NAVTREEINDEX17 =
 {
+"VectorFixedAtEpoch_8hpp_source.html":[4,0,0,6,3,6,7],
 "VectorFixed_8cpp.html":[4,0,0,6,3,6,4],
 "VectorFixed_8hpp.html":[4,0,0,6,3,6,5],
 "VectorFixed_8hpp_source.html":[4,0,0,6,3,6,5],
@@ -69,7 +70,7 @@ var NAVTREEINDEX17 =
 "classAstCOMLib_1_1CScenario.html":[3,0,1,6],
 "classAstCOMLib_1_1CVeVOSystemsCollection.html":[3,0,1,7],
 "classAstCOMLib_1_1CVeVOSystemsElement.html":[3,0,1,8],
-"classExoTemps.html":[3,0,23],
+"classExoTemps.html":[3,0,24],
 "classast_1_1AEP8Data.html":[2,0,0,7],
 "classast_1_1AEP8Data.html":[3,0,0,6],
 "classast_1_1AEPDataCollection.html":[2,0,0,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX17 =
 "classast_1_1AxesFrozen.html#ad74df91ae19abb4af6caf6018b083f1e":[3,0,0,35,1],
 "classast_1_1AxesFrozenAtEventTime.html":[2,0,0,37],
 "classast_1_1AxesFrozenAtEventTime.html":[3,0,0,36],
-"classast_1_1AxesFrozenAtEventTime.html#a1f98b51c697f93c2fb45c9bb26d11b81":[2,0,0,37,8],
-"classast_1_1AxesFrozenAtEventTime.html#a1f98b51c697f93c2fb45c9bb26d11b81":[3,0,0,36,8]
+"classast_1_1AxesFrozenAtEventTime.html#a1f98b51c697f93c2fb45c9bb26d11b81":[2,0,0,37,8]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX22 =
 {
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html":[3,0,0,167],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[2,0,0,168,3],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[3,0,0,167,3],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a882a374d7108f1e059078d7f7232a968":[2,0,0,168,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX22 =
 "classast_1_1DataPort.html#a987c352479736dac36de325236257ddb":[3,0,0,204,15],
 "classast_1_1DataPort.html#aacdfe7391e349ce5701db223173a0628":[2,0,0,205,3],
 "classast_1_1DataPort.html#aacdfe7391e349ce5701db223173a0628":[3,0,0,204,3],
-"classast_1_1DataPort.html#ab1cf944a6460d654524774aedb38ac83":[2,0,0,205,6],
-"classast_1_1DataPort.html#ab1cf944a6460d654524774aedb38ac83":[3,0,0,204,6]
+"classast_1_1DataPort.html#ab1cf944a6460d654524774aedb38ac83":[2,0,0,205,6]
 };

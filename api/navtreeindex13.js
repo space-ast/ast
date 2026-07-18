@@ -1,5 +1,6 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcTrueLong_8hpp_source.html":[4,0,0,6,7,1,0,10,35],
 "ScStateCalcUserValue_8cpp.html":[4,0,0,6,7,1,0,15,208],
 "ScStateCalcUserValue_8hpp.html":[4,0,0,6,7,1,0,15,209],
 "ScStateCalcUserValue_8hpp_source.html":[4,0,0,6,7,1,0,15,209],
@@ -248,6 +249,5 @@ var NAVTREEINDEX13 =
 "SpaceObject_8hpp_source.html":[4,0,0,19,3,59],
 "SpaceWeatherProvider_8hpp.html":[4,0,0,6,4,13],
 "SpaceWeatherProvider_8hpp_source.html":[4,0,0,6,4,13],
-"SpaceWeather_8cpp.html":[4,0,0,6,4,11],
-"SpaceWeather_8cpp.html#a278d65ce490cc6ae03b27ae4f97ba731":[4,0,0,6,4,11,0]
+"SpaceWeather_8cpp.html":[4,0,0,6,4,11]
 };

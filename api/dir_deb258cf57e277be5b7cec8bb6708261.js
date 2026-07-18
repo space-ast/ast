@@ -2,6 +2,7 @@ var dir_deb258cf57e277be5b7cec8bb6708261 =
 [
     [ "EventDetector", "dir_66ee8ba5b382d93a6c98ce6c163ac806.html", "dir_66ee8ba5b382d93a6c98ce6c163ac806" ],
     [ "HPOP", "dir_99d89bf1bb3c699199c624a04c84ff81.html", "dir_99d89bf1bb3c699199c624a04c84ff81" ],
+    [ "SGP4", "dir_2717f2c8c7b5333c99d559555f5f11d9.html", "dir_2717f2c8c7b5333c99d559555f5f11d9" ],
     [ "J2Analytical.cpp", "J2Analytical_8cpp.html", "J2Analytical_8cpp" ],
     [ "J2Analytical.hpp", "J2Analytical_8hpp.html", "J2Analytical_8hpp" ],
     [ "J2J4Analytical.cpp", "J2J4Analytical_8cpp.html", null ],

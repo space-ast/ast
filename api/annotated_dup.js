@@ -1145,6 +1145,7 @@ var annotated_dup =
     [ "dtm_unctype", "structdtm__unctype.html", null ],
     [ "dtmindextype", "structdtmindextype.html", null ],
     [ "eclipttype", "structeclipttype.html", null ],
+    [ "elsetrec", "structelsetrec.html", null ],
     [ "ExoTemps", "classExoTemps.html", null ],
     [ "f_structtype", "structf__structtype.html", null ],
     [ "fitrecord", "structfitrecord.html", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcBDotTCalc_8hpp_source.html":[4,0,0,6,7,1,0,14,3],
 "ScStateCalcBMagCalc_8cpp.html":[4,0,0,6,7,1,0,14,6],
 "ScStateCalcBMagCalc_8hpp.html":[4,0,0,6,7,1,0,14,7],
 "ScStateCalcBMagCalc_8hpp_source.html":[4,0,0,6,7,1,0,14,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcMagneticFieldStrength_8cpp.html":[4,0,0,6,7,1,0,15,86],
 "ScStateCalcMagneticFieldStrength_8hpp.html":[4,0,0,6,7,1,0,15,87],
 "ScStateCalcMagneticFieldStrength_8hpp_source.html":[4,0,0,6,7,1,0,15,87],
-"ScStateCalcManeuverSpecificImpulse_8cpp.html":[4,0,0,6,7,1,0,15,88],
-"ScStateCalcManeuverSpecificImpulse_8hpp.html":[4,0,0,6,7,1,0,15,89]
+"ScStateCalcManeuverSpecificImpulse_8cpp.html":[4,0,0,6,7,1,0,15,88]
 };
