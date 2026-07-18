@@ -1,1 +1,1 @@
-#include "../../src/AstCore/Propagator/SGP4/SGP4.h"
+#include "../../src/AstCore/Propagator/SGP4/Vallado/SGP4.h"
