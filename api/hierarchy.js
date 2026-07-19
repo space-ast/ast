@@ -1236,7 +1236,8 @@ var hierarchy =
               [ "ast::EphemerisBinary", "classast_1_1EphemerisBinary.html", null ],
               [ "ast::EphemerisLagrangeVar", "classast_1_1EphemerisLagrangeVar.html", null ],
               [ "ast::EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", null ],
-              [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ]
+              [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ],
+              [ "ast::SGP4", "classast_1_1SGP4.html", null ]
             ] ],
             [ "ast::Facility", "classast_1_1Facility.html", [
               [ "ast::GroundStation", "classast_1_1GroundStation.html", null ],
@@ -1452,12 +1453,12 @@ var hierarchy =
     [ "ast::TimePoint", "classast_1_1TimePoint.html", null ],
     [ "ast::TimeScale", "classast_1_1TimeScale.html", null ],
     [ "ast::TLE", "classast_1_1TLE.html", null ],
+    [ "ast::TLELines", "classast_1_1TLELines.html", null ],
     [ "ast::TrackingCoordinates", "classast_1_1TrackingCoordinates.html", null ],
     [ "ast::Transform", "classast_1_1Transform.html", [
       [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", null ]
     ] ],
     [ "ast::TreeBuildOptions", "structast_1_1TreeBuildOptions.html", null ],
-    [ "ast::TwoLineElement", "classast_1_1TwoLineElement.html", null ],
     [ "ast::detail::type_from_tag< TypeCode >", "structast_1_1detail_1_1type__from__tag.html", null ],
     [ "ast::detail::type_from_tag< type_bool >", "structast_1_1detail_1_1type__from__tag_3_01type__bool_01_4.html", null ],
     [ "ast::detail::type_from_tag< type_double >", "structast_1_1detail_1_1type__from__tag_3_01type__double_01_4.html", null ],

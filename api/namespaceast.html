@@ -1766,6 +1766,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SerializerFactory.html">SerializerFactory</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SGP4.html">SGP4</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Ship.html">Ship</a></td></tr>
@@ -1954,6 +1956,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TLE.html">TLE</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TLELines.html">TLELines</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TrackingCoordinates.html">TrackingCoordinates</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TraitObject.html">TraitObject</a></td></tr>
@@ -1965,8 +1969,6 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1TreeBuildOptions.html">TreeBuildOptions</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TwoBody.html">TwoBody</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TwoLineElement.html">TwoLineElement</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1UiAnalyzerMainWindow.html">UiAnalyzerMainWindow</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2823,6 +2825,14 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <br />
  }</td></tr>
 <tr class="separator:a11d9a447a3f9d9c3fef650baf82bc59a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0aa1c9c6e26b6b71443e9be3f152374" id="r_af0aa1c9c6e26b6b71443e9be3f152374"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0aa1c9c6e26b6b71443e9be3f152374">ETLESource</a> { <a class="el" href="#af0aa1c9c6e26b6b71443e9be3f152374a5e7de5f948230715ad55929daf7287e2">eFile</a>
+, <a class="el" href="#af0aa1c9c6e26b6b71443e9be3f152374acba3a33e9d84e554247adf2d2ecedcbe">eEdited</a>
+, <a class="el" href="#af0aa1c9c6e26b6b71443e9be3f152374a799d484f5ed364902438d214b7d04302">eServer</a>
+ }</td></tr>
+<tr class="separator:af0aa1c9c6e26b6b71443e9be3f152374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4762321db57fe068f02270972bf5fee7" id="r_a4762321db57fe068f02270972bf5fee7"><td class="memItemLeft" align="right" valign="top"><a id="a4762321db57fe068f02270972bf5fee7" name="a4762321db57fe068f02270972bf5fee7"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>ESwitchMethod</b> { <b>eEpoch</b>
+ }</td></tr>
+<tr class="separator:a4762321db57fe068f02270972bf5fee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38492009e3b794d55c491c6ebebc7158" id="r_a38492009e3b794d55c491c6ebebc7158"><td class="memItemLeft" align="right" valign="top"><a id="a38492009e3b794d55c491c6ebebc7158" name="a38492009e3b794d55c491c6ebebc7158"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>ER</b> { <b>eA</b>
  }</td></tr>
 <tr class="separator:a38492009e3b794d55c491c6ebebc7158"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3133,14 +3143,6 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <a class="el" href="#a364fd776aa5b05ed45dae4534b252fdaa86c385cc832c655877c33a1bf1f6ac6a">eITCEphemeris</a>
  }</td></tr>
 <tr class="separator:a364fd776aa5b05ed45dae4534b252fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0aa1c9c6e26b6b71443e9be3f152374" id="r_af0aa1c9c6e26b6b71443e9be3f152374"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0aa1c9c6e26b6b71443e9be3f152374">ETLESource</a> { <a class="el" href="#af0aa1c9c6e26b6b71443e9be3f152374a5e7de5f948230715ad55929daf7287e2">eFile</a>
-, <a class="el" href="#af0aa1c9c6e26b6b71443e9be3f152374acba3a33e9d84e554247adf2d2ecedcbe">eEdited</a>
-, <a class="el" href="#af0aa1c9c6e26b6b71443e9be3f152374a799d484f5ed364902438d214b7d04302">eServer</a>
- }</td></tr>
-<tr class="separator:af0aa1c9c6e26b6b71443e9be3f152374"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4762321db57fe068f02270972bf5fee7" id="r_a4762321db57fe068f02270972bf5fee7"><td class="memItemLeft" align="right" valign="top"><a id="a4762321db57fe068f02270972bf5fee7" name="a4762321db57fe068f02270972bf5fee7"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>ESwitchMethod</b> { <b>eEpoch</b>
- }</td></tr>
-<tr class="separator:a4762321db57fe068f02270972bf5fee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga101136608862295c65fbd660783ecdd7" id="r_ga101136608862295c65fbd660783ecdd7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__UiAI.html#ga101136608862295c65fbd660783ecdd7">EToolCallState</a> { <a class="el" href="group__UiAI.html#gga101136608862295c65fbd660783ecdd7ab23499ad7f3dd05d99fd73010d51558a">EToolCallState::eRunning</a>
 , <a class="el" href="group__UiAI.html#gga101136608862295c65fbd660783ecdd7a27a410c6b361732f3b4237bff6478a44">EToolCallState::eSuccess</a>
 , <a class="el" href="group__UiAI.html#gga101136608862295c65fbd660783ecdd7a946db550abb284f3a919132343c4d984">EToolCallState::eError</a>
@@ -3659,6 +3661,8 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Axes.html">Axes</a> *&#160;</td>
 <tr class="separator:ga65bf410406dc0fdae6d239ffa3162f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa49734e12f9ee0dce1ea3e82b3fb1d9a" id="r_gaa49734e12f9ee0dce1ea3e82b3fb1d9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gaa49734e12f9ee0dce1ea3e82b3fb1d9a">aFrameECF</a> ()</td></tr>
 <tr class="separator:gaa49734e12f9ee0dce1ea3e82b3fb1d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacea06181c8c7683673cb32542f41bdb6" id="r_gacea06181c8c7683673cb32542f41bdb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gacea06181c8c7683673cb32542f41bdb6">aFrameTEME</a> ()</td></tr>
+<tr class="separator:gacea06181c8c7683673cb32542f41bdb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga26eab05af3e7778681b0b613f34e24a9" id="r_ga26eab05af3e7778681b0b613f34e24a9"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE <a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>aFrameICRF</b> ()</td></tr>
 <tr class="separator:ga26eab05af3e7778681b0b613f34e24a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3717,6 +3721,20 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</t
 <tr class="separator:ga246634a2196a285578700eced82c4a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga53d52553695ab6cf6ce5d0dbff2babcf" id="r_ga53d52553695ab6cf6ce5d0dbff2babcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga53d52553695ab6cf6ce5d0dbff2babcf">aTODToGTOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecTOD, const Vector3d &amp;velTOD, Vector3d &amp;vecGTOC, Vector3d &amp;velGTOC)</td></tr>
 <tr class="separator:ga53d52553695ab6cf6ce5d0dbff2babcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga328472a10cea2a5eacf43da6f59f26fc" id="r_ga328472a10cea2a5eacf43da6f59f26fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga328472a10cea2a5eacf43da6f59f26fc">aTODToTEMETransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga328472a10cea2a5eacf43da6f59f26fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac48b701c286e2cfac76be5a458f90ea" id="r_gaac48b701c286e2cfac76be5a458f90ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gaac48b701c286e2cfac76be5a458f90ea">aTODToTEMETransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gaac48b701c286e2cfac76be5a458f90ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d2b4cd683ef2236087f30327df7b963" id="r_ga7d2b4cd683ef2236087f30327df7b963"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga7d2b4cd683ef2236087f30327df7b963">aTODToTEMEMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:ga7d2b4cd683ef2236087f30327df7b963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac63fbbddaa4051de70e5005ff576ca7d" id="r_gac63fbbddaa4051de70e5005ff576ca7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gac63fbbddaa4051de70e5005ff576ca7d">aTODToTEME</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecTOD, Vector3d &amp;vecTEME)</td></tr>
+<tr class="separator:gac63fbbddaa4051de70e5005ff576ca7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c668e24d6e40b2d6d06d2cc6818eed0" id="r_ga7c668e24d6e40b2d6d06d2cc6818eed0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga7c668e24d6e40b2d6d06d2cc6818eed0">aTEMEToTODTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:ga7c668e24d6e40b2d6d06d2cc6818eed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4817a6c663078e8b676b077b366e500" id="r_gad4817a6c663078e8b676b077b366e500"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gad4817a6c663078e8b676b077b366e500">aTEMEToTODMatrix</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gad4817a6c663078e8b676b077b366e500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78339f50a591fd33678bfc088913f6b5" id="r_ga78339f50a591fd33678bfc088913f6b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga78339f50a591fd33678bfc088913f6b5">aTEMEToTOD</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecTEME, Vector3d &amp;vecTOD)</td></tr>
+<tr class="separator:ga78339f50a591fd33678bfc088913f6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab792bcc75449482ad42318c89d69edbe" id="r_gab792bcc75449482ad42318c89d69edbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gab792bcc75449482ad42318c89d69edbe">aGTODToECFTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:gab792bcc75449482ad42318c89d69edbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a414fa76146f7dac60ac1eed53c73da70" id="r_a414fa76146f7dac60ac1eed53c73da70"><td class="memItemLeft" align="right" valign="top"><a id="a414fa76146f7dac60ac1eed53c73da70" name="a414fa76146f7dac60ac1eed53c73da70"></a>

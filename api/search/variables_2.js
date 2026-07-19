@@ -8,7 +8,7 @@ var searchData=
   ['body_5f_5',['body_',['../classast_1_1AxesBodyRelated.html#aa8fb4d373ecb9259ef507dce6910d0e2',1,'ast::AxesBodyRelated::body_'],['../classast_1_1ExprWhile.html#a76bc403fe01be7104edef7ba48ea9d57',1,'ast::ExprWhile::body_'],['../classast_1_1ExprForRange.html#ae284dbe229037f1e9fe679dbdb9a8f0f',1,'ast::ExprForRange::body_']]],
   ['bodyshape_5f_6',['bodyShape_',['../classast_1_1AtmosphereBase.html#a313d7545b5ca8f328d17cf79353118ea',1,'ast::AtmosphereBase']]],
   ['boolean_5f_7',['boolean_',['../classast_1_1JsonValue.html#aad1dd17b3d2a85efdb1bed7231619598',1,'ast::JsonValue']]],
-  ['bstar_5f_8',['bstar_',['../classast_1_1TwoLineElement.html#a2934009aac82f08fae2b4fd4f751b6b9',1,'ast::TwoLineElement']]],
+  ['bstar_5f_8',['bstar_',['../classast_1_1TLE.html#abbb3bc7c89851e7a7d470a4f10671c45',1,'ast::TLE']]],
   ['buffer_5f_9',['buffer_',['../classast_1_1SPKParser.html#a7699a53f25580a300a685538e54af6d9',1,'ast::SPKParser']]],
   ['buildoptions_5f_10',['buildOptions_',['../classast_1_1UiObjectTree.html#a687e1ee80e56dad27cfde70b33b7f2fd',1,'ast::UiObjectTree']]],
   ['bward_11',['bward',['../structast_1_1DAF__FileRecord.html#a73abf84a892d48eb4259ea7c43bf3edd',1,'ast::DAF_FileRecord']]]

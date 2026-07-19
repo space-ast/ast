@@ -100,24 +100,22 @@ $(function(){initNavTree('MotionSGP4_8hpp.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
-<a href="#namespaces">命名空间</a> &#124;
-<a href="#enum-members">枚举</a>  </div>
+<a href="#namespaces">命名空间</a>  </div>
   <div class="headertitle"><div class="title">MotionSGP4.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;AstSim/MotionProfile.hpp&quot;</code><br />
 <code>#include &quot;AstSim/MotionWithIntervalStep.hpp&quot;</code><br />
+<code>#include &quot;AstCore/SGP4.hpp&quot;</code><br />
+<code>#include &quot;AstCore/TLELines.hpp&quot;</code><br />
+<code>#include &quot;AstCore/TLE.hpp&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="MotionSGP4_8hpp_source.html">浏览该文件的源代码.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TLE.html">ast::TLE</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TwoLineElement.html">ast::TwoLineElement</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1MotionSGP4.html">ast::MotionSGP4</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -125,17 +123,6 @@ $(function(){initNavTree('MotionSGP4_8hpp.html',''); initResizable(true); });
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-枚举</h2></td></tr>
-<tr class="memitem:af0aa1c9c6e26b6b71443e9be3f152374" id="r_af0aa1c9c6e26b6b71443e9be3f152374"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374">ast::ETLESource</a> { <a class="el" href="namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374a5e7de5f948230715ad55929daf7287e2">ast::eFile</a>
-, <a class="el" href="namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374acba3a33e9d84e554247adf2d2ecedcbe">ast::eEdited</a>
-, <a class="el" href="namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374a799d484f5ed364902438d214b7d04302">ast::eServer</a>
- }</td></tr>
-<tr class="separator:af0aa1c9c6e26b6b71443e9be3f152374"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4762321db57fe068f02270972bf5fee7" id="r_a4762321db57fe068f02270972bf5fee7"><td class="memItemLeft" align="right" valign="top"><a id="a4762321db57fe068f02270972bf5fee7" name="a4762321db57fe068f02270972bf5fee7"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>ESwitchMethod</b> { <b>eEpoch</b>
- }</td></tr>
-<tr class="separator:a4762321db57fe068f02270972bf5fee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

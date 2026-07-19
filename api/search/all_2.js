@@ -217,7 +217,7 @@ var searchData=
   ['brentqsolver_214',['BrentqSolver',['../classast_1_1BrentqSolver.html',1,'ast']]],
   ['brentsolver_2ecpp_215',['BrentSolver.cpp',['../BrentSolver_8cpp.html',1,'']]],
   ['brentsolver_2ehpp_216',['BrentSolver.hpp',['../BrentSolver_8hpp.html',1,'']]],
-  ['bstar_5f_217',['bstar_',['../classast_1_1TwoLineElement.html#a2934009aac82f08fae2b4fd4f751b6b9',1,'ast::TwoLineElement']]],
+  ['bstar_5f_217',['bstar_',['../classast_1_1TLE.html#abbb3bc7c89851e7a7d470a4f10671c45',1,'ast::TLE']]],
   ['buffer_5f_218',['buffer_',['../classast_1_1SPKParser.html#a7699a53f25580a300a685538e54af6d9',1,'ast::SPKParser']]],
   ['bug_20列表_219',['Bug 列表',['../bug.html',1,'']]],
   ['build_220',['build',['../classast_1_1BuildTarget.html#a3f8c3355df07a5a3f4478ac68acc1a24',1,'ast::BuildTarget']]],

@@ -195,6 +195,10 @@ static AST_CORE_API <a class="el" href="classast_1_1TimePoint.html">TimePoint</a
 <tr class="memitem:a3d5d3826fc89e78854790009b2c4c7a6" id="r_a3d5d3826fc89e78854790009b2c4c7a6"><td class="memItemLeft" align="right" valign="top"><a id="a3d5d3826fc89e78854790009b2c4c7a6" name="a3d5d3826fc89e78854790009b2c4c7a6"></a>
 static AST_CORE_API <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromUTC</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmUTC)</td></tr>
 <tr class="separator:a3d5d3826fc89e78854790009b2c4c7a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af50c32b2eede69e2cf1f969e2801a17f" id="r_af50c32b2eede69e2cf1f969e2801a17f"><td class="memItemLeft" align="right" valign="top">static AST_CORE_API <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af50c32b2eede69e2cf1f969e2801a17f">FromYD</a> (int year, double dayOfYear)</td></tr>
+<tr class="separator:af50c32b2eede69e2cf1f969e2801a17f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe5b2b44531d97ddeb099f9173e956f9" id="r_abe5b2b44531d97ddeb099f9173e956f9"><td class="memItemLeft" align="right" valign="top">static AST_CORE_API <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe5b2b44531d97ddeb099f9173e956f9">FromTLEYD</a> (double tleYD)</td></tr>
+<tr class="separator:abe5b2b44531d97ddeb099f9173e956f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a575fdd11fbd801b1431b7036000c3e" id="r_a3a575fdd11fbd801b1431b7036000c3e"><td class="memItemLeft" align="right" valign="top"><a id="a3a575fdd11fbd801b1431b7036000c3e" name="a3a575fdd11fbd801b1431b7036000c3e"></a>
 static AST_CORE_API <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromBJT</b> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttmBJT)</td></tr>
 <tr class="separator:a3a575fdd11fbd801b1431b7036000c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -268,6 +272,78 @@ static <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><
 
 <p>获取历元时间点 </p>
 <dl class="section see"><dt>参见</dt><dd><a class="el" href="RunTimeEpoch_8cpp.html">RunTimeEpoch.cpp</a> </dd></dl>
+
+</div>
+</div>
+<a id="abe5b2b44531d97ddeb099f9173e956f9" name="abe5b2b44531d97ddeb099f9173e956f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe5b2b44531d97ddeb099f9173e956f9">&#9670;&#160;</a></span>FromTLEYD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1TimePoint.html">TimePoint</a> ast::TimePoint::FromTLEYD </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tleYD</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从 <a class="el" href="classast_1_1TLE.html" title="两行根数（TLE）">TLE</a> 历元格式的 double 值创建 UTC 时间点 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tleYD</td><td><a class="el" href="classast_1_1TLE.html" title="两行根数（TLE）">TLE</a> 历元值，格式 YYDDD.DDDDDDDD（如 97320.90946019）</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>自动处理两位年份到四位年份的转换（&gt;=57 → 19xx, &lt;57 → 20xx） </p>
+
+</div>
+</div>
+<a id="af50c32b2eede69e2cf1f969e2801a17f" name="af50c32b2eede69e2cf1f969e2801a17f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af50c32b2eede69e2cf1f969e2801a17f">&#9670;&#160;</a></span>FromYD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1TimePoint.html">TimePoint</a> ast::TimePoint::FromYD </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>year</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dayOfYear</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从UTC年份和年内天数创建时间点 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">year</td><td>四位年份（如 1997） </td></tr>
+    <tr><td class="paramname">dayOfYear</td><td>年内天数及小数部分（如 320.90946019，1-based） </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

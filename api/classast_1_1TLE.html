@@ -100,32 +100,133 @@ $(function(){initNavTree('classast_1_1TLE.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="classast_1_1TLE-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::TLE类 参考</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="TLE_8hpp_source.html">TLE.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a7800e7fbf5dbee96345d9a21076197ba" id="r_a7800e7fbf5dbee96345d9a21076197ba"><td class="memItemLeft" align="right" valign="top"><a id="a7800e7fbf5dbee96345d9a21076197ba" name="a7800e7fbf5dbee96345d9a21076197ba"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> () const</td></tr>
-<tr class="separator:a7800e7fbf5dbee96345d9a21076197ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d8dd7a68171d6d3908c1f03987e7c3a" id="r_a5d8dd7a68171d6d3908c1f03987e7c3a"><td class="memItemLeft" align="right" valign="top"><a id="a5d8dd7a68171d6d3908c1f03987e7c3a" name="a5d8dd7a68171d6d3908c1f03987e7c3a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>meanMotionDot</b> () const</td></tr>
+<tr class="separator:a5d8dd7a68171d6d3908c1f03987e7c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc1154e6ded2a0e8d72fb03d08bce948" id="r_afc1154e6ded2a0e8d72fb03d08bce948"><td class="memItemLeft" align="right" valign="top"><a id="afc1154e6ded2a0e8d72fb03d08bce948" name="afc1154e6ded2a0e8d72fb03d08bce948"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>motionDotDot</b> () const</td></tr>
+<tr class="separator:afc1154e6ded2a0e8d72fb03d08bce948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a53d4dd7bfcd3bfe367243680e1ddfbde" id="r_a53d4dd7bfcd3bfe367243680e1ddfbde"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1TLE.html">TLE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53d4dd7bfcd3bfe367243680e1ddfbde">FromLines</a> (const <a class="el" href="classast_1_1TLELines.html">TLELines</a> &amp;lines)</td></tr>
+<tr class="separator:a53d4dd7bfcd3bfe367243680e1ddfbde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f2106631ad5e34feb2e473d45962891" id="r_a9f2106631ad5e34feb2e473d45962891"><td class="memItemLeft" align="right" valign="top"><a id="a9f2106631ad5e34feb2e473d45962891" name="a9f2106631ad5e34feb2e473d45962891"></a>
+static <a class="el" href="classast_1_1TLE.html">TLE</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromLines</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> l1, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> l2)</td></tr>
+<tr class="separator:a9f2106631ad5e34feb2e473d45962891"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
-<tr class="memitem:af991bb54bc000d5b6b59956f9cfb51d9" id="r_af991bb54bc000d5b6b59956f9cfb51d9"><td class="memItemLeft" align="right" valign="top"><a id="af991bb54bc000d5b6b59956f9cfb51d9" name="af991bb54bc000d5b6b59956f9cfb51d9"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b> {}</td></tr>
-<tr class="separator:af991bb54bc000d5b6b59956f9cfb51d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ff93bc0a91d95a535e645baa6db473" id="r_a69ff93bc0a91d95a535e645baa6db473"><td class="memItemLeft" align="right" valign="top"><a id="a69ff93bc0a91d95a535e645baa6db473" name="a69ff93bc0a91d95a535e645baa6db473"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>line1_</b> {}</td></tr>
-<tr class="separator:a69ff93bc0a91d95a535e645baa6db473"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58ec6d8707a10376611667aef83fedaf" id="r_a58ec6d8707a10376611667aef83fedaf"><td class="memItemLeft" align="right" valign="top"><a id="a58ec6d8707a10376611667aef83fedaf" name="a58ec6d8707a10376611667aef83fedaf"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>line2_</b> {}</td></tr>
-<tr class="separator:a58ec6d8707a10376611667aef83fedaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a89345fd0e3a92b87abbe06fa13b286" id="r_a3a89345fd0e3a92b87abbe06fa13b286"><td class="memItemLeft" align="right" valign="top"><a id="a3a89345fd0e3a92b87abbe06fa13b286" name="a3a89345fd0e3a92b87abbe06fa13b286"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>enabled_</b> {true}</td></tr>
+<tr class="separator:a3a89345fd0e3a92b87abbe06fa13b286"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6d9e70740fe32637f2e8adee0ca9e58" id="r_af6d9e70740fe32637f2e8adee0ca9e58"><td class="memItemLeft" align="right" valign="top"><a id="af6d9e70740fe32637f2e8adee0ca9e58" name="af6d9e70740fe32637f2e8adee0ca9e58"></a>
+<a class="el" href="namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374">ETLESource</a>&#160;</td><td class="memItemRight" valign="bottom"><b>source_</b> {<a class="el" href="namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374a5e7de5f948230715ad55929daf7287e2">ETLESource::eFile</a>}</td></tr>
+<tr class="separator:af6d9e70740fe32637f2e8adee0ca9e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a519b43ee62d28ab8fb70a18bfad6664a" id="r_a519b43ee62d28ab8fb70a18bfad6664a"><td class="memItemLeft" align="right" valign="top"><a id="a519b43ee62d28ab8fb70a18bfad6664a" name="a519b43ee62d28ab8fb70a18bfad6664a"></a>
+ESwitchMethod&#160;</td><td class="memItemRight" valign="bottom"><b>switch_method_</b> {ESwitchMethod::eEpoch}</td></tr>
+<tr class="separator:a519b43ee62d28ab8fb70a18bfad6664a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe47c489fb40160cc7ca0a1865f571f1" id="r_afe47c489fb40160cc7ca0a1865f571f1"><td class="memItemLeft" align="right" valign="top"><a id="afe47c489fb40160cc7ca0a1865f571f1" name="afe47c489fb40160cc7ca0a1865f571f1"></a>
+<a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>switchEpoch_</b> {}</td></tr>
+<tr class="separator:afe47c489fb40160cc7ca0a1865f571f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc26c189d92582bbac5e146a4213c3cd" id="r_acc26c189d92582bbac5e146a4213c3cd"><td class="memItemLeft" align="right" valign="top"><a id="acc26c189d92582bbac5e146a4213c3cd" name="acc26c189d92582bbac5e146a4213c3cd"></a>
+<a class="el" href="classast_1_1TLELines.html">TLELines</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lines_</b> {}</td></tr>
+<tr class="separator:acc26c189d92582bbac5e146a4213c3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a728ae1db2a0cad7a18def6f046a6a7bd" id="r_a728ae1db2a0cad7a18def6f046a6a7bd"><td class="memItemLeft" align="right" valign="top"><a id="a728ae1db2a0cad7a18def6f046a6a7bd" name="a728ae1db2a0cad7a18def6f046a6a7bd"></a>
+<a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>epochTime_</b> {}</td></tr>
+<tr class="separator:a728ae1db2a0cad7a18def6f046a6a7bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad537959d0a713f822cad523c0bdbc63a" id="r_ad537959d0a713f822cad523c0bdbc63a"><td class="memItemLeft" align="right" valign="top"><a id="ad537959d0a713f822cad523c0bdbc63a" name="ad537959d0a713f822cad523c0bdbc63a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>meanMotionDotTime_</b> {0.0}</td></tr>
+<tr class="separator:ad537959d0a713f822cad523c0bdbc63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9068d1018cd1ec387ec70eae2e9a8d41" id="r_a9068d1018cd1ec387ec70eae2e9a8d41"><td class="memItemLeft" align="right" valign="top"><a id="a9068d1018cd1ec387ec70eae2e9a8d41" name="a9068d1018cd1ec387ec70eae2e9a8d41"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>motionDotDot_</b> {0.0}</td></tr>
+<tr class="separator:a9068d1018cd1ec387ec70eae2e9a8d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbb3bc7c89851e7a7d470a4f10671c45" id="r_abbb3bc7c89851e7a7d470a4f10671c45"><td class="memItemLeft" align="right" valign="top"><a id="abbb3bc7c89851e7a7d470a4f10671c45" name="abbb3bc7c89851e7a7d470a4f10671c45"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>bstar_</b> {0.0}</td></tr>
+<tr class="separator:abbb3bc7c89851e7a7d470a4f10671c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a939a35bb2c0477da4b489779016e8d8b" id="r_a939a35bb2c0477da4b489779016e8d8b"><td class="memItemLeft" align="right" valign="top"><a id="a939a35bb2c0477da4b489779016e8d8b" name="a939a35bb2c0477da4b489779016e8d8b"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>inclination_</b> {0.0}</td></tr>
+<tr class="separator:a939a35bb2c0477da4b489779016e8d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afddf3691d2a0fd82c7353c75833f8f69" id="r_afddf3691d2a0fd82c7353c75833f8f69"><td class="memItemLeft" align="right" valign="top"><a id="afddf3691d2a0fd82c7353c75833f8f69" name="afddf3691d2a0fd82c7353c75833f8f69"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>rightAscenOfNode_</b> {0.0}</td></tr>
+<tr class="separator:afddf3691d2a0fd82c7353c75833f8f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd34be9ffd9484b6d08842c56e6b095b" id="r_abd34be9ffd9484b6d08842c56e6b095b"><td class="memItemLeft" align="right" valign="top"><a id="abd34be9ffd9484b6d08842c56e6b095b" name="abd34be9ffd9484b6d08842c56e6b095b"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>eccentricity_</b> {0.0}</td></tr>
+<tr class="separator:abd34be9ffd9484b6d08842c56e6b095b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4924566a15fa578e58e3212c21188538" id="r_a4924566a15fa578e58e3212c21188538"><td class="memItemLeft" align="right" valign="top"><a id="a4924566a15fa578e58e3212c21188538" name="a4924566a15fa578e58e3212c21188538"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>argOfPerigee_</b> {0.0}</td></tr>
+<tr class="separator:a4924566a15fa578e58e3212c21188538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae80def623a0f7bc6932ff2125c42feb" id="r_aae80def623a0f7bc6932ff2125c42feb"><td class="memItemLeft" align="right" valign="top"><a id="aae80def623a0f7bc6932ff2125c42feb" name="aae80def623a0f7bc6932ff2125c42feb"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>meanAnomaly_</b> {0.0}</td></tr>
+<tr class="separator:aae80def623a0f7bc6932ff2125c42feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cbd3af63e7eeb15775a5937afed0efe" id="r_a9cbd3af63e7eeb15775a5937afed0efe"><td class="memItemLeft" align="right" valign="top"><a id="a9cbd3af63e7eeb15775a5937afed0efe" name="a9cbd3af63e7eeb15775a5937afed0efe"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>meanMotion_</b> {0.0}</td></tr>
+<tr class="separator:a9cbd3af63e7eeb15775a5937afed0efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58e316cf0ae58a85d7419c432f69cad0" id="r_a58e316cf0ae58a85d7419c432f69cad0"><td class="memItemLeft" align="right" valign="top"><a id="a58e316cf0ae58a85d7419c432f69cad0" name="a58e316cf0ae58a85d7419c432f69cad0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>revNumber_</b> {0}</td></tr>
+<tr class="separator:a58e316cf0ae58a85d7419c432f69cad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4084e06135924a68c8cf1f18f3155975" id="r_a4084e06135924a68c8cf1f18f3155975"><td class="memItemLeft" align="right" valign="top"><a id="a4084e06135924a68c8cf1f18f3155975" name="a4084e06135924a68c8cf1f18f3155975"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ephType_</b> {0}</td></tr>
+<tr class="separator:a4084e06135924a68c8cf1f18f3155975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad009a1c56c46ae1548a3e758c9120fc8" id="r_ad009a1c56c46ae1548a3e758c9120fc8"><td class="memItemLeft" align="right" valign="top"><a id="ad009a1c56c46ae1548a3e758c9120fc8" name="ad009a1c56c46ae1548a3e758c9120fc8"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>elementNumber_</b> {0}</td></tr>
+<tr class="separator:ad009a1c56c46ae1548a3e758c9120fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefb1e1daa935d975f6399a1199234199" id="r_aefb1e1daa935d975f6399a1199234199"><td class="memItemLeft" align="right" valign="top"><a id="aefb1e1daa935d975f6399a1199234199" name="aefb1e1daa935d975f6399a1199234199"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>classification_</b> {'U'}</td></tr>
+<tr class="separator:aefb1e1daa935d975f6399a1199234199"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>两行根数（TLE） </p>
+<p>存储从 <a class="el" href="classast_1_1TLE.html" title="两行根数（TLE）">TLE</a> 文本解析出的轨道根数及元数据。 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a53d4dd7bfcd3bfe367243680e1ddfbde" name="a53d4dd7bfcd3bfe367243680e1ddfbde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53d4dd7bfcd3bfe367243680e1ddfbde">&#9670;&#160;</a></span>FromLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1TLE.html">TLE</a> ast::TLE::FromLines </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TLELines.html">TLELines</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>lines</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从 <a class="el" href="classast_1_1TLE.html" title="两行根数（TLE）">TLE</a> 行文本创建 <a class="el" href="classast_1_1TLE.html" title="两行根数（TLE）">TLE</a> 对象 </p>
+<p>解析 <a class="el" href="classast_1_1TLE.html" title="两行根数（TLE）">TLE</a> 行文本，提取轨道根数及元数据。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lines</td><td><a class="el" href="classast_1_1TLE.html" title="两行根数（TLE）">TLE</a> 行文本 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classast_1_1TLE.html" title="两行根数（TLE）">TLE</a> 对象 </dd></dl>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>src/AstSim/Motion/<a class="el" href="MotionSGP4_8hpp_source.html">MotionSGP4.hpp</a></li>
+<li>src/AstCore/Propagator/SGP4/<a class="el" href="TLE_8hpp_source.html">TLE.hpp</a></li>
+<li>src/AstCore/Propagator/SGP4/<a class="el" href="TLE_8cpp.html">TLE.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

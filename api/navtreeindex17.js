@@ -1,5 +1,13 @@
 var NAVTREEINDEX17 =
 {
+"VectorCross_8cpp.html":[4,0,0,6,3,6,0],
+"VectorCross_8hpp.html":[4,0,0,6,3,6,1],
+"VectorCross_8hpp_source.html":[4,0,0,6,3,6,1],
+"VectorDisplacement_8cpp.html":[4,0,0,6,3,6,2],
+"VectorDisplacement_8hpp.html":[4,0,0,6,3,6,3],
+"VectorDisplacement_8hpp_source.html":[4,0,0,6,3,6,3],
+"VectorFixedAtEpoch_8cpp.html":[4,0,0,6,3,6,6],
+"VectorFixedAtEpoch_8hpp.html":[4,0,0,6,3,6,7],
 "VectorFixedAtEpoch_8hpp_source.html":[4,0,0,6,3,6,7],
 "VectorFixed_8cpp.html":[4,0,0,6,3,6,4],
 "VectorFixed_8hpp.html":[4,0,0,6,3,6,5],
@@ -241,13 +249,5 @@ var NAVTREEINDEX17 =
 "classast_1_1AxesFrozen.html#a606e2869b39a91cddcb2ee4cc40009cf":[3,0,0,35,2],
 "classast_1_1AxesFrozen.html#a7d770abcd6cbdaa1b982a106414ca01c":[2,0,0,36,3],
 "classast_1_1AxesFrozen.html#a7d770abcd6cbdaa1b982a106414ca01c":[3,0,0,35,3],
-"classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5":[2,0,0,36,0],
-"classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5":[3,0,0,35,0],
-"classast_1_1AxesFrozen.html#ad74d2d2584e04a4c25cb3f091b635aba":[2,0,0,36,5],
-"classast_1_1AxesFrozen.html#ad74d2d2584e04a4c25cb3f091b635aba":[3,0,0,35,5],
-"classast_1_1AxesFrozen.html#ad74df91ae19abb4af6caf6018b083f1e":[2,0,0,36,1],
-"classast_1_1AxesFrozen.html#ad74df91ae19abb4af6caf6018b083f1e":[3,0,0,35,1],
-"classast_1_1AxesFrozenAtEventTime.html":[2,0,0,37],
-"classast_1_1AxesFrozenAtEventTime.html":[3,0,0,36],
-"classast_1_1AxesFrozenAtEventTime.html#a1f98b51c697f93c2fb45c9bb26d11b81":[2,0,0,37,8]
+"classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5":[2,0,0,36,0]
 };

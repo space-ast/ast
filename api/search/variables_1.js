@@ -27,7 +27,7 @@ var searchData=
   ['apogeealtitude_5f_24',['apogeeAltitude_',['../classast_1_1CriticallyInclinedOrbitDesigner.html#a8018a444a9b3d68e544376e75d4d09c3',1,'ast::CriticallyInclinedOrbitDesigner']]],
   ['applicable_25',['applicable',['../structast_1_1SummarySection.html#abeefee873dd13efe8ef91b21ce7d75f3',1,'ast::SummarySection']]],
   ['arcsec_26',['arcsec',['../Unit_8cpp.html#a4269fe8d0f2f532e585768ed1c5cfb76',1,'ast::units']]],
-  ['argofperigee_5f_27',['argOfPerigee_',['../classast_1_1TwoLineElement.html#a70ab10cd9682d73d98a815ce6bef76c9',1,'ast::TwoLineElement']]],
+  ['argofperigee_5f_27',['argOfPerigee_',['../classast_1_1TLE.html#a4924566a15fa578e58e3212c21188538',1,'ast::TLE']]],
   ['argper_5f_28',['argper_',['../classast_1_1OrbElem.html#a6db5cd219cd750315acf078df98d45e0',1,'ast::OrbElem::argper_'],['../classast_1_1ModOrbElem.html#a9d50751cba5af9215aa7c5bcb2ca16ba',1,'ast::ModOrbElem::argper_']]],
   ['argperidot_5f_29',['argPeriDot_',['../classast_1_1J2J4Analytical.html#a62c587f063307914d748ee1e26da79f3',1,'ast::J2J4Analytical']]],
   ['argumentofperiapsis_5f_30',['argumentOfPeriapsis_',['../classast_1_1SimpleOrbitDesigner.html#af5535608e9335d5ebec7c27668b63158',1,'ast::SimpleOrbitDesigner']]],

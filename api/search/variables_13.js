@@ -25,7 +25,7 @@ var searchData=
   ['solarsystembarycenter_5f_22',['solarSystemBarycenter_',['../classast_1_1SolarSystem.html#ad61664b80752c9ce9d12d54784e73eed',1,'ast::SolarSystem']]],
   ['solarsystemdir_5f_23',['solarSystemDir_',['../structast_1_1InitalizeConfig.html#ad478dd55b9b22f0331b73af64d2113fa',1,'ast::InitalizeConfig']]],
   ['solidtidetype_5f_24',['solidTideType_',['../classast_1_1GravityForce.html#a6908b787b7efc957f8af6d43924e9a98',1,'ast::GravityForce']]],
-  ['source_5f_25',['source_',['../classast_1_1TwoLineElement.html#aecf9d1ebd77460fb2905882c08c615c3',1,'ast::TwoLineElement']]],
+  ['source_5f_25',['source_',['../classast_1_1TLE.html#af6d9e70740fe32637f2e8adee0ca9e58',1,'ast::TLE']]],
   ['sourceaxes_5f_26',['sourceAxes_',['../classast_1_1FrameWithEpoch.html#a1cb7a7bc1d67acb3ccbffcedfff170e2',1,'ast::FrameWithEpoch']]],
   ['spaceweather_5f_27',['spaceWeather_',['../classast_1_1MSISBase.html#a84198f0eef99a4b06616a6e4527198ac',1,'ast::MSISBase']]],
   ['spaceweatherfile_5f_28',['spaceWeatherFile_',['../structast_1_1InitalizeConfig.html#a4795aa1a58b70c3c5d2b6959936e3a51',1,'ast::InitalizeConfig']]],
@@ -57,8 +57,8 @@ var searchData=
   ['summaries_54',['summaries',['../structast_1_1DAF__SummaryRecords.html#a333d58e552a14b63621755d3e496bac0',1,'ast::DAF_SummaryRecords']]],
   ['sun_5f_55',['sun_',['../classast_1_1SolarSystem.html#ae0679a4c0eedb7641a108d8d9769d2d2',1,'ast::SolarSystem']]],
   ['sunposition_5f_56',['sunPosition_',['../classast_1_1DragForce.html#a2554f5ed2e943c0943948bc3abb9bf71',1,'ast::DragForce::sunPosition_'],['../classast_1_1SolarRadiationPressure.html#a8d4afddf226572309ed10e267561c35c',1,'ast::SolarRadiationPressure::sunPosition_'],['../classast_1_1BlockSRP.html#a132388846c864a5c32294b1e3ebc9e3a',1,'ast::BlockSRP::sunPosition_']]],
-  ['switch_5fmethod_5f_57',['switch_method_',['../classast_1_1TwoLineElement.html#a126a680c2a68abbfb886e023b8aaf257',1,'ast::TwoLineElement']]],
-  ['switchepoch_5f_58',['switchEpoch_',['../classast_1_1TwoLineElement.html#a2750c21bcac1182127143c0717b8dd17',1,'ast::TwoLineElement']]],
+  ['switch_5fmethod_5f_57',['switch_method_',['../classast_1_1TLE.html#a519b43ee62d28ab8fb70a18bfad6664a',1,'ast::TLE']]],
+  ['switchepoch_5f_58',['switchEpoch_',['../classast_1_1TLE.html#afe47c489fb40160cc7ca0a1865f571f1',1,'ast::TLE']]],
   ['symbols_5f_59',['symbols_',['../classast_1_1SymbolScope.html#a37dda220f73c260bf892f75887614f00',1,'ast::SymbolScope']]],
   ['symbolscope_5f_60',['symbolScope_',['../classast_1_1Interpreter.html#a179503b57785a8c989968fd439935e5c',1,'ast::Interpreter']]]
 ];
