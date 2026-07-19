@@ -56,6 +56,10 @@ AST_CORE_CAPI Frame* aFrameEarthJ2000();
 /// @note 坐标系的定义与当前线程的DataContext所加载的数据相关
 AST_CORE_CAPI Frame* aFrameECF();
 
+/// @brief 地球TEME系（真赤道平春分点系）
+/// @note SGP4/SDP4 预报器的输出坐标系
+AST_CORE_CAPI Frame* aFrameTEME();
+
 /*! @} */
 
 AST_NAMESPACE_END

@@ -59,6 +59,7 @@ errc_t BuiltinAxesRegistry::init()
     axesMap_["MOD"] = aAxesMOD();
     axesMap_["TOD"] = aAxesTOD();
     axesMap_["GTOD"] = aAxesGTOD();
+    axesMap_["TEME"] = aAxesTEME();
     // axesMap_["B1950"] = aAxesB1950();
     axesMap_["B1950"] = aAxesB1950Spice();
     axesMap_["FK4"] = aAxesFK4();

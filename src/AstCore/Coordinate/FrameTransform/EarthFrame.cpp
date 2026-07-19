@@ -241,6 +241,66 @@ void aTODToGTOD(const TimePoint &tp, const Vector3d &vecTOD, const Vector3d &vel
     rotation.transformVectorVelocity(vecTOD, velTOD, vecGTOC, velGTOC);
 }
 
+// TOD -> TEME 转换
+
+void aTODToTEMETransform(const TimePoint &tp, Rotation &rotation)
+{
+    return aTODToTEMEMatrix(tp, rotation.getMatrix());
+}
+
+void aTODToTEMETransform(const TimePoint &tp, KinematicRotation &rotation)
+{
+    aTODToTEMETransform(tp, rotation.getRotation());
+    rotation.setRotationRate(Vector3d::Zero());
+}
+
+void aTODToTEMEMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+#ifdef AST_TEME_NO_IAU1994_C7
+    // 经典赤经章动公式：ee = dpsi * cos(eps)
+    // 不含 IAU 1994 Resolution C7 补正项（eqecorr 项）
+    // 与部分传统 SGP4 实现一致
+    double t   = tp.julianCenturyFromJ2000TT();
+    double dpsi, deps;
+    aNutation_IAU1980_Cache(t, dpsi, deps);
+    double moe  = aMeanObliquity_IAU1980(t);
+    double eqeq = dpsi * cos(moe);
+#else
+    // 完整赤经章动公式：ee = dpsi * cos(eps) + C7 补正项
+    // 与 SOFA iauEqeq94、Orekit TEMEProvider 一致
+    double eqeq = aEquationOfEquinoxes_IAU1994(tp);
+#endif
+    aRotationZMatrix(eqeq, matrix);
+}
+
+void aTODToTEME(const TimePoint &tp, const Vector3d &vecTOD, Vector3d &vecTEME)
+{
+    Rotation rotation;
+    aTODToTEMETransform(tp, rotation);
+    vecTEME = rotation.transformVector(vecTOD);
+}
+
+// TEME -> TOD 转换（TOD->TEME 的逆）
+
+void aTEMEToTODTransform(const TimePoint &tp, Rotation &rotation)
+{
+    aTODToTEMEMatrix(tp, rotation.getMatrix());
+    rotation = rotation.inverse();
+}
+
+void aTEMEToTODMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    aTODToTEMEMatrix(tp, matrix);
+    matrix.transposeInPlace();
+}
+
+void aTEMEToTOD(const TimePoint &tp, const Vector3d &vecTEME, Vector3d &vecTOD)
+{
+    Rotation rotation;
+    aTEMEToTODTransform(tp, rotation);
+    vecTOD = rotation.transformVector(vecTEME);
+}
+
 // GTOD -> ECF 转换
 
 void aGTODToECFTransform(const TimePoint &tp, Rotation &rotation)

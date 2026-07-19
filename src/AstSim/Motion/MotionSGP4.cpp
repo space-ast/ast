@@ -25,12 +25,18 @@ AST_NAMESPACE_BEGIN
 
 errc_t MotionSGP4::makeEphemerisSpec(ScopedPtr<Ephemeris>& eph) const
 {
-    return eErrorNotImplemented;
+    return makeEphemerisSimple(eph);
 }
 
 errc_t MotionSGP4::makeEphemerisSimple(ScopedPtr<Ephemeris> &eph) const
 {
-    return eErrorNotImplemented;
+    if (elements_.empty())
+    {
+        return eError;
+    }
+
+    eph = new SGP4(elements_[0]);
+    return eNoError;
 }
 
 void MotionSGP4::accept(MotionProfileVisitor &visitor)

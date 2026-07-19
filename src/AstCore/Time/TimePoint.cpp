@@ -233,6 +233,27 @@ TimePoint TimePoint::FromUTC(const DateTime &dttmUTC)
     return TimePoint::FromTAI(jdTAI);
 }
 
+TimePoint TimePoint::FromYD(int year, double dayOfYear)
+{
+    int doy = (int)dayOfYear;
+    double dayFrac = dayOfYear - doy;
+
+    DateTime dttm;
+    dttm.date() = Date::FromYD(year, doy);
+    dttm.time() = Time{};
+    TimePoint tp = TimePoint::FromUTC(dttm);
+    tp = tp + (dayFrac * 86400.0);
+    return tp;
+}
+
+TimePoint TimePoint::FromTLEYD(double tleYD)
+{
+    int epochYear = (int)(tleYD / 1000.0);
+    double epochDays = tleYD - epochYear * 1000.0;
+    int fullYear = (epochYear < 57) ? epochYear + 2000 : epochYear + 1900;
+    return TimePoint::FromYD(fullYear, epochDays);
+}
+
 TimePoint TimePoint::FromBJT(const DateTime& dttmBJT)
 {
     auto dttmUTC = dttmBJT;

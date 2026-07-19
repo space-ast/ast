@@ -49,5 +49,11 @@ Frame *aFrameECF()
     return instance.get();
 }
 
+Frame *aFrameTEME()
+{
+    static SharedPtr<Frame> instance(new FrameAssembly(aPointEarth(), aAxesTEME()));
+    return instance.get();
+}
+
 AST_NAMESPACE_END
 
