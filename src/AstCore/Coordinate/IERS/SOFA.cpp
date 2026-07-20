@@ -67,13 +67,16 @@ static double astAnp(double a)
     return w;
 }
 
-/// @brief IAU Resolution C7 
+/// @brief 计算春分点补正项
+/// @details 参考 IAU Resolution C7 
 /// @param om 
 /// @return 
 inline double aIAUResolutionC7(double om)
 {
     /*
     参考SOFA函数 iauEqeq94
+    Capitaine, N. & Gontier, A.-M., 1993, Astron.Astrophys., 275, 645-650.
+    Accurate procedure for deriving UT1 at a submilliarcsecond accuracy from Greenwich Sidereal Time or from the stellar angle
     */
 
     return DAS2R*(0.00264*sin(om) + 0.000063*sin(om+om));
@@ -296,7 +299,7 @@ void aNutation_IERS1996(double t, double &dpsi, double &deps, double* eqecorr)
 /* 
    这里要注意：
    sofa库所使用的行星基本参数与 IERS 1996 Technical Note 21 的参数不同
-   下面之间使用是sofa库所使用的参数：
+   这下面直接使用了sofa库的行星基本参数：
 */
 
 

@@ -52,8 +52,11 @@ public:
 public:
     void setTLE(const TLE& tle);
     void setTLE(const TLELines& lines);
-private:
-    struct elsetrec& element() const;
+public:
+    /// @brief 获取内部 SGP4 元素集（用于诊断）
+    struct elsetrec& elementSet() const;
+    /// @brief 获取 SGP4 错误码（0=正常，非0表示初始化或传播失败）
+    int getError() const;
 private:
     mutable std::aligned_storage<1000>::type storage_;
 };

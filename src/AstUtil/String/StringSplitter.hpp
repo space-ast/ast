@@ -37,7 +37,7 @@ namespace strings_internal {
 
 // 基础分隔符概念
 struct DelimiterConcept {
-    StringView Find(StringView text, size_t pos) const {
+    StringView Find(StringView /*text*/, size_t /*pos*/) const {
         return StringView();
     }
 };

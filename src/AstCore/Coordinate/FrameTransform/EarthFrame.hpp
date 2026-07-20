@@ -336,29 +336,29 @@ AST_CORE_API void aTODToGTOD(
 //----------------
 
 /*
-    IAU 1994 Resolution C7 赤经章动补正项控制宏（仅影响 TEME）：
+    IAU 1994 Resolution C7 春分点补正项控制宏（仅影响 TEME）：
 
-    默认行为（不定义 AST_TEME_NO_IAU1994_C7）：
-    TEME 赤经章动使用完整公式：ee = dpsi*cos(eps) + eqecorr(C7补正项)
-    与 SOFA iauEqeq94、Orekit TEMEProvider 行为一致，精度达到微角秒级别。
+    默认行为：采用IAU 1994 Resolution C7 春分点补正项公式（不定义宏 AST_TEME_NO_IAU1994_C7）：
+    TEME 分点差使用完整公式：ee = dpsi*cos(eps) + eqecorr(C7补正项)
+    与 SOFA iauEqeq94 、Orekit TEMEProvider 行为一致，精度更高。
 
-    如需使用不含 C7 补正项的公式：
-    ee = dpsi*cos(eps)
+    如需使用不含 C7 补正项的经典公式(老公式)：
+    ee = dpsi*cos(eps + deps)
     请在编译选项中定义 AST_TEME_NO_IAU1994_C7 宏。
     此选项仅影响 TOD↔TEME 变换，不影响 TOD↔GTOD（该变换始终包含完整补正）。
 
     @see IAU 1994 Resolution C7, SOFA iauEqeq94
 */
 
-/// @brief 是否在TEME赤经章动计算中禁用IAU 1994 C7补正项
-/// @warning 仅在通过源码编译时才生效，使用链接库时更改无效
+/// @brief 是否在TEME春分点计算中禁用IAU 1994 C7补正项
+/// @warning 仅在通过源码编译时定义该宏才生效，使用链接库时定义此宏无效
 /// @note  定义此宏则使用经典公式 ee = dpsi*cos(eps)，否则使用完整 SOFA 公式
 //#define AST_TEME_NO_IAU1994_C7
 
 /// @brief     从TOD转换为TEME的坐标旋转变换
 /// @details   TEME(True Equator Mean Equinox) 真赤道平春分点系，
 ///            与TOD共享真赤道面(Z轴相同)，X轴指向平春分点而非真春分点，
-///            两者之差为赤经章动(Equation of Equinoxes)
+///            两者之差为分点差(Equation of Equinoxes)
 /// @param     tp  时间点
 /// @param     rotation  坐标旋转变换
 AST_CORE_CAPI void aTODToTEMETransform(const TimePoint& tp, Rotation& rotation);
@@ -398,6 +398,51 @@ AST_CORE_CAPI void aTEMEToTODMatrix(const TimePoint& tp, Matrix3d& matrix);
 /// @param     vecTEME  TEME坐标
 /// @param     vecTOD  TOD坐标
 AST_CORE_CAPI void aTEMEToTOD(const TimePoint& tp, const Vector3d& vecTEME, Vector3d& vecTOD);
+
+
+//----------------
+// J2000 -> TEME
+//----------------
+
+/// @brief     从J2000转换为TEME的坐标旋转变换
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换
+AST_CORE_API void aJ2000ToTEMETransform(const TimePoint& tp, Rotation& rotation);
+
+
+/// @brief     从J2000转换为TEME的坐标转换矩阵
+/// @param     tp  时间点
+/// @param     matrix  坐标转换矩阵
+AST_CORE_API void aJ2000ToTEMEMatrix(const TimePoint& tp, Matrix3d& matrix);
+
+/// @brief     从J2000转换为TEME的坐标转换
+/// @param     tp  时间点
+/// @param     vecJ2000  J2000坐标
+/// @param     vecTEME   TEME坐标
+AST_CORE_API void aJ2000ToTEME(const TimePoint& tp, const Vector3d& vecJ2000, Vector3d& vecTEME);
+
+
+//----------------
+// TEME -> J2000
+//----------------
+
+/// @brief     从TEME转换为J2000的坐标旋转变换
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换
+AST_CORE_API void aTEMEToJ2000Transform(const TimePoint& tp, Rotation& rotation);
+
+
+/// @brief     从TEME转换为J2000的坐标转换矩阵
+/// @param     tp  时间点
+/// @param     matrix  坐标转换矩阵
+AST_CORE_API void aTEMEToJ2000Matrix(const TimePoint& tp, Matrix3d& matrix);
+
+/// @brief     从TEME转换为J2000的坐标转换
+/// @param     tp  时间点
+/// @param     vecTEME   TEME坐标
+/// @param     vecJ2000  J2000坐标
+AST_CORE_API void aTEMEToJ2000(const TimePoint& tp, const Vector3d& vecTEME, Vector3d& vecJ2000);
+
 
 
 //----------------

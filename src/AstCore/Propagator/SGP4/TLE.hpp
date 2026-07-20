@@ -49,7 +49,7 @@ class TLELines;
 
 /// @brief 两行根数（TLE）
 /// @details 存储从 TLE 文本解析出的轨道根数及元数据。
-class TLE
+class AST_CORE_API TLE
 {
 public:
     TLE() = default;

@@ -143,12 +143,14 @@
 #endif
 
 
-#if defined(AST_BUILD_LIB) && defined(_MSC_VER)
-// 在编译ast库时指定代码内的字符串使用utf-8编码
-// 不编译ast库时屏蔽该指令，以避免污染其他项目的字符串编码
-#   pragma execution_character_set("utf-8")
+#if defined(_MSC_VER)
+#pragma warning(disable: 4251)   // 禁用未导出的符号警告，因为一些类使用了stl等模板容器
+#   if defined(AST_BUILD_LIB) 
+    // 在编译ast库时指定代码内的字符串使用utf-8编码
+    // 不编译ast库时屏蔽该指令，以避免污染其他项目的字符串编码
+#       pragma execution_character_set("utf-8")
+#   endif
 #endif
-
 
 // ast项目脚本模块导出声明
 #ifdef AST_BUILD_LIB_SCRIPT

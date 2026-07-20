@@ -257,16 +257,15 @@ void aTODToTEMETransform(const TimePoint &tp, KinematicRotation &rotation)
 void aTODToTEMEMatrix(const TimePoint &tp, Matrix3d &matrix)
 {
 #ifdef AST_TEME_NO_IAU1994_C7
-    // 经典赤经章动公式：ee = dpsi * cos(eps)
+    // 经典分点差公式：ee = dpsi * cos(eps + deps)
     // 不含 IAU 1994 Resolution C7 补正项（eqecorr 项）
-    // 与部分传统 SGP4 实现一致
     double t   = tp.julianCenturyFromJ2000TT();
     double dpsi, deps;
     aNutation_IAU1980_Cache(t, dpsi, deps);
     double moe  = aMeanObliquity_IAU1980(t);
-    double eqeq = dpsi * cos(moe);
+    double eqeq = dpsi * cos(moe + deps);
 #else
-    // 完整赤经章动公式：ee = dpsi * cos(eps) + C7 补正项
+    // 完整分点差公式：ee = dpsi * cos(eps) + C7 补正项
     // 与 SOFA iauEqeq94、Orekit TEMEProvider 一致
     double eqeq = aEquationOfEquinoxes_IAU1994(tp);
 #endif
@@ -300,6 +299,58 @@ void aTEMEToTOD(const TimePoint &tp, const Vector3d &vecTEME, Vector3d &vecTOD)
     aTEMEToTODTransform(tp, rotation);
     vecTOD = rotation.transformVector(vecTEME);
 }
+
+// J2000 -> TEME 转换
+
+void aJ2000ToTEMETransform(const TimePoint &tp, Rotation &rotation)
+{
+    aJ2000ToTEMEMatrix(tp, rotation.getMatrix());
+}
+
+
+void aJ2000ToTEMEMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    Rotation rotation;
+    Rotation temp;
+    aJ2000ToMODTransform(tp, rotation);
+    aMODToTODTransform(tp, temp);
+    rotation *= temp;
+    aTODToTEMETransform(tp, temp);
+    rotation *= temp;
+    matrix = rotation.getMatrix();
+}
+
+void aJ2000ToTEME(const TimePoint &tp, const Vector3d &vecJ2000, Vector3d &vecTEME)
+{
+    Rotation rotation;
+    aJ2000ToTEMETransform(tp, rotation);
+    rotation.transformVector(vecJ2000, vecTEME);
+}
+
+
+
+// TEME -> J2000 转换
+
+void aTEMEToJ2000Transform(const TimePoint &tp, Rotation &rotation)
+{
+    aTEMEToJ2000Matrix(tp, rotation.getMatrix());
+}
+
+
+void aTEMEToJ2000Matrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    aJ2000ToTEMEMatrix(tp, matrix);
+    matrix.transposeInPlace();
+}
+
+void aTEMEToJ2000(const TimePoint &tp, const Vector3d &vecTEME, Vector3d &vecJ2000)
+{
+    Rotation rotation;
+    aTEMEToJ2000Transform(tp, rotation);
+    rotation.transformVector(vecTEME, vecJ2000);
+}
+
+
 
 // GTOD -> ECF 转换
 

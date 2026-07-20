@@ -37,8 +37,9 @@ AST_NAMESPACE_BEGIN
 /// @note  TLE 中的角度字段（inclination_ 等）应为弧度值；
 ///        meanMotion_ 应为 rad/s（即 rev/day × 2π/86400）
 static bool initFromTLE(const TLE& tle, elsetrec& satrec,
-                        char opsmode = 'i',
-                        gravconsttype whichconst = wgs84)
+                        gravconsttype whichconst = wgs72,
+                        char opsmode = 'i'
+                        )
 {
     memset(&satrec, 0, sizeof(satrec));
 
@@ -77,13 +78,23 @@ static bool initFromTLE(const TLE& tle, elsetrec& satrec,
     double no_kozai = tle.meanMotion_ * 60.0;
 
     // ---- 4. 调用 sgp4init ----
-    return SGP4Funcs::sgp4init(
+    bool ok = SGP4Funcs::sgp4init(
         whichconst, opsmode, satn, epochForSgp4,
         bstar, ndot, nddot,
         ecco, argpo, inclo, mo, no_kozai,
         nodeo, satrec);
+
+    // ---- 5. 设置历元（sgp4init 不填充 jdsatepoch/jdsatepochF，需手动设置） ----
+    // 这些字段用于 getPosVel 中计算 tsince（从历元到目标时间的分钟数）
+    if (ok)
+    {
+        satrec.jdsatepoch  = jdUTC.day();
+        satrec.jdsatepochF = jdUTC.dayFractional();
+    }
+    return ok;
 }
 
+// @todo 测试SGP4对于闰秒的支持
 
 SGP4::SGP4()
 {
@@ -106,7 +117,7 @@ SGP4::SGP4(const TLELines &lines)
 
 SGP4::~SGP4()
 {
-    elsetrec& rec = element();
+    elsetrec& rec = elementSet();
     rec.~elsetrec();
 }
 
@@ -123,28 +134,24 @@ errc_t SGP4::getPos(const TimePoint &tp, Vector3d &pos) const
 
 errc_t SGP4::getPosVel(const TimePoint &tp, Vector3d &pos, Vector3d &vel) const
 {
-    elsetrec& satrec = element();
-
-    // 从 elsetrec 获取 TLE 历元（UTC 儒略日）
-    double jdEpoch = satrec.jdsatepoch + satrec.jdsatepochF;
+    elsetrec& satrec = elementSet();
 
     // 获取目标时间的 UTC 儒略日
     JulianDate jdUTC;
     aTimePointToUTC(tp, jdUTC);
 
     // tsince = 从 TLE 历元到目标时间的分钟数
-    double tsince = (jdUTC.impreciseDay() - jdEpoch) * 1440.0;
+    double tsince = ((jdUTC.day() - satrec.jdsatepoch) + (jdUTC.dayFractional() - satrec.jdsatepochF)) * 1440.0;
 
-    double r[3], v[3];
-    bool ok = SGP4Funcs::sgp4(satrec, tsince, r, v);
+    bool ok = SGP4Funcs::sgp4(satrec, tsince, pos.data(), vel.data());
     if (!ok)
     {
         return eError;
     }
 
     // Vallado sgp4 输出：位置 km，速度 km/s；项目内部使用 m 和 m/s
-    pos = Vector3d{r[0] * 1000.0, r[1] * 1000.0, r[2] * 1000.0};
-    vel = Vector3d{v[0] * 1000.0, v[1] * 1000.0, v[2] * 1000.0};
+    pos = pos * 1000.0;
+    vel = vel * 1000.0;
     return eNoError;
 }
 
@@ -158,7 +165,7 @@ errc_t SGP4::getInterval(TimeInterval &interval) const
 
 void SGP4::setTLE(const TLE &tle)
 {
-    bool flag = initFromTLE(tle, element());
+    bool flag = initFromTLE(tle, elementSet(), wgs72);
     if (!flag)
     {
         aError("failed to init from TLE");
@@ -171,9 +178,14 @@ void SGP4::setTLE(const TLELines &lines)
     setTLE(tle);
 }
 
-elsetrec &SGP4::element() const
+elsetrec &SGP4::elementSet() const
 {
     return reinterpret_cast<struct elsetrec&>(this->storage_);
+}
+
+int SGP4::getError() const
+{
+    return elementSet().error;
 }
 
 AST_NAMESPACE_END
