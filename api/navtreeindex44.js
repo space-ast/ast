@@ -1,5 +1,9 @@
 var NAVTREEINDEX44 =
 {
+"classast_1_1TimePoint.html#aa65f55e5d06111189af19c314470c62b":[0,1,7,14,20],
+"classast_1_1TimePoint.html#ab1f50ea1a90eef412e05126bdb3a7a10":[0,1,7,14,1],
+"classast_1_1TimePoint.html#ab835bcc2d27d002dde4a4789a2f0e94f":[0,1,7,14,13],
+"classast_1_1TimePoint.html#acaa1a001051c09227dc546cbefd459f2":[0,1,7,14,9],
 "classast_1_1TimePoint.html#ad468c00dfa4e58aee3f9cc868a59eaf9":[0,1,7,14,4],
 "classast_1_1TimePoint.html#af5ff4430264ef41942db80d0fd8fcdd2":[0,1,7,14,7],
 "classast_1_1TimePoint.html#af6639a4a7b440f88454d9ee60555163b":[0,1,7,14,18],
@@ -245,9 +249,5 @@ var NAVTREEINDEX44 =
 "classast_1_1UiDragForce.html":[2,0,0,950],
 "classast_1_1UiDragForce.html":[3,0,0,949],
 "classast_1_1UiEventDetector.html":[2,0,0,951],
-"classast_1_1UiEventDetector.html":[3,0,0,950],
-"classast_1_1UiEventDetectorEditor.html":[2,0,0,952],
-"classast_1_1UiEventDetectorEditor.html":[3,0,0,951],
-"classast_1_1UiEventDetectorList.html":[2,0,0,953],
-"classast_1_1UiEventDetectorList.html":[3,0,0,952]
+"classast_1_1UiEventDetector.html":[3,0,0,950]
 };

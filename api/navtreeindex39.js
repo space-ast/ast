@@ -1,5 +1,9 @@
 var NAVTREEINDEX39 =
 {
+"classast_1_1ScStateCalcFPA.html":[3,0,0,680],
+"classast_1_1ScStateCalcFlightPathAngle.html":[2,0,0,680],
+"classast_1_1ScStateCalcFlightPathAngle.html":[3,0,0,679],
+"classast_1_1ScStateCalcFrameRelated.html":[2,0,0,682],
 "classast_1_1ScStateCalcFrameRelated.html":[3,0,0,681],
 "classast_1_1ScStateCalcFuelMass.html":[2,0,0,683],
 "classast_1_1ScStateCalcFuelMass.html":[3,0,0,682],
@@ -245,9 +249,5 @@ var NAVTREEINDEX39 =
 "classast_1_1ScStateCalcVMag.html":[3,0,0,808],
 "classast_1_1ScStateCalcValueAtSegmentOtherSat.html":[2,0,0,799],
 "classast_1_1ScStateCalcValueAtSegmentOtherSat.html":[3,0,0,798],
-"classast_1_1ScStateCalcValueOtherSegment.html":[2,0,0,800],
-"classast_1_1ScStateCalcValueOtherSegment.html":[3,0,0,799],
-"classast_1_1ScStateCalcVectorX.html":[2,0,0,803],
-"classast_1_1ScStateCalcVectorX.html":[3,0,0,802],
-"classast_1_1ScStateCalcVectorY.html":[2,0,0,804]
+"classast_1_1ScStateCalcValueOtherSegment.html":[2,0,0,800]
 };

@@ -1,5 +1,9 @@
 var NAVTREEINDEX40 =
 {
+"classast_1_1ScStateCalcValueOtherSegment.html":[3,0,0,799],
+"classast_1_1ScStateCalcVectorX.html":[2,0,0,803],
+"classast_1_1ScStateCalcVectorX.html":[3,0,0,802],
+"classast_1_1ScStateCalcVectorY.html":[2,0,0,804],
 "classast_1_1ScStateCalcVectorY.html":[3,0,0,803],
 "classast_1_1ScStateCalcVectorZ.html":[2,0,0,805],
 "classast_1_1ScStateCalcVectorZ.html":[3,0,0,804],
@@ -245,9 +249,5 @@ var NAVTREEINDEX40 =
 "classast_1_1SolarSystem.html#a16e6c3628a9b9a173b277e9c0250c3e3":[0,1,6,11,7],
 "classast_1_1SolarSystem.html#a1f50f6d3be257a43fbcf2d95c277a3f5":[0,1,6,11,30],
 "classast_1_1SolarSystem.html#a245d5ae8a51b1358fefeb0c54153895b":[0,1,6,11,35],
-"classast_1_1SolarSystem.html#a2fb43e96dd5539dea731f14395eda7ed":[0,1,6,11,9],
-"classast_1_1SolarSystem.html#a3402fcc40c322cd39e7b527cefa6aed6":[0,1,6,11,27],
-"classast_1_1SolarSystem.html#a34a1b5d1ad9439c205f398ef55ee64c7":[0,1,6,11,31],
-"classast_1_1SolarSystem.html#a3ae9e4d9c4a6edfdaa93fa7abc92c7c3":[0,1,6,11,32],
-"classast_1_1SolarSystem.html#a3e7cf298e05d18c3678a2b3da9a22370":[0,1,6,11,34]
+"classast_1_1SolarSystem.html#a2fb43e96dd5539dea731f14395eda7ed":[0,1,6,11,9]
 };

@@ -1,5 +1,15 @@
 var NAVTREEINDEX59 =
 {
+"structdmixrecord.html":[3,0,16],
+"structdoublecomplex.html":[3,0,17],
+"structdtm__daterectype.html":[3,0,19],
+"structdtm__unctype.html":[3,0,20],
+"structdtmindextype.html":[3,0,21],
+"structeclipttype.html":[3,0,22],
+"structelsetrec.html":[3,0,23],
+"structf__structtype.html":[3,0,25],
+"structfitrecord.html":[3,0,26],
+"structgts3crecord.html":[3,0,27],
 "structhlocaltype.html":[3,0,28],
 "structicilist.html":[3,0,29],
 "structinlist.html":[3,0,32],

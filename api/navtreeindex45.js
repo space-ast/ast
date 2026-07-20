@@ -1,5 +1,9 @@
 var NAVTREEINDEX45 =
 {
+"classast_1_1UiEventDetectorEditor.html":[2,0,0,952],
+"classast_1_1UiEventDetectorEditor.html":[3,0,0,951],
+"classast_1_1UiEventDetectorList.html":[2,0,0,953],
+"classast_1_1UiEventDetectorList.html":[3,0,0,952],
 "classast_1_1UiExpressionBrowser.html":[2,0,0,954],
 "classast_1_1UiExpressionBrowser.html":[3,0,0,953],
 "classast_1_1UiExpressionBrowser.html#a67eb8d02ee95cdc8702731e3f8b3af7b":[2,0,0,954,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX45 =
 "classast_1_1UiSweepVariableList.html#a1d10426e8e024239ce03d866ce16f339":[3,0,0,993,0],
 "classast_1_1UiSweepVariableList.html#a95255a4ff3be38eed04e2886f33b4403":[2,0,0,994,1],
 "classast_1_1UiSweepVariableList.html#a95255a4ff3be38eed04e2886f33b4403":[3,0,0,993,1],
-"classast_1_1UiTargeterSequence.html":[2,0,0,995],
-"classast_1_1UiTargeterSequence.html":[3,0,0,994],
-"classast_1_1UiThirdBodyForce.html":[2,0,0,996],
-"classast_1_1UiThirdBodyForce.html":[3,0,0,995],
-"classast_1_1UiThirdBodyForceList.html":[2,0,0,997]
+"classast_1_1UiTargeterSequence.html":[2,0,0,995]
 };
