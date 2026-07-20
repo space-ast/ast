@@ -97,6 +97,7 @@ static bool initFromTLE(const TLE& tle, elsetrec& satrec,
 // @todo 测试SGP4对于闰秒的支持
 
 SGP4::SGP4()
+    : storage_()
 {
     static_assert(sizeof(elsetrec) <= sizeof(storage_), "storage_ too small");
     new (&storage_) elsetrec{};

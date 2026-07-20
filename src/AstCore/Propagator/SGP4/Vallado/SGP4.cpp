@@ -64,6 +64,8 @@
 A_SUPPRESS_WARNINGS_BEGIN
 
 #include <string>
+// ast修改: 引入 cstdlib 以使用 atoi（修复指针到 int 的强制转换）
+#include <cstdlib>
 
 #define pi 3.14159265358979323846
 
@@ -72,6 +74,9 @@ A_SUPPRESS_WARNINGS_BEGIN
 char help = 'n';
 FILE *dbgfile;
 
+// ast修改: 以下前置声明在全局作用域，但实际定义在 namespace SGP4Funcs 内，
+// 导致 GCC -Wunused-function 报错，用 #if 0 屏蔽
+#if 0
 /* ----------- local functions - only ever used internally by sgp4 ---------- */
 static void dpper
 (
@@ -159,6 +164,7 @@ double& ainv, double& ao, double& con41, double& con42, double& cosio,
 double& cosio2, double& eccsq, double& omeosq, double& posq,
 double& rp, double& rteosq, double& sinio, double& gsto, char opsmode
 );
+#endif
 
 namespace SGP4Funcs
 {
@@ -344,11 +350,14 @@ namespace SGP4Funcs
 				// nodep used without a trigonometric function ahead
 				if ((nodep < 0.0) && (opsmode == 'a'))
 					nodep = nodep + twopi;
+				// ast修改: 添加大括号以消除 dangling-else 警告
 				if (fabs(xnoh - nodep) > pi)
+				{
 					if (nodep < xnoh)
 						nodep = nodep + twopi;
 					else
 						nodep = nodep - twopi;
+				}
 				mp = mp + pl;
 				argpp = xls - mp - cosip * nodep;
 			}
@@ -2249,8 +2258,10 @@ namespace SGP4Funcs
 #endif
 
 		int strIndex, index;
+		// ast修改: 原代码 (int)(satrec.satnumStr) 错误地将数组指针强转为 int，
+		// 未解析字符串内容，改为 atoi 正确转换为整数值
 		if (isdigit(satrec.satnumStr[0]))
-			satrec.satnum = (int)(satrec.satnumStr);
+			satrec.satnum = atoi(satrec.satnumStr);
 		else
 		{
 			int alpha5[] = {10, 11, 12, 13, 14, 15, 16, 17, 0, 18, 19, 20, 21, 22, 0, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33};

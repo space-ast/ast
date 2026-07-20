@@ -58,7 +58,7 @@ public:
     /// @brief 获取 SGP4 错误码（0=正常，非0表示初始化或传播失败）
     int getError() const;
 private:
-    mutable std::aligned_storage<1000>::type storage_;
+    mutable std::aligned_storage<1000>::type storage_{};
 };
 
 /*! @} */
