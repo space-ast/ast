@@ -8,3 +8,6 @@ target("AstUiDataUpdate")
     add_deps("AstDataUpdate")
     add_defines("AST_BUILD_LIB_UIDATAUPDATE")
     set_default(false)
+    if not has_package("qt") then
+        set_enabled(false)
+    end

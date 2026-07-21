@@ -12,3 +12,6 @@ target("AstUiAI")
     --     set_enabled(false)
     -- end
     set_default(false)
+    if not has_package("qt") then
+        set_enabled(false)
+    end

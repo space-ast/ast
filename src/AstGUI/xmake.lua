@@ -13,3 +13,6 @@
     )
     add_defines("AST_BUILD_LIB_GUI")
     set_default(false)
+    if not has_package("qt") then
+        set_enabled(false)
+    end

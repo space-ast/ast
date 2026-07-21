@@ -14,4 +14,6 @@ target("AstChart")
         -- set_enabled(false)
         set_kind("phony")
     end
-
+    if not has_package("qt") then
+        set_enabled(false)
+    end

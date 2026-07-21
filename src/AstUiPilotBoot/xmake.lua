@@ -10,3 +10,6 @@ target("AstUiPilotBoot")
     -- if not has_package("qt) and not is_plat("wasm") then
     --     set_enabled(false)
     -- end
+    if not has_package("qt") then
+        set_enabled(false)
+    end
