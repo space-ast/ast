@@ -7,7 +7,7 @@ package("qt-advanced-docking")
     -- add_urls("https://gitee.com/mirrors_githubuser0xFFFF/Qt-Advanced-Docking-System.git", "https://github.com/githubuser0xFFFF/Qt-Advanced-Docking-System.git")
     -- add_versions("v4.5.0", "master")
 
-    add_deps("qt5base")
+    add_deps("qt")
     add_includedirs("include/qtadvanceddocking-qt5")
     
 

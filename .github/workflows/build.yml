@@ -65,6 +65,9 @@ jobs:
           
       - name: 配置debug版本
         run: |
+          xmake require --uninstall qwt 
+          xmake require --uninstall qt5base 
+          xmake require aqt
           xmake f -cvy --with_test=y --qt_sdkver=5.15.2 -m debug 
           
       - name: 编译debug版本
@@ -73,6 +76,9 @@ jobs:
 
       - name: 配置release版本
         run: |
+          xmake require --uninstall qwt 
+          xmake require --uninstall qt5base 
+          xmake require aqt
           xmake f -cvy --with_test=y --qt_sdkver=5.15.2 -m release
 
       - name: 编译release版本

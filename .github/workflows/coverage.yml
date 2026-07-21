@@ -60,6 +60,9 @@ jobs:
         # 2. 配置项目
         run: |
           cp -r test/Archive/* test
+          xmake require --uninstall qwt 
+          xmake require --uninstall qt5base 
+          xmake require aqt
           xmake f -cy --with_test=y --qt_sdkver=5.15.2 -m coverage
           xmake show
 
