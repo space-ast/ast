@@ -24,12 +24,13 @@
 AST_NAMESPACE_BEGIN
 
 void ColoredSurfacePlot::createEnrichment(Qwt3D::Enrichment& p) {
-    if (!actualData_p) return;
-    if (actualData_p->datatype != Qwt3D::GRID) {
+    auto actualData = this->actualData();
+    if (!actualData) return;
+    if (actualData->datatype != Qwt3D::GRID) {
         return;
     }
     auto* ce = static_cast<ColoredSurfaceEnrichment*>(&p);
-    auto* grid = static_cast<Qwt3D::GridData*>(actualData_p);
+    auto* grid = static_cast<Qwt3D::GridData*>(actualData);
     ce->setData(grid);
     ce->assign(*this);
     ce->drawBegin();

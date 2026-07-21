@@ -5,8 +5,9 @@ package("qt-advanced-docking")
 
     set_sourcedir(path.join(os.scriptdir(), "../../../../thirdparty/Qt-Advanced-Docking-System"))
 
-    add_deps("qt5base", "qt5widgets")
+    add_deps("qt")
     add_includedirs("include/qtadvanceddocking-qt5")
+    add_includedirs("include/qtadvanceddocking-qt6")
     
     on_load(function (package)
         if package:config("shared") then

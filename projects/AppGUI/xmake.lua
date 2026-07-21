@@ -3,6 +3,6 @@ target("AppGUI")
     add_files("**.cpp")
     -- add_files("**.ui")
     add_deps("AstGUI", "AstUiDataUpdate")
-    -- if not has_package("qt5widgets") and not is_plat("wasm") then
+    -- if not has_package("qt") and not is_plat("wasm") then
     --     set_enabled(false)
     -- end
