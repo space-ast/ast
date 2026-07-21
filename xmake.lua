@@ -153,18 +153,9 @@ add_requires("matplotplusplus", {optional = true})                              
 add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
 add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
 add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
-add_requires("qt", {optional = true})                                           -- 可选的Qt库，包含基础、窗口部件和GUI模块
 
 local qt_sdkver = get_config("qt_sdkver")
 local system_qt = get_config("system_qt")
--- 可选的Qwtplot库，用于Qt绘图，共享库版本
-add_requires("qwt", {optional = true, 
-    configs = {
-        shared = true, debug = is_mode("debug")
-        -- , qt_sdkver = qt_sdkver, system_qt = system_qt
-    }
-})
-
 -- 触发Qt库的自动下载
 local qt_config = {
     override = true,
@@ -175,8 +166,12 @@ if qt_sdkver ~= "auto" then
     qt_config.version = qt_sdkver
 end
 
+add_requires("qt", {optional = true})                                           -- 可选的Qt库，包含基础、窗口部件和GUI模块
+add_requires("qwt", {optional = true, configs = {shared = true, debug = is_mode("debug")}}) -- 可选的Qwtplot库，用于Qt绘图，共享库版本
+add_requires("qt-advanced-docking", {optional = true, configs = {shared = true, debug = is_mode("debug")}})
 add_requireconfs("qt", qt_config)
 add_requireconfs("qwt.qt", qt_config)
+add_requireconfs("qt-advanced-docking.qt", qt_config)
 
 -- add_requires("libintl", {optional = true})                                      -- 可选的libintl库，用于国际化
 -- add_requires("nlohmann_json", {optional = true})                                -- 可选的nlohmann_json库，用于JSON解析

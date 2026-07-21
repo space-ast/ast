@@ -24,3 +24,6 @@
 [submodule "thirdparty/OpenFrames"]
 	path = thirdparty/OpenFrames
 	url = https://github.com/space-ast/OpenFrames
+[submodule "thirdparty/Qt-Advanced-Docking-System"]
+	path = thirdparty/Qt-Advanced-Docking-System
+	url = https://github.com/space-ast/Qt-Advanced-Docking-System
