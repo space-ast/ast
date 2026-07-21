@@ -21,7 +21,7 @@ option_end()
 
 -- 工程配置选项：是否编译第三方库
 option("with_thirdparty")
-    set_default(true)
+    set_default(false)
 option_end()
 
 
