@@ -41,6 +41,7 @@ public:
 
     AccessEvaluator();
     virtual ~AccessEvaluator();
+    A_DISABLE_COPY(AccessEvaluator)
 
     /// @brief 设置约束
     void setConstraint(AccessConstraint* constraint) { constraint_ = constraint; }

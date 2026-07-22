@@ -241,5 +241,17 @@ TimeIntervalList TimeIntervalList::subtract(const TimeIntervalList& other) const
     return result;
 }
 
+std::string TimeIntervalList::toString(int precision) const
+{
+    std::string str;
+    for (auto interval : *this)
+    {
+        if (!str.empty()) str += "\n";
+        str += interval.toString(precision);
+    }
+    return str;
+}
+
+
 
 AST_NAMESPACE_END

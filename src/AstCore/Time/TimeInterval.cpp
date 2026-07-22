@@ -24,13 +24,13 @@
 
 AST_NAMESPACE_BEGIN
 
-errc_t aTimeIntervalFormat(const TimeInterval &interval, std::string &strStart, std::string &strStop)
+errc_t aTimeIntervalFormat(const TimeInterval &interval, std::string &strStart, std::string &strStop, int precision)
 {
     TimePoint start{}, stop{};
     start = interval.getStart();
     stop = interval.getStop();
-    errc_t rc = aTimePointFormat(start, strStart);
-    rc |= aTimePointFormat(stop, strStop);
+    errc_t rc = aTimePointFormat(start, strStart, precision);
+    rc |= aTimePointFormat(stop, strStop, precision);
     return rc;
 }
 

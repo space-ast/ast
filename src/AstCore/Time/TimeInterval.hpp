@@ -43,8 +43,9 @@ class TimeInterval;
 /// @brief 将时间区间格式化为字符串
 /// @param interval 时间区间
 /// @param str 输出字符串
+/// @param precision 时间点格式化精度
 /// @return errc_t 错误码
-AST_CORE_CAPI errc_t aTimeIntervalFormat(const TimeInterval& interval, std::string& strStart, std::string& strEnd);
+AST_CORE_CAPI errc_t aTimeIntervalFormat(const TimeInterval& interval, std::string& strStart, std::string& strEnd, int precision = kTimePointDefaultFormatPrecision);
 
 
 /// @brief 从字符串解析时间区间
@@ -139,9 +140,11 @@ public:
 
 public:
     /// @brief 将时间区间转换为字符串
-    std::string toString() const{
+    /// @param precision 时间点格式化精度
+    /// @return 字符串表示
+    std::string toString(int precision = kTimePointDefaultFormatPrecision) const{
         std::string strStart, strEnd;
-        aTimeIntervalFormat(*this, strStart, strEnd);
+        aTimeIntervalFormat(*this, strStart, strEnd, precision);
         return strStart + " - " + strEnd;
     }
 public:
