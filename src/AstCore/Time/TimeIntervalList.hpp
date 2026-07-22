@@ -275,6 +275,7 @@ public:
     /// @brief 转换为字符串进行展示
     /// @param precision 时间点格式化精度
     /// @return 字符串表示
+    AST_CORE_API
     std::string toString(int precision = kTimePointDefaultFormatPrecision) const;
 
     // ————————————————————————

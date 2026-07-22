@@ -1,9 +1,9 @@
 ///
-/// @file      FieldOfViewConstraint.cpp
-/// @brief     视场约束实现
+/// @file      AndConstraint.cpp
+/// @brief     与约束组合器实现
 /// @author    axel
 /// @date      2026-07-22
-/// @copyright 版权所有 (C) 2026-present, ast项目.
+/// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
 /// 本项目基于 Apache 2.0 开源许可证分发。
@@ -18,29 +18,21 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 
-
-#include "FieldOfViewConstraint.hpp"
-#include "AstCore/Point.hpp"
-#include "AstMath/Vector.hpp"
+#include "AndConstraint.hpp"
 
 AST_NAMESPACE_BEGIN
 
-FieldOfViewConstraint::FieldOfViewConstraint(
-    Frame* frame, Point* target, FieldOfView* fov)
-    : frame_(frame)
-    , target_(target)
-    , fov_(fov)
+double AndConstraint::evaluate(const TimePoint& time) const
 {
-}
+    if (constraints_.empty()) { return -1.0; }
 
-double FieldOfViewConstraint::evaluate(const TimePoint& time) const
-{
-    if (!frame_ || !target_ || !fov_) { return -1.0; }
-
-    Vector3d posTarget;
-    target_->getPosIn(frame_, time, posTarget);
-
-    return fov_->angularMargin(posTarget);
+    double result = std::numeric_limits<double>::max();
+    for (auto& c : constraints_) {
+        double v = c->evaluate(time);
+        if (v <= 0.0) { return v; }   // 已违反，短路
+        if (v < result) { result = v; }
+    }
+    return result;
 }
 
 AST_NAMESPACE_END

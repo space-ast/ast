@@ -4,7 +4,7 @@
 /// @details   检查目标是否在传感器的视场内。
 /// @author    axel
 /// @date      2026-07-22
-/// @copyright 版权所有 (C) 2026-present, ast项目.
+/// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
 /// 本项目基于 Apache 2.0 开源许可证分发。
@@ -18,14 +18,14 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-
-
 #pragma once
 
 #include "AccessConstraint.hpp"
 #include "AstCore/FieldOfView.hpp"
 
 AST_NAMESPACE_BEGIN
+
+class Frame;
 
 /// @brief 视场约束
 /// @details 计算目标方向到视场边界的角度余量。
@@ -39,25 +39,25 @@ public:
     A_DISABLE_COPY(FieldOfViewConstraint);
 
     /// @brief 构造视场约束
-    /// @param fromObject 传感器所在的观测者
-    /// @param toObject 待检测的目标
+    /// @param frame 传感器坐标系
+    /// @param target 待检测的对象
     /// @param fov 视场定义
-    FieldOfViewConstraint(Point* fromObject, Point* toObject, FieldOfView* fov);
+    FieldOfViewConstraint(Frame* frame, Point* target, FieldOfView* fov);
 
     double evaluate(const TimePoint& time) const override;
 
-    void setFromObject(Point* obj) { fromObject_ = obj; }
-    Point* fromObject() const { return fromObject_; }
+    void setFrame(Frame* f) { frame_ = f; }
+    Frame* frame() const { return frame_; }
 
-    void setToObject(Point* obj) { toObject_ = obj; }
-    Point* toObject() const { return toObject_; }
+    void setTarget(Point* p) { target_ = p; }
+    Point* target() const { return target_; }
 
     void setFieldOfView(FieldOfView* fov) { fov_ = fov; }
     FieldOfView* fieldOfView() const { return fov_; }
 
 private:
-    Point*        fromObject_{};
-    Point*        toObject_{};
+    Frame*        frame_{};
+    Point*        target_{};
     FieldOfView*  fov_{};
 };
 

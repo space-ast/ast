@@ -31,6 +31,8 @@
 #include "ast/AccessStepper.hpp"
 #include "ast/FixedStepStepper.hpp"
 #include "ast/AccessEvaluator.hpp"
+#include "ast/AndConstraint.hpp"
+#include "ast/OrConstraint.hpp"
 #include "ast/SphereShape.hpp"
 #include "ast/SpheroidShape.hpp"
 #include "ast/Constants.h"
@@ -277,8 +279,8 @@ TEST(FieldOfViewConstraintTest, SetMembers)
     fov.setConeAngle(30_deg);
     FieldOfViewConstraint c(nullptr, nullptr, &fov);
     EXPECT_EQ(c.fieldOfView(), &fov);
-    EXPECT_EQ(c.fromObject(), nullptr);
-    EXPECT_EQ(c.toObject(), nullptr);
+    EXPECT_EQ(c.frame(), nullptr);
+    EXPECT_EQ(c.target(), nullptr);
 }
 
 // ==================== AccessEvaluator 测试 ====================
@@ -367,6 +369,94 @@ TEST(AccessEvaluatorTest, NoStepper)
     errc_t rc = evaluator.evaluate({t0, t0 + 100.0}, intervals);
     EXPECT_NE(rc, eNoError);
     EXPECT_TRUE(intervals.empty());
+}
+
+// ==================== AndConstraint / OrConstraint 测试 ====================
+
+TEST(AndConstraintTest, AllPass)
+{
+    auto a = new MockValueConstraint(1.0);
+    auto b = new MockValueConstraint(2.0);
+    AndConstraint andC;
+    andC.add(a);
+    andC.add(b);
+
+    auto t0 = TimePoint::Default();
+    EXPECT_NEAR(andC.evaluate(t0), 1.0, 1e-9);
+    EXPECT_TRUE(andC.isSatisfied(t0));
+}
+
+TEST(AndConstraintTest, OneFail)
+{
+    auto a = new MockValueConstraint(1.0);
+    auto b = new MockValueConstraint(-1.0);
+    AndConstraint andC;
+    andC.add(a);
+    andC.add(b);
+
+    auto t0 = TimePoint::Default();
+    EXPECT_NEAR(andC.evaluate(t0), -1.0, 1e-9);
+    EXPECT_FALSE(andC.isSatisfied(t0));
+}
+
+TEST(AndConstraintTest, Empty)
+{
+    AndConstraint andC;
+    auto t0 = TimePoint::Default();
+    EXPECT_LT(andC.evaluate(t0), 0.0);
+}
+
+TEST(OrConstraintTest, OnePass)
+{
+    auto a = new MockValueConstraint(-1.0);
+    auto b = new MockValueConstraint(2.0);
+    OrConstraint orC;
+    orC.add(a);
+    orC.add(b);
+
+    auto t0 = TimePoint::Default();
+    EXPECT_NEAR(orC.evaluate(t0), 2.0, 1e-9);
+    EXPECT_TRUE(orC.isSatisfied(t0));
+}
+
+TEST(OrConstraintTest, AllFail)
+{
+    auto a = new MockValueConstraint(-1.0);
+    auto b = new MockValueConstraint(-2.0);
+    OrConstraint orC;
+    orC.add(a);
+    orC.add(b);
+
+    auto t0 = TimePoint::Default();
+    EXPECT_NEAR(orC.evaluate(t0), -1.0, 1e-9);
+    EXPECT_FALSE(orC.isSatisfied(t0));
+}
+
+TEST(OrConstraintTest, Empty)
+{
+    OrConstraint orC;
+    auto t0 = TimePoint::Default();
+    EXPECT_LT(orC.evaluate(t0), 0.0);
+}
+
+// 嵌套组合器
+TEST(CombinatorTest, Nested)
+{
+    auto a = new MockValueConstraint(1.0);
+    auto b = new MockValueConstraint(-1.0);
+    auto c = new MockValueConstraint(3.0);
+
+    auto andC = new AndConstraint();
+    andC->add(a);
+    andC->add(b);
+
+    OrConstraint orC;
+    orC.add(andC);
+    orC.add(c);
+
+    auto t0 = TimePoint::Default();
+    EXPECT_GT(orC.evaluate(t0), 0.0);
+    EXPECT_TRUE(orC.isSatisfied(t0));
 }
 
 GTEST_MAIN()
