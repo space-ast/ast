@@ -20,6 +20,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ast/BodyObstructionConstraint.hpp"
+#include "ast/FieldOfViewConstraint.hpp"
+#include "ast/FOVSimpleCone.hpp"
+#include "ast/AndConstraint.hpp"
 #include "ast/AccessEvaluator.hpp"
 #include "ast/FixedStepStepper.hpp"
 #include "ast/AccessStepper.hpp"
@@ -33,6 +36,8 @@
 #include "ast/CelestialBody.hpp"
 #include "ast/EventIntervalExplicit.hpp"
 #include "ast/EventTimeExplicit.hpp"
+#include "ast/FrameAssembly.hpp"
+#include "ast/BuiltinAxes.hpp"
 #include "ast/RunTime.hpp"
 #include "ast/RunTimeSolarSystem.hpp"
 #include "ast/TimePoint.hpp"
@@ -498,6 +503,222 @@ TEST_F(AccessAnalysisTest, Satellite1ToSatellite2)
 
     // 清理
     delete sat1;
+    delete sat2;
+}
+
+// ==================== 测试用例 4：传感器对地面站 ====================
+
+TEST_F(AccessAnalysisTest, Sensor2ToFacility1)
+{
+    // 1. 构建 Satellite2 和 Facility1
+    Satellite* sat2 = CreateSatellite2();
+    Facility* fac1 = CreateFacilityFromParams("Facility1", 4.0038609999999998e+01, -7.5596599999999995e+01, 0.0);
+    ASSERT_NE(sat2, nullptr);
+    ASSERT_NE(fac1, nullptr);
+
+    // 2. 生成星历
+    errc_t rc = sat2->generateEphemeris();
+    ASSERT_EQ(rc, eNoError);
+
+    // 3. 获取地球天体
+    CelestialBody* earth = aGetEarth();
+    ASSERT_NE(earth, nullptr);
+
+    // 4. 创建传感器坐标系（以 Satellite2 为原点，ICRF 轴系）
+    auto sensorFrame = FrameAssembly::New(sat2, aAxesICRF());
+
+    // 5. 创建视场：简单圆锥，半锥角 45°
+    FOVSimpleCone fov;
+    fov.setConeAngle(deg2rad(45.0));
+
+    // 6. 定义分析时间区间
+    TimePoint start = TimePoint::FromUTC(2026, 7, 22, 4, 0, 0.0);
+    TimePoint stop  = TimePoint::FromUTC(2026, 7, 23, 4, 0, 0.0);
+    TimeInterval analysisInterval(start, stop);
+
+    FixedStepStepper stepper(60.0);
+
+    // 7. FOV 约束
+    FieldOfViewConstraint fovConstraint(sensorFrame, fac1, &fov);
+    AccessEvaluator fovEval;
+    fovEval.setConstraint(&fovConstraint);
+    fovEval.setStepper(&stepper);
+    TimeIntervalList fovResult;
+    rc = fovEval.evaluate(analysisInterval, fovResult);
+    ASSERT_EQ(rc, eNoError);
+
+    // 8. 视线遮挡约束
+    BodyObstructionConstraint losConstraint(sat2, fac1, earth);
+    AccessEvaluator losEval;
+    losEval.setConstraint(&losConstraint);
+    losEval.setStepper(&stepper);
+    TimeIntervalList losResult;
+    rc = losEval.evaluate(analysisInterval, losResult);
+    ASSERT_EQ(rc, eNoError);
+
+    // 9. 求交集（同时满足 FOV 和 LOS）
+    TimeIntervalList result = fovResult.intersect(losResult);
+
+    // 10. 打印结果
+    printf("\n=== Access Intervals: Sensor2 -> Facility1 (FOV & LOS) ===\n");
+    printf("FOV intervals: %zu, LOS intervals: %zu, combined: %zu\n",
+           fovResult.size(), losResult.size(), result.size());
+
+    double totalDuration = 0.0;
+    for (size_t i = 0; i < result.size(); ++i)
+    {
+        TimeInterval ti = result[i];
+        printf("  [%zu] %s  (duration = %.4f s)\n",
+               i, ti.toString().c_str(), ti.duration());
+        totalDuration += ti.duration();
+    }
+    printf("Total access time: %.4f s (%.2f min)\n\n",
+           totalDuration, totalDuration / 60.0);
+
+    // 11. 与基准结果对比
+    struct BaselineInterval {
+        int       index;
+        TimePoint start;
+        TimePoint stop;
+        double    duration;
+    };
+    static const BaselineInterval kBaseline[] = {
+        {1, TimePoint::FromUTC(2026, 7, 22, 12, 11, 58.6366),
+            TimePoint::FromUTC(2026, 7, 22, 12, 14, 32.7797), 154.143},
+        {2, TimePoint::FromUTC(2026, 7, 23,  0, 47,  5.0274),
+            TimePoint::FromUTC(2026, 7, 23,  0, 49, 35.0256), 149.998},
+    };
+    static const double kExpectedTotal = 304.141;
+    static const double kTimeTol      = 0.001;
+    static const double kDurTol       = 0.01;
+
+    ASSERT_EQ(result.size(), 2u) << "Interval count mismatch";
+
+    for (size_t i = 0; i < result.size(); ++i) {
+        TimeInterval ti = result[i];
+        const auto& bl = kBaseline[i];
+
+        double startDiff = fabs(ti.start() - bl.start);
+        double stopDiff  = fabs(ti.stop() - bl.stop);
+        double durDiff   = fabs(ti.duration() - bl.duration);
+
+        EXPECT_LT(startDiff, kTimeTol)
+            << "Interval " << bl.index << " start mismatch";
+        EXPECT_LT(stopDiff, kTimeTol)
+            << "Interval " << bl.index << " stop mismatch";
+        EXPECT_LT(durDiff, kDurTol)
+            << "Interval " << bl.index << " duration mismatch";
+    }
+
+    EXPECT_NEAR(totalDuration, kExpectedTotal, kDurTol)
+        << "Total duration mismatch";
+
+    // 清理
+    delete fac1;
+    delete sat2;
+}
+
+// ==================== 测试用例 5：传感器对地面站（AndConstraint 方式）====================
+
+TEST_F(AccessAnalysisTest, Sensor2ToFacility1_AndConstraint)
+{
+    // 1. 构建 Satellite2 和 Facility1
+    Satellite* sat2 = CreateSatellite2();
+    Facility* fac1 = CreateFacilityFromParams("Facility1", 4.0038609999999998e+01, -7.5596599999999995e+01, 0.0);
+    ASSERT_NE(sat2, nullptr);
+    ASSERT_NE(fac1, nullptr);
+
+    // 2. 生成星历
+    errc_t rc = sat2->generateEphemeris();
+    ASSERT_EQ(rc, eNoError);
+
+    // 3. 获取地球天体
+    CelestialBody* earth = aGetEarth();
+    ASSERT_NE(earth, nullptr);
+
+    // 4. 创建传感器坐标系
+    auto sensorFrame = FrameAssembly::New(sat2, aAxesICRF());
+
+    // 5. FOV 约束（堆分配：AndConstraint 的 SharedPtr 会接管生命周期）
+    auto pFov = new FOVSimpleCone();
+    pFov->setConeAngle(deg2rad(45.0));
+    auto pFovConstraint = new FieldOfViewConstraint(sensorFrame, fac1, pFov);
+
+    // 6. LOS 约束（堆分配）
+    auto pLosConstraint = new BodyObstructionConstraint(sat2, fac1, earth);
+
+    // 7. And 组合约束
+    AndConstraint combined;
+    combined.add(pFovConstraint);
+    combined.add(pLosConstraint);
+
+    // 8. 步进器、评估器
+    FixedStepStepper stepper(60.0);
+    AccessEvaluator evaluator;
+    evaluator.setConstraint(&combined);
+    evaluator.setStepper(&stepper);
+
+    // 9. 分析时间区间
+    TimePoint start = TimePoint::FromUTC(2026, 7, 22, 4, 0, 0.0);
+    TimePoint stop  = TimePoint::FromUTC(2026, 7, 23, 4, 0, 0.0);
+    TimeInterval analysisInterval(start, stop);
+
+    // 10. 计算访问时段
+    TimeIntervalList result;
+    rc = evaluator.evaluate(analysisInterval, result);
+    ASSERT_EQ(rc, eNoError);
+
+    // 11. 打印结果
+    printf("\n=== Sensor2 -> Facility1 (AndConstraint) ===\n");
+    printf("Found %zu access intervals:\n", result.size());
+
+    double totalDuration = 0.0;
+    for (size_t i = 0; i < result.size(); ++i)
+    {
+        TimeInterval ti = result[i];
+        printf("  [%zu] %s  (duration = %.4f s)\n",
+               i, ti.toString().c_str(), ti.duration());
+        totalDuration += ti.duration();
+    }
+    printf("Total access time: %.4f s (%.2f min)\n\n",
+           totalDuration, totalDuration / 60.0);
+
+    // 12. 与基准结果对比
+    struct BaselineInterval {
+        int       index;
+        TimePoint start;
+        TimePoint stop;
+        double    duration;
+    };
+    static const BaselineInterval kBaseline[] = {
+        {1, TimePoint::FromUTC(2026, 7, 22, 12, 11, 58.6366),
+            TimePoint::FromUTC(2026, 7, 22, 12, 14, 32.7797), 154.143},
+        {2, TimePoint::FromUTC(2026, 7, 23,  0, 47,  5.0274),
+            TimePoint::FromUTC(2026, 7, 23,  0, 49, 35.0256), 149.998},
+    };
+    static const double kExpectedTotal = 304.141;
+    static const double kTimeTol      = 0.001;
+    static const double kDurTol       = 0.01;
+
+    ASSERT_EQ(result.size(), 2u) << "Interval count mismatch";
+
+    for (size_t i = 0; i < result.size(); ++i) {
+        TimeInterval ti = result[i];
+        const auto& bl = kBaseline[i];
+
+        EXPECT_LT(fabs(ti.start() - bl.start), kTimeTol)
+            << "Interval " << bl.index << " start mismatch";
+        EXPECT_LT(fabs(ti.stop() - bl.stop), kTimeTol)
+            << "Interval " << bl.index << " stop mismatch";
+        EXPECT_LT(fabs(ti.duration() - bl.duration), kDurTol)
+            << "Interval " << bl.index << " duration mismatch";
+    }
+
+    EXPECT_NEAR(totalDuration, kExpectedTotal, kDurTol)
+        << "Total duration mismatch";
+
+    // 清理
+    delete fac1;
     delete sat2;
 }
 
