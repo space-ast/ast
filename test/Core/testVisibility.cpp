@@ -4,8 +4,19 @@
 /// @details   测试 FOV angularMargin、aLineOfSightClearance、AccessConstraint
 /// @author    axel
 /// @date      2026-07-21
-/// @copyright 版权所有 (C) 2026-present, ast项目.
+/// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
+/// SpaceAST项目（https://github.com/space-ast/ast）
+/// 本项目基于 Apache 2.0 开源许可证分发。
+/// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
+/// 许可证全文请见：
+///
+///    http://www.apache.org/licenses/LICENSE-2.0
+///
+/// 重要须知：
+/// 软件按"现有状态"提供，无任何明示或暗示的担保条件。
+/// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
+/// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ast/FOVSimpleCone.hpp"
 #include "ast/FOVConical.hpp"
@@ -17,6 +28,9 @@
 #include "ast/AccessConstraint.hpp"
 #include "ast/BodyObstructionConstraint.hpp"
 #include "ast/FieldOfViewConstraint.hpp"
+#include "ast/AccessStepper.hpp"
+#include "ast/FixedStepStepper.hpp"
+#include "ast/AccessEvaluator.hpp"
 #include "ast/SphereShape.hpp"
 #include "ast/SpheroidShape.hpp"
 #include "ast/Constants.h"
@@ -215,11 +229,12 @@ TEST(AccessConstraintTest, SignedBoundaryCheck)
     ConstraintFixedMargin pos(1e-6);
     ConstraintFixedMargin neg(-1e-6);
 
-    EXPECT_TRUE(ok.isSatisfied({}));
-    EXPECT_FALSE(bad.isSatisfied({}));
-    EXPECT_FALSE(zero.isSatisfied({}));  // == 0 不算满足
-    EXPECT_TRUE(pos.isSatisfied({}));
-    EXPECT_FALSE(neg.isSatisfied({}));
+    auto t0 = TimePoint::Default();
+    EXPECT_TRUE(ok.isSatisfied(t0));
+    EXPECT_FALSE(bad.isSatisfied(t0));
+    EXPECT_FALSE(zero.isSatisfied(t0));
+    EXPECT_TRUE(pos.isSatisfied(t0));
+    EXPECT_FALSE(neg.isSatisfied(t0));
 }
 
 // ==================== BodyObstructionConstraint 测试 ====================
@@ -228,8 +243,9 @@ TEST(BodyObstructionConstraintTest, NoCentralBody)
 {
     BodyObstructionConstraint c;
     // 未设置对象，应返回负值
-    EXPECT_LT(c.evaluate({}), 0.0);
-    EXPECT_FALSE(c.isSatisfied({}));
+    auto t0 = TimePoint::Default();
+    EXPECT_LT(c.evaluate(t0), 0.0);
+    EXPECT_FALSE(c.isSatisfied(t0));
 }
 
 TEST(BodyObstructionConstraintTest, SetMembers)
@@ -250,8 +266,9 @@ TEST(FieldOfViewConstraintTest, NoFOV)
 {
     FieldOfViewConstraint c;
     // 未设置对象，应返回负值
-    EXPECT_LT(c.evaluate({}), 0.0);
-    EXPECT_FALSE(c.isSatisfied({}));
+    auto t0 = TimePoint::Default();
+    EXPECT_LT(c.evaluate(t0), 0.0);
+    EXPECT_FALSE(c.isSatisfied(t0));
 }
 
 TEST(FieldOfViewConstraintTest, SetMembers)
@@ -262,6 +279,94 @@ TEST(FieldOfViewConstraintTest, SetMembers)
     EXPECT_EQ(c.fieldOfView(), &fov);
     EXPECT_EQ(c.fromObject(), nullptr);
     EXPECT_EQ(c.toObject(), nullptr);
+}
+
+// ==================== AccessEvaluator 测试 ====================
+
+namespace
+{
+
+// 模拟约束：evaluate 返回固定值，方便测试正负
+class MockValueConstraint : public AccessConstraint
+{
+public:
+    explicit MockValueConstraint(double val) : val_(val) {}
+    void setValue(double val) { val_ = val; }
+    double evaluate(const TimePoint&) const override { return val_; }
+private:
+    double val_{};
+};
+
+} // anonymous namespace
+
+// 全部采样点为正：整个区间都应满足
+TEST(AccessEvaluatorTest, AllPositive)
+{
+    MockValueConstraint constraint(1.0);
+    FixedStepStepper stepper(10.0);
+    AccessEvaluator evaluator;
+    evaluator.setConstraint(&constraint);
+    evaluator.setStepper(&stepper);
+
+    auto t0 = TimePoint::Default();
+    TimeIntervalList intervals;
+    evaluator.evaluate({t0, t0 + 100.0}, intervals);
+    EXPECT_EQ(intervals.size(), 1u);
+}
+
+// 全部采样点为负：无满足区间
+TEST(AccessEvaluatorTest, AllNegative)
+{
+    MockValueConstraint constraint(-1.0);
+    FixedStepStepper stepper(10.0);
+    AccessEvaluator evaluator;
+    evaluator.setConstraint(&constraint);
+    evaluator.setStepper(&stepper);
+
+    auto t0 = TimePoint::Default();
+    TimeIntervalList intervals;
+    evaluator.evaluate({t0, t0 + 100.0}, intervals);
+    EXPECT_TRUE(intervals.empty());
+}
+
+// 无约束时返回错误
+TEST(AccessEvaluatorTest, NoConstraint)
+{
+    FixedStepStepper stepper(30.0);
+    AccessEvaluator evaluator;
+    evaluator.setStepper(&stepper);
+
+    auto t0 = TimePoint::Default();
+    TimeIntervalList intervals;
+    errc_t rc = evaluator.evaluate({t0, t0 + 100.0}, intervals);
+    EXPECT_NE(rc, eNoError);
+}
+
+// check 单点检查
+TEST(AccessEvaluatorTest, HasAccess)
+{
+    MockValueConstraint constraint(1.0);
+    AccessEvaluator evaluator;
+    evaluator.setConstraint(&constraint);
+    auto t0 = TimePoint::Default();
+    EXPECT_TRUE(evaluator.check(t0));
+
+    constraint.setValue(-1.0);
+    EXPECT_FALSE(evaluator.check(t0));
+}
+
+// 无步进器时返回空
+TEST(AccessEvaluatorTest, NoStepper)
+{
+    MockValueConstraint constraint(1.0);
+    AccessEvaluator evaluator;
+    evaluator.setConstraint(&constraint);
+
+    auto t0 = TimePoint::Default();
+    TimeIntervalList intervals;
+    errc_t rc = evaluator.evaluate({t0, t0 + 100.0}, intervals);
+    EXPECT_NE(rc, eNoError);
+    EXPECT_TRUE(intervals.empty());
 }
 
 GTEST_MAIN()

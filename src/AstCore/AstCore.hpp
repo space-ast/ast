@@ -1,6 +1,8 @@
 // AstCore 工程聚合头文件
 #include "AstCore/AER.hpp"
 #include "AstCore/AccessConstraint.hpp"
+#include "AstCore/AccessEvaluator.hpp"
+#include "AstCore/AccessStepper.hpp"
 #include "AstCore/Angle.hpp"
 #include "AstCore/AstCoreC.h"
 #include "AstCore/AstCoreGlobal.h"
@@ -166,6 +168,7 @@
 #include "AstCore/FieldOfView.hpp"
 #include "AstCore/FieldOfViewConstraint.hpp"
 #include "AstCore/FieldOfViewVisitor.hpp"
+#include "AstCore/FixedStepStepper.hpp"
 #include "AstCore/ForceModel.hpp"
 #include "AstCore/Frame.hpp"
 #include "AstCore/FrameAssembly.hpp"
