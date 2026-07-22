@@ -15,6 +15,8 @@
 #include "ast/FOVCustom.hpp"
 #include "ast/BodyObstruction.hpp"
 #include "ast/AccessConstraint.hpp"
+#include "ast/BodyObstructionConstraint.hpp"
+#include "ast/FieldOfViewConstraint.hpp"
 #include "ast/SphereShape.hpp"
 #include "ast/SpheroidShape.hpp"
 #include "ast/Constants.h"
@@ -218,6 +220,48 @@ TEST(AccessConstraintTest, SignedBoundaryCheck)
     EXPECT_FALSE(zero.isSatisfied({}));  // == 0 不算满足
     EXPECT_TRUE(pos.isSatisfied({}));
     EXPECT_FALSE(neg.isSatisfied({}));
+}
+
+// ==================== BodyObstructionConstraint 测试 ====================
+
+TEST(BodyObstructionConstraintTest, NoCentralBody)
+{
+    BodyObstructionConstraint c;
+    // 未设置对象，应返回负值
+    EXPECT_LT(c.evaluate({}), 0.0);
+    EXPECT_FALSE(c.isSatisfied({}));
+}
+
+TEST(BodyObstructionConstraintTest, SetMembers)
+{
+    BodyObstructionConstraint c;
+    c.setFromObject(nullptr);
+    c.setToObject(nullptr);
+    c.setCentralBody(nullptr);
+    EXPECT_EQ(c.fromObject(), nullptr);
+    EXPECT_EQ(c.toObject(), nullptr);
+    EXPECT_EQ(c.centralBody(), nullptr);
+}
+
+
+// ==================== FieldOfViewConstraint 测试 ====================
+
+TEST(FieldOfViewConstraintTest, NoFOV)
+{
+    FieldOfViewConstraint c;
+    // 未设置对象，应返回负值
+    EXPECT_LT(c.evaluate({}), 0.0);
+    EXPECT_FALSE(c.isSatisfied({}));
+}
+
+TEST(FieldOfViewConstraintTest, SetMembers)
+{
+    FOVSimpleCone fov;
+    fov.setConeAngle(30_deg);
+    FieldOfViewConstraint c(nullptr, nullptr, &fov);
+    EXPECT_EQ(c.fieldOfView(), &fov);
+    EXPECT_EQ(c.fromObject(), nullptr);
+    EXPECT_EQ(c.toObject(), nullptr);
 }
 
 GTEST_MAIN()
