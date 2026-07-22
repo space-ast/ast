@@ -785,8 +785,11 @@ var hierarchy =
         [ "ast::MockObject", "classast_1_1MockObject.html", null ],
         [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
           [ "ast::AccessConstraint", "classast_1_1AccessConstraint.html", [
+            [ "ast::AndConstraint", "classast_1_1AndConstraint.html", null ],
             [ "ast::BodyObstructionConstraint", "classast_1_1BodyObstructionConstraint.html", null ],
-            [ "ast::FieldOfViewConstraint", "classast_1_1FieldOfViewConstraint.html", null ]
+            [ "ast::FieldOfViewConstraint", "classast_1_1FieldOfViewConstraint.html", null ],
+            [ "ast::NotConstraint", "classast_1_1NotConstraint.html", null ],
+            [ "ast::OrConstraint", "classast_1_1OrConstraint.html", null ]
           ] ],
           [ "ast::AccessEvaluator", "classast_1_1AccessEvaluator.html", null ],
           [ "ast::AccessStepper", "classast_1_1AccessStepper.html", [
@@ -1357,6 +1360,7 @@ var hierarchy =
     ] ],
     [ "ast::SerializerFactory", "classast_1_1SerializerFactory.html", null ],
     [ "ast::SharedPtr< _Object >", "classast_1_1SharedPtr.html", null ],
+    [ "ast::SharedPtr< ast::AccessConstraint >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::Axes >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::AxesBodyFixed >", "classast_1_1SharedPtr.html", null ],
     [ "ast::SharedPtr< ast::AxesBodyInertial >", "classast_1_1SharedPtr.html", null ],

@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"DataGroup_8hpp.html":[4,0,0,17,0,6],
+"DataGroup_8hpp_source.html":[4,0,0,17,0,6],
+"DataPort_8cpp.html":[4,0,0,6,10,1,4],
 "DataPort_8hpp.html":[4,0,0,6,10,1,5],
 "DataPort_8hpp_source.html":[4,0,0,6,10,1,5],
 "DataSeries_8cpp.html":[4,0,0,17,1,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "Escape_8hpp.html#adb9b953754e83448b401775d593a2d67":[4,0,0,27,9,3,4],
 "Escape_8hpp.html#adbf9d6b847022c5aea93dbf9668be690":[4,0,0,27,9,3,10],
 "Escape_8hpp.html#af3e6041dd5d2e81d4110690a5eb579d1":[4,0,0,27,9,3,5],
-"Escape_8hpp.html#af8728dc83cd3a0a23e1aa27803b522be":[4,0,0,27,9,3,1],
-"Escape_8hpp_source.html":[4,0,0,27,9,3],
-"EventDetector_8cpp.html":[4,0,0,6,10,0,45],
-"EventDetector_8hpp.html":[4,0,0,6,10,0,46]
+"Escape_8hpp.html#af8728dc83cd3a0a23e1aa27803b522be":[4,0,0,27,9,3,1]
 };
