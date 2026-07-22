@@ -2656,7 +2656,7 @@ var namespaceast =
     [ "aTheoreticalXYS_IERS2010_TT", "group__Data.html#gacf01517668fb57011912e5abeb3ed3ff", null ],
     [ "aTheoreticalXYS_IERS2010Precomputed", "group__Data.html#ga9ebe5d64f5de1032a35a7e5576c577a4", null ],
     [ "aTimeFromTotalSecond", "group__Time.html#ga99d731f038efaec1df2f79483c8c3a61", null ],
-    [ "aTimeIntervalFormat", "group__Time.html#ga1168a7c0981f98a1083f50092e3acbf2", null ],
+    [ "aTimeIntervalFormat", "group__Time.html#ga8bee44daa4f205ed99d5a66201e54d81", null ],
     [ "aTimeIntervalParse", "group__Time.html#ga7b23e0df8451fef9587ed57fbf18505d", null ],
     [ "aTimeNormalize", "group__Time.html#gafd23673a65ca3df42001eaf909bfac81", null ],
     [ "aTimePastAscNodeToEcc", "group__Orbit.html#ga702536c5f17074ded874a7cd92a88dbf", null ],

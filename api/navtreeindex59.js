@@ -1,5 +1,10 @@
 var NAVTREEINDEX59 =
 {
+"structast_1_1SummarySection.html#abeefee873dd13efe8ef91b21ce7d75f3":[3,0,0,898,0],
+"structast_1_1TreeBuildOptions.html":[2,0,0,932],
+"structast_1_1TreeBuildOptions.html":[3,0,0,931],
+"structast_1_1TreeBuildOptions.html#ab92ec522a917a51ee2a0611804f0349c":[2,0,0,932,0],
+"structast_1_1TreeBuildOptions.html#ab92ec522a917a51ee2a0611804f0349c":[3,0,0,931,0],
 "structast_1_1VariantVector_1_1TypeOps.html":[0,8,0,6],
 "structast_1_1VehiclePathData.html":[2,0,0,1049],
 "structast_1_1VehiclePathData.html":[3,0,0,1048],

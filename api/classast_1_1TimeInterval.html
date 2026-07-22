@@ -152,9 +152,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setInfinite</b> ()</t
 <tr class="memitem:a203d1051e9e7f49d721dad76848b0b4f" id="r_a203d1051e9e7f49d721dad76848b0b4f"><td class="memItemLeft" align="right" valign="top"><a id="a203d1051e9e7f49d721dad76848b0b4f" name="a203d1051e9e7f49d721dad76848b0b4f"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>duration</b> () const</td></tr>
 <tr class="separator:a203d1051e9e7f49d721dad76848b0b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f131f0bfd39eb0ebe807981f6836f86" id="r_a9f131f0bfd39eb0ebe807981f6836f86"><td class="memItemLeft" align="right" valign="top"><a id="a9f131f0bfd39eb0ebe807981f6836f86" name="a9f131f0bfd39eb0ebe807981f6836f86"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const</td></tr>
-<tr class="separator:a9f131f0bfd39eb0ebe807981f6836f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa41b820c258fa1d333f192e109d26b77" id="r_aa41b820c258fa1d333f192e109d26b77"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa41b820c258fa1d333f192e109d26b77">toString</a> (int precision=kTimePointDefaultFormatPrecision) const</td></tr>
+<tr class="separator:aa41b820c258fa1d333f192e109d26b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25199f4d9dc4a4f6a0d2aa4c4da17dd5" id="r_a25199f4d9dc4a4f6a0d2aa4c4da17dd5"><td class="memItemLeft" align="right" valign="top">AST_CORE_API errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25199f4d9dc4a4f6a0d2aa4c4da17dd5">discrete</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, double step, std::vector&lt; double &gt; &amp;times) const</td></tr>
 <tr class="separator:a25199f4d9dc4a4f6a0d2aa4c4da17dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4e87be3e6cc73a9607e1328e7f667d6" id="r_ab4e87be3e6cc73a9607e1328e7f667d6"><td class="memItemLeft" align="right" valign="top">AST_CORE_API errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4e87be3e6cc73a9607e1328e7f667d6">discrete</a> (double step, std::vector&lt; <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &gt; &amp;times) const</td></tr>
@@ -467,6 +466,40 @@ static <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a>&#160;
 
 <p>设置时间区间为零时间区间 </p>
 <dl class="section warning"><dt>警告</dt><dd>这将使时间区间无效，无法用于计算。 </dd></dl>
+
+</div>
+</div>
+<a id="aa41b820c258fa1d333f192e109d26b77" name="aa41b820c258fa1d333f192e109d26b77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa41b820c258fa1d333f192e109d26b77">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ast::TimeInterval::toString </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>precision</em></span><span class="paramdefsep"> = </span><span class="paramdefval">kTimePointDefaultFormatPrecision</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将时间区间转换为字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">precision</td><td>时间点格式化精度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>字符串表示 </dd></dl>
 
 </div>
 </div>

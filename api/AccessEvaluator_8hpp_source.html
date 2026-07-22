@@ -124,35 +124,36 @@ $(function(){initNavTree('AccessEvaluator_8hpp_source.html',''); initResizable(t
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classast_1_1AccessEvaluator.html">AccessEvaluator</a>();</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1AccessEvaluator.html">~AccessEvaluator</a>();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1AccessEvaluator.html#a2731deb23d4978bd2c3a98319a6901f8">   46</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1AccessEvaluator.html#a2731deb23d4978bd2c3a98319a6901f8">setConstraint</a>(<a class="code hl_class" href="classast_1_1AccessConstraint.html">AccessConstraint</a>* constraint) { constraint_ = constraint; }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classast_1_1AccessConstraint.html">AccessConstraint</a>* constraint()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> constraint_; }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1AccessEvaluator.html#a26935d642df5ffabfb3514eb133c5900">   50</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1AccessEvaluator.html#a26935d642df5ffabfb3514eb133c5900">setStepper</a>(<a class="code hl_class" href="classast_1_1AccessStepper.html">AccessStepper</a>* stepper) { stepper_ = stepper; }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="classast_1_1AccessStepper.html">AccessStepper</a>* stepper()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> stepper_; }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    errc_t evaluate(<span class="keyword">const</span> TimeInterval&amp; interval, TimeIntervalList&amp; result);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">bool</span> check(<span class="keyword">const</span> TimePoint&amp; time) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    AccessConstraint*  constraint_{};</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    AccessStepper*     stepper_{};</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    A_DISABLE_COPY(<a class="code hl_class" href="classast_1_1AccessEvaluator.html">AccessEvaluator</a>)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1AccessEvaluator.html#a2731deb23d4978bd2c3a98319a6901f8">   47</a></span>    void setConstraint(<a class="code hl_class" href="classast_1_1AccessConstraint.html">AccessConstraint</a>* constraint) { constraint_ = constraint; }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_class" href="classast_1_1AccessConstraint.html">AccessConstraint</a>* constraint()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> constraint_; }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classast_1_1AccessEvaluator.html#a26935d642df5ffabfb3514eb133c5900">   51</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1AccessEvaluator.html#a26935d642df5ffabfb3514eb133c5900">setStepper</a>(<a class="code hl_class" href="classast_1_1AccessStepper.html">AccessStepper</a>* stepper) { stepper_ = stepper; }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classast_1_1AccessStepper.html">AccessStepper</a>* stepper()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> stepper_; }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    errc_t evaluate(<span class="keyword">const</span> TimeInterval&amp; interval, TimeIntervalList&amp; result);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">bool</span> check(<span class="keyword">const</span> TimePoint&amp; time) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    AccessConstraint*  constraint_{};</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    AccessStepper*     stepper_{};</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>AST_CORE_API errc_t <a class="code hl_function" href="namespaceast.html#a3a482aedd6ac411bf272240520b4e3f1">aEvaluateAccess</a>(</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">const</span> AccessConstraint* constraint,</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    AccessStepper* stepper,</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">const</span> TimeInterval&amp; interval,</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    TimeIntervalList&amp; result</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>AST_CORE_API errc_t <a class="code hl_function" href="namespaceast.html#a3a482aedd6ac411bf272240520b4e3f1">aEvaluateAccess</a>(</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">const</span> AccessConstraint* constraint,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    AccessStepper* stepper,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">const</span> TimeInterval&amp; interval,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    TimeIntervalList&amp; result</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1AccessConstraint_html"><div class="ttname"><a href="classast_1_1AccessConstraint.html">ast::AccessConstraint</a></div><div class="ttdoc">访问约束抽象基类</div><div class="ttdef"><b>定义</b> AccessConstraint.hpp:41</div></div>
 <div class="ttc" id="aclassast_1_1AccessEvaluator_html"><div class="ttname"><a href="classast_1_1AccessEvaluator.html">ast::AccessEvaluator</a></div><div class="ttdoc">访问评估器</div><div class="ttdef"><b>定义</b> AccessEvaluator.hpp:38</div></div>
-<div class="ttc" id="aclassast_1_1AccessEvaluator_html_a26935d642df5ffabfb3514eb133c5900"><div class="ttname"><a href="classast_1_1AccessEvaluator.html#a26935d642df5ffabfb3514eb133c5900">ast::AccessEvaluator::setStepper</a></div><div class="ttdeci">void setStepper(AccessStepper *stepper)</div><div class="ttdoc">设置步进策略</div><div class="ttdef"><b>定义</b> AccessEvaluator.hpp:50</div></div>
-<div class="ttc" id="aclassast_1_1AccessEvaluator_html_a2731deb23d4978bd2c3a98319a6901f8"><div class="ttname"><a href="classast_1_1AccessEvaluator.html#a2731deb23d4978bd2c3a98319a6901f8">ast::AccessEvaluator::setConstraint</a></div><div class="ttdeci">void setConstraint(AccessConstraint *constraint)</div><div class="ttdoc">设置约束</div><div class="ttdef"><b>定义</b> AccessEvaluator.hpp:46</div></div>
+<div class="ttc" id="aclassast_1_1AccessEvaluator_html_a26935d642df5ffabfb3514eb133c5900"><div class="ttname"><a href="classast_1_1AccessEvaluator.html#a26935d642df5ffabfb3514eb133c5900">ast::AccessEvaluator::setStepper</a></div><div class="ttdeci">void setStepper(AccessStepper *stepper)</div><div class="ttdoc">设置步进策略</div><div class="ttdef"><b>定义</b> AccessEvaluator.hpp:51</div></div>
 <div class="ttc" id="aclassast_1_1AccessStepper_html"><div class="ttname"><a href="classast_1_1AccessStepper.html">ast::AccessStepper</a></div><div class="ttdoc">步进策略抽象基类</div><div class="ttdef"><b>定义</b> AccessStepper.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1ObjectNamed_html"><div class="ttname"><a href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></div><div class="ttdoc">命名对象</div><div class="ttdef"><b>定义</b> ObjectNamed.hpp:36</div></div>
 <div class="ttc" id="anamespaceast_html_a3a482aedd6ac411bf272240520b4e3f1"><div class="ttname"><a href="namespaceast.html#a3a482aedd6ac411bf272240520b4e3f1">ast::aEvaluateAccess</a></div><div class="ttdeci">errc_t aEvaluateAccess(const AccessConstraint *constraint, AccessStepper *stepper, const TimeInterval &amp;interval, TimeIntervalList &amp;result)</div><div class="ttdoc">评估访问约束的时间段</div><div class="ttdef"><b>定义</b> AccessEvaluator.cpp:42</div></div>

@@ -21,7 +21,7 @@ var dir_8990e1a6c4161f7830d486c5caed33ad =
     [ "TimeInterval.cpp", "TimeInterval_8cpp.html", "TimeInterval_8cpp" ],
     [ "TimeInterval.hpp", "TimeInterval_8hpp.html", "TimeInterval_8hpp" ],
     [ "TimeIntervalList.cpp", "TimeIntervalList_8cpp.html", null ],
-    [ "TimeIntervalList.hpp", "TimeIntervalList_8hpp.html", null ],
+    [ "TimeIntervalList.hpp", "TimeIntervalList_8hpp.html", "TimeIntervalList_8hpp" ],
     [ "TimeList.cpp", "TimeList_8cpp.html", null ],
     [ "TimeList.hpp", "TimeList_8hpp.html", "TimeList_8hpp" ],
     [ "TimePoint.hpp", "TimePoint_8hpp.html", "TimePoint_8hpp" ],

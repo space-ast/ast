@@ -1,5 +1,6 @@
 var classast_1_1TimeIntervalList =
 [
+    [ "const_iterator", "classast_1_1TimeIntervalList_1_1const__iterator.html", "classast_1_1TimeIntervalList_1_1const__iterator" ],
     [ "TimeIntervalList", "classast_1_1TimeIntervalList.html#ae4ff4a63be0d2a7b2bd85fb32091fa7f", null ],
     [ "~TimeIntervalList", "classast_1_1TimeIntervalList.html#ae181da1b7d0bee14e15aadc0cdc2b8f8", null ],
     [ "TimeIntervalList", "classast_1_1TimeIntervalList.html#a8ed62ed2f72bd32d2de6f253f6dffa30", null ],
@@ -28,6 +29,8 @@ var classast_1_1TimeIntervalList =
     [ "size", "classast_1_1TimeIntervalList.html#a74314db85e0cd0a0b843a442efd14458", null ],
     [ "subtract", "classast_1_1TimeIntervalList.html#adb4f2cd0bb57ed180b9a4d64e3dbfa89", null ],
     [ "toIntervalList", "classast_1_1TimeIntervalList.html#a1210d03d28bec63fb4be6370a236db9b", null ],
+    [ "toString", "classast_1_1TimeIntervalList.html#a49767f9981a2a351e23779894871c8c1", null ],
     [ "totalDuration", "classast_1_1TimeIntervalList.html#aaf05b75041b5834e1b5a4a84ad1675ab", null ],
-    [ "unite", "classast_1_1TimeIntervalList.html#a7a13f044985ececfe0205a4c238b4021", null ]
+    [ "unite", "classast_1_1TimeIntervalList.html#a7a13f044985ececfe0205a4c238b4021", null ],
+    [ "operator+", "classast_1_1TimeIntervalList.html#a689fe6d300c01d06ab1257b264545575", null ]
 ];

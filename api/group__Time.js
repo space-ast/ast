@@ -147,7 +147,7 @@ var group__Time =
       [ "setZero", "classast_1_1TimeInterval.html#a52844685e45a000dcc28792c5e10093a", null ],
       [ "start", "classast_1_1TimeInterval.html#a92ad94094486d2c3b3207f5bdbfa6e7b", null ],
       [ "stop", "classast_1_1TimeInterval.html#a84c8351775a794c668e5208c920f7563", null ],
-      [ "toString", "classast_1_1TimeInterval.html#a9f131f0bfd39eb0ebe807981f6836f86", null ]
+      [ "toString", "classast_1_1TimeInterval.html#aa41b820c258fa1d333f192e109d26b77", null ]
     ] ],
     [ "ast::TimeInterval::DiscreteTimePointRange", "classast_1_1TimeInterval_1_1DiscreteTimePointRange.html", [
       [ "iterator", "classast_1_1TimeInterval_1_1DiscreteTimePointRange_1_1iterator.html", null ]
@@ -156,6 +156,10 @@ var group__Time =
       [ "iterator", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html", null ]
     ] ],
     [ "ast::TimeIntervalList", "classast_1_1TimeIntervalList.html", [
+      [ "const_iterator", "classast_1_1TimeIntervalList_1_1const__iterator.html", [
+        [ "operator*", "classast_1_1TimeIntervalList_1_1const__iterator.html#a938dce94d36915d904e02b738f85dfe0", null ],
+        [ "operator[]", "classast_1_1TimeIntervalList_1_1const__iterator.html#a54104738b310b7f6d1a8d487f2fa662e", null ]
+      ] ],
       [ "TimeIntervalList", "classast_1_1TimeIntervalList.html#ae4ff4a63be0d2a7b2bd85fb32091fa7f", null ],
       [ "~TimeIntervalList", "classast_1_1TimeIntervalList.html#ae181da1b7d0bee14e15aadc0cdc2b8f8", null ],
       [ "TimeIntervalList", "classast_1_1TimeIntervalList.html#a8ed62ed2f72bd32d2de6f253f6dffa30", null ],
@@ -184,8 +188,10 @@ var group__Time =
       [ "size", "classast_1_1TimeIntervalList.html#a74314db85e0cd0a0b843a442efd14458", null ],
       [ "subtract", "classast_1_1TimeIntervalList.html#adb4f2cd0bb57ed180b9a4d64e3dbfa89", null ],
       [ "toIntervalList", "classast_1_1TimeIntervalList.html#a1210d03d28bec63fb4be6370a236db9b", null ],
+      [ "toString", "classast_1_1TimeIntervalList.html#a49767f9981a2a351e23779894871c8c1", null ],
       [ "totalDuration", "classast_1_1TimeIntervalList.html#aaf05b75041b5834e1b5a4a84ad1675ab", null ],
-      [ "unite", "classast_1_1TimeIntervalList.html#a7a13f044985ececfe0205a4c238b4021", null ]
+      [ "unite", "classast_1_1TimeIntervalList.html#a7a13f044985ececfe0205a4c238b4021", null ],
+      [ "operator+", "classast_1_1TimeIntervalList.html#a689fe6d300c01d06ab1257b264545575", null ]
     ] ],
     [ "ast::TimeList", "classast_1_1TimeList.html", [
       [ "const_iterator", "classast_1_1TimeList_1_1const__iterator.html", [
@@ -305,7 +311,7 @@ var group__Time =
     [ "ast::aTAIToUTC", "group__Time.html#ga1bc96d9158bdcbabecbba670dceeced3", null ],
     [ "ast::aTDBMinusTT", "group__Time.html#gab4397fac34d74477cfa5c0807e7c07ed", null ],
     [ "ast::aTimeFromTotalSecond", "group__Time.html#ga99d731f038efaec1df2f79483c8c3a61", null ],
-    [ "ast::aTimeIntervalFormat", "group__Time.html#ga1168a7c0981f98a1083f50092e3acbf2", null ],
+    [ "ast::aTimeIntervalFormat", "group__Time.html#ga8bee44daa4f205ed99d5a66201e54d81", null ],
     [ "ast::aTimeIntervalParse", "group__Time.html#ga7b23e0df8451fef9587ed57fbf18505d", null ],
     [ "ast::aTimeNormalize", "group__Time.html#gafd23673a65ca3df42001eaf909bfac81", null ],
     [ "ast::aTimePointFormat", "group__Time.html#ga5ecce62665e7d66f56017833d6f1a4f2", null ],
