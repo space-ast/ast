@@ -136,7 +136,7 @@ QwtPlotVisitor::QwtPlotVisitor(QwtPlot* plot) : plot_(plot) {}
 QwtPlotVisitor::QwtPlotVisitor(ColoredSurfacePlot* surface) : surface_(surface) {}
 QwtPlotVisitor::~QwtPlotVisitor() = default;
 
-void QwtPlotVisitor::visit(matplot::line& l) {
+void QwtPlotVisitor::visit(class matplot::line& l) {
     auto& ls = l.line_spec();
     auto& x = l.x_data();
     auto& y = l.y_data();
@@ -187,7 +187,7 @@ void QwtPlotVisitor::visit(matplot::line& l) {
     curve->attach(plot_);
 }
 
-void QwtPlotVisitor::visit(matplot::histogram& h) {
+void QwtPlotVisitor::visit(class matplot::histogram& h) {
     auto& values = h.values();
     auto& edges = h.bin_edges();
 
@@ -210,7 +210,7 @@ void QwtPlotVisitor::visit(matplot::histogram& h) {
     hist->attach(plot_);
 }
 
-void QwtPlotVisitor::visit(matplot::function_line& fl) {
+void QwtPlotVisitor::visit(class matplot::function_line& fl) {
     auto fn = fl.fn();
     if (!fn) return;
 
@@ -244,7 +244,7 @@ void QwtPlotVisitor::visit(matplot::function_line& fl) {
     curve->attach(plot_);
 }
 
-void QwtPlotVisitor::visit(matplot::stair& s) {
+void QwtPlotVisitor::visit(class matplot::stair& s) {
     auto& x = s.x_data();
     auto& y = s.y_data();
 
