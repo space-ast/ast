@@ -100,7 +100,8 @@ $(function(){initNavTree('AccessEvaluator_8cpp.html',''); initResizable(true); }
 <div class="header">
   <div class="summary">
 <a href="#namespaces">命名空间</a> &#124;
-<a href="#func-members">函数</a>  </div>
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
   <div class="headertitle"><div class="title">AccessEvaluator.cpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
@@ -108,6 +109,7 @@ $(function(){initNavTree('AccessEvaluator_8cpp.html',''); initResizable(true); }
 <code>#include &quot;<a class="el" href="AccessStepper_8hpp_source.html">AccessStepper.hpp</a>&quot;</code><br />
 <code>#include &quot;AstCore/AccessConstraint.hpp&quot;</code><br />
 <code>#include &quot;AstMath/BrentSolver.hpp&quot;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -118,10 +120,16 @@ $(function(){initNavTree('AccessEvaluator_8cpp.html',''); initResizable(true); }
 函数</h2></td></tr>
 <tr class="memitem:a3a482aedd6ac411bf272240520b4e3f1" id="r_a3a482aedd6ac411bf272240520b4e3f1"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a3a482aedd6ac411bf272240520b4e3f1">ast::aEvaluateAccess</a> (const <a class="el" href="classast_1_1AccessConstraint.html">AccessConstraint</a> *constraint, <a class="el" href="classast_1_1AccessStepper.html">AccessStepper</a> *stepper, const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;interval, <a class="el" href="classast_1_1TimeIntervalList.html">TimeIntervalList</a> &amp;result)</td></tr>
 <tr class="separator:a3a482aedd6ac411bf272240520b4e3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a33b1b777cd72b25038404f4488fc3202" id="r_a33b1b777cd72b25038404f4488fc3202"><td class="memItemLeft" align="right" valign="top"><a id="a33b1b777cd72b25038404f4488fc3202" name="a33b1b777cd72b25038404f4488fc3202"></a>
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kZeroTol</b> = 1e-9</td></tr>
+<tr class="separator:a33b1b777cd72b25038404f4488fc3202"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>访问评估器实现 </p>
-<p>步进采样 → 符号翻转检测 → Brent 求根精化 → 区间合并 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<p>步进采样 → 符号翻转检测 → Brent/二分法求根精化 → 区间合并 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
 <dl class="section date"><dt>日期</dt><dd>2026-07-22 </dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, SpaceAST项目.</dd></dl>
 <p>SpaceAST项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
