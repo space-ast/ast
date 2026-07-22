@@ -1,5 +1,6 @@
 // AstCore 工程聚合头文件
 #include "AstCore/AER.hpp"
+#include "AstCore/AccessConstraint.hpp"
 #include "AstCore/Angle.hpp"
 #include "AstCore/AstCoreC.h"
 #include "AstCore/AstCoreGlobal.h"
@@ -87,6 +88,7 @@
 #include "AstCore/BurnImpulsive.hpp"
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/CelestialBodyLoader.hpp"
+#include "AstCore/BodyObstruction.hpp"
 #include "AstCore/CircularOrbitDesigner.hpp"
 #include "AstCore/Command.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"

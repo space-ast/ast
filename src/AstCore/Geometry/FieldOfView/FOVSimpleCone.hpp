@@ -32,35 +32,40 @@ public:
     FOVSimpleCone() = default;
     
     /// @brief 析构函数
-    virtual ~FOVSimpleCone() = default;
+    ~FOVSimpleCone() override = default;
     
     /// @brief 获取视场类型
     /// @return 视场类型
-    virtual EFOVType getFOVType() const override { return EFOVType::eSimpleCone; }
+    EFOVType getFOVType() const override { return EFOVType::eSimpleCone; }
     
     /// @brief 接受访问者
     /// @param visitor 访问者
-    virtual void accept(FieldOfViewVisitor& visitor) override { visitor.visit(*this); }
+    void accept(FieldOfViewVisitor& visitor) override { visitor.visit(*this); }
+
+    /// @brief 计算方向向量到 FOV 边界的角度余量
+    /// @param direction 传感器体坐标系中的单位方向向量
+    /// @return 角度余量（rad）：coneAngle_ - angle(direction, 视轴)
+    double angularMargin(const Vector3d& direction) const override;
     
     /// @brief 设置锥角
-    /// @param angle 锥角（度）
+    /// @param angle 锥角（弧度）
     void setConeAngle(double angle) { coneAngle_ = angle; }
     
     /// @brief 获取锥角
-    /// @return 锥角（度）
+    /// @return 锥角（弧度）
     double getConeAngle() const { return coneAngle_; }
     
     /// @brief 设置角分辨率
-    /// @param resolution 角分辨率（度）
+    /// @param resolution 角分辨率（弧度）
     void setAngularPatternResolution(double resolution) { angularPatternResolution_ = resolution; }
     
     /// @brief 获取角分辨率
-    /// @return 角分辨率（度）
+    /// @return 角分辨率（弧度）
     double getAngularPatternResolution() const { return angularPatternResolution_; }
     
 private:
-    double coneAngle_{0.0};                ///< 锥角（度）
-    double angularPatternResolution_{0.0};  ///< 角分辨率（度）
+    double coneAngle_{0.0};                ///< 锥角（弧度）
+    double angularPatternResolution_{0.0};  ///< 角分辨率（弧度）
 };
 
 AST_NAMESPACE_END
