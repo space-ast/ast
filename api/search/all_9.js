@@ -59,7 +59,7 @@ var searchData=
   ['index_56',['index',['../classast_1_1JsonDomSax.html#ad766364afa9f7cfa3786431f52616eb1',1,'ast::JsonDomSax::index()'],['../classast_1_1JsonSax.html#a333517c3fb4dd5279e5dc2f70c7cd07a',1,'ast::JsonSax::index()']]],
   ['infbnd_57',['INFBND',['../NLPProblem_8cpp.html#a7f2c5bfa7176f95a5e934b7484370f5e',1,'NLPProblem.cpp']]],
   ['inheriteopsource_5f_58',['inheritEOPSource_',['../classast_1_1Scenario.html#a5d6565f06b6be9db2a2c40316764e1d2',1,'ast::Scenario']]],
-  ['init_59',['init',['../structast_1_1SPK__Type2__Trailer.html#a271dc580e5817fc616ca8862c32941ee',1,'ast::SPK_Type2_Trailer']]],
+  ['init_59',['init',['../structast_1_1SPK__Type2__Trailer.html#a271dc580e5817fc616ca8862c32941ee',1,'ast::SPK_Type2_Trailer::init'],['../classast_1_1AccessStepper.html#a0593763cb87625a15011ea55aaa4988b',1,'ast::AccessStepper::init()'],['../classast_1_1FixedStepStepper.html#a2fdbfb28433073c2230fc5ea6664f973',1,'ast::FixedStepStepper::init()']]],
   ['initalizeconfig_60',['InitalizeConfig',['../structast_1_1InitalizeConfig.html',1,'ast']]],
   ['initcoeffmatrices_61',['initCoeffMatrices',['../classast_1_1GravityField.html#a856e2680a2fa6e4f3c6b3031fad0fb4d',1,'ast::GravityField']]],
   ['initcolumns_62',['initColumns',['../classast_1_1UiResultView.html#af2296ae3ada04b0f05284cc8dd7bbde2',1,'ast::UiResultView']]],

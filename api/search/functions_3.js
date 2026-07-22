@@ -28,7 +28,7 @@ var searchData=
   ['chatstream_25',['chatStream',['../classast_1_1ChatSession.html#a29e370433866e61de6ade04afc1a60b4',1,'ast::ChatSession::chatStream()'],['../classast_1_1LLMClient.html#a5dd95655b97e33284db4f58d3d288dfe',1,'ast::LLMClient::chatStream()'],['../classast_1_1OpenAI.html#abf33ed4bed5bf9d55fdabc218e57229a',1,'ast::OpenAI::chatStream()']]],
   ['chatwidget_26',['chatWidget',['../classast_1_1UiChatDockWidget.html#a5f3d851f558c473dc45c98e07b80cb53',1,'ast::UiChatDockWidget']]],
   ['chdir_27',['chdir',['../namespaceast_1_1posix.html#abf8c6e22f7f0a04805c1e7cba2142919',1,'ast::posix']]],
-  ['check_28',['check',['../classast_1_1Parser.html#a7eb04cba4f018a85cbaeb6b8ba7a5a8b',1,'ast::Parser']]],
+  ['check_28',['check',['../classast_1_1AccessEvaluator.html#a9e8f8942dc16de07b699db02359338a6',1,'ast::AccessEvaluator::check()'],['../classast_1_1Parser.html#a7eb04cba4f018a85cbaeb6b8ba7a5a8b',1,'ast::Parser::check()']]],
   ['checkbodyshape_29',['checkBodyShape',['../namespaceast.html#a8216ef0371cf6f618586d90129d9794f',1,'ast']]],
   ['children_30',['children',['../classast_1_1ExprContainer.html#a867436ec8964090c7ef90caa9d8329d9',1,'ast::ExprContainer']]],
   ['clamp_31',['clamp',['../group__Util.html#ga77fdcb17fe2f5bf4506f1f136b81f282',1,'ast']]],

@@ -57,6 +57,8 @@ var annotated_dup =
         [ "Splitter", "classast_1_1strings__internal_1_1Splitter.html", "classast_1_1strings__internal_1_1Splitter" ]
       ] ],
       [ "AccessConstraint", "classast_1_1AccessConstraint.html", "classast_1_1AccessConstraint" ],
+      [ "AccessEvaluator", "classast_1_1AccessEvaluator.html", "classast_1_1AccessEvaluator" ],
+      [ "AccessStepper", "classast_1_1AccessStepper.html", "classast_1_1AccessStepper" ],
       [ "ActiveScriptExecutor", "classast_1_1ActiveScriptExecutor.html", "classast_1_1ActiveScriptExecutor" ],
       [ "AdvCAT", "classast_1_1AdvCAT.html", null ],
       [ "AEP8Data", "classast_1_1AEP8Data.html", null ],
@@ -352,6 +354,7 @@ var annotated_dup =
       [ "figure_silencer", "classast_1_1figure__silencer.html", null ],
       [ "FigureOfMerit", "classast_1_1FigureOfMerit.html", null ],
       [ "FileScanner", "classast_1_1FileScanner.html", "classast_1_1FileScanner" ],
+      [ "FixedStepStepper", "classast_1_1FixedStepStepper.html", "classast_1_1FixedStepStepper" ],
       [ "ForceModel", "classast_1_1ForceModel.html", null ],
       [ "FOVConical", "classast_1_1FOVConical.html", "classast_1_1FOVConical" ],
       [ "FOVCustom", "classast_1_1FOVCustom.html", "classast_1_1FOVCustom" ],

@@ -46,7 +46,7 @@ var searchData=
   ['newscriptexecutor_43',['newScriptExecutor',['../classast_1_1ScStateCalcScript.html#af223c4ea826603fb4792323a2b34b106',1,'ast::ScStateCalcScript::newScriptExecutor()'],['../classast_1_1ScStateCalcVBScript.html#ad2c9be669dd961974c32bbefec5718ad',1,'ast::ScStateCalcVBScript::newScriptExecutor()']]],
   ['newspaceengineer_44',['NewSpaceEngineer',['../classast_1_1AssistantAgent.html#a749b0a2535cece266c981ee0bf3ceb3d',1,'ast::AssistantAgent']]],
   ['newton_45',['Newton',['../classast_1_1Unit.html#a004d1aa1d4fb3988c486454748627357',1,'ast::Unit']]],
-  ['next_46',['next',['../structast_1_1DAF__SummaryRecords.html#ae4f807c4ab2a4b8c0e2cbe121f6b580d',1,'ast::DAF_SummaryRecords::next'],['../structast_1_1DAF__SPKSummaryRecords.html#a9c13a301591a23544e3202f7684c3211',1,'ast::DAF_SPKSummaryRecords::next']]],
+  ['next_46',['next',['../structast_1_1DAF__SummaryRecords.html#ae4f807c4ab2a4b8c0e2cbe121f6b580d',1,'ast::DAF_SummaryRecords::next'],['../structast_1_1DAF__SPKSummaryRecords.html#a9c13a301591a23544e3202f7684c3211',1,'ast::DAF_SPKSummaryRecords::next'],['../classast_1_1AccessStepper.html#a485cb86a144684b80bf16320fe22702d',1,'ast::AccessStepper::next()'],['../classast_1_1FixedStepStepper.html#a5fb14744d63122289bf16ba1c264e3a0',1,'ast::FixedStepStepper::next()']]],
   ['nextabsstepsize_5f_47',['nextAbsStepSize_',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a821649d0d8e0463389be847381a4cedf',1,'ast::ODEFixedStepIntegrator::Workspace']]],
   ['nextindex_5f_48',['nextIndex_',['../classast_1_1ObjectManager.html#aed29f74969dbb4905f183df0a3b71b4a',1,'ast::ObjectManager']]],
   ['ni_49',['ni',['../structast_1_1DAF__FileRecord.html#a1587d1fac8eb89702e8e633c0892d7b0',1,'ast::DAF_FileRecord']]],

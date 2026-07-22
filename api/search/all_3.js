@@ -78,7 +78,7 @@ var searchData=
   ['chattools_2ehpp_75',['ChatTools.hpp',['../ChatTools_8hpp.html',1,'']]],
   ['chatwidget_76',['chatWidget',['../classast_1_1UiChatDockWidget.html#a5f3d851f558c473dc45c98e07b80cb53',1,'ast::UiChatDockWidget']]],
   ['chdir_77',['chdir',['../namespaceast_1_1posix.html#abf8c6e22f7f0a04805c1e7cba2142919',1,'ast::posix']]],
-  ['check_78',['check',['../classast_1_1Parser.html#a7eb04cba4f018a85cbaeb6b8ba7a5a8b',1,'ast::Parser']]],
+  ['check_78',['check',['../classast_1_1AccessEvaluator.html#a9e8f8942dc16de07b699db02359338a6',1,'ast::AccessEvaluator::check()'],['../classast_1_1Parser.html#a7eb04cba4f018a85cbaeb6b8ba7a5a8b',1,'ast::Parser::check()']]],
   ['checkbodyshape_79',['checkBodyShape',['../namespaceast.html#a8216ef0371cf6f618586d90129d9794f',1,'ast']]],
   ['children_80',['children',['../structast_1_1WasmObjectInfo.html#a23a1817bb7d274a598fe35d075f5586a',1,'ast::WasmObjectInfo::children'],['../classast_1_1ExprContainer.html#a867436ec8964090c7ef90caa9d8329d9',1,'ast::ExprContainer::children()']]],
   ['children_5f_81',['children_',['../classast_1_1CommandTrie_1_1Node.html#a45bc8a82c9251e14f48166f1fd1b999a',1,'ast::CommandTrie::Node']]],
