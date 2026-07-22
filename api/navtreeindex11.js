@@ -1,5 +1,11 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcAtmosTemperature_8cpp.html":[4,0,0,6,8,1,0,6,4],
+"ScStateCalcAtmosTemperature_8hpp.html":[4,0,0,6,8,1,0,6,5],
+"ScStateCalcAtmosTemperature_8hpp_source.html":[4,0,0,6,8,1,0,6,5],
+"ScStateCalcAzimuthRate_8cpp.html":[4,0,0,6,8,1,0,15,4],
+"ScStateCalcAzimuthRate_8hpp.html":[4,0,0,6,8,1,0,15,5],
+"ScStateCalcAzimuthRate_8hpp_source.html":[4,0,0,6,8,1,0,15,5],
 "ScStateCalcAzimuth_8cpp.html":[4,0,0,6,8,1,0,15,2],
 "ScStateCalcAzimuth_8hpp.html":[4,0,0,6,8,1,0,15,3],
 "ScStateCalcAzimuth_8hpp_source.html":[4,0,0,6,8,1,0,15,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcLongitude_8hpp.html":[4,0,0,6,8,1,0,9,5],
 "ScStateCalcLongitude_8hpp_source.html":[4,0,0,6,8,1,0,9,5],
 "ScStateCalcMCSDeltaVSquared_8cpp.html":[4,0,0,6,8,1,0,15,98],
-"ScStateCalcMCSDeltaVSquared_8hpp.html":[4,0,0,6,8,1,0,15,99],
-"ScStateCalcMCSDeltaVSquared_8hpp_source.html":[4,0,0,6,8,1,0,15,99],
-"ScStateCalcMCSDeltaV_8cpp.html":[4,0,0,6,8,1,0,15,96],
-"ScStateCalcMCSDeltaV_8hpp.html":[4,0,0,6,8,1,0,15,97],
-"ScStateCalcMCSDeltaV_8hpp_source.html":[4,0,0,6,8,1,0,15,97],
-"ScStateCalcMagFieldDipoleL_8cpp.html":[4,0,0,6,8,1,0,15,82],
-"ScStateCalcMagFieldDipoleL_8hpp.html":[4,0,0,6,8,1,0,15,83]
+"ScStateCalcMCSDeltaVSquared_8hpp.html":[4,0,0,6,8,1,0,15,99]
 };

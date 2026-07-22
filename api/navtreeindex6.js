@@ -1,5 +1,11 @@
 var NAVTREEINDEX6 =
 {
+"GeomagneticIndex_8cpp.html":[4,0,0,29,2,2],
+"GeomagneticIndex_8cpp.html#a2c3e077640f6d8588ba62ccf6ffe9298":[4,0,0,29,2,2,1],
+"GeomagneticIndex_8cpp.html#ac69c8000497fce4b21dd8b225cf30389":[4,0,0,29,2,2,2],
+"GeomagneticIndex_8cpp.html#ad93fe8a08cdb887d67d9b9eb40b2b302":[4,0,0,29,2,2,0],
+"GeomagneticIndex_8hpp.html":[4,0,0,29,2,3],
+"GeomagneticIndex_8hpp.html#a2c3e077640f6d8588ba62ccf6ffe9298":[4,0,0,29,2,3,1],
 "GeomagneticIndex_8hpp.html#ad93fe8a08cdb887d67d9b9eb40b2b302":[4,0,0,29,2,3,0],
 "GeomagneticIndex_8hpp_source.html":[4,0,0,29,2,3],
 "GeometryFinder_8cpp.html":[4,0,0,2,1,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX6 =
 "LagrangeInterpolator_8hpp_source.html":[4,0,0,12,3,3],
 "Lambert_8cpp.html":[4,0,0,6,8,7],
 "Lambert_8hpp.html":[4,0,0,6,8,8],
-"Lambert_8hpp_source.html":[4,0,0,6,8,8],
-"LandingSiteCalcSunAzimuth_8cpp.html":[4,0,0,6,8,1,1,0],
-"LandingSiteCalcSunAzimuth_8hpp.html":[4,0,0,6,8,1,1,1],
-"LandingSiteCalcSunAzimuth_8hpp_source.html":[4,0,0,6,8,1,1,1],
-"LandingSiteCalcSunElevation_8cpp.html":[4,0,0,6,8,1,1,2],
-"LandingSiteCalcSunElevation_8hpp.html":[4,0,0,6,8,1,1,3],
-"LandingSiteCalcSunElevation_8hpp_source.html":[4,0,0,6,8,1,1,3]
+"Lambert_8hpp_source.html":[4,0,0,6,8,8]
 };

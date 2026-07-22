@@ -1,5 +1,11 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcTimeDifference_8cpp.html":[4,0,0,6,8,1,0,15,206],
+"ScStateCalcTimeDifference_8hpp.html":[4,0,0,6,8,1,0,15,207],
+"ScStateCalcTimeDifference_8hpp_source.html":[4,0,0,6,8,1,0,15,207],
+"ScStateCalcTimePastAscNode_8cpp.html":[4,0,0,6,8,1,0,10,28],
+"ScStateCalcTimePastAscNode_8hpp.html":[4,0,0,6,8,1,0,10,29],
+"ScStateCalcTimePastAscNode_8hpp_source.html":[4,0,0,6,8,1,0,10,29],
 "ScStateCalcTimePastPeriapsis_8cpp.html":[4,0,0,6,8,1,0,10,30],
 "ScStateCalcTimePastPeriapsis_8hpp.html":[4,0,0,6,8,1,0,10,31],
 "ScStateCalcTimePastPeriapsis_8hpp_source.html":[4,0,0,6,8,1,0,10,31],
@@ -243,11 +249,5 @@ var NAVTREEINDEX13 =
 "SolarSystem_8hpp.html":[4,0,0,6,11,9],
 "SolarSystem_8hpp_source.html":[4,0,0,6,11,9],
 "SolverStats_8h.html":[4,0,0,12,4,2],
-"SolverStats_8h_source.html":[4,0,0,12,4,2],
-"SpaceObject_8cpp.html":[4,0,0,19,3,58],
-"SpaceObject_8cpp.html#a0e9729fb90d67faafec2435a814d25ac":[4,0,0,19,3,58,2],
-"SpaceObject_8cpp.html#a42a38cf0aed9af584dd2b2dfb7b15711":[4,0,0,19,3,58,3],
-"SpaceObject_8cpp.html#a53b517690d4d043bf79a2fb35fd86c43":[4,0,0,19,3,58,1],
-"SpaceObject_8cpp.html#aca90054f47905f59270738482f4378a7":[4,0,0,19,3,58,0],
-"SpaceObject_8hpp.html":[4,0,0,19,3,59]
+"SolverStats_8h_source.html":[4,0,0,12,4,2]
 };

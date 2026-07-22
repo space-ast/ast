@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"DataUpdater_8hpp_source.html":[4,0,0,7,3],
+"DateTimeFormat_8cpp.html":[4,0,0,6,12,5],
+"DateTimeParse_8cpp.html":[4,0,0,6,12,6],
 "DateTime_8cpp.html":[4,0,0,6,12,3],
 "DateTime_8cpp.html#a81334076dec89ffde7d43d67aa9d53da":[4,0,0,6,12,3,0],
 "DateTime_8hpp_source.html":[4,0,0,6,12,4],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "EventIntervalExplicit_8hpp_source.html":[4,0,0,6,12,0,0,3],
 "EventIntervalFallback_8cpp.html":[4,0,0,6,12,0,0,4],
 "EventIntervalFallback_8hpp.html":[4,0,0,6,12,0,0,5],
-"EventIntervalFallback_8hpp_source.html":[4,0,0,6,12,0,0,5],
-"EventIntervalLinkTo_8cpp.html":[4,0,0,6,12,0,0,6],
-"EventIntervalLinkTo_8hpp.html":[4,0,0,6,12,0,0,7],
-"EventIntervalLinkTo_8hpp_source.html":[4,0,0,6,12,0,0,7]
+"EventIntervalFallback_8hpp_source.html":[4,0,0,6,12,0,0,5]
 };

@@ -129,6 +129,9 @@ var NAVTREEINDEX2 =
 "BodyEphemeris_8cpp.html":[4,0,0,6,11,0,0],
 "BodyEphemeris_8hpp.html":[4,0,0,6,11,0,1],
 "BodyEphemeris_8hpp_source.html":[4,0,0,6,11,0,1],
+"BodyObstructionConstraint_8cpp.html":[4,0,0,6,3,2],
+"BodyObstructionConstraint_8hpp.html":[4,0,0,6,3,3],
+"BodyObstructionConstraint_8hpp_source.html":[4,0,0,6,3,3],
 "BodyObstruction_8cpp.html":[4,0,0,6,7,0,0],
 "BodyObstruction_8cpp.html#ae210151f5f7a2d84abeda8085cd61b39":[4,0,0,6,7,0,0,0],
 "BodyObstruction_8hpp.html":[4,0,0,6,7,0,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "CelestialBodyLoader_8cpp.html":[4,0,0,6,11,6],
 "CelestialBodyLoader_8cpp.html#a5c4db3a67bbd0771748a0b1a9a70a8d1":[4,0,0,6,11,6,0],
 "CelestialBodyLoader_8hpp.html":[4,0,0,6,11,7],
-"CelestialBodyLoader_8hpp.html#a5c4db3a67bbd0771748a0b1a9a70a8d1":[4,0,0,6,11,7,0],
-"CelestialBodyLoader_8hpp_source.html":[4,0,0,6,11,7],
-"CelestialBody_8cpp.html":[4,0,0,6,11,4],
-"CelestialBody_8hpp.html":[4,0,0,6,11,5]
+"CelestialBodyLoader_8hpp.html#a5c4db3a67bbd0771748a0b1a9a70a8d1":[4,0,0,6,11,7,0]
 };

@@ -1,5 +1,11 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcMCSDeltaVSquared_8hpp_source.html":[4,0,0,6,8,1,0,15,99],
+"ScStateCalcMCSDeltaV_8cpp.html":[4,0,0,6,8,1,0,15,96],
+"ScStateCalcMCSDeltaV_8hpp.html":[4,0,0,6,8,1,0,15,97],
+"ScStateCalcMCSDeltaV_8hpp_source.html":[4,0,0,6,8,1,0,15,97],
+"ScStateCalcMagFieldDipoleL_8cpp.html":[4,0,0,6,8,1,0,15,82],
+"ScStateCalcMagFieldDipoleL_8hpp.html":[4,0,0,6,8,1,0,15,83],
 "ScStateCalcMagFieldDipoleL_8hpp_source.html":[4,0,0,6,8,1,0,15,83],
 "ScStateCalcMagneticFieldForce_8cpp.html":[4,0,0,6,8,1,0,15,84],
 "ScStateCalcMagneticFieldForce_8hpp.html":[4,0,0,6,8,1,0,15,85],
@@ -243,11 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcTemperature_8hpp_source.html":[4,0,0,6,8,1,0,15,203],
 "ScStateCalcThrust_8cpp.html":[4,0,0,6,8,1,0,15,204],
 "ScStateCalcThrust_8hpp.html":[4,0,0,6,8,1,0,15,205],
-"ScStateCalcThrust_8hpp_source.html":[4,0,0,6,8,1,0,15,205],
-"ScStateCalcTimeDifference_8cpp.html":[4,0,0,6,8,1,0,15,206],
-"ScStateCalcTimeDifference_8hpp.html":[4,0,0,6,8,1,0,15,207],
-"ScStateCalcTimeDifference_8hpp_source.html":[4,0,0,6,8,1,0,15,207],
-"ScStateCalcTimePastAscNode_8cpp.html":[4,0,0,6,8,1,0,10,28],
-"ScStateCalcTimePastAscNode_8hpp.html":[4,0,0,6,8,1,0,10,29],
-"ScStateCalcTimePastAscNode_8hpp_source.html":[4,0,0,6,8,1,0,10,29]
+"ScStateCalcThrust_8hpp_source.html":[4,0,0,6,8,1,0,15,205]
 };

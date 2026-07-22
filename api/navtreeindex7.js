@@ -1,5 +1,11 @@
 var NAVTREEINDEX7 =
 {
+"LandingSiteCalcSunAzimuth_8cpp.html":[4,0,0,6,8,1,1,0],
+"LandingSiteCalcSunAzimuth_8hpp.html":[4,0,0,6,8,1,1,1],
+"LandingSiteCalcSunAzimuth_8hpp_source.html":[4,0,0,6,8,1,1,1],
+"LandingSiteCalcSunElevation_8cpp.html":[4,0,0,6,8,1,1,2],
+"LandingSiteCalcSunElevation_8hpp.html":[4,0,0,6,8,1,1,3],
+"LandingSiteCalcSunElevation_8hpp_source.html":[4,0,0,6,8,1,1,3],
 "LandingSiteCalculation_8hpp.html":[4,0,0,6,8,1,1,4],
 "LandingSiteCalculation_8hpp_source.html":[4,0,0,6,8,1,1,4],
 "LandingSite_8cpp.html":[4,0,0,6,8,3,13],
@@ -243,11 +249,5 @@ var NAVTREEINDEX7 =
 "MissionIcons_8hpp.html#aff07142047859f375cf1a02532bbf03b":[4,0,0,10,7,0,0],
 "MissionIcons_8hpp_source.html":[4,0,0,10,7,0],
 "Mission_8hpp.html":[4,0,0,6,8,3,18],
-"Mission_8hpp_source.html":[4,0,0,6,8,3,18],
-"MockBuffer_8cpp.html":[4,0,0,13,1],
-"MockBuffer_8cpp.html#a34fab52874caf5233300db088d88045a":[4,0,0,13,1,2],
-"MockBuffer_8cpp.html#a44f38ce906bcee1f708cab78f7e14476":[4,0,0,13,1,1],
-"MockBuffer_8cpp.html#acfe621d5ba796e1ab3866752defc4f13":[4,0,0,13,1,3],
-"MockBuffer_8cpp.html#ad960b2759fb42ddb1d94bf50e0123989":[4,0,0,13,1,0],
-"MockBuffer_8hpp.html":[4,0,0,13,2]
+"Mission_8hpp_source.html":[4,0,0,6,8,3,18]
 };
