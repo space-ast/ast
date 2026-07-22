@@ -53,10 +53,20 @@ using namespace ast::literals;
 
 // ==================== 测试辅助：构建卫星 ====================
 
-/// @brief 根据配置文件参数构建 Satellite 对象
-/// @param name 卫星名称
+/// @brief 根据轨道参数构建 Satellite 对象
+/// @param name       卫星名称
+/// @param rp         近地点半径 (m)
+/// @param ecc        偏心率
+/// @param incDeg     倾角（度）
+/// @param raanDeg    升交点赤经（度）
+/// @param argPeriDeg 近地点辐角（度）
+/// @param trueADeg   真近点角（度）
+/// @param epoch      状态历元
 /// @return 配置完成的 Satellite 指针
-static Satellite* CreateSatelliteFromParams(const std::string& name)
+static Satellite* CreateSatellite(
+    const std::string& name,
+    double rp, double ecc, double incDeg, double raanDeg, double argPeriDeg, double trueADeg,
+    const TimePoint& epoch)
 {
     auto sat = new Satellite();
     sat->setName(name);
@@ -67,20 +77,13 @@ static Satellite* CreateSatelliteFromParams(const std::string& name)
     // 创建开普勒轨道状态
     auto state = StateKeplerian::New();
 
-    // 设置轨道根数（与 Satellite1.sa 文件一致）
-    // RadiusOfPerigee = 6678137.0 m
-    // Eccentricity     = 0.0
-    // Inclination      = 28.5 deg
-    // RightAscension   = 0.0 deg
-    // ArgOfPerigee     = 0.0 deg
-    // TrueAnomaly      = 0.0 deg
     ModOrbElem elem{};
-    elem.rp_     = 6678137.0;               // 近地点半径 (m)
-    elem.e_      = 0.0;                     // 偏心率
-    elem.i_      = deg2rad(28.5);           // 倾角 (rad)
-    elem.raan_   = deg2rad(0.0);            // 升交点赤经 (rad)
-    elem.argper_ = deg2rad(0.0);            // 近地点辐角 (rad)
-    elem.trueA_  = deg2rad(0.0);            // 真近点角 (rad)
+    elem.rp_     = rp;
+    elem.e_      = ecc;
+    elem.i_      = deg2rad(incDeg);
+    elem.raan_   = deg2rad(raanDeg);
+    elem.argper_ = deg2rad(argPeriDeg);
+    elem.trueA_  = deg2rad(trueADeg);
 
     // 获取地球天体
     CelestialBody* earth = aGetEarth();
@@ -88,8 +91,6 @@ static Satellite* CreateSatelliteFromParams(const std::string& name)
     // 创建 ICRF 坐标系
     auto frame = earth->makeFrameICRF();
 
-    // 设置状态历元：22 Jul 2026 04:00:00 UTC
-    TimePoint epoch = TimePoint::FromUTC(2026, 7, 22, 4, 0, 0.0);
     state->setFrame(frame.get());
     state->setState(elem);
     state->setStateEpoch(epoch);
@@ -98,19 +99,31 @@ static Satellite* CreateSatelliteFromParams(const std::string& name)
     motion->setInitialState(state);
     motion->setPropagationFrame(frame.get());
 
-    // 设置分析时间区间（与 .sa 文件一致）
-    TimePoint startTime = TimePoint::FromUTC(2026, 7, 22, 4, 0, 0.0);
-    TimePoint stopTime  = TimePoint::FromUTC(2026, 7, 23, 4, 0, 0.0);
-    auto interval = EventIntervalExplicit::New(startTime, stopTime);
+    TimePoint stopTime = epoch + 86400.0; // 24 小时
+    auto interval = EventIntervalExplicit::New(epoch, stopTime);
     motion->setInterval(interval);
-
-    // 设置步长 60 秒（与 .sa 文件 TimeStep 一致）
     motion->setStepSize(60.0);
 
     // 将运动模型附加到卫星
     sat->setMotionProfile(motion);
 
     return sat;
+}
+
+/// @brief 构建 Satellite1（对应 Satellite1.sa）
+static Satellite* CreateSatellite1()
+{
+    return CreateSatellite("Satellite1",
+        6678137.0, 0.0, 28.5, 0.0, 0.0, 0.0,
+        TimePoint::FromUTC(2026, 7, 22, 4, 0, 0.0));
+}
+
+/// @brief 构建 Satellite2（对应 Satellite2.sa）
+static Satellite* CreateSatellite2()
+{
+    return CreateSatellite("Satellite2",
+        1.0e7, 0.0, 58.5, 50.0, 0.0, 0.0,
+        TimePoint::FromUTC(2026, 7, 22, 4, 0, 0.0));
 }
 
 // ==================== 测试辅助：构建地面站 ====================
@@ -157,7 +170,7 @@ public:
 TEST_F(AccessAnalysisTest, Satellite1ToFacility1)
 {
     // 1. 构建卫星
-    Satellite* sat = CreateSatelliteFromParams("Satellite1");
+    Satellite* sat = CreateSatellite1();
     ASSERT_NE(sat, nullptr);
     printf("Created satellite: %s\n", sat->getName().c_str());
 
@@ -268,7 +281,7 @@ TEST_F(AccessAnalysisTest, Satellite1ToFacility1)
 TEST_F(AccessAnalysisTest, Satellite1ToFacility2)
 {
     // 1. 构建卫星
-    Satellite* sat = CreateSatelliteFromParams("Satellite1");
+    Satellite* sat = CreateSatellite1();
     ASSERT_NE(sat, nullptr);
 
     // 2. 生成星历
@@ -294,32 +307,6 @@ TEST_F(AccessAnalysisTest, Satellite1ToFacility2)
 
     // 6. 创建约束、步进器、评估器
     BodyObstructionConstraint constraint(sat, fac, earth);
-
-    // ---- 调试：精细采样过境时间附近 ----
-    {
-        // 第一个过境时间附近（基准: 04:01:47 附近）
-        TimePoint t0 = TimePoint::FromUTC(2026, 7, 22, 4, 1, 0.0);
-        for (int s = 0; s <= 120; ++s) {
-            TimePoint t = t0 + s * 1.0;
-            double v = constraint.evaluate(t);
-            if (v >= -10.0) { // 只打印接近零的值
-                printf("DEBUG t=04:01:%02d  margin=%.15f  satisfied=%d\n",
-                       s, v, v >= 0.0 ? 1 : 0);
-            }
-        }
-        // 第二过境附近（基准: 05:36:13）
-        t0 = TimePoint::FromUTC(2026, 7, 22, 5, 36, 0.0);
-        for (int s = 0; s <= 30; ++s) {
-            TimePoint t = t0 + s * 1.0;
-            double v = constraint.evaluate(t);
-            if (v >= -10.0) {
-                printf("DEBUG t=05:36:%02d  margin=%.15f  satisfied=%d\n",
-                       s, v, v >= 0.0 ? 1 : 0);
-            }
-        }
-    }
-    // ---- 调试结束 ----
-
     FixedStepStepper stepper(60.0);
     AccessEvaluator evaluator;
     evaluator.setConstraint(&constraint);
@@ -399,6 +386,119 @@ TEST_F(AccessAnalysisTest, Satellite1ToFacility2)
     // 清理
     delete fac;
     delete sat;
+}
+
+// ==================== 测试用例 3：卫星对卫星 ====================
+
+TEST_F(AccessAnalysisTest, Satellite1ToSatellite2)
+{
+    // 1. 构建两颗卫星
+    Satellite* sat1 = CreateSatellite1();
+    Satellite* sat2 = CreateSatellite2();
+    ASSERT_NE(sat1, nullptr);
+    ASSERT_NE(sat2, nullptr);
+    printf("Created satellite: %s\n", sat1->getName().c_str());
+    printf("Created satellite: %s\n", sat2->getName().c_str());
+
+    // 2. 生成星历
+    errc_t rc = sat1->generateEphemeris();
+    ASSERT_EQ(rc, eNoError);
+    rc = sat2->generateEphemeris();
+    ASSERT_EQ(rc, eNoError);
+    printf("Ephemeris generated successfully.\n");
+
+    // 3. 获取地球天体
+    CelestialBody* earth = aGetEarth();
+    ASSERT_NE(earth, nullptr);
+
+    // 4. 定义分析时间区间
+    TimePoint start = TimePoint::FromUTC(2026, 7, 22, 4, 0, 0.0);
+    TimePoint stop  = TimePoint::FromUTC(2026, 7, 23, 4, 0, 0.0);
+    TimeInterval analysisInterval(start, stop);
+
+    // 5. 创建约束、步进器、评估器
+    BodyObstructionConstraint constraint(sat1, sat2, earth);
+    FixedStepStepper stepper(60.0);
+    AccessEvaluator evaluator;
+    evaluator.setConstraint(&constraint);
+    evaluator.setStepper(&stepper);
+
+    // 6. 计算访问时段
+    TimeIntervalList result;
+    rc = evaluator.evaluate(analysisInterval, result);
+    ASSERT_EQ(rc, eNoError);
+
+    // 7. 打印结果
+    printf("\n=== Access Intervals: Satellite1 -> Satellite2 ===\n");
+    printf("Found %zu access intervals:\n", result.size());
+
+    double totalDuration = 0.0;
+    for (size_t i = 0; i < result.size(); ++i)
+    {
+        TimeInterval ti = result[i];
+        printf("  [%zu] %s  (duration = %.4f s)\n",
+               i, ti.toString().c_str(), ti.duration());
+        totalDuration += ti.duration();
+    }
+    printf("Total access time: %.4f s (%.2f min)\n\n",
+           totalDuration, totalDuration / 60.0);
+
+    // 8. 与基准结果对比（容差：时间 0.001s，时长 0.01s）
+    struct BaselineInterval {
+        int       index;
+        TimePoint start;
+        TimePoint stop;
+        double    duration;
+    };
+    static const BaselineInterval kBaseline[] = {
+        {1, TimePoint::FromUTC(2026, 7, 22,  4,  0,  0.0000),
+            TimePoint::FromUTC(2026, 7, 22,  4, 51, 48.5809), 3108.5809},
+        {2, TimePoint::FromUTC(2026, 7, 22,  7,  2, 32.1665),
+            TimePoint::FromUTC(2026, 7, 22,  8, 19, 24.0335), 4611.8670},
+        {3, TimePoint::FromUTC(2026, 7, 22, 10, 27,  8.8420),
+            TimePoint::FromUTC(2026, 7, 22, 11, 30, 16.3041), 3787.4621},
+        {4, TimePoint::FromUTC(2026, 7, 22, 13, 45, 18.4471),
+            TimePoint::FromUTC(2026, 7, 22, 15,  0,  0.4138), 4481.9667},
+        {5, TimePoint::FromUTC(2026, 7, 22, 16, 57, 31.7290),
+            TimePoint::FromUTC(2026, 7, 22, 18, 12, 46.1887), 4514.4596},
+        {6, TimePoint::FromUTC(2026, 7, 22, 20, 27, 37.8986),
+            TimePoint::FromUTC(2026, 7, 22, 21, 28, 45.3587), 3667.4601},
+        {7, TimePoint::FromUTC(2026, 7, 22, 23, 38, 35.9752),
+            TimePoint::FromUTC(2026, 7, 23,  0, 55, 28.6028), 4612.6276},
+        {8, TimePoint::FromUTC(2026, 7, 23,  3,  4, 27.6884),
+            TimePoint::FromUTC(2026, 7, 23,  4,  0,  0.0000), 3332.3116},
+    };
+    static const double kExpectedTotal = 32116.7356;
+    static const double kTimeTol      = 0.001;  // 1ms
+    static const double kDurTol       = 0.01;   // 10ms
+
+    ASSERT_EQ(result.size(), 8u) << "Interval count mismatch";
+
+    for (size_t i = 0; i < result.size(); ++i) {
+        TimeInterval ti = result[i];
+        const auto& bl = kBaseline[i];
+
+        double startDiff = fabs(ti.start() - bl.start);
+        double stopDiff  = fabs(ti.stop() - bl.stop);
+        double durDiff   = fabs(ti.duration() - bl.duration);
+
+        EXPECT_LT(startDiff, kTimeTol)
+            << "Interval " << bl.index << " start mismatch: computed="
+            << ti.start().toString() << " baseline=" << bl.start.toString();
+        EXPECT_LT(stopDiff, kTimeTol)
+            << "Interval " << bl.index << " stop mismatch: computed="
+            << ti.stop().toString() << " baseline=" << bl.stop.toString();
+        EXPECT_LT(durDiff, kDurTol)
+            << "Interval " << bl.index << " duration mismatch: computed="
+            << ti.duration() << " baseline=" << bl.duration;
+    }
+
+    EXPECT_NEAR(totalDuration, kExpectedTotal, kDurTol)
+        << "Total duration mismatch";
+
+    // 清理
+    delete sat1;
+    delete sat2;
 }
 
 // ==================== 测试入口 ====================
