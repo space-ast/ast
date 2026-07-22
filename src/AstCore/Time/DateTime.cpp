@@ -314,9 +314,9 @@ errc_t aDateTimeFormatISO8601(const DateTime& dttm, std::string& str)
 errc_t aDateTimeFormatGregorian(const DateTime& dttm, std::string& str, int precision)
 {
     char buffer[64];
-    sprintf(buffer, "%04d-%02d-%02d %02d:%02d:%02.*f", 
-            dttm.year(), dttm.month(), dttm.day(), 
-            dttm.hour(), dttm.minute(), precision, dttm.second());
+    sprintf(buffer, "%04d-%02d-%02d %02d:%02d:%0*.*f",
+            dttm.year(), dttm.month(), dttm.day(),
+            dttm.hour(), dttm.minute(), precision + 3, precision, dttm.second());
     
     str = buffer;
     return eNoError;
@@ -326,7 +326,7 @@ errc_t aDateTimeFormatGregorianEn(const DateTime& dttm, std::string& str)
 {
     char buffer[64];
     const char* monthName = dttm.date().monthShortName();
-    snprintf(buffer, sizeof(buffer), "%d %s %04d %02d:%02d:%02.3f", 
+    snprintf(buffer, sizeof(buffer), "%d %s %04d %02d:%02d:%06.3f", 
             dttm.day(), monthName, dttm.year(), 
             dttm.hour(), dttm.minute(), dttm.second());
     
@@ -339,7 +339,7 @@ errc_t aDateTimeFormatGMT(const DateTime& dttm, std::string& str)
     char buffer[64];
     const char* weekdayName = dttm.date().weekDayShortName();
     const char* monthName = dttm.date().monthShortName();
-    snprintf(buffer, sizeof(buffer), "%s, %02d %s %04d %02d:%02d:%02.3f GMT", 
+    snprintf(buffer, sizeof(buffer), "%s, %02d %s %04d %02d:%02d:%06.3f GMT", 
             weekdayName, dttm.day(), monthName, dttm.year(), 
             dttm.hour(), dttm.minute(), dttm.second());
     
@@ -351,7 +351,7 @@ errc_t aDateTimeFormatRFC3339(const DateTime& dttm, std::string& str)
 {
     char buffer[64];
     // 默认使用+00:00时区，实际使用时可能需要根据具体时区调整
-    snprintf(buffer, sizeof(buffer), "%04d-%02d-%02dT%02d:%02d:%02.3f+00:00", 
+    snprintf(buffer, sizeof(buffer), "%04d-%02d-%02dT%02d:%02d:%06.3f+00:00", 
             dttm.year(), dttm.month(), dttm.day(), 
             dttm.hour(), dttm.minute(), dttm.second());
     
@@ -372,7 +372,7 @@ errc_t aDateTimeFormatRFC2822(const DateTime& dttm, std::string& str)
     const char* weekdayName = dttm.date().weekDayShortName();
     const char* monthName = dttm.date().monthShortName();
     // 默认使用+0000时区，实际使用时可能需要根据具体时区调整
-    sprintf(buffer, "%s, %02d %s %04d %02d:%02d:%02.3f +0000", 
+    sprintf(buffer, "%s, %02d %s %04d %02d:%02d:%06.3f +0000", 
             weekdayName, dttm.day(), monthName, dttm.year(), 
             dttm.hour(), dttm.minute(), dttm.second());
     

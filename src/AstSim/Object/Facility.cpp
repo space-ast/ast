@@ -31,17 +31,24 @@ Facility::Facility()
 
 Frame *Facility::getFrame() const
 {
-    return nullptr;
+    auto body = this->body();
+    assert(body != nullptr);
+    if(body == nullptr) return nullptr;
+    return body->getFrameFixed();
 }
 
 errc_t Facility::getPos(const TimePoint &tp, Vector3d &pos) const
 {
-    return -1;
+    auto body = this->body();    AST_CHECK_NULLPTR(body);
+    auto shape = body->shape();  AST_CHECK_NULLPTR(shape);
+    shape->transform(this->getGeodeticPosition(), pos);
+    return 0;
 }
 
 errc_t Facility::getPosVel(const TimePoint &tp, Vector3d &pos, Vector3d &vel) const
 {
-    return -1;
+    vel = Vector3d::Zero();
+    return this->getPos(tp, pos);
 }
 
 AST_NAMESPACE_END

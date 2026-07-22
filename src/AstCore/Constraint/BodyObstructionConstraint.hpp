@@ -36,6 +36,7 @@ public:
     AST_OBJECT(BodyObstructionConstraint)
 
     BodyObstructionConstraint() = default;
+    A_DISABLE_COPY(BodyObstructionConstraint);
 
     /// @brief 构造天体遮挡约束
     /// @param fromObject 观测者

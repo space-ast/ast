@@ -36,6 +36,7 @@ public:
     AST_OBJECT(FieldOfViewConstraint)
 
     FieldOfViewConstraint() = default;
+    A_DISABLE_COPY(FieldOfViewConstraint);
 
     /// @brief 构造视场约束
     /// @param fromObject 传感器所在的观测者

@@ -220,7 +220,7 @@ private:
 
 } // anonymous namespace
 
-// 正、负、零边界的 isSatisfied 判断
+// 正、负、零边界的 isSatisfied 判断（>=0 满足，<0 违反）
 TEST(AccessConstraintTest, SignedBoundaryCheck)
 {
     ConstraintAlwaysSatisfied ok;
@@ -232,7 +232,7 @@ TEST(AccessConstraintTest, SignedBoundaryCheck)
     auto t0 = TimePoint::Default();
     EXPECT_TRUE(ok.isSatisfied(t0));
     EXPECT_FALSE(bad.isSatisfied(t0));
-    EXPECT_FALSE(zero.isSatisfied(t0));
+    EXPECT_TRUE(zero.isSatisfied(t0));  // >=0 边界值视为满足
     EXPECT_TRUE(pos.isSatisfied(t0));
     EXPECT_FALSE(neg.isSatisfied(t0));
 }

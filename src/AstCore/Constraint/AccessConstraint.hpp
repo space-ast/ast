@@ -31,7 +31,7 @@ class Point;
 
 /// @brief 访问约束抽象基类
 /// @details 约束评估返回有符号特征值 double：
-///          - value > 0 → 约束满足（可见/可访问）
+///          - value >= 0 → 约束满足（可见/可访问）
 ///          - value < 0 → 约束违反（不可见/不可访问）
 ///          - value == 0 → 恰好处于边界
 ///
@@ -55,7 +55,7 @@ public:
     /// @return true = 约束满足
     bool isSatisfied(const TimePoint& time) const
     {
-        return evaluate(time) > 0.0;
+        return evaluate(time) >= 0.0;
     }
 
 };

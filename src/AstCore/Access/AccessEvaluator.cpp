@@ -1,7 +1,7 @@
 ///
 /// @file      AccessEvaluator.cpp
 /// @brief     访问评估器实现
-/// @details   步进采样 → 符号翻转检测 → Brent 求根精化 → 区间合并
+/// @details   步进采样 → 符号翻转检测 → Brent/二分法求根精化 → 区间合并
 /// @author    axel
 /// @date      2026-07-22
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -22,6 +22,7 @@
 #include "AccessStepper.hpp"
 #include "AstCore/AccessConstraint.hpp"
 #include "AstMath/BrentSolver.hpp"
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
@@ -31,13 +32,15 @@ AccessEvaluator::~AccessEvaluator() = default;
 bool AccessEvaluator::check(const TimePoint& time) const
 {
     if (!constraint_) { return false; }
-    return constraint_->evaluate(time) > 0.0;
+    return constraint_->evaluate(time) >= 0.0;
 }
 
 errc_t AccessEvaluator::evaluate(const TimeInterval& interval, TimeIntervalList& result)
 {
     return aEvaluateAccess(constraint_, stepper_, interval, result);
 }
+
+constexpr double kZeroTol = 1e-9;  // 约束值零容差：浮点噪声可能产生 ~1e-10 偏差
 
 errc_t aEvaluateAccess(
     const AccessConstraint* constraint,
@@ -53,8 +56,10 @@ errc_t aEvaluateAccess(
     stepper->init(start, stop);
     result.setEpoch(start);
 
+    auto isSatisfied = [](double v) { return v >= -kZeroTol; };
+
     double prevValue = constraint->evaluate(start);
-    bool   inAccess  = (prevValue > 0.0);
+    bool   inAccess  = isSatisfied(prevValue);
     TimePoint boundaryStart = start;
 
     TimePoint prevTime = start;
@@ -63,16 +68,39 @@ errc_t aEvaluateAccess(
     while (stepper->next(currentTime)) {
         double currentValue = constraint->evaluate(currentTime);
 
-        // 符号翻转检测
-        if ((prevValue > 0.0) != (currentValue > 0.0)) {
+        // 符号翻转检测（使用容差，容忍浮点噪声导致约束值不精确为零）
+        if (isSatisfied(prevValue) != isSatisfied(currentValue)) {
             double dt = currentTime - prevTime;
             TimePoint refTime = prevTime;
 
-            // Brent 精化求根
+            // 精化求根
             double rootT = 0.0;
-            BrentSolver().solve([constraint, refTime](double x) -> double {
-                return constraint->evaluate(refTime + x);
-            }, 0.0, dt, rootT);
+            if (fabs(prevValue) <= kZeroTol || fabs(currentValue) <= kZeroTol) {
+                // 约束值一端近零（平台状）：Brent 无法精化，改用二分法
+                // neg: f(neg) < -kZeroTol, zero: f(zero) >= -kZeroTol
+                double neg, zero;
+                if (!isSatisfied(prevValue)) {
+                    neg = 0;    zero = dt;
+                } else {
+                    neg = dt;   zero = 0;
+                }
+                constexpr double kTol = 1e-4; // 时间精度[s]
+                while (fabs(zero - neg) > kTol) {
+                    double mid = (neg + zero) * 0.5;
+                    double fmid = constraint->evaluate(refTime + mid);
+                    if (isSatisfied(fmid)) {
+                        zero = mid;
+                    } else {
+                        neg  = mid;
+                    }
+                }
+                rootT = zero; // 取非负端
+            } else {
+                // 两端都非零：正常 Brent 求根
+                BrentSolver().solve([constraint, refTime](double x) -> double {
+                    return constraint->evaluate(refTime + x);
+                }, 0.0, dt, rootT);
+            }
 
             TimePoint rootTime = refTime + rootT;
 
