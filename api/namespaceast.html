@@ -124,6 +124,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AccessConstraint.html">AccessConstraint</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ActiveScriptExecutor.html">ActiveScriptExecutor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AdvCAT.html">AdvCAT</a></td></tr>
@@ -4344,6 +4346,10 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>loadGravityFieldSec
 <tr class="memitem:a6e9a7a0e12e1222ab573a805103a1cae" id="r_a6e9a7a0e12e1222ab573a805103a1cae"><td class="memItemLeft" align="right" valign="top"><a id="a6e9a7a0e12e1222ab573a805103a1cae" name="a6e9a7a0e12e1222ab573a805103a1cae"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>postProcessGravityFieldSecularVariations</b> (<a class="el" href="classast_1_1GravityField.html">GravityField</a> &amp;gf)</td></tr>
 <tr class="separator:a6e9a7a0e12e1222ab573a805103a1cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae210151f5f7a2d84abeda8085cd61b39" id="r_ae210151f5f7a2d84abeda8085cd61b39"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae210151f5f7a2d84abeda8085cd61b39">aLineOfSightClearance</a> (const Vector3d &amp;observerPos, const Vector3d &amp;targetPos, const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="separator:ae210151f5f7a2d84abeda8085cd61b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d132331cd695472e8bebd4de7cf31e1" id="r_a0d132331cd695472e8bebd4de7cf31e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d132331cd695472e8bebd4de7cf31e1">aLineOfSightObstructed</a> (const Vector3d &amp;observerPos, const Vector3d &amp;targetPos, const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *bodyShape)</td></tr>
+<tr class="separator:a0d132331cd695472e8bebd4de7cf31e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af10d58260509e430f1a999b0715f025a" id="r_af10d58260509e430f1a999b0715f025a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af10d58260509e430f1a999b0715f025a">aLightingRatio_CylindricalModel</a> (const Vector3d &amp;position, const Vector3d &amp;lightingSourcePos, double occultingBodyRadius)</td></tr>
 <tr class="separator:af10d58260509e430f1a999b0715f025a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86892e3caf3d8602b4183783b17095e9" id="r_a86892e3caf3d8602b4183783b17095e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86892e3caf3d8602b4183783b17095e9">aCommonSolidAngleOfCone</a> (double dang, double ang1, double ang2)</td></tr>
@@ -12551,6 +12557,88 @@ template&lt;typename GeometryType , typename RotationType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>光照强度, 0: 全阴影, 1: 全光照，0-1: 部分遮挡/光照（半影） </dd></dl>
+
+</div>
+</div>
+<a id="ae210151f5f7a2d84abeda8085cd61b39" name="ae210151f5f7a2d84abeda8085cd61b39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae210151f5f7a2d84abeda8085cd61b39">&#9670;&#160;</a></span>aLineOfSightClearance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API double ast::aLineOfSightClearance </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>observerPos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>targetPos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *</td>          <td class="paramname"><span class="paramname"><em>bodyShape</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算视线到天体表面的最短有符号距离 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">observerPos</td><td>观测者在天体固连系中的位置 </td></tr>
+    <tr><td class="paramname">targetPos</td><td>目标在天体固连系中的位置 </td></tr>
+    <tr><td class="paramname">bodyShape</td><td>天体形状（球体 / 扁球体 / 椭球体） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>最短距离：&gt;0 视线未穿入天体表面，&lt;0 视线穿入，==0 恰好相切 </dd></dl>
+
+</div>
+</div>
+<a id="a0d132331cd695472e8bebd4de7cf31e1" name="a0d132331cd695472e8bebd4de7cf31e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d132331cd695472e8bebd4de7cf31e1">&#9670;&#160;</a></span>aLineOfSightObstructed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::aLineOfSightObstructed </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>observerPos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>targetPos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *</td>          <td class="paramname"><span class="paramname"><em>bodyShape</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>便捷方法：视线是否被中心天体遮挡 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">observerPos</td><td>观测者在天体固连系中的位置 </td></tr>
+    <tr><td class="paramname">targetPos</td><td>目标在天体固连系中的位置 </td></tr>
+    <tr><td class="paramname">bodyShape</td><td>天体形状 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true = 被遮挡，false = 无遮挡 </dd></dl>
 
 </div>
 </div>

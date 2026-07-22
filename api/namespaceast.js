@@ -83,6 +83,7 @@ var namespaceast =
       [ "isdir", "namespaceast_1_1posix.html#af224165c7d701178e9d3151c3f2c4333", null ],
       [ "rmdir", "namespaceast_1_1posix.html#a7e90d3800c40de7e75eb1c3fca10dc4a", null ]
     ] ],
+    [ "AccessConstraint", "classast_1_1AccessConstraint.html", "classast_1_1AccessConstraint" ],
     [ "ActiveScriptExecutor", "classast_1_1ActiveScriptExecutor.html", "classast_1_1ActiveScriptExecutor" ],
     [ "AdvCAT", "classast_1_1AdvCAT.html", null ],
     [ "AEP8Data", "classast_1_1AEP8Data.html", null ],
@@ -2260,6 +2261,8 @@ var namespaceast =
     [ "aLightingRatio_CylindricalModel", "namespaceast.html#af10d58260509e430f1a999b0715f025a", null ],
     [ "aLightingRatio_DualConeModel", "namespaceast.html#a70a0b7cb997e3f78fb987a86fdacfd96", null ],
     [ "aLightSpeed", "group__Util.html#gafcaa3f13e6acc2d3f23cb6af931e85fe", null ],
+    [ "aLineOfSightClearance", "namespaceast.html#ae210151f5f7a2d84abeda8085cd61b39", null ],
+    [ "aLineOfSightObstructed", "namespaceast.html#a0d132331cd695472e8bebd4de7cf31e1", null ],
     [ "aLoadAdvCAT", "namespaceast.html#a120d9f199d7929b9f8c2e5c59569f6d1", null ],
     [ "aLoadAdvCAT", "namespaceast.html#a63cdce2d21d103cdb6c6b7529e34e3a3", null ],
     [ "aLoadAdvCAT", "namespaceast.html#afc60c93a2da3f96b6d84fda392c790e5", null ],

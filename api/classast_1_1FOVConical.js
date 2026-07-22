@@ -1,9 +1,10 @@
 var classast_1_1FOVConical =
 [
     [ "FOVConical", "classast_1_1FOVConical.html#a244be38a7591f72ffce37be22e085a27", null ],
-    [ "~FOVConical", "classast_1_1FOVConical.html#af9432d50e5c55bb4e7bd9f38e6974ba5", null ],
-    [ "accept", "classast_1_1FOVConical.html#a873a98b6d146078fe1563da4d5b14713", null ],
-    [ "getFOVType", "classast_1_1FOVConical.html#a971d675e45b3a0c447df0bb9f84a8c2b", null ],
+    [ "~FOVConical", "classast_1_1FOVConical.html#ae29d6d86163b67de860b2ad222ea1a5b", null ],
+    [ "accept", "classast_1_1FOVConical.html#acbcc4ef01c5b7a13fef014e305208de0", null ],
+    [ "angularMargin", "classast_1_1FOVConical.html#af78db2b189081488df6270c6afdba65e", null ],
+    [ "getFOVType", "classast_1_1FOVConical.html#a00451772533b0019efa38735c7da2e6c", null ],
     [ "getInnerConeAngle", "classast_1_1FOVConical.html#aae4b8b794fd555c41c671e8de977245d", null ],
     [ "getMaxClockAngle", "classast_1_1FOVConical.html#a77c12263c303a335ab7ec801834a5820", null ],
     [ "getMinClockAngle", "classast_1_1FOVConical.html#a8fdb44ad6c233786e671e9ef71395b2b", null ],

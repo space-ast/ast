@@ -56,6 +56,7 @@ var annotated_dup =
         [ "SkipWhitespace", "structast_1_1strings__internal_1_1SkipWhitespace.html", null ],
         [ "Splitter", "classast_1_1strings__internal_1_1Splitter.html", "classast_1_1strings__internal_1_1Splitter" ]
       ] ],
+      [ "AccessConstraint", "classast_1_1AccessConstraint.html", "classast_1_1AccessConstraint" ],
       [ "ActiveScriptExecutor", "classast_1_1ActiveScriptExecutor.html", "classast_1_1ActiveScriptExecutor" ],
       [ "AdvCAT", "classast_1_1AdvCAT.html", null ],
       [ "AEP8Data", "classast_1_1AEP8Data.html", null ],

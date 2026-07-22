@@ -783,6 +783,7 @@ var hierarchy =
       [ "ast::Object", "classast_1_1Object.html", [
         [ "ast::MockObject", "classast_1_1MockObject.html", null ],
         [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
+          [ "ast::AccessConstraint", "classast_1_1AccessConstraint.html", null ],
           [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
           [ "ast::Angle", "classast_1_1Angle.html", null ],
           [ "ast::Antenna", "classast_1_1Antenna.html", null ],

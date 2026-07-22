@@ -100,7 +100,6 @@ $(function(){initNavTree('classast_1_1FieldOfView.html',''); initResizable(true)
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classast_1_1FieldOfView-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::FieldOfView类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -139,10 +138,12 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~FieldOfView</b> (
 <tr class="separator:ab023f0078d1ca7b188d7f3d5c0980917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad22902a92ae8fbf2059fea0cfcacead2" id="r_ad22902a92ae8fbf2059fea0cfcacead2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad22902a92ae8fbf2059fea0cfcacead2">accept</a> (<a class="el" href="classast_1_1FieldOfViewVisitor.html">FieldOfViewVisitor</a> &amp;visitor)=0</td></tr>
 <tr class="separator:ad22902a92ae8fbf2059fea0cfcacead2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6941aa22d836b53802af0f1cde542561" id="r_a6941aa22d836b53802af0f1cde542561"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6941aa22d836b53802af0f1cde542561">setDetailedTerrainHorizon</a> (bool value)</td></tr>
-<tr class="separator:a6941aa22d836b53802af0f1cde542561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4abce0d4edc7a0d115b7e691303cb91a" id="r_a4abce0d4edc7a0d115b7e691303cb91a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4abce0d4edc7a0d115b7e691303cb91a">getDetailedTerrainHorizon</a> () const</td></tr>
-<tr class="separator:a4abce0d4edc7a0d115b7e691303cb91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff92aa4ff693161022461dea5ffc09c4" id="r_aff92aa4ff693161022461dea5ffc09c4"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff92aa4ff693161022461dea5ffc09c4">angularMargin</a> (const Vector3d &amp;direction) const =0</td></tr>
+<tr class="separator:aff92aa4ff693161022461dea5ffc09c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4331ea44a88b8e868776667689817325" id="r_a4331ea44a88b8e868776667689817325"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4331ea44a88b8e868776667689817325">containsDirection</a> (const Vector3d &amp;direction) const</td></tr>
+<tr class="separator:a4331ea44a88b8e868776667689817325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d6b27822ad330d78596c12771dd2205" id="r_a8d6b27822ad330d78596c12771dd2205"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d6b27822ad330d78596c12771dd2205">containsPoint</a> (const Vector3d &amp;targetPosInSensorFrame) const</td></tr>
+<tr class="separator:a8d6b27822ad330d78596c12771dd2205"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
 <tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
@@ -290,12 +291,6 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>tr</b> (const
 <tr class="memitem:a441ea6ec3e9e66753a3ece287d58148c inherit pub_methods_classast_1_1Referenced" id="r_a441ea6ec3e9e66753a3ece287d58148c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Referenced.html#a441ea6ec3e9e66753a3ece287d58148c">decRefNoDelete</a> ()</td></tr>
 <tr class="separator:a441ea6ec3e9e66753a3ece287d58148c inherit pub_methods_classast_1_1Referenced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected 属性</h2></td></tr>
-<tr class="memitem:a901f4b069bb0ae3c2d405450a5432b7b" id="r_a901f4b069bb0ae3c2d405450a5432b7b"><td class="memItemLeft" align="right" valign="top"><a id="a901f4b069bb0ae3c2d405450a5432b7b" name="a901f4b069bb0ae3c2d405450a5432b7b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>detailedTerrainHorizon_</b> {false}</td></tr>
-<tr class="separator:a901f4b069bb0ae3c2d405450a5432b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 额外继承的成员函数</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
@@ -357,12 +352,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
   </dd>
 </dl>
 
-<p>在 <a class="el" href="classast_1_1FOVConical.html#a873a98b6d146078fe1563da4d5b14713">ast::FOVConical</a>, <a class="el" href="classast_1_1FOVCustom.html#a6c4f68d8fb6c13ba7ce5e5f75a0b21aa">ast::FOVCustom</a>, <a class="el" href="classast_1_1FOVHalfPower.html#a15d9f46dc9e5eb98799abe9660e60e05">ast::FOVHalfPower</a>, <a class="el" href="classast_1_1FOVRectangular.html#ac0e4043f1f8c8bdea8756a49f175687d">ast::FOVRectangular</a>, <a class="el" href="classast_1_1FOVSAR.html#a572afe0a7aac7ad49f4d0f8fc351fa33">ast::FOVSAR</a> , 以及 <a class="el" href="classast_1_1FOVSimpleCone.html#aa3ce793c80627c028360865fd99b0e18">ast::FOVSimpleCone</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1FOVConical.html#acbcc4ef01c5b7a13fef014e305208de0">ast::FOVConical</a>, <a class="el" href="classast_1_1FOVCustom.html#ad5eb7d5c39e8109c21c6e5127dc205f7">ast::FOVCustom</a>, <a class="el" href="classast_1_1FOVHalfPower.html#a5b84fbe9f40a61ef30154c4ef6a08bfa">ast::FOVHalfPower</a>, <a class="el" href="classast_1_1FOVRectangular.html#a966f2f648cac5dec50399efb8fb107d2">ast::FOVRectangular</a>, <a class="el" href="classast_1_1FOVSAR.html#af784d541ab7636d2e4d6ebdf277042b8">ast::FOVSAR</a> , 以及 <a class="el" href="classast_1_1FOVSimpleCone.html#adc7f168305682e7469b50f25bc06f765">ast::FOVSimpleCone</a> 内被实现.</p>
 
 </div>
 </div>
-<a id="a4abce0d4edc7a0d115b7e691303cb91a" name="a4abce0d4edc7a0d115b7e691303cb91a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4abce0d4edc7a0d115b7e691303cb91a">&#9670;&#160;</a></span>getDetailedTerrainHorizon()</h2>
+<a id="aff92aa4ff693161022461dea5ffc09c4" name="aff92aa4ff693161022461dea5ffc09c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff92aa4ff693161022461dea5ffc09c4">&#9670;&#160;</a></span>angularMargin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -371,9 +366,45 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ast::FieldOfView::getDetailedTerrainHorizon </td>
+          <td class="memname">virtual double ast::FieldOfView::angularMargin </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>direction</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>计算方向向量到 FOV 边界的角度余量（弧度） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>传感器体坐标系中的方向向量（视轴 = +Z） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>角度余量(rad)：&gt;0 在视场内，&lt;0 在视场外，==0 恰在边界 </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1FOVConical.html#af78db2b189081488df6270c6afdba65e">ast::FOVConical</a>, <a class="el" href="classast_1_1FOVCustom.html#ac9a43d0c0e2c8140beef2e47df915f58">ast::FOVCustom</a>, <a class="el" href="classast_1_1FOVHalfPower.html#acb8fdfd00443bea4491a635d415fc9a0">ast::FOVHalfPower</a>, <a class="el" href="classast_1_1FOVRectangular.html#a2d577af73247eeede4a53712fd7d37d4">ast::FOVRectangular</a>, <a class="el" href="classast_1_1FOVSAR.html#a104f1ba0d622f6400ea248eec54c82ea">ast::FOVSAR</a> , 以及 <a class="el" href="classast_1_1FOVSimpleCone.html#a1ac056edfab8c7740631770ce92e6916">ast::FOVSimpleCone</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a4331ea44a88b8e868776667689817325" name="a4331ea44a88b8e868776667689817325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4331ea44a88b8e868776667689817325">&#9670;&#160;</a></span>containsDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::FieldOfView::containsDirection </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>direction</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -384,8 +415,48 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>获取详细地形地平线设置 </p>
-<dl class="section return"><dt>返回</dt><dd>是否使用详细地形地平线 </dd></dl>
+<p>便捷方法：方向是否在视场内 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>传感器体坐标系中的方向向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否在视场内 </dd></dl>
+
+</div>
+</div>
+<a id="a8d6b27822ad330d78596c12771dd2205" name="a8d6b27822ad330d78596c12771dd2205"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d6b27822ad330d78596c12771dd2205">&#9670;&#160;</a></span>containsPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::FieldOfView::containsPoint </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>targetPosInSensorFrame</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>便捷方法：目标点是否在视场内 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetPosInSensorFrame</td><td>目标在传感器体坐标系中的位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否在视场内 </dd></dl>
 
 </div>
 </div>
@@ -415,40 +486,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <p>获取视场类型 </p>
 <dl class="section return"><dt>返回</dt><dd>视场类型 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1FOVConical.html#a971d675e45b3a0c447df0bb9f84a8c2b">ast::FOVConical</a>, <a class="el" href="classast_1_1FOVCustom.html#abde510d310ae0f789b50a31fc9f2a17c">ast::FOVCustom</a>, <a class="el" href="classast_1_1FOVHalfPower.html#a94204792fd2d424affbc6158ce1e31ad">ast::FOVHalfPower</a>, <a class="el" href="classast_1_1FOVRectangular.html#a5e218af670eb66a09bd918555d57b81d">ast::FOVRectangular</a>, <a class="el" href="classast_1_1FOVSAR.html#a96d81d9a48cd70e83bb5327fcbe37406">ast::FOVSAR</a> , 以及 <a class="el" href="classast_1_1FOVSimpleCone.html#ab52f525df71d7df20fc9fa95670af6fa">ast::FOVSimpleCone</a> 内被实现.</p>
-
-</div>
-</div>
-<a id="a6941aa22d836b53802af0f1cde542561" name="a6941aa22d836b53802af0f1cde542561"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6941aa22d836b53802af0f1cde542561">&#9670;&#160;</a></span>setDetailedTerrainHorizon()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ast::FieldOfView::setDetailedTerrainHorizon </td>
-          <td>(</td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>设置详细地形地平线 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>是否使用详细地形地平线 </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>在 <a class="el" href="classast_1_1FOVConical.html#a00451772533b0019efa38735c7da2e6c">ast::FOVConical</a>, <a class="el" href="classast_1_1FOVCustom.html#a22b412a422602e59482e85c35d6d9532">ast::FOVCustom</a>, <a class="el" href="classast_1_1FOVHalfPower.html#ad906c6e7bb3e9a1d8178c076d04fcfd7">ast::FOVHalfPower</a>, <a class="el" href="classast_1_1FOVRectangular.html#accb6cdc9078fbde546ac27f279e71228">ast::FOVRectangular</a>, <a class="el" href="classast_1_1FOVSAR.html#abf8c2c4fb37b3f1b16fc6ee4e977d68f">ast::FOVSAR</a> , 以及 <a class="el" href="classast_1_1FOVSimpleCone.html#a9d26eb58d07df945a6de903e82845fca">ast::FOVSimpleCone</a> 内被实现.</p>
 
 </div>
 </div>
