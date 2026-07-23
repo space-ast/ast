@@ -1,5 +1,9 @@
 var NAVTREEINDEX38 =
 {
+"classast_1_1RKV8.html":[0,3,4,6],
+"classast_1_1RKV8.html#a37bcbe2f4bc79c0c3f402ef87e00525a":[0,3,4,6,0],
+"classast_1_1RKV8.html#a4a29126b02faf2e0fd5221099c9760d2":[0,3,4,6,1],
+"classast_1_1Radar.html":[2,0,0,583],
 "classast_1_1Radar.html":[3,0,0,582],
 "classast_1_1Receiver.html":[2,0,0,584],
 "classast_1_1Receiver.html":[3,0,0,583],
@@ -245,9 +249,5 @@ var NAVTREEINDEX38 =
 "classast_1_1ScStateCalcAzimuthRate.html":[3,0,0,635],
 "classast_1_1ScStateCalcBDotRCalc.html":[2,0,0,637],
 "classast_1_1ScStateCalcBDotRCalc.html":[3,0,0,636],
-"classast_1_1ScStateCalcBDotTCalc.html":[2,0,0,638],
-"classast_1_1ScStateCalcBDotTCalc.html":[3,0,0,637],
-"classast_1_1ScStateCalcBMagCalc.html":[2,0,0,640],
-"classast_1_1ScStateCalcBMagCalc.html":[3,0,0,639],
-"classast_1_1ScStateCalcBThetaCalc.html":[2,0,0,642]
+"classast_1_1ScStateCalcBDotTCalc.html":[2,0,0,638]
 };

@@ -1,5 +1,9 @@
 var NAVTREEINDEX39 =
 {
+"classast_1_1ScStateCalcBDotTCalc.html":[3,0,0,637],
+"classast_1_1ScStateCalcBMagCalc.html":[2,0,0,640],
+"classast_1_1ScStateCalcBMagCalc.html":[3,0,0,639],
+"classast_1_1ScStateCalcBThetaCalc.html":[2,0,0,642],
 "classast_1_1ScStateCalcBThetaCalc.html":[3,0,0,641],
 "classast_1_1ScStateCalcBetaAngle.html":[2,0,0,639],
 "classast_1_1ScStateCalcBetaAngle.html":[3,0,0,638],
@@ -245,9 +249,5 @@ var NAVTREEINDEX39 =
 "classast_1_1ScStateCalcRMag.html":[3,0,0,772],
 "classast_1_1ScStateCalcRadPressureArea.html":[2,0,0,760],
 "classast_1_1ScStateCalcRadPressureArea.html":[3,0,0,759],
-"classast_1_1ScStateCalcRadPressureCoefficient.html":[2,0,0,761],
-"classast_1_1ScStateCalcRadPressureCoefficient.html":[3,0,0,760],
-"classast_1_1ScStateCalcRadial.html":[2,0,0,755],
-"classast_1_1ScStateCalcRadial.html":[3,0,0,754],
-"classast_1_1ScStateCalcRadialRate.html":[2,0,0,756]
+"classast_1_1ScStateCalcRadPressureCoefficient.html":[2,0,0,761]
 };

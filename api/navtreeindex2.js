@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"BlockDivide_8hpp_source.html":[4,0,0,6,10,1,1,2,5],
+"BlockDot_8cpp.html":[4,0,0,6,10,1,1,2,6],
+"BlockDot_8hpp.html":[4,0,0,6,10,1,1,2,7],
+"BlockDot_8hpp_source.html":[4,0,0,6,10,1,1,2,7],
 "BlockDragPartial_8cpp.html":[4,0,0,6,10,1,0,7],
 "BlockDragPartial_8hpp.html":[4,0,0,6,10,1,0,8],
 "BlockDragPartial_8hpp_source.html":[4,0,0,6,10,1,0,8],
@@ -245,9 +249,5 @@ var NAVTREEINDEX2 =
 "COMAPI_8hpp.html#a0d74c7883d7fc416f751a67ecc5878f2":[4,0,0,5,4,1],
 "COMAPI_8hpp_source.html":[4,0,0,5,4],
 "COMModule_8cpp.html":[4,0,0,5,5],
-"COMModule_8hpp.html":[4,0,0,5,6],
-"COMModule_8hpp_source.html":[4,0,0,5,6],
-"CRT_8cpp.html":[4,0,0,27,5,2],
-"CRT_8hpp.html":[4,0,0,27,5,3],
-"CRT_8hpp_source.html":[4,0,0,27,5,3]
+"COMModule_8hpp.html":[4,0,0,5,6]
 };

@@ -1,5 +1,9 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcSolarPhaseAngle_8hpp.html":[4,0,0,6,9,1,0,15,189],
+"ScStateCalcSolarPhaseAngle_8hpp_source.html":[4,0,0,6,9,1,0,15,189],
+"ScStateCalcSolarPressure_8cpp.html":[4,0,0,6,9,1,0,15,190],
+"ScStateCalcSolarPressure_8hpp.html":[4,0,0,6,9,1,0,15,191],
 "ScStateCalcSolarPressure_8hpp_source.html":[4,0,0,6,9,1,0,15,191],
 "ScStateCalcSolarRadiationForce_8cpp.html":[4,0,0,6,9,1,0,15,192],
 "ScStateCalcSolarRadiationForce_8hpp.html":[4,0,0,6,9,1,0,15,193],
@@ -245,9 +249,5 @@ var NAVTREEINDEX13 =
 "SimulationAPI_8hpp.html#a47a1d1ae2184d0c97a4959492ea25303":[4,0,0,6,10,1,18,2],
 "SimulationAPI_8hpp.html#a50f8dc49a8317b1153e6f3950e1d8769":[4,0,0,6,10,1,18,5],
 "SimulationAPI_8hpp.html#a535095762f75138397446877ff73879f":[4,0,0,6,10,1,18,11],
-"SimulationAPI_8hpp.html#a88ba3135befc3979999d5b460c2e273a":[4,0,0,6,10,1,18,3],
-"SimulationAPI_8hpp.html#a8b89b9ad7d5122d815cd2d844361be30":[4,0,0,6,10,1,18,6],
-"SimulationAPI_8hpp.html#ae692331576d0a2db7402b684d8c3dd1b":[4,0,0,6,10,1,18,9],
-"SimulationAPI_8hpp.html#af168d1051b28363b8fb28f9d9568ddb0":[4,0,0,6,10,1,18,1],
-"SimulationAPI_8hpp.html#af5441328b5602713639d73364ef1b3cf":[4,0,0,6,10,1,18,4]
+"SimulationAPI_8hpp.html#a88ba3135befc3979999d5b460c2e273a":[4,0,0,6,10,1,18,3]
 };

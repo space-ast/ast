@@ -1,5 +1,9 @@
 var NAVTREEINDEX11 =
 {
+"ScStateCalcAltitude_8cpp.html":[4,0,0,6,9,1,0,9,0],
+"ScStateCalcAltitude_8hpp.html":[4,0,0,6,9,1,0,9,1],
+"ScStateCalcAltitude_8hpp_source.html":[4,0,0,6,9,1,0,9,1],
+"ScStateCalcAngle_8hpp.html":[4,0,0,6,9,1,0,19,0],
 "ScStateCalcAngle_8hpp_source.html":[4,0,0,6,9,1,0,19,0],
 "ScStateCalcAngularMomentum_8cpp.html":[4,0,0,6,9,1,0,10,4],
 "ScStateCalcAngularMomentum_8hpp.html":[4,0,0,6,9,1,0,10,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcLatitudeRate_8hpp_source.html":[4,0,0,6,9,1,0,15,77],
 "ScStateCalcLatitude_8cpp.html":[4,0,0,6,9,1,0,15,74],
 "ScStateCalcLatitude_8hpp.html":[4,0,0,6,9,1,0,15,75],
-"ScStateCalcLatitude_8hpp_source.html":[4,0,0,6,9,1,0,15,75],
-"ScStateCalcLightSpeed_8cpp.html":[4,0,0,6,9,1,0,4,0],
-"ScStateCalcLightSpeed_8hpp.html":[4,0,0,6,9,1,0,4,1],
-"ScStateCalcLightSpeed_8hpp_source.html":[4,0,0,6,9,1,0,4,1],
-"ScStateCalcLocalAppSolLon_8cpp.html":[4,0,0,6,9,1,0,15,78]
+"ScStateCalcLatitude_8hpp_source.html":[4,0,0,6,9,1,0,15,75]
 };

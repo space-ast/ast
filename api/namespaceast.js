@@ -2040,6 +2040,8 @@ var namespaceast =
     [ "aEval", "group__Script.html#gab42f85d7f686fd2bbad62d5b6822ae71", null ],
     [ "aEvalExpr", "group__Script.html#gac9d41ab879b941bfa59ad019006bcd68", null ],
     [ "aEvaluateAccess", "namespaceast.html#a3a482aedd6ac411bf272240520b4e3f1", null ],
+    [ "aEvaluateAccess", "namespaceast.html#ac89bd9b254a8de099c5b444c577558ca", null ],
+    [ "aEvaluateAccess", "namespaceast.html#af7fc54fc41f67197faa6e1c8a054130a", null ],
     [ "aExecuteCommand", "namespaceast.html#a7526e8a8739b9c370c24b9fc4c614bb8", null ],
     [ "aExecuteCommand", "namespaceast.html#a8a42111e3aaf39be5f1bda3a3ffa444f", null ],
     [ "aExeDir", "group__Platform.html#ga524821ccab59a9b4bc923f26dd3d3660", null ],
