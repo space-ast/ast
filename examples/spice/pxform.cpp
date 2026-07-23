@@ -1,4 +1,4 @@
-#ifndef AST_NO_CSPICE
+#ifdef AST_WITH_CSPICE
 #include "SpiceUsr.h"
 #include "ast/TestConfig.hpp"
 #include <cstdio>

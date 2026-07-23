@@ -21,7 +21,7 @@
 #include "Magnetosphere.hpp"
 #include "AstUtil/Logger.hpp"
 
-#ifndef AST_NO_LIBF2C
+#ifdef AST_WITH_LIBF2C
 #include "f2c.h"
 
 extern "C"{
@@ -39,7 +39,7 @@ int igrf13syn(
     double &x, double &y, double &z, double &f
 )
 {
-#ifndef AST_NO_LIBF2C
+#ifdef AST_WITH_LIBF2C
     integer isv_ = isv;
     integer itype_ = itype;
     return igrf13syn_(&isv_, &date, &itype_, &alt, &colat, &elong, &x, &y, &z, &f);

@@ -135,6 +135,18 @@ public:
     AST_CORE_API
     static TimePoint FromUTC(const DateTime& dttmUTC);
 
+    /// @brief 从UTC年份和年内天数创建时间点
+    /// @param year 四位年份（如 1997）
+    /// @param dayOfYear 年内天数及小数部分（如 320.90946019，1-based）
+    AST_CORE_API
+    static TimePoint FromYD(int year, double dayOfYear);
+
+    /// @brief 从 TLE 历元格式的 double 值创建 UTC 时间点
+    /// @param tleYD TLE 历元值，格式 YYDDD.DDDDDDDD（如 97320.90946019）
+    /// @details 自动处理两位年份到四位年份的转换（>=57 → 19xx, <57 → 20xx）
+    AST_CORE_API
+    static TimePoint FromTLEYD(double tleYD);
+
     /// @brief 从北京时日期时间创建时间点
     AST_CORE_API
     static TimePoint FromBJT(const DateTime& dttmBJT);

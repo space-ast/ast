@@ -85,7 +85,7 @@ AST_CORE_CAPI double aMeanObliquity_IAU1980(double t);
 /// @param[in] t 与J2000.0 TT 的时间差（儒略世纪）
 /// @param[out] dpsi 黄经章动角dpsi（弧度）
 /// @param[out] deps 交角章动角deps（弧度）
-/// @param[out] eqecorr 赤经章动修正量
+/// @param[out] eqecorr 春分点修正量
 AST_CORE_CAPI void aNutation_IERS1996(double t, double &dpsi, double &deps, double* eqecorr);
 AST_CORE_CAPI void aNutation_IERS1996_Cache(double t, double &dpsi, double &deps, double* eqecorr);
 
@@ -183,13 +183,13 @@ AST_CORE_CAPI double aGMST_UT1_IAU1982(const JulianDate& jdUT1);
 AST_CORE_CAPI double aGAST_IAU1994(const TimePoint& tp);
 
 
-/// @brief 计算给定时间点的赤经章动，依据IAU1994规范
-/// @details 赤经章动是真春分点平春分点之间的时角差，
+/// @brief 计算给定时间点的分点差，依据IAU1994规范
+/// @details 分点差是真春分点和平春分点之间的时角差，
 /// 用于将格林尼治平恒星时（GMST）转换为格林尼治视恒星时（GAST）
 /// 公式：GAST = GMST + Equation Of Equinoxes
 /// @details 参考SOFA函数 iauEqeq94
 /// @param[in] t 与J2000.0 TDB 的时间差（儒略世纪）
-/// @return 赤经章动（弧度）
+/// @return 分点差（弧度）
 AST_CORE_CAPI double aEquationOfEquinoxes_IAU1994(double t);
 
 A_ALWAYS_INLINE double aEquationOfEquinoxes_IAU1994(const TimePoint& tp)

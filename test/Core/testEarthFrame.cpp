@@ -101,6 +101,24 @@ TEST_F(FrameTransformTest, MODToTOD)
 }
 
 
+TEST_F(FrameTransformTest, TODToTEME)
+{
+    aDataContext_GetEOP()->unload(); // 不依赖EOP数据进行计算
+    {
+        TimePoint tp = TimePoint::FromUTC(2026, 1, 9, 0, 0, 0);
+        Vector3d vecTOD{1000_km, 2000_km, 3000_km};
+        Vector3d vecTEME;
+        aNutationMethodSet(ENutationMethod::eJplDe);
+        aTODToTEME(tp, vecTOD, vecTEME);
+        EXPECT_NEAR(vecTEME[0], 1000.055023320274017_km, 1e-4);
+        EXPECT_NEAR(vecTEME[1], 1999.972487393735719_km, 1e-5);
+        EXPECT_NEAR(vecTEME[2], 3000.0_km, 1e-9);
+        printf("vecTEME: %.15f, %.15f, %.15f\n", vecTEME[0], vecTEME[1], vecTEME[2]);
+    }
+
+}
+
+
 TEST_F(FrameTransformTest, TODToGTOD)
 {
     // aInitialize();

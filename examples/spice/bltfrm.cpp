@@ -3,7 +3,7 @@
 */
 #include <stdio.h>
 
-#ifndef AST_NO_CSPICE
+#ifdef AST_WITH_CSPICE
 
 #include "SpiceUsr.h"
 

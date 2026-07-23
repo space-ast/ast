@@ -44,28 +44,38 @@ class AST_CORE_API FieldOfView: public ObjectNamed
 public:
     /// @brief 构造函数
     FieldOfView() = default;
-    
+
     /// @brief 析构函数
     virtual ~FieldOfView() = default;
-    
+
     /// @brief 获取视场类型
     /// @return 视场类型
     virtual EFOVType getFOVType() const = 0;
-    
+
     /// @brief 接受访问者
     /// @param visitor 访问者
     virtual void accept(FieldOfViewVisitor& visitor) = 0;
-    
-    /// @brief 设置详细地形地平线
-    /// @param value 是否使用详细地形地平线
-    void setDetailedTerrainHorizon(bool value) { detailedTerrainHorizon_ = value; }
-    
-    /// @brief 获取详细地形地平线设置
-    /// @return 是否使用详细地形地平线
-    bool getDetailedTerrainHorizon() const { return detailedTerrainHorizon_; }
-    
+
+    /// @brief 计算方向向量到 FOV 边界的角度余量（弧度）
+    /// @param direction 传感器体坐标系中的方向向量（视轴 = +Z）
+    /// @return 角度余量(rad)：>0 在视场内，<0 在视场外，==0 恰在边界
+    virtual double angularMargin(const Vector3d& direction) const = 0;
+
+    /// @brief 便捷方法：方向是否在视场内
+    /// @param direction 传感器体坐标系中的方向向量
+    /// @return 是否在视场内
+    bool containsDirection(const Vector3d& direction) const {
+        return angularMargin(direction) > 0.0;
+    }
+
+    /// @brief 便捷方法：目标点是否在视场内
+    /// @param targetPosInSensorFrame 目标在传感器体坐标系中的位置
+    /// @return 是否在视场内
+    bool containsPoint(const Vector3d& targetPosInSensorFrame) const {
+        return angularMargin(targetPosInSensorFrame) > 0.0;
+    }
+
 protected:
-    bool detailedTerrainHorizon_{false}; ///< 是否使用详细地形地平线
 };
 
 AST_NAMESPACE_END

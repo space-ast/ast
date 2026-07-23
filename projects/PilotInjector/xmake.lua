@@ -7,3 +7,6 @@ target("PilotInjector")
     end
     add_deps("AstUtil")
     add_deps("AstUiPilotBoot", {inherit = false})
+    if not has_package("qt") then
+        set_enabled(false)
+    end

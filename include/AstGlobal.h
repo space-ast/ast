@@ -33,7 +33,6 @@
  * 前缀 AST_ENABLE_ ：是否启用某个特定特性，通常是性能、调试、功能的开关，例如调试信息、缓存、日志、后缀名称等
  * 前缀 AST_USE_    ：是否使用某个实现方法，通常是可选、可替换的实现方式，例如不同的算法、不同的数据结构
  * 前缀 AST_HAS_    ：是否具有某个特定功能，通常是指示标准库是否有某功能，例如是否有某个函数、是否有某个类型
- * 前缀 AST_NO_     ：是否不支持某个特定功能、第三方库
  * */
 
 
@@ -144,12 +143,14 @@
 #endif
 
 
-#if defined(AST_BUILD_LIB) && defined(_MSC_VER)
-// 在编译ast库时指定代码内的字符串使用utf-8编码
-// 不编译ast库时屏蔽该指令，以避免污染其他项目的字符串编码
-#   pragma execution_character_set("utf-8")
+#if defined(_MSC_VER)
+#pragma warning(disable: 4251)   // 禁用未导出的符号警告，因为一些类使用了stl等模板容器
+#   if defined(AST_BUILD_LIB) 
+    // 在编译ast库时指定代码内的字符串使用utf-8编码
+    // 不编译ast库时屏蔽该指令，以避免污染其他项目的字符串编码
+#       pragma execution_character_set("utf-8")
+#   endif
 #endif
-
 
 // ast项目脚本模块导出声明
 #ifdef AST_BUILD_LIB_SCRIPT

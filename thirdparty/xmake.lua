@@ -10,21 +10,7 @@ elseif is_plat("linux") then
 end
 
 
-if os.exists("QWT/src") then
-    target("qwt")
-        add_rules("ast.qt.shared")
-        add_files("QWT/src/**.cpp")
-        add_files("QWT/src/**.c")
-        add_files("QWT/src/**.h")
-        add_includedirs("QWT/src")
-        add_includedirs(os.dirs("QWT/src/**"))
-        if is_plat("windows") and is_mode("debug") then
-            set_suffixname("D")
-        end
-        set_default(false)
-        add_packages("opengl", "glu")
-    target_end()
-end
+
 -- replace cminpack target with cminpack package in xmake-repo
 -- target("cminpack")
 -- 	add_files("cminpack/*.c")

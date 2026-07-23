@@ -1,6 +1,7 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <vector>
+#ifdef AST_WITH_MATPLOT
 #include <matplot/matplot.h>
 #include <matplot/backend/backend_registry.h>
 #include "AstPlot/AggBackend.hpp"
@@ -39,3 +40,11 @@ int main()
 
     return 0;
 }
+#else
+int main()
+{
+    // MatPlot is not available, skip the example.
+    return 0;
+}
+#endif
+

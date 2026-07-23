@@ -36,7 +36,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: xmake-cache
-          key: build-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v1
+          key: build-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v2
 
       # Cache build directory
       - name: 配置编译缓存
@@ -46,9 +46,9 @@ jobs:
           path: |
             build
             .xmake
-          key: build-${{ runner.os }}-${{ matrix.arch }}-build-${{ github.sha }}
+          key: build-${{ runner.os }}-${{ matrix.arch }}-build-v2-${{ github.sha }}
           restore-keys: |
-            build-${{ runner.os }}-${{ matrix.arch }}-build-
+            build-${{ runner.os }}-${{ matrix.arch }}-build-v2-
 
       - name: 设置xmake相关目录
         run: |
@@ -62,6 +62,12 @@ jobs:
         with:
           packages: libgl1-mesa-dev libglu1-mesa-dev
           version: 2
+
+      - name: 配置Qt环境
+        run: |
+          xrepo install -yv aqt
+          xrepo info aqt
+          xmake require -yv qt
           
       - name: 配置debug版本
         run: |

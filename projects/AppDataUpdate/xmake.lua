@@ -5,3 +5,6 @@ target("AppDataUpdate")
         add_files("AppDataUpdate.rc")
     end
     add_deps("AstUiDataUpdate", "AstCore")
+    if not has_package("qt") then
+        set_enabled(false)
+    end

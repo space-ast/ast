@@ -655,7 +655,7 @@ void UiFigure::createOverlay()
     overlay_->show();
 
     // 拖拽边角后实际应用新位置/大小
-    connect(overlay_.get(), &QwtFigureWidgetOverlay::widgetNormGeometryChanged,
+    connect(overlay_.data(), &QwtFigureWidgetOverlay::widgetNormGeometryChanged,
             this, &UiFigure::onOverlayGeometryChanged);
 }
 

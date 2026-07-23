@@ -1,6 +1,7 @@
 target("AstSim")
     set_kind("shared")
     add_headerfiles("**.hpp", {prefixdir="AstSim"})
+    add_headerfiles("**.h", {prefixdir="AstSim"})
     add_files("**.cpp")
     add_deps("AstCore", "AstUtil", "AstMath")
     add_defines("AST_BUILD_LIB_SIM")

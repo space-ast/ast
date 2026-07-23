@@ -32,7 +32,7 @@
 #include <memory>
 #include <cmath>
 
-#ifndef AST_NO_LIBF2C
+#ifdef AST_WITH_LIBF2C
 #include "f2c.h"
 
 extern "C"{
@@ -194,7 +194,7 @@ A_ALWAYS_INLINE AEP8DataArray& aep8DataArray(){
 
 double aep8(double e, double l, double bb0, int iname)
 {
-#ifndef AST_NO_LIBF2C
+#ifdef AST_WITH_LIBF2C
     int index = iname - 1;
     if(index < 0 || index >= 4)
     {

@@ -63,7 +63,15 @@ IntervalList convertEpoch(const IntervalList& src,
 // 工厂方法
 // ============================================================
 
-TimeIntervalList TimeIntervalList::FromTimeIntervals(const std::vector<TimeInterval>& intervals)
+TimeIntervalList TimeIntervalList::FromTimeInterval(const TimeInterval &interval)
+{
+    TimeIntervalList result;
+    result.setEpoch(interval.start());
+    result.push_back(interval);
+    return result;
+}
+
+TimeIntervalList TimeIntervalList::FromTimeIntervals(const std::vector<TimeInterval> &intervals)
 {
     if (intervals.empty())
     {
@@ -240,6 +248,18 @@ TimeIntervalList TimeIntervalList::subtract(const TimeIntervalList& other) const
     result.intervals_ = intervals_.subtract(*otherRel);
     return result;
 }
+
+std::string TimeIntervalList::toString(int precision) const
+{
+    std::string str;
+    for (auto interval : *this)
+    {
+        if (!str.empty()) str += "\n";
+        str += interval.toString(precision);
+    }
+    return str;
+}
+
 
 
 AST_NAMESPACE_END

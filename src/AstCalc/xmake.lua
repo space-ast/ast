@@ -1,5 +1,6 @@
 target("AstCalc")
     set_kind("shared")
     add_headerfiles("**.hpp", {prefixdir="AstCalc"})
+    add_headerfiles("**.h", {prefixdir="AstCalc"})
     add_files("**.cpp")
     add_defines("AST_BUILD_LIB_CALC")

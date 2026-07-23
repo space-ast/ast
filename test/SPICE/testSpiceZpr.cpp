@@ -36,7 +36,7 @@
 #include <vector>
 #include <clocale>
 
-#ifndef AST_NO_CSPICE
+#ifdef AST_WITH_CSPICE
 #include "SpiceUsr.h"
 
 AST_USING_NAMESPACE

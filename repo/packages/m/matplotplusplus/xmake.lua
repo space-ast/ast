@@ -1,5 +1,6 @@
 package("matplotplusplus")
     set_sourcedir(path.join(os.scriptdir(), "../../../../thirdparty/matplotplusplus"))
+    add_configs("shared", {description = "Build shared library.", default = true, type = "boolean", readonly = true})
     on_install(function (package)
         package:addenv("PATH", "bin")
         local configs = {}

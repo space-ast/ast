@@ -6,7 +6,8 @@ target("AstWasm")
     end
     
     add_files("**.cpp")
-    add_includedirs(".")
+    add_headerfiles("**.hpp", {prefixdir="AstWasm"})
+    add_headerfiles("**.h", {prefixdir="AstWasm"})
     
     add_deps("AstUtil", "AstCore", "AstSim", "AstMath", "AstAI")
     add_ldflags("--bind")

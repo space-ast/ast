@@ -23,6 +23,9 @@
 #include "AstGlobal.h"
 #include "AstSim/MotionProfile.hpp"
 #include "AstSim/MotionWithIntervalStep.hpp"
+#include "AstCore/SGP4.hpp"
+#include "AstCore/TLELines.hpp"
+#include "AstCore/TLE.hpp"
 #include <vector>
 
 AST_NAMESPACE_BEGIN
@@ -32,59 +35,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class TLE
-{
-public:
-    bool empty() const{return line1_.empty();}
-public:
-    std::string name_{};     ///< 卫星名称
-    std::string line1_{};    ///< 第一行
-    std::string line2_{};    ///< 第二行
-};
 
-enum class ETLESource
-{
-    eFile,      ///< 来自文件
-    eEdited,    ///< 来自编辑
-    eServer,    ///< 来自服务器
-};
-
-enum class ESwitchMethod
-{
-    eEpoch,
-};
-
-class TwoLineElement
-{
-public:
-    TwoLineElement() = default;
-    ~TwoLineElement() = default;
-
-public:
-    bool enabled_{true};         ///< 是否启用
-    ETLESource source_           ///< 来源类型
-        {ETLESource::eFile};                 
-    ESwitchMethod switch_method_ ///< 切换方法
-        {ESwitchMethod::eEpoch};  
-    TimePoint switchEpoch_{};     ///< 切换历元
-    TLE tle_{};                   ///< TLE 数据
-    double epochTime_{0.0};           ///< 历元时间
-    double meanMotionDotTime_{0.0};   ///< 平均运动导数
-    double motionDotDot_{0.0};        ///< 平均运动二阶导数
-    int iexp_{0};                   ///< 平均运动二阶导数指数
-    double bstar_{0.0};               ///< B* 阻力系数
-    int ibexp_{0};                  ///< B* 阻力系数指数
-    double inclination_{0.0};         ///< 倾角
-    double rightAscenOfNode_{0.0};    ///< 升交点赤经
-    double eccentricity_{0.0};        ///< 偏心率
-    double argOfPerigee_{0.0};        ///< 近地点幅角
-    double meanAnomaly_{0.0};         ///< 平近点角
-    double meanMotion_{0.0};          ///< 平均运动
-    int revNumber_{0};              ///< 轨道数
-    int ephType_{0};                ///< 星历类型
-    int elementNumber_{0};          ///< 元素编号
-    char classification_{'U'};        ///< 分类
-};
 
 /// @brief SGP4 运动模型
 /// @details   
@@ -101,7 +52,7 @@ public:
     std::string SSCNumber_{};                ///< SSC 编号字符串
     std::string intlDesignator_{};           ///<
     std::string commonName_{};               ///< 通用名称
-    std::vector<TwoLineElement> elements_{}; ///< 两行元素列表
+    std::vector<TLE> elements_{}; ///< TLE 列表
 };
 
 /*! @} */

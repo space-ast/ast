@@ -21,7 +21,7 @@ option_end()
 
 -- 工程配置选项：是否编译第三方库
 option("with_thirdparty")
-    set_default(true)
+    set_default(false)
 option_end()
 
 
@@ -153,18 +153,9 @@ add_requires("matplotplusplus", {optional = true})                              
 add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
 add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
 add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
-add_requires("qt5base", {optional = true})                                           -- 可选的Qt库，包含基础、窗口部件和GUI模块
 
 local qt_sdkver = get_config("qt_sdkver")
 local system_qt = get_config("system_qt")
--- 可选的Qwtplot库，用于Qt绘图，共享库版本
-add_requires("qwt", {optional = true, 
-    configs = {
-        shared = true, debug = is_mode("debug")
-        -- , qt_sdkver = qt_sdkver, system_qt = system_qt
-    }
-})
-
 -- 触发Qt库的自动下载
 local qt_config = {
     override = true,
@@ -175,8 +166,12 @@ if qt_sdkver ~= "auto" then
     qt_config.version = qt_sdkver
 end
 
-add_requireconfs("qt5base", qt_config)
-add_requireconfs("qwt.qt5base", qt_config)
+add_requires("qt", {optional = true})                                           -- 可选的Qt库，包含基础、窗口部件和GUI模块
+add_requires("qwt", {optional = true, configs = {shared = true, debug = is_mode("debug")}}) -- 可选的Qwtplot库，用于Qt绘图，共享库版本
+add_requires("qt-advanced-docking", {optional = true, configs = {shared = true, debug = is_mode("debug")}})
+add_requireconfs("qt", qt_config)
+add_requireconfs("qwt.qt", qt_config)
+add_requireconfs("qt-advanced-docking.qt", qt_config)
 
 -- add_requires("libintl", {optional = true})                                      -- 可选的libintl库，用于国际化
 -- add_requires("nlohmann_json", {optional = true})                                -- 可选的nlohmann_json库，用于JSON解析
@@ -200,24 +195,18 @@ add_requireconfs("qwt.qt5base", qt_config)
 if has_package("fmt") then
     add_packages("fmt")
     add_defines("AST_WITH_FMT")
-else
-    add_defines("AST_NO_FMT")
 end
 
 -- 添加Eigen库依赖（可选）
 if has_package("eigen") then
     add_defines("AST_WITH_EIGEN")
     add_packages("eigen")
-else
-    add_defines("AST_NO_EIGEN")
 end
 
 -- 添加cspice库依赖（可选）
 if has_package("cspice") then
     add_packages("cspice")
     add_defines("AST_WITH_CSPICE")
-else
-    add_defines("AST_NO_CSPICE")
 end
 
 
@@ -230,24 +219,18 @@ end
 if has_package("matplotplusplus") then
     add_packages("matplotplusplus")
     add_defines("AST_WITH_MATPLOT")
-else 
-    add_defines("AST_NO_MATPLOT")
 end
 
 -- 添加libintl库依赖（可选）
 -- if has_package("libintl") then
 --     add_packages("libintl")
 --     add_defines("AST_WITH_LIBINTL")
--- else 
---     add_defines("AST_NO_LIBINTL")
 -- end
 
 -- 添加nlohmann_json库依赖（可选）
 -- if has_package("nlohmann_json") then
 --     add_packages("nlohmann_json")
 --     add_defines("AST_WITH_NLOHMANN_JSON")
--- else
---     add_defines("AST_NO_NLOHMANN_JSON")
 -- end
 
 
@@ -255,24 +238,18 @@ end
 -- if has_package("jsoncpp") then
 --     add_packages("jsoncpp")
 --     add_defines("AST_WITH_JSONCPP")
--- else
---     add_defines("AST_NO_JSONCPP")
 -- end
 
 -- -- 添加curl库依赖（可选）
 -- if has_package("curl") then
 --     add_packages("curl")
 --     add_defines("AST_WITH_CURL")
--- else
---     add_defines("AST_NO_CURL")
 -- end
 
 -- 添加nodeeditor库依赖（可选）
 -- if has_package("nodeeditor") then
 --     add_packages("nodeeditor")
 --     add_defines("AST_WITH_NODEEDITOR")
--- else
---     add_defines("AST_NO_NODEEDITOR")
 -- end
 
 

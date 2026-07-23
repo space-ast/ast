@@ -3,7 +3,7 @@
     add_files("**.cpp")
     add_files("**.c")
     add_headerfiles("**.hpp", {prefixdir="AstMock"})
-    -- add_headerfiles("**.h")
+    add_headerfiles("**.h", {prefixdir="AstMock"})
     add_defines("AST_BUILD_LIB_MOCK")
     add_deps("AstUtil", "AstMath", "AstCore")
     

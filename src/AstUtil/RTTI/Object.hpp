@@ -320,10 +320,10 @@ public: // 国际化
 protected:
     friend class ObjectManager;
     virtual ~Object();
-    Object(const Object& obj)
+    Object(const Object& /*obj*/)
         : Object()
     {}
-    Object& operator=(const Object&)
+    Object& operator=(const Object& /*obj*/)
     {
         return *this;
     }

@@ -29,7 +29,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: xmake-cache
-          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v1
+          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v2
 
       # Cache build directory
       - name: 配置编译缓存
@@ -39,9 +39,9 @@ jobs:
           path: |
             build
             .xmake
-          key: coverage-${{ runner.os }}-${{ matrix.arch }}-build-${{ github.sha }}
+          key: coverage-${{ runner.os }}-${{ matrix.arch }}-build-v2-${{ github.sha }}
           restore-keys: |
-            coverage-${{ runner.os }}-${{ matrix.arch }}-build-
+            coverage-${{ runner.os }}-${{ matrix.arch }}-build-v2-
 
       - name: 设置xmake相关目录
         run: |
@@ -54,6 +54,12 @@ jobs:
         with:
           packages: libgl1-mesa-dev libglu1-mesa-dev
           version: 2          
+
+      - name: 配置Qt环境
+        run: |
+          xrepo install -yv aqt
+          xrepo info aqt
+          xmake require -yv qt
 
       - name: 配置项目
         # 1. 复制归档测试用例到测试目录

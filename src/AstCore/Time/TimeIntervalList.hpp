@@ -27,6 +27,7 @@
 #include "TimeInterval.hpp"
 #include "TimeList.hpp"
 #include <vector>
+#include <iterator>     // for std::random_access_iterator_tag
 
 AST_NAMESPACE_BEGIN
 
@@ -61,6 +62,9 @@ public:
     // ————————————————————————
     // 工厂方法
     // ————————————————————————
+
+    AST_CORE_API
+    static TimeIntervalList FromTimeInterval(const TimeInterval& interval);
 
     /// @brief 从绝对区间向量构造
     /// @details 以第一个区间的 start 作为 epoch，所有区间转换为相对偏移。
@@ -270,6 +274,86 @@ public:
     /// @param step 步长（秒，必须 > 0）
     /// @return TimeList 离散化后的时间列表
     TimeList discrete(const TimePoint& epoch, double step) const { return intervals_.discrete(epoch, step); }
+
+    /// @brief 转换为字符串进行展示
+    /// @param precision 时间点格式化精度
+    /// @return 字符串表示
+    AST_CORE_API
+    std::string toString(int precision = kTimePointDefaultFormatPrecision) const;
+
+    // ————————————————————————
+    // 迭代器
+    // ————————————————————————
+
+    /// @brief 随机访问常量迭代器
+    /// @details 内部持有相对区间指针和历元指针，
+    ///          解引用时计算 TimeInterval(epoch + data_->start_, epoch + data_->stop_) 并返回。
+    class const_iterator
+    {
+    public:
+        using iterator_category = std::random_access_iterator_tag;
+        using value_type        = TimeInterval;
+        using difference_type   = std::ptrdiff_t;
+        using pointer           = const TimeInterval*;
+        using reference         = TimeInterval;  // 按值返回
+
+        const_iterator() = default;
+
+        const_iterator(const Interval* data, const TimePoint* epoch)
+            : data_(data), epoch_(epoch) {}
+
+        /// @brief 解引用：计算 TimeInterval(epoch_->shiftedBySecond(data_->start_), epoch_->shiftedBySecond(data_->stop_))
+        TimeInterval operator*() const
+        {
+            return TimeInterval(epoch_->shiftedBySecond(data_->start_), epoch_->shiftedBySecond(data_->stop_));
+        }
+
+        /// @brief 下标访问
+        TimeInterval operator[](difference_type n) const
+        {
+            return TimeInterval(epoch_->shiftedBySecond(data_[n].start_), epoch_->shiftedBySecond(data_[n].stop_));
+        }
+
+        const_iterator& operator++()                           { ++data_; return *this; }
+        const_iterator  operator++(int)                        { auto tmp = *this; ++data_; return tmp; }
+        const_iterator& operator--()                           { --data_; return *this; }
+        const_iterator  operator--(int)                        { auto tmp = *this; --data_; return tmp; }
+        const_iterator& operator+=(difference_type n)          { data_ += n; return *this; }
+        const_iterator& operator-=(difference_type n)          { data_ -= n; return *this; }
+
+        const_iterator  operator+(difference_type n)  const    { return {data_ + n, epoch_}; }
+        const_iterator  operator-(difference_type n)  const    { return {data_ - n, epoch_}; }
+        difference_type operator-(const const_iterator& o) const { return data_ - o.data_; }
+
+        bool operator==(const const_iterator& o) const { return data_ == o.data_; }
+        bool operator!=(const const_iterator& o) const { return data_ != o.data_; }
+        bool operator< (const const_iterator& o) const { return data_ <  o.data_; }
+        bool operator> (const const_iterator& o) const { return data_ >  o.data_; }
+        bool operator<=(const const_iterator& o) const { return data_ <= o.data_; }
+        bool operator>=(const const_iterator& o) const { return data_ >= o.data_; }
+
+    private:
+        const Interval* data_  = nullptr;
+        const TimePoint* epoch_ = nullptr;
+    };
+
+    /// @brief difference_type + const_iterator（非成员运算符）
+    friend const_iterator operator+(const_iterator::difference_type n, const const_iterator& it)
+    {
+        return it + n;
+    }
+
+    using iterator               = const_iterator;
+    using value_type             = TimeInterval;
+    using size_type              = size_t;
+    using difference_type        = std::ptrdiff_t;
+
+    iterator       begin()       { return {intervals_.intervals().data(), &epoch_}; }
+    iterator       end()         { return {intervals_.intervals().data() + intervals_.size(), &epoch_}; }
+    const_iterator begin() const { return {intervals_.intervals().data(), &epoch_}; }
+    const_iterator end()   const { return {intervals_.intervals().data() + intervals_.size(), &epoch_}; }
+    const_iterator cbegin()const { return begin(); }
+    const_iterator cend()  const { return end(); }
 
 private:
     TimePoint    epoch_{};   ///< 参考历元

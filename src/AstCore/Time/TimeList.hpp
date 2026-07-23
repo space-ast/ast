@@ -22,7 +22,7 @@
 
 #include "AstGlobal.h"
 #include "TimePoint.hpp"
-#include <iterator>
+#include <iterator>  // for std::random_access_iterator_tag
 #include <vector>
 
 AST_NAMESPACE_BEGIN

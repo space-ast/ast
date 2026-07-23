@@ -74,7 +74,7 @@ errc_t _aLoadSGP4(BKVParser& parser, const VehiclePathData& vehiclePathData, Sco
         std::string SSCNumber_{};
         std::string intlDesignator_{};
         std::string commonName_{};
-        std::vector<TwoLineElement> elements_{};
+        std::vector<TLE> elements_{};
         SharedPtr<EventInterval> interval_{};
         double timeStep_ = 0.0;
         TimePoint startTime_{};
@@ -107,7 +107,7 @@ errc_t _aLoadSGP4(BKVParser& parser, const VehiclePathData& vehiclePathData, Sco
             }
         }else if(token == BKVParser::eBlockBegin){
             if(aEqualsIgnoreCase(item.value(), "TwoLineElement")){
-                TwoLineElement tle{};
+                TLE tle{};
                 while(1){
                     BKVItemView tleItem;
                     BKVParser::EToken tleToken;
@@ -135,20 +135,21 @@ errc_t _aLoadSGP4(BKVParser& parser, const VehiclePathData& vehiclePathData, Sco
                             // 读取 TLE 两行数据
                             StringView line1 = parser.getLineSkipComment();
                             StringView line2 = parser.getLineSkipComment();
-                            tle.tle_.line1_ = std::string(aStripAsciiWhitespace(line1));
-                            tle.tle_.line2_ = std::string(aStripAsciiWhitespace(line2));
+                            tle.lines_.line1_ = std::string(aStripAsciiWhitespace(line1));
+                            tle.lines_.line2_ = std::string(aStripAsciiWhitespace(line2));
                         }else if(aEqualsIgnoreCase(tleItem.key(), "EpochTime")){
-                            tle.epochTime_ = tleItem.value().toDouble();
+                            // EpochTime 存的是 YYDDD.DDDDDDDD double
+                            tle.epochTime_ = TimePoint::FromTLEYD(tleItem.value().toDouble());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "MeanMotionDot")){
                             tle.meanMotionDotTime_ = tleItem.value().toDouble();
                         }else if(aEqualsIgnoreCase(tleItem.key(), "MotionDotDot")){
                             tle.motionDotDot_ = tleItem.value().toDouble();
                         }else if(aEqualsIgnoreCase(tleItem.key(), "IEXP")){
-                            tle.iexp_ = tleItem.value().toInt();
+                            tle.motionDotDot_ *= pow(10.0, tleItem.value().toInt());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "BStar")){
                             tle.bstar_ = tleItem.value().toDouble();
                         }else if(aEqualsIgnoreCase(tleItem.key(), "IBEXP")){
-                            tle.ibexp_ = tleItem.value().toInt();
+                            tle.bstar_ *= pow(10.0, tleItem.value().toInt());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "Inclination")){
                             tle.inclination_ = tleItem.value().toAngleRad();
                         }else if(aEqualsIgnoreCase(tleItem.key(), "RightAscenOfNode")){
@@ -193,7 +194,7 @@ errc_t _aLoadSGP4(BKVParser& parser, const VehiclePathData& vehiclePathData, Sco
     sgp4->SSCNumber_ = data.SSCNumber_;
     sgp4->intlDesignator_ = data.intlDesignator_;
     sgp4->commonName_ = data.commonName_;
-    sgp4->elements_ = data.elements_;
+    sgp4->elements_ = std::move(data.elements_);
     sgp4->setStepSize(data.timeStep_);
     TimeInterval interval(data.startTime_, data.stopTime_);
     auto fallbackInterval = EventIntervalFallback::New(data.interval_, interval);

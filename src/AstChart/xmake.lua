@@ -4,6 +4,7 @@ target("AstChart")
     add_files("**.cpp")
     add_files("**.hpp")
     add_headerfiles("**.hpp", {prefixdir="AstChart"})
+    add_headerfiles("**.h", {prefixdir="AstChart"})
     add_defines("AST_BUILD_LIB_CHART")
     add_defines("NOMINMAX")
     add_deps("AstUtil", "AstSim", "AstCore", "AstMath")
@@ -13,4 +14,6 @@ target("AstChart")
         -- set_enabled(false)
         set_kind("phony")
     end
-
+    if not has_package("qt") then
+        set_enabled(false)
+    end

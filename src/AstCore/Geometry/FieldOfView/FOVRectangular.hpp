@@ -32,35 +32,40 @@ public:
     FOVRectangular() = default;
     
     /// @brief 析构函数
-    virtual ~FOVRectangular() = default;
+    ~FOVRectangular() override = default;
     
     /// @brief 获取视场类型
     /// @return 视场类型
-    virtual EFOVType getFOVType() const override { return EFOVType::eRectangular; }
+    EFOVType getFOVType() const override { return EFOVType::eRectangular; }
     
     /// @brief 接受访问者
     /// @param visitor 访问者
-    virtual void accept(FieldOfViewVisitor& visitor) override { visitor.visit(*this); }
+    void accept(FieldOfViewVisitor& visitor) override { visitor.visit(*this); }
+
+    /// @brief 计算方向向量到 FOV 边界的角度余量
+    /// @param direction 传感器体坐标系中的单位方向向量
+    /// @return min(xHalfAngle - |azimuth|, yHalfAngle - |elevation|)
+    double angularMargin(const Vector3d& direction) const override;
     
     /// @brief 设置水平半角
-    /// @param angle 水平半角（度）
+    /// @param angle 水平半角（弧度）
     void setHorizontalHalfAngle(double angle) { horizontalHalfAngle_ = angle; }
     
     /// @brief 获取水平半角
-    /// @return 水平半角（度）
+    /// @return 水平半角（弧度）
     double getHorizontalHalfAngle() const { return horizontalHalfAngle_; }
     
     /// @brief 设置垂直半角
-    /// @param angle 垂直半角（度）
+    /// @param angle 垂直半角（弧度）
     void setVerticalHalfAngle(double angle) { verticalHalfAngle_ = angle; }
     
     /// @brief 获取垂直半角
-    /// @return 垂直半角（度）
+    /// @return 垂直半角（弧度）
     double getVerticalHalfAngle() const { return verticalHalfAngle_; }
     
 private:
-    double horizontalHalfAngle_{0.0};  ///< 水平半角（度）
-    double verticalHalfAngle_{0.0};    ///< 垂直半角（度）
+    double horizontalHalfAngle_{0.0};  ///< 水平半角（弧度）
+    double verticalHalfAngle_{0.0};    ///< 垂直半角（弧度）
 };
 
 AST_NAMESPACE_END

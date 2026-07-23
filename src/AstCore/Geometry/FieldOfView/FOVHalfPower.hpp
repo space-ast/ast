@@ -32,22 +32,27 @@ public:
     FOVHalfPower() = default;
     
     /// @brief 析构函数
-    virtual ~FOVHalfPower() = default;
+    ~FOVHalfPower() override = default;
     
     /// @brief 获取视场类型
     /// @return 视场类型
-    virtual EFOVType getFOVType() const override { return EFOVType::eHalfPower; }
+    EFOVType getFOVType() const override { return EFOVType::eHalfPower; }
     
     /// @brief 接受访问者
     /// @param visitor 访问者
-    virtual void accept(FieldOfViewVisitor& visitor) override { visitor.visit(*this); }
+    void accept(FieldOfViewVisitor& visitor) override { visitor.visit(*this); }
+
+    /// @brief 计算方向向量到 FOV 边界的角度余量
+    /// @param direction 传感器体坐标系中的单位方向向量
+    /// @return halfAngle_ - angle(direction, 视轴)
+    double angularMargin(const Vector3d& direction) const override;
     
     /// @brief 设置半角
-    /// @param angle 半角（度）
+    /// @param angle 半角（弧度）
     void setHalfAngle(double angle) { halfAngle_ = angle; }
     
     /// @brief 获取半角
-    /// @return 半角（度）
+    /// @return 半角（弧度）
     double getHalfAngle() const { return halfAngle_; }
     
     /// @brief 设置频率
@@ -67,7 +72,7 @@ public:
     double getAntennaDiameter() const { return antennaDiameter_; }
     
 private:
-    double halfAngle_{0.0};          ///< 半角（度）
+    double halfAngle_{0.0};          ///< 半角（弧度）
     double frequency_{0.0};           ///< 频率（GHz）
     double antennaDiameter_{0.0};     ///< 天线直径（米）
 };
