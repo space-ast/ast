@@ -113,8 +113,7 @@ TLE TLE::FromLines(StringView l1, StringView l2)
         tle.rightAscenOfNode_ = aParseDouble(l2.substr(17, 8)) * kDegToRad;
 
         // 列 27-33: 偏心率（假设前导小数点，7 位数字）
-        tle.eccentricity_ = aParseDouble(
-            std::string("0.").append(l2.data() + 26, 7));
+        tle.eccentricity_ = aParseInt(l2.substr(26, 7)) * 1e-7;
 
         // 列 35-42: 近地点幅角 [度] → 弧度
         tle.argOfPerigee_ = aParseDouble(l2.substr(34, 8)) * kDegToRad;
