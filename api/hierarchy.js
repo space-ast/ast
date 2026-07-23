@@ -189,6 +189,9 @@ var hierarchy =
     [ "ast::DataGroupTrajectory::Data", "structast_1_1DataGroupTrajectory_1_1Data.html", null ],
     [ "ast::DataGroupVector::Data", "structast_1_1DataGroupVector_1_1Data.html", null ],
     [ "ast::DataGroupVectorPrv::Data", "structast_1_1DataGroupVectorPrv_1_1Data.html", null ],
+    [ "ast::Database", "classast_1_1Database.html", [
+      [ "ast::SatelliteDatabase", "classast_1_1SatelliteDatabase.html", null ]
+    ] ],
     [ "ast::DataContext", "classast_1_1DataContext.html", null ],
     [ "ast::DataElement", "classast_1_1DataElement.html", null ],
     [ "ast::DataElements", "classast_1_1DataElements.html", null ],
@@ -1318,6 +1321,8 @@ var hierarchy =
     [ "ast::RotationElement", "classast_1_1RotationElement.html", null ],
     [ "ast::RoutingHandleResult", "classast_1_1RoutingHandleResult.html", null ],
     [ "ast::RunningStatus", "classast_1_1RunningStatus.html", null ],
+    [ "ast::SatelliteDatabaseEntry", "classast_1_1SatelliteDatabaseEntry.html", null ],
+    [ "ast::SatelliteDatabaseQuery", "classast_1_1SatelliteDatabaseQuery.html", null ],
     [ "ast::Scanner", "classast_1_1Scanner.html", [
       [ "ast::FileScanner", "classast_1_1FileScanner.html", null ],
       [ "ast::StreamScanner", "classast_1_1StreamScanner.html", null ],

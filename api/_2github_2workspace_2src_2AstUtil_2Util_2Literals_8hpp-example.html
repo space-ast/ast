@@ -434,6 +434,15 @@ $(function(){initNavTree('_2github_2workspace_2src_2AstUtil_2Util_2Literals_8hpp
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(val);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_km2(<span class="keywordtype">long</span> <span class="keywordtype">double</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> val * kKilometerToMeter * kKilometerToMeter;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_km2(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(val) * kKilometerToMeter * kKilometerToMeter;</div>
+<div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">//----------------</span></div>
 <div class="line">    <span class="comment">// unit literals</span></div>

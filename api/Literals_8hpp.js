@@ -22,6 +22,8 @@ var Literals_8hpp =
     [ "operator\"\"_kg", "Literals_8hpp.html#a63ac7f25fc03b609269712c56d6080c5", null ],
     [ "operator\"\"_km", "Literals_8hpp.html#ab4c8a2ff92ad4609634ae546fdf37b13", null ],
     [ "operator\"\"_km", "Literals_8hpp.html#a37f3765186d1cfa7af70cf2e70a49924", null ],
+    [ "operator\"\"_km2", "Literals_8hpp.html#a1b3fdc083d93ed6a35f51d36f08db3d5", null ],
+    [ "operator\"\"_km2", "Literals_8hpp.html#a084800223b242711298388366d43230e", null ],
     [ "operator\"\"_km_h", "Literals_8hpp.html#a0dd5142a226b450f2f5f4b4b60868d6c", null ],
     [ "operator\"\"_km_h", "Literals_8hpp.html#a9f03b2451f56628810eba0ecc1dea484", null ],
     [ "operator\"\"_km_s", "Literals_8hpp.html#aac555008a40efd5890be60a7f2367dfb", null ],
