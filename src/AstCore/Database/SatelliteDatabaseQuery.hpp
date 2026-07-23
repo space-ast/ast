@@ -70,8 +70,8 @@ public:
     /// @brief 查询是否未设置任何过滤条件（匹配所有条目）
     bool isEmpty() const;
 private:
-    std::string mission_;                 ///< 任务类别过滤模式（空 = 不筛选）
-    std::string commonName_;              ///< 通用名称过滤模式（空 = 不筛选）
+    std::string mission_{};               ///< 任务类别过滤模式（空 = 不筛选）
+    std::string commonName_{};            ///< 通用名称过滤模式（空 = 不筛选）
 };
 
 /*! @} */

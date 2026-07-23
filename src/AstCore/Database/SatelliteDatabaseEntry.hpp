@@ -83,10 +83,10 @@ private:
     std::string internationalDesignator_{};  ///< 国际编号 (YYYY-NNNAAA)
     int         noradCatId_{0};              ///< NORAD 目录编号
     bool        payloadFlag_{false};         ///< 载荷标志 (* = 载荷)
-    std::string owner_;                      ///< 所有者/来源 (cols 50-54)
-    std::string launchDate_;                 ///< 发射日期 [YYYY-MM-DD]
-    std::string launchSite_;                 ///< 发射场 (cols 69-73)
-    std::string decayDate_;                  ///< 衰减日期 [YYYY-MM-DD]，空 = 在轨
+    std::string owner_{};                    ///< 所有者/来源 (cols 50-54)
+    std::string launchDate_{};               ///< 发射日期 [YYYY-MM-DD]
+    std::string launchSite_{};               ///< 发射场 (cols 69-73)
+    std::string decayDate_{};                ///< 衰减日期 [YYYY-MM-DD]，空 = 在轨
     double      period_{0.0};                ///< 轨道周期 [s]
     double      inclination_{0.0};           ///< 倾角 [rad]
     double      apogee_{0.0};                ///< 远地点高度 [m]
