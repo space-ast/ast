@@ -63,6 +63,9 @@ public:
     // 工厂方法
     // ————————————————————————
 
+    AST_CORE_API
+    static TimeIntervalList FromTimeInterval(const TimeInterval& interval);
+
     /// @brief 从绝对区间向量构造
     /// @details 以第一个区间的 start 作为 epoch，所有区间转换为相对偏移。
     ///          若 intervals 为空，返回空列表（默认 epoch）。

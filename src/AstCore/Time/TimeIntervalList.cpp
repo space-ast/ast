@@ -63,7 +63,15 @@ IntervalList convertEpoch(const IntervalList& src,
 // 工厂方法
 // ============================================================
 
-TimeIntervalList TimeIntervalList::FromTimeIntervals(const std::vector<TimeInterval>& intervals)
+TimeIntervalList TimeIntervalList::FromTimeInterval(const TimeInterval &interval)
+{
+    TimeIntervalList result;
+    result.setEpoch(interval.start());
+    result.push_back(interval);
+    return result;
+}
+
+TimeIntervalList TimeIntervalList::FromTimeIntervals(const std::vector<TimeInterval> &intervals)
 {
     if (intervals.empty())
     {

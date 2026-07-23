@@ -26,11 +26,57 @@
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/TimeInterval.hpp"
 #include "AstCore/TimeIntervalList.hpp"
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
 class AccessConstraint;
 class AccessStepper;
+
+
+
+/// @brief 评估访问约束的时间段
+/// @param constraint 访问约束
+/// @param stepper 步进策略
+/// @param interval 搜索时间区间
+/// @param result 满足约束的时间段列表
+/// @return 错误码
+AST_CORE_API errc_t aEvaluateAccess(
+    const AccessConstraint* constraint,
+    AccessStepper* stepper,
+    const TimeInterval& interval,
+    TimeIntervalList& result
+);
+
+
+/// @brief 评估访问约束的时间段
+/// @param constraint 访问约束
+/// @param stepper 步进策略
+/// @param intervalList 搜索时间区间列表
+/// @param result 满足约束的时间段列表
+/// @return 错误码
+AST_CORE_API errc_t aEvaluateAccess(
+    const AccessConstraint* constraint,
+    AccessStepper* stepper,
+    const TimeIntervalList& intervalList,
+    TimeIntervalList& result
+);
+
+
+/// @brief 评估访问约束的时间段
+/// @param constraints 访问约束列表
+/// @param stepper 步进策略
+/// @param interval 搜索时间区间
+/// @param result 满足约束的时间段列表
+/// @return 错误码
+AST_CORE_API errc_t aEvaluateAccess(
+    const std::vector<AccessConstraint*>& constraints,
+    AccessStepper* stepper,
+    const TimeInterval& interval,
+    TimeIntervalList& result
+);
+
+
 
 /// @brief 访问评估器
 /// @details 在指定时间范围内，按步进策略采样单条约束，搜索满足区间并精化边界。
@@ -64,18 +110,5 @@ private:
     AccessConstraint*  constraint_{};
     AccessStepper*     stepper_{};
 };
-
-/// @brief 评估访问约束的时间段
-/// @param constraint 访问约束
-/// @param stepper 步进策略
-/// @param interval 搜索时间区间
-/// @param result 满足约束的时间段列表
-/// @return 错误码
-AST_CORE_API errc_t aEvaluateAccess(
-    const AccessConstraint* constraint,
-    AccessStepper* stepper,
-    const TimeInterval& interval,
-    TimeIntervalList& result
-);
 
 AST_NAMESPACE_END

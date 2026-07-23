@@ -22,43 +22,46 @@
 #include "AccessStepper.hpp"
 #include "AstCore/AccessConstraint.hpp"
 #include "AstMath/BrentSolver.hpp"
+#include "AstUtil/Logger.hpp"
 #include <cmath>
 
 AST_NAMESPACE_BEGIN
 
-AccessEvaluator::AccessEvaluator()  = default;
-AccessEvaluator::~AccessEvaluator() = default;
-
-bool AccessEvaluator::check(const TimePoint& time) const
-{
-    if (!constraint_) { return false; }
-    return constraint_->evaluate(time) >= 0.0;
-}
-
-errc_t AccessEvaluator::evaluate(const TimeInterval& interval, TimeIntervalList& result)
-{
-    return aEvaluateAccess(constraint_, stepper_, interval, result);
-}
 
 constexpr double kZeroTol = 1e-9;  // 约束值零容差：浮点噪声可能产生 ~1e-10 偏差
 
-errc_t aEvaluateAccess(
+
+/// @brief 评估访问约束的时间段，累加结果到 result 中
+/// @param constraint 访问约束
+/// @param stepper 步进策略
+/// @param interval 搜索时间区间
+/// @param result 满足约束的时间段列表，会累加结果，不会清空已有时段
+/// @return 错误码
+static errc_t aEvaluateAccess_AppendResult(
     const AccessConstraint* constraint,
     AccessStepper* stepper,
     const TimeInterval& interval,
-    TimeIntervalList& result)
+    TimeIntervalList& result
+)
 {
     if (!constraint || !stepper) { return eErrorInvalidParam; }
 
-    auto start = interval.start();
-    auto stop  = interval.stop();
+    auto& start = interval.start();
+    auto& stop  = interval.stop();
 
+    // 初始化步进器
     stepper->init(start, stop);
-    result.setEpoch(start);
 
+    // 初始化结果列表
+    if(result.empty())
+        result.setEpoch(start);
+
+    // 定义满足约束的判断函数
     auto isSatisfied = [](double v) { return v >= -kZeroTol; };
 
     double prevValue = constraint->evaluate(start);
+
+    // 初始访问状态
     bool   inAccess  = isSatisfied(prevValue);
     TimePoint boundaryStart = start;
 
@@ -116,11 +119,84 @@ errc_t aEvaluateAccess(
         prevValue = currentValue;
     }
 
+    // 处理最后一个区间
     if (inAccess) {
         result.push_back(boundaryStart, stop);
     }
 
     return eNoError;
+}
+
+
+errc_t aEvaluateAccess(
+    const AccessConstraint* constraint,
+    AccessStepper* stepper,
+    const TimeInterval& interval,
+    TimeIntervalList& result
+)
+{
+    result.clear();
+    return aEvaluateAccess_AppendResult(constraint, stepper, interval, result);
+}
+
+
+errc_t aEvaluateAccess(
+    const AccessConstraint* constraint,
+    AccessStepper* stepper,
+    const TimeIntervalList& intervalList,
+    TimeIntervalList& result
+)
+{
+    // 采用函数局部变量存储结果，避免intervalList和result的地址相同导致的异常行为
+    TimeIntervalList satisfiedIntervalList;
+    errc_t rc = eNoError;
+    for (const auto& interval : intervalList) {
+        errc_t err = aEvaluateAccess_AppendResult(constraint, stepper, interval, satisfiedIntervalList);
+        if (err != eNoError) {
+            rc = err;
+            aError("failed to evaluate access for interval: %s", interval.toString().c_str());
+        }
+    }
+    result = std::move(satisfiedIntervalList);
+    return rc;
+}
+
+
+errc_t aEvaluateAccess(
+    const std::vector<AccessConstraint*>& constraints,
+    AccessStepper* stepper,
+    const TimeInterval& interval,
+    TimeIntervalList& result
+)
+{
+    if(constraints.empty())
+    {
+        // 没有约束，直接返回输入的时间区间
+        result = TimeIntervalList::FromTimeInterval(interval);
+        aInfo("no constraints, return the input interval: %s", interval.toString().c_str());
+        return eNoError;
+    }
+    errc_t rc = aEvaluateAccess(constraints[0], stepper, interval, result);
+    for(size_t i=1; i<constraints.size(); i++)
+    {
+        rc |= aEvaluateAccess(constraints[i], stepper, result, result);
+    }
+    return rc;
+}
+
+
+AccessEvaluator::AccessEvaluator()  = default;
+AccessEvaluator::~AccessEvaluator() = default;
+
+bool AccessEvaluator::check(const TimePoint& time) const
+{
+    if (!constraint_) { return false; }
+    return constraint_->evaluate(time) >= 0.0;
+}
+
+errc_t AccessEvaluator::evaluate(const TimeInterval& interval, TimeIntervalList& result)
+{
+    return aEvaluateAccess(constraint_, stepper_, interval, result);
 }
 
 AST_NAMESPACE_END
