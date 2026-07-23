@@ -24,6 +24,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstCore/BuiltinFrame.hpp"
+#include <algorithm>
 #include <cmath>
 
 AST_NAMESPACE_BEGIN
@@ -48,7 +49,7 @@ static bool initFromTLE(const TLE& tle, elsetrec& satrec,
     char satn[6] = "     ";
     if (!tle.lines_.line1_.empty() && tle.lines_.line1_.size() >= 7)
     {
-        memcpy(satn, tle.lines_.line1_.c_str() + 2, 5);
+        std::copy_n(tle.lines_.line1_.c_str() + 2, 5, satn);
         satn[5] = '\0';
     }
     // 去除尾部空格
