@@ -34,8 +34,7 @@ AST_NAMESPACE_BEGIN
 class SatelliteDatabaseEntry;
 
 /// @brief 卫星数据库查询条件
-/// @details 支持按任务类别（mission）和通用名称（commonName）进行过滤匹配。
-///          使用简单的通配符模式匹配（支持 * 和 ?）。
+/// @details 支持按任务类别（mission）和通用名称（commonName）进行子串匹配过滤。
 ///          对应 STK Components 中的 StkSatelliteDatabaseQuery。
 class AST_CORE_API SatelliteDatabaseQuery
 {
@@ -47,13 +46,11 @@ public:
     ~SatelliteDatabaseQuery();
 
     /// @brief 按任务类别过滤
-    /// @param pattern 匹配模式，支持 *（匹配任意字符序列）和 ?（匹配单个字符）。
-    ///                 空字符串表示不按此字段过滤。
+    /// @param pattern 子串匹配模式，空字符串表示不按此字段过滤。
     void setMission(StringView pattern);
 
     /// @brief 按通用名称过滤
-    /// @param pattern 匹配模式，支持 *（匹配任意字符序列）和 ?（匹配单个字符）。
-    ///                 空字符串表示不按此字段过滤。
+    /// @param pattern 子串匹配模式，空字符串表示不按此字段过滤。
     void setCommonName(StringView pattern);
 
     /// @brief 获取任务类别过滤模式
