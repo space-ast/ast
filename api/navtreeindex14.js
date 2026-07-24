@@ -228,6 +228,12 @@ var NAVTREEINDEX14 =
 "Symbol_8cpp.html":[4,0,0,18,10,0],
 "Symbol_8hpp.html":[4,0,0,18,10,1],
 "Symbol_8hpp_source.html":[4,0,0,18,10,1],
+"TLEDatabaseQuery_8cpp.html":[4,0,0,6,7,10],
+"TLEDatabaseQuery_8hpp.html":[4,0,0,6,7,11],
+"TLEDatabaseQuery_8hpp_source.html":[4,0,0,6,7,11],
+"TLEDatabase_8cpp.html":[4,0,0,6,7,8],
+"TLEDatabase_8hpp.html":[4,0,0,6,7,9],
+"TLEDatabase_8hpp_source.html":[4,0,0,6,7,9],
 "TLELines_8hpp.html":[4,0,0,6,11,2,5],
 "TLELines_8hpp_source.html":[4,0,0,6,11,2,5],
 "TLE_8cpp.html":[4,0,0,6,11,2,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX14 =
 "TargetLoader_8cpp.html":[4,0,0,11,5,54],
 "TargetLoader_8cpp.html#a14027c3f4c5acffa60d0e67a4ffabde0":[4,0,0,11,5,54,0],
 "TargetLoader_8hpp.html":[4,0,0,11,5,55],
-"TargetLoader_8hpp.html#a14027c3f4c5acffa60d0e67a4ffabde0":[4,0,0,11,5,55,0],
-"TargetLoader_8hpp_source.html":[4,0,0,11,5,55],
-"Target_8cpp.html":[4,0,0,19,3,64],
-"Target_8hpp.html":[4,0,0,19,3,65],
-"Target_8hpp_source.html":[4,0,0,19,3,65],
-"TargeterGraph_8cpp.html":[4,0,0,6,10,3,0,7],
-"TargeterGraph_8hpp.html":[4,0,0,6,10,3,0,8]
+"TargetLoader_8hpp.html#a14027c3f4c5acffa60d0e67a4ffabde0":[4,0,0,11,5,55,0]
 };

@@ -1,5 +1,11 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1SpacecraftState.html#a6478053b9e004c5790cb334ba60d5cee":[2,0,0,856,0],
+"classast_1_1SpacecraftState.html#a6478053b9e004c5790cb334ba60d5cee":[3,0,0,855,0],
+"classast_1_1SpacecraftState.html#a8ae10c45433aa99d2acac18fb0164b61":[2,0,0,856,4],
+"classast_1_1SpacecraftState.html#a8ae10c45433aa99d2acac18fb0164b61":[3,0,0,855,4],
+"classast_1_1SpacecraftState.html#a954046be6293b1c7468cbe2d45626dc0":[2,0,0,856,5],
+"classast_1_1SpacecraftState.html#a954046be6293b1c7468cbe2d45626dc0":[3,0,0,855,5],
 "classast_1_1SpacecraftState.html#ae0136c3137c96de0a865ac93b720ba4b":[2,0,0,856,3],
 "classast_1_1SpacecraftState.html#ae0136c3137c96de0a865ac93b720ba4b":[3,0,0,855,3],
 "classast_1_1SpacecraftState.html#ae9f2abf6c3574720295e24f4df89e4bd":[2,0,0,856,1],
@@ -243,11 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1StateKeplerian.html#aa3cea6f996cffe0cf31f6df3461feddb":[2,0,0,893,41],
 "classast_1_1StateKeplerian.html#aa3cea6f996cffe0cf31f6df3461feddb":[3,0,0,892,41],
 "classast_1_1StateKeplerian.html#aa406cbc086855a6877d3789bf3ad09c7":[2,0,0,893,18],
-"classast_1_1StateKeplerian.html#aa406cbc086855a6877d3789bf3ad09c7":[3,0,0,892,18],
-"classast_1_1StateKeplerian.html#aac861d3c1b8810f7346f7e4c34ac2a23":[2,0,0,893,50],
-"classast_1_1StateKeplerian.html#aac861d3c1b8810f7346f7e4c34ac2a23":[3,0,0,892,50],
-"classast_1_1StateKeplerian.html#aae580d42e5f15af8426246f041e962de":[2,0,0,893,39],
-"classast_1_1StateKeplerian.html#aae580d42e5f15af8426246f041e962de":[3,0,0,892,39],
-"classast_1_1StateKeplerian.html#aafe4c74007d80c628722ef8b11bb2bf6":[2,0,0,893,4],
-"classast_1_1StateKeplerian.html#aafe4c74007d80c628722ef8b11bb2bf6":[3,0,0,892,4]
+"classast_1_1StateKeplerian.html#aa406cbc086855a6877d3789bf3ad09c7":[3,0,0,892,18]
 };

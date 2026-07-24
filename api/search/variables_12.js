@@ -16,13 +16,11 @@ var searchData=
   ['reltol_5f_13',['relTol_',['../classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd',1,'ast::UnarySolver']]],
   ['reportonfixedstep_5f_14',['reportOnFixedStep_',['../classast_1_1MotionHPOPSax.html#a1efe72ddd2a66a9feb3ef1a582977215',1,'ast::MotionHPOPSax']]],
   ['resolve_5f_15',['resolve_',['../classast_1_1Class.html#ac33daba8178cc37dc4fd31645e4883c0',1,'ast::Class']]],
-  ['revnumber_5f_16',['revNumber_',['../classast_1_1TLE.html#a58e316cf0ae58a85d7419c432f69cad0',1,'ast::TLE']]],
-  ['right_5f_17',['right_',['../classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4',1,'ast::OpBin']]],
-  ['rightascenofnode_5f_18',['rightAscenOfNode_',['../classast_1_1TLE.html#afddf3691d2a0fd82c7353c75833f8f69',1,'ast::TLE']]],
-  ['rightascensionofascendingnode_5f_19',['rightAscensionOfAscendingNode_',['../classast_1_1SimpleOrbitDesigner.html#ad90b331db5b484737829a923c425f412',1,'ast::SimpleOrbitDesigner']]],
-  ['rotation_5f_20',['rotation_',['../classast_1_1Transform.html#a35a535f2e5b33bc4e5d2a1959e9cac60',1,'ast::Transform']]],
-  ['rotationepoch_5f_21',['rotationEpoch_',['../classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f',1,'ast::RotationalData']]],
-  ['rowcol_5f_22',['rowcol_',['../classast_1_1LowerMatrix.html#a50ac82125bcfdf6da06d01083e8b2798',1,'ast::LowerMatrix']]],
-  ['rp_5f_23',['rp_',['../classast_1_1ModOrbElem.html#a06bf100ac344511c23ce4004fc761072',1,'ast::ModOrbElem']]],
-  ['rsize_24',['rsize',['../structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e',1,'ast::SPK_Type2_Trailer']]]
+  ['right_5f_16',['right_',['../classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4',1,'ast::OpBin']]],
+  ['rightascensionofascendingnode_5f_17',['rightAscensionOfAscendingNode_',['../classast_1_1SimpleOrbitDesigner.html#ad90b331db5b484737829a923c425f412',1,'ast::SimpleOrbitDesigner']]],
+  ['rotation_5f_18',['rotation_',['../classast_1_1Transform.html#a35a535f2e5b33bc4e5d2a1959e9cac60',1,'ast::Transform']]],
+  ['rotationepoch_5f_19',['rotationEpoch_',['../classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f',1,'ast::RotationalData']]],
+  ['rowcol_5f_20',['rowcol_',['../classast_1_1LowerMatrix.html#a50ac82125bcfdf6da06d01083e8b2798',1,'ast::LowerMatrix']]],
+  ['rp_5f_21',['rp_',['../classast_1_1ModOrbElem.html#a06bf100ac344511c23ce4004fc761072',1,'ast::ModOrbElem']]],
+  ['rsize_22',['rsize',['../structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e',1,'ast::SPK_Type2_Trailer']]]
 ];

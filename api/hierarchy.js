@@ -190,7 +190,8 @@ var hierarchy =
     [ "ast::DataGroupVector::Data", "structast_1_1DataGroupVector_1_1Data.html", null ],
     [ "ast::DataGroupVectorPrv::Data", "structast_1_1DataGroupVectorPrv_1_1Data.html", null ],
     [ "ast::Database", "classast_1_1Database.html", [
-      [ "ast::SatelliteDatabase", "classast_1_1SatelliteDatabase.html", null ]
+      [ "ast::SatelliteDatabase", "classast_1_1SatelliteDatabase.html", null ],
+      [ "ast::TLEDatabase", "classast_1_1TLEDatabase.html", null ]
     ] ],
     [ "ast::DataContext", "classast_1_1DataContext.html", null ],
     [ "ast::DataElement", "classast_1_1DataElement.html", null ],
@@ -1471,6 +1472,7 @@ var hierarchy =
     [ "ast::TimePoint", "classast_1_1TimePoint.html", null ],
     [ "ast::TimeScale", "classast_1_1TimeScale.html", null ],
     [ "ast::TLE", "classast_1_1TLE.html", null ],
+    [ "ast::TLEDatabaseQuery", "classast_1_1TLEDatabaseQuery.html", null ],
     [ "ast::TLELines", "classast_1_1TLELines.html", null ],
     [ "ast::TrackingCoordinates", "classast_1_1TrackingCoordinates.html", null ],
     [ "ast::Transform", "classast_1_1Transform.html", [

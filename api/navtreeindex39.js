@@ -1,5 +1,11 @@
 var NAVTREEINDEX39 =
 {
+"classast_1_1SatelliteDatabaseQuery.html#a6dc1e841392a78e73ed4a041cafa5533":[3,0,0,614,6],
+"classast_1_1SatelliteDatabaseQuery.html#a70eda6d62479c21405fd5a1ebcf95de0":[2,0,0,615,3],
+"classast_1_1SatelliteDatabaseQuery.html#a70eda6d62479c21405fd5a1ebcf95de0":[3,0,0,614,3],
+"classast_1_1SatelliteDatabaseQuery.html#a716b3a2a2375b4fdaec012924a997197":[2,0,0,615,4],
+"classast_1_1SatelliteDatabaseQuery.html#a716b3a2a2375b4fdaec012924a997197":[3,0,0,614,4],
+"classast_1_1SatelliteDatabaseQuery.html#a82811aae634f395298288a6f4163228f":[2,0,0,615,5],
 "classast_1_1SatelliteDatabaseQuery.html#a82811aae634f395298288a6f4163228f":[3,0,0,614,5],
 "classast_1_1SatelliteDatabaseQuery.html#ab96b364fee72ca607d083f9ce88263ad":[2,0,0,615,2],
 "classast_1_1SatelliteDatabaseQuery.html#ab96b364fee72ca607d083f9ce88263ad":[3,0,0,614,2],
@@ -243,11 +249,5 @@ var NAVTREEINDEX39 =
 "classast_1_1ScStateCalcMu.html":[3,0,0,736],
 "classast_1_1ScStateCalcNegative.html":[2,0,0,738],
 "classast_1_1ScStateCalcNegative.html":[3,0,0,737],
-"classast_1_1ScStateCalcNormal.html":[2,0,0,739],
-"classast_1_1ScStateCalcNormal.html":[3,0,0,738],
-"classast_1_1ScStateCalcNormalRate.html":[2,0,0,740],
-"classast_1_1ScStateCalcNormalRate.html":[3,0,0,739],
-"classast_1_1ScStateCalcOrbitDelaunayG.html":[2,0,0,741],
-"classast_1_1ScStateCalcOrbitDelaunayG.html":[3,0,0,740],
-"classast_1_1ScStateCalcOrbitDelaunayH.html":[2,0,0,742]
+"classast_1_1ScStateCalcNormal.html":[2,0,0,739]
 };

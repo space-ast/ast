@@ -27,5 +27,6 @@ var searchData=
   ['_7escriptexecutor_24',['~ScriptExecutor',['../classast_1_1ScriptExecutor.html#a9b7c9b4fcf602ce32fd751929ce5e4a7',1,'ast::ScriptExecutor']]],
   ['_7etimeintervallist_25',['~TimeIntervalList',['../classast_1_1TimeIntervalList.html#ae181da1b7d0bee14e15aadc0cdc2b8f8',1,'ast::TimeIntervalList']]],
   ['_7etimelist_26',['~TimeList',['../classast_1_1TimeList.html#a1fde8cc229b7692e355f27a2b9aa0a9e',1,'ast::TimeList']]],
-  ['_7euipilotconsole_27',['~UiPilotConsole',['../classast_1_1UiPilotConsole.html#a337a1089bf1a6246fe28585bbd380d65',1,'ast::UiPilotConsole']]]
+  ['_7etledatabasequery_27',['~TLEDatabaseQuery',['../classast_1_1TLEDatabaseQuery.html#aac1b055e22a57d295f309c77c6c79d66',1,'ast::TLEDatabaseQuery']]],
+  ['_7euipilotconsole_28',['~UiPilotConsole',['../classast_1_1UiPilotConsole.html#a337a1089bf1a6246fe28585bbd380d65',1,'ast::UiPilotConsole']]]
 ];

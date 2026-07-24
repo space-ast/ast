@@ -58,7 +58,7 @@ var searchData=
   ['isdimensionlocked_55',['isDimensionLocked',['../classast_1_1UiQuantity.html#a01ed0e73d4bb3bdc9b6714e9def8c68e',1,'ast::UiQuantity']]],
   ['isdir_56',['isdir',['../namespaceast_1_1posix.html#af224165c7d701178e9d3151c3f2c4333',1,'ast::posix']]],
   ['isearth_57',['isEarth',['../classast_1_1CelestialBody.html#aa929791242e4840e147e5c7d6c8a96cf',1,'ast::CelestialBody']]],
-  ['isempty_58',['isEmpty',['../classast_1_1SatelliteDatabaseQuery.html#a70eda6d62479c21405fd5a1ebcf95de0',1,'ast::SatelliteDatabaseQuery']]],
+  ['isempty_58',['isEmpty',['../classast_1_1SatelliteDatabaseQuery.html#a70eda6d62479c21405fd5a1ebcf95de0',1,'ast::SatelliteDatabaseQuery::isEmpty()'],['../classast_1_1TLEDatabaseQuery.html#afec803dba3e4197ff797cf0625ceec5d',1,'ast::TLEDatabaseQuery::isEmpty()']]],
   ['iserrormeet_59',['isErrorMeet',['../classast_1_1ODEVarStepIntegrator.html#a26f0bbf5378edb1c29bec3bf662ed3b1',1,'ast::ODEVarStepIntegrator']]],
   ['isexpectedtype_60',['isExpectedType',['../classast_1_1ObjectCalculation.html#ae42c0f7276fa085fa8fe2991ffaf1465',1,'ast::ObjectCalculation']]],
   ['ishexdigit_61',['isHexDigit',['../namespaceast.html#a212db34da83ee26fa1f671ba8a2367c9',1,'ast']]],
