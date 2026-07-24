@@ -34,7 +34,100 @@
 
 AST_NAMESPACE_BEGIN
 
-const char* USER_ENTERED_TLE = "User-entered TLE";
+// ============================================================================
+// 内部辅助
+// ============================================================================
+
+namespace {
+
+std::string extractMission(StringView name)
+{
+    if (name.empty())
+        return {};
+
+    // 使用 aStripLeadingAsciiWhitespace 去除前导空格
+    auto trimmed = aStripLeadingAsciiWhitespace(name);
+
+    // 找到首个空格
+    size_t wordEnd = 0;
+    while (wordEnd < trimmed.size() && trimmed[wordEnd] != ' ')
+        ++wordEnd;
+
+    if (wordEnd == 0)
+        return {};
+
+    std::string mission(trimmed.data(), wordEnd);
+
+    // 去除末尾数字和连字符（如 "SL-1" → "SL"）
+    while (!mission.empty() && ((mission.back() >= '0' && mission.back() <= '9') || mission.back() == '-'))
+        mission.pop_back();
+
+    if (mission.empty())
+        mission.assign(trimmed.data(), wordEnd);
+
+    return mission;
+}
+
+SatelliteDatabaseEntry parseSatcatLine(StringView line)
+{
+    SatelliteDatabaseEntry entry;
+
+    // 列 001-011: 国际编号
+    entry.setInternationalDesignator(aStripAsciiWhitespace(line.substr(0, 11)));
+
+    // 列 014-018: NORAD 目录编号
+    entry.setNoradCatId(aParseInt(line.substr(13, 5)));
+
+    // 列 021: 载荷标志
+    entry.setPayload(line.size() > 20 && line[20] == '*');
+
+    // 列 024-047: 卫星名称
+    entry.commonName() = std::string(aStripAsciiWhitespace(line.substr(23, 24)));
+
+    // 列 050-054: 所有者
+    entry.setOwner(aStripAsciiWhitespace(line.substr(49, 5)));
+
+    // 列 057-066: 发射日期
+    entry.setLaunchDate(aStripAsciiWhitespace(line.substr(56, 10)));
+
+    // 列 069-073: 发射场
+    entry.setLaunchSite(aStripAsciiWhitespace(line.substr(68, 5)));
+
+    // 列 076-085: 衰减日期
+    entry.setDecayDate(aStripAsciiWhitespace(line.substr(75, 10)));
+
+    // 列 088-094: 轨道周期
+    entry.setPeriod(aParseDouble(line.substr(87, 7)) * 1_min);
+
+    // 列 097-101: 倾角
+    entry.setInclination(aParseDouble(line.substr(96, 5)) * 1_deg);
+
+    // 列 104-109: 远地点高度
+    entry.setApogee(aParseDouble(line.substr(103, 6)) * 1_km);
+
+    // 列 112-117: 近地点高度
+    entry.setPerigee(aParseDouble(line.substr(111, 6)) * 1_km);
+
+    // 列 120-127: RCS — "N/A" 或数值
+    {
+        auto rcsStr = std::string(aStripAsciiWhitespace(line.substr(119, 8)));
+        if (rcsStr.empty() || rcsStr == "N/A")
+            entry.setRcs(std::numeric_limits<double>::quiet_NaN());
+        else
+            entry.setRcs(aParseDouble(rcsStr));
+    }
+
+    // 列 130-132: 轨道状态码
+    entry.setOrbitalStatusCode(aStripAsciiWhitespace(line.substr(129, 3)));
+
+    // 派生 mission
+    entry.mission() = extractMission(entry.commonName());
+
+    return entry;
+}
+
+} // namespace
+
 
 // ============================================================================
 // 构造 / 析构 / 加载
@@ -131,6 +224,20 @@ errc_t SatelliteDatabase::loadSatcatFile(StringView filePath)
     if (!file)
         return -1;
 
+    // 根据文件大小预估条目数，减少 vector 重分配
+    {
+        fseek(file, 0, SEEK_END);
+        long fileSize = ftell(file);
+        rewind(file);
+
+        if (fileSize > 0)
+        {
+            // 保守估计：SATCAT 每行约 133 字符 + 换行符，额外留一点余量
+            size_t estimated = static_cast<size_t>(fileSize) / 134 + 10;
+            entries_.reserve(estimated);
+        }
+    }
+
     char buf[256];
 
     while (fgets(buf, sizeof(buf), file))
@@ -142,8 +249,8 @@ errc_t SatelliteDatabase::loadSatcatFile(StringView filePath)
         if (line.empty())
             continue;
 
-        // SATCAT 行至少约 100 字符
-        if (line.size() < 100)
+        // SATCAT 行至少 132 字符
+        if (line.size() < 132)
             continue;
 
         auto entry = parseSatcatLine(line);
@@ -152,92 +259,6 @@ errc_t SatelliteDatabase::loadSatcatFile(StringView filePath)
     }
 
     return 0;
-}
-
-SatelliteDatabaseEntry SatelliteDatabase::parseSatcatLine(StringView line)
-{
-    SatelliteDatabaseEntry entry;
-
-    // 列 001-011: 国际编号
-    entry.internationalDesignator_ = std::string(aStripAsciiWhitespace(line.substr(0, 11)));
-
-    // 列 014-018: NORAD 目录编号
-    entry.noradCatId_ = aParseInt(line.substr(13, 5));
-
-    // 列 021: 载荷标志
-    entry.payloadFlag_ = (line.size() > 20 && line[20] == '*');
-
-    // 列 024-047: 卫星名称
-    entry.commonName_ = std::string(aStripAsciiWhitespace(line.substr(23, 24)));
-
-    // 列 050-054: 所有者
-    entry.owner_ = std::string(aStripAsciiWhitespace(line.substr(49, 5)));
-
-    // 列 057-066: 发射日期
-    entry.launchDate_ = std::string(aStripAsciiWhitespace(line.substr(56, 10)));
-
-    // 列 069-073: 发射场
-    entry.launchSite_ = std::string(aStripAsciiWhitespace(line.substr(68, 5)));
-
-    // 列 076-085: 衰减日期
-    entry.decayDate_ = std::string(aStripAsciiWhitespace(line.substr(75, 10)));
-
-    // 列 088-094: 轨道周期
-    entry.period_ = aParseDouble(line.substr(87, 7)) * 1_min;
-
-    // 列 097-101: 倾角
-    entry.inclination_ = aParseDouble(line.substr(96, 5)) * 1_deg;
-
-    // 列 104-109: 远地点高度
-    entry.apogee_ = aParseDouble(line.substr(103, 6)) * 1_km;
-
-    // 列 112-117: 近地点高度
-    entry.perigee_ = aParseDouble(line.substr(111, 6)) * 1_km;
-
-    // 列 120-127: RCS — "N/A" 或数值
-    {
-        auto rcsStr = std::string(aStripAsciiWhitespace(line.substr(119, 8)));
-        if (rcsStr.empty() || rcsStr == "N/A")
-            entry.rcs_ = std::numeric_limits<double>::quiet_NaN();
-        else
-            entry.rcs_ = aParseDouble(rcsStr);
-    }
-
-    // 列 130-132: 轨道状态码
-    entry.orbitalStatusCode_ = std::string(aStripAsciiWhitespace(line.substr(129, 3)));
-
-    // 派生 mission
-    entry.mission_ = extractMission(entry.commonName_);
-
-    return entry;
-}
-
-std::string SatelliteDatabase::extractMission(StringView name)
-{
-    if (name.empty())
-        return {};
-
-    // 使用 aStripLeadingAsciiWhitespace 去除前导空格
-    auto trimmed = aStripLeadingAsciiWhitespace(name);
-
-    // 找到首个空格
-    size_t wordEnd = 0;
-    while (wordEnd < trimmed.size() && trimmed[wordEnd] != ' ')
-        ++wordEnd;
-
-    if (wordEnd == 0)
-        return {};
-
-    std::string mission(trimmed.data(), wordEnd);
-
-    // 去除末尾数字和连字符（如 "SL-1" → "SL"）
-    while (!mission.empty() && ((mission.back() >= '0' && mission.back() <= '9') || mission.back() == '-'))
-        mission.pop_back();
-
-    if (mission.empty())
-        mission.assign(trimmed.data(), wordEnd);
-
-    return mission;
 }
 
 AST_NAMESPACE_END

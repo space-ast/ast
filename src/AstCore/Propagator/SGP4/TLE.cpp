@@ -76,6 +76,9 @@ TLE TLE::FromLines(StringView l1, StringView l2)
     // ---- 解析第1行（69 字符）----
     if (l1.size() >= 69)
     {
+        // 列 03-07: NORAD 目录编号 (1-based 3-7 → 0-based 2-6)
+        tle.noradId_ = aParseInt(l1.substr(2, 5));
+
         // 列 08: 密级分类 (1-based 8 → 0-based 7)
         tle.classification_ = l1[7];
 

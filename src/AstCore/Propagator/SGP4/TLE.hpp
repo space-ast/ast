@@ -54,6 +54,11 @@ public:
     TLE() = default;
     ~TLE() = default;
 
+    TLE(const TLE&) = default;
+    TLE& operator=(const TLE&) = default;
+    TLE(TLE&&) = default;
+    TLE& operator=(TLE&&) = default;
+
     /// @brief 从 TLE 行文本创建 TLE 对象
     /// @details 解析 TLE 行文本，提取轨道根数及元数据。
     /// @param lines TLE 行文本
@@ -116,6 +121,9 @@ public:
     int  ephType() const { return ephType_; }
     void setEphType(int v) { ephType_ = v; }
 
+    int  noradId() const { return noradId_; }
+    void setNoradId(int v) { noradId_ = v; }
+
     int  elementNumber() const { return elementNumber_; }
     void setElementNumber(int v) { elementNumber_ = v; }
 
@@ -143,6 +151,7 @@ private:
     int revNumber_{0};                ///< 轨道数
     int ephType_{0};                  ///< 星历类型
     int elementNumber_{0};            ///< 元素编号
+    int noradId_{0};                  ///< NORAD 目录编号
     char classification_{'U'};        ///< 分类
 };
 

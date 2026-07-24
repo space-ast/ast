@@ -45,6 +45,11 @@ public:
     SatelliteDatabaseEntry(StringView commonName, StringView mission);
     ~SatelliteDatabaseEntry();
 
+    SatelliteDatabaseEntry(const SatelliteDatabaseEntry&) = default;
+    SatelliteDatabaseEntry& operator=(const SatelliteDatabaseEntry&) = default;
+    SatelliteDatabaseEntry(SatelliteDatabaseEntry&&) = default;
+    SatelliteDatabaseEntry& operator=(SatelliteDatabaseEntry&&) = default;
+
 
     // -- STK 兼容接口 --
 
@@ -56,25 +61,48 @@ public:
     // -- SATCAT 字段 --
 
     const std::string& internationalDesignator()  const { return internationalDesignator_; }
+    void               setInternationalDesignator(StringView v) { internationalDesignator_ = std::string(v); }
+
     int                noradCatId()               const { return noradCatId_; }
+    void               setNoradCatId(int v)             { noradCatId_ = v; }
+            
     bool               isPayload()                const { return payloadFlag_; }
+    void               setPayload(bool v)               { payloadFlag_ = v; }
+
     const std::string& owner()                    const { return owner_; }
+    void               setOwner(StringView v)           { owner_ = std::string(v); }
+
     const std::string& launchDate()               const { return launchDate_; }
+    void               setLaunchDate(StringView v)      { launchDate_ = std::string(v); }
+
     const std::string& launchSite()               const { return launchSite_; }
+    void               setLaunchSite(StringView v)      { launchSite_ = std::string(v); }
+
     const std::string& decayDate()                const { return decayDate_; }
+    void               setDecayDate(StringView v)       { decayDate_ = std::string(v); }
+
     double             period()                   const { return period_; }
+    void               setPeriod(double v)              { period_ = v; }
+            
     double             inclination()              const { return inclination_; }
+    void               setInclination(double v)         { inclination_ = v; }
+            
     double             apogee()                   const { return apogee_; }
+    void               setApogee(double v)              { apogee_ = v; }
+            
     double             perigee()                  const { return perigee_; }
+    void               setPerigee(double v)             { perigee_ = v; }
+            
     double             rcs()                      const { return rcs_; }
+    void               setRcs(double v)                 { rcs_ = v; }
+
     const std::string& orbitalStatusCode()        const { return orbitalStatusCode_; }
+    void               setOrbitalStatusCode(StringView v) { orbitalStatusCode_ = std::string(v); }
 
     /// @brief 是否已衰减（有衰减日期）
     bool isDecayed() const { return !decayDate_.empty(); }
 
 private:
-    friend class SatelliteDatabase;
-
     // -- STK 兼容字段 --
     std::string commonName_{};               ///< 卫星通用名称（SATCAT 名称字段 trim 后）
     std::string mission_{};                  ///< 所属任务/类别（从名称派生）

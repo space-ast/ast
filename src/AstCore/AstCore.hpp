@@ -523,6 +523,8 @@
 #include "AstCore/SunPosition.hpp"
 #include "AstCore/SunSynchronousOrbitDesigner.hpp"
 #include "AstCore/TLE.hpp"
+#include "AstCore/TLEDatabase.hpp"
+#include "AstCore/TLEDatabaseQuery.hpp"
 #include "AstCore/TLELines.hpp"
 #include "AstCore/TargeterGraph.hpp"
 #include "AstCore/TargeterProfile.hpp"

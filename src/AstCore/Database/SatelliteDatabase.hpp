@@ -74,12 +74,6 @@ private:
     /// @brief 解析 SATCAT Legacy Text Format 文件
     errc_t loadSatcatFile(StringView filePath);
 
-    /// @brief 解析一行 SATCAT 记录
-    /// @return 成功解析返回条目，否则返回空条目（commonName 为空）
-    static SatelliteDatabaseEntry parseSatcatLine(StringView line);
-
-    /// @brief 从卫星名称中提取 mission（首词，去除数字后缀）
-    static std::string extractMission(StringView name);
 private:
     std::string filePath_{};                          ///< 加载的文件路径
     TimePoint lastUpdateTime_{};                      ///< 最后更新时间
