@@ -133,7 +133,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEmpty</b> () const<
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>卫星数据库查询条件 </p>
-<p>支持按任务类别（mission）和通用名称（commonName）进行过滤匹配。 使用简单的通配符模式匹配（支持 * 和 ?）。 对应 STK Components 中的 StkSatelliteDatabaseQuery。 </p>
+<p>支持按任务类别（mission）和通用名称（commonName）进行子串匹配过滤。 对应 STK Components 中的 StkSatelliteDatabaseQuery。 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a716b3a2a2375b4fdaec012924a997197" name="a716b3a2a2375b4fdaec012924a997197"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a716b3a2a2375b4fdaec012924a997197">&#9670;&#160;</a></span>matches()</h2>
@@ -179,7 +179,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEmpty</b> () const<
 <p>按通用名称过滤 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pattern</td><td>匹配模式，支持 *（匹配任意字符序列）和 ?（匹配单个字符）。 空字符串表示不按此字段过滤。 </td></tr>
+    <tr><td class="paramname">pattern</td><td>子串匹配模式，空字符串表示不按此字段过滤。 </td></tr>
   </table>
   </dd>
 </dl>
@@ -204,7 +204,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEmpty</b> () const<
 <p>按任务类别过滤 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pattern</td><td>匹配模式，支持 *（匹配任意字符序列）和 ?（匹配单个字符）。 空字符串表示不按此字段过滤。 </td></tr>
+    <tr><td class="paramname">pattern</td><td>子串匹配模式，空字符串表示不按此字段过滤。 </td></tr>
   </table>
   </dd>
 </dl>
