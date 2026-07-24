@@ -51,7 +51,7 @@ public:
 
     SatelliteDatabase();
     explicit SatelliteDatabase(StringView filePath);
-    ~SatelliteDatabase();
+    ~SatelliteDatabase() override;
 
     // -- 加载 --
     errc_t load(StringView filePath);

@@ -40,8 +40,8 @@ static const char* kLine2 = "2 26661  98.3488 112.3622 0070611 169.6757 257.7924
 static ast::TLELines makeTLELines()
 {
     ast::TLELines lines;
-    lines.line1_ = kLine1;
-    lines.line2_ = kLine2;
+    lines.line1() = kLine1;
+    lines.line2() = kLine2;
     return lines;
 }
 
@@ -102,13 +102,13 @@ TEST(SGP4Test, TLEParse)
         TLE tle = TLE::FromLines(makeTLELines());
 
         // 验证解析后的轨道根数（与 TLE 字段值对比）
-        EXPECT_NEAR(tle.inclination_,        98.3488  * kDegToRad, 1e-10);
-        EXPECT_NEAR(tle.rightAscenOfNode_,  112.3622  * kDegToRad, 1e-10);
-        EXPECT_NEAR(tle.eccentricity_,        0.0070611,           1e-10);
-        EXPECT_NEAR(tle.argOfPerigee_,      169.6757  * kDegToRad, 1e-10);
-        EXPECT_NEAR(tle.meanAnomaly_,       257.7924  * kDegToRad, 1e-10);
-        EXPECT_NEAR(tle.meanMotion_,         14.62494120 * kTwoPI / 86400.0, 1e-12);
-        EXPECT_NEAR(tle.bstar_,              0.00018006,         1e-12);
+        EXPECT_NEAR(tle.inclination(),        98.3488  * kDegToRad, 1e-10);
+        EXPECT_NEAR(tle.rightAscenOfNode(),  112.3622  * kDegToRad, 1e-10);
+        EXPECT_NEAR(tle.eccentricity(),        0.0070611,           1e-10);
+        EXPECT_NEAR(tle.argOfPerigee(),      169.6757  * kDegToRad, 1e-10);
+        EXPECT_NEAR(tle.meanAnomaly(),       257.7924  * kDegToRad, 1e-10);
+        EXPECT_NEAR(tle.meanMotion(),         14.62494120 * kTwoPI / 86400.0, 1e-12);
+        EXPECT_NEAR(tle.bstar(),              0.00018006,         1e-12);
     }
 }
 
@@ -140,7 +140,7 @@ TEST(SGP4Test, BasicPropagation)
         printf("sgp4 init error = %d\n", sgp4.getError());
 
         // 获取 TLE 历元时刻
-        TimePoint epoch = tle.epochTime_;
+        TimePoint epoch = tle.epochTime();
 
         // 打印历元信息
         JulianDate jdUTC;
@@ -210,7 +210,7 @@ TEST(SGP4Test, TEMEtoJ2000)
         TLE tle = TLE::FromLines(makeTLELines());
         SGP4 sgp4(tle);
 
-        TimePoint epoch = tle.epochTime_;
+        TimePoint epoch = tle.epochTime();
 
         Vector3d posTEME, velTEME;
         errc_t rc = sgp4.getPosVel(epoch, posTEME, velTEME);
@@ -267,7 +267,7 @@ TEST(SGP4Test, PropagationContinuity)
         TLE tle = TLE::FromLines(makeTLELines());
         SGP4 sgp4(tle);
 
-        TimePoint epoch = tle.epochTime_;
+        TimePoint epoch = tle.epochTime();
 
         // 在历元前后多个时间点传播
         const double offsets[] = {-3600.0, -60.0, 0.0, 60.0, 3600.0, 86400.0};

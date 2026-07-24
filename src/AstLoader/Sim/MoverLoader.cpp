@@ -114,62 +114,62 @@ errc_t _aLoadSGP4(BKVParser& parser, const VehiclePathData& vehiclePathData, Sco
                     tleToken = parser.getNext(tleItem);
                     if(tleToken == BKVParser::eKeyValue){
                         if(aEqualsIgnoreCase(tleItem.key(), "Enabled")){
-                            tle.enabled_ = tleItem.value().toBool();
+                            tle.setEnabled(tleItem.value().toBool());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "Source")){
                             std::string source = tleItem.value().toString();
                             if(aEqualsIgnoreCase(source, "File")){
-                                tle.source_ = ETLESource::eFile;
+                                tle.setSource(ETLESource::eFile);
                             }else if(aEqualsIgnoreCase(source, "Edited")){
-                                tle.source_ = ETLESource::eEdited;
+                                tle.setSource(ETLESource::eEdited);
                             }else if(aEqualsIgnoreCase(source, "Server")){
-                                tle.source_ = ETLESource::eServer;
+                                tle.setSource(ETLESource::eServer);
                             }
                         }else if(aEqualsIgnoreCase(tleItem.key(), "SwitchMethod")){
                             std::string method = tleItem.value().toString();
                             if(aEqualsIgnoreCase(method, "Epoch")){
-                                tle.switch_method_ = ESwitchMethod::eEpoch;
+                                tle.setSwitchMethod(ESwitchMethod::eEpoch);
                             }
                         }else if(aEqualsIgnoreCase(tleItem.key(), "SwitchEpoch")){
-                            tle.switchEpoch_ = TimePoint::Parse(tleItem.value());
+                            tle.setSwitchEpoch(TimePoint::Parse(tleItem.value()));
                         }else if(aEqualsIgnoreCase(tleItem.key(), "TLE")){
                             // 读取 TLE 两行数据
                             StringView line1 = parser.getLineSkipComment();
                             StringView line2 = parser.getLineSkipComment();
-                            tle.lines_.line1_ = std::string(aStripAsciiWhitespace(line1));
-                            tle.lines_.line2_ = std::string(aStripAsciiWhitespace(line2));
+                            tle.lines().line1() = std::string(aStripAsciiWhitespace(line1));
+                            tle.lines().line2() = std::string(aStripAsciiWhitespace(line2));
                         }else if(aEqualsIgnoreCase(tleItem.key(), "EpochTime")){
                             // EpochTime 存的是 YYDDD.DDDDDDDD double
-                            tle.epochTime_ = TimePoint::FromTLEYD(tleItem.value().toDouble());
+                            tle.setEpochTime(TimePoint::FromTLEYD(tleItem.value().toDouble()));
                         }else if(aEqualsIgnoreCase(tleItem.key(), "MeanMotionDot")){
-                            tle.meanMotionDotTime_ = tleItem.value().toDouble();
+                            tle.setMeanMotionDot(tleItem.value().toDouble());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "MotionDotDot")){
-                            tle.motionDotDot_ = tleItem.value().toDouble();
+                            tle.setMotionDotDot(tleItem.value().toDouble());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "IEXP")){
-                            tle.motionDotDot_ *= pow(10.0, tleItem.value().toInt());
+                            tle.setMotionDotDot(tle.motionDotDot() * pow(10.0, tleItem.value().toInt()));
                         }else if(aEqualsIgnoreCase(tleItem.key(), "BStar")){
-                            tle.bstar_ = tleItem.value().toDouble();
+                            tle.setBstar(tleItem.value().toDouble());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "IBEXP")){
-                            tle.bstar_ *= pow(10.0, tleItem.value().toInt());
+                            tle.setBstar(tle.bstar() * pow(10.0, tleItem.value().toInt()));
                         }else if(aEqualsIgnoreCase(tleItem.key(), "Inclination")){
-                            tle.inclination_ = tleItem.value().toAngleRad();
+                            tle.setInclination(tleItem.value().toAngleRad());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "RightAscenOfNode")){
-                            tle.rightAscenOfNode_ = tleItem.value().toAngleRad();
+                            tle.setRightAscenOfNode(tleItem.value().toAngleRad());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "Eccentricity")){
-                            tle.eccentricity_ = tleItem.value().toDouble();
+                            tle.setEccentricity(tleItem.value().toDouble());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "ArgOfPerigee")){
-                            tle.argOfPerigee_ = tleItem.value().toAngleRad();
+                            tle.setArgOfPerigee(tleItem.value().toAngleRad());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "MeanAnomaly")){
-                            tle.meanAnomaly_ = tleItem.value().toAngleRad();
+                            tle.setMeanAnomaly(tleItem.value().toAngleRad());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "MeanMotion")){
-                            tle.meanMotion_ = tleItem.value().toDouble() * 1_revs / 1_day ;
+                            tle.setMeanMotion(tleItem.value().toDouble() * 1_revs / 1_day);
                         }else if(aEqualsIgnoreCase(tleItem.key(), "RevNumber")){
-                            tle.revNumber_ = tleItem.value().toInt();
+                            tle.setRevNumber(tleItem.value().toInt());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "EphType")){
-                            tle.ephType_ = tleItem.value().toInt();
+                            tle.setEphType(tleItem.value().toInt());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "ElementNumber")){
-                            tle.elementNumber_ = tleItem.value().toInt();
+                            tle.setElementNumber(tleItem.value().toInt());
                         }else if(aEqualsIgnoreCase(tleItem.key(), "Classification")){
-                            tle.classification_ = tleItem.value().toString()[0];
+                            tle.setClassification(tleItem.value().toString()[0]);
                         }
                     }else if(tleToken == BKVParser::eBlockEnd){
                         if(aEqualsIgnoreCase(tleItem.value(), "TwoLineElement")){

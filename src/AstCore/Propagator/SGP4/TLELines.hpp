@@ -40,14 +40,21 @@ class TLELines
 {
 public:
     /// 检查是否为空（以 line1 是否为空判断）
-    bool empty() const{return line1_.empty();}
+    bool empty() const { return line1_.empty(); }
+
     /// 获取卫星名称（第 0 行）
-    const std::string& name() const{return name_;}
+    const std::string& name() const { return name_; }
+    std::string&       name() { return name_; }
+
     /// 获取 TLE 第一行
-    const std::string& line1() const{return line1_;}
+    const std::string& line1() const { return line1_; }
+    std::string&       line1() { return line1_; }
+
     /// 获取 TLE 第二行
-    const std::string& line2() const{return line2_;}
-public:
+    const std::string& line2() const { return line2_; }
+    std::string&       line2() { return line2_; }
+
+private:
     std::string name_{};     ///< 卫星名称（TLE 第 0 行，最长 24 字符）
     std::string line1_{};    ///< TLE 第一行（69 字符）
     std::string line2_{};    ///< TLE 第二行（69 字符）

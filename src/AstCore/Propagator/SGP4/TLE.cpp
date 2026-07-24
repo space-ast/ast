@@ -70,8 +70,8 @@ TLE TLE::FromLines(StringView l1, StringView l2)
 {
     TLE tle{};
     
-    tle.lines_.line1_ = std::string(l1);
-    tle.lines_.line2_ = std::string(l2);
+    tle.lines_.line1() = std::string(l1);
+    tle.lines_.line2() = std::string(l2);
 
     // ---- 解析第1行（69 字符）----
     if (l1.size() >= 69)
