@@ -174,6 +174,10 @@ namespace fs_simple
             return !is_absolute();
         }
 
+        /// @brief 词法上计算当前路径相对于 base 的相对路径
+        /// @details 不检查文件系统，纯词法操作。若不存在相对路径则返回空路径
+        path lexically_relative(const path& base) const;
+
         bool empty() const
         {
             return path_.empty();
@@ -352,6 +356,10 @@ namespace fs_simple
     AST_UTIL_API path current_path(std::error_code& ec) noexcept;
     AST_UTIL_API void current_path(const path& new_path) noexcept(false);
     AST_UTIL_API void current_path(const path& new_path, std::error_code& ec) noexcept;
+
+    /// @brief 计算 p 相对于 base 的相对路径（对标 std::filesystem::relative）
+    /// @note 若 p 和 base 根不同（如不同盘符）则设置 ec 并返回空路径
+    AST_UTIL_API path relative(const path& p, const path& base, std::error_code& ec) noexcept;
 
 } // namespace simple_fs
 

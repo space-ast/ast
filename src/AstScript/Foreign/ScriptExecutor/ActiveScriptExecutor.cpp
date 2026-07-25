@@ -65,6 +65,7 @@ AST_NAMESPACE_END
 
 #include "AstUtil/Encode.hpp"
 #include "AstUtil/LibraryLoader.hpp"
+#include "AstUtil/ComInit.hpp"
 #include "AstCOM/COMAPI.hpp"
 #include "ActiveScriptGlobalFunctions.inl"
 #include <comdef.h>
@@ -321,21 +322,6 @@ private:
 
 
 
-/// COM 初始化和释放守卫
-class CoInitializeGuard
-{
-public:
-    CoInitializeGuard(COINIT initFlags) {hr_ = CoInitializeEx(nullptr, initFlags);}
-    ~CoInitializeGuard() {if (SUCCEEDED(hr_)) CoUninitialize();}
-    HRESULT hr_{};
-};
-
-/// 确保当前线程 COM 已初始化
-HRESULT aEnsureCoInitialized()
-{
-    static A_THREAD_LOCAL CoInitializeGuard guard(COINIT_APARTMENTTHREADED);
-    return guard.hr_;
-}
 
 //内部实现
 

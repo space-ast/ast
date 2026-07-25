@@ -14,4 +14,7 @@
     if is_plat("linux") then
         add_syslinks("dl")
     end
+    if is_plat("windows", "mingw") then
+        add_syslinks("ole32", "oleaut32", "user32")
+    end
 

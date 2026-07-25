@@ -1,0 +1,156 @@
+#include "ExtractorImplSystem.hpp"
+#include "../ArchiverUtils.hpp"
+#include "AstUtil/FileSystem.hpp"
+#include "AstUtil/IO.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstUtil/StringView.hpp"
+
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+
+AST_NAMESPACE_BEGIN
+
+// ============================================================
+// 接口实现
+// ============================================================
+
+ExtractorImplSystem& ExtractorImplSystem::Instance()
+{
+    static ExtractorImplSystem instance;
+    return instance;
+}
+
+bool ExtractorImplSystem::isSupported() const
+{
+    // 至少有一个可用的解压工具
+    return aIsCommandAvailable("tar")
+        || aIsCommandAvailable("unzip")
+        || aIsCommandAvailable("7z");
+}
+
+bool ExtractorImplSystem::canExtract(StringView source) const
+{
+    EArchiveFormat fmt = aDetectArchiveFormat(source);
+    switch (fmt)
+    {
+    case EArchiveFormat::eTar:
+    case EArchiveFormat::eTarGz:
+    case EArchiveFormat::eTarBz2:
+    case EArchiveFormat::eTarXz:
+    case EArchiveFormat::eZip:
+    case EArchiveFormat::e7z:
+    case EArchiveFormat::eRar:
+    case EArchiveFormat::eGz:
+        return true;
+    default:
+        return false;
+    }
+}
+
+errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
+{
+    if (source.empty() || target.empty())
+    {
+        aError("ExtractorImplSystem: source or target is empty");
+        return eErrorInvalidParam;
+    }
+
+    EArchiveFormat fmt = aDetectArchiveFormat(source);
+
+    // 确保目标目录存在
+    fs::path targetPath(target.data());
+    if (!fs::exists(targetPath))
+    {
+        if (!fs::create_directories(targetPath))
+        {
+            aError("ExtractorImplSystem: cannot create target directory: %s", target.data());
+            return eErrorInvalidFile;
+        }
+    }
+
+    std::string srcStr(source.data(), source.size());
+    std::string tgtStr(target.data(), target.size());
+
+    // 根据格式选择命令，按优先级探测
+    switch (fmt)
+    {
+    case EArchiveFormat::eTar:
+    case EArchiveFormat::eTarGz:
+    case EArchiveFormat::eTarBz2:
+    case EArchiveFormat::eTarXz:
+    case EArchiveFormat::eGz:
+    {
+        if (!aIsCommandAvailable("tar"))
+        {
+            // tar 不可用，尝试 7z
+            if (aIsCommandAvailable("7z"))
+            {
+                std::string cmd = "7z x \"" + srcStr + "\" -o\"" + tgtStr + "\" -y";
+                return aRunCommand(cmd);
+            }
+            aError("ExtractorImplSystem: tar is not available");
+            return eErrorNotImplemented;
+        }
+
+        std::string cmd = "tar -x";
+        const char* flag = aTarCompressFlag(fmt);
+        if (flag) { cmd += flag; }
+        cmd += "f \"";
+        cmd += srcStr;
+        cmd += "\" -C \"";
+        cmd += tgtStr;
+        cmd += "\"";
+        return aRunCommand(cmd);
+    }
+
+    case EArchiveFormat::eZip:
+    {
+        if (aIsCommandAvailable("unzip"))
+        {
+            std::string cmd = "unzip -o \"";
+            cmd += srcStr;
+            cmd += "\" -d \"";
+            cmd += tgtStr;
+            cmd += "\"";
+            return aRunCommand(cmd);
+        }
+        // unzip 不可用，尝试 7z
+        if (aIsCommandAvailable("7z"))
+        {
+            std::string cmd = "7z x \"" + srcStr + "\" -o\"" + tgtStr + "\" -y";
+            return aRunCommand(cmd);
+        }
+        // 最后尝试 tar（某些 tar 版本支持 zip）
+        if (aIsCommandAvailable("tar"))
+        {
+            std::string cmd = "tar -xf \"";
+            cmd += srcStr;
+            cmd += "\" -C \"";
+            cmd += tgtStr;
+            cmd += "\"";
+            return aRunCommand(cmd);
+        }
+        aError("ExtractorImplSystem: no tool available for .zip");
+        return eErrorNotImplemented;
+    }
+
+    case EArchiveFormat::e7z:
+    case EArchiveFormat::eRar:
+    {
+        if (aIsCommandAvailable("7z"))
+        {
+            std::string cmd = "7z x \"" + srcStr + "\" -o\"" + tgtStr + "\" -y";
+            return aRunCommand(cmd);
+        }
+        aError("ExtractorImplSystem: 7z is not available");
+        return eErrorNotImplemented;
+    }
+
+    default:
+        aError("ExtractorImplSystem: unsupported format");
+        return eErrorUnsupported;
+    }
+}
+
+AST_NAMESPACE_END

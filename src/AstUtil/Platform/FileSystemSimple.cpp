@@ -632,6 +632,146 @@ namespace fs_simple
     }
 
 
+// ================================================================
+// relative / lexically_relative（对标 std::filesystem）
+// ================================================================
+
+namespace
+{
+    // 分离根名称（如 "C:"）和根目录（如 "\"）
+    void split_root(const std::string& p, std::string& rootName, std::string& rootDir)
+    {
+        rootName.clear();
+        rootDir.clear();
+
+        if (p.empty()) return;
+
+#ifdef _WIN32
+        // UNC: \\server\share
+        if (p.size() >= 2 && path::is_separator(p[0]) && path::is_separator(p[1]))
+        {
+            size_t pos = p.find_first_of(path::separators(), 2);
+            if (pos != std::string::npos)
+            {
+                pos = p.find_first_of(path::separators(), pos + 1);
+                if (pos != std::string::npos)
+                {
+                    rootName = p.substr(0, pos);
+                    rootDir = p.substr(pos, 1);
+                    return;
+                }
+            }
+            rootName = p; // 不完整的 UNC，整个当作根名
+            return;
+        }
+
+        // 盘符: C:
+        if (p.size() >= 2 && p[1] == ':')
+        {
+            rootName = p.substr(0, 2);
+            if (p.size() > 2 && path::is_separator(p[2]))
+                rootDir = p.substr(2, 1);
+            return;
+        }
+#endif
+
+        // POSIX 或 Windows 无盘符根
+        if (path::is_separator(p[0]))
+        {
+            rootDir = p.substr(0, 1);
+            return;
+        }
+    }
+
+    // 将路径拆分为组件列表（不含根）
+    std::vector<std::string> split_components(const std::string& p, size_t offset)
+    {
+        std::vector<std::string> comps;
+        size_t i = offset;
+        while (i < p.size())
+        {
+            // 跳过连续分隔符
+            while (i < p.size() && path::is_separator(p[i])) ++i;
+            if (i >= p.size()) break;
+
+            size_t start = i;
+            while (i < p.size() && !path::is_separator(p[i])) ++i;
+            std::string comp = p.substr(start, i - start);
+            if (comp == ".") continue; // 忽略单点
+            comps.push_back(comp);
+        }
+        return comps;
+    }
+}
+
+path path::lexically_relative(const path& base) const
+{
+    using std::string;
+
+    const string& pNative = native();
+    const string& bNative = base.native();
+
+    // 分离根
+    string pRootName, pRootDir, bRootName, bRootDir;
+    split_root(pNative, pRootName, pRootDir);
+    split_root(bNative, bRootName, bRootDir);
+
+    // 根不同 → 无法计算相对路径，返回空
+    if (pRootName != bRootName || pRootDir != bRootDir)
+        return path();
+
+    // 拆分组件
+    size_t pOff = (pRootName + pRootDir).size();
+    size_t bOff = (bRootName + bRootDir).size();
+    auto pComps = split_components(pNative, pOff);
+    auto bComps = split_components(bNative, bOff);
+
+    // 找公共前缀
+    size_t common = 0;
+    while (common < pComps.size() && common < bComps.size() && pComps[common] == bComps[common])
+        ++common;
+
+    // 构建相对路径
+    string result;
+    for (size_t i = common; i < bComps.size(); ++i)
+    {
+        if (!result.empty()) result += preferred_separator();
+        result += "..";
+    }
+    for (size_t i = common; i < pComps.size(); ++i)
+    {
+        if (!result.empty()) result += preferred_separator();
+        result += pComps[i];
+    }
+
+    return result;
+}
+
+path relative(const path& p, const path& base, std::error_code& ec) noexcept
+{
+    ec.clear();
+
+    // 不允许相对路径作为参数（对标 std::filesystem）
+    if (p.is_relative() || base.is_relative())
+    {
+        ec = std::make_error_code(std::errc::invalid_argument);
+        return path();
+    }
+
+    // 检查根是否匹配
+    std::string pRootName, pRootDir, bRootName, bRootDir;
+    split_root(p.native(), pRootName, pRootDir);
+    split_root(base.native(), bRootName, bRootDir);
+
+    if (pRootName != bRootName || pRootDir != bRootDir)
+    {
+        ec = std::make_error_code(std::errc::invalid_argument);
+        return path();
+    }
+
+    return p.lexically_relative(base);
+}
+
 } // namespace simple_fs
 
 
