@@ -140,6 +140,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_absolute</b> () co
 <tr class="memitem:a9fd752f60adc7eff1c47d6db2e64df50" id="r_a9fd752f60adc7eff1c47d6db2e64df50"><td class="memItemLeft" align="right" valign="top"><a id="a9fd752f60adc7eff1c47d6db2e64df50" name="a9fd752f60adc7eff1c47d6db2e64df50"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_relative</b> () const</td></tr>
 <tr class="separator:a9fd752f60adc7eff1c47d6db2e64df50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25a87d7d6326097dcdda0481e4dc9eb7" id="r_a25a87d7d6326097dcdda0481e4dc9eb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1fs__simple_1_1path.html">path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25a87d7d6326097dcdda0481e4dc9eb7">lexically_relative</a> (const <a class="el" href="classast_1_1fs__simple_1_1path.html">path</a> &amp;base) const</td></tr>
+<tr class="separator:a25a87d7d6326097dcdda0481e4dc9eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f5ffb29e6b452ecb128f6b2f0f71f22" id="r_a4f5ffb29e6b452ecb128f6b2f0f71f22"><td class="memItemLeft" align="right" valign="top"><a id="a4f5ffb29e6b452ecb128f6b2f0f71f22" name="a4f5ffb29e6b452ecb128f6b2f0f71f22"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> () const</td></tr>
 <tr class="separator:a4f5ffb29e6b452ecb128f6b2f0f71f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,6 +168,26 @@ static char_type&#160;</td><td class="memItemRight" valign="bottom"><b>preferred
 <tr class="separator:a87501db7d88ea6dcdcbc150216c334e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">成员函数说明</h2>
+<a id="a25a87d7d6326097dcdda0481e4dc9eb7" name="a25a87d7d6326097dcdda0481e4dc9eb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25a87d7d6326097dcdda0481e4dc9eb7">&#9670;&#160;</a></span>lexically_relative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1fs__simple_1_1path.html">path</a> ast::fs_simple::path::lexically_relative </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1fs__simple_1_1path.html">path</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>base</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>词法上计算当前路径相对于 base 的相对路径 </p>
+<p>不检查文件系统，纯词法操作。若不存在相对路径则返回空路径 </p>
+
+</div>
+</div>
 <a id="ab3ec59766cd251d311a99d6ba9aa32a3" name="ab3ec59766cd251d311a99d6ba9aa32a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3ec59766cd251d311a99d6ba9aa32a3">&#9670;&#160;</a></span>stem()</h2>
 
@@ -196,6 +218,7 @@ static char_type&#160;</td><td class="memItemRight" valign="bottom"><b>preferred
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstUtil/Platform/<a class="el" href="FileSystemSimple_8hpp_source.html">FileSystemSimple.hpp</a></li>
+<li>src/AstUtil/Platform/<b>FileSystemSimple.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

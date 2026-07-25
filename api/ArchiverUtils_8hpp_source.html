@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Archiver/ArchiverUtils.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ArchiverUtils_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ArchiverUtils.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ArchiverUtils_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/FileSystem.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structast_1_1TarHeader.html">   33</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1TarHeader.html">TarHeader</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">char</span> name[100];</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">char</span> mode[8];</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">char</span> uid[8];</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">char</span> gid[8];</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">char</span> size[12];</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">char</span> mtime[12];</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">char</span> chksum[8];</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">char</span> typeflag;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">char</span> linkname[100];</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">char</span> magic[6];</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">char</span> version[2];</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">char</span> uname[32];</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">char</span> gname[32];</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">char</span> devmajor[8];</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">char</span> devminor[8];</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">char</span> prefix[155];</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">char</span> padding[12]; <span class="comment">// 填充到 512 字节</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">// 确保结构体大小正确</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">static_assert</span>(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structast_1_1TarHeader.html">TarHeader</a>) == 512, <span class="stringliteral">&quot;TarHeader must be exactly 512 bytes&quot;</span>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>AST_UTIL_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a4416b1e3f5c953f3fa889d8057211ea1">aTarCalculateChecksum</a>(<a class="code hl_struct" href="structast_1_1TarHeader.html">TarHeader</a>&amp; header);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>AST_UTIL_API <span class="keywordtype">size_t</span> <a class="code hl_function" href="namespaceast.html#a94b1d14251a84fc8fec7078c1b655265">aTarParseOctal</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* field, <span class="keywordtype">size_t</span> len);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>AST_UTIL_API <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#ad5d66825e21acc1a73c5720d2506812c">aTarIsZeroBlock</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structast_1_1TarHeader.html">TarHeader</a>&amp; header);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="};">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94db">   67</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94db">EArchiveFormat</a></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_enumvalue" href="namespaceast.html#ad5260f2008c9ceaced8a537b5877c379aaf8a9112a5a055e50fee0d5ddad77ae5">eUnknown</a>,    </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_enumvalue" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba3131e3d8815e4dd8253a1193aefd4406">eTar</a>,        </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_enumvalue" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbad58105e5a2e170cbd836601034b4253f">eTarGz</a>,      </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_enumvalue" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba70e9be957b0cc4b0068951f88e957dec">eTarBz2</a>,     </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_enumvalue" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba0333cd6655e17aafe0e8d1a134276ae7">eTarXz</a>,      </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_enumvalue" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbaa0a7e04d2a48df2e9e6da1deaf5a17db">eZip</a>,        </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_enumvalue" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba3810536d2724931acb3ffbac9fe75d14">e7z</a>,         </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_enumvalue" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba7b4d0bbb4cb24fded846db9ab30bb094">eRar</a>,        </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_enumvalue" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbac2374c8b480af195c42dec925c4aa897">eGz</a>,         </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_enumvalue" href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba7f145fc5614f1cbfa24bc09213e3abd9">eDirectory</a>,  </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_enumvalue" href="namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374a5e7de5f948230715ad55929daf7287e2">eFile</a>,       </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>};</div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>AST_UTIL_API EArchiveFormat aDetectArchiveFormat(StringView path);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>AST_UTIL_API <span class="keywordtype">bool</span> aIsArchiveFile(StringView path);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#ifndef SWIG</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">void</span> aResolveArchivePath(StringView source, StringView curdir,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                          std::string&amp; outWorkDir, std::string&amp; outRelativePath);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>errc_t aCopyFile(StringView from, StringView to, <span class="keyword">const</span> <span class="keywordtype">char</span>* logPrefix);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>errc_t aCopyDirectoryRecursive(<span class="keyword">const</span> fs::path&amp; srcDir, <span class="keyword">const</span> fs::path&amp; dstDir, <span class="keyword">const</span> <span class="keywordtype">char</span>* logPrefix);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keywordtype">bool</span> aIsCommandAvailable(<span class="keyword">const</span> <span class="keywordtype">char</span>* cmd);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>errc_t aRunCommand(<span class="keyword">const</span> std::string&amp; cmd);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keyword">const</span> <span class="keywordtype">char</span>* aTarCompressFlag(EArchiveFormat fmt);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="anamespaceast_html_a4416b1e3f5c953f3fa889d8057211ea1"><div class="ttname"><a href="namespaceast.html#a4416b1e3f5c953f3fa889d8057211ea1">ast::aTarCalculateChecksum</a></div><div class="ttdeci">void aTarCalculateChecksum(TarHeader &amp;header)</div><div class="ttdoc">计算 TAR 头部校验和（供 CompressorImplTar 使用）</div><div class="ttdef"><b>定义</b> ArchiverUtils.cpp:54</div></div>
+<div class="ttc" id="anamespaceast_html_a5e3206d9e900367922b7afd3ddfd94db"><div class="ttname"><a href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94db">ast::EArchiveFormat</a></div><div class="ttdeci">EArchiveFormat</div><div class="ttdoc">归档文件格式枚举</div><div class="ttdef"><b>定义</b> ArchiverUtils.hpp:68</div></div>
+<div class="ttc" id="anamespaceast_html_a5e3206d9e900367922b7afd3ddfd94dba0333cd6655e17aafe0e8d1a134276ae7"><div class="ttname"><a href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba0333cd6655e17aafe0e8d1a134276ae7">ast::EArchiveFormat::eTarXz</a></div><div class="ttdeci">@ eTarXz</div><div class="ttdoc">.tar.xz / .txz</div></div>
+<div class="ttc" id="anamespaceast_html_a5e3206d9e900367922b7afd3ddfd94dba3131e3d8815e4dd8253a1193aefd4406"><div class="ttname"><a href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba3131e3d8815e4dd8253a1193aefd4406">ast::EArchiveFormat::eTar</a></div><div class="ttdeci">@ eTar</div><div class="ttdoc">.tar</div></div>
+<div class="ttc" id="anamespaceast_html_a5e3206d9e900367922b7afd3ddfd94dba3810536d2724931acb3ffbac9fe75d14"><div class="ttname"><a href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba3810536d2724931acb3ffbac9fe75d14">ast::EArchiveFormat::e7z</a></div><div class="ttdeci">@ e7z</div><div class="ttdoc">.7z</div></div>
+<div class="ttc" id="anamespaceast_html_a5e3206d9e900367922b7afd3ddfd94dba70e9be957b0cc4b0068951f88e957dec"><div class="ttname"><a href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba70e9be957b0cc4b0068951f88e957dec">ast::EArchiveFormat::eTarBz2</a></div><div class="ttdeci">@ eTarBz2</div><div class="ttdoc">.tar.bz2 / .tbz2</div></div>
+<div class="ttc" id="anamespaceast_html_a5e3206d9e900367922b7afd3ddfd94dba7b4d0bbb4cb24fded846db9ab30bb094"><div class="ttname"><a href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba7b4d0bbb4cb24fded846db9ab30bb094">ast::EArchiveFormat::eRar</a></div><div class="ttdeci">@ eRar</div><div class="ttdoc">.rar</div></div>
+<div class="ttc" id="anamespaceast_html_a5e3206d9e900367922b7afd3ddfd94dba7f145fc5614f1cbfa24bc09213e3abd9"><div class="ttname"><a href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba7f145fc5614f1cbfa24bc09213e3abd9">ast::EArchiveFormat::eDirectory</a></div><div class="ttdeci">@ eDirectory</div><div class="ttdoc">目录（非归档文件）</div></div>
+<div class="ttc" id="anamespaceast_html_a5e3206d9e900367922b7afd3ddfd94dbaa0a7e04d2a48df2e9e6da1deaf5a17db"><div class="ttname"><a href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbaa0a7e04d2a48df2e9e6da1deaf5a17db">ast::EArchiveFormat::eZip</a></div><div class="ttdeci">@ eZip</div><div class="ttdoc">.zip</div></div>
+<div class="ttc" id="anamespaceast_html_a5e3206d9e900367922b7afd3ddfd94dbac2374c8b480af195c42dec925c4aa897"><div class="ttname"><a href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbac2374c8b480af195c42dec925c4aa897">ast::EArchiveFormat::eGz</a></div><div class="ttdeci">@ eGz</div><div class="ttdoc">.gz</div></div>
+<div class="ttc" id="anamespaceast_html_a5e3206d9e900367922b7afd3ddfd94dbad58105e5a2e170cbd836601034b4253f"><div class="ttname"><a href="namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbad58105e5a2e170cbd836601034b4253f">ast::EArchiveFormat::eTarGz</a></div><div class="ttdeci">@ eTarGz</div><div class="ttdoc">.tar.gz / .tgz</div></div>
+<div class="ttc" id="anamespaceast_html_a94b1d14251a84fc8fec7078c1b655265"><div class="ttname"><a href="namespaceast.html#a94b1d14251a84fc8fec7078c1b655265">ast::aTarParseOctal</a></div><div class="ttdeci">size_t aTarParseOctal(const char *field, size_t len)</div><div class="ttdoc">将八进制字符串解析为 size_t（供 ExtractorImplTar 使用）</div><div class="ttdef"><b>定义</b> ArchiverUtils.cpp:71</div></div>
+<div class="ttc" id="anamespaceast_html_ad5260f2008c9ceaced8a537b5877c379aaf8a9112a5a055e50fee0d5ddad77ae5"><div class="ttname"><a href="namespaceast.html#ad5260f2008c9ceaced8a537b5877c379aaf8a9112a5a055e50fee0d5ddad77ae5">ast::eUnknown</a></div><div class="ttdeci">@ eUnknown</div><div class="ttdoc">未知插值方法</div><div class="ttdef"><b>定义</b> STKEphemerisFileParser.cpp:43</div></div>
+<div class="ttc" id="anamespaceast_html_ad5d66825e21acc1a73c5720d2506812c"><div class="ttname"><a href="namespaceast.html#ad5d66825e21acc1a73c5720d2506812c">ast::aTarIsZeroBlock</a></div><div class="ttdeci">bool aTarIsZeroBlock(const TarHeader &amp;header)</div><div class="ttdoc">检查头部块是否全为零（归档结束标记）</div><div class="ttdef"><b>定义</b> ArchiverUtils.cpp:87</div></div>
+<div class="ttc" id="anamespaceast_html_af0aa1c9c6e26b6b71443e9be3f152374a5e7de5f948230715ad55929daf7287e2"><div class="ttname"><a href="namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374a5e7de5f948230715ad55929daf7287e2">ast::ETLESource::eFile</a></div><div class="ttdeci">@ eFile</div><div class="ttdoc">来自文件</div></div>
+<div class="ttc" id="astructast_1_1TarHeader_html"><div class="ttname"><a href="structast_1_1TarHeader.html">ast::TarHeader</a></div><div class="ttdef"><b>定义</b> ArchiverUtils.hpp:34</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_cef9ceb5371ea42a1e441024360bc50b.html">Archiver</a></li><li class="navelem"><a class="el" href="ArchiverUtils_8hpp.html">ArchiverUtils.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

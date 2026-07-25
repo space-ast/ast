@@ -142,6 +142,7 @@ var hierarchy =
     [ "AstCOMLib::CObject", "classAstCOMLib_1_1CObject.html", null ],
     [ "AstCOMLib::CObjectRoot", "classAstCOMLib_1_1CObjectRoot.html", null ],
     [ "ast::RotationElement::Coefficient", "structast_1_1RotationElement_1_1Coefficient.html", null ],
+    [ "ast::CoInitializeGuard", "classast_1_1CoInitializeGuard.html", null ],
     [ "ast::ColData", "structast_1_1ColData.html", null ],
     [ "ast::Color", "classast_1_1Color.html", null ],
     [ "Qwt3D::Color", null, [
@@ -155,6 +156,11 @@ var hierarchy =
     [ "ast::CommandTrieNodeWrap< Tag, N >", "classast_1_1CommandTrieNodeWrap.html", null ],
     [ "ast::ComObjectManager", "classast_1_1ComObjectManager.html", null ],
     [ "complex", "structcomplex.html", null ],
+    [ "ast::CompressorInterface", "classast_1_1CompressorInterface.html", [
+      [ "ast::CompressorImplRaw", "classast_1_1CompressorImplRaw.html", null ],
+      [ "ast::CompressorImplSystem", "classast_1_1CompressorImplSystem.html", null ],
+      [ "ast::CompressorImplTar", "classast_1_1CompressorImplTar.html", null ]
+    ] ],
     [ "ast::ExprIf::ConditionBranch", "structast_1_1ExprIf_1_1ConditionBranch.html", null ],
     [ "ast::TimeIntervalList::const_iterator", "classast_1_1TimeIntervalList_1_1const__iterator.html", null ],
     [ "ast::TimeList::const_iterator", "classast_1_1TimeList_1_1const__iterator.html", null ],
@@ -264,6 +270,11 @@ var hierarchy =
     [ "ExoTemps", "classExoTemps.html", null ],
     [ "ast::ExprVisitor", "classast_1_1ExprVisitor.html", [
       [ "ast::ExprExpandVisitor", "classast_1_1ExprExpandVisitor.html", null ]
+    ] ],
+    [ "ast::ExtractorInterface", "classast_1_1ExtractorInterface.html", [
+      [ "ast::ExtractorImplRaw", "classast_1_1ExtractorImplRaw.html", null ],
+      [ "ast::ExtractorImplSystem", "classast_1_1ExtractorImplSystem.html", null ],
+      [ "ast::ExtractorImplTar", "classast_1_1ExtractorImplTar.html", null ]
     ] ],
     [ "f_structtype", "structf__structtype.html", null ],
     [ "ast::Field", "classast_1_1Field.html", [
@@ -1461,6 +1472,7 @@ var hierarchy =
       [ "ast::fs_simple::filesystem_error", "classast_1_1fs__simple_1_1filesystem__error.html", null ]
     ] ],
     [ "ast::TAIScale", "classast_1_1TAIScale.html", null ],
+    [ "ast::TarHeader", "structast_1_1TarHeader.html", null ],
     [ "ast::TDBScale", "classast_1_1TDBScale.html", null ],
     [ "ast::TerminationCondition", "classast_1_1TerminationCondition.html", [
       [ "ast::TextMentionTermination", "classast_1_1TextMentionTermination.html", null ]

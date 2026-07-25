@@ -76,6 +76,6 @@ var searchData=
   ['exprrange_73',['ExprRange',['../classast_1_1ExprRange.html#ab0d6fc9421a9ad39486fd1e7ba81ecc7',1,'ast::ExprRange']]],
   ['exprwhile_74',['ExprWhile',['../classast_1_1ExprWhile.html#a660cc55f8066498d43ede38b5c64507c',1,'ast::ExprWhile::ExprWhile()'],['../classast_1_1ExprWhile.html#a8617ef1a15a15deb4e06c70a118e42fb',1,'ast::ExprWhile::ExprWhile(Expr *condition, Expr *body)']]],
   ['extrabody_75',['extraBody',['../classast_1_1LLMConfig.html#abd02927c76a55221188b6a74aa0c725d',1,'ast::LLMConfig']]],
-  ['extract_76',['extract',['../classast_1_1DataElement.html#a46793932a871e2d1fb24684c66c5a132',1,'ast::DataElement::extract()'],['../classast_1_1DataGroup.html#aebddefef53fcf06422468c10f164bb06',1,'ast::DataGroup::extract()']]],
+  ['extract_76',['extract',['../classast_1_1DataElement.html#a46793932a871e2d1fb24684c66c5a132',1,'ast::DataElement::extract()'],['../classast_1_1DataGroup.html#aebddefef53fcf06422468c10f164bb06',1,'ast::DataGroup::extract()'],['../classast_1_1ExtractorImplRaw.html#aa57cbc60e5d75d6818939588d1488a62',1,'ast::ExtractorImplRaw::extract()'],['../classast_1_1ExtractorImplSystem.html#a6372f914c5da23fb42317003bdb1f9e4',1,'ast::ExtractorImplSystem::extract()'],['../classast_1_1ExtractorImplTar.html#a29982cc3fe96d9921166a1f5d063aa0d',1,'ast::ExtractorImplTar::extract()'],['../classast_1_1ExtractorInterface.html#a870bac84886677a5c53fd958c82d6eae',1,'ast::ExtractorInterface::extract()']]],
   ['extractfunc_77',['extractFunc',['../classast_1_1DataElement.html#af362f1a47dcbbc923bb2689617aa94c3',1,'ast::DataElement']]]
 ];

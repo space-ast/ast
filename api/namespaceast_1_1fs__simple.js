@@ -5,5 +5,6 @@ var namespaceast_1_1fs__simple =
     [ "file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
     [ "filesystem_error", "classast_1_1fs__simple_1_1filesystem__error.html", null ],
     [ "path", "classast_1_1fs__simple_1_1path.html", "classast_1_1fs__simple_1_1path" ],
-    [ "space_info", "structast_1_1fs__simple_1_1space__info.html", null ]
+    [ "space_info", "structast_1_1fs__simple_1_1space__info.html", null ],
+    [ "relative", "namespaceast_1_1fs__simple.html#a8fa783eb0e81045615d218f37441b52c", null ]
 ];
