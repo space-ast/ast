@@ -32,6 +32,7 @@ AST_NAMESPACE_BEGIN
 /// @details 通过调用系统安装的命令行工具进行解压：
 /// - tar    → .tar, .tar.gz, .tar.bz2, .tar.xz
 /// - unzip  → .zip
+/// - gzip   → .gz
 /// - 7z     → .7z, .rar
 class AST_UTIL_API ExtractorImplSystem : public ExtractorInterface
 {

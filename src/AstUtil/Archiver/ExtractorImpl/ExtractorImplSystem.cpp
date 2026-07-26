@@ -58,7 +58,49 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
 
     EArchiveFormat fmt = aDetectArchiveFormat(source);
 
-    // 确保目标目录存在
+    // .gz 是单文件压缩，target 是输出文件路径（非目录）
+    // 需要在 switch 之前单独处理，避免下面把 target 当目录创建
+    if (fmt == EArchiveFormat::eGz)
+    {
+        std::string srcStr(source.data(), source.size());
+        std::string tgtStr(target.data(), target.size());
+
+        // 确保目标文件的父目录存在
+        fs::path tgtPath(tgtStr);
+        fs::path parentDir = tgtPath.parent_path();
+        if (!parentDir.empty() && !fs::exists(parentDir))
+        {
+            if (!fs::create_directories(parentDir))
+            {
+                aError("ExtractorImplSystem: cannot create parent directory for .gz output: %s",
+                       parentDir.string().c_str());
+                return eErrorInvalidFile;
+            }
+        }
+
+        // 优先使用 gzip（Linux 标配，最轻量）
+        if (aIsCommandAvailable("gzip"))
+        {
+            std::string cmd = "gzip -d -c \"";
+            cmd += srcStr;
+            cmd += "\" > \"";
+            cmd += tgtStr;
+            cmd += "\"";
+            return aRunCommand(cmd);
+        }
+
+        // 回退到 7z
+        if (aIsCommandAvailable("7z"))
+        {
+            std::string cmd = "7z e \"" + srcStr + "\" -so -y > \"" + tgtStr + "\"";
+            return aRunCommand(cmd);
+        }
+
+        aError("ExtractorImplSystem: no tool available for .gz (need gzip or 7z)");
+        return eErrorNotImplemented;
+    }
+
+    // 确保目标目录存在（tar/zip/7z 等格式解压到目录）
     fs::path targetPath(target.data());
     if (!fs::exists(targetPath))
     {
@@ -79,7 +121,6 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
     case EArchiveFormat::eTarGz:
     case EArchiveFormat::eTarBz2:
     case EArchiveFormat::eTarXz:
-    case EArchiveFormat::eGz:
     {
         if (!aIsCommandAvailable("tar"))
         {

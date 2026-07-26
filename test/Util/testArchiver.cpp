@@ -791,5 +791,82 @@ TEST_F(ArchiverTest, CrossBackend_ShellCOMCompress_TarExtract)
     EXPECT_EQ(readFile(extractDir + "/from_shellcom.txt"), "shellcom compress, tar extract via aExtract");
 }
 
+// ================================================================
+// 独立 .gz 文件压缩/解压往返测试
+// .gz 是单文件压缩格式，aExtract 的 target 为输出文件路径
+// ================================================================
+
+TEST_F(ArchiverTest, Gz_RoundTrip_SingleFile)
+{
+    // 使用纯 C++ gzip 创建器生成 .gz 文件（无需外部工具）
+    std::string content = "Standalone gzip round-trip test content.";
+    std::string gzContent = aTestCreateGzipFile(content);
+
+    std::string gzFile = tmpPath("test.gz");
+    ASSERT_TRUE(writeFile(gzFile, gzContent));
+
+    // 验证格式检测
+    EXPECT_EQ(aDetectArchiveFormat(gzFile.c_str()), EArchiveFormat::eGz);
+    EXPECT_TRUE(aIsArchiveFile(gzFile.c_str()));
+
+    // .gz 解压 target 是输出文件路径
+    std::string extractedFile = tmpPath("extracted.txt");
+    ASSERT_EQ(aExtract(gzFile.c_str(), extractedFile.c_str()), eNoError);
+    EXPECT_TRUE(fileExists(extractedFile));
+    EXPECT_EQ(readFile(extractedFile), content);
+}
+
+TEST_F(ArchiverTest, Gz_RoundTrip_EmptyFile)
+{
+    std::string gzContent = aTestCreateGzipFile("");
+
+    std::string gzFile = tmpPath("empty.gz");
+    ASSERT_TRUE(writeFile(gzFile, gzContent));
+    EXPECT_EQ(aDetectArchiveFormat(gzFile.c_str()), EArchiveFormat::eGz);
+
+    std::string extractedFile = tmpPath("empty_extracted.txt");
+    ASSERT_EQ(aExtract(gzFile.c_str(), extractedFile.c_str()), eNoError);
+    EXPECT_TRUE(fileExists(extractedFile));
+    EXPECT_EQ(readFile(extractedFile), "");
+}
+
+TEST_F(ArchiverTest, Gz_RoundTrip_LargeContent)
+{
+    // 大于 64KB 的内容测试 gzip 分块解压
+    std::string largeContent(200000, 'Y');
+    for (size_t i = 0; i < largeContent.size(); ++i)
+        largeContent[i] = static_cast<char>('A' + (i % 26));
+
+    std::string gzContent = aTestCreateGzipFile(largeContent);
+
+    std::string gzFile = tmpPath("large.gz");
+    ASSERT_TRUE(writeFile(gzFile, gzContent));
+    EXPECT_EQ(aDetectArchiveFormat(gzFile.c_str()), EArchiveFormat::eGz);
+
+    std::string extractedFile = tmpPath("large_extracted.bin");
+    ASSERT_EQ(aExtract(gzFile.c_str(), extractedFile.c_str()), eNoError);
+    EXPECT_TRUE(fileExists(extractedFile));
+    EXPECT_EQ(readFile(extractedFile), largeContent);
+}
+
+TEST_F(ArchiverTest, Gz_RoundTrip_BinaryContent)
+{
+    // 包含 null 字节和全部 256 个字节值的二进制内容
+    std::string binaryContent;
+    for (int i = 0; i < 256; ++i)
+        binaryContent.push_back(static_cast<char>(i));
+
+    std::string gzContent = aTestCreateGzipFile(binaryContent);
+
+    std::string gzFile = tmpPath("binary.gz");
+    ASSERT_TRUE(writeFile(gzFile, gzContent));
+    EXPECT_EQ(aDetectArchiveFormat(gzFile.c_str()), EArchiveFormat::eGz);
+
+    std::string extractedFile = tmpPath("binary_extracted.bin");
+    ASSERT_EQ(aExtract(gzFile.c_str(), extractedFile.c_str()), eNoError);
+    EXPECT_TRUE(fileExists(extractedFile));
+    EXPECT_EQ(readFile(extractedFile), binaryContent);
+}
+
 
 GTEST_MAIN()

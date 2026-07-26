@@ -46,6 +46,9 @@ namespace
     struct TempDirGuard
     {
         std::string path;
+
+        TempDirGuard() : path() {}
+
         ~TempDirGuard()
         {
             if (!path.empty() && fs::exists(path))
