@@ -24,7 +24,7 @@
 #include "AstUtil/CompressorInterface.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/StringView.hpp"
-#include "ArchiverUtils.hpp"
+#include "AstUtil/ArchiverUtils.hpp"
 
 #include <string>
 

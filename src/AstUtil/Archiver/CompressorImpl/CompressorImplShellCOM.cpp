@@ -6,9 +6,9 @@
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ComInit.hpp"
-#include "AstUtil/String/Encode.hpp"
+#include "AstUtil//Encode.hpp"
 #include "AstUtil/StringView.hpp"
-#include "../ShellCOMUtils.hpp"
+#include "AstUtil/ShellCOMUtils.hpp"
 
 #include <Windows.h>
 #include <shlobj.h>    // Folder, FolderItem

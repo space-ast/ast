@@ -23,7 +23,7 @@
 
 #include "AstUtil/ExtractorInterface.hpp"
 #include "AstUtil/StringView.hpp"
-#include "ArchiverUtils.hpp"
+#include "AstUtil/ArchiverUtils.hpp"
 
 #include <string>
 

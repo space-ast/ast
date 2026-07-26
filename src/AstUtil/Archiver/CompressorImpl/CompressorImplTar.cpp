@@ -91,12 +91,12 @@ errc_t CompressorImplTar::writeFileEntry(FILE* dst, const std::string& name,
     header.gid[7] = '\0';
 
     // 文件大小（八进制）
-    char sizeBuf[13] = {};
+    char sizeBuf[50] = {};
     snprintf(sizeBuf, sizeof(sizeBuf), "%011llo", static_cast<unsigned long long>(fileSize));
     std::memcpy(header.size, sizeBuf, 11);
 
     // 修改时间（八进制）
-    char mtimeBuf[13] = {};
+    char mtimeBuf[50] = {};
     snprintf(mtimeBuf, sizeof(mtimeBuf), "%011lo", static_cast<unsigned long>(std::time(nullptr)));
     std::memcpy(header.mtime, mtimeBuf, 11);
 
@@ -198,7 +198,7 @@ errc_t CompressorImplTar::writeDirectoryEntry(FILE* dst, const std::string& name
     std::memcpy(header.size, "00000000000", 11);
 
     // 修改时间
-    char mtimeBuf[13] = {};
+    char mtimeBuf[24] = {};
     snprintf(mtimeBuf, sizeof(mtimeBuf), "%011lo", static_cast<unsigned long>(std::time(nullptr)));
     std::memcpy(header.mtime, mtimeBuf, 11);
 

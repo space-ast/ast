@@ -6,9 +6,9 @@
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ComInit.hpp"
-#include "AstUtil/String/Encode.hpp"
+#include "AstUtil/Encode.hpp"
 #include "AstUtil/StringView.hpp"
-#include "../ShellCOMUtils.hpp"
+#include "AstUtil/ShellCOMUtils.hpp"
 
 #include <Windows.h>
 #include <shlobj.h>    // Folder, FolderItem, FolderItems
@@ -120,8 +120,6 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
         aError("ExtractorImplShellCOM: CoCreateInstance(CLSID_Shell) failed: 0x%08X", hr);
         return eError;
     }
-
-    errc_t ret = eNoError;
 
     // 步骤 1: 获取 ZIP 文件的 Folder 对象
     Folder* pZipFolder = nullptr;
