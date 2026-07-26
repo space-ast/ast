@@ -7,6 +7,7 @@ AST_NAMESPACE_BEGIN
 HRESULT aEnsureCoInitialized()
 {
     static A_THREAD_LOCAL CoInitializeGuard guard(COINIT_APARTMENTTHREADED);
+    if (guard.hr_ == RPC_E_CHANGED_MODE) return S_FALSE;
     return guard.hr_;
 }
 

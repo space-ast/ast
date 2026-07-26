@@ -62,8 +62,8 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
     // 需要在 switch 之前单独处理，避免下面把 target 当目录创建
     if (fmt == EArchiveFormat::eGz)
     {
-        std::string srcStr(source.data(), source.size());
-        std::string tgtStr(target.data(), target.size());
+        std::string srcStr(source);
+        std::string tgtStr(target);
 
         // 确保目标文件的父目录存在
         fs::path tgtPath(tgtStr);
@@ -101,18 +101,18 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
     }
 
     // 确保目标目录存在（tar/zip/7z 等格式解压到目录）
-    fs::path targetPath(target.data());
+    fs::path targetPath = std::string(target);
     if (!fs::exists(targetPath))
     {
         if (!fs::create_directories(targetPath))
         {
-            aError("ExtractorImplSystem: cannot create target directory: %s", target.data());
+            aError("cannot create target directory: %s", targetPath.string().c_str());
             return eErrorInvalidFile;
         }
     }
 
-    std::string srcStr(source.data(), source.size());
-    std::string tgtStr(target.data(), target.size());
+    std::string srcStr(source);
+    std::string tgtStr(target);
 
     // 根据格式选择命令，按优先级探测
     switch (fmt)

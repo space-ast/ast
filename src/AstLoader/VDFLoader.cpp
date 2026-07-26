@@ -27,6 +27,7 @@
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/StringUtil.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 

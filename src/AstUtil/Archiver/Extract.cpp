@@ -27,19 +27,19 @@ ExtractorInterface* aExtractGetImpl(StringView source)
     if (impl->isSupported() && impl->canExtract(source))
         return impl;
 #endif
-    // 3. 系统命令（tar/unzip/7z）
-    impl = &ExtractorImplSystem::Instance();
+    // 3. 纯 C++ TAR 解析器（始终可用，优先于系统命令）
+    impl = &ExtractorImplTar::Instance();
     if (impl->isSupported() && impl->canExtract(source))
         return impl;
 
-    // 4. 纯 C++ TAR 解析器
-    impl = &ExtractorImplTar::Instance();
+    // 4. 系统命令（tar/unzip/7z）
+    impl = &ExtractorImplSystem::Instance();
     if (impl->isSupported() && impl->canExtract(source))
         return impl;
 
     // 5. 原始复制（通用兜底）
     impl = &ExtractorImplRaw::Instance();
-    if (impl->isSupported())
+    if (impl->isSupported() && impl->canExtract(source))
         return impl;
 
     aError("aExtractGetImpl: no supported extractor implementation found");

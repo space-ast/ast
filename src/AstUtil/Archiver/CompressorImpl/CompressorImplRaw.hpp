@@ -37,6 +37,7 @@ public:
     virtual ~CompressorImplRaw() = default;
 
     virtual errc_t compress(StringView source, StringView target, StringView curdir = {}) const override;
+    virtual bool canCompress(StringView source, StringView target) const override;
 };
 
 AST_NAMESPACE_END

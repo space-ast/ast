@@ -156,6 +156,8 @@ errc_t SatelliteDatabase::load(StringView filePath)
         return rc;
 
     loaded_ = true;
+    // @todo 需要从文件中读取 lastUpdateTime
+    lastUpdateTime_ = TimePoint::CurrentTime();
     refreshMissions();
     return 0;
 }
@@ -244,7 +246,6 @@ errc_t SatelliteDatabase::loadSatcatFile(StringView filePath)
     {
         StringView line(buf);
 
-        line = aStripAsciiWhitespace(line);
 
         if (line.empty())
             continue;

@@ -6,7 +6,7 @@
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ComInit.hpp"
-#include "AstUtil//Encode.hpp"
+#include "AstUtil/Encode.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/ShellCOMUtils.hpp"
 
@@ -17,6 +17,7 @@
 #include <cstring>
 #include <cwctype>
 #include <string>
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
@@ -107,8 +108,10 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
     // 转为绝对路径
     WCHAR absSource[MAX_PATH];
     WCHAR absTarget[MAX_PATH];
-    if (GetFullPathNameW(wSource.c_str(), MAX_PATH, absSource, nullptr) == 0 ||
-        GetFullPathNameW(wTarget.c_str(), MAX_PATH, absTarget, nullptr) == 0)
+    DWORD srcLen = GetFullPathNameW(wSource.c_str(), MAX_PATH, absSource, nullptr);
+    DWORD tgtLen = GetFullPathNameW(wTarget.c_str(), MAX_PATH, absTarget, nullptr);
+    if (srcLen == 0 || srcLen >= MAX_PATH ||
+        tgtLen == 0 || tgtLen >= MAX_PATH)
     {
         aError("CompressorImplShellCOM: cannot resolve path");
         return eErrorInvalidParam;
@@ -118,7 +121,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
     DWORD srcAttr = GetFileAttributesW(absSource);
     if (srcAttr == INVALID_FILE_ATTRIBUTES)
     {
-        aError("CompressorImplShellCOM: source does not exist: %s", source.data());
+        aError("source does not exist: '%.*s'", source.size(), source.data());
         return eErrorInvalidFile;
     }
 
@@ -188,9 +191,12 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
         std::wstring wCurdir = aUtf8ToWide(curdir);
         for (auto& ch : wCurdir) if (ch == L'/') ch = L'\\';
         WCHAR absCurdir[MAX_PATH];
-        if (GetFullPathNameW(wCurdir.c_str(), MAX_PATH, absCurdir, nullptr) == 0)
+        DWORD nCur = GetFullPathNameW(wCurdir.c_str(), MAX_PATH, absCurdir, nullptr);
+        if (nCur == 0 || nCur >= MAX_PATH)
         {
             aError("CompressorImplShellCOM: cannot resolve curdir path");
+            pZipFolder->Release();
+            pShell->Release();
             DeleteFileW(absTarget);
             return eErrorInvalidParam;
         }
@@ -203,7 +209,9 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             if ((absSrcStr[1] == L':' ? towupper(absSrcStr[0]) : 0) !=
                 (workDir[1] == L':' ? towupper(workDir[0]) : 0))
             {
-                aError("CompressorImplShellCOM: source and curdir must be on the same drive");
+                aError("source and curdir must be on the same drive");
+                pZipFolder->Release();
+                pShell->Release();
                 DeleteFileW(absTarget);
                 return eErrorInvalidParam;
             }
@@ -324,7 +332,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             SysFreeString(bstrItemName);
             if (FAILED(hr) || !pItem)
             {
-                aError("CompressorImplShellCOM: ParseName failed for: %s", source.data());
+                aError("ParseName failed for: '%.*s'", source.size(), source.data());
                 pSrcParentFolder->Release();
                 pZipFolder->Release();
                 pShell->Release();
@@ -354,7 +362,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
         }
         if (!aShellWaitForItem(pZipFolder, srcName, 30000))
         {
-            aError("CompressorImplShellCOM: waitForItem timeout for: %s", source.data());
+            aError("waitForItem timeout for: '%.*s'", source.size(), source.data());
             pItem->Release();
             pSrcParentFolder->Release();
             pZipFolder->Release();

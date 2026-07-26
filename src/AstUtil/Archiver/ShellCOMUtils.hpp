@@ -13,6 +13,7 @@
 
 #if defined(_WIN32) && !defined(SWIG)
 
+#include "AstGlobal.h"
 
 #include <Windows.h>
 #include <shlobj.h>

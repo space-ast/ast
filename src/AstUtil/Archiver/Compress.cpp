@@ -23,19 +23,19 @@ CompressorInterface* aCompressGetImpl(StringView source, StringView target)
         return impl;
 #endif
 
-    // 2. 系统命令（tar/zip/7z）
-    impl = &CompressorImplSystem::Instance();
-    if (impl->isSupported() && impl->canCompress(source, target))
-        return impl;
-
-    // 3. 纯 C++ TAR 写入器
+    // 2. 纯 C++ TAR 写入器（始终可用，优先于系统命令）
     impl = &CompressorImplTar::Instance();
     if (impl->isSupported() && impl->canCompress(source, target))
         return impl;
 
-    // 4. 原始复制（通用兜底）
+    // 3. 系统命令（tar/zip/7z）
+    impl = &CompressorImplSystem::Instance();
+    if (impl->isSupported() && impl->canCompress(source, target))
+        return impl;
+
+    // 4. 原始复制（通用兜底，拒绝归档格式）
     impl = &CompressorImplRaw::Instance();
-    if (impl->isSupported())
+    if (impl->isSupported() && impl->canCompress(source, target))
         return impl;
 
     aError("aCompressGetImpl: no supported compressor implementation found");

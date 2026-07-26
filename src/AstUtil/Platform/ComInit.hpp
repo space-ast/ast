@@ -36,8 +36,10 @@ AST_NAMESPACE_BEGIN
 class CoInitializeGuard
 {
 public:
-    explicit CoInitializeGuard(COINIT initFlags) { hr_ = CoInitializeEx(nullptr, initFlags); }
+    explicit CoInitializeGuard(COINIT initFlags) : hr_(CoInitializeEx(nullptr, initFlags)) {}
     ~CoInitializeGuard() { if (SUCCEEDED(hr_)) CoUninitialize(); }
+    CoInitializeGuard(const CoInitializeGuard&) = delete;
+    CoInitializeGuard& operator=(const CoInitializeGuard&) = delete;
     HRESULT hr_{};
 };
 

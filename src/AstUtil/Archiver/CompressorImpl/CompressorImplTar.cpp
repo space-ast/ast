@@ -51,25 +51,21 @@ errc_t CompressorImplTar::writeFileEntry(FILE* dst, const std::string& name,
     }
     else
     {
-        // 使用 prefix 字段：拆分出最后一个 '/' 之前的路径部分
-        // 简单处理：如果名字超过 100 字节，把超出部分放到 prefix
-        // 注意：prefix 最多 155 字节，name 最多 100 字节
-        size_t splitPos = nameLen;
-        if (nameLen > 100)
+        // 使用 prefix 字段：prefix = name[0, splitPos-1)，header.name = name[splitPos, end)
+        // prefix 最多 155 字节，name 最多 100 字节
+        size_t splitPos = 0;
+        size_t maxPrefix = nameLen < 156 ? nameLen : 156;
+        for (size_t i = maxPrefix; i > 0; --i)
         {
-            // 找到可行的拆分点
-            for (size_t i = 100; i > 0; --i)
+            if (name[i - 1] == '/' && (nameLen - i) <= 100 && (nameLen - i) > 0)
             {
-                if (i < nameLen && name[i - 1] == '/')
-                {
-                    splitPos = i;
-                    break;
-                }
+                splitPos = i;
+                break;
             }
         }
-        if (splitPos <= 155 && (nameLen - splitPos) <= 100)
+        if (splitPos > 0)
         {
-            std::memcpy(header.prefix, name.c_str(), splitPos);
+            std::memcpy(header.prefix, name.c_str(), splitPos - 1);
             std::memcpy(header.name, name.c_str() + splitPos, nameLen - splitPos);
         }
         else
@@ -104,7 +100,7 @@ errc_t CompressorImplTar::writeFileEntry(FILE* dst, const std::string& name,
     header.typeflag = '0';
 
     // USTAR 魔数
-    std::memcpy(header.magic, "ustar ", 6);
+    std::memcpy(header.magic, "ustar\0", 6);
     std::memcpy(header.version, "00", 2);
 
     // 计算校验和
@@ -206,7 +202,7 @@ errc_t CompressorImplTar::writeDirectoryEntry(FILE* dst, const std::string& name
     header.typeflag = '5';
 
     // USTAR 魔数
-    std::memcpy(header.magic, "ustar ", 6);
+    std::memcpy(header.magic, "ustar\0", 6);
     std::memcpy(header.version, "00", 2);
 
     // 计算校验和
@@ -289,22 +285,21 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
         return eErrorInvalidParam;
     }
 
-    fs::path srcPath(source.data());
+    fs::path srcPath = std::string(source);
     if (!fs::exists(srcPath))
     {
-        aError("CompressorImplTar: source does not exist: %s", source.data());
+        aError("source does not exist: '%.*s'", source.size(), source.data());
         return eErrorInvalidFile;
     }
 
-    // 计算归档内路径（工作目录和相对路径由 aResolveArchivePath 计算）
     std::string workDir, basePath;
     aResolveArchivePath(source, curdir, workDir, basePath);
     if (basePath == ".") basePath = "";
 
-    FILE* dst = posix::fopen(target.data(), "wb");
+    FILE* dst = posix::fopen(std::string(target).c_str(), "wb");
     if (!dst)
     {
-        aError("CompressorImplTar: cannot create target file: %s", target.data());
+        aError("cannot create target file: '%.*s'", target.size(), target.data());
         return eErrorInvalidFile;
     }
 
@@ -318,7 +313,7 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
     {
         // basePath 已经是 source 相对于 curdir 的完整相对路径（含文件名）
         std::string filename = basePath.empty() ? srcPath.filename().string() : basePath;
-        ret = writeFileEntry(dst, filename, std::string(source.data(), source.size()));
+        ret = writeFileEntry(dst, filename, std::string(source));
     }
 
     if (ret == eNoError)
@@ -338,7 +333,7 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
     if (ret != eNoError)
     {
         // 删除失败时产生的不完整文件
-        fs::remove(fs::path(std::string(target.data(), target.size())));
+        fs::remove(fs::path(std::string(target)));
     }
 
     return ret;

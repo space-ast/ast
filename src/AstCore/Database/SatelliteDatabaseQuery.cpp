@@ -1,7 +1,7 @@
 ///
 /// @file      SatelliteDatabaseQuery.cpp
 /// @brief     卫星数据库查询条件实现
-/// @details   实现基于通配符的查询条件匹配逻辑。
+/// @details   实现基于子串的查询条件匹配逻辑。
 /// @author    axel
 /// @date      2026-07-23
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.

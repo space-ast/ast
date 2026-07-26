@@ -82,23 +82,24 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     for (auto& ch : wSource) if (ch == L'/') ch = L'\\';
     for (auto& ch : wTarget) if (ch == L'/') ch = L'\\';
 
-    // 转为绝对路径
     WCHAR absSource[MAX_PATH];
     WCHAR absTarget[MAX_PATH];
-    if (GetFullPathNameW(wSource.c_str(), MAX_PATH, absSource, nullptr) == 0 ||
-        GetFullPathNameW(wTarget.c_str(), MAX_PATH, absTarget, nullptr) == 0)
+    DWORD srcLen = GetFullPathNameW(wSource.c_str(), MAX_PATH, absSource, nullptr);
+    DWORD tgtLen = GetFullPathNameW(wTarget.c_str(), MAX_PATH, absTarget, nullptr);
+    if (srcLen == 0 || srcLen >= MAX_PATH ||
+        tgtLen == 0 || tgtLen >= MAX_PATH)
     {
         aError("ExtractorImplShellCOM: cannot resolve path");
         return eErrorInvalidParam;
     }
 
     // 确保目标目录存在
-    fs::path targetPath(target.data());
+    fs::path targetPath = std::string(target);
     if (!fs::exists(targetPath))
     {
         if (!fs::create_directories(targetPath))
         {
-            aError("ExtractorImplShellCOM: cannot create target directory: %s", target.data());
+            aError("cannot create target directory: '%.*s'", target.size(), target.data());
             return eErrorInvalidFile;
         }
     }
@@ -237,9 +238,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     {
         if (!aShellWaitForItem(pDestFolder, name, 30000))
         {
-            char nameUtf8[256] = {};
-            WideCharToMultiByte(CP_UTF8, 0, name.c_str(), -1, nameUtf8, sizeof(nameUtf8), nullptr, nullptr);
-            aError("ExtractorImplShellCOM: waitForItem timeout for: %s", nameUtf8);
+            aError("waitForItem timeout for: %S", name.c_str());
             allOk = false;
             break; // 发生超时后不再等待剩余项
         }
@@ -249,7 +248,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     if (!allOk)
     {
         // 尝试清理已提取的项，避免残留不完整的解压结果
-        aError("ExtractorImplShellCOM: extraction incomplete, attempting to clean up partial files");
+        aError("extraction incomplete, attempting to clean up partial files");
         for (const auto& name : extractedItems)
         {
             std::wstring itemPath = std::wstring(absTarget) + L"\\" + name;

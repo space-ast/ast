@@ -1,7 +1,8 @@
 #include "ExtractorImplRaw.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/Logger.hpp"
-#include "../ArchiverUtils.hpp"
+#include "AstUtil/StringView.hpp"
+#include "AstUtil/ArchiverUtils.hpp"
 
 #include <string>
 
@@ -21,12 +22,12 @@ errc_t ExtractorImplRaw::extract(StringView source, StringView target) const
         return eErrorInvalidParam;
     }
 
-    fs::path srcPath(source.data());
-    fs::path dstPath(target.data());
+    fs::path srcPath = std::string(source);
+    fs::path dstPath = std::string(target);
 
     if (!fs::exists(srcPath))
     {
-        aError("ExtractorImplRaw: source does not exist: %s", source.data());
+        aError("source does not exist: '%.*s'", source.size(), source.data());
         return eErrorInvalidFile;
     }
 
@@ -35,7 +36,7 @@ errc_t ExtractorImplRaw::extract(StringView source, StringView target) const
     {
         if (!fs::create_directories(dstPath))
         {
-            aError("ExtractorImplRaw: cannot create target directory: %s", target.data());
+            aError("cannot create target directory: '%.*s'", target.size(), target.data());
             return eErrorInvalidFile;
         }
     }
@@ -46,8 +47,7 @@ errc_t ExtractorImplRaw::extract(StringView source, StringView target) const
     {
         auto srcFilename = srcPath.filename();
         auto dstFilePath = dstPath / srcFilename;
-        std::string dstFileStr = dstFilePath.string();
-        return aCopyFile(source, dstFileStr.c_str(), "ExtractorImplRaw");
+        return aCopyFile(srcPath.string(), dstFilePath.string(), "ExtractorImplRaw");
     }
 }
 

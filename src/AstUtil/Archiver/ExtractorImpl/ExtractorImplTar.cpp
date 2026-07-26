@@ -16,19 +16,9 @@ AST_NAMESPACE_BEGIN
 // 辅助函数
 // ============================================================
 
-errc_t ExtractorImplTar::createDirectory(FILE* /*src*/, const TarHeader& header, const std::string& targetDir)
+errc_t ExtractorImplTar::createDirectory(const std::string& entryName, const std::string& targetDir)
 {
-    // 构建完整路径：targetDir / name
-    char nameBuf[101] = {};
-    std::memcpy(nameBuf, header.name, 100);
-    nameBuf[100] = '\0';
-
-    // 去掉末尾的 '/'
-    size_t nameLen = std::strlen(nameBuf);
-    while (nameLen > 0 && nameBuf[nameLen - 1] == '/')
-        nameBuf[--nameLen] = '\0';
-
-    fs::path dirPath = fs::path(targetDir) / fs::path(nameBuf);
+    fs::path dirPath = fs::path(targetDir) / fs::path(entryName);
     if (!fs::exists(dirPath))
     {
         if (!fs::create_directories(dirPath))
@@ -40,14 +30,9 @@ errc_t ExtractorImplTar::createDirectory(FILE* /*src*/, const TarHeader& header,
     return eNoError;
 }
 
-errc_t ExtractorImplTar::createFile(FILE* src, const TarHeader& header, const std::string& targetDir)
+errc_t ExtractorImplTar::createFile(FILE* src, size_t fileSize, const std::string& entryName, const std::string& targetDir)
 {
-    char nameBuf[101] = {};
-    std::memcpy(nameBuf, header.name, 100);
-    nameBuf[100] = '\0';
-
-    size_t fileSize = aTarParseOctal(header.size, sizeof(header.size));
-    fs::path filePath = fs::path(targetDir) / fs::path(nameBuf);
+    fs::path filePath = fs::path(targetDir) / fs::path(entryName);
 
     // 确保父目录存在
     fs::path parentPath = filePath.parent_path();
@@ -90,7 +75,7 @@ errc_t ExtractorImplTar::createFile(FILE* src, const TarHeader& header, const st
         {
             if (ferror(src))
             {
-                aError("ExtractorImplTar: read error for file: %s", nameBuf);
+                aError("ExtractorImplTar: read error for file: %s", entryName.c_str());
                 ret = eError;
             }
             break;
@@ -98,7 +83,7 @@ errc_t ExtractorImplTar::createFile(FILE* src, const TarHeader& header, const st
         size_t nwritten = fwrite(buf, 1, nread, dst);
         if (nwritten != nread)
         {
-            aError("ExtractorImplTar: write error for file: %s", nameBuf);
+            aError("ExtractorImplTar: write error for file: %s", entryName.c_str());
             ret = eError;
             break;
         }
@@ -290,6 +275,13 @@ errc_t ExtractorImplTar::extract(StringView source, StringView target) const
         // 处理 GNU 长文件名（typeflag == 'L'）
         if (typeflag == 'L' || typeflag == 'K')
         {
+            constexpr size_t kMaxLongNameSize = 65536;
+            if (entrySize > kMaxLongNameSize)
+            {
+                aError("ExtractorImplTar: long name size exceeds limit: %zu", entrySize);
+                ret = eError;
+                break;
+            }
             longName.resize(entrySize);
             if (entrySize > 0)
             {
@@ -340,21 +332,12 @@ errc_t ExtractorImplTar::extract(StringView source, StringView target) const
         case '0':  // 普通文件
         case '7':  // 连续文件（GNU 扩展）
         {
-            // 将文件名临时写回头部，供 createFile 使用
-            TarHeader tmpHeader = header;
-            std::memset(tmpHeader.name, 0, 100);
-            std::memcpy(tmpHeader.name, entryName.c_str(),
-                        entryName.size() < 100 ? entryName.size() : 99);
-            ret = createFile(fp, tmpHeader, targetDir);
+            ret = createFile(fp, entrySize, entryName, targetDir);
             break;
         }
         case '5':  // 目录
         {
-            TarHeader tmpHeader = header;
-            std::memset(tmpHeader.name, 0, 100);
-            std::memcpy(tmpHeader.name, entryName.c_str(),
-                        entryName.size() < 100 ? entryName.size() : 99);
-            ret = createDirectory(fp, tmpHeader, targetDir);
+            ret = createDirectory(entryName, targetDir);
             // 目录没有数据体，直接跳到下一个
             break;
         }

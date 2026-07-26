@@ -45,10 +45,10 @@ public:
 
 private:
     /// 创建一个目录条目（typeflag '5'）
-    static errc_t createDirectory(FILE* src, const TarHeader& header, const std::string& targetDir);
+    static errc_t createDirectory(const std::string& entryName, const std::string& targetDir);
 
     /// 创建一个普通文件条目（typeflag '0' 或 '\0'）
-    static errc_t createFile(FILE* src, const TarHeader& header, const std::string& targetDir);
+    static errc_t createFile(FILE* src, size_t fileSize, const std::string& entryName, const std::string& targetDir);
 };
 
 AST_NAMESPACE_END
