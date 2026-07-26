@@ -749,6 +749,8 @@ TEST_F(ArchiverTest, Error_EmptyTarget_Extract)
 // 交叉后端 ShellCOM 组合 (#9 盲区)
 // ================================================================
 
+#ifdef _WIN32
+
 TEST_F(ArchiverTest, CrossBackend_ShellCOMCompress_ShellCOMExtract)
 {
     std::string srcDir = tmpPath("shellcom_x_src");
@@ -790,6 +792,8 @@ TEST_F(ArchiverTest, CrossBackend_ShellCOMCompress_TarExtract)
     EXPECT_TRUE(fileExists(extractDir + "/from_shellcom.txt"));
     EXPECT_EQ(readFile(extractDir + "/from_shellcom.txt"), "shellcom compress, tar extract via aExtract");
 }
+
+#endif
 
 // ================================================================
 // 独立 .gz 文件压缩/解压往返测试
