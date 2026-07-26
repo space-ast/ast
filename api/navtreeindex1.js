@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"AstReportGlobal_8hpp.html#a1b12362b746c96e6e241a11faad03424acf99bf87d82d9ed26f9150b73cd92ad1":[4,0,0,17,3,3,1],
 "AstReportGlobal_8hpp.html#a1b12362b746c96e6e241a11faad03424aeb895be8400218eb227c92897dc8c8ca":[4,0,0,17,3,3,3],
 "AstReportGlobal_8hpp.html#a49842d0cf3f87b1eb7593f098056a72d":[4,0,0,17,3,4],
 "AstReportGlobal_8hpp.html#a49842d0cf3f87b1eb7593f098056a72da103456eafc4c68697acb2bbb0bd4bc3c":[4,0,0,17,3,4,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "BlockAdd_8hpp_source.html":[4,0,0,6,11,1,1,2,3],
 "BlockAstro_8cpp.html":[4,0,0,6,11,1,0,1],
 "BlockAstro_8hpp.html":[4,0,0,6,11,1,0,2],
-"BlockAstro_8hpp.html#a0778aa54c0ab04c9921684b22406dd39":[4,0,0,6,11,1,0,2,3],
-"BlockAstro_8hpp.html#a139a8a9fc523333100dbb1534fd6a0dc":[4,0,0,6,11,1,0,2,17]
+"BlockAstro_8hpp.html#a0778aa54c0ab04c9921684b22406dd39":[4,0,0,6,11,1,0,2,3]
 };

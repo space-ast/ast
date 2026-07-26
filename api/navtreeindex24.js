@@ -1,5 +1,13 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1DetectorApoapsis.html":[3,0,0,228],
+"classast_1_1DetectorApoapsis.html#a94c36e51b2a333f3c0ad1493338c193d":[2,0,0,229,0],
+"classast_1_1DetectorApoapsis.html#a94c36e51b2a333f3c0ad1493338c193d":[3,0,0,228,0],
+"classast_1_1DetectorAscendingNode.html":[2,0,0,230],
+"classast_1_1DetectorAscendingNode.html":[3,0,0,229],
+"classast_1_1DetectorAscendingNode.html#a66d9128f1fd2702d80c5f85899c4678f":[2,0,0,230,0],
+"classast_1_1DetectorAscendingNode.html#a66d9128f1fd2702d80c5f85899c4678f":[3,0,0,229,0],
+"classast_1_1DetectorBodyRelated.html":[2,0,0,231],
 "classast_1_1DetectorBodyRelated.html":[3,0,0,230],
 "classast_1_1DetectorCartesian.html":[2,0,0,232],
 "classast_1_1DetectorCartesian.html":[3,0,0,231],
@@ -241,13 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1EphemerisBinary.html#a3497cb293796ff8bbd1b3cf6eba13262":[3,0,0,260,2],
 "classast_1_1EphemerisBinary.html#a4c136d0c74869abdf084f2f86f2ced1b":[2,0,0,261,4],
 "classast_1_1EphemerisBinary.html#a4c136d0c74869abdf084f2f86f2ced1b":[3,0,0,260,4],
-"classast_1_1EphemerisBinary.html#a84730dc3ac5cffa572463b149a3c7142":[2,0,0,261,1],
-"classast_1_1EphemerisBinary.html#a84730dc3ac5cffa572463b149a3c7142":[3,0,0,260,1],
-"classast_1_1EphemerisBinary.html#a8bdc6555ca42a425ca8e67e4b07df639":[2,0,0,261,0],
-"classast_1_1EphemerisBinary.html#a8bdc6555ca42a425ca8e67e4b07df639":[3,0,0,260,0],
-"classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206":[2,0,0,261,3],
-"classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206":[3,0,0,260,3],
-"classast_1_1EphemerisFileParser.html":[2,0,0,262],
-"classast_1_1EphemerisFileParser.html":[3,0,0,261],
-"classast_1_1EphemerisLagrangeVar.html":[2,0,0,263]
+"classast_1_1EphemerisBinary.html#a84730dc3ac5cffa572463b149a3c7142":[2,0,0,261,1]
 };

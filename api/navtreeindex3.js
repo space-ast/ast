@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"BurnFinite_8cpp.html":[4,0,0,6,10,0,4],
 "BurnFinite_8hpp.html":[4,0,0,6,10,0,5],
 "BurnFinite_8hpp_source.html":[4,0,0,6,10,0,5],
 "BurnImpulsive_8cpp.html":[4,0,0,6,10,0,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "DataGroupAttitude_8hpp_source.html":[4,0,0,17,0,0,0,1],
 "DataGroupBetaAngle_8cpp.html":[4,0,0,17,0,0,1,2],
 "DataGroupBetaAngle_8cpp.html#a5ab362604aeeba794b32bb45c6450d03":[4,0,0,17,0,0,1,2,0],
-"DataGroupBetaAngle_8hpp.html":[4,0,0,17,0,0,1,3],
-"DataGroupBetaAngle_8hpp_source.html":[4,0,0,17,0,0,1,3]
+"DataGroupBetaAngle_8hpp.html":[4,0,0,17,0,0,1,3]
 };

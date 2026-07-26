@@ -1,5 +1,13 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1ScStateCalcTangential.html":[2,0,0,810],
+"classast_1_1ScStateCalcTangential.html":[3,0,0,809],
+"classast_1_1ScStateCalcTangentialRate.html":[2,0,0,811],
+"classast_1_1ScStateCalcTangentialRate.html":[3,0,0,810],
+"classast_1_1ScStateCalcTemperature.html":[2,0,0,812],
+"classast_1_1ScStateCalcTemperature.html":[3,0,0,811],
+"classast_1_1ScStateCalcThrust.html":[2,0,0,813],
+"classast_1_1ScStateCalcThrust.html":[3,0,0,812],
 "classast_1_1ScStateCalcTimeDifference.html":[2,0,0,814],
 "classast_1_1ScStateCalcTimeDifference.html":[3,0,0,813],
 "classast_1_1ScStateCalcTimePastAscNode.html":[2,0,0,815],
@@ -241,13 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1SimpleOrbitDesigner.html#a86593fdef2a8adbd682b6d3e25a33e7c":[0,1,4,6,13],
 "classast_1_1SimpleOrbitDesigner.html#a8b995b789e2f19c737271ab6282eeaee":[0,1,4,6,0],
 "classast_1_1SimpleOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[0,1,4,6,5],
-"classast_1_1SimpleOrbitDesigner.html#aa0b74d899c850bf0820cc8793e7ad97d":[0,1,4,6,12],
-"classast_1_1SimpleOrbitDesigner.html#aa1b7ef98d029de099d4dd53de0f91079":[0,1,4,6,6],
-"classast_1_1SimpleOrbitDesigner.html#ab3c321181c80db2642c93b60ab16e0ea":[0,1,4,6,20],
-"classast_1_1SimpleOrbitDesigner.html#ab7a52a8f2f4c8b1140c8ebcf979f9318":[0,1,4,6,4],
-"classast_1_1SimpleOrbitDesigner.html#ad1014e8ee671fdfa9937fbb8bf0eabbb":[0,1,4,6,17],
-"classast_1_1SimpleOrbitDesigner.html#ad90b331db5b484737829a923c425f412":[0,1,4,6,18],
-"classast_1_1SimpleOrbitDesigner.html#ade4327e008d96eb40694d60da63458ea":[0,1,4,6,7],
-"classast_1_1SimpleOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[0,1,4,6,3],
-"classast_1_1SimpleOrbitDesigner.html#af43ee75b42c92b555f9c56c38a89faa6":[0,1,4,6,11]
+"classast_1_1SimpleOrbitDesigner.html#aa0b74d899c850bf0820cc8793e7ad97d":[0,1,4,6,12]
 };

@@ -16,6 +16,7 @@ var ArchiverUtils_8hpp =
     ] ],
     [ "aCopyDirectoryRecursive", "ArchiverUtils_8hpp.html#a0eb0b0110c3294b0b496d0eaaf987306", null ],
     [ "aCopyFile", "ArchiverUtils_8hpp.html#a8ec96a71bfc1d3d4361844750f8043b5", null ],
+    [ "aCopyFileRange", "ArchiverUtils_8hpp.html#acbf2f8acc0c0b2e6069ea5121e104bae", null ],
     [ "aDetectArchiveFormat", "ArchiverUtils_8hpp.html#abdcf9254ace9d326f743e54508a737e0", null ],
     [ "aIsArchiveFile", "ArchiverUtils_8hpp.html#a61f7c26953d197e46a42c6bf5fb59b25", null ],
     [ "aIsCommandAvailable", "ArchiverUtils_8hpp.html#a68b36384b6bb19791b3f3b072a3ed43a", null ],

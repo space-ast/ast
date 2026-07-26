@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"BlockAstro_8hpp.html#a139a8a9fc523333100dbb1534fd6a0dc":[4,0,0,6,11,1,0,2,17],
 "BlockAstro_8hpp.html#a2a703f4baea42404f5d2506529b0ae72":[4,0,0,6,11,1,0,2,2],
 "BlockAstro_8hpp.html#a32cfec6e07e5f520fc088c5fe6108bd3":[4,0,0,6,11,1,0,2,9],
 "BlockAstro_8hpp.html#a37ef375f18892267caa211e2be3aa137":[4,0,0,6,11,1,0,2,14],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "BuiltinPoint_8hpp_source.html":[4,0,0,6,5,4,1],
 "BurnCollocation_8cpp.html":[4,0,0,6,10,0,2],
 "BurnCollocation_8hpp.html":[4,0,0,6,10,0,3],
-"BurnCollocation_8hpp_source.html":[4,0,0,6,10,0,3],
-"BurnFinite_8cpp.html":[4,0,0,6,10,0,4]
+"BurnCollocation_8hpp_source.html":[4,0,0,6,10,0,3]
 };

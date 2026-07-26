@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"DataGroupBetaAngle_8hpp_source.html":[4,0,0,17,0,0,1,3],
 "DataGroupCartPos_8cpp.html":[4,0,0,17,0,0,1,4],
 "DataGroupCartPos_8hpp.html":[4,0,0,17,0,0,1,5],
 "DataGroupCartPos_8hpp_source.html":[4,0,0,17,0,0,1,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "EllipsoidShape_8hpp.html":[4,0,0,6,9,3,0,3],
 "EllipsoidShape_8hpp_source.html":[4,0,0,6,9,3,0,3],
 "Encode_8cpp.html":[4,0,0,27,10,0],
-"Encode_8hpp.html":[4,0,0,27,10,1],
-"Encode_8hpp_source.html":[4,0,0,27,10,1]
+"Encode_8hpp.html":[4,0,0,27,10,1]
 };
