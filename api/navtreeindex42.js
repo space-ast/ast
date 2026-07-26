@@ -1,5 +1,7 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1SimpleOrbitDesigner.html#af5535608e9335d5ebec7c27668b63158":[0,1,4,6,15],
+"classast_1_1SimpleOrbitDesigner.html#af8e00f8a3e4e8c7ed50a90f3168effe9":[0,1,4,6,10],
 "classast_1_1SinCos.html":[0,8,12],
 "classast_1_1SolarRadiationPressure.html":[2,0,0,860],
 "classast_1_1SolarRadiationPressure.html":[3,0,0,859],
@@ -247,7 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1State.html#ab141ef098d8f8651ca3b68652eac1719":[3,0,0,898,11],
 "classast_1_1State.html#ab654ca49e23a6146af21ad9894c4f443":[2,0,0,899,12],
 "classast_1_1State.html#ab654ca49e23a6146af21ad9894c4f443":[3,0,0,898,12],
-"classast_1_1State.html#abb916597a235c6ba0a9615ed5f8402ae":[2,0,0,899,7],
-"classast_1_1State.html#abb916597a235c6ba0a9615ed5f8402ae":[3,0,0,898,7],
-"classast_1_1State.html#ac6a240e18730dd99f8c7c9643688154b":[2,0,0,899,16]
+"classast_1_1State.html#abb916597a235c6ba0a9615ed5f8402ae":[2,0,0,899,7]
 };

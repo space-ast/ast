@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcEquinoctialH_8cpp.html":[4,0,0,6,10,1,0,7,0],
+"ScStateCalcEquinoctialH_8hpp.html":[4,0,0,6,10,1,0,7,1],
 "ScStateCalcEquinoctialH_8hpp_source.html":[4,0,0,6,10,1,0,7,1],
 "ScStateCalcEquinoctialK_8cpp.html":[4,0,0,6,10,1,0,7,2],
 "ScStateCalcEquinoctialK_8hpp.html":[4,0,0,6,10,1,0,7,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcReentryDeceleration_8cpp.html":[4,0,0,6,10,1,0,15,158],
 "ScStateCalcReentryDeceleration_8hpp.html":[4,0,0,6,10,1,0,15,159],
 "ScStateCalcReentryDeceleration_8hpp_source.html":[4,0,0,6,10,1,0,15,159],
-"ScStateCalcRefRad_8cpp.html":[4,0,0,6,10,1,0,15,162],
-"ScStateCalcRefRad_8hpp.html":[4,0,0,6,10,1,0,15,163],
-"ScStateCalcRefRad_8hpp_source.html":[4,0,0,6,10,1,0,15,163]
+"ScStateCalcRefRad_8cpp.html":[4,0,0,6,10,1,0,15,162]
 };

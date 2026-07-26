@@ -1,5 +1,7 @@
 var NAVTREEINDEX14 =
 {
+"Sequence_8cpp.html":[4,0,0,6,10,3,30],
+"Sequence_8hpp.html":[4,0,0,6,10,3,31],
 "Sequence_8hpp_source.html":[4,0,0,6,10,3,31],
 "SerdeAPI_8cpp.html":[4,0,0,27,9,10],
 "SerdeAPI_8hpp.html":[4,0,0,27,9,11],
@@ -247,7 +249,5 @@ var NAVTREEINDEX14 =
 "StringView_8hpp.html":[4,0,0,27,10,12],
 "StringView_8hpp_source.html":[4,0,0,27,10,12],
 "String_8cpp.html":[4,0,0,27,10,4],
-"String_8hpp.html":[4,0,0,27,10,5],
-"String_8hpp_source.html":[4,0,0,27,10,5],
-"Struct_8cpp.html":[4,0,0,27,8,0,32]
+"String_8hpp.html":[4,0,0,27,10,5]
 };

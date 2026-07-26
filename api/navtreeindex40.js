@@ -1,5 +1,7 @@
 var NAVTREEINDEX40 =
 {
+"classast_1_1ScStateCalcDuration.html":[2,0,0,690],
+"classast_1_1ScStateCalcDuration.html":[3,0,0,689],
 "classast_1_1ScStateCalcEarthMeanLocTimeAN.html":[2,0,0,691],
 "classast_1_1ScStateCalcEarthMeanLocTimeAN.html":[3,0,0,690],
 "classast_1_1ScStateCalcEarthMeanSolTime.html":[2,0,0,692],
@@ -247,7 +249,5 @@ var NAVTREEINDEX40 =
 "classast_1_1ScStateCalcTemperature.html":[2,0,0,812],
 "classast_1_1ScStateCalcTemperature.html":[3,0,0,811],
 "classast_1_1ScStateCalcThrust.html":[2,0,0,813],
-"classast_1_1ScStateCalcThrust.html":[3,0,0,812],
-"classast_1_1ScStateCalcTimeDifference.html":[2,0,0,814],
-"classast_1_1ScStateCalcTimeDifference.html":[3,0,0,813]
+"classast_1_1ScStateCalcThrust.html":[3,0,0,812]
 };

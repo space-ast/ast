@@ -1,5 +1,7 @@
 var NAVTREEINDEX15 =
 {
+"String_8hpp_source.html":[4,0,0,27,10,5],
+"Struct_8cpp.html":[4,0,0,27,8,0,32],
 "Struct_8hpp.html":[4,0,0,27,8,0,33],
 "Struct_8hpp_source.html":[4,0,0,27,8,0,33],
 "StudyWorkbench_8cpp.html":[4,0,0,1,4,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX15 =
 "UiChatMainWidget_8hpp.html":[4,0,0,22,0,5],
 "UiChatMainWidget_8hpp_source.html":[4,0,0,22,0,5],
 "UiChatMessageItem_8cpp.html":[4,0,0,22,0,6],
-"UiChatMessageItem_8hpp.html":[4,0,0,22,0,7],
-"UiChatMessageItem_8hpp_source.html":[4,0,0,22,0,7],
-"UiChatMessageList_8cpp.html":[4,0,0,22,0,8]
+"UiChatMessageItem_8hpp.html":[4,0,0,22,0,7]
 };

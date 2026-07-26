@@ -1,5 +1,7 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1ScStateCalcTimeDifference.html":[2,0,0,814],
+"classast_1_1ScStateCalcTimeDifference.html":[3,0,0,813],
 "classast_1_1ScStateCalcTimePastAscNode.html":[2,0,0,815],
 "classast_1_1ScStateCalcTimePastAscNode.html":[3,0,0,814],
 "classast_1_1ScStateCalcTimePastPeriapsis.html":[2,0,0,816],
@@ -247,7 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1SimpleOrbitDesigner.html#ad90b331db5b484737829a923c425f412":[0,1,4,6,18],
 "classast_1_1SimpleOrbitDesigner.html#ade4327e008d96eb40694d60da63458ea":[0,1,4,6,7],
 "classast_1_1SimpleOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[0,1,4,6,3],
-"classast_1_1SimpleOrbitDesigner.html#af43ee75b42c92b555f9c56c38a89faa6":[0,1,4,6,11],
-"classast_1_1SimpleOrbitDesigner.html#af5535608e9335d5ebec7c27668b63158":[0,1,4,6,15],
-"classast_1_1SimpleOrbitDesigner.html#af8e00f8a3e4e8c7ed50a90f3168effe9":[0,1,4,6,10]
+"classast_1_1SimpleOrbitDesigner.html#af43ee75b42c92b555f9c56c38a89faa6":[0,1,4,6,11]
 };

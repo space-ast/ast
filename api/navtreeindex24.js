@@ -1,5 +1,7 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1DetectorBodyRelated.html":[3,0,0,230],
+"classast_1_1DetectorCartesian.html":[2,0,0,232],
 "classast_1_1DetectorCartesian.html":[3,0,0,231],
 "classast_1_1DetectorCartesian.html#afe1da42284c467cd67e344a25a1fb7d5":[2,0,0,232,0],
 "classast_1_1DetectorCartesian.html#afe1da42284c467cd67e344a25a1fb7d5":[3,0,0,231,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206":[3,0,0,260,3],
 "classast_1_1EphemerisFileParser.html":[2,0,0,262],
 "classast_1_1EphemerisFileParser.html":[3,0,0,261],
-"classast_1_1EphemerisLagrangeVar.html":[2,0,0,263],
-"classast_1_1EphemerisLagrangeVar.html":[3,0,0,262],
-"classast_1_1EphemerisLagrangeVar.html#a06a7e408aa0f8579cf3016de7dfe26a2":[2,0,0,263,4]
+"classast_1_1EphemerisLagrangeVar.html":[2,0,0,263]
 };

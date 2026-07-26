@@ -1,5 +1,7 @@
 var NAVTREEINDEX51 =
 {
+"group__Coordinate.html#ga196677a3ef576965df6799e10d1b69a6":[0,1,0,145],
+"group__Coordinate.html#ga1a41e3485b5fef8b0de193f83a2491fc":[0,1,0,89],
 "group__Coordinate.html#ga203b13fbef42d2ab13efa50868f53ae5":[0,1,0,102],
 "group__Coordinate.html#ga226c2de1691c1af853b19016b1d00a7a":[0,1,0,29],
 "group__Coordinate.html#ga246634a2196a285578700eced82c4a86":[0,1,0,148],
@@ -247,7 +249,5 @@ var NAVTREEINDEX51 =
 "group__Magnetosphere.html":[0,9,2],
 "group__Magnetosphere.html#ga76146fe3ab6056e3b54dc09881c96058":[0,9,2,1],
 "group__Magnetosphere.html#ga770033ee697753f6c5222ce2ba597a7f":[0,9,2,0],
-"group__Math.html":[0,3],
-"group__NLE.html":[0,3,3],
-"group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa":[0,3,3,10]
+"group__Math.html":[0,3]
 };

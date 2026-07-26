@@ -1,5 +1,7 @@
 var NAVTREEINDEX39 =
 {
+"classast_1_1Rotation.html#aacc0d41b87c3a9a786b44bfa22389c17":[2,0,0,615,20],
+"classast_1_1Rotation.html#aacc0d41b87c3a9a786b44bfa22389c17":[3,0,0,614,20],
 "classast_1_1Rotation.html#acfa9239fd1f4263d2b01c5d507faaead":[2,0,0,615,5],
 "classast_1_1Rotation.html#acfa9239fd1f4263d2b01c5d507faaead":[3,0,0,614,5],
 "classast_1_1Rotation.html#add716f70e0a431099eac1f015acc87bb":[2,0,0,615,16],
@@ -247,7 +249,5 @@ var NAVTREEINDEX39 =
 "classast_1_1ScStateCalcDragArea.html":[2,0,0,688],
 "classast_1_1ScStateCalcDragArea.html":[3,0,0,687],
 "classast_1_1ScStateCalcDragForce.html":[2,0,0,689],
-"classast_1_1ScStateCalcDragForce.html":[3,0,0,688],
-"classast_1_1ScStateCalcDuration.html":[2,0,0,690],
-"classast_1_1ScStateCalcDuration.html":[3,0,0,689]
+"classast_1_1ScStateCalcDragForce.html":[3,0,0,688]
 };

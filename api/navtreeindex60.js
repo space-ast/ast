@@ -1,5 +1,7 @@
 var NAVTREEINDEX60 =
 {
+"structast_1_1SPK__Type18__Packet__Sub1.html":[3,0,0,884],
+"structast_1_1SPK__Type18__Trailer.html":[2,0,0,886],
 "structast_1_1SPK__Type18__Trailer.html":[3,0,0,885],
 "structast_1_1SPK__Type20__Record.html":[2,0,0,887],
 "structast_1_1SPK__Type20__Record.html":[3,0,0,886],
