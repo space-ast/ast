@@ -176,6 +176,7 @@ namespace fs_simple
 
         /// @brief 词法上计算当前路径相对于 base 的相对路径
         /// @details 不检查文件系统，纯词法操作。若不存在相对路径则返回空路径
+        AST_UTIL_API
         path lexically_relative(const path& base) const;
 
         bool empty() const

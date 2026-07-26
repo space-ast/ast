@@ -44,6 +44,7 @@
 #include "AstUtil/Environment.hpp"
 #include "AstUtil/Escape.hpp"
 #include "AstUtil/Extract.hpp"
+#include "AstUtil/ExtractorImplPowerShell.hpp"
 #include "AstUtil/ExtractorImplRaw.hpp"
 #include "AstUtil/ExtractorImplShellCOM.hpp"
 #include "AstUtil/ExtractorImplSystem.hpp"

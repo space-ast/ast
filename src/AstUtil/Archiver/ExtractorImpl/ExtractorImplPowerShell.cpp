@@ -45,7 +45,7 @@ errc_t ExtractorImplPowerShell::extract(StringView source, StringView target) co
     }
 
     // target 是输出文件路径（非目录）— 确保父目录存在
-    fs::path targetPath(target.data());
+    fs::path targetPath = std::string(target);
     fs::path parentDir = targetPath.parent_path();
     if (!parentDir.empty() && !fs::exists(parentDir))
     {

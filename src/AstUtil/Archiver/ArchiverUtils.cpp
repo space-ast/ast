@@ -348,6 +348,37 @@ errc_t aCopyFile(StringView from, StringView to, const char* logPrefix)
     return ret;
 }
 
+errc_t aCopyFileRange(FILE* src, FILE* dst, size_t size)
+{
+    constexpr size_t kBufSize = 65536; // 64KB 缓冲区
+    A_LOCAL_BUFFER(char, buf, kBufSize);
+
+    size_t remaining = size;
+    while (remaining > 0)
+    {
+        size_t toRead = remaining < kBufSize ? remaining : kBufSize;
+        size_t nread = fread(buf, 1, toRead, src);
+        if (nread == 0)
+        {
+            if (ferror(src))
+                aError("read error");
+            else
+                aError("unexpected EOF (expected %zu more bytes)", toRead);
+            return eErrorInvalidFile;
+        }
+
+        size_t nwritten = fwrite(buf, 1, nread, dst);
+        if (nwritten != nread)
+        {
+            aError("write error (wrote %zu of %zu bytes)", nwritten, nread);
+            return eErrorInvalidFile;
+        }
+        remaining -= nread;
+    }
+
+    return eNoError;
+}
+
 errc_t aCopyDirectoryRecursive(const fs::path& srcDir, const fs::path& dstDir, const char* logPrefix)
 {
     if (!fs::exists(dstDir))

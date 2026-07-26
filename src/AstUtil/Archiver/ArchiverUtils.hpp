@@ -108,6 +108,13 @@ void aResolveArchivePath(StringView source, StringView curdir,
 /// @return eNoError 成功，eError 失败
 errc_t aCopyFile(StringView from, StringView to, const char* logPrefix);
 
+/// @brief 从文件流复制指定字节数到目标流（分块读写）
+/// @param src 已打开的源文件流
+/// @param dst 已打开的目标文件流
+/// @param size 要复制的字节数
+/// @return eNoError 成功，否则返回错误码
+AST_UTIL_API errc_t aCopyFileRange(FILE* src, FILE* dst, size_t size);
+
 /// @brief 递归复制目录（供 Raw 后端共享）
 /// @param srcDir 源目录路径
 /// @param dstDir 目标目录路径

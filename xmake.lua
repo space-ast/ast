@@ -221,6 +221,13 @@ if has_package("matplotplusplus") then
     add_defines("AST_WITH_MATPLOT")
 end
 
+-- 添加gtest库依赖（可选）
+if has_package("gtest") then
+    add_packages("gtest")
+    add_defines("AST_WITH_GTEST")
+end
+
+
 -- 添加libintl库依赖（可选）
 -- if has_package("libintl") then
 --     add_packages("libintl")
