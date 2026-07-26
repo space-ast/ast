@@ -1,5 +1,7 @@
 var NAVTREEINDEX60 =
 {
+"structast_1_1SPK__State.html":[2,0,0,879],
+"structast_1_1SPK__State.html":[3,0,0,878],
 "structast_1_1SPK__Type10__Constants.html":[2,0,0,880],
 "structast_1_1SPK__Type10__Constants.html":[3,0,0,879],
 "structast_1_1SPK__Type10__Packet.html":[2,0,0,881],

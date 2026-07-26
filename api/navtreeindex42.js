@@ -1,5 +1,7 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1SimpleOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[0,1,4,6,5],
+"classast_1_1SimpleOrbitDesigner.html#aa0b74d899c850bf0820cc8793e7ad97d":[0,1,4,6,12],
 "classast_1_1SimpleOrbitDesigner.html#aa1b7ef98d029de099d4dd53de0f91079":[0,1,4,6,6],
 "classast_1_1SimpleOrbitDesigner.html#ab3c321181c80db2642c93b60ab16e0ea":[0,1,4,6,20],
 "classast_1_1SimpleOrbitDesigner.html#ab7a52a8f2f4c8b1140c8ebcf979f9318":[0,1,4,6,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1State.html#a6425a00e70b89d0a65875dd795d53e3c":[3,0,0,898,8],
 "classast_1_1State.html#a8a1bd288e80210a7246180f525c80023":[2,0,0,899,9],
 "classast_1_1State.html#a8a1bd288e80210a7246180f525c80023":[3,0,0,898,9],
-"classast_1_1State.html#a8a742f5ba7822492b2c487f2d3d83f0e":[2,0,0,899,18],
-"classast_1_1State.html#a8a742f5ba7822492b2c487f2d3d83f0e":[3,0,0,898,18],
-"classast_1_1State.html#a9a25ea78152c5da90dce2c79af0a3def":[2,0,0,899,5]
+"classast_1_1State.html#a8a742f5ba7822492b2c487f2d3d83f0e":[2,0,0,899,18]
 };

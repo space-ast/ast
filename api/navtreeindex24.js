@@ -1,5 +1,7 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1DetectorAlwaysTripped.html#ad2831eff59e8e18b731338f03aad4bfa":[3,0,0,227,0],
+"classast_1_1DetectorApoapsis.html":[2,0,0,229],
 "classast_1_1DetectorApoapsis.html":[3,0,0,228],
 "classast_1_1DetectorApoapsis.html#a94c36e51b2a333f3c0ad1493338c193d":[2,0,0,229,0],
 "classast_1_1DetectorApoapsis.html#a94c36e51b2a333f3c0ad1493338c193d":[3,0,0,228,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1EphemerisBinary.html":[3,0,0,260],
 "classast_1_1EphemerisBinary.html#a3497cb293796ff8bbd1b3cf6eba13262":[2,0,0,261,2],
 "classast_1_1EphemerisBinary.html#a3497cb293796ff8bbd1b3cf6eba13262":[3,0,0,260,2],
-"classast_1_1EphemerisBinary.html#a4c136d0c74869abdf084f2f86f2ced1b":[2,0,0,261,4],
-"classast_1_1EphemerisBinary.html#a4c136d0c74869abdf084f2f86f2ced1b":[3,0,0,260,4],
-"classast_1_1EphemerisBinary.html#a84730dc3ac5cffa572463b149a3c7142":[2,0,0,261,1]
+"classast_1_1EphemerisBinary.html#a4c136d0c74869abdf084f2f86f2ced1b":[2,0,0,261,4]
 };

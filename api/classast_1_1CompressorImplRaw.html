@@ -123,11 +123,11 @@ $(function(){initNavTree('classast_1_1CompressorImplRaw.html',''); initResizable
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a37d5d61f0d205c84358b3783af37825e" id="r_a37d5d61f0d205c84358b3783af37825e"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37d5d61f0d205c84358b3783af37825e">compress</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> source, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> target, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> curdir={}) const override</td></tr>
 <tr class="separator:a37d5d61f0d205c84358b3783af37825e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb797a78bb007b8228219360733acba9" id="r_adb797a78bb007b8228219360733acba9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb797a78bb007b8228219360733acba9">canCompress</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> source, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> target) const override</td></tr>
+<tr class="separator:adb797a78bb007b8228219360733acba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1CompressorInterface"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1CompressorInterface')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1CompressorInterface.html">ast::CompressorInterface</a></td></tr>
 <tr class="memitem:ad299525a420f7fd56cbd2aa6c3716667 inherit pub_methods_classast_1_1CompressorInterface" id="r_ad299525a420f7fd56cbd2aa6c3716667"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1CompressorInterface.html#ad299525a420f7fd56cbd2aa6c3716667">isSupported</a> () const</td></tr>
 <tr class="separator:ad299525a420f7fd56cbd2aa6c3716667 inherit pub_methods_classast_1_1CompressorInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ef39ecb0ee822875a8d3226ad3435c6 inherit pub_methods_classast_1_1CompressorInterface" id="r_a4ef39ecb0ee822875a8d3226ad3435c6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1CompressorInterface.html#a4ef39ecb0ee822875a8d3226ad3435c6">canCompress</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> source, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> target) const</td></tr>
-<tr class="separator:a4ef39ecb0ee822875a8d3226ad3435c6 inherit pub_methods_classast_1_1CompressorInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
@@ -139,6 +139,47 @@ static <a class="el" href="classast_1_1CompressorImplRaw.html">CompressorImplRaw
 <div class="textblock"><p>原始复制后端</p>
 <p>将文件或目录直接复制到目标位置，不依赖任何外部工具。 始终可用，作为回退链的最终兜底方案。 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
+<a id="adb797a78bb007b8228219360733acba9" name="adb797a78bb007b8228219360733acba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb797a78bb007b8228219360733acba9">&#9670;&#160;</a></span>canCompress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::CompressorImplRaw::canCompress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>target</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检查该压缩实现是否能处理指定源文件/目录并生成目标格式 </p>
+<p>默认返回 true；子类可重写以检查目标扩展名或源文件类型 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>待压缩的源文件或目录路径 </td></tr>
+    <tr><td class="paramname">target</td><td>压缩目标路径（用于判断目标格式） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true 如果能处理，false 否则 </dd></dl>
+
+<p>重载 <a class="el" href="classast_1_1CompressorInterface.html#a4ef39ecb0ee822875a8d3226ad3435c6">ast::CompressorInterface</a> .</p>
+
+</div>
+</div>
 <a id="a37d5d61f0d205c84358b3783af37825e" name="a37d5d61f0d205c84358b3783af37825e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a37d5d61f0d205c84358b3783af37825e">&#9670;&#160;</a></span>compress()</h2>
 

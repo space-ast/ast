@@ -11611,9 +11611,9 @@ template&lt;typename Func &gt; </div>
 <p>获取默认的解压实现 </p>
 <p>按优先级探测后端，返回第一个对指定 source 可用的实现：</p><ol type="1">
 <li>ExtractorImplShellCOM — Windows 上对 .zip 始终可用</li>
-<li><a class="el" href="classast_1_1ExtractorImplSystem.html">ExtractorImplSystem</a> — 系统安装了 tar/unzip/7z</li>
 <li>ExtractorImplPowerShell — Windows 上对 .gz 始终可用（PowerShell + .NET）</li>
-<li><a class="el" href="classast_1_1ExtractorImplTar.html">ExtractorImplTar</a> — .tar 文件（纯 C++）</li>
+<li><a class="el" href="classast_1_1ExtractorImplTar.html">ExtractorImplTar</a> — .tar 文件（纯 C++，始终可用）</li>
+<li><a class="el" href="classast_1_1ExtractorImplSystem.html">ExtractorImplSystem</a> — 系统安装了 tar/unzip/7z</li>
 <li><a class="el" href="classast_1_1ExtractorImplRaw.html">ExtractorImplRaw</a> — 始终可用（文件/目录复制） <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td>待解压的文件路径（用于 canExtract 检查；为空则仅检查 isSupported） </td></tr>
