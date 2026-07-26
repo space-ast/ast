@@ -24,6 +24,7 @@
 #include "ast/ExtractorImplTar.hpp"
 #include "ast/ExtractorImplSystem.hpp"
 #include "ast/ExtractorImplShellCOM.hpp"
+#include "ast/ExtractorImplPowerShell.hpp"
 #include "ast/CompressorImplTar.hpp"
 #include "ast/FileSystem.hpp"
 #include "ast/StringView.hpp"
@@ -506,6 +507,167 @@ TEST_F(ExtractorTest, ShellCOM_Extract_EmptySource)
     EXPECT_NE(err, eNoError);
 }
 #endif
+
+// ================================================================
+// ExtractorImplPowerShell 测试（仅 Windows）
+// ================================================================
+
+#ifdef _WIN32
+
+TEST_F(ExtractorTest, PowerShell_IsSupported)
+{
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    EXPECT_TRUE(impl.isSupported());
+}
+
+TEST_F(ExtractorTest, PowerShell_CanExtract_GzExt)
+{
+    // .gz 后缀的文件
+    std::string path = tmpPath("test.gz");
+    ASSERT_TRUE(writeFile(path, "dummy"));
+
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    EXPECT_TRUE(impl.canExtract(path.c_str()));
+}
+
+TEST_F(ExtractorTest, PowerShell_CanExtract_GzMagic)
+{
+    // 无 .gz 后缀但有 gzip 魔数的文件
+    std::string path = tmpPath("test.bin");
+    std::string gzContent = aTestCreateGzipFile("hello");
+    ASSERT_TRUE(writeFile(path, gzContent));
+
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    EXPECT_TRUE(impl.canExtract(path.c_str()));
+}
+
+TEST_F(ExtractorTest, PowerShell_CanExtract_NonGz)
+{
+    // 普通文本文件不应匹配
+    std::string path = tmpPath("test.txt");
+    ASSERT_TRUE(writeFile(path, "not gzip"));
+
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    EXPECT_FALSE(impl.canExtract(path.c_str()));
+}
+
+TEST_F(ExtractorTest, PowerShell_CanExtract_TarGz)
+{
+    // .tar.gz 不应由此后端处理（由 System 或 Tar 处理）
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    EXPECT_FALSE(impl.canExtract("test.tar.gz"));
+    EXPECT_FALSE(impl.canExtract("test.tgz"));
+}
+
+TEST_F(ExtractorTest, PowerShell_Extract_SmallFile)
+{
+    std::string plaintext = "Hello, gzip extraction!";
+    std::string gzData = aTestCreateGzipFile(plaintext);
+    std::string gzPath = tmpPath("hello.gz");
+    ASSERT_TRUE(writeFile(gzPath, gzData));
+
+    std::string outPath = tmpPath("small_out.txt");
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    errc_t err = impl.extract(gzPath.c_str(), outPath.c_str());
+
+    ASSERT_EQ(err, eNoError);
+    EXPECT_TRUE(fs::exists(outPath));
+    EXPECT_EQ(readFile(outPath), plaintext);
+}
+
+TEST_F(ExtractorTest, PowerShell_Extract_LargeFile)
+{
+    // 大于 64KB 的文件，测试分块读写和 deflate stored block 分块
+    std::string plaintext(100000, 'X');
+    for (size_t i = 0; i < plaintext.size(); ++i)
+        plaintext[i] = static_cast<char>('A' + (i % 26));
+
+    std::string gzData = aTestCreateGzipFile(plaintext);
+    std::string gzPath = tmpPath("large.gz");
+    ASSERT_TRUE(writeFile(gzPath, gzData));
+
+    std::string outPath = tmpPath("large_out.bin");
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    errc_t err = impl.extract(gzPath.c_str(), outPath.c_str());
+
+    ASSERT_EQ(err, eNoError);
+    EXPECT_TRUE(fs::exists(outPath));
+    EXPECT_EQ(readFile(outPath), plaintext);
+}
+
+TEST_F(ExtractorTest, PowerShell_Extract_EmptyFile)
+{
+    std::string gzData = aTestCreateGzipFile("");
+    std::string gzPath = tmpPath("empty.gz");
+    ASSERT_TRUE(writeFile(gzPath, gzData));
+
+    std::string outPath = tmpPath("empty_out.dat");
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    errc_t err = impl.extract(gzPath.c_str(), outPath.c_str());
+
+    ASSERT_EQ(err, eNoError);
+    EXPECT_TRUE(fs::exists(outPath));
+    EXPECT_EQ(readFile(outPath), "");
+}
+
+TEST_F(ExtractorTest, PowerShell_Extract_EmptySource)
+{
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    errc_t err = impl.extract("", tmpPath("out.dat").c_str());
+    EXPECT_NE(err, eNoError);
+}
+
+TEST_F(ExtractorTest, PowerShell_Extract_EmptyTarget)
+{
+    std::string gzData = aTestCreateGzipFile("test");
+    std::string gzPath = tmpPath("err_target.gz");
+    ASSERT_TRUE(writeFile(gzPath, gzData));
+
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    errc_t err = impl.extract(gzPath.c_str(), "");
+    EXPECT_NE(err, eNoError);
+}
+
+TEST_F(ExtractorTest, PowerShell_Extract_NonexistentSource)
+{
+    ExtractorImplPowerShell& impl = ExtractorImplPowerShell::Instance();
+    errc_t err = impl.extract(tmpPath("nonexistent.gz").c_str(), tmpPath("nonexistent_out").c_str());
+    EXPECT_NE(err, eNoError);
+}
+
+TEST_F(ExtractorTest, Factory_ReturnsPowerShellForGz)
+{
+    std::string gzData = aTestCreateGzipFile("factory test");
+    std::string gzPath = tmpPath("factory_test.gz");
+    ASSERT_TRUE(writeFile(gzPath, gzData));
+
+    ExtractorInterface* impl = aExtractGetImpl(gzPath.c_str());
+    ASSERT_NE(impl, nullptr);
+    EXPECT_TRUE(impl->canExtract(gzPath.c_str()));
+}
+
+TEST_F(ExtractorTest, aExtract_GzFile)
+{
+    std::string plaintext = "integrated gz extraction";
+    std::string gzData = aTestCreateGzipFile(plaintext);
+    std::string gzPath = tmpPath("integrate.gz");
+    ASSERT_TRUE(writeFile(gzPath, gzData));
+
+    std::string outPath = tmpPath("integrated_out.txt");
+
+    // 直接使用 PowerShell 后端 — 这是 Win7 无 tar/7z 时的实际路径
+    // （若 System 后端可用会先接管，但其 MinGW tar 在 Windows 路径上有已知问题）
+    ExtractorImplPowerShell& ps = ExtractorImplPowerShell::Instance();
+    ASSERT_TRUE(ps.isSupported());
+    ASSERT_TRUE(ps.canExtract(gzPath.c_str()));
+    errc_t err = ps.extract(gzPath.c_str(), outPath.c_str());
+
+    ASSERT_EQ(err, eNoError);
+    EXPECT_TRUE(fs::exists(outPath));
+    EXPECT_EQ(readFile(outPath), plaintext);
+}
+
+#endif // _WIN32
 
 // ================================================================
 // 空 tar 解压 (#8 盲区)

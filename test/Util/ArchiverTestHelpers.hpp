@@ -107,6 +107,101 @@ inline void aTestVerifyDirectoriesEqual(const std::string& dirA, const std::stri
 }
 
 // ================================================================
+// Gzip 文件构造（纯 C++，无需外部工具）
+// ================================================================
+
+/// @brief 创建有效的 gzip 文件内容（用于测试）
+/// @details 使用 deflate stored block（无压缩）格式，包含 CRC32 校验。
+///         兼容所有 gzip 解压工具（包括 PowerShell GZipStream）。
+/// @param data 原始未压缩数据
+/// @return gzip 格式的完整文件内容
+inline std::string aTestCreateGzipFile(const std::string& data)
+{
+	// CRC32 查找表（多项式 0xEDB88320）
+	static unsigned int crcTable[256] = {};
+	static bool crcTableReady = false;
+	if (!crcTableReady)
+	{
+		for (int i = 0; i < 256; ++i)
+		{
+			unsigned int crc = static_cast<unsigned int>(i);
+			for (int j = 0; j < 8; ++j)
+			{
+				if (crc & 1)
+					crc = 0xEDB88320U ^ (crc >> 1);
+				else
+					crc >>= 1;
+			}
+			crcTable[i] = crc;
+		}
+		crcTableReady = true;
+	}
+
+	// 计算 CRC32
+	unsigned int crc = 0xFFFFFFFFU;
+	for (unsigned char c : data)
+		crc = crcTable[(crc ^ c) & 0xFF] ^ (crc >> 8);
+	crc ^= 0xFFFFFFFFU;
+
+	// 构建 gzip 文件
+	std::string gz;
+
+	// Gzip 头部: ID1=0x1F, ID2=0x8B, CM=0x08(deflate), FLG=0
+	unsigned char header[] = {0x1F, 0x8B, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+	gz.append(reinterpret_cast<const char*>(header), sizeof(header));
+
+	// Deflate 数据块：处理空数据和需要分块的大文件（每块最大 65535 字节）
+	if (data.empty())
+	{
+		// 空文件：一个空的最终 stored block
+		gz.push_back('\x01');            // BFINAL=1, BTYPE=00
+		gz.push_back('\x00'); gz.push_back('\x00');  // LEN=0
+		gz.push_back('\xFF'); gz.push_back('\xFF');  // NLEN=65535
+	}
+	else
+	{
+		size_t offset = 0;
+		while (offset < data.size())
+		{
+			size_t chunkSize = data.size() - offset;
+			if (chunkSize > 65535) chunkSize = 65535;
+
+			bool isLast = (offset + chunkSize >= data.size());
+			unsigned char bfinal = isLast ? 1 : 0;
+			// BFINAL=bfinal, BTYPE=00 (stored/uncompressed)
+			gz.push_back(static_cast<char>(bfinal));
+
+			unsigned short len = static_cast<unsigned short>(chunkSize);
+			unsigned short nlen = static_cast<unsigned short>(~len);
+			gz.push_back(static_cast<char>(len & 0xFF));
+			gz.push_back(static_cast<char>((len >> 8) & 0xFF));
+			gz.push_back(static_cast<char>(nlen & 0xFF));
+			gz.push_back(static_cast<char>((nlen >> 8) & 0xFF));
+
+			if (chunkSize > 0)
+				gz.append(data.data() + offset, chunkSize);
+
+			offset += chunkSize;
+	}
+	}
+
+	// CRC32 (4 字节，little-endian)
+	gz.push_back(static_cast<char>(crc & 0xFF));
+	gz.push_back(static_cast<char>((crc >> 8) & 0xFF));
+	gz.push_back(static_cast<char>((crc >> 16) & 0xFF));
+	gz.push_back(static_cast<char>((crc >> 24) & 0xFF));
+
+	// ISIZE (原始大小 mod 2^32, 4 字节 little-endian)
+	unsigned int isize = static_cast<unsigned int>(data.size());
+	gz.push_back(static_cast<char>(isize & 0xFF));
+	gz.push_back(static_cast<char>((isize >> 8) & 0xFF));
+	gz.push_back(static_cast<char>((isize >> 16) & 0xFF));
+	gz.push_back(static_cast<char>((isize >> 24) & 0xFF));
+
+	return gz;
+}
+
+// ================================================================
 // 共享测试夹具基类
 // ================================================================
 

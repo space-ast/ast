@@ -6,6 +6,7 @@
 
 #ifdef _WIN32
 #include "ExtractorImpl/ExtractorImplShellCOM.hpp"
+#include "ExtractorImpl/ExtractorImplPowerShell.hpp"
 #endif
 
 #include "AstUtil/Logger.hpp"
@@ -21,19 +22,22 @@ ExtractorInterface* aExtractGetImpl(StringView source)
     impl = &ExtractorImplShellCOM::Instance();
     if (impl->isSupported() && impl->canExtract(source))
         return impl;
+    // 2. PowerShell（仅 Windows，.gz 单文件）
+    impl = &ExtractorImplPowerShell::Instance();
+    if (impl->isSupported() && impl->canExtract(source))
+        return impl;
 #endif
-
-    // 2. 系统命令（tar/unzip/7z）
+    // 3. 系统命令（tar/unzip/7z）
     impl = &ExtractorImplSystem::Instance();
     if (impl->isSupported() && impl->canExtract(source))
         return impl;
 
-    // 3. 纯 C++ TAR 解析器
+    // 4. 纯 C++ TAR 解析器
     impl = &ExtractorImplTar::Instance();
     if (impl->isSupported() && impl->canExtract(source))
         return impl;
 
-    // 4. 原始复制（通用兜底）
+    // 5. 原始复制（通用兜底）
     impl = &ExtractorImplRaw::Instance();
     if (impl->isSupported())
         return impl;

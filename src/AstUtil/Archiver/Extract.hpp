@@ -28,10 +28,11 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 获取默认的解压实现
 /// @details 按优先级探测后端，返回第一个对指定 source 可用的实现：
-/// 1. ExtractorImplShellCOM — Windows 上对 .zip 始终可用
-/// 2. ExtractorImplSystem   — 系统安装了 tar/unzip/7z
-/// 3. ExtractorImplTar      — .tar 文件（纯 C++）
-/// 4. ExtractorImplRaw      — 始终可用（文件/目录复制）
+/// 1. ExtractorImplShellCOM  — Windows 上对 .zip 始终可用
+/// 2. ExtractorImplSystem    — 系统安装了 tar/unzip/7z
+/// 3. ExtractorImplPowerShell — Windows 上对 .gz 始终可用（PowerShell + .NET）
+/// 4. ExtractorImplTar       — .tar 文件（纯 C++）
+/// 5. ExtractorImplRaw       — 始终可用（文件/目录复制）
 /// @param source 待解压的文件路径（用于 canExtract 检查；为空则仅检查 isSupported）
 /// @return ExtractorInterface* 可用的解压实现，如果全部不可用则返回 nullptr
 AST_UTIL_API ExtractorInterface* aExtractGetImpl(StringView source = {});
