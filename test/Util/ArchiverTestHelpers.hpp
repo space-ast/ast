@@ -13,6 +13,7 @@
 
 #include "ast/FileSystem.hpp"
 #include "ast/IO.hpp"
+#include "ast/Logger.hpp"
 
 #include <gtest/gtest.h>
 #include <cstdio>
@@ -30,7 +31,11 @@ AST_USING_NAMESPACE
 inline std::string aTestReadFile(const std::string& path)
 {
     FILE* fp = posix::fopen(path.c_str(), "rb");
-    if (!fp) return {};
+    if (!fp)
+    {
+        aError("aTestReadFile: failed to open file %s", path.c_str());
+        return {};
+    }
     std::string content;
     char buf[4096];
     size_t n;

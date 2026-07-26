@@ -59,6 +59,10 @@ namespace
             char header[512] = {};
             std::memcpy(header, name.c_str(), name.size() < 100 ? name.size() : 99);
 
+            // 设置合理的文件权限（mode=0644），避免系统 tar 用 fchmod(0)
+            // 导致解压后的文件无可读权限
+            std::memcpy(header + 100, "0000644 ", 8);
+
             char sizeBuf[32] = {};
             snprintf(sizeBuf, sizeof(sizeBuf), "%011lo",
                      static_cast<unsigned long>(content.size()));
