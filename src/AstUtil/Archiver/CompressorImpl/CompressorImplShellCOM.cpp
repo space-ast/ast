@@ -280,7 +280,9 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             {
                 BSTR bn = nullptr;
                 if (SUCCEEDED(pChild->get_Name(&bn)) && bn)
-                { itemNames.push_back(std::wstring(bn, SysStringLen(bn))); SysFreeString(bn); }
+                { 
+                    itemNames.push_back(std::wstring(bn, SysStringLen(bn))); SysFreeString(bn); 
+                }
                 pChild->Release();
             }
         }
@@ -306,7 +308,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             {
                 if (!aShellWaitForItem(pZipFolder, n, 30000))
                 {
-                    aError("CompressorImplShellCOM: waitForItem timeout for: %S", n.c_str());
+                    aError("CompressorImplShellCOM: waitForItem timeout for: %ls", n.c_str());
                     allOk = false;
                 }
             }

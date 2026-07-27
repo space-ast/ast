@@ -304,18 +304,24 @@ namespace fs_simple
 
     // 基础文件操作
     AST_UTIL_API bool exists(const path& p);
+    AST_UTIL_API bool exists(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API uintmax_t file_size(const path& p);
     AST_UTIL_API file_status status(const path& p) noexcept;
+    AST_UTIL_API file_status status(const path& p, std::error_code& ec) noexcept;
 
     A_ALWAYS_INLINE bool is_regular_file(file_status s) noexcept{ return s.type() == file_type::regular; }
     A_ALWAYS_INLINE bool is_directory(file_status s) noexcept{ return s.type() == file_type::directory; }
     A_ALWAYS_INLINE bool is_directory(const path& p) noexcept{ return is_directory(status(p)); }
+    AST_UTIL_API bool is_directory(const path& p, std::error_code& ec) noexcept;
     A_ALWAYS_INLINE bool is_regular_file(const path& p) noexcept{ return is_regular_file(status(p)); }
 
     // 目录操作
     AST_UTIL_API bool create_directory(const path& p) noexcept;
+    AST_UTIL_API bool create_directory(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API bool create_directories(const path& p) noexcept;
+    AST_UTIL_API bool create_directories(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API bool remove(const path& p) noexcept;
+    AST_UTIL_API bool remove(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API uintmax_t remove_all(const path& p) noexcept;
 
     // 文件操作

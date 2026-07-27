@@ -238,7 +238,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     {
         if (!aShellWaitForItem(pDestFolder, name, 30000))
         {
-            aError("waitForItem timeout for: %S", name.c_str());
+            aError("waitForItem timeout for: %ls", name.c_str());
             allOk = false;
             break; // 发生超时后不再等待剩余项
         }
@@ -263,7 +263,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
                     if (!RemoveDirectoryW(itemPath.c_str()))
                     {
                         // 目录可能非空，由调用者决定是否手动清理
-                        aError("ExtractorImplShellCOM: cannot remove directory during rollback: %S", itemPath.c_str());
+                        aError("ExtractorImplShellCOM: cannot remove directory during rollback: %ls", itemPath.c_str());
                     }
                 }
                 else

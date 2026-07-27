@@ -286,7 +286,8 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
     }
 
     fs::path srcPath = std::string(source);
-    if (!fs::exists(srcPath))
+    std::error_code ec;
+    if (!fs::exists(srcPath, ec) || ec)
     {
         aError("source does not exist: '%.*s'", source.size(), source.data());
         return eErrorInvalidFile;
@@ -305,9 +306,15 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
 
     errc_t ret = eNoError;
 
-    if (fs::is_directory(srcPath))
+    if (fs::is_directory(srcPath, ec))
     {
         ret = archiveDirectory(dst, srcPath, basePath);
+    }
+    else if (ec)
+    {
+        aError("filesystem error: %s", ec.message().c_str());
+        fclose(dst); fs::remove(fs::path(std::string(target)));
+        return eError;
     }
     else
     {
@@ -333,7 +340,7 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
     if (ret != eNoError)
     {
         // 删除失败时产生的不完整文件
-        fs::remove(fs::path(std::string(target)));
+        fs::remove(fs::path(std::string(target)), ec);
     }
 
     return ret;
