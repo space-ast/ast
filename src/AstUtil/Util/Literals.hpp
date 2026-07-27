@@ -383,6 +383,17 @@ namespace literals
         return static_cast<double>(val);
     }
 
+    /// @param val 平方千米值
+    inline constexpr double operator ""_km2(long double val)
+    {
+        return val * kKilometerToMeter * kKilometerToMeter;
+    }
+    
+    /// @param val 平方千米值
+    inline constexpr double operator ""_km2(unsigned long long val)
+    {
+        return static_cast<double>(val) * kKilometerToMeter * kKilometerToMeter;
+    }
 
     //----------------
     // unit literals

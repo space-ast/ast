@@ -55,6 +55,7 @@
 #include "AstLoader/TargeterProfileLoader.hpp"
 #include "AstLoader/TargeterSequenceLoader.hpp"
 #include "AstLoader/TransmitterLoader.hpp"
+#include "AstLoader/VDFLoader.hpp"
 #include "AstLoader/ValXMLLoader.hpp"
 #include "AstLoader/VariableListLoader.hpp"
 #include "AstLoader/VariableLoader.hpp"

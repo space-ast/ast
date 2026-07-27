@@ -47,9 +47,9 @@ static bool initFromTLE(const TLE& tle, elsetrec& satrec,
     // ---- 1. 卫星编号 ----
     // 从 TLE 第1行提取 5 字符卫星编号
     char satn[6] = "     ";
-    if (!tle.lines_.line1_.empty() && tle.lines_.line1_.size() >= 7)
+    if (!tle.lines().line1().empty() && tle.lines().line1().size() >= 7)
     {
-        std::copy_n(tle.lines_.line1_.c_str() + 2, 5, satn);
+        std::copy_n(tle.lines().line1().c_str() + 2, 5, satn);
         satn[5] = '\0';
     }
     // 去除尾部空格
@@ -61,22 +61,22 @@ static bool initFromTLE(const TLE& tle, elsetrec& satrec,
 
     // ---- 2. 历元转换：TimePoint → JD → epochForSgp4 (JD-2433281.5) ----
     JulianDate jdUTC;
-    aTimePointToUTC(tle.epochTime_, jdUTC);
+    aTimePointToUTC(tle.epochTime(), jdUTC);
     double epochForSgp4 = (jdUTC.day() - 2433281.5) + jdUTC.dayFractional();
 
     // ---- 3. 单位转换 ----
     const double xpdotp  = 1440.0 / kTwoPI;   // ≈ 229.183
 
-    double bstar = tle.bstar_;
-    double ndot  = tle.meanMotionDotTime_ / (xpdotp * 1440.0);
-    double nddot = tle.motionDotDot_ / (xpdotp * 1440.0 * 1440.0);
-    double ecco  = tle.eccentricity_;
-    double argpo = tle.argOfPerigee_;            // 已为 rad
-    double inclo = tle.inclination_;             // 已为 rad
-    double mo    = tle.meanAnomaly_;             // 已为 rad
-    double nodeo = tle.rightAscenOfNode_;        // 已为 rad
-    // meanMotion_ 存储为 rad/s (= rev/day × 2π/86400)，需转为 rad/min
-    double no_kozai = tle.meanMotion_ * 60.0;
+    double bstar = tle.bstar();
+    double ndot  = tle.meanMotionDot() / (xpdotp * 1440.0);
+    double nddot = tle.motionDotDot() / (xpdotp * 1440.0 * 1440.0);
+    double ecco  = tle.eccentricity();
+    double argpo = tle.argOfPerigee();            // 已为 rad
+    double inclo = tle.inclination();             // 已为 rad
+    double mo    = tle.meanAnomaly();             // 已为 rad
+    double nodeo = tle.rightAscenOfNode();        // 已为 rad
+    // meanMotion() 返回 rad/s (= rev/day × 2π/86400)，需转为 rad/min
+    double no_kozai = tle.meanMotion() * 60.0;
 
     // ---- 4. 调用 sgp4init ----
     bool ok = SGP4Funcs::sgp4init(

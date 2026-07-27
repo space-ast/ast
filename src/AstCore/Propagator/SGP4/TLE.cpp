@@ -70,12 +70,15 @@ TLE TLE::FromLines(StringView l1, StringView l2)
 {
     TLE tle{};
     
-    tle.lines_.line1_ = std::string(l1);
-    tle.lines_.line2_ = std::string(l2);
+    tle.lines_.line1() = std::string(l1);
+    tle.lines_.line2() = std::string(l2);
 
     // ---- 解析第1行（69 字符）----
     if (l1.size() >= 69)
     {
+        // 列 03-07: NORAD 目录编号 (1-based 3-7 → 0-based 2-6)
+        tle.noradId_ = aParseInt(l1.substr(2, 5));
+
         // 列 08: 密级分类 (1-based 8 → 0-based 7)
         tle.classification_ = l1[7];
 
@@ -113,8 +116,7 @@ TLE TLE::FromLines(StringView l1, StringView l2)
         tle.rightAscenOfNode_ = aParseDouble(l2.substr(17, 8)) * kDegToRad;
 
         // 列 27-33: 偏心率（假设前导小数点，7 位数字）
-        tle.eccentricity_ = aParseDouble(
-            std::string("0.").append(l2.data() + 26, 7));
+        tle.eccentricity_ = aParseInt(l2.substr(26, 7)) * 1e-7;
 
         // 列 35-42: 近地点幅角 [度] → 弧度
         tle.argOfPerigee_ = aParseDouble(l2.substr(34, 8)) * kDegToRad;

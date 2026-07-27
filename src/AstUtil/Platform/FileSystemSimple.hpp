@@ -174,6 +174,11 @@ namespace fs_simple
             return !is_absolute();
         }
 
+        /// @brief 词法上计算当前路径相对于 base 的相对路径
+        /// @details 不检查文件系统，纯词法操作。若不存在相对路径则返回空路径
+        AST_UTIL_API
+        path lexically_relative(const path& base) const;
+
         bool empty() const
         {
             return path_.empty();
@@ -299,18 +304,24 @@ namespace fs_simple
 
     // 基础文件操作
     AST_UTIL_API bool exists(const path& p);
+    AST_UTIL_API bool exists(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API uintmax_t file_size(const path& p);
     AST_UTIL_API file_status status(const path& p) noexcept;
+    AST_UTIL_API file_status status(const path& p, std::error_code& ec) noexcept;
 
     A_ALWAYS_INLINE bool is_regular_file(file_status s) noexcept{ return s.type() == file_type::regular; }
     A_ALWAYS_INLINE bool is_directory(file_status s) noexcept{ return s.type() == file_type::directory; }
     A_ALWAYS_INLINE bool is_directory(const path& p) noexcept{ return is_directory(status(p)); }
+    AST_UTIL_API bool is_directory(const path& p, std::error_code& ec) noexcept;
     A_ALWAYS_INLINE bool is_regular_file(const path& p) noexcept{ return is_regular_file(status(p)); }
 
     // 目录操作
     AST_UTIL_API bool create_directory(const path& p) noexcept;
+    AST_UTIL_API bool create_directory(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API bool create_directories(const path& p) noexcept;
+    AST_UTIL_API bool create_directories(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API bool remove(const path& p) noexcept;
+    AST_UTIL_API bool remove(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API uintmax_t remove_all(const path& p) noexcept;
 
     // 文件操作
@@ -352,6 +363,10 @@ namespace fs_simple
     AST_UTIL_API path current_path(std::error_code& ec) noexcept;
     AST_UTIL_API void current_path(const path& new_path) noexcept(false);
     AST_UTIL_API void current_path(const path& new_path, std::error_code& ec) noexcept;
+
+    /// @brief 计算 p 相对于 base 的相对路径（对标 std::filesystem::relative）
+    /// @note 若 p 和 base 根不同（如不同盘符）则设置 ec 并返回空路径
+    AST_UTIL_API path relative(const path& p, const path& base, std::error_code& ec) noexcept;
 
 } // namespace simple_fs
 

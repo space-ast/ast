@@ -54,17 +54,83 @@ public:
     TLE() = default;
     ~TLE() = default;
 
+    TLE(const TLE&) = default;
+    TLE& operator=(const TLE&) = default;
+    TLE(TLE&&) = default;
+    TLE& operator=(TLE&&) = default;
+
     /// @brief 从 TLE 行文本创建 TLE 对象
     /// @details 解析 TLE 行文本，提取轨道根数及元数据。
     /// @param lines TLE 行文本
     /// @return TLE 对象
     static TLE FromLines(const TLELines& lines);
     static TLE FromLines(StringView l1, StringView l2);
-    
-    double meanMotionDot() const { return meanMotionDotTime_; }
-    double motionDotDot() const { return motionDotDot_; }
 
-public:
+    // -- 元数据访问 --
+
+    bool        enabled() const { return enabled_; }
+    void        setEnabled(bool v) { enabled_ = v; }
+
+    ETLESource  source() const { return source_; }
+    void        setSource(ETLESource v) { source_ = v; }
+
+    ESwitchMethod switchMethod() const { return switch_method_; }
+    void          setSwitchMethod(ESwitchMethod v) { switch_method_ = v; }
+
+    const TimePoint& switchEpoch() const { return switchEpoch_; }
+    void             setSwitchEpoch(const TimePoint& v) { switchEpoch_ = v; }
+
+    const TLELines& lines() const { return lines_; }
+    TLELines&       lines() { return lines_; }
+
+    const TimePoint& epochTime() const { return epochTime_; }
+    void             setEpochTime(const TimePoint& v) { epochTime_ = v; }
+
+    // -- 轨道根数访问 --
+
+    double meanMotionDot() const { return meanMotionDotTime_; }
+    void   setMeanMotionDot(double v) { meanMotionDotTime_ = v; }
+
+    double motionDotDot() const { return motionDotDot_; }
+    void   setMotionDotDot(double v) { motionDotDot_ = v; }
+
+    double bstar() const { return bstar_; }
+    void   setBstar(double v) { bstar_ = v; }
+
+    double inclination() const { return inclination_; }
+    void   setInclination(double v) { inclination_ = v; }
+
+    double rightAscenOfNode() const { return rightAscenOfNode_; }
+    void   setRightAscenOfNode(double v) { rightAscenOfNode_ = v; }
+
+    double eccentricity() const { return eccentricity_; }
+    void   setEccentricity(double v) { eccentricity_ = v; }
+
+    double argOfPerigee() const { return argOfPerigee_; }
+    void   setArgOfPerigee(double v) { argOfPerigee_ = v; }
+
+    double meanAnomaly() const { return meanAnomaly_; }
+    void   setMeanAnomaly(double v) { meanAnomaly_ = v; }
+
+    double meanMotion() const { return meanMotion_; }
+    void   setMeanMotion(double v) { meanMotion_ = v; }
+
+    int  revNumber() const { return revNumber_; }
+    void setRevNumber(int v) { revNumber_ = v; }
+
+    int  ephType() const { return ephType_; }
+    void setEphType(int v) { ephType_ = v; }
+
+    int  noradId() const { return noradId_; }
+    void setNoradId(int v) { noradId_ = v; }
+
+    int  elementNumber() const { return elementNumber_; }
+    void setElementNumber(int v) { elementNumber_ = v; }
+
+    char classification() const { return classification_; }
+    void setClassification(char v) { classification_ = v; }
+
+private:
     bool enabled_{true};              ///< 是否启用
     ETLESource source_                ///< 来源类型
         {ETLESource::eFile};
@@ -85,6 +151,7 @@ public:
     int revNumber_{0};                ///< 轨道数
     int ephType_{0};                  ///< 星历类型
     int elementNumber_{0};            ///< 元素编号
+    int noradId_{0};                  ///< NORAD 目录编号
     char classification_{'U'};        ///< 分类
 };
 

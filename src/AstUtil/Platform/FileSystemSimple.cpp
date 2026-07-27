@@ -268,17 +268,37 @@ namespace fs_simple
     }
 
     // 基础文件操作实现
-    bool exists(const path& p)
+    bool exists(const path& p, std::error_code& ec) noexcept
     {
     #ifdef _WIN32
         std::wstring wide_path;
         aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         DWORD attrs = GetFileAttributesW(wide_path.c_str());
-        return (attrs != INVALID_FILE_ATTRIBUTES);
+        if (attrs != INVALID_FILE_ATTRIBUTES) return true;
+        DWORD err = GetLastError();
+        if (err == ERROR_FILE_NOT_FOUND || err == ERROR_PATH_NOT_FOUND) return false;
+        ec = std::error_code(static_cast<int>(err), std::system_category());
+        return false;
     #else
         struct stat sb;
-        return (stat(p.c_str(), &sb) == 0);
+        if (stat(p.c_str(), &sb) == 0) return true;
+        if (errno == ENOENT || errno == ENOTDIR) return false;
+        ec = std::error_code(errno, std::system_category());
+        return false;
     #endif
+    }
+
+    bool exists(const path& p)
+    {
+        std::error_code ec;
+        return exists(p, ec);
+    }
+
+    bool is_directory(const path& p, std::error_code& ec) noexcept
+    {
+        file_status s = status(p, ec);
+        if (ec) return false; // status 遇到真实错误（权限等）
+        return (s.type() == file_type::directory);
     }
 
     
@@ -312,17 +332,21 @@ namespace fs_simple
     #endif
     }
 
-    file_status status(const path& p) noexcept
+    file_status status(const path& p, std::error_code& ec) noexcept
     {
     #ifdef _WIN32
         std::wstring wide_path;
         aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         DWORD attrs = GetFileAttributesW(wide_path.c_str());
         if (attrs == INVALID_FILE_ATTRIBUTES) {
+            DWORD err = GetLastError();
+            if (err != ERROR_FILE_NOT_FOUND && err != ERROR_PATH_NOT_FOUND) {
+                ec = std::error_code(static_cast<int>(err), std::system_category());
+            }
             return file_status(file_type::not_found);
-        }else if (attrs & FILE_ATTRIBUTE_DIRECTORY) {
+        } else if (attrs & FILE_ATTRIBUTE_DIRECTORY) {
             return file_status(file_type::directory);
-        }else{
+        } else {
             return file_status(file_type::regular);
         }
         // return file_status(file_type::unknown);
@@ -340,62 +364,102 @@ namespace fs_simple
             else {
                 return file_status(file_type::unknown);
             }
-        }else{
+        } else {
+            if (errno != ENOENT && errno != ENOTDIR) {
+                ec = std::error_code(errno, std::system_category());
+            }
             return file_status(file_type::not_found);
         }
     #endif
     }
 
+    file_status status(const path& p) noexcept
+    {
+        std::error_code ec;
+        return status(p, ec);
+    }
+
     // 目录操作实现
-    bool create_directory(const path& p) noexcept
+    bool create_directory(const path& p, std::error_code& ec) noexcept
     {
     #ifdef _WIN32
         std::wstring wide_path;
         aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
-        return CreateDirectoryW(wide_path.c_str(), NULL) != 0;
+        if (CreateDirectoryW(wide_path.c_str(), NULL)) return true;
+        DWORD err = GetLastError();
+        if (err == ERROR_ALREADY_EXISTS) return false;
+        ec = std::error_code(static_cast<int>(err), std::system_category());
+        return false;
     #else
-        return mkdir(p.c_str(), 0755) == 0;
+        if (mkdir(p.c_str(), 0755) == 0) return true;
+        if (errno == EEXIST) return false;
+        ec = std::error_code(errno, std::system_category());
+        return false;
     #endif
     }
 
-    bool create_directories(const path& p) noexcept
+    bool create_directory(const path& p) noexcept
+    {
+        std::error_code ec;
+        return create_directory(p, ec);
+    }
+
+    bool create_directories(const path& p, std::error_code& ec) noexcept
     {
         if (p.empty()) return false;
 
         // 如果目录已存在
-        if (is_directory(p)) return true;
+        if (is_directory(p, ec)) return true;
 
         // 创建父目录
         auto parent = p.parent_path();
-        if (!parent.empty() && !exists(parent)) {
-            if (!create_directories(parent)) {
+        if (!parent.empty() && !exists(parent, ec)) {
+            if (!create_directories(parent, ec)) {
                 return false;
             }
         }
 
         // 创建当前目录
-        return create_directory(p);
+        return create_directory(p, ec);
     }
 
-    bool remove(const path& p) noexcept
+    bool create_directories(const path& p) noexcept
+    {
+        std::error_code ec;
+        return create_directories(p, ec);
+    }
+
+    bool remove(const path& p, std::error_code& ec) noexcept
     {
     #ifdef _WIN32
         std::wstring wide_path;
         aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
-        if (is_directory(p)) {
-            return RemoveDirectoryW(wide_path.c_str()) != 0;
+        if (is_directory(p, ec)) {
+            if (RemoveDirectoryW(wide_path.c_str())) return true;
+        } else {
+            if (DeleteFileW(wide_path.c_str())) return true;
         }
-        else {
-            return DeleteFileW(wide_path.c_str()) != 0;
-        }
+        DWORD err = GetLastError();
+        if (err == ERROR_FILE_NOT_FOUND || err == ERROR_PATH_NOT_FOUND) return false;
+        ec = std::error_code(static_cast<int>(err), std::system_category());
+        return false;
     #else
-        if (is_directory(p)) {
-            return rmdir(p.c_str()) == 0;
+        if (is_directory(p, ec)) {
+            if (rmdir(p.c_str()) == 0) return true;
         }
         else {
-            return unlink(p.c_str()) == 0;
+            if (unlink(p.c_str()) == 0) return true;
         }
+        if (errno == ENOENT) return false;
+        ec = std::error_code(errno, std::system_category());
+        return false;
     #endif
+    }
+
+    bool remove(const path& p) noexcept
+    {
+        std::error_code ec;
+        return remove(p, ec);
     }
 
     uintmax_t remove_all(const path& p) noexcept
@@ -631,6 +695,146 @@ namespace fs_simple
         }
     }
 
+
+// ================================================================
+// relative / lexically_relative（对标 std::filesystem）
+// ================================================================
+
+namespace
+{
+    // 分离根名称（如 "C:"）和根目录（如 "\"）
+    void split_root(const std::string& p, std::string& rootName, std::string& rootDir)
+    {
+        rootName.clear();
+        rootDir.clear();
+
+        if (p.empty()) return;
+
+#ifdef _WIN32
+        // UNC: \\server\share
+        if (p.size() >= 2 && path::is_separator(p[0]) && path::is_separator(p[1]))
+        {
+            size_t pos = p.find_first_of(path::separators(), 2);
+            if (pos != std::string::npos)
+            {
+                pos = p.find_first_of(path::separators(), pos + 1);
+                if (pos != std::string::npos)
+                {
+                    rootName = p.substr(0, pos);
+                    rootDir = p.substr(pos, 1);
+                    return;
+                }
+            }
+            rootName = p; // 不完整的 UNC，整个当作根名
+            return;
+        }
+
+        // 盘符: C:
+        if (p.size() >= 2 && p[1] == ':')
+        {
+            rootName = p.substr(0, 2);
+            if (p.size() > 2 && path::is_separator(p[2]))
+                rootDir = p.substr(2, 1);
+            return;
+        }
+#endif
+
+        // POSIX 或 Windows 无盘符根
+        if (path::is_separator(p[0]))
+        {
+            rootDir = p.substr(0, 1);
+            return;
+        }
+    }
+
+    // 将路径拆分为组件列表（不含根）
+    std::vector<std::string> split_components(const std::string& p, size_t offset)
+    {
+        std::vector<std::string> comps;
+        size_t i = offset;
+        while (i < p.size())
+        {
+            // 跳过连续分隔符
+            while (i < p.size() && path::is_separator(p[i])) ++i;
+            if (i >= p.size()) break;
+
+            size_t start = i;
+            while (i < p.size() && !path::is_separator(p[i])) ++i;
+            std::string comp = p.substr(start, i - start);
+            if (comp == ".") continue; // 忽略单点
+            comps.push_back(comp);
+        }
+        return comps;
+    }
+}
+
+path path::lexically_relative(const path& base) const
+{
+    using std::string;
+
+    const string& pNative = native();
+    const string& bNative = base.native();
+
+    // 分离根
+    string pRootName, pRootDir, bRootName, bRootDir;
+    split_root(pNative, pRootName, pRootDir);
+    split_root(bNative, bRootName, bRootDir);
+
+    // 根不同 → 无法计算相对路径，返回空
+    if (pRootName != bRootName || pRootDir != bRootDir)
+        return path();
+
+    // 拆分组件
+    size_t pOff = (pRootName + pRootDir).size();
+    size_t bOff = (bRootName + bRootDir).size();
+    auto pComps = split_components(pNative, pOff);
+    auto bComps = split_components(bNative, bOff);
+
+    // 找公共前缀
+    size_t common = 0;
+    while (common < pComps.size() && common < bComps.size() && pComps[common] == bComps[common])
+        ++common;
+
+    // 构建相对路径
+    string result;
+    for (size_t i = common; i < bComps.size(); ++i)
+    {
+        if (!result.empty()) result += preferred_separator();
+        result += "..";
+    }
+    for (size_t i = common; i < pComps.size(); ++i)
+    {
+        if (!result.empty()) result += preferred_separator();
+        result += pComps[i];
+    }
+
+    return result;
+}
+
+path relative(const path& p, const path& base, std::error_code& ec) noexcept
+{
+    ec.clear();
+
+    // 不允许相对路径作为参数（对标 std::filesystem）
+    if (p.is_relative() || base.is_relative())
+    {
+        ec = std::make_error_code(std::errc::invalid_argument);
+        return path();
+    }
+
+    // 检查根是否匹配
+    std::string pRootName, pRootDir, bRootName, bRootDir;
+    split_root(p.native(), pRootName, pRootDir);
+    split_root(base.native(), bRootName, bRootDir);
+
+    if (pRootName != bRootName || pRootDir != bRootDir)
+    {
+        ec = std::make_error_code(std::errc::invalid_argument);
+        return path();
+    }
+
+    return p.lexically_relative(base);
+}
 
 } // namespace simple_fs
 
