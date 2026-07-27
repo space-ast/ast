@@ -20,11 +20,16 @@
 
 #include "ColoredSurfacePlot.hpp"
 #include "ColoredSurfaceEnrichment.hpp"
+#include "qwt_version_info.h"
 
 AST_NAMESPACE_BEGIN
 
 void ColoredSurfacePlot::createEnrichment(Qwt3D::Enrichment& p) {
+#if QWT_VERSION_MAJ <=7 && QWT_VERSION_MIN <= 2
+    auto actualData = actualData_p;
+#else
     auto actualData = this->actualData();
+#endif
     if (!actualData) return;
     if (actualData->datatype != Qwt3D::GRID) {
         return;
