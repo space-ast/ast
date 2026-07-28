@@ -27,3 +27,6 @@
 [submodule "thirdparty/Qt-Advanced-Docking-System"]
 	path = thirdparty/Qt-Advanced-Docking-System
 	url = https://github.com/space-ast/Qt-Advanced-Docking-System
+[submodule "thirdparty/Ipopt"]
+	path = thirdparty/Ipopt
+	url = https://github.com/space-ast/Ipopt
