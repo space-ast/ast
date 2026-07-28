@@ -1,5 +1,7 @@
 var NAVTREEINDEX59 =
 {
+"structVardesc.html":[3,0,57],
+"structa__structtype.html":[3,0,3],
 "structalist.html":[3,0,4],
 "structap__array.html":[3,0,6],
 "structast_1_1ColData.html":[2,0,0,152],
@@ -247,7 +249,5 @@ var NAVTREEINDEX59 =
 "structast_1_1RecordStep.html#a72ff969911618d0334c7cf17fd9e0b73":[0,7,6,8],
 "structast_1_1RecordStep.html#a7e30b561593f0bd77368cbef804af8a2":[0,7,6,5],
 "structast_1_1RecordStep.html#aaca3b306b3af07541efdc0729dbac6e9":[0,7,6,9],
-"structast_1_1ReportUnits.html":[0,15,2],
-"structast_1_1RotationElement_1_1Coefficient.html":[0,1,6,10,0],
-"structast_1_1SPK__Descriptor.html":[0,8,1,13]
+"structast_1_1ReportUnits.html":[0,15,2]
 };

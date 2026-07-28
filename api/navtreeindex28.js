@@ -1,5 +1,6 @@
 var NAVTREEINDEX28 =
 {
+"classast_1_1GfxCelestialBody.html#aef42c26ce0f2539f21ad49a7b879d0fe":[2,0,0,334,15],
 "classast_1_1GfxCelestialBody.html#aef42c26ce0f2539f21ad49a7b879d0fe":[3,0,0,333,15],
 "classast_1_1GfxMain.html":[2,0,0,335],
 "classast_1_1GfxMain.html":[3,0,0,334],
@@ -248,6 +249,5 @@ var NAVTREEINDEX28 =
 "classast_1_1GravityForce.html#a2c3acbb879875f47bd7889dc78dd444d":[3,0,0,346,11],
 "classast_1_1GravityForce.html#a382833fd6ac660ddbbbc11f1795b2b70":[2,0,0,347,9],
 "classast_1_1GravityForce.html#a382833fd6ac660ddbbbc11f1795b2b70":[3,0,0,346,9],
-"classast_1_1GravityForce.html#a44a2e6168d18dfb750645454950304f3":[2,0,0,347,3],
-"classast_1_1GravityForce.html#a44a2e6168d18dfb750645454950304f3":[3,0,0,346,3]
+"classast_1_1GravityForce.html#a44a2e6168d18dfb750645454950304f3":[2,0,0,347,3]
 };

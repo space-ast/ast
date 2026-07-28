@@ -162,6 +162,7 @@ var group__Orbit =
       [ "trueA_", "classast_1_1ModOrbElem.html#a4df709ac890580d88f10a4a3aba42f66", null ]
     ] ],
     [ "ast::EquinElem", "classast_1_1EquinElem.html", [
+      [ "meanLongitude", "classast_1_1EquinElem.html#a6f413f9284dacca739b8999ddcc2b3ed", null ],
       [ "a_", "classast_1_1EquinElem.html#ac40ba743af66192cc9a6c4de1dec315b", null ],
       [ "h_", "classast_1_1EquinElem.html#ae3be6a64d6c38d50d137761e9130444b", null ],
       [ "k_", "classast_1_1EquinElem.html#a31b2d9cafebb800bc00e3aca20f0dd48", null ],
@@ -170,6 +171,7 @@ var group__Orbit =
       [ "q_", "classast_1_1EquinElem.html#a3e83e3e396633690125f0784ec58329f", null ]
     ] ],
     [ "ast::ModEquinElem", "classast_1_1ModEquinElem.html", [
+      [ "trueLongitude", "classast_1_1ModEquinElem.html#a844e7bba87b057dca151a8f637a1bbb6", null ],
       [ "f_", "classast_1_1ModEquinElem.html#acf5868e16af6f2c772c8ad1ed1784c4e", null ],
       [ "g_", "classast_1_1ModEquinElem.html#ab851813730b3271e2f24456c5fa5bdd0", null ],
       [ "h_", "classast_1_1ModEquinElem.html#a315f3d084817bd5864d3e6ca31686ea9", null ],

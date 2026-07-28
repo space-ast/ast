@@ -1,5 +1,6 @@
 var classast_1_1EquinElem =
 [
+    [ "meanLongitude", "classast_1_1EquinElem.html#a6f413f9284dacca739b8999ddcc2b3ed", null ],
     [ "a_", "classast_1_1EquinElem.html#ac40ba743af66192cc9a6c4de1dec315b", null ],
     [ "h_", "classast_1_1EquinElem.html#ae3be6a64d6c38d50d137761e9130444b", null ],
     [ "k_", "classast_1_1EquinElem.html#a31b2d9cafebb800bc00e3aca20f0dd48", null ],

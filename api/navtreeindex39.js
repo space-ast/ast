@@ -1,5 +1,7 @@
 var NAVTREEINDEX39 =
 {
+"classast_1_1Rotation.html#a720283109431ea071832f1b863d9f4b8":[2,0,0,615,13],
+"classast_1_1Rotation.html#a720283109431ea071832f1b863d9f4b8":[3,0,0,614,13],
 "classast_1_1Rotation.html#a7e7ab0b605030de8473f76e7b7f79cc6":[2,0,0,615,18],
 "classast_1_1Rotation.html#a7e7ab0b605030de8473f76e7b7f79cc6":[3,0,0,614,18],
 "classast_1_1Rotation.html#a7f7b4d0505a9ed34e081b9ea256d5663":[2,0,0,615,14],
@@ -247,7 +249,5 @@ var NAVTREEINDEX39 =
 "classast_1_1ScStateCalcDifference.html#a2a1a1cb55701d96a0fa4a5d3f11b0567":[2,0,0,685,0],
 "classast_1_1ScStateCalcDifference.html#a2a1a1cb55701d96a0fa4a5d3f11b0567":[3,0,0,684,0],
 "classast_1_1ScStateCalcDifference.html#a8bc1fcd0e6dcf65d5e47bd5462b63940":[2,0,0,685,4],
-"classast_1_1ScStateCalcDifference.html#a8bc1fcd0e6dcf65d5e47bd5462b63940":[3,0,0,684,4],
-"classast_1_1ScStateCalcDifference.html#af5dda1e2ca3f2533aa08b3c1548b8ba6":[2,0,0,685,3],
-"classast_1_1ScStateCalcDifference.html#af5dda1e2ca3f2533aa08b3c1548b8ba6":[3,0,0,684,3]
+"classast_1_1ScStateCalcDifference.html#a8bc1fcd0e6dcf65d5e47bd5462b63940":[3,0,0,684,4]
 };

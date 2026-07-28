@@ -1,5 +1,6 @@
 var classast_1_1ModEquinElem =
 [
+    [ "trueLongitude", "classast_1_1ModEquinElem.html#a844e7bba87b057dca151a8f637a1bbb6", null ],
     [ "f_", "classast_1_1ModEquinElem.html#acf5868e16af6f2c772c8ad1ed1784c4e", null ],
     [ "g_", "classast_1_1ModEquinElem.html#ab851813730b3271e2f24456c5fa5bdd0", null ],
     [ "h_", "classast_1_1ModEquinElem.html#a315f3d084817bd5864d3e6ca31686ea9", null ],
