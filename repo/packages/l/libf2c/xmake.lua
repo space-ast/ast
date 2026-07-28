@@ -1,5 +1,10 @@
 package("libf2c")
-    set_sourcedir(path.join(os.scriptdir(), "../../../../thirdparty/libf2c"))
+    local libf2c_dir = path.join(os.scriptdir(), "../../../../thirdparty/libf2c")
+    if os.exists(path.join(libf2c_dir, "xmake.lua")) then
+        set_sourcedir(libf2c_dir)
+    else
+        add_urls("https://github.com/space-ast/libf2c.git")
+    end
     on_install(function (package)
         local configs = {}
         if package:config("shared") then

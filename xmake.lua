@@ -229,10 +229,10 @@ if has_package("gtest") then
 end
 
 -- 添加ipopt库依赖（可选）
-if has_package("ipopt") then
-    add_packages("ipopt")
-    add_defines("AST_WITH_IPOPT")
-end
+-- if has_package("ipopt") then
+--     add_packages("ipopt")
+--     add_defines("AST_WITH_IPOPT")
+-- end
 
 
 
