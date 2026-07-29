@@ -136,6 +136,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:adb09be524ae4b3e79dc415accfb4415e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9732087a75eb9c1cd518c22823eff9d" id="r_af9732087a75eb9c1cd518c22823eff9d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9732087a75eb9c1cd518c22823eff9d">getBoundingBox</a> (Vector3d &amp;minCorner, Vector3d &amp;maxCorner) const =0</td></tr>
 <tr class="separator:af9732087a75eb9c1cd518c22823eff9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc17c7bfea0ca0fd3d274a30a430ebff" id="r_abc17c7bfea0ca0fd3d274a30a430ebff"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc17c7bfea0ca0fd3d274a30a430ebff">getFrame</a> () const =0</td></tr>
+<tr class="separator:abc17c7bfea0ca0fd3d274a30a430ebff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
 <tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
@@ -414,6 +416,36 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 
 <p>在 <a class="el" href="classast_1_1VolumeGridCartesian.html#a96f9019ea5db4e5fed085ffd630cb0ee">ast::VolumeGridCartesian</a>, <a class="el" href="classast_1_1VolumeGridCartographic.html#a5572334a388d74d4b5b00edc5b03b4dd">ast::VolumeGridCartographic</a>, <a class="el" href="classast_1_1VolumeGridConstrained.html#a5347a29eebb242f173305f9a4451ee70">ast::VolumeGridConstrained</a>, <a class="el" href="classast_1_1VolumeGridCylindrical.html#aee0bfaa91a9f513917d9ebe2ce0d538d">ast::VolumeGridCylindrical</a>, <a class="el" href="classast_1_1VolumeGridSpherical.html#a2c57caa1609cfc644a5d7c7e894d9fcb">ast::VolumeGridSpherical</a> , 以及 <a class="el" href="classast_1_1VolumeGridSurfaceBearing.html#a36ea909c6aea057a39251ec4b2afbc8b">ast::VolumeGridSurfaceBearing</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="abc17c7bfea0ca0fd3d274a30a430ebff" name="abc17c7bfea0ca0fd3d274a30a430ebff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc17c7bfea0ca0fd3d274a30a430ebff">&#9670;&#160;</a></span>getFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classast_1_1Frame.html">Frame</a> * ast::VolumeGrid::getFrame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取参考坐标系 </p>
+<dl class="section return"><dt>返回</dt><dd>参考坐标系指针，无坐标系时返回 nullptr </dd></dl>
+
+<p>在 <a class="el" href="classast_1_1VolumeGridCartesian.html#ae8a987ccc4bc013fdc225f811ac525f2">ast::VolumeGridCartesian</a>, <a class="el" href="classast_1_1VolumeGridCartographic.html#aaa2d000e5a8ef184a1ce193ca9405bd1">ast::VolumeGridCartographic</a>, <a class="el" href="classast_1_1VolumeGridConstrained.html#a6a693e4e38ef0f7164b94277db309c94">ast::VolumeGridConstrained</a>, <a class="el" href="classast_1_1VolumeGridCylindrical.html#aa37dacfe74e68fab79a66241180bdd06">ast::VolumeGridCylindrical</a>, <a class="el" href="classast_1_1VolumeGridSpherical.html#a4d4407dba2139478ab728d75115ecf09">ast::VolumeGridSpherical</a> , 以及 <a class="el" href="classast_1_1VolumeGridSurfaceBearing.html#aacdb34bbbea85eaf747d2610a10b3868">ast::VolumeGridSurfaceBearing</a> 内被实现.</p>
 
 </div>
 </div>

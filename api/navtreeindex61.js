@@ -1,5 +1,12 @@
 var NAVTREEINDEX61 =
 {
+"structast_1_1QuickTypeEntry.html#a267340cf55ac2e8eacc08645791d777b":[3,0,0,591,2],
+"structast_1_1QuickTypeEntry.html#af7f89dae73b0e47a4f06ca21b183ed03":[2,0,0,592,1],
+"structast_1_1QuickTypeEntry.html#af7f89dae73b0e47a4f06ca21b183ed03":[3,0,0,591,1],
+"structast_1_1QwtBackend_1_1Impl.html":[2,0,0,593,0],
+"structast_1_1QwtBackend_1_1Impl.html":[3,0,0,592,0],
+"structast_1_1RecordStep.html":[0,7,6],
+"structast_1_1RecordStep.html#a072ca789181a51bfc5dad1bb63b29c6a":[0,7,6,6],
 "structast_1_1RecordStep.html#a2d0a60f4bdfb95c40992b1d93a6447d2":[0,7,6,4],
 "structast_1_1RecordStep.html#a4312cacc273140906689ed104dc82738":[0,7,6,10],
 "structast_1_1RecordStep.html#a4521af117284965a6746ed4d0b09de7c":[0,7,6,2],

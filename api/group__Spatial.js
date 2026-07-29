@@ -51,42 +51,49 @@ var group__Spatial =
       [ "accept", "classast_1_1VolumeGrid.html#a95f1e4028f4d825b8182ab5d651fef2a", null ],
       [ "enumerateGridPoints", "classast_1_1VolumeGrid.html#adb09be524ae4b3e79dc415accfb4415e", null ],
       [ "getBoundingBox", "classast_1_1VolumeGrid.html#af9732087a75eb9c1cd518c22823eff9d", null ],
+      [ "getFrame", "classast_1_1VolumeGrid.html#abc17c7bfea0ca0fd3d274a30a430ebff", null ],
       [ "getGridPointCount", "classast_1_1VolumeGrid.html#a26f71bd0b556ad7d3298234ddc0b9995", null ]
     ] ],
     [ "ast::VolumeGridCartesian", "classast_1_1VolumeGridCartesian.html", [
       [ "accept", "classast_1_1VolumeGridCartesian.html#aafee6adfc54ad5eb308a395e12ea7be4", null ],
       [ "enumerateGridPoints", "classast_1_1VolumeGridCartesian.html#ac71f4c307894b8023cd0ed625ca83b55", null ],
       [ "getBoundingBox", "classast_1_1VolumeGridCartesian.html#a96f9019ea5db4e5fed085ffd630cb0ee", null ],
+      [ "getFrame", "classast_1_1VolumeGridCartesian.html#ae8a987ccc4bc013fdc225f811ac525f2", null ],
       [ "getGridPointCount", "classast_1_1VolumeGridCartesian.html#a330e817460237c3e94f371da3a4e6fa4", null ]
     ] ],
     [ "ast::VolumeGridCartographic", "classast_1_1VolumeGridCartographic.html", [
       [ "accept", "classast_1_1VolumeGridCartographic.html#a4d3c934e01eb7489a14a64fb4fd32484", null ],
       [ "enumerateGridPoints", "classast_1_1VolumeGridCartographic.html#aed7599adff3a88a70805ba3375b81a1f", null ],
       [ "getBoundingBox", "classast_1_1VolumeGridCartographic.html#a5572334a388d74d4b5b00edc5b03b4dd", null ],
+      [ "getFrame", "classast_1_1VolumeGridCartographic.html#aaa2d000e5a8ef184a1ce193ca9405bd1", null ],
       [ "getGridPointCount", "classast_1_1VolumeGridCartographic.html#ab7e770fcf9858eebaa5e92d54d7270cc", null ]
     ] ],
     [ "ast::VolumeGridConstrained", "classast_1_1VolumeGridConstrained.html", [
       [ "accept", "classast_1_1VolumeGridConstrained.html#a3150925a856ba773718f1261b55b67e7", null ],
       [ "enumerateGridPoints", "classast_1_1VolumeGridConstrained.html#a38c0748287d9daffa8b288e14e253132", null ],
       [ "getBoundingBox", "classast_1_1VolumeGridConstrained.html#a5347a29eebb242f173305f9a4451ee70", null ],
+      [ "getFrame", "classast_1_1VolumeGridConstrained.html#a6a693e4e38ef0f7164b94277db309c94", null ],
       [ "getGridPointCount", "classast_1_1VolumeGridConstrained.html#ae37416427310c8e7c7616463f09ff2bb", null ]
     ] ],
     [ "ast::VolumeGridCylindrical", "classast_1_1VolumeGridCylindrical.html", [
       [ "accept", "classast_1_1VolumeGridCylindrical.html#a9c2f5357da57d95b7d4ab96f61da436e", null ],
       [ "enumerateGridPoints", "classast_1_1VolumeGridCylindrical.html#ab5d9ae4d9b419615e0ecaf37f834509f", null ],
       [ "getBoundingBox", "classast_1_1VolumeGridCylindrical.html#aee0bfaa91a9f513917d9ebe2ce0d538d", null ],
+      [ "getFrame", "classast_1_1VolumeGridCylindrical.html#aa37dacfe74e68fab79a66241180bdd06", null ],
       [ "getGridPointCount", "classast_1_1VolumeGridCylindrical.html#a5dece0e5a26fe9ba1bd2e4052b43eb62", null ]
     ] ],
     [ "ast::VolumeGridSpherical", "classast_1_1VolumeGridSpherical.html", [
       [ "accept", "classast_1_1VolumeGridSpherical.html#ae9620aeae4aa2114604ae381981dabd1", null ],
       [ "enumerateGridPoints", "classast_1_1VolumeGridSpherical.html#a0f72f00c84310690e8533698abd44764", null ],
       [ "getBoundingBox", "classast_1_1VolumeGridSpherical.html#a2c57caa1609cfc644a5d7c7e894d9fcb", null ],
+      [ "getFrame", "classast_1_1VolumeGridSpherical.html#a4d4407dba2139478ab728d75115ecf09", null ],
       [ "getGridPointCount", "classast_1_1VolumeGridSpherical.html#a5cc7af896b8378d4f9c084ddd6fc7fa0", null ]
     ] ],
     [ "ast::VolumeGridSurfaceBearing", "classast_1_1VolumeGridSurfaceBearing.html", [
       [ "accept", "classast_1_1VolumeGridSurfaceBearing.html#a814e14e977a8d219e8ba59bd3803a005", null ],
       [ "enumerateGridPoints", "classast_1_1VolumeGridSurfaceBearing.html#a2c94c010a3bab5495fd44aab9ffd69d0", null ],
       [ "getBoundingBox", "classast_1_1VolumeGridSurfaceBearing.html#a36ea909c6aea057a39251ec4b2afbc8b", null ],
+      [ "getFrame", "classast_1_1VolumeGridSurfaceBearing.html#aacdb34bbbea85eaf747d2610a10b3868", null ],
       [ "getGridPointCount", "classast_1_1VolumeGridSurfaceBearing.html#a9998da34f9a04c244f508b5787ace09b", null ]
     ] ],
     [ "ast::VolumeGridVisitor", "classast_1_1VolumeGridVisitor.html", null ]

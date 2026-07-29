@@ -125,37 +125,40 @@ $(function(){initNavTree('VolumeGridCartographic_8hpp_source.html',''); initResi
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1VolumeGrid.html#a26f71bd0b556ad7d3298234ddc0b9995">getGridPointCount</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1VolumeGrid.html#adb09be524ae4b3e79dc415accfb4415e">enumerateGridPoints</a>(std::vector&lt;Vector3d&gt;&amp; points) <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1VolumeGrid.html#af9732087a75eb9c1cd518c22823eff9d">getBoundingBox</a>(Vector3d&amp; minCorner, Vector3d&amp; maxCorner) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_struct" href="structast_1_1GridCoord.html">GridCoord</a>&amp; latitude()  { <span class="keywordflow">return</span> lat_; }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> GridCoord&amp; latitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lat_; }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    GridCoord&amp; longitude() { <span class="keywordflow">return</span> lon_; }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> GridCoord&amp; longitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lon_; }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    GridCoord&amp; altitude()  { <span class="keywordflow">return</span> alt_; }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> GridCoord&amp; altitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> alt_; }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> setCentralBody(CelestialBody* body);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    CelestialBody* getCentralBody()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> body_.get(); }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> setAutoFit(<span class="keywordtype">bool</span> fit) { autoFit_ = fit; }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">bool</span> getAutoFit()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> autoFit_; }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    GridCoord          lat_;                 </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    GridCoord          lon_;                 </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    GridCoord          alt_;                 </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    WeakPtr&lt;CelestialBody&gt; body_;            </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span>               autoFit_{<span class="keyword">true</span>};       </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* <a class="code hl_function" href="classast_1_1VolumeGrid.html#abc17c7bfea0ca0fd3d274a30a430ebff">getFrame</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_struct" href="structast_1_1GridCoord.html">GridCoord</a>&amp; latitude()  { <span class="keywordflow">return</span> lat_; }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> GridCoord&amp; latitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lat_; }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    GridCoord&amp; longitude() { <span class="keywordflow">return</span> lon_; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> GridCoord&amp; longitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lon_; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    GridCoord&amp; altitude()  { <span class="keywordflow">return</span> alt_; }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">const</span> GridCoord&amp; altitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> alt_; }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> setCentralBody(CelestialBody* body);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    CelestialBody* getCentralBody()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> body_.get(); }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> setAutoFit(<span class="keywordtype">bool</span> fit) { autoFit_ = fit; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">bool</span> getAutoFit()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> autoFit_; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    GridCoord          lat_;                 </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    GridCoord          lon_;                 </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    GridCoord          alt_;                 </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    WeakPtr&lt;CelestialBody&gt; body_;            </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">bool</span>               autoFit_{<span class="keyword">true</span>};       </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
 </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aGridCoord_8hpp_html"><div class="ttname"><a href="GridCoord_8hpp.html">GridCoord.hpp</a></div><div class="ttdoc">体积网格坐标轴定义</div></div>
 <div class="ttc" id="aVolumeGrid_8hpp_html"><div class="ttname"><a href="VolumeGrid_8hpp.html">VolumeGrid.hpp</a></div><div class="ttdoc">体积网格基类</div></div>
+<div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系抽象基类</div><div class="ttdef"><b>定义</b> Frame.hpp:62</div></div>
 <div class="ttc" id="aclassast_1_1VolumeGridCartographic_html"><div class="ttname"><a href="classast_1_1VolumeGridCartographic.html">ast::VolumeGridCartographic</a></div><div class="ttdoc">经纬高体积网格（Latitude, Longitude, Altitude）</div><div class="ttdef"><b>定义</b> VolumeGridCartographic.hpp:33</div></div>
 <div class="ttc" id="aclassast_1_1VolumeGridCartographic_html_a4d3c934e01eb7489a14a64fb4fd32484"><div class="ttname"><a href="classast_1_1VolumeGridCartographic.html#a4d3c934e01eb7489a14a64fb4fd32484">ast::VolumeGridCartographic::accept</a></div><div class="ttdeci">void accept(VolumeGridVisitor &amp;visitor) override</div><div class="ttdoc">接受访问者</div><div class="ttdef"><b>定义</b> VolumeGridCartographic.hpp:38</div></div>
 <div class="ttc" id="aclassast_1_1VolumeGridVisitor_html"><div class="ttname"><a href="classast_1_1VolumeGridVisitor.html">ast::VolumeGridVisitor</a></div><div class="ttdoc">体积网格访问者接口</div><div class="ttdef"><b>定义</b> VolumeGridVisitor.hpp:37</div></div>
-<div class="ttc" id="aclassast_1_1VolumeGrid_html"><div class="ttname"><a href="classast_1_1VolumeGrid.html">ast::VolumeGrid</a></div><div class="ttdoc">体积网格基类</div><div class="ttdef"><b>定义</b> VolumeGrid.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1VolumeGrid_html"><div class="ttname"><a href="classast_1_1VolumeGrid.html">ast::VolumeGrid</a></div><div class="ttdoc">体积网格基类</div><div class="ttdef"><b>定义</b> VolumeGrid.hpp:36</div></div>
 <div class="ttc" id="aclassast_1_1VolumeGrid_html_a26f71bd0b556ad7d3298234ddc0b9995"><div class="ttname"><a href="classast_1_1VolumeGrid.html#a26f71bd0b556ad7d3298234ddc0b9995">ast::VolumeGrid::getGridPointCount</a></div><div class="ttdeci">virtual size_t getGridPointCount() const =0</div><div class="ttdoc">获取网格点总数</div></div>
+<div class="ttc" id="aclassast_1_1VolumeGrid_html_abc17c7bfea0ca0fd3d274a30a430ebff"><div class="ttname"><a href="classast_1_1VolumeGrid.html#abc17c7bfea0ca0fd3d274a30a430ebff">ast::VolumeGrid::getFrame</a></div><div class="ttdeci">virtual Frame * getFrame() const =0</div><div class="ttdoc">获取参考坐标系</div></div>
 <div class="ttc" id="aclassast_1_1VolumeGrid_html_adb09be524ae4b3e79dc415accfb4415e"><div class="ttname"><a href="classast_1_1VolumeGrid.html#adb09be524ae4b3e79dc415accfb4415e">ast::VolumeGrid::enumerateGridPoints</a></div><div class="ttdeci">virtual void enumerateGridPoints(std::vector&lt; Vector3d &gt; &amp;points) const =0</div><div class="ttdoc">枚举所有网格点坐标</div></div>
 <div class="ttc" id="aclassast_1_1VolumeGrid_html_af9732087a75eb9c1cd518c22823eff9d"><div class="ttname"><a href="classast_1_1VolumeGrid.html#af9732087a75eb9c1cd518c22823eff9d">ast::VolumeGrid::getBoundingBox</a></div><div class="ttdeci">virtual void getBoundingBox(Vector3d &amp;minCorner, Vector3d &amp;maxCorner) const =0</div><div class="ttdoc">获取包围盒</div></div>
 <div class="ttc" id="astructast_1_1GridCoord_html"><div class="ttname"><a href="structast_1_1GridCoord.html">ast::GridCoord</a></div><div class="ttdoc">坐标轴定义</div><div class="ttdef"><b>定义</b> GridCoord.hpp:36</div></div>
