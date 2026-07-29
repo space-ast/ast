@@ -50,4 +50,13 @@ void VolumeGridCartographic::getBoundingBox(Vector3d& minCorner, Vector3d& maxCo
     // Phase 2: 实现包围盒计算
 }
 
+Frame *VolumeGridCartographic::getFrame() const
+{
+    if(auto body = body_.get())
+    {
+        return body->getFrameFixed();
+    }
+    return nullptr;
+}
+
 AST_NAMESPACE_END

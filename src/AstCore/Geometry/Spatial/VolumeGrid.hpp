@@ -28,6 +28,8 @@
 
 AST_NAMESPACE_BEGIN
 
+class Frame;
+
 /// @brief 体积网格基类
 /// @ingroup Spatial
 class AST_CORE_API VolumeGrid : public ObjectNamed
@@ -50,6 +52,10 @@ public:
     /// @param[out] minCorner 最小角点坐标
     /// @param[out] maxCorner 最大角点坐标
     virtual void getBoundingBox(Vector3d& minCorner, Vector3d& maxCorner) const = 0;
+
+    /// @brief 获取参考坐标系
+    /// @return 参考坐标系指针，无坐标系时返回 nullptr
+    virtual Frame* getFrame() const = 0;
 };
 
 AST_NAMESPACE_END

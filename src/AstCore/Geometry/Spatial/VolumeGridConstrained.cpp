@@ -37,6 +37,12 @@ void VolumeGridConstrained::setCondition(SpatialCondition* condition)
     condition_ = condition;
 }
 
+Frame* VolumeGridConstrained::getFrame() const
+{
+    auto* grid = refGrid_.get();
+    return grid ? grid->getFrame() : nullptr;
+}
+
 size_t VolumeGridConstrained::getGridPointCount() const
 {
     // 委托给参考网格

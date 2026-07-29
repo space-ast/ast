@@ -40,6 +40,7 @@ public:
     size_t getGridPointCount() const override;
     void enumerateGridPoints(std::vector<Vector3d>& points) const override;
     void getBoundingBox(Vector3d& minCorner, Vector3d& maxCorner) const override;
+    Frame* getFrame() const override { return nullptr; }
 
     /// @name 坐标轴
     /// @{

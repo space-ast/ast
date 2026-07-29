@@ -55,6 +55,7 @@ public:
     /// @{
     void setReferenceFrame(Frame* frame);
     Frame* getReferenceFrame() const { return refFrame_.get(); }
+    Frame* getFrame() const override { return refFrame_.get(); }
     /// @}
 
 private:
