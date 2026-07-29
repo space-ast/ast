@@ -21,9 +21,10 @@ var searchData=
   ['gravityfieldloader_18',['GravityFieldLoader',['../classast_1_1GravityFieldLoader.html',1,'ast']]],
   ['gravityfieldsecularvariations_19',['GravityFieldSecularVariations',['../classast_1_1GravityFieldSecularVariations.html',1,'ast']]],
   ['gravityforce_20',['GravityForce',['../classast_1_1GravityForce.html',1,'ast']]],
-  ['groundstation_21',['GroundStation',['../classast_1_1GroundStation.html',1,'ast']]],
-  ['groundvehicle_22',['GroundVehicle',['../classast_1_1GroundVehicle.html',1,'ast']]],
-  ['gts3crecord_23',['gts3crecord',['../structgts3crecord.html',1,'']]],
-  ['guiinterface_24',['GUIInterface',['../classast_1_1GUIInterface.html',1,'ast']]],
-  ['guiinterfaceimpl_25',['GUIInterfaceImpl',['../classast_1_1GUIInterfaceImpl.html',1,'ast']]]
+  ['gridcoord_21',['GridCoord',['../structast_1_1GridCoord.html',1,'ast']]],
+  ['groundstation_22',['GroundStation',['../classast_1_1GroundStation.html',1,'ast']]],
+  ['groundvehicle_23',['GroundVehicle',['../classast_1_1GroundVehicle.html',1,'ast']]],
+  ['gts3crecord_24',['gts3crecord',['../structgts3crecord.html',1,'']]],
+  ['guiinterface_25',['GUIInterface',['../classast_1_1GUIInterface.html',1,'ast']]],
+  ['guiinterfaceimpl_26',['GUIInterfaceImpl',['../classast_1_1GUIInterfaceImpl.html',1,'ast']]]
 ];

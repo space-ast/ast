@@ -1,5 +1,6 @@
 var group__Geometry =
 [
+    [ "空间分析", "group__Spatial.html", "group__Spatial" ],
     [ "ast::Angle", "classast_1_1Angle.html", [
       [ "getAngle", "classast_1_1Angle.html#ab1d5d5666f02d8142d9cbfc603fe9406", null ],
       [ "getAngle", "classast_1_1Angle.html#a067625657abc77fcdf8afbc4f85d8211", null ],

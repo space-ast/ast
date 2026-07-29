@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Geometry/Spatial/SpatialCondLighting.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('SpatialCondLighting_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SpatialCondLighting.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SpatialCondLighting_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="SpatialCondition_8hpp.html">SpatialCondition.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstCore/SharedPtr.hpp&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/CelestialBody.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6d">   31</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6d">ELightingType</a></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_enumvalue" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6daf72e6dcc51e685fccd3f43b102d755a2">eSunlight</a>,  </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_enumvalue" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6dab5dc0520c3bc4efee64b07fd97c8f19f">ePenumbra</a>,  </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_enumvalue" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6da95158a2ec72dd14b8d7aaeac609678df">eUmbra</a>      </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classast_1_1SpatialCondLighting.html">   41</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1SpatialCondLighting.html">SpatialCondLighting</a> final : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1SpatialCondition.html">SpatialCondition</a></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classast_1_1SpatialCondLighting.html">SpatialCondLighting</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classast_1_1SpatialCondLighting.html">~SpatialCondLighting</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1SpatialCondLighting.html#a1e047036062319aef8643414e02d4c27">   47</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1SpatialCondLighting.html#a1e047036062319aef8643414e02d4c27">accept</a>(<a class="code hl_class" href="classast_1_1SpatialConditionVisitor.html">SpatialConditionVisitor</a>&amp; visitor)<span class="keyword"> override </span>{ visitor.visit(*<span class="keyword">this</span>); }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    errc_t <a class="code hl_function" href="classast_1_1SpatialCondition.html#a79827ab0ae85686656360d7d0be71707">evaluate</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; time, <span class="keyword">const</span> Vector3d&amp; position, <span class="keywordtype">bool</span>&amp; result) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> setLightingType(<a class="code hl_enumeration" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6d">ELightingType</a> type) { lightingType_ = <a class="code hl_function" href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">type</a>; }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    ELightingType getLightingType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lightingType_; }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> addEclipsingBody(<span class="keyword">const</span> SharedPtr&lt;CelestialBody&gt;&amp; body) { eclipsingBodies_.push_back(body); }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">size_t</span> getEclipsingBodyCount()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> eclipsingBodies_.size(); }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">const</span> std::vector&lt;SharedPtr&lt;CelestialBody&gt;&gt;&amp; getEclipsingBodies()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> eclipsingBodies_; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_enumeration" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6d">ELightingType</a>                           lightingType_{ELightingType::eSunlight};  </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    std::vector&lt;SharedPtr&lt;CelestialBody&gt;&gt;   eclipsingBodies_;                         </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aSpatialCondition_8hpp_html"><div class="ttname"><a href="SpatialCondition_8hpp.html">SpatialCondition.hpp</a></div><div class="ttdoc">空间条件基类</div></div>
+<div class="ttc" id="aclassast_1_1Object_html_ad30c577e616caa73f91c3866cc540157"><div class="ttname"><a href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">ast::Object::type</a></div><div class="ttdeci">Class * type() const</div><div class="ttdoc">获取对象类型</div><div class="ttdef"><b>定义</b> Object.hpp:244</div></div>
+<div class="ttc" id="aclassast_1_1SpatialCondLighting_html"><div class="ttname"><a href="classast_1_1SpatialCondLighting.html">ast::SpatialCondLighting</a></div><div class="ttdoc">光照空间条件</div><div class="ttdef"><b>定义</b> SpatialCondLighting.hpp:42</div></div>
+<div class="ttc" id="aclassast_1_1SpatialCondLighting_html_a1e047036062319aef8643414e02d4c27"><div class="ttname"><a href="classast_1_1SpatialCondLighting.html#a1e047036062319aef8643414e02d4c27">ast::SpatialCondLighting::accept</a></div><div class="ttdeci">void accept(SpatialConditionVisitor &amp;visitor) override</div><div class="ttdoc">接受访问者</div><div class="ttdef"><b>定义</b> SpatialCondLighting.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1SpatialConditionVisitor_html"><div class="ttname"><a href="classast_1_1SpatialConditionVisitor.html">ast::SpatialConditionVisitor</a></div><div class="ttdoc">空间条件访问者接口</div><div class="ttdef"><b>定义</b> SpatialConditionVisitor.hpp:39</div></div>
+<div class="ttc" id="aclassast_1_1SpatialCondition_html"><div class="ttname"><a href="classast_1_1SpatialCondition.html">ast::SpatialCondition</a></div><div class="ttdoc">空间条件基类</div><div class="ttdef"><b>定义</b> SpatialCondition.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1SpatialCondition_html_a79827ab0ae85686656360d7d0be71707"><div class="ttname"><a href="classast_1_1SpatialCondition.html#a79827ab0ae85686656360d7d0be71707">ast::SpatialCondition::evaluate</a></div><div class="ttdeci">virtual errc_t evaluate(const TimePoint &amp;time, const Vector3d &amp;position, bool &amp;result) const =0</div><div class="ttdoc">在指定时间和位置评估条件</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:107</div></div>
+<div class="ttc" id="anamespaceast_html_a9ce8b4fe30d3e93b43510ea6f11f4d6d"><div class="ttname"><a href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6d">ast::ELightingType</a></div><div class="ttdeci">ELightingType</div><div class="ttdoc">光照类型</div><div class="ttdef"><b>定义</b> SpatialCondLighting.hpp:32</div></div>
+<div class="ttc" id="anamespaceast_html_a9ce8b4fe30d3e93b43510ea6f11f4d6da95158a2ec72dd14b8d7aaeac609678df"><div class="ttname"><a href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6da95158a2ec72dd14b8d7aaeac609678df">ast::ELightingType::eUmbra</a></div><div class="ttdeci">@ eUmbra</div><div class="ttdoc">本影（全食）</div></div>
+<div class="ttc" id="anamespaceast_html_a9ce8b4fe30d3e93b43510ea6f11f4d6dab5dc0520c3bc4efee64b07fd97c8f19f"><div class="ttname"><a href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6dab5dc0520c3bc4efee64b07fd97c8f19f">ast::ELightingType::ePenumbra</a></div><div class="ttdeci">@ ePenumbra</div><div class="ttdoc">半影</div></div>
+<div class="ttc" id="anamespaceast_html_a9ce8b4fe30d3e93b43510ea6f11f4d6daf72e6dcc51e685fccd3f43b102d755a2"><div class="ttname"><a href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6daf72e6dcc51e685fccd3f43b102d755a2">ast::ELightingType::eSunlight</a></div><div class="ttdeci">@ eSunlight</div><div class="ttdoc">阳光直射</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_88eadabe8dab097f71bcc1542ddfd6a8.html">Geometry</a></li><li class="navelem"><a class="el" href="dir_df73230b2a196d5085b025fd9078cb24.html">Spatial</a></li><li class="navelem"><a class="el" href="SpatialCondLighting_8hpp.html">SpatialCondLighting.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

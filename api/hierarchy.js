@@ -240,6 +240,7 @@ var hierarchy =
     [ "ast::detail::decode_impl< Tag, Pos, 0 >", "structast_1_1detail_1_1decode__impl_3_01Tag_00_01Pos_00_010_01_4.html", null ],
     [ "ast::DelaunayElem", "classast_1_1DelaunayElem.html", null ],
     [ "ast::strings_internal::DelimiterConcept", "structast_1_1strings__internal_1_1DelimiterConcept.html", null ],
+    [ "ast::DifferentiationSettings", "structast_1_1DifferentiationSettings.html", null ],
     [ "ast::Dimension", "classast_1_1Dimension.html", null ],
     [ "ast::fs_simple::directory_entry", "classast_1_1fs__simple_1_1directory__entry.html", null ],
     [ "ast::fs_simple::directory_iterator", "classast_1_1fs__simple_1_1directory__iterator.html", null ],
@@ -373,6 +374,7 @@ var hierarchy =
     ] ],
     [ "ast::GravityFieldLoader", "classast_1_1GravityFieldLoader.html", null ],
     [ "ast::GravityFieldSecularVariations", "classast_1_1GravityFieldSecularVariations.html", null ],
+    [ "ast::GridCoord", "structast_1_1GridCoord.html", null ],
     [ "gts3crecord", "structgts3crecord.html", null ],
     [ "ast::GUIInterface", "classast_1_1GUIInterface.html", [
       [ "ast::GUIInterfaceImpl", "classast_1_1GUIInterfaceImpl.html", null ]
@@ -1296,6 +1298,19 @@ var hierarchy =
           [ "ast::ShooterResult", "classast_1_1ShooterResult.html", null ],
           [ "ast::SolarSystem", "classast_1_1SolarSystem.html", null ],
           [ "ast::SpacecraftState", "classast_1_1SpacecraftState.html", null ],
+          [ "ast::SpatialCalculation", "classast_1_1SpatialCalculation.html", [
+            [ "ast::SpatialCalcAltitude", "classast_1_1SpatialCalcAltitude.html", null ],
+            [ "ast::SpatialCalcDistance", "classast_1_1SpatialCalcDistance.html", null ],
+            [ "ast::SpatialCalcSatisfactionMetrics", "classast_1_1SpatialCalcSatisfactionMetrics.html", null ],
+            [ "ast::SpatialCalcScalarAtLocation", "classast_1_1SpatialCalcScalarAtLocation.html", null ],
+            [ "ast::SpatialCalcSolarIntensity", "classast_1_1SpatialCalcSolarIntensity.html", null ]
+          ] ],
+          [ "ast::SpatialCondition", "classast_1_1SpatialCondition.html", [
+            [ "ast::SpatialCondAccessToObjects", "classast_1_1SpatialCondAccessToObjects.html", null ],
+            [ "ast::SpatialCondCalculationBounds", "classast_1_1SpatialCondCalculationBounds.html", null ],
+            [ "ast::SpatialCondLighting", "classast_1_1SpatialCondLighting.html", null ],
+            [ "ast::SpatialCondOverTime", "classast_1_1SpatialCondOverTime.html", null ]
+          ] ],
           [ "ast::Star", "classast_1_1Star.html", null ],
           [ "ast::State", "classast_1_1State.html", [
             [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
@@ -1312,6 +1327,14 @@ var hierarchy =
             [ "ast::VectorDisplacement", "classast_1_1VectorDisplacement.html", null ],
             [ "ast::VectorFixed", "classast_1_1VectorFixed.html", null ],
             [ "ast::VectorFixedAtEpoch", "classast_1_1VectorFixedAtEpoch.html", null ]
+          ] ],
+          [ "ast::VolumeGrid", "classast_1_1VolumeGrid.html", [
+            [ "ast::VolumeGridCartesian", "classast_1_1VolumeGridCartesian.html", null ],
+            [ "ast::VolumeGridCartographic", "classast_1_1VolumeGridCartographic.html", null ],
+            [ "ast::VolumeGridConstrained", "classast_1_1VolumeGridConstrained.html", null ],
+            [ "ast::VolumeGridCylindrical", "classast_1_1VolumeGridCylindrical.html", null ],
+            [ "ast::VolumeGridSpherical", "classast_1_1VolumeGridSpherical.html", null ],
+            [ "ast::VolumeGridSurfaceBearing", "classast_1_1VolumeGridSurfaceBearing.html", null ]
           ] ],
           [ "ast::Volumetric", "classast_1_1Volumetric.html", null ]
         ] ],
@@ -1436,6 +1459,8 @@ var hierarchy =
     [ "ast::SpanStorage< std::string, dynamic_extent >", "classast_1_1SpanStorage.html", null ],
     [ "ast::SpanStorage< T, dynamic_extent >", "classast_1_1SpanStorage_3_01T_00_01dynamic__extent_01_4.html", null ],
     [ "ast::Sparse", "classast_1_1Sparse.html", null ],
+    [ "ast::SpatialCalculationVisitor", "classast_1_1SpatialCalculationVisitor.html", null ],
+    [ "ast::SpatialConditionVisitor", "classast_1_1SpatialConditionVisitor.html", null ],
     [ "ast::SpiceAPI", "classast_1_1SpiceAPI.html", null ],
     [ "ast::SpiceBodyRegistry", "classast_1_1SpiceBodyRegistry.html", null ],
     [ "ast::SpiceFrameRegistry", "classast_1_1SpiceFrameRegistry.html", null ],
@@ -1530,6 +1555,7 @@ var hierarchy =
     [ "matplot::visitor", null, [
       [ "ast::QwtPlotVisitor", "classast_1_1QwtPlotVisitor.html", null ]
     ] ],
+    [ "ast::VolumeGridVisitor", "classast_1_1VolumeGridVisitor.html", null ],
     [ "ast::WasmClassInfo", "structast_1_1WasmClassInfo.html", null ],
     [ "ast::WasmObjectInfo", "structast_1_1WasmObjectInfo.html", null ],
     [ "ast::WasmRuntimeProtocol", "classast_1_1WasmRuntimeProtocol.html", null ],
@@ -1538,6 +1564,7 @@ var hierarchy =
     [ "ast::WeakPtr< ast::Angle >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::AttitudeProfile >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Axes >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::BodyShape >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Burn >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::CelestialBody >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Command >", "classast_1_1WeakPtr.html", null ],
@@ -1554,9 +1581,12 @@ var hierarchy =
     [ "ast::WeakPtr< ast::SolarSystem >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SpacecraftState >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SpaceObject >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::SpatialCalculation >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::SpatialCondition >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::StudyWorkbench >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::SweepStudy >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Vector >", "classast_1_1WeakPtr.html", null ],
+    [ "ast::WeakPtr< ast::VolumeGrid >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WorkingDirectory", "classast_1_1WorkingDirectory.html", null ],
     [ "ast::MSISBase::WorkSpace", "classast_1_1MSISBase_1_1WorkSpace.html", null ],
     [ "ast::XMLDocument", "classast_1_1XMLDocument.html", null ],

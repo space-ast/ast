@@ -18,5 +18,5 @@ var searchData=
   ['nsum_15',['nsum',['../structast_1_1DAF__SummaryRecords.html#a66059789fd3533535103bad8379ef41d',1,'ast::DAF_SummaryRecords::nsum'],['../structast_1_1DAF__SPKSummaryRecords.html#a680a017d720ab0a4337286e38a961e4d',1,'ast::DAF_SPKSummaryRecords::nsum']]],
   ['number_5f_16',['number_',['../classast_1_1JsonValue.html#a5cf79ddb3a4387187f4165f66467d5c0',1,'ast::JsonValue']]],
   ['numparams_5f_17',['numParams_',['../classast_1_1CommandTrie_1_1Node.html#a256686c094903e271579870b2d669356',1,'ast::CommandTrie::Node']]],
-  ['numsteps_5f_18',['numSteps_',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a4b5b537ccfa14dcbe7bc9df3a35f45ab',1,'ast::ODEFixedStepIntegrator::Workspace']]]
+  ['numsteps_5f_18',['numSteps_',['../structast_1_1GridCoord.html#a6df1df8a30562a4a06719b947ed64dcf',1,'ast::GridCoord::numSteps_'],['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a4b5b537ccfa14dcbe7bc9df3a35f45ab',1,'ast::ODEFixedStepIntegrator::Workspace::numSteps_']]]
 ];

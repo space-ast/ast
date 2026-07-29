@@ -111,7 +111,7 @@ var searchData=
   ['numopbintype_108',['numOpBinType',['../group__Script.html#gga84a7917cdd65e122f6fcf04b096f455daea697211d9c43d398c2cc270b3024c3f',1,'ast']]],
   ['numopunarytype_109',['numOpUnaryType',['../group__Script.html#gga737f9c579e31cebe46bb5406d9a08cd4ad4eaf367c173cf54c95a9ff54c092854',1,'ast']]],
   ['numparams_5f_110',['numParams_',['../classast_1_1CommandTrie_1_1Node.html#a256686c094903e271579870b2d669356',1,'ast::CommandTrie::Node']]],
-  ['numsteps_5f_111',['numSteps_',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a4b5b537ccfa14dcbe7bc9df3a35f45ab',1,'ast::ODEFixedStepIntegrator::Workspace']]],
+  ['numsteps_5f_111',['numSteps_',['../structast_1_1GridCoord.html#a6df1df8a30562a4a06719b947ed64dcf',1,'ast::GridCoord::numSteps_'],['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a4b5b537ccfa14dcbe7bc9df3a35f45ab',1,'ast::ODEFixedStepIntegrator::Workspace::numSteps_']]],
   ['nutationcache_112',['NutationCache',['../structast_1_1NutationCache.html',1,'ast']]],
   ['nutationseries_113',['NutationSeries',['../classast_1_1NutationSeries.html',1,'ast']]],
   ['nutationseries_2ecpp_114',['NutationSeries.cpp',['../NutationSeries_8cpp.html',1,'']]],

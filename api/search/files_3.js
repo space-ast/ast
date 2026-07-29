@@ -115,12 +115,13 @@ var searchData=
   ['differentialcorrector_2ehpp_112',['DifferentialCorrector.hpp',['../DifferentialCorrector_8hpp.html',1,'']]],
   ['differentialcorrectorprofile_2ecpp_113',['DifferentialCorrectorProfile.cpp',['../DifferentialCorrectorProfile_8cpp.html',1,'']]],
   ['differentialcorrectorprofile_2ehpp_114',['DifferentialCorrectorProfile.hpp',['../DifferentialCorrectorProfile_8hpp.html',1,'']]],
-  ['dimension_2ecpp_115',['Dimension.cpp',['../Dimension_8cpp.html',1,'']]],
-  ['dimension_2ehpp_116',['Dimension.hpp',['../Dimension_8hpp.html',1,'']]],
-  ['dragforce_2ecpp_117',['DragForce.cpp',['../DragForce_8cpp.html',1,'']]],
-  ['dragforce_2ehpp_118',['DragForce.hpp',['../DragForce_8hpp.html',1,'']]],
-  ['dtm2012_2ecpp_119',['DTM2012.cpp',['../DTM2012_8cpp.html',1,'']]],
-  ['dtm2012_2ehpp_120',['DTM2012.hpp',['../DTM2012_8hpp.html',1,'']]],
-  ['duration_2ecpp_121',['Duration.cpp',['../Duration_8cpp.html',1,'']]],
-  ['duration_2ehpp_122',['Duration.hpp',['../Duration_8hpp.html',1,'']]]
+  ['differentiationsettings_2ehpp_115',['DifferentiationSettings.hpp',['../DifferentiationSettings_8hpp.html',1,'']]],
+  ['dimension_2ecpp_116',['Dimension.cpp',['../Dimension_8cpp.html',1,'']]],
+  ['dimension_2ehpp_117',['Dimension.hpp',['../Dimension_8hpp.html',1,'']]],
+  ['dragforce_2ecpp_118',['DragForce.cpp',['../DragForce_8cpp.html',1,'']]],
+  ['dragforce_2ehpp_119',['DragForce.hpp',['../DragForce_8hpp.html',1,'']]],
+  ['dtm2012_2ecpp_120',['DTM2012.cpp',['../DTM2012_8cpp.html',1,'']]],
+  ['dtm2012_2ehpp_121',['DTM2012.hpp',['../DTM2012_8hpp.html',1,'']]],
+  ['duration_2ecpp_122',['Duration.cpp',['../Duration_8cpp.html',1,'']]],
+  ['duration_2ehpp_123',['Duration.hpp',['../Duration_8hpp.html',1,'']]]
 ];

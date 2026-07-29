@@ -330,6 +330,7 @@ var namespaceast =
     [ "DetectorZXPlaneCross", "classast_1_1DetectorZXPlaneCross.html", "classast_1_1DetectorZXPlaneCross" ],
     [ "DifferentialCorrector", "classast_1_1DifferentialCorrector.html", null ],
     [ "DifferentialCorrectorProfile", "classast_1_1DifferentialCorrectorProfile.html", "classast_1_1DifferentialCorrectorProfile" ],
+    [ "DifferentiationSettings", "structast_1_1DifferentiationSettings.html", "structast_1_1DifferentiationSettings" ],
     [ "Dimension", "classast_1_1Dimension.html", "classast_1_1Dimension" ],
     [ "DragForce", "classast_1_1DragForce.html", "classast_1_1DragForce" ],
     [ "DTM2012", "classast_1_1DTM2012.html", "classast_1_1DTM2012" ],
@@ -428,6 +429,7 @@ var namespaceast =
     [ "GravityFieldLoader", "classast_1_1GravityFieldLoader.html", "classast_1_1GravityFieldLoader" ],
     [ "GravityFieldSecularVariations", "classast_1_1GravityFieldSecularVariations.html", "classast_1_1GravityFieldSecularVariations" ],
     [ "GravityForce", "classast_1_1GravityForce.html", "classast_1_1GravityForce" ],
+    [ "GridCoord", "structast_1_1GridCoord.html", "structast_1_1GridCoord" ],
     [ "GroundStation", "classast_1_1GroundStation.html", null ],
     [ "GroundVehicle", "classast_1_1GroundVehicle.html", null ],
     [ "GUIInterface", "classast_1_1GUIInterface.html", "classast_1_1GUIInterface" ],
@@ -953,6 +955,19 @@ var namespaceast =
     [ "SpanStorage", "classast_1_1SpanStorage.html", null ],
     [ "SpanStorage< T, dynamic_extent >", "classast_1_1SpanStorage_3_01T_00_01dynamic__extent_01_4.html", null ],
     [ "Sparse", "classast_1_1Sparse.html", null ],
+    [ "SpatialCalcAltitude", "classast_1_1SpatialCalcAltitude.html", "classast_1_1SpatialCalcAltitude" ],
+    [ "SpatialCalcDistance", "classast_1_1SpatialCalcDistance.html", "classast_1_1SpatialCalcDistance" ],
+    [ "SpatialCalcSatisfactionMetrics", "classast_1_1SpatialCalcSatisfactionMetrics.html", "classast_1_1SpatialCalcSatisfactionMetrics" ],
+    [ "SpatialCalcScalarAtLocation", "classast_1_1SpatialCalcScalarAtLocation.html", "classast_1_1SpatialCalcScalarAtLocation" ],
+    [ "SpatialCalcSolarIntensity", "classast_1_1SpatialCalcSolarIntensity.html", "classast_1_1SpatialCalcSolarIntensity" ],
+    [ "SpatialCalculation", "classast_1_1SpatialCalculation.html", "classast_1_1SpatialCalculation" ],
+    [ "SpatialCalculationVisitor", "classast_1_1SpatialCalculationVisitor.html", null ],
+    [ "SpatialCondAccessToObjects", "classast_1_1SpatialCondAccessToObjects.html", "classast_1_1SpatialCondAccessToObjects" ],
+    [ "SpatialCondCalculationBounds", "classast_1_1SpatialCondCalculationBounds.html", "classast_1_1SpatialCondCalculationBounds" ],
+    [ "SpatialCondition", "classast_1_1SpatialCondition.html", "classast_1_1SpatialCondition" ],
+    [ "SpatialConditionVisitor", "classast_1_1SpatialConditionVisitor.html", null ],
+    [ "SpatialCondLighting", "classast_1_1SpatialCondLighting.html", "classast_1_1SpatialCondLighting" ],
+    [ "SpatialCondOverTime", "classast_1_1SpatialCondOverTime.html", "classast_1_1SpatialCondOverTime" ],
     [ "SphereShape", "classast_1_1SphereShape.html", "classast_1_1SphereShape" ],
     [ "SpheroidShape", "classast_1_1SpheroidShape.html", "classast_1_1SpheroidShape" ],
     [ "SpiceAPI", "classast_1_1SpiceAPI.html", "classast_1_1SpiceAPI" ],
@@ -1150,6 +1165,14 @@ var namespaceast =
     [ "VectorX", "classast_1_1VectorX.html", null ],
     [ "VehiclePathData", "structast_1_1VehiclePathData.html", null ],
     [ "Version", "classast_1_1Version.html", "classast_1_1Version" ],
+    [ "VolumeGrid", "classast_1_1VolumeGrid.html", "classast_1_1VolumeGrid" ],
+    [ "VolumeGridCartesian", "classast_1_1VolumeGridCartesian.html", "classast_1_1VolumeGridCartesian" ],
+    [ "VolumeGridCartographic", "classast_1_1VolumeGridCartographic.html", "classast_1_1VolumeGridCartographic" ],
+    [ "VolumeGridConstrained", "classast_1_1VolumeGridConstrained.html", "classast_1_1VolumeGridConstrained" ],
+    [ "VolumeGridCylindrical", "classast_1_1VolumeGridCylindrical.html", "classast_1_1VolumeGridCylindrical" ],
+    [ "VolumeGridSpherical", "classast_1_1VolumeGridSpherical.html", "classast_1_1VolumeGridSpherical" ],
+    [ "VolumeGridSurfaceBearing", "classast_1_1VolumeGridSurfaceBearing.html", "classast_1_1VolumeGridSurfaceBearing" ],
+    [ "VolumeGridVisitor", "classast_1_1VolumeGridVisitor.html", null ],
     [ "Volumetric", "classast_1_1Volumetric.html", null ],
     [ "WasmClassInfo", "structast_1_1WasmClassInfo.html", "structast_1_1WasmClassInfo" ],
     [ "WasmObjectInfo", "structast_1_1WasmObjectInfo.html", "structast_1_1WasmObjectInfo" ],
@@ -1203,6 +1226,18 @@ var namespaceast =
       [ "eXCN", "namespaceast.html#ae1175a89974b670e35e3dff97b7159afae1768248d2caebebe86f2d6bb4ad4dd8", null ],
       [ "eXCN_S", "namespaceast.html#ae1175a89974b670e35e3dff97b7159afae7adfb35e444d4524e0bb8922a6ba7c1", null ]
     ] ],
+    [ "EAberrationType", "namespaceast.html#ac0b82877894a659aa7aef5d2ebb241a8", [
+      [ "eNone", "namespaceast.html#ac0b82877894a659aa7aef5d2ebb241a8abe988781e4e1de1c6a36fb698afbbe1f", null ],
+      [ "eAnnual", "namespaceast.html#ac0b82877894a659aa7aef5d2ebb241a8a1ccda31e6c549561a4c4623a50f6aa41", null ],
+      [ "eDiurnal", "namespaceast.html#ac0b82877894a659aa7aef5d2ebb241a8a3992e2ca3529e8525892502374859c0a", null ],
+      [ "eTotal", "namespaceast.html#ac0b82877894a659aa7aef5d2ebb241a8aea2732070f7b1cfa1804f5a521e85b56", null ]
+    ] ],
+    [ "EAccumulationType", "namespaceast.html#acf4c23bf02a15f050f732e07786a2306", [
+      [ "eTotal", "namespaceast.html#acf4c23bf02a15f050f732e07786a2306aea2732070f7b1cfa1804f5a521e85b56", null ],
+      [ "eCurrent", "namespaceast.html#acf4c23bf02a15f050f732e07786a2306a8a4ae9088b5d080c176d9aeb3cb3cb9e", null ],
+      [ "eUpToCurrentTime", "namespaceast.html#acf4c23bf02a15f050f732e07786a2306a792754115456d6d3519f71f5e28fa1e8", null ],
+      [ "eFromCurrentTime", "namespaceast.html#acf4c23bf02a15f050f732e07786a2306a43338c2d0d53cfae31c25b7787b04016", null ]
+    ] ],
     [ "EArchiveFormat", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94db", [
       [ "eUnknown", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba64c3acc11ffdb1be30ea339290bd1508", null ],
       [ "eTar", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba3131e3d8815e4dd8253a1193aefd4406", null ],
@@ -1221,11 +1256,21 @@ var namespaceast =
       [ "ePointMass", "namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8a3f0c135486e78f33ef23971c5daeecf5", null ],
       [ "eUnknown", "namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8a64c3acc11ffdb1be30ea339290bd1508", null ]
     ] ],
+    [ "EBoundType", "namespaceast.html#a49995afc388c5dd1744e0c1ff5f3ad3d", [
+      [ "eAboveMinimum", "namespaceast.html#a49995afc388c5dd1744e0c1ff5f3ad3daede0e5d99c54ea8c5b20a9b790925008", null ],
+      [ "eBelowMaximum", "namespaceast.html#a49995afc388c5dd1744e0c1ff5f3ad3da6958124cd06d20f7b4bdc2784466fbdb", null ],
+      [ "eBetweenMinimumAndMaximum", "namespaceast.html#a49995afc388c5dd1744e0c1ff5f3ad3da5249e4ee7fbdfc5b20b4a03318fa8f6b", null ],
+      [ "eOutsideMinimumAndMaximum", "namespaceast.html#a49995afc388c5dd1744e0c1ff5f3ad3daa0ccdc920c0a69f092a93c08c5ef3443", null ]
+    ] ],
     [ "EChatRole", "namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719", [
       [ "eUser", "namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719a4c9ad4c6ae61cdb6969dd73173e44c3a", null ],
       [ "eAssistant", "namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719aa830e49e553614a2c56a8d11a22efc15", null ],
       [ "eSystem", "namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719a604ac456ba1f7f82ff1202ae7bb87efa", null ],
       [ "eTool", "namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719accde8f25a3f7985ec3f4c57f528c61d8", null ]
+    ] ],
+    [ "EClockHost", "namespaceast.html#a46daf5279b2c4dc2e3a37bbae8fb2a6d", [
+      [ "eFirstObject", "namespaceast.html#a46daf5279b2c4dc2e3a37bbae8fb2a6da9f69905585d448f691aba12b95d2f391", null ],
+      [ "eSecondObject", "namespaceast.html#a46daf5279b2c4dc2e3a37bbae8fb2a6da0e62c62afa939a0dcb0bac5cd1ae4656", null ]
     ] ],
     [ "EColor", "group__Util.html#gac1947c945d205687379e80f42bba8dfd", [
       [ "eBlack", "group__Util.html#ggac1947c945d205687379e80f42bba8dfda8500bf00445c40642c4ba1e7a1152173", null ],
@@ -1429,6 +1474,19 @@ var namespaceast =
       [ "eFrequency", "namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14adf5237fa72ed64bf8d140ebc4be399f8", null ],
       [ "eDensity", "namespaceast.html#ab30969f1d9a484eedacefdc5a6953f14af3063e954e1dbd4152e54d7a5ba962d1", null ]
     ] ],
+    [ "EDistanceRefConfig", "namespaceast.html#a1a261019caa41eff097e78f8aceb2391", [
+      [ "eFromPoint", "namespaceast.html#a1a261019caa41eff097e78f8aceb2391ac62e28a534bfb6b615f994026abf4278", null ],
+      [ "eFromPlane", "namespaceast.html#a1a261019caa41eff097e78f8aceb2391a3aab4df1f397e31a28ec382c78fcadd7", null ],
+      [ "eFromPlaneSigned", "namespaceast.html#a1a261019caa41eff097e78f8aceb2391ae7b386ad327dd407e9082501085280ad", null ],
+      [ "eAlongVector", "namespaceast.html#a1a261019caa41eff097e78f8aceb2391a924af60938aff3f7d83590e003bbf15c", null ],
+      [ "eAlongVectorSigned", "namespaceast.html#a1a261019caa41eff097e78f8aceb2391a1756e21034be50ffc074a140cef3e750", null ]
+    ] ],
+    [ "EDurationType", "namespaceast.html#a2a32aec9c0c2e7b4a0ac82e2ddc27c1b", [
+      [ "eStatic", "namespaceast.html#a2a32aec9c0c2e7b4a0ac82e2ddc27c1bad4a35693e80621cd89d4bf671551d10c", null ],
+      [ "eCumulativeToCurrent", "namespaceast.html#a2a32aec9c0c2e7b4a0ac82e2ddc27c1ba368f3a1f1386f1070721a8911a0b9879", null ],
+      [ "eCumulativeFromCurrent", "namespaceast.html#a2a32aec9c0c2e7b4a0ac82e2ddc27c1bad3f6a5f493ecbe284c1a33f85af3731c", null ],
+      [ "eSlidingWindow", "namespaceast.html#a2a32aec9c0c2e7b4a0ac82e2ddc27c1baaf0b3a8259adcf4c043b34761f7b5016", null ]
+    ] ],
     [ "EEndian", "group__Platform.html#gae5cf4de7adb0a012861b982458f81526", [
       [ "eLittleEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526ae3046b598c718c3efb499423ed6272ec", null ],
       [ "eBigEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526aa62c0343340b8ffd29f021d1546be637", null ]
@@ -1473,10 +1531,21 @@ var namespaceast =
       [ "eJplDE", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8", null ],
       [ "eSpecifiedValue", "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a054ddc0dca259fc570e8af06c96636e6", null ]
     ] ],
+    [ "EGridCoordMethod", "namespaceast.html#a3ddd723b348ed5722300ea2ea6c82f89", [
+      [ "eFixedNumSteps", "namespaceast.html#a3ddd723b348ed5722300ea2ea6c82f89adcc413a25f245a357a7a5201d586781e", null ],
+      [ "eFixedSpacing", "namespaceast.html#a3ddd723b348ed5722300ea2ea6c82f89a3ccc1233976ea051dd5a4ead5c066c86", null ]
+    ] ],
     [ "EInterpolationMethod", "namespaceast.html#ad5260f2008c9ceaced8a537b5877c379", [
       [ "eUnknown", "namespaceast.html#ad5260f2008c9ceaced8a537b5877c379aaf8a9112a5a055e50fee0d5ddad77ae5", null ],
       [ "eLagrange", "namespaceast.html#ad5260f2008c9ceaced8a537b5877c379ab047d1c7477202d20a0272d6dc5f8126", null ],
       [ "eOnePt", "namespaceast.html#ad5260f2008c9ceaced8a537b5877c379aa44aabb95f9e0b6818decb7a90a6562d", null ]
+    ] ],
+    [ "EIntervalFilter", "namespaceast.html#a3919742fe50d56fbea0a0ed07ae0a868", [
+      [ "eNone", "namespaceast.html#a3919742fe50d56fbea0a0ed07ae0a868abe988781e4e1de1c6a36fb698afbbe1f", null ],
+      [ "eFirstInterval", "namespaceast.html#a3919742fe50d56fbea0a0ed07ae0a868aa767e78175a77374c23168640a493175", null ],
+      [ "eLastInterval", "namespaceast.html#a3919742fe50d56fbea0a0ed07ae0a868a8c1f40122710af2280e279635572b770", null ],
+      [ "eDurationGreaterThan", "namespaceast.html#a3919742fe50d56fbea0a0ed07ae0a868aa618d5c39caefa3046da59d213d535d9", null ],
+      [ "eDurationLessThan", "namespaceast.html#a3919742fe50d56fbea0a0ed07ae0a868a26c5a2fea239833d7b19aa4a16a03ffd", null ]
     ] ],
     [ "EJsonValueType", "group__ParseFormat.html#ga6bceb3e7a191b76ce5708a7eea693d08", [
       [ "eNull", "group__ParseFormat.html#gga6bceb3e7a191b76ce5708a7eea693d08a7b23b1a8f21b0b115f6543deb240236f", null ],
@@ -1485,6 +1554,11 @@ var namespaceast =
       [ "eString", "group__ParseFormat.html#gga6bceb3e7a191b76ce5708a7eea693d08afd94ed04f3a7c67da610ca46950edc26", null ],
       [ "eArray", "group__ParseFormat.html#gga6bceb3e7a191b76ce5708a7eea693d08a859997d3d472c83372c6e0179d2025bb", null ],
       [ "eObject", "group__ParseFormat.html#gga6bceb3e7a191b76ce5708a7eea693d08ac92038caaf313844f673a690ac5c88bf", null ]
+    ] ],
+    [ "ELightingType", "namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6d", [
+      [ "eSunlight", "namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6daf72e6dcc51e685fccd3f43b102d755a2", null ],
+      [ "ePenumbra", "namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6dab5dc0520c3bc4efee64b07fd97c8f19f", null ],
+      [ "eUmbra", "namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6da95158a2ec72dd14b8d7aaeac609678df", null ]
     ] ],
     [ "ELineStyle", "namespaceast.html#a1b12362b746c96e6e241a11faad03424", [
       [ "eSolid", "namespaceast.html#a1b12362b746c96e6e241a11faad03424aa56571af665c58edeef828a9f179f9e4", null ],
@@ -1633,6 +1707,14 @@ var namespaceast =
     ] ],
     [ "ERootFindingAlgorithm", "namespaceast.html#aa8c459f7459dd0c0fa71b049082d38a9", [
       [ "eSecantMethod", "namespaceast.html#aa8c459f7459dd0c0fa71b049082d38a9a165bc206be568f3e7376a2044b3fa5a6", null ]
+    ] ],
+    [ "ESatisfactionMetric", "namespaceast.html#a3385dae2fd84d32be81d51b10d3d0b8f", [
+      [ "eIntervalDuration", "namespaceast.html#a3385dae2fd84d32be81d51b10d3d0b8fac9cff79713b6d35009886af470571d19", null ],
+      [ "eGapDuration", "namespaceast.html#a3385dae2fd84d32be81d51b10d3d0b8faeecde4f468adcefade755fbefd13b2cf", null ],
+      [ "eNumberOfIntervals", "namespaceast.html#a3385dae2fd84d32be81d51b10d3d0b8fa0df04f79a8b532eac72185e6dea93752", null ],
+      [ "eNumberOfGaps", "namespaceast.html#a3385dae2fd84d32be81d51b10d3d0b8faf17156eb31f9e1b98b5bab1f428580ed", null ],
+      [ "eTimeSinceLastSatisfaction", "namespaceast.html#a3385dae2fd84d32be81d51b10d3d0b8fa28130b27916e8328d381c812b53e227d", null ],
+      [ "eTimeUntilNextSatisfaction", "namespaceast.html#a3385dae2fd84d32be81d51b10d3d0b8fa7b4ff5b2611d14906a130dd830360fa6", null ]
     ] ],
     [ "EScaleControls", "namespaceast.html#a1261433b1247ff9055c2224bb7797ffb", [
       [ "eByInitialValue", "namespaceast.html#a1261433b1247ff9055c2224bb7797ffba4ccc1819f9b9cf1a8addaa23b66c1170", null ]
@@ -1783,6 +1865,10 @@ var namespaceast =
       [ "eLeft", "namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2fa97d352658db7b34c35502f9cd535e48b", null ],
       [ "eCenter", "namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2fa220067f8b2018584c34a90d950f9bd9c", null ],
       [ "eRight", "namespaceast.html#a8a0cb8cd899337b4bc595bc1a1939b2faf47864efb86f863a0080026825b1303d", null ]
+    ] ],
+    [ "ETimeSense", "namespaceast.html#a36fb77b62a6bc0136b765df39deefd46", [
+      [ "eTransmit", "namespaceast.html#a36fb77b62a6bc0136b765df39deefd46a48bb86a8e60bbffb0fe42f6c145df380", null ],
+      [ "eReceive", "namespaceast.html#a36fb77b62a6bc0136b765df39deefd46a73e17a661237961af99c6714b00f226f", null ]
     ] ],
     [ "ETLESource", "namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374", [
       [ "eFile", "namespaceast.html#af0aa1c9c6e26b6b71443e9be3f152374a5e7de5f948230715ad55929daf7287e2", null ],

@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::SpatialConditionVisitor类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1SpatialConditionVisitor.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1SpatialConditionVisitor-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::SpatialConditionVisitor类 参考<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Geometry.html">几何</a> &raquo; <a class="el" href="group__Spatial.html">空间分析</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="SpatialConditionVisitor_8hpp_source.html">SpatialConditionVisitor.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:adebcdebd26f4adacde24e06ae83dc586" id="r_adebcdebd26f4adacde24e06ae83dc586"><td class="memItemLeft" align="right" valign="top"><a id="adebcdebd26f4adacde24e06ae83dc586" name="adebcdebd26f4adacde24e06ae83dc586"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1SpatialCondition.html">SpatialCondition</a> &amp;cond)=0</td></tr>
+<tr class="separator:adebcdebd26f4adacde24e06ae83dc586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b182723b6fa89f50504d08dc0efcb98" id="r_a6b182723b6fa89f50504d08dc0efcb98"><td class="memItemLeft" align="right" valign="top"><a id="a6b182723b6fa89f50504d08dc0efcb98" name="a6b182723b6fa89f50504d08dc0efcb98"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1SpatialCondAccessToObjects.html">SpatialCondAccessToObjects</a> &amp;cond)=0</td></tr>
+<tr class="separator:a6b182723b6fa89f50504d08dc0efcb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9dad79f869a21bce06ed0b08315859b" id="r_aa9dad79f869a21bce06ed0b08315859b"><td class="memItemLeft" align="right" valign="top"><a id="aa9dad79f869a21bce06ed0b08315859b" name="aa9dad79f869a21bce06ed0b08315859b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (SpatialCondCombined &amp;cond)=0</td></tr>
+<tr class="separator:aa9dad79f869a21bce06ed0b08315859b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58b4a90a91cfef4722bb7b41cdce7144" id="r_a58b4a90a91cfef4722bb7b41cdce7144"><td class="memItemLeft" align="right" valign="top"><a id="a58b4a90a91cfef4722bb7b41cdce7144" name="a58b4a90a91cfef4722bb7b41cdce7144"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (SpatialCondConditionAtLocation &amp;cond)=0</td></tr>
+<tr class="separator:a58b4a90a91cfef4722bb7b41cdce7144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b1bb2b674cf149be4905c7fb28f9d35" id="r_a3b1bb2b674cf149be4905c7fb28f9d35"><td class="memItemLeft" align="right" valign="top"><a id="a3b1bb2b674cf149be4905c7fb28f9d35" name="a3b1bb2b674cf149be4905c7fb28f9d35"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (SpatialCondGridBoundingVolume &amp;cond)=0</td></tr>
+<tr class="separator:a3b1bb2b674cf149be4905c7fb28f9d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a652f0a872974642dd0d0f96148942072" id="r_a652f0a872974642dd0d0f96148942072"><td class="memItemLeft" align="right" valign="top"><a id="a652f0a872974642dd0d0f96148942072" name="a652f0a872974642dd0d0f96148942072"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1SpatialCondLighting.html">SpatialCondLighting</a> &amp;cond)=0</td></tr>
+<tr class="separator:a652f0a872974642dd0d0f96148942072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600a473ea01f36bdd04ceba464e6b6f5" id="r_a600a473ea01f36bdd04ceba464e6b6f5"><td class="memItemLeft" align="right" valign="top"><a id="a600a473ea01f36bdd04ceba464e6b6f5" name="a600a473ea01f36bdd04ceba464e6b6f5"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1SpatialCondOverTime.html">SpatialCondOverTime</a> &amp;cond)=0</td></tr>
+<tr class="separator:a600a473ea01f36bdd04ceba464e6b6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab724f5cf36fa32f46908f5cd1580e373" id="r_ab724f5cf36fa32f46908f5cd1580e373"><td class="memItemLeft" align="right" valign="top"><a id="ab724f5cf36fa32f46908f5cd1580e373" name="ab724f5cf36fa32f46908f5cd1580e373"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="classast_1_1SpatialCondCalculationBounds.html">SpatialCondCalculationBounds</a> &amp;cond)=0</td></tr>
+<tr class="separator:ab724f5cf36fa32f46908f5cd1580e373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1e44b6071ad4ea1fd136f46420246f3" id="r_ab1e44b6071ad4ea1fd136f46420246f3"><td class="memItemLeft" align="right" valign="top"><a id="ab1e44b6071ad4ea1fd136f46420246f3" name="ab1e44b6071ad4ea1fd136f46420246f3"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (SpatialCondValidTimeAtLocation &amp;cond)=0</td></tr>
+<tr class="separator:ab1e44b6071ad4ea1fd136f46420246f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>空间条件访问者接口 </p>
+</div><hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Geometry/Spatial/<a class="el" href="SpatialConditionVisitor_8hpp_source.html">SpatialConditionVisitor.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1SpatialConditionVisitor.html">SpatialConditionVisitor</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

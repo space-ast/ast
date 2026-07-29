@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Geometry/Spatial/VolumeGridSurfaceBearing.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('VolumeGridSurfaceBearing_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">VolumeGridSurfaceBearing.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="VolumeGridSurfaceBearing_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="VolumeGrid_8hpp.html">VolumeGrid.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="GridCoord_8hpp.html">GridCoord.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/WeakPtr.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">class </span>CelestialBody;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classast_1_1VolumeGridSurfaceBearing.html">   32</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1VolumeGridSurfaceBearing.html">VolumeGridSurfaceBearing</a> final : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1VolumeGrid.html">VolumeGrid</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="classast_1_1VolumeGridSurfaceBearing.html">VolumeGridSurfaceBearing</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_class" href="classast_1_1VolumeGridSurfaceBearing.html">~VolumeGridSurfaceBearing</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classast_1_1VolumeGridSurfaceBearing.html#a814e14e977a8d219e8ba59bd3803a005">   38</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1VolumeGridSurfaceBearing.html#a814e14e977a8d219e8ba59bd3803a005">accept</a>(<a class="code hl_class" href="classast_1_1VolumeGridVisitor.html">VolumeGridVisitor</a>&amp; visitor)<span class="keyword"> override </span>{ visitor.visit(*<span class="keyword">this</span>); }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1VolumeGrid.html#a26f71bd0b556ad7d3298234ddc0b9995">getGridPointCount</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1VolumeGrid.html#adb09be524ae4b3e79dc415accfb4415e">enumerateGridPoints</a>(std::vector&lt;Vector3d&gt;&amp; points) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1VolumeGrid.html#af9732087a75eb9c1cd518c22823eff9d">getBoundingBox</a>(Vector3d&amp; minCorner, Vector3d&amp; maxCorner) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_struct" href="structast_1_1GridCoord.html">GridCoord</a>&amp; alongBearing()  { <span class="keywordflow">return</span> alongBearing_; }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> GridCoord&amp; alongBearing()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> alongBearing_; }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    GridCoord&amp; crossBearing()  { <span class="keywordflow">return</span> crossBearing_; }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> GridCoord&amp; crossBearing()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> crossBearing_; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    GridCoord&amp; altitude()      { <span class="keywordflow">return</span> altitude_; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> GridCoord&amp; altitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> altitude_; }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> setReferenceLocation(<span class="keywordtype">double</span> lat, <span class="keywordtype">double</span> lon) { refLat_ = lat; refLon_ = lon; }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">double</span> getReferenceLatitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> refLat_; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">double</span> getReferenceLongitude()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> refLon_; }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> setBearing(<span class="keywordtype">double</span> bearingDeg) { bearing_ = bearingDeg; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">double</span> getBearing()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> bearing_; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> setCentralBody(CelestialBody* body);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    CelestialBody* getCentralBody()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> body_.get(); }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> setAutoFit(<span class="keywordtype">bool</span> fit) { autoFit_ = fit; }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">bool</span> getAutoFit()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> autoFit_; }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    GridCoord              alongBearing_;    </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    GridCoord              crossBearing_;    </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    GridCoord              altitude_;        </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">double</span>                 refLat_{0.0};     </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">double</span>                 refLon_{0.0};     </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">double</span>                 bearing_{90.0};   </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    WeakPtr&lt;CelestialBody&gt; body_;            </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">bool</span>                   autoFit_{<span class="keyword">false</span>};  </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aGridCoord_8hpp_html"><div class="ttname"><a href="GridCoord_8hpp.html">GridCoord.hpp</a></div><div class="ttdoc">体积网格坐标轴定义</div></div>
+<div class="ttc" id="aVolumeGrid_8hpp_html"><div class="ttname"><a href="VolumeGrid_8hpp.html">VolumeGrid.hpp</a></div><div class="ttdoc">体积网格基类</div></div>
+<div class="ttc" id="aclassast_1_1VolumeGridSurfaceBearing_html"><div class="ttname"><a href="classast_1_1VolumeGridSurfaceBearing.html">ast::VolumeGridSurfaceBearing</a></div><div class="ttdoc">方位角体积网格（AlongBearing, CrossBearing, Altitude）</div><div class="ttdef"><b>定义</b> VolumeGridSurfaceBearing.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1VolumeGridSurfaceBearing_html_a814e14e977a8d219e8ba59bd3803a005"><div class="ttname"><a href="classast_1_1VolumeGridSurfaceBearing.html#a814e14e977a8d219e8ba59bd3803a005">ast::VolumeGridSurfaceBearing::accept</a></div><div class="ttdeci">void accept(VolumeGridVisitor &amp;visitor) override</div><div class="ttdoc">接受访问者</div><div class="ttdef"><b>定义</b> VolumeGridSurfaceBearing.hpp:38</div></div>
+<div class="ttc" id="aclassast_1_1VolumeGridVisitor_html"><div class="ttname"><a href="classast_1_1VolumeGridVisitor.html">ast::VolumeGridVisitor</a></div><div class="ttdoc">体积网格访问者接口</div><div class="ttdef"><b>定义</b> VolumeGridVisitor.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1VolumeGrid_html"><div class="ttname"><a href="classast_1_1VolumeGrid.html">ast::VolumeGrid</a></div><div class="ttdoc">体积网格基类</div><div class="ttdef"><b>定义</b> VolumeGrid.hpp:34</div></div>
+<div class="ttc" id="aclassast_1_1VolumeGrid_html_a26f71bd0b556ad7d3298234ddc0b9995"><div class="ttname"><a href="classast_1_1VolumeGrid.html#a26f71bd0b556ad7d3298234ddc0b9995">ast::VolumeGrid::getGridPointCount</a></div><div class="ttdeci">virtual size_t getGridPointCount() const =0</div><div class="ttdoc">获取网格点总数</div></div>
+<div class="ttc" id="aclassast_1_1VolumeGrid_html_adb09be524ae4b3e79dc415accfb4415e"><div class="ttname"><a href="classast_1_1VolumeGrid.html#adb09be524ae4b3e79dc415accfb4415e">ast::VolumeGrid::enumerateGridPoints</a></div><div class="ttdeci">virtual void enumerateGridPoints(std::vector&lt; Vector3d &gt; &amp;points) const =0</div><div class="ttdoc">枚举所有网格点坐标</div></div>
+<div class="ttc" id="aclassast_1_1VolumeGrid_html_af9732087a75eb9c1cd518c22823eff9d"><div class="ttname"><a href="classast_1_1VolumeGrid.html#af9732087a75eb9c1cd518c22823eff9d">ast::VolumeGrid::getBoundingBox</a></div><div class="ttdeci">virtual void getBoundingBox(Vector3d &amp;minCorner, Vector3d &amp;maxCorner) const =0</div><div class="ttdoc">获取包围盒</div></div>
+<div class="ttc" id="astructast_1_1GridCoord_html"><div class="ttname"><a href="structast_1_1GridCoord.html">ast::GridCoord</a></div><div class="ttdoc">坐标轴定义</div><div class="ttdef"><b>定义</b> GridCoord.hpp:36</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_88eadabe8dab097f71bcc1542ddfd6a8.html">Geometry</a></li><li class="navelem"><a class="el" href="dir_df73230b2a196d5085b025fd9078cb24.html">Spatial</a></li><li class="navelem"><a class="el" href="VolumeGridSurfaceBearing_8hpp.html">VolumeGridSurfaceBearing.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

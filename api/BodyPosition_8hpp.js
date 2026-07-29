@@ -11,6 +11,20 @@ var BodyPosition_8hpp =
       [ "eXCN", "BodyPosition_8hpp.html#ae1175a89974b670e35e3dff97b7159afae1768248d2caebebe86f2d6bb4ad4dd8", null ],
       [ "eXCN_S", "BodyPosition_8hpp.html#ae1175a89974b670e35e3dff97b7159afae7adfb35e444d4524e0bb8922a6ba7c1", null ]
     ] ],
+    [ "EAberrationType", "BodyPosition_8hpp.html#ac0b82877894a659aa7aef5d2ebb241a8", [
+      [ "eNone", "BodyPosition_8hpp.html#ac0b82877894a659aa7aef5d2ebb241a8abe988781e4e1de1c6a36fb698afbbe1f", null ],
+      [ "eAnnual", "BodyPosition_8hpp.html#ac0b82877894a659aa7aef5d2ebb241a8a1ccda31e6c549561a4c4623a50f6aa41", null ],
+      [ "eDiurnal", "BodyPosition_8hpp.html#ac0b82877894a659aa7aef5d2ebb241a8a3992e2ca3529e8525892502374859c0a", null ],
+      [ "eTotal", "BodyPosition_8hpp.html#ac0b82877894a659aa7aef5d2ebb241a8aea2732070f7b1cfa1804f5a521e85b56", null ]
+    ] ],
+    [ "EClockHost", "BodyPosition_8hpp.html#a46daf5279b2c4dc2e3a37bbae8fb2a6d", [
+      [ "eFirstObject", "BodyPosition_8hpp.html#a46daf5279b2c4dc2e3a37bbae8fb2a6da9f69905585d448f691aba12b95d2f391", null ],
+      [ "eSecondObject", "BodyPosition_8hpp.html#a46daf5279b2c4dc2e3a37bbae8fb2a6da0e62c62afa939a0dcb0bac5cd1ae4656", null ]
+    ] ],
+    [ "ETimeSense", "BodyPosition_8hpp.html#a36fb77b62a6bc0136b765df39deefd46", [
+      [ "eTransmit", "BodyPosition_8hpp.html#a36fb77b62a6bc0136b765df39deefd46a48bb86a8e60bbffb0fe42f6c145df380", null ],
+      [ "eReceive", "BodyPosition_8hpp.html#a36fb77b62a6bc0136b765df39deefd46a73e17a661237961af99c6714b00f226f", null ]
+    ] ],
     [ "aApparentPositionICRF", "BodyPosition_8hpp.html#aa580ab76cb5fc054aeac5e28bc80c29c", null ],
     [ "aApparentPositionInFrame", "BodyPosition_8hpp.html#aa180f90d12f4e1da707a022fc998aa91", null ],
     [ "aBodyAERInTopocentric", "BodyPosition_8hpp.html#ab047867e82d92423a87fcb65c57705e0", null ],
