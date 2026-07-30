@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcDragForce_8hpp_source.html":[4,0,0,6,10,1,0,11,5],
+"ScStateCalcDuration_8cpp.html":[4,0,0,6,10,1,0,18,2],
+"ScStateCalcDuration_8hpp.html":[4,0,0,6,10,1,0,18,3],
 "ScStateCalcDuration_8hpp_source.html":[4,0,0,6,10,1,0,18,3],
 "ScStateCalcEarthMeanLocTimeAN_8cpp.html":[4,0,0,6,10,1,0,15,34],
 "ScStateCalcEarthMeanLocTimeAN_8hpp.html":[4,0,0,6,10,1,0,15,35],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcRadPressureCoefficient_8hpp_source.html":[4,0,0,6,10,1,0,15,149],
 "ScStateCalcRadialRate_8cpp.html":[4,0,0,6,10,1,0,15,142],
 "ScStateCalcRadialRate_8hpp.html":[4,0,0,6,10,1,0,15,143],
-"ScStateCalcRadialRate_8hpp_source.html":[4,0,0,6,10,1,0,15,143],
-"ScStateCalcRadial_8cpp.html":[4,0,0,6,10,1,0,15,140],
-"ScStateCalcRadial_8hpp.html":[4,0,0,6,10,1,0,15,141],
-"ScStateCalcRadial_8hpp_source.html":[4,0,0,6,10,1,0,15,141]
+"ScStateCalcRadialRate_8hpp_source.html":[4,0,0,6,10,1,0,15,143]
 };

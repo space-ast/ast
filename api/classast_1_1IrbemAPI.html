@@ -1,0 +1,725 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::IrbemAPI类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1IrbemAPI.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1IrbemAPI-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::IrbemAPI类 参考<div class="ingroups"><a class="el" href="group__Weather.html">空间天气模型</a> &raquo; <a class="el" href="group__Magnetosphere.html">磁场模型</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="IrbemAPI_8hpp_source.html">IrbemAPI.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a7e3eeed5ea8cc4538b593d31dcd0e10c" id="r_a7e3eeed5ea8cc4538b593d31dcd0e10c"><td class="memItemLeft" align="right" valign="top"><a id="a7e3eeed5ea8cc4538b593d31dcd0e10c" name="a7e3eeed5ea8cc4538b593d31dcd0e10c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>FuncIndex</b> { <br />
+&#160;&#160;<b>kIrbemFortranVersion</b>
+, <b>kGetIrbemNtimeMax</b>
+, <b>kMakeLstar</b>
+, <b>kGetField</b>
+, <br />
+&#160;&#160;<b>kFlyInAfrlCrres</b>
+, <b>kGetCrresFlux</b>
+, <b>kNumFunctions</b>
+<br />
+ }</td></tr>
+<tr class="separator:a7e3eeed5ea8cc4538b593d31dcd0e10c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5085d7117c94571a4c9d86d185af288" id="r_ab5085d7117c94571a4c9d86d185af288"><td class="memItemLeft" align="right" valign="top"><a id="ab5085d7117c94571a4c9d86d185af288" name="ab5085d7117c94571a4c9d86d185af288"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>FuncArray</b> = std::array&lt;void*, kNumFunctions&gt;</td></tr>
+<tr class="separator:ab5085d7117c94571a4c9d86d185af288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a3d9b1d4325b594d6f63937f90c6fb63b" id="r_a3d9b1d4325b594d6f63937f90c6fb63b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d9b1d4325b594d6f63937f90c6fb63b">IrbemAPI</a> (bool shouldLoad)</td></tr>
+<tr class="separator:a3d9b1d4325b594d6f63937f90c6fb63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9091ca7aec475c50b53640ae63bc6024" id="r_a9091ca7aec475c50b53640ae63bc6024"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9091ca7aec475c50b53640ae63bc6024">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> libPath)</td></tr>
+<tr class="separator:a9091ca7aec475c50b53640ae63bc6024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd1b94d3f64cee4175531455de5df363" id="r_acd1b94d3f64cee4175531455de5df363"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd1b94d3f64cee4175531455de5df363">tryload</a> (const std::vector&lt; std::string &gt; &amp;libPaths)</td></tr>
+<tr class="separator:acd1b94d3f64cee4175531455de5df363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a989a3d7f6eacd82665747e19d1cb3f3f" id="r_a989a3d7f6eacd82665747e19d1cb3f3f"><td class="memItemLeft" align="right" valign="top"><a id="a989a3d7f6eacd82665747e19d1cb3f3f" name="a989a3d7f6eacd82665747e19d1cb3f3f"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>unload</b> ()</td></tr>
+<tr class="separator:a989a3d7f6eacd82665747e19d1cb3f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b9c412632eb2eca28e3a7f563159e0" id="r_ac5b9c412632eb2eca28e3a7f563159e0"><td class="memItemLeft" align="right" valign="top"><a id="ac5b9c412632eb2eca28e3a7f563159e0" name="ac5b9c412632eb2eca28e3a7f563159e0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLoaded</b> () const</td></tr>
+<tr class="separator:ac5b9c412632eb2eca28e3a7f563159e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76d61fdbc24c0e035cce55464760ed95" id="r_a76d61fdbc24c0e035cce55464760ed95"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76d61fdbc24c0e035cce55464760ed95">irbem_fortran_version1</a> (int *version)</td></tr>
+<tr class="separator:a76d61fdbc24c0e035cce55464760ed95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a588d5a048a5e01b913741ca97c93ffff" id="r_a588d5a048a5e01b913741ca97c93ffff"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a588d5a048a5e01b913741ca97c93ffff">get_irbem_ntime_max1</a> (int *ntime_max)</td></tr>
+<tr class="separator:a588d5a048a5e01b913741ca97c93ffff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ea6181fad89a94e2b3d0aba607d0559" id="r_a8ea6181fad89a94e2b3d0aba607d0559"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ea6181fad89a94e2b3d0aba607d0559">make_lstar1</a> (int ntime, int kext, const std::array&lt; int, 5 &gt; &amp;options, int sysaxes, const int *iyear, const int *idoy, const double *UT, const double *x1, const double *x2, const double *x3, const double *maginput, double *Lm, double *Lstar, double *Blocal, double *Bmin, double *J, double *MLT)</td></tr>
+<tr class="separator:a8ea6181fad89a94e2b3d0aba607d0559"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54c50650c92163ad0bdcbbf3cbfd7b0d" id="r_a54c50650c92163ad0bdcbbf3cbfd7b0d"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54c50650c92163ad0bdcbbf3cbfd7b0d">get_field1</a> (int kext, const std::array&lt; int, 5 &gt; &amp;options, int sysaxes, int iyear, int idoy, double UT, double x1, double x2, double x3, const double *maginput, double Bgeo[3], double &amp;B)</td></tr>
+<tr class="separator:a54c50650c92163ad0bdcbbf3cbfd7b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fa3081bc8fce4a007463f3ce55a2a22" id="r_a0fa3081bc8fce4a007463f3ce55a2a22"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fa3081bc8fce4a007463f3ce55a2a22">fly_in_afrl_crres1</a> (int ntime, int sysaxes, int whichm, int whatf, int nene, const double *energy, const int *iyear, const int *idoy, const double *UT, const double *x1, const double *x2, const double *x3, const double *Ap15, double *flux, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> ascii_path)</td></tr>
+<tr class="separator:a0fa3081bc8fce4a007463f3ce55a2a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0cbb1029fec22998e3eba5d2dfecb9" id="r_aea0cbb1029fec22998e3eba5d2dfecb9"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea0cbb1029fec22998e3eba5d2dfecb9">get_crres_flux</a> (int ntime, int whichm, int whatf, int nene, const double *energy, const double *BBo, const double *<a class="el" href="Unit_8cpp.html#a683ba7398360b57e55d979a5bd279a1c">L</a>, const double *Ap15, double *flux, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> ascii_path)</td></tr>
+<tr class="separator:aea0cbb1029fec22998e3eba5d2dfecb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a3c13d2a47696f694af596c60a1d29475" id="r_a3c13d2a47696f694af596c60a1d29475"><td class="memItemLeft" align="right" valign="top"><a id="a3c13d2a47696f694af596c60a1d29475" name="a3c13d2a47696f694af596c60a1d29475"></a>
+static <a class="el" href="classast_1_1IrbemAPI.html">IrbemAPI</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Instance</b> ()</td></tr>
+<tr class="separator:a3c13d2a47696f694af596c60a1d29475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:abdd1870974834a8de9a0f8472efa7254" id="r_abdd1870974834a8de9a0f8472efa7254"><td class="memItemLeft" align="right" valign="top"><a id="abdd1870974834a8de9a0f8472efa7254" name="abdd1870974834a8de9a0f8472efa7254"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>A_DISABLE_COPY</b> (<a class="el" href="classast_1_1IrbemAPI.html">IrbemAPI</a>)</td></tr>
+<tr class="separator:abdd1870974834a8de9a0f8472efa7254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a418cecd42a13910a77d26c786c455d8a" id="r_a418cecd42a13910a77d26c786c455d8a"><td class="memItemLeft" align="right" valign="top"><a id="a418cecd42a13910a77d26c786c455d8a" name="a418cecd42a13910a77d26c786c455d8a"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>library_</b> {nullptr}</td></tr>
+<tr class="separator:a418cecd42a13910a77d26c786c455d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e2acf319fa67c817e31fa2b8387db72" id="r_a6e2acf319fa67c817e31fa2b8387db72"><td class="memItemLeft" align="right" valign="top"><a id="a6e2acf319fa67c817e31fa2b8387db72" name="a6e2acf319fa67c817e31fa2b8387db72"></a>
+FuncArray&#160;</td><td class="memItemRight" valign="bottom"><b>functions_</b> {}</td></tr>
+<tr class="separator:a6e2acf319fa67c817e31fa2b8387db72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6bb972894080d5f9b7650907f7ebc6c" id="r_aa6bb972894080d5f9b7650907f7ebc6c"><td class="memItemLeft" align="right" valign="top"><a id="aa6bb972894080d5f9b7650907f7ebc6c" name="aa6bb972894080d5f9b7650907f7ebc6c"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b> {}</td></tr>
+<tr class="separator:aa6bb972894080d5f9b7650907f7ebc6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>IRBEM API 包装类 </p>
+<p>处理 IRBEM 共享库的动态加载、卸载与函数调用。 采用凤凰单例模式，确保在静态析构后仍可安全重建。 </p><dl class="section warning"><dt>警告</dt><dd>IRBEM 库内部使用 Fortran COMMON 块（全局可变状态）， 涉及 COMMON 块的方法内部加锁保护，不可重入。 </dd></dl>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a3d9b1d4325b594d6f63937f90c6fb63b" name="a3d9b1d4325b594d6f63937f90c6fb63b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d9b1d4325b594d6f63937f90c6fb63b">&#9670;&#160;</a></span>IrbemAPI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::IrbemAPI::IrbemAPI </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>shouldLoad</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shouldLoad</td><td>是否在构造时自动加载默认库 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a0fa3081bc8fce4a007463f3ce55a2a22" name="a0fa3081bc8fce4a007463f3ce55a2a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fa3081bc8fce4a007463f3ce55a2a22">&#9670;&#160;</a></span>fly_in_afrl_crres1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::IrbemAPI::fly_in_afrl_crres1 </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ntime</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sysaxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>whichm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>whatf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>energy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *</td>          <td class="paramname"><span class="paramname"><em>iyear</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *</td>          <td class="paramname"><span class="paramname"><em>idoy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>UT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>x3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>Ap15</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>flux</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>ascii_path</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>沿轨道在 AFRL CRRES 辐射带模型中飞行计算通量 </p>
+<p>内部根据位置自动计算 L 和 B/B₀（调用 calcul_Lstar_opt）， 然后调用 get_crres_flux 完成通量插值。共享 CRRES COMMON 块。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ntime</td><td>要计算的时间点数量 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sysaxes</td><td>输入坐标系统: 1 = GEO（地理） 2 = GSE（地心太阳黄道） 3 = GSM（地心太阳磁层） 4 = SM （太阳磁层） 5 = GEI（地心赤道惯性） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">whichm</td><td>模型选择: 1 = CRRESPRO Quiet（质子，宁静期） 2 = CRRESPRO Active（质子，活跃期） 3 = CRRESELE Average（电子，平均） 4 = CRRESELE Worst Case（电子，最劣情况） 5 = CRRESELE + Ap15 分段（电子，按地磁活动分 6 档） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">whatf</td><td>通量类型: 1 = 微分通量, 2 = 能段通量, 3 = 积分通量 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nene</td><td>要计算的能量通道数 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">energy</td><td>能量数组 (MeV)，维度 [2, nene]: energy[0][i] = 通道 i 的下界能量 energy[1][i] = 通道 i 的上界能量（whatf=1 时与下界相同） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iyear</td><td>年份数组（公元纪年），长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">idoy</td><td>年积日数组（1-366），长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">UT</td><td>世界时数组 [小时]，长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1,x2,x3</td><td>输入坐标数组，长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ap15</td><td>前 15 天 Ap 指数平均值数组，长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ascii_path</td><td>数据文件目录路径 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">flux</td><td>输出通量数组，维度 [ntime, 25] 微分通量 (whatf=1) 单位: MeV⁻¹ cm⁻² s⁻¹ 能段/积分通量 (whatf=2,3) 单位: cm⁻² s⁻¹ 超出有效范围的点赋值为 baddata </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aea0cbb1029fec22998e3eba5d2dfecb9" name="aea0cbb1029fec22998e3eba5d2dfecb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0cbb1029fec22998e3eba5d2dfecb9">&#9670;&#160;</a></span>get_crres_flux()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::IrbemAPI::get_crres_flux </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ntime</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>whichm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>whatf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nene</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>energy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>BBo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>L</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>Ap15</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>flux</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>ascii_path</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据 B/B₀ 和 L 值直接计算 CRRES 辐射带通量 </p>
+<p>不进行位置→L 转换，直接由 B/B₀ 和 L 在对数空间内插值计算通量。 内部按需调用 Init_CRRES 从数据文件加载模型系数。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ntime</td><td>要计算的时间点数量 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">whichm</td><td>模型选择: 1 = CRRESPRO Quiet（质子，宁静期） 2 = CRRESPRO Active（质子，活跃期） 3 = CRRESELE Average（电子，平均） 4 = CRRESELE Worst Case（电子，最劣情况） 5 = CRRESELE + Ap15 分段（电子，按地磁活动分 6 档） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">whatf</td><td>通量类型: 1 = 微分通量, 2 = 能段通量, 3 = 积分通量 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nene</td><td>要计算的能量通道数 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">energy</td><td>能量数组 (MeV)，维度 [2, nene] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">BBo</td><td>B_local/B_equator 数组，长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">L</td><td>McIlwain L-shell 数组，长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ap15</td><td>前 15 天 Ap 指数平均值数组，长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ascii_path</td><td>数据文件目录路径 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">flux</td><td>输出通量数组，维度 [ntime, 25] 微分通量 (whatf=1) 单位: MeV⁻¹ cm⁻² s⁻¹ 能段/积分通量 (whatf=2,3) 单位: cm⁻² s⁻¹ 超出有效范围的点赋值为 baddata </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a54c50650c92163ad0bdcbbf3cbfd7b0d" name="a54c50650c92163ad0bdcbbf3cbfd7b0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54c50650c92163ad0bdcbbf3cbfd7b0d">&#9670;&#160;</a></span>get_field1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::IrbemAPI::get_field1 </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>kext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; int, 5 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>options</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sysaxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iyear</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>idoy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>UT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>maginput</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>Bgeo</em></span>[3], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>B</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算空间中某点的地磁场矢量与强度（单点版本） </p>
+<p>使用 IGRF 内源场和所选外部场模型，计算指定位置的地磁场。 内部共享 IGRF COMMON 块状态。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kext</td><td>外部磁场模型选择（=0 仅 IGRF 内源场） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">options</td><td>计算选项数组（长度 5） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sysaxes</td><td>输入坐标系统（1=GEO, 2=GSE, 3=GSM, 4=SM, 5=GEI） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iyear</td><td>年份（公元纪年） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">idoy</td><td>年积日 (1-366) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">UT</td><td>世界时 [小时] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1,x2,x3</td><td>输入位置坐标 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">maginput</td><td>磁场模型输入参数数组（长度 25） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Bgeo</td><td>GEO 坐标系下的磁场三分量 [nT]（长度为 3） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">B</td><td>磁场总强度 [nT] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a588d5a048a5e01b913741ca97c93ffff" name="a588d5a048a5e01b913741ca97c93ffff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a588d5a048a5e01b913741ca97c93ffff">&#9670;&#160;</a></span>get_irbem_ntime_max1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::IrbemAPI::get_irbem_ntime_max1 </td>
+          <td>(</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>ntime_max</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取数组的最大时间维度 </p>
+<p>返回 IRBEM 库内部所有时间数组的最大长度 (ntime_max)， 由 ntime_max.inc 在编译时确定。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">ntime_max</td><td>最大时间点数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a76d61fdbc24c0e035cce55464760ed95" name="a76d61fdbc24c0e035cce55464760ed95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76d61fdbc24c0e035cce55464760ed95">&#9670;&#160;</a></span>irbem_fortran_version1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::IrbemAPI::irbem_fortran_version1 </td>
+          <td>(</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>version</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取 IRBEM 库的 Fortran 源码版本号 </p>
+<p>返回 Makefile 构建时由 git rev-list &ndash;count 生成的版本号。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">version</td><td>版本号 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9091ca7aec475c50b53640ae63bc6024" name="a9091ca7aec475c50b53640ae63bc6024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9091ca7aec475c50b53640ae63bc6024">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::IrbemAPI::load </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>libPath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载指定路径的 IRBEM 共享库 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">libPath</td><td>库路径（不含后缀） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a8ea6181fad89a94e2b3d0aba607d0559" name="a8ea6181fad89a94e2b3d0aba607d0559"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ea6181fad89a94e2b3d0aba607d0559">&#9670;&#160;</a></span>make_lstar1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::IrbemAPI::make_lstar1 </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ntime</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>kext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; int, 5 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>options</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sysaxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *</td>          <td class="paramname"><span class="paramname"><em>iyear</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *</td>          <td class="paramname"><span class="paramname"><em>idoy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>UT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>x3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *</td>          <td class="paramname"><span class="paramname"><em>maginput</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>Lm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>Lstar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>Blocal</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>Bmin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>J</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>MLT</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算 L* 及相关磁壳参数 </p>
+<p>根据给定的位置和时间，使用指定的内外磁场模型计算磁壳参数。 内部调用 IGRF 和外部场模型，共享 COMMON 块状态。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ntime</td><td>时间点数量 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kext</td><td>外部磁场模型选择（0-14，=0 仅 IGRF 内源场） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">options</td><td>计算选项数组（长度 5） options(1): L* 计算方法 options(2): 磁力线追踪步长控制 options(3): 积分步数上限 options(4): 收敛判据 options(5): 保留 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sysaxes</td><td>输入坐标系统（1=GEO, 2=GSE, 3=GSM, 4=SM, 5=GEI） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iyear</td><td>年份数组（公元纪年），长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">idoy</td><td>年积日数组（1-366），长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">UT</td><td>世界时数组 [小时]，长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1,x2,x3</td><td>输入位置坐标数组，长度 ntime </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">maginput</td><td>磁场模型输入参数数组（长度 25 × ntime），包含太阳风动压、 Dst 指数、IMF By/Bz 等外部场模型所需参数 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Lm</td><td>McIlwain L-shell，长度 ntime </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Lstar</td><td>Roederer L* 参数，长度 ntime </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Blocal</td><td>当地磁场强度 [nT]，长度 ntime </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Bmin</td><td>磁赤道最小磁场强度 [nT]，长度 ntime </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">J</td><td>第二绝热不变量 [Re² nT⁰·⁵]，长度 ntime </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">MLT</td><td>磁地方时 [小时]，长度 ntime </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd1b94d3f64cee4175531455de5df363" name="acd1b94d3f64cee4175531455de5df363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd1b94d3f64cee4175531455de5df363">&#9670;&#160;</a></span>tryload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::IrbemAPI::tryload </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>libPaths</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>尝试从多个路径加载，直到成功 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">libPaths</td><td>候选库路径列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstWeather/Radiation/IRBEM/<a class="el" href="IrbemAPI_8hpp_source.html">IrbemAPI.hpp</a></li>
+<li>src/AstWeather/Radiation/IRBEM/<a class="el" href="IrbemAPI_8cpp.html">IrbemAPI.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1IrbemAPI.html">IrbemAPI</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

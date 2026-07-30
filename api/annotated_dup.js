@@ -435,6 +435,7 @@ var annotated_dup =
       [ "IODEIntegrator", "classast_1_1IODEIntegrator.html", "classast_1_1IODEIntegrator" ],
       [ "IOrbitDesigner", "classast_1_1IOrbitDesigner.html", "classast_1_1IOrbitDesigner" ],
       [ "IPosVelPrv", "classast_1_1IPosVelPrv.html", null ],
+      [ "IrbemAPI", "classast_1_1IrbemAPI.html", "classast_1_1IrbemAPI" ],
       [ "is_callable", "structast_1_1is__callable.html", null ],
       [ "ISatelliteImpl", "classast_1_1ISatelliteImpl.html", null ],
       [ "ISaVOImpl", "classast_1_1ISaVOImpl.html", null ],

@@ -480,6 +480,7 @@ var hierarchy =
         [ "ast::ImplFor< IPosVelPrv, T >", "classast_1_1ImplFor_3_01IPosVelPrv_00_01T_01_4.html", null ]
       ] ]
     ] ],
+    [ "ast::IrbemAPI", "classast_1_1IrbemAPI.html", null ],
     [ "ast::is_callable< F, Args >", "structast_1_1is__callable.html", null ],
     [ "ast::math::is_vector_like< T >", "structast_1_1math_1_1is__vector__like.html", null ],
     [ "ast::ISymbolScope", "classast_1_1ISymbolScope.html", [

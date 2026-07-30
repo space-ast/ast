@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"RunTimeEpoch_8cpp.html":[4,0,0,6,6,0,10],
+"RunTimeEpoch_8hpp.html":[4,0,0,6,6,0,11],
+"RunTimeEpoch_8hpp_source.html":[4,0,0,6,6,0,11],
 "RunTimeJplDe_8hpp.html":[4,0,0,6,6,0,12],
 "RunTimeJplDe_8hpp_source.html":[4,0,0,6,6,0,12],
 "RunTimeLeapSecond_8hpp.html":[4,0,0,6,6,0,13],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcDragArea_8hpp.html":[4,0,0,6,10,1,0,17,5],
 "ScStateCalcDragArea_8hpp_source.html":[4,0,0,6,10,1,0,17,5],
 "ScStateCalcDragForce_8cpp.html":[4,0,0,6,10,1,0,11,4],
-"ScStateCalcDragForce_8hpp.html":[4,0,0,6,10,1,0,11,5],
-"ScStateCalcDragForce_8hpp_source.html":[4,0,0,6,10,1,0,11,5],
-"ScStateCalcDuration_8cpp.html":[4,0,0,6,10,1,0,18,2],
-"ScStateCalcDuration_8hpp.html":[4,0,0,6,10,1,0,18,3]
+"ScStateCalcDragForce_8hpp.html":[4,0,0,6,10,1,0,11,5]
 };

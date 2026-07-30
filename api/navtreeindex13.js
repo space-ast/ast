@@ -1,5 +1,8 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcRadial_8cpp.html":[4,0,0,6,10,1,0,15,140],
+"ScStateCalcRadial_8hpp.html":[4,0,0,6,10,1,0,15,141],
+"ScStateCalcRadial_8hpp_source.html":[4,0,0,6,10,1,0,15,141],
 "ScStateCalcRadiusOfApoapsis_8cpp.html":[4,0,0,6,10,1,0,10,24],
 "ScStateCalcRadiusOfApoapsis_8hpp.html":[4,0,0,6,10,1,0,10,25],
 "ScStateCalcRadiusOfApoapsis_8hpp_source.html":[4,0,0,6,10,1,0,10,25],
@@ -246,8 +249,5 @@ var NAVTREEINDEX13 =
 "SegmentLoader_8hpp.html":[4,0,0,11,1,2,15],
 "SegmentLoader_8hpp.html#aef5dcbbc1252c39adc7b1e2f59da07da":[4,0,0,11,1,2,15,0],
 "SegmentLoader_8hpp_source.html":[4,0,0,11,1,2,15],
-"Segment_8cpp.html":[4,0,0,6,10,3,26],
-"Segment_8hpp.html":[4,0,0,6,10,3,27],
-"Segment_8hpp_source.html":[4,0,0,6,10,3,27],
-"SensorLoader_8cpp.html":[4,0,0,11,5,50]
+"Segment_8cpp.html":[4,0,0,6,10,3,26]
 };
