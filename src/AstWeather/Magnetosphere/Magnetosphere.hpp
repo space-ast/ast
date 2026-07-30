@@ -41,7 +41,7 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 根据IGRF13模型计算磁场分量
 /// @details  
-/// igrf13.f文件内igrf13syn函数的C版本，保存函数接口与参数含义一致。
+/// igrf13.f文件内igrf13syn函数的C版本，保持函数接口与参数含义一致。
 /// @see https://www.ncei.noaa.gov/products/international-geomagnetic-reference-field
 /// @see https://www.ngdc.noaa.gov/IAGA/vmod/igrf13.f
 /// @see https://ccmc.gsfc.nasa.gov/models/IGRF~13/
