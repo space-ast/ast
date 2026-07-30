@@ -59,10 +59,10 @@ public:
     /// @}
 
 private:
-    GridCoord       theta_;      ///< 角度坐标轴
-    GridCoord       radius_;     ///< 半径坐标轴
-    GridCoord       height_;     ///< 高度坐标轴
-    WeakPtr<Frame>  refFrame_;   ///< 参考坐标系
+    GridCoord       theta_{};    ///< 角度坐标轴
+    GridCoord       radius_{};   ///< 半径坐标轴
+    GridCoord       height_{};   ///< 高度坐标轴
+    WeakPtr<Frame>  refFrame_{}; ///< 参考坐标系
 };
 
 AST_NAMESPACE_END

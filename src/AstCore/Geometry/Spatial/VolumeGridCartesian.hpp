@@ -59,10 +59,10 @@ public:
     /// @}
 
 private:
-    GridCoord       xCoord_;     ///< X 坐标轴
-    GridCoord       yCoord_;     ///< Y 坐标轴
-    GridCoord       zCoord_;     ///< Z 坐标轴
-    WeakPtr<Frame>  refFrame_;   ///< 参考坐标系
+    GridCoord       xCoord_{};     ///< X 坐标轴
+    GridCoord       yCoord_{};     ///< Y 坐标轴
+    GridCoord       zCoord_{};     ///< Z 坐标轴
+    WeakPtr<Frame>  refFrame_{};   ///< 参考坐标系
 };
 
 AST_NAMESPACE_END

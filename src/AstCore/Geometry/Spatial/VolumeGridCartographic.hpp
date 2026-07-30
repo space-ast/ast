@@ -65,10 +65,10 @@ public:
     /// @}
 
 private:
-    GridCoord          lat_;                 ///< 纬度坐标轴
-    GridCoord          lon_;                 ///< 经度坐标轴
-    GridCoord          alt_;                 ///< 高度坐标轴
-    WeakPtr<CelestialBody> body_;            ///< 中心天体
+    GridCoord          lat_{};               ///< 纬度坐标轴
+    GridCoord          lon_{};               ///< 经度坐标轴
+    GridCoord          alt_{};               ///< 高度坐标轴
+    WeakPtr<CelestialBody> body_{};          ///< 中心天体
     bool               autoFit_{true};       ///< 是否自动拟合网格范围
 };
 

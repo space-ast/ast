@@ -54,7 +54,7 @@ public:
     /// @}
 
 protected:
-    DifferentiationSettings diffSettings_;  ///< 导数/时间差分设置
+    DifferentiationSettings diffSettings_{};  ///< 导数/时间差分设置
 };
 
 AST_NAMESPACE_END

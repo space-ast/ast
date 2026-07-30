@@ -55,8 +55,8 @@ public:
     /// @}
 
 private:
-    WeakPtr<VolumeGrid>       refGrid_;    ///< 参考的体积网格
-    WeakPtr<SpatialCondition> condition_;  ///< 约束的空间条件
+    WeakPtr<VolumeGrid>       refGrid_{};   ///< 参考的体积网格
+    WeakPtr<SpatialCondition> condition_{}; ///< 约束的空间条件
 };
 
 AST_NAMESPACE_END

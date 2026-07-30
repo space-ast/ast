@@ -59,10 +59,10 @@ public:
     /// @}
 
 private:
-    GridCoord       azimuth_;    ///< 方位角坐标轴
-    GridCoord       elevation_;  ///< 仰角坐标轴
-    GridCoord       range_;      ///< 距离坐标轴
-    WeakPtr<Frame>  refFrame_;   ///< 参考坐标系
+    GridCoord       azimuth_{};   ///< 方位角坐标轴
+    GridCoord       elevation_{}; ///< 仰角坐标轴
+    GridCoord       range_{};     ///< 距离坐标轴
+    WeakPtr<Frame>  refFrame_{};  ///< 参考坐标系
 };
 
 AST_NAMESPACE_END

@@ -78,13 +78,13 @@ public:
     /// @}
 
 private:
-    GridCoord              alongBearing_;    ///< 沿方位向坐标轴
-    GridCoord              crossBearing_;    ///< 垂直方位向坐标轴
-    GridCoord              altitude_;        ///< 高度坐标轴
+    GridCoord              alongBearing_{};  ///< 沿方位向坐标轴
+    GridCoord              crossBearing_{};  ///< 垂直方位向坐标轴
+    GridCoord              altitude_{};      ///< 高度坐标轴
     double                 refLat_{0.0};     ///< 参考点纬度（度）
     double                 refLon_{0.0};     ///< 参考点经度（度）
     double                 bearing_{90.0};   ///< 方位角（度）
-    WeakPtr<CelestialBody> body_;            ///< 中心天体
+    WeakPtr<CelestialBody> body_{};          ///< 中心天体
     bool                   autoFit_{false};  ///< 是否自动拟合网格范围
 };
 
