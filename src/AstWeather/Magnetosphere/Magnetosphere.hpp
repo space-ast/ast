@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstWeather/aep8.hpp"
 #include "AstWeather/igrf.hpp"
+#include "AstWeather/IrbemAPI.hpp"
 
 AST_NAMESPACE_BEGIN
 
