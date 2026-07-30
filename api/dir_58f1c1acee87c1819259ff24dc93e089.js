@@ -18,6 +18,8 @@ var dir_58f1c1acee87c1819259ff24dc93e089 =
     [ "GUIInterface.hpp", "GUIInterface_8hpp.html", null ],
     [ "IO.cpp", "IO_8cpp.html", "IO_8cpp" ],
     [ "IO.hpp", "IO_8hpp.html", "IO_8hpp" ],
+    [ "Library.cpp", "Library_8cpp.html", null ],
+    [ "Library.hpp", "Library_8hpp.html", null ],
     [ "LibraryLoader.cpp", "LibraryLoader_8cpp.html", "LibraryLoader_8cpp" ],
     [ "LibraryLoader.hpp", "LibraryLoader_8hpp.html", "LibraryLoader_8hpp" ],
     [ "Platform.cpp", "Platform_8cpp.html", null ],

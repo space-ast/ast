@@ -521,6 +521,7 @@ var hierarchy =
     [ "ast::LatLonAlt", "classast_1_1LatLonAlt.html", null ],
     [ "ast::LeapSecond", "classast_1_1LeapSecond.html", null ],
     [ "ast::Lexer", "classast_1_1Lexer.html", null ],
+    [ "ast::Library", "classast_1_1Library.html", null ],
     [ "ast::LLMClient", "classast_1_1LLMClient.html", [
       [ "ast::Anthropic", "classast_1_1Anthropic.html", null ],
       [ "ast::OpenAI", "classast_1_1OpenAI.html", [

@@ -120,6 +120,8 @@ $(function(){initNavTree('group__Platform.html',''); initResizable(true); });
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GUIInterface.html">ast::GUIInterface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Library.html">ast::Library</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
@@ -200,6 +202,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
 <tr class="separator:ga52c02b09388ac56566408d15c1e1ce7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga792d6e546f624b93c64487c04deac344" id="r_ga792d6e546f624b93c64487c04deac344"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga792d6e546f624b93c64487c04deac344">ast::aGetLoadError</a> ()</td></tr>
 <tr class="separator:ga792d6e546f624b93c64487c04deac344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6186503d5c641ed5c2a3f36c0cbf1a76" id="r_ga6186503d5c641ed5c2a3f36c0cbf1a76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6186503d5c641ed5c2a3f36c0cbf1a76">ast::aIsLibrary</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fileName)</td></tr>
+<tr class="separator:ga6186503d5c641ed5c2a3f36c0cbf1a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa062ca82f5c38489e81d16c97325977b" id="r_gaa062ca82f5c38489e81d16c97325977b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa062ca82f5c38489e81d16c97325977b">ast::aEditObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
 <tr class="separator:gaa062ca82f5c38489e81d16c97325977b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0b64bc142a888da84a5d78f6cdcfab8e" id="r_ga0b64bc142a888da84a5d78f6cdcfab8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0b64bc142a888da84a5d78f6cdcfab8e">ast::aSelectObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> typeName)</td></tr>
@@ -605,6 +609,32 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
 
 <p>检查是否在Gitlab runner CI环境中运行 </p>
 <dl class="section return"><dt>返回</dt><dd>如果在Gitlab runner CI环境中运行，返回true；否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="ga6186503d5c641ed5c2a3f36c0cbf1a76" name="ga6186503d5c641ed5c2a3f36c0cbf1a76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6186503d5c641ed5c2a3f36c0cbf1a76">&#9670;&#160;</a></span>aIsLibrary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI bool ast::aIsLibrary </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>fileName</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断文件名是否具有有效的动态库后缀 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>文件名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否为有效的库后缀 </dd></dl>
 
 </div>
 </div>

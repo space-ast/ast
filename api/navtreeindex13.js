@@ -1,5 +1,8 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcRadiusOfApoapsis_8cpp.html":[4,0,0,6,10,1,0,10,24],
+"ScStateCalcRadiusOfApoapsis_8hpp.html":[4,0,0,6,10,1,0,10,25],
+"ScStateCalcRadiusOfApoapsis_8hpp_source.html":[4,0,0,6,10,1,0,10,25],
 "ScStateCalcRadiusOfPeriapsis_8cpp.html":[4,0,0,6,10,1,0,10,26],
 "ScStateCalcRadiusOfPeriapsis_8hpp.html":[4,0,0,6,10,1,0,10,27],
 "ScStateCalcRadiusOfPeriapsis_8hpp_source.html":[4,0,0,6,10,1,0,10,27],
@@ -246,8 +249,5 @@ var NAVTREEINDEX13 =
 "Segment_8cpp.html":[4,0,0,6,10,3,26],
 "Segment_8hpp.html":[4,0,0,6,10,3,27],
 "Segment_8hpp_source.html":[4,0,0,6,10,3,27],
-"SensorLoader_8cpp.html":[4,0,0,11,5,50],
-"SensorLoader_8cpp.html#a0c642c8a2c7632ee52d37d55d2bc7c6e":[4,0,0,11,5,50,5],
-"SensorLoader_8cpp.html#a10226e550709cf50ceb9d80d29297654":[4,0,0,11,5,50,7],
-"SensorLoader_8cpp.html#a2245fa858038d8ea7fe5d850930c68ca":[4,0,0,11,5,50,8]
+"SensorLoader_8cpp.html":[4,0,0,11,5,50]
 };

@@ -8,6 +8,17 @@ var group__Platform =
       [ "selectObject", "classast_1_1GUIInterface.html#aa6d548a96175ce5ca651534192a4cae1", null ],
       [ "translate", "classast_1_1GUIInterface.html#a01d72be6741e72d335819ac57631739b", null ]
     ] ],
+    [ "ast::Library", "classast_1_1Library.html", [
+      [ "Library", "classast_1_1Library.html#ae0669cce6b93171d34f2083088c008f5", null ],
+      [ "Library", "classast_1_1Library.html#a5a3e1d171c4030c90a7aa0079d193089", null ],
+      [ "~Library", "classast_1_1Library.html#a1deb8e94c2b302abacf3bc240f47b2a0", null ],
+      [ "fileName", "classast_1_1Library.html#a16e937f1a8c1fdf0907cd6ebad20f08a", null ],
+      [ "isLoaded", "classast_1_1Library.html#ad315f33d98390d6598b7fe550e938644", null ],
+      [ "load", "classast_1_1Library.html#a1bbb9dcd61dec76bd2c5d86163feb85a", null ],
+      [ "resolve", "classast_1_1Library.html#a7e0f7bef2cb9fb5e7c189bacf352149c", null ],
+      [ "setFileName", "classast_1_1Library.html#af4d43c9f92a8308cad8d600cf2754b29", null ],
+      [ "unload", "classast_1_1Library.html#aea368b3facf5c02d7f0c3c403723f39f", null ]
+    ] ],
     [ "ast::EEndian", "group__Platform.html#gae5cf4de7adb0a012861b982458f81526", [
       [ "ast::eLittleEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526ae3046b598c718c3efb499423ed6272ec", null ],
       [ "ast::eBigEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526aa62c0343340b8ffd29f021d1546be637", null ]
@@ -28,6 +39,7 @@ var group__Platform =
     [ "ast::aIsFile", "group__Platform.html#gaaf498fb8090810fb31ae8e36c9bf3942", null ],
     [ "ast::aIsGithubCI", "group__Platform.html#ga896cb0f1481cc05e35384abf68442985", null ],
     [ "ast::aIsGitlabCI", "group__Platform.html#ga984700aaba6b3b8595fc90eeae730610", null ],
+    [ "ast::aIsLibrary", "group__Platform.html#ga6186503d5c641ed5c2a3f36c0cbf1a76", null ],
     [ "ast::aIsTerminal", "group__Platform.html#ga895a0d59cc088ec5dc894a34864c3ffc", null ],
     [ "ast::aLibDir", "group__Platform.html#ga90c2f3a224c23802475e9ef9e63e763e", null ],
     [ "ast::aLibPath", "group__Platform.html#gafae8f3929af4a33ec55ca41b58bf52f2", null ],

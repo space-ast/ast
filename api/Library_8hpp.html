@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Platform/LibraryLoader.hpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUtil/Platform/Library.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,7 +72,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('LibraryLoader_8hpp.html',''); initResizable(true); });
+$(function(){initNavTree('Library_8hpp.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -99,51 +99,40 @@ $(function(){initNavTree('LibraryLoader_8hpp.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">命名空间</a> &#124;
-<a href="#func-members">函数</a>  </div>
-  <div class="headertitle"><div class="title">LibraryLoader.hpp 文件参考</div></div>
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a>  </div>
+  <div class="headertitle"><div class="title">Library.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
 </div>
-<p><a href="LibraryLoader_8hpp_source.html">浏览该文件的源代码.</a></p>
+<p><a href="Library_8hpp_source.html">浏览该文件的源代码.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Library.html">ast::Library</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-函数</h2></td></tr>
-<tr class="memitem:ga4ae35e43fab9b520dd904d744ba64ed4" id="r_ga4ae35e43fab9b520dd904d744ba64ed4"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga4ae35e43fab9b520dd904d744ba64ed4">ast::aLoadLibrary</a> (const char *filepath)</td></tr>
-<tr class="separator:ga4ae35e43fab9b520dd904d744ba64ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0f4600dceeffcc4993b66d33a3b8e680" id="r_ga0f4600dceeffcc4993b66d33a3b8e680"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga0f4600dceeffcc4993b66d33a3b8e680">ast::aGetProcAddress</a> (void *lib, const char *funcName)</td></tr>
-<tr class="separator:ga0f4600dceeffcc4993b66d33a3b8e680"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga19e5714a61a8ba893a69b7ebdeba2005" id="r_ga19e5714a61a8ba893a69b7ebdeba2005"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga19e5714a61a8ba893a69b7ebdeba2005">ast::aResolveProcAddress</a> (const char *filepath, const char *funcName)</td></tr>
-<tr class="separator:ga19e5714a61a8ba893a69b7ebdeba2005"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga52c02b09388ac56566408d15c1e1ce7e" id="r_ga52c02b09388ac56566408d15c1e1ce7e"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga52c02b09388ac56566408d15c1e1ce7e">ast::aFreeLibrary</a> (void *lib)</td></tr>
-<tr class="separator:ga52c02b09388ac56566408d15c1e1ce7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga792d6e546f624b93c64487c04deac344" id="r_ga792d6e546f624b93c64487c04deac344"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga792d6e546f624b93c64487c04deac344">ast::aGetLoadError</a> ()</td></tr>
-<tr class="separator:ga792d6e546f624b93c64487c04deac344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6186503d5c641ed5c2a3f36c0cbf1a76" id="r_ga6186503d5c641ed5c2a3f36c0cbf1a76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga6186503d5c641ed5c2a3f36c0cbf1a76">ast::aIsLibrary</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fileName)</td></tr>
-<tr class="separator:ga6186503d5c641ed5c2a3f36c0cbf1a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p><br  />
- </p>
-<p>~ </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
-<dl class="section date"><dt>日期</dt><dd>16.11.2025 </dd></dl>
-<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2025-present, ast项目.</dd></dl>
+<div class="textblock"><p>动态库加载类 </p>
+<p>提供 RAII 动态库封装，底层封装 aLoadLibrary / aFreeLibrary / aResolveProcAddress。 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>30.07.2026 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, ast项目.</dd></dl>
 <p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
-<p>重要须知： 软件按“现有状态”提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
+<p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_58f1c1acee87c1819259ff24dc93e089.html">Platform</a></li><li class="navelem"><a class="el" href="LibraryLoader_8hpp.html">LibraryLoader.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_720108c7244deada8dab13596962e93b.html">AstUtil</a></li><li class="navelem"><a class="el" href="dir_58f1c1acee87c1819259ff24dc93e089.html">Platform</a></li><li class="navelem"><a class="el" href="Library_8hpp.html">Library.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

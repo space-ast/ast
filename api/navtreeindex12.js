@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcDuration_8hpp_source.html":[4,0,0,6,10,1,0,18,3],
+"ScStateCalcEarthMeanLocTimeAN_8cpp.html":[4,0,0,6,10,1,0,15,34],
+"ScStateCalcEarthMeanLocTimeAN_8hpp.html":[4,0,0,6,10,1,0,15,35],
 "ScStateCalcEarthMeanLocTimeAN_8hpp_source.html":[4,0,0,6,10,1,0,15,35],
 "ScStateCalcEarthMeanSolTime_8cpp.html":[4,0,0,6,10,1,0,15,36],
 "ScStateCalcEarthMeanSolTime_8hpp.html":[4,0,0,6,10,1,0,15,37],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcRadialRate_8hpp_source.html":[4,0,0,6,10,1,0,15,143],
 "ScStateCalcRadial_8cpp.html":[4,0,0,6,10,1,0,15,140],
 "ScStateCalcRadial_8hpp.html":[4,0,0,6,10,1,0,15,141],
-"ScStateCalcRadial_8hpp_source.html":[4,0,0,6,10,1,0,15,141],
-"ScStateCalcRadiusOfApoapsis_8cpp.html":[4,0,0,6,10,1,0,10,24],
-"ScStateCalcRadiusOfApoapsis_8hpp.html":[4,0,0,6,10,1,0,10,25],
-"ScStateCalcRadiusOfApoapsis_8hpp_source.html":[4,0,0,6,10,1,0,10,25]
+"ScStateCalcRadial_8hpp_source.html":[4,0,0,6,10,1,0,15,141]
 };
