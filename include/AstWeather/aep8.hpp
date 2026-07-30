@@ -1,1 +1,1 @@
-#include "../../src/AstWeather/Magnetosphere/aep8/aep8.hpp"
+#include "../../src/AstWeather/Radiation/aep8/aep8.hpp"
