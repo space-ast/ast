@@ -1,5 +1,6 @@
 var NAVTREEINDEX60 =
 {
+"snopt__ast_8h_source.html":[4,0,0,15,18],
 "structAMatrix3d.html":[3,0,5],
 "structAVector3d.html":[3,0,7],
 "structDTM__12type.html":[3,0,18],
@@ -248,6 +249,5 @@ var NAVTREEINDEX60 =
 "structast_1_1QuickTypeEntry.html":[2,0,0,592],
 "structast_1_1QuickTypeEntry.html":[3,0,0,591],
 "structast_1_1QuickTypeEntry.html#a018b08ad471250cdbda57906a0a69dec":[2,0,0,592,0],
-"structast_1_1QuickTypeEntry.html#a018b08ad471250cdbda57906a0a69dec":[3,0,0,591,0],
-"structast_1_1QuickTypeEntry.html#a267340cf55ac2e8eacc08645791d777b":[2,0,0,592,2]
+"structast_1_1QuickTypeEntry.html#a018b08ad471250cdbda57906a0a69dec":[3,0,0,591,0]
 };

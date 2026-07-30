@@ -1,5 +1,6 @@
 var NAVTREEINDEX61 =
 {
+"structast_1_1QuickTypeEntry.html#a267340cf55ac2e8eacc08645791d777b":[2,0,0,592,2],
 "structast_1_1QuickTypeEntry.html#a267340cf55ac2e8eacc08645791d777b":[3,0,0,591,2],
 "structast_1_1QuickTypeEntry.html#af7f89dae73b0e47a4f06ca21b183ed03":[2,0,0,592,1],
 "structast_1_1QuickTypeEntry.html#af7f89dae73b0e47a4f06ca21b183ed03":[3,0,0,591,1],

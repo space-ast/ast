@@ -1,5 +1,6 @@
 var NAVTREEINDEX59 =
 {
+"namespaceast.html#add4db3984e4ac425671893e9151d776c":[2,0,0,1511],
 "namespaceast.html#ade8acd31e6be3bd5c3b05274b80a7ac6":[2,0,0,1709],
 "namespaceast.html#adeb147c13df5c1948fbf6d410b14e486":[2,0,0,2364],
 "namespaceast.html#adeb5e8896cae3226158893db398a0468":[2,0,0,1303],
@@ -248,6 +249,5 @@ var NAVTREEINDEX59 =
 "pages.html":[],
 "path__converters_8h_source.html":[4,0,0,16,0,6],
 "resource_8h_source.html":[4,0,0,5,0,0],
-"secant_8c.html":[4,0,0,12,4,0,0,0],
-"snopt__ast_8h_source.html":[4,0,0,15,18]
+"secant_8c.html":[4,0,0,12,4,0,0,0]
 };
