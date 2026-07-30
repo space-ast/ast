@@ -108,15 +108,13 @@ $(function(){initNavTree('group__Magnetosphere.html',''); initResizable(true); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ga47299e608849247ae0e11d1d124b5c77" id="r_ga47299e608849247ae0e11d1d124b5c77"><td class="memItemLeft" align="right" valign="top"><a id="ga47299e608849247ae0e11d1d124b5c77" name="ga47299e608849247ae0e11d1d124b5c77"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::igrf</b> (double lon, double lat, double height, double year, double &amp;xl, double &amp;bbx)</td></tr>
+<tr class="memitem:ga47299e608849247ae0e11d1d124b5c77" id="r_ga47299e608849247ae0e11d1d124b5c77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga47299e608849247ae0e11d1d124b5c77">ast::igrf</a> (double lon, double lat, double height, double year, double &amp;xl, double &amp;bbx)</td></tr>
 <tr class="separator:ga47299e608849247ae0e11d1d124b5c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga76146fe3ab6056e3b54dc09881c96058" id="r_ga76146fe3ab6056e3b54dc09881c96058"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga76146fe3ab6056e3b54dc09881c96058">ast::igrf13syn</a> (int isv, double date, int itype, double alt, double colat, double elong, double &amp;x, double &amp;y, double &amp;z, double &amp;f)</td></tr>
 <tr class="separator:ga76146fe3ab6056e3b54dc09881c96058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga770033ee697753f6c5222ce2ba597a7f" id="r_ga770033ee697753f6c5222ce2ba597a7f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga770033ee697753f6c5222ce2ba597a7f">ast::aep8</a> (double e, double l, double bb0, int iname)</td></tr>
 <tr class="separator:ga770033ee697753f6c5222ce2ba597a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga685e75540c3bbad47c98107fdcc45ff3" id="r_ga685e75540c3bbad47c98107fdcc45ff3"><td class="memItemLeft" align="right" valign="top"><a id="ga685e75540c3bbad47c98107fdcc45ff3" name="ga685e75540c3bbad47c98107fdcc45ff3"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::get_flux</b> (double lon, double lat, double height, double energy, double year, int iname)</td></tr>
+<tr class="memitem:ga685e75540c3bbad47c98107fdcc45ff3" id="r_ga685e75540c3bbad47c98107fdcc45ff3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga685e75540c3bbad47c98107fdcc45ff3">ast::get_flux</a> (double lon, double lat, double height, double energy, double year, int iname)</td></tr>
 <tr class="separator:ga685e75540c3bbad47c98107fdcc45ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">函数说明</h2>
@@ -150,16 +148,191 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::get_flux</b> (
 </div><div class="memdoc">
 
 <p>计算特定 L 值和磁场强度下的粒子通量 </p>
+<dl class="section see"><dt>参见</dt><dd>参考实现：https://github.com/nasa/radbelt/blob/main/radbelt/core.f#AEP8</dd></dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">e</td><td>需要计算通量的能量值，单位为 MeV(兆电子伏特) </td></tr>
+    <tr><td class="paramname">e</td><td>需要计算通量的能量值 [MeV(兆电子伏特)] </td></tr>
     <tr><td class="paramname">l</td><td>（McIlwain L 参数），表示磁壳参数。程序内部会将其限制在 ≤15.6 </td></tr>
     <tr><td class="paramname">bb0</td><td>B/B₀，即当地磁场强度与磁赤道磁场强度的比值。若输入小于 1，程序强制设为 1 </td></tr>
-    <tr><td class="paramname">iname</td><td>1: e-min, 2: e-max, 3: p-min, 4: p-max 'e': 电子, 'p': 质子. </td></tr>
+    <tr><td class="paramname">iname</td><td>粒子种类与太阳活动水平：<ul>
+<li>1: e-min（电子，太阳活动极小年）</li>
+<li>2: e-max（电子，太阳活动极大年）</li>
+<li>3: p-min（质子，太阳活动极小年）</li>
+<li>4: p-max（质子，太阳活动极大年） </li>
+</ul>
+</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>粒子通量，单位为 cm^-2 s^-1 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>粒子通量 [cm^-2 s^-1] </dd></dl>
+
+</div>
+</div>
+<a id="ga685e75540c3bbad47c98107fdcc45ff3" name="ga685e75540c3bbad47c98107fdcc45ff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga685e75540c3bbad47c98107fdcc45ff3">&#9670;&#160;</a></span>get_flux()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_WEATHER_CAPI double ast::get_flux </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>energy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>year</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iname</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算特定位置和时间处辐射带捕获粒子的通量（参见 <a class="el" href="aep8_8hpp.html">aep8.hpp</a> 中的详细文档） </p>
+<p>计算特定位置和时间处辐射带捕获粒子的通量</p>
+<dl class="section see"><dt>参见</dt><dd>参考实现：https://github.com/nasa/radbelt/blob/main/radbelt/__init__.py<a class="el" href="#ga685e75540c3bbad47c98107fdcc45ff3" title="计算特定位置和时间处辐射带捕获粒子的通量（参见 aep8.hpp 中的详细文档）">get_flux</a></dd></dl>
+<p>内部流程：</p><ol type="1">
+<li>调用 <a class="el" href="#ga47299e608849247ae0e11d1d124b5c77" title="利用 IGRF 地磁场模型计算磁壳参数 L 和磁场比值 B/B₀">igrf()</a> 将地理坐标转换为磁壳参数 L 和磁场比值 B/B₀</li>
+<li>调用 <a class="el" href="#ga770033ee697753f6c5222ce2ba597a7f" title="计算特定 L 值和磁场强度下的粒子通量">aep8()</a> 根据 L、B/B₀ 和粒子能量计算积分通量</li>
+</ol>
+<p>"辐射带捕获粒子"指的是被地球磁场捕获并束缚在范艾伦辐射带（Van Allen Belts）中的高能带电粒子（主要是电子和质子） 请参见：范艾伦辐射带（Van Allen Belts）</p>
+<p>该函数先通过 IGRF 地磁场模型将地理坐标（经度、纬度、高度、年份）转换为 McIlwain L 参数（磁壳参数）和 B/B₀（当地磁场强度与磁赤道磁场强度之比）， 再调用 AEP8 辐射带模型计算粒子积分通量。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lon</td><td>地理经度 [度（°）] </td></tr>
+    <tr><td class="paramname">lat</td><td>地理纬度 [度（°）] </td></tr>
+    <tr><td class="paramname">height</td><td>相对于地球表面的高度 [千米（km）] </td></tr>
+    <tr><td class="paramname">energy</td><td>能量阈值，计算通量时只统计能量 ≥ 该值的粒子 [MeV（兆电子伏特）] </td></tr>
+    <tr><td class="paramname">year</td><td>小数年份（如 2021.1616），用于考虑地球磁场的长期漂移 </td></tr>
+    <tr><td class="paramname">iname</td><td>粒子种类与太阳活动水平：<ul>
+<li>1: e-min（电子，太阳活动极小年）</li>
+<li>2: e-max（电子，太阳活动极大年）</li>
+<li>3: p-min（质子，太阳活动极小年）</li>
+<li>4: p-max（质子，太阳活动极大年） </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>粒子积分通量 [cm⁻²·s⁻¹]</dd></dl>
+<dl class="section user"><dt>使用示例：</dt><dd><div class="fragment"><div class="line"><span class="comment">// 计算南大西洋异常区（45°W, 30°S, 500 km高度）处</span></div>
+<div class="line"><span class="comment">// 能量 ≥20 MeV 的质子在太阳活动极大年时的通量</span></div>
+<div class="line"><span class="keywordtype">double</span> flux = <a class="code hl_function" href="#ga685e75540c3bbad47c98107fdcc45ff3">get_flux</a>(</div>
+<div class="line">    -45.0,              <span class="comment">// 经度: 45°W</span></div>
+<div class="line">    -30.0,              <span class="comment">// 纬度: 30°S</span></div>
+<div class="line">    500.0,              <span class="comment">// 高度: 500 km</span></div>
+<div class="line">    20.0,               <span class="comment">// 能量: 20 MeV</span></div>
+<div class="line">    2021.1616438356164, <span class="comment">// 时间: 2021-03-01</span></div>
+<div class="line">    4                   <span class="comment">// p-max</span></div>
+<div class="line">);</div>
+<div class="line"><span class="comment">// flux ≈ 2642.5 cm⁻²·s⁻¹</span></div>
+<div class="ttc" id="agroup__Magnetosphere_html_ga685e75540c3bbad47c98107fdcc45ff3"><div class="ttname"><a href="#ga685e75540c3bbad47c98107fdcc45ff3">ast::get_flux</a></div><div class="ttdeci">double get_flux(double lon, double lat, double height, double energy, double year, int iname)</div><div class="ttdoc">计算特定位置和时间处辐射带捕获粒子的通量（参见 aep8.hpp 中的详细文档）</div><div class="ttdef"><b>定义</b> aep8.cpp:237</div></div>
+</div><!-- fragment --></dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="#ga770033ee697753f6c5222ce2ba597a7f" title="计算特定 L 值和磁场强度下的粒子通量">aep8()</a>, <a class="el" href="#ga47299e608849247ae0e11d1d124b5c77" title="利用 IGRF 地磁场模型计算磁壳参数 L 和磁场比值 B/B₀">igrf()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga47299e608849247ae0e11d1d124b5c77" name="ga47299e608849247ae0e11d1d124b5c77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga47299e608849247ae0e11d1d124b5c77">&#9670;&#160;</a></span>igrf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_WEATHER_CAPI void ast::igrf </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>year</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>xl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>bbx</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>利用 IGRF 地磁场模型计算磁壳参数 L 和磁场比值 B/B₀ </p>
+<p>通过对底层 Fortran 例程的顺序调用，将地理坐标转换为辐射带建模所需的磁坐标参数。</p>
+<p>内部流程：</p><ol type="1">
+<li>INITIZE — 从数据文件加载 IGRF 高斯系数</li>
+<li>FELDCOF — 根据小数年份插值计算该时刻的地磁场系数和偶极矩 DIMO</li>
+<li>FELDG — 计算指定位置的地磁场分量（北向、东向、垂直、总强度 BABS）</li>
+<li>SHELLG — 沿磁力线追踪，计算 McIlwain L 参数。返回状态码 ICODE：<ul>
+<li>1: 正常完成</li>
+<li>2: 共轭点不在物理范围内（此时 L 值无意义）</li>
+<li>3: 磁壳参数超出精确计算上限，使用近似值</li>
+</ul>
+</li>
+<li>BEQU = DIMO / L³ — 用偶极子近似估计赤道磁场强度</li>
+<li>FINDB0 — （仅当 ICODE=1 即正常完成时）迭代求解更精确的赤道磁场 B₀， 以修正偶极子近似的误差。若迭代不收敛，保留偶极子近似值</li>
+<li>BBX = BABS / BEQU — 计算当地磁场强度与赤道磁场强度的比值</li>
+</ol>
+<dl class="section see"><dt>参见</dt><dd>参考实现：<ul>
+<li>IGRF: <a href="https://github.com/nasa/radbelt/blob/main/radbelt/core.f#IGRF">https://github.com/nasa/radbelt/blob/main/radbelt/core.f#IGRF</a></li>
+<li>bilcal: <a href="https://ccmc.gsfc.nasa.gov/pub/modelweb/geomagnetic/igrf/fortran_code/bilcal.for">https://ccmc.gsfc.nasa.gov/pub/modelweb/geomagnetic/igrf/fortran_code/bilcal.for</a> <a href="https://git.smce.nasa.gov/ccmc-share/modelwebarchive/-/blob/main/IGRF/fortran_code/bilcal.for">https://git.smce.nasa.gov/ccmc-share/modelwebarchive/-/blob/main/IGRF/fortran_code/bilcal.for</a></li>
+</ul>
+</dd></dl>
+<p>IGRF（International Geomagnetic Reference Field，国际地磁参考场）是 国际地磁学与高空物理学协会（IAGA）发布的标准地磁场模型。</p>
+<p>本函数将地理坐标转换为辐射带建模所需的磁坐标参数， 是连接地理空间与辐射带模型（AE8/AP8）的桥梁。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon</td><td>地理经度 [度（°）] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat</td><td>地理纬度 [度（°）] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>相对于地球表面的高度 [千米（km）] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">year</td><td>小数年份（如 2021.1616），用于计算地磁场的长期变化（主磁场漂移） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">xl</td><td>McIlwain L 参数（磁壳参数），无量纲。 表示磁力线在赤道面与地心的距离（以地球半径 R_E 为单位）。 内辐射带典型值 ~1.2–3，外辐射带 ~3–10。 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bbx</td><td>B/B₀，即当地磁场总强度与同 L 值磁赤道处磁场强度的比值。 该值 ≥ 1，是辐射带粒子弹跳运动的控制参数。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>函数内部会通过 <a class="el" href="classast_1_1WorkingDirectory.html" title="工作目录切换器">WorkingDirectory</a> 临时切换当前目录到 IGRF 数据目录， 因为底层 Fortran 例程通过相对路径读取数据文件。</dd></dl>
+<dl class="section user"><dt>使用示例：</dt><dd><div class="fragment"><div class="line"><span class="keywordtype">double</span> xl, bbx;</div>
+<div class="line"><span class="comment">// 计算南大西洋异常区（45°W, 30°S, 500 km, 2021-03-01）的磁坐标</span></div>
+<div class="line"><a class="code hl_function" href="#ga47299e608849247ae0e11d1d124b5c77">igrf</a>(-45.0, -30.0, 500.0, 2021.1616438356164, xl, bbx);</div>
+<div class="line"><span class="comment">// xl  ≈ 1.4138（L 值，位于内辐射带边缘）</span></div>
+<div class="line"><span class="comment">// bbx ≈ 1.7853（磁镜比，粒子在此处接近弹跳镜像点）</span></div>
+<div class="ttc" id="agroup__Magnetosphere_html_ga47299e608849247ae0e11d1d124b5c77"><div class="ttname"><a href="#ga47299e608849247ae0e11d1d124b5c77">ast::igrf</a></div><div class="ttdeci">void igrf(double lon, double lat, double height, double year, double &amp;xl, double &amp;bbx)</div><div class="ttdoc">利用 IGRF 地磁场模型计算磁壳参数 L 和磁场比值 B/B₀</div><div class="ttdef"><b>定义</b> igrf.cpp:70</div></div>
+</div><!-- fragment --></dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="#ga770033ee697753f6c5222ce2ba597a7f" title="计算特定 L 值和磁场强度下的粒子通量">aep8()</a>, <a class="el" href="#ga685e75540c3bbad47c98107fdcc45ff3" title="计算特定位置和时间处辐射带捕获粒子的通量（参见 aep8.hpp 中的详细文档）">get_flux()</a> </dd></dl>
 
 </div>
 </div>
@@ -224,7 +397,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::get_flux</b> (
 
 <p>根据IGRF13模型计算磁场分量 </p>
 <p><br  />
- igrf13.f文件内igrf13syn函数的C版本，保存函数接口与参数含义一致。 </p><dl class="section see"><dt>参见</dt><dd><a href="https://www.ncei.noaa.gov/products/international-geomagnetic-reference-field">https://www.ncei.noaa.gov/products/international-geomagnetic-reference-field</a> </dd>
+ igrf13.f文件内igrf13syn函数的C版本，保持函数接口与参数含义一致。 </p><dl class="section see"><dt>参见</dt><dd><a href="https://www.ncei.noaa.gov/products/international-geomagnetic-reference-field">https://www.ncei.noaa.gov/products/international-geomagnetic-reference-field</a> </dd>
 <dd>
 <a href="https://www.ngdc.noaa.gov/IAGA/vmod/igrf13.f">https://www.ngdc.noaa.gov/IAGA/vmod/igrf13.f</a> </dd>
 <dd>

@@ -148,13 +148,13 @@ $(function(){initNavTree('VolumeGridSurfaceBearing_8hpp_source.html',''); initRe
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">bool</span> getAutoFit()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> autoFit_; }</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    GridCoord              alongBearing_;    </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    GridCoord              crossBearing_;    </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    GridCoord              altitude_;        </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    GridCoord              alongBearing_{};  </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    GridCoord              crossBearing_{};  </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    GridCoord              altitude_{};      </div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">double</span>                 refLat_{0.0};     </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">double</span>                 refLon_{0.0};     </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">double</span>                 bearing_{90.0};   </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    WeakPtr&lt;CelestialBody&gt; body_;            </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    WeakPtr&lt;CelestialBody&gt; body_{};          </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">bool</span>                   autoFit_{<span class="keyword">false</span>};  </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
 </div>

@@ -1,5 +1,7 @@
 var NAVTREEINDEX61 =
 {
+"structast_1_1NutationCache.html":[3,0,0,504],
+"structast_1_1ObjectPrintConfig.html":[0,8,4,22],
 "structast_1_1ObjectPrintConfig.html#a78c249248d7de674b115073411094a1b":[0,8,4,22,1],
 "structast_1_1ObjectPrintConfig.html#add5d9c56d4043b0907c82b79e6eb3f6d":[0,8,4,22,0],
 "structast_1_1OpBinRegistry_1_1OpBinKeyHash.html":[2,0,0,542,0],
