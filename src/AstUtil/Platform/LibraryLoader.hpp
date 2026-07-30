@@ -21,7 +21,8 @@
 #pragma once
  
 #include "AstGlobal.h"
- 
+#include "AstUtil/StringView.hpp"
+
 AST_NAMESPACE_BEGIN
  
 /*!
@@ -58,6 +59,12 @@ AST_UTIL_CAPI errc_t aFreeLibrary(void* lib);
 /// @brief 获取最后的错误信息
 /// @return 错误信息字符串
 AST_UTIL_CAPI const char* aGetLoadError();
+
+
+/// @brief 判断文件名是否具有有效的动态库后缀
+/// @param fileName 文件名
+/// @return 是否为有效的库后缀
+AST_UTIL_CAPI bool aIsLibrary(StringView fileName);
 
 
 /*! @} */

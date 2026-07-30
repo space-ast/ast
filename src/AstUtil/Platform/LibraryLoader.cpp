@@ -202,4 +202,15 @@ const char* aGetLoadError()
 
 #endif // A_WASM
 
+
+bool aIsLibrary(StringView fileName)
+{
+    return fileName.ends_with(".dll")
+        || fileName.ends_with(".so")
+        || fileName.ends_with(".dylib")
+        || fileName.ends_with(".a")
+        || fileName.ends_with(".sl")
+        || fileName.ends_with(".bundle");
+}
+
 AST_NAMESPACE_END
