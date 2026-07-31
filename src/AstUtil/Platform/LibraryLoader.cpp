@@ -87,42 +87,50 @@ void* _aLoadLibrary(const char* filepath)
 
 void* aLoadLibrary(const char* filepath)
 {
-    if (!filepath) {
-        return nullptr;
-    }
+	if (!filepath) return nullptr;
+	return aLoadLibrary(StringView(filepath));
+}
+
+
+void* aLoadLibrary(StringView filepath)
+{
+	if (filepath.empty()) return nullptr;
 
 #if defined(_WIN32) || defined(_WIN64)
-    // Windows平台
-    static const char* prefixes[]{ "", "lib" };     // prefix `lib` for mingw
-    static const char* suffixes[]{ "", ".dll"};
+	static const char* kLibSuffix    = ".dll";
+	static const char* kLibPrefixes[] = {"", "lib"};
 #else
-    // Linux/Unix平台
-    static const char* prefixes[]{ "", "lib" };
-    static const char* suffixes[]{ "", ".so" };
+	static const char* kLibSuffix    = ".so";
+	static const char* kLibPrefixes[] = {"", "lib"};
 #endif
 
-	bool has_dot = strrchr(filepath, '.') != nullptr;
-	bool has_dir_sep = strchr(filepath, '/') != nullptr;
+	// 含目录分隔符 → 路径，直接加载
+	if (filepath.find('/') != StringView::npos
 #ifdef _WIN32
-    has_dir_sep |= strchr(filepath, '\\') != nullptr;
+		|| filepath.find('\\') != StringView::npos
 #endif
-    
-    if (has_dot || has_dir_sep) {
-        // 如果路径中已经包含扩展名或目录分隔符，则直接尝试加载
-        return _aLoadLibrary(filepath);
+	) {
+		std::string path(filepath.data(), filepath.size());
+		return _aLoadLibrary(path.c_str());
 	}
 
-	// 尝试不同的前缀和后缀组合加载库
-    for (const char* prefix : prefixes) {
-        for (const char* suffix : suffixes) {
-            std::string fullPath = std::string(prefix) + filepath + std::string(suffix);
-            void* handle = _aLoadLibrary(fullPath.c_str());
-            if (handle) {
-                return handle;
-            }
-        }
+	// 文件名是否已经以平台扩展名结尾？
+	const bool alreadyHasSuffix = filepath.ends_with(kLibSuffix);
+
+	// 试探前缀组合，必要时追加平台扩展名
+	for (const char* prefix : kLibPrefixes) {
+		std::string name = std::string(prefix) + std::string(filepath);
+
+		if (void* h = _aLoadLibrary(name.c_str()))
+			return h;                     // 1) 不加后缀
+
+		if (!alreadyHasSuffix) {
+			name += kLibSuffix;
+			if (void* h = _aLoadLibrary(name.c_str()))
+				return h;                 // 2) 加平台后缀
+		}
 	}
-    return nullptr;
+	return nullptr;
 }
 
 

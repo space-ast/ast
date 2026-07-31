@@ -31,9 +31,13 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 加载动态库
-/// @param filepath 动态库路径
-/// @return 
-AST_UTIL_CAPI void* aLoadLibrary(const char* filepath);
+/// @param filepath 动态库路径（C 字符串）
+/// @return 库句柄，失败返回 nullptr
+AST_UTIL_API void* aLoadLibrary(const char* filepath);
+
+/// @brief 加载动态库（StringView 重载）
+/// @return 库句柄，失败返回 nullptr
+AST_UTIL_API void* aLoadLibrary(StringView filepath);
 
 
 /// @brief 从动态库中查询函数指针
