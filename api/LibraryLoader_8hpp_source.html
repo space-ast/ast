@@ -110,32 +110,34 @@ $(function(){initNavTree('LibraryLoader_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>AST_UTIL_CAPI <span class="keywordtype">void</span>* <a class="code hl_function" href="group__Platform.html#ga4ae35e43fab9b520dd904d744ba64ed4">aLoadLibrary</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filepath);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>AST_UTIL_API <span class="keywordtype">void</span>* <a class="code hl_function" href="group__Platform.html#ga203964477010d92f16ac05eb51c13f7a">aLoadLibrary</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filepath);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>AST_UTIL_CAPI <span class="keywordtype">void</span>* <a class="code hl_function" href="group__Platform.html#ga0f4600dceeffcc4993b66d33a3b8e680">aGetProcAddress</a>(<span class="keywordtype">void</span>* lib, <span class="keyword">const</span> <span class="keywordtype">char</span>* funcName);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>AST_UTIL_CAPI <span class="keywordtype">void</span>* <a class="code hl_function" href="group__Platform.html#ga19e5714a61a8ba893a69b7ebdeba2005">aResolveProcAddress</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filepath, <span class="keyword">const</span> <span class="keywordtype">char</span>* funcName);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__Platform.html#ga52c02b09388ac56566408d15c1e1ce7e">aFreeLibrary</a>(<span class="keywordtype">void</span>* lib);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>AST_UTIL_CAPI <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="group__Platform.html#ga792d6e546f624b93c64487c04deac344">aGetLoadError</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>AST_UTIL_API <span class="keywordtype">void</span>* <a class="code hl_function" href="group__Platform.html#ga203964477010d92f16ac05eb51c13f7a">aLoadLibrary</a>(StringView filepath);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>AST_UTIL_CAPI <span class="keywordtype">void</span>* <a class="code hl_function" href="group__Platform.html#ga0f4600dceeffcc4993b66d33a3b8e680">aGetProcAddress</a>(<span class="keywordtype">void</span>* lib, <span class="keyword">const</span> <span class="keywordtype">char</span>* funcName);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_UTIL_CAPI <span class="keywordtype">void</span>* <a class="code hl_function" href="group__Platform.html#ga19e5714a61a8ba893a69b7ebdeba2005">aResolveProcAddress</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filepath, <span class="keyword">const</span> <span class="keywordtype">char</span>* funcName);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__Platform.html#ga52c02b09388ac56566408d15c1e1ce7e">aFreeLibrary</a>(<span class="keywordtype">void</span>* lib);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#ga6186503d5c641ed5c2a3f36c0cbf1a76">aIsLibrary</a>(StringView fileName);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>AST_UTIL_CAPI <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="group__Platform.html#ga792d6e546f624b93c64487c04deac344">aGetLoadError</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="group__Platform.html#ga6186503d5c641ed5c2a3f36c0cbf1a76">aIsLibrary</a>(StringView fileName);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="ttc" id="agroup__Platform_html_ga0f4600dceeffcc4993b66d33a3b8e680"><div class="ttname"><a href="group__Platform.html#ga0f4600dceeffcc4993b66d33a3b8e680">ast::aGetProcAddress</a></div><div class="ttdeci">void * aGetProcAddress(void *lib, const char *funcName)</div><div class="ttdoc">从动态库中查询函数指针</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:129</div></div>
-<div class="ttc" id="agroup__Platform_html_ga19e5714a61a8ba893a69b7ebdeba2005"><div class="ttname"><a href="group__Platform.html#ga19e5714a61a8ba893a69b7ebdeba2005">ast::aResolveProcAddress</a></div><div class="ttdeci">void * aResolveProcAddress(const char *filepath, const char *funcName)</div><div class="ttdoc">从动态库中获取函数指针</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:145</div></div>
-<div class="ttc" id="agroup__Platform_html_ga4ae35e43fab9b520dd904d744ba64ed4"><div class="ttname"><a href="group__Platform.html#ga4ae35e43fab9b520dd904d744ba64ed4">ast::aLoadLibrary</a></div><div class="ttdeci">void * aLoadLibrary(const char *filepath)</div><div class="ttdoc">加载动态库</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:88</div></div>
-<div class="ttc" id="agroup__Platform_html_ga52c02b09388ac56566408d15c1e1ce7e"><div class="ttname"><a href="group__Platform.html#ga52c02b09388ac56566408d15c1e1ce7e">ast::aFreeLibrary</a></div><div class="ttdeci">errc_t aFreeLibrary(void *lib)</div><div class="ttdoc">卸载动态库</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:166</div></div>
-<div class="ttc" id="agroup__Platform_html_ga6186503d5c641ed5c2a3f36c0cbf1a76"><div class="ttname"><a href="group__Platform.html#ga6186503d5c641ed5c2a3f36c0cbf1a76">ast::aIsLibrary</a></div><div class="ttdeci">bool aIsLibrary(StringView fileName)</div><div class="ttdoc">判断文件名是否具有有效的动态库后缀</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:206</div></div>
-<div class="ttc" id="agroup__Platform_html_ga792d6e546f624b93c64487c04deac344"><div class="ttname"><a href="group__Platform.html#ga792d6e546f624b93c64487c04deac344">ast::aGetLoadError</a></div><div class="ttdeci">const char * aGetLoadError()</div><div class="ttdoc">获取最后的错误信息</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:188</div></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="ttc" id="agroup__Platform_html_ga0f4600dceeffcc4993b66d33a3b8e680"><div class="ttname"><a href="group__Platform.html#ga0f4600dceeffcc4993b66d33a3b8e680">ast::aGetProcAddress</a></div><div class="ttdeci">void * aGetProcAddress(void *lib, const char *funcName)</div><div class="ttdoc">从动态库中查询函数指针</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:137</div></div>
+<div class="ttc" id="agroup__Platform_html_ga19e5714a61a8ba893a69b7ebdeba2005"><div class="ttname"><a href="group__Platform.html#ga19e5714a61a8ba893a69b7ebdeba2005">ast::aResolveProcAddress</a></div><div class="ttdeci">void * aResolveProcAddress(const char *filepath, const char *funcName)</div><div class="ttdoc">从动态库中获取函数指针</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:153</div></div>
+<div class="ttc" id="agroup__Platform_html_ga203964477010d92f16ac05eb51c13f7a"><div class="ttname"><a href="group__Platform.html#ga203964477010d92f16ac05eb51c13f7a">ast::aLoadLibrary</a></div><div class="ttdeci">void * aLoadLibrary(const char *filepath)</div><div class="ttdoc">加载动态库</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:88</div></div>
+<div class="ttc" id="agroup__Platform_html_ga52c02b09388ac56566408d15c1e1ce7e"><div class="ttname"><a href="group__Platform.html#ga52c02b09388ac56566408d15c1e1ce7e">ast::aFreeLibrary</a></div><div class="ttdeci">errc_t aFreeLibrary(void *lib)</div><div class="ttdoc">卸载动态库</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:174</div></div>
+<div class="ttc" id="agroup__Platform_html_ga6186503d5c641ed5c2a3f36c0cbf1a76"><div class="ttname"><a href="group__Platform.html#ga6186503d5c641ed5c2a3f36c0cbf1a76">ast::aIsLibrary</a></div><div class="ttdeci">bool aIsLibrary(StringView fileName)</div><div class="ttdoc">判断文件名是否具有有效的动态库后缀</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:214</div></div>
+<div class="ttc" id="agroup__Platform_html_ga792d6e546f624b93c64487c04deac344"><div class="ttname"><a href="group__Platform.html#ga792d6e546f624b93c64487c04deac344">ast::aGetLoadError</a></div><div class="ttdeci">const char * aGetLoadError()</div><div class="ttdoc">获取最后的错误信息</div><div class="ttdef"><b>定义</b> LibraryLoader.cpp:196</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
