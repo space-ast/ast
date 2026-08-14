@@ -23,6 +23,8 @@
 #include "AstUtil/WorkingDirectory.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/RunTime.hpp"
+#include "AstUtil/Literals.hpp"
+#include "AstUtil/Math.hpp"
 
 #ifdef AST_WITH_LIBF2C
 #include "f2c.h"
@@ -69,6 +71,9 @@ AST_NAMESPACE_BEGIN
 ///
 void igrf(double lon, double lat, double height, double year, double &xl, double &bbx)
 {
+    xl  = 0.0;
+    bbx = 0.0;
+
 #ifdef AST_WITH_LIBF2C
     fs::path datadir = aDataDir();
     datadir /= AST_DEFAULT_DIR_IGRF;
@@ -79,7 +84,7 @@ void igrf(double lon, double lat, double height, double year, double &xl, double
         return;
     }
 
-    // 第1步：初始化 IGRF 模型，从数据文件加载高斯系数
+    // 第1步：初始化
     initize_();
 
     // 第2步：根据年份插值计算地磁场系数，DIMO = 偶极矩
@@ -117,7 +122,7 @@ void igrf(double lon, double lat, double height, double year, double &xl, double
     if(icode == 1){
         double bdel = 1e-3;   // 收敛精度
         double step = 0.05;   // 追踪步长
-        long val = 0;         // 迭代是否成功标志
+        logical val = 0;      // 迭代是否成功标志
         double beq;           // 迭代得到的赤道磁场
         double rr0;           // 迭代得到的赤道半径
         findb0_(&step, &bdel, &val, &beq, &rr0);
@@ -128,10 +133,55 @@ void igrf(double lon, double lat, double height, double year, double &xl, double
     // 第7步：计算 B/B₀ 比值（磁镜比）
     bbx = babs / bequ;
 #else
-    aError("igrf not implemented, please check whether libf2c package is enabled.");
+    aError("function not implemented, please check whether libf2c package is enabled.");
 #endif
 }
 
+
+void igrf_field(double lon, double lat, double height, double year, double& bnorth, double& beast, double& bdown, double& babs)
+{
+    bnorth = 0.0;
+    beast  = 0.0;
+    bdown  = 0.0;
+    babs   = 0.0;
+
+#ifdef AST_WITH_LIBF2C
+    fs::path datadir = aDataDir();
+    datadir /= AST_DEFAULT_DIR_IGRF;
+    // 切换工作目录到 igrf 数据目录（底层 Fortran 代码通过相对路径读取数据文件）
+    WorkingDirectory cwd{datadir.string()};
+    if(!cwd.isChanged()){
+        aError("failed to change working directory to '%.*s'", datadir.string().size(), datadir.string().data());
+        return;
+    }
+
+    // 第1步：初始化
+    initize_();
+
+    // 第2步：根据年份插值计算地磁场系数，DIMO = 偶极矩
+    double dimo;
+    feldcof_(&year, &dimo);
+
+    // 第3步：计算指定位置的地磁场三分量及总强度
+    //   BNORTH = 北向分量（地理北，非磁北）
+    //   BEAST  = 东向分量
+    //   BDOWN  = 垂直向下分量
+    //   BABS   = 磁场总强度（标量值）
+    feldg_(&lat, &lon, &height, &bnorth, &beast, &bdown, &babs);
+#else
+    aError("function not implemented, please check whether libf2c package is enabled.");
+#endif
+}
+
+void aIGRFField(double lon, double lat, double height, double year, double &bx, double &by, double &bz, double &babs)
+{
+    igrf_field(rad2deg(lon), rad2deg(lat), height * 1e-3, year, bx, by, bz, babs);
+    constexpr double kGs2T = 1e-4;  // Gs → T
+    bx *= kGs2T;
+    by *= kGs2T;
+    bz *= kGs2T;
+    babs *= kGs2T;
+}
 
 AST_NAMESPACE_END
 

@@ -61,7 +61,21 @@ AST_NAMESPACE_BEGIN
 /// @endcode
 ///
 /// @see aep8(), get_flux()
-AST_WEATHER_CAPI void igrf(double lon, double lat, double height, double year, double& xl, double& bbx);
+AST_WEATHER_CAPI void igrf(
+    double lon, double lat, double height, double year, 
+    double& xl, double& bbx
+);
+
+
+AST_WEATHER_CAPI void igrf_field(
+    double lon, double lat, double height, double year, 
+    double& bx, double& by, double& bz, double& babs
+);
+
+AST_WEATHER_CAPI void aIGRFField(
+    double lon, double lat, double height, double year, 
+    double& bx, double& by, double& bz, double& babs
+);
 
 
 /*! @} */

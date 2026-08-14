@@ -33,7 +33,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 数据组基类
-class DataGroup
+class AST_REPORT_API DataGroup
 {
 public:
     virtual ~DataGroup() = default;

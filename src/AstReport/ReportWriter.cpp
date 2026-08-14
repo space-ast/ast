@@ -43,6 +43,7 @@
 #include "AstReport/DataGroupBetaAngle.hpp"
 #include "AstReport/DataGroupQuats.hpp"
 #include "AstReport/DataGroupEuler.hpp"
+#include "AstReport/DataGroupMagField.hpp"
 
 #include <unordered_map>
 #include <memory>
@@ -115,6 +116,13 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         auto* dg = new DataGroupLLAState();
         dg->setPoint(point);
         dg->setBody(frame->getBody());
+        return dg;
+    }},
+    {"SpEnvMagFieldDP", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
+        auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
+        if (!point) return nullptr;
+        auto* dg = new DataGroupMagField();
+        dg->setPoint(point);
         return dg;
     }},
     {"LLRState", [](const Object* obj, StringView type) -> DataGroupTimeVar* {

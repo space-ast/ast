@@ -59,6 +59,38 @@ void aECIToECF(const TimePoint &tp, const Vector3d &vecECI, const Vector3d &velE
     return aICRFToECF(tp, vecECI, velECI, vecECF, velECF);
 }
 
+// ECF -> ECI 转换
+
+void aECFToECITransform(const TimePoint &tp, Rotation &rotation)
+{
+    aECFToECIMatrix(tp, rotation.getMatrix());
+}
+
+void aECFToECITransform(const TimePoint &tp, KinematicRotation &rotation)
+{
+    KinematicRotation temp;
+    aICRFToECFTransform(tp, temp);
+    rotation = temp.inverse();
+}
+
+void aECFToECIMatrix(const TimePoint &tp, Matrix3d &matrix)
+{
+    aICRFToECFMatrix(tp, matrix);
+    matrix.transposeInPlace();
+}
+
+void aECFToECI(const TimePoint &tp, const Vector3d &vecECF, Vector3d &vecECI)
+{
+    return aECFToICRF(tp, vecECF, vecECI);
+}
+
+void aECFToECI(const TimePoint &tp, const Vector3d &vecECF, const Vector3d &velECF, Vector3d &vecECI, Vector3d &velECI)
+{
+    KinematicRotation rotation;
+    aECFToECITransform(tp, rotation);
+    rotation.transformVectorVelocity(vecECF, velECF, vecECI, velECI);
+}
+
 void aJ2000ToECFTransform(const TimePoint &tp, Rotation &rotation)
 {
     aJ2000ToECFMatrix(tp, rotation.getMatrix());
