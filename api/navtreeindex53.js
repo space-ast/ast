@@ -1,5 +1,17 @@
 var NAVTREEINDEX53 =
 {
+"group__Interpolator.html#gaa267788471ee95d2bf7e4af949601b35":[0,3,2,2],
+"group__Magnetosphere.html":[0,9,2],
+"group__Magnetosphere.html#ga47299e608849247ae0e11d1d124b5c77":[0,9,2,3],
+"group__Magnetosphere.html#ga685e75540c3bbad47c98107fdcc45ff3":[0,9,2,2],
+"group__Magnetosphere.html#ga76146fe3ab6056e3b54dc09881c96058":[0,9,2,4],
+"group__Magnetosphere.html#ga770033ee697753f6c5222ce2ba597a7f":[0,9,2,1],
+"group__Math.html":[0,3],
+"group__NLE.html":[0,3,3],
+"group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa":[0,3,3,10],
+"group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05":[0,3,3,11],
+"group__NLE.html#ga771d73ba9a27d2e576e456870e706c69":[0,3,3,8],
+"group__NLE.html#gaab129d64b6af3006ace3ea69e1f238ef":[0,3,3,12],
 "group__NLE.html#gab0dea09a12487e53d0b32c0af1d2d597":[0,3,3,13],
 "group__NLE.html#gae7b87132fc03898f8392005c491953ee":[0,3,3,9],
 "group__Network.html":[0,17],
@@ -237,17 +249,5 @@ var NAVTREEINDEX53 =
 "group__Quantity.html#gaab545bcfaf191d9380e6459d463152a7":[0,8,3,16],
 "group__Quantity.html#gab016c3c4c6666ff6ddfc51046ef715c8":[0,8,3,13],
 "group__Quantity.html#gabc0b0eaf248ecf2690adbafdbee67622":[0,8,3,17],
-"group__Quantity.html#gacd785ae8a141b12aa37bbe6ca0c8a8f3":[0,8,3,9],
-"group__Quantity.html#gada00e367f87a60b86052ce3442529a64":[0,8,3,23],
-"group__Quantity.html#gada24ea182ac2af5f7547b4d644255994":[0,8,3,31],
-"group__Quantity.html#gaf9d3f44ba6f8eba32462e3d6394ae643":[0,8,3,15],
-"group__Quantity.html#gafd35145d21b04e1d5f90e5567b0be95d":[0,8,3,6],
-"group__RTTI.html":[0,8,4],
-"group__RTTI.html#ga01f212ce5ae211ac8c18065e71ae18c0":[0,8,4,57],
-"group__RTTI.html#ga0969f4ec02ccfb10a27176152916d2c9":[0,8,4,27],
-"group__RTTI.html#ga139a16cd353ca031464216dfdd82e342":[0,8,4,49],
-"group__RTTI.html#ga13d47d0a6e51a7991658ed936c3ba14a":[0,8,4,48],
-"group__RTTI.html#ga1508a5d286ff71fbd38229332d704ab3":[0,8,4,59],
-"group__RTTI.html#ga159c7076d71e611938d8f153ef2abb42":[0,8,4,26],
-"group__RTTI.html#ga1a58411c2aa026059e31156794deebf7":[0,8,4,33]
+"group__Quantity.html#gacd785ae8a141b12aa37bbe6ca0c8a8f3":[0,8,3,9]
 };

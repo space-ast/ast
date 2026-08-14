@@ -1,5 +1,8 @@
 var NAVTREEINDEX8 =
 {
+"LocaleGuard_8hpp.html":[4,0,0,27,11,10],
+"LocaleGuard_8hpp_source.html":[4,0,0,27,11,10],
+"Logger_8cpp.html":[4,0,0,27,11,11],
 "Logger_8hpp.html":[4,0,0,27,11,12],
 "Logger_8hpp_source.html":[4,0,0,27,11,12],
 "LowerMatrix_8hpp.html":[4,0,0,12,0,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX8 =
 "NLPSolver_8hpp.html":[4,0,0,15,17],
 "NLPSolver_8hpp_source.html":[4,0,0,15,17],
 "NRLMSIS00_8cpp.html":[4,0,0,6,2,16],
-"NRLMSIS00_8hpp.html":[4,0,0,6,2,17],
-"NRLMSIS00_8hpp_source.html":[4,0,0,6,2,17],
-"NetworkCookieJar_8cpp.html":[4,0,0,27,4,4],
-"NetworkCookieJar_8hpp.html":[4,0,0,27,4,5]
+"NRLMSIS00_8hpp.html":[4,0,0,6,2,17]
 };

@@ -258,6 +258,7 @@ var annotated_dup =
       [ "DataGroupEuler", "classast_1_1DataGroupEuler.html", "classast_1_1DataGroupEuler" ],
       [ "DataGroupLLAState", "classast_1_1DataGroupLLAState.html", "classast_1_1DataGroupLLAState" ],
       [ "DataGroupLLRState", "classast_1_1DataGroupLLRState.html", "classast_1_1DataGroupLLRState" ],
+      [ "DataGroupMagField", "classast_1_1DataGroupMagField.html", "classast_1_1DataGroupMagField" ],
       [ "DataGroupModOrbElem", "classast_1_1DataGroupModOrbElem.html", "classast_1_1DataGroupModOrbElem" ],
       [ "DataGroupOrbit", "classast_1_1DataGroupOrbit.html", "classast_1_1DataGroupOrbit" ],
       [ "DataGroupPointPrv", "classast_1_1DataGroupPointPrv.html", "classast_1_1DataGroupPointPrv" ],

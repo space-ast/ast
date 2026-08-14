@@ -1,5 +1,8 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1BlockDragSensitivity.html":[0,11,1],
+"classast_1_1BlockDragSensitivity.html#a96766521904139a341cd4e37c3513c22":[0,11,1,0],
+"classast_1_1BlockDynamicSystem.html":[2,0,0,70],
 "classast_1_1BlockDynamicSystem.html":[3,0,0,69],
 "classast_1_1BlockDynamicSystem.html#a03a9105f126bfaf40324c28802e24bc6":[2,0,0,70,13],
 "classast_1_1BlockDynamicSystem.html#a03a9105f126bfaf40324c28802e24bc6":[3,0,0,69,13],
@@ -246,8 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1BlockThirdBodyGravityPartial.html":[0,11,5],
 "classast_1_1BlockThirdBodyGravityPartial.html#a0ab8277af3b2e5770cdbcb357669b58d":[0,11,5,1],
 "classast_1_1BlockThirdBodyGravityPartial.html#a5fbc65e0284d7bb7e6bb7323299c5b07":[0,11,5,0],
-"classast_1_1BlockThirdBodyGravityPartial.html#a682045695673e140dbc37791eec97489":[0,11,5,2],
-"classast_1_1BlockThirdBodyPointMass.html":[2,0,0,96],
-"classast_1_1BlockThirdBodyPointMass.html":[3,0,0,95],
-"classast_1_1BlockThirdBodyPointMass.html#a081074195c46b3314be95c9e6a5ec4fc":[2,0,0,96,1]
+"classast_1_1BlockThirdBodyGravityPartial.html#a682045695673e140dbc37791eec97489":[0,11,5,2]
 };

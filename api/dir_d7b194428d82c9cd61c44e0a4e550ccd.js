@@ -16,6 +16,8 @@ var dir_d7b194428d82c9cd61c44e0a4e550ccd =
     [ "DataGroupLLAState.hpp", "DataGroupLLAState_8hpp.html", "DataGroupLLAState_8hpp" ],
     [ "DataGroupLLRState.cpp", "DataGroupLLRState_8cpp.html", null ],
     [ "DataGroupLLRState.hpp", "DataGroupLLRState_8hpp.html", "DataGroupLLRState_8hpp" ],
+    [ "DataGroupMagField.cpp", "DataGroupMagField_8cpp.html", null ],
+    [ "DataGroupMagField.hpp", "DataGroupMagField_8hpp.html", "DataGroupMagField_8hpp" ],
     [ "DataGroupModOrbElem.cpp", "DataGroupModOrbElem_8cpp.html", null ],
     [ "DataGroupModOrbElem.hpp", "DataGroupModOrbElem_8hpp.html", "DataGroupModOrbElem_8hpp" ],
     [ "DataGroupPointPrv.cpp", "DataGroupPointPrv_8cpp.html", null ],
