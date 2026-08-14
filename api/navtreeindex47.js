@@ -1,5 +1,15 @@
 var NAVTREEINDEX47 =
 {
+"classast_1_1UiChatPanel.html#a46c0ca73787e6e1a1fba16070b95fd72":[0,16,5,4],
+"classast_1_1UiChatPanel.html#a7bf2ba015ba1fbcd69d55b9f0491ba83":[0,16,5,2],
+"classast_1_1UiChatPanel.html#aa7729f1315d4f01452fb27f890324114":[0,16,5,6],
+"classast_1_1UiChatPanel.html#ad940f067a97dfaf476bc9bbf1d3ed7d0":[0,16,5,0],
+"classast_1_1UiChatWorker.html":[0,16,6],
+"classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d":[0,16,6,3],
+"classast_1_1UiChatWorker.html#a8408a13f68755f800aa2979db0608bc9":[0,16,6,1],
+"classast_1_1UiChatWorker.html#a9d8e9c99a99daa6f050ec5a16429b2cf":[0,16,6,0],
+"classast_1_1UiChatWorker.html#abad195eddfedd8700247fa32259c338d":[0,16,6,2],
+"classast_1_1UiCommandEditor.html":[2,0,0,987],
 "classast_1_1UiCommandEditor.html":[3,0,0,986],
 "classast_1_1UiCommandEditor.html#a0bd71dfccc53fe7f431528b2b9b6fd45":[2,0,0,987,1],
 "classast_1_1UiCommandEditor.html#a0bd71dfccc53fe7f431528b2b9b6fd45":[3,0,0,986,1],
@@ -239,15 +249,5 @@ var NAVTREEINDEX47 =
 "classast_1_1UiResultView.html#a37456b745e2f71364b43031bc876360c":[3,0,0,1022,4],
 "classast_1_1UiResultView.html#a7ebe4f17b1b0087d6a720b9d5749c0d4":[2,0,0,1023,3],
 "classast_1_1UiResultView.html#a7ebe4f17b1b0087d6a720b9d5749c0d4":[3,0,0,1022,3],
-"classast_1_1UiResultView.html#aa819ca16d8534d6d65389d4b15a0cb4a":[2,0,0,1023,0],
-"classast_1_1UiResultView.html#aa819ca16d8534d6d65389d4b15a0cb4a":[3,0,0,1022,0],
-"classast_1_1UiResultView.html#af2296ae3ada04b0f05284cc8dd7bbde2":[2,0,0,1023,2],
-"classast_1_1UiResultView.html#af2296ae3ada04b0f05284cc8dd7bbde2":[3,0,0,1022,2],
-"classast_1_1UiSelectFrame.html":[2,0,0,1024],
-"classast_1_1UiSelectFrame.html":[3,0,0,1023],
-"classast_1_1UiSequence.html":[2,0,0,1025],
-"classast_1_1UiSequence.html":[3,0,0,1024],
-"classast_1_1UiSequenceWorkbench.html":[2,0,0,1026],
-"classast_1_1UiSequenceWorkbench.html":[3,0,0,1025],
-"classast_1_1UiSequenceWorkbench.html#a52afdee7dc7d1dfb3a487206859833b8":[2,0,0,1026,0]
+"classast_1_1UiResultView.html#aa819ca16d8534d6d65389d4b15a0cb4a":[2,0,0,1023,0]
 };

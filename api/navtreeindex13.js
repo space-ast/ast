@@ -1,5 +1,12 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcRMag_8hpp_source.html":[4,0,0,6,10,1,0,2,1],
+"ScStateCalcRadPressureArea_8cpp.html":[4,0,0,6,10,1,0,15,146],
+"ScStateCalcRadPressureArea_8hpp.html":[4,0,0,6,10,1,0,15,147],
+"ScStateCalcRadPressureArea_8hpp_source.html":[4,0,0,6,10,1,0,15,147],
+"ScStateCalcRadPressureCoefficient_8cpp.html":[4,0,0,6,10,1,0,15,148],
+"ScStateCalcRadPressureCoefficient_8hpp.html":[4,0,0,6,10,1,0,15,149],
+"ScStateCalcRadPressureCoefficient_8hpp_source.html":[4,0,0,6,10,1,0,15,149],
 "ScStateCalcRadialRate_8cpp.html":[4,0,0,6,10,1,0,15,142],
 "ScStateCalcRadialRate_8hpp.html":[4,0,0,6,10,1,0,15,143],
 "ScStateCalcRadialRate_8hpp_source.html":[4,0,0,6,10,1,0,15,143],
@@ -242,12 +249,5 @@ var NAVTREEINDEX13 =
 "SecantSolver_8hpp.html":[4,0,0,12,4,0,8],
 "SecantSolver_8hpp_source.html":[4,0,0,12,4,0,8],
 "SegmentCalculation_8cpp.html":[4,0,0,6,10,1,4],
-"SegmentCalculation_8hpp.html":[4,0,0,6,10,1,5],
-"SegmentCalculation_8hpp_source.html":[4,0,0,6,10,1,5],
-"SegmentGraph_8cpp.html":[4,0,0,6,10,3,28],
-"SegmentGraph_8hpp.html":[4,0,0,6,10,3,29],
-"SegmentGraph_8hpp_source.html":[4,0,0,6,10,3,29],
-"SegmentLoader_8cpp.html":[4,0,0,11,1,2,14],
-"SegmentLoader_8cpp.html#aef5dcbbc1252c39adc7b1e2f59da07da":[4,0,0,11,1,2,14,0],
-"SegmentLoader_8hpp.html":[4,0,0,11,1,2,15]
+"SegmentCalculation_8hpp.html":[4,0,0,6,10,1,5]
 };

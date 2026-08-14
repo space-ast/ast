@@ -1,5 +1,15 @@
 var NAVTREEINDEX38 =
 {
+"classast_1_1PointSSBarycenter.html":[0,1,0,12],
+"classast_1_1PointSSBarycenter.html#a5b86fb5e195778b19bd6ddffa3d08950":[0,1,0,12,0],
+"classast_1_1PointSSBarycenter.html#a910d244422f8cddf062510af02813506":[0,1,0,12,2],
+"classast_1_1PointSSBarycenter.html#adae8a58f274f31f03c59bf0f76649399":[0,1,0,12,1],
+"classast_1_1Polynomial.html":[0,8,13],
+"classast_1_1Polynomial.html#a15d601a475b507decfe5f784509dd1b4":[0,8,13,3],
+"classast_1_1Polynomial.html#a7d65d2fabeed2a6cf14451c265387731":[0,8,13,2],
+"classast_1_1Polynomial.html#ad7d714ad2fc6ec23c384e1034d1bb4dd":[0,8,13,1],
+"classast_1_1Propagate.html":[2,0,0,572],
+"classast_1_1Propagate.html":[3,0,0,571],
 "classast_1_1Propagate.html#a4c7809425c93c1c977dbf05daaaa8438":[2,0,0,572,1],
 "classast_1_1Propagate.html#a4c7809425c93c1c977dbf05daaaa8438":[3,0,0,571,1],
 "classast_1_1Propagate.html#ab56fcd3190db2cfbe6091706ee38c303":[2,0,0,572,0],
@@ -239,15 +249,5 @@ var NAVTREEINDEX38 =
 "classast_1_1Quantity.html#aa92663d72c24fb8df5dba1c37f3bd1b7":[0,8,3,0,20],
 "classast_1_1Quantity.html#abcff1fb55869dbd60709752c0ec663c2":[0,8,3,0,9],
 "classast_1_1Quantity.html#ac3de253a185cc6ef30398e2d6d2343bd":[0,8,3,0,30],
-"classast_1_1Quantity.html#ac919c6d9f38c327aa414ef6918892098":[0,8,3,0,34],
-"classast_1_1Quantity.html#ac988a30e183d70dcae9d3c0ab4a758d4":[0,8,3,0,0],
-"classast_1_1Quantity.html#accd68453f0bf216a913b04d0d38c4bb6":[0,8,3,0,8],
-"classast_1_1Quantity.html#acf36d11c1b7fd4e4d85350f3e41800f5":[0,8,3,0,24],
-"classast_1_1Quantity.html#ad3624b8c05237dc20588e076faf2f8fb":[0,8,3,0,36],
-"classast_1_1Quantity.html#ad496589ba151e75319b80f9c6d2d048f":[0,8,3,0,33],
-"classast_1_1Quantity.html#ad848cec88687923bff9eca4d3e5f107f":[0,8,3,0,39],
-"classast_1_1Quantity.html#adad848de198d445c66b4f15aaf2d576b":[0,8,3,0,4],
-"classast_1_1Quantity.html#ae00bb0f24f989e8e4d519d5a252fc150":[0,8,3,0,3],
-"classast_1_1Quantity.html#ae10e6077bf6c2e5f5e66a26309a70b2c":[0,8,3,0,41],
-"classast_1_1Quantity.html#af0f4e5fab2fe84bb594f847916bcfd51":[0,8,3,0,11]
+"classast_1_1Quantity.html#ac919c6d9f38c327aa414ef6918892098":[0,8,3,0,34]
 };

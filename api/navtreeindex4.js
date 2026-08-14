@@ -212,6 +212,7 @@ var NAVTREEINDEX4 =
 "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a430ac37de713edd8ef6f62b60a473f59":[4,0,0,27,7,1,2,5],
 "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a4d07e839b242fd808769fb69c64984f2":[4,0,0,27,7,1,2,9],
 "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a5774030784f865ffabfe52f879c0f61c":[4,0,0,27,7,1,2,3],
+"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a71ed88a75e3f650cd6934067f62167cb":[4,0,0,27,7,1,2,21],
 "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a83e155cad29f707b54862217392d885d":[4,0,0,27,7,1,2,6],
 "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a8a4ae9088b5d080c176d9aeb3cb3cb9e":[4,0,0,27,7,1,2,4],
 "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14aa697b5d74a5f31dd2f97fa5ecd35e9a3":[4,0,0,27,7,1,2,18],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "EclipseCalculator_8hpp_source.html":[4,0,0,6,9,0,9],
 "Eclipse_8cpp.html":[4,0,0,6,9,0,6],
 "Eclipse_8cpp.html#a70a0b7cb997e3f78fb987a86fdacfd96":[4,0,0,6,9,0,6,2],
-"Eclipse_8cpp.html#a86892e3caf3d8602b4183783b17095e9":[4,0,0,6,9,0,6,0],
-"Eclipse_8cpp.html#af10d58260509e430f1a999b0715f025a":[4,0,0,6,9,0,6,1]
+"Eclipse_8cpp.html#a86892e3caf3d8602b4183783b17095e9":[4,0,0,6,9,0,6,0]
 };

@@ -186,7 +186,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::FPropertyGetIte
 <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aNewPropertyObject</b> (<a class="el" href="group__RTTI.html#ga2a9eeaa0f4e58aa1e27ff9a63441f7ee">FPropertyGet</a> getter, <a class="el" href="group__RTTI.html#ga159c7076d71e611938d8f153ef2abb42">FPropertySet</a> setter, <a class="el" href="classast_1_1Class.html">Class</a> *cls)</td></tr>
 <tr class="separator:gad180279051a2d97516bd1aa70ab3c6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4f999ce823d7e9cf08babd9df9b247fa" id="r_ga4f999ce823d7e9cf08babd9df9b247fa"><td class="memTemplParams" colspan="2">
-template&lt;typename T &gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </td></tr>
 <tr class="memitem:ga4f999ce823d7e9cf08babd9df9b247fa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::_aNewProperty</b> (<a class="el" href="group__RTTI.html#ga2a9eeaa0f4e58aa1e27ff9a63441f7ee">FPropertyGet</a> getter, <a class="el" href="group__RTTI.html#ga159c7076d71e611938d8f153ef2abb42">FPropertySet</a> setter)</td></tr>
 <tr class="separator:ga4f999ce823d7e9cf08babd9df9b247fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0ec84fbb0be87f9e5def0478e61c6f93" id="r_ga0ec84fbb0be87f9e5def0478e61c6f93"><td class="memItemLeft" align="right" valign="top">
@@ -206,95 +206,95 @@ template&lt;&gt; </td></tr>
 <tr class="memitem:ga3ea5cb074d65e6e65093c266fa590c91"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::_aNewProperty&lt; std::string &gt;</b> (<a class="el" href="group__RTTI.html#ga2a9eeaa0f4e58aa1e27ff9a63441f7ee">FPropertyGet</a> getter, <a class="el" href="group__RTTI.html#ga159c7076d71e611938d8f153ef2abb42">FPropertySet</a> setter)</td></tr>
 <tr class="separator:ga3ea5cb074d65e6e65093c266fa590c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga546a459bd223004d952c1102177fe982" id="r_ga546a459bd223004d952c1102177fe982"><td class="memTemplParams" colspan="2">
-template&lt;typename T , typename MemberType , MemberType T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , typename MemberType , MemberType T::* Member&gt; </td></tr>
 <tr class="memitem:ga546a459bd223004d952c1102177fe982"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyMem</b> ()</td></tr>
 <tr class="separator:ga546a459bd223004d952c1102177fe982"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabbf9b571569286602c9415114bbecb0f" id="r_gabbf9b571569286602c9415114bbecb0f"><td class="memTemplParams" colspan="2">
-template&lt;typename T , typename Ret , Ret(T::*)() const Getter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , typename Ret , Ret(T::*)() const Getter&gt; </td></tr>
 <tr class="memitem:gabbf9b571569286602c9415114bbecb0f"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyReadOnly</b> ()</td></tr>
 <tr class="separator:gabbf9b571569286602c9415114bbecb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3e5af8bd0926555ef6f26c5e50ead705" id="r_ga3e5af8bd0926555ef6f26c5e50ead705"><td class="memTemplParams" colspan="2">
-template&lt;typename T , typename Ret , Ret(T::*)() const Getter, void(T::*)(Ret) Setter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , typename Ret , Ret(T::*)() const Getter, void(T::*)(Ret) Setter&gt; </td></tr>
 <tr class="memitem:ga3e5af8bd0926555ef6f26c5e50ead705"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewProperty</b> ()</td></tr>
 <tr class="separator:ga3e5af8bd0926555ef6f26c5e50ead705"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaccbb04315509df181f619c6aecbbf44d" id="r_gaccbb04315509df181f619c6aecbbf44d"><td class="memTemplParams" colspan="2">
-template&lt;typename T , typename Ret , Ret(T::*)() const Getter, errc_t(T::*)(Ret) Setter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , typename Ret , Ret(T::*)() const Getter, errc_t(T::*)(Ret) Setter&gt; </td></tr>
 <tr class="memitem:gaccbb04315509df181f619c6aecbbf44d"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyWithError</b> ()</td></tr>
 <tr class="separator:gaccbb04315509df181f619c6aecbbf44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga87ddb4c2effbe102c228cef8301e74f8" id="r_ga87ddb4c2effbe102c228cef8301e74f8"><td class="memTemplParams" colspan="2">
-template&lt;typename T , double T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , double T::* Member&gt; </td></tr>
 <tr class="memitem:ga87ddb4c2effbe102c228cef8301e74f8"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyQuantity</b> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim)</td></tr>
 <tr class="separator:ga87ddb4c2effbe102c228cef8301e74f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5aa69fb18d88c8d20c9f1c85e607e790" id="r_ga5aa69fb18d88c8d20c9f1c85e607e790"><td class="memTemplParams" colspan="2">
-template&lt;typename T , double(T::*)() const Getter, void(T::*)(double) Setter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , double(T::*)() const Getter, void(T::*)(double) Setter&gt; </td></tr>
 <tr class="memitem:ga5aa69fb18d88c8d20c9f1c85e607e790"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyQuantity</b> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim)</td></tr>
 <tr class="separator:ga5aa69fb18d88c8d20c9f1c85e607e790"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9d686dd1c2a5ef07f931cd250e257ee1" id="r_ga9d686dd1c2a5ef07f931cd250e257ee1"><td class="memTemplParams" colspan="2">
-template&lt;typename T , double(T::*)() const Getter, errc_t(T::*)(double) Setter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , double(T::*)() const Getter, errc_t(T::*)(double) Setter&gt; </td></tr>
 <tr class="memitem:ga9d686dd1c2a5ef07f931cd250e257ee1"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyQuantityWithError</b> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim)</td></tr>
 <tr class="separator:ga9d686dd1c2a5ef07f931cd250e257ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga69f6661f925bc8f72544fb801276fe22" id="r_ga69f6661f925bc8f72544fb801276fe22"><td class="memTemplParams" colspan="2">
-template&lt;typename T , typename ObjectType , ObjectType *T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , typename ObjectType , ObjectType *T::* Member&gt; </td></tr>
 <tr class="memitem:ga69f6661f925bc8f72544fb801276fe22"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyObject</b> ()</td></tr>
 <tr class="separator:ga69f6661f925bc8f72544fb801276fe22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa1b599947be87c513d3a7ddf07c6a62b" id="r_gaa1b599947be87c513d3a7ddf07c6a62b"><td class="memTemplParams" colspan="2">
-template&lt;typename T , typename ObjectType , ObjectType *(T::*)() const Getter, void(T::*)(ObjectType *) Setter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , typename ObjectType , ObjectType *(T::*)() const Getter, void(T::*)(ObjectType *) Setter&gt; </td></tr>
 <tr class="memitem:gaa1b599947be87c513d3a7ddf07c6a62b"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyObject</b> ()</td></tr>
 <tr class="separator:gaa1b599947be87c513d3a7ddf07c6a62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaec4d8a7bc290d43e7df75cf1bdb7b99b" id="r_gaec4d8a7bc290d43e7df75cf1bdb7b99b"><td class="memTemplParams" colspan="2">
-template&lt;typename T , typename ObjectType , ObjectType *(T::*)() const Getter, errc_t(T::*)(ObjectType *) Setter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , typename ObjectType , ObjectType *(T::*)() const Getter, errc_t(T::*)(ObjectType *) Setter&gt; </td></tr>
 <tr class="memitem:gaec4d8a7bc290d43e7df75cf1bdb7b99b"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyObjectWithError</b> ()</td></tr>
 <tr class="separator:gaec4d8a7bc290d43e7df75cf1bdb7b99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafffc2c1ad99d952e922dc31d03b41d7c" id="r_gafffc2c1ad99d952e922dc31d03b41d7c"><td class="memTemplParams" colspan="2">
-template&lt;typename T , bool T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , bool T::* Member&gt; </td></tr>
 <tr class="memitem:gafffc2c1ad99d952e922dc31d03b41d7c"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyBoolMem</b> ()</td></tr>
 <tr class="separator:gafffc2c1ad99d952e922dc31d03b41d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf98e3f10253e61318f62268b7d2e8660" id="r_gaf98e3f10253e61318f62268b7d2e8660"><td class="memTemplParams" colspan="2">
-template&lt;typename T , int T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , int T::* Member&gt; </td></tr>
 <tr class="memitem:gaf98e3f10253e61318f62268b7d2e8660"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyIntMem</b> ()</td></tr>
 <tr class="separator:gaf98e3f10253e61318f62268b7d2e8660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad3fe35289af1ca2fa44c14cb10e7dfb7" id="r_gad3fe35289af1ca2fa44c14cb10e7dfb7"><td class="memTemplParams" colspan="2">
-template&lt;typename T , double T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , double T::* Member&gt; </td></tr>
 <tr class="memitem:gad3fe35289af1ca2fa44c14cb10e7dfb7"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyDoubleMem</b> ()</td></tr>
 <tr class="separator:gad3fe35289af1ca2fa44c14cb10e7dfb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7d4a7fb307d92362d5099478d7f79aea" id="r_ga7d4a7fb307d92362d5099478d7f79aea"><td class="memTemplParams" colspan="2">
-template&lt;typename T , std::string T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , std::string T::* Member&gt; </td></tr>
 <tr class="memitem:ga7d4a7fb307d92362d5099478d7f79aea"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyStringMem</b> ()</td></tr>
 <tr class="separator:ga7d4a7fb307d92362d5099478d7f79aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae279d6b4de36d7726e7d19dbcfeeca73" id="r_gae279d6b4de36d7726e7d19dbcfeeca73"><td class="memTemplParams" colspan="2">
-template&lt;typename T , bool T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , bool T::* Member&gt; </td></tr>
 <tr class="memitem:gae279d6b4de36d7726e7d19dbcfeeca73"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyBool</b> ()</td></tr>
 <tr class="separator:gae279d6b4de36d7726e7d19dbcfeeca73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad67852dd91de21036b8aa716de53c665" id="r_gad67852dd91de21036b8aa716de53c665"><td class="memTemplParams" colspan="2">
-template&lt;typename T , int T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , int T::* Member&gt; </td></tr>
 <tr class="memitem:gad67852dd91de21036b8aa716de53c665"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyInt</b> ()</td></tr>
 <tr class="separator:gad67852dd91de21036b8aa716de53c665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae226f50849c8a709762c86e35ea8bf3f" id="r_gae226f50849c8a709762c86e35ea8bf3f"><td class="memTemplParams" colspan="2">
-template&lt;typename T , double T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , double T::* Member&gt; </td></tr>
 <tr class="memitem:gae226f50849c8a709762c86e35ea8bf3f"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyDouble</b> ()</td></tr>
 <tr class="separator:gae226f50849c8a709762c86e35ea8bf3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad3f0c83f3703a466479984a0b62fba71" id="r_gad3f0c83f3703a466479984a0b62fba71"><td class="memTemplParams" colspan="2">
-template&lt;typename T , std::string T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , std::string T::* Member&gt; </td></tr>
 <tr class="memitem:gad3f0c83f3703a466479984a0b62fba71"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyString</b> ()</td></tr>
 <tr class="separator:gad3f0c83f3703a466479984a0b62fba71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2c67f9181c6de822990170429f6bad45" id="r_ga2c67f9181c6de822990170429f6bad45"><td class="memTemplParams" colspan="2">
-template&lt;typename T , double T::* Member&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , double T::* Member&gt; </td></tr>
 <tr class="memitem:ga2c67f9181c6de822990170429f6bad45"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyQuantityMem</b> (<a class="el" href="classast_1_1Dimension.html">Dimension</a> dim)</td></tr>
 <tr class="separator:ga2c67f9181c6de822990170429f6bad45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga23ab56939991a5c55275128b84332bcd" id="r_ga23ab56939991a5c55275128b84332bcd"><td class="memTemplParams" colspan="2">
-template&lt;typename T , bool(T::*)() const Getter, void(T::*)(bool) Setter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , bool(T::*)() const Getter, void(T::*)(bool) Setter&gt; </td></tr>
 <tr class="memitem:ga23ab56939991a5c55275128b84332bcd"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyBool</b> ()</td></tr>
 <tr class="separator:ga23ab56939991a5c55275128b84332bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabd80cec7c92c81bef0fc0ded24e581fe" id="r_gabd80cec7c92c81bef0fc0ded24e581fe"><td class="memTemplParams" colspan="2">
-template&lt;typename T , int(T::*)() const Getter, void(T::*)(int) Setter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , int(T::*)() const Getter, void(T::*)(int) Setter&gt; </td></tr>
 <tr class="memitem:gabd80cec7c92c81bef0fc0ded24e581fe"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyInt</b> ()</td></tr>
 <tr class="separator:gabd80cec7c92c81bef0fc0ded24e581fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga42339af3443182c13b64b8d69f3a2642" id="r_ga42339af3443182c13b64b8d69f3a2642"><td class="memTemplParams" colspan="2">
-template&lt;typename T , double(T::*)() const Getter, void(T::*)(double) Setter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , double(T::*)() const Getter, void(T::*)(double) Setter&gt; </td></tr>
 <tr class="memitem:ga42339af3443182c13b64b8d69f3a2642"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyDouble</b> ()</td></tr>
 <tr class="separator:ga42339af3443182c13b64b8d69f3a2642"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab1f1da4e88219f2a7797a180f28a869f" id="r_gab1f1da4e88219f2a7797a180f28a869f"><td class="memTemplParams" colspan="2">
-template&lt;typename T , const std::string &amp;(T::*)() const Getter, void(T::*)(<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>) Setter&gt; </td></tr>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> , const std::string &amp;(T::*)() const Getter, void(T::*)(<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>) Setter&gt; </td></tr>
 <tr class="memitem:gab1f1da4e88219f2a7797a180f28a869f"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aNewPropertyString</b> ()</td></tr>
 <tr class="separator:gab1f1da4e88219f2a7797a180f28a869f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

@@ -1,5 +1,15 @@
 var NAVTREEINDEX34 =
 {
+"classast_1_1MotionBallistic.html#a1d87524a770872d86ea97673f39240f7":[2,0,0,457,9],
+"classast_1_1MotionBallistic.html#a1d87524a770872d86ea97673f39240f7":[3,0,0,456,9],
+"classast_1_1MotionBallistic.html#a1e09b844cc81c366422cc64ba8ac6d41":[2,0,0,457,19],
+"classast_1_1MotionBallistic.html#a1e09b844cc81c366422cc64ba8ac6d41":[3,0,0,456,19],
+"classast_1_1MotionBallistic.html#a21d3f44b815012f001b2948b19cdcaf5":[2,0,0,457,14],
+"classast_1_1MotionBallistic.html#a21d3f44b815012f001b2948b19cdcaf5":[3,0,0,456,14],
+"classast_1_1MotionBallistic.html#a2aa81edf9766acd09ffb0d643b548e07":[2,0,0,457,10],
+"classast_1_1MotionBallistic.html#a2aa81edf9766acd09ffb0d643b548e07":[3,0,0,456,10],
+"classast_1_1MotionBallistic.html#a2ebbac3fe600a5ac11cfcb61146aff66":[2,0,0,457,24],
+"classast_1_1MotionBallistic.html#a2ebbac3fe600a5ac11cfcb61146aff66":[3,0,0,456,24],
 "classast_1_1MotionBallistic.html#a3e3afa619e15e01d9c46ee69d5e82b22":[2,0,0,457,12],
 "classast_1_1MotionBallistic.html#a3e3afa619e15e01d9c46ee69d5e82b22":[3,0,0,456,12],
 "classast_1_1MotionBallistic.html#a40e4816c6afc9cad1f8dd1c49386d80f":[2,0,0,457,8],
@@ -239,15 +249,5 @@ var NAVTREEINDEX34 =
 "classast_1_1MotionSimpleAscent.html#a8c4cd8c1d919694266ec25609e20cc95":[2,0,0,473,17],
 "classast_1_1MotionSimpleAscent.html#a8c4cd8c1d919694266ec25609e20cc95":[3,0,0,472,17],
 "classast_1_1MotionSimpleAscent.html#a97df72561279f387ac07571ab6a6a8a8":[2,0,0,473,8],
-"classast_1_1MotionSimpleAscent.html#a97df72561279f387ac07571ab6a6a8a8":[3,0,0,472,8],
-"classast_1_1MotionSimpleAscent.html#a9c5712b343f7ac0e43820d1c03c5e937":[2,0,0,473,5],
-"classast_1_1MotionSimpleAscent.html#a9c5712b343f7ac0e43820d1c03c5e937":[3,0,0,472,5],
-"classast_1_1MotionSimpleAscent.html#aab1490ee709d91433ef0e652aac7a6f8":[2,0,0,473,4],
-"classast_1_1MotionSimpleAscent.html#aab1490ee709d91433ef0e652aac7a6f8":[3,0,0,472,4],
-"classast_1_1MotionSimpleAscent.html#ab598b59df70f50b5e7deba0392a1e281":[2,0,0,473,0],
-"classast_1_1MotionSimpleAscent.html#ab598b59df70f50b5e7deba0392a1e281":[3,0,0,472,0],
-"classast_1_1MotionSimpleAscent.html#ad90758bb574b549d0c85353a54918719":[2,0,0,473,12],
-"classast_1_1MotionSimpleAscent.html#ad90758bb574b549d0c85353a54918719":[3,0,0,472,12],
-"classast_1_1MotionSimpleAscent.html#addeb64bb4595545c32b38c1edd7e9c59":[2,0,0,473,7],
-"classast_1_1MotionSimpleAscent.html#addeb64bb4595545c32b38c1edd7e9c59":[3,0,0,472,7]
+"classast_1_1MotionSimpleAscent.html#a97df72561279f387ac07571ab6a6a8a8":[3,0,0,472,8]
 };

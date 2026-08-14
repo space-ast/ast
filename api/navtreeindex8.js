@@ -1,5 +1,12 @@
 var NAVTREEINDEX8 =
 {
+"LocalHorizonalFrame_8hpp.html#ad9ab68876744e149579c3feb94123348":[4,0,0,6,5,2,5,0],
+"LocalHorizonalFrame_8hpp.html#ae37cf89ecf7a5a9f24db02a7bdd1ee5b":[4,0,0,6,5,2,5,9],
+"LocalHorizonalFrame_8hpp.html#aff2288f2bae71a06b1f524e890dbd26a":[4,0,0,6,5,2,5,8],
+"LocalHorizonalFrame_8hpp_source.html":[4,0,0,6,5,2,5],
+"LocalOrbitFrame_8cpp.html":[4,0,0,6,5,2,6],
+"LocalOrbitFrame_8hpp.html":[4,0,0,6,5,2,7],
+"LocalOrbitFrame_8hpp_source.html":[4,0,0,6,5,2,7],
 "LocaleGuard_8hpp.html":[4,0,0,27,11,10],
 "LocaleGuard_8hpp_source.html":[4,0,0,27,11,10],
 "Logger_8cpp.html":[4,0,0,27,11,11],
@@ -242,12 +249,5 @@ var NAVTREEINDEX8 =
 "NLPProblem_8hpp.html":[4,0,0,15,12],
 "NLPProblem_8hpp.html#a3fd746ebda039a488dc4a9f0db2073c2":[4,0,0,15,12,1],
 "NLPProblem_8hpp_source.html":[4,0,0,15,12],
-"NLPSnoptSolver_8cpp.html":[4,0,0,15,14],
-"NLPSnoptSolver_8hpp.html":[4,0,0,15,15],
-"NLPSnoptSolver_8hpp_source.html":[4,0,0,15,15],
-"NLPSolver_8cpp.html":[4,0,0,15,16],
-"NLPSolver_8hpp.html":[4,0,0,15,17],
-"NLPSolver_8hpp_source.html":[4,0,0,15,17],
-"NRLMSIS00_8cpp.html":[4,0,0,6,2,16],
-"NRLMSIS00_8hpp.html":[4,0,0,6,2,17]
+"NLPSnoptSolver_8cpp.html":[4,0,0,15,14]
 };

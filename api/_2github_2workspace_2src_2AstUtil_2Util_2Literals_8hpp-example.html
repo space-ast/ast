@@ -444,6 +444,38 @@ $(function(){initNavTree('_2github_2workspace_2src_2AstUtil_2Util_2Literals_8hpp
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(val) * kKilometerToMeter * kKilometerToMeter;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="comment">// 磁感应强度(磁通密度)单位 - 基于特斯拉的单位制</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_T(<span class="keywordtype">long</span> <span class="keywordtype">double</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> val;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_T(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(val);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_nT(<span class="keywordtype">long</span> <span class="keywordtype">double</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> val * kNanoteslaToTesla;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_nT(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> val * kNanoteslaToTesla;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_Gs(<span class="keywordtype">long</span> <span class="keywordtype">double</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> val * kGaussToTesla;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_Gs(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> val)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> val * kGaussToTesla;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
 <div class="line">    <span class="comment">//----------------</span></div>
 <div class="line">    <span class="comment">// unit literals</span></div>
 <div class="line">    <span class="comment">//----------------</span></div>
@@ -464,6 +496,10 @@ $(function(){initNavTree('_2github_2workspace_2src_2AstUtil_2Util_2Literals_8hpp
 <div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> min = 1_min;</div>
 <div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> h = 1_h;</div>
 <div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> day = 1_day;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> T = 1_T;</div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> nT = 1_nT;</div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> Gs = 1_Gs;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// 导入字面量命名空间到ast命名空间，便于使用</span></div>

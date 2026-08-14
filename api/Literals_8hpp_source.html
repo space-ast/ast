@@ -535,37 +535,88 @@ $(function(){initNavTree('Literals_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    }</div>
 </div>
 <div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="comment">//----------------</span></div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    <span class="comment">// unit literals</span></div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>    <span class="comment">//----------------</span></div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6d966734edbd9f3919b56975c0b83d0e">deg</a> = 1_deg;</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#aa2ca0a73ad1c1d8d0099f63d6428217d">rad</a> = 1_rad;</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a4269fe8d0f2f532e585768ed1c5cfb76">arcsec</a> = 1_arcsec;</div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a> = 1_m;</div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a9364340c0b565ffc085161f27b9cdfde">km</a> = 1_km;</div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a303e4126abedb9af71391110b791f9ce">cm</a> = 1_cm;</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> au = 1_au;</div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    </div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span> </div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> = 1_s;</div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a> = 1_s;</div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a66fc0c2327c7c298ea5eca0f8afb08c8">ms</a> = 1_ms;</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> min = 1_min;</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a41b2cc417965220fe0097097e15b1f5c">h</a> = 1_h;</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a46331518b0993f7058b537530ef94a33">day</a> = 1_day;</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>}</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="comment">// 磁感应强度(磁通密度)单位 - 基于特斯拉的单位制</span></div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
+<div class="foldopen" id="foldopen00401" data-start="{" data-end="}">
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno"><a class="line" href="namespaceast_1_1literals.html#a48a759ae8040c3004f34ef1dbaa20065">  401</a></span>    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_T(<span class="keywordtype">long</span> <span class="keywordtype">double</span> val)</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    {</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>        <span class="keywordflow">return</span> val;</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    }</div>
 </div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span> </div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span><span class="comment">// 导入字面量命名空间到ast命名空间，便于使用</span></div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span><span class="keyword">using namespace </span>literals;</div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="foldopen" id="foldopen00407" data-start="{" data-end="}">
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno"><a class="line" href="namespaceast_1_1literals.html#aeb2087977046e80e517ac1b295490f0c">  407</a></span>    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_T(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> val)</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    {</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(val);</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    }</div>
+</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span> </div>
+<div class="foldopen" id="foldopen00413" data-start="{" data-end="}">
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno"><a class="line" href="namespaceast_1_1literals.html#a958d752146621a4e05d702aba5699c91">  413</a></span>    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_nT(<span class="keywordtype">long</span> <span class="keywordtype">double</span> val)</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    {</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>        <span class="keywordflow">return</span> val * <a class="code hl_variable" href="group__Util.html#gab3db9e09d7943ae7301c31d15c215369">kNanoteslaToTesla</a>;</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    }</div>
+</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span> </div>
+<div class="foldopen" id="foldopen00419" data-start="{" data-end="}">
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno"><a class="line" href="namespaceast_1_1literals.html#a001e05a567b56757aecc4fccd5b628e7">  419</a></span>    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_nT(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> val)</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    {</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>        <span class="keywordflow">return</span> val * <a class="code hl_variable" href="group__Util.html#gab3db9e09d7943ae7301c31d15c215369">kNanoteslaToTesla</a>;</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>    }</div>
+</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
+<div class="foldopen" id="foldopen00425" data-start="{" data-end="}">
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno"><a class="line" href="namespaceast_1_1literals.html#a567011a49a876f4c283a498d67f3c55d">  425</a></span>    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_Gs(<span class="keywordtype">long</span> <span class="keywordtype">double</span> val)</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    {</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>        <span class="keywordflow">return</span> val * <a class="code hl_variable" href="group__Util.html#ga18f6f717bda8518bdd24fb910495162b">kGaussToTesla</a>;</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    }</div>
+</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span> </div>
+<div class="foldopen" id="foldopen00431" data-start="{" data-end="}">
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno"><a class="line" href="namespaceast_1_1literals.html#a516173607c5e3da6961247e3d60f6fb4">  431</a></span>    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_Gs(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> val)</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    {</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>        <span class="keywordflow">return</span> val * <a class="code hl_variable" href="group__Util.html#ga18f6f717bda8518bdd24fb910495162b">kGaussToTesla</a>;</div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    }</div>
+</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span> </div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    <span class="comment">//----------------</span></div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>    <span class="comment">// unit literals</span></div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>    <span class="comment">//----------------</span></div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span> </div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6d966734edbd9f3919b56975c0b83d0e">deg</a> = 1_deg;</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#aa2ca0a73ad1c1d8d0099f63d6428217d">rad</a> = 1_rad;</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a4269fe8d0f2f532e585768ed1c5cfb76">arcsec</a> = 1_arcsec;</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span> </div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a> = 1_m;</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a9364340c0b565ffc085161f27b9cdfde">km</a> = 1_km;</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a303e4126abedb9af71391110b791f9ce">cm</a> = 1_cm;</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> au = 1_au;</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>    </div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span> </div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> = 1_s;</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7">sec</a> = 1_s;</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a66fc0c2327c7c298ea5eca0f8afb08c8">ms</a> = 1_ms;</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> min = 1_min;</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a41b2cc417965220fe0097097e15b1f5c">h</a> = 1_h;</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a46331518b0993f7058b537530ef94a33">day</a> = 1_day;</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span> </div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> = 1_T;</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a3c2daf334b57a8f94872576718ab94ae">nT</a> = 1_nT;</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a24443a92dfe568134168357e48429904">Gs</a> = 1_Gs;</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>}</div>
+</div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span> </div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span><span class="comment">// 导入字面量命名空间到ast命名空间，便于使用</span></div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span><span class="keyword">using namespace </span>literals;</div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span> </div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span> </div>
 <div class="ttc" id="aAstUtil_2Util_2Constants_8h_html"><div class="ttname"><a href="AstUtil_2Util_2Constants_8h.html">Constants.h</a></div></div>
 <div class="ttc" id="aUnit_8cpp_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:436</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a24443a92dfe568134168357e48429904"><div class="ttname"><a href="Unit_8cpp.html#a24443a92dfe568134168357e48429904">ast::units::Gs</a></div><div class="ttdeci">Unit Gs</div><div class="ttdoc">高斯</div><div class="ttdef"><b>定义</b> Unit.cpp:465</div></div>
 <div class="ttc" id="aUnit_8cpp_html_a303e4126abedb9af71391110b791f9ce"><div class="ttname"><a href="Unit_8cpp.html#a303e4126abedb9af71391110b791f9ce">ast::units::cm</a></div><div class="ttdeci">Unit cm</div><div class="ttdoc">厘米</div><div class="ttdef"><b>定义</b> Unit.cpp:425</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a3ba38903856aa71d0b6b98823175b315"><div class="ttname"><a href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">ast::units::T</a></div><div class="ttdeci">Unit T</div><div class="ttdoc">特斯拉</div><div class="ttdef"><b>定义</b> Unit.cpp:463</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a3c2daf334b57a8f94872576718ab94ae"><div class="ttname"><a href="Unit_8cpp.html#a3c2daf334b57a8f94872576718ab94ae">ast::units::nT</a></div><div class="ttdeci">Unit nT</div><div class="ttdoc">纳特斯拉</div><div class="ttdef"><b>定义</b> Unit.cpp:464</div></div>
 <div class="ttc" id="aUnit_8cpp_html_a41b2cc417965220fe0097097e15b1f5c"><div class="ttname"><a href="Unit_8cpp.html#a41b2cc417965220fe0097097e15b1f5c">ast::units::h</a></div><div class="ttdeci">Unit h</div><div class="ttdoc">小时</div><div class="ttdef"><b>定义</b> Unit.cpp:440</div></div>
 <div class="ttc" id="aUnit_8cpp_html_a4269fe8d0f2f532e585768ed1c5cfb76"><div class="ttname"><a href="Unit_8cpp.html#a4269fe8d0f2f532e585768ed1c5cfb76">ast::units::arcsec</a></div><div class="ttdeci">Unit arcsec</div><div class="ttdoc">弧秒</div><div class="ttdef"><b>定义</b> Unit.cpp:452</div></div>
 <div class="ttc" id="aUnit_8cpp_html_a46331518b0993f7058b537530ef94a33"><div class="ttname"><a href="Unit_8cpp.html#a46331518b0993f7058b537530ef94a33">ast::units::day</a></div><div class="ttdeci">Unit day</div><div class="ttdoc">天</div><div class="ttdef"><b>定义</b> Unit.cpp:441</div></div>
@@ -578,6 +629,7 @@ $(function(){initNavTree('Literals_8hpp_source.html',''); initResizable(true); }
 <div class="ttc" id="agroup__Util_html_ga087d994ff5078a24ddea9f94283c23cb"><div class="ttname"><a href="group__Util.html#ga087d994ff5078a24ddea9f94283c23cb">ast::kCentimeterToMeter</a></div><div class="ttdeci">constexpr double kCentimeterToMeter</div><div class="ttdoc">厘米到米</div><div class="ttdef"><b>定义</b> Constants.h:184</div></div>
 <div class="ttc" id="agroup__Util_html_ga12a8a48682816085701653e55bc40a32"><div class="ttname"><a href="group__Util.html#ga12a8a48682816085701653e55bc40a32">ast::kArcSecToRad</a></div><div class="ttdeci">constexpr double kArcSecToRad</div><div class="ttdoc">弧秒到弧度 kDegToRad/3600.0 度分秒的秒</div><div class="ttdef"><b>定义</b> Constants.h:229</div></div>
 <div class="ttc" id="agroup__Util_html_ga1304565d76b2ea4ea5dc3f0a07a003e8"><div class="ttname"><a href="group__Util.html#ga1304565d76b2ea4ea5dc3f0a07a003e8">ast::kRevolutionToRad</a></div><div class="ttdeci">constexpr double kRevolutionToRad</div><div class="ttdoc">周期数到弧度 2.0 * kPI</div><div class="ttdef"><b>定义</b> Constants.h:234</div></div>
+<div class="ttc" id="agroup__Util_html_ga18f6f717bda8518bdd24fb910495162b"><div class="ttname"><a href="group__Util.html#ga18f6f717bda8518bdd24fb910495162b">ast::kGaussToTesla</a></div><div class="ttdeci">constexpr double kGaussToTesla</div><div class="ttdoc">高斯到特斯拉</div><div class="ttdef"><b>定义</b> Constants.h:242</div></div>
 <div class="ttc" id="agroup__Util_html_ga260fc6daeec0cf2038491c7e23e35ab2"><div class="ttname"><a href="group__Util.html#ga260fc6daeec0cf2038491c7e23e35ab2">ast::kKilometerToMeter</a></div><div class="ttdeci">constexpr double kKilometerToMeter</div><div class="ttdoc">千米到米</div><div class="ttdef"><b>定义</b> Constants.h:183</div></div>
 <div class="ttc" id="agroup__Util_html_ga26e6b3f751883b9eb78ac315c46166c5"><div class="ttname"><a href="group__Util.html#ga26e6b3f751883b9eb78ac315c46166c5">ast::kAU</a></div><div class="ttdeci">constexpr double kAU</div><div class="ttdoc">天文单位 (IAU 1976)[m]</div><div class="ttdef"><b>定义</b> Constants.h:64</div></div>
 <div class="ttc" id="agroup__Util_html_ga28d1260fc7e63fe0136c74ea9ae9c077"><div class="ttname"><a href="group__Util.html#ga28d1260fc7e63fe0136c74ea9ae9c077">ast::kMicroMeterToMeter</a></div><div class="ttdeci">constexpr double kMicroMeterToMeter</div><div class="ttdoc">微米到米</div><div class="ttdef"><b>定义</b> Constants.h:186</div></div>
@@ -587,6 +639,7 @@ $(function(){initNavTree('Literals_8hpp_source.html',''); initResizable(true); }
 <div class="ttc" id="agroup__Util_html_ga7b6eb7fa357350369f89241923950cfa"><div class="ttname"><a href="group__Util.html#ga7b6eb7fa357350369f89241923950cfa">ast::kMicroSecToSec</a></div><div class="ttdeci">constexpr double kMicroSecToSec</div><div class="ttdoc">微秒到秒</div><div class="ttdef"><b>定义</b> Constants.h:208</div></div>
 <div class="ttc" id="agroup__Util_html_ga7e00280abead50a84a7936020a69becf"><div class="ttname"><a href="group__Util.html#ga7e00280abead50a84a7936020a69becf">ast::kMilliSecToSec</a></div><div class="ttdeci">constexpr double kMilliSecToSec</div><div class="ttdoc">毫秒到秒</div><div class="ttdef"><b>定义</b> Constants.h:207</div></div>
 <div class="ttc" id="agroup__Util_html_ga8c5a3bfe9a81264c8a6adcc2414e656c"><div class="ttname"><a href="group__Util.html#ga8c5a3bfe9a81264c8a6adcc2414e656c">ast::kNanoSecToSec</a></div><div class="ttdeci">constexpr double kNanoSecToSec</div><div class="ttdoc">纳秒到秒</div><div class="ttdef"><b>定义</b> Constants.h:209</div></div>
+<div class="ttc" id="agroup__Util_html_gab3db9e09d7943ae7301c31d15c215369"><div class="ttname"><a href="group__Util.html#gab3db9e09d7943ae7301c31d15c215369">ast::kNanoteslaToTesla</a></div><div class="ttdeci">constexpr double kNanoteslaToTesla</div><div class="ttdoc">纳特斯拉到特斯拉</div><div class="ttdef"><b>定义</b> Constants.h:241</div></div>
 <div class="ttc" id="agroup__Util_html_gad0a66f1cd53b932f99fbf339433b73a2"><div class="ttname"><a href="group__Util.html#gad0a66f1cd53b932f99fbf339433b73a2">ast::kMillimeterToMeter</a></div><div class="ttdeci">constexpr double kMillimeterToMeter</div><div class="ttdoc">毫米到米</div><div class="ttdef"><b>定义</b> Constants.h:185</div></div>
 <div class="ttc" id="agroup__Util_html_gad14fd79da69f6a9e1b171818f27c2b65"><div class="ttname"><a href="group__Util.html#gad14fd79da69f6a9e1b171818f27c2b65">ast::kDayToSec</a></div><div class="ttdeci">constexpr double kDayToSec</div><div class="ttdoc">天到秒</div><div class="ttdef"><b>定义</b> Constants.h:203</div></div>
 <div class="ttc" id="agroup__Util_html_gaed9c2c2d4ad459431ab236eb7609ad93"><div class="ttname"><a href="group__Util.html#gaed9c2c2d4ad459431ab236eb7609ad93">ast::kPicoSecToSec</a></div><div class="ttdeci">constexpr double kPicoSecToSec</div><div class="ttdoc">皮秒(微微秒)到秒</div><div class="ttdef"><b>定义</b> Constants.h:210</div></div>

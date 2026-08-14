@@ -116,7 +116,7 @@ $(function(){initNavTree('AstUtil_2RTTI_2ScopedPtr_8hpp_source.html',''); initRe
 <div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structast_1_1ScopedPtrDeleter.html">   31</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1ScopedPtrDeleter.html">ScopedPtrDeleter</a></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> cleanup(T* ptr)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> cleanup(<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* ptr)</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keyword">delete</span> ptr;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
@@ -125,9 +125,9 @@ $(function(){initNavTree('AstUtil_2RTTI_2ScopedPtr_8hpp_source.html',''); initRe
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structast_1_1ScopedPtrDeleter_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_fb1b9be9ff001b0d07c8cc184fa0e786.html">   40</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1ScopedPtrDeleter.html">ScopedPtrDeleter</a>&lt;T, typename std::enable_if&lt;std::is_base_of&lt;Object, T&gt;::value&gt;::type&gt;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structast_1_1ScopedPtrDeleter_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_fb1b9be9ff001b0d07c8cc184fa0e786.html">   40</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1ScopedPtrDeleter.html">ScopedPtrDeleter</a>&lt;<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>, typename std::enable_if&lt;std::is_base_of&lt;Object, T&gt;::value&gt;::type&gt;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> cleanup(T* ptr)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> cleanup(<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* ptr)</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        ptr-&gt;destruct();</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
@@ -150,7 +150,7 @@ $(function(){initNavTree('AstUtil_2RTTI_2ScopedPtr_8hpp_source.html',''); initRe
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classast_1_1ScopedPtr.html">   64</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1ScopedPtr.html">ScopedPtr</a></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>{</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1ScopedPtr.html">ScopedPtr</a>(T* ptr)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1ScopedPtr.html">ScopedPtr</a>(<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* ptr)</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        :pointer_{ ptr }</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    { }</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="classast_1_1ScopedPtr.html">ScopedPtr</a>()</div>
@@ -189,15 +189,15 @@ $(function(){initNavTree('AstUtil_2RTTI_2ScopedPtr_8hpp_source.html',''); initRe
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        pointer_ = ptr;</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        this-&gt;_delete(oldPtr);</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    T* get()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* get()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">return</span> pointer_;</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    T* operator-&gt;()<span class="keyword"> const</span>{<span class="keywordflow">return</span> pointer_;}</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">operator</span> T*() <span class="keyword">const</span>{<span class="keywordflow">return</span> pointer_;}</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    T* release()</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* operator-&gt;()<span class="keyword"> const</span>{<span class="keywordflow">return</span> pointer_;}</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">operator</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*() <span class="keyword">const</span>{<span class="keywordflow">return</span> pointer_;}</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* release()</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        T* ptr = pointer_;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* ptr = pointer_;</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        pointer_ = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">return</span> ptr;</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    }</div>
@@ -214,12 +214,13 @@ $(function(){initNavTree('AstUtil_2RTTI_2ScopedPtr_8hpp_source.html',''); initRe
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            ScopedPtrDeleter&lt;T&gt;::cleanup(ptr);</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    T* pointer_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* pointer_{<span class="keyword">nullptr</span>};</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>};</div>
 </div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>AST_NAMESPACE_END</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="ttc" id="aUnit_8cpp_html_a3ba38903856aa71d0b6b98823175b315"><div class="ttname"><a href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">ast::units::T</a></div><div class="ttdeci">Unit T</div><div class="ttdoc">特斯拉</div><div class="ttdef"><b>定义</b> Unit.cpp:463</div></div>
 <div class="ttc" id="aclassast_1_1ScopedPtr_html"><div class="ttname"><a href="classast_1_1ScopedPtr.html">ast::ScopedPtr</a></div><div class="ttdoc">作用域指针类</div><div class="ttdef"><b>定义</b> ScopedPtr.hpp:65</div></div>
 <div class="ttc" id="aclassast_1_1ScopedPtr_html_a029fecfd485da5745d1b38f2803b5d5b"><div class="ttname"><a href="classast_1_1ScopedPtr.html#a029fecfd485da5745d1b38f2803b5d5b">ast::ScopedPtr::ScopedPtr</a></div><div class="ttdeci">ScopedPtr(ScopedPtr &amp;&amp;other)</div><div class="ttdoc">移动构造函数</div><div class="ttdef"><b>定义</b> ScopedPtr.hpp:78</div></div>
 <div class="ttc" id="aclassast_1_1ScopedPtr_html_a47452465807e982349b82bb5d5f4cd9b"><div class="ttname"><a href="classast_1_1ScopedPtr.html#a47452465807e982349b82bb5d5f4cd9b">ast::ScopedPtr::operator=</a></div><div class="ttdeci">ScopedPtr &amp; operator=(ScopedPtr &amp;&amp;other)</div><div class="ttdoc">移动赋值运算符</div><div class="ttdef"><b>定义</b> ScopedPtr.hpp:84</div></div>

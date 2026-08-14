@@ -22,6 +22,7 @@ var Unit_8cpp =
     [ "dm", "Unit_8cpp.html#a567c78044182d62bdfd482ade453488f", null ],
     [ "ft", "Unit_8cpp.html#a888ceef2cfae6e68b8c7382fd2a5fc0c", null ],
     [ "g", "Unit_8cpp.html#ae4556ebaa282d22cb28134feff39ae12", null ],
+    [ "Gs", "Unit_8cpp.html#a24443a92dfe568134168357e48429904", null ],
     [ "h", "Unit_8cpp.html#a41b2cc417965220fe0097097e15b1f5c", null ],
     [ "hour", "Unit_8cpp.html#a58be36ffcb2e27cc8ee98c20d92f0715", null ],
     [ "in", "Unit_8cpp.html#ae401b7f239f3217a5ad786e5457ecacb", null ],
@@ -40,10 +41,12 @@ var Unit_8cpp =
     [ "ms", "Unit_8cpp.html#a66fc0c2327c7c298ea5eca0f8afb08c8", null ],
     [ "N", "Unit_8cpp.html#aa855b6dee85a8685cc6cad69db006c8a", null ],
     [ "none", "Unit_8cpp.html#a8c7d84c2b89aa838db8477fc949f8e08", null ],
+    [ "nT", "Unit_8cpp.html#a3c2daf334b57a8f94872576718ab94ae", null ],
     [ "Pa", "Unit_8cpp.html#a8f2eae1a22b0ecea5e3f608a4fe35ee8", null ],
     [ "rad", "Unit_8cpp.html#aa2ca0a73ad1c1d8d0099f63d6428217d", null ],
     [ "s", "Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8", null ],
     [ "sec", "Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7", null ],
+    [ "T", "Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315", null ],
     [ "unit_name_separator", "Unit_8cpp.html#ac04b780d9c8e3bf0786b7aa7da7ac813", null ],
     [ "yd", "Unit_8cpp.html#a69bd41f3998d87945c5ba24d4f138c52", null ]
 ];

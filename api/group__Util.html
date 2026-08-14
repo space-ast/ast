@@ -415,8 +415,8 @@ template&lt;typename Scalar &gt; </td></tr>
 template&lt;typename Scalar &gt; </td></tr>
 <tr class="memitem:gae607d540253979beacb45ea4a55c0bb1"><td class="memTemplItemLeft" align="right" valign="top">Scalar&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aMin</b> (Scalar a, Scalar b)</td></tr>
 <tr class="separator:gae607d540253979beacb45ea4a55c0bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga77fdcb17fe2f5bf4506f1f136b81f282" id="r_ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memTemplItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga77fdcb17fe2f5bf4506f1f136b81f282">ast::clamp</a> (const T &amp;val, const T &amp;low, const T &amp;high)</td></tr>
+<tr class="memitem:ga77fdcb17fe2f5bf4506f1f136b81f282" id="r_ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </td></tr>
+<tr class="memitem:ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memTemplItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 const <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga77fdcb17fe2f5bf4506f1f136b81f282">ast::clamp</a> (const <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;val, const <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;low, const <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;high)</td></tr>
 <tr class="separator:ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga69612c7878a622a17ab0f6af56aaab65" id="r_ga69612c7878a622a17ab0f6af56aaab65"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga69612c7878a622a17ab0f6af56aaab65">ast::asinSafe</a> (double x)</td></tr>
 <tr class="separator:ga69612c7878a622a17ab0f6af56aaab65"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -816,6 +816,12 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kRad
 <tr class="memitem:gabca46bd772b42bc1069f2293ac9a0397" id="r_gabca46bd772b42bc1069f2293ac9a0397"><td class="memItemLeft" align="right" valign="top"><a id="gabca46bd772b42bc1069f2293ac9a0397" name="gabca46bd772b42bc1069f2293ac9a0397"></a>
 constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kRadToTimeHour</b> = <a class="el" href="#gad09241ea18c6169281fed8979fe2053f">kRadToDeg</a> / 15.0</td></tr>
 <tr class="separator:gabca46bd772b42bc1069f2293ac9a0397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3db9e09d7943ae7301c31d15c215369" id="r_gab3db9e09d7943ae7301c31d15c215369"><td class="memItemLeft" align="right" valign="top"><a id="gab3db9e09d7943ae7301c31d15c215369" name="gab3db9e09d7943ae7301c31d15c215369"></a>
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kNanoteslaToTesla</b> = 1.0e-9</td></tr>
+<tr class="separator:gab3db9e09d7943ae7301c31d15c215369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18f6f717bda8518bdd24fb910495162b" id="r_ga18f6f717bda8518bdd24fb910495162b"><td class="memItemLeft" align="right" valign="top"><a id="ga18f6f717bda8518bdd24fb910495162b" name="ga18f6f717bda8518bdd24fb910495162b"></a>
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kGaussToTesla</b> = 1.0e-4</td></tr>
+<tr class="separator:ga18f6f717bda8518bdd24fb910495162b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">枚举类型说明</h2>
 <a id="gac1947c945d205687379e80f42bba8dfd" name="gac1947c945d205687379e80f42bba8dfd"></a>
@@ -1830,22 +1836,22 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kRad
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">A_CONSTEXPR_CXX14 const T &amp; ast::clamp </td>
+          <td class="memname">A_CONSTEXPR_CXX14 const <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp; ast::clamp </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>high</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>high</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

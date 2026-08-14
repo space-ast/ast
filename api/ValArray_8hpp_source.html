@@ -133,13 +133,13 @@ $(function(){initNavTree('ValArray_8hpp_source.html',''); initResizable(true); }
 <div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">   60</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">size</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966">   65</a></span>    T <a class="code hl_function" href="classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966">at</a>(<span class="keywordtype">size_t</span> index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> data_[index]; }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966">   65</a></span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> <a class="code hl_function" href="classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966">at</a>(<span class="keywordtype">size_t</span> index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> data_[index]; }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#ac66eb116dbf1d29f20892744bbf143b1">   70</a></span>    T&amp; <a class="code hl_function" href="classast_1_1ValArray.html#ac66eb116dbf1d29f20892744bbf143b1">at</a>(<span class="keywordtype">size_t</span> index) { <span class="keywordflow">return</span> data_[index]; }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#ac66eb116dbf1d29f20892744bbf143b1">   70</a></span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; <a class="code hl_function" href="classast_1_1ValArray.html#ac66eb116dbf1d29f20892744bbf143b1">at</a>(<span class="keywordtype">size_t</span> index) { <span class="keywordflow">return</span> data_[index]; }</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#aefb5076bfe561d7498f557c6297fc9a8">   73</a></span>    <span class="keywordtype">size_t</span> dims_[NDIM];             </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a23b7d75dffbb7227d2ad5c90366cba49">   74</a></span>    T*     data_{<span class="keyword">nullptr</span>};          </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1ValArray.html#a23b7d75dffbb7227d2ad5c90366cba49">   74</a></span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*     data_{<span class="keyword">nullptr</span>};          </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
@@ -164,8 +164,8 @@ $(function(){initNavTree('ValArray_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment">// 判断是否需要扩充数组大小</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">if</span>(old_size &gt;= size)</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    {</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        T* old_data = data_;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        data_ = <span class="keyword">new</span> T[size];</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* old_data = data_;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        data_ = <span class="keyword">new</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>[size];</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">if</span>(old_data)</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        {</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordtype">size_t</span> copy_size = old_size &lt; size ? old_size : size;</div>
@@ -199,6 +199,7 @@ $(function(){initNavTree('ValArray_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
 </div>
 </div>
+<div class="ttc" id="aUnit_8cpp_html_a3ba38903856aa71d0b6b98823175b315"><div class="ttname"><a href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">ast::units::T</a></div><div class="ttdeci">Unit T</div><div class="ttdoc">特斯拉</div><div class="ttdef"><b>定义</b> Unit.cpp:463</div></div>
 <div class="ttc" id="aclassast_1_1ValArray_html"><div class="ttname"><a href="classast_1_1ValArray.html">ast::ValArray</a></div><div class="ttdoc">数组值类</div><div class="ttdef"><b>定义</b> ValArray.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1ValArray_html_a0200070cb5f89f45856614b2fab47013"><div class="ttname"><a href="classast_1_1ValArray.html#a0200070cb5f89f45856614b2fab47013">ast::ValArray::page</a></div><div class="ttdeci">size_t page() const</div><div class="ttdoc">获取数组页数</div><div class="ttdef"><b>定义</b> ValArray.hpp:56</div></div>
 <div class="ttc" id="aclassast_1_1ValArray_html_a02f6b171c8adfd17b6b09695656c805b"><div class="ttname"><a href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">ast::ValArray::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdoc">获取数组元素数量</div><div class="ttdef"><b>定义</b> ValArray.hpp:114</div></div>

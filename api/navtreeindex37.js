@@ -1,5 +1,15 @@
 var NAVTREEINDEX37 =
 {
+"classast_1_1ObjectManager.html#a915744dcf7daaf93f4612976507951b8":[2,0,0,520,10],
+"classast_1_1ObjectManager.html#a915744dcf7daaf93f4612976507951b8":[3,0,0,519,10],
+"classast_1_1ObjectManager.html#a9544d7835f57f773976bf91a3bd0d0a8":[2,0,0,520,0],
+"classast_1_1ObjectManager.html#a9544d7835f57f773976bf91a3bd0d0a8":[3,0,0,519,0],
+"classast_1_1ObjectManager.html#a96fdb8d4b60e0d6c74266a1dd233b911":[2,0,0,520,8],
+"classast_1_1ObjectManager.html#a96fdb8d4b60e0d6c74266a1dd233b911":[3,0,0,519,8],
+"classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f":[2,0,0,520,5],
+"classast_1_1ObjectManager.html#aa02917a20538ee26a443e5efeb71781f":[3,0,0,519,5],
+"classast_1_1ObjectManager.html#aaae37ad27754f2c130726e0ae70e9c4a":[2,0,0,520,16],
+"classast_1_1ObjectManager.html#aaae37ad27754f2c130726e0ae70e9c4a":[3,0,0,519,16],
 "classast_1_1ObjectManager.html#aad359bc103c89830e8265885d95606ed":[2,0,0,520,9],
 "classast_1_1ObjectManager.html#aad359bc103c89830e8265885d95606ed":[3,0,0,519,9],
 "classast_1_1ObjectManager.html#ab323221297ed4fb560aa50545e371392":[2,0,0,520,6],
@@ -239,15 +249,5 @@ var NAVTREEINDEX37 =
 "classast_1_1PointRoot.html":[0,1,0,11],
 "classast_1_1PointRoot.html#aaa35c3d0d0df0d49adf0027f321b8f55":[0,1,0,11,0],
 "classast_1_1PointRoot.html#ac26fe31c18ce0d4d72f95d4bcb5a5bd0":[0,1,0,11,1],
-"classast_1_1PointRoot.html#ac81402a14eba578b906ced49c069e6a0":[0,1,0,11,2],
-"classast_1_1PointSSBarycenter.html":[0,1,0,12],
-"classast_1_1PointSSBarycenter.html#a5b86fb5e195778b19bd6ddffa3d08950":[0,1,0,12,0],
-"classast_1_1PointSSBarycenter.html#a910d244422f8cddf062510af02813506":[0,1,0,12,2],
-"classast_1_1PointSSBarycenter.html#adae8a58f274f31f03c59bf0f76649399":[0,1,0,12,1],
-"classast_1_1Polynomial.html":[0,8,13],
-"classast_1_1Polynomial.html#a15d601a475b507decfe5f784509dd1b4":[0,8,13,3],
-"classast_1_1Polynomial.html#a7d65d2fabeed2a6cf14451c265387731":[0,8,13,2],
-"classast_1_1Polynomial.html#ad7d714ad2fc6ec23c384e1034d1bb4dd":[0,8,13,1],
-"classast_1_1Propagate.html":[2,0,0,572],
-"classast_1_1Propagate.html":[3,0,0,571]
+"classast_1_1PointRoot.html#ac81402a14eba578b906ced49c069e6a0":[0,1,0,11,2]
 };

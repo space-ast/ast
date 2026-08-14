@@ -1,5 +1,12 @@
 var NAVTREEINDEX14 =
 {
+"SegmentCalculation_8hpp_source.html":[4,0,0,6,10,1,5],
+"SegmentGraph_8cpp.html":[4,0,0,6,10,3,28],
+"SegmentGraph_8hpp.html":[4,0,0,6,10,3,29],
+"SegmentGraph_8hpp_source.html":[4,0,0,6,10,3,29],
+"SegmentLoader_8cpp.html":[4,0,0,11,1,2,14],
+"SegmentLoader_8cpp.html#aef5dcbbc1252c39adc7b1e2f59da07da":[4,0,0,11,1,2,14,0],
+"SegmentLoader_8hpp.html":[4,0,0,11,1,2,15],
 "SegmentLoader_8hpp.html#aef5dcbbc1252c39adc7b1e2f59da07da":[4,0,0,11,1,2,15,0],
 "SegmentLoader_8hpp_source.html":[4,0,0,11,1,2,15],
 "Segment_8cpp.html":[4,0,0,6,10,3,26],
@@ -242,12 +249,5 @@ var NAVTREEINDEX14 =
 "SpatialCondition_8hpp.html":[4,0,0,6,9,3,22],
 "SpatialCondition_8hpp_source.html":[4,0,0,6,9,3,22],
 "Spatial_8hpp.html":[4,0,0,6,9,3,2],
-"Spatial_8hpp_source.html":[4,0,0,6,9,3,2],
-"SphereShape_8cpp.html":[4,0,0,6,9,4,0,6],
-"SphereShape_8hpp.html":[4,0,0,6,9,4,0,7],
-"SphereShape_8hpp_source.html":[4,0,0,6,9,4,0,7],
-"SpheroidShape_8cpp.html":[4,0,0,6,9,4,0,8],
-"SpheroidShape_8hpp.html":[4,0,0,6,9,4,0,9],
-"SpheroidShape_8hpp_source.html":[4,0,0,6,9,4,0,9],
-"SpiceAPI_8cpp.html":[4,0,0,6,6,14]
+"Spatial_8hpp_source.html":[4,0,0,6,9,3,2]
 };

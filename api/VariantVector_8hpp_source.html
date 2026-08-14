@@ -219,7 +219,7 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">void</span> pushBack(<span class="keyword">const</span> T&amp; value);</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>, <span class="keyword">typename</span>... Args&gt;</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordtype">void</span> emplaceBack(Args&amp;&amp;... args);</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordtype">void</span> clear();</div>
@@ -230,10 +230,10 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="comment">// ============================================================</span></div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    T* as();</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* as();</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keyword">const</span> T* as() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keyword">const</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* as() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    Span&lt;T&gt; asSpan();</div>
@@ -242,26 +242,26 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    Span&lt;const T&gt; asSpan() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    T&amp; at(<span class="keywordtype">size_t</span> i);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; at(<span class="keywordtype">size_t</span> i);</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keyword">const</span> T&amp; at(<span class="keywordtype">size_t</span> i) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keyword">const</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; at(<span class="keywordtype">size_t</span> i) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="comment">// ============================================================</span></div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="comment">// 迭代器（模板）</span></div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="comment">// ============================================================</span></div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    T* begin();</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* begin();</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keyword">const</span> T* begin() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keyword">const</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* begin() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    T* end();</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* end();</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keyword">const</span> T* end() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keyword">const</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* end() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="comment">// ============================================================</span></div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="comment">// 交换</span></div>
@@ -310,23 +310,23 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code hl_struct" href="structast_1_1VariantVector_1_1TypeOps.html">TypeOps</a> ops = {</div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            <span class="comment">// destroy — 析构 count 个元素</span></div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            [](<span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> count) {</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                T* p = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* p = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data);</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; count; ++i)</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                    p[i].~T();</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                    p[i].~<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>();</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            },</div>
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            <span class="comment">// copyConstruct — 从 src 拷贝构造 count 个元素到 dst</span></div>
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            [](<span class="keywordtype">void</span>* dst, <span class="keyword">const</span> <span class="keywordtype">void</span>* src, <span class="keywordtype">size_t</span> count) {</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                <span class="keyword">const</span> T* <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>T*<span class="keyword">&gt;</span>(src);</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                T* d = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(dst);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                <span class="keyword">const</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(src);</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* d = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(dst);</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; count; ++i)</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>                    ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;d[i])) T(<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[i]);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>                    ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;d[i])) <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>(<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[i]);</div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            },</div>
 <div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            <span class="comment">// moveConstruct — 从 src 移动构造 count 个元素到 dst</span></div>
 <div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            [](<span class="keywordtype">void</span>* dst, <span class="keywordtype">void</span>* src, <span class="keywordtype">size_t</span> count) {</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                T* <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(src);</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                T* d = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(dst);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(src);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* d = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(dst);</div>
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; count; ++i)</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>                    ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;d[i])) T(std::move(<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[i]));</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>                    ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;d[i])) <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>(std::move(<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[i]));</div>
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            },</div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        };</div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="keywordflow">return</span> ops;</div>
@@ -372,7 +372,7 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    <span class="comment">// 首次确定类型：仅分配 Header，尚无元素空间</span></div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keyword">const</span> TypeOps&amp; typeOps = TypeOps::forType&lt;T&gt;();</div>
 <div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="keywordtype">void</span>* block = ::operator <span class="keyword">new</span>(kHeaderSize);</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    ::new (block) Header{&amp;typeOps, &amp;<span class="keyword">typeid</span>(T), <span class="keyword">sizeof</span>(T)};</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    ::new (block) Header{&amp;typeOps, &amp;<span class="keyword">typeid</span>(<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>), <span class="keyword">sizeof</span>(T)};</div>
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    data_ = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(block) + kHeaderSize;</div>
 <div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="comment">// size_ 和 capacity_ 保持 0（由默认构造保证）</span></div>
 <div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>}</div>
@@ -438,19 +438,19 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    <span class="keywordflow">if</span> (n &gt; size_)</div>
 <div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    {</div>
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="comment">// 默认构造新增元素（每成功构造一个立即递增 size_，异常安全）</span></div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>        T* p = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_);</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>        <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* p = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_);</div>
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        <span class="keywordflow">while</span> (size_ &lt; n)</div>
 <div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>        {</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>            ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;p[size_])) T();</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>            ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;p[size_])) <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>();</div>
 <div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>            ++size_;</div>
 <div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>        }</div>
 <div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    }</div>
 <div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (n &lt; size_)</div>
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    {</div>
 <div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>        <span class="comment">// 析构多余元素</span></div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>        T* p = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_);</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>        <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* p = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_);</div>
 <div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = n; i &lt; size_; ++i)</div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>            p[i].~T();</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>            p[i].~<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>();</div>
 <div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>        size_ = n;</div>
 <div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    }</div>
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>}</div>
@@ -466,19 +466,19 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    <span class="keywordflow">if</span> (n &gt; size_)</div>
 <div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    {</div>
 <div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>        <span class="comment">// 拷贝构造新增元素（每成功构造一个立即递增 size_，异常安全）</span></div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>        T* p = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_);</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>        <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* p = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_);</div>
 <div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>        <span class="keywordflow">while</span> (size_ &lt; n)</div>
 <div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>        {</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>            ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;p[size_])) T(value);</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>            ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;p[size_])) <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>(value);</div>
 <div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>            ++size_;</div>
 <div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>        }</div>
 <div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>    }</div>
 <div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (n &lt; size_)</div>
 <div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>    {</div>
 <div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>        <span class="comment">// 析构多余元素</span></div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>        T* p = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_);</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>        <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* p = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_);</div>
 <div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = n; i &lt; size_; ++i)</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>            p[i].~T();</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>            p[i].~<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>();</div>
 <div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>        size_ = n;</div>
 <div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>    }</div>
 <div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>}</div>
@@ -493,10 +493,10 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>    ensureType&lt;T&gt;();</div>
 <div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>    reserve&lt;T&gt;(n);</div>
 <div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span> </div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    T* p = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_);</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* p = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_);</div>
 <div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>    <span class="keywordflow">while</span> (size_ &lt; n)</div>
 <div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    {</div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>        ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;p[size_])) T();</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>        ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;p[size_])) <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>();</div>
 <div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>        ++size_;</div>
 <div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    }</div>
 <div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>}</div>
@@ -510,10 +510,10 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    ensureType&lt;T&gt;();</div>
 <div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>    reserve&lt;T&gt;(n);</div>
 <div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span> </div>
-<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    T* p = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_);</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* p = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_);</div>
 <div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    <span class="keywordflow">while</span> (size_ &lt; n)</div>
 <div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    {</div>
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>        ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;p[size_])) T(value);</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>        ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;p[size_])) <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>(value);</div>
 <div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>        ++size_;</div>
 <div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>    }</div>
 <div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>}</div>
@@ -540,7 +540,7 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00483" name="l00483"></a><span class="lineno">  483</span> </div>
 <div class="line"><a id="l00484" name="l00484"></a><span class="lineno">  484</span><span class="comment">// ---- emplaceBack ----</span></div>
 <div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span> </div>
-<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>, <span class="keyword">typename</span>... Args&gt;</div>
 <div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span><span class="keyword">inline</span> <span class="keywordtype">void</span> VariantVector::emplaceBack(Args&amp;&amp;... args)</div>
 <div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>{</div>
 <div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>    ensureType&lt;T&gt;();</div>
@@ -552,8 +552,8 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>        reserve&lt;T&gt;(newCap);</div>
 <div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>    }</div>
 <div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span> </div>
-<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>    T* p = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_);</div>
-<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>    ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;p[size_])) T(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* p = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_);</div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>    ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;p[size_])) <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>(std::forward&lt;Args&gt;(args)...);</div>
 <div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>    ++size_;</div>
 <div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>}</div>
 <div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span> </div>
@@ -561,23 +561,23 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span> </div>
 <div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00506" data-start="{" data-end="}">
-<div class="line"><a id="l00506" name="l00506"></a><span class="lineno"><a class="line" href="group__Container.html#gab74da410867740edc7396ff23c167cc8">  506</a></span><span class="keyword">inline</span> T&amp; VariantVector::at(<span class="keywordtype">size_t</span> i)</div>
+<div class="line"><a id="l00506" name="l00506"></a><span class="lineno"><a class="line" href="group__Container.html#gab74da410867740edc7396ff23c167cc8">  506</a></span><span class="keyword">inline</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; VariantVector::at(<span class="keywordtype">size_t</span> i)</div>
 <div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>{</div>
 <div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>    <span class="keywordflow">if</span> (data_ == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>        <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;VariantVector::at: vector has no type set&quot;</span>);</div>
 <div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span> </div>
-<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(T))</div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>))</div>
 <div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>        <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;VariantVector::at: type mismatch&quot;</span>);</div>
 <div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span> </div>
 <div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>    <span class="keywordflow">if</span> (i &gt;= size_)</div>
 <div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>        <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;VariantVector::at: index out of range&quot;</span>);</div>
 <div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span> </div>
-<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_)[i];</div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_)[i];</div>
 <div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>}</div>
 </div>
 <div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span> </div>
 <div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span><span class="keyword">inline</span> <span class="keyword">const</span> T&amp; VariantVector::at(<span class="keywordtype">size_t</span> i)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span><span class="keyword">inline</span> <span class="keyword">const</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; VariantVector::at(<span class="keywordtype">size_t</span> i)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span>    <span class="keywordflow">if</span> (data_ == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>        <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;VariantVector::at: vector has no type set&quot;</span>);</div>
@@ -588,27 +588,27 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>    <span class="keywordflow">if</span> (i &gt;= size_)</div>
 <div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>        <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;VariantVector::at: index out of range&quot;</span>);</div>
 <div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span> </div>
-<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>T*<span class="keyword">&gt;</span>(data_)[i];</div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_)[i];</div>
 <div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>}</div>
 <div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span> </div>
 <div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span><span class="comment">// ---- as ----</span></div>
 <div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span> </div>
 <div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00538" data-start="{" data-end="}">
-<div class="line"><a id="l00538" name="l00538"></a><span class="lineno"><a class="line" href="group__Container.html#ga7af62d710328ca2965052d97865c06f1">  538</a></span><span class="keyword">inline</span> T* VariantVector::as()</div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno"><a class="line" href="group__Container.html#ga7af62d710328ca2965052d97865c06f1">  538</a></span><span class="keyword">inline</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* VariantVector::as()</div>
 <div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>{</div>
 <div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>    <span class="keywordflow">if</span> (data_ == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(T)) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_);</div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>)) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_);</div>
 <div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>}</div>
 </div>
 <div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span> </div>
 <div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span><span class="keyword">inline</span> <span class="keyword">const</span> T* VariantVector::as()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span><span class="keyword">inline</span> <span class="keyword">const</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* VariantVector::as()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>    <span class="keywordflow">if</span> (data_ == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(T)) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>T*<span class="keyword">&gt;</span>(data_);</div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_);</div>
 <div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>}</div>
 <div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span> </div>
 <div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span><span class="comment">// ---- asSpan ----</span></div>
@@ -618,8 +618,8 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00556" name="l00556"></a><span class="lineno"><a class="line" href="group__Container.html#ga9aaae629ae4794060416bf5d2163986c">  556</a></span><span class="keyword">inline</span> <a class="code hl_class" href="classast_1_1Span.html">Span&lt;T&gt;</a> VariantVector::asSpan()</div>
 <div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>{</div>
 <div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>    <span class="keywordflow">if</span> (data_ == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Span.html">Span&lt;T&gt;</a>();</div>
-<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(T)) <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Span.html">Span&lt;T&gt;</a>();</div>
-<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Span.html">Span&lt;T&gt;</a>(<span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_), size_);</div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>)) <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Span.html">Span&lt;T&gt;</a>();</div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Span.html">Span&lt;T&gt;</a>(<span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_), size_);</div>
 <div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>}</div>
 </div>
 <div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span> </div>
@@ -628,7 +628,7 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>    <span class="keywordflow">if</span> (data_ == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Span.html">Span&lt;const T&gt;</a>();</div>
 <div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(T)) <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Span.html">Span&lt;const T&gt;</a>();</div>
-<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Span.html">Span&lt;const T&gt;</a>(<span class="keyword">static_cast&lt;</span><span class="keyword">const </span>T*<span class="keyword">&gt;</span>(data_), size_);</div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Span.html">Span&lt;const T&gt;</a>(<span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_), size_);</div>
 <div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>}</div>
 <div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span> </div>
 <div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span><span class="comment">// ---- begin / end ----</span></div>
@@ -642,27 +642,27 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>}</div>
 <div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span> </div>
 <div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span><span class="keyword">inline</span> <span class="keyword">const</span> T* VariantVector::begin()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span><span class="keyword">inline</span> <span class="keyword">const</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* VariantVector::begin()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>    <span class="keywordflow">if</span> (data_ == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(T)) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>T*<span class="keyword">&gt;</span>(data_);</div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_);</div>
 <div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>}</div>
 <div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span> </div>
 <div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span><span class="keyword">inline</span> T* VariantVector::end()</div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span><span class="keyword">inline</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* VariantVector::end()</div>
 <div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>{</div>
 <div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>    <span class="keywordflow">if</span> (data_ == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(T)) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(data_) + size_;</div>
+<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_) + size_;</div>
 <div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>}</div>
 <div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span> </div>
 <div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span><span class="keyword">inline</span> <span class="keyword">const</span> T* VariantVector::end()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span><span class="keyword">inline</span> <span class="keyword">const</span> <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* VariantVector::end()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>    <span class="keywordflow">if</span> (data_ == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>    <span class="keywordflow">if</span> (*header()-&gt;typeInfo != <span class="keyword">typeid</span>(T)) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>T*<span class="keyword">&gt;</span>(data_) + size_;</div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(data_) + size_;</div>
 <div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>}</div>
 <div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span> </div>
 <div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span><span class="comment">// ---- fromVector ----</span></div>
@@ -671,14 +671,14 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span><span class="keyword">inline</span> VariantVector VariantVector::fromVector(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; vec)</div>
 <div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>{</div>
 <div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>    VariantVector v;</div>
-<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>    v.ensureType&lt;T&gt;();</div>
-<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>    v.reserve&lt;T&gt;(vec.size());</div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>    v.ensureType&lt;<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>&gt;();</div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>    v.reserve&lt;<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>&gt;(vec.size());</div>
 <div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span> </div>
 <div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>    <span class="comment">// 拷贝构造每个元素（只构造一次）</span></div>
-<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>    T* dst = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(v.data_);</div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>    <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>* dst = <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>*<span class="keyword">&gt;</span>(v.data_);</div>
 <div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; vec.size(); ++i)</div>
 <div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>    {</div>
-<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>        ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;dst[i])) T(vec[i]);</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>        ::new (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;dst[i])) <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>(vec[i]);</div>
 <div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>        ++v.size_;</div>
 <div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>    }</div>
 <div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>    <span class="keywordflow">return</span> v;</div>
@@ -688,6 +688,7 @@ $(function(){initNavTree('VariantVector_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aSpan_8hpp_html"><div class="ttname"><a href="Span_8hpp.html">Span.hpp</a></div></div>
 <div class="ttc" id="aUnit_8cpp_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:436</div></div>
+<div class="ttc" id="aUnit_8cpp_html_a3ba38903856aa71d0b6b98823175b315"><div class="ttname"><a href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">ast::units::T</a></div><div class="ttdeci">Unit T</div><div class="ttdoc">特斯拉</div><div class="ttdef"><b>定义</b> Unit.cpp:463</div></div>
 <div class="ttc" id="aclassast_1_1Span_html"><div class="ttname"><a href="classast_1_1Span.html">ast::Span</a></div><div class="ttdoc">非拥有的连续对象序列视图</div><div class="ttdef"><b>定义</b> Span.hpp:71</div></div>
 <div class="ttc" id="aclassast_1_1VariantVector_html"><div class="ttname"><a href="classast_1_1VariantVector.html">ast::VariantVector</a></div><div class="ttdoc">变类型向量容器</div><div class="ttdef"><b>定义</b> VariantVector.hpp:59</div></div>
 <div class="ttc" id="aclassast_1_1VariantVector_html_a1ee3db6238c6a31fc5575a5d42c1839f"><div class="ttname"><a href="classast_1_1VariantVector.html#a1ee3db6238c6a31fc5575a5d42c1839f">ast::VariantVector::ops</a></div><div class="ttdeci">const TypeOps * ops() const noexcept</div><div class="ttdoc">获取 TypeOps 指针（未设置类型时返回 nullptr）</div><div class="ttdef"><b>定义</b> VariantVector.hpp:123</div></div>
