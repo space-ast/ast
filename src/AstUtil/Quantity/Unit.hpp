@@ -91,6 +91,10 @@ namespace units
     
     extern AST_UTIL_API Unit Pa;        ///< 帕斯卡
 
+    extern AST_UTIL_API Unit T;         ///< 特斯拉
+    extern AST_UTIL_API Unit nT;        ///< 纳特斯拉
+    extern AST_UTIL_API Unit Gs;        ///< 高斯
+
     extern AST_UTIL_API Unit K;         ///< 开氏温度
 };
 
@@ -400,6 +404,22 @@ public:
     static Unit Pascal()
     {
         return Unit("Pa", 1.0, EDimension::ePressure);
+    }
+
+    /// @brief 特斯拉单位（磁感应强度/磁通密度量纲）
+    static Unit Tesla()
+    {
+        return Unit("T", 1.0, EDimension::eMagneticFluxDensity);
+    }
+    /// @brief 纳特斯拉单位
+    static Unit NanoTesla()
+    {
+        return Unit("nT", kNanoteslaToTesla, EDimension::eMagneticFluxDensity);
+    }
+    /// @brief 高斯单位（1 Gs = 1e-4 T）
+    static Unit Gauss()
+    {
+        return Unit("Gs", kGaussToTesla, EDimension::eMagneticFluxDensity);
     }
 
 public:

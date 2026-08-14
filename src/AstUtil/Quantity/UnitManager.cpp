@@ -107,6 +107,15 @@ UnitManager::UnitManager()
     addUnit(units::K);
     addUnit(u8"开尔文", units::K);
 
+    // 磁感应强度(磁通密度)单位
+    addUnit(units::T);
+    addUnit(units::nT);
+    addUnit(units::Gs);
+    addUnit(u8"特斯拉", units::T);
+    addUnit(u8"纳特斯拉", units::nT);
+    addUnit(u8"纳特", units::nT);
+    addUnit(u8"高斯", units::Gs);
+
     // 无量纲
     addUnit("unitValue", Unit::None());
     addUnit(Unit::Percent());

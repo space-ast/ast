@@ -102,6 +102,7 @@ std::string aDimName(EDimension dimension)
     case EDimension::ePower: return "Power";
     case EDimension::eFrequency: return "Frequency";
     case EDimension::eDensity: return "Density";
+    case EDimension::eMagneticFluxDensity: return "Magnetic Flux Density";
     }
     return aDimSymbol(dimension);
 }

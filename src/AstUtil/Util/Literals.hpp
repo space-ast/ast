@@ -395,6 +395,44 @@ namespace literals
         return static_cast<double>(val) * kKilometerToMeter * kKilometerToMeter;
     }
 
+    // 磁感应强度(磁通密度)单位 - 基于特斯拉的单位制
+
+    /// @param val 特斯拉值
+    inline constexpr double operator ""_T(long double val)
+    {
+        return val;
+    }
+
+    /// @param val 特斯拉值
+    inline constexpr double operator ""_T(unsigned long long val)
+    {
+        return static_cast<double>(val);
+    }
+
+    /// @param val 纳特斯拉值
+    inline constexpr double operator ""_nT(long double val)
+    {
+        return val * kNanoteslaToTesla;
+    }
+
+    /// @param val 纳特斯拉值
+    inline constexpr double operator ""_nT(unsigned long long val)
+    {
+        return val * kNanoteslaToTesla;
+    }
+
+    /// @param val 高斯值
+    inline constexpr double operator ""_Gs(long double val)
+    {
+        return val * kGaussToTesla;
+    }
+
+    /// @param val 高斯值
+    inline constexpr double operator ""_Gs(unsigned long long val)
+    {
+        return val * kGaussToTesla;
+    }
+
     //----------------
     // unit literals
     //----------------
@@ -415,6 +453,10 @@ namespace literals
     constexpr double min = 1_min;
     constexpr double h = 1_h;
     constexpr double day = 1_day;
+
+    constexpr double T = 1_T;
+    constexpr double nT = 1_nT;
+    constexpr double Gs = 1_Gs;
 }
 
 // 导入字面量命名空间到ast命名空间，便于使用

@@ -82,17 +82,17 @@ DataElements DataGroupMagField::Elements()
 
     // -- NEZ 当地分量 --
     elements.addElement<Data, double, &Data::getTotalIntensityF>
-        ("Total intensity F", Dimension::Unit());
+        ("Total intensity F", Dimension::MagneticFluxDensity());
     elements.addElement<Data, double, &Data::getNorthIntensityX>
-        ("North intensity X", Dimension::Unit());
+        ("North intensity X", Dimension::MagneticFluxDensity());
     elements.addElement<Data, double, &Data::getEastIntensityY>
-        ("East intensity Y", Dimension::Unit());
+        ("East intensity Y", Dimension::MagneticFluxDensity());
     elements.addElement<Data, double, &Data::getVerticalIntensityZ>
-        ("Vertical intensity Z", Dimension::Unit());
+        ("Vertical intensity Z", Dimension::MagneticFluxDensity());
 
     // -- 推导标量 --
     elements.addElement<Data, double, &Data::getHorizontalIntensityH>
-        ("Horizontal intensity H", Dimension::Unit());
+        ("Horizontal intensity H", Dimension::MagneticFluxDensity());
     elements.addElement<Data, double, &Data::getDeclinationD>
         ("Magnetic declination D", Dimension::Angle());
     elements.addElement<Data, double, &Data::getInclinationI>
@@ -110,23 +110,23 @@ DataElements DataGroupMagField::Elements()
     elements.addElement<Data, double, &Data::getBOverBeq>
         ("B/Beq", Dimension::Unit());
     elements.addElement<Data, double, &Data::getBeq>
-        ("Beq", Dimension::Unit());
+        ("Beq", Dimension::MagneticFluxDensity());
 
     // -- ECF 矢量分量 --
     elements.addElement<Data, double, &Data::getEcfX>
-        ("B Field - ECF x", Dimension::Unit());
+        ("B Field - ECF x", Dimension::MagneticFluxDensity());
     elements.addElement<Data, double, &Data::getEcfY>
-        ("B Field - ECF y", Dimension::Unit());
+        ("B Field - ECF y", Dimension::MagneticFluxDensity());
     elements.addElement<Data, double, &Data::getEcfZ>
-        ("B Field - ECF z", Dimension::Unit());
+        ("B Field - ECF z", Dimension::MagneticFluxDensity());
 
     // -- ECI 矢量分量 --
     elements.addElement<Data, double, &Data::getEciX>
-        ("B Field - ECI x", Dimension::Unit());
+        ("B Field - ECI x", Dimension::MagneticFluxDensity());
     elements.addElement<Data, double, &Data::getEciY>
-        ("B Field - ECI y", Dimension::Unit());
+        ("B Field - ECI y", Dimension::MagneticFluxDensity());
     elements.addElement<Data, double, &Data::getEciZ>
-        ("B Field - ECI z", Dimension::Unit());
+        ("B Field - ECI z", Dimension::MagneticFluxDensity());
 
     return elements;
 }
