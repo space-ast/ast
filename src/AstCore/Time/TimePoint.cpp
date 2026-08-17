@@ -21,6 +21,7 @@
 #include "TimePoint.hpp"
 #include "AstCore/TimeSystem.hpp"
 #include "AstUtil/Logger.hpp"
+#include <limits>                   // for std::numeric_limits
 
 
 AST_NAMESPACE_BEGIN
@@ -197,6 +198,11 @@ void aTimePointToTDB(const TimePoint& time, JulianDate& jdTDB)
 TimePoint TimePoint::Default()
 {
     return Epoch();
+}
+
+TimePoint TimePoint::NaN()
+{
+    return {0, std::numeric_limits<double>::quiet_NaN()};
 }
 
 

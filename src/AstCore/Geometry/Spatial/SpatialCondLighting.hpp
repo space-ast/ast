@@ -22,18 +22,11 @@
 #include "SpatialCondition.hpp"
 #include "AstCore/SharedPtr.hpp"
 #include "AstCore/CelestialBody.hpp"
+#include "AstCore/Eclipse.hpp"      // for ELightingType
 
 #include <vector>
 
 AST_NAMESPACE_BEGIN
-
-/// @brief 光照类型
-enum class ELightingType
-{
-    eSunlight,  ///< 阳光直射
-    ePenumbra,  ///< 半影
-    eUmbra      ///< 本影（全食）
-};
 
 /// @brief 光照空间条件
 /// @details 评估指定位置的光照状态（考虑遮挡天体）

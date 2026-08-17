@@ -141,6 +141,7 @@
 #include "AstCore/EarthOrientation.hpp"
 #include "AstCore/Eclipse.hpp"
 #include "AstCore/EclipseCalculator.hpp"
+#include "AstCore/EclipseEventFinder.hpp"
 #include "AstCore/EllipsoidShape.hpp"
 #include "AstCore/End.hpp"
 #include "AstCore/Ephemeris.hpp"
