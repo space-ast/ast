@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['单位和数量分析_0',['单位和数量分析',['../group__Quantity.html',1,'']]]
+  ['一维优化_0',['一维优化',['../group__Optim.html',1,'']]]
 ];

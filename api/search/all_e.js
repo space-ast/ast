@@ -8,7 +8,7 @@ var searchData=
   ['namemap_5f_5',['nameMap_',['../classast_1_1SolarSystem.html#a3e7cf298e05d18c3678a2b3da9a22370',1,'ast::SolarSystem']]],
   ['names_6',['names',['../structast_1_1DAF__NameRecords.html#a5c77e5ea4c48422200833bea63ff1a0c',1,'ast::DAF_NameRecords']]],
   ['namevaluepair_7',['NameValuePair',['../classast_1_1NameValuePair.html',1,'ast']]],
-  ['nan_8',['NaN',['../classast_1_1Quantity.html#aeca6f1503165f121511bde03641006af',1,'ast::Quantity::NaN()'],['../classast_1_1Unit.html#a675bd356f14657f18d49bd6e97713617',1,'ast::Unit::NaN()']]],
+  ['nan_8',['NaN',['../classast_1_1TimePoint.html#a33e1ab8affabbf84ca8d126e1700b29f',1,'ast::TimePoint::NaN()'],['../classast_1_1Quantity.html#aeca6f1503165f121511bde03641006af',1,'ast::Quantity::NaN()'],['../classast_1_1Unit.html#a675bd356f14657f18d49bd6e97713617',1,'ast::Unit::NaN()']]],
   ['nanotesla_9',['NanoTesla',['../classast_1_1Unit.html#a713771c60b27263bc6306421f56217e0',1,'ast::Unit']]],
   ['naturallanguage_10',['naturalLanguage',['../structast_1_1RecordStep.html#a4521af117284965a6746ed4d0b09de7c',1,'ast::RecordStep']]],
   ['nd_11',['nd',['../structast_1_1DAF__FileRecord.html#a52c47e8068d64399bb7161ace82039e4',1,'ast::DAF_FileRecord']]],

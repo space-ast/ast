@@ -6,6 +6,7 @@ var dir_ad1bdc808ef321ffd150448cfcd7c996 =
     [ "Interpolator", "dir_bcaa66e1f29e8e17cdb9e7a5ed93cd33.html", "dir_bcaa66e1f29e8e17cdb9e7a5ed93cd33" ],
     [ "NLE", "dir_764b278ec7c5d9a9e0e6dff058d77f91.html", "dir_764b278ec7c5d9a9e0e6dff058d77f91" ],
     [ "ODE", "dir_5bc54a56cbae6602baa6cf88996dc0a3.html", "dir_5bc54a56cbae6602baa6cf88996dc0a3" ],
+    [ "Optim", "dir_a8865252fe8a995bdee3a8081955610d.html", "dir_a8865252fe8a995bdee3a8081955610d" ],
     [ "Transform", "dir_bab1528425b983a6e5adf2b6c9a58186.html", "dir_bab1528425b983a6e5adf2b6c9a58186" ],
     [ "Util", "dir_7a55822c7ef3c20c49cea16c446bc4bd.html", "dir_7a55822c7ef3c20c49cea16c446bc4bd" ],
     [ "AstMath.hpp", "AstMath_8hpp_source.html", null ],

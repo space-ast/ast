@@ -109,14 +109,41 @@ $(function(){initNavTree('Eclipse_8hpp_source.html',''); initResizable(true); })
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>AST_CORE_CAPI <span class="keywordtype">int</span> <a class="code hl_function" href="namespaceast.html#af10d58260509e430f1a999b0715f025a">aLightingRatio_CylindricalModel</a>(<span class="keyword">const</span> Vector3d&amp; position, <span class="keyword">const</span> Vector3d&amp; lightingSourcePos, <span class="keywordtype">double</span> occultingBodyRadius);</div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6d">   34</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6d">ELightingType</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_enumvalue" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6daf72e6dcc51e685fccd3f43b102d755a2">eSunlight</a>,  </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_enumvalue" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6dab5dc0520c3bc4efee64b07fd97c8f19f">ePenumbra</a>,  </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_enumvalue" href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6da95158a2ec72dd14b8d7aaeac609678df">eUmbra</a>      </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>AST_CORE_CAPI <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast.html#a70a0b7cb997e3f78fb987a86fdacfd96">aLightingRatio_DualConeModel</a>(<span class="keyword">const</span> Vector3d&amp; position, <span class="keyword">const</span> Vector3d&amp; lightingSourcePos, <span class="keywordtype">double</span> lightingSourceRadius, <span class="keywordtype">double</span> occultingBodyRadius);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="ttc" id="anamespaceast_html_a70a0b7cb997e3f78fb987a86fdacfd96"><div class="ttname"><a href="namespaceast.html#a70a0b7cb997e3f78fb987a86fdacfd96">ast::aLightingRatio_DualConeModel</a></div><div class="ttdeci">double aLightingRatio_DualConeModel(const Vector3d &amp;position, const Vector3d &amp;lightingSourcePos, double lightingSourceRadius, double occultingBodyRadius)</div><div class="ttdoc">计算双锥阴影模型下的光照比例</div><div class="ttdef"><b>定义</b> Eclipse.cpp:104</div></div>
-<div class="ttc" id="anamespaceast_html_af10d58260509e430f1a999b0715f025a"><div class="ttname"><a href="namespaceast.html#af10d58260509e430f1a999b0715f025a">ast::aLightingRatio_CylindricalModel</a></div><div class="ttdeci">int aLightingRatio_CylindricalModel(const Vector3d &amp;position, const Vector3d &amp;lightingSourcePos, double occultingBodyRadius)</div><div class="ttdoc">计算圆柱阴影模型下的光照比例</div><div class="ttdef"><b>定义</b> Eclipse.cpp:27</div></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>AST_CORE_API <span class="keywordtype">int</span> aLightingRatio_CylindricalModel(<span class="keyword">const</span> Vector3d&amp; position, <span class="keyword">const</span> Vector3d&amp; lightingSourcePos, <span class="keywordtype">double</span> occultingBodyRadius);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>AST_CORE_API <span class="keywordtype">int</span> aLightingRatio_CylindricalModel(<span class="keyword">const</span> TimePoint&amp; tp, <span class="keyword">const</span> Vector3d&amp; position, Frame* frame, CelestialBody* lightSource, CelestialBody* occultingBody);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_CORE_API <span class="keywordtype">int</span> aLightingRatio_CylindricalModel(<span class="keyword">const</span> TimePoint&amp; tp, Point* point, CelestialBody* lightSource, CelestialBody* occultingBody);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>AST_CORE_API <span class="keywordtype">double</span> aLightingRatio_DualConeModel(<span class="keyword">const</span> Vector3d&amp; position, <span class="keyword">const</span> Vector3d&amp; lightingSourcePos, <span class="keywordtype">double</span> lightingSourceRadius, <span class="keywordtype">double</span> occultingBodyRadius);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>AST_CORE_API <span class="keywordtype">double</span> aLightingRatio_DualConeModel(<span class="keyword">const</span> TimePoint&amp; tp, <span class="keyword">const</span> Vector3d&amp; position, Frame* frame, CelestialBody* lightSource, CelestialBody* occultingBody);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>AST_CORE_API <span class="keywordtype">double</span> aLightingRatio_DualConeModel(<span class="keyword">const</span> TimePoint&amp; tp, Point* point, CelestialBody* lightSource, CelestialBody* occultingBody);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="ttc" id="anamespaceast_html_a9ce8b4fe30d3e93b43510ea6f11f4d6d"><div class="ttname"><a href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6d">ast::ELightingType</a></div><div class="ttdeci">ELightingType</div><div class="ttdoc">光照类型</div><div class="ttdef"><b>定义</b> Eclipse.hpp:35</div></div>
+<div class="ttc" id="anamespaceast_html_a9ce8b4fe30d3e93b43510ea6f11f4d6da95158a2ec72dd14b8d7aaeac609678df"><div class="ttname"><a href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6da95158a2ec72dd14b8d7aaeac609678df">ast::ELightingType::eUmbra</a></div><div class="ttdeci">@ eUmbra</div><div class="ttdoc">本影（全食）</div></div>
+<div class="ttc" id="anamespaceast_html_a9ce8b4fe30d3e93b43510ea6f11f4d6dab5dc0520c3bc4efee64b07fd97c8f19f"><div class="ttname"><a href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6dab5dc0520c3bc4efee64b07fd97c8f19f">ast::ELightingType::ePenumbra</a></div><div class="ttdeci">@ ePenumbra</div><div class="ttdoc">半影</div></div>
+<div class="ttc" id="anamespaceast_html_a9ce8b4fe30d3e93b43510ea6f11f4d6daf72e6dcc51e685fccd3f43b102d755a2"><div class="ttname"><a href="namespaceast.html#a9ce8b4fe30d3e93b43510ea6f11f4d6daf72e6dcc51e685fccd3f43b102d755a2">ast::ELightingType::eSunlight</a></div><div class="ttdeci">@ eSunlight</div><div class="ttdoc">全光照</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

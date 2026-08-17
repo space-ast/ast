@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['network_0',['Network',['../group__Network.html',1,'']]]
+  ['gui_0',['GUI',['../group__GUI.html',1,'']]]
 ];

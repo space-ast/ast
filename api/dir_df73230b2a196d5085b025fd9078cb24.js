@@ -26,7 +26,7 @@ var dir_df73230b2a196d5085b025fd9078cb24 =
     [ "SpatialConditionVisitor.cpp", "SpatialConditionVisitor_8cpp.html", null ],
     [ "SpatialConditionVisitor.hpp", "SpatialConditionVisitor_8hpp.html", null ],
     [ "SpatialCondLighting.cpp", "SpatialCondLighting_8cpp.html", null ],
-    [ "SpatialCondLighting.hpp", "SpatialCondLighting_8hpp.html", "SpatialCondLighting_8hpp" ],
+    [ "SpatialCondLighting.hpp", "SpatialCondLighting_8hpp.html", null ],
     [ "SpatialCondOverTime.cpp", "SpatialCondOverTime_8cpp.html", null ],
     [ "SpatialCondOverTime.hpp", "SpatialCondOverTime_8hpp.html", "SpatialCondOverTime_8hpp" ],
     [ "VolumeGrid.cpp", "VolumeGrid_8cpp.html", null ],

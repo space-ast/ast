@@ -63,7 +63,7 @@ var searchData=
   ['relativitycorrection_2ecpp_60',['RelativityCorrection.cpp',['../RelativityCorrection_8cpp.html',1,'']]],
   ['relativitycorrection_2ehpp_61',['RelativityCorrection.hpp',['../RelativityCorrection_8hpp.html',1,'']]],
   ['reloadephemerisfor_62',['reloadEphemerisFor',['../classast_1_1MotionExternalEphemeris.html#aeed5c4a75b2fc19b49c42d404c0b582e',1,'ast::MotionExternalEphemeris']]],
-  ['reltol_5f_63',['relTol_',['../classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd',1,'ast::UnarySolver']]],
+  ['reltol_5f_63',['relTol_',['../classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd',1,'ast::UnarySolver::relTol_'],['../classast_1_1UnaryOptimizer.html#a2505e58bae16b030366746c2c3857204',1,'ast::UnaryOptimizer::relTol_']]],
   ['removeallobjects_64',['removeAllObjects',['../classast_1_1ObjectManager.html#adba3141a3bb5de340725ab466030c1d3',1,'ast::ObjectManager']]],
   ['removecelestialbody_65',['removeCelestialBody',['../classast_1_1GfxSolarSystem.html#a1ad0adc0276764b9798e67664326440c',1,'ast::GfxSolarSystem']]],
   ['removechild_66',['removeChild',['../classast_1_1ObjectNode.html#a425944270abf6fe94c0d98f04e205fc8',1,'ast::ObjectNode']]],

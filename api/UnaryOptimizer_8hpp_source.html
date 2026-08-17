@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstMath/Optim/UnaryOptimizer.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('UnaryOptimizer_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UnaryOptimizer.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="UnaryOptimizer_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstMath/Function.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstMath/SolverStats.h&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1IUnaryOptimizer.html">   34</a></span><span class="keyword">class </span>AST_MATH_API <a class="code hl_class" href="classast_1_1IUnaryOptimizer.html">IUnaryOptimizer</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1IUnaryOptimizer.html">~IUnaryOptimizer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1IUnaryOptimizer.html#a177bb22a3c9a3d43b4b3005156b8fcdc">   45</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1IUnaryOptimizer.html#a177bb22a3c9a3d43b4b3005156b8fcdc">solve</a>(<a class="code hl_class" href="classast_1_1UnaryScalarFunc.html">UnaryScalarFunc</a>&amp; func, <span class="keywordtype">double</span> min, <span class="keywordtype">double</span> max, <span class="keywordtype">double</span>&amp; result, <span class="keywordtype">double</span>* funcValue = <span class="keyword">nullptr</span>) = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html">   52</a></span><span class="keyword">class </span>AST_MATH_API <a class="code hl_class" href="classast_1_1UnaryOptimizer.html">UnaryOptimizer</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1IUnaryOptimizer.html">IUnaryOptimizer</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">using </span>IUnaryOptimizer::solve;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="classast_1_1UnaryOptimizer.html">UnaryOptimizer</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classast_1_1UnaryOptimizer.html">UnaryOptimizer</a>(<span class="keywordtype">double</span> relTol, <span class="keywordtype">double</span> absTol, <span class="keywordtype">int</span> maxIter);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1UnaryOptimizer.html">UnaryOptimizer</a>(<span class="keywordtype">double</span> absTol);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1UnaryOptimizer.html">~UnaryOptimizer</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#a96a5f5fa357feafeae77a9971493de1f">   71</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1UnaryOptimizer.html#a96a5f5fa357feafeae77a9971493de1f">getRelTol</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> relTol_; };</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#afd06961cf467bbc2610ec0b9843594a0">   73</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1UnaryOptimizer.html#afd06961cf467bbc2610ec0b9843594a0">getAbsTol</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> absTol_; };</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#a396f4ed0ddc907a412d03780f861e404">   75</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classast_1_1UnaryOptimizer.html#a396f4ed0ddc907a412d03780f861e404">getMaxIter</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxIter_; };</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#a8020a19998f141992ce92feb360886c7">   78</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1UnaryOptimizer.html#a8020a19998f141992ce92feb360886c7">setRelTol</a>(<span class="keywordtype">double</span> relTol) { relTol_ = relTol; };</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#ab61a8fcffe104b218b218da9276a206c">   80</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1UnaryOptimizer.html#ab61a8fcffe104b218b218da9276a206c">setAbsTol</a>(<span class="keywordtype">double</span> absTol) { absTol_ = absTol; };</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#a42d0ee48c8817249114a4bfe69d41cb8">   82</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1UnaryOptimizer.html#a42d0ee48c8817249114a4bfe69d41cb8">setMaxIter</a>(<span class="keywordtype">int</span> maxIter) { maxIter_ = maxIter; };</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#ab2d82b57b9b949d4b7d8a8ff75fb5483">   85</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="structast_1_1SolverStats.html">SolverStats</a>&amp; <a class="code hl_function" href="classast_1_1UnaryOptimizer.html#ab2d82b57b9b949d4b7d8a8ff75fb5483">getStats</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> stats_; };</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func&gt;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">typename</span> std::enable_if&lt;!std::is_base_of&lt;UnaryScalarFunc, typename std::remove_pointer&lt;Func&gt;::type&gt;::value, errc_t&gt;::type</div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#ae582e03ddd7bdc7236a33f9683ed0249">   96</a></span>    <a class="code hl_function" href="classast_1_1UnaryOptimizer.html#ae582e03ddd7bdc7236a33f9683ed0249">solve</a>(Func func, <span class="keywordtype">double</span> min, <span class="keywordtype">double</span> max, <span class="keywordtype">double</span>&amp; result, <span class="keywordtype">double</span>* funcValue = <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_class" href="classast_1_1UnaryScalarGenericFunc.html">UnaryScalarGenericFunc&lt;Func&gt;</a> adapter(std::move(func));</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">return</span> this-&gt;solve(adapter, min, max, result, funcValue);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
+</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#a2505e58bae16b030366746c2c3857204">  102</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classast_1_1UnaryOptimizer.html#a2505e58bae16b030366746c2c3857204">relTol_</a>;         </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#a5860fd20ccd41235600b3975fbf3d79e">  103</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classast_1_1UnaryOptimizer.html#a5860fd20ccd41235600b3975fbf3d79e">absTol_</a>;         </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#a4b25c265da3be52b2380ac4eaf2cbfca">  104</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classast_1_1UnaryOptimizer.html#a4b25c265da3be52b2380ac4eaf2cbfca">maxIter_</a>;           </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classast_1_1UnaryOptimizer.html#ade12715c6c360e93ead8f8e651cdeb3f">  105</a></span>    <a class="code hl_struct" href="structast_1_1SolverStats.html">SolverStats</a> stats_{};   </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1IUnaryOptimizer_html"><div class="ttname"><a href="classast_1_1IUnaryOptimizer.html">ast::IUnaryOptimizer</a></div><div class="ttdoc">一元函数极小值求解器接口</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:35</div></div>
+<div class="ttc" id="aclassast_1_1IUnaryOptimizer_html_a177bb22a3c9a3d43b4b3005156b8fcdc"><div class="ttname"><a href="classast_1_1IUnaryOptimizer.html#a177bb22a3c9a3d43b4b3005156b8fcdc">ast::IUnaryOptimizer::solve</a></div><div class="ttdeci">virtual errc_t solve(UnaryScalarFunc &amp;func, double min, double max, double &amp;result, double *funcValue=nullptr)=0</div><div class="ttdoc">求解一元函数在区间内的极小值点</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html">ast::UnaryOptimizer</a></div><div class="ttdoc">一元函数极小值求解器基类</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:53</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_a2505e58bae16b030366746c2c3857204"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#a2505e58bae16b030366746c2c3857204">ast::UnaryOptimizer::relTol_</a></div><div class="ttdeci">double relTol_</div><div class="ttdoc">相对误差容限</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:102</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_a396f4ed0ddc907a412d03780f861e404"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#a396f4ed0ddc907a412d03780f861e404">ast::UnaryOptimizer::getMaxIter</a></div><div class="ttdeci">int getMaxIter() const</div><div class="ttdoc">获取最大迭代次数</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:75</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_a42d0ee48c8817249114a4bfe69d41cb8"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#a42d0ee48c8817249114a4bfe69d41cb8">ast::UnaryOptimizer::setMaxIter</a></div><div class="ttdeci">void setMaxIter(int maxIter)</div><div class="ttdoc">设置最大迭代次数</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:82</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_a4b25c265da3be52b2380ac4eaf2cbfca"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#a4b25c265da3be52b2380ac4eaf2cbfca">ast::UnaryOptimizer::maxIter_</a></div><div class="ttdeci">int maxIter_</div><div class="ttdoc">最大迭代次数</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:104</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_a5860fd20ccd41235600b3975fbf3d79e"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#a5860fd20ccd41235600b3975fbf3d79e">ast::UnaryOptimizer::absTol_</a></div><div class="ttdeci">double absTol_</div><div class="ttdoc">绝对误差容限</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:103</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_a8020a19998f141992ce92feb360886c7"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#a8020a19998f141992ce92feb360886c7">ast::UnaryOptimizer::setRelTol</a></div><div class="ttdeci">void setRelTol(double relTol)</div><div class="ttdoc">设置相对误差容限</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:78</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_a96a5f5fa357feafeae77a9971493de1f"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#a96a5f5fa357feafeae77a9971493de1f">ast::UnaryOptimizer::getRelTol</a></div><div class="ttdeci">double getRelTol() const</div><div class="ttdoc">获取相对误差容限</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:71</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_ab2d82b57b9b949d4b7d8a8ff75fb5483"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#ab2d82b57b9b949d4b7d8a8ff75fb5483">ast::UnaryOptimizer::getStats</a></div><div class="ttdeci">const SolverStats &amp; getStats() const</div><div class="ttdoc">获取求解器统计信息</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:85</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_ab61a8fcffe104b218b218da9276a206c"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#ab61a8fcffe104b218b218da9276a206c">ast::UnaryOptimizer::setAbsTol</a></div><div class="ttdeci">void setAbsTol(double absTol)</div><div class="ttdoc">设置绝对误差容限</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:80</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_ae582e03ddd7bdc7236a33f9683ed0249"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#ae582e03ddd7bdc7236a33f9683ed0249">ast::UnaryOptimizer::solve</a></div><div class="ttdeci">std::enable_if&lt;!std::is_base_of&lt; UnaryScalarFunc, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, errc_t &gt;::type solve(Func func, double min, double max, double &amp;result, double *funcValue=nullptr)</div><div class="ttdoc">求解一元函数极小值点（支持lambda函数）</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:96</div></div>
+<div class="ttc" id="aclassast_1_1UnaryOptimizer_html_afd06961cf467bbc2610ec0b9843594a0"><div class="ttname"><a href="classast_1_1UnaryOptimizer.html#afd06961cf467bbc2610ec0b9843594a0">ast::UnaryOptimizer::getAbsTol</a></div><div class="ttdeci">double getAbsTol() const</div><div class="ttdoc">获取绝对误差容限</div><div class="ttdef"><b>定义</b> UnaryOptimizer.hpp:73</div></div>
+<div class="ttc" id="aclassast_1_1UnaryScalarFunc_html"><div class="ttname"><a href="classast_1_1UnaryScalarFunc.html">ast::UnaryScalarFunc</a></div><div class="ttdoc">一元标量值函数</div><div class="ttdef"><b>定义</b> UnaryScalarFunc.hpp:31</div></div>
+<div class="ttc" id="aclassast_1_1UnaryScalarGenericFunc_html"><div class="ttname"><a href="classast_1_1UnaryScalarGenericFunc.html">ast::UnaryScalarGenericFunc</a></div><div class="ttdoc">泛型一元函数适配器</div><div class="ttdef"><b>定义</b> UnaryScalarFunc.hpp:48</div></div>
+<div class="ttc" id="astructast_1_1SolverStats_html"><div class="ttname"><a href="structast_1_1SolverStats.html">ast::SolverStats</a></div><div class="ttdoc">求解器统计信息</div><div class="ttdef"><b>定义</b> SolverStats.h:30</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ad1bdc808ef321ffd150448cfcd7c996.html">AstMath</a></li><li class="navelem"><a class="el" href="dir_a8865252fe8a995bdee3a8081955610d.html">Optim</a></li><li class="navelem"><a class="el" href="UnaryOptimizer_8hpp.html">UnaryOptimizer.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

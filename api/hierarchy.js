@@ -183,6 +183,7 @@ var hierarchy =
     [ "ast::DataGroupBetaAngle::Data", "structast_1_1DataGroupBetaAngle_1_1Data.html", null ],
     [ "ast::DataGroupCartPos::Data", "structast_1_1DataGroupCartPos_1_1Data.html", null ],
     [ "ast::DataGroupCartVel::Data", "structast_1_1DataGroupCartVel_1_1Data.html", null ],
+    [ "ast::DataGroupEclipse::Data", "structast_1_1DataGroupEclipse_1_1Data.html", null ],
     [ "ast::DataGroupEquinElem::Data", "structast_1_1DataGroupEquinElem_1_1Data.html", null ],
     [ "ast::DataGroupEuler::Data", "structast_1_1DataGroupEuler_1_1Data.html", null ],
     [ "ast::DataGroupLLAState::Data", "structast_1_1DataGroupLLAState_1_1Data.html", null ],
@@ -206,6 +207,10 @@ var hierarchy =
     [ "ast::DataUpdater::DataFileEntry", "structast_1_1DataUpdater_1_1DataFileEntry.html", null ],
     [ "ast::DataFrame", "classast_1_1DataFrame.html", null ],
     [ "ast::DataGroup", "classast_1_1DataGroup.html", [
+      [ "ast::DataGroupFixed", "classast_1_1DataGroupFixed.html", null ],
+      [ "ast::DataGroupInterval", "classast_1_1DataGroupInterval.html", [
+        [ "ast::DataGroupEclipse", "classast_1_1DataGroupEclipse.html", null ]
+      ] ],
       [ "ast::DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", [
         [ "ast::DataGroupAnglePrv", "classast_1_1DataGroupAnglePrv.html", null ],
         [ "ast::DataGroupAttitude", "classast_1_1DataGroupAttitude.html", null ],
@@ -259,6 +264,8 @@ var hierarchy =
       [ "ast::CylindricalEclipseCalculator", "classast_1_1CylindricalEclipseCalculator.html", null ],
       [ "ast::NoneEclipseCalculator", "classast_1_1NoneEclipseCalculator.html", null ]
     ] ],
+    [ "ast::EclipseEvent", "structast_1_1EclipseEvent.html", null ],
+    [ "ast::EclipseEventFinder", "classast_1_1EclipseEventFinder.html", null ],
     [ "eclipttype", "structeclipttype.html", null ],
     [ "elsetrec", "structelsetrec.html", null ],
     [ "ast::EOP::Entry", "structast_1_1EOP_1_1Entry.html", null ],
@@ -491,6 +498,12 @@ var hierarchy =
     [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >::Iterator", "classast_1_1strings__internal_1_1Splitter_1_1Iterator.html", null ],
     [ "ast::TimeInterval::DiscreteEpochSecondRange::iterator", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html", null ],
     [ "ast::TimeInterval::DiscreteTimePointRange::iterator", "classast_1_1TimeInterval_1_1DiscreteTimePointRange_1_1iterator.html", null ],
+    [ "ast::IUnaryOptimizer", "classast_1_1IUnaryOptimizer.html", [
+      [ "ast::UnaryOptimizer", "classast_1_1UnaryOptimizer.html", [
+        [ "ast::BrentOptimizer", "classast_1_1BrentOptimizer.html", null ],
+        [ "ast::GoldenSectionOptimizer", "classast_1_1GoldenSectionOptimizer.html", null ]
+      ] ]
+    ] ],
     [ "ast::IUnarySolver", "classast_1_1IUnarySolver.html", [
       [ "ast::UnarySolver", "classast_1_1UnarySolver.html", [
         [ "ast::BisectionSolver", "classast_1_1BisectionSolver.html", null ],

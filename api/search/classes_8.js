@@ -52,12 +52,13 @@ var searchData=
   ['isymbolscope_49',['ISymbolScope',['../classast_1_1ISymbolScope.html',1,'ast']]],
   ['iterator_50',['Iterator',['../classast_1_1strings__internal_1_1Splitter_1_1Iterator.html',1,'ast::strings_internal::Splitter']]],
   ['iterator_51',['iterator',['../classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html',1,'ast::TimeInterval::DiscreteEpochSecondRange::iterator'],['../classast_1_1TimeInterval_1_1DiscreteTimePointRange_1_1iterator.html',1,'ast::TimeInterval::DiscreteTimePointRange::iterator']]],
-  ['iunarysolver_52',['IUnarySolver',['../classast_1_1IUnarySolver.html',1,'ast']]],
-  ['ivalueprv_53',['IValuePrv',['../classast_1_1IValuePrv.html',1,'ast']]],
-  ['ivevosystemscollection_54',['IVeVOSystemsCollection',['../interfaceIVeVOSystemsCollection.html',1,'']]],
-  ['ivevosystemscollectionimpl_55',['IVeVOSystemsCollectionImpl',['../classast_1_1IVeVOSystemsCollectionImpl.html',1,'ast']]],
-  ['ivevosystemscollectionimpl_3c_20ivevosystemscollection_2c_20_26iid_5fivevosystemscollection_20_3e_56',['IVeVOSystemsCollectionImpl&lt; IVeVOSystemsCollection, &amp;IID_IVeVOSystemsCollection &gt;',['../classast_1_1IVeVOSystemsCollectionImpl.html',1,'ast']]],
-  ['ivevosystemselement_57',['IVeVOSystemsElement',['../interfaceIVeVOSystemsElement.html',1,'']]],
-  ['ivevosystemselementimpl_58',['IVeVOSystemsElementImpl',['../classast_1_1IVeVOSystemsElementImpl.html',1,'ast']]],
-  ['ivevosystemselementimpl_3c_20ivevosystemselement_2c_20_26iid_5fivevosystemselement_20_3e_59',['IVeVOSystemsElementImpl&lt; IVeVOSystemsElement, &amp;IID_IVeVOSystemsElement &gt;',['../classast_1_1IVeVOSystemsElementImpl.html',1,'ast']]]
+  ['iunaryoptimizer_52',['IUnaryOptimizer',['../classast_1_1IUnaryOptimizer.html',1,'ast']]],
+  ['iunarysolver_53',['IUnarySolver',['../classast_1_1IUnarySolver.html',1,'ast']]],
+  ['ivalueprv_54',['IValuePrv',['../classast_1_1IValuePrv.html',1,'ast']]],
+  ['ivevosystemscollection_55',['IVeVOSystemsCollection',['../interfaceIVeVOSystemsCollection.html',1,'']]],
+  ['ivevosystemscollectionimpl_56',['IVeVOSystemsCollectionImpl',['../classast_1_1IVeVOSystemsCollectionImpl.html',1,'ast']]],
+  ['ivevosystemscollectionimpl_3c_20ivevosystemscollection_2c_20_26iid_5fivevosystemscollection_20_3e_57',['IVeVOSystemsCollectionImpl&lt; IVeVOSystemsCollection, &amp;IID_IVeVOSystemsCollection &gt;',['../classast_1_1IVeVOSystemsCollectionImpl.html',1,'ast']]],
+  ['ivevosystemselement_58',['IVeVOSystemsElement',['../interfaceIVeVOSystemsElement.html',1,'']]],
+  ['ivevosystemselementimpl_59',['IVeVOSystemsElementImpl',['../classast_1_1IVeVOSystemsElementImpl.html',1,'ast']]],
+  ['ivevosystemselementimpl_3c_20ivevosystemselement_2c_20_26iid_5fivevosystemselement_20_3e_60',['IVeVOSystemsElementImpl&lt; IVeVOSystemsElement, &amp;IID_IVeVOSystemsElement &gt;',['../classast_1_1IVeVOSystemsElementImpl.html',1,'ast']]]
 ];

@@ -4,6 +4,8 @@ var CelestialBody_8hpp =
     [ "HCelestialBody", "CelestialBody_8hpp.html#ga3b2fe87cceca735335ef7ade4e48add5", null ],
     [ "PBody", "CelestialBody_8hpp.html#gac670e719678a85c5d087d62383061f8f", null ],
     [ "PCelestialBody", "CelestialBody_8hpp.html#ga37239c4cb3486ba286d79abaf2070c74", null ],
+    [ "WBody", "CelestialBody_8hpp.html#gaf3546a026b8a6b01af188044dc9ffe26", null ],
+    [ "WCelestialBody", "CelestialBody_8hpp.html#ga6f31a84d29c336c6d5ed3e7a2d25c6ce", null ],
     [ "EEphemerisSource", "CelestialBody_8hpp.html#gac22db6298835f5ffbad88bd9c01c4d08", [
       [ "eBodyEphemeris", "CelestialBody_8hpp.html#ggac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5", null ],
       [ "eJplDE", "CelestialBody_8hpp.html#ggac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8", null ],

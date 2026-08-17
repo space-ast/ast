@@ -13,7 +13,7 @@ var searchData=
   ['referenceaxes_5f_10',['referenceAxes_',['../classast_1_1AxesFrozen.html#ad74d2d2584e04a4c25cb3f091b635aba',1,'ast::AxesFrozen::referenceAxes_'],['../classast_1_1AxesFrozenAtEventTime.html#ae57193cc789b68f04bf4c3a028dd0044',1,'ast::AxesFrozenAtEventTime::referenceAxes_']]],
   ['referenceepoch_5f_11',['referenceEpoch_',['../classast_1_1GravityFieldSecularVariations.html#a9e7a6a57d0e274596ba86c78ae4c82e8',1,'ast::GravityFieldSecularVariations']]],
   ['referenceframe_5f_12',['referenceFrame_',['../classast_1_1GravityFieldHead.html#a1e401d616042426f4de626f34fc3502f',1,'ast::GravityFieldHead::referenceFrame_'],['../classast_1_1GravityField.html#a1e401d616042426f4de626f34fc3502f',1,'ast::GravityField::referenceFrame_']]],
-  ['reltol_5f_13',['relTol_',['../classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd',1,'ast::UnarySolver']]],
+  ['reltol_5f_13',['relTol_',['../classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd',1,'ast::UnarySolver::relTol_'],['../classast_1_1UnaryOptimizer.html#a2505e58bae16b030366746c2c3857204',1,'ast::UnaryOptimizer::relTol_']]],
   ['reportonfixedstep_5f_14',['reportOnFixedStep_',['../classast_1_1MotionHPOPSax.html#a1efe72ddd2a66a9feb3ef1a582977215',1,'ast::MotionHPOPSax']]],
   ['resolve_5f_15',['resolve_',['../classast_1_1Class.html#ac33daba8178cc37dc4fd31645e4883c0',1,'ast::Class']]],
   ['right_5f_16',['right_',['../classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4',1,'ast::OpBin']]],

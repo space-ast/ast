@@ -192,6 +192,8 @@ var group__SolarSystem =
     [ "ast::HCelestialBody", "group__SolarSystem.html#ga3b2fe87cceca735335ef7ade4e48add5", null ],
     [ "ast::PBody", "group__SolarSystem.html#gac670e719678a85c5d087d62383061f8f", null ],
     [ "ast::PCelestialBody", "group__SolarSystem.html#ga37239c4cb3486ba286d79abaf2070c74", null ],
+    [ "ast::WBody", "group__SolarSystem.html#gaf3546a026b8a6b01af188044dc9ffe26", null ],
+    [ "ast::WCelestialBody", "group__SolarSystem.html#ga6f31a84d29c336c6d5ed3e7a2d25c6ce", null ],
     [ "ast::EEphemerisSource", "group__SolarSystem.html#gac22db6298835f5ffbad88bd9c01c4d08", [
       [ "ast::EEphemerisSource::eBodyEphemeris", "group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5", null ],
       [ "ast::EEphemerisSource::eJplDE", "group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08ad0a1ac722a0ce00297b74d0f06e769c8", null ],

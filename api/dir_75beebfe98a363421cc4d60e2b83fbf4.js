@@ -7,7 +7,7 @@ var dir_75beebfe98a363421cc4d60e2b83fbf4 =
     [ "DataElements.hpp", "DataElements_8hpp.html", "DataElements_8hpp" ],
     [ "DataGroup.cpp", "DataGroup_8cpp.html", null ],
     [ "DataGroup.hpp", "DataGroup_8hpp.html", "DataGroup_8hpp" ],
-    [ "DataGroupFixed.hpp", "DataGroupFixed_8hpp_source.html", null ],
-    [ "DataGroupInterval.hpp", "DataGroupInterval_8hpp_source.html", null ],
+    [ "DataGroupFixed.hpp", "DataGroupFixed_8hpp.html", "DataGroupFixed_8hpp" ],
+    [ "DataGroupInterval.hpp", "DataGroupInterval_8hpp.html", "DataGroupInterval_8hpp" ],
     [ "DataGroupTimeVar.hpp", "DataGroupTimeVar_8hpp.html", "DataGroupTimeVar_8hpp" ]
 ];

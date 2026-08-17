@@ -1,5 +1,9 @@
 var group__AstReport =
 [
+    [ "ast::DataGroupEclipse", "classast_1_1DataGroupEclipse.html", [
+      [ "Data", "structast_1_1DataGroupEclipse_1_1Data.html", null ],
+      [ "calculate", "classast_1_1DataGroupEclipse.html#ad5dd770ae3d6f8064bce53a2be46b7c0", null ]
+    ] ],
     [ "ast::DataFrame", "classast_1_1DataFrame.html", [
       [ "DataFrame", "classast_1_1DataFrame.html#a48748a4b6e4ca7858e37d3a5d2f820b0", null ],
       [ "DataFrame", "classast_1_1DataFrame.html#aeb23e9524c6ba6b07f38a281da85ff7d", null ],

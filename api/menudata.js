@@ -51,7 +51,8 @@ var menudata={children:[
 {text:"r",url:"namespacemembers_r.html#index_r"},
 {text:"s",url:"namespacemembers_s.html#index_s"},
 {text:"t",url:"namespacemembers_t.html#index_t"},
-{text:"u",url:"namespacemembers_u.html#index_u"}]},
+{text:"u",url:"namespacemembers_u.html#index_u"},
+{text:"w",url:"namespacemembers_w.html#index_w"}]},
 {text:"函数",url:"namespacemembers_func.html",children:[
 {text:"_",url:"namespacemembers_func.html#index__5F"},
 {text:"a",url:"namespacemembers_func_a.html#index_a"},

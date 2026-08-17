@@ -4,5 +4,6 @@ var group__Math =
     [ "姿态功能", "group__Attitude.html", "group__Attitude" ],
     [ "插值功能", "group__Interpolator.html", "group__Interpolator" ],
     [ "非线性方程求解", "group__NLE.html", "group__NLE" ],
-    [ "常微分方程求解", "group__ODE.html", "group__ODE" ]
+    [ "常微分方程求解", "group__ODE.html", "group__ODE" ],
+    [ "一维优化", "group__Optim.html", "group__Optim" ]
 ];

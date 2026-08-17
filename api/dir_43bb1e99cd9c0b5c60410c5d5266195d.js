@@ -10,6 +10,8 @@ var dir_43bb1e99cd9c0b5c60410c5d5266195d =
     [ "Eclipse.hpp", "Eclipse_8hpp.html", "Eclipse_8hpp" ],
     [ "EclipseCalculator.cpp", "EclipseCalculator_8cpp.html", null ],
     [ "EclipseCalculator.hpp", "EclipseCalculator_8hpp.html", "EclipseCalculator_8hpp" ],
+    [ "EclipseEventFinder.cpp", "EclipseEventFinder_8cpp.html", null ],
+    [ "EclipseEventFinder.hpp", "EclipseEventFinder_8hpp.html", null ],
     [ "NoneEclipseCalculator.cpp", "NoneEclipseCalculator_8cpp.html", null ],
     [ "NoneEclipseCalculator.hpp", "NoneEclipseCalculator_8hpp.html", "NoneEclipseCalculator_8hpp" ]
 ];

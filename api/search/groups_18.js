@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['磁场模型_0',['磁场模型',['../group__Magnetosphere.html',1,'']]]
+  ['文本解析和格式化_0',['文本解析和格式化',['../group__ParseFormat.html',1,'']]]
 ];

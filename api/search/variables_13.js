@@ -46,7 +46,7 @@ var searchData=
   ['stateinpropagationframe_5f_43',['stateInPropagationFrame_',['../structast_1_1MotionOrbitDynamics_1_1PropagationParams.html#aa951e5e4b48195a6c2075dc417af3bd7',1,'ast::MotionOrbitDynamics::PropagationParams']]],
   ['stateobserverlist_5f_44',['stateObserverList_',['../classast_1_1ODEIntegrator.html#ad0ad6921c60e21109ea2c2b3da302727',1,'ast::ODEIntegrator']]],
   ['statetemp_5f_45',['stateTemp_',['../classast_1_1ODEIntegrator.html#a1c6e493465ff105019f6de8d20e7cd48',1,'ast::ODEIntegrator']]],
-  ['stats_5f_46',['stats_',['../classast_1_1UnarySolver.html#a228d8e1f28052bb0fc164fe872e4e39a',1,'ast::UnarySolver']]],
+  ['stats_5f_46',['stats_',['../classast_1_1UnarySolver.html#a228d8e1f28052bb0fc164fe872e4e39a',1,'ast::UnarySolver::stats_'],['../classast_1_1UnaryOptimizer.html#ade12715c6c360e93ead8f8e651cdeb3f',1,'ast::UnaryOptimizer::stats_']]],
   ['stepcontrolmethod_5f_47',['stepControlMethod_',['../classast_1_1MotionHPOPSax.html#a1529eefc6e7a8c4608995bafddc09eaf',1,'ast::MotionHPOPSax']]],
   ['stepsize_5f_48',['stepSize_',['../classast_1_1MotionWithIntervalStep.html#a8a288d8e27795439656e9b5294c41430',1,'ast::MotionWithIntervalStep']]],
   ['stream_5f_49',['stream_',['../classast_1_1LoggerStream.html#ab41ff0925dd6f723b568a7b19f131f9e',1,'ast::LoggerStream']]],

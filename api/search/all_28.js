@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['容器_0',['容器',['../group__Container.html',1,'']]]
+  ['字符串相关函数_0',['字符串相关函数',['../group__String.html',1,'']]]
 ];

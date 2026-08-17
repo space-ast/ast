@@ -3,7 +3,7 @@ var searchData=
   ['a_0',['A',['../Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5',1,'ast::units']]],
   ['a_5f_1',['a_',['../classast_1_1OrbElem.html#a1df5695b11c56714605af1fabd9ee652',1,'ast::OrbElem::a_'],['../classast_1_1EquinElem.html#ac40ba743af66192cc9a6c4de1dec315b',1,'ast::EquinElem::a_']]],
   ['abserrperlen_5f_2',['absErrPerLen_',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a8ddaeb28ccfe1f53df258a12d7131145',1,'ast::ODEFixedStepIntegrator::Workspace']]],
-  ['abstol_5f_3',['absTol_',['../classast_1_1UnarySolver.html#a278e223855671c9d6a1b31ab23f73adf',1,'ast::UnarySolver']]],
+  ['abstol_5f_3',['absTol_',['../classast_1_1UnarySolver.html#a278e223855671c9d6a1b31ab23f73adf',1,'ast::UnarySolver::absTol_'],['../classast_1_1UnaryOptimizer.html#a5860fd20ccd41235600b3975fbf3d79e',1,'ast::UnaryOptimizer::absTol_']]],
   ['accdrag_5f_4',['accDrag_',['../classast_1_1BlockDrag.html#a16ed40106986a02f573f582bfc054cd8',1,'ast::BlockDrag']]],
   ['acceleration_5f_5',['acceleration_',['../classast_1_1WayPoint.html#ac544ada0d6af25eaa00b4e0e3581fc33',1,'ast::WayPoint']]],
   ['accgravityptr_5f_6',['accGravityPtr_',['../classast_1_1BlockGravity.html#a5072d45ae461ff36a3f140badb720916',1,'ast::BlockGravity']]],
