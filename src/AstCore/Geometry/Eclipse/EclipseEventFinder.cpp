@@ -252,17 +252,21 @@ namespace
 
 errc_t EclipseEventFinder::find(const TimeInterval& interval, std::vector<EclipseEvent>& events) const
 {
-    if (!point_)
+    auto point = point_.get();
+    if (!point)
     {
         aError("point is null");
         return eErrorNullPtr;
     }
-
-    CelestialBody* sun = lightSource_ ? lightSource_ : aGetSun();
-    if (!sun)
+    auto lightSource = lightSource_.get();
+    if(!lightSource)
     {
-        aError("no light source");
-        return eErrorNullPtr;
+        lightSource = aGetSun();
+        if (!lightSource)
+        {
+            aError("no light source");
+            return eErrorNullPtr;
+        }
     }
 
     std::vector<HCelestialBody> bodies = occultingBodies_;
@@ -289,9 +293,9 @@ errc_t EclipseEventFinder::find(const TimeInterval& interval, std::vector<Eclips
     int nValidBodies = 0;
     for (auto& b : bodies)
     {
-        if (!b || b.get() == sun) { continue; }
+        if (!b || b.get() == lightSource) { continue; }
         ++nValidBodies;
-        findEventsForBody(interval, point_, sun, b.get(), stepSize_, events);
+        findEventsForBody(interval, point, lightSource, b.get(), stepSize_, events);
     }
 
     if (nValidBodies == 0)

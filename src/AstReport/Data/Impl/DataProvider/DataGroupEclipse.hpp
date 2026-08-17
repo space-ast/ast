@@ -76,16 +76,17 @@ public:
 
     /// @name 配置
     /// @{
-    Point* getPoint() const { return point_; }
+    Point* getPoint() const { return point_.get(); }
     void   setPoint(Point* p) { point_ = p; }
     void   setLightSource(CelestialBody* b) { lightSource_ = b; }
+    CelestialBody* getLightSource() const { return lightSource_.get(); }
     void   setOccultingBodies(const std::vector<HCelestialBody>& bodies) { occultingBodies_ = bodies; }
     void   setStepSize(double s) { stepSize_ = s; }
     /// @}
 
 private:
-    Point*                         point_{nullptr};
-    CelestialBody*                 lightSource_{nullptr};
+    WeakPtr<Point>                 point_{nullptr};
+    WeakPtr<CelestialBody>         lightSource_{nullptr};
     std::vector<HCelestialBody>    occultingBodies_{};
     double                         stepSize_{5.0};
 };

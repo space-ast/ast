@@ -106,15 +106,17 @@ errc_t DataGroupEclipse::calculate(const TimeInterval& interval, VariantVector& 
 
 errc_t DataGroupEclipse::calculate(const TimeInterval& interval, std::vector<Data>& result) const
 {
-    if (!point_)
+    auto point = this->getPoint();
+    auto lightSource = this->getLightSource();
+    if (!point)
     {
         aError("point is null");
         return eErrorNullPtr;
     }
 
     EclipseEventFinder finder;
-    finder.setPoint(point_);
-    if (lightSource_)                 finder.setLightSource(lightSource_);
+    finder.setPoint(point);
+    if (lightSource)                  finder.setLightSource(lightSource);
     if (!occultingBodies_.empty())    finder.setOccultingBodies(occultingBodies_);
     finder.setStepSize(stepSize_);
 

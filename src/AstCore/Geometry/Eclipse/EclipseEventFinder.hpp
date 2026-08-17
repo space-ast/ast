@@ -61,6 +61,9 @@ public:
     EclipseEventFinder() = default;
     ~EclipseEventFinder() = default;
 
+    EclipseEventFinder(const EclipseEventFinder&) = default;
+    EclipseEventFinder& operator=(const EclipseEventFinder&) = default;
+
     /// @name 配置
     /// @{
     void setPoint(Point* p) { point_ = p; }
@@ -78,8 +81,8 @@ public:
     errc_t find(const TimeInterval& interval, std::vector<EclipseEvent>& events) const;
 
 private:
-    Point*     point_{nullptr};
-    CelestialBody* lightSource_{nullptr};
+    WeakPtr<Point> point_{nullptr};
+    WeakPtr<CelestialBody> lightSource_{nullptr};
     std::vector<HCelestialBody> occultingBodies_{};
     double     stepSize_{60.0};
 };
