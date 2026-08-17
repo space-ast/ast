@@ -2,7 +2,7 @@ var searchData=
 [
   ['earthorientation_0',['EarthOrientation',['../classast_1_1EarthOrientation.html',1,'ast']]],
   ['eclipsecalculator_1',['EclipseCalculator',['../classast_1_1EclipseCalculator.html',1,'ast']]],
-  ['eclipseevent_2',['EclipseEvent',['../structast_1_1EclipseEvent.html',1,'ast']]],
+  ['eclipseevent_2',['EclipseEvent',['../classast_1_1EclipseEvent.html',1,'ast']]],
   ['eclipseeventfinder_3',['EclipseEventFinder',['../classast_1_1EclipseEventFinder.html',1,'ast']]],
   ['eclipttype_4',['eclipttype',['../structeclipttype.html',1,'']]],
   ['editfiguredialog_5',['EditFigureDialog',['../classast_1_1EditFigureDialog.html',1,'ast']]],

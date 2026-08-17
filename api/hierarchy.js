@@ -209,7 +209,8 @@ var hierarchy =
     [ "ast::DataGroup", "classast_1_1DataGroup.html", [
       [ "ast::DataGroupFixed", "classast_1_1DataGroupFixed.html", null ],
       [ "ast::DataGroupInterval", "classast_1_1DataGroupInterval.html", [
-        [ "ast::DataGroupEclipse", "classast_1_1DataGroupEclipse.html", null ]
+        [ "ast::DataGroupEclipse", "classast_1_1DataGroupEclipse.html", null ],
+        [ "ast::DataGroupEclipseSummary", "classast_1_1DataGroupEclipseSummary.html", null ]
       ] ],
       [ "ast::DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", [
         [ "ast::DataGroupAnglePrv", "classast_1_1DataGroupAnglePrv.html", null ],
@@ -264,7 +265,7 @@ var hierarchy =
       [ "ast::CylindricalEclipseCalculator", "classast_1_1CylindricalEclipseCalculator.html", null ],
       [ "ast::NoneEclipseCalculator", "classast_1_1NoneEclipseCalculator.html", null ]
     ] ],
-    [ "ast::EclipseEvent", "structast_1_1EclipseEvent.html", null ],
+    [ "ast::EclipseEvent", "classast_1_1EclipseEvent.html", null ],
     [ "ast::EclipseEventFinder", "classast_1_1EclipseEventFinder.html", null ],
     [ "eclipttype", "structeclipttype.html", null ],
     [ "elsetrec", "structelsetrec.html", null ],

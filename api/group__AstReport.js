@@ -4,6 +4,10 @@ var group__AstReport =
       [ "Data", "structast_1_1DataGroupEclipse_1_1Data.html", null ],
       [ "calculate", "classast_1_1DataGroupEclipse.html#ad5dd770ae3d6f8064bce53a2be46b7c0", null ]
     ] ],
+    [ "ast::DataGroupEclipseSummary", "classast_1_1DataGroupEclipseSummary.html", [
+      [ "Data", "classast_1_1DataGroupEclipseSummary.html#a3771f9896ec6eca87e496696c4070cbf", null ],
+      [ "calculate", "classast_1_1DataGroupEclipseSummary.html#ae87e396604b2ad9292f1be2e203ae1f8", null ]
+    ] ],
     [ "ast::DataFrame", "classast_1_1DataFrame.html", [
       [ "DataFrame", "classast_1_1DataFrame.html#a48748a4b6e4ca7858e37d3a5d2f820b0", null ],
       [ "DataFrame", "classast_1_1DataFrame.html#aeb23e9524c6ba6b07f38a281da85ff7d", null ],

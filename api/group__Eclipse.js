@@ -1,14 +1,11 @@
 var group__Eclipse =
 [
-    [ "ast::EclipseEvent", "structast_1_1EclipseEvent.html", [
-      [ "hasUmbra_", "structast_1_1EclipseEvent.html#a330f641b5aacdb229d863b468e66d522", null ],
-      [ "maxShadowRatio_", "structast_1_1EclipseEvent.html#a80debecc464cee47e34827f9996209a7", null ],
-      [ "obstruction_", "structast_1_1EclipseEvent.html#a2df4f23ba554f0a199fdc863f94acd57", null ],
-      [ "penumbraStart_", "structast_1_1EclipseEvent.html#a4c780bd8bfe19aa62ef81bfb7f1e8039", null ],
-      [ "penumbraStop_", "structast_1_1EclipseEvent.html#a36646a1c691a4e2d805da2aa8909e208", null ],
-      [ "timeAtMaxShadow_", "structast_1_1EclipseEvent.html#a665465da54fea0dabe664513b5a7a05d", null ],
-      [ "umbraStart_", "structast_1_1EclipseEvent.html#afd9c42b1d2f145a7f03aaacc683a2f99", null ],
-      [ "umbraStop_", "structast_1_1EclipseEvent.html#a8518d098f7520a302e0fd1955ef6a5a8", null ]
+    [ "ast::EclipseEvent", "classast_1_1EclipseEvent.html", [
+      [ "getMinIntensity", "classast_1_1EclipseEvent.html#a25fd5d0ea08bbd8bfb2e16136a8aac83", null ],
+      [ "getObstructionName", "classast_1_1EclipseEvent.html#a2d5053da69200ecb3011ac1e9cfd924d", null ],
+      [ "getPenumbraDuration", "classast_1_1EclipseEvent.html#a9e6f082f733d412fe15ee0424c9ad165", null ],
+      [ "getTimeAtMinIntensity", "classast_1_1EclipseEvent.html#abf1461aa4b0c971f509683cea7df7030", null ],
+      [ "getTotalDuration", "classast_1_1EclipseEvent.html#a30e80eb5cc2250d39b97b0789d774862", null ]
     ] ],
     [ "ast::EclipseEventFinder", "classast_1_1EclipseEventFinder.html", [
       [ "find", "classast_1_1EclipseEventFinder.html#afb18cd76f927469c098167c56b0a4859", null ]

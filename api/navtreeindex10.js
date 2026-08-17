@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"OrdinaryDifferentialEquation_8hpp.html":[4,0,0,12,5,16],
+"OrdinaryDifferentialEquation_8hpp.html#a556c864e79d6a749bb7e2aae55fcac57":[4,0,0,12,5,16,1],
+"OrdinaryDifferentialEquation_8hpp_source.html":[4,0,0,12,5,16],
 "OsculatingElements_8cpp.html":[4,0,0,2,0,10],
 "OsculatingElements_8hpp.html":[4,0,0,2,0,11],
 "OsculatingElements_8hpp_source.html":[4,0,0,2,0,11],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "ReportStyleLoader_8hpp_source.html":[4,0,0,11,4,1],
 "ReportStyle_8cpp.html":[4,0,0,17,10],
 "ReportStyle_8hpp.html":[4,0,0,17,11],
-"ReportStyle_8hpp_source.html":[4,0,0,17,11],
-"ReportWriter_8cpp.html":[4,0,0,17,12],
-"ReportWriter_8hpp.html":[4,0,0,17,13],
-"ReportWriter_8hpp_source.html":[4,0,0,17,13]
+"ReportStyle_8hpp_source.html":[4,0,0,17,11]
 };

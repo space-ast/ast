@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"IlluminationAngles_8cpp.html":[4,0,0,2,0,8],
+"IlluminationAngles_8hpp.html":[4,0,0,2,0,9],
+"IlluminationAngles_8hpp_source.html":[4,0,0,2,0,9],
 "InertialFrame_8hpp_source.html":[4,0,0,6,5,2,3],
 "InitialStateLoader_8cpp.html":[4,0,0,11,1,2,3],
 "InitialStateLoader_8cpp.html#a1c8466fffe82f771e01c2324f22840e6":[4,0,0,11,1,2,3,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "Literals_8hpp.html#ae60947175eaa8faac7143fd5f60b8997":[4,0,0,27,11,8,62],
 "Literals_8hpp.html#ae75856045494bc38a64e4e4fa2b86da9":[4,0,0,27,11,8,57],
 "Literals_8hpp.html#aeb2087977046e80e517ac1b295490f0c":[4,0,0,27,11,8,59],
-"Literals_8hpp.html#af11fab1d040c1dfc47d10aa468c4ca6f":[4,0,0,27,11,8,5],
-"Literals_8hpp.html#af2c6bf04dacf1e87018f6b42ed46f9ec":[4,0,0,27,11,8,8],
-"Literals_8hpp_source.html":[4,0,0,27,11,8],
-"LoaderCommon_8hpp.html":[4,0,0,11,0,0]
+"Literals_8hpp.html#af11fab1d040c1dfc47d10aa468c4ca6f":[4,0,0,27,11,8,5]
 };

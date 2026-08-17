@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"Field_8hpp.html":[4,0,0,27,8,0,5],
+"Field_8hpp_source.html":[4,0,0,27,8,0,5],
+"FigureOfMeritLoader_8cpp.html":[4,0,0,11,5,23],
 "FigureOfMeritLoader_8cpp.html#a14031f6bc5a9ab7b58810bc5b0617f3a":[4,0,0,11,5,23,0],
 "FigureOfMeritLoader_8hpp.html":[4,0,0,11,5,24],
 "FigureOfMeritLoader_8hpp.html#a14031f6bc5a9ab7b58810bc5b0617f3a":[4,0,0,11,5,24,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "IdentifierTable_8hpp_source.html":[4,0,0,27,3,5],
 "Identifier_8cpp.html":[4,0,0,27,3,0],
 "Identifier_8hpp.html":[4,0,0,27,3,1],
-"Identifier_8hpp_source.html":[4,0,0,27,3,1],
-"IlluminationAngles_8cpp.html":[4,0,0,2,0,8],
-"IlluminationAngles_8hpp.html":[4,0,0,2,0,9],
-"IlluminationAngles_8hpp_source.html":[4,0,0,2,0,9]
+"Identifier_8hpp_source.html":[4,0,0,27,3,1]
 };

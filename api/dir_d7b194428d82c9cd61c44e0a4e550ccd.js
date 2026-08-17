@@ -10,6 +10,8 @@ var dir_d7b194428d82c9cd61c44e0a4e550ccd =
     [ "DataGroupCartVel.hpp", "DataGroupCartVel_8hpp.html", "DataGroupCartVel_8hpp" ],
     [ "DataGroupEclipse.cpp", "DataGroupEclipse_8cpp.html", null ],
     [ "DataGroupEclipse.hpp", "DataGroupEclipse_8hpp.html", "DataGroupEclipse_8hpp" ],
+    [ "DataGroupEclipseSummary.cpp", "DataGroupEclipseSummary_8cpp.html", null ],
+    [ "DataGroupEclipseSummary.hpp", "DataGroupEclipseSummary_8hpp.html", null ],
     [ "DataGroupEquinElem.cpp", "DataGroupEquinElem_8cpp.html", null ],
     [ "DataGroupEquinElem.hpp", "DataGroupEquinElem_8hpp.html", "DataGroupEquinElem_8hpp" ],
     [ "DataGroupEuler.cpp", "DataGroupEuler_8cpp.html", "DataGroupEuler_8cpp" ],

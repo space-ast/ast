@@ -101,7 +101,7 @@ var searchData=
   ['eclipsecalculator_2ecpp_98',['EclipseCalculator.cpp',['../EclipseCalculator_8cpp.html',1,'']]],
   ['eclipsecalculator_2ehpp_99',['EclipseCalculator.hpp',['../EclipseCalculator_8hpp.html',1,'']]],
   ['eclipsecalculator_5f_100',['eclipseCalculator_',['../classast_1_1BlockSRP.html#ae6374500d31398165205416060759354',1,'ast::BlockSRP']]],
-  ['eclipseevent_101',['EclipseEvent',['../structast_1_1EclipseEvent.html',1,'ast']]],
+  ['eclipseevent_101',['EclipseEvent',['../classast_1_1EclipseEvent.html',1,'ast']]],
   ['eclipseeventfinder_102',['EclipseEventFinder',['../classast_1_1EclipseEventFinder.html',1,'ast']]],
   ['eclipseeventfinder_2ecpp_103',['EclipseEventFinder.cpp',['../EclipseEventFinder_8cpp.html',1,'']]],
   ['eclipseeventfinder_2ehpp_104',['EclipseEventFinder.hpp',['../EclipseEventFinder_8hpp.html',1,'']]],
