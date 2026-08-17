@@ -71,13 +71,13 @@ static EclipseEvent MakeExpected(const TimePoint& penStart, const TimePoint& umb
                                  const TimePoint& umbStop, const TimePoint& penStop)
 {
     EclipseEvent ev;
-    ev.penumbraStart_    = penStart;
-    ev.umbraStart_       = umbStart;
-    ev.umbraStop_        = umbStop;
-    ev.penumbraStop_     = penStop;
-    ev.maxShadowRatio_   = 1.0;
-    ev.timeAtMaxShadow_  = umbStart;   // 本影事件最大遮蔽在本影进入时刻首次达到
-    ev.hasUmbra_         = true;
+    ev.setPenumbraStart(penStart);
+    ev.setUmbraStart(umbStart);
+    ev.setUmbraStop(umbStop);
+    ev.setPenumbraStop(penStop);
+    ev.setMaxShadowRatio(1.0);
+    ev.setTimeAtMaxShadow(umbStart);   // 本影事件最大遮蔽在本影进入时刻首次达到
+    ev.setHasUmbra(true);
     return ev;
 }
 
@@ -114,12 +114,12 @@ static void Verify(const std::vector<EclipseEvent>& events, const std::vector<Ec
         const auto& ev = events[i];
         const auto& ex = expected[i];
 
-        EXPECT_NEAR(ev.penumbraStart_ - ex.penumbraStart_, 0.0, kTimeTol) << "event " << i << " penStart";
-        EXPECT_NEAR(ev.umbraStart_    - ex.umbraStart_,    0.0, kTimeTol) << "event " << i << " umbStart";
-        EXPECT_NEAR(ev.umbraStop_     - ex.umbraStop_,     0.0, kTimeTol) << "event " << i << " umbStop";
-        EXPECT_NEAR(ev.penumbraStop_  - ex.penumbraStop_,  0.0, kTimeTol) << "event " << i << " penStop";
-        EXPECT_NEAR(ev.maxShadowRatio_ - ex.maxShadowRatio_, 0.0, 0.001) << "event " << i << " maxShadow";
-        EXPECT_NEAR(ev.timeAtMaxShadow_ - ex.timeAtMaxShadow_, 0.0, kTimeTol) << "event " << i << " maxShadowTime";
+        EXPECT_NEAR(ev.getPenumbraStart() - ex.getPenumbraStart(), 0.0, kTimeTol) << "event " << i << " penStart";
+        EXPECT_NEAR(ev.getUmbraStart()    - ex.getUmbraStart(),    0.0, kTimeTol) << "event " << i << " umbStart";
+        EXPECT_NEAR(ev.getUmbraStop()     - ex.getUmbraStop(),     0.0, kTimeTol) << "event " << i << " umbStop";
+        EXPECT_NEAR(ev.getPenumbraStop()  - ex.getPenumbraStop(),  0.0, kTimeTol) << "event " << i << " penStop";
+        EXPECT_NEAR(ev.getMaxShadowRatio() - ex.getMaxShadowRatio(), 0.0, 0.001) << "event " << i << " maxShadow";
+        EXPECT_NEAR(ev.getTimeAtMaxShadow() - ex.getTimeAtMaxShadow(), 0.0, kTimeTol) << "event " << i << " maxShadowTime";
     }
 }
 
@@ -206,14 +206,14 @@ TEST_F(EclipseEventFinderTest, LeoOrbitOneDay)
         std::printf("[%2zu] body=%s hasUmbra=%d shadow=%.1f%% "
                     "      pen=%s  umbIn=%s  umbOut=%s  penOut=%s timeAtMaxShadow=%s\n",
                     i,
-                    ev.obstruction_ ? ev.obstruction_->getName().c_str() : "(null)",
-                    ev.hasUmbra_ ? 1 : 0,
-                    ev.maxShadowRatio_ * 100.0,
-                    ev.penumbraStart_.toString(3).c_str(),
-                    ev.umbraStart_.toString(3).c_str(),
-                    ev.umbraStop_.toString(3).c_str(),
-                    ev.penumbraStop_.toString(3).c_str(),
-                    ev.timeAtMaxShadow_.toString(3).c_str()
+                    ev.getObstruction() ? ev.getObstruction()->getName().c_str() : "(null)",
+                    ev.hasUmbra() ? 1 : 0,
+                    ev.getMaxShadowRatio() * 100.0,
+                    ev.getPenumbraStart().toString(3).c_str(),
+                    ev.getUmbraStart().toString(3).c_str(),
+                    ev.getUmbraStop().toString(3).c_str(),
+                    ev.getPenumbraStop().toString(3).c_str(),
+                    ev.getTimeAtMaxShadow().toString(3).c_str()
                 );
     }
     std::printf("==============================\n\n");
@@ -228,23 +228,23 @@ TEST_F(EclipseEventFinderTest, LeoOrbitOneDay)
     for (const auto& ev : events)
     {
         // 边界顺序：半影进入 <= 本影进入 <= 本影退出 <= 半影退出
-        EXPECT_LE(ev.penumbraStart_ - ev.umbraStart_, 0.0) << "penumbraStart > umbraStart";
-        EXPECT_LE(ev.umbraStart_    - ev.umbraStop_,  0.0) << "umbraStart > umbraStop";
-        EXPECT_LE(ev.umbraStop_     - ev.penumbraStop_, 0.0) << "umbraStop > penumbraStop";
+        EXPECT_LE(ev.getPenumbraStart() - ev.getUmbraStart(), 0.0) << "penumbraStart > umbraStart";
+        EXPECT_LE(ev.getUmbraStart()    - ev.getUmbraStop(),  0.0) << "umbraStart > umbraStop";
+        EXPECT_LE(ev.getUmbraStop()     - ev.getPenumbraStop(), 0.0) << "umbraStop > penumbraStop";
 
         // 遮挡体应为地球
-        ASSERT_TRUE(ev.obstruction_);
-        EXPECT_EQ(ev.obstruction_.get(), aGetEarth());
+        ASSERT_TRUE(ev.getObstruction() != nullptr);
+        EXPECT_EQ(ev.getObstruction(), aGetEarth());
 
-        if (ev.hasUmbra_)
+        if (ev.hasUmbra())
         {
             if (!firstUmbra) firstUmbra = &ev;
             ++umbraCount;
-            double umbraDur = ev.umbraStop_ - ev.umbraStart_;
+            double umbraDur = ev.getUmbraDuration();
             EXPECT_GT(umbraDur, 0.0)      << "umbra duration must be positive";
             EXPECT_LE(umbraDur, 3000.0)   << "umbra duration too long";
             if (umbraDur > 1800.0) ++fullUmbraCount; // 完整本影约 2186 s
-            EXPECT_GE(ev.maxShadowRatio_, 0.999) << "umbra event should be ~100% shadow";
+            EXPECT_GE(ev.getMaxShadowRatio(), 0.999) << "umbra event should be ~100% shadow";
         }
     }
 
@@ -258,14 +258,14 @@ TEST_F(EclipseEventFinderTest, LeoOrbitOneDay)
 
     // 本影中点应为全阴影（ratio ~ 0）
     {
-        TimePoint mid = firstUmbra->umbraStart_ + (firstUmbra->umbraStop_ - firstUmbra->umbraStart_) * 0.5;
+        TimePoint mid = firstUmbra->getUmbraStart() + (firstUmbra->getUmbraStop() - firstUmbra->getUmbraStart()) * 0.5;
         double r = LightingRatioAt(sat, frame.get(), mid);
         EXPECT_LT(r, 0.01) << "umbra midpoint should be fully shadowed, got " << r;
     }
 
     // 半影退出后 60 s 应为全光照（ratio ~ 1）
     {
-        TimePoint t = firstUmbra->penumbraStop_ + 60.0;
+        TimePoint t = firstUmbra->getPenumbraStop() + 60.0;
         double r = LightingRatioAt(sat, frame.get(), t);
         EXPECT_GT(r, 0.9) << "just after eclipse should be sunlit, got " << r;
     }

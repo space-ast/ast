@@ -31,10 +31,10 @@ namespace
 /// @brief 将单个日食事件展开为 1~3 行（半影进入 / 本影 / 半影退出），零时长段自动跳过
 void buildEclipseRows(const EclipseEvent& ev, std::vector<DataGroupEclipse::Data>& rows)
 {
-    CelestialBody* body = ev.obstruction_.get();
+    CelestialBody* body = ev.getObstruction();
     std::string obstruction = body ? body->getName() : std::string{};
-    std::string worst       = ev.hasUmbra_ ? "Umbra" : "Penumbra";
-    double      totalDur    = ev.penumbraStop_ - ev.penumbraStart_;
+    std::string worst       = ev.hasUmbra() ? "Umbra" : "Penumbra";
+    double      totalDur    = ev.getTotalDuration();
 
     auto push = [&](const TimePoint& s, const TimePoint& e, const char* cond)
     {
@@ -51,15 +51,15 @@ void buildEclipseRows(const EclipseEvent& ev, std::vector<DataGroupEclipse::Data
         rows.push_back(row);
     };
 
-    if (ev.hasUmbra_)
+    if (ev.hasUmbra())
     {
-        push(ev.penumbraStart_, ev.umbraStart_, "Penumbra");   // 半影进入
-        push(ev.umbraStart_,    ev.umbraStop_,  "Umbra");      // 本影
-        push(ev.umbraStop_,     ev.penumbraStop_, "Penumbra"); // 半影退出
+        push(ev.getPenumbraStart(), ev.getUmbraStart(), "Penumbra");   // 半影进入
+        push(ev.getUmbraStart(),    ev.getUmbraStop(),  "Umbra");      // 本影
+        push(ev.getUmbraStop(),     ev.getPenumbraStop(), "Penumbra"); // 半影退出
     }
     else
     {
-        push(ev.penumbraStart_, ev.penumbraStop_, "Penumbra"); // 掠影：单段半影
+        push(ev.getPenumbraStart(), ev.getPenumbraStop(), "Penumbra"); // 掠影：单段半影
     }
 }
 

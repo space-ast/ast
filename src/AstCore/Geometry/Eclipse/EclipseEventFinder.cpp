@@ -102,32 +102,32 @@ namespace
 
         // 最深遮蔽点/最大遮蔽比例
         auto finalize = [&](EclipseEvent& e) {
-            if (e.hasUmbra_)
+            if (e.hasUmbra())
             {
                 // 本影事件：最大遮蔽（100%）在本影进入时刻首次达到，整段本影保持不变
-                e.timeAtMaxShadow_ = e.umbraStart_;
-                e.maxShadowRatio_  = 1.0;
+                e.setTimeAtMaxShadow(e.getUmbraStart());
+                e.setMaxShadowRatio(1.0);
             }
             else
             {
                 // 掠影：最深遮蔽点需一维优化求取
-                const TimePoint refTime = e.penumbraStart_;
-                const double dur = e.penumbraStop_ - e.penumbraStart_;
+                const TimePoint refTime = e.getPenumbraStart();
+                const double dur = e.getPenumbraStop() - e.getPenumbraStart();
                 if (dur > 0.0)
                 {
                     TimePoint tMax;
-                    const double lmin = deepestIn(refTime, e.penumbraStop_, tMax);
-                    e.timeAtMaxShadow_ = tMax;
-                    e.maxShadowRatio_  = 1.0 - lmin;
+                    const double lmin = deepestIn(refTime, e.getPenumbraStop(), tMax);
+                    e.setTimeAtMaxShadow(tMax);
+                    e.setMaxShadowRatio(1.0 - lmin);
                 }
                 else
                 {
-                    e.timeAtMaxShadow_ = refTime;
-                    e.maxShadowRatio_  = shadow(refTime);
+                    e.setTimeAtMaxShadow(refTime);
+                    e.setMaxShadowRatio(shadow(refTime));
                 }
                 // 掠影：本影起止均取最深遮蔽时刻
-                e.umbraStart_ = e.timeAtMaxShadow_;
-                e.umbraStop_  = e.timeAtMaxShadow_;
+                e.setUmbraStart(e.getTimeAtMaxShadow());
+                e.setUmbraStop(e.getTimeAtMaxShadow());
             }
         };
 
@@ -140,12 +140,12 @@ namespace
         bool inEvent = false;
         if (prevState != ELightingType::eSunlight)
         {
-            ev.obstruction_    = body;
-            ev.penumbraStart_  = start;
+            ev.setObstruction(body);
+            ev.setPenumbraStart(start);
             if (prevState == ELightingType::eUmbra)
             {
-                ev.umbraStart_ = start;
-                ev.hasUmbra_   = true;
+                ev.setUmbraStart(start);
+                ev.setHasUmbra(true);
             }
             inEvent = true;
         }
@@ -169,24 +169,24 @@ namespace
                         const double lmin = deepestIn(t, tNext, tmin);
 
                         ev = EclipseEvent{};
-                        ev.obstruction_   = body;
-                        ev.penumbraStart_ = bisectEnter(t, tNext, isShadow);
+                        ev.setObstruction(body);
+                        ev.setPenumbraStart(bisectEnter(t, tNext, isShadow));
                         // 直接从光照跳到了第二个半影，需要处理本影起止时刻
                         if (lmin <= 0.0)   // 本影在本步内被完整跨越，此刻处于第二个半影
                         {
-                            ev.umbraStart_ = bisectEnter(t, tmin, isUmbra);    // 下降段：false→true
-                            ev.umbraStop_  = bisectExit(tmin, tNext, isUmbra); // 上升段：true→false
-                            ev.hasUmbra_   = true;
+                            ev.setUmbraStart(bisectEnter(t, tmin, isUmbra));    // 下降段：false→true
+                            ev.setUmbraStop(bisectExit(tmin, tNext, isUmbra));  // 上升段：true→false
+                            ev.setHasUmbra(true);
                         }
                         inEvent = true;
                     }
                     else if (curState == ELightingType::eUmbra)
                     {
                         ev = EclipseEvent{};
-                        ev.obstruction_   = body;
-                        ev.penumbraStart_ = bisectEnter(t, tNext, isShadow);
-                        ev.umbraStart_    = bisectEnter(t, tNext, isUmbra);
-                        ev.hasUmbra_      = true;
+                        ev.setObstruction(body);
+                        ev.setPenumbraStart(bisectEnter(t, tNext, isShadow));
+                        ev.setUmbraStart(bisectEnter(t, tNext, isUmbra));
+                        ev.setHasUmbra(true);
                         inEvent = true;
                     }
                 }
@@ -194,21 +194,21 @@ namespace
                 {
                     if (curState == ELightingType::eUmbra)
                     {
-                        ev.umbraStart_ = bisectEnter(t, tNext, isUmbra);
-                        ev.hasUmbra_   = true;
+                        ev.setUmbraStart(bisectEnter(t, tNext, isUmbra));
+                        ev.setHasUmbra(true);
                     }
                     else if (curState == ELightingType::eSunlight)
                     {
                         TimePoint tmin;
                         const double lmin = deepestIn(t, tNext, tmin);
 
-                        ev.penumbraStop_ = bisectExit(t, tNext, isShadow);
+                        ev.setPenumbraStop(bisectExit(t, tNext, isShadow));
                         // 直接从第一个半影跳到了光照，需要处理本影起止时刻
                         if (lmin <= 0.0)   // 本影在本步内被完整跨越但端点漏掉：补齐本影起止
                         {
-                            ev.umbraStart_ = bisectEnter(t, tmin, isUmbra);
-                            ev.umbraStop_  = bisectExit(tmin, tNext, isUmbra);
-                            ev.hasUmbra_   = true;
+                            ev.setUmbraStart(bisectEnter(t, tmin, isUmbra));
+                            ev.setUmbraStop(bisectExit(tmin, tNext, isUmbra));
+                            ev.setHasUmbra(true);
                         }
                         finalize(ev);
                         events.push_back(ev);
@@ -219,12 +219,12 @@ namespace
                 {
                     if (curState == ELightingType::ePenumbra)
                     {
-                        ev.umbraStop_ = bisectExit(t, tNext, isUmbra);
+                        ev.setUmbraStop(bisectExit(t, tNext, isUmbra));
                     }
                     else if (curState == ELightingType::eSunlight)
                     {
-                        ev.umbraStop_    = bisectExit(t, tNext, isUmbra);
-                        ev.penumbraStop_ = bisectExit(t, tNext, isShadow);
+                        ev.setUmbraStop(bisectExit(t, tNext, isUmbra));
+                        ev.setPenumbraStop(bisectExit(t, tNext, isShadow));
                         finalize(ev);
                         events.push_back(ev);
                         inEvent = false;
@@ -238,10 +238,10 @@ namespace
 
         if (inEvent)
         {
-            ev.penumbraStop_ = stop;
+            ev.setPenumbraStop(stop);
             if (prevState == ELightingType::eUmbra)
             {
-                ev.umbraStop_ = stop;
+                ev.setUmbraStop(stop);
             }
             finalize(ev);
             events.push_back(ev);
@@ -306,7 +306,7 @@ errc_t EclipseEventFinder::find(const TimeInterval& interval, std::vector<Eclips
 
     std::sort(events.begin(), events.end(),
               [](const EclipseEvent& a, const EclipseEvent& b) {
-                  return a.penumbraStart_ < b.penumbraStart_;
+                  return a.getPenumbraStart() < b.getPenumbraStart();
               });
 
     return eNoError;

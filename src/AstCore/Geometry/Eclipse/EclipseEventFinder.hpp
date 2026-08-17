@@ -27,6 +27,7 @@
 #include "AstCore/Point.hpp"
 #include "AstCore/Frame.hpp"
 
+#include <string>
 #include <vector>
 
 AST_NAMESPACE_BEGIN
@@ -38,10 +39,56 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 单个日食事件
 /// @details 一次穿过某遮挡体阴影的完整事件，包含半影进入/本影进入/本影退出/半影退出
-///          四个边界时刻。掠影（仅半影、未进入本影）时 hasUmbra_ 为 false，
+///          四个边界时刻。掠影（仅半影、未进入本影）时 hasUmbra() 为 false，
 ///          umbraStart_/umbraStop_ 为最深遮蔽时刻的近似值。
-struct AST_CORE_API EclipseEvent
+class AST_CORE_API EclipseEvent
 {
+public:
+    /// @name 原始字段 getter
+    /// @{
+    CelestialBody* getObstruction() const { return obstruction_.get(); }
+    const TimePoint& getPenumbraStart() const { return penumbraStart_; }
+    const TimePoint& getUmbraStart()    const { return umbraStart_; }
+    const TimePoint& getUmbraStop()     const { return umbraStop_; }
+    const TimePoint& getPenumbraStop()  const { return penumbraStop_; }
+    double          getMaxShadowRatio() const { return maxShadowRatio_; }
+    const TimePoint& getTimeAtMaxShadow() const { return timeAtMaxShadow_; }
+    bool            hasUmbra()          const { return hasUmbra_; }
+    /// @}
+
+    /// @name 派生元素 getter（对应报表列）
+    /// @{
+    /// @brief 本影时长 [s]（掠影时为 0）
+    double getUmbraDuration() const { return umbraStop_ - umbraStart_; }
+    /// @brief 半影时长 [s]（进入段 + 退出段之和；掠影时退化为单段半影）
+    double getPenumbraDuration() const { return (umbraStart_ - penumbraStart_) + (penumbraStop_ - umbraStop_); }
+    /// @brief 总遮蔽时长 [s]
+    double getTotalDuration() const { return penumbraStop_ - penumbraStart_; }
+    /// @brief 遮挡体名称（无遮挡体时为空串）
+    std::string getObstructionName() const
+    {
+        CelestialBody* b = obstruction_.get();
+        return b ? b->getName() : std::string{};
+    }
+    /// @brief 最小光照强度 [0,1]（= 1 - 最大遮蔽比例）
+    double getMinIntensity() const { return 1.0 - maxShadowRatio_; }
+    /// @brief 最小光照强度时刻（= 最大遮蔽时刻）
+    const TimePoint& getTimeAtMinIntensity() const { return timeAtMaxShadow_; }
+    /// @}
+
+    /// @name setter
+    /// @{
+    void setObstruction(CelestialBody* b) { obstruction_ = b; }
+    void setPenumbraStart(const TimePoint& t) { penumbraStart_ = t; }
+    void setUmbraStart(const TimePoint& t)    { umbraStart_ = t; }
+    void setUmbraStop(const TimePoint& t)     { umbraStop_ = t; }
+    void setPenumbraStop(const TimePoint& t)  { penumbraStop_ = t; }
+    void setMaxShadowRatio(double r)          { maxShadowRatio_ = r; }
+    void setTimeAtMaxShadow(const TimePoint& t) { timeAtMaxShadow_ = t; }
+    void setHasUmbra(bool b)                  { hasUmbra_ = b; }
+    /// @}
+
+private:
     WBody     obstruction_{};        ///< 遮挡天体
     TimePoint penumbraStart_{};      ///< 半影进入时刻
     TimePoint umbraStart_{};         ///< 本影进入时刻（无本影时为最深遮蔽时刻）

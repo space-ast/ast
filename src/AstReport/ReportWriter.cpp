@@ -46,6 +46,7 @@
 #include "AstReport/DataGroupMagField.hpp"
 #include "AstReport/DataGroupInterval.hpp"
 #include "AstReport/DataGroupEclipse.hpp"
+#include "AstReport/DataGroupEclipseSummary.hpp"
 
 #include <unordered_map>
 #include <memory>
@@ -196,6 +197,13 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
         auto* dg = new DataGroupEclipse();
+        dg->setPoint(point);
+        return dg;
+    }},
+    {"EclipseSummary", [](const Object* obj, StringView) -> DataGroup* {
+        auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
+        if (!point) return nullptr;
+        auto* dg = new DataGroupEclipseSummary();
         dg->setPoint(point);
         return dg;
     }},

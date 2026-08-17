@@ -10,6 +10,7 @@
 #include "AstReport/DataGroupCartPos.hpp"
 #include "AstReport/DataGroupCartVel.hpp"
 #include "AstReport/DataGroupEclipse.hpp"
+#include "AstReport/DataGroupEclipseSummary.hpp"
 #include "AstReport/DataGroupEquinElem.hpp"
 #include "AstReport/DataGroupEuler.hpp"
 #include "AstReport/DataGroupFixed.hpp"
