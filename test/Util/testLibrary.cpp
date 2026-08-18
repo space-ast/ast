@@ -62,7 +62,7 @@ TEST(Library, LoadAndUnload)
 #ifdef _WIN32
     Library lib("kernel32");
 #else
-    Library lib("c");
+    Library lib("c.so.6");
 #endif
     errc_t rc = lib.load();
     EXPECT_EQ(rc, eNoError);
@@ -89,7 +89,7 @@ TEST(Library, Resolve)
     Library lib("kernel32");
     auto proc = (void*(*)())lib.resolve("GetLastError");
 #else
-    Library lib("c");
+    Library lib("c.so.6");
     auto proc = lib.resolve("printf");
 #endif
     EXPECT_NE(proc, nullptr);
@@ -102,7 +102,7 @@ TEST(Library, ResolveAutoLoad)
     Library lib("kernel32");
     auto proc = lib.resolve("GetLastError");
 #else
-    Library lib("c");
+    Library lib("c.so.6");
     auto proc = lib.resolve("printf");
 #endif
     EXPECT_NE(proc, nullptr);
@@ -115,7 +115,7 @@ TEST(Library, ResolveNonexistentSymbol)
 #ifdef _WIN32
     Library lib("kernel32");
 #else
-    Library lib("c");
+    Library lib("c.so.6");
 #endif
     errc_t rc = lib.load();
     EXPECT_EQ(rc, eNoError);
@@ -152,7 +152,7 @@ TEST(Library, StaticResolve)
 #ifdef _WIN32
     auto proc = (void*(*)())Library::Resolve("kernel32", "GetLastError");
 #else
-    auto proc = Library::Resolve("c", "printf");
+    auto proc = Library::Resolve("c.so.6", "printf");
 #endif
     EXPECT_NE(proc, nullptr);
 }
@@ -173,7 +173,7 @@ TEST(Library, SetFileNameAfterLoad)
 #ifdef _WIN32
     Library lib("kernel32");
 #else
-    Library lib("c");
+    Library lib("c.so.6");
 #endif
     lib.load();
     EXPECT_TRUE(lib.isLoaded());
@@ -192,7 +192,7 @@ TEST(Library, DestructorUnloads)
 #ifdef _WIN32
     lib->setFileName("kernel32");
 #else
-    lib->setFileName("c");
+    lib->setFileName("c.so.6");
 #endif
     lib->load();
     EXPECT_TRUE(lib->isLoaded());

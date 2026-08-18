@@ -17,6 +17,7 @@
 #include "AstReport/DataGroupInterval.hpp"
 #include "AstReport/DataGroupLLAState.hpp"
 #include "AstReport/DataGroupLLRState.hpp"
+#include "AstReport/DataGroupLightingTimes.hpp"
 #include "AstReport/DataGroupMagField.hpp"
 #include "AstReport/DataGroupModOrbElem.hpp"
 #include "AstReport/DataGroupOrbit.hpp"

@@ -47,6 +47,7 @@
 #include "AstReport/DataGroupInterval.hpp"
 #include "AstReport/DataGroupEclipse.hpp"
 #include "AstReport/DataGroupEclipseSummary.hpp"
+#include "AstReport/DataGroupLightingTimes.hpp"
 
 #include <unordered_map>
 #include <memory>
@@ -205,6 +206,14 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         if (!point) return nullptr;
         auto* dg = new DataGroupEclipseSummary();
         dg->setPoint(point);
+        return dg;
+    }},
+    {"LightingData", [](const Object* obj, StringView type) -> DataGroup* {
+        auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
+        if (!point) return nullptr;
+        auto* dg = new DataGroupLightingTimes();
+        dg->setPoint(point);
+        dg->setLightingType(DataGroupLightingTimes::LightingTypeFromString(type));
         return dg;
     }},
 };
