@@ -47,14 +47,19 @@ AST_CORE_CAPI void aJDToMJD(const JulianDate& jd, ModJulianDate& mjd);
 AST_CORE_CAPI void aMJDToJD(const ModJulianDate& mjd, JulianDate& jd);
 
 
-/// @brief 将儒略日转换为简约儒略日
-/// @warning 注意用单个double表示的时间精度不高
-AST_CORE_API double aJDToMJD_Imprecise(const JulianDate& jd);
-
-
-/// @brief 将简约儒略日Modified Julian Date（MJD）转换为儒略日
+/// @brief 将不精确的儒略日 Julian Date（MJD）转换为不精确的简约儒略日
 /// @warning 注意用单个double表示的时间精度不高
 AST_CORE_API ImpreciseMJD aJDToMJD_Imprecise(ImpreciseJD jd);
+
+
+/// @brief 将儒略日转换为不精确的简约儒略日
+/// @warning 注意用单个double表示的时间精度不高
+AST_CORE_API ImpreciseMJD aJDToMJD_Imprecise(const JulianDate& jd);
+
+
+/// @brief 将不精确的简约儒略日Modified Julian Date（MJD）转换为不精确的儒略日
+/// @warning 注意用单个double表示的时间精度不高
+AST_CORE_API ImpreciseJD aMJDToJD_Imprecise(ImpreciseMJD mjd);
 
 
 /// @brief 将简约儒略日Modified Julian Date（MJD）转换为不精确的儒略日
@@ -62,9 +67,8 @@ AST_CORE_API ImpreciseMJD aJDToMJD_Imprecise(ImpreciseJD jd);
 AST_CORE_API ImpreciseJD aMJDToJD_Imprecise(const ModJulianDate& mjd);
 
 
-/// @brief 将儒略日转换为简约儒略日Modified Julian Date（MJD）
-/// @warning 注意用单个double表示的时间精度不高
-AST_CORE_API ImpreciseJD aMJDToJD_Imprecise(ImpreciseMJD mjd);
+/// @brief 将不精确的简约儒略日Modified Julian Date（MJD）转换为儒略日
+AST_CORE_API void aMJDToJD_Imprecise(ImpreciseMJD mjd, JulianDate& jd);
 
 
 /// @brief 将日期时间转换为儒略日
@@ -77,31 +81,50 @@ AST_CORE_CAPI void aJDToDateTime(const JulianDate& jd, DateTime& dttm);
 
 /// @brief 儒略日
 /// @details 儒略日（Julian Date）是一种用于表示时间的方法，常用于天文学和计算机科学中。
-/// ast项目将其实现为整数天 + 小数秒的形式，保证数值精度
+/// 在 JulianDate 类的实现中，将儒略日表示为整数天 + 小数秒的形式，保证数值精度
 class JulianDate
 {
 public:
-    /// @brief 根据不精确的天数创建儒略日对象
-    static JulianDate FromImpreciseDay(double JD){
-        int day = static_cast<int>(JD);
-        double second = (JD - day) * 86400.0;
-        return JulianDate::FromDaySecond(day, second);
+    /// @brief 根据不精确的天数创建儒略日
+    /// @param day 天数 [day] (单个double表示的天数精度不高)
+    static JulianDate FromImpreciseDay(double day){
+        int d = static_cast<int>(day);
+        double second = (day - d) * 86400.0;
+        return JulianDate::FromDaySecond(d, second);
     }
-    /// @brief 根据天数和秒数创建儒略日对象
+
+    /// @brief 根据天数(分两部分)创建儒略日
+    /// @param day1 天数第1部分 [day]
+    /// @param day2 天数第2部分 [day]
+    static JulianDate FromDays(double day1, double day2)
+    {
+        int d1 = static_cast<int>(day1);
+        int d2 = static_cast<int>(day2);
+        double second = ((day1 - d1) + (day2 - d2)) * 86400.0;
+        return JulianDate::FromDaySecond(d1 + d2, second);
+    }
+
+    /// @brief 根据天数和秒数创建儒略日
+    /// @param day 天数 [day]
+    /// @param second 秒数 [second]
     static JulianDate FromDaySecond(int day, double second){
         return JulianDate{day, second};
     }
-    /// @brief 根据日期时间创建儒略日对象
+
+    /// @brief 根据日期时间创建儒略日
     static JulianDate FromDateTime(const DateTime& dttm)
     {
         JulianDate jd;
         aDateTimeToJD(dttm, jd);
         return jd;
     }
-    /// @brief 获取 J2000.0 历元的儒略日对象
+
+    /// @brief 获取 J2000.0 历元的儒略日
     static JulianDate J2000(){
         return JulianDate::FromDaySecond(static_cast<int>(kJ2000Epoch), 0.0);
     }
+
+    /// @brief 根据日期时间创建儒略日对象
     AST_CORE_API
     static JulianDate FromDateTime(int year, int month, int day, int hour, int minute, double second);
 public:
@@ -159,6 +182,10 @@ public:
     double daysFromJulianDate(double jd) const
     {
         return ((day_ - jd) + dayFractional());
+    }
+    
+    double daysFrom(const JulianDate& other) const{
+        return (*this - other).totalDay();
     }
 public:
     JulianDate& operator += (double sec)

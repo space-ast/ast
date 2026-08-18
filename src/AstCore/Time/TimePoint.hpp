@@ -286,6 +286,22 @@ public:
         return {integerPart(), fractionalPart() - second};
     }
 
+    /// @brief 时间点加法赋值运算符
+    /// @param second 秒数
+    /// @return 自身引用
+    TimePoint& operator+=(double second){
+        this->duration_.fractional_ += second;
+        return *this;
+    }
+
+    /// @brief 时间点减法赋值运算符
+    /// @param second 秒数
+    /// @return 自身引用
+    TimePoint& operator-=(double second){
+        this->duration_.fractional_ -= second;
+        return *this;
+    }
+
     /// @brief 时间点等于运算符
     bool operator == (const TimePoint& other) const
     {
