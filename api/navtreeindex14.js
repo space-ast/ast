@@ -1,5 +1,8 @@
 var NAVTREEINDEX14 =
 {
+"Scanner_8cpp.html":[4,0,0,18,8,4],
+"Scanner_8hpp.html":[4,0,0,18,8,5],
+"Scanner_8hpp_source.html":[4,0,0,18,8,5],
 "ScenarioImpl_8hpp.html":[4,0,0,5,20],
 "ScenarioImpl_8hpp_source.html":[4,0,0,5,20],
 "ScenarioLoader_8cpp.html":[4,0,0,11,5,48],
@@ -246,8 +249,5 @@ var NAVTREEINDEX14 =
 "SpatialCalcSatisfactionMetrics_8hpp_source.html":[4,0,0,6,9,3,8],
 "SpatialCalcScalarAtLocation_8cpp.html":[4,0,0,6,9,3,9],
 "SpatialCalcScalarAtLocation_8hpp.html":[4,0,0,6,9,3,10],
-"SpatialCalcScalarAtLocation_8hpp_source.html":[4,0,0,6,9,3,10],
-"SpatialCalcSolarIntensity_8cpp.html":[4,0,0,6,9,3,11],
-"SpatialCalcSolarIntensity_8hpp.html":[4,0,0,6,9,3,12],
-"SpatialCalcSolarIntensity_8hpp_source.html":[4,0,0,6,9,3,12]
+"SpatialCalcScalarAtLocation_8hpp_source.html":[4,0,0,6,9,3,10]
 };

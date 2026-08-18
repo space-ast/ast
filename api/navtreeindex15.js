@@ -1,5 +1,8 @@
 var NAVTREEINDEX15 =
 {
+"SpatialCalcSolarIntensity_8cpp.html":[4,0,0,6,9,3,11],
+"SpatialCalcSolarIntensity_8hpp.html":[4,0,0,6,9,3,12],
+"SpatialCalcSolarIntensity_8hpp_source.html":[4,0,0,6,9,3,12],
 "SpatialCalculationVisitor_8cpp.html":[4,0,0,6,9,3,15],
 "SpatialCalculationVisitor_8hpp.html":[4,0,0,6,9,3,16],
 "SpatialCalculationVisitor_8hpp_source.html":[4,0,0,6,9,3,16],
@@ -246,8 +249,5 @@ var NAVTREEINDEX15 =
 "TestConfig_8cpp.html":[4,0,0,21,1],
 "TestConfig_8cpp.html#a0e24c5375dc2a1ac080587d2d92a8fb2":[4,0,0,21,1,2],
 "TestConfig_8cpp.html#a5c20ec1f57564498375e34be9c57c547":[4,0,0,21,1,1],
-"TestConfig_8cpp.html#a8d2eea3527f788ee7046d2fd6903d322":[4,0,0,21,1,0],
-"TestConfig_8cpp.html#af1ff3a1fb61aa0e1a6b6d38f511a9cb6":[4,0,0,21,1,3],
-"TestConfig_8hpp.html":[4,0,0,21,2],
-"TestConfig_8hpp.html#a0e24c5375dc2a1ac080587d2d92a8fb2":[4,0,0,21,2,2]
+"TestConfig_8cpp.html#a8d2eea3527f788ee7046d2fd6903d322":[4,0,0,21,1,0]
 };

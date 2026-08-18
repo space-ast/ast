@@ -22,5 +22,6 @@ var searchData=
   ['context_5f_19',['context_',['../classast_1_1LoggerStream.html#a3f40e27fbda036aea2f60aaee465f86c',1,'ast::LoggerStream']]],
   ['conversionfactor_5f_20',['conversionFactor_',['../classast_1_1UnitConverter.html#a5c84584ded9cb366c3003f7665cdedbf',1,'ast::UnitConverter']]],
   ['coscoeff_5f_21',['cosCoeff_',['../classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7',1,'ast::GravityField']]],
-  ['cr_5f_22',['cr_',['../classast_1_1SpacecraftParam.html#a011dcca23aa96514c8e4e97508f1fe84',1,'ast::SpacecraftParam::cr_'],['../classast_1_1BlockSRP.html#afebc1a5f54332bb4300d232e99bb392b',1,'ast::BlockSRP::cr_']]]
+  ['cr_5f_22',['cr_',['../classast_1_1SpacecraftParam.html#a011dcca23aa96514c8e4e97508f1fe84',1,'ast::SpacecraftParam::cr_'],['../classast_1_1BlockSRP.html#afebc1a5f54332bb4300d232e99bb392b',1,'ast::BlockSRP::cr_']]],
+  ['currentcondition_5f_23',['currentCondition_',['../structast_1_1DataGroupSolarIntensity_1_1Data.html#ac08261bf3460117adf9657ff681b804b',1,'ast::DataGroupSolarIntensity::Data']]]
 ];

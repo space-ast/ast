@@ -12,6 +12,14 @@ var group__AstReport =
       [ "Data", "structast_1_1DataGroupLightingTimes_1_1Data.html", null ],
       [ "calculate", "classast_1_1DataGroupLightingTimes.html#a16f32e06680a977ba76b4e1c1e7058d7", null ]
     ] ],
+    [ "ast::DataGroupSolarIntensity", "classast_1_1DataGroupSolarIntensity.html", [
+      [ "Data", "structast_1_1DataGroupSolarIntensity_1_1Data.html", [
+        [ "currentCondition_", "structast_1_1DataGroupSolarIntensity_1_1Data.html#ac08261bf3460117adf9657ff681b804b", null ],
+        [ "intensity_", "structast_1_1DataGroupSolarIntensity_1_1Data.html#a4f3b7d9c63eecdd233ab2c99f644d492", null ],
+        [ "obstruction_", "structast_1_1DataGroupSolarIntensity_1_1Data.html#a42fde39b1ecfd35973222bd609a760de", null ]
+      ] ],
+      [ "calculate", "classast_1_1DataGroupSolarIntensity.html#ab8688b60309cb16aae4b023e8ac3f096", null ]
+    ] ],
     [ "ast::DataFrame", "classast_1_1DataFrame.html", [
       [ "DataFrame", "classast_1_1DataFrame.html#a48748a4b6e4ca7858e37d3a5d2f820b0", null ],
       [ "DataFrame", "classast_1_1DataFrame.html#aeb23e9524c6ba6b07f38a281da85ff7d", null ],

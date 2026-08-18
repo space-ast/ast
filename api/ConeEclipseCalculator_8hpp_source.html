@@ -118,13 +118,17 @@ $(function(){initNavTree('ConeEclipseCalculator_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1ConeEclipseCalculator.html">~ConeEclipseCalculator</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1EclipseCalculator.html#a1447e10fc4297d05162157aa16da56e3">getLightingRatio</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; time, <span class="keyword">const</span> Vector3d&amp; position, <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* frame) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1EclipseCalculator.html#a1447e10fc4297d05162157aa16da56e3">getLightingRatio</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; time, <span class="keyword">const</span> Vector3d&amp; position, <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* frame,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                            <a class="code hl_class" href="classast_1_1CelestialBody.html">CelestialBody</a>** obstructionOut);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
 </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aEclipseCalculator_8hpp_html"><div class="ttname"><a href="EclipseCalculator_8hpp.html">EclipseCalculator.hpp</a></div></div>
+<div class="ttc" id="aclassast_1_1CelestialBody_html"><div class="ttname"><a href="classast_1_1CelestialBody.html">ast::CelestialBody</a></div><div class="ttdoc">天体</div><div class="ttdef"><b>定义</b> CelestialBody.hpp:72</div></div>
 <div class="ttc" id="aclassast_1_1ConeEclipseCalculator_html"><div class="ttname"><a href="classast_1_1ConeEclipseCalculator.html">ast::ConeEclipseCalculator</a></div><div class="ttdoc">双锥阴影模型光照计算器</div><div class="ttdef"><b>定义</b> ConeEclipseCalculator.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1EclipseCalculator_html"><div class="ttname"><a href="classast_1_1EclipseCalculator.html">ast::EclipseCalculator</a></div><div class="ttdoc">阴影光照计算器</div><div class="ttdef"><b>定义</b> EclipseCalculator.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1EclipseCalculator_html_a1447e10fc4297d05162157aa16da56e3"><div class="ttname"><a href="classast_1_1EclipseCalculator.html#a1447e10fc4297d05162157aa16da56e3">ast::EclipseCalculator::getLightingRatio</a></div><div class="ttdeci">virtual double getLightingRatio(const TimePoint &amp;time, const Vector3d &amp;position, Frame *frame)=0</div><div class="ttdoc">计算光照强度</div></div>

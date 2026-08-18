@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcDamageFlux_8hpp_source.html":[4,0,0,6,10,1,0,15,15],
+"ScStateCalcDamageMassFlux_8cpp.html":[4,0,0,6,10,1,0,15,16],
+"ScStateCalcDamageMassFlux_8hpp.html":[4,0,0,6,10,1,0,15,17],
 "ScStateCalcDamageMassFlux_8hpp_source.html":[4,0,0,6,10,1,0,15,17],
 "ScStateCalcDecRate_8cpp.html":[4,0,0,6,10,1,0,15,20],
 "ScStateCalcDecRate_8hpp.html":[4,0,0,6,10,1,0,15,21],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcOrbitSemiLatusRectum_8cpp.html":[4,0,0,6,10,1,0,15,114],
 "ScStateCalcOrbitSemiLatusRectum_8hpp.html":[4,0,0,6,10,1,0,15,115],
 "ScStateCalcOrbitSemiLatusRectum_8hpp_source.html":[4,0,0,6,10,1,0,15,115],
-"ScStateCalcOrbitStateValue_8cpp.html":[4,0,0,6,10,1,0,15,116],
-"ScStateCalcOrbitStateValue_8hpp.html":[4,0,0,6,10,1,0,15,117],
-"ScStateCalcOrbitStateValue_8hpp_source.html":[4,0,0,6,10,1,0,15,117],
-"ScStateCalcOutAsympDec_8cpp.html":[4,0,0,6,10,1,0,15,118]
+"ScStateCalcOrbitStateValue_8cpp.html":[4,0,0,6,10,1,0,15,116]
 };
