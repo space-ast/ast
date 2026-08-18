@@ -5,5 +5,7 @@ var classast_1_1LongDuration =
     [ "minusInDay", "classast_1_1LongDuration.html#abe03ad6a629c6b5b75958ef180326001", null ],
     [ "minusInMinute", "classast_1_1LongDuration.html#ab2f550c5ee95dec8e404c21c8ce6d350", null ],
     [ "minusInSecond", "classast_1_1LongDuration.html#aa5d0977ad72b669a2a7264712774c7ff", null ],
-    [ "operator-", "classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56", null ]
+    [ "operator double", "classast_1_1LongDuration.html#a9dc0f6e9af96d691ade5aa49e935dfdc", null ],
+    [ "operator-", "classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56", null ],
+    [ "totalSecond", "classast_1_1LongDuration.html#a2ff3b5f578f1d5e4cfba540a1a1f8e76", null ]
 ];

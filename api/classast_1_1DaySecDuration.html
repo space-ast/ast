@@ -124,6 +124,10 @@ double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>second</b> ()
 <tr class="separator:a6492796b0dbec4c7c7566a98a71a0b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78f853897f1a959875a18d8d61db391e" id="r_a78f853897f1a959875a18d8d61db391e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78f853897f1a959875a18d8d61db391e">totalSecond</a> () const</td></tr>
 <tr class="separator:a78f853897f1a959875a18d8d61db391e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ed9a886839be53edd7df58f0a32faec" id="r_a3ed9a886839be53edd7df58f0a32faec"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ed9a886839be53edd7df58f0a32faec">totalDay</a> () const</td></tr>
+<tr class="separator:a3ed9a886839be53edd7df58f0a32faec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adef21c79a818221d023699e9872fddd3" id="r_adef21c79a818221d023699e9872fddd3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adef21c79a818221d023699e9872fddd3">operator double</a> () const</td></tr>
+<tr class="separator:adef21c79a818221d023699e9872fddd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
@@ -137,6 +141,61 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>second_</b></td></t
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>整数天 + 小数秒时长（也能解决长时长问题） </p>
 </div><h2 class="groupheader">成员函数说明</h2>
+<a id="adef21c79a818221d023699e9872fddd3" name="adef21c79a818221d023699e9872fddd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adef21c79a818221d023699e9872fddd3">&#9670;&#160;</a></span>operator double()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::DaySecDuration::operator double </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>转换为秒数 </p>
+<dl class="section return"><dt>返回</dt><dd>总秒数（整数天秒数 + 小数秒数） </dd></dl>
+
+</div>
+</div>
+<a id="a3ed9a886839be53edd7df58f0a32faec" name="a3ed9a886839be53edd7df58f0a32faec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ed9a886839be53edd7df58f0a32faec">&#9670;&#160;</a></span>totalDay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::DaySecDuration::totalDay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>警告</dt><dd>注意：totalDay() 方法返回的是一个不精确的double值， 计算会引入舍入误差。且不考虑闰秒等因素。 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>总天数（整数天部分 + 小数部分） </dd></dl>
+
+</div>
+</div>
 <a id="a78f853897f1a959875a18d8d61db391e" name="a78f853897f1a959875a18d8d61db391e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78f853897f1a959875a18d8d61db391e">&#9670;&#160;</a></span>totalSecond()</h2>
 

@@ -133,6 +133,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>minusInHour</b> (co
 <tr class="separator:a29cf462c76e94a0a5de0e8abe1549910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe03ad6a629c6b5b75958ef180326001" id="r_abe03ad6a629c6b5b75958ef180326001"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe03ad6a629c6b5b75958ef180326001">minusInDay</a> (const <a class="el" href="classast_1_1LongDuration.html">LongDuration</a> &amp;other) const</td></tr>
 <tr class="separator:abe03ad6a629c6b5b75958ef180326001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ff3b5f578f1d5e4cfba540a1a1f8e76" id="r_a2ff3b5f578f1d5e4cfba540a1a1f8e76"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ff3b5f578f1d5e4cfba540a1a1f8e76">totalSecond</a> () const</td></tr>
+<tr class="separator:a2ff3b5f578f1d5e4cfba540a1a1f8e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dc0f6e9af96d691ade5aa49e935dfdc" id="r_a9dc0f6e9af96d691ade5aa49e935dfdc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dc0f6e9af96d691ade5aa49e935dfdc">operator double</a> () const</td></tr>
+<tr class="separator:a9dc0f6e9af96d691ade5aa49e935dfdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
@@ -248,6 +252,34 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>fractional_</b></td
 
 </div>
 </div>
+<a id="a9dc0f6e9af96d691ade5aa49e935dfdc" name="a9dc0f6e9af96d691ade5aa49e935dfdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dc0f6e9af96d691ade5aa49e935dfdc">&#9670;&#160;</a></span>operator double()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::LongDuration::operator double </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>转换为秒数 </p>
+<dl class="section return"><dt>返回</dt><dd>总秒数（整数天秒数 + 小数秒数） </dd></dl>
+
+</div>
+</div>
 <a id="acef727fb43aa87d1dda87b0339667b56" name="acef727fb43aa87d1dda87b0339667b56"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acef727fb43aa87d1dda87b0339667b56">&#9670;&#160;</a></span>operator-()</h2>
 
@@ -279,6 +311,33 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>fractional_</b></td
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>两个时长的差值（秒数） </dd></dl>
+
+</div>
+</div>
+<a id="a2ff3b5f578f1d5e4cfba540a1a1f8e76" name="a2ff3b5f578f1d5e4cfba540a1a1f8e76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff3b5f578f1d5e4cfba540a1a1f8e76">&#9670;&#160;</a></span>totalSecond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::LongDuration::totalSecond </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>警告</dt><dd>注意：totalSecond() 方法返回的是一个不精确的double值， 计算会引入舍入误差。且不考虑闰秒等因素。 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>总秒数（整数天秒数 + 小数秒数） </dd></dl>
 
 </div>
 </div>

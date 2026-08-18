@@ -1,5 +1,9 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1ScStateCalcDifference.html#a8bc1fcd0e6dcf65d5e47bd5462b63940":[3,0,0,700,4],
+"classast_1_1ScStateCalcDifference.html#af5dda1e2ca3f2533aa08b3c1548b8ba6":[2,0,0,701,3],
+"classast_1_1ScStateCalcDifference.html#af5dda1e2ca3f2533aa08b3c1548b8ba6":[3,0,0,700,3],
+"classast_1_1ScStateCalcDifference.html#affdef9a61c4cbfe493b09ef42a50ee54":[2,0,0,701,1],
 "classast_1_1ScStateCalcDifference.html#affdef9a61c4cbfe493b09ef42a50ee54":[3,0,0,700,1],
 "classast_1_1ScStateCalcDifferenceOtherSegment.html":[2,0,0,702],
 "classast_1_1ScStateCalcDifferenceOtherSegment.html":[3,0,0,701],
@@ -245,9 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1ScStateCalcSignedEccentricity.html":[3,0,0,810],
 "classast_1_1ScStateCalcSolarPhaseAngle.html":[2,0,0,812],
 "classast_1_1ScStateCalcSolarPhaseAngle.html":[3,0,0,811],
-"classast_1_1ScStateCalcSolarPressure.html":[2,0,0,813],
-"classast_1_1ScStateCalcSolarPressure.html":[3,0,0,812],
-"classast_1_1ScStateCalcSolarRadiationForce.html":[2,0,0,814],
-"classast_1_1ScStateCalcSolarRadiationForce.html":[3,0,0,813],
-"classast_1_1ScStateCalcSpacecraftMass.html":[2,0,0,815]
+"classast_1_1ScStateCalcSolarPressure.html":[2,0,0,813]
 };

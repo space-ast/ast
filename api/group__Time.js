@@ -60,11 +60,15 @@ var group__Time =
       [ "minusInDay", "classast_1_1LongDuration.html#abe03ad6a629c6b5b75958ef180326001", null ],
       [ "minusInMinute", "classast_1_1LongDuration.html#ab2f550c5ee95dec8e404c21c8ce6d350", null ],
       [ "minusInSecond", "classast_1_1LongDuration.html#aa5d0977ad72b669a2a7264712774c7ff", null ],
-      [ "operator-", "classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56", null ]
+      [ "operator double", "classast_1_1LongDuration.html#a9dc0f6e9af96d691ade5aa49e935dfdc", null ],
+      [ "operator-", "classast_1_1LongDuration.html#acef727fb43aa87d1dda87b0339667b56", null ],
+      [ "totalSecond", "classast_1_1LongDuration.html#a2ff3b5f578f1d5e4cfba540a1a1f8e76", null ]
     ] ],
     [ "ast::DaySecDuration", "classast_1_1DaySecDuration.html", [
       [ "day", "classast_1_1DaySecDuration.html#a8fce61ded9db355640c584990ccae370", null ],
+      [ "operator double", "classast_1_1DaySecDuration.html#adef21c79a818221d023699e9872fddd3", null ],
       [ "second", "classast_1_1DaySecDuration.html#a470f0c2ca4295d04d8d83990021bd2d6", null ],
+      [ "totalDay", "classast_1_1DaySecDuration.html#a3ed9a886839be53edd7df58f0a32faec", null ],
       [ "totalSecond", "classast_1_1DaySecDuration.html#a78f853897f1a959875a18d8d61db391e", null ]
     ] ],
     [ "ast::IntervalList", "classast_1_1IntervalList.html", [
@@ -223,8 +227,10 @@ var group__Time =
       [ "isValid", "classast_1_1TimePoint.html#ace9f86e7eb8c8770a388b40d62acc15a", null ],
       [ "julianCenturyFromJ2000TT", "classast_1_1TimePoint.html#a179367da0b2cd785b6e15474a1372090", null ],
       [ "operator+", "classast_1_1TimePoint.html#a6cea9ade35ef061d16beeab1e0b48708", null ],
+      [ "operator+=", "classast_1_1TimePoint.html#a68f6d1377bd0405c75b7956543c73b08", null ],
       [ "operator-", "classast_1_1TimePoint.html#af5ff4430264ef41942db80d0fd8fcdd2", null ],
       [ "operator-", "classast_1_1TimePoint.html#a684d79309f622b675da2a9695bbe0108", null ],
+      [ "operator-=", "classast_1_1TimePoint.html#ae58355b320c0faeb09fbe7b6b6342a1f", null ],
       [ "operator<", "classast_1_1TimePoint.html#acaa1a001051c09227dc546cbefd459f2", null ],
       [ "operator==", "classast_1_1TimePoint.html#a9867a4fea41c664ad6e67fcb547201d3", null ],
       [ "operator>", "classast_1_1TimePoint.html#afe00c096bd30dd978467f6748dd4f224", null ],
@@ -297,7 +303,7 @@ var group__Time =
     [ "ast::aJDToDateAtNoon", "group__Time.html#ga35c2ecd6ca4483da7789a270a3060c9d", null ],
     [ "ast::aJDToDateTime", "group__Time.html#gafae79be801e3e4cb55fcd602d71c08cd", null ],
     [ "ast::aJDToMJD", "group__Time.html#gadb09c8c9dd69bfb1cac629da5a9d5853", null ],
-    [ "ast::aJDToMJD_Imprecise", "group__Time.html#gadf6d3d56f8739b7a8b786490e6792341", null ],
+    [ "ast::aJDToMJD_Imprecise", "group__Time.html#gaaf7c786f0271b212fbaea91d41b95f3b", null ],
     [ "ast::aJDToMJD_Imprecise", "group__Time.html#ga1b895198b2420d761b6ce862dd3311c3", null ],
     [ "ast::aJulianCenturyFromJ2000", "group__Time.html#ga3889f3687fe79a83c571bbd951c58f2e", null ],
     [ "ast::aMJDToDate", "group__Time.html#gacf7d652fcfaaeef286dbd565416c3eff", null ],
@@ -305,6 +311,7 @@ var group__Time =
     [ "ast::aMJDToJD", "group__Time.html#ga8db27e20eac1e33070a74deb879db05c", null ],
     [ "ast::aMJDToJD_Imprecise", "group__Time.html#ga67d26b3a99854da0c5e24c90aacb5d28", null ],
     [ "ast::aMJDToJD_Imprecise", "group__Time.html#gab2095a8fc071d50d01d97c2fea1ac156", null ],
+    [ "ast::aMJDToJD_Imprecise", "group__Time.html#ga28e28ab95e16a897467a455fa53d4a40", null ],
     [ "ast::aMoonFullName", "group__Time.html#gad088c8a2d3a1a68850d5b43e53be4a24", null ],
     [ "ast::aMoonShortName", "group__Time.html#ga7cd83ff0997da45192a2fb505c6e8fed", null ],
     [ "ast::aSpiceEtToTimePoint", "group__Time.html#gae57a9d98f6f51268ec563b5ed83f8b39", null ],

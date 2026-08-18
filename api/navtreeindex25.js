@@ -1,5 +1,7 @@
 var NAVTREEINDEX25 =
 {
+"classast_1_1DetectorLighting.html#a4bca05fb075d19e01cabd49729344ad1":[3,0,0,245,0],
+"classast_1_1DetectorMeanAnomaly.html":[2,0,0,247],
 "classast_1_1DetectorMeanAnomaly.html":[3,0,0,246],
 "classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[2,0,0,247,0],
 "classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[3,0,0,246,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX25 =
 "classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[3,0,0,273,1],
 "classast_1_1EphemerisLagrangeVar.html#ad3157f329611a1f7980a43c8ed95d67e":[2,0,0,274,2],
 "classast_1_1EphemerisLagrangeVar.html#ad3157f329611a1f7980a43c8ed95d67e":[3,0,0,273,2],
-"classast_1_1EphemerisLagrangeVar.html#afa75a1734a4ede9835cb08490b78eaae":[2,0,0,274,7],
-"classast_1_1EphemerisLagrangeVar.html#afa75a1734a4ede9835cb08490b78eaae":[3,0,0,273,7],
-"classast_1_1EphemerisMultiSegment.html":[2,0,0,275]
+"classast_1_1EphemerisLagrangeVar.html#afa75a1734a4ede9835cb08490b78eaae":[2,0,0,274,7]
 };
