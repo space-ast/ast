@@ -1,5 +1,8 @@
 var NAVTREEINDEX21 =
 {
+"classast_1_1BlockSwitch.html#a63a91f715cca289941c12613a3d5a4d1":[3,0,0,90,0],
+"classast_1_1BlockSwitch.html#a7c65e0c84e245a9d7c910a46b194a795":[2,0,0,91,2],
+"classast_1_1BlockSwitch.html#a7c65e0c84e245a9d7c910a46b194a795":[3,0,0,90,2],
 "classast_1_1BlockSystem.html":[2,0,0,92],
 "classast_1_1BlockSystem.html":[3,0,0,91],
 "classast_1_1BlockSystem.html#a4e38b31588a60e91a81c2eb1862212c3":[2,0,0,92,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX21 =
 "classast_1_1CLinkToObject.html":[0,10,1],
 "classast_1_1CNLEMinpackSolver.html":[2,0,0,147],
 "classast_1_1CNLEMinpackSolver.html":[3,0,0,146],
-"classast_1_1CNLPIpoptSolver.html":[2,0,0,148],
-"classast_1_1CNLPIpoptSolver.html":[3,0,0,147],
-"classast_1_1CNLPSnoptSolver.html":[2,0,0,149],
-"classast_1_1CNLPSnoptSolver.html":[3,0,0,148]
+"classast_1_1CNLPIpoptSolver.html":[2,0,0,148]
 };

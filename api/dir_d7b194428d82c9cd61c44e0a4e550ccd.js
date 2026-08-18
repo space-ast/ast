@@ -16,6 +16,8 @@ var dir_d7b194428d82c9cd61c44e0a4e550ccd =
     [ "DataGroupEquinElem.hpp", "DataGroupEquinElem_8hpp.html", "DataGroupEquinElem_8hpp" ],
     [ "DataGroupEuler.cpp", "DataGroupEuler_8cpp.html", "DataGroupEuler_8cpp" ],
     [ "DataGroupEuler.hpp", "DataGroupEuler_8hpp.html", "DataGroupEuler_8hpp" ],
+    [ "DataGroupLightingTimes.cpp", "DataGroupLightingTimes_8cpp.html", null ],
+    [ "DataGroupLightingTimes.hpp", "DataGroupLightingTimes_8hpp.html", "DataGroupLightingTimes_8hpp" ],
     [ "DataGroupLLAState.cpp", "DataGroupLLAState_8cpp.html", null ],
     [ "DataGroupLLAState.hpp", "DataGroupLLAState_8hpp.html", "DataGroupLLAState_8hpp" ],
     [ "DataGroupLLRState.cpp", "DataGroupLLRState_8cpp.html", null ],

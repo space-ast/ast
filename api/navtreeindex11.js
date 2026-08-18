@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"ReportStyle_8cpp.html":[4,0,0,17,10],
+"ReportStyle_8hpp.html":[4,0,0,17,11],
+"ReportStyle_8hpp_source.html":[4,0,0,17,11],
 "ReportWriter_8cpp.html":[4,0,0,17,12],
 "ReportWriter_8hpp.html":[4,0,0,17,13],
 "ReportWriter_8hpp_source.html":[4,0,0,17,13],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcDamageFlux_8hpp.html":[4,0,0,6,10,1,0,15,15],
 "ScStateCalcDamageFlux_8hpp_source.html":[4,0,0,6,10,1,0,15,15],
 "ScStateCalcDamageMassFlux_8cpp.html":[4,0,0,6,10,1,0,15,16],
-"ScStateCalcDamageMassFlux_8hpp.html":[4,0,0,6,10,1,0,15,17],
-"ScStateCalcDamageMassFlux_8hpp_source.html":[4,0,0,6,10,1,0,15,17],
-"ScStateCalcDecRate_8cpp.html":[4,0,0,6,10,1,0,15,20],
-"ScStateCalcDecRate_8hpp.html":[4,0,0,6,10,1,0,15,21]
+"ScStateCalcDamageMassFlux_8hpp.html":[4,0,0,6,10,1,0,15,17]
 };

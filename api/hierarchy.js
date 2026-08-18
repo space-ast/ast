@@ -186,6 +186,7 @@ var hierarchy =
     [ "ast::DataGroupEclipse::Data", "structast_1_1DataGroupEclipse_1_1Data.html", null ],
     [ "ast::DataGroupEquinElem::Data", "structast_1_1DataGroupEquinElem_1_1Data.html", null ],
     [ "ast::DataGroupEuler::Data", "structast_1_1DataGroupEuler_1_1Data.html", null ],
+    [ "ast::DataGroupLightingTimes::Data", "structast_1_1DataGroupLightingTimes_1_1Data.html", null ],
     [ "ast::DataGroupLLAState::Data", "structast_1_1DataGroupLLAState_1_1Data.html", null ],
     [ "ast::DataGroupLLRState::Data", "structast_1_1DataGroupLLRState_1_1Data.html", null ],
     [ "ast::DataGroupMagField::Data", "structast_1_1DataGroupMagField_1_1Data.html", null ],
@@ -210,7 +211,8 @@ var hierarchy =
       [ "ast::DataGroupFixed", "classast_1_1DataGroupFixed.html", null ],
       [ "ast::DataGroupInterval", "classast_1_1DataGroupInterval.html", [
         [ "ast::DataGroupEclipse", "classast_1_1DataGroupEclipse.html", null ],
-        [ "ast::DataGroupEclipseSummary", "classast_1_1DataGroupEclipseSummary.html", null ]
+        [ "ast::DataGroupEclipseSummary", "classast_1_1DataGroupEclipseSummary.html", null ],
+        [ "ast::DataGroupLightingTimes", "classast_1_1DataGroupLightingTimes.html", null ]
       ] ],
       [ "ast::DataGroupTimeVar", "classast_1_1DataGroupTimeVar.html", [
         [ "ast::DataGroupAnglePrv", "classast_1_1DataGroupAnglePrv.html", null ],

@@ -296,6 +296,7 @@ var namespaceast =
     [ "DataGroupEuler", "classast_1_1DataGroupEuler.html", "classast_1_1DataGroupEuler" ],
     [ "DataGroupFixed", "classast_1_1DataGroupFixed.html", "classast_1_1DataGroupFixed" ],
     [ "DataGroupInterval", "classast_1_1DataGroupInterval.html", "classast_1_1DataGroupInterval" ],
+    [ "DataGroupLightingTimes", "classast_1_1DataGroupLightingTimes.html", "classast_1_1DataGroupLightingTimes" ],
     [ "DataGroupLLAState", "classast_1_1DataGroupLLAState.html", "classast_1_1DataGroupLLAState" ],
     [ "DataGroupLLRState", "classast_1_1DataGroupLLRState.html", "classast_1_1DataGroupLLRState" ],
     [ "DataGroupMagField", "classast_1_1DataGroupMagField.html", "classast_1_1DataGroupMagField" ],

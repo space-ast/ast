@@ -1,5 +1,8 @@
 var NAVTREEINDEX8 =
 {
+"Literals_8hpp.html#ae75856045494bc38a64e4e4fa2b86da9":[4,0,0,27,11,8,57],
+"Literals_8hpp.html#aeb2087977046e80e517ac1b295490f0c":[4,0,0,27,11,8,59],
+"Literals_8hpp.html#af11fab1d040c1dfc47d10aa468c4ca6f":[4,0,0,27,11,8,5],
 "Literals_8hpp.html#af2c6bf04dacf1e87018f6b42ed46f9ec":[4,0,0,27,11,8,8],
 "Literals_8hpp_source.html":[4,0,0,27,11,8],
 "LoaderCommon_8hpp.html":[4,0,0,11,0,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX8 =
 "MotionSPICE_8cpp.html":[4,0,0,19,2,25],
 "MotionSPICE_8hpp.html":[4,0,0,19,2,26],
 "MotionSPICE_8hpp_source.html":[4,0,0,19,2,26],
-"MotionSimpleAscent_8cpp.html":[4,0,0,19,2,22],
-"MotionSimpleAscent_8hpp.html":[4,0,0,19,2,23],
-"MotionSimpleAscent_8hpp_source.html":[4,0,0,19,2,23],
-"MotionTwoBodySax_8hpp_source.html":[4,0,0,11,5,33]
+"MotionSimpleAscent_8cpp.html":[4,0,0,19,2,22]
 };
