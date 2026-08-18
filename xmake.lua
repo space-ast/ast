@@ -79,7 +79,7 @@ elseif is_plat("windows") then
     if is_mode("debug") then
         set_values("windows.subsystem", "console")
         -- 为了让AI生成的代码能正常编译
-        add_includedirs("src")
+        -- add_includedirs("src")
     end
     add_defines("_CRT_SECURE_NO_WARNINGS", "_SCL_SECURE_NO_WARNINGS")
     -- for msvc
@@ -153,6 +153,7 @@ add_requires("matplotplusplus", {optional = true})                              
 add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
 add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
 add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
+add_requires("ipopt", {optional = true, configs = {shared = true, debug = is_mode("debug")}}) -- 可选的ipopt库，用于求解非线性优化问题
 
 local qt_sdkver = get_config("qt_sdkver")
 local system_qt = get_config("system_qt")
@@ -226,6 +227,13 @@ if has_package("gtest") then
     add_packages("gtest")
     add_defines("AST_WITH_GTEST")
 end
+
+-- 添加ipopt库依赖（可选）
+-- if has_package("ipopt") then
+--     add_packages("ipopt")
+--     add_defines("AST_WITH_IPOPT")
+-- end
+
 
 
 -- 添加libintl库依赖（可选）

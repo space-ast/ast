@@ -544,4 +544,17 @@ TEST(Dimension, Invert)
     }
 }
 
+// 测试磁感应强度(磁通密度)量纲
+TEST(Dimension, MagneticFluxDensity)
+{
+    Dimension magFluxDensity = Dimension::MagneticFluxDensity();
+    EXPECT_EQ(magFluxDensity.value(), EDimension::eMagneticFluxDensity);
+    EXPECT_EQ(magFluxDensity.getMass(), 1);
+    EXPECT_EQ(magFluxDensity.getTime(), -2);
+    EXPECT_EQ(magFluxDensity.getCurrent(), -1);
+    EXPECT_EQ(magFluxDensity.getLength(), 0);
+    EXPECT_EQ(magFluxDensity.name(), "Magnetic Flux Density");
+    EXPECT_EQ(magFluxDensity.symbol(), aText("M·T⁻²·I⁻¹"));
+}
+
 GTEST_MAIN()

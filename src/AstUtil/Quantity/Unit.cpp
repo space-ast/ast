@@ -460,6 +460,10 @@ namespace units
 
     Unit Pa = Unit::Pascal();
 
+    Unit T  = Unit::Tesla();
+    Unit nT = Unit::NanoTesla();
+    Unit Gs = Unit::Gauss();
+
     Unit K = Unit::Kelvin();
 }
 

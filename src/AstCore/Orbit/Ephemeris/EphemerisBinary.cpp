@@ -265,7 +265,7 @@ void EphemerisBinary::fillWindow(size_t fileIdx) const
     if (!file.is_open())
         return;
 
-    // Calculate body offset: header(40) + frameNameLen + body offset
+    // Calculate body offset: header(56) + frameNameLen + body offset
     uint64_t nameLen = frameName_.size();
     size_t headerSize = HEADER_BASE + nameLen;
     size_t bodyOffset = headerSize + startIdx * POINT_BYTES;

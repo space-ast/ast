@@ -29,9 +29,6 @@
 AST_NAMESPACE_BEGIN
 
 
-constexpr const double kDefaultRelTol = 1e-14;
-constexpr const double kDefaultAbsTol = 1e-12;
-constexpr const int kDefaultMaxIter = 100;
 
 /// @brief 判断两个数是否接近
 /// @param a 第一个数

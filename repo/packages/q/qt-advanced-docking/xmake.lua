@@ -3,12 +3,16 @@ package("qt-advanced-docking")
     set_description("Advanced Docking System for Qt")
     set_license("LGPL-2.1")
 
-    set_sourcedir(path.join(os.scriptdir(), "../../../../thirdparty/Qt-Advanced-Docking-System"))
-    -- add_urls("https://gitee.com/mirrors_githubuser0xFFFF/Qt-Advanced-Docking-System.git", "https://github.com/githubuser0xFFFF/Qt-Advanced-Docking-System.git")
-    -- add_versions("v4.5.0", "master")
+    local ads_dir = path.join(os.scriptdir(), "../../../../thirdparty/Qt-Advanced-Docking-System")
+    if os.exists(path.join(ads_dir, "src")) then
+        set_sourcedir(ads_dir)
+    else
+        add_urls("https://github.com/space-ast/Qt-Advanced-Docking-System.git")
+    end
 
     add_deps("qt")
     add_includedirs("include/qtadvanceddocking-qt5")
+    add_includedirs("include/qt-advanced-docking")
     
 
     on_install(function (package)

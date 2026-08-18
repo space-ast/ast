@@ -37,6 +37,7 @@ class DataContext;
 #define AST_DATA_DIR_NAME "data"                 // 默认的数据文件夹名称
 #define AST_DEFAULT_DIR_AEP8                    "SolarSystem/Earth/aep8/"
 #define AST_DEFAULT_DIR_IGRF                    "SolarSystem/Earth/igrf/"
+#define AST_DEFAULT_DIR_IRBEM                   "SolarSystem/Earth/irbem/"
 
 
 /// @brief 获取默认数据文件夹

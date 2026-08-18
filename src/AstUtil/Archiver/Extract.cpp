@@ -1,12 +1,12 @@
 #include "Extract.hpp"
 #include "ArchiverUtils.hpp"
-#include "ExtractorImpl/ExtractorImplRaw.hpp"
-#include "ExtractorImpl/ExtractorImplTar.hpp"
-#include "ExtractorImpl/ExtractorImplSystem.hpp"
+#include "AstUtil/ExtractorImplRaw.hpp"
+#include "AstUtil/ExtractorImplTar.hpp"
+#include "AstUtil/ExtractorImplSystem.hpp"
 
 #ifdef _WIN32
-#include "ExtractorImpl/ExtractorImplShellCOM.hpp"
-#include "ExtractorImpl/ExtractorImplPowerShell.hpp"
+#include "AstUtil/ExtractorImplShellCOM.hpp"
+#include "AstUtil/ExtractorImplPowerShell.hpp"
 #endif
 
 #include "AstUtil/Logger.hpp"

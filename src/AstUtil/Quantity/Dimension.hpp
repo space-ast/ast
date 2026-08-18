@@ -288,6 +288,7 @@ namespace dimensions
     constexpr dimension_t kPower              = dim_divide(kEnergy, kTime);       
     constexpr dimension_t kFrequency          = dim_divide(kUnit, kTime);
     constexpr dimension_t kDensity            = dim_divide(kMass, kVolume);
+    constexpr dimension_t kMagneticFluxDensity = dim_divide(kMass, dim_product(dim_product(kTime, kTime), kCurrent));
 };
 
 /// @brief 量纲枚举类
@@ -324,6 +325,7 @@ typedef enum class EDimension : dimension_t
     ePower              = dimensions::kPower,                ///< 功率   M·L^2·T^-3
     eFrequency          = dimensions::kFrequency,            ///< 频率   T^-1
     eDensity            = dimensions::kDensity,              ///< 密度   M·L^-3
+    eMagneticFluxDensity = dimensions::kMagneticFluxDensity, ///< 磁感应强度(磁通密度) M·T^-2·I^-1
 
 } AEDimension;
 
@@ -411,6 +413,8 @@ public:
     static constexpr Dimension Force() noexcept{ return Dimension(EDimension::eForce); }
     /// @brief 获取密度量纲
     static constexpr Dimension Density() noexcept{ return Dimension(EDimension::eDensity); }
+    /// @brief 获取磁感应强度(磁通密度)量纲
+    static constexpr Dimension MagneticFluxDensity() noexcept{ return Dimension(EDimension::eMagneticFluxDensity); }
 public:
     /// @brief 获取量纲的名称
     std::string name() const { return aDimName(value()); }

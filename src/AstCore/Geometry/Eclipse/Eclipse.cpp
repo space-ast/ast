@@ -21,6 +21,7 @@
 #include "Eclipse.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstUtil/Math.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -43,6 +44,65 @@ int aLightingRatio_CylindricalModel(const Vector3d& position, const Vector3d& li
     }
     return 1;
 }
+
+
+int _aLightingRatio_CylindricalModel(const TimePoint &tp, const Vector3d &position, Frame *frame, CelestialBody *lightSource, CelestialBody *occultingBody)
+{
+    if(occultingBody == lightSource)
+    {
+        aWarning("occultingBody is same as lightSource");
+        return 1;
+    }
+
+    // 获取光源在观测者坐标系下的位置
+    Vector3d lightSourcePos;
+    if (lightSource->getPosIn(frame, tp, lightSourcePos) != eNoError)
+    {
+        return 1; // 获取失败，保守返回全光照
+    }
+    // 获取遮挡体在观测者坐标系下的位置
+    Vector3d occultingBodyPos;
+    if (occultingBody->getPosIn(frame, tp, occultingBodyPos) != eNoError)
+    {
+        return 1;
+    }
+    // 观测者相对于遮挡体中心的位置
+    Vector3d obsRelativeToOcc = position - occultingBodyPos;
+
+    // 光源相对于遮挡体中心的位置
+    Vector3d lightRelativeToOcc = lightSourcePos - occultingBodyPos;
+
+    return aLightingRatio_CylindricalModel(obsRelativeToOcc, lightRelativeToOcc, occultingBody->getRadius());
+}
+
+
+int aLightingRatio_CylindricalModel(const TimePoint &tp, const Vector3d &position, Frame *frame, CelestialBody *lightSource, CelestialBody *occultingBody)
+{
+    if(!lightSource || !occultingBody)
+    {
+        aWarning("lightSource or occultingBody is null");
+        return 1;
+    }
+    return _aLightingRatio_CylindricalModel(tp, position, frame, lightSource, occultingBody);
+}
+
+int aLightingRatio_CylindricalModel(const TimePoint &tp, Point *point, CelestialBody *lightSource, CelestialBody *occultingBody)
+{
+    if(!lightSource || !occultingBody || !point)
+    {
+        aWarning("lightSource or occultingBody or point is null");
+        return 1;
+    }
+    auto frame = occultingBody->getFrameInertial();
+    Vector3d position;
+    if (point->getPosIn(frame, tp, position) != eNoError)
+    {
+        return 1; // 获取失败，保守视为全光照
+    }
+    return _aLightingRatio_CylindricalModel(tp, position, frame, lightSource, occultingBody);
+}
+
+
 
 
 /// @brief 计算两个圆锥在单位球面上的公共立体角
@@ -126,5 +186,63 @@ double aLightingRatio_DualConeModel(const Vector3d& position, const Vector3d& li
     }
 }
 
+
+double _aLightingRatio_DualConeModel(const TimePoint &tp, const Vector3d &position, Frame *frame, CelestialBody *lightSource, CelestialBody *occultingBody)
+{
+    if(occultingBody == lightSource)
+    {
+        aWarning("occultingBody is same as lightSource");
+        return 1.0;
+    }
+    
+    // 获取光源在观测者坐标系下的位置
+    Vector3d lightSourcePos;
+    if (lightSource->getPosIn(frame, tp, lightSourcePos) != eNoError)
+    {
+        return 1.0; // 获取失败，保守返回全光照
+    }
+    // 获取遮挡体在观测者坐标系下的位置
+    Vector3d occultingBodyPos;
+    if (occultingBody->getPosIn(frame, tp, occultingBodyPos) != eNoError)
+    {
+        return 1.0;
+    }
+    // 观测者相对于遮挡体中心的位置
+    Vector3d obsRelativeToOcc = position - occultingBodyPos;
+
+    // 光源相对于遮挡体中心的位置
+    Vector3d lightRelativeToOcc = lightSourcePos - occultingBodyPos;
+    
+    return aLightingRatio_DualConeModel(obsRelativeToOcc, lightRelativeToOcc, lightSource->getRadius(), occultingBody->getRadius());
+}
+
+
+
+double aLightingRatio_DualConeModel(const TimePoint &tp, const Vector3d &position, Frame *frame, CelestialBody *lightSource, CelestialBody *occultingBody)
+{
+    if(!lightSource || !occultingBody)
+    {
+        aWarning("lightSource or occultingBody is null");
+        return 1.0;
+    }
+    return _aLightingRatio_DualConeModel(tp, position, frame, lightSource, occultingBody);
+}
+
+
+double aLightingRatio_DualConeModel(const TimePoint &tp, Point *point, CelestialBody *lightSource, CelestialBody *occultingBody)
+{
+    if(!lightSource || !occultingBody || !point)
+    {
+        aWarning("lightSource or occultingBody or point is null");
+        return 1.0;
+    }
+    auto frame = occultingBody->getFrameInertial();
+    Vector3d position;
+    if (point->getPosIn(frame, tp, position) != eNoError)
+    {
+        return 1.0; // 获取失败，保守视为全光照
+    }
+    return _aLightingRatio_DualConeModel(tp, position, frame, lightSource, occultingBody);
+}
 
 AST_NAMESPACE_END

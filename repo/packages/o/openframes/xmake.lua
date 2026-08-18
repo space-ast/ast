@@ -4,7 +4,12 @@ package("openframes")
     set_license("Apache 2.0")
 
 
-    set_sourcedir(path.join(os.scriptdir(), "../../../../thirdparty/OpenFrames"))
+    local of_dir = path.join(os.scriptdir(), "../../../../thirdparty/OpenFrames")
+    if os.exists(path.join(of_dir, "CMakeLists.txt")) then
+        set_sourcedir(of_dir)
+    else
+        add_urls("https://github.com/ravidavi/OpenFrames.git")
+    end
 
 
     add_deps("cmake")

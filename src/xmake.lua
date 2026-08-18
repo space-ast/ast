@@ -16,9 +16,9 @@ if is_plat("linux") or is_plat("mingw") then
     add_cxxflags("-Werror=reorder")
 end
 
--- if is_plat("windows") then
---     add_cxflags("/utf-8")
--- end
+if is_plat("windows") then
+    add_cxflags("/utf-8")
+end
 
 
 -- target("AstConfig")

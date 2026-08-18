@@ -471,7 +471,10 @@ enum ESpiceId: int
 
 
 using HCelestialBody = SharedPtr<CelestialBody>;        ///< 天体句柄
+using WCelestialBody = WeakPtr<CelestialBody>;          ///< 天体弱引用
 using HBody = HCelestialBody;                           ///< 天体句柄
+using WBody = WCelestialBody;                           ///< 天体弱引用
+
 
 using PCelestialBody = CelestialBody*;                  ///< 天体指针
 using PBody = PCelestialBody;                           ///< 天体指针

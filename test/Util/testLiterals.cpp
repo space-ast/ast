@@ -161,4 +161,22 @@ TEST(Literals, PracticalScenarios)
 }
 
 
+// 测试磁感应强度(磁通密度)单位字面量
+TEST(Literals, MagneticFluxDensityLiterals)
+{
+    EXPECT_NEAR(1.0_T, 1.0, 1e-15);
+    EXPECT_NEAR(2.0_T, 2.0, 1e-15);
+
+    EXPECT_NEAR(1.0_nT, 1e-9, 1e-15);
+    EXPECT_NEAR(50000.0_nT, 5e-5, 1e-15);
+
+    EXPECT_NEAR(1.0_Gs, 1e-4, 1e-15);
+    EXPECT_NEAR(50000.0_Gs, 5.0, 1e-15);
+
+    // 整数参数
+    EXPECT_NEAR(5_T, 5.0, 1e-15);
+    EXPECT_NEAR(1_nT, 1e-9, 1e-15);
+    EXPECT_NEAR(1_Gs, 1e-4, 1e-15);
+}
+
 GTEST_MAIN()

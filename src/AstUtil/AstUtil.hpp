@@ -74,6 +74,7 @@
 #include "AstUtil/JsonValue.hpp"
 #include "AstUtil/KVParser.hpp"
 #include "AstUtil/KernelPool.hpp"
+#include "AstUtil/Library.hpp"
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstUtil/Literals.hpp"
 #include "AstUtil/LocalBuffer.hpp"

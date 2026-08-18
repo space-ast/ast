@@ -91,6 +91,7 @@ public:
 /// @brief 经典轨道根数
 class OrbElem
 {
+// 设置为public使类型为聚合类型
 public:
     double	 a_;          ///< 长半轴 
     double	 e_;          ///< 偏心率
@@ -133,6 +134,7 @@ public:
 /// @brief 修正轨道根数
 class ModOrbElem
 {
+// 设置为public使类型为聚合类型
 public:
     double rp_;         ///<近拱点半径 
     double e_;          ///<偏心率 
@@ -242,13 +244,17 @@ public:
 /// @brief 春分点根数
 class EquinElem
 {
+// 设置为public使类型为聚合类型
 public:
-    double a_;          ///< semimajor axis length
-    double h_;          ///< e*sin(argper + raan)   omegabar=argper + raan
-    double k_;          ///< e*cos(argper + raan)
-    double p_;          ///< tan(i/2)*sin(raan)
-    double q_;          ///< tan(i/2)*cos(raan)
-    double lambda_;     ///< mean longitude = M + raan + argper
+    double a_;          ///< semimajor axis length (半长轴)
+    double h_;          ///< e*sin(argper + RAAN)   omegabar=argper + RAAN
+    double k_;          ///< e*cos(argper + RAAN)
+    double p_;          ///< tan(i/2)*sin(RAAN)
+    double q_;          ///< tan(i/2)*cos(RAAN)
+    double lambda_;     ///< mean longitude = M + RAAN + argper (平经度)
+public:
+    /// @brief 平经度
+    double meanLongitude() const {return lambda_;}
 public:
     A_DEF_POD_ITERABLE(double)
     AST_DEF_ACCESS_METHOD(double, a)
@@ -262,13 +268,17 @@ public:
 /// @brief 改进春分点轨道根数, 180度奇异
 class ModEquinElem
 {
+// 设置为public使类型为聚合类型
 public:
-    double p_;       ///< p = a(1-e^2) 半通径
-    double f_;        ///< f = e*cos(argper+RAAN)
-    double g_;        ///< g = e*sin(argper+RAAN)
-    double h_;        ///< h = tan(i/2)cos(RAAN)
-    double k_;        ///< k = tan(i/2)sin(RAAN)
-    double L_;        ///< L = RAAN + argper + trueA
+    double p_;        ///< p = a(1-e^2) 半通径
+    double f_;        ///< f = e*cos(argper + RAAN)
+    double g_;        ///< g = e*sin(argper + RAAN)
+    double h_;        ///< h = tan(i/2)*cos(RAAN)
+    double k_;        ///< k = tan(i/2)*sin(RAAN)
+    double L_;        ///< L = RAAN + argper + trueA (真经度)
+public:
+    /// @brief 真经度
+    double trueLongitude() const {return L_;}
 public:
     A_DEF_POD_ITERABLE(double)
     AST_DEF_ACCESS_METHOD(double, p)
@@ -291,7 +301,7 @@ public:
 ///     《英汉天文学名词》，中国科学技术出版社，2015
 class DelaunayElem
 {
-
+// 设置为public使类型为聚合类型
 public:
     double L_;
     double G_;

@@ -3,18 +3,12 @@ package("qwt")
     set_description("a protocol-friendly LGPL-compliant plotting widget.")
     set_license("LGPL-2.1")
 
-    -- [OLD CONFIG - remote source] --
-    -- add_urls("https://gitee.com/czyt1988/QWT.git", "https://github.com/czyt1988/QWT.git")
-    -- add_versions("v7.2.2-dev", "master")
-    -- add_versions("v7.2.1", "v7.2.1")
-    -- [END OLD CONFIG - remote source] --
-
-    -- [OLD CONFIG - Qt version selection] --
-    -- add_configs("qt_sdkver", {description = "Qt SDK version to use.", default = "auto"})
-    -- add_configs("system_qt", {description = "Use system Qt library.", default = false})
-    -- [END OLD CONFIG - Qt version selection] --
-
-    set_sourcedir(path.join(os.scriptdir(), "../../../../thirdparty/QWT"))
+    local qwt_dir = path.join(os.scriptdir(), "../../../../thirdparty/QWT")
+    if os.exists(path.join(qwt_dir, "src")) then
+        set_sourcedir(qwt_dir)
+    else
+        add_urls("https://github.com/space-ast/QWT.git")
+    end
 
 
     -- add_deps("cmake")

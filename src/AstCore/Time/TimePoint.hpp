@@ -28,6 +28,7 @@
 #include "AstCore/RunTime.hpp"
 #include "AstUtil/StringView.hpp"
 #include <stdint.h>                 // for int64_t
+#include <cmath>                    // for std::isnan
 
 AST_NAMESPACE_BEGIN
 
@@ -109,6 +110,11 @@ public:
     /// @brief 获取默认时间点
     AST_CORE_API
     static TimePoint Default();
+
+    /// @brief 获取“无数据/非法”时间点（NaN 时间）
+    /// @return fractional 为 NaN 的 TimePoint，表示没有时间值 / 非法时间值
+    AST_CORE_API
+    static TimePoint NaN();
 
     /// @brief 获取历元时间点
     /// @see RunTimeEpoch.cpp
@@ -198,6 +204,12 @@ public:
 
     /// @brief 时间点的小数秒数部分
     double fractionalPart() const { return duration_.fractional_; }
+
+    /// @brief 是否为“无数据/非法”时间点
+    bool isNaN() const { return std::isnan(duration_.fractional_); }
+
+    /// @brief 是否为有效时间点
+    bool isValid() const { return !isNaN(); }
 public:
     /// @brief 计算时间点与 J2000  epoch 的时间差（天）
     double daysFromJ2000TT() const{

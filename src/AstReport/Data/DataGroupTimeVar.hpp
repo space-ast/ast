@@ -33,7 +33,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 随时间变化的数据组
-class DataGroupTimeVar : public DataGroup
+class AST_REPORT_API DataGroupTimeVar : public DataGroup
 {
 public:
     DataGroupTimeVar() = default;

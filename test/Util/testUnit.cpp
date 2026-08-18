@@ -943,4 +943,28 @@ TEST(Unit, Invert)
     }
 }
 
+// 测试磁感应强度(磁通密度)单位
+TEST(Unit, MagneticFluxDensity)
+{
+    auto tesla = Unit::Tesla();
+    EXPECT_EQ(tesla.name(), "T");
+    EXPECT_EQ(tesla.getScale(), 1.0);
+    EXPECT_EQ(tesla.dimension(), Dimension::MagneticFluxDensity());
+
+    auto nanoTesla = Unit::NanoTesla();
+    EXPECT_EQ(nanoTesla.name(), "nT");
+    EXPECT_EQ(nanoTesla.getScale(), 1e-9);
+    EXPECT_EQ(nanoTesla.dimension(), Dimension::MagneticFluxDensity());
+
+    auto gauss = Unit::Gauss();
+    EXPECT_EQ(gauss.name(), "Gs");
+    EXPECT_EQ(gauss.getScale(), 1e-4);
+    EXPECT_EQ(gauss.dimension(), Dimension::MagneticFluxDensity());
+
+    // 换算：1 Gs = 1e-4 T，1 nT = 1e-9 T
+    EXPECT_EQ(gauss.toSI(1), 1e-4);
+    EXPECT_EQ(nanoTesla.toSI(1), 1e-9);
+    EXPECT_EQ(tesla.toSI(1), 1.0);
+}
+
 GTEST_MAIN()

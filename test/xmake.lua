@@ -21,6 +21,10 @@ if is_plat("windows") and has_config("with_com") then
     add_deps("AstCOM")
 end
 
+if is_plat("windows") then
+    add_cxflags("/utf-8")
+end
+
 add_packages("gtest")
 add_packages("benchmark")
 

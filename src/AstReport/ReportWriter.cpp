@@ -43,6 +43,12 @@
 #include "AstReport/DataGroupBetaAngle.hpp"
 #include "AstReport/DataGroupQuats.hpp"
 #include "AstReport/DataGroupEuler.hpp"
+#include "AstReport/DataGroupMagField.hpp"
+#include "AstReport/DataGroupInterval.hpp"
+#include "AstReport/DataGroupEclipse.hpp"
+#include "AstReport/DataGroupEclipseSummary.hpp"
+#include "AstReport/DataGroupLightingTimes.hpp"
+#include "AstReport/DataGroupSolarIntensity.hpp"
 
 #include <unordered_map>
 #include <memory>
@@ -73,11 +79,11 @@ static TimeList _aGenerateTimeList(const ReportGenerateOptions& options)
 
 // ---- Service → DataGroup 工厂 ----
 
-using ADataGroupFactory = DataGroupTimeVar* (*)(const Object*, StringView type);
+using ADataGroupFactory = DataGroup* (*)(const Object*, StringView type);
 
 static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactories = {
     // ---- Point-based ----
-    {"CartPos", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
+    {"CartPos", [](const Object* obj, StringView type) -> DataGroup* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
         Frame* frame = _aFrameFromType(type);
@@ -87,7 +93,7 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         dg->setFrame(frame);
         return dg;
     }},
-    {"CartVel", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
+    {"CartVel", [](const Object* obj, StringView type) -> DataGroup* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
         Frame* frame = _aFrameFromType(type);
@@ -97,7 +103,7 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         dg->setFrame(frame);
         return dg;
     }},
-    {"ModOrbElem", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
+    {"ModOrbElem", [](const Object* obj, StringView type) -> DataGroup* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
         Frame* frame = _aFrameFromType(type);
@@ -107,7 +113,7 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         dg->setFrame(frame);
         return dg;
     }},
-    {"LLAState", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
+    {"LLAState", [](const Object* obj, StringView type) -> DataGroup* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
         Frame* frame = _aFrameFromType(type.empty() ? "Fixed" : type);
@@ -117,7 +123,14 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         dg->setBody(frame->getBody());
         return dg;
     }},
-    {"LLRState", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
+    {"SpEnvMagFieldDP", [](const Object* obj, StringView type) -> DataGroup* {
+        auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
+        if (!point) return nullptr;
+        auto* dg = new DataGroupMagField();
+        dg->setPoint(point);
+        return dg;
+    }},
+    {"LLRState", [](const Object* obj, StringView type) -> DataGroup* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
         Frame* frame = _aFrameFromType(type);
@@ -127,7 +140,7 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         dg->setFrame(frame);
         return dg;
     }},
-    {"Spherical", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
+    {"Spherical", [](const Object* obj, StringView type) -> DataGroup* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
         Frame* frame = _aFrameFromType(type);
@@ -137,7 +150,7 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         dg->setFrame(frame);
         return dg;
     }},
-    {"EquinElem", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
+    {"EquinElem", [](const Object* obj, StringView type) -> DataGroup* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
         Frame* frame = _aFrameFromType(type);
@@ -147,7 +160,7 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         dg->setFrame(frame);
         return dg;
     }},
-    {"BetaAngle", [](const Object* obj, StringView type) -> DataGroupTimeVar* {
+    {"BetaAngle", [](const Object* obj, StringView type) -> DataGroup* {
         auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
         if (!point) return nullptr;
         Frame* frame = _aFrameFromType(type);
@@ -159,9 +172,16 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         dg->setMoonPoint(aGetMoon());
         return dg;
     }},
+    {"SolarIntensity", [](const Object* obj, StringView) -> DataGroup* {
+        auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
+        if (!point) return nullptr;
+        auto* dg = new DataGroupSolarIntensity();
+        dg->setPoint(point);
+        return dg;
+    }},
 
     // ---- Axes-based ----
-    {"Quats", [](const Object* obj, StringView) -> DataGroupTimeVar* {
+    {"Quats", [](const Object* obj, StringView) -> DataGroup* {
         auto* axes = aobject_cast<Axes*>(const_cast<Object*>(obj));
         if (!axes) return nullptr;
         auto* dg = new DataGroupQuats();
@@ -170,7 +190,7 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         dg->setReferenceAxes(aGetEarth() ? aGetEarth()->getAxes("Inertial") : nullptr);
         return dg;
     }},
-    {"Euler", [](const Object* obj, StringView) -> DataGroupTimeVar* {
+    {"Euler", [](const Object* obj, StringView) -> DataGroup* {
         auto* axes = aobject_cast<Axes*>(const_cast<Object*>(obj));
         if (!axes) return nullptr;
         auto* dg = new DataGroupEuler();
@@ -178,6 +198,30 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         /// @todo 参考轴系应从 Object 属性树或 type_ 获取
         dg->setReferenceAxes(aGetEarth() ? aGetEarth()->getAxes("Inertial") : nullptr);
         // @todo 转序应从 type_ 或 .rst Element 属性获取，当前默认 121 (XYX)
+        return dg;
+    }},
+
+    // ---- 区间型（事件/区间数据，如日食、访问时段） ----
+    {"EclipseData", [](const Object* obj, StringView type) -> DataGroup* {
+        auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
+        if (!point) return nullptr;
+        auto* dg = new DataGroupEclipse();
+        dg->setPoint(point);
+        return dg;
+    }},
+    {"EclipseSummary", [](const Object* obj, StringView) -> DataGroup* {
+        auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
+        if (!point) return nullptr;
+        auto* dg = new DataGroupEclipseSummary();
+        dg->setPoint(point);
+        return dg;
+    }},
+    {"LightingData", [](const Object* obj, StringView type) -> DataGroup* {
+        auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
+        if (!point) return nullptr;
+        auto* dg = new DataGroupLightingTimes();
+        dg->setPoint(point);
+        dg->setLightingType(DataGroupLightingTimes::LightingTypeFromString(type));
         return dg;
     }},
 };
@@ -275,10 +319,11 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
         groups[key].push_back(i);
     }
 
-    // ---- 3. 生成 TimeList ----
+    // ---- 3. 为每组创建 DataGroup → calculate → extract ----
+
+    // 时间网格只生成一次，供所有时间变量型 DataGroup 复用
     TimeList timeList = _aGenerateTimeList(options);
 
-    // ---- 4. 为每组创建 DataGroup → calculate → extract ----
     for (auto& group : groups)
     {
         auto& indices = group.second;
@@ -287,25 +332,43 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
         const std::string& service = columns[indices[0]].element->service_;
         const std::string& type    = columns[indices[0]].element->type_;
 
-        // 查找工厂
+        // 查找工厂并创建 DataGroup（统一返回基类，具体类型用 dynamic_cast 判定）
         auto it = s_serviceFactories.find(service);
         if (it == s_serviceFactories.end())
         {
             aWarning("unsupported report service: %s", service.c_str());
             continue;
         }
-
-        // 创建 DataGroup
-        std::unique_ptr<DataGroupTimeVar> dg(it->second(object, type));
+        std::unique_ptr<DataGroup> dg(it->second(object, type));
         if (!dg)
         {
             aError("failed to create DataGroup for service: %s", service.c_str());
             continue;
         }
 
-        // 计算
+        // 根据具体类型分派 calculate：时间变量型走 timeList，区间型走 interval
         VariantVector calcResult;
-        errc_t err = dg->calculate(timeList, calcResult);
+        errc_t err = eNoError;
+        if (auto* dgTimeVar = dynamic_cast<DataGroupTimeVar*>(dg.get()))
+        {
+            err = dgTimeVar->calculate(timeList, calcResult);
+        }
+        else if (auto* dgInterval = dynamic_cast<DataGroupInterval*>(dg.get()))
+        {
+            if (options.interval_.duration() <= 0.0)
+            {
+                aError("interval is empty for service '%s'; set ReportGenerateOptions::interval_",
+                       service.c_str());
+                continue;
+            }
+            err = dgInterval->calculate(options.interval_, calcResult);
+        }
+        else
+        {
+            aError("unsupported DataGroup type for service: %s", service.c_str());
+            continue;
+        }
+
         if (err != eNoError)
         {
             aError("calculate failed for service %s: %d", service.c_str(), static_cast<int>(err));
@@ -327,7 +390,7 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
         }
     }
 
-    // ---- 5. 写出表格 ----
+    // ---- 4. 写出表格 ----
 
     // 标题行
     std::fprintf(file, "%s\n", report.title_.c_str());
@@ -349,15 +412,21 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
     }
     std::fprintf(file, "\n");
 
-    // 校验所有列行数一致，取最小值防越界
-    int nRows = static_cast<int>(timeList.size());
+    // 校验所有列行数一致，取最小值防越界（行数由实际列数据决定，兼容区间型列）
+    int nRows = 0;
+    bool nRowsInitialized = false;
     for (const auto& col : columns)
     {
         if (!col.data.hasType()) continue;
         int colSize = static_cast<int>(col.data.size());
-        if (colSize < nRows)
+        if (!nRowsInitialized)
         {
-            aWarning("column '%s' has fewer rows (%d) than expected (%d)",
+            nRows = colSize;
+            nRowsInitialized = true;
+        }
+        else if (colSize < nRows)
+        {
+            aWarning("column '%s' has fewer rows (%d) than others (%d)",
                      col.title.c_str(), colSize, nRows);
             nRows = colSize;
         }

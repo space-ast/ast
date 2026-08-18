@@ -128,6 +128,56 @@ AST_CORE_API void aECIToECF(
 );
 
 //----------------
+// ECF -> ECI
+//----------------
+
+
+/// @brief     从ECF转换为ECI的坐标旋转变换
+/// @details   ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换
+AST_CORE_API void aECFToECITransform(const TimePoint& tp, Rotation& rotation);
+
+
+/// @brief     从ECF转换为ECI的坐标旋转变换
+/// @details   ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。
+/// @param     tp  时间点
+/// @param     rotation  坐标旋转变换，带角速度信息
+AST_CORE_API void aECFToECITransform(const TimePoint& tp, KinematicRotation& rotation);
+
+
+/// @brief     从ECF转换为ECI的坐标转换矩阵
+/// @details   ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。
+/// @param     tp  时间点
+/// @param     matrix  坐标转换矩阵
+AST_CORE_CAPI void aECFToECIMatrix(const TimePoint& tp, Matrix3d& matrix);
+
+
+/// @brief     从ECF转换为ECI的坐标转换
+/// @details   ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。
+/// @param     tp  时间点
+/// @param     vecECF  ECF坐标
+/// @param     vecECI  ECI坐标
+AST_CORE_API void aECFToECI(const TimePoint& tp, const Vector3d& vecECF, Vector3d& vecECI);
+
+
+/// @brief     从ECF转换为ECI的坐标转换
+/// @details   ECI为地球惯性系，根据相关的配置，ECI可能为J2000或ICRF。
+/// @param     tp  时间点
+/// @param     vecECF  ECF坐标
+/// @param     velECF  ECF速度
+/// @param     vecECI  ECI坐标
+/// @param     velECI  ECI速度
+AST_CORE_API void aECFToECI(
+    const TimePoint& tp,
+    const Vector3d& vecECF,
+    const Vector3d& velECF,
+    Vector3d& vecECI,
+    Vector3d& velECI
+);
+
+
+//----------------
 // J2000 -> ECF
 //----------------
 

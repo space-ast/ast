@@ -81,6 +81,30 @@ enum class EAberrationFlags
 A_ENUM_CLASS_FLAGS(EAberrationFlags)
 
 
+/// @brief 时钟主机（用于光时计算中选择时间参考对象）
+enum class EClockHost
+{
+    eFirstObject,   ///< 以第一个对象为时钟参考
+    eSecondObject   ///< 以第二个对象为时钟参考
+};
+
+/// @brief 时间方向（用于光时计算中定义传输/接收方向）
+enum class ETimeSense
+{
+    eTransmit,  ///< 发射方向
+    eReceive    ///< 接收方向
+};
+
+/// @brief 光行差类型
+enum class EAberrationType
+{
+    eNone,      ///< 无光行差
+    eAnnual,    ///< 周年光行差
+    eDiurnal,   ///< 周日光行差
+    eTotal      ///< 总光行差
+};
+
+
 /// @brief 进行像差校正
 /// @param[in] relPosition 从观察者指向目标点的矢量（在ICRF系下表示）
 /// @param[in] velObserver 观察者在ICRF系下的速度

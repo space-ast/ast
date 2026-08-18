@@ -16,8 +16,14 @@ import stat
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 # 版本声明正则表达式
-# 只匹配文件开头的版权声明，不匹配函数注释
-VERSION_HEADER_PATTERN = re.compile(r'\A(\s*///[^\n]*\n?)+')
+# 匹配文件开头所有连续的 /// 注释行（整个头部注释块）
+VERSION_HEADER_PATTERN = re.compile(r'\A((?:\s*///[^\n]*\n?)+)')
+
+# 元信息行正则 — 匹配 @file / @brief / @details / @author / @date 行，这些行将被保留
+META_TAG_PATTERN = re.compile(r'@(?:file|brief|details|author|date)\b')
+
+# 作者声明正则表达式（用于替换 @author 行中的作者名）
+AUTHOR_PATTERN = re.compile(r'^(\s*///\s*@author\s+).*$', re.MULTILINE)
 
 # 需要处理的文件扩展名
 SOURCE_EXTENSIONS = ['.cpp', '.h', '.hpp', '.c', ".cxx", ".inl", ".cpp0", ".0cpp", ".bak", ".cpp.bak"]
@@ -117,7 +123,7 @@ def restore_module_sources():
             print(f"Removed merged file: {merged_file_path}")
 
 def remove_version_header(file_path):
-    """删除文件开头的连续注释块（以 /// 开头）以及中间的空行"""
+    """删除文件开头的版本声明注释块，但保留 @file / @brief / @details / @author / @date 元信息块"""
     with open(file_path, 'r', encoding='utf-8-sig') as f:
         content = f.read()
 
@@ -125,16 +131,43 @@ def remove_version_header(file_path):
     if not match:
         return
 
-    new_content = content[match.end():]
-    if not new_content:
-        # 整个文件都是注释/空行，保留原文件不变
-        print(f"All lines are comments/empty, skipping: {file_path}")
-        return
+    header_block = match.group(0)
+    rest = content[match.end():]
+
+    # 从头部注释块中提取要保留的元信息行
+    kept_lines = []
+    for line in header_block.splitlines(keepends=True):
+        if META_TAG_PATTERN.search(line):
+            kept_lines.append(line)
+
+    if not kept_lines:
+        # 没有元信息行需要保留
+        if not rest:
+            print(f"All lines are comments/empty, skipping: {file_path}")
+            return
+        # 删除整个头部（无元信息可保留）
+        new_content = rest
+    else:
+        new_content = ''.join(kept_lines) + rest
 
     ensure_writable(file_path)
     with open(file_path, 'w', encoding='utf-8-sig') as f:
         f.write(new_content)
     print(f"Removed version header from: {file_path}")
+
+
+def replace_author_in_file(file_path, new_author):
+    """替换文件中 @author 行的作者名"""
+    with open(file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
+        content = f.read()
+
+    new_content, count = AUTHOR_PATTERN.subn(r'\1' + new_author, content)
+    if count > 0:
+        ensure_writable(file_path)
+        with open(file_path, 'w', encoding='utf-8-sig') as f:
+            f.write(new_content)
+        print(f"Replaced author -> '{new_author}' in: {file_path}")
+    return count
 
 def convert_to_utf8_bom(file_path):
     """将文件转换为utf8-bom编码"""
@@ -185,12 +218,21 @@ def replace_empty_lines(file_path):
     print(f"Replaced empty lines in: {file_path}")
 
 def remove_version_headers():
-    """遍历所有源文件，删除文件开头的版本声明注释块"""
+    """遍历所有源文件，删除文件开头的版本声明注释块（但保留 @file 元信息块）"""
     for root, dirs, files in os.walk(ROOT_DIR):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         for file in files:
             if os.path.splitext(file)[1] in SOURCE_EXTENSIONS:
                 remove_version_header(os.path.join(root, file))
+
+
+def replace_authors(new_author):
+    """遍历所有源文件，替换 @author 行中的作者名"""
+    for root, dirs, files in os.walk(ROOT_DIR):
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        for file in files:
+            if os.path.splitext(file)[1] in SOURCE_EXTENSIONS:
+                replace_author_in_file(os.path.join(root, file), new_author)
 
 
 def convert_encoding_to_utf8_bom():
@@ -342,6 +384,8 @@ def main():
                         help='不合并模块源文件')
     parser.add_argument('--no-replace-empty', action='store_false', dest='replace_empty', default=True,
                         help='不替换 .cpp 文件中的空行')
+    parser.add_argument('--new-author', type=str, default=None, dest='new_author',
+                        help='替换所有源文件中 @author 行的作者名')
     args = parser.parse_args()
 
     print("Starting release process...")
@@ -351,6 +395,10 @@ def main():
 
     print("Removing version headers...")
     remove_version_headers()
+
+    if args.new_author:
+        print(f"Replacing authors with '{args.new_author}'...")
+        replace_authors(args.new_author)
 
     if args.replace_empty:
         print("Replacing empty lines in .cpp files...")

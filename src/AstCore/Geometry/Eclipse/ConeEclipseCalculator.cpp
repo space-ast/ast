@@ -27,6 +27,12 @@ AST_NAMESPACE_BEGIN
 
 double ConeEclipseCalculator::getLightingRatio(const TimePoint& time, const Vector3d& position, Frame* frame)
 {
+    return getLightingRatio(time, position, frame, nullptr);
+}
+
+double ConeEclipseCalculator::getLightingRatio(const TimePoint& time, const Vector3d& position, Frame* frame,
+                                               CelestialBody** obstructionOut)
+{
     // 无光源或无遮挡体，视为全光照
     if (!lightSource_ || occultingBodies_.empty())
     {
@@ -69,6 +75,10 @@ double ConeEclipseCalculator::getLightingRatio(const TimePoint& time, const Vect
         if (ratio < minRatio)
         {
             minRatio = ratio;
+            if (obstructionOut)
+            {
+                *obstructionOut = occultingBody.get();
+            }
         }
     }
 

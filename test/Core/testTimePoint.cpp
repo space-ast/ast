@@ -104,4 +104,23 @@ TEST(TimePoint, BitIntCase)
 
 
 
+TEST(TimePoint, NaN)
+{
+    TimePoint bad = TimePoint::NaN();
+    EXPECT_TRUE(bad.isNaN());
+    EXPECT_FALSE(bad.isValid());
+
+    TimePoint ok = TimePoint::Epoch();
+    EXPECT_FALSE(ok.isNaN());
+    EXPECT_TRUE(ok.isValid());
+
+    // IEEE 语义：NaN != 任何值（含 NaN 自身）
+    EXPECT_FALSE(bad == bad);
+    // NaN 参与运算仍为 NaN
+    TimePoint bad2 = bad + 1.0;
+    EXPECT_TRUE(bad2.isNaN());
+}
+
+
+
 GTEST_MAIN();

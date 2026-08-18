@@ -192,6 +192,8 @@ A_ALWAYS_INLINE AEP8DataArray& aep8DataArray(){
     return (AEP8DataArray&)(aep8DataCollection());
 }
 
+
+/// @see 参考实现：https://github.com/nasa/radbelt/blob/main/radbelt/core.f#AEP8
 double aep8(double e, double l, double bb0, int iname)
 {
 #ifdef AST_WITH_LIBF2C
@@ -224,6 +226,14 @@ double aep8(double e, double l, double bb0, int iname)
 
 }
 
+///
+/// @brief 计算特定位置和时间处辐射带捕获粒子的通量（参见 aep8.hpp 中的详细文档）
+/// @see 参考实现：https://github.com/nasa/radbelt/blob/main/radbelt/__init__.py#get_flux
+///
+/// 内部流程：
+///   1. 调用 igrf() 将地理坐标转换为磁壳参数 L 和磁场比值 B/B₀
+///   2. 调用 aep8() 根据 L、B/B₀ 和粒子能量计算积分通量
+///
 double get_flux(double lon, double lat, double height, double energy, double year, int iname)
 {
     double lvalue, bb0;

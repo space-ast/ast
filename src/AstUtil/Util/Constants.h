@@ -236,6 +236,11 @@ constexpr double kRevolutionToRad = kTwoPI;                             ///< 周
 constexpr double kRadToDeg      = 57.2957795130823208767;		        ///< 弧度到角度 180.0/kPI
 constexpr double kRadToTimeHour = kRadToDeg / 15.0;	                    ///< 弧度到时间时，度分秒的时
 
+// 磁感应强度(磁通密度)单位转换常数
+
+constexpr double kNanoteslaToTesla = 1.0e-9;                          ///< 纳特斯拉到特斯拉
+constexpr double kGaussToTesla     = 1.0e-4;                          ///< 高斯到特斯拉
+
 /// @brief 获取真空中的光速
 /// @details 这个函数接口是为了应对未来可能允许在软件运行时修改光速的情况
 /// @return 光速

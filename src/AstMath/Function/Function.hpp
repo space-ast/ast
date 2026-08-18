@@ -52,4 +52,10 @@ AST_NAMESPACE_BEGIN
  * 
  */
 
+
+const double kDefaultRelTol = 1e-14;
+const double kDefaultAbsTol = 1e-12;
+const int kDefaultMaxIter = 100;
+
+
 AST_NAMESPACE_END
