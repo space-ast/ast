@@ -1,11 +1,11 @@
 #include "Compress.hpp"
 #include "ArchiverUtils.hpp"
-#include "CompressorImpl/CompressorImplRaw.hpp"
-#include "CompressorImpl/CompressorImplTar.hpp"
-#include "CompressorImpl/CompressorImplSystem.hpp"
+#include "AstUtil/CompressorImplRaw.hpp"
+#include "AstUtil/CompressorImplTar.hpp"
+#include "AstUtil/CompressorImplSystem.hpp"
 
 #ifdef _WIN32
-#include "CompressorImpl/CompressorImplShellCOM.hpp"
+#include "AstUtil/CompressorImplShellCOM.hpp"
 #endif
 
 #include "AstUtil/Logger.hpp"

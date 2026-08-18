@@ -1,5 +1,5 @@
 #include "ExtractorImplSystem.hpp"
-#include "../ArchiverUtils.hpp"
+#include "AstUtil/ArchiverUtils.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Logger.hpp"
