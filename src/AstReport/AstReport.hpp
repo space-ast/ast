@@ -23,6 +23,7 @@
 #include "AstReport/DataGroupOrbit.hpp"
 #include "AstReport/DataGroupPointPrv.hpp"
 #include "AstReport/DataGroupQuats.hpp"
+#include "AstReport/DataGroupSolarIntensity.hpp"
 #include "AstReport/DataGroupSpherical.hpp"
 #include "AstReport/DataGroupTimeVar.hpp"
 #include "AstReport/DataGroupTrajectory.hpp"

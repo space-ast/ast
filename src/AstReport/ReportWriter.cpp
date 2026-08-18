@@ -48,6 +48,7 @@
 #include "AstReport/DataGroupEclipse.hpp"
 #include "AstReport/DataGroupEclipseSummary.hpp"
 #include "AstReport/DataGroupLightingTimes.hpp"
+#include "AstReport/DataGroupSolarIntensity.hpp"
 
 #include <unordered_map>
 #include <memory>
@@ -169,6 +170,13 @@ static const std::unordered_map<StringView, ADataGroupFactory> s_serviceFactorie
         dg->setFrame(frame);
         dg->setSunPoint(aGetSun());
         dg->setMoonPoint(aGetMoon());
+        return dg;
+    }},
+    {"SolarIntensity", [](const Object* obj, StringView) -> DataGroup* {
+        auto* point = aobject_cast<Point*>(const_cast<Object*>(obj));
+        if (!point) return nullptr;
+        auto* dg = new DataGroupSolarIntensity();
+        dg->setPoint(point);
         return dg;
     }},
 

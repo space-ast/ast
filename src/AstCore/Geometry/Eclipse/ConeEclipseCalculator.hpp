@@ -48,6 +48,15 @@ public:
     /// @param frame 观测者所在参考系
     /// @return 光照强度, 0: 全阴影, 1: 全光照，0-1: 部分遮挡（半影）
     double getLightingRatio(const TimePoint& time, const Vector3d& position, Frame* frame) override;
+
+    /// @brief 计算光照强度（含半影），并返回造成最暗遮蔽的遮挡体
+    /// @param time 时间点
+    /// @param position 观测者位置（相对于 frame 坐标系）
+    /// @param frame 观测者所在参考系
+    /// @param obstructionOut 输出：给出最小光照比的遮挡体（全光照时为 nullptr；可为 nullptr 表示不关心）
+    /// @return 光照强度, 0: 全阴影, 1: 全光照，0-1: 部分遮挡（半影）
+    double getLightingRatio(const TimePoint& time, const Vector3d& position, Frame* frame,
+                            CelestialBody** obstructionOut);
 };
 
 
