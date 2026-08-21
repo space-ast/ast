@@ -134,14 +134,14 @@ errc_t aSpiceGetInterval(StringView filepath, int target, TimeInterval &timeInte
                 if(rc != eNoError)
                     aError("failed to merge time interval");
             }else{
-                interval.setStartStop(start, end);
+                interval.setBounds(start, end);
             }
             found = true;
         }
     }
     TimePoint startTime = aSpiceEtToTimePoint(interval.start());
     TimePoint endTime = aSpiceEtToTimePoint(interval.stop());
-    timeInterval.setStartStop(startTime, endTime);
+    timeInterval.setBounds(startTime, endTime);
     
     return eNoError;
 }

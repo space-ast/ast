@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "TimePoint.hpp"
+#include "Interval.hpp"
 #include "AstUtil/Logger.hpp"
 #include <string>
 #include <limits>
@@ -107,7 +108,7 @@ public:
     /// @brief 设置时间区间的开始时间点和结束时间点
     /// @param start 开始时间点
     /// @param stop 结束时间点
-    void setStartStop(const TimePoint& start, const TimePoint& stop){
+    void setBounds(const TimePoint& start, const TimePoint& stop){
         start_ = start;
         stop_  = stop;
     }
@@ -116,9 +117,17 @@ public:
     /// @param epoch 时间区间的基准时间点
     /// @param start 开始时间点（相对基准时间点的秒数）
     /// @param stop 结束时间点（相对基准时间点的秒数）
-    void setStartStop(const TimePoint& epoch, double start, double stop){
+    void setBounds(const TimePoint& epoch, double start, double stop){
         start_ = epoch + start;
         stop_  = epoch + stop;
+    }
+
+    /// @brief 设置时间区间的开始时间点和结束时间点
+    /// @param epoch 时间区间的基准时间点
+    /// @param interval 相对基准时间点的时间区间
+    void setBounds(const TimePoint& epoch, const Interval& interval){
+        start_ = epoch + interval.start();
+        stop_  = epoch + interval.stop();
     }
 
     /// @brief 设置时间区间为无限时间区间
@@ -332,7 +341,7 @@ inline errc_t TimeInterval::merge(const TimeInterval &other)
     const TimePoint& mergedStart = (thisStart.durationFrom(otherStart) <= 0) ? thisStart : otherStart;
     const TimePoint& mergedStop = (thisStop.durationFrom(otherStop) >= 0) ? thisStop : otherStop;
 
-    setStartStop(mergedStart, mergedStop);
+    setBounds(mergedStart, mergedStop);
     return eNoError;
 }
 

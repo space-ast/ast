@@ -46,7 +46,7 @@ public:
     /// @brief 设置时间区间的开始时间和结束时间
     /// @param start 开始时间
     /// @param stop 结束时间
-    void setStartStop(double start, double stop);
+    void setBounds(double start, double stop);
 
     /// @brief 合并两个时间区间
     /// @param other 另一个时间区间
@@ -64,7 +64,7 @@ inline Interval Interval::Zero()
     return Interval{0.0, 0.0};
 }
 
-inline void Interval::setStartStop(double start, double stop)
+inline void Interval::setBounds(double start, double stop)
 {
     start_ = start;
     stop_ = stop;
@@ -77,8 +77,8 @@ inline errc_t Interval::merge(const Interval &other)
         aError("merge interval failed, no overlap");
         return eErrorInvalidParam;
     }
-    start_ = std::min(start_, other.start());
-    stop_ = std::max(stop_, other.stop());
+    start_ = (std::min)(start_, other.start());
+    stop_ = (std::max)(stop_, other.stop());
     return eNoError;
 }
 

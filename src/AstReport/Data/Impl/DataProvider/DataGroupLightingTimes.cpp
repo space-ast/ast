@@ -35,7 +35,7 @@ void pushRow(std::vector<DataGroupLightingTimes::Data>& rows,
     double d = e - s;
     if (d <= 0.0) return; // 跳过零时长段（区间边界裁剪产生的退化段）
     DataGroupLightingTimes::Data row;
-    row.interval_.setStartStop(s, e);
+    row.interval_.setBounds(s, e);
     row.obstruction_ = obstruction;
     rows.push_back(row);
 }

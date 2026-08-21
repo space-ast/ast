@@ -113,6 +113,34 @@ TEST(SGP4Test, TLEParse)
 }
 
 
+/// @brief 测试 Alpha-5 NORAD 目录编号解析
+TEST(SGP4Test, NoradIdAlpha5)
+{
+    AST_USING_NAMESPACE
+
+    // Alpha-5 官方示例
+    EXPECT_EQ(aParseNoradId("A0000"), 100000);
+    EXPECT_EQ(aParseNoradId("E8493"), 148493);
+    EXPECT_EQ(aParseNoradId("J2931"), 182931);
+    EXPECT_EQ(aParseNoradId("P4018"), 234018);
+    EXPECT_EQ(aParseNoradId("T1223"), 271223);
+    EXPECT_EQ(aParseNoradId("W1928"), 301928);
+    EXPECT_EQ(aParseNoradId("Z9999"), 339999);
+
+    // 传统数字 / 右对齐空格 / 前导零
+    EXPECT_EQ(aParseNoradId("25544"), 25544);
+    EXPECT_EQ(aParseNoradId(" 1234"), 1234);
+    EXPECT_EQ(aParseNoradId("01234"), 1234);
+
+    // 端到端：TLE::FromLines 解析 Alpha-5 行（目录编号 A0000 → 100000）
+    static const char* alpha5L1 = "1 A0000U 99057LT  21084.99115140  .00000893  00000-0  18006-3 0  9994";
+    static const char* alpha5L2 = "2 A0000  98.3488 112.3622 0070611 169.6757 257.7924 14.62494120100130";
+    TLE tle = TLE::FromLines(alpha5L1, alpha5L2);
+    EXPECT_EQ(tle.noradId(), 100000);
+    EXPECT_NEAR(tle.inclination(), 98.3488 * kDegToRad, 1e-10);
+}
+
+
 /// @brief 测试 SGP4 初始化和基本传播
 TEST(SGP4Test, BasicPropagation)
 {

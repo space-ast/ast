@@ -161,7 +161,7 @@ errc_t EphemerisLagrangeVar::getInterval(TimeInterval &interval) const
         start = times_.front();
         stop = times_.back();
     }
-    interval.setStartStop(epoch_, start, stop);
+    interval.setBounds(epoch_, start, stop);
     return eNoError;
 }
 

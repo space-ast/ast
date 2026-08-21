@@ -102,7 +102,7 @@ errc_t EphemerisBinary::saveFrom(const Ephemeris* source, const std::string& fil
     epoch_.duration_.integer_    = epochInt;
     epoch_.duration_.fractional_ = epochFrac;
     averageStep_ = (pointCount > 1) ? (times.back() - times.front()) / (pointCount - 1) : 60.0;
-    interval_.setStartStop(times.front(), times.back());
+    interval_.setBounds(times.front(), times.back());
 
     winTimes_.resize(WINDOW_SIZE);
     winPos_.resize(WINDOW_SIZE);
@@ -155,7 +155,7 @@ errc_t EphemerisBinary::open(const std::string& filepath)
     epoch_.duration_.integer_ = epochInt;
     epoch_.duration_.fractional_ = epochFrac;
     pointCount_ = pointCount;
-    interval_.setStartStop(startTime, stopTime);
+    interval_.setBounds(startTime, stopTime);
 
     // Read frame name
     if (nameLen > 0)
@@ -196,7 +196,7 @@ errc_t EphemerisBinary::getInterval(TimeInterval& interval) const
     if (pointCount_ == 0)
         return eErrorOutOfRange;
 
-    interval.setStartStop(epoch_, interval_.start(), interval_.stop());
+    interval.setBounds(epoch_, interval_);
     return eNoError;
 }
 

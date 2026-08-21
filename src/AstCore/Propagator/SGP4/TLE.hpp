@@ -156,6 +156,30 @@ private:
 };
 
 
+/// @brief 解析 5 位 NORAD 目录编号（支持 Alpha-5 字母扩展）
+/// @see https://www.space-track.org/documentation#tle-alpha5
+/// @details Alpha-5 将 5 位编号的首位替换为字母（A-Z，跳过 I/O），字母值 10-33，
+///          最终编号 = 首位值 × 10000 + 后 4 位数字。
+///          首位为数字或空格时按传统整数解析（< 100000 不受影响）。
+/// @param str 5 字符字段（TLE/SATCAT 目录编号列）
+/// @return NORAD 目录编号；解析失败返回 0
+AST_CORE_CAPI int aParseNoradId(StringView str);
+
+
+/// @brief 将 TLE 转换为经典轨道根数
+/// @param tle TLE 根数
+/// @param gm 引力常数 [m^3/s^2]
+/// @param elem 输出经典轨道根数
+AST_CORE_API void aTLEToOrbElem(const TLE& tle, double gm, OrbElem& elem);
+AST_CORE_API OrbElem aTLEToOrbElem(const TLE& tle, double gm);
+
+/// @brief 将 TLE 转换为修改后的轨道根数
+/// @param tle TLE 根数
+/// @param gm 引力常数 [m^3/s^2]
+/// @param elem 输出修改后的轨道根数
+AST_CORE_API void aTLEToModOrbElem(const TLE& tle, double gm, ModOrbElem& elem);
+AST_CORE_API ModOrbElem aTLEToModOrbElem(const TLE& tle, double gm);
+
 
 /*
 参考：https://celestrak.org/NORAD/documentation/tle-fmt.php
