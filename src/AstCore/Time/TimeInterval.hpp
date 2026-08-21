@@ -193,11 +193,45 @@ public:
     /// @return 离散化时间点范围
     DiscreteEpochSecondRange discrete(const TimePoint& epoch, double step) const;
 public:
-    /// @brief 合并时间区间
+    /// @brief 原地并集：将另一个时间区间并入自身（凸包）
     /// @param other 要合并的时间区间
-    /// @warning 如果时间区间与当前时间区间不重叠，合并操作将失败。
-    /// @return errc_t 错误码
-    errc_t merge(const TimeInterval& other);
+    /// @return *this
+    /// @warning 凸包会桥接不相交区间的空隙；如需保留空隙的集合并集，请使用 IntervalList::united。
+    TimeInterval& unite(const TimeInterval& other);
+
+    /// @brief 并集（返回副本）：凸包
+    /// @param other 要合并的时间区间
+    /// @return 并集（不修改当前对象）
+    TimeInterval united(const TimeInterval& other) const;
+
+    /// @brief 原地交集
+    /// @param other 要合并的时间区间
+    /// @return *this
+    /// @note 不相交时结果为零长度区间（start == stop），语义为空。
+    TimeInterval& intersect(const TimeInterval& other);
+
+    /// @brief 交集（返回副本）
+    /// @param other 要合并的时间区间
+    /// @return 交集（不修改当前对象）
+    /// @note 不相交时结果为零长度区间（start == stop），语义为空。
+    TimeInterval intersected(const TimeInterval& other) const;
+
+    /// @brief 判断两个时间区间是否相交（有正长度交集，不含仅相切）
+    /// @param other 另一个时间区间
+    /// @return 是否相交
+    bool intersects(const TimeInterval& other) const;
+
+    /// @brief 原地并集（等价于 unite）
+    TimeInterval& operator|=(const TimeInterval& other) { return unite(other); }
+
+    /// @brief 并集（返回副本，等价于 united）
+    TimeInterval operator|(const TimeInterval& other) const { return united(other); }
+
+    /// @brief 原地交集（等价于 intersect）
+    TimeInterval& operator&=(const TimeInterval& other) { return intersect(other); }
+
+    /// @brief 交集（返回副本，等价于 intersected）
+    TimeInterval operator&(const TimeInterval& other) const { return intersected(other); }
 private:
     TimePoint start_;     ///< 时间区间的开始时间点
     TimePoint stop_;      ///< 时间区间的结束时间点
@@ -325,24 +359,68 @@ inline TimeInterval::DiscreteEpochSecondRange TimeInterval::discrete(const TimeP
     return DiscreteEpochSecondRange(offset, step, stopOffset, n);
 }
 
-inline errc_t TimeInterval::merge(const TimeInterval &other)
+inline TimeInterval& TimeInterval::unite(const TimeInterval &other)
 {
-    const TimePoint& thisStart = start();
+    const TimePoint& thisStart  = this->start();
+    const TimePoint& thisStop   = this->stop();
     const TimePoint& otherStart = other.start();
-    TimePoint thisStop = stop();
-    TimePoint otherStop = other.stop();
+    const TimePoint& otherStop  = other.stop();
 
-    if (thisStart.durationFrom(otherStop) > 0 || otherStart.durationFrom(thisStop) > 0) 
+    if(otherStart < thisStart)
     {
-        aError("merge time interval failed, no overlap");
-        return eErrorInvalidParam;
+        this->setStart(otherStart);
+    }
+    if(otherStop > thisStop)
+    {
+        this->setStop(otherStop);
+    }
+    return *this;
+}
+
+inline TimeInterval TimeInterval::united(const TimeInterval &other) const
+{
+    TimeInterval result = *this;
+    result.unite(other);
+    return result;
+}
+
+inline TimeInterval& TimeInterval::intersect(const TimeInterval &other)
+{
+    const TimePoint& thisStart  = this->start();
+    const TimePoint& thisStop   = this->stop();
+    const TimePoint& otherStart = other.start();
+    const TimePoint& otherStop  = other.stop();
+
+    if(otherStart > thisStart)
+    {
+        this->setStart(otherStart);
+    }
+    if(otherStop < thisStop)
+    {
+        this->setStop(otherStop);
     }
 
-    const TimePoint& mergedStart = (thisStart.durationFrom(otherStart) <= 0) ? thisStart : otherStart;
-    const TimePoint& mergedStop = (thisStop.durationFrom(otherStop) >= 0) ? thisStop : otherStop;
+    // 空交集 → 零长度区间（避免负 duration）
+    if(this->start() > this->stop())
+    {
+        this->setStop(this->start());
+    }
+    return *this;
+}
 
-    setBounds(mergedStart, mergedStop);
-    return eNoError;
+inline TimeInterval TimeInterval::intersected(const TimeInterval &other) const
+{
+    TimeInterval result = *this;
+    result.intersect(other);
+    return result;
+}
+
+inline bool TimeInterval::intersects(const TimeInterval &other) const
+{
+    // 零长度区间（start == stop）语义为空，不应与任何区间相交
+    auto& start = (std::max)(start_, other.start());
+    auto& stop = (std::min)(stop_, other.stop());
+    return start < stop;
 }
 
 /*! @} */

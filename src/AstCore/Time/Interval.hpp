@@ -48,11 +48,45 @@ public:
     /// @param stop 结束时间
     void setBounds(double start, double stop);
 
-    /// @brief 合并两个时间区间
+    /// @brief 原地并集：将另一个区间并入自身（凸包）
     /// @param other 另一个时间区间
-    /// @warning 如果时间区间与当前时间区间不重叠，合并操作将失败。
-    /// @return errc_t 错误码
-    errc_t merge(const Interval& other);
+    /// @return *this
+    /// @warning 凸包会桥接不相交区间的空隙；如需保留空隙的集合并集，请使用 IntervalList::united。
+    Interval& unite(const Interval& other);
+
+    /// @brief 并集（返回副本）：凸包
+    /// @param other 另一个时间区间
+    /// @return 并集（不修改当前对象）
+    Interval united(const Interval& other) const;
+
+    /// @brief 原地交集
+    /// @param other 另一个时间区间
+    /// @return *this
+    /// @note 不相交时结果为零长度区间（start == stop），语义为空。
+    Interval& intersect(const Interval& other);
+
+    /// @brief 交集（返回副本）
+    /// @param other 另一个时间区间
+    /// @return 交集（不修改当前对象）
+    /// @note 不相交时结果为零长度区间（start == stop），语义为空。
+    Interval intersected(const Interval& other) const;
+
+    /// @brief 判断两个区间是否相交（有正长度交集，不含仅相切）
+    /// @param other 另一个时间区间
+    /// @return 是否相交
+    bool intersects(const Interval& other) const;
+
+    /// @brief 原地并集（等价于 unite）
+    Interval& operator|=(const Interval& other) { return unite(other); }
+
+    /// @brief 并集（返回副本，等价于 united）
+    Interval operator|(const Interval& other) const { return united(other); }
+
+    /// @brief 原地交集（等价于 intersect）
+    Interval& operator&=(const Interval& other) { return intersect(other); }
+
+    /// @brief 交集（返回副本，等价于 intersected）
+    Interval operator&(const Interval& other) const { return intersected(other); }
 public:
     double start_;
     double stop_;
@@ -70,16 +104,39 @@ inline void Interval::setBounds(double start, double stop)
     stop_ = stop;
 }
 
-inline errc_t Interval::merge(const Interval &other)
+inline Interval& Interval::unite(const Interval &other)
 {
-    if (start_ > other.stop() || other.start() > stop_)
-    {
-        aError("merge interval failed, no overlap");
-        return eErrorInvalidParam;
-    }
     start_ = (std::min)(start_, other.start());
-    stop_ = (std::max)(stop_, other.stop());
-    return eNoError;
+    stop_  = (std::max)(stop_,  other.stop());
+    return *this;
+}
+
+inline Interval Interval::united(const Interval &other) const
+{
+    return Interval{(std::min)(start_, other.start()),
+                    (std::max)(stop_,  other.stop())};
+}
+
+inline Interval& Interval::intersect(const Interval &other)
+{
+    double s = (std::max)(start_, other.start());
+    double t = (std::min)(stop_,  other.stop());
+    start_ = s;
+    stop_  = (std::max)(t, s);   // 空交集 → 零长度区间，避免负 duration
+    return *this;
+}
+
+inline Interval Interval::intersected(const Interval &other) const
+{
+    double s = (std::max)(start_, other.start());
+    double t = (std::min)(stop_,  other.stop());
+    return Interval{s, (std::max)(t, s)};
+}
+
+inline bool Interval::intersects(const Interval &other) const
+{
+    // 零长度区间（start == stop）语义为空，不应与任何区间相交
+    return (std::max)(start_, other.start()) < (std::min)(stop_, other.stop());
 }
 
 

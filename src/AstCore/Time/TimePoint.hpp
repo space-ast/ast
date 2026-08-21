@@ -266,59 +266,24 @@ public:
         return duration_.minusInDay(other.duration_);
     }
 
-    /// @brief 时间点减法运算符
-    /// @param other 另一个时间点
-    /// @return 两个时间点的时间差（秒数）
-    double operator-(const TimePoint& other) const{
-        return durationFrom(other);
-    }
-    /// @brief 时间点加法运算符
-    /// @param second 秒数
-    /// @return 新的时间点
-    TimePoint operator+(double second) const{
-        return {integerPart(), fractionalPart() + second};
-    }
+public:
+    // ————————————————————————
+    // 运算符重载
+    // ————————————————————————
 
-    /// @brief 时间点减法运算符
-    /// @param second 秒数
-    /// @return 新的时间点
-    TimePoint operator-(double second) const{
-        return {integerPart(), fractionalPart() - second};
-    }
+    double operator-(const TimePoint& other) const { return durationFrom(other); }
+    TimePoint operator+(double second) const { return {integerPart(), fractionalPart() + second}; }
+    TimePoint operator-(double second) const { return {integerPart(), fractionalPart() - second}; }
+    TimePoint& operator+=(double second) { duration_.fractional_ += second; return *this; }
+    TimePoint& operator-=(double second) { duration_.fractional_ -= second; return *this; }
+    bool operator==(const TimePoint& other) const { return durationFrom(other) == 0.0; }
+    bool operator!=(const TimePoint& other) const { return durationFrom(other) != 0.0; }
+    bool operator>(const TimePoint& other) const { return durationFrom(other) > 0.0; }
+    bool operator<(const TimePoint& other) const { return durationFrom(other) < 0.0; }
+    bool operator>=(const TimePoint& other) const { return durationFrom(other) >= 0.0; }
+    bool operator<=(const TimePoint& other) const { return durationFrom(other) <= 0.0; }
 
-    /// @brief 时间点加法赋值运算符
-    /// @param second 秒数
-    /// @return 自身引用
-    TimePoint& operator+=(double second){
-        this->duration_.fractional_ += second;
-        return *this;
-    }
-
-    /// @brief 时间点减法赋值运算符
-    /// @param second 秒数
-    /// @return 自身引用
-    TimePoint& operator-=(double second){
-        this->duration_.fractional_ -= second;
-        return *this;
-    }
-
-    /// @brief 时间点等于运算符
-    bool operator == (const TimePoint& other) const
-    {
-        return this->durationFrom(other) == 0.0;
-    }
-
-    /// @brief 时间点大于运算符
-    bool operator > (const TimePoint& other) const
-    {
-        return this->durationFrom(other) > 0.0;
-    }
-    
-    /// @brief 时间点小于运算符
-    bool operator < (const TimePoint& other) const
-    {
-        return this->durationFrom(other) < 0.0;
-    }
+public:
 
     /// @brief 将时间点格式化为字符串
     /// @param precision 格式化精度（秒数小数位数）

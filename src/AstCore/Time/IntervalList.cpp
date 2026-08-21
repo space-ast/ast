@@ -86,7 +86,22 @@ void IntervalList::mergeInPlace()
     intervals_.resize(writeIdx + 1);
 }
 
-IntervalList IntervalList::intersect(const IntervalList& other) const
+bool IntervalList::intersects(const IntervalList& other) const
+{
+    for (const auto& a : intervals_)
+    {
+        for (const auto& b : other.intervals_)
+        {
+            if (a.intersects(b))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+IntervalList IntervalList::intersected(const IntervalList& other) const
 {
     IntervalList a = *this;
     a.mergeInPlace();
@@ -120,7 +135,7 @@ IntervalList IntervalList::intersect(const IntervalList& other) const
     return result;
 }
 
-IntervalList IntervalList::unite(const IntervalList& other) const
+IntervalList IntervalList::united(const IntervalList& other) const
 {
     IntervalList result;
     result.intervals_.reserve(intervals_.size() + other.intervals_.size());
@@ -130,7 +145,7 @@ IntervalList IntervalList::unite(const IntervalList& other) const
     return result;
 }
 
-IntervalList IntervalList::subtract(const IntervalList& other) const
+IntervalList IntervalList::subtracted(const IntervalList& other) const
 {
     IntervalList a = *this;
     a.mergeInPlace();
@@ -177,6 +192,25 @@ IntervalList IntervalList::subtract(const IntervalList& other) const
     }
 
     return result;
+}
+
+
+IntervalList& IntervalList::intersect(const IntervalList& other)
+{
+    *this = intersected(other);
+    return *this;
+}
+
+IntervalList& IntervalList::unite(const IntervalList& other)
+{
+    *this = united(other);
+    return *this;
+}
+
+IntervalList& IntervalList::subtract(const IntervalList& other)
+{
+    *this = subtracted(other);
+    return *this;
 }
 
 

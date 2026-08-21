@@ -313,7 +313,7 @@ errc_t CloseApproachAnalyzer::analyze(const TLE& reference, const std::vector<TL
             }
             #endif
 
-            searchIntervals = intervals1.intersect(intervals2);
+            searchIntervals = intervals1.intersected(intervals2);
         }
         else
         {

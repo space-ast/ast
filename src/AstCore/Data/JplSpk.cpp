@@ -130,9 +130,11 @@ errc_t aSpiceGetInterval(StringView filepath, int target, TimeInterval &timeInte
             double end = desc.end_time;
             if(found)
             {
-                errc_t rc = interval.merge({start, end});
-                if(rc != eNoError)
-                    aError("failed to merge time interval");
+                if (interval.start() > end || start > interval.stop())
+                {
+                    aWarning("SPK target %d has disjoint segments (coverage gap)", target);
+                }
+                interval.unite({start, end});
             }else{
                 interval.setBounds(start, end);
             }
