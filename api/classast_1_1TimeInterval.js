@@ -10,7 +10,13 @@ var classast_1_1TimeInterval =
     [ "duration", "classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f", null ],
     [ "getStart", "classast_1_1TimeInterval.html#a2cc19db7dc279938cd333aaee7345cbc", null ],
     [ "getStop", "classast_1_1TimeInterval.html#ab467b273cd33f97b6053596fec9d3286", null ],
-    [ "merge", "group__Time.html#ga9e1d8fc152b9efe4b7a44ee9b4826511", null ],
+    [ "intersect", "group__Time.html#gaae74998cd44c06c9960c8294ab7822d8", null ],
+    [ "intersected", "group__Time.html#gaa7ec99e8e8eda77f481dcf8e68c32f43", null ],
+    [ "intersects", "group__Time.html#ga43bf825ad0843f880a45e10dcec17884", null ],
+    [ "operator&", "classast_1_1TimeInterval.html#a58ae0c6584eee2098b55812552d91495", null ],
+    [ "operator&=", "classast_1_1TimeInterval.html#aea849d1cfbcae4cfe048c7003ef4405e", null ],
+    [ "operator|", "classast_1_1TimeInterval.html#abcdf15936fb4f1512b695ac273dd8acb", null ],
+    [ "operator|=", "classast_1_1TimeInterval.html#a21153fa5824b209fbc336a27d019fe34", null ],
     [ "setBounds", "classast_1_1TimeInterval.html#a48abd9e243d1070fa436962f4360a1a4", null ],
     [ "setBounds", "classast_1_1TimeInterval.html#a50376549683ca6ebc664db4ffd190964", null ],
     [ "setBounds", "classast_1_1TimeInterval.html#aa3969cffb35a7b576dc668730dd0298e", null ],
@@ -20,5 +26,7 @@ var classast_1_1TimeInterval =
     [ "setZero", "classast_1_1TimeInterval.html#a52844685e45a000dcc28792c5e10093a", null ],
     [ "start", "classast_1_1TimeInterval.html#a92ad94094486d2c3b3207f5bdbfa6e7b", null ],
     [ "stop", "classast_1_1TimeInterval.html#a84c8351775a794c668e5208c920f7563", null ],
-    [ "toString", "classast_1_1TimeInterval.html#aa41b820c258fa1d333f192e109d26b77", null ]
+    [ "toString", "classast_1_1TimeInterval.html#aa41b820c258fa1d333f192e109d26b77", null ],
+    [ "unite", "group__Time.html#gabe90ec0163eb46cb680593ea0545d0f3", null ],
+    [ "united", "group__Time.html#ga6e3b2b9e22dc980546e1a44b82aa78f1", null ]
 ];

@@ -417,12 +417,13 @@ var searchData=
   ['strnicmp_414',['strnicmp',['../namespaceast.html#ab44707fb5f9cdfc8eaa97a54c0f65fdc',1,'ast']]],
   ['studyworkbench_415',['studyWorkbench',['../classast_1_1UiStudyWorkbench.html#ab344c6103d160c46a7bdc264fc49c467',1,'ast::UiStudyWorkbench']]],
   ['studyworkbencheditor_416',['studyWorkbenchEditor',['../classast_1_1UiAnalyzerMainWindow.html#ad3f9d6f31976ad9125e732b2cb8c2fd1',1,'ast::UiAnalyzerMainWindow']]],
-  ['subtract_417',['subtract',['../classast_1_1IntervalList.html#aadfc1333b03a6ebbae59449b4e502159',1,'ast::IntervalList::subtract()'],['../classast_1_1TimeIntervalList.html#adb4f2cd0bb57ed180b9a4d64e3dbfa89',1,'ast::TimeIntervalList::subtract()']]],
-  ['sweepstudyeditor_418',['sweepStudyEditor',['../classast_1_1UiAnalyzerMainWindow.html#aa52b0ef42c7a92ac9d89c105adb18d9e',1,'ast::UiAnalyzerMainWindow']]],
-  ['symbol_419',['symbol',['../classast_1_1Dimension.html#a7f3ace4929a6d92b8f7e75a3f58694df',1,'ast::Dimension']]],
-  ['symbolscope_420',['SymbolScope',['../classast_1_1SymbolScope.html#a7f5833fd92c32ceda4367e1114d8f8cd',1,'ast::SymbolScope::SymbolScope()=default'],['../classast_1_1SymbolScope.html#a5dc569a8b55eb4c73f0bbb7dec314a51',1,'ast::SymbolScope::SymbolScope(SymbolScope *parent)']]],
-  ['syncconversionfactor_421',['syncConversionFactor',['../classast_1_1UnitConverter.html#ad411a6d8311aff5b97f1b5a988a7b7ba',1,'ast::UnitConverter']]],
-  ['synctoolbarstate_422',['syncToolbarState',['../classast_1_1UiFigure.html#a844f09c7172fd240d5e9dc0ccffb91ac',1,'ast::UiFigure']]],
-  ['system_423',['System',['../classast_1_1ChatMessage.html#a725bd49164c256d671c17953b475cc67',1,'ast::ChatMessage']]],
-  ['systemprompt_424',['systemPrompt',['../classast_1_1AssistantAgent.html#ad6630a75d59377d6526630a149900525',1,'ast::AssistantAgent::systemPrompt()'],['../classast_1_1PilotPolisher.html#a0ca6635a1604b9851eba8b805555d633',1,'ast::PilotPolisher::systemPrompt()'],['../classast_1_1PilotSession.html#ad002857cc9ee76b3bf61f0d51ba2e520',1,'ast::PilotSession::systemPrompt()']]]
+  ['subtract_417',['subtract',['../classast_1_1IntervalList.html#a12c3a1a5814972379f67d6ad494b5051',1,'ast::IntervalList::subtract()'],['../classast_1_1TimeIntervalList.html#af7481a1d83d4cf8c857c3d93484dc3c8',1,'ast::TimeIntervalList::subtract()']]],
+  ['subtracted_418',['subtracted',['../classast_1_1IntervalList.html#ae845b747c8cc80fe2264e01500df012c',1,'ast::IntervalList::subtracted()'],['../classast_1_1TimeIntervalList.html#aa0cb1f90c5ea2a18d022db9abbe93727',1,'ast::TimeIntervalList::subtracted()']]],
+  ['sweepstudyeditor_419',['sweepStudyEditor',['../classast_1_1UiAnalyzerMainWindow.html#aa52b0ef42c7a92ac9d89c105adb18d9e',1,'ast::UiAnalyzerMainWindow']]],
+  ['symbol_420',['symbol',['../classast_1_1Dimension.html#a7f3ace4929a6d92b8f7e75a3f58694df',1,'ast::Dimension']]],
+  ['symbolscope_421',['SymbolScope',['../classast_1_1SymbolScope.html#a7f5833fd92c32ceda4367e1114d8f8cd',1,'ast::SymbolScope::SymbolScope()=default'],['../classast_1_1SymbolScope.html#a5dc569a8b55eb4c73f0bbb7dec314a51',1,'ast::SymbolScope::SymbolScope(SymbolScope *parent)']]],
+  ['syncconversionfactor_422',['syncConversionFactor',['../classast_1_1UnitConverter.html#ad411a6d8311aff5b97f1b5a988a7b7ba',1,'ast::UnitConverter']]],
+  ['synctoolbarstate_423',['syncToolbarState',['../classast_1_1UiFigure.html#a844f09c7172fd240d5e9dc0ccffb91ac',1,'ast::UiFigure']]],
+  ['system_424',['System',['../classast_1_1ChatMessage.html#a725bd49164c256d671c17953b475cc67',1,'ast::ChatMessage']]],
+  ['systemprompt_425',['systemPrompt',['../classast_1_1AssistantAgent.html#ad6630a75d59377d6526630a149900525',1,'ast::AssistantAgent::systemPrompt()'],['../classast_1_1PilotPolisher.html#a0ca6635a1604b9851eba8b805555d633',1,'ast::PilotPolisher::systemPrompt()'],['../classast_1_1PilotSession.html#ad002857cc9ee76b3bf61f0d51ba2e520',1,'ast::PilotSession::systemPrompt()']]]
 ];
