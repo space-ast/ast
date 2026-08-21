@@ -139,6 +139,16 @@ var hierarchy =
     [ "ast::ClassRegistry", "classast_1_1ClassRegistry.html", null ],
     [ "AstCOMLib::CLinkToObject", "classAstCOMLib_1_1CLinkToObject.html", null ],
     [ "cllist", "structcllist.html", null ],
+    [ "ast::CloseApproachAnalyzer", "classast_1_1CloseApproachAnalyzer.html", null ],
+    [ "ast::CloseApproachContext", "structast_1_1CloseApproachContext.html", null ],
+    [ "ast::CloseApproachFilter", "classast_1_1CloseApproachFilter.html", [
+      [ "ast::ApogeePerigeeFilter", "classast_1_1ApogeePerigeeFilter.html", null ],
+      [ "ast::OrbitPathFilter", "classast_1_1OrbitPathFilter.html", null ],
+      [ "ast::OutOfDateFilter", "classast_1_1OutOfDateFilter.html", null ]
+    ] ],
+    [ "ast::CloseApproachOptions", "structast_1_1CloseApproachOptions.html", null ],
+    [ "ast::CloseApproachReport", "structast_1_1CloseApproachReport.html", null ],
+    [ "ast::CloseApproachResult", "structast_1_1CloseApproachResult.html", null ],
     [ "AstCOMLib::CObject", "classAstCOMLib_1_1CObject.html", null ],
     [ "AstCOMLib::CObjectRoot", "classAstCOMLib_1_1CObjectRoot.html", null ],
     [ "ast::RotationElement::Coefficient", "structast_1_1RotationElement_1_1Coefficient.html", null ],
@@ -826,6 +836,7 @@ var hierarchy =
           [ "ast::AccessConstraint", "classast_1_1AccessConstraint.html", [
             [ "ast::AndConstraint", "classast_1_1AndConstraint.html", null ],
             [ "ast::BodyObstructionConstraint", "classast_1_1BodyObstructionConstraint.html", null ],
+            [ "ast::DistanceConstraint", "classast_1_1DistanceConstraint.html", null ],
             [ "ast::FieldOfViewConstraint", "classast_1_1FieldOfViewConstraint.html", null ],
             [ "ast::NotConstraint", "classast_1_1NotConstraint.html", null ],
             [ "ast::OrConstraint", "classast_1_1OrConstraint.html", null ]

@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: 轨道几何</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group__OrbitGeometry.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">轨道几何<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>轨道面/轨道路径之间的几何关系计算。 </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga3b4e6412e7618867cf04928571783cf0" id="r_ga3b4e6412e7618867cf04928571783cf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3b4e6412e7618867cf04928571783cf0">ast::aOrbitPlaneNormal</a> (double inc, double raan, Vector3d &amp;normal)</td></tr>
+<tr class="separator:ga3b4e6412e7618867cf04928571783cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac6e2b150cf2f70ed28ab67e99aebaa06" id="r_gac6e2b150cf2f70ed28ab67e99aebaa06"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac6e2b150cf2f70ed28ab67e99aebaa06">ast::aOrbitRadius</a> (double semiMajorAxis, double eccentricity, double trueAnomaly)</td></tr>
+<tr class="separator:gac6e2b150cf2f70ed28ab67e99aebaa06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2e441e51b83ca4dfef615da27b7f4da6" id="r_ga2e441e51b83ca4dfef615da27b7f4da6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2e441e51b83ca4dfef615da27b7f4da6">ast::aOrbitPerifocalBasis</a> (const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;e, Vector3d &amp;p, Vector3d &amp;q)</td></tr>
+<tr class="separator:ga2e441e51b83ca4dfef615da27b7f4da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5b1842fd333ad750a83e84baae51289" id="r_gad5b1842fd333ad750a83e84baae51289"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad5b1842fd333ad750a83e84baae51289">ast::aOrbitNodeLineDistances</a> (const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orb1, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orb2, double &amp;distPlus, double &amp;distMinus)</td></tr>
+<tr class="separator:gad5b1842fd333ad750a83e84baae51289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd6ddead01cb20712f96f9dbdc516ca2" id="r_gabd6ddead01cb20712f96f9dbdc516ca2"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabd6ddead01cb20712f96f9dbdc516ca2">ast::aOrbitPathMinDistance</a> (const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orb1, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orb2, double &amp;dist)</td></tr>
+<tr class="separator:gabd6ddead01cb20712f96f9dbdc516ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7829333cc00693c040914bfff49987d" id="r_gad7829333cc00693c040914bfff49987d"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad7829333cc00693c040914bfff49987d">ast::aOrbitPlaneProximityIntervals</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbit, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;other, double gm, double threshold, const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;window, <a class="el" href="classast_1_1TimeIntervalList.html">TimeIntervalList</a> &amp;result)</td></tr>
+<tr class="separator:gad7829333cc00693c040914bfff49987d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga575464c9ff51e1d829be00cacada506e" id="r_ga575464c9ff51e1d829be00cacada506e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga575464c9ff51e1d829be00cacada506e">ast::aOrbitTrueAnomaly</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbit, double gm, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time)</td></tr>
+<tr class="separator:ga575464c9ff51e1d829be00cacada506e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28b01c4710e416435ed926a0ad68dca6" id="r_ga28b01c4710e416435ed926a0ad68dca6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga28b01c4710e416435ed926a0ad68dca6">ast::aOrbitPosition</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbit, double gm, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;position)</td></tr>
+<tr class="separator:ga28b01c4710e416435ed926a0ad68dca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4969ca5aa2e22e432a6f5c6b41c44190" id="r_ga4969ca5aa2e22e432a6f5c6b41c44190"><td class="memItemLeft" align="right" valign="top"><a id="ga4969ca5aa2e22e432a6f5c6b41c44190" name="ga4969ca5aa2e22e432a6f5c6b41c44190"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aOrbitPosition2</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbit, double gm, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;position)</td></tr>
+<tr class="separator:ga4969ca5aa2e22e432a6f5c6b41c44190"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15ee4354a00adcb6e45801efc966a538" id="r_ga15ee4354a00adcb6e45801efc966a538"><td class="memItemLeft" align="right" valign="top"><a id="ga15ee4354a00adcb6e45801efc966a538" name="ga15ee4354a00adcb6e45801efc966a538"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aOrbitPosition3</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbit, double gm, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, Vector3d &amp;position)</td></tr>
+<tr class="separator:ga15ee4354a00adcb6e45801efc966a538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae370458374f24286ca7e62883c2db046" id="r_gae370458374f24286ca7e62883c2db046"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae370458374f24286ca7e62883c2db046">ast::aOrbitPlaneDistance</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbit, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;other, double gm, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;dist)</td></tr>
+<tr class="separator:gae370458374f24286ca7e62883c2db046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">函数说明</h2>
+<a id="gad5b1842fd333ad750a83e84baae51289" name="gad5b1842fd333ad750a83e84baae51289"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad5b1842fd333ad750a83e84baae51289">&#9670;&#160;</a></span>aOrbitNodeLineDistances()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aOrbitNodeLineDistances </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orb1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orb2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>distPlus</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>distMinus</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算两轨道面公共交线对应的两个路径距离 [m] </p>
+<p>公共交线方向 L = n1 × n2（n 为轨道面单位法向）。交线在 +L 与 -L 两个方向 上各与两条轨道相交一次，得到两个距离值 distPlus、distMinus。 两轨道路径最短距离 = min(distPlus, distMinus)。 仅使用经典根数 a/e/i/raan/argper，与真近点角及引力常数无关。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orb1</td><td>轨道1经典根数 </td></tr>
+    <tr><td class="paramname">orb2</td><td>轨道2经典根数 </td></tr>
+    <tr><td class="paramname">distPlus</td><td>输出：+L 方向两交点距离 [m] </td></tr>
+    <tr><td class="paramname">distMinus</td><td>输出：-L 方向两交点距离 [m] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 成功；两平面近共面（交线退化）返回 eErrorInvalidParam </dd></dl>
+
+</div>
+</div>
+<a id="gabd6ddead01cb20712f96f9dbdc516ca2" name="gabd6ddead01cb20712f96f9dbdc516ca2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabd6ddead01cb20712f96f9dbdc516ca2">&#9670;&#160;</a></span>aOrbitPathMinDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aOrbitPathMinDistance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orb1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orb2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>dist</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算两轨道路径之间的最短距离 [m] </p>
+<p>基于公共交线法；共面/近共面退化时改用一维共线假设的数值回退。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orb1</td><td>轨道1经典根数 </td></tr>
+    <tr><td class="paramname">orb2</td><td>轨道2经典根数 </td></tr>
+    <tr><td class="paramname">dist</td><td>输出：最短距离 [m] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga2e441e51b83ca4dfef615da27b7f4da6" name="ga2e441e51b83ca4dfef615da27b7f4da6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2e441e51b83ca4dfef615da27b7f4da6">&#9670;&#160;</a></span>aOrbitPerifocalBasis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aOrbitPerifocalBasis </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>e</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算轨道 perifocal 基向量（近拱点/垂直方向）在惯性系中的表达 </p>
+<dl class="section see"><dt>参见</dt><dd><a href="https://orbital-mechanics.space/classical-orbital-elements/perifocal-frame.html">https://orbital-mechanics.space/classical-orbital-elements/perifocal-frame.html</a></dd></dl>
+<p>perifocal 坐标系（P、Q、W）附着于轨道：P 指向近拱点，Q 在轨道面内 沿运动方向超前 P 90°，W = P × Q 为轨道面法向。 仅使用经典根数 i/raan/argper。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>经典根数 </td></tr>
+    <tr><td class="paramname">p</td><td>输出：近拱点方向单位向量 P </td></tr>
+    <tr><td class="paramname">q</td><td>输出：轨道面内超前 P 90° 的单位向量 Q </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae370458374f24286ca7e62883c2db046" name="gae370458374f24286ca7e62883c2db046"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae370458374f24286ca7e62883c2db046">&#9670;&#160;</a></span>aOrbitPlaneDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aOrbitPlaneDistance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>epoch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orbit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>gm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>dist</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算给定时刻本对象到另一对象轨道面的有符号距离 [m] </p>
+<p>有符号距离 d = r·n2，为位置矢量在另一对象轨道面单位法向 n2 上的投影。 正值在 +n2 侧，负值在 -n2 侧，绝对值为垂直距离。 由 epoch 处轨道根数经开普勒二体传播得到真近点角，再计算面距。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">epoch</td><td>本对象的轨道历元 </td></tr>
+    <tr><td class="paramname">orbit</td><td>本对象的轨道根数 </td></tr>
+    <tr><td class="paramname">other</td><td>另一对象的轨道根数（仅用 i/raan 定义其轨道面，与历元无关） </td></tr>
+    <tr><td class="paramname">gm</td><td>引力常数 [m^3/s^2] </td></tr>
+    <tr><td class="paramname">time</td><td>查询时刻 </td></tr>
+    <tr><td class="paramname">dist</td><td>输出：到轨道面的有符号距离 [m] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga3b4e6412e7618867cf04928571783cf0" name="ga3b4e6412e7618867cf04928571783cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3b4e6412e7618867cf04928571783cf0">&#9670;&#160;</a></span>aOrbitPlaneNormal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aOrbitPlaneNormal </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>inc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>raan</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>normal</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算轨道面单位法向量（惯性参考系） </p>
+<p>由轨道倾角与升交点赤经唯一确定轨道面姿态，法向量为 n = (sin i · sin Ω, -sin i · cos Ω, cos i)，即轨道角动量方向。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inc</td><td>轨道倾角 [rad] </td></tr>
+    <tr><td class="paramname">raan</td><td>升交点赤经 [rad] </td></tr>
+    <tr><td class="paramname">normal</td><td>输出：轨道面单位法向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad7829333cc00693c040914bfff49987d" name="gad7829333cc00693c040914bfff49987d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7829333cc00693c040914bfff49987d">&#9670;&#160;</a></span>aOrbitPlaneProximityIntervals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aOrbitPlaneProximityIntervals </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>epoch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orbit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>gm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1TimeIntervalList.html">TimeIntervalList</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算本对象相对于另一对象轨道面距离在指定距离阈值内的时间区间 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">epoch</td><td>本对象的轨道历元 </td></tr>
+    <tr><td class="paramname">orbit</td><td>本对象的轨道根数 </td></tr>
+    <tr><td class="paramname">other</td><td>另一对象的轨道根数（仅用 i/raan 定义其轨道面，与历元无关） </td></tr>
+    <tr><td class="paramname">gm</td><td>引力常数 [m^3/s^2] </td></tr>
+    <tr><td class="paramname">threshold</td><td>到轨道面距离阈值 [m] </td></tr>
+    <tr><td class="paramname">window</td><td>分析窗口：只生成落在窗口内的区间 </td></tr>
+    <tr><td class="paramname">result</td><td>输出：所有在距离阈值内的时间区间 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga28b01c4710e416435ed926a0ad68dca6" name="ga28b01c4710e416435ed926a0ad68dca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga28b01c4710e416435ed926a0ad68dca6">&#9670;&#160;</a></span>aOrbitPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aOrbitPosition </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>epoch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orbit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>gm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算给定时刻的轨道位置 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">epoch</td><td>轨道历元 </td></tr>
+    <tr><td class="paramname">orbit</td><td>轨道根数 </td></tr>
+    <tr><td class="paramname">gm</td><td>引力常数 [m^3/s^2] </td></tr>
+    <tr><td class="paramname">time</td><td>查询时刻 </td></tr>
+    <tr><td class="paramname">position</td><td>输出：查询时刻的轨道位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 成功 </dd></dl>
+
+</div>
+</div>
+<a id="gac6e2b150cf2f70ed28ab67e99aebaa06" name="gac6e2b150cf2f70ed28ab67e99aebaa06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac6e2b150cf2f70ed28ab67e99aebaa06">&#9670;&#160;</a></span>aOrbitRadius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI double ast::aOrbitRadius </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>semiMajorAxis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>eccentricity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>trueAnomaly</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算真近点角处的轨道半径 [m] </p>
+<p>椭圆轨道极坐标方程 r = a(1-e²)/(1 + e·cosν)。 ν=0 为近拱点半径 a(1-e)，ν=π 为远拱点半径 a(1+e)。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">semiMajorAxis</td><td>长半轴 [m] </td></tr>
+    <tr><td class="paramname">eccentricity</td><td>偏心率 </td></tr>
+    <tr><td class="paramname">trueAnomaly</td><td>真近点角 [rad] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>当前真近点角处到中心天体的距离 [m] </dd></dl>
+
+</div>
+</div>
+<a id="ga575464c9ff51e1d829be00cacada506e" name="ga575464c9ff51e1d829be00cacada506e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga575464c9ff51e1d829be00cacada506e">&#9670;&#160;</a></span>aOrbitTrueAnomaly()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI double ast::aOrbitTrueAnomaly </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>epoch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>orbit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>gm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算给定时刻的真近点角（开普勒二体线性推进） </p>
+<p>由 epoch 处平近点角加 n·Δt 线性推进，再转换为真近点角。 返回主值范围 (-π, π]。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">epoch</td><td>轨道历元 </td></tr>
+    <tr><td class="paramname">orbit</td><td>轨道根数 </td></tr>
+    <tr><td class="paramname">gm</td><td>引力常数 [m^3/s^2] </td></tr>
+    <tr><td class="paramname">time</td><td>查询时刻 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>查询时刻的真近点角 [rad] </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

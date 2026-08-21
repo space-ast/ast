@@ -13,6 +13,8 @@ var dir_fb8dea326293309ee9315e7aedad3578 =
     [ "OrbitalPrecession.hpp", "OrbitalPrecession_8hpp.html", "OrbitalPrecession_8hpp" ],
     [ "OrbitElement.cpp", "OrbitElement_8cpp.html", "OrbitElement_8cpp" ],
     [ "OrbitElement.hpp", "OrbitElement_8hpp.html", "OrbitElement_8hpp" ],
+    [ "OrbitGeometry.cpp", "OrbitGeometry_8cpp.html", "OrbitGeometry_8cpp" ],
+    [ "OrbitGeometry.hpp", "OrbitGeometry_8hpp.html", "OrbitGeometry_8hpp" ],
     [ "OrbitParam.cpp", "OrbitParam_8cpp.html", "OrbitParam_8cpp" ],
     [ "OrbitParam.hpp", "OrbitParam_8hpp.html", "OrbitParam_8hpp" ]
 ];

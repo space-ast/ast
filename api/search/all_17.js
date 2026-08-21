@@ -48,11 +48,12 @@ var searchData=
   ['widgetobjname_45',['widgetObjName',['../structast_1_1RecordStep.html#aaca3b306b3af07541efdc0729dbac6e9',1,'ast::RecordStep']]],
   ['widgettext_46',['widgetText',['../structast_1_1RecordStep.html#a4312cacc273140906689ed104dc82738',1,'ast::RecordStep']]],
   ['width_5f_47',['width_',['../classast_1_1DataPort.html#a7af44933dd2d189fcd825047f605626a',1,'ast::DataPort']]],
-  ['workfinished_48',['workFinished',['../classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d',1,'ast::UiChatWorker']]],
-  ['workingdirectory_49',['WorkingDirectory',['../classast_1_1WorkingDirectory.html',1,'ast::WorkingDirectory'],['../classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97',1,'ast::WorkingDirectory::WorkingDirectory()']]],
-  ['workingdirectory_2ehpp_50',['WorkingDirectory.hpp',['../WorkingDirectory_8hpp.html',1,'']]],
-  ['workspace_51',['WorkSpace',['../classast_1_1MSISBase_1_1WorkSpace.html',1,'ast::MSISBase']]],
-  ['workspace_52',['Workspace',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html',1,'ast::ODEFixedStepIntegrator']]],
-  ['workstateobserver_5f_53',['workStateObserver_',['../classast_1_1ODEIntegrator.html#a4a919ef0c3f1c8bad5446e00b6619d3d',1,'ast::ODEIntegrator']]],
-  ['writeonly_54',['writeOnly',['../classast_1_1Property.html#a77d1be8b056e8c12e3868dcc5b7ac06f',1,'ast::Property']]]
+  ['window_48',['window',['../structast_1_1CloseApproachOptions.html#a33229c4749135f7db05a4a152403a4a3',1,'ast::CloseApproachOptions']]],
+  ['workfinished_49',['workFinished',['../classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d',1,'ast::UiChatWorker']]],
+  ['workingdirectory_50',['WorkingDirectory',['../classast_1_1WorkingDirectory.html',1,'ast::WorkingDirectory'],['../classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97',1,'ast::WorkingDirectory::WorkingDirectory()']]],
+  ['workingdirectory_2ehpp_51',['WorkingDirectory.hpp',['../WorkingDirectory_8hpp.html',1,'']]],
+  ['workspace_52',['WorkSpace',['../classast_1_1MSISBase_1_1WorkSpace.html',1,'ast::MSISBase']]],
+  ['workspace_53',['Workspace',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html',1,'ast::ODEFixedStepIntegrator']]],
+  ['workstateobserver_5f_54',['workStateObserver_',['../classast_1_1ODEIntegrator.html#a4a919ef0c3f1c8bad5446e00b6619d3d',1,'ast::ODEIntegrator']]],
+  ['writeonly_55',['writeOnly',['../classast_1_1Property.html#a77d1be8b056e8c12e3868dcc5b7ac06f',1,'ast::Property']]]
 ];

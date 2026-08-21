@@ -6,6 +6,8 @@ var dir_79f1740fd9b6ad4feb08d0dbef904477 =
     [ "AndConstraint.hpp", "AndConstraint_8hpp.html", "AndConstraint_8hpp" ],
     [ "BodyObstructionConstraint.cpp", "BodyObstructionConstraint_8cpp.html", null ],
     [ "BodyObstructionConstraint.hpp", "BodyObstructionConstraint_8hpp.html", "BodyObstructionConstraint_8hpp" ],
+    [ "DistanceConstraint.cpp", "DistanceConstraint_8cpp.html", null ],
+    [ "DistanceConstraint.hpp", "DistanceConstraint_8hpp.html", "DistanceConstraint_8hpp" ],
     [ "FieldOfViewConstraint.cpp", "FieldOfViewConstraint_8cpp.html", null ],
     [ "FieldOfViewConstraint.hpp", "FieldOfViewConstraint_8hpp.html", "FieldOfViewConstraint_8hpp" ],
     [ "NotConstraint.cpp", "NotConstraint_8cpp.html", null ],

@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/CloseApproach/CloseApproachResult.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('CloseApproachResult_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CloseApproachResult.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="CloseApproachResult_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstCore/TimePoint.hpp&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachResult.html">   31</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1CloseApproachResult.html">CloseApproachResult</a></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachResult.html#a803b5caa04c2bf77c4fb0b938fe0b30f">   33</a></span>    <span class="keywordtype">int</span>         noradId{0};       </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachResult.html#a9351b45281ae16c39ec0ea06a685fc29">   34</a></span>    std::string <a class="code hl_variable" href="structast_1_1CloseApproachResult.html#a9351b45281ae16c39ec0ea06a685fc29">name</a>;             </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachResult.html#a85d12ab1624b32c9e452518093d89aa4">   35</a></span>    <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>   <a class="code hl_variable" href="structast_1_1CloseApproachResult.html#a85d12ab1624b32c9e452518093d89aa4">tca</a>;              </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachResult.html#a5d9cb5286838695fad58d529d6472f3f">   36</a></span>    <span class="keywordtype">double</span>      minDistance{0.0}; </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachResult.html#a1246b4f5f799f68670dff39cde9c1d5a">   37</a></span>    <span class="keywordtype">double</span>      relVelocity{0.0}; </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachReport.html">   42</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1CloseApproachReport.html">CloseApproachReport</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachReport.html#a5ec5e4160762e81e2f18e944c04ac243">   44</a></span>    std::vector&lt;CloseApproachResult&gt; <a class="code hl_variable" href="structast_1_1CloseApproachReport.html#a5ec5e4160762e81e2f18e944c04ac243">results</a>;   </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachReport.html#a96a90b271d335633f6b9638e904d84c6">   45</a></span>    <span class="keywordtype">size_t</span> totalCatalog{0};         </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachReport.html#ae55d0c1a98e486e7510822f84f89d0d3">   46</a></span>    <span class="keywordtype">size_t</span> afterOutOfDate{0};       </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachReport.html#a968cec3399cbb9b5c950261f311ff72c">   47</a></span>    <span class="keywordtype">size_t</span> afterApogeePerigee{0};   </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachReport.html#a04380a43cc23c937329508200caf691c">   48</a></span>    <span class="keywordtype">size_t</span> afterOrbitPath{0};       </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachReport.html#ae776aa3a2dd734b4adaf79548f9905a1">   49</a></span>    <span class="keywordtype">size_t</span> afterTimeFilter{0};      </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// 各阶段耗时 [s]（诊断用）</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">double</span> secondsOutOfDate{0.0};</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">double</span> secondsApogeePerigee{0.0};</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">double</span> secondsOrbitPath{0.0};</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">double</span> secondsTimeFilter{0.0};</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">double</span> secondsBruteForce{0.0};</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachReport.html#a1e032fe520767bb85f39636e8b3ec690">   57</a></span>    <span class="keywordtype">double</span> secondsCoarseScan{0.0};   </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachReport.html#ae0e7f21cdb1e43e2c5d7359038914842">   58</a></span>    <span class="keywordtype">double</span> secondsFineScan{0.0};     </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structast_1_1CloseApproachReport.html#a1620452666c92744226ce27730f92370">   59</a></span>    <span class="keywordtype">double</span> totalSearchSeconds{0.0};  </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:108</div></div>
+<div class="ttc" id="astructast_1_1CloseApproachReport_html"><div class="ttname"><a href="structast_1_1CloseApproachReport.html">ast::CloseApproachReport</a></div><div class="ttdoc">接近分析报告</div><div class="ttdef"><b>定义</b> CloseApproachResult.hpp:43</div></div>
+<div class="ttc" id="astructast_1_1CloseApproachReport_html_a5ec5e4160762e81e2f18e944c04ac243"><div class="ttname"><a href="structast_1_1CloseApproachReport.html#a5ec5e4160762e81e2f18e944c04ac243">ast::CloseApproachReport::results</a></div><div class="ttdeci">std::vector&lt; CloseApproachResult &gt; results</div><div class="ttdoc">交会结果，按 TCA 排序</div><div class="ttdef"><b>定义</b> CloseApproachResult.hpp:44</div></div>
+<div class="ttc" id="astructast_1_1CloseApproachResult_html"><div class="ttname"><a href="structast_1_1CloseApproachResult.html">ast::CloseApproachResult</a></div><div class="ttdoc">单条交会结果</div><div class="ttdef"><b>定义</b> CloseApproachResult.hpp:32</div></div>
+<div class="ttc" id="astructast_1_1CloseApproachResult_html_a85d12ab1624b32c9e452518093d89aa4"><div class="ttname"><a href="structast_1_1CloseApproachResult.html#a85d12ab1624b32c9e452518093d89aa4">ast::CloseApproachResult::tca</a></div><div class="ttdeci">TimePoint tca</div><div class="ttdoc">最近交会时刻（TCA）</div><div class="ttdef"><b>定义</b> CloseApproachResult.hpp:35</div></div>
+<div class="ttc" id="astructast_1_1CloseApproachResult_html_a9351b45281ae16c39ec0ea06a685fc29"><div class="ttname"><a href="structast_1_1CloseApproachResult.html#a9351b45281ae16c39ec0ea06a685fc29">ast::CloseApproachResult::name</a></div><div class="ttdeci">std::string name</div><div class="ttdoc">次要目标名称（来自 3 行 TLE 名称行，2 行格式为空）</div><div class="ttdef"><b>定义</b> CloseApproachResult.hpp:34</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_3282781d9c1d797d9b986a16af7fc0c4.html">CloseApproach</a></li><li class="navelem"><a class="el" href="CloseApproachResult_8hpp.html">CloseApproachResult.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

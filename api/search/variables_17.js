@@ -6,5 +6,6 @@ var searchData=
   ['widgetobjname_3',['widgetObjName',['../structast_1_1RecordStep.html#aaca3b306b3af07541efdc0729dbac6e9',1,'ast::RecordStep']]],
   ['widgettext_4',['widgetText',['../structast_1_1RecordStep.html#a4312cacc273140906689ed104dc82738',1,'ast::RecordStep']]],
   ['width_5f_5',['width_',['../classast_1_1DataPort.html#a7af44933dd2d189fcd825047f605626a',1,'ast::DataPort']]],
-  ['workstateobserver_5f_6',['workStateObserver_',['../classast_1_1ODEIntegrator.html#a4a919ef0c3f1c8bad5446e00b6619d3d',1,'ast::ODEIntegrator']]]
+  ['window_6',['window',['../structast_1_1CloseApproachOptions.html#a33229c4749135f7db05a4a152403a4a3',1,'ast::CloseApproachOptions']]],
+  ['workstateobserver_5f_7',['workStateObserver_',['../classast_1_1ODEIntegrator.html#a4a919ef0c3f1c8bad5446e00b6619d3d',1,'ast::ODEIntegrator']]]
 ];
