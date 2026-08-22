@@ -382,7 +382,7 @@ public:
     /// @brief 获取日期时间量纲
     static constexpr Dimension DateTime() { return Dimension(EDimension::eDateTime); }
 
-    /// @brief 获取物质量量纲
+    /// @brief 获取物质量量纲（在航天动力学中不常用，故忽略该量纲）
     // static constexpr Dimension Amount() { return Dimension(EDimension::eAmount); }
     
     /// @brief 获取发光强度量纲

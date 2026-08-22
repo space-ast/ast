@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "Dimension.hpp"
+#include "UnitRep.hpp"
 #include "AstUtil/Object.hpp"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/StringView.hpp"
@@ -41,8 +42,9 @@ AST_NAMESPACE_BEGIN
 
 
 
-class Unit;
-class Quantity;
+class Unit;     ///< 单位
+class Quantity; ///< 数量值
+class UnitRep;  ///< 单位表示
 
 
 
@@ -96,6 +98,16 @@ namespace units
     extern AST_UTIL_API Unit Gs;        ///< 高斯
 
     extern AST_UTIL_API Unit K;         ///< 开氏温度
+
+    extern AST_UTIL_API Unit degC;      ///< 摄氏度
+    extern AST_UTIL_API Unit degF;      ///< 华氏度
+    extern AST_UTIL_API Unit degR;      ///< 兰氏度
+
+    extern AST_UTIL_API Unit dB;        ///< 分贝(无量纲)
+    extern AST_UTIL_API Unit dBm;       ///< 分贝毫瓦
+    extern AST_UTIL_API Unit dBW;       ///< 分贝瓦
+
+    extern AST_UTIL_API Unit B;         ///< 贝尔(无量纲)
 };
 
 
@@ -148,31 +160,31 @@ public:
     friend Unit unit_power(const Unit& unit, int exponent);
     friend void unit_setname(Unit& unit, StringView name);
     #endif
+public: // 便捷工厂(只能用于创建基本单位，不建议用于直接创建复合单位，否则所创建复合单位会缺少子单位信息)
 
-    class UnitRep;                                                      ///< 单位表示
-    using UnitRepHandle = std::shared_ptr<UnitRep>;                     ///< 单位表示句柄
-    using UnitRepPair = std::pair<UnitRepHandle, int>;                  ///< 单位表示子项
-    using SubUnitList = std::vector<UnitRepPair>;                       ///< 单位表示子项列表
+    /// @brief 创建乘法型单位
+    /// @param name 名称
+    /// @param dim 量纲
+    /// @param scale 缩放因子
+    AST_UTIL_API
+    static Unit MakeScale(StringView name, Dimension dim, double scale);
 
-    using UnitRepHandleConst = std::shared_ptr<const UnitRep>;          ///< 单位表示句柄（常量）
-    using UnitRepPairConst = std::pair<UnitRepHandleConst, int>;        ///< 单位表示子项（常量）
-    using SubUnitListConst = std::vector<UnitRepPairConst>;             ///< 单位表示子项列表（常量）
+    /// @brief 创建仿射型单位
+    /// @param name 名称
+    /// @param dim 量纲
+    /// @param scale 缩放因子
+    /// @param offset 偏移量
+    AST_UTIL_API
+    static Unit MakeAffine(StringView name, Dimension dim, double scale, double offset);
 
-    /// @brief 单位表示
-    /// @warning 单位表示结构体为内部使用，不建议外部直接使用。
-    class UnitRep{
-    public:
-        UnitRep(StringView name, double scale, Dimension dimension, const SubUnitListConst& subunits)
-            : name_{std::string(name)}
-            , scale_{scale}
-            , dimension_{dimension}
-            , subUnits_{subunits}
-        {}
-        std::string          name_;          ///< 名称
-        double               scale_{1.0};    ///< 单位缩放因子
-        Dimension            dimension_;     ///< 量纲
-        SubUnitListConst     subUnits_;      ///< 子单位列表
-    };
+    /// @brief 创建对数型单位
+    /// @param name 名称
+    /// @param dim 量纲
+    /// @param reference 对数参考值
+    /// @param factor 对数因子
+    AST_UTIL_API
+    static Unit MakeLogarithmic(StringView name, Dimension dim, double reference, double factor);
+
 public:
     /// @brief 无效单位
     static Unit NaN()
@@ -202,7 +214,7 @@ public:
     /// @brief 百分比单位
     static Unit Percent()
     {
-        return Unit("%", 0.01, EDimension::eUnit);
+        return Unit("%", kPercentToUnit, EDimension::eUnit);
     }
 
 
@@ -214,22 +226,22 @@ public:
     /// @brief 分钟单位
     static Unit Minute()
     {
-        return Unit("min", 60.0, EDimension::eTime);
+        return Unit("min", kSecondsPerMinute, EDimension::eTime);
     }
     /// @brief 小时单位
     static Unit Hour()
     {
-        return Unit("h", 3600.0, EDimension::eTime);
+        return Unit("h", kSecondsPerHour, EDimension::eTime);
     }
     /// @brief 天单位
     static Unit Day()
     {
-        return Unit("day", 86400.0, EDimension::eTime);
+        return Unit("day", kSecondsPerDay, EDimension::eTime);
     }
     /// @brief 毫秒单位
     static Unit MilliSecond()
     {
-        return Unit("ms", 0.001, EDimension::eTime);
+        return Unit("ms", kMilliSecToSec, EDimension::eTime);
     }
 
 
@@ -242,48 +254,48 @@ public:
     /// @brief 米单位
     static Unit Kilometer()
     {
-        return Unit("km", 1000.0, EDimension::eLength);
+        return Unit("km", kKilometerToMeter, EDimension::eLength);
     }
     /// @brief 厘米单位
     static Unit Centimeter()
     {
-        return Unit("cm", 0.01, EDimension::eLength);
+        return Unit("cm", kCentimeterToMeter, EDimension::eLength);
     }
     /// @brief 分米单位
     static Unit Decimeter()
     {
-        return Unit("dm", 0.1, EDimension::eLength);
+        return Unit("dm", kDecimeterToMeter, EDimension::eLength);
     }
 
     /// @brief 毫米单位
     static Unit Millimeter()
     {
-        return Unit("mm", 0.001, EDimension::eLength);
+        return Unit("mm", kMillimeterToMeter, EDimension::eLength);
     }
 
     
     /// @brief 英寸单位
     static Unit Inch()
     {
-        return Unit("in", 0.0254, EDimension::eLength);
+        return Unit("in", kInchToMeter, EDimension::eLength);
     }
 
     /// @brief 英尺单位
     static Unit Foot()
     {
-        return Unit("ft", 0.3048, EDimension::eLength);
+        return Unit("ft", kFootToMeter, EDimension::eLength);
     }
 
     /// @brief  码单位
     static Unit Yard()
     {
-        return Unit("yd", 0.9144, EDimension::eLength);
+        return Unit("yd", kYardToMeter, EDimension::eLength);
     }
 
     /// @brief 英里单位
     static Unit Mile()
     {
-        return Unit("mi", 1609.344, EDimension::eLength);
+        return Unit("mi", kMileToMeter, EDimension::eLength);
     }
 
     /// @brief 千克单位
@@ -294,19 +306,19 @@ public:
     /// @brief 克单位
     static Unit Gram()
     {
-        return Unit("g", 0.001, EDimension::eMass);
+        return Unit("g", kGramToKilogram, EDimension::eMass);
     }
 
     /// @brief 毫克单位
     static Unit Milligram()
     {
-        return Unit("mg", 0.000001, EDimension::eMass);
+        return Unit("mg", kMilligramToKilogram, EDimension::eMass);
     }
 
     /// @brief 磅单位
     static Unit Pound()
     {
-        return Unit("lb", 0.45359237, EDimension::eMass);
+        return Unit("lb", kPoundToKilogram, EDimension::eMass);
     }
 
     /// @brief 弧度单位
@@ -344,7 +356,49 @@ public:
     {
         return Unit("K", 1.0, EDimension::eTemperature);
     }
-    
+
+    /// @brief 摄氏度单位(仿射: SI = v*1 + 273.15)
+    static Unit Celsius()
+    {
+        return MakeAffine(aText("°C"), EDimension::eTemperature, 1.0, kCelsiusToKelvinOffset);
+    }
+    /// @brief 华氏度单位(仿射: SI = (v+459.67)*5/9)
+    static Unit Fahrenheit()
+    {
+        return MakeAffine(aText("°F"), EDimension::eTemperature, kFahrenheitToKelvinScale, kFahrenheitToKelvinOffset);
+    }
+    /// @brief 兰氏度单位(仿射: SI = v*5/9)
+    static Unit Rankine()
+    {
+        return MakeScale(aText("°R"), EDimension::eTemperature, kRankineToKelvin);
+    }
+
+    /// @brief 分贝单位(对数: SI = 10^(v/10)，无量纲)
+    static Unit Decibel()
+    {
+        return MakeLogarithmic(aText("dB"), EDimension::eUnit, 1.0, kDecibelPowerFactor);
+    }
+    /// @brief 分贝毫瓦单位(对数: 参考1mW，功率量纲)
+    static Unit DecibelMilliwatt()
+    {
+        // @todo 修复构造单位后缺少子单位信息
+        // dBm 为导出量纲(功率)，MakeLogarithmic 的断言不满足，直接构造对数单位表示
+        return Unit(std::make_shared<LogarithmicUnitRep>(aText("dBm"), EDimension::ePower, kMilliwattToWatt, kDecibelPowerFactor));
+    }
+    /// @brief 分贝瓦单位(对数: 参考1W，功率量纲)
+    static Unit DecibelWatt()
+    {
+        // @todo 修复构造单位后缺少子单位信息
+        // dBW 为导出量纲(功率)，直接构造对数单位表示
+        return Unit(std::make_shared<LogarithmicUnitRep>(aText("dBW"), EDimension::ePower, 1.0, kDecibelPowerFactor));
+    }
+
+    /// @brief 贝尔单位(对数: SI = 10^v，无量纲；1B = 10dB)
+    static Unit Bel()
+    {
+        return MakeLogarithmic(aText("B"), EDimension::eUnit, 1.0, kBelFactor);
+    }
+
     /// @brief  mole单位
     // static Unit Mole()
     // {
@@ -397,7 +451,7 @@ public:
     /// @brief 升单位
     static Unit Liter()
     {
-        return Unit("L", 0.001, EDimension::eVolume);
+        return Unit("L", kLiterToCubicMeter, EDimension::eVolume);
     }
 
     /// @brief 帕斯卡单位（压力量纲）
@@ -432,41 +486,43 @@ public:
 
     /// @brief 新建单位
     Unit(StringView name, double scale, Dimension dimension)
-        : rep_{std::make_shared<UnitRep>(name, scale, dimension, SubUnitListConst{})} 
+        : rep_{std::make_shared<ScaleUnitRep>(name, dimension, scale)} 
     {}
 
 protected:
     Unit(double scale, Dimension dimension, const SubUnitListConst& subunits)
-        : rep_{std::make_shared<UnitRep>("", scale, dimension, (subunits))} 
+        : rep_{std::make_shared<ScaleUnitRep>("", dimension, (subunits), scale)} 
     {}
 
     /// @param rep 单位表示
     Unit(UnitRepHandle rep) : rep_(rep) {}
 
 public:
-    /// @brief 从国际单位制转换为该单位对应的值
+    /// @brief 从国际单位制转换为此单位对应的值
     /// @param value 国际单位制下的值
     /// @return 外部值
-    double fromSI(double value) const { return value / getScale(); }
+    double fromSI(double value) const { return rep_->fromSI(value); }
 
-    /// @brief 从该单位对应的值转换为国际单位制下的值
-    /// @param value 该单位对应的值
+    /// @brief 从此单位对应的值转换为国际单位制下的值
+    /// @param value 此单位对应的值
     /// @return 国际单位制下的值
-    double toSI(double value) const { return value * getScale(); }
+    double toSI(double value) const { return rep_->toSI(value); }
 
     /// @brief 转换为指定单位下的值
-    /// @param value 该单位对应的值
+    /// @param value 此单位对应的值
+    /// @param unit 指定单位
     /// @return 指定单位下的值
-    double convertTo(double value, const Unit& unit) const { return value * (this->getScale() / unit.getScale()); }
+    double convertTo(double value, const Unit& unit) const { return unit.fromSI(toSI(value)); }
 
-    /// @brief 转换为指定单位下的值
-    /// @param value 该单位对应的值
-    /// @return 指定单位下的值
-    double convertFrom(double value, const Unit& unit) const { return value * (unit.getScale() / this->getScale()); }
-    
+    /// @brief 从指定单位下的值转换为此单位对应的值
+    /// @param value 指定单位下的值
+    /// @param unit 指定单位
+    /// @return 此单位对应的值
+    double convertFrom(double value, const Unit& unit) const { return fromSI(unit.toSI(value)); }
+
     /// @brief 获取单位缩放因子
     /// @return 单位缩放因子
-    double getScale() const { return rep_->scale_; }
+    double getScale() const { return rep_->scale(); }
 
     /// @brief 获取单位量纲
     /// @return 单位量纲
@@ -476,15 +532,19 @@ public:
     /// @return 单位名称
     const std::string& name() const { return rep_->name_; }
 
+    /// @brief 获取单位类型
+    /// @return 单位类型
+    EUnitKind kind() const { return rep_->kind_; }
+
     /// @brief 是否有效单位
     /// @return 是否有效单位
-    bool isValid() const { return rep_->scale_ != 0.0; }
+    bool isValid() const { return rep_->valid(); }
 
 public: // operators
 
     /// @brief 单位克隆
-    /// @return 新单位
-    Unit clone() const { return Unit(std::make_shared<UnitRep>(*rep_)); }
+    /// @return 新单位(独立副本，与源单位共享底层子单位但顶层表示可独立修改)
+    Unit clone() const { return Unit(rep_->clone()); }
 
     /// @brief 单位倒数
     Unit invert() const { return aUnitInvert(*this); }
@@ -505,15 +565,6 @@ public: // operators
     Unit divide(StringView newname, const Unit& other) const
     {
         return aUnitDivide(*this, other, newname);
-    }
-
-    /// @brief 单位缩放
-    /// @param newname 新单位名称
-    /// @param factor 缩放因子
-    /// @return 新单位
-    Unit scale(StringView newname, double factor) const
-    {
-        return Unit(newname, factor * rep_->scale_, rep_->dimension_);
     }
 
     /// @brief 单位幂运算
@@ -540,8 +591,7 @@ public: // operators
     {
         if(rep_ == other.rep_)
             return true;
-        // 单位缩放因子和量纲相同即可认为是相同单位
-        return rep_->scale_ == other.rep_->scale_ && rep_->dimension_ == other.rep_->dimension_;    
+        return rep_->operator==(*other.rep_);    
     }
 
     /// @brief 单位不相等运算符
@@ -586,7 +636,7 @@ public: // operators
 
 
 public:
-    UnitRepHandle rep_;
+    UnitRepHandle rep_{};
 };
 
 

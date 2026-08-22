@@ -20,6 +20,8 @@
 
 #include "UnitManager.hpp"
 #include "AstUtil/Logger.hpp"
+#include <unordered_map>
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
@@ -106,6 +108,18 @@ UnitManager::UnitManager()
     // 温度单位
     addUnit(units::K);
     addUnit(u8"开尔文", units::K);
+    addUnit(units::degC);
+    addUnit("degC", units::degC);
+    addUnit("celsius", units::degC);
+    addUnit(u8"摄氏度", units::degC);
+    addUnit(units::degF);
+    addUnit("degF", units::degF);
+    addUnit("fahrenheit", units::degF);
+    addUnit(u8"华氏度", units::degF);
+    addUnit(units::degR);
+    addUnit("degR", units::degR);
+    addUnit("rankine", units::degR);
+    addUnit(u8"兰氏度", units::degR);
 
     // 磁感应强度(磁通密度)单位
     addUnit(units::T);
@@ -115,6 +129,16 @@ UnitManager::UnitManager()
     addUnit(u8"纳特斯拉", units::nT);
     addUnit(u8"纳特", units::nT);
     addUnit(u8"高斯", units::Gs);
+
+    // 分贝/贝尔单位
+    addUnit(units::dB);
+    addUnit("db", units::dB);
+    addUnit(units::dBm);
+    addUnit("dbm", units::dBm);
+    addUnit(units::dBW);
+    addUnit("dbw", units::dBW);
+    addUnit(units::B);
+    addUnit("bel", units::B);
 
     // 无量纲
     addUnit("unitValue", Unit::None());
@@ -199,26 +223,28 @@ errc_t UnitManager::_addUnit(const std::string &name, const Unit &unit)
 
 std::vector<Unit> UnitManager::getUnitsByDimension(Dimension dim) const
 {
-    std::map<double, Unit> dedup;
+    std::vector<Unit> result;
+    // 同名别名(同一个 units::X 拷贝)共享同一 rep 指针，按指针去重是 O(N)
+    // 且仍能把 K(eScale) 与摄氏度(eAffine)区分开，避免 getScale() 相同被误合并
+    std::unordered_map<const UnitRep*, int> indexByRep;
     for (const auto& item : units_)
     {
         const Unit* unit = item.second;
         if (unit->dimension() != dim)
             continue;
-        auto it = dedup.find(unit->getScale());
-        if (it == dedup.end())
+        const UnitRep* rep = unit->rep_.get();
+        auto it = indexByRep.find(rep);
+        if (it == indexByRep.end())
         {
-            dedup[unit->getScale()] = *unit;
+            indexByRep[rep] = static_cast<int>(result.size());
+            result.push_back(*unit);
         }
         else if (!unit->name().empty()
-            && unit->name().size() < it->second.name().size())
+            && unit->name().size() < result[it->second].name().size())
         {
-            dedup[unit->getScale()] = *unit;
+            result[it->second] = *unit;
         }
     }
-    std::vector<Unit> result;
-    for (auto& pair : dedup)
-        result.push_back(pair.second);
     return result;
 }
 
@@ -236,7 +262,8 @@ Unit* UnitManager::_getSiUnitCache(Dimension dim)
         for (auto& item : units_)
         {
             auto unit = item.second;
-            if (unit->dimension() == dim && unit->getScale() == 1.0)
+            if (unit->dimension() == dim && unit->getScale() == 1.0
+                && unit->rep_->kind() == EUnitKind::eScale)
             {
                 //Unit* siUnit = new Unit(unit->clone());
                 Unit* siUnit = new Unit(*unit);

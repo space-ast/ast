@@ -31,15 +31,20 @@ AST_NAMESPACE_BEGIN
 class UnitConverter
 {
 public:
-    UnitConverter():fromUnit_(Unit()), toUnit_(Unit()), conversionFactor_(1.0){}
+    UnitConverter()
+        :fromUnit_(Unit())
+        , toUnit_(Unit())
+    {}
 
     UnitConverter(Unit fromUnit, Unit toUnit)
-        : fromUnit_(fromUnit), toUnit_(toUnit), conversionFactor_(fromUnit.getScale() / toUnit.getScale()){}
+        : fromUnit_(fromUnit)
+        , toUnit_(toUnit)
+    {}
 
     /// @brief 转换单位
     /// @param value 待转换的值
     /// @return 转换后的值
-    double convert(double value) const{return value * conversionFactor_;}
+    double convert(double value) const{return fromUnit_.convertTo(value, toUnit_);}
 
     /// @brief 获取转换前的单位
     /// @return 转换前的单位
@@ -50,23 +55,14 @@ public:
     Unit getToUnit() const{return toUnit_;}
 
     /// @brief 设置转换前的单位
-    void setFromUnit(Unit fromUnit){fromUnit_ = fromUnit; syncConversionFactor();}
+    void setFromUnit(Unit fromUnit){fromUnit_ = fromUnit;}
     
     /// @brief 设置转换后的单位
-    void setToUnit(Unit toUnit){toUnit_ = toUnit; syncConversionFactor();}
-
-    /// @brief 获取转换因子
-    /// @return 转换因子
-    double getConversionFactor() const{return conversionFactor_;}
-
-protected:
-    /// @brief 同步转换因子
-    void syncConversionFactor(){conversionFactor_ = fromUnit_.getScale() / toUnit_.getScale();}
+    void setToUnit(Unit toUnit){toUnit_ = toUnit;}
     
 protected:
     Unit fromUnit_;                 ///< 转换前的单位
     Unit toUnit_;                   ///< 转换后的单位
-    double conversionFactor_;       ///< 转换因子
 };
 
 AST_NAMESPACE_END

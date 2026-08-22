@@ -174,7 +174,7 @@ void UiQuantity::showUnitMenu()
                 name = QStringLiteral("<空>");
             QAction* action = menu.addAction(name);
             action->setData(static_cast<qulonglong>(i));
-            if (qFuzzyCompare(u.getScale(), currentQuantity_.unit().getScale()))
+            if (u == currentQuantity_.unit())
             {
                 action->setCheckable(true);
                 action->setChecked(true);

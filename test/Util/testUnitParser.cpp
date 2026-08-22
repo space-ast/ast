@@ -61,6 +61,20 @@ TEST(UnitParserTest, BasicUnitParse) {
     EXPECT_TRUE(unit.isValid());
 }
 
+// 测试注册与解析(温度/分贝)
+TEST(UnitParserTest, TemperatureAndDecibelParse)
+{
+    auto degC = aUnitParse("degC");
+    EXPECT_NE(degC, Unit::NaN());
+    EXPECT_EQ(degC.name(), aText("°C"));
+    EXPECT_EQ(degC.toSI(0), 273.15);
+
+    auto dB = aUnitParse("dB");
+    EXPECT_NE(dB, Unit::NaN());
+    EXPECT_EQ(dB.name(), aText("dB"));
+    EXPECT_EQ(dB.dimension(), Dimension::Unit());
+}
+
 // 测试复合单位解析（乘法）
 TEST(UnitParserTest, CompoundUnitMultiply) {
     Unit unit;
