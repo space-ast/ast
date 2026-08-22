@@ -8,7 +8,7 @@ var searchData=
   ['children_5',['children',['../structast_1_1WasmObjectInfo.html#a23a1817bb7d274a598fe35d075f5586a',1,'ast::WasmObjectInfo']]],
   ['children_5f_6',['children_',['../classast_1_1CommandTrie_1_1Node.html#a45bc8a82c9251e14f48166f1fd1b999a',1,'ast::CommandTrie::Node']]],
   ['classname_5f_7',['className_',['../classast_1_1ReportSection.html#a9f0e91b9be924b903260979190b83ba9',1,'ast::ReportSection::className_'],['../classast_1_1ReportStyle.html#aed1ecb2780ecf4d19179a6d44851cc2b',1,'ast::ReportStyle::className_']]],
-  ['cm_8',['cm',['../Unit_8cpp.html#a303e4126abedb9af71391110b791f9ce',1,'ast::units']]],
+  ['cm_8',['cm',['../namespaceast_1_1units.html#a303e4126abedb9af71391110b791f9ce',1,'ast::units']]],
   ['coarsestep_9',['coarseStep',['../structast_1_1CloseApproachOptions.html#abe8cec5c2ce333f215068abdb901b24f',1,'ast::CloseApproachOptions']]],
   ['coeff_5f_10',['coeff_',['../classast_1_1GravityFieldLoader.html#a612f301ad2a075b814daf792fca7a4d7',1,'ast::GravityFieldLoader']]],
   ['commands_5f_11',['commands_',['../classast_1_1SegmentGraph.html#a0fb1b41a7b3dfa6d0de2fe56f08925ef',1,'ast::SegmentGraph']]],
@@ -21,8 +21,7 @@ var searchData=
   ['considervariations_5f_18',['considerVariations_',['../classast_1_1BlockGravity.html#a70e28678ec27469bbc3a89e62de71928',1,'ast::BlockGravity::considerVariations_'],['../classast_1_1BlockThirdBodyGravity.html#a44590e7fc977c51b461bb4182e33f650',1,'ast::BlockThirdBodyGravity::considerVariations_']]],
   ['constructor_5f_19',['constructor_',['../classast_1_1Class.html#a46ecef03de9c1200a1e8d1a4225a1de6',1,'ast::Class']]],
   ['context_5f_20',['context_',['../classast_1_1LoggerStream.html#a3f40e27fbda036aea2f60aaee465f86c',1,'ast::LoggerStream']]],
-  ['conversionfactor_5f_21',['conversionFactor_',['../classast_1_1UnitConverter.html#a5c84584ded9cb366c3003f7665cdedbf',1,'ast::UnitConverter']]],
-  ['coscoeff_5f_22',['cosCoeff_',['../classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7',1,'ast::GravityField']]],
-  ['cr_5f_23',['cr_',['../classast_1_1SpacecraftParam.html#a011dcca23aa96514c8e4e97508f1fe84',1,'ast::SpacecraftParam::cr_'],['../classast_1_1BlockSRP.html#afebc1a5f54332bb4300d232e99bb392b',1,'ast::BlockSRP::cr_']]],
-  ['currentcondition_5f_24',['currentCondition_',['../structast_1_1DataGroupSolarIntensity_1_1Data.html#ac08261bf3460117adf9657ff681b804b',1,'ast::DataGroupSolarIntensity::Data']]]
+  ['coscoeff_5f_21',['cosCoeff_',['../classast_1_1GravityField.html#ab6bcff41b82e377e0ad2dbded11a04c7',1,'ast::GravityField']]],
+  ['cr_5f_22',['cr_',['../classast_1_1SpacecraftParam.html#a011dcca23aa96514c8e4e97508f1fe84',1,'ast::SpacecraftParam::cr_'],['../classast_1_1BlockSRP.html#afebc1a5f54332bb4300d232e99bb392b',1,'ast::BlockSRP::cr_']]],
+  ['currentcondition_5f_23',['currentCondition_',['../structast_1_1DataGroupSolarIntensity_1_1Data.html#ac08261bf3460117adf9657ff681b804b',1,'ast::DataGroupSolarIntensity::Data']]]
 ];

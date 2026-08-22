@@ -1565,7 +1565,11 @@ var hierarchy =
     [ "ast::Unit", "classast_1_1Unit.html", null ],
     [ "ast::UnitConverter", "classast_1_1UnitConverter.html", null ],
     [ "ast::UnitManager", "classast_1_1UnitManager.html", null ],
-    [ "ast::Unit::UnitRep", "classast_1_1Unit_1_1UnitRep.html", null ],
+    [ "ast::UnitRep", "classast_1_1UnitRep.html", [
+      [ "ast::AffineUnitRep", "classast_1_1AffineUnitRep.html", null ],
+      [ "ast::LogarithmicUnitRep", "classast_1_1LogarithmicUnitRep.html", null ],
+      [ "ast::ScaleUnitRep", "classast_1_1ScaleUnitRep.html", null ]
+    ] ],
     [ "ast::UTCScale", "classast_1_1UTCScale.html", null ],
     [ "ast::ValueView", "classast_1_1ValueView.html", null ],
     [ "Vardesc", "structVardesc.html", null ],

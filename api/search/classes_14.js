@@ -87,7 +87,7 @@ var searchData=
   ['unit_84',['Unit',['../classast_1_1Unit.html',1,'ast']]],
   ['unitconverter_85',['UnitConverter',['../classast_1_1UnitConverter.html',1,'ast']]],
   ['unitmanager_86',['UnitManager',['../classast_1_1UnitManager.html',1,'ast']]],
-  ['unitrep_87',['UnitRep',['../classast_1_1Unit_1_1UnitRep.html',1,'ast::Unit']]],
+  ['unitrep_87',['UnitRep',['../classast_1_1UnitRep.html',1,'ast']]],
   ['userproxyagent_88',['UserProxyAgent',['../classast_1_1UserProxyAgent.html',1,'ast']]],
   ['ussa1976_89',['USSA1976',['../classast_1_1USSA1976.html',1,'ast']]],
   ['utcscale_90',['UTCScale',['../classast_1_1UTCScale.html',1,'ast']]]

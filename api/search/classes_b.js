@@ -15,11 +15,12 @@ var searchData=
   ['llmconfig_12',['LLMConfig',['../classast_1_1LLMConfig.html',1,'ast']]],
   ['loadercontext_13',['LoaderContext',['../classast_1_1LoaderContext.html',1,'ast']]],
   ['localeguard_14',['LocaleGuard',['../classast_1_1LocaleGuard.html',1,'ast']]],
-  ['loggerstream_15',['LoggerStream',['../classast_1_1LoggerStream.html',1,'ast']]],
-  ['longduration_16',['LongDuration',['../classast_1_1LongDuration.html',1,'ast']]],
-  ['lowermatrix_17',['LowerMatrix',['../classast_1_1LowerMatrix.html',1,'ast']]],
-  ['lowermatrix_3c_20double_20_3e_18',['LowerMatrix&lt; double &gt;',['../classast_1_1LowerMatrix.html',1,'ast']]],
-  ['lowerrecord_19',['lowerrecord',['../structlowerrecord.html',1,'']]],
-  ['lpolyrecord_20',['lpolyrecord',['../structlpolyrecord.html',1,'']]],
-  ['lsqvrecord_21',['lsqvrecord',['../structlsqvrecord.html',1,'']]]
+  ['logarithmicunitrep_15',['LogarithmicUnitRep',['../classast_1_1LogarithmicUnitRep.html',1,'ast']]],
+  ['loggerstream_16',['LoggerStream',['../classast_1_1LoggerStream.html',1,'ast']]],
+  ['longduration_17',['LongDuration',['../classast_1_1LongDuration.html',1,'ast']]],
+  ['lowermatrix_18',['LowerMatrix',['../classast_1_1LowerMatrix.html',1,'ast']]],
+  ['lowermatrix_3c_20double_20_3e_19',['LowerMatrix&lt; double &gt;',['../classast_1_1LowerMatrix.html',1,'ast']]],
+  ['lowerrecord_20',['lowerrecord',['../structlowerrecord.html',1,'']]],
+  ['lpolyrecord_21',['lpolyrecord',['../structlpolyrecord.html',1,'']]],
+  ['lsqvrecord_22',['lsqvrecord',['../structlsqvrecord.html',1,'']]]
 ];

@@ -262,7 +262,7 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <p>A 矩阵布局（6×6，行优先）： ┌ ┐ │ 0 I │ rows 0-2: 位置运动学 │ ∂a/∂r ∂a/∂v │ rows 3-5: 加速度偏导数 └ ┘ ↑ 本块写入 ∂a/∂r (rows 3-5, cols 0-2) 重力场的加速度a与速度v无关，无需写入 ∂a/∂v</p>
 <p>输入端口（继承 + 新增）：</p><ul>
 <li>"Pos"：位置向量（3维，继承自 BlockGravity）</li>
-<li>"AMatrix"：动力学雅可比矩阵 <a class="el" href="Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a>（36维，新增，本块累加 ∂a/∂r 分量）</li>
+<li>"AMatrix"：动力学雅可比矩阵 <a class="el" href="namespaceast_1_1units.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a>（36维，新增，本块累加 ∂a/∂r 分量）</li>
 </ul>
 <p>输出端口（继承）：</p><ul>
 <li>"AccGravity"：重力加速度（3维）</li>

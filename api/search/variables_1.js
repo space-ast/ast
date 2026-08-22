@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a_0',['A',['../Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5',1,'ast::units']]],
+  ['a_0',['A',['../namespaceast_1_1units.html#a26da2976a8828d2390606bddb75cf8e5',1,'ast::units']]],
   ['a_5f_1',['a_',['../classast_1_1OrbElem.html#a1df5695b11c56714605af1fabd9ee652',1,'ast::OrbElem::a_'],['../classast_1_1EquinElem.html#ac40ba743af66192cc9a6c4de1dec315b',1,'ast::EquinElem::a_']]],
   ['abserrperlen_5f_2',['absErrPerLen_',['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a8ddaeb28ccfe1f53df258a12d7131145',1,'ast::ODEFixedStepIntegrator::Workspace']]],
   ['abstol_5f_3',['absTol_',['../classast_1_1UnarySolver.html#a278e223855671c9d6a1b31ab23f73adf',1,'ast::UnarySolver::absTol_'],['../classast_1_1UnaryOptimizer.html#a5860fd20ccd41235600b3975fbf3d79e',1,'ast::UnaryOptimizer::absTol_']]],
@@ -32,7 +32,7 @@ var searchData=
   ['apogeealtitude_5f_29',['apogeeAltitude_',['../classast_1_1CriticallyInclinedOrbitDesigner.html#a8018a444a9b3d68e544376e75d4d09c3',1,'ast::CriticallyInclinedOrbitDesigner']]],
   ['apogeeperigeepad_30',['apogeePerigeePad',['../structast_1_1CloseApproachOptions.html#a533af1f3d6644e1171fdcf11c3a2b8ec',1,'ast::CloseApproachOptions']]],
   ['applicable_31',['applicable',['../structast_1_1SummarySection.html#abeefee873dd13efe8ef91b21ce7d75f3',1,'ast::SummarySection']]],
-  ['arcsec_32',['arcsec',['../Unit_8cpp.html#a4269fe8d0f2f532e585768ed1c5cfb76',1,'ast::units']]],
+  ['arcsec_32',['arcsec',['../namespaceast_1_1units.html#a4269fe8d0f2f532e585768ed1c5cfb76',1,'ast::units']]],
   ['argper_5f_33',['argper_',['../classast_1_1OrbElem.html#a6db5cd219cd750315acf078df98d45e0',1,'ast::OrbElem::argper_'],['../classast_1_1ModOrbElem.html#a9d50751cba5af9215aa7c5bcb2ca16ba',1,'ast::ModOrbElem::argper_']]],
   ['argperidot_5f_34',['argPeriDot_',['../classast_1_1J2J4Analytical.html#a62c587f063307914d748ee1e26da79f3',1,'ast::J2J4Analytical']]],
   ['argumentofperiapsis_5f_35',['argumentOfPeriapsis_',['../classast_1_1SimpleOrbitDesigner.html#af5535608e9335d5ebec7c27668b63158',1,'ast::SimpleOrbitDesigner']]],

@@ -1,12 +1,5 @@
 var classast_1_1Unit =
 [
-    [ "UnitRep", "classast_1_1Unit_1_1UnitRep.html", "classast_1_1Unit_1_1UnitRep" ],
-    [ "SubUnitList", "classast_1_1Unit.html#a01b17f5310556fe6de956612053581eb", null ],
-    [ "SubUnitListConst", "classast_1_1Unit.html#a1deb9340a4f6a0844a583001edf41593", null ],
-    [ "UnitRepHandle", "classast_1_1Unit.html#a24e943070c10ee40266f32940e65e270", null ],
-    [ "UnitRepHandleConst", "classast_1_1Unit.html#a88b3fc03df274f8dfb82512d89a1dc87", null ],
-    [ "UnitRepPair", "classast_1_1Unit.html#affbd95f55a69380dc9d68e3c0d29a7d8", null ],
-    [ "UnitRepPairConst", "classast_1_1Unit.html#ab58c5c61256f1ea280ca87f04889d858", null ],
     [ "Unit", "classast_1_1Unit.html#ace0c733ae096215d1e88930f629bb614", null ],
     [ "Unit", "classast_1_1Unit.html#a8f701fc4e62e1272ce9fab9dea60103d", null ],
     [ "Unit", "classast_1_1Unit.html#a01f131b66681d59fb0b731e0ec675080", null ],
@@ -20,6 +13,7 @@ var classast_1_1Unit =
     [ "getScale", "classast_1_1Unit.html#a2cb7d466a73c2e548d09ff3444f7dfb2", null ],
     [ "invert", "classast_1_1Unit.html#a8325fb31cd46c4356e094983e027c33a", null ],
     [ "isValid", "classast_1_1Unit.html#aa588eedf33c16b12c0001ad440f6f32c", null ],
+    [ "kind", "classast_1_1Unit.html#a6149a1a40e2700f923ac18e5014230fe", null ],
     [ "multiply", "classast_1_1Unit.html#a0f7366299cdf6a6875300179457b57ee", null ],
     [ "name", "classast_1_1Unit.html#a94bbbb90d92a77c89ec2bb49147b31af", null ],
     [ "operator!=", "classast_1_1Unit.html#a3cf6cc9c71ab1480a5f0ad6ec031ccda", null ],
@@ -30,6 +24,5 @@ var classast_1_1Unit =
     [ "operator==", "classast_1_1Unit.html#a580b8ab35a231887ebe7056151b7a8a3", null ],
     [ "pow", "classast_1_1Unit.html#a40e068f48d9b5e29685ea01d71639650", null ],
     [ "pow", "classast_1_1Unit.html#a3dc635b74bcdbf6ea00eb074a40b30ae", null ],
-    [ "scale", "classast_1_1Unit.html#a2b697ff6be1a8f098a668a13b4c2cb9d", null ],
     [ "toSI", "classast_1_1Unit.html#a43a01430624f51cbff0bcbdf71c5cfdc", null ]
 ];

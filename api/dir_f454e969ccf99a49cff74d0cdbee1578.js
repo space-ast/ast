@@ -13,5 +13,7 @@ var dir_f454e969ccf99a49cff74d0cdbee1578 =
     [ "UnitManager.cpp", "UnitManager_8cpp.html", "UnitManager_8cpp" ],
     [ "UnitManager.hpp", "UnitManager_8hpp.html", "UnitManager_8hpp" ],
     [ "UnitParser.cpp", "UnitParser_8cpp.html", "UnitParser_8cpp" ],
-    [ "UnitParser.hpp", "UnitParser_8hpp.html", "UnitParser_8hpp" ]
+    [ "UnitParser.hpp", "UnitParser_8hpp.html", "UnitParser_8hpp" ],
+    [ "UnitRep.cpp", "UnitRep_8cpp.html", null ],
+    [ "UnitRep.hpp", "UnitRep_8hpp.html", "UnitRep_8hpp" ]
 ];

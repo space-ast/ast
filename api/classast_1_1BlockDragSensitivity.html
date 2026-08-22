@@ -200,10 +200,10 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>弹道系数B敏感度传播函数块 </p>
-<p>计算 Ψ_B = ∂[r,v]/∂B 的时间导数： dΨ_B/dt = <a class="el" href="Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a> · Ψ_B + [0, 0, 0, ∂a_drag/∂B]ᵀ</p>
-<p>其中： Ψ_B = 状态对弹道系数 B = Cd·A/m 的偏导数（6×1） <a class="el" href="Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a> = 动力学雅可比矩阵 ∂f/∂x（6×6） ∂a_drag/∂B = a_drag / B（3维加速度向量，由 <a class="el" href="classast_1_1BlockDragPartial.html" title="大气阻力偏导数（梯度）函数块">BlockDragPartial</a> 提供）</p>
+<p>计算 Ψ_B = ∂[r,v]/∂B 的时间导数： dΨ_B/dt = <a class="el" href="namespaceast_1_1units.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a> · Ψ_B + [0, 0, 0, ∂a_drag/∂B]ᵀ</p>
+<p>其中： Ψ_B = 状态对弹道系数 B = Cd·A/m 的偏导数（6×1） <a class="el" href="namespaceast_1_1units.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a> = 动力学雅可比矩阵 ∂f/∂x（6×6） ∂a_drag/∂B = a_drag / B（3维加速度向量，由 <a class="el" href="classast_1_1BlockDragPartial.html" title="大气阻力偏导数（梯度）函数块">BlockDragPartial</a> 提供）</p>
 <p>输入端口：</p><ul>
-<li>"AMatrix"：动力学雅可比矩阵 <a class="el" href="Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a>（36维，6×6 行优先存储）</li>
+<li>"AMatrix"：动力学雅可比矩阵 <a class="el" href="namespaceast_1_1units.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a>（36维，6×6 行优先存储）</li>
 <li>"StateSensitivityToDrag"：敏感度向量 Ψ_B（6维）</li>
 <li>"AccSensitivityToDrag"：阻力加速度对B的偏导数（3维，由 <a class="el" href="classast_1_1BlockDragPartial.html" title="大气阻力偏导数（梯度）函数块">BlockDragPartial</a> 提供）</li>
 </ul>

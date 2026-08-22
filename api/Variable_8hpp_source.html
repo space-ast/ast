@@ -153,7 +153,7 @@ $(function(){initNavTree('Variable_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">    #ifndef SWIG</span></div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="comment">// 通过模板捕获所有其他类型并删除，防止隐式转换为 `bool` 类型</span></div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    errc_t setExpr(<a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> value) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    errc_t setExpr(<a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> value) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">    #endif</span></div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    errc_t bind(<a class="code hl_class" href="classast_1_1Expr.html">Expr</a>* expr);</div>
@@ -180,7 +180,6 @@ $(function(){initNavTree('Variable_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aUnit_8cpp_html_a3ba38903856aa71d0b6b98823175b315"><div class="ttname"><a href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">ast::units::T</a></div><div class="ttdeci">Unit T</div><div class="ttdoc">特斯拉</div><div class="ttdef"><b>定义</b> Unit.cpp:463</div></div>
 <div class="ttc" id="aclassast_1_1Expr_html"><div class="ttname"><a href="classast_1_1Expr.html">ast::Expr</a></div><div class="ttdoc">表达式基类</div><div class="ttdef"><b>定义</b> Expr.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1Expr_html_a85450ce6cabc0714e99c9690900f7fd0"><div class="ttname"><a href="classast_1_1Expr.html#a85450ce6cabc0714e99c9690900f7fd0">ast::Expr::setValue</a></div><div class="ttdeci">virtual errc_t setValue(Value *val)</div><div class="ttdoc">设置表达式的值</div><div class="ttdef"><b>定义</b> Expr.hpp:56</div></div>
 <div class="ttc" id="aclassast_1_1Expr_html_a913b88ed7be4b5016cb722035a804ba5"><div class="ttname"><a href="classast_1_1Expr.html#a913b88ed7be4b5016cb722035a804ba5">ast::Expr::eval</a></div><div class="ttdeci">virtual Value * eval() const =0</div><div class="ttdoc">求值</div></div>
@@ -197,6 +196,7 @@ $(function(){initNavTree('Variable_8hpp_source.html',''); initResizable(true); }
 <div class="ttc" id="aclassast_1_1Variable_html_adf1514b237f023abe14963b94675a6b6"><div class="ttname"><a href="classast_1_1Variable.html#adf1514b237f023abe14963b94675a6b6">ast::Variable::bind_</a></div><div class="ttdeci">bool bind_</div><div class="ttdoc">是否与表达式双向绑定</div><div class="ttdef"><b>定义</b> Variable.hpp:139</div></div>
 <div class="ttc" id="aclassast_1_1Variable_html_ae431e1bf9a0bbbe624f58e5ae400d84b"><div class="ttname"><a href="classast_1_1Variable.html#ae431e1bf9a0bbbe624f58e5ae400d84b">ast::Variable::isBind</a></div><div class="ttdeci">bool isBind() const</div><div class="ttdoc">是否与表达式双向绑定</div><div class="ttdef"><b>定义</b> Variable.hpp:118</div></div>
 <div class="ttc" id="aclassast_1_1Variable_html_ae475c52c0cc50180629330be52727999"><div class="ttname"><a href="classast_1_1Variable.html#ae475c52c0cc50180629330be52727999">ast::Variable::getExpression</a></div><div class="ttdeci">std::string getExpression(Object *context=nullptr) const override</div><div class="ttdoc">获取变量的表达式</div><div class="ttdef"><b>定义</b> Variable.hpp:123</div></div>
+<div class="ttc" id="anamespaceast_1_1units_html_a3ba38903856aa71d0b6b98823175b315"><div class="ttname"><a href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">ast::units::T</a></div><div class="ttdeci">Unit T</div><div class="ttdoc">特斯拉</div><div class="ttdef"><b>定义</b> Unit.cpp:492</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

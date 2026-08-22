@@ -180,10 +180,10 @@ $(function(){initNavTree('Interval_8hpp_source.html',''); initResizable(true); }
 <div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classast_1_1Interval.html#a2a3ea08ab2404affe1fa692da5d3befd">  120</a></span><span class="keyword">inline</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>&amp; Interval::intersect(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a> &amp;other)</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>{</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> = (std::max)(start_, other.start());</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> = (std::max)(start_, other.start());</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">double</span> t = (std::min)(stop_,  other.stop());</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    start_ = <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    stop_  = (std::max)(t, <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>);   <span class="comment">// 空交集 → 零长度区间，避免负 duration</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    start_ = <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    stop_  = (std::max)(t, <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>);   <span class="comment">// 空交集 → 零长度区间，避免负 duration</span></div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>}</div>
 </div>
@@ -191,9 +191,9 @@ $(function(){initNavTree('Interval_8hpp_source.html',''); initResizable(true); }
 <div class="foldopen" id="foldopen00129" data-start="{" data-end="}">
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classast_1_1Interval.html#a041a64dab31831d036b3a28a41e8f3ae">  129</a></span><span class="keyword">inline</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a> Interval::intersected(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a> &amp;other)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> = (std::max)(start_, other.start());</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a> = (std::max)(start_, other.start());</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">double</span> t = (std::min)(stop_,  other.stop());</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>{<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>, (std::max)(t, <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>)};</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1Interval.html">Interval</a>{<a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>, (std::max)(t, <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>)};</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}</div>
 </div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
@@ -207,12 +207,12 @@ $(function(){initNavTree('Interval_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aUnit_8cpp_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:436</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html"><div class="ttname"><a href="classast_1_1Interval.html">ast::Interval</a></div><div class="ttdoc">相对时间区间</div><div class="ttdef"><b>定义</b> Interval.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html_a2b22bf7a25074779a17ad2aecc3733fc"><div class="ttname"><a href="classast_1_1Interval.html#a2b22bf7a25074779a17ad2aecc3733fc">ast::Interval::operator&amp;</a></div><div class="ttdeci">Interval operator&amp;(const Interval &amp;other) const</div><div class="ttdoc">交集（返回副本，等价于 intersected）</div><div class="ttdef"><b>定义</b> Interval.hpp:89</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html_ad79f8474e6943d875b5d6ae91e73a972"><div class="ttname"><a href="classast_1_1Interval.html#ad79f8474e6943d875b5d6ae91e73a972">ast::Interval::operator|=</a></div><div class="ttdeci">Interval &amp; operator|=(const Interval &amp;other)</div><div class="ttdoc">原地并集（等价于 unite）</div><div class="ttdef"><b>定义</b> Interval.hpp:80</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html_ad8a91db568f8b7d691d802842580f087"><div class="ttname"><a href="classast_1_1Interval.html#ad8a91db568f8b7d691d802842580f087">ast::Interval::operator|</a></div><div class="ttdeci">Interval operator|(const Interval &amp;other) const</div><div class="ttdoc">并集（返回副本，等价于 united）</div><div class="ttdef"><b>定义</b> Interval.hpp:83</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html_ae82ff7d379d0a6a582da5efd5054f0eb"><div class="ttname"><a href="classast_1_1Interval.html#ae82ff7d379d0a6a582da5efd5054f0eb">ast::Interval::operator&amp;=</a></div><div class="ttdeci">Interval &amp; operator&amp;=(const Interval &amp;other)</div><div class="ttdoc">原地交集（等价于 intersect）</div><div class="ttdef"><b>定义</b> Interval.hpp:86</div></div>
+<div class="ttc" id="anamespaceast_1_1units_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:465</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

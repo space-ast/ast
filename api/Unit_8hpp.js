@@ -1,6 +1,5 @@
 var Unit_8hpp =
 [
-    [ "ast::Unit::UnitRep", "classast_1_1Unit_1_1UnitRep.html", "classast_1_1Unit_1_1UnitRep" ],
     [ "aUnitDivide", "Unit_8hpp.html#gabc0b0eaf248ecf2690adbafdbee67622", null ],
     [ "aUnitDivide", "Unit_8hpp.html#ga70b2e2b0729ec0fca1e538dfee976ec6", null ],
     [ "aUnitFactorize", "Unit_8hpp.html#ga9cf23f3f06f4b41455bc2fb6b017fae3", null ],

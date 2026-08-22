@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['s_0',['s',['../Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8',1,'ast::units']]],
+  ['s_0',['s',['../namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8',1,'ast::units']]],
   ['safetycoeffhigh_5f_1',['safetyCoeffHigh_',['../classast_1_1ODEVarStepIntegrator.html#a2923b0f733135d45345653da5859abe3',1,'ast::ODEVarStepIntegrator']]],
   ['safetycoefflow_5f_2',['safetyCoeffLow_',['../classast_1_1ODEVarStepIntegrator.html#a4f6669a9c1cfa0ead47edaaedb82c981',1,'ast::ODEVarStepIntegrator']]],
   ['samplestep_3',['sampleStep',['../structast_1_1CloseApproachOptions.html#a13580eb37d1e38023e8e81e94de22b22',1,'ast::CloseApproachOptions']]],
@@ -26,8 +26,8 @@ var searchData=
   ['scalar_23',['Scalar',['../classast_1_1Quantity.html#a8616d69c2c54e37311da65291bb029e4',1,'ast::Quantity']]],
   ['scalarfunc_2ehpp_24',['ScalarFunc.hpp',['../ScalarFunc_8hpp.html',1,'']]],
   ['scale_25',['Scale',['../classast_1_1Unit.html#aac378ff19aece3483b509927dadfe0ff',1,'ast::Unit']]],
-  ['scale_26',['scale',['../classast_1_1Unit.html#a2b697ff6be1a8f098a668a13b4c2cb9d',1,'ast::Unit']]],
-  ['scale_5f_27',['scale_',['../classast_1_1Unit_1_1UnitRep.html#a2174a426e5816d8c173b7f75b5dbf999',1,'ast::Unit::UnitRep']]],
+  ['scale_5f_26',['scale_',['../classast_1_1ScaleUnitRep.html#a39c989355e17da72e1925c226f19078e',1,'ast::ScaleUnitRep::scale_'],['../classast_1_1AffineUnitRep.html#a894661cf23b9b3a81aa04e2f01b97aa9',1,'ast::AffineUnitRep::scale_']]],
+  ['scaleunitrep_27',['ScaleUnitRep',['../classast_1_1ScaleUnitRep.html',1,'ast']]],
   ['scanner_28',['Scanner',['../classast_1_1Scanner.html',1,'ast']]],
   ['scanner_2ecpp_29',['Scanner.cpp',['../Scanner_8cpp.html',1,'']]],
   ['scanner_2ehpp_30',['Scanner.hpp',['../Scanner_8hpp.html',1,'']]],
@@ -674,7 +674,7 @@ var searchData=
   ['scstatecalcz_2ecpp_671',['ScStateCalcZ.cpp',['../ScStateCalcZ_8cpp.html',1,'']]],
   ['scstatecalcz_2ehpp_672',['ScStateCalcZ.hpp',['../ScStateCalcZ_8hpp.html',1,'']]],
   ['searchmargin_673',['searchMargin',['../structast_1_1CloseApproachOptions.html#a87496e8f2a9c984bb8fc1c4b6ff8bf33',1,'ast::CloseApproachOptions']]],
-  ['sec_674',['sec',['../Unit_8cpp.html#a844daeb7494484dd4a992db22d44fad7',1,'ast::units']]],
+  ['sec_674',['sec',['../namespaceast_1_1units.html#a844daeb7494484dd4a992db22d44fad7',1,'ast::units']]],
   ['secant_675',['secant',['../group__NLE.html#gab0dea09a12487e53d0b32c0af1d2d597',1,'ast']]],
   ['secant_2ec_676',['secant.c',['../secant_8c.html',1,'']]],
   ['secantsolver_677',['SecantSolver',['../classast_1_1SecantSolver.html',1,'ast']]],
@@ -1442,9 +1442,9 @@ var searchData=
   ['subsolarpoint_2ehpp_1439',['SubSolarPoint.hpp',['../SubSolarPoint_8hpp.html',1,'']]],
   ['subtract_1440',['subtract',['../classast_1_1IntervalList.html#a12c3a1a5814972379f67d6ad494b5051',1,'ast::IntervalList::subtract()'],['../classast_1_1TimeIntervalList.html#af7481a1d83d4cf8c857c3d93484dc3c8',1,'ast::TimeIntervalList::subtract()']]],
   ['subtracted_1441',['subtracted',['../classast_1_1IntervalList.html#ae845b747c8cc80fe2264e01500df012c',1,'ast::IntervalList::subtracted()'],['../classast_1_1TimeIntervalList.html#aa0cb1f90c5ea2a18d022db9abbe93727',1,'ast::TimeIntervalList::subtracted()']]],
-  ['subunitlist_1442',['SubUnitList',['../classast_1_1Unit.html#a01b17f5310556fe6de956612053581eb',1,'ast::Unit']]],
-  ['subunitlistconst_1443',['SubUnitListConst',['../classast_1_1Unit.html#a1deb9340a4f6a0844a583001edf41593',1,'ast::Unit']]],
-  ['subunits_5f_1444',['subUnits_',['../classast_1_1Unit_1_1UnitRep.html#a183874826df2371d1aaf0fa6aa838fbd',1,'ast::Unit::UnitRep']]],
+  ['subunitlist_1442',['SubUnitList',['../namespaceast.html#a42dc9247f2d22332e65271bcdd8197b4',1,'ast']]],
+  ['subunitlistconst_1443',['SubUnitListConst',['../namespaceast.html#ae4a5ab1089dab17b378e9f8f8891b14e',1,'ast']]],
+  ['subunits_5f_1444',['subUnits_',['../classast_1_1UnitRep.html#a1f36dee0412b05827e214bc5d1fd3a5b',1,'ast::UnitRep']]],
   ['summaries_1445',['summaries',['../structast_1_1DAF__SummaryRecords.html#a333d58e552a14b63621755d3e496bac0',1,'ast::DAF_SummaryRecords']]],
   ['summarysection_1446',['SummarySection',['../structast_1_1SummarySection.html',1,'ast']]],
   ['sun_5f_1447',['sun_',['../classast_1_1SolarSystem.html#ae0679a4c0eedb7641a108d8d9769d2d2',1,'ast::SolarSystem']]],
@@ -1475,8 +1475,7 @@ var searchData=
   ['symboltable_1472',['SymbolTable',['../classast_1_1SymbolTable.html',1,'ast']]],
   ['symboltable_2ecpp_1473',['SymbolTable.cpp',['../SymbolTable_8cpp.html',1,'']]],
   ['symboltable_2ehpp_1474',['SymbolTable.hpp',['../SymbolTable_8hpp.html',1,'']]],
-  ['syncconversionfactor_1475',['syncConversionFactor',['../classast_1_1UnitConverter.html#ad411a6d8311aff5b97f1b5a988a7b7ba',1,'ast::UnitConverter']]],
-  ['synctoolbarstate_1476',['syncToolbarState',['../classast_1_1UiFigure.html#a844f09c7172fd240d5e9dc0ccffb91ac',1,'ast::UiFigure']]],
-  ['system_1477',['System',['../classast_1_1ChatMessage.html#a725bd49164c256d671c17953b475cc67',1,'ast::ChatMessage']]],
-  ['systemprompt_1478',['systemPrompt',['../classast_1_1AssistantAgent.html#ad6630a75d59377d6526630a149900525',1,'ast::AssistantAgent::systemPrompt()'],['../classast_1_1PilotPolisher.html#a0ca6635a1604b9851eba8b805555d633',1,'ast::PilotPolisher::systemPrompt()'],['../classast_1_1PilotSession.html#ad002857cc9ee76b3bf61f0d51ba2e520',1,'ast::PilotSession::systemPrompt()']]]
+  ['synctoolbarstate_1475',['syncToolbarState',['../classast_1_1UiFigure.html#a844f09c7172fd240d5e9dc0ccffb91ac',1,'ast::UiFigure']]],
+  ['system_1476',['System',['../classast_1_1ChatMessage.html#a725bd49164c256d671c17953b475cc67',1,'ast::ChatMessage']]],
+  ['systemprompt_1477',['systemPrompt',['../classast_1_1AssistantAgent.html#ad6630a75d59377d6526630a149900525',1,'ast::AssistantAgent::systemPrompt()'],['../classast_1_1PilotPolisher.html#a0ca6635a1604b9851eba8b805555d633',1,'ast::PilotPolisher::systemPrompt()'],['../classast_1_1PilotSession.html#ad002857cc9ee76b3bf61f0d51ba2e520',1,'ast::PilotSession::systemPrompt()']]]
 ];

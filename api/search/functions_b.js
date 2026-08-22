@@ -9,7 +9,7 @@ var searchData=
   ['kilogram_6',['Kilogram',['../classast_1_1Unit.html#aec399856d09d9b65e099f12b0daf5ba5',1,'ast::Unit']]],
   ['kilometer_7',['Kilometer',['../classast_1_1Unit.html#a81374cdbe33bf972adffe1d846491694',1,'ast::Unit']]],
   ['kilometerperhour_8',['KilometerPerHour',['../classast_1_1Unit.html#af192060a344a3f2fe8ab2eb700c93c84',1,'ast::Unit']]],
-  ['kind_9',['kind',['../classast_1_1BuildTarget.html#a4a09807fcd24f7b8a82525536570ea31',1,'ast::BuildTarget']]],
+  ['kind_9',['kind',['../classast_1_1BuildTarget.html#a4a09807fcd24f7b8a82525536570ea31',1,'ast::BuildTarget::kind()'],['../classast_1_1Unit.html#a6149a1a40e2700f923ac18e5014230fe',1,'ast::Unit::kind()']]],
   ['kinematicrotation_10',['KinematicRotation',['../classast_1_1KinematicRotation.html#a7a7cf3a0ee52f90857a27348663ae289',1,'ast::KinematicRotation::KinematicRotation()=default'],['../classast_1_1KinematicRotation.html#acfc1d8217c1e6a2d28a887ec6b5bad43',1,'ast::KinematicRotation::KinematicRotation(const Rotation &amp;rot, const Vector3d &amp;angvel)'],['../classast_1_1KinematicRotation.html#a262da130868caf4121f044987790da1f',1,'ast::KinematicRotation::KinematicRotation(const Matrix3d &amp;mat, const Vector3d &amp;angvel)']]],
   ['kinematictransform_11',['KinematicTransform',['../classast_1_1KinematicTransform.html#a072c335f11a11fac1af298526b88625b',1,'ast::KinematicTransform']]],
   ['ktotal_12',['ktotal',['../classast_1_1SpiceAPI.html#a5e6bf0d9111fb23b465c472b3750f84b',1,'ast::SpiceAPI']]]

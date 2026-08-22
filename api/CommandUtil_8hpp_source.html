@@ -125,7 +125,7 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">namespace </span>detail{</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> find_closing(<span class="keyword">const</span> <span class="keywordtype">char</span>* s, <span class="keywordtype">int</span> p) {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p] == <span class="charliteral">&#39;&gt;&#39;</span> ? p : find_closing(s, p + 1);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p] == <span class="charliteral">&#39;&gt;&#39;</span> ? p : find_closing(s, p + 1);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#ifdef A_CXX14</span></div>
@@ -136,7 +136,7 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        ++i;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// 允许类型后紧跟 &#39;&gt;&#39; 或 &#39;:&#39;（名称注释）</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p + i] == <span class="charliteral">&#39;&gt;&#39;</span> || <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p + i] == <span class="charliteral">&#39;:&#39;</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p + i] == <span class="charliteral">&#39;&gt;&#39;</span> || <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p + i] == <span class="charliteral">&#39;:&#39;</span>;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#else</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// 辅助递归函数，比较类型字符串并检查终止字符</span></div>
@@ -144,8 +144,8 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> type[i] == <span class="charliteral">&#39;\0&#39;</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>               <span class="comment">// 使用 | 而不是 ||，使用 || 运算符在一些旧编译器中无法编译期求值，</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>               <span class="comment">// 可能因为 || 的短路求值特性，一些旧编译器实现存在缺陷</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>               ? ((<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p + i] == <span class="charliteral">&#39;&gt;&#39;</span>) | (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p + i] == <span class="charliteral">&#39;:&#39;</span>))</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>               : (<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p + i] == type[i] &amp;&amp; is_type_impl(<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>, p, type, i + 1));</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>               ? ((<a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p + i] == <span class="charliteral">&#39;&gt;&#39;</span>) | (<a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p + i] == <span class="charliteral">&#39;:&#39;</span>))</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>               : (<a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p + i] == type[i] &amp;&amp; is_type_impl(<a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>, p, type, i + 1));</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> is_type(<span class="keyword">const</span> <span class="keywordtype">char</span>* s, <span class="keywordtype">int</span> p, <span class="keyword">const</span> <span class="keywordtype">char</span>* type) {</div>
@@ -154,9 +154,9 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> count_args(<span class="keyword">const</span> <span class="keywordtype">char</span>* s, <span class="keywordtype">int</span> p = 0) {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p] == <span class="charliteral">&#39;\0&#39;</span> ? 0 :</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>           <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p] == <span class="charliteral">&#39;&lt;&#39;</span>  ? 1 + count_args(s, p + 1) :</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>           count_args(<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>, p + 1);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p] == <span class="charliteral">&#39;\0&#39;</span> ? 0 :</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>           <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p] == <span class="charliteral">&#39;&lt;&#39;</span>  ? 1 + count_args(s, p + 1) :</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>           count_args(<a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>, p + 1);</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
@@ -171,8 +171,8 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>};</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">constexpr</span> uint64_t get_parameter_tag(<span class="keyword">const</span> <span class="keywordtype">char</span>* s, <span class="keywordtype">int</span> p = 0) {</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p] == <span class="charliteral">&#39;\0&#39;</span> ? 0 :</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>           <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p] == <span class="charliteral">&#39;&lt;&#39;</span>  ? (</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p] == <span class="charliteral">&#39;\0&#39;</span> ? 0 :</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>           <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>[p] == <span class="charliteral">&#39;&lt;&#39;</span>  ? (</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>               is_type(s, p+1, <span class="stringliteral">&quot;bool&quot;</span>)   ? get_parameter_tag(s, find_closing(s, p)+1) * num_types + type_bool :</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>               is_type(s, p+1, <span class="stringliteral">&quot;int&quot;</span>)    ? get_parameter_tag(s, find_closing(s, p)+1) * num_types + type_int :</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>               is_type(s, p+1, <span class="stringliteral">&quot;double&quot;</span>) ? get_parameter_tag(s, find_closing(s, p)+1) * num_types + type_double :</div>
@@ -180,14 +180,14 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>               is_type(s, p+1, <span class="stringliteral">&quot;object&quot;</span>) ? get_parameter_tag(s, find_closing(s, p)+1) * num_types + type_object :</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>               <span class="keywordflow">throw</span> <span class="stringliteral">&quot;invalid parameter type&quot;</span></div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>           ) :</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>           get_parameter_tag(<a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>, p + 1);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>           get_parameter_tag(<a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>, p + 1);</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> Pos, <span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00112" data-start="{" data-end="};">
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="structast_1_1detail_1_1arg__pair.html">  112</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1detail_1_1arg__pair.html">arg_pair</a> {</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> pos = Pos;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">using </span>type = <a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">using </span>type = <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>;</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
 </div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
@@ -283,7 +283,7 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">// ================== 运行时字符串转类型 ==================</span></div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><a class="code hl_variable" href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">T</a> convert_token(StringView s);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> convert_token(StringView s);</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> convert_token&lt;bool&gt;(StringView s) {</div>
@@ -318,7 +318,7 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="keyword">inline</span> StringView convert_token&lt;StringView&gt;(StringView s) {</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">s</a>;</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>}</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
@@ -370,14 +370,14 @@ $(function(){initNavTree('CommandUtil_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aCommandAPI_8hpp_html"><div class="ttname"><a href="CommandAPI_8hpp.html">CommandAPI.hpp</a></div></div>
-<div class="ttc" id="aUnit_8cpp_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="Unit_8cpp.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:436</div></div>
-<div class="ttc" id="aUnit_8cpp_html_a3ba38903856aa71d0b6b98823175b315"><div class="ttname"><a href="Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315">ast::units::T</a></div><div class="ttdeci">Unit T</div><div class="ttdoc">特斯拉</div><div class="ttdef"><b>定义</b> Unit.cpp:463</div></div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:95</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 <div class="ttc" id="agroup__ParseFormat_html_ga7fce437d68706b2fe82640460bd27a85"><div class="ttname"><a href="group__ParseFormat.html#ga7fce437d68706b2fe82640460bd27a85">ast::aParseDouble</a></div><div class="ttdeci">errc_t aParseDouble(StringView str, double &amp;value)</div><div class="ttdoc">将字符串转换为双精度浮点数</div><div class="ttdef"><b>定义</b> ParseFormat.cpp:260</div></div>
 <div class="ttc" id="agroup__ParseFormat_html_ga8a061b86a6444396198d62357e65bc5d"><div class="ttname"><a href="group__ParseFormat.html#ga8a061b86a6444396198d62357e65bc5d">ast::aParseBool</a></div><div class="ttdeci">errc_t aParseBool(StringView str, bool &amp;value)</div><div class="ttdoc">将字符串转换为布尔值</div><div class="ttdef"><b>定义</b> ParseFormat.cpp:57</div></div>
 <div class="ttc" id="agroup__ParseFormat_html_gae2a01ba5677961b2c53fd2046de713db"><div class="ttname"><a href="group__ParseFormat.html#gae2a01ba5677961b2c53fd2046de713db">ast::aParseInt</a></div><div class="ttdeci">errc_t aParseInt(StringView str, int &amp;value)</div><div class="ttdoc">将字符串转换为整数</div><div class="ttdef"><b>定义</b> ParseFormat.cpp:79</div></div>
 <div class="ttc" id="agroup__RTTI_html_ga01f212ce5ae211ac8c18065e71ae18c0"><div class="ttname"><a href="group__RTTI.html#ga01f212ce5ae211ac8c18065e71ae18c0">ast::aResolveObject</a></div><div class="ttdeci">Object * aResolveObject(StringView value, Class *cls)</div><div class="ttdoc">解析对象</div><div class="ttdef"><b>定义</b> RTTIAPI.cpp:94</div></div>
+<div class="ttc" id="anamespaceast_1_1units_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:465</div></div>
+<div class="ttc" id="anamespaceast_1_1units_html_a3ba38903856aa71d0b6b98823175b315"><div class="ttname"><a href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">ast::units::T</a></div><div class="ttdeci">Unit T</div><div class="ttdoc">特斯拉</div><div class="ttdef"><b>定义</b> Unit.cpp:492</div></div>
 <div class="ttc" id="astructast_1_1detail_1_1arg__pair_html"><div class="ttname"><a href="structast_1_1detail_1_1arg__pair.html">ast::detail::arg_pair</a></div><div class="ttdef"><b>定义</b> CommandUtil.hpp:112</div></div>
 <div class="ttc" id="astructast_1_1detail_1_1decode__impl_html"><div class="ttname"><a href="structast_1_1detail_1_1decode__impl.html">ast::detail::decode_impl</a></div><div class="ttdef"><b>定义</b> CommandUtil.hpp:137</div></div>
 <div class="ttc" id="astructast_1_1detail_1_1make__arg__pair_html"><div class="ttname"><a href="structast_1_1detail_1_1make__arg__pair.html">ast::detail::make_arg_pair</a></div><div class="ttdef"><b>定义</b> CommandUtil.hpp:131</div></div>

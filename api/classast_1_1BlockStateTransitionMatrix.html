@@ -201,8 +201,8 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>状态转换矩阵（STM）函数块 </p>
 <p>计算状态转换矩阵 Φ(t) 的时间导数，用于线性化误差传播。</p>
-<p>微分方程： dΦ/dt = <a class="el" href="Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a> · Φ(t), Φ(0) = I</p>
-<p>其中： Φ = 状态转换矩阵（6×6），将初始状态偏差映射到当前时刻 <a class="el" href="Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a> = 动力学雅可比矩阵 ∂f/∂x（6×6）</p>
+<p>微分方程： dΦ/dt = <a class="el" href="namespaceast_1_1units.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a> · Φ(t), Φ(0) = I</p>
+<p>其中： Φ = 状态转换矩阵（6×6），将初始状态偏差映射到当前时刻 <a class="el" href="namespaceast_1_1units.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a> = 动力学雅可比矩阵 ∂f/∂x（6×6）</p>
 <p>A 矩阵结构（6维状态：位置3 + 速度3）： ┌ ┐ │ 0 I │ 上左 3×3：零矩阵（位置导数不直接依赖位置） │ ∂a/∂r ∂a/∂v │ 上右 3×3：单位矩阵（位置对速度的导数 = 速度） └ ┘ 下左 3×3：加速度对位置的偏导数 下右 3×3：加速度对速度的偏导数</p>
 <p>工作流程：</p><ol type="1">
 <li>各力模型块（BlockTwoBody、BlockGravity、BlockDrag 等）计算各自的 加速度梯度（∂a_i/∂r, ∂a_i/∂v），累加到 A 矩阵中</li>
@@ -210,7 +210,7 @@ std::vector&lt; <a class="el" href="classast_1_1DataPort.html">DataPort</a> &gt;
 <li>计算 dΦ/dt = A · Φ，输出到导数端口供积分器使用</li>
 </ol>
 <p>输入端口：</p><ul>
-<li>"AMatrix"：动力学雅可比矩阵 <a class="el" href="Unit_8cpp.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a>（36维，6×6 行优先存储）</li>
+<li>"AMatrix"：动力学雅可比矩阵 <a class="el" href="namespaceast_1_1units.html#a26da2976a8828d2390606bddb75cf8e5" title="安培">A(t)</a>（36维，6×6 行优先存储）</li>
 </ul>
 <p>输出端口：</p><ul>
 <li>"StateTransitionMatrix"：状态转换矩阵 Φ（36维，6×6 行优先存储） <dl class="section note"><dt>注解</dt><dd>该端口信号会被 <a class="el" href="classast_1_1BlockDynamicSystem.html" title="动力学系统">BlockDynamicSystem</a> 重定向到状态向量， 积分器负责更新 Φ 的值，本块仅读取 Φ 用于计算其导数</dd></dl>

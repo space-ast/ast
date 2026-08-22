@@ -1,5 +1,6 @@
 var group__Quantity =
 [
+    [ "ast::units", "namespaceast_1_1units.html", null ],
     [ "ast::Quantity", "classast_1_1Quantity.html", [
       [ "Quantity", "classast_1_1Quantity.html#ac988a30e183d70dcae9d3c0ab4a758d4", null ],
       [ "Quantity", "classast_1_1Quantity.html#aa4ba87f976a1bdca3c068e91cafc7284", null ],
@@ -45,18 +46,6 @@ var group__Quantity =
       [ "unit", "classast_1_1Quantity.html#ae10e6077bf6c2e5f5e66a26309a70b2c", null ]
     ] ],
     [ "ast::Unit", "classast_1_1Unit.html", [
-      [ "UnitRep", "classast_1_1Unit_1_1UnitRep.html", [
-        [ "dimension_", "classast_1_1Unit_1_1UnitRep.html#a270fa398df6868375f5db125920b05ac", null ],
-        [ "name_", "classast_1_1Unit_1_1UnitRep.html#a6453c7742b1f87d042a8795162e95329", null ],
-        [ "scale_", "classast_1_1Unit_1_1UnitRep.html#a2174a426e5816d8c173b7f75b5dbf999", null ],
-        [ "subUnits_", "classast_1_1Unit_1_1UnitRep.html#a183874826df2371d1aaf0fa6aa838fbd", null ]
-      ] ],
-      [ "SubUnitList", "classast_1_1Unit.html#a01b17f5310556fe6de956612053581eb", null ],
-      [ "SubUnitListConst", "classast_1_1Unit.html#a1deb9340a4f6a0844a583001edf41593", null ],
-      [ "UnitRepHandle", "classast_1_1Unit.html#a24e943070c10ee40266f32940e65e270", null ],
-      [ "UnitRepHandleConst", "classast_1_1Unit.html#a88b3fc03df274f8dfb82512d89a1dc87", null ],
-      [ "UnitRepPair", "classast_1_1Unit.html#affbd95f55a69380dc9d68e3c0d29a7d8", null ],
-      [ "UnitRepPairConst", "classast_1_1Unit.html#ab58c5c61256f1ea280ca87f04889d858", null ],
       [ "Unit", "classast_1_1Unit.html#ace0c733ae096215d1e88930f629bb614", null ],
       [ "Unit", "classast_1_1Unit.html#a8f701fc4e62e1272ce9fab9dea60103d", null ],
       [ "Unit", "classast_1_1Unit.html#a01f131b66681d59fb0b731e0ec675080", null ],
@@ -70,6 +59,7 @@ var group__Quantity =
       [ "getScale", "classast_1_1Unit.html#a2cb7d466a73c2e548d09ff3444f7dfb2", null ],
       [ "invert", "classast_1_1Unit.html#a8325fb31cd46c4356e094983e027c33a", null ],
       [ "isValid", "classast_1_1Unit.html#aa588eedf33c16b12c0001ad440f6f32c", null ],
+      [ "kind", "classast_1_1Unit.html#a6149a1a40e2700f923ac18e5014230fe", null ],
       [ "multiply", "classast_1_1Unit.html#a0f7366299cdf6a6875300179457b57ee", null ],
       [ "name", "classast_1_1Unit.html#a94bbbb90d92a77c89ec2bb49147b31af", null ],
       [ "operator!=", "classast_1_1Unit.html#a3cf6cc9c71ab1480a5f0ad6ec031ccda", null ],
@@ -80,18 +70,14 @@ var group__Quantity =
       [ "operator==", "classast_1_1Unit.html#a580b8ab35a231887ebe7056151b7a8a3", null ],
       [ "pow", "classast_1_1Unit.html#a40e068f48d9b5e29685ea01d71639650", null ],
       [ "pow", "classast_1_1Unit.html#a3dc635b74bcdbf6ea00eb074a40b30ae", null ],
-      [ "scale", "classast_1_1Unit.html#a2b697ff6be1a8f098a668a13b4c2cb9d", null ],
       [ "toSI", "classast_1_1Unit.html#a43a01430624f51cbff0bcbdf71c5cfdc", null ]
     ] ],
     [ "ast::UnitConverter", "classast_1_1UnitConverter.html", [
       [ "convert", "classast_1_1UnitConverter.html#a5ec8a38119541ac15de6db9a8d52163a", null ],
-      [ "getConversionFactor", "classast_1_1UnitConverter.html#a8338379272f1ef46458ee0fdafcf42dc", null ],
       [ "getFromUnit", "classast_1_1UnitConverter.html#aa097ad9095169ed5e0e3e1d415f4f0a6", null ],
       [ "getToUnit", "classast_1_1UnitConverter.html#a2cea762abbd997e951408116afaff234", null ],
       [ "setFromUnit", "classast_1_1UnitConverter.html#a976e637f70d0c06868a50cbecec3c14f", null ],
       [ "setToUnit", "classast_1_1UnitConverter.html#a6302810bd3650d97bd65d73c36fc53fc", null ],
-      [ "syncConversionFactor", "classast_1_1UnitConverter.html#ad411a6d8311aff5b97f1b5a988a7b7ba", null ],
-      [ "conversionFactor_", "classast_1_1UnitConverter.html#a5c84584ded9cb366c3003f7665cdedbf", null ],
       [ "fromUnit_", "classast_1_1UnitConverter.html#a66f9c0d3b47f576a3fba2f7eb10f2839", null ],
       [ "toUnit_", "classast_1_1UnitConverter.html#ad2bfacefe3458c7133bfaec4d528ab84", null ]
     ] ],
