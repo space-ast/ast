@@ -38,7 +38,7 @@ struct CloseApproachContext
 
 /// @brief 预过滤抽象基类
 /// @details 每个过滤器判定候选对象是否应保留进入后续处理。
-///          过滤器必须保守：允许保留非交会对象（假阳性），但不得误删真实交会（假阴性）。
+///          过滤器必须保守：允许保留非接近对象（假阳性），但不得误删真实接近（假阴性）。
 class AST_CORE_API CloseApproachFilter
 {
 public:

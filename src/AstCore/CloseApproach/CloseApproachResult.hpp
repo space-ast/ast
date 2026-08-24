@@ -27,21 +27,21 @@
 
 AST_NAMESPACE_BEGIN
 
-/// @brief 单条交会结果
+/// @brief 单条接近结果
 struct CloseApproachResult
 {
     int         noradId{0};       ///< 次要目标 NORAD 目录编号
     std::string name{};           ///< 次要目标名称（来自 3 行 TLE 名称行，2 行格式为空）
-    TimePoint   tca{};            ///< 最近交会时刻（TCA）
+    TimePoint   tca{};            ///< 最近接近时刻（TCA）
     double      minDistance{0.0}; ///< 最小距离 [m]
     double      relVelocity{0.0}; ///< TCA 处相对速度 [m/s]
 };
 
 /// @brief 接近分析报告
-/// @details 汇总一次交会分析的结果与各级预过滤存活计数（用于诊断）。
+/// @details 汇总一次接近分析的结果与各级预过滤存活计数（用于诊断）。
 struct CloseApproachReport
 {
-    std::vector<CloseApproachResult> results{};   ///< 交会结果，按 TCA 排序
+    std::vector<CloseApproachResult> results{};   ///< 接近结果，按 TCA 排序
     size_t totalCatalog{0};         ///< 目录总数
     size_t afterOutOfDate{0};       ///< 过期过滤后存活数
     size_t afterApogeePerigee{0};   ///< 近/远地点过滤后存活数

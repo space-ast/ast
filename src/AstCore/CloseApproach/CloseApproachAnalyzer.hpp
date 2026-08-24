@@ -31,7 +31,7 @@ AST_NAMESPACE_BEGIN
 /// @brief 接近分析编排器
 /// @details 给定参考对象（TLE）与候选目录，按 STK CAT 顺序执行
 ///          过期 → 近/远地点 → 轨道路径 → 时间 四级预过滤，再对幸存对象
-///          做暴力采样检测与最近点精化，输出交会结果。
+///          做暴力采样检测与最近点精化，输出接近结果。
 class AST_CORE_API CloseApproachAnalyzer
 {
 public:

@@ -138,13 +138,13 @@ double minDistanceInInterval(const Point& ref, const Point& cand,
 /// @details 轨道面法向取对象瞬时角动量方向 r×v（含 J2 长期项），与后续
 ///          暴力采样/精化所用星历严格一致。解析式 aOrbitPlaneProximityIntervals
 ///          基于冻结开普勒轨道，在数日传播后交点过境时刻因 J2 长期进动漂移数分钟，
-///          导致真实交会被误删（假阴性），故时间过滤改用本星历版本。
+///          导致真实接近被误删（假阴性），故时间过滤改用本星历版本。
 ///
 ///          单次粗采样同时得到两个有符号面距：
 ///            d1 = r_ref · n̂_cand  —— 参考目标相对候选轨道面的距离
 ///            d2 = r_cand · n̂_ref  —— 候选目标相对参考轨道面的距离
 ///          检测各自过零（交点过境）区间，并以 margin 半宽外扩，覆盖 |d|≤pad 的
-///          接近窗口（交点过境与最近交会时刻相差通常不足数秒）。若全程 |d|≤pad
+///          接近窗口（交点过境与最近接近时刻相差通常不足数秒）。若全程 |d|≤pad
 ///          （近共面退化），则返回整个窗口。
 void planeProximityIntervalsBoth(
     const Point& ref, const Point& cand, const TimeInterval& window,
@@ -288,7 +288,7 @@ errc_t CloseApproachAnalyzer::analyze(const TLE& reference, const std::vector<TL
 
         // 时间过滤收窄：基于星历状态的交点过境重叠区间。
         // 解析式 aOrbitPlaneProximityIntervals 采用冻结开普勒轨道，数日传播后
-        // 交点过境时刻因 J2 长期进动漂移，导致真实交会被误删（假阴性）；此处改用
+        // 交点过境时刻因 J2 长期进动漂移，导致真实接近被误删（假阴性）；此处改用
         // SGP4 状态直接计算轨道面法向（r×v），与后续暴力采样/精化严格一致。
         Clock::time_point tc = Clock::now();
         TimeIntervalList searchIntervals;
@@ -347,7 +347,7 @@ errc_t CloseApproachAnalyzer::analyze(const TLE& reference, const std::vector<TL
             @todo
             当候选与参考目标共面（i/raan 相同）时，planeProximityIntervalsBoth 使 coplanar1=coplanar2=true，返回整个数天窗口作为单一区间，intersect()
             也得到同样的整窗口。minDistanceInInterval 随后在 [0, 5天] 上运行 aBrentMinimize，而该距离函数有约 80 个局部极小（每圈一个）。Brent/GoldenSection（见
-            BrentOptimizer.cpp:61，假设单峰）只收敛到某一个局部极小。若该局部极小 >= 阈值，第 351 行的 `continue` 会跳过 aEvaluateAccess，静默丢弃窗口内其他位置的真实交会。SameOrbitTrailingObject
+            BrentOptimizer.cpp:61，假设单峰）只收敛到某一个局部极小。若该局部极小 >= 阈值，第 351 行的 `continue` 会跳过 aEvaluateAccess，静默丢弃窗口内其他位置的真实接近。SameOrbitTrailingObject
             测试因距离近似恒定而未能暴露此问题。
             */
 

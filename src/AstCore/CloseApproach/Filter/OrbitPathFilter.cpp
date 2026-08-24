@@ -35,7 +35,7 @@ bool OrbitPathFilter::keep(const TLE& candidate) const
 {
     const OrbElem candElem = aTLEToOrbElem(candidate, gm_);
 
-    // 过滤器必须保守：允许假阳性，但不得误删真实交会（假阴性）。
+    // 过滤器必须保守：允许假阳性，但不得误删真实接近（假阴性）。
     double dPlus = 0.0, dMinus = 0.0;
     if (aOrbitNodeLineDistances(referenceOrbit_, candElem, dPlus, dMinus) != eNoError)
     {

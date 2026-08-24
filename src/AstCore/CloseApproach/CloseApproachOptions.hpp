@@ -27,7 +27,7 @@
 AST_NAMESPACE_BEGIN
 
 /// @brief 接近分析配置
-/// @details 描述一次交会分析的窗口、距离阈值、预过滤开关与 padding、
+/// @details 描述一次接近分析的窗口、距离阈值、预过滤开关与 padding、
 ///          以及最终暴力采样的步长与结果上限。
 struct CloseApproachOptions
 {

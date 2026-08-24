@@ -142,7 +142,7 @@ TEST(CloseApproachFilterTest, OrbitPathCoplanar)
     OrbitPathFilter filter(opts, ctx);
 
     // 与参考对象同平面（inc/raan 相同）→ 公共交线退化，一维径向回退给出的是距离上界，
-    // 可能误删真实交会，故过滤器保守保留（含同平面 GEO，虽属假阳性但安全）。
+    // 可能误删真实接近，故过滤器保守保留（含同平面 GEO，虽属假阳性但安全）。
     TLE coplanarNear = makeTLE(3, 98.0, 0.0, 0.01, 0.0, 0.0, 14.6, epoch); // 近同高 → 保留
     TLE coplanarFar  = makeTLE(4, 98.0, 0.0, 0.0, 0.0, 0.0, 1.0, epoch);   // 同平面 GEO → 也保守保留
 
