@@ -47,7 +47,7 @@ xmake
 
 ```
 ast/
-├── 3rdparty/      # Third-party libraries
+├── thirdparty/    # Third-party libraries
 ├── docs/          # Documentation
 ├── include/       # Header files
 ├── projects/      # Example projects
@@ -101,12 +101,6 @@ Please ensure your code follows the project's coding standards and includes appr
 ## 📄 License
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
-
-## 🛠️ Development Status
-
-**Current Status**: 🟢 Active Development
-
-The project is currently in early development stage, and APIs may undergo significant changes. We are actively improving core functionality and welcome feedback from early users.
 
 ### Module Planning
 
