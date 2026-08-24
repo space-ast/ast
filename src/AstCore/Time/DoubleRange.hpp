@@ -35,7 +35,8 @@ AST_NAMESPACE_BEGIN
 /// @brief 按步长采样的相对秒范围（惰性可迭代）
 /// @details 对 [start, stop] 闭区间按 step 步长采样：内部相邻点间距恒为 step，
 ///          但末尾强制把 stop 并入输出（最后一段间距可能小于 step），因此并非均匀网格。
-/// @note 通常经 TimeInterval::discretize(epoch, step) 构造，值表示相对 epoch 的秒偏移。
+/// @note 通常经 TimeInterval::discretize(epoch, step) 或 Interval::discretize 构造，
+///       值表示相对基准 epoch 的秒偏移。
 class DoubleRange
 {
 public:

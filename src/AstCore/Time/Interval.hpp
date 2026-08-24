@@ -21,7 +21,10 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "DoubleRange.hpp"
 #include "AstUtil/Logger.hpp"
+#include <cstddef>
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
@@ -42,6 +45,23 @@ public:
     double& start() {return start_;}
     double& stop() {return stop_;}
     double duration() const{return stop_ - start_;}
+
+public:
+    /// @brief 将相对时间区间离散化
+    /// @details 对 [start, stop] 闭区间按 step 步长采样，返回惰性可迭代的秒偏移范围。
+    ///          内部相邻点间距恒为 step，但末尾强制把 stop 并入输出（最后一段间距可能
+    ///          小于 step），因此并非均匀网格。当 step <= 0.0 或区间时长 <= 0.0 时返回空范围。
+    /// @param step 离散化步长（秒）
+    /// @return 离散化秒偏移范围
+    DoubleRange discretize(double step) const;
+
+    /// @brief 计算离散化采样点数量
+    /// @details 返回 discretize(step) 所生成的采样点数（含首尾端点）。当
+    ///          step > 0.0 且区间时长 > 0.0 时为 ceil(duration()/step) + 1，
+    ///          否则返回 0（无有效采样点）。
+    /// @param step 离散化步长（秒）
+    /// @return 采样点数
+    size_t discretizedCount(double step) const;
 
     /// @brief 设置时间区间的开始时间和结束时间
     /// @param start 开始时间
@@ -137,6 +157,25 @@ inline bool Interval::intersects(const Interval &other) const
 {
     // 零长度区间（start == stop）语义为空，不应与任何区间相交
     return (std::max)(start_, other.start()) < (std::min)(stop_, other.stop());
+}
+
+inline DoubleRange Interval::discretize(double step) const
+{
+    double dur = duration();
+    if (step <= 0.0 || dur <= 0.0) {
+        return DoubleRange(0.0, 0.0, step, 0);
+    }
+    size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
+    return DoubleRange(start_, stop_, step, n);
+}
+
+inline size_t Interval::discretizedCount(double step) const
+{
+    double dur = duration();
+    if (step <= 0.0 || dur <= 0.0) {
+        return 0;
+    }
+    return static_cast<size_t>(std::ceil(dur / step)) + 1;
 }
 
 

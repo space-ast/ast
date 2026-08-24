@@ -181,6 +181,67 @@ TEST(TimeInterval, Infinite)
     }
 }
 
+TEST(TimeInterval, DiscretizedCount)
+{
+    // 时长正好是步长整数倍
+    {
+        TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+        TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 1, 0, 0.0);
+        TimeInterval interval(start, stop);
+
+        // ceil(3600/1800) + 1 = 3
+        EXPECT_EQ(interval.discretizedCount(1800.0), 3u);
+    }
+
+    // 时长不是步长整数倍
+    {
+        TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+        TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 1, 30, 0.0);  // 1.5小时
+        TimeInterval interval(start, stop);
+
+        // ceil(5400/1800) + 1 = 4
+        EXPECT_EQ(interval.discretizedCount(1800.0), 4u);
+    }
+
+    // 单步长刚好覆盖整个区间
+    {
+        TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+        TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 0, 10, 0.0);
+        TimeInterval interval(start, stop);
+
+        // ceil(600/600) + 1 = 2
+        EXPECT_EQ(interval.discretizedCount(600.0), 2u);
+    }
+
+    // 无效步长 → 0
+    {
+        TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+        TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 1, 0, 0.0);
+        TimeInterval interval(start, stop);
+
+        EXPECT_EQ(interval.discretizedCount(0.0), 0u);
+        EXPECT_EQ(interval.discretizedCount(-1.0), 0u);
+    }
+
+    // 零时长区间 → 0
+    {
+        TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+        TimeInterval interval(start, start);
+
+        EXPECT_EQ(interval.discretizedCount(600.0), 0u);
+    }
+
+    // 数量与 discretize 产出的 range 一致
+    {
+        TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+        TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 2, 0, 0.0);
+        TimeInterval interval(start, stop);
+
+        auto range = interval.discretize(1800.0);
+        EXPECT_EQ(interval.discretizedCount(1800.0), range.size());
+    }
+}
+
 TEST(TimeInterval, Iterator)
 {
     // 测试迭代器

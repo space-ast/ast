@@ -205,6 +205,21 @@ public:
     /// @param step 离散化步长（秒）
     /// @return 离散化时间点范围
     DoubleRange discretize(const TimePoint& epoch, double step) const;
+
+    /// @brief 计算离散化采样点数量
+    /// @details 返回 discretize(step) 所生成的采样点数（含首尾端点）。当
+    ///          step > 0.0 且区间时长 > 0.0 时为 ceil(duration()/step) + 1，
+    ///          否则返回 0（无有效采样点）。该数量不依赖于基准 epoch。
+    /// @param step 离散化步长（秒）
+    /// @return 采样点数
+    size_t discretizedCount(double step) const
+    {
+        double dur = duration();
+        if (step <= 0.0 || dur <= 0.0) {
+            return 0;
+        }
+        return static_cast<size_t>(std::ceil(dur / step)) + 1;
+    }
 public:
     /// @brief 原地并集：将另一个时间区间并入自身（凸包）
     /// @param other 要合并的时间区间
