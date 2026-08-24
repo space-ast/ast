@@ -55,7 +55,7 @@ errc_t MotionJ4Analytical::makeEphemerisSimple(ScopedPtr<Ephemeris> &eph) const
 
     std::vector<double> times;
     std::vector<Vector3d> positions, velocities;
-    rc = this->discreteInterval(epoch, stepSize_, times);   AST_CHECK_ERRCODE(rc, "failed to discrete interval");
+    rc = this->discretizeInterval(epoch, stepSize_, times);   AST_CHECK_ERRCODE(rc, "failed to discretize interval");
     positions.resize(times.size());
     velocities.resize(times.size());
     for(size_t i = 0; i < times.size(); i++){

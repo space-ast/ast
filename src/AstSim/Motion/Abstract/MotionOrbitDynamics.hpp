@@ -67,7 +67,7 @@ protected:
 
     errc_t getPropagationParams(PropagationParams& params) const;
 
-    errc_t discreteInterval(const TimePoint& epoch, double stepSize, std::vector<double>& times) const;
+    errc_t discretizeInterval(const TimePoint& epoch, double stepSize, std::vector<double>& times) const;
 PROPERTIES:
     State* getInitialState() const { return initialState_.get(); }
     void setInitialState(State* state) { initialState_ = state; }

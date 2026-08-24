@@ -118,7 +118,7 @@ errc_t aTestWithEmptyEphemeris(Mover& mover)
     }
     ast_printf("interval: %s\n", interval.toString().c_str());
     auto eci = aFrameECI();
-    for(auto& tp: interval.discrete(60))
+    for(const auto& tp: interval.discretize(60))
     {
         ast_printf("tp: %s\n", tp.toString().c_str());
         Vector3d posEph, velEph;

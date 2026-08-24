@@ -42,9 +42,9 @@ static std::string unit_name_from_scale_dimless(double scale)
 /// @brief 新建无量纲单位
 /// @param scale 缩放因子
 /// @return 单位表示
-static Unit::UnitRepHandle unit_new_dimenless(double scale)
+static UnitRepHandle unit_new_dimenless(double scale)
 {
-    return std::make_shared<Unit::UnitRep>(unit_name_from_scale_dimless(scale), scale, EDimension::eUnit, Unit::SubUnitListConst{});
+    return std::make_shared<ScaleUnitRep>(unit_name_from_scale_dimless(scale), EDimension::eUnit, scale);
 }
 
 /// @brief 单位名称分隔符
@@ -54,7 +54,7 @@ const char* unit_name_separator = aText("\u00b7");
 /// @brief 从单位子项列表生成单位名称
 /// @param subUnits 单位子项列表
 /// @return 单位名称
-static std::string unit_name_from_subunits(const Unit::SubUnitListConst& subUnits)
+static std::string unit_name_from_subunits(const SubUnitListConst& subUnits)
 {
     if (subUnits.empty())
     {
@@ -76,9 +76,9 @@ static std::string unit_name_from_subunits(const Unit::SubUnitListConst& subUnit
             }
         }else{
             // 只有缩放量为1的无量纲单位才允许为空
-            if(unitpair.first->dimension_ != EDimension::eUnit || unitpair.first->scale_ != 1.0)
+            if(unitpair.first->dimension_ != EDimension::eUnit || unitpair.first->scale() != 1.0)
             {
-                aError("unexpected unit in unit_name_from_subunits: dimension=%d, scale=%lf", (int)unitpair.first->dimension_.value(), unitpair.first->scale_);
+                aError("unexpected unit in unit_name_from_subunits: dimension=%d, scale=%lf", (int)unitpair.first->dimension_.value(), unitpair.first->scale());
             }
         }
     }
@@ -94,7 +94,7 @@ static std::string unit_name_generate(const Unit& unit)
     if (name.empty())
     {
         if(unit.rep_->dimension_ == EDimension::eUnit){
-            return unit_name_from_scale_dimless(unit.rep_->scale_);
+            return unit_name_from_scale_dimless(unit.rep_->scale());
         }
     }
     return name;
@@ -103,12 +103,12 @@ static std::string unit_name_generate(const Unit& unit)
 /// @brief 从单位子项列表计算缩放因子
 /// @param subUnits 单位子项列表
 /// @return 缩放因子
-static double unit_scale_from_subunits(const Unit::SubUnitListConst& subUnits)
+static double unit_scale_from_subunits(const SubUnitListConst& subUnits)
 {
     double scale = 1.0;
     for (const auto& unitpair : subUnits)
     {
-        scale *= std::pow(unitpair.first->scale_, unitpair.second);
+        scale *= std::pow(unitpair.first->scale(), unitpair.second);
     }
     return scale;
 }
@@ -119,14 +119,14 @@ static double unit_scale_from_subunits(const Unit::SubUnitListConst& subUnits)
 /// @param newSubUnits 新的单位子项列表
 /// @param dimlessUnit 无量纲单位
 /// @param extra_scale 额外缩放因子
-static void unit_reduce_subunits(const Unit::SubUnitListConst& subUnits, Unit::SubUnitListConst& newSubUnits_, Unit::UnitRepHandleConst& dimlessUnit)
+static void unit_reduce_subunits(const SubUnitListConst& subUnits, SubUnitListConst& newSubUnits_, UnitRepHandleConst& dimlessUnit)
 {
     if (subUnits.empty())
     {
         return;
     }
-    Unit::SubUnitListConst newSubUnits;                             // 新的单位子项列表
-    std::vector<Unit::UnitRepHandleConst> dimlessUnits;             // 无量纲单位项列表
+    SubUnitListConst newSubUnits;                             // 新的单位子项列表
+    std::vector<UnitRepHandleConst> dimlessUnits;             // 无量纲单位项列表
     double dimlessScale = 1.0;                                      // 额外缩放因子(量纲间乘除产生的缩放因子)
 
     for (auto it = subUnits.begin(); it != subUnits.end(); it++)
@@ -138,28 +138,28 @@ static void unit_reduce_subunits(const Unit::SubUnitListConst& subUnits, Unit::S
         else
         {
             if(it->first->dimension_ == EDimension::eUnit){
-                dimlessScale *= std::pow(it->first->scale_, it->second);
+                dimlessScale *= std::pow(it->first->scale(), it->second);
                 dimlessUnits.push_back(it->first);
             }else{
                 // 查找是否已存在相同量纲的单位
                 auto found = std::find_if(newSubUnits.begin(), newSubUnits.end(),
-                    [it](const Unit::SubUnitListConst::value_type& newUnitpair)
+                    [it](const SubUnitListConst::value_type& newUnitpair)
                     {
                         return newUnitpair.first->dimension_ == it->first->dimension_;
                     });
                 if (found != newSubUnits.end())
                 {
-                    if(found->first->scale_ == it->first->scale_){
+                    if(found->first->scale() == it->first->scale()){
                         // 相同量纲的单位子项，指数相加
                         // do nothing here
                     }
-                    else if(found->first->scale_ > it->first->scale_)
+                    else if(found->first->scale() > it->first->scale())
                     {
-                        dimlessScale *= std::pow(found->first->scale_ / it->first->scale_, found->second);   // 更新额外的缩放因子
+                        dimlessScale *= std::pow(found->first->scale() / it->first->scale(), found->second);   // 更新额外的缩放因子
                         found->first = it->first;                                                            // 更新单位子项
                     }else // if(found->first->scale_ < it->first->scale_)
                     {
-                        dimlessScale *= std::pow(it->first->scale_ / found->first->scale_, it->second);      // 更新额外的缩放因子
+                        dimlessScale *= std::pow(it->first->scale() / found->first->scale(), it->second);      // 更新额外的缩放因子
                         // found->first = found->first;                                                      // 更新单位子项
                     }
                     found->second += it->second;
@@ -184,7 +184,7 @@ static void unit_reduce_subunits(const Unit::SubUnitListConst& subUnits, Unit::S
     dimlessUnit = nullptr;                                          // 清空
     if(dimlessScale != 1.0){
         for(auto& it: dimlessUnits){
-            if(it->scale_ == dimlessScale){
+            if(it->scale() == dimlessScale){
                 dimlessUnit = it;
             }
         }
@@ -196,18 +196,18 @@ static void unit_reduce_subunits(const Unit::SubUnitListConst& subUnits, Unit::S
     // return unit_scale_from_subunits(subUnits);
 }
 
-static void unit_reduce_subunits(Unit::SubUnitListConst& subUnits, Unit::UnitRepHandleConst& dimlessUnit)
+static void unit_reduce_subunits(SubUnitListConst& subUnits, UnitRepHandleConst& dimlessUnit)
 {
     unit_reduce_subunits(subUnits, subUnits, dimlessUnit);
 }
 
 
-static double unit_reduce_subunits(Unit::SubUnitListConst& subUnits)
+static double unit_reduce_subunits(SubUnitListConst& subUnits)
 {
-    Unit::UnitRepHandleConst dimlessUnit;
+    UnitRepHandleConst dimlessUnit;
     unit_reduce_subunits(subUnits, dimlessUnit);
     if(dimlessUnit){
-        subUnits.emplace(subUnits.begin(), Unit::UnitRepPairConst{ dimlessUnit, 1 });
+        subUnits.emplace(subUnits.begin(), UnitRepPairConst{ dimlessUnit, 1 });
     }
     return unit_scale_from_subunits(subUnits);
 }
@@ -219,8 +219,11 @@ static double unit_reduce(Unit& unit)
 {
     if(unit.dimension() == EDimension::eUnit){
         double scale = unit.getScale();
-        unit.rep_ = unit_new_dimenless(scale);
-        return scale;
+        if(scale != 0)
+        {
+            unit.rep_ = unit_new_dimenless(scale);
+            return scale;
+        }
     }
     return unit_reduce_subunits(unit.rep_->subUnits_);
 }
@@ -232,7 +235,7 @@ static double unit_reduce(Unit& unit)
 /// @return 单位乘积
 Unit unit_multiply(const Unit& unit1, const Unit& unit2)
 {
-    Unit::SubUnitListConst subunits;
+    SubUnitListConst subunits;
     if (unit1.rep_->subUnits_.empty()) {
         subunits.push_back({unit1.rep_, 1});
     }
@@ -263,7 +266,7 @@ Unit unit_multiply(const Unit& unit1, const Unit& unit2)
 /// @return 单位商
 Unit unit_divide(const Unit& unit1, const Unit& unit2)
 {
-    Unit::SubUnitListConst subunits;
+    SubUnitListConst subunits;
     if (unit1.rep_->subUnits_.empty()) {
         subunits.push_back({unit1.rep_, 1});
     }
@@ -296,7 +299,7 @@ Unit unit_divide(const Unit& unit1, const Unit& unit2)
 /// @return 单位幂
 Unit unit_power(const Unit& unit, int exponent)
 {
-    Unit::SubUnitListConst subunits;
+    SubUnitListConst subunits;
     if (unit.rep_->subUnits_.empty()) {
         subunits.push_back({unit.rep_, exponent});
     }
@@ -386,19 +389,45 @@ Unit aUnitInvert(const Unit &unit, StringView newname)
 
 void aUnitFactorize(const Unit &unit, Unit &newUnit, double &scale)
 {
-    Unit::UnitRepHandleConst dimless;
+    UnitRepHandleConst dimless;
     unit_reduce_subunits(unit.rep_->subUnits_, newUnit.rep_->subUnits_, dimless);
-    newUnit.rep_->scale_ = unit_scale_from_subunits(newUnit.rep_->subUnits_);
-    newUnit.rep_->name_ = unit_name_from_subunits(newUnit.rep_->subUnits_);
     if(dimless)
-        scale = dimless->scale_;
+        scale = dimless->scale();
     else
         scale = 1.0;
+    if(newUnit.rep_->kind() != EUnitKind::eScale)
+    {
+        aError("unexpected unit kind: %d", newUnit.rep_->kind());
+    }
+    else
+    {
+        auto scaleRep = static_cast<ScaleUnitRep*>(newUnit.rep_.get());
+        scaleRep->scale_ = unit_scale_from_subunits(newUnit.rep_->subUnits_);
+        scaleRep->name_  = unit_name_from_subunits(newUnit.rep_->subUnits_);
+    }
 }
 
 void aUnitFactorize(Unit &unit, double &scale)
 {
     aUnitFactorize(unit, unit, scale);
+}
+
+Unit Unit::MakeScale(StringView name, Dimension dim, double scale)
+{
+    assert((dim.isBase() || dim.isUnit()) && "this function should only be used to create units for base dimensions.");
+    return Unit(std::make_shared<ScaleUnitRep>(name, dim, scale));
+}
+
+Unit Unit::MakeAffine(StringView name, Dimension dim, double scale, double offset)
+{
+    assert((dim.isBase() || dim.isUnit()) && "this function should only be used to create units for base dimensions.");
+    return Unit(std::make_shared<AffineUnitRep>(name, dim, scale, offset));
+}
+
+Unit Unit::MakeLogarithmic(StringView name, Dimension dim, double reference, double factor)
+{
+    assert((dim.isBase() || dim.isUnit()) && "this function should only be used to create units for base dimensions.");
+    return Unit(std::make_shared<LogarithmicUnitRep>(name, dim, reference, factor));
 }
 
 Unit::Unit(StringView name)
@@ -465,6 +494,16 @@ namespace units
     Unit Gs = Unit::Gauss();
 
     Unit K = Unit::Kelvin();
+
+    Unit degC = Unit::Celsius();
+    Unit degF = Unit::Fahrenheit();
+    Unit degR = Unit::Rankine();
+
+    Unit dB  = Unit::Decibel();
+    Unit dBm = Unit::DecibelMilliwatt();
+    Unit dBW = Unit::DecibelWatt();
+
+    Unit B  = Unit::Bel();
 }
 
 AST_NAMESPACE_END

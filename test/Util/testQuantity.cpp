@@ -301,4 +301,28 @@ TEST(Quantity, Invert)
     }
 }
 
+
+
+// 验证仿射温度加减不再重复计入偏移量：修复前 aQuantityAdd 会把偏移量算两次，
+// 导致 100°F-30°F=529.67°F、0°C+0°C=273.15°C 等错误结果
+TEST(Quantity, TemperatureAddSub)
+{
+    auto degC = Unit::Celsius();
+    auto degF = Unit::Fahrenheit();
+
+    // 同单位加法：按幅值相加(恢复原有语意)
+    EXPECT_NEAR((Quantity(10.0, degC) + Quantity(20.0, degC)).magnitude(), 30.0, 1e-12);
+    EXPECT_NEAR((Quantity(0.0, degC) + Quantity(0.0, degC)).magnitude(), 0.0, 1e-12);
+
+    // 同单位减法：100°F - 30°F = 70°F(温差)
+    auto diff = aQuantitySub(Quantity(100.0, degF), Quantity(30.0, degF));
+    EXPECT_NEAR(diff.magnitude(), 70.0, 1e-12);
+    EXPECT_EQ(diff.unit(), degF);
+
+    // 跨单位：0°C + 32°F = 32°F(作为标度差运算)；32°F 换算回 °C 应为 0
+    auto cross = Quantity(0.0, degC) + Quantity(32.0, degF);
+    EXPECT_NEAR(cross.getValueSI(), degC.toSI(0.0), 1e-9);
+    EXPECT_NEAR(degC.convertFrom(cross.magnitude(), cross.unit()), 0.0, 1e-9);
+}
+
 GTEST_MAIN()

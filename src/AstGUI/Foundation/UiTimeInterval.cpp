@@ -70,7 +70,7 @@ void UiTimeInterval::updateTimeInterval()
     TimePoint stop  =  stopTimeEdit_->getTimePoint();
     
     // 更新时间区间
-    timeInterval_.setStartStop(start, stop);
+    timeInterval_.setBounds(start, stop);
     emit timeIntervalChanged(timeInterval_);
 }
 

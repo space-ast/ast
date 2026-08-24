@@ -23,6 +23,7 @@
 #include "SatelliteDatabaseQuery.hpp"
 
 #include "AstCore/TimePoint.hpp"
+#include "AstCore/TLE.hpp"          // for aParseNoradId
 #include "AstUtil/IO.hpp"
 #include "AstUtil/ParseFormat.hpp"
 #include "AstUtil/StringUtil.hpp"
@@ -75,8 +76,8 @@ SatelliteDatabaseEntry parseSatcatLine(StringView line)
     // 列 001-011: 国际编号
     entry.setInternationalDesignator(aStripAsciiWhitespace(line.substr(0, 11)));
 
-    // 列 014-018: NORAD 目录编号
-    entry.setNoradCatId(aParseInt(line.substr(13, 5)));
+    // 列 014-018: NORAD 目录编号（支持 Alpha-5 字母扩展）
+    entry.setNoradCatId(aParseNoradId(line.substr(13, 5)));
 
     // 列 021: 载荷标志
     entry.setPayload(line.size() > 20 && line[20] == '*');
@@ -110,7 +111,7 @@ SatelliteDatabaseEntry parseSatcatLine(StringView line)
 
     // 列 120-127: RCS — "N/A" 或数值
     {
-        auto rcsStr = std::string(aStripAsciiWhitespace(line.substr(119, 8)));
+        auto rcsStr = aStripAsciiWhitespace(line.substr(119, 8));
         if (rcsStr.empty() || rcsStr == "N/A")
             entry.setRcs(std::numeric_limits<double>::quiet_NaN());
         else

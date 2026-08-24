@@ -63,7 +63,7 @@
 // #define AST_USE_STD_FILESYSTEM                // 是否使用 std::filesystem，如果存在的话，否则使用内置的filesystem
 // #define AST_USE_STD_FILESYSTEM_EXPERIMENTAL   // 是否选择使用 std::experimental::filesystem 的c++实验特性，如果存在的话
 
-/// ast项目专用宏
+/// 项目专用宏
 #if defined AST_ENABLE_NAMESPACE && defined(__cplusplus) 
 #   define _AST ::ast:: 
 #	define AST_NAMESPACE ast
@@ -122,8 +122,8 @@
 #define PROPERTIES AST_PROPERTIES
 
 
-// 字符串宏，用于在编译时将字符串转换为ast项目内部运行时编码
-// 当前ast项目内部运行时采用utf-8编码，所有字符串字面量都需要在编译时转换为utf-8编码
+// 字符串宏，用于在编译时将字符串转换为内部运行时编码
+// 当前内部运行时采用utf-8编码，所有字符串字面量都需要在编译时转换为utf-8编码
 // 但是考虑到为了有可能会采用其他编码，例如utf-16等，所以这里保留宏定义
 #define _aText(x) (u8 ## x)
 #ifdef A_CXX20
@@ -152,7 +152,7 @@
 #   endif
 #endif
 
-// ast项目脚本模块导出声明
+// 脚本模块导出声明
 #ifdef AST_BUILD_LIB_SCRIPT
 #    define AST_SCRIPT_API A_DECL_EXPORT
 #else
@@ -161,7 +161,7 @@
 #define AST_SCRIPT_CAPI A_DECL_EXTERN_C AST_SCRIPT_API
 
 
-// ast项目核心模块导出声明
+// 核心模块导出声明
 #ifdef AST_BUILD_LIB_CORE
 #    define AST_CORE_API A_DECL_EXPORT
 #else
@@ -169,7 +169,7 @@
 #endif
 #define AST_CORE_CAPI A_DECL_EXTERN_C AST_CORE_API
 
-// ast项目优化模块导出声明
+// 优化模块导出声明
 #ifdef AST_BUILD_LIB_OPT
 #    define AST_OPT_API A_DECL_EXPORT
 #else
@@ -177,7 +177,7 @@
 #endif
 #define AST_OPT_CAPI  A_DECL_EXTERN_C AST_OPT_API
 
-// ast项目数学模块导出声明
+// 数学模块导出声明
 #ifdef AST_BUILD_LIB_MATH
 #    define AST_MATH_API A_DECL_EXPORT
 #else
@@ -185,7 +185,7 @@
 #endif
 #define AST_MATH_CAPI A_DECL_EXTERN_C AST_MATH_API
 
-// ast项目工具模块导出声明
+// 工具模块导出声明
 #ifdef AST_BUILD_LIB_UTIL
 #    define AST_UTIL_API A_DECL_EXPORT
 #else
@@ -193,7 +193,7 @@
 #endif
 #define AST_UTIL_CAPI A_DECL_EXTERN_C AST_UTIL_API
 
-// ast项目天文计算器模块导出声明
+// 天文计算器模块导出声明
 #if defined AST_BUILD_LIB_CALC
 #    define AST_CALC_API A_DECL_EXPORT
 #else
@@ -201,7 +201,7 @@
 #endif
 #define AST_CALC_CAPI A_DECL_EXTERN_C AST_CALC_API
 
-// ast项目仿真模块导出声明
+// 仿真模块导出声明
 #if defined AST_BUILD_LIB_SIM
 #    define AST_SIM_API A_DECL_EXPORT
 #else
@@ -210,7 +210,7 @@
 #define AST_SIM_CAPI A_DECL_EXTERN_C AST_SIM_API
 
 
-// ast项目模拟模块导出声明
+// 模拟模块导出声明
 #ifdef AST_BUILD_LIB_MOCK
 #    define AST_MOCK_API A_DECL_EXPORT
 #else
@@ -218,7 +218,7 @@
 #endif
 #define AST_MOCK_CAPI A_DECL_EXTERN_C AST_MOCK_API
 
-// ast项目绘图模块导出声明
+// 绘图模块导出声明
 #ifdef AST_BUILD_LIB_PLOT
 #    define AST_PLOT_API A_DECL_EXPORT
 #else
@@ -226,7 +226,7 @@
 #endif
 #define AST_PLOT_CAPI A_DECL_EXTERN_C AST_PLOT_API
 
-// ast项目GUI模块导出声明
+// GUI模块导出声明
 #ifdef AST_BUILD_LIB_GUI
 #    define AST_GUI_API A_DECL_EXPORT
 #else
@@ -234,7 +234,7 @@
 #endif
 #define AST_GUI_CAPI A_DECL_EXTERN_C AST_GUI_API
 
-// ast项目Chart模块导出声明
+// Chart模块导出声明
 #ifdef AST_BUILD_LIB_CHART
 #    define AST_CHART_API A_DECL_EXPORT
 #else
@@ -242,7 +242,7 @@
 #endif
 #define AST_CHART_CAPI A_DECL_EXTERN_C AST_CHART_API
 
-// ast项目可视化模块导出声明
+// 可视化模块导出声明
 #ifdef AST_BUILD_LIB_GFX
 #    define AST_GFX_API A_DECL_EXPORT
 #else
@@ -250,7 +250,7 @@
 #endif
 #define AST_GFX_CAPI A_DECL_EXTERN_C AST_GFX_API
 
-// ast项目天气模型模块导出声明
+// 天气模型模块导出声明
 #ifdef AST_BUILD_LIB_WEATHER
 #    define AST_WEATHER_API A_DECL_EXPORT
 #else
@@ -259,7 +259,7 @@
 #define AST_WEATHER_CAPI A_DECL_EXTERN_C AST_WEATHER_API
 
 
-/// ast项目SPICE模块导出声明
+/// SPICE模块导出声明
 #ifdef AST_BUILD_LIB_SPICE
 #    define AST_SPICE_API A_DECL_EXPORT
 #else
@@ -268,7 +268,7 @@
 #define AST_SPICE_CAPI A_DECL_EXTERN_C AST_SPICE_API
 
 
-/// ast项目测试模块导出声明
+/// 测试模块导出声明
 #ifdef AST_BUILD_LIB_TEST
 #    define AST_TEST_API A_DECL_EXPORT
 #else
@@ -276,7 +276,7 @@
 #endif
 #define AST_TEST_CAPI A_DECL_EXTERN_C AST_TEST_API
 
-// ast项目序列化模块导出声明
+// 序列化模块导出声明
 // #ifdef AST_BUILD_LIB_SERDE
 // #    define AST_SERDE_API A_DECL_EXPORT
 // #else
@@ -285,7 +285,7 @@
 // #define AST_SERDE_CAPI A_DECL_EXTERN_C AST_SERDE_API
 
 
-// ast项目加载模块导出声明
+// 加载模块导出声明
 #ifdef AST_BUILD_LIB_LOADER
 #    define AST_LOADER_API A_DECL_EXPORT
 #else
@@ -294,7 +294,7 @@
 #define AST_LOADER_CAPI A_DECL_EXTERN_C AST_LOADER_API
 
 
-// ast项目报表模块导出声明
+// 报表模块导出声明
 #ifdef AST_BUILD_LIB_REPORT
 #    define AST_REPORT_API A_DECL_EXPORT
 #else
@@ -303,7 +303,7 @@
 #define AST_REPORT_CAPI A_DECL_EXTERN_C AST_REPORT_API
 
 
-// ast项目AI模块导出声明
+// AI模块导出声明
 #ifdef AST_BUILD_LIB_AI
 #    define AST_AI_API A_DECL_EXPORT
 #else
@@ -311,7 +311,7 @@
 #endif
 #define AST_AI_CAPI A_DECL_EXTERN_C AST_AI_API
 
-// ast项目UiPilot模块导出声明
+// UiPilot模块导出声明
 #ifdef AST_BUILD_LIB_UIPILOT
 #    define AST_UIPILOT_API A_DECL_EXPORT
 #else
@@ -319,7 +319,7 @@
 #endif
 #define AST_UIPILOT_CAPI A_DECL_EXTERN_C AST_UIPILOT_API
 
-// ast项目COM封装模块导出声明
+// COM封装模块导出声明
 #ifdef AST_BUILD_LIB_COM
 #   define AST_COM_API A_DECL_EXPORT
 #else
@@ -328,7 +328,7 @@
 #define AST_COM_CAPI A_DECL_EXTERN_C AST_COM_API
 
 
-// ast项目命令模块导出声明
+// 命令模块导出声明
 #ifdef AST_BUILD_LIB_CMD
 #   define AST_CMD_API A_DECL_EXPORT
 #else
@@ -337,7 +337,7 @@
 #define AST_CMD_CAPI A_DECL_EXTERN_C AST_CMD_API
 
 
-// ast项目分析模块导出声明
+// 分析模块导出声明
 #ifdef AST_BUILD_LIB_ANALYZER
 #    define AST_ANALYZER_API A_DECL_EXPORT
 #else
@@ -346,7 +346,7 @@
 #define AST_ANALYZER_CAPI A_DECL_EXTERN_C AST_ANALYZER_API
 
 
-// ast项目故障捕获模块导出声明
+// 故障捕获模块导出声明
 #ifdef AST_BUILD_LIB_FAULT
 #    define AST_FAULT_API A_DECL_EXPORT
 #else
@@ -358,7 +358,7 @@
 #   define AST_PROJECT_NAME "ast"
 #endif
 
-// ast项目UiAI模块导出声明
+// UiAI模块导出声明
 #ifdef AST_BUILD_LIB_UIAI
 #    define AST_UIAI_API A_DECL_EXPORT
 #else
@@ -367,7 +367,7 @@
 #define AST_UIAI_CAPI A_DECL_EXTERN_C AST_UIAI_API
 
 
-// ast项目UiUtil模块导出声明
+// UiUtil模块导出声明
 #ifdef AST_BUILD_LIB_UIUTIL
 #    define AST_UIUTIL_API A_DECL_EXPORT
 #else
@@ -378,7 +378,7 @@
 
 AST_NAMESPACE_BEGIN
 
-/// ast项目公共枚举
+/// 项目公共枚举
 
 
 /// @brief 错误码
@@ -405,7 +405,7 @@ typedef enum EError
 
 
 
-/// ast项目类型前置声明
+/// 项目类型前置声明
 
 /*
  * @note

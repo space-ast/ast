@@ -127,21 +127,21 @@ errc_t aDownloadFile(const std::string& url, const std::string& filepath)
 
     if (response.statusCode() != 200)
     {
-        aError("aDownloadFile: HTTP %d for %s", response.statusCode(), url.c_str());
+        aError("HTTP %d for %s", response.statusCode(), url.c_str());
         return eErrorInvalidFile;
     }
 
     const std::string& body = response.body();
     if (body.empty())
     {
-        aError("aDownloadFile: empty body for %s", url.c_str());
+        aError("empty body for %s", url.c_str());
         return eErrorInvalidFile;
     }
 
     FILE* fp = posix::fopen(filepath.c_str(), "wb");
     if (!fp)
     {
-        aError("aDownloadFile: cannot open %s", filepath.c_str());
+        aError("cannot open %s", filepath.c_str());
         return eErrorInvalidFile;
     }
 
@@ -150,7 +150,7 @@ errc_t aDownloadFile(const std::string& url, const std::string& filepath)
 
     if (written != body.size())
     {
-        aError("aDownloadFile: write incomplete for %s", filepath.c_str());
+        aError("write incomplete for %s", filepath.c_str());
         fs::remove(filepath);
         return eErrorInvalidFile;
     }

@@ -51,6 +51,7 @@ public:
     /// @brief 获取整数秒部分
     int64_t integer() const{return integer_;}
     int64_t& integer(){return integer_;}
+    
     /// @brief 获取小数秒部分
     double fractional() const{return fractional_;}
     double& fractional(){return fractional_;}
@@ -87,6 +88,16 @@ public:
         return (integer_ - other.integer_) / kSecondsPerDay + (fractional_ - other.fractional_) / kSecondsPerDay;
     }
 
+    /// @warning 
+    /// 注意：totalSecond() 方法返回的是一个不精确的double值，
+    /// 计算会引入舍入误差。且不考虑闰秒等因素。
+    /// @return 总秒数（整数天秒数 + 小数秒数）
+    double totalSecond() const{return (integer_ + fractional_);}
+
+    /// @brief 转换为秒数
+    /// @return 总秒数（整数天秒数 + 小数秒数）
+    operator double() const{return totalSecond();}
+
 public:
     int64_t integer_;       // 整数秒部分
     double  fractional_;    // 小数秒部分
@@ -104,11 +115,22 @@ public:
     /// @brief 获取小数部分的秒数
     double second() const{return second_;}
     double& second(){return second_;}
+
     /// @warning 
     /// 注意：totalSecond() 方法返回的是一个不精确的double值，
     /// 计算会引入舍入误差。且不考虑闰秒等因素。
     /// @return 总秒数（整数天秒数 + 小数秒数）
     double totalSecond() const{return day_ * 86400.0 + second_;}
+
+    /// @warning 
+    /// 注意：totalDay() 方法返回的是一个不精确的double值，
+    /// 计算会引入舍入误差。且不考虑闰秒等因素。
+    /// @return 总天数（整数天部分 + 小数部分）
+    double totalDay() const{return day_ + second_ / 86400.0;}
+
+    /// @brief 转换为秒数
+    /// @return 总秒数（整数天秒数 + 小数秒数）
+    operator double() const{return totalSecond();}
 public:
     int    day_;            // 整数天部分
     double second_;         // 小数秒部分

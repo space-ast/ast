@@ -28,7 +28,7 @@ TimeList TimeList::FromInterval(const TimeInterval& interval,
                                 double step)
 {
 	TimeList result(epoch);
-	errc_t rc = interval.discrete(epoch, step, result.seconds());
+	errc_t rc = interval.discretize(epoch, step, result.seconds());
 	A_UNUSED(rc);
 	return result;
 }
@@ -36,7 +36,7 @@ TimeList TimeList::FromInterval(const TimeInterval& interval,
 TimeList TimeList::FromInterval(const TimeInterval &interval, double step)
 {
 	TimeList result;
-	errc_t rc = interval.discrete(step, result);
+	errc_t rc = interval.discretize(step, result);
 	A_UNUSED(rc);
 	return result;
 }

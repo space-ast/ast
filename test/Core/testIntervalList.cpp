@@ -313,7 +313,7 @@ TEST(IntervalList, IntersectEmpty)
 {
     IntervalList a = {{0.0, 10.0}};
     IntervalList b;
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -322,7 +322,7 @@ TEST(IntervalList, IntersectNoOverlap)
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{20.0, 30.0}};
 
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -331,7 +331,7 @@ TEST(IntervalList, IntersectPartial)
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{5.0, 15.0}};
 
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -342,7 +342,7 @@ TEST(IntervalList, IntersectContainment)
     IntervalList a = {{0.0, 100.0}};
     IntervalList b = {{20.0, 30.0}};
 
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 20.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 30.0);
@@ -356,7 +356,7 @@ TEST(IntervalList, IntersectMultiple)
     IntervalList a = {{0.0, 10.0}, {20.0, 30.0}};
     IntervalList b = {{5.0, 25.0}};
 
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -374,7 +374,7 @@ TEST(IntervalList, UniteEmpty)
     IntervalList a;
     IntervalList b = {{0.0, 10.0}};
 
-    IntervalList result = a.unite(b);
+    IntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -385,7 +385,7 @@ TEST(IntervalList, UniteNonOverlapping)
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{20.0, 30.0}};
 
-    IntervalList result = a.unite(b);
+    IntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -398,7 +398,7 @@ TEST(IntervalList, UniteOverlapping)
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{5.0, 15.0}};
 
-    IntervalList result = a.unite(b);
+    IntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 15.0);
@@ -414,7 +414,7 @@ TEST(IntervalList, SubtractEmpty)
     IntervalList a = {{0.0, 10.0}};
     IntervalList b;
 
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -425,7 +425,7 @@ TEST(IntervalList, SubtractNoOverlap)
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{20.0, 30.0}};
 
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -437,7 +437,7 @@ TEST(IntervalList, SubtractMiddle)
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{3.0, 7.0}};
 
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 3.0);
@@ -451,7 +451,7 @@ TEST(IntervalList, SubtractLeft)
     IntervalList a = {{5.0, 15.0}};
     IntervalList b = {{0.0, 10.0}};
 
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 10.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 15.0);
@@ -463,7 +463,7 @@ TEST(IntervalList, SubtractRight)
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{5.0, 15.0}};
 
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 5.0);
@@ -475,7 +475,7 @@ TEST(IntervalList, SubtractMultiple)
     IntervalList a = {{0.0, 30.0}};
     IntervalList b = {{5.0, 10.0}, {15.0, 20.0}};
 
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 3u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 5.0);
@@ -491,40 +491,40 @@ TEST(IntervalList, SubtractComplete)
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{0.0, 10.0}};
 
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_TRUE(result.empty());
 }
 
 
 // ————————————————————————
-// 离散化（discrete）
+// 离散化（discretize）
 // ————————————————————————
 
-TEST(IntervalList, DiscreteEmpty)
+TEST(IntervalList, DiscretizeEmpty)
 {
     IntervalList list;
-    TimePoint epoch;
-    TimeList tl = list.discrete(epoch, 1.0);
+    TimePoint epoch{};
+    TimeList tl = list.discretize(epoch, 1.0);
 
     EXPECT_TRUE(tl.empty());
 }
 
-TEST(IntervalList, DiscreteZeroStep)
+TEST(IntervalList, DiscretizeZeroStep)
 {
     IntervalList list = {{0.0, 10.0}};
     TimePoint epoch;
-    TimeList tl = list.discrete(epoch, 0.0);
+    TimeList tl = list.discretize(epoch, 0.0);
 
     EXPECT_TRUE(tl.empty());
 }
 
-TEST(IntervalList, DiscreteBasic)
+TEST(IntervalList, DiscretizeBasic)
 {
     // [0, 10] 步长 2.0 → 闭区间含端点: {0, 2, 4, 6, 8, 10}
     IntervalList list = {{0.0, 10.0}};
     TimePoint epoch;
 
-    TimeList tl = list.discrete(epoch, 2.0);
+    TimeList tl = list.discretize(epoch, 2.0);
     ASSERT_EQ(tl.size(), 6u);
 
     const auto& secs = tl.seconds();
@@ -538,7 +538,7 @@ TEST(IntervalList, DiscreteBasic)
     EXPECT_EQ(tl.epoch().integerPart(), epoch.integerPart());
 }
 
-TEST(IntervalList, DiscreteMultipleIntervals)
+TEST(IntervalList, DiscretizeMultipleIntervals)
 {
     // [0, 2] ∪ [5, 7]，步长 1.0 → {0, 1, 2, 5, 6, 7}
     IntervalList list = {
@@ -547,7 +547,7 @@ TEST(IntervalList, DiscreteMultipleIntervals)
     };
     TimePoint epoch;
 
-    TimeList tl = list.discrete(epoch, 1.0);
+    TimeList tl = list.discretize(epoch, 1.0);
     ASSERT_EQ(tl.size(), 6u);
 
     const auto& secs = tl.seconds();
@@ -559,7 +559,7 @@ TEST(IntervalList, DiscreteMultipleIntervals)
     EXPECT_DOUBLE_EQ(secs[5], 7.0);
 }
 
-TEST(IntervalList, DiscreteOriginNotAffected)
+TEST(IntervalList, DiscretizeOriginNotAffected)
 {
     IntervalList list = {
         {0.0, 10.0},
@@ -569,9 +569,9 @@ TEST(IntervalList, DiscreteOriginNotAffected)
 
     IntervalList copy = list;
     TimePoint epoch;
-    list.discrete(epoch, 1.0);
+    list.discretize(epoch, 1.0);
 
-    // discrete 不应修改原列表
+    // discretize 不应修改原列表
     EXPECT_EQ(list.size(), copy.size());
     for (size_t i = 0; i < list.size(); ++i)
     {
@@ -1019,14 +1019,14 @@ TEST(IntervalList, IntersectBothEmpty)
 {
     IntervalList a;
     IntervalList b;
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_TRUE(result.empty());
 }
 
 TEST(IntervalList, IntersectSelf)
 {
     IntervalList a = {{0.0, 10.0}, {20.0, 30.0}};
-    IntervalList result = a.intersect(a);
+    IntervalList result = a.intersected(a);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -1039,7 +1039,7 @@ TEST(IntervalList, IntersectTouchingAtPoint)
     // 仅在边界点接触 [0,10] ∩ [10,20] → 空（start < stop 检查）
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{10.0, 20.0}};
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -1050,7 +1050,7 @@ TEST(IntervalList, IntersectComplex)
     // 交集: [5,10], [20,25], [40,45]
     IntervalList a = {{0.0, 10.0}, {20.0, 30.0}, {40.0, 50.0}};
     IntervalList b = {{5.0, 25.0}, {35.0, 45.0}};
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 3u);
     EXPECT_DOUBLE_EQ(result[0].start_, 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -1066,7 +1066,7 @@ TEST(IntervalList, IntersectOneSpansMultiple)
     // b: [10,20], [30,40], [50,60]
     IntervalList a = {{0.0, 100.0}};
     IntervalList b = {{10.0, 20.0}, {30.0, 40.0}, {50.0, 60.0}};
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 3u);
     EXPECT_DOUBLE_EQ(result[0].start_, 10.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 20.0);
@@ -1076,16 +1076,16 @@ TEST(IntervalList, IntersectOneSpansMultiple)
     EXPECT_DOUBLE_EQ(result[2].stop_, 60.0);
 }
 
-TEST(IntervalList, IntersectDoesNotModifyOperands)
+TEST(IntervalList, IntersectedDoesNotModifyOperands)
 {
     IntervalList a = {{0.0, 10.0}, {20.0, 30.0}};
     IntervalList b = {{5.0, 25.0}};
     IntervalList aCopy = a;
     IntervalList bCopy = b;
 
-    a.intersect(b);
+    a.intersected(b);
 
-    // 操作数不应改变
+    // 副本方法不应改变操作数
     EXPECT_EQ(a.size(), aCopy.size());
     EXPECT_EQ(b.size(), bCopy.size());
     for (size_t i = 0; i < a.size(); ++i)
@@ -1095,13 +1095,29 @@ TEST(IntervalList, IntersectDoesNotModifyOperands)
     }
 }
 
+TEST(IntervalList, IntersectInPlace)
+{
+    IntervalList a = {{0.0, 10.0}, {20.0, 30.0}};
+    IntervalList b = {{5.0, 25.0}};
+
+    IntervalList& ref = a.intersect(b);
+
+    // 原地修改：a 变为交集 [5,10], [20,25]
+    EXPECT_EQ(&ref, &a);
+    EXPECT_EQ(a.size(), 2u);
+    EXPECT_DOUBLE_EQ(a[0].start_, 5.0);
+    EXPECT_DOUBLE_EQ(a[0].stop_, 10.0);
+    EXPECT_DOUBLE_EQ(a[1].start_, 20.0);
+    EXPECT_DOUBLE_EQ(a[1].stop_, 25.0);
+}
+
 TEST(IntervalList, IntersectUnsortedInputs)
 {
     // 无序但无重叠的输入，结果应与有序无异
     IntervalList a = {{20.0, 30.0}, {0.0, 10.0}};  // 无序
     IntervalList b = {{15.0, 25.0}};                 // 有序
     // merged(a)=[0,10],[20,30] ∩ [15,25] = [20,25]
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 20.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 25.0);
@@ -1113,7 +1129,7 @@ TEST(IntervalList, IntersectOverlappingInputs)
     IntervalList a = {{0.0, 10.0}, {5.0, 15.0}};     // 有重叠
     IntervalList b = {{12.0, 20.0}};
     // merged(a)=[0,15] ∩ [12,20] = [12,15]
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 12.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 15.0);
@@ -1125,7 +1141,7 @@ TEST(IntervalList, IntersectBothUnsortedAndOverlapping)
     IntervalList a = {{10.0, 20.0}, {0.0, 8.0}, {5.0, 12.0}};  // 无序+重叠
     IntervalList b = {{25.0, 35.0}, {3.0, 15.0}};               // 无序+重叠
     // merged(a)=[0,20] ∩ merged(b)=[3,15],[25,35] = [3,15]
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 3.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 15.0);
@@ -1140,14 +1156,14 @@ TEST(IntervalList, UniteBothEmpty)
 {
     IntervalList a;
     IntervalList b;
-    IntervalList result = a.unite(b);
+    IntervalList result = a.united(b);
     EXPECT_TRUE(result.empty());
 }
 
 TEST(IntervalList, UniteSelf)
 {
     IntervalList a = {{0.0, 10.0}, {20.0, 30.0}};
-    IntervalList result = a.unite(a);
+    IntervalList result = a.united(a);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -1162,7 +1178,7 @@ TEST(IntervalList, UniteComplex)
     // 并集: [0,15], [20,35]
     IntervalList a = {{0.0, 10.0}, {20.0, 30.0}};
     IntervalList b = {{5.0, 15.0}, {25.0, 35.0}};
-    IntervalList result = a.unite(b);
+    IntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 15.0);
@@ -1175,25 +1191,42 @@ TEST(IntervalList, UniteAllOverlapping)
     // 所有区间都重叠，最终合并为一个
     IntervalList a = {{0.0, 50.0}};
     IntervalList b = {{10.0, 60.0}, {40.0, 100.0}};
-    IntervalList result = a.unite(b);
+    IntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 100.0);
 }
 
-TEST(IntervalList, UniteDoesNotModifyOperands)
+TEST(IntervalList, UnitedDoesNotModifyOperands)
 {
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{5.0, 15.0}};
     IntervalList aCopy = a;
     IntervalList bCopy = b;
 
-    a.unite(b);
+    a.united(b);
 
+    // 副本方法不应改变操作数
     EXPECT_EQ(a.size(), aCopy.size());
     EXPECT_EQ(b.size(), bCopy.size());
     EXPECT_DOUBLE_EQ(a[0].start_, aCopy[0].start_);
     EXPECT_DOUBLE_EQ(a[0].stop_, aCopy[0].stop_);
+}
+
+TEST(IntervalList, UniteInPlace)
+{
+    IntervalList a = {{0.0, 10.0}, {20.0, 30.0}};
+    IntervalList b = {{5.0, 15.0}, {25.0, 35.0}};
+
+    IntervalList& ref = a.unite(b);
+
+    // 原地修改：a 变为并集 [0,15], [20,35]
+    EXPECT_EQ(&ref, &a);
+    EXPECT_EQ(a.size(), 2u);
+    EXPECT_DOUBLE_EQ(a[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(a[0].stop_, 15.0);
+    EXPECT_DOUBLE_EQ(a[1].start_, 20.0);
+    EXPECT_DOUBLE_EQ(a[1].stop_, 35.0);
 }
 
 TEST(IntervalList, UniteUnsortedInputs)
@@ -1202,7 +1235,7 @@ TEST(IntervalList, UniteUnsortedInputs)
     IntervalList a = {{20.0, 30.0}, {0.0, 10.0}};     // 无序
     IntervalList b = {{35.0, 40.0}, {10.0, 15.0}};     // 无序
     // 并: [0,10], [10,15], [20,30], [35,40] → merged → [0,15], [20,30], [35,40]
-    IntervalList result = a.unite(b);
+    IntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 3u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 15.0);
@@ -1218,7 +1251,7 @@ TEST(IntervalList, UniteOverlappingInputs)
     IntervalList a = {{0.0, 10.0}, {5.0, 20.0}};       // 内部重叠 → [0,20]
     IntervalList b = {{15.0, 25.0}, {22.0, 35.0}};      // 内部重叠 → [15,35]
     // 并: [0,20] ∪ [15,35] → [0,35]
-    IntervalList result = a.unite(b);
+    IntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 35.0);
@@ -1233,7 +1266,7 @@ TEST(IntervalList, SubtractFromEmpty)
 {
     IntervalList a;
     IntervalList b = {{0.0, 10.0}};
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -1242,7 +1275,7 @@ TEST(IntervalList, SubtractOvershootBothSides)
     // [5,10] - [0,20] = empty
     IntervalList a = {{5.0, 10.0}};
     IntervalList b = {{0.0, 20.0}};
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -1251,7 +1284,7 @@ TEST(IntervalList, SubtractExactBoundary)
     // [0,10] - [0,5] = [5,10]（b 与 a 左边界完全对齐）
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{0.0, 5.0}};
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -1264,7 +1297,7 @@ TEST(IntervalList, SubtractBSpanningGaps)
     // 结果: [0,5], [45,50]
     IntervalList a = {{0.0, 10.0}, {20.0, 30.0}, {40.0, 50.0}};
     IntervalList b = {{5.0, 45.0}};
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 5.0);
@@ -1280,7 +1313,7 @@ TEST(IntervalList, SubtractWithZeroResult)
     // 结果: [0,5], [15,20]
     IntervalList a = {{0.0, 10.0}, {10.0, 20.0}};
     IntervalList b = {{5.0, 15.0}};
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 5.0);
@@ -1295,7 +1328,7 @@ TEST(IntervalList, SubtractMultipleBInsideOneA)
     // 结果: [0,10], [20,40], [50,80], [90,100]
     IntervalList a = {{0.0, 100.0}};
     IntervalList b = {{10.0, 20.0}, {40.0, 50.0}, {80.0, 90.0}};
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 4u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -1307,20 +1340,39 @@ TEST(IntervalList, SubtractMultipleBInsideOneA)
     EXPECT_DOUBLE_EQ(result[3].stop_, 100.0);
 }
 
-TEST(IntervalList, SubtractDoesNotModifyOperands)
+TEST(IntervalList, SubtractedDoesNotModifyOperands)
 {
     IntervalList a = {{0.0, 30.0}};
     IntervalList b = {{5.0, 10.0}, {15.0, 20.0}};
     IntervalList aCopy = a;
     IntervalList bCopy = b;
 
-    a.subtract(b);
+    a.subtracted(b);
 
+    // 副本方法不应改变操作数
     EXPECT_EQ(a.size(), aCopy.size());
     EXPECT_EQ(b.size(), bCopy.size());
     EXPECT_DOUBLE_EQ(a[0].start_, aCopy[0].start_);
     EXPECT_DOUBLE_EQ(b[0].start_, bCopy[0].start_);
     EXPECT_DOUBLE_EQ(b[1].start_, bCopy[1].start_);
+}
+
+TEST(IntervalList, SubtractInPlace)
+{
+    IntervalList a = {{0.0, 30.0}};
+    IntervalList b = {{5.0, 10.0}, {15.0, 20.0}};
+
+    IntervalList& ref = a.subtract(b);
+
+    // 原地修改：a 变为差集 [0,5], [10,15], [20,30]
+    EXPECT_EQ(&ref, &a);
+    EXPECT_EQ(a.size(), 3u);
+    EXPECT_DOUBLE_EQ(a[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(a[0].stop_, 5.0);
+    EXPECT_DOUBLE_EQ(a[1].start_, 10.0);
+    EXPECT_DOUBLE_EQ(a[1].stop_, 15.0);
+    EXPECT_DOUBLE_EQ(a[2].start_, 20.0);
+    EXPECT_DOUBLE_EQ(a[2].stop_, 30.0);
 }
 
 TEST(IntervalList, SubtractUnsortedInputs)
@@ -1329,7 +1381,7 @@ TEST(IntervalList, SubtractUnsortedInputs)
     IntervalList a = {{20.0, 30.0}, {0.0, 10.0}};    // 无序
     IntervalList b = {{5.0, 25.0}};
     // merged(a)=[0,10],[20,30] - [5,25] = [0,5], [25,30]
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 5.0);
@@ -1343,7 +1395,7 @@ TEST(IntervalList, SubtractOverlappingInputA)
     IntervalList a = {{0.0, 30.0}, {10.0, 40.0}};    // 内部重叠 → merged → [0,40]
     IntervalList b = {{5.0, 10.0}, {20.0, 25.0}};
     // [0,40] - ([5,10] ∪ [20,25]) = [0,5], [10,20], [25,40]
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 3u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 5.0);
@@ -1359,7 +1411,7 @@ TEST(IntervalList, SubtractBothOverlapping)
     IntervalList a = {{0.0, 20.0}, {10.0, 40.0}};      // a: [0,40]
     IntervalList b = {{5.0, 15.0}, {12.0, 25.0}};       // b: [5,25]
     // [0,40] - [5,25] = [0,5], [25,40]
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 5.0);
@@ -1381,7 +1433,7 @@ TEST(IntervalList, IntersectInterleaving)
     IntervalList a = {{0.0, 10.0}, {25.0, 35.0}, {50.0, 60.0}};
     IntervalList b = {{5.0, 15.0}, {30.0, 40.0}, {55.0, 65.0}};
 
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 3u);
     EXPECT_DOUBLE_EQ(result[0].start_, 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -1400,7 +1452,7 @@ TEST(IntervalList, IntersectInterleavingWithGaps)
     IntervalList a = {{0.0, 15.0}, {30.0, 50.0}};
     IntervalList b = {{5.0, 10.0}, {20.0, 25.0}, {35.0, 45.0}};
 
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -1417,7 +1469,7 @@ TEST(IntervalList, UniteInterleaving)
     IntervalList a = {{0.0, 10.0}, {30.0, 40.0}, {60.0, 70.0}};
     IntervalList b = {{15.0, 25.0}, {45.0, 55.0}};
 
-    IntervalList result = a.unite(b);
+    IntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 5u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -1440,7 +1492,7 @@ TEST(IntervalList, SubtractInterleaving)
     IntervalList a = {{0.0, 20.0}, {30.0, 50.0}, {60.0, 80.0}};
     IntervalList b = {{5.0, 10.0}, {35.0, 40.0}, {65.0, 70.0}};
 
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 6u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 5.0);
@@ -1465,7 +1517,7 @@ TEST(IntervalList, SubtractExactEdges)
     IntervalList a = {{0.0, 10.0}, {10.0, 20.0}};
     IntervalList b = {{8.0, 12.0}};
 
-    IntervalList result = a.subtract(b);
+    IntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 8.0);
@@ -1480,24 +1532,24 @@ TEST(IntervalList, SubtractExactEdges)
 
 
 // ————————————————————————
-// Discrete 边界情况
+// Discretize 边界情况
 // ————————————————————————
 
-TEST(IntervalList, DiscreteSinglePointInterval)
+TEST(IntervalList, DiscretizeSinglePointInterval)
 {
     // 零长度区间无法按正步长离散
     IntervalList list = {{5.0, 5.0}};
     TimePoint epoch;
-    TimeList tl = list.discrete(epoch, 1.0);
+    TimeList tl = list.discretize(epoch, 1.0);
     EXPECT_TRUE(tl.empty());
 }
 
-TEST(IntervalList, DiscreteStepLargerThanInterval)
+TEST(IntervalList, DiscretizeStepLargerThanInterval)
 {
     // 步长大于区间长度，应至少产生起点和终点
     IntervalList list = {{0.0, 0.5}};
     TimePoint epoch;
-    TimeList tl = list.discrete(epoch, 1.0);
+    TimeList tl = list.discretize(epoch, 1.0);
     ASSERT_FALSE(tl.empty());
     EXPECT_EQ(tl.size(), 2u);
 
@@ -1505,12 +1557,12 @@ TEST(IntervalList, DiscreteStepLargerThanInterval)
     EXPECT_DOUBLE_EQ(tl.seconds()[1], 0.5);
 }
 
-TEST(IntervalList, DiscreteExactDivisible)
+TEST(IntervalList, DiscretizeExactDivisible)
 {
     // [0, 10] 步长 2.0 → 闭区间含端点: {0, 2, 4, 6, 8, 10}
     IntervalList list = {{0.0, 10.0}};
     TimePoint epoch;
-    TimeList tl = list.discrete(epoch, 2.0);
+    TimeList tl = list.discretize(epoch, 2.0);
     ASSERT_EQ(tl.size(), 6u);
 
     const auto& secs = tl.seconds();
@@ -1522,12 +1574,12 @@ TEST(IntervalList, DiscreteExactDivisible)
     EXPECT_DOUBLE_EQ(secs[5], 10.0);
 }
 
-TEST(IntervalList, DiscreteNonIntegerStep)
+TEST(IntervalList, DiscretizeNonIntegerStep)
 {
     // [0, 1] 步长 0.3 → 闭区间含端点: {0, 0.3, 0.6, 0.9, 1.0}
     IntervalList list = {{0.0, 1.0}};
     TimePoint epoch;
-    TimeList tl = list.discrete(epoch, 0.3);
+    TimeList tl = list.discretize(epoch, 0.3);
     ASSERT_EQ(tl.size(), 5u);
 
     const auto& secs = tl.seconds();
@@ -1538,12 +1590,12 @@ TEST(IntervalList, DiscreteNonIntegerStep)
     EXPECT_DOUBLE_EQ(secs[4], 1.0);
 }
 
-TEST(IntervalList, DiscreteStepNotDivisible)
+TEST(IntervalList, DiscretizeStepNotDivisible)
 {
     // [0, 10] 步长 3.0 → 不能整除，闭区间含端点: {0, 3, 6, 9, 10}
     IntervalList list = {{0.0, 10.0}};
     TimePoint epoch;
-    TimeList tl = list.discrete(epoch, 3.0);
+    TimeList tl = list.discretize(epoch, 3.0);
     ASSERT_EQ(tl.size(), 5u);
 
     const auto& secs = tl.seconds();
@@ -1554,12 +1606,12 @@ TEST(IntervalList, DiscreteStepNotDivisible)
     EXPECT_DOUBLE_EQ(secs[4], 10.0);
 }
 
-TEST(IntervalList, DiscreteVerySmallStep)
+TEST(IntervalList, DiscretizeVerySmallStep)
 {
     // 很小的步长，产生大量点 — 验证首尾值
     IntervalList list = {{0.0, 0.1}};
     TimePoint epoch;
-    TimeList tl = list.discrete(epoch, 0.001);
+    TimeList tl = list.discretize(epoch, 0.001);
     ASSERT_FALSE(tl.empty());
     EXPECT_GT(tl.size(), 10u);
 
@@ -1568,11 +1620,11 @@ TEST(IntervalList, DiscreteVerySmallStep)
     EXPECT_DOUBLE_EQ(secs.back(), 0.1);
 }
 
-TEST(IntervalList, DiscretePreservesEpoch)
+TEST(IntervalList, DiscretizePreservesEpoch)
 {
     TimePoint epoch;
     IntervalList list = {{10.0, 20.0}};
-    TimeList tl = list.discrete(epoch, 2.0);
+    TimeList tl = list.discretize(epoch, 2.0);
     EXPECT_EQ(tl.epoch().integerPart(), epoch.integerPart());
 
     // 验证秒偏移量也正确
@@ -1580,12 +1632,12 @@ TEST(IntervalList, DiscretePreservesEpoch)
     EXPECT_DOUBLE_EQ(tl.seconds()[0], 10.0);
 }
 
-TEST(IntervalList, DiscreteNegativeInterval)
+TEST(IntervalList, DiscretizeNegativeInterval)
 {
     // 负区间 [-10, 0] 步长 2.0 → {-10, -8, -6, -4, -2, 0}
     IntervalList list = {{-10.0, 0.0}};
     TimePoint epoch;
-    TimeList tl = list.discrete(epoch, 2.0);
+    TimeList tl = list.discretize(epoch, 2.0);
     ASSERT_EQ(tl.size(), 6u);
 
     const auto& secs = tl.seconds();
@@ -1609,7 +1661,7 @@ TEST(IntervalList, ChainedMergedIntersect)
     // a.merged() = [0,10], [12,15]
     IntervalList b = {{5.0, 13.0}};
     // 交集: [5,10], [12,13]
-    IntervalList result = a.merged().intersect(b);
+    IntervalList result = a.merged().intersected(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -1623,8 +1675,8 @@ TEST(IntervalList, ChainedUniteSubtract)
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{5.0, 15.0}};
     IntervalList c = {{2.0, 3.0}};
-    // a.unite(b) = [0,15], 再 subtract c → [0,2], [3,15]
-    IntervalList result = a.unite(b).subtract(c);
+    // a.united(b) = [0,15], 再 subtract c → [0,2], [3,15]
+    IntervalList result = a.united(b).subtracted(c);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 2.0);
@@ -1637,8 +1689,8 @@ TEST(IntervalList, ChainedIntersectThenMerged)
     // 交后再合并（intersect 本身已合并，链式调用验证幂等性）
     IntervalList a = {{0.0, 8.0}, {5.0, 15.0}};
     IntervalList b = {{7.0, 20.0}};
-    // a.intersect(b) 内部先 merged a=[0,15], 再与 b=[7,20] 交 → [7,15]
-    IntervalList result = a.intersect(b).merged();
+    // a.intersected(b) 内部先 merged a=[0,15], 再与 b=[7,20] 交 → [7,15]
+    IntervalList result = a.intersected(b).merged();
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start_, 7.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 15.0);
@@ -1652,7 +1704,7 @@ TEST(IntervalList, ChainedSubtractAll)
     IntervalList c = {{50.0, 60.0}};
     IntervalList d = {{85.0, 95.0}};
 
-    IntervalList result = a.subtract(b).subtract(c).subtract(d);
+    IntervalList result = a.subtracted(b).subtracted(c).subtracted(d);
     EXPECT_EQ(result.size(), 4u);
     EXPECT_DOUBLE_EQ(result[0].start_, 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
@@ -1718,13 +1770,58 @@ TEST(IntervalList, ManyIntervalsIntersect)
         b.push_back(t * 10.0 + 2.0, t * 10.0 + 7.0);
     }
     // 每对区间有 3 秒重叠
-    IntervalList result = a.intersect(b);
+    IntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), N);
     for (size_t i = 0; i < N; ++i)
     {
         EXPECT_DOUBLE_EQ(result[i].start_, i * 10.0 + 2.0);
         EXPECT_DOUBLE_EQ(result[i].stop_, i * 10.0 + 5.0);
     }
+}
+
+
+TEST(IntervalList, OperatorOverloads)
+{
+    IntervalList a = {{0.0, 10.0}, {20.0, 30.0}};
+    IntervalList b = {{5.0, 25.0}};
+
+    // 副本运算符
+    IntervalList inter = a & b;   // [5,10], [20,25]
+    IntervalList uni  = a | b;    // [0,30]
+    IntervalList diff = a - b;    // [0,5], [25,30]
+
+    EXPECT_EQ(inter.size(), 2u);
+    EXPECT_DOUBLE_EQ(inter[0].start_, 5.0);
+    EXPECT_DOUBLE_EQ(inter[0].stop_, 10.0);
+    EXPECT_DOUBLE_EQ(inter[1].start_, 20.0);
+    EXPECT_DOUBLE_EQ(inter[1].stop_, 25.0);
+
+    EXPECT_EQ(uni.size(), 1u);
+    EXPECT_DOUBLE_EQ(uni[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(uni[0].stop_, 30.0);
+
+    EXPECT_EQ(diff.size(), 2u);
+    EXPECT_DOUBLE_EQ(diff[0].start_, 0.0);
+    EXPECT_DOUBLE_EQ(diff[0].stop_, 5.0);
+    EXPECT_DOUBLE_EQ(diff[1].start_, 25.0);
+    EXPECT_DOUBLE_EQ(diff[1].stop_, 30.0);
+
+    // 副本运算符不改操作数
+    EXPECT_EQ(a.size(), 2u);
+    EXPECT_EQ(b.size(), 1u);
+
+    // 原地运算符
+    IntervalList c = a;
+    c &= b;
+    EXPECT_EQ(c.size(), 2u);   // [5,10], [20,25]
+
+    c = a;
+    c |= b;
+    EXPECT_EQ(c.size(), 1u);   // [0,30]
+
+    c = a;
+    c -= b;
+    EXPECT_EQ(c.size(), 2u);   // [0,5], [25,30]
 }
 
 

@@ -210,7 +210,7 @@ TEST(TimeIntervalList, EpochPreservedThroughOperations)
     TimeIntervalList merged = list.merged();
     EXPECT_DOUBLE_EQ(merged.epoch().durationFrom(epoch), 0.0);
 
-    TimeIntervalList intersected = list.intersect(list);
+    TimeIntervalList intersected = list.intersected(list);
     EXPECT_DOUBLE_EQ(intersected.epoch().durationFrom(epoch), 0.0);
 }
 
@@ -585,7 +585,7 @@ TEST(TimeIntervalList, IntersectEmpty)
     a.push_back(TimeInterval(epoch, 0.0, 10.0));
     TimeIntervalList b(epoch);
 
-    TimeIntervalList result = a.intersect(b);
+    TimeIntervalList result = a.intersected(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -597,7 +597,7 @@ TEST(TimeIntervalList, IntersectNoOverlap)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 20.0, 30.0));
 
-    TimeIntervalList result = a.intersect(b);
+    TimeIntervalList result = a.intersected(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -609,7 +609,7 @@ TEST(TimeIntervalList, IntersectPartial)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 5.0, 15.0));
 
-    TimeIntervalList result = a.intersect(b);
+    TimeIntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 1u);
 
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 5.0);
@@ -628,7 +628,7 @@ TEST(TimeIntervalList, IntersectMultiple)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 5.0, 25.0));
 
-    TimeIntervalList result = a.intersect(b);
+    TimeIntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 2u);
 
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 5.0);
@@ -637,7 +637,7 @@ TEST(TimeIntervalList, IntersectMultiple)
     EXPECT_DOUBLE_EQ(result[1].stop().durationFrom(epoch), 25.0);
 }
 
-TEST(TimeIntervalList, IntersectDoesNotModifyOperands)
+TEST(TimeIntervalList, IntersectedDoesNotModifyOperands)
 {
     TimePoint epoch = testEpoch();
     TimeIntervalList a(epoch);
@@ -648,10 +648,32 @@ TEST(TimeIntervalList, IntersectDoesNotModifyOperands)
 
     size_t aSize = a.size();
     size_t bSize = b.size();
-    a.intersect(b);
+    a.intersected(b);
 
+    // 副本方法不应改变操作数
     EXPECT_EQ(a.size(), aSize);
     EXPECT_EQ(b.size(), bSize);
+}
+
+TEST(TimeIntervalList, IntersectInPlace)
+{
+    TimePoint epoch = testEpoch();
+    TimeIntervalList a(epoch);
+    a.push_back(TimeInterval(epoch, 0.0, 10.0));
+    a.push_back(TimeInterval(epoch, 20.0, 30.0));
+    TimeIntervalList b(epoch);
+    b.push_back(TimeInterval(epoch, 5.0, 25.0));
+
+    TimeIntervalList& ref = a.intersect(b);
+
+    // 原地修改：a 变为交集 [5,10], [20,25]，epoch 不变
+    EXPECT_EQ(&ref, &a);
+    EXPECT_DOUBLE_EQ(a.epoch().durationFrom(epoch), 0.0);
+    EXPECT_EQ(a.size(), 2u);
+    EXPECT_DOUBLE_EQ(a[0].start().durationFrom(epoch), 5.0);
+    EXPECT_DOUBLE_EQ(a[0].stop().durationFrom(epoch), 10.0);
+    EXPECT_DOUBLE_EQ(a[1].start().durationFrom(epoch), 20.0);
+    EXPECT_DOUBLE_EQ(a[1].stop().durationFrom(epoch), 25.0);
 }
 
 TEST(TimeIntervalList, IntersectBothEmpty)
@@ -659,7 +681,7 @@ TEST(TimeIntervalList, IntersectBothEmpty)
     TimeIntervalList a(testEpoch());
     TimeIntervalList b(testEpoch());
 
-    TimeIntervalList result = a.intersect(b);
+    TimeIntervalList result = a.intersected(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -672,7 +694,7 @@ TEST(TimeIntervalList, IntersectFullyContained)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 5.0, 10.0));
 
-    TimeIntervalList result = a.intersect(b);
+    TimeIntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 10.0);
@@ -686,7 +708,7 @@ TEST(TimeIntervalList, IntersectSelf)
     a.push_back(TimeInterval(epoch, 10.0, 20.0));  // 乱序
     a.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeIntervalList result = a.intersect(a);
+    TimeIntervalList result = a.intersected(a);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 20.0);
@@ -706,7 +728,7 @@ TEST(TimeIntervalList, IntersectComplexBothMultiple)
     b.push_back(TimeInterval(epoch, 5.0, 25.0));
     b.push_back(TimeInterval(epoch, 35.0, 45.0));
 
-    TimeIntervalList result = a.intersect(b);
+    TimeIntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 3u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 10.0);
@@ -728,7 +750,7 @@ TEST(TimeIntervalList, UniteEmpty)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeIntervalList result = a.unite(b);
+    TimeIntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 1u);
 
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
@@ -743,7 +765,7 @@ TEST(TimeIntervalList, UniteNonOverlapping)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 20.0, 30.0));
 
-    TimeIntervalList result = a.unite(b);
+    TimeIntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 2u);
 
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
@@ -760,14 +782,14 @@ TEST(TimeIntervalList, UniteOverlapping)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 5.0, 15.0));
 
-    TimeIntervalList result = a.unite(b);
+    TimeIntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 1u);
 
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 15.0);
 }
 
-TEST(TimeIntervalList, UniteDoesNotModifyOperands)
+TEST(TimeIntervalList, UnitedDoesNotModifyOperands)
 {
     TimePoint epoch = testEpoch();
     TimeIntervalList a(epoch);
@@ -776,8 +798,31 @@ TEST(TimeIntervalList, UniteDoesNotModifyOperands)
     b.push_back(TimeInterval(epoch, 5.0, 15.0));
 
     size_t aSize = a.size();
-    a.unite(b);
+    a.united(b);
+    // 副本方法不应改变操作数
     EXPECT_EQ(a.size(), aSize);
+}
+
+TEST(TimeIntervalList, UniteInPlace)
+{
+    TimePoint epoch = testEpoch();
+    TimeIntervalList a(epoch);
+    a.push_back(TimeInterval(epoch, 0.0, 10.0));
+    a.push_back(TimeInterval(epoch, 20.0, 30.0));
+    TimeIntervalList b(epoch);
+    b.push_back(TimeInterval(epoch, 5.0, 15.0));
+    b.push_back(TimeInterval(epoch, 25.0, 35.0));
+
+    TimeIntervalList& ref = a.unite(b);
+
+    // 原地修改：a 变为并集 [0,15], [20,35]，epoch 不变
+    EXPECT_EQ(&ref, &a);
+    EXPECT_DOUBLE_EQ(a.epoch().durationFrom(epoch), 0.0);
+    EXPECT_EQ(a.size(), 2u);
+    EXPECT_DOUBLE_EQ(a[0].start().durationFrom(epoch), 0.0);
+    EXPECT_DOUBLE_EQ(a[0].stop().durationFrom(epoch), 15.0);
+    EXPECT_DOUBLE_EQ(a[1].start().durationFrom(epoch), 20.0);
+    EXPECT_DOUBLE_EQ(a[1].stop().durationFrom(epoch), 35.0);
 }
 
 TEST(TimeIntervalList, UniteBothEmpty)
@@ -785,7 +830,7 @@ TEST(TimeIntervalList, UniteBothEmpty)
     TimeIntervalList a(testEpoch());
     TimeIntervalList b(testEpoch());
 
-    TimeIntervalList result = a.unite(b);
+    TimeIntervalList result = a.united(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -798,7 +843,7 @@ TEST(TimeIntervalList, UniteFullyContained)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 5.0, 10.0));
 
-    TimeIntervalList result = a.unite(b);
+    TimeIntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 20.0);
@@ -812,7 +857,7 @@ TEST(TimeIntervalList, UniteSelf)
     a.push_back(TimeInterval(epoch, 10.0, 20.0));
     a.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeIntervalList result = a.unite(a);
+    TimeIntervalList result = a.united(a);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 20.0);
@@ -827,7 +872,7 @@ TEST(TimeIntervalList, UniteAdjacent)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 10.0, 20.0));
 
-    TimeIntervalList result = a.unite(b);
+    TimeIntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 20.0);
@@ -845,7 +890,7 @@ TEST(TimeIntervalList, SubtractEmpty)
     a.push_back(TimeInterval(epoch, 0.0, 10.0));
     TimeIntervalList b(epoch);
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 1u);
 
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
@@ -861,7 +906,7 @@ TEST(TimeIntervalList, SubtractMiddle)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 3.0, 7.0));
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 2u);
 
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
@@ -879,7 +924,7 @@ TEST(TimeIntervalList, SubtractComplete)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -893,7 +938,7 @@ TEST(TimeIntervalList, SubtractMultiple)
     b.push_back(TimeInterval(epoch, 5.0, 10.0));
     b.push_back(TimeInterval(epoch, 15.0, 20.0));
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 3u);
 
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
@@ -912,7 +957,7 @@ TEST(TimeIntervalList, SubtractLeftEmpty)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -921,8 +966,31 @@ TEST(TimeIntervalList, SubtractBothEmpty)
     TimeIntervalList a(testEpoch());
     TimeIntervalList b(testEpoch());
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_TRUE(result.empty());
+}
+
+TEST(TimeIntervalList, SubtractInPlace)
+{
+    TimePoint epoch = testEpoch();
+    TimeIntervalList a(epoch);
+    a.push_back(TimeInterval(epoch, 0.0, 30.0));
+    TimeIntervalList b(epoch);
+    b.push_back(TimeInterval(epoch, 5.0, 10.0));
+    b.push_back(TimeInterval(epoch, 15.0, 20.0));
+
+    TimeIntervalList& ref = a.subtract(b);
+
+    // 原地修改：a 变为差集 [0,5], [10,15], [20,30]，epoch 不变
+    EXPECT_EQ(&ref, &a);
+    EXPECT_DOUBLE_EQ(a.epoch().durationFrom(epoch), 0.0);
+    EXPECT_EQ(a.size(), 3u);
+    EXPECT_DOUBLE_EQ(a[0].start().durationFrom(epoch), 0.0);
+    EXPECT_DOUBLE_EQ(a[0].stop().durationFrom(epoch), 5.0);
+    EXPECT_DOUBLE_EQ(a[1].start().durationFrom(epoch), 10.0);
+    EXPECT_DOUBLE_EQ(a[1].stop().durationFrom(epoch), 15.0);
+    EXPECT_DOUBLE_EQ(a[2].start().durationFrom(epoch), 20.0);
+    EXPECT_DOUBLE_EQ(a[2].stop().durationFrom(epoch), 30.0);
 }
 
 TEST(TimeIntervalList, SubtractLeftOverhang)
@@ -934,7 +1002,7 @@ TEST(TimeIntervalList, SubtractLeftOverhang)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 10.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 15.0);
@@ -949,7 +1017,7 @@ TEST(TimeIntervalList, SubtractRightOverhang)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 10.0, 20.0));
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 10.0);
@@ -964,7 +1032,7 @@ TEST(TimeIntervalList, SubtractBothOverhang)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 0.0, 20.0));
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_TRUE(result.empty());
 }
 
@@ -976,7 +1044,7 @@ TEST(TimeIntervalList, SubtractSelf)
     a.push_back(TimeInterval(epoch, 0.0, 10.0));
     a.push_back(TimeInterval(epoch, 20.0, 30.0));
 
-    TimeIntervalList result = a.subtract(a);
+    TimeIntervalList result = a.subtracted(a);
     EXPECT_TRUE(result.empty());
 }
 
@@ -989,7 +1057,7 @@ TEST(TimeIntervalList, SubtractAtLeftBoundary)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 5.0, 10.0));
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 5.0);
@@ -1004,7 +1072,7 @@ TEST(TimeIntervalList, SubtractAtRightBoundary)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 0.0, 5.0));
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 5.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 10.0);
@@ -1033,7 +1101,7 @@ TEST(TimeIntervalList, IntersectUnsortedOverlappingA)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 10.0, 25.0));
 
-    TimeIntervalList result = a.intersect(b);
+    TimeIntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 10.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 15.0);
@@ -1056,7 +1124,7 @@ TEST(TimeIntervalList, IntersectBothUnsortedOverlapping)
     b.push_back(TimeInterval(epoch, 28.0, 32.0));
     b.push_back(TimeInterval(epoch, 8.0, 20.0));
 
-    TimeIntervalList result = a.intersect(b);
+    TimeIntervalList result = a.intersected(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 8.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 15.0);
@@ -1078,7 +1146,7 @@ TEST(TimeIntervalList, UniteUnsortedOverlappingInputs)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 12.0, 25.0));
 
-    TimeIntervalList result = a.unite(b);
+    TimeIntervalList result = a.united(b);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 30.0);
@@ -1098,7 +1166,7 @@ TEST(TimeIntervalList, SubtractUnsortedOverlappingInputs)
     TimeIntervalList b(epoch);
     b.push_back(TimeInterval(epoch, 10.0, 25.0));
 
-    TimeIntervalList result = a.subtract(b);
+    TimeIntervalList result = a.subtracted(b);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
     EXPECT_DOUBLE_EQ(result[0].stop().durationFrom(epoch), 10.0);
@@ -1109,9 +1177,9 @@ TEST(TimeIntervalList, SubtractUnsortedOverlappingInputs)
 TEST(TimeIntervalList, SetOpsEquivalentToMerged)
 {
     // 核心不变式：对任意无序/重叠输入，集合运算结果 ≡ 先合并再运算
-    // intersect(a, b) == merged(a).intersect(merged(b))
-    // unite(a, b)     == merged(a).unite(merged(b))
-    // subtract(a, b)  == merged(a).subtract(merged(b))
+    // intersected(a, b) == merged(a).intersected(merged(b))
+    // united(a, b)      == merged(a).united(merged(b))
+    // subtracted(a, b)  == merged(a).subtracted(merged(b))
     TimePoint epoch = testEpoch();
 
     TimeIntervalList a(epoch);
@@ -1124,14 +1192,14 @@ TEST(TimeIntervalList, SetOpsEquivalentToMerged)
     b.push_back(TimeInterval(epoch, 8.0, 20.0));  // 乱序 + 重叠
 
     // 直接运算（未先合并）
-    TimeIntervalList directInter = a.intersect(b);
-    TimeIntervalList directUnite = a.unite(b);
-    TimeIntervalList directSub = a.subtract(b);
+    TimeIntervalList directInter = a.intersected(b);
+    TimeIntervalList directUnite = a.united(b);
+    TimeIntervalList directSub = a.subtracted(b);
 
     // 先合并再运算（参照标准）
-    TimeIntervalList mergedInter = a.merged().intersect(b.merged());
-    TimeIntervalList mergedUnite = a.merged().unite(b.merged());
-    TimeIntervalList mergedSub = a.merged().subtract(b.merged());
+    TimeIntervalList mergedInter = a.merged().intersected(b.merged());
+    TimeIntervalList mergedUnite = a.merged().united(b.merged());
+    TimeIntervalList mergedSub = a.merged().subtracted(b.merged());
 
     // 结果应完全一致
     ASSERT_EQ(directInter.size(), mergedInter.size());
@@ -1180,7 +1248,7 @@ TEST(TimeIntervalList, IntersectDifferentEpochNoOverlap)
     TimeIntervalList list2(epoch2);
     list2.push_back(TimeInterval(epoch2, 0.0, 25.0));
 
-    TimeIntervalList result = list1.intersect(list2);
+    TimeIntervalList result = list1.intersected(list2);
     EXPECT_TRUE(result.empty());
     // epoch 应为 list1 的 epoch
     EXPECT_DOUBLE_EQ(result.epoch().durationFrom(epoch1), 0.0);
@@ -1200,7 +1268,7 @@ TEST(TimeIntervalList, IntersectDifferentEpochWithOverlap)
     TimeIntervalList list2(epoch2);
     list2.push_back(TimeInterval(epoch2, 0.0, 30.0));
 
-    TimeIntervalList result = list1.intersect(list2);
+    TimeIntervalList result = list1.intersected(list2);
     EXPECT_EQ(result.size(), 1u);
 
     EXPECT_DOUBLE_EQ(result.epoch().durationFrom(epoch1), 0.0);
@@ -1222,7 +1290,7 @@ TEST(TimeIntervalList, UniteDifferentEpoch)
     TimeIntervalList list2(epoch2);
     list2.push_back(TimeInterval(epoch2, 0.0, 10.0));
 
-    TimeIntervalList result = list1.unite(list2);
+    TimeIntervalList result = list1.united(list2);
     EXPECT_EQ(result.size(), 2u);
 
     EXPECT_DOUBLE_EQ(result.epoch().durationFrom(epoch1), 0.0);
@@ -1246,7 +1314,7 @@ TEST(TimeIntervalList, SubtractDifferentEpoch)
     TimeIntervalList list2(epoch2);
     list2.push_back(TimeInterval(epoch2, 0.0, 20.0));
 
-    TimeIntervalList result = list1.subtract(list2);
+    TimeIntervalList result = list1.subtracted(list2);
     EXPECT_EQ(result.size(), 2u);
 
     EXPECT_DOUBLE_EQ(result.epoch().durationFrom(epoch1), 0.0);
@@ -1272,7 +1340,7 @@ TEST(TimeIntervalList, IntersectDifferentEpochMultiInterval)
     list2.push_back(TimeInterval(epoch2, 0.0, 15.0));
     list2.push_back(TimeInterval(epoch2, 30.0, 40.0));
 
-    TimeIntervalList result = list1.intersect(list2);
+    TimeIntervalList result = list1.intersected(list2);
     EXPECT_EQ(result.size(), 2u);
     EXPECT_DOUBLE_EQ(result.epoch().durationFrom(epoch1), 0.0);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch1), 10.0);
@@ -1292,7 +1360,7 @@ TEST(TimeIntervalList, UniteDifferentEpochEmpty)
     TimeIntervalList list2(epoch2);
     list2.push_back(TimeInterval(epoch2, 0.0, 10.0));  // 绝对 [100, 110]
 
-    TimeIntervalList result = list1.unite(list2);
+    TimeIntervalList result = list1.united(list2);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result.epoch().durationFrom(epoch1), 0.0);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch1), 100.0);
@@ -1313,7 +1381,7 @@ TEST(TimeIntervalList, SubtractDifferentEpochBOverlapsLeft)
     TimeIntervalList list2(epoch2);
     list2.push_back(TimeInterval(epoch2, 0.0, 40.0));
 
-    TimeIntervalList result = list1.subtract(list2);
+    TimeIntervalList result = list1.subtracted(list2);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result.epoch().durationFrom(epoch1), 0.0);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch1), 70.0);
@@ -1336,7 +1404,7 @@ TEST(TimeIntervalList, CrossEpochBEarlierThanA)
     TimeIntervalList list2(epoch2);
     list2.push_back(TimeInterval(epoch2, 120.0, 130.0));
 
-    TimeIntervalList result = list1.intersect(list2);
+    TimeIntervalList result = list1.intersected(list2);
     EXPECT_EQ(result.size(), 1u);
     EXPECT_DOUBLE_EQ(result.epoch().durationFrom(epoch1), 0.0);
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch1), 20.0);
@@ -1382,7 +1450,7 @@ TEST(TimeIntervalList, ToIntervalListRoundTrip)
 
 
 // ————————————————————————
-// 离散化（discrete）
+// 离散化（discretize）
 //
 // 离散化的区间语义为闭区间 [start, stop]：
 // - 端点 start 和 stop 始终被包含
@@ -1391,13 +1459,13 @@ TEST(TimeIntervalList, ToIntervalListRoundTrip)
 //   例如：[0, 10] step=3 → 0, 3, 6, 9, 10（5个点）
 // ————————————————————————
 
-TEST(TimeIntervalList, DiscreteBasic)
+TEST(TimeIntervalList, DiscretizeBasic)
 {
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
     list.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeList tl = list.discrete(2.0);
+    TimeList tl = list.discretize(2.0);
     ASSERT_EQ(tl.size(), 6u);
 
     const auto& secs = tl.seconds();
@@ -1409,37 +1477,37 @@ TEST(TimeIntervalList, DiscreteBasic)
     EXPECT_DOUBLE_EQ(secs[5], 10.0);
 }
 
-TEST(TimeIntervalList, DiscreteEmpty)
+TEST(TimeIntervalList, DiscretizeEmpty)
 {
     TimeIntervalList list(testEpoch());
-    TimeList tl = list.discrete(1.0);
+    TimeList tl = list.discretize(1.0);
     EXPECT_TRUE(tl.empty());
 }
 
-TEST(TimeIntervalList, DiscreteZeroStep)
+TEST(TimeIntervalList, DiscretizeZeroStep)
 {
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
     list.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeList tl = list.discrete(0.0);
+    TimeList tl = list.discretize(0.0);
     EXPECT_TRUE(tl.empty());
 }
 
-TEST(TimeIntervalList, DiscreteWithExplicitEpoch)
+TEST(TimeIntervalList, DiscretizeWithExplicitEpoch)
 {
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
     list.push_back(TimeInterval(epoch, 0.0, 10.0));
 
     TimePoint outputEpoch = epoch.shiftedBySecond(500.0);
-    TimeList tl = list.discrete(outputEpoch, 2.0);
+    TimeList tl = list.discretize(outputEpoch, 2.0);
 
     ASSERT_FALSE(tl.empty());
     EXPECT_DOUBLE_EQ(tl.epoch().durationFrom(outputEpoch), 0.0);
 }
 
-TEST(TimeIntervalList, DiscretePreservesList)
+TEST(TimeIntervalList, DiscretizePreservesList)
 {
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
@@ -1447,12 +1515,12 @@ TEST(TimeIntervalList, DiscretePreservesList)
     list.push_back(TimeInterval(epoch, 20.0, 30.0));
 
     size_t origSize = list.size();
-    list.discrete(1.0);
+    list.discretize(1.0);
 
     EXPECT_EQ(list.size(), origSize);
 }
 
-TEST(TimeIntervalList, DiscreteMultipleIntervals)
+TEST(TimeIntervalList, DiscretizeMultipleIntervals)
 {
     // [0,5], [10,15] step 2.0
     // 每个区间输出: start + i*step 直到 <= stop，且始终包含端点 stop
@@ -1461,7 +1529,7 @@ TEST(TimeIntervalList, DiscreteMultipleIntervals)
     list.push_back(TimeInterval(epoch, 0.0, 5.0));
     list.push_back(TimeInterval(epoch, 10.0, 15.0));
 
-    TimeList tl = list.discrete(2.0);
+    TimeList tl = list.discretize(2.0);
     // [0,5]: 0, 2, 4, 5 (4点；5 是端点)
     // [10,15]: 10, 12, 14, 15 (4点；15 是端点)
     ASSERT_EQ(tl.size(), 8u);
@@ -1477,14 +1545,14 @@ TEST(TimeIntervalList, DiscreteMultipleIntervals)
     EXPECT_DOUBLE_EQ(secs[7], 15.0);
 }
 
-TEST(TimeIntervalList, DiscreteNonDivisibleStep)
+TEST(TimeIntervalList, DiscretizeNonDivisibleStep)
 {
     // [0,10] step 3.0 — 步长不能整除区间长度，端点 10 应被强制包含
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
     list.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeList tl = list.discrete(3.0);
+    TimeList tl = list.discretize(3.0);
     // 步进点: 0, 3, 6, 9；端点: 10
     ASSERT_EQ(tl.size(), 5u);
 
@@ -1496,14 +1564,14 @@ TEST(TimeIntervalList, DiscreteNonDivisibleStep)
     EXPECT_DOUBLE_EQ(secs[4], 10.0);
 }
 
-TEST(TimeIntervalList, DiscreteStepLargerThanInterval)
+TEST(TimeIntervalList, DiscretizeStepLargerThanInterval)
 {
     // [1, 2] step 5.0 — 步长大于区间长度，至少包含起止端点
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
     list.push_back(TimeInterval(epoch, 1.0, 2.0));
 
-    TimeList tl = list.discrete(5.0);
+    TimeList tl = list.discretize(5.0);
     ASSERT_EQ(tl.size(), 2u);
 
     const auto& secs = tl.seconds();
@@ -1615,7 +1683,7 @@ TEST(TimeIntervalList, ChainedMergedIntersect)
 
     // a.merged() = [0,10], [12,15]
     // 交集: [5,10], [12,13]
-    TimeIntervalList result = a.merged().intersect(b);
+    TimeIntervalList result = a.merged().intersected(b);
     EXPECT_EQ(result.size(), 2u);
 
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 5.0);
@@ -1636,8 +1704,8 @@ TEST(TimeIntervalList, ChainedUniteSubtract)
     TimeIntervalList c(epoch);
     c.push_back(TimeInterval(epoch, 2.0, 3.0));
 
-    // a.unite(b) = [0,15], subtract c → [0,2], [3,15]
-    TimeIntervalList result = a.unite(b).subtract(c);
+    // a.united(b) = [0,15], subtract c → [0,2], [3,15]
+    TimeIntervalList result = a.united(b).subtracted(c);
     EXPECT_EQ(result.size(), 2u);
 
     EXPECT_DOUBLE_EQ(result[0].start().durationFrom(epoch), 0.0);
@@ -1772,6 +1840,51 @@ TEST(TimeIntervalList, SetEpochOnNonEmpty)
     TimeInterval iv = list[0];
     EXPECT_DOUBLE_EQ(iv.start().durationFrom(epoch2), 0.0);
     EXPECT_DOUBLE_EQ(iv.stop().durationFrom(epoch2), 10.0);
+}
+
+
+TEST(TimeIntervalList, OperatorOverloads)
+{
+    TimePoint epoch = testEpoch();
+    TimeIntervalList a(epoch);
+    a.push_back(TimeInterval(epoch, 0.0, 10.0));
+    a.push_back(TimeInterval(epoch, 20.0, 30.0));
+    TimeIntervalList b(epoch);
+    b.push_back(TimeInterval(epoch, 5.0, 25.0));
+
+    // 副本运算符
+    TimeIntervalList inter = a & b;   // [5,10], [20,25]
+    TimeIntervalList uni  = a | b;    // [0,30]
+    TimeIntervalList diff = a - b;    // [0,5], [25,30]
+
+    EXPECT_EQ(inter.size(), 2u);
+    EXPECT_DOUBLE_EQ(inter[0].start().durationFrom(epoch), 5.0);
+    EXPECT_DOUBLE_EQ(inter[1].start().durationFrom(epoch), 20.0);
+
+    EXPECT_EQ(uni.size(), 1u);
+    EXPECT_DOUBLE_EQ(uni[0].start().durationFrom(epoch), 0.0);
+    EXPECT_DOUBLE_EQ(uni[0].stop().durationFrom(epoch), 30.0);
+
+    EXPECT_EQ(diff.size(), 2u);
+    EXPECT_DOUBLE_EQ(diff[0].stop().durationFrom(epoch), 5.0);
+    EXPECT_DOUBLE_EQ(diff[1].start().durationFrom(epoch), 25.0);
+
+    // 副本运算符不改操作数
+    EXPECT_EQ(a.size(), 2u);
+    EXPECT_EQ(b.size(), 1u);
+
+    // 原地运算符
+    TimeIntervalList c = a;
+    c &= b;
+    EXPECT_EQ(c.size(), 2u);
+
+    c = a;
+    c |= b;
+    EXPECT_EQ(c.size(), 1u);
+
+    c = a;
+    c -= b;
+    EXPECT_EQ(c.size(), 2u);
 }
 
 

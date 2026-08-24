@@ -73,7 +73,7 @@ static TimeList _aGenerateTimeList(const ReportGenerateOptions& options)
     /// @todo 步长应可配置（从 options 或 .rst 中读取），当前固定 60s
     const double kFixedStepSec = 60.0;
     TimeList timeList;
-    options.interval_.discrete(kFixedStepSec, timeList);
+    options.interval_.discretize(kFixedStepSec, timeList);
     return timeList;
 }
 

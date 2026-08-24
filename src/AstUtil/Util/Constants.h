@@ -182,9 +182,15 @@ constexpr double kMeterToNanometer = 1.0e+09;             ///< 米到纳米
 
 constexpr double kKilometerToMeter = 1.0e03;              ///< 千米到米
 constexpr double kCentimeterToMeter = 1.e-02;             ///< 厘米到米
+constexpr double kDecimeterToMeter = 1.e-01;              ///< 分米到米
 constexpr double kMillimeterToMeter = 1.e-03;             ///< 毫米到米
 constexpr double kMicroMeterToMeter = 1.e-06;             ///< 微米到米
 constexpr double kNanometerToMeter = 1.e-09;              ///< 纳米到米
+
+constexpr double kInchToMeter = 0.0254;                   ///< 英寸到米
+constexpr double kFootToMeter = 0.3048;                   ///< 英尺到米
+constexpr double kYardToMeter = 0.9144;                   ///< 码到米
+constexpr double kMileToMeter = 1609.344;                 ///< 英里到米
 
 // 时间单位转换常数
 
@@ -223,6 +229,20 @@ constexpr double kSecondsPerHour = 3600.0;                 ///< 一小时的秒�
 constexpr double kSecondsPerMinute = 60.0;                 ///< 一分钟的秒数
 constexpr double kSecondsPerJulianYear = 31557600.0;       ///< 儒略年秒数(kDaysPerJulianYear * kSecondsPerDay)
 
+// 质量单位转换常数
+
+constexpr double kGramToKilogram = 1.0e-03;                ///< 克到千克
+constexpr double kMilligramToKilogram = 1.0e-06;           ///< 毫克到千克
+constexpr double kPoundToKilogram = 0.45359237;            ///< 磅到千克
+
+// 体积单位转换常数
+
+constexpr double kLiterToCubicMeter = 1.0e-03;             ///< 升到立方米
+
+// 无量纲单位转换常数
+
+constexpr double kPercentToUnit = 1.0e-02;                 ///< 百分比到单位
+
 // 角度单位转换常数
 
 constexpr double kDegToRad      = 0.017453292519943295769236907684886;	///< 角度到弧度 kPI/180.0
@@ -240,6 +260,20 @@ constexpr double kRadToTimeHour = kRadToDeg / 15.0;	                    ///< 弧
 
 constexpr double kNanoteslaToTesla = 1.0e-9;                          ///< 纳特斯拉到特斯拉
 constexpr double kGaussToTesla     = 1.0e-4;                          ///< 高斯到特斯拉
+
+
+// 温度单位转换常数
+// 仿射式换算: SI = value * scale + offset（乘子用 kXToY，偏移量用 kXToYOffset）
+constexpr double kCelsiusToKelvinOffset    = 273.15;                            ///< 摄氏度到开尔文偏移[K](SI = v*1 + 273.15)
+constexpr double kFahrenheitToKelvinScale  = 5.0 / 9.0;                         ///< 华氏度到开尔文缩放（乘子）
+constexpr double kFahrenheitToKelvinOffset = 459.67 * 5.0 / 9.0;                ///< 华氏度到开尔文偏移[K]
+constexpr double kRankineToKelvin          = kFahrenheitToKelvinScale;          ///< 兰氏度到开尔文缩放（乘子）
+
+// 分贝(dB)/贝尔(B)相关常数
+// 对数式换算: SI = reference * 10^(value / factor)
+constexpr double kDecibelPowerFactor = 10.0;                          ///< 功率型分贝系数(10·log10)
+constexpr double kBelFactor          = 1.0;                           ///< 贝尔对数系数(1B = 10dB，即 log10 直接表示)
+constexpr double kMilliwattToWatt    = 1e-3;                          ///< 毫瓦到瓦(dBm参考值)
 
 /// @brief 获取真空中的光速
 /// @details 这个函数接口是为了应对未来可能允许在软件运行时修改光速的情况

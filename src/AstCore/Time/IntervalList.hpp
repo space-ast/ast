@@ -230,23 +230,72 @@ public:
     AST_CORE_API
     void mergeInPlace();
 
-    /// @brief 交集：同时属于当前列表和 other 的时段
+    /// @brief 原地交集：将自身替换为「同时属于当前列表和 other 的时段」
     /// @param other 另一个时段列表
-    /// @return 交集
+    /// @return *this
+    /// @note 若需保留原始数据，请使用 intersected() 获取副本。
     AST_CORE_API
-    IntervalList intersect(const IntervalList& other) const;
+    IntervalList& intersect(const IntervalList& other);
 
-    /// @brief 并集：属于当前列表或 other 的时段
+    /// @brief 原地并集：将自身替换为「属于当前列表或 other 的时段」
     /// @param other 另一个时段列表
-    /// @return 并集
+    /// @return *this
+    /// @note 若需保留原始数据，请使用 united() 获取副本。
     AST_CORE_API
-    IntervalList unite(const IntervalList& other) const;
+    IntervalList& unite(const IntervalList& other);
 
-    /// @brief 差集：属于当前列表但不属于 other 的时段
+    /// @brief 原地差集：将自身替换为「属于当前列表但不属于 other 的时段」
     /// @param other 另一个时段列表
-    /// @return 差集
+    /// @return *this
+    /// @note 若需保留原始数据，请使用 subtracted() 获取副本。
     AST_CORE_API
-    IntervalList subtract(const IntervalList& other) const;
+    IntervalList& subtract(const IntervalList& other);
+
+    /// @brief 交集（返回副本）：同时属于当前列表和 other 的时段
+    /// @param other 另一个时段列表
+    /// @return 交集（不修改当前对象）
+    AST_CORE_API
+    IntervalList intersected(const IntervalList& other) const;
+
+    /// @brief 判断两个时段列表是否相交（存在正长度重叠区间）
+    /// @param other 另一个时段列表
+    /// @return 是否相交
+    AST_CORE_API
+    bool intersects(const IntervalList& other) const;
+
+    /// @brief 并集（返回副本）：属于当前列表或 other 的时段
+    /// @param other 另一个时段列表
+    /// @return 并集（不修改当前对象）
+    AST_CORE_API
+    IntervalList united(const IntervalList& other) const;
+
+    /// @brief 差集（返回副本）：属于当前列表但不属于 other 的时段
+    /// @param other 另一个时段列表
+    /// @return 差集（不修改当前对象）
+    AST_CORE_API
+    IntervalList subtracted(const IntervalList& other) const;
+
+    // ————————————————————————
+    // 运算符重载（Qt / Boost.ICL 风格）
+    // ————————————————————————
+
+    /// @brief 原地交集（等价于 intersect）
+    IntervalList& operator&=(const IntervalList& other) { return intersect(other); }
+
+    /// @brief 原地并集（等价于 unite）
+    IntervalList& operator|=(const IntervalList& other) { return unite(other); }
+
+    /// @brief 原地差集（等价于 subtract）
+    IntervalList& operator-=(const IntervalList& other) { return subtract(other); }
+
+    /// @brief 交集（返回副本，等价于 intersected）
+    IntervalList operator&(const IntervalList& other) const { return intersected(other); }
+
+    /// @brief 并集（返回副本，等价于 united）
+    IntervalList operator|(const IntervalList& other) const { return united(other); }
+
+    /// @brief 差集（返回副本，等价于 subtracted）
+    IntervalList operator-(const IntervalList& other) const { return subtracted(other); }
 
     // ————————————————————————
     // 与 TimeList 互转
@@ -262,7 +311,7 @@ public:
     /// @param step 离散化步长（秒，必须 > 0）
     /// @return TimeList 离散化后的时间点列表
     AST_CORE_API
-    TimeList discrete(const TimePoint& epoch, double step) const;
+    TimeList discretize(const TimePoint& epoch, double step) const;
 
 private:
     std::vector<Interval> intervals_{};   ///< 相对时间区间列表

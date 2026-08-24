@@ -50,12 +50,16 @@ void aMJDToJD(const ModJulianDate& mjd, JulianDate& jd)
 	jd.setSecond(mjd.second() - 43200);
 }
 
+ImpreciseMJD aJDToMJD_Imprecise(ImpreciseJD jd)
+{
+	return jd - kMJDRefEpoch;
+}
 
-double aJDToMJD_Imprecise(const JulianDate& jd)
+
+ImpreciseMJD aJDToMJD_Imprecise(const JulianDate& jd)
 {
 	return (jd.day() - kMJDRefEpoch) + jd.dayFractional();
 }
-
 
 
 ImpreciseJD aMJDToJD_Imprecise(ImpreciseMJD mjd)
@@ -63,16 +67,18 @@ ImpreciseJD aMJDToJD_Imprecise(ImpreciseMJD mjd)
 	return mjd + kMJDRefEpoch;
 }
 
+
 ImpreciseJD aMJDToJD_Imprecise(const ModJulianDate& mjd)
 {
 	return mjd.day() + (mjd.dayFractional() + kMJDRefEpoch);
 }
 
 
-ImpreciseMJD aJDToMJD_Imprecise(ImpreciseJD jd)
+void aMJDToJD_Imprecise(ImpreciseMJD mjd, JulianDate &jd)
 {
-	return jd - kMJDRefEpoch;
+	jd = JulianDate::FromImpreciseDay(aMJDToJD_Imprecise(mjd));
 }
+
 
 void aDateTimeToJD(const DateTime &dttm, JulianDate &jd)
 {

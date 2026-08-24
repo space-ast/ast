@@ -206,7 +206,7 @@ errc_t JplDe::getInterval(TimeInterval &interval) const
 {
     TimePoint start = TimePoint::FromTDB(JulianDate::FromImpreciseDay(ephemStart_));
     TimePoint stop  = TimePoint::FromTDB(JulianDate::FromImpreciseDay(ephemEnd_));
-    interval.setStartStop(start, stop);
+    interval.setBounds(start, stop);
     return eNoError;
 }
 

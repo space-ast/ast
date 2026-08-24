@@ -20,6 +20,7 @@
 
 #include "TLE.hpp"
 #include "TLELines.hpp"
+#include "AstCore/OrbitElement.hpp"
 #include "AstUtil/Constants.h"
 #include "AstUtil/ParseFormat.hpp"
 
@@ -59,6 +60,68 @@ static double parseTLEExpField(const char* raw0)
 }
 
 
+/// @brief 解析 5 位 NORAD 目录编号（支持 Alpha-5 字母扩展）
+/// @details 首位为字母（A-Z，跳过 I/O）时按 Alpha-5 解码：编号 = 首位值 × 10000 + 后 4 位；
+///          首位为数字或空格时按传统整数解析。
+int aParseNoradId(StringView str)
+{
+    if (str.empty())
+        return 0;
+
+    char c = str[0];
+    // Alpha-5：首位为字母（A-Z，跳过 I/O）
+    if (c >= 'A' && c <= 'Z')
+    {
+        int lead = c - 'A' + 10;
+        if (c > 'I') --lead;   // 跳过 I
+        if (c > 'O') --lead;   // 跳过 O
+        int suffix = 0;
+        if (aParseInt(str.substr(1), suffix) != eNoError)
+            return 0;
+        return lead * 10000 + suffix;
+    }
+
+    // 传统：数字/右对齐空格（aParseInt 内部跳过前导空白）
+    int value = 0;
+    if (aParseInt(str, value) != eNoError)
+        return 0;
+    return value;
+}
+
+void aTLEToOrbElem(const TLE &tle, double gm, OrbElem &elem)
+{
+    elem.a_      = aMeanMotionToSMA(tle.meanMotion(), gm);
+    elem.e_      = tle.eccentricity();
+    elem.i_      = tle.inclination();
+    elem.raan_   = tle.rightAscenOfNode();
+    elem.argper_ = tle.argOfPerigee();
+    elem.trueA_  = aMeanToTrue(tle.meanAnomaly(), tle.eccentricity());
+}
+
+OrbElem aTLEToOrbElem(const TLE& tle, double gm)
+{
+    OrbElem elem;
+    aTLEToOrbElem(tle, gm, elem);
+    return elem;
+}
+
+void aTLEToModOrbElem(const TLE &tle, double gm, ModOrbElem &elem)
+{
+    elem.rp_     = aMeanMotionToPeriRad(tle.meanMotion(), tle.eccentricity(), gm);
+    elem.e_      = tle.eccentricity();
+    elem.i_      = tle.inclination();
+    elem.raan_   = tle.rightAscenOfNode();
+    elem.argper_ = tle.argOfPerigee();
+    elem.trueA_  = aMeanToTrue(tle.meanAnomaly(), tle.eccentricity());
+}
+
+ModOrbElem aTLEToModOrbElem(const TLE& tle, double gm)
+{
+    ModOrbElem elem;
+    aTLEToModOrbElem(tle, gm, elem);
+    return elem;
+}
+
 TLE TLE::FromLines(const TLELines &lines)
 {
     StringView l1 = lines.line1();
@@ -77,7 +140,8 @@ TLE TLE::FromLines(StringView l1, StringView l2)
     if (l1.size() >= 69)
     {
         // 列 03-07: NORAD 目录编号 (1-based 3-7 → 0-based 2-6)
-        tle.noradId_ = aParseInt(l1.substr(2, 5));
+        // 支持 Alpha-5 字母扩展与数字/空格右对齐
+        tle.noradId_ = aParseNoradId(l1.substr(2, 5));
 
         // 列 08: 密级分类 (1-based 8 → 0-based 7)
         tle.classification_ = l1[7];

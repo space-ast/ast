@@ -22,6 +22,9 @@
 
 #include "AstGlobal.h"
 #include "TimePoint.hpp"
+#include "TimePointRange.hpp"
+#include "DoubleRange.hpp"
+#include "Interval.hpp"
 #include "AstUtil/Logger.hpp"
 #include <string>
 #include <limits>
@@ -107,7 +110,7 @@ public:
     /// @brief 设置时间区间的开始时间点和结束时间点
     /// @param start 开始时间点
     /// @param stop 结束时间点
-    void setStartStop(const TimePoint& start, const TimePoint& stop){
+    void setBounds(const TimePoint& start, const TimePoint& stop){
         start_ = start;
         stop_  = stop;
     }
@@ -116,9 +119,31 @@ public:
     /// @param epoch 时间区间的基准时间点
     /// @param start 开始时间点（相对基准时间点的秒数）
     /// @param stop 结束时间点（相对基准时间点的秒数）
-    void setStartStop(const TimePoint& epoch, double start, double stop){
+    void setBounds(const TimePoint& epoch, double start, double stop){
         start_ = epoch + start;
         stop_  = epoch + stop;
+    }
+
+    /// @brief 设置时间区间的开始时间点和结束时间点
+    /// @param epoch 时间区间的基准时间点
+    /// @param interval 相对基准时间点的时间区间
+    void setBounds(const TimePoint& epoch, const Interval& interval){
+        start_ = epoch + interval.start();
+        stop_  = epoch + interval.stop();
+    }
+
+    /// @brief 将绝对时间区间转换为相对于给定基准历元的相对时间区间
+    /// @details 以 epoch 为相对时间的零点，将绝对区间折算为基于 epoch 的秒偏移量，
+    ///          即 Interval{getStart() - epoch, getStop() - epoch}。
+    /// @param epoch 时间区间的基准时间点（相对时间区间的零点）
+    /// @return 相对时间区间
+    /// @note 与 setBounds(epoch, interval) 互为逆操作；对同一 epoch 二者可往返复原。
+    /// @note 转换保持区间方向：若 start() <= stop()，则返回区间的 start_ <= stop_。
+    ///       无限时间区间（±∞）映射为 Interval{∓∞}，保持无限语义；零时间区间映射为
+    ///       零长度相对区间（start_ == stop_）。Interval 的聚合类型不受影响。
+    Interval toInterval(const TimePoint& epoch) const
+    {
+        return Interval{getStart() - epoch, getStop() - epoch};
     }
 
     /// @brief 设置时间区间为无限时间区间
@@ -154,186 +179,177 @@ public:
     /// @param times 输出离散化时间点
     /// @return errc_t 错误码
     AST_CORE_API
-    errc_t discrete(const TimePoint& epoch, double step, std::vector<double>& times) const;
+    errc_t discretize(const TimePoint& epoch, double step, std::vector<double>& times) const;
 
     /// @brief 将时间区间离散化
     /// @param step 离散化步长（秒）
     /// @param times 输出离散化时间点
     /// @return errc_t 错误码
     AST_CORE_API
-    errc_t discrete(double step, std::vector<TimePoint>& times) const;
+    errc_t discretize(double step, std::vector<TimePoint>& times) const;
 
     /// @brief 将时间区间离散化
     /// @param step 离散化步长（秒）
     /// @param times 输出离散化时间点列表
     /// @return errc_t 错误码
     AST_CORE_API
-    errc_t discrete(double step, TimeList& times) const;
-
-    class DiscreteTimePointRange;
-    class DiscreteEpochSecondRange;
+    errc_t discretize(double step, TimeList& times) const;
 
     /// @brief 将时间区间离散化为时间点
     /// @param step 离散化步长（秒）
     /// @return 离散化时间点范围
-    DiscreteTimePointRange discrete(double step) const;
+    TimePointRange discretize(double step) const;
 
     /// @brief 将时间区间离散化为相对秒
     /// @param epoch 时间区间的基准时间点
     /// @param step 离散化步长（秒）
     /// @return 离散化时间点范围
-    DiscreteEpochSecondRange discrete(const TimePoint& epoch, double step) const;
+    DoubleRange discretize(const TimePoint& epoch, double step) const;
+
+    /// @brief 计算离散化采样点数量
+    /// @details 返回 discretize(step) 所生成的采样点数（含首尾端点）。当
+    ///          step > 0.0 且区间时长 > 0.0 时为 ceil(duration()/step) + 1，
+    ///          否则返回 0（无有效采样点）。该数量不依赖于基准 epoch。
+    /// @param step 离散化步长（秒）
+    /// @return 采样点数
+    size_t discretizedCount(double step) const
+    {
+        double dur = duration();
+        if (step <= 0.0 || dur <= 0.0) {
+            return 0;
+        }
+        return static_cast<size_t>(std::ceil(dur / step)) + 1;
+    }
 public:
-    /// @brief 合并时间区间
+    /// @brief 原地并集：将另一个时间区间并入自身（凸包）
     /// @param other 要合并的时间区间
-    /// @warning 如果时间区间与当前时间区间不重叠，合并操作将失败。
-    /// @return errc_t 错误码
-    errc_t merge(const TimeInterval& other);
+    /// @return *this
+    /// @warning 凸包会桥接不相交区间的空隙；如需保留空隙的集合并集，请使用 IntervalList::united。
+    TimeInterval& unite(const TimeInterval& other);
+
+    /// @brief 并集（返回副本）：凸包
+    /// @param other 要合并的时间区间
+    /// @return 并集（不修改当前对象）
+    TimeInterval united(const TimeInterval& other) const;
+
+    /// @brief 原地交集
+    /// @param other 要合并的时间区间
+    /// @return *this
+    /// @note 不相交时结果为零长度区间（start == stop），语义为空。
+    TimeInterval& intersect(const TimeInterval& other);
+
+    /// @brief 交集（返回副本）
+    /// @param other 要合并的时间区间
+    /// @return 交集（不修改当前对象）
+    /// @note 不相交时结果为零长度区间（start == stop），语义为空。
+    TimeInterval intersected(const TimeInterval& other) const;
+
+    /// @brief 判断两个时间区间是否相交（有正长度交集，不含仅相切）
+    /// @param other 另一个时间区间
+    /// @return 是否相交
+    bool intersects(const TimeInterval& other) const;
+
+    /// @brief 原地并集（等价于 unite）
+    TimeInterval& operator|=(const TimeInterval& other) { return unite(other); }
+
+    /// @brief 并集（返回副本，等价于 united）
+    TimeInterval operator|(const TimeInterval& other) const { return united(other); }
+
+    /// @brief 原地交集（等价于 intersect）
+    TimeInterval& operator&=(const TimeInterval& other) { return intersect(other); }
+
+    /// @brief 交集（返回副本，等价于 intersected）
+    TimeInterval operator&(const TimeInterval& other) const { return intersected(other); }
 private:
     TimePoint start_;     ///< 时间区间的开始时间点
     TimePoint stop_;      ///< 时间区间的结束时间点
 };
 
 
-/// @brief 离散化时间点范围
-class TimeInterval::DiscreteTimePointRange {
-public:
-    DiscreteTimePointRange(const TimeInterval& interval, double step, size_t n)
-        : interval_(interval), step_(step), n_(n) {}
-
-    class iterator {
-    public:
-        using iterator_category = std::input_iterator_tag;
-        using value_type        = TimePoint;
-        using difference_type   = ptrdiff_t;
-        using pointer           = const TimePoint*;
-        using reference         = const TimePoint&;
-
-        iterator() = default;
-        iterator(const DiscreteTimePointRange* range, size_t idx)
-            : range_(range), idx_(idx), value_() {}
-
-        reference operator*() const {
-            if (idx_ == range_->n_ - 1) {
-                value_ = range_->interval_.stop();
-            } else {
-                value_ = range_->interval_.start() + range_->step_ * idx_;
-            }
-            return value_;
-        }
-
-        iterator& operator++() { ++idx_; return *this; }
-        iterator operator++(int) { auto tmp = *this; ++*this; return tmp; }
-
-        bool operator==(const iterator& other) const { return idx_ == other.idx_; }
-        bool operator!=(const iterator& other) const { return !(*this == other); }
-
-    private:
-        const DiscreteTimePointRange* range_ = nullptr;
-        size_t idx_ = 0;
-        mutable TimePoint value_{};
-    };
-
-    iterator begin() const { return iterator(this, 0); }
-    iterator end()   const { return iterator(this, n_); }
-    size_t size() const { return n_; }
-
-private:
-    TimeInterval interval_;
-    double step_;
-    size_t n_;
-};
-
-/// @brief 离散化历元秒范围
-class TimeInterval::DiscreteEpochSecondRange {
-public:
-    DiscreteEpochSecondRange(double offset, double step, double stopOffset, size_t n)
-        : offset_(offset), step_(step), stopOffset_(stopOffset), n_(n) {}
-
-    class iterator {
-    public:
-        using iterator_category = std::input_iterator_tag;
-        using value_type        = double;
-        using difference_type   = ptrdiff_t;
-        using pointer           = const double*;
-        using reference         = const double&;
-
-        iterator() = default;
-        iterator(const DiscreteEpochSecondRange* range, size_t idx)
-            : range_(range), idx_(idx), value_() {}
-
-        reference operator*() const {
-            if (idx_ == range_->n_ - 1) {
-                value_ = range_->stopOffset_;
-            } else {
-                value_ = range_->offset_ + range_->step_ * idx_;
-            }
-            return value_;
-        }
-
-        iterator& operator++() { ++idx_; return *this; }
-        iterator operator++(int) { auto tmp = *this; ++*this; return tmp; }
-
-        bool operator==(const iterator& other) const { return idx_ == other.idx_; }
-        bool operator!=(const iterator& other) const { return !(*this == other); }
-
-    private:
-        const DiscreteEpochSecondRange* range_ = nullptr;
-        size_t idx_ = 0;
-        mutable double value_{0.0};
-    };
-
-    iterator begin() const { return iterator(this, 0); }
-    iterator end()   const { return iterator(this, n_); }
-    size_t size() const { return n_; }
-private:
-    double offset_;
-    double step_;
-    double stopOffset_;
-    size_t n_;
-};
-
-
-inline TimeInterval::DiscreteTimePointRange TimeInterval::discrete(double step) const
+inline TimePointRange TimeInterval::discretize(double step) const
 {
     double dur = duration();
     if (step <= 0.0 || dur <= 0.0) {
-        return DiscreteTimePointRange(*this, step, 0);
+        return TimePointRange(start_, stop_, step, 0);
     }
     size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
-    return DiscreteTimePointRange(*this, step, n);
+    return TimePointRange(start_, stop_, step, n);
 }
 
-inline TimeInterval::DiscreteEpochSecondRange TimeInterval::discrete(const TimePoint& epoch, double step) const
+inline DoubleRange TimeInterval::discretize(const TimePoint& epoch, double step) const
 {
     double dur = duration();
     if (step <= 0.0 || dur <= 0.0) {
-        return DiscreteEpochSecondRange(0.0, step, 0.0, 0);
+        return DoubleRange(0.0, 0.0, step, 0);
     }
     size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
-    double offset = getStart() - epoch;
-    double stopOffset = getStop() - epoch;
-    return DiscreteEpochSecondRange(offset, step, stopOffset, n);
+    double start = getStart() - epoch;
+    double stop  = getStop()  - epoch;
+    return DoubleRange(start, stop, step, n);
 }
 
-inline errc_t TimeInterval::merge(const TimeInterval &other)
+inline TimeInterval& TimeInterval::unite(const TimeInterval &other)
 {
-    const TimePoint& thisStart = start();
+    const TimePoint& thisStart  = this->start();
+    const TimePoint& thisStop   = this->stop();
     const TimePoint& otherStart = other.start();
-    TimePoint thisStop = stop();
-    TimePoint otherStop = other.stop();
+    const TimePoint& otherStop  = other.stop();
 
-    if (thisStart.durationFrom(otherStop) > 0 || otherStart.durationFrom(thisStop) > 0) 
+    if(otherStart < thisStart)
     {
-        aError("merge time interval failed, no overlap");
-        return eErrorInvalidParam;
+        this->setStart(otherStart);
+    }
+    if(otherStop > thisStop)
+    {
+        this->setStop(otherStop);
+    }
+    return *this;
+}
+
+inline TimeInterval TimeInterval::united(const TimeInterval &other) const
+{
+    TimeInterval result = *this;
+    result.unite(other);
+    return result;
+}
+
+inline TimeInterval& TimeInterval::intersect(const TimeInterval &other)
+{
+    const TimePoint& thisStart  = this->start();
+    const TimePoint& thisStop   = this->stop();
+    const TimePoint& otherStart = other.start();
+    const TimePoint& otherStop  = other.stop();
+
+    if(otherStart > thisStart)
+    {
+        this->setStart(otherStart);
+    }
+    if(otherStop < thisStop)
+    {
+        this->setStop(otherStop);
     }
 
-    const TimePoint& mergedStart = (thisStart.durationFrom(otherStart) <= 0) ? thisStart : otherStart;
-    const TimePoint& mergedStop = (thisStop.durationFrom(otherStop) >= 0) ? thisStop : otherStop;
+    // 空交集 → 零长度区间（避免负 duration）
+    if(this->start() > this->stop())
+    {
+        this->setStop(this->start());
+    }
+    return *this;
+}
 
-    setStartStop(mergedStart, mergedStop);
-    return eNoError;
+inline TimeInterval TimeInterval::intersected(const TimeInterval &other) const
+{
+    TimeInterval result = *this;
+    result.intersect(other);
+    return result;
+}
+
+inline bool TimeInterval::intersects(const TimeInterval &other) const
+{
+    // 零长度区间（start == stop）语义为空，不应与任何区间相交
+    auto& start = (std::max)(start_, other.start());
+    auto& stop = (std::min)(stop_, other.stop());
+    return start < stop;
 }
 
 /*! @} */

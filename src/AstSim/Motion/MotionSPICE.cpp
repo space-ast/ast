@@ -54,7 +54,7 @@ errc_t MotionSPICE::makeEphemerisSimple(ScopedPtr<Ephemeris> &eph) const
     std::vector<Vector3d> velocities;
 
     const TimePoint& epoch = interval.getStart();
-    auto range = interval.discrete(epoch, getStepSize());
+    auto range = interval.discretize(epoch, getStepSize());
     size_t n = range.size();
     times.reserve(n);
     positions.reserve(n);

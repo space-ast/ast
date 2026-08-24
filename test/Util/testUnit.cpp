@@ -967,4 +967,79 @@ TEST(Unit, MagneticFluxDensity)
     EXPECT_EQ(tesla.toSI(1), 1.0);
 }
 
+// 测试温度单位(仿射: SI = v*scale + offset)
+TEST(Unit, Temperature)
+{
+    auto K = Unit::Kelvin();
+    auto degC = Unit::Celsius();
+    auto degF = Unit::Fahrenheit();
+    auto degR = Unit::Rankine();
+
+    EXPECT_EQ(degC.name(), aText("°C"));
+    EXPECT_EQ(degC.getScale(), 1.0);
+    EXPECT_EQ(degC.dimension(), Dimension::Temperature());
+
+    // 摄氏 → 开
+    EXPECT_EQ(degC.toSI(0), 273.15);
+    EXPECT_EQ(degC.toSI(100), 373.15);
+    EXPECT_EQ(degC.fromSI(273.15), 0);
+
+    // 华氏 → 开
+    EXPECT_DOUBLE_EQ(degF.toSI(32), 273.15);
+    EXPECT_DOUBLE_EQ(degF.toSI(212), 373.15);
+
+    // 兰氏 → 开
+    EXPECT_DOUBLE_EQ(degR.toSI(491.67), 273.15);
+
+    // 单位换算
+    EXPECT_EQ(degC.convertTo(0, K), 273.15);
+    EXPECT_EQ(degF.convertTo(32, K), 273.15);
+    EXPECT_DOUBLE_EQ(degC.convertTo(100, degF), 212.0);
+}
+
+// 测试分贝单位(对数: SI = reference * 10^(v/factor))
+TEST(Unit, Decibel)
+{
+    auto dB = Unit::Decibel();
+    auto dBm = Unit::DecibelMilliwatt();
+    auto dBW = Unit::DecibelWatt();
+
+    EXPECT_EQ(dB.name(), aText("dB"));
+    EXPECT_EQ(dB.dimension(), Dimension::Unit());
+    EXPECT_EQ(dBm.dimension(), Dimension::Power());
+
+    // dB(无量纲功率比)
+    EXPECT_EQ(dB.toSI(0), 1.0);
+    EXPECT_EQ(dB.toSI(10), 10.0);
+    EXPECT_EQ(dB.toSI(20), 100.0);
+    EXPECT_EQ(dB.fromSI(100), 20.0);
+
+    // dBm(参考 1mW)
+    EXPECT_EQ(dBm.toSI(0), 1e-3);
+    EXPECT_EQ(dBm.toSI(30), 1.0);
+    EXPECT_EQ(dBm.fromSI(1.0), 30.0);
+
+    // dBW(参考 1W)
+    EXPECT_EQ(dBW.toSI(0), 1.0);
+}
+
+// 测试贝尔单位(对数: factor=1，1B=10dB)
+TEST(Unit, Bel)
+{
+    auto B = Unit::Bel();
+
+    EXPECT_EQ(B.name(), aText("B"));
+    EXPECT_EQ(B.dimension(), Dimension::Unit());
+
+    // B(无量纲功率比，log10 直接表示)
+    EXPECT_EQ(B.toSI(0), 1.0);
+    EXPECT_EQ(B.toSI(1), 10.0);
+    EXPECT_EQ(B.toSI(2), 100.0);
+    EXPECT_EQ(B.fromSI(100), 2.0);
+
+    // 1B = 10dB
+    EXPECT_EQ(B.toSI(1), Unit::Decibel().toSI(10));
+}
+
+
 GTEST_MAIN()

@@ -77,9 +77,9 @@ errc_t MotionGreatArc::getInterval(TimeInterval &interval) const
     errc_t rc = getStartTime(start);
     if(rc) return rc;
     if(!wayPoints_.empty())
-        interval.setStartStop(start, 0.0, wayPoints_.back().time());
+        interval.setBounds(start, 0.0, wayPoints_.back().time());
     else
-        interval.setStartStop(start, 0.0, 0.0);
+        interval.setBounds(start, 0.0, 0.0);
     return 0;
 }
 

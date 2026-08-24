@@ -364,7 +364,7 @@ TEST_F(AccessAnalysisTest, Sensor2ToFacility1)
     TimeIntervalList losResult;
     losEval.evaluate(DefaultInterval(), losResult);
 
-    TimeIntervalList result = fovResult.intersect(losResult);
+    TimeIntervalList result = fovResult.intersected(losResult);
 
     PrintIntervals("Sensor2 -> Facility1 (FOV & LOS)", result, 4);
     printf("FOV: %zu, LOS: %zu, combined: %zu\n",

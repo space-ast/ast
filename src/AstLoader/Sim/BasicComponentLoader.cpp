@@ -271,7 +271,7 @@ errc_t _aLoadInterval(BKVParser& parser, TimeInterval& interval)
             }
         }
         else if(token == BKVParser::eBlockEnd){
-            interval.setStartStop(start, stop);
+            interval.setBounds(start, stop);
             break;
         }else{
             return 0;

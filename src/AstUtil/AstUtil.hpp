@@ -167,6 +167,7 @@
 #include "AstUtil/UnitConverter.hpp"
 #include "AstUtil/UnitManager.hpp"
 #include "AstUtil/UnitParser.hpp"
+#include "AstUtil/UnitRep.hpp"
 #include "AstUtil/ValueView.hpp"
 #include "AstUtil/VariantVector.hpp"
 #include "AstUtil/Vector.hpp"

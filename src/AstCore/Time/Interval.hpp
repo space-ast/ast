@@ -21,7 +21,10 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "DoubleRange.hpp"
 #include "AstUtil/Logger.hpp"
+#include <cstddef>
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
@@ -43,16 +46,67 @@ public:
     double& stop() {return stop_;}
     double duration() const{return stop_ - start_;}
 
+public:
+    /// @brief 将相对时间区间离散化
+    /// @details 对 [start, stop] 闭区间按 step 步长采样，返回惰性可迭代的秒偏移范围。
+    ///          内部相邻点间距恒为 step，但末尾强制把 stop 并入输出（最后一段间距可能
+    ///          小于 step），因此并非均匀网格。当 step <= 0.0 或区间时长 <= 0.0 时返回空范围。
+    /// @param step 离散化步长（秒）
+    /// @return 离散化秒偏移范围
+    DoubleRange discretize(double step) const;
+
+    /// @brief 计算离散化采样点数量
+    /// @details 返回 discretize(step) 所生成的采样点数（含首尾端点）。当
+    ///          step > 0.0 且区间时长 > 0.0 时为 ceil(duration()/step) + 1，
+    ///          否则返回 0（无有效采样点）。
+    /// @param step 离散化步长（秒）
+    /// @return 采样点数
+    size_t discretizedCount(double step) const;
+
     /// @brief 设置时间区间的开始时间和结束时间
     /// @param start 开始时间
     /// @param stop 结束时间
-    void setStartStop(double start, double stop);
+    void setBounds(double start, double stop);
 
-    /// @brief 合并两个时间区间
+    /// @brief 原地并集：将另一个区间并入自身（凸包）
     /// @param other 另一个时间区间
-    /// @warning 如果时间区间与当前时间区间不重叠，合并操作将失败。
-    /// @return errc_t 错误码
-    errc_t merge(const Interval& other);
+    /// @return *this
+    /// @warning 凸包会桥接不相交区间的空隙；如需保留空隙的集合并集，请使用 IntervalList::united。
+    Interval& unite(const Interval& other);
+
+    /// @brief 并集（返回副本）：凸包
+    /// @param other 另一个时间区间
+    /// @return 并集（不修改当前对象）
+    Interval united(const Interval& other) const;
+
+    /// @brief 原地交集
+    /// @param other 另一个时间区间
+    /// @return *this
+    /// @note 不相交时结果为零长度区间（start == stop），语义为空。
+    Interval& intersect(const Interval& other);
+
+    /// @brief 交集（返回副本）
+    /// @param other 另一个时间区间
+    /// @return 交集（不修改当前对象）
+    /// @note 不相交时结果为零长度区间（start == stop），语义为空。
+    Interval intersected(const Interval& other) const;
+
+    /// @brief 判断两个区间是否相交（有正长度交集，不含仅相切）
+    /// @param other 另一个时间区间
+    /// @return 是否相交
+    bool intersects(const Interval& other) const;
+
+    /// @brief 原地并集（等价于 unite）
+    Interval& operator|=(const Interval& other) { return unite(other); }
+
+    /// @brief 并集（返回副本，等价于 united）
+    Interval operator|(const Interval& other) const { return united(other); }
+
+    /// @brief 原地交集（等价于 intersect）
+    Interval& operator&=(const Interval& other) { return intersect(other); }
+
+    /// @brief 交集（返回副本，等价于 intersected）
+    Interval operator&(const Interval& other) const { return intersected(other); }
 public:
     double start_;
     double stop_;
@@ -64,22 +118,64 @@ inline Interval Interval::Zero()
     return Interval{0.0, 0.0};
 }
 
-inline void Interval::setStartStop(double start, double stop)
+inline void Interval::setBounds(double start, double stop)
 {
     start_ = start;
     stop_ = stop;
 }
 
-inline errc_t Interval::merge(const Interval &other)
+inline Interval& Interval::unite(const Interval &other)
 {
-    if (start_ > other.stop() || other.start() > stop_)
-    {
-        aError("merge interval failed, no overlap");
-        return eErrorInvalidParam;
+    start_ = (std::min)(start_, other.start());
+    stop_  = (std::max)(stop_,  other.stop());
+    return *this;
+}
+
+inline Interval Interval::united(const Interval &other) const
+{
+    return Interval{(std::min)(start_, other.start()),
+                    (std::max)(stop_,  other.stop())};
+}
+
+inline Interval& Interval::intersect(const Interval &other)
+{
+    double s = (std::max)(start_, other.start());
+    double t = (std::min)(stop_,  other.stop());
+    start_ = s;
+    stop_  = (std::max)(t, s);   // 空交集 → 零长度区间，避免负 duration
+    return *this;
+}
+
+inline Interval Interval::intersected(const Interval &other) const
+{
+    double s = (std::max)(start_, other.start());
+    double t = (std::min)(stop_,  other.stop());
+    return Interval{s, (std::max)(t, s)};
+}
+
+inline bool Interval::intersects(const Interval &other) const
+{
+    // 零长度区间（start == stop）语义为空，不应与任何区间相交
+    return (std::max)(start_, other.start()) < (std::min)(stop_, other.stop());
+}
+
+inline DoubleRange Interval::discretize(double step) const
+{
+    double dur = duration();
+    if (step <= 0.0 || dur <= 0.0) {
+        return DoubleRange(0.0, 0.0, step, 0);
     }
-    start_ = std::min(start_, other.start());
-    stop_ = std::max(stop_, other.stop());
-    return eNoError;
+    size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
+    return DoubleRange(start_, stop_, step, n);
+}
+
+inline size_t Interval::discretizedCount(double step) const
+{
+    double dur = duration();
+    if (step <= 0.0 || dur <= 0.0) {
+        return 0;
+    }
+    return static_cast<size_t>(std::ceil(dur / step)) + 1;
 }
 
 

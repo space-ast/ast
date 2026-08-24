@@ -37,15 +37,25 @@ Quantity aQuantityAdd(const Quantity& q1, const Quantity& q2)
     {
         aError("Quantity dimension mismatch");
     }else{
-        double scale1 = q1.unit().getScale();
-        double scale2 = q2.unit().getScale();
+        const Unit& u1 = q1.unit();
+        const Unit& u2 = q2.unit();
+        // 对数(dB)单位无法线性组合，转 SI 做功率(dBm/dBW/dB)叠加
+        if(u1.kind() == EUnitKind::eLogarithmic || u2.kind() == EUnitKind::eLogarithmic)
+        {
+            double siSum = u1.toSI(q1.magnitude()) + u2.toSI(q2.magnitude());
+            return Quantity(u1.fromSI(siSum), u1);
+        }
+        double scale1 = u1.getScale();
+        double scale2 = u2.getScale();
+        // 线性标度(eScale/eAffine)按比例换算后相加；仅取缩放因子、不引入 offset，
+        // 避免摄氏/华氏绝对温度相加时偏移量被重复计入
         if(scale1 < scale2)
         {
-            return Quantity(q1.magnitude() + q2.magnitude() * scale2 / scale1, q1.unit());
+            return Quantity(q1.magnitude() + q2.magnitude() * scale2 / scale1, u1);
         }else if(scale1 > scale2){
-            return Quantity(q1.magnitude() * scale1 / scale2 + q2.magnitude(), q2.unit());
+            return Quantity(q1.magnitude() * scale1 / scale2 + q2.magnitude(), u2);
         }else{
-            return Quantity(q1.magnitude() + q2.magnitude(), q1.unit());
+            return Quantity(q1.magnitude() + q2.magnitude(), u1);
         }
     }
     return Quantity::NaN();
@@ -53,6 +63,7 @@ Quantity aQuantityAdd(const Quantity& q1, const Quantity& q2)
 
 Quantity aQuantitySub(const Quantity& q1, const Quantity& q2)
 {
+    //@fixme 目前的实现会出现：30dBm - 20dBm ≈ 30.00004dBm(错误)，应为 9.54dBm
     return aQuantityAdd(q1, -q2);
 }
 

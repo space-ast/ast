@@ -49,10 +49,10 @@ errc_t aTimeIntervalParse(StringView strStart, StringView strStop, TimeInterval 
     return 0;
 }
 
-errc_t TimeInterval::discrete(const TimePoint &epoch, double step, std::vector<double> &times) const
+errc_t TimeInterval::discretize(const TimePoint &epoch, double step, std::vector<double> &times) const
 {
     if (step <= 0.0 || duration() <= 0.0){
-        aError("discrete: invalid step (%f) or duration (%f)", step, duration());
+        aError("invalid step (%f) or duration (%f)", step, duration());
         return eErrorInvalidParam;
     }
     ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration() / step) + 1);
@@ -66,10 +66,10 @@ errc_t TimeInterval::discrete(const TimePoint &epoch, double step, std::vector<d
     return eNoError;
 }
 
-errc_t TimeInterval::discrete(double step, std::vector<TimePoint> &times) const
+errc_t TimeInterval::discretize(double step, std::vector<TimePoint> &times) const
 {
     if (step <= 0.0 || duration() <= 0.0){
-        aError("discrete: invalid step (%f) or duration (%f)", step, duration());
+        aError("invalid step (%f) or duration (%f)", step, duration());
         return eErrorInvalidParam;
     }
     ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration() / step) + 1);
@@ -83,11 +83,11 @@ errc_t TimeInterval::discrete(double step, std::vector<TimePoint> &times) const
     return eNoError;
 }
 
-errc_t TimeInterval::discrete(double step, TimeList& times) const
+errc_t TimeInterval::discretize(double step, TimeList& times) const
 {
     double duration = this->duration();
     if (step <= 0.0 || duration <= 0.0){
-        aError("discrete: invalid step (%f) or duration (%f)", step, duration);
+        aError("invalid step (%f) or duration (%f)", step, duration);
         return eErrorInvalidParam;
     }
     ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration / step) + 1);

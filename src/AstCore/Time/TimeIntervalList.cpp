@@ -200,53 +200,83 @@ void TimeIntervalList::mergeInPlace()
     intervals_.mergeInPlace();
 }
 
-TimeIntervalList TimeIntervalList::intersect(const TimeIntervalList& other) const
+bool TimeIntervalList::intersects(const TimeIntervalList& other) const
 {
-    // 若 other 的历元不同，先将其区间转换到当前历元
-    const IntervalList* otherRel = &other.intervals_;
-    IntervalList converted;
-    if (!(other.epoch_ == epoch_))
+    if (other.epoch_ == epoch_)
     {
-        converted = convertEpoch(other.intervals_, other.epoch_, epoch_);
-        otherRel = &converted;
+        return intervals_.intersects(other.intervals_);
     }
+    else
+    {
+        IntervalList converted = convertEpoch(other.intervals_, other.epoch_, epoch_);
+        return intervals_.intersects(converted);
+    }
+}
 
-    TimeIntervalList result;
-    result.epoch_ = epoch_;
-    result.intervals_ = intervals_.intersect(*otherRel);
+TimeIntervalList TimeIntervalList::intersected(const TimeIntervalList& other) const
+{
+    TimeIntervalList result(epoch_);
+    if (other.epoch_ == epoch_)
+    {
+        result.intervals_ = intervals_.intersected(other.intervals_);
+    }
+    else
+    {
+        // 若 other 的历元不同，先将其区间转换到当前历元
+        IntervalList converted = convertEpoch(other.intervals_, other.epoch_, epoch_);
+        result.intervals_ = intervals_.intersected(converted);
+    }
     return result;
 }
 
-TimeIntervalList TimeIntervalList::unite(const TimeIntervalList& other) const
+TimeIntervalList TimeIntervalList::united(const TimeIntervalList& other) const
 {
-    const IntervalList* otherRel = &other.intervals_;
-    IntervalList converted;
-    if (!(other.epoch_ == epoch_))
+    TimeIntervalList result(epoch_);
+    if (other.epoch_ == epoch_)
     {
-        converted = convertEpoch(other.intervals_, other.epoch_, epoch_);
-        otherRel = &converted;
+        result.intervals_ = intervals_.united(other.intervals_);
     }
-
-    TimeIntervalList result;
-    result.epoch_ = epoch_;
-    result.intervals_ = intervals_.unite(*otherRel);
+    else
+    {
+        // 若 other 的历元不同，先将其区间转换到当前历元
+        IntervalList converted = convertEpoch(other.intervals_, other.epoch_, epoch_);
+        result.intervals_ = intervals_.united(converted);
+    }
     return result;
 }
 
-TimeIntervalList TimeIntervalList::subtract(const TimeIntervalList& other) const
+TimeIntervalList TimeIntervalList::subtracted(const TimeIntervalList& other) const
 {
-    const IntervalList* otherRel = &other.intervals_;
-    IntervalList converted;
-    if (!(other.epoch_ == epoch_))
+    TimeIntervalList result(epoch_);
+    if (other.epoch_ == epoch_)
     {
-        converted = convertEpoch(other.intervals_, other.epoch_, epoch_);
-        otherRel = &converted;
+        result.intervals_ = intervals_.subtracted(other.intervals_);
     }
-
-    TimeIntervalList result;
-    result.epoch_ = epoch_;
-    result.intervals_ = intervals_.subtract(*otherRel);
+    else
+    {
+        // 若 other 的历元不同，先将其区间转换到当前历元
+        IntervalList converted = convertEpoch(other.intervals_, other.epoch_, epoch_);
+        result.intervals_ = intervals_.subtracted(converted);
+    }
     return result;
+}
+
+TimeIntervalList& TimeIntervalList::intersect(const TimeIntervalList& other)
+{
+    *this = intersected(other);
+    return *this;
+}
+
+TimeIntervalList& TimeIntervalList::unite(const TimeIntervalList& other)
+{
+    *this = united(other);
+    return *this;
+}
+
+TimeIntervalList& TimeIntervalList::subtract(const TimeIntervalList& other)
+{
+    *this = subtracted(other);
+    return *this;
 }
 
 std::string TimeIntervalList::toString(int precision) const

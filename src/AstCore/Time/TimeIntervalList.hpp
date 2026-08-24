@@ -229,26 +229,79 @@ public:
     AST_CORE_API
     void mergeInPlace();
 
-    /// @brief 交集：同时属于当前列表和 other 的时段
+    /// @brief 原地交集：将自身替换为「同时属于当前列表和 other 的时段」
     /// @param other 另一个绝对时段列表
-    /// @return 交集
+    /// @return *this
     /// @note 若 other 的历元不同，自动转换到当前历元后再运算。
+    ///       若需保留原始数据，请使用 intersected() 获取副本。
     AST_CORE_API
-    TimeIntervalList intersect(const TimeIntervalList& other) const;
+    TimeIntervalList& intersect(const TimeIntervalList& other);
 
-    /// @brief 并集：属于当前列表或 other 的时段
+    /// @brief 原地并集：将自身替换为「属于当前列表或 other 的时段」
     /// @param other 另一个绝对时段列表
-    /// @return 并集
+    /// @return *this
     /// @note 若 other 的历元不同，自动转换到当前历元后再运算。
+    ///       若需保留原始数据，请使用 united() 获取副本。
     AST_CORE_API
-    TimeIntervalList unite(const TimeIntervalList& other) const;
+    TimeIntervalList& unite(const TimeIntervalList& other);
 
-    /// @brief 差集：属于当前列表但不属于 other 的时段
+    /// @brief 原地差集：将自身替换为「属于当前列表但不属于 other 的时段」
     /// @param other 另一个绝对时段列表
-    /// @return 差集（*this - other）
+    /// @return *this（*this - other）
+    /// @note 若 other 的历元不同，自动转换到当前历元后再运算。
+    ///       若需保留原始数据，请使用 subtracted() 获取副本。
+    AST_CORE_API
+    TimeIntervalList& subtract(const TimeIntervalList& other);
+
+    /// @brief 交集（返回副本）：同时属于当前列表和 other 的时段
+    /// @param other 另一个绝对时段列表
+    /// @return 交集（不修改当前对象）
     /// @note 若 other 的历元不同，自动转换到当前历元后再运算。
     AST_CORE_API
-    TimeIntervalList subtract(const TimeIntervalList& other) const;
+    TimeIntervalList intersected(const TimeIntervalList& other) const;
+
+    /// @brief 判断两个绝对时段列表是否相交（存在正长度重叠区间）
+    /// @param other 另一个绝对时段列表
+    /// @return 是否相交
+    /// @note 若 other 的历元不同，自动转换到当前历元后再运算。
+    AST_CORE_API
+    bool intersects(const TimeIntervalList& other) const;
+
+    /// @brief 并集（返回副本）：属于当前列表或 other 的时段
+    /// @param other 另一个绝对时段列表
+    /// @return 并集（不修改当前对象）
+    /// @note 若 other 的历元不同，自动转换到当前历元后再运算。
+    AST_CORE_API
+    TimeIntervalList united(const TimeIntervalList& other) const;
+
+    /// @brief 差集（返回副本）：属于当前列表但不属于 other 的时段
+    /// @param other 另一个绝对时段列表
+    /// @return 差集（*this - other，不修改当前对象）
+    /// @note 若 other 的历元不同，自动转换到当前历元后再运算。
+    AST_CORE_API
+    TimeIntervalList subtracted(const TimeIntervalList& other) const;
+
+    // ————————————————————————
+    // 运算符重载（Qt / Boost.ICL 风格）
+    // ————————————————————————
+
+    /// @brief 原地交集（等价于 intersect）
+    TimeIntervalList& operator&=(const TimeIntervalList& other) { return intersect(other); }
+
+    /// @brief 原地并集（等价于 unite）
+    TimeIntervalList& operator|=(const TimeIntervalList& other) { return unite(other); }
+
+    /// @brief 原地差集（等价于 subtract）
+    TimeIntervalList& operator-=(const TimeIntervalList& other) { return subtract(other); }
+
+    /// @brief 交集（返回副本，等价于 intersected）
+    TimeIntervalList operator&(const TimeIntervalList& other) const { return intersected(other); }
+
+    /// @brief 并集（返回副本，等价于 united）
+    TimeIntervalList operator|(const TimeIntervalList& other) const { return united(other); }
+
+    /// @brief 差集（返回副本，等价于 subtracted）
+    TimeIntervalList operator-(const TimeIntervalList& other) const { return subtracted(other); }
 
     // ————————————————————————
     // 转换
@@ -261,19 +314,19 @@ public:
     /// @brief 离散化（使用当前 epoch）
     /// @details 区间为闭区间 [start, stop]，两端点均会被包含在输出中。
     ///          对每个区间按步长生成时间点序列，末端点始终被强制包含。
-    ///          详见 IntervalList::discrete。
+    ///          详见 IntervalList::discretize。
     /// @param step 步长（秒，必须 > 0）
     /// @return TimeList 离散化后的时间列表
-    TimeList discrete(double step) const { return intervals_.discrete(epoch_, step); }
+    TimeList discretize(double step) const { return intervals_.discretize(epoch_, step); }
 
     /// @brief 离散化（指定历元）
     /// @details 区间为闭区间 [start, stop]，两端点均会被包含在输出中。
     ///          对每个区间按步长生成时间点序列，末端点始终被强制包含。
-    ///          详见 IntervalList::discrete。
+    ///          详见 IntervalList::discretize。
     /// @param epoch 输出时间列表的参考历元
     /// @param step 步长（秒，必须 > 0）
     /// @return TimeList 离散化后的时间列表
-    TimeList discrete(const TimePoint& epoch, double step) const { return intervals_.discrete(epoch, step); }
+    TimeList discretize(const TimePoint& epoch, double step) const { return intervals_.discretize(epoch, step); }
 
     /// @brief 转换为字符串进行展示
     /// @param precision 时间点格式化精度
