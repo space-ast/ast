@@ -266,10 +266,9 @@ var hierarchy =
     [ "ast::Dimension", "classast_1_1Dimension.html", null ],
     [ "ast::fs_simple::directory_entry", "classast_1_1fs__simple_1_1directory__entry.html", null ],
     [ "ast::fs_simple::directory_iterator", "classast_1_1fs__simple_1_1directory__iterator.html", null ],
-    [ "ast::TimeInterval::DiscreteEpochSecondRange", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html", null ],
-    [ "ast::TimeInterval::DiscreteTimePointRange", "classast_1_1TimeInterval_1_1DiscreteTimePointRange.html", null ],
     [ "dmixrecord", "structdmixrecord.html", null ],
     [ "doublecomplex", "structdoublecomplex.html", null ],
+    [ "ast::DoubleRange", "classast_1_1DoubleRange.html", null ],
     [ "DTM_12type", "structDTM__12type.html", null ],
     [ "dtm_daterectype", "structdtm__daterectype.html", null ],
     [ "dtm_unctype", "structdtm__unctype.html", null ],
@@ -511,8 +510,8 @@ var hierarchy =
       [ "ast::SymbolScope", "classast_1_1SymbolScope.html", null ]
     ] ],
     [ "ast::strings_internal::Splitter< Delimiter, Predicate, StringType >::Iterator", "classast_1_1strings__internal_1_1Splitter_1_1Iterator.html", null ],
-    [ "ast::TimeInterval::DiscreteEpochSecondRange::iterator", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html", null ],
-    [ "ast::TimeInterval::DiscreteTimePointRange::iterator", "classast_1_1TimeInterval_1_1DiscreteTimePointRange_1_1iterator.html", null ],
+    [ "ast::DoubleRange::iterator", "classast_1_1DoubleRange_1_1iterator.html", null ],
+    [ "ast::TimePointRange::iterator", "classast_1_1TimePointRange_1_1iterator.html", null ],
     [ "ast::IUnaryOptimizer", "classast_1_1IUnaryOptimizer.html", [
       [ "ast::UnaryOptimizer", "classast_1_1UnaryOptimizer.html", [
         [ "ast::BrentOptimizer", "classast_1_1BrentOptimizer.html", null ],
@@ -1540,6 +1539,7 @@ var hierarchy =
     [ "ast::TimeIntervalList", "classast_1_1TimeIntervalList.html", null ],
     [ "ast::TimeList", "classast_1_1TimeList.html", null ],
     [ "ast::TimePoint", "classast_1_1TimePoint.html", null ],
+    [ "ast::TimePointRange", "classast_1_1TimePointRange.html", null ],
     [ "ast::TimeScale", "classast_1_1TimeScale.html", null ],
     [ "ast::TLE", "classast_1_1TLE.html", null ],
     [ "ast::TLEDatabaseQuery", "classast_1_1TLEDatabaseQuery.html", null ],

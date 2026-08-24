@@ -1,5 +1,7 @@
 var classast_1_1Interval =
 [
+    [ "discretize", "classast_1_1Interval.html#afa3a72f8c3d6e6cffe869738f1905115", null ],
+    [ "discretizedCount", "classast_1_1Interval.html#a711d6f71bbf542e911c4d924e7400bac", null ],
     [ "intersect", "classast_1_1Interval.html#a2a3ea08ab2404affe1fa692da5d3befd", null ],
     [ "intersected", "classast_1_1Interval.html#a041a64dab31831d036b3a28a41e8f3ae", null ],
     [ "intersects", "classast_1_1Interval.html#a4484ff9d90093b1de38863545eeeb37d", null ],

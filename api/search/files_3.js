@@ -132,10 +132,11 @@ var searchData=
   ['dimension_2ehpp_129',['Dimension.hpp',['../Dimension_8hpp.html',1,'']]],
   ['distanceconstraint_2ecpp_130',['DistanceConstraint.cpp',['../DistanceConstraint_8cpp.html',1,'']]],
   ['distanceconstraint_2ehpp_131',['DistanceConstraint.hpp',['../DistanceConstraint_8hpp.html',1,'']]],
-  ['dragforce_2ecpp_132',['DragForce.cpp',['../DragForce_8cpp.html',1,'']]],
-  ['dragforce_2ehpp_133',['DragForce.hpp',['../DragForce_8hpp.html',1,'']]],
-  ['dtm2012_2ecpp_134',['DTM2012.cpp',['../DTM2012_8cpp.html',1,'']]],
-  ['dtm2012_2ehpp_135',['DTM2012.hpp',['../DTM2012_8hpp.html',1,'']]],
-  ['duration_2ecpp_136',['Duration.cpp',['../Duration_8cpp.html',1,'']]],
-  ['duration_2ehpp_137',['Duration.hpp',['../Duration_8hpp.html',1,'']]]
+  ['doublerange_2ehpp_132',['DoubleRange.hpp',['../DoubleRange_8hpp.html',1,'']]],
+  ['dragforce_2ecpp_133',['DragForce.cpp',['../DragForce_8cpp.html',1,'']]],
+  ['dragforce_2ehpp_134',['DragForce.hpp',['../DragForce_8hpp.html',1,'']]],
+  ['dtm2012_2ecpp_135',['DTM2012.cpp',['../DTM2012_8cpp.html',1,'']]],
+  ['dtm2012_2ehpp_136',['DTM2012.hpp',['../DTM2012_8hpp.html',1,'']]],
+  ['duration_2ecpp_137',['Duration.cpp',['../Duration_8cpp.html',1,'']]],
+  ['duration_2ehpp_138',['Duration.hpp',['../Duration_8hpp.html',1,'']]]
 ];

@@ -53,6 +53,12 @@ var group__Time =
       [ "date_", "classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4", null ],
       [ "time_", "classast_1_1DateTime.html#abddc2f3424d39275a932cb2edf1d2ffa", null ]
     ] ],
+    [ "ast::DoubleRange", "classast_1_1DoubleRange.html", [
+      [ "iterator", "classast_1_1DoubleRange_1_1iterator.html", [
+        [ "operator*", "classast_1_1DoubleRange_1_1iterator.html#a043c92c3923004b3ad32745407ea096d", null ]
+      ] ],
+      [ "DoubleRange", "classast_1_1DoubleRange.html#a979f0b3147d956bc171229716336671a", null ]
+    ] ],
     [ "ast::ShortDuration", "classast_1_1ShortDuration.html", null ],
     [ "ast::LongDuration", "classast_1_1LongDuration.html", [
       [ "fractional", "classast_1_1LongDuration.html#abc7987f8b42f2bf55c6a33c9967552d4", null ],
@@ -81,7 +87,7 @@ var group__Time =
       [ "at", "classast_1_1IntervalList.html#a73590de3937af2089a629e43bad11035", null ],
       [ "clear", "classast_1_1IntervalList.html#a67d9e24f9592302471790ef8d25efa29", null ],
       [ "contains", "classast_1_1IntervalList.html#a53363bef3c6c5f3f299d3f2d6a876ac0", null ],
-      [ "discrete", "classast_1_1IntervalList.html#a149e52e0aeb38f406ae45e38542eb8ee", null ],
+      [ "discretize", "classast_1_1IntervalList.html#a8a89ed7ca206c5b79deb8e9447da0ed4", null ],
       [ "empty", "classast_1_1IntervalList.html#a464b137f431fe04c915a1b4597909872", null ],
       [ "intersect", "classast_1_1IntervalList.html#a6664075de42433c0930e00db937c03df", null ],
       [ "intersected", "classast_1_1IntervalList.html#a95f162e776539cc15c850007ae29062a", null ],
@@ -144,11 +150,12 @@ var group__Time =
     [ "ast::TimeInterval", "classast_1_1TimeInterval.html", [
       [ "TimeInterval", "classast_1_1TimeInterval.html#ae9cca3fa3413cfe17480ed72f7091c16", null ],
       [ "TimeInterval", "classast_1_1TimeInterval.html#a2b7a74da89c75d8b8538ef12a4a94567", null ],
-      [ "discrete", "group__Time.html#gabf30f22652768af0923dcc7729e84cb5", null ],
-      [ "discrete", "classast_1_1TimeInterval.html#a25199f4d9dc4a4f6a0d2aa4c4da17dd5", null ],
-      [ "discrete", "group__Time.html#gabe360a12179445a578f36cbb87b55aee", null ],
-      [ "discrete", "classast_1_1TimeInterval.html#ab4e87be3e6cc73a9607e1328e7f667d6", null ],
-      [ "discrete", "classast_1_1TimeInterval.html#a7bbb9555502514a2d431a0a814dc331b", null ],
+      [ "discretize", "group__Time.html#ga2ea8f4eceffa58a60c1fc45c7b0ddfd3", null ],
+      [ "discretize", "classast_1_1TimeInterval.html#a755808e774bf38782c618dc15e0282c3", null ],
+      [ "discretize", "group__Time.html#gaf89a1c8c0193d9c9622a5f98e3aa1730", null ],
+      [ "discretize", "classast_1_1TimeInterval.html#a6296393b24832b7444f04bf93801d709", null ],
+      [ "discretize", "classast_1_1TimeInterval.html#a736b9ebdaac09e564e97c1e973a2d4cb", null ],
+      [ "discretizedCount", "classast_1_1TimeInterval.html#a73a9291f5ac82696815a98bd0ffaae65", null ],
       [ "duration", "classast_1_1TimeInterval.html#a203d1051e9e7f49d721dad76848b0b4f", null ],
       [ "getStart", "classast_1_1TimeInterval.html#a2cc19db7dc279938cd333aaee7345cbc", null ],
       [ "getStop", "classast_1_1TimeInterval.html#ab467b273cd33f97b6053596fec9d3286", null ],
@@ -173,12 +180,6 @@ var group__Time =
       [ "unite", "group__Time.html#gabe90ec0163eb46cb680593ea0545d0f3", null ],
       [ "united", "group__Time.html#ga6e3b2b9e22dc980546e1a44b82aa78f1", null ]
     ] ],
-    [ "ast::TimeInterval::DiscreteTimePointRange", "classast_1_1TimeInterval_1_1DiscreteTimePointRange.html", [
-      [ "iterator", "classast_1_1TimeInterval_1_1DiscreteTimePointRange_1_1iterator.html", null ]
-    ] ],
-    [ "ast::TimeInterval::DiscreteEpochSecondRange", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html", [
-      [ "iterator", "classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html", null ]
-    ] ],
     [ "ast::TimeIntervalList", "classast_1_1TimeIntervalList.html", [
       [ "const_iterator", "classast_1_1TimeIntervalList_1_1const__iterator.html", [
         [ "operator*", "classast_1_1TimeIntervalList_1_1const__iterator.html#a938dce94d36915d904e02b738f85dfe0", null ],
@@ -192,8 +193,8 @@ var group__Time =
       [ "at", "classast_1_1TimeIntervalList.html#ab91548aa027f59de7288488f9dfc88b0", null ],
       [ "clear", "classast_1_1TimeIntervalList.html#a52550bdc541e449d42b9773b6e8cb597", null ],
       [ "contains", "classast_1_1TimeIntervalList.html#a638c41688b9591f90a41d6762ec0b7b0", null ],
-      [ "discrete", "classast_1_1TimeIntervalList.html#a127382d60c914421c4b4b61d5dc10ae9", null ],
-      [ "discrete", "classast_1_1TimeIntervalList.html#ad4958c96a8bd0bd623148ae64dc8c959", null ],
+      [ "discretize", "classast_1_1TimeIntervalList.html#a88b8d47520ecf9a96f72973aa2b5fec6", null ],
+      [ "discretize", "classast_1_1TimeIntervalList.html#a7bd03a232a9d512d46cfe1f87078a6b0", null ],
       [ "empty", "classast_1_1TimeIntervalList.html#abc7ae5b9b6814a858af0f3f5063b0849", null ],
       [ "epoch", "classast_1_1TimeIntervalList.html#a6f284d98c54292714837970bc4b9ff53", null ],
       [ "intersect", "classast_1_1TimeIntervalList.html#af2211697f590497ca8a9652003344d5c", null ],
@@ -266,6 +267,12 @@ var group__Time =
       [ "toTDB", "classast_1_1TimePoint.html#a7c890ef0099264bcfc6f3f19f3282c71", null ],
       [ "toTT", "classast_1_1TimePoint.html#aa65f55e5d06111189af19c314470c62b", null ],
       [ "toTT", "classast_1_1TimePoint.html#a7abbdbfe62c230732a08458786bafcf5", null ]
+    ] ],
+    [ "ast::TimePointRange", "classast_1_1TimePointRange.html", [
+      [ "iterator", "classast_1_1TimePointRange_1_1iterator.html", [
+        [ "operator*", "classast_1_1TimePointRange_1_1iterator.html#a77f4f8ff955a0f803f284716c8dcf5d8", null ]
+      ] ],
+      [ "TimePointRange", "classast_1_1TimePointRange.html#a5bfcf28a899bab363eac6ccc6b0b7640", null ]
     ] ],
     [ "ast::Date::EMonth", "group__Time.html#ga4cdbb4699f636a8b836b9460d3d5b751", null ],
     [ "ast::Date::EWeekDay", "group__Time.html#ga7a01e196dd5e7261346a587234236b35", null ],
@@ -373,8 +380,8 @@ var group__Time =
     [ "ast::Date::dayInMonth", "group__Time.html#ga14fa5d7e73adeebc3e3266bb3401ec8a", null ],
     [ "ast::Date::dayOfWeek", "group__Time.html#ga9f1cf0f806296d78dd7f9b0b101e4594", null ],
     [ "ast::Date::dayOfYear", "group__Time.html#gaad2f8707229e004fd3f1c7cca4c7b418", null ],
-    [ "ast::TimeInterval::discrete", "group__Time.html#gabf30f22652768af0923dcc7729e84cb5", null ],
-    [ "ast::TimeInterval::discrete", "group__Time.html#gabe360a12179445a578f36cbb87b55aee", null ],
+    [ "ast::TimeInterval::discretize", "group__Time.html#ga2ea8f4eceffa58a60c1fc45c7b0ddfd3", null ],
+    [ "ast::TimeInterval::discretize", "group__Time.html#gaf89a1c8c0193d9c9622a5f98e3aa1730", null ],
     [ "ast::Date::FromJDAtNoon", "group__Time.html#ga8755bfe720d3f85040fe5dd38644de03", null ],
     [ "ast::Date::fromJDAtNoon", "group__Time.html#ga184b84b626ef7d21bd188b532e243460", null ],
     [ "ast::Date::FromYD", "group__Time.html#ga67093601b057e3771def993c842ce99a", null ],

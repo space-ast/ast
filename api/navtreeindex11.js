@@ -1,5 +1,7 @@
 var NAVTREEINDEX11 =
 {
+"Receiver_8hpp.html":[4,0,0,19,3,47],
+"Receiver_8hpp_source.html":[4,0,0,19,3,47],
 "RecordStep_8cpp.html":[4,0,0,24,1,2],
 "RecordStep_8hpp.html":[4,0,0,24,1,3],
 "RecordStep_8hpp_source.html":[4,0,0,24,1,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcCloseApproachMag_8hpp.html":[4,0,0,6,11,1,0,8,7],
 "ScStateCalcCloseApproachMag_8hpp_source.html":[4,0,0,6,11,1,0,8,7],
 "ScStateCalcCloseApproachSpeed_8cpp.html":[4,0,0,6,11,1,0,8,8],
-"ScStateCalcCloseApproachSpeed_8hpp.html":[4,0,0,6,11,1,0,8,9],
-"ScStateCalcCloseApproachSpeed_8hpp_source.html":[4,0,0,6,11,1,0,8,9],
-"ScStateCalcCloseApproachTheta_8cpp.html":[4,0,0,6,11,1,0,8,10]
+"ScStateCalcCloseApproachSpeed_8hpp.html":[4,0,0,6,11,1,0,8,9]
 };

@@ -220,7 +220,7 @@ var searchData=
   ['iteratepredefined_2ecpp_217',['IteratePredefined.cpp',['../IteratePredefined_8cpp.html',1,'']]],
   ['iteratepredefined_2ehpp_218',['IteratePredefined.hpp',['../IteratePredefined_8hpp.html',1,'']]],
   ['iterator_219',['Iterator',['../classast_1_1strings__internal_1_1Splitter_1_1Iterator.html',1,'ast::strings_internal::Splitter']]],
-  ['iterator_220',['iterator',['../classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html',1,'ast::TimeInterval::DiscreteEpochSecondRange::iterator'],['../classast_1_1TimeInterval_1_1DiscreteTimePointRange_1_1iterator.html',1,'ast::TimeInterval::DiscreteTimePointRange::iterator']]],
+  ['iterator_220',['iterator',['../classast_1_1DoubleRange_1_1iterator.html',1,'ast::DoubleRange::iterator'],['../classast_1_1TimePointRange_1_1iterator.html',1,'ast::TimePointRange::iterator']]],
   ['iunaryoptimizer_221',['IUnaryOptimizer',['../classast_1_1IUnaryOptimizer.html',1,'ast']]],
   ['iunarysolver_222',['IUnarySolver',['../classast_1_1IUnarySolver.html',1,'ast']]],
   ['ival_223',['ival',['../structast_1_1DAF__SummaryRecords.html#a130fc80796fa04596fa29feca5706f1c',1,'ast::DAF_SummaryRecords']]],

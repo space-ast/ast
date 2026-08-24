@@ -1,5 +1,7 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcMu_8hpp.html":[4,0,0,6,11,1,0,4,3],
+"ScStateCalcMu_8hpp_source.html":[4,0,0,6,11,1,0,4,3],
 "ScStateCalcNegative_8cpp.html":[4,0,0,6,11,1,0,15,102],
 "ScStateCalcNegative_8hpp.html":[4,0,0,6,11,1,0,15,103],
 "ScStateCalcNegative_8hpp_source.html":[4,0,0,6,11,1,0,15,103],
@@ -247,7 +249,5 @@ var NAVTREEINDEX13 =
 "ScStateCalcVectorZ_8hpp.html":[4,0,0,6,11,1,0,19,6],
 "ScStateCalcVectorZ_8hpp_source.html":[4,0,0,6,11,1,0,19,6],
 "ScStateCalcVelDiffMagOthSeg_8cpp.html":[4,0,0,6,11,1,0,15,216],
-"ScStateCalcVelDiffMagOthSeg_8hpp.html":[4,0,0,6,11,1,0,15,217],
-"ScStateCalcVelDiffMagOthSeg_8hpp_source.html":[4,0,0,6,11,1,0,15,217],
-"ScStateCalcVelocity_8cpp.html":[4,0,0,6,11,1,0,2,2]
+"ScStateCalcVelDiffMagOthSeg_8hpp.html":[4,0,0,6,11,1,0,15,217]
 };

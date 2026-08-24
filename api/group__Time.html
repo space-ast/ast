@@ -116,6 +116,8 @@ $(function(){initNavTree('group__Time.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DateTime.html">ast::DateTime</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DoubleRange.html">ast::DoubleRange</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ShortDuration.html">ast::ShortDuration</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1LongDuration.html">ast::LongDuration</a></td></tr>
@@ -132,15 +134,13 @@ $(function(){initNavTree('group__Time.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimeInterval.html">ast::TimeInterval</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteTimePointRange.html">ast::TimeInterval::DiscreteTimePointRange</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html">ast::TimeInterval::DiscreteEpochSecondRange</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimeIntervalList.html">ast::TimeIntervalList</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimeList.html">ast::TimeList</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimePoint.html">ast::TimePoint</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimePointRange.html">ast::TimePointRange</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -602,10 +602,10 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160
 <tr class="separator:gae57a9d98f6f51268ec563b5ed83f8b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6b3307b89a273542c8aab409e5fe2063" id="r_ga6b3307b89a273542c8aab409e5fe2063"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6b3307b89a273542c8aab409e5fe2063">ast::aTimePointToSpiceEt</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
 <tr class="separator:ga6b3307b89a273542c8aab409e5fe2063"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabe360a12179445a578f36cbb87b55aee" id="r_gabe360a12179445a578f36cbb87b55aee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteTimePointRange.html">DiscreteTimePointRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabe360a12179445a578f36cbb87b55aee">ast::TimeInterval::discrete</a> (double step) const</td></tr>
-<tr class="separator:gabe360a12179445a578f36cbb87b55aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabf30f22652768af0923dcc7729e84cb5" id="r_gabf30f22652768af0923dcc7729e84cb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html">DiscreteEpochSecondRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabf30f22652768af0923dcc7729e84cb5">ast::TimeInterval::discrete</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, double step) const</td></tr>
-<tr class="separator:gabf30f22652768af0923dcc7729e84cb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf89a1c8c0193d9c9622a5f98e3aa1730" id="r_gaf89a1c8c0193d9c9622a5f98e3aa1730"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimePointRange.html">TimePointRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf89a1c8c0193d9c9622a5f98e3aa1730">ast::TimeInterval::discretize</a> (double step) const</td></tr>
+<tr class="separator:gaf89a1c8c0193d9c9622a5f98e3aa1730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ea8f4eceffa58a60c1fc45c7b0ddfd3" id="r_ga2ea8f4eceffa58a60c1fc45c7b0ddfd3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DoubleRange.html">DoubleRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2ea8f4eceffa58a60c1fc45c7b0ddfd3">ast::TimeInterval::discretize</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, double step) const</td></tr>
+<tr class="separator:ga2ea8f4eceffa58a60c1fc45c7b0ddfd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabe90ec0163eb46cb680593ea0545d0f3" id="r_gabe90ec0163eb46cb680593ea0545d0f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabe90ec0163eb46cb680593ea0545d0f3">ast::TimeInterval::unite</a> (const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;other)</td></tr>
 <tr class="separator:gabe90ec0163eb46cb680593ea0545d0f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6e3b2b9e22dc980546e1a44b82aa78f1" id="r_ga6e3b2b9e22dc980546e1a44b82aa78f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6e3b2b9e22dc980546e1a44b82aa78f1">ast::TimeInterval::united</a> (const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;other) const</td></tr>
@@ -2760,8 +2760,8 @@ template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </
 
 </div>
 </div>
-<a id="gabf30f22652768af0923dcc7729e84cb5" name="gabf30f22652768af0923dcc7729e84cb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabf30f22652768af0923dcc7729e84cb5">&#9670;&#160;</a></span>discrete() <span class="overload">[1/2]</span></h2>
+<a id="ga2ea8f4eceffa58a60c1fc45c7b0ddfd3" name="ga2ea8f4eceffa58a60c1fc45c7b0ddfd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2ea8f4eceffa58a60c1fc45c7b0ddfd3">&#9670;&#160;</a></span>discretize() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2770,7 +2770,7 @@ template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteEpochSecondRange.html">TimeInterval::DiscreteEpochSecondRange</a> ast::TimeInterval::discrete </td>
+          <td class="memname"><a class="el" href="classast_1_1DoubleRange.html">DoubleRange</a> ast::TimeInterval::discretize </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>epoch</em></span>, </td>
         </tr>
@@ -2799,8 +2799,8 @@ template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </
 
 </div>
 </div>
-<a id="gabe360a12179445a578f36cbb87b55aee" name="gabe360a12179445a578f36cbb87b55aee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabe360a12179445a578f36cbb87b55aee">&#9670;&#160;</a></span>discrete() <span class="overload">[2/2]</span></h2>
+<a id="gaf89a1c8c0193d9c9622a5f98e3aa1730" name="gaf89a1c8c0193d9c9622a5f98e3aa1730"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf89a1c8c0193d9c9622a5f98e3aa1730">&#9670;&#160;</a></span>discretize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2809,7 +2809,7 @@ template&lt;typename <a class="el" href="classast_1_1Time.html">Time</a> &gt; </
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classast_1_1TimeInterval_1_1DiscreteTimePointRange.html">TimeInterval::DiscreteTimePointRange</a> ast::TimeInterval::discrete </td>
+          <td class="memname"><a class="el" href="classast_1_1TimePointRange.html">TimePointRange</a> ast::TimeInterval::discretize </td>
           <td>(</td>
           <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>step</em></span></td><td>)</td>
           <td> const</td>

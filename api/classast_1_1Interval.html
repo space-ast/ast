@@ -126,6 +126,10 @@ double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> ()</
 <tr class="memitem:a4c8fb2ecff1cf64b4ce8d9cc5e1282b2" id="r_a4c8fb2ecff1cf64b4ce8d9cc5e1282b2"><td class="memItemLeft" align="right" valign="top"><a id="a4c8fb2ecff1cf64b4ce8d9cc5e1282b2" name="a4c8fb2ecff1cf64b4ce8d9cc5e1282b2"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>duration</b> () const</td></tr>
 <tr class="separator:a4c8fb2ecff1cf64b4ce8d9cc5e1282b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa3a72f8c3d6e6cffe869738f1905115" id="r_afa3a72f8c3d6e6cffe869738f1905115"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1DoubleRange.html">DoubleRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa3a72f8c3d6e6cffe869738f1905115">discretize</a> (double step) const</td></tr>
+<tr class="separator:afa3a72f8c3d6e6cffe869738f1905115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a711d6f71bbf542e911c4d924e7400bac" id="r_a711d6f71bbf542e911c4d924e7400bac"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a711d6f71bbf542e911c4d924e7400bac">discretizedCount</a> (double step) const</td></tr>
+<tr class="separator:a711d6f71bbf542e911c4d924e7400bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59af33af29a051cbd335fd14bf3cccf5" id="r_a59af33af29a051cbd335fd14bf3cccf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59af33af29a051cbd335fd14bf3cccf5">setBounds</a> (double start, double stop)</td></tr>
 <tr class="separator:a59af33af29a051cbd335fd14bf3cccf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9ea47220c4bd837d15009b5b81107ab" id="r_ad9ea47220c4bd837d15009b5b81107ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Interval.html">Interval</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9ea47220c4bd837d15009b5b81107ab">unite</a> (const <a class="el" href="classast_1_1Interval.html">Interval</a> &amp;other)</td></tr>
@@ -170,6 +174,74 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>stop_</b></td></tr>
 <div class="textblock"><p>相对时间区间 </p>
 <p>相对时间区间类，用于表示时间区间的开始时间和结束时间 </p><dl class="section warning"><dt>警告</dt><dd>在使用相对时间区间时，需要明确相对时间区间的基准时间点（epoch） </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
+<a id="afa3a72f8c3d6e6cffe869738f1905115" name="afa3a72f8c3d6e6cffe869738f1905115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3a72f8c3d6e6cffe869738f1905115">&#9670;&#160;</a></span>discretize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1DoubleRange.html">DoubleRange</a> ast::Interval::discretize </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>step</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将相对时间区间离散化 </p>
+<p>对 [start, stop] 闭区间按 step 步长采样，返回惰性可迭代的秒偏移范围。 内部相邻点间距恒为 step，但末尾强制把 stop 并入输出（最后一段间距可能 小于 step），因此并非均匀网格。当 step &lt;= 0.0 或区间时长 &lt;= 0.0 时返回空范围。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">step</td><td>离散化步长（秒） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>离散化秒偏移范围 </dd></dl>
+
+</div>
+</div>
+<a id="a711d6f71bbf542e911c4d924e7400bac" name="a711d6f71bbf542e911c4d924e7400bac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a711d6f71bbf542e911c4d924e7400bac">&#9670;&#160;</a></span>discretizedCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ast::Interval::discretizedCount </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>step</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>计算离散化采样点数量 </p>
+<p>返回 discretize(step) 所生成的采样点数（含首尾端点）。当 step &gt; 0.0 且区间时长 &gt; 0.0 时为 ceil(duration()/step) + 1， 否则返回 0（无有效采样点）。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">step</td><td>离散化步长（秒） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>采样点数 </dd></dl>
+
+</div>
+</div>
 <a id="a2a3ea08ab2404affe1fa692da5d3befd" name="a2a3ea08ab2404affe1fa692da5d3befd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2a3ea08ab2404affe1fa692da5d3befd">&#9670;&#160;</a></span>intersect()</h2>
 

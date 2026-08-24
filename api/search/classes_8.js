@@ -51,7 +51,7 @@ var searchData=
   ['iscenarioimpl_3c_20iscenario_2c_20_26iid_5fiscenario_20_3e_48',['IScenarioImpl&lt; IScenario, &amp;IID_IScenario &gt;',['../classast_1_1IScenarioImpl.html',1,'ast']]],
   ['isymbolscope_49',['ISymbolScope',['../classast_1_1ISymbolScope.html',1,'ast']]],
   ['iterator_50',['Iterator',['../classast_1_1strings__internal_1_1Splitter_1_1Iterator.html',1,'ast::strings_internal::Splitter']]],
-  ['iterator_51',['iterator',['../classast_1_1TimeInterval_1_1DiscreteEpochSecondRange_1_1iterator.html',1,'ast::TimeInterval::DiscreteEpochSecondRange::iterator'],['../classast_1_1TimeInterval_1_1DiscreteTimePointRange_1_1iterator.html',1,'ast::TimeInterval::DiscreteTimePointRange::iterator']]],
+  ['iterator_51',['iterator',['../classast_1_1DoubleRange_1_1iterator.html',1,'ast::DoubleRange::iterator'],['../classast_1_1TimePointRange_1_1iterator.html',1,'ast::TimePointRange::iterator']]],
   ['iunaryoptimizer_52',['IUnaryOptimizer',['../classast_1_1IUnaryOptimizer.html',1,'ast']]],
   ['iunarysolver_53',['IUnarySolver',['../classast_1_1IUnarySolver.html',1,'ast']]],
   ['ivalueprv_54',['IValuePrv',['../classast_1_1IValuePrv.html',1,'ast']]],

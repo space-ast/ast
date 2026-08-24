@@ -15,12 +15,14 @@ var NAVTREEINDEX5 =
 "DistanceConstraint_8cpp.html":[4,0,0,6,5,6],
 "DistanceConstraint_8hpp.html":[4,0,0,6,5,7],
 "DistanceConstraint_8hpp_source.html":[4,0,0,6,5,7],
+"DoubleRange_8hpp.html":[4,0,0,6,15,7],
+"DoubleRange_8hpp_source.html":[4,0,0,6,15,7],
 "DragForce_8cpp.html":[4,0,0,6,9,3],
 "DragForce_8hpp.html":[4,0,0,6,9,4],
 "DragForce_8hpp_source.html":[4,0,0,6,9,4],
-"Duration_8cpp.html":[4,0,0,6,15,7],
-"Duration_8hpp.html":[4,0,0,6,15,8],
-"Duration_8hpp_source.html":[4,0,0,6,15,8],
+"Duration_8cpp.html":[4,0,0,6,15,8],
+"Duration_8hpp.html":[4,0,0,6,15,9],
+"Duration_8hpp_source.html":[4,0,0,6,15,9],
 "EOP_8cpp.html":[4,0,0,6,7,3],
 "EOP_8hpp.html":[4,0,0,6,7,4],
 "EOP_8hpp_source.html":[4,0,0,6,7,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "FacilityLoader_8hpp.html":[4,0,0,11,5,22],
 "FacilityLoader_8hpp.html#a0845978660206dbc6f514a5278c7e8af":[4,0,0,11,5,22,1],
 "FacilityLoader_8hpp.html#a398b03aae189f05ab00cf365cd5057a5":[4,0,0,11,5,22,2],
-"FacilityLoader_8hpp.html#aea1b4b3d38a09a096183067cc38bebb6":[4,0,0,11,5,22,3],
-"FacilityLoader_8hpp.html#aed72e3b19435ef02e9903175b032ebcf":[4,0,0,11,5,22,0],
-"FacilityLoader_8hpp_source.html":[4,0,0,11,5,22]
+"FacilityLoader_8hpp.html#aea1b4b3d38a09a096183067cc38bebb6":[4,0,0,11,5,22,3]
 };

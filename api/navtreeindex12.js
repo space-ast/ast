@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcCloseApproachSpeed_8hpp_source.html":[4,0,0,6,11,1,0,8,9],
+"ScStateCalcCloseApproachTheta_8cpp.html":[4,0,0,6,11,1,0,8,10],
 "ScStateCalcCloseApproachTheta_8hpp.html":[4,0,0,6,11,1,0,8,11],
 "ScStateCalcCloseApproachTheta_8hpp_source.html":[4,0,0,6,11,1,0,8,11],
 "ScStateCalcCloseApproachX_8cpp.html":[4,0,0,6,11,1,0,8,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcMinimumValue_8cpp.html":[4,0,0,6,11,1,0,15,100],
 "ScStateCalcMinimumValue_8hpp.html":[4,0,0,6,11,1,0,15,101],
 "ScStateCalcMinimumValue_8hpp_source.html":[4,0,0,6,11,1,0,15,101],
-"ScStateCalcMu_8cpp.html":[4,0,0,6,11,1,0,4,2],
-"ScStateCalcMu_8hpp.html":[4,0,0,6,11,1,0,4,3],
-"ScStateCalcMu_8hpp_source.html":[4,0,0,6,11,1,0,4,3]
+"ScStateCalcMu_8cpp.html":[4,0,0,6,11,1,0,4,2]
 };

@@ -9,7 +9,7 @@ var classast_1_1IntervalList =
     [ "at", "classast_1_1IntervalList.html#a73590de3937af2089a629e43bad11035", null ],
     [ "clear", "classast_1_1IntervalList.html#a67d9e24f9592302471790ef8d25efa29", null ],
     [ "contains", "classast_1_1IntervalList.html#a53363bef3c6c5f3f299d3f2d6a876ac0", null ],
-    [ "discrete", "classast_1_1IntervalList.html#a149e52e0aeb38f406ae45e38542eb8ee", null ],
+    [ "discretize", "classast_1_1IntervalList.html#a8a89ed7ca206c5b79deb8e9447da0ed4", null ],
     [ "empty", "classast_1_1IntervalList.html#a464b137f431fe04c915a1b4597909872", null ],
     [ "intersect", "classast_1_1IntervalList.html#a6664075de42433c0930e00db937c03df", null ],
     [ "intersected", "classast_1_1IntervalList.html#a95f162e776539cc15c850007ae29062a", null ],
