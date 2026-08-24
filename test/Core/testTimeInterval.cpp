@@ -19,6 +19,7 @@
 
 #include "ast/TimeInterval.hpp"
 #include "ast/TimePoint.hpp"
+#include "ast/Interval.hpp"
 #include "ast/RunTime.hpp"
 #include "ast/DateTime.hpp"
 #include "ast/Test.h"
@@ -213,6 +214,76 @@ TEST(TimeInterval, Iterator)
         }
         EXPECT_EQ(count, 3u);
     }
+}
+
+TEST(TimeInterval, ToInterval)
+{
+    TimePoint epoch = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+
+    // 同一历元：直接还原相对偏移
+    {
+        TimeInterval interval(epoch, 100.0, 3600.0);
+        Interval rel = interval.toInterval(epoch);
+        EXPECT_DOUBLE_EQ(rel.start_, 100.0);
+        EXPECT_DOUBLE_EQ(rel.stop_, 3600.0);
+        EXPECT_DOUBLE_EQ(rel.duration(), 3500.0);
+    }
+
+    // 不同历元：真实减法语义（相对历元2）
+    {
+        TimeInterval interval(epoch, 100.0, 3600.0);
+        TimePoint epoch2 = epoch.shiftedBySecond(50.0);
+        Interval rel = interval.toInterval(epoch2);
+        EXPECT_DOUBLE_EQ(rel.start_, 50.0);    // 100 - 50
+        EXPECT_DOUBLE_EQ(rel.stop_, 3550.0);   // 3600 - 50
+    }
+
+    // 往返：toInterval 与 setBounds(epoch, interval) 互为逆
+    {
+        Interval src{100.0, 3600.0};
+        TimeInterval interval;
+        interval.setBounds(epoch, src);
+        Interval rel = interval.toInterval(epoch);
+        EXPECT_DOUBLE_EQ(rel.start_, src.start_);
+        EXPECT_DOUBLE_EQ(rel.stop_, src.stop_);
+    }
+
+    // 方向保持
+    {
+        TimePoint epochA = epoch.shiftedBySecond(200.0);
+        TimePoint epochB = epoch.shiftedBySecond(50.0);
+        TimeInterval interval(epochA, epochB);  // start > stop
+        Interval rel = interval.toInterval(epoch);
+        EXPECT_TRUE(rel.start_ > rel.stop_);
+    }
+}
+
+TEST(TimeInterval, ToIntervalInfinite)
+{
+    TimePoint epoch = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+    TimeInterval interval;
+    interval.setInfinite();
+
+    Interval rel = interval.toInterval(epoch);
+    EXPECT_TRUE(std::isinf(rel.start_));
+    EXPECT_TRUE(std::isinf(rel.stop_));
+    EXPECT_TRUE(rel.start_ < 0);     // 负无穷
+    EXPECT_TRUE(rel.stop_  > 0);     // 正无穷
+    EXPECT_TRUE(std::isinf(rel.duration()));
+}
+
+TEST(TimeInterval, ToIntervalZero)
+{
+    TimePoint epoch = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+    TimeInterval interval;
+    interval.setZero();
+
+    Interval rel = interval.toInterval(epoch);
+    // 零时长：start == stop，且等于该绝对时刻相对 epoch 的秒偏移
+    double off = interval.start().durationFrom(epoch);
+    EXPECT_DOUBLE_EQ(rel.start_, off);
+    EXPECT_DOUBLE_EQ(rel.stop_, off);
+    EXPECT_DOUBLE_EQ(rel.duration(), 0.0);
 }
 
 GTEST_MAIN()

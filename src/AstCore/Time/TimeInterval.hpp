@@ -130,6 +130,20 @@ public:
         stop_  = epoch + interval.stop();
     }
 
+    /// @brief 将绝对时间区间转换为相对于给定基准历元的相对时间区间
+    /// @details 以 epoch 为相对时间的零点，将绝对区间折算为基于 epoch 的秒偏移量，
+    ///          即 Interval{getStart() - epoch, getStop() - epoch}。
+    /// @param epoch 时间区间的基准时间点（相对时间区间的零点）
+    /// @return 相对时间区间
+    /// @note 与 setBounds(epoch, interval) 互为逆操作；对同一 epoch 二者可往返复原。
+    /// @note 转换保持区间方向：若 start() <= stop()，则返回区间的 start_ <= stop_。
+    ///       无限时间区间（±∞）映射为 Interval{∓∞}，保持无限语义；零时间区间映射为
+    ///       零长度相对区间（start_ == stop_）。Interval 的聚合类型不受影响。
+    Interval toInterval(const TimePoint& epoch) const
+    {
+        return Interval{getStart() - epoch, getStop() - epoch};
+    }
+
     /// @brief 设置时间区间为无限时间区间
     void setInfinite()
     {
