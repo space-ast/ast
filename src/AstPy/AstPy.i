@@ -51,8 +51,8 @@
 
 
 %ignore ast::TimeInterval::discretize;
-%ignore ast::TimeInterval::DiscretizedTimePointRange;
-%ignore ast::TimeInterval::DiscretizedEpochSecondRange;
+%ignore ast::TimePointRange;
+%ignore ast::DoubleRange;
 
 %include "AstAllHeaders.i"
 

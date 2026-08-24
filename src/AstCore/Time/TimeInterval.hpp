@@ -22,6 +22,8 @@
 
 #include "AstGlobal.h"
 #include "TimePoint.hpp"
+#include "TimePointRange.hpp"
+#include "DoubleRange.hpp"
 #include "Interval.hpp"
 #include "AstUtil/Logger.hpp"
 #include <string>
@@ -193,19 +195,16 @@ public:
     AST_CORE_API
     errc_t discretize(double step, TimeList& times) const;
 
-    class DiscretizedTimePointRange;
-    class DiscretizedEpochSecondRange;
-
     /// @brief 将时间区间离散化为时间点
     /// @param step 离散化步长（秒）
     /// @return 离散化时间点范围
-    DiscretizedTimePointRange discretize(double step) const;
+    TimePointRange discretize(double step) const;
 
     /// @brief 将时间区间离散化为相对秒
     /// @param epoch 时间区间的基准时间点
     /// @param step 离散化步长（秒）
     /// @return 离散化时间点范围
-    DiscretizedEpochSecondRange discretize(const TimePoint& epoch, double step) const;
+    DoubleRange discretize(const TimePoint& epoch, double step) const;
 public:
     /// @brief 原地并集：将另一个时间区间并入自身（凸包）
     /// @param other 要合并的时间区间
@@ -252,125 +251,26 @@ private:
 };
 
 
-/// @brief 离散化时间点范围
-class TimeInterval::DiscretizedTimePointRange {
-public:
-    DiscretizedTimePointRange(const TimeInterval& interval, double step, size_t n)
-        : interval_(interval), step_(step), n_(n) {}
-
-    class iterator {
-    public:
-        using iterator_category = std::input_iterator_tag;
-        using value_type        = TimePoint;
-        using difference_type   = ptrdiff_t;
-        using pointer           = const TimePoint*;
-        using reference         = const TimePoint&;
-
-        iterator() = default;
-        iterator(const DiscretizedTimePointRange* range, size_t idx)
-            : range_(range), idx_(idx), value_() {}
-
-        reference operator*() const {
-            if (idx_ == range_->n_ - 1) {
-                value_ = range_->interval_.stop();
-            } else {
-                value_ = range_->interval_.start() + range_->step_ * idx_;
-            }
-            return value_;
-        }
-
-        iterator& operator++() { ++idx_; return *this; }
-        iterator operator++(int) { auto tmp = *this; ++*this; return tmp; }
-
-        bool operator==(const iterator& other) const { return idx_ == other.idx_; }
-        bool operator!=(const iterator& other) const { return !(*this == other); }
-
-    private:
-        const DiscretizedTimePointRange* range_ = nullptr;
-        size_t idx_ = 0;
-        mutable TimePoint value_{};
-    };
-
-    iterator begin() const { return iterator(this, 0); }
-    iterator end()   const { return iterator(this, n_); }
-    size_t size() const { return n_; }
-
-private:
-    TimeInterval interval_;
-    double step_;
-    size_t n_;
-};
-
-/// @brief 离散化历元秒范围
-class TimeInterval::DiscretizedEpochSecondRange {
-public:
-    DiscretizedEpochSecondRange(double offset, double step, double stopOffset, size_t n)
-        : offset_(offset), step_(step), stopOffset_(stopOffset), n_(n) {}
-
-    class iterator {
-    public:
-        using iterator_category = std::input_iterator_tag;
-        using value_type        = double;
-        using difference_type   = ptrdiff_t;
-        using pointer           = const double*;
-        using reference         = const double&;
-
-        iterator() = default;
-        iterator(const DiscretizedEpochSecondRange* range, size_t idx)
-            : range_(range), idx_(idx), value_() {}
-
-        reference operator*() const {
-            if (idx_ == range_->n_ - 1) {
-                value_ = range_->stopOffset_;
-            } else {
-                value_ = range_->offset_ + range_->step_ * idx_;
-            }
-            return value_;
-        }
-
-        iterator& operator++() { ++idx_; return *this; }
-        iterator operator++(int) { auto tmp = *this; ++*this; return tmp; }
-
-        bool operator==(const iterator& other) const { return idx_ == other.idx_; }
-        bool operator!=(const iterator& other) const { return !(*this == other); }
-
-    private:
-        const DiscretizedEpochSecondRange* range_ = nullptr;
-        size_t idx_ = 0;
-        mutable double value_{0.0};
-    };
-
-    iterator begin() const { return iterator(this, 0); }
-    iterator end()   const { return iterator(this, n_); }
-    size_t size() const { return n_; }
-private:
-    double offset_;
-    double step_;
-    double stopOffset_;
-    size_t n_;
-};
-
-
-inline TimeInterval::DiscretizedTimePointRange TimeInterval::discretize(double step) const
+inline TimePointRange TimeInterval::discretize(double step) const
 {
     double dur = duration();
     if (step <= 0.0 || dur <= 0.0) {
-        return DiscretizedTimePointRange(*this, step, 0);
+        return TimePointRange(start_, stop_, step, 0);
     }
     size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
-    return DiscretizedTimePointRange(*this, step, n);
+    return TimePointRange(start_, stop_, step, n);
 }
 
-inline TimeInterval::DiscretizedEpochSecondRange TimeInterval::discretize(const TimePoint& epoch, double step) const
+inline DoubleRange TimeInterval::discretize(const TimePoint& epoch, double step) const
 {
     double dur = duration();
     if (step <= 0.0 || dur <= 0.0) {
-        return DiscretizedEpochSecondRange(0.0, step, 0.0, 0);
+        return DoubleRange(0.0, 0.0, step, 0);
     }
     size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
-    double offset = getStart() - epoch;
-    double stopOffset = getStop() - epoch;
-    return DiscretizedEpochSecondRange(offset, step, stopOffset, n);
+    double start = getStart() - epoch;
+    double stop  = getStop()  - epoch;
+    return DoubleRange(start, stop, step, n);
 }
 
 inline TimeInterval& TimeInterval::unite(const TimeInterval &other)
