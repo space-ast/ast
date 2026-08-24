@@ -1,6 +1,7 @@
 build/
 artifacts/
 doc/
+blog
 #.vscode
 .xmake
 .vs

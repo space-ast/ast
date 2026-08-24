@@ -19,9 +19,9 @@
 
 #include "CloseApproachAnalyzer.hpp"
 #include "CloseApproachGeometry.hpp"
-#include "Filter/OutOfDateFilter.hpp"
-#include "Filter/ApogeePerigeeFilter.hpp"
-#include "Filter/OrbitPathFilter.hpp"
+#include "AstCore/OutOfDateFilter.hpp"
+#include "AstCore/ApogeePerigeeFilter.hpp"
+#include "AstCore/OrbitPathFilter.hpp"
 #include "AstCore/DistanceConstraint.hpp"
 #include "AstCore/AccessEvaluator.hpp"
 #include "AstCore/FixedStepStepper.hpp"

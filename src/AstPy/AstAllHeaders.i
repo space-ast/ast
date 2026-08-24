@@ -220,6 +220,7 @@
 %include "../AstUtil/Platform/LibraryLoader.hpp"
 %include "../AstUtil/Quantity/QuantityParser.hpp"
 %include "../AstUtil/Quantity/UnitParser.hpp"
+%include "../AstUtil/Quantity/UnitRep.hpp"
 %include "../AstUtil/RTTI/ObjectProtocol.hpp"
 %include "../AstUtil/RTTI/Reflect/Field.hpp"
 %include "../AstUtil/RTTI/Reflect/ReflectAPI.hpp"
