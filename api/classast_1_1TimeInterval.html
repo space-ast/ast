@@ -146,6 +146,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setStop</b> (const <a
 <tr class="separator:a50376549683ca6ebc664db4ffd190964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48abd9e243d1070fa436962f4360a1a4" id="r_a48abd9e243d1070fa436962f4360a1a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48abd9e243d1070fa436962f4360a1a4">setBounds</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, const <a class="el" href="classast_1_1Interval.html">Interval</a> &amp;interval)</td></tr>
 <tr class="separator:a48abd9e243d1070fa436962f4360a1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11d34a5563c22cc42273a7586e5075ac" id="r_a11d34a5563c22cc42273a7586e5075ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Interval.html">Interval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11d34a5563c22cc42273a7586e5075ac">toInterval</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch) const</td></tr>
+<tr class="separator:a11d34a5563c22cc42273a7586e5075ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddd950e3f25705ae1a1504c89c94778" id="r_a0ddd950e3f25705ae1a1504c89c94778"><td class="memItemLeft" align="right" valign="top"><a id="a0ddd950e3f25705ae1a1504c89c94778" name="a0ddd950e3f25705ae1a1504c89c94778"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setInfinite</b> ()</td></tr>
 <tr class="separator:a0ddd950e3f25705ae1a1504c89c94778"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -526,6 +528,43 @@ static <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a>&#160;
 
 <p>设置时间区间为零时间区间 </p>
 <dl class="section warning"><dt>警告</dt><dd>这将使时间区间无效，无法用于计算。 </dd></dl>
+
+</div>
+</div>
+<a id="a11d34a5563c22cc42273a7586e5075ac" name="a11d34a5563c22cc42273a7586e5075ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11d34a5563c22cc42273a7586e5075ac">&#9670;&#160;</a></span>toInterval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Interval.html">Interval</a> ast::TimeInterval::toInterval </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>epoch</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将绝对时间区间转换为相对于给定基准历元的相对时间区间 </p>
+<p>以 epoch 为相对时间的零点，将绝对区间折算为基于 epoch 的秒偏移量， 即 <a class="el" href="classast_1_1Interval.html" title="相对时间区间">Interval</a>{<a class="el" href="#a2cc19db7dc279938cd333aaee7345cbc" title="时间区间的开始时间点">getStart()</a> - epoch, <a class="el" href="#ab467b273cd33f97b6053596fec9d3286" title="时间区间的结束时间点">getStop()</a> - epoch}。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">epoch</td><td>时间区间的基准时间点（相对时间区间的零点） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>相对时间区间 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>与 setBounds(epoch, interval) 互为逆操作；对同一 epoch 二者可往返复原。 </dd>
+<dd>
+转换保持区间方向：若 <a class="el" href="#a92ad94094486d2c3b3207f5bdbfa6e7b" title="时间区间的开始时间点">start()</a> &lt;= <a class="el" href="#a84c8351775a794c668e5208c920f7563" title="时间区间的结束时间点">stop()</a>，则返回区间的 start_ &lt;= stop_。 无限时间区间（±∞）映射为 <a class="el" href="classast_1_1Interval.html" title="相对时间区间">Interval</a>{∓∞}，保持无限语义；零时间区间映射为 零长度相对区间（start_ == stop_）。Interval 的聚合类型不受影响。 </dd></dl>
 
 </div>
 </div>

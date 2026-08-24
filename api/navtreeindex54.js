@@ -1,5 +1,6 @@
 var NAVTREEINDEX54 =
 {
+"group__Interpolator.html#gaa267788471ee95d2bf7e4af949601b35":[0,3,2,2],
 "group__Magnetosphere.html":[0,9,2],
 "group__Magnetosphere.html#ga47299e608849247ae0e11d1d124b5c77":[0,9,2,3],
 "group__Magnetosphere.html#ga685e75540c3bbad47c98107fdcc45ff3":[0,9,2,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX54 =
 "group__Quantity.html#ga68bc55be726ee1de1ea63da4bdda201c":[0,8,3,31],
 "group__Quantity.html#ga6b680c377ab16387e1f784fb65195ca7":[0,8,3,26],
 "group__Quantity.html#ga70b2e2b0729ec0fca1e538dfee976ec6":[0,8,3,19],
-"group__Quantity.html#ga757ee64f8329c06333963e2792bdef53":[0,8,3,22],
-"group__Quantity.html#ga80e261cb5f4d212d2492789fa4c943bb":[0,8,3,9]
+"group__Quantity.html#ga757ee64f8329c06333963e2792bdef53":[0,8,3,22]
 };

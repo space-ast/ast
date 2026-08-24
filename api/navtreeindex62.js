@@ -1,5 +1,6 @@
 var NAVTREEINDEX62 =
 {
+"structast_1_1CloseApproachResult.html#a85d12ab1624b32c9e452518093d89aa4":[2,0,0,154,4],
 "structast_1_1CloseApproachResult.html#a85d12ab1624b32c9e452518093d89aa4":[3,0,0,152,4],
 "structast_1_1CloseApproachResult.html#a9351b45281ae16c39ec0ea06a685fc29":[2,0,0,154,1],
 "structast_1_1CloseApproachResult.html#a9351b45281ae16c39ec0ea06a685fc29":[3,0,0,152,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX62 =
 "structast_1_1PoleMotion.html#abdf343d69c38122f6a70fec7df6975e4":[0,1,1,4,0],
 "structast_1_1PoleMotionSXY.html":[2,0,0,594],
 "structast_1_1PoleMotionSXY.html":[3,0,0,592],
-"structast_1_1QuickTypeEntry.html":[2,0,0,619],
-"structast_1_1QuickTypeEntry.html":[3,0,0,617]
+"structast_1_1QuickTypeEntry.html":[2,0,0,619]
 };

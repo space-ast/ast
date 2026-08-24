@@ -1,5 +1,6 @@
 var NAVTREEINDEX61 =
 {
+"namespaceast_1_1literals.html#a958d752146621a4e05d702aba5699c91":[2,0,0,2,46],
 "namespaceast_1_1literals.html#a99ae4a1fbe45e0e0573447f6ee940360":[2,0,0,2,38],
 "namespaceast_1_1literals.html#a9f03b2451f56628810eba0ecc1dea484":[2,0,0,2,27],
 "namespaceast_1_1literals.html#aa282faa6ad8c82763e3ba420523e0043":[2,0,0,2,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX61 =
 "structast_1_1CloseApproachResult.html#a5d9cb5286838695fad58d529d6472f3f":[2,0,0,154,0],
 "structast_1_1CloseApproachResult.html#a5d9cb5286838695fad58d529d6472f3f":[3,0,0,152,0],
 "structast_1_1CloseApproachResult.html#a803b5caa04c2bf77c4fb0b938fe0b30f":[2,0,0,154,2],
-"structast_1_1CloseApproachResult.html#a803b5caa04c2bf77c4fb0b938fe0b30f":[3,0,0,152,2],
-"structast_1_1CloseApproachResult.html#a85d12ab1624b32c9e452518093d89aa4":[2,0,0,154,4]
+"structast_1_1CloseApproachResult.html#a803b5caa04c2bf77c4fb0b938fe0b30f":[3,0,0,152,2]
 };
