@@ -1,4 +1,4 @@
-# ast - Aerospace Simulation Algorithm Library
+# ast - Aerospace Simulation Tool
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f27ba68ec9a4928b5b863cd1bc10c81)](https://app.codacy.com/gh/space-ast/ast?utm_source=github.com&utm_medium=referral&utm_content=space-ast/ast&utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/space-ast/ast/graph/badge.svg?token=FIUMJKSPGZ)](https://codecov.io/gh/space-ast/ast)
@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-Apache2.0-green.svg)
 ![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey.svg)
 
-**ast** (/æst/) is an open-source aerospace simulation algorithm library written in C++, providing computational foundations for space mission analysis and design.
+**ast** (/æst/) is an open-source aerospace simulation tool written in C++, providing computational foundations for space mission analysis and design.
 
 *Precise as the stars, born for aerospace simulation*
 
