@@ -233,7 +233,7 @@ static double unit_reduce(Unit& unit)
 /// @param unit1 单位1
 /// @param unit2 单位2
 /// @return 单位乘积
-Unit unit_multiply(const Unit& unit1, const Unit& unit2)
+static Unit unit_multiply(const Unit& unit1, const Unit& unit2)
 {
     SubUnitListConst subunits;
     if (unit1.rep_->subUnits_.empty()) {
@@ -264,7 +264,7 @@ Unit unit_multiply(const Unit& unit1, const Unit& unit2)
 /// @param unit1 单位1
 /// @param unit2 单位2
 /// @return 单位商
-Unit unit_divide(const Unit& unit1, const Unit& unit2)
+static Unit unit_divide(const Unit& unit1, const Unit& unit2)
 {
     SubUnitListConst subunits;
     if (unit1.rep_->subUnits_.empty()) {
@@ -297,7 +297,7 @@ Unit unit_divide(const Unit& unit1, const Unit& unit2)
 /// @param unit 单位
 /// @param exponent 指数
 /// @return 单位幂
-Unit unit_power(const Unit& unit, int exponent)
+static Unit unit_power(const Unit& unit, int exponent)
 {
     SubUnitListConst subunits;
     if (unit.rep_->subUnits_.empty()) {
@@ -324,7 +324,7 @@ Unit unit_power(const Unit& unit, int exponent)
 /// @brief 设置单位名称
 /// @param unit 单位
 /// @param name 名称
-void unit_setname(Unit& unit, StringView name)
+static void unit_setname(Unit& unit, StringView name)
 {
     unit.rep_->name_ = std::string(name);
 }

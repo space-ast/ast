@@ -39,7 +39,7 @@ class UnitRep;
 enum class EUnitKind: uint8_t{
     eScale,
     eAffine,
-    Logarithmic
+    eLogarithmic
 };
 
 
@@ -129,11 +129,12 @@ public:
 
 
 /// 对数型单位表示: SI = reference * 10^(v / factor)
+// @todo 未校验 reference/factor 参数：reference<=0 或 factor<=0 会使 toSI/fromSI 输出异常，应加校验并返回错误。
 class LogarithmicUnitRep : public UnitRep {
 public:
     using UnitRep::UnitRep;
     LogarithmicUnitRep(StringView name, Dimension dimension, double reference, double factor)
-        : UnitRep(EUnitKind::Logarithmic, name, dimension)
+        : UnitRep(EUnitKind::eLogarithmic, name, dimension)
         , reference_{reference}
         , factor_{factor}
     {}

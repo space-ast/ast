@@ -32,6 +32,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <clocale>
 
 AST_USING_NAMESPACE
 

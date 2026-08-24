@@ -503,7 +503,7 @@ TEST(IntervalList, SubtractComplete)
 TEST(IntervalList, DiscretizeEmpty)
 {
     IntervalList list;
-    TimePoint epoch;
+    TimePoint epoch{};
     TimeList tl = list.discretize(epoch, 1.0);
 
     EXPECT_TRUE(tl.empty());

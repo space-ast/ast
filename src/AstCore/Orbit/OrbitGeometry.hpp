@@ -128,7 +128,6 @@ AST_CORE_CAPI double aOrbitTrueAnomaly(
 /// @param gm 引力常数 [m^3/s^2]
 /// @param time 查询时刻
 /// @param position 输出：查询时刻的轨道位置
-/// @return eNoError 成功
 AST_CORE_CAPI void aOrbitPosition(
     const TimePoint& epoch,     
     const OrbElem& orbit,       

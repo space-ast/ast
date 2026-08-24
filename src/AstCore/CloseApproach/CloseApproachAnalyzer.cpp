@@ -37,7 +37,7 @@
 
 AST_NAMESPACE_BEGIN
 
-#define AST_DEBUG_CLOSE_APPROACH
+// #define AST_DEBUG_CLOSE_APPROACH
 
 namespace
 {
@@ -278,7 +278,8 @@ errc_t CloseApproachAnalyzer::analyze(const TLE& reference, const std::vector<TL
 
 
     size_t  afterTimeFilter = 0;
-    double  coarseAcc = 0.0;
+    double  coarseAcc = 0.0;   ///< 时间过滤总耗时（面扫描 + Brent 门控）
+    double  scanAcc   = 0.0;   ///< 面扫描（交点过境粗扫描）耗时
     double  fineAcc   = 0.0;
     double  totalSearchDur = 0.0;
 
@@ -319,7 +320,7 @@ errc_t CloseApproachAnalyzer::analyze(const TLE& reference, const std::vector<TL
         {
             searchIntervals = TimeIntervalList::FromTimeInterval(opts_.window);
         }
-        coarseAcc += elapsedSeconds(tc);
+        scanAcc += elapsedSeconds(tc);
 
         if (searchIntervals.empty()) { continue; }
         ++afterTimeFilter;
@@ -377,9 +378,9 @@ errc_t CloseApproachAnalyzer::analyze(const TLE& reference, const std::vector<TL
         }
     }
     result.afterTimeFilter   = afterTimeFilter;
-    result.secondsTimeFilter = coarseAcc;   // 时间过滤（SGP4 交点过境粗扫描 + Brent 门控）
+    result.secondsTimeFilter = scanAcc + coarseAcc;   // 时间过滤总耗时（面扫描 + Brent 门控）
     result.secondsBruteForce = elapsedSeconds(t4);
-    result.secondsCoarseScan = coarseAcc;
+    result.secondsCoarseScan = scanAcc;               // 仅面扫描（交点过境粗扫描）耗时
     result.secondsFineScan   = fineAcc;
     result.totalSearchSeconds = totalSearchDur;
 

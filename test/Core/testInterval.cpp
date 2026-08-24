@@ -37,7 +37,6 @@ TEST(Interval, Discretize)
         EXPECT_NEAR(*it, 3600.0, 1e-9);
     }
 
-    // 时长不是步长整数倍
     {
         Interval interval{0.0, 5400.0};  // 1.5小时
         auto range = interval.discretize(1800.0);

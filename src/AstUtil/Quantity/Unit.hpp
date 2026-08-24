@@ -605,6 +605,7 @@ public: // operators
     /// @brief 单位乘法运算符
     /// @param other 其他单位
     /// @return 新单位
+    // @todo 应禁止 affine（如 °C）与 logarithmic（如 dBm）单位的复合算术（乘/除/幂），这些单位不能按线性比例运算。
     Unit operator*(const Unit& other) const
     {
         return aUnitMultiply(*this, other);

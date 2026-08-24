@@ -31,7 +31,7 @@
 #include <utility>
 #include <vector>
 
-#define AST_DEBUG_ORBIT_GEOMETRY
+// #define AST_DEBUG_ORBIT_GEOMETRY
 
 AST_NAMESPACE_BEGIN
 
@@ -76,7 +76,9 @@ double aCoplanarPathMinDistance(const OrbElem& o1, const OrbElem& o2)
         if (d < best) { best = d; bestNu = nu; }
     }
 
+    const double gridBest = best;
     aBrentMinimize(dist2, bestNu - step, bestNu + step, bestNu, &best);
+    best = std::min(best, gridBest);   // 精化不应劣于网格最小值
     return std::sqrt(best);
 }
 

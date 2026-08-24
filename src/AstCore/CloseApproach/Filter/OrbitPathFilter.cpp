@@ -28,6 +28,7 @@ AST_NAMESPACE_BEGIN
 OrbitPathFilter::OrbitPathFilter(const CloseApproachOptions& opts, const CloseApproachContext& ctx)
     : referenceOrbit_(ctx.refElem)
     , threshold_(opts.orbitPathPad + opts.threshold)
+    , gm_(ctx.gm > 0.0 ? ctx.gm : kEarthGrav)   // 非地球天体时与之保持一致，避免除零
 {
 }
 

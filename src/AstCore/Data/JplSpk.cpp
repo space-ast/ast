@@ -134,6 +134,8 @@ errc_t aSpiceGetInterval(StringView filepath, int target, TimeInterval &timeInte
                 {
                     aWarning("SPK target %d has disjoint segments (coverage gap)", target);
                 }
+                // @todo 覆盖区间存在 gap（不相交段）：unite 凸包会桥接空隙成连续覆盖，
+                //      调用方会误把空隙内时间当作有效 SPK 覆盖。应返错或改为 TimeIntervalList 保留各区段。
                 interval.unite({start, end});
             }else{
                 interval.setBounds(start, end);

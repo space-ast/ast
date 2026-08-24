@@ -20,6 +20,8 @@
 #pragma once
 
 #include "CloseApproachFilter.hpp"
+#include "AstCore/TimeInterval.hpp"
+#include "AstUtil/Literals.hpp"
 
 AST_NAMESPACE_BEGIN
 

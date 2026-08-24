@@ -40,7 +40,7 @@ Quantity aQuantityAdd(const Quantity& q1, const Quantity& q2)
         const Unit& u1 = q1.unit();
         const Unit& u2 = q2.unit();
         // 对数(dB)单位无法线性组合，转 SI 做功率(dBm/dBW/dB)叠加
-        if(u1.kind() == EUnitKind::Logarithmic || u2.kind() == EUnitKind::Logarithmic)
+        if(u1.kind() == EUnitKind::eLogarithmic || u2.kind() == EUnitKind::eLogarithmic)
         {
             double siSum = u1.toSI(q1.magnitude()) + u2.toSI(q2.magnitude());
             return Quantity(u1.fromSI(siSum), u1);

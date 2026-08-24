@@ -985,8 +985,8 @@ TEST(Unit, Temperature)
     EXPECT_EQ(degC.fromSI(273.15), 0);
 
     // 华氏 → 开
-    EXPECT_EQ(degF.toSI(32), 273.15);
-    EXPECT_EQ(degF.toSI(212), 373.15);
+    EXPECT_DOUBLE_EQ(degF.toSI(32), 273.15);
+    EXPECT_DOUBLE_EQ(degF.toSI(212), 373.15);
 
     // 兰氏 → 开
     EXPECT_DOUBLE_EQ(degR.toSI(491.67), 273.15);
