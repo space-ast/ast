@@ -25,7 +25,6 @@
 #include <cstddef>
 
 AST_NAMESPACE_BEGIN
-using namespace literals;
 
 /// @brief 接近分析配置
 /// @details 描述一次交会分析的窗口、距离阈值、预过滤开关与 padding、
