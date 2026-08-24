@@ -314,19 +314,19 @@ public:
     /// @brief 离散化（使用当前 epoch）
     /// @details 区间为闭区间 [start, stop]，两端点均会被包含在输出中。
     ///          对每个区间按步长生成时间点序列，末端点始终被强制包含。
-    ///          详见 IntervalList::discrete。
+    ///          详见 IntervalList::discretize。
     /// @param step 步长（秒，必须 > 0）
     /// @return TimeList 离散化后的时间列表
-    TimeList discrete(double step) const { return intervals_.discrete(epoch_, step); }
+    TimeList discretize(double step) const { return intervals_.discretize(epoch_, step); }
 
     /// @brief 离散化（指定历元）
     /// @details 区间为闭区间 [start, stop]，两端点均会被包含在输出中。
     ///          对每个区间按步长生成时间点序列，末端点始终被强制包含。
-    ///          详见 IntervalList::discrete。
+    ///          详见 IntervalList::discretize。
     /// @param epoch 输出时间列表的参考历元
     /// @param step 步长（秒，必须 > 0）
     /// @return TimeList 离散化后的时间列表
-    TimeList discrete(const TimePoint& epoch, double step) const { return intervals_.discrete(epoch, step); }
+    TimeList discretize(const TimePoint& epoch, double step) const { return intervals_.discretize(epoch, step); }
 
     /// @brief 转换为字符串进行展示
     /// @param precision 时间点格式化精度

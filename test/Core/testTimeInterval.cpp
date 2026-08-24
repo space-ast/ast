@@ -97,7 +97,7 @@ TEST(TimeInterval, Parse)
     EXPECT_NEAR(parsed.duration(), original.duration(), 1e-9);
 }
 
-TEST(TimeInterval, Discrete)
+TEST(TimeInterval, Discretize)
 {
     // 测试离散化为相对时间（相对于某个epoch）
     // 时长正好是步长整数倍的情况
@@ -108,7 +108,7 @@ TEST(TimeInterval, Discrete)
         TimeInterval interval(start, stop);
 
         std::vector<double> times;
-        errc_t rc = interval.discrete(epoch, 1800.0, times);  // 30分钟步长
+        errc_t rc = interval.discretize(epoch, 1800.0, times);  // 30分钟步长
 
         // nnodes = ceil(3600/1800) + 1 = 3
         // 输出 3 个节点: 起点, 中点, 终点
@@ -127,7 +127,7 @@ TEST(TimeInterval, Discrete)
         TimeInterval interval(start, stop);
 
         std::vector<double> times;
-        errc_t rc = interval.discrete(epoch, 1800.0, times);  // 30分钟步长
+        errc_t rc = interval.discretize(epoch, 1800.0, times);  // 30分钟步长
 
         // nnodes = ceil(5400/1800) + 1 = 4
         // 输出 4 个节点：0, 1800, 3600, 5400
@@ -146,7 +146,7 @@ TEST(TimeInterval, Discrete)
         TimeInterval interval(start, stop);
 
         std::vector<TimePoint> times;
-        errc_t rc = interval.discrete(600.0, times);  // 10分钟步长
+        errc_t rc = interval.discretize(600.0, times);  // 10分钟步长
 
         // nnodes = ceil(1800/600) + 1 = 4
         EXPECT_EQ(rc, eNoError);
@@ -160,7 +160,7 @@ TEST(TimeInterval, Discrete)
         TimeInterval interval(start, stop);
 
         std::vector<TimePoint> times;
-        errc_t rc = interval.discrete(600.0, times);  // 10分钟步长，正好等于区间
+        errc_t rc = interval.discretize(600.0, times);  // 10分钟步长，正好等于区间
 
         // nnodes = ceil(600/600) + 1 = 2
         // 输出 2 个节点：起点 和 终点
@@ -189,7 +189,7 @@ TEST(TimeInterval, Iterator)
         TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 1, 0, 0.0);
         TimeInterval interval(start, stop);
         
-        auto range = interval.discrete(1800.0);  // 30分钟步长
+        auto range = interval.discretize(1800.0);  // 30分钟步长
         size_t count = 0;
         for(auto it = range.begin(); it != range.end(); ++it)
         {
@@ -206,7 +206,7 @@ TEST(TimeInterval, Iterator)
         TimePoint stop = TimePoint::FromUTC(2026, 1, 1, 1, 0, 0.0);
         TimeInterval interval(start, stop);
 
-        auto range = interval.discrete(epoch, 1800.0);
+        auto range = interval.discretize(epoch, 1800.0);
         size_t count = 0;
         for(auto it = range.begin(); it != range.end(); ++it)
         {

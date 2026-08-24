@@ -218,7 +218,7 @@ IntervalList& IntervalList::subtract(const IntervalList& other)
 // 与 TimeList 互转
 // ————————————————————————
 
-TimeList IntervalList::discrete(const TimePoint& epoch, double step) const
+TimeList IntervalList::discretize(const TimePoint& epoch, double step) const
 {
     TimeList result(epoch);
 

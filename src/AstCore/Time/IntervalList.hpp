@@ -311,7 +311,7 @@ public:
     /// @param step 离散化步长（秒，必须 > 0）
     /// @return TimeList 离散化后的时间点列表
     AST_CORE_API
-    TimeList discrete(const TimePoint& epoch, double step) const;
+    TimeList discretize(const TimePoint& epoch, double step) const;
 
 private:
     std::vector<Interval> intervals_{};   ///< 相对时间区间列表

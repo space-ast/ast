@@ -177,35 +177,35 @@ public:
     /// @param times 输出离散化时间点
     /// @return errc_t 错误码
     AST_CORE_API
-    errc_t discrete(const TimePoint& epoch, double step, std::vector<double>& times) const;
+    errc_t discretize(const TimePoint& epoch, double step, std::vector<double>& times) const;
 
     /// @brief 将时间区间离散化
     /// @param step 离散化步长（秒）
     /// @param times 输出离散化时间点
     /// @return errc_t 错误码
     AST_CORE_API
-    errc_t discrete(double step, std::vector<TimePoint>& times) const;
+    errc_t discretize(double step, std::vector<TimePoint>& times) const;
 
     /// @brief 将时间区间离散化
     /// @param step 离散化步长（秒）
     /// @param times 输出离散化时间点列表
     /// @return errc_t 错误码
     AST_CORE_API
-    errc_t discrete(double step, TimeList& times) const;
+    errc_t discretize(double step, TimeList& times) const;
 
-    class DiscreteTimePointRange;
-    class DiscreteEpochSecondRange;
+    class DiscretizedTimePointRange;
+    class DiscretizedEpochSecondRange;
 
     /// @brief 将时间区间离散化为时间点
     /// @param step 离散化步长（秒）
     /// @return 离散化时间点范围
-    DiscreteTimePointRange discrete(double step) const;
+    DiscretizedTimePointRange discretize(double step) const;
 
     /// @brief 将时间区间离散化为相对秒
     /// @param epoch 时间区间的基准时间点
     /// @param step 离散化步长（秒）
     /// @return 离散化时间点范围
-    DiscreteEpochSecondRange discrete(const TimePoint& epoch, double step) const;
+    DiscretizedEpochSecondRange discretize(const TimePoint& epoch, double step) const;
 public:
     /// @brief 原地并集：将另一个时间区间并入自身（凸包）
     /// @param other 要合并的时间区间
@@ -253,9 +253,9 @@ private:
 
 
 /// @brief 离散化时间点范围
-class TimeInterval::DiscreteTimePointRange {
+class TimeInterval::DiscretizedTimePointRange {
 public:
-    DiscreteTimePointRange(const TimeInterval& interval, double step, size_t n)
+    DiscretizedTimePointRange(const TimeInterval& interval, double step, size_t n)
         : interval_(interval), step_(step), n_(n) {}
 
     class iterator {
@@ -267,7 +267,7 @@ public:
         using reference         = const TimePoint&;
 
         iterator() = default;
-        iterator(const DiscreteTimePointRange* range, size_t idx)
+        iterator(const DiscretizedTimePointRange* range, size_t idx)
             : range_(range), idx_(idx), value_() {}
 
         reference operator*() const {
@@ -286,7 +286,7 @@ public:
         bool operator!=(const iterator& other) const { return !(*this == other); }
 
     private:
-        const DiscreteTimePointRange* range_ = nullptr;
+        const DiscretizedTimePointRange* range_ = nullptr;
         size_t idx_ = 0;
         mutable TimePoint value_{};
     };
@@ -302,9 +302,9 @@ private:
 };
 
 /// @brief 离散化历元秒范围
-class TimeInterval::DiscreteEpochSecondRange {
+class TimeInterval::DiscretizedEpochSecondRange {
 public:
-    DiscreteEpochSecondRange(double offset, double step, double stopOffset, size_t n)
+    DiscretizedEpochSecondRange(double offset, double step, double stopOffset, size_t n)
         : offset_(offset), step_(step), stopOffset_(stopOffset), n_(n) {}
 
     class iterator {
@@ -316,7 +316,7 @@ public:
         using reference         = const double&;
 
         iterator() = default;
-        iterator(const DiscreteEpochSecondRange* range, size_t idx)
+        iterator(const DiscretizedEpochSecondRange* range, size_t idx)
             : range_(range), idx_(idx), value_() {}
 
         reference operator*() const {
@@ -335,7 +335,7 @@ public:
         bool operator!=(const iterator& other) const { return !(*this == other); }
 
     private:
-        const DiscreteEpochSecondRange* range_ = nullptr;
+        const DiscretizedEpochSecondRange* range_ = nullptr;
         size_t idx_ = 0;
         mutable double value_{0.0};
     };
@@ -351,26 +351,26 @@ private:
 };
 
 
-inline TimeInterval::DiscreteTimePointRange TimeInterval::discrete(double step) const
+inline TimeInterval::DiscretizedTimePointRange TimeInterval::discretize(double step) const
 {
     double dur = duration();
     if (step <= 0.0 || dur <= 0.0) {
-        return DiscreteTimePointRange(*this, step, 0);
+        return DiscretizedTimePointRange(*this, step, 0);
     }
     size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
-    return DiscreteTimePointRange(*this, step, n);
+    return DiscretizedTimePointRange(*this, step, n);
 }
 
-inline TimeInterval::DiscreteEpochSecondRange TimeInterval::discrete(const TimePoint& epoch, double step) const
+inline TimeInterval::DiscretizedEpochSecondRange TimeInterval::discretize(const TimePoint& epoch, double step) const
 {
     double dur = duration();
     if (step <= 0.0 || dur <= 0.0) {
-        return DiscreteEpochSecondRange(0.0, step, 0.0, 0);
+        return DiscretizedEpochSecondRange(0.0, step, 0.0, 0);
     }
     size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
     double offset = getStart() - epoch;
     double stopOffset = getStop() - epoch;
-    return DiscreteEpochSecondRange(offset, step, stopOffset, n);
+    return DiscretizedEpochSecondRange(offset, step, stopOffset, n);
 }
 
 inline TimeInterval& TimeInterval::unite(const TimeInterval &other)

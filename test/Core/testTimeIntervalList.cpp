@@ -1450,7 +1450,7 @@ TEST(TimeIntervalList, ToIntervalListRoundTrip)
 
 
 // ————————————————————————
-// 离散化（discrete）
+// 离散化（discretize）
 //
 // 离散化的区间语义为闭区间 [start, stop]：
 // - 端点 start 和 stop 始终被包含
@@ -1459,13 +1459,13 @@ TEST(TimeIntervalList, ToIntervalListRoundTrip)
 //   例如：[0, 10] step=3 → 0, 3, 6, 9, 10（5个点）
 // ————————————————————————
 
-TEST(TimeIntervalList, DiscreteBasic)
+TEST(TimeIntervalList, DiscretizeBasic)
 {
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
     list.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeList tl = list.discrete(2.0);
+    TimeList tl = list.discretize(2.0);
     ASSERT_EQ(tl.size(), 6u);
 
     const auto& secs = tl.seconds();
@@ -1477,37 +1477,37 @@ TEST(TimeIntervalList, DiscreteBasic)
     EXPECT_DOUBLE_EQ(secs[5], 10.0);
 }
 
-TEST(TimeIntervalList, DiscreteEmpty)
+TEST(TimeIntervalList, DiscretizeEmpty)
 {
     TimeIntervalList list(testEpoch());
-    TimeList tl = list.discrete(1.0);
+    TimeList tl = list.discretize(1.0);
     EXPECT_TRUE(tl.empty());
 }
 
-TEST(TimeIntervalList, DiscreteZeroStep)
+TEST(TimeIntervalList, DiscretizeZeroStep)
 {
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
     list.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeList tl = list.discrete(0.0);
+    TimeList tl = list.discretize(0.0);
     EXPECT_TRUE(tl.empty());
 }
 
-TEST(TimeIntervalList, DiscreteWithExplicitEpoch)
+TEST(TimeIntervalList, DiscretizeWithExplicitEpoch)
 {
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
     list.push_back(TimeInterval(epoch, 0.0, 10.0));
 
     TimePoint outputEpoch = epoch.shiftedBySecond(500.0);
-    TimeList tl = list.discrete(outputEpoch, 2.0);
+    TimeList tl = list.discretize(outputEpoch, 2.0);
 
     ASSERT_FALSE(tl.empty());
     EXPECT_DOUBLE_EQ(tl.epoch().durationFrom(outputEpoch), 0.0);
 }
 
-TEST(TimeIntervalList, DiscretePreservesList)
+TEST(TimeIntervalList, DiscretizePreservesList)
 {
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
@@ -1515,12 +1515,12 @@ TEST(TimeIntervalList, DiscretePreservesList)
     list.push_back(TimeInterval(epoch, 20.0, 30.0));
 
     size_t origSize = list.size();
-    list.discrete(1.0);
+    list.discretize(1.0);
 
     EXPECT_EQ(list.size(), origSize);
 }
 
-TEST(TimeIntervalList, DiscreteMultipleIntervals)
+TEST(TimeIntervalList, DiscretizeMultipleIntervals)
 {
     // [0,5], [10,15] step 2.0
     // 每个区间输出: start + i*step 直到 <= stop，且始终包含端点 stop
@@ -1529,7 +1529,7 @@ TEST(TimeIntervalList, DiscreteMultipleIntervals)
     list.push_back(TimeInterval(epoch, 0.0, 5.0));
     list.push_back(TimeInterval(epoch, 10.0, 15.0));
 
-    TimeList tl = list.discrete(2.0);
+    TimeList tl = list.discretize(2.0);
     // [0,5]: 0, 2, 4, 5 (4点；5 是端点)
     // [10,15]: 10, 12, 14, 15 (4点；15 是端点)
     ASSERT_EQ(tl.size(), 8u);
@@ -1545,14 +1545,14 @@ TEST(TimeIntervalList, DiscreteMultipleIntervals)
     EXPECT_DOUBLE_EQ(secs[7], 15.0);
 }
 
-TEST(TimeIntervalList, DiscreteNonDivisibleStep)
+TEST(TimeIntervalList, DiscretizeNonDivisibleStep)
 {
     // [0,10] step 3.0 — 步长不能整除区间长度，端点 10 应被强制包含
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
     list.push_back(TimeInterval(epoch, 0.0, 10.0));
 
-    TimeList tl = list.discrete(3.0);
+    TimeList tl = list.discretize(3.0);
     // 步进点: 0, 3, 6, 9；端点: 10
     ASSERT_EQ(tl.size(), 5u);
 
@@ -1564,14 +1564,14 @@ TEST(TimeIntervalList, DiscreteNonDivisibleStep)
     EXPECT_DOUBLE_EQ(secs[4], 10.0);
 }
 
-TEST(TimeIntervalList, DiscreteStepLargerThanInterval)
+TEST(TimeIntervalList, DiscretizeStepLargerThanInterval)
 {
     // [1, 2] step 5.0 — 步长大于区间长度，至少包含起止端点
     TimePoint epoch = testEpoch();
     TimeIntervalList list(epoch);
     list.push_back(TimeInterval(epoch, 1.0, 2.0));
 
-    TimeList tl = list.discrete(5.0);
+    TimeList tl = list.discretize(5.0);
     ASSERT_EQ(tl.size(), 2u);
 
     const auto& secs = tl.seconds();

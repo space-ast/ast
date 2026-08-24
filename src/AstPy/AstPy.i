@@ -50,9 +50,9 @@
 %import "../AstMath/NLE/SolverStats.h"
 
 
-%ignore ast::TimeInterval::discrete;
-%ignore ast::TimeInterval::DiscreteTimePointRange;
-%ignore ast::TimeInterval::DiscreteEpochSecondRange;
+%ignore ast::TimeInterval::discretize;
+%ignore ast::TimeInterval::DiscretizedTimePointRange;
+%ignore ast::TimeInterval::DiscretizedEpochSecondRange;
 
 %include "AstAllHeaders.i"
 
