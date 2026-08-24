@@ -1,9 +1,5 @@
 var NAVTREEINDEX26 =
 {
-"classast_1_1EclipseCalculator.html#a1447e10fc4297d05162157aa16da56e3":[2,0,0,274,1],
-"classast_1_1EclipseCalculator.html#a1447e10fc4297d05162157aa16da56e3":[3,0,0,272,1],
-"classast_1_1EclipseCalculator.html#a18b231c810e2847f2861b7b95433330f":[2,0,0,274,3],
-"classast_1_1EclipseCalculator.html#a18b231c810e2847f2861b7b95433330f":[3,0,0,272,3],
 "classast_1_1EclipseCalculator.html#a3d9d53e46875ceb9059ce04fc5f3255e":[2,0,0,274,0],
 "classast_1_1EclipseCalculator.html#a3d9d53e46875ceb9059ce04fc5f3255e":[3,0,0,272,0],
 "classast_1_1EclipseCalculator.html#a8501eca05db0e7d12516e20695b2702d":[2,0,0,274,2],
@@ -249,5 +245,9 @@ var NAVTREEINDEX26 =
 "classast_1_1ExprCurrentScStateCalculation.html#a857bee2d0f645fa6ee640377af42b004":[2,0,0,310,0],
 "classast_1_1ExprCurrentScStateCalculation.html#a857bee2d0f645fa6ee640377af42b004":[3,0,0,308,0],
 "classast_1_1ExprCurrentScStateCalculation.html#aa00a2023a065658b530298fb3bef38ec":[2,0,0,310,1],
-"classast_1_1ExprCurrentScStateCalculation.html#aa00a2023a065658b530298fb3bef38ec":[3,0,0,308,1]
+"classast_1_1ExprCurrentScStateCalculation.html#aa00a2023a065658b530298fb3bef38ec":[3,0,0,308,1],
+"classast_1_1ExprCurrentScStateCalculation.html#afeef95e15e829f16c709798bdad375f5":[2,0,0,310,2],
+"classast_1_1ExprCurrentScStateCalculation.html#afeef95e15e829f16c709798bdad375f5":[3,0,0,308,2],
+"classast_1_1ExprExpandVisitor.html":[2,0,0,311],
+"classast_1_1ExprExpandVisitor.html":[3,0,0,309]
 };

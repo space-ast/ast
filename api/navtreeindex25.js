@@ -1,9 +1,5 @@
 var NAVTREEINDEX25 =
 {
-"classast_1_1DataUpdater.html#a8bc325a3f70d5b88f960068de116b352":[0,2,0,3],
-"classast_1_1DataUpdater.html#a99feeb2970eafd205ae57fe0e088154b":[0,2,0,1],
-"classast_1_1DataUpdater.html#ac234006a171acbda7e7c6536134e5830":[0,2,0,4],
-"classast_1_1Database.html":[2,0,0,202],
 "classast_1_1Database.html":[3,0,0,200],
 "classast_1_1Date.html":[0,1,8,0],
 "classast_1_1DateTime.html":[0,1,8,1],
@@ -249,5 +245,9 @@ var NAVTREEINDEX25 =
 "classast_1_1EclipseCalculator.html":[2,0,0,274],
 "classast_1_1EclipseCalculator.html":[3,0,0,272],
 "classast_1_1EclipseCalculator.html#a0ccea421c2422ecccebaa57b501fdfcb":[2,0,0,274,6],
-"classast_1_1EclipseCalculator.html#a0ccea421c2422ecccebaa57b501fdfcb":[3,0,0,272,6]
+"classast_1_1EclipseCalculator.html#a0ccea421c2422ecccebaa57b501fdfcb":[3,0,0,272,6],
+"classast_1_1EclipseCalculator.html#a1447e10fc4297d05162157aa16da56e3":[2,0,0,274,1],
+"classast_1_1EclipseCalculator.html#a1447e10fc4297d05162157aa16da56e3":[3,0,0,272,1],
+"classast_1_1EclipseCalculator.html#a18b231c810e2847f2861b7b95433330f":[2,0,0,274,3],
+"classast_1_1EclipseCalculator.html#a18b231c810e2847f2861b7b95433330f":[3,0,0,272,3]
 };

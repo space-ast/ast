@@ -1,9 +1,5 @@
 var NAVTREEINDEX31 =
 {
-"classast_1_1INLPProblem.html#ae6182f21eea468b8dcddc6ee6ac4d480":[2,0,0,394,2],
-"classast_1_1INLPProblem.html#ae6182f21eea468b8dcddc6ee6ac4d480":[3,0,0,392,2],
-"classast_1_1INLPProblem.html#ae657b4bbe9c9e139f1b2d5f6545a9f4c":[2,0,0,394,1],
-"classast_1_1INLPProblem.html#ae657b4bbe9c9e139f1b2d5f6545a9f4c":[3,0,0,392,1],
 "classast_1_1INLPSolver.html":[2,0,0,395],
 "classast_1_1INLPSolver.html":[3,0,0,393],
 "classast_1_1IODEIntegrator.html":[0,3,4,9],
@@ -249,5 +245,9 @@ var NAVTREEINDEX31 =
 "classast_1_1JsonDomSax.html#a6a4f83616bf6fdd41a3a65869ed84b7a":[2,0,0,425,3],
 "classast_1_1JsonDomSax.html#a6a4f83616bf6fdd41a3a65869ed84b7a":[3,0,0,423,3],
 "classast_1_1JsonDomSax.html#a780369b35956a284b1612c855bf30329":[2,0,0,425,9],
-"classast_1_1JsonDomSax.html#a780369b35956a284b1612c855bf30329":[3,0,0,423,9]
+"classast_1_1JsonDomSax.html#a780369b35956a284b1612c855bf30329":[3,0,0,423,9],
+"classast_1_1JsonDomSax.html#a9183a9ed479e8ceaeb8e48078445f3e6":[2,0,0,425,8],
+"classast_1_1JsonDomSax.html#a9183a9ed479e8ceaeb8e48078445f3e6":[3,0,0,423,8],
+"classast_1_1JsonDomSax.html#a93102bba65144a62bf7bd6c443bc1c3a":[2,0,0,425,4],
+"classast_1_1JsonDomSax.html#a93102bba65144a62bf7bd6c443bc1c3a":[3,0,0,423,4]
 };

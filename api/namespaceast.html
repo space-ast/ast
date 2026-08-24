@@ -3550,7 +3550,7 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <tr class="separator:ab30969f1d9a484eedacefdc5a6953f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad740ed5b2098a23d141987e1a4ed9854" id="r_ad740ed5b2098a23d141987e1a4ed9854"><td class="memItemLeft" align="right" valign="top"><a id="ad740ed5b2098a23d141987e1a4ed9854" name="ad740ed5b2098a23d141987e1a4ed9854"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>EUnitKind</b> : uint8_t { <b>eScale</b>
 , <b>eAffine</b>
-, <b>Logarithmic</b>
+, <b>eLogarithmic</b>
  }</td></tr>
 <tr class="separator:ad740ed5b2098a23d141987e1a4ed9854"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9d8eaafcdb4b132609abade3fcde032e" id="r_ga9d8eaafcdb4b132609abade3fcde032e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="group__RTTI.html#gga9d8eaafcdb4b132609abade3fcde032eabb2ccfb13bbc2fc2827f77f2a3556ea2">INVALID_ID</a> = -1
@@ -7232,14 +7232,6 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 <tr class="separator:ga5568ff8269b5fe8b074e8b49ec0b7338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacd785ae8a141b12aa37bbe6ca0c8a8f3" id="r_gacd785ae8a141b12aa37bbe6ca0c8a8f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Quantity.html">Quantity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quantity.html#gacd785ae8a141b12aa37bbe6ca0c8a8f3">aQuantityParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
 <tr class="separator:gacd785ae8a141b12aa37bbe6ca0c8a8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5ff8b62295a7e770ee4a6f4d8763f2b" id="r_aa5ff8b62295a7e770ee4a6f4d8763f2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5ff8b62295a7e770ee4a6f4d8763f2b">unit_multiply</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2)</td></tr>
-<tr class="separator:aa5ff8b62295a7e770ee4a6f4d8763f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f0d879f2d9c8c5da7e194f54592545b" id="r_a2f0d879f2d9c8c5da7e194f54592545b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f0d879f2d9c8c5da7e194f54592545b">unit_divide</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2)</td></tr>
-<tr class="separator:a2f0d879f2d9c8c5da7e194f54592545b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49d13854b5b3a8bf42c2b26669f74e9a" id="r_a49d13854b5b3a8bf42c2b26669f74e9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49d13854b5b3a8bf42c2b26669f74e9a">unit_power</a> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, int exponent)</td></tr>
-<tr class="separator:a49d13854b5b3a8bf42c2b26669f74e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67c45427ea5818e47ec662b5e76f9ba6" id="r_a67c45427ea5818e47ec662b5e76f9ba6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67c45427ea5818e47ec662b5e76f9ba6">unit_setname</a> (<a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
-<tr class="separator:a67c45427ea5818e47ec662b5e76f9ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2d70bda5a246fb35334067072dbe2685" id="r_ga2d70bda5a246fb35334067072dbe2685"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>aUnitMultiply</b> (const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit1, const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;unit2)</td></tr>
 <tr class="separator:ga2d70bda5a246fb35334067072dbe2685"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -20436,129 +20428,6 @@ template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>若相等则返回0，否则返回非0值 </dd></dl>
-
-</div>
-</div>
-<a id="a2f0d879f2d9c8c5da7e194f54592545b" name="a2f0d879f2d9c8c5da7e194f54592545b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f0d879f2d9c8c5da7e194f54592545b">&#9670;&#160;</a></span>unit_divide()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classast_1_1Unit.html">Unit</a> ast::unit_divide </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit2</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>单位除法 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">unit1</td><td>单位1 </td></tr>
-    <tr><td class="paramname">unit2</td><td>单位2 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>单位商 </dd></dl>
-
-</div>
-</div>
-<a id="aa5ff8b62295a7e770ee4a6f4d8763f2b" name="aa5ff8b62295a7e770ee4a6f4d8763f2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5ff8b62295a7e770ee4a6f4d8763f2b">&#9670;&#160;</a></span>unit_multiply()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classast_1_1Unit.html">Unit</a> ast::unit_multiply </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit2</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>单位乘法 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">unit1</td><td>单位1 </td></tr>
-    <tr><td class="paramname">unit2</td><td>单位2 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>单位乘积 </dd></dl>
-
-</div>
-</div>
-<a id="a49d13854b5b3a8bf42c2b26669f74e9a" name="a49d13854b5b3a8bf42c2b26669f74e9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49d13854b5b3a8bf42c2b26669f74e9a">&#9670;&#160;</a></span>unit_power()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classast_1_1Unit.html">Unit</a> ast::unit_power </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>exponent</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>单位幂 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">unit</td><td>单位 </td></tr>
-    <tr><td class="paramname">exponent</td><td>指数 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>单位幂 </dd></dl>
-
-</div>
-</div>
-<a id="a67c45427ea5818e47ec662b5e76f9ba6" name="a67c45427ea5818e47ec662b5e76f9ba6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67c45427ea5818e47ec662b5e76f9ba6">&#9670;&#160;</a></span>unit_setname()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ast::unit_setname </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1Unit.html">Unit</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>unit</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>设置单位名称 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">unit</td><td>单位 </td></tr>
-    <tr><td class="paramname">name</td><td>名称 </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

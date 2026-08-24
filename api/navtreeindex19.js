@@ -1,9 +1,5 @@
 var NAVTREEINDEX19 =
 {
-"classast_1_1AffineUnitRep.html#addfe7bce79cd22ea6fa4880840653b3e":[3,0,0,11,0],
-"classast_1_1AgentSession.html":[2,0,0,14],
-"classast_1_1AgentSession.html":[3,0,0,12],
-"classast_1_1Aircraft.html":[2,0,0,15],
 "classast_1_1Aircraft.html":[3,0,0,13],
 "classast_1_1AndConstraint.html":[2,0,0,16],
 "classast_1_1AndConstraint.html":[3,0,0,14],
@@ -249,5 +245,9 @@ var NAVTREEINDEX19 =
 "classast_1_1BaseGroupChat.html":[2,0,0,50],
 "classast_1_1BaseGroupChat.html":[3,0,0,48],
 "classast_1_1BaseGroupChat.html#a010a0fd3d9fc772fada5698bd89cda75":[2,0,0,50,0],
-"classast_1_1BaseGroupChat.html#a010a0fd3d9fc772fada5698bd89cda75":[3,0,0,48,0]
+"classast_1_1BaseGroupChat.html#a010a0fd3d9fc772fada5698bd89cda75":[3,0,0,48,0],
+"classast_1_1BaseOrbitDesigner.html":[0,1,4,1],
+"classast_1_1BaseOrbitDesigner.html#a12873c1bbc41bbbc56bf664c57a66146":[0,1,4,1,2],
+"classast_1_1BaseOrbitDesigner.html#a1e99899c3a40a482a0702bdf69bdc794":[0,1,4,1,4],
+"classast_1_1BaseOrbitDesigner.html#a71b6c850dbb5e709c0a0d425b6568adf":[0,1,4,1,1]
 };
