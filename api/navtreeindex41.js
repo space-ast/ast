@@ -1,5 +1,9 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1SatelliteDatabaseQuery.html":[2,0,0,654],
+"classast_1_1SatelliteDatabaseQuery.html":[3,0,0,652],
+"classast_1_1SatelliteDatabaseQuery.html#a0257008c8f6383b1a99c479d0ea699ae":[2,0,0,654,7],
+"classast_1_1SatelliteDatabaseQuery.html#a0257008c8f6383b1a99c479d0ea699ae":[3,0,0,652,7],
 "classast_1_1SatelliteDatabaseQuery.html#a22e8de6435ac08f2a5251b8a7aa9dbbe":[2,0,0,654,0],
 "classast_1_1SatelliteDatabaseQuery.html#a22e8de6435ac08f2a5251b8a7aa9dbbe":[3,0,0,652,0],
 "classast_1_1SatelliteDatabaseQuery.html#a32002edc72fa9bc5178caeb55e1f4f4d":[2,0,0,654,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1ScStateCalcMeanEclipticLon.html":[2,0,0,773],
 "classast_1_1ScStateCalcMeanEclipticLon.html":[3,0,0,771],
 "classast_1_1ScStateCalcMeanLongitude.html":[2,0,0,774],
-"classast_1_1ScStateCalcMeanLongitude.html":[3,0,0,772],
-"classast_1_1ScStateCalcMeanMotion.html":[2,0,0,775],
-"classast_1_1ScStateCalcMeanMotion.html":[3,0,0,773],
-"classast_1_1ScStateCalcMinimumValue.html":[2,0,0,776],
-"classast_1_1ScStateCalcMinimumValue.html":[3,0,0,774]
+"classast_1_1ScStateCalcMeanLongitude.html":[3,0,0,772]
 };

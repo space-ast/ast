@@ -1,5 +1,9 @@
 var NAVTREEINDEX40 =
 {
+"classast_1_1Quaternion.html#a94fc9b6597063a4062b04be18996de12":[0,3,1,2,2],
+"classast_1_1Quaternion.html#a97a170f1b3324d7d6e78dc06f971985c":[0,3,1,2,27],
+"classast_1_1Quaternion.html#aa2d23169dc9e5573eda946013489819f":[0,3,1,2,28],
+"classast_1_1Quaternion.html#aa7cbd868ff6e832612a85b2027659041":[0,3,1,2,7],
 "classast_1_1Quaternion.html#ab18b74959f0806ebb092f6e493f38893":[0,3,1,2,26],
 "classast_1_1Quaternion.html#abf34f1d3eadf0c11d520bfebd571a2d2":[0,3,1,2,24],
 "classast_1_1Quaternion.html#ac3115f9e2b60054fdb10a2b3baf4304b":[0,3,1,2,16],
@@ -245,9 +249,5 @@ var NAVTREEINDEX40 =
 "classast_1_1SatelliteDatabaseEntry.html":[2,0,0,653],
 "classast_1_1SatelliteDatabaseEntry.html":[3,0,0,651],
 "classast_1_1SatelliteDatabaseEntry.html#a180fa4d8da66278699ed897651d3acef":[2,0,0,653,0],
-"classast_1_1SatelliteDatabaseEntry.html#a180fa4d8da66278699ed897651d3acef":[3,0,0,651,0],
-"classast_1_1SatelliteDatabaseQuery.html":[2,0,0,654],
-"classast_1_1SatelliteDatabaseQuery.html":[3,0,0,652],
-"classast_1_1SatelliteDatabaseQuery.html#a0257008c8f6383b1a99c479d0ea699ae":[2,0,0,654,7],
-"classast_1_1SatelliteDatabaseQuery.html#a0257008c8f6383b1a99c479d0ea699ae":[3,0,0,652,7]
+"classast_1_1SatelliteDatabaseEntry.html#a180fa4d8da66278699ed897651d3acef":[3,0,0,651,0]
 };
