@@ -51,54 +51,132 @@ errc_t aTimeIntervalParse(StringView strStart, StringView strStop, TimeInterval 
 
 errc_t TimeInterval::discretize(const TimePoint &epoch, double step, std::vector<double> &times) const
 {
-    if (step <= 0.0 || duration() <= 0.0){
-        aError("invalid step (%f) or duration (%f)", step, duration());
-        return eErrorInvalidParam;
+    double dur = this->duration();
+    if (step > 0 && dur >= 0)
+    {
+        ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(dur / step) + 1);
+        times.resize(nnodes);
+        double start = getStart() - epoch;
+        
+        for(ptrdiff_t i = 0; i < nnodes-1; i++){
+            times[i] = start + i * step;
+        }
+        times[nnodes-1] = getStop() - epoch;
+        return eNoError;
+
     }
-    ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration() / step) + 1);
-    times.resize(nnodes);
-    double offset = getStart() - epoch;
+    aError("invalid step (%f) or empty interval", step);
+    return eErrorInvalidParam;
     
-    for(ptrdiff_t i = 0; i < nnodes-1; i++){
-        times[i] = offset + i * step;
-    }
-    times[nnodes-1] = getStop() - epoch;
-    return eNoError;
 }
 
 errc_t TimeInterval::discretize(double step, std::vector<TimePoint> &times) const
 {
-    if (step <= 0.0 || duration() <= 0.0){
-        aError("invalid step (%f) or duration (%f)", step, duration());
-        return eErrorInvalidParam;
+    double dur = this->duration();
+    if (step > 0 && dur >= 0){
+        ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(dur / step) + 1);
+        times.resize(nnodes);
+        const TimePoint& start = getStart();
+        
+        for(ptrdiff_t i = 0; i < nnodes-1; i++){
+            times[i] = start + i * step;
+        }
+        times[nnodes-1] = getStop();
+        return eNoError;
+
     }
-    ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration() / step) + 1);
-    times.resize(nnodes);
-    TimePoint start = getStart();
+    aError("invalid step (%f) or empty interval", step);
+    return eErrorInvalidParam;
     
-    for(ptrdiff_t i = 0; i < nnodes-1; i++){
-        times[i] = start + i * step;
-    }
-    times[nnodes-1] = getStop();
-    return eNoError;
 }
 
 errc_t TimeInterval::discretize(double step, TimeList& times) const
 {
-    double duration = this->duration();
-    if (step <= 0.0 || duration <= 0.0){
-        aError("invalid step (%f) or duration (%f)", step, duration);
-        return eErrorInvalidParam;
-    }
-    ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(duration / step) + 1);
-    times.seconds().resize(nnodes);
-    times.setEpoch(getStart());
+    double dur = this->duration();
+    if (step > 0.0 && dur >= 0){
+        ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(dur / step) + 1);
+        times.seconds().resize(nnodes);
+        times.setEpoch(getStart());
 
-    for(ptrdiff_t i = 0; i < nnodes-1; i++){
-        times.seconds()[i] = (i * step);
+        for(ptrdiff_t i = 0; i < nnodes-1; i++){
+            times.seconds()[i] = (i * step);
+        }
+        times.seconds()[nnodes-1] = dur;
+        return eNoError;
     }
-    times.seconds()[nnodes-1] = duration;
-    return eNoError;
+    aError("invalid step (%f) or empty interval", step);
+    return eErrorInvalidParam;
+}
+
+
+
+TimeInterval& TimeInterval::unite(const TimeInterval &other)
+{
+    const TimePoint& thisStart  = this->start();
+    const TimePoint& thisStop   = this->stop();
+    const TimePoint& otherStart = other.start();
+    const TimePoint& otherStop  = other.stop();
+
+    if(otherStart < thisStart)
+    {
+        this->setStart(otherStart);
+    }
+    if(otherStop > thisStop)
+    {
+        this->setStop(otherStop);
+    }
+    return *this;
+}
+
+TimeInterval TimeInterval::united(const TimeInterval &other) const
+{
+    TimeInterval result = *this;
+    result.unite(other);
+    return result;
+}
+
+TimeInterval& TimeInterval::intersect(const TimeInterval &other)
+{
+    // 任一为空/NaN（isEmpty() 为 NaN 安全的弱序否定）→ 交集必为空
+    if (isEmpty() || other.isEmpty())
+    {
+        *this = Empty();
+        return *this;
+    }
+
+    const TimePoint& thisStart  = this->start();
+    const TimePoint& thisStop   = this->stop();
+    const TimePoint& otherStart = other.start();
+    const TimePoint& otherStop  = other.stop();
+
+    if(otherStart > thisStart)
+    {
+        this->setStart(otherStart);
+    }
+    if(otherStop < thisStop)
+    {
+        this->setStop(otherStop);
+    }
+
+
+    return *this;
+}
+
+TimeInterval TimeInterval::intersected(const TimeInterval &other) const
+{
+    TimeInterval result = *this;
+    result.intersect(other);
+    return result;
+}
+
+template<> struct propagate_nan::allow_efficient_minus<TimePoint> : std::true_type {};
+
+bool TimeInterval::intersects(const TimeInterval &other) const
+{
+    // 与 intersected() 一致：非空交集（含相切产生的点区间）才算相交；
+    auto& start = (propagate_nan::max)(start_, other.start());
+    auto& stop  = (propagate_nan::min)(stop_, other.stop());
+    return start <= stop;
 }
 
 

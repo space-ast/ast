@@ -355,9 +355,9 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
         }
         else if (auto* dgInterval = dynamic_cast<DataGroupInterval*>(dg.get()))
         {
-            if (options.interval_.duration() <= 0.0)
+            if (options.interval_.isEmpty())
             {
-                aError("interval is empty for service '%s'; set ReportGenerateOptions::interval_",
+                aError("interval is empty (start>stop) for service '%s'; set ReportGenerateOptions::interval_",
                        service.c_str());
                 continue;
             }

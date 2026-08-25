@@ -120,7 +120,7 @@ errc_t aSpiceGetInterval(StringView filepath, int target, TimeInterval &timeInte
     }
     const std::vector<SPK_Descriptor>& spkDescriptors = parser.getDescriptors();
     bool found = false;
-    Interval interval = Interval::Zero();
+    Interval interval = Interval::Empty();
     for(int i = (int)spkDescriptors.size() - 1; i >= 0; i--)
     {
         const auto& desc = spkDescriptors[i];

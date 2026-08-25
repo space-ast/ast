@@ -23,6 +23,7 @@
 #include "ast/RunTime.hpp"
 #include "ast/DateTime.hpp"
 #include "ast/Test.h"
+#include <limits>
 
 AST_USING_NAMESPACE
 
@@ -174,7 +175,7 @@ TEST(TimeInterval, Infinite)
     // 测试无限时间区间
     {
         TimeInterval interval;
-        interval.setInfinite();
+        interval.setWhole();
         
         EXPECT_TRUE(std::isinf(interval.duration()));
         EXPECT_TRUE(interval.duration() > 0);
@@ -223,12 +224,12 @@ TEST(TimeInterval, DiscretizedCount)
         EXPECT_EQ(interval.discretizedCount(-1.0), 0u);
     }
 
-    // 零时长区间 → 0
+    // 点区间（start == stop）→ 1
     {
         TimePoint start = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
         TimeInterval interval(start, start);
 
-        EXPECT_EQ(interval.discretizedCount(600.0), 0u);
+        EXPECT_EQ(interval.discretizedCount(600.0), 1u);
     }
 
     // 数量与 discretize 产出的 range 一致
@@ -323,7 +324,7 @@ TEST(TimeInterval, ToIntervalInfinite)
 {
     TimePoint epoch = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
     TimeInterval interval;
-    interval.setInfinite();
+    interval.setWhole();
 
     Interval rel = interval.toInterval(epoch);
     EXPECT_TRUE(std::isinf(rel.start_));
@@ -333,18 +334,97 @@ TEST(TimeInterval, ToIntervalInfinite)
     EXPECT_TRUE(std::isinf(rel.duration()));
 }
 
-TEST(TimeInterval, ToIntervalZero)
+TEST(TimeInterval, ToIntervalEmpty)
 {
     TimePoint epoch = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
     TimeInterval interval;
-    interval.setZero();
+    interval.setEmpty();
 
     Interval rel = interval.toInterval(epoch);
-    // 零时长：start == stop，且等于该绝对时刻相对 epoch 的秒偏移
-    double off = interval.start().durationFrom(epoch);
-    EXPECT_DOUBLE_EQ(rel.start_, off);
-    EXPECT_DOUBLE_EQ(rel.stop_, off);
-    EXPECT_DOUBLE_EQ(rel.duration(), 0.0);
+    double start = interval.start().durationFrom(epoch);
+    double stop = interval.stop().durationFrom(epoch);
+    EXPECT_DOUBLE_EQ(rel.start_, start);
+    EXPECT_DOUBLE_EQ(rel.stop_, stop);
+    EXPECT_TRUE(rel.duration() < 0.0);
+}
+
+TEST(TimeInterval, Predicates)
+{
+    TimePoint t0 = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+    TimePoint t1 = TimePoint::FromUTC(2026, 1, 1, 1, 0, 0.0);
+
+    // 有效区间
+    TimeInterval valid(t0, t1);
+    EXPECT_TRUE(valid.isValid());
+    EXPECT_FALSE(valid.isEmpty());
+    EXPECT_FALSE(valid.isPoint());
+
+    // 点区间（start == stop，非空）
+    TimeInterval point(t0, t0);
+    EXPECT_TRUE(point.isValid());
+    EXPECT_FALSE(point.isEmpty());
+    EXPECT_TRUE(point.isPoint());
+    EXPECT_TRUE(point.contains(t0));
+    EXPECT_FALSE(point.contains(t1));
+
+    // 反向区间（start > stop，空）
+    TimeInterval reversed(t1, t0);
+    EXPECT_FALSE(reversed.isValid());
+    EXPECT_TRUE(reversed.isEmpty());
+    EXPECT_FALSE(reversed.isPoint());
+
+    // 规范空哨兵 {+∞, -∞}
+    TimeInterval empty = TimeInterval::Empty();
+    EXPECT_TRUE(empty.isEmpty());
+    EXPECT_FALSE(empty.isValid());
+    EXPECT_FALSE(empty.contains(t0));
+}
+
+TEST(TimeInterval, Intersect)
+{
+    TimePoint t0 = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+    TimePoint t1 = TimePoint::FromUTC(2026, 1, 1, 1, 0, 0.0);
+    TimePoint t2 = TimePoint::FromUTC(2026, 1, 1, 2, 0, 0.0);
+    TimePoint t3 = TimePoint::FromUTC(2026, 1, 1, 3, 0, 0.0);
+
+    // 重叠 → 有效交集
+    {
+        TimeInterval a(t0, t1), b(t0 + 1800.0, t2);
+        auto r = a.intersected(b);
+        EXPECT_FALSE(r.isEmpty());
+        EXPECT_DOUBLE_EQ(r.start().durationFrom(t0), 1800.0);
+        EXPECT_DOUBLE_EQ(r.stop().durationFrom(t0), 3600.0);
+        EXPECT_TRUE(a.intersects(b));
+    }
+
+    // 相切 → 点区间（非空），与 intersects 一致
+    {
+        TimeInterval a(t0, t1), b(t1, t2);
+        auto r = a.intersected(b);
+        EXPECT_FALSE(r.isEmpty());
+        EXPECT_TRUE(r.isPoint());
+        EXPECT_DOUBLE_EQ(r.start().durationFrom(t0), 3600.0);
+        EXPECT_TRUE(a.intersects(b));
+    }
+
+    // 不相交 → 规范空区间；与 intersects 一致
+    {
+        TimeInterval a(t0, t1), b(t2, t3);
+        auto r = a.intersected(b);
+        EXPECT_TRUE(r.isEmpty());
+        EXPECT_FALSE(a.intersects(b));
+    }
+
+    // NaN 边界（部分序）→ 交集为空，与 intersects 一致
+    {
+        double nan = std::numeric_limits<double>::quiet_NaN();
+        TimeInterval a(t0, t1);
+        TimeInterval nanInterval(TimePoint{0, nan}, t2);
+        EXPECT_TRUE(a.intersected(nanInterval).isEmpty());
+        EXPECT_FALSE(a.intersects(nanInterval));
+        a.intersect(nanInterval);
+        EXPECT_TRUE(a.isEmpty());
+    }
 }
 
 GTEST_MAIN()

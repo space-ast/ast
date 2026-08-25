@@ -116,7 +116,7 @@ IntervalList IntervalList::intersected(const IntervalList& other) const
         double start = std::max(a[i].start_, b[j].start_);
         double stop  = std::min(a[i].stop_, b[j].stop_);
 
-        if (start < stop)
+        if (start <= stop)   // 相切产生的点区间也是有效瞬时（isPoint）
         {
             result.push_back(start, stop);
         }
@@ -237,11 +237,11 @@ TimeList IntervalList::discretize(const TimePoint& epoch, double step) const
 
     for (const auto& iv : mergedList)
     {
-        double dur = iv.duration();
-        if (dur <= 0.0)
+        if (iv.isEmpty())
         {
             continue;
         }
+        double dur = iv.duration();
 
         // 直接从 Interval 的相對秒数生成离散时间点，绕过 TimeInterval 中间层
         auto& secs = result.seconds();

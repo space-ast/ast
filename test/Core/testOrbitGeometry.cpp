@@ -295,7 +295,7 @@ TEST(OrbitGeometry, PlaneProximityInvalidParams)
     EXPECT_EQ(aOrbitPlaneProximityIntervals(epoch, hyper, other, kEarthGrav, 100e3, window, result), eErrorInvalidParam);
 
     TimeInterval infWin;
-    infWin.setInfinite();
+    infWin.setWhole();
     EXPECT_EQ(aOrbitPlaneProximityIntervals(epoch, orbit, other, kEarthGrav, 100e3, infWin, result), eErrorInvalidParam);
 }
 

@@ -155,7 +155,7 @@ void planeProximityIntervalsBoth(
     out2 = TimeIntervalList(window.start());
 
     const double dur = window.duration();
-    if (dur <= 0.0 || coarseStep <= 0.0) { return; }
+    if (window.isEmpty() || coarseStep <= 0.0) { return; }
 
     const TimePoint w0 = window.start();
     const int n = static_cast<int>(std::ceil(dur / coarseStep));

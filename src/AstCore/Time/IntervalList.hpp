@@ -257,7 +257,7 @@ public:
     AST_CORE_API
     IntervalList intersected(const IntervalList& other) const;
 
-    /// @brief 判断两个时段列表是否相交（存在正长度重叠区间）
+    /// @brief 判断两个时段列表是否相交（非空交集，含仅相切产生的点区间）
     /// @param other 另一个时段列表
     /// @return 是否相交
     AST_CORE_API
@@ -307,6 +307,7 @@ public:
     ///          （最后一个点始终为 stop，即使它不落在步长网格上）。
     ///          例如：[0, 10] step=3 → {0, 3, 6, 9, 10}
     ///                [0, 10] step=2 → {0, 2, 4, 6, 8, 10}
+    ///          点区间 [x, x] 生成单点 {x}；空区间（isEmpty()）被跳过。
     /// @param epoch 参考历元
     /// @param step 离散化步长（秒，必须 > 0）
     /// @return TimeList 离散化后的时间点列表

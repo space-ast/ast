@@ -179,7 +179,7 @@ errc_t aOrbitPlaneProximityIntervals(
 
     const double winDur = window.duration();
     if (!std::isfinite(winDur)) return eErrorInvalidParam;   // 无限窗口无法枚举
-    if (winDur <= 0.0) { result = TimeIntervalList(epoch); return eNoError; }
+    if (window.isEmpty()) { result = TimeIntervalList(epoch); return eNoError; }   // 空/反向/NaN 窗口无物可扫描；点窗口视为有效交由后续几何判别
 
     // —— 轨道面几何量 ——
     Vector3d p, q;

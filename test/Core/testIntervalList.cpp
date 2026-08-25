@@ -1036,11 +1036,16 @@ TEST(IntervalList, IntersectSelf)
 
 TEST(IntervalList, IntersectTouchingAtPoint)
 {
-    // 仅在边界点接触 [0,10] ∩ [10,20] → 空（start < stop 检查）
+    // 仅在边界点接触 [0,10] ∩ [10,20] → 点区间 [10,10]（start <= stop，isPoint 非空）
     IntervalList a = {{0.0, 10.0}};
     IntervalList b = {{10.0, 20.0}};
     IntervalList result = a.intersected(b);
-    EXPECT_TRUE(result.empty());
+    ASSERT_EQ(result.size(), 1u);
+    EXPECT_DOUBLE_EQ(result[0].start_, 10.0);
+    EXPECT_DOUBLE_EQ(result[0].stop_, 10.0);
+    EXPECT_TRUE(result[0].isPoint());
+    // intersects 与 intersected 一致：相切算相交
+    EXPECT_TRUE(a.intersects(b));
 }
 
 TEST(IntervalList, IntersectComplex)
@@ -1537,11 +1542,12 @@ TEST(IntervalList, SubtractExactEdges)
 
 TEST(IntervalList, DiscretizeSinglePointInterval)
 {
-    // 零长度区间无法按正步长离散
+    // 点区间 [5,5] 离散化为单点 {5}
     IntervalList list = {{5.0, 5.0}};
     TimePoint epoch;
     TimeList tl = list.discretize(epoch, 1.0);
-    EXPECT_TRUE(tl.empty());
+    ASSERT_EQ(tl.size(), 1u);
+    EXPECT_DOUBLE_EQ(tl.seconds()[0], 5.0);
 }
 
 TEST(IntervalList, DiscretizeStepLargerThanInterval)

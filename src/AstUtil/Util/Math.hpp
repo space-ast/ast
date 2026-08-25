@@ -26,6 +26,8 @@
 #include <cmath>
 #include <cassert>
 #include <algorithm>
+#include <type_traits>
+#include <limits>       // for std::numeric_limits<double>::quiet_NaN()
 
 AST_NAMESPACE_BEGIN
 
@@ -198,6 +200,101 @@ A_ALWAYS_INLINE double aNormalizeAngleNegPiToPi(double angle)
 A_ALWAYS_INLINE double aNormalizeAngleNeg2PiTo0(double angle)
 {
     return aNormalizeAngleStart(angle, -kTwoPI);
+}
+
+
+/// @brief 传播 NaN 值的数学工具函数
+namespace propagate_nan
+{
+    /// @brief 计算两个数中的较小值(传播 NaN)
+    A_ALWAYS_INLINE double (min)(double a, double b)
+    {
+        if(a <= b)
+            return a;
+        if(b <= a)
+            return b;
+        return std::numeric_limits<double>::quiet_NaN();
+    }
+
+    /// @brief 计算两个数中的较大值(传播 NaN)
+    A_ALWAYS_INLINE double (max)(double a, double b)
+    {
+        if(a >= b)
+            return a;
+        if(b >= a)
+            return b;
+        return std::numeric_limits<double>::quiet_NaN();
+    }
+
+    // -------------------- 类型标记：类型是否允许使用减法，需要用户通过类型特化 allow_efficient_minus 来明确允许 --------------------
+    template <typename T>
+    struct allow_efficient_minus : std::false_type {};
+
+    // -------------------- 工具：检测是否存在 operator- --------------------
+    template <typename T, typename = void>
+    struct has_minus : std::false_type {};
+
+    template <typename T>
+    struct has_minus<T, std::void_t<decltype(std::declval<T>() - std::declval<T>())>> 
+        : std::true_type {};
+
+    // -------------------- 类型标记：是否使用减法 --------------------
+    template <typename T>
+    struct use_efficient_minus
+    {
+        static constexpr bool value = allow_efficient_minus<T>::value && has_minus<T>::value;
+    };
+
+    template<typename T>
+    typename std::enable_if<!use_efficient_minus<T>::value,const T&>::type 
+    (min)(const T& a, const T& b)
+    {
+        // 不支持 operator- 的类型，直接比较大小
+        if(a <= b)
+            return a;
+        if(b <= a)
+            return b;
+        if(a != a)
+            return a;
+        return b;
+    }
+    template <typename T>
+    typename std::enable_if<use_efficient_minus<T>::value, const T&>::type 
+    (min)(const T& a, const T& b) {
+        // 支持 operator- 的类型，使用减法比较大小
+        auto diff = a - b;         // 注意：这里会构造临时对象
+        if (diff <= 0) return a;   // a <= b
+        if (diff >= 0) return b;   // a >= b
+        if(a != a)
+            return a;
+        return b;
+    }
+    
+    template<typename T>
+    typename std::enable_if<!use_efficient_minus<T>::value,const T&>::type 
+    (max)(const T& a, const T& b)
+    {
+        // 不支持 operator- 的类型，直接比较大小
+        if(a >= b)
+            return a;
+        if(b >= a)
+            return b;
+        if(a != a)
+            return a;
+        return b;
+    }
+    template <typename T>
+    typename std::enable_if<use_efficient_minus<T>::value, const T&>::type 
+    (max)(const T& a, const T& b) 
+    {
+        // 支持 operator- 的类型，使用减法比较大小
+        auto diff = a - b;        // 注意：这里会构造临时对象
+        if (diff >= 0) return a;   // a >= b
+        if (diff <= 0) return b;   // a <= b
+        if(a != a)
+            return a;
+        return b;
+    }
 }
 
 /*! @} */
