@@ -231,12 +231,16 @@ namespace propagate_nan
     struct allow_efficient_minus : std::false_type {};
 
     // -------------------- 工具：检测是否存在 operator- --------------------
-    template <typename T, typename = void>
-    struct has_minus : std::false_type {};
-
     template <typename T>
-    struct has_minus<T, std::void_t<decltype(std::declval<T>() - std::declval<T>())>> 
-        : std::true_type {};
+    struct has_minus
+    {
+        template <typename U>
+        static auto test(int) -> decltype(std::declval<U>() - std::declval<U>(), std::true_type());
+        template <typename U>
+        static std::false_type test(...);
+
+        static constexpr bool value = decltype(test<T>(0))::value;
+    };
 
     // -------------------- 类型标记：是否使用减法 --------------------
     template <typename T>
