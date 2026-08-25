@@ -7,6 +7,7 @@ var group__Util =
     [ "运行时类型信息", "group__RTTI.html", "group__RTTI" ],
     [ "字符串相关函数", "group__String.html", "group__String" ],
     [ "ast::literals", "namespaceast_1_1literals.html", null ],
+    [ "ast::propagate_nan", "namespaceast_1_1propagate__nan.html", null ],
     [ "ast::Color", "classast_1_1Color.html", null ],
     [ "ast::MessageLogContext", "classast_1_1MessageLogContext.html", [
       [ "category_", "classast_1_1MessageLogContext.html#ac84754ba5c61b791f510d42cbd3c74d4", null ],

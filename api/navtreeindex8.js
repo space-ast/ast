@@ -153,6 +153,8 @@ var NAVTREEINDEX8 =
 "MathDegree_8hpp.html":[4,0,0,27,11,14],
 "MathDegree_8hpp_source.html":[4,0,0,27,11,14],
 "Math_8hpp.html":[4,0,0,27,11,13],
+"Math_8hpp.html#a311d6dcbd16d6e212d729a17568e3d75":[4,0,0,27,11,13,15],
+"Math_8hpp.html#a4420d16471aa45c760b033d80823b5b1":[4,0,0,27,11,13,14],
 "Math_8hpp_source.html":[4,0,0,27,11,13],
 "MatlabExecutor_8cpp.html":[4,0,0,18,3,0,7],
 "MatlabExecutor_8hpp_source.html":[4,0,0,18,3,0,8],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "MotionJ2Analytical_8hpp.html":[4,0,0,19,2,12],
 "MotionJ2Analytical_8hpp_source.html":[4,0,0,19,2,12],
 "MotionJ4AnalyticalSax_8hpp_source.html":[4,0,0,11,5,30],
-"MotionJ4Analytical_8cpp.html":[4,0,0,19,2,13],
-"MotionJ4Analytical_8hpp.html":[4,0,0,19,2,14],
-"MotionJ4Analytical_8hpp_source.html":[4,0,0,19,2,14]
+"MotionJ4Analytical_8cpp.html":[4,0,0,19,2,13]
 };

@@ -6,5 +6,6 @@ var searchData=
   ['ast_3a_3aliterals_3',['literals',['../namespaceast_1_1literals.html',1,'ast']]],
   ['ast_3a_3amath_4',['math',['../namespaceast_1_1math.html',1,'ast']]],
   ['ast_3a_3aposix_5',['posix',['../namespaceast_1_1posix.html',1,'ast']]],
-  ['ast_3a_3aunits_6',['units',['../namespaceast_1_1units.html',1,'ast']]]
+  ['ast_3a_3apropagate_5fnan_6',['propagate_nan',['../namespaceast_1_1propagate__nan.html',1,'ast']]],
+  ['ast_3a_3aunits_7',['units',['../namespaceast_1_1units.html',1,'ast']]]
 ];

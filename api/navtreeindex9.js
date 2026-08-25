@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"MotionJ4Analytical_8hpp.html":[4,0,0,19,2,14],
+"MotionJ4Analytical_8hpp_source.html":[4,0,0,19,2,14],
 "MotionLOP_8hpp_source.html":[4,0,0,19,2,15],
 "MotionMissionCommand_8hpp_source.html":[4,0,0,19,2,16],
 "MotionOrbitDynamicsKeplerianSax_8hpp_source.html":[4,0,0,11,5,31],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "Op_8hpp.html":[4,0,0,18,7,2],
 "Op_8hpp_source.html":[4,0,0,18,7,2],
 "OpenAI_8cpp.html":[4,0,0,0,3,6],
-"OpenAI_8hpp.html":[4,0,0,0,3,7],
-"OpenAI_8hpp_source.html":[4,0,0,0,3,7],
-"Optim_8hpp.html":[4,0,0,12,6,4]
+"OpenAI_8hpp.html":[4,0,0,0,3,7]
 };

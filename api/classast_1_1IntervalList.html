@@ -410,7 +410,7 @@ const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a
 </div><div class="memdoc">
 
 <p>将每个区间按步长离散化，拼接为 <a class="el" href="classast_1_1TimeList.html" title="时间点列表">TimeList</a> </p>
-<p>区间为闭区间 [start, stop]，两端点均会被包含在输出中。 对每个区间，生成序列 start, start+step, start+2*step, ... 直至 stop （最后一个点始终为 stop，即使它不落在步长网格上）。 例如：[0, 10] step=3 → {0, 3, 6, 9, 10} [0, 10] step=2 → {0, 2, 4, 6, 8, 10} </p><dl class="params"><dt>参数</dt><dd>
+<p>区间为闭区间 [start, stop]，两端点均会被包含在输出中。 对每个区间，生成序列 start, start+step, start+2*step, ... 直至 stop （最后一个点始终为 stop，即使它不落在步长网格上）。 例如：[0, 10] step=3 → {0, 3, 6, 9, 10} [0, 10] step=2 → {0, 2, 4, 6, 8, 10} 点区间 [x, x] 生成单点 {x}；空区间（isEmpty()）被跳过。 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">epoch</td><td>参考历元 </td></tr>
     <tr><td class="paramname">step</td><td>离散化步长（秒，必须 &gt; 0） </td></tr>
@@ -523,7 +523,7 @@ const std::vector&lt; <a class="el" href="classast_1_1Interval.html">Interval</a
       </table>
 </div><div class="memdoc">
 
-<p>判断两个时段列表是否相交（存在正长度重叠区间） </p>
+<p>判断两个时段列表是否相交（非空交集，含仅相切产生的点区间） </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>另一个时段列表 </td></tr>

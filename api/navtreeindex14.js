@@ -1,5 +1,7 @@
 var NAVTREEINDEX14 =
 {
+"ScStateCalcVelDiffMagOthSeg_8cpp.html":[4,0,0,6,11,1,0,15,216],
+"ScStateCalcVelDiffMagOthSeg_8hpp.html":[4,0,0,6,11,1,0,15,217],
 "ScStateCalcVelDiffMagOthSeg_8hpp_source.html":[4,0,0,6,11,1,0,15,217],
 "ScStateCalcVelocity_8cpp.html":[4,0,0,6,11,1,0,2,2],
 "ScStateCalcVelocity_8hpp.html":[4,0,0,6,11,1,0,2,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX14 =
 "SpatialCalcDistance_8cpp.html":[4,0,0,6,10,3,5],
 "SpatialCalcDistance_8hpp.html":[4,0,0,6,10,3,6],
 "SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391":[4,0,0,6,10,3,6,0],
-"SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391a1756e21034be50ffc074a140cef3e750":[4,0,0,6,10,3,6,0,4],
-"SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391a3aab4df1f397e31a28ec382c78fcadd7":[4,0,0,6,10,3,6,0,1],
-"SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391a924af60938aff3f7d83590e003bbf15c":[4,0,0,6,10,3,6,0,3]
+"SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391a1756e21034be50ffc074a140cef3e750":[4,0,0,6,10,3,6,0,4]
 };

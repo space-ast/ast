@@ -111,6 +111,8 @@ $(function(){initNavTree('Math_8hpp.html',''); initResizable(true); });
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
 </div>
 <p><a href="Math_8hpp_source.html">浏览该文件的源代码.</a></p>
 <table class="memberdecls">
@@ -118,10 +120,20 @@ $(function(){initNavTree('Math_8hpp.html',''); initResizable(true); });
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SinCos.html">ast::SinCos</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1propagate__nan_1_1allow__efficient__minus.html">ast::propagate_nan::allow_efficient_minus&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1propagate__nan_1_1has__minus.html">ast::propagate_nan::has_minus&lt; T, typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1propagate__nan_1_1has__minus_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declvaeb2484b5ebb42f1196f3206788f7f123.html">ast::propagate_nan::has_minus&lt; T, std::void_t&lt; decltype(std::declval&lt; T &gt;() - std::declval&lt; T &gt;())&gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1propagate__nan_1_1use__efficient__minus.html">ast::propagate_nan::use_efficient_minus&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast_1_1propagate__nan.html">ast::propagate_nan</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -160,6 +172,28 @@ template&lt;typename Scalar &gt; </td></tr>
 <tr class="separator:ga70afc34acbd6e94be6c10c32ea03acbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae34aefa61d4998de18c705a340bf3d9c" id="r_gae34aefa61d4998de18c705a340bf3d9c"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">ast::aNormalizeAngleNeg2PiTo0</a> (double angle)</td></tr>
 <tr class="separator:gae34aefa61d4998de18c705a340bf3d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a311d6dcbd16d6e212d729a17568e3d75" id="r_a311d6dcbd16d6e212d729a17568e3d75"><td class="memItemLeft" align="right" valign="top"><a id="a311d6dcbd16d6e212d729a17568e3d75" name="a311d6dcbd16d6e212d729a17568e3d75"></a>
+A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::propagate_nan::min</b> (double a, double b)</td></tr>
+<tr class="separator:a311d6dcbd16d6e212d729a17568e3d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4420d16471aa45c760b033d80823b5b1" id="r_a4420d16471aa45c760b033d80823b5b1"><td class="memItemLeft" align="right" valign="top"><a id="a4420d16471aa45c760b033d80823b5b1" name="a4420d16471aa45c760b033d80823b5b1"></a>
+A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::propagate_nan::max</b> (double a, double b)</td></tr>
+<tr class="separator:a4420d16471aa45c760b033d80823b5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28cf725753846649fd6dfc8c84f0fc41" id="r_a28cf725753846649fd6dfc8c84f0fc41"><td class="memTemplParams" colspan="2"><a id="a28cf725753846649fd6dfc8c84f0fc41" name="a28cf725753846649fd6dfc8c84f0fc41"></a>
+template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </td></tr>
+<tr class="memitem:a28cf725753846649fd6dfc8c84f0fc41"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!<a class="el" href="structast_1_1propagate__nan_1_1use__efficient__minus.html">use_efficient_minus</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt;::value, constT &amp; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::propagate_nan::min</b> (const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;a, const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;b)</td></tr>
+<tr class="separator:a28cf725753846649fd6dfc8c84f0fc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dfeea7ecf695e3a9b319162c952c031" id="r_a4dfeea7ecf695e3a9b319162c952c031"><td class="memTemplParams" colspan="2"><a id="a4dfeea7ecf695e3a9b319162c952c031" name="a4dfeea7ecf695e3a9b319162c952c031"></a>
+template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </td></tr>
+<tr class="memitem:a4dfeea7ecf695e3a9b319162c952c031"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="structast_1_1propagate__nan_1_1use__efficient__minus.html">use_efficient_minus</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt;::value, constT &amp; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::propagate_nan::min</b> (const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;a, const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;b)</td></tr>
+<tr class="separator:a4dfeea7ecf695e3a9b319162c952c031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1831ae4a536668f2d70ebfe4da871112" id="r_a1831ae4a536668f2d70ebfe4da871112"><td class="memTemplParams" colspan="2"><a id="a1831ae4a536668f2d70ebfe4da871112" name="a1831ae4a536668f2d70ebfe4da871112"></a>
+template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </td></tr>
+<tr class="memitem:a1831ae4a536668f2d70ebfe4da871112"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!<a class="el" href="structast_1_1propagate__nan_1_1use__efficient__minus.html">use_efficient_minus</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt;::value, constT &amp; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::propagate_nan::max</b> (const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;a, const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;b)</td></tr>
+<tr class="separator:a1831ae4a536668f2d70ebfe4da871112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd64f0095b5a5d992b17c3f0b355eb35" id="r_abd64f0095b5a5d992b17c3f0b355eb35"><td class="memTemplParams" colspan="2"><a id="abd64f0095b5a5d992b17c3f0b355eb35" name="abd64f0095b5a5d992b17c3f0b355eb35"></a>
+template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </td></tr>
+<tr class="memitem:abd64f0095b5a5d992b17c3f0b355eb35"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="structast_1_1propagate__nan_1_1use__efficient__minus.html">use_efficient_minus</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt;::value, constT &amp; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::propagate_nan::max</b> (const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;a, const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;b)</td></tr>
+<tr class="separator:abd64f0095b5a5d992b17c3f0b355eb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>~ </p>

@@ -36,6 +36,13 @@ var annotated_dup =
       [ "math", "namespaceast_1_1math.html", [
         [ "is_vector_like", "structast_1_1math_1_1is__vector__like.html", null ]
       ] ],
+      [ "propagate_nan", "namespaceast_1_1propagate__nan.html", [
+        [ "allow_efficient_minus", "structast_1_1propagate__nan_1_1allow__efficient__minus.html", null ],
+        [ "allow_efficient_minus< TimePoint >", "structast_1_1propagate__nan_1_1allow__efficient__minus_3_01TimePoint_01_4.html", null ],
+        [ "has_minus", "structast_1_1propagate__nan_1_1has__minus.html", null ],
+        [ "has_minus< T, std::void_t< decltype(std::declval< T >() - std::declval< T >())> >", "structast_1_1propagate__nan_1_1has__minus_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declvaeb2484b5ebb42f1196f3206788f7f123.html", null ],
+        [ "use_efficient_minus", "structast_1_1propagate__nan_1_1use__efficient__minus.html", null ]
+      ] ],
       [ "strings_internal", null, [
         [ "AllowEmpty", "structast_1_1strings__internal_1_1AllowEmpty.html", null ],
         [ "ByAnyChar", "classast_1_1strings__internal_1_1ByAnyChar.html", null ],

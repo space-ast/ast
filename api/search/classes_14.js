@@ -88,7 +88,8 @@ var searchData=
   ['unitconverter_85',['UnitConverter',['../classast_1_1UnitConverter.html',1,'ast']]],
   ['unitmanager_86',['UnitManager',['../classast_1_1UnitManager.html',1,'ast']]],
   ['unitrep_87',['UnitRep',['../classast_1_1UnitRep.html',1,'ast']]],
-  ['userproxyagent_88',['UserProxyAgent',['../classast_1_1UserProxyAgent.html',1,'ast']]],
-  ['ussa1976_89',['USSA1976',['../classast_1_1USSA1976.html',1,'ast']]],
-  ['utcscale_90',['UTCScale',['../classast_1_1UTCScale.html',1,'ast']]]
+  ['use_5fefficient_5fminus_88',['use_efficient_minus',['../structast_1_1propagate__nan_1_1use__efficient__minus.html',1,'ast::propagate_nan']]],
+  ['userproxyagent_89',['UserProxyAgent',['../classast_1_1UserProxyAgent.html',1,'ast']]],
+  ['ussa1976_90',['USSA1976',['../classast_1_1USSA1976.html',1,'ast']]],
+  ['utcscale_91',['UTCScale',['../classast_1_1UTCScale.html',1,'ast']]]
 ];

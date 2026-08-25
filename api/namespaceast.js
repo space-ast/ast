@@ -91,6 +91,7 @@ var namespaceast =
       [ "isdir", "namespaceast_1_1posix.html#af224165c7d701178e9d3151c3f2c4333", null ],
       [ "rmdir", "namespaceast_1_1posix.html#a7e90d3800c40de7e75eb1c3fca10dc4a", null ]
     ] ],
+    [ "propagate_nan", "namespaceast_1_1propagate__nan.html", "namespaceast_1_1propagate__nan" ],
     [ "units", "namespaceast_1_1units.html", [
       [ "A", "namespaceast_1_1units.html#a26da2976a8828d2390606bddb75cf8e5", null ],
       [ "arcsec", "namespaceast_1_1units.html#a4269fe8d0f2f532e585768ed1c5cfb76", null ],

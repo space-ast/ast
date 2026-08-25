@@ -301,6 +301,10 @@ var hierarchy =
       [ "ast::ExtractorImplTar", "classast_1_1ExtractorImplTar.html", null ]
     ] ],
     [ "f_structtype", "structf__structtype.html", null ],
+    [ "std::false_type", null, [
+      [ "ast::propagate_nan::allow_efficient_minus< T >", "structast_1_1propagate__nan_1_1allow__efficient__minus.html", null ],
+      [ "ast::propagate_nan::has_minus< T, typename >", "structast_1_1propagate__nan_1_1has__minus.html", null ]
+    ] ],
     [ "ast::Field", "classast_1_1Field.html", [
       [ "ast::Property", "classast_1_1Property.html", [
         [ "ast::PropertyBool", "classast_1_1PropertyBool.html", null ],
@@ -1549,6 +1553,10 @@ var hierarchy =
       [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", null ]
     ] ],
     [ "ast::TreeBuildOptions", "structast_1_1TreeBuildOptions.html", null ],
+    [ "std::true_type", null, [
+      [ "ast::propagate_nan::allow_efficient_minus< TimePoint >", "structast_1_1propagate__nan_1_1allow__efficient__minus_3_01TimePoint_01_4.html", null ],
+      [ "ast::propagate_nan::has_minus< T, std::void_t< decltype(std::declval< T >() - std::declval< T >())> >", "structast_1_1propagate__nan_1_1has__minus_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declvaeb2484b5ebb42f1196f3206788f7f123.html", null ]
+    ] ],
     [ "ast::detail::type_from_tag< TypeCode >", "structast_1_1detail_1_1type__from__tag.html", null ],
     [ "ast::detail::type_from_tag< type_bool >", "structast_1_1detail_1_1type__from__tag_3_01type__bool_01_4.html", null ],
     [ "ast::detail::type_from_tag< type_double >", "structast_1_1detail_1_1type__from__tag_3_01type__double_01_4.html", null ],
@@ -1570,6 +1578,7 @@ var hierarchy =
       [ "ast::LogarithmicUnitRep", "classast_1_1LogarithmicUnitRep.html", null ],
       [ "ast::ScaleUnitRep", "classast_1_1ScaleUnitRep.html", null ]
     ] ],
+    [ "ast::propagate_nan::use_efficient_minus< T >", "structast_1_1propagate__nan_1_1use__efficient__minus.html", null ],
     [ "ast::UTCScale", "classast_1_1UTCScale.html", null ],
     [ "ast::ValueView", "classast_1_1ValueView.html", null ],
     [ "Vardesc", "structVardesc.html", null ],
