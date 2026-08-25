@@ -45,7 +45,7 @@ var searchData=
   ['frombjt_42',['FromBJT',['../classast_1_1TimePoint.html#a3a575fdd11fbd801b1431b7036000c3e',1,'ast::TimePoint']]],
   ['fromdatetime_43',['FromDateTime',['../classast_1_1JulianDate.html#a6e9c6609e303913ea133a764b9565e63',1,'ast::JulianDate::FromDateTime(const DateTime &amp;dttm)'],['../classast_1_1JulianDate.html#a2eab666622807dbc197dd4f60decaa88',1,'ast::JulianDate::FromDateTime(int year, int month, int day, int hour, int minute, double second)']]],
   ['fromdays_44',['FromDays',['../classast_1_1JulianDate.html#ac65a58270e53a88414d2714c10de55be',1,'ast::JulianDate']]],
-  ['fromdaysecond_45',['FromDaySecond',['../classast_1_1JulianDate.html#a9ce61b46dfd09b9e5d99c9dd458e3597',1,'ast::JulianDate']]],
+  ['fromdaysecond_45',['FromDaySecond',['../classast_1_1JulianDate.html#a9ce61b46dfd09b9e5d99c9dd458e3597',1,'ast::JulianDate::FromDaySecond(int day, double second)'],['../classast_1_1JulianDate.html#a184c746464a0269e3ee46eb8527ab961',1,'ast::JulianDate::FromDaySecond(double day, double second)']]],
   ['fromfile_46',['FromFile',['../classast_1_1JsonValue.html#a37cabb61bcc9c73704af336d19e7bc51',1,'ast::JsonValue']]],
   ['fromgregorian_47',['FromGregorian',['../classast_1_1DateTime.html#a8f5b01254262eb0dce04f92a53430396',1,'ast::DateTime']]],
   ['fromimpreciseday_48',['FromImpreciseDay',['../classast_1_1JulianDate.html#a8673a20aa87365b8eeae1161d7b10e40',1,'ast::JulianDate']]],
