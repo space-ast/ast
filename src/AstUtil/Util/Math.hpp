@@ -226,6 +226,8 @@ namespace propagate_nan
         return std::numeric_limits<double>::quiet_NaN();
     }
 
+    // SWIG 无法解析 has_minus 中的 decltype SFINAE 检测，以下内部模板暂不暴露给 SWIG
+#ifndef SWIG
     // -------------------- 类型标记：类型是否允许使用减法，需要用户通过类型特化 allow_efficient_minus 来明确允许 --------------------
     template <typename T>
     struct allow_efficient_minus : std::false_type {};
@@ -299,6 +301,7 @@ namespace propagate_nan
             return a;
         return b;
     }
+#endif  // !SWIG
 }
 
 /*! @} */

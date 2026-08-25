@@ -111,6 +111,16 @@ public:
         return JulianDate{day, second};
     }
 
+    /// @brief 根据天数和秒数创建儒略日
+    /// @param day 天数 [day] 
+    /// @param second 秒数 [second]
+    static JulianDate FromDaySecond(double day, double second)
+    {
+        int d = static_cast<int>(day);
+        double s = (day - d) * 86400.0;
+        return JulianDate{d, second + s};
+    }
+
     /// @brief 根据日期时间创建儒略日
     static JulianDate FromDateTime(const DateTime& dttm)
     {
