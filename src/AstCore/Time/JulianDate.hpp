@@ -193,6 +193,11 @@ public:
     {
         return ((day_ - jd) + dayFractional());
     }
+    /// @brief 计算儒略日与另一个儒略日的时间差（秒）
+    double secondsFromJulianDate(double jd) const
+    {
+        return (day_ - jd) * kSecondsPerDay + second_;
+    }
     
     double daysFrom(const JulianDate& other) const{
         return (*this - other).totalDay();

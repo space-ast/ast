@@ -43,6 +43,9 @@ class Interval
 public:
     /// @brief 空区间哨兵（{+∞, -∞}，IEEE 1788 / Boost.Interval 惯例）
     static Interval Empty();
+    
+    /// @brief 完整时间区间（{-∞, +∞}）
+    static Interval Whole();
 public:
     double start() const{return start_;}
     double stop() const{return stop_;}
@@ -141,6 +144,12 @@ inline Interval Interval::Empty()
 {
     return Interval{+(std::numeric_limits<double>::infinity()),
                     -(std::numeric_limits<double>::infinity()) }; 
+}
+
+inline Interval Interval::Whole()
+{
+    return Interval{-std::numeric_limits<double>::infinity(),
+                    +std::numeric_limits<double>::infinity()};
 }
 
 inline void Interval::setBounds(double start, double stop)
