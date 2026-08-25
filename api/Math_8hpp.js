@@ -1,8 +1,7 @@
 var Math_8hpp =
 [
     [ "ast::propagate_nan::allow_efficient_minus< T >", "structast_1_1propagate__nan_1_1allow__efficient__minus.html", null ],
-    [ "ast::propagate_nan::has_minus< T, typename >", "structast_1_1propagate__nan_1_1has__minus.html", null ],
-    [ "ast::propagate_nan::has_minus< T, std::void_t< decltype(std::declval< T >() - std::declval< T >())> >", "structast_1_1propagate__nan_1_1has__minus_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declvaeb2484b5ebb42f1196f3206788f7f123.html", null ],
+    [ "ast::propagate_nan::has_minus< T >", "structast_1_1propagate__nan_1_1has__minus.html", null ],
     [ "ast::propagate_nan::use_efficient_minus< T >", "structast_1_1propagate__nan_1_1use__efficient__minus.html", null ],
     [ "acosSafe", "Math_8hpp.html#gaf3daeb4f2ae541a38327773fb244197b", null ],
     [ "aMax", "Math_8hpp.html#ga8831f3e788e7c120569b0c8f00004ebf", null ],

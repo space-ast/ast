@@ -1,7 +1,5 @@
 var NAVTREEINDEX64 =
 {
-"structnrlmsise__flags.html":[3,0,49],
-"structnrlmsise__input.html":[3,0,50],
 "structnrlmsise__output.html":[3,0,51],
 "structolist.html":[3,0,52],
 "structpardtmtype.html":[3,0,53],

@@ -302,8 +302,7 @@ var hierarchy =
     ] ],
     [ "f_structtype", "structf__structtype.html", null ],
     [ "std::false_type", null, [
-      [ "ast::propagate_nan::allow_efficient_minus< T >", "structast_1_1propagate__nan_1_1allow__efficient__minus.html", null ],
-      [ "ast::propagate_nan::has_minus< T, typename >", "structast_1_1propagate__nan_1_1has__minus.html", null ]
+      [ "ast::propagate_nan::allow_efficient_minus< T >", "structast_1_1propagate__nan_1_1allow__efficient__minus.html", null ]
     ] ],
     [ "ast::Field", "classast_1_1Field.html", [
       [ "ast::Property", "classast_1_1Property.html", [
@@ -406,6 +405,7 @@ var hierarchy =
     [ "ast::GUIInterface", "classast_1_1GUIInterface.html", [
       [ "ast::GUIInterfaceImpl", "classast_1_1GUIInterfaceImpl.html", null ]
     ] ],
+    [ "ast::propagate_nan::has_minus< T >", "structast_1_1propagate__nan_1_1has__minus.html", null ],
     [ "ast::has_own_getType< T >", "structast_1_1has__own__getType.html", null ],
     [ "std::hash< _AST StringViewBasic< _Char > >", "structstd_1_1hash_3_01__AST_01StringViewBasic_3_01__Char_01_4_01_4.html", null ],
     [ "std::hash< _AST WeakPtr< _Object > >", "structstd_1_1hash_3_01__AST_01WeakPtr_3_01__Object_01_4_01_4.html", null ],
@@ -1554,8 +1554,7 @@ var hierarchy =
     ] ],
     [ "ast::TreeBuildOptions", "structast_1_1TreeBuildOptions.html", null ],
     [ "std::true_type", null, [
-      [ "ast::propagate_nan::allow_efficient_minus< TimePoint >", "structast_1_1propagate__nan_1_1allow__efficient__minus_3_01TimePoint_01_4.html", null ],
-      [ "ast::propagate_nan::has_minus< T, std::void_t< decltype(std::declval< T >() - std::declval< T >())> >", "structast_1_1propagate__nan_1_1has__minus_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declvaeb2484b5ebb42f1196f3206788f7f123.html", null ]
+      [ "ast::propagate_nan::allow_efficient_minus< TimePoint >", "structast_1_1propagate__nan_1_1allow__efficient__minus_3_01TimePoint_01_4.html", null ]
     ] ],
     [ "ast::detail::type_from_tag< TypeCode >", "structast_1_1detail_1_1type__from__tag.html", null ],
     [ "ast::detail::type_from_tag< type_bool >", "structast_1_1detail_1_1type__from__tag_3_01type__bool_01_4.html", null ],

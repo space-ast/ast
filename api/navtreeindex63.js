@@ -206,10 +206,8 @@ var NAVTREEINDEX63 =
 "structast_1_1propagate__nan_1_1allow__efficient__minus_3_01TimePoint_01_4.html":[3,0,0,3,1],
 "structast_1_1propagate__nan_1_1has__minus.html":[2,0,0,5,2],
 "structast_1_1propagate__nan_1_1has__minus.html":[3,0,0,3,2],
-"structast_1_1propagate__nan_1_1has__minus_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declvaeb2484b5ebb42f1196f3206788f7f123.html":[2,0,0,5,3],
-"structast_1_1propagate__nan_1_1has__minus_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declvaeb2484b5ebb42f1196f3206788f7f123.html":[3,0,0,3,3],
-"structast_1_1propagate__nan_1_1use__efficient__minus.html":[2,0,0,5,4],
-"structast_1_1propagate__nan_1_1use__efficient__minus.html":[3,0,0,3,4],
+"structast_1_1propagate__nan_1_1use__efficient__minus.html":[2,0,0,5,3],
+"structast_1_1propagate__nan_1_1use__efficient__minus.html":[3,0,0,3,3],
 "structast_1_1property__trait.html":[0,8,4,18],
 "structast_1_1property__trait_3_01TimePoint_01_4.html":[0,8,4,20],
 "structast_1_1property__trait_3_01std_1_1string_01_4.html":[0,8,4,19],
@@ -249,5 +247,7 @@ var NAVTREEINDEX63 =
 "structmavgrecord.html":[3,0,43],
 "structmesorecord.html":[3,0,44],
 "structmetselrecord.html":[3,0,45],
-"structmsisrecord.html":[3,0,46]
+"structmsisrecord.html":[3,0,46],
+"structnrlmsise__flags.html":[3,0,49],
+"structnrlmsise__input.html":[3,0,50]
 };
