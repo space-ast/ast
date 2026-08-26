@@ -243,7 +243,7 @@ public:
         double dur = duration();
         if (step > 0 && dur >= 0)
         {
-            return static_cast<size_t>(std::ceil(dur / step)) + 1;
+            return aDiscretizedCount(dur, step);
         }
         // 如果存在nan，则duration()为nan，if 条件不成立，返回0
         return 0;
@@ -304,7 +304,7 @@ inline TimePointRange TimeInterval::discretize(double step) const
     double dur = duration();
     if (step > 0 && dur >= 0)
     {
-        size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
+        size_t n = aDiscretizedCount(dur, step);
         return TimePointRange(start_, stop_, step, n);
     }
     return TimePointRange(start_, stop_, step, 0);
@@ -315,10 +315,9 @@ inline DoubleRange TimeInterval::discretize(const TimePoint& epoch, double step)
     double dur = duration();
     if (step > 0 && dur >= 0)
     {
-        size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
         double start = getStart() - epoch;
         double stop  = getStop()  - epoch;
-        return DoubleRange(start, stop, step, n);
+        return DoubleRange(start, stop, step);
     }
 
     return DoubleRange(0.0, 0.0, step, 0);

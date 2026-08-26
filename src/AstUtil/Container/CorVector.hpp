@@ -26,6 +26,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include <cassert>
+#include <type_traits>
 
 AST_NAMESPACE_BEGIN
 
@@ -68,7 +69,8 @@ public:
         resize(count, value);
     }
     
-    template<typename InputIt>
+    template<typename InputIt,
+             typename std::enable_if<!std::is_integral<InputIt>::value, int>::type = 0>
     CorVector(InputIt first, InputIt last) : CorVector() {
         size_type count = std::distance(first, last);
         reserve(count);
@@ -95,7 +97,7 @@ public:
         this->allocator_ = other.allocator_;
         other.data_ = nullptr;
         other.size_ = 0;
-        other.allocator_ = {nullptr};
+        other.allocator_.end_of_storage_ = nullptr;
     }
     
     ~CorVector() {
@@ -307,7 +309,8 @@ public:
         return data_ + offset;
     }
     
-    template<typename InputIt>
+    template<typename InputIt,
+             typename std::enable_if<!std::is_integral<InputIt>::value, int>::type = 0>
     iterator insert(const_iterator pos, InputIt first, InputIt last) {
         difference_type offset = pos - cbegin();
         size_type count = std::distance(first, last);
@@ -315,11 +318,12 @@ public:
             reserve(size_ + count);
         }
         std::move_backward(data_ + offset, data_ + size_, data_ + size_ + count);
-        for (; first != last; ++first, ++offset) {
-            allocator().construct(data_ + offset, *first);
+        T* cur = data_ + offset;
+        for (; first != last; ++first, ++cur) {
+            allocator().construct(cur, *first);
         }
         size_ += count;
-        return data_ + (pos - cbegin());
+        return data_ + offset;
     }
     
     iterator insert(const_iterator pos, std::initializer_list<T> init) {
@@ -338,7 +342,7 @@ public:
         difference_type start = first - cbegin();
         difference_type count = last - first;
         std::move(data_ + start + count, data_ + size_, data_ + start);
-        for (size_type i = 0; i < count; ++i) {
+        for (difference_type i = 0; i < count; ++i) {
             allocator().destroy(data_ + size_ - i - 1);
         }
         size_ -= count;

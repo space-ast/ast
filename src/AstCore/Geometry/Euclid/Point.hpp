@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstUtil/Object.hpp"
 #include "AstUtil/ObjectNamed.hpp"
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
@@ -80,6 +81,21 @@ public:
     /// @param vel 输出参数，点的速度向量
     /// @return 错误码
     errc_t getPosVelIn(Frame* frame, const TimePoint& tp, Vector3d& pos, Vector3d& vel) const;
+
+    /// @brief 获取点在指定时间段内的位置列表，相对于指定参考坐标系
+    /// @param frame 坐标系
+    /// @param range 时间点范围
+    /// @param posList 输出参数，点的位置向量列表
+    /// @return 错误码
+    errc_t getPosIn(Frame* frame, const TimePointRange& range, std::vector<Vector3d>& posList) const;
+
+    /// @brief 获取点在指定时间段内的位置列表和速度列表，相对于指定参考坐标系
+    /// @param frame 坐标系
+    /// @param range 时间点范围
+    /// @param posList 输出参数，点的位置向量列表
+    /// @param velList 输出参数，点的速度向量列表
+    /// @return 错误码
+    errc_t getPosVelIn(Frame* frame, const TimePointRange& range, std::vector<Vector3d>& posList, std::vector<Vector3d>& velList) const;
 
 };
 

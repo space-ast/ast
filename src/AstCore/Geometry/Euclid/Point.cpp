@@ -73,6 +73,33 @@ errc_t Point::getPosVelIn(Frame *frame, const TimePoint &tp, Vector3d &pos, Vect
     }
 }
 
+errc_t Point::getPosIn(Frame *frame, const TimePointRange &range, std::vector<Vector3d> &posList) const
+{
+    if(range.size() == 0) return eNoError;
+    errc_t rc = eNoError;
+    posList.resize(range.size());
+    for(size_t i=0; i < range.size()-1; i++)
+    {
+        rc |= getPosIn(frame, range.start() + i * range.step(), posList[i]);
+    }
+    rc |= getPosIn(frame, range.stop(), posList.back());
+    return rc;
+}
+
+errc_t Point::getPosVelIn(Frame *frame, const TimePointRange &range, std::vector<Vector3d> &posList, std::vector<Vector3d> &velList) const
+{
+    if(range.size() == 0) return eNoError;
+    errc_t rc = eNoError;
+    posList.resize(range.size());
+    velList.resize(range.size());
+    for(size_t i=0; i < range.size()-1; i++)
+    {
+        rc |= getPosVelIn(frame, range.start() + i * range.step(), posList[i], velList[i]);
+    }
+    rc |= getPosVelIn(frame, range.stop(), posList.back(), velList.back());
+    return rc;
+}
+
 AST_NAMESPACE_END
 
 

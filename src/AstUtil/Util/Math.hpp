@@ -24,6 +24,7 @@
 #include "AstUtil/MathDegree.hpp"
 #include "AstUtil/Constants.h"
 #include <cmath>
+#include <cstddef>      // for size_t
 #include <cassert>
 #include <algorithm>
 #include <type_traits>
@@ -97,6 +98,15 @@ template<typename Scalar>
 Scalar aMin(Scalar a, Scalar b)
 {
     return a < b ? a : b;
+}
+
+/// @brief 计算闭区间 [0, span] 按 step 步长采样（含两端点）的采样点数
+/// @param span 区间长度（即 stop - start；需 >= 0）
+/// @param step 步长（秒；需 > 0）
+/// @return ceil(span / step) + 1
+A_ALWAYS_INLINE size_t aDiscretizedCount(double span, double step)
+{
+    return static_cast<size_t>(std::ceil(span / step)) + 1;
 }
 
 using std::max;

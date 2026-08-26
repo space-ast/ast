@@ -217,8 +217,7 @@ inline DoubleRange Interval::discretize(double step) const
     double dur = duration();
     if(step > 0 && dur >= 0)
     {
-        size_t n = static_cast<size_t>(std::ceil(dur / step)) + 1;
-        return DoubleRange(start_, stop_, step, n);
+        return DoubleRange(start_, stop_, step);
     }
     // 如果存在 nan，duration()为 nan，if 条件为false, 返回空范围
     return DoubleRange(0.0, 0.0, step, 0);
@@ -229,7 +228,7 @@ inline size_t Interval::discretizedCount(double step) const
     double dur = duration();
     if(step > 0 && dur >= 0)
     {
-        return static_cast<size_t>(std::ceil(dur / step)) + 1;
+        return aDiscretizedCount(dur, step);
     }
     // 如果存在 nan，duration()为 nan，if 条件为false, 返回0
     return 0;

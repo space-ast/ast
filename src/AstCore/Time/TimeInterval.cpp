@@ -54,7 +54,7 @@ errc_t TimeInterval::discretize(const TimePoint &epoch, double step, std::vector
     double dur = this->duration();
     if (step > 0 && dur >= 0)
     {
-        ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(dur / step) + 1);
+        ptrdiff_t nnodes = static_cast<ptrdiff_t>(aDiscretizedCount(dur, step));
         times.resize(nnodes);
         double start = getStart() - epoch;
         
@@ -74,7 +74,7 @@ errc_t TimeInterval::discretize(double step, std::vector<TimePoint> &times) cons
 {
     double dur = this->duration();
     if (step > 0 && dur >= 0){
-        ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(dur / step) + 1);
+        ptrdiff_t nnodes = static_cast<ptrdiff_t>(aDiscretizedCount(dur, step));
         times.resize(nnodes);
         const TimePoint& start = getStart();
         
@@ -94,7 +94,7 @@ errc_t TimeInterval::discretize(double step, TimeList& times) const
 {
     double dur = this->duration();
     if (step > 0.0 && dur >= 0){
-        ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(dur / step) + 1);
+        ptrdiff_t nnodes = static_cast<ptrdiff_t>(aDiscretizedCount(dur, step));
         times.seconds().resize(nnodes);
         times.setEpoch(getStart());
 

@@ -491,6 +491,7 @@ class TimePoint;            ///< 时间点
 class TimeList;             ///< 时间点列表
 class TimeInterval;         ///< 时间段
 class TimeIntervalList;     ///< 绝对时间段列表
+class TimePointRange;       ///< 时间点采样范围
 class Interval;             ///< 相对时间段
 class IntervalList;         ///< 相对时间段列表
 class JulianDate;           ///< 儒略日

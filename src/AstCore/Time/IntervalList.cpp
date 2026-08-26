@@ -245,7 +245,7 @@ TimeList IntervalList::discretize(const TimePoint& epoch, double step) const
 
         // 直接从 Interval 的相對秒数生成离散时间点，绕过 TimeInterval 中间层
         auto& secs = result.seconds();
-        ptrdiff_t nnodes = static_cast<ptrdiff_t>(std::ceil(dur / step) + 1);
+        ptrdiff_t nnodes = static_cast<ptrdiff_t>(aDiscretizedCount(dur, step));
         secs.reserve(secs.size() + nnodes);
 
         for (ptrdiff_t i = 0; i < nnodes - 1; ++i)
