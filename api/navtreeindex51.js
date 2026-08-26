@@ -1,5 +1,6 @@
 var NAVTREEINDEX51 =
 {
+"classast_1_1WayPoint.html#ac544ada0d6af25eaa00b4e0e3581fc33":[3,0,0,1128,0],
 "classast_1_1WeakPtr.html":[0,8,4,2],
 "classast_1_1WorkingDirectory.html":[0,8,15],
 "classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97":[0,8,15,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX51 =
 "dir_58f1c1acee87c1819259ff24dc93e089.html":[4,0,0,27,6],
 "dir_58fc3ca531da50408d47b94e43e3a9cb.html":[4,0,0,1,4],
 "dir_59c9972b811bf91e2551a6edab700b2c.html":[4,0,0,11,2],
-"dir_5b17ea73c95a1e4bace30f4613654d1e.html":[4,0,0,6,2],
-"dir_5bc54a56cbae6602baa6cf88996dc0a3.html":[4,0,0,12,5]
+"dir_5b17ea73c95a1e4bace30f4613654d1e.html":[4,0,0,6,2]
 };

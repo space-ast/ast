@@ -1,5 +1,6 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1SSEParser.html#aa1d5b954db5d434a2541209ffd4c6f62":[3,0,0,938,2],
 "classast_1_1SSEParser.html#aa29ddb1197af50679e2888975e46738d":[2,0,0,940,0],
 "classast_1_1SSEParser.html#aa29ddb1197af50679e2888975e46738d":[3,0,0,938,0],
 "classast_1_1SSEParser.html#abf474cc47f8559cf62a7e092c91ae2f4":[2,0,0,940,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1ScStateCalcMagFieldDipoleL.html":[3,0,0,760],
 "classast_1_1ScStateCalcMagneticFieldForce.html":[2,0,0,763],
 "classast_1_1ScStateCalcMagneticFieldForce.html":[3,0,0,761],
-"classast_1_1ScStateCalcMagneticFieldStrength.html":[2,0,0,764],
-"classast_1_1ScStateCalcMagneticFieldStrength.html":[3,0,0,762]
+"classast_1_1ScStateCalcMagneticFieldStrength.html":[2,0,0,764]
 };

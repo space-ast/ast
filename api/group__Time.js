@@ -125,6 +125,7 @@ var group__Time =
       [ "impreciseDay", "classast_1_1JulianDate.html#a5aca597dc00265b589bb18a8c8ee3cb8", null ],
       [ "julianCenturyFromJ2000", "classast_1_1JulianDate.html#a78f5cb882407ed72bdae2df223968ee1", null ],
       [ "secondsFromJ2000", "classast_1_1JulianDate.html#a7fedf3b700c471b228abf1dd7487b30b", null ],
+      [ "secondsFromJulianDate", "classast_1_1JulianDate.html#a145faf107fe21f998bb3a7e3af1381b3", null ],
       [ "setDayFractional", "classast_1_1JulianDate.html#addfe786b99fd2337bf91b32158b8d62c", null ],
       [ "setDaySecond", "classast_1_1JulianDate.html#adf1272b09b6178310814e64c8559dd71", null ],
       [ "setImpreciseDay", "classast_1_1JulianDate.html#a87055b6bc22499096b60dac1ce0f67dc", null ],

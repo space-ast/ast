@@ -1,5 +1,6 @@
 var NAVTREEINDEX47 =
 {
+"classast_1_1TimeInterval.html#af0680c56b4ce36144d5cb33601452bbd":[0,1,8,10,29],
 "classast_1_1TimeIntervalList.html":[0,1,8,11],
 "classast_1_1TimeIntervalList.html#a1210d03d28bec63fb4be6370a236db9b":[0,1,8,11,37],
 "classast_1_1TimeIntervalList.html#a1b2387229f64918ee6dc9dec9752dd6b":[0,1,8,11,27],
@@ -248,6 +249,5 @@ var NAVTREEINDEX47 =
 "classast_1_1UiChatMessageItem.html":[0,17,3],
 "classast_1_1UiChatMessageItem.html#a4ef8f8966d5c870f38dbd542ac54e0db":[0,17,3,3],
 "classast_1_1UiChatMessageItem.html#a796dbd1843ce78436d4dd058ccbcd5dd":[0,17,3,1],
-"classast_1_1UiChatMessageItem.html#aac7b583661ddee133c87bf6281f1aeb5":[0,17,3,4],
-"classast_1_1UiChatMessageItem.html#af7808c6516a2b715a448da2cbbd14a32":[0,17,3,2]
+"classast_1_1UiChatMessageItem.html#aac7b583661ddee133c87bf6281f1aeb5":[0,17,3,4]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX50 =
 {
+"classast_1_1UserProxyAgent.html#a8027b6324f4b5f0908da0d8022d2c47b":[2,0,0,1087,2],
 "classast_1_1UserProxyAgent.html#a8027b6324f4b5f0908da0d8022d2c47b":[3,0,0,1085,2],
 "classast_1_1UserProxyAgent.html#a883c670e294aa575c5387d529c790225":[2,0,0,1087,6],
 "classast_1_1UserProxyAgent.html#a883c670e294aa575c5387d529c790225":[3,0,0,1085,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX50 =
 "classast_1_1WayPoint.html#a20e9f53a7e9ab472588e7638eaad4d1e":[3,0,0,1128,3],
 "classast_1_1WayPoint.html#a848d4fc4f0f971bb8938b5e017b12d0d":[2,0,0,1130,2],
 "classast_1_1WayPoint.html#a848d4fc4f0f971bb8938b5e017b12d0d":[3,0,0,1128,2],
-"classast_1_1WayPoint.html#ac544ada0d6af25eaa00b4e0e3581fc33":[2,0,0,1130,0],
-"classast_1_1WayPoint.html#ac544ada0d6af25eaa00b4e0e3581fc33":[3,0,0,1128,0]
+"classast_1_1WayPoint.html#ac544ada0d6af25eaa00b4e0e3581fc33":[2,0,0,1130,0]
 };

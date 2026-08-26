@@ -1,5 +1,6 @@
 var NAVTREEINDEX36 =
 {
+"classast_1_1MotionTwoBodySax.html":[3,0,0,498],
 "classast_1_1MotionWithIntervalStep.html":[2,0,0,501],
 "classast_1_1MotionWithIntervalStep.html":[3,0,0,499],
 "classast_1_1MotionWithIntervalStep.html#a04a7e542f29e2dfda845a5c7aaba352d":[2,0,0,501,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX36 =
 "classast_1_1NutationTerm.html":[3,0,0,531],
 "classast_1_1OArchive.html":[2,0,0,534],
 "classast_1_1OArchive.html":[3,0,0,532],
-"classast_1_1ODEEventDetector.html":[0,3,4,7],
-"classast_1_1ODEEventDetector.html#a01131d2a910b846a4a506b60c13d7410":[0,3,4,7,7]
+"classast_1_1ODEEventDetector.html":[0,3,4,7]
 };

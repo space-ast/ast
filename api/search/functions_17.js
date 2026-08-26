@@ -5,8 +5,9 @@ var searchData=
   ['weakrefcount_2',['weakRefCount',['../classast_1_1Referenced.html#a3ddb7d1e47dc803e64c64a03ba110d68',1,'ast::Referenced']]],
   ['weekdayfullname_3',['weekDayFullName',['../group__Time.html#ga869fb2e76bb442c8175c0a297ddb8098',1,'ast::Date']]],
   ['weekdayshortname_4',['weekDayShortName',['../group__Time.html#ga75e4609fe91cfe5858ac5b32b0ae6994',1,'ast::Date']]],
-  ['widget_5',['widget',['../classast_1_1PilotAgent.html#a250f37d0f629e57cf7731722f57f9751',1,'ast::PilotAgent']]],
-  ['workfinished_6',['workFinished',['../classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d',1,'ast::UiChatWorker']]],
-  ['workingdirectory_7',['WorkingDirectory',['../classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97',1,'ast::WorkingDirectory']]],
-  ['writeonly_8',['writeOnly',['../classast_1_1Property.html#a77d1be8b056e8c12e3868dcc5b7ac06f',1,'ast::Property']]]
+  ['whole_5',['Whole',['../classast_1_1Interval.html#a092948d5201be4e0b29d4c0ae6885eef',1,'ast::Interval::Whole()'],['../classast_1_1TimeInterval.html#a2c8ac668270eab53d1b16f2a07787acc',1,'ast::TimeInterval::Whole()']]],
+  ['widget_6',['widget',['../classast_1_1PilotAgent.html#a250f37d0f629e57cf7731722f57f9751',1,'ast::PilotAgent']]],
+  ['workfinished_7',['workFinished',['../classast_1_1UiChatWorker.html#a822d314e526c0f9a6fdc870e787f1d6d',1,'ast::UiChatWorker']]],
+  ['workingdirectory_8',['WorkingDirectory',['../classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97',1,'ast::WorkingDirectory']]],
+  ['writeonly_9',['writeOnly',['../classast_1_1Property.html#a77d1be8b056e8c12e3868dcc5b7ac06f',1,'ast::Property']]]
 ];

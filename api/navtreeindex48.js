@@ -1,5 +1,6 @@
 var NAVTREEINDEX48 =
 {
+"classast_1_1UiChatMessageItem.html#af7808c6516a2b715a448da2cbbd14a32":[0,17,3,2],
 "classast_1_1UiChatMessageItem.html#af8b596519939764cebe2876d9be25dc2":[0,17,3,0],
 "classast_1_1UiChatMessageList.html":[0,17,4],
 "classast_1_1UiChatMessageList.html#a3986ad671b338bbd134e9d92fe36110b":[0,17,4,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX48 =
 "classast_1_1UiQuantity.html#a3a93abd0d0859035e6330af53aab967c":[0,14,3,9],
 "classast_1_1UiQuantity.html#a3b250de1ee70aee863b8de5cda4e953b":[0,14,3,10],
 "classast_1_1UiQuantity.html#a3f74845a3a7c8339c9fc8102485bb557":[0,14,3,5],
-"classast_1_1UiQuantity.html#a481122ae0e746a799ff54b2b116ebceb":[0,14,3,2],
-"classast_1_1UiQuantity.html#a4c5d82867b8c44f5113558d218a8c839":[0,14,3,13]
+"classast_1_1UiQuantity.html#a481122ae0e746a799ff54b2b116ebceb":[0,14,3,2]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX61 =
 {
+"namespaceast_1_1fs__simple.html#a8fa783eb0e81045615d218f37441b52c":[2,0,0,1,6],
 "namespaceast_1_1literals.html":[0,8,6],
 "namespaceast_1_1literals.html#a001e05a567b56757aecc4fccd5b628e7":[2,0,0,2,47],
 "namespaceast_1_1literals.html#a049495c9ff7afe2cf553e5ab14beb3de":[2,0,0,2,34],
@@ -248,6 +249,5 @@ var NAVTREEINDEX61 =
 "structast_1_1CloseApproachOptions.html#a81e40e716bc7189cb70e213dc7931b89":[3,0,0,151,0],
 "structast_1_1CloseApproachOptions.html#a87496e8f2a9c984bb8fc1c4b6ff8bf33":[2,0,0,153,14],
 "structast_1_1CloseApproachOptions.html#a87496e8f2a9c984bb8fc1c4b6ff8bf33":[3,0,0,151,14],
-"structast_1_1CloseApproachOptions.html#aa5b8cc91b2d9ecbfa70bd943c56934a2":[2,0,0,153,4],
-"structast_1_1CloseApproachOptions.html#aa5b8cc91b2d9ecbfa70bd943c56934a2":[3,0,0,151,4]
+"structast_1_1CloseApproachOptions.html#aa5b8cc91b2d9ecbfa70bd943c56934a2":[2,0,0,153,4]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX62 =
 {
+"structast_1_1CloseApproachOptions.html#aa5b8cc91b2d9ecbfa70bd943c56934a2":[3,0,0,151,4],
 "structast_1_1CloseApproachOptions.html#aa7fb0fd92c823e650b3af1d1ab480d04":[2,0,0,153,11],
 "structast_1_1CloseApproachOptions.html#aa7fb0fd92c823e650b3af1d1ab480d04":[3,0,0,151,11],
 "structast_1_1CloseApproachOptions.html#aabe17a98b1dc6d70356ea2d54a65d507":[2,0,0,153,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX62 =
 "structast_1_1InitalizeConfig.html#abe706403e84d5295d32d4495d7fac6d4":[0,1,1,3,1],
 "structast_1_1InitalizeConfig.html#ad478dd55b9b22f0331b73af64d2113fa":[0,1,1,3,8],
 "structast_1_1InitalizeConfig.html#ad6dc790cd5ce07fdd4ee274eb0b97ffc":[0,1,1,3,3],
-"structast_1_1InitalizeConfig.html#ad7ccdb077a0d35beb9d95fc2d5a122ed":[0,1,1,3,4],
-"structast_1_1LeapSecond_1_1Entry.html":[0,1,1,7,0]
+"structast_1_1InitalizeConfig.html#ad7ccdb077a0d35beb9d95fc2d5a122ed":[0,1,1,3,4]
 };

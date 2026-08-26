@@ -1,5 +1,6 @@
 var NAVTREEINDEX43 =
 {
+"classast_1_1Scenario.html#a6ec9d7b47cc8127819c9039e9839a1c4":[3,0,0,656,7],
 "classast_1_1Scenario.html#a7b8d62d59f200a67217604990f710298":[2,0,0,658,0],
 "classast_1_1Scenario.html#a7b8d62d59f200a67217604990f710298":[3,0,0,656,0],
 "classast_1_1Scenario.html#aae49fcf2f78c55ae90ac5aac1cb8e0eb":[2,0,0,658,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX43 =
 "classast_1_1SpaceWeatherProvider.html":[0,1,1,9],
 "classast_1_1SpaceWeatherProvider.html#a151685dc4b937e9de353bc1db2b69363":[0,1,1,9,4],
 "classast_1_1SpaceWeatherProvider.html#a7b3e13a7ad98dca360a9a18c4a05fc0e":[0,1,1,9,1],
-"classast_1_1SpaceWeatherProvider.html#a7cb957a6b3a28cf715a9288872d6df2a":[0,1,1,9,2],
-"classast_1_1SpaceWeatherProvider.html#a8b05be42c953a25a7c2baaa266c1a02b":[0,1,1,9,0]
+"classast_1_1SpaceWeatherProvider.html#a7cb957a6b3a28cf715a9288872d6df2a":[0,1,1,9,2]
 };
