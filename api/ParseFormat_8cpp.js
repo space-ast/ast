@@ -9,6 +9,7 @@ var ParseFormat_8cpp =
     [ "_aParseInt_Simple", "ParseFormat_8cpp.html#ga9094e80cc609991a4a1ceac40cb73666", null ],
     [ "_aParseInt_StringStream", "ParseFormat_8cpp.html#ga0597f0179945ef9b3bcfb8571de167aa", null ],
     [ "aFormatBool", "ParseFormat_8cpp.html#gad1d8ef62ace89d58bad6328f8c666e4a", null ],
+    [ "aFormatBytes", "ParseFormat_8cpp.html#gad96a5256d0941310854d4e3d537a2bcf", null ],
     [ "aFormatColor", "ParseFormat_8cpp.html#ga63265581084bbbffd11dfe8b9f437118", null ],
     [ "aFormatDouble", "ParseFormat_8cpp.html#ga5c4d8dd1940e4f4b79408c9b480c10d1", null ],
     [ "aFormatInt", "ParseFormat_8cpp.html#ga9f4b6ed1cf14fe64250b3ddc93387876", null ],

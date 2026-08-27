@@ -1,5 +1,14 @@
 var NAVTREEINDEX15 =
 {
+"Sparse_8hpp.html":[4,0,0,12,0,3],
+"Sparse_8hpp_source.html":[4,0,0,12,0,3],
+"SpatialCalcAltitude_8cpp.html":[4,0,0,6,10,3,3],
+"SpatialCalcAltitude_8hpp.html":[4,0,0,6,10,3,4],
+"SpatialCalcAltitude_8hpp_source.html":[4,0,0,6,10,3,4],
+"SpatialCalcDistance_8cpp.html":[4,0,0,6,10,3,5],
+"SpatialCalcDistance_8hpp.html":[4,0,0,6,10,3,6],
+"SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391":[4,0,0,6,10,3,6,0],
+"SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391a1756e21034be50ffc074a140cef3e750":[4,0,0,6,10,3,6,0,4],
 "SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391a3aab4df1f397e31a28ec382c78fcadd7":[4,0,0,6,10,3,6,0,1],
 "SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391a924af60938aff3f7d83590e003bbf15c":[4,0,0,6,10,3,6,0,3],
 "SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391ac62e28a534bfb6b615f994026abf4278":[4,0,0,6,10,3,6,0,0],
@@ -240,14 +249,5 @@ var NAVTREEINDEX15 =
 "TLE_8hpp.html#a7e0d3d52b74885681d0322fd3f66196d":[4,0,0,6,12,2,4,3],
 "TLE_8hpp.html#af0aa1c9c6e26b6b71443e9be3f152374":[4,0,0,6,12,2,4,1],
 "TLE_8hpp.html#af0aa1c9c6e26b6b71443e9be3f152374a5e7de5f948230715ad55929daf7287e2":[4,0,0,6,12,2,4,1,0],
-"TLE_8hpp.html#af0aa1c9c6e26b6b71443e9be3f152374a799d484f5ed364902438d214b7d04302":[4,0,0,6,12,2,4,1,2],
-"TLE_8hpp.html#af0aa1c9c6e26b6b71443e9be3f152374acba3a33e9d84e554247adf2d2ecedcbe":[4,0,0,6,12,2,4,1,1],
-"TLE_8hpp.html#afb78dd9444f7e4df2a0cf4aa541565b2":[4,0,0,6,12,2,4,4],
-"TLE_8hpp_source.html":[4,0,0,6,12,2,4],
-"TangentPoint_8cpp.html":[4,0,0,2,0,24],
-"TangentPoint_8hpp.html":[4,0,0,2,0,25],
-"TangentPoint_8hpp_source.html":[4,0,0,2,0,25],
-"TargetLoader_8cpp.html":[4,0,0,11,5,54],
-"TargetLoader_8cpp.html#a14027c3f4c5acffa60d0e67a4ffabde0":[4,0,0,11,5,54,0],
-"TargetLoader_8hpp.html":[4,0,0,11,5,55]
+"TLE_8hpp.html#af0aa1c9c6e26b6b71443e9be3f152374a799d484f5ed364902438d214b7d04302":[4,0,0,6,12,2,4,1,2]
 };

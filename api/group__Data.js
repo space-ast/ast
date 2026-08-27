@@ -197,6 +197,7 @@ var group__Data =
     [ "ast::aDataDirGet", "group__Data.html#ga29c564259f5de9210b7e4e39eb4dd878", null ],
     [ "ast::aDataDirGet", "group__Data.html#ga4346d80fcb84036f0c1168d5abc14519", null ],
     [ "ast::aDataDirSet", "group__Data.html#ga9b4e17ce85add0e4eea8e29d80e4385c", null ],
+    [ "ast::aDownloadData", "group__Data.html#ga060a4c73a02ab5259aa7a154e7f25b0f", null ],
     [ "ast::aEpochSecondToTimePoint", "group__Data.html#gabba1e7995f309f3916be00a8e94cd3e7", null ],
     [ "ast::aGetBody", "group__Data.html#gab5d0282ada45dcbf8c28009fc3c853bf", null ],
     [ "ast::aGetConfigStringVector", "group__Data.html#gaf52f55e5d4c1192128caaac0837f7fae", null ],

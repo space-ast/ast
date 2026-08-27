@@ -88,7 +88,7 @@ var searchData=
   ['timepoint_85',['timePoint',['../classast_1_1SimTime.html#abfa4af669f0e09ce2b31c7ac9c7f728a',1,'ast::SimTime::timePoint()'],['../classast_1_1TimeList.html#a6805f88d351b8fb264948cfd3a9d837b',1,'ast::TimeList::timePoint()']]],
   ['timepoint_2ehpp_86',['TimePoint.hpp',['../TimePoint_8hpp.html',1,'']]],
   ['timepoint_5f_87',['timePoint_',['../classast_1_1SimTime.html#a59766153e616ae1fb3b61071c2d3a931',1,'ast::SimTime']]],
-  ['timepointrange_88',['TimePointRange',['../classast_1_1TimePointRange.html',1,'ast::TimePointRange'],['../classast_1_1TimePointRange.html#a5bfcf28a899bab363eac6ccc6b0b7640',1,'ast::TimePointRange::TimePointRange()']]],
+  ['timepointrange_88',['TimePointRange',['../classast_1_1TimePointRange.html',1,'ast::TimePointRange'],['../classast_1_1TimePointRange.html#ab6db89657179feab60e69bdcfe2f9356',1,'ast::TimePointRange::TimePointRange(const TimePoint &amp;start, const TimePoint &amp;stop, double step, size_t n)'],['../classast_1_1TimePointRange.html#a230df79ac0e45a98232aa555cc265de0',1,'ast::TimePointRange::TimePointRange(const TimePoint &amp;start, const TimePoint &amp;stop, double step)']]],
   ['timepointrange_2ehpp_89',['TimePointRange.hpp',['../TimePointRange_8hpp.html',1,'']]],
   ['times_5f_90',['times_',['../classast_1_1EphemerisLagrangeVar.html#a7050cb580f42182e380ca7b977453505',1,'ast::EphemerisLagrangeVar']]],
   ['timescale_91',['TimeScale',['../classast_1_1TimeScale.html',1,'ast']]],

@@ -117,6 +117,9 @@ $(function(){initNavTree('classast_1_1DoubleRange.html',''); initResizable(true)
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a979f0b3147d956bc171229716336671a" id="r_a979f0b3147d956bc171229716336671a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a979f0b3147d956bc171229716336671a">DoubleRange</a> (double start, double stop, double step, size_t n)</td></tr>
 <tr class="separator:a979f0b3147d956bc171229716336671a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcc11ef3cd6d2a0035aa09349f39398" id="r_a3fcc11ef3cd6d2a0035aa09349f39398"><td class="memItemLeft" align="right" valign="top"><a id="a3fcc11ef3cd6d2a0035aa09349f39398" name="a3fcc11ef3cd6d2a0035aa09349f39398"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DoubleRange</b> (double start, double stop, double step)</td></tr>
+<tr class="separator:a3fcc11ef3cd6d2a0035aa09349f39398"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b8f50721fccec046879bc4befe28ad3" id="r_a9b8f50721fccec046879bc4befe28ad3"><td class="memItemLeft" align="right" valign="top"><a id="a9b8f50721fccec046879bc4befe28ad3" name="a9b8f50721fccec046879bc4befe28ad3"></a>
 <a class="el" href="classast_1_1DoubleRange_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const</td></tr>
 <tr class="separator:a9b8f50721fccec046879bc4befe28ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +129,17 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:ad16d31701d852ead5977de0aa05cee87" id="r_ad16d31701d852ead5977de0aa05cee87"><td class="memItemLeft" align="right" valign="top"><a id="ad16d31701d852ead5977de0aa05cee87" name="ad16d31701d852ead5977de0aa05cee87"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
 <tr class="separator:ad16d31701d852ead5977de0aa05cee87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c00931d950316c8ac18ecfedb64a754" id="r_a1c00931d950316c8ac18ecfedb64a754"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c00931d950316c8ac18ecfedb64a754">operator[]</a> (size_t i) const</td></tr>
+<tr class="separator:a1c00931d950316c8ac18ecfedb64a754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ffc4718ef6b41ad701893ccf480177" id="r_ae7ffc4718ef6b41ad701893ccf480177"><td class="memItemLeft" align="right" valign="top"><a id="ae7ffc4718ef6b41ad701893ccf480177" name="ae7ffc4718ef6b41ad701893ccf480177"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> () const</td></tr>
+<tr class="separator:ae7ffc4718ef6b41ad701893ccf480177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd846fe9c495bdec27b85102446c76ec" id="r_acd846fe9c495bdec27b85102446c76ec"><td class="memItemLeft" align="right" valign="top"><a id="acd846fe9c495bdec27b85102446c76ec" name="acd846fe9c495bdec27b85102446c76ec"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> () const</td></tr>
+<tr class="separator:acd846fe9c495bdec27b85102446c76ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a267067f1026452fd12e3f2de8a978929" id="r_a267067f1026452fd12e3f2de8a978929"><td class="memItemLeft" align="right" valign="top"><a id="a267067f1026452fd12e3f2de8a978929" name="a267067f1026452fd12e3f2de8a978929"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>step</b> () const</td></tr>
+<tr class="separator:a267067f1026452fd12e3f2de8a978929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>按步长采样的相对秒范围（惰性可迭代） </p>
@@ -178,6 +192,41 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a1c00931d950316c8ac18ecfedb64a754" name="a1c00931d950316c8ac18ecfedb64a754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c00931d950316c8ac18ecfedb64a754">&#9670;&#160;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::DoubleRange::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>下标访问：返回第 i 个采样值（末点返回 stop_） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>下标（0 &lt;= i &lt; size()） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>第 i 个采样点的 double 值 </dd></dl>
 
 </div>
 </div>

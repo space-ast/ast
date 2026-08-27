@@ -99,7 +99,9 @@ $(function(){initNavTree('group__Network.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a>  </div>
+<a href="#nested-classes">类</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">Network</div></div>
 </div><!--header-->
 <div class="contents">
@@ -107,11 +109,170 @@ $(function(){initNavTree('group__Network.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1LfsPointerInfo.html">ast::LfsPointerInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1NetworkStreamReceiver.html">ast::NetworkStreamReceiver</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1CollectingStreamReceiver.html">ast::CollectingStreamReceiver</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FileDownloadReceiver.html">ast::FileDownloadReceiver</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:ga0bc0961f6343256317dd663b942a0a4e" id="r_ga0bc0961f6343256317dd663b942a0a4e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0bc0961f6343256317dd663b942a0a4e">ast::DownloadProgressCallback</a> = std::function&lt;bool(uint64_t downloaded, uint64_t total)&gt;</td></tr>
+<tr class="separator:ga0bc0961f6343256317dd663b942a0a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:gabd9806606a154a005dd0dcb1d52c7348" id="r_gabd9806606a154a005dd0dcb1d52c7348"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabd9806606a154a005dd0dcb1d52c7348">ast::aLfsParsePointer</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> pointerText, <a class="el" href="structast_1_1LfsPointerInfo.html">LfsPointerInfo</a> &amp;info)</td></tr>
+<tr class="separator:gabd9806606a154a005dd0dcb1d52c7348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2df16d9044288925a706235ebb4b9ae" id="r_gaf2df16d9044288925a706235ebb4b9ae"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf2df16d9044288925a706235ebb4b9ae">ast::aLfsEndpoint</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> remoteUrl)</td></tr>
+<tr class="separator:gaf2df16d9044288925a706235ebb4b9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d4338445adf23d65b1e86886274901b" id="r_ga1d4338445adf23d65b1e86886274901b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1d4338445adf23d65b1e86886274901b">ast::aLfsBatchRequestBody</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> oid, std::size_t size)</td></tr>
+<tr class="separator:ga1d4338445adf23d65b1e86886274901b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46f851bf7f5524a695989e85064ee4e9" id="r_ga46f851bf7f5524a695989e85064ee4e9"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga46f851bf7f5524a695989e85064ee4e9">ast::aDownloadLfs</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> pointerFile, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> outputFile, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> remoteUrl)</td></tr>
+<tr class="separator:ga46f851bf7f5524a695989e85064ee4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">类型定义说明</h2>
+<a id="ga0bc0961f6343256317dd663b942a0a4e" name="ga0bc0961f6343256317dd663b942a0a4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0bc0961f6343256317dd663b942a0a4e">&#9670;&#160;</a></span>DownloadProgressCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga0bc0961f6343256317dd663b942a0a4e">ast::DownloadProgressCallback</a> = std::function&lt;bool(uint64_t downloaded, uint64_t total)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>下载进度回调：downloaded 为已下载字节数；total 为总字节数，为 0 表示未知 </p><dl class="section return"><dt>返回</dt><dd>true 继续下载；false 中止下载（aDownloadFile 将返回 eErrorCancelled） </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga46f851bf7f5524a695989e85064ee4e9" name="ga46f851bf7f5524a695989e85064ee4e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46f851bf7f5524a695989e85064ee4e9">&#9670;&#160;</a></span>aDownloadLfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI errc_t ast::aDownloadLfs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>pointerFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>outputFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>remoteUrl</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>下载 Git LFS 对象到本地文件</p>
+<p>发送 POST batch 请求换取带签名的下载地址，再 GET 下载。 对象先写入 outputFile+".part"，成功后才重命名为 outputFile， 任何失败都会清理临时文件，避免在目标路径残留截断/伪冒文件。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pointerFile</td><td>指针文件路径 </td></tr>
+    <tr><td class="paramname">outputFile</td><td>目标文件路径 </td></tr>
+    <tr><td class="paramname">remoteUrl</td><td>git 远端地址（如 <a href="https://github.com/">https://github.com/</a>&lt;owner&gt;/&lt;repo&gt;.git） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 表示下载成功 </dd></dl>
+
+</div>
+</div>
+<a id="ga1d4338445adf23d65b1e86886274901b" name="ga1d4338445adf23d65b1e86886274901b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1d4338445adf23d65b1e86886274901b">&#9670;&#160;</a></span>aLfsBatchRequestBody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::string ast::aLfsBatchRequestBody </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>oid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>构建 Git LFS batch download 请求体</p>
+<p>生成形如 {"operation":"download","transfers":["basic"], "objects":[{"oid":..,"size":..}]} 的 JSON 文本。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">oid</td><td>对象 sha256 十六进制 </td></tr>
+    <tr><td class="paramname">size</td><td>对象字节数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>请求体 JSON 文本 </dd></dl>
+
+</div>
+</div>
+<a id="gaf2df16d9044288925a706235ebb4b9ae" name="gaf2df16d9044288925a706235ebb4b9ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf2df16d9044288925a706235ebb4b9ae">&#9670;&#160;</a></span>aLfsEndpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::string ast::aLfsEndpoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>remoteUrl</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>从 git 远端地址推导 LFS 批量端点</p>
+<p>规则为「远端地址 + /info/lfs」，并【保留 .git 后缀】。 <a href="https://github.com/">https://github.com/</a>&lt;owner&gt;/&lt;repo&gt;.git -&gt; <a href="https://github.com/">https://github.com/</a>&lt;owner&gt;/&lt;repo&gt;.git/info/lfs </p><dl class="section note"><dt>注解</dt><dd>GitHub 的 LFS 端点必须保留 .git，去掉会返回 422。 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">remoteUrl</td><td>git 远端地址 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>LFS 批量端点 </dd></dl>
+
+</div>
+</div>
+<a id="gabd9806606a154a005dd0dcb1d52c7348" name="gabd9806606a154a005dd0dcb1d52c7348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabd9806606a154a005dd0dcb1d52c7348">&#9670;&#160;</a></span>aLfsParsePointer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API errc_t ast::aLfsParsePointer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>pointerText</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structast_1_1LfsPointerInfo.html">LfsPointerInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>info</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>解析 Git LFS 指针文本</p>
+<p>指针是形如下面几行的纯文本，不含任何下载地址，只有对象指纹： version <a href="https://git-lfs.github.com/spec/v1">https://git-lfs.github.com/spec/v1</a> oid sha256:06b7... &lt;- 对象内容的 sha256 十六进制 size 61440 &lt;- 对象字节数 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pointerText</td><td>指针文本（可直接取文件内容） </td></tr>
+    <tr><td class="paramname">info</td><td>输出解析结果；缺 oid 时报错并保持 info 为空 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 成功；eErrorNotFound 缺少 oid；eErrorInvalidParam 参数为空 </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -107,76 +107,105 @@ $(function(){initNavTree('TimePointRange_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="TimePoint_8hpp.html">TimePoint.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;iterator&gt;</span>   <span class="comment">// for std::input_iterator_tag</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;cstddef&gt;</span>    <span class="comment">// for size_t / ptrdiff_t</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/Math.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;iterator&gt;</span>   <span class="comment">// for std::input_iterator_tag</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;cstddef&gt;</span>    <span class="comment">// for size_t / ptrdiff_t</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1TimePointRange.html">   40</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1TimePointRange.html">TimePointRange</a></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1TimePointRange.html#a5bfcf28a899bab363eac6ccc6b0b7640">   48</a></span>    <a class="code hl_function" href="classast_1_1TimePointRange.html#a5bfcf28a899bab363eac6ccc6b0b7640">TimePointRange</a>(<a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a> start, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a> stop, <span class="keywordtype">double</span> step, <span class="keywordtype">size_t</span> n)</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        : start_(start), stop_(stop), step_(step), n_(n) {}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classast_1_1TimePointRange.html">   42</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1TimePointRange.html">TimePointRange</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1TimePointRange.html#ab6db89657179feab60e69bdcfe2f9356">   50</a></span>    <a class="code hl_function" href="classast_1_1TimePointRange.html#ab6db89657179feab60e69bdcfe2f9356">TimePointRange</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; start, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; stop, <span class="keywordtype">double</span> step, <span class="keywordtype">size_t</span> n)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        : start_(start)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        , stop_(stop)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        , step_(step)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        , n_(n) </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {}</div>
 </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classast_1_1TimePointRange_1_1iterator.html">   51</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classast_1_1TimePointRange_1_1iterator.html">iterator</a></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">using </span>iterator_category = std::input_iterator_tag;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">using </span><a class="code hl_class" href="classast_1_1TimePoint.html">value_type</a>        = <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">using </span>difference_type   = ptrdiff_t;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">using </span><a class="code hl_class" href="classast_1_1TimePoint.html">pointer</a>           = <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>*;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">using </span><a class="code hl_class" href="classast_1_1TimePoint.html">reference</a>         = <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>;   <span class="comment">// input iterator：按值返回</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_class" href="classast_1_1TimePointRange_1_1iterator.html">iterator</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_class" href="classast_1_1TimePointRange_1_1iterator.html">iterator</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePointRange.html">TimePointRange</a>* range, <span class="keywordtype">size_t</span> idx)</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            : range_(range), idx_(idx) {}</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1TimePointRange_1_1iterator.html#a77f4f8ff955a0f803f284716c8dcf5d8">   65</a></span>        <a class="code hl_class" href="classast_1_1TimePoint.html">reference</a> <a class="code hl_function" href="classast_1_1TimePointRange_1_1iterator.html#a77f4f8ff955a0f803f284716c8dcf5d8">operator*</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">return</span> (idx_ == range_-&gt;n_ - 1)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                       ? range_-&gt;stop_</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                       : range_-&gt;start_ + range_-&gt;step_ * idx_;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classast_1_1TimePointRange.html#a230df79ac0e45a98232aa555cc265de0">   61</a></span>    <a class="code hl_function" href="classast_1_1TimePointRange.html#a230df79ac0e45a98232aa555cc265de0">TimePointRange</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; start, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; stop, <span class="keywordtype">double</span> step)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        : start_(start)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        , stop_(stop)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        , step_(step)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        , n_(<a class="code hl_function" href="group__Util.html#ga3d674163a7720e28ed63b575dcb337ab">aDiscretizedCount</a>(stop - start, step))</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {}</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <a class="code hl_class" href="classast_1_1TimePointRange_1_1iterator.html">iterator</a>&amp; operator++() { ++idx_; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        iterator operator++(<span class="keywordtype">int</span>) { <span class="keyword">auto</span> tmp = *<span class="keyword">this</span>; ++*<span class="keyword">this</span>; <span class="keywordflow">return</span> tmp; }</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> iterator&amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> idx_ == other.idx_; }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> iterator&amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other); }</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">const</span> TimePointRange* range_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordtype">size_t</span> idx_ = 0;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    };</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classast_1_1TimePointRange_1_1iterator.html">   68</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classast_1_1TimePointRange_1_1iterator.html">iterator</a></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">using </span>iterator_category = std::input_iterator_tag;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keyword">using </span><a class="code hl_class" href="classast_1_1TimePoint.html">value_type</a>        = <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keyword">using </span>difference_type   = ptrdiff_t;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">using </span><a class="code hl_class" href="classast_1_1TimePoint.html">pointer</a>           = <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>*;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">using </span><a class="code hl_class" href="classast_1_1TimePoint.html">reference</a>         = <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>;   <span class="comment">// input iterator：按值返回</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <a class="code hl_class" href="classast_1_1TimePointRange_1_1iterator.html">iterator</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_class" href="classast_1_1TimePointRange_1_1iterator.html">iterator</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePointRange.html">TimePointRange</a>* range, <span class="keywordtype">size_t</span> idx)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            : range_(range), idx_(idx) {}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classast_1_1TimePointRange_1_1iterator.html#a77f4f8ff955a0f803f284716c8dcf5d8">   82</a></span>        <a class="code hl_class" href="classast_1_1TimePoint.html">reference</a> <a class="code hl_function" href="classast_1_1TimePointRange_1_1iterator.html#a77f4f8ff955a0f803f284716c8dcf5d8">operator*</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> (idx_ == range_-&gt;n_ - 1)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                       ? range_-&gt;stop_</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                       : range_-&gt;start_ + range_-&gt;step_ * idx_;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
 </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    iterator begin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> iterator(<span class="keyword">this</span>, 0); }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    iterator end()<span class="keyword">   const </span>{ <span class="keywordflow">return</span> iterator(<span class="keyword">this</span>, n_); }</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">size_t</span> size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> n_; }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    TimePoint start_;     </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    TimePoint stop_;      </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">double</span>    step_;      </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">size_t</span>    n_;         </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>};</div>
-</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_class" href="classast_1_1TimePointRange_1_1iterator.html">iterator</a>&amp; operator++() { ++idx_; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        iterator operator++(<span class="keywordtype">int</span>) { <span class="keyword">auto</span> tmp = *<span class="keyword">this</span>; ++*<span class="keyword">this</span>; <span class="keywordflow">return</span> tmp; }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> iterator&amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> idx_ == other.idx_; }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> iterator&amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other); }</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">const</span> TimePointRange* range_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordtype">size_t</span> idx_ = 0;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    };</div>
+</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    iterator begin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> iterator(<span class="keyword">this</span>, 0); }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    iterator end()<span class="keyword">   const </span>{ <span class="keywordflow">return</span> iterator(<span class="keyword">this</span>, n_); }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">size_t</span> size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> n_; }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classast_1_1TimePointRange.html#ac8de1483af0587e67d32ee47cfa26690">  107</a></span>    <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a> <a class="code hl_function" href="classast_1_1TimePointRange.html#ac8de1483af0587e67d32ee47cfa26690">operator[]</a>(<span class="keywordtype">size_t</span> i)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">return</span> (i == n_ - 1) ? stop_ : start_ + step_ * i;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; start()<span class="keyword"> const </span>{<span class="keywordflow">return</span> start_;}</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">const</span> TimePoint&amp; stop()<span class="keyword"> const</span>{<span class="keywordflow">return</span> stop_;}</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">double</span> step()<span class="keyword"> const </span>{<span class="keywordflow">return</span> step_;}</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    TimePoint start_;     </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    TimePoint stop_;      </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">double</span>    step_;      </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">size_t</span>    n_;         </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>};</div>
+</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aTimePoint_8hpp_html"><div class="ttname"><a href="TimePoint_8hpp.html">TimePoint.hpp</a></div><div class="ttdoc">绝对时间点</div></div>
-<div class="ttc" id="aclassast_1_1TimePointRange_1_1iterator_html"><div class="ttname"><a href="classast_1_1TimePointRange_1_1iterator.html">ast::TimePointRange::iterator</a></div><div class="ttdef"><b>定义</b> TimePointRange.hpp:52</div></div>
-<div class="ttc" id="aclassast_1_1TimePointRange_1_1iterator_html_a77f4f8ff955a0f803f284716c8dcf5d8"><div class="ttname"><a href="classast_1_1TimePointRange_1_1iterator.html#a77f4f8ff955a0f803f284716c8dcf5d8">ast::TimePointRange::iterator::operator*</a></div><div class="ttdeci">reference operator*() const</div><div class="ttdoc">解引用：除末点按 step 步进，末点返回 stop_</div><div class="ttdef"><b>定义</b> TimePointRange.hpp:65</div></div>
-<div class="ttc" id="aclassast_1_1TimePointRange_html"><div class="ttname"><a href="classast_1_1TimePointRange.html">ast::TimePointRange</a></div><div class="ttdoc">按步长采样的时间点范围（惰性可迭代）</div><div class="ttdef"><b>定义</b> TimePointRange.hpp:41</div></div>
-<div class="ttc" id="aclassast_1_1TimePointRange_html_a5bfcf28a899bab363eac6ccc6b0b7640"><div class="ttname"><a href="classast_1_1TimePointRange.html#a5bfcf28a899bab363eac6ccc6b0b7640">ast::TimePointRange::TimePointRange</a></div><div class="ttdeci">TimePointRange(TimePoint start, TimePoint stop, double step, size_t n)</div><div class="ttdoc">构造时间点采样范围</div><div class="ttdef"><b>定义</b> TimePointRange.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1TimePointRange_1_1iterator_html"><div class="ttname"><a href="classast_1_1TimePointRange_1_1iterator.html">ast::TimePointRange::iterator</a></div><div class="ttdef"><b>定义</b> TimePointRange.hpp:69</div></div>
+<div class="ttc" id="aclassast_1_1TimePointRange_1_1iterator_html_a77f4f8ff955a0f803f284716c8dcf5d8"><div class="ttname"><a href="classast_1_1TimePointRange_1_1iterator.html#a77f4f8ff955a0f803f284716c8dcf5d8">ast::TimePointRange::iterator::operator*</a></div><div class="ttdeci">reference operator*() const</div><div class="ttdoc">解引用：除末点按 step 步进，末点返回 stop_</div><div class="ttdef"><b>定义</b> TimePointRange.hpp:82</div></div>
+<div class="ttc" id="aclassast_1_1TimePointRange_html"><div class="ttname"><a href="classast_1_1TimePointRange.html">ast::TimePointRange</a></div><div class="ttdoc">按步长采样的时间点范围（惰性可迭代）</div><div class="ttdef"><b>定义</b> TimePointRange.hpp:43</div></div>
+<div class="ttc" id="aclassast_1_1TimePointRange_html_a230df79ac0e45a98232aa555cc265de0"><div class="ttname"><a href="classast_1_1TimePointRange.html#a230df79ac0e45a98232aa555cc265de0">ast::TimePointRange::TimePointRange</a></div><div class="ttdeci">TimePointRange(const TimePoint &amp;start, const TimePoint &amp;stop, double step)</div><div class="ttdoc">构造时间点采样范围</div><div class="ttdef"><b>定义</b> TimePointRange.hpp:61</div></div>
+<div class="ttc" id="aclassast_1_1TimePointRange_html_ab6db89657179feab60e69bdcfe2f9356"><div class="ttname"><a href="classast_1_1TimePointRange.html#ab6db89657179feab60e69bdcfe2f9356">ast::TimePointRange::TimePointRange</a></div><div class="ttdeci">TimePointRange(const TimePoint &amp;start, const TimePoint &amp;stop, double step, size_t n)</div><div class="ttdoc">构造时间点采样范围</div><div class="ttdef"><b>定义</b> TimePointRange.hpp:50</div></div>
+<div class="ttc" id="aclassast_1_1TimePointRange_html_ac8de1483af0587e67d32ee47cfa26690"><div class="ttname"><a href="classast_1_1TimePointRange.html#ac8de1483af0587e67d32ee47cfa26690">ast::TimePointRange::operator[]</a></div><div class="ttdeci">TimePoint operator[](size_t i) const</div><div class="ttdoc">下标访问：返回第 i 个采样时间点（末点返回 stop_）</div><div class="ttdef"><b>定义</b> TimePointRange.hpp:107</div></div>
 <div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:108</div></div>
+<div class="ttc" id="agroup__Util_html_ga3d674163a7720e28ed63b575dcb337ab"><div class="ttname"><a href="group__Util.html#ga3d674163a7720e28ed63b575dcb337ab">ast::aDiscretizedCount</a></div><div class="ttdeci">A_ALWAYS_INLINE size_t aDiscretizedCount(double span, double step)</div><div class="ttdoc">计算闭区间 [0, span] 按 step 步长采样（含两端点）的采样点数</div><div class="ttdef"><b>定义</b> Math.hpp:107</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

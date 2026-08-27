@@ -115,14 +115,15 @@ $(function(){initNavTree('classast_1_1NetworkStreamReceiver.html',''); initResiz
   <img src="classast_1_1NetworkStreamReceiver.png" usemap="#ast::NetworkStreamReceiver_map" alt=""/>
   <map id="ast::NetworkStreamReceiver_map" name="ast::NetworkStreamReceiver_map">
 <area href="classast_1_1CollectingStreamReceiver.html" title="将流式数据收集到 NetworkResponse 的适配器" alt="ast::CollectingStreamReceiver" shape="rect" coords="0,56,180,80"/>
-<area href="classast_1_1SSEParser.html" title="SSE 增量解析器（内部组件）" alt="ast::SSEParser" shape="rect" coords="190,56,370,80"/>
+<area href="classast_1_1FileDownloadReceiver.html" title="将流式响应体写入文件并在写盘过程中报告下载进度" alt="ast::FileDownloadReceiver" shape="rect" coords="190,56,370,80"/>
+<area href="classast_1_1SSEParser.html" title="SSE 增量解析器（内部组件）" alt="ast::SSEParser" shape="rect" coords="380,56,560,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a78a43fb86572cf12806524e3a7730885" id="r_a78a43fb86572cf12806524e3a7730885"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78a43fb86572cf12806524e3a7730885">onHeaders</a> (int statusCode, const std::map&lt; std::string, std::string &gt; &amp;headers)</td></tr>
-<tr class="separator:a78a43fb86572cf12806524e3a7730885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3bf4b98d00a1f385fc4f11f5f236df4" id="r_ae3bf4b98d00a1f385fc4f11f5f236df4"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3bf4b98d00a1f385fc4f11f5f236df4">onHeaders</a> (int statusCode, const std::map&lt; std::string, std::string &gt; &amp;headers)</td></tr>
+<tr class="separator:ae3bf4b98d00a1f385fc4f11f5f236df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6e572401d46d99773ef4298ab31eefb" id="r_ac6e572401d46d99773ef4298ab31eefb"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6e572401d46d99773ef4298ab31eefb">onData</a> (const char *data, size_t size)=0</td></tr>
 <tr class="separator:ac6e572401d46d99773ef4298ab31eefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedbba7f8ffb0ba71705bf47f17fd7357" id="r_aedbba7f8ffb0ba71705bf47f17fd7357"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedbba7f8ffb0ba71705bf47f17fd7357">onError</a> (errc_t error)</td></tr>
@@ -200,7 +201,7 @@ Public 成员函数</h2></td></tr>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>0 继续接收，非 0 取消流式接收 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1CollectingStreamReceiver.html#adbf20c3c882891842692e1b970c6f9a1">ast::CollectingStreamReceiver</a> , 以及 <a class="el" href="classast_1_1SSEParser.html#afcc67a33f3786a87cc0238456c72bebb">ast::SSEParser</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1CollectingStreamReceiver.html#adbf20c3c882891842692e1b970c6f9a1">ast::CollectingStreamReceiver</a>, <a class="el" href="classast_1_1FileDownloadReceiver.html#ad7724c5922dd2f7a6ede34728de48abc">ast::FileDownloadReceiver</a> , 以及 <a class="el" href="classast_1_1SSEParser.html#afcc67a33f3786a87cc0238456c72bebb">ast::SSEParser</a> 内被实现.</p>
 
 </div>
 </div>
@@ -235,12 +236,12 @@ Public 成员函数</h2></td></tr>
   </dd>
 </dl>
 
-<p>被 <a class="el" href="classast_1_1CollectingStreamReceiver.html#ac2b8b46fcfc332f9dd015b3a6b4b3baa">ast::CollectingStreamReceiver</a> , 以及 <a class="el" href="classast_1_1SSEParser.html#a057fd05449023a777cb7ce010a9c5f7f">ast::SSEParser</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1CollectingStreamReceiver.html#ac2b8b46fcfc332f9dd015b3a6b4b3baa">ast::CollectingStreamReceiver</a>, <a class="el" href="classast_1_1FileDownloadReceiver.html#a413ddf4bae1ae53f599ac2ab492b87df">ast::FileDownloadReceiver</a> , 以及 <a class="el" href="classast_1_1SSEParser.html#a057fd05449023a777cb7ce010a9c5f7f">ast::SSEParser</a> 重载.</p>
 
 </div>
 </div>
-<a id="a78a43fb86572cf12806524e3a7730885" name="a78a43fb86572cf12806524e3a7730885"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78a43fb86572cf12806524e3a7730885">&#9670;&#160;</a></span>onHeaders()</h2>
+<a id="ae3bf4b98d00a1f385fc4f11f5f236df4" name="ae3bf4b98d00a1f385fc4f11f5f236df4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3bf4b98d00a1f385fc4f11f5f236df4">&#9670;&#160;</a></span>onHeaders()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -249,7 +250,7 @@ Public 成员函数</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void ast::NetworkStreamReceiver::onHeaders </td>
+          <td class="memname">virtual errc_t ast::NetworkStreamReceiver::onHeaders </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>statusCode</em></span>, </td>
         </tr>
@@ -274,8 +275,9 @@ Public 成员函数</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>返回</dt><dd>0 继续接收；非 0 表示基于响应头拒绝/中止（不会再读取响应体） </dd></dl>
 
-<p>被 <a class="el" href="classast_1_1CollectingStreamReceiver.html#a3ca807f6c4389654f3740cdf63309049">ast::CollectingStreamReceiver</a> , 以及 <a class="el" href="classast_1_1SSEParser.html#a0b10d60a8d6a43f0aa4ede1e277cd206">ast::SSEParser</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1CollectingStreamReceiver.html#af22b3650582a8d2f3a469b5933e919ae">ast::CollectingStreamReceiver</a>, <a class="el" href="classast_1_1FileDownloadReceiver.html#a89246c1a0d91de5f31e68d38b09d0497">ast::FileDownloadReceiver</a> , 以及 <a class="el" href="classast_1_1SSEParser.html#a4bf8ae209c2a81549131800928e12d96">ast::SSEParser</a> 重载.</p>
 
 </div>
 </div>

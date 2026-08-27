@@ -1,5 +1,14 @@
 var NAVTREEINDEX14 =
 {
+"ScStateCalcVectorX_8cpp.html":[4,0,0,6,11,1,0,19,1],
+"ScStateCalcVectorX_8hpp.html":[4,0,0,6,11,1,0,19,2],
+"ScStateCalcVectorX_8hpp_source.html":[4,0,0,6,11,1,0,19,2],
+"ScStateCalcVectorY_8cpp.html":[4,0,0,6,11,1,0,19,3],
+"ScStateCalcVectorY_8hpp.html":[4,0,0,6,11,1,0,19,4],
+"ScStateCalcVectorY_8hpp_source.html":[4,0,0,6,11,1,0,19,4],
+"ScStateCalcVectorZ_8cpp.html":[4,0,0,6,11,1,0,19,5],
+"ScStateCalcVectorZ_8hpp.html":[4,0,0,6,11,1,0,19,6],
+"ScStateCalcVectorZ_8hpp_source.html":[4,0,0,6,11,1,0,19,6],
 "ScStateCalcVelDiffMagOthSeg_8cpp.html":[4,0,0,6,11,1,0,15,216],
 "ScStateCalcVelDiffMagOthSeg_8hpp.html":[4,0,0,6,11,1,0,15,217],
 "ScStateCalcVelDiffMagOthSeg_8hpp_source.html":[4,0,0,6,11,1,0,15,217],
@@ -240,14 +249,5 @@ var NAVTREEINDEX14 =
 "Spacecraft_8hpp_source.html":[4,0,0,19,3,57],
 "Span_8cpp.html":[4,0,0,27,2,5],
 "Span_8hpp.html":[4,0,0,27,2,6],
-"Span_8hpp_source.html":[4,0,0,27,2,6],
-"Sparse_8hpp.html":[4,0,0,12,0,3],
-"Sparse_8hpp_source.html":[4,0,0,12,0,3],
-"SpatialCalcAltitude_8cpp.html":[4,0,0,6,10,3,3],
-"SpatialCalcAltitude_8hpp.html":[4,0,0,6,10,3,4],
-"SpatialCalcAltitude_8hpp_source.html":[4,0,0,6,10,3,4],
-"SpatialCalcDistance_8cpp.html":[4,0,0,6,10,3,5],
-"SpatialCalcDistance_8hpp.html":[4,0,0,6,10,3,6],
-"SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391":[4,0,0,6,10,3,6,0],
-"SpatialCalcDistance_8hpp.html#a1a261019caa41eff097e78f8aceb2391a1756e21034be50ffc074a140cef3e750":[4,0,0,6,10,3,6,0,4]
+"Span_8hpp_source.html":[4,0,0,27,2,6]
 };

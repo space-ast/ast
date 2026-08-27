@@ -268,31 +268,30 @@ $(function(){initNavTree('Interval_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordtype">double</span> dur = duration();</div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordflow">if</span>(step &gt; 0 &amp;&amp; dur &gt;= 0)</div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    {</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keywordtype">size_t</span> n = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(std::ceil(dur / step)) + 1;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1DoubleRange.html">DoubleRange</a>(start_, stop_, step, n);</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    }</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="comment">// 如果存在 nan，duration()为 nan，if 条件为false, 返回空范围</span></div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1DoubleRange.html">DoubleRange</a>(0.0, 0.0, step, 0);</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>}</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1DoubleRange.html">DoubleRange</a>(start_, stop_, step);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    }</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="comment">// 如果存在 nan，duration()为 nan，if 条件为false, 返回空范围</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1DoubleRange.html">DoubleRange</a>(0.0, 0.0, step, 0);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>}</div>
 </div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
-<div class="foldopen" id="foldopen00227" data-start="{" data-end="}">
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="classast_1_1Interval.html#a711d6f71bbf542e911c4d924e7400bac">  227</a></span><span class="keyword">inline</span> <span class="keywordtype">size_t</span> Interval::discretizedCount(<span class="keywordtype">double</span> step)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordtype">double</span> dur = duration();</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keywordflow">if</span>(step &gt; 0 &amp;&amp; dur &gt;= 0)</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    {</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(std::ceil(dur / step)) + 1;</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    }</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="comment">// 如果存在 nan，duration()为 nan，if 条件为false, 返回0</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>}</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="foldopen" id="foldopen00226" data-start="{" data-end="}">
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="classast_1_1Interval.html#a711d6f71bbf542e911c4d924e7400bac">  226</a></span><span class="keyword">inline</span> <span class="keywordtype">size_t</span> Interval::discretizedCount(<span class="keywordtype">double</span> step)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordtype">double</span> dur = duration();</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordflow">if</span>(step &gt; 0 &amp;&amp; dur &gt;= 0)</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#ga3d674163a7720e28ed63b575dcb337ab">aDiscretizedCount</a>(dur, step);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="comment">// 如果存在 nan，duration()为 nan，if 条件为false, 返回0</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>}</div>
 </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aDoubleRange_8hpp_html"><div class="ttname"><a href="DoubleRange_8hpp.html">DoubleRange.hpp</a></div><div class="ttdoc">按步长采样的相对秒范围</div></div>
-<div class="ttc" id="aclassast_1_1DoubleRange_html"><div class="ttname"><a href="classast_1_1DoubleRange.html">ast::DoubleRange</a></div><div class="ttdoc">按步长采样的相对秒范围（惰性可迭代）</div><div class="ttdef"><b>定义</b> DoubleRange.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1DoubleRange_html"><div class="ttname"><a href="classast_1_1DoubleRange.html">ast::DoubleRange</a></div><div class="ttdoc">按步长采样的相对秒范围（惰性可迭代）</div><div class="ttdef"><b>定义</b> DoubleRange.hpp:43</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html"><div class="ttname"><a href="classast_1_1Interval.html">ast::Interval</a></div><div class="ttdoc">相对时间区间</div><div class="ttdef"><b>定义</b> Interval.hpp:42</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html_a05d4e3d708b0d23063c965b7b7bda29e"><div class="ttname"><a href="classast_1_1Interval.html#a05d4e3d708b0d23063c965b7b7bda29e">ast::Interval::isNonEmpty</a></div><div class="ttdeci">bool isNonEmpty() const</div><div class="ttdoc">isValid() 的别名</div><div class="ttdef"><b>定义</b> Interval.hpp:65</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html_a0f1648e934a9a39c2196407386b7e38f"><div class="ttname"><a href="classast_1_1Interval.html#a0f1648e934a9a39c2196407386b7e38f">ast::Interval::isDegenerate</a></div><div class="ttdeci">bool isDegenerate() const</div><div class="ttdoc">isPoint() 的别名</div><div class="ttdef"><b>定义</b> Interval.hpp:61</div></div>
@@ -304,6 +303,7 @@ $(function(){initNavTree('Interval_8hpp_source.html',''); initResizable(true); }
 <div class="ttc" id="aclassast_1_1Interval_html_ad8a91db568f8b7d691d802842580f087"><div class="ttname"><a href="classast_1_1Interval.html#ad8a91db568f8b7d691d802842580f087">ast::Interval::operator|</a></div><div class="ttdeci">Interval operator|(const Interval &amp;other) const</div><div class="ttdoc">并集（返回副本，等价于 united）</div><div class="ttdef"><b>定义</b> Interval.hpp:131</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html_adf20fa9aa46c759c225ddfd543e7cfb5"><div class="ttname"><a href="classast_1_1Interval.html#adf20fa9aa46c759c225ddfd543e7cfb5">ast::Interval::contains</a></div><div class="ttdeci">bool contains(double t) const</div><div class="ttdoc">是否包含给定瞬时 t（闭区间含端点）</div><div class="ttdef"><b>定义</b> Interval.hpp:67</div></div>
 <div class="ttc" id="aclassast_1_1Interval_html_ae82ff7d379d0a6a582da5efd5054f0eb"><div class="ttname"><a href="classast_1_1Interval.html#ae82ff7d379d0a6a582da5efd5054f0eb">ast::Interval::operator&amp;=</a></div><div class="ttdeci">Interval &amp; operator&amp;=(const Interval &amp;other)</div><div class="ttdoc">原地交集（等价于 intersect）</div><div class="ttdef"><b>定义</b> Interval.hpp:134</div></div>
+<div class="ttc" id="agroup__Util_html_ga3d674163a7720e28ed63b575dcb337ab"><div class="ttname"><a href="group__Util.html#ga3d674163a7720e28ed63b575dcb337ab">ast::aDiscretizedCount</a></div><div class="ttdeci">A_ALWAYS_INLINE size_t aDiscretizedCount(double span, double step)</div><div class="ttdoc">计算闭区间 [0, span] 按 step 步长采样（含两端点）的采样点数</div><div class="ttdef"><b>定义</b> Math.hpp:107</div></div>
 <div class="ttc" id="anamespaceast_1_1units_html_a225f8bb56223c5cff0e158b39b1ac0d8"><div class="ttname"><a href="namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8">ast::units::s</a></div><div class="ttdeci">Unit s</div><div class="ttdoc">秒</div><div class="ttdef"><b>定义</b> Unit.cpp:465</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

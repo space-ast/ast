@@ -417,6 +417,8 @@ template&lt;typename Scalar &gt; </td></tr>
 template&lt;typename Scalar &gt; </td></tr>
 <tr class="memitem:gae607d540253979beacb45ea4a55c0bb1"><td class="memTemplItemLeft" align="right" valign="top">Scalar&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aMin</b> (Scalar a, Scalar b)</td></tr>
 <tr class="separator:gae607d540253979beacb45ea4a55c0bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d674163a7720e28ed63b575dcb337ab" id="r_ga3d674163a7720e28ed63b575dcb337ab"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3d674163a7720e28ed63b575dcb337ab">ast::aDiscretizedCount</a> (double span, double step)</td></tr>
+<tr class="separator:ga3d674163a7720e28ed63b575dcb337ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga77fdcb17fe2f5bf4506f1f136b81f282" id="r_ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </td></tr>
 <tr class="memitem:ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memTemplItemLeft" align="right" valign="top">A_CONSTEXPR_CXX14 const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga77fdcb17fe2f5bf4506f1f136b81f282">ast::clamp</a> (const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;val, const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;low, const <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &amp;high)</td></tr>
 <tr class="separator:ga77fdcb17fe2f5bf4506f1f136b81f282"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1504,6 +1506,37 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMil
 <p>触发调试器中断 </p>
 <dl class="section return"><dt>返回</dt><dd><br  />
  </dd></dl>
+
+</div>
+</div>
+<a id="ga3d674163a7720e28ed63b575dcb337ab" name="ga3d674163a7720e28ed63b575dcb337ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3d674163a7720e28ed63b575dcb337ab">&#9670;&#160;</a></span>aDiscretizedCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE size_t ast::aDiscretizedCount </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>span</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>step</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算闭区间 [0, span] 按 step 步长采样（含两端点）的采样点数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">span</td><td>区间长度（即 stop - start；需 &gt;= 0） </td></tr>
+    <tr><td class="paramname">step</td><td>步长（秒；需 &gt; 0） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>ceil(span / step) + 1；当 step &lt;= 0 或 span &lt; 0 时返回 0，避免非法步长产生巨大的采样数 </dd></dl>
 
 </div>
 </div>

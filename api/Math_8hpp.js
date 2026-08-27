@@ -4,6 +4,7 @@ var Math_8hpp =
     [ "ast::propagate_nan::has_minus< T >", "structast_1_1propagate__nan_1_1has__minus.html", null ],
     [ "ast::propagate_nan::use_efficient_minus< T >", "structast_1_1propagate__nan_1_1use__efficient__minus.html", null ],
     [ "acosSafe", "Math_8hpp.html#gaf3daeb4f2ae541a38327773fb244197b", null ],
+    [ "aDiscretizedCount", "Math_8hpp.html#ga3d674163a7720e28ed63b575dcb337ab", null ],
     [ "aMax", "Math_8hpp.html#ga8831f3e788e7c120569b0c8f00004ebf", null ],
     [ "aMin", "Math_8hpp.html#gae607d540253979beacb45ea4a55c0bb1", null ],
     [ "aNormalizeAngle", "Math_8hpp.html#gaea03a932dcd544c97844e1f9eb451437", null ],

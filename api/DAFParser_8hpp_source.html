@@ -117,62 +117,68 @@ $(function(){initNavTree('DAFParser_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">struct </span>DAF_NameRecords;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">struct </span>DAF_ElementRecords;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1DAFParser.html">   45</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1DAFParser.html">DAFParser</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1BaseParser.html">BaseParser</a></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classast_1_1DAFParser.html#ae7ee7617e6c619738edc7cd3d14bea3a">   48</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classast_1_1DAFParser.html#ae7ee7617e6c619738edc7cd3d14bea3a">Record</a> = std::array&lt;char, 1024&gt;;            </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a5f428c194d908388228a2eae7fe930af">aIsValidDAFFile</a>(StringView filepath);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_UTIL_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a2977e22c3a49b3b505297ff3c57390f3">aIsValidSPKFile</a>(StringView filepath);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classast_1_1DAFParser.html">DAFParser</a>()=<span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1DAFParser.html">DAFParser</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filepath);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classast_1_1DAFParser.html">~DAFParser</a>()=<span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">using </span>BaseParser::open;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    errc_t parse();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    errc_t parse(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filepath);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">bool</span> isValidFile() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1DAFParser.html">   55</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1DAFParser.html">DAFParser</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1BaseParser.html">BaseParser</a></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classast_1_1DAFParser.html#ae7ee7617e6c619738edc7cd3d14bea3a">   58</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classast_1_1DAFParser.html#ae7ee7617e6c619738edc7cd3d14bea3a">Record</a> = std::array&lt;char, 1024&gt;;            </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classast_1_1DAFParser.html">DAFParser</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1DAFParser.html">DAFParser</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filepath);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classast_1_1DAFParser.html">~DAFParser</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">using </span>BaseParser::open;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    errc_t parse();</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">size_t</span> readRecord(<span class="keywordtype">int</span> recordIndex, <span class="keywordtype">void</span>* buffer, <span class="keywordtype">size_t</span> size) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">size_t</span> readFileRecord(<span class="keywordtype">void</span>* buffer, <span class="keywordtype">size_t</span> size) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    errc_t getFileRecord(<a class="code hl_typedef" href="classast_1_1DAFParser.html#ae7ee7617e6c619738edc7cd3d14bea3a">Record</a>&amp; fileRecord) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    errc_t getSummaryRecords(std::vector&lt;Record&gt;&amp; summaryRecords) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    errc_t getFileRecord(<span class="keywordtype">int</span>&amp; nd, <span class="keywordtype">int</span>&amp; ni, <span class="keywordtype">int</span>&amp; fward, <span class="keywordtype">int</span>&amp; bward, <span class="keywordtype">int</span>&amp; free) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    errc_t parse(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> filepath);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">bool</span> isValidFile() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">size_t</span> readRecord(<span class="keywordtype">int</span> recordIndex, <span class="keywordtype">void</span>* buffer, <span class="keywordtype">size_t</span> size) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">size_t</span> readFileRecord(<span class="keywordtype">void</span>* buffer, <span class="keywordtype">size_t</span> size) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    errc_t getFileRecord(<a class="code hl_typedef" href="classast_1_1DAFParser.html#ae7ee7617e6c619738edc7cd3d14bea3a">Record</a>&amp; fileRecord) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    errc_t getSummaryRecords(std::vector&lt;Record&gt;&amp; summaryRecords) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    errc_t getComment(std::string&amp; comment) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    errc_t getComment(std::vector&lt;std::string&gt;&amp; comments) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    errc_t getFileRecord(<span class="keywordtype">int</span>&amp; nd, <span class="keywordtype">int</span>&amp; ni, <span class="keywordtype">int</span>&amp; fward, <span class="keywordtype">int</span>&amp; bward, <span class="keywordtype">int</span>&amp; free) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> printComment(std::FILE* fp=stdout) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    errc_t runTest();</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    errc_t readSummaryRecords(<span class="keywordtype">int</span> fward, <span class="keywordtype">int</span> bward, std::vector&lt;Record&gt;&amp; summaryRecords) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structast_1_1DAF__FileRecord.html">DAF_FileRecord</a>* getFileRecord() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classast_1_1DAFParser.html#a87fd4ea05a9476c83b9a424203c3b1a9">  126</a></span>    <a class="code hl_typedef" href="classast_1_1DAFParser.html#ae7ee7617e6c619738edc7cd3d14bea3a">Record</a>                      fileRecord_{};              </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classast_1_1DAFParser.html#a3ca018e7a7259e9a150e9685c4db706a">  127</a></span>    <span class="keywordtype">bool</span>                        isValidFile_=<span class="keyword">false</span>;         </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classast_1_1DAFParser.html#ab8039a409504d55b2be173ff7807d4a4">  128</a></span>    <span class="keywordtype">bool</span>                        isSameEndian_=<span class="keyword">false</span>;        </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>};</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    errc_t getComment(std::string&amp; comment) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    errc_t getComment(std::vector&lt;std::string&gt;&amp; comments) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span> printComment(std::FILE* fp=stdout) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    errc_t runTest();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    errc_t readSummaryRecords(<span class="keywordtype">int</span> fward, <span class="keywordtype">int</span> bward, std::vector&lt;Record&gt;&amp; summaryRecords) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structast_1_1DAF__FileRecord.html">DAF_FileRecord</a>* getFileRecord() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classast_1_1DAFParser.html#a87fd4ea05a9476c83b9a424203c3b1a9">  136</a></span>    <a class="code hl_typedef" href="classast_1_1DAFParser.html#ae7ee7617e6c619738edc7cd3d14bea3a">Record</a>                      fileRecord_{};              </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classast_1_1DAFParser.html#a3ca018e7a7259e9a150e9685c4db706a">  137</a></span>    <span class="keywordtype">bool</span>                        isValidFile_=<span class="keyword">false</span>;         </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="classast_1_1DAFParser.html#ab8039a409504d55b2be173ff7807d4a4">  138</a></span>    <span class="keywordtype">bool</span>                        isSameEndian_=<span class="keyword">false</span>;        </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>};</div>
 </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1BaseParser_html"><div class="ttname"><a href="classast_1_1BaseParser.html">ast::BaseParser</a></div><div class="ttdoc">解析器基类</div><div class="ttdef"><b>定义</b> BaseParser.hpp:56</div></div>
-<div class="ttc" id="aclassast_1_1DAFParser_html"><div class="ttname"><a href="classast_1_1DAFParser.html">ast::DAFParser</a></div><div class="ttdoc">SPICE 双精度数组文件解析器 DAF（Double Precision Array File，双精度数组文件）</div><div class="ttdef"><b>定义</b> DAFParser.hpp:46</div></div>
-<div class="ttc" id="aclassast_1_1DAFParser_html_ae7ee7617e6c619738edc7cd3d14bea3a"><div class="ttname"><a href="classast_1_1DAFParser.html#ae7ee7617e6c619738edc7cd3d14bea3a">ast::DAFParser::Record</a></div><div class="ttdeci">std::array&lt; char, 1024 &gt; Record</div><div class="ttdoc">记录缓冲区</div><div class="ttdef"><b>定义</b> DAFParser.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1DAFParser_html"><div class="ttname"><a href="classast_1_1DAFParser.html">ast::DAFParser</a></div><div class="ttdoc">SPICE 双精度数组文件解析器 DAF（Double Precision Array File，双精度数组文件）</div><div class="ttdef"><b>定义</b> DAFParser.hpp:56</div></div>
+<div class="ttc" id="aclassast_1_1DAFParser_html_ae7ee7617e6c619738edc7cd3d14bea3a"><div class="ttname"><a href="classast_1_1DAFParser.html#ae7ee7617e6c619738edc7cd3d14bea3a">ast::DAFParser::Record</a></div><div class="ttdeci">std::array&lt; char, 1024 &gt; Record</div><div class="ttdoc">记录缓冲区</div><div class="ttdef"><b>定义</b> DAFParser.hpp:58</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
-<div class="ttc" id="astructast_1_1DAF__FileRecord_html"><div class="ttname"><a href="structast_1_1DAF__FileRecord.html">ast::DAF_FileRecord</a></div><div class="ttdoc">文件记录 (Record 1, 1024 字节)</div><div class="ttdef"><b>定义</b> DAFParser.cpp:40</div></div>
+<div class="ttc" id="anamespaceast_html_a2977e22c3a49b3b505297ff3c57390f3"><div class="ttname"><a href="namespaceast.html#a2977e22c3a49b3b505297ff3c57390f3">ast::aIsValidSPKFile</a></div><div class="ttdeci">bool aIsValidSPKFile(StringView filepath)</div><div class="ttdoc">检查指定路径是否为有效SPK星历文件</div><div class="ttdef"><b>定义</b> DAFParser.cpp:130</div></div>
+<div class="ttc" id="anamespaceast_html_a5f428c194d908388228a2eae7fe930af"><div class="ttname"><a href="namespaceast.html#a5f428c194d908388228a2eae7fe930af">ast::aIsValidDAFFile</a></div><div class="ttdeci">bool aIsValidDAFFile(StringView filepath)</div><div class="ttdoc">检查指定路径是否为有效SPICE双精度数组文件（DAF）</div><div class="ttdef"><b>定义</b> DAFParser.cpp:125</div></div>
+<div class="ttc" id="astructast_1_1DAF__FileRecord_html"><div class="ttname"><a href="structast_1_1DAF__FileRecord.html">ast::DAF_FileRecord</a></div><div class="ttdoc">文件记录 (Record 1, 1024 字节)</div><div class="ttdef"><b>定义</b> DAFParser.cpp:41</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

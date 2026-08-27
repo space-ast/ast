@@ -57,7 +57,8 @@ var group__Time =
       [ "iterator", "classast_1_1DoubleRange_1_1iterator.html", [
         [ "operator*", "classast_1_1DoubleRange_1_1iterator.html#a043c92c3923004b3ad32745407ea096d", null ]
       ] ],
-      [ "DoubleRange", "classast_1_1DoubleRange.html#a979f0b3147d956bc171229716336671a", null ]
+      [ "DoubleRange", "classast_1_1DoubleRange.html#a979f0b3147d956bc171229716336671a", null ],
+      [ "operator[]", "classast_1_1DoubleRange.html#a1c00931d950316c8ac18ecfedb64a754", null ]
     ] ],
     [ "ast::ShortDuration", "classast_1_1ShortDuration.html", null ],
     [ "ast::LongDuration", "classast_1_1LongDuration.html", [
@@ -279,7 +280,9 @@ var group__Time =
       [ "iterator", "classast_1_1TimePointRange_1_1iterator.html", [
         [ "operator*", "classast_1_1TimePointRange_1_1iterator.html#a77f4f8ff955a0f803f284716c8dcf5d8", null ]
       ] ],
-      [ "TimePointRange", "classast_1_1TimePointRange.html#a5bfcf28a899bab363eac6ccc6b0b7640", null ]
+      [ "TimePointRange", "classast_1_1TimePointRange.html#ab6db89657179feab60e69bdcfe2f9356", null ],
+      [ "TimePointRange", "classast_1_1TimePointRange.html#a230df79ac0e45a98232aa555cc265de0", null ],
+      [ "operator[]", "classast_1_1TimePointRange.html#ac8de1483af0587e67d32ee47cfa26690", null ]
     ] ],
     [ "ast::Date::EMonth", "group__Time.html#ga4cdbb4699f636a8b836b9460d3d5b751", null ],
     [ "ast::Date::EWeekDay", "group__Time.html#ga7a01e196dd5e7261346a587234236b35", null ],

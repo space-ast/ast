@@ -123,8 +123,8 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:aed4dbd584de0b4af917b0e6ca84e1c2f" id="r_aed4dbd584de0b4af917b0e6ca84e1c2f"><td class="memItemLeft" align="right" valign="top"><a id="aed4dbd584de0b4af917b0e6ca84e1c2f" name="aed4dbd584de0b4af917b0e6ca84e1c2f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>SSEParser</b> (<a class="el" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a> &amp;handler)</td></tr>
 <tr class="separator:aed4dbd584de0b4af917b0e6ca84e1c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b10d60a8d6a43f0aa4ede1e277cd206" id="r_a0b10d60a8d6a43f0aa4ede1e277cd206"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b10d60a8d6a43f0aa4ede1e277cd206">onHeaders</a> (int statusCode, const std::map&lt; std::string, std::string &gt; &amp;headers) override</td></tr>
-<tr class="separator:a0b10d60a8d6a43f0aa4ede1e277cd206"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bf8ae209c2a81549131800928e12d96" id="r_a4bf8ae209c2a81549131800928e12d96"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bf8ae209c2a81549131800928e12d96">onHeaders</a> (int statusCode, const std::map&lt; std::string, std::string &gt; &amp;headers) override</td></tr>
+<tr class="separator:a4bf8ae209c2a81549131800928e12d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcc67a33f3786a87cc0238456c72bebb" id="r_afcc67a33f3786a87cc0238456c72bebb"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcc67a33f3786a87cc0238456c72bebb">onData</a> (const char *data, size_t size) override</td></tr>
 <tr class="separator:afcc67a33f3786a87cc0238456c72bebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf474cc47f8559cf62a7e092c91ae2f4" id="r_abf474cc47f8559cf62a7e092c91ae2f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf474cc47f8559cf62a7e092c91ae2f4">onComplete</a> () override</td></tr>
@@ -253,8 +253,8 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>er
 
 </div>
 </div>
-<a id="a0b10d60a8d6a43f0aa4ede1e277cd206" name="a0b10d60a8d6a43f0aa4ede1e277cd206"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b10d60a8d6a43f0aa4ede1e277cd206">&#9670;&#160;</a></span>onHeaders()</h2>
+<a id="a4bf8ae209c2a81549131800928e12d96" name="a4bf8ae209c2a81549131800928e12d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bf8ae209c2a81549131800928e12d96">&#9670;&#160;</a></span>onHeaders()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,7 +263,7 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>er
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ast::SSEParser::onHeaders </td>
+          <td class="memname">errc_t ast::SSEParser::onHeaders </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>statusCode</em></span>, </td>
         </tr>
@@ -288,8 +288,9 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>er
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>返回</dt><dd>0 继续接收；非 0 表示基于响应头拒绝/中止（不会再读取响应体） </dd></dl>
 
-<p>重载 <a class="el" href="classast_1_1NetworkStreamReceiver.html#a78a43fb86572cf12806524e3a7730885">ast::NetworkStreamReceiver</a> .</p>
+<p>重载 <a class="el" href="classast_1_1NetworkStreamReceiver.html#ae3bf4b98d00a1f385fc4f11f5f236df4">ast::NetworkStreamReceiver</a> .</p>
 
 </div>
 </div>

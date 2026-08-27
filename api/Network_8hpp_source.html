@@ -110,42 +110,78 @@ $(function(){initNavTree('Network_8hpp_source.html',''); initResizable(true); })
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="NetworkCookie_8hpp.html">NetworkCookie.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="NetworkInterface_8hpp.html">NetworkInterface.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="NetworkSession_8hpp.html">NetworkSession.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span>NetworkRequest;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">class </span>NetworkResponse;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">class </span>NetworkInterface;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span>NetworkStreamReceiver;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="namespaceast.html#aa1d2db8a5a8b84543ff2878f756b9bc1">   42</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#aa1d2db8a5a8b84543ff2878f756b9bc1">ENetworkImplType</a> {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    eDefault,    <span class="comment">// 默认选择实现</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    eWinHTTP,    <span class="comment">// WinHTTP</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    eWinINet,    <span class="comment">// WinINet</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    eCurlCmd,    <span class="comment">// curl命令实现</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">class </span>NetworkRequest;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span>NetworkResponse;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">class </span>NetworkInterface;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">class </span>NetworkStreamReceiver;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespaceast.html#aa1d2db8a5a8b84543ff2878f756b9bc1">   44</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceast.html#aa1d2db8a5a8b84543ff2878f756b9bc1">ENetworkImplType</a> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    eDefault,    <span class="comment">// 默认选择实现</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    eWinHTTP,    <span class="comment">// WinHTTP</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    eWinINet,    <span class="comment">// WinINet</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    eCurlCmd,    <span class="comment">// curl命令实现</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
 </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>AST_UTIL_CAPI errc_t aNetworkRequest(<span class="keyword">const</span> NetworkRequest&amp; request, NetworkResponse&amp; response);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>AST_UTIL_CAPI errc_t aNetworkRequestStream(<span class="keyword">const</span> NetworkRequest&amp; request, NetworkStreamReceiver&amp; receiver);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>AST_UTIL_CAPI errc_t aDownloadFile(<span class="keyword">const</span> std::string&amp; url, <span class="keyword">const</span> std::string&amp; filepath);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>AST_UTIL_API errc_t aNetworkSetImpl(ENetworkImplType impltype);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1ConsoleProgressBar.html">   54</a></span><span class="keyword">class </span>AST_UTIL_API <a class="code hl_class" href="classast_1_1ConsoleProgressBar.html">ConsoleProgressBar</a></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1ConsoleProgressBar.html">ConsoleProgressBar</a>(<span class="keyword">const</span> std::string&amp; label = <span class="stringliteral">&quot;downloading&quot;</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">bool</span> operator()(uint64_t downloaded, uint64_t total);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">bool</span> cancelKeyPressed() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::string label_;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">int</span> lastLen_ = 0;     </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">bool</span> interactive_ = <span class="keyword">false</span>; </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="namespaceast.html#ab8197d8438adb4539e2c04698d671dd1">aNetworkRequest</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1NetworkRequest.html">NetworkRequest</a>&amp; request, <a class="code hl_class" href="classast_1_1NetworkResponse.html">NetworkResponse</a>&amp; response);</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>AST_UTIL_API <span class="keywordtype">void</span> aNetworkSetImpl(NetworkInterface* impl);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="namespaceast.html#ae01bab83a6030f10d32cc67592f15d40">aNetworkRequestStream</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1NetworkRequest.html">NetworkRequest</a>&amp; request, <a class="code hl_class" href="classast_1_1NetworkStreamReceiver.html">NetworkStreamReceiver</a>&amp; receiver);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>AST_UTIL_API errc_t <a class="code hl_function" href="namespaceast.html#a133eac32b507c176e3f706124cae37d0">aDownloadFile</a>(</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">const</span> std::string&amp; url, <span class="keyword">const</span> std::string&amp; filepath,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">DownloadProgressCallback</a>&amp; progress</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>AST_UTIL_API errc_t <a class="code hl_function" href="namespaceast.html#a133eac32b507c176e3f706124cae37d0">aDownloadFile</a>(<span class="keyword">const</span> std::string&amp; url, <span class="keyword">const</span> std::string&amp; filepath);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>AST_UTIL_API errc_t <a class="code hl_function" href="namespaceast.html#a950cb3b665aaa58e83eafc856bf4a8c2">aNetworkSetImpl</a>(<a class="code hl_enumeration" href="namespaceast.html#aa1d2db8a5a8b84543ff2878f756b9bc1">ENetworkImplType</a> impltype);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>AST_UTIL_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a950cb3b665aaa58e83eafc856bf4a8c2">aNetworkSetImpl</a>(<a class="code hl_class" href="classast_1_1NetworkInterface.html">NetworkInterface</a>* impl);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aNetworkCookieJar_8hpp_html"><div class="ttname"><a href="NetworkCookieJar_8hpp.html">NetworkCookieJar.hpp</a></div></div>
 <div class="ttc" id="aNetworkCookie_8hpp_html"><div class="ttname"><a href="NetworkCookie_8hpp.html">NetworkCookie.hpp</a></div></div>
 <div class="ttc" id="aNetworkInterface_8hpp_html"><div class="ttname"><a href="NetworkInterface_8hpp.html">NetworkInterface.hpp</a></div></div>
 <div class="ttc" id="aNetworkSession_8hpp_html"><div class="ttname"><a href="NetworkSession_8hpp.html">NetworkSession.hpp</a></div></div>
-<div class="ttc" id="anamespaceast_html_aa1d2db8a5a8b84543ff2878f756b9bc1"><div class="ttname"><a href="namespaceast.html#aa1d2db8a5a8b84543ff2878f756b9bc1">ast::ENetworkImplType</a></div><div class="ttdeci">ENetworkImplType</div><div class="ttdoc">网络实现</div><div class="ttdef"><b>定义</b> Network.hpp:42</div></div>
+<div class="ttc" id="aclassast_1_1ConsoleProgressBar_html"><div class="ttname"><a href="classast_1_1ConsoleProgressBar.html">ast::ConsoleProgressBar</a></div><div class="ttdef"><b>定义</b> Network.hpp:55</div></div>
+<div class="ttc" id="aclassast_1_1NetworkInterface_html"><div class="ttname"><a href="classast_1_1NetworkInterface.html">ast::NetworkInterface</a></div><div class="ttdef"><b>定义</b> NetworkInterface.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1NetworkRequest_html"><div class="ttname"><a href="classast_1_1NetworkRequest.html">ast::NetworkRequest</a></div><div class="ttdef"><b>定义</b> NetworkRequest.hpp:56</div></div>
+<div class="ttc" id="aclassast_1_1NetworkResponse_html"><div class="ttname"><a href="classast_1_1NetworkResponse.html">ast::NetworkResponse</a></div><div class="ttdef"><b>定义</b> NetworkResponse.hpp:37</div></div>
+<div class="ttc" id="aclassast_1_1NetworkStreamReceiver_html"><div class="ttname"><a href="classast_1_1NetworkStreamReceiver.html">ast::NetworkStreamReceiver</a></div><div class="ttdoc">流式数据接收器</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:44</div></div>
+<div class="ttc" id="agroup__Network_html_ga0bc0961f6343256317dd663b942a0a4e"><div class="ttname"><a href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">ast::DownloadProgressCallback</a></div><div class="ttdeci">std::function&lt; bool(uint64_t downloaded, uint64_t total)&gt; DownloadProgressCallback</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:92</div></div>
+<div class="ttc" id="anamespaceast_html_a133eac32b507c176e3f706124cae37d0"><div class="ttname"><a href="namespaceast.html#a133eac32b507c176e3f706124cae37d0">ast::aDownloadFile</a></div><div class="ttdeci">errc_t aDownloadFile(const std::string &amp;url, const std::string &amp;filepath)</div><div class="ttdoc">下载 URL 内容并直接写入文件</div><div class="ttdef"><b>定义</b> Network.cpp:130</div></div>
+<div class="ttc" id="anamespaceast_html_a950cb3b665aaa58e83eafc856bf4a8c2"><div class="ttname"><a href="namespaceast.html#a950cb3b665aaa58e83eafc856bf4a8c2">ast::aNetworkSetImpl</a></div><div class="ttdeci">errc_t aNetworkSetImpl(ENetworkImplType impltype)</div><div class="ttdef"><b>定义</b> Network.cpp:66</div></div>
+<div class="ttc" id="anamespaceast_html_aa1d2db8a5a8b84543ff2878f756b9bc1"><div class="ttname"><a href="namespaceast.html#aa1d2db8a5a8b84543ff2878f756b9bc1">ast::ENetworkImplType</a></div><div class="ttdeci">ENetworkImplType</div><div class="ttdoc">网络实现</div><div class="ttdef"><b>定义</b> Network.hpp:44</div></div>
+<div class="ttc" id="anamespaceast_html_ab8197d8438adb4539e2c04698d671dd1"><div class="ttname"><a href="namespaceast.html#ab8197d8438adb4539e2c04698d671dd1">ast::aNetworkRequest</a></div><div class="ttdeci">errc_t aNetworkRequest(const NetworkRequest &amp;request, NetworkResponse &amp;response)</div><div class="ttdef"><b>定义</b> Network.cpp:102</div></div>
+<div class="ttc" id="anamespaceast_html_ae01bab83a6030f10d32cc67592f15d40"><div class="ttname"><a href="namespaceast.html#ae01bab83a6030f10d32cc67592f15d40">ast::aNetworkRequestStream</a></div><div class="ttdeci">errc_t aNetworkRequestStream(const NetworkRequest &amp;request, NetworkStreamReceiver &amp;receiver)</div><div class="ttdef"><b>定义</b> Network.cpp:116</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

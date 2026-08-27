@@ -176,6 +176,7 @@ var group__ParseFormat =
     [ "ast::_aParseInt_StringStream", "group__ParseFormat.html#ga0597f0179945ef9b3bcfb8571de167aa", null ],
     [ "ast::aFormatBool", "group__ParseFormat.html#ga266b96fed3eb3bc40f8eee113e194513", null ],
     [ "ast::aFormatBool", "group__ParseFormat.html#gad1d8ef62ace89d58bad6328f8c666e4a", null ],
+    [ "ast::aFormatBytes", "group__ParseFormat.html#gad96a5256d0941310854d4e3d537a2bcf", null ],
     [ "ast::aFormatColor", "group__ParseFormat.html#ga442f4720018d6dd4576b5def3f32222b", null ],
     [ "ast::aFormatColor", "group__ParseFormat.html#ga63265581084bbbffd11dfe8b9f437118", null ],
     [ "ast::aFormatDouble", "group__ParseFormat.html#ga64c010056665d2c04e5f4cbea123ed91", null ],

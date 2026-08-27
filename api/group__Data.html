@@ -142,6 +142,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::StringVector</b
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:ga060a4c73a02ab5259aa7a154e7f25b0f" id="r_ga060a4c73a02ab5259aa7a154e7f25b0f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga060a4c73a02ab5259aa7a154e7f25b0f">ast::aDownloadData</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> dataDir=<a class="el" href="classast_1_1StringViewBasic.html">StringView</a>())</td></tr>
+<tr class="separator:ga060a4c73a02ab5259aa7a154e7f25b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5aa1179cc5dd10f29ac2a0491b6b1fa9" id="r_ga5aa1179cc5dd10f29ac2a0491b6b1fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5aa1179cc5dd10f29ac2a0491b6b1fa9">ast::aGetInitalizeConfig</a> (<a class="el" href="structast_1_1InitalizeConfig.html">InitalizeConfig</a> &amp;config)</td></tr>
 <tr class="separator:ga5aa1179cc5dd10f29ac2a0491b6b1fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab8a08c106d3feb750fdda376651fe6bc" id="r_gab8a08c106d3feb750fdda376651fe6bc"><td class="memItemLeft" align="right" valign="top"><a id="gab8a08c106d3feb750fdda376651fe6bc" name="gab8a08c106d3feb750fdda376651fe6bc"></a>
@@ -475,6 +477,32 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kSiz
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ga060a4c73a02ab5259aa7a154e7f25b0f" name="ga060a4c73a02ab5259aa7a154e7f25b0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga060a4c73a02ab5259aa7a154e7f25b0f">&#9670;&#160;</a></span>aDownloadData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aDownloadData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>dataDir</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a>()</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>下载并安装数据文件夹 </p>
+<p>从 gitcode 或 github 下载 data 仓库的整包压缩包， 并解压到动态库所在文件夹下的 data/ 目录。 优先尝试 gitcode，下载失败时自动回退到 github。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataDir</td><td>数据文件夹路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 表示成功，否则返回错误码 </dd></dl>
 
 </div>
 </div>

@@ -172,6 +172,7 @@ var hierarchy =
       [ "ast::CompressorImplTar", "classast_1_1CompressorImplTar.html", null ]
     ] ],
     [ "ast::ExprIf::ConditionBranch", "structast_1_1ExprIf_1_1ConditionBranch.html", null ],
+    [ "ast::ConsoleProgressBar", "classast_1_1ConsoleProgressBar.html", null ],
     [ "ast::TimeIntervalList::const_iterator", "classast_1_1TimeIntervalList_1_1const__iterator.html", null ],
     [ "ast::TimeList::const_iterator", "classast_1_1TimeList_1_1const__iterator.html", null ],
     [ "constype", "structconstype.html", null ],
@@ -555,6 +556,7 @@ var hierarchy =
     [ "ast::LatLonAlt", "classast_1_1LatLonAlt.html", null ],
     [ "ast::LeapSecond", "classast_1_1LeapSecond.html", null ],
     [ "ast::Lexer", "classast_1_1Lexer.html", null ],
+    [ "ast::LfsPointerInfo", "structast_1_1LfsPointerInfo.html", null ],
     [ "ast::Library", "classast_1_1Library.html", null ],
     [ "ast::LLMClient", "classast_1_1LLMClient.html", [
       [ "ast::Anthropic", "classast_1_1Anthropic.html", null ],
@@ -616,6 +618,7 @@ var hierarchy =
     [ "ast::NetworkSession", "classast_1_1NetworkSession.html", null ],
     [ "ast::NetworkStreamReceiver", "classast_1_1NetworkStreamReceiver.html", [
       [ "ast::CollectingStreamReceiver", "classast_1_1CollectingStreamReceiver.html", null ],
+      [ "ast::FileDownloadReceiver", "classast_1_1FileDownloadReceiver.html", null ],
       [ "ast::SSEParser", "classast_1_1SSEParser.html", null ]
     ] ],
     [ "ast::NLPBounds", "structast_1_1NLPBounds.html", null ],

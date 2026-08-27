@@ -1,5 +1,14 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcCloseApproachCosBearing_8cpp.html":[4,0,0,6,11,1,0,8,2],
+"ScStateCalcCloseApproachCosBearing_8hpp.html":[4,0,0,6,11,1,0,8,3],
+"ScStateCalcCloseApproachCosBearing_8hpp_source.html":[4,0,0,6,11,1,0,8,3],
+"ScStateCalcCloseApproachDistance_8cpp.html":[4,0,0,6,11,1,0,8,4],
+"ScStateCalcCloseApproachDistance_8hpp.html":[4,0,0,6,11,1,0,8,5],
+"ScStateCalcCloseApproachDistance_8hpp_source.html":[4,0,0,6,11,1,0,8,5],
+"ScStateCalcCloseApproachMag_8cpp.html":[4,0,0,6,11,1,0,8,6],
+"ScStateCalcCloseApproachMag_8hpp.html":[4,0,0,6,11,1,0,8,7],
+"ScStateCalcCloseApproachMag_8hpp_source.html":[4,0,0,6,11,1,0,8,7],
 "ScStateCalcCloseApproachSpeed_8cpp.html":[4,0,0,6,11,1,0,8,8],
 "ScStateCalcCloseApproachSpeed_8hpp.html":[4,0,0,6,11,1,0,8,9],
 "ScStateCalcCloseApproachSpeed_8hpp_source.html":[4,0,0,6,11,1,0,8,9],
@@ -240,14 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcMeanEarthLon_8hpp.html":[4,0,0,6,11,1,0,13,3],
 "ScStateCalcMeanEarthLon_8hpp_source.html":[4,0,0,6,11,1,0,13,3],
 "ScStateCalcMeanEclipticLon_8cpp.html":[4,0,0,6,11,1,0,13,4],
-"ScStateCalcMeanEclipticLon_8hpp.html":[4,0,0,6,11,1,0,13,5],
-"ScStateCalcMeanEclipticLon_8hpp_source.html":[4,0,0,6,11,1,0,13,5],
-"ScStateCalcMeanLongitude_8cpp.html":[4,0,0,6,11,1,0,13,6],
-"ScStateCalcMeanLongitude_8hpp.html":[4,0,0,6,11,1,0,13,7],
-"ScStateCalcMeanLongitude_8hpp_source.html":[4,0,0,6,11,1,0,13,7],
-"ScStateCalcMeanMotion_8cpp.html":[4,0,0,6,11,1,0,13,8],
-"ScStateCalcMeanMotion_8hpp.html":[4,0,0,6,11,1,0,13,9],
-"ScStateCalcMeanMotion_8hpp_source.html":[4,0,0,6,11,1,0,13,9],
-"ScStateCalcMinimumValue_8cpp.html":[4,0,0,6,11,1,0,15,100],
-"ScStateCalcMinimumValue_8hpp.html":[4,0,0,6,11,1,0,15,101]
+"ScStateCalcMeanEclipticLon_8hpp.html":[4,0,0,6,11,1,0,13,5]
 };

@@ -2,6 +2,8 @@ var dir_9ee1a7d731e81e836c3ad9833d421101 =
 [
     [ "DataContext.cpp", "DataContext_8cpp.html", null ],
     [ "DataContext.hpp", "DataContext_8hpp.html", null ],
+    [ "DataDownloader.cpp", "DataDownloader_8cpp.html", "DataDownloader_8cpp" ],
+    [ "DataDownloader.hpp", "DataDownloader_8hpp.html", "DataDownloader_8hpp" ],
     [ "GlobalContext.cpp", "GlobalContext_8cpp.html", null ],
     [ "GlobalContext.hpp", "GlobalContext_8hpp.html", null ],
     [ "RunTime.cpp", "AstCore_2Data_2Context_2RunTime_8cpp.html", "AstCore_2Data_2Context_2RunTime_8cpp" ],

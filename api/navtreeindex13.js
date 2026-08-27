@@ -1,5 +1,14 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcMeanEclipticLon_8hpp_source.html":[4,0,0,6,11,1,0,13,5],
+"ScStateCalcMeanLongitude_8cpp.html":[4,0,0,6,11,1,0,13,6],
+"ScStateCalcMeanLongitude_8hpp.html":[4,0,0,6,11,1,0,13,7],
+"ScStateCalcMeanLongitude_8hpp_source.html":[4,0,0,6,11,1,0,13,7],
+"ScStateCalcMeanMotion_8cpp.html":[4,0,0,6,11,1,0,13,8],
+"ScStateCalcMeanMotion_8hpp.html":[4,0,0,6,11,1,0,13,9],
+"ScStateCalcMeanMotion_8hpp_source.html":[4,0,0,6,11,1,0,13,9],
+"ScStateCalcMinimumValue_8cpp.html":[4,0,0,6,11,1,0,15,100],
+"ScStateCalcMinimumValue_8hpp.html":[4,0,0,6,11,1,0,15,101],
 "ScStateCalcMinimumValue_8hpp_source.html":[4,0,0,6,11,1,0,15,101],
 "ScStateCalcMu_8cpp.html":[4,0,0,6,11,1,0,4,2],
 "ScStateCalcMu_8hpp.html":[4,0,0,6,11,1,0,4,3],
@@ -240,14 +249,5 @@ var NAVTREEINDEX13 =
 "ScStateCalcValueAtSegmentOtherSat_8hpp_source.html":[4,0,0,6,11,1,0,15,211],
 "ScStateCalcValueOtherSegment_8cpp.html":[4,0,0,6,11,1,0,15,212],
 "ScStateCalcValueOtherSegment_8hpp.html":[4,0,0,6,11,1,0,15,213],
-"ScStateCalcValueOtherSegment_8hpp_source.html":[4,0,0,6,11,1,0,15,213],
-"ScStateCalcVectorX_8cpp.html":[4,0,0,6,11,1,0,19,1],
-"ScStateCalcVectorX_8hpp.html":[4,0,0,6,11,1,0,19,2],
-"ScStateCalcVectorX_8hpp_source.html":[4,0,0,6,11,1,0,19,2],
-"ScStateCalcVectorY_8cpp.html":[4,0,0,6,11,1,0,19,3],
-"ScStateCalcVectorY_8hpp.html":[4,0,0,6,11,1,0,19,4],
-"ScStateCalcVectorY_8hpp_source.html":[4,0,0,6,11,1,0,19,4],
-"ScStateCalcVectorZ_8cpp.html":[4,0,0,6,11,1,0,19,5],
-"ScStateCalcVectorZ_8hpp.html":[4,0,0,6,11,1,0,19,6],
-"ScStateCalcVectorZ_8hpp_source.html":[4,0,0,6,11,1,0,19,6]
+"ScStateCalcValueOtherSegment_8hpp_source.html":[4,0,0,6,11,1,0,15,213]
 };
