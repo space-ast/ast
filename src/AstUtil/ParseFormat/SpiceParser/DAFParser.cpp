@@ -21,6 +21,7 @@
 #include "DAFParser.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringSplit.hpp"
+#include "AstUtil/ScopedPtr.hpp"
 #include <cstdint>
 #include <iostream>
 #include <limits>
@@ -103,6 +104,33 @@ static_assert(sizeof(DAF_ElementRecords) == 1024, "DAF_ElementRecords size must 
 // 具体布局参照类型 1，但此处不固定
 
 #pragma pack(pop)
+
+bool _aIsValidDAFFile(StringView filepath, StringView locidw)
+{
+    ScopedPtr<FILE> fp = fopen(std::string(filepath).c_str(), "rb");
+    if(fp)
+    {
+        DAF_FileRecord record{};
+        // 必须完整读取一个文件记录，否则可能是截断/损坏的文件
+        if(fread(&record, sizeof(record), 1, fp.get()) != 1)
+            return false;
+        if(locidw.size() > sizeof(record.locidw))
+            return false;
+        if(strncmp(record.locidw, locidw.data(), locidw.size()) == 0)
+            return true;
+    }
+    return false;
+}
+
+bool aIsValidDAFFile(StringView filepath)
+{
+    return _aIsValidDAFFile(filepath, "DAF");
+}
+
+bool aIsValidSPKFile(StringView filepath)
+{
+    return _aIsValidDAFFile(filepath, "DAF/SPK");
+}
 
 DAFParser::DAFParser(StringView filepath)
 {

@@ -31,6 +31,7 @@
  * 
  * 前缀 AST_WITH_   ：是否带有某个第三方库，例如eigen、boost、fmt、ipopt等
  * 前缀 AST_ENABLE_ ：是否启用某个特定特性，通常是性能、调试、功能的开关，例如调试信息、缓存、日志、后缀名称等
+ * 前缀 AST_DISABLE_：是否禁用某个特定特性，通常是性能、调试、功能的开关，例如调试信息、缓存、日志、后缀名称等
  * 前缀 AST_USE_    ：是否使用某个实现方法，通常是可选、可替换的实现方式，例如不同的算法、不同的数据结构
  * 前缀 AST_HAS_    ：是否具有某个特定功能，通常是指示标准库是否有某功能，例如是否有某个函数、是否有某个类型
  * */
@@ -58,6 +59,8 @@
 // #define AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库的一些函数
 // #define AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
 // #define AST_ENABLE_REDUNDANT                  // 是否启用冗余功能
+
+// #define AST_DISABLE_AUTO_DOWNLOAD_DATA        // 是否禁用自动下载数据功能
 
 // #define AST_USE_STD_STRING_VIEW               // [影响ABI]是否使用 std::string_view ，否则使用内置的string_view
 // #define AST_USE_STD_FILESYSTEM                // 是否使用 std::filesystem，如果存在的话，否则使用内置的filesystem
@@ -401,6 +404,7 @@ typedef enum EError
     eErrorNotFound,         ///< 未找到
     eErrorNotImplemented,   ///< 未实现
     eErrorUnsupported,      ///< 不支持的类型
+    eErrorCancelled,        ///< 操作被中止/取消
 } AEError;
 
 

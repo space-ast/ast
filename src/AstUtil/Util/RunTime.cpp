@@ -30,86 +30,50 @@ AST_NAMESPACE_BEGIN
 errc_t aDataDirGetDefault(std::string &dataDirOut)
 {
     // 1. 检查AST_DATA_DIR环境变量
-    try {
+    {
         // #pragma warning(suppress: 4996)
         const char* datadir = getenv(AST_ENV_DATA_DIR);
+        std::error_code ec;
         // aDebug("AST_ENV_DATA_DIR: %s\n", datadir?datadir:"(not set)");
-        if (datadir && fs::is_directory(datadir)){
+        if (datadir && fs::is_directory(datadir, ec)){
             dataDirOut = datadir;
             return eNoError;
         }
     }
-    catch (const std::exception& e)
-    {
-        // 忽略可能的异常, 或者记录下来
-        aWarning("Exception while searching for data directory: %s", e.what());
-    }
-    catch (...)
-    {
-        aWarning("Exception while searching for data directory");
-        // 忽略可能的异常
-    }
 
     // 2. 检查动态库目录的data文件夹
-    try {
+    {
         fs::path datadir = fs::path(aLibDir()) / AST_DATA_DIR_NAME;
+        std::error_code ec;
         // aDebug("datadir: %s\n", datadir.string().c_str());
-        if (fs::is_directory(datadir)){
+        if (fs::is_directory(datadir, ec)){
             dataDirOut = datadir.string();
             return eNoError;
         }
     }
-    catch (const std::exception& e)
-    {
-        // 忽略可能的异常, 或者记录下来
-        aWarning("Exception while searching for data directory: %s", e.what());
-    }
-    catch (...)
-    {
-        aWarning("Exception while searching for data directory");
-        // 忽略可能的异常
-    }
-    
+
     // 3. 检查可执行文件目录的data文件夹
-    try {
+    {
         fs::path datadir = fs::path(aExeDir()) / AST_DATA_DIR_NAME;
+        std::error_code ec;
         // aDebug("datadir: %s\n", datadir.string().c_str());
-        if (fs::is_directory(datadir))
+        if (fs::is_directory(datadir, ec))
         {
             dataDirOut = datadir.string();
             return eNoError;
         }
     }
-    catch (const std::exception& e)
-    {
-        // 忽略可能的异常, 或者记录下来
-        aWarning("Exception while searching for data directory: %s", e.what());
-    }
-    catch (...)
-    {
-        aWarning("Exception while searching for data directory");
-        // 忽略可能的异常
-    }
-    
+
     // 4. 检查当前运行目录的data文件夹
-    try {
-        fs::path datadir = fs::current_path() / AST_DATA_DIR_NAME;
+    {
+        std::error_code ec;
+        fs::path datadir = fs::current_path(ec) / AST_DATA_DIR_NAME;
         // aDebug("datadir: %s\n", datadir.string().c_str());
-        if (fs::is_directory(datadir))
+        if (!ec && fs::is_directory(datadir, ec))
         {
             dataDirOut = datadir.string();
             return eNoError;
         }
-    }
-    catch (const std::exception& e)
-    {
-        // 忽略可能的异常, 或者记录下来
-        aWarning("Exception while searching for data directory: %s", e.what());
-    }
-    catch (...)
-    {
-        aWarning("Exception while searching for data directory");
-        // 忽略可能的异常
     }
 
     aError("data dir not found");

@@ -39,6 +39,7 @@
 #include "AstUtil/DAFParser.hpp"
 #include "AstUtil/Debug.hpp"
 #include "AstUtil/Dimension.hpp"
+#include "AstUtil/DownloadLfs.hpp"
 #include "AstUtil/Encode.hpp"
 #include "AstUtil/Endian.hpp"
 #include "AstUtil/Environment.hpp"

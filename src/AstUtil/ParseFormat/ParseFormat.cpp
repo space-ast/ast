@@ -530,4 +530,22 @@ errc_t aFormatColor(Color value, std::string& str)
 }
 
 
+std::string aFormatBytes(uint64_t bytes)
+{
+    static const char* units[] = {"B", "KB", "MB", "GB", "TB"};
+    double value = static_cast<double>(bytes);
+    int unit = 0;
+    while (value >= 1024.0 && unit < 4)
+    {
+        value /= 1024.0;
+        ++unit;
+    }
+    char buf[64];
+    if (unit == 0)
+        snprintf(buf, sizeof(buf), "%llu B", static_cast<unsigned long long>(bytes));
+    else
+        snprintf(buf, sizeof(buf), "%.1f %s", value, units[unit]);
+    return buf;
+}
+
 AST_NAMESPACE_END

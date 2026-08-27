@@ -111,6 +111,7 @@
 #include "AstCore/CylindricalEclipseCalculator.hpp"
 #include "AstCore/DTM2012.hpp"
 #include "AstCore/DataContext.hpp"
+#include "AstCore/DataDownloader.hpp"
 #include "AstCore/DataPort.hpp"
 #include "AstCore/Database.hpp"
 #include "AstCore/Date.hpp"

@@ -332,6 +332,47 @@ namespace fs_simple
     #endif
     }
 
+    // 规则：目录无任何条目、或常规文件 size==0 时返回 true；路径不存在时报错
+    bool is_empty(const path& p, std::error_code& ec) noexcept
+    {
+        ec.clear();
+
+        file_status s = status(p, ec);
+        if (ec || s.type() == file_type::not_found)
+        {
+            if (!ec)
+                ec = std::make_error_code(std::errc::no_such_file_or_directory);
+            return false;
+        }
+
+        if (s.type() == file_type::directory)
+        {
+        #ifdef _WIN32
+            // PathIsDirectoryEmptyW：目录为空返回 TRUE，非空返回 FALSE
+            // 注意：已由 status() 确认是存在的目录，故 FALSE 即表示非空
+            // 需加宽路径再调用（不适用于 UNC 路径，常规本地路径足够）
+            std::wstring wide_path;
+            aUtf8ToWide(p.c_str(), wide_path);
+            return PathIsDirectoryEmptyW(wide_path.c_str()) != FALSE;
+        #else
+            // 最后一个条目 == begin(iter)，即目录为空
+            return directory_iterator(p) == directory_iterator();
+        #endif
+        }
+
+        // 其它类型（常规文件 / 符号链接等）按 empty file 处理
+        return file_size(p) == 0;
+    }
+
+    bool is_empty(const path& p)
+    {
+        std::error_code ec;
+        bool result = is_empty(p, ec);
+        if (ec)
+            throw filesystem_error("is_empty", ec);
+        return result;
+    }
+
     file_status status(const path& p, std::error_code& ec) noexcept
     {
     #ifdef _WIN32

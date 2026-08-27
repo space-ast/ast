@@ -28,14 +28,16 @@ SSEParser::SSEParser(ChatEventHandler& handler)
 
 // ── NetworkStreamReceiver 接口 ──
 
-void SSEParser::onHeaders(int statusCode,
-                           const std::map<std::string, std::string>& /*headers*/)
+errc_t SSEParser::onHeaders(int statusCode,
+                            const std::map<std::string, std::string>& /*headers*/)
 {
     if (statusCode != 200)
     {
         error_ = "HTTP " + std::to_string(statusCode);
         handler_.onError(error_);
+        return eError;   // 在 header 阶段拒绝，避免读取响应体
     }
+    return eNoError;
 }
 
 errc_t SSEParser::onData(const char* data, size_t size)

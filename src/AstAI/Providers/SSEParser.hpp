@@ -41,7 +41,7 @@ public:
 
     // ── NetworkStreamReceiver 接口 ──
 
-    void onHeaders(int statusCode, const std::map<std::string, std::string>& headers) override;
+    errc_t onHeaders(int statusCode, const std::map<std::string, std::string>& headers) override;
     errc_t onData(const char* data, size_t size) override;
     void onComplete() override;
     void onError(errc_t error) override;

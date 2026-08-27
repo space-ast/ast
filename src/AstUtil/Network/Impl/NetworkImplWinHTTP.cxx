@@ -383,26 +383,40 @@ errc_t NetworkImplWinHTTP::requestStream(const NetworkRequest& request, NetworkS
         }
     }
 
-    // 通知响应头
-    receiver.onHeaders(static_cast<int>(statusCode), respHeaders);
+    // 通知响应头（接收器可基于响应头拒绝）
+    errc_t headerErr = receiver.onHeaders(static_cast<int>(statusCode), respHeaders);
+    if (headerErr != eNoError)
+    {
+        impl_->winHttpCloseHandle_(hRequest);
+        impl_->winHttpCloseHandle_(hConnect);
+        impl_->winHttpCloseHandle_(hSession);
+        return headerErr;
+    }
 
     // 流式读取响应体
+    errc_t streamErr = eNoError;
     char buffer[4096];
     DWORD bytesRead;
     while (impl_->winHttpReadData_(hRequest, buffer, sizeof(buffer), &bytesRead) && bytesRead > 0)
     {
         errc_t rc = receiver.onData(buffer, static_cast<size_t>(bytesRead));
         if (rc != 0)
-            break;  // 接收器取消
+        {
+            streamErr = rc;  // 接收器取消/写盘失败：向调用方传播，不标记完成
+            break;
+        }
     }
 
-    receiver.onComplete();
+    if (streamErr == eNoError)
+        receiver.onComplete();
 
     // 清理资源
     impl_->winHttpCloseHandle_(hRequest);
     impl_->winHttpCloseHandle_(hConnect);
     impl_->winHttpCloseHandle_(hSession);
 
+    if (streamErr != eNoError)
+        return streamErr;
     return eNoError;
 }
 

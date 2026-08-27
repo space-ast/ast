@@ -23,6 +23,7 @@
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StartupConfig.hpp"
+#include "AstCore/DataDownloader.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/FundamentalArguments.hpp"
 #include "AstCore/GlobalContext.hpp"
@@ -31,6 +32,7 @@
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/JplSpk.hpp"
 #include "AstCore/JplDe.hpp"
+#include "AstUtil/DAFParser.hpp"
 #include "AstMath/MathOperator.hpp"
 #include "RunTimeData.hpp"
 #include "RunTimeSolarSystem.hpp"
@@ -163,6 +165,14 @@ static errc_t loadSPK(const std::vector<std::string>& spkFiles)
     errc_t rc = 0;
     for(const auto& filepath : spkFiles)
     {
+        // 与 BodyEphemerisSPK::openSPKFile 保持一致：加载前先校验文件是合法的 SPK，
+        // 避免损坏/非 SPK 内核走到 CSPICE furnsh 时才报晦涩错误。
+        if(!aIsValidSPKFile(filepath))
+        {
+            aError("invalid SPK file '%s'", filepath.c_str());
+            rc |= eErrorInvalidFile;
+            continue;
+        }
         rc |= SpiceAPI::Instance()->furnsh(filepath.c_str());
     }
     return rc;
@@ -291,8 +301,25 @@ errc_t aInitializeByConfig(DataContext* context, const InitalizeConfig& config)
 {
     errc_t err = 0;
 
+    std::string dataDir = config.dataDir_;
+    if(dataDir.empty())
+        dataDir = aDataDirGetDefault();
+    std::error_code rc;
+    bool isEmpty = fs::is_empty(dataDir, rc);
+    // 如果 dataDir 为空或者目录不存在
+    if(isEmpty || rc)
+    {
+        #ifndef AST_DISABLE_AUTO_DOWNLOAD_DATA
+        err = aDownloadData(dataDir);
+        if(err != eNoError) return err;
+        #else
+        aError("data directory %s is empty or not found", config.dataDir_.c_str());
+        return eErrorNotFound;
+        #endif
+    }
+
     // init global context
-    context->setDataDir(config.dataDir_);
+    context->setDataDir(dataDir);
 
     auto globalCxt = aGlobalContext_Get();
     if(!globalCxt->iauXYS()->isLoaded())
@@ -399,7 +426,8 @@ errc_t aDataDirGet(std::string &datadir)
     else if (A_UNLIKELY(context->dataDir().empty())) 
     {
         errc_t rc = aDataDirGetDefault(datadir);
-        aDataDirSet(datadir);
+        if(rc == eNoError)
+            aDataDirSet(datadir);
         return rc;
     }
     datadir = context->dataDir();

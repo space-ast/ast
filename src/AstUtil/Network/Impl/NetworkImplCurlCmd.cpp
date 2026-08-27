@@ -267,22 +267,37 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
         return -6;
     }
 
-    // 通知响应头
-    receiver.onHeaders(statusCode, respHeaders);
+    // 通知响应头（接收器可基于响应头拒绝）
+    errc_t headerErr = receiver.onHeaders(statusCode, respHeaders);
+    if (headerErr != eNoError)
+    {
+        int status = pclose(pipe);
+        A_UNUSED(status);
+        if (!tmpFilePath.empty())
+            std::remove(tmpFilePath.c_str());
+        return headerErr;
+    }
 
     // Phase 2: 流式读取 body
+    errc_t streamErr = eNoError;
     char buffer[4096];
     size_t bytesRead;
     while ((bytesRead = std::fread(buffer, 1, sizeof(buffer), pipe)) > 0)
     {
         errc_t rc = receiver.onData(buffer, bytesRead);
         if (rc != 0)
-            break;  // 接收器取消
+        {
+            streamErr = rc;  // 接收器取消/写盘失败：向调用方传播，不标记完成
+            break;
+        }
     }
 
     int status = pclose(pipe);
     if (!tmpFilePath.empty())
         std::remove(tmpFilePath.c_str());
+
+    if (streamErr != eNoError)
+        return streamErr;
 
     receiver.onComplete();
 

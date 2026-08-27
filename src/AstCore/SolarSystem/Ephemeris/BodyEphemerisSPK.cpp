@@ -22,12 +22,20 @@
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/TimeSystem.hpp"
 #include "AstCore/RunTime.hpp"
-#include "SpiceAPI.hpp"
+#include "AstCore/SpiceAPI.hpp"
+#include "AstUtil/DAFParser.hpp"
+#include "AstUtil/DownloadLfs.hpp"
+#include "AstUtil/FileSystem.hpp"
 
 AST_NAMESPACE_BEGIN
 
 errc_t BodyEphemerisSPK::openSPKFile(StringView spkfile)
 {
+    if(!aIsValidSPKFile(spkfile))
+    {
+        aError("invalid SPK file '%.*s'", spkfile.size(), spkfile.data());
+        return eErrorInvalidFile;
+    }
     return spk_.open(spkfile);
 }
 

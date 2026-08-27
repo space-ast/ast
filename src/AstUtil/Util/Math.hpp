@@ -103,9 +103,11 @@ Scalar aMin(Scalar a, Scalar b)
 /// @brief 计算闭区间 [0, span] 按 step 步长采样（含两端点）的采样点数
 /// @param span 区间长度（即 stop - start；需 >= 0）
 /// @param step 步长（秒；需 > 0）
-/// @return ceil(span / step) + 1
+/// @return ceil(span / step) + 1；当 step <= 0 或 span < 0 时返回 0，避免非法步长产生巨大的采样数
 A_ALWAYS_INLINE size_t aDiscretizedCount(double span, double step)
 {
+    if (step <= 0.0 || span < 0.0)
+        return 0;
     return static_cast<size_t>(std::ceil(span / step)) + 1;
 }
 
