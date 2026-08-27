@@ -103,6 +103,9 @@ public:
 
     ~FileDownloadReceiver() override;
 
+    FileDownloadReceiver(const FileDownloadReceiver& other) = delete;
+    FileDownloadReceiver& operator=(const FileDownloadReceiver& other) = delete;
+
     errc_t onHeaders(int statusCode, const std::map<std::string, std::string>& headers) override;
     errc_t onData(const char* data, size_t size) override;
     void onError(errc_t /*error*/) override{}

@@ -38,8 +38,8 @@ AST_NAMESPACE_BEGIN
 /// @details 从指针文本解析出的对象元信息：内容 sha256（oid）与字节数。
 struct LfsPointerInfo
 {
-    std::string oid;          ///< 对象内容的 sha256 十六进制串
-    std::size_t size = 0;     ///< 对象字节数
+    std::string oid{};          ///< 对象内容的 sha256 十六进制串
+    std::size_t size = 0;       ///< 对象字节数
 };
 
 /// 解析 Git LFS 指针文本
