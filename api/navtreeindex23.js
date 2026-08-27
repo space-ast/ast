@@ -1,5 +1,7 @@
 var NAVTREEINDEX23 =
 {
+"classast_1_1ChatMessages.html#a9546aef56e41f946c1791b57c2975fca":[3,0,0,138,0],
+"classast_1_1ChatSession.html":[0,0,4],
 "classast_1_1ChatSession.html#a29e370433866e61de6ade04afc1a60b4":[0,0,4,3],
 "classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4":[0,0,4,14],
 "classast_1_1ChatSession.html#a37c715bce4b1c3b53fe2d41d7d8318af":[0,0,4,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX23 =
 "classast_1_1CylindricalEclipseCalculator.html#aff1aaf6e583769a185d238cd665d7832":[3,0,0,194,0],
 "classast_1_1DAFParser.html":[2,0,0,203],
 "classast_1_1DAFParser.html":[3,0,0,201],
-"classast_1_1DAFParser.html#a045d3bba458e75ef1db33d508a5fc083":[2,0,0,203,5],
-"classast_1_1DAFParser.html#a045d3bba458e75ef1db33d508a5fc083":[3,0,0,201,5],
-"classast_1_1DAFParser.html#a175f6c1d2df6f20bbfd81af6f6738b65":[2,0,0,203,11]
+"classast_1_1DAFParser.html#a045d3bba458e75ef1db33d508a5fc083":[2,0,0,203,5]
 };

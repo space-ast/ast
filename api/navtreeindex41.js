@@ -1,5 +1,7 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1SGP4.html#a172d512e47b842c3318ccce8600162d6":[3,0,0,881,4],
+"classast_1_1SGP4.html#a5776f049fd25b9e7ba16abc33d2ad6b9":[2,0,0,883,0],
 "classast_1_1SGP4.html#a5776f049fd25b9e7ba16abc33d2ad6b9":[3,0,0,881,0],
 "classast_1_1SGP4.html#a999eae6d3344c18e99b089fd7e584b50":[2,0,0,883,1],
 "classast_1_1SGP4.html#a999eae6d3344c18e99b089fd7e584b50":[3,0,0,881,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1ScStateCalcJScript.html":[3,0,0,753],
 "classast_1_1ScStateCalcLatitude.html":[2,0,0,756],
 "classast_1_1ScStateCalcLatitude.html":[3,0,0,754],
-"classast_1_1ScStateCalcLatitudeRate.html":[2,0,0,757],
-"classast_1_1ScStateCalcLatitudeRate.html":[3,0,0,755],
-"classast_1_1ScStateCalcLightSpeed.html":[2,0,0,758]
+"classast_1_1ScStateCalcLatitudeRate.html":[2,0,0,757]
 };

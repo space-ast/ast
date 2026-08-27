@@ -35,6 +35,8 @@ var NAVTREEINDEX16 =
 "TargeterSequence_8cpp.html":[4,0,0,6,11,3,34],
 "TargeterSequence_8hpp.html":[4,0,0,6,11,3,35],
 "TargeterSequence_8hpp_source.html":[4,0,0,6,11,3,35],
+"TempFileGuard_8hpp.html":[4,0,0,27,11,21],
+"TempFileGuard_8hpp_source.html":[4,0,0,27,11,21],
 "Terminal_8cpp.html":[4,0,0,27,6,30],
 "Terminal_8hpp.html":[4,0,0,27,6,31],
 "Terminal_8hpp_source.html":[4,0,0,27,6,31],
@@ -147,7 +149,7 @@ var NAVTREEINDEX16 =
 "TwoBody_8cpp.html#a576e27d6ac7a3bed49e448e9b092a4ba":[4,0,0,6,12,11,0],
 "TwoBody_8hpp.html":[4,0,0,6,12,12],
 "TwoBody_8hpp_source.html":[4,0,0,6,12,12],
-"TypeTraits_8hpp_source.html":[4,0,0,27,11,21],
+"TypeTraits_8hpp_source.html":[4,0,0,27,11,22],
 "Type_8hpp.html":[4,0,0,27,8,27],
 "Type_8hpp_source.html":[4,0,0,27,8,27],
 "Types_8cpp.html":[4,0,0,18,0,7],
@@ -247,7 +249,5 @@ var NAVTREEINDEX16 =
 "UiEventDetector_8hpp_source.html":[4,0,0,10,9,5],
 "UiEventInterval_8cpp.html":[4,0,0,10,4,8],
 "UiEventInterval_8hpp.html":[4,0,0,10,4,9],
-"UiEventInterval_8hpp_source.html":[4,0,0,10,4,9],
-"UiEventTime_8hpp_source.html":[4,0,0,10,4,10],
-"UiExpressionBrowser_8cpp.html":[4,0,0,10,7,5]
+"UiEventInterval_8hpp_source.html":[4,0,0,10,4,9]
 };

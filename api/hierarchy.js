@@ -1538,6 +1538,7 @@ var hierarchy =
     [ "ast::TAIScale", "classast_1_1TAIScale.html", null ],
     [ "ast::TarHeader", "structast_1_1TarHeader.html", null ],
     [ "ast::TDBScale", "classast_1_1TDBScale.html", null ],
+    [ "ast::TempFileGuard", "classast_1_1TempFileGuard.html", null ],
     [ "ast::TerminationCondition", "classast_1_1TerminationCondition.html", [
       [ "ast::TextMentionTermination", "classast_1_1TextMentionTermination.html", null ]
     ] ],

@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::TempFileGuard类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1TempFileGuard.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1TempFileGuard-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::TempFileGuard类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="TempFileGuard_8hpp_source.html">TempFileGuard.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a5f0891c221dc32e78fe47dd885ada348" id="r_a5f0891c221dc32e78fe47dd885ada348"><td class="memItemLeft" align="right" valign="top"><a id="a5f0891c221dc32e78fe47dd885ada348" name="a5f0891c221dc32e78fe47dd885ada348"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TempFileGuard</b> ()=default</td></tr>
+<tr class="separator:a5f0891c221dc32e78fe47dd885ada348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcf1b035b932df0b7d48fd76260469d8" id="r_adcf1b035b932df0b7d48fd76260469d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcf1b035b932df0b7d48fd76260469d8">TempFileGuard</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="#ae94ae68651f0e9460dc1c363457c6e6c">path</a>)</td></tr>
+<tr class="separator:adcf1b035b932df0b7d48fd76260469d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35cdd8469bd7fac50fedbb9519c06b0b" id="r_a35cdd8469bd7fac50fedbb9519c06b0b"><td class="memItemLeft" align="right" valign="top"><a id="a35cdd8469bd7fac50fedbb9519c06b0b" name="a35cdd8469bd7fac50fedbb9519c06b0b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TempFileGuard</b> (const <a class="el" href="classast_1_1fs__simple_1_1path.html">fs::path</a> &amp;<a class="el" href="#ae94ae68651f0e9460dc1c363457c6e6c">path</a>)</td></tr>
+<tr class="separator:a35cdd8469bd7fac50fedbb9519c06b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfca146ca858754dc9ec7eb701fa92f8" id="r_abfca146ca858754dc9ec7eb701fa92f8"><td class="memItemLeft" align="right" valign="top"><a id="abfca146ca858754dc9ec7eb701fa92f8" name="abfca146ca858754dc9ec7eb701fa92f8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TempFileGuard</b> (const std::string &amp;<a class="el" href="#ae94ae68651f0e9460dc1c363457c6e6c">path</a>)</td></tr>
+<tr class="separator:abfca146ca858754dc9ec7eb701fa92f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16c9089f3de0499546a7e335362d5226" id="r_a16c9089f3de0499546a7e335362d5226"><td class="memItemLeft" align="right" valign="top"><a id="a16c9089f3de0499546a7e335362d5226" name="a16c9089f3de0499546a7e335362d5226"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~TempFileGuard</b> ()</td></tr>
+<tr class="separator:a16c9089f3de0499546a7e335362d5226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86375d415401e8f631e2bc564f18ac7a" id="r_a86375d415401e8f631e2bc564f18ac7a"><td class="memItemLeft" align="right" valign="top"><a id="a86375d415401e8f631e2bc564f18ac7a" name="a86375d415401e8f631e2bc564f18ac7a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> ()</td></tr>
+<tr class="separator:a86375d415401e8f631e2bc564f18ac7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86c1d88176bdb2ec2e58e28ccf2a181b" id="r_a86c1d88176bdb2ec2e58e28ccf2a181b"><td class="memItemLeft" align="right" valign="top"><a id="a86c1d88176bdb2ec2e58e28ccf2a181b" name="a86c1d88176bdb2ec2e58e28ccf2a181b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>release</b> ()</td></tr>
+<tr class="separator:a86c1d88176bdb2ec2e58e28ccf2a181b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc94c31f001418aefee1e4a16ed342b0" id="r_abc94c31f001418aefee1e4a16ed342b0"><td class="memItemLeft" align="right" valign="top"><a id="abc94c31f001418aefee1e4a16ed342b0" name="abc94c31f001418aefee1e4a16ed342b0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isActive</b> () const</td></tr>
+<tr class="separator:abc94c31f001418aefee1e4a16ed342b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08763ced6b17868a4350547357ff8e72" id="r_a08763ced6b17868a4350547357ff8e72"><td class="memItemLeft" align="right" valign="top"><a id="a08763ced6b17868a4350547357ff8e72" name="a08763ced6b17868a4350547357ff8e72"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>exists</b> () const</td></tr>
+<tr class="separator:a08763ced6b17868a4350547357ff8e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae94ae68651f0e9460dc1c363457c6e6c" id="r_ae94ae68651f0e9460dc1c363457c6e6c"><td class="memItemLeft" align="right" valign="top"><a id="ae94ae68651f0e9460dc1c363457c6e6c" name="ae94ae68651f0e9460dc1c363457c6e6c"></a>
+<a class="el" href="classast_1_1fs__simple_1_1path.html">fs::path</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>path</b> ()</td></tr>
+<tr class="separator:ae94ae68651f0e9460dc1c363457c6e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeaf5b1856c9e23fbeb562d8592bcba4" id="r_aeeaf5b1856c9e23fbeb562d8592bcba4"><td class="memItemLeft" align="right" valign="top"><a id="aeeaf5b1856c9e23fbeb562d8592bcba4" name="aeeaf5b1856c9e23fbeb562d8592bcba4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const</td></tr>
+<tr class="separator:aeeaf5b1856c9e23fbeb562d8592bcba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:acf2fde6dcc529faf74bb6ddbfe8daebd" id="r_acf2fde6dcc529faf74bb6ddbfe8daebd"><td class="memItemLeft" align="right" valign="top"><a id="acf2fde6dcc529faf74bb6ddbfe8daebd" name="acf2fde6dcc529faf74bb6ddbfe8daebd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>A_DISABLE_COPY</b> (<a class="el" href="classast_1_1TempFileGuard.html">TempFileGuard</a>)</td></tr>
+<tr class="separator:acf2fde6dcc529faf74bb6ddbfe8daebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a3d9f428bb8d3c204e21e46bd24933ba3" id="r_a3d9f428bb8d3c204e21e46bd24933ba3"><td class="memItemLeft" align="right" valign="top"><a id="a3d9f428bb8d3c204e21e46bd24933ba3" name="a3d9f428bb8d3c204e21e46bd24933ba3"></a>
+<a class="el" href="classast_1_1fs__simple_1_1path.html">fs::path</a>&#160;</td><td class="memItemRight" valign="bottom"><b>path_</b> {}</td></tr>
+<tr class="separator:a3d9f428bb8d3c204e21e46bd24933ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>临时文件守卫 </p>
+<p>用于在其作用域结束时自动删除指定的临时文件，保证即使提前返回或抛出异常也能完成清理。 支持主动删除（remove()）、释放文件所有权（release()）以及移动转移所有权等语义。 以"路径是否为空"表示是否持有待删除的文件：为空即不删除任何文件。 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="adcf1b035b932df0b7d48fd76260469d8" name="adcf1b035b932df0b7d48fd76260469d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcf1b035b932df0b7d48fd76260469d8">&#9670;&#160;</a></span>TempFileGuard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::TempFileGuard::TempFileGuard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>构造并接管指定临时文件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>临时文件的路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/Util/<a class="el" href="TempFileGuard_8hpp_source.html">TempFileGuard.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1TempFileGuard.html">TempFileGuard</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1110,6 +1110,7 @@ var namespaceast =
     [ "TargeterSequence", "classast_1_1TargeterSequence.html", "classast_1_1TargeterSequence" ],
     [ "TarHeader", "structast_1_1TarHeader.html", null ],
     [ "TDBScale", "classast_1_1TDBScale.html", null ],
+    [ "TempFileGuard", "classast_1_1TempFileGuard.html", "classast_1_1TempFileGuard" ],
     [ "TerminationCondition", "classast_1_1TerminationCondition.html", "classast_1_1TerminationCondition" ],
     [ "TextMentionTermination", "classast_1_1TextMentionTermination.html", "classast_1_1TextMentionTermination" ],
     [ "ThirdBodyForce", "classast_1_1ThirdBodyForce.html", "classast_1_1ThirdBodyForce" ],

@@ -1,5 +1,7 @@
 var NAVTREEINDEX36 =
 {
+"classast_1_1MotionSimpleAscent.html#aab1490ee709d91433ef0e652aac7a6f8":[3,0,0,498,4],
+"classast_1_1MotionSimpleAscent.html#ab598b59df70f50b5e7deba0392a1e281":[2,0,0,500,0],
 "classast_1_1MotionSimpleAscent.html#ab598b59df70f50b5e7deba0392a1e281":[3,0,0,498,0],
 "classast_1_1MotionSimpleAscent.html#ad90758bb574b549d0c85353a54918719":[2,0,0,500,12],
 "classast_1_1MotionSimpleAscent.html#ad90758bb574b549d0c85353a54918719":[3,0,0,498,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX36 =
 "classast_1_1NotConstraint.html":[3,0,0,529],
 "classast_1_1NotConstraint.html#a7d7061162ae3e92d8f96d7aa4cbee7e8":[2,0,0,531,0],
 "classast_1_1NotConstraint.html#a7d7061162ae3e92d8f96d7aa4cbee7e8":[3,0,0,529,0],
-"classast_1_1NutationSeries.html":[2,0,0,535],
-"classast_1_1NutationSeries.html":[3,0,0,533],
-"classast_1_1NutationSeries.html#a17994116f8e00b8a84a08781b78546c2":[2,0,0,535,4]
+"classast_1_1NutationSeries.html":[2,0,0,535]
 };

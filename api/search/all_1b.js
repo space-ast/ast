@@ -26,8 +26,9 @@ var searchData=
   ['_7epilotsession_23',['~PilotSession',['../classast_1_1PilotSession.html#a314abf4ca09041b0a1d31431fce61014',1,'ast::PilotSession']]],
   ['_7esatellitedatabasequery_24',['~SatelliteDatabaseQuery',['../classast_1_1SatelliteDatabaseQuery.html#a32002edc72fa9bc5178caeb55e1f4f4d',1,'ast::SatelliteDatabaseQuery']]],
   ['_7escriptexecutor_25',['~ScriptExecutor',['../classast_1_1ScriptExecutor.html#a9b7c9b4fcf602ce32fd751929ce5e4a7',1,'ast::ScriptExecutor']]],
-  ['_7etimeintervallist_26',['~TimeIntervalList',['../classast_1_1TimeIntervalList.html#ae181da1b7d0bee14e15aadc0cdc2b8f8',1,'ast::TimeIntervalList']]],
-  ['_7etimelist_27',['~TimeList',['../classast_1_1TimeList.html#a1fde8cc229b7692e355f27a2b9aa0a9e',1,'ast::TimeList']]],
-  ['_7etledatabasequery_28',['~TLEDatabaseQuery',['../classast_1_1TLEDatabaseQuery.html#aac1b055e22a57d295f309c77c6c79d66',1,'ast::TLEDatabaseQuery']]],
-  ['_7euipilotconsole_29',['~UiPilotConsole',['../classast_1_1UiPilotConsole.html#a337a1089bf1a6246fe28585bbd380d65',1,'ast::UiPilotConsole']]]
+  ['_7etempfileguard_26',['~TempFileGuard',['../classast_1_1TempFileGuard.html#a16c9089f3de0499546a7e335362d5226',1,'ast::TempFileGuard']]],
+  ['_7etimeintervallist_27',['~TimeIntervalList',['../classast_1_1TimeIntervalList.html#ae181da1b7d0bee14e15aadc0cdc2b8f8',1,'ast::TimeIntervalList']]],
+  ['_7etimelist_28',['~TimeList',['../classast_1_1TimeList.html#a1fde8cc229b7692e355f27a2b9aa0a9e',1,'ast::TimeList']]],
+  ['_7etledatabasequery_29',['~TLEDatabaseQuery',['../classast_1_1TLEDatabaseQuery.html#aac1b055e22a57d295f309c77c6c79d66',1,'ast::TLEDatabaseQuery']]],
+  ['_7euipilotconsole_30',['~UiPilotConsole',['../classast_1_1UiPilotConsole.html#a337a1089bf1a6246fe28585bbd380d65',1,'ast::UiPilotConsole']]]
 ];

@@ -1,5 +1,7 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1ScStateCalcLatitudeRate.html":[3,0,0,755],
+"classast_1_1ScStateCalcLightSpeed.html":[2,0,0,758],
 "classast_1_1ScStateCalcLightSpeed.html":[3,0,0,756],
 "classast_1_1ScStateCalcLocalAppSolLon.html":[2,0,0,759],
 "classast_1_1ScStateCalcLocalAppSolLon.html":[3,0,0,757],
@@ -247,7 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1ScaleUnitRep.html#adcc3eb25c7a0f7b5081e3ef54fe248ce":[3,0,0,657,0],
 "classast_1_1Scanner.html":[0,4,32],
 "classast_1_1Scanner.html#a33ee5119251b068aaeb54126c00627dc":[0,4,32,2],
-"classast_1_1Scanner.html#a690a6d62d7dee8ea99062ac7aa2315b4":[0,4,32,3],
-"classast_1_1Scanner.html#ad8a65223b13e3eb057f7507a9b3619dd":[0,4,32,1],
-"classast_1_1Scanner.html#adb8c3749b2eed37db59e6d6fcc7d62fa":[0,4,32,0]
+"classast_1_1Scanner.html#a690a6d62d7dee8ea99062ac7aa2315b4":[0,4,32,3]
 };

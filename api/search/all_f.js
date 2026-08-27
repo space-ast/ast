@@ -123,7 +123,7 @@ var searchData=
   ['openai_2ecpp_120',['OpenAI.cpp',['../OpenAI_8cpp.html',1,'']]],
   ['openai_2ehpp_121',['OpenAI.hpp',['../OpenAI_8hpp.html',1,'']]],
   ['openpropertyinspector_122',['openPropertyInspector',['../classast_1_1UiFigure.html#a47c33decbf638d445783752c096e4b97',1,'ast::UiFigure']]],
-  ['operator_20bool_123',['operator bool',['../classast_1_1JsonValue.html#abd2d4b40020aee43e6c8e70e894b3b4b',1,'ast::JsonValue::operator bool()'],['../classast_1_1WorkingDirectory.html#ab89e649adb74660ad1cfe38975e12b56',1,'ast::WorkingDirectory::operator bool()']]],
+  ['operator_20bool_123',['operator bool',['../classast_1_1JsonValue.html#abd2d4b40020aee43e6c8e70e894b3b4b',1,'ast::JsonValue::operator bool()'],['../classast_1_1TempFileGuard.html#aeeaf5b1856c9e23fbeb562d8592bcba4',1,'ast::TempFileGuard::operator bool()'],['../classast_1_1WorkingDirectory.html#ab89e649adb74660ad1cfe38975e12b56',1,'ast::WorkingDirectory::operator bool()']]],
   ['operator_20container_124',['operator Container',['../classast_1_1strings__internal_1_1Splitter.html#a854c828dcbd9c509b041ef6577ea5c14',1,'ast::strings_internal::Splitter']]],
   ['operator_20double_125',['operator double',['../classast_1_1LongDuration.html#a9dc0f6e9af96d691ade5aa49e935dfdc',1,'ast::LongDuration::operator double()'],['../classast_1_1DaySecDuration.html#adef21c79a818221d023699e9872fddd3',1,'ast::DaySecDuration::operator double()'],['../classast_1_1JsonValue.html#a3546e9a009a5e13778eff416f2fb27a6',1,'ast::JsonValue::operator double()']]],
   ['operator_20edimension_126',['operator EDimension',['../classast_1_1Dimension.html#a57acfc3f10b516dfe46450011d033848',1,'ast::Dimension']]],
