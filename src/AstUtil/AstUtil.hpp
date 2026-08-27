@@ -160,6 +160,7 @@
 #include "AstUtil/StringUtil.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/Struct.hpp"
+#include "AstUtil/TempFileGuard.hpp"
 #include "AstUtil/Terminal.hpp"
 #include "AstUtil/Type.hpp"
 #include "AstUtil/TypeTraits.hpp"

@@ -248,6 +248,7 @@
 %include "../AstMath/Interpolator/Interpolator.hpp"
 %include "../AstUtil/Container/Container.hpp"
 %include "../AstUtil/Archiver/ArchiverUtils.hpp"
+%include "../AstUtil/Util/TempFileGuard.hpp"
 %include "../AstUtil/Platform/PosixExt.hpp"
 %include "../AstCore/Time/TimeSystem.hpp"
 %include "../AstScript/Operator/Predefined/IteratePredefined.hpp"
