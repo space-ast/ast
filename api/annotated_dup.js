@@ -499,6 +499,7 @@ var annotated_dup =
       [ "LandingSiteCalcSunAzimuth", "classast_1_1LandingSiteCalcSunAzimuth.html", "classast_1_1LandingSiteCalcSunAzimuth" ],
       [ "LandingSiteCalcSunElevation", "classast_1_1LandingSiteCalcSunElevation.html", "classast_1_1LandingSiteCalcSunElevation" ],
       [ "LandingSiteCalculation", "classast_1_1LandingSiteCalculation.html", "classast_1_1LandingSiteCalculation" ],
+      [ "LatLon", "classast_1_1LatLon.html", "classast_1_1LatLon" ],
       [ "LatLonAlt", "classast_1_1LatLonAlt.html", "classast_1_1LatLonAlt" ],
       [ "LaunchVehicle", "classast_1_1LaunchVehicle.html", null ],
       [ "LeapSecond", "classast_1_1LeapSecond.html", "classast_1_1LeapSecond" ],

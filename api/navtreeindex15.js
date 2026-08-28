@@ -1,5 +1,7 @@
 var NAVTREEINDEX15 =
 {
+"Spacecraft_8hpp_source.html":[4,0,0,19,3,57],
+"Span_8cpp.html":[4,0,0,27,2,5],
 "Span_8hpp.html":[4,0,0,27,2,6],
 "Span_8hpp_source.html":[4,0,0,27,2,6],
 "Sparse_8hpp.html":[4,0,0,12,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX15 =
 "TLE_8cpp.html#a7e0d3d52b74885681d0322fd3f66196d":[4,0,0,6,12,2,3,1],
 "TLE_8cpp.html#afb78dd9444f7e4df2a0cf4aa541565b2":[4,0,0,6,12,2,3,2],
 "TLE_8hpp.html":[4,0,0,6,12,2,4],
-"TLE_8hpp.html#a3eac4a84cadb63fcc1763990054fd4a3":[4,0,0,6,12,2,4,2],
-"TLE_8hpp.html#a7e0d3d52b74885681d0322fd3f66196d":[4,0,0,6,12,2,4,3],
-"TLE_8hpp.html#af0aa1c9c6e26b6b71443e9be3f152374":[4,0,0,6,12,2,4,1]
+"TLE_8hpp.html#a3eac4a84cadb63fcc1763990054fd4a3":[4,0,0,6,12,2,4,2]
 };

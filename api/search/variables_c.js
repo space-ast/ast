@@ -28,7 +28,7 @@ var searchData=
   ['locidw_25',['locidw',['../structast_1_1DAF__FileRecord.html#a6c047729bf36b5c2785889738a57c6e6',1,'ast::DAF_FileRecord']]],
   ['locifn_26',['locifn',['../structast_1_1DAF__FileRecord.html#a179eb0068e27670d98dba46f32c5d39b',1,'ast::DAF_FileRecord']]],
   ['lod_27',['lod',['../structast_1_1EOP_1_1Entry.html#acc126454814cd7cba70acd5c9c1e8beb',1,'ast::EOP::Entry']]],
-  ['lon_5f_28',['lon_',['../classast_1_1LatLonAlt.html#a7fa10bbee112efd2c4d00329d11015e0',1,'ast::LatLonAlt']]],
+  ['lon_5f_28',['lon_',['../classast_1_1LatLon.html#a9ac020f95f3e975fdef9e2f95ed451cc',1,'ast::LatLon::lon_'],['../classast_1_1LatLonAlt.html#a7fa10bbee112efd2c4d00329d11015e0',1,'ast::LatLonAlt::lon_']]],
   ['lowaltatmdensitymodel_5f_29',['lowAltAtmDensityModel_',['../classast_1_1DragForce.html#a4e4465b25da690f9040bc3aa06a8ccfc',1,'ast::DragForce']]],
   ['lp_5f_30',['lP_',['../classast_1_1FundamentalArguments.html#aa88e43d2a9c3cafdc85e1409d44a8790',1,'ast::FundamentalArguments']]],
   ['lsa_5f_31',['lSa_',['../classast_1_1FundamentalArguments.html#a2141517bf8f0e7a5ba6dcaba20c0b520',1,'ast::FundamentalArguments']]],

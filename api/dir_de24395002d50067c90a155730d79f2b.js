@@ -4,5 +4,6 @@ var dir_de24395002d50067c90a155730d79f2b =
     [ "GeoCoordinate.cpp", "GeoCoordinate_8cpp.html", "GeoCoordinate_8cpp" ],
     [ "GeoCoordinate.hpp", "GeoCoordinate_8hpp.html", "GeoCoordinate_8hpp" ],
     [ "GeodeticPoint.hpp", "GeodeticPoint_8hpp.html", "GeodeticPoint_8hpp" ],
+    [ "LatLon.hpp", "LatLon_8hpp.html", "LatLon_8hpp" ],
     [ "LatLonAlt.hpp", "LatLonAlt_8hpp.html", "LatLonAlt_8hpp" ]
 ];

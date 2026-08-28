@@ -187,8 +187,10 @@ var NAVTREEINDEX7 =
 "LandingSite_8cpp.html":[4,0,0,6,11,3,13],
 "LandingSite_8hpp.html":[4,0,0,6,11,3,14],
 "LandingSite_8hpp_source.html":[4,0,0,6,11,3,14],
-"LatLonAlt_8hpp.html":[4,0,0,6,10,4,1,4],
-"LatLonAlt_8hpp_source.html":[4,0,0,6,10,4,1,4],
+"LatLonAlt_8hpp.html":[4,0,0,6,10,4,1,5],
+"LatLonAlt_8hpp_source.html":[4,0,0,6,10,4,1,5],
+"LatLon_8hpp.html":[4,0,0,6,10,4,1,4],
+"LatLon_8hpp_source.html":[4,0,0,6,10,4,1,4],
 "LaunchVehicle_8cpp.html":[4,0,0,19,3,30],
 "LaunchVehicle_8hpp.html":[4,0,0,19,3,31],
 "LaunchVehicle_8hpp_source.html":[4,0,0,19,3,31],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "Literals_8hpp.html#a567011a49a876f4c283a498d67f3c55d":[4,0,0,27,11,8,14],
 "Literals_8hpp.html#a58eb1f19f26b945026890176feb8da73":[4,0,0,27,11,8,56],
 "Literals_8hpp.html#a5ac22631ed69516e83cbe15f8e160959":[4,0,0,27,11,8,39],
-"Literals_8hpp.html#a637f6d2bc263cb33e423f4a2a15df982":[4,0,0,27,11,8,63],
-"Literals_8hpp.html#a63ac7f25fc03b609269712c56d6080c5":[4,0,0,27,11,8,21],
-"Literals_8hpp.html#a681d0c30317193d2cc3fc33eb5a1c85d":[4,0,0,27,11,8,40]
+"Literals_8hpp.html#a637f6d2bc263cb33e423f4a2a15df982":[4,0,0,27,11,8,63]
 };

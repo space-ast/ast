@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"Literals_8hpp.html#a63ac7f25fc03b609269712c56d6080c5":[4,0,0,27,11,8,21],
+"Literals_8hpp.html#a681d0c30317193d2cc3fc33eb5a1c85d":[4,0,0,27,11,8,40],
 "Literals_8hpp.html#a6f45c99c232047cd88b0a8f9ca892387":[4,0,0,27,11,8,49],
 "Literals_8hpp.html#a78095a424fd22108911a0d85ae56d13f":[4,0,0,27,11,8,16],
 "Literals_8hpp.html#a7c87971e8a5754ffcd5d546409239471":[4,0,0,27,11,8,55],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "MotionGPS_8hpp_source.html":[4,0,0,19,2,6],
 "MotionGreatArc_8cpp.html":[4,0,0,19,2,7],
 "MotionGreatArc_8hpp.html":[4,0,0,19,2,8],
-"MotionGreatArc_8hpp_source.html":[4,0,0,19,2,8],
-"MotionHPOPSax_8cpp.html":[4,0,0,11,5,27],
-"MotionHPOPSax_8hpp.html":[4,0,0,11,5,28]
+"MotionGreatArc_8hpp_source.html":[4,0,0,19,2,8]
 };

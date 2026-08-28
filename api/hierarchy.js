@@ -554,6 +554,7 @@ var hierarchy =
     ] ],
     [ "ast::KernelData", "unionast_1_1KernelData.html", null ],
     [ "ast::KernelPool", "classast_1_1KernelPool.html", null ],
+    [ "ast::LatLon", "classast_1_1LatLon.html", null ],
     [ "ast::LatLonAlt", "classast_1_1LatLonAlt.html", null ],
     [ "ast::LeapSecond", "classast_1_1LeapSecond.html", null ],
     [ "ast::Lexer", "classast_1_1Lexer.html", null ],

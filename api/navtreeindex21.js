@@ -1,5 +1,7 @@
 var NAVTREEINDEX21 =
 {
+"classast_1_1BlockRelationalOperator.html":[2,0,0,85],
+"classast_1_1BlockRelationalOperator.html":[3,0,0,83],
 "classast_1_1BlockRelationalOperator.html#a6f1a1a42f39ec9b5b8f15c1ae51b52ec":[2,0,0,85,0],
 "classast_1_1BlockRelationalOperator.html#a6f1a1a42f39ec9b5b8f15c1ae51b52ec":[3,0,0,83,0],
 "classast_1_1BlockRelationalOperator.html#ad96654f5bf43d8b438a470aff12682a5":[2,0,0,85,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX21 =
 "classast_1_1BrenthSolver.html#a10e51810834979c771e146426d6e86f3":[0,3,3,2,2],
 "classast_1_1BrenthSolver.html#a5daaf70ab12d4f452892bb4dd66e2539":[0,3,3,2,1],
 "classast_1_1BrenthSolver.html#a85ed3aeddc5f0eb1a5851a1e5b3dce1c":[0,3,3,2,0],
-"classast_1_1BrenthSolver.html#a9ce01f876fde324f992b2b1ac1d9caeb":[0,3,3,2,3],
-"classast_1_1BrentqSolver.html":[0,3,3,1],
-"classast_1_1BrentqSolver.html#a0b2c399a057a12d30e61768e5304390d":[0,3,3,1,1]
+"classast_1_1BrenthSolver.html#a9ce01f876fde324f992b2b1ac1d9caeb":[0,3,3,2,3]
 };

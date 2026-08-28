@@ -1,5 +1,7 @@
 var NAVTREEINDEX17 =
 {
+"UiEventDetector_8hpp_source.html":[4,0,0,10,9,5],
+"UiEventInterval_8cpp.html":[4,0,0,10,4,8],
 "UiEventInterval_8hpp.html":[4,0,0,10,4,9],
 "UiEventInterval_8hpp_source.html":[4,0,0,10,4,9],
 "UiEventTime_8hpp_source.html":[4,0,0,10,4,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX17 =
 "Unit_8hpp_source.html":[4,0,0,27,7,7],
 "UserProxyAgent_8cpp.html":[4,0,0,0,0,7],
 "UserProxyAgent_8hpp.html":[4,0,0,0,0,8],
-"UserProxyAgent_8hpp_source.html":[4,0,0,0,0,8],
-"Util_8cpp.html":[4,0,0,12,8,2],
-"Util_8cpp.html#a1a1fafa43b88e769e2a1975a243d928e":[4,0,0,12,8,2,1]
+"UserProxyAgent_8hpp_source.html":[4,0,0,0,0,8]
 };
