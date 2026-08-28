@@ -282,9 +282,9 @@ errc_t EclipseEventFinder::find(const TimeInterval& interval, std::vector<Eclips
         }
     }
 
-    if (stepSize_ <= 0.0 || interval.duration() <= 0.0)
+    if (stepSize_ <= 0.0 || interval.isEmpty())
     {
-        aError("invalid step size or interval");
+        aError("invalid step size or empty interval");
         return eErrorInvalidParam;
     }
 

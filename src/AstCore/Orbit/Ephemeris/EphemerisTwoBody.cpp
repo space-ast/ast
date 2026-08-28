@@ -75,7 +75,7 @@ errc_t EphemerisTwoBody::getPosVel(const TimePoint &tp, Vector3d &pos, Vector3d 
 
 errc_t EphemerisTwoBody::getInterval(TimeInterval &interval) const
 {
-    interval.setInfinite();
+    interval.setWhole();
     return eNoError;
 }
 

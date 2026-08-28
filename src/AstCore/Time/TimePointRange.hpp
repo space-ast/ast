@@ -22,8 +22,10 @@
 
 #include "AstGlobal.h"
 #include "TimePoint.hpp"
+#include "AstUtil/Math.hpp"
 #include <iterator>   // for std::input_iterator_tag
 #include <cstddef>    // for size_t / ptrdiff_t
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
@@ -45,8 +47,23 @@ public:
     /// @param stop 结束时间点（强制并入）
     /// @param step 步长（秒）
     /// @param n 采样点数
-    TimePointRange(TimePoint start, TimePoint stop, double step, size_t n)
-        : start_(start), stop_(stop), step_(step), n_(n) {}
+    TimePointRange(const TimePoint& start, const TimePoint& stop, double step, size_t n)
+        : start_(start)
+        , stop_(stop)
+        , step_(step)
+        , n_(n) 
+    {}
+
+    /// @brief 构造时间点采样范围
+    /// @param start 起始时间点
+    /// @param stop 结束时间点（强制并入）
+    /// @param step 步长（秒）
+    TimePointRange(const TimePoint& start, const TimePoint& stop, double step)
+        : start_(start)
+        , stop_(stop)
+        , step_(step)
+        , n_(aDiscretizedCount(stop - start, step))
+    {}
 
     class iterator
     {
@@ -83,6 +100,18 @@ public:
     iterator begin() const { return iterator(this, 0); }
     iterator end()   const { return iterator(this, n_); }
     size_t size() const { return n_; }
+
+    /// @brief 下标访问：返回第 i 个采样时间点（末点返回 stop_）
+    /// @param i 下标（0 <= i < size()）
+    /// @return 第 i 个采样点的 TimePoint
+    TimePoint operator[](size_t i) const
+    {
+        return (i == n_ - 1) ? stop_ : start_ + step_ * i;
+    }
+
+    const TimePoint& start() const {return start_;}
+    const TimePoint& stop() const{return stop_;}
+    double step() const {return step_;}
 
 private:
     TimePoint start_;     ///< 起始时间点

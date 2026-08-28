@@ -120,7 +120,7 @@ errc_t aSpiceGetInterval(StringView filepath, int target, TimeInterval &timeInte
     }
     const std::vector<SPK_Descriptor>& spkDescriptors = parser.getDescriptors();
     bool found = false;
-    Interval interval = Interval::Zero();
+    Interval interval = Interval::Empty();
     for(int i = (int)spkDescriptors.size() - 1; i >= 0; i--)
     {
         const auto& desc = spkDescriptors[i];
@@ -143,10 +143,18 @@ errc_t aSpiceGetInterval(StringView filepath, int target, TimeInterval &timeInte
             found = true;
         }
     }
+    // 未找到任何匹配 target 的描述符：不能把空区间当作有效覆盖返回成功，
+    // 否则调用方会把「缺失覆盖」误判为「成功查表」。
+    if (!found)
+    {
+        aError("SPK file '%.*s' has no descriptor for target %d",
+               (int)filepath.size(), filepath.data(), target);
+        return eErrorNotFound;
+    }
     TimePoint startTime = aSpiceEtToTimePoint(interval.start());
     TimePoint endTime = aSpiceEtToTimePoint(interval.stop());
     timeInterval.setBounds(startTime, endTime);
-    
+
     return eNoError;
 }
 

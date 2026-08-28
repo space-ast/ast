@@ -20,6 +20,9 @@
 #include "AstSPICE/AstSPICE.hpp"
 #include "AstUtil/AstUtil.hpp"
 #include "AstWeather/AstWeather.hpp"
+// 屏蔽 Windows 头文件中的 min/max 宏，否则会破坏 ast::propagate_nan::min / ::max 的封装
+#undef min
+#undef max
 %}
 
 %include "std_vector.i"

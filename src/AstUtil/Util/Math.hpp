@@ -24,8 +24,11 @@
 #include "AstUtil/MathDegree.hpp"
 #include "AstUtil/Constants.h"
 #include <cmath>
+#include <cstddef>      // for size_t
 #include <cassert>
 #include <algorithm>
+#include <type_traits>
+#include <limits>       // for std::numeric_limits<double>::quiet_NaN()
 
 AST_NAMESPACE_BEGIN
 
@@ -95,6 +98,17 @@ template<typename Scalar>
 Scalar aMin(Scalar a, Scalar b)
 {
     return a < b ? a : b;
+}
+
+/// @brief 计算闭区间 [0, span] 按 step 步长采样（含两端点）的采样点数
+/// @param span 区间长度（即 stop - start；需 >= 0）
+/// @param step 步长（秒；需 > 0）
+/// @return ceil(span / step) + 1；当 step <= 0 或 span < 0 时返回 0，避免非法步长产生巨大的采样数
+A_ALWAYS_INLINE size_t aDiscretizedCount(double span, double step)
+{
+    if (step <= 0.0 || span < 0.0)
+        return 0;
+    return static_cast<size_t>(std::ceil(span / step)) + 1;
 }
 
 using std::max;
@@ -198,6 +212,108 @@ A_ALWAYS_INLINE double aNormalizeAngleNegPiToPi(double angle)
 A_ALWAYS_INLINE double aNormalizeAngleNeg2PiTo0(double angle)
 {
     return aNormalizeAngleStart(angle, -kTwoPI);
+}
+
+
+/// @brief 传播 NaN 值的数学工具函数
+namespace propagate_nan
+{
+    /// @brief 计算两个数中的较小值(传播 NaN)
+    A_ALWAYS_INLINE double (min)(double a, double b)
+    {
+        if(a <= b)
+            return a;
+        if(b <= a)
+            return b;
+        return std::numeric_limits<double>::quiet_NaN();
+    }
+
+    /// @brief 计算两个数中的较大值(传播 NaN)
+    A_ALWAYS_INLINE double (max)(double a, double b)
+    {
+        if(a >= b)
+            return a;
+        if(b >= a)
+            return b;
+        return std::numeric_limits<double>::quiet_NaN();
+    }
+
+    // SWIG 无法解析 has_minus 中的 decltype SFINAE 检测，以下内部模板暂不暴露给 SWIG
+#ifndef SWIG
+    // -------------------- 类型标记：类型是否允许使用减法，需要用户通过类型特化 allow_efficient_minus 来明确允许 --------------------
+    template <typename T>
+    struct allow_efficient_minus : std::false_type {};
+
+    // -------------------- 工具：检测是否存在 operator- --------------------
+    template <typename T>
+    struct has_minus
+    {
+        template <typename U>
+        static auto test(int) -> decltype(std::declval<U>() - std::declval<U>(), std::true_type());
+        template <typename U>
+        static std::false_type test(...);
+
+        static constexpr bool value = decltype(test<T>(0))::value;
+    };
+
+    // -------------------- 类型标记：是否使用减法 --------------------
+    template <typename T>
+    struct use_efficient_minus
+    {
+        static constexpr bool value = allow_efficient_minus<T>::value && has_minus<T>::value;
+    };
+
+    template<typename T>
+    typename std::enable_if<!use_efficient_minus<T>::value,const T&>::type 
+    (min)(const T& a, const T& b)
+    {
+        // 不支持 operator- 的类型，直接比较大小
+        if(a <= b)
+            return a;
+        if(b <= a)
+            return b;
+        if(a != a)
+            return a;
+        return b;
+    }
+    template <typename T>
+    typename std::enable_if<use_efficient_minus<T>::value, const T&>::type 
+    (min)(const T& a, const T& b) {
+        // 支持 operator- 的类型，使用减法比较大小
+        auto diff = a - b;         // 注意：这里会构造临时对象
+        if (diff <= 0) return a;   // a <= b
+        if (diff >= 0) return b;   // a >= b
+        if(a != a)
+            return a;
+        return b;
+    }
+    
+    template<typename T>
+    typename std::enable_if<!use_efficient_minus<T>::value,const T&>::type 
+    (max)(const T& a, const T& b)
+    {
+        // 不支持 operator- 的类型，直接比较大小
+        if(a >= b)
+            return a;
+        if(b >= a)
+            return b;
+        if(a != a)
+            return a;
+        return b;
+    }
+    template <typename T>
+    typename std::enable_if<use_efficient_minus<T>::value, const T&>::type 
+    (max)(const T& a, const T& b) 
+    {
+        // 支持 operator- 的类型，使用减法比较大小
+        auto diff = a - b;        // 注意：这里会构造临时对象
+        if (diff >= 0) return a;   // a >= b
+        if (diff <= 0) return b;   // a <= b
+        if(a != a)
+            return a;
+        return b;
+    }
+#endif  // !SWIG
 }
 
 /*! @} */

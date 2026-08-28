@@ -37,6 +37,16 @@ struct DAF_SummaryRecords;
 struct DAF_NameRecords;
 struct DAF_ElementRecords;
 
+/// @brief 检查指定路径是否为有效SPICE双精度数组文件（DAF）
+/// @param filepath 文件路径
+/// @return 如果文件有效且包含有效数据，则返回true；否则返回false
+AST_UTIL_CAPI bool aIsValidDAFFile(StringView filepath);
+
+/// @brief 检查指定路径是否为有效SPK星历文件
+/// @param filepath 文件路径
+/// @return 如果文件有效且包含有效数据，则返回true；否则返回false
+AST_UTIL_CAPI bool aIsValidSPKFile(StringView filepath);
+
 
 /// @brief SPICE 双精度数组文件解析器 DAF（Double Precision Array File，双精度数组文件）
 /// @todo 在读取数据时需要处理数据的大小端问题

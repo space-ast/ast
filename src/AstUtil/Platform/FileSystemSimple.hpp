@@ -306,6 +306,8 @@ namespace fs_simple
     AST_UTIL_API bool exists(const path& p);
     AST_UTIL_API bool exists(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API uintmax_t file_size(const path& p);
+    AST_UTIL_API bool is_empty(const path& p);
+    AST_UTIL_API bool is_empty(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API file_status status(const path& p) noexcept;
     AST_UTIL_API file_status status(const path& p, std::error_code& ec) noexcept;
 
@@ -329,7 +331,7 @@ namespace fs_simple
     AST_UTIL_API bool rename(const path& old_p, const path& new_p) noexcept;
 
     // 目录迭代器相关
-    inline directory_iterator begin(directory_iterator iter) noexcept
+    inline directory_iterator begin(const directory_iterator& iter) noexcept
     {
         return iter;
     }

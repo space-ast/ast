@@ -161,7 +161,7 @@ errc_t SGP4::getInterval(TimeInterval &interval) const
 {
     // SGP4 理论上可在任意时间调用（精度随远离历元而降低）
     // 返回无限区间
-    interval.setInfinite();
+    interval.setWhole();
     return eNoError;
 }
 

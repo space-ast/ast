@@ -19,6 +19,7 @@
 
 #include "ast/Interval.hpp"
 #include "ast/Test.h"
+#include <limits>
 
 AST_USING_NAMESPACE
 
@@ -78,10 +79,10 @@ TEST(Interval, Discretize)
         EXPECT_EQ(interval.discretize(-1.0).size(), 0u);
     }
 
-    // 零时长区间 → 空范围
+    // 点区间（start == stop）→ 单节点
     {
         Interval interval{5.0, 5.0};
-        EXPECT_EQ(interval.discretize(600.0).size(), 0u);
+        EXPECT_EQ(interval.discretize(600.0).size(), 1u);
     }
 }
 
@@ -112,10 +113,10 @@ TEST(Interval, DiscretizedCount)
         EXPECT_EQ(interval.discretizedCount(-1.0), 0u);
     }
 
-    // 零时长区间 → 0
+    // 点区间（start == stop）→ 1
     {
         Interval interval{5.0, 5.0};
-        EXPECT_EQ(interval.discretizedCount(600.0), 0u);
+        EXPECT_EQ(interval.discretizedCount(600.0), 1u);
     }
 
     // 数量与 discretize 产出的 range 一致
@@ -144,6 +145,101 @@ TEST(Interval, DiscretizeIterator)
     EXPECT_EQ(count, 3u);
     EXPECT_NEAR(first, 0.0, 1e-9);
     EXPECT_NEAR(last, 3600.0, 1e-9);
+}
+
+TEST(Interval, Predicates)
+{
+    // 有效区间
+    Interval valid{0.0, 10.0};
+    EXPECT_TRUE(valid.isValid());
+    EXPECT_TRUE(valid.isNonEmpty());
+    EXPECT_FALSE(valid.isEmpty());
+    EXPECT_FALSE(valid.isPoint());
+    EXPECT_FALSE(valid.isDegenerate());
+
+    // 点区间（start == stop，非空，含单瞬时）
+    Interval point{5.0, 5.0};
+    EXPECT_TRUE(point.isValid());
+    EXPECT_TRUE(point.isNonEmpty());
+    EXPECT_FALSE(point.isEmpty());
+    EXPECT_TRUE(point.isPoint());
+    EXPECT_TRUE(point.isDegenerate());
+    EXPECT_TRUE(point.contains(5.0));
+    EXPECT_FALSE(point.contains(4.999));
+
+    // 反向区间（start > stop，空）
+    Interval reversed{10.0, 0.0};
+    EXPECT_FALSE(reversed.isValid());
+    EXPECT_FALSE(reversed.isNonEmpty());
+    EXPECT_TRUE(reversed.isEmpty());
+    EXPECT_FALSE(reversed.isPoint());
+    EXPECT_FALSE(reversed.contains(5.0));
+    EXPECT_FALSE(reversed.contains(0.0));
+
+    // 规范空哨兵 {+∞, -∞}
+    Interval empty = Interval::Empty();
+    EXPECT_TRUE(empty.isEmpty());
+    EXPECT_FALSE(empty.isValid());
+    EXPECT_FALSE(empty.isPoint());
+    EXPECT_FALSE(empty.contains(0.0));
+    // 空哨兵与任意有效区间并集 = 该区间（空为并集单位元）
+    EXPECT_DOUBLE_EQ(empty.united(valid).start(), 0.0);
+    EXPECT_DOUBLE_EQ(empty.united(valid).stop(), 10.0);
+
+    // NaN 边界（部分序）→ 视为空
+    Interval nanInterval{std::numeric_limits<double>::quiet_NaN(), 5.0};
+    EXPECT_TRUE(nanInterval.isEmpty());
+    EXPECT_FALSE(nanInterval.isValid());
+    EXPECT_FALSE(nanInterval.isPoint());
+    EXPECT_FALSE(nanInterval.contains(3.0));
+}
+
+TEST(Interval, Intersect)
+{
+    // 重叠 → 有效交集
+    {
+        Interval a{0.0, 10.0}, b{5.0, 15.0};
+        auto r = a.intersected(b);
+        EXPECT_FALSE(r.isEmpty());
+        EXPECT_DOUBLE_EQ(r.start(), 5.0);
+        EXPECT_DOUBLE_EQ(r.stop(), 10.0);
+        EXPECT_TRUE(a.intersects(b));
+    }
+
+    // 相切 → 点区间（非空），与 intersects 一致
+    {
+        Interval a{0.0, 10.0}, b{10.0, 20.0};
+        auto r = a.intersected(b);
+        EXPECT_FALSE(r.isEmpty());
+        EXPECT_TRUE(r.isPoint());
+        EXPECT_DOUBLE_EQ(r.start(), 10.0);
+        EXPECT_TRUE(a.intersects(b));
+    }
+
+    // 不相交 → 规范空区间；与 intersects 一致
+    {
+        Interval a{0.0, 10.0}, b{20.0, 30.0};
+        auto r = a.intersected(b);
+        EXPECT_TRUE(r.isEmpty());
+        EXPECT_FALSE(a.intersects(b));
+    }
+
+    // 原地 intersect
+    {
+        Interval a{0.0, 10.0};
+        a.intersect(Interval{20.0, 30.0});
+        EXPECT_TRUE(a.isEmpty());
+    }
+
+    // NaN 边界（部分序）→ 交集为空，与 intersects 一致
+    {
+        Interval a{0.0, 10.0};
+        Interval nanInterval{std::numeric_limits<double>::quiet_NaN(), 5.0};
+        EXPECT_TRUE(a.intersected(nanInterval).isEmpty());
+        EXPECT_FALSE(a.intersects(nanInterval));
+        a.intersect(nanInterval);
+        EXPECT_TRUE(a.isEmpty());
+    }
 }
 
 GTEST_MAIN()

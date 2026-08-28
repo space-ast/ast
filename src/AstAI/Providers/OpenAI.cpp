@@ -61,7 +61,6 @@ errc_t OpenAI::chatStream(const JsonValue& request,
     errc_t error = aNetworkRequestStream(networkRequest, sseParser);
     if (error != 0)
     {
-        handler.onError("network request failed, error code: " + std::to_string(error));
         return error;
     }
 

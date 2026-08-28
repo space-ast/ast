@@ -21,8 +21,10 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/Math.hpp"
 #include <iterator>   // for std::input_iterator_tag
 #include <cstddef>    // for size_t / ptrdiff_t
+#include <cmath>      // for std::ceil
 
 AST_NAMESPACE_BEGIN
 
@@ -46,7 +48,12 @@ public:
     /// @param step 步长（秒）
     /// @param n 采样点数
     DoubleRange(double start, double stop, double step, size_t n)
-        : start_(start), stop_(stop), step_(step), n_(n) {}
+        : start_(start), stop_(stop), step_(step), n_(n) 
+    {}
+
+    DoubleRange(double start, double stop, double step)
+        : start_(start), stop_(stop), step_(step), n_(aDiscretizedCount(stop - start, step))
+    {}
 
     class iterator
     {
@@ -83,6 +90,18 @@ public:
     iterator begin() const { return iterator(this, 0); }
     iterator end()   const { return iterator(this, n_); }
     size_t size() const { return n_; }
+
+    /// @brief 下标访问：返回第 i 个采样值（末点返回 stop_）
+    /// @param i 下标（0 <= i < size()）
+    /// @return 第 i 个采样点的 double 值
+    double operator[](size_t i) const
+    {
+        return (i == n_ - 1) ? stop_ : start_ + step_ * i;
+    }
+
+    double start() const {return start_;}
+    double stop() const {return stop_;}
+    double step() const {return step_;}
 
 private:
     double start_;      ///< 起始秒偏移

@@ -178,6 +178,12 @@ AST_UTIL_CAPI errc_t aFormatDouble(double value, std::string& str, int precision
 AST_UTIL_CAPI errc_t aFormatColor(Color value, std::string& str);
 
 
+/// @brief 将字节数格式化为易读字符串，如 "5.6 MB"
+/// @param bytes 输入字节数
+/// @return 格式化后的字符串
+AST_UTIL_API std::string aFormatBytes(uint64_t bytes);
+
+
 // alias
 // 下面是内联函数的实现
 

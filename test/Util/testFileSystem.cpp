@@ -217,6 +217,73 @@ TEST(SimpleFileSystem, FileOperations) {
     }
 }
 
+// 测试 is_empty（对标 std::filesystem::is_empty）
+TEST(SimpleFileSystem, IsEmpty) {
+    namespace fs = _AST fs_simple;
+
+    fs::path test_dir = "is_empty_test_dir";
+    fs::path empty_file = test_dir / "empty.txt";
+    fs::path non_empty_file = test_dir / "data.txt";
+
+    if (fs::exists(test_dir)) {
+        fs::remove_all(test_dir);
+    }
+    fs::create_directories(test_dir);
+
+    // 空常规文件 → true
+    {
+        std::ofstream file(empty_file.string());
+        // 不写入任何内容，保持空文件
+        file.close();
+    }
+    EXPECT_TRUE(fs::exists(empty_file));
+    EXPECT_TRUE(fs::is_empty(empty_file));
+
+    // 非空常规文件 → false
+    {
+        std::ofstream file(non_empty_file.string());
+        file << "some content";
+        file.close();
+    }
+    EXPECT_TRUE(fs::exists(non_empty_file));
+    EXPECT_FALSE(fs::is_empty(non_empty_file));
+
+    // 非空目录 → false（当前测试目录里有两个文件）
+    EXPECT_FALSE(fs::is_empty(test_dir));
+
+    // 空目录 → true
+    fs::path empty_dir = test_dir / "empty_subdir";
+    EXPECT_TRUE(fs::create_directory(empty_dir));
+    EXPECT_TRUE(fs::is_empty(empty_dir));
+
+    // 不存在的路径：error_code 版本报错并返回 false
+    {
+        fs::path missing = "is_empty_missing_12345";
+        std::error_code ec;
+        EXPECT_FALSE(fs::is_empty(missing, ec));
+        EXPECT_TRUE(ec);
+    }
+
+    // 不存在的路径：无 ec 版本抛出 filesystem_error
+    {
+        fs::path missing = "is_empty_missing_12345";
+        bool threw = false;
+        try {
+            (void)fs::is_empty(missing);
+        }
+        catch (const fs::filesystem_error&) {
+            threw = true;
+        }
+        EXPECT_TRUE(threw);
+    }
+
+    // 清理测试目录
+    if (fs::exists(test_dir)) {
+        fs::remove_all(test_dir);
+        EXPECT_FALSE(fs::exists(test_dir));
+    }
+}
+
 // 测试目录迭代器
 TEST(SimpleFileSystem, DirectoryIterator) {
     namespace fs = _AST fs_simple;
