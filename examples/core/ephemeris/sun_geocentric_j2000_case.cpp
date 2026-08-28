@@ -11,11 +11,7 @@ AST_USING_NAMESPACE
 int main()
 {
     errc_t rc;
-    rc = aInitialize();
-    if (rc != eNoError) {
-        std::printf("aInitialize failed: %d\n", (int)rc);
-        return 2;
-    }
+    aInitialize();
     // 卸载EOP数据
     aDataContext_GetEOP()->unload();
 
