@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"FacilityLoader_8cpp.html#a77ce81222e73c5155926a63274ef8529":[4,0,0,11,5,21,2],
+"FacilityLoader_8cpp.html#a9a36fb81662c6180cd0c07f93d87b4cb":[4,0,0,11,5,21,0],
 "FacilityLoader_8cpp.html#ac5a5f8581a4952c8b2677aaa8a513dcd":[4,0,0,11,5,21,3],
 "FacilityLoader_8cpp.html#aea1b4b3d38a09a096183067cc38bebb6":[4,0,0,11,5,21,7],
 "FacilityLoader_8cpp.html#aed72e3b19435ef02e9903175b032ebcf":[4,0,0,11,5,21,4],
@@ -194,12 +196,12 @@ var NAVTREEINDEX6 =
 "GlobalContext_8cpp.html":[4,0,0,6,7,0,4],
 "GlobalContext_8hpp.html":[4,0,0,6,7,0,5],
 "GlobalContext_8hpp_source.html":[4,0,0,6,7,0,5],
-"GoldenSectionOptimizer_8cpp.html":[4,0,0,12,6,2],
-"GoldenSectionOptimizer_8cpp.html#afab8bb410549cb400140729bfb354168":[4,0,0,12,6,2,0],
-"GoldenSectionOptimizer_8hpp.html":[4,0,0,12,6,3],
-"GoldenSectionOptimizer_8hpp.html#ae32e8cab40eb05963f0800b7823b6a3a":[4,0,0,12,6,3,0],
-"GoldenSectionOptimizer_8hpp.html#afab8bb410549cb400140729bfb354168":[4,0,0,12,6,3,1],
-"GoldenSectionOptimizer_8hpp_source.html":[4,0,0,12,6,3],
+"GoldenSectionOptimizer_8cpp.html":[4,0,0,12,6,3],
+"GoldenSectionOptimizer_8cpp.html#afab8bb410549cb400140729bfb354168":[4,0,0,12,6,3,0],
+"GoldenSectionOptimizer_8hpp.html":[4,0,0,12,6,4],
+"GoldenSectionOptimizer_8hpp.html#ae32e8cab40eb05963f0800b7823b6a3a":[4,0,0,12,6,4,0],
+"GoldenSectionOptimizer_8hpp.html#afab8bb410549cb400140729bfb354168":[4,0,0,12,6,4,1],
+"GoldenSectionOptimizer_8hpp_source.html":[4,0,0,12,6,4],
 "GravityCalculator2_8cpp.html":[4,0,0,6,9,0,2],
 "GravityCalculator3_8cpp.html":[4,0,0,6,9,0,3],
 "GravityCalculator4_8cpp.html":[4,0,0,6,9,0,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "I18n_8hpp.html":[4,0,0,27,11,7],
 "I18n_8hpp.html#a59c0e4baad32c4025992a3d36520badc":[4,0,0,27,11,7,0],
 "I18n_8hpp.html#a5cc2e0c087bd6ae3cf615afa059367b2":[4,0,0,27,11,7,1],
-"I18n_8hpp.html#a6bae6d23ca6463a9fa6039beda431c86":[4,0,0,27,11,7,7],
-"I18n_8hpp.html#a85c4143d9ee7321be569c6432da3d4f7":[4,0,0,27,11,7,3],
-"I18n_8hpp.html#a86405285408752e77e2cb335447b62dd":[4,0,0,27,11,7,2]
+"I18n_8hpp.html#a6bae6d23ca6463a9fa6039beda431c86":[4,0,0,27,11,7,7]
 };

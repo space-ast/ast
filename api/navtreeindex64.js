@@ -1,7 +1,11 @@
 var NAVTREEINDEX64 =
 {
-"structast_1_1object__ptr__holder_3_01Object_01_4.html":[2,0,0,540],
-"structast_1_1object__ptr__holder_3_01Object_01_4.html":[3,0,0,538],
+"structast_1_1math_1_1is__vector__like.html":[2,0,0,3,0],
+"structast_1_1math_1_1is__vector__like.html":[3,0,0,2,0],
+"structast_1_1object__ptr__holder.html":[2,0,0,540],
+"structast_1_1object__ptr__holder.html":[3,0,0,538],
+"structast_1_1object__ptr__holder_3_01Object_01_4.html":[2,0,0,541],
+"structast_1_1object__ptr__holder_3_01Object_01_4.html":[3,0,0,539],
 "structast_1_1propagate__nan_1_1allow__efficient__minus.html":[2,0,0,5,0],
 "structast_1_1propagate__nan_1_1allow__efficient__minus.html":[3,0,0,3,0],
 "structast_1_1propagate__nan_1_1allow__efficient__minus_3_01TimePoint_01_4.html":[2,0,0,5,1],
@@ -62,8 +66,8 @@ var NAVTREEINDEX64 =
 "structstd_1_1hash_3_01__AST_01WeakPtr_3_01__Object_01_4_01_4.html":[3,0,2,1],
 "topics.html":[0],
 "unionMultitype.html":[3,0,47],
-"unionast_1_1KernelData.html":[2,0,0,434],
-"unionast_1_1KernelData.html":[3,0,0,432],
+"unionast_1_1KernelData.html":[2,0,0,435],
+"unionast_1_1KernelData.html":[3,0,0,433],
 "val__always_8h_source.html":[4,0,0,29,0,2,0],
 "val__atm__jr_8h_source.html":[4,0,0,29,0,2,1],
 "zeros_8h_source.html":[4,0,0,12,4,0,0,1]

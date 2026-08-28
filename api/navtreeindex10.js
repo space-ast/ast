@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"OpUnaryPredefined_8hpp_source.html":[4,0,0,18,7,0,8],
+"OpUnaryRegister_8hpp.html":[4,0,0,18,7,0,9],
 "OpUnaryRegister_8hpp_source.html":[4,0,0,18,7,0,9],
 "OpUnary_8cpp.html":[4,0,0,18,7,7],
 "OpUnary_8hpp.html":[4,0,0,18,7,8],
@@ -10,8 +12,8 @@ var NAVTREEINDEX10 =
 "OpenAI_8cpp.html":[4,0,0,0,3,6],
 "OpenAI_8hpp.html":[4,0,0,0,3,7],
 "OpenAI_8hpp_source.html":[4,0,0,0,3,7],
-"Optim_8hpp.html":[4,0,0,12,6,4],
-"Optim_8hpp_source.html":[4,0,0,12,6,4],
+"Optim_8hpp.html":[4,0,0,12,6,5],
+"Optim_8hpp_source.html":[4,0,0,12,6,5],
 "OptimizationStudy_8hpp_source.html":[4,0,0,1,1,0],
 "OrConstraint_8cpp.html":[4,0,0,6,5,12],
 "OrConstraint_8hpp.html":[4,0,0,6,5,13],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "RadarLoader_8cpp.html#a5cab80753aa3685434a0c300f4a56d4c":[4,0,0,11,5,44,4],
 "RadarLoader_8cpp.html#a6c69598d93679d30fd93ac6ff8436b61":[4,0,0,11,5,44,1],
 "RadarLoader_8cpp.html#a900f09e61570bbad8649fecddceb2da5":[4,0,0,11,5,44,6],
-"RadarLoader_8cpp.html#ad27c11d734227a0e1b746db0046d51c0":[4,0,0,11,5,44,2],
-"RadarLoader_8cpp.html#adc3245c2c9c2b4b462f39bef37b772b1":[4,0,0,11,5,44,0],
-"RadarLoader_8hpp.html":[4,0,0,11,5,45]
+"RadarLoader_8cpp.html#ad27c11d734227a0e1b746db0046d51c0":[4,0,0,11,5,44,2]
 };

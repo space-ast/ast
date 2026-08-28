@@ -1,5 +1,7 @@
 var NAVTREEINDEX17 =
 {
+"UiEventInterval_8hpp.html":[4,0,0,10,4,9],
+"UiEventInterval_8hpp_source.html":[4,0,0,10,4,9],
 "UiEventTime_8hpp_source.html":[4,0,0,10,4,10],
 "UiExpressionBrowser_8cpp.html":[4,0,0,10,7,5],
 "UiExpressionBrowser_8hpp.html":[4,0,0,10,7,6],
@@ -163,9 +165,9 @@ var NAVTREEINDEX17 =
 "UiWorkbenchExprPicker_8cpp.html":[4,0,0,10,0,12],
 "UiWorkbenchExprPicker_8hpp.html":[4,0,0,10,0,13],
 "UiWorkbenchExprPicker_8hpp_source.html":[4,0,0,10,0,13],
-"UnaryOptimizer_8cpp.html":[4,0,0,12,6,5],
-"UnaryOptimizer_8hpp.html":[4,0,0,12,6,6],
-"UnaryOptimizer_8hpp_source.html":[4,0,0,12,6,6],
+"UnaryOptimizer_8cpp.html":[4,0,0,12,6,6],
+"UnaryOptimizer_8hpp.html":[4,0,0,12,6,7],
+"UnaryOptimizer_8hpp_source.html":[4,0,0,12,6,7],
 "UnaryScalarFunc_8hpp.html":[4,0,0,12,2,2],
 "UnaryScalarFunc_8hpp_source.html":[4,0,0,12,2,2],
 "UnarySolver_8cpp.html":[4,0,0,12,4,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX17 =
 "UserProxyAgent_8hpp.html":[4,0,0,0,0,8],
 "UserProxyAgent_8hpp_source.html":[4,0,0,0,0,8],
 "Util_8cpp.html":[4,0,0,12,8,2],
-"Util_8cpp.html#a1a1fafa43b88e769e2a1975a243d928e":[4,0,0,12,8,2,1],
-"Util_8cpp.html#a1bfd97fe212865f04dc48e5f3e79414c":[4,0,0,12,8,2,3],
-"Util_8cpp.html#a62966be34e8b8d2dafa952a2eee28a4b":[4,0,0,12,8,2,2]
+"Util_8cpp.html#a1a1fafa43b88e769e2a1975a243d928e":[4,0,0,12,8,2,1]
 };

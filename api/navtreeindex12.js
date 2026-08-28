@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"ScStateCalcCloseApproachBearing_8hpp.html":[4,0,0,6,11,1,0,8,1],
+"ScStateCalcCloseApproachBearing_8hpp_source.html":[4,0,0,6,11,1,0,8,1],
 "ScStateCalcCloseApproachCosBearing_8cpp.html":[4,0,0,6,11,1,0,8,2],
 "ScStateCalcCloseApproachCosBearing_8hpp.html":[4,0,0,6,11,1,0,8,3],
 "ScStateCalcCloseApproachCosBearing_8hpp_source.html":[4,0,0,6,11,1,0,8,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcMeanAnomaly_8hpp_source.html":[4,0,0,6,11,1,0,13,1],
 "ScStateCalcMeanEarthLon_8cpp.html":[4,0,0,6,11,1,0,13,2],
 "ScStateCalcMeanEarthLon_8hpp.html":[4,0,0,6,11,1,0,13,3],
-"ScStateCalcMeanEarthLon_8hpp_source.html":[4,0,0,6,11,1,0,13,3],
-"ScStateCalcMeanEclipticLon_8cpp.html":[4,0,0,6,11,1,0,13,4],
-"ScStateCalcMeanEclipticLon_8hpp.html":[4,0,0,6,11,1,0,13,5]
+"ScStateCalcMeanEarthLon_8hpp_source.html":[4,0,0,6,11,1,0,13,3]
 };

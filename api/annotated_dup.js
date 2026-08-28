@@ -169,6 +169,7 @@ var annotated_dup =
       [ "BodyObstructionConstraint", "classast_1_1BodyObstructionConstraint.html", "classast_1_1BodyObstructionConstraint" ],
       [ "BodyOrientation", "classast_1_1BodyOrientation.html", "classast_1_1BodyOrientation" ],
       [ "BodyShape", "classast_1_1BodyShape.html", "classast_1_1BodyShape" ],
+      [ "Bounds", "classast_1_1Bounds.html", null ],
       [ "Bracket", "classast_1_1Bracket.html", "classast_1_1Bracket" ],
       [ "Breakpoint", "classast_1_1Breakpoint.html", null ],
       [ "BrenthSolver", "classast_1_1BrenthSolver.html", "classast_1_1BrenthSolver" ],

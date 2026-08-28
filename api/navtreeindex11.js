@@ -1,5 +1,7 @@
 var NAVTREEINDEX11 =
 {
+"RadarLoader_8cpp.html#adc3245c2c9c2b4b462f39bef37b772b1":[4,0,0,11,5,44,0],
+"RadarLoader_8hpp.html":[4,0,0,11,5,45],
 "RadarLoader_8hpp.html#a900f09e61570bbad8649fecddceb2da5":[4,0,0,11,5,45,0],
 "RadarLoader_8hpp_source.html":[4,0,0,11,5,45],
 "Radar_8cpp.html":[4,0,0,19,3,44],
@@ -247,7 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcCd_8cpp.html":[4,0,0,6,11,1,0,17,0],
 "ScStateCalcCd_8hpp.html":[4,0,0,6,11,1,0,17,1],
 "ScStateCalcCd_8hpp_source.html":[4,0,0,6,11,1,0,17,1],
-"ScStateCalcCloseApproachBearing_8cpp.html":[4,0,0,6,11,1,0,8,0],
-"ScStateCalcCloseApproachBearing_8hpp.html":[4,0,0,6,11,1,0,8,1],
-"ScStateCalcCloseApproachBearing_8hpp_source.html":[4,0,0,6,11,1,0,8,1]
+"ScStateCalcCloseApproachBearing_8cpp.html":[4,0,0,6,11,1,0,8,0]
 };

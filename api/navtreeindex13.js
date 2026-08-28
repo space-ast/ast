@@ -1,5 +1,7 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcMeanEclipticLon_8cpp.html":[4,0,0,6,11,1,0,13,4],
+"ScStateCalcMeanEclipticLon_8hpp.html":[4,0,0,6,11,1,0,13,5],
 "ScStateCalcMeanEclipticLon_8hpp_source.html":[4,0,0,6,11,1,0,13,5],
 "ScStateCalcMeanLongitude_8cpp.html":[4,0,0,6,11,1,0,13,6],
 "ScStateCalcMeanLongitude_8hpp.html":[4,0,0,6,11,1,0,13,7],
@@ -247,7 +249,5 @@ var NAVTREEINDEX13 =
 "ScStateCalcValueAtSegmentOtherSat_8cpp.html":[4,0,0,6,11,1,0,15,210],
 "ScStateCalcValueAtSegmentOtherSat_8hpp.html":[4,0,0,6,11,1,0,15,211],
 "ScStateCalcValueAtSegmentOtherSat_8hpp_source.html":[4,0,0,6,11,1,0,15,211],
-"ScStateCalcValueOtherSegment_8cpp.html":[4,0,0,6,11,1,0,15,212],
-"ScStateCalcValueOtherSegment_8hpp.html":[4,0,0,6,11,1,0,15,213],
-"ScStateCalcValueOtherSegment_8hpp_source.html":[4,0,0,6,11,1,0,15,213]
+"ScStateCalcValueOtherSegment_8cpp.html":[4,0,0,6,11,1,0,15,212]
 };

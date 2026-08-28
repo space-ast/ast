@@ -1,5 +1,6 @@
 var dir_a8865252fe8a995bdee3a8081955610d =
 [
+    [ "Bounds.hpp", "Bounds_8hpp.html", "Bounds_8hpp" ],
     [ "BrentOptimizer.cpp", "BrentOptimizer_8cpp.html", "BrentOptimizer_8cpp" ],
     [ "BrentOptimizer.hpp", "BrentOptimizer_8hpp.html", "BrentOptimizer_8hpp" ],
     [ "GoldenSectionOptimizer.cpp", "GoldenSectionOptimizer_8cpp.html", "GoldenSectionOptimizer_8cpp" ],
