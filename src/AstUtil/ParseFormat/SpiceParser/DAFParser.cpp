@@ -117,7 +117,17 @@ bool _aIsValidDAFFile(StringView filepath, StringView locidw)
         if(locidw.size() > sizeof(record.locidw))
             return false;
         if(strncmp(record.locidw, locidw.data(), locidw.size()) == 0)
-            return true;
+        {
+            // 结构校验：nd/ni 及由它们推导的 summary 大小须在合法范围内，
+            // 防止仅签名巧合但结构被破坏/截断的文件被误判为有效。
+            const int nd = record.nd;
+            const int ni = record.ni;
+            const int ss = nd + (ni + 1) / 2;
+            if(nd >= 0 && nd <= 124 &&
+               ni >= 2 && ni <= 250 &&
+               ss > 0 && ss <= 125)
+                return true;
+        }
     }
     return false;
 }

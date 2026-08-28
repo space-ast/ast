@@ -75,9 +75,10 @@ errc_t Point::getPosVelIn(Frame *frame, const TimePoint &tp, Vector3d &pos, Vect
 
 errc_t Point::getPosIn(Frame *frame, const TimePointRange &range, std::vector<Vector3d> &posList) const
 {
+    // 空范围：先清空输出，避免复用的容器残留上一次调用的数据
+    posList.resize(range.size());
     if(range.size() == 0) return eNoError;
     errc_t rc = eNoError;
-    posList.resize(range.size());
     for(size_t i=0; i < range.size()-1; i++)
     {
         rc |= getPosIn(frame, range.start() + i * range.step(), posList[i]);
@@ -88,10 +89,11 @@ errc_t Point::getPosIn(Frame *frame, const TimePointRange &range, std::vector<Ve
 
 errc_t Point::getPosVelIn(Frame *frame, const TimePointRange &range, std::vector<Vector3d> &posList, std::vector<Vector3d> &velList) const
 {
-    if(range.size() == 0) return eNoError;
-    errc_t rc = eNoError;
+    // 空范围：先清空输出，避免复用的容器残留上一次调用的数据
     posList.resize(range.size());
     velList.resize(range.size());
+    if(range.size() == 0) return eNoError;
+    errc_t rc = eNoError;
     for(size_t i=0; i < range.size()-1; i++)
     {
         rc |= getPosVelIn(frame, range.start() + i * range.step(), posList[i], velList[i]);
