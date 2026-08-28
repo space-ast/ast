@@ -109,6 +109,7 @@
 %include "../AstMath/ODE/ODEEventDetector.hpp"
 %include "../AstMath/ODE/ODEWorkspace.hpp"
 %include "../AstMath/ODE/OrdinaryDifferentialEquation.hpp"
+%include "../AstMath/Optim/Bounds.hpp"
 %include "../AstMath/Util/Bracket.hpp"
 %include "../AstMath/Util/Util.hpp"
 %include "../AstScript/Basic/ExprVisitor.hpp"

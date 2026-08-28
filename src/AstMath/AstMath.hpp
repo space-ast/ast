@@ -6,6 +6,7 @@
 #include "AstMath/AttitudeConvertInline.hpp"
 #include "AstMath/AttitudeConvertProto.hpp"
 #include "AstMath/BisectionSolver.hpp"
+#include "AstMath/Bounds.hpp"
 #include "AstMath/Bracket.hpp"
 #include "AstMath/BrentOptimizer.hpp"
 #include "AstMath/BrentSolver.hpp"

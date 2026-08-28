@@ -95,7 +95,7 @@ using DownloadProgressCallback = std::function<bool(uint64_t downloaded, uint64_
 /// @brief 将流式响应体写入文件并在写盘过程中报告下载进度
 /// @details 仅在 HTTP 200 后写入临时文件 <filepath>.part，成功时由 finish() 原子改名到 filepath，
 ///          出错时由外部调用 discard() 清理临时文件；这样失败的下载不会破坏 filepath 上已存在的文件。
-class FileDownloadReceiver : public NetworkStreamReceiver
+class AST_UTIL_API FileDownloadReceiver : public NetworkStreamReceiver
 {
 public:
     FileDownloadReceiver(const std::string& filepath, const DownloadProgressCallback& progress);
