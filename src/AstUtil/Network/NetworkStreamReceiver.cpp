@@ -39,6 +39,7 @@ errc_t CollectingStreamReceiver::onHeaders(int statusCode,
 
 errc_t CollectingStreamReceiver::onData(const char* data, size_t size)
 {
+    const size_t kMaxBodySize = 1024 * 1024 * 1024;  // 1 GB
     // 防止无限制响应体耗尽内存
     if (body_.size() + size > kMaxBodySize)
     {

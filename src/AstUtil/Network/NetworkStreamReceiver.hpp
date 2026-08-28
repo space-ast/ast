@@ -82,7 +82,6 @@ public:
     void onComplete() override;
     void onError(errc_t /*error*/) override;
 private:
-    static constexpr size_t kMaxBodySize = 1024 * 1024 * 1024;  // 1 GB
     NetworkResponse& response_;
     std::string body_;
 };
