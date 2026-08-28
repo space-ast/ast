@@ -224,6 +224,7 @@
 #include "AstCore/LandingSiteCalcSunAzimuth.hpp"
 #include "AstCore/LandingSiteCalcSunElevation.hpp"
 #include "AstCore/LandingSiteCalculation.hpp"
+#include "AstCore/LatLon.hpp"
 #include "AstCore/LatLonAlt.hpp"
 #include "AstCore/LeapSecond.hpp"
 #include "AstCore/LocalHorizonalFrame.hpp"

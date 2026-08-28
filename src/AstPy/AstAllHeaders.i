@@ -75,6 +75,7 @@
 %include "../AstCore/Geometry/Spatial/SpatialCalculationVisitor.hpp"
 %include "../AstCore/Geometry/Spatial/SpatialConditionVisitor.hpp"
 %include "../AstCore/Geometry/Spatial/VolumeGridVisitor.hpp"
+%include "../AstCore/Geometry/Surface/Coordinate/LatLon.hpp"
 %include "../AstCore/Geometry/Surface/Coordinate/LatLonAlt.hpp"
 %include "../AstCore/Orbit/Ephemeris/EphemerisLagrangeFixed.hpp"
 %include "../AstCore/Orbit/Ephemeris/EphemerisSPK.hpp"

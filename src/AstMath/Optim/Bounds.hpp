@@ -34,6 +34,7 @@ AST_NAMESPACE_BEGIN
 class Bounds
 {
 public:
+    Bounds() = default;
     Bounds(double lower, double upper) : lower_(lower), upper_(upper) {}
     double lower() const { return lower_; }
     double upper() const { return upper_; }
