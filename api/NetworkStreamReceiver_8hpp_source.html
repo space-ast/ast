@@ -147,63 +147,62 @@ $(function(){initNavTree('NetworkStreamReceiver_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> onComplete() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> onError(errc_t <span class="comment">/*error*/</span>) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> kMaxBodySize = 1024 * 1024 * 1024;  <span class="comment">// 1 GB</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_class" href="classast_1_1NetworkResponse.html">NetworkResponse</a>&amp; response_;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    std::string body_;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_class" href="classast_1_1NetworkResponse.html">NetworkResponse</a>&amp; response_;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::string body_;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>};</div>
 </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">   92</a></span><span class="keyword">using </span><a class="code hl_typedef" href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">DownloadProgressCallback</a> = std::function&lt;bool(uint64_t downloaded, uint64_t total)&gt;;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">   91</a></span><span class="keyword">using </span><a class="code hl_typedef" href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">DownloadProgressCallback</a> = std::function&lt;bool(uint64_t downloaded, uint64_t total)&gt;;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="foldopen" id="foldopen00099" data-start="{" data-end="};">
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classast_1_1FileDownloadReceiver.html">   99</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1NetworkStreamReceiver.html">NetworkStreamReceiver</a></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>{</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a>(<span class="keyword">const</span> std::string&amp; filepath, <span class="keyword">const</span> <a class="code hl_typedef" href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">DownloadProgressCallback</a>&amp; progress);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">~FileDownloadReceiver</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a>&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a>&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    errc_t onHeaders(<span class="keywordtype">int</span> statusCode, <span class="keyword">const</span> std::map&lt;std::string, std::string&gt;&amp; headers) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    errc_t onData(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">size_t</span> size) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classast_1_1FileDownloadReceiver.html#a413ddf4bae1ae53f599ac2ab492b87df">  111</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1FileDownloadReceiver.html#a413ddf4bae1ae53f599ac2ab492b87df">onError</a>(errc_t <span class="comment">/*error*/</span>)<span class="keyword"> override</span>{}</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    uint64_t downloaded()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> downloaded_; }</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    uint64_t total()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> total_; }</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    errc_t finish();</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordtype">void</span> discard();</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">void</span> close();</div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="};">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classast_1_1FileDownloadReceiver.html">   98</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1NetworkStreamReceiver.html">NetworkStreamReceiver</a></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a>(<span class="keyword">const</span> std::string&amp; filepath, <span class="keyword">const</span> <a class="code hl_typedef" href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">DownloadProgressCallback</a>&amp; progress);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">~FileDownloadReceiver</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    errc_t onHeaders(<span class="keywordtype">int</span> statusCode, <span class="keyword">const</span> std::map&lt;std::string, std::string&gt;&amp; headers) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    errc_t onData(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">size_t</span> size) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classast_1_1FileDownloadReceiver.html#a413ddf4bae1ae53f599ac2ab492b87df">  110</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1FileDownloadReceiver.html#a413ddf4bae1ae53f599ac2ab492b87df">onError</a>(errc_t <span class="comment">/*error*/</span>)<span class="keyword"> override</span>{}</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    uint64_t downloaded()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> downloaded_; }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    uint64_t total()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> total_; }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    errc_t finish();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">void</span> discard();</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> close();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    std::string filepath_;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    std::string tempPath_;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_typedef" href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">DownloadProgressCallback</a> progress_;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    FILE* fp_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    uint64_t total_ = 0;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    uint64_t downloaded_ = 0;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>};</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    std::string filepath_;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    std::string tempPath_;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <a class="code hl_typedef" href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">DownloadProgressCallback</a> progress_;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    FILE* fp_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    uint64_t total_ = 0;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    uint64_t downloaded_ = 0;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>};</div>
 </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aNetworkResponse_8hpp_html"><div class="ttname"><a href="NetworkResponse_8hpp.html">NetworkResponse.hpp</a></div></div>
 <div class="ttc" id="aclassast_1_1CollectingStreamReceiver_html"><div class="ttname"><a href="classast_1_1CollectingStreamReceiver.html">ast::CollectingStreamReceiver</a></div><div class="ttdoc">将流式数据收集到 NetworkResponse 的适配器</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:75</div></div>
-<div class="ttc" id="aclassast_1_1FileDownloadReceiver_html"><div class="ttname"><a href="classast_1_1FileDownloadReceiver.html">ast::FileDownloadReceiver</a></div><div class="ttdoc">将流式响应体写入文件并在写盘过程中报告下载进度</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:100</div></div>
-<div class="ttc" id="aclassast_1_1FileDownloadReceiver_html_a413ddf4bae1ae53f599ac2ab492b87df"><div class="ttname"><a href="classast_1_1FileDownloadReceiver.html#a413ddf4bae1ae53f599ac2ab492b87df">ast::FileDownloadReceiver::onError</a></div><div class="ttdeci">void onError(errc_t) override</div><div class="ttdoc">发生网络错误</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:111</div></div>
+<div class="ttc" id="aclassast_1_1FileDownloadReceiver_html"><div class="ttname"><a href="classast_1_1FileDownloadReceiver.html">ast::FileDownloadReceiver</a></div><div class="ttdoc">将流式响应体写入文件并在写盘过程中报告下载进度</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:99</div></div>
+<div class="ttc" id="aclassast_1_1FileDownloadReceiver_html_a413ddf4bae1ae53f599ac2ab492b87df"><div class="ttname"><a href="classast_1_1FileDownloadReceiver.html#a413ddf4bae1ae53f599ac2ab492b87df">ast::FileDownloadReceiver::onError</a></div><div class="ttdeci">void onError(errc_t) override</div><div class="ttdoc">发生网络错误</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:110</div></div>
 <div class="ttc" id="aclassast_1_1NetworkResponse_html"><div class="ttname"><a href="classast_1_1NetworkResponse.html">ast::NetworkResponse</a></div><div class="ttdef"><b>定义</b> NetworkResponse.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1NetworkStreamReceiver_html"><div class="ttname"><a href="classast_1_1NetworkStreamReceiver.html">ast::NetworkStreamReceiver</a></div><div class="ttdoc">流式数据接收器</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:44</div></div>
 <div class="ttc" id="aclassast_1_1NetworkStreamReceiver_html_a7c5380ddcfa55f7d6c359044762892ca"><div class="ttname"><a href="classast_1_1NetworkStreamReceiver.html#a7c5380ddcfa55f7d6c359044762892ca">ast::NetworkStreamReceiver::onComplete</a></div><div class="ttdeci">virtual void onComplete()</div><div class="ttdoc">数据接收完毕（正常完成时触发）</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:66</div></div>
 <div class="ttc" id="aclassast_1_1NetworkStreamReceiver_html_ac6e572401d46d99773ef4298ab31eefb"><div class="ttname"><a href="classast_1_1NetworkStreamReceiver.html#ac6e572401d46d99773ef4298ab31eefb">ast::NetworkStreamReceiver::onData</a></div><div class="ttdeci">virtual errc_t onData(const char *data, size_t size)=0</div><div class="ttdoc">收到一块响应体数据（可能被多次调用）</div></div>
 <div class="ttc" id="aclassast_1_1NetworkStreamReceiver_html_ae3bf4b98d00a1f385fc4f11f5f236df4"><div class="ttname"><a href="classast_1_1NetworkStreamReceiver.html#ae3bf4b98d00a1f385fc4f11f5f236df4">ast::NetworkStreamReceiver::onHeaders</a></div><div class="ttdeci">virtual errc_t onHeaders(int statusCode, const std::map&lt; std::string, std::string &gt; &amp;headers)</div><div class="ttdoc">收到 HTTP 响应头（在 onData 之前触发一次）</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:53</div></div>
 <div class="ttc" id="aclassast_1_1NetworkStreamReceiver_html_aedbba7f8ffb0ba71705bf47f17fd7357"><div class="ttname"><a href="classast_1_1NetworkStreamReceiver.html#aedbba7f8ffb0ba71705bf47f17fd7357">ast::NetworkStreamReceiver::onError</a></div><div class="ttdeci">virtual void onError(errc_t error)</div><div class="ttdoc">发生网络错误</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:63</div></div>
-<div class="ttc" id="agroup__Network_html_ga0bc0961f6343256317dd663b942a0a4e"><div class="ttname"><a href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">ast::DownloadProgressCallback</a></div><div class="ttdeci">std::function&lt; bool(uint64_t downloaded, uint64_t total)&gt; DownloadProgressCallback</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:92</div></div>
+<div class="ttc" id="agroup__Network_html_ga0bc0961f6343256317dd663b942a0a4e"><div class="ttname"><a href="group__Network.html#ga0bc0961f6343256317dd663b942a0a4e">ast::DownloadProgressCallback</a></div><div class="ttdeci">std::function&lt; bool(uint64_t downloaded, uint64_t total)&gt; DownloadProgressCallback</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:91</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
