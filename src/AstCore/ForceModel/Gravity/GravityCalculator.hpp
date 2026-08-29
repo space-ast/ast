@@ -45,7 +45,7 @@ AST_NAMESPACE_BEGIN
 ///   r⊗r = 位置向量的外积（3×3 对称矩阵）
 ///
 /// @param position     位置向量（相对于引力源，任意坐标系）
-/// @param GM           引力常数 [km³/s²]
+/// @param GM           引力常数 [m³/s²]
 /// @param[out] acceleration 场强（引力加速度，与 position 同坐标系）
 /// @param[out] hessian      场梯度 ∂a/∂r（3×3 矩阵，与 position 同坐标系）
 AST_CORE_API void aPointMassField(const Vector3d& position, double GM, Vector3d& acceleration, Matrix3d& hessian);
