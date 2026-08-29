@@ -62,6 +62,36 @@ AST_CORE_API errc_t aEarthICRFToMoonICRF(
 );
 
 
+/// @brief 计算月球ICRF坐标系到地球ICRF坐标系的转换
+/// @note 该函数依赖DE星历数据
+/// @param tp 时间点
+/// @param posInMoonICRF 月球ICRF坐标系下的位置向量
+/// @param posInEarthICRF 地球ICRF坐标系下的位置向量
+/// @return errc_t 错误码
+AST_CORE_API errc_t aMoonICRFToEarthICRF(
+    const TimePoint& tp, 
+    const Vector3d&  posInMoonICRF, 
+    Vector3d&        posInEarthICRF
+);
+
+
+/// @brief 计算月球ICRF坐标系到地球ICRF坐标系的转换
+/// @note 该函数依赖DE星历数据
+/// @param tp 时间点
+/// @param posInMoonICRF 月球ICRF坐标系下的位置向量
+/// @param velInMoonICRF 月球ICRF坐标系下的速度向量
+/// @param posInEarthICRF 地球ICRF坐标系下的位置向量
+/// @param velInEarthICRF 地球ICRF坐标系下的速度向量
+/// @return errc_t 错误码
+AST_CORE_API errc_t aMoonICRFToEarthICRF(
+    const TimePoint& tp, 
+    const Vector3d&  posInMoonICRF, 
+    const Vector3d&  velInMoonICRF,
+    Vector3d&        posInEarthICRF,
+    Vector3d&        velInEarthICRF
+);
+
+
 /// @brief 计算ICRF到月球主轴系(PA)的转换
 /// @note 该函数依赖DE星历数据里的月球平动角
 /// @param tp 时间点

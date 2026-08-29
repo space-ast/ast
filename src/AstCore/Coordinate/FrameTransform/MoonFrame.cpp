@@ -52,6 +52,23 @@ errc_t aEarthICRFToMoonICRF(const TimePoint &tp, const Vector3d &posInEarthICRF,
     return rc;
 }
 
+errc_t aMoonICRFToEarthICRF(const TimePoint &tp, const Vector3d &posInMoonICRF, Vector3d &posInEarthICRF)
+{
+    Vector3d moonPos;
+    errc_t rc = aJplDeGetPosICRF(tp, JplDe::eMoon, JplDe::eEarth, moonPos);
+    posInEarthICRF = posInMoonICRF + moonPos;
+    return rc;
+}
+
+errc_t aMoonICRFToEarthICRF(const TimePoint &tp, const Vector3d &posInMoonICRF, const Vector3d &velInMoonICRF, Vector3d &posInEarthICRF, Vector3d &velInEarthICRF)
+{
+    Vector3d moonPos, moonVel;
+    errc_t rc = aJplDeGetPosVelICRF(tp, JplDe::eMoon, JplDe::eEarth, moonPos, moonVel);
+    posInEarthICRF = posInMoonICRF + moonPos;
+    velInEarthICRF = velInMoonICRF + moonVel;
+    return rc;
+}
+
 errc_t aICRFToMoonPrincipalAxesTransform(const TimePoint &tp, Rotation &rotation)
 {
     Euler ang{};
