@@ -47,7 +47,8 @@ var searchData=
   ['orbitpathfilter_44',['OrbitPathFilter',['../classast_1_1OrbitPathFilter.html',1,'ast']]],
   ['orconstraint_45',['OrConstraint',['../classast_1_1OrConstraint.html',1,'ast']]],
   ['orderedmap_46',['OrderedMap',['../classast_1_1OrderedMap.html',1,'ast']]],
-  ['orderedmap_3c_20std_3a_3astring_2c_20sharedptr_3c_20value_20_3e_20_3e_47',['OrderedMap&lt; std::string, SharedPtr&lt; Value &gt; &gt;',['../classast_1_1OrderedMap.html',1,'ast']]],
-  ['ordinarydifferentialequation_48',['OrdinaryDifferentialEquation',['../classast_1_1OrdinaryDifferentialEquation.html',1,'ast']]],
-  ['outofdatefilter_49',['OutOfDateFilter',['../classast_1_1OutOfDateFilter.html',1,'ast']]]
+  ['orderedmap_3c_20std_3a_3astring_2c_20double_20_3e_47',['OrderedMap&lt; std::string, double &gt;',['../classast_1_1OrderedMap.html',1,'ast']]],
+  ['orderedmap_3c_20std_3a_3astring_2c_20sharedptr_3c_20value_20_3e_20_3e_48',['OrderedMap&lt; std::string, SharedPtr&lt; Value &gt; &gt;',['../classast_1_1OrderedMap.html',1,'ast']]],
+  ['ordinarydifferentialequation_49',['OrdinaryDifferentialEquation',['../classast_1_1OrdinaryDifferentialEquation.html',1,'ast']]],
+  ['outofdatefilter_50',['OutOfDateFilter',['../classast_1_1OutOfDateFilter.html',1,'ast']]]
 ];

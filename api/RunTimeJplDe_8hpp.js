@@ -1,6 +1,7 @@
 var RunTimeJplDe_8hpp =
 [
     [ "aJplDeClose", "RunTimeJplDe_8hpp.html#ga86326fcd6c451bdbaff8e7d5cecd9215", null ],
+    [ "aJplDeGetBodyGM", "RunTimeJplDe_8hpp.html#gacef1d66fe450f1de12f1706fcac5ebe0", null ],
     [ "aJplDeGetInterval", "RunTimeJplDe_8hpp.html#ga5de66a30a52c73c428ccde6cbe571538", null ],
     [ "aJplDeGetLibration", "RunTimeJplDe_8hpp.html#gad6348953410e1b5de4b5ee538db9f654", null ],
     [ "aJplDeGetLibration", "RunTimeJplDe_8hpp.html#gae35ae0a08c56a0bbd6cdf8bf08129c6a", null ],

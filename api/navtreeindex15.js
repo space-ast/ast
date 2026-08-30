@@ -1,5 +1,14 @@
 var NAVTREEINDEX15 =
 {
+"SpacecraftStateLoader_8cpp.html#ae9eee862b8fecb8f713a27ee161e815d":[4,0,0,11,1,2,18,0],
+"SpacecraftStateLoader_8hpp.html":[4,0,0,11,1,2,19],
+"SpacecraftStateLoader_8hpp.html#ae9eee862b8fecb8f713a27ee161e815d":[4,0,0,11,1,2,19,0],
+"SpacecraftStateLoader_8hpp_source.html":[4,0,0,11,1,2,19],
+"SpacecraftState_8cpp.html":[4,0,0,6,11,5,2],
+"SpacecraftState_8hpp.html":[4,0,0,6,11,5,3],
+"SpacecraftState_8hpp_source.html":[4,0,0,6,11,5,3],
+"Spacecraft_8cpp.html":[4,0,0,19,3,56],
+"Spacecraft_8hpp.html":[4,0,0,19,3,57],
 "Spacecraft_8hpp_source.html":[4,0,0,19,3,57],
 "Span_8cpp.html":[4,0,0,27,2,5],
 "Span_8hpp.html":[4,0,0,27,2,6],
@@ -240,14 +249,5 @@ var NAVTREEINDEX15 =
 "TLEDatabaseQuery_8hpp.html":[4,0,0,6,8,11],
 "TLEDatabaseQuery_8hpp_source.html":[4,0,0,6,8,11],
 "TLEDatabase_8cpp.html":[4,0,0,6,8,8],
-"TLEDatabase_8hpp.html":[4,0,0,6,8,9],
-"TLEDatabase_8hpp_source.html":[4,0,0,6,8,9],
-"TLELines_8hpp.html":[4,0,0,6,12,2,5],
-"TLELines_8hpp_source.html":[4,0,0,6,12,2,5],
-"TLE_8cpp.html":[4,0,0,6,12,2,3],
-"TLE_8cpp.html#a3eac4a84cadb63fcc1763990054fd4a3":[4,0,0,6,12,2,3,0],
-"TLE_8cpp.html#a7e0d3d52b74885681d0322fd3f66196d":[4,0,0,6,12,2,3,1],
-"TLE_8cpp.html#afb78dd9444f7e4df2a0cf4aa541565b2":[4,0,0,6,12,2,3,2],
-"TLE_8hpp.html":[4,0,0,6,12,2,4],
-"TLE_8hpp.html#a3eac4a84cadb63fcc1763990054fd4a3":[4,0,0,6,12,2,4,2]
+"TLEDatabase_8hpp.html":[4,0,0,6,8,9]
 };

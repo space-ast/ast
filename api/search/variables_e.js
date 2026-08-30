@@ -20,6 +20,9 @@ var searchData=
   ['nsum_17',['nsum',['../structast_1_1DAF__SummaryRecords.html#a66059789fd3533535103bad8379ef41d',1,'ast::DAF_SummaryRecords::nsum'],['../structast_1_1DAF__SPKSummaryRecords.html#a680a017d720ab0a4337286e38a961e4d',1,'ast::DAF_SPKSummaryRecords::nsum']]],
   ['nt_18',['nT',['../namespaceast_1_1units.html#a3c2daf334b57a8f94872576718ab94ae',1,'ast::units']]],
   ['number_5f_19',['number_',['../classast_1_1JsonValue.html#a5cf79ddb3a4387187f4165f66467d5c0',1,'ast::JsonValue']]],
-  ['numparams_5f_20',['numParams_',['../classast_1_1CommandTrie_1_1Node.html#a256686c094903e271579870b2d669356',1,'ast::CommandTrie::Node']]],
-  ['numsteps_5f_21',['numSteps_',['../structast_1_1GridCoord.html#a6df1df8a30562a4a06719b947ed64dcf',1,'ast::GridCoord::numSteps_'],['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a4b5b537ccfa14dcbe7bc9df3a35f45ab',1,'ast::ODEFixedStepIntegrator::Workspace::numSteps_']]]
+  ['numcoeff_5f_20',['numCoeff_',['../classast_1_1JplDe.html#a666aeb923b53236149e72618dc95ada2',1,'ast::JplDe']]],
+  ['numconstants_5f_21',['numConstants_',['../classast_1_1JplDe.html#a936633f52ff457981c8f2cb997467419',1,'ast::JplDe']]],
+  ['numdatablock_5f_22',['numDataBlock_',['../classast_1_1JplDe.html#a90e2e0802797848c7a67b97c33cd7677',1,'ast::JplDe']]],
+  ['numparams_5f_23',['numParams_',['../classast_1_1CommandTrie_1_1Node.html#a256686c094903e271579870b2d669356',1,'ast::CommandTrie::Node']]],
+  ['numsteps_5f_24',['numSteps_',['../structast_1_1GridCoord.html#a6df1df8a30562a4a06719b947ed64dcf',1,'ast::GridCoord::numSteps_'],['../classast_1_1ODEFixedStepIntegrator_1_1Workspace.html#a4b5b537ccfa14dcbe7bc9df3a35f45ab',1,'ast::ODEFixedStepIntegrator::Workspace::numSteps_']]]
 ];

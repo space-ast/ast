@@ -182,6 +182,8 @@ var group__Coordinate =
     [ "ast::aMODToTOD", "group__Coordinate.html#gaff57ad51629fa4949e4ac788621f7408", null ],
     [ "ast::aMODToTODMatrix", "group__Coordinate.html#gacd97ede3fd08ab22c5697e7fbab0246d", null ],
     [ "ast::aMODToTODTransform", "group__Coordinate.html#gaf4766d59ba99158f2891867b40bd3b4e", null ],
+    [ "ast::aMoonICRFToEarthICRF", "group__Coordinate.html#ga1d56e1b48154a50d327d8ffb48ef74ff", null ],
+    [ "ast::aMoonICRFToEarthICRF", "group__Coordinate.html#ga0af4bbd9855a9ca5cfc85e4046b7fbbb", null ],
     [ "ast::aMoonMeanEarthToPA403Transform", "group__Coordinate.html#ga654d671ab3164928f7ac1c26037d974e", null ],
     [ "ast::aMoonMeanEarthToPA418Transform", "group__Coordinate.html#gad374a2907fed51f9b2a60a6f134bd1eb", null ],
     [ "ast::aMoonMeanEarthToPA421Transform", "group__Coordinate.html#ga7948522b17d7e409d5ee1b3a7683c9f7", null ],

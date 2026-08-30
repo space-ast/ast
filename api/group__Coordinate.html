@@ -479,6 +479,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aJ2000ToDE143Tra
 <tr class="separator:gaa22bbdf00716493b7f480917a8ffaa1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac4cb0c04a3075ed00c0906a3603cb465" id="r_gac4cb0c04a3075ed00c0906a3603cb465"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac4cb0c04a3075ed00c0906a3603cb465">ast::aEarthICRFToMoonICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;posInEarthICRF, const Vector3d &amp;velInEarthICRF, Vector3d &amp;posInMoonICRF, Vector3d &amp;velInMoonICRF)</td></tr>
 <tr class="separator:gac4cb0c04a3075ed00c0906a3603cb465"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0af4bbd9855a9ca5cfc85e4046b7fbbb" id="r_ga0af4bbd9855a9ca5cfc85e4046b7fbbb"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0af4bbd9855a9ca5cfc85e4046b7fbbb">ast::aMoonICRFToEarthICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;posInMoonICRF, Vector3d &amp;posInEarthICRF)</td></tr>
+<tr class="separator:ga0af4bbd9855a9ca5cfc85e4046b7fbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d56e1b48154a50d327d8ffb48ef74ff" id="r_ga1d56e1b48154a50d327d8ffb48ef74ff"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1d56e1b48154a50d327d8ffb48ef74ff">ast::aMoonICRFToEarthICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;posInMoonICRF, const Vector3d &amp;velInMoonICRF, Vector3d &amp;posInEarthICRF, Vector3d &amp;velInEarthICRF)</td></tr>
+<tr class="separator:ga1d56e1b48154a50d327d8ffb48ef74ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5649d62c4fbf03490485578745115047" id="r_ga5649d62c4fbf03490485578745115047"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5649d62c4fbf03490485578745115047">ast::aICRFToMoonPrincipalAxesTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:ga5649d62c4fbf03490485578745115047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1752874591532332cdec759a1b960761" id="r_ga1752874591532332cdec759a1b960761"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1752874591532332cdec759a1b960761">ast::aICRFToMoonPrincipalAxesTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
@@ -3757,6 +3761,94 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ga1d56e1b48154a50d327d8ffb48ef74ff" name="ga1d56e1b48154a50d327d8ffb48ef74ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1d56e1b48154a50d327d8ffb48ef74ff">&#9670;&#160;</a></span>aMoonICRFToEarthICRF() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aMoonICRFToEarthICRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInMoonICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInMoonICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInEarthICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInEarthICRF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算月球ICRF坐标系到地球ICRF坐标系的转换 </p>
+<dl class="section note"><dt>注解</dt><dd>该函数依赖DE星历数据 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">posInMoonICRF</td><td>月球ICRF坐标系下的位置向量 </td></tr>
+    <tr><td class="paramname">velInMoonICRF</td><td>月球ICRF坐标系下的速度向量 </td></tr>
+    <tr><td class="paramname">posInEarthICRF</td><td>地球ICRF坐标系下的位置向量 </td></tr>
+    <tr><td class="paramname">velInEarthICRF</td><td>地球ICRF坐标系下的速度向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga0af4bbd9855a9ca5cfc85e4046b7fbbb" name="ga0af4bbd9855a9ca5cfc85e4046b7fbbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0af4bbd9855a9ca5cfc85e4046b7fbbb">&#9670;&#160;</a></span>aMoonICRFToEarthICRF() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aMoonICRFToEarthICRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInMoonICRF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInEarthICRF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算月球ICRF坐标系到地球ICRF坐标系的转换 </p>
+<dl class="section note"><dt>注解</dt><dd>该函数依赖DE星历数据 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">posInMoonICRF</td><td>月球ICRF坐标系下的位置向量 </td></tr>
+    <tr><td class="paramname">posInEarthICRF</td><td>地球ICRF坐标系下的位置向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
 </div>
 </div>

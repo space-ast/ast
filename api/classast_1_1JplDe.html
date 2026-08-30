@@ -132,6 +132,12 @@ Public 类型</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a577b7b65a916a9c36041770f2fc5fef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1ae718def5b8c16d676d11427487fb3" id="r_ad1ae718def5b8c16d676d11427487fb3"><td class="memItemLeft" align="right" valign="top"><a id="ad1ae718def5b8c16d676d11427487fb3" name="ad1ae718def5b8c16d676d11427487fb3"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ConstantList</b> = std::vector&lt;std::pair&lt;std::string, double&gt;&gt;</td></tr>
+<tr class="separator:ad1ae718def5b8c16d676d11427487fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09518eb16f3cdff8343c2fd15cb3654d" id="r_a09518eb16f3cdff8343c2fd15cb3654d"><td class="memItemLeft" align="right" valign="top"><a id="a09518eb16f3cdff8343c2fd15cb3654d" name="a09518eb16f3cdff8343c2fd15cb3654d"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ConstentMap</b> = <a class="el" href="classast_1_1OrderedMap.html">OrderedMap</a>&lt;std::string, double&gt;</td></tr>
+<tr class="separator:a09518eb16f3cdff8343c2fd15cb3654d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
@@ -166,6 +172,26 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosVelICRF</b> (
 <tr class="separator:af5060c7620bc5f1b39919697be4e496c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9160925a27f8e35768b5dc441f3bf94" id="r_ab9160925a27f8e35768b5dc441f3bf94"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9160925a27f8e35768b5dc441f3bf94">getEphemVersion</a> () const</td></tr>
 <tr class="separator:ab9160925a27f8e35768b5dc441f3bf94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6d905b549972c390108a4e859d0f06e" id="r_ae6d905b549972c390108a4e859d0f06e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6d905b549972c390108a4e859d0f06e">getNumConstants</a> () const</td></tr>
+<tr class="separator:ae6d905b549972c390108a4e859d0f06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0e61ae42b6bd2f6ef491f22f99cc8e7" id="r_aa0e61ae42b6bd2f6ef491f22f99cc8e7"><td class="memItemLeft" align="right" valign="top"><a id="aa0e61ae42b6bd2f6ef491f22f99cc8e7" name="aa0e61ae42b6bd2f6ef491f22f99cc8e7"></a>
+const ConstantList &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getConstants</b> () const</td></tr>
+<tr class="separator:aa0e61ae42b6bd2f6ef491f22f99cc8e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d23a9c932cc9ad12b92669268ec1d36" id="r_a3d23a9c932cc9ad12b92669268ec1d36"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d23a9c932cc9ad12b92669268ec1d36">getConstant</a> (int index, double &amp;value, std::string *name=nullptr) const</td></tr>
+<tr class="separator:a3d23a9c932cc9ad12b92669268ec1d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f5db1b35c29e09f5b177c0607e1afcc" id="r_a2f5db1b35c29e09f5b177c0607e1afcc"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f5db1b35c29e09f5b177c0607e1afcc">getConstant</a> (const std::string &amp;name, double &amp;value) const</td></tr>
+<tr class="separator:a2f5db1b35c29e09f5b177c0607e1afcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0a4ad5806b406d2d54fb37296f06261" id="r_ad0a4ad5806b406d2d54fb37296f06261"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0a4ad5806b406d2d54fb37296f06261">getConstant</a> (const std::string &amp;name) const</td></tr>
+<tr class="separator:ad0a4ad5806b406d2d54fb37296f06261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c4b9cfd6f7b66275433ecb066beff85" id="r_a3c4b9cfd6f7b66275433ecb066beff85"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c4b9cfd6f7b66275433ecb066beff85">getAU</a> () const</td></tr>
+<tr class="separator:a3c4b9cfd6f7b66275433ecb066beff85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3963b956db43dec29b6a8efdf5a332aa" id="r_a3963b956db43dec29b6a8efdf5a332aa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3963b956db43dec29b6a8efdf5a332aa">getEarthMoonMassRatio</a> () const</td></tr>
+<tr class="separator:a3963b956db43dec29b6a8efdf5a332aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6971eee8e02e0d129ed10f8cf600f89b" id="r_a6971eee8e02e0d129ed10f8cf600f89b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6971eee8e02e0d129ed10f8cf600f89b">getBodyGM</a> (<a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> bodyCode) const</td></tr>
+<tr class="separator:a6971eee8e02e0d129ed10f8cf600f89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a834996c5c5374a37cd1c2efc420e1694" id="r_a834996c5c5374a37cd1c2efc420e1694"><td class="memItemLeft" align="right" valign="top"><a id="a834996c5c5374a37cd1c2efc420e1694" name="a834996c5c5374a37cd1c2efc420e1694"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getBodyGM</b> (<a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a> bodyCode, double &amp;value) const</td></tr>
+<tr class="separator:a834996c5c5374a37cd1c2efc420e1694"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14a512b0c746d82b6c457c66b200ec27" id="r_a14a512b0c746d82b6c457c66b200ec27"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14a512b0c746d82b6c457c66b200ec27">getInterval</a> (<a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;interval) const</td></tr>
 <tr class="separator:a14a512b0c746d82b6c457c66b200ec27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -210,9 +236,12 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>deFile_</b> { NULL 
 <tr class="memitem:a54a55ac40c21c3da10bee39cd487e367" id="r_a54a55ac40c21c3da10bee39cd487e367"><td class="memItemLeft" align="right" valign="top"><a id="a54a55ac40c21c3da10bee39cd487e367" name="a54a55ac40c21c3da10bee39cd487e367"></a>
 double **&#160;</td><td class="memItemRight" valign="bottom"><b>dataBlocks_</b> {NULL}</td></tr>
 <tr class="separator:a54a55ac40c21c3da10bee39cd487e367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ab9602bff1c5463b4ef982693a24661" id="r_a5ab9602bff1c5463b4ef982693a24661"><td class="memItemLeft" align="right" valign="top"><a id="a5ab9602bff1c5463b4ef982693a24661" name="a5ab9602bff1c5463b4ef982693a24661"></a>
-std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>dataBlockMutex_</b></td></tr>
-<tr class="separator:a5ab9602bff1c5463b4ef982693a24661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a19276ad3e4f02f5c414cbda258c0a2" id="r_a7a19276ad3e4f02f5c414cbda258c0a2"><td class="memItemLeft" align="right" valign="top"><a id="a7a19276ad3e4f02f5c414cbda258c0a2" name="a7a19276ad3e4f02f5c414cbda258c0a2"></a>
+<a class="el" href="classast_1_1OrderedMap.html">ConstentMap</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constants_</b></td></tr>
+<tr class="separator:a7a19276ad3e4f02f5c414cbda258c0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74fb293e5fdd83c88e3ecfbe11f82503" id="r_a74fb293e5fdd83c88e3ecfbe11f82503"><td class="memItemLeft" align="right" valign="top"><a id="a74fb293e5fdd83c88e3ecfbe11f82503" name="a74fb293e5fdd83c88e3ecfbe11f82503"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td></tr>
+<tr class="separator:a74fb293e5fdd83c88e3ecfbe11f82503"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>JPL DE文件接口类 </p>
@@ -271,6 +300,212 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>dataBlockMutex_
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
+<a id="a3c4b9cfd6f7b66275433ecb066beff85" name="a3c4b9cfd6f7b66275433ecb066beff85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c4b9cfd6f7b66275433ecb066beff85">&#9670;&#160;</a></span>getAU()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::JplDe::getAU </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取JPL DE文件中的天文单位长度 </p>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>天文单位长度(米) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6971eee8e02e0d129ed10f8cf600f89b" name="a6971eee8e02e0d129ed10f8cf600f89b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6971eee8e02e0d129ed10f8cf600f89b">&#9670;&#160;</a></span>getBodyGM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::JplDe::getBodyGM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a577b7b65a916a9c36041770f2fc5fef1">EDataCode</a></td>          <td class="paramname"><span class="paramname"><em>bodyCode</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE文件中指定天体的GM值 </p>
+<p>文件内 GM 以 AU³/day² 存储，本函数换算为 SI 单位 m³/s² 返回 （与 <a class="el" href="#a3c4b9cfd6f7b66275433ecb066beff85" title="获取JPL DE文件中的天文单位长度">getAU()</a> 返回米、getPosVelICRF() 返回米/米每秒 保持一致）。 地球/月球无独立 GM，由地月质心 GM(GMB) 与地球月球质量比拆分。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bodyCode</td><td>- 天体代码（eEarth / eMoon 会自动拆分地月质心） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>天体GM值[m³/s²]；未找到返回 NaN </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad0a4ad5806b406d2d54fb37296f06261" name="ad0a4ad5806b406d2d54fb37296f06261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0a4ad5806b406d2d54fb37296f06261">&#9670;&#160;</a></span>getConstant() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::JplDe::getConstant </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE文件中指定名称的常量数值 </p>
+<p>按名返回常量值（名称去掉尾部空格后再比较，O(1) 哈希查找；首次调用时懒加载） </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- 常量名称（如 "GM1"、"AU"、"EMRAT" 等） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>常量值；未找到返回 NaN </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2f5db1b35c29e09f5b177c0607e1afcc" name="a2f5db1b35c29e09f5b177c0607e1afcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f5db1b35c29e09f5b177c0607e1afcc">&#9670;&#160;</a></span>getConstant() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::JplDe::getConstant </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE文件中指定名称的常量数值 </p>
+<p>按名返回常量值（名称去掉尾部空格后再比较，O(1) 哈希查找；首次调用时懒加载） </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- 常量名称（如 "GM1"、"AU"、"EMRAT" 等） </td></tr>
+    <tr><td class="paramname">value</td><td>- 输出：常量值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>错误码；未找到返回 JPL_EPH_QUANTITY_NOT_IN_EPHEMERIS </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3d23a9c932cc9ad12b92669268ec1d36" name="a3d23a9c932cc9ad12b92669268ec1d36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d23a9c932cc9ad12b92669268ec1d36">&#9670;&#160;</a></span>getConstant() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::JplDe::getConstant </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>name</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取JPL DE文件中指定索引的常量（名称与数值） </p>
+<p>常量名取自文件头 constant_names 表（6字符），数值取自常量记录区 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>- 常量索引 [0, numConstants_) </td></tr>
+    <tr><td class="paramname">value</td><td>- 输出：常量值 </td></tr>
+    <tr><td class="paramname">name</td><td>- 输出：常量名称（可为 nullptr） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>错误码 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3963b956db43dec29b6a8efdf5a332aa" name="a3963b956db43dec29b6a8efdf5a332aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3963b956db43dec29b6a8efdf5a332aa">&#9670;&#160;</a></span>getEarthMoonMassRatio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::JplDe::getEarthMoonMassRatio </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取JPL DE文件中的地球月球质量比 </p>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>地球月球质量比 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ab9160925a27f8e35768b5dc441f3bf94" name="ab9160925a27f8e35768b5dc441f3bf94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9160925a27f8e35768b5dc441f3bf94">&#9670;&#160;</a></span>getEphemVersion()</h2>
 
@@ -413,6 +648,39 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>dataBlockMutex_
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">-</td><td>错误码 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae6d905b549972c390108a4e859d0f06e" name="ae6d905b549972c390108a4e859d0f06e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6d905b549972c390108a4e859d0f06e">&#9670;&#160;</a></span>getNumConstants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t ast::JplDe::getNumConstants </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取JPL DE文件中的常量个数 </p>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-</td><td>常量个数 </td></tr>
   </table>
   </dd>
 </dl>

@@ -15,6 +15,8 @@ var dir_fb8dea326293309ee9315e7aedad3578 =
     [ "OrbitElement.hpp", "OrbitElement_8hpp.html", "OrbitElement_8hpp" ],
     [ "OrbitGeometry.cpp", "OrbitGeometry_8cpp.html", "OrbitGeometry_8cpp" ],
     [ "OrbitGeometry.hpp", "OrbitGeometry_8hpp.html", "OrbitGeometry_8hpp" ],
+    [ "OrbitManeuver.cpp", "OrbitManeuver_8cpp.html", "OrbitManeuver_8cpp" ],
+    [ "OrbitManeuver.hpp", "OrbitManeuver_8hpp.html", "OrbitManeuver_8hpp" ],
     [ "OrbitParam.cpp", "OrbitParam_8cpp.html", "OrbitParam_8cpp" ],
     [ "OrbitParam.hpp", "OrbitParam_8hpp.html", "OrbitParam_8hpp" ]
 ];

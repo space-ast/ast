@@ -675,6 +675,7 @@ var hierarchy =
     [ "ast::OpUnaryRegister", "classast_1_1OpUnaryRegister.html", null ],
     [ "ast::OrbElem", "classast_1_1OrbElem.html", null ],
     [ "ast::OrderedMap< Key, Value >", "classast_1_1OrderedMap.html", null ],
+    [ "ast::OrderedMap< std::string, double >", "classast_1_1OrderedMap.html", null ],
     [ "ast::OrderedMap< std::string, SharedPtr< Value > >", "classast_1_1OrderedMap.html", null ],
     [ "ast::OrdinaryDifferentialEquation", "classast_1_1OrdinaryDifferentialEquation.html", [
       [ "ast::HPOPEquation", "classast_1_1HPOPEquation.html", null ],
