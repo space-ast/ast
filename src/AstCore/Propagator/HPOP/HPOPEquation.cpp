@@ -436,9 +436,12 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         for(auto& thirdBody: thirdBodies)
         {
             auto body3rd = thirdBody.body();
-            if(body3rd == nullptr)
+            if(body3rd == nullptr || body3rd == body)
             {
-                aWarning("third body pointer is null, skipping this third body.");
+                if(body3rd == nullptr)
+                    aWarning("third body pointer is null");
+                else
+                    aWarning("third body '%s' is the same as the central body, skipping this third body.", body3rd->name().c_str());
                 continue;
             }
             Point* bodyEphemeris = aGetBodyEphemeris(*body3rd, thirdBody.ephemerisSource());
