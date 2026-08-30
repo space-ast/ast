@@ -15,7 +15,7 @@
 
 ## 🌟 项目简介
 
-**space-ast** (/æst/) 是一个专注于航天仿真领域的算法库，提供了轨道力学、姿态控制、轨迹规划等核心算法的现代C++实现。
+**space-ast** (/æst/) 是一个专注于航天仿真领域的算法库，提供了轨道力学、姿态仿真、轨迹规划等核心算法的现代C++实现。
 
 如果你想要了解更多，请参考：[版本下载](https://github.com/space-ast/ast/releases), [使用指南](https://space-ast.github.io/ast/), [API文档](https://space-ast.github.io/ast/api/), [Github](https://github.com/space-ast/ast)以及 [Gitee](https://gitee.com/space-ast/ast) 和 [GitCode](https://gitcode.com/space-ast/ast)。
 
@@ -24,7 +24,7 @@
 ### 🛰️ 算法领域
 
 - **轨道力学**：二体问题、轨道外推、兰伯特问题求解
-- **姿态系统**：四元数运算、姿态动力学、控制算法
+- **姿态系统**：四元数运算、姿态仿真
 - **坐标转换**：J2000, MOD, TOD, ECF, LVLH等坐标系间的转换
 - **环境模型**：大气密度、引力场、太阳辐射压
 - **数值方法**：常微分方程数值积分、线性代数求解
@@ -136,7 +136,7 @@ const kEps15 = 1e-15;
 
 - [工具模块](src/AstUtil): 提供通用的工具函数，如数学运算、字符串处理等
 - [数学库](src/AstMath): 提供数值计算、线性代数、优化等数学函数
-- [仿真引擎](src/AstSim): 提供仿真环境，支持轨道模拟、姿态控制、环境交互等
+- [仿真引擎](src/AstSim): 提供仿真环境，支持轨道模拟、姿态仿真、环境交互等
 - [航天算法](src/AstCore): 提供轨道力学、姿态系统、坐标转换等核心算法
 
 下面的模块将通过AI辅助进行开发，但会通过人工审查和自动测试确保质量。

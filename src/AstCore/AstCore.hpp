@@ -257,6 +257,7 @@
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/OrbitGeometry.hpp"
 #include "AstCore/OrbitParam.hpp"
+#include "AstCore/OrbitManeuver.hpp"
 #include "AstCore/OrbitPathFilter.hpp"
 #include "AstCore/OrbitalPrecession.hpp"
 #include "AstCore/OutOfDateFilter.hpp"
