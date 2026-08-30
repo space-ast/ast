@@ -42,9 +42,14 @@ public:
     // ── 配置 ─────────────────────────────────────────────
 
     /// @brief 设置各分量在状态向量中的索引
-    void setStateIndices(size_t idxPos, size_t idxVel, size_t idxSTM=-1,
-                         size_t idxDragSens=-1, size_t idxSRPSens=-1)
+    void setFrameAndIndices(
+        Frame* frame,
+        size_t idxPos, size_t idxVel, 
+        size_t idxSTM=-1, size_t idxDragSens=-1, size_t idxSRPSens=-1
+    )
     {
+        assert(frame != nullptr);
+        frame_       = frame;
         idxPos_      = idxPos;
         idxVel_      = idxVel;
         idxSTM_      = idxSTM;
@@ -79,6 +84,7 @@ public:
         CartState cartState;
         toState(y, cartState);
         state.setState(cartState);
+        state.setFrame(frame_);
     }
 
     errc_t toStateTransitionMatrix(const double* y, Matrix6d& stm) const override
@@ -151,6 +157,7 @@ private:
     size_t idxSTM_      = (size_t)-1;  ///< STM 在状态向量中的起始索引
     size_t idxDragSens_ = (size_t)-1;  ///< Drag 敏感度在状态向量中的起始索引
     size_t idxSRPSens_  = (size_t)-1;  ///< SRP 敏感度在状态向量中的起始索引
+    Frame* frame_ = nullptr;           ///< 参考坐标系
 };
 
 HPOP::HPOP()
@@ -230,7 +237,7 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector
         return -1;
     }
 
-    stateMapper_->setStateIndices(idxPos, idxVel);
+    stateMapper_->setFrameAndIndices(propagationFrame(), idxPos, idxVel);
 
     array6d y;
     stateMapper_->fromPos(position.data(), y.data());
@@ -265,7 +272,7 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, CartSt
         return -1;
     }
 
-    stateMapper_->setStateIndices(idxPos, idxVel, idxSTM);
+    stateMapper_->setFrameAndIndices(propagationFrame(), idxPos, idxVel, idxSTM);
 
     std::array<double, dimexpected> y;
     stateMapper_->fromState(state, y.data());
@@ -324,7 +331,7 @@ errc_t HPOP::propagate(const TimePoint& startTime, TimePoint& targetTime,
         }
     }
 
-    stateMapper_->setStateIndices(idxPos, idxVel, idxSTM, idxDragSens, idxSRPSens);
+    stateMapper_->setFrameAndIndices(propagationFrame(), idxPos, idxVel, idxSTM, idxDragSens, idxSRPSens);
 
     std::vector<double> y(dim);
     stateMapper_->fromState(state, y.data());

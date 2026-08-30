@@ -61,31 +61,39 @@ static errc_t loadGravityFieldGFC(GravityFieldLoaderContext& ctx);
 static errc_t loadGravityField(StringView model, GravityFieldLoaderContext& ctx);
 
 
-/// @brief 打开重力场文件
-/// @param parser 解析器
-/// @param model 模型名称或文件路径
-/// @param filepath 输出文件路径
-/// @return 错误码
+/// @brief 解析重力场文件：根据 model（模型名称或文件路径）定位到实际存在的重力场文件并打开
+/// @param ctx 加载器上下文（携带解析器与数据目录）
+/// @param model 模型名称（如 "WGS84"）或文件路径；既可能是完整路径，也可能是需要补充扩展名/目录前缀的名称
+/// @param filepath 输出：定位到的实际文件路径
+/// @return 成功返回 0，否则返回错误码
 static errc_t openGravityFile(GravityFieldLoaderContext &ctx, StringView model, std::string& filepath)
 {
     auto& parser = ctx.parser_;
+    // 优先把 model 当作完整文件路径直接打开
     parser.open(model);
     if(!parser.isOpen()){
-        // 判断是不是模型名称
+        // 直接打开失败：model 可能是“模型名称”（如 "Earth"）而非完整路径，
+        // 需要在数据目录里搜索带扩展名的同名文件，或带目录前缀的路径。
+        //
+        // 先判断 model 是否含文件扩展名——取最后一个 '.'，无扩展名时为 npos
         size_t last_dot = model.rfind('.');
+        // 再取最后一个目录分隔符（Windows 同时接受 / 与 \），用于判断是否带路径
         #ifdef _WIN32
         size_t last_slash = model.find_last_of("/\\");
         #else
         size_t last_slash = model.find_last_of('/');
         #endif
 	    
+        // 不含目录分隔符 => 纯粹的名称（不带路径），需要去各数据根目录搜索
         bool no_dir_sep = last_slash == StringView::npos;
+        // 没有 '.'，或 '.' 出现在目录分隔符之前（即 '.' 属于目录名而非文件扩展名）=> 视为无扩展名
         bool no_dot;
         if(no_dir_sep){
             no_dot = (last_dot == StringView::npos);
         }else{
             no_dot = (last_dot == StringView::npos) || ((last_dot != StringView::npos) && (last_dot < last_slash));
         }
+        // model 是纯名称时，自动补充重力场文件扩展名；已带扩展名时不再追加
         Span<char const* const> suffixes;
         std::vector<std::string> prefixes;
         if(no_dot){
@@ -96,18 +104,33 @@ static errc_t openGravityFile(GravityFieldLoaderContext &ctx, StringView model, 
             static const char* suffixes2[] = {""};
             suffixes = suffixes2;
         }
+        // 确定搜索的根目录：model 是纯名称时，依次尝试工作目录、用户指定目录(dirpath_)、
+        // 以及内置太阳系数据的 Earth 重力场目录
         if(no_dir_sep){
-            prefixes = {
-                "",
-                std::string(ctx.dirpath_),
-                aGetSolarSystem()->getDirpath() + "/Earth/",
-                aDataDirGet() + "/SolarSystem/Earth/" 
-            };
+            // 如果指定目录为空，尝试工作目录、内置太阳系数据的 Earth 重力场目录
+            // 否则，只尝试工作目录和指定目录
+            if(ctx.dirpath_.empty())
+            {
+                prefixes = {
+                    "",
+                    aGetSolarSystem()->getDirpath() + "/Earth/",
+                    aDataDirGet() + "/SolarSystem/Earth/"
+                };
+            }
+            else
+            {
+                prefixes = {
+                    "",
+                    std::string(ctx.dirpath_)
+                };
+            }
+
         }else{
+            // 已含目录分隔符（带路径），只按原路径尝试，不再去数据目录搜索
             prefixes = {""};
         }
 
-        /// 遍历所有可能的路径组合
+        /// 遍历所有“根目录 × 扩展名”组合，找到第一个存在的文件并打开
         {
             for(const std::string& prefix : prefixes){
                 for(const char* suffix : suffixes)
@@ -117,6 +140,7 @@ static errc_t openGravityFile(GravityFieldLoaderContext &ctx, StringView model, 
                         newfilepath = std::string(model) + suffix;
                     else
                         newfilepath = prefix + "/" + std::string(model) + suffix;
+                    // 命中存在的文件：尝试打开，成功则记录实际路径并返回
                     if(fs::exists(newfilepath))
                     {
                         parser.open(newfilepath);
@@ -129,8 +153,10 @@ static errc_t openGravityFile(GravityFieldLoaderContext &ctx, StringView model, 
                 }
             }
         }
+        // 所有“根目录 × 扩展名”组合均未找到匹配文件
         return eErrorInvalidFile;
     }
+    // 直接打开成功，model 本身就是有效的文件路径
     filepath = std::string(model);
     return 0;
 }
