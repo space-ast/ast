@@ -30,8 +30,6 @@
 #include "ast/StringView.hpp"
 #include "ast/Test.hpp"
 #include "ast/IO.hpp"
-
-#include <gtest/gtest.h>
 #include <cstring>
 #include <string>
 #include <vector>

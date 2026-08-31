@@ -30,7 +30,6 @@
 #include "ast/Test.hpp"
 #include "ast/IO.hpp"
 
-#include <gtest/gtest.h>
 #include <string>
 #include <vector>
 

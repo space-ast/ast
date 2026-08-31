@@ -26,8 +26,11 @@
 #include <iostream> 					// for std::cout 
 #include "AstTest/TestConfig.hpp"		// for test config
 #include "AstUtil/Environment.hpp"		// for env check
+#ifdef AST_WITH_GTEST
 #include <gtest/gtest.h>
-
+#else
+#include "AstTest/TestFramework.hpp"		// 内置的 gtest 兼容测试框架
+#endif
 
 #define GTEST_MAIN() \
 int main(int argc, char **argv) { \
@@ -40,46 +43,4 @@ int main(int argc, char **argv) { \
 #	define GTEST_SKIP() return GTEST_SUCCESS_("Test skipped")  // 兼容老版本gtest
 #endif
 
-#if !defined GTEST_API_ && 0
-
-
-#define ASSERT_EQ(val1, val2)\
-if((val1) != (val2))\
-{\
-	printf("\nat file %s(%d)\n", __FILE__, __LINE__);\
-	std::cout<< "val1" << #val1 << " = " << val1 << std::endl;\
-	std::cout<< "val2" << #val2 << " = " << val2 << std::endl;\
-	return -1;\
-}
-
-
-#define ASSERT_NEAR(val1, val2, eps)\
-if( fabs((val1) - (val2)) > fabs(eps))\
-{\
-	printf("\nat file %s(%d)\n", __FILE__, __LINE__);\
-	std::cout<< "val1 " << #val1 << " = " << val1 << std::endl;\
-	std::cout<< "val2 " << #val2 << " = " << val2 << std::endl;\
-	std::cout<< "eps" << #eps << " = " << eps << std::endl;\
-	std::cout<< "delta" << " = " << fabs(val1 - val2) << std::endl;\
-	return -1;\
-}
-
-#define ASSERT_FALSE(val)\
-if((val))\
-{\
-	printf("\nat file %s(%d)\n", __FILE__, __LINE__);\
-	std::cout<< "val " << #val << " = " << val << std::endl;\
-	return -1;\
-}
-
-
-#define ASSERT_TRUE(val)\
-if(!(val))\
-{\
-	printf("\nat file %s(%d)\n", __FILE__, __LINE__);\
-	std::cout<< "val " << #val << " = " << (val) << std::endl;\
-	return -1;\
-}
-
-#endif
 

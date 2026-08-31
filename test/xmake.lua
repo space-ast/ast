@@ -30,23 +30,21 @@ add_packages("benchmark")
 
 set_warnings("more")
 
--- 单元测试代码
-if has_package("gtest") then
-    local test_files1 = os.files("**/test*.cpp|Archive/**|GUI/**")
-    for _, file in ipairs(test_files1) do
-        local basename = path.basename(file)
-        target(basename)
-            add_files(file)
-            set_kind("binary")
-            add_tests("unittest")
-    end
-    local test_files2 = os.files("**/test*.cxx")
-    for _, file in ipairs(test_files2) do
-        local basename = path.basename(file)
-        target(basename)
-            add_files(file)
-            set_kind("binary")
-    end
+-- 单元测试代码（如果没有gtest库，则使用内置测试框架 AstTest/TestFramework.hpp）
+local test_files1 = os.files("**/test*.cpp|Archive/**|GUI/**")
+for _, file in ipairs(test_files1) do
+    local basename = path.basename(file)
+    target(basename)
+        add_files(file)
+        set_kind("binary")
+        add_tests("unittest")
+end
+local test_files2 = os.files("**/test*.cxx")
+for _, file in ipairs(test_files2) do
+    local basename = path.basename(file)
+    target(basename)
+        add_files(file)
+        set_kind("binary")
 end
 
 

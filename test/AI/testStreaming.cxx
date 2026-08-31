@@ -11,7 +11,7 @@
 
 #include "ast/SSEParser.hpp"
 #include "AstUtil/JsonValue.hpp"
-#include <gtest/gtest.h>
+#include "AstTest/AstTestMacro.h"
 #include <stdio.h>
 #include <string>
 #include <vector>
