@@ -1,5 +1,10 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1RotationElement.html#a087ffed37fee180ca5a767ef0160e034":[0,1,7,10,1],
+"classast_1_1RotationElement.html#a63c1349c0602031e346d5c1cf5026965":[0,1,7,10,3],
+"classast_1_1RotationElement.html#ae5b557f446687f751b8dabddec3bab63":[0,1,7,10,4],
+"classast_1_1RotationElement.html#aea22c9fc9d14ad8d5930023571a016da":[0,1,7,10,5],
+"classast_1_1RotationElement.html#af6d41e5e3e634dc84664eb4f917281aa":[0,1,7,10,2],
 "classast_1_1RotationalData.html":[0,1,7,9],
 "classast_1_1RotationalData.html#a06565ba128d461612a7ccbb4e3c01bc7":[0,1,7,9,5],
 "classast_1_1RotationalData.html#a2d08f17696c20b3267953e9c60514979":[0,1,7,9,13],
@@ -244,10 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1ScStateCalcElevationRate.html":[3,0,0,731],
 "classast_1_1ScStateCalcEpoch.html":[2,0,0,734],
 "classast_1_1ScStateCalcEpoch.html":[3,0,0,732],
-"classast_1_1ScStateCalcEquinoctialH.html":[2,0,0,735],
-"classast_1_1ScStateCalcEquinoctialH.html":[3,0,0,733],
-"classast_1_1ScStateCalcEquinoctialK.html":[2,0,0,736],
-"classast_1_1ScStateCalcEquinoctialK.html":[3,0,0,734],
-"classast_1_1ScStateCalcEquinoctialP.html":[2,0,0,737],
-"classast_1_1ScStateCalcEquinoctialP.html":[3,0,0,735]
+"classast_1_1ScStateCalcEquinoctialH.html":[2,0,0,735]
 };

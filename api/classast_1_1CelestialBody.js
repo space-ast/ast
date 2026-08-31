@@ -13,6 +13,7 @@ var classast_1_1CelestialBody =
     [ "getGM", "classast_1_1CelestialBody.html#a5fef29d135109b4b53feedfe50dc5c01", null ],
     [ "getGravityField", "classast_1_1CelestialBody.html#ab5df1040c082453395917c6b81642566", null ],
     [ "getGravityModel", "classast_1_1CelestialBody.html#a33a059f3a4383fdab0ee4f2fe4e5b669", null ],
+    [ "getGravityRefDistance", "classast_1_1CelestialBody.html#aa3f885891d92d8daa9acf93741aa579f", null ],
     [ "getJ2", "classast_1_1CelestialBody.html#a50c9fbb215bac72a3e78a90af19e01b6", null ],
     [ "getJ3", "classast_1_1CelestialBody.html#a0a46672910c6d55714d734a5d38f9c0c", null ],
     [ "getJ4", "classast_1_1CelestialBody.html#a3ba6e2430d13176c4cec87ac50da9169", null ],

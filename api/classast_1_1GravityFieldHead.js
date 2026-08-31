@@ -1,6 +1,7 @@
 var classast_1_1GravityFieldHead =
 [
     [ "getGM", "classast_1_1GravityFieldHead.html#ae4940629e2925ec071608bcf28e05219", null ],
+    [ "refDistance", "classast_1_1GravityFieldHead.html#a3752362b02ce06f5ad9b9ea0635a87ef", null ],
     [ "referenceFrame", "classast_1_1GravityFieldHead.html#accaba553f3475e812f608b057458b21f", null ],
     [ "centralBody_", "classast_1_1GravityFieldHead.html#a9e998f6f3f44aa07d9b360217ea72aea", null ],
     [ "gm_", "classast_1_1GravityFieldHead.html#a68e18921e719522987f6395c01a69b1c", null ],

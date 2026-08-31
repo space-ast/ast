@@ -1,5 +1,10 @@
 var NAVTREEINDEX64 =
 {
+"structast_1_1WasmClassInfo.html#ab50d7ebb765b8460efbfd0767cc056b4":[3,0,0,1131,1],
+"structast_1_1WasmObjectInfo.html":[2,0,0,1134],
+"structast_1_1WasmObjectInfo.html":[3,0,0,1132],
+"structast_1_1WasmObjectInfo.html#a23a1817bb7d274a598fe35d075f5586a":[2,0,0,1134,0],
+"structast_1_1WasmObjectInfo.html#a23a1817bb7d274a598fe35d075f5586a":[3,0,0,1132,0],
 "structast_1_1WasmObjectInfo.html#a48b85ddd84b58b52ce4d21f90054ab21":[2,0,0,1134,3],
 "structast_1_1WasmObjectInfo.html#a48b85ddd84b58b52ce4d21f90054ab21":[3,0,0,1132,3],
 "structast_1_1WasmObjectInfo.html#a70f82e170ca44543ca20a77ec51d99d4":[2,0,0,1134,2],

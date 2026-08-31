@@ -1,5 +1,10 @@
 var NAVTREEINDEX33 =
 {
+"classast_1_1KinematicRotation.html#a720283109431ea071832f1b863d9f4b8":[2,0,0,437,6],
+"classast_1_1KinematicRotation.html#a720283109431ea071832f1b863d9f4b8":[3,0,0,435,6],
+"classast_1_1KinematicRotation.html#a7a7cf3a0ee52f90857a27348663ae289":[2,0,0,437,0],
+"classast_1_1KinematicRotation.html#a7a7cf3a0ee52f90857a27348663ae289":[3,0,0,435,0],
+"classast_1_1KinematicRotation.html#a7f7b4d0505a9ed34e081b9ea256d5663":[2,0,0,437,7],
 "classast_1_1KinematicRotation.html#a7f7b4d0505a9ed34e081b9ea256d5663":[3,0,0,435,7],
 "classast_1_1KinematicRotation.html#a82779c2bb75c29307caf234dd954649d":[2,0,0,437,8],
 "classast_1_1KinematicRotation.html#a82779c2bb75c29307caf234dd954649d":[3,0,0,435,8],
@@ -244,10 +249,5 @@ var NAVTREEINDEX33 =
 "classast_1_1LogarithmicUnitRep.html":[2,0,0,457],
 "classast_1_1LogarithmicUnitRep.html":[3,0,0,455],
 "classast_1_1LogarithmicUnitRep.html#a0d151a63c68f86fb87e90544612f8910":[2,0,0,457,0],
-"classast_1_1LogarithmicUnitRep.html#a0d151a63c68f86fb87e90544612f8910":[3,0,0,455,0],
-"classast_1_1LogarithmicUnitRep.html#a290b085c22c7b39bc77b15f94d2da278":[2,0,0,457,2],
-"classast_1_1LogarithmicUnitRep.html#a290b085c22c7b39bc77b15f94d2da278":[3,0,0,455,2],
-"classast_1_1LogarithmicUnitRep.html#aa7dcbfd36e1d33c3d06f056e01adc96e":[2,0,0,457,1],
-"classast_1_1LogarithmicUnitRep.html#aa7dcbfd36e1d33c3d06f056e01adc96e":[3,0,0,455,1],
-"classast_1_1LoggerStream.html":[0,8,10]
+"classast_1_1LogarithmicUnitRep.html#a0d151a63c68f86fb87e90544612f8910":[3,0,0,455,0]
 };

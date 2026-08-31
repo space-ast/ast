@@ -1,5 +1,10 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1ScStateCalcEquinoctialH.html":[3,0,0,733],
+"classast_1_1ScStateCalcEquinoctialK.html":[2,0,0,736],
+"classast_1_1ScStateCalcEquinoctialK.html":[3,0,0,734],
+"classast_1_1ScStateCalcEquinoctialP.html":[2,0,0,737],
+"classast_1_1ScStateCalcEquinoctialP.html":[3,0,0,735],
 "classast_1_1ScStateCalcEquinoctialQ.html":[2,0,0,738],
 "classast_1_1ScStateCalcEquinoctialQ.html":[3,0,0,736],
 "classast_1_1ScStateCalcFPA.html":[2,0,0,740],
@@ -244,10 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalcVAz.html":[3,0,0,858],
 "classast_1_1ScStateCalcVBScript.html":[2,0,0,861],
 "classast_1_1ScStateCalcVBScript.html":[3,0,0,859],
-"classast_1_1ScStateCalcVBScript.html#ad2c9be669dd961974c32bbefec5718ad":[2,0,0,861,0],
-"classast_1_1ScStateCalcVBScript.html#ad2c9be669dd961974c32bbefec5718ad":[3,0,0,859,0],
-"classast_1_1ScStateCalcVGTAngle.html":[2,0,0,867],
-"classast_1_1ScStateCalcVGTAngle.html":[3,0,0,865],
-"classast_1_1ScStateCalcVMag.html":[2,0,0,868],
-"classast_1_1ScStateCalcVMag.html":[3,0,0,866]
+"classast_1_1ScStateCalcVBScript.html#ad2c9be669dd961974c32bbefec5718ad":[2,0,0,861,0]
 };

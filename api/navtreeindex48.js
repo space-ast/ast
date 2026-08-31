@@ -1,5 +1,10 @@
 var NAVTREEINDEX48 =
 {
+"classast_1_1UiAnalyzerMainWindow.html#aa52b0ef42c7a92ac9d89c105adb18d9e":[2,0,0,1005,3],
+"classast_1_1UiAnalyzerMainWindow.html#aa52b0ef42c7a92ac9d89c105adb18d9e":[3,0,0,1003,3],
+"classast_1_1UiAnalyzerMainWindow.html#ad3f9d6f31976ad9125e732b2cb8c2fd1":[2,0,0,1005,2],
+"classast_1_1UiAnalyzerMainWindow.html#ad3f9d6f31976ad9125e732b2cb8c2fd1":[3,0,0,1003,2],
+"classast_1_1UiAttributeTree.html":[2,0,0,1006],
 "classast_1_1UiAttributeTree.html":[3,0,0,1004],
 "classast_1_1UiAttributeTree.html#a4a11e75c8b14576fefa0d489ab0ee106":[2,0,0,1006,1],
 "classast_1_1UiAttributeTree.html#a4a11e75c8b14576fefa0d489ab0ee106":[3,0,0,1004,1],
@@ -244,10 +249,5 @@ var NAVTREEINDEX48 =
 "classast_1_1UiMotionTwoBody.html":[3,0,0,1041],
 "classast_1_1UiNewObjectDialog.html":[2,0,0,1044],
 "classast_1_1UiNewObjectDialog.html":[3,0,0,1042],
-"classast_1_1UiNewObjectDialog.html#ab9ec9673818d56d16df689a0af5eead3":[2,0,0,1044,0],
-"classast_1_1UiNewObjectDialog.html#ab9ec9673818d56d16df689a0af5eead3":[3,0,0,1042,0],
-"classast_1_1UiNewObjectDialog.html#ac3991c27f959496be4637acf7d1dd833":[2,0,0,1044,1],
-"classast_1_1UiNewObjectDialog.html#ac3991c27f959496be4637acf7d1dd833":[3,0,0,1042,1],
-"classast_1_1UiNewObjectQuickDialog.html":[2,0,0,1045],
-"classast_1_1UiNewObjectQuickDialog.html":[3,0,0,1043]
+"classast_1_1UiNewObjectDialog.html#ab9ec9673818d56d16df689a0af5eead3":[2,0,0,1044,0]
 };

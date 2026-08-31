@@ -19,6 +19,7 @@ var classast_1_1GravityField =
     [ "load", "classast_1_1GravityField.html#a83a222d8174d7a9b5372caff13a55e1d", null ],
     [ "normalize", "classast_1_1GravityField.html#af17fec0a0bb6df99fb140e7fb98e431a", null ],
     [ "normalized", "classast_1_1GravityField.html#a67d66b1cc10f2a359eb98891f66485be", null ],
+    [ "refDistance", "classast_1_1GravityField.html#a3752362b02ce06f5ad9b9ea0635a87ef", null ],
     [ "referenceFrame", "classast_1_1GravityField.html#accaba553f3475e812f608b057458b21f", null ],
     [ "secularVariations", "classast_1_1GravityField.html#a68e24530da76b82b3bae0a1020c34b3d", null ],
     [ "unnormalize", "classast_1_1GravityField.html#ae34a200427b3ee8dac132bb57be27598", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX23 =
 {
+"classast_1_1ChatMessage.html#adca35ca268c5d0cf92d59a8bbad549db":[3,0,0,138,0],
 "classast_1_1ChatMessages.html":[2,0,0,141],
 "classast_1_1ChatMessages.html":[3,0,0,139],
 "classast_1_1ChatMessages.html#a12ca31f60364612286e73d695f68bbe4":[2,0,0,141,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX23 =
 "classast_1_1CriticallyInclinedOrbitDesigner.html#afcb2cb7b085c6743c6b7f76ca0ef89ddafff03efdc0d42aec622a56e1c3cc69ad":[0,1,4,3,0,0],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html":[2,0,0,191],
 "classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html":[3,0,0,189],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[2,0,0,191,3],
-"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[3,0,0,189,3]
+"classast_1_1CriticallyInclinedSunSyncOrbitDesigner.html#a1be4e330769074d4dd01c1c74d06440b":[2,0,0,191,3]
 };
