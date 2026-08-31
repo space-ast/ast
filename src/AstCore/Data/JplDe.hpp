@@ -180,7 +180,7 @@ public:
     /// @param  value   - 输出：常量值
     /// @param  name    - 输出：常量名称（可为 nullptr）
     /// @retval             - 错误码
-    errc_t getConstant(int index, double& value, std::string* name = nullptr) const;
+    errc_t getConstant(size_t index, double& value, std::string* name = nullptr) const;
 
 
     /// @brief  获取JPL DE文件中指定名称的常量数值

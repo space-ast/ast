@@ -415,7 +415,7 @@ const JplDe::ConstantList& JplDe::getConstants() const
     return items;
 }
 
-errc_t JplDe::getConstant(int index, double &value, std::string *name) const
+errc_t JplDe::getConstant(size_t index, double &value, std::string *name) const
 {
     if (!deFile_) return eErrorInvalidFile;
 
@@ -423,7 +423,7 @@ errc_t JplDe::getConstant(int index, double &value, std::string *name) const
     if (rc) return rc;
 
     const auto& items = constants_.items();    // 保持 DE 索引顺序
-    if (index < 0 || index >= items.size()) return JPL_EPH_INVALID_INDEX;
+    if (index >= items.size()) return JPL_EPH_INVALID_INDEX;
     value = items[index].second;
     if (name) *name = items[index].first;
     return eNoError;
