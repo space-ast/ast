@@ -39,6 +39,9 @@ public:
     HPOPStateMapper() = default;
     ~HPOPStateMapper() override = default;
 
+    HPOPStateMapper(const HPOPStateMapper&) = default;
+    HPOPStateMapper& operator=(const HPOPStateMapper&) = default;
+
     // ── 配置 ─────────────────────────────────────────────
 
     /// @brief 设置各分量在状态向量中的索引

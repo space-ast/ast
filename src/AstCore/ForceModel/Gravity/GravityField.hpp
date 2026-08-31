@@ -52,12 +52,15 @@ public:
 
     /// @brief 获取重力场的参考系名称
     const std::string& referenceFrame() const { return referenceFrame_; }
+
+    /// @brief 获取重力场的参考半径
+    double refDistance() const { return refDistance_; }
 protected:
     int maxDegree_{0};                      ///< 最大阶数
     int maxOrder_{0};                       ///< 最大次数
-    std::string centralBody_{};              ///< 中心天体名称
-    std::string model_{};                    ///< 重力场模型名称
-    std::string referenceFrame_{};           ///< 重力场的参考系名称：例如月球的重力场参考系 PrincipalAxes_421、PrincipalAxes_403等，默认为天体固连系
+    std::string centralBody_{};             ///< 中心天体名称
+    std::string model_{};                   ///< 重力场模型名称
+    std::string referenceFrame_{};          ///< 重力场的参考系名称：例如月球的重力场参考系 PrincipalAxes_421、PrincipalAxes_403等，默认为天体固连系
     double gm_{0};                          ///< 中心天体引力常数
     double refDistance_{0};                 ///< 参考距离
     bool normalized_{false};                ///< 是否归一化
@@ -92,6 +95,7 @@ public:
     ~GravityField() = default;
 
     using GravityFieldHead::referenceFrame;
+    using GravityFieldHead::refDistance;
     
     using GravityFieldHead::maxDegree_;
     using GravityFieldHead::maxOrder_;
