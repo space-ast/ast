@@ -43,6 +43,7 @@ errc_t ODEIntegrator::initialize(ODE &ode)
 {
     this->ode_ = &ode;
     this->initWorkStateObserver();
+    this->eventDetectorList_.reset();
     return eNoError;
 }
 

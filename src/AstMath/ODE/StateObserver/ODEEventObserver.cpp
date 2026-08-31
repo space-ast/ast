@@ -137,5 +137,13 @@ errc_t ODEEventObserver::findEventTime(double x1, double x2, double& result, ODE
     return err;
 }
 
+void ODEEventObserver::reset()
+{
+    this->lastDifference_ = std::numeric_limits<double>::quiet_NaN();
+    this->lastTime_ = std::numeric_limits<double>::quiet_NaN();
+    this->eventTime_ = std::numeric_limits<double>::quiet_NaN();
+    this->repeatCount_ = -1;
+}
+
 AST_NAMESPACE_END
 

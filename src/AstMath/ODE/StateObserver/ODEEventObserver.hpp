@@ -40,6 +40,7 @@ public:
     ODEEventDetector* getEventDetector() const { return detector_; }
     bool isEventOccurred(double* y, double& x);
     errc_t findEventTime(double x1, double x2, double& result, ODEIntegrator* integrator);
+    void reset();
 protected:
     friend class ODEEventDetectorList;
     ODEEventDetector* detector_ {nullptr};

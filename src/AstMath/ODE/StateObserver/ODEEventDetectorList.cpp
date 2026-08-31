@@ -87,6 +87,14 @@ void ODEEventDetectorList::removeEventDetector(ODEEventDetector *detector)
     }
 }
 
+void ODEEventDetectorList::reset()
+{
+    for(auto observer : eventObservers_)
+    {
+        observer->reset();
+    }
+}
+
 AST_NAMESPACE_END
 
 
