@@ -244,8 +244,8 @@ protected:
     double      emMassRatio_{};       ///< 地球月球质量比
     FILE*       deFile_{ NULL };      ///< De二进制文件
     double**    dataBlocks_{NULL};    ///< 星历数据块的内存缓存
-    mutable ConstentMap constants_;   ///< DE 常量表（懒加载；保持 DE 索引顺序，键为常量名）
-    mutable std::mutex  mutex_;       ///< 互斥锁
+    mutable ConstentMap constants_{}; ///< DE 常量表（懒加载；保持 DE 索引顺序，键为常量名）
+    mutable std::mutex  mutex_{};     ///< 互斥锁
 };
 
 

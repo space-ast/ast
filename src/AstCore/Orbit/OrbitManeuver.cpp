@@ -55,7 +55,7 @@ double aApsisDeltaV(const ModOrbElem& modOrbElem, double targetRadius, double gm
     {
         aError("burn position is not periapsis or apoapsis, with trueA_ = %.16g", rad2deg(modOrbElem.trueA_));
         double sma = modOrbElem.getSMA();
-        burnRadius = ast::aOrbitRadius(sma, modOrbElem.e_, modOrbElem.trueA_);
+        burnRadius = aOrbitRadius(sma, modOrbElem.e_, modOrbElem.trueA_);
         otherRadius = sma * 2 - burnRadius;
     }
     return aApsisDeltaV(burnRadius, otherRadius, targetRadius, gm);

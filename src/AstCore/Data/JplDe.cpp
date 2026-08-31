@@ -291,6 +291,7 @@ JplDe::JplDe()
     , ephemEnd_(0)
     , deFile_(nullptr)
     , dataBlocks_ (nullptr)
+    , constants_{}
     , mutex_()
 {
 
