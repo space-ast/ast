@@ -20,6 +20,7 @@
 
 #include "OrbitManeuver.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Math.hpp"
 #include "AstCore/OrbitGeometry.hpp"
 #include <cmath>
 
@@ -40,19 +41,19 @@ double aApsisDeltaV(const ModOrbElem& modOrbElem, double targetRadius, double gm
     double burnRadius;
     double otherRadius;
     const double eps = 1e-5;
-    if(fabs(modOrbElem.trueA_) < eps)
+    if(fabs(aNormalizeAngleNegPiToPi(modOrbElem.trueA_)) < eps)
     {
         burnRadius = modOrbElem.getPeriRad();   
         otherRadius = modOrbElem.getApoRad();   
     }
-    else if(fabs(modOrbElem.trueA_ - kPI) < eps)
+    else if(fabs(aNormalizeAngleNegPiToPi(modOrbElem.trueA_ - kPI)) < eps)
     {
         burnRadius = modOrbElem.getApoRad();   
         otherRadius = modOrbElem.getPeriRad();   
     }
     else
     {
-        aError("burn position is not periapsis or apoapsis");
+        aError("burn position is not periapsis or apoapsis, with trueA_ = %.16g", rad2deg(modOrbElem.trueA_));
         double sma = modOrbElem.getSMA();
         burnRadius = ast::aOrbitRadius(sma, modOrbElem.e_, modOrbElem.trueA_);
         otherRadius = sma * 2 - burnRadius;
