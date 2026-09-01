@@ -1,6 +1,7 @@
 var classast_1_1EphemerisLagrangeVar =
 [
     [ "getFrame", "classast_1_1EphemerisLagrangeVar.html#a9af0958ad95547f1211ee45ffa4dc050", null ],
+    [ "getInterval", "classast_1_1EphemerisLagrangeVar.html#a56cfb06d8d6f07a0b5ed6adaf032e7e8", null ],
     [ "getPos", "classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319", null ],
     [ "getPosVel", "classast_1_1EphemerisLagrangeVar.html#ad3157f329611a1f7980a43c8ed95d67e", null ],
     [ "averageStep_", "classast_1_1EphemerisLagrangeVar.html#a489a8392204b2d4a342744efacd7be3e", null ],

@@ -1,4 +1,4 @@
 var Ephemeris_8hpp =
 [
-    [ "ast::Ephemeris", "classast_1_1Ephemeris.html", "classast_1_1Ephemeris" ]
+    [ "Ephemeris", "Ephemeris_8hpp.html#a47e299e0ebd808db5d77aaadfeedb682", null ]
 ];

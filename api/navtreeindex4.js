@@ -1,5 +1,14 @@
 var NAVTREEINDEX4 =
 {
+"CrashHandler_8hpp_source.html":[4,0,0,8,2],
+"CriticallyInclinedOrbitDesigner_8cpp.html":[4,0,0,6,11,4,4],
+"CriticallyInclinedOrbitDesigner_8hpp.html":[4,0,0,6,11,4,5],
+"CriticallyInclinedOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,5],
+"CriticallyInclinedSunSyncOrbitDesigner_8cpp.html":[4,0,0,6,11,4,6],
+"CriticallyInclinedSunSyncOrbitDesigner_8hpp.html":[4,0,0,6,11,4,7],
+"CriticallyInclinedSunSyncOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,7],
+"CylindricalEclipseCalculator_8cpp.html":[4,0,0,6,10,0,4],
+"CylindricalEclipseCalculator_8hpp.html":[4,0,0,6,10,0,5],
 "CylindricalEclipseCalculator_8hpp_source.html":[4,0,0,6,10,0,5],
 "DAFParser_8cpp.html":[4,0,0,27,5,4,0],
 "DAFParser_8cpp.html#a2977e22c3a49b3b505297ff3c57390f3":[4,0,0,27,5,4,0,6],
@@ -240,14 +249,5 @@ var NAVTREEINDEX4 =
 "Dimension_8hpp.html#a6589a009751d5129bc8061d4a432f22b":[4,0,0,27,7,1,16],
 "Dimension_8hpp.html#a66356b3c1665ac2eea3a7f3c32ac598f":[4,0,0,27,7,1,5],
 "Dimension_8hpp.html#a75e41ca58c95d7f71bec7edeedecd747":[4,0,0,27,7,1,13],
-"Dimension_8hpp.html#a76bc86e8c16de763ba5587da00e48d10":[4,0,0,27,7,1,14],
-"Dimension_8hpp.html#a7dd359c4f79076aa154e9c8f3f46d636":[4,0,0,27,7,1,8],
-"Dimension_8hpp.html#a9392469021c5dc89ec24b046a440f1a3":[4,0,0,27,7,1,6],
-"Dimension_8hpp.html#a9e3b6d06a7d6ac66e4fe573c7ec944c5":[4,0,0,27,7,1,9],
-"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14":[4,0,0,27,7,1,2],
-"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a03d7e466dd696ba3ce6479db437f62bd":[4,0,0,27,7,1,2,10],
-"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a0fc6b6e1dcaee3d00d797bc4507f516d":[4,0,0,27,7,1,2,8],
-"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a1be278567ee23c317653a94c15d759c4":[4,0,0,27,7,1,2,11],
-"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a284dd9de53a3c707f05cc0dd662607c2":[4,0,0,27,7,1,2,7],
-"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a3415277feaf6ea4eb0b30f2aab932672":[4,0,0,27,7,1,2,12]
+"Dimension_8hpp.html#a76bc86e8c16de763ba5587da00e48d10":[4,0,0,27,7,1,14]
 };

@@ -1,5 +1,14 @@
 var NAVTREEINDEX2 =
 {
+"BasicComponentLoader_8hpp.html#a727de32fe5f31a1185eb96c57c31a1df":[4,0,0,11,5,11,1],
+"BasicComponentLoader_8hpp.html#acdfeb9b03318b4917c927d3ce67dc17c":[4,0,0,11,5,11,2],
+"BasicComponentLoader_8hpp_source.html":[4,0,0,11,5,11],
+"BisectionSolver_8cpp.html":[4,0,0,12,4,0,1],
+"BisectionSolver_8hpp.html":[4,0,0,12,4,0,2],
+"BisectionSolver_8hpp_source.html":[4,0,0,12,4,0,2],
+"BlockAbs_8cpp.html":[4,0,0,6,12,1,1,2,0],
+"BlockAbs_8hpp.html":[4,0,0,6,12,1,1,2,1],
+"BlockAbs_8hpp_source.html":[4,0,0,6,12,1,1,2,1],
 "BlockAdd_8cpp.html":[4,0,0,6,12,1,1,2,2],
 "BlockAdd_8hpp_source.html":[4,0,0,6,12,1,1,2,3],
 "BlockAstro_8cpp.html":[4,0,0,6,12,1,0,1],
@@ -240,14 +249,5 @@ var NAVTREEINDEX2 =
 "Bracket_8hpp.html":[4,0,0,12,8,1],
 "Bracket_8hpp_source.html":[4,0,0,12,8,1],
 "Break_8cpp.html":[4,0,0,6,11,3,1],
-"Break_8hpp.html":[4,0,0,6,11,3,2],
-"Break_8hpp_source.html":[4,0,0,6,11,3,2],
-"Breakpoint_8cpp.html":[4,0,0,18,1,0],
-"Breakpoint_8hpp_source.html":[4,0,0,18,1,1],
-"BrentOptimizer_8cpp.html":[4,0,0,12,6,1],
-"BrentOptimizer_8cpp.html#a92ada0b4e0f32a49c35219b3355f556e":[4,0,0,12,6,1,0],
-"BrentOptimizer_8hpp.html":[4,0,0,12,6,2],
-"BrentOptimizer_8hpp.html#a051ab4c2e88cc580fb8c504902d29c42":[4,0,0,12,6,2,0],
-"BrentOptimizer_8hpp.html#a92ada0b4e0f32a49c35219b3355f556e":[4,0,0,12,6,2,1],
-"BrentOptimizer_8hpp_source.html":[4,0,0,12,6,2]
+"Break_8hpp.html":[4,0,0,6,11,3,2]
 };

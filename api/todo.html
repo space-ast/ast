@@ -121,7 +121,7 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <dt>类 <a class="el" href="classast_1_1BackTrace.html">ast::BackTrace</a>  </dt>
 <dd><a class="anchor" id="_todo000042"></a>实现回溯信息  </dd>
 <dt>成员 <a class="el" href="classast_1_1BaseParser.html#a7ac170ef6035641cae5e3c7a9843c9c5">ast::BaseParser::read</a>  (void *buffer, size_t size, size_t pos) const</dt>
-<dd><a class="anchor" id="_todo000055"></a>当前的函数实现未考虑线程安全问题，该接口需要线程安全的实现，考虑在linux下使用pread函数  </dd>
+<dd><a class="anchor" id="_todo000050"></a>当前的函数实现未考虑线程安全问题，该接口需要线程安全的实现，考虑在linux下使用pread函数  </dd>
 <dt>成员 <a class="el" href="classast_1_1BlockDynamicSystem.html#ad361d3f61414d1b7f6ff9dba31ee6651">ast::BlockDynamicSystem::sortBlocks</a>  ()</dt>
 <dd><a class="anchor" id="_todo000019"></a>考虑使用拓扑排序算法对模型进行排序，例如Kahn 算法或者DFS 算法  </dd>
 <dt>成员 <a class="el" href="classast_1_1BlockSRP.html#a82f7379fb78b3f045169cfde9009d01d">ast::BlockSRP::run</a>  (const <a class="el" href="classast_1_1SimTime.html" title="仿真时间">SimTime</a> &amp;simTime) override</dt>
@@ -137,7 +137,7 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <dt>成员 <a class="el" href="classast_1_1CelestialBody.html#a38e7ed7241c4ae5c7aff86d631779d62">ast::CelestialBody::getAxes</a>  (StringView name) const</dt>
 <dd><a class="anchor" id="_todo000027"></a>这里考虑使用哈希表来存储映射关系  </dd>
 <dt>类 <a class="el" href="classast_1_1Class.html">ast::Class</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000061"></a>实现类的反射机制</p>
+<dd><p class="startdd"><a class="anchor" id="_todo000056"></a>实现类的反射机制</p>
 <p class="enddd"></p>
 </dd>
 <dt>成员 <a class="el" href="classast_1_1ConeEclipseCalculator.html#aecd227c4025ab017341677963b20381e">ast::ConeEclipseCalculator::getLightingRatio</a>  (const <a class="el" href="classast_1_1TimePoint.html" title="绝对时间点">TimePoint</a> &amp;time, const Vector3d &amp;position, <a class="el" href="classast_1_1Frame.html" title="坐标系抽象基类">Frame</a> *frame, <a class="el" href="classast_1_1CelestialBody.html" title="天体">CelestialBody</a> **obstructionOut)</dt>
@@ -145,7 +145,7 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <dt>成员 <a class="el" href="classast_1_1CylindricalEclipseCalculator.html#aff1aaf6e583769a185d238cd665d7832">ast::CylindricalEclipseCalculator::getLightingRatio</a>  (const <a class="el" href="classast_1_1TimePoint.html" title="绝对时间点">TimePoint</a> &amp;time, const Vector3d &amp;position, <a class="el" href="classast_1_1Frame.html" title="坐标系抽象基类">Frame</a> *frame) override</dt>
 <dd><a class="anchor" id="_todo000008"></a>计算遮挡时总是假设遮挡体是个完美球形，如果是其他形状，需要改进计算方法  </dd>
 <dt>类 <a class="el" href="classast_1_1DAFParser.html">ast::DAFParser</a>  </dt>
-<dd><a class="anchor" id="_todo000057"></a>在读取数据时需要处理数据的大小端问题  </dd>
+<dd><a class="anchor" id="_todo000052"></a>在读取数据时需要处理数据的大小端问题  </dd>
 <dt>成员 <a class="el" href="classast_1_1DataContext.html#a18d6e04bf9fe895e33441f8354fac7f5">ast::DataContext::iauXYSPrecomputed_</a>  </dt>
 <dd><a class="anchor" id="_todo000004"></a>: 这个考虑更改为静态数据  </dd>
 <dt>类 <a class="el" href="classast_1_1Debugger.html">ast::Debugger</a>  </dt>
@@ -155,7 +155,7 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <dt>成员 <a class="el" href="classast_1_1EventTime.html#a4e2b2a1f3ed6c60012ddb5dc4cae9cdd">ast::EventTime::Resolve</a>  (StringView value)</dt>
 <dd><a class="anchor" id="_todo000029"></a>处理新建对象的父作用域问题  </dd>
 <dt>类 <a class="el" href="classast_1_1GenericValue.html">ast::GenericValue</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000056"></a>考虑参考variant进行存储，保留原始值</p>
+<dd><p class="startdd"><a class="anchor" id="_todo000051"></a>考虑参考variant进行存储，保留原始值</p>
 <p class="enddd"></p>
 </dd>
 <dt>成员 <a class="el" href="classast_1_1GlobalContext.html#a864f505346d21f9bc93910f17e79088e">ast::GlobalContext::iauXYS_</a>  </dt>
@@ -166,29 +166,19 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <p class="enddd"><a class="anchor" id="_todo000025"></a>这里要注意处理propFrame_和centralBody_不一致的情况  </p>
 </dd>
 <dt>联合体 <a class="el" href="unionast_1_1KernelData.html">ast::KernelData</a>  </dt>
-<dd><a class="anchor" id="_todo000058"></a>使用union不太合适，考虑其他的实现方式  </dd>
+<dd><a class="anchor" id="_todo000053"></a>使用union不太合适，考虑其他的实现方式  </dd>
 <dt>类 <a class="el" href="classast_1_1LeapSecond.html">ast::LeapSecond</a>  </dt>
 <dd><a class="anchor" id="_todo000006"></a>支持读取Spice的闰秒内核文件  </dd>
 <dt>成员 <a class="el" href="classast_1_1MolniyaOrbitDesigner.html#a1d21556907ff557bf972b608967c22e7">ast::MolniyaOrbitDesigner::getOrbitState</a>  (<a class="el" href="classast_1_1ModOrbElem.html" title="修正轨道根数">ModOrbElem</a> &amp;orbElem) const override</dt>
 <dd><a class="anchor" id="_todo000013"></a>这里目前只支持地球，需要增加对其他天体的支持  </dd>
-<dt>成员 <a class="el" href="classast_1_1MotionProfile.html#ab1fe39e8d81c44943cec983e0b3b660c">ast::MotionProfile::toBallistic</a>  () const</dt>
-<dd><a class="anchor" id="_todo000051"></a>提升类型动态转换效率  </dd>
-<dt>成员 <a class="el" href="classast_1_1MotionProfile.html#a8b5ad84a9afe731cd29f4c83b40817b8">ast::MotionProfile::toHPOP</a>  () const</dt>
-<dd><a class="anchor" id="_todo000048"></a>提升类型动态转换效率  </dd>
-<dt>成员 <a class="el" href="classast_1_1MotionProfile.html#a7d5122118383ab1352706fef904f6507">ast::MotionProfile::toSimpleAscent</a>  () const</dt>
-<dd><a class="anchor" id="_todo000052"></a>提升类型动态转换效率  </dd>
-<dt>成员 <a class="el" href="classast_1_1MotionProfile.html#aeeb7f48ebef97563d872e6fd17ef8f96">ast::MotionProfile::toSPICE</a>  () const</dt>
-<dd><a class="anchor" id="_todo000050"></a>提升类型动态转换效率  </dd>
-<dt>成员 <a class="el" href="classast_1_1MotionProfile.html#af1d72e20a127d832d674203909817bd3">ast::MotionProfile::toTwoBody</a>  () const</dt>
-<dd><a class="anchor" id="_todo000049"></a>提升类型动态转换效率  </dd>
 <dt>类 <a class="el" href="classast_1_1NetworkRequest.html">ast::NetworkRequest</a>  </dt>
-<dd><a class="anchor" id="_todo000053"></a>网络请求体作为std::string进行存储，在传输大文件时会占用过多内存，需要考虑使用流式传输机制  </dd>
+<dd><a class="anchor" id="_todo000048"></a>网络请求体作为std::string进行存储，在传输大文件时会占用过多内存，需要考虑使用流式传输机制  </dd>
 <dt>类 <a class="el" href="classast_1_1NetworkSession.html">ast::NetworkSession</a>  </dt>
-<dd><a class="anchor" id="_todo000054"></a>实现网络会话管理功能  </dd>
+<dd><a class="anchor" id="_todo000049"></a>实现网络会话管理功能  </dd>
 <dt>成员 <a class="el" href="classast_1_1Point.html#a3b46eeef9261d63d8418c7c3d1784e74">ast::Point::toBody</a>  () const</dt>
 <dd><a class="anchor" id="_todo000011"></a>这里需要优化动态类型转换的执行效率  </dd>
 <dt>类 <a class="el" href="classast_1_1PropertyPOD.html">ast::PropertyPOD</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000062"></a>拟作为int, double, bool等的基础属性类，其他属性类继承自该类。</p>
+<dd><p class="startdd"><a class="anchor" id="_todo000057"></a>拟作为int, double, bool等的基础属性类，其他属性类继承自该类。</p>
 <p class="enddd"></p>
 </dd>
 <dt>成员 <a class="el" href="classast_1_1RepeatingOrbitDesigner.html#abfa31813ade19c0886ae28428258b2a8">ast::RepeatingOrbitDesigner::getOrbitState</a>  (<a class="el" href="classast_1_1ModOrbElem.html" title="修正轨道根数">ModOrbElem</a> &amp;orbElem) const override</dt>
@@ -202,7 +192,7 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <p class="enddd"></p>
 </dd>
 <dt>类 <a class="el" href="classast_1_1SPKParser.html">ast::SPKParser</a>  </dt>
-<dd><a class="anchor" id="_todo000059"></a>处理不同类型的SPK数据，目前仅支持类型2  </dd>
+<dd><a class="anchor" id="_todo000054"></a>处理不同类型的SPK数据，目前仅支持类型2  </dd>
 <dt>类 <a class="el" href="classast_1_1StackFrame.html">ast::StackFrame</a>  </dt>
 <dd><a class="anchor" id="_todo000044"></a>实现栈帧相关功能  </dd>
 <dt>成员 <a class="el" href="classast_1_1StationaryOrbitDesigner.html#ad38941e3fcc8fa58cd1c475d4cf23527">ast::StationaryOrbitDesigner::getOrbitState</a>  (<a class="el" href="classast_1_1ModOrbElem.html" title="修正轨道根数">ModOrbElem</a> &amp;orbElem) const override</dt>
@@ -223,9 +213,9 @@ $(function(){initNavTree('todo.html',''); initResizable(true); });
 <p class="enddd"></p>
 </dd>
 <dt>成员 <a class="el" href="classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97">ast::WorkingDirectory::WorkingDirectory</a>  (StringView path)</dt>
-<dd><a class="anchor" id="_todo000063"></a>需要考虑如何避免创建临时std::string对象  </dd>
+<dd><a class="anchor" id="_todo000058"></a>需要考虑如何避免创建临时std::string对象  </dd>
 <dt>组 <a class="el" href="group__Debris.html">Debris</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000064"></a>实现空间碎片模型</p>
+<dd><p class="startdd"><a class="anchor" id="_todo000059"></a>实现空间碎片模型</p>
 <p class="enddd"></p>
 </dd>
 </dl>

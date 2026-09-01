@@ -44,6 +44,8 @@ var dir_128c6f41eb6cfa5c0de7e053913da9fb =
     [ "Place.hpp", "Place_8hpp.html", "Place_8hpp" ],
     [ "Planet.cpp", "Planet_8cpp.html", null ],
     [ "Planet.hpp", "Planet_8hpp.html", "Planet_8hpp" ],
+    [ "Platform.cpp", "AstSim_2Object_2Platform_8cpp.html", null ],
+    [ "Platform.hpp", "AstSim_2Object_2Platform_8hpp.html", "AstSim_2Object_2Platform_8hpp" ],
     [ "Radar.cpp", "Radar_8cpp.html", null ],
     [ "Radar.hpp", "Radar_8hpp.html", "Radar_8hpp" ],
     [ "Receiver.cpp", "Receiver_8cpp.html", null ],

@@ -119,7 +119,6 @@ var hierarchy =
       [ "ast::CVeVOSystemsCollection", "classast_1_1CVeVOSystemsCollection.html", null ],
       [ "ast::CVeVOSystemsElement", "classast_1_1CVeVOSystemsElement.html", null ]
     ] ],
-    [ "ast::CentroidPosition", "classast_1_1CentroidPosition.html", null ],
     [ "AstCOMLib::CExecCmdResult", "classAstCOMLib_1_1CExecCmdResult.html", null ],
     [ "ast::ChatAgent", "classast_1_1ChatAgent.html", [
       [ "ast::AssistantAgent", "classast_1_1AssistantAgent.html", null ],
@@ -862,8 +861,8 @@ var hierarchy =
           [ "ast::Antenna", "classast_1_1Antenna.html", null ],
           [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
           [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
-          [ "ast::AttitudeProfile", "classast_1_1AttitudeProfile.html", null ],
           [ "ast::Axes", "classast_1_1Axes.html", [
+            [ "ast::AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],
             [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
               [ "ast::AxesBodyFixed", "classast_1_1AxesBodyFixed.html", null ],
               [ "ast::AxesBodyInertial", "classast_1_1AxesBodyInertial.html", null ],
@@ -1300,41 +1299,43 @@ var hierarchy =
           [ "ast::ObjectLinkTo", "classast_1_1ObjectLinkTo.html", null ],
           [ "ast::Planet", "classast_1_1Planet.html", null ],
           [ "ast::Point", "classast_1_1Point.html", [
+            [ "ast::BodyEphemeris", "classast_1_1BodyEphemeris.html", [
+              [ "ast::BodyEphemerisDE", "classast_1_1BodyEphemerisDE.html", null ],
+              [ "ast::BodyEphemerisNoop", "classast_1_1BodyEphemerisNoop.html", null ],
+              [ "ast::BodyEphemerisSPK", "classast_1_1BodyEphemerisSPK.html", null ]
+            ] ],
             [ "ast::CelestialBody", "classast_1_1CelestialBody.html", null ],
-            [ "ast::Ephemeris", "classast_1_1Ephemeris.html", [
-              [ "ast::BodyEphemeris", "classast_1_1BodyEphemeris.html", [
-                [ "ast::BodyEphemerisDE", "classast_1_1BodyEphemerisDE.html", null ],
-                [ "ast::BodyEphemerisNoop", "classast_1_1BodyEphemerisNoop.html", null ],
-                [ "ast::BodyEphemerisSPK", "classast_1_1BodyEphemerisSPK.html", null ]
+            [ "ast::EphemerisBinary", "classast_1_1EphemerisBinary.html", null ],
+            [ "ast::EphemerisLagrangeVar", "classast_1_1EphemerisLagrangeVar.html", null ],
+            [ "ast::EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", null ],
+            [ "ast::EphemerisRealTime", "classast_1_1EphemerisRealTime.html", null ],
+            [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ],
+            [ "ast::Platform", "classast_1_1Platform.html", [
+              [ "ast::Facility", "classast_1_1Facility.html", [
+                [ "ast::GroundStation", "classast_1_1GroundStation.html", null ],
+                [ "ast::Place", "classast_1_1Place.html", null ],
+                [ "ast::Target", "classast_1_1Target.html", null ]
               ] ],
-              [ "ast::EphemerisBinary", "classast_1_1EphemerisBinary.html", null ],
-              [ "ast::EphemerisLagrangeVar", "classast_1_1EphemerisLagrangeVar.html", null ],
-              [ "ast::EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", null ],
-              [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ],
-              [ "ast::SGP4", "classast_1_1SGP4.html", null ]
-            ] ],
-            [ "ast::Facility", "classast_1_1Facility.html", [
-              [ "ast::GroundStation", "classast_1_1GroundStation.html", null ],
-              [ "ast::Place", "classast_1_1Place.html", null ],
-              [ "ast::Target", "classast_1_1Target.html", null ]
-            ] ],
-            [ "ast::Mover", "classast_1_1Mover.html", [
-              [ "ast::Aircraft", "classast_1_1Aircraft.html", null ],
-              [ "ast::GroundVehicle", "classast_1_1GroundVehicle.html", null ],
-              [ "ast::Missile", "classast_1_1Missile.html", null ],
-              [ "ast::Ship", "classast_1_1Ship.html", null ],
-              [ "ast::SpaceObject", "classast_1_1SpaceObject.html", [
-                [ "ast::Asteroid", "classast_1_1Asteroid.html", null ],
-                [ "ast::Spacecraft", "classast_1_1Spacecraft.html", [
-                  [ "ast::LaunchVehicle", "classast_1_1LaunchVehicle.html", null ],
-                  [ "ast::Satellite", "classast_1_1Satellite.html", null ]
-                ] ]
-              ] ],
-              [ "ast::Submarine", "classast_1_1Submarine.html", null ]
+              [ "ast::Mover", "classast_1_1Mover.html", [
+                [ "ast::Aircraft", "classast_1_1Aircraft.html", null ],
+                [ "ast::GroundVehicle", "classast_1_1GroundVehicle.html", null ],
+                [ "ast::Missile", "classast_1_1Missile.html", null ],
+                [ "ast::Ship", "classast_1_1Ship.html", null ],
+                [ "ast::SpaceObject", "classast_1_1SpaceObject.html", [
+                  [ "ast::Asteroid", "classast_1_1Asteroid.html", null ],
+                  [ "ast::Spacecraft", "classast_1_1Spacecraft.html", [
+                    [ "ast::LaunchVehicle", "classast_1_1LaunchVehicle.html", null ],
+                    [ "ast::Satellite", "classast_1_1Satellite.html", null ]
+                  ] ]
+                ] ],
+                [ "ast::Submarine", "classast_1_1Submarine.html", null ]
+              ] ]
             ] ],
             [ "ast::PointBodyCenter", "classast_1_1PointBodyCenter.html", null ],
+            [ "ast::PointCartographic", "classast_1_1PointCartographic.html", null ],
             [ "ast::PointRoot", "classast_1_1PointRoot.html", null ],
             [ "ast::PointSSBarycenter", "classast_1_1PointSSBarycenter.html", null ],
+            [ "ast::SGP4", "classast_1_1SGP4.html", null ],
             [ "ast::Sensor", "classast_1_1Sensor.html", null ]
           ] ],
           [ "ast::Radar", "classast_1_1Radar.html", null ],
@@ -1414,7 +1415,6 @@ var hierarchy =
     [ "ast::ScopedPtr< ast::BodyAttraction >", "classast_1_1ScopedPtr.html", [
       [ "ast::ClonePtr< ast::BodyAttraction >", "classast_1_1ClonePtr.html", null ]
     ] ],
-    [ "ast::ScopedPtr< ast::Ephemeris >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::HPOPEquation >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::HPOPStateMapper >", "classast_1_1ScopedPtr.html", null ],
     [ "ast::ScopedPtr< ast::SpaceWeatherProvider >", "classast_1_1ScopedPtr.html", null ],
@@ -1623,7 +1623,6 @@ var hierarchy =
     [ "ast::WayPoint", "classast_1_1WayPoint.html", null ],
     [ "ast::WeakPtr< _Object >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Angle >", "classast_1_1WeakPtr.html", null ],
-    [ "ast::WeakPtr< ast::AttitudeProfile >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Axes >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::BodyShape >", "classast_1_1WeakPtr.html", null ],
     [ "ast::WeakPtr< ast::Burn >", "classast_1_1WeakPtr.html", null ],

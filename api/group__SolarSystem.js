@@ -66,20 +66,24 @@ var group__SolarSystem =
     ] ],
     [ "ast::BodyEphemeris", "classast_1_1BodyEphemeris.html", [
       [ "getFrame", "classast_1_1BodyEphemeris.html#aa09c59ec72c50e271aa5a56e6d594912", null ],
+      [ "getInterval", "classast_1_1BodyEphemeris.html#aa1e11cf86ac4938f9b5a814e8b974dae", null ],
       [ "getPos", "classast_1_1BodyEphemeris.html#ad3a62ffd699511e16a2c09dee7e8a6c5", null ],
       [ "getPosICRF", "classast_1_1BodyEphemeris.html#a7bc37bb40921dc485a458130051f7e0e", null ],
       [ "getPosVel", "classast_1_1BodyEphemeris.html#ae278ba0998cba33886e253fb25e59db2", null ],
       [ "getPosVelICRF", "classast_1_1BodyEphemeris.html#a1f5651a840f20ee9ede887d151f234a2", null ]
     ] ],
     [ "ast::BodyEphemerisDE", "classast_1_1BodyEphemerisDE.html", [
+      [ "getInterval", "classast_1_1BodyEphemerisDE.html#a59a8c6943575f9a84c911d34810c6ba7", null ],
       [ "getPosICRF", "classast_1_1BodyEphemerisDE.html#abc3fdf1759501af613db1d20bb571215", null ],
       [ "getPosVelICRF", "classast_1_1BodyEphemerisDE.html#a258a1cac057918775a0ab6141d403d4a", null ]
     ] ],
     [ "ast::BodyEphemerisNoop", "classast_1_1BodyEphemerisNoop.html", [
+      [ "getInterval", "classast_1_1BodyEphemerisNoop.html#aea544bc6ebe55ba52d472a9414b51b83", null ],
       [ "getPosICRF", "classast_1_1BodyEphemerisNoop.html#a13d8bf978cffa1f97ade67a2cd06f635", null ],
       [ "getPosVelICRF", "classast_1_1BodyEphemerisNoop.html#aa7b8b39369f3f583a80121463f491621", null ]
     ] ],
     [ "ast::BodyEphemerisSPK", "classast_1_1BodyEphemerisSPK.html", [
+      [ "getInterval", "classast_1_1BodyEphemerisSPK.html#a9ec9ff4fda974e23801c9d58fc014182", null ],
       [ "getPosICRF", "classast_1_1BodyEphemerisSPK.html#ad5d52bc32a6e33ca2ac878da655cc1d5", null ],
       [ "getPosVelICRF", "classast_1_1BodyEphemerisSPK.html#a41de34573ca0ff16cb82ea45ab25ee8b", null ]
     ] ],

@@ -114,14 +114,13 @@ $(function(){initNavTree('classast_1_1BodyEphemeris.html',''); initResizable(tru
  <div class="center">
   <img src="classast_1_1BodyEphemeris.png" usemap="#ast::BodyEphemeris_map" alt=""/>
   <map id="ast::BodyEphemeris_map" name="ast::BodyEphemeris_map">
-<area href="classast_1_1Ephemeris.html" title="星历接口" alt="ast::Ephemeris" shape="rect" coords="162,224,314,248"/>
 <area href="classast_1_1Point.html" title="点抽象基类" alt="ast::Point" shape="rect" coords="162,168,314,192"/>
 <area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="162,112,314,136"/>
 <area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="162,56,314,80"/>
 <area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="162,0,314,24"/>
-<area href="classast_1_1BodyEphemerisDE.html" alt="ast::BodyEphemerisDE" shape="rect" coords="0,336,152,360"/>
-<area href="classast_1_1BodyEphemerisNoop.html" alt="ast::BodyEphemerisNoop" shape="rect" coords="162,336,314,360"/>
-<area href="classast_1_1BodyEphemerisSPK.html" alt="ast::BodyEphemerisSPK" shape="rect" coords="324,336,476,360"/>
+<area href="classast_1_1BodyEphemerisDE.html" alt="ast::BodyEphemerisDE" shape="rect" coords="0,280,152,304"/>
+<area href="classast_1_1BodyEphemerisNoop.html" alt="ast::BodyEphemerisNoop" shape="rect" coords="162,280,314,304"/>
+<area href="classast_1_1BodyEphemerisSPK.html" alt="ast::BodyEphemerisSPK" shape="rect" coords="324,280,476,304"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -139,7 +138,6 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:ae278ba0998cba33886e253fb25e59db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1e11cf86ac4938f9b5a814e8b974dae" id="r_aa1e11cf86ac4938f9b5a814e8b974dae"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1e11cf86ac4938f9b5a814e8b974dae">getInterval</a> (<a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;interval) const override=0</td></tr>
 <tr class="separator:aa1e11cf86ac4938f9b5a814e8b974dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classast_1_1Ephemeris"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Ephemeris')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Ephemeris.html">ast::Ephemeris</a></td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Point"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Point')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Point.html">ast::Point</a></td></tr>
 <tr class="memitem:a3b46eeef9261d63d8418c7c3d1784e74 inherit pub_methods_classast_1_1Point" id="r_a3b46eeef9261d63d8418c7c3d1784e74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Point.html#a3b46eeef9261d63d8418c7c3d1784e74">toBody</a> () const</td></tr>
 <tr class="separator:a3b46eeef9261d63d8418c7c3d1784e74 inherit pub_methods_classast_1_1Point"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -355,7 +353,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <p>获取点所在的参考坐标系 </p>
 <dl class="section return"><dt>返回</dt><dd>点所在的参考坐标系指针 </dd></dl>
 
-<p>实现了 <a class="el" href="classast_1_1Ephemeris.html#ac731ef1a7ad86ab8dff2fc569b9fe3d1">ast::Ephemeris</a>.</p>
+<p>实现了 <a class="el" href="classast_1_1Point.html#a287f65e8827b82134ae01e0244385680">ast::Point</a>.</p>
 
 </div>
 </div>
@@ -382,7 +380,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>实现了 <a class="el" href="classast_1_1Ephemeris.html">ast::Ephemeris</a>.</p>
+<p>获取点的时段，表示点在空间中的存在时间范围 </p>
+<p>默认实现返回全时间段 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interval</td><td>输出参数，点的时段 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="classast_1_1Point.html#a5629e78ad448f55d115a301a50032e88">ast::Point</a> .</p>
+
+<p>在 <a class="el" href="classast_1_1BodyEphemerisDE.html#a59a8c6943575f9a84c911d34810c6ba7">ast::BodyEphemerisDE</a>, <a class="el" href="classast_1_1BodyEphemerisNoop.html#aea544bc6ebe55ba52d472a9414b51b83">ast::BodyEphemerisNoop</a> , 以及 <a class="el" href="classast_1_1BodyEphemerisSPK.html#a9ec9ff4fda974e23801c9d58fc014182">ast::BodyEphemerisSPK</a> 内被实现.</p>
 
 </div>
 </div>
@@ -423,7 +431,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>实现了 <a class="el" href="classast_1_1Ephemeris.html#a06a246408fb1849a591caf69652b6048">ast::Ephemeris</a>.</p>
+<p>实现了 <a class="el" href="classast_1_1Point.html#a61551d98eeab0fdab6de5b515d90e630">ast::Point</a>.</p>
 
 </div>
 </div>
@@ -511,7 +519,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>实现了 <a class="el" href="classast_1_1Ephemeris.html#a64b01d7b6cd466b4bc6a1134da2e69f7">ast::Ephemeris</a>.</p>
+<p>实现了 <a class="el" href="classast_1_1Point.html#a43e2e0bf5766dfbd3599b82c89321065">ast::Point</a>.</p>
 
 </div>
 </div>

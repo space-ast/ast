@@ -38,7 +38,7 @@ var searchData=
   ['atmospherebase_35',['AtmosphereBase',['../classast_1_1AtmosphereBase.html',1,'ast']]],
   ['attitudecoverage_36',['AttitudeCoverage',['../classast_1_1AttitudeCoverage.html',1,'ast']]],
   ['attitudefigureofmerit_37',['AttitudeFigureOfMerit',['../classast_1_1AttitudeFigureOfMerit.html',1,'ast']]],
-  ['attitudeprofile_38',['AttitudeProfile',['../classast_1_1AttitudeProfile.html',1,'ast']]],
+  ['attituderealtime_38',['AttitudeRealTime',['../classast_1_1AttitudeRealTime.html',1,'ast']]],
   ['attributebasic_39',['AttributeBasic',['../classast_1_1AttributeBasic.html',1,'ast']]],
   ['attributebasic_3c_20object_2c_20property_20_3e_40',['AttributeBasic&lt; Object, Property &gt;',['../classast_1_1AttributeBasic.html',1,'ast']]],
   ['attributelist_41',['AttributeList',['../classast_1_1XMLSax_1_1AttributeList.html',1,'ast::XMLSax']]],

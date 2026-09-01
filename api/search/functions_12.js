@@ -31,7 +31,7 @@ var searchData=
   ['reject_28',['reject',['../classast_1_1UiDataUpdate.html#a27ff7a3c74aebbe319f5579867972a28',1,'ast::UiDataUpdate']]],
   ['relatedcommand_29',['relatedCommand',['../classast_1_1FeasibleRegionStudy.html#a34c22cfc111235c72d830e97752e611b',1,'ast::FeasibleRegionStudy::relatedCommand()'],['../classast_1_1SweepStudy.html#ae95139e25e62a30d0dd6279d6d9f4e06',1,'ast::SweepStudy::relatedCommand()'],['../classast_1_1StudyWorkbench.html#a06015f820e8432cd2b149892e29da28d',1,'ast::StudyWorkbench::relatedCommand()']]],
   ['relative_30',['relative',['../namespaceast_1_1fs__simple.html#a8fa783eb0e81045615d218f37441b52c',1,'ast::fs_simple']]],
-  ['release_31',['release',['../classast_1_1TempFileGuard.html#a86c1d88176bdb2ec2e58e28ccf2a181b',1,'ast::TempFileGuard']]],
+  ['release_31',['release',['../classast_1_1ScopedPtr.html#a69d0309953981b9f33d1d315e78e05c7',1,'ast::ScopedPtr::release()'],['../classast_1_1TempFileGuard.html#a86c1d88176bdb2ec2e58e28ccf2a181b',1,'ast::TempFileGuard::release()']]],
   ['reloadephemerisfor_32',['reloadEphemerisFor',['../classast_1_1MotionExternalEphemeris.html#aeed5c4a75b2fc19b49c42d404c0b582e',1,'ast::MotionExternalEphemeris']]],
   ['remove_33',['remove',['../classast_1_1TempFileGuard.html#a86375d415401e8f631e2bc564f18ac7a',1,'ast::TempFileGuard']]],
   ['removeallobjects_34',['removeAllObjects',['../classast_1_1ObjectManager.html#adba3141a3bb5de340725ab466030c1d3',1,'ast::ObjectManager']]],

@@ -112,8 +112,7 @@ $(function(){initNavTree('classast_1_1BodyEphemerisNoop.html',''); initResizable
  <div class="center">
   <img src="classast_1_1BodyEphemerisNoop.png" usemap="#ast::BodyEphemerisNoop_map" alt=""/>
   <map id="ast::BodyEphemerisNoop_map" name="ast::BodyEphemerisNoop_map">
-<area href="classast_1_1BodyEphemeris.html" title="天体星历接口" alt="ast::BodyEphemeris" shape="rect" coords="0,280,152,304"/>
-<area href="classast_1_1Ephemeris.html" title="星历接口" alt="ast::Ephemeris" shape="rect" coords="0,224,152,248"/>
+<area href="classast_1_1BodyEphemeris.html" title="天体星历接口" alt="ast::BodyEphemeris" shape="rect" coords="0,224,152,248"/>
 <area href="classast_1_1Point.html" title="点抽象基类" alt="ast::Point" shape="rect" coords="0,168,152,192"/>
 <area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="0,112,152,136"/>
 <area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="0,56,152,80"/>
@@ -136,7 +135,6 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:ad3a62ffd699511e16a2c09dee7e8a6c5 inherit pub_methods_classast_1_1BodyEphemeris"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae278ba0998cba33886e253fb25e59db2 inherit pub_methods_classast_1_1BodyEphemeris" id="r_ae278ba0998cba33886e253fb25e59db2"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BodyEphemeris.html#ae278ba0998cba33886e253fb25e59db2">getPosVel</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos, Vector3d &amp;vel) const override</td></tr>
 <tr class="separator:ae278ba0998cba33886e253fb25e59db2 inherit pub_methods_classast_1_1BodyEphemeris"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classast_1_1Ephemeris"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Ephemeris')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Ephemeris.html">ast::Ephemeris</a></td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Point"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Point')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Point.html">ast::Point</a></td></tr>
 <tr class="memitem:a3b46eeef9261d63d8418c7c3d1784e74 inherit pub_methods_classast_1_1Point" id="r_a3b46eeef9261d63d8418c7c3d1784e74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Point.html#a3b46eeef9261d63d8418c7c3d1784e74">toBody</a> () const</td></tr>
 <tr class="separator:a3b46eeef9261d63d8418c7c3d1784e74 inherit pub_methods_classast_1_1Point"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -346,7 +344,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 </div><div class="memdoc">
 
-<p>实现了 <a class="el" href="classast_1_1BodyEphemeris.html">ast::BodyEphemeris</a>.</p>
+<p>获取点的时段，表示点在空间中的存在时间范围 </p>
+<p>默认实现返回全时间段 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interval</td><td>输出参数，点的时段 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>实现了 <a class="el" href="classast_1_1BodyEphemeris.html#aa1e11cf86ac4938f9b5a814e8b974dae">ast::BodyEphemeris</a>.</p>
 
 </div>
 </div>

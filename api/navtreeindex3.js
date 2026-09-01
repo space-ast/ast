@@ -1,5 +1,14 @@
 var NAVTREEINDEX3 =
 {
+"Break_8hpp_source.html":[4,0,0,6,11,3,2],
+"Breakpoint_8cpp.html":[4,0,0,18,1,0],
+"Breakpoint_8hpp_source.html":[4,0,0,18,1,1],
+"BrentOptimizer_8cpp.html":[4,0,0,12,6,1],
+"BrentOptimizer_8cpp.html#a92ada0b4e0f32a49c35219b3355f556e":[4,0,0,12,6,1,0],
+"BrentOptimizer_8hpp.html":[4,0,0,12,6,2],
+"BrentOptimizer_8hpp.html#a051ab4c2e88cc580fb8c504902d29c42":[4,0,0,12,6,2,0],
+"BrentOptimizer_8hpp.html#a92ada0b4e0f32a49c35219b3355f556e":[4,0,0,12,6,2,1],
+"BrentOptimizer_8hpp_source.html":[4,0,0,12,6,2],
 "BrentSolver_8cpp.html":[4,0,0,12,4,0,3],
 "BrentSolver_8hpp.html":[4,0,0,12,4,0,4],
 "BrentSolver_8hpp_source.html":[4,0,0,12,4,0,4],
@@ -240,14 +249,5 @@ var NAVTREEINDEX3 =
 "CppSerializer_8hpp.html":[4,0,0,27,9,2],
 "CppSerializer_8hpp_source.html":[4,0,0,27,9,2],
 "CrashHandler_8cpp.html":[4,0,0,8,1],
-"CrashHandler_8hpp.html":[4,0,0,8,2],
-"CrashHandler_8hpp_source.html":[4,0,0,8,2],
-"CriticallyInclinedOrbitDesigner_8cpp.html":[4,0,0,6,11,4,4],
-"CriticallyInclinedOrbitDesigner_8hpp.html":[4,0,0,6,11,4,5],
-"CriticallyInclinedOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,5],
-"CriticallyInclinedSunSyncOrbitDesigner_8cpp.html":[4,0,0,6,11,4,6],
-"CriticallyInclinedSunSyncOrbitDesigner_8hpp.html":[4,0,0,6,11,4,7],
-"CriticallyInclinedSunSyncOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,7],
-"CylindricalEclipseCalculator_8cpp.html":[4,0,0,6,10,0,4],
-"CylindricalEclipseCalculator_8hpp.html":[4,0,0,6,10,0,5]
+"CrashHandler_8hpp.html":[4,0,0,8,2]
 };

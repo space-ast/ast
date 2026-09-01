@@ -47,7 +47,6 @@ var searchData=
   ['modorbelem_5f_44',['modOrbElem_',['../classast_1_1StateKeplerian.html#a06ff1e1b6718b389a6e9e0140f036f53',1,'ast::StateKeplerian::modOrbElem_'],['../classast_1_1J2J4Analytical.html#a4d0e24ab9e7f382724d1af6083d81e21',1,'ast::J2J4Analytical::modOrbElem_']]],
   ['month_5f_45',['month_',['../group__Time.html#ga723ebfd7f060ed1c64a4dc82d92a0c4c',1,'ast::Date']]],
   ['moon_5f_46',['moon_',['../classast_1_1SolarSystem.html#a72dda8f47d7469e691678eb2216cddf4',1,'ast::SolarSystem']]],
-  ['motionprofile_5f_47',['motionProfile_',['../classast_1_1Mover.html#a7318f5ee07291d6731e44aeeafaae637',1,'ast::Mover']]],
-  ['ms_48',['ms',['../namespaceast_1_1units.html#a66fc0c2327c7c298ea5eca0f8afb08c8',1,'ast::units']]],
-  ['mutex_5f_49',['mutex_',['../classast_1_1JplDe.html#a74fb293e5fdd83c88e3ecfbe11f82503',1,'ast::JplDe::mutex_'],['../classast_1_1SpiceAPI.html#a473b494575fc4bbdc8a5d124a954807c',1,'ast::SpiceAPI::mutex_']]]
+  ['ms_47',['ms',['../namespaceast_1_1units.html#a66fc0c2327c7c298ea5eca0f8afb08c8',1,'ast::units']]],
+  ['mutex_5f_48',['mutex_',['../classast_1_1JplDe.html#a74fb293e5fdd83c88e3ecfbe11f82503',1,'ast::JplDe::mutex_'],['../classast_1_1SpiceAPI.html#a473b494575fc4bbdc8a5d124a954807c',1,'ast::SpiceAPI::mutex_']]]
 ];

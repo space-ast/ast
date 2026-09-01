@@ -35,6 +35,7 @@ var group__Geometry =
     ] ],
     [ "ast::Point", "classast_1_1Point.html", [
       [ "getFrame", "classast_1_1Point.html#a287f65e8827b82134ae01e0244385680", null ],
+      [ "getInterval", "classast_1_1Point.html#a5629e78ad448f55d115a301a50032e88", null ],
       [ "getPos", "classast_1_1Point.html#a61551d98eeab0fdab6de5b515d90e630", null ],
       [ "getPosIn", "classast_1_1Point.html#a25f7d8cd21775aee32c6bcf005c2517a", null ],
       [ "getPosIn", "classast_1_1Point.html#a39bc77aa64196d39725793a7704a25bc", null ],
