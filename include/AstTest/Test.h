@@ -1,1 +1,1 @@
-#include "AstTestMacro.h"
+#include "../../src/AstTest/Test.h"

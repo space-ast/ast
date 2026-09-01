@@ -49,7 +49,7 @@ for _, file in ipairs(files) do
 end
 
 -- 遍历添加测试工程
-local files = os.files("test/**/*.c*")
+local files = os.files("test/**/*.cpp")
 for _, file in ipairs(files) do
     -- 提取文件名，作为目标名称
     local basename = path.basename(file)

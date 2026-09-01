@@ -3,6 +3,7 @@
 #include "AstTest/Test.h"
 #include "AstTest/Test.hpp"
 #include "AstTest/TestConfig.hpp"
+#include "AstTest/TestFramework.hpp"
 #include "AstTest/TestJson.hpp"
 #include "AstTest/TestMarkdown.hpp"
 #include "AstTest/TestScript.hpp"

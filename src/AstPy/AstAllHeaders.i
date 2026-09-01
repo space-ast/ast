@@ -462,6 +462,7 @@
 %include "../AstCore/Propagator/EventDetector/StopCondition.hpp"
 %include "../AstSim/Object/AttitudeFigureOfMerit.hpp"
 %include "../AstCore/CloseApproach/Filter/CloseApproachFilter.hpp"
+%include "../AstCore/Orbit/OrbitManeuver.hpp"
 %include "../AstCore/Propagator/HPOP/StateMapper.hpp"
 %include "../AstCore/Propagator/J2J4Analytical.hpp"
 %include "../AstCore/CloseApproach/Filter/ApogeePerigeeFilter.hpp"
