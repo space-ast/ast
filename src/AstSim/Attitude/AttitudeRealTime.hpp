@@ -1,8 +1,9 @@
 ///
-/// @file      CentroidPosition.cpp
-/// @brief     质心位置类实现
+/// @file      AttitudeRealTime.hpp
+/// @brief     
+/// @details   
 /// @author    axel
-/// @date      2026-04-07
+/// @date      2026-09-01
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -17,15 +18,28 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "CentroidPosition.hpp"
-#include "AstUtil/StringUtil.hpp"
-#include "AstCore/CelestialBody.hpp"
+#pragma once
+
+#include "AstGlobal.h"
+#include "AttitudeProfile.hpp"
 
 AST_NAMESPACE_BEGIN
 
+/*!
+    @addtogroup 
+    @{
+*/
+
+
+class AttitudeRealTime : public AttitudeProfile
+{
+public:
+    AttitudeRealTime() = default;
+    ~AttitudeRealTime() = default;
+};
 
 
 
+/*! @} */
 
 AST_NAMESPACE_END
-

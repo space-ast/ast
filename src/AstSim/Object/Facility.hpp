@@ -24,6 +24,8 @@
 #include "AstCore/Point.hpp"
 #include "AstCore/GeodeticPoint.hpp"
 #include "AstCore/CelestialBody.hpp"
+#include "AstCore/PointCartographic.hpp"
+#include "AstSim/Platform.hpp"
 #include "AstSim/CentroidPosition.hpp"
 #include "AstUtil/StringView.hpp"
 
@@ -35,7 +37,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 设施对象
-class AST_SIM_API Facility: public Point
+class AST_SIM_API Facility: public Platform
 {
 public:
     AST_OBJECT(Facility)
@@ -50,29 +52,25 @@ public: // 从Point继承重写的函数
     errc_t getPos(const TimePoint& tp, Vector3d& pos) const final;
     errc_t getPosVel(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const final;
 public:
-    const std::string& getName() const override {return name_;}
-    void setName(StringView name) override {name_ = std::string(name);}
-public:
-    void setPosition(const CentroidPosition& position){position_ = position;}
-    const CentroidPosition& getPosition() const{return position_;}
-    CentroidPosition& position(){return position_;}
-    const GeodeticPoint& getGeodeticPosition() const {return position_.getPosition();}
-    void setGeodeticPosition(const GeodeticPoint& position){position_.setPosition(position);}
+    const GeodeticPoint& position() const {return cartographic().position();}
+    void setPosition(const GeodeticPoint& position){cartographic().setPosition(position);}
 PROPERTIES:
-    angle_d latitude() const {return position_.latitude();}
-    void setLatitude(angle_d latitude) {position_.setLatitude(latitude);}
+    angle_d latitude() const {return cartographic().latitude();}
+    void setLatitude(angle_d latitude) {cartographic().setLatitude(latitude);}
 
-    angle_d longitude() const {return position_.longitude();}
-    void setLongitude(angle_d longitude) {position_.setLongitude(longitude);}
+    angle_d longitude() const {return cartographic().longitude();}
+    void setLongitude(angle_d longitude) {cartographic().setLongitude(longitude);}
 
-    length_d altitude() const {return position_.altitude();}
-    void setAltitude(length_d altitude) {position_.setAltitude(altitude);}
+    length_d altitude() const {return cartographic().altitude();}
+    void setAltitude(length_d altitude) {cartographic().setAltitude(altitude);}
 
-    Body* body() const {return position_.body();}
-    void setBody(Body* body) {position_.setBody(body);}
+    Body* body() const {return cartographic().body();}
+    void setBody(Body* body) {cartographic().setBody(body);}
 protected:
-    std::string name_{};
-    CentroidPosition position_{};
+    PointCartographic& cartographic() {return static_cast<PointCartographic&>(*location());}
+    const PointCartographic& cartographic() const {return static_cast<const PointCartographic&>(*location());}
+private: // 屏蔽基类public函数
+    void setLocation(Point* location) = delete;
 };
 
 /*! @} */

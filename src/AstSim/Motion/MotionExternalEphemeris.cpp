@@ -50,7 +50,12 @@ void MotionExternalEphemeris::accept(MotionProfileVisitor &visitor)
 
 errc_t MotionExternalEphemeris::reloadEphemerisFor(Mover& mover)
 {
-    return this->makeEphemerisSimple(mover.getEphemerisHandle());
+    ScopedPtr<Ephemeris> eph;
+    errc_t rc = this->makeEphemerisSimple(eph);
+    if(rc == eNoError){
+        mover.setEphemeris(eph.release());
+    }
+    return rc;
 }
 
 AST_NAMESPACE_END

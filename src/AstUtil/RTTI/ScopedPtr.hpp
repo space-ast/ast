@@ -107,6 +107,9 @@ public:
     }
     T* operator->() const{return pointer_;}
     operator T*() const{return pointer_;}
+
+    /// @brief 释放指针，取消智能指针绑定当前指向的对象
+    /// @details 释放当前指针指向的对象，将指针重置为 nullptr指针
     T* release()
     {
         T* ptr = pointer_;

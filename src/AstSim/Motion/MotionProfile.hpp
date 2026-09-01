@@ -73,6 +73,10 @@ public:
     /// @brief 接受访问者
     /// @param visitor 访问者
     virtual void accept(MotionProfileVisitor& visitor) = 0;
+public:
+    Ephemeris* createEphemeris() const;
+    errc_t createEphemeris(SharedPtr<Ephemeris>& eph) const;
+    errc_t createEphemeris(ScopedPtr<Ephemeris>& eph) const;
 };
 
 /*! @} */

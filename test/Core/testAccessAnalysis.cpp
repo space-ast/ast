@@ -47,6 +47,7 @@
 #include "ast/Test.hpp"
 #include "ast/MathDegree.hpp"
 #include "ast/EOP.hpp"
+#include "ast/Resolve.hpp"
 #include <clocale>
 #include <cmath>
 #include <cstdio>
@@ -197,6 +198,7 @@ static Facility* CreateFacility(const std::string& name, double latDeg, double l
 {
     auto f = new Facility();
     f->setName(name);
+    f->setBody("Earth"_body);
     f->setLatitude(deg2rad(latDeg));
     f->setLongitude(deg2rad(lonDeg));
     f->setAltitude(altMeter);

@@ -33,24 +33,15 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class Ephemeris;
+/// @brief 星历接口
+using Ephemeris = Point;
+
 using PEphemeris = Ephemeris*;
 using HEphemeris = SharedPtr<Ephemeris>;
 
 
-/// @brief 星历接口
-/// @details 在点接口的基础上增加了对可用时间间隔的获取方法
-class AST_CORE_API Ephemeris: public Point
-{
-public:
-    Ephemeris() = default;
-    virtual ~Ephemeris() override = default;
-    virtual Frame* getFrame() const override = 0;
-    virtual errc_t getPos(const TimePoint& tp, Vector3d& pos) const override = 0;
-    virtual errc_t getPosVel(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const override = 0;
-public:
-    virtual errc_t getInterval(TimeInterval& interval) const = 0;
-};
+
+
 
 /*! @} */
 

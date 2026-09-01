@@ -24,6 +24,7 @@
 
 #include "Database.hpp"
 #include "AstUtil/StringView.hpp"
+#include "AstCore/TimePoint.hpp"
 #include <string>
 #include <vector>
 

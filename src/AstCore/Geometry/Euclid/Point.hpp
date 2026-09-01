@@ -66,6 +66,11 @@ public:
     /// @param vel 输出参数，点的速度向量
     /// @return 错误码
     virtual errc_t getPosVel(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const = 0;
+
+    /// @brief 获取点的时段，表示点在空间中的存在时间范围
+    /// @details 默认实现返回全时间段
+    /// @param interval 输出参数，点的时段
+    virtual errc_t getInterval(TimeInterval& interval) const;
     
     /// @brief 获取点在指定时间点的位置，相对于指定参考坐标系
     /// @param frame 参考坐标系指针

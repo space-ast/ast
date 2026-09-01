@@ -40,6 +40,7 @@ AST_NAMESPACE_BEGIN
 class AST_SIM_API MotionSPICE: public MotionWithIntervalStep
 {
 public:
+    AST_OBJECT(MotionSPICE)
     static MotionSPICE* New();
     MotionSPICE() : spiceIndex_() {}
     ~MotionSPICE() {}

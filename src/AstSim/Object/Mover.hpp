@@ -25,6 +25,7 @@
 #include "AstCore/Point.hpp"
 #include "AstSim/AttitudeProfile.hpp"
 #include "AstSim/MotionProfile.hpp"
+#include "AstSim/Platform.hpp"
 #include "AstCore/Ephemeris.hpp"
 #include "AstUtil/StringView.hpp"
 
@@ -36,7 +37,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 运动对象
-class AST_SIM_API Mover: public Point
+class AST_SIM_API Mover: public Platform
 {
 public:
     AST_OBJECT(Mover)
@@ -46,19 +47,6 @@ public:
     Mover() = default;
     ~Mover() override = default;
 
-public:
-    /// @brief 设置名称
-    void setName(StringView name) override { name_ = std::string(name); }
-
-    /// @brief 获取名称
-    const std::string& getName() const override { return name_; }
-
-public:
-    // ScopedPtr<MotionProfile>& getMotionProfileHandle() { return motionProfile_; }
-
-    /// @brief 获取星历句柄
-    /// @return 星历句柄
-    ScopedPtr<Ephemeris>& getEphemerisHandle() { return ephemeris_; }
 public:
     /// @brief 生成星历
     /// @return 错误码
@@ -85,16 +73,16 @@ PROPERTIES:
     void setMotionProfile(MotionProfile* profile);
     /// @brief 获取姿态定义
     /// @return 姿态定义指针
-    AttitudeProfile* getAttitudeProfile() const { return attitudeProfile_.get(); }
+    AttitudeProfile* getAttitudeProfile() const { return orientation(); }
     /// @brief 设置姿态定义
     /// @param profile 姿态定义指针
-    void setAttitudeProfile(AttitudeProfile* profile) { attitudeProfile_ = profile; }
+    void setAttitudeProfile(AttitudeProfile* profile) { setOrientation(profile); }
     /// @brief 获取星历
     /// @return 星历指针
-    Ephemeris* getEphemeris() const { return ephemeris_.get(); }
+    Ephemeris* getEphemeris() const { return location(); }
     /// @brief 设置星历
     /// @param ephemeris 星历指针
-    void setEphemeris(Ephemeris* ephemeris) { ephemeris_ = ephemeris; }
+    void setEphemeris(Ephemeris* ephemeris) { setLocation(ephemeris); }
 public:
     
     /// @brief 获取初始状态
@@ -102,11 +90,8 @@ public:
     /// @return 初始状态指针
     State* getInitialState() const;
 
-protected:
-    std::string                 name_{};                 ///< 名称
+private:
     WeakPtr<MotionProfile>      motionProfile_{};        ///< 运动定义
-    WeakPtr<AttitudeProfile>    attitudeProfile_{};      ///< 姿态定义
-    ScopedPtr<Ephemeris>        ephemeris_{};            ///< 星历
 };
 
 /*! @} */
