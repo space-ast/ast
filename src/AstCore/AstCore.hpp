@@ -583,6 +583,8 @@
 #include "AstCore/VectorDisplacement.hpp"
 #include "AstCore/VectorFixed.hpp"
 #include "AstCore/VectorFixedAtEpoch.hpp"
+#include "AstCore/Vinti.hpp"
+#include "AstCore/Vinti6.h"
 #include "AstCore/VolumeGrid.hpp"
 #include "AstCore/VolumeGridCartesian.hpp"
 #include "AstCore/VolumeGridCartographic.hpp"

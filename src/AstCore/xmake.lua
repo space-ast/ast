@@ -1,7 +1,7 @@
 ﻿target("AstCore")
     set_kind("shared")
     add_files("**.cpp")
-    -- add_files("**.c")
+    add_files("**.c")
     add_headerfiles("**.hpp", {prefixdir="AstCore"})
     add_headerfiles("**.h", {prefixdir="AstCore"})
     add_defines("AST_BUILD_LIB_CORE")

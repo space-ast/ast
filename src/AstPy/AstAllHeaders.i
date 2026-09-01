@@ -6,6 +6,7 @@
 %include "../AstCore/Coordinate/Point/PointDE.hpp"
 %include "../AstCore/Geometry/Euclid/Plane.hpp"
 %include "../AstCore/Propagator/HPOP/BlockCommon/Sinks/BlockToFile.hpp"
+%include "../AstCore/Propagator/Vinti/Vinti.hpp"
 %include "../AstSim/Attitude/AttitudeAircraftCoordTurn.hpp"
 %include "../AstSim/Attitude/AttitudeAircraftZDown.hpp"
 %include "../AstSim/Attitude/AttitudeAlignConstrain.hpp"
