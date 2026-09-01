@@ -62,6 +62,20 @@
 #include <limits>
 #include <exception>
 
+// 彩色标签的平台支持：Windows（含 Win7）用经典控制台 API，POSIX 用 ANSI。
+// 用 WIN32_LEAN_AND_MEAN / NOMINMAX 尽量限制其可能污染到测试代码的宏。
+#ifdef _WIN32
+#  ifndef WIN32_LEAN_AND_MEAN
+#    define WIN32_LEAN_AND_MEAN
+#  endif
+#  ifndef NOMINMAX
+#    define NOMINMAX
+#  endif
+#  include <windows.h>
+#else
+#  include <unistd.h>
+#endif
+
 namespace ast {
 namespace testing {
 
@@ -89,6 +103,87 @@ inline void InitGoogleTest(int* argc, char** argv) {
 }
 
 namespace internal {
+
+/// @brief 标签颜色。Windows（含 Win7）用经典控制台 API；POSIX 用 ANSI 转义
+///        序列，仅当输出为终端时启用。实现全部内联，不额外增加编译单元。
+enum class TagColor { kDefault, kGreen, kRed, kYellow, kCyan, kMagenta };
+
+#ifdef _WIN32
+// 缓存控制台输出句柄与原始属性，避免每次查询。
+struct ConsoleInfo {
+    bool is_console = false;
+    HANDLE handle = INVALID_HANDLE_VALUE;
+    WORD saved = 0;
+};
+inline const ConsoleInfo& console_info() {
+    static ConsoleInfo info = []() -> ConsoleInfo {
+        ConsoleInfo ci;
+        ci.handle = GetStdHandle(STD_OUTPUT_HANDLE);
+        DWORD mode = 0;
+        CONSOLE_SCREEN_BUFFER_INFO csi;
+        if (ci.handle != INVALID_HANDLE_VALUE &&
+            GetConsoleMode(ci.handle, &mode) &&
+            GetConsoleScreenBufferInfo(ci.handle, &csi)) {
+            ci.is_console = true;
+            ci.saved = csi.wAttributes;
+        }
+        return ci;
+    }();
+    return info;
+}
+#else
+/// @brief 判断标准输出是否为终端（仅 POSIX 需要）。
+inline bool stdout_is_tty() { return ::isatty(::fileno(stdout)) != 0; }
+#endif
+
+/// @brief 开启一段彩色输出；若当前输出流不支持颜色则为空操作。
+inline void begin_color(TagColor c) {
+#ifdef _WIN32
+    const ConsoleInfo& ci = console_info();
+    if (!ci.is_console) return;
+    WORD attr = ci.saved;
+    switch (c) {
+        case TagColor::kGreen:   attr = FOREGROUND_GREEN | FOREGROUND_INTENSITY; break;
+        case TagColor::kRed:     attr = FOREGROUND_RED   | FOREGROUND_INTENSITY; break;
+        case TagColor::kYellow:  attr = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY; break;
+        case TagColor::kCyan:    attr = FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY; break;
+        case TagColor::kMagenta: attr = FOREGROUND_RED   | FOREGROUND_BLUE | FOREGROUND_INTENSITY; break;
+        case TagColor::kDefault: break;
+    }
+    SetConsoleTextAttribute(ci.handle, attr);
+#else
+    if (!stdout_is_tty()) return;
+    switch (c) {
+        case TagColor::kGreen:   std::fputs("\033[32m", stdout); break;
+        case TagColor::kRed:     std::fputs("\033[31m", stdout); break;
+        case TagColor::kYellow:  std::fputs("\033[33m", stdout); break;
+        case TagColor::kCyan:    std::fputs("\033[36m", stdout); break;
+        case TagColor::kMagenta: std::fputs("\033[35m", stdout); break;
+        case TagColor::kDefault: break;
+    }
+#endif
+}
+
+/// @brief 结束一段彩色输出，恢复默认颜色；若不支持颜色则为空操作。
+inline void end_color() {
+#ifdef _WIN32
+    const ConsoleInfo& ci = console_info();
+    if (!ci.is_console) return;
+    SetConsoleTextAttribute(ci.handle, ci.saved);
+#else
+    if (!stdout_is_tty()) return;
+    std::fputs("\033[0m", stdout);
+#endif
+}
+
+/// @brief 打印带颜色的标签（如 "[ OK ]"）。写完标签后立即刷新，确保在 Windows
+///        控制台颜色属性在下一次 SetConsoleTextAttribute 之前已生效。
+inline void emit_tag(TagColor c, const char* tag) {
+    begin_color(c);
+    std::fputs(tag, stdout);
+    std::fflush(stdout);
+    end_color();
+}
 
 /// @brief 一个已注册的测试用例。
 struct TestCase {
@@ -299,7 +394,8 @@ inline int run_all_tests() {
         tc.skipped = false;
         current_test() = &tc;
 
-        std::printf("[ RUN      ] %s.%s\n", tc.suite.c_str(), tc.name.c_str());
+        emit_tag(TagColor::kGreen, "[ RUN      ]");
+        std::printf(" %s.%s\n", tc.suite.c_str(), tc.name.c_str());
         const bool caught = FLAGS_gtest_catch_exceptions;
         try {
             tc.run();
@@ -325,19 +421,30 @@ inline int run_all_tests() {
 
         if (tc.skipped) {
             ++skipped;
-            std::printf("[  SKIPPED ] %s.%s\n", tc.suite.c_str(), tc.name.c_str());
+            emit_tag(TagColor::kYellow, "[  SKIPPED ]");
+            std::printf(" %s.%s\n", tc.suite.c_str(), tc.name.c_str());
         } else if (tc.failures > 0) {
             ++failed;
-            std::printf("[  FAILED  ] %s.%s\n", tc.suite.c_str(), tc.name.c_str());
+            emit_tag(TagColor::kRed, "[  FAILED  ]");
+            std::printf(" %s.%s\n", tc.suite.c_str(), tc.name.c_str());
         } else {
-            std::printf("[       OK ] %s.%s\n", tc.suite.c_str(), tc.name.c_str());
+            emit_tag(TagColor::kGreen, "[       OK ]");
+            std::printf(" %s.%s\n", tc.suite.c_str(), tc.name.c_str());
         }
     }
 
-    std::printf("\n[==========] %d test(s) ran.\n", total);
-    std::printf("[  PASSED  ] %d test(s).\n", total - failed - skipped);
-    if (skipped) std::printf("[  SKIPPED ] %d test(s).\n", skipped);
-    if (failed) std::printf("[  FAILED  ] %d test(s).\n", failed);
+    emit_tag(TagColor::kGreen, "\n[==========]");
+    std::printf(" %d test(s) ran.\n", total);
+    emit_tag(TagColor::kGreen, "[  PASSED  ]");
+    std::printf(" %d test(s).\n", total - failed - skipped);
+    if (skipped) {
+        emit_tag(TagColor::kYellow, "[  SKIPPED ]");
+        std::printf(" %d test(s).\n", skipped);
+    }
+    if (failed) {
+        emit_tag(TagColor::kRed, "[  FAILED  ]");
+        std::printf(" %d test(s).\n", failed);
+    }
     return failed;
 }
 
