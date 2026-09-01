@@ -1,5 +1,9 @@
 var NAVTREEINDEX17 =
 {
+"UiChatWorker_8hpp.html":[4,0,0,22,0,13],
+"UiChatWorker_8hpp_source.html":[4,0,0,22,0,13],
+"UiCommandEditor_8cpp.html":[4,0,0,10,7,1],
+"UiCommandEditor_8hpp.html":[4,0,0,10,7,2],
 "UiCommandEditor_8hpp_source.html":[4,0,0,10,7,2],
 "UiCommandSummary_8cpp.html":[4,0,0,10,7,3],
 "UiCommandSummary_8hpp.html":[4,0,0,10,7,4],
@@ -245,9 +249,5 @@ var NAVTREEINDEX17 =
 "Unit_8cpp.html#a3ba38903856aa71d0b6b98823175b315":[4,0,0,27,7,6,53],
 "Unit_8cpp.html#a3c2daf334b57a8f94872576718ab94ae":[4,0,0,27,7,6,48],
 "Unit_8cpp.html#a41b2cc417965220fe0097097e15b1f5c":[4,0,0,27,7,6,30],
-"Unit_8cpp.html#a4269fe8d0f2f532e585768ed1c5cfb76":[4,0,0,27,7,6,15],
-"Unit_8cpp.html#a43cd73360527e95bdea7f5347673bb4c":[4,0,0,27,7,6,42],
-"Unit_8cpp.html#a46331518b0993f7058b537530ef94a33":[4,0,0,27,7,6,18],
-"Unit_8cpp.html#a474a9adff409a5a219cccbd6a02804a3":[4,0,0,27,7,6,37],
-"Unit_8cpp.html#a49d13854b5b3a8bf42c2b26669f74e9a":[4,0,0,27,7,6,12]
+"Unit_8cpp.html#a4269fe8d0f2f532e585768ed1c5cfb76":[4,0,0,27,7,6,15]
 };

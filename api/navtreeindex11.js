@@ -1,5 +1,7 @@
 var NAVTREEINDEX11 =
 {
+"RKV8_8hpp.html":[4,0,0,12,5,0,13],
+"RKV8_8hpp_source.html":[4,0,0,12,5,0,13],
 "RTTIAPI_8cpp.html":[4,0,0,27,8,23],
 "RTTIAPI_8hpp.html":[4,0,0,27,8,24],
 "RTTIAPI_8hpp_source.html":[4,0,0,27,8,24],
@@ -247,7 +249,5 @@ var NAVTREEINDEX11 =
 "ScStateCalcBMagCalc_8hpp_source.html":[4,0,0,6,11,1,0,14,7],
 "ScStateCalcBThetaCalc_8cpp.html":[4,0,0,6,11,1,0,14,8],
 "ScStateCalcBThetaCalc_8hpp.html":[4,0,0,6,11,1,0,14,9],
-"ScStateCalcBThetaCalc_8hpp_source.html":[4,0,0,6,11,1,0,14,9],
-"ScStateCalcBetaAngle_8cpp.html":[4,0,0,6,11,1,0,14,4],
-"ScStateCalcBetaAngle_8hpp.html":[4,0,0,6,11,1,0,14,5]
+"ScStateCalcBThetaCalc_8hpp_source.html":[4,0,0,6,11,1,0,14,9]
 };

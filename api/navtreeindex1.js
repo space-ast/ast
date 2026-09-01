@@ -44,6 +44,8 @@ var NAVTREEINDEX1 =
 "AstSim_2Object_2Scenario_8hpp.html":[4,0,0,19,3,51],
 "AstSim_2Object_2Scenario_8hpp_source.html":[4,0,0,19,3,51],
 "AstSim_8hpp_source.html":[4,0,0,19,5],
+"AstTestMacro_8h.html":[4,0,0,21,1],
+"AstTestMacro_8h_source.html":[4,0,0,21,1],
 "AstTest_8hpp_source.html":[4,0,0,21,0],
 "AstUiAIGlobal_8hpp.html":[4,0,0,22,3],
 "AstUiAIGlobal_8hpp_source.html":[4,0,0,22,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "BisectionSolver_8hpp_source.html":[4,0,0,12,4,0,2],
 "BlockAbs_8cpp.html":[4,0,0,6,12,1,1,2,0],
 "BlockAbs_8hpp.html":[4,0,0,6,12,1,1,2,1],
-"BlockAbs_8hpp_source.html":[4,0,0,6,12,1,1,2,1],
-"BlockAdd_8cpp.html":[4,0,0,6,12,1,1,2,2],
-"BlockAdd_8hpp_source.html":[4,0,0,6,12,1,1,2,3]
+"BlockAbs_8hpp_source.html":[4,0,0,6,12,1,1,2,1]
 };

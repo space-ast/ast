@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"Literals_8hpp.html#a5ac22631ed69516e83cbe15f8e160959":[4,0,0,27,11,8,39],
+"Literals_8hpp.html#a637f6d2bc263cb33e423f4a2a15df982":[4,0,0,27,11,8,63],
 "Literals_8hpp.html#a63ac7f25fc03b609269712c56d6080c5":[4,0,0,27,11,8,21],
 "Literals_8hpp.html#a681d0c30317193d2cc3fc33eb5a1c85d":[4,0,0,27,11,8,40],
 "Literals_8hpp.html#a6f45c99c232047cd88b0a8f9ca892387":[4,0,0,27,11,8,49],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "MotionExternalEphemeris_8hpp.html#a364fd776aa5b05ed45dae4534b252fdaacfe6ae2811cf686d13e436f286a65c1d":[4,0,0,19,2,5,1,0],
 "MotionExternalEphemeris_8hpp_source.html":[4,0,0,19,2,5],
 "MotionGPS_8hpp_source.html":[4,0,0,19,2,6],
-"MotionGreatArc_8cpp.html":[4,0,0,19,2,7],
-"MotionGreatArc_8hpp.html":[4,0,0,19,2,8],
-"MotionGreatArc_8hpp_source.html":[4,0,0,19,2,8]
+"MotionGreatArc_8cpp.html":[4,0,0,19,2,7]
 };

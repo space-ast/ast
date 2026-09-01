@@ -1,5 +1,9 @@
 var NAVTREEINDEX43 =
 {
+"classast_1_1ScStateCalcSolarRadiationForce.html":[3,0,0,834],
+"classast_1_1ScStateCalcSpacecraftMass.html":[2,0,0,836],
+"classast_1_1ScStateCalcSpacecraftMass.html":[3,0,0,835],
+"classast_1_1ScStateCalcTangential.html":[2,0,0,847],
 "classast_1_1ScStateCalcTangential.html":[3,0,0,846],
 "classast_1_1ScStateCalcTangentialRate.html":[2,0,0,848],
 "classast_1_1ScStateCalcTangentialRate.html":[3,0,0,847],
@@ -245,9 +249,5 @@ var NAVTREEINDEX43 =
 "classast_1_1SimTime.html#abfa4af669f0e09ce2b31c7ac9c7f728a":[3,0,0,892,3],
 "classast_1_1SimTime.html#ae7222923444168dede33722b58b002d6":[2,0,0,893,1],
 "classast_1_1SimTime.html#ae7222923444168dede33722b58b002d6":[3,0,0,892,1],
-"classast_1_1SimpleOrbitDesigner.html":[0,1,4,6],
-"classast_1_1SimpleOrbitDesigner.html#a1e242ff61d0648c4c5dbfed919f9af2d":[0,1,4,6,16],
-"classast_1_1SimpleOrbitDesigner.html#a28f85999f3c9876c409334ee731c90ba":[0,1,4,6,1],
-"classast_1_1SimpleOrbitDesigner.html#a3aee12bf9e1b2d7a9abee8fd8cb337bb":[0,1,4,6,9],
-"classast_1_1SimpleOrbitDesigner.html#a3b5ed1db777c1288ed24b75e869d53fd":[0,1,4,6,8]
+"classast_1_1SimpleOrbitDesigner.html":[0,1,4,6]
 };

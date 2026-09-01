@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"BrentSolver_8cpp.html":[4,0,0,12,4,0,3],
+"BrentSolver_8hpp.html":[4,0,0,12,4,0,4],
 "BrentSolver_8hpp_source.html":[4,0,0,12,4,0,4],
 "BuildTarget_8cpp.html":[4,0,0,27,1,2],
 "BuildTarget_8hpp.html":[4,0,0,27,1,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "CriticallyInclinedSunSyncOrbitDesigner_8hpp.html":[4,0,0,6,11,4,7],
 "CriticallyInclinedSunSyncOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,7],
 "CylindricalEclipseCalculator_8cpp.html":[4,0,0,6,10,0,4],
-"CylindricalEclipseCalculator_8hpp.html":[4,0,0,6,10,0,5],
-"CylindricalEclipseCalculator_8hpp_source.html":[4,0,0,6,10,0,5],
-"DAFParser_8cpp.html":[4,0,0,27,5,4,0]
+"CylindricalEclipseCalculator_8hpp.html":[4,0,0,6,10,0,5]
 };

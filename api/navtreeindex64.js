@@ -1,5 +1,9 @@
 var NAVTREEINDEX64 =
 {
+"structast_1_1ScopedPtrDeleter.html":[3,0,0,664],
+"structast_1_1ScopedPtrDeleter_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_fb1b9be9ff001b0d07c8cc184fa0e786.html":[2,0,0,667],
+"structast_1_1ScopedPtrDeleter_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_fb1b9be9ff001b0d07c8cc184fa0e786.html":[3,0,0,666],
+"structast_1_1ScopedPtrDeleter_3_01std_1_1FILE_01_4.html":[2,0,0,666],
 "structast_1_1ScopedPtrDeleter_3_01std_1_1FILE_01_4.html":[3,0,0,665],
 "structast_1_1SegmentContext.html":[2,0,0,878],
 "structast_1_1SegmentContext.html":[3,0,0,877],
