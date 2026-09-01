@@ -55,8 +55,8 @@ public:
     void setLocation(Point* location) {location_ = location;}
     void setOrientation(Axes* orientation) {orientation_ = orientation;}
 private:
-    SharedPtr<Point> location_;         ///< 平台位置
-    SharedPtr<Axes>  orientation_;      ///< 平台姿态
+    SharedPtr<Point> location_{};         ///< 平台位置
+    SharedPtr<Axes>  orientation_{};      ///< 平台姿态
 };
 
 
