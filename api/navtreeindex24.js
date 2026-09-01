@@ -1,5 +1,11 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1ConstantSpaceWeather.html#a3a7e7f1a7ac4d88e2cfd996562056e5d":[0,1,1,0,3],
+"classast_1_1ConstantSpaceWeather.html#a409e51118f4621b1f3ea256d6c762b3f":[0,1,1,0,12],
+"classast_1_1ConstantSpaceWeather.html#a5f83735816e9b4f93f9ef59c6ffd058b":[0,1,1,0,11],
+"classast_1_1ConstantSpaceWeather.html#a71b3287b2cb19e3dc7bf48d628cae4b1":[0,1,1,0,0],
+"classast_1_1ConstantSpaceWeather.html#aadc131b3f273d8f75f0e65e6246fac20":[0,1,1,0,9],
+"classast_1_1ConstantSpaceWeather.html#aae22533b9c4d29751685f71a7f3ed4b1":[0,1,1,0,10],
 "classast_1_1ConstantSpaceWeather.html#aae8956d3da0c6318313007cda4e88fd3":[0,1,1,0,16],
 "classast_1_1ConstantSpaceWeather.html#aba003b5e243e52939f9e770bbc9eab5b":[0,1,1,0,5],
 "classast_1_1ConstantSpaceWeather.html#ac7a39e3e1fc5c792f90340c000c5c26a":[0,1,1,0,2],
@@ -243,11 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1DataGroupSolarIntensity.html#ab8688b60309cb16aae4b023e8ac3f096":[0,16,3,1],
 "classast_1_1DataGroupSpherical.html":[2,0,0,230],
 "classast_1_1DataGroupSpherical.html":[3,0,0,229],
-"classast_1_1DataGroupSpherical.html#a215e022bc0b0e9a06f15fe4c3694838f":[2,0,0,230,1],
-"classast_1_1DataGroupSpherical.html#a215e022bc0b0e9a06f15fe4c3694838f":[3,0,0,229,1],
-"classast_1_1DataGroupTimeVar.html":[2,0,0,231],
-"classast_1_1DataGroupTimeVar.html":[3,0,0,230],
-"classast_1_1DataGroupTimeVar.html#a96e6451ed9a1f20d8ec9463127af9318":[2,0,0,231,0],
-"classast_1_1DataGroupTimeVar.html#a96e6451ed9a1f20d8ec9463127af9318":[3,0,0,230,0],
-"classast_1_1DataGroupTrajectory.html":[2,0,0,232]
+"classast_1_1DataGroupSpherical.html#a215e022bc0b0e9a06f15fe4c3694838f":[2,0,0,230,1]
 };

@@ -5076,6 +5076,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>aGetJ4AnalyticalParam
 <tr class="separator:ab14eb7643e026d056bdf1c63f707e1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5c9a7b57722b1f6e4d698506f2849a71" id="r_ga5c9a7b57722b1f6e4d698506f2849a71"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Propagator.html#ga5c9a7b57722b1f6e4d698506f2849a71">aTwoBodyProp</a> (double duration, double gm, Vector3d &amp;r, Vector3d &amp;v)</td></tr>
 <tr class="separator:ga5c9a7b57722b1f6e4d698506f2849a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa164f8fe8575f3b543467d4fcce6ff8c" id="r_aa164f8fe8575f3b543467d4fcce6ff8c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa164f8fe8575f3b543467d4fcce6ff8c">aVinti</a> (double duration, double gm, double j2, double j3, double re, Vector3d &amp;r, Vector3d &amp;v)</td></tr>
+<tr class="separator:aa164f8fe8575f3b543467d4fcce6ff8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a5a4451174f277ea65814320f8e58d7" id="r_a2a5a4451174f277ea65814320f8e58d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Property.html">Property</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a5a4451174f277ea65814320f8e58d7">_aNewPropertyTimePoint</a> (<a class="el" href="group__RTTI.html#ga2a9eeaa0f4e58aa1e27ff9a63441f7ee">FPropertyGet</a> getter, <a class="el" href="group__RTTI.html#ga159c7076d71e611938d8f153ef2abb42">FPropertySet</a> setter)</td></tr>
 <tr class="separator:a2a5a4451174f277ea65814320f8e58d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9c057e9d48fb50429489a533bddd794" id="r_af9c057e9d48fb50429489a533bddd794"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
@@ -20184,6 +20186,67 @@ template&lt;typename Func &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aa164f8fe8575f3b543467d4fcce6ff8c" name="aa164f8fe8575f3b543467d4fcce6ff8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa164f8fe8575f3b543467d4fcce6ff8c">&#9670;&#160;</a></span>aVinti()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aVinti </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>gm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>j2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>j3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>re</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vinti 解析解轨道预报（含 J2 / J3 扁率项） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">duration</td><td>预报时间 [s] </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">gm</td><td>引力常数 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">j2</td><td>J2 系数 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">j3</td><td>J3 系数 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">re</td><td>天体半径 [m] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">r</td><td>位置 [m] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">v</td><td>速度 [m/s] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>当 duration &lt; 1e-15 时直接返回 r = x0。 </dd></dl>
 
 </div>
 </div>

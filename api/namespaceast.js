@@ -3045,6 +3045,7 @@ var namespaceast =
     [ "aVectorRotation", "namespaceast.html#ab87a4581ad24da7833fdf057221d348e", null ],
     [ "aVenusPosInICRF", "group__Coordinate.html#gae5ac4ff902e2f25bdcecaba00f89c524", null ],
     [ "aVenusPosVelInICRF", "group__Coordinate.html#ga05fd529e61e087a3fae34b4de0387725", null ],
+    [ "aVinti", "namespaceast.html#aa164f8fe8575f3b543467d4fcce6ff8c", null ],
     [ "aVNCToFrameMatrix", "group__Coordinate.html#gaa4b1f724967821b93916af48eddb00a9", null ],
     [ "aVNCToFrameTransform", "group__Coordinate.html#gaa49ab25d2e0e592aa585ed3ea2d75107", null ],
     [ "aVVLHToFrameMatrix", "group__Coordinate.html#gad4544077bcf8cf1cda87dfeff08981bc", null ],

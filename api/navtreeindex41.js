@@ -1,5 +1,11 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1Rotation.html#a0e2af3e0f26250f08eaf54655f6a57d1":[3,0,0,651,25],
+"classast_1_1Rotation.html#a0edf972909466a1016f968b162d251b6":[2,0,0,652,10],
+"classast_1_1Rotation.html#a0edf972909466a1016f968b162d251b6":[3,0,0,651,10],
+"classast_1_1Rotation.html#a0f2bc3cd07e82a337e823379122844f0":[2,0,0,652,12],
+"classast_1_1Rotation.html#a0f2bc3cd07e82a337e823379122844f0":[3,0,0,651,12],
+"classast_1_1Rotation.html#a2fd42528a61cf9d3a0835a20fa2c4fa3":[2,0,0,652,6],
 "classast_1_1Rotation.html#a2fd42528a61cf9d3a0835a20fa2c4fa3":[3,0,0,651,6],
 "classast_1_1Rotation.html#a3d78420da24d3cc9fce0a5904b3fee34":[2,0,0,652,22],
 "classast_1_1Rotation.html#a3d78420da24d3cc9fce0a5904b3fee34":[3,0,0,651,22],
@@ -243,11 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1ScStateCalcDelaunayL.html":[3,0,0,714],
 "classast_1_1ScStateCalcDeltaDec.html":[2,0,0,716],
 "classast_1_1ScStateCalcDeltaDec.html":[3,0,0,715],
-"classast_1_1ScStateCalcDeltaFromMaster.html":[2,0,0,717],
-"classast_1_1ScStateCalcDeltaFromMaster.html":[3,0,0,716],
-"classast_1_1ScStateCalcDeltaRA.html":[2,0,0,718],
-"classast_1_1ScStateCalcDeltaRA.html":[3,0,0,717],
-"classast_1_1ScStateCalcDeltaV.html":[2,0,0,719],
-"classast_1_1ScStateCalcDeltaV.html":[3,0,0,718],
-"classast_1_1ScStateCalcDeltaVSquared.html":[2,0,0,720]
+"classast_1_1ScStateCalcDeltaFromMaster.html":[2,0,0,717]
 };
