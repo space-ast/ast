@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['to_5feuler_5feps_0',['TO_EULER_EPS',['../AttitudeConvert_8cpp.html#a99bcfd8e169b90c554fedde3421cca83',1,'AttitudeConvert.cpp']]]
+  ['orbit_5ftype_5feps_0',['ORBIT_TYPE_EPS',['../TwoBody_8cpp.html#a576e27d6ac7a3bed49e448e9b092a4ba',1,'TwoBody.cpp']]]
 ];

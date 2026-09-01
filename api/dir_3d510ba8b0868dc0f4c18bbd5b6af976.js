@@ -3,6 +3,7 @@ var dir_3d510ba8b0868dc0f4c18bbd5b6af976 =
     [ "AstTest.hpp", "AstTest_8hpp_source.html", null ],
     [ "TestConfig.cpp", "TestConfig_8cpp.html", "TestConfig_8cpp" ],
     [ "TestConfig.hpp", "TestConfig_8hpp.html", "TestConfig_8hpp" ],
+    [ "TestFramework.hpp", "TestFramework_8hpp.html", "TestFramework_8hpp" ],
     [ "TestJson.cpp", "TestJson_8cpp.html", "TestJson_8cpp" ],
     [ "TestJson.hpp", "TestJson_8hpp.html", "TestJson_8hpp" ],
     [ "TestMarkdown.cpp", "TestMarkdown_8cpp.html", null ],

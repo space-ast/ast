@@ -71,6 +71,7 @@ var AstUtil_2Util_2Constants_8h =
     [ "kMinToHour", "AstUtil_2Util_2Constants_8h.html#ga59acdbf5cf4b7edea97df0f2832d0520", null ],
     [ "kMinToSec", "AstUtil_2Util_2Constants_8h.html#gaf5777f8b03cca2c1e296ab75215176b4", null ],
     [ "kMJDRefEpoch", "AstUtil_2Util_2Constants_8h.html#ga0f81ed86a4637bfcc47cde73dcb44e7d", null ],
+    [ "kMoonAngVel", "AstUtil_2Util_2Constants_8h.html#ga5b7e3b57b7e9d1bc273bbff0220958fd", null ],
     [ "kMoonGrav", "AstUtil_2Util_2Constants_8h.html#ga41255ef38b8253b08c439397df25521f", null ],
     [ "kMoonMinRadius", "AstUtil_2Util_2Constants_8h.html#ga95649339e9189af003a3650b626b5b8b", null ],
     [ "kMoonRadius", "AstUtil_2Util_2Constants_8h.html#ga016e687eb62765be89f004155e8081cd", null ],

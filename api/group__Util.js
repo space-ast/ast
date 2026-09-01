@@ -315,6 +315,7 @@ var group__Util =
     [ "ast::kMinToHour", "group__Util.html#ga59acdbf5cf4b7edea97df0f2832d0520", null ],
     [ "ast::kMinToSec", "group__Util.html#gaf5777f8b03cca2c1e296ab75215176b4", null ],
     [ "ast::kMJDRefEpoch", "group__Util.html#ga0f81ed86a4637bfcc47cde73dcb44e7d", null ],
+    [ "ast::kMoonAngVel", "group__Util.html#ga5b7e3b57b7e9d1bc273bbff0220958fd", null ],
     [ "ast::kMoonGrav", "group__Util.html#ga41255ef38b8253b08c439397df25521f", null ],
     [ "ast::kMoonMinRadius", "group__Util.html#ga95649339e9189af003a3650b626b5b8b", null ],
     [ "ast::kMoonRadius", "group__Util.html#ga016e687eb62765be89f004155e8081cd", null ],

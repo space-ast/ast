@@ -8,5 +8,7 @@ var group__OrbitGeometry =
     [ "ast::aOrbitPlaneProximityIntervals", "group__OrbitGeometry.html#gad7829333cc00693c040914bfff49987d", null ],
     [ "ast::aOrbitPosition", "group__OrbitGeometry.html#ga28b01c4710e416435ed926a0ad68dca6", null ],
     [ "ast::aOrbitRadius", "group__OrbitGeometry.html#gac6e2b150cf2f70ed28ab67e99aebaa06", null ],
-    [ "ast::aOrbitTrueAnomaly", "group__OrbitGeometry.html#ga575464c9ff51e1d829be00cacada506e", null ]
+    [ "ast::aOrbitTrueAnomaly", "group__OrbitGeometry.html#ga575464c9ff51e1d829be00cacada506e", null ],
+    [ "ast::aSolveVerticalLandAscentPlane", "group__OrbitGeometry.html#ga135d83b6f7d090a56da805d04cba1c20", null ],
+    [ "ast::aSolveVerticalLandAscentPlane", "group__OrbitGeometry.html#ga071fd7c2dc2565b25c8f6bccafcd7389", null ]
 ];

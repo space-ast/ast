@@ -132,6 +132,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aOrbitPosition3<
 <tr class="separator:ga15ee4354a00adcb6e45801efc966a538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae370458374f24286ca7e62883c2db046" id="r_gae370458374f24286ca7e62883c2db046"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae370458374f24286ca7e62883c2db046">ast::aOrbitPlaneDistance</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;epoch, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;orbit, const <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;other, double gm, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time, double &amp;dist)</td></tr>
 <tr class="separator:gae370458374f24286ca7e62883c2db046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga135d83b6f7d090a56da805d04cba1c20" id="r_ga135d83b6f7d090a56da805d04cba1c20"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga135d83b6f7d090a56da805d04cba1c20">ast::aSolveVerticalLandAscentPlane</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;site, const <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *body, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tDescent, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tAscent, bool prograde, double &amp;outRaan, double &amp;outInc, double &amp;outU)</td></tr>
+<tr class="separator:ga135d83b6f7d090a56da805d04cba1c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga071fd7c2dc2565b25c8f6bccafcd7389" id="r_ga071fd7c2dc2565b25c8f6bccafcd7389"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga071fd7c2dc2565b25c8f6bccafcd7389">ast::aSolveVerticalLandAscentPlane</a> (const <a class="el" href="classast_1_1LatLon.html">LatLon</a> &amp;site, double duration, double angVel, bool prograde, double &amp;outRaan, double &amp;outInc, double &amp;outU)</td></tr>
+<tr class="separator:ga071fd7c2dc2565b25c8f6bccafcd7389"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">函数说明</h2>
 <a id="gad5b1842fd333ad750a83e84baae51289" name="gad5b1842fd333ad750a83e84baae51289"></a>
@@ -528,6 +532,134 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aOrbitPosition3<
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>查询时刻的真近点角 [rad] </dd></dl>
+
+</div>
+</div>
+<a id="ga135d83b6f7d090a56da805d04cba1c20" name="ga135d83b6f7d090a56da805d04cba1c20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga135d83b6f7d090a56da805d04cba1c20">&#9670;&#160;</a></span>aSolveVerticalLandAscentPlane() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aSolveVerticalLandAscentPlane </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>site</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tDescent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tAscent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>prograde</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>outRaan</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>outInc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>outU</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>求解使"天体固连系着陆点"在下降/上升两时刻都与轨道面共面的轨道根数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">body</td><td>中心天体，决定站点形状与自转 </td></tr>
+    <tr><td class="paramname">site</td><td>站点，天体固连系大地坐标 </td></tr>
+    <tr><td class="paramname">tDescent</td><td>下降时刻（航天器正对站点上方、开始垂直下降），亦为输出参考历元 </td></tr>
+    <tr><td class="paramname">tAscent</td><td>上升时刻（从站点垂直上升返回原轨道面） </td></tr>
+    <tr><td class="paramname">prograde</td><td>true 取顺行（i∈[0,π/2)），false 取逆行（i∈(π/2,π]） </td></tr>
+    <tr><td class="paramname">outRaan</td><td>输出：升交点赤经 [rad]，天体固连系、tDescent 历元下、自固连系本初子午线起算 </td></tr>
+    <tr><td class="paramname">outInc</td><td>输出：轨道倾角 [rad]，天体固连系、tDescent 历元下、相对固连系旋转轴 </td></tr>
+    <tr><td class="paramname">outU</td><td>输出：下降时刻站点方向的纬度辐角 [rad]，天体固连系、tDescent 历元下 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 成功；body/站点非法或两时刻无自转差/站点落自转极导致平面不唯一 （退化）时返回对应错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga071fd7c2dc2565b25c8f6bccafcd7389" name="ga071fd7c2dc2565b25c8f6bccafcd7389"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga071fd7c2dc2565b25c8f6bccafcd7389">&#9670;&#160;</a></span>aSolveVerticalLandAscentPlane() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aSolveVerticalLandAscentPlane </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1LatLon.html">LatLon</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>site</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>angVel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>prograde</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>outRaan</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>outInc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>outU</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>求解使"固连系着陆点"在下降/上升两时刻都与轨道面共面的轨道根数（纯几何，无天体/时间） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">site</td><td>站点纬度/经度，天体固连系 [rad] (地心坐标系) </td></tr>
+    <tr><td class="paramname">duration</td><td>下降→上升之间时长 [s] </td></tr>
+    <tr><td class="paramname">angVel</td><td>中心天体绕 z 轴自转角速度 [rad/s]（Δφ = angVel·duration） </td></tr>
+    <tr><td class="paramname">prograde</td><td>true 取顺行（i∈[0,π/2)），false 取逆行（i∈(π/2,π]） </td></tr>
+    <tr><td class="paramname">outRaan</td><td>输出：升交点赤经 [rad] </td></tr>
+    <tr><td class="paramname">outInc</td><td>输出：轨道倾角 [rad] </td></tr>
+    <tr><td class="paramname">outU</td><td>输出：下降时刻站点方向的纬度辐角 [rad] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError 成功；站点落自转极（|lat|=π/2）或 Δφ≈0 导致两方向近共线、平面退化时返回 </dd></dl>
 
 </div>
 </div>

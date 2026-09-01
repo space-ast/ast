@@ -8,5 +8,7 @@ var OrbitGeometry_8cpp =
     [ "aOrbitPlaneProximityIntervals", "OrbitGeometry_8cpp.html#gad7829333cc00693c040914bfff49987d", null ],
     [ "aOrbitPosition", "OrbitGeometry_8cpp.html#ga28b01c4710e416435ed926a0ad68dca6", null ],
     [ "aOrbitRadius", "OrbitGeometry_8cpp.html#gac6e2b150cf2f70ed28ab67e99aebaa06", null ],
-    [ "aOrbitTrueAnomaly", "OrbitGeometry_8cpp.html#ga575464c9ff51e1d829be00cacada506e", null ]
+    [ "aOrbitTrueAnomaly", "OrbitGeometry_8cpp.html#ga575464c9ff51e1d829be00cacada506e", null ],
+    [ "aSolveVerticalLandAscentPlane", "OrbitGeometry_8cpp.html#ga135d83b6f7d090a56da805d04cba1c20", null ],
+    [ "aSolveVerticalLandAscentPlane", "OrbitGeometry_8cpp.html#ga071fd7c2dc2565b25c8f6bccafcd7389", null ]
 ];

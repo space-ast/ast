@@ -62,6 +62,19 @@ var annotated_dup =
         [ "SkipWhitespace", "structast_1_1strings__internal_1_1SkipWhitespace.html", null ],
         [ "Splitter", "classast_1_1strings__internal_1_1Splitter.html", "classast_1_1strings__internal_1_1Splitter" ]
       ] ],
+      [ "testing", null, [
+        [ "internal", null, [
+          [ "AssertionHelper", "classast_1_1testing_1_1internal_1_1AssertionHelper.html", null ],
+          [ "FailHelper", "classast_1_1testing_1_1internal_1_1FailHelper.html", null ],
+          [ "FatalTestException", "structast_1_1testing_1_1internal_1_1FatalTestException.html", null ],
+          [ "ScopedTrace", "classast_1_1testing_1_1internal_1_1ScopedTrace.html", null ],
+          [ "SkipHelper", "classast_1_1testing_1_1internal_1_1SkipHelper.html", null ],
+          [ "SkippedTestException", "structast_1_1testing_1_1internal_1_1SkippedTestException.html", null ],
+          [ "TestCase", "structast_1_1testing_1_1internal_1_1TestCase.html", "structast_1_1testing_1_1internal_1_1TestCase" ],
+          [ "TestRegistrar", "structast_1_1testing_1_1internal_1_1TestRegistrar.html", null ]
+        ] ],
+        [ "Test", "classast_1_1testing_1_1Test.html", null ]
+      ] ],
       [ "AccessConstraint", "classast_1_1AccessConstraint.html", "classast_1_1AccessConstraint" ],
       [ "AccessEvaluator", "classast_1_1AccessEvaluator.html", "classast_1_1AccessEvaluator" ],
       [ "AccessStepper", "classast_1_1AccessStepper.html", "classast_1_1AccessStepper" ],
