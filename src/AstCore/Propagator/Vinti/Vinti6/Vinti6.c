@@ -45,6 +45,8 @@
 
 #include "Vinti6.h"
 
+A_SUPPRESS_WARNINGS_BEGIN
+
 void Vinti6 (double planet[4], double vt0, double x0[6], double vt1, double x1[6], double oe[6])
 {
    // ast修改：使用高经度的 pi 值
@@ -1203,3 +1205,4 @@ void StateOut(FILE *hOutput, double t, double x[6])
    fprintf(hOutput, "\n");
 }
 
+A_SUPPRESS_WARNINGS_END
