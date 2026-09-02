@@ -1,5 +1,9 @@
 target("AstUiAI")
-    add_rules("ast.qt.shared")
+    if is_plat("wasm") then
+        add_rules("ast.qt.static")
+    else
+        add_rules("ast.qt.shared")
+    end
     set_kind("shared")
     add_files("**.cpp")
     add_files("**.hpp")
@@ -12,6 +16,6 @@ target("AstUiAI")
     --     set_enabled(false)
     -- end
     set_default(false)
-    if not has_package("qt") then
+    if not has_package("qt") and not is_plat("wasm") then
         set_enabled(false)
     end

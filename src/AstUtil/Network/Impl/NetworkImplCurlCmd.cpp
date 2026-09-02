@@ -23,6 +23,7 @@
 #include "AstUtil/NetworkRequest.hpp"
 #include "AstUtil/NetworkResponse.hpp"
 #include "AstUtil/NetworkStreamReceiver.hpp"
+#include "AstUtil/Logger.hpp"
 #include <cstdio>
 #include <cstdlib>
 #include <string>
@@ -46,6 +47,7 @@
 
 AST_NAMESPACE_BEGIN
 
+#ifndef A_WASM
 namespace
 {
     // 将请求方法转换为 curl 所需的字符串
@@ -122,6 +124,7 @@ namespace
         return s.substr(start, end - start + 1);
     }
 }
+#endif
 
 
 NetworkImplCurlCmd* NetworkImplCurlCmd::Instance()
@@ -132,6 +135,11 @@ NetworkImplCurlCmd* NetworkImplCurlCmd::Instance()
 
 errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkStreamReceiver& receiver)
 {
+#ifdef A_WASM
+    (void)request; (void)receiver;
+    aError("WASM not support network via curl command");
+    return eError;
+#else
     // 如果没有 URL，直接返回错误
     if (request.url().empty())
         return -1;
@@ -305,6 +313,7 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
         return -4;
 
     return 0;
+#endif
 }
 
 

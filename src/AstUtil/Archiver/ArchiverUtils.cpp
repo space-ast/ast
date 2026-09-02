@@ -253,6 +253,10 @@ bool aIsCommandAvailable(const char* cmd)
 
 errc_t aRunCommand(const std::string& cmd)
 {
+#ifdef A_WASM
+    aError("aRunCommand: WASM not support running external command");
+    return eError;
+#else
     FILE* pipe = A_POPEN(cmd.c_str(), "r");
     if (!pipe)
     {
@@ -278,6 +282,7 @@ errc_t aRunCommand(const std::string& cmd)
     }
 
     return eNoError;
+#endif
 }
 
 const char* aTarCompressFlag(EArchiveFormat fmt)

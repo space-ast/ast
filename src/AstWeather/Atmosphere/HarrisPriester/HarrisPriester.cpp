@@ -106,7 +106,7 @@ static const double SIN_LAG = 0.5;                    // sin(30°)
 ///          - n=2 用于低倾角轨道（赤道附近）
 ///          - n=6 用于极地轨道
 ///          - n=4 为默认值，适用于大多数情况
-static const double COSINE_EXPONENT = 4.0;
+// static const double COSINE_EXPONENT = 4.0;
 
 /// @brief cos(ψ/2) 最小值，低于此值时 cosPow 视为 0
 /// @details 避免对极小值做 pow 运算导致下溢
