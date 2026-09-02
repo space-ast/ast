@@ -39,6 +39,7 @@
 #include "AstGUI/UiInteger.hpp"
 #include "AstGUI/UiMainWindow.hpp"
 #include "AstGUI/UiManeuver.hpp"
+#include "AstGUI/UiMissionAnalysisWindow.hpp"
 #include "AstGUI/UiMotionHPOP.hpp"
 #include "AstGUI/UiMotionProfile.hpp"
 #include "AstGUI/UiMotionSPICE.hpp"
