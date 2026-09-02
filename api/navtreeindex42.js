@@ -1,5 +1,8 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1ScStateCalcDeltaDec.html":[2,0,0,716],
+"classast_1_1ScStateCalcDeltaDec.html":[3,0,0,715],
+"classast_1_1ScStateCalcDeltaFromMaster.html":[2,0,0,717],
 "classast_1_1ScStateCalcDeltaFromMaster.html":[3,0,0,716],
 "classast_1_1ScStateCalcDeltaRA.html":[2,0,0,718],
 "classast_1_1ScStateCalcDeltaRA.html":[3,0,0,717],
@@ -246,8 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalcSTMVelZVelX.html":[2,0,0,845],
 "classast_1_1ScStateCalcSTMVelZVelX.html":[3,0,0,844],
 "classast_1_1ScStateCalcSTMVelZVelY.html":[2,0,0,846],
-"classast_1_1ScStateCalcSTMVelZVelY.html":[3,0,0,845],
-"classast_1_1ScStateCalcSTMVelZVelZ.html":[2,0,0,847],
-"classast_1_1ScStateCalcSTMVelZVelZ.html":[3,0,0,846],
-"classast_1_1ScStateCalcScalar.html":[2,0,0,825]
+"classast_1_1ScStateCalcSTMVelZVelY.html":[3,0,0,845]
 };

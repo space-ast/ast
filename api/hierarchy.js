@@ -736,7 +736,8 @@ var hierarchy =
     ] ],
     [ "QMainWindow", null, [
       [ "ast::UiAnalyzerMainWindow", "classast_1_1UiAnalyzerMainWindow.html", null ],
-      [ "ast::UiMainWindow", "classast_1_1UiMainWindow.html", null ]
+      [ "ast::UiMainWindow", "classast_1_1UiMainWindow.html", null ],
+      [ "ast::UiMissionAnalysisWindow", "classast_1_1UiMissionAnalysisWindow.html", null ]
     ] ],
     [ "QObject", null, [
       [ "ast::CloseEventDetecter", "classast_1_1CloseEventDetecter.html", null ],

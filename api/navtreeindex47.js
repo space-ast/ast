@@ -1,5 +1,8 @@
 var NAVTREEINDEX47 =
 {
+"classast_1_1TLEDatabaseQuery.html#af6b0cae6033cc4faea82a326185b17ed":[2,0,0,998,39],
+"classast_1_1TLEDatabaseQuery.html#af6b0cae6033cc4faea82a326185b17ed":[3,0,0,997,39],
+"classast_1_1TLEDatabaseQuery.html#af7f49a2ee7499118029b785fc57d400f":[2,0,0,998,42],
 "classast_1_1TLEDatabaseQuery.html#af7f49a2ee7499118029b785fc57d400f":[3,0,0,997,42],
 "classast_1_1TLEDatabaseQuery.html#af80f8665ddd7ada5e1784906fcff901a":[2,0,0,998,16],
 "classast_1_1TLEDatabaseQuery.html#af80f8665ddd7ada5e1784906fcff901a":[3,0,0,997,16],
@@ -246,8 +249,5 @@ var NAVTREEINDEX47 =
 "classast_1_1TrackingCoordinates.html#ad29ce2c328635f98d20e7c0a6e04cbb5":[3,0,0,999,6],
 "classast_1_1TraitObject.html":[2,0,0,1001],
 "classast_1_1TraitObject.html":[3,0,0,1000],
-"classast_1_1Transform.html":[2,0,0,1002],
-"classast_1_1Transform.html":[3,0,0,1001],
-"classast_1_1Transform.html#a0d8c5f5d309b3814955ef1a3b788af25":[2,0,0,1002,13],
-"classast_1_1Transform.html#a0d8c5f5d309b3814955ef1a3b788af25":[3,0,0,1001,13]
+"classast_1_1Transform.html":[2,0,0,1002]
 };

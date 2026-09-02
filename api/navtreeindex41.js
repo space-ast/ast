@@ -1,5 +1,8 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1Rotation.html#a088bae2548fbc4d1153ceac5dd26882e":[2,0,0,652,23],
+"classast_1_1Rotation.html#a088bae2548fbc4d1153ceac5dd26882e":[3,0,0,651,23],
+"classast_1_1Rotation.html#a0e2af3e0f26250f08eaf54655f6a57d1":[2,0,0,652,25],
 "classast_1_1Rotation.html#a0e2af3e0f26250f08eaf54655f6a57d1":[3,0,0,651,25],
 "classast_1_1Rotation.html#a0edf972909466a1016f968b162d251b6":[2,0,0,652,10],
 "classast_1_1Rotation.html#a0edf972909466a1016f968b162d251b6":[3,0,0,651,10],
@@ -246,8 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1ScStateCalcDelaunayH.html":[2,0,0,714],
 "classast_1_1ScStateCalcDelaunayH.html":[3,0,0,713],
 "classast_1_1ScStateCalcDelaunayL.html":[2,0,0,715],
-"classast_1_1ScStateCalcDelaunayL.html":[3,0,0,714],
-"classast_1_1ScStateCalcDeltaDec.html":[2,0,0,716],
-"classast_1_1ScStateCalcDeltaDec.html":[3,0,0,715],
-"classast_1_1ScStateCalcDeltaFromMaster.html":[2,0,0,717]
+"classast_1_1ScStateCalcDelaunayL.html":[3,0,0,714]
 };

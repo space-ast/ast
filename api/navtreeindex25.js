@@ -1,5 +1,8 @@
 var NAVTREEINDEX25 =
 {
+"classast_1_1DataGroupSpherical.html":[2,0,0,230],
+"classast_1_1DataGroupSpherical.html":[3,0,0,229],
+"classast_1_1DataGroupSpherical.html#a215e022bc0b0e9a06f15fe4c3694838f":[2,0,0,230,1],
 "classast_1_1DataGroupSpherical.html#a215e022bc0b0e9a06f15fe4c3694838f":[3,0,0,229,1],
 "classast_1_1DataGroupTimeVar.html":[2,0,0,231],
 "classast_1_1DataGroupTimeVar.html":[3,0,0,230],
@@ -246,8 +249,5 @@ var NAVTREEINDEX25 =
 "classast_1_1Dimension.html#a68757ae36f39ceccdbef679d6d56b518":[3,0,0,269,2],
 "classast_1_1Dimension.html#a6a3715c1814d2694fb1ed35a0e880609":[2,0,0,270,15],
 "classast_1_1Dimension.html#a6a3715c1814d2694fb1ed35a0e880609":[3,0,0,269,15],
-"classast_1_1Dimension.html#a760f51fdea1ae03b51968153de0b3b0b":[2,0,0,270,19],
-"classast_1_1Dimension.html#a760f51fdea1ae03b51968153de0b3b0b":[3,0,0,269,19],
-"classast_1_1Dimension.html#a7f3ace4929a6d92b8f7e75a3f58694df":[2,0,0,270,32],
-"classast_1_1Dimension.html#a7f3ace4929a6d92b8f7e75a3f58694df":[3,0,0,269,32]
+"classast_1_1Dimension.html#a760f51fdea1ae03b51968153de0b3b0b":[2,0,0,270,19]
 };

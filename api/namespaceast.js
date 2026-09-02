@@ -1171,6 +1171,7 @@ var namespaceast =
     [ "UiInteger", "classast_1_1UiInteger.html", "classast_1_1UiInteger" ],
     [ "UiMainWindow", "classast_1_1UiMainWindow.html", null ],
     [ "UiManeuver", "classast_1_1UiManeuver.html", null ],
+    [ "UiMissionAnalysisWindow", "classast_1_1UiMissionAnalysisWindow.html", null ],
     [ "UiMotionProfile", "classast_1_1UiMotionProfile.html", "classast_1_1UiMotionProfile" ],
     [ "UiMotionTwoBody", "classast_1_1UiMotionTwoBody.html", null ],
     [ "UiNewObjectDialog", "classast_1_1UiNewObjectDialog.html", "classast_1_1UiNewObjectDialog" ],

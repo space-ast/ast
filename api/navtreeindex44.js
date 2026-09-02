@@ -1,5 +1,8 @@
 var NAVTREEINDEX44 =
 {
+"classast_1_1ShooterControl.html#a8169afbe0308a90ca42548e68c06046c":[2,0,0,889,1],
+"classast_1_1ShooterControl.html#a8169afbe0308a90ca42548e68c06046c":[3,0,0,888,1],
+"classast_1_1ShooterResult.html":[2,0,0,890],
 "classast_1_1ShooterResult.html":[3,0,0,889],
 "classast_1_1ShooterResult.html#af915116c41a5a51d8e11ff78f146cfa7":[2,0,0,890,0],
 "classast_1_1ShooterResult.html#af915116c41a5a51d8e11ff78f146cfa7":[3,0,0,889,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX44 =
 "classast_1_1SpiceAPI.html#aa07c808d950e6e4438bea95bc6c63cbb":[0,1,1,10,6],
 "classast_1_1SpiceAPI.html#aac3292abf67364990a1de46f79df05d0":[0,1,1,10,11],
 "classast_1_1SpiceAPI.html#ab84a6ada1d4f195ce68830843518abb5":[0,1,1,10,1],
-"classast_1_1SpiceAPI.html#abae40dfe27cd12b56c29ef6356518992":[0,1,1,10,13],
-"classast_1_1SpiceAPI.html#ac20493f9faec77a36d19f83a02a9929d":[0,1,1,10,4],
-"classast_1_1SpiceAPI.html#ae0408a3a3444be4b86aff5f43bf72845":[0,1,1,10,9],
-"classast_1_1SpiceAPI.html#afa3c55166e2fa8b79b3091c1f1cd8b2f":[0,1,1,10,14]
+"classast_1_1SpiceAPI.html#abae40dfe27cd12b56c29ef6356518992":[0,1,1,10,13]
 };
