@@ -339,21 +339,38 @@
 #   define A_SUPPRESS_WARNINGS_END                           \
         _Pragma("clang diagnostic pop")
 #elif defined(A_GCC)
-#   define A_SUPPRESS_WARNINGS_BEGIN                                   \
-        _Pragma("GCC diagnostic push")                                 \
-        _Pragma("GCC diagnostic ignored \"-Wall\"")                    \
-        _Pragma("GCC diagnostic ignored \"-Wextra\"")                  \
-        _Pragma("GCC diagnostic ignored \"-Wpedantic\"")               \
-        _Pragma("GCC diagnostic ignored \"-Wconversion\"")             \
-        _Pragma("GCC diagnostic ignored \"-Wsign-conversion\"")        \
-	_Pragma("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")    \
+#   define _A_SUPPRESS_WARNINGS_PUSH \
+        _Pragma("GCC diagnostic push")
+
+#   define _A_SUPPRESS_WARNINGS_CXX \
+        _Pragma("GCC diagnostic ignored \"-Weffc++\"")\
+        _Pragma("GCC diagnostic ignored \"-Wnon-virtual-dtor\"")
+
+#   define _A_SUPPRESS_WARNINGS_C\
+        _Pragma("GCC diagnostic ignored \"-Wpragmas\"")\
+        _Pragma("GCC diagnostic ignored \"-Wall\"")\
+        _Pragma("GCC diagnostic ignored \"-Wextra\"")\
+        _Pragma("GCC diagnostic ignored \"-Wpedantic\"")\
+        _Pragma("GCC diagnostic ignored \"-Wconversion\"")\
+        _Pragma("GCC diagnostic ignored \"-Wsign-conversion\"")\
+        _Pragma("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")\
         _Pragma("GCC diagnostic ignored \"-Wunused-but-set-variable\"")\
         _Pragma("GCC diagnostic ignored \"-Wunused-variable\"")\
         _Pragma("GCC diagnostic ignored \"-Wunused-result\"")\
         _Pragma("GCC diagnostic ignored \"-Wformat=\"")\
-        _Pragma("GCC diagnostic ignored \"-Wstringop-truncation\"")\
-        _Pragma("GCC diagnostic ignored \"-Weffc++\"")\
-        _Pragma("GCC diagnostic ignored \"-Wnon-virtual-dtor\"")\
+        _Pragma("GCC diagnostic ignored \"-Wstringop-truncation\"")
+
+#   ifdef __cplusplus
+#       define A_SUPPRESS_WARNINGS_BEGIN \
+              _A_SUPPRESS_WARNINGS_PUSH\
+              _A_SUPPRESS_WARNINGS_C\
+              _A_SUPPRESS_WARNINGS_CXX
+#   else
+#       define A_SUPPRESS_WARNINGS_BEGIN \
+              _A_SUPPRESS_WARNINGS_PUSH\
+              _A_SUPPRESS_WARNINGS_C
+#   endif
+
 
 #   define A_SUPPRESS_WARNINGS_END                           \
         _Pragma("GCC diagnostic pop")

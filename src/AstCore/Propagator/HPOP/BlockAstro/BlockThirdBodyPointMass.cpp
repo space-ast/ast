@@ -100,8 +100,18 @@ errc_t BlockThirdBodyPointMass::run(const SimTime &simTime)
     }
     // 间接引力
     double magThirdBodyPosSqr = thirdBodyPos.squaredNorm();
-    double magThirdBodyPos = std::sqrt(magThirdBodyPosSqr);
-    double indirect = thirdBodyGM_ / (magThirdBodyPos * magThirdBodyPosSqr);
+    double indirect;
+    // 如果三体在预报系中的位置为零，说明该三体与预报中心天体相同，将其间接引力设为0
+    if(A_UNLIKELY(magThirdBodyPosSqr == 0))
+    {
+        // aWarning("third body relative position is zero");
+        indirect = 0.0;
+    }
+    else
+    {
+        double magThirdBodyPos = std::sqrt(magThirdBodyPosSqr);
+        indirect = thirdBodyGM_ / (magThirdBodyPos * magThirdBodyPosSqr);
+    }
     // 直接引力
     Vector3d thirdBodyRelPos = thirdBodyPos - (*posCBI);
     double magThirdBodyRelPosSqr = thirdBodyRelPos.squaredNorm();

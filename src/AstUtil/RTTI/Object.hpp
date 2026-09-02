@@ -356,7 +356,9 @@ public:
     static constexpr bool value = (sizeof(test<T>(0)) == sizeof(yes));
 };
 
-
+/// @brief 快速对象类型转换
+/// @param obj 源对象指针
+/// @return 目标类型指针
 template<typename T, typename U>
 A_ALWAYS_INLINE T aobject_cast(U* obj)
 {

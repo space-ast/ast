@@ -21,6 +21,7 @@
 #include "Point.hpp"
 #include "AstCore/Frame.hpp"
 #include "AstCore/CelestialBody.hpp"
+#include "AstCore/TimeInterval.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstMath/Transform.hpp"
 #include "AstMath/KinematicTransform.hpp"
@@ -31,6 +32,12 @@ CelestialBody *Point::toBody() const
 {
     /// @todo 这里需要优化动态类型转换的执行效率
     return dynamic_cast<CelestialBody*>(const_cast<Point*>(this));
+}
+
+errc_t Point::getInterval(TimeInterval &interval) const
+{
+    interval.setWhole();
+    return eNoError;
 }
 
 errc_t Point::getPosIn(Frame *frame, const TimePoint &tp, Vector3d &pos) const

@@ -24,10 +24,7 @@
 AST_NAMESPACE_BEGIN
 
 
-void CentroidPosition::setBody(Body *body)
-{
-    body_ = body;
-}
+
 
 
 AST_NAMESPACE_END

@@ -46,6 +46,8 @@ public:
 
     void clear(){ eventObservers_.clear(); }
 
+    void reset();
+
     ODEEventObserver& operator[](size_t index) { return *eventObservers_[index]; }
     const ODEEventObserver& operator[](size_t index) const { return *eventObservers_[index]; }
 protected:

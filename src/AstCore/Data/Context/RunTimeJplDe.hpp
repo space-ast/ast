@@ -108,6 +108,13 @@ AST_CORE_CAPI errc_t aJplDeGetInterval(
 AST_CORE_CAPI int aJplDeNum();
 
 
+/// @brief 获取JPL DE星历数据的引力常数（m³/s²）
+/// @param bodyIndex 
+/// @param GM 
+/// @return 
+AST_CORE_CAPI errc_t aJplDeGetBodyGM(int bodyIndex, double& GM);
+
+
 /// @brief 打开JPL DE星历数据文件
 /// @param filepath 
 /// @return 

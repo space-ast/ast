@@ -56,7 +56,8 @@ errc_t J2J4Analytical::prop(const TimePoint &epoch, ModOrbElem &modOrbElem)
 errc_t J2J4Analytical::propNoNormalize(double duration, ModOrbElem &modOrbElem)
 {
     modOrbElem = this->modOrbElem_;
-    modOrbElem.trueA() += meanAnomalyDot_ * duration;
+    double meanA = modOrbElem.getMeanAnomaly();
+    modOrbElem.trueA() = aMeanToTrue(meanA + meanAnomalyDot_ * duration, modOrbElem.getEcc());
     modOrbElem.raan() += raanDot_ * duration;
     modOrbElem.argper() += argPeriDot_ * duration;
     return 0;

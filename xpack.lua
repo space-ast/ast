@@ -21,6 +21,7 @@ xpack("ast")
     add_sourcefiles("*.lua", "*.md", "LICENSE*")
     -- 二进制安装包的文件
     add_installfiles("(examples/**)|*.lua")
+    add_installfiles("(test/**)|*.lua")
     add_installfiles("scripts/xpack/port.lua", {filename = "xmake.lua"})
     on_load(function(package)
         import("core.project.project")

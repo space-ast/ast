@@ -21,6 +21,7 @@
 #include "PointMassForce.hpp"
 #include "ForceModel.hpp"
 #include "AstCore/CelestialBody.hpp"
+#include "AstCore/RunTimeJplDe.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -37,8 +38,17 @@ double PointMassForce::getGM(CelestialBody* body) const
     }
     if(gmSource_ == EGMSource::eJplDE)
     {
-        aWarning("unsupported feature: JPL DE gravity gm source, use body gm instead.");
-        return body->getGM();
+        double gm;
+        errc_t rc = aJplDeGetBodyGM(body->getJplIndex(), gm);
+        if(rc == eNoError)
+        {
+            return gm;
+        }
+        else
+        {
+            aError("failed to get jpl de body gm, body index: %d, use body gm instead.", body->getJplIndex());
+            return body->getGM();
+        }
     }
     else if(gmSource_ == EGMSource::eSystemGravity)
     {

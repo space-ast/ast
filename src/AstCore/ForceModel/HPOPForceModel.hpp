@@ -133,6 +133,7 @@ public:
 
     /// @brief 获取三体引力模型列表
     const ThirdBodyList& getThirdBodies() const{return thirdBodies_;}
+    ThirdBodyList& thirdBodies(){return thirdBodies_;}
 private:
     bool                        useDrag_{false};                    ///< 是否使用阻力模型
     bool                        useSRP_{false};                     ///< 是否使用太阳辐射压模型

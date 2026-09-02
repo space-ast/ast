@@ -1,5 +1,5 @@
 /// @file      JplDe.cpp
-/// @brief     
+/// @brief
 /// @details   ~
 /// @author    axel
 /// @date      5.12.2025
@@ -25,13 +25,14 @@
 #include "AstCore/JulianDate.hpp"
 #include "AstCore/TimeInterval.hpp"
 #include "AstMath/Euler.hpp"
-#include "AstUtil/IO.hpp"       // for ast_fopen
-#include "AstUtil/Logger.hpp"   // for aError
-#include <assert.h>             // for assert
-#include <mutex>                // for std::mutex
-#include <cmath>                // for std::sin, std::cos, std::sqrt, etc.
-#include <memory>               // for std::unique_ptr
- 
+#include "AstUtil/IO.hpp"           // for ast_fopen
+#include "AstUtil/Logger.hpp"       // for aError
+#include "AstUtil/StringUtil.hpp"   // for aStripTrailingAsciiWhitespace
+#include <assert.h>                 // for assert
+#include <mutex>                    // for std::mutex
+#include <cmath>                    // for std::sin, std::cos, std::sqrt, etc.
+#include <memory>                   // for std::unique_ptr
+#include <limits>                   // for std::numeric_limits
  
 AST_NAMESPACE_BEGIN
  
@@ -53,7 +54,7 @@ enum EDeDataCode
     eDePluto = 8,             ///< Pluto              relative to SS BaryCenter
     eDeMoon = 9,              ///< Moon               relative to geocenter
     eDeSun = 10,              ///< Sun                relative to SS BaryCenter
-    eDeNutation = 11,         ///< longitude and obliquity (IAU 1980 model) 地球经线章动和倾斜
+    eDeNutation = 11,         ///< longitude and obliquity (IAU 1980 model) 地球黄经章动和交角章动
     eDeLibration = 12,        ///< 月面天平动
     eDeLunarAngVel = 13,      ///< 月面角速度
     eDeTT_TDB = 14            ///< (at geocenter)
@@ -143,6 +144,104 @@ static int dimension(const int idx)
     return(rval);
 }
 
+
+/*
+   ------------------- DE 二进制星历文件格式说明 -------------------
+
+   JPL DE 系列（DExxx/LEPxxx）二进制星历文件由若干"磁盘记录"串联构成，所有多字节数值均可按
+   大端或小端存储（文件自报字节序）。整份文件布局如下：
+
+   record 0 : 文件头（header）。含三个 84 字节文本行、常量名表、时间范围、ipt 索引表等。
+   record 1 : 常量记录。存放 ncon 个星历常量（GM 值、半径、质量比等），每个 8 字节 double。
+   record 2 及以后 : 数据记录（数据块）。每块覆盖 ephem_step 天，含一组切比雪夫系数。
+
+   record n 的起始字节偏移 = (n + 2) * numCoeff_ * sizeof(double)。
+   （numCoeff_ 即单个数据块含系数总数，"record 2"对应数据块 0。）
+
+   ---------- 文件头（debin_header），各字段字节偏移 ----------
+
+   偏移    字段                     含义
+   ------   -----------------------  ---------------------------------------------------
+   0        title[84]              第一文本行 "JPL Planetary Ephemeris DExxx/LExxx"。
+   84       start_epoch[84]        第二文本行 "Start Epoch: JED = ... yyyy-MMM-dd ..."。
+   168      final_epoch[84]        第三文本行 "Final Epoch: JED = ... yyyy-MMM-dd ..."。
+   252      constant_names[400][6] 前 400 个常量名，每个 6 字符。
+   2652     ephem_start           星历起始儒略历书日 JED。
+   2660     ephem_end             星历结束儒略历书日 JED（开区间上界）。
+   2668     ephem_step            每个数据块覆盖的天数（如 DE430 为 32 天）。
+   2676     ncon                  常量个数（uint32）。
+   2680     au                    天文单位长度（km），约 149597870.7。
+   2688     emrat                 地球/月球质量比（约 81.300569）。
+   2696     ipt[12][3]            12 组索引（见下）—— 这里只连续存放 ipt[0..11]。
+   2840     numde                 DE 星历版本号，如 405、430、440（uint32）。
+   2844     lpt[3]                ipt[12]（月球天平动）索引，即月面天平动的 ipt 条目。
+
+   若 ncon <= 400，lpt 后直接存放 rpt 和 tpt（ipt[13]、ipt[14] 各占 3×4 字节）；
+   若 ncon > 400，lpt 后先存放 (ncon-400)×6 字节的"额外常量名"（constant_names2），
+   之后才是 rpt 和 tpt。本实现会在 ipt[13][0] 指向的偏移处读取 6 个 int32 取得 rpt/tpt，
+   并以"一致性检查"判断其是否有效（见 open()）。
+
+   ---------- ipt 索引表（每个天体/量一条） ----------
+
+   数组元素含义：ipt[i] = { ipt0, ncf, ns }
+     ipt0 : 该量首个系数在"数据块内"的 1 基起始位置（从块头第 1 个 double 算起，故行星类
+            数据一定 >= 3，因为块头前两个 double 是块起止 JED）。
+     ncf  : 每个坐标分量使用的切比雪夫系数个数（<= MAX_CHEBY=18）。
+     ns   : 该量在每个数据块内被划分的子区间数。
+
+   前端下标 0..14 分别对应（本实现 ipt_ 为 15x3，前 12 条由文件头 ipt[12][3] 得到，
+   下标 12、13、14 分别来自 lpt、rpt、tpt；表中"SS"指太阳系 Solar System，相对地心者另注明）：
+
+   下标  EDeDataCode       对应天体/量            维度  说明
+   ----  -----------------  --------------------  ----  ----------------------------
+   0     eDeMercury         水星(相对SS质心)        3
+   1     eDeVenus           金星(相对SS质心)        3
+   2     eDeEMBaryCenter    地月系质心(相对SS质心)  3
+   3     eDeMars            火星(相对SS质心)        3
+   4     eDeJupiter         木星(相对SS质心)        3
+   5     eDeSaturn          土星(相对SS质心)        3
+   6     eDeUranus          天王星(相对SS质心)      3
+   7     eDeNeptune         海王星(相对SS质心)      3
+   8     eDePluto           冥王星(相对SS质心)      3
+   9     eDeMoon            月球(相对地心)          3
+   10    eDeSun             太阳(相对SS质心)        3
+   11    eDeNutation        地球黄经/倾角章动        2
+   12    eDeLibration       月面天平动              3
+   13    eDeLunarAngVel     月面角速度              3
+   14    eDeTT_TDB          TT-TDB(地心处)          1
+
+   每个数据块内前两个 double 固定为块起始、块结束 JED；其余系数按分量×子区间×ncf 排布。
+
+   numCoeff_（单块总系数个数）= 2（起止 JED）+ Σ_i [ ipt_[i][1] * ipt_[i][2] * dimension(i) ]。
+   dimension(i)：行星/天平动/角速度取 3，章动取 2，TT-TDB 取 1（见 dimension()）。
+
+   ---------- 切比雪夫插值 ----------
+
+   时间归一化：t = (JED - 块起始JED) / (块时长 / ns)，子区间号 idx = floor(t)，
+   归一化切比雪夫时间 tc = 2*frac(t) - 1 ∈ [-1, 1)。系数块入口为
+   dataBlock + (ipt0 - 1 + dim * idx * ncf)。
+
+   位置：T0=1、T1=tc、Tk+1 = 2*tc*Tk - Tk-1，位置 = Σ_j coeff[j] * T_j(tc)。
+   速度：T'0=0、T'1=1、T'k+1 = 2*tc*T'k + 2*Tk - T'k-1，
+        速度 = (2 / tspan / 86400) * Σ_j coeff[j] * T'_j(tc)。
+
+   ---------- 单位 ----------
+
+   切比雪夫系数以 天 为时间单位、以 km 为长度单位存储：位置系数单位为 km，
+   速度 = 位置系数/天，故上式再 /86400 折算为 km/s。
+   getStateTDB() 返回 km 与 km/s；getPosVelICRF() 再统一乘以 1e3 ，
+   对外输出为 m 与 m/s（ICRF 参考系）。
+   注意：DE 头文件中的引力参数 GM（如 GM1/GMB/GMS）单位为 AU³/day²，
+   换算为 km³/s² 需乘以 AU³/day²，其中 AU(k in km) 取自同头文件常量（149597870.7 km）。
+
+   ---------- 字节序与常量 ----------
+
+   通过 ncon > 65536 判断文件字节序与本机是否一致（isSameEndian_），不一致时逐段 32/64 位
+   字节交换（swap_32_bit_val / swap_64_bit_val）。
+   常量记录存放于文件头之后、首个数据块之前，共 ncon 个 double。若 ncon==400，需要越过
+   可能存在的 (ncon-400)*6 字节额外常量名后再确定 ncon 真实数量（见 open()）。
+*/
+
 // 强制 1 字节对齐
 #pragma pack(push, 1)
 /// @brief De系列星历的二进制头
@@ -156,8 +255,8 @@ struct debin_header
     double      ephem_start;                // 星历起始时间(Julian Ephemeris Date)
     double      ephem_end;                  // 星历结束时间(Julian Ephemeris Date)
     double      ephem_step;                 // 星历每个数据块的天数
-    uint32_t     ncon;                       // 常量个数
-    double      au;                         // 光速 km
+    uint32_t    ncon;                       // 常量个数
+    double      au;                         // 天文单位长度(千米) 约为 1.495978707e8
     double      emrat;                      // 地球/月球质量比
     uint32_t    ipt[12][3];                 /* Pointers to # coeffs for objects */
     //          most data is stored in the above struct
@@ -192,7 +291,8 @@ JplDe::JplDe()
     , ephemEnd_(0)
     , deFile_(nullptr)
     , dataBlocks_ (nullptr)
-    , dataBlockMutex_()
+    , constants_{}
+    , mutex_()
 {
 
 }
@@ -215,7 +315,7 @@ int JplDe::readDataBlock(size_t idx)
     assert(idx < numDataBlock_ && idx >= 0);
     if (dataBlocks_ && idx < numDataBlock_ && idx >= 0)
     {
-        std::lock_guard<std::mutex> _(dataBlockMutex_);
+        std::lock_guard<std::mutex> _(mutex_);
         if (dataBlocks_[idx]) {  // has data cache
             return 0;
         }
@@ -270,6 +370,137 @@ void JplDe::close()
         dataBlocks_ = NULL;
         numDataBlock_ = 0;
     }
+    constants_.clear();
+}
+
+errc_t JplDe::loadConstants() const
+{
+    // 懒加载：首次调用 getConstant() 时把全部常量从文件读入 constants_。
+    // 常量记录区与数据块共享同一个 deFile_，这里用 mutex_ 与 readDataBlock 串行化，
+    // 避免并发读改动同一 FILE* 的文件位置。
+    if (!constants_.empty()) return eNoError;   // 已加载
+    if (!deFile_) return eErrorInvalidFile;
+    std::lock_guard<std::mutex> _(mutex_);
+    // constants_.empty() 必须在锁内再次重查 
+    if (!constants_.empty()) return eNoError;   // 已加载
+
+    ConstantMap tmp;   // 先载入临时表，成功后再 swap 提交，避免失败中途留下部分数据
+    char nameBuf[7]{};
+    const long baseValOff = (long)numCoeff_ * (long)sizeof(double);   // 常量记录区起始偏移
+    for (uint32_t i = 0; i < numConstants_; i++)
+    {
+        // 数值
+        double v = 0;
+        if (fseek(deFile_, baseValOff + (long)i * (long)sizeof(double), SEEK_SET)) return JPL_EPH_FSEEK_ERROR;
+        if (fread(&v, sizeof(double), 1, deFile_) != 1) return JPL_EPH_READ_ERROR;
+        if (!isSameEndian_) swap_64_bit_val(&v);
+
+        // 名称：i<400 取自头内 constant_names 表；i>=400 越过额外常量名块
+        long nameOff = (i < 400)
+            ? 84L + 84L + 84L + (long)i * 6
+            : (long)offsetof(debin_header, constant_names2) + (long)(i - 400) * 6;
+        if (fseek(deFile_, nameOff, SEEK_SET)) return JPL_EPH_FSEEK_ERROR;
+        if (fread(nameBuf, 1, 6, deFile_) != 6) return JPL_EPH_READ_ERROR;
+        std::string nm(aStripTrailingAsciiWhitespace(nameBuf));
+
+        tmp.insert(nm, v);   // DE 常量名唯一，按索引顺序插入即保持顺序
+    }
+    constants_ = std::move(tmp);   // 全部成功后才提交
+    return eNoError;
+}
+
+const JplDe::ConstantList& JplDe::getConstants() const
+{
+    errc_t rc = loadConstants();
+    A_UNUSED(rc);
+    const auto& items = constants_.items();
+    return items;
+}
+
+errc_t JplDe::getConstant(size_t index, double &value, std::string *name) const
+{
+    if (!deFile_) return eErrorInvalidFile;
+
+    errc_t rc = loadConstants();
+    if (rc) return rc;
+
+    const auto& items = constants_.items();    // 保持 DE 索引顺序
+    if (index >= items.size()) return JPL_EPH_INVALID_INDEX;
+    value = items[index].second;
+    if (name) *name = items[index].first;
+    return eNoError;
+}
+
+errc_t JplDe::getConstant(const std::string& name, double& value) const
+{
+    errc_t rc = loadConstants();
+    if (rc) return rc;
+
+    // OrderedMap 内部用 unordered_map，O(1) 按名查找。
+    auto it = constants_.find(name);
+    if (it == constants_.end()) return JPL_EPH_QUANTITY_NOT_IN_EPHEMERIS;
+    value = it->second;
+    return eNoError;
+}
+
+double JplDe::getConstant(const std::string &name) const
+{
+    double value;
+    errc_t rc = getConstant(name, value);
+    if (rc) return std::numeric_limits<double>::quiet_NaN();
+    return value;
+}
+
+
+double JplDe::getBodyGM(EDataCode bodyCode) const
+{
+    double value;
+    errc_t rc = getBodyGM(bodyCode, value);
+    if (rc) return std::numeric_limits<double>::quiet_NaN();
+    return value;
+}
+
+errc_t JplDe::getBodyGM(EDataCode bodyCode, double &gm) const
+{
+
+    // JPL DE 的 GM 下标按天体编号：1=水星,2=金星,B=地月质心,4=火星,5=木星,
+    // 6=土星,7=天王星,8=海王星,9=冥王星,S=太阳。地球与月球没有独立 GM，
+    // 需由地月质心 GMB 与地球/月球质量比 emRatio 拆分。
+    double value;
+    errc_t rc;
+    switch (bodyCode)
+    {
+    case eMercury:      rc = getConstant("GM1", value); break;
+    case eVenus:        rc = getConstant("GM2", value); break;
+    case eMars:         rc = getConstant("GM4", value); break;
+    case eJupiter:      rc = getConstant("GM5", value); break;
+    case eSaturn:       rc = getConstant("GM6", value); break;
+    case eUranus:       rc = getConstant("GM7", value); break;
+    case eNeptune:      rc = getConstant("GM8", value); break;
+    case ePluto:        rc = getConstant("GM9", value); break;
+    case eSun:          rc = getConstant("GMS", value); break;
+    case eEMBarycenter: rc = getConstant("GMB", value); break;
+    case eEarth:        // GM_earth = GMB * emRatio / (1+emRatio)
+        rc = getConstant("GMB", value);
+        value = value * (emMassRatio_ / (1.0 + emMassRatio_)); 
+        break;
+    case eMoon:         // GM_moon  = GMB / (1+emRatio)
+        rc = getConstant("GMB", value);
+        value = value / (1.0 + emMassRatio_);
+        break;
+    case eSSBarycenter: // 太阳系质心无 GM 概念
+    case eNotAvailable:
+    default:
+        return JPL_EPH_QUANTITY_NOT_IN_EPHEMERIS;
+    }
+    if (rc) return rc;   // 常量缺失 / 文件未打开等错误：value 未写，别再算 gm
+
+    // GM 常量以 AU³/day² 存储；换算为 SI m³/s²（au_ 为天文单位长度 km）：
+    //   km³ -> m³ 乘 1e9；AU³/day² -> km³/day² 再乘 au_³，除以 86400² 得 AU³/day² -> km³/s²。
+    const double gmFac = au_ * au_ * au_ * 1e9 / (86400.0 * 86400.0);   // AU³/day² -> m³/s²
+
+    gm = value * gmFac;
+    return eNoError;
 }
 
 errc_t JplDe::open(const char* fileName)
@@ -368,6 +599,9 @@ errc_t JplDe::open(const char* fileName)
         while (fread(buff, 6, 1, file) && strlen(buff) == 6)
             numConstants_++;
     }
+
+    /* 常量采用懒加载：此处不读取，待第一次调用 getConstant() 时经 loadConstants() 载入。 */
+    // loadConstants();
 
     numDataBlock_ = static_cast<uint32_t>((ephemEnd_ - ephemStart_) / ephemStep_);
     dataBlocks_ = new double* [numDataBlock_]{};

@@ -1,4 +1,3 @@
-#include <gtest/gtest.h>
 #include "ast/GeoCoordinate.hpp"
 #include "ast/AstTestMacro.h"
 #include "ast/Math.hpp"

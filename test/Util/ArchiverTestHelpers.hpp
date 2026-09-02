@@ -15,7 +15,6 @@
 #include "ast/IO.hpp"
 #include "ast/Logger.hpp"
 
-#include <gtest/gtest.h>
 #include <cstdio>
 #include <cstring>
 #include <string>

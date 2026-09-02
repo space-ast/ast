@@ -25,8 +25,8 @@ AST_NAMESPACE_BEGIN
 
 
 Facility::Facility()
+    : Platform(new PointCartographic(), nullptr)
 {
-    setBody(aGetEarth());
 }
 
 Frame *Facility::getFrame() const
@@ -39,9 +39,8 @@ Frame *Facility::getFrame() const
 
 errc_t Facility::getPos(const TimePoint &tp, Vector3d &pos) const
 {
-    auto body = this->body();    AST_CHECK_NULLPTR(body);
-    auto shape = body->shape();  AST_CHECK_NULLPTR(shape);
-    shape->transform(this->getGeodeticPosition(), pos);
+    auto shape = cartographic().shape();  AST_CHECK_NULLPTR(shape);
+    shape->transform(this->position(), pos);
     return 0;
 }
 

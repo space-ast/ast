@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/ObjectNamed.hpp"
+#include "AstCore/Axes.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,15 +32,7 @@ AST_NAMESPACE_BEGIN
 */
 
 
-/// @brief 姿态定义接口
-class AttitudeProfile: public ObjectNamed
-{
-public:
-    AttitudeProfile() = default;
-    virtual ~AttitudeProfile() = default;
-
-    
-};
+using AttitudeProfile = Axes;
 
 
 /*! @} */

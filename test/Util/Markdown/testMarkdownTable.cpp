@@ -11,7 +11,6 @@
 #include "ast/MarkdownRenderer.hpp"
 #include "ast/IO.hpp"
 #include "ast/Test.h"
-#include <gtest/gtest.h>
 #include <cstdio>
 #include <string>
 

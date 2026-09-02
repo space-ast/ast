@@ -33,7 +33,8 @@ errc_t _aLoadFacilityCentroidPosition(BKVParser& parser, Facility& facility)
 {
     BKVItemView item;
     BKVParser::EToken token;
-    CentroidPosition position;
+    Body* body = nullptr;
+    GeodeticPoint position{};
     
     do{
         token = parser.getNext(item);
@@ -41,11 +42,10 @@ errc_t _aLoadFacilityCentroidPosition(BKVParser& parser, Facility& facility)
         {
             if(aEqualsIgnoreCase(item.key(), "CentralBody")){
                 StringView bodyname = item.value();
-                auto body = aGetBody(bodyname);
-                if(body){
-                    position.setBody(body);
-                }else{
-                    aError("failed to get body '%.*s'", bodyname.size(), bodyname.data());
+                body = aGetBody(bodyname);
+                if(!body){
+                    body = aGetDefaultBody();
+                    aError("failed to get body '%.*s', using default body", bodyname.size(), bodyname.data());
                 }
             }else if(aEqualsIgnoreCase(item.key(), "EcfLatitude")){
                 position.setLatitude(item.value().toAngleRad());
@@ -60,6 +60,7 @@ errc_t _aLoadFacilityCentroidPosition(BKVParser& parser, Facility& facility)
         }else if(token == BKVParser::eBlockEnd){
             if(aEqualsIgnoreCase(item.value(), "CentroidPosition")){
                 facility.setPosition(position);
+                facility.setBody(body);
                 return eNoError;
             }
         }

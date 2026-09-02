@@ -30,32 +30,57 @@ AST_NAMESPACE_BEGIN
 
 MotionHPOP *MotionProfile::toHPOP() const
 {
-    /// @todo 提升类型动态转换效率
-    return dynamic_cast<MotionHPOP*>(const_cast<MotionProfile*>(this));
+    return aobject_cast<MotionHPOP*>(const_cast<MotionProfile*>(this));
 }
 
 MotionTwoBody *MotionProfile::toTwoBody() const
 {
-    /// @todo 提升类型动态转换效率
-    return dynamic_cast<MotionTwoBody*>(const_cast<MotionProfile*>(this));
+    return aobject_cast<MotionTwoBody*>(const_cast<MotionProfile*>(this));
 }
 
 MotionSPICE *MotionProfile::toSPICE() const
 {
-    /// @todo 提升类型动态转换效率
-    return dynamic_cast<MotionSPICE*>(const_cast<MotionProfile*>(this));
+    return aobject_cast<MotionSPICE*>(const_cast<MotionProfile*>(this));
 }
 
 MotionBallistic *MotionProfile::toBallistic() const
 {
-    /// @todo 提升类型动态转换效率
-    return dynamic_cast<MotionBallistic*>(const_cast<MotionProfile*>(this));
+    return aobject_cast<MotionBallistic*>(const_cast<MotionProfile*>(this));
 }
 
 MotionSimpleAscent *MotionProfile::toSimpleAscent() const
 {
-    /// @todo 提升类型动态转换效率
-    return dynamic_cast<MotionSimpleAscent*>(const_cast<MotionProfile*>(this));
+    return aobject_cast<MotionSimpleAscent*>(const_cast<MotionProfile*>(this));
+}
+
+Ephemeris *MotionProfile::createEphemeris() const
+{
+    /*
+    先尝试创建特殊星历类型，失败则创建简单的时序星历
+    */
+    ScopedPtr<Ephemeris> eph;
+    errc_t rc = createEphemeris(eph);
+    A_UNUSED(rc);
+    return eph.release();
+}
+
+errc_t MotionProfile::createEphemeris(SharedPtr<Ephemeris> &eph) const
+{
+    ScopedPtr<Ephemeris> ephTemp;
+    errc_t rc = createEphemeris(ephTemp);
+    if (rc == eNoError)
+        eph = ephTemp.release();
+    return rc;
+}
+
+errc_t MotionProfile::createEphemeris(ScopedPtr<Ephemeris> &eph) const
+{
+    errc_t rc = makeEphemerisSpec(eph);
+    if (rc != eNoError)
+    {
+        return makeEphemerisSimple(eph);
+    }
+    return rc;
 }
 
 AST_NAMESPACE_END

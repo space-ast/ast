@@ -476,6 +476,8 @@ class ModOrbElem;            ///< 改进轨道根数
 class OrbElem;               ///< 经典轨道根数
 
 class GeodeticPoint;         ///< 大地坐标
+class LatLon;                ///< 纬度经度坐标
+class LatLonAlt;             ///< 纬经高坐标
 class TrackingCoordinates;   ///< 测量/跟踪坐标(AER)
 using AER = TrackingCoordinates;
 

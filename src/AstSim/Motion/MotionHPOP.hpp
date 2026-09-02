@@ -41,6 +41,7 @@ using HMotionHPOP = SharedPtr<MotionHPOP>;
 class AST_SIM_API MotionHPOP: public MotionBasic
 {
 public:
+    AST_OBJECT(MotionHPOP)
     static PMotionHPOP New();
     MotionHPOP();
     ~MotionHPOP() override;

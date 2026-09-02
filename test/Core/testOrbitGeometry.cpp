@@ -23,7 +23,9 @@
 #include "ast/OrbitElement.hpp"
 #include "ast/TimeIntervalList.hpp"
 #include "ast/Constants.h"
+#include "ast/LatLon.hpp"
 #include "ast/Literals.hpp"
+#include <algorithm>
 #include <cmath>
 #include <string>
 #include <vector>
@@ -565,6 +567,110 @@ TEST(OrbitGeometry, OrbitPositionMatchesPropagation)
         EXPECT_NEAR((posRef - pos2).norm() / pos2.norm(), 0.0, 1e-9) << "pos2 t/T = " << f;
         EXPECT_NEAR((posRef - pos3).norm() / pos3.norm(), 0.0, 1e-9) << "pos3 t/T = " << f;
     }
+}
+
+
+// 极点：站点位于自转轴上，自转不改变站点方向 → 两时刻方向重合 → 法向退化、轨道面不唯一 → 返回错误。
+TEST(OrbitGeometry, LLOLCFIncPolar)
+{
+    double inc = 0.0, raan = 0.0, argLat = 0.0;
+
+    // 精确极点（北/南）：自转方向不变 → 退化
+    EXPECT_NE(aSolveVerticalLandAscentPlane(LatLon{+kHalfPI, 1.0}, 10 * kDayToSec, kMoonAngVel, false, raan, inc, argLat), eNoError);
+    EXPECT_NE(aSolveVerticalLandAscentPlane(LatLon{-kHalfPI, 1.0}, 10 * kDayToSec, kMoonAngVel, true,  raan, inc, argLat), eNoError);
+
+    // 近极点（距北极 0.02 rad）：近似极轨，且站点与轨道面共面
+    const double lat = kHalfPI - 0.02;
+    EXPECT_EQ(aSolveVerticalLandAscentPlane(LatLon{lat, 1.0}, 10 * kDayToSec, kMoonAngVel, true, raan, inc, argLat), eNoError);
+    EXPECT_NEAR(inc, kHalfPI, 0.05);
+    const double r[3] = { std::cos(lat) * std::cos(1.0),  +std::cos(lat) * std::sin(1.0), std::sin(lat) };
+    const double h[3] = { std::sin(inc) * std::sin(raan), -std::sin(inc) * std::cos(raan), std::cos(inc) };
+    EXPECT_NEAR(h[0] * r[0] + h[1] * r[1] + h[2] * r[2], 0.0, 1e-9);
+}
+
+// 球面几何独立验证：给定着陆点 (lon, lat)，输出 (inc, raan, argLat) 的轨道子星点必须落在该点。
+// 子星点 r̂ = (cos u·cosΩ − sin u·sinΩ·cos i, cos u·sinΩ + sin u·cosΩ·cos i, sin u·sin i)。
+// 经度做 2π 最小夹角比较，避免跨 0/2π 分支切割。
+TEST(OrbitGeometry, LLOLCFIncPassOverGeometry)
+{
+    const bool   progrades[] = { false, true };
+    const double lats[]   = { 0.10, -0.30, 0.50, -0.70, 0.85, -0.85 };
+    const double lons[]   = { 0.0, 0.70, 1.90, 3.10, 5.00 };
+    const double lotimes[] = { 3600.0, 5 * kDayToSec, 13 * kDayToSec, 15 * kDayToSec, 20 * kDayToSec, 30 * kDayToSec };
+
+    for (bool prograde : progrades)
+    for (double lat : lats)
+    for (double lon : lons)
+    for (double lotime : lotimes)
+    {
+        double inc = 0.0, raan = 0.0, argLat = 0.0;
+        ASSERT_EQ(aSolveVerticalLandAscentPlane(LatLon{lat, lon}, lotime, kMoonAngVel, prograde, raan, inc, argLat), eNoError)
+            << "prograde=" << prograde << " lon=" << lon << " lat=" << lat << " lotime=" << lotime;
+
+        const double r[3] = { std::cos(lat) * std::cos(lon), std::cos(lat) * std::sin(lon), std::sin(lat) };
+        const double h[3] = { std::sin(inc) * std::sin(raan), -std::sin(inc) * std::cos(raan), std::cos(inc) };
+        const double raan2 = raan - lotime * kMoonAngVel;
+        const double h2[3] = { std::sin(inc) * std::sin(raan2), -std::sin(inc) * std::cos(raan2), std::cos(inc) };
+
+        // ① 两时刻站点（方向不同源于月球自转）必须均落在轨道面内：h·r = 0 与 h₂·r = 0
+        EXPECT_NEAR(h[0] * r[0] + h[1] * r[1] + h[2] * r[2], 0.0, 1e-9)
+            << "prograde=" << prograde << " lon=" << lon << " lat=" << lat << " lotime=" << lotime;
+        EXPECT_NEAR(h2[0] * r[0] + h2[1] * r[1] + h2[2] * r[2], 0.0, 1e-9)
+            << "prograde=" << prograde << " lon=" << lon << " lat=" << lat << " lotime=" << lotime;
+
+        // ② 星下点复检：轨道在 argLat 处恰好过该着陆点（纬度 + 经度）
+        const double cu = std::cos(argLat), su = std::sin(argLat);
+        const double ci = std::cos(inc),    si = std::sin(inc);
+        const double x = cu * std::cos(raan) - su * std::sin(raan) * ci;
+        const double y = cu * std::sin(raan) + su * std::cos(raan) * ci;
+        const double z = su * si;
+        EXPECT_NEAR(std::asin(z), lat, 1e-9)
+            << "prograde=" << prograde << " lon=" << lon << " lat=" << lat << " lotime=" << lotime;
+        double subLon = std::atan2(y, x);
+        subLon = std::fmod(subLon, kTwoPI);
+        if (subLon < 0.0) subLon += kTwoPI;
+        double dLon = std::fabs(subLon - lon);
+        dLon = (std::min)(dLon, kTwoPI - dLon);
+        EXPECT_NEAR(dLon, 0.0, 1e-9)
+            << "prograde=" << prograde << " lon=" << lon << " lat=" << lat << " lotime=" << lotime;
+    }
+}
+
+// 取值范围与可达性：inc∈[0,π]，raan/argLat∈[0,2π)，且轨道最大地面纬度 min(i,π−i) ≥ |lat|。
+TEST(OrbitGeometry, LLOLCFIncPhysicalRanges)
+{
+    const bool   progrades[] = { false, true };
+    const double lats[]   = { 0.15, -0.45, 0.72, -0.90 };
+
+    for (bool prograde : progrades)
+    for (double lat : lats)
+    {
+        double inc = 0.0, raan = 0.0, argLat = 0.0;
+        ASSERT_EQ(aSolveVerticalLandAscentPlane(LatLon{lat, 0.7}, 3600, kMoonAngVel, prograde, raan, inc, argLat), eNoError);
+        SCOPED_TRACE("prograde=" + std::to_string(prograde) + " lat=" + std::to_string(lat));
+
+        EXPECT_GE(inc, 0.0);
+        EXPECT_LE(inc, kPI);
+
+        // 轨道最大地面纬度必须达到着陆点纬度，否则无法过顶
+        EXPECT_GE((std::min)(inc, kPI - inc), std::fabs(lat) - 1e-9);
+    }
+}
+
+// 顺/逆行互补性：同一 (lon, lat, lotime) 下 顺行倾角 + 逆行倾角 = kPI。
+TEST(OrbitGeometry, LLOLCFIncProRetroComplement)
+{
+    double incPro = 0.0, incRetro = 0.0, raan = 0.0, argLat = 0.0;
+    EXPECT_EQ(aSolveVerticalLandAscentPlane(LatLon{0.3, 0.7}, 3600, kMoonAngVel, true,  raan, incPro, argLat), eNoError);
+    EXPECT_EQ(aSolveVerticalLandAscentPlane(LatLon{0.3, 0.7}, 3600, kMoonAngVel, false, raan, incRetro, argLat), eNoError);
+    EXPECT_NEAR(incPro + incRetro, kPI, 1e-9);
+}
+
+// 退化输入：duration = 0 → 两时刻方向重合 → 平面不唯一 → 返回错误。
+TEST(OrbitGeometry, LLOLCFIncDegenerate)
+{
+    double inc = 0.0, raan = 0.0, argLat = 0.0;
+    EXPECT_NE(aSolveVerticalLandAscentPlane(LatLon{0.3, 0.7}, 0.0, kMoonAngVel, false, raan, inc, argLat), eNoError);
 }
 
 GTEST_MAIN()

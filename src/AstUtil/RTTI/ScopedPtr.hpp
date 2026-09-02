@@ -107,6 +107,9 @@ public:
     }
     T* operator->() const{return pointer_;}
     operator T*() const{return pointer_;}
+
+    /// @brief 释放绑定：取消对本指针所接管对象的所有权
+    /// @details 清空 pointer_ 并返回原始指针，将所有权转移给调用者；并不会销毁对象
     T* release()
     {
         T* ptr = pointer_;

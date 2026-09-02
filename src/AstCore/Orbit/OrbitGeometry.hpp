@@ -170,6 +170,42 @@ AST_CORE_CAPI errc_t aOrbitPlaneDistance(
      double& dist
 );
 
+
+/// @brief 求解使"天体固连系着陆点"在下降/上升两时刻都与轨道面共面的轨道根数
+/// @param body 中心天体，决定站点形状与自转
+/// @param site 站点，天体固连系大地坐标
+/// @param tDescent 下降时刻（航天器正对站点上方、开始垂直下降），亦为输出参考历元
+/// @param tAscent 上升时刻（从站点垂直上升返回原轨道面）
+/// @param prograde true 取顺行（i∈[0,π/2)），false 取逆行（i∈(π/2,π]）
+/// @param outRaan 输出：升交点赤经 [rad]，天体固连系、tDescent 历元下、自固连系本初子午线起算
+/// @param outInc 输出：轨道倾角 [rad]，天体固连系、tDescent 历元下、相对固连系旋转轴
+/// @param outU 输出：下降时刻站点方向的纬度辐角 [rad]，天体固连系、tDescent 历元下
+/// @return eNoError 成功；body/站点非法或两时刻无自转差/站点落自转极导致平面不唯一 （退化）时返回对应错误码
+AST_CORE_API errc_t aSolveVerticalLandAscentPlane(
+    const GeodeticPoint& site,
+    const CelestialBody* body,
+    const TimePoint&     tDescent,
+    const TimePoint&     tAscent,
+    bool                 prograde,
+    double& outRaan, double& outInc, double& outU
+);
+
+
+/// @brief 求解使"固连系着陆点"在下降/上升两时刻都与轨道面共面的轨道根数（纯几何，无天体/时间）
+/// @param site 站点纬度/经度，天体固连系 [rad] (地心坐标系)
+/// @param duration 下降→上升之间时长 [s]
+/// @param angVel 中心天体绕 z 轴自转角速度 [rad/s]（Δφ = angVel·duration）
+/// @param prograde true 取顺行（i∈[0,π/2)），false 取逆行（i∈(π/2,π]）
+/// @param outRaan 输出：升交点赤经 [rad]
+/// @param outInc 输出：轨道倾角 [rad]
+/// @param outU 输出：下降时刻站点方向的纬度辐角 [rad]
+/// @return eNoError 成功；站点落自转极（|lat|=π/2）或 Δφ≈0 导致两方向近共线、平面退化时返回
+AST_CORE_API errc_t aSolveVerticalLandAscentPlane(
+    const LatLon& site, double duration, double angVel, bool prograde,
+    double& outRaan, double& outInc, double& outU
+);
+
+
 /*! @} */
 
 AST_NAMESPACE_END

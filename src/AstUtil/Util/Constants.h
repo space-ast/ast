@@ -105,6 +105,7 @@ constexpr double kEarthK20LoveNumber = 0.30190;                  ///< 地球2阶
 constexpr double kMoonGrav = 4.9028029535968e+12;		         ///< 月球引力常数 [m^3/s^2]. （GLGM2）
 constexpr double kMoonRadius = 1737400.0;				         ///< 月球赤道半径 [m]. (IAU2000);
 constexpr double kMoonMinRadius = 1737400.0;			         ///< 月球最小半径(m)
+constexpr double kMoonAngVel = 2.661699e-6;				         ///< 月球自转角速度 [rad/s]
 
 
 // 木星相关常量

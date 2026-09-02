@@ -23,6 +23,14 @@
 #include "AstCore/TwoBody.hpp"
 #include "AstCore/Vector.hpp"
 #include "AstCore/TimeIntervalList.hpp"
+#include "AstCore/CelestialBody.hpp"
+#include "AstCore/BodyShape.hpp"
+#include "AstCore/GeodeticPoint.hpp"
+#include "AstCore/LatLon.hpp"
+#include "AstCore/TimePoint.hpp"
+#include "AstCore/Frame.hpp"
+#include "AstMath/Transform.hpp"
+#include "AstMath/Rotation.hpp"
 #include "AstMath/BrentOptimizer.hpp"
 #include "AstUtil/Constants.h"
 #include <algorithm>
@@ -40,6 +48,49 @@ namespace
 
 /// @brief 交线退化判据（|L|^2 阈值，对应平面夹角正弦 < 1e-12）
 constexpr double kDegenerateLineSq = 1e-24;
+
+/// @brief 轨道面退化判据：站点两方向近共线导致法向不唯一（|s_B×(RΔᵀ·s_B)|^2 阈值）
+constexpr double kDegeneratePlaneSq = 1e-24;
+
+/// @brief 由两时刻站点方向（天体固连系，内部自动归一化）求轨道面 raan/inc/u
+/// @param sB 站点方向（天体固连系），内部自动归一化
+/// @param sB2 另一时刻站点方向（天体固连系，或已转到同一参考固连系下），内部自动归一化
+/// @param prograde true 取顺行（i∈[0,π/2)），false 取逆行（i∈(π/2,π]）
+/// @param raan 输出：升交点赤经 [rad]
+/// @param inc 输出：倾角 [rad]
+/// @param u 输出：站点方向的纬度辐角 [rad]
+/// @return eNoError 成功；两方向近共线导致法向退化返回 eErrorInvalidValue
+errc_t aSolvePlaneFromTwoSiteDirections(
+    const Vector3d& sB, const Vector3d& sB2, bool prograde,
+    double& raan, double& inc, double& u)
+{
+    // 内部先归一化为单位方向，使退化判据 kDegeneratePlaneSq 与 u 求取均与输入尺度无关。
+    const Vector3d sBh  = sB.normalized();
+    const Vector3d sB2h = sB2.normalized();
+
+    Vector3d n = sBh.cross(sB2h);
+    if (n.squaredNorm() < kDegeneratePlaneSq) return eErrorInvalidValue;   // 两方向近共线：法向退化
+    n.normalize();
+
+    // 顺行/逆行：prograde 取 cos i ≥ 0（i∈[0,π/2)），逆行取 cos i ≤ 0（i∈(π/2,π]）
+    if (( prograde && n.z() < 0.0) || (!prograde && n.z() > 0.0))
+    {
+        n = -n;
+    }
+
+    // 由法向反解 Ω / i（n = (sin i·sinΩ, -sin i·cosΩ, cos i)）
+    raan = std::atan2(n.x(), -n.y());
+    inc  = acosSafe(n.z());
+
+    // u：站点方向在该轨道面内的纬度辐角（N̂=升交点方向，Ô=n×N̂）
+    const double cosRaan = std::cos(raan);
+    const double sinRaan = std::sin(raan);
+    const Vector3d Nq{cosRaan, sinRaan, 0.0};
+    const Vector3d Oq = n.cross(Nq);
+    u = std::atan2(sBh.dot(Oq), sBh.dot(Nq));
+
+    return eNoError;
+}
 
 /// @brief 共面两轨道最短距离（一维回退：假定两最近点与焦点共线）
 /// @details 共面时公共交线退化，改用同一方向下两轨道半径差的最小值近似。
@@ -382,6 +433,69 @@ errc_t aOrbitPlaneDistance(
     aOrbitPosition(epoch, orbit, gm, time, position);
     dist = position.dot(n2);
     return eNoError;
+}
+
+errc_t aSolveVerticalLandAscentPlane(
+    const GeodeticPoint& site,
+    const CelestialBody* body,
+    const TimePoint&     tDescent,
+    const TimePoint&     tAscent,
+    bool                 prograde,
+    double& outRaan, double& outInc, double& outU)
+{
+    // —— 参数校验 ——
+    if (body == nullptr) return eErrorNullPtr;
+    const BodyShape* shape = body->getShape();
+    if (shape == nullptr) return eErrorNullPtr;
+
+    // 站点径向方向 s_B：垂直下降/上升沿站点径向（过中心天体），方向与站点高度无关
+    Vector3d sB = shape->transform(site);
+
+    // —— 两时刻固连→惯性旋转 Q(t)，用于构造天体的两时刻自转差 ——
+    Frame* frameFixed = body->getFrameFixed();
+    Frame* frameInert = body->getFrameInertial();
+    if (frameFixed == nullptr || frameInert == nullptr) return eErrorNullPtr;
+
+    Transform xf1, xf2;
+    errc_t rc;
+    rc = frameFixed->getTransformTo(frameInert, tDescent, xf1);
+    if (rc != eNoError) return rc;
+    rc = frameFixed->getTransformTo(frameInert, tAscent, xf2);
+    if (rc != eNoError) return rc;
+
+    const Rotation& q1 = xf1.getRotation();
+    const Rotation& q2 = xf2.getRotation();
+
+    // t2 时刻站点方向，表达在 t1 时刻固连系下：RΔᵀ·s_B = q1ᵀ·(q2·s_B)
+    const Vector3d sB2 = q1.transformVectorInv(q2.transformVector(sB));
+
+    // 注意：n 与 s_B 均为天体固连系向量，故输出 raan/inc/u 均为天体固连系、tDescent 历元下的值。
+    // 基准：raan 自固连系 x 轴（本初子午线）起算；inc 相对固连系 z 轴（旋转轴）；u 在轨道面内自
+    // 固连系升交点起算。真实轨道面在惯性系固定而天体自转，故此三量仅为 tDescent 瞬时值，
+    // 若作常数用于传播会随自转漂移——二体传播请改用天体惯性系根数（如月心 ICRF）。
+    return aSolvePlaneFromTwoSiteDirections(sB, sB2, prograde, outRaan, outInc, outU);
+}
+
+// —— 纯几何重载：天体绕 z 轴恒定自转，无需 CelestialBody/TimePoint ——
+errc_t aSolveVerticalLandAscentPlane(
+    const LatLon& site, double duration, double angVel, bool prograde,
+    double& outRaan, double& outInc, double& outU)
+{
+    // 站点径向方向 s_B（理想化球体，天体固连系：z 轴为旋转轴/北极，x 轴为本初子午线）
+    const double cLat = std::cos(site.latitude());
+    const double sLat = std::sin(site.latitude());
+    const double cLon = std::cos(site.longitude());
+    const double sLon = std::sin(site.longitude());
+    const Vector3d sB{cLon * cLat, sLon * cLat, sLat};
+
+    // 上升时刻站点方向（固连系下）＝ sB 绕 z 轴转到经度 lon + Δφ，Δφ = angVel·duration
+    const double dphi = angVel * duration;
+    const double lon2 = site.longitude() + dphi;
+    const double cLon2 = std::cos(lon2);
+    const double sLon2 = std::sin(lon2);
+    const Vector3d sB2{cLon2 * cLat, sLon2 * cLat, sLat};
+
+    return aSolvePlaneFromTwoSiteDirections(sB, sB2, prograde, outRaan, outInc, outU);
 }
 
 AST_NAMESPACE_END

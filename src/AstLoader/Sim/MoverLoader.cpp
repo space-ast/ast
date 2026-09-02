@@ -825,7 +825,11 @@ errc_t _aLoadVehiclePath(BKVParser& parser, Mover& mover)
 
 errc_t _aLoadEphemeris(BKVParser& parser, Mover& mover)
 {
-    errc_t rc = aLoadSTKEphemeris(parser, mover.getEphemerisHandle());
+    ScopedPtr<Ephemeris> eph;
+    errc_t rc = aLoadSTKEphemeris(parser, eph);
+    if(rc == eNoError){
+        mover.setEphemeris(eph.release());
+    }
     return rc;
 }
 

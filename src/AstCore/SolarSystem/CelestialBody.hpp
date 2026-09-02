@@ -119,6 +119,9 @@ public:
 
     /// @brief 设置重力模型
     errc_t setGravityModel(StringView model);
+
+    /// @brief 获取重力场参考半径
+    double getGravityRefDistance() const { return gravityField_.refDistance(); }
     
     /// @brief 获取J2项
     double getJ2() const { return getJn(2); }

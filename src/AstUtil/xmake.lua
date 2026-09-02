@@ -15,6 +15,6 @@
         add_syslinks("dl")
     end
     if is_plat("windows", "mingw") then
-        add_syslinks("ole32", "oleaut32", "uuid", "shell32", "user32")
+        add_syslinks("ole32", "oleaut32", "uuid", "shell32", "user32", "shlwapi")
     end
 

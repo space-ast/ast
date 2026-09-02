@@ -142,9 +142,9 @@ public:
     errc_t getStateInBodyInertial(Body* body, CartState& state) const;
     errc_t setState(const ModOrbElem& orbElem);
     errc_t setState(const CartState& state);
-    void setStateEpoch(const TimePoint& stateEpoch);
+    void   setStateEpoch(const TimePoint& stateEpoch);
     errc_t getStateEpoch(TimePoint& stateEpoch) const;
-    void copyFrom(const SpacecraftState& srcState);
+    void   copyFrom(const SpacecraftState& srcState);
 private:
     HState orbitState_{};                ///< 轨道状态
 };

@@ -584,17 +584,25 @@ errc_t aJplDeGetLibration(const TimePoint &time, Euler &ang)
     return context->jplDe()->getLibration(time, ang);
 }
 
-int aJplDeNum()
-{
-    auto context = aDataContext_EnsureCurrent();
-    return context->jplDe()->getEphemVersion();
-}
 
 errc_t aJplDeGetInterval(TimeInterval& interval)
 {
     auto context = aDataContext_EnsureCurrent();
     return context->jplDe()->getInterval(interval);
 }
+
+int aJplDeNum()
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->jplDe()->getEphemVersion();
+}
+
+errc_t aJplDeGetBodyGM(int bodyIndex, double& GM)
+{
+    auto context = aDataContext_EnsureCurrent();
+    return context->jplDe()->getBodyGM((JplDe::EDataCode)bodyIndex, GM);
+}
+
 
 errc_t aJplDeOpen(const char *filepath)
 {

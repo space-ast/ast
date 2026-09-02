@@ -23,6 +23,7 @@
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstCore/GeodeticPoint.hpp"
+#include "AstCore/PointCartographic.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -32,6 +33,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+#if 0
 /// @brief 质心位置类
 /// @details 表示对象在空间中的质心位置
 class AST_SIM_API CentroidPosition
@@ -54,6 +56,9 @@ private:
     SharedPtr<Body>     body_{};               ///< 天体名称
     GeodeticPoint       position_{};          ///< 质心位置点
 };
+
+#endif
+
 
 /*! @} */
 

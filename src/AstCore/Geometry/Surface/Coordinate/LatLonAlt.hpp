@@ -54,5 +54,7 @@ PROPERTIES:
     length_d alt_;  ///< 高度
 };
 
+using LatLngAlt = LatLonAlt;
+using LLA = LatLonAlt;
 
 AST_NAMESPACE_END

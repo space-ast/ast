@@ -30,9 +30,10 @@ errc_t Mover::generateEphemeris()
 {
     if(!motionProfile_)
         return eErrorNullPtr;
-    errc_t rc = motionProfile_->makeEphemerisSimple(ephemeris_);
-    if(rc)
-        motionProfile_->makeEphemerisSpec(ephemeris_);
+    ScopedPtr<Ephemeris> ephemeris;
+    errc_t rc = motionProfile_->createEphemeris(ephemeris);
+    if(rc == eNoError)
+        this->setLocation(ephemeris.release());
     return rc;
 }
 
@@ -40,7 +41,11 @@ errc_t Mover::generateEphemerisSimple()
 {
     if(!motionProfile_)
         return eErrorNullPtr;
-    return motionProfile_->makeEphemerisSimple(ephemeris_);
+    ScopedPtr<Ephemeris> ephemeris;
+    errc_t rc = motionProfile_->makeEphemerisSimple(ephemeris);
+    if(rc == eNoError)
+        this->setLocation(ephemeris.release());
+    return rc;
 }
 
 
@@ -48,7 +53,11 @@ errc_t Mover::generateEphemerisSpec()
 {
     if(!motionProfile_)
         return eErrorNullPtr;
-    return motionProfile_->makeEphemerisSpec(ephemeris_);
+    ScopedPtr<Ephemeris> ephemeris;
+    errc_t rc = motionProfile_->makeEphemerisSpec(ephemeris);
+    if(rc == eNoError)
+        this->setLocation(ephemeris.release());
+    return rc;
 }
 
 /*
@@ -89,23 +98,26 @@ Body* Mover::getBody() const
 
 Frame *Mover::getFrame() const
 {
-    if(!ephemeris_)
+    auto location = this->location();
+    if(!location)
         return nullptr;
-    return ephemeris_->getFrame();
+    return location->getFrame();
 }
 
 errc_t Mover::getPos(const TimePoint &tp, Vector3d &pos) const
 {
-    if(!ephemeris_)
+    auto location = this->location();
+    if(!location)
         return eErrorNullPtr;
-    return ephemeris_->getPos(tp, pos);
+    return location->getPos(tp, pos);
 }
 
 errc_t Mover::getPosVel(const TimePoint &tp, Vector3d &pos, Vector3d &vel) const
 {
-    if(!ephemeris_)
+    auto location = this->location();
+    if(!location)
         return eErrorNullPtr;
-    return ephemeris_->getPosVel(tp, pos, vel);
+    return location->getPosVel(tp, pos, vel);
 }
 
 void Mover::setMotionProfile(MotionProfile* profile)

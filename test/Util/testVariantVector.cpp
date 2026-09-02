@@ -20,7 +20,7 @@
 
 #include "ast/VariantVector.hpp"
 
-#include <gtest/gtest.h>
+#include "ast/AstTestMacro.h"
 #include <string>
 #include <vector>
 
