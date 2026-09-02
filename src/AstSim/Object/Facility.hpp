@@ -36,6 +36,11 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+class Facility;
+using HFacility = SharedPtr<Facility>;
+using PFacility = Facility*;
+
+
 /// @brief 设施对象
 class AST_SIM_API Facility: public Platform
 {

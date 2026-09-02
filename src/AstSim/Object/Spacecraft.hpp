@@ -31,6 +31,13 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+
+class Spacecraft;
+using HSpacecraft = SharedPtr<Spacecraft>;
+using PSpacecraft = Spacecraft*;
+
+
+
 /// @brief 航天器对象
 class AST_SIM_API Spacecraft: public SpaceObject
 {

@@ -31,21 +31,26 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 参数的上下界
+template <typename T = double>
 class Bounds
 {
 public:
     Bounds() = default;
-    Bounds(double lower, double upper) : lower_(lower), upper_(upper) {}
-    double lower() const { return lower_; }
-    double upper() const { return upper_; }
-    double& lower() { return lower_; }
-    double& upper() { return upper_; }
-    void setLower(double lower) { lower_ = lower; }
-    void setUpper(double upper) { upper_ = upper; }
+    Bounds(T lower, T upper) : lower_(lower), upper_(upper) {}
+    T lower() const { return lower_; }
+    T upper() const { return upper_; }
+    T& lower() { return lower_; }
+    T& upper() { return upper_; }
+    void setLower(T lower) { lower_ = lower; }
+    void setUpper(T upper) { upper_ = upper; }
 private:
-    double lower_{};
-    double upper_{};
+    T lower_{};
+    T upper_{};
 };
+
+
+using DoubleBounds = Bounds<double>;
+using IntBounds = Bounds<int>;
 
 
 /*! @} */
