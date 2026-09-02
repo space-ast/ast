@@ -381,8 +381,10 @@ errc_t JplDe::loadConstants() const
     if (!constants_.empty()) return eNoError;   // 已加载
     if (!deFile_) return eErrorInvalidFile;
     std::lock_guard<std::mutex> _(mutex_);
+    // constants_.empty() 必须在锁内再次重查 
+    if (!constants_.empty()) return eNoError;   // 已加载
 
-    ConstentMap tmp;   // 先载入临时表，成功后再 swap 提交，避免失败中途留下部分数据
+    ConstantMap tmp;   // 先载入临时表，成功后再 swap 提交，避免失败中途留下部分数据
     char nameBuf[7]{};
     const long baseValOff = (long)numCoeff_ * (long)sizeof(double);   // 常量记录区起始偏移
     for (uint32_t i = 0; i < numConstants_; i++)

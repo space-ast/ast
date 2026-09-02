@@ -21,6 +21,8 @@
 #include "Vinti.hpp"
 #include "AstCore/Vinti6.h"
 #include "AstMath/Vector.hpp"
+#include <cmath>                    // for std::isnan
+#include <limits>                   // for std::numeric_limits
 
 AST_NAMESPACE_BEGIN
 

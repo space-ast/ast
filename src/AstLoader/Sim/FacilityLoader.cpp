@@ -44,7 +44,8 @@ errc_t _aLoadFacilityCentroidPosition(BKVParser& parser, Facility& facility)
                 StringView bodyname = item.value();
                 body = aGetBody(bodyname);
                 if(!body){
-                    aError("failed to get body '%.*s'", bodyname.size(), bodyname.data());
+                    body = aGetDefaultBody();
+                    aError("failed to get body '%.*s', using default body", bodyname.size(), bodyname.data());
                 }
             }else if(aEqualsIgnoreCase(item.key(), "EcfLatitude")){
                 position.setLatitude(item.value().toAngleRad());

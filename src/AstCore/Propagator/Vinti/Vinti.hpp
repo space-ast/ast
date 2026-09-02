@@ -38,7 +38,7 @@ AST_NAMESPACE_BEGIN
 /// @param re        天体半径 [m]
 /// @param[out] r    位置 [m]
 /// @param[out] v    速度 [m/s]
-/// @note  当 duration < 1e-15 时直接返回 r = x0。
+/// @note  当 duration < 1e-15 时直接返回，r 与 v 保持不变。
 AST_CORE_CAPI errc_t aVinti(double duration, double gm, double j2, double j3, double re, Vector3d& r, Vector3d& v);
 
 /*! @} */

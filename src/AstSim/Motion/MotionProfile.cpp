@@ -68,7 +68,7 @@ errc_t MotionProfile::createEphemeris(SharedPtr<Ephemeris> &eph) const
 {
     ScopedPtr<Ephemeris> ephTemp;
     errc_t rc = createEphemeris(ephTemp);
-    if (rc != eNoError)
+    if (rc == eNoError)
         eph = ephTemp.release();
     return rc;
 }

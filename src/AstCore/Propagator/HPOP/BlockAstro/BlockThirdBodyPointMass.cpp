@@ -104,7 +104,7 @@ errc_t BlockThirdBodyPointMass::run(const SimTime &simTime)
     // 如果三体在预报系中的位置为零，说明该三体与预报中心天体相同，将其间接引力设为0
     if(A_UNLIKELY(magThirdBodyPosSqr == 0))
     {
-        aWarning("third body relative position is zero");
+        // aWarning("third body relative position is zero");
         indirect = 0.0;
     }
     else

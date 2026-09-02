@@ -467,8 +467,12 @@ inline int RUN_ALL_TESTS() { return ::testing::internal::run_all_tests(); }
 #define GTEST_SKIP() (::testing::internal::SkipHelper())
 
 /// @brief 记录一条跟踪信息，便于定位失败位置。
+/// 使用两级拼接，先展开 __LINE__ 再拼接为变量名；否则直接 ##__LINE__ 会拼成
+/// 字面 "___LINE__"，同一作用域多次使用 SCOPED_TRACE 会产生重定义。
+#define AST_TRACE_CONCAT_(a, b) a##b
+#define AST_TRACE_CONCAT(a, b) AST_TRACE_CONCAT_(a, b)
 #define SCOPED_TRACE(message) \
-    ::testing::internal::ScopedTrace _gtest_scoped_trace_##__LINE__(__FILE__, __LINE__, (message))
+    ::testing::internal::ScopedTrace AST_TRACE_CONCAT(_gtest_scoped_trace_, __LINE__)(__FILE__, __LINE__, (message))
 
 /// @brief 标记为成功（无操作）。
 #define SUCCEED() do { } while (0)
@@ -551,12 +555,13 @@ inline int RUN_ALL_TESTS() { return ::testing::internal::run_all_tests(); }
     }; \
     static ::testing::internal::TestRegistrar fixture##_##name##_Reg( \
         #fixture, #name, [] { \
-            ::testing::Test* obj_ = new fixture##_##name##_Test(); \
-            obj_->SetUp(); \
-            try { obj_->TestBody(); } \
+            std::unique_ptr<::testing::Test> obj_(new fixture##_##name##_Test()); \
+            try { \
+                obj_->SetUp(); \
+                obj_->TestBody(); \
+            } \
             catch (const ::testing::internal::FatalTestException&) {} \
             catch (const ::testing::internal::SkippedTestException&) {} \
             obj_->TearDown(); \
-            delete obj_; \
         }); \
     void fixture##_##name##_Test::TestBody()
