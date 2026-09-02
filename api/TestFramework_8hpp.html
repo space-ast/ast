@@ -171,6 +171,10 @@ $(function(){initNavTree('TestFramework_8hpp.html',''); initResizable(true); });
 <tr class="separator:a828f4e34a1c4b510da50ec1563e3562a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c0bbb980d533108ecc23c3534527d3c" id="r_a3c0bbb980d533108ecc23c3534527d3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c0bbb980d533108ecc23c3534527d3c">GTEST_SKIP</a>()</td></tr>
 <tr class="separator:a3c0bbb980d533108ecc23c3534527d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c1bab1ec6f0a7419efd1d4d387e7801" id="r_a5c1bab1ec6f0a7419efd1d4d387e7801"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c1bab1ec6f0a7419efd1d4d387e7801">AST_TRACE_CONCAT_</a>(a,  b)</td></tr>
+<tr class="separator:a5c1bab1ec6f0a7419efd1d4d387e7801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a0a7931c1d3ef866ddd784050d6816c" id="r_a9a0a7931c1d3ef866ddd784050d6816c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a0a7931c1d3ef866ddd784050d6816c">AST_TRACE_CONCAT</a>(a,  b)</td></tr>
+<tr class="separator:a9a0a7931c1d3ef866ddd784050d6816c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4dac08f15adc8cb1ee0e5c1bfb0f440d" id="r_a4dac08f15adc8cb1ee0e5c1bfb0f440d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4dac08f15adc8cb1ee0e5c1bfb0f440d">SCOPED_TRACE</a>(message)</td></tr>
 <tr class="separator:a4dac08f15adc8cb1ee0e5c1bfb0f440d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75adcdf89f69b0b615e395daafc315af" id="r_a75adcdf89f69b0b615e395daafc315af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75adcdf89f69b0b615e395daafc315af">SUCCEED</a>()</td></tr>
@@ -725,6 +729,53 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>RUN_ALL_TESTS</b> ()</
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a9a0a7931c1d3ef866ddd784050d6816c" name="a9a0a7931c1d3ef866ddd784050d6816c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a0a7931c1d3ef866ddd784050d6816c">&#9670;&#160;</a></span>AST_TRACE_CONCAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AST_TRACE_CONCAT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a5c1bab1ec6f0a7419efd1d4d387e7801">AST_TRACE_CONCAT_</a>(a, b)</div>
+<div class="ttc" id="aTestFramework_8hpp_html_a5c1bab1ec6f0a7419efd1d4d387e7801"><div class="ttname"><a href="#a5c1bab1ec6f0a7419efd1d4d387e7801">AST_TRACE_CONCAT_</a></div><div class="ttdeci">#define AST_TRACE_CONCAT_(a, b)</div><div class="ttdoc">记录一条跟踪信息，便于定位失败位置。 使用两级拼接，先展开 LINE 再拼接为变量名；否则直接 ##__LINE__ 会拼成 字面 &quot;___LINE__&quot;，同一作用域多次使用 SCOPED_TRACE ...</div><div class="ttdef"><b>定义</b> TestFramework.hpp:472</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5c1bab1ec6f0a7419efd1d4d387e7801" name="a5c1bab1ec6f0a7419efd1d4d387e7801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c1bab1ec6f0a7419efd1d4d387e7801">&#9670;&#160;</a></span>AST_TRACE_CONCAT_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AST_TRACE_CONCAT_</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">a##b</div>
+</div><!-- fragment -->
+<p>记录一条跟踪信息，便于定位失败位置。 使用两级拼接，先展开 <b>LINE</b> 再拼接为变量名；否则直接 ##__LINE__ 会拼成 字面 "___LINE__"，同一作用域多次使用 SCOPED_TRACE 会产生重定义。 </p>
+
+</div>
+</div>
 <a id="a4d8ad4b55e293db89434b5c9c3520adf" name="a4d8ad4b55e293db89434b5c9c3520adf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d8ad4b55e293db89434b5c9c3520adf">&#9670;&#160;</a></span>EXPECT_DOUBLE_EQ</h2>
 
@@ -1098,10 +1149,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>RUN_ALL_TESTS</b> ()</
         </tr>
       </table>
 </div><div class="memdoc">
-<b>值:</b><div class="fragment"><div class="line">    ::testing::internal::ScopedTrace _gtest_scoped_trace_##__LINE__(__FILE__, __LINE__, (message))</div>
+<b>值:</b><div class="fragment"><div class="line">    ::testing::internal::ScopedTrace AST_TRACE_CONCAT(_gtest_scoped_trace_, __LINE__)(__FILE__, __LINE__, (message))</div>
 </div><!-- fragment -->
-<p>记录一条跟踪信息，便于定位失败位置。 </p>
-
 </div>
 </div>
 <a id="a75adcdf89f69b0b615e395daafc315af" name="a75adcdf89f69b0b615e395daafc315af"></a>
@@ -1173,13 +1222,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>RUN_ALL_TESTS</b> ()</
 <div class="line">    }; \</div>
 <div class="line">    static ::testing::internal::TestRegistrar fixture##_##name##_Reg( \</div>
 <div class="line">        #fixture, #name, [] { \</div>
-<div class="line">            ::testing::Test* obj_ = <span class="keyword">new</span> fixture##_##name##_Test(); \</div>
-<div class="line">            obj_-&gt;SetUp(); \</div>
-<div class="line">            <span class="keywordflow">try</span> { obj_-&gt;TestBody(); } \</div>
+<div class="line">            std::unique_ptr&lt;::testing::Test&gt; obj_(<span class="keyword">new</span> fixture##_##name##_Test()); \</div>
+<div class="line">            <span class="keywordflow">try</span> { \</div>
+<div class="line">                obj_-&gt;SetUp(); \</div>
+<div class="line">                obj_-&gt;TestBody(); \</div>
+<div class="line">            } \</div>
 <div class="line">            catch (const ::testing::internal::FatalTestException&amp;) {} \</div>
 <div class="line">            catch (const ::testing::internal::SkippedTestException&amp;) {} \</div>
 <div class="line">            obj_-&gt;TearDown(); \</div>
-<div class="line">            <span class="keyword">delete</span> obj_; \</div>
 <div class="line">        }); \</div>
 <div class="line">    <span class="keywordtype">void</span> fixture##<a class="code hl_function" href="namespaceast.html#a59c0e4baad32c4025992a3d36520badc">_</a>##name##_Test::TestBody()</div>
 <div class="ttc" id="anamespaceast_html_a59c0e4baad32c4025992a3d36520badc"><div class="ttname"><a href="namespaceast.html#a59c0e4baad32c4025992a3d36520badc">ast::_</a></div><div class="ttdeci">A_ALWAYS_INLINE const char * _(const char *msgid)</div><div class="ttdoc">翻译文本</div><div class="ttdef"><b>定义</b> I18n.hpp:83</div></div>

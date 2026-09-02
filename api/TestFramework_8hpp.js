@@ -9,9 +9,9 @@ var TestFramework_8hpp =
     [ "ast::testing::internal::SkipHelper", "classast_1_1testing_1_1internal_1_1SkipHelper.html", null ],
     [ "ast::testing::internal::FailHelper", "classast_1_1testing_1_1internal_1_1FailHelper.html", null ],
     [ "ast::testing::internal::AssertionHelper", "classast_1_1testing_1_1internal_1_1AssertionHelper.html", null ],
+    [ "AST_TRACE_CONCAT_", "TestFramework_8hpp.html#a5c1bab1ec6f0a7419efd1d4d387e7801", null ],
     [ "FAIL", "TestFramework_8hpp.html#a3e26a8d27caa386ed0ea7ce9d5b7c4ed", null ],
     [ "GTEST_SKIP", "TestFramework_8hpp.html#a3c0bbb980d533108ecc23c3534527d3c", null ],
-    [ "SCOPED_TRACE", "TestFramework_8hpp.html#a4dac08f15adc8cb1ee0e5c1bfb0f440d", null ],
     [ "SUCCEED", "TestFramework_8hpp.html#a75adcdf89f69b0b615e395daafc315af", null ],
     [ "TagColor", "TestFramework_8hpp.html#add1824f66c3308b937c426954ddc03f9", [
       [ "kDefault", "TestFramework_8hpp.html#add1824f66c3308b937c426954ddc03f9a6867faeaa475fda467e48267db2bb8a8", null ],
