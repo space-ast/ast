@@ -348,6 +348,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>高精度轨道预报器 </p>
+<p><a class="el" href="classast_1_1HPOP.html" title="高精度轨道预报器">HPOP</a> 类实现了基于高精度动力学模型的轨道数值积分预报功能。 它支持多种摄动力（如地球非球形引力、日月引力、太阳辐射压、大气阻力等）， 并允许灵活配置力模型参数、积分器类型（如RK78、RK89等）以及积分步长。</p>
+<p>使用建议：</p><ul>
+<li>若需在相同力模型下执行多次轨道预报（例如批处理、迭代优化或蒙特卡洛仿真），建议复用 <a class="el" href="classast_1_1HPOP.html" title="高精度轨道预报器">HPOP</a> 对象实例。 这样可以避免重复进行初始化（例如加载并解析重力场系数、空间天气数据等），可以节省计算开销。</li>
+</ul>
+<p>线程安全性：</p><ul>
+<li>本类非线程安全，多线程环境下请保证每个线程使用独立的HPOP对象实例 </li>
+</ul>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a17be20cd12190596f3802c3976dcadd8" name="a17be20cd12190596f3802c3976dcadd8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a17be20cd12190596f3802c3976dcadd8">&#9670;&#160;</a></span>addEventDetector()</h2>

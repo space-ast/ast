@@ -120,72 +120,73 @@ $(function(){initNavTree('FuncBlock_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1FuncBlock.html">~FuncBlock</a>(){};</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">   49</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">run</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SimTime.html">SimTime</a>&amp; simTime) = 0;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    A_DISABLE_COPY(<a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">   50</a></span>    <span class="keyword">virtual</span> errc_t <a class="code hl_function" href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">run</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SimTime.html">SimTime</a>&amp; simTime) = 0;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1FuncBlock.html#a74b8794afbc585733ec890b2faff2ca3">   54</a></span>    <span class="keyword">const</span> std::vector&lt;DataPort&gt;&amp; <a class="code hl_function" href="classast_1_1FuncBlock.html#a74b8794afbc585733ec890b2faff2ca3">getInputPorts</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> inputPorts_; }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    std::vector&lt;DataPort&gt;&amp; getInputPorts() { <span class="keywordflow">return</span> inputPorts_; }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classast_1_1FuncBlock.html#aee1582af04b21622eb7281d0cb993fba">   59</a></span>    <span class="keyword">const</span> std::vector&lt;DataPort&gt;&amp; <a class="code hl_function" href="classast_1_1FuncBlock.html#aee1582af04b21622eb7281d0cb993fba">getOutputPorts</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> outputPorts_; }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::vector&lt;DataPort&gt;&amp; getOutputPorts() { <span class="keywordflow">return</span> outputPorts_; }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classast_1_1FuncBlock.html#a74b8794afbc585733ec890b2faff2ca3">   55</a></span>    <span class="keyword">const</span> std::vector&lt;DataPort&gt;&amp; <a class="code hl_function" href="classast_1_1FuncBlock.html#a74b8794afbc585733ec890b2faff2ca3">getInputPorts</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> inputPorts_; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    std::vector&lt;DataPort&gt;&amp; getInputPorts() { <span class="keywordflow">return</span> inputPorts_; }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classast_1_1FuncBlock.html#aee1582af04b21622eb7281d0cb993fba">   60</a></span>    <span class="keyword">const</span> std::vector&lt;DataPort&gt;&amp; <a class="code hl_function" href="classast_1_1FuncBlock.html#aee1582af04b21622eb7281d0cb993fba">getOutputPorts</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> outputPorts_; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    std::vector&lt;DataPort&gt;&amp; getOutputPorts() { <span class="keywordflow">return</span> outputPorts_; }</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1FuncBlock.html#a656b1a1782a04aac62180587c18a11aa">   65</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1FuncBlock.html#a656b1a1782a04aac62180587c18a11aa">getNumInputPorts</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> inputPorts_.size(); }</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classast_1_1FuncBlock.html#a5fa6b7534833e296c6fd70841722bee2">   69</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1FuncBlock.html#a5fa6b7534833e296c6fd70841722bee2">getNumOutputPorts</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> outputPorts_.size(); }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* getInputPort(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> portName);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* getOutputPort(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> portName);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* getInputPort(<span class="keywordtype">size_t</span> portIndex);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* getOutputPort(<span class="keywordtype">size_t</span> portIndex);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_enumeration" href="classast_1_1DataPort.html#a82d0c9ea43b7a72d6b8dcc3cade435fa">DataPort::EValueType</a> getInputPortDataType(<span class="keywordtype">size_t</span> portIndex);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1FuncBlock.html#a656b1a1782a04aac62180587c18a11aa">   66</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1FuncBlock.html#a656b1a1782a04aac62180587c18a11aa">getNumInputPorts</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> inputPorts_.size(); }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1FuncBlock.html#a5fa6b7534833e296c6fd70841722bee2">   70</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classast_1_1FuncBlock.html#a5fa6b7534833e296c6fd70841722bee2">getNumOutputPorts</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> outputPorts_.size(); }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* getInputPort(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> portName);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* getOutputPort(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> portName);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* getInputPort(<span class="keywordtype">size_t</span> portIndex);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_class" href="classast_1_1DataPort.html">DataPort</a>* getOutputPort(<span class="keywordtype">size_t</span> portIndex);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_enumeration" href="classast_1_1DataPort.html#a82d0c9ea43b7a72d6b8dcc3cade435fa">DataPort::EValueType</a> getInputPortDataType(<span class="keywordtype">size_t</span> portIndex);</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_enumeration" href="classast_1_1DataPort.html#a82d0c9ea43b7a72d6b8dcc3cade435fa">DataPort::EValueType</a> getOutputPortDataType(<span class="keywordtype">size_t</span> portIndex);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span>* getInputPortSignal(<span class="keywordtype">size_t</span> portIndex);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_enumeration" href="classast_1_1DataPort.html#a82d0c9ea43b7a72d6b8dcc3cade435fa">DataPort::EValueType</a> getOutputPortDataType(<span class="keywordtype">size_t</span> portIndex);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span>* getInputPortSignal(<span class="keywordtype">size_t</span> portIndex);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span>* getOutputPortSignal(<span class="keywordtype">size_t</span> portIndex);</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span>* getOutputPortSignal(<span class="keywordtype">size_t</span> portIndex);</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">double</span>* getInputPortRealSignal(<span class="keywordtype">size_t</span> portIndex);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">double</span>* getInputPortRealSignal(<span class="keywordtype">size_t</span> portIndex);</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">double</span>* getOutputPortRealSignal(<span class="keywordtype">size_t</span> portIndex);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">int</span> getInputPortWidth(<span class="keywordtype">size_t</span> portIndex);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">double</span>* getOutputPortRealSignal(<span class="keywordtype">size_t</span> portIndex);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">int</span> getInputPortWidth(<span class="keywordtype">size_t</span> portIndex);</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">int</span> getOutputPortWidth(<span class="keywordtype">size_t</span> portIndex);</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keyword">static</span> errc_t connect(<a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>* src, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> srcPortName, <a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>* dst, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> dstPortName);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keyword">static</span> errc_t connect(<a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>* src, <span class="keywordtype">size_t</span> srcPortIndex, <a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>* dst, <span class="keywordtype">size_t</span> dstPortIndex);</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    std::vector&lt;DataPort&gt; inputPorts_{};</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    std::vector&lt;DataPort&gt; outputPorts_{};</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>};</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">int</span> getOutputPortWidth(<span class="keywordtype">size_t</span> portIndex);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keyword">static</span> errc_t connect(<a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>* src, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> srcPortName, <a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>* dst, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> dstPortName);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keyword">static</span> errc_t connect(<a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>* src, <span class="keywordtype">size_t</span> srcPortIndex, <a class="code hl_class" href="classast_1_1FuncBlock.html">FuncBlock</a>* dst, <span class="keywordtype">size_t</span> dstPortIndex);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    std::vector&lt;DataPort&gt; inputPorts_{};</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    std::vector&lt;DataPort&gt; outputPorts_{};</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>};</div>
 </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aDataPort_8hpp_html"><div class="ttname"><a href="DataPort_8hpp.html">DataPort.hpp</a></div><div class="ttdoc">~</div></div>
 <div class="ttc" id="aSimTime_8hpp_html"><div class="ttname"><a href="SimTime_8hpp.html">SimTime.hpp</a></div><div class="ttdoc">~</div></div>
 <div class="ttc" id="aclassast_1_1DataPort_html"><div class="ttname"><a href="classast_1_1DataPort.html">ast::DataPort</a></div><div class="ttdoc">数据端口</div><div class="ttdef"><b>定义</b> DataPort.hpp:33</div></div>
 <div class="ttc" id="aclassast_1_1DataPort_html_a82d0c9ea43b7a72d6b8dcc3cade435fa"><div class="ttname"><a href="classast_1_1DataPort.html#a82d0c9ea43b7a72d6b8dcc3cade435fa">ast::DataPort::EValueType</a></div><div class="ttdeci">EValueType</div><div class="ttdef"><b>定义</b> DataPort.hpp:35</div></div>
 <div class="ttc" id="aclassast_1_1FuncBlock_html"><div class="ttname"><a href="classast_1_1FuncBlock.html">ast::FuncBlock</a></div><div class="ttdoc">函数块/功能块</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:41</div></div>
-<div class="ttc" id="aclassast_1_1FuncBlock_html_a5fa6b7534833e296c6fd70841722bee2"><div class="ttname"><a href="classast_1_1FuncBlock.html#a5fa6b7534833e296c6fd70841722bee2">ast::FuncBlock::getNumOutputPorts</a></div><div class="ttdeci">size_t getNumOutputPorts() const</div><div class="ttdoc">获取输出端口数量</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:69</div></div>
-<div class="ttc" id="aclassast_1_1FuncBlock_html_a656b1a1782a04aac62180587c18a11aa"><div class="ttname"><a href="classast_1_1FuncBlock.html#a656b1a1782a04aac62180587c18a11aa">ast::FuncBlock::getNumInputPorts</a></div><div class="ttdeci">size_t getNumInputPorts() const</div><div class="ttdoc">获取输入端口数量</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:65</div></div>
-<div class="ttc" id="aclassast_1_1FuncBlock_html_a74b8794afbc585733ec890b2faff2ca3"><div class="ttname"><a href="classast_1_1FuncBlock.html#a74b8794afbc585733ec890b2faff2ca3">ast::FuncBlock::getInputPorts</a></div><div class="ttdeci">const std::vector&lt; DataPort &gt; &amp; getInputPorts() const</div><div class="ttdoc">获取输入端口</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:54</div></div>
+<div class="ttc" id="aclassast_1_1FuncBlock_html_a5fa6b7534833e296c6fd70841722bee2"><div class="ttname"><a href="classast_1_1FuncBlock.html#a5fa6b7534833e296c6fd70841722bee2">ast::FuncBlock::getNumOutputPorts</a></div><div class="ttdeci">size_t getNumOutputPorts() const</div><div class="ttdoc">获取输出端口数量</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:70</div></div>
+<div class="ttc" id="aclassast_1_1FuncBlock_html_a656b1a1782a04aac62180587c18a11aa"><div class="ttname"><a href="classast_1_1FuncBlock.html#a656b1a1782a04aac62180587c18a11aa">ast::FuncBlock::getNumInputPorts</a></div><div class="ttdeci">size_t getNumInputPorts() const</div><div class="ttdoc">获取输入端口数量</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:66</div></div>
+<div class="ttc" id="aclassast_1_1FuncBlock_html_a74b8794afbc585733ec890b2faff2ca3"><div class="ttname"><a href="classast_1_1FuncBlock.html#a74b8794afbc585733ec890b2faff2ca3">ast::FuncBlock::getInputPorts</a></div><div class="ttdeci">const std::vector&lt; DataPort &gt; &amp; getInputPorts() const</div><div class="ttdoc">获取输入端口</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:55</div></div>
 <div class="ttc" id="aclassast_1_1FuncBlock_html_acddc707d09823874a3b0ee232b532528"><div class="ttname"><a href="classast_1_1FuncBlock.html#acddc707d09823874a3b0ee232b532528">ast::FuncBlock::run</a></div><div class="ttdeci">virtual errc_t run(const SimTime &amp;simTime)=0</div><div class="ttdoc">计算函数块</div></div>
-<div class="ttc" id="aclassast_1_1FuncBlock_html_aee1582af04b21622eb7281d0cb993fba"><div class="ttname"><a href="classast_1_1FuncBlock.html#aee1582af04b21622eb7281d0cb993fba">ast::FuncBlock::getOutputPorts</a></div><div class="ttdeci">const std::vector&lt; DataPort &gt; &amp; getOutputPorts() const</div><div class="ttdoc">获取输出端口</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:59</div></div>
+<div class="ttc" id="aclassast_1_1FuncBlock_html_aee1582af04b21622eb7281d0cb993fba"><div class="ttname"><a href="classast_1_1FuncBlock.html#aee1582af04b21622eb7281d0cb993fba">ast::FuncBlock::getOutputPorts</a></div><div class="ttdeci">const std::vector&lt; DataPort &gt; &amp; getOutputPorts() const</div><div class="ttdoc">获取输出端口</div><div class="ttdef"><b>定义</b> FuncBlock.hpp:60</div></div>
 <div class="ttc" id="aclassast_1_1SimTime_html"><div class="ttname"><a href="classast_1_1SimTime.html">ast::SimTime</a></div><div class="ttdoc">仿真时间</div><div class="ttdef"><b>定义</b> SimTime.hpp:30</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
