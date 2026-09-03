@@ -206,6 +206,7 @@
 #include "AstCore/HPOP.hpp"
 #include "AstCore/HPOPEquation.hpp"
 #include "AstCore/HPOPForceModel.hpp"
+#include "AstCore/HPOPUtil.hpp"
 #include "AstCore/HarrisPriester.hpp"
 #include "AstCore/IAUXYS.hpp"
 #include "AstCore/IAUXYSPrecomputed.hpp"

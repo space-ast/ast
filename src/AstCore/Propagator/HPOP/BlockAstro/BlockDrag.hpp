@@ -66,7 +66,11 @@ public:
     ~BlockDrag() override;
 
     errc_t run(const SimTime& simTime) override;
-
+public:
+    /// @brief 设置阻力系数
+    void setCoefficient(double cd){dragCoefficient_ = cd;};
+    /// @brief 获取阻力系数
+    double coefficient() const { return dragCoefficient_; }
 protected:
     Vector3d* position_{&vectorBuffer_};             ///< 位置（预报坐标系下）
     Vector3d* velocity_{&vectorBuffer_};             ///< 速度（预报坐标系下）

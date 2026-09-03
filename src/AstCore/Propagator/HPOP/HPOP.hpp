@@ -129,6 +129,8 @@ public:
     /// @brief 清除所有事件检测器
     void clearEventDetectors();
 
+    /// @brief 获取高精度轨道预报方程（可能为 nullptr）
+    HPOPEquation* equation() const{return equation_.get();}
 private:
     /// @brief 保证方程存在：若为空则用当前配置创建，并返回其指针
     HPOPEquation* ensureEquation() const;

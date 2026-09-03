@@ -368,6 +368,8 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         if (forceModel.useSTM()) {
             static_cast<BlockDragPartial*>(blockDrag)->setUseDragSensitivity(forceModel.useDragSensitivity());
         }
+        // 记录阻力函数块指针
+        this->dragBlock_ = blockDrag;
         this->addBlock(blockDrag);
     }
 
@@ -416,6 +418,8 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             if (forceModel.useSTM()) {
                 static_cast<BlockSRPPartial*>(blockSRP)->setUseSRPSensitivity(forceModel.useSRPSensitivity());
             }
+            // 记录SRP光压函数块指针
+            this->srpBlock_ = blockSRP;
             this->addBlock(blockSRP);
         }
         else
@@ -503,13 +507,10 @@ void HPOPEquation::addBlock(BlockDerivative *block)
     dynamicSystem_.addBlock(block);
 }
 
-void HPOPEquation::clearBlocks()
-{
-    dynamicSystem_.clearBlocks();
-}
-
 void HPOPEquation::reset()
 {
+    this->dragBlock_ = nullptr;
+    this->srpBlock_ = nullptr;
     dynamicSystem_.reset();
 }
 

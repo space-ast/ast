@@ -33,6 +33,8 @@
 AST_NAMESPACE_BEGIN
 
 class FuncBlock;
+class BlockDrag;
+class BlockSRP;
 class BlockDerivative;
 class HPOPForceModel;
 
@@ -59,26 +61,27 @@ public:
     /// @brief 获取动力学系统
     const BlockDynamicSystem& dynamicSystem() const { return dynamicSystem_; }
     BlockDynamicSystem& dynamicSystem() { return dynamicSystem_; }
-
-protected:
-    /// @brief 添加函数块
-    void addBlock(FuncBlock* block);
-    void addBlock(BlockDerivative* block);
-
-    void clearBlocks();
-    void reset();
-public:
+    
     /// @brief 初始化仿真引擎（力模型/航天器参数/预报坐标系作为外部配置传入，不存储）
     /// @param[in] forceModel      HPOP力模型配置
     /// @param[in] spacecraftParam 航天器参数
     /// @param[in] frame           预报坐标系（可为空，默认用中心天体惯性系）
     /// @return 错误码
     errc_t initialize(const HPOPForceModel& forceModel, const SpacecraftParam& spacecraftParam, Frame* frame = nullptr);
-protected:
+public:
+    BlockDrag* dragBlock() const { return dragBlock_; }
+    BlockSRP* srpBlock() const { return srpBlock_; }
+private:
+    /// @brief 添加函数块
+    void addBlock(FuncBlock* block);
+    void addBlock(BlockDerivative* block);
+    void reset();
     errc_t initBlocks(const HPOPForceModel& forceModel, const SpacecraftParam &spacecraftParam, Frame* frame);
 private:
-    BlockDynamicSystem      dynamicSystem_;     ///< 动力学系统
-    TimePoint               epoch_{};           ///< 仿真的参考历元
+    BlockDynamicSystem      dynamicSystem_{};     ///< 动力学系统
+    TimePoint               epoch_{};             ///< 仿真的参考历元
+    BlockDrag*              dragBlock_{};         ///< 阻力函数块
+    BlockSRP*               srpBlock_{};          ///< SRP光压函数块
 };
 
 AST_NAMESPACE_END
