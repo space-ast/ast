@@ -42,7 +42,8 @@ class AST_CORE_API FuncBlock
 public:
     FuncBlock() = default;
     virtual ~FuncBlock(){};
-
+    A_DISABLE_COPY(FuncBlock);
+    
     /// @brief 计算函数块
     /// @param simTime 仿真时间
     /// @return 错误码

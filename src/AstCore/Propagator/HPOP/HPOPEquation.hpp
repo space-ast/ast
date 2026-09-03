@@ -51,6 +51,8 @@ public:
     HPOPEquation();
     ~HPOPEquation();
 
+    A_DISABLE_COPY(HPOPEquation);
+
     int getDimension() const final;
 
     errc_t evaluate(const double* y, double* dy, double t) final;
