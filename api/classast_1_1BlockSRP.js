@@ -1,7 +1,10 @@
 var classast_1_1BlockSRP =
 [
     [ "BlockSRP", "classast_1_1BlockSRP.html#acb37565e90a6af19f77964e4278c9fde", null ],
+    [ "coefficient", "classast_1_1BlockSRP.html#ad104744d99e7b83fc6502511c17eefba", null ],
     [ "run", "classast_1_1BlockSRP.html#a82f7379fb78b3f045169cfde9009d01d", null ],
+    [ "setCoefficient", "classast_1_1BlockSRP.html#a25cd9fc74a44873d8d38be06f51fd39e", null ],
+    [ "setSunPosition", "classast_1_1BlockSRP.html#ac11253c731d3a68802ef13080454a393", null ],
     [ "accSRP_", "classast_1_1BlockSRP.html#aa9e697295c87509f332182d44fb1e0a2", null ],
     [ "cr_", "classast_1_1BlockSRP.html#afebc1a5f54332bb4300d232e99bb392b", null ],
     [ "doubleBuffer_", "classast_1_1BlockSRP.html#a5195d2dddffae1ddb5207f4170d077c3", null ],

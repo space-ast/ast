@@ -48,6 +48,8 @@ var searchData=
   ['hpopforcemodel_2ecpp_45',['HPOPForceModel.cpp',['../HPOPForceModel_8cpp.html',1,'']]],
   ['hpopforcemodel_2ehpp_46',['HPOPForceModel.hpp',['../HPOPForceModel_8hpp.html',1,'']]],
   ['hpopstatemapper_47',['HPOPStateMapper',['../classast_1_1HPOPStateMapper.html',1,'ast']]],
-  ['htmlchunk_48',['htmlChunk',['../classast_1_1UiChatEventHandler.html#ada89e3ded00017e74fddf64f2f0fb496',1,'ast::UiChatEventHandler']]],
-  ['hvector_49',['HVector',['../group__Geometry.html#ga628b0ba86e81b7c7d57cf5fdc1e674b1',1,'ast']]]
+  ['hpoputil_2ecpp_48',['HPOPUtil.cpp',['../HPOPUtil_8cpp.html',1,'']]],
+  ['hpoputil_2ehpp_49',['HPOPUtil.hpp',['../HPOPUtil_8hpp.html',1,'']]],
+  ['htmlchunk_50',['htmlChunk',['../classast_1_1UiChatEventHandler.html#ada89e3ded00017e74fddf64f2f0fb496',1,'ast::UiChatEventHandler']]],
+  ['hvector_51',['HVector',['../group__Geometry.html#ga628b0ba86e81b7c7d57cf5fdc1e674b1',1,'ast']]]
 ];

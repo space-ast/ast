@@ -1,5 +1,12 @@
 var NAVTREEINDEX10 =
 {
+"OpAssignPredefined_8hpp.html":[4,0,0,18,7,0,3],
+"OpAssignPredefined_8hpp_source.html":[4,0,0,18,7,0,3],
+"OpAssign_8cpp.html":[4,0,0,18,7,3],
+"OpAssign_8hpp.html":[4,0,0,18,7,4],
+"OpAssign_8hpp_source.html":[4,0,0,18,7,4],
+"OpBinPredefined_8hpp_source.html":[4,0,0,18,7,0,4],
+"OpBinRegistry_8cpp.html":[4,0,0,18,7,0,5],
 "OpBinRegistry_8hpp.html":[4,0,0,18,7,0,6],
 "OpBinRegistry_8hpp_source.html":[4,0,0,18,7,0,6],
 "OpBin_8cpp.html":[4,0,0,18,7,5],
@@ -242,12 +249,5 @@ var NAVTREEINDEX10 =
 "QwtBackend_8hpp.html":[4,0,0,3,0,11],
 "QwtBackend_8hpp_source.html":[4,0,0,3,0,11],
 "QwtPlotVisitor_8cpp.html":[4,0,0,3,0,12],
-"QwtPlotVisitor_8hpp.html":[4,0,0,3,0,13],
-"QwtPlotVisitor_8hpp_source.html":[4,0,0,3,0,13],
-"RK4_8cpp.html":[4,0,0,12,5,0,0],
-"RK4_8hpp.html":[4,0,0,12,5,0,1],
-"RK4_8hpp_source.html":[4,0,0,12,5,0,1],
-"RK8_8cpp.html":[4,0,0,12,5,0,2],
-"RK8_8hpp.html":[4,0,0,12,5,0,3],
-"RK8_8hpp_source.html":[4,0,0,12,5,0,3]
+"QwtPlotVisitor_8hpp.html":[4,0,0,3,0,13]
 };

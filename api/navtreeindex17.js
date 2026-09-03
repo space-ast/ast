@@ -1,5 +1,12 @@
 var NAVTREEINDEX17 =
 {
+"UiChatDockWidget_8hpp_source.html":[4,0,0,22,1,1],
+"UiChatEventHandler_8cpp.html":[4,0,0,22,0,0],
+"UiChatEventHandler_8hpp.html":[4,0,0,22,0,1],
+"UiChatEventHandler_8hpp_source.html":[4,0,0,22,0,1],
+"UiChatInput_8cpp.html":[4,0,0,22,0,2],
+"UiChatInput_8hpp.html":[4,0,0,22,0,3],
+"UiChatInput_8hpp_source.html":[4,0,0,22,0,3],
 "UiChatMainWidget_8cpp.html":[4,0,0,22,0,4],
 "UiChatMainWidget_8hpp.html":[4,0,0,22,0,5],
 "UiChatMainWidget_8hpp_source.html":[4,0,0,22,0,5],
@@ -242,12 +249,5 @@ var NAVTREEINDEX17 =
 "UnitParser_8cpp.html":[4,0,0,27,7,12],
 "UnitParser_8hpp.html":[4,0,0,27,7,13],
 "UnitParser_8hpp_source.html":[4,0,0,27,7,13],
-"UnitRep_8cpp.html":[4,0,0,27,7,14],
-"UnitRep_8hpp.html":[4,0,0,27,7,15],
-"UnitRep_8hpp.html#a08e2c87f19d5408218699374f5331628":[4,0,0,27,7,15,8],
-"UnitRep_8hpp.html#a42dc9247f2d22332e65271bcdd8197b4":[4,0,0,27,7,15,4],
-"UnitRep_8hpp.html#a51cf0ffaaddeaef5aac55820f4002000":[4,0,0,27,7,15,7],
-"UnitRep_8hpp.html#a78e83fe05912aa57874e1cb7a3349941":[4,0,0,27,7,15,9],
-"UnitRep_8hpp.html#a9761790dbaac9ba2c53e99350a0b2d99":[4,0,0,27,7,15,6],
-"UnitRep_8hpp.html#ae4a5ab1089dab17b378e9f8f8891b14e":[4,0,0,27,7,15,5]
+"UnitRep_8cpp.html":[4,0,0,27,7,14]
 };

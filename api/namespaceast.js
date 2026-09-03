@@ -2412,6 +2412,8 @@ var namespaceast =
     [ "aGUIInit", "namespaceast.html#a7212999ae11b2b8a287b6ca859686eb6", null ],
     [ "aGUIInterfaceImpl", "namespaceast.html#abc8a549bd0034f7f766a488af1a51f11", null ],
     [ "aHarrisPriester", "namespaceast.html#a00b8036931a9cee539bed4bda0d6403c", null ],
+    [ "aHPOPEquation_SetDragCoefficient", "namespaceast.html#a4286e32141b981fdfc2d662bc50b8d95", null ],
+    [ "aHPOPEquation_SetSRPCoefficient", "namespaceast.html#a2f6675033f02953fd31e75628adece13", null ],
     [ "aIAUResolutionC7", "namespaceast.html#a63ce81e5e98b83011c987b0de9ffed83", null ],
     [ "aICRFToCIRF", "group__Coordinate.html#ga73cdf0aab986ab0b77380924528f4d4d", null ],
     [ "aICRFToCIRFMatrix", "group__Coordinate.html#ga488495b61d791a8168a51bcef31b6fc4", null ],

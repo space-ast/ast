@@ -12,6 +12,8 @@ var dir_99d89bf1bb3c699199c624a04c84ff81 =
     [ "HPOP.hpp", "HPOP_8hpp.html", null ],
     [ "HPOPEquation.cpp", "HPOPEquation_8cpp.html", null ],
     [ "HPOPEquation.hpp", "HPOPEquation_8hpp.html", "HPOPEquation_8hpp" ],
+    [ "HPOPUtil.cpp", "HPOPUtil_8cpp.html", "HPOPUtil_8cpp" ],
+    [ "HPOPUtil.hpp", "HPOPUtil_8hpp.html", "HPOPUtil_8hpp" ],
     [ "SimEngine.cpp", "SimEngine_8cpp.html", null ],
     [ "SimEngine.hpp", "SimEngine_8hpp.html", "SimEngine_8hpp" ],
     [ "SimTime.hpp", "SimTime_8hpp.html", "SimTime_8hpp" ],

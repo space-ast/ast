@@ -5048,6 +5048,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>aOrbitPosition3</b> (
 <tr class="separator:ga13d01d115244d79e7c783f445c739c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga597819a6c70e16fd39188c0ed371c851" id="r_ga597819a6c70e16fd39188c0ed371c851"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga597819a6c70e16fd39188c0ed371c851">aArgPeriToLongPeri</a> (double argPeri, double raan)</td></tr>
 <tr class="separator:ga597819a6c70e16fd39188c0ed371c851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4286e32141b981fdfc2d662bc50b8d95" id="r_a4286e32141b981fdfc2d662bc50b8d95"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4286e32141b981fdfc2d662bc50b8d95">aHPOPEquation_SetDragCoefficient</a> (<a class="el" href="classast_1_1HPOPEquation.html">HPOPEquation</a> *equation, double cd)</td></tr>
+<tr class="separator:a4286e32141b981fdfc2d662bc50b8d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f6675033f02953fd31e75628adece13" id="r_a2f6675033f02953fd31e75628adece13"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f6675033f02953fd31e75628adece13">aHPOPEquation_SetSRPCoefficient</a> (<a class="el" href="classast_1_1HPOPEquation.html">HPOPEquation</a> *equation, double cr)</td></tr>
+<tr class="separator:a2f6675033f02953fd31e75628adece13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5441328b5602713639d73364ef1b3cf" id="r_af5441328b5602713639d73364ef1b3cf"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5441328b5602713639d73364ef1b3cf">aGetNumInputPorts</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *block)</td></tr>
 <tr class="separator:af5441328b5602713639d73364ef1b3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50f8dc49a8317b1153e6f3950e1d8769" id="r_a50f8dc49a8317b1153e6f3950e1d8769"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50f8dc49a8317b1153e6f3950e1d8769">aGetNumOutputPorts</a> (<a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a> *block)</td></tr>
@@ -14075,6 +14079,70 @@ template&lt;typename Func &gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>大气密度 [kg/m³] </dd></dl>
 <dl class="section warning"><dt>警告</dt><dd>输入的位置向量和太阳位置向量必须在同一个坐标系下 </dd></dl>
+
+</div>
+</div>
+<a id="a4286e32141b981fdfc2d662bc50b8d95" name="a4286e32141b981fdfc2d662bc50b8d95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4286e32141b981fdfc2d662bc50b8d95">&#9670;&#160;</a></span>aHPOPEquation_SetDragCoefficient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aHPOPEquation_SetDragCoefficient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1HPOPEquation.html">HPOPEquation</a> *</td>          <td class="paramname"><span class="paramname"><em>equation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>cd</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在无需重新初始化HPOP方程的情况下设置阻力系数 </p>
+<p>其内部实现可能会随版本变化而更改，但是接口会保持不变 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">equation</td><td>HPOP方程实例 </td></tr>
+    <tr><td class="paramname">cd</td><td>阻力系数参数值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="a2f6675033f02953fd31e75628adece13" name="a2f6675033f02953fd31e75628adece13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f6675033f02953fd31e75628adece13">&#9670;&#160;</a></span>aHPOPEquation_SetSRPCoefficient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aHPOPEquation_SetSRPCoefficient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1HPOPEquation.html">HPOPEquation</a> *</td>          <td class="paramname"><span class="paramname"><em>equation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>cr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在无需重新初始化HPOP方程的情况下设置SRP光压系数 </p>
+<p>其内部实现可能会随版本变化而更改，但是接口会保持不变 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">equation</td><td>HPOP方程实例 </td></tr>
+    <tr><td class="paramname">cr</td><td>SRP光压系数参数值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><br  />
+ </dd></dl>
 
 </div>
 </div>

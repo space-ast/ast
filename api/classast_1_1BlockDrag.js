@@ -1,6 +1,8 @@
 var classast_1_1BlockDrag =
 [
+    [ "coefficient", "classast_1_1BlockDrag.html#a90f765138f93c48a6553a4f149ccb2c9", null ],
     [ "run", "classast_1_1BlockDrag.html#ab374bdaf2ff9bacdaf7d1a2778a4665c", null ],
+    [ "setCoefficient", "classast_1_1BlockDrag.html#a545382077ce5f58f64d96863f6843728", null ],
     [ "accDrag_", "classast_1_1BlockDrag.html#a16ed40106986a02f573f582bfc054cd8", null ],
     [ "atmosphere_", "classast_1_1BlockDrag.html#a5a95e705133890995d717c17ff7a1672", null ],
     [ "doubleBuffer_", "classast_1_1BlockDrag.html#a0f1d7d2b3c24d2caa71d523a7ac573c3", null ],

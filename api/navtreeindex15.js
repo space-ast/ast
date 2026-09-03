@@ -1,5 +1,12 @@
 var NAVTREEINDEX15 =
 {
+"SolverStats_8h_source.html":[4,0,0,12,4,2],
+"SpaceObject_8cpp.html":[4,0,0,19,3,60],
+"SpaceObject_8cpp.html#a0e9729fb90d67faafec2435a814d25ac":[4,0,0,19,3,60,2],
+"SpaceObject_8cpp.html#a42a38cf0aed9af584dd2b2dfb7b15711":[4,0,0,19,3,60,3],
+"SpaceObject_8cpp.html#a53b517690d4d043bf79a2fb35fd86c43":[4,0,0,19,3,60,1],
+"SpaceObject_8cpp.html#aca90054f47905f59270738482f4378a7":[4,0,0,19,3,60,0],
+"SpaceObject_8hpp.html":[4,0,0,19,3,61],
 "SpaceObject_8hpp.html#a0e9729fb90d67faafec2435a814d25ac":[4,0,0,19,3,61,3],
 "SpaceObject_8hpp.html#a42a38cf0aed9af584dd2b2dfb7b15711":[4,0,0,19,3,61,4],
 "SpaceObject_8hpp.html#a53b517690d4d043bf79a2fb35fd86c43":[4,0,0,19,3,61,2],
@@ -179,9 +186,9 @@ var NAVTREEINDEX15 =
 "StateKeplerian_8hpp.html#aebc46f63d4ca7b01bd3e9718282bc9b3a05ce665c049e975f4102e98ba3b29ba3":[4,0,0,6,11,6,5,1,1],
 "StateKeplerian_8hpp.html#aebc46f63d4ca7b01bd3e9718282bc9b3a3776991e2d9ed4127ed93a2522ad9fe7":[4,0,0,6,11,6,5,1,0],
 "StateKeplerian_8hpp_source.html":[4,0,0,6,11,6,5],
-"StateMapper_8cpp.html":[4,0,0,6,12,1,19],
-"StateMapper_8hpp.html":[4,0,0,6,12,1,20],
-"StateMapper_8hpp_source.html":[4,0,0,6,12,1,20],
+"StateMapper_8cpp.html":[4,0,0,6,12,1,21],
+"StateMapper_8hpp.html":[4,0,0,6,12,1,22],
+"StateMapper_8hpp_source.html":[4,0,0,6,12,1,22],
 "StateVector_8cpp.html":[4,0,0,2,0,16],
 "StateVector_8hpp.html":[4,0,0,2,0,17],
 "StateVector_8hpp_source.html":[4,0,0,2,0,17],
@@ -242,12 +249,5 @@ var NAVTREEINDEX15 =
 "SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a993c607f86d04aaa19681df339689592":[4,0,0,6,14,13,0,0],
 "SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055ac4b72ddf63a9b2b2bca0c2bcc02842c8":[4,0,0,6,14,13,0,2],
 "SunPosition_8hpp_source.html":[4,0,0,6,14,13],
-"SunSynchronousOrbitDesigner_8cpp.html":[4,0,0,6,11,4,21],
-"SunSynchronousOrbitDesigner_8hpp.html":[4,0,0,6,11,4,22],
-"SunSynchronousOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,22],
-"SurfaceInterceptPoint_8cpp.html":[4,0,0,2,0,22],
-"SurfaceInterceptPoint_8hpp.html":[4,0,0,2,0,23],
-"SurfaceInterceptPoint_8hpp_source.html":[4,0,0,2,0,23],
-"SweepStudy_8cpp.html":[4,0,0,1,2,0],
-"SweepStudy_8hpp.html":[4,0,0,1,2,1]
+"SunSynchronousOrbitDesigner_8cpp.html":[4,0,0,6,11,4,21]
 };

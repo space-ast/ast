@@ -1,5 +1,12 @@
 var NAVTREEINDEX16 =
 {
+"SunSynchronousOrbitDesigner_8hpp.html":[4,0,0,6,11,4,22],
+"SunSynchronousOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,22],
+"SurfaceInterceptPoint_8cpp.html":[4,0,0,2,0,22],
+"SurfaceInterceptPoint_8hpp.html":[4,0,0,2,0,23],
+"SurfaceInterceptPoint_8hpp_source.html":[4,0,0,2,0,23],
+"SweepStudy_8cpp.html":[4,0,0,1,2,0],
+"SweepStudy_8hpp.html":[4,0,0,1,2,1],
 "SweepStudy_8hpp_source.html":[4,0,0,1,2,1],
 "SymbolScope_8cpp.html":[4,0,0,18,5,9],
 "SymbolScope_8hpp.html":[4,0,0,18,5,10],
@@ -242,12 +249,5 @@ var NAVTREEINDEX16 =
 "UiCelestialBody_8hpp.html":[4,0,0,10,10,2],
 "UiCelestialBody_8hpp_source.html":[4,0,0,10,10,2],
 "UiChatDockWidget_8cpp.html":[4,0,0,22,1,0],
-"UiChatDockWidget_8hpp.html":[4,0,0,22,1,1],
-"UiChatDockWidget_8hpp_source.html":[4,0,0,22,1,1],
-"UiChatEventHandler_8cpp.html":[4,0,0,22,0,0],
-"UiChatEventHandler_8hpp.html":[4,0,0,22,0,1],
-"UiChatEventHandler_8hpp_source.html":[4,0,0,22,0,1],
-"UiChatInput_8cpp.html":[4,0,0,22,0,2],
-"UiChatInput_8hpp.html":[4,0,0,22,0,3],
-"UiChatInput_8hpp_source.html":[4,0,0,22,0,3]
+"UiChatDockWidget_8hpp.html":[4,0,0,22,1,1]
 };

@@ -7,5 +7,7 @@ var searchData=
   ['hpopequation_2ecpp_4',['HPOPEquation.cpp',['../HPOPEquation_8cpp.html',1,'']]],
   ['hpopequation_2ehpp_5',['HPOPEquation.hpp',['../HPOPEquation_8hpp.html',1,'']]],
   ['hpopforcemodel_2ecpp_6',['HPOPForceModel.cpp',['../HPOPForceModel_8cpp.html',1,'']]],
-  ['hpopforcemodel_2ehpp_7',['HPOPForceModel.hpp',['../HPOPForceModel_8hpp.html',1,'']]]
+  ['hpopforcemodel_2ehpp_7',['HPOPForceModel.hpp',['../HPOPForceModel_8hpp.html',1,'']]],
+  ['hpoputil_2ecpp_8',['HPOPUtil.cpp',['../HPOPUtil_8cpp.html',1,'']]],
+  ['hpoputil_2ehpp_9',['HPOPUtil.hpp',['../HPOPUtil_8hpp.html',1,'']]]
 ];
