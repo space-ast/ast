@@ -42,6 +42,10 @@ public:
     /// @brief 根据三体配置获取引力常数
     double getGM(CelestialBody* body) const;
 public:
+    /// @brief 设置指定的引力常数，并将引力常数来源枚举设置为来自指定值
+    /// @param gm 指定的引力常数
+    void setSpecifiedGM(double gm){specifiedGM_ = gm; gmSource_ = EGMSource::eSpecifiedValue;}
+public:
     EGMSource gmSource_{EGMSource::eBodyGravity};       ///< 引力常数来源
     double specifiedGM_{0.0};                           ///< 指定的引力常数
 };

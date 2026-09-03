@@ -73,7 +73,7 @@ bool ODEEventObserver::isEventOccurred(double *y, double &x)
         this->lastTime_ = x;
         return false;
     }else{
-        #if 0
+        #if 0  // 这里的逻辑没有处理好角度量，角度量存在跳变问题
         auto direction = detector_->getDirection();
         double difference = detector_->getDifference(y, x);
         bool lastSign = std::signbit(lastDifference_);
@@ -92,7 +92,7 @@ bool ODEEventObserver::isEventOccurred(double *y, double &x)
         // 记录当前状态，用于下一次判断
         lastDifference_ = difference;
         lastTime_ = x;
-        #else
+        #else // 下面的逻辑通过抽象函数containsEvent判断事件是否发生
         double difference = detector_->getDifference(y, x);
         Bracket bracket(lastTime_, lastDifference_, x, difference);
         bool occurred = detector_->containsEvent(bracket);
