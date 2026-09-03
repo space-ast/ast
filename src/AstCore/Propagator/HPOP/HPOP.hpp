@@ -28,6 +28,9 @@
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/StateMapper.hpp"
 #include "AstCore/OrbitElement.hpp"
+#include "AstCore/HPOPForceModel.hpp"
+#include "AstCore/SpacecraftParam.hpp"
+#include "AstCore/Frame.hpp"
 #include <string>
 #include <vector>
 
@@ -57,12 +60,12 @@ public:
     errc_t setForceModel(HPOPForceModel&& forcemodel);
     errc_t setForceModel(const HPOPForceModel& forcemodel);
 
-    /// @brief 获取力模型
-    HPOPForceModel& forceModel();
+    /// @brief 获取力模型(只读，不支持修改)
+    const HPOPForceModel& forceModel() const;
 
     void setSpacecraftParam(const SpacecraftParam& spacecraftParam);
 
-    /// @brief 获取航天器参数
+    /// @brief 获取航天器参数(只读，不支持修改)
     const SpacecraftParam& spacecraftParam() const;
 
     /// @brief 获取预报坐标系
@@ -126,9 +129,10 @@ public:
     /// @brief 清除所有事件检测器
     void clearEventDetectors();
 
-    /// @brief 获取轨道预报方程
-    HPOPEquation* equation() const;
 private:
+    /// @brief 保证方程存在：若为空则用当前配置创建，并返回其指针
+    HPOPEquation* ensureEquation() const;
+
     /// @brief 设置参考历元并执行数值积分
     /// @param[in]     startTime   预报起始时间
     /// @param[in,out] targetTime  预报结束时间（事件触发时会被截断）
@@ -136,9 +140,14 @@ private:
     /// @return errc_t 错误码
     errc_t integrateState(const TimePoint& startTime, TimePoint& targetTime, double* y);
 
-    mutable ScopedPtr<HPOPEquation> equation_;       ///< 高精度轨道预报方程
-    mutable SharedPtr<ODEIntegrator> integrator_;    ///< 高精度轨道预报积分器
-    ScopedPtr<HPOPStateMapper> stateMapper_;         ///< 状态映射器
+private:
+    HPOPForceModel  forceModel_{};                     ///< 力模型配置
+    SpacecraftParam spacecraftParam_{};                ///< 航天器参数配置
+    HFrame          propagationFrame_{};               ///< 预报坐标系配置
+
+    mutable ScopedPtr<HPOPEquation> equation_{};       ///< 高精度轨道预报方程（缓存；配置变更时为 nullptr）
+    mutable SharedPtr<ODEIntegrator> integrator_{};    ///< 高精度轨道预报积分器
+    ScopedPtr<HPOPStateMapper> stateMapper_{};         ///< 状态映射器
 };
 
 

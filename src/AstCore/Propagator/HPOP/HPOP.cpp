@@ -173,37 +173,49 @@ HPOP::~HPOP() = default;
 
 errc_t HPOP::setForceModel(HPOPForceModel&& forcemodel)
 {
-    return equation()->setForceModel(std::move(forcemodel));
+    forceModel_ = std::move(forcemodel);
+    equation_.reset();
+    return eNoError;
 }
 
 errc_t HPOP::setForceModel(const HPOPForceModel& forcemodel)
 {
-    return equation()->setForceModel(forcemodel);
+    forceModel_ = forcemodel;
+    equation_.reset();
+    return eNoError;
 }
 
-HPOPForceModel& HPOP::forceModel()
+const HPOPForceModel& HPOP::forceModel() const
 {
-    return equation()->forceModel();
+    return forceModel_;
 }
 
 void HPOP::setSpacecraftParam(const SpacecraftParam& spacecraftParam)
 {
-    equation()->setSpacecraftParam(spacecraftParam);
+    spacecraftParam_ = spacecraftParam;
+    equation_.reset();
 }
 
 const SpacecraftParam& HPOP::spacecraftParam() const
 {
-    return equation()->spacecraftParam();
+    return spacecraftParam_;
 }
 
 Frame* HPOP::propagationFrame() const
 {
-    return equation_->getPropagationFrame();
+    if (auto frame = propagationFrame_.get())
+        return frame;
+    if (auto body = forceModel_.centralBody())
+        return body->getFrameInertial();
+    return nullptr;
 }
 
 errc_t HPOP::setPropagationFrame(Frame *frame)
 {
-    return equation_->setPropagationFrame(frame);
+    if(!frame) return -1;
+    propagationFrame_ = frame;
+    equation_.reset();
+    return eNoError;
 }
 
 void HPOP::setIntegrator(ODEIntegrator *integrator)
@@ -376,14 +388,16 @@ errc_t HPOP::integrateState(const TimePoint& startTime, TimePoint& targetTime, d
 
 errc_t HPOP::initialize()
 {
-    if (!equation_){
-        equation_ = new HPOPEquation();
-    }
     if (!integrator_){
         integrator_ = new RKF78();
     }
-    return equation_->initialize();
-    // err |= integrator_->initialize(equation_);
+    if(!equation_){
+        // 配置变更时 equation_ 已被置空，需要重建新方程
+        equation_ = new HPOPEquation();
+        return equation_->initialize(forceModel_, spacecraftParam_, propagationFrame_.get());
+    }
+    // 如果 equation_ 已存在，则说明配置未变更，无需重建，直接返回即可
+    return eNoError;
 }
 
 StateMapper* HPOP::stateMapper() const
@@ -403,12 +417,12 @@ void HPOP::clearEventDetectors()
 }
 
 
-HPOPEquation* HPOP::equation() const
+HPOPEquation* HPOP::ensureEquation() const
 {
     if(!equation_){
         equation_ = new HPOPEquation();
     }
-    return equation_;
+    return equation_.get();
 }
 
 AST_NAMESPACE_END

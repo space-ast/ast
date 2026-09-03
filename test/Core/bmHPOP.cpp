@@ -24,7 +24,7 @@
 
 AST_USING_NAMESPACE
 
-void bmSetForceModel(benchmark::State& state)
+void bmInitialize(benchmark::State& state)
 {
     HPOPEquation equation;
     HPOPForceModel forcemodel;
@@ -32,12 +32,12 @@ void bmSetForceModel(benchmark::State& state)
     forcemodel.useMoonGravity(true);
     for(auto _ : state)
     {
-        errc_t err = equation.setForceModel(forcemodel);
+        errc_t err = equation.initialize(forcemodel, SpacecraftParam{}, nullptr);
         benchmark::DoNotOptimize(err);
     }
 }
 
-BENCHMARK(bmSetForceModel);
+BENCHMARK(bmInitialize);
 
 BENCHMARK_MAIN();
 
