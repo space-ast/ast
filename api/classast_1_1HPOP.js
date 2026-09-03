@@ -2,8 +2,7 @@ var classast_1_1HPOP =
 [
     [ "addEventDetector", "classast_1_1HPOP.html#a17be20cd12190596f3802c3976dcadd8", null ],
     [ "clearEventDetectors", "classast_1_1HPOP.html#a3209e7dfccd8904d4d2481150f625103", null ],
-    [ "equation", "classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04", null ],
-    [ "forceModel", "classast_1_1HPOP.html#a8a0c1e935bdbdbf0ef6af854118d3f11", null ],
+    [ "forceModel", "classast_1_1HPOP.html#a19c8690ead1ce842277bf8b0c115717a", null ],
     [ "getIntegrator", "classast_1_1HPOP.html#a6b39183be54694b152d01ee57170fa16", null ],
     [ "initialize", "classast_1_1HPOP.html#a97b91190d3858e3ad750e33992031180", null ],
     [ "propagate", "classast_1_1HPOP.html#a86f3fd08d7ffb2767ce06dca0438f325", null ],

@@ -1,17 +1,5 @@
 var NAVTREEINDEX64 =
 {
-"structast_1_1SPK__Type18__Packet__Sub1.html":[2,0,0,936],
-"structast_1_1SPK__Type18__Packet__Sub1.html":[3,0,0,935],
-"structast_1_1SPK__Type18__Trailer.html":[2,0,0,937],
-"structast_1_1SPK__Type18__Trailer.html":[3,0,0,936],
-"structast_1_1SPK__Type20__Record.html":[2,0,0,938],
-"structast_1_1SPK__Type20__Record.html":[3,0,0,937],
-"structast_1_1SPK__Type20__Trailer.html":[2,0,0,939],
-"structast_1_1SPK__Type20__Trailer.html":[3,0,0,938],
-"structast_1_1SPK__Type2__Record.html":[2,0,0,940],
-"structast_1_1SPK__Type2__Record.html":[3,0,0,939],
-"structast_1_1SPK__Type2__Record.html#a42a40f4968320b391585c1aa17c08290":[2,0,0,940,0],
-"structast_1_1SPK__Type2__Record.html#a42a40f4968320b391585c1aa17c08290":[3,0,0,939,0],
 "structast_1_1SPK__Type2__Record.html#a4bf352a51ac2aa4b8c370419d4f358c5":[2,0,0,940,1],
 "structast_1_1SPK__Type2__Record.html#a4bf352a51ac2aa4b8c370419d4f358c5":[3,0,0,939,1],
 "structast_1_1SPK__Type2__Trailer.html":[2,0,0,941],
