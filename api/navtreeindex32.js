@@ -1,5 +1,6 @@
 var NAVTREEINDEX32 =
 {
+"classast_1_1InvokeHelper.html":[3,0,0,403],
 "classast_1_1IrbemAPI.html":[0,9,2,0],
 "classast_1_1IrbemAPI.html#a0fa3081bc8fce4a007463f3ce55a2a22":[0,9,2,0,1],
 "classast_1_1IrbemAPI.html#a3d9b1d4325b594d6f63937f90c6fb63b":[0,9,2,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX32 =
 "classast_1_1JulianDate.html#a145faf107fe21f998bb3a7e3af1381b3":[0,1,8,7,7],
 "classast_1_1JulianDate.html#a1b8919d5d7d7431a64b6f75b2bc8d7cc":[0,1,8,7,1],
 "classast_1_1JulianDate.html#a32a6a2a8d202fa8a36d36c2f879cc71e":[0,1,8,7,2],
-"classast_1_1JulianDate.html#a5aca597dc00265b589bb18a8c8ee3cb8":[0,1,8,7,4],
-"classast_1_1JulianDate.html#a78f5cb882407ed72bdae2df223968ee1":[0,1,8,7,5]
+"classast_1_1JulianDate.html#a5aca597dc00265b589bb18a8c8ee3cb8":[0,1,8,7,4]
 };

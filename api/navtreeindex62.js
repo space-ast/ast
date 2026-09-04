@@ -1,5 +1,8 @@
 var NAVTREEINDEX62 =
 {
+"namespaceast_1_1math.html#ad55476707790d13c96d9eef28526cbcf":[2,0,0,3,4],
+"namespaceast_1_1math.html#ad7d48b99658c1144283823aa76621adf":[2,0,0,3,7],
+"namespaceast_1_1math.html#af4d91cee65bbdc213a65c66832b1dd8c":[2,0,0,3,6],
 "namespaceast_1_1math.html#af5311f732f050ddd8e2bc5884e38b3da":[2,0,0,3,9],
 "namespaceast_1_1math.html#afe4763a2a941b3324f166f3377767b77":[2,0,0,3,2],
 "namespaceast_1_1posix.html":[0,8,2,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX62 =
 "structast_1_1DAF__FileRecord.html#a26d21a353b8e893dbd79d1cc189d43a2":[2,0,0,199,4],
 "structast_1_1DAF__FileRecord.html#a26d21a353b8e893dbd79d1cc189d43a2":[3,0,0,198,4],
 "structast_1_1DAF__FileRecord.html#a48013fc3382eb397aaac6413bae182da":[2,0,0,199,2],
-"structast_1_1DAF__FileRecord.html#a48013fc3382eb397aaac6413bae182da":[3,0,0,198,2],
-"structast_1_1DAF__FileRecord.html#a52c47e8068d64399bb7161ace82039e4":[2,0,0,199,7],
-"structast_1_1DAF__FileRecord.html#a52c47e8068d64399bb7161ace82039e4":[3,0,0,198,7],
-"structast_1_1DAF__FileRecord.html#a67f959bd98d9af4fd5297bd4e17c4925":[2,0,0,199,9]
+"structast_1_1DAF__FileRecord.html#a48013fc3382eb397aaac6413bae182da":[3,0,0,198,2]
 };

@@ -118,7 +118,13 @@ $(function(){initNavTree('HPOPUtil_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_CORE_CAPI errc_t <a class="code hl_function" href="namespaceast.html#a2f6675033f02953fd31e75628adece13">aHPOPEquation_SetSRPCoefficient</a>(HPOPEquation* equation, <span class="keywordtype">double</span> cr);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">note:</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">为什么不写为 aHPOP_SetSRPCoefficient？</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">因为这也声明会存在歧义，而该函数并不会修改 HPOP.forceModel() 中的 SRP光压系数，阻力系数同理</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="anamespaceast_html_a2f6675033f02953fd31e75628adece13"><div class="ttname"><a href="namespaceast.html#a2f6675033f02953fd31e75628adece13">ast::aHPOPEquation_SetSRPCoefficient</a></div><div class="ttdeci">errc_t aHPOPEquation_SetSRPCoefficient(HPOPEquation *equation, double cr)</div><div class="ttdoc">在无需重新初始化HPOP方程的情况下设置SRP光压系数</div><div class="ttdef"><b>定义</b> HPOPUtil.cpp:49</div></div>
 <div class="ttc" id="anamespaceast_html_a4286e32141b981fdfc2d662bc50b8d95"><div class="ttname"><a href="namespaceast.html#a4286e32141b981fdfc2d662bc50b8d95">ast::aHPOPEquation_SetDragCoefficient</a></div><div class="ttdeci">errc_t aHPOPEquation_SetDragCoefficient(HPOPEquation *equation, double cd)</div><div class="ttdoc">在无需重新初始化HPOP方程的情况下设置阻力系数</div><div class="ttdef"><b>定义</b> HPOPUtil.cpp:30</div></div>
 </div><!-- fragment --></div><!-- contents -->

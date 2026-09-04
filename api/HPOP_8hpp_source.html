@@ -169,34 +169,47 @@ $(function(){initNavTree('HPOP_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">void</span> addEventDetector(<a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>* eventDetector);</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordtype">void</span> clearEventDetectors();</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">  144</a></span>    <a class="code hl_class" href="classast_1_1HPOPEquation.html">HPOPEquation</a>* <a class="code hl_function" href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">equation</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> equation_.get();}</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_class" href="classast_1_1HPOPEquation.html">HPOPEquation</a>* ensureEquation() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    errc_t integrateState(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, <span class="keywordtype">double</span>* y);</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>  forceModel_{};                     </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    SpacecraftParam spacecraftParam_{};                </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <a class="code hl_typedef" href="group__Geometry.html#gab94af565f9e33f444abcd912e6135cbd">HFrame</a>          propagationFrame_{};               </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">mutable</span> ScopedPtr&lt;HPOPEquation&gt; equation_{};       </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keyword">mutable</span> SharedPtr&lt;ODEIntegrator&gt; integrator_{};    </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    ScopedPtr&lt;HPOPStateMapper&gt; stateMapper_{};         </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>};</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func&gt;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keyword">typename</span> std::enable_if&lt;!std::is_base_of&lt;EventDetector, typename std::remove_pointer&lt;Func&gt;::type&gt;::value, <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>*&gt;::type</div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classast_1_1HPOP.html#a65ad6d0449d13661286bb20fda41ae21">  145</a></span>    <a class="code hl_function" href="classast_1_1HPOP.html#a65ad6d0449d13661286bb20fda41ae21">addEventDetector</a>(Func func)</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>* detector = <span class="keyword">new</span> <a class="code hl_class" href="classast_1_1EventDetectorGeneric.html">EventDetectorGeneric&lt;Func&gt;</a>(func);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        addEventDetector(detector);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordflow">return</span> detector;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    }</div>
 </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">void</span> clearEventDetectors();</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">  156</a></span>    <a class="code hl_class" href="classast_1_1HPOPEquation.html">HPOPEquation</a>* <a class="code hl_function" href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">equation</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> equation_.get();}</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <a class="code hl_class" href="classast_1_1HPOPEquation.html">HPOPEquation</a>* ensureEquation() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    errc_t integrateState(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, <span class="keywordtype">double</span>* y);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>  forceModel_{};                     </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    SpacecraftParam spacecraftParam_{};                </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <a class="code hl_typedef" href="group__Geometry.html#gab94af565f9e33f444abcd912e6135cbd">HFrame</a>          propagationFrame_{};               </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keyword">mutable</span> ScopedPtr&lt;HPOPEquation&gt; equation_{};       </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keyword">mutable</span> SharedPtr&lt;ODEIntegrator&gt; integrator_{};    </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    ScopedPtr&lt;HPOPStateMapper&gt; stateMapper_{};         </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>};</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1CartState_html"><div class="ttname"><a href="classast_1_1CartState.html">ast::CartState</a></div><div class="ttdoc">直角坐标</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:46</div></div>
+<div class="ttc" id="aclassast_1_1EventDetectorGeneric_html"><div class="ttname"><a href="classast_1_1EventDetectorGeneric.html">ast::EventDetectorGeneric</a></div><div class="ttdoc">泛型事件检测器</div><div class="ttdef"><b>定义</b> EventDetector.hpp:110</div></div>
 <div class="ttc" id="aclassast_1_1EventDetector_html"><div class="ttname"><a href="classast_1_1EventDetector.html">ast::EventDetector</a></div><div class="ttdoc">事件检测基类 事件检测基类，用于检测事件是否发生。 参考orekit的EventDetector类</div><div class="ttdef"><b>定义</b> EventDetector.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系抽象基类</div><div class="ttdef"><b>定义</b> Frame.hpp:62</div></div>
 <div class="ttc" id="aclassast_1_1HPOPEquation_html"><div class="ttname"><a href="classast_1_1HPOPEquation.html">ast::HPOPEquation</a></div><div class="ttdoc">高精度轨道预报方程</div><div class="ttdef"><b>定义</b> HPOPEquation.hpp:49</div></div>
 <div class="ttc" id="aclassast_1_1HPOPForceModel_html"><div class="ttname"><a href="classast_1_1HPOPForceModel.html">ast::HPOPForceModel</a></div><div class="ttdoc">高精度轨道预报力模型</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:49</div></div>
 <div class="ttc" id="aclassast_1_1HPOP_html"><div class="ttname"><a href="classast_1_1HPOP.html">ast::HPOP</a></div><div class="ttdoc">高精度轨道预报器</div><div class="ttdef"><b>定义</b> HPOP.hpp:63</div></div>
-<div class="ttc" id="aclassast_1_1HPOP_html_aec239270bbfe178ad2bf302758a1ed04"><div class="ttname"><a href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">ast::HPOP::equation</a></div><div class="ttdeci">HPOPEquation * equation() const</div><div class="ttdoc">获取高精度轨道预报方程（可能为 nullptr）</div><div class="ttdef"><b>定义</b> HPOP.hpp:144</div></div>
+<div class="ttc" id="aclassast_1_1HPOP_html_a65ad6d0449d13661286bb20fda41ae21"><div class="ttname"><a href="classast_1_1HPOP.html#a65ad6d0449d13661286bb20fda41ae21">ast::HPOP::addEventDetector</a></div><div class="ttdeci">std::enable_if&lt;!std::is_base_of&lt; EventDetector, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, EventDetector * &gt;::type addEventDetector(Func func)</div><div class="ttdoc">添加事件检测器（泛型模板）</div><div class="ttdef"><b>定义</b> HPOP.hpp:145</div></div>
+<div class="ttc" id="aclassast_1_1HPOP_html_aec239270bbfe178ad2bf302758a1ed04"><div class="ttname"><a href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">ast::HPOP::equation</a></div><div class="ttdeci">HPOPEquation * equation() const</div><div class="ttdoc">获取高精度轨道预报方程（可能为 nullptr）</div><div class="ttdef"><b>定义</b> HPOP.hpp:156</div></div>
 <div class="ttc" id="aclassast_1_1MatrixMN_html"><div class="ttname"><a href="classast_1_1MatrixMN.html">ast::MatrixMN&lt; double, 6, 6 &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1ODEIntegrator_html"><div class="ttname"><a href="classast_1_1ODEIntegrator.html">ast::ODEIntegrator</a></div><div class="ttdoc">ODE 积分器</div><div class="ttdef"><b>定义</b> ODEIntegrator.hpp:87</div></div>
 <div class="ttc" id="aclassast_1_1ObjectNamed_html"><div class="ttname"><a href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></div><div class="ttdoc">命名对象</div><div class="ttdef"><b>定义</b> ObjectNamed.hpp:36</div></div>

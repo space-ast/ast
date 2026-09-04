@@ -337,7 +337,8 @@ Protected 成员函数</h2></td></tr>
 <tr class="memitem:a70264962229b9d7be599c2cf858678c8" id="r_a70264962229b9d7be599c2cf858678c8"><td class="memItemLeft" align="right" valign="top"><a id="a70264962229b9d7be599c2cf858678c8" name="a70264962229b9d7be599c2cf858678c8"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>integrateOneFixedStep</b> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double absStepSize, double *y, double &amp;t, double tf)</td></tr>
 <tr class="separator:a70264962229b9d7be599c2cf858678c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af56b408af48d3206270ed1176ea9dc8b" id="r_af56b408af48d3206270ed1176ea9dc8b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af56b408af48d3206270ed1176ea9dc8b">integrateFixedStep</a> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double absStepSize, double *y, double &amp;t, double tf, int *pNumSteps=nullptr)</td></tr>
+<tr class="memitem:af56b408af48d3206270ed1176ea9dc8b" id="r_af56b408af48d3206270ed1176ea9dc8b"><td class="memItemLeft" align="right" valign="top"><a id="af56b408af48d3206270ed1176ea9dc8b" name="af56b408af48d3206270ed1176ea9dc8b"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>integrateFixedStep</b> (<a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;ode, double absStepSize, double *y, double &amp;t, double tf, int *pNumSteps=nullptr)</td></tr>
 <tr class="separator:af56b408af48d3206270ed1176ea9dc8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a546271b4d98afc0c995a64813716df67" id="r_a546271b4d98afc0c995a64813716df67"><td class="memItemLeft" align="right" valign="top"><a id="a546271b4d98afc0c995a64813716df67" name="a546271b4d98afc0c995a64813716df67"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>initWorkStateObserver</b> ()</td></tr>
@@ -806,56 +807,6 @@ template&lt;typename Func &gt; </div>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="af56b408af48d3206270ed1176ea9dc8b" name="af56b408af48d3206270ed1176ea9dc8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af56b408af48d3206270ed1176ea9dc8b">&#9670;&#160;</a></span>integrateFixedStep()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">errc_t ast::ODEIntegrator::integrateFixedStep </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceast.html#a556c864e79d6a749bb7e2aae55fcac57">ODE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ode</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>absStepSize</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>pNumSteps</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>int ndim = ode.getDimension();</p>
 
 </div>
 </div>

@@ -2,6 +2,7 @@ var group__Propagator =
 [
     [ "ast::HPOP", "classast_1_1HPOP.html", [
       [ "addEventDetector", "classast_1_1HPOP.html#a17be20cd12190596f3802c3976dcadd8", null ],
+      [ "addEventDetector", "classast_1_1HPOP.html#a65ad6d0449d13661286bb20fda41ae21", null ],
       [ "clearEventDetectors", "classast_1_1HPOP.html#a3209e7dfccd8904d4d2481150f625103", null ],
       [ "equation", "classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04", null ],
       [ "forceModel", "classast_1_1HPOP.html#a19c8690ead1ce842277bf8b0c115717a", null ],

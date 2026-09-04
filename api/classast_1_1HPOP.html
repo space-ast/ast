@@ -166,6 +166,9 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</
 <tr class="separator:a758e4dcdbe1fb8410cf48f29ba5c99cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17be20cd12190596f3802c3976dcadd8" id="r_a17be20cd12190596f3802c3976dcadd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17be20cd12190596f3802c3976dcadd8">addEventDetector</a> (<a class="el" href="classast_1_1EventDetector.html">EventDetector</a> *eventDetector)</td></tr>
 <tr class="separator:a17be20cd12190596f3802c3976dcadd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65ad6d0449d13661286bb20fda41ae21" id="r_a65ad6d0449d13661286bb20fda41ae21"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a65ad6d0449d13661286bb20fda41ae21"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classast_1_1EventDetector.html">EventDetector</a>, typenamestd::remove_pointer&lt; Func &gt;<a class="el" href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">::type</a> &gt;::value, <a class="el" href="classast_1_1EventDetector.html">EventDetector</a> * &gt;<a class="el" href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">::type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a65ad6d0449d13661286bb20fda41ae21">addEventDetector</a> (Func func)</td></tr>
+<tr class="separator:a65ad6d0449d13661286bb20fda41ae21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3209e7dfccd8904d4d2481150f625103" id="r_a3209e7dfccd8904d4d2481150f625103"><td class="memItemLeft" align="right" valign="top"><a id="a3209e7dfccd8904d4d2481150f625103" name="a3209e7dfccd8904d4d2481150f625103"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clearEventDetectors</b> ()</td></tr>
 <tr class="separator:a3209e7dfccd8904d4d2481150f625103"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -357,7 +360,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </ul>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a17be20cd12190596f3802c3976dcadd8" name="a17be20cd12190596f3802c3976dcadd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17be20cd12190596f3802c3976dcadd8">&#9670;&#160;</a></span>addEventDetector()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a17be20cd12190596f3802c3976dcadd8">&#9670;&#160;</a></span>addEventDetector() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,6 +381,42 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a65ad6d0449d13661286bb20fda41ae21" name="a65ad6d0449d13661286bb20fda41ae21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65ad6d0449d13661286bb20fda41ae21">&#9670;&#160;</a></span>addEventDetector() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Func &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classast_1_1EventDetector.html">EventDetector</a>, typenamestd::remove_pointer&lt; Func &gt;<a class="el" href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">::type</a> &gt;::value, <a class="el" href="classast_1_1EventDetector.html">EventDetector</a> * &gt;<a class="el" href="classast_1_1Object.html#ad30c577e616caa73f91c3866cc540157">::type</a> ast::HPOP::addEventDetector </td>
+          <td>(</td>
+          <td class="paramtype">Func</td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>添加事件检测器（泛型模板） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>事件检测器函数指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>事件检测器实例指针 </dd></dl>
 
 </div>
 </div>
