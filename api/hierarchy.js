@@ -923,10 +923,10 @@ var hierarchy =
           [ "ast::CoverageDefinition", "classast_1_1CoverageDefinition.html", null ],
           [ "ast::EventDetector", "classast_1_1EventDetector.html", [
             [ "ast::DetectorAccess", "classast_1_1DetectorAccess.html", null ],
-            [ "ast::DetectorAltitude", "classast_1_1DetectorAltitude.html", null ],
             [ "ast::DetectorAlwaysTripped", "classast_1_1DetectorAlwaysTripped.html", null ],
             [ "ast::DetectorAscendingNode", "classast_1_1DetectorAscendingNode.html", null ],
             [ "ast::DetectorBodyRelated", "classast_1_1DetectorBodyRelated.html", [
+              [ "ast::DetectorAltitude", "classast_1_1DetectorAltitude.html", null ],
               [ "ast::DetectorApoapsis", "classast_1_1DetectorApoapsis.html", null ],
               [ "ast::DetectorPeriapsis", "classast_1_1DetectorPeriapsis.html", null ]
             ] ],

@@ -1,5 +1,7 @@
 var NAVTREEINDEX47 =
 {
+"classast_1_1TLEDatabaseQuery.html#ad27f6dd010fd1dde58fa1346ebb6d9a1":[2,0,0,998,37],
+"classast_1_1TLEDatabaseQuery.html#ad27f6dd010fd1dde58fa1346ebb6d9a1":[3,0,0,997,37],
 "classast_1_1TLEDatabaseQuery.html#ae4783d8da161ce13019f36c0047de6b4":[2,0,0,998,15],
 "classast_1_1TLEDatabaseQuery.html#ae4783d8da161ce13019f36c0047de6b4":[3,0,0,997,15],
 "classast_1_1TLEDatabaseQuery.html#aef3d9a962f2fe1f67c25b53f2463ef7a":[2,0,0,998,28],
@@ -247,7 +249,5 @@ var NAVTREEINDEX47 =
 "classast_1_1TrackingCoordinates.html#a64f75674461ab4b8d2e5751a9026e6fd":[3,0,0,999,4],
 "classast_1_1TrackingCoordinates.html#aa358341c4a9a4d968cf68ebb41cf2d64":[2,0,0,1000,7],
 "classast_1_1TrackingCoordinates.html#aa358341c4a9a4d968cf68ebb41cf2d64":[3,0,0,999,7],
-"classast_1_1TrackingCoordinates.html#aa7acfdd09596d415a85e6662e49ccde2":[2,0,0,1000,2],
-"classast_1_1TrackingCoordinates.html#aa7acfdd09596d415a85e6662e49ccde2":[3,0,0,999,2],
-"classast_1_1TrackingCoordinates.html#ad29ce2c328635f98d20e7c0a6e04cbb5":[2,0,0,1000,6]
+"classast_1_1TrackingCoordinates.html#aa7acfdd09596d415a85e6662e49ccde2":[2,0,0,1000,2]
 };

@@ -63,9 +63,9 @@ var group__Geometry =
     [ "ast::PFrame", "group__Geometry.html#ga2dc6e719459f9795d6954e1ce6b2b572", null ],
     [ "ast::PPoint", "group__Geometry.html#ga7ebf47c650029bacb1fae24682d1b217", null ],
     [ "ast::PVector", "group__Geometry.html#ga7e89f801d20d9ca4dc58041420a598c4", null ],
-    [ "ast::aAxesTransform", "group__Geometry.html#gade0110d2c04736f0da03998811b0709e", null ],
-    [ "ast::aAxesTransform", "group__Geometry.html#ga8df2c7bf8191ebe4fd5f05e4a36ef6a1", null ],
-    [ "ast::aAxesTransform", "group__Geometry.html#ga496c2284c6a9df869188557591e913f7", null ],
-    [ "ast::aFrameTransform", "group__Geometry.html#ga36550fd35eae0f148c74019d9361fe50", null ],
-    [ "ast::aFrameTransform", "group__Geometry.html#gaa81634b12286af6573a62d48d9da70f2", null ]
+    [ "ast::aAxesTransform", "group__Geometry.html#gac2accfba19038de8be5fca7846a1e0be", null ],
+    [ "ast::aAxesTransform", "group__Geometry.html#gabaa8ef7dc971d1169a8873690efee03d", null ],
+    [ "ast::aAxesTransform", "group__Geometry.html#gaa1df848eb238deb89077b2d4de987ad5", null ],
+    [ "ast::aFrameTransform", "group__Geometry.html#gab20c161ed6f563693ed29e82bcf89e0d", null ],
+    [ "ast::aFrameTransform", "group__Geometry.html#ga8cd86ddebb4ee196132177b4daf7753c", null ]
 ];

@@ -138,6 +138,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a459d28a4e3666674d0d8a795227432e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a742f5ba7822492b2c487f2d3d83f0e" id="r_a8a742f5ba7822492b2c487f2d3d83f0e"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a742f5ba7822492b2c487f2d3d83f0e">setState</a> (const <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem)=0</td></tr>
 <tr class="separator:a8a742f5ba7822492b2c487f2d3d83f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77e57ca68c51b5a2402f08ab00a0f6fc" id="r_a77e57ca68c51b5a2402f08ab00a0f6fc"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77e57ca68c51b5a2402f08ab00a0f6fc">getStateIn</a> (<a class="el" href="classast_1_1CelestialBody.html">Body</a> *body, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;geodetic) const</td></tr>
+<tr class="separator:a77e57ca68c51b5a2402f08ab00a0f6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab141ef098d8f8651ca3b68652eac1719" id="r_ab141ef098d8f8651ca3b68652eac1719"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab141ef098d8f8651ca3b68652eac1719">getStateIn</a> (<a class="el" href="classast_1_1Frame.html">Frame</a> *frame, <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a> &amp;orbElem) const</td></tr>
 <tr class="separator:ab141ef098d8f8651ca3b68652eac1719"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a25d27bf2f8c9c69725b9b7f28b9fdc" id="r_a1a25d27bf2f8c9c69725b9b7f28b9fdc"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a25d27bf2f8c9c69725b9b7f28b9fdc">getStateIn</a> (<a class="el" href="classast_1_1Frame.html">Frame</a> *frame, <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;state) const</td></tr>
@@ -590,8 +592,39 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 
 </div>
 </div>
+<a id="a77e57ca68c51b5a2402f08ab00a0f6fc" name="a77e57ca68c51b5a2402f08ab00a0f6fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e57ca68c51b5a2402f08ab00a0f6fc">&#9670;&#160;</a></span>getStateIn() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::State::getStateIn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1CelestialBody.html">Body</a> *</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>geodetic</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取在给定天体下的大地坐标 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">body</td><td>天体 </td></tr>
+    <tr><td class="paramname">geodetic</td><td>大地坐标 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
+
+</div>
+</div>
 <a id="a1a25d27bf2f8c9c69725b9b7f28b9fdc" name="a1a25d27bf2f8c9c69725b9b7f28b9fdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a25d27bf2f8c9c69725b9b7f28b9fdc">&#9670;&#160;</a></span>getStateIn() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a25d27bf2f8c9c69725b9b7f28b9fdc">&#9670;&#160;</a></span>getStateIn() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -622,7 +655,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </div>
 </div>
 <a id="ab141ef098d8f8651ca3b68652eac1719" name="ab141ef098d8f8651ca3b68652eac1719"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab141ef098d8f8651ca3b68652eac1719">&#9670;&#160;</a></span>getStateIn() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab141ef098d8f8651ca3b68652eac1719">&#9670;&#160;</a></span>getStateIn() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

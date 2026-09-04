@@ -1,5 +1,7 @@
 var NAVTREEINDEX48 =
 {
+"classast_1_1TrackingCoordinates.html#aa7acfdd09596d415a85e6662e49ccde2":[3,0,0,999,2],
+"classast_1_1TrackingCoordinates.html#ad29ce2c328635f98d20e7c0a6e04cbb5":[2,0,0,1000,6],
 "classast_1_1TrackingCoordinates.html#ad29ce2c328635f98d20e7c0a6e04cbb5":[3,0,0,999,6],
 "classast_1_1TraitObject.html":[2,0,0,1001],
 "classast_1_1TraitObject.html":[3,0,0,1000],
@@ -247,7 +249,5 @@ var NAVTREEINDEX48 =
 "classast_1_1UiFigure.html#a3044dc8f58277c162fa95f3df1708d49":[2,0,0,1034,5],
 "classast_1_1UiFigure.html#a3044dc8f58277c162fa95f3df1708d49":[3,0,0,1033,5],
 "classast_1_1UiFigure.html#a332305b0f2ede669e38d325e70407f22":[2,0,0,1034,10],
-"classast_1_1UiFigure.html#a332305b0f2ede669e38d325e70407f22":[3,0,0,1033,10],
-"classast_1_1UiFigure.html#a3edb15b4abbad49233188b32bf704632":[2,0,0,1034,17],
-"classast_1_1UiFigure.html#a3edb15b4abbad49233188b32bf704632":[3,0,0,1033,17]
+"classast_1_1UiFigure.html#a332305b0f2ede669e38d325e70407f22":[3,0,0,1033,10]
 };

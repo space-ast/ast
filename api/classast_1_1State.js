@@ -10,6 +10,7 @@ var classast_1_1State =
     [ "getStateEpoch", "classast_1_1State.html#abb916597a235c6ba0a9615ed5f8402ae", null ],
     [ "getStateEpoch_TimePoint", "classast_1_1State.html#a6425a00e70b89d0a65875dd795d53e3c", null ],
     [ "getStateEpochHandle", "classast_1_1State.html#a8a1bd288e80210a7246180f525c80023", null ],
+    [ "getStateIn", "classast_1_1State.html#a77e57ca68c51b5a2402f08ab00a0f6fc", null ],
     [ "getStateIn", "classast_1_1State.html#a1a25d27bf2f8c9c69725b9b7f28b9fdc", null ],
     [ "getStateIn", "classast_1_1State.html#ab141ef098d8f8651ca3b68652eac1719", null ],
     [ "getStateInBodyInertial", "classast_1_1State.html#ab654ca49e23a6146af21ad9894c4f443", null ],

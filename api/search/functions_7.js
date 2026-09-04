@@ -384,7 +384,7 @@ var searchData=
   ['getstateepoch_381',['getStateEpoch',['../classast_1_1State.html#abb916597a235c6ba0a9615ed5f8402ae',1,'ast::State::getStateEpoch(TimePoint &amp;stateEpoch) const'],['../classast_1_1State.html#a057ea43352c4a6da5c624a4d01f5f830',1,'ast::State::getStateEpoch() const']]],
   ['getstateepoch_5ftimepoint_382',['getStateEpoch_TimePoint',['../classast_1_1State.html#a6425a00e70b89d0a65875dd795d53e3c',1,'ast::State']]],
   ['getstateepochhandle_383',['getStateEpochHandle',['../classast_1_1State.html#a8a1bd288e80210a7246180f525c80023',1,'ast::State']]],
-  ['getstatein_384',['getStateIn',['../classast_1_1State.html#ab141ef098d8f8651ca3b68652eac1719',1,'ast::State::getStateIn(Frame *frame, ModOrbElem &amp;orbElem) const'],['../classast_1_1State.html#a1a25d27bf2f8c9c69725b9b7f28b9fdc',1,'ast::State::getStateIn(Frame *frame, CartState &amp;state) const']]],
+  ['getstatein_384',['getStateIn',['../classast_1_1State.html#a77e57ca68c51b5a2402f08ab00a0f6fc',1,'ast::State::getStateIn(Body *body, GeodeticPoint &amp;geodetic) const'],['../classast_1_1State.html#ab141ef098d8f8651ca3b68652eac1719',1,'ast::State::getStateIn(Frame *frame, ModOrbElem &amp;orbElem) const'],['../classast_1_1State.html#a1a25d27bf2f8c9c69725b9b7f28b9fdc',1,'ast::State::getStateIn(Frame *frame, CartState &amp;state) const']]],
   ['getstateinbodyinertial_385',['getStateInBodyInertial',['../classast_1_1State.html#ab654ca49e23a6146af21ad9894c4f443',1,'ast::State']]],
   ['getstateindex_386',['getStateIndex',['../classast_1_1BlockDynamicSystem.html#ac3f275c6e258c474e5cbbed3810449c1',1,'ast::BlockDynamicSystem']]],
   ['getstateinrepresentation_387',['getStateInRepresentation',['../classast_1_1StateKeplerian.html#add0db14feed66b60724c37037f53ce2d',1,'ast::StateKeplerian']]],
