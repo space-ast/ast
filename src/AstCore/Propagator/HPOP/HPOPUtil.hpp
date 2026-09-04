@@ -48,6 +48,12 @@ AST_CORE_CAPI errc_t aHPOPEquation_SetDragCoefficient(HPOPEquation* equation, do
 AST_CORE_CAPI errc_t aHPOPEquation_SetSRPCoefficient(HPOPEquation* equation, double cr);
 
 
+/*
+note:
+为什么不写为 aHPOP_SetSRPCoefficient？
+因为这也声明会存在歧义，而该函数并不会修改 HPOP.forceModel() 中的 SRP光压系数，阻力系数同理
+*/
+
 /*! @} */
 
 AST_NAMESPACE_END

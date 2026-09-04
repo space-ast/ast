@@ -137,6 +137,18 @@ public:
     /// @param[in] eventDetector 事件检测器实例指针
     void addEventDetector(EventDetector* eventDetector);
 
+    /// @brief 添加事件检测器（泛型模板）
+    /// @param[in] func 事件检测器函数指针
+    /// @return 事件检测器实例指针
+    template<typename Func>
+    typename std::enable_if<!std::is_base_of<EventDetector, typename std::remove_pointer<Func>::type>::value, EventDetector*>::type
+    addEventDetector(Func func)
+    {
+        EventDetector* detector = new EventDetectorGeneric<Func>(func);
+        addEventDetector(detector);
+        return detector;
+    }
+
     /// @brief 清除所有事件检测器
     void clearEventDetectors();
 

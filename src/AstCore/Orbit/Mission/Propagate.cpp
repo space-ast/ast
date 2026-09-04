@@ -65,7 +65,7 @@ errc_t Propagate::execute()
     {
         // 检查事件检测器是否激活
         if(eventDetector && eventDetector->active())
-            propagator->addEventDetector(eventDetector);
+            propagator->addEventDetector(eventDetector.get());
     }
     // 设置航天器参数
     propagator->setSpacecraftParam(inputState->spacecraftParam());

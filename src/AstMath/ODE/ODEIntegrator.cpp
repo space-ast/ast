@@ -21,6 +21,7 @@
 #include "ODEIntegrator.hpp"
 #include "AstMath/ODEStateVectorCollector.hpp"
 #include "AstMath/MathOperator.hpp"
+#include <algorithm>
 
 AST_NAMESPACE_BEGIN
 
@@ -118,7 +119,7 @@ errc_t ODEIntegrator::integrateFixedStep(ODE& ode, double stepSize, double* y, d
     // 初始化积分器
     this->initialize(ode);
     int numSteps = 0;
-    
+
     errc_t err = eNoError;
     if(stepSize <= 0)
     {
@@ -126,37 +127,48 @@ errc_t ODEIntegrator::integrateFixedStep(ODE& ode, double stepSize, double* y, d
     }
     double t0 = t;
     double habs = std::min((stepSize), fabs(tf - t0));
-    /// int ndim = ode.getDimension();
     int tdir = sign(tf - t0);
-    // double step = tdir * habs;
-    // int numSteps = static_cast<int>(std::ceil(fabs(tf - t0) / stepSize));
-    // double t = t0;
-    // std::copy_n(y0, ndim, yf);
+    const int ndim = ode.getDimension();
+
+    // 同步事件检测器精确根查找所需的"当前积分步起点"状态与时间。
+    // 变步长积分路径（ODEVarStepIntegrator::integrate）在每次单步前维护
+    // stateAtStepStart_/timeAtStepStart_，固定步长路径此前未维护，导致
+    // findEventTime 依赖的是陈旧状态与时间，从而根查找失败。
+    std::copy_n(y, ndim, stateAtStepStart_);
+    std::copy_n(y, ndim, stateAtStepEnd_);
+    timeAtStepStart_ = t0;
+    timeAtStepEnd_   = t0;
+
     if(workStateObserver_)
     {
-        if(workStateObserver_->onStateUpdate(y, t, this) == EODEAction::eStop)
+        if(workStateObserver_->onStateUpdate(stateAtStepEnd_, timeAtStepEnd_, this) == EODEAction::eStop)
         {
             return eNoError;
         }
     }
-    while (tdir * (tf - t) > 0) {
-        double h = tdir * std::min(habs, std::abs(tf - t));
-        err = this->singleStep(ode, y, t, h);
+    while (tdir * (tf - timeAtStepEnd_) > 0) {
+        double h = tdir * std::min(habs, std::abs(tf - timeAtStepEnd_));
+        // 记录单步起点状态与时间，供事件查找从本步起点精确重放
+        std::copy_n(stateAtStepEnd_, ndim, stateAtStepStart_);
+        timeAtStepStart_ = timeAtStepEnd_;
+        err = this->singleStep(ode, stateAtStepEnd_, timeAtStepEnd_, h);
         if (err != eNoError) {
             return err;
         }
-        t += h;
+        timeAtStepEnd_ += h;
         numSteps ++;
-        if(pNumSteps)
-            *pNumSteps = numSteps;
         if(workStateObserver_)
         {
-            if(workStateObserver_->onStateUpdate(y, t, this) == EODEAction::eStop)
+            if(workStateObserver_->onStateUpdate(stateAtStepEnd_, timeAtStepEnd_, this) == EODEAction::eStop)
             {
                 break;
             }
         }
     }
+    t = timeAtStepEnd_;
+    std::copy_n(stateAtStepEnd_, ndim, y);
+    if(pNumSteps)
+        *pNumSteps = numSteps;
     return eNoError;
 }
 
