@@ -115,101 +115,102 @@ $(function(){initNavTree('HPOP_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;AstCore/OrbitElement.hpp&quot;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;AstCore/HPOPForceModel.hpp&quot;</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;AstCore/SpacecraftParam.hpp&quot;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;AstCore/Frame.hpp&quot;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;AstCore/EventDetector.hpp&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;AstCore/Frame.hpp&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">class </span>HPOPEquation; </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">class </span>ODEIntegrator;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">class </span>HPOPForceModel;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">class </span>HPOPStateMapper;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="foldopen" id="foldopen00062" data-start="{" data-end="};">
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1HPOP.html">   62</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1HPOP.html">HPOP</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1ObjectNamed.html">ObjectNamed</a></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>{</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1HPOP.html">HPOP</a>)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1HPOP.html">HPOP</a>();</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1HPOP.html">~HPOP</a>();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    errc_t setForceModel(<a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&amp;&amp; forcemodel);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    errc_t setForceModel(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&amp; forcemodel);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&amp; forceModel() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> setSpacecraftParam(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a>&amp; spacecraftParam);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a>&amp; spacecraftParam() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* propagationFrame() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    errc_t setPropagationFrame(<a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* frame);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> setIntegrator(<a class="code hl_class" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a>* integrator);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_class" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a>* getIntegrator() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    errc_t propagate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, Vector3d&amp; position, Vector3d&amp; velocity);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    errc_t propagate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, <a class="code hl_class" href="classast_1_1CartState.html">CartState</a>&amp; state){<span class="keywordflow">return</span> propagate(startTime, targetTime, state.position(), state.velocity());}</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">class </span>HPOPEquation; </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">class </span>ODEIntegrator;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">class </span>HPOPForceModel;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">class </span>HPOPStateMapper;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="};">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classast_1_1HPOP.html">   63</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1HPOP.html">HPOP</a>: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1ObjectNamed.html">ObjectNamed</a></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>{</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1HPOP.html">HPOP</a>)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="classast_1_1HPOP.html">HPOP</a>();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_class" href="classast_1_1HPOP.html">~HPOP</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    errc_t setForceModel(<a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&amp;&amp; forcemodel);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    errc_t setForceModel(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&amp; forcemodel);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>&amp; forceModel() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> setSpacecraftParam(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a>&amp; spacecraftParam);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1SpacecraftParam.html">SpacecraftParam</a>&amp; spacecraftParam() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* propagationFrame() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    errc_t setPropagationFrame(<a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* frame);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> setIntegrator(<a class="code hl_class" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a>* integrator);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_class" href="classast_1_1ODEIntegrator.html">ODEIntegrator</a>* getIntegrator() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    errc_t propagate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, Vector3d&amp; position, Vector3d&amp; velocity);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    errc_t propagate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, <a class="code hl_class" href="classast_1_1CartState.html">CartState</a>&amp; state){<span class="keywordflow">return</span> propagate(startTime, targetTime, state.position(), state.velocity());}</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    errc_t propagate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, <a class="code hl_class" href="classast_1_1CartState.html">CartState</a>&amp; state, <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>&amp; stm);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    errc_t propagate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime,</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                     <a class="code hl_class" href="classast_1_1CartState.html">CartState</a>&amp; state, <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>&amp; stm,</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                     Vector6d&amp; stateSensWrtDrag, Vector6d&amp; stateSensWrtSRP);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    errc_t initialize();</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <a class="code hl_class" href="classast_1_1StateMapper.html">StateMapper</a>* stateMapper() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">void</span> addEventDetector(<a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>* eventDetector);</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func&gt;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keyword">typename</span> std::enable_if&lt;!std::is_base_of&lt;EventDetector, typename std::remove_pointer&lt;Func&gt;::type&gt;::value, <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>*&gt;::type</div>
-<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classast_1_1HPOP.html#a65ad6d0449d13661286bb20fda41ae21">  145</a></span>    <a class="code hl_function" href="classast_1_1HPOP.html#a65ad6d0449d13661286bb20fda41ae21">addEventDetector</a>(Func func)</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    {</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>* detector = <span class="keyword">new</span> <a class="code hl_class" href="classast_1_1EventDetectorGeneric.html">EventDetectorGeneric&lt;Func&gt;</a>(func);</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        addEventDetector(detector);</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordflow">return</span> detector;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    errc_t propagate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, <a class="code hl_class" href="classast_1_1CartState.html">CartState</a>&amp; state, <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>&amp; stm);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    errc_t propagate(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                     <a class="code hl_class" href="classast_1_1CartState.html">CartState</a>&amp; state, <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix6d</a>&amp; stm,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                     Vector6d&amp; stateSensWrtDrag, Vector6d&amp; stateSensWrtSRP);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    errc_t initialize();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <a class="code hl_class" href="classast_1_1StateMapper.html">StateMapper</a>* stateMapper() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">void</span> addEventDetector(<a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>* eventDetector);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func&gt;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keyword">typename</span> std::enable_if&lt;!std::is_base_of&lt;EventDetector, typename std::remove_pointer&lt;Func&gt;::type&gt;::value, <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>*&gt;::type</div>
+<div class="foldopen" id="foldopen00146" data-start="{" data-end="}">
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classast_1_1HPOP.html#a65ad6d0449d13661286bb20fda41ae21">  146</a></span>    <a class="code hl_function" href="classast_1_1HPOP.html#a65ad6d0449d13661286bb20fda41ae21">addEventDetector</a>(Func func)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <a class="code hl_class" href="classast_1_1EventDetector.html">EventDetector</a>* detector = <span class="keyword">new</span> <a class="code hl_class" href="classast_1_1EventDetectorGeneric.html">EventDetectorGeneric&lt;Func&gt;</a>(func);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        addEventDetector(detector);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordflow">return</span> detector;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
 </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">void</span> clearEventDetectors();</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">  156</a></span>    <a class="code hl_class" href="classast_1_1HPOPEquation.html">HPOPEquation</a>* <a class="code hl_function" href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">equation</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> equation_.get();}</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <a class="code hl_class" href="classast_1_1HPOPEquation.html">HPOPEquation</a>* ensureEquation() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    errc_t integrateState(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, <span class="keywordtype">double</span>* y);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>  forceModel_{};                     </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    SpacecraftParam spacecraftParam_{};                </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <a class="code hl_typedef" href="group__Geometry.html#gab94af565f9e33f444abcd912e6135cbd">HFrame</a>          propagationFrame_{};               </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keyword">mutable</span> ScopedPtr&lt;HPOPEquation&gt; equation_{};       </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keyword">mutable</span> SharedPtr&lt;ODEIntegrator&gt; integrator_{};    </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    ScopedPtr&lt;HPOPStateMapper&gt; stateMapper_{};         </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>};</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordtype">void</span> clearEventDetectors();</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">  157</a></span>    <a class="code hl_class" href="classast_1_1HPOPEquation.html">HPOPEquation</a>* <a class="code hl_function" href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">equation</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> equation_.get();}</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <a class="code hl_class" href="classast_1_1HPOPEquation.html">HPOPEquation</a>* ensureEquation() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    errc_t integrateState(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; startTime, <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; targetTime, <span class="keywordtype">double</span>* y);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <a class="code hl_class" href="classast_1_1HPOPForceModel.html">HPOPForceModel</a>  forceModel_{};                     </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    SpacecraftParam spacecraftParam_{};                </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <a class="code hl_typedef" href="group__Geometry.html#gab94af565f9e33f444abcd912e6135cbd">HFrame</a>          propagationFrame_{};               </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keyword">mutable</span> ScopedPtr&lt;HPOPEquation&gt; equation_{};       </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keyword">mutable</span> SharedPtr&lt;ODEIntegrator&gt; integrator_{};    </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    ScopedPtr&lt;HPOPStateMapper&gt; stateMapper_{};         </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>};</div>
 </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1CartState_html"><div class="ttname"><a href="classast_1_1CartState.html">ast::CartState</a></div><div class="ttdoc">直角坐标</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:46</div></div>
 <div class="ttc" id="aclassast_1_1EventDetectorGeneric_html"><div class="ttname"><a href="classast_1_1EventDetectorGeneric.html">ast::EventDetectorGeneric</a></div><div class="ttdoc">泛型事件检测器</div><div class="ttdef"><b>定义</b> EventDetector.hpp:110</div></div>
 <div class="ttc" id="aclassast_1_1EventDetector_html"><div class="ttname"><a href="classast_1_1EventDetector.html">ast::EventDetector</a></div><div class="ttdoc">事件检测基类 事件检测基类，用于检测事件是否发生。 参考orekit的EventDetector类</div><div class="ttdef"><b>定义</b> EventDetector.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系抽象基类</div><div class="ttdef"><b>定义</b> Frame.hpp:64</div></div>
 <div class="ttc" id="aclassast_1_1HPOPEquation_html"><div class="ttname"><a href="classast_1_1HPOPEquation.html">ast::HPOPEquation</a></div><div class="ttdoc">高精度轨道预报方程</div><div class="ttdef"><b>定义</b> HPOPEquation.hpp:49</div></div>
 <div class="ttc" id="aclassast_1_1HPOPForceModel_html"><div class="ttname"><a href="classast_1_1HPOPForceModel.html">ast::HPOPForceModel</a></div><div class="ttdoc">高精度轨道预报力模型</div><div class="ttdef"><b>定义</b> HPOPForceModel.hpp:49</div></div>
-<div class="ttc" id="aclassast_1_1HPOP_html"><div class="ttname"><a href="classast_1_1HPOP.html">ast::HPOP</a></div><div class="ttdoc">高精度轨道预报器</div><div class="ttdef"><b>定义</b> HPOP.hpp:63</div></div>
-<div class="ttc" id="aclassast_1_1HPOP_html_a65ad6d0449d13661286bb20fda41ae21"><div class="ttname"><a href="classast_1_1HPOP.html#a65ad6d0449d13661286bb20fda41ae21">ast::HPOP::addEventDetector</a></div><div class="ttdeci">std::enable_if&lt;!std::is_base_of&lt; EventDetector, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, EventDetector * &gt;::type addEventDetector(Func func)</div><div class="ttdoc">添加事件检测器（泛型模板）</div><div class="ttdef"><b>定义</b> HPOP.hpp:145</div></div>
-<div class="ttc" id="aclassast_1_1HPOP_html_aec239270bbfe178ad2bf302758a1ed04"><div class="ttname"><a href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">ast::HPOP::equation</a></div><div class="ttdeci">HPOPEquation * equation() const</div><div class="ttdoc">获取高精度轨道预报方程（可能为 nullptr）</div><div class="ttdef"><b>定义</b> HPOP.hpp:156</div></div>
+<div class="ttc" id="aclassast_1_1HPOP_html"><div class="ttname"><a href="classast_1_1HPOP.html">ast::HPOP</a></div><div class="ttdoc">高精度轨道预报器</div><div class="ttdef"><b>定义</b> HPOP.hpp:64</div></div>
+<div class="ttc" id="aclassast_1_1HPOP_html_a65ad6d0449d13661286bb20fda41ae21"><div class="ttname"><a href="classast_1_1HPOP.html#a65ad6d0449d13661286bb20fda41ae21">ast::HPOP::addEventDetector</a></div><div class="ttdeci">std::enable_if&lt;!std::is_base_of&lt; EventDetector, typenamestd::remove_pointer&lt; Func &gt;::type &gt;::value, EventDetector * &gt;::type addEventDetector(Func func)</div><div class="ttdoc">添加事件检测器（泛型模板）</div><div class="ttdef"><b>定义</b> HPOP.hpp:146</div></div>
+<div class="ttc" id="aclassast_1_1HPOP_html_aec239270bbfe178ad2bf302758a1ed04"><div class="ttname"><a href="classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04">ast::HPOP::equation</a></div><div class="ttdeci">HPOPEquation * equation() const</div><div class="ttdoc">获取高精度轨道预报方程（可能为 nullptr）</div><div class="ttdef"><b>定义</b> HPOP.hpp:157</div></div>
 <div class="ttc" id="aclassast_1_1MatrixMN_html"><div class="ttname"><a href="classast_1_1MatrixMN.html">ast::MatrixMN&lt; double, 6, 6 &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1ODEIntegrator_html"><div class="ttname"><a href="classast_1_1ODEIntegrator.html">ast::ODEIntegrator</a></div><div class="ttdoc">ODE 积分器</div><div class="ttdef"><b>定义</b> ODEIntegrator.hpp:87</div></div>
 <div class="ttc" id="aclassast_1_1ObjectNamed_html"><div class="ttname"><a href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></div><div class="ttdoc">命名对象</div><div class="ttdef"><b>定义</b> ObjectNamed.hpp:36</div></div>
