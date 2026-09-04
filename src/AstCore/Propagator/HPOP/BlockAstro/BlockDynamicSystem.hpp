@@ -63,7 +63,6 @@ class AST_CORE_API BlockDynamicSystem : public BlockSystem
 public:
     BlockDynamicSystem() = default;
     ~BlockDynamicSystem() = default;
-    A_DISABLE_COPY(BlockDynamicSystem);
 
     /// @brief 获取状态量大小
     /// @return 状态量大小
