@@ -22,7 +22,7 @@
  
 #include "AstGlobal.h"
 #include "Duration.hpp"             // for LongDuration
-#include "AstCore/Constants.hpp"      // for kJ2000XXXX
+#include "AstUtil/Constants.hpp"      // for kJ2000XXXX
 #include "AstCore/JulianDate.hpp"    
 #include "AstCore/DateTime.hpp"
 #include "AstCore/RunTime.hpp"

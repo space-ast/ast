@@ -23,7 +23,7 @@
 #include "AstMath/AngleAxis.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstMath/MathOperator.hpp"
-#include "AstCore/Constants.hpp"
+#include "AstUtil/Constants.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Math.hpp"
 
