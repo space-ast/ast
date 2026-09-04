@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include <limits>
  
 AST_NAMESPACE_BEGIN
 
@@ -57,6 +58,13 @@ constexpr double kHalfPI     =  1.5707963267948966192313216916395	              
 constexpr double kThirdPI    =  1.047197551196597746154214461093	                 ;	    ///< PI/3
 constexpr double kQuarterPI  =  0.78539816339744830961566084581975	                 ;	    ///< PI/4
 constexpr double kSqrPI      =  9.869604401089358618834490999873	                 ;	    ///< PI*PI, PI squared
+
+
+// 其他数学运算常量
+constexpr double kNaN        =  std::numeric_limits<double>::quiet_NaN();                   ///< NaN 常量
+constexpr double kInf        = +std::numeric_limits<double>::infinity();                    ///< Infinity 常量
+constexpr double kNegInf     = -std::numeric_limits<double>::infinity();                    ///< Negative Infinity 常量
+
 
 
 // 天文常量
