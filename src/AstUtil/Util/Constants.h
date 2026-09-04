@@ -1,5 +1,5 @@
 ///
-/// @file      Constants.hpp
+/// @file      Constants.h
 /// @brief     
 /// @details   
 /// @author    axel
@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Constants.h"
+#include "Constants.hpp"
 
 AST_NAMESPACE_BEGIN
 
