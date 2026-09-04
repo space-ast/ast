@@ -22,10 +22,11 @@
 
 #include "AstGlobal.h"
 #include "EventDetector.hpp"
+#include "DetectorBodyRelated.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class AST_CORE_API DetectorAltitude : public EventDetector
+class AST_CORE_API DetectorAltitude : public DetectorBodyRelated
 {
 public:
     AST_OBJECT(DetectorAltitude)

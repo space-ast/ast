@@ -112,6 +112,11 @@ public:
     /// @return errc_t 错误码
     virtual errc_t setState(const ModOrbElem& orbElem) = 0;
 
+    /// @brief 获取在给定天体下的大地坐标
+    /// @param body 天体
+    /// @param geodetic 大地坐标
+    /// @return errc_t 错误码
+    errc_t getStateIn(Body* body, GeodeticPoint& geodetic) const;
 
     /// @brief 获取在给定坐标系下的状态根数
     /// @param frame 坐标系

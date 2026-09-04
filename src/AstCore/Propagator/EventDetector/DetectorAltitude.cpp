@@ -19,9 +19,24 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "DetectorAltitude.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstUtil/Constants.hpp"
+#include "AstCore/SpacecraftState.hpp"
+#include "AstCore/GeodeticPoint.hpp"
 
 AST_NAMESPACE_BEGIN
-double DetectorAltitude::getValue(const SpacecraftState& state, double t) const { return 0.0; }
+
+double DetectorAltitude::getValue(const SpacecraftState& state, double t) const 
+{ 
+    GeodeticPoint geodetic;
+    errc_t rc = state.getStateIn(body(), geodetic);
+    if(rc)
+    {
+        aWarning("failed to get geodetic point");
+        return kNaN;
+    }
+    return geodetic.altitude(); 
+}
 
 
 

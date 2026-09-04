@@ -43,7 +43,9 @@ public:
     DetectorPeriapsis();
 
     double getValue(const SpacecraftState& state, double t) const override;
-    
+private:  // 屏蔽基类函数
+    using DetectorBodyRelated::setDirection;
+    using DetectorBodyRelated::setGoal;
 };
 
 /*! @} */

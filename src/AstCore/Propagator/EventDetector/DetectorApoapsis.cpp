@@ -19,9 +19,10 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "DetectorApoapsis.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstUtil/Constants.hpp"
 #include "AstCore/SpacecraftState.hpp"
 #include "AstCore/OrbitElement.hpp"
-#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -42,7 +43,10 @@ double DetectorApoapsis::getValue(const SpacecraftState& scState, double t) cons
     CartState cartState;
     errc_t rc = scState.getStateInBodyInertial(body, cartState);
     if(rc)
+    {
         aWarning("failed to get state");
+        return kNaN;
+    }
     double v = cartState.vel().dot(cartState.pos().normalized());
     return v;
 }

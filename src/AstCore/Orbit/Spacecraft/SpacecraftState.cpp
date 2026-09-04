@@ -60,6 +60,11 @@ errc_t SpacecraftState::getState(CartState& state) const
     return getOrbitState()->getState(state);
 }
 
+errc_t SpacecraftState::getStateIn(Body *body, GeodeticPoint &geodetic) const
+{
+    return getOrbitState()->getStateIn(body, geodetic);
+}
+
 errc_t SpacecraftState::getStateIn(Frame* frame, CartState& state) const
 {
     return getOrbitState()->getStateIn(frame, state);

@@ -20,6 +20,7 @@
 
 #include "DetectorPeriapsis.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Constants.hpp"
 #include "AstCore/SpacecraftState.hpp"
 #include "AstCore/OrbitElement.hpp"
 
@@ -48,7 +49,10 @@ double DetectorPeriapsis::getValue(const SpacecraftState& scState, double t) con
     CartState cartState;
     errc_t rc = scState.getStateInBodyInertial(body, cartState);
     if(rc)
+    {
         aWarning("failed to get state");
+        return kNaN;
+    }
     double v = cartState.vel().dot(cartState.pos().normalized());    
     return v;
 }
