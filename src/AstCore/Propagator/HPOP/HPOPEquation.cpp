@@ -277,8 +277,8 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     if(!frame)
     {
         frame = body->getFrameInertial();
-        assert(frame);
-        aWarning("propagation frame is not set, using the inertial frame of '%s' as the default propagation frame.", body->getName().c_str());
+        // assert(frame);
+        // aWarning("propagation frame is not set, using the inertial frame of '%s' as the default propagation frame.", body->getName().c_str());
         if(!frame)
             return eErrorNullInput;
     }

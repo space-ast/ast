@@ -30,6 +30,7 @@
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/HPOPForceModel.hpp"
 #include "AstCore/SpacecraftParam.hpp"
+#include "AstCore/EventDetector.hpp"
 #include "AstCore/Frame.hpp"
 #include <string>
 #include <vector>
