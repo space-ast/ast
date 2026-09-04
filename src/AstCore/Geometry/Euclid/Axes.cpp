@@ -20,6 +20,7 @@
 
 #include "Axes.hpp"
 #include "Frame.hpp"
+#include "AstUtil/Logger.hpp"
 #include "AstMath/Rotation.hpp"
 #include "AstMath/KinematicRotation.hpp"
 #include "AstMath/KinematicTransform.hpp"
@@ -111,6 +112,11 @@ A_ALWAYS_INLINE errc_t aGeometryTransform(GeometryType& source, GeometryType& ta
     }
     // 2. 寻找最近的公共祖先
     {
+        if(sourcePath[sourceDepth - 1] != targetPath[targetDepth - 1])
+        {
+            aWarning("failed to find common common ancestor");
+            return eErrorInvalidParam;
+        }
         if(sourceDepth > targetDepth){
             sourceDepth = sourceDepth - targetDepth;
             targetDepth = 0;
