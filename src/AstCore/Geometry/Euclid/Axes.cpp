@@ -65,17 +65,12 @@ Axes* Axes::getAncestor(int depth) const{
 
 
 template<typename GeometryType, typename RotationType>
-A_ALWAYS_INLINE errc_t aGeometryTransform(GeometryType *source, GeometryType *target, const TimePoint& tp, RotationType &rotation)
+A_ALWAYS_INLINE errc_t aGeometryTransform(GeometryType& source, GeometryType& target, const TimePoint& tp, RotationType &rotation)
 {
     // if (A_UNLIKELY(source == nullptr || target == nullptr))
     // {
     //     return eErrorNullInput;
     // }
-    
-    assert(source != nullptr && target != nullptr);
-
-    A_ASSUME(source!=nullptr);
-    A_ASSUME(target!=nullptr);
     
     /*!
         计算出源坐标系和目标坐标系的深度，
@@ -100,14 +95,14 @@ A_ALWAYS_INLINE errc_t aGeometryTransform(GeometryType *source, GeometryType *ta
     // 1. 填充源坐标系路径和目标坐标系路径
     {
         // 填充源坐标系路径
-        GeometryType* current = source;
+        GeometryType* current = &source;
         do
         {
             sourcePath[sourceDepth++] = current;
             current = current->getParent();
         }while (current != nullptr);
         // 填充目标坐标系路径
-        current = target;
+        current = &target;
         do
         {
             targetPath[targetDepth++] = current;
@@ -154,47 +149,70 @@ A_ALWAYS_INLINE errc_t aGeometryTransform(GeometryType *source, GeometryType *ta
     return eNoError;
 }
 
-errc_t aFrameTransform(Frame* source, Frame* target, const TimePoint &tp, Transform& transform)
+errc_t aFrameTransform(Frame &source, Frame &target, const TimePoint &tp, Transform &transform)
+{
+    auto sourcePoint = source.getOrigin();
+    auto targetPoint = target.getOrigin();
+    if(sourcePoint == targetPoint){
+        transform.setTranslation(Vector3d::Zero());
+        return aAxesTransform(source.getAxes(), target.getAxes(), tp, transform.getRotation());
+    }
+    return aGeometryTransform<Frame, Transform>(source, target, tp, transform);
+}
+
+errc_t aFrameTransform(Frame *source, Frame *target, const TimePoint &tp, Transform &transform)
 {
     if (A_UNLIKELY(source == nullptr || target == nullptr))
         return eErrorNullInput;
-    auto sourcePoint = source->getOrigin();
-    auto targetPoint = target->getOrigin();
+    return aFrameTransform(*source, *target, tp, transform);
+}
+
+errc_t aFrameTransform(Frame &source, Frame &target, const TimePoint &tp, KinematicTransform &transform)
+{
+    auto sourcePoint = source.getOrigin();
+    auto targetPoint = target.getOrigin();
     if(sourcePoint == targetPoint){
         transform.setTranslation(Vector3d::Zero());
-        return aAxesTransform(source->getAxes(), target->getAxes(), tp, transform.getRotation());
+        transform.setVelocity(Vector3d::Zero());
+        return aAxesTransform(source.getAxes(), target.getAxes(), tp, transform.getKinematicRotation());
     }
-    return aGeometryTransform<Frame, Transform>(source, target, tp, transform);
+    return aGeometryTransform<Frame, KinematicTransform>(source, target, tp, transform);
 }
 
 errc_t aFrameTransform(Frame *source, Frame *target, const TimePoint &tp, KinematicTransform &transform)
 {
     if (A_UNLIKELY(source == nullptr || target == nullptr))
         return eErrorNullInput;
-    auto sourcePoint = source->getOrigin();
-    auto targetPoint = target->getOrigin();
-    if(sourcePoint == targetPoint){
-        transform.setTranslation(Vector3d::Zero());
-        transform.setVelocity(Vector3d::Zero());
-        return aAxesTransform(source->getAxes(), target->getAxes(), tp, transform.getKinematicRotation());
-    }
-    return aGeometryTransform<Frame, KinematicTransform>(source, target, tp, transform);
+    return aFrameTransform(*source, *target, tp, transform);
 }
 
-
-errc_t aAxesTransform(Axes *source, Axes *target, const TimePoint& tp, Rotation &rotation)
+errc_t aAxesTransform(Axes &source, Axes &target, const TimePoint &tp, Rotation &rotation)
 {
-    if (A_UNLIKELY(source == nullptr || target == nullptr))
-        return eErrorNullInput;
     return aGeometryTransform<Axes, Rotation>(source, target, tp, rotation);
 }
 
-
-errc_t aAxesTransform(Axes *source, Axes *target, const TimePoint& tp, KinematicRotation &rotation)
+errc_t aAxesTransform(Axes *source, Axes *target, const TimePoint &tp, Rotation &rotation)
 {
     if (A_UNLIKELY(source == nullptr || target == nullptr))
         return eErrorNullInput;
+    return aAxesTransform(*source, *target, tp, rotation);
+}
+
+errc_t aAxesTransform(Axes &source, Axes &target, const TimePoint &tp, KinematicRotation &rotation)
+{
     return aGeometryTransform<Axes, KinematicRotation>(source, target, tp, rotation);
+}
+
+errc_t aAxesTransform(Axes *source, Axes *target, const TimePoint &tp, KinematicRotation &rotation)
+{
+    if (A_UNLIKELY(source == nullptr || target == nullptr))
+        return eErrorNullInput;
+    return aAxesTransform(*source, *target, tp, rotation);
+}
+
+errc_t aAxesTransform(Axes &source, Axes &target, const TimePoint &tp, Matrix3d &matrix)
+{
+    return aAxesTransform(source, target, tp, Rotation::CastFrom(matrix));
 }
 
 errc_t aAxesTransform(Axes *source, Axes *target, const TimePoint &tp, Matrix3d &matrix)

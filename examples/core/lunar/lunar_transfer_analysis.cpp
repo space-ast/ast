@@ -65,7 +65,7 @@ void analyseLunarTransfer()
     detector->setBody("Moon"_body);
     hpop.setSpacecraftParam(spacecraftParam);
     hpop.setForceModel(fm);
-    hpop.addEventDetector(detector);
+    hpop.addEventDetector(detector.get());
     TimePoint stopTime = initTime + 10_day;
     errc_t rc = hpop.propagate(initTime, stopTime, state.pos(), state.vel());
     printf("stopTime: %s\n", stopTime.toString().c_str());
