@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "FundamentalArguments.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstUtil/Math.hpp"
 
 AST_NAMESPACE_BEGIN

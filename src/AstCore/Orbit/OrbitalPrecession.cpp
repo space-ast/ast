@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "OrbitalPrecession.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <cmath>
 
 

@@ -22,7 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/MathDegree.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <cmath>
 #include <cstddef>      // for size_t
 #include <cassert>

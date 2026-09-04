@@ -21,7 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include "AstCore/Constants.h"
+#include "AstCore/Constants.hpp"
 #include "AstCore/DateTime.hpp"
 #include "AstCore/JulianDate.hpp"
  

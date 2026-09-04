@@ -103,7 +103,7 @@
 #include "AstCore/Command.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"
 #include "AstCore/ConstantSpaceWeather.hpp"
-#include "AstCore/Constants.h"
+#include "AstCore/Constants.hpp"
 #include "AstCore/Continue.hpp"
 #include "AstCore/Coordinate.hpp"
 #include "AstCore/CriticallyInclinedOrbitDesigner.hpp"

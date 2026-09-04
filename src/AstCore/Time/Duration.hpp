@@ -21,7 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <stdint.h>     // for int64_t
  
 AST_NAMESPACE_BEGIN

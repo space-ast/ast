@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ast/AstTestMacro.h"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/Unit.hpp"
 
 AST_USING_NAMESPACE

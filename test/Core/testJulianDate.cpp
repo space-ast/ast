@@ -21,7 +21,7 @@
 #include "ast/JulianDate.hpp"
 #include "ast/Date.hpp"
 #include "ast/AstTestMacro.h"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/ModJulianDate.hpp"
 #include <cstdio>
 

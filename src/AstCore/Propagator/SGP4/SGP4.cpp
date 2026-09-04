@@ -20,7 +20,7 @@
 
 #include "SGP4.hpp"
 #include "SGP4.h"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstCore/BuiltinFrame.hpp"

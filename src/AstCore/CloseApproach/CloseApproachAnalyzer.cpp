@@ -29,7 +29,7 @@
 #include "AstCore/SGP4.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstMath/BrentOptimizer.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <algorithm>
 #include <chrono>
 #include <cmath>

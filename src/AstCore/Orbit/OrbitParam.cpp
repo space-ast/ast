@@ -20,7 +20,7 @@
  
 #include "OrbitParam.hpp" 
 #include "AstCore/MathOperator.hpp"
-#include "AstCore/Constants.h"
+#include "AstCore/Constants.hpp"
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/Axes.hpp"
 #include "AstUtil/Math.hpp"

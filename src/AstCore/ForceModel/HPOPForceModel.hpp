@@ -30,7 +30,7 @@
 #include "AstCore/RelativityCorrection.hpp"
 #include "AstUtil/Object.hpp"
 #include "AstUtil/ObjectNamed.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include "AstUtil/ClonePtr.hpp"
 #include <vector>

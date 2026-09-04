@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include "AstUtil/Object.hpp"
 #include "AstUtil/ObjectNamed.hpp"

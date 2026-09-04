@@ -18,7 +18,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ast/OrbitParam.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/AstTestMacro.h"
 #include <cstdio>
 

@@ -1,7 +1,7 @@
 #include "ast/SpiceZpr.hpp"
 #include "ast/Vector.hpp"
 #include "ast/Matrix.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include <cmath>
 #include <cstdio>
 

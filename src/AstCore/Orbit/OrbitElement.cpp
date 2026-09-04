@@ -20,11 +20,11 @@
  
 #include "OrbitElement.hpp"
 #include "OrbitParam.hpp"
-#include "AstCore/Constants.h"      // for pi, std::array
+#include "AstCore/Constants.hpp"      // for pi, std::array
 #include "AstCore/MathOperator.hpp" // for mod
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ParseFormat.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <cmath>
 
 #define PI kPI

@@ -13,7 +13,7 @@
 #include "ast/Matrix.hpp"
 #include "ast/AstTestMacro.h"
 #include <cmath>
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 
 AST_USING_NAMESPACE
 

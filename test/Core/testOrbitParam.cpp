@@ -19,7 +19,7 @@
 
 #include "ast/OrbitParam.hpp"
 #include "ast/AstTestMacro.h"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/Literals.hpp"
 #include "ast/Math.hpp"
 #include <cstdio>

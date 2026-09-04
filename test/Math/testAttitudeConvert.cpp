@@ -23,7 +23,7 @@
 #include "ast/Matrix.hpp"
 #include "ast/Euler.hpp"
 #include "ast/AngleAxis.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/AstTestMacro.h"
 
 AST_USING_NAMESPACE

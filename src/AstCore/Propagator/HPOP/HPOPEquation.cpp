@@ -38,7 +38,7 @@
 #include "AstCore/HarrisPriester.hpp"
 #include "AstCore/DTM2012.hpp"
 
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 
 #include "AstCore/NoneEclipseCalculator.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"

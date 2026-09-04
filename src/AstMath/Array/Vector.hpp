@@ -22,7 +22,7 @@
  
 #include "AstGlobal.h"
 #include "AstMath/MathOperator.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <stdlib.h>    // for malloc
 #include <string>      // for std::string
 #include <string.h>    // for memset

@@ -20,7 +20,7 @@
 
 #include "FOVConical.hpp"
 #include "AstMath/Vector.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <algorithm>
 #include <cmath>
 

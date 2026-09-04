@@ -30,7 +30,7 @@
 #include "AstMath/Euler.hpp"
 #include "AstMath/Quaternion.hpp"
 #include "AstMath/MathOperator.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstUtil/Math.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/StringUtil.hpp"

@@ -20,7 +20,7 @@
 
 #include "ast/ODE.hpp"
 #include "ast/ODEEventDetector.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/Literals.hpp"
 #include "ast/Test.h"
 
