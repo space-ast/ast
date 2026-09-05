@@ -1,1 +1,0 @@
-#include "AstGfx/GfxSpacecraft.hpp"
