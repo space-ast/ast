@@ -91,16 +91,16 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
     BKVItemView item;
     struct {
         std::string binaryFileName_{};                           ///< 二进制文件名称
-        int numberOfEphemerisPoints_{0};                       ///< 星历点数
-        TimePoint scenarioEpoch_{};                            ///< 场景时间点
-        EInterpolationMethod interpolationMethod_{eUnknown};   ///< 插值方法
-        int interpolationSamplesM1_{5};                        ///< 插值样本数减1(Minus 1)，相当于插值阶数
-        double distanceUnitFactor_{1.0};                       ///< 距离单位的因子
-        HBody body_{};                                          ///< 天体
-        HFrame frame_{};                                        ///< 坐标系
-        std::vector<Vector3d> positions_{};                     ///< 位置序列
-        std::vector<Vector3d> velocities_{};                    ///< 速度序列
-        std::vector<double>   times_{};                         ///< 时间序列
+        int numberOfEphemerisPoints_{0};                         ///< 星历点数
+        TimePoint scenarioEpoch_{};                              ///< 场景时间点
+        EInterpolationMethod interpolationMethod_{eUnknown};     ///< 插值方法
+        int interpolationSamplesM1_{5};                          ///< 插值样本数减1(Minus 1)，相当于插值阶数
+        double distanceUnitFactor_{1.0};                         ///< 距离单位的因子
+        HBody body_{};                                           ///< 天体
+        HFrame frame_{};                                         ///< 坐标系
+        std::vector<Vector3d> positions_{};                      ///< 位置序列
+        std::vector<Vector3d> velocities_{};                     ///< 速度序列
+        std::vector<double>   times_{};                          ///< 时间序列
     } data;
     
     // 解析文件头部
@@ -185,18 +185,18 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
                 // 获取坐标系
                 if(aEqualsIgnoreCase(value, "J2000"))
                 {
-                    data.frame_ = data.body_->makeFrameJ2000();
+                    data.frame_ = data.body_->getFrameJ2000();
                 }
                 else if(aEqualsIgnoreCase(value, "ICRF"))
                 {
-                    data.frame_ = data.body_->makeFrameICRF();
+                    data.frame_ = data.body_->getFrameICRF();
                 }
                 else if(aEqualsIgnoreCase(value, "Fixed"))
                 {
-                    data.frame_ = data.body_->makeFrameFixed();
+                    data.frame_ = data.body_->getFrameFixed();
                 }else if(aEqualsIgnoreCase(value, "Inertial"))
                 {
-                    data.frame_ = data.body_->makeFrameInertial();
+                    data.frame_ = data.body_->getFrameInertial();
                 }
                 else{
                     aError("unsupported coordinate system: '%.*s'", (int)value.size(), value.data());
@@ -301,7 +301,7 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, HEphemeris &ephemeris)
     return eNoError;
 }
 
-errc_t STKEphemerisFileParser::parse(StringView filepath, HEphemeris& ephemeris)
+errc_t STKEphemerisFileParser::parse(StringView filepath, HEphemeris& ephemeris) const
 {
     return aLoadSTKEphemeris(filepath, ephemeris);
 }

@@ -28,6 +28,7 @@
 #include "AstCore/StateCartesian.hpp"
 #include "AstCore/StateKeplerian.hpp"
 #include "AstCore/Resolve.hpp"
+#include "AstCore/BodyShape.hpp"
 #include "AstUtil/ObjectLinker.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -215,8 +216,21 @@ double State::getBodyRadius() const
     return 0.0;
 }
 
+errc_t State::getStateIn(Body *body, GeodeticPoint &geodetic) const
+{
+    if(!body)
+        return eErrorNullInput;
+    auto shape = body->getShape();
+    if(!shape)
+        return eErrorNullPtr;
+    CartState state;
+    errc_t rc = getStateIn(body->getFrameFixed(), state);
+    if(rc) return rc;
+    shape->transform(state.pos(), geodetic);
+    return eNoError;
+}
 
-errc_t State::getStateIn(Frame* frame, ModOrbElem& orbElem) const
+errc_t State::getStateIn(Frame *frame, ModOrbElem &orbElem) const
 {
     if(frame == frame_)
         return getState(orbElem);

@@ -101,6 +101,11 @@ public:
         pointer_ = ptr;
         this->_delete(oldPtr);
     }
+    /// @brief 释放所接管对象所有权并置空指针
+    void reset()
+    {
+        this->reset(nullptr);
+    }
     T* get() const
     {
         return pointer_;

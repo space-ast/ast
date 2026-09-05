@@ -50,8 +50,8 @@ public:
     double getGM() const{ return gm_; }
     void setEpoch(const TimePoint& epoch){ epoch_ = epoch; }
     const TimePoint& getEpoch() const{ return epoch_; }
-    void setOrbitState(const CartState& initstate){ initstate_ = initstate; }
-    void getOrbitState(CartState& initstate) const{ initstate = initstate_; }
+    void setInitialState(const CartState& initstate){ initstate_ = initstate; }
+    void getInitialState(CartState& initstate) const{ initstate = initstate_; }
 public:
     Frame* getFrame() const override;
     errc_t getPos(const TimePoint& tp, Vector3d& pos) const override;

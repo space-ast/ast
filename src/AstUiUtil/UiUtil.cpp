@@ -21,9 +21,13 @@
 #include "AstUtil/Logger.hpp"
 #include <QApplication>
 #include <QThread>
+#ifndef A_WASM
 #include <QSemaphore>
+#endif
 
 AST_NAMESPACE_BEGIN
+
+#ifndef A_WASM
 
 /// @brief 可调用事件，用于在主线程中执行函数
 class CallableEvent : public QEvent {
@@ -126,6 +130,8 @@ void aAddQueued(std::function<void()> func, Qt::ConnectionType type)
             break;
     }
 }
+
+#endif
 
 // ---- 辅助：通过 DisplayRole 文字匹配查找子行索引（要求文本唯一） ----
 static int findRowByDisplayText(QAbstractItemModel* model, const std::string& text, const QModelIndex& parent)

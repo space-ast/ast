@@ -21,7 +21,7 @@
 #include "OrbitDesign.hpp"
 #include "AstCore/OrbitalPrecession.hpp"
 #include "AstMath/Zeros.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstUtil/Logger.hpp"
 #include <limits>
 

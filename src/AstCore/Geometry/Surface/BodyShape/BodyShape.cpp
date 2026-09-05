@@ -23,7 +23,7 @@
 #include "AstCore/SpheroidShape.hpp"
 #include "AstCore/EllipsoidShape.hpp"
 #include "AstUtil/SharedPtr.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 
 AST_NAMESPACE_BEGIN
 

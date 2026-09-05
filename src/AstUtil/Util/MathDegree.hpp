@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <cmath>
 
 AST_NAMESPACE_BEGIN

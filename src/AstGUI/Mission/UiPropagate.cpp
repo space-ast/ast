@@ -202,8 +202,10 @@ void UiPropagate::onConfigureForceModel()
     dlg.setWindowTitle(tr("力模型配置"));
     auto* dlgLayout = new QVBoxLayout(&dlg);
 
+    // forceModel() 为只读；编辑一份副本，确定后通过 setForceModel 写回
+    HPOPForceModel config = hpop->forceModel();
     auto* editor = new UiHPOPForceModel(&dlg);
-    editor->setHPOPForceModel(&hpop->forceModel());
+    editor->setHPOPForceModel(&config);
     dlgLayout->addWidget(editor);
 
     auto* btnBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dlg);
@@ -212,8 +214,11 @@ void UiPropagate::onConfigureForceModel()
     connect(btnBox, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
     connect(btnBox, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
 
-    if (dlg.exec() == QDialog::Accepted)
+    if (dlg.exec() == QDialog::Accepted) {
         editor->apply();
+        // setForceModel 会置空 equation_，下次 propagate 用新配置重建
+        hpop->setForceModel(std::move(config));
+    }
 }
 
 void UiPropagate::onConfigureIntegrator()

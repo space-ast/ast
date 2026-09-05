@@ -322,13 +322,13 @@ errc_t aDateTimeFormatGregorian(const DateTime& dttm, std::string& str, int prec
     return eNoError;
 }
 
-errc_t aDateTimeFormatGregorianEn(const DateTime& dttm, std::string& str)
+errc_t aDateTimeFormatGregorianEn(const DateTime& dttm, std::string& str, int precision)
 {
     char buffer[64];
     const char* monthName = dttm.date().monthShortName();
-    snprintf(buffer, sizeof(buffer), "%d %s %04d %02d:%02d:%06.3f", 
+    snprintf(buffer, sizeof(buffer), "%d %s %04d %02d:%02d:%0*.*f", 
             dttm.day(), monthName, dttm.year(), 
-            dttm.hour(), dttm.minute(), dttm.second());
+            dttm.hour(), dttm.minute(), precision + 3, precision, dttm.second());
     
     str = buffer;
     return eNoError;

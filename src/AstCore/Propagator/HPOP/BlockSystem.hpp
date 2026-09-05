@@ -35,6 +35,7 @@ class AST_CORE_API BlockSystem : public FuncBlock
 public:
     BlockSystem();
     ~BlockSystem();
+    A_DISABLE_COPY(BlockSystem);
 
     errc_t run(const SimTime& simTime) override;
 

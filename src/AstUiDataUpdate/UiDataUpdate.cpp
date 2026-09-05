@@ -19,8 +19,10 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QFileInfo>
-#include <QtConcurrent/QtConcurrent>
+#ifndef A_WASM   // wasm 上无 QtConcurrent，且 QFuture/QFutureWatcher 依赖的 future 特性被禁用
 #include <QFutureWatcher>
+#include <QtConcurrent/QtConcurrent>
+#endif
 #include <atomic>
 #include <memory>
 
@@ -251,14 +253,11 @@ void UiDataUpdate::onUpdateRow()
 
     // 拷贝数据条目，在工作线程中执行更新
     DataUpdater::DataFileEntry entryCopy = entries[row];
-    auto* watcher = new QFutureWatcher<errc_t>(this);
-    connect(watcher, &QFutureWatcher<errc_t>::finished, this, [this, watcher, btn, entryCopy]() {
+
+    // 单次更新完成后的公共处理：取消时不刷新界面，否则更新状态并展示结果
+    auto handleResult = [this, entryCopy](errc_t err) {
         if (cancelPending_.load(std::memory_order_acquire))
-        {
-            watcher->deleteLater();
             return;
-        }
-        errc_t err = watcher->result();
         if (err == eNoError)
         {
             statusLabel_->setText(QString::fromUtf8("「%1」更新成功").arg(
@@ -274,11 +273,22 @@ void UiDataUpdate::onUpdateRow()
                     QString::fromStdString(entryCopy.name)).arg(err));
         }
         refreshTable();
+    };
+
+#ifndef A_WASM
+    auto* watcher = new QFutureWatcher<errc_t>(this);
+    connect(watcher, &QFutureWatcher<errc_t>::finished, this, [watcher, handleResult]() {
+        handleResult(watcher->result());
         watcher->deleteLater();
     });
     watcher->setFuture(QtConcurrent::run([this, entryCopy]() mutable {
         return updater_.updateFile(entryCopy);
     }));
+#else
+    // wasm 无多线程与 QtConcurrent，退化为同步执行；释放事件循环保持界面响应
+    QApplication::processEvents();
+    handleResult(updater_.updateFile(entryCopy));
+#endif
 }
 
 void UiDataUpdate::onUpdateAll()
@@ -314,35 +324,54 @@ void UiDataUpdate::onUpdateAll()
     auto ctx = std::make_shared<Context>();
     ctx->total = pending.size();
 
+    // 单条更新完成后的公共处理：计数 + 状态刷新 + 全部完成收尾
+    auto onOneDone = [this, ctx](errc_t err) {
+        if (cancelPending_.load(std::memory_order_acquire))
+            return;
+        if (err == eNoError)
+            ctx->success.fetch_add(1);
+        int done = ctx->done.fetch_add(1) + 1;
+        statusLabel_->setText(QString::fromUtf8("更新中 %1 / %2 ...").arg(done).arg(ctx->total));
+
+        if (done >= ctx->total)
+        {
+            int s = ctx->success.load();
+            statusLabel_->setText(QString::fromUtf8("更新完成：%1 / %2 成功").arg(s).arg(ctx->total));
+            updateAllBtn_->setEnabled(true);
+            refreshBtn_->setEnabled(true);
+            refreshTable();
+        }
+    };
+
+#ifndef A_WASM
     for (int i = 0; i < pending.size(); ++i)
     {
         DataUpdater::DataFileEntry entryCopy = pending[i];
         auto* watcher = new QFutureWatcher<errc_t>(this);
-        connect(watcher, &QFutureWatcher<errc_t>::finished, this, [this, ctx, watcher]() {
+        connect(watcher, &QFutureWatcher<errc_t>::finished, this, [this, watcher, onOneDone]() {
             if (cancelPending_.load(std::memory_order_acquire))
             {
                 watcher->deleteLater();
                 return;
             }
-            if (watcher->result() == eNoError)
-                ctx->success.fetch_add(1);
-            int done = ctx->done.fetch_add(1) + 1;
-            statusLabel_->setText(QString::fromUtf8("更新中 %1 / %2 ...").arg(done).arg(ctx->total));
-
-            if (done >= ctx->total)
-            {
-                int s = ctx->success.load();
-                statusLabel_->setText(QString::fromUtf8("更新完成：%1 / %2 成功").arg(s).arg(ctx->total));
-                updateAllBtn_->setEnabled(true);
-                refreshBtn_->setEnabled(true);
-                refreshTable();
-            }
+            onOneDone(watcher->result());
             watcher->deleteLater();
         });
         watcher->setFuture(QtConcurrent::run([this, entryCopy]() mutable {
             return updater_.updateFile(entryCopy);
         }));
     }
+#else
+    // wasm 无多线程与 QtConcurrent，退化为同步串行更新
+    for (int i = 0; i < pending.size(); ++i)
+    {
+        if (cancelPending_.load(std::memory_order_acquire))
+            return;
+        DataUpdater::DataFileEntry entryCopy = pending[i];
+        onOneDone(updater_.updateFile(entryCopy));
+        QApplication::processEvents();
+    }
+#endif
 }
 
 void UiDataUpdate::onRefresh()

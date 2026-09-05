@@ -92,7 +92,7 @@ TEST_F(HPOPTest, Earth_Moon_Transfer_Backward_Propagation)
 
     auto detector = aMakeShared<DetectorPeriapsis>();
     detector->setBody("Earth");
-    propagator.addEventDetector(detector);
+    propagator.addEventDetector(detector.get());
 
     ModOrbElem modOrbElem{1937400, 1.264390077164752, 156.132018119242332_deg, 173.10502120709711_deg, 108.963351860038912_deg, 0};
     double gmMoon = aGetMoon()->getGM();

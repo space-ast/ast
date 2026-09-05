@@ -23,7 +23,7 @@
 #include "AstCore/JplDe.hpp"
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/BuiltinFrame.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstUtil/IdentifierAPI.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstMath/MathOperator.hpp"

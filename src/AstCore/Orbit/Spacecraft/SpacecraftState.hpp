@@ -137,6 +137,7 @@ public:
 public:
     errc_t getState(ModOrbElem& orbElem) const;
     errc_t getState(CartState& state) const;
+    errc_t getStateIn(Body* body, GeodeticPoint& geodetic) const;
     errc_t getStateIn(Frame* frame, CartState& state) const;
     errc_t getStateIn(Frame* frame, ModOrbElem& orbElem) const;
     errc_t getStateInBodyInertial(Body* body, CartState& state) const;

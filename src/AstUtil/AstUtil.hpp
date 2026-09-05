@@ -31,7 +31,7 @@
 #include "AstUtil/CompressorImplSystem.hpp"
 #include "AstUtil/CompressorImplTar.hpp"
 #include "AstUtil/CompressorInterface.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstUtil/Constants.hpp"
 #include "AstUtil/Container.hpp"
 #include "AstUtil/CorVector.hpp"

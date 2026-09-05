@@ -1,5 +1,5 @@
 #include "ast/SpiceZpr.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/Matrix.hpp"
 #include "ast/Quaternion.hpp"
 

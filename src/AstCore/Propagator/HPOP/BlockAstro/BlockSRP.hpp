@@ -91,7 +91,12 @@ public:
 
     errc_t run(const SimTime& simTime) override;
 public:
+    /// @brief 设置太阳位置类型
     void setSunPosition(ESunPosition sunPosition){sunPosition_ = sunPosition;}
+    /// @brief 设置光压系数
+    void setCoefficient(double cr){cr_ = cr;}
+    /// @brief 获取光压系数
+    double coefficient() const {return cr_;}
 protected:
     Vector3d* position_{&vectorBuffer_};            ///< 位置（以主要天体为参考，预报坐标系下）
     Vector3d* velocity_{&vectorBuffer_};            ///< 速度（以主要天体为参考，预报坐标系下）

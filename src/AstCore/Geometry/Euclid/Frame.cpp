@@ -37,7 +37,16 @@ std::string Frame::getRepresentation() const
     return getName();
 }
 
-
+bool Frame::equals(const Frame &other) const
+{
+    if(this == &other)
+        return true;
+    if(this->getOrigin() != other.getOrigin())
+        return false;
+    if(this->getAxes() != other.getAxes())
+        return false;
+    return true;
+}
 
 Frame* Frame::Resolve(StringView value)
 {

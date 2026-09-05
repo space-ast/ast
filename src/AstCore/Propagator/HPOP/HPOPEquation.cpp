@@ -38,7 +38,7 @@
 #include "AstCore/HarrisPriester.hpp"
 #include "AstCore/DTM2012.hpp"
 
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 
 #include "AstCore/NoneEclipseCalculator.hpp"
 #include "AstCore/ConeEclipseCalculator.hpp"
@@ -48,18 +48,10 @@
 AST_NAMESPACE_BEGIN
 
 HPOPEquation::HPOPEquation()
-    : dynamicSystem_(), propFrame_{}
+    : dynamicSystem_()
 {
 
 }
-
-HPOPEquation::HPOPEquation(HPOPForceModel&& forceModel)
-    : HPOPEquation{}
-{
-    this->setForceModel(std::move(forceModel));
-}
-
-
 
 HPOPEquation::~HPOPEquation()
 {
@@ -85,9 +77,12 @@ int HPOPEquation::getDimension() const
 }
 
 /// @brief 初始化仿真引擎
-errc_t HPOPEquation::initialize()
+/// @details 幂等：仅在建图尚未完成（初次调用）时执行。配置变更需由调用方重建方程（HPOP 通过置空 equation_ 实现）。
+errc_t HPOPEquation::initialize(const HPOPForceModel &forceModel, const SpacecraftParam &spacecraftParam, Frame *frame)
 {
-    return this->initializeFromForceModel(this->forceModel_, this->spacecraftParam_);
+    errc_t rc = this->initBlocks(forceModel, spacecraftParam, frame);
+    if(rc) return rc;
+    return dynamicSystem_.initialize();
 }
 
 /// @brief 获取重力场坐标系
@@ -265,10 +260,10 @@ static Atmosphere* aNewAtmosphere(const DragForce& drag)
     return atmosphere;
 }
 
-errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const SpacecraftParam &spacecraftParam)
+errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const SpacecraftParam &spacecraftParam, Frame *frame)
 {
     // 检查中心天体
-    auto body = this->getCentralBody();
+    auto body = forceModel.centralBody();
     if(!body)
     {
         body = aGetEarth();
@@ -278,21 +273,20 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             return eErrorNullInput;
     }
 
-    // 检查预报坐标系是否有效
-    auto propFrame = this->getPropagationFrame(); 
-    if(!propFrame)
+    // 解析预报坐标系：未显式指定则用中心天体的惯性系
+    if(!frame)
     {
-        propFrame = body->getFrameInertial();
-        assert(propFrame);
-        aWarning("propagation frame is not set, using the inertial frame of '%s' as the default propagation frame.", body->getName().c_str());
-        if(!propFrame)
+        frame = body->getFrameInertial();
+        // assert(frame);
+        // aWarning("propagation frame is not set, using the inertial frame of '%s' as the default propagation frame.", body->getName().c_str());
+        if(!frame)
             return eErrorNullInput;
     }
     else
     {
-        if(propFrame->getOrigin() != body)
+        if(frame->getOrigin() != body)
         {
-            aError("propagation frame '%s' origin is not central body '%s'.", propFrame->getName().c_str(), body->getName().c_str());
+            aError("propagation frame '%s' origin is not central body '%s'.", frame->getName().c_str(), body->getName().c_str());
             return eErrorInvalidParam;
         }
     }
@@ -325,7 +319,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 GravityField gravityField;
                 errc_t err = aLoadGravityField(gravity, *body, gravityField);
                 if(err != eNoError) return err;
-                auto propAxes = propFrame->getAxes();
+                auto propAxes = frame->getAxes();
                 auto gravityAxes = aGetGravityAxes(gravityField, *body);
                 BlockGravity* blockGravity = factory.createGravityBlock(std::move(gravityField), gravity.maxDegree_, gravity.maxOrder_, gravityAxes, propAxes);
                 // @todo 考虑统一处理 useSTM 带来的特殊参数设置
@@ -370,10 +364,12 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
 
         Atmosphere* atmosphere = aNewAtmosphere(forceModel.drag());
         // atmosphere 的所有权转移给 blockDrag
-        BlockDrag* blockDrag = factory.createDragBlock(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), propFrame);
+        BlockDrag* blockDrag = factory.createDragBlock(atmosphere, spacecraftParam.cd(), spacecraftParam.dragArea(), frame);
         if (forceModel.useSTM()) {
             static_cast<BlockDragPartial*>(blockDrag)->setUseDragSensitivity(forceModel.useDragSensitivity());
         }
+        // 记录阻力函数块指针
+        this->dragBlock_ = blockDrag;
         this->addBlock(blockDrag);
     }
 
@@ -417,11 +413,13 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 eclipseCalculator->setOccultingBodies(forceModel.srp().eclipsingBodies_); // 设置遮挡体列表
             }
             // eclipseCalculator 的所有权转移给 blockSRP
-            BlockSRP* blockSRP = factory.createSRPBlock(eclipseCalculator, spacecraftParam.cr(), spacecraftParam.srpArea(), propFrame);
+            BlockSRP* blockSRP = factory.createSRPBlock(eclipseCalculator, spacecraftParam.cr(), spacecraftParam.srpArea(), frame);
             blockSRP->setSunPosition(forceModel.srp().sunPosition_); // 设置太阳位置
             if (forceModel.useSTM()) {
                 static_cast<BlockSRPPartial*>(blockSRP)->setUseSRPSensitivity(forceModel.useSRPSensitivity());
             }
+            // 记录SRP光压函数块指针
+            this->srpBlock_ = blockSRP;
             this->addBlock(blockSRP);
         }
         else
@@ -457,7 +455,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
                 auto* block = factory.createThirdBodyGravityBlock(
                     bodyEphemeris, std::move(gravityField),
                     gravity.maxDegree_, gravity.maxOrder_,
-                    gravityAxes, propFrame
+                    gravityAxes, frame
                 );
                 block->setConsiderVariations(gravity.useSecularVariations_);
                 if(forceModel.useSTM())
@@ -473,7 +471,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             {
                 // 三体使用点质量引力（默认行为）
                 double gm = thirdBody.pointMass().getGM(body3rd);
-                this->addBlock(factory.createThirdBodyPointMassBlock(bodyEphemeris, gm, propFrame));
+                this->addBlock(factory.createThirdBodyPointMassBlock(bodyEphemeris, gm, frame));
             }
         }
     }
@@ -482,7 +480,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     // 添加月球引力函数块
     if(forceModel.useMoonGravity())
     {
-        this->addBlock(factory.createThirdBodyPointMassBlock(aGetMoon(), forceModel.moonGravity(), propFrame));
+        this->addBlock(factory.createThirdBodyPointMassBlock(aGetMoon(), forceModel.moonGravity(), frame));
     }
 
     // 添加 STM 状态转换矩阵函数块
@@ -509,67 +507,13 @@ void HPOPEquation::addBlock(BlockDerivative *block)
     dynamicSystem_.addBlock(block);
 }
 
-void HPOPEquation::clearBlocks()
-{
-    dynamicSystem_.clearBlocks();
-}
-
 void HPOPEquation::reset()
 {
+    this->dragBlock_ = nullptr;
+    this->srpBlock_ = nullptr;
     dynamicSystem_.reset();
 }
 
-
-
-errc_t HPOPEquation::initializeFromForceModel(const HPOPForceModel &forceModel, const SpacecraftParam &spacecraftParam)
-{
-    errc_t rc = this->initBlocks(forceModel, spacecraftParam);
-    if(rc) return rc;
-    return dynamicSystem_.initialize();
-}
-
-errc_t HPOPEquation::setForceModel(HPOPForceModel&& forceModel)
-{
-    this->forceModel_ = std::move(forceModel);
-    return eNoError;
-}
-
-errc_t HPOPEquation::setForceModel(const HPOPForceModel &forceModel)
-{
-    this->forceModel_ = forceModel;
-    return eNoError;
-}
-
-void HPOPEquation::setSpacecraftParam(const SpacecraftParam &spacecraftParam)
-{
-    this->spacecraftParam_ = spacecraftParam;
-}
-
-errc_t HPOPEquation::setPropagationFrame(Frame *frame)
-{
-    if(!frame) return -1;
-    /// @todo 这里还需要检查frame是否是准惯性系
-    /// @todo 这里要注意处理propFrame_和centralBody_不一致的情况
-    // if(!frame->isPseudoInertial()) return -1;
-    propFrame_ = frame;
-    return eNoError;
-}
-
-Frame* HPOPEquation::getPropagationFrame() const
-{
-    if(propFrame_)
-        return propFrame_;
-    else if(auto body = getCentralBody()){
-        return body->getFrameInertial();
-    }
-    return nullptr;
-}
-
-
-Body* HPOPEquation::getCentralBody() const
-{
-    return forceModel().centralBody();
-}
 
 
 

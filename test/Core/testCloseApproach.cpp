@@ -27,7 +27,7 @@
 #include "ast/TimePoint.hpp"
 #include "ast/TimeInterval.hpp"
 #include "ast/Vector.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/CloseApproachAnalyzer.hpp"
 #include "ast/CloseApproachOptions.hpp"
 #include "ast/CloseApproachResult.hpp"

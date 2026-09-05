@@ -43,6 +43,7 @@ using HAxes = SharedPtr<Axes>;
 /// @param tp 时间点
 /// @param rotation 输出的旋转变换
 /// @return 错误码
+AST_CORE_API errc_t aAxesTransform(Axes& source, Axes& target, const TimePoint& tp, Rotation& rotation);
 AST_CORE_API errc_t aAxesTransform(Axes* source, Axes* target, const TimePoint& tp, Rotation& rotation);
 
 
@@ -52,6 +53,7 @@ AST_CORE_API errc_t aAxesTransform(Axes* source, Axes* target, const TimePoint& 
 /// @param tp 时间点
 /// @param matrix 输出的转换矩阵
 /// @return 错误码
+AST_CORE_API errc_t aAxesTransform(Axes& source, Axes& target, const TimePoint& tp, Matrix3d& matrix);
 AST_CORE_API errc_t aAxesTransform(Axes* source, Axes* target, const TimePoint& tp, Matrix3d& matrix);
 
 
@@ -61,6 +63,7 @@ AST_CORE_API errc_t aAxesTransform(Axes* source, Axes* target, const TimePoint& 
 /// @param tp 时间点
 /// @param rotation 输出的运动学旋转变换
 /// @return 错误码
+AST_CORE_API errc_t aAxesTransform(Axes& source, Axes& target, const TimePoint& tp, KinematicRotation& rotation);
 AST_CORE_API errc_t aAxesTransform(Axes* source, Axes* target, const TimePoint& tp, KinematicRotation& rotation);
 
 
@@ -73,6 +76,9 @@ class AST_CORE_API Axes : public ObjectNamed
 public:
     AST_OBJECT(Axes)
     ~Axes() override = default;
+    Axes() = default;
+    
+    A_DISABLE_COPY(Axes)
     
     /// @brief 获取当前轴系的父轴系
     /// @return 父轴系指针，根轴系返回 nullptr

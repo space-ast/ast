@@ -22,7 +22,7 @@
 #include "AstUtil/VariantVector.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Dimension.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstCore/BodyShape.hpp"
 #include "AstCore/GeoCoordinate.hpp"
 #include "AstCore/SpheroidShape.hpp"

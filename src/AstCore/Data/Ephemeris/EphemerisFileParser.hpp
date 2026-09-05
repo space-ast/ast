@@ -32,14 +32,14 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 星历文件解析器接口
-/// 参考了Orekit的EphemerisFileParser接口
+/// 参考了Orekit的EphemerisFileParser的接口名称和设计
 class AST_CORE_API EphemerisFileParser
 {
 public:
     virtual ~EphemerisFileParser() = default;
-    virtual errc_t parse(StringView filepath, HEphemeris& ephemeris) = 0;
+    virtual errc_t parse(StringView filepath, HEphemeris& ephemeris) const = 0;
 
-    inline HEphemeris parse(StringView filepath)
+    inline HEphemeris parse(StringView filepath) const
     {
         HEphemeris ephemeris;
         parse(filepath, ephemeris);

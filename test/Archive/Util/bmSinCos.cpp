@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ast/Math.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include <benchmark/benchmark.h>
 
 AST_USING_NAMESPACE

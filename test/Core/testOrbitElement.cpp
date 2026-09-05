@@ -19,7 +19,7 @@
 
 #include "ast/OrbitElement.hpp"
 #include "ast/Vector.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/AstTestMacro.h"
 #include <cstdio>
 

@@ -22,7 +22,7 @@
 #include "ast/OrbitGeometry.hpp"
 #include "ast/OrbitElement.hpp"
 #include "ast/TimeIntervalList.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/LatLon.hpp"
 #include "ast/Literals.hpp"
 #include <algorithm>

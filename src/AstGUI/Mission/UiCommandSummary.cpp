@@ -31,7 +31,7 @@
 #include "AstCore/TimeScale.hpp"
 #include "AstCore/TimeSystem.hpp"
 #include "AstMath/Vector.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <QTextEdit>
 #include <QVBoxLayout>
 #include <QFont>

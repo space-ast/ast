@@ -22,7 +22,7 @@
  
 #include "AstGlobal.h"
 #include "Duration.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
  
 AST_NAMESPACE_BEGIN
 

@@ -26,7 +26,7 @@
 #include "AstUtil/Object.hpp"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/StringView.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <cmath>
 #include <string>
 #include <vector>

@@ -6,7 +6,7 @@
 #include "ast/EventInterval.hpp"
 #include "ast/Ephemeris.hpp"
 #include "ast/Literals.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/ScopedPtr.hpp"
 #include <iostream>
 #include <iomanip>

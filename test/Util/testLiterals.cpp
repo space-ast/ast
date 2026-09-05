@@ -19,7 +19,7 @@
  
 #include "ast/Literals.hpp"
 #include "ast/AstTestMacro.h"
-#include "ast/Constants.h" // 包含常量定义用于测试
+#include "ast/Constants.hpp" // 包含常量定义用于测试
 
 AST_USING_NAMESPACE
 using namespace _AST literals;

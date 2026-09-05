@@ -51,9 +51,27 @@ rule("ast")
     end)
     if after_config then
         after_config(function (target)
+            import("core.project.config")
             if target:plat() == "wasm" then
                 if os.exists("build/wasm/data") then
                     os.rmdir("build/wasm/data")
+                end
+                -- Qt5-wasm SDK 只有一个 wasm 资源 `qmake_wasmfonts`；xmake 内置规则会在
+                -- 生成的 static_import.cpp 里硬编码 Qt6 的资源名 `wasmwindow`/`wasmfonts`，
+                -- 造成链接时未定义符号 qInitResources_wasmfonts / qInitResources_wasmwindow。
+                -- 这里改写成 Qt5.15 实际的资源名（插件自身会引用 qInitResources_qmake_wasmfonts）。
+                local importfile = path.join(config.builddir(), ".qt", "plugin", target:name(), "static_import.cpp")
+                if os.isfile(importfile) then
+                    local qt = target:data("qt")
+                    local sdkver = qt and qt.sdkver
+                    if sdkver and sdkver:startswith("5.") then
+                        local content = io.readfile(importfile)
+                        if content then
+                            content = content:gsub("Q_INIT_RESOURCE%(%s*wasmwindow%s*%)%s*;", "")
+                            content = content:gsub("Q_INIT_RESOURCE%(%s*wasmfonts%s*%)%s*;", "Q_INIT_RESOURCE(qmake_wasmfonts);")
+                            io.writefile(importfile, content)
+                        end
+                    end
                 end
             end
         end)
@@ -78,8 +96,11 @@ rule("ast.qt")
         target:add(
             "frameworks", 
             "QtWidgets", "QtGui", "QtCore", "QtSvg", "QtTest", 
-            "QtOpenGL", "QtPrintSupport", "QtConcurrent"
+            "QtOpenGL", "QtPrintSupport"
         )
+        if target:plat() ~= "wasm" then
+            target:add("frameworks", "QtConcurrent")
+        end
         target:add("qt.moc.flags", "-DAST_NAMESPACE_BEGIN=namespace ast{")
         target:add("qt.moc.flags", "-DAST_NAMESPACE_END=}")
     end)
@@ -89,6 +110,9 @@ rule("ast.qt.shared")
     add_deps("ast.qt", "qt.shared")
 rule_end()
 
+rule("ast.qt.static")
+    add_deps("ast.qt", "qt.static")
+rule_end()
 
 rule("ast.qt.widgetapp")
     add_deps("ast.qt")

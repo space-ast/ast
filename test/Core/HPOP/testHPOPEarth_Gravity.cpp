@@ -45,28 +45,24 @@ class HPOPTest : public ::testing::Test
 
 /// @brief 测试方程初始化与维度
 /// @details
-/// 验证 HPOPEquation 的 setForceModel() 和 initialize() 流程：
+/// 验证 HPOPEquation 的 initialize(forceModel, spacecraftParam, frame) 流程：
 ///   - 设置 WGS84 重力模型后初始化，状态量维度应为 6（3位置 + 3速度）
-///   - 启用月球引力后重新初始化，维度保持 6 不变（摄动力不增加状态量个数）
+///   - 启用月球引力后用新 equation 重新初始化，维度保持 6 不变（摄动力不增加状态量个数）
 TEST_F(HPOPTest, HPOPEquation)
 {
     HPOPEquation equation;
     HPOPForceModel forcemodel;
     forcemodel.gravity().model_ = "WGS84";
-    int ndim;
-    errc_t err;
-    err = equation.setForceModel(forcemodel);
-    equation.initialize();
-    ndim = equation.getDimension();
+    errc_t err = equation.initialize(forcemodel, SpacecraftParam{}, nullptr);
     EXPECT_EQ(err, 0);
-    EXPECT_EQ(ndim, 6);
+    EXPECT_EQ(equation.getDimension(), 6);
 
+    // 配置变更：equation 不再持有配置，需用新 equation 重建图（HPOP 通过置空 equation_ 达到同样效果）
     forcemodel.useMoonGravity(true);
-    err = equation.setForceModel(forcemodel);
-    equation.initialize();
-    ndim = equation.getDimension();
-    EXPECT_EQ(err, 0);
-    EXPECT_EQ(ndim, 6);
+    HPOPEquation equation2;
+    errc_t err2 = equation2.initialize(forcemodel, SpacecraftParam{}, nullptr);
+    EXPECT_EQ(err2, 0);
+    EXPECT_EQ(equation2.getDimension(), 6);
 }
 
 /// @brief 测试纯二体引力预报

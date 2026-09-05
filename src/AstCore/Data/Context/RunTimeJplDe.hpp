@@ -115,6 +115,14 @@ AST_CORE_CAPI int aJplDeNum();
 AST_CORE_CAPI errc_t aJplDeGetBodyGM(int bodyIndex, double& GM);
 
 
+A_ALWAYS_INLINE double aJplDeGetBodyGM(int bodyIndex)
+{
+    double GM{};
+    aJplDeGetBodyGM(bodyIndex, GM);
+    return GM;
+}
+
+
 /// @brief 打开JPL DE星历数据文件
 /// @param filepath 
 /// @return 

@@ -20,13 +20,39 @@
 
 #include "DetectorRMagnitude.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstCore/SpacecraftState.hpp"
+#include "AstCore/OrbitElement.hpp"
+#include "AstCore/Point.hpp"
 
 AST_NAMESPACE_BEGIN
 
 double DetectorRMagnitude::getValue(const SpacecraftState& state, double t) const
 {
-    aError("not implemented");
-    return 0;
+    constexpr double nan = std::numeric_limits<double>::quiet_NaN();
+    errc_t rc;
+    auto point = this->point();
+    if(!point) return nan;
+    auto frame = state.getFrame();
+    TimePoint time{};
+    rc = state.getStateEpoch(time);
+    if(rc){
+        aWarning("failed to get state epoch");
+        return nan;
+    }
+    Vector3d pos;
+    rc = point->getPosIn(frame, time, pos);
+    if(rc){
+        aWarning("failed to get position");
+        return nan;
+    }
+    CartState cartState;
+    rc = state.getState(cartState);
+    if(rc){
+        aWarning("failed to get state");
+        return nan;
+    }
+    double r = (cartState.pos() - pos).norm();
+    return r;
 }
 
 AST_NAMESPACE_END

@@ -22,7 +22,7 @@
 #include "AstCore/Date.hpp"
 #include "AstCore/Time.hpp"
 #include "AstCore/DateTime.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstCore/ModJulianDate.hpp"
 
 AST_NAMESPACE_BEGIN

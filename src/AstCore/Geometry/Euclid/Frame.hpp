@@ -43,6 +43,7 @@ class Point;
 /// @param tp 时间点
 /// @param transform 输出参数，变换
 /// @return 错误码
+AST_CORE_API errc_t aFrameTransform(Frame& source, Frame& target, const TimePoint& tp, Transform& transform);
 AST_CORE_API errc_t aFrameTransform(Frame* source, Frame* target, const TimePoint& tp, Transform& transform);
 
 /// @brief 计算源坐标系到目标坐标系的运动学变换，用于需要速度变换的场景（如将速度向量从一个坐标系转换到另一个坐标系）
@@ -51,6 +52,7 @@ AST_CORE_API errc_t aFrameTransform(Frame* source, Frame* target, const TimePoin
 /// @param tp 时间点
 /// @param transform 输出参数，运动学变换（包含速度项）
 /// @return 错误码
+AST_CORE_API errc_t aFrameTransform(Frame& source, Frame& target, const TimePoint& tp, KinematicTransform& transform);
 AST_CORE_API errc_t aFrameTransform(Frame* source, Frame* target, const TimePoint& tp, KinematicTransform& transform);
 
 
@@ -71,11 +73,17 @@ public:
 
     Frame() = default;
     ~Frame() override= default;
+    A_DISABLE_COPY(Frame)
 
     /// @brief 获取当前坐标系的路径表示
     /// @details 沿父坐标系链向上组合，返回完整的路径字符串，如 "Earth/ITRF"。
     /// @return 路径字符串
     std::string getRepresentation() const override;
+
+    /// @brief 判断两坐标系是否等价
+    /// @param other 另一个坐标系
+    /// @return 是否相同
+    bool equals(const Frame& other) const;
 
     /// @brief 获取当前坐标系中心对应的天体
     /// @details 如果当前坐标系的原点是天体，则返回该天体；否则返回 nullptr。

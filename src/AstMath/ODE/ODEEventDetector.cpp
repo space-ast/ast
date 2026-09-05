@@ -45,7 +45,7 @@ bool ODEEventDetector::containsEvent(const Bracket& bracket) const
         bool timeSign = std::signbit(delta * (int)direction);
         return (lastSign^timeSign) && !(currentSign^timeSign);
     }
-    #else
+    #else  // 下面的实现逻辑更清晰，且能保证 nan 值时不触发事件
     static_assert(ODEEventDetector::eDecrease < 0, "value not correct");
     static_assert(ODEEventDetector::eIncrease > 0, "value not correct");
     static_assert(ODEEventDetector::eBoth == 0, "value not correct");

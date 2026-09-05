@@ -145,6 +145,8 @@ public:
 
 	std::vector<double>&       seconds()       noexcept { return seconds_; }
 	const std::vector<double>& seconds() const noexcept { return seconds_; }
+	void setSeconds(const std::vector<double>& secs) { seconds_ = secs; }
+	void setSeconds(std::vector<double>&& secs) { seconds_ = std::move(secs); }
 
 	// ————————————————————————
 	// 时间语义

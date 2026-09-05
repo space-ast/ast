@@ -22,7 +22,7 @@
 #include "ast/TLE.hpp"
 #include "ast/TimePoint.hpp"
 #include "ast/TimeInterval.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/CloseApproachOptions.hpp"
 #include "ast/CloseApproachFilter.hpp"
 #include "ast/CloseApproachGeometry.hpp"

@@ -1,5 +1,9 @@
 ﻿target("AstGUI")
-    add_rules("ast.qt.shared")
+    if is_plat("wasm") then
+        add_rules("ast.qt.static")
+    else
+        add_rules("ast.qt.shared")
+    end
     add_files("**.cpp")
     add_files("**.hpp")
     -- add_files("**.ts")
@@ -13,6 +17,6 @@
     )
     add_defines("AST_BUILD_LIB_GUI")
     set_default(false)
-    if not has_package("qt") then
+    if not has_package("qt") and not is_plat("wasm") then
         set_enabled(false)
     end

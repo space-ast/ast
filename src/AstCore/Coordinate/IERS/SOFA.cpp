@@ -20,7 +20,7 @@
 
 #include "SOFA.hpp"
 #include "AstCore/TimePoint.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstCore/RunTime.hpp"
 #include <cmath>

@@ -103,7 +103,11 @@ void MSISBase::getMSISParam(const TimePoint& tp, const Vector3d& posInBodyFixed,
     param.alt /= 1e3;
     param.lat = rad2deg(param.lat);
     param.lon = rad2deg(param.lon);
+    #ifdef A_WASM
+    assert((param.mass == 48) && "param.mass must be 48");
+    #else
     static_assert(param.mass == 48, "param.mass must be 48");
+    #endif
 }
 
 void MSISBase::getSpaceWeather(const TimePoint &tp, double &f107, double &f107Average, ApArray &aparray) const

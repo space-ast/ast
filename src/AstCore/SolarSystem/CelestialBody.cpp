@@ -450,6 +450,31 @@ Frame *CelestialBody::getFrameFixed() const
     }
 }
 
+
+Frame *CelestialBody::getFrameICRF() const
+{
+    HFrame frame = aFindChild<Frame*>(const_cast<CelestialBody*>(this), "ICRF");
+    if(!frame){
+        frame = makeFrameICRF();
+        frame->setName("ICRF");
+        frame->setParentScope(const_cast<CelestialBody*>(this));
+    }
+    return frame;
+}
+
+
+Frame *CelestialBody::getFrameJ2000() const
+{
+    HFrame frame = aFindChild<Frame*>(const_cast<CelestialBody*>(this), "J2000");
+    if(!frame){
+        frame = makeFrameJ2000();
+        frame->setName("J2000");
+        frame->setParentScope(const_cast<CelestialBody*>(this));
+    }
+    return frame;
+}
+
+
 Axes *CelestialBody::getEpochAxesReference() const
 {
     if(this->isEarth()){

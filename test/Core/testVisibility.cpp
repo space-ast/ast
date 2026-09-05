@@ -35,7 +35,7 @@
 #include "ast/OrConstraint.hpp"
 #include "ast/SphereShape.hpp"
 #include "ast/SpheroidShape.hpp"
-#include "ast/Constants.h"
+#include "ast/Constants.hpp"
 #include "ast/Test.hpp"
 #include "ast/Literals.hpp"
 #include <cmath>

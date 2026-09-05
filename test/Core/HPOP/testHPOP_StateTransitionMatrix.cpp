@@ -593,10 +593,7 @@ TEST_F(HPOPSTMTest, STMEquationDimension)
     forcemodel.gravity().maxOrder_ = 0;
     forcemodel.useSTM(true);
 
-    errc_t err = equation.setForceModel(forcemodel);
-    ASSERT_EQ(err, eNoError);
-
-    err = equation.initialize();
+    errc_t err = equation.initialize(forcemodel, SpacecraftParam{}, nullptr);
     ASSERT_EQ(err, eNoError);
 
     int dim = equation.getDimension();
@@ -760,10 +757,7 @@ TEST_F(HPOPSTMTest, DragSensitivityDimension)
     forcemodel.useDrag(true);
     forcemodel.useDragSensitivity(true);
 
-    errc_t err = equation.setForceModel(forcemodel);
-    ASSERT_EQ(err, eNoError);
-
-    err = equation.initialize();
+    errc_t err = equation.initialize(forcemodel, SpacecraftParam{}, nullptr);
     ASSERT_EQ(err, eNoError);
 
     int dim = equation.getDimension();
@@ -783,10 +777,7 @@ TEST_F(HPOPSTMTest, SRPSensitivityDimension)
     forcemodel.useSRP(true);
     forcemodel.useSRPSensitivity(true);
 
-    errc_t err = equation.setForceModel(forcemodel);
-    ASSERT_EQ(err, eNoError);
-
-    err = equation.initialize();
+    errc_t err = equation.initialize(forcemodel, SpacecraftParam{}, nullptr);
     ASSERT_EQ(err, eNoError);
 
     int dim = equation.getDimension();
@@ -808,10 +799,7 @@ TEST_F(HPOPSTMTest, CombinedSensitivityDimension)
     forcemodel.useDragSensitivity(true);
     forcemodel.useSRPSensitivity(true);
 
-    errc_t err = equation.setForceModel(forcemodel);
-    ASSERT_EQ(err, eNoError);
-
-    err = equation.initialize();
+    errc_t err = equation.initialize(forcemodel, SpacecraftParam{}, nullptr);
     ASSERT_EQ(err, eNoError);
 
     int dim = equation.getDimension();

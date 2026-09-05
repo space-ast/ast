@@ -25,7 +25,7 @@
 #include "AstCore/Frame.hpp"
 #include "AstCore/BuiltinFrame.hpp"
 #include "AstUtil/Identifier.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include "AstMath/Vector.hpp"
 #include "AstMath/MathOperator.hpp"
 #include "AstCore/NoneEclipseCalculator.hpp"

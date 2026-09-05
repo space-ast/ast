@@ -161,4 +161,34 @@ TEST(VintiTest, VintiWrap)
     }
 }
 
+
+// 零预报时长应保持初值
+TEST(VintiTest, ZeroDuration)
+{
+    AST_USING_NAMESPACE
+    {
+        // ---- SI 输入
+        const double re = 6378137.0;                         // 赤道半径 [m]
+        const double gm = 3.986004418e14;                    // 引力常数 [m^3/s^2]
+        const double j2 = 1.0826266835531513e-3;
+        const double j3 = -2.5326564853313e-6;
+
+        //  45° 近地圆轨道：r = 7000 km，v = sqrt(gm/r)
+        Vector3d r  {7000000.0, 0.0, 0.0};
+        const double v = std::sqrt(gm / 7000000.0);
+        Vector3d vel{0.0, v * 0.7071067811865476, v * 0.7071067811865476};
+
+        // 调用封装
+        errc_t err = aVinti(0, gm, j2, j3, re, r, vel);
+        EXPECT_EQ(err, eNoError);
+        EXPECT_EQ(r[0], 7000000.0);
+        EXPECT_EQ(r[1], 0.0);
+        EXPECT_EQ(r[2], 0.0);
+        EXPECT_EQ(vel[0], 0.0);
+        EXPECT_EQ(vel[1], v * 0.7071067811865476);
+        EXPECT_EQ(vel[2], v * 0.7071067811865476);
+
+    }
+}
+
 GTEST_MAIN()

@@ -32,7 +32,7 @@
 #include "AstMath/Transform.hpp"
 #include "AstMath/Rotation.hpp"
 #include "AstMath/BrentOptimizer.hpp"
-#include "AstUtil/Constants.h"
+#include "AstUtil/Constants.hpp"
 #include <algorithm>
 #include <cmath>
 #include <limits>
