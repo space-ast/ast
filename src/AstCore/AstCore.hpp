@@ -162,6 +162,7 @@
 #include "AstCore/EphemerisRealTime.hpp"
 #include "AstCore/EphemerisSPK.hpp"
 #include "AstCore/EphemerisTwoBody.hpp"
+#include "AstCore/EphemerisVinti.hpp"
 #include "AstCore/Euler.hpp"
 #include "AstCore/EventDetector.hpp"
 #include "AstCore/EventInterval.hpp"

@@ -30,13 +30,13 @@ errc_t aVinti(double duration, double gm, double j2, double j3, double re, Vecto
 {
     double planet[4] = {re, gm, j2, j3};
     double x0[6] = {r.x(), r.y(), r.z(), v.x(), v.y(), v.z()};
-    double x1[6] = {};
-    // 用nan检查是否成功赋值oe数组，若未赋值，则说明算法提前退出，返回错误
-    double oe[6] = {std::numeric_limits<double>::quiet_NaN()};
+    // 用nan检查是否成功赋值x1数组，若未赋值，则说明算法提前退出，返回错误
+    double x1[6] = {std::numeric_limits<double>::quiet_NaN()};
+    double oe[6] = {};
     Vinti6(planet, 0.0, x0, duration, x1, oe);
     r = {x1[0], x1[1], x1[2]};
     v = {x1[3], x1[4], x1[5]};
-    if(std::isnan(r.norm()) || std::isnan(v.norm()) || std::isnan(oe[0]))
+    if(std::isnan(r.norm()) || std::isnan(v.norm()))
         return eErrorInvalidParam;
     return eNoError;
 }

@@ -494,6 +494,7 @@
 %include "../AstCore/Coordinate/Frame/BuiltinFrame.hpp"
 %include "../AstCore/Coordinate/Point/PointMacro.hpp"
 %include "../AstCore/Orbit/Ephemeris/EphemerisTwoBody.hpp"
+%include "../AstCore/Orbit/Ephemeris/EphemerisVinti.hpp"
 %include "../AstCore/Coordinate/Point/BuiltinPoint.hpp"
 %include "../AstCore/Geometry/Euclid/Axes.hpp"
 %include "../AstCore/Coordinate/Axes/AxesAPI.hpp"
