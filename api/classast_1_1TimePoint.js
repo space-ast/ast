@@ -5,6 +5,7 @@ var classast_1_1TimePoint =
     [ "durationFrom", "classast_1_1TimePoint.html#a664c02ec8f67284d8b08333e818c6590", null ],
     [ "fractionalPart", "classast_1_1TimePoint.html#a547976b94f47d9ae39984ff34afb00b5", null ],
     [ "integerPart", "classast_1_1TimePoint.html#ad468c00dfa4e58aee3f9cc868a59eaf9", null ],
+    [ "isInf", "classast_1_1TimePoint.html#a17d6c381234ca7eaae8607a1930b1db5", null ],
     [ "isNaN", "classast_1_1TimePoint.html#a6c5f43abb0a6e6d23b497c71f74f6abe", null ],
     [ "isValid", "classast_1_1TimePoint.html#ace9f86e7eb8c8770a388b40d62acc15a", null ],
     [ "julianCenturyFromJ2000TT", "classast_1_1TimePoint.html#a179367da0b2cd785b6e15474a1372090", null ],

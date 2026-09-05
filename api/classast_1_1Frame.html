@@ -129,6 +129,8 @@ $(function(){initNavTree('classast_1_1Frame.html',''); initResizable(true); });
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a8a88179190a84258ab07d3260a193f30" id="r_a8a88179190a84258ab07d3260a193f30"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a88179190a84258ab07d3260a193f30">getRepresentation</a> () const override</td></tr>
 <tr class="separator:a8a88179190a84258ab07d3260a193f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc4254207831734034941c52fdadeeb0" id="r_acc4254207831734034941c52fdadeeb0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc4254207831734034941c52fdadeeb0">equals</a> (const <a class="el" href="classast_1_1Frame.html">Frame</a> &amp;other) const</td></tr>
+<tr class="separator:acc4254207831734034941c52fdadeeb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab93a40aa12f5406970000533bdfd5f55" id="r_ab93a40aa12f5406970000533bdfd5f55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab93a40aa12f5406970000533bdfd5f55">getBody</a> ()</td></tr>
 <tr class="separator:ab93a40aa12f5406970000533bdfd5f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75cdb18ded3668482a8b4345d3ef99ab" id="r_a75cdb18ded3668482a8b4345d3ef99ab"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75cdb18ded3668482a8b4345d3ef99ab">getGM</a> ()</td></tr>
@@ -332,6 +334,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <div class="textblock"><p>坐标系抽象基类 </p>
 <p>坐标系是一种几何元素，由原点（Point）和轴系（Axes）组成， 定义了三维空间中的一个完整参考系（同时包含平移和旋转信息）。 所有具体坐标系类型（ICRF、地固系、当地水平系等）均派生自此类。 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
+<a id="acc4254207831734034941c52fdadeeb0" name="acc4254207831734034941c52fdadeeb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc4254207831734034941c52fdadeeb0">&#9670;&#160;</a></span>equals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::Frame::equals </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Frame.html">Frame</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断两坐标系是否等价 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>另一个坐标系 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否相同 </dd></dl>
+
+</div>
+</div>
 <a id="afdd735ece565c5f8d73ecbc7cea7aef5" name="afdd735ece565c5f8d73ecbc7cea7aef5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afdd735ece565c5f8d73ecbc7cea7aef5">&#9670;&#160;</a></span>getAxes()</h2>
 

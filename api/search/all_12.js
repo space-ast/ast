@@ -18,7 +18,7 @@ var searchData=
   ['range_5f_15',['range_',['../classast_1_1TrackingCoordinates.html#a01983b52a2a377bec9b95cc34c3f3904',1,'ast::TrackingCoordinates::range_'],['../classast_1_1ExprForRange.html#ac6c4d2ea9bc8fdef4802bc36111b4716',1,'ast::ExprForRange::range_']]],
   ['rankine_16',['Rankine',['../classast_1_1Unit.html#a1def4846f5d7351a71e2cbe5d6a4e407',1,'ast::Unit']]],
   ['rates_5f_17',['rates_',['../structast_1_1DataGroupEuler_1_1Data.html#a4c8ab5d8a08ab4f7d69fa2fed393bab7',1,'ast::DataGroupEuler::Data']]],
-  ['re_5f_18',['re_',['../classast_1_1J2Analytical.html#a2f4448d30d0ed4c8e7a17ac67a0bbaa8',1,'ast::J2Analytical']]],
+  ['re_5f_18',['re_',['../classast_1_1EphemerisVinti.html#a7eb1a8fe2964996133e8d861bfb5dc01',1,'ast::EphemerisVinti::re_'],['../classast_1_1J2Analytical.html#a2f4448d30d0ed4c8e7a17ac67a0bbaa8',1,'ast::J2Analytical::re_']]],
   ['read_19',['read',['../classast_1_1BaseParser.html#a7ac170ef6035641cae5e3c7a9843c9c5',1,'ast::BaseParser::read(void *buffer, size_t size, size_t pos) const'],['../classast_1_1BaseParser.html#a10959dc5bc355836d3239e91d11278a7',1,'ast::BaseParser::read(void *buffer, size_t size) const']]],
   ['readdata_20',['readData',['../classast_1_1PCKParser.html#a5e33187b0311a647a758b672553091d3',1,'ast::PCKParser']]],
   ['readfilerecord_21',['readFileRecord',['../classast_1_1DAFParser.html#a175f6c1d2df6f20bbfd81af6f6738b65',1,'ast::DAFParser']]],

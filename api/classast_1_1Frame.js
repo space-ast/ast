@@ -1,5 +1,6 @@
 var classast_1_1Frame =
 [
+    [ "equals", "classast_1_1Frame.html#acc4254207831734034941c52fdadeeb0", null ],
     [ "getAxes", "classast_1_1Frame.html#afdd735ece565c5f8d73ecbc7cea7aef5", null ],
     [ "getBody", "classast_1_1Frame.html#ab93a40aa12f5406970000533bdfd5f55", null ],
     [ "getGM", "classast_1_1Frame.html#a75cdb18ded3668482a8b4345d3ef99ab", null ],

@@ -291,6 +291,9 @@ var hierarchy =
     [ "ast::EphemerisFileParser", "classast_1_1EphemerisFileParser.html", [
       [ "ast::STKEphemerisFileParser", "classast_1_1STKEphemerisFileParser.html", null ]
     ] ],
+    [ "ast::EphemerisFileWriter", "classast_1_1EphemerisFileWriter.html", [
+      [ "ast::STKEphemerisFileWriter", "classast_1_1STKEphemerisFileWriter.html", null ]
+    ] ],
     [ "ast::EquinElem", "classast_1_1EquinElem.html", null ],
     [ "ast::Euler", "classast_1_1Euler.html", null ],
     [ "ExoTemps", "classExoTemps.html", null ],
@@ -1311,6 +1314,7 @@ var hierarchy =
             [ "ast::EphemerisMultiSegment", "classast_1_1EphemerisMultiSegment.html", null ],
             [ "ast::EphemerisRealTime", "classast_1_1EphemerisRealTime.html", null ],
             [ "ast::EphemerisTwoBody", "classast_1_1EphemerisTwoBody.html", null ],
+            [ "ast::EphemerisVinti", "classast_1_1EphemerisVinti.html", null ],
             [ "ast::Platform", "classast_1_1Platform.html", [
               [ "ast::Facility", "classast_1_1Facility.html", [
                 [ "ast::GroundStation", "classast_1_1GroundStation.html", null ],

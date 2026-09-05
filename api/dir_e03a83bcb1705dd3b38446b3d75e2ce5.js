@@ -15,5 +15,7 @@ var dir_e03a83bcb1705dd3b38446b3d75e2ce5 =
     [ "EphemerisSPK.cpp", "EphemerisSPK_8cpp.html", null ],
     [ "EphemerisSPK.hpp", "EphemerisSPK_8hpp.html", null ],
     [ "EphemerisTwoBody.cpp", "EphemerisTwoBody_8cpp.html", null ],
-    [ "EphemerisTwoBody.hpp", "EphemerisTwoBody_8hpp.html", "EphemerisTwoBody_8hpp" ]
+    [ "EphemerisTwoBody.hpp", "EphemerisTwoBody_8hpp.html", "EphemerisTwoBody_8hpp" ],
+    [ "EphemerisVinti.cpp", "EphemerisVinti_8cpp.html", null ],
+    [ "EphemerisVinti.hpp", "EphemerisVinti_8hpp.html", "EphemerisVinti_8hpp" ]
 ];

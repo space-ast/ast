@@ -8,7 +8,7 @@ var searchData=
   ['radpressurecoeff_5f_5',['radPressureCoeff_',['../classast_1_1SpacecraftParam.html#aa8955d1ee3de263becc92fae026f06af',1,'ast::SpacecraftParam']]],
   ['range_5f_6',['range_',['../classast_1_1TrackingCoordinates.html#a01983b52a2a377bec9b95cc34c3f3904',1,'ast::TrackingCoordinates::range_'],['../classast_1_1ExprForRange.html#ac6c4d2ea9bc8fdef4802bc36111b4716',1,'ast::ExprForRange::range_']]],
   ['rates_5f_7',['rates_',['../structast_1_1DataGroupEuler_1_1Data.html#a4c8ab5d8a08ab4f7d69fa2fed393bab7',1,'ast::DataGroupEuler::Data']]],
-  ['re_5f_8',['re_',['../classast_1_1J2Analytical.html#a2f4448d30d0ed4c8e7a17ac67a0bbaa8',1,'ast::J2Analytical']]],
+  ['re_5f_8',['re_',['../classast_1_1EphemerisVinti.html#a7eb1a8fe2964996133e8d861bfb5dc01',1,'ast::EphemerisVinti::re_'],['../classast_1_1J2Analytical.html#a2f4448d30d0ed4c8e7a17ac67a0bbaa8',1,'ast::J2Analytical::re_']]],
   ['ref_9',['ref',['../structast_1_1CloseApproachContext.html#ab89a1c6a7bd4f25abafb1b6dabf86f93',1,'ast::CloseApproachContext']]],
   ['refdistance_5f_10',['refDistance_',['../classast_1_1GravityFieldHead.html#abb600bf03f4fd719313dae90cbdb3682',1,'ast::GravityFieldHead::refDistance_'],['../classast_1_1GravityField.html#abb600bf03f4fd719313dae90cbdb3682',1,'ast::GravityField::refDistance_']]],
   ['refelem_11',['refElem',['../structast_1_1CloseApproachContext.html#a92e64b4055ad8e1bc6de070de2222284',1,'ast::CloseApproachContext']]],

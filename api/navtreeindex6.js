@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"FOVConical_8hpp_source.html":[4,0,0,6,10,2,5],
+"FOVCustom_8cpp.html":[4,0,0,6,10,2,6],
+"FOVCustom_8hpp.html":[4,0,0,6,10,2,7],
+"FOVCustom_8hpp_source.html":[4,0,0,6,10,2,7],
 "FOVHalfPower_8cpp.html":[4,0,0,6,10,2,8],
 "FOVHalfPower_8hpp.html":[4,0,0,6,10,2,9],
 "FOVHalfPower_8hpp_source.html":[4,0,0,6,10,2,9],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "GroundStation_8cpp.html":[4,0,0,19,3,26],
 "GroundStation_8hpp.html":[4,0,0,19,3,27],
 "GroundStation_8hpp_source.html":[4,0,0,19,3,27],
-"GroundVehicle_8cpp.html":[4,0,0,19,3,28],
-"GroundVehicle_8hpp.html":[4,0,0,19,3,29],
-"GroundVehicle_8hpp_source.html":[4,0,0,19,3,29],
-"HPOPEquation_8cpp.html":[4,0,0,6,12,1,10],
-"HPOPEquation_8hpp.html":[4,0,0,6,12,1,11]
+"GroundVehicle_8cpp.html":[4,0,0,19,3,28]
 };

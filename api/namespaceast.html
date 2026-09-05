@@ -686,6 +686,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EphemerisFileParser.html">EphemerisFileParser</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EphemerisFileWriter.html">EphemerisFileWriter</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EphemerisLagrangeVar.html">EphemerisLagrangeVar</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EphemerisMultiSegment.html">EphemerisMultiSegment</a></td></tr>
@@ -693,6 +695,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EphemerisRealTime.html">EphemerisRealTime</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EphemerisTwoBody.html">EphemerisTwoBody</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EphemerisVinti.html">EphemerisVinti</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EquinElem.html">EquinElem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2029,6 +2033,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1StationaryOrbitDesigner.html">StationaryOrbitDesigner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1STKEphemerisFileParser.html">STKEphemerisFileParser</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1STKEphemerisFileWriter.html">STKEphemerisFileWriter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Stop.html">Stop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4659,6 +4665,8 @@ A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><b>aJp
 <tr class="separator:add40f0b982539d1547eb983876a69b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d92246e6d9184ce19ac6801eb0a3148" id="r_a9d92246e6d9184ce19ac6801eb0a3148"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d92246e6d9184ce19ac6801eb0a3148">aLoadSTKEphemeris</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1SharedPtr.html">HEphemeris</a> &amp;ephemeris)</td></tr>
 <tr class="separator:a9d92246e6d9184ce19ac6801eb0a3148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b89cd79b980cf5cc1412bff9d822fef" id="r_a2b89cd79b980cf5cc1412bff9d822fef"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b89cd79b980cf5cc1412bff9d822fef">aSaveSTKEphemeris</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="#a47e299e0ebd808db5d77aaadfeedb682">Ephemeris</a> &amp;ephemeris, const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;interval=<a class="el" href="classast_1_1TimeInterval.html#a2c8ac668270eab53d1b16f2a07787acc">TimeInterval::Whole</a>(), double step=60)</td></tr>
+<tr class="separator:a2b89cd79b980cf5cc1412bff9d822fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e4a633d7fdff358b71b8ba18693fd6d" id="r_a4e4a633d7fdff358b71b8ba18693fd6d"><td class="memItemLeft" align="right" valign="top"><a id="a4e4a633d7fdff358b71b8ba18693fd6d" name="a4e4a633d7fdff358b71b8ba18693fd6d"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aSpiceGetBodyIds</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, std::vector&lt; int &gt; &amp;ids)</td></tr>
 <tr class="separator:a4e4a633d7fdff358b71b8ba18693fd6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -5314,10 +5322,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_aTimeZoneDateDifferen
 <tr class="separator:ga19f017a5a5f1e4bf970e515b3f3e1e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad0ca91afc0c615d5013c3c87ab5f6746" id="r_gad0ca91afc0c615d5013c3c87ab5f6746"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#gad0ca91afc0c615d5013c3c87ab5f6746">aDateTimeFormatISO8601</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
 <tr class="separator:gad0ca91afc0c615d5013c3c87ab5f6746"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7879cdc9eb271ee56477fed7014635dd" id="r_ga7879cdc9eb271ee56477fed7014635dd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#ga7879cdc9eb271ee56477fed7014635dd">aDateTimeFormatGregorian</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str, int precision=3)</td></tr>
-<tr class="separator:ga7879cdc9eb271ee56477fed7014635dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3160f2efd36ccbb9779cb286fc4133e0" id="r_ga3160f2efd36ccbb9779cb286fc4133e0"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#ga3160f2efd36ccbb9779cb286fc4133e0">aDateTimeFormatGregorianEn</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
-<tr class="separator:ga3160f2efd36ccbb9779cb286fc4133e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga65e2aab03d22481a2428c6592ce82e0e" id="r_ga65e2aab03d22481a2428c6592ce82e0e"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#ga65e2aab03d22481a2428c6592ce82e0e">aDateTimeFormatGregorian</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str, int precision=kTimeDefaultFormatPrecision)</td></tr>
+<tr class="separator:ga65e2aab03d22481a2428c6592ce82e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac92a5197636b46b46e2043dddd011f94" id="r_gac92a5197636b46b46e2043dddd011f94"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#gac92a5197636b46b46e2043dddd011f94">aDateTimeFormatGregorianEn</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str, int precision=kTimeDefaultFormatPrecision)</td></tr>
+<tr class="separator:gac92a5197636b46b46e2043dddd011f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga660013e03eb66f6c2108e536f9e9beca" id="r_ga660013e03eb66f6c2108e536f9e9beca"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#ga660013e03eb66f6c2108e536f9e9beca">aDateTimeFormatGMT</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
 <tr class="separator:ga660013e03eb66f6c2108e536f9e9beca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7657132edd208680861444e663c096aa" id="r_ga7657132edd208680861444e663c096aa"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html#ga7657132edd208680861444e663c096aa">aDateTimeFormatRFC3339</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, std::string &amp;str)</td></tr>
@@ -7961,9 +7969,9 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>kSpiceUnloadE
 <tr class="memitem:a7ed065ff3af2bcc164a3d45405c75930" id="r_a7ed065ff3af2bcc164a3d45405c75930"><td class="memItemLeft" align="right" valign="top"><a id="a7ed065ff3af2bcc164a3d45405c75930" name="a7ed065ff3af2bcc164a3d45405c75930"></a>
 constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kSolarPressureAt1AU</b> = <a class="el" href="#a043b0db6909f666b320d35f76bb3bde8">kSolarPressureAt1AU_FromLuminosity</a></td></tr>
 <tr class="separator:a7ed065ff3af2bcc164a3d45405c75930"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga06bf8c5e673937c839aa20add280c066" id="r_ga06bf8c5e673937c839aa20add280c066"><td class="memItemLeft" align="right" valign="top">
-constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>kTimeDefaultFormatPrecision</b> = 3</td></tr>
-<tr class="separator:ga06bf8c5e673937c839aa20add280c066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb79e26d60fe21e258585594832f5121" id="r_gaeb79e26d60fe21e258585594832f5121"><td class="memItemLeft" align="right" valign="top">
+constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>kTimeDefaultFormatPrecision</b> = 3</td></tr>
+<tr class="separator:gaeb79e26d60fe21e258585594832f5121"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61838f4b85edd7f6d63c7c7d73fa9e82" id="r_a61838f4b85edd7f6d63c7c7d73fa9e82"><td class="memItemLeft" align="right" valign="top"><a id="a61838f4b85edd7f6d63c7c7d73fa9e82" name="a61838f4b85edd7f6d63c7c7d73fa9e82"></a>
 A_THREAD_LOCAL std::string&#160;</td><td class="memItemRight" valign="bottom"><b>translateCache_</b></td></tr>
 <tr class="separator:a61838f4b85edd7f6d63c7c7d73fa9e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -18961,6 +18969,49 @@ template&lt;typename Func &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>eNoError 成功，eError 失败 </dd></dl>
+
+</div>
+</div>
+<a id="a2b89cd79b980cf5cc1412bff9d822fef" name="a2b89cd79b980cf5cc1412bff9d822fef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b89cd79b980cf5cc1412bff9d822fef">&#9670;&#160;</a></span>aSaveSTKEphemeris()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aSaveSTKEphemeris </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a47e299e0ebd808db5d77aaadfeedb682">Ephemeris</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ephemeris</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimeInterval.html">TimeInterval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>interval</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classast_1_1TimeInterval.html#a2c8ac668270eab53d1b16f2a07787acc">TimeInterval::Whole</a>()</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>step</em></span><span class="paramdefsep"> = </span><span class="paramdefval">60</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>保存STK星历文件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>星历文件路径 </td></tr>
+    <tr><td class="paramname">ephemeris</td><td>星历对象 </td></tr>
+    <tr><td class="paramname">interval</td><td>时间间隔 </td></tr>
+    <tr><td class="paramname">step</td><td>时间步长 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 </div>
 </div>
