@@ -9,7 +9,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "AstCore", "dir_ba29613c1d0899bb7dd064b57f92f413.html", "dir_ba29613c1d0899bb7dd064b57f92f413" ],
     [ "AstDataUpdate", "dir_3fce7cc50e629f479eb0cacb838b1ab0.html", "dir_3fce7cc50e629f479eb0cacb838b1ab0" ],
     [ "AstFault", "dir_09db07afdde71d13df9a731c09bf7cab.html", "dir_09db07afdde71d13df9a731c09bf7cab" ],
-    [ "AstGfx", "dir_f1afd34b2bad830bd554bec46a4f84c3.html", "dir_f1afd34b2bad830bd554bec46a4f84c3" ],
     [ "AstGUI", "dir_1aa6ec13829cacb2d194b2b5829946f0.html", "dir_1aa6ec13829cacb2d194b2b5829946f0" ],
     [ "AstLoader", "dir_0c3e1a5d8bf0fe75b10e37d3496a0636.html", "dir_0c3e1a5d8bf0fe75b10e37d3496a0636" ],
     [ "AstMath", "dir_ad1bdc808ef321ffd150448cfcd7c996.html", "dir_ad1bdc808ef321ffd150448cfcd7c996" ],

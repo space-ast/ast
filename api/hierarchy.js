@@ -19,7 +19,6 @@ var hierarchy =
     [ "ast::detail::arg_pair< Pos, T >", "structast_1_1detail_1_1arg__pair.html", null ],
     [ "ast::args_t", "structast_1_1args__t.html", null ],
     [ "ast::testing::internal::AssertionHelper", "classast_1_1testing_1_1internal_1_1AssertionHelper.html", null ],
-    [ "ast::AstGfxAPI", "classast_1_1AstGfxAPI.html", null ],
     [ "ast::AstroBlockFactory", "classast_1_1AstroBlockFactory.html", null ],
     [ "ast::Atmosphere", "classast_1_1Atmosphere.html", [
       [ "ast::AtmosphereBase", "classast_1_1AtmosphereBase.html", [
@@ -392,9 +391,6 @@ var hierarchy =
     [ "ast::detail::GetterErrorSetterTag", "structast_1_1detail_1_1GetterErrorSetterTag.html", null ],
     [ "ast::detail::GetterOnlyTag", "structast_1_1detail_1_1GetterOnlyTag.html", null ],
     [ "ast::detail::GetterVoidSetterTag", "structast_1_1detail_1_1GetterVoidSetterTag.html", null ],
-    [ "ast::GfxCelestialBody", "classast_1_1GfxCelestialBody.html", null ],
-    [ "ast::GfxMain", "classast_1_1GfxMain.html", null ],
-    [ "ast::GfxSolarSystem", "classast_1_1GfxSolarSystem.html", null ],
     [ "ast::GlobalContext", "classast_1_1GlobalContext.html", null ],
     [ "ast::GravityCalculator", "classast_1_1GravityCalculator.html", [
       [ "ast::GravityCalculator2", "classast_1_1GravityCalculator2.html", null ],
