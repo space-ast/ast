@@ -58,6 +58,7 @@ public:
 
     STKEphemerisFileWriter() = default;
     ~STKEphemerisFileWriter() = default;
+    A_DISABLE_COPY(STKEphemerisFileWriter)
 
     errc_t write(StringView filename, const Ephemeris& ephemeris) const override;
 public:

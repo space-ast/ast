@@ -119,8 +119,10 @@ Frame* getSTKFrame(Body& body, ECoordinate coordinate)
         return body.getFrameInertial();
     case ECoordinate::eFixed:
         return body.getFrameFixed();
+    case ECoordinate::eAuto:
+    default:
+        return body.getFrameInertial();
     }
-    return body.getFrameInertial();
 }
 
 /// @brief 获取STK星历的有效参考系
