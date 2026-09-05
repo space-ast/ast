@@ -188,7 +188,12 @@ public:
     bool isNonEmpty() const { return isValid(); }
     /// @brief 是否包含绝对时间点 t（闭区间含端点）
     bool contains(const TimePoint& t) const { return start_ <= t && t <= stop_; }
-
+    /// @brief 是否包含时间区间 interval（闭区间含端点）
+    bool contains(const TimeInterval& interval) const { return start_ <= interval.start() && interval.stop() <= stop_; }
+    /// @brief 是否为全区间（start_ == -∞, stop_ == +∞）
+    bool isWhole() const{return start_.isInf() && stop_.isInf();}
+    /// @brief 是否有区间至少一个端点为无穷大/无穷小
+    bool isInf() const {return start_.isInf() || stop_.isInf();}
 public:
     /// @brief 将时间区间转换为字符串
     /// @param precision 时间点格式化精度

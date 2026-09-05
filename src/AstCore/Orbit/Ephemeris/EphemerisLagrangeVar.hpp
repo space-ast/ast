@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstCore/Ephemeris.hpp"
 #include "AstCore/TimePoint.hpp"
+#include "AstCore/TimeList.hpp"
 #include "AstCore/Frame.hpp"
 #include "AstMath/Vector.hpp"
 #include <vector>
@@ -39,6 +40,7 @@ AST_NAMESPACE_BEGIN
 class AST_CORE_API EphemerisLagrangeVar: public Ephemeris
 {
 public:
+    AST_OBJECT(EphemerisLagrangeVar)
     EphemerisLagrangeVar() = default;
     explicit EphemerisLagrangeVar(Frame* frame) : frame_(frame){}
     ~EphemerisLagrangeVar() = default;
@@ -61,6 +63,8 @@ public:
     const std::vector<double>&   getTimes()     const{return times_;}
     const std::vector<Vector3d>& getPositions() const{return positions_;}
     const std::vector<Vector3d>& getVelocities()const{return velocities_;}
+    int interpolateOrder() const{return interpolateOrder_;}
+    void getTimes(TimeList& list) const;
 public:
     size_t size() const{return times_.size();}
 private:

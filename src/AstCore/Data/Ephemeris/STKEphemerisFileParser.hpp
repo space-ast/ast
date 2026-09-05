@@ -62,7 +62,7 @@ public:
     ~STKEphemerisFileParser() override = default;
 public:
     using EphemerisFileParser::parse;
-    errc_t parse(StringView filepath, HEphemeris& ephemeris) override;
+    errc_t parse(StringView filepath, HEphemeris& ephemeris) const override;
 protected:
 
 };

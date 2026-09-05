@@ -204,6 +204,9 @@ public:
 
     /// @brief 时间点的小数秒数部分
     double fractionalPart() const { return duration_.fractional_; }
+public:
+    /// @brief 是否为无穷大/无穷小时间点
+    bool isInf() const{return std::isinf(duration_.fractional_);}
 
     /// @brief 是否为“无数据/非法”时间点
     bool isNaN() const { return std::isnan(duration_.fractional_); }

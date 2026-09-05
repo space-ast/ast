@@ -1,6 +1,7 @@
 #pragma once
 
 #if defined(AST_WITH_MATPLOT) && defined(AST_WITH_AGG)
+#include "AstCompiler.h"
 
 A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/util/visitor.h>

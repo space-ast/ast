@@ -1,13 +1,13 @@
 ///
-/// @file      EphemerisFileParser.hpp
+/// @file      EphemerisFileWriter.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-03-23
-/// @copyright 版权所有 (C) 2026-present, ast项目.
+/// @date      2026-09-04
+/// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
-/// 本项目基于 Apache 2.0 开源许可证分发。
+/// 本软件基于 Apache 2.0 开源许可证分发。
 /// 您可在遵守许可证条款的前提下使用、修改和分发本软件。
 /// 许可证全文请见：
 /// 
@@ -31,21 +31,23 @@ AST_NAMESPACE_BEGIN
 */
 
 
-/// @brief 星历文件解析器接口
-/// 参考了Orekit的EphemerisFileParser的接口名称和设计
-class AST_CORE_API EphemerisFileParser
+/// @brief 星历文件写入器
+/// 参考了Orekit的EphemerisFileWriter的接口名称和设计
+class AST_CORE_API EphemerisFileWriter
 {
 public:
-    virtual ~EphemerisFileParser() = default;
-    virtual errc_t parse(StringView filepath, HEphemeris& ephemeris) const = 0;
+    EphemerisFileWriter() = default;
+    virtual ~EphemerisFileWriter() = default;
 
-    inline HEphemeris parse(StringView filepath) const
-    {
-        HEphemeris ephemeris;
-        parse(filepath, ephemeris);
-        return ephemeris;
-    }
+    /// @brief 写入星历文件
+    /// @param filename 文件名
+    /// @param ephemeris 星历
+    /// @return 错误码
+    virtual errc_t write(StringView filename, const Ephemeris& ephemeris) const = 0;
+
 };
+
+
 
 
 /*! @} */

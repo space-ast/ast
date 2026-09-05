@@ -30,6 +30,11 @@ Frame *EphemerisLagrangeVar::getFrame() const
     return frame_.get();
 }
 
+void EphemerisLagrangeVar::getTimes(TimeList &list) const
+{
+    list.setEpoch(epoch_);
+    list.setSeconds(times_);
+}
 
 int EphemerisLagrangeVar::findIndex(double delta) const
 {

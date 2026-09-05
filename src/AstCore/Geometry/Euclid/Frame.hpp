@@ -80,6 +80,11 @@ public:
     /// @return 路径字符串
     std::string getRepresentation() const override;
 
+    /// @brief 判断两坐标系是否等价
+    /// @param other 另一个坐标系
+    /// @return 是否相同
+    bool equals(const Frame& other) const;
+
     /// @brief 获取当前坐标系中心对应的天体
     /// @details 如果当前坐标系的原点是天体，则返回该天体；否则返回 nullptr。
     /// @return 天体

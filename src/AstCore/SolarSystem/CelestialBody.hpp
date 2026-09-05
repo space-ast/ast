@@ -298,6 +298,10 @@ public:
     Frame* getFrameFixed() const;
     Frame* frameFixed() const {return getFrameFixed();}
 
+    Frame* getFrameICRF() const;
+
+    Frame* getFrameJ2000() const;
+
 #endif
 protected:
 

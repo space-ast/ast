@@ -38,7 +38,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-constexpr double kTimeDefaultFormatPrecision = 3;
+constexpr int kTimeDefaultFormatPrecision = 3;
 
 class DateTime;
 
@@ -260,16 +260,18 @@ AST_CORE_CAPI errc_t aDateTimeFormat(const DateTime& dttm, StringView format, st
 /// @details 将日期时间对象格式化为格里高利历格式的字符串，例如：2025-11-21 12:34:56
 /// @param dttm 
 /// @param str 
+/// @param precision 时间精度
 /// @return errc_t 
-AST_CORE_CAPI errc_t aDateTimeFormatGregorian(const DateTime& dttm, std::string& str, int precision = 3);
+AST_CORE_CAPI errc_t aDateTimeFormatGregorian(const DateTime& dttm, std::string& str, int precision = kTimeDefaultFormatPrecision);
 
 
 /// @brief 格式化日期时间为格里高利历格式（英文）
 /// @details 将日期时间对象格式化为格里高利历格式的字符串（英文），例如：1 Jan 1970 00:00:00
 /// @param dttm 
 /// @param str 
+/// @param precision 时间精度
 /// @return errc_t 
-AST_CORE_CAPI errc_t aDateTimeFormatGregorianEn(const DateTime& dttm, std::string& str);
+AST_CORE_CAPI errc_t aDateTimeFormatGregorianEn(const DateTime& dttm, std::string& str, int precision = kTimeDefaultFormatPrecision);
 
 
 /// @brief 格式化日期时间为GMT格式
