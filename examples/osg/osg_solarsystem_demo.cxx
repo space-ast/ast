@@ -1,4 +1,5 @@
-﻿#define _USE_MATH_DEFINES
+﻿#ifdef AST_WITH_OSG
+#define _USE_MATH_DEFINES
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
 #include <osg/ShapeDrawable>
@@ -324,3 +325,6 @@ int main(int argc, char** argv) {
     
     return viewer.run();
 }
+#else
+int main(){}
+#endif
