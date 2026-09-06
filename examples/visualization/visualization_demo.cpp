@@ -40,10 +40,12 @@ int main()
 
     namespace vis = _AST visualization;
     auto earth = aGetEarth();
+    auto moon = aGetMoon();
 
     vis::trajectory(twoBody)->setInterval({epoch, epoch + 3_day});
 
     vis::planet(earth);
+    vis::planet(moon);
 
     // 说明：vis::show() 会在运行时加载渲染后端。若存在渲染后端则弹出交互窗口；
     // 否则会打印警告。
