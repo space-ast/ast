@@ -111,13 +111,18 @@ VisCelestialBody* planet(Body* body)
     return vis;
 }
 
-void show()
+void show(const TimePoint& epoch)
 {
     auto renderer = VisRenderer::Default();
     if(renderer)
-        renderer->render(*gcv());
+        renderer->render(*gcv(), epoch);
     else
         aWarning("No default renderer set.");
+}
+
+void show()
+{
+    show(TimePoint::CurrentTime());
 }
 
 }

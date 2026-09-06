@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstVisualizationGlobal.h"
 #include "AstUtil/ObjectNamed.hpp"
+#include "AstCore/TimePoint.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -38,7 +39,12 @@ public:
     static void SetDefault(VisRenderer* renderer);
 
     virtual ~VisRenderer() = default;
-    virtual errc_t render(const VisView& view) = 0;
+
+    /// @brief 渲染一个视图
+    /// @param view 可视化视图
+    /// @param epoch 渲染时刻（用于定位随时间变化的天体等场景元素）
+    /// @return 错误码
+    virtual errc_t render(const VisView& view, const TimePoint& epoch) = 0;
 };
 
 /*! @} */

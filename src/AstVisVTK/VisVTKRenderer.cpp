@@ -115,9 +115,12 @@ void addPolyLine(vtkRenderer* renderer, const std::vector<Vector3d>& points,
 class VisVTKSceneBuilder: public VisVisitor
 {
 public:
-    VisVTKSceneBuilder(vtkRenderer* renderer, double scale)
+    VisVTKSceneBuilder(vtkRenderer* renderer, double scale,
+                       Frame* viewFrame, TimePoint epoch)
         : renderer_(renderer)
         , scale_(scale)
+        , viewFrame_(viewFrame)
+        , epoch_(epoch)
     {}
 
     void visit(VisGroup& group) override
@@ -183,6 +186,16 @@ public:
             }
         }
 
+        // 在视图参考系中按渲染时刻定位天体（Point::getPosIn 会经 frame 图求天体在该系中的位置）
+        Vector3d pos{0.0, 0.0, 0.0};
+        if (viewFrame_ && epoch_.isValid()) {
+            Body* body = celestialBody.body();
+            if (body) {
+                body->getPosIn(viewFrame_, epoch_, pos);   // 出错时保持原点，可视地兜底
+            }
+        }
+        actor->SetPosition(pos[0] * scale_, pos[1] * scale_, pos[2] * scale_);
+
         renderer_->AddActor(actor);
     }
 
@@ -228,18 +241,20 @@ public:
 private:
     vtkRenderer* renderer_;
     double       scale_;
+    Frame*       viewFrame_;
+    TimePoint    epoch_;
 };
 
 }
 
-errc_t VisVTKRenderer::render(const VisView& view)
+errc_t VisVTKRenderer::render(const VisView& view, const TimePoint& epoch)
 {
     auto renderer = vtkSmartPointer<vtkRenderer>::New();
     renderer->SetBackground(bgR_, bgG_, bgB_);
 
     VisGroup* root = view.objects();
     if (root) {
-        VisVTKSceneBuilder builder(renderer, scale_);
+        VisVTKSceneBuilder builder(renderer, scale_, view.frame(), epoch);
         root->accept(builder);
     }
 

@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstVisualizationGlobal.h"
+#include "AstCore/TimePoint.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -48,6 +49,11 @@ AST_VISUALIZATION_API VisGroundTrack* groundTrack(Point* point=nullptr);
 AST_VISUALIZATION_API VisCelestialBody* planet(Body* body);
 
 
+/// @brief 显示当前视图（在指定时刻渲染，用于定位随时间变化的天体等元素）
+/// @param epoch 渲染时刻
+AST_VISUALIZATION_API void show(const TimePoint& epoch);
+
+/// @brief 显示当前视图（在当前时刻渲染）
 AST_VISUALIZATION_API void show();
 
 }

@@ -100,6 +100,9 @@ int main()
     auto earth = aGetEarth();
     auto moon = aGetMoon();
 
+    // 视图参考系：地球 ICRF。天体/轨迹均按此世界系定位（该系原点即地球中心）。
+    vis::gcv()->setFrame(aGetEarth()->getFrameICRF());
+
     vis::trajectory(tbEph.get())->setInterval({epoch, epoch + 3_day});
     vis::trajectory(hpEph.get())->setInterval(hpInterval);
 
@@ -107,7 +110,7 @@ int main()
     vis::planet(moon);
 
 
-    // 说明：vis::show() 会在运行时加载渲染后端。若存在渲染后端则弹出交互窗口；
-    // 否则会打印警告。
-    vis::show();
+    // 说明：vis::show(epoch) 会在运行时加载渲染后端，并按 epoch 时刻布局天体；
+    // 若存在渲染后端则弹出交互窗口，否则会打印警告。
+    vis::show(epoch);
 }

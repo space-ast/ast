@@ -45,8 +45,9 @@ public:
 
     /// @brief 渲染一个视图
     /// @param view 可视化视图
+    /// @param epoch 渲染时刻（用于定位随时间变化的天体等场景元素）
     /// @return 错误码
-    errc_t render(const VisView& view) override;
+    errc_t render(const VisView& view, const TimePoint& epoch) override;
 
 public:
     /// @brief 设置是否进入交互窗口（默认 true）
