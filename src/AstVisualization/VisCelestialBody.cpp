@@ -20,12 +20,41 @@
 
 #include "VisCelestialBody.hpp"
 #include "VisVisitor.hpp"
+#include "AstUtil/FileSystem.hpp"
 
 AST_NAMESPACE_BEGIN
 
 void VisCelestialBody::accept(VisVisitor& visitor)
 {
     visitor.visit(*this);
+}
+
+std::string VisCelestialBody::effectiveTexture() const
+{
+    if (!texture_.empty()) {
+        return texture_;
+    }
+    return aFindBodyTexture(body_.get());
+}
+
+std::string aFindBodyTexture(const Body* body)
+{
+    if (!body) {
+        return {};
+    }
+    const std::string dir = body->getDirpath();
+    const std::string name = body->getName();
+    if (dir.empty() || name.empty()) {
+        return {};
+    }
+    const char* exts[] = {".jpg", ".jpeg", ".png", ".bmp"};
+    for (const char* ext : exts) {
+        const fs::path p = fs::path(dir) / (name + ext);
+        if (fs::exists(p)) {
+            return p.string();
+        }
+    }
+    return {};
 }
 
 AST_NAMESPACE_END

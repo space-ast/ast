@@ -55,6 +55,11 @@
 #include <vtkWindowToImageFilter.h>
 #include <vtkPNGWriter.h>
 #include <vtkCamera.h>
+#include <vtkTexture.h>
+#include <vtkImageReader2.h>
+#include <vtkImageReader2Factory.h>
+#include <vtkParametricFunctionSource.h>
+#include <vtkParametricEllipsoid.h>
 #include <vtkAutoInit.h>
 
 // VTK 9.x 模块化构建：显式初始化 OpenGL2 渲染后端与交互模块，
@@ -139,18 +144,45 @@ public:
             return;
         }
 
-        auto sphere = vtkSmartPointer<vtkSphereSource>::New();
-        sphere->SetRadius(radius);
-        sphere->SetThetaResolution(64);
-        sphere->SetPhiResolution(64);
+        // 参数化椭球（三半径相等即球体），通过 vtkParametricFunctionSource 原生生成纹理坐标
+        auto sphere = vtkSmartPointer<vtkParametricEllipsoid>::New();
+        sphere->SetXRadius(radius);
+        sphere->SetYRadius(radius);
+        sphere->SetZRadius(radius);
+
+        auto source = vtkSmartPointer<vtkParametricFunctionSource>::New();
+        source->SetParametricFunction(sphere);
+        source->SetUResolution(128);
+        source->SetVResolution(64);
+        source->SetGenerateTextureCoordinates(true);
 
         auto mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
-        mapper->SetInputConnection(sphere->GetOutputPort());
+        mapper->SetInputConnection(source->GetOutputPort());
 
         auto actor = vtkSmartPointer<vtkActor>::New();
         actor->SetMapper(mapper);
-        actor->GetProperty()->SetColor(0.2, 0.45, 0.9);   // 海洋蓝色
+        actor->GetProperty()->SetColor(0.2, 0.45, 0.9);   // 无纹理时的回退色（海洋蓝）
         actor->GetProperty()->SetOpacity(0.9);
+
+        // 贴图：显式纹理或从天体数据目录自动探测
+        const std::string texturePath = celestialBody.effectiveTexture();
+        if (!texturePath.empty()) {
+            auto imgReader = vtkSmartPointer<vtkImageReader2>::Take(
+                vtkImageReader2Factory::CreateImageReader2(texturePath.c_str()));
+            if (imgReader && imgReader->CanReadFile(texturePath.c_str())) {
+                imgReader->SetFileName(texturePath.c_str());
+                imgReader->Update();
+
+                auto texture = vtkSmartPointer<vtkTexture>::New();
+                texture->SetInputConnection(imgReader->GetOutputPort());
+                texture->InterpolateOn();
+                actor->SetTexture(texture);
+                // 贴图会与漫反射颜色相乘：置为白色以显示贴图原色，去掉先前蓝色的偏色
+                actor->GetProperty()->SetColor(1.0, 1.0, 1.0);
+                actor->GetProperty()->SetOpacity(1.0);   // 真实贴图天体更清晰
+            }
+        }
+
         renderer_->AddActor(actor);
     }
 
