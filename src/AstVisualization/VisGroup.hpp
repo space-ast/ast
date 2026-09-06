@@ -39,6 +39,9 @@ public:
     ~VisGroup() = default;
     A_DISABLE_COPY(VisGroup)
 
+    /// @brief 访问者分派
+    void accept(VisVisitor& visitor) override;
+
     /// @brief 添加子对象（拥有权移交给本组）
     /// @param object 子对象指针；可能为 nullptr
     void add(VisObject* object);

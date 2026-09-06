@@ -19,9 +19,13 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "VisCelestialBody.hpp"
+#include "VisVisitor.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
+void VisCelestialBody::accept(VisVisitor& visitor)
+{
+    visitor.visit(*this);
+}
 
 AST_NAMESPACE_END

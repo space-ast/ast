@@ -42,6 +42,9 @@ public:
     ~VisTrajectory() = default;
     A_DISABLE_COPY(VisTrajectory)
 public:
+    /// @brief 访问者分派
+    void accept(VisVisitor& visitor) override;
+public:
     Frame* frame() const { return frame_.get(); }
     void setFrame(Frame* frame) { frame_ = frame; }
     Point* point() const { return point_.get(); }

@@ -19,11 +19,17 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "VisTrajectory.hpp"
+#include "VisVisitor.hpp"
 #include "AstCore/Point.hpp"
 #include "AstCore/Frame.hpp"
 #include "AstMath/Vector.hpp"
 
 AST_NAMESPACE_BEGIN
+
+void VisTrajectory::accept(VisVisitor& visitor)
+{
+    visitor.visit(*this);
+}
 
 void VisTrajectory::getPositions(std::vector<Vector3d>& positions) const
 {

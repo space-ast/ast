@@ -19,8 +19,14 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "VisGroup.hpp"
+#include "VisVisitor.hpp"
 
 AST_NAMESPACE_BEGIN
+
+void VisGroup::accept(VisVisitor& visitor)
+{
+    visitor.visit(*this);
+}
 
 void VisGroup::add(VisObject* object)
 {

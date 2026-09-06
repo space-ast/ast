@@ -19,9 +19,13 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "VisGroundTrack.hpp"
+#include "VisVisitor.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
+void VisGroundTrack::accept(VisVisitor& visitor)
+{
+    visitor.visit(*this);
+}
 
 AST_NAMESPACE_END

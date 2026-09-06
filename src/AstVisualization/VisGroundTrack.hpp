@@ -42,6 +42,9 @@ public:
     ~VisGroundTrack() = default;
     A_DISABLE_COPY(VisGroundTrack)
 public:
+    /// @brief 访问者分派
+    void accept(VisVisitor& visitor) override;
+public:
     Body* body() const { return body_.get(); }
     void setBody(Body* body) { body_ = body; }
     Point* point() const { return point_.get(); }
