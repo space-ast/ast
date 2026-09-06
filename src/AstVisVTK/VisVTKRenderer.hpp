@@ -86,6 +86,10 @@ public:
     /// @param scale 缩放因子
     void setUnitScale(double scale) { scale_ = scale; }
 
+    /// @brief 设置鼠标滚轮缩放步进因子（默认 5.0；值越大单次滚轮缩放越剧烈）
+    /// @param factor 步进因子
+    void setMouseWheelMotionFactor(double factor) { mouseWheelMotionFactor_ = factor; }
+
 private:
     bool    interactive_{true};     ///< 是否交互
     bool    savePng_{false};        ///< 是否导出 PNG
@@ -98,6 +102,7 @@ private:
     double  azimuth_{35.0};         ///< 相机方位角（度）
     double  elevation_{22.0};       ///< 相机俯仰角（度）
     double  scale_{1.0};            ///< 坐标缩放因子
+    double  mouseWheelMotionFactor_{5.0}; ///< 鼠标滚轮缩放步进因子
 };
 
 /*! @} */

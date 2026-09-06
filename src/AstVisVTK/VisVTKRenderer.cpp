@@ -52,6 +52,7 @@
 #include <vtkRenderer.h>
 #include <vtkRenderWindow.h>
 #include <vtkRenderWindowInteractor.h>
+#include <vtkInteractorStyleTrackballCamera.h>
 #include <vtkWindowToImageFilter.h>
 #include <vtkPNGWriter.h>
 #include <vtkCamera.h>
@@ -289,6 +290,12 @@ errc_t VisVTKRenderer::render(const VisView& view, const TimePoint& epoch)
     if (interactive_) {
         auto interactor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
         interactor->SetRenderWindow(renderWindow);
+
+        auto style = vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New();
+        style->SetDefaultRenderer(renderer);
+        style->SetMouseWheelMotionFactor(mouseWheelMotionFactor_);
+        interactor->SetInteractorStyle(style);
+
         renderer->ResetCamera();
         renderWindow->Render();
         interactor->Start();
