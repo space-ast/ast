@@ -1,4 +1,7 @@
 ﻿#ifdef AST_WITH_OSG
+#ifdef _WIN32
+#   define WIN32
+#endif
 #define _USE_MATH_DEFINES
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
