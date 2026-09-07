@@ -64,6 +64,7 @@
 #include "AstGUI/UiSolarRadiationPressure.hpp"
 #include "AstGUI/UiSolarSystem.hpp"
 #include "AstGUI/UiSpacecraftParams.hpp"
+#include "AstGUI/UiSTKEphemerisFileWriter.hpp"
 #include "AstGUI/UiStartPage.hpp"
 #include "AstGUI/UiState.hpp"
 #include "AstGUI/UiStateCartesian.hpp"
