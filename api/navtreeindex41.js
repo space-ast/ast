@@ -1,5 +1,11 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1Rotation.html#affa7511f3d325c6c9d767f78ff921575":[3,0,0,649,17],
+"classast_1_1RotationElement.html":[0,1,7,10],
+"classast_1_1RotationElement.html#a087ffed37fee180ca5a767ef0160e034":[0,1,7,10,1],
+"classast_1_1RotationElement.html#a63c1349c0602031e346d5c1cf5026965":[0,1,7,10,3],
+"classast_1_1RotationElement.html#ae5b557f446687f751b8dabddec3bab63":[0,1,7,10,4],
+"classast_1_1RotationElement.html#aea22c9fc9d14ad8d5930023571a016da":[0,1,7,10,5],
 "classast_1_1RotationElement.html#af6d41e5e3e634dc84664eb4f917281aa":[0,1,7,10,2],
 "classast_1_1RotationalData.html":[0,1,7,9],
 "classast_1_1RotationalData.html#a06565ba128d461612a7ccbb4e3c01bc7":[0,1,7,9,5],
@@ -243,11 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1ScStateCalcDifferenceOtherSegment.html":[3,0,0,721],
 "classast_1_1ScStateCalcDotProduct.html":[2,0,0,723],
 "classast_1_1ScStateCalcDotProduct.html":[3,0,0,722],
-"classast_1_1ScStateCalcDragArea.html":[2,0,0,724],
-"classast_1_1ScStateCalcDragArea.html":[3,0,0,723],
-"classast_1_1ScStateCalcDragForce.html":[2,0,0,725],
-"classast_1_1ScStateCalcDragForce.html":[3,0,0,724],
-"classast_1_1ScStateCalcDuration.html":[2,0,0,726],
-"classast_1_1ScStateCalcDuration.html":[3,0,0,725],
-"classast_1_1ScStateCalcEarthMeanLocTimeAN.html":[2,0,0,727]
+"classast_1_1ScStateCalcDragArea.html":[2,0,0,724]
 };

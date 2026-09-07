@@ -1,5 +1,11 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1ScStateCalcDragArea.html":[3,0,0,723],
+"classast_1_1ScStateCalcDragForce.html":[2,0,0,725],
+"classast_1_1ScStateCalcDragForce.html":[3,0,0,724],
+"classast_1_1ScStateCalcDuration.html":[2,0,0,726],
+"classast_1_1ScStateCalcDuration.html":[3,0,0,725],
+"classast_1_1ScStateCalcEarthMeanLocTimeAN.html":[2,0,0,727],
 "classast_1_1ScStateCalcEarthMeanLocTimeAN.html":[3,0,0,726],
 "classast_1_1ScStateCalcEarthMeanSolTime.html":[2,0,0,728],
 "classast_1_1ScStateCalcEarthMeanSolTime.html":[3,0,0,727],
@@ -243,11 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalcTangential.html":[3,0,0,845],
 "classast_1_1ScStateCalcTangentialRate.html":[2,0,0,847],
 "classast_1_1ScStateCalcTangentialRate.html":[3,0,0,846],
-"classast_1_1ScStateCalcTemperature.html":[2,0,0,848],
-"classast_1_1ScStateCalcTemperature.html":[3,0,0,847],
-"classast_1_1ScStateCalcThrust.html":[2,0,0,849],
-"classast_1_1ScStateCalcThrust.html":[3,0,0,848],
-"classast_1_1ScStateCalcTimeDifference.html":[2,0,0,850],
-"classast_1_1ScStateCalcTimeDifference.html":[3,0,0,849],
-"classast_1_1ScStateCalcTimePastAscNode.html":[2,0,0,851]
+"classast_1_1ScStateCalcTemperature.html":[2,0,0,848]
 };

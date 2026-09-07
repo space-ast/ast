@@ -40,6 +40,7 @@ var hierarchy =
       [ "ast::QwtBackend", "classast_1_1QwtBackend.html", null ]
     ] ],
     [ "ast::BackTrace", "classast_1_1BackTrace.html", null ],
+    [ "ast::UiTimelineView::Bar", "structast_1_1UiTimelineView_1_1Bar.html", null ],
     [ "ast::BaseGroupChat", "classast_1_1BaseGroupChat.html", [
       [ "ast::RoundRobinGroupChat", "classast_1_1RoundRobinGroupChat.html", null ]
     ] ],
@@ -714,9 +715,11 @@ var hierarchy =
     [ "QDialog", null, [
       [ "ast::EditFigureDialog", "classast_1_1EditFigureDialog.html", null ],
       [ "ast::UiDataUpdate", "classast_1_1UiDataUpdate.html", null ],
+      [ "ast::UiInsertObjectDialog", "classast_1_1UiInsertObjectDialog.html", null ],
       [ "ast::UiNewObjectDialog", "classast_1_1UiNewObjectDialog.html", null ],
       [ "ast::UiNewObjectQuickDialog", "classast_1_1UiNewObjectQuickDialog.html", null ],
       [ "ast::UiOrbitWizard", "classast_1_1UiOrbitWizard.html", null ],
+      [ "ast::UiScenarioWizard", "classast_1_1UiScenarioWizard.html", null ],
       [ "ast::UiWorkbenchExprPicker", "classast_1_1UiWorkbenchExprPicker.html", null ]
     ] ],
     [ "QDockWidget", null, [
@@ -735,7 +738,6 @@ var hierarchy =
     ] ],
     [ "QMainWindow", null, [
       [ "ast::UiAnalyzerMainWindow", "classast_1_1UiAnalyzerMainWindow.html", null ],
-      [ "ast::UiMainWindow", "classast_1_1UiMainWindow.html", null ],
       [ "ast::UiMissionAnalysisWindow", "classast_1_1UiMissionAnalysisWindow.html", null ]
     ] ],
     [ "QObject", null, [
@@ -832,6 +834,7 @@ var hierarchy =
       [ "ast::UiSweepStudy", "classast_1_1UiSweepStudy.html", null ],
       [ "ast::UiSweepVariableList", "classast_1_1UiSweepVariableList.html", null ],
       [ "ast::UiTimeInterval", "classast_1_1UiTimeInterval.html", null ],
+      [ "ast::UiTimelineView", "classast_1_1UiTimelineView.html", null ],
       [ "ast::UiToolCallCard", "classast_1_1UiToolCallCard.html", null ],
       [ "ast::UiToolCallTimeline", "classast_1_1UiToolCallTimeline.html", null ],
       [ "ast::UiVariableList", "classast_1_1UiVariableList.html", null ],

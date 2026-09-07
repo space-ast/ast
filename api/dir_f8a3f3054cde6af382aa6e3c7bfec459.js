@@ -23,6 +23,8 @@ var dir_f8a3f3054cde6af382aa6e3c7bfec459 =
     [ "UiSelectFrame.hpp", "UiSelectFrame_8hpp.html", "UiSelectFrame_8hpp" ],
     [ "UiTimeInterval.cpp", "UiTimeInterval_8cpp.html", null ],
     [ "UiTimeInterval.hpp", "UiTimeInterval_8hpp.html", null ],
+    [ "UiTimelineView.cpp", "UiTimelineView_8cpp.html", null ],
+    [ "UiTimelineView.hpp", "UiTimelineView_8hpp.html", "UiTimelineView_8hpp" ],
     [ "UiTimePoint.cpp", "UiTimePoint_8cpp.html", null ],
     [ "UiTimePoint.hpp", "UiTimePoint_8hpp.html", "UiTimePoint_8hpp" ],
     [ "UiValueEdit.cpp", "UiValueEdit_8cpp.html", null ],

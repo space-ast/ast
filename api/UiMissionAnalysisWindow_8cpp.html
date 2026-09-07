@@ -104,9 +104,32 @@ $(function(){initNavTree('UiMissionAnalysisWindow_8cpp.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="UiMissionAnalysisWindow_8hpp_source.html">UiMissionAnalysisWindow.hpp</a>&quot;</code><br />
+<code>#include &quot;AstGUI/UiScenarioWizard.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiInsertObjectDialog.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiObjectTree.hpp&quot;</code><br />
+<code>#include &quot;AstGUI/UiTimelineView.hpp&quot;</code><br />
+<code>#include &quot;AstCore/TimePoint.hpp&quot;</code><br />
+<code>#include &quot;AstCore/TimeInterval.hpp&quot;</code><br />
+<code>#include &quot;AstCore/DateTime.hpp&quot;</code><br />
+<code>#include &lt;QAction&gt;</code><br />
+<code>#include &lt;QColor&gt;</code><br />
+<code>#include &lt;QComboBox&gt;</code><br />
+<code>#include &lt;QDockWidget&gt;</code><br />
+<code>#include &lt;QHBoxLayout&gt;</code><br />
+<code>#include &lt;QIcon&gt;</code><br />
+<code>#include &lt;QKeySequence&gt;</code><br />
 <code>#include &lt;QLabel&gt;</code><br />
+<code>#include &lt;QLineEdit&gt;</code><br />
+<code>#include &lt;QMenuBar&gt;</code><br />
+<code>#include &lt;QPalette&gt;</code><br />
+<code>#include &lt;QPixmap&gt;</code><br />
 <code>#include &lt;QStatusBar&gt;</code><br />
+<code>#include &lt;QStyle&gt;</code><br />
 <code>#include &lt;QTabWidget&gt;</code><br />
+<code>#include &lt;QToolBar&gt;</code><br />
+<code>#include &lt;QToolButton&gt;</code><br />
+<code>#include &lt;QVBoxLayout&gt;</code><br />
+<code>#include &lt;QWidget&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -114,13 +137,11 @@ $(function(){initNavTree('UiMissionAnalysisWindow_8cpp.html',''); initResizable(
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>航天任务分析主窗口 </p>
-<p>任务分析顶层界面：顶部 Ribbon 菜单 + 左侧对象树 Dock</p><ul>
-<li>中央多标签工作区（3D/2D/报告）+ 底部状态栏。 <dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<div class="textblock"><p>航天任务分析主窗口实现 </p>
+<dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
 <dl class="section date"><dt>日期</dt><dd>2026-09-03 </dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2026-present, SpaceAST项目.</dd></dl>
-SpaceAST项目（https://github.com/space-ast/ast） 本软件基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</li>
-</ul>
+<p>SpaceAST项目（https://github.com/space-ast/ast） 本软件基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 <p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
 </div></div><!-- contents -->
