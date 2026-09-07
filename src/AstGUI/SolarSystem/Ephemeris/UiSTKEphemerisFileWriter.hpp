@@ -1,10 +1,7 @@
 ///
 /// @file      UiSTKEphemerisFileWriter.hpp
-/// @brief     STK 星历文件导出界面对话框 — 仿 STK Ephemeris 导出
+/// @brief     STK 星历文件导出界面对话框
 /// @details   用于将星历（Ephemeris/Point）以 STK (.e) 格式导出到文件。
-///   界面分为「Details」「Time Period」「Steps」三组及底部「Output File / Export」，
-///   布局与 STK 的星历文件导出对话框保持一致。配置项直接映射到
-///   STKEphemerisFileWriter 的对应参数。
 /// @author    axel
 /// @date      2026-09-07
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.

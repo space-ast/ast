@@ -19,7 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstGUI/AstGUIAPI.hpp"
-#include "AstGUI/UiMainWindow.hpp"
+#include "AstGUI/UiMissionAnalysisWindow.hpp"
 #include "AstUtil/GUI.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstCore/RunTime.hpp"
@@ -115,7 +115,7 @@ errc_t aQAppInit(int argc, char *argv[])
 
 QMainWindow *aUiNewMainWindow()
 {
-    return new UiMainWindow();
+    return new UiMissionAnalysisWindow();
 }
 
 AST_NAMESPACE_END

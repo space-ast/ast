@@ -1,7 +1,7 @@
 ///
 /// @file      UiCelestialBody.hpp
 /// @brief     天体编辑界面
-/// @details   参考STK Central Bodies属性窗口设计
+/// @details   
 /// @author    Aist
 /// @date      2026-04-10
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
