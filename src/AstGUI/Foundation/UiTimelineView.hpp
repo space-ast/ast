@@ -78,7 +78,7 @@ private:
     TimePoint   start_{TimePoint::Epoch()};      ///< 时间轴起点
     TimePoint   stop_{TimePoint::Epoch()};       ///< 时间轴终点
     TimePoint   current_{TimePoint::Epoch()};    ///< 当前时刻
-    std::vector<Bar> bars_;                      ///< 区间条
+    std::vector<Bar> bars_{};                    ///< 区间条
 };
 
 AST_NAMESPACE_END

@@ -64,7 +64,7 @@ public:
     std::string effectiveTexture() const;
 
 private:
-    WeakPtr<Body>     body_;
+    WeakPtr<Body>     body_{};
     std::string       texture_{};
 };
 

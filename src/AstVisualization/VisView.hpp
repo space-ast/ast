@@ -49,8 +49,8 @@ public:
 
     void setFrame(Frame* frame){frame_ = frame;}
 private:
-    SharedPtr<VisGroup> objects_;           ///< 可视化元素
-    WeakPtr<Frame> frame_;                  ///< 可视化视图的参考系(世界坐标系)
+    SharedPtr<VisGroup> objects_{};           ///< 可视化元素
+    WeakPtr<Frame> frame_{};                  ///< 可视化视图的参考系(世界坐标系)
 };
 
 

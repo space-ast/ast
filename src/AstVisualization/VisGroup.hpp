@@ -63,7 +63,7 @@ public:
     void reserve(size_t count) { children_.reserve(count); }
 
 private:
-    std::vector<HVisObject> children_;
+    std::vector<HVisObject> children_{};
 };
 
 
