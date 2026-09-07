@@ -1,5 +1,11 @@
 var NAVTREEINDEX2 =
 {
+"BlockAbs_8cpp.html":[4,0,0,6,12,1,1,2,0],
+"BlockAbs_8hpp.html":[4,0,0,6,12,1,1,2,1],
+"BlockAbs_8hpp_source.html":[4,0,0,6,12,1,1,2,1],
+"BlockAdd_8cpp.html":[4,0,0,6,12,1,1,2,2],
+"BlockAdd_8hpp_source.html":[4,0,0,6,12,1,1,2,3],
+"BlockAstro_8cpp.html":[4,0,0,6,12,1,0,1],
 "BlockAstro_8hpp.html":[4,0,0,6,12,1,0,2],
 "BlockAstro_8hpp.html#a0778aa54c0ab04c9921684b22406dd39":[4,0,0,6,12,1,0,2,3],
 "BlockAstro_8hpp.html#a139a8a9fc523333100dbb1534fd6a0dc":[4,0,0,6,12,1,0,2,17],
@@ -243,11 +249,5 @@ var NAVTREEINDEX2 =
 "Breakpoint_8hpp_source.html":[4,0,0,17,1,1],
 "BrentOptimizer_8cpp.html":[4,0,0,11,6,1],
 "BrentOptimizer_8cpp.html#a92ada0b4e0f32a49c35219b3355f556e":[4,0,0,11,6,1,0],
-"BrentOptimizer_8hpp.html":[4,0,0,11,6,2],
-"BrentOptimizer_8hpp.html#a051ab4c2e88cc580fb8c504902d29c42":[4,0,0,11,6,2,0],
-"BrentOptimizer_8hpp.html#a92ada0b4e0f32a49c35219b3355f556e":[4,0,0,11,6,2,1],
-"BrentOptimizer_8hpp_source.html":[4,0,0,11,6,2],
-"BrentSolver_8cpp.html":[4,0,0,11,4,0,3],
-"BrentSolver_8hpp.html":[4,0,0,11,4,0,4],
-"BrentSolver_8hpp_source.html":[4,0,0,11,4,0,4]
+"BrentOptimizer_8hpp.html":[4,0,0,11,6,2]
 };

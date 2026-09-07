@@ -1,5 +1,11 @@
 var NAVTREEINDEX3 =
 {
+"BrentOptimizer_8hpp.html#a051ab4c2e88cc580fb8c504902d29c42":[4,0,0,11,6,2,0],
+"BrentOptimizer_8hpp.html#a92ada0b4e0f32a49c35219b3355f556e":[4,0,0,11,6,2,1],
+"BrentOptimizer_8hpp_source.html":[4,0,0,11,6,2],
+"BrentSolver_8cpp.html":[4,0,0,11,4,0,3],
+"BrentSolver_8hpp.html":[4,0,0,11,4,0,4],
+"BrentSolver_8hpp_source.html":[4,0,0,11,4,0,4],
 "BuildTarget_8cpp.html":[4,0,0,26,1,2],
 "BuildTarget_8hpp.html":[4,0,0,26,1,3],
 "BuildTarget_8hpp_source.html":[4,0,0,26,1,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX3 =
 "CriticallyInclinedOrbitDesigner_8hpp.html":[4,0,0,6,11,4,5],
 "CriticallyInclinedOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,5],
 "CriticallyInclinedSunSyncOrbitDesigner_8cpp.html":[4,0,0,6,11,4,6],
-"CriticallyInclinedSunSyncOrbitDesigner_8hpp.html":[4,0,0,6,11,4,7],
-"CriticallyInclinedSunSyncOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,7],
-"CylindricalEclipseCalculator_8cpp.html":[4,0,0,6,10,0,4],
-"CylindricalEclipseCalculator_8hpp.html":[4,0,0,6,10,0,5],
-"CylindricalEclipseCalculator_8hpp_source.html":[4,0,0,6,10,0,5],
-"DAFParser_8cpp.html":[4,0,0,26,5,4,0],
-"DAFParser_8cpp.html#a2977e22c3a49b3b505297ff3c57390f3":[4,0,0,26,5,4,0,6]
+"CriticallyInclinedSunSyncOrbitDesigner_8hpp.html":[4,0,0,6,11,4,7]
 };
