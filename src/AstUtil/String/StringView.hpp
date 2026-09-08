@@ -37,7 +37,7 @@ AST_NAMESPACE_BEGIN
 
 
 /// @tparam _Char 字符类型，默认使用char
-/// @brief 轻量级的string_view实现
+/// @brief 字符串视图类，与C++17的string_view接口兼容，且支持部分C++20的函数
 /// @details  该类提供了对字符串的只读访问，不分配内存。
 template<typename _Char>
 class StringViewBasic

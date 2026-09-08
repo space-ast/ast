@@ -137,6 +137,7 @@
 %include "../AstUtil/Archiver/ExtractorInterface.hpp"
 %include "../AstUtil/Archiver/ShellCOMUtils.hpp"
 %include "../AstUtil/Builder/BuildTarget.hpp"
+%include "../AstUtil/Container/Any.hpp"
 %include "../AstUtil/Container/CorVector.hpp"
 %include "../AstUtil/Container/OrderedMap.hpp"
 %include "../AstUtil/Container/Span.hpp"
