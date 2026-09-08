@@ -24,6 +24,7 @@
 #include "AstCore/Time.hpp"
 #include "AstCore/Object.hpp"
 #include "AstCore/GeodeticPoint.hpp"
+#include "AstCore/CelestialBody.hpp"
 #include "AstSim/MotionProfile.hpp"
 #include "AstSim/MotionWithIntervalStep.hpp"
 

@@ -152,6 +152,7 @@
 #include "AstUtil/SerializerFactory.hpp"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/ShellCOMUtils.hpp"
+#include "AstUtil/SourceLocation.hpp"
 #include "AstUtil/Span.hpp"
 #include "AstUtil/StartupConfig.hpp"
 #include "AstUtil/String.hpp"

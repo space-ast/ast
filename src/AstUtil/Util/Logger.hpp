@@ -21,9 +21,10 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include <iostream>     // for std::cout
-#include <sstream>      // for std::ostringstream
-#include <stdarg.h>     // for va_list
+#include "SourceLocation.hpp"   // for A_SOURCE_FILE_PATH
+#include <iostream>             // for std::cout
+#include <sstream>              // for std::ostringstream
+#include <stdarg.h>             // for va_list
 
  
 AST_NAMESPACE_BEGIN
@@ -228,28 +229,29 @@ private:
     MessageLogContext context_;
 };
 
-/*! @} */
-
-
-AST_NAMESPACE_END
-
 
 // 日志宏定义
 
 #ifdef NDEBUG
 #define aDebug(...)    while(false) AST_PREPEND_NAMESPACE(MessageLogger)().noDebug(__VA_ARGS__)
 #else
-#define aDebug(...)    AST_PREPEND_NAMESPACE(MessageLogger)(__FILE__, __LINE__, __FUNCTION__).debug(__VA_ARGS__)
+#define aDebug(...)    AST_PREPEND_NAMESPACE(MessageLogger)(A_SOURCE_FILE_PATH, __LINE__, __FUNCTION__).debug(__VA_ARGS__)
 #endif
-#define aInfo(...)     AST_PREPEND_NAMESPACE(MessageLogger)(__FILE__, __LINE__, __FUNCTION__).info(__VA_ARGS__)
-#define aWarning(...)  AST_PREPEND_NAMESPACE(MessageLogger)(__FILE__, __LINE__, __FUNCTION__).warning(__VA_ARGS__)
-#define aError(...)    AST_PREPEND_NAMESPACE(MessageLogger)(__FILE__, __LINE__, __FUNCTION__).error(__VA_ARGS__)
-#define aCritical(...) AST_PREPEND_NAMESPACE(MessageLogger)(__FILE__, __LINE__, __FUNCTION__).critical(__VA_ARGS__)
-#define aFatal(...)    AST_PREPEND_NAMESPACE(MessageLogger)(__FILE__, __LINE__, __FUNCTION__).fatal(__VA_ARGS__)
+#define aInfo(...)     AST_PREPEND_NAMESPACE(MessageLogger)(A_SOURCE_FILE_PATH, __LINE__, __FUNCTION__).info(__VA_ARGS__)
+#define aWarning(...)  AST_PREPEND_NAMESPACE(MessageLogger)(A_SOURCE_FILE_PATH, __LINE__, __FUNCTION__).warning(__VA_ARGS__)
+#define aError(...)    AST_PREPEND_NAMESPACE(MessageLogger)(A_SOURCE_FILE_PATH, __LINE__, __FUNCTION__).error(__VA_ARGS__)
+#define aCritical(...) AST_PREPEND_NAMESPACE(MessageLogger)(A_SOURCE_FILE_PATH, __LINE__, __FUNCTION__).critical(__VA_ARGS__)
+#define aFatal(...)    AST_PREPEND_NAMESPACE(MessageLogger)(A_SOURCE_FILE_PATH, __LINE__, __FUNCTION__).fatal(__VA_ARGS__)
 
 
 #define AST_CHECK_NULLPTR(variable) if(variable == nullptr){aError(#variable " is notset(nullptr)"); return eErrorNullPtr;}
 #define AST_CHECK_ERRCODE(rc, msg) if(rc){aError(msg); return rc;}
 #define AST_CHECK_INVALID(condition) if(condition){aError("invalid parameter, with " #condition); return eErrorInvalidParam;}
+
+
+/*! @} */
+
+
+AST_NAMESPACE_END
 
 

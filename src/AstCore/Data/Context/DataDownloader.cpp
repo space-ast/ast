@@ -106,7 +106,7 @@ errc_t aDownloadData(StringView dataDir)
     errc_t err = eError;
     for (const char* url : kDataUrls)
     {
-        aInfo("downloading %s", url);
+        aInfo("下载数据文件: %s", url);
         err = aDownloadFile(url, tmpZip.string());
         if (err == eNoError) break;
         if (err == eErrorCancelled) break;   // 用户取消，不再尝试备用源

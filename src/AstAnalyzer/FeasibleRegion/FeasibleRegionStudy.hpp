@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstCore/Command.hpp"
+#include "AstScript/Expr.hpp"
 
 AST_NAMESPACE_BEGIN
 

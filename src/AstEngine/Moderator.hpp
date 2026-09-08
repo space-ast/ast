@@ -70,7 +70,7 @@ public:
     errc_t renameObject(Object& object, StringView name);
 
 private:
-    ModeratorObserverMultiplexer observers_;   ///< 事件监听者聚合（不拥有）
+    ModeratorObserverMultiplexer observers_{};   ///< 事件监听者聚合（不拥有）
 };
 
 

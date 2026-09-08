@@ -76,7 +76,7 @@ errc_t aDataDirGetDefault(std::string &dataDirOut)
         }
     }
 
-    aError("data dir not found");
+    // aError("未找到数据文件夹");
     // 如果所有路径都不存在，返回默认的相对路径
     dataDirOut = AST_DATA_DIR_NAME;
     return eErrorNotFound;
