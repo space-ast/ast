@@ -1,5 +1,8 @@
 var NAVTREEINDEX16 =
 {
+"SunPosition_8hpp_source.html":[4,0,0,6,14,13],
+"SunSynchronousOrbitDesigner_8cpp.html":[4,0,0,6,11,4,21],
+"SunSynchronousOrbitDesigner_8hpp.html":[4,0,0,6,11,4,22],
 "SunSynchronousOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,22],
 "SurfaceInterceptPoint_8cpp.html":[4,0,0,2,0,22],
 "SurfaceInterceptPoint_8hpp.html":[4,0,0,2,0,23],
@@ -246,8 +249,5 @@ var NAVTREEINDEX16 =
 "UiBurnImpulsive_8hpp_source.html":[4,0,0,10,10,3],
 "UiCelestialBody_8cpp.html":[4,0,0,10,11,1],
 "UiCelestialBody_8hpp.html":[4,0,0,10,11,2],
-"UiCelestialBody_8hpp_source.html":[4,0,0,10,11,2],
-"UiChatDockWidget_8cpp.html":[4,0,0,22,1,0],
-"UiChatDockWidget_8hpp.html":[4,0,0,22,1,1],
-"UiChatDockWidget_8hpp_source.html":[4,0,0,22,1,1]
+"UiCelestialBody_8hpp_source.html":[4,0,0,10,11,2]
 };

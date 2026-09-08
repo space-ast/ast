@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"CriticallyInclinedOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,5],
+"CriticallyInclinedSunSyncOrbitDesigner_8cpp.html":[4,0,0,6,11,4,6],
+"CriticallyInclinedSunSyncOrbitDesigner_8hpp.html":[4,0,0,6,11,4,7],
 "CriticallyInclinedSunSyncOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,7],
 "CylindricalEclipseCalculator_8cpp.html":[4,0,0,6,10,0,4],
 "CylindricalEclipseCalculator_8hpp.html":[4,0,0,6,10,0,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "Dimension_8hpp.html#a76bc86e8c16de763ba5587da00e48d10":[4,0,0,27,7,1,14],
 "Dimension_8hpp.html#a7dd359c4f79076aa154e9c8f3f46d636":[4,0,0,27,7,1,8],
 "Dimension_8hpp.html#a9392469021c5dc89ec24b046a440f1a3":[4,0,0,27,7,1,6],
-"Dimension_8hpp.html#a9e3b6d06a7d6ac66e4fe573c7ec944c5":[4,0,0,27,7,1,9],
-"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14":[4,0,0,27,7,1,2],
-"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a03d7e466dd696ba3ce6479db437f62bd":[4,0,0,27,7,1,2,10],
-"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a0fc6b6e1dcaee3d00d797bc4507f516d":[4,0,0,27,7,1,2,8]
+"Dimension_8hpp.html#a9e3b6d06a7d6ac66e4fe573c7ec944c5":[4,0,0,27,7,1,9]
 };

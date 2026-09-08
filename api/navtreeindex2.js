@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"BisectionSolver_8cpp.html":[4,0,0,12,4,0,1],
+"BisectionSolver_8hpp.html":[4,0,0,12,4,0,2],
+"BisectionSolver_8hpp_source.html":[4,0,0,12,4,0,2],
 "BlockAbs_8cpp.html":[4,0,0,6,12,1,1,2,0],
 "BlockAbs_8hpp.html":[4,0,0,6,12,1,1,2,1],
 "BlockAbs_8hpp_source.html":[4,0,0,6,12,1,1,2,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "Break_8hpp.html":[4,0,0,6,11,3,2],
 "Break_8hpp_source.html":[4,0,0,6,11,3,2],
 "Breakpoint_8cpp.html":[4,0,0,18,1,0],
-"Breakpoint_8hpp_source.html":[4,0,0,18,1,1],
-"BrentOptimizer_8cpp.html":[4,0,0,12,6,1],
-"BrentOptimizer_8cpp.html#a92ada0b4e0f32a49c35219b3355f556e":[4,0,0,12,6,1,0],
-"BrentOptimizer_8hpp.html":[4,0,0,12,6,2]
+"Breakpoint_8hpp_source.html":[4,0,0,18,1,1]
 };

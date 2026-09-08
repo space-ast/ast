@@ -1,5 +1,25 @@
 var group__Container =
 [
+    [ "ast::bad_any_cast", "classast_1_1bad__any__cast.html", null ],
+    [ "ast::Any", "classast_1_1Any.html", [
+      [ "Any", "classast_1_1Any.html#a52a5cfbadf5c6b76418cde6bbe2501a6", null ],
+      [ "Any", "classast_1_1Any.html#a3da478eb49dc17d5f9470fddf01e69d4", null ],
+      [ "Any", "classast_1_1Any.html#a524f299ab8307ef73ecd4c3b4db4fe87", null ],
+      [ "Any", "classast_1_1Any.html#a486fbaec9f5a165b5b3d7fb47034fe2e", null ],
+      [ "emplace", "classast_1_1Any.html#a1480a66307aacabd55913454faab2d8d", null ],
+      [ "has_value", "classast_1_1Any.html#aa3d75c08477d6a00a7cdb07a935dfc8b", null ],
+      [ "operator=", "classast_1_1Any.html#a2e1f933e6554c7438704673bba04d816", null ],
+      [ "operator=", "classast_1_1Any.html#a3ee04c5a393cc58b59046d740478d8b2", null ],
+      [ "operator=", "classast_1_1Any.html#ac0ac6972c22c84f91016c8ba95da4e09", null ],
+      [ "reset", "classast_1_1Any.html#ac94ebcc905f341a8c8346cd3f867b829", null ],
+      [ "swap", "classast_1_1Any.html#a110778e23a4ca2931c08f3f607ff7e33", null ],
+      [ "type", "classast_1_1Any.html#a34aed48b42f450499163c70cfcefd53d", null ],
+      [ "any_cast", "classast_1_1Any.html#af8dd1812310b5d891c9a5a7985141300", null ],
+      [ "any_cast", "classast_1_1Any.html#ad46c6d621a21516e489d26cc7aeaf314", null ],
+      [ "any_cast", "classast_1_1Any.html#a0ca0d54fe7e6544a9beb47fd1ac6f3b0", null ],
+      [ "any_cast", "classast_1_1Any.html#a1aeea1187d1af07d0a2601078e869ba1", null ],
+      [ "any_cast", "classast_1_1Any.html#a28c73809c7335efafd1927b4d61c8224", null ]
+    ] ],
     [ "ast::CorVector< T >", "classast_1_1CorVector.html", [
       [ "CorVectorAllocator", "structast_1_1CorVector_1_1CorVectorAllocator.html", [
         [ "end_of_storage_", "structast_1_1CorVector_1_1CorVectorAllocator.html#ac2c1d5967d10ea3316d109b958b15617", null ]
@@ -41,9 +61,15 @@ var group__Container =
       [ "reset", "group__Container.html#ga894f0935af890975e10727c3d07b65e3", null ]
     ] ],
     [ "ast::VariantVector::TypeOps", "structast_1_1VariantVector_1_1TypeOps.html", null ],
+    [ "ast::any_cast", "group__Container.html#ga2990e1352eaed29d1a1763ddd77d50cd", null ],
+    [ "ast::any_cast", "group__Container.html#ga4af979245db35bbdd383e931324f339f", null ],
+    [ "ast::any_cast", "group__Container.html#ga74db50e015f9999c253c2b8311d4eb12", null ],
+    [ "ast::any_cast", "group__Container.html#gacf3ae5b6a5e72d747beef2e3395ed154", null ],
+    [ "ast::any_cast", "group__Container.html#ga2d6933072c6fdb08f1f07d0c7b551b9f", null ],
     [ "ast::VariantVector::as", "group__Container.html#ga7af62d710328ca2965052d97865c06f1", null ],
     [ "ast::VariantVector::asSpan", "group__Container.html#ga9aaae629ae4794060416bf5d2163986c", null ],
     [ "ast::VariantVector::at", "group__Container.html#gab74da410867740edc7396ff23c167cc8", null ],
+    [ "ast::make_any", "group__Container.html#ga9428c1ac5bad0189131cc235d9f4eb71", null ],
     [ "ast::VariantVector::reset", "group__Container.html#gaae10a74e26a901f36f274a71b3d96533", null ],
     [ "ast::VariantVector::reset", "group__Container.html#ga894f0935af890975e10727c3d07b65e3", null ]
 ];

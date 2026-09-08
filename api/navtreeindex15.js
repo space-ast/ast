@@ -1,5 +1,8 @@
 var NAVTREEINDEX15 =
 {
+"SolarSystem_8hpp_source.html":[4,0,0,6,14,9],
+"SolverStats_8h.html":[4,0,0,12,4,2],
+"SolverStats_8h_source.html":[4,0,0,12,4,2],
 "SpaceObject_8cpp.html":[4,0,0,19,3,60],
 "SpaceObject_8cpp.html#a0e9729fb90d67faafec2435a814d25ac":[4,0,0,19,3,60,2],
 "SpaceObject_8cpp.html#a42a38cf0aed9af584dd2b2dfb7b15711":[4,0,0,19,3,60,3],
@@ -31,9 +34,9 @@ var NAVTREEINDEX15 =
 "Spacecraft_8cpp.html":[4,0,0,19,3,58],
 "Spacecraft_8hpp.html":[4,0,0,19,3,59],
 "Spacecraft_8hpp_source.html":[4,0,0,19,3,59],
-"Span_8cpp.html":[4,0,0,27,2,5],
-"Span_8hpp.html":[4,0,0,27,2,6],
-"Span_8hpp_source.html":[4,0,0,27,2,6],
+"Span_8cpp.html":[4,0,0,27,2,6],
+"Span_8hpp.html":[4,0,0,27,2,7],
+"Span_8hpp_source.html":[4,0,0,27,2,7],
 "Sparse_8hpp.html":[4,0,0,12,0,3],
 "Sparse_8hpp_source.html":[4,0,0,12,0,3],
 "SpatialCalcAltitude_8cpp.html":[4,0,0,6,10,3,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX15 =
 "SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055":[4,0,0,6,14,13,0],
 "SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a0d8db97ecea9e6f09617cc60746e1c01":[4,0,0,6,14,13,0,1],
 "SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a993c607f86d04aaa19681df339689592":[4,0,0,6,14,13,0,0],
-"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055ac4b72ddf63a9b2b2bca0c2bcc02842c8":[4,0,0,6,14,13,0,2],
-"SunPosition_8hpp_source.html":[4,0,0,6,14,13],
-"SunSynchronousOrbitDesigner_8cpp.html":[4,0,0,6,11,4,21],
-"SunSynchronousOrbitDesigner_8hpp.html":[4,0,0,6,11,4,22]
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055ac4b72ddf63a9b2b2bca0c2bcc02842c8":[4,0,0,6,14,13,0,2]
 };

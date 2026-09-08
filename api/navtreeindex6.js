@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"FOVCustom_8hpp_source.html":[4,0,0,6,10,2,7],
+"FOVHalfPower_8cpp.html":[4,0,0,6,10,2,8],
+"FOVHalfPower_8hpp.html":[4,0,0,6,10,2,9],
 "FOVHalfPower_8hpp_source.html":[4,0,0,6,10,2,9],
 "FOVRectangular_8cpp.html":[4,0,0,6,10,2,10],
 "FOVRectangular_8hpp.html":[4,0,0,6,10,2,11],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "HPOPUtil_8hpp.html#a2f6675033f02953fd31e75628adece13":[4,0,0,6,12,1,13,1],
 "HPOPUtil_8hpp.html#a4286e32141b981fdfc2d662bc50b8d95":[4,0,0,6,12,1,13,0],
 "HPOPUtil_8hpp_source.html":[4,0,0,6,12,1,13],
-"HPOP_8cpp.html":[4,0,0,6,12,1,8],
-"HPOP_8hpp.html":[4,0,0,6,12,1,9],
-"HPOP_8hpp_source.html":[4,0,0,6,12,1,9],
-"I18n_8cpp.html":[4,0,0,27,11,6]
+"HPOP_8cpp.html":[4,0,0,6,12,1,8]
 };

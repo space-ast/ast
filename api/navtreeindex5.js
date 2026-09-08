@@ -1,5 +1,8 @@
 var NAVTREEINDEX5 =
 {
+"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14":[4,0,0,27,7,1,2],
+"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a03d7e466dd696ba3ce6479db437f62bd":[4,0,0,27,7,1,2,10],
+"Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a0fc6b6e1dcaee3d00d797bc4507f516d":[4,0,0,27,7,1,2,8],
 "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a1be278567ee23c317653a94c15d759c4":[4,0,0,27,7,1,2,11],
 "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a284dd9de53a3c707f05cc0dd662607c2":[4,0,0,27,7,1,2,7],
 "Dimension_8hpp.html#ab30969f1d9a484eedacefdc5a6953f14a3415277feaf6ea4eb0b30f2aab932672":[4,0,0,27,7,1,2,12],
@@ -246,8 +249,5 @@ var NAVTREEINDEX5 =
 "FOVConical_8hpp.html":[4,0,0,6,10,2,5],
 "FOVConical_8hpp_source.html":[4,0,0,6,10,2,5],
 "FOVCustom_8cpp.html":[4,0,0,6,10,2,6],
-"FOVCustom_8hpp.html":[4,0,0,6,10,2,7],
-"FOVCustom_8hpp_source.html":[4,0,0,6,10,2,7],
-"FOVHalfPower_8cpp.html":[4,0,0,6,10,2,8],
-"FOVHalfPower_8hpp.html":[4,0,0,6,10,2,9]
+"FOVCustom_8hpp.html":[4,0,0,6,10,2,7]
 };

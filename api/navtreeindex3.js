@@ -1,5 +1,8 @@
 var NAVTREEINDEX3 =
 {
+"BrentOptimizer_8cpp.html":[4,0,0,12,6,1],
+"BrentOptimizer_8cpp.html#a92ada0b4e0f32a49c35219b3355f556e":[4,0,0,12,6,1,0],
+"BrentOptimizer_8hpp.html":[4,0,0,12,6,2],
 "BrentOptimizer_8hpp.html#a051ab4c2e88cc580fb8c504902d29c42":[4,0,0,12,6,2,0],
 "BrentOptimizer_8hpp.html#a92ada0b4e0f32a49c35219b3355f556e":[4,0,0,12,6,2,1],
 "BrentOptimizer_8hpp_source.html":[4,0,0,12,6,2],
@@ -222,15 +225,15 @@ var NAVTREEINDEX3 =
 "Constellation_8cpp.html":[4,0,0,19,3,18],
 "Constellation_8hpp.html":[4,0,0,19,3,19],
 "Constellation_8hpp_source.html":[4,0,0,19,3,19],
-"Container_8hpp.html":[4,0,0,27,2,0],
-"Container_8hpp_source.html":[4,0,0,27,2,0],
+"Container_8hpp.html":[4,0,0,27,2,1],
+"Container_8hpp_source.html":[4,0,0,27,2,1],
 "Continue_8cpp.html":[4,0,0,6,11,3,5],
 "Continue_8hpp.html":[4,0,0,6,11,3,6],
 "Continue_8hpp_source.html":[4,0,0,6,11,3,6],
 "Coordinate_8hpp_source.html":[4,0,0,6,6,7],
-"CorVector_8cpp.html":[4,0,0,27,2,1],
-"CorVector_8hpp.html":[4,0,0,27,2,2],
-"CorVector_8hpp_source.html":[4,0,0,27,2,2],
+"CorVector_8cpp.html":[4,0,0,27,2,2],
+"CorVector_8hpp.html":[4,0,0,27,2,3],
+"CorVector_8hpp_source.html":[4,0,0,27,2,3],
 "CoverageDefinitionLoader_8cpp.html":[4,0,0,11,5,19],
 "CoverageDefinitionLoader_8cpp.html#a9e134f832d3fa4968764d7f9eb576f68":[4,0,0,11,5,19,0],
 "CoverageDefinitionLoader_8hpp.html":[4,0,0,11,5,20],
@@ -246,8 +249,5 @@ var NAVTREEINDEX3 =
 "CrashHandler_8hpp.html":[4,0,0,9,2],
 "CrashHandler_8hpp_source.html":[4,0,0,9,2],
 "CriticallyInclinedOrbitDesigner_8cpp.html":[4,0,0,6,11,4,4],
-"CriticallyInclinedOrbitDesigner_8hpp.html":[4,0,0,6,11,4,5],
-"CriticallyInclinedOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,5],
-"CriticallyInclinedSunSyncOrbitDesigner_8cpp.html":[4,0,0,6,11,4,6],
-"CriticallyInclinedSunSyncOrbitDesigner_8hpp.html":[4,0,0,6,11,4,7]
+"CriticallyInclinedOrbitDesigner_8hpp.html":[4,0,0,6,11,4,5]
 };

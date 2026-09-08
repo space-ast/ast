@@ -1,5 +1,8 @@
 var NAVTREEINDEX17 =
 {
+"UiChatDockWidget_8cpp.html":[4,0,0,22,1,0],
+"UiChatDockWidget_8hpp.html":[4,0,0,22,1,1],
+"UiChatDockWidget_8hpp_source.html":[4,0,0,22,1,1],
 "UiChatEventHandler_8cpp.html":[4,0,0,22,0,0],
 "UiChatEventHandler_8hpp.html":[4,0,0,22,0,1],
 "UiChatEventHandler_8hpp_source.html":[4,0,0,22,0,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX17 =
 "UnaryScalarFunc_8hpp.html":[4,0,0,12,2,2],
 "UnaryScalarFunc_8hpp_source.html":[4,0,0,12,2,2],
 "UnarySolver_8cpp.html":[4,0,0,12,4,3],
-"UnarySolver_8cpp.html#a47e95e3bde022120d41e4da15744faba":[4,0,0,12,4,3,0],
-"UnarySolver_8hpp_source.html":[4,0,0,12,4,4],
-"UnaryVectorFunc_8hpp.html":[4,0,0,12,2,3],
-"UnaryVectorFunc_8hpp_source.html":[4,0,0,12,2,3]
+"UnarySolver_8cpp.html#a47e95e3bde022120d41e4da15744faba":[4,0,0,12,4,3,0]
 };
