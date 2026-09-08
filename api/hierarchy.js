@@ -605,6 +605,10 @@ var hierarchy =
     [ "ast::MissionCommandVisitor", "classast_1_1MissionCommandVisitor.html", null ],
     [ "ast::MockUninitializedPointer", "classast_1_1MockUninitializedPointer.html", null ],
     [ "ast::ModEquinElem", "classast_1_1ModEquinElem.html", null ],
+    [ "ast::Moderator", "classast_1_1Moderator.html", null ],
+    [ "ast::ModeratorObserver", "classast_1_1ModeratorObserver.html", [
+      [ "ast::ModeratorObserverMultiplexer", "classast_1_1ModeratorObserverMultiplexer.html", null ]
+    ] ],
     [ "ast::ModOrbElem", "classast_1_1ModOrbElem.html", null ],
     [ "ast::MotionProfileVisitor", "classast_1_1MotionProfileVisitor.html", null ],
     [ "ast::MSISBase::MSISParam", "structast_1_1MSISBase_1_1MSISParam.html", null ],

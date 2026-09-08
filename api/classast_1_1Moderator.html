@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::Moderator类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1Moderator.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classast_1_1Moderator-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::Moderator类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Moderator_8hpp_source.html">Moderator.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a1fbfd5040ced0357ab0b83035e815aac" id="r_a1fbfd5040ced0357ab0b83035e815aac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fbfd5040ced0357ab0b83035e815aac">addObserver</a> (<a class="el" href="classast_1_1ModeratorObserver.html">ModeratorObserver</a> *observer)</td></tr>
+<tr class="separator:a1fbfd5040ced0357ab0b83035e815aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab79cc38735c04799f5e8bbdcc3340407" id="r_ab79cc38735c04799f5e8bbdcc3340407"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab79cc38735c04799f5e8bbdcc3340407">removeObserver</a> (<a class="el" href="classast_1_1ModeratorObserver.html">ModeratorObserver</a> *observer)</td></tr>
+<tr class="separator:ab79cc38735c04799f5e8bbdcc3340407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabef31cada52ffc7a85037556f6821a2" id="r_aabef31cada52ffc7a85037556f6821a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabef31cada52ffc7a85037556f6821a2">addObject</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> type, <a class="el" href="classast_1_1Object.html">Object</a> *parent=nullptr)</td></tr>
+<tr class="separator:aabef31cada52ffc7a85037556f6821a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41e33a1fd0394f466b57f5d899c13f9f" id="r_a41e33a1fd0394f466b57f5d899c13f9f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41e33a1fd0394f466b57f5d899c13f9f">removeObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> &amp;object)</td></tr>
+<tr class="separator:a41e33a1fd0394f466b57f5d899c13f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ec4b00950263758453da1b8aca9a43" id="r_ad0ec4b00950263758453da1b8aca9a43"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0ec4b00950263758453da1b8aca9a43">renameObject</a> (<a class="el" href="classast_1_1Object.html">Object</a> &amp;object, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:ad0ec4b00950263758453da1b8aca9a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a795a3b146d2a09edf8f7be6176e3f1db" id="r_a795a3b146d2a09edf8f7be6176e3f1db"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classast_1_1Moderator.html">Moderator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a795a3b146d2a09edf8f7be6176e3f1db">Instance</a> ()</td></tr>
+<tr class="separator:a795a3b146d2a09edf8f7be6176e3f1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>引擎总控类 </p>
+<p>作为引擎总控，管理对象的增删改名等操作，并广播事件通知给已注册的观察者。 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="aabef31cada52ffc7a85037556f6821a2" name="aabef31cada52ffc7a85037556f6821a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabef31cada52ffc7a85037556f6821a2">&#9670;&#160;</a></span>addObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Object.html">Object</a> * ast::Moderator::addObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>对象类型名称 </td></tr>
+    <tr><td class="paramname">parent</td><td>父作用域（可为空） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>创建的对象指针，失败返回 nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a1fbfd5040ced0357ab0b83035e815aac" name="a1fbfd5040ced0357ab0b83035e815aac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fbfd5040ced0357ab0b83035e815aac">&#9670;&#160;</a></span>addObserver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Moderator::addObserver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ModeratorObserver.html">ModeratorObserver</a> *</td>          <td class="paramname"><span class="paramname"><em>observer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>注册事件监听者 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">observer</td><td>观察者指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a795a3b146d2a09edf8f7be6176e3f1db" name="a795a3b146d2a09edf8f7be6176e3f1db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a795a3b146d2a09edf8f7be6176e3f1db">&#9670;&#160;</a></span>Instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Moderator.html">Moderator</a> &amp; ast::Moderator::Instance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取全局引擎总控实例 </p>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classast_1_1Moderator.html" title="引擎总控类">Moderator</a>&amp; 全局单例引用 </dd></dl>
+
+</div>
+</div>
+<a id="a41e33a1fd0394f466b57f5d899c13f9f" name="a41e33a1fd0394f466b57f5d899c13f9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41e33a1fd0394f466b57f5d899c13f9f">&#9670;&#160;</a></span>removeObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::Moderator::removeObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>移除对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>要移除的对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ab79cc38735c04799f5e8bbdcc3340407" name="ab79cc38735c04799f5e8bbdcc3340407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab79cc38735c04799f5e8bbdcc3340407">&#9670;&#160;</a></span>removeObserver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::Moderator::removeObserver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ModeratorObserver.html">ModeratorObserver</a> *</td>          <td class="paramname"><span class="paramname"><em>observer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>移除事件监听者 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">observer</td><td>观察者指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad0ec4b00950263758453da1b8aca9a43" name="ad0ec4b00950263758453da1b8aca9a43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ec4b00950263758453da1b8aca9a43">&#9670;&#160;</a></span>renameObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::Moderator::renameObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>重命名对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>要重命名的对象 </td></tr>
+    <tr><td class="paramname">name</td><td>新名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstEngine/<a class="el" href="Moderator_8hpp_source.html">Moderator.hpp</a></li>
+<li>src/AstEngine/<a class="el" href="Moderator_8cpp.html">Moderator.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1Moderator.html">Moderator</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>
