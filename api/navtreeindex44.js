@@ -1,5 +1,8 @@
 var NAVTREEINDEX44 =
 {
+"classast_1_1Sequence.html#ab4572cc55134322f7fc5360feb3f2de9":[3,0,0,882,2],
+"classast_1_1Sequence.html#ab69d692eaeb6c7ba5ff868a4d90574ab":[2,0,0,883,1],
+"classast_1_1Sequence.html#ab69d692eaeb6c7ba5ff868a4d90574ab":[3,0,0,882,1],
 "classast_1_1Sequence.html#aca681b1bf54604a49d01a072e47a1413":[2,0,0,883,8],
 "classast_1_1Sequence.html#aca681b1bf54604a49d01a072e47a1413":[3,0,0,882,8],
 "classast_1_1Sequence.html#ae63c57153f6f2c591db69998ede030b4":[2,0,0,883,9],
@@ -246,8 +249,5 @@ var NAVTREEINDEX44 =
 "classast_1_1SpheroidShape.html":[2,0,0,926],
 "classast_1_1SpheroidShape.html":[3,0,0,925],
 "classast_1_1SpheroidShape.html#a2dd2a98719c5260fe02605c7e80d2ab3":[2,0,0,926,4],
-"classast_1_1SpheroidShape.html#a2dd2a98719c5260fe02605c7e80d2ab3":[3,0,0,925,4],
-"classast_1_1SpheroidShape.html#a39d467691eacd497439633a5c318536b":[2,0,0,926,2],
-"classast_1_1SpheroidShape.html#a39d467691eacd497439633a5c318536b":[3,0,0,925,2],
-"classast_1_1SpheroidShape.html#a76b111a7094d292bae479802dbdbcf43":[2,0,0,926,3]
+"classast_1_1SpheroidShape.html#a2dd2a98719c5260fe02605c7e80d2ab3":[3,0,0,925,4]
 };

@@ -1,5 +1,8 @@
 var NAVTREEINDEX32 =
 {
+"classast_1_1JacchiaRoberts.html":[2,0,0,421],
+"classast_1_1JacchiaRoberts.html":[3,0,0,420],
+"classast_1_1JacchiaRoberts.html#a4125b2f66c55aa21dc8574a14021ec1c":[2,0,0,421,0],
 "classast_1_1JacchiaRoberts.html#a4125b2f66c55aa21dc8574a14021ec1c":[3,0,0,420,0],
 "classast_1_1JavaSerializer.html":[2,0,0,422],
 "classast_1_1JavaSerializer.html":[3,0,0,421],
@@ -246,8 +249,5 @@ var NAVTREEINDEX32 =
 "classast_1_1KinematicRotation.html#a254e9380af5fc710dea75053b6b819ce":[2,0,0,434,14],
 "classast_1_1KinematicRotation.html#a254e9380af5fc710dea75053b6b819ce":[3,0,0,433,14],
 "classast_1_1KinematicRotation.html#a262da130868caf4121f044987790da1f":[2,0,0,434,2],
-"classast_1_1KinematicRotation.html#a262da130868caf4121f044987790da1f":[3,0,0,433,2],
-"classast_1_1KinematicRotation.html#a295e3d0b96942f0246fc4211fbb7254a":[2,0,0,434,4],
-"classast_1_1KinematicRotation.html#a295e3d0b96942f0246fc4211fbb7254a":[3,0,0,433,4],
-"classast_1_1KinematicRotation.html#a3beb4321f1643ac94191d8c1d98e5d13":[2,0,0,434,15]
+"classast_1_1KinematicRotation.html#a262da130868caf4121f044987790da1f":[3,0,0,433,2]
 };

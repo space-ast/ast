@@ -1,5 +1,8 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1ScStateCalcCloseApproachX.html":[3,0,0,702],
+"classast_1_1ScStateCalcCloseApproachY.html":[2,0,0,704],
+"classast_1_1ScStateCalcCloseApproachY.html":[3,0,0,703],
 "classast_1_1ScStateCalcCosineVFPA.html":[2,0,0,705],
 "classast_1_1ScStateCalcCosineVFPA.html":[3,0,0,704],
 "classast_1_1ScStateCalcCr.html":[2,0,0,706],
@@ -246,8 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalcReflectionCoefficient.html":[3,0,0,818],
 "classast_1_1ScStateCalcRelAOLMaster.html":[2,0,0,821],
 "classast_1_1ScStateCalcRelAOLMaster.html":[3,0,0,820],
-"classast_1_1ScStateCalcRelGroundTrackError.html":[2,0,0,822],
-"classast_1_1ScStateCalcRelGroundTrackError.html":[3,0,0,821],
-"classast_1_1ScStateCalcRepGrTrackErr.html":[2,0,0,823],
-"classast_1_1ScStateCalcRepGrTrackErr.html":[3,0,0,822]
+"classast_1_1ScStateCalcRelGroundTrackError.html":[2,0,0,822]
 };

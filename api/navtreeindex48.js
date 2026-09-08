@@ -1,5 +1,8 @@
 var NAVTREEINDEX48 =
 {
+"classast_1_1TimePoint.html#afcd52a7e2f0e8c0627ccf3918d2c2011":[0,1,8,13,12],
+"classast_1_1TimePoint.html#afcfd4ed71772ea2071a59198c89a25fb":[0,1,8,13,0],
+"classast_1_1TimePoint.html#afd12e985220adfd9743435f0ebd55f5b":[0,1,8,13,14],
 "classast_1_1TimePointRange.html":[0,1,8,14],
 "classast_1_1TimePointRange.html#a230df79ac0e45a98232aa555cc265de0":[0,1,8,14,2],
 "classast_1_1TimePointRange.html#ab6db89657179feab60e69bdcfe2f9356":[0,1,8,14,1],
@@ -71,12 +74,12 @@ var NAVTREEINDEX48 =
 "classast_1_1Transmitter.html":[2,0,0,1005],
 "classast_1_1Transmitter.html":[3,0,0,1004],
 "classast_1_1TwoBody.html":[0,1,6,4],
-"classast_1_1USSA1976.html":[2,0,0,1101],
-"classast_1_1USSA1976.html":[3,0,0,1100],
-"classast_1_1USSA1976.html#ab1029c42ed6b943cd5878a385d47bf9c":[2,0,0,1101,0],
-"classast_1_1USSA1976.html#ab1029c42ed6b943cd5878a385d47bf9c":[3,0,0,1100,0],
-"classast_1_1UTCScale.html":[2,0,0,1102],
-"classast_1_1UTCScale.html":[3,0,0,1101],
+"classast_1_1USSA1976.html":[2,0,0,1102],
+"classast_1_1USSA1976.html":[3,0,0,1101],
+"classast_1_1USSA1976.html#ab1029c42ed6b943cd5878a385d47bf9c":[2,0,0,1102,0],
+"classast_1_1USSA1976.html#ab1029c42ed6b943cd5878a385d47bf9c":[3,0,0,1101,0],
+"classast_1_1UTCScale.html":[2,0,0,1103],
+"classast_1_1UTCScale.html":[3,0,0,1102],
 "classast_1_1UiAnalyzerMainWindow.html":[2,0,0,1008],
 "classast_1_1UiAnalyzerMainWindow.html":[3,0,0,1007],
 "classast_1_1UiAnalyzerMainWindow.html#a0d99c7ad8423e93c96c5106e74a99dde":[2,0,0,1008,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX48 =
 "classast_1_1UiEventDetector.html":[2,0,0,1031],
 "classast_1_1UiEventDetector.html":[3,0,0,1030],
 "classast_1_1UiEventDetectorEditor.html":[2,0,0,1032],
-"classast_1_1UiEventDetectorEditor.html":[3,0,0,1031],
-"classast_1_1UiEventDetectorList.html":[2,0,0,1033],
-"classast_1_1UiEventDetectorList.html":[3,0,0,1032],
-"classast_1_1UiExpressionBrowser.html":[2,0,0,1034]
+"classast_1_1UiEventDetectorEditor.html":[3,0,0,1031]
 };

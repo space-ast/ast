@@ -607,7 +607,8 @@ var hierarchy =
     [ "ast::ModEquinElem", "classast_1_1ModEquinElem.html", null ],
     [ "ast::Moderator", "classast_1_1Moderator.html", null ],
     [ "ast::ModeratorObserver", "classast_1_1ModeratorObserver.html", [
-      [ "ast::ModeratorObserverMultiplexer", "classast_1_1ModeratorObserverMultiplexer.html", null ]
+      [ "ast::ModeratorObserverMultiplexer", "classast_1_1ModeratorObserverMultiplexer.html", null ],
+      [ "ast::UiModerator::Observer", "classast_1_1UiModerator_1_1Observer.html", null ]
     ] ],
     [ "ast::ModOrbElem", "classast_1_1ModOrbElem.html", null ],
     [ "ast::MotionProfileVisitor", "classast_1_1MotionProfileVisitor.html", null ],
@@ -752,7 +753,8 @@ var hierarchy =
       [ "ast::PilotPlayer", "classast_1_1PilotPlayer.html", null ],
       [ "ast::PilotRecorder", "classast_1_1PilotRecorder.html", null ],
       [ "ast::PilotSession", "classast_1_1PilotSession.html", null ],
-      [ "ast::UiChatEventHandler", "classast_1_1UiChatEventHandler.html", null ]
+      [ "ast::UiChatEventHandler", "classast_1_1UiChatEventHandler.html", null ],
+      [ "ast::UiModerator", "classast_1_1UiModerator.html", null ]
     ] ],
     [ "QPushButton", null, [
       [ "ast::ColorButton", "classast_1_1ColorButton.html", null ]

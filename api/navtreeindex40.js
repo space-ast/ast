@@ -1,5 +1,8 @@
 var NAVTREEINDEX40 =
 {
+"classast_1_1PropertyQuantity.html#a2a08668fd3fdc96e9940bbad1f6a8730":[0,8,4,15,4],
+"classast_1_1PropertyQuantity.html#a400a4dc225836b6280adcf4533d754d9":[0,8,4,15,1],
+"classast_1_1PropertyQuantity.html#a72ec535b73c719d085c19a4c5abe240f":[0,8,4,15,3],
 "classast_1_1PropertyQuantity.html#aa19e3dabe8098fb59e73ef683a171d6c":[0,8,4,15,2],
 "classast_1_1PropertyQuantity.html#ab56a0c7875b4592d0671f88605f8853a":[0,8,4,15,0],
 "classast_1_1PropertyString.html":[0,8,4,16],
@@ -246,8 +249,5 @@ var NAVTREEINDEX40 =
 "classast_1_1ReportStyle.html#adbac9b3d4c90ca5d35a75307c0d74710":[0,16,10,3],
 "classast_1_1ReportStyle.html#aed1ecb2780ecf4d19179a6d44851cc2b":[0,16,10,1],
 "classast_1_1Return.html":[2,0,0,644],
-"classast_1_1Return.html":[3,0,0,643],
-"classast_1_1Return.html#adcad394a4e41fe48805c7eb94465123f":[2,0,0,644,0],
-"classast_1_1Return.html#adcad394a4e41fe48805c7eb94465123f":[3,0,0,643,0],
-"classast_1_1RidderSolver.html":[0,3,3,3]
+"classast_1_1Return.html":[3,0,0,643]
 };

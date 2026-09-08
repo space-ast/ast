@@ -1114,6 +1114,7 @@ var annotated_dup =
       [ "UiInteger", "classast_1_1UiInteger.html", "classast_1_1UiInteger" ],
       [ "UiManeuver", "classast_1_1UiManeuver.html", null ],
       [ "UiMissionAnalysisWindow", "classast_1_1UiMissionAnalysisWindow.html", null ],
+      [ "UiModerator", "classast_1_1UiModerator.html", "classast_1_1UiModerator" ],
       [ "UiMotionProfile", "classast_1_1UiMotionProfile.html", "classast_1_1UiMotionProfile" ],
       [ "UiMotionTwoBody", "classast_1_1UiMotionTwoBody.html", null ],
       [ "UiNewObjectDialog", "classast_1_1UiNewObjectDialog.html", "classast_1_1UiNewObjectDialog" ],

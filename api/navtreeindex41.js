@@ -1,5 +1,8 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1Return.html#adcad394a4e41fe48805c7eb94465123f":[2,0,0,644,0],
+"classast_1_1Return.html#adcad394a4e41fe48805c7eb94465123f":[3,0,0,643,0],
+"classast_1_1RidderSolver.html":[0,3,3,3],
 "classast_1_1RidderSolver.html#a85ed3aeddc5f0eb1a5851a1e5b3dce1c":[0,3,3,3,0],
 "classast_1_1RidderSolver.html#adce16c903462b526ebefc6a7456ab4ce":[0,3,3,3,1],
 "classast_1_1Rotation.html":[2,0,0,653],
@@ -246,8 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1ScStateCalcCloseApproachSpeed.html":[3,0,0,700],
 "classast_1_1ScStateCalcCloseApproachTheta.html":[2,0,0,702],
 "classast_1_1ScStateCalcCloseApproachTheta.html":[3,0,0,701],
-"classast_1_1ScStateCalcCloseApproachX.html":[2,0,0,703],
-"classast_1_1ScStateCalcCloseApproachX.html":[3,0,0,702],
-"classast_1_1ScStateCalcCloseApproachY.html":[2,0,0,704],
-"classast_1_1ScStateCalcCloseApproachY.html":[3,0,0,703]
+"classast_1_1ScStateCalcCloseApproachX.html":[2,0,0,703]
 };
