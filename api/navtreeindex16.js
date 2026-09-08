@@ -1,5 +1,10 @@
 var NAVTREEINDEX16 =
 {
+"SunPosition_8hpp.html":[4,0,0,6,14,13],
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055":[4,0,0,6,14,13,0],
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a0d8db97ecea9e6f09617cc60746e1c01":[4,0,0,6,14,13,0,1],
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a993c607f86d04aaa19681df339689592":[4,0,0,6,14,13,0,0],
+"SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055ac4b72ddf63a9b2b2bca0c2bcc02842c8":[4,0,0,6,14,13,0,2],
 "SunPosition_8hpp_source.html":[4,0,0,6,14,13],
 "SunSynchronousOrbitDesigner_8cpp.html":[4,0,0,6,11,4,21],
 "SunSynchronousOrbitDesigner_8hpp.html":[4,0,0,6,11,4,22],
@@ -72,8 +77,8 @@ var NAVTREEINDEX16 =
 "TargeterSequence_8cpp.html":[4,0,0,6,11,3,34],
 "TargeterSequence_8hpp.html":[4,0,0,6,11,3,35],
 "TargeterSequence_8hpp_source.html":[4,0,0,6,11,3,35],
-"TempFileGuard_8hpp.html":[4,0,0,27,11,21],
-"TempFileGuard_8hpp_source.html":[4,0,0,27,11,21],
+"TempFileGuard_8hpp.html":[4,0,0,27,11,22],
+"TempFileGuard_8hpp_source.html":[4,0,0,27,11,22],
 "Terminal_8cpp.html":[4,0,0,27,6,30],
 "Terminal_8hpp.html":[4,0,0,27,6,31],
 "Terminal_8hpp_source.html":[4,0,0,27,6,31],
@@ -212,7 +217,7 @@ var NAVTREEINDEX16 =
 "TwoBody_8cpp.html#a576e27d6ac7a3bed49e448e9b092a4ba":[4,0,0,6,12,12,0],
 "TwoBody_8hpp.html":[4,0,0,6,12,13],
 "TwoBody_8hpp_source.html":[4,0,0,6,12,13],
-"TypeTraits_8hpp_source.html":[4,0,0,27,11,22],
+"TypeTraits_8hpp_source.html":[4,0,0,27,11,23],
 "Type_8hpp.html":[4,0,0,27,8,27],
 "Type_8hpp_source.html":[4,0,0,27,8,27],
 "Types_8cpp.html":[4,0,0,18,0,7],
@@ -244,10 +249,5 @@ var NAVTREEINDEX16 =
 "UiBurnEditor_8cpp.html":[4,0,0,10,10,0],
 "UiBurnEditor_8hpp.html":[4,0,0,10,10,1],
 "UiBurnEditor_8hpp_source.html":[4,0,0,10,10,1],
-"UiBurnImpulsive_8cpp.html":[4,0,0,10,10,2],
-"UiBurnImpulsive_8hpp.html":[4,0,0,10,10,3],
-"UiBurnImpulsive_8hpp_source.html":[4,0,0,10,10,3],
-"UiCelestialBody_8cpp.html":[4,0,0,10,11,1],
-"UiCelestialBody_8hpp.html":[4,0,0,10,11,2],
-"UiCelestialBody_8hpp_source.html":[4,0,0,10,11,2]
+"UiBurnImpulsive_8cpp.html":[4,0,0,10,10,2]
 };

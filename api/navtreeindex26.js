@@ -1,5 +1,10 @@
 var NAVTREEINDEX26 =
 {
+"classast_1_1DetectorUserSelect.html":[3,0,0,263],
+"classast_1_1DetectorUserSelect.html#a9eaafe8feb63d1bce4dee7084e00a122":[2,0,0,264,1],
+"classast_1_1DetectorUserSelect.html#a9eaafe8feb63d1bce4dee7084e00a122":[3,0,0,263,1],
+"classast_1_1DetectorUserSelect.html#abfeb0211f25e9bd8980beb7f8e960524":[2,0,0,264,0],
+"classast_1_1DetectorUserSelect.html#abfeb0211f25e9bd8980beb7f8e960524":[3,0,0,263,0],
 "classast_1_1DetectorXYPlaneCross.html":[2,0,0,265],
 "classast_1_1DetectorXYPlaneCross.html":[3,0,0,264],
 "classast_1_1DetectorXYPlaneCross.html#adb6ba9dba8bb1ae973dd3d934d6f648d":[2,0,0,265,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX26 =
 "classast_1_1EphemerisMultiSegment.html#a45c3a32479ff86beb03dd947581e0e03":[2,0,0,289,0],
 "classast_1_1EphemerisMultiSegment.html#a45c3a32479ff86beb03dd947581e0e03":[3,0,0,288,0],
 "classast_1_1EphemerisMultiSegment.html#a681f9a377621560b7a601c02359f53fd":[2,0,0,289,3],
-"classast_1_1EphemerisMultiSegment.html#a681f9a377621560b7a601c02359f53fd":[3,0,0,288,3],
-"classast_1_1EphemerisMultiSegment.html#a8880816b3a727179eeff2bf4b4dbe808":[2,0,0,289,2],
-"classast_1_1EphemerisMultiSegment.html#a8880816b3a727179eeff2bf4b4dbe808":[3,0,0,288,2],
-"classast_1_1EphemerisRealTime.html":[2,0,0,290],
-"classast_1_1EphemerisRealTime.html":[3,0,0,289],
-"classast_1_1EphemerisTwoBody.html":[2,0,0,291]
+"classast_1_1EphemerisMultiSegment.html#a681f9a377621560b7a601c02359f53fd":[3,0,0,288,3]
 };

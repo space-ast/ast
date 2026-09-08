@@ -1,5 +1,10 @@
 var NAVTREEINDEX17 =
 {
+"UiBurnImpulsive_8hpp.html":[4,0,0,10,10,3],
+"UiBurnImpulsive_8hpp_source.html":[4,0,0,10,10,3],
+"UiCelestialBody_8cpp.html":[4,0,0,10,11,1],
+"UiCelestialBody_8hpp.html":[4,0,0,10,11,2],
+"UiCelestialBody_8hpp_source.html":[4,0,0,10,11,2],
 "UiChatDockWidget_8cpp.html":[4,0,0,22,1,0],
 "UiChatDockWidget_8hpp.html":[4,0,0,22,1,1],
 "UiChatDockWidget_8hpp_source.html":[4,0,0,22,1,1],
@@ -244,10 +249,5 @@ var NAVTREEINDEX17 =
 "UiWorkbenchExprPicker_8hpp.html":[4,0,0,10,0,13],
 "UiWorkbenchExprPicker_8hpp_source.html":[4,0,0,10,0,13],
 "UnaryOptimizer_8cpp.html":[4,0,0,12,6,6],
-"UnaryOptimizer_8hpp.html":[4,0,0,12,6,7],
-"UnaryOptimizer_8hpp_source.html":[4,0,0,12,6,7],
-"UnaryScalarFunc_8hpp.html":[4,0,0,12,2,2],
-"UnaryScalarFunc_8hpp_source.html":[4,0,0,12,2,2],
-"UnarySolver_8cpp.html":[4,0,0,12,4,3],
-"UnarySolver_8cpp.html#a47e95e3bde022120d41e4da15744faba":[4,0,0,12,4,3,0]
+"UnaryOptimizer_8hpp.html":[4,0,0,12,6,7]
 };

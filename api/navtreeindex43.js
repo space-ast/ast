@@ -1,5 +1,10 @@
 var NAVTREEINDEX43 =
 {
+"classast_1_1ScStateCalcRadPressureCoefficient.html":[3,0,0,814],
+"classast_1_1ScStateCalcRadial.html":[2,0,0,809],
+"classast_1_1ScStateCalcRadial.html":[3,0,0,808],
+"classast_1_1ScStateCalcRadialRate.html":[2,0,0,810],
+"classast_1_1ScStateCalcRadialRate.html":[3,0,0,809],
 "classast_1_1ScStateCalcRadius.html":[2,0,0,811],
 "classast_1_1ScStateCalcRadius.html":[3,0,0,810],
 "classast_1_1ScStateCalcRadiusOfApoapsis.html":[2,0,0,812],
@@ -244,10 +249,5 @@ var NAVTREEINDEX43 =
 "classast_1_1SegmentGraph.html#a0fb1b41a7b3dfa6d0de2fe56f08925ef":[3,0,0,882,1],
 "classast_1_1SegmentGraph.html#aa77875c83c4cb9c11f6087691e10647c":[2,0,0,883,0],
 "classast_1_1SegmentGraph.html#aa77875c83c4cb9c11f6087691e10647c":[3,0,0,882,0],
-"classast_1_1Sensor.html":[2,0,0,884],
-"classast_1_1Sensor.html":[3,0,0,883],
-"classast_1_1Sensor.html#a16a4178ca034dda6f4cad0397223cead":[2,0,0,884,2],
-"classast_1_1Sensor.html#a16a4178ca034dda6f4cad0397223cead":[3,0,0,883,2],
-"classast_1_1Sensor.html#a2276254a201e395f1c90b91c48514fb3":[2,0,0,884,4],
-"classast_1_1Sensor.html#a2276254a201e395f1c90b91c48514fb3":[3,0,0,883,4]
+"classast_1_1Sensor.html":[2,0,0,884]
 };

@@ -1,5 +1,10 @@
 var NAVTREEINDEX45 =
 {
+"classast_1_1SpatialCondAccessToObjects.html#ac9845ef7130c5d39df5e23ae337fd02b":[0,1,3,0,7,1],
+"classast_1_1SpatialCondCalculationBounds.html":[0,1,3,0,8],
+"classast_1_1SpatialCondCalculationBounds.html#a2222332079a681cfefc7d007c6c89dc7":[0,1,3,0,8,0],
+"classast_1_1SpatialCondCalculationBounds.html#acc8da2f81c3413efa4925f678441ad5b":[0,1,3,0,8,1],
+"classast_1_1SpatialCondLighting.html":[0,1,3,0,11],
 "classast_1_1SpatialCondLighting.html#a1e047036062319aef8643414e02d4c27":[0,1,3,0,11,0],
 "classast_1_1SpatialCondLighting.html#aff10976e998564bede1483cd14d42c1d":[0,1,3,0,11,1],
 "classast_1_1SpatialCondOverTime.html":[0,1,3,0,12],
@@ -244,10 +249,5 @@ var NAVTREEINDEX45 =
 "classast_1_1StateKeplerian.html#a9f888ea2118ed7b1c80432fc851ec6a3":[2,0,0,956,63],
 "classast_1_1StateKeplerian.html#a9f888ea2118ed7b1c80432fc851ec6a3":[3,0,0,955,63],
 "classast_1_1StateKeplerian.html#aa3cea6f996cffe0cf31f6df3461feddb":[2,0,0,956,41],
-"classast_1_1StateKeplerian.html#aa3cea6f996cffe0cf31f6df3461feddb":[3,0,0,955,41],
-"classast_1_1StateKeplerian.html#aa406cbc086855a6877d3789bf3ad09c7":[2,0,0,956,18],
-"classast_1_1StateKeplerian.html#aa406cbc086855a6877d3789bf3ad09c7":[3,0,0,955,18],
-"classast_1_1StateKeplerian.html#aac861d3c1b8810f7346f7e4c34ac2a23":[2,0,0,956,50],
-"classast_1_1StateKeplerian.html#aac861d3c1b8810f7346f7e4c34ac2a23":[3,0,0,955,50],
-"classast_1_1StateKeplerian.html#aae580d42e5f15af8426246f041e962de":[2,0,0,956,39]
+"classast_1_1StateKeplerian.html#aa3cea6f996cffe0cf31f6df3461feddb":[3,0,0,955,41]
 };

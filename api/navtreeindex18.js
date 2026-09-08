@@ -1,5 +1,10 @@
 var NAVTREEINDEX18 =
 {
+"UnaryOptimizer_8hpp_source.html":[4,0,0,12,6,7],
+"UnaryScalarFunc_8hpp.html":[4,0,0,12,2,2],
+"UnaryScalarFunc_8hpp_source.html":[4,0,0,12,2,2],
+"UnarySolver_8cpp.html":[4,0,0,12,4,3],
+"UnarySolver_8cpp.html#a47e95e3bde022120d41e4da15744faba":[4,0,0,12,4,3,0],
 "UnarySolver_8hpp_source.html":[4,0,0,12,4,4],
 "UnaryVectorFunc_8hpp.html":[4,0,0,12,2,3],
 "UnaryVectorFunc_8hpp_source.html":[4,0,0,12,2,3],
@@ -195,9 +200,9 @@ var NAVTREEINDEX18 =
 "VectorFixed_8hpp_source.html":[4,0,0,6,6,6,5],
 "VectorFunc_8hpp.html":[4,0,0,12,2,4],
 "VectorFunc_8hpp_source.html":[4,0,0,12,2,4],
-"Version_8cpp.html":[4,0,0,27,11,23],
-"Version_8hpp.html":[4,0,0,27,11,24],
-"Version_8hpp_source.html":[4,0,0,27,11,24],
+"Version_8cpp.html":[4,0,0,27,11,24],
+"Version_8hpp.html":[4,0,0,27,11,25],
+"Version_8hpp_source.html":[4,0,0,27,11,25],
 "Vinti6_8h_source.html":[4,0,0,6,12,3,0,0],
 "Vinti_8cpp.html":[4,0,0,6,12,3,1],
 "Vinti_8cpp.html#aa164f8fe8575f3b543467d4fcce6ff8c":[4,0,0,6,12,3,1,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX18 =
 "VolumeGridConstrained_8hpp.html":[4,0,0,6,10,3,36],
 "VolumeGridConstrained_8hpp_source.html":[4,0,0,6,10,3,36],
 "VolumeGridCylindrical_8cpp.html":[4,0,0,6,10,3,37],
-"VolumeGridCylindrical_8hpp.html":[4,0,0,6,10,3,38],
-"VolumeGridCylindrical_8hpp_source.html":[4,0,0,6,10,3,38],
-"VolumeGridSpherical_8cpp.html":[4,0,0,6,10,3,39],
-"VolumeGridSpherical_8hpp.html":[4,0,0,6,10,3,40],
-"VolumeGridSpherical_8hpp_source.html":[4,0,0,6,10,3,40],
-"VolumeGridSurfaceBearing_8cpp.html":[4,0,0,6,10,3,41]
+"VolumeGridCylindrical_8hpp.html":[4,0,0,6,10,3,38]
 };
