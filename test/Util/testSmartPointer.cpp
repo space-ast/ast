@@ -33,9 +33,9 @@ AST_USING_NAMESPACE
 // 测试SharedPtr
 TEST(SmartPointer, SharedPtr)
 {
-    auto obj = new ObjectNamed{  };
+    auto obj = new Referenced{  };
     {
-        SharedPtr<Object> ptr = obj;
+        SharedPtr<Referenced> ptr = obj;
         EXPECT_EQ(ptr->refCount(), 1);
         {
             auto ptr2 = ptr;
@@ -49,17 +49,17 @@ TEST(SmartPointer, SharedPtr)
 TEST(SmartPointer, WeakPtr)
 {
     {
-        auto obj = new ObjectNamed{  };
-        WeakPtr<Object> ptrweak = obj;
+        auto obj = new Referenced{  };
+        WeakPtr<Referenced> ptrweak = obj;
         EXPECT_EQ(obj->weakRefCount(), 2);
         obj->destruct();
         EXPECT_TRUE(ptrweak.get() == nullptr);
         EXPECT_EQ(obj->weakRefCount(), 1);
     }
     {
-        WeakPtr<Object> ptrweak;
+        WeakPtr<Referenced> ptrweak;
         {
-            auto obj = new ObjectNamed{  };
+            auto obj = new Referenced{  };
             ptrweak = obj;
             EXPECT_EQ(obj->weakRefCount(), 2);
             obj->destruct();
@@ -68,9 +68,9 @@ TEST(SmartPointer, WeakPtr)
         }
     }
     {
-        WeakPtr<Object> ptrweak;
+        WeakPtr<Referenced> ptrweak;
         {
-            auto obj = new ObjectNamed{  };
+            auto obj = new Referenced{  };
             ptrweak = obj;
             EXPECT_EQ(obj->weakRefCount(), 2);
             auto ptrweak2 = ptrweak;
@@ -88,9 +88,9 @@ TEST(SmartPointer, ScopedPtr)
 {
     ScopedPtr<double> ptr{new double{1.0}};
     ptr = nullptr;
-    ObjectNamed *obj = new ObjectNamed{};
+    Referenced *obj = new Referenced{};
     {
-        ScopedPtr<Object> ptr{obj};
+        ScopedPtr<Referenced> ptr{obj};
     }
 }
 
@@ -104,7 +104,7 @@ TEST(SmartPointer, StackObject_SharedPtr)
             ptr = &obj;
         }
         if(auto p = ptr.get())
-            printf("refCount: %d\n", p->refCount());
+            std::printf("refCount: %d\n", p->refCount());
     }
     {
         SharedPtr<Class> ptr;
@@ -114,7 +114,7 @@ TEST(SmartPointer, StackObject_SharedPtr)
             ptr.reset();
         }
         if(auto p = ptr.get())
-            printf("refCount: %d\n", p->refCount());
+            std::printf("refCount: %d\n", p->refCount());
     }
 }
 
@@ -180,13 +180,13 @@ TEST(SmartPointer, FILE)
         const char* filepath = "testSmartPointer_FILE1.txt";
         const char* content = u8"testcontent_中文_😊😀_Русский контент";
         {
-            ScopedPtr<std::FILE> file(fopen(filepath, "w"));
-            fprintf(file, "%s", content);
+            ScopedPtr<std::FILE> file(std::fopen(filepath, "w"));
+            std::fprintf(file, "%s", content);
         }
         {
-            ScopedPtr<std::FILE> file(fopen(filepath, "r"));
+            ScopedPtr<std::FILE> file(std::fopen(filepath, "r"));
             char buffer[1025]{};
-            size_t size = fread(buffer, 1, 1024, file);
+            size_t size = std::fread(buffer, 1, 1024, file);
             ast_printf("%s\n", buffer);
             EXPECT_TRUE(size != 0);
             int eq = strcmp(buffer, content);
@@ -198,11 +198,11 @@ TEST(SmartPointer, FILE)
         const char* filepath = "testSmartPointer_FILE2.txt";
         const char* content = u8"testcontent_中文_😊_Русский контент";
         {
-            std::FILE* file = fopen(filepath, "w");
-            fprintf(file, "%s", content);
+            std::FILE* file = std::fopen(filepath, "w");
+            std::fprintf(file, "%s", content);
         }
         {
-            std::FILE* file = fopen(filepath, "r");
+            std::FILE* file = std::fopen(filepath, "r");
             char buffer[1025]{'\0'};
             size_t size = fread(buffer, 1, 1024, file);
             ast_printf("%s\n", buffer);
@@ -218,13 +218,13 @@ TEST(SmartPointer, FILE)
         const char* filepath = "testSmartPointer_FILE3.txt";
         const wchar_t* content = L"testcontent_中文_😊_Русский контент";
         {
-            ScopedPtr<std::FILE> file(fopen(filepath, "w"));
-            posix::fwprintf(file, content);
+            ScopedPtr<std::FILE> file(std::fopen(filepath, "w"));
+            std::fwprintf(file, content);
         }
         {
-            ScopedPtr<std::FILE> file(fopen(filepath, "r"));
+            ScopedPtr<std::FILE> file(std::fopen(filepath, "r"));
             char buffer[1025]{};
-            size_t size = fread(buffer, 1, 1024, file);
+            size_t size = std::fread(buffer, 1, 1024, file);
             ast_printf("%s\n", buffer);
             EXPECT_TRUE(size != 0);
         }

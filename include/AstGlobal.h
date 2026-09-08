@@ -212,6 +212,13 @@
 #endif
 #define AST_SIM_CAPI A_DECL_EXTERN_C AST_SIM_API
 
+// 引擎模块导出声明
+#ifdef AST_BUILD_LIB_ENGINE
+#    define AST_ENGINE_API A_DECL_EXPORT
+#else
+#    define AST_ENGINE_API A_DECL_IMPORT
+#endif
+#define AST_ENGINE_CAPI A_DECL_EXTERN_C AST_ENGINE_API
 
 // 模拟模块导出声明
 #ifdef AST_BUILD_LIB_MOCK
