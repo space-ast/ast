@@ -12,7 +12,7 @@
     add_headerfiles("**.hpp", {prefixdir="AstGUI"})
     add_headerfiles("**.h", {prefixdir="AstGUI"})
     add_deps(
-        "AstUtil", "AstSim", "AstCore", "AstMath", "AstAnalyzer", "AstLoader",
+        "AstUtil", "AstSim", "AstCore", "AstMath", "AstAnalyzer", "AstLoader", "AstEngine",
         "AstUiAI", "AstUiUtil", "AstUiDataUpdate"
     )
     add_defines("AST_BUILD_LIB_GUI")
