@@ -51,6 +51,11 @@ A_ALWAYS_INLINE const char* tr(const char* msgid)
     return aGetText(msgid);
 }
 
+A_ALWAYS_INLINE const char* translate(const char* msgctxt, const char* msgid)
+{
+    return aTranslate(msgctxt, msgid);
+}
+
 #ifndef QT_TR_NOOP
     #define QT_TR_NOOP(String) String
 #endif

@@ -31,8 +31,7 @@ const char* aTextDomain(const char *domainname)
 
 const char* aGetText(const char* msgid)
 {
-    // @todo 实现翻译文本获取
-    return msgid;
+    return aTranslate("", msgid);
 }
 
 const char* aTranslate(const char* msgctxt, const char* msgid)

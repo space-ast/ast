@@ -21,10 +21,11 @@
 #pragma once
  
 #include "AstGlobal.h"
-#include "SourceLocation.hpp"   // for A_SOURCE_FILE_PATH
-#include <iostream>             // for std::cout
-#include <sstream>              // for std::ostringstream
-#include <stdarg.h>             // for va_list
+#include "AstUtil/I18n.hpp"
+#include "AstUtil/SourceLocation.hpp"   // for A_SOURCE_FILE_PATH
+#include <iostream>                     // for std::cout
+#include <sstream>                      // for std::ostringstream
+#include <stdarg.h>                     // for va_list
 
  
 AST_NAMESPACE_BEGIN
@@ -233,7 +234,7 @@ private:
 // 日志宏定义
 
 #ifdef NDEBUG
-#define aDebug(...)    while(false) AST_PREPEND_NAMESPACE(MessageLogger)().noDebug(__VA_ARGS__)
+#define aDebug(...)    while(false) AST_PREPEND_NAMESPACE(MessageLogger)().noDebug()
 #else
 #define aDebug(...)    AST_PREPEND_NAMESPACE(MessageLogger)(A_SOURCE_FILE_PATH, __LINE__, __FUNCTION__).debug(__VA_ARGS__)
 #endif
