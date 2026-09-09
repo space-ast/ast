@@ -78,7 +78,7 @@ errc_t EventTimeFallback::getTime(TimePoint &tp) const
 void EventTimeFallback::setPrimary(EventTime* primary)
 {
     if(primary == this){
-        aError("primary cannot be self");
+        aError(_("primary 不能是自身"));
         return;
     }
     primary_ = primary;
@@ -87,7 +87,7 @@ void EventTimeFallback::setPrimary(EventTime* primary)
 void EventTimeFallback::setFallback(EventTime* fallback)
 {
     if(fallback == this){
-        aError("fallback cannot be self");
+        aError(_("fallback 不能是自身"));
         return;
     }
     fallback_ = fallback;

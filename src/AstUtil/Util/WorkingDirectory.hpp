@@ -45,7 +45,7 @@ public:
         /// @todo 需要考虑如何避免创建临时std::string对象 
         int rc = posix::chdir(std::string(path).c_str());
         if(rc != 0){
-            aError("failed to change working directory to %.*s", path.size(), path.data());
+            aError(_("切换到工作目录 %.*s 失败"), path.size(), path.data());
         }else{
             curpath_ = path;
         }
@@ -54,7 +54,7 @@ public:
     {
         int rc = posix::chdir(oldpath_.c_str());
         if(rc != 0){
-            aError("failed to change working directory to %s", oldpath_.c_str());
+            aError(_("切换到工作目录 %s 失败"), oldpath_.c_str());
         }
     }
     /// @brief 检查是否成功切换工作目录

@@ -38,7 +38,7 @@ CompressorInterface* aCompressGetImpl(StringView source, StringView target)
     if (impl->isSupported() && impl->canCompress(source, target))
         return impl;
 
-    aError("aCompressGetImpl: no supported compressor implementation found");
+    aError(_("未找到受支持的压缩器实现"));
     return nullptr;
 }
 
@@ -47,7 +47,7 @@ errc_t aCompress(StringView source, StringView target, StringView curdir)
     CompressorInterface* impl = aCompressGetImpl(source, target);
     if (!impl)
     {
-        aError("aCompress: no compressor available for: %s", source.data());
+        aError(_("没有可用于 %s 的压缩器"), source.data());
         return eErrorNotImplemented;
     }
     return impl->compress(source, target, curdir);

@@ -42,7 +42,7 @@ errc_t Symbol::setValue(Value *value)
     SharedPtr<Expr> expr = resolve();
     if(A_UNLIKELY(!expr))
     {
-        aError("symbol %s is not found", name_.c_str());
+        aError(_("符号 '%s' 不存在"), name_.c_str());
         return errc_t();
     }
     return expr->setValue(value);
@@ -54,7 +54,7 @@ Expr *Symbol::resolve() const
     auto expr = aScript_ResolveSymbol(this);
     if(A_UNLIKELY(!expr))
     {
-        aError("symbol %s is not found", name_.c_str());
+        aError(_("符号 '%s' 不存在"), name_.c_str());
         return nullptr;
     }
     return expr;  

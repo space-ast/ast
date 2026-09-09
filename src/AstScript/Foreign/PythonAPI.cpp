@@ -163,7 +163,7 @@ errc_t PythonAPI::load(StringView dirpath)
     int n = countLoadedFuncs(funcs);
     if(n < numfunctions)
     {
-        aError("PythonAPI: expected %d functions, loaded %d", numfunctions, n);
+        aError(_("期望 %d 个函数，已加载 %d"), numfunctions, n);
         aFreeLibrary(lib);
         return eErrorInvalidFile;
     }
@@ -197,10 +197,10 @@ errc_t PythonAPI::unload()
 #define PYTHONAPI_LOCK    std::lock_guard<std::mutex> lk(mutex_)
 #define PYTHONAPI_GET(fn, idx) \
     auto fn = reinterpret_cast<decltype(&pythonproto::idx)>(functions_[i##idx]); \
-    if(!fn){ aError("PythonAPI: library not loaded"); return; }
+    if(!fn){ aError(_("库未加载")); return; }
 #define PYTHONAPI_GET_RET(fn, idx, ret) \
     auto fn = reinterpret_cast<decltype(&pythonproto::idx)>(functions_[i##idx]); \
-    if(!fn){ aError("PythonAPI: library not loaded"); return ret; }
+    if(!fn){ aError(_("库未加载")); return ret; }
 
 
 void PythonAPI::Py_Initialize()

@@ -44,7 +44,7 @@ errc_t aLoadPropagator(const Value& value, HPOP& propagator)
 {
     if(value["Type"].toString() != "NumericalPropagatorWrapper")
     {
-        aError("invalid type, expect 'NumericalPropagatorWrapper'");
+        aError(_("无效的类型，应为 'NumericalPropagatorWrapper'"));
         return eErrorInvalidParam;
     }
     // 加载名称
@@ -60,7 +60,7 @@ errc_t aLoadPropagator(const Value& value, HPOP& propagator)
     errc_t rc = aLoadNumericalIntegrator(value["NumericalIntegrator"], integrator);
     if(rc)
     {
-        aWarning("failed to load numerical integrator");
+        aWarning(_("加载数值积分器失败"));
     }
     propagator.setIntegrator(integrator.release()); // 转移所有权
     // 加载力模型
@@ -68,7 +68,7 @@ errc_t aLoadPropagator(const Value& value, HPOP& propagator)
     rc = aLoadForceModel(value, forceModel);
     if(rc)
     {
-        aWarning("failed to load force model");
+        aWarning(_("加载力模型失败"));
     }
     propagator.setForceModel(forceModel);
     return eNoError;

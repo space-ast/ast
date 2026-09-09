@@ -66,7 +66,7 @@ void XMLDomSax::endElement(StringView name) {
     if (!nodeStack_.empty() && StringView(nodeStack_.top()->getName()) == name) {
         nodeStack_.pop();
     }else{
-        aError("unmatched end element: '%.*s'", name.size(), name.data());
+        aError(_("不匹配的结束元素: '%.*s'"), name.size(), name.data());
     }
 }
 
@@ -88,7 +88,7 @@ void XMLDomSax::comment(StringView text) {
 
 void XMLDomSax::error(StringView msg) {
     // 简单处理错误，实际应用中可能需要更复杂的错误处理
-    aError("XML error: '%.*s'", msg.size(), msg.data());
+    aError(_("XML 错误: '%.*s'"), msg.size(), msg.data());
 }
 
 

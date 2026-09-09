@@ -36,7 +36,7 @@ errc_t aLoadSequence(const Value& dictRoot, Sequence& sequence, const LoaderCont
     std::string type = dictRoot["Type"].toString();
     if(type != "Sequence" && type != "TargeterSequence")
     {
-        aError("invalid type, expect 'Sequence' or 'TargeterSequence'");
+        aError(_("无效的类型，应为 'Sequence' 或 'TargeterSequence'"));
         return eErrorInvalidParam;
     }
 
@@ -66,7 +66,7 @@ errc_t aLoadSequence(const Value& dictRoot, Sequence& sequence, const LoaderCont
                 commands.push_back(command);
             }else
             {
-                aError("failed to load mission command '%s'", name.c_str());
+                aError(_("加载任务序列 '%s' 失败"), name.c_str());
             }
         }
         sequence.setCommands(commands);
@@ -81,7 +81,7 @@ errc_t aLoadSequence(const Value& dictRoot, Sequence& sequence, const LoaderCont
             errc_t rc = aLoadScriptingToolProfile(dictScriptingTool, *tool);
             if(rc)
             {
-                aError("failed to load scripting tool profile");
+                aError(_("加载脚本工具配置失败"));
                 return rc;
             }
         }

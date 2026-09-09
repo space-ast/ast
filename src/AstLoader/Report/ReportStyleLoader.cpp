@@ -88,7 +88,7 @@ static Color _aParseStyleColor(const ValueView& value)
     if (index >= 0x100000 && static_cast<unsigned>(index) <= 0xFFFFFF)
         return Color((static_cast<uint32_t>(index) << 8) | 0xFF);
 
-    aWarning("unknown color value '%.*s', using black",
+    aWarning(_("未知的颜色值 '%.*s'，将默认使用黑色"),
              static_cast<int>(str.size()), str.data());
     return Color(0xFF000000);
 }
@@ -572,7 +572,7 @@ errc_t aLoadReportStyle(StringView filepath, ReportStyle& report)
     BKVParser parser(filepath);
     if (!parser.isOpen())
     {
-        aError("failed to open report style file '%.*s'",
+        aError(_("打开报表样式文件 '%.*s' 失败"),
                static_cast<int>(filepath.size()), filepath.data());
         return eErrorInvalidFile;
     }

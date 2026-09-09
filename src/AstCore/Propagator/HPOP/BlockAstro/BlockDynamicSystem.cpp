@@ -167,7 +167,7 @@ errc_t BlockDynamicSystem::createStateMap()
                     // 检查状态量维度是否一致
                     if(port.getWidth() != widths[iter - identifiers.begin()])
                     {
-                        aError("state dimension of %s is not consistent", name->c_str());
+                        aError(_("状态量 %s 的维度不一致"), name->c_str());
                         return -1;
                     }
                     // @todo: 检测状态量是否支持累加，避免意外的覆盖
@@ -225,7 +225,7 @@ errc_t BlockDynamicSystem::createStateMap()
                         // 检查状态量维度是否一致
                         if(port.getWidth() != widths[iter - identifiers.begin()])
                         {
-                            aError("state dimension of %s is not consistent", name->c_str());
+                            aError(_("状态量 %s 的维度不一致"), name->c_str());
                             return -1;
                         }
                     }
@@ -284,7 +284,7 @@ errc_t BlockDynamicSystem::connectSignalsByNames()
                 port.setSignal(iter->second);
             }else{
                 // 未找到所需状态量信号
-                aError("state '%s' is not found for input port", name->c_str());
+                aError(_("输入端口未找到状态量 '%s'"), name->c_str());
                 return -1;
             }
         }
@@ -304,7 +304,7 @@ errc_t BlockDynamicSystem::connectSignalsByNames()
                 port.setSignal(iter->second);
             }else{
                 // 未找到所需导数信号
-                aError("derivative '%s' is not found for block", name->c_str());
+                aError(_("函数块未找到导数 '%s'"), name->c_str());
                 return -1;
             }
         }

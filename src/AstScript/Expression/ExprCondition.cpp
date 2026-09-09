@@ -29,15 +29,15 @@ AST_NAMESPACE_BEGIN
 // accept函数由AST_EXPR宏自动生成，无需手动实现
 
 Value* ExprCondition::eval() const {
-    if (A_UNLIKELY(!condition_ || !thenExpr_ )) {
-        aError("condition, thenExpr is null");
+    if (A_UNLIKELY(!condition_ || !thenExpr_ || !elseExpr_ )) {
+        aError(_("表达式为空"));
         return nullptr;
     }
     
     // 计算条件表达式的值
     SharedPtr<Value> conditionValue = condition_->eval();
     if (A_UNLIKELY(!conditionValue)) {
-        aError("condition expression evaluation failed");
+        aError(_("条件表达式求值失败"));
         return nullptr;
     }
     
@@ -46,7 +46,7 @@ Value* ExprCondition::eval() const {
     if (aValueIsBool(conditionValue.get())) {
         isTrue = aValueUnboxBool(conditionValue.get());
     } else {
-        aError("condition expression is not bool");
+        aError(_("条件表达式不是 bool 类型"));
         // 非布尔值转为布尔值：非零即真
         // isTrue = true; // 默认为真，除非是null
         return nullptr;

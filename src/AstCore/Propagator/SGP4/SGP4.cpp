@@ -170,7 +170,7 @@ void SGP4::setTLE(const TLE &tle)
     bool flag = initFromTLE(tle, elementSet(), wgs72);
     if (!flag)
     {
-        aError("failed to init from TLE");
+        aError(_("从 TLE 初始化失败"));
     }
 }
 

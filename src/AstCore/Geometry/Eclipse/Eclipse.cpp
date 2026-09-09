@@ -52,7 +52,7 @@ int _aLightingRatio_CylindricalModel(const TimePoint &tp, const Vector3d &positi
 {
     if(occultingBody == lightSource)
     {
-        aWarning("occultingBody is same as lightSource");
+        aWarning(_("遮挡体和光源相同"));
         return 1;
     }
 
@@ -82,7 +82,7 @@ int aLightingRatio_CylindricalModel(const TimePoint &tp, const Vector3d &positio
 {
     if(!lightSource || !occultingBody)
     {
-        aWarning("lightSource or occultingBody is null");
+        aWarning(_("lightSource 或 occultingBody 为空"));
         return 1;
     }
     return _aLightingRatio_CylindricalModel(tp, position, frame, lightSource, occultingBody);
@@ -92,7 +92,7 @@ int aLightingRatio_CylindricalModel(const TimePoint &tp, Point *point, Celestial
 {
     if(!lightSource || !occultingBody || !point)
     {
-        aWarning("lightSource or occultingBody or point is null");
+        aWarning(_("光源、遮挡体或观测点为空"));
         return 1;
     }
     auto frame = occultingBody->getFrameInertial();
@@ -193,7 +193,7 @@ double _aLightingRatio_DualConeModel(const TimePoint &tp, const Vector3d &positi
 {
     if(occultingBody == lightSource)
     {
-        aWarning("occultingBody is same as lightSource");
+        aWarning(_("遮挡体和光源相同"));
         return 1.0;
     }
     
@@ -224,7 +224,7 @@ double aLightingRatio_DualConeModel(const TimePoint &tp, const Vector3d &positio
 {
     if(!lightSource || !occultingBody)
     {
-        aWarning("lightSource or occultingBody is null");
+        aWarning(_("光源或遮挡体为空"));
         return 1.0;
     }
     return _aLightingRatio_DualConeModel(tp, position, frame, lightSource, occultingBody);
@@ -235,7 +235,7 @@ double aLightingRatio_DualConeModel(const TimePoint &tp, Point *point, Celestial
 {
     if(!lightSource || !occultingBody || !point)
     {
-        aWarning("lightSource or occultingBody or point is null");
+        aWarning(_("光源、遮挡体或观测点为空"));
         return 1.0;
     }
     auto frame = occultingBody->getFrameInertial();

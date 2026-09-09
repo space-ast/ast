@@ -44,7 +44,7 @@ errc_t CompressorImplShellCOM::createEmptyZip(const std::wstring& path)
                                 CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
     if (hFile == INVALID_HANDLE_VALUE)
     {
-        aError("CompressorImplShellCOM: cannot create empty zip file");
+        aError(_("无法创建空 zip 文件"));
         return eErrorInvalidFile;
     }
 
@@ -54,7 +54,7 @@ errc_t CompressorImplShellCOM::createEmptyZip(const std::wstring& path)
 
     if (!ok || written != sizeof(eocd))
     {
-        aError("CompressorImplShellCOM: write empty zip failed");
+        aError(_("写入空 zip 失败"));
         DeleteFileW(path.c_str());
         return eError;
     }
@@ -95,7 +95,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
 {
     if (source.empty() || target.empty())
     {
-        aError("CompressorImplShellCOM: source or target is empty");
+        aError(_("源或目标为空"));
         return eErrorInvalidParam;
     }
 
@@ -113,7 +113,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
     if (srcLen == 0 || srcLen >= MAX_PATH ||
         tgtLen == 0 || tgtLen >= MAX_PATH)
     {
-        aError("CompressorImplShellCOM: cannot resolve path");
+        aError(_("无法解析路径"));
         return eErrorInvalidParam;
     }
 
@@ -121,7 +121,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
     DWORD srcAttr = GetFileAttributesW(absSource);
     if (srcAttr == INVALID_FILE_ATTRIBUTES)
     {
-        aError("source does not exist: '%.*s'", source.size(), source.data());
+        aError(_("源不存在: '%.*s'"), source.size(), source.data());
         return eErrorInvalidFile;
     }
 
@@ -133,7 +133,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
     HRESULT hrCom = aEnsureCoInitialized();
     if (FAILED(hrCom))
     {
-        aError("CompressorImplShellCOM: COM initialization failed: 0x%08X", hrCom);
+        aError(_("COM 初始化失败: 0x%08X"), hrCom);
         DeleteFileW(absTarget);
         return eError;
     }
@@ -144,7 +144,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
                                    IID_IShellDispatch, reinterpret_cast<void**>(&pShell));
     if (FAILED(hr) || !pShell)
     {
-        aError("CompressorImplShellCOM: CoCreateInstance(CLSID_Shell) failed: 0x%08X", hr);
+        aError(_("CoCreateInstance(CLSID_Shell) 失败: 0x%08X"), hr);
         DeleteFileW(absTarget);
         return eError;
     }
@@ -161,7 +161,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
 
         if (FAILED(hr) || !pZipFolder)
         {
-            aError("CompressorImplShellCOM: NameSpace(zip) failed: 0x%08X", hr);
+            aError(_("NameSpace(zip) 失败: 0x%08X"), hr);
             pShell->Release();
             DeleteFileW(absTarget);
             return eError;
@@ -194,7 +194,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
         DWORD nCur = GetFullPathNameW(wCurdir.c_str(), MAX_PATH, absCurdir, nullptr);
         if (nCur == 0 || nCur >= MAX_PATH)
         {
-            aError("CompressorImplShellCOM: cannot resolve curdir path");
+            aError(_("无法解析 curdir 路径"));
             pZipFolder->Release();
             pShell->Release();
             DeleteFileW(absTarget);
@@ -209,7 +209,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             if ((absSrcStr[1] == L':' ? towupper(absSrcStr[0]) : 0) !=
                 (workDir[1] == L':' ? towupper(workDir[0]) : 0))
             {
-                aError("source and curdir must be on the same drive");
+                aError(_("source 和 curdir 必须在同一驱动器上"));
                 pZipFolder->Release();
                 pShell->Release();
                 DeleteFileW(absTarget);
@@ -244,7 +244,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
 
         if (FAILED(hr) || !pSrcParentFolder)
         {
-            aError("CompressorImplShellCOM: NameSpace(work dir) failed: 0x%08X", hr);
+            aError(_("NameSpace(work dir) 失败: 0x%08X"), hr);
             pZipFolder->Release();
             pShell->Release();
             DeleteFileW(absTarget);
@@ -260,7 +260,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
         hr = pSrcParentFolder->Items(&pItems);
         if (FAILED(hr) || !pItems)
         {
-            aError("CompressorImplShellCOM: Items() failed: 0x%08X", hr);
+            aError(_("Items() 失败: 0x%08X"), hr);
             pSrcParentFolder->Release();
             pZipFolder->Release();
             pShell->Release();
@@ -295,7 +295,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             hr = pZipFolder->CopyHere(vIt, vFl);
             if (FAILED(hr))
             {
-                aError("CompressorImplShellCOM: CopyHere(dir items) failed: 0x%08X", hr);
+                aError(_("CopyHere(dir items) 失败: 0x%08X"), hr);
                 pItems->Release();
                 pSrcParentFolder->Release();
                 pZipFolder->Release();
@@ -308,7 +308,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             {
                 if (!aShellWaitForItem(pZipFolder, n, 30000))
                 {
-                    aError("CompressorImplShellCOM: waitForItem timeout for: %ls", n.c_str());
+                    aError(_("waitForItem 等待超时: %ls"), n.c_str());
                     allOk = false;
                 }
             }
@@ -334,7 +334,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             SysFreeString(bstrItemName);
             if (FAILED(hr) || !pItem)
             {
-                aError("ParseName failed for: '%.*s'", source.size(), source.data());
+                aError(_("ParseName 失败: '%.*s'"), source.size(), source.data());
                 pSrcParentFolder->Release();
                 pZipFolder->Release();
                 pShell->Release();
@@ -354,7 +354,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
         hr = pZipFolder->CopyHere(vItem, vFlags);
         if (FAILED(hr))
         {
-            aError("CompressorImplShellCOM: CopyHere(file) failed: 0x%08X", hr);
+            aError(_("CopyHere(file) 失败: 0x%08X"), hr);
             pItem->Release();
             pSrcParentFolder->Release();
             pZipFolder->Release();
@@ -364,7 +364,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
         }
         if (!aShellWaitForItem(pZipFolder, srcName, 30000))
         {
-            aError("waitForItem timeout for: '%.*s'", source.size(), source.data());
+            aError(_("waitForItem 等待超时: '%.*s'"), source.size(), source.data());
             pItem->Release();
             pSrcParentFolder->Release();
             pZipFolder->Release();

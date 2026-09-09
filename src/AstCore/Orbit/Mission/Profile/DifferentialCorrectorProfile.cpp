@@ -119,13 +119,13 @@ errc_t DifferentialCorrectorProfile::execute()
     
     if (n == 0 || m == 0)
     {
-        aError("no active controls or results");
+        aError(_("没有激活的控制变量和结果变量"));
         return eErrorInvalidParam;
     }
     
     if (m != n)
     {
-        aError("number of controls (%zu) must equal number of results (%zu)", n, m);
+        aError(_("控制变量数量 (%zu) 必须等于结果变量数量 (%zu)"), n, m);
         return eErrorInvalidParam;
     }
     
@@ -133,14 +133,14 @@ errc_t DifferentialCorrectorProfile::execute()
     std::vector<double> baseValues(m);
     if (errc_t err = executeRelatedCommand())
     {
-        aError("failed to execute related command for baseline");
+        aError(_("为基准状态执行相关命令失败"));
         return err;
     }
     for (size_t i = 0; i < m; ++i)
     {
         if (errc_t err = activeResults[i]->getValue(baseValues[i]))
         {
-            aError("failed to get baseline result value for '%.*s'",
+            aError(_("获取 '%.*s' 的基准结果值失败"),
                    activeResults[i]->name().size(), activeResults[i]->name().data());
             return err;
         }
@@ -153,14 +153,14 @@ errc_t DifferentialCorrectorProfile::execute()
         {
             if (errc_t err = executeRelatedCommand())
             {
-                aError("failed to execute related command at start of iteration %d", iter);
+                aError(_("在迭代 %d 开始时执行相关命令失败"), iter);
                 return err;
             }
             for (size_t i = 0; i < m; ++i)
             {
                 if (errc_t err = activeResults[i]->getValue(baseValues[i]))
                 {
-                    aError("failed to get result value for '%.*s' at iteration start",
+                    aError(_("在迭代开始时获取 '%.*s' 的结果值失败"),
                            activeResults[i]->name().size(), activeResults[i]->name().data());
                     return err;
                 }
@@ -176,7 +176,7 @@ errc_t DifferentialCorrectorProfile::execute()
             double value = 0;
             if (errc_t err = activeResults[i]->getValue(value))
             {
-                aError("failed to get result value for '%.*s'",
+                aError(_("获取 '%.*s' 的结果值失败"),
                        activeResults[i]->name().size(), activeResults[i]->name().data());
                 return err;
             }
@@ -184,7 +184,7 @@ errc_t DifferentialCorrectorProfile::execute()
             double scale = activeResults[i]->scale();
             if (scale <= 0)
             {
-                aWarning("result '%.*s' scale is <= 0, using 1.0",
+                aWarning(_("结果 '%.*s' 的缩放因子不大于 0，使用 1.0"),
                          activeResults[i]->name().size(), activeResults[i]->name().data());
                 scale = 1.0;
             }
@@ -197,7 +197,7 @@ errc_t DifferentialCorrectorProfile::execute()
         
         if (converged)
         {
-            aInfo("differential corrector converged in %d iterations", iter + 1);
+            aInfo(_("微分校正器在 %d 次迭代后收敛"), iter + 1);
             return eNoError;
         }
         
@@ -208,7 +208,7 @@ errc_t DifferentialCorrectorProfile::execute()
             double maxResidual = 0;
             for (size_t i = 0; i < m; ++i)
                 maxResidual = std::max(maxResidual, fabs(residuals[i]));
-            aInfo("iteration %d: max residual = %.6e", iter + 1, maxResidual);
+            aInfo(_("迭代 %d: 最大残差 = %.6e"), iter + 1, maxResidual);
         }
         else if (logInterval <= 0)
         {
@@ -224,7 +224,7 @@ errc_t DifferentialCorrectorProfile::execute()
             double origValue = 0;
             if (errc_t err = activeControls[j]->getValue(origValue))
             {
-                aError("failed to get control value for '%.*s'",
+                aError(_("获取 '%.*s' 的控制值失败"),
                        activeControls[j]->name().size(), activeControls[j]->name().data());
                 return err;
             }
@@ -233,13 +233,13 @@ errc_t DifferentialCorrectorProfile::execute()
             if(perturbation <=0 )
             {
                 perturbation = fabs(origValue) * 0.01;
-                aWarning("control '%.*s' perturbation is <= 0, using %.6e",
+                aWarning(_("控制 '%.*s' 的扰动量不大于 0，使用 %.6e"),
                          activeControls[j]->name().size(), activeControls[j]->name().data(), perturbation);
             }
             double scale = activeControls[j]->scale();
             if (scale <= 0)
             {
-                aWarning("control '%.*s' scale is <= 0, using 1.0",
+                aWarning(_("控制 '%.*s' 的缩放因子不大于 0，使用 1.0"),
                          activeControls[j]->name().size(), activeControls[j]->name().data());
                 scale = 1.0;
             }
@@ -275,7 +275,7 @@ errc_t DifferentialCorrectorProfile::execute()
                 if (errc_t e = executeRelatedCommand())
                 {
                     restoreControl();  // 尝试恢复，忽略可能的二次错误
-                    aError("failed to execute related command during forward perturbation");
+                    aError(_("在前向差分期间执行相关命令失败"));
                     return e;
                 }
                 
@@ -283,14 +283,14 @@ errc_t DifferentialCorrectorProfile::execute()
                 if (errc_t e = getCurrentResults(perturbedValues))
                 {
                     restoreControl();
-                    aError("failed to get result values during forward perturbation");
+                    aError(_("在前向差分期间获取结果值失败"));
                     return e;
                 }
                 
                 // 恢复原值并执行命令
                 if (errc_t e = restoreControl())
                 {
-                    aError("failed to restore control value for '%.*s'",
+                    aError(_("恢复 '%.*s' 的控制值失败"),
                            activeControls[j]->name().size(), activeControls[j]->name().data());
                     return e;
                 }
@@ -311,14 +311,14 @@ errc_t DifferentialCorrectorProfile::execute()
                 if (errc_t e = executeRelatedCommand())
                 {
                     restoreControl();
-                    aError("failed to execute related command during forward perturbation");
+                    aError(_("在前向差分期间执行相关命令失败"));
                     return e;
                 }
                 std::vector<double> forwardValues(m);
                 if (errc_t e = getCurrentResults(forwardValues))
                 {
                     restoreControl();
-                    aError("failed to get result values during forward perturbation");
+                    aError(_("在前向差分期间获取结果值失败"));
                     return e;
                 }
                 
@@ -326,27 +326,27 @@ errc_t DifferentialCorrectorProfile::execute()
                 if (errc_t e = activeControls[j]->setValue(origValue - delta))
                 {
                     restoreControl();
-                    aError("failed to set control value for backward perturbation");
+                    aError(_("为反向差分设置控制值失败"));
                     return e;
                 }
                 if (errc_t e = executeRelatedCommand())
                 {
                     restoreControl();
-                    aError("failed to execute related command during backward perturbation");
+                    aError(_("在反向差分期间执行相关命令失败"));
                     return e;
                 }
                 std::vector<double> backwardValues(m);
                 if (errc_t e = getCurrentResults(backwardValues))
                 {
                     restoreControl();
-                    aError("failed to get result values during backward perturbation");
+                    aError(_("在反向差分期间获取结果值失败"));
                     return e;
                 }
                 
                 // 恢复原值并执行命令
                 if (errc_t e = restoreControl())
                 {
-                    aError("failed to restore control value for '%.*s'",
+                    aError(_("恢复 '%.*s' 的控制值失败"),
                            activeControls[j]->name().size(), activeControls[j]->name().data());
                     return e;
                 }
@@ -360,7 +360,7 @@ errc_t DifferentialCorrectorProfile::execute()
                 break;
             }
             default:
-                aError("unknown finite difference method: %d", static_cast<int>(finiteDifferenceMethod_));
+                aError(_("未知的有限差分方法: %d"), static_cast<int>(finiteDifferenceMethod_));
                 return eErrorInvalidParam;
             }
         }
@@ -371,7 +371,7 @@ errc_t DifferentialCorrectorProfile::execute()
         
         if (!solveLinearSystem(jacobian, residuals))
         {
-            aError("failed to solve linear system - singular matrix");
+            aError(_("求解线性系统失败，可能是奇异矩阵"));
             return eErrorDivideByZero;
         }
         
@@ -381,7 +381,7 @@ errc_t DifferentialCorrectorProfile::execute()
             double origValue = 0;
             if (errc_t err = activeControls[j]->getValue(origValue))
             {
-                aError("failed to get control value for '%.*s'",
+                aError(_("获取 '%.*s' 的控制值失败"),
                        activeControls[j]->name().size(), activeControls[j]->name().data());
                 return err;
             }
@@ -389,7 +389,7 @@ errc_t DifferentialCorrectorProfile::execute()
             double scale = activeControls[j]->scale();
             if (scale <= 0)
             {
-                aWarning("control '%.*s' scale is <= 0 during correction, using 1.0",
+                aWarning(_("在修正期间控制 '%.*s' 的缩放因子不大于 0，使用 1.0"),
                          activeControls[j]->name().size(), activeControls[j]->name().data());
                 scale = 1.0;
             }
@@ -405,14 +405,14 @@ errc_t DifferentialCorrectorProfile::execute()
             
             if (errc_t err = activeControls[j]->setValue(origValue + correction))
             {
-                aError("failed to set control value for '%.*s'",
+                aError(_("设置控制变量 '%.*s' 的值失败"),
                        activeControls[j]->name().size(), activeControls[j]->name().data());
                 return err;
             }
         }
     }
     
-    aError("differential corrector failed to converge after %d iterations", maxIterations_);
+    aError(_("微分校正器在 %d 次迭代后未能收敛"), maxIterations_);
     return eErrorMaxIter;
 }
 
@@ -421,7 +421,7 @@ errc_t DifferentialCorrectorProfile::executeRelatedCommand() const
     Command* command = getRelatedCommand();
     if(!command)
     {
-        aError("failed to find related command");
+        aError(_("未找到相关命令"));
         return eErrorNullPtr;
     }
 

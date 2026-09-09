@@ -52,13 +52,13 @@ errc_t MotionOrbitDynamicsSax::keyValue(StringView key, const ValueView &value)
     if(aEqualsIgnoreCase(key, "EphemSmartEpoch")){
         if(errc_t rc = _aLoadEventTime(parser_, ephemSmartEpoch_))
         {
-            aError("EphemSmartEpoch is invalid");
+            aError(_("EphemSmartEpoch 无效"));
             return rc;
         }
     }else if(aEqualsIgnoreCase(key, "EphemSmartInterval")){
         if(errc_t rc = _aLoadEventInterval(parser_, ephemSmartInterval_))
         {
-            aError("EphemSmartInterval is invalid");
+            aError(_("EphemSmartInterval 无效"));
             return rc;
         }
     }else if(aEqualsIgnoreCase(key, "EphemEpoch")){
@@ -93,7 +93,7 @@ Body *MotionOrbitDynamicsSax::getBody() const
     if(!vehiclePathData_.centralBody_)
     {
         auto body = aGetDefaultBody();
-        aWarning("vehicle's centralBody is not set, use default body '%s' instead", body->getName().c_str());
+        aWarning(_("车辆的天体未设置，改用默认天体 '%s'"), body->getName().c_str());
         return body;
     }
     return vehiclePathData_.centralBody_;

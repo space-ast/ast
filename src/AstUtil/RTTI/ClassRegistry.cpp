@@ -61,7 +61,7 @@ void ClassRegistry::registerClass(Class *cls, StringView name)
 {
     if(!cls)
     {
-        aWarning("failed to register class, cls is nullptr");
+        aWarning(_("注册类失败，类型为空"));
         return;
     }
     //std::string nameStr = aAsciiStrToLower(name);

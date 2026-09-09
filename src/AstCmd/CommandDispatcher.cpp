@@ -51,7 +51,7 @@ errc_t CommandDispatcher::execute(StringView command, CommandResult& result) con
     auto handler = handleResult.handler();
     if(rc || !handler)
     {
-        aError("failed to find a matching handler for the input command: '%.*s'", command.size(), command.data());
+        aError(_("未找到匹配输入命令的处理函数: '%.*s'"), command.size(), command.data());
         return rc;
     }
     return handler->handle(handleResult.params(), result);

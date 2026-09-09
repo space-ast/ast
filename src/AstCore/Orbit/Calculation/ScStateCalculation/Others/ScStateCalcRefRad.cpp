@@ -27,7 +27,7 @@ errc_t ScStateCalcRefRad::calculate(const SpacecraftState& state, double& result
 {
     // TODO: Implement reference radius calculation
     // Need to get body radius from Frame or State
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

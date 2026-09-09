@@ -124,7 +124,7 @@ errc_t BlockThirdBodyGravity::prepare(const SimTime& simTime, Vector3d& thirdBod
     errc_t err = thirdBody_->getPosIn(propagationFrame_, tp, thirdBodyPos);
     if (A_UNLIKELY(err != eNoError))
     {
-        aError("failed to get third body position");
+        aError(_("获取三体位置失败"));
         return err;
     }
 
@@ -132,7 +132,7 @@ errc_t BlockThirdBodyGravity::prepare(const SimTime& simTime, Vector3d& thirdBod
     errc_t rc = aAxesTransform(propagationAxes_, gravityAxes_, tp, rotation);
     if (A_UNLIKELY(rc != eNoError))
     {
-        aError("failed to transform from propagation axes to gravity axes");
+        aError(_("从预报坐标系变换到重力坐标系失败"));
         return rc;
     }
 

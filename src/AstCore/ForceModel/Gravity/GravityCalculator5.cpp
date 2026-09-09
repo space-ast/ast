@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 
 void GravityCalculator5::calcPertAcceleration(const Vector3d &positionCBF, Vector3d &accelerationCBF)
 {
-    aError("not implemented.");
+    aError(_("尚未实现"));
 }
 
 AST_NAMESPACE_END

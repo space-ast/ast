@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcRadPressureCoefficient::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement radiation pressure coefficient calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

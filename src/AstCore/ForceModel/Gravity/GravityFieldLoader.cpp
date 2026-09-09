@@ -167,7 +167,7 @@ errc_t loadGravityField(StringView model, GravityFieldLoaderContext& ctx)
     std::string filepath;
     if(errc_t err = openGravityFile(ctx, model, filepath))
     {
-        aError("failed to find gravity model '%.*s'", (int)model.size(), model.data());
+        aError(_("无法找到重力场 '%.*s' 的系数文件"), (int)model.size(), model.data());
         return err;
     }
     model = filepath;
@@ -188,10 +188,7 @@ errc_t loadGravityField(StringView model, GravityFieldLoaderContext& ctx)
     {
         return loadGravityFieldGFC(ctx);
     }
-    aError(
-        "unsupported gravity field format, checking by first line: %s and filepath: %s", 
-        firstline.data(), model.data()
-    );
+    aError(_("不支持的重力场系数文件格式"));
     return eErrorParse;
 }
 
@@ -282,7 +279,7 @@ errc_t loadGravityFieldATK(GravityFieldLoaderContext& ctx)
     double v1, v2, v3;
     int status = fscanf(file, "%lf %lf %lf", &v1, &v2, &v3);
     if(status != 3){
-        aError("failed to read gravity field header");
+        aError(_("读取重力场头失败"));
         return eErrorParse;
     }
     gf.model_ = fs::path(ctx.parser_.getFilePath()).stem();
@@ -299,7 +296,7 @@ errc_t loadGravityFieldATK(GravityFieldLoaderContext& ctx)
         gf.gm_ = v3;
         status = fscanf(file, "%lf", &gf.refDistance_);
         if(status != 1){
-            aError("failed to read gravity field header");
+            aError(_("读取重力场头失败"));
             return eErrorParse;
         }
     }
@@ -309,7 +306,7 @@ errc_t loadGravityFieldATK(GravityFieldLoaderContext& ctx)
     bool skipRest = false;
     errc_t rc = _loadGravityCoeffsXTK(ctx, gf, skipRest);
     if(rc != 0){
-        aError("failed to load gravity field coefficients");
+        aError(_("加载重力场系数失败"));
         return rc;
     }
     if(ctx.head_ != nullptr)
@@ -336,7 +333,7 @@ errc_t loadGravityFieldSecularVariations(GravityFieldLoaderContext& ctx, Gravity
             {
                 std::vector<ValueView> items = aStrSplit(item.value(), ByRepeatedWhitespace(), SkipEmpty());
                 if(items.size() != 4){
-                    aError("invalid linear rate format");
+                    aError(_("无效的线性变化率格式"));
                     return eErrorParse;
                 }
                 GravityFieldSecularVariations::Variation variation{};
@@ -375,7 +372,7 @@ void postProcessGravityFieldSecularVariations(GravityField& gf)
         else
         {
             // 忽略超出最大阶数的系数
-            aWarning("invalid degree or order: %d %d, with max degree %d and max order %d", 
+            aWarning(_("忽略超出最大阶数的系数，当前阶数和次数为: %d %d, 最大阶数和次数为 %d %d"),
                 degree, order, gf.getMaxDegree(), gf.getMaxOrder()
             );
         }
@@ -398,7 +395,7 @@ errc_t loadGravityFieldSTK(GravityFieldLoaderContext& ctx)
                 bool skipRest = false;
                 errc_t rc = _loadGravityCoeffsXTK(ctx, gf, skipRest);
                 if(rc != 0){
-                    aError("failed to load gravity field coefficients");
+                    aError(_("加载重力场系数失败"));
                     return rc;
                 }
                 // 重力场长期变化率加载逻辑的后处理
@@ -464,13 +461,13 @@ errc_t loadGravityFieldGFC(GravityFieldLoaderContext& ctx)
     {
         StringView line = ctx.parser_.getLineWithNewline();
         if(line.empty()){
-            aError("missing 'product_type' keyword in .gfc file.");
+            aError(_("在 .gfc 文件中缺少 'product_type' 关键字"));
             return eErrorParse;
         }
         if(line.starts_with("product_type")){
             StringView productType = aStripAsciiWhitespace(line.substr(12));
             if(productType != "gravity_field"){
-                aError("unsupported product type: '%.*s', expected 'gravity_field'", productType.size(), productType.data());
+                aError(_("不支持的'product_type'字段值: '%.*s', 应为 'gravity_field'"), productType.size(), productType.data());
                 return eErrorParse;
             }
             break;
@@ -572,13 +569,13 @@ errc_t loadGravityFieldGFC(GravityFieldLoaderContext& ctx)
                     double sigma_c, sigma_s;
                     status = sscanf(lineData.data(), "%d %d %lf %lf %lf %lf", &degree, &order, &c, &s, &sigma_c, &sigma_s);
                     if(status != 6){
-                        aError("invalid gfc line: '%.*s'", lineData.size(), lineData.data());
+                        aError(_("无效的 gfc 行: '%.*s'"), lineData.size(), lineData.data());
                         return eErrorParse;
                     }
                 }else{
                     status = sscanf(lineData.data(), "%d %d %lf %lf", &degree, &order, &c, &s);
                     if(status != 4){
-                        aError("invalid gfc line: '%.*s'", lineData.size(), lineData.data());
+                        aError(_("无效的 gfc 行: '%.*s'"), lineData.size(), lineData.data());
                         return eErrorParse;
                     }
                 }
@@ -590,7 +587,7 @@ errc_t loadGravityFieldGFC(GravityFieldLoaderContext& ctx)
                         // aWarning("already loaded coefficients, ignore the rest");
                         break;
                     }
-                    aError("gfc degree or order out of range: %d %d", degree, order);
+                    aError(_("gfc 阶数或次数超出范围: %d %d"), degree, order);
                     return eErrorParse;
                 }
             }
@@ -649,7 +646,7 @@ errc_t loadGravityFieldGMAT(GravityFieldLoaderContext& ctx)
                 status = sscanf(line.data() + 17, "%lf %lf", &cnm, &snm);
             }
             if(status == EOF){
-                aError("Invalid coefficient line: %s", line.data());
+                aError(_("无效的系数行: %s"), line.data());
                 return eErrorParse;
             }
             if(A_LIKELY(gf.isValidDegreeOrder(degree, order)))
@@ -662,7 +659,7 @@ errc_t loadGravityFieldGMAT(GravityFieldLoaderContext& ctx)
                     break;
                 }
                 aError(
-                    "Invalid degree or order: %d %d, with max degree %d and max order %d", 
+                    _("无效的阶数或次数: %d %d, 最大阶数为 %d, 最大次数为 %d"),
                     degree, order, gf.maxDegree_, gf.maxOrder_
                 );
                 return eErrorParse;

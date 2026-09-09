@@ -94,13 +94,13 @@ errc_t BuildTarget::build()
 {
     // 检查目标名称
     if (name_.empty()) {
-        aError("BuildTarget name is empty");
+        aError(_("名称为空"));
         return -1;
     }
     
     // 检查源文件列表
     if (files_.empty()) {
-        aError("No source files specified");
+        aError(_("未指定源文件"));
         return -1;
     }
     
@@ -125,7 +125,7 @@ errc_t BuildTarget::build()
     // 执行编译命令
     int compileResult = system(compileCmd.c_str());
     if (compileResult != 0) {
-        aError("Compilation failed");
+        aError(_("编译失败"));
         return -1;
     }
     
@@ -175,7 +175,7 @@ errc_t BuildTarget::build()
     // 执行链接命令
     int linkResult = system(linkCmd.c_str());
     if (linkResult != 0) {
-        aError("Linking failed");
+        aError(_("链接失败"));
         return -1;
     }
     
@@ -186,13 +186,13 @@ errc_t BuildTarget::run()
 {
     // 检查目标类型是否为可执行文件
     if (kind_ != EKind::eBinary) {
-        aError("Only binary BuildTargets can be run");
+        aError(_("只有 binary 类型的目标可以运行"));
         return -1;
     }
     
     // 检查目标名称
     if (name_.empty()) {
-        aError("BuildTarget name is empty");
+        aError(_("名称为空"));
         return -1;
     }
     
@@ -207,7 +207,7 @@ errc_t BuildTarget::run()
     // 执行运行命令
     int runResult = system(runCmd.c_str());
     if (runResult != 0) {
-        aError("Execution failed");
+        aError(_("执行失败"));
         return -1;
     }
     

@@ -40,7 +40,7 @@ errc_t TargeterSequence::execute()
     {
         if(errc_t err = profile->execute())
         {
-            aError("failed execute targeter profile '%s'", profile->name().c_str());
+            aError(_("执行瞄准序列段 '%s' 失败"), profile->name().c_str());
             rc = err;
         }    
     }

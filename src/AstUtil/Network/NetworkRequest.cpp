@@ -63,7 +63,7 @@ JsonValue NetworkRequest::toJson() const
     JsonValue json;
     errc_t rc = toJson(json);
     if(rc != 0){
-        aError("failed to parse request body to json");
+        aError(_("将请求体解析为 json 失败"));
     }
     return json;
 }

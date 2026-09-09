@@ -142,7 +142,7 @@ errc_t aMoonPAToMeanEarthTransform(Rotation &rotation)
         aMoonPA430ToMeanEarthTransform(rotation);
         break;
     default:
-        aError("JPL DE version %d is not supported", denum);
+        aError(_("JPL DE 星历版本 %d 不受支持"), denum);
         return eErrorInvalidParam;
     }
     return eNoError;

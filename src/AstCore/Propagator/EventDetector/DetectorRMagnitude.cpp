@@ -36,19 +36,19 @@ double DetectorRMagnitude::getValue(const SpacecraftState& state, double t) cons
     TimePoint time{};
     rc = state.getStateEpoch(time);
     if(rc){
-        aWarning("failed to get state epoch");
+        aWarning(_("获取状态历元失败"));
         return nan;
     }
     Vector3d pos;
     rc = point->getPosIn(frame, time, pos);
     if(rc){
-        aWarning("failed to get position");
+        aWarning(_("获取位置失败"));
         return nan;
     }
     CartState cartState;
     rc = state.getState(cartState);
     if(rc){
-        aWarning("failed to get state");
+        aWarning(_("获取状态失败"));
         return nan;
     }
     double r = (cartState.pos() - pos).norm();

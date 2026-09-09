@@ -44,7 +44,7 @@ double DetectorApoapsis::getValue(const SpacecraftState& scState, double t) cons
     errc_t rc = scState.getStateInBodyInertial(body, cartState);
     if(rc)
     {
-        aWarning("failed to get state");
+        aWarning(_("获取状态失败"));
         return kNaN;
     }
     double v = cartState.vel().dot(cartState.pos().normalized());

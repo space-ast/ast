@@ -31,7 +31,7 @@ errc_t ScStateCalcScript::calculate(const SpacecraftState& scState, double& resu
     ScopedPtr<ScriptExecutor> executor(newScriptExecutor());
     if (executor == nullptr)
     {
-        aError("failed to create script executor");
+        aError(_("创建脚本执行器失败"));
         return eErrorNullPtr;
     }
     // 设置变量值
@@ -41,13 +41,13 @@ errc_t ScStateCalcScript::calculate(const SpacecraftState& scState, double& resu
         errc_t rc = var->calculate(scState, value);
         if (rc != eNoError)
         {
-            aError("failed to calculate variable '%s'", var->getName().c_str());
+            aError(_("计算变量 '%s' 失败"), var->getName().c_str());
             return rc;
         }
         rc = executor->setVariable(var->getName(), value);
         if (rc != eNoError)
         {
-            aError("failed to set variable '%s'", var->getName().c_str());
+            aError(_("设置变量 '%s' 失败"), var->getName().c_str());
             return rc;
         }
     }
@@ -56,7 +56,7 @@ errc_t ScStateCalcScript::calculate(const SpacecraftState& scState, double& resu
     errc_t rc = executor->evaluate(expression_, &scriptResult);
     if (rc != eNoError || !scriptResult.value())
     {
-        aError("failed to evaluate expression: '%s'", expression_.c_str());
+        aError(_("表达式求值失败: '%s'"), expression_.c_str());
         return rc;
     }
     // 转换为double类型

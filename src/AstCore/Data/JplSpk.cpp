@@ -42,7 +42,7 @@ JplSpk::JplSpk(StringView spkfile)
     int rc = open(spkfile);
     if (rc != eNoError)
     {
-        aError("failed to open spk file '%.*s'", (int)spkfile.size(), spkfile.data());
+        aError(_("打开 SPK 星历文件 '%.*s' 失败"), (int)spkfile.size(), spkfile.data());
     }
 }
 
@@ -115,7 +115,7 @@ errc_t aSpiceGetInterval(StringView filepath, int target, TimeInterval &timeInte
     errc_t rc = parser.parse(filepath);
     if(rc != eNoError)
     {
-        aError("failed to parse spk file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("解析 SPK 星历文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return rc;
     }
     const std::vector<SPK_Descriptor>& spkDescriptors = parser.getDescriptors();
@@ -132,7 +132,7 @@ errc_t aSpiceGetInterval(StringView filepath, int target, TimeInterval &timeInte
             {
                 if (interval.start() > end || start > interval.stop())
                 {
-                    aWarning("SPK target %d has disjoint segments (coverage gap)", target);
+                    aWarning(_("SPK 星历文件中目标体 %d 存在不相交的时间段"), target);
                 }
                 // @todo 覆盖区间存在 gap（不相交段）：unite 凸包会桥接空隙成连续覆盖，
                 //      调用方会误把空隙内时间当作有效 SPK 覆盖。应返错或改为 TimeIntervalList 保留各区段。
@@ -147,7 +147,7 @@ errc_t aSpiceGetInterval(StringView filepath, int target, TimeInterval &timeInte
     // 否则调用方会把「缺失覆盖」误判为「成功查表」。
     if (!found)
     {
-        aError("SPK file '%.*s' has no descriptor for target %d",
+        aError(_("SPK 星历文件 '%.*s' 没有目标体 %d 的数据"),
                (int)filepath.size(), filepath.data(), target);
         return eErrorNotFound;
     }
@@ -165,7 +165,7 @@ errc_t aSpiceGetBodyIds(StringView filepath, std::vector<int>& ids)
     errc_t rc = parser.parse(filepath);
     if(rc != eNoError)
     {
-        aError("failed to parse spk file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("解析 SPK 星历文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return rc;
     }
     const std::vector<SPK_Descriptor>& spkDescriptors = parser.getDescriptors();

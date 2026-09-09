@@ -120,7 +120,7 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
 {
     if (filepath.empty() || outputDir.empty())
     {
-        aError("empty filepath or outputDir");
+        aError(_("文件路径或输出目录为空"));
         return eErrorInvalidParam;
     }
 
@@ -130,7 +130,7 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
     // 1. 确保输出目录
     if (!fs::create_directories(outDir))
     {
-        aError("cannot create output dir: %s", outDir.c_str());
+        aError(_("无法创建输出目录: %s"), outDir.c_str());
         return eErrorInvalidFile;
     }
 
@@ -148,7 +148,7 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
         errc_t rc = aExtract(srcPath, workPath);
         if (rc != eNoError)
         {
-            aError("aExtract failed: %s", srcPath.c_str());
+            aError(_("解压文件失败: %s"), srcPath.c_str());
             return rc;
         }
     }
@@ -159,11 +159,11 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
 
     if (!parseVDFFiles(headerParser, fileNames))
     {
-        aError("no files found in VDF header");
+        aError(_("在 VDF 头部未找到文件"));
         return eErrorInvalidFile;
     }
 
-    aInfo("found %zu files in VDF header", fileNames.size());
+    aInfo(_("在 VDF 头部找到 %zu 个文件"), fileNames.size());
 
     // 4. 关闭 BKVParser，用二进制模式重新打开
     //    注意：不能依赖 BKVParser::tell() 获取 Body 偏移量，
@@ -175,7 +175,7 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
     ScopedPtr<std::FILE> fp = ast_fopen(workPath.c_str(), "rb");
     if (!fp)
     {
-        aError("cannot reopen file in binary mode: %s", workPath.c_str());
+        aError(_("无法以二进制模式重新打开文件: %s"), workPath.c_str());
         return eErrorInvalidFile;
     }
 
@@ -196,7 +196,7 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
 
         if (!foundEndHeader)
         {
-            aError("cannot find 'End Header' marker in VDF file");
+            aError(_("无法在 VDF 文件中找到 'End Header' 标记"));
             return eErrorInvalidFile;
         }
         // fgets 已将文件指针定位到 "End Header" 行之后，
@@ -217,7 +217,7 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
                 sizeStr += static_cast<char>(ch);
             else
             {
-                aError("invalid size char '%c' (0x%02X) at file [%zu/%zu]: %s",
+                aError(_("无效的大小字符 '%c' (0x%02X)，位于文件 [%zu/%zu]: %s"),
                        ch, static_cast<unsigned>(ch), i + 1, fileNames.size(), fileName.c_str());
                 return eErrorInvalidFile;
             }
@@ -233,7 +233,7 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
 
         if (sizeStr.empty())
         {
-            aError("empty size at file [%zu/%zu]: %s",
+            aError(_("文件 [%zu/%zu] 的大小为空: %s"),
                    i + 1, fileNames.size(), fileName.c_str());
             return eErrorInvalidFile;
         }
@@ -251,7 +251,7 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
         {
             if (!fs::create_directories(parentPath))
             {
-                aError("cannot create parent directory: %s", parentPath.string().c_str());
+                aError(_("无法创建父目录: %s"), parentPath.string().c_str());
                 return eErrorInvalidFile;
             }
         }
@@ -260,7 +260,7 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
         ScopedPtr<std::FILE> outFp = ast_fopen(outPath.string().c_str(), "wb");
         if (!outFp)
         {
-            aError("cannot create output file: %s", outPath.string().c_str());
+            aError(_("无法创建输出文件: %s"), outPath.string().c_str());
             return eErrorInvalidFile;
         }
 
@@ -269,7 +269,7 @@ errc_t aExtractVDF(StringView filepath, StringView outputDir)
             return rc;
     }
 
-    aInfo("extracted %zu files to %s", fileNames.size(), outDir.c_str());
+    aInfo(_("已提取 %zu 个文件到 %s"), fileNames.size(), outDir.c_str());
 
     return eNoError;
 }
@@ -278,7 +278,7 @@ errc_t aLoadVDF(StringView filepath, Scenario& scenario)
 {
     if (filepath.empty())
     {
-        aError("aLoadVDF: empty filepath");
+        aError(_("文件路径为空"));
         return eErrorInvalidParam;
     }
 
@@ -294,7 +294,7 @@ errc_t aLoadVDF(StringView filepath, Scenario& scenario)
     errc_t rc = aExtractVDF(filepath, tempDir);
     if (rc != eNoError)
     {
-        aError("aLoadVDF: extraction failed");
+        aError(_("解压文件失败"));
         return rc;
     }
 
@@ -318,7 +318,7 @@ errc_t aLoadVDF(StringView filepath, Scenario& scenario)
 
     if (scPath.empty())
     {
-        aError("aLoadVDF: no .sc file found");
+        aError(_("未找到 .sc 文件"));
         return eErrorInvalidFile;
     }
 

@@ -38,7 +38,7 @@ errc_t aSunSynchronousInclination(double gm, double j2, double rb, double bodyMe
     inc = brentq(func, 0, kPI, 1e-12, 1e-14, 100, stats);
     if(stats.error_num != 0){
         inc = std::numeric_limits<double>::quiet_NaN();
-        aError("failed to solve inclination for sun synchronous orbit.");
+        aError(_("求解太阳同步轨道倾角失败"));
     }
     return stats.error_num;
 }
@@ -54,7 +54,7 @@ errc_t aSunSynchronousSemiMajorAxis(double gm, double j2, double rb, double body
     semiMajorAxis = brentq(func, rb, 1e4 * rb, 1e-12, 1e-14, 100, stats);
     if(stats.error_num != 0){
         semiMajorAxis = std::numeric_limits<double>::quiet_NaN();
-        aError("failed to solve semiMajorAxis for sun synchronous orbit.");
+        aError(_("求解太阳同步轨道半长轴失败"));
     }
     return stats.error_num;
 }

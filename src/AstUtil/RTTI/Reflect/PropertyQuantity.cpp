@@ -62,7 +62,7 @@ errc_t PropertyQuantity::getValueString(const void *container, std::string &valu
     }
     else
     {
-        aWarning("failed to get default unit for dimension %s", dimension_.name().c_str());
+        aWarning(_("获取量纲 %s 的默认单位失败"), dimension_.name().c_str());
         return PropertyDouble::getValueString(container, value);
     }
 }
@@ -72,13 +72,13 @@ errc_t PropertyQuantity::setValueString(void *container, StringView value)
     Quantity quant;
     errc_t rc = aQuantityParse(value, quant);
     if(rc){
-        aError("failed to parse quantity string: %.*s", (int)value.size(), value.data());
+        aError(_("解析数量值字符串失败: %.*s"), (int)value.size(), value.data());
         return rc;
     }
     // 检查量纲是否匹配
     if (quant.dimension() != EDimension::eUnit && quant.dimension() != dimension_)
     {
-        aError("quantity dimension %s does not match property dimension %s", quant.dimension().name().c_str(), dimension_.name().c_str());
+        aError(_("输入数量值的量纲 %s 与属性的量纲 %s 不匹配"), quant.dimension().name().c_str(), dimension_.name().c_str());
         return eErrorInvalidParam;
     }
     return PropertyDouble::setValueDouble(container, quant.getValueSI());

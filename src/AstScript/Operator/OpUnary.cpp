@@ -44,12 +44,12 @@ Value *OpUnary::eval() const
 
     /// 检查操作数是否为空
     if (A_UNLIKELY(!value.get())) {
-        aError("Failed to evaluate operand for unary operator");
+        aError(_("对一元运算符操作数求值失败"));
         return nullptr;
     }
     auto type = value->type();
     if (A_UNLIKELY(!type)) {
-        aError("Failed to get type of operand for unary operator");
+        aError(_("获取一元运算符操作数的类型失败"));
         return nullptr;
     }
     
@@ -88,7 +88,7 @@ Value *OpUnary::eval() const
     // --- 双重检查锁定模式 (DCLP) 结束 ---
 
     // 未找到匹配的函数指针
-    aError("no operator function found for %s %s", 
+    aError(_("为 '%s %s' 未找到运算符函数"),
         type->name().c_str(),
         OpUnaryTypeStr[op_]
     );

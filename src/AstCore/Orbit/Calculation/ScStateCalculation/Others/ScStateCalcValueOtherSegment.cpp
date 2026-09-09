@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcValueOtherSegment::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement value from other segment calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

@@ -116,7 +116,7 @@ errc_t IrbemAPI::load(StringView libPath)
     void* lib = aLoadLibrary(std::string(libPath).c_str());
     if (!lib)
     {
-        aError("IrbemAPI: failed to load library '%.*s'",
+        aError(_("加载库 '%.*s' 失败"),
                libPath.size(), libPath.data());
         return eErrorInvalidFile;
     }
@@ -132,7 +132,7 @@ errc_t IrbemAPI::load(StringView libPath)
     int numLoaded = funcArrayLoadedCount(funcs);
     if (numLoaded < kNumFunctions)
     {
-        aError("IrbemAPI: failed to load all %d functions, only %d loaded",
+        aError(_("无法加载全部 %d 个函数，仅加载了 %d 个"),
                kNumFunctions, numLoaded);
         aFreeLibrary(lib);
         return eErrorInvalidFile;
@@ -178,7 +178,7 @@ errc_t IrbemAPI::irbem_fortran_version1(int* version)
     auto fn = reinterpret_cast<FnType>(functions_[kIrbemFortranVersion]);
     if (!fn)
     {
-        aError("IrbemAPI: library not loaded");
+        aError(_("库未加载"));
         return eErrorNullPtr;
     }
     fn(version);
@@ -191,7 +191,7 @@ errc_t IrbemAPI::get_irbem_ntime_max1(int* ntime_max)
     auto fn = reinterpret_cast<FnType>(functions_[kGetIrbemNtimeMax]);
     if (!fn)
     {
-        aError("IrbemAPI: library not loaded");
+        aError(_("库未加载"));
         return eErrorNullPtr;
     }
     fn(ntime_max);
@@ -213,7 +213,7 @@ errc_t IrbemAPI::make_lstar1(
     auto fn = reinterpret_cast<FnType>(functions_[kMakeLstar]);
     if (!fn)
     {
-        aError("IrbemAPI: library not loaded");
+        aError(_("库未加载"));
         return eErrorNullPtr;
     }
     fn(&ntime, &kext, const_cast<int*>(options.data()), &sysaxes,
@@ -237,7 +237,7 @@ errc_t IrbemAPI::get_field1(
     auto fn = reinterpret_cast<FnType>(functions_[kGetField]);
     if (!fn)
     {
-        aError("IrbemAPI: library not loaded");
+        aError(_("库未加载"));
         return eErrorNullPtr;
     }
     fn(&kext, const_cast<int*>(options.data()), &sysaxes,
@@ -265,7 +265,7 @@ errc_t IrbemAPI::fly_in_afrl_crres1(
     auto fn = reinterpret_cast<FnType>(functions_[kFlyInAfrlCrres]);
     if (!fn)
     {
-        aError("IrbemAPI: library not loaded");
+        aError(_("库未加载"));
         return eErrorNullPtr;
     }
     fn(&ntime, &sysaxes,
@@ -296,7 +296,7 @@ errc_t IrbemAPI::get_crres_flux(
     auto fn = reinterpret_cast<RealFn>(functions_[kGetCrresFlux]);
     if (!fn)
     {
-        aError("IrbemAPI: library not loaded");
+        aError(_("库未加载"));
         return eErrorNullPtr;
     }
     fn(&ntime, &whichm, &whatf, &nene,

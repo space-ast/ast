@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcVectorY::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement vector Y component calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

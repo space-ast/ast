@@ -35,7 +35,7 @@ namespace
         {}
         errc_t addSymbol(StringView name, Expr* expr) override
         {
-            aError("addSymbol not implemented");
+            aError(_("尚未实现"));
             return eErrorNotImplemented;
         }
         Expr* findSymbol(StringView name, bool searchParent = true) const override
@@ -43,7 +43,7 @@ namespace
             auto analyzer = analyzer_.get();
             if(!analyzer)
             {
-                aError("analyzer is null");
+                aError(_("分析器为空"));
                 return nullptr;
             }
             // 1. 从inputs_查找符号
@@ -86,7 +86,7 @@ errc_t StudyWorkbench::execute()
     auto command = this->relatedCommand_.get();
     if(!command)
     {
-        aError("command is null");
+        aError(_("命令为空"));
         return eErrorNullPtr;
     }
     return command->execute();

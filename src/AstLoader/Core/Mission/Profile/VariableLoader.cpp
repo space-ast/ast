@@ -73,26 +73,26 @@ Value* ExprCurrentScStateCalculation::eval() const
     auto calculation = calculation_.lock();
     if(calculation == nullptr)
     {
-        aError("calculation is null");
+        aError(_("计算对象为空"));
         return nullptr;
     }
     Sequence* sequence = aGetAncestorScope<Sequence*>(const_cast<ExprCurrentScStateCalculation*>(this));
     if(sequence == nullptr)
     {
-        aError("failed to get ancestor sequence");
+        aError(_("获取祖先序列失败"));
         return nullptr;
     }
     auto inputState = sequence->getInputState();
     if(inputState == nullptr)
     {
-        aError("failed to get current input state");
+        aError(_("获取当前输入状态失败"));
         return nullptr;
     }
     double value;
     errc_t rc = calculation->calculate(*inputState, value);
     if(rc != 0)
     {
-        aError("failed to evaluate calculation");
+        aError(_("求值失败"));
         return nullptr;
     }
     return aNewValueDouble(value);
@@ -117,7 +117,7 @@ errc_t aLoadParameter(const Value& value, Variable& var)
         std::string type = value["Type"];
         if(type != "AgScriptingToolParameter")
         {
-            aError("invalid type: '%s', expected 'AgScriptingToolParameter'", type.c_str());
+            aError(_("无效的类型：'%s'，应为 'AgScriptingToolParameter'"), type.c_str());
             return -1;
         }
     }
@@ -146,7 +146,7 @@ errc_t aLoadParameter(const Value& value, Variable& var)
     }
     else if(paramType == "Enumeration")
     {
-        aWarning("enumeration type is not supported yet, use string instead");
+        aWarning(_("枚举类型尚未支持，请改用字符串"));
         var.setExpr(value["ParamValue"].toString());
     }
     else if(paramType == "Integer")
@@ -155,7 +155,7 @@ errc_t aLoadParameter(const Value& value, Variable& var)
     }
     else if(paramType == "Date")
     {
-        aWarning("type 'Date' is not supported yet, use string instead");
+        aWarning(_("类型 'Date' 尚未支持，请改用字符串"));
         var.setExpr(value["ParamValue"].toString());
     }
     else if(paramType == "String")
@@ -166,7 +166,7 @@ errc_t aLoadParameter(const Value& value, Variable& var)
     {
         Value* paramValue = const_cast<Value*>(&value["ParamValue"]);
         var.setExpr(paramValue);
-        aWarning("unsupported parameter type: '%s'", paramType.c_str());
+        aWarning(_("不支持的参数类型：'%s'"), paramType.c_str());
     }
     return 0;
 }
@@ -178,7 +178,7 @@ errc_t aLoadCalcObject(const Value& value, Variable& var, Object* scope)
         std::string type = value["Type"];
         if(type != "AgAsStateCalc")
         {
-            aError("invalid type: '%s', expected 'AgAsStateCalc'", type.c_str());
+            aError(_("无效的类型：'%s'，应为 'AgAsStateCalc'"), type.c_str());
             return -1;
         }
     }
@@ -195,7 +195,7 @@ errc_t aLoadCalcObject(const Value& value, Variable& var, Object* scope)
         }
         else
         {
-            aError("failed to load calculation object");
+            aError(_("加载计算对象失败"));
         }
     }
     return 0;
@@ -209,7 +209,7 @@ errc_t aLoadAttribute(const Value& value, Variable& var, Object* scope)
         std::string type = value["Type"];
         if(type != "ScriptingToolAttr")
         {
-            aError("invalid type: '%s', expected 'ScriptingToolAttr'", type.c_str());
+            aError(_("无效的类型：'%s'，应为 'ScriptingToolAttr'"), type.c_str());
             return -1;
         }
     }
@@ -228,7 +228,7 @@ errc_t aLoadAttribute(const Value& value, Variable& var, Object* scope)
                     typeName = object->getType()->name();
                 else
                     typeName = "nullptr";
-                aError("expect type of scope to be sequence, but got %s", typeName.c_str());
+                aError(_("作用域类型应为 sequence，但实际为 %s"), typeName.c_str());
                 return -1;
             }
             MissionCommand* command = nullptr;
@@ -240,11 +240,11 @@ errc_t aLoadAttribute(const Value& value, Variable& var, Object* scope)
                     objectPath = objectPath.substr(9);
                     command = sequence->getCommandByPath(objectPath);
                     if(!command)
-                        aError("command not found: %.*s", objectPath.size(), objectPath.data());
+                        aError(_("未找到命令：%.*s"), objectPath.size(), objectPath.data());
                 }
                 else
                 {
-                    aWarning("unsupported object path: '%s'", object.c_str());
+                    aWarning(_("不支持的对象路径：'%s'"), object.c_str());
                 }
             }
             // 解析属性值
@@ -253,7 +253,7 @@ errc_t aLoadAttribute(const Value& value, Variable& var, Object* scope)
                 Attribute attr = aResolveAttribute(command, attribute);
                 if(!attr.isValid())
                 {
-                    aError("failed to resolve attribute '%.*s'", attribute.size(), attribute.data());
+                    aError(_("解析属性 '%.*s' 失败"), attribute.size(), attribute.data());
                     return -1;
                 }
                 Expr* expr = new ExprAttribute(attr);

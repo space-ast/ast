@@ -41,7 +41,7 @@ errc_t XMLParser::parse(XMLSax& sax)
     int depth = 0;
     
     if(!isOpen()) {
-        aError("failed to open file");
+        aError(_("打开文件失败"));
         return eErrorInvalidFile;
     }
     
@@ -180,7 +180,7 @@ XMLParser::EToken XMLParser::parseStartElement()
         
         // 检查是否有等号
         if (i >= content.size() || content[i] != '=') {
-            aError("expect '='");
+            aError(_("期望 '='"));
             return eError;
         }
         i++;

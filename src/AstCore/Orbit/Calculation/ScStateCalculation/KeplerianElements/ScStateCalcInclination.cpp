@@ -27,7 +27,7 @@ errc_t ScStateCalcInclination::calculate(const SpacecraftState& state, double& r
 {
     // TODO: Implement inclination calculation
     // Need to convert State to Keplerian elements first
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

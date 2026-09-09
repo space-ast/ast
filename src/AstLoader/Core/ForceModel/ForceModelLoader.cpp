@@ -29,7 +29,7 @@ errc_t aLoadGravityForce(const Value& value, GravityForce& gravityForce)
 {
     std::string type = value["Type"];
     if(type != "GravityFieldFunc"){
-        aError("unsupported force type '%s'", type.c_str());
+        aError(_("不支持的类型 '%s'"), type.c_str());
         return eErrorInvalidParam;
     }
     // 基础重力场配置参数
@@ -66,7 +66,7 @@ errc_t aLoadGravityForce(const Value& value, GravityForce& gravityForce)
         else if(solidTideType == "Full tide")
             gravityForce.solidTideType_ = ESolidTideType::eFull;
         else{
-            aError("unsupported solid tide type '%s', default to None", solidTideType.c_str());
+            aError(_("不支持的固体潮类型 '%s'，将默认设置为 None"), solidTideType.c_str());
             gravityForce.solidTideType_ = ESolidTideType::eNone;
         }
     }
@@ -85,7 +85,7 @@ errc_t aLoadPointMassForce(const Value& value, PointMassForce& pointMassForce)
 {
     std::string type = value["Type"];
     if(type != "TwoBodyFunc" && type != "ThirdBodyFunc"){
-        aError("unsupported force type '%s'", type.c_str());
+        aError(_("不支持的类型 '%s'"), type.c_str());
         return eErrorInvalidParam;
     }
     pointMassForce.specifiedGM_ = value["Mu"];
@@ -103,7 +103,7 @@ errc_t aLoadPointMassForce(const Value& value, PointMassForce& pointMassForce)
         else if(gravSource == "User Specified")
             pointMassForce.gmSource_ = EGMSource::eSpecifiedValue;
         else{
-            aWarning("unsupported grav source '%s', default to body gravity", gravSource.c_str());
+            aWarning(_("不支持的引力源 '%s'，默认为天体引力"), gravSource.c_str());
             pointMassForce.gmSource_ = EGMSource::eBodyGravity;
         }
     }
@@ -114,7 +114,7 @@ errc_t aLoadThirdBodyForce(const Value& value, ThirdBodyForce& thirdBodyForce)
 {
     std::string type = value["Type"];
     if(type != "ThirdBodyFunc"){
-        aError("unsupported force type '%s'", type.c_str());
+        aError(_("不支持的类型 '%s'"), type.c_str());
         return eErrorInvalidParam;
     }
 
@@ -125,7 +125,7 @@ errc_t aLoadThirdBodyForce(const Value& value, ThirdBodyForce& thirdBodyForce)
         thirdBodyForce.setBody(body);
     else
     {
-        aError("third body '%s' not found", bodyName.c_str());
+        aError(_("未找到第三体 '%s'"), bodyName.c_str());
     }
 
     // 三体星历来源
@@ -142,7 +142,7 @@ errc_t aLoadThirdBodyForce(const Value& value, ThirdBodyForce& thirdBodyForce)
         else if(ephemerisSource == "SPICE Barycenter")
             thirdBodyForce.setEphemerisSource(EEphemerisSource::eJplSpiceBarycenter);
         else{
-            aWarning("unsupported ephemeris source '%s', default to Body Ephemeris", ephemerisSource.c_str());
+            aWarning(_("不支持的星历来源 '%s'，默认为 Body Ephemeris"), ephemerisSource.c_str());
             thirdBodyForce.setEphemerisSource(EEphemerisSource::eBodyEphemeris);
         }
     }
@@ -164,7 +164,7 @@ errc_t aLoadThirdBodyForce(const Value& value, ThirdBodyForce& thirdBodyForce)
         }
         else
         {
-            aWarning("unsupported attraction type '%s', default to point mass", mode.c_str());
+            aWarning(_("不支持的引力类型 '%s'，将默认设置为点质量"), mode.c_str());
             attractionType = EBodyAttractionType::ePointMass;
         }
         thirdBodyForce.setAttractionType(attractionType);
@@ -177,7 +177,7 @@ errc_t aLoadThirdBodyForce(const Value& value, ThirdBodyForce& thirdBodyForce)
         errc_t rc = aLoadGravityForce(dictGravityField, thirdBodyForce.gravity());
         if(rc != eNoError)
         {
-            aWarning("failed to load gravity force model");
+            aWarning(_("加载引力场力模型失败"));
         }
     }
 
@@ -186,7 +186,7 @@ errc_t aLoadThirdBodyForce(const Value& value, ThirdBodyForce& thirdBodyForce)
     errc_t rc = aLoadPointMassForce(value, thirdBodyForce.pointMass());
     if(rc != eNoError)
     {
-        aWarning("failed to load point mass force model");
+        aWarning(_("加载点质量力模型失败"));
     }
     return eNoError;
 }
@@ -218,7 +218,7 @@ static EAtmDensityModel _aStringToAtmDensityModel(const std::string& type)
     else if(type == "DTM 2012")
         return EAtmDensityModel::eDTM2012;
     else{
-        aWarning("unsupported atmospheric density model type '%s', use default 'NRLMSISE 2000' model instead", type.c_str());
+        aWarning(_("不支持的大气密度模型类型 '%s'，默认使用 'NRLMSISE 2000' 模型"), type.c_str());
         return EAtmDensityModel::eNRLMSISE2000;
     }
 }
@@ -238,7 +238,7 @@ errc_t aLoadDragForce(const Value& value, DragForce& dragForce)
 {
     std::string category = value["Category"];
     if(category != "Atmospheric Models"){
-        aError("unsupported force category '%s'", category.c_str());
+        aError(_("不支持的类别 '%s'"), category.c_str());
         return eErrorInvalidParam;
     }
     // 解析大气阻力模型
@@ -259,7 +259,7 @@ errc_t aLoadDragForce(const Value& value, DragForce& dragForce)
     else if(atmosDataGeoMagFluxUpdateRate == "3-Hourly")
         dragForce.geoMagFluxUpdateRate_ = EGeoMagFluxUpdateRate::e3Hourly;
     else{
-        aWarning("unsupported atmospheric data geo mag flux update rate '%s', default to Daily", atmosDataGeoMagFluxUpdateRate.c_str());
+        aWarning(_("不支持的大气地磁通量更新率 '%s'，默认为 Daily"), atmosDataGeoMagFluxUpdateRate.c_str());
         dragForce.geoMagFluxUpdateRate_ = EGeoMagFluxUpdateRate::eDaily;
     }
     std::string atmosDataGeoMagFluxSource = value["AtmosDataGeoMagFluxSource"];
@@ -268,7 +268,7 @@ errc_t aLoadDragForce(const Value& value, DragForce& dragForce)
     else if(atmosDataGeoMagFluxSource == "Read Ap from file")
         dragForce.geoMagFluxSource_ = EGeoMagFluxSource::eAp;
     else{
-        aWarning("unsupported atmospheric data geo mag flux source '%s', default to Ap", atmosDataGeoMagFluxSource.c_str());
+        aWarning(_("不支持的大气地磁通量来源 '%s'，默认为 Ap"), atmosDataGeoMagFluxSource.c_str());
         dragForce.geoMagFluxSource_ = EGeoMagFluxSource::eAp;
     }
 
@@ -282,7 +282,7 @@ errc_t aLoadSolarRadiationPressure(const Value& value, SolarRadiationPressure& s
 {
     std::string category = value["Category"];
     if(category != "SRP Models"){
-        aError("unsupported force category '%s'", category.c_str());
+        aError(_("不支持的类别 '%s'"), category.c_str());
         return eErrorInvalidParam;
     }
     std::string shadowModel = value["ShadowModel"];
@@ -293,7 +293,7 @@ errc_t aLoadSolarRadiationPressure(const Value& value, SolarRadiationPressure& s
     else if(shadowModel == "Dual Cone")
         srp.shadowModel_ = EShadowModel::eDualCone;
     else{
-        aWarning("unsupported shadow model '%s', default to 'Dual Cone'", shadowModel.c_str());
+        aWarning(_("不支持的阴影模型 '%s'，默认为 'Dual Cone'"), shadowModel.c_str());
         srp.shadowModel_ = EShadowModel::eDualCone;
     }
 
@@ -315,7 +315,7 @@ errc_t aLoadSolarRadiationPressure(const Value& value, SolarRadiationPressure& s
         if(body)
             srp.eclipsingBodies_.push_back(body);
         else
-            aWarning("eclipsing body '%s' not found, ignore it", bodyName.c_str());
+            aWarning(_("未找到遮挡天体 '%s'，已忽略"), bodyName.c_str());
     }
     return eNoError;
 }
@@ -332,7 +332,7 @@ errc_t aLoadForceModel(const Value& value, HPOPForceModel& forceModel)
         }
         else
         {
-            aError("central body '%s' not found, use default body 'Earth' instead", centerBody.c_str());
+            aError(_("未找到中心天体 '%s'，改用默认天体 'Earth'"), centerBody.c_str());
             forceModel.setCentralBody(aGetEarth());
         }
     }
@@ -350,7 +350,7 @@ errc_t aLoadForceModel(const Value& value, HPOPForceModel& forceModel)
             errc_t rc = aLoadGravityForce(force, forceModel.gravity());
             if(rc)
             {
-                aWarning("failed to load gravity force");
+                aWarning(_("加载引力场力失败"));
             }
         }
         else if(type == "TwoBodyFunc")
@@ -358,7 +358,7 @@ errc_t aLoadForceModel(const Value& value, HPOPForceModel& forceModel)
             errc_t rc = aLoadPointMassForce(force, forceModel.pointMass());
             if(rc)
             {
-                aWarning("failed to load point mass force");
+                aWarning(_("加载点质量力失败"));
             }
         }
         else if(type == "ThirdBodyFunc")
@@ -367,7 +367,7 @@ errc_t aLoadForceModel(const Value& value, HPOPForceModel& forceModel)
             errc_t rc = aLoadThirdBodyForce(force, thirdBody);
             if(rc)
             {
-                aWarning("failed to load third body force");
+                aWarning(_("加载第三体力失败"));
             }
             forceModel.addThirdBody(thirdBody);
         }
@@ -377,19 +377,19 @@ errc_t aLoadForceModel(const Value& value, HPOPForceModel& forceModel)
         }
         else if(type == "RadPressureFunc")
         {
-            aWarning("RadPressure force is not supported");
+            aWarning(_("不支持 RadPressure 摄动力"));
         }
         else if(type == "YarkovskyFunc")
         {
-            aWarning("Yarkovsky force is not supported");
+            aWarning(_("不支持 Yarkovsky 摄动力"));
         }
         else if(type == "StateTransFunc")
         {
-            aWarning("State Transition Matrix is not supported");
+            aWarning(_("不支持 State Transition Matrix"));
         }
         else if(type == "HPOPPluginFunc")
         {
-            aWarning("HPOPPlugin force is not supported");
+            aWarning(_("不支持 HPOPPlugin"));
         }
         else
         {
@@ -400,7 +400,7 @@ errc_t aLoadForceModel(const Value& value, HPOPForceModel& forceModel)
                 errc_t rc = aLoadDragForce(force, forceModel.drag());
                 if(rc)
                 {
-                    aWarning("failed to load drag force");
+                    aWarning(_("加载阻力力模型失败"));
                 }
             }
             else if(category == "SRP Models")
@@ -409,12 +409,12 @@ errc_t aLoadForceModel(const Value& value, HPOPForceModel& forceModel)
                 errc_t rc = aLoadSolarRadiationPressure(force, forceModel.srp(), forceModel.centralBody());
                 if(rc)
                 {
-                    aWarning("failed to load solar radiation pressure");
+                    aWarning(_("加载太阳辐射压力模型失败"));
                 }
             }
             else
             {
-                aWarning("unsupported force category '%s' and type '%s'", category.c_str(), type.c_str());
+                aWarning(_("不支持的类别 '%s' 和类型 '%s'"), category.c_str(), type.c_str());
             }
         }
     }

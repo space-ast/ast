@@ -240,7 +240,7 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector
         return err;
     int dim = equation_->getDimension();
     if (dim != 6){
-        aError("dimension of equation is not 6");
+        aError(_("方程维度不是 6"));
         return -1;
     }
 
@@ -248,7 +248,7 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, Vector
     const size_t idxPos = dynSys.getStateIndex(kIdentifierPos);
     const size_t idxVel = dynSys.getStateIndex(kIdentifierVel);
     if (idxPos == (size_t)-1 || idxVel == (size_t)-1) {
-        aError("failed to find Pos or Vel in state vector");
+        aError(_("未在状态向量中找到位置或速度"));
         return -1;
     }
 
@@ -274,7 +274,7 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, CartSt
     const int dim = equation_->getDimension();
     constexpr int dimexpected = 6 + 36;
     if (dim != dimexpected){
-        aError("dimension of equation is not 42");
+        aError(_("方程维度不是 42"));
         return -1;
     }
 
@@ -283,7 +283,7 @@ errc_t HPOP::propagate(const TimePoint &startTime, TimePoint &targetTime, CartSt
     const size_t idxVel = dynSys.getStateIndex(kIdentifierVel);
     const size_t idxSTM = dynSys.getStateIndex(kIdentifierSTM);
     if (idxPos == (size_t)-1 || idxVel == (size_t)-1 || idxSTM == (size_t)-1) {
-        aError("failed to find Pos, Vel or STM in state vector");
+        aError(_("未在状态向量中找到位置、速度或状态转换矩阵"));
         return -1;
     }
 
@@ -317,7 +317,7 @@ errc_t HPOP::propagate(const TimePoint& startTime, TimePoint& targetTime,
     const size_t idxVel = dynSys.getStateIndex(kIdentifierVel);
     const size_t idxSTM = dynSys.getStateIndex(kIdentifierSTM);
     if (idxPos == (size_t)-1 || idxVel == (size_t)-1 || idxSTM == (size_t)-1) {
-        aError("failed to find Pos, Vel or STM in state vector");
+        aError(_("未在状态向量中找到位置、速度或状态转换矩阵"));
         return -1;
     }
 
@@ -325,7 +325,7 @@ errc_t HPOP::propagate(const TimePoint& startTime, TimePoint& targetTime,
     const bool hasK = forceModel().useSRPSensitivity();
     const int expectedDim = 42 + (hasB ? 6 : 0) + (hasK ? 6 : 0);
     if (dim != expectedDim) {
-        aError("dimension mismatch: expected %d, got %d", expectedDim, dim);
+        aError(_("维度不匹配：期望 %d，实际 %d"), expectedDim, dim);
         return -1;
     }
 
@@ -334,14 +334,14 @@ errc_t HPOP::propagate(const TimePoint& startTime, TimePoint& targetTime,
     if (hasB) {
         idxDragSens = dynSys.getStateIndex(kIdentifierStateSensitivityWrtDrag);
         if (idxDragSens == (size_t)-1) {
-            aError("failed to find StateSensitivityWrtDrag in state vector");
+            aError(_("未在状态向量中找到弹道系数的敏感度向量"));
             return -1;
         }
     }
     if (hasK) {
         idxSRPSens = dynSys.getStateIndex(kIdentifierStateSensitivityWrtSRP);
         if (idxSRPSens == (size_t)-1) {
-            aError("failed to find StateSensitivityWrtSRP in state vector");
+            aError(_("未在状态向量中找到SRP综合参数的敏感度向量"));
             return -1;
         }
     }

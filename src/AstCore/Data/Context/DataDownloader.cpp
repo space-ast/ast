@@ -93,7 +93,7 @@ errc_t aDownloadData(StringView dataDir)
             parentDir = ".";
         if(!fs::is_directory(parentDir))
         {
-            aError("dir '%s' has no parent directory", targetDir.string().c_str());
+            aError(_("目录 '%s' 没有父目录"), targetDir.string().c_str());
             return eErrorNotFound;
         }
     }
@@ -106,24 +106,24 @@ errc_t aDownloadData(StringView dataDir)
     errc_t err = eError;
     for (const char* url : kDataUrls)
     {
-        aInfo("下载数据文件: %s", url);
+        aInfo(_("下载数据文件: %s"), url);
         err = aDownloadFile(url, tmpZip.string());
         if (err == eNoError) break;
         if (err == eErrorCancelled) break;   // 用户取消，不再尝试备用源
-        aWarning("download from %s failed (err=%d)", url, err);
+        aWarning(_("无法从 %s 下载数据 (err=%d)"), url, err);
     }
     if (err != eNoError)
     {
-        aError("all download sources failed (err=%d)", err);
+        aError(_("所有下载源均失败 (err=%d)"), err);
         return err;
     }
-    aInfo("downloaded to %s", tmpZip.string().c_str());
+    aInfo(_("已下载到 %s"), tmpZip.string().c_str());
 
     // ---- 2. 解压到临时目录 ----
     err = aExtract(tmpZip.string(), tmpExDir.string());
     if (err != eNoError)
     {
-        aError("extract failed (err=%d)", err);
+        aError(_("解压失败 (err=%d)"), err);
 
         return err;
     }
@@ -148,7 +148,7 @@ errc_t aDownloadData(StringView dataDir)
     }
     if (!fs::is_directory(dataRoot))
     {
-        aError("no data content under '%s'", dataRoot.string().c_str());
+        aError(_("目录 '%s' 下没有数据"), dataRoot.string().c_str());
         return eErrorNotFound;
     }
 
@@ -160,21 +160,21 @@ errc_t aDownloadData(StringView dataDir)
         backupPath = targetDir.string() + ".bak";
         fs::remove_all(backupPath);
         if (!fs::rename(targetDir, backupPath)) {
-            aError("failed to backup existing data dir '%s'", targetDir.string().c_str());
+            aError(_("备份已有数据目录 '%s' 失败"), targetDir.string().c_str());
             return eError;
         }
     }
     // 移动解压出的数据目录到目标
     if (!fs::rename(dataRoot, targetDir))
     {
-        aError("failed to install data into '%s'", targetDir.string().c_str());
+        aError(_("安装数据到 '%s' 失败"), targetDir.string().c_str());
         // 还原备份，避免数据目录状态损坏
         if (!backupPath.empty())
             fs::rename(backupPath, targetDir);
         return eError;
     }
 
-    aInfo("data installed to %s", targetDir.string().c_str());
+    aInfo(_("数据已安装到 %s"), targetDir.string().c_str());
     return eNoError;
 }
 

@@ -117,7 +117,7 @@ void show(const TimePoint& epoch)
     if(renderer)
         renderer->render(*gcv(), epoch);
     else
-        aWarning("No default renderer set.");
+        aWarning(_("未设置默认渲染器。"));
 }
 
 void show()

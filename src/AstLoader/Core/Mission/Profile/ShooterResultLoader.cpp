@@ -34,7 +34,7 @@ errc_t aLoadShooterResult(const Value& value, ShooterResult& result)
     std::string type = value["Type"];
     if(type != "ShooterResult")
     {
-        aError("unsupported type: '%s', expected 'ShooterResult'", type.c_str());
+        aError(_("不支持的类型：'%s'，应为 'ShooterResult'"), type.c_str());
         return -1;
     }
 
@@ -54,19 +54,19 @@ errc_t aLoadShooterResult(const Value& value, ShooterResult& result)
         Sequence* sequence = aGetAncestorScope<Sequence*>(&result);
         if(sequence == nullptr)
         {
-            aError("failed to find parent sequence '%s'", parentSegmentName.c_str());
+            aError(_("未找到父序列 '%s'"), parentSegmentName.c_str());
             return -1;
         }
         auto segment = sequence->getSegmentByPath(parentSegmentName);
         if(!segment)
         {
-            aError("failed to get segment '%s' for result '%s'", parentSegmentName.c_str(), resultName.c_str());
+            aError(_("获取结果 '%s' 的段 '%s' 失败"), parentSegmentName.c_str(), resultName.c_str());
             return -1;
         }
         auto calculation = aFindChild<ObjectCalculation*>(segment, resultName);
         if(calculation == nullptr)
         {
-            aError("failed to find result object '%s'", resultName.c_str());
+            aError(_("未找到结果对象 '%s'"), resultName.c_str());
             return -1;
         }
         Expr* expr = new ExprCalculation(segment->getOutputState(), calculation);

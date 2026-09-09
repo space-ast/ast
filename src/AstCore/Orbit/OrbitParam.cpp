@@ -167,7 +167,7 @@ double	aEccToTimePastPeri(double E, double semiMajorAxis, double e, double gm)
         return M * sqrt(pow(std::abs(semiMajorAxis), 3) / gm);  // 双曲线a<0
     }
     else {
-        aError("暂不支持抛物线轨道.");
+        aError(_("尚不支持抛物线轨道"));
         // @todo
         return NAN;
     }
@@ -265,7 +265,7 @@ double	aMeanToEcc(double M, double e, double eps, int maxIter)
     }
     if (((e >= 0.0 && e < 1.0) || (e > 1.0)) && fabs(Delta3) >= 5.0 * eps && N >= maxIter)
     {
-        aError("mean2ecc迭代不收敛，请降低精度epsilon或增加迭代次数限制.");
+        aError(_("迭代不收敛，请降低精度epsilon或增加迭代次数限制"));
         return M;
     }
     return E;
@@ -469,7 +469,7 @@ double	aTrueToEcc(double f, double e)
     {
         if (f > PI - acos(1.0 / e) || f < -PI + acos(1.0 / e))
         {
-            aError("不可能达到的双曲轨道.");
+            aError(_("不可能达到的双曲轨道"));
             return INVALID_PARAM(f);
         }
         else

@@ -42,7 +42,7 @@ ExtractorInterface* aExtractGetImpl(StringView source)
     if (impl->isSupported() && impl->canExtract(source))
         return impl;
 
-    aError("aExtractGetImpl: no supported extractor implementation found");
+    aError(_("未找到受支持的解压器实现"));
     return nullptr;
 }
 
@@ -51,7 +51,7 @@ errc_t aExtract(StringView source, StringView target)
     ExtractorInterface* impl = aExtractGetImpl(source);
     if (!impl)
     {
-        aError("aExtract: no extractor available for: %s", source.data());
+        aError(_("没有可用于 %s 的解压器"), source.data());
         return eErrorNotImplemented;
     }
     return impl->extract(source, target);

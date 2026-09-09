@@ -251,7 +251,7 @@ double StateKeplerian::getSizeParam(ESizeType sizeType) const
     case ESizeType::eMeanMotion:
         return this->getMeanMotion();
     default:
-        aError("unknown sizeType");
+        aError(_("未知的轨道大小参数类型"));
         return std::numeric_limits<double>::quiet_NaN();
     }
 }
@@ -282,7 +282,7 @@ void StateKeplerian::setSizeParam(double sizeParam, ESizeType sizeType)
         this->setMeanMotion(sizeParam);
         break;
     default:
-        aError("unknown sizeType");
+        aError(_("未知的轨道大小参数类型"));
         break;
     }
 }
@@ -298,7 +298,7 @@ void StateKeplerian::setSizeType(ESizeType sizeType)
     {
         if(this->shapeType_ == EShapeType::eApoAlt || this->shapeType_ == EShapeType::eApoRad)
         {
-            aError("sizeType %d is not supported for shapeType %d", sizeType, this->shapeType_);
+            aError(_("轨道大小参数类型 %d 不支持轨道形状参数类型 %d"), this->shapeType_);
             return;
         }
     }
@@ -306,7 +306,7 @@ void StateKeplerian::setSizeType(ESizeType sizeType)
     {
         if(this->shapeType_ == EShapeType::ePeriAlt || this->shapeType_ == EShapeType::ePeriRad)
         {
-            aError("sizeType %d is not supported for shapeType %d", sizeType, this->shapeType_);
+            aError(_("轨道大小参数类型 %d 不支持轨道形状参数类型 %d"), this->shapeType_);
             return;
         }
     }
@@ -320,7 +320,7 @@ void StateKeplerian::setShapeType(EShapeType shapeType)
     {
         if(this->sizeType_ == ESizeType::eApoAlt || this->sizeType_ == ESizeType::eApoRad)
         {
-            aError("shapeType %d is not supported for sizeType %d", shapeType, this->sizeType_);
+            aError(_("轨道形状参数类型 %d 不支持轨道大小参数类型 %d"), this->sizeType_);
             return;
         }
     }
@@ -328,7 +328,7 @@ void StateKeplerian::setShapeType(EShapeType shapeType)
     {
         if(this->sizeType_ == ESizeType::ePeriAlt || this->sizeType_ == ESizeType::ePeriRad)
         {
-            aError("shapeType %d is not supported for sizeType %d", shapeType, this->sizeType_);
+            aError(_("轨道形状参数类型 %d 不支持轨道大小参数类型 %d"), this->sizeType_);
             return;
         }
     }
@@ -356,7 +356,7 @@ double StateKeplerian::getShapeParam(EShapeType shapeType) const
     case EShapeType::ePeriRad:
         return this->getPeriRad();
     default:
-        aError("unknown shapeType");
+        aError(_("未知的轨道形状参数类型"));
         return std::numeric_limits<double>::quiet_NaN();
     }
 }
@@ -381,7 +381,7 @@ void StateKeplerian::setShapeParam(double shapeParam, EShapeType shapeType)
         this->setPeriRadForShape(shapeParam);
         break;
     default:
-        aError("unknown shapeType");
+        aError(_("未知的轨道形状参数类型"));
         break;
     }
 }
@@ -405,7 +405,7 @@ double StateKeplerian::getOrientationParam(EOrientationType orientationType) con
     case EOrientationType::eLAN:
         return this->getLAN();
     default:
-        aError("unknown orientationType");
+        aError(_("未知的轨道面方向参数类型"));
         return std::numeric_limits<double>::quiet_NaN();
     }
 }
@@ -421,7 +421,7 @@ void StateKeplerian::setOrientationParam(double orientationParam, EOrientationTy
         this->setLAN(orientationParam);
         break;
     default:
-        aError("unknown orientationType");
+        aError(_("未知的轨道面方向参数类型"));
         break;
     }
 }
@@ -462,7 +462,7 @@ double StateKeplerian::getPositionParam(EPositionType positionType) const
     case EPositionType::eTimeOfPeriPassage:
         return this->getTimeOfPeriPassage().toEpochSecond();
     default:
-        aError("unknown positionType");
+        aError(_("未知的轨道位置参数类型"));
         return std::numeric_limits<double>::quiet_NaN();
     }
 }
@@ -496,7 +496,7 @@ void StateKeplerian::setPositionParam(double positionParam, EPositionType positi
         this->setTimeOfPeriPassage(positionParam);
         break;
     default:
-        aError("unknown positionType");
+        aError(_("未知的轨道位置参数类型"));
         break;
     }
 }
@@ -522,7 +522,7 @@ void StateKeplerian::setSMA(double sma)
         double apoRad = this->getApoRad();
         if(sma > apoRad)
         {
-            aError("sma must not be greater than apoRad");
+            aError(_("半长轴不能大于远心点半径"));
             return;
         }
         double ecc = (this->getApoRad() - sma) / sma;
@@ -537,7 +537,7 @@ void StateKeplerian::setSMA(double sma)
         double periRad = this->getPeriRad();
         if(sma < periRad)
         {
-            aError("sma must not be less than periRad");
+            aError(_("半长轴不能小于近心点半径"));
             return;
         }
         double ecc = (sma - periRad) / sma;
@@ -552,7 +552,7 @@ void StateKeplerian::setSMA(double sma)
         break;
     }
     default:
-        aError("unknown shapeType");
+        aError(_("未知的轨道形状参数类型"));
         break;
     }
 }
@@ -609,7 +609,7 @@ void StateKeplerian::setApoRadForSize(double apoRad)
     case EShapeType::eApoAlt:
     case EShapeType::eApoRad:
     {
-        aError("invalid combination of sizeType and shapeType");
+        aError(_("轨道形状参数类型与轨道大小参数类型的组合无效"));
         break;
     }
     case EShapeType::ePeriAlt:
@@ -617,7 +617,7 @@ void StateKeplerian::setApoRadForSize(double apoRad)
     {
         double periRad = this->getPeriRad();
         if(periRad > apoRad){
-            aError("periRad must not be greater than apoRad");
+            aError(_("近心点半径不能大于远心点半径"));
             return;
         }
         double ecc = aPeriRadApoRadToEcc(this->getPeriRad(), apoRad);
@@ -644,7 +644,7 @@ void StateKeplerian::setApoRadForShape(double apoRad)
     case ESizeType::eApoAlt:
     case ESizeType::eApoRad:
     {
-        aError("invalid combination of sizeType and shapeType");
+        aError(_("轨道形状参数类型与轨道大小参数类型的组合无效"));
         break;
     }
     case ESizeType::ePeriAlt:
@@ -652,7 +652,7 @@ void StateKeplerian::setApoRadForShape(double apoRad)
     {
         double periRad = this->getPeriRad();
         if(periRad > apoRad){
-            aError("periRad must not be greater than apoRad");
+            aError(_("近心点半径不能大于远心点半径"));
             return;
         }
         double ecc = aPeriRadApoRadToEcc(periRad, apoRad);
@@ -666,7 +666,7 @@ void StateKeplerian::setApoRadForShape(double apoRad)
         double sma = this->getSMA();
         if(apoRad < sma)
         {
-            aError("apoRad must not be less than sma");
+            aError(_("远心点半径不能小于半长轴"));
             return;
         }
         double ecc = aApoRadToEcc(apoRad, sma);
@@ -713,7 +713,7 @@ void StateKeplerian::setPeriRadForSize(double periRad)
         double apoRad = this->getApoRad();
         if(periRad > apoRad)
         {
-            aError("periRad must not be greater than apoRad");
+            aError(_("近心点半径不能大于远心点半径"));
             return;
         }
         double ecc = aPeriRadApoRadToEcc(periRad, apoRad);
@@ -724,14 +724,14 @@ void StateKeplerian::setPeriRadForSize(double periRad)
     case EShapeType::ePeriAlt:
     case EShapeType::ePeriRad:
     {
-        aError("invalid combination of sizeType and shapeType");
+        aError(_("轨道形状参数类型与轨道大小参数类型的组合无效"));
         break;
     }
     case EShapeType::eEcc:
         this->changePeriRadHoldingOthers(periRad, originalElem);
         break;
     default:
-        aError("unknown shapeType");
+        aError(_("未知的轨道形状参数类型"));
         break;
     }
 }
@@ -747,7 +747,7 @@ void StateKeplerian::setPeriRadForShape(double periRad)
         double apoRad = this->getApoRad();
         if(periRad > apoRad)
         {
-            aError("periRad must not be greater than apoRad");
+            aError(_("近心点半径不能大于远心点半径"));
             return;
         }
 
@@ -759,7 +759,7 @@ void StateKeplerian::setPeriRadForShape(double periRad)
     case ESizeType::ePeriAlt:
     case ESizeType::ePeriRad:
     {
-        aError("invalid combination of sizeType and shapeType");
+        aError(_("轨道形状参数类型与轨道大小参数类型的组合无效"));
         break;
     }
     case ESizeType::eMeanMotion:
@@ -769,7 +769,7 @@ void StateKeplerian::setPeriRadForShape(double periRad)
         double sma = this->getSMA();
         if(periRad > sma)
         {
-            aError("periRad must not be greater than sma");
+            aError(_("近心点半径不能大于半长轴"));
             return;
         }
         double ecc = aPeriRadToEcc(periRad, sma);
@@ -844,7 +844,7 @@ double StateKeplerian::getLAN() const
     auto body = this->getBody();
     if(!body)
     {
-        aError("failed to get body");
+        aError(_("获取天体失败"));
         return std::numeric_limits<double>::quiet_NaN();
     }
 
@@ -858,7 +858,7 @@ void StateKeplerian::setLAN(double lan)
     auto body = this->getBody();
     if(!body)
     {
-        aError("failed to get body");
+        aError(_("获取天体失败"));
         return;
     }
 
@@ -983,7 +983,7 @@ void StateKeplerian::setTimeOfPeriPassage(const TimePoint &tp)
 
 void StateKeplerian::setTimeOfPeriPassage(double epochsecond)
 {
-    aError("setTimeOfPeriPassage not implemented");
+    aError(_("尚未实现"));
 }
 
 void StateKeplerian::getTimeOfAscNodePassage(TimePoint &tp) const
@@ -1110,7 +1110,7 @@ void StateKeplerian::holdLAN(const ModOrbElem &originalElem)
     auto body = this->getBody();
     if(!body)
     {
-        aError("failed to get body");
+        aError(_("获取天体失败"));
         return;
     }
     TimePoint stateEpoch = this->getStateEpoch_TimePoint();

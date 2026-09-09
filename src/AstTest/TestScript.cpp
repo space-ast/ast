@@ -36,20 +36,20 @@ errc_t aTestScriptParse(StringView script)
     Expr* expr1 = aParseExpr(script);
     if(!expr1)
     {
-        aError("failed to parse input expr: %s", script.data());
+        aError(_("解析输入表达式失败: %s"), script.data());
         return eErrorInvalidParam;
     }
     std::string exprStr1 = aFormatExpr(expr1);
     Expr* expr2 = aParseExpr(exprStr1);
     if(!expr2)
     {
-        aError("failed to parse formatted expr: %s", exprStr1.c_str());
+        aError(_("解析格式化后的表达式失败: %s"), exprStr1.c_str());
         return eErrorInvalidParam;
     }
     std::string exprStr2 = aFormatExpr(expr2);
     if(exprStr1 != exprStr2)
     {
-        aError("1st formatted expr not equal to 2nd formatted expr");
+        aError(_("第一个格式化后的表达式与第二个格式化后的表达式不相等"));
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -60,7 +60,7 @@ errc_t aTestScriptSyntaxError(StringView str)
     Expr* expr = aParseExpr(str);
     if(expr)
     {
-        aError("expect syntax error");
+        aError(_("期望出现语法错误"));
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -71,13 +71,13 @@ errc_t aTestScriptEvalRuntimeError(StringView str)
     Expr* expr = aParseExpr(str);
     if(!expr)
     {
-        aError("unexpected error when parse expr: '%.*s'", str.size(), str.data());
+        aError(_("解析表达式时出现意外错误: '%.*s'"), str.size(), str.data());
         return eErrorInvalidParam;
     }
     SharedPtr<Value> value = aEvalExpr(expr);
     if(value)
     {
-        aError("expect runtime error");
+        aError(_("期望出现运行时错误"));
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -88,19 +88,19 @@ errc_t aTestScriptEvalBool(StringView str, bool expectValue)
     SharedPtr<Value> value = aEval(str);
     if(!value)
     {
-        aError("failed to eval bool: '%.*s'", str.size(), str.data());
+        aError(_("求值 bool 表达式失败: '%.*s'"), str.size(), str.data());
         return eErrorNullPtr;
     }
     if(value.get()){
         if(!aValueIsBool(value.get()))
         {
-            aError("expect bool value");
+            aError(_("期望得到 bool 值"));
             return eErrorInvalidType;
         }
         bool actualValue = aValueUnboxBool(value.get());
         if(actualValue != expectValue)
         {
-            aError("expect bool value %d, but get %d", expectValue, actualValue);
+            aError(_("期望得到 bool 值 %d，实际得到 %d"), expectValue, actualValue);
             return eErrorInvalidValue;
         }
     }
@@ -112,19 +112,19 @@ errc_t aTestScriptEvalInt(StringView str, int expectedValue)
     SharedPtr<Value> value = aEval(str);
     if(!value)
     {
-        aError("failed to eval int: '%.*s'", str.size(), str.data());
+        aError(_("求值 int 表达式失败: '%.*s'"), str.size(), str.data());
         return eErrorNullPtr;
     }
     if(value.get()){
         if(!aValueIsInt(value.get()))
         {
-            aError("expect int value");
+            aError(_("期望得到 int 值"));
             return eErrorInvalidType;
         }
         int actualValue = aValueUnboxInt(value.get());
         if(actualValue != expectedValue)
         {
-            aError("expect int value %d, but get %d", expectedValue, actualValue);
+            aError(_("期望得到 int 值 %d，实际得到 %d"), expectedValue, actualValue);
             return eErrorInvalidValue;
         }
     }
@@ -137,19 +137,19 @@ errc_t aTestScriptEvalDouble(StringView str, double expectedValue)
     SharedPtr<Value> value = aEval(str);
     if(!value)
     {
-        aError("failed to eval double: '%.*s'", str.size(), str.data());
+        aError(_("求值 double 表达式失败: '%.*s'"), str.size(), str.data());
         return eErrorNullPtr;
     }
     if(value.get()){
         if(!aValueIsDouble(value.get()))
         {
-            aError("expect double value");
+            aError(_("期望得到 double 值"));
             return eErrorInvalidType;
         }
         double actualValue = aValueUnboxDouble(value.get());
         if(actualValue != expectedValue)
         {
-            aError("expect double value %f, but get %f", expectedValue, actualValue);
+            aError(_("期望得到 double 值 %f，实际得到 %f"), expectedValue, actualValue);
             return eErrorInvalidValue;
         }
     }
@@ -161,7 +161,7 @@ errc_t aTestScriptEvalString(StringView str, StringView expectedValue)
     SharedPtr<Value> value = aEval(str);
     if(!value)
     {
-        aError("failed to eval string: %s", str.data());
+        aError(_("求值 string 表达式失败: %s"), str.data());
         return eErrorNullPtr;
     }
     if(value.get()){
@@ -169,11 +169,11 @@ errc_t aTestScriptEvalString(StringView str, StringView expectedValue)
         {
             if(valString->value() != std::string(expectedValue))
             {
-                aError("expect string value %s, but get %s", expectedValue.data(), valString->value().c_str());
+                aError(_("期望得到 string 值 %s，实际得到 %s"), expectedValue.data(), valString->value().c_str());
                 return eErrorInvalidValue;
             }
         }else{
-            aError("expect string value");
+            aError(_("期望得到 string 值"));
             return eErrorInvalidType;
         }
     }
@@ -185,19 +185,19 @@ errc_t aTestScriptEvalQuantity(StringView str, const Quantity &expectedValue)
     SharedPtr<Value> value = aEval(str);
     if(!value)
     {
-        aError("failed to eval quantity: '%.*s'", str.size(), str.data());
+        aError(_("求值 quantity 表达式失败: '%.*s'"), str.size(), str.data());
         return eErrorNullPtr;
     }
     if(value.get()){
         if(!aValueIsQuantity(value.get()))
         {
-            aError("expect quantity value");
+            aError(_("期望得到 quantity 值"));
             return eErrorInvalidType;
         }
         Quantity actualValue = aValueUnboxQuantity(value.get());
         if(actualValue != expectedValue)
         {
-            aError("expect quantity value %s, but get %s", expectedValue.toString().c_str(), actualValue.toString().c_str());
+            aError(_("期望得到 quantity 值 %s，实际得到 %s"), expectedValue.toString().c_str(), actualValue.toString().c_str());
             return eErrorInvalidValue;
         }
     }

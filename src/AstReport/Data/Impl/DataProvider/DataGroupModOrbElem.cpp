@@ -122,19 +122,19 @@ errc_t DataGroupModOrbElem::calculate(const TimeList &timeList, Span<Data> resul
     auto frame = this->getFrame();
     if(!point || !frame)
     {
-        aError("Point or Frame is null");
+        aError(_("点或坐标系为空"));
         return eErrorNullPtr;
     }
     auto body = frame->getBody();
     if(!body)
     {
-        aError("Body is null");
+        aError(_("天体为空"));
         return eErrorNullPtr;
     }
     size_t size = result.size();
     if(size != timeList.size())
     {
-        aError("result size must be equal to timeList size");
+        aError(_("结果数组大小必须等于时间列表大小"));
         return eErrorInvalidParam;
     }
 

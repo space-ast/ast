@@ -49,7 +49,7 @@ errc_t RoundRobinGroupChat::run(const ChatMessage& message, ChatMessage& respons
 
     if (agents_.empty())
     {
-        aError("RoundRobinGroupChat::run: no agents registered");
+        aError(_("未注册任何 Agent"));
         return -1;
     }
 
@@ -64,7 +64,7 @@ errc_t RoundRobinGroupChat::run(const ChatMessage& message, ChatMessage& respons
             errc_t rc = agent->run(messages_);
             if (rc != 0)
             {
-                aError("RoundRobinGroupChat::run: agent[%zu] failed", i);
+                aError(_("Agent[%zu] 运行失败"), i);
                 return rc;
             }
 

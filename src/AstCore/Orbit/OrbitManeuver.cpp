@@ -53,7 +53,7 @@ double aApsisDeltaV(const ModOrbElem& modOrbElem, double targetRadius, double gm
     }
     else
     {
-        aError("burn position is not periapsis or apoapsis, with trueA_ = %.16g", rad2deg(modOrbElem.trueA_));
+        aError(_("点火位置不是近心点也不是远心点，真近点角 = %.16g"), rad2deg(modOrbElem.trueA_));
         double sma = modOrbElem.getSMA();
         burnRadius = aOrbitRadius(sma, modOrbElem.e_, modOrbElem.trueA_);
         otherRadius = sma * 2 - burnRadius;

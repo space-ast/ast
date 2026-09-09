@@ -25,7 +25,7 @@ AST_NAMESPACE_BEGIN
 
 errc_t ScStateCalcLatitudeRate::calculate(const SpacecraftState& state, double& result)
 {
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

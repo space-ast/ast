@@ -53,7 +53,7 @@ Axes* AxesLinkTo::resolve(Object* scope) const
     {
         if(!scope->isOfType(objectType_))
         {
-            aError("failed to resolve axes '%s' for object type '%s'", 
+            aError(_("解析轴系 '%s' 失败，对象类型 '%s'"),
                 name().c_str(), 
                 objectType_.c_str()
             );

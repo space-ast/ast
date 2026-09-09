@@ -31,7 +31,7 @@ errc_t aLoadReturn(const Value& value, Return& ret)
         std::string type = value["Type"];
         if(type != "Return")
         {
-            aError("unexpected type '%s', expect 'Return'", type.c_str());
+            aError(_("无效的类型 '%s'，应为 'Return'"), type.c_str());
             return eErrorInvalidType;
         }
     }
@@ -44,7 +44,7 @@ errc_t aLoadReturn(const Value& value, Return& ret)
         ret.setEnabled(false);
     }
     else{
-        aError("unknown return state: %s, use enable by default", retState.c_str());
+        aError(_("无效的状态：'%s'，将默认设置为启用"), retState.c_str());
         ret.setEnabled(true);
     }
     return 0;

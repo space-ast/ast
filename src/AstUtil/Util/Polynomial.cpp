@@ -143,7 +143,7 @@ errc_t aParsePolynomial(StringView content, StringView varname, std::vector<doub
                 exp = aParseInt(content.substr(start, i - start));
                 auto peekchar = content[i];
                 if(peekchar == '.'){
-                    aError("Invalid exponent format, expect integer.");
+                    aError(_("无效的指数格式，应为整数。"));
                     return eErrorParse;
                 }
                 // if(peekchar != ' ' && peekchar != '\n' && peekchar != '\t' && peekchar != '+' && peekchar != '-')

@@ -54,7 +54,7 @@ public:
             active_ = true;      // 设置成功，析构时需要恢复
         } else {
             // 设置失败，不改变当前 locale
-            aError("failed to set locale '%s'", new_locale);
+            aError(_("设置 locale '%s' 失败"), new_locale);
         }
     }
 

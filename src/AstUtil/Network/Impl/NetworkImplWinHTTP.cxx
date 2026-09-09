@@ -350,7 +350,7 @@ errc_t NetworkImplWinHTTP::requestStream(const NetworkRequest& request, NetworkS
             std::string rawHeaders;
             errc_t rc = aWideToUtf8(rawHeadersWide.c_str(), rawHeaders);
             if (rc != eNoError) {
-                aWarning("failed to convert response headers to utf8");
+                aWarning(_("将响应头转换为 utf8 失败"));
             } else {
                 // 按行分割
                 size_t start = 0;

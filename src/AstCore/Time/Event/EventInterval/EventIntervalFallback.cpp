@@ -73,7 +73,7 @@ errc_t EventIntervalFallback::getInterval(TimeInterval &interval) const
 void EventIntervalFallback::setPrimary(EventInterval* primary)
 {
     if(primary == this){
-        aError("primary cannot be self");
+        aError(_("primary 不能是自身"));
         return;
     }
     primary_ = primary;
@@ -82,7 +82,7 @@ void EventIntervalFallback::setPrimary(EventInterval* primary)
 void EventIntervalFallback::setFallback(EventInterval* fallback)
 {
     if(fallback == this){
-        aError("fallback cannot be self");
+        aError(_("fallback 不能是自身"));
         return;
     }
     fallback_ = fallback;

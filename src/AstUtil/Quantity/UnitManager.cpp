@@ -198,7 +198,7 @@ Unit* UnitManager::getSiUnit(Dimension dim)
                 }
                 else
                 {
-                    aError("failed to get si unit for basic dimension %s", basicDim.name().c_str());
+                    aError(_("获取基本量纲 %s 的国际单位失败"), basicDim.name().c_str());
                     return nullptr;
                 }
             }
@@ -214,7 +214,7 @@ errc_t UnitManager::_addUnit(const std::string &name, const Unit &unit)
 {
     if (units_.find(name) != units_.end())
     {
-        aError("unit %s already exists", name.c_str());
+        aError(_("单位 %s 已存在"), name.c_str());
         return eErrorInvalidParam;
     }
     units_[name] = new Unit(unit);

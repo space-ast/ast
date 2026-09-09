@@ -36,7 +36,7 @@ void DetectorPointRelated::setPointByName(StringView pointName)
             detector->setPoint(point);
             return 0;
         }
-        aError("point '%s' not found", pointNameStr.c_str());
+        aError(_("未找到点 '%s'"), pointNameStr.c_str());
         return eErrorNullPtr;
     };
     addDelayedLinkIfFailed(resolveFunc);

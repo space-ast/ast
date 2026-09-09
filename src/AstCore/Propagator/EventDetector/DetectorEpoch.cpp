@@ -20,6 +20,7 @@
 
 #include "DetectorEpoch.hpp"
 #include "AstCore/SpacecraftState.hpp"
+#include "AstUtil/Constants.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -29,8 +30,8 @@ double DetectorEpoch::getValue(const SpacecraftState& state, double t) const
     errc_t rc = state.getStateEpoch(tp);
     if(rc != eNoError)
     {
-        aError("failed to get state epoch");
-        return 0.0;
+        aError(_("获取状态历元失败"));
+        return kNaN;
     }
     return tp.toEpochSecond(); 
 }
@@ -41,8 +42,8 @@ double DetectorEpoch::getDifference(const SpacecraftState& state, double t) cons
     errc_t rc = state.getStateEpoch(tp);
     if(rc != eNoError)
     {
-        aError("failed to get state epoch");
-        return 0.0;
+        aError(_("获取状态历元失败"));
+        return kNaN;
     }
     return tp.durationFrom(goal_); 
 }

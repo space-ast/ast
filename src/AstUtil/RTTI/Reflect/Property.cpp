@@ -27,13 +27,13 @@ AST_NAMESPACE_BEGIN
 
 errc_t aFakeGet(const void *container, void *value)
 {
-    aError("getter is null");
+    aError(_("getter 为空"));
     return eErrorNullInput;
 }
 
 errc_t aFakeSet(void* container, const void* value)
 {
-    aError("setter is null");
+    aError(_("setter 为空"));
     return eErrorNullInput;
 }
 
@@ -43,7 +43,7 @@ double Property::getValueDouble(const void* container)
     errc_t rc = this->getValueDouble(container, value);
     if(rc)
     {
-        aError("failed to get double value");
+        aError(_("获取 double 值失败"));
     }
     return value;
 }
@@ -54,7 +54,7 @@ int Property::getValueInt(const void* container)
     errc_t rc = this->getValueInt(container, value);
     if(rc)
     {
-        aError("failed to get int value");
+        aError(_("获取 int 值失败"));
     }
     return value;
 }
@@ -65,7 +65,7 @@ bool Property::getValueBool(const void* container)
     errc_t rc = this->getValueBool(container, value);
     if(rc)
     {
-        aError("failed to get bool value");
+        aError(_("获取 bool 值失败"));
     }
     return value;
 }
@@ -76,7 +76,7 @@ std::string Property::getValueString(const void* container)
     errc_t rc = this->getValueString(container, value);
     if(rc)
     {
-        aError("failed to get string value");
+        aError(_("获取 string 值失败"));
     }
     return value;
 }
@@ -95,7 +95,7 @@ errc_t Property::setValueObject(void* container, Object* value)
     }
     else
     {
-        aError("property is not object type");
+        aError(_("属性不是对象类型"));
     }
     return eNoError;
 }
@@ -109,7 +109,7 @@ errc_t Property::getValueObject(const void* container, Object*& value)
     else
     {
         value = nullptr;
-        aError("property is not object type");
+        aError(_("属性不是对象类型"));
     }
     return eNoError;
 }

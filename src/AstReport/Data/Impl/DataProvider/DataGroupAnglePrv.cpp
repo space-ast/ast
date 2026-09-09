@@ -62,14 +62,14 @@ errc_t DataGroupAnglePrv::calculate(const TimeList& timeList, Span<Data> result)
     Angle* angle = this->getAngle();
     if(!angle)
     {
-        aError("Angle is null");
+        aError(_("角度为空"));
         return eErrorNullPtr;
     }
 
     size_t size = result.size();
     if(size != timeList.size())
     {
-        aError("result size must be equal to timeList size");
+        aError(_("结果数组大小必须等于时间列表大小"));
         return eErrorInvalidParam;
     }
 

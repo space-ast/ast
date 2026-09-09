@@ -59,7 +59,7 @@ NetworkInterface* aNetworkGetImplDefault()
     impl = NetworkImplCurlCmd::Instance();
     if (impl != nullptr && impl->isSupported())
         return impl;
-    aError("no supported network implementation has been found");
+    aError(_("未找到受支持的网络实现"));
     return nullptr;
 }
 
@@ -83,7 +83,7 @@ errc_t aNetworkSetImpl(ENetworkImplType impltype)
     }
     if (impl == nullptr || !impl->isSupported())
     {
-        aError("given network implementation not supported, try to use default implementation instead");
+        aError(_("给定的网络实现不受支持，尝试改用默认实现"));
         impl = aNetworkGetImplDefault();
     }
     s_interface.store(impl, std::memory_order_release);
@@ -146,16 +146,16 @@ errc_t aDownloadFile(const std::string& url, const std::string& filepath, const 
     {
         receiver.discard();
         if (err == eErrorCancelled)
-            aWarning("download cancelled for %s", url.c_str());
+            aWarning(_("下载已取消: %s"), url.c_str());
         else
-            aError("download failed for %s (err=%d)", url.c_str(), err);
+            aError(_("下载失败: %s (err=%d)"), url.c_str(), err);
         return err;
     }
 
     if (receiver.downloaded() == 0)
     {
         receiver.discard();
-        aError("empty body for %s", url.c_str());
+        aError(_("响应体为空: %s"), url.c_str());
         return eErrorInvalidFile;
     }
 

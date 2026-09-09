@@ -245,9 +245,9 @@ private:
 #define aFatal(...)    AST_PREPEND_NAMESPACE(MessageLogger)(A_SOURCE_FILE_PATH, __LINE__, __FUNCTION__).fatal(__VA_ARGS__)
 
 
-#define AST_CHECK_NULLPTR(variable) if(variable == nullptr){aError(#variable " is notset(nullptr)"); return eErrorNullPtr;}
+#define AST_CHECK_NULLPTR(variable) if(variable == nullptr){aError(_(#variable " 未设置(nullptr)")); return eErrorNullPtr;}
 #define AST_CHECK_ERRCODE(rc, msg) if(rc){aError(msg); return rc;}
-#define AST_CHECK_INVALID(condition) if(condition){aError("invalid parameter, with " #condition); return eErrorInvalidParam;}
+#define AST_CHECK_INVALID(condition) if(condition){aError(_("无效参数，条件为 " #condition)); return eErrorInvalidParam;}
 
 
 /*! @} */

@@ -41,12 +41,12 @@ errc_t MotionSPICE::makeEphemerisSimple(ScopedPtr<Ephemeris> &eph) const
     errc_t rc = this->getInterval(interval);
     if(rc)
     {
-        aError("failed to get interval");
+        aError(_("获取时间区间失败"));
         return rc;
     }
     if(!spk_.isOpen())
     {
-        aError("failed to open spice file: '%s'", getSpiceFile().c_str());
+        aError(_("打开 SPK 星历文件失败: '%s'"), getSpiceFile().c_str());
         return rc;
     }
     std::vector<double> times;
@@ -67,7 +67,7 @@ errc_t MotionSPICE::makeEphemerisSimple(ScopedPtr<Ephemeris> &eph) const
         rc = spk_.getPosVelICRF(tp, getSpiceIndex(), ESpiceId::eSolarSystemBarycenter, pos, vel);
         if(rc)
         {
-            aError("failed to get ephemeris at time %f", second);
+            aError(_("获取时间 %lf 处的星历失败"), second);
             return rc;
         }
         times.push_back(second);

@@ -27,7 +27,7 @@ errc_t ScStateCalcLongitude::calculate(const SpacecraftState& state, double& res
 {
     // TODO: Implement geodetic longitude calculation
     // Need to convert ECEF position to geodetic coordinates
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

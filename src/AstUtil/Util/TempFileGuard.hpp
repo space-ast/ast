@@ -73,7 +73,7 @@ public:
         std::error_code ec;
         fs::remove(path_, ec);
         if (ec) {
-            aError("failed to remove temp file '%s': %s", path_.c_str(), ec.message().c_str());
+            aError(_("删除临时文件 '%s' 失败: %s"), path_.c_str(), ec.message().c_str());
         }
         path_ = fs::path();
     }

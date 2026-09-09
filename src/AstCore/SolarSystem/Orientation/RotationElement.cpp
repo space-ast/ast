@@ -123,7 +123,7 @@ errc_t RotationElement::load(BKVParser &parser)
                 numOfTerms = item.value().toInt();
                 if(numOfTerms < 0)
                 {
-                    aError("numberOfTerms must be greater than or equal to 0.");
+                    aError(_("NumberOfTerms 不能小于 0."));
                     return eErrorInvalidParam;
                 }
                 element.coefficients_.reserve(numOfTerms);
@@ -133,7 +133,7 @@ errc_t RotationElement::load(BKVParser &parser)
                 }else if(aEqualsIgnoreCase(item.value(), "Cos")){
                     element.isSine_ = false;
                 }else{
-                    aError("SineOrCosine must be Sine or Cosine.");
+                    aError(_("SineOrCosine 必须是 Sin 或 Cos"));
                     return eErrorInvalidParam;
                 }
             }else if(aEqualsIgnoreCase(item.key(), "Coefficients")){
@@ -152,7 +152,7 @@ errc_t RotationElement::load(BKVParser &parser)
                     coeff.rateDot_ *= kDegToRad;
 
                     if(status != 4){
-                        aError("failed to parse coefficient line %d: %.*s", i, (int)line.size(), line.data());
+                        aError(_("解析系数行 %d 失败：%.*s"), i, (int)line.size(), line.data());
                         return eErrorInvalidParam;
                     }
                     element.coefficients_.push_back(coeff);

@@ -137,7 +137,7 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
 {
 #ifdef A_WASM
     (void)request; (void)receiver;
-    aError("WASM not support network via curl command");
+    aError(_("WASM 不支持通过 curl 命令访问网络"));
     return eError;
 #else
     // 如果没有 URL，直接返回错误

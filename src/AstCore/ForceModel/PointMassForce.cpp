@@ -33,7 +33,7 @@ double PointMassForce::getGM(CelestialBody* body) const
     }
     if(!body)
     {
-        aError("null body pointer in PointMassForce::getGM()");
+        aError(_("天体为空"));
         return 0.0;
     }
     if(gmSource_ == EGMSource::eJplDE)
@@ -46,7 +46,7 @@ double PointMassForce::getGM(CelestialBody* body) const
         }
         else
         {
-            aError("failed to get jpl de body gm, body index: %d, use body gm instead.", body->getJplIndex());
+            aWarning(_("无法从 JPL DE 星历中读取天体 '%s' 的引力常数"), body->getName().c_str());
             return body->getGM();
         }
     }
@@ -56,7 +56,7 @@ double PointMassForce::getGM(CelestialBody* body) const
     }
     if(gmSource_ != EGMSource::eBodyGravity)
     {
-        aError("unsupported gm source type: %d, use body gm instead.", gmSource_);
+        aWarning(_("不支持的引力常数源类型: %d"), gmSource_);
     }
     return body->getGM();
 }

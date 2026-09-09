@@ -46,7 +46,7 @@ errc_t Sequence::execute()
     {
         errc_t rc =  scriptingTool->execute();
         if(rc != eNoError)
-            aWarning("failed to execute scripting tool %s", scriptingTool->getName().c_str());
+            aWarning(_("执行脚本工具 %s 失败"), scriptingTool->getName().c_str());
     }
     // 执行任务序列
     int lastCommandIndex = 0;
@@ -59,7 +59,7 @@ errc_t Sequence::execute()
                 errc_t err = command->execute();
                 if(err != eNoError)
                 {
-                    aError("failed to execute command: %s<%s>", command->getName().c_str(), command->typeName().c_str());
+                    aError(_("执行命令失败: %s(%s)"), command->getName().c_str(), command->typeName().c_str());
                     rc = err;
                 }
             }

@@ -48,7 +48,7 @@ errc_t aGetGravityParameter(const Body& body, StringView gravityModel, double& g
     GravityFieldHead gfHead;
     errc_t err = gfHead.load(gravityModel, body.getDirpath());
     if(err != eNoError){
-        aError("Failed to load gravity field head from file: '%.*s'", (int)gravityModel.size(), gravityModel.data());
+        aError(_("从文件加载重力场头失败：'%.*s'"), (int)gravityModel.size(), gravityModel.data());
         gm = 0;
         return err;
     }
@@ -233,7 +233,7 @@ errc_t CelestialBody::setGravityModel(StringView model)
         filepath = filepath / this->name() / std::string(model);
         rc = this->loadGravityModel(filepath.string());
         if(rc){
-            aError("failed to load gravity model '%.*s'", (int)model.size(), model.data());
+            aError(_("加载重力场模型 '%.*s' 失败"), (int)model.size(), model.data());
         }
     }
     return rc;
@@ -295,7 +295,7 @@ BodyEphemeris* CelestialBody::getEphemeris(EEphemerisSource ephemerisSource) con
         return ephemerisSpiceBarycenter_.get();
     }
     default:
-        aError("unsupported ephemeris source %d, defaulting to body ephemeris", (int)(ephemerisSource));
+        aError(_("不支持的行星历来源 %d，将使用天体的默认星历"), (int)(ephemerisSource));
         return ephemeris_.get();
     }
 }
@@ -319,7 +319,7 @@ Axes *CelestialBody::getAxes(StringView name) const
         // 尝试从全局哈希表中获取轴系
         auto axes = aGetAxes(name);
         if(!axes)
-            aWarning("unsupported axes name '%.*s'", (int)name.size(), name.data());
+            aWarning(_("不支持的轴系名称 '%.*s'"), (int)name.size(), name.data());
         return axes;
     }
 }

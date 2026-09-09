@@ -60,7 +60,7 @@ errc_t BlockSRPPartial::run(const SimTime& simTime)
 {
     if (A_UNLIKELY(!eclipseCalculator_) || A_UNLIKELY(!propagationFrame_))
     {
-        aError("BlockSRPPartial: eclipseCalculator or propagationFrame is null");
+        aError(_("阴影计算器或预报坐标系为空"));
         *accSRP_ = Vector3d::Zero();
         if (useSRPSensitivity_)
             *accSensitivityToSRP_ = Vector3d::Zero();
@@ -74,7 +74,7 @@ errc_t BlockSRPPartial::run(const SimTime& simTime)
     auto sun = eclipseCalculator_->lightSource();
     if (A_UNLIKELY(!sun))
     {
-        aError("BlockSRPPartial: sun (light source) is null");
+        aError(_("光源为空"));
         *accSRP_ = Vector3d::Zero();
         if (useSRPSensitivity_)
             *accSensitivityToSRP_ = Vector3d::Zero();
@@ -116,7 +116,7 @@ errc_t BlockSRPPartial::run(const SimTime& simTime)
 
     if (A_UNLIKELY(err != eNoError))
     {
-        aError("failed to calculate sun position");
+        aError(_("计算太阳位置失败"));
         *accSRP_ = Vector3d::Zero();
         if (useSRPSensitivity_)
         {
@@ -131,7 +131,7 @@ errc_t BlockSRPPartial::run(const SimTime& simTime)
     double mass = *mass_;
     if (A_UNLIKELY(mass <= 0))
     {
-        aError("spacecraft mass is zero or negative (%f), cannot compute SRP acceleration", mass);
+        aError(_("航天器质量为零或为负(%lf kg)，无法计算太阳辐射压加速度"), mass);
         *accSRP_ = Vector3d::Zero();
         if (useSRPSensitivity_)
         {

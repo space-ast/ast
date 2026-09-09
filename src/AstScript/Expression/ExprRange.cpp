@@ -34,7 +34,7 @@ ExprRange::ExprRange(Expr *start, Expr *stop, Expr *step)
 Value *ExprRange::eval() const
 {
     if(!start_ || !stop_){
-        aError("start or stop is nullptr");
+        aError(_("start 或 stop 为空"));
         return nullptr;
     }
     double start = 0;
@@ -43,21 +43,21 @@ Value *ExprRange::eval() const
     
     SharedPtr<Value> startVal = start_->eval();
     if(!aValueIsArithmetic(startVal.get())){
-        aError("start is not an arithmetic");
+        aError(_("start 不是算术值"));
         return nullptr;
     }
     start = aValueToDouble(startVal.get());
     
     SharedPtr<Value> stopVal = stop_->eval();
     if(!aValueIsArithmetic(stopVal.get())){
-        aError("stop is not an arithmetic");
+        aError(_("stop 不是算术值"));
         return nullptr;
     }
     stop = aValueToDouble(stopVal.get());
     if(step_){
         SharedPtr<Value> stepVal = step_->eval();
         if(!aValueIsArithmetic(stepVal.get())){
-            aError("step is not an arithmetic");
+            aError(_("step 不是算术值"));
             return nullptr;
         }
         step = aValueToDouble(stepVal.get());

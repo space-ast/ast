@@ -206,7 +206,7 @@ double aValueToDouble(Value *value)
 bool aValueUnboxBool(Value *value)
 {
     if(!aValueIsBool(value)){
-        aError("Value is not a bool");
+        aError(_("值不是 bool 类型"));
         return false;
     }
     return static_cast<ValBool*>(value)->value();
@@ -215,7 +215,7 @@ bool aValueUnboxBool(Value *value)
 double aValueUnboxDouble(Value *value)
 {
     if(!aValueIsDouble(value)){
-        aError("Value is not a double");
+        aError(_("值不是 double 类型"));
         return 0.0;
     }
     return static_cast<ValDouble*>(value)->value();
@@ -224,7 +224,7 @@ double aValueUnboxDouble(Value *value)
 int aValueUnboxInt(Value *value)
 {
     if(!aValueIsInt(value)){
-        aError("Value is not an int");
+        aError(_("值不是 int 类型"));
         return 0;
     }
     return static_cast<ValInt*>(value)->value();
@@ -233,7 +233,7 @@ int aValueUnboxInt(Value *value)
 Quantity aValueUnboxQuantity(Value *value)
 {
     if(!aValueIsQuantity(value)){
-        aError("Value is not a quantity");
+        aError(_("值不是 quantity 类型"));
         return Quantity();
     }
     return static_cast<ValQuantity*>(value)->quantity();
@@ -333,7 +333,7 @@ static bool tryAssignToVar(Expr* left, Expr* right, bool useBind)
 Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
 {
     if(!left || !right){
-        aError("Left or right is null");
+        aError(_("左值或右值为空"));
         return nullptr;
     }
 
@@ -347,7 +347,7 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     case eDelayAssign:
     {
         if (!tryAssignToVar(left, right, false)) {
-            aError("Left is not a variable");
+            aError(_("左值不是变量"));
             return nullptr;
         }
         return left->eval();
@@ -355,7 +355,7 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
     case eBindAssign:
     {
         if (!tryAssignToVar(left, right, true)) {
-            aError("Left is not a variable");
+            aError(_("左值不是变量"));
             return nullptr;
         }
         return left->eval();
@@ -368,7 +368,7 @@ Value *aDoOpAssign(EOpAssignType op, Expr *left, Expr *right)
         EOpBinType opbin;
         assignop_split(op, opbin);
         if(opbin == invalidOpBin){
-            aError("Invalid assign operator");
+            aError(_("无效的赋值运算符"));
             return nullptr;
         }
         auto val = aDoOpBin(opbin, left->eval(), right->eval());

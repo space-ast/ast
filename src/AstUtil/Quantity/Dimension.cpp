@@ -122,7 +122,7 @@ const char* aNumberToSuperscript(int number)
 
     if (number < 0 || number > 9)
     {
-        aError("number out of range");
+        aError(_("数字超出范围"));
         return "";
     }
     return number_to_superscript[number];
@@ -138,7 +138,7 @@ const char* aNumberToStr(int number)
 
     if (number < 0 || number > 9)
     {
-        aError("number out of range");
+        aError(_("数字超出范围"));
         return "";
     }
     return number_to_str[number];
@@ -190,7 +190,7 @@ std::string aDimSymbol(EDimension dimension)
             auto basicSymbol = aDimBasicSymbol(basicDim);
             if(basicSymbol.empty())
             {
-                aError("basic symbol is empty");
+                aError(_("基本符号为空"));
                 continue;
             }
             symbol += basicSymbol;

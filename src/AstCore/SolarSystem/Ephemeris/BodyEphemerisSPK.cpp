@@ -33,7 +33,7 @@ errc_t BodyEphemerisSPK::openSPKFile(StringView spkfile)
 {
     if(!aIsValidSPKFile(spkfile))
     {
-        aError("invalid SPK file '%.*s'", spkfile.size(), spkfile.data());
+        aError(_("无效的 SPK 文件 '%.*s'"), spkfile.size(), spkfile.data());
         return eErrorInvalidFile;
     }
     return spk_.open(spkfile);

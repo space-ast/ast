@@ -45,7 +45,7 @@ errc_t _aLoadFacilityCentroidPosition(BKVParser& parser, Facility& facility)
                 body = aGetBody(bodyname);
                 if(!body){
                     body = aGetDefaultBody();
-                    aError("failed to get body '%.*s', using default body", bodyname.size(), bodyname.data());
+                    aError(_("获取天体 '%.*s' 失败，使用默认天体"), bodyname.size(), bodyname.data());
                 }
             }else if(aEqualsIgnoreCase(item.key(), "EcfLatitude")){
                 position.setLatitude(item.value().toAngleRad());
@@ -215,7 +215,7 @@ errc_t aLoadFacility(StringView filepath, StringView objectType, Facility& facil
     BKVParser parser(filepath);
     
     if(!parser.isOpen()){
-        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     

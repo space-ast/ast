@@ -113,7 +113,7 @@ errc_t aLoadStoppingCondition(const Value& value, SharedPtr<EventDetector>& even
     }
     else
     {
-        aError("unsupported stopping condition type '%s'", type.c_str());
+        aError(_("不支持的停止条件类型 '%s'"), type.c_str());
         return eErrorInvalidParam;
     }
     if(eventDetector)
@@ -147,7 +147,7 @@ errc_t aLoadStoppingConditions(const Value& dict, Propagate& propagate)
         if(rc || !eventDetector)
         {
             std::string type = value["Type"];
-            aWarning("failed to load stopping condition '%s' with type '%s'", name.c_str(), type.c_str());
+            aWarning(_("加载类型为 '%s' 的停止条件 '%s' 失败"), name.c_str(), type.c_str());
         }
         else
         {
@@ -172,7 +172,7 @@ HPOP* aResolvePropagatorFromFile(StringView filepath)
     }
     else
     {
-        aError("failed to load propagator '%.*s'", filepath.size(), filepath.data());
+        aError(_("加载预报器 '%.*s' 失败"), filepath.size(), filepath.data());
     }
     return nullptr;
 }
@@ -206,7 +206,7 @@ errc_t aLoadPropagate(const Value& value, Propagate& propagate, const LoaderCont
     const std::string type = value["Type"];
     if(type != "Propagate")
     {
-        aError("invalid type, expect 'Propagate'");
+        aError(_("无效的类型，应为 'Propagate'"));
         return eErrorInvalidParam;
     }
 
@@ -219,7 +219,7 @@ errc_t aLoadPropagate(const Value& value, Propagate& propagate, const LoaderCont
         HPOP* propagator = aResolvePropagator(propagatorName, context);
         if(!propagator)
         {
-            aError("failed to resolve propagator '%s'", propagatorName.c_str());
+            aError(_("解析预报器 '%s' 失败"), propagatorName.c_str());
         }
         propagate.setPropagator(propagator);
     }

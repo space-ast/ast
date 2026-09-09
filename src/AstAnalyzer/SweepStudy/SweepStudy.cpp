@@ -39,7 +39,7 @@ namespace
 
         errc_t addSymbol(StringView name, Expr* expr) override
         {
-            aError("addSymbol not implemented");
+            aError(_("尚未实现"));
             return eErrorNotImplemented;
         }
 
@@ -48,7 +48,7 @@ namespace
             auto* analyzer = analyzer_.get();
             if (!analyzer)
             {
-                aError("analyzer is null");
+                aError(_("分析器为空"));
                 return nullptr;
             }
             // 从变量列表中查找符号（变量自身是 ObjectNamed，返回其表达式）
@@ -158,12 +158,12 @@ int SweepStudy::totalRuns() const
         if (count < 1)
             count = 1;
         if (count > 1000000) {
-            aWarning("SweepStudy: variable count too large, limiting to 1000000");
+            aWarning(_("变量数量过大，限制为 1000000"));
             count = 1000000;
         }
         total *= count;
         if (total > INT_MAX) {
-            aError("SweepStudy: total runs overflow INT_MAX");
+            aError(_("总运行次数超过 INT_MAX"));
             return INT_MAX;
         }
     }
@@ -270,7 +270,7 @@ errc_t SweepStudy::execute()
 {
     if (variables_.empty())
     {
-        aError("遍历搜索分析器：变量列表为空");
+        aError(_("变量列表为空"));
         return eErrorInvalidParam;
     }
 

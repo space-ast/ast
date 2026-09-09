@@ -90,6 +90,11 @@ A_ALWAYS_INLINE const char* _(const char* msgid)
     return aGetText(msgid);
 }
 
+/// @brief 翻译文本，带上下文信息
+A_ALWAYS_INLINE const char* C_(const char* msgctxt, const char* msgid)
+{
+    return aTranslate(msgctxt, msgid);
+}
 
 // 仅用于标记翻译字符串，不进行即时翻译
 #ifndef N_

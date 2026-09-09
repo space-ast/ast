@@ -137,7 +137,7 @@ errc_t SpaceWeather::load(StringView filepath, std::vector<Entry> &data)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
-        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 %.*s 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     BKVParser::EToken token;
@@ -178,7 +178,7 @@ errc_t SpaceWeather::load(StringView filepath, std::vector<Entry> &data)
             {
                 if(!aEqualsIgnoreCase(item.value(), "CssiSpaceWeather"))
                 {
-                    aError("invalid DATATYPE, expect CssiSpaceWeather");
+                    aError(_("无效的 DATATYPE 字段值，预期为 CssiSpaceWeather"));
                     return eErrorInvalidFile;
                 }
             }else if(aEqualsIgnoreCase(item.key(), "VERSION"))

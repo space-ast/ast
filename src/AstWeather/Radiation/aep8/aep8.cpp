@@ -119,7 +119,7 @@ errc_t AEP8Data::load(StringView filepath)
             errc_t rc = aParseInt(sub, value);
             data[i*12+j] = value;
             if(A_UNLIKELY(rc != eNoError)){
-                aError("failed to parse int value from %.*s", sub.size(), sub.data());
+                aError(_("从 %.*s 解析 int 值失败"), sub.size(), sub.data());
                 return eErrorParse;
             }
         }
@@ -135,7 +135,7 @@ errc_t AEP8Data::load(StringView filepath)
             errc_t rc = aParseInt(sv.substr(j*6 + 1, 6), value);
             data[nline*12+j] = value;
             if(A_UNLIKELY(rc != eNoError)){
-                aError("failed to parse int value at line %d, column %d", nline, j);
+                aError(_("在第 %d 行第 %d 列解析 int 值失败"), nline, j);
                 return eErrorParse;
             }
         }
@@ -150,7 +150,7 @@ AEPDataCollection::AEPDataCollection()
     errc_t rc = loadDefault();
     if(rc)
     {
-        aError("failed to load default AEP8 data collection");   
+        aError(_("加载默认 AEP8 数据集合失败"));
     }
 }
 
@@ -200,7 +200,7 @@ double aep8(double e, double l, double bb0, int iname)
     int index = iname - 1;
     if(index < 0 || index >= 4)
     {
-        aError("invalid iname %d", iname);
+        aError(_("无效的 iname %d"), iname);
         return 0;
     }
     AEP8DataArray& data = aep8DataArray();
@@ -208,7 +208,7 @@ double aep8(double e, double l, double bb0, int iname)
     long* map = d.data_;
     if(!map)
     {
-        aError("map data is null");
+        aError(_("map 数据为空"));
         return 0;
     }
     long* header = d.header_.data();
@@ -220,7 +220,7 @@ double aep8(double e, double l, double bb0, int iname)
         flux = std::pow(10.0, flux);
     return flux;
 #else
-    aError("function 'aep8' is not implemented, please check whether libf2c package is enabled.");
+    aError(_("函数 'aep8' 尚未实现，请检查是否启用了 libf2c 包。"));
     return 0;
 #endif
 

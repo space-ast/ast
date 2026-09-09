@@ -89,7 +89,7 @@ errc_t aLoadMissionCommand(const Value& value, SharedPtr<MissionCommand>& missio
     }
     else
     {
-        aError("unsupport object type '%.*s'", type.size(), type.data());
+        aError(_("不支持的对象类型 '%.*s'"), type.size(), type.data());
     }
     return -1;
 }

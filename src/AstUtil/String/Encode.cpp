@@ -159,7 +159,7 @@ _locale_t aUTF8Locale()
             }
         }
         if (!t_utf8_locale) {
-            aError("failed to create utf-8 locale");
+            aError(_("创建 utf-8 locale 失败"));
         }
     }
     return t_utf8_locale.get();
@@ -174,7 +174,7 @@ _locale_t aAnsiLocale()
             t_ansi_locale.reset();
         });
         if (!t_ansi_locale) {
-            aError("failed to create ANSI locale");
+            aError(_("创建 ANSI locale 失败"));
         }
     }
     return t_ansi_locale.get();
@@ -244,13 +244,13 @@ std::string aWideToUtf8(const wchar_t* wide)
 
 #if defined(A_WASM)
 errc_t aUtf8ToWide(const char* utf8, std::wstring& wide) {
-    aError("utf8ToWide not supported on wasm");
+    aError(_("wasm 不支持 utf8ToWide"));
     return -1;
 }
 
 errc_t aWideToUtf8(const wchar_t* wide, std::string& utf8) 
 {
-    aError("wideToUtf8 not supported on wasm");
+    aError(_("wasm 不支持 wideToUtf8"));
     return -1;
 }
 

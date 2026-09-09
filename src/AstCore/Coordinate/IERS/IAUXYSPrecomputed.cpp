@@ -80,7 +80,7 @@ errc_t IAUXYSPrecomputed::load(StringView filepath)
     BKVParser parser(filepath);
     if (!parser.isOpen())
     {
-        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile; // 文件打开失败
     }
     BKVParser::EToken token;
@@ -130,7 +130,7 @@ errc_t IAUXYSPrecomputed::load(StringView filepath)
                     // #pragma warning(suppress: 4996)
                     int ret = sscanf(line.data(), "%lf %lf %lf", &xys[0], &xys[1], &xys[2]);
                     if(ret != 3){
-                        aError("expect 3 values, error %d, line %d, %s\n", ret, parser.getLineNumber(), line.data());
+                        aError(_("期望有 3 个值，但实际内容为 '%.*s'"), (int)line.size(), line.data());
                         return eErrorInvalidFile;
                     }
                     xys[0] *= kArcSecToRad;

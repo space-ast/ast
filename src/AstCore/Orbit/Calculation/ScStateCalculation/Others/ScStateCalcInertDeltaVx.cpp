@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcInertDeltaVx::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement inertial delta-V x component calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

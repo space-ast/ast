@@ -61,7 +61,7 @@ PState State::New(EStateType type)
     default:
         break;
     }
-    aError("unknown state type");
+    aError(_("未知的状态类型"));
     return nullptr;
 }
 
@@ -77,7 +77,7 @@ PState State::New(State &state, EStateType type)
     default:
         break;
     }
-    aError("unknown state type");
+    aError(_("未知的状态类型"));
     return nullptr;
 }
 
@@ -140,7 +140,7 @@ errc_t State::setFrameByName(StringView frameName)
         }
         else
         {
-            aWarning("failed to resolve frame '%s'", name.c_str());
+            aWarning(_("解析参考系 '%s' 失败"), name.c_str());
             return -1;
         }
     };
@@ -197,7 +197,7 @@ TimePoint State::getStateEpoch_TimePoint() const
     TimePoint tp{};
     errc_t rc = getStateEpoch(tp);
     if(rc)
-        aWarning("failed to get state epoch");
+        aWarning(_("获取状态历元失败"));
     return tp;
 }
 
@@ -212,7 +212,7 @@ double State::getBodyRadius() const
 {
     if(auto body = getBody())
         return body->getRadius();
-    aError("failed to get body radius");
+    aError(_("获取天体半径失败"));
     return 0.0;
 }
 

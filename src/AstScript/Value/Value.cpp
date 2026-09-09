@@ -187,7 +187,7 @@ double Value::toDouble() const
             return ret;
         }
     }
-    aError("Value '%s' is not an arithmetic value and is not a valid arithmetic string", toString().c_str());
+    aError(_("值 '%s' 不是算术值，也不是有效的算术字符串"), toString().c_str());
     return std::numeric_limits<double>::quiet_NaN();
 }
 int Value::toInt() const
@@ -212,7 +212,7 @@ int Value::toInt() const
             return ret;
         }
     }
-    aError("Value is not an integer and is not a valid integer string");
+    aError(_("值 '%s' 不是整数，也不是有效的整数字符串"), toString().c_str());
     return 0;
 }
 bool Value::toBool() const
@@ -237,7 +237,7 @@ bool Value::toBool() const
             return ret;
         }
     }
-    aError("Value is not a bool and is not a valid boolean string");
+    aError(_("值 '%s' 不是 bool，也不是有效的布尔字符串"), toString().c_str());
     return false;
 }
 

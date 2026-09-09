@@ -27,7 +27,7 @@ errc_t ScStateCalcAltitude::calculate(const SpacecraftState& state, double& resu
 {
     // TODO: Implement altitude calculation
     // Need to convert State to geodetic coordinates first
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

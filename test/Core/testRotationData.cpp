@@ -45,7 +45,7 @@ TEST(RotationalData, load)
     for(const auto &file : files){
         errc_t rc = data.load(file);
         if(rc != eNoError){
-            aError("failed to load file %s", file.c_str());
+            aError(_("加载文件 %s 失败"), file.c_str());
         }
         EXPECT_EQ(rc, eNoError);
     }

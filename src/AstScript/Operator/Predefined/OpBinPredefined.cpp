@@ -578,7 +578,7 @@ Value* opbin(EOpBinType op, Value* left, Value* right)
 {
     // 首先检查输入是否有效
     if (!left || !right) {
-        aError("Invalid input values for binary operation");
+        aError(_("无效的二元运算输入值"));
         return nullptr;
     }
     

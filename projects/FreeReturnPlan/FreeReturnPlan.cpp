@@ -162,7 +162,7 @@ int FreeRreturnTargetFunction::operator()(const Input& input, Output& output) co
         errc_t rc = propagator.propagate(startTime, endTime, currentPos, currentVel);
         currentTime = endTime;
         if(rc){
-            aError("Propagation failed: %d", rc);
+            aError(tr("轨道预报失败"));
         }
         aLog("--------------------------\n");
         aLog("After Propagation:\n");
@@ -193,7 +193,7 @@ int FreeRreturnTargetFunction::operator()(const Input& input, Output& output) co
         errc_t rc = propagator.propagate(startTime, endTime, currentPos, currentVel);
         currentTime = endTime;
         if(rc){
-            aError("Propagation failed: %d", rc);
+            aError(tr("轨道预报失败"));
         }
         aLog("--------------------------\n");
         aLog("After Propagation:\n");

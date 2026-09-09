@@ -165,7 +165,7 @@ void MSISBase::getSpaceWeather(const TimePoint &tp, double &f107, double &f107Av
     }
     else
     {
-        aWarning("space weather provider is not set");
+        aWarning(_("未设置空间天气数据源，返回零值"));
         f107 = 0.0;
         f107Average = 0.0;
         aparray.fill(0.0);

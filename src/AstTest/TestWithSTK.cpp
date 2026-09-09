@@ -46,11 +46,11 @@ errc_t aTestSegment(Segment& segment)
     SharedPtr<Frame> frame = outputState->getFrame();            AST_CHECK_NULLPTR(frame);
     
     CartState cartStateExpect;
-    errc_t rc = outputState->getStateIn(frame, cartStateExpect); AST_CHECK_ERRCODE(rc, "failed to get state in cartesian frame");
-    rc = segment.execute();                                      AST_CHECK_ERRCODE(rc, "failed to execute segment");
+    errc_t rc = outputState->getStateIn(frame, cartStateExpect); AST_CHECK_ERRCODE(rc, _("在笛卡尔坐标系中获取状态失败"));
+    rc = segment.execute();                                      AST_CHECK_ERRCODE(rc, _("执行段失败"));
     
     CartState cartStateActual;
-    rc = outputState->getStateIn(frame, cartStateActual);         AST_CHECK_ERRCODE(rc, "failed to get state in cartesian frame after segment");
+    rc = outputState->getStateIn(frame, cartStateActual);         AST_CHECK_ERRCODE(rc, _("段后获取笛卡尔坐标系状态失败"));
 
     ast_printf("cartStateExpect: %s\n", cartStateExpect.toString().c_str());
     ast_printf("cartStateActual: %s\n", cartStateActual.toString().c_str());
@@ -65,7 +65,7 @@ errc_t aTestSegment(Segment& segment)
     }
     if(!isSame)
     {
-        aWarning("segment %s output state is not same as expect", name.c_str());
+        aWarning(_("段 %s 的输出状态与期望不一致"), name.c_str());
         return eErrorInvalidParam;
     }
     return eNoError;

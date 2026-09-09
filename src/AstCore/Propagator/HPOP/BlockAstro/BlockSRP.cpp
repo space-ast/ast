@@ -154,7 +154,7 @@ errc_t BlockSRP::run(const SimTime& simTime)
     
     if (A_UNLIKELY(err != eNoError))
     {
-        aError("failed to calculate sun position");
+        aError(_("计算太阳位置失败"));
         return err;
     }
 
@@ -164,7 +164,7 @@ errc_t BlockSRP::run(const SimTime& simTime)
     double mass = *mass_;
     if (A_UNLIKELY(mass <= 0))
     {
-        aError("spacecraft mass is zero or negative (%f), cannot compute SRP acceleration", mass);
+        aError(_("航天器质量为零或为负(%lf kg)，无法计算太阳辐射压加速度"), mass);
         *accSRP_ = Vector3d::Zero();
         return eErrorInvalidParam;
     }

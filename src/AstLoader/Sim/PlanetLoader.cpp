@@ -29,7 +29,7 @@ errc_t aLoadPlanet(StringView filepath, Planet& planet)
     BKVParser::EToken token;
     BKVParser parser(filepath);
     if(!parser.isOpen()){
-        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     do{

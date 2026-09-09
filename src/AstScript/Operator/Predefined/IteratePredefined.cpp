@@ -72,7 +72,7 @@ Value *iterate_begin(Value* container, int &index)
 Value *iterate_next(Value* container, int &index)
 {
     if(A_UNLIKELY(!container)){
-        aError("container is null");
+        aError(_("容器为空"));
         return nullptr;
     }
     IterateFunc cacheFunc = tFunc;
@@ -83,7 +83,7 @@ Value *iterate_next(Value* container, int &index)
         tType = container->type();
     }
     if(A_UNLIKELY(!cacheFunc)){
-        aError("iterate func is null");
+        aError(_("迭代函数为空"));
         return nullptr;
     }
     return cacheFunc(container, index);;

@@ -158,7 +158,7 @@ StringView aClassSTKExtension(StringView objectType)
     }
     else
     {
-        aError("unknown object class: '%.*s'", objectType.size(), objectType.data());    
+        aError(_("未知的对象类型: '%.*s'"), objectType.size(), objectType.data());
         return "";
     }
 }
@@ -179,7 +179,7 @@ errc_t _aLoadEventTime(BKVParser& parser, SharedPtr<EventTime>& eventTime)
     SharedPtr<EventTime> internal_time;
     token = parser.getNext(item);
     if(token != BKVParser::eBlockBegin || !aEqualsIgnoreCase(item.value(), "EVENT")){
-        aError("expect EVENT block");
+        aError(_("期望 EVENT 块"));
         return -1;
     }
     do{
@@ -266,7 +266,7 @@ errc_t _aLoadInterval(BKVParser& parser, TimeInterval& interval)
             }else if(aEqualsIgnoreCase(item.key(), "Stop")){
                 stop = TimePoint::Parse(item.value());
             }else{
-                aError("unsupported key %.*s", item.key().size(), item.key().data());
+                aError(_("不支持的键 %.*s"), item.key().size(), item.key().data());
                 return -1;
             }
         }
@@ -289,7 +289,7 @@ errc_t _aLoadEventInterval(BKVParser& parser, SharedPtr<EventInterval>& eventInt
     SharedPtr<EventInterval> internal_interval;
     token = parser.getNext(item);
     if(token != BKVParser::eBlockBegin || !aEqualsIgnoreCase(item.value(), "EVENTINTERVAL")){
-        aError("expect EVENTINTERVAL block");
+        aError(_("期望 EVENTINTERVAL 块"));
         return -1;
     }
     do{
@@ -312,12 +312,12 @@ errc_t _aLoadEventInterval(BKVParser& parser, SharedPtr<EventInterval>& eventInt
             {
                 errc_t rc = _aLoadInterval(parser, interval);
                 if(rc != 0){
-                    aError("Interval is invalid");
+                    aError(_("Interval 无效"));
                     return rc;
                 }
             }
             else{
-                aError("unsupported block type %.*s", item.value().size(), item.value().data());
+                aError(_("不支持的块类型 %.*s"), item.value().size(), item.value().data());
                 return -1;
             }
         }
@@ -374,16 +374,16 @@ errc_t _aLoadSubObjects(BKVParser &parser, Object *parentObject)
                         errc_t rc = aLoadObject(filePath, objectType, object);
                         if(rc)
                         {
-                            aError("failed to load sub object '%.*s'", filePath.size(), filePath.data());
+                            aError(_("加载子对象 '%.*s' 失败"), filePath.size(), filePath.data());
                         }
                         if(object){
                             rc = aSetParentScope(object, parentObject);
                             if(rc)
                             {
-                                aError("failed to set parent scope for sub object '%.*s'", filePath.size(), filePath.data());
+                                aError(_("为子对象 '%.*s' 设置父作用域失败"), filePath.size(), filePath.data());
                             }
                         }else{
-                            aError("object is null");
+                            aError(_("对象为空"));
                         }
                     }
                 }

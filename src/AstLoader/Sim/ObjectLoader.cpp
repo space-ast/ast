@@ -282,7 +282,7 @@ errc_t aLoadObject(StringView filepath, StringView objectType, SharedPtr<Object>
     }
     else
     {
-        aError("unsupported object type: '%.*s'", objectType.size(), objectType.data());
+        aError(_("不支持的对象类型: '%.*s'"), objectType.size(), objectType.data());
         return eErrorInvalidParam;
     }
     return eNoError;

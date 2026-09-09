@@ -48,7 +48,7 @@ errc_t aLoadTargeterProfile(const Value& value, SharedPtr<TargeterProfile>& prof
     }
     else
     {
-        aWarning("unsupported profile type '%s'", type.c_str());
+        aWarning(_("不支持的配置类型 '%s'"), type.c_str());
     }
     return eNoError;
 }

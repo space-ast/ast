@@ -28,7 +28,7 @@ AST_NAMESPACE_BEGIN
 errc_t aLoadSpacecraftState(const Value& value, SpacecraftState& spacecraftState)
 {
     if(value.isNull()){
-        aError("value is null for SpacecraftState loading");
+        aError(_("值为空"));
         return eErrorInvalidParam;
     }
     HState state;

@@ -547,7 +547,7 @@ DateTime DateTime::FromString(StringView str, StringView format)
     errc_t err = aDateTimeParse(str, format, dttm);
     if (err != eNoError) {
         // 如果解析失败
-        aError("Failed to parse datetime string '%s' with format '%s'", str.data(), format.data());
+        aError(_("解析日期时间字符串 '%s' 失败（格式 '%s'）"), str.data(), format.data());
     }
     return dttm;
 }
@@ -559,7 +559,7 @@ DateTime DateTime::FromString(StringView str)
     errc_t err = aDateTimeParseAny(str, dttm);
     if(err != eNoError) {
         // 如果解析失败
-        aError("Failed to parse datetime string '%s'", str.data());
+        aError(_("解析日期时间字符串 '%s' 失败"), str.data());
     }
     return dttm;
 }

@@ -168,22 +168,22 @@ errc_t DAFParser::parse()
     // 检查参数是否合法
     if(strncmp(fileRecord_.data(), "DAF", 3) != 0)
     {
-        aError("invalid DAF file, locidw is not \"DAF\"");
+        aError(_("无效的 DAF 文件，locidw 不是 'DAF'"));
         return eErrorInvalidFile;
     }
     if(nd < 0 || nd > 124)
     {
-        aError("invalid DAF file, nd is %d, must be in [0, 124]", nd);
+        aError(_("无效的 DAF 文件，nd 为 %d，必须在 [0, 124] 范围内"), nd);
         return eErrorInvalidFile;
     }
     if(ni < 2 || ni > 250)
     {
-        aError("invalid DAF file, ni is %d, must be in [2, 250]", ni);
+        aError(_("无效的 DAF 文件，ni 为 %d，必须在 [2, 250] 范围内"), ni);
         return eErrorInvalidFile;
     }
     if(ss > 125)
     {
-        aError("invalid DAF file, ss is %d, must be in [0, 125]", ss);
+        aError(_("无效的 DAF 文件，ss 为 %d，必须在 [0, 125] 范围内"), ss);
         return eErrorInvalidFile;
     }
 
@@ -328,12 +328,12 @@ errc_t DAFParser::readSummaryRecords(int fward, int bward, std::vector<Record>& 
         size_t size = readRecord(recordIndex - 1, &record, sizeof(Record));
         if(size != sizeof(Record))
         {
-            aError("read record %d failed, size=%d", recordIndex, size);
+            aError(_("读取记录 %d 失败，大小=%d"), recordIndex, size);
             return -1;
         }
         static_assert(sizeof(DAF_SummaryRecords) == sizeof(Record), "DAF_SummaryRecords size must be 1024");
         if(summaryRecords.size() + 1 >= max_size) {
-            aError("summaryRecords size exceeds max_size");
+            aError(_("summaryRecords 的大小超过 max_size"));
             return eErrorInvalidFile;
         }
         summaryRecords.push_back(record);

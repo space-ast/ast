@@ -32,7 +32,7 @@ class ActiveScriptExecutor::Impl{};
 ActiveScriptExecutor::ActiveScriptExecutor()
     : impl_(nullptr)
 {
-    aError("ActiveScriptExecutor not supported on this platform");
+    aError(_("不支持此平台"));
 }
 ActiveScriptExecutor::ActiveScriptExecutor(const wchar_t* progId)
     : impl_(nullptr)
@@ -169,7 +169,7 @@ void VariantToValue(const VARIANT& v, SharedPtr<Value>& value)
         break;
     
     case VT_DATE:
-        aWarning("VT_DATE type not supported in VariantToValue");
+        aWarning(_("不支持 VT_DATE 类型"));
         // value = aValueNull();
         break;
     
@@ -178,12 +178,12 @@ void VariantToValue(const VARIANT& v, SharedPtr<Value>& value)
         break;
     
     case VT_DISPATCH:
-        aWarning("VT_DISPATCH type not supported in VariantToValue");
+        aWarning(_("不支持 VT_DISPATCH 类型"));
         // value = aValueNull();
         break;
     
     case VT_VARIANT | VT_ARRAY:
-        aWarning("VT_ARRAY type not supported in VariantToValue");
+        aWarning(_("不支持 VT_ARRAY 类型"));
         // value = aValueNull();
         break;
     
@@ -198,7 +198,7 @@ void VariantToValue(const VARIANT& v, SharedPtr<Value>& value)
         }
         else
         {
-            aWarning("failed to convert variant type %d to value", v.vt);
+            aWarning(_("将变量类型 %d 转换为值失败"), v.vt);
             // value = aValueNull();
         }
         VariantClear(&v2);
@@ -300,9 +300,9 @@ public:
         }
         else
         {
-            lastError_ = "Script error occurred.";
+            lastError_ = _("脚本错误发生");
         }
-        aError("%s", lastError_.c_str());
+        aError(_("%s"), lastError_.c_str());
         return S_OK;
     }
     STDMETHODIMP OnEnterScript() override { return S_OK; }
@@ -387,7 +387,7 @@ public:
         }
         else
         {
-            aWarning("failed to add item `root` for script.");
+            aWarning(_("为脚本添加 `root` 项失败"));
         }
 
         // 连接到执行状态（第一次需要调用，后续保持在 CONNECTED 即可）
@@ -398,7 +398,7 @@ public:
             hr = pScript->SetScriptState(SCRIPTSTATE_CONNECTED);
             if (FAILED(hr)) 
             {
-                aError("Failed to set script state to connected.");
+                aError(_("设置脚本状态为 connected 失败"));
                 return ERR_FAIL;
             }
         }
@@ -438,7 +438,7 @@ public:
             std::wstring wscript = aUtf8ToWide(script);
 
             #ifdef AST_DEBUG_SCRIPT_EXECUTOR
-            aInfo("executing script: \n%.*s", (int)script.size(), script.data());
+            aInfo(_("正在执行脚本: \n%.*s"), (int)script.size(), script.data());
             #endif
 
             EXCEPINFO ei = {};

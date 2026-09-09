@@ -77,7 +77,7 @@ errc_t MolniyaOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
         orbElem.trueA_ = 0_deg;
         return eNoError;
     }else{
-        aError("failed to find the molniya orbit with the given parameters, errnum: %d", stats.error_num);
+        aError(_("根据给定参数未找到莫尼亚轨道"));
         return -1;
     }
 }

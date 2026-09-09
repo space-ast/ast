@@ -82,7 +82,7 @@ errc_t DataGroupSolarIntensity::calculate(const TimeList& timeList, Span<Data> r
     Point* point = this->getPoint();
     if (!point)
     {
-        aError("point is null");
+        aError(_("点为空"));
         return eErrorNullPtr;
     }
 
@@ -92,7 +92,7 @@ errc_t DataGroupSolarIntensity::calculate(const TimeList& timeList, Span<Data> r
         lightSource = aGetSun();
         if (!lightSource)
         {
-            aError("no light source");
+            aError(_("没有光源"));
             return eErrorNullPtr;
         }
     }
@@ -100,12 +100,12 @@ errc_t DataGroupSolarIntensity::calculate(const TimeList& timeList, Span<Data> r
     std::vector<HCelestialBody> bodies = occultingBodies_;
     if (bodies.empty())
     {
-        aWarning("no occulting bodies, using Earth and Moon as default");
+        aWarning(_("没有遮挡天体，默认使用 Earth 和 Moon"));
         if (auto earth = aGetEarth()) bodies.push_back(earth);
         if (auto moon  = aGetMoon())  bodies.push_back(moon);
         if (bodies.empty())
         {
-            aError("no occulting bodies");
+            aError(_("没有遮挡天体"));
             return eErrorNullPtr;
         }
     }
@@ -113,7 +113,7 @@ errc_t DataGroupSolarIntensity::calculate(const TimeList& timeList, Span<Data> r
     const size_t size = result.size();
     if (size != timeList.size())
     {
-        aError("result size must be equal to timeList size");
+        aError(_("结果数组大小必须等于时间列表大小"));
         return eErrorInvalidParam;
     }
 

@@ -43,7 +43,7 @@ SunSynchronousOrbitDesigner::SunSynchronousOrbitDesigner(CelestialBody *body)
 {
     if(body && !body->isEarth())
     {
-        aError("SunSynchronousOrbitDesigner only support Earth.");
+        aError(_("太阳同步轨道设计器目前仅支持地球。"));
     }
 }
 

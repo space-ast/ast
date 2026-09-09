@@ -48,7 +48,7 @@ errc_t CelestialBody::load(StringView filepath)
     BKVParser parser(path.string());
     if(!parser.isOpen())
     {
-        aError("failed to open file %s", path.string().c_str());
+        aError(_("打开文件 %s 失败"), path.string().c_str());
         return eErrorInvalidFile;
     }
     BKVItemView item;
@@ -124,7 +124,7 @@ errc_t CelestialBody::loadAstroDefinition(BKVParser &parser)
                     || model.find(':') != std::string::npos
                 )
                 {
-                    aError("Path traversal detected or absolute path not allowed in gravity model: %s", model.c_str());
+                    aError(_("天体的重力场模型配置不支持绝对路径或者路径遍历：'%s'"), model.c_str());
                     return eErrorInvalidParam;
                 }
                 fs::path filepath = parser.getFilePath();
@@ -183,7 +183,7 @@ errc_t CelestialBody::loadAstroDefinition(BKVParser &parser)
                     shape = new SphereShape(data.radius_);
                 }
                 else{
-                    aWarning("unsupported shape type: %s", data.shape_.c_str());
+                    aWarning(_("不支持的形状类型：'%s'"), data.shape_.c_str());
                 }
 
                 if(shape)
@@ -245,7 +245,7 @@ errc_t CelestialBody::loadEphemerisData(BKVParser & parser)
                     if(fs::is_regular_file(spkFile)){
                         errc_t rc = ephemerisSPK->openSPKFile(spkFile);
                         if(rc){
-                            aWarning("failed to open SPK file '%s'", spkFile.c_str());
+                            aWarning(_("打开 SPK 文件 '%s' 失败"), spkFile.c_str());
                         }
                     }
                     ephemeris_ = ephemerisSPK;
@@ -335,7 +335,7 @@ errc_t CelestialBody::loadMoon(BKVParser &parser)
         filepath = filepath.parent_path() / "MoonAttitude2000.rot";
         errc_t rc = moonOrientation->rotationalData().load(filepath.string());
         if(rc){
-            aWarning("failed to load MoonAttitude2000.rot file '%s'", filepath.string().c_str());
+            aWarning(_("加载 MoonAttitude2000.rot 文件 '%s' 失败"), filepath.string().c_str());
         }
         // 设置为当前的天体指向
         this->orientation_ = moonOrientation;

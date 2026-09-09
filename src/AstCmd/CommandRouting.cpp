@@ -126,7 +126,7 @@ CommandTrie::Node& CommandTrie::addRule(StringView tmpl)
             if(lastNodeParams != -1 && node->numParams_ != lastNodeParams)
             {
                 assert(false && "param count is inconsistent");
-                aError("param count is inconsistent: %d vs %d", node->numParams_, lastNodeParams);
+                aError(_("参数数量不一致: %d vs %d"), node->numParams_, lastNodeParams);
             }
 
             node = &node->ensureChild(token);
@@ -162,7 +162,7 @@ errc_t CommandTrie::find(StringView text, RoutingHandleResult& result) const
             if(token.data() == nullptr)
             {
                 // 参数不足
-                aError("parameter is not enough");
+                aError(_("参数不足"));
                 return eErrorInvalidParam;
             }
             result.params().push_back(token);

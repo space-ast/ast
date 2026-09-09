@@ -151,7 +151,7 @@ errc_t ODEVarStepIntegrator::integrate(ODE &ode, double* y, double& t, double tf
             {
                 // @fixme! 这里是否直接停止积分？
                 if(warnOnMinStep_){
-                    aWarning("Max iteration reached.");
+                    aWarning(_("达到最大迭代次数"));
                 }
             }else{
                 continue;
@@ -234,7 +234,7 @@ errc_t ODEVarStepIntegrator::integrateOneStep(ODE &ode, double* y, double &t, do
             // 超过最大尝试次数则终止并返回错误
             if(numAttempts ++ >= this->maxStepAttempts_)
             {
-                aWarning("Max iteration reached.");
+                aWarning(_("达到最大迭代次数"));
                 return EError::eErrorMaxIter;
             }
         }

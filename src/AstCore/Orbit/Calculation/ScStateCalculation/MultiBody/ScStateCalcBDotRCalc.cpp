@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcBDotRCalc::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement B.R calculation (magnetic field dot position)
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 
