@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "AstUtil/StringView.hpp"
 #include <cwchar>       // for wchar_t, wprintf, ...
 #include <cstdio>       // for std::fopen, std::printf, ...
 #include <cstdarg>      // for va_list, va_start, va_end
@@ -149,6 +150,12 @@ int ast_vprintf(const char* format, va_list args)
 
 AST_UTIL_CAPI int ast_printf(const char* format, ...);
 
+
+/// @brief 打印链接
+/// @param text 链接文本
+/// @param link 链接URL
+/// @return 输出字符数
+AST_UTIL_CAPI int aPrintLink(StringView text, StringView link);
 
 
 /// @brief 获取文件当前行号

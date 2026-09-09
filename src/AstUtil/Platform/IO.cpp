@@ -148,6 +148,16 @@ int ast_printf(const char* format, ...)
 }
 
 
+int aPrintLink(StringView text, StringView link)
+{
+    return posix::printf(
+        "\033]8;;%.*s\033\\%.*s\033]8;;\033\\",
+        static_cast<int>(link.size()), link.data(),
+        static_cast<int>(text.size()), text.data()
+    );
+}
+
+
 int aCurrentLineNumber(std::FILE *file)
 {
     if (file == NULL) {
