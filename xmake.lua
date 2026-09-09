@@ -146,8 +146,8 @@ add_requires("replxx", {optional = true})                                       
 add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
 -- add_requires("openframes", {optional = true})                                   -- 可选的OpenFrames库，用于三维可视化
 -- add_requires("vulkanscenegraph", {optional = true, configs = {shared = true}})  -- 可选的VulkanSceneGraph库，共享库版本，用于图形渲染
-add_requires("vtk", {optional = true, configs = {shared = true}})
-add_requireconfs("vtk.seacas", {version = "2025.08.28"})
+-- add_requires("vtk", {optional = true, configs = {shared = true}})
+-- add_requireconfs("vtk.seacas", {version = "2025.08.28"})
 add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
 add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
 add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
