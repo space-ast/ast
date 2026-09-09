@@ -263,6 +263,7 @@ var namespaceast =
     [ "CAstCOMModule", "classast_1_1CAstCOMModule.html", null ],
     [ "CDataColor", "classast_1_1CDataColor.html", null ],
     [ "CelestialBody", "classast_1_1CelestialBody.html", "classast_1_1CelestialBody" ],
+    [ "CentralBodyItem", "structast_1_1CentralBodyItem.html", "structast_1_1CentralBodyItem" ],
     [ "CExecCmdResult", "classast_1_1CExecCmdResult.html", null ],
     [ "Chain", "classast_1_1Chain.html", null ],
     [ "ChatAgent", "classast_1_1ChatAgent.html", "classast_1_1ChatAgent" ],

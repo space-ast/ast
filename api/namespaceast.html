@@ -384,6 +384,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1CentralBodyItem.html">CentralBodyItem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1CExecCmdResult.html">CExecCmdResult</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Chain.html">Chain</a></td></tr>
@@ -8031,6 +8033,8 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>kTimeDefault
 <tr class="memitem:a61838f4b85edd7f6d63c7c7d73fa9e82" id="r_a61838f4b85edd7f6d63c7c7d73fa9e82"><td class="memItemLeft" align="right" valign="top"><a id="a61838f4b85edd7f6d63c7c7d73fa9e82" name="a61838f4b85edd7f6d63c7c7d73fa9e82"></a>
 A_THREAD_LOCAL std::string&#160;</td><td class="memItemRight" valign="bottom"><b>translateCache_</b></td></tr>
 <tr class="separator:a61838f4b85edd7f6d63c7c7d73fa9e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79e3b0496996cc1a7e84a0e9d17b0d17" id="r_a79e3b0496996cc1a7e84a0e9d17b0d17"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structast_1_1CentralBodyItem.html">CentralBodyItem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79e3b0496996cc1a7e84a0e9d17b0d17">kCentralBodies</a> []</td></tr>
+<tr class="separator:a79e3b0496996cc1a7e84a0e9d17b0d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86f0da3bf04bfd3ba9be93f55543677a" id="r_a86f0da3bf04bfd3ba9be93f55543677a"><td class="memItemLeft" align="right" valign="top"><a id="a86f0da3bf04bfd3ba9be93f55543677a" name="a86f0da3bf04bfd3ba9be93f55543677a"></a>
 const double&#160;</td><td class="memItemRight" valign="bottom"><b>kDefaultRelTol</b> = 1e-14</td></tr>
 <tr class="separator:a86f0da3bf04bfd3ba9be93f55543677a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -21253,6 +21257,26 @@ template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856
 <p>章动角计算函数指针 </p>
 <p>指向内部实现的函数指针，默认指向aNutation_IAU1980 可根据需要切换为其他实现，例如通过JPL DE星历数据计算章动角 或者用户提供的其他实现，注意需要确保接口一致（参数和返回值），否则会导致调用错误 </p>
 
+</div>
+</div>
+<a id="a79e3b0496996cc1a7e84a0e9d17b0d17" name="a79e3b0496996cc1a7e84a0e9d17b0d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79e3b0496996cc1a7e84a0e9d17b0d17">&#9670;&#160;</a></span>kCentralBodies</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structast_1_1CentralBodyItem.html">CentralBodyItem</a> ast::kCentralBodies[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    { <span class="stringliteral">&quot;地球&quot;</span>, <span class="stringliteral">&quot;Earth&quot;</span> }, { <span class="stringliteral">&quot;月球&quot;</span>, <span class="stringliteral">&quot;Moon&quot;</span> }, { <span class="stringliteral">&quot;太阳&quot;</span>, <span class="stringliteral">&quot;Sun&quot;</span> },</div>
+<div class="line">    { <span class="stringliteral">&quot;水星&quot;</span>, <span class="stringliteral">&quot;Mercury&quot;</span> }, { <span class="stringliteral">&quot;金星&quot;</span>, <span class="stringliteral">&quot;Venus&quot;</span> }, { <span class="stringliteral">&quot;火星&quot;</span>, <span class="stringliteral">&quot;Mars&quot;</span> },</div>
+<div class="line">    { <span class="stringliteral">&quot;木星&quot;</span>, <span class="stringliteral">&quot;Jupiter&quot;</span> }, { <span class="stringliteral">&quot;土星&quot;</span>, <span class="stringliteral">&quot;Saturn&quot;</span> }, { <span class="stringliteral">&quot;天王星&quot;</span>, <span class="stringliteral">&quot;Uranus&quot;</span> },</div>
+<div class="line">    { <span class="stringliteral">&quot;海王星&quot;</span>, <span class="stringliteral">&quot;Neptune&quot;</span> }, { <span class="stringliteral">&quot;冥王星&quot;</span>, <span class="stringliteral">&quot;Pluto&quot;</span> }</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="adaf3cd14221e10b48575f4cd5ac0826d" name="adaf3cd14221e10b48575f4cd5ac0826d"></a>

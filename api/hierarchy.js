@@ -123,6 +123,7 @@ var hierarchy =
       [ "ast::CVeVOSystemsCollection", "classast_1_1CVeVOSystemsCollection.html", null ],
       [ "ast::CVeVOSystemsElement", "classast_1_1CVeVOSystemsElement.html", null ]
     ] ],
+    [ "ast::CentralBodyItem", "structast_1_1CentralBodyItem.html", null ],
     [ "AstCOMLib::CExecCmdResult", "classAstCOMLib_1_1CExecCmdResult.html", null ],
     [ "ast::ChatAgent", "classast_1_1ChatAgent.html", [
       [ "ast::AssistantAgent", "classast_1_1AssistantAgent.html", null ],
