@@ -186,6 +186,8 @@ A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::a
 <tr class="memitem:ga86f36b18f798b1a50be84a8c0dff1c1e" id="r_ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memItemLeft" align="right" valign="top"><a id="ga86f36b18f798b1a50be84a8c0dff1c1e" name="ga86f36b18f798b1a50be84a8c0dff1c1e"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (const char *format,...)</td></tr>
 <tr class="separator:ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1cca56dd45264e5db2e62c57ccc91a5c" id="r_ga1cca56dd45264e5db2e62c57ccc91a5c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1cca56dd45264e5db2e62c57ccc91a5c">ast::aPrintLink</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> text, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> link)</td></tr>
+<tr class="separator:ga1cca56dd45264e5db2e62c57ccc91a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga19bcda407eb5e7e67ab74ccc0f8f5a23" id="r_ga19bcda407eb5e7e67ab74ccc0f8f5a23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga19bcda407eb5e7e67ab74ccc0f8f5a23">ast::aCurrentLineNumber</a> (std::FILE *file)</td></tr>
 <tr class="separator:ga19bcda407eb5e7e67ab74ccc0f8f5a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga37ceb5060ff95143bf4fe04cd905d7bf" id="r_ga37ceb5060ff95143bf4fe04cd905d7bf"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga37ceb5060ff95143bf4fe04cd905d7bf">ast::aGetFilePath</a> (std::FILE *file, std::string &amp;filepath)</td></tr>
@@ -751,6 +753,37 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
 
 <p>加载动态库（StringView 重载） </p>
 <dl class="section return"><dt>返回</dt><dd>库句柄，失败返回 nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ga1cca56dd45264e5db2e62c57ccc91a5c" name="ga1cca56dd45264e5db2e62c57ccc91a5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1cca56dd45264e5db2e62c57ccc91a5c">&#9670;&#160;</a></span>aPrintLink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI int ast::aPrintLink </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>link</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>打印链接 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>链接文本 </td></tr>
+    <tr><td class="paramname">link</td><td>链接URL </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输出字符数 </dd></dl>
 
 </div>
 </div>

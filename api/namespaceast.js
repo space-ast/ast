@@ -2809,6 +2809,7 @@ var namespaceast =
     [ "aPrecession_IAU1976", "namespaceast.html#a3225043e53c75ba439d6530732c65b78", null ],
     [ "aPrecession_IAU1976", "namespaceast.html#af57cd650f14fa0b1587bf66c47bf65db", null ],
     [ "aPrintAllObjects", "group__RTTI.html#gad7583999ccabee6938cc9504c4f8dd59", null ],
+    [ "aPrintLink", "group__Platform.html#ga1cca56dd45264e5db2e62c57ccc91a5c", null ],
     [ "aPrintObject", "group__RTTI.html#ga3232cbb472dbc90fbf0b1b7cee6d5104", null ],
     [ "aPrintObjectTree", "group__RTTI.html#gaf82b69919faf9d958f4ad3ebff8b3882", null ],
     [ "aPrintSparityPatternCOO", "namespaceast.html#a3fd746ebda039a488dc4a9f0db2073c2", null ],

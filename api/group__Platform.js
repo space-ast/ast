@@ -45,6 +45,7 @@ var group__Platform =
     [ "ast::aLibPath", "group__Platform.html#gafae8f3929af4a33ec55ca41b58bf52f2", null ],
     [ "ast::aLoadLibrary", "group__Platform.html#ga203964477010d92f16ac05eb51c13f7a", null ],
     [ "ast::aLoadLibrary", "group__Platform.html#ga105f92d27f866fba769d7344c9f7391f", null ],
+    [ "ast::aPrintLink", "group__Platform.html#ga1cca56dd45264e5db2e62c57ccc91a5c", null ],
     [ "ast::aProjectName", "group__Platform.html#ga8f258fac09fba31d98abf7cd3bc27faa", null ],
     [ "ast::aResolveProcAddress", "group__Platform.html#ga19e5714a61a8ba893a69b7ebdeba2005", null ],
     [ "ast::aSelectObject", "group__Platform.html#ga0b64bc142a888da84a5d78f6cdcfab8e", null ],
