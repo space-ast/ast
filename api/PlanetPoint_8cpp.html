@@ -148,7 +148,7 @@ $(function(){initNavTree('PlanetPoint_8cpp.html',''); initResizable(true); });
 <div class="line">{ \</div>
 <div class="line">    <span class="keyword">auto</span> body = aGet##NAME(); \</div>
 <div class="line">    if(!body){ \</div>
-<div class="line">        aError(#NAME <span class="stringliteral">&quot; is null, please ensure it is initialized by `aInitialize()`&quot;</span>); \</div>
+<div class="line">        aError(_(#NAME <span class="stringliteral">&quot; 为空，请确保已通过 `aInitialize()` 函数完成初始化&quot;</span>)); \</div>
 <div class="line">        <span class="keywordflow">return</span> eErrorInvalidParam; \</div>
 <div class="line">    } \</div>
 <div class="line">    <span class="keywordflow">return</span> body-&gt;getPosICRF(tp, pos); \</div>
@@ -157,11 +157,12 @@ $(function(){initNavTree('PlanetPoint_8cpp.html',''); initResizable(true); });
 <div class="line">{ \</div>
 <div class="line">    <span class="keyword">auto</span> body = aGet##NAME(); \</div>
 <div class="line">    if(!body){ \</div>
-<div class="line">        aError(#NAME <span class="stringliteral">&quot; is null, please ensure it is initialized by `aInitialize()`&quot;</span>); \</div>
+<div class="line">        aError(<a class="code hl_function" href="namespaceast.html#a59c0e4baad32c4025992a3d36520badc">_</a>(#NAME <span class="stringliteral">&quot; 为空，请确保已通过 `aInitialize()` 函数完成初始化&quot;</span>)); \</div>
 <div class="line">        <span class="keywordflow">return</span> eErrorInvalidParam; \</div>
 <div class="line">    } \</div>
 <div class="line">    <span class="keywordflow">return</span> body-&gt;getPosVelICRF(tp, pos, vel); \</div>
 <div class="line">}</div>
+<div class="ttc" id="anamespaceast_html_a59c0e4baad32c4025992a3d36520badc"><div class="ttname"><a href="namespaceast.html#a59c0e4baad32c4025992a3d36520badc">ast::_</a></div><div class="ttdeci">A_ALWAYS_INLINE const char * _(const char *msgid)</div><div class="ttdoc">翻译文本</div><div class="ttdef"><b>定义</b> I18n.hpp:88</div></div>
 </div><!-- fragment -->
 </div>
 </div>

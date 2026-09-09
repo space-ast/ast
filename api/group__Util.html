@@ -1037,7 +1037,7 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMil
         </tr>
       </table>
 </div><div class="memdoc">
-<b>值:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span>(condition){aError(<span class="stringliteral">&quot;invalid parameter, with &quot;</span> #condition); <span class="keywordflow">return</span> eErrorInvalidParam;}</div>
+<b>值:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span>(condition){aError(_(<span class="stringliteral">&quot;无效参数，条件为 &quot;</span> #condition)); <span class="keywordflow">return</span> eErrorInvalidParam;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1055,7 +1055,7 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMil
         </tr>
       </table>
 </div><div class="memdoc">
-<b>值:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span>(variable == <span class="keyword">nullptr</span>){aError(#variable <span class="stringliteral">&quot; is notset(nullptr)&quot;</span>); <span class="keywordflow">return</span> eErrorNullPtr;}</div>
+<b>值:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span>(variable == <span class="keyword">nullptr</span>){aError(_(#variable <span class="stringliteral">&quot; 未设置(nullptr)&quot;</span>)); <span class="keywordflow">return</span> eErrorNullPtr;}</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -123,7 +123,7 @@ $(function(){initNavTree('WorkingDirectory_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        oldpath_ = posix::getcwd();</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">int</span> rc = posix::chdir(std::string(path).c_str());</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">if</span>(rc != 0){</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            aError(<span class="stringliteral">&quot;failed to change working directory to %.*s&quot;</span>, path.size(), path.data());</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            aError(<a class="code hl_function" href="namespaceast.html#a59c0e4baad32c4025992a3d36520badc">_</a>(<span class="stringliteral">&quot;切换到工作目录 %.*s 失败&quot;</span>), path.size(), path.data());</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        }<span class="keywordflow">else</span>{</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            curpath_ = path;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
@@ -133,7 +133,7 @@ $(function(){initNavTree('WorkingDirectory_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">int</span> rc = posix::chdir(oldpath_.c_str());</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">if</span>(rc != 0){</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            aError(<span class="stringliteral">&quot;failed to change working directory to %s&quot;</span>, oldpath_.c_str());</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            aError(<a class="code hl_function" href="namespaceast.html#a59c0e4baad32c4025992a3d36520badc">_</a>(<span class="stringliteral">&quot;切换到工作目录 %s 失败&quot;</span>), oldpath_.c_str());</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classast_1_1WorkingDirectory.html#ab89e649adb74660ad1cfe38975e12b56">   61</a></span>    <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> isChanged(); }</div>
@@ -155,6 +155,7 @@ $(function(){initNavTree('WorkingDirectory_8hpp_source.html',''); initResizable(
 <div class="ttc" id="aclassast_1_1WorkingDirectory_html_a244b21f6a2d8c6c94a913be2d8096f97"><div class="ttname"><a href="classast_1_1WorkingDirectory.html#a244b21f6a2d8c6c94a913be2d8096f97">ast::WorkingDirectory::WorkingDirectory</a></div><div class="ttdeci">WorkingDirectory(StringView path)</div><div class="ttdef"><b>定义</b> WorkingDirectory.hpp:41</div></div>
 <div class="ttc" id="aclassast_1_1WorkingDirectory_html_a537c6b0b61f0d64c6114ea3f0bde4f63"><div class="ttname"><a href="classast_1_1WorkingDirectory.html#a537c6b0b61f0d64c6114ea3f0bde4f63">ast::WorkingDirectory::isChanged</a></div><div class="ttdeci">bool isChanged() const</div><div class="ttdoc">检查是否成功切换工作目录</div><div class="ttdef"><b>定义</b> WorkingDirectory.hpp:64</div></div>
 <div class="ttc" id="aclassast_1_1WorkingDirectory_html_ad5349edc69071c8e44dcf246e8b1fcb7"><div class="ttname"><a href="classast_1_1WorkingDirectory.html#ad5349edc69071c8e44dcf246e8b1fcb7">ast::WorkingDirectory::getCurrentPath</a></div><div class="ttdeci">StringView getCurrentPath() const</div><div class="ttdoc">获取切换后的工作目录</div><div class="ttdef"><b>定义</b> WorkingDirectory.hpp:67</div></div>
+<div class="ttc" id="anamespaceast_html_a59c0e4baad32c4025992a3d36520badc"><div class="ttname"><a href="namespaceast.html#a59c0e4baad32c4025992a3d36520badc">ast::_</a></div><div class="ttdeci">A_ALWAYS_INLINE const char * _(const char *msgid)</div><div class="ttdoc">翻译文本</div><div class="ttdef"><b>定义</b> I18n.hpp:88</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

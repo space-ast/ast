@@ -1,5 +1,6 @@
 var NAVTREEINDEX45 =
 {
+"classast_1_1SpatialCalculationVisitor.html":[0,1,3,0,6],
 "classast_1_1SpatialCondAccessToObjects.html":[0,1,3,0,7],
 "classast_1_1SpatialCondAccessToObjects.html#a6b949bcfd6abce781e32cfbcfb497090":[0,1,3,0,7,0],
 "classast_1_1SpatialCondAccessToObjects.html#ac9845ef7130c5d39df5e23ae337fd02b":[0,1,3,0,7,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX45 =
 "classast_1_1StateKeplerian.html#a9a827d0308ff851a52300113bd3fa902":[3,0,0,956,60],
 "classast_1_1StateKeplerian.html#a9e3e626eb3e9237a39a448d9824e6881":[2,0,0,957,12],
 "classast_1_1StateKeplerian.html#a9e3e626eb3e9237a39a448d9824e6881":[3,0,0,956,12],
-"classast_1_1StateKeplerian.html#a9f888ea2118ed7b1c80432fc851ec6a3":[2,0,0,957,63],
-"classast_1_1StateKeplerian.html#a9f888ea2118ed7b1c80432fc851ec6a3":[3,0,0,956,63]
+"classast_1_1StateKeplerian.html#a9f888ea2118ed7b1c80432fc851ec6a3":[2,0,0,957,63]
 };

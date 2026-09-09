@@ -1,5 +1,6 @@
 var NAVTREEINDEX44 =
 {
+"classast_1_1SegmentGraph.html#aa77875c83c4cb9c11f6087691e10647c":[2,0,0,884,0],
 "classast_1_1SegmentGraph.html#aa77875c83c4cb9c11f6087691e10647c":[3,0,0,883,0],
 "classast_1_1Sensor.html":[2,0,0,885],
 "classast_1_1Sensor.html":[3,0,0,884],
@@ -248,6 +249,5 @@ var NAVTREEINDEX44 =
 "classast_1_1SpatialCalculation.html":[0,1,3,0,5],
 "classast_1_1SpatialCalculation.html#a9aa2e611eec4e0c2804ec8a8ca10d225":[0,1,3,0,5,1],
 "classast_1_1SpatialCalculation.html#ad02140f1d2feccaf76a21ad133d5e03f":[0,1,3,0,5,2],
-"classast_1_1SpatialCalculation.html#ae8a4c42b9a7f7aca4a7283fb3d94f627":[0,1,3,0,5,0],
-"classast_1_1SpatialCalculationVisitor.html":[0,1,3,0,6]
+"classast_1_1SpatialCalculation.html#ae8a4c42b9a7f7aca4a7283fb3d94f627":[0,1,3,0,5,0]
 };

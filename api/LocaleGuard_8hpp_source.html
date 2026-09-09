@@ -132,7 +132,7 @@ $(function(){initNavTree('LocaleGuard_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            active_ = <span class="keyword">true</span>;      <span class="comment">// 设置成功，析构时需要恢复</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="comment">// 设置失败，不改变当前 locale</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            aError(<span class="stringliteral">&quot;failed to set locale &#39;%s&#39;&quot;</span>, new_locale);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            aError(<a class="code hl_function" href="namespaceast.html#a59c0e4baad32c4025992a3d36520badc">_</a>(<span class="stringliteral">&quot;设置 locale &#39;%s&#39; 失败&quot;</span>), new_locale);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 </div>
@@ -160,6 +160,7 @@ $(function(){initNavTree('LocaleGuard_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1LocaleGuard_html"><div class="ttname"><a href="classast_1_1LocaleGuard.html">ast::LocaleGuard</a></div><div class="ttdoc">用于切换和恢复 locale 的 RAII 类。</div><div class="ttdef"><b>定义</b> LocaleGuard.hpp:38</div></div>
 <div class="ttc" id="aclassast_1_1LocaleGuard_html_a88496c851987f0fa00b5bfcf3075e11d"><div class="ttname"><a href="classast_1_1LocaleGuard.html#a88496c851987f0fa00b5bfcf3075e11d">ast::LocaleGuard::LocaleGuard</a></div><div class="ttdeci">LocaleGuard(const char *new_locale, int category=LC_ALL)</div><div class="ttdoc">构造并切换到指定的 locale。</div><div class="ttdef"><b>定义</b> LocaleGuard.hpp:43</div></div>
+<div class="ttc" id="anamespaceast_html_a59c0e4baad32c4025992a3d36520badc"><div class="ttname"><a href="namespaceast.html#a59c0e4baad32c4025992a3d36520badc">ast::_</a></div><div class="ttdeci">A_ALWAYS_INLINE const char * _(const char *msgid)</div><div class="ttdoc">翻译文本</div><div class="ttdef"><b>定义</b> I18n.hpp:88</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

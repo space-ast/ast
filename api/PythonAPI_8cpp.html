@@ -240,7 +240,7 @@ PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonprot
       </table>
 </div><div class="memdoc">
 <b>值:</b><div class="fragment"><div class="line">    <span class="keyword">auto</span> fn = <span class="keyword">reinterpret_cast&lt;</span>decltype(&amp;pythonproto::idx)<span class="keyword">&gt;</span>(functions_[i##idx]); \</div>
-<div class="line">    if(!fn){ aError(<span class="stringliteral">&quot;PythonAPI: library not loaded&quot;</span>); <span class="keywordflow">return</span>; }</div>
+<div class="line">    if(!fn){ aError(_(<span class="stringliteral">&quot;库未加载&quot;</span>)); <span class="keywordflow">return</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -268,7 +268,7 @@ PyObject *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pythonprot
       </table>
 </div><div class="memdoc">
 <b>值:</b><div class="fragment"><div class="line">    <span class="keyword">auto</span> fn = <span class="keyword">reinterpret_cast&lt;</span>decltype(&amp;pythonproto::idx)<span class="keyword">&gt;</span>(functions_[i##idx]); \</div>
-<div class="line">    if(!fn){ aError(<span class="stringliteral">&quot;PythonAPI: library not loaded&quot;</span>); <span class="keywordflow">return</span> ret; }</div>
+<div class="line">    if(!fn){ aError(_(<span class="stringliteral">&quot;库未加载&quot;</span>)); <span class="keywordflow">return</span> ret; }</div>
 </div><!-- fragment -->
 </div>
 </div>

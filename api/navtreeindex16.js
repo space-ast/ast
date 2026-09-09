@@ -1,5 +1,6 @@
 var NAVTREEINDEX16 =
 {
+"SunPosition_8cpp.html":[4,0,0,6,14,12],
 "SunPosition_8hpp.html":[4,0,0,6,14,13],
 "SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055":[4,0,0,6,14,13,0],
 "SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055a0d8db97ecea9e6f09617cc60746e1c01":[4,0,0,6,14,13,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX16 =
 "UiBodyEphemerisSPK_8hpp_source.html":[4,0,0,10,11,0,3],
 "UiBurnEditor_8cpp.html":[4,0,0,10,10,0],
 "UiBurnEditor_8hpp.html":[4,0,0,10,10,1],
-"UiBurnEditor_8hpp_source.html":[4,0,0,10,10,1],
-"UiBurnImpulsive_8cpp.html":[4,0,0,10,10,2]
+"UiBurnEditor_8hpp_source.html":[4,0,0,10,10,1]
 };

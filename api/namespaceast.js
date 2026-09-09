@@ -3093,6 +3093,7 @@ var namespaceast =
     [ "bisect", "group__NLE.html#gae7b87132fc03898f8392005c491953ee", null ],
     [ "brenth", "group__NLE.html#ga3fd74c177eb5fe393af345e07f6e8eaa", null ],
     [ "brentq", "group__NLE.html#ga6d46ca1d998cb4c839bdf7e81086ce05", null ],
+    [ "C_", "namespaceast.html#ac156d9d49b2248c242d34d44eb2f7bbb", null ],
     [ "checkBodyShape", "namespaceast.html#a8216ef0371cf6f618586d90129d9794f", null ],
     [ "clamp", "group__Util.html#ga77fdcb17fe2f5bf4506f1f136b81f282", null ],
     [ "clight", "group__Spice.html#ga25c738419df2fd10336f9551c6c5c8a8", null ],
