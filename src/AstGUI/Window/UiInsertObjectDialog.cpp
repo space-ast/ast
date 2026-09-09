@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "UiInsertObjectDialog.hpp"
+#include "UiCentralBodies.hpp"
 #include "AstGUI/UiCommon.hpp"
 
 #include <QVBoxLayout>
@@ -56,20 +57,6 @@ struct ObjectTypeItem
 struct MethodItem
 {
     const char* label;
-};
-
-/// @brief 中心天体列表：显示中文名，底层保留英文标识（与 ast 内部查询键一致）
-struct CentralBodyItem
-{
-    const char* cn;  ///< 中文显示名
-    const char* id;  ///< 英文标识（如 "Earth"）
-};
-
-const CentralBodyItem kCentralBodies[] = {
-    { "地球", "Earth" }, { "月球", "Moon" }, { "太阳", "Sun" },
-    { "水星", "Mercury" }, { "金星", "Venus" }, { "火星", "Mars" },
-    { "木星", "Jupiter" }, { "土星", "Saturn" }, { "天王星", "Uranus" },
-    { "海王星", "Neptune" }, { "冥王星", "Pluto" }
 };
 
 /// @brief 场景对象（可插入到场景顶层的对象类型）
