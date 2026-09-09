@@ -98,7 +98,6 @@ ModuleName/
 - **AstMex**：MATLAB封装
 - **AstPy**：Python封装
 - **AstWasm**：Web Assembly封装
-- **AstGfx**：可视化
 - **AstGui**：图形化界面
 
 ### 4.3 模块间依赖

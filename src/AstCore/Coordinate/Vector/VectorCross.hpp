@@ -25,6 +25,7 @@
 
 #include "AstGlobal.h"
 #include "AstCore/Vector.hpp"
+#include "AstCore/Axes.hpp"
 
 AST_NAMESPACE_BEGIN
 

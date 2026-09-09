@@ -1,0 +1,7 @@
+target("AstEngine")
+    set_kind("shared")
+    add_files("**.cpp")
+    add_headerfiles("**.hpp", {prefixdir="AstEngine"})
+    add_headerfiles("**.h", {prefixdir="AstSim"})
+    add_deps("AstCore", "AstUtil", "AstMath", "AstSim")
+    add_defines("AST_BUILD_LIB_ENGINE")

@@ -1,4 +1,5 @@
 // AstUtil 工程聚合头文件
+#include "AstUtil/Any.hpp"
 #include "AstUtil/Archive.hpp"
 #include "AstUtil/Archiver.hpp"
 #include "AstUtil/ArchiverUtils.hpp"
@@ -31,7 +32,7 @@
 #include "AstUtil/CompressorImplSystem.hpp"
 #include "AstUtil/CompressorImplTar.hpp"
 #include "AstUtil/CompressorInterface.hpp"
-#include "AstUtil/Constants.hpp"
+#include "AstUtil/Constants.h"
 #include "AstUtil/Constants.hpp"
 #include "AstUtil/Container.hpp"
 #include "AstUtil/CorVector.hpp"
@@ -151,6 +152,7 @@
 #include "AstUtil/SerializerFactory.hpp"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/ShellCOMUtils.hpp"
+#include "AstUtil/SourceLocation.hpp"
 #include "AstUtil/Span.hpp"
 #include "AstUtil/StartupConfig.hpp"
 #include "AstUtil/String.hpp"

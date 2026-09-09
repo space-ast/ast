@@ -19,7 +19,8 @@
  
 #include "Logger.hpp"
 #include "AstUtil/IO.hpp"
-#include <stdarg.h> 
+#include "AstUtil/ColoredPrint.hpp"   // for cprintf / EColor
+#include <stdarg.h>
 
  
 AST_NAMESPACE_BEGIN
@@ -27,11 +28,56 @@ AST_NAMESPACE_BEGIN
  
 
 
+namespace {
+
+const char* aLevelTag(ELogLevel level) noexcept
+{
+	switch (level)
+	{
+	case ELogLevel::eDebug:    return aText("详情");
+	case ELogLevel::eInfo:     return aText("提示");
+	case ELogLevel::eWarning:  return aText("警告");
+	case ELogLevel::eError:    return aText("错误");
+	case ELogLevel::eCritical: return aText("严重");
+	case ELogLevel::eFatal:    return aText("崩溃");
+	default:                   return aText("日志");
+	}
+}
+
+EColor aLevelColor(ELogLevel level) noexcept
+{
+	switch (level)
+	{
+	case ELogLevel::eDebug:    return eGray;      ///< 低调的调试
+	case ELogLevel::eInfo:     return eCyan;      ///< 常规信息
+	case ELogLevel::eWarning:  return eYellow;
+	case ELogLevel::eError:    return eRed;
+	case ELogLevel::eCritical: return eRed;
+	case ELogLevel::eFatal:    return eRed;
+	default:                   return eGray;
+	}
+}
+
+} // namespace
+
+
 void aLogMessageV(ELogLevel level, const MessageLogContext& context, const char* format, va_list ap)
 {
-	ast_printf("\n%s(%d): %s\n", context.file_, context.line_, context.function_);
-	ast_vprintf(format, ap);
-	ast_printf("\n");
+	const char* file = context.file_     ? context.file_     : aText("<未知源文件>");
+	const char* func = context.function_ ? context.function_ : aText("<未知函数>");
+
+	// 仅着色等级标签,来源与消息用默认色
+	cprintf(aLevelColor(level), "\n[%s] ", aLevelTag(level));
+	if (format)
+	{
+		int count = ast_vprintf(format, ap);
+		// 消息内容超过80个字符时换行
+		if(count >= 80)
+			ast_printf("\n");
+		else
+			ast_printf(" ");
+	}
+	ast_printf("(%s:%d)[%s]\n", file, context.line_, func);
 }
 
 void aLogMessage(ELogLevel level, const MessageLogContext& context, const char* format, ...)

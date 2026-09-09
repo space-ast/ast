@@ -1,0 +1,6 @@
+target("AstVisualization")
+    set_kind("shared")
+    add_files("**.cpp")
+    add_deps("AstUtil", "AstCore", "AstSim")
+    add_headerfiles("**.hpp", {prefixdir="AstVisualization"})
+    add_defines("AST_BUILD_LIB_VISUALIZATION")

@@ -3,7 +3,7 @@ set_default(false)
 add_deps(
     "AstUtil", "AstCore", "AstMath", "AstSim", "AstTest",
     "AstSPICE", "AstPlot", "AstAI", "AstOpt",
-    "AstLoader", "AstReport"
+    "AstLoader", "AstReport", "AstVisualization"
 )
 add_packages("openmp")
 set_warnings("more")

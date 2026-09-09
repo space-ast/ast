@@ -20,6 +20,7 @@
 
 #include "Interpreter.hpp"
 #include "ScriptContext.hpp"
+#include "AstScript/Value.hpp"
 
 AST_NAMESPACE_BEGIN
 

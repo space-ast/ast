@@ -22,6 +22,8 @@
 #include "AstMath/Vector.hpp"
 #include "AstUtil/Math.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstCore/CelestialBody.hpp"
+#include "AstCore/Point.hpp"
 
 AST_NAMESPACE_BEGIN
 

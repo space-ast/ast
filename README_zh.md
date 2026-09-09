@@ -146,7 +146,6 @@ const kEps15 = 1e-15;
 - [MatLab封装](src/AstMex): 提供MatLab接口，方便用户在MatLab环境中使用ast算法
 - [Python封装](src/AstPy): 提供Python接口，方便用户在Python环境中使用ast算法
 - [Web Assembly封装](src/AstWasm): 提供Web Assembly接口，方便用户在浏览器中使用ast算法
-- [可视化](src/AstGfx): 提供可视化工具，方便用户查看仿真结果
 - [图形化界面](src/AstGui): 提供图形化界面，方便用户进行仿真实验
 
 

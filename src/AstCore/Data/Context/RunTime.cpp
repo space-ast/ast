@@ -309,11 +309,11 @@ errc_t aInitializeByConfig(DataContext* context, const InitalizeConfig& config)
     // 如果 dataDir 为空或者目录不存在
     if(isEmpty || rc)
     {
+        aInfo("数据文件夹 '%s' 为空或不存在", config.dataDir_.c_str());
         #ifndef AST_DISABLE_AUTO_DOWNLOAD_DATA
         err = aDownloadData(dataDir);
         if(err != eNoError) return err;
         #else
-        aError("data directory %s is empty or not found", config.dataDir_.c_str());
         return eErrorNotFound;
         #endif
     }

@@ -39,7 +39,6 @@ xmake pack -f zip           # 打包为 zip 压缩包
 | AstScript | 嵌入式脚本语言（自定义解释器、解析器、调试器） |
 | AstCalc | 天文计算器与几何搜索 |
 | AstAnalyzer | 任务分析：约束、变量、打靶法、灵敏度、权衡研究、遍历搜索 |
-| AstGfx | 基于 OpenSceneGraph 的 3D 可视化（天体、航天器、设施） |
 | AstGUI | 基于 Qt5 的 GUI 组件 |
 | AstPy | 通过 SWIG 生成的 Python 绑定 |
 | AstAI | AI 代理、对话服务 |
@@ -53,7 +52,7 @@ xmake pack -f zip           # 打包为 zip 压缩包
 
 `include/Ast.hpp` 是聚合头文件，包含所有核心模块头文件。`include/AstGlobal.h` 定义了命名空间宏、DLL 导出/导入声明以及常用类型的前置声明。
 
-模块依赖顺序：AstUtil → AstMath → AstCore → AstSim。其他模块（AstOpt、AstGfx 等）依赖这些核心层。
+模块依赖顺序：AstUtil → AstMath → AstCore → AstSim。其他模块（AstOpt、AstGUI）依赖这些核心层。
 
 ## 代码规范
 

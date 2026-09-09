@@ -13,7 +13,8 @@ add_deps(
     "AstAI",
     "AstCmd",
     "AstTest",
-    "AstFault"
+    "AstFault",
+    "AstEngine"
 )
 
 if is_plat("windows") and has_config("with_com") then
