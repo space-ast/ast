@@ -41,11 +41,13 @@ GUIInterface *GUIInterface::CurrentInstance()
         // 先赋值，避免无限递归调用
         g_guiInstance = NoopInstance();
         using functype = decltype(&aGUIInterfaceImpl);
-        functype func = (functype)aResolveProcAddress(AST_LIB_LINKNAME("AstGUI"), A_STR(aGUIInterfaceImpl));
+        const char* libName = AST_LIB_LINKNAME("AstGUI");
+        const char* funcName = A_STR(aGUIInterfaceImpl);
+        functype func = (functype)aResolveProcAddress(libName, funcName);
         if(func){
             g_guiInstance = func();
         }else{
-            aError(_("从共享库 'AstGUI' 解析函数 'aGUIInterfaceImpl' 失败"));
+            aError(_("从动态库 '%s' 解析函数 '%s' 失败"), libName, funcName);
         }
     } 
     return g_guiInstance;

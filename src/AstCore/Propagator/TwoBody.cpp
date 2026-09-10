@@ -59,7 +59,7 @@ enum ER
 
 errc_t aTwoBodyProp(double t, double mu, Vector3d& r0, Vector3d& v0)
 {
-    const double tol = 1e-10;              
+    const double tol = 1e-10;
     double r0mag = norm(r0);
     double v0mag = norm(v0);
     double alpha = -(v0mag * v0mag) / mu + 2 / r0mag;
@@ -69,6 +69,10 @@ errc_t aTwoBodyProp(double t, double mu, Vector3d& r0, Vector3d& v0)
         X0 = sqrt(mu) * t * alpha;
     }
     else if (alpha < -ORBIT_TYPE_EPS) {  // 双曲线轨道
+        // 零时长传播恒为恒等变换，需显式返回。
+        // 否则双曲分支的初值猜测 X0 含 log(...*t...) 项，t=0 时得到 log(0)=-inf，
+        if (t == 0.0)
+            return eNoError;
         double a = 1 / alpha;
         X0 = sign(t) * sqrt(-a) * log(-2 * mu * alpha * t / (dot(r0, v0) + sign(t) * sqrt(-mu * a) * (1 - r0mag * alpha)));
     }

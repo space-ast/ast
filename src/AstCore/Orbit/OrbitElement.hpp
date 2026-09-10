@@ -26,6 +26,7 @@
 #include "AstCore/TimePoint.hpp"
 #include "AstUtil/Constants.hpp"
 #include <string>
+#include <cmath>                // for std::isfinite
  
 AST_NAMESPACE_BEGIN
 
@@ -85,6 +86,14 @@ public:
     /// @brief 转换为字符串
     AST_CORE_API
     std::string toString() const;
+public:
+    /// @brief 判断状态分量是否全部为有限值
+    bool isFinite() const{
+        for (auto val: *this)
+            if (!std::isfinite(val))
+                return false;
+        return true;
+    }
 };
 
 

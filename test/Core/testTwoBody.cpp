@@ -55,4 +55,34 @@ TEST(TwoBodyTest, Prop)
 	}
 }
 
+/// @brief 零时长传播必须是恒等变换
+TEST(TwoBodyTest, PropZeroDurationIsIdentity)
+{
+	AST_USING_NAMESPACE
+
+	const double gm = 4.9028029535968e12;   // 月球
+	const double R  = 1.35e8;               // 距中心距离 [m]
+	const double vEsc = std::sqrt(2.0 * gm / R);
+
+	// 三种轨道类型都应满足恒等性
+	const double speeds[] = {0.5 * vEsc, vEsc / std::sqrt(2.0), 1.5 * vEsc, 3.0 * vEsc};
+	const char*  names[]  = {"ellipse", "circle", "hyperbola(1.5)", "hyperbola(3.0)"};
+
+	for (int k = 0; k < 4; ++k)
+	{
+		for (double t : {0.0, -0.0})
+		{
+			Vector3d pos{R, 0.0, 0.0};
+			Vector3d vel{0.0, speeds[k], 0.0};
+
+			aTwoBodyProp(t, gm, pos, vel);
+
+			EXPECT_FALSE(std::isnan(pos.norm())) << names[k] << " t=" << t;
+			EXPECT_FALSE(std::isnan(vel.norm())) << names[k] << " t=" << t;
+			EXPECT_NEAR(pos.norm(), R, 1e-6) << names[k] << " t=" << t;
+			EXPECT_NEAR(vel.norm(), speeds[k], 1e-9) << names[k] << " t=" << t;
+		}
+	}
+}
+
 GTEST_MAIN()
