@@ -119,36 +119,55 @@ $(function(){initNavTree('SourceLocation_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
 </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespaceast.html#a4c040d3b2f9dde9c927aaa297b8e7496">   43</a></span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="namespaceast.html#a4c040d3b2f9dde9c927aaa297b8e7496">extract_after_last_dotdot</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keyword">const</span> <span class="keywordtype">char</span>* last_dotdot = <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">return</span> *str == <span class="charliteral">&#39;\0&#39;</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        ? (last_dotdot ? last_dotdot : str)   <span class="comment">// 到达末尾，返回上次找到的 .. 位置（若存在）</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        : (str[0] == <span class="charliteral">&#39;.&#39;</span> &amp;&amp; str[1] == <span class="charliteral">&#39;.&#39;</span> &amp;&amp; <a class="code hl_function" href="namespaceast.html#a0ab095e8a194aeafadf1e408c8393e8d">is_sep</a>(str[2]))</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            ? <a class="code hl_function" href="namespaceast.html#a4c040d3b2f9dde9c927aaa297b8e7496">extract_after_last_dotdot</a>(str + 3, str + 3)  <span class="comment">// 找到新的 ..\，更新 last_dotdot 并继续</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            : <a class="code hl_function" href="namespaceast.html#a4c040d3b2f9dde9c927aaa297b8e7496">extract_after_last_dotdot</a>(str + 1, last_dotdot); <span class="comment">// 未匹配，继续扫描</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* extract_after_last_dotdot_impl(<span class="keyword">const</span> <span class="keywordtype">char</span>* str,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                                                     <span class="keyword">const</span> <span class="keywordtype">char</span>* last,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                                                     <span class="keyword">const</span> <span class="keywordtype">char</span>* orig) </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">return</span> *str == <span class="charliteral">&#39;\0&#39;</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        ? (last ? last : orig)                                        <span class="comment">// 扫描结束：有匹配则返回匹配后位置，否则返回原串</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        : (str[0] == <span class="stringliteral">&#39;.&#39;</span> &amp;&amp; str[1] == <span class="stringliteral">&#39;.&#39;</span> &amp;&amp; is_sep(str[2]))</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            ? extract_after_last_dotdot_impl(str + 3, str + 3, orig)  <span class="comment">// 匹配到 ..\，更新 last 并继续</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            : extract_after_last_dotdot_impl(str + 1, last, orig);    <span class="comment">// 未匹配，继续扫描</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespaceast.html#af19d4e6c4f5207d9e37dea1ab90459e4">   56</a></span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="namespaceast.html#af19d4e6c4f5207d9e37dea1ab90459e4">extract_after_last_dotdot</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str) </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">return</span> extract_after_last_dotdot_impl(str, <span class="keyword">nullptr</span>, str);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
 </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">   52</a></span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">extract_filename</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keyword">const</span> <span class="keywordtype">char</span>* last_sep_pos=<span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">return</span> *str == <span class="charliteral">&#39;\0&#39;</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        ? (last_sep_pos ? last_sep_pos + 1 : str)  <span class="comment">// 返回最后一个分隔符后的位置，若无则返回原串</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        : (<a class="code hl_function" href="namespaceast.html#a0ab095e8a194aeafadf1e408c8393e8d">is_sep</a>(*str)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            ? <a class="code hl_function" href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">extract_filename</a>(str + 1, str)   <span class="comment">// 更新最后一个分隔符位置</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            : <a class="code hl_function" href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">extract_filename</a>(str + 1, last_sep_pos));</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
-</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#define A_SOURCE_FILE_PATH  _AST extract_after_last_dotdot(__FILE__)  </span><span class="comment">// 仅包含 .. 后的路径部分</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#define A_SOURCE_FILE_NAME  _AST extract_filename(__FILE__)</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#define A_SOURCE_LINE       __LINE__</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#define A_SOURCE_FUNC       __FUNCTION__</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* extract_filename_impl(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keyword">const</span> <span class="keywordtype">char</span>* last, <span class="keyword">const</span> <span class="keywordtype">char</span>* orig) </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> *str == <span class="charliteral">&#39;\0&#39;</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        ? (last ? last + 1 : orig)  <span class="comment">// 返回最后一个分隔符后的位置，若无则返回原串</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        : (is_sep(*str)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            ? extract_filename_impl(str + 1, str, orig)   <span class="comment">// 更新最后一个分隔符位置</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            : extract_filename_impl(str + 1, last, orig));</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">   73</a></span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">extract_filename</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keyword">const</span> <span class="keywordtype">char</span>* last_sep_pos=<span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> extract_filename_impl(str, <span class="keyword">nullptr</span>, str);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
+</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#define A_SOURCE_FILE_PATH  _AST extract_after_last_dotdot(__FILE__)  </span><span class="comment">// 仅包含 .. 后的路径部分</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#define A_SOURCE_FILE_NAME  _AST extract_filename(__FILE__)</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#define A_SOURCE_LINE       __LINE__</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#define A_SOURCE_FUNC       __FUNCTION__</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="anamespaceast_html_a0ab095e8a194aeafadf1e408c8393e8d"><div class="ttname"><a href="namespaceast.html#a0ab095e8a194aeafadf1e408c8393e8d">ast::is_sep</a></div><div class="ttdeci">constexpr bool is_sep(char c)</div><div class="ttdoc">判断字符是否为路径分隔符（反斜杠或正斜杠）</div><div class="ttdef"><b>定义</b> SourceLocation.hpp:34</div></div>
-<div class="ttc" id="anamespaceast_html_a46bf7f6285e97fa9e3a05bf9ef22452f"><div class="ttname"><a href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">ast::extract_filename</a></div><div class="ttdeci">constexpr const char * extract_filename(const char *str, const char *last_sep_pos=nullptr)</div><div class="ttdoc">从路径中提取文件名</div><div class="ttdef"><b>定义</b> SourceLocation.hpp:52</div></div>
-<div class="ttc" id="anamespaceast_html_a4c040d3b2f9dde9c927aaa297b8e7496"><div class="ttname"><a href="namespaceast.html#a4c040d3b2f9dde9c927aaa297b8e7496">ast::extract_after_last_dotdot</a></div><div class="ttdeci">constexpr const char * extract_after_last_dotdot(const char *str, const char *last_dotdot=nullptr)</div><div class="ttdoc">查找最后一个 &quot;..&quot; 后的路径，并返回后续实际路径的起始位置</div><div class="ttdef"><b>定义</b> SourceLocation.hpp:43</div></div>
+<div class="ttc" id="anamespaceast_html_a46bf7f6285e97fa9e3a05bf9ef22452f"><div class="ttname"><a href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">ast::extract_filename</a></div><div class="ttdeci">constexpr const char * extract_filename(const char *str, const char *last_sep_pos=nullptr)</div><div class="ttdoc">从路径中提取文件名，若无分隔符则返回原串</div><div class="ttdef"><b>定义</b> SourceLocation.hpp:73</div></div>
+<div class="ttc" id="anamespaceast_html_af19d4e6c4f5207d9e37dea1ab90459e4"><div class="ttname"><a href="namespaceast.html#af19d4e6c4f5207d9e37dea1ab90459e4">ast::extract_after_last_dotdot</a></div><div class="ttdeci">constexpr const char * extract_after_last_dotdot(const char *str)</div><div class="ttdoc">查找最后一个 &quot;..&quot; 后的路径，并返回后续实际路径的起始位置，若无 .. 则返回原串</div><div class="ttdef"><b>定义</b> SourceLocation.hpp:56</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
