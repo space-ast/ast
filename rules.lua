@@ -27,6 +27,9 @@ rule("ast")
             target:add("shflags", "-s ALLOW_MEMORY_GROWTH=1")
             target:add("ldflags", "-s INITIAL_MEMORY=33554432")  -- This option was formerly called TOTAL_MEMORY
             target:add("ldflags", "-s TOTAL_MEMORY=33554432")    -- 为了兼容老版本的emscripten
+        elseif target:plat() == "windows" then
+            -- 去除 __FILE__ 宏中的项目目录前缀
+            target:add("cxflags", "/d1trimfile:" .. os.projectdir() .. "\\")
         end
         local include_dir = path.join(os.scriptdir(), "include", target:name())
         if os.isdir(include_dir) then

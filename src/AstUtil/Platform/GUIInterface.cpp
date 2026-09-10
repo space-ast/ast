@@ -38,6 +38,8 @@ GUIInterface *GUIInterface::CurrentInstance()
 {
     if(g_guiInstance == nullptr)
     {
+        // 先赋值，避免无限递归调用
+        g_guiInstance = NoopInstance();
         using functype = decltype(&aGUIInterfaceImpl);
         functype func = (functype)aResolveProcAddress(AST_LIB_LINKNAME("AstGUI"), A_STR(aGUIInterfaceImpl));
         if(func){
@@ -45,10 +47,7 @@ GUIInterface *GUIInterface::CurrentInstance()
         }else{
             aError(_("从共享库 'AstGUI' 解析函数 'aGUIInterfaceImpl' 失败"));
         }
-        if(g_guiInstance == nullptr){
-            g_guiInstance = NoopInstance();
-        }
-    }
+    } 
     return g_guiInstance;
 }
 
