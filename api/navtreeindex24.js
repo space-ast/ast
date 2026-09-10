@@ -1,6 +1,5 @@
 var NAVTREEINDEX24 =
 {
-"classast_1_1Command.html":[2,0,0,171],
 "classast_1_1Command.html":[3,0,0,170],
 "classast_1_1Command.html#a574b28e0e23c97379feba85e2f89c92c":[2,0,0,171,1],
 "classast_1_1Command.html#a574b28e0e23c97379feba85e2f89c92c":[3,0,0,170,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX24 =
 "classast_1_1DataFrame.html#aeb23e9524c6ba6b07f38a281da85ff7d":[0,16,4,1],
 "classast_1_1DataFrame.html#afdc0e37d79effc9e18d973ea25fb7019":[0,16,4,10],
 "classast_1_1DataGroup.html":[2,0,0,211],
-"classast_1_1DataGroup.html":[3,0,0,210]
+"classast_1_1DataGroup.html":[3,0,0,210],
+"classast_1_1DataGroup.html#aebddefef53fcf06422468c10f164bb06":[2,0,0,211,0]
 };

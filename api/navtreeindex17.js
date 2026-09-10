@@ -1,6 +1,5 @@
 var NAVTREEINDEX17 =
 {
-"UiBurnImpulsive_8cpp.html":[4,0,0,10,10,2],
 "UiBurnImpulsive_8hpp.html":[4,0,0,10,10,3],
 "UiBurnImpulsive_8hpp_source.html":[4,0,0,10,10,3],
 "UiCelestialBody_8cpp.html":[4,0,0,10,11,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX17 =
 "UiWidget_8hpp.html":[4,0,0,10,5,30],
 "UiWidget_8hpp_source.html":[4,0,0,10,5,30],
 "UiWorkbenchExprPicker_8cpp.html":[4,0,0,10,0,12],
-"UiWorkbenchExprPicker_8hpp.html":[4,0,0,10,0,13]
+"UiWorkbenchExprPicker_8hpp.html":[4,0,0,10,0,13],
+"UiWorkbenchExprPicker_8hpp_source.html":[4,0,0,10,0,13]
 };

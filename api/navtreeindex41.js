@@ -1,6 +1,5 @@
 var NAVTREEINDEX41 =
 {
-"classast_1_1RepeatingSunSyncOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[0,1,4,5,0],
 "classast_1_1ReportElement.html":[0,16,7],
 "classast_1_1ReportElement.html#a00df29adb14e659dc5727713f8a659d1":[0,16,7,9],
 "classast_1_1ReportElement.html#a031fbaa431e6e2e11bd06d4d7b48d3b0":[0,16,7,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX41 =
 "classast_1_1ScStateCalcAzimuth.html":[2,0,0,690],
 "classast_1_1ScStateCalcAzimuth.html":[3,0,0,689],
 "classast_1_1ScStateCalcAzimuthRate.html":[2,0,0,691],
-"classast_1_1ScStateCalcAzimuthRate.html":[3,0,0,690]
+"classast_1_1ScStateCalcAzimuthRate.html":[3,0,0,690],
+"classast_1_1ScStateCalcBDotRCalc.html":[2,0,0,692]
 };

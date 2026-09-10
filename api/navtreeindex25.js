@@ -1,6 +1,5 @@
 var NAVTREEINDEX25 =
 {
-"classast_1_1DataGroup.html#aebddefef53fcf06422468c10f164bb06":[2,0,0,211,0],
 "classast_1_1DataGroup.html#aebddefef53fcf06422468c10f164bb06":[3,0,0,210,0],
 "classast_1_1DataGroupAnglePrv.html":[2,0,0,212],
 "classast_1_1DataGroupAnglePrv.html":[3,0,0,211],
@@ -249,5 +248,6 @@ var NAVTREEINDEX25 =
 "classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[2,0,0,263,0],
 "classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[3,0,0,262,0],
 "classast_1_1DetectorTrueAnomaly.html":[2,0,0,264],
-"classast_1_1DetectorTrueAnomaly.html":[3,0,0,263]
+"classast_1_1DetectorTrueAnomaly.html":[3,0,0,263],
+"classast_1_1DetectorTrueAnomaly.html#aba977785887a1f6c8111781fc5c84da9":[2,0,0,264,0]
 };

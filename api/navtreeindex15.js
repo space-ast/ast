@@ -1,6 +1,5 @@
 var NAVTREEINDEX15 =
 {
-"SolarSystem_8hpp.html":[4,0,0,6,14,9],
 "SolarSystem_8hpp_source.html":[4,0,0,6,14,9],
 "SolverStats_8h.html":[4,0,0,12,4,2],
 "SolverStats_8h_source.html":[4,0,0,12,4,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX15 =
 "SubSolarPoint_8hpp_source.html":[4,0,0,2,0,21],
 "Submarine_8cpp.html":[4,0,0,19,3,64],
 "Submarine_8hpp.html":[4,0,0,19,3,65],
-"Submarine_8hpp_source.html":[4,0,0,19,3,65]
+"Submarine_8hpp_source.html":[4,0,0,19,3,65],
+"SunPosition_8cpp.html":[4,0,0,6,14,12]
 };

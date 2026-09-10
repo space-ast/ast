@@ -3199,7 +3199,6 @@ var namespaceast =
     [ "strnicmp", "namespaceast.html#ab44707fb5f9cdfc8eaa97a54c0f65fdc", null ],
     [ "tand", "group__Util.html#gab01c93ce1b8246baa2288ed6ec0efd60", null ],
     [ "textdomain", "namespaceast.html#ab7579853017ccd2f8866a22afe168c05", null ],
-    [ "tr", "namespaceast.html#a6bae6d23ca6463a9fa6039beda431c86", null ],
     [ "unit_divide", "namespaceast.html#a2f0d879f2d9c8c5da7e194f54592545b", null ],
     [ "unit_multiply", "namespaceast.html#aa5ff8b62295a7e770ee4a6f4d8763f2b", null ],
     [ "unit_power", "namespaceast.html#a49d13854b5b3a8bf42c2b26669f74e9a", null ],

@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"Literals_8hpp.html#a48a759ae8040c3004f34ef1dbaa20065":[4,0,0,27,11,8,58],
 "Literals_8hpp.html#a492bb747d024b7c71bcba2743a0558e7":[4,0,0,27,11,8,10],
 "Literals_8hpp.html#a4bec86cbed7aa4a962a0cbd65676090a":[4,0,0,27,11,8,43],
 "Literals_8hpp.html#a516173607c5e3da6961247e3d60f6fb4":[4,0,0,27,11,8,15],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "MolniyaOrbitDesigner_8hpp.html":[4,0,0,6,11,4,9],
 "MolniyaOrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,9],
 "MoonFrame_8cpp.html":[4,0,0,6,6,2,8],
-"MoonFrame_8hpp.html":[4,0,0,6,6,2,9]
+"MoonFrame_8hpp.html":[4,0,0,6,6,2,9],
+"MoonFrame_8hpp_source.html":[4,0,0,6,6,2,9]
 };
