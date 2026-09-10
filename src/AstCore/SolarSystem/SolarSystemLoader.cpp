@@ -55,7 +55,14 @@ errc_t SolarSystem::load(StringView dirpath)
             }
         }
         return rc;
-    }else{
+    }
+    else if(status.type() == fs::file_type::not_found)
+    {
+        aError(_("文件或目录不存在：%s"), path.string().c_str());
+        return eErrorNotFound;
+    }
+    else
+    {
         aError(_("无效的文件类型：%s"), path.string().c_str());
         return eErrorInvalidFile;
     }
