@@ -145,7 +145,7 @@ rule("ast.qt.ts")
         import("core.base.semver")
 
         -- get source file
-        local lupdate_argv = {"-no-obsolete", "-tr-function-alias", "qtTrId+=_,QT_TR_NOOP+=N_,QT_TRANSLATE_NOOP+=NC_"}
+        local lupdate_argv = {"-no-obsolete", "-tr-function-alias", "qtTrId+=_,QT_TRID_NOOP+=N_,QT_TRANSLATE_NOOP+=NC_,AST_TRANSLATE_NOOP,QT_TR_NOOP+=AST_TR_NOOP"}
         local sourcefile_ts
         local source_files = {}
         for _, sourcebatch in pairs(target:sourcebatches()) do

@@ -225,7 +225,6 @@ errc_t SpiceAPI::unload()
     return eNoError;
 }
 
-// @todo 这里使用 N_ 标记可能不起作用
 const char* kSpiceUnloadError = N_("SPICE 库未加载，请先调用 `SpiceAPI::load`");
 
 errc_t SpiceAPI::furnsh(const char* file)
