@@ -3,6 +3,7 @@ package("matplotplusplus")
     if os.exists(path.join(mpp_dir, "xmake.lua")) then
         set_sourcedir(mpp_dir)
     else
+        add_urls("https://gitcode.com/space-ast/matplotplusplus.git")
         add_urls("https://github.com/space-ast/matplotplusplus.git")
     end
     add_configs("shared", {description = "Build shared library.", default = true, type = "boolean", readonly = true})
