@@ -14,6 +14,7 @@ package("cspice")
     if os.exists(path.join(cspice_dir, "xmake.lua")) then
         set_sourcedir(cspice_dir)
     else
+        add_urls("https://gitcode.com/space-ast/cspice.git")
         add_urls("https://github.com/space-ast/cspice.git")
         add_versions("v1.0", cspice_branch)
     end

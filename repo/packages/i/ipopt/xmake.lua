@@ -7,6 +7,7 @@ package("ipopt")
     if os.exists(path.join(ipopt_dir, "xmake.lua")) then
         set_sourcedir(ipopt_dir)
     else
+        add_urls("https://gitcode.com/space-ast/Ipopt.git")
         add_urls("https://github.com/space-ast/Ipopt.git")
         add_versions("v3.14", "stable/3.14")
     end
