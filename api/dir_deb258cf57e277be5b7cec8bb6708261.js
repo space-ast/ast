@@ -10,6 +10,8 @@ var dir_deb258cf57e277be5b7cec8bb6708261 =
     [ "J2J4Analytical.hpp", "J2J4Analytical_8hpp_source.html", null ],
     [ "J4Analytical.cpp", "J4Analytical_8cpp.html", "J4Analytical_8cpp" ],
     [ "J4Analytical.hpp", "J4Analytical_8hpp.html", "J4Analytical_8hpp" ],
+    [ "PatchedConic.cpp", "PatchedConic_8cpp.html", "PatchedConic_8cpp" ],
+    [ "PatchedConic.hpp", "PatchedConic_8hpp.html", "PatchedConic_8hpp" ],
     [ "Propagator.cpp", "Propagator_8cpp.html", null ],
     [ "Propagator.hpp", "Propagator_8hpp.html", "Propagator_8hpp" ],
     [ "TwoBody.cpp", "TwoBody_8cpp.html", "TwoBody_8cpp" ],

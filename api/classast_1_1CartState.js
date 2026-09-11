@@ -1,5 +1,6 @@
 var classast_1_1CartState =
 [
+    [ "isFinite", "classast_1_1CartState.html#a01e47d7e551261e0413551b625371b53", null ],
     [ "pos", "classast_1_1CartState.html#a9d4e1b44868926a5bbaba631d580d113", null ],
     [ "toString", "classast_1_1CartState.html#ae20efc3b1b6040350ac27807c43fb197", null ],
     [ "vel", "classast_1_1CartState.html#ac9374809c47a9d1f7f1851afff08de0d", null ],

@@ -75,6 +75,7 @@ var Constants_8hpp =
     [ "kMoonAngVel", "Constants_8hpp.html#ga5b7e3b57b7e9d1bc273bbff0220958fd", null ],
     [ "kMoonGrav", "Constants_8hpp.html#ga41255ef38b8253b08c439397df25521f", null ],
     [ "kMoonMinRadius", "Constants_8hpp.html#ga95649339e9189af003a3650b626b5b8b", null ],
+    [ "kMoonOrbitSemiMajorAxis", "Constants_8hpp.html#ga313599c73c3787039f5d833ab2d7c6f6", null ],
     [ "kMoonRadius", "Constants_8hpp.html#ga016e687eb62765be89f004155e8081cd", null ],
     [ "kNaN", "Constants_8hpp.html#gaed34bed5c7139f4583bc16472be4370c", null ],
     [ "kNanometerToMeter", "Constants_8hpp.html#ga37d25ee6a92d42a00d68f16219fc1203", null ],
