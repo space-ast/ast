@@ -18,7 +18,8 @@ package("qt-advanced-docking")
 
     on_install(function (package)
         package:addenv("PATH", "bin")
-        if os.exists(path.join(package:sourcedir(), "xmake.lua")) then
+        local srcdir = package:sourcedir() or os.curdir()
+        if os.exists(path.join(srcdir, "xmake.lua")) then
             local configs = {}
             configs.mode = package:is_debug() and "debug" or "release"
             import("package.tools.xmake").install(package, configs)
