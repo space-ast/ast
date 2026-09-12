@@ -79,12 +79,21 @@ FileDownloadReceiver::~FileDownloadReceiver()
 
 errc_t FileDownloadReceiver::onHeaders(int statusCode, const std::map<std::string, std::string>& headers)
 {
-    auto it = headers.find("Content-Length");
-    if (it != headers.end())
-        total_ = static_cast<uint64_t>(std::strtoull(it->second.c_str(), nullptr, 10));
+    // 头部名称大小写不敏感：HTTP/2 响应中的头部名称均为小写（content-length）
+    for (const auto& header : headers)
+    {
+        if (posix::strcasecmp(header.first.c_str(), "Content-Length") == 0)
+        {
+            total_ = static_cast<uint64_t>(std::strtoull(header.second.c_str(), nullptr, 10));
+            break;
+        }
+    }
     // 基于响应头拒绝：非 200 立即中止，不读取响应体
     if (statusCode != 200)
+    {
+        aError(_("服务器返回状态码 %d，无法下载"), statusCode);
         return (eErrorInvalidFile);
+    }
     // 写入临时文件，成功后再改名到目标路径，避免失败下载破坏已存在的目标文件
     fp_ = posix::fopen(tempPath_.c_str(), "wb");
     if (fp_ == nullptr)
