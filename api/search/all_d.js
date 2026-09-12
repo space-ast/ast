@@ -302,8 +302,7 @@ var searchData=
   ['mtoloader_2ecpp_299',['MTOLoader.cpp',['../MTOLoader_8cpp.html',1,'']]],
   ['mtoloader_2ehpp_300',['MTOLoader.hpp',['../MTOLoader_8hpp.html',1,'']]],
   ['multiply_301',['multiply',['../classast_1_1Unit.html#a0f7366299cdf6a6875300179457b57ee',1,'ast::Unit']]],
-  ['multitype_302',['Multitype',['../unionMultitype.html',1,'']]],
-  ['mutex_5f_303',['mutex_',['../classast_1_1JplDe.html#a74fb293e5fdd83c88e3ecfbe11f82503',1,'ast::JplDe::mutex_'],['../classast_1_1SpiceAPI.html#a473b494575fc4bbdc8a5d124a954807c',1,'ast::SpiceAPI::mutex_']]],
-  ['mxm_304',['mxm',['../group__Spice.html#ga186312adcab3a6cc586e7affaa431d69',1,'ast']]],
-  ['mxvg_305',['mxvg',['../group__Spice.html#gad90e6b55870d2a694400ebc5c8c6548f',1,'ast']]]
+  ['mutex_5f_302',['mutex_',['../classast_1_1JplDe.html#a74fb293e5fdd83c88e3ecfbe11f82503',1,'ast::JplDe::mutex_'],['../classast_1_1SpiceAPI.html#a473b494575fc4bbdc8a5d124a954807c',1,'ast::SpiceAPI::mutex_']]],
+  ['mxm_303',['mxm',['../group__Spice.html#ga186312adcab3a6cc586e7affaa431d69',1,'ast']]],
+  ['mxvg_304',['mxvg',['../group__Spice.html#gad90e6b55870d2a694400ebc5c8c6548f',1,'ast']]]
 ];

@@ -486,8 +486,8 @@ $(function(){initNavTree('AstMath_2Array_2MathOperator_8hpp_source.html',''); in
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div>
 <div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    <span class="keyword">static</span> <span class="keyword">auto</span> test(<span class="keywordtype">int</span>) -&gt; <span class="keyword">decltype</span>(</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        std::declval&lt;U&gt;()[0],       <span class="comment">// 有 operator[]</span></div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>        size(std::declval&lt;U&gt;()),    <span class="comment">// 有 size() 函数</span></div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        <span class="keyword">sizeof</span>(std::declval&lt;U&gt;()[0]),   <span class="comment">// 有 operator[]，用 sizeof 取用返回值避免报 unused-result</span></div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>        size(std::declval&lt;U&gt;()),        <span class="comment">// 有 size() 函数</span></div>
 <div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>        std::true_type{}</div>
 <div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    );</div>
 <div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    </div>

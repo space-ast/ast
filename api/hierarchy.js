@@ -3,7 +3,6 @@ var hierarchy =
     [ "a_structtype", "structa__structtype.html", null ],
     [ "ast::AEP8Data", "classast_1_1AEP8Data.html", null ],
     [ "ast::AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
-    [ "alist", "structalist.html", null ],
     [ "allocator_type", null, [
       [ "ast::CorVector< T >::CorVectorAllocator", "structast_1_1CorVector_1_1CorVectorAllocator.html", null ]
     ] ],
@@ -141,10 +140,8 @@ var hierarchy =
       [ "ast::ChatToolGeneric< Func >", "classast_1_1ChatToolGeneric.html", null ]
     ] ],
     [ "ast::ChatTools", "classast_1_1ChatTools.html", null ],
-    [ "cilist", "structcilist.html", null ],
     [ "ast::ClassRegistry", "classast_1_1ClassRegistry.html", null ],
     [ "AstCOMLib::CLinkToObject", "classAstCOMLib_1_1CLinkToObject.html", null ],
-    [ "cllist", "structcllist.html", null ],
     [ "ast::CloseApproachAnalyzer", "classast_1_1CloseApproachAnalyzer.html", null ],
     [ "ast::CloseApproachContext", "structast_1_1CloseApproachContext.html", null ],
     [ "ast::CloseApproachFilter", "classast_1_1CloseApproachFilter.html", [
@@ -171,7 +168,6 @@ var hierarchy =
     [ "ast::CommandTrie", "classast_1_1CommandTrie.html", null ],
     [ "ast::CommandTrieNodeWrap< Tag, N >", "classast_1_1CommandTrieNodeWrap.html", null ],
     [ "ast::ComObjectManager", "classast_1_1ComObjectManager.html", null ],
-    [ "complex", "structcomplex.html", null ],
     [ "ast::CompressorInterface", "classast_1_1CompressorInterface.html", [
       [ "ast::CompressorImplRaw", "classast_1_1CompressorImplRaw.html", null ],
       [ "ast::CompressorImplSystem", "classast_1_1CompressorImplSystem.html", null ],
@@ -274,7 +270,6 @@ var hierarchy =
     [ "ast::fs_simple::directory_entry", "classast_1_1fs__simple_1_1directory__entry.html", null ],
     [ "ast::fs_simple::directory_iterator", "classast_1_1fs__simple_1_1directory__iterator.html", null ],
     [ "dmixrecord", "structdmixrecord.html", null ],
-    [ "doublecomplex", "structdoublecomplex.html", null ],
     [ "ast::DoubleRange", "classast_1_1DoubleRange.html", null ],
     [ "DTM_12type", "structDTM__12type.html", null ],
     [ "dtm_daterectype", "structdtm__daterectype.html", null ],
@@ -421,7 +416,6 @@ var hierarchy =
     [ "hlocaltype", "structhlocaltype.html", null ],
     [ "ast::IAUXYS", "classast_1_1IAUXYS.html", null ],
     [ "ast::IAUXYSPrecomputed", "classast_1_1IAUXYSPrecomputed.html", null ],
-    [ "icilist", "structicilist.html", null ],
     [ "ast::Identifier", "classast_1_1Identifier.html", null ],
     [ "ast::IdentifierTable", "classast_1_1IdentifierTable.html", null ],
     [ "IDispatch", null, [
@@ -483,7 +477,6 @@ var hierarchy =
     [ "ast::ImplFor< I, T >", "classast_1_1ImplFor.html", null ],
     [ "ast::InitalizeConfig", "structast_1_1InitalizeConfig.html", null ],
     [ "ast::initial_strong_ref_t", "structast_1_1initial__strong__ref__t.html", null ],
-    [ "inlist", "structinlist.html", null ],
     [ "ast::INLPProblem", "classast_1_1INLPProblem.html", null ],
     [ "ast::INLPSolver", "classast_1_1INLPSolver.html", [
       [ "ast::CNLEMinpackSolver", "classast_1_1CNLEMinpackSolver.html", null ],
@@ -619,8 +612,6 @@ var hierarchy =
     [ "ast::MotionProfileVisitor", "classast_1_1MotionProfileVisitor.html", null ],
     [ "ast::MSISBase::MSISParam", "structast_1_1MSISBase_1_1MSISParam.html", null ],
     [ "msisrecord", "structmsisrecord.html", null ],
-    [ "Multitype", "unionMultitype.html", null ],
-    [ "Namelist", "structNamelist.html", null ],
     [ "ast::NameValuePair< T >", "classast_1_1NameValuePair.html", null ],
     [ "ast::NetworkInterface", "classast_1_1NetworkInterface.html", [
       [ "ast::NetworkImplCurlCmd", "classast_1_1NetworkImplCurlCmd.html", null ],
@@ -680,7 +671,6 @@ var hierarchy =
     [ "ast::ODEWorkspace", "classast_1_1ODEWorkspace.html", [
       [ "ast::ODEFixedStepIntegrator::Workspace", "classast_1_1ODEFixedStepIntegrator_1_1Workspace.html", null ]
     ] ],
-    [ "olist", "structolist.html", null ],
     [ "ast::OpBinRegistry::OpBinKeyHash", "structast_1_1OpBinRegistry_1_1OpBinKeyHash.html", null ],
     [ "ast::OpBinRegistry", "classast_1_1OpBinRegistry.html", null ],
     [ "ast::OpUnaryRegister::OpUnaryKeyHash", "structast_1_1OpUnaryRegister_1_1OpUnaryKeyHash.html", null ],
@@ -1620,7 +1610,6 @@ var hierarchy =
     [ "ast::propagate_nan::use_efficient_minus< T >", "structast_1_1propagate__nan_1_1use__efficient__minus.html", null ],
     [ "ast::UTCScale", "classast_1_1UTCScale.html", null ],
     [ "ast::ValueView", "classast_1_1ValueView.html", null ],
-    [ "Vardesc", "structVardesc.html", null ],
     [ "ast::VariableList", "classast_1_1VariableList.html", null ],
     [ "ast::VariantVector", "classast_1_1VariantVector.html", null ],
     [ "ast::GravityFieldSecularVariations::Variation", "structast_1_1GravityFieldSecularVariations_1_1Variation.html", null ],

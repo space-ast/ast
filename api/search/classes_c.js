@@ -63,6 +63,5 @@ var searchData=
   ['msise90_60',['MSISE90',['../classast_1_1MSISE90.html',1,'ast']]],
   ['msisparam_61',['MSISParam',['../structast_1_1MSISBase_1_1MSISParam.html',1,'ast::MSISBase']]],
   ['msisrecord_62',['msisrecord',['../structmsisrecord.html',1,'']]],
-  ['mto_63',['MTO',['../classast_1_1MTO.html',1,'ast']]],
-  ['multitype_64',['Multitype',['../unionMultitype.html',1,'']]]
+  ['mto_63',['MTO',['../classast_1_1MTO.html',1,'ast']]]
 ];

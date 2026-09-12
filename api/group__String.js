@@ -1,8 +1,6 @@
 var group__String =
 [
     [ "ast::StringViewBasic< _Char >", "classast_1_1StringViewBasic.html", null ],
-    [ "ast::aAnsiToUtf8", "group__String.html#ga0feedc4943291a26c649f9f6e804db59", null ],
-    [ "ast::aAnsiToWide", "group__String.html#gaf2fc97e4c61a4d07cf3301c4487027b2", null ],
     [ "ast::aAsciiStrToLower", "group__String.html#ga681ef188a882f2e8fdf9b8c8e50ec43f", null ],
     [ "ast::aAsciiStrToUpper", "group__String.html#ga4b6cb9cc23c061e592fe4a40ff42d890", null ],
     [ "ast::aCRTIsUTF8", "group__String.html#ga3f19f6dfcf855f14a41c5aadac0d53ac", null ],
@@ -15,7 +13,6 @@ var group__String =
     [ "ast::aStrSplit", "group__String.html#ga81a7b348c2d38df07a01f644e30cb7a2", null ],
     [ "ast::aUTF8ToCRT", "group__String.html#gae615837fdd5d1428ce0e44c75eac5dd8", null ],
     [ "ast::aUtf8ToWide", "group__String.html#ga1d8d99844ba8cd0d871d5d0079c4732b", null ],
-    [ "ast::aWideToAnsi", "group__String.html#ga40d79277119322d1fb84debba51a5767", null ],
     [ "ast::aWideToCRT", "group__String.html#gade923a9e656922dfc6d2057be1848fee", null ],
     [ "ast::aWideToUtf8", "group__String.html#ga0ce21ee7c26f4dad9deb2e598f10e84c", null ],
     [ "ast::MaxSplits", "group__String.html#ga23b571e554986d779a8a24063270b42b", null ]

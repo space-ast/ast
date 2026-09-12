@@ -190,10 +190,10 @@ $(function(){initNavTree('SpiceAPI_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    errc_t checkerror();</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    A_DISABLE_COPY(SpiceAPI);</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classast_1_1SpiceAPI.html#a6f6daee941e0451c57c655137a4ac93e">  165</a></span>    <span class="keywordtype">void</span>*  library_{<span class="keyword">nullptr</span>};           </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="classast_1_1SpiceAPI.html#a17d689a4173399c74cc862c5f473916a">  166</a></span>    std::vector&lt;uint32_t&gt; <a class="code hl_variable" href="classast_1_1SpiceAPI.html#a17d689a4173399c74cc862c5f473916a">spk_handles_</a>; </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classast_1_1SpiceAPI.html#a29e3098813bd3f086e1e5498d19fd854">  167</a></span>    funcarray functions_{};             </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="classast_1_1SpiceAPI.html#a473b494575fc4bbdc8a5d124a954807c">  168</a></span>    std::mutex <a class="code hl_variable" href="classast_1_1SpiceAPI.html#a473b494575fc4bbdc8a5d124a954807c">mutex_</a>;                  </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classast_1_1SpiceAPI.html#a6f6daee941e0451c57c655137a4ac93e">  165</a></span>    <span class="keywordtype">void</span>*  library_{<span class="keyword">nullptr</span>};               </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="classast_1_1SpiceAPI.html#a17d689a4173399c74cc862c5f473916a">  166</a></span>    std::vector&lt;uint32_t&gt; spk_handles_{};   </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classast_1_1SpiceAPI.html#a29e3098813bd3f086e1e5498d19fd854">  167</a></span>    funcarray functions_{};                 </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="classast_1_1SpiceAPI.html#a473b494575fc4bbdc8a5d124a954807c">  168</a></span>    std::mutex mutex_{};                    </div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>};</div>
 </div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
@@ -202,8 +202,6 @@ $(function(){initNavTree('SpiceAPI_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1SpiceAPI_html"><div class="ttname"><a href="classast_1_1SpiceAPI.html">ast::SpiceAPI</a></div><div class="ttdoc">Spice API</div><div class="ttdef"><b>定义</b> SpiceAPI.hpp:45</div></div>
 <div class="ttc" id="aclassast_1_1SpiceAPI_html_a01e2f277bc757e4a1a3c2c9ea3ad9703"><div class="ttname"><a href="classast_1_1SpiceAPI.html#a01e2f277bc757e4a1a3c2c9ea3ad9703">ast::SpiceAPI::SpiceAPI</a></div><div class="ttdeci">SpiceAPI()=default</div><div class="ttdoc">默认构造函数</div></div>
-<div class="ttc" id="aclassast_1_1SpiceAPI_html_a17d689a4173399c74cc862c5f473916a"><div class="ttname"><a href="classast_1_1SpiceAPI.html#a17d689a4173399c74cc862c5f473916a">ast::SpiceAPI::spk_handles_</a></div><div class="ttdeci">std::vector&lt; uint32_t &gt; spk_handles_</div><div class="ttdoc">已加载的SPK内核句柄列表</div><div class="ttdef"><b>定义</b> SpiceAPI.hpp:166</div></div>
-<div class="ttc" id="aclassast_1_1SpiceAPI_html_a473b494575fc4bbdc8a5d124a954807c"><div class="ttname"><a href="classast_1_1SpiceAPI.html#a473b494575fc4bbdc8a5d124a954807c">ast::SpiceAPI::mutex_</a></div><div class="ttdeci">std::mutex mutex_</div><div class="ttdoc">互斥锁(CSPICE库的函数不是线程安全的，这里用于保护函数调用的线程安全问题)</div><div class="ttdef"><b>定义</b> SpiceAPI.hpp:168</div></div>
 <div class="ttc" id="aclassast_1_1SpiceAPI_html_aa07c808d950e6e4438bea95bc6c63cbb"><div class="ttname"><a href="classast_1_1SpiceAPI.html#aa07c808d950e6e4438bea95bc6c63cbb">ast::SpiceAPI::isLoaded</a></div><div class="ttdeci">bool isLoaded() const</div><div class="ttdoc">检查是否加载了库</div><div class="ttdef"><b>定义</b> SpiceAPI.hpp:92</div></div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
