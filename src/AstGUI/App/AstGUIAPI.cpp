@@ -46,7 +46,7 @@ static bool s_initAppAttributes = aInitAppAttributes();
 errc_t aGUIInit()
 {
     errc_t rc = 0;
-    if(!qApp)
+    if(QCoreApplication::instance() == nullptr)
     {
         int argc = 0;
         char *argv[] = { nullptr };
@@ -58,8 +58,21 @@ errc_t aGUIInit()
 
 errc_t aQAppInit(int argc, char *argv[])
 {
-    if (aCanDisplayGUI()) {
+    bool canDisplayGUI = aCanDisplayGUI();
+    if (canDisplayGUI) 
+    {
+        aDebug(_("检测到GUI环境"));
         QApplication* app = new QApplication(argc, argv);
+        (void)app;
+    }else{
+        aDebug(_("未检测到GUI环境"));
+        QCoreApplication* app = new QCoreApplication(argc, argv);
+        (void)app;
+    }
+    static bool initialized = false;
+    if (!initialized)
+    {
+        initialized = true;
         {
             // 加载自带的中文字体（桌面平台作为备选，WASM 平台必需）
             #ifdef A_WASM
@@ -78,39 +91,36 @@ errc_t aQAppInit(int argc, char *argv[])
             }
             else
             {
-                qDebug() << "加载字体文件失败:" << fontPath;
+                aDebug(_("加载字体文件失败: '%s'"), fontPath.toStdString().c_str());
             }
         }
-        (void)app;
-    }else{
-        QCoreApplication* app = new QCoreApplication(argc, argv);
-        (void)app;
-    }
-    // 加载翻译文件
-    {
-        auto translator = new QTranslator(qApp);
-        QString qmPath = QCoreApplication::applicationDirPath() + "/Ast_zh.qm";
-        if (!translator->load(qmPath)) {
-            qmPath = QString::fromStdString(aDataDir()) + "/Ast_zh.qm";
-            bool loaded =translator->load(qmPath);
-            if (!loaded)
-            {
-                qDebug() << "加载翻译文件失败:" << qmPath;
-            }
-        }
-        qApp->installTranslator(translator);
-    }
-    // 加载默认主题样式
-    {
-        QString qssPath = QCoreApplication::applicationDirPath() + "/data/style/default.qss";
-        QFile file(qssPath);
-        if (file.open(QFile::ReadOnly | QFile::Text))
+        // 加载默认主题样式
+        if(canDisplayGUI)
         {
-            qApp->setStyleSheet(QString::fromUtf8(file.readAll()));
-            file.close();
+            QString qssPath = QCoreApplication::applicationDirPath() + "/data/style/default.qss";
+            QFile file(qssPath);
+            if (file.open(QFile::ReadOnly | QFile::Text))
+            {
+                qApp->setStyleSheet(QString::fromUtf8(file.readAll()));
+                file.close();
+            }
+        }
+        // 加载翻译文件
+        {
+            auto translator = new QTranslator(QCoreApplication::instance());
+            QString qmPath = QCoreApplication::applicationDirPath() + "/Ast_zh.qm";
+            if (!translator->load(qmPath)) {
+                qmPath = QString::fromStdString(aDataDir()) + "/Ast_zh.qm";
+                bool loaded = translator->load(qmPath);
+                if (!loaded)
+                {
+                    aDebug(_("加载翻译文件失败: '%s'"), qmPath.toStdString().c_str());
+                }
+            }
+            QCoreApplication::installTranslator(translator);
         }
     }
-    aDebug("GUI环境初始化完成");
+    aDebug(_("UI环境初始化完成"));
     return 0;
 }
 
