@@ -77,6 +77,14 @@ AST_UTIL_API
 int vprintf(const char* format, va_list args);
 
 /// @brief 格式化输出
+/// @param stream 文件指针
+/// @param format 格式化字符串，utf-8编码
+/// @param args 可变参数列表
+/// @return 输出字符数
+AST_UTIL_API
+int vfprintf(FILE* stream, const char* format, va_list args);
+
+/// @brief 格式化输出
 /// @param format 格式化字符串，utf-8编码
 /// @param ... 可变参数
 /// @return 输出字符数
@@ -113,6 +121,7 @@ int fwprintf(FILE* stream, const wchar_t* format, ...);
 using std::fopen;
 using std::freopen;
 using std::vprintf;
+using std::vfprintf;
 using std::printf;
 using std::fprintf;
 using std::wprintf;

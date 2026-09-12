@@ -64,6 +64,9 @@
 %ignore ast::aLogMessageV;
 %ignore ast::ast_vprintf;
 %ignore ast::posix::vprintf;
+%ignore ast::posix::vfprintf;
+%ignore ast::cvprintf;
+%ignore ast::cvfprintf;
 
 %include "AstAllHeaders.i"
 

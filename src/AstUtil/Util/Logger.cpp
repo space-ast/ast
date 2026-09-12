@@ -19,6 +19,7 @@
  
 #include "Logger.hpp"
 #include "AstUtil/IO.hpp"
+#include "AstUtil/Posix.hpp"
 #include "AstUtil/ColoredPrint.hpp"   // for cprintf / EColor
 #include <stdarg.h>
 
@@ -67,17 +68,17 @@ void aLogMessageV(ELogLevel level, const MessageLogContext& context, const char*
 	const char* func = context.function_ ? context.function_ : aText("<未知函数>");
 
 	// 仅着色等级标签,来源与消息用默认色
-	cprintf(aLevelColor(level), "\n[%s] ", aLevelTag(level));
+	cfprintf(aLevelColor(level), stderr, "\n[%s] ", aLevelTag(level));
 	if (format)
 	{
-		int count = ast_vprintf(format, ap);
+		int count = posix::vfprintf(stderr, format, ap);
 		// 消息内容超过70个字符时换行
 		if(count >= 70)
-			ast_printf("\n");
+			posix::fprintf(stderr, "\n");
 		else
-			ast_printf(" ");
+			posix::fprintf(stderr, " ");
 	}
-	ast_printf("(%s:%d)[%s]\n", file, context.line_, func);
+	posix::fprintf(stderr, "(%s:%d)[%s]\n", file, context.line_, func);
 }
 
 void aLogMessage(ELogLevel level, const MessageLogContext& context, const char* format, ...)
