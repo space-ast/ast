@@ -34,7 +34,7 @@ errc_t aLoadShooterControl(const Value& value, ShooterControl& control)
     std::string type = value["Type"];
     if(type != "ShooterControl")
     {
-        aError("unsupported type: '%s', expected 'ShooterControl'", type.c_str());
+        aError(_("不支持的类型：'%s'，应为 'ShooterControl'"), type.c_str());
         return -1;
     }
 
@@ -51,18 +51,18 @@ errc_t aLoadShooterControl(const Value& value, ShooterControl& control)
         Sequence* sequence = aGetAncestorScope<Sequence*>(&control);
         if(!sequence)
         {
-            aError("failed to get sequence for control '%s'", controlName.c_str());
+            aError(_("无法获取控制变量 '%s' 的任务序列"), controlName.c_str());
             return eErrorNullPtr;
         }
         auto command = sequence->getCommandByPath(parentSegmentName);
         if(!command)
         {
-            aError("failed to get command '%s' for control '%s'", parentSegmentName.c_str(), controlName.c_str());
+            aError(_("无法获取控制变量 '%s' 的任务命令 '%s'"), parentSegmentName.c_str(), controlName.c_str());
             return eErrorNullPtr;
         }
         Attribute attr = aResolveAttribute(command, controlName);
         if(!attr.isValid())
-            aWarning("failed to resolve attribute '%s' for control '%s'", controlName.c_str(), parentSegmentName.c_str());
+            aWarning(_("无法根据属性路径 '%s' 解析控制变量 '%s'"), controlName.c_str(), parentSegmentName.c_str());
         Expr* expr = new ExprAttribute(attr);
         expr->setParentScope(&control);
         control.setExpr(expr);

@@ -78,7 +78,7 @@ static std::string unit_name_from_subunits(const SubUnitListConst& subUnits)
             // 只有缩放量为1的无量纲单位才允许为空
             if(unitpair.first->dimension_ != EDimension::eUnit || unitpair.first->scale() != 1.0)
             {
-                aError("unexpected unit in unit_name_from_subunits: dimension=%d, scale=%lf", (int)unitpair.first->dimension_.value(), unitpair.first->scale());
+                aError(_("只有缩放量为1的无量纲单位才允许为空: dimension=%d, scale=%lf"), (int)unitpair.first->dimension_.value(), unitpair.first->scale());
             }
         }
     }
@@ -254,7 +254,7 @@ Unit unit_multiply(const Unit& unit1, const Unit& unit2)
     double scale = unit_reduce(retval);
     if(fabs(scale - retval.getScale()) > 1e-15 * fabs(scale))
     {
-        aError("unexpected condition, scale(%lf) != retval.getScale()(%lf)", scale, retval.getScale());
+        aError(_("意外情况：scale(%lf) != retval.getScale()(%lf)"), scale, retval.getScale());
         assert(scale == retval.getScale());
     }
     return retval;
@@ -287,7 +287,7 @@ Unit unit_divide(const Unit& unit1, const Unit& unit2)
     double scale = unit_reduce(retval);
     if (fabs(scale - retval.getScale()) > 1e-15 * fabs(scale))
     {
-        aError("unexpected condition, scale(%lf) != retval.getScale()(%lf)", scale, retval.getScale());
+        aError(_("意外情况：scale(%lf) != retval.getScale()(%lf)"), scale, retval.getScale());
         assert(scale == retval.getScale());
     }
     return retval;
@@ -315,7 +315,7 @@ Unit unit_power(const Unit& unit, int exponent)
     double scale = unit_scale_from_subunits(subunits);
     if (fabs(scale - retval.getScale()) > 1e-15 * fabs(scale))
     {
-        aError("unexpected condition, scale(%lf) != retval.getScale()(%lf)", scale, retval.getScale());
+        aError(_("意外情况：scale(%lf) != retval.getScale()(%lf)"), scale, retval.getScale());
         assert(scale == retval.getScale());
     }
     return retval;
@@ -397,7 +397,7 @@ void aUnitFactorize(const Unit &unit, Unit &newUnit, double &scale)
         scale = 1.0;
     if(newUnit.rep_->kind() != EUnitKind::eScale)
     {
-        aError("unexpected unit kind: %d", newUnit.rep_->kind());
+        aError(_("意外的单位类型: %d"), newUnit.rep_->kind());
     }
     else
     {
@@ -436,7 +436,7 @@ Unit::Unit(StringView name)
     errc_t err = aUnitParse(name, *this);
     if(err != 0)
     {
-        aError("failed to parse unit: %.*s", name.size(), name.data());
+        aError(_("解析单位失败: %.*s"), name.size(), name.data());
     }
 }
 

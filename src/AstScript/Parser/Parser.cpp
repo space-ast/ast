@@ -707,7 +707,7 @@ Expr* Parser::parseIfStatement() {
     }
 
     if (!match(Lexer::eEnd)) {
-        aError("expect end");
+        aError(_("期望 end"));
         return nullptr;
     }
     
@@ -738,7 +738,7 @@ Expr* Parser::parseWhileLoop()
     if (!match(Lexer::eEnd)) {
         delete condition;
         delete body;
-        aError("Expected 'end' after while loop body");
+        aError(_("while 循环体之后应出现 'end'"));
         return nullptr;
     }
     
@@ -785,7 +785,7 @@ Expr* Parser::parseForRangeLoop()
         delete variable;
         delete range;
         delete body;
-        aError("Expected 'end' after for loop body");
+        aError(_("for 循环体之后应出现 'end'"));
         return nullptr;
     }
     
@@ -970,7 +970,7 @@ Expr* Parser::parsePrimaryExpr()
             Unit unit;
             errc_t err = aUnitParse(unitStr, unit);
             if (err != eNoError) {
-                aError("Invalid unit: %s", unitStr.c_str());
+                aError(_("无效的单位: %s"), unitStr.c_str());
                 return nullptr;
             }
             double value = std::strtod(numStr.data(), nullptr);

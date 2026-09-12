@@ -95,7 +95,7 @@ errc_t BlockThirdBodyPointMass::run(const SimTime &simTime)
     errc_t err = thirdBody_->getPosIn(propagationFrame_, tp, thirdBodyPos);
     if (A_UNLIKELY(err != eNoError))
     {
-        aError("failed to get third body position");
+        aError(_("获取三体位置失败"));
         return err;
     }
     // 间接引力

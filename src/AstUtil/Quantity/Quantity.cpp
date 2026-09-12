@@ -35,7 +35,7 @@ Quantity aQuantityAdd(const Quantity& q1, const Quantity& q2)
 {
     if(q1.unit().dimension() != q2.unit().dimension())
     {
-        aError("Quantity dimension mismatch");
+        aError(_("量纲不匹配"));
     }else{
         const Unit& u1 = q1.unit();
         const Unit& u2 = q2.unit();

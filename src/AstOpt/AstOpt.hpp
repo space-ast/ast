@@ -9,5 +9,4 @@
 #include "AstOpt/NLPSnoptSolver.hpp"
 #include "AstOpt/NLPSolver.hpp"
 #include "AstOpt/SnoptAPI.hpp"
-#include "AstOpt/f2c.h"
 #include "AstOpt/snopt_ast.h"

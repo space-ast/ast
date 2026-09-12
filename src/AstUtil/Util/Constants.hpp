@@ -114,6 +114,7 @@ constexpr double kMoonGrav = 4.9028029535968e+12;		         ///< 月球引力常
 constexpr double kMoonRadius = 1737400.0;				         ///< 月球赤道半径 [m]. (IAU2000);
 constexpr double kMoonMinRadius = 1737400.0;			         ///< 月球最小半径(m)
 constexpr double kMoonAngVel = 2.661699e-6;				         ///< 月球自转角速度 [rad/s]
+constexpr double kMoonOrbitSemiMajorAxis = 384399.0e3;		     ///< 月球的轨道半长轴 [m]
 
 
 // 木星相关常量

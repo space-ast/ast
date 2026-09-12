@@ -32,7 +32,7 @@ AST_NAMESPACE_BEGIN
 
 void SolarSystem::initPredefined()
 {
-    (void)N_("SolarSystem");
+    (void)AST_TR_NOOP("SolarSystem");
     if(isInit_)
         return;
     isInit_ = true;

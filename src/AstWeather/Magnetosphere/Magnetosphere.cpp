@@ -44,7 +44,7 @@ int igrf13syn(
     integer itype_ = itype;
     return igrf13syn_(&isv_, &date, &itype_, &alt, &colat, &elong, &x, &y, &z, &f);
 #else
-    aError("function 'igrf13syn' is not implemented, please check whether libf2c package is enabled.");
+    aError(_("函数 'igrf13syn' 尚未实现，请检查是否启用了 libf2c 包。"));
     return -1;
 #endif
 }

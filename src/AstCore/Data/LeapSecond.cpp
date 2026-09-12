@@ -60,7 +60,7 @@ errc_t LeapSecond::loadATK(FILE* file)
         return eErrorInvalidFile;
     }
     if(line > MAX_EXPECTED_LINES){
-        aError("line number %d is too large", line);
+        aError(_("文件的行数 %d 过大"), line);
         return eErrorInvalidFile;
     }
     data.reserve(line);
@@ -113,7 +113,7 @@ errc_t LeapSecond::loadSTK(FILE *file)
         return eErrorInvalidFile;
     }
     if(line > MAX_EXPECTED_LINES){
-        aError("line number %d is too large", line);
+        aError(_("文件的行数 %d 过大"), line);
         return eErrorInvalidFile;
     }
     data.reserve(line);
@@ -190,14 +190,14 @@ errc_t LeapSecond::loadHPIERS(FILE* file)
             #ifdef _DEBUG
             double mjd_expect = aDateToMJD({year, month, day});
             if(mjd_expect != mjd){
-                aWarning("failed to load leap second file, incorrect mjd for date");
+                aWarning(_("加载闰秒文件失败，日期对应的简约儒略日不正确"));
                 return eErrorInvalidFile;
             }
             #endif
             data.push_back(entry);
         }
         else {
-            aWarning("failed to load leap second file, with format = hpiers");
+            aWarning(_("加载闰秒文件失败，格式为 hpiers"));
             // 如果解析失败
             return eErrorInvalidFile;
         }
@@ -237,7 +237,7 @@ errc_t LeapSecond::loadSpice(FILE* file)
                 ValueView leapsec = values[i * 2];
                 errc_t rc = aDateTimeParse(datesv, "@%Y-%h-%d", dttm);
                 if(rc){
-                    aError("failed to parse date string = %.*s", datesv.size(), datesv.data());
+                    aError(_("解析日期字符串 '%.*s' 失败"), datesv.size(), datesv.data());
                     return rc;
                 }
                 entry.mjd = aDateToMJD(dttm.date());
@@ -248,7 +248,7 @@ errc_t LeapSecond::loadSpice(FILE* file)
             return eNoError;
         }
     };
-    aError("failed to load leap second file, with format = spice");
+    aError(_("加载闰秒文件失败，格式为 spice"));
     return eErrorInvalidFile;
 }
 
@@ -285,7 +285,7 @@ errc_t LeapSecond::load(StringView filepath)
     else{
         return loadHPIERS(file);
     }
-    aError("failed to load leap second file, with format = unknown");
+    aError(_("加载闰秒文件失败，不支持的文件格式"));
     return eErrorInvalidFile;
 }
 
@@ -345,7 +345,7 @@ void LeapSecond::setDefaultData()
 void LeapSecond::setData(const std::vector<int>& mjd, const std::vector<int>& taiMinusUTC)
 {
     if(mjd.size() != taiMinusUTC.size()){
-        aWarning("try to set leap second data with different size of mjd and taiMinusUTC");
+        aWarning(_("设置闰秒数据时，mjd 与 taiMinusUTC 数组的大小不一致"));
     }
     size_t line = std::min(mjd.size(), taiMinusUTC.size());
     data_.resize(line);

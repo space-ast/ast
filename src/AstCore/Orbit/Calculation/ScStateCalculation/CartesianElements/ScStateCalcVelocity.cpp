@@ -27,7 +27,7 @@ errc_t ScStateCalcVelocity::calculate(const SpacecraftState& state, double& resu
 {
     // TODO: Implement velocity magnitude calculation
     // Need to get velocity from State first
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

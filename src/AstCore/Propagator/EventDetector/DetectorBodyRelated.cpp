@@ -34,7 +34,7 @@ void DetectorBodyRelated::setBodyByName(StringView bodyName)
             detector->setBody(body);
             return eNoError;
         }
-        aError("body '%s' not found", bodyNameStr.c_str());
+        aError(_("未找到天体 '%s'"), bodyNameStr.c_str());
         return eErrorNullPtr;
     };
     addDelayedLinkIfFailed(resolveFunc);

@@ -81,14 +81,14 @@ std::string aGetModulePathFromAddress(void *addr)
             return libpath;
         }
         else {
-            aError("failed to call GetModuleFileNameW");
+            aError(_("调用 GetModuleFileNameW 失败"));
         }
     }
     else {
-        aError("failed to call GetModuleHandleExW");
+        aError(_("调用 GetModuleHandleExW 失败"));
     }
 #elif defined(A_WASM)
-    aError("WASM not support get module path from address");
+    aError(_("WASM 不支持从地址获取模块路径"));
 #else
     // Unix-like平台实现 (Linux, macOS等)
     Dl_info dlInfo;
@@ -99,11 +99,11 @@ std::string aGetModulePathFromAddress(void *addr)
             return dlInfo.dli_fname;
         }
         else {
-            aError("dlInfo.dli_fname is nullptr");
+            aError(_("dlInfo.dli_fname 为空"));
         }
     }
     else {
-        aError("failed to call dladdr");
+        aError(_("调用 dladdr 失败"));
     }
 #endif
     return std::string();
@@ -135,7 +135,7 @@ std::string aExePath()
         return exepath;
     }
     else {
-        aError("failed to call GetModuleFileNameW");
+        aError(_("调用 GetModuleFileNameW 失败"));
     }
 #elif defined(__APPLE__)
     // macOS平台实现
@@ -150,7 +150,7 @@ std::string aExePath()
         return buffer;
     }
     else {
-        aError("failed to call _NSGetExecutablePath");
+        aError(_("调用 _NSGetExecutablePath 失败"));
     }
 #elif defined(__FreeBSD__)
     // FreeBSD平台实现
@@ -161,10 +161,10 @@ std::string aExePath()
         return buffer;
     }
     else {
-        aError("failed to call sysctl");
+        aError(_("调用 sysctl 失败"));
     }
 #elif defined(A_WASM)
-    aError("WASM not support get exe path");
+    aError(_("WASM 不支持获取可执行文件路径"));
 #else
     // Linux及其他Unix-like系统实现
     char buffer[PATH_MAX] = { 0 };
@@ -174,7 +174,7 @@ std::string aExePath()
         return buffer;
     }
     else {
-        aError("failed to read /proc/self/exe");
+        aError(_("读取 /proc/self/exe 失败"));
     }
 #endif
     return std::string();

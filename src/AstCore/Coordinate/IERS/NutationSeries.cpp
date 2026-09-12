@@ -80,12 +80,12 @@ static errc_t parseJList(StringView line, int &j, int& numTerms)
 static bool checkValid(const std::vector<NutationTerm>& terms, const std::vector<int>& jlist)
 {
     if(terms.empty() || jlist.empty()){
-        aError("invalid nutation series, number of terms: %zu, number of jlist: %zu\n", terms.size(), jlist.size());
+        aError(_("无效的章动系数数据，项数: %zu，jlist 数: %zu\n"), terms.size(), jlist.size());
         return false;
     }
     int sum = std::accumulate(jlist.begin(), jlist.end(), 0);
     if(sum != (int)terms.size()){
-        aError("invalid nutation series, number of terms: %zu, number of jlist: %zu, sum of jlist: %d\n", terms.size(), jlist.size(), sum);
+        aError(_("无效的章动系数数据，项数: %zu，jlist 数: %zu，jlist 之和: %d\n"), terms.size(), jlist.size(), sum);
         return false;
     }
     return true;
@@ -95,7 +95,7 @@ errc_t NutationSeries::load(StringView filepath)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
-        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     StringView line = parser.getLine();
@@ -111,7 +111,7 @@ errc_t NutationSeries::loadSTK(StringView filepath)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
-        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 %.*s 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     return loadSTK(parser);
@@ -121,7 +121,7 @@ errc_t NutationSeries::loadIERS(StringView filepath)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
-        aError("failed to open file %.*s", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 %.*s 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     return loadIERS(parser);
@@ -139,7 +139,7 @@ double NutationSeries::eval(double t, const FundamentalArguments &fundargs) cons
     double polyPart = polynomial_.eval(t);
     int end = (int)terms_.size();
     if(A_UNLIKELY(end == 0)){
-        aError("nutation series is empty, please call `aInitialize()` first");
+        aError(_("章动系数数据为空，请先调用 `aInitialize()` 函数完成初始化"));
     }
     double nonPolyPart = 0;
     for(int j=(int)jlist_.size()-1; j>=0; j--){
@@ -199,7 +199,7 @@ errc_t NutationSeries::loadSTK(BKVParser &parser)
                     double val;
                     errc_t err = aParseDouble(line, val);
                     if(err != eNoError){
-                        aError("expect double, error %d, line %d, %s\n", err, parser.getLineNumber(), line.data());
+                        aError(_("期望浮点数，实际为 '%.*s'"), line.size(), line.data());
                         return err;
                     }
                     val *= 1e-6 * kArcSecToRad;
@@ -213,7 +213,7 @@ errc_t NutationSeries::loadSTK(BKVParser &parser)
                     int val;
                     errc_t err = aParseInt(line, val);
                     if(err != eNoError){
-                        aError("expect integer, error %d, line %d, %s\n", err, parser.getLineNumber(), line.data());
+                        aError(_("期望整数，实际为 '%.*s'"), line.size(), line.data());
                         return err;
                     }
                     jlist.push_back(val);
@@ -226,7 +226,7 @@ errc_t NutationSeries::loadSTK(BKVParser &parser)
                     int index;
                     errc_t err = parseTerm(line, index, term);
                     if(err != eNoError){
-                        aError("expect 17 terms, error %d, line %d, %s\n", err, parser.getLineNumber(), line.data());
+                        aError(_("期望 17 项数据，实际为 '%.*s'"), line.size(), line.data());
                         return err;
                     }
                     terms.push_back(term);

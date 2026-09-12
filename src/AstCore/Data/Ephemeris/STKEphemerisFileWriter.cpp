@@ -58,7 +58,7 @@ errc_t writePosVel(
     size_t size = times.size();
     if(size != positions.size() || size != velocities.size())
     {
-        aWarning("times, positions, and velocities must have the same size");
+        aError(_("时间序列、位置序列 和速度序列的大小必须相同"));
         return eErrorInvalidParam;
     }
     for(size_t i = 0; i < size; ++i)
@@ -210,7 +210,7 @@ errc_t STKEphemerisFileWriter::write(StringView filename, const Ephemeris &ephem
         TimeInterval interval = interval_.intersected(ephInterval);
         if(interval.isEmpty() || interval.isInf())
         {
-            aWarning("interval is empty or infinite");
+            aWarning(_("时间区间为空或无穷"));
             return eErrorInvalidParam;
         }
         double step = step_ <= 0.0 ? 60.0 : step_;
@@ -224,7 +224,7 @@ errc_t STKEphemerisFileWriter::write(StringView filename, const Ephemeris &ephem
             errc_t rc = ephemeris.getPosVelIn(frame, tp, pos, vel);
             if(rc != eNoError)
             {
-                aError("failed to get pos vel at time '%s'", tp.toString().c_str());
+                aError(_("获取时间 '%s' 的位置速度失败"), tp.toString().c_str());
                 return rc;
             }
             positions.push_back(pos);
@@ -244,7 +244,7 @@ errc_t STKEphemerisFileWriter::write(StringView filename, const Ephemeris &ephem
     ScopedPtr<std::FILE> file = ast_fopen(filenameStr.c_str(), "w");
     if(file == nullptr)
     {
-        aError("failed to open file '%.*s'", (int)filename.size(), filename.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filename.size(), filename.data());
         return eErrorInvalidFile;
     }
 

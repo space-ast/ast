@@ -16,6 +16,7 @@
 #include "AstGUI/UiBurnEditor.hpp"
 #include "AstGUI/UiBurnImpulsive.hpp"
 #include "AstGUI/UiCelestialBody.hpp"
+#include "AstGUI/UiCentralBodies.hpp"
 #include "AstGUI/UiCommandEditor.hpp"
 #include "AstGUI/UiCommandSummary.hpp"
 #include "AstGUI/UiCommandTree.hpp"

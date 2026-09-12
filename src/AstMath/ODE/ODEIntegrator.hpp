@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstMath/ODEStateObserver.hpp"
 #include "AstMath/ODEEventDetectorList.hpp"
 #include "AstMath/ODEStateObserverList.hpp"
 #include "AstMath/ODEInnerStateObserver.hpp"
@@ -159,6 +160,7 @@ public:
     void addStateObserver(ODEStateObserver* observer);
 
 
+    #ifndef SWIG
     /// @brief 添加状态观察者（泛型模板）
     /// @details 添加一个状态观察者，用于观察ODE的状态
     /// @param func 状态观察函数
@@ -169,6 +171,7 @@ public:
         addStateObserver(observer);
         return observer;
     }
+    #endif
 
     /// @brief 删除状态观察者
     /// @details 删除一个状态观察者

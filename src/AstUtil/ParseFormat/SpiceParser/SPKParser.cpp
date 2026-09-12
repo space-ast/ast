@@ -265,14 +265,14 @@ errc_t SPKParser::getStateNative(double et, int target, Vector3d &pos, Vector3d 
     const SPK_Descriptor* spkDescriptor = findSpkDescriptor(target, et);
     if(!spkDescriptor)
     {
-        aError("failed to find spk descriptor for target %d", target);
+        aError(_("未找到目标 %d 的 SPK 描述符"), target);
         return eErrorNotFound;
     }
     if(spkDescriptor->type == 2)
     {
         return getStateType2(*spkDescriptor, et, target, pos, vel);
     }else{
-        aError("spk type %d is not supported yet", spkDescriptor->type);
+        aError(_("目前不支持 SPK 类型 %d"), spkDescriptor->type);
     }
     return -1;
 }
@@ -286,7 +286,7 @@ errc_t SPKParser::getStateType2(const SPK_Descriptor& spkDescriptor, double et, 
         size_t size = read(&trailer, sizeof(SPK_Type2_Trailer), offset);
         if(size != sizeof(SPK_Type2_Trailer))
         {
-            aError("failed to read spk type 2 trailer for target %d", target);
+            aError(_("读取目标 %d 的 SPK 类型 2 trailer 失败"), target);
             return eErrorNotFound;
         }
         rsize = (int)trailer.rsize;
@@ -294,7 +294,7 @@ errc_t SPKParser::getStateType2(const SPK_Descriptor& spkDescriptor, double et, 
         size_t idxseg = (size_t)((et - spkDescriptor.start_time) / trailer.intlen);
         if(idxseg >= trailer.n)
         {
-            aError("et %f out of range for target %d", et, target);
+            aError(_("et %f 超出目标 %d 的范围"), et, target);
             return eErrorNotFound;
         }
         size_t sseg = rsize * 8;
@@ -302,7 +302,7 @@ errc_t SPKParser::getStateType2(const SPK_Descriptor& spkDescriptor, double et, 
         size = read(buffer_.data(), sseg, offset);
         if(size != sseg)
         {
-            aError("failed to read spk type 2 record for target %d", target);
+            aError(_("读取目标 %d 的 SPK 类型 2 记录失败"), target);
             return eErrorNotFound;
         }
     }
@@ -317,7 +317,7 @@ errc_t SPKParser::getStateType2(const SPK_Descriptor& spkDescriptor, double et, 
     assert(tc <= 1);
     assert(ncf < MAX_CHEBY);
     if (ncf >= MAX_CHEBY) {
-        aError("ncf %d exceeds MAX_CHEBY", ncf);
+        aError(_("ncf %d 超过 MAX_CHEBY"), ncf);
         return eErrorNotFound;
     }
     double  pos_coeff[MAX_CHEBY];

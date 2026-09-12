@@ -38,17 +38,18 @@ GUIInterface *GUIInterface::CurrentInstance()
 {
     if(g_guiInstance == nullptr)
     {
+        // 先赋值，避免无限递归调用
+        g_guiInstance = NoopInstance();
         using functype = decltype(&aGUIInterfaceImpl);
-        functype func = (functype)aResolveProcAddress(AST_LIB_LINKNAME("AstGUI"), A_STR(aGUIInterfaceImpl));
+        const char* libName = AST_LIB_LINKNAME("AstGUI");
+        const char* funcName = A_STR(aGUIInterfaceImpl);
+        functype func = (functype)aResolveProcAddress(libName, funcName);
         if(func){
             g_guiInstance = func();
         }else{
-            aError("failed to resolve function 'aGUIInterfaceImpl' from shared library 'AstGUI'");
+            aError(_("从动态库 '%s' 解析函数 '%s' 失败"), libName, funcName);
         }
-        if(g_guiInstance == nullptr){
-            g_guiInstance = NoopInstance();
-        }
-    }
+    } 
     return g_guiInstance;
 }
 
@@ -61,13 +62,13 @@ void GUIInterface::SetCurrentInstance(GUIInterface *instance)
 
 errc_t GUIInterface::editObject(Object* object)
 {
-    aError("noop: editObject not implemented");
+    aError(_("editObject 尚未实现"));
     return -1;
 }
 
 Object *GUIInterface::selectObject(StringView typeName)
 {
-    aError("noop: selectObject not implemented");
+    aError(_("selectObject 尚未实现"));
     return nullptr;
 }
 

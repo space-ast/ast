@@ -21,6 +21,7 @@ __pycache__
 *.lib
 *.so
 *.a
+*.gcno
 
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md

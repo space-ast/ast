@@ -122,7 +122,7 @@ errc_t BlockGravity::run(const SimTime &simTime)
     errc_t rc = prepare(simTime, rotation);
     if (A_UNLIKELY(rc != eNoError))
     {
-        aError("failed to transform from propagation axes to gravity axes");
+        aError(_("从预报坐标系变换到重力坐标系失败"));
         return rc;
     }
     Vector3d posInGravityAxes;  // 位置(重力坐标系下)

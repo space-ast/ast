@@ -66,7 +66,7 @@ HRESULT __stdcall CObjectRoot::ExecuteCommand(
     CommandResult cmdResult;
     errc_t rc = aExecuteCommand(aWideToUtf8(command), cmdResult);
     if(rc)
-        aWarning("failed to execute command");
+        aWarning(_("执行命令失败"));
     
     // 设置是否成功
     if(rc)

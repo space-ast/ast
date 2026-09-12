@@ -100,7 +100,7 @@ errc_t aDataDir(std::string& datadir)
     {
         fDataDir = (DataDirFunc)aResolveProcAddress(AST_LIB_LINKNAME("AstCore"), "aDataDirGet");
         if(!fDataDir){
-            aError("failed to load 'AstCore' and resolve function 'aDataDirGet'");
+            aError(_("加载 'AstCore' 并解析函数 'aDataDirGet' 失败"));
             fDataDir = &aDataDirGetDefault;
         }
     }

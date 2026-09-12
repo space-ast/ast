@@ -143,7 +143,7 @@ double aKpToAp_SecantMethod(double kp)
         x[1] = x[2];
 
         if (i++ > maxIterations) {
-            aError("max iterations exceeded");
+            aError(_("迭代次数超过上限"));
             return x[2];
         }
     } while (fabs(y[1]) > epsilon);
@@ -181,7 +181,7 @@ double aKpToAp_NewtonMethod(double kp)
         x -= dx;
 
         if (i++ > maxIterations) {
-            aError("max iterations exceeded");
+            aError(_("迭代次数超过上限"));
             return x;
         }
     } while (fabs(dx) > epsilon);
@@ -213,7 +213,7 @@ double aApToKp_SecantMethod(double ap)
         x[1] = x[2];
 
         if (i++ > maxIterations) {
-            aError("max iterations exceeded");
+            aError(_("迭代次数超过上限"));
             return x[2];
         }
     } while (fabs(y[1]) > epsilon);
@@ -248,7 +248,7 @@ double aApToKp_NewtonMethod(double ap)
         x -= dx;
         
         if (i++ > maxIterations) {
-            aError("AsGeomagApToKp failed; too many iterations");
+            aError(_("迭代次数过多"));
             return x;
         }
     } while (fabs(dx) > epsilon);

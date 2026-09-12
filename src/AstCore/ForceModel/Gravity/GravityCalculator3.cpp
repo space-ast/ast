@@ -207,7 +207,7 @@ inline void GravityCalculator3::calcPertAcceleration(const Vector3d &positionCBF
     const int NN = getDegree();
     if(A_UNLIKELY(!getGravityField().isValidDegreeOrder(NN, MM)))
     {
-        aError("invalid degree or order for gravity field");
+        aError(_("重力场的阶数或次数无效"));
         accelerationCBF = Vector3d::Zero();
         return;
     }

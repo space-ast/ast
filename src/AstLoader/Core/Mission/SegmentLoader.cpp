@@ -45,7 +45,7 @@ errc_t aLoadShooterControl(const Value& value, SharedPtr<ExprAttribute>& control
     control->setParentScope(scope);
     if(!attr.isValid())
     {
-        aWarning("failed to resolve attribute '%.*s'", attrPath.size(), attrPath.data());
+        aWarning(_("解析属性 '%.*s' 失败"), attrPath.size(), attrPath.data());
     }
     return 0;   
 }

@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcManeuverTotalMassFlowRate::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement maneuver total mass flow rate calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

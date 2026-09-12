@@ -23,6 +23,10 @@
 #include "AstGlobal.h"
 #include "ast/Network.hpp"
 #include "ast/Test.h"
+#include <cstdio>
+#include <fstream>
+#include <iterator>
+#include <string>
 
 AST_USING_NAMESPACE
 
@@ -105,5 +109,26 @@ TEST(NetworkTest, RequestPost)
     #endif
 }
 
-GTEST_MAIN()
+/// @brief 下载文件时服务端返回 302 重定向（gitcode/github 的 raw 下载地址即如此），
+///        应跟随重定向并以最后一跳的状态码和响应体为准
+TEST(NetworkTest, DownloadFileFollowRedirect)
+{
+    const std::string url = kHttpTestRoot
+        + "/redirect-to?url=" + kHttpTestRoot + "%2Fget&status_code=302";
 
+    aNetworkSetImpl(ENetworkImplType::eCurlCmd);
+
+    const std::string path = "ast_test_network_redirect.json";
+    errc_t rc = aDownloadFile(url, path);
+    EXPECT_EQ(rc, eNoError);
+
+    std::ifstream file(path, std::ios::binary);
+    ASSERT_TRUE(file.is_open());
+    std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    file.close();
+    EXPECT_FALSE(content.empty());
+
+    std::remove(path.c_str());
+}
+
+GTEST_MAIN()

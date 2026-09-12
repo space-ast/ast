@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcSEETMagFieldFieldLineSepAngle::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement SEET magnetic field field line separation angle calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

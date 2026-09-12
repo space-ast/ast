@@ -123,6 +123,14 @@ namespace
         size_t end = s.find_last_not_of(" \t\r\n");
         return s.substr(start, end - start + 1);
     }
+
+    // 判断状态码是否为“中间响应”（1xx 信息响应、3xx 重定向），其后可能还有响应头
+    bool isIntermediateStatus(int statusCode)
+    {
+        return (statusCode >= 100 && statusCode < 200)
+            || (statusCode >= 300 && statusCode < 400);
+    }
+
 }
 #endif
 
@@ -137,7 +145,7 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
 {
 #ifdef A_WASM
     (void)request; (void)receiver;
-    aError("WASM not support network via curl command");
+    aError(_("WASM 不支持通过 curl 命令访问网络"));
     return eError;
 #else
     // 如果没有 URL，直接返回错误
@@ -213,13 +221,19 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
     setvbuf(pipe, NULL, _IONBF, 0);
 
     // Phase 1: 读取并解析 HTTP 响应头（直到遇到空行）
-    std::string headerBuf;
+    //
+    // 注意：使用 -L 跟随重定向时，curl 会依次输出每一跳响应的响应头，例如：
+    //     HTTP/1.1 302 Moved Temporarily\r\n ... \r\n
+    //     HTTP/1.1 200 OK\r\n ... \r\n
+    //     <响应体>
+    // 因此读到空行并不代表响应头结束（否则会把 302 当作最终状态码而下载失败），
+    // 遇到新的状态行时重新解析，以最后一个响应为准。
     int statusCode = 0;
     std::map<std::string, std::string> respHeaders;
     bool headersDone = false;
 
     char lineBuffer[8192];
-    while (!headersDone && std::fgets(lineBuffer, sizeof(lineBuffer), pipe))
+    while (std::fgets(lineBuffer, sizeof(lineBuffer), pipe))
     {
         std::string line(lineBuffer);
         // 去除行尾的 \r\n 或 \n
@@ -228,14 +242,17 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
 
         if (line.empty())
         {
-            // 空行 = header/body 分隔
+            // 空行 = 响应头结束：中间响应后面还有响应头，最终响应后面是响应体
             headersDone = true;
-            break;
+            if (!isIntermediateStatus(statusCode))
+                break;
+            continue;
         }
 
-        // 状态行
+        // 状态行（如 "HTTP/1.1 200 OK"、"HTTP/2 200"）
         if (line.find("HTTP/") == 0)
         {
+            respHeaders.clear();
             std::istringstream statusLine(line);
             std::string httpVersion;
             statusLine >> httpVersion >> statusCode;
@@ -307,10 +324,14 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
     if (streamErr != eNoError)
         return streamErr;
 
-    receiver.onComplete();
-
+    // curl 退出码非 0 说明传输中断（超时、连接断开等），此时响应体可能不完整
     if (status != 0)
+    {
+        receiver.onError(-4);
         return -4;
+    }
+
+    receiver.onComplete();
 
     return 0;
 #endif

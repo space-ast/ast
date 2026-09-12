@@ -28,6 +28,8 @@ A_CLINKAGE_BEGIN
     @{
 */
 
+#ifndef AST_BUILD_LIB  // 避免报错：conflicting C language linkage declaration
+
 void axisar(
     const double  axis[3],
     double        angle,
@@ -1412,7 +1414,7 @@ int utc2et(
 
 // xpose
 
-
+#endif
 
 /*! @} */
 

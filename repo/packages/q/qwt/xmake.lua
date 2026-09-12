@@ -7,6 +7,7 @@ package("qwt")
     if os.exists(path.join(qwt_dir, "src")) then
         set_sourcedir(qwt_dir)
     else
+        add_urls("https://gitcode.com/space-ast/QWT.git")
         add_urls("https://github.com/space-ast/QWT.git")
     end
 
@@ -37,7 +38,8 @@ package("qwt")
 
     on_install(function (package)
         package:addenv("PATH", "bin")
-        if os.exists(path.join(package:sourcedir(), "xmake.lua")) then
+        local srcdir = package:sourcedir() or os.curdir()
+        if os.exists(path.join(srcdir, "xmake.lua")) then
             local configs = {}
             configs.mode = package:is_debug() and "debug" or "release"
             import("package.tools.xmake").install(package, configs)

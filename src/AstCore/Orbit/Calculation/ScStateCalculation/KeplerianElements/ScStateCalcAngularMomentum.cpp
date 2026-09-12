@@ -27,7 +27,7 @@ errc_t ScStateCalcAngularMomentum::calculate(const SpacecraftState& state, doubl
 {
     // TODO: Implement angular momentum calculation
     // Need to compute cross product of position and velocity
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

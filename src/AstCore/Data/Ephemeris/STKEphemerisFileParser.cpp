@@ -59,7 +59,7 @@ static errc_t parsePosVel(
     {
         StringView line = parser.getLineSkipComment();
         if(line.empty()){
-            aError("parse error: ephemerisTimePosVel line %d is empty", i);
+            aError(_("解析错误：星历数据的第 %d 行为空"), i);
             return eErrorParse;
         }
         // 解析一行数据: 时间偏移 位置x 位置y 位置z 速度x 速度y 速度z
@@ -72,7 +72,7 @@ static errc_t parsePosVel(
             &vel.x(), &vel.y(), &vel.z()
         );
         if(status != 7){
-            aError("parse error: '%.*s'", (int)line.size(), line.data());
+            aError(_("解析错误：星历数据的第 %d 行格式错误"), i);
             return eErrorParse;
         }
         times.push_back(timeOffset);
@@ -123,7 +123,7 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
             {
                 data.numberOfEphemerisPoints_ = value.toInt();
                 if(data.numberOfEphemerisPoints_ <= 0){
-                    aError("numberOfEphemerisPoints must be greater than 0");
+                    aError(_("NumberOfEphemerisPoints 必须大于 0"));
                     return eErrorParse;
                 }
                 data.times_.reserve(data.numberOfEphemerisPoints_);
@@ -150,7 +150,7 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
                 }
                 else
                 {
-                    aError("unsupported interpolation method: '%.*s'", (int)value.size(), value.data());
+                    aError(_("不支持的插值方法：'%.*s'"), (int)value.size(), value.data());
                     return eErrorParse;
                 }
             }
@@ -168,7 +168,7 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
                 data.body_ = aGetBody(value.data());
                 if(data.body_ == nullptr){
                     aError(
-                        "body '%.*s' not found, please check the body name and whether you have call `aInitialize` first", 
+                        _("未找到天体 '%.*s'，请检查天体名称并确认已调用 `aInitialize` 函数完成初始化"),
                         (int)value.size(), value.data()
                     );
                     return eErrorParse;
@@ -178,7 +178,7 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
             {
                 if(data.body_ == nullptr){
                     // 默认使用地球
-                    aWarning("body is not specified, use Earth as default");
+                    aInfo(_("未指定天体，默认使用地球"));
                     data.body_ = aGetEarth();
                 }
                 
@@ -199,7 +199,7 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
                     data.frame_ = data.body_->getFrameInertial();
                 }
                 else{
-                    aError("unsupported coordinate system: '%.*s'", (int)value.size(), value.data());
+                    aError(_("不支持的坐标系：'%.*s'"), (int)value.size(), value.data());
                     return eErrorParse;
                 }
             }
@@ -230,7 +230,7 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
                             data.velocities_
                         );
                         if(rc != eNoError){
-                            aError("failed to parse ephemerisTimePosVel");
+                            aError(_("解析 EphemerisTimePosVel 内的星历数据失败"));
                             return rc;
                         }
                     }
@@ -246,7 +246,7 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
                             data.velocities_
                         );
                         if(rc != eNoError){
-                            aError("failed to parse ephemerisEciTimePosVel");
+                            aError(_("解析 EphemerisEciTimePosVel 内的星历数据失败"));
                             return rc;
                         }
                     }
@@ -266,7 +266,7 @@ errc_t aLoadSTKEphemeris(BKVParser &parser, ScopedPtr<Ephemeris> &ephemeris)
         }
         else if(token == BKVParser::eError)
         {
-            aError("parse error");
+            aError(_("解析错误"));
             return eErrorParse;
         }
     }

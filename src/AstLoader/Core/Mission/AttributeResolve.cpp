@@ -74,8 +74,8 @@ Attribute aResolveAttributeByMap(Object* obj, StringView attrpath)
             return scState->getOrbitState()->attr(aPropertyName(State, StateEpoch));
         }
     }
-    aWarning("failed to resolve attribute '%.*s' for object '%s<%s>'", 
-        attrpath.size(), attrpath.data(), 
+    aWarning(_("解析属性 '%.*s' 失败，对象 '%s（%s）'"),
+        attrpath.size(), attrpath.data(),
         obj->getName().c_str(), obj->typeName().c_str()
     );
     return Attribute();
@@ -97,7 +97,7 @@ Attribute aResolveAttributeByMap(Object* obj, StringView subAttrPath, StringView
             auto pos = remainingAttrPath.find('.');
             if(pos == String::npos)
             {
-                aError("unsupported attribute path %.*s", remainingAttrPath.size(), remainingAttrPath.data());
+                aError(_("不支持的属性路径 %.*s"), remainingAttrPath.size(), remainingAttrPath.data());
                 return Attribute();
             }
             else
@@ -118,7 +118,7 @@ Attribute aResolveAttributeByMap(Object* obj, StringView subAttrPath, StringView
             auto pos = remainingAttrPath.find('.');
             if(pos == String::npos)
             {
-                aError("unsupported attribute path %.*s", remainingAttrPath.size(), remainingAttrPath.data());
+                aError(_("不支持的属性路径 %.*s"), remainingAttrPath.size(), remainingAttrPath.data());
                 return Attribute();
             }
             else
@@ -139,7 +139,7 @@ Attribute aResolveAttributeByMap(Object* obj, StringView subAttrPath, StringView
             auto pos = remainingAttrPath.find('.');
             if(pos == String::npos)
             {
-                aError("unsupported attribute path %.*s", remainingAttrPath.size(), remainingAttrPath.data());
+                aError(_("不支持的属性路径 %.*s"), remainingAttrPath.size(), remainingAttrPath.data());
                 return Attribute();
             }
             else
@@ -160,7 +160,7 @@ Attribute aResolveAttributeByMap(Object* obj, StringView subAttrPath, StringView
             auto pos = remainingAttrPath.find('.');
             if(pos == String::npos)
             {
-                aError("unsupported attribute path %.*s", remainingAttrPath.size(), remainingAttrPath.data());
+                aError(_("不支持的属性路径 %.*s"), remainingAttrPath.size(), remainingAttrPath.data());
                 return Attribute();
             }
             else
@@ -187,9 +187,9 @@ Attribute aResolveAttributeByMap(Object* obj, StringView subAttrPath, StringView
     Attribute subattr = aResolveAttributeByMap(obj, subAttrPath);
     if(subattr.isValid())
         return aResolveAttribute(subattr, remainingAttrPath);
-    aWarning("failed to resolve attribute '%.*s.%.*s' for object '%s<%s>'", 
+    aWarning(_("解析属性 '%.*s.%.*s' 失败，对象 '%s（%s）'"),
         subAttrPath.size(), subAttrPath.data(),
-        remainingAttrPath.size(), remainingAttrPath.data(), 
+        remainingAttrPath.size(), remainingAttrPath.data(),
         obj->getName().c_str(), obj->typeName().c_str()
     );
     return Attribute();
@@ -201,7 +201,7 @@ Attribute aResolveAttribute(const Attribute& attr, StringView attrpath)
     Object* object = attr.getValueObject();
     if(!object)
     {
-        aError("resolve attribute %.*s failed, object is null", attrpath.size(), attrpath.data());
+        aError(_("解析属性 %.*s 失败，对象为空"), attrpath.size(), attrpath.data());
         return Attribute();
     }
     return aResolveAttribute(object, attrpath);

@@ -54,7 +54,7 @@ Value *ExprAttribute::eval() const
     case EValueType::eObject:
         return aNewValueString(attribute_.getValueString());
     default:
-        aWarning("invalid value type");
+        aWarning(_("无效的值类型"));
         return nullptr;
     }
 

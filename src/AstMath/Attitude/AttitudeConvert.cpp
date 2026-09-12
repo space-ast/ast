@@ -54,7 +54,7 @@ errc_t aRotationMatrix(double angle, int axis, Matrix3d &mtx)
 			return 0;
 	}
 	// error: invalid parameter
-	aError("invalid axis: %d", axis);
+	aError(_("无效的轴: %d"), axis);
 	return eErrorInvalidParam;
 }
 
@@ -197,7 +197,7 @@ errc_t aMatrixToEuler(const Matrix3d& mtx, int seq, Euler& euler)
 			aMatrixToEuler323(mtx, euler);
 			return 0;
 	}
-	aError("invalid rotation sequence: %d", seq);
+	aError(_("无效的旋转序列: %d"), seq);
 	return eErrorInvalidParam;
 }
 
@@ -256,7 +256,7 @@ errc_t aEulerToMatrix(const Euler& euler, int seq, Matrix3d& mtx)
 			return 0;
 			break;
 		default:
-			aError("invalid rotation sequence: %d", seq);
+			aError(_("无效的旋转序列: %d"), seq);
 			return eErrorInvalidParam;
 	}
 }

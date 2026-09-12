@@ -34,7 +34,7 @@ std::shared_ptr<StartupConfig> aTestLoadConfig()
     errc_t rc = config->load(AST_DEFAULT_TEST_CONFIG_PATH);
     if(rc){
         std::string configfile = aDataDir() + "/Config/" + AST_DEFAULT_TEST_CONFIG_PATH;
-        aInfo("using test config file: %s", configfile.c_str());
+        aInfo(_("正在使用测试配置文件: %s"), configfile.c_str());
         rc = config->load(configfile);
     }
     return config;

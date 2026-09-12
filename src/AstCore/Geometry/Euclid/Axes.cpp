@@ -114,7 +114,7 @@ A_ALWAYS_INLINE errc_t aGeometryTransform(GeometryType& source, GeometryType& ta
     {
         if(sourcePath[sourceDepth - 1] != targetPath[targetDepth - 1])
         {
-            aWarning("failed to find common common ancestor");
+            aWarning(_("查找公共祖先失败"));
             return eErrorInvalidParam;
         }
         if(sourceDepth > targetDepth){

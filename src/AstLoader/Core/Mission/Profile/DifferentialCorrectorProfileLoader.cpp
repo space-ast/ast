@@ -105,7 +105,7 @@ errc_t aLoadDifferentialCorrectorProfile(const Value& value, DifferentialCorrect
         else{
             method = EFiniteDifferenceMethod::eForwardDifference;
             aWarning(
-                "unsupported FiniteDifferenceMethod: '%s', use Forward Difference by default", 
+                _("不支持的差分方法(FiniteDifferenceMethod)：'%s'，将默认配置为'前向差分方法'"),
                 finiteDifferenceMethod.c_str()
             );
         }
@@ -123,7 +123,7 @@ errc_t aLoadDifferentialCorrectorProfile(const Value& value, DifferentialCorrect
         else{
             criteria = EConvergenceCriteria::eEqualityConstraintsWithinTolerance;
             aWarning(
-                "unsupported ConvergenceCriteria: '%s', use Equality Constraints Within Tolerance by default", 
+                _("不支持的收敛准则(ConvergenceCriteria)：'%s'，将默认配置为'约束值在容差范围内'"),
                 convergenceCriteria.c_str()
             );
         }
@@ -141,7 +141,7 @@ errc_t aLoadDifferentialCorrectorProfile(const Value& value, DifferentialCorrect
         else{
             controls = EScaleControls::eByInitialValue;
             aWarning(
-                "unsupported ScaleControls: '%s', use By initial value by default", 
+                _("不支持的控制量缩放方式(ScaleControls)：'%s'，将默认配置为'按初始值缩放'"),
                 scaleControls.c_str()
             );
         }
@@ -159,7 +159,7 @@ errc_t aLoadDifferentialCorrectorProfile(const Value& value, DifferentialCorrect
         else{
             goals = EScaleGoals::eByDesiredValue;
             aWarning(
-                "unsupported ScaleGoals: '%s', use By Desired Value by default", 
+                _("不支持的约束量缩放方式(ScaleGoals)：'%s'，将默认配置为'按期望值缩放'"),
                 scaleGoals.c_str()
             );
         }

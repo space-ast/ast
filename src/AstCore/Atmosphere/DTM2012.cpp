@@ -74,14 +74,14 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
     errno_t errs = fopen_s(&infile, path.c_str(), "r");
     if (errs != 0 || infile == nullptr)
     {
-        aWarning("DTM2012: failed to open coefficient file '%s'.", path.c_str());
+        aWarning(_("打开系数文件 '%s' 失败"), path.c_str());
         return eErrorInvalidFile;
     }
 #else
     infile = fopen(path.c_str(), "r");
     if (infile == nullptr)
     {
-        aWarning("DTM2012: failed to open coefficient file '%s'.", path.c_str());
+        aWarning(_("打开系数文件 '%s' 失败"), path.c_str());
         return eErrorInvalidFile;
     }
 #endif
@@ -95,7 +95,7 @@ errc_t aLoadDTM2012Coefficients(const std::string &path, pardtmtype &pardtm)
 
     if (npdtm != kDTM2012ExpectedNpdtm)
     {
-        aWarning("DTM2012: coefficient file '%s' has %d parameters, expected %d. File may be from a different DTM version.",
+        aWarning(_("系数文件 '%s' 有 %d 个参数，期望 %d 个，文件可能来自不同版本的 DTM"),
                  path.c_str(), npdtm, kDTM2012ExpectedNpdtm);
         fclose(infile);
         return eErrorInvalidFile;
@@ -542,7 +542,7 @@ cleanup:
 
     if (Iok == 0)
     {
-        aWarning("DTM2012: coefficient file '%s' format mismatch.", path.c_str());
+        aWarning(_("系数文件 '%s' 格式不匹配"), path.c_str());
         return eErrorInvalidFile;
     }
     return eNoError;
@@ -554,7 +554,7 @@ double DTM2012::getDensity(const TimePoint &tp, const Vector3d &posInBodyFixed) 
 {
     if (!initialized_)
     {
-        aWarning("coefficient file not loaded, returning zero density.");
+        aWarning(_("系数文件未加载，返回零密度"));
         return 0.0;
     }
 
@@ -570,7 +570,7 @@ double DTM2012::getDensity(const TimePoint &tp, const Vector3d &posInBodyFixed) 
 
     if (hellp < 120.0)
     {
-        aWarning("altitude %f km is below 120 km, returning zero density.", hellp);
+        aWarning(_("输入位置的高度 %f km 低于 120 km，返回零密度"), hellp);
         return 0.0;
     }
 

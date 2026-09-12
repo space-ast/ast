@@ -166,13 +166,13 @@ int aCurrentLineNumber(std::FILE *file)
     
     long currentPos = ftell(file);  // 保存当前位置
     if (currentPos == -1L) {
-        aError("failed to get file position");
+        aError(_("获取文件位置失败"));
         return -1;  // 错误：无法获取文件位置
     }
     
     // 移动到文件开头
     if (fseek(file, 0, SEEK_SET) != 0) {
-        aError("failed to move file pointer to the beginning");
+        aError(_("移动文件指针到开头失败"));
         return -1;  // 错误：无法移动文件指针到开头
     }
     
@@ -188,7 +188,7 @@ int aCurrentLineNumber(std::FILE *file)
     
     // 恢复原始位置
     if (fseek(file, currentPos, SEEK_SET) != 0) {
-        aError("failed to move file pointer to the original position");
+        aError(_("移动文件指针到原始位置失败"));
         return -1;  // 错误：无法移动文件指针到原始位置
     }
     
@@ -205,14 +205,14 @@ errc_t aGetFilePath(std::FILE *file, std::string &filepath)
     // Windows平台实现
     HANDLE hFile = (HANDLE)_get_osfhandle(_fileno(file));
     if (hFile == INVALID_HANDLE_VALUE) {
-        aError("failed to get file handle");
+        aError(_("获取文件句柄失败"));
         return eErrorInvalidFile;
     }
 
     // 首先尝试获取路径大小
     DWORD pathSize = GetFinalPathNameByHandleW(hFile, NULL, 0, FILE_NAME_NORMALIZED);
     if (pathSize == 0) {
-        aError("failed to get file path size");
+        aError(_("获取文件路径大小失败"));
         return eErrorInvalidParam;
     }
 
@@ -220,7 +220,7 @@ errc_t aGetFilePath(std::FILE *file, std::string &filepath)
     std::wstring wpath(pathSize, L'\0');
     pathSize = GetFinalPathNameByHandleW(hFile, &wpath[0], pathSize, FILE_NAME_NORMALIZED);
     if (pathSize == 0) {
-        aError("failed to get file path");
+        aError(_("获取文件路径失败"));
         return eErrorInvalidParam;
     }
 
@@ -236,7 +236,7 @@ errc_t aGetFilePath(std::FILE *file, std::string &filepath)
     // POSIX平台实现
     int fd = fileno(file);
     if (fd == -1) {
-        aError("failed to get file descriptor");
+        aError(_("获取文件描述符失败"));
         return eErrorInvalidParam;
     }
 

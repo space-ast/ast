@@ -35,7 +35,7 @@ ExprIf::ExprIf(Expr * condition, Expr * block)
 
 Value* ExprIf::eval() const {
     if(conditionBranches_.empty()){
-        aError("if statement must have at least one if branch");
+        aError(_("if 语句必须至少有一个 if 分支"));
         return nullptr;
     }
 
@@ -48,7 +48,7 @@ Value* ExprIf::eval() const {
         }
         
         if (!aValueIsBool(elseifCondVal)) {
-            aError("expect boolean value in if condition");
+            aError(_("if 条件中期望布尔值"));
             return nullptr;
         }
         if (aValueUnboxBool(elseifCondVal)) {

@@ -25,12 +25,12 @@ AST_NAMESPACE_BEGIN
 
 void NoopShape::transform(const Vector3d& cartesian, GeodeticPoint& detic) const
 {
-    aWarning("noop shape: empty class for placeholder");
+    aWarning(_("用于占位的空类, 不执行任何转换"));
 }
 
 void NoopShape::transform(const GeodeticPoint& detic, Vector3d& cartesian) const
 {
-    aWarning("noop shape: empty class for placeholder");
+    aWarning(_("用于占位的空类, 不执行任何转换"));
 }
 
 AST_NAMESPACE_END

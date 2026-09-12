@@ -43,7 +43,7 @@ CriticallyInclinedSunSyncOrbitDesigner::CriticallyInclinedSunSyncOrbitDesigner(C
 {
     if(body && !body->isEarth())
     {
-        aError("CriticallyInclinedSunSyncOrbitDesigner only support Earth.");
+        aError(_("太阳同步临界倾角轨道设计器仅支持地球。"));
     }
 }
 
@@ -84,7 +84,7 @@ errc_t CriticallyInclinedSunSyncOrbitDesigner::getOrbitState(ModOrbElem &orbElem
         orbElem.e_ = ecc;
         return eNoError;
     }else{
-        aError("failed to solve ecc with brentq, error_num: %d", stats.error_num);
+        aError(_("求解偏心率失败"));
         return stats.error_num;
     }
 }

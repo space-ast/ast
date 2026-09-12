@@ -39,7 +39,7 @@ errc_t ObjectCalculation::calculate(const Object* obj, double& result)
     }
     else
     {
-        aError("object is null or is not expected type");
+        aError(_("对象为空或不是预期类型"));
         return eErrorInvalidType;
     }
 }

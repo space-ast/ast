@@ -54,13 +54,13 @@ enum class EConvergenceCriteria
     eEqualityConstraintsWithinTolerance, ///< 等式约束在容差范围内
 };
 
-/// @brief 控制变量缩放方式
+/// @brief 控制量缩放方式
 enum class EScaleControls
 {
     eByInitialValue, ///< 由初始值缩放
 };
 
-/// @brief 控制变量缩放目标
+/// @brief 约束量缩放方式
 enum class EScaleGoals
 {
     eByDesiredValue, ///< 由期望值缩放

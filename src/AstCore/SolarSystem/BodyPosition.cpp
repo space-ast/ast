@@ -117,7 +117,7 @@ errc_t aStellarAberrationForReception(const Vector3d& pobj, const Vector3d& vobs
     // 检查观测者速度是否超光速
     double lensqr = vbyc.squaredNorm();
     if (lensqr >= 1.0) {
-        aError("observer speed >= speed of light");
+        aError(_("观测者速度不应大于光速"));
         return -1;
     }
 

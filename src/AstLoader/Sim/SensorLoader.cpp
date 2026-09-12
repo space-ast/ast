@@ -146,7 +146,7 @@ errc_t _aLoadSAR(BKVParser& parser, FOVSAR& fov)
                 }else if(aEqualsIgnoreCase(item.value(), "Dynamic")){
                     updateMode = FOVSAR::eDynamic;
                 }else{
-                    aError("Invalid UpdateMode value: '%s'", item.value().toString().c_str());
+                    aError(_("无效的 UpdateMode 值: '%s'"), item.value().toString().c_str());
                 }
                 fov.setUpdateMode(updateMode);
             }
@@ -449,7 +449,7 @@ errc_t aLoadSensor(StringView filepath, StringView sensorType, Sensor& sensor)
     BKVParser parser(filepath);
     
     if(!parser.isOpen()){
-        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     

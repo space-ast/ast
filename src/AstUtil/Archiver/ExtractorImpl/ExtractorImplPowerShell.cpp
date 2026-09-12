@@ -40,7 +40,7 @@ errc_t ExtractorImplPowerShell::extract(StringView source, StringView target) co
 {
     if (source.empty() || target.empty())
     {
-        aError("ExtractorImplPowerShell: source or target is empty");
+        aError(_("源或目标为空"));
         return eErrorInvalidParam;
     }
 
@@ -51,7 +51,7 @@ errc_t ExtractorImplPowerShell::extract(StringView source, StringView target) co
     {
         if (!fs::create_directories(parentDir))
         {
-            aError("ExtractorImplPowerShell: cannot create parent directory: %s", parentDir.string().c_str());
+            aError(_("无法创建父目录: %s"), parentDir.string().c_str());
             return eErrorInvalidFile;
         }
     }

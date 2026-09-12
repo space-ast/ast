@@ -34,13 +34,13 @@ PropertyObject::PropertyObject(FPropertyGet getter, FPropertySet setter, Class* 
 
 errc_t PropertyObject::getValueBool(const void* container, bool& value)
 {
-    aError("failed to get bool value from property object");
+    aError(_("无法从对象类型的属性获取 bool 值"));
     return -1;
 }
 
 errc_t PropertyObject::setValueBool(void* container, bool value)
 {
-    aError("failed to set bool value to property object");
+    aError(_("无法将 bool 值设置到对象类型的属性中"));
     return -1;
 }
 
@@ -71,7 +71,7 @@ errc_t PropertyObject::getValueString(const void* container, std::string& value)
     value = object->getRepresentation();
     if(value.empty())
     {
-        aError("failed to get string value from property object");
+        aError(_("无法从对象类型的属性获取 string 值"));
         return -1;
     }
     return 0;
@@ -81,19 +81,19 @@ errc_t PropertyObject::setValueString(void* container, StringView value)
 {
     Object* object = aResolveObject(value, class_);
     if(!object)
-        aWarning("failed to resolve object: '%.*s'", value.size(), value.data());
+        aWarning(_("解析对象失败: '%.*s'"), value.size(), value.data());
     return setValue(container, object);
 }
 
 errc_t PropertyObject::getValueDouble(const void* container, double& value)
 {
-    aError("failed to get double value from property object");
+    aError(_("无法从对象类型的属性获取 double 值"));
     return -1;
 }
 
 errc_t PropertyObject::setValueDouble(void* container, double value)
 {
-    aError("failed to set double value to property object");
+    aError(_("无法将 double 值设置到对象类型的属性中"));
     return -1;
 }
 
@@ -102,12 +102,12 @@ errc_t PropertyObject::setValue(void* container, const InputType* value)
 {
     if(!value)
     {
-        aError("null input value for property object");
+        aError(_("输入值为空"));
         return eErrorNullInput;
     }
     if(class_ && !value->isOfType(class_))
     {
-        aError("invalid type for property object, expect '%s', but given '%s'", class_->name().c_str(), value->getType()->name().c_str());
+        aError(_("输入的对象类型无效，期望 '%s'，给定 '%s'"), class_->name().c_str(), value->getType()->name().c_str());
         return eErrorInvalidType;
     }
     return setter_(container, &value);

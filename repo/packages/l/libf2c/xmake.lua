@@ -3,6 +3,7 @@ package("libf2c")
     if os.exists(path.join(libf2c_dir, "xmake.lua")) then
         set_sourcedir(libf2c_dir)
     else
+        add_urls("https://gitcode.com/space-ast/libf2c.git")
         add_urls("https://github.com/space-ast/libf2c.git")
     end
     on_install(function (package)

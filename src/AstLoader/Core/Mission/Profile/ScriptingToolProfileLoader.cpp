@@ -33,7 +33,7 @@ errc_t aLoadScriptingToolProfile(const Value& value, ScriptingToolProfile& profi
         std::string type = value["Type"];
         if(type != "ScriptingTool")
         {
-            aError("invalid type: %s", type.c_str());
+            aError(_("无效的类型：%s"), type.c_str());
             return -1;
         }
     }
@@ -56,7 +56,7 @@ errc_t aLoadScriptingToolProfile(const Value& value, ScriptingToolProfile& profi
     else
     {
         language = EScriptLanguage::ePython;
-        aWarning("invalid language: %s, use 'Python' by default", languageStr.c_str());
+        aWarning(_("无效的语言：%s，默认使用 'Python'"), languageStr.c_str());
     }
 
     profile.setLanguage(language);
@@ -70,15 +70,15 @@ errc_t aLoadScriptingToolProfile(const Value& value, ScriptingToolProfile& profi
 
     // 读取属性列表
     rc = aLoadAttributes(value["Attributes"], profile.attributes(), scope);
-    if(rc != 0) aWarning("failed to load attributes");
+    if(rc != 0) aWarning(_("加载属性失败"));
 
     // 读取参数列表
     rc = aLoadParameters(value["Parameters"], profile.parameters());
-    if(rc != 0) aWarning("failed to load parameters");
+    if(rc != 0) aWarning(_("加载参数失败"));
     
     // 读取计算对象列表
     rc = aLoadCalcObjects(value["CalcObjects"], profile.calcObjects(), scope);
-    if(rc != 0) aWarning("failed to load calc objects");
+    if(rc != 0) aWarning(_("加载计算对象失败"));
     
     return 0;
 }

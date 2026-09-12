@@ -94,7 +94,7 @@ namespace
             }, 0.0, b - a, x, &lmin, kTimeTol, 0.0, 100);
             if (rc != eNoError)
             {
-                aWarning("lighting minimization did not converge, using best-effort value");
+                aWarning(_("求解最深遮蔽点失败，使用最佳近似值"));
             }
             at = a + x;
             return lmin;
@@ -255,7 +255,7 @@ errc_t EclipseEventFinder::find(const TimeInterval& interval, std::vector<Eclips
     auto point = point_.get();
     if (!point)
     {
-        aError("point is null");
+        aError(_("点为空"));
         return eErrorNullPtr;
     }
     auto lightSource = lightSource_.get();
@@ -264,7 +264,7 @@ errc_t EclipseEventFinder::find(const TimeInterval& interval, std::vector<Eclips
         lightSource = aGetSun();
         if (!lightSource)
         {
-            aError("no light source");
+            aError(_("无光源"));
             return eErrorNullPtr;
         }
     }
@@ -272,19 +272,19 @@ errc_t EclipseEventFinder::find(const TimeInterval& interval, std::vector<Eclips
     std::vector<HCelestialBody> bodies = occultingBodies_;
     if (bodies.empty())
     {
-        aWarning("no occulting bodies, using earth and moon as default");
+        aInfo(_("无遮挡天体，默认使用地球和月球"));
         if (auto earth = aGetEarth()) { bodies.push_back(earth); }
         if (auto moon = aGetMoon())  { bodies.push_back(moon); }
         if (bodies.empty())
         {
-            aError("no occulting bodies");
+            aError(_("无遮挡天体"));
             return eErrorNullPtr;
         }
     }
 
     if (stepSize_ <= 0.0 || interval.isEmpty())
     {
-        aError("invalid step size or empty interval");
+        aError(_("无效的步长或区间为空"));
         return eErrorInvalidParam;
     }
 
@@ -300,7 +300,7 @@ errc_t EclipseEventFinder::find(const TimeInterval& interval, std::vector<Eclips
 
     if (nValidBodies == 0)
     {
-        aError("all occulting bodies are null or equal to the light source");
+        aError(_("遮挡天体为空或与光源相同"));
         return eErrorInvalidParam;
     }
 

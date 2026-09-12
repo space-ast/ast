@@ -43,7 +43,7 @@ errc_t CollectingStreamReceiver::onData(const char* data, size_t size)
     // 防止无限制响应体耗尽内存
     if (body_.size() + size > kMaxBodySize)
     {
-        aError("response body size %zu exceeds max limit %zu", body_.size() + size, kMaxBodySize);
+        aError(_("响应体大小 %zu 超过最大限制 %zu"), body_.size() + size, kMaxBodySize);
         return eErrorOutOfRange;
     }
     body_.append(data, size);
@@ -79,17 +79,26 @@ FileDownloadReceiver::~FileDownloadReceiver()
 
 errc_t FileDownloadReceiver::onHeaders(int statusCode, const std::map<std::string, std::string>& headers)
 {
-    auto it = headers.find("Content-Length");
-    if (it != headers.end())
-        total_ = static_cast<uint64_t>(std::strtoull(it->second.c_str(), nullptr, 10));
+    // 头部名称大小写不敏感：HTTP/2 响应中的头部名称均为小写（content-length）
+    for (const auto& header : headers)
+    {
+        if (posix::strcasecmp(header.first.c_str(), "Content-Length") == 0)
+        {
+            total_ = static_cast<uint64_t>(std::strtoull(header.second.c_str(), nullptr, 10));
+            break;
+        }
+    }
     // 基于响应头拒绝：非 200 立即中止，不读取响应体
     if (statusCode != 200)
+    {
+        aError(_("服务器返回状态码 %d，无法下载"), statusCode);
         return (eErrorInvalidFile);
+    }
     // 写入临时文件，成功后再改名到目标路径，避免失败下载破坏已存在的目标文件
     fp_ = posix::fopen(tempPath_.c_str(), "wb");
     if (fp_ == nullptr)
     {
-        aError("cannot open %s", tempPath_.c_str());
+        aError(_("无法打开 %s"), tempPath_.c_str());
         return (eErrorInvalidFile);
     }
     return eNoError;
@@ -102,7 +111,7 @@ errc_t FileDownloadReceiver::onData(const char* data, size_t size)
         return (eErrorInvalidFile);
     if (fwrite(data, 1, size, fp_) != size)
     {
-        aError("write incomplete for %s", tempPath_.c_str());
+        aError(_("%s 写入不完整"), tempPath_.c_str());
         return (eErrorInvalidFile);
     }
     downloaded_ += size;
@@ -128,14 +137,14 @@ errc_t FileDownloadReceiver::finish()
     {
         if (!fs::remove(filepath_, ec))
         {
-            aError("cannot replace existing %s", filepath_.c_str());
+            aError(_("无法替换已存在的 %s"), filepath_.c_str());
             fs::remove(tempPath_, ec);
             return eErrorInvalidFile;
         }
     }
     if (!fs::rename(tempPath_, filepath_))
     {
-        aError("rename %s -> %s failed", tempPath_.c_str(), filepath_.c_str());
+        aError(_("重命名 %s 为 %s 失败"), tempPath_.c_str(), filepath_.c_str());
         fs::remove(tempPath_, ec);
         return eErrorInvalidFile;
     }

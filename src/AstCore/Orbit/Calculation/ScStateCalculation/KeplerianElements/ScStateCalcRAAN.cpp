@@ -27,7 +27,7 @@ errc_t ScStateCalcRAAN::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement RAAN calculation
     // Need to convert State to Keplerian elements first
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

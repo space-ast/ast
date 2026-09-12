@@ -71,8 +71,8 @@ void aLogMessageV(ELogLevel level, const MessageLogContext& context, const char*
 	if (format)
 	{
 		int count = ast_vprintf(format, ap);
-		// 消息内容超过80个字符时换行
-		if(count >= 80)
+		// 消息内容超过70个字符时换行
+		if(count >= 70)
 			ast_printf("\n");
 		else
 			ast_printf(" ");

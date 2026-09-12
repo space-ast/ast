@@ -65,7 +65,7 @@ double JacchiaRoberts::getDensity(const TimePoint &tp, const Vector3d &posInBody
     }
     if (A_UNLIKELY(err != eNoError))
     {
-        aError("failed to calculate sun position");
+        aError(_("计算太阳位置失败"));
         return 0;
     }
 

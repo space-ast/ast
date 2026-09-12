@@ -80,7 +80,7 @@ errc_t CompressorImplSystem::compress(StringView source, StringView target, Stri
 {
     if (source.empty() || target.empty())
     {
-        aError("CompressorImplSystem: source or target is empty");
+        aError(_("源或目标为空"));
         return eErrorInvalidParam;
     }
 
@@ -92,14 +92,14 @@ errc_t CompressorImplSystem::compress(StringView source, StringView target, Stri
     // 安全检查：拒绝包含 shell 元字符的路径，防止命令注入
     if (hasShellMetacharacters(srcStr) || hasShellMetacharacters(tgtStr))
     {
-        aError("CompressorImplSystem: path contains invalid shell metacharacters");
+        aError(_("路径包含无效的 shell 元字符"));
         return eErrorInvalidParam;
     }
     {
         std::string curStr(curdir.data(), curdir.size());
         if (!curStr.empty() && hasShellMetacharacters(curStr))
         {
-            aError("CompressorImplSystem: curdir path contains invalid shell metacharacters");
+            aError(_("curdir 路径包含无效的 shell 元字符"));
             return eErrorInvalidParam;
         }
     }
@@ -136,7 +136,7 @@ errc_t CompressorImplSystem::compress(StringView source, StringView target, Stri
                 cmd += "\"";
                 return aRunCommand(cmd);
             }
-            aError("CompressorImplSystem: tar is not available");
+            aError(_("tar 不可用"));
             return eErrorNotImplemented;
         }
 
@@ -179,7 +179,7 @@ errc_t CompressorImplSystem::compress(StringView source, StringView target, Stri
             cmd += "\"";
             return aRunCommand(cmd);
         }
-        aError("CompressorImplSystem: no tool available for .zip");
+        aError(_("没有可用于 .zip 的工具"));
         return eErrorNotImplemented;
     }
 
@@ -197,12 +197,12 @@ errc_t CompressorImplSystem::compress(StringView source, StringView target, Stri
             cmd += "\"";
             return aRunCommand(cmd);
         }
-        aError("CompressorImplSystem: 7z is not available");
+        aError(_("7z 不可用"));
         return eErrorNotImplemented;
     }
 
     default:
-        aError("CompressorImplSystem: unsupported target format");
+        aError(_("不支持的目标格式"));
         return eErrorUnsupported;
     }
 }

@@ -39,31 +39,31 @@ AST_NAMESPACE_BEGIN
 
 void* aLoadLibrary(const char*)
 {
-    aError("WASM not support load library");
+    aError(_("WASM 不支持加载库"));
     return nullptr;
 }
 
 void* aGetProcAddress(void*, const char*)
 {
-    aError("WASM not support get procedure address");
+    aError(_("WASM 不支持获取函数地址"));
     return nullptr;
 }
 
 void* aResolveProcAddress(const char* , const char* )
 {
-    aError("WASM not support resolve procedure address");
+    aError(_("WASM 不支持获取函数地址"));
     return nullptr;
 }
 
 errc_t aFreeLibrary(void*)
 {
-    aError("WASM not support free library");
+    aError(_("WASM 不支持释放库"));
     return eError;
 }
 
 const char* aGetLoadError()
 {
-    aError("WASM not support library loader");
+    aError(_("WASM 不支持库加载器"));
     return "WASM not support library loader";
 }
 #else

@@ -835,7 +835,7 @@ errc_t JplDe::getStateTDB(const JulianDate& jdTDB, int ntarg, double pos[], doub
     if (ntarg > eDeTT_TDB)
     {
         /* Also protects against weird input errors */
-        aError("\n ntarg out of range, must <= eDeTT_TDB(14) \n");
+        aError(_("目标数据类型(ntarg)超出范围，必须不大于 eDeTT_TDB(14)"));
         return JPL_EPH_INVALID_INDEX;
     }
     if (jed < ephemStart_ || jed >= ephemEnd_)

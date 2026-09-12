@@ -98,7 +98,7 @@ protected:
                 parentDict->insert(context.name_, context.value_.get());
             }
         }else{
-            aError("parent element is not a object or container");
+            aError(_("父元素不是对象或容器"));
         }
     }
 protected:
@@ -135,14 +135,14 @@ public:
                 context = {};
             }
             else{
-                aError("unknown element '%.*s', expect 'OBJECT'", element.size(), element.data());
+                aError(_("未知的元素 '%.*s'，应为 'OBJECT'"), element.size(), element.data());
             }
         }
         else if(element == "STKOBJECT")
         {
             inSTKObjectScope_ = true;
         }else {
-            aError("root element 'STKOBJECT' is not found");
+            aError(_("未找到根元素 'STKOBJECT'"));
         }
     }
     void endElement(StringView element) override
@@ -187,7 +187,7 @@ public:
                     rc = aParseDouble(text, d);
                     if(!text.ends_with("\"\"") || rc != eNoError)
                     {
-                        aError("failed to parse quantity '%.*s'", text.size(), text.data());
+                        aError(_("解析数量值 '%.*s' 失败"), text.size(), text.data());
                     }
                     context.value_ = aNewValueDouble(d);
                 }else{
@@ -225,7 +225,7 @@ public:
         }
         else
         {
-            aError("unknown element '%.*s', expect 'OBJECT'", element.size(), element.data());
+            aError(_("未知的元素 '%.*s'，应为 'OBJECT'"), element.size(), element.data());
         }
         currentDepth_ --;
     }
@@ -300,7 +300,7 @@ public:
             Unit unit;
             errc_t rc = aUnitParse(context.name_, unit);
             if(rc){
-                aError("failed to parse unit '%s'", context.name_.c_str());
+                aError(_("解析单位 '%s' 失败"), context.name_.c_str());
             }
             double magnitude = aParseDouble(context.text_);
             context.value_ = aNewValueQuantity(Quantity(magnitude, unit));
@@ -379,7 +379,7 @@ errc_t aLoadValue(XMLParser& parser, SharedPtr<Value>& value)
         rc = parser.parse(sax);
         value = sax.getValue();
     }else{
-        aError("invalid XML format: expected comment or processing instruction at the beginning");
+        aError(_("无效的 XML 格式：开头应为注释或处理指令"));
         return eErrorInvalidFile;
     }
 #if 0

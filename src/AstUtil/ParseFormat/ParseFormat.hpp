@@ -210,7 +210,7 @@ std::string aFormatInt(int value)
     errc_t err = aFormatInt(value, str);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to format int value, err = %d", err);
+        aWarning(_("格式化整数值失败，错误 = %d"), err);
     }
     return str;
 }
@@ -227,7 +227,7 @@ std::string aFormatDouble(double value, int precision = kDefaultFormatDoubleEps)
     errc_t err = aFormatDouble(value, str, precision);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to format double value, err = %d", err);
+        aWarning(_("格式化双精度浮点数值失败，错误 = %d"), err);
     }
     return str;
 }
@@ -242,7 +242,7 @@ std::string aFormatColor(Color value)
     errc_t err = aFormatColor(value, str);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to format color value, err = %d", err);
+        aWarning(_("格式化颜色值失败，错误 = %d"), err);
     }
     return str;
 }
@@ -258,7 +258,7 @@ bool aParseBool(StringView str)
     errc_t err = aParseBool(str, value);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to parse bool value from '%.*s', err = %d", str.size(), str.data(), err);
+        aWarning(_("从 '%.*s' 解析布尔值失败，错误 = %d"), str.size(), str.data(), err);
     }
     return value;
 }
@@ -273,7 +273,7 @@ int aParseInt(StringView str)
     errc_t err = aParseInt(str, value);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to parse int value from '%.*s', err = %d", str.size(), str.data(), err);
+        aWarning(_("从 '%.*s' 解析整数值失败，错误 = %d"), str.size(), str.data(), err);
     }
     return value;
 }
@@ -289,7 +289,7 @@ double aParseDouble(StringView str)
     errc_t err = aParseDouble(str, value);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to parse double value from '%.*s', err = %d", str.size(), str.data(), err);
+        aWarning(_("从 '%.*s' 解析双精度浮点数值失败，错误 = %d"), str.size(), str.data(), err);
     }
     return value;
 }
@@ -304,7 +304,7 @@ double aParseFortranDouble(StringView str)
     errc_t err = aParseFortranDouble(str, value);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to parse fortran double value from '%.*s', err = %d", str.size(), str.data(), err);
+        aWarning(_("从 '%.*s' 解析 Fortran 双精度浮点数值失败，错误 = %d"), str.size(), str.data(), err);
     }
     return value;
 }
@@ -320,7 +320,7 @@ Color aParseColor(StringView str)
     errc_t err = aParseColor(str, value);
     if (A_UNLIKELY(err != eNoError))
     {
-        aWarning("failed to parse color value from '%.*s', err = %d", str.size(), str.data(), err);
+        aWarning(_("从 '%.*s' 解析颜色值失败，错误 = %d"), str.size(), str.data(), err);
     }
     return value;
 }

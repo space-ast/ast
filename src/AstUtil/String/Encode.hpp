@@ -35,6 +35,9 @@ AST_NAMESPACE_BEGIN
 */
 
 
+#ifdef _WIN32
+// 以下几个接口只在Windows平台上实现，其他平台不声明，避免误用导致链接错误
+
 /// @brief 将ANSI编码的字符串转换为宽字符编码
 /// @param ansi 输入ANSI编码的字符串
 /// @param wide 输出宽字符编码的字符串
@@ -52,7 +55,10 @@ AST_UTIL_CAPI errc_t aWideToAnsi(const wchar_t* wide, std::string& ansi);
 /// @brief 将ANSI编码的字符串转换为UTF-8编码
 /// @param ansi 输入ANSI编码的字符串
 /// @return UTF-8编码的字符串
+/// @warning 仅在Windows平台上实现
 AST_UTIL_API std::string aAnsiToUtf8(const char* ansi);
+
+#endif
 
 /// @brief 将UTF-8编码的字符串转换为宽字符编码
 /// @param utf8 输入UTF-8编码的字符串

@@ -67,7 +67,7 @@ public:
     }
     void blockingPost(std::function<void()> func) {
         if (QThread::currentThread() == thread()) {
-            aWarning("blocking post in same thread");
+            aWarning(_("在同一线程中阻塞投递"));
             func();
             return;
         }
@@ -90,7 +90,7 @@ void aAddQueued(std::function<void()> func, Qt::ConnectionType type)
 {
     if(!qApp)
     {
-        aError("failed to add queued function, qApp is null");
+        aError(_("添加队列函数失败，qApp 为空"));
         return;
     }
     static InvokeHelper* helper = new InvokeHelper();

@@ -75,7 +75,7 @@ errc_t PCKParser::getNext(BKVItemView &item)
             item.value() = valueStrip;
             if(valueStrip.empty())
             {
-                aWarning("value is whitespace for key: %.*s", (int)item.key().size(), item.key().data());
+                aWarning(_("键 %.*s 的值为空白字符"), (int)item.key().size(), item.key().data());
             }else if(valueStrip[0] == '(' && valueStrip.back() != ')'){
                 valueBuffer_.assign(value.data(), value.size());
                 // 继续读取，直到找到完整的括号表达式
@@ -86,7 +86,7 @@ errc_t PCKParser::getNext(BKVItemView &item)
                     StringView line = getLineWithNewline();
                     if(valueBuffer_.size() + line.size() >= maxsize)
                     {
-                        aError("value buffer overflow (exceeds %zu bytes) for key: %.*s",
+                        aError(_("值缓冲区溢出（超过 %zu 字节），键：%.*s"),
                                maxsize, (int)item.key().size(), item.key().data());
                         break;
                     }
@@ -110,7 +110,7 @@ errc_t PCKParser::readData(KernelPool &kernelPool)
 {
     if(!isOpen())
     {
-        aError("file is not open");
+        aError(_("文件未打开"));
         return eErrorInvalidFile;
     }
     BKVItemView item;
@@ -131,7 +131,7 @@ errc_t PCKParser::readData(KernelPool &kernelPool)
             if(value.toFortranDoubleVector(d) == eNoError){
                 kernelPool.setData(key, d);
             }else{
-                aError("value is not double for key: %.*s", (int)key.size(), key.data());
+                aError(_("键 %.*s 的值不是 double 类型"), (int)key.size(), key.data());
             }
         }
     };

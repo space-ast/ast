@@ -27,7 +27,7 @@ errc_t ScStateCalcRadius::calculate(const SpacecraftState& state, double& result
 {
     // TODO: Implement radius calculation
     // Need to get position from State first
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

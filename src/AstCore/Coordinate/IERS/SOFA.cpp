@@ -421,7 +421,7 @@ static errc_t aNutation_JplDe_Impl(const TimePoint& tp, double &dpsi, double &de
     errc_t err = aJplDeGetNutation(tp, dpsi, deps);
     if(err){
         // 失败时，尝试使用IAU1980模型
-        aInfo("Failed to get nutation from JPL DE, fallback to IAU1980 model.");
+        aInfo(_("无法从 JPL DE 星历获取章动数据，回退到 IAU1980 模型"));
         return aNutation_IAU1980_Impl(tp, dpsi, deps);
     }
     return 0;

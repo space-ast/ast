@@ -23,7 +23,7 @@ errc_t ExtractorImplTar::createDirectory(const std::string& entryName, const std
     {
         if (!fs::create_directories(dirPath))
         {
-            aError("ExtractorImplTar: cannot create directory: %s", dirPath.string().c_str());
+            aError(_("无法创建目录: %s"), dirPath.string().c_str());
             return eError;
         }
     }
@@ -40,7 +40,7 @@ errc_t ExtractorImplTar::createFile(FILE* src, size_t fileSize, const std::strin
     {
         if (!fs::create_directories(parentPath))
         {
-            aError("ExtractorImplTar: cannot create parent directory: %s", parentPath.string().c_str());
+            aError(_("无法创建父目录: %s"), parentPath.string().c_str());
             return eError;
         }
     }
@@ -48,7 +48,7 @@ errc_t ExtractorImplTar::createFile(FILE* src, size_t fileSize, const std::strin
     FILE* dst = posix::fopen(filePath.string().c_str(), "wb");
     if (!dst)
     {
-        aError("ExtractorImplTar: cannot create file: %s", filePath.string().c_str());
+        aError(_("无法创建文件: %s"), filePath.string().c_str());
         // 跳过数据
         if (fileSize > 0)
         {
@@ -75,7 +75,7 @@ errc_t ExtractorImplTar::createFile(FILE* src, size_t fileSize, const std::strin
         {
             if (ferror(src))
             {
-                aError("ExtractorImplTar: read error for file: %s", entryName.c_str());
+                aError(_("读取文件出错: %s"), entryName.c_str());
                 ret = eError;
             }
             break;
@@ -83,7 +83,7 @@ errc_t ExtractorImplTar::createFile(FILE* src, size_t fileSize, const std::strin
         size_t nwritten = fwrite(buf, 1, nread, dst);
         if (nwritten != nread)
         {
-            aError("ExtractorImplTar: write error for file: %s", entryName.c_str());
+            aError(_("写入文件出错: %s"), entryName.c_str());
             ret = eError;
             break;
         }
@@ -184,14 +184,14 @@ errc_t ExtractorImplTar::extract(StringView source, StringView target) const
 {
     if (source.empty() || target.empty())
     {
-        aError("ExtractorImplTar: source or target is empty");
+        aError(_("源或目标为空"));
         return eErrorInvalidParam;
     }
 
     FILE* fp = posix::fopen(source.data(), "rb");
     if (!fp)
     {
-        aError("ExtractorImplTar: cannot open source file: %s", source.data());
+        aError(_("无法打开源文件: %s"), source.data());
         return eErrorInvalidFile;
     }
 
@@ -201,7 +201,7 @@ errc_t ExtractorImplTar::extract(StringView source, StringView target) const
     {
         if (!fs::create_directories(targetDir))
         {
-            aError("ExtractorImplTar: cannot create target directory: %s", target.data());
+            aError(_("无法创建目标目录: %s"), target.data());
             fclose(fp);
             return eErrorInvalidFile;
         }
@@ -219,7 +219,7 @@ errc_t ExtractorImplTar::extract(StringView source, StringView target) const
         {
             if (ferror(fp))
             {
-                aError("ExtractorImplTar: read error at header");
+                aError(_("读取头部出错"));
                 ret = eError;
             }
             break;
@@ -278,7 +278,7 @@ errc_t ExtractorImplTar::extract(StringView source, StringView target) const
             constexpr size_t kMaxLongNameSize = 65536;
             if (entrySize > kMaxLongNameSize)
             {
-                aError("ExtractorImplTar: long name size exceeds limit: %zu", entrySize);
+                aError(_("长文件名大小超出限制: %zu"), entrySize);
                 ret = eError;
                 break;
             }
@@ -288,7 +288,7 @@ errc_t ExtractorImplTar::extract(StringView source, StringView target) const
                 size_t nr = fread(&longName[0], 1, entrySize, fp);
                 if (nr < entrySize && ferror(fp))
                 {
-                    aError("ExtractorImplTar: read error at long name");
+                    aError(_("读取长文件名出错"));
                     ret = eError;
                     break;
                 }

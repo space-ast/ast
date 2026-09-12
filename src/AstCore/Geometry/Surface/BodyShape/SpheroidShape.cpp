@@ -29,7 +29,7 @@ static double aAxisToFlatFactor(double majorAxis, double minorAxis)
 {
     if(majorAxis < minorAxis)
     {
-        aWarning("majorAxis is less than minorAxis");
+        aWarning(_("长半轴小于短半轴"));
     }
     return (majorAxis - minorAxis) / majorAxis;
 }

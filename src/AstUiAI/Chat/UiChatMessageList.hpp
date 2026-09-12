@@ -17,10 +17,10 @@
 
 class QScrollArea;
 class QVBoxLayout;
-class UiChatMessageItem;
 
 AST_NAMESPACE_BEGIN
 
+class UiChatMessageItem;
 enum class EChatRole;
 
 /*!

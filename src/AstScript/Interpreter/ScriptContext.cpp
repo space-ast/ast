@@ -116,7 +116,7 @@ void aScript_AddSymbol(Variable* var)
 {
     if(A_UNLIKELY(!var))
     {
-        aError("var is null");
+        aError(_("变量为空"));
         return;
     }
     aScript_AddSymbol(var->name(), var);
@@ -127,19 +127,19 @@ void aScript_AddSymbol(StringView name, Expr* expr)
 {
     if(A_UNLIKELY(!expr))
     {
-        aError("expr is null");
+        aError(_("表达式为空"));
         return;
     }
     auto symbolScope = aScript_CurrentSymbolScope();
     if(A_UNLIKELY(!symbolScope))
     {
-        aError("symbol scope is null");
+        aError(_("符号作用域为空"));
         return;
     }
     auto err = symbolScope->addSymbol(name, expr);
     if(A_UNLIKELY(err != eNoError))
     {
-        aError("addSymbol failed: symbol already exists");
+        aError(_("符号已存在"));
     }
 }
 
@@ -148,7 +148,7 @@ Expr *aScript_FindSymbol(StringView name)
     auto symbolScope = aScript_CurrentSymbolScope();
     if(A_UNLIKELY(!symbolScope))
     {
-        aError("symbol scope is null");
+        aError(_("符号作用域为空"));
         return nullptr;
     }
     return symbolScope->findSymbol(name);
@@ -158,7 +158,7 @@ Expr *aScript_FindSymbol(const Symbol *symbol)
 {
     if(A_UNLIKELY(!symbol))
     {
-        aError("symbol is null");
+        aError(_("符号为空"));
         return nullptr;
     }
     return aScript_FindSymbol(symbol->name());
@@ -169,7 +169,7 @@ Expr *aScript_ResolveSymbol(StringView name)
     auto symbolScope = aScript_CurrentSymbolScope();
     if(A_UNLIKELY(!symbolScope))
     {
-        aError("symbol scope is null");
+        aError(_("符号作用域为空"));
         return nullptr;
     }
     return symbolScope->resolveSymbol(name);
@@ -179,7 +179,7 @@ Expr *aScript_ResolveSymbol(const Symbol *symbol)
 {
     if(A_UNLIKELY(!symbol))
     {
-        aError("symbol is null");
+        aError(_("符号为空"));
         return nullptr;
     }
     return aScript_ResolveSymbol(symbol->name());

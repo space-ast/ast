@@ -62,7 +62,7 @@ public:
 
     errc_t handle(const CommandParams& params, CommandResult& result) const override {
         if (params.size() != std::tuple_size<Tuple>::value) {
-            aError("invalid param count");
+            aError(_("参数数量无效"));
             return eErrorInvalidParam;
         }
         return call(params, result, Tuple{});

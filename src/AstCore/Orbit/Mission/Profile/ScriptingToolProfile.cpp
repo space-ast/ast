@@ -30,7 +30,7 @@ static void setVariableList(ScriptExecutor& executor, const VariableList& variab
     {
         errc_t rc = executor.setVariable(var);
         if(rc)
-            aWarning("failed to set variable: '%s'", var->getName().c_str());
+            aWarning(_("设置变量 '%s' 失败"), var->getName().c_str());
     }
 }
 
@@ -40,7 +40,7 @@ static void getVariableList(ScriptExecutor& executor, VariableList& variableList
     {
         errc_t rc = executor.getVariable(var);
         if(rc)
-            aWarning("failed to get variable: '%s'", var->getName().c_str());
+            aWarning(_("获取变量 '%s' 失败"), var->getName().c_str());
     }
 }
 
@@ -49,7 +49,7 @@ errc_t ScriptingToolProfile::execute()
     ScopedPtr<ScriptExecutor> executor = aNewScriptExecutor(language_);
     if(!executor)
     {
-        aError("failed to create script executor for language: '%s'", toString(language_).c_str());
+        aError(_("为语言 '%s' 创建脚本执行器失败"), toString(language_).c_str());
         return eErrorInvalidParam;
     }
     errc_t rc;
@@ -58,7 +58,7 @@ errc_t ScriptingToolProfile::execute()
     rc = executor->initialize();
     if(rc)
     {
-        aError("failed to initialize script executor");
+        aError(_("初始化脚本执行器失败"));
         return rc;
     }
 
@@ -72,7 +72,7 @@ errc_t ScriptingToolProfile::execute()
     rc = executor->execute(scriptStatements_, &result);
     if(rc)
     {
-        aError("failed to execute script: %s", result.error().c_str());
+        aError(_("执行脚本失败: %s"), result.error().c_str());
         return rc;
     }
     // 获取全局变量值

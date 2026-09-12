@@ -47,7 +47,7 @@ ExprWhile::ExprWhile(Expr* condition, Expr* body)
 Value* ExprWhile::eval() const
 {
     if (A_UNLIKELY(!condition_ || !body_)) {
-        aError("while loop condition or body is null");
+        aError(_("while 循环的条件或循环体为空"));
         return nullptr;
     }
 
@@ -58,7 +58,7 @@ Value* ExprWhile::eval() const
         // 计算循环条件
         SharedPtr<Value> conditionValue = condition_->eval();
         if (!conditionValue) {
-            aError("while loop condition evaluation failed");
+            aError(_("while 循环条件求值失败"));
             return nullptr;
         }
 
@@ -67,7 +67,7 @@ Value* ExprWhile::eval() const
         if (aValueIsBool(conditionValue)) {
             isTrue = aValueUnboxBool(conditionValue);
         } else {
-            aError("while loop condition is not a boolean");
+            aError(_("while 循环条件不是布尔值"));
             return nullptr;
         }
 
@@ -79,7 +79,7 @@ Value* ExprWhile::eval() const
         // 执行循环体
         lastValue = body_->eval();
         if (!lastValue) {
-            aError("while loop body evaluation failed");
+            aError(_("while 循环体求值失败"));
             return nullptr;
         }
 
@@ -141,14 +141,14 @@ ExprForRange::ExprForRange(Expr* variable, Expr* range, Expr* body)
 Value* ExprForRange::eval() const
 {
     if (A_UNLIKELY(!variable_ || !range_ || !body_)) {
-        aError("for loop variable, range or body is null");
+        aError(_("for 循环的变量、范围或循环体为空"));
         return nullptr;
     }
 
     // 计算范围表达式的值
     SharedPtr<Value> rangeValue = range_->eval();
     if (!rangeValue) {
-        aError("for loop range evaluation failed");
+        aError(_("for 循环范围求值失败"));
         return nullptr;
     }
     int index;
@@ -161,7 +161,7 @@ Value* ExprForRange::eval() const
         // 执行循环体
         lastValue = body_->eval();
         if (!lastValue) {
-            aError("for loop body evaluation failed");
+            aError(_("for 循环体求值失败"));
             return nullptr;
         }
         iter = aIterateNext(rangeValue, index);

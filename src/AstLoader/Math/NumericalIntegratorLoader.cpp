@@ -43,7 +43,7 @@ errc_t aLoadNumericalIntegrator(const Value &value, ScopedPtr<ODEIntegrator> &in
     }
     else
     {
-        aError("unsupported numerical integrator type: '%s', use RKF78 by default", type.c_str());
+        aError(_("不支持的数值积分器类型: '%s'，默认使用 RKF78"), type.c_str());
         varStepIntegrator = new RKF78();
     }
     varStepIntegrator->setInitialStepSize(value["InitialStep"]);

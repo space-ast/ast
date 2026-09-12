@@ -256,15 +256,14 @@ errc_t AssistantAgent::parseResponseMessage(JsonValue& response, ChatMessage& ou
     if (!response["error"].isNull())
     {
         lastError_ = response["error"]["message"].toString();
-        aError("response error: %s", lastError_.c_str());
+        aError(_("接口响应错误: %s"), lastError_.c_str());
         return -1;
     }
 
     auto& choices = response["choices"];
     if (!choices.isArray() || choices.size() == 0)
     {
-        lastError_ = "choices is empty or not array";
-        aError("%s", lastError_.c_str());
+        aError(_("choices 字段为空或不是数组"));
         return -1;
     }
 

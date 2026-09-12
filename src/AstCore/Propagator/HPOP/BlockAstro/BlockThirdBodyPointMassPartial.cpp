@@ -62,7 +62,7 @@ errc_t BlockThirdBodyPointMassPartial::run(const SimTime& simTime)
     err = thirdBody_->getPosIn(propagationFrame_, tp, thirdBodyPos);
     if (A_UNLIKELY(err != eNoError))
     {
-        aError("failed to get third body position for partial derivative");
+        aError(_("获取三体位置失败"));
         return err;
     }
     Vector3d thirdBodyRelPos = thirdBodyPos - (*posCBI);  // d = r3 - r

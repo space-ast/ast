@@ -167,7 +167,7 @@ double	aEccToTimePastPeri(double E, double semiMajorAxis, double e, double gm)
         return M * sqrt(pow(std::abs(semiMajorAxis), 3) / gm);  // 双曲线a<0
     }
     else {
-        aError("暂不支持抛物线轨道.");
+        aError(_("尚不支持抛物线轨道"));
         // @todo
         return NAN;
     }
@@ -265,7 +265,7 @@ double	aMeanToEcc(double M, double e, double eps, int maxIter)
     }
     if (((e >= 0.0 && e < 1.0) || (e > 1.0)) && fabs(Delta3) >= 5.0 * eps && N >= maxIter)
     {
-        aError("mean2ecc迭代不收敛，请降低精度epsilon或增加迭代次数限制.");
+        aError(_("迭代不收敛，请降低精度epsilon或增加迭代次数限制"));
         return M;
     }
     return E;
@@ -467,13 +467,16 @@ double	aTrueToEcc(double f, double e)
     }
     else if (e > 1.0)//双曲线轨道
     {
-        if (f > PI - acos(1.0 / e) || f < -PI + acos(1.0 / e))
+        // 真近点角是周期量：f 与 f-2pi 指向同一方向、对应同一个物理点，
+        // 必须先归一化到主值区间 (-pi, pi]，再做"是否越过渐近线"的范围检查，否则会把合法角度误判为不可达。
+        double fnorm = aNormalizeAngleNegPiToPi(f);
+        if (fnorm > PI - acos(1.0 / e) || fnorm < -PI + acos(1.0 / e))
         {
-            aError("不可能达到的双曲轨道.");
+            aError(_("不可能达到的双曲轨道"));
             return INVALID_PARAM(f);
         }
         else
-            E = 2.0 * atanh(sqrt((e - 1.0) / (1.0 + e)) * tan(0.5 * f));
+            E = 2.0 * atanh(sqrt((e - 1.0) / (1.0 + e)) * tan(0.5 * fnorm));
     }
     else // 抛物线轨道
     {
@@ -540,4 +543,5 @@ double  aFlatToEcc(double flatFactor)
 
 AST_NAMESPACE_END
 
-
+#undef PI
+#undef PI2

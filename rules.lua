@@ -27,6 +27,10 @@ rule("ast")
             target:add("shflags", "-s ALLOW_MEMORY_GROWTH=1")
             target:add("ldflags", "-s INITIAL_MEMORY=33554432")  -- This option was formerly called TOTAL_MEMORY
             target:add("ldflags", "-s TOTAL_MEMORY=33554432")    -- 为了兼容老版本的emscripten
+        elseif target:plat() == "windows" then
+            -- 去除 __FILE__ 宏中的项目目录前缀
+            -- 但是这个编译选项容易导致部分调试器无法正常工作
+            -- target:add("cxflags", "/d1trimfile:" .. os.projectdir() .. "\\")
         end
         local include_dir = path.join(os.scriptdir(), "include", target:name())
         if os.isdir(include_dir) then
@@ -142,7 +146,7 @@ rule("ast.qt.ts")
         import("core.base.semver")
 
         -- get source file
-        local lupdate_argv = {"-no-obsolete", "-tr-function-alias", "tr+=_,QT_TR_NOOP+=N_,QT_TRANSLATE_NOOP+=NC_"}
+        local lupdate_argv = {"-no-obsolete", "-tr-function-alias", "qtTrId+=_,QT_TRID_NOOP+=N_,QT_TRANSLATE_NOOP+=NC_,AST_TRANSLATE_NOOP,QT_TR_NOOP+=AST_TR_NOOP"}
         local sourcefile_ts
         local source_files = {}
         for _, sourcebatch in pairs(target:sourcebatches()) do

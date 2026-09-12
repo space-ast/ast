@@ -72,7 +72,7 @@ GUIInterfaceImpl* GUIInterfaceImpl::Instance()
 
 GUIInterfaceImpl::GUIInterfaceImpl()
 {
-    if(!qApp)
+    if(!QCoreApplication::instance())
     {
         aGUIInit();
     }
@@ -104,12 +104,8 @@ A_THREAD_LOCAL std::string translateCache_;
 
 const char* GUIInterfaceImpl::translate(const char* msgctxt, const char* msgid)
 {
-    auto app = qApp;
-    if(app){
-        translateCache_ = app->translate(msgctxt, msgid).toStdString();
-        return translateCache_.c_str();
-    }
-    return msgid;
+    translateCache_ = QCoreApplication::translate(msgctxt, msgid).toStdString();
+    return translateCache_.c_str();
 }
 
 

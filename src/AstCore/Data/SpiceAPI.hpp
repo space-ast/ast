@@ -162,10 +162,10 @@ protected:
     errc_t checkerror();
     A_DISABLE_COPY(SpiceAPI);
 protected:
-    void*  library_{nullptr};           ///< 库句柄
-    std::vector<uint32_t> spk_handles_; ///< 已加载的SPK内核句柄列表
-    funcarray functions_{};             ///< 函数指针
-    std::mutex mutex_;                  ///< 互斥锁(CSPICE库的函数不是线程安全的，这里用于保护函数调用的线程安全问题)
+    void*  library_{nullptr};               ///< 库句柄
+    std::vector<uint32_t> spk_handles_{};   ///< 已加载的SPK内核句柄列表
+    funcarray functions_{};                 ///< 函数指针
+    std::mutex mutex_{};                    ///< 互斥锁(CSPICE库的函数不是线程安全的，这里用于保护函数调用的线程安全问题)
 };
 
 

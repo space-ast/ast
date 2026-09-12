@@ -121,14 +121,14 @@ errc_t DataGroupSpherical::calculate(const TimeList& timeList, Span<Data> result
     Frame* frame = this->getFrame();
     if(!scPoint || !frame)
     {
-        aError("scPoint or frame is null");
+        aError(_("点或坐标系为空"));
         return eErrorNullPtr;
     }
 
     size_t size = result.size();
     if(size != timeList.size())
     {
-        aError("result size must be equal to timeList size");
+        aError(_("结果数组大小必须等于时间列表大小"));
         return eErrorInvalidParam;
     }
 

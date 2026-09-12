@@ -72,7 +72,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
 {
     if (source.empty() || target.empty())
     {
-        aError("ExtractorImplShellCOM: source or target is empty");
+        aError(_("源或目标为空"));
         return eErrorInvalidParam;
     }
 
@@ -89,7 +89,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     if (srcLen == 0 || srcLen >= MAX_PATH ||
         tgtLen == 0 || tgtLen >= MAX_PATH)
     {
-        aError("ExtractorImplShellCOM: cannot resolve path");
+        aError(_("无法解析路径"));
         return eErrorInvalidParam;
     }
 
@@ -99,7 +99,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     {
         if (!fs::create_directories(targetPath))
         {
-            aError("cannot create target directory: '%.*s'", target.size(), target.data());
+            aError(_("无法创建目标目录: '%.*s'"), target.size(), target.data());
             return eErrorInvalidFile;
         }
     }
@@ -108,7 +108,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     HRESULT hrCom = aEnsureCoInitialized();
     if (FAILED(hrCom))
     {
-        aError("ExtractorImplShellCOM: COM initialization failed: 0x%08X", hrCom);
+        aError(_("COM 初始化失败: 0x%08X"), hrCom);
         return eError;
     }
 
@@ -118,7 +118,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
                                    IID_IShellDispatch, reinterpret_cast<void**>(&pShell));
     if (FAILED(hr) || !pShell)
     {
-        aError("ExtractorImplShellCOM: CoCreateInstance(CLSID_Shell) failed: 0x%08X", hr);
+        aError(_("CoCreateInstance(CLSID_Shell) 失败: 0x%08X"), hr);
         return eError;
     }
 
@@ -134,7 +134,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
 
         if (FAILED(hr) || !pZipFolder)
         {
-            aError("ExtractorImplShellCOM: NameSpace(zip) failed: 0x%08X", hr);
+            aError(_("NameSpace(zip) 失败: 0x%08X"), hr);
             pShell->Release();
             return eError;
         }
@@ -152,7 +152,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
 
         if (FAILED(hr) || !pDestFolder)
         {
-            aError("ExtractorImplShellCOM: NameSpace(dest) failed: 0x%08X", hr);
+            aError(_("NameSpace(dest) 失败: 0x%08X"), hr);
             pZipFolder->Release();
             pShell->Release();
             return eError;
@@ -164,7 +164,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     hr = pZipFolder->Items(&pItems);
     if (FAILED(hr) || !pItems)
     {
-        aError("ExtractorImplShellCOM: cannot enumerate zip contents: 0x%08X", hr);
+        aError(_("无法枚举 zip 内容: 0x%08X"), hr);
         pDestFolder->Release();
         pZipFolder->Release();
         pShell->Release();
@@ -222,7 +222,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
 
         if (FAILED(hr))
         {
-            aError("ExtractorImplShellCOM: CopyHere failed: 0x%08X", hr);
+            aError(_("CopyHere 失败: 0x%08X"), hr);
             pItems->Release();
             pDestFolder->Release();
             pZipFolder->Release();
@@ -238,7 +238,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     {
         if (!aShellWaitForItem(pDestFolder, name, 30000))
         {
-            aError("waitForItem timeout for: %ls", name.c_str());
+            aError(_("waitForItem 等待超时: %ls"), name.c_str());
             allOk = false;
             break; // 发生超时后不再等待剩余项
         }
@@ -248,7 +248,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     if (!allOk)
     {
         // 尝试清理已提取的项，避免残留不完整的解压结果
-        aError("extraction incomplete, attempting to clean up partial files");
+        aError(_("解压不完整，尝试清理部分文件"));
         for (const auto& name : extractedItems)
         {
             std::wstring itemPath = std::wstring(absTarget) + L"\\" + name;
@@ -263,7 +263,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
                     if (!RemoveDirectoryW(itemPath.c_str()))
                     {
                         // 目录可能非空，由调用者决定是否手动清理
-                        aError("ExtractorImplShellCOM: cannot remove directory during rollback: %ls", itemPath.c_str());
+                        aError(_("回滚期间无法删除目录: %ls"), itemPath.c_str());
                     }
                 }
                 else

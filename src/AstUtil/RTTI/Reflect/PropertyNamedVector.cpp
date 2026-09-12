@@ -25,14 +25,14 @@ AST_NAMESPACE_BEGIN
 
 errc_t aFakeGetByString(const void* container, StringView key, Object*& value)
 {
-    aError("getter is null");
+    aError(_("getter 为空"));
     value = nullptr;
     return -1;
 }
 
 errc_t aFakeGetByIndex(const void* container, size_t key, Object*& value)
 {
-    aError("getter is null");
+    aError(_("getter 为空"));
     value = nullptr;
     return -1;
 }

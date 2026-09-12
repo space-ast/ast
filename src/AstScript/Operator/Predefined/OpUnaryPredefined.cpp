@@ -154,7 +154,7 @@ Value* opunary(EOpUnaryType op, Value* value)
 {
     // 首先检查输入是否有效
     if (!value) {
-        aError("Invalid input value for unary operation");
+        aError(_("无效的一元运算输入值"));
         return nullptr;
     }
     

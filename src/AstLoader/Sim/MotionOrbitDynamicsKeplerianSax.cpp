@@ -45,14 +45,14 @@ errc_t MotionOrbitDynamicsKeplerianSax::keyValue(StringView key, const ValueView
         orbElemCoordAxes_ = getBody()->getAxes(orbElemCoordSys_);
         if(!orbElemCoordAxes_)
         {
-            aError("failed to get orbElemCoordAxes '%.*s'", (int)orbElemCoordSys_.size(), orbElemCoordSys_.data());
+            aError(_("获取轨道根数坐标系 '%.*s' 失败"), (int)orbElemCoordSys_.size(), orbElemCoordSys_.data());
         }
     }else if(aEqualsIgnoreCase(key, "PropagationCoordSys")){
         propagationCoordSys_ = value.toString();
         propagationCoordAxes_ = getBody()->getAxes(propagationCoordSys_);
         if(!propagationCoordAxes_)
         {
-            aError("failed to get propagationCoordAxes '%.*s'", (int)propagationCoordSys_.size(), propagationCoordSys_.data());
+            aError(_("获取预报坐标系 '%.*s' 失败"), (int)propagationCoordSys_.size(), propagationCoordSys_.data());
         }
     }else if(aEqualsIgnoreCase(key, "DisplayCoordType")){
         displayCoordType_ = value.toInt();
@@ -61,7 +61,7 @@ errc_t MotionOrbitDynamicsKeplerianSax::keyValue(StringView key, const ValueView
         displayCoordAxes_ = getBody()->getAxes(displayCoordSys_);
         if(!displayCoordAxes_)
         {
-            aError("failed to get displayCoordAxes '%.*s'", (int)displayCoordSys_.size(), displayCoordSys_.data());
+            aError(_("获取展示坐标系 '%.*s' 失败"), (int)displayCoordSys_.size(), displayCoordSys_.data());
         }
     }else if(aEqualsIgnoreCase(key, "EllipseType")){
         // @todo 这是什么??? 椭圆类型是什么意思???
@@ -73,17 +73,17 @@ errc_t MotionOrbitDynamicsKeplerianSax::keyValue(StringView key, const ValueView
 errc_t MotionOrbitDynamicsKeplerianSax::getMotion(ScopedPtr<MotionProfile>& motion)
 {
     if(vehiclePathData_.centralBody_ == nullptr){
-        aError("vehiclePathData's body is nullptr");
+        aError(_("天体为空"));
         return eErrorNullPtr;
     }
     if(!orbElemCoordAxes_)
     {
-        aError("orbElemCoordAxes_ is nullptr");
+        aError(_("轨道根数坐标系为空"));
         return eErrorNullPtr;
     }
     if(!propagationCoordAxes_)
     {
-        aError("propagationCoordAxes_ is nullptr");
+        aError(_("预报坐标系为空"));
         return eErrorNullPtr;
     }
     // 这里可以通过类型来判断是否需要新建MotionProfile

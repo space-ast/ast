@@ -52,7 +52,7 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
 {
     if (source.empty() || target.empty())
     {
-        aError("ExtractorImplSystem: source or target is empty");
+        aError(_("源或目标为空"));
         return eErrorInvalidParam;
     }
 
@@ -72,7 +72,7 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
         {
             if (!fs::create_directories(parentDir))
             {
-                aError("ExtractorImplSystem: cannot create parent directory for .gz output: %s",
+                aError(_("无法为 .gz 输出创建父目录: %s"),
                        parentDir.string().c_str());
                 return eErrorInvalidFile;
             }
@@ -96,7 +96,7 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
             return aRunCommand(cmd);
         }
 
-        aError("ExtractorImplSystem: no tool available for .gz (need gzip or 7z)");
+        aError(_("没有可用于 .gz 的工具 (需要 gzip 或 7z)"));
         return eErrorNotImplemented;
     }
 
@@ -106,7 +106,7 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
     {
         if (!fs::create_directories(targetPath))
         {
-            aError("cannot create target directory: %s", targetPath.string().c_str());
+            aError(_("无法创建目标目录: %s"), targetPath.string().c_str());
             return eErrorInvalidFile;
         }
     }
@@ -130,7 +130,7 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
                 std::string cmd = "7z x \"" + srcStr + "\" -o\"" + tgtStr + "\" -y";
                 return aRunCommand(cmd);
             }
-            aError("ExtractorImplSystem: tar is not available");
+            aError(_("tar 不可用"));
             return eErrorNotImplemented;
         }
 
@@ -172,7 +172,7 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
             cmd += "\"";
             return aRunCommand(cmd);
         }
-        aError("ExtractorImplSystem: no tool available for .zip");
+        aError(_("没有可用于 .zip 的工具"));
         return eErrorNotImplemented;
     }
 
@@ -184,12 +184,12 @@ errc_t ExtractorImplSystem::extract(StringView source, StringView target) const
             std::string cmd = "7z x \"" + srcStr + "\" -o\"" + tgtStr + "\" -y";
             return aRunCommand(cmd);
         }
-        aError("ExtractorImplSystem: 7z is not available");
+        aError(_("7z 不可用"));
         return eErrorNotImplemented;
     }
 
     default:
-        aError("ExtractorImplSystem: unsupported format");
+        aError(_("不支持的格式"));
         return eErrorUnsupported;
     }
 }

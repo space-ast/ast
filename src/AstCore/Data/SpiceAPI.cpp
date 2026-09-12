@@ -193,7 +193,7 @@ errc_t SpiceAPI::load(StringView dirpath)
     int numloaded = funcarray_loadedfunc(funcs);
     if(numloaded < numfunctions)
     {
-        aError("failed to load all %d functions, only %d loaded", numfunctions, numloaded);
+        aError(_("无法加载全部 %d 个函数，仅加载了 %d 个"), numfunctions, numloaded);
         aFreeLibrary(lib);
         return eErrorInvalidFile;
     }
@@ -225,7 +225,7 @@ errc_t SpiceAPI::unload()
     return eNoError;
 }
 
-const char* kSpiceUnloadError = "spice library not loaded, call SpiceAPI::load first";
+const char* kSpiceUnloadError = N_("SPICE 库未加载，请先调用 `SpiceAPI::load`");
 
 errc_t SpiceAPI::furnsh(const char* file)
 {
@@ -233,7 +233,7 @@ errc_t SpiceAPI::furnsh(const char* file)
     functype furnsh_c = reinterpret_cast<functype>(functions_[ifurnsh]);
     if(!furnsh_c)
     {
-        aError(kSpiceUnloadError);
+        aError(_(kSpiceUnloadError));
         return eErrorNullPtr;
     }
     std::lock_guard<std::mutex> lock(mutex_);
@@ -249,7 +249,7 @@ errc_t SpiceAPI::spkgeo(int targ, double et, const char * ref, int obs, double s
     functype spkgeo_c = reinterpret_cast<functype>(functions_[ispkgeo]);
     if(!spkgeo_c)
     {
-        aError(kSpiceUnloadError);
+        aError(_(kSpiceUnloadError));
         return eErrorNullPtr;
     }
     std::lock_guard<std::mutex> lock(mutex_);
@@ -263,7 +263,7 @@ errc_t SpiceAPI::spklef(const char *filename, int *handle)
     functype spklef_c = reinterpret_cast<functype>(functions_[ispklef]);
     if(!spklef_c)
     {
-        aError(kSpiceUnloadError);
+        aError(_(kSpiceUnloadError));
         return eErrorNullPtr;
     }
     spiceproto::SpiceInt h=0;
@@ -370,7 +370,7 @@ errc_t SpiceAPI::ktotal(const char *kind, int *count)
     functype ktotal_c = reinterpret_cast<functype>(functions_[iktotal]);
     if(!ktotal_c)
     {
-        aError(kSpiceUnloadError);
+        aError(_(kSpiceUnloadError));
         return eErrorNullPtr;
     }
     std::lock_guard<std::mutex> lock(mutex_);

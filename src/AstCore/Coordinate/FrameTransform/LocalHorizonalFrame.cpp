@@ -79,7 +79,7 @@ void aBodyFixedToGeodetic(const Vector3d& cart, GeodeticPoint& lla, double radiu
 		newN = radius / sqrt(1 - ee * sinB * sinB);
 		newB = std::atan2(cart[2] + ee * newN * sinB, xy);
 		if (++niter > 1000) {
-			aWarning("maximum number of iterations reached");
+			aWarning(_("达到最大迭代次数"));
 			break;
 		}
 	} while (fabs(newB - B) > EPS);
@@ -212,7 +212,7 @@ void aBodyFixedToGeodetic(const Vector3d& bodyFixed, GeodeticPoint& point, doubl
 
 		if (++niter > 1000)
 		{
-			aWarning("maximum number of iterations reached");
+			aWarning(_("达到最大迭代次数"));
 			break;
 		}
 
@@ -237,7 +237,7 @@ inline BodyShape* checkBodyShape(BodyShape* bodyShape)
 {
 	if(!bodyShape)
 	{
-		aWarning("bodyShape is not given, use WGS84 spheroid as default");
+		aInfo(_("未指定天体形状，默认使用 WGS84 椭球体"));
 		bodyShape = aWGS84Spheroid();
 	}
 	return bodyShape;

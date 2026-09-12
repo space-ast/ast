@@ -103,7 +103,7 @@ uint32_t ObjectManager::addObject(Object *object)
         {
             index = INVALID_ID;
             // @todo 处理对象管理器已满的情况
-            aCritical("object manager is full, max object count is %d", maxObjectCount_);
+            aCritical(_("对象管理器已满，最大对象数为 %d"), maxObjectCount_);
             break;
         }
     }

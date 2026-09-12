@@ -94,7 +94,7 @@ errc_t JsonDomSax::key(StringView key)
     if (currentValue().type() != EJsonValueType::eObject)
     {
         error_ = true;
-        aError("Key outside of object context.");
+        aError(_("键不在对象上下文中"));
         return kStopParsing;
     }
     JsonValue& childValue = currentValue()[std::string(key)];
@@ -110,7 +110,7 @@ errc_t JsonDomSax::index(size_t index)
     if (currentValue().type() != EJsonValueType::eArray)
     {
         error_ = true;
-        aError("Index outside of array context.");
+        aError(_("索引不在数组上下文中"));
         return kStopParsing;
     }
     JsonValue& childValue = currentValue()[index];
@@ -157,7 +157,7 @@ errc_t JsonDomSax::stringValue(StringView value)
 errc_t JsonDomSax::parseError(StringView message)
 {
     // 格式化错误信息
-    aError("%.*s", message.size(), message.data());
+    aError(("%.*s"), message.size(), message.data());
     error_ = true;
     return kStopParsing;  // 停止解析
 }

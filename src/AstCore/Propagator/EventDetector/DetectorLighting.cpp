@@ -25,7 +25,7 @@ AST_NAMESPACE_BEGIN
 
 double DetectorLighting::getValue(const SpacecraftState& state, double t) const
 {
-    aError("not implemented");
+    aError(_("尚未实现"));
     return 0.0;
 }
 

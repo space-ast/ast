@@ -40,7 +40,7 @@ errc_t aLoadManeuver(const Value& dictRoot, Maneuver& maneuver)
     const std::string type = dictRoot["Type"];
     if(type != "Maneuver")
     {
-        aError("invalid type, expect 'Maneuver'");
+        aError(_("无效的类型，应为 'Maneuver'"));
         return eErrorInvalidParam;
     }
 
@@ -51,7 +51,7 @@ errc_t aLoadManeuver(const Value& dictRoot, Maneuver& maneuver)
     rc = aLoadBurn(dictRoot[mnvrKey], burn);
     if(rc || !burn)
     {
-        aError("failed to load maneuver '%s'", mnvrKey.c_str());
+        aError(_("加载机动 '%s' 失败"), mnvrKey.c_str());
     }
     else
     {

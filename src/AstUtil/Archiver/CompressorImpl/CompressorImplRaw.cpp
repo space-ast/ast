@@ -36,7 +36,7 @@ errc_t CompressorImplRaw::compress(StringView source, StringView target, StringV
 {
     if (source.empty() || target.empty())
     {
-        aError("CompressorImplRaw: source or target is empty");
+        aError(_("源或目标为空"));
         return eErrorInvalidParam;
     }
 
@@ -45,7 +45,7 @@ errc_t CompressorImplRaw::compress(StringView source, StringView target, StringV
 
     if (!fs::exists(srcPath))
     {
-        aError("source does not exist: %s", srcPath.string().c_str());
+        aError(_("源不存在: %s"), srcPath.string().c_str());
         return eErrorInvalidFile;
     }
 

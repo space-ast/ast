@@ -254,13 +254,13 @@ bool aIsCommandAvailable(const char* cmd)
 errc_t aRunCommand(const std::string& cmd)
 {
 #ifdef A_WASM
-    aError("aRunCommand: WASM not support running external command");
+    aError(_("WASM 不支持运行外部命令"));
     return eError;
 #else
     FILE* pipe = A_POPEN(cmd.c_str(), "r");
     if (!pipe)
     {
-        aError("aRunCommand: popen failed for: %s", cmd.c_str());
+        aError(_("popen 失败: %s"), cmd.c_str());
         return eError;
     }
 
@@ -273,10 +273,10 @@ errc_t aRunCommand(const std::string& cmd)
     if (exitCode != 0)
     {
         if (!output.empty())
-            aError("aRunCommand: command failed (exit=%d): %s\nOutput: %s",
+            aError(_("命令失败 (exit=%d): %s\n输出: %s"),
                    exitCode, cmd.c_str(), output.c_str());
         else
-            aError("aRunCommand: command failed (exit=%d): %s",
+            aError(_("命令失败 (exit=%d): %s"),
                    exitCode, cmd.c_str());
         return eError;
     }
@@ -307,14 +307,14 @@ errc_t aCopyFile(StringView from, StringView to, const char* logPrefix)
     FILE* src = posix::fopen(from.data(), "rb");
     if (!src)
     {
-        aError("%s: cannot open source file: %s", logPrefix, from.data());
+        aError(_("%s: 无法打开源文件: %s"), logPrefix, from.data());
         return eErrorInvalidFile;
     }
 
     FILE* dst = posix::fopen(to.data(), "wb");
     if (!dst)
     {
-        aError("%s: cannot create target file: %s", logPrefix, to.data());
+        aError(_("%s: 无法创建目标文件: %s"), logPrefix, to.data());
         fclose(src);
         return eErrorInvalidFile;
     }
@@ -329,7 +329,7 @@ errc_t aCopyFile(StringView from, StringView to, const char* logPrefix)
         {
             if (ferror(src))
             {
-                aError("%s: read error", logPrefix);
+                aError(_("%s: 读取错误"), logPrefix);
                 ret = eError;
             }
             break;
@@ -337,7 +337,7 @@ errc_t aCopyFile(StringView from, StringView to, const char* logPrefix)
         size_t nwritten = fwrite(buf, 1, nread, dst);
         if (nwritten != nread)
         {
-            aError("%s: write error", logPrefix);
+            aError(_("%s: 写入错误"), logPrefix);
             ret = eError;
             break;
         }
@@ -366,16 +366,16 @@ errc_t aCopyFileRange(FILE* src, FILE* dst, size_t size)
         if (nread == 0)
         {
             if (ferror(src))
-                aError("read error");
+                aError(_("读取错误"));
             else
-                aError("unexpected EOF (expected %zu more bytes)", toRead);
+                aError(_("意外的 EOF (还需要 %zu 字节)"), toRead);
             return eErrorInvalidFile;
         }
 
         size_t nwritten = fwrite(buf, 1, nread, dst);
         if (nwritten != nread)
         {
-            aError("write error (wrote %zu of %zu bytes)", nwritten, nread);
+            aError(_("写入错误 (写入 %zu/%zu 字节)"), nwritten, nread);
             return eErrorInvalidFile;
         }
         remaining -= nread;
@@ -390,7 +390,7 @@ errc_t aCopyDirectoryRecursive(const fs::path& srcDir, const fs::path& dstDir, c
     {
         if (!fs::create_directories(dstDir))
         {
-            aError("%s: cannot create directory: %s", logPrefix, dstDir.string().c_str());
+            aError(_("%s: 无法创建目录: %s"), logPrefix, dstDir.string().c_str());
             return eErrorInvalidFile;
         }
     }

@@ -36,7 +36,7 @@ errc_t aLoadTargeterSequence(const Value& dictRoot, TargeterSequence& sequence)
     std::string type = dictRoot["Type"];
     if(type != "TargeterSequence")
     {
-        aError("invalid type, expect 'TargeterSequence'");
+        aError(_("无效的类型，应为 'TargeterSequence'"));
         return eErrorInvalidParam;
     }
     errc_t rc = aLoadSequence(dictRoot, sequence);
@@ -57,7 +57,7 @@ errc_t aLoadTargeterSequence(const Value& dictRoot, TargeterSequence& sequence)
             profiles.push_back(profile);
         }else
         {
-            aError("failed to load targeter profile '%s'", name.c_str());
+            aError(_("加载瞄准序列段 '%s' 失败"), name.c_str());
         }
     }
     sequence.setProfiles(profiles);

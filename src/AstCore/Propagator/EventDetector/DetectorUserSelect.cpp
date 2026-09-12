@@ -38,10 +38,10 @@ double DetectorUserSelect::getValue(const SpacecraftState& state, double t) cons
         if(rc == eNoError)
             return value;
         else{
-            aError("failed to calculate value");
+            aError(_("计算值失败"));
         }
     }
-    aError("calculation is null");
+    aError(_("计算对象为空"));
     return std::numeric_limits<double>::quiet_NaN();
 }
 

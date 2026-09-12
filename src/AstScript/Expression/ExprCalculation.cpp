@@ -49,13 +49,13 @@ Value* ExprCalculation::eval() const
 
 errc_t ExprCalculation::setValue(Value* val)
 {
-    aWarning("not implemented");
+    aWarning(_("尚未实现"));
     return eErrorReadonly;
 }
 
 errc_t ExprCalculation::setValueDouble(double val) 
 {
-    aError("readonly");
+    aError(_("只读"));
     return eErrorReadonly;
 }
 
@@ -80,7 +80,7 @@ errc_t ExprCalculation::calculate(double& val) const
 {
     if (!typeMatched_)
     {
-        aError("type not matched");
+        aError(_("类型不匹配"));
         return eErrorInvalidType;
     }
     if(auto calc = calculation_.get())
@@ -89,7 +89,7 @@ errc_t ExprCalculation::calculate(double& val) const
     }
     else
     {
-        aError("calculation not set");
+        aError(_("计算量未配置"));
         return eErrorNullPtr;
     }
 }

@@ -32,7 +32,7 @@ double DetectorAltitude::getValue(const SpacecraftState& state, double t) const
     errc_t rc = state.getStateIn(body(), geodetic);
     if(rc)
     {
-        aWarning("failed to get geodetic point");
+        aWarning(_("获取大地坐标失败"));
         return kNaN;
     }
     return geodetic.altitude(); 

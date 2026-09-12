@@ -41,7 +41,7 @@ BKVSaxPrint::BKVSaxPrint(StringView filepath)
     file_ = ast_fopen(filepath.data(), "w");
     if (file_ == nullptr)
     {
-        aError("failed to open file: %.*s", static_cast<int>(filepath.size()), filepath.data());
+        aError(_("打开文件失败：%.*s"), static_cast<int>(filepath.size()), filepath.data());
     }
 }
 

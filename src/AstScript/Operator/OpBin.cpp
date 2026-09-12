@@ -73,13 +73,13 @@ Value *OpBin::eval() const
     // 检查左操作数和右操作数是否为null
     if(A_UNLIKELY(!leftval.get() || !rightval.get()))
     {
-        aError("left or right value is null");
+        aError(_("左值或右值为空"));
         return nullptr;
     }
     auto leftType = leftval->type();
     auto rightType = rightval->type();
     if(A_UNLIKELY(!leftType || !rightType)){
-        aError("left or right value type is null");
+        aError(_("左值或右值的类型为空"));
         return nullptr;
     }
 
@@ -121,7 +121,7 @@ Value *OpBin::eval() const
     // --- 双重检查锁定模式 (DCLP) 结束 ---
 
     // 未找到匹配的函数指针
-    aError("no operator function found for %s %s %s",
+    aError(_("为 '%s %s %s' 未找到运算符函数"),
            leftType->name().c_str(),
            OpBinTypeStr[op_],
            rightType->name().c_str());

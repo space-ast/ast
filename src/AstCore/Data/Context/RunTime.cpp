@@ -71,7 +71,7 @@ errc_t LeapSecond::loadDefault()
         if(err)
         {
             // 加载失败也没关系，程序有内置的闰秒数据
-            aWarning("failed to load leapsecond from default data file: '%s'", datafile.string().c_str());
+            aWarning(_("从默认数据文件加载闰秒失败：'%s'"), datafile.string().c_str());
         }
     }
     return err;
@@ -88,7 +88,7 @@ errc_t JplDe::openDefault()
         err = this->open(datafile.string().c_str());
         if (err)
         {
-            aWarning("failed to load jpl de from default data file: '%s'", datafile.string().c_str());
+            aWarning(_("从默认数据文件加载 JPL DE 星历失败：'%s'"), datafile.string().c_str());
         }
     }
     
@@ -101,7 +101,7 @@ errc_t EOP::loadDefault()
     errc_t err = load(filepath.string());
     if (err)
     {
-        aWarning("failed to load eop from default data file:\n%s", filepath.string().c_str());
+        aWarning(_("从默认数据文件加载 EOP 失败：'%s'"), filepath.string().c_str());
     }
     return err;
 }
@@ -112,7 +112,7 @@ errc_t SpaceWeather::loadDefault()
     errc_t err = load(filepath.string());
     if (err)
     {
-        aWarning("failed to load space weather from default data file:\n%s", filepath.string().c_str());
+        aWarning(_("从默认数据文件加载空间天气失败：'%s'"), filepath.string().c_str());
     }
     return err;
 }
@@ -125,7 +125,7 @@ errc_t IAUXYS::loadDefault()
     errc_t err = load(filepathX.string(), filepathY.string(), filepathS.string());
     if (err)
     {
-        aWarning("failed to load iaux from default data file:\n%s", filepathX.string().c_str());
+        aWarning(_("从默认数据文件加载 IAU-XYS 系数失败：'%s'"), filepathX.string().c_str());
     }
     return err;
 }
@@ -137,7 +137,7 @@ errc_t IAUXYSPrecomputed::loadDefault()
     errc_t err = load(filepath.string());
     if (err)
     {
-        aWarning("failed to load iauxys precomputed from default data file:\n%s", filepath.string().c_str());
+        aWarning(_("从默认数据文件加载预计算的 IAU-XYS 数据失败：'%s'"), filepath.string().c_str());
     }
     return err;
 }
@@ -149,7 +149,7 @@ errc_t SolarSystem::loadDefault()
     errc_t err = load(dirpath);
     if (err)
     {
-        aWarning("failed to load solar system from default data dir:\n%s", dirpath.c_str());
+        aWarning(_("从默认数据目录加载太阳系失败：'%s'"), dirpath.c_str());
     }
     return err;
 }
@@ -169,7 +169,7 @@ static errc_t loadSPK(const std::vector<std::string>& spkFiles)
         // 避免损坏/非 SPK 内核走到 CSPICE furnsh 时才报晦涩错误。
         if(!aIsValidSPKFile(filepath))
         {
-            aError("invalid SPK file '%s'", filepath.c_str());
+            aError(_("无效的 SPK 星历文件 '%s'"), filepath.c_str());
             rc |= eErrorInvalidFile;
             continue;
         }
@@ -291,7 +291,7 @@ errc_t aInitializeByDefault(DataContext* context)
     context->setEpoch(TimePoint::TodayUTC());
 
     if(err != eNoError) {
-        aError("initialize failed: failed to load data.");
+        aError(_("初始化失败，有部分数据文件加载失败"));
     }
     return err;
 }
@@ -309,7 +309,7 @@ errc_t aInitializeByConfig(DataContext* context, const InitalizeConfig& config)
     // 如果 dataDir 为空或者目录不存在
     if(isEmpty || rc)
     {
-        aInfo("数据文件夹 '%s' 为空或不存在", config.dataDir_.c_str());
+        aInfo(_("数据文件夹 '%s' 为空或不存在"), config.dataDir_.c_str());
         #ifndef AST_DISABLE_AUTO_DOWNLOAD_DATA
         err = aDownloadData(dataDir);
         if(err != eNoError) return err;
@@ -340,7 +340,7 @@ errc_t aInitializeByConfig(DataContext* context, const InitalizeConfig& config)
     context->setEpoch(TimePoint::TodayUTC());
 
     if(err != eNoError) {
-        aError("initialize failed: failed to load data.");
+        aError(_("初始化失败，有部分数据文件加载失败"));
     }
     return err;
 }
@@ -437,14 +437,14 @@ errc_t aDataDirGet(std::string &datadir)
 errc_t aDataDirSet(StringView dirpath)
 {
     if (!fs::is_directory(std::string(dirpath))) {
-        aError("dirpath is not a directory.");
+        aError(_("输入的路径 '%.*s' 不是目录"), dirpath.size(), dirpath.data());
         return eErrorInvalidParam;
     }
     auto context = aDataContext_GetCurrent();
     context->setDataDir(dirpath);
     if(!context->isInitialized())
     {
-        aWarning("data context is not initialized.");
+        aWarning(_("数据上下文尚未初始化"));
     }
     return eNoError;
 }

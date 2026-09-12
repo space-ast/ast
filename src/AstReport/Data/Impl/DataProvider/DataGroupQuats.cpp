@@ -80,14 +80,14 @@ errc_t DataGroupQuats::calculate(const TimeList& timeList, Span<Data> result) co
     Axes* referenceAxes = this->getReferenceAxes();
     if(!axes || !referenceAxes)
     {
-        aError("Axes or ReferenceAxes is null");
+        aError(_("轴或参考轴为空"));
         return eErrorNullPtr;
     }
 
     size_t size = result.size();
     if(size != timeList.size())
     {
-        aError("result size must be equal to timeList size");
+        aError(_("结果数组大小必须等于时间列表大小"));
         return eErrorInvalidParam;
     }
 

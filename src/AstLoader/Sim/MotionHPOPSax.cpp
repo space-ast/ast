@@ -93,7 +93,7 @@ static EAtmDensityModel _aStringToAtmDensityModel(StringView value)
     }else {
         return EAtmDensityModel::e1976Standard;
     }
-    aWarning("unknown atm density model: '%.*s'", value.size(), value.data());
+    aWarning(_("未知的大气密度模型: '%.*s'"), value.size(), value.data());
     return EAtmDensityModel::eNone;
 }
 
@@ -112,7 +112,7 @@ errc_t MotionHPOPSax::begin(StringView name)
                     auto body = aGetBody(bodyName);
                     if(!body)
                     {
-                        aWarning("failed to get body '%.*s'", bodyName.size(), bodyName.data());
+                        aWarning(_("获取天体 '%.*s' 失败"), bodyName.size(), bodyName.data());
                         continue;
                     }
                     forceModel_.srp().eclipsingBodies_.push_back(body);
@@ -202,7 +202,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
     else if(aEqualsIgnoreCase(key, "AtmDensityModel")){
         forceModel_.drag().atmDensityModel_ = _aStringToAtmDensityModel(value.toString());
         if(forceModel_.drag().atmDensityModel_ == EAtmDensityModel::eNone){
-            aWarning("use default atm density model 'NRLMSISE2000'");
+            aWarning(_("使用默认大气密度模型 'NRLMSISE2000'"));
             forceModel_.drag().atmDensityModel_ = EAtmDensityModel::eNRLMSISE2000;
         }
     }
@@ -248,7 +248,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
             forceModel_.drag().geoMagFluxSource_ = EGeoMagFluxSource::eAp;
         }else{
             // @todo 处理其他磁通量源
-            aWarning("unsupported flux source: %s", value.toString().c_str());
+            aWarning(_("不支持的磁通量源: %s"), value.toString().c_str());
         }
     }
     else if(aEqualsIgnoreCase(key, "GeoMagneticFluxUpdateMethod")){
@@ -261,7 +261,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         }
         else{
             // @todo 处理其他更新方法
-            aWarning("unsupported update method: %s", value.toString().c_str());
+            aWarning(_("不支持的更新方法: %s"), value.toString().c_str());
             if(value.toStringView().find("3Hourly")!=StringView::npos)
             {
                 forceModel_.drag().geoMagFluxUpdateRate_ = EGeoMagFluxUpdateRate::e3Hourly;
@@ -314,7 +314,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         }
         else{
             // @todo 处理其他太阳位置
-            aWarning("unsupported sun position: %s", value.toString().c_str());
+            aWarning(_("不支持的太阳位置: %s"), value.toString().c_str());
         }
     }
     else if(aEqualsIgnoreCase(key, "DetectShadowBoundaries")){
@@ -330,7 +330,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         }
         else{
             // @todo 处理其他阴影模型
-            aWarning("unsupported shadow model: %s", value.toString().c_str());
+            aWarning(_("不支持的阴影模型: %s"), value.toString().c_str());
         }
     }
     
@@ -474,7 +474,7 @@ errc_t MotionHPOPSax::getMotion(ScopedPtr<MotionProfile> &motion)
         // else if(aEqualsIgnoreCase(integrator_.method_, "BulirschStoer")){}
         // else if(aEqualsIgnoreCase(integrator_.method_, "GaussJackson")){}
         else{
-            aWarning("unsupported integrator method '%s'", integrator_.method_.c_str());
+            aWarning(_("不支持的积分器方法 '%s'"), integrator_.method_.c_str());
         }
     }
     auto varIntegrator = aobject_cast<ODEVarStepIntegrator*>(integrator.get());

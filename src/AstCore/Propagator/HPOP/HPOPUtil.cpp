@@ -31,13 +31,13 @@ errc_t aHPOPEquation_SetDragCoefficient(HPOPEquation* equation, double cd)
 {
     if(!equation)
     {
-        aWarning("equation is null");
+        aWarning(_("HPOP方程为空"));
         return -1;
     }
     auto dragBlock = equation->dragBlock();
     if(!dragBlock)
     {
-        aWarning("dragBlock is null");
+        aWarning(_("大气阻力块为空"));
         return -1;
     }
     dragBlock->setCoefficient(cd);
@@ -50,13 +50,13 @@ errc_t aHPOPEquation_SetSRPCoefficient(HPOPEquation* equation, double cr)
 {
     if(!equation)
     {
-        aWarning("equation is null");
+        aWarning(_("HPOP方程为空"));
         return -1;
     }
     auto srpBlock = equation->srpBlock();
     if(!srpBlock)
     {
-        aWarning("srpBlock is null");
+        aWarning(_("太阳光压块为空"));
         return -1;
     }
     srpBlock->setCoefficient(cr);

@@ -40,7 +40,7 @@ errc_t aLoadParameters(const Value& value, VariableList& list)
         var->setName(name);
         errc_t rc = aLoadParameter(value, *var);
         if(rc)
-            aWarning("failed to load parameter");
+            aWarning(_("加载参数失败"));
         else
             list.append(var.release());
     }
@@ -60,7 +60,7 @@ errc_t aLoadAttributes(const Value& value, VariableList& list, Object* scope)
         var->setName(name);
         errc_t rc = aLoadAttribute(value, *var, scope);
         if(rc)
-            aWarning("failed to load attribute");
+            aWarning(_("加载属性失败"));
         else
             list.append(var.release());
     }
@@ -81,7 +81,7 @@ errc_t aLoadCalcObjects(const Value& value, VariableList& list, Object* scope)
         var->setName(name);
         errc_t rc = aLoadCalcObject(value, *var, scope);
         if(rc)
-            aWarning("failed to load calc object");
+            aWarning(_("加载计算对象失败"));
         else
             list.append(var.release());
     }

@@ -57,6 +57,14 @@
 %ignore ast::TimePointRange;
 %ignore ast::DoubleRange;
 
+// va_list 在 Linux x86-64 等平台上被定义为数组类型（__va_list_tag[1]），
+// SWIG 生成的 `arg = *temp;` 属于对数组整体赋值，C++ 无法编译。
+// 这些 C 风格可变参数接口本身也无法在 Python 侧安全构造 va_list，直接忽略。
+%ignore ast::aScript_FormartErrStringV;
+%ignore ast::aLogMessageV;
+%ignore ast::ast_vprintf;
+%ignore ast::posix::vprintf;
+
 %include "AstAllHeaders.i"
 
 

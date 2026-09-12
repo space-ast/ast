@@ -46,48 +46,48 @@ errc_t aLfsExtractHref(const NetworkResponse& response, std::string& href)
     JsonValue root = response.toJson();
     if (!root.isObject())
     {
-        aError("LFS batch response is not a JSON object");
+        aError(_("LFS 批量响应不是 JSON 对象"));
         return eErrorInvalidFile;
     }
 
     const JsonValue& objects = root["objects"];
     if (!objects.isArray() || objects.size() == 0)
     {
-        aError("LFS batch response missing objects");
+        aError(_("LFS 批量响应缺少 objects"));
         return eErrorNotFound;
     }
 
     const JsonValue& object = objects[0];
     if (!object.isObject())
     {
-        aError("LFS batch response object is not a JSON object");
+        aError(_("LFS 批量响应中的 object 不是 JSON 对象"));
         return eErrorInvalidFile;
     }
 
     const JsonValue& actions = object["actions"];
     if (!actions.isObject())
     {
-        aError("LFS batch response missing actions");
+        aError(_("LFS 批量响应缺少 actions"));
         return eErrorNotFound;
     }
 
     const JsonValue& download = actions["download"];
     if (!download.isObject())
     {
-        aError("LFS batch response missing download action");
+        aError(_("LFS 批量响应缺少 download 操作"));
         return eErrorNotFound;
     }
 
     const JsonValue& entry = download["href"];
     if (entry.isNull() || !entry.isString())
     {
-        aError("LFS batch response missing download href");
+        aError(_("LFS 批量响应缺少 download href"));
         return eErrorNotFound;
     }
     href = entry.toString();
     if (href.empty())
     {
-        aError("LFS batch response href is empty");
+        aError(_("LFS 批量响应 href 为空"));
         return eErrorNotFound;
     }
     return eNoError;
@@ -124,7 +124,7 @@ errc_t aLfsParsePointer(StringView pointerText, LfsPointerInfo& info)
 
     if (!hasOid)
     {
-        aError("invalid LFS pointer: missing oid");
+        aError(_("无效的 LFS 指针: 缺少 oid"));
         return eErrorNotFound;
     }
     return eNoError;
@@ -175,7 +175,7 @@ errc_t aDownloadLfs(StringView pointerFile, StringView outputFile, StringView re
     std::ifstream in(pFile.c_str(), std::ios::binary);
     if (!in.is_open())
     {
-        aError("cannot open LFS pointer file %s", pFile.c_str());
+        aError(_("无法打开 LFS 指针文件 %s"), pFile.c_str());
         return eErrorInvalidFile;
     }
     std::string pointerText((std::istreambuf_iterator<char>(in)),
@@ -199,12 +199,12 @@ errc_t aDownloadLfs(StringView pointerFile, StringView outputFile, StringView re
     err = aNetworkRequest(request, response);
     if (err)
     {
-        aError("LFS batch request failed for %s", batchUrl.c_str());
+        aError(_("LFS 批量请求失败: %s"), batchUrl.c_str());
         return err;
     }
     if (response.statusCode() != 200)
     {
-        aError("LFS batch HTTP %d for %s", response.statusCode(), batchUrl.c_str());
+        aError(_("LFS 批量请求 HTTP %d: %s"), response.statusCode(), batchUrl.c_str());
         return eErrorInvalidFile;
     }
 
@@ -224,7 +224,7 @@ errc_t aDownloadLfs(StringView pointerFile, StringView outputFile, StringView re
 
     // 先下载到临时文件，成功后再重命名，失败则清理
     std::string tempFile = oFile + ".part";
-    aInfo("downloading lfs file to '%s'", tempFile.c_str());
+    aInfo(_("正在下载 LFS 文件到 '%s'"), tempFile.c_str());
     err = aDownloadFile(href, tempFile);
     if (err)
     {
@@ -235,7 +235,7 @@ errc_t aDownloadLfs(StringView pointerFile, StringView outputFile, StringView re
 
     if (!fs::rename(tempFile, oFile))
     {
-        aError("rename %s -> %s failed", tempFile.c_str(), oFile.c_str());
+        aError(_("重命名 %s 为 %s 失败"), tempFile.c_str(), oFile.c_str());
         if (fs::exists(tempFile, ec))
             fs::remove(tempFile, ec);
         return eErrorInvalidFile;

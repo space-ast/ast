@@ -39,7 +39,7 @@ ScStateCalculation* aResolveBuiltinScStateCalculation(StringView name)
     }
     else
     {
-        aError("unsupported builtin calculation '%.*s'", name.size(), name.data());
+        aError(_("不支持的内置计算量 '%.*s'"), name.size(), name.data());
     }
     return nullptr;
 }
@@ -63,7 +63,7 @@ errc_t aLoadCalculation(const Value& value, ScStateCalcFrameRelated& calculation
             calcPtr->setFrame(frame);
             return eNoError;
         }
-        aError("frame '%s' not found", frameName.c_str());
+        aError(_("未找到坐标系 '%s'"), frameName.c_str());
         return eErrorNullPtr;
     };
     calculation.addDelayedLink(resolveFunc);
@@ -80,7 +80,7 @@ errc_t aLoadCalculation(const Value& value, ScStateCalcBodyRelated& calculation)
             calcPtr->setBody(body);
             return eNoError;
         }
-        aError("body '%s' not found", bodyName.c_str());
+        aError(_("未找到天体 '%s'"), bodyName.c_str());
         return eErrorNullPtr;
     };
     calculation.addDelayedLink(resolveFunc);
@@ -97,7 +97,7 @@ errc_t aLoadCalculation(const Value& value, ScStateCalcPointRelated& calculation
             calcPtr->setPoint(point);
             return eNoError;
         }
-        aError("point '%s' not found for calculation '%s<%s>'", pointName.c_str(), calcPtr->getName().c_str(), calcPtr->typeName().c_str());
+        aError(_("未找到参考点 '%s'，用于计算量 '%s（%s）'"), pointName.c_str(), calcPtr->getName().c_str(), calcPtr->typeName().c_str());
         return eErrorNullPtr;
     };
     calculation.addDelayedLink(resolveFunc);
@@ -116,7 +116,7 @@ errc_t aLoadCalculation(const Value& value, ScStateCalcDifference& calculation)
         else
         {
             orderToUse = EDifferenceOrderToUse::eCurrentMinusInitial;
-            aError("unsupported difference order to use: '%s', use default 'Current Minus Initial'", differenceOrderToUse.c_str());
+            aError(_("不支持的差值顺序：'%s'，默认使用 'Current Minus Initial'"), differenceOrderToUse.c_str());
         }
         calculation.setDifferenceOrderToUse(orderToUse);
     }
@@ -213,7 +213,7 @@ errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Obj
     else
     {
         result.reset();
-        aError("unsupported result type: '%s'", type.c_str());
+        aError(_("不支持的结果类型：'%s'"), type.c_str());
         return eErrorInvalidParam;
     }
     // if(result && !result->getParentScope())

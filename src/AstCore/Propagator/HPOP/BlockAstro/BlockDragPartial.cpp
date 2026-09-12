@@ -75,7 +75,7 @@ errc_t BlockDragPartial::run(const SimTime& simTime)
 {
     if (A_UNLIKELY(!atmosphere_))
     {
-        aError("BlockDragPartial: atmosphere is null, cannot compute drag acceleration");
+        aError(_("大气模型为空，无法计算大气阻力加速度"));
         *accDrag_ = Vector3d::Zero();
         return eErrorNullInput;
     }
@@ -90,7 +90,7 @@ errc_t BlockDragPartial::run(const SimTime& simTime)
 
     // @todo 这里的计算逻辑和 BlockDrag 中的 run() 重复，需要考虑怎么复用计算逻辑
     {
-        Vector3d _;
+        Vector3d notUsed;
         Vector3d atmosVelocity;
         KinematicTransform transform;
         Frame* atmosFrame = atmosphere_->getFrame();
@@ -103,7 +103,7 @@ errc_t BlockDragPartial::run(const SimTime& simTime)
 
         // 计算大气密度
         density = atmosphere_->getDensity(tp, posInAtmosFrame);
-        transform.inverse().transformPositionVelocity(posInAtmosFrame, Vector3d::Zero(), _, atmosVelocity);
+        transform.inverse().transformPositionVelocity(posInAtmosFrame, Vector3d::Zero(), notUsed, atmosVelocity);
 
         // 计算航天器相对于大气的速度
         relVelocity = *velocity_ - atmosVelocity;
@@ -112,7 +112,7 @@ errc_t BlockDragPartial::run(const SimTime& simTime)
         double mass = *mass_;
         if (A_UNLIKELY(mass <= 0))
         {
-            aError("spacecraft mass is zero or negative (%f), cannot compute drag acceleration", mass);
+            aError(_("航天器质量为零或为负(%lf kg)，无法计算大气阻力加速度"), mass);
             *accDrag_ = Vector3d::Zero();
             return eErrorInvalidParam;
         }

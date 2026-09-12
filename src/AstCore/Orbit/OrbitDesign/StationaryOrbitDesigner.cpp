@@ -46,7 +46,7 @@ StationaryOrbitDesigner::StationaryOrbitDesigner(CelestialBody *body)
 {
     if(body && !body->isEarth())
     {
-        aError("StationaryOrbitDesigner currently only support Earth.");
+        aError(_("静止轨道设计器目前仅支持地球。"));
     }
 }
 
@@ -105,7 +105,7 @@ errc_t StationaryOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
         orbElem.trueA_ = 0_deg;
         return eNoError;
     }else{
-        aError("StationaryOrbitDesigner failed to solve semimajor axis.");
+        aError(_("求解半长轴失败"));
         return -1;
     }
 }

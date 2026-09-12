@@ -65,7 +65,7 @@ static errc_t loadEOP(BKVParser& parser, int numlines, std::vector<EOP::Entry>& 
         entry.dy *= kArcSecToRad;
 
         if(status!=13){
-            aError("parse line %d failed, status=%d", parser.getLineNumber(), status);
+            aError(_("解析EOP表格数据的第 %d 行时失败，实际内容为 '%.*s'"), parser.getLineNumber(), line.size(), line.data());
             return eErrorParse;
         }
         if(!data.empty()){
@@ -106,7 +106,7 @@ errc_t EOP::load(StringView filepath, std::vector<Entry>& data)
 
     if (!parser.isOpen())
     {
-        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile; // 文件打开失败
     }
 

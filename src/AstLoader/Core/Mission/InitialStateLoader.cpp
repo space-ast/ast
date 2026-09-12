@@ -81,7 +81,7 @@ errc_t aLoadInitialState(const Value& dictRoot, InitialState& initialState)
 {
     if(dictRoot["Type"].toString() != "InitialState")
     {
-        aError("invalid type, expect 'InitialState'");
+        aError(_("无效的类型，应为 'InitialState'"));
         return eErrorInvalidParam;
     }
 

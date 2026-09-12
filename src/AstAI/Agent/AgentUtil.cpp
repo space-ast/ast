@@ -89,7 +89,7 @@ namespace{
         errc_t visit(PropertyStruct& property, const void* container) override
         {
             // @todo
-            aWarning("PropertyStruct is not supported in JsonVisitorImplForJson");
+            aWarning(_("不支持 PropertyStruct"));
             return 0;
         }
         errc_t visit(PropertyQuantity& property, const void* container) override
@@ -100,7 +100,7 @@ namespace{
         errc_t visit(PropertyPOD& property, const void* container) override
         {
             // @todo
-            aWarning("PropertyPOD is not supported in JsonVisitorImplForJson");
+            aWarning(_("不支持 PropertyPOD"));
             return 0;
         }
         errc_t visit(PropertyTimePoint& property, const void* container) override
@@ -143,7 +143,7 @@ namespace{
         }
         errc_t visit(Property& property, const void* container) override
         {
-            aWarning("Property is not supported in JsonVisitorImplForClassJson");
+            aWarning(_("不支持 Property"));
             return 0;
         }
         errc_t visit(PropertyBool& property, const void* container) override
@@ -191,7 +191,7 @@ namespace{
         errc_t visit(PropertyStruct& property, const void* container) override
         {
             // @todo
-            aWarning("PropertyStruct is not supported in JsonVisitorImplForJson");
+            aWarning(_("不支持 PropertyStruct"));
             return 0;
         }
         errc_t visit(PropertyQuantity& property, const void* container) override
@@ -204,7 +204,7 @@ namespace{
         errc_t visit(PropertyPOD& property, const void* container) override
         {
             // @todo
-            aWarning("PropertyPOD is not supported in JsonVisitorImplForJson");
+            aWarning(_("不支持 PropertyPOD"));
             return 0;
         }
         errc_t visit(PropertyTimePoint& property, const void* container) override
@@ -354,7 +354,7 @@ std::string aCreateObject(const JsonValue& arguments)
         parentObj = aGetObject(arguments["parent_id"].toInt());
         if(!parentObj)
         {
-            aError("parent object %d not found", arguments["parent_id"].toInt());
+            aError(_("父对象 %d 未找到"), arguments["parent_id"].toInt());
             return u8"父对象不存在";
         }
     }
@@ -368,10 +368,10 @@ std::string aCreateObject(const JsonValue& arguments)
     {
         if(aIsVirtualClass(className))
         {
-            aError("virtual class %s is not supported", className.c_str());
+            aError(_("不支持虚类 %s"), className.c_str());
             return u8"虚类" + className + u8"不支持创建对象";
         }
-        aError("create object failed: %s", className.c_str());
+        aError(_("创建对象失败: %s"), className.c_str());
         return u8"创建对象失败";
     }
 }
@@ -450,7 +450,7 @@ std::string aGetObjectAttributes(const JsonValue& arguments)
     }
     else
     {
-        aError("get object failed: %d", id);
+        aError(_("获取对象失败: %d"), id);
         return u8"获取对象失败，可能是相应id的对象不存在或已被删除";
     }
 }
@@ -483,7 +483,7 @@ std::string aSetObjectAttribute(const JsonValue& arguments)
     Object* obj = aGetObject(id);
     if(!obj)
     {
-        aError("object '%d' not found", id);
+        aError(_("未找到对象 '%d'"), id);
         return u8"未找到对象，可能是相应id的对象不存在或已被删除";
     }
     std::string attr = arguments["attribute"].toString();
@@ -496,7 +496,7 @@ std::string aSetObjectAttribute(const JsonValue& arguments)
             obj->setName(arguments["value"].toString());
             return u8"设置对象名称成功";
         }
-        aError("property '%s' not found", attr.c_str());
+        aError(_("未找到属性 '%s'"), attr.c_str());
         return u8"未找到属性" + attr;
     }
     auto& valueJson = arguments["value"];
@@ -530,7 +530,7 @@ std::string aSetObjectAttribute(const JsonValue& arguments)
     
     if(rc != 0)
     {
-        aError("failed to set object attribute '%s' to '%s'", attr.c_str(), valueJson.toString().c_str());
+        aError(_("设置对象属性 '%s' 为 '%s' 失败"), attr.c_str(), valueJson.toString().c_str());
         return u8"设置对象属性失败，可能是数值不合法或者属性是只读的";
     }
     else
@@ -560,13 +560,13 @@ std::string aShowEditDialog(const JsonValue &arguments)
     Object* obj = aGetObject(id);
     if(!obj)
     {
-        aError("object '%d' not found", id);
+        aError(_("未找到对象 '%d'"), id);
         return u8"未找到对象，可能是相应id的对象不存在或已被删除";
     }
     errc_t rc = obj->showEditDialog();
     if(rc != 0)
     {
-        aError("failed to show edit dialog for object '%d'", id);
+        aError(_("显示对象 '%d' 的编辑对话框失败"), id);
         return u8"显示编辑对话框失败，可能是当前环境不支持显示对话框";
     }
     else

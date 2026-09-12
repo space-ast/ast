@@ -30,7 +30,7 @@ errc_t LandingSiteCalcSunAzimuth::calculate(const Segment& segment, double& resu
     const auto* landingSite = aobject_cast<const LandingSite*>(&segment);
     if(!landingSite)
     {
-        aError("segment type is not 'LandingSite'");
+        aError(_("段类型不是 'LandingSite'"));
         return eErrorInvalidType;
     }
     auto landingBody = landingSite->body();

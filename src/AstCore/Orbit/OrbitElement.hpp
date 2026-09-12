@@ -26,6 +26,7 @@
 #include "AstCore/TimePoint.hpp"
 #include "AstUtil/Constants.hpp"
 #include <string>
+#include <cmath>                // for std::isfinite
  
 AST_NAMESPACE_BEGIN
 
@@ -42,6 +43,12 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 直角坐标
+/// @note  该类保持聚合类型, 不额外定义构造函数。
+///        GCC 会对 CartState 的隐式默认构造函数报-Weffc++ 警告, 因此在类定义处局部抑制该警告。
+#if defined(A_GCC) || defined(A_CLANG)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Weffc++"
+#endif
 class CartState
 {
 public:
@@ -85,7 +92,18 @@ public:
     /// @brief 转换为字符串
     AST_CORE_API
     std::string toString() const;
+public:
+    /// @brief 判断状态分量是否全部为有限值
+    bool isFinite() const{
+        for (auto val: *this)
+            if (!std::isfinite(val))
+                return false;
+        return true;
+    }
 };
+#if defined(A_GCC) || defined(A_CLANG)
+#   pragma GCC diagnostic pop
+#endif
 
 
 /// @brief 经典轨道根数

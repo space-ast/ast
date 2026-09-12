@@ -36,14 +36,14 @@ errc_t Maneuver::execute()
     auto burn = this->burn();
     if(burn == nullptr)
     {
-        aWarning("burn is nullptr");
+        aWarning(_("点火机动配置为空"));
     }
     else if(auto impulsive = aobject_cast<BurnImpulsive*>(burn))
     {
         Vector3d impulse = impulsive->impulse();
         Axes* thrustAxes = impulsive->axes();
         if(thrustAxes == nullptr)
-            aWarning("thrustAxes is nullptr");
+            aWarning(_("推力轴配置为空"));
         else
         {
             if(AxesLinkTo* axesLink = aobject_cast<AxesLinkTo*>(thrustAxes))
@@ -57,7 +57,7 @@ errc_t Maneuver::execute()
                     CartState cartState;
                     errc_t rc = inputState->getStateInBodyInertial(aGetEarth(), cartState);
                     if(rc)
-                        aWarning("failed to get state in body inertial");
+                        aWarning(_("获取天体惯性系中的状态失败"));
                     Rotation rotation;
                     aVNCToFrameTransform(cartState.pos(), cartState.vel(), rotation);
                     // @todo: 这里只能用于地球预报器
@@ -70,13 +70,13 @@ errc_t Maneuver::execute()
             }
             else
             {
-                aWarning("unsupported thrustAxes type");
+                aWarning(_("不支持该推力轴类型"));
             }
         }
     }
     else
     {
-        aWarning("unsupported burn type");
+        aWarning(_("不支持该点火机动类型"));
     }
     outputState->copyFrom(*inputState);
     return 0;

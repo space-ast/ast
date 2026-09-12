@@ -183,7 +183,7 @@ errc_t aTimePointParse(StringView str, TimePoint &time)
     else
     {
         // @todo: 支持解析不同的时间系统
-        aError("unsupported time system: '%.*s'", timeSystem.size(), timeSystem.data());
+        aError(_("不支持的时间系统：'%.*s'"), timeSystem.size(), timeSystem.data());
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -321,7 +321,7 @@ TimePoint TimePoint::Parse(StringView str)
     TimePoint time;
     errc_t rc = aTimePointParse(str, time);
     if(rc != eNoError){
-        aError("failed to parse TimePoint '%.*s'", str.size(), str.data());
+        aError(_("解析时间点 '%.*s' 失败"), str.size(), str.data());
     }
     return time;
 }

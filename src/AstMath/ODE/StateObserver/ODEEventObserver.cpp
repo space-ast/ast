@@ -53,7 +53,7 @@ EODEAction ODEEventObserver::onStateUpdate(double *y, double &x, ODEIntegrator* 
         errc_t err = findEventTime(lastTime, x, eventTime, integrator);
         if(err != eNoError)
         {
-            aError("failed to find event time, error = %d", err);
+            aError(_("定位事件时间失败"));
             return EODEAction::eStop;
         }else{
             memcpy(y, integrator->stateTemp(), integrator->getODE()->getDimension() * sizeof(double));
@@ -130,7 +130,7 @@ errc_t ODEEventObserver::findEventTime(double x1, double x2, double& result, ODE
     );
     if(err != eNoError)
     {
-        aError("failed to solve event time, error = %d", err);
+        aError(_("求解事件时间失败"));
     }else{
         result = eventTime_;
     }

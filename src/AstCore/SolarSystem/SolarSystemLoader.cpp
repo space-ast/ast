@@ -43,7 +43,7 @@ errc_t SolarSystem::load(StringView dirpath)
                     errc_t rc1 = body->load(entry.path().string());
                     if(rc1){
                         rc = rc1;
-                        aError("failed to load body %s", bodyname.c_str());
+                        aError(_("加载天体 %s 失败"), bodyname.c_str());
                     }
                 }else{
                     HBody newbody = new CelestialBody();
@@ -55,8 +55,15 @@ errc_t SolarSystem::load(StringView dirpath)
             }
         }
         return rc;
-    }else{
-        aError("invalid file type: %s", path.string().c_str());
+    }
+    else if(status.type() == fs::file_type::not_found)
+    {
+        aError(_("文件或目录不存在：%s"), path.string().c_str());
+        return eErrorNotFound;
+    }
+    else
+    {
+        aError(_("无效的文件类型：%s"), path.string().c_str());
         return eErrorInvalidFile;
     }
 }

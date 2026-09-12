@@ -29,7 +29,7 @@ errc_t CompressorImplTar::writeFileEntry(FILE* dst, const std::string& name,
     FILE* src = posix::fopen(filePath.c_str(), "rb");
     if (!src)
     {
-        aError("CompressorImplTar: cannot open source file: %s", filePath.c_str());
+        aError(_("无法打开源文件: %s"), filePath.c_str());
         return eErrorInvalidFile;
     }
 
@@ -72,7 +72,7 @@ errc_t CompressorImplTar::writeFileEntry(FILE* dst, const std::string& name,
         {
             // 文件名太长，截断
             std::memcpy(header.name, name.c_str(), 99);
-            aError("CompressorImplTar: file name too long, truncating: %s", name.c_str());
+            aError(_("文件名过长，截断: %s"), name.c_str());
         }
     }
 
@@ -109,7 +109,7 @@ errc_t CompressorImplTar::writeFileEntry(FILE* dst, const std::string& name,
     // 写入头部
     if (fwrite(&header, 1, sizeof(TarHeader), dst) != sizeof(TarHeader))
     {
-        aError("CompressorImplTar: write error at header for: %s", name.c_str());
+        aError(_("写入头部出错: %s"), name.c_str());
         fclose(src);
         return eError;
     }
@@ -128,7 +128,7 @@ errc_t CompressorImplTar::writeFileEntry(FILE* dst, const std::string& name,
         {
             if (ferror(src))
             {
-                aError("CompressorImplTar: read error for file: %s", filePath.c_str());
+                aError(_("读取文件出错: %s"), filePath.c_str());
                 ret = eError;
             }
             break;
@@ -136,7 +136,7 @@ errc_t CompressorImplTar::writeFileEntry(FILE* dst, const std::string& name,
         size_t nwritten = fwrite(buf, 1, nread, dst);
         if (nwritten != nread)
         {
-            aError("CompressorImplTar: write error for file: %s", filePath.c_str());
+            aError(_("写入文件出错: %s"), filePath.c_str());
             ret = eError;
             break;
         }
@@ -152,7 +152,7 @@ errc_t CompressorImplTar::writeFileEntry(FILE* dst, const std::string& name,
         char zeroPad[512] = {};
         if (fwrite(zeroPad, 1, pad, dst) != pad)
         {
-            aError("CompressorImplTar: write error at padding for: %s", name.c_str());
+            aError(_("写入填充时出错: %s"), name.c_str());
             ret = eError;
         }
     }
@@ -211,7 +211,7 @@ errc_t CompressorImplTar::writeDirectoryEntry(FILE* dst, const std::string& name
     // 写入头部
     if (fwrite(&header, 1, sizeof(TarHeader), dst) != sizeof(TarHeader))
     {
-        aError("CompressorImplTar: write error at directory header for: %s", name.c_str());
+        aError(_("写入目录头部出错: %s"), name.c_str());
         return eError;
     }
 
@@ -281,7 +281,7 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
 {
     if (source.empty() || target.empty())
     {
-        aError("CompressorImplTar: source or target is empty");
+        aError(_("源或目标为空"));
         return eErrorInvalidParam;
     }
 
@@ -289,7 +289,7 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
     std::error_code ec;
     if (!fs::exists(srcPath, ec) || ec)
     {
-        aError("source does not exist: '%.*s'", source.size(), source.data());
+        aError(_("源不存在: '%.*s'"), source.size(), source.data());
         return eErrorInvalidFile;
     }
 
@@ -300,7 +300,7 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
     FILE* dst = posix::fopen(std::string(target).c_str(), "wb");
     if (!dst)
     {
-        aError("cannot create target file: '%.*s'", target.size(), target.data());
+        aError(_("无法创建目标文件: '%.*s'"), target.size(), target.data());
         return eErrorInvalidFile;
     }
 
@@ -312,7 +312,7 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
     }
     else if (ec)
     {
-        aError("filesystem error: %s", ec.message().c_str());
+        aError(_("文件系统错误: %s"), ec.message().c_str());
         fclose(dst); fs::remove(fs::path(std::string(target)));
         return eError;
     }
@@ -330,7 +330,7 @@ errc_t CompressorImplTar::compress(StringView source, StringView target, StringV
         if (fwrite(zeroBlock, 1, 512, dst) != 512 ||
             fwrite(zeroBlock, 1, 512, dst) != 512)
         {
-            aError("CompressorImplTar: write error at end markers");
+            aError(_("写入结束标记出错"));
             ret = eError;
         }
     }

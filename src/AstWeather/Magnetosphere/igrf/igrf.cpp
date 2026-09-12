@@ -80,7 +80,7 @@ void igrf(double lon, double lat, double height, double year, double &xl, double
     // 切换工作目录到 igrf 数据目录（底层 Fortran 代码通过相对路径读取数据文件）
     WorkingDirectory cwd{datadir.string()};
     if(!cwd.isChanged()){
-        aError("failed to change working directory to '%.*s'", datadir.string().size(), datadir.string().data());
+        aError(_("切换工作目录到 '%.*s' 失败"), datadir.string().size(), datadir.string().data());
         return;
     }
 
@@ -133,7 +133,7 @@ void igrf(double lon, double lat, double height, double year, double &xl, double
     // 第7步：计算 B/B₀ 比值（磁镜比）
     bbx = babs / bequ;
 #else
-    aError("function not implemented, please check whether libf2c package is enabled.");
+    aError(_("函数尚未实现，请检查是否启用了 libf2c 包。"));
 #endif
 }
 
@@ -151,7 +151,7 @@ void igrf_field(double lon, double lat, double height, double year, double& bnor
     // 切换工作目录到 igrf 数据目录（底层 Fortran 代码通过相对路径读取数据文件）
     WorkingDirectory cwd{datadir.string()};
     if(!cwd.isChanged()){
-        aError("failed to change working directory to '%.*s'", datadir.string().size(), datadir.string().data());
+        aError(_("切换工作目录到 '%.*s' 失败"), datadir.string().size(), datadir.string().data());
         return;
     }
 
@@ -169,7 +169,7 @@ void igrf_field(double lon, double lat, double height, double year, double& bnor
     //   BABS   = 磁场总强度（标量值）
     feldg_(&lat, &lon, &height, &bnorth, &beast, &bdown, &babs);
 #else
-    aError("function not implemented, please check whether libf2c package is enabled.");
+    aError(_("函数尚未实现，请检查是否启用了 libf2c 包。"));
 #endif
 }
 

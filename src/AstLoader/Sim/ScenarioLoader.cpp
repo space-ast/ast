@@ -43,7 +43,7 @@ errc_t _aLoadEpoch(BKVParser& parser, Scenario& scenario)
             }else if(aEqualsIgnoreCase(item.key(), "SmartEpoch")){
                 errc_t rc = _aLoadEventTime(parser, eventTime);
                 if(rc){
-                    aError("failed to load SmartEpoch");
+                    aError(_("加载 SmartEpoch 失败"));
                 }
             }
         }else if(token == BKVParser::eBlockBegin){
@@ -76,7 +76,7 @@ errc_t _aLoadInterval(BKVParser& parser, Scenario& scenario)
             }else if(aEqualsIgnoreCase(item.key(), "SmartInterval")){
                 errc_t rc = _aLoadEventInterval(parser, eventInterval);
                 if(rc){
-                    aError("failed to load SmartInterval");
+                    aError(_("加载 SmartInterval 失败"));
                 }
             }else if(aEqualsIgnoreCase(item.key(), "EpochUsesAnalStart")){
                 // 处理 EpochUsesAnalStart
@@ -151,7 +151,7 @@ errc_t _aLoadCentralBody(BKVParser& parser, Scenario& scenario)
                 // 处理 PrimaryBody
                 auto body = aGetBody(item.value());
                 if(!body){
-                    aError("failed to find PrimaryBody '%.*s'", item.value().size(), item.value().data());
+                    aError(_("未找到主天体 '%.*s'"), item.value().size(), item.value().data());
                 }
                 scenario.setPrimaryBody(body);
             }
@@ -254,7 +254,7 @@ errc_t aLoadScenario(StringView filepath, Scenario &scenario)
     BKVParser::EToken token;
     BKVParser parser(filepath);
     if(!parser.isOpen()){
-        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     do{

@@ -29,6 +29,7 @@ const double CB_RADIUS = 6378137.0; // 地球赤道半径 [m]
 const double GM = 3.986004418e14;    // 地球引力参数 [m^3/s^2]
 const double EPS = 1e-7;            // 一般精度要求
 const double HIGH_EPS = 1e-14;      // 高精度要求（用于近点角转换）
+const double REL_EPS = 1e-13;       // 相对精度要求（用于量级远大于1的量，如秒数）
 
 /// @brief 测试抛物线轨道 (e = 1.0) 参数转换
 TEST(OrbitParam, ParabolaOrbit)
@@ -187,6 +188,82 @@ TEST(OrbitParam, HyperbolaOrbit)
         }
     }
     
+}
+
+/// @brief 测试双曲轨道真近点角的周期性表示 (f 与 f±2pi 等价)
+/// @details 双曲轨道的真近点角物理上落在 (-f_inf, f_inf) 内，f_inf = pi - acos(1/e)
+///          是渐近线张角。但真近点角作为角度是周期量：f 与 f - 2pi 指向同一方向、
+///          表示同一条双曲轨道上的同一个点，所有以真近点角为自变量的转换函数
+///          都应当接受这两种等价写法并给出相同结果。
+TEST(OrbitParam, HyperbolaTrueAnomalyPeriodicity)
+{
+    printf("测试: 双曲轨道真近点角的周期性表示\n");
+
+    // 算例：地月转移在月球影响球处的双曲轨道（来自 testPatchedConic）
+    const double e = 5.1340328842;
+    const double semiMajorAxis = -5908634.594;    // 双曲轨道半长轴为负 [m]
+    const double fInf = kPI - acos(1.0 / e);      // 渐近线张角 ~101.23 deg
+    printf("  e=%.10f  f_inf=%.6f deg\n", e, fInf / kDegToRad);
+
+    const double trueAnomalyNorm = -75.748072 * kDegToRad;          // 落在 (-pi, pi]
+    const double trueAnomalyWrapped = trueAnomalyNorm + kTwoPI;     // 等价的 (pi, 2pi) 表示
+
+    printf("  f_norm=%.6f deg  f_wrapped=%.6f deg\n", trueAnomalyNorm / kDegToRad, trueAnomalyWrapped / kDegToRad);
+
+
+    // --- 基准值：归一化表示下的各转换结果 ---
+    const double E       = aTrueToEcc(trueAnomalyNorm, e);
+    const double M       = aTrueToMean(trueAnomalyNorm, e);
+    const double timePp  = aTrueToTimePastPeri(trueAnomalyNorm, semiMajorAxis, e, GM);
+    ASSERT_FALSE(std::isnan(E)) << "基准：归一化角度本身必须可用";
+    ASSERT_FALSE(std::isnan(M));
+    ASSERT_FALSE(std::isnan(timePp));
+
+    printf("  E=%.15f  M=%.15f  timePastPeri=%.6f s\n", E, M, timePp);
+
+    // 基准值自身的自洽性
+    EXPECT_NEAR(aEccToTrue(E, e), trueAnomalyNorm, HIGH_EPS);
+    EXPECT_NEAR(aMeanToTrue(M, e), trueAnomalyNorm, HIGH_EPS);
+    EXPECT_LT(timePp, 0.0); // f_norm < 0 表示尚未到达近心点，故"过近心点时间"为负
+
+    // 等价的 (pi, 2pi) 内的值的计算结果
+    EXPECT_FALSE(std::isnan(aTrueToEcc(trueAnomalyWrapped, e)));
+    EXPECT_FALSE(std::isnan(aTrueToMean(trueAnomalyWrapped, e)));
+    EXPECT_FALSE(std::isnan(aTrueToTimePastPeri(trueAnomalyWrapped, semiMajorAxis, e, GM)));
+
+    EXPECT_NEAR(aTrueToEcc(trueAnomalyWrapped, e), E, HIGH_EPS);
+    EXPECT_NEAR(aTrueToMean(trueAnomalyWrapped, e), M, HIGH_EPS);
+    EXPECT_NEAR(aTrueToTimePastPeri(trueAnomalyWrapped, semiMajorAxis, e, GM), timePp, std::abs(timePp) * REL_EPS);
+
+    // --- 参数化：多个偏心率与多个角度位置 ---
+    const double eccs[] = {1.1, 1.5, 2.0, 5.0};
+    for (double ecc : eccs)
+    {
+        const double inf = kPI - acos(1.0 / ecc);
+        // frac < 0 取近心点前的角度，> 0 取近心点后的角度
+        const double fracs[] = {-0.8, -0.5, -0.2, 0.2, 0.5, 0.8};
+        for (double frac : fracs)
+        {
+            const double fLegit   = inf * frac;              // (-f_inf, f_inf)，合法
+            const double fWrapped = (fLegit < 0.0) ? (fLegit + kTwoPI) : fLegit;
+
+            ASSERT_FALSE(std::isnan(aTrueToEcc(fLegit, ecc)));
+            EXPECT_FALSE(std::isnan(aTrueToEcc(fWrapped, ecc)));
+            EXPECT_NEAR(aTrueToEcc(fWrapped, ecc), aTrueToEcc(fLegit, ecc), HIGH_EPS);
+            EXPECT_NEAR(aTrueToMean(fWrapped, ecc), aTrueToMean(fLegit, ecc), HIGH_EPS);
+        }
+    }
+
+    // --- 椭圆轨道同样应按 2pi 周期 ---
+    for (double ecc : {0.0, 0.3, 0.7, 0.95})
+    {
+        for (double fLegit : {-2.5, -1.0, 1.0, 2.5})
+        {
+            const double fWrapped = (fLegit < 0.0) ? (fLegit + kTwoPI) : fLegit;
+            EXPECT_NEAR(aTrueToEcc(fWrapped, ecc), aTrueToEcc(fLegit, ecc), HIGH_EPS);
+            EXPECT_NEAR(aTrueToMean(fWrapped, ecc), aTrueToMean(fLegit, ecc), HIGH_EPS);
+        }
+    }
 }
 
 /// @brief 测试接近边界的情况

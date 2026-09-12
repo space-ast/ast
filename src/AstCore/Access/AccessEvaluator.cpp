@@ -154,7 +154,7 @@ errc_t aEvaluateAccess(
         errc_t err = aEvaluateAccess_AppendResult(constraint, stepper, interval, satisfiedIntervalList);
         if (err != eNoError) {
             rc = err;
-            aError("failed to evaluate access for interval: %s", interval.toString().c_str());
+            aError(_("计算可见性失败，区间：%s"), interval.toString().c_str());
         }
     }
     result = std::move(satisfiedIntervalList);
@@ -173,7 +173,7 @@ errc_t aEvaluateAccess(
     {
         // 没有约束，直接返回输入的时间区间
         result = TimeIntervalList::FromTimeInterval(interval);
-        aInfo("no constraints, return the input interval: %s", interval.toString().c_str());
+        aInfo(_("无约束，返回输入区间：%s"), interval.toString().c_str());
         return eNoError;
     }
     errc_t rc = aEvaluateAccess(constraints[0], stepper, interval, result);

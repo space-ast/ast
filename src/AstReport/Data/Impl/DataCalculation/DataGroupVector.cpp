@@ -56,13 +56,13 @@ errc_t DataGroupVector::calculate(const TimeList &timeList, Span<Data> result) c
     auto axes = this->getAxes();
     if (vector == nullptr || axes == nullptr)
     {
-        aError("vector or axes is null");
+        aError(_("向量或轴为空"));
         return eErrorNullPtr;
     }
     size_t size = timeList.size();
     if (size != result.size())
     {
-        aError("timeList size is not equal to result size");
+        aError(_("时间列表大小不等于结果数组大小"));
         return eErrorInvalidParam;
     }
 

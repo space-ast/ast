@@ -81,7 +81,7 @@ errc_t RepeatingSunSyncOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
         orbElem.trueA_ = 0;
         return 0;
     }else{
-        aError("failed to find the repeating orbit with the given parameters, errnum: %d", stats.error_num);
+        aError(_("根据给定参数未找到回归轨道"));
         return -1;
     }
 
@@ -93,7 +93,7 @@ errc_t RepeatingSunSyncOrbitDesigner::setApproxAltitude(double alt)
     /// @todo 这里的逻辑与 RepeatingOrbitDesigner::setApproxRevsPerDay(double revs)相同，需要避免重复
     if(alt < 0)
     {
-        aError("invalid altitude value: %f", alt);
+        aError(_("无效的高度值: '%lf m'"), alt);
         return eErrorInvalidParam;
     }
 
@@ -116,7 +116,7 @@ errc_t RepeatingSunSyncOrbitDesigner::setApproxRevsPerDay(double revsPerDay)
 {
     if(revsPerDay < 0)
     {
-        aError("invalid revsPerDay value: %f", revsPerDay);
+        aError(_("无效的每天圈数: '%lf'"), revsPerDay);
         return eErrorInvalidParam;
     }
     double gm = getGM();
@@ -126,7 +126,7 @@ errc_t RepeatingSunSyncOrbitDesigner::setApproxRevsPerDay(double revsPerDay)
     double alt = a - rb;
     if(alt < 0)
     {
-        aError("invalid revsPerDay value: %f, alt: %f", revsPerDay, alt);
+        aError(_("无效的高度值: '%lf m'"), alt);
         return eErrorInvalidParam;
     }
     positionType_ = eRevsPerDay;

@@ -55,7 +55,7 @@ errc_t PointCartographic::getPos(const TimePoint& tp, Vector3d& pos) const
     if (shape) {
         pos = shape->transform(position_);
     } else {
-        aWarning("shape is null, use sphere approximation");
+        aWarning(_("天体形状为空，使用球体近似"));
         // 无形状数据时，以球体近似处理
         Body* body = body_.get();
         if (!body) {

@@ -82,13 +82,13 @@ OpenAI::OpenAI()
 {
     auto apiKey = posix::getenv("AST_AI_API_KEY");
     if(!apiKey || !*apiKey)
-        aWarning("empty api key");
+        aWarning(_("api key 为空"));
     else
         apiKey_ = apiKey;
         
     auto baseUrl = posix::getenv("AST_AI_BASE_URL");
     if(!baseUrl || !*baseUrl)
-        aWarning("empty base url");
+        aWarning(_("base url 为空"));
     else
         baseUrl_ = baseUrl;
 }
@@ -215,7 +215,7 @@ errc_t OpenAI::chat(const JsonValue &request, JsonValue &response)
         error = networkResponse.toJson(response);
         if(error != 0)
         {
-            aError("failed to parse response body, response: \n%s\n", networkResponse.body().c_str());   
+            aError(_("解析响应体失败，响应：'%s'"), networkResponse.body().c_str());
         }
     }
     return error;

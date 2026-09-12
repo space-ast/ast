@@ -184,7 +184,7 @@ void aDateNormalize(Date &date)
 		niter++;
 		if(A_UNLIKELY(niter > 100000))
 		{
-			aError("unexpected condition: failed to normalize date: %s, with max iteration: %d", date.toString().c_str(), niter);
+			aError(_("意外情况：归一化日期失败：%s，达到最大迭代次数：%d"), date.toString().c_str(), niter);
 			// assert(niter <= 100000);
 			break;
 		}

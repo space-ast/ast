@@ -304,7 +304,7 @@ errc_t DataUpdater::updateFile(DataFileEntry& entry)
 
     if (entry.localPath.empty())
     {
-        aError("DataUpdater: file path is empty");
+        aError(_("文件路径为空"));
         entry.lastError = eErrorNotInit;
         return eErrorNotInit;
     }
@@ -312,17 +312,17 @@ errc_t DataUpdater::updateFile(DataFileEntry& entry)
     std::string tmpPath = entry.localPath + ".tmp";
 
     // ---- 1. 下载到临时文件 ----
-    aInfo("DataUpdater: downloading %s from %s", entry.name.c_str(), entry.url.c_str());
+    aInfo(_("正在从 %s 下载 %s"), entry.name.c_str(), entry.url.c_str());
 
     errc_t err = aDownloadFile(entry.url, tmpPath);
     if (err)
     {
-        aError("DataUpdater: download failed for %s (err=%d)", entry.name.c_str(), err);
+        aError(_("下载 %s 失败"), entry.name.c_str());
         entry.lastError = err;
         return err;
     }
 
-    aInfo("DataUpdater: downloaded to %s", tmpPath.c_str());
+    aInfo(_("已下载到 %s"), tmpPath.c_str());
 
     // ---- 2. 校验 ----
     errc_t validateErr = eNoError;
@@ -331,27 +331,27 @@ errc_t DataUpdater::updateFile(DataFileEntry& entry)
         EOP eop;
         validateErr = eop.load(StringView(tmpPath));
         if (validateErr)
-            aError("DataUpdater: EOP validation failed");
+            aError(_("EOP 校验失败"));
         else if (eop.size() == 0)
-        { aError("DataUpdater: EOP validation failed — no entries"); validateErr = eErrorInvalidFile; }
+        { aError(_("EOP 校验失败 — 无数据条目")); validateErr = eErrorInvalidFile; }
     }
     else if (entry.localPath.find("SW-") != std::string::npos)
     {
         SpaceWeather sw;
         validateErr = sw.load(StringView(tmpPath));
         if (validateErr)
-            aError("DataUpdater: SW validation failed");
+            aError(_("空间天气文件校验失败"));
         else if (sw.size() == 0)
-        { aError("DataUpdater: SW validation failed — no entries"); validateErr = eErrorInvalidFile; }
+        { aError(_("空间天气文件校验失败 — 无数据条目")); validateErr = eErrorInvalidFile; }
     }
     else if (entry.localPath.find("Leap_Second") != std::string::npos)
     {
         LeapSecond ls;
         validateErr = ls.load(StringView(tmpPath));
         if (validateErr)
-            aError("DataUpdater: LSK validation failed");
+            aError(_("闰秒文件校验失败"));
         else if (ls.data().size() == 0)
-        { aError("DataUpdater: LSK validation failed — no entries"); validateErr = eErrorInvalidFile; }
+        { aError(_("闰秒文件校验失败 — 无数据条目")); validateErr = eErrorInvalidFile; }
     }
 
     if (validateErr)
@@ -367,7 +367,7 @@ errc_t DataUpdater::updateFile(DataFileEntry& entry)
         std::string bdir = backupDir();
         if (!fs::create_directories(bdir))
         {
-            aError("DataUpdater: failed to create backup directory '%s'", bdir.c_str());
+            aError(_("创建备份目录 '%s' 失败"), bdir.c_str());
             fs::remove(tmpPath);
             entry.lastError = eErrorInvalidFile;
             return eErrorInvalidFile;
@@ -376,19 +376,19 @@ errc_t DataUpdater::updateFile(DataFileEntry& entry)
         std::string backupPath = makeBackupName(entry.localPath);
         if (!fs::rename(entry.localPath, backupPath))
         {
-            aError("DataUpdater: failed to backup old file '%s' -> '%s'",
+            aError(_("备份旧文件 '%s' 到 '%s' 失败"),
                    entry.localPath.c_str(), backupPath.c_str());
             fs::remove(tmpPath);
             entry.lastError = eErrorInvalidFile;
             return eErrorInvalidFile;
         }
-        aInfo("DataUpdater: backup saved to %s", backupPath.c_str());
+        aInfo(_("备份已保存到 %s"), backupPath.c_str());
     }
 
     // ---- 4. 安装新文件 ----
     if (!fs::rename(tmpPath, entry.localPath))
     {
-        aError("DataUpdater: failed to install new file '%s'",
+        aError(_("安装新文件 '%s' 失败"),
                entry.localPath.c_str());
         fs::remove(tmpPath);
         entry.lastError = eErrorInvalidFile;
@@ -404,7 +404,7 @@ errc_t DataUpdater::updateFile(DataFileEntry& entry)
     std::string bdir = backupDir();
     entry.backupCount = countBackups(bdir, entry.localPath);
 
-    aInfo("DataUpdater: %s updated successfully", entry.name.c_str());
+    aInfo(_("%s 更新成功"), entry.name.c_str());
     return eNoError;
 }
 

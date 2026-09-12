@@ -126,7 +126,7 @@ int FeasibleRegionStudy::totalRuns() const
         total *= steps;
         if (total > INT_MAX)
         {
-            aError("FeasibleRegionStudy: total runs overflow INT_MAX");
+            aError(_("总运行次数超过 INT_MAX"));
             return INT_MAX;
         }
     }
@@ -233,7 +233,7 @@ errc_t FeasibleRegionStudy::execute()
 {
     if (variables_.empty())
     {
-        aError("FeasibleRegionStudy: 变量列表为空");
+        aError(_("变量列表为空"));
         return eErrorInvalidParam;
     }
 
@@ -244,12 +244,12 @@ errc_t FeasibleRegionStudy::execute()
             continue;
         if (var->lower() >= var->upper())
         {
-            aError("FeasibleRegionStudy: 变量下界必须严格小于上界");
+            aError(_("变量下界必须严格小于上界"));
             return eErrorInvalidParam;
         }
         if (var->steps() < 1)
         {
-            aError("FeasibleRegionStudy: 变量采样点数必须大于 0");
+            aError(_("变量采样点数必须大于 0"));
             return eErrorInvalidParam;
         }
     }
@@ -277,7 +277,7 @@ errc_t FeasibleRegionStudy::execute()
 
     if (feasibleCount == 0)
     {
-        aWarning("FeasibleRegionStudy: 未找到任何可行点");
+        aWarning(_("未找到任何可行点"));
     }
 
     return eNoError;

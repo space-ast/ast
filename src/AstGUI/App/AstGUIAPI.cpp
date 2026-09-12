@@ -24,6 +24,7 @@
 #include "AstUtil/FileSystem.hpp"
 #include "AstCore/RunTime.hpp"
 #include <QApplication>
+#include <QGuiApplication>
 #include <QFontDatabase>
 #include <QStyleFactory>
 #include <QTranslator>
@@ -46,7 +47,7 @@ static bool s_initAppAttributes = aInitAppAttributes();
 errc_t aGUIInit()
 {
     errc_t rc = 0;
-    if(!qApp)
+    if(QCoreApplication::instance() == nullptr)
     {
         int argc = 0;
         char *argv[] = { nullptr };
@@ -58,8 +59,37 @@ errc_t aGUIInit()
 
 errc_t aQAppInit(int argc, char *argv[])
 {
-    if (aCanDisplayGUI()) {
-        QApplication* app = new QApplication(argc, argv);
+    auto coreApp = QCoreApplication::instance();
+    if(!coreApp)
+    {
+        if (aCanDisplayGUI()) 
+        {
+            aDebug(_("检测到GUI环境"));
+            coreApp = new QApplication(argc, argv);
+        }else{
+            aDebug(_("未检测到GUI环境"));
+            coreApp = new QCoreApplication(argc, argv);
+        }
+    }
+    static bool initialized = false;
+    if (!initialized)
+    {
+        initialized = true;
+        // 加载翻译文件
+        {
+            auto translator = new QTranslator(QCoreApplication::instance());
+            QString qmPath = QCoreApplication::applicationDirPath() + "/Ast_zh.qm";
+            if (!translator->load(qmPath)) {
+                qmPath = QString::fromStdString(aDataDir()) + "/Ast_zh.qm";
+                bool loaded = translator->load(qmPath);
+                if (!loaded)
+                {
+                    aDebug(_("加载翻译文件失败: '%s'"), qmPath.toStdString().c_str());
+                }
+            }
+            QCoreApplication::installTranslator(translator);
+        }
+        if (QGuiApplication* guiApp = qobject_cast<QGuiApplication *>(QCoreApplication::instance()))
         {
             // 加载自带的中文字体（桌面平台作为备选，WASM 平台必需）
             #ifdef A_WASM
@@ -73,43 +103,28 @@ errc_t aQAppInit(int argc, char *argv[])
             if (fontId != -1) {
                 QStringList families = QFontDatabase::applicationFontFamilies(fontId);
                 if (!families.isEmpty()) {
-                    QApplication::setFont(QFont(families.first()));
+                    guiApp->setFont(QFont(families.first()));
                 }
             }
             else
             {
-                qDebug() << "Failed to load font from path:" << fontPath;
+                aDebug(_("加载字体文件失败: '%s'"), fontPath.toStdString().c_str());
             }
         }
-        (void)app;
-    }else{
-        QCoreApplication* app = new QCoreApplication(argc, argv);
-        (void)app;
-    }
-    // 加载翻译文件
-    {
-        auto translator = new QTranslator(qApp);
-        QString qmPath = QCoreApplication::applicationDirPath() + "/Ast_zh.qm";
-        if (!translator->load(qmPath)) {
-            qmPath = QString::fromStdString(aDataDir()) + "/Ast_zh.qm";
-            bool loaded =translator->load(qmPath);
-            if (!loaded)
-            {
-                qDebug() << "Failed to load translation file from path:" << qmPath;
-            }
-        }
-        qApp->installTranslator(translator);
-    }
-    // 加载默认主题样式
-    {
-        QString qssPath = QCoreApplication::applicationDirPath() + "/data/style/default.qss";
-        QFile file(qssPath);
-        if (file.open(QFile::ReadOnly | QFile::Text))
+        // 加载默认主题样式
+        if(QApplication* app = qobject_cast<QApplication *>(QCoreApplication::instance()))
         {
-            qApp->setStyleSheet(QString::fromUtf8(file.readAll()));
-            file.close();
+            QString qssPath = QCoreApplication::applicationDirPath() + "/data/style/default.qss";
+            QFile file(qssPath);
+            if (file.open(QFile::ReadOnly | QFile::Text))
+            {
+                app->setStyleSheet(QString::fromUtf8(file.readAll()));
+                file.close();
+            }
         }
+        
     }
+    aDebug(_("UI环境初始化完成"));
     return 0;
 }
 

@@ -29,7 +29,7 @@ errc_t DataGroup::extract(const VariantVector &data, StringView name, VariantVec
     auto element = elements.find(name);
     if(!element)
     {
-        aError("Element not found");
+        aError(_("未找到元素"));
         return eErrorNotFound;
     }
     return element->extract(data, result);

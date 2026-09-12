@@ -35,7 +35,7 @@ errc_t aLoadBurnFinite(const Value &value, BurnFinite &burn)
     const std::string type = value["Type"];
     if(type != "Maneuver:Finite")
     {
-        aError("invalid type, expect 'Maneuver:Finite'");
+        aError(_("无效的类型，应为 'Maneuver:Finite'"));
         return eErrorInvalidParam;
     }
     // @todo 加载有限推力点火
@@ -48,10 +48,10 @@ errc_t aLoadBurnCollocation(const Value &value, BurnCollocation &burn)
     const std::string type = value["Type"];
     if(type != "Maneuver:Collocation")
     {
-        aError("invalid type, expect 'Maneuver:Collocation'");
+        aError(_("无效的类型，应为 'Maneuver:Collocation'"));
         return eErrorInvalidParam;
     }
-    aError("unsupported type 'Maneuver:Collocation'");
+    aError(_("不支持的类型 'Maneuver:Collocation'"));
     return eErrorUnsupported;
 }
 
@@ -61,7 +61,7 @@ errc_t aLoadBurnImpulsive(const Value &value, BurnImpulsive &burn)
         const std::string type = value["Type"];
         if(type != "Maneuver:Impulsive")
         {
-            aError("invalid type, expect 'Maneuver:Impulsive'");
+            aError(_("无效的类型，应为 'Maneuver:Impulsive'"));
             return eErrorInvalidParam;
         }
     }
@@ -105,7 +105,7 @@ errc_t aLoadBurn(const Value &value, SharedPtr<Burn> &burn)
     }
     else
     {
-        aError("unsupported burn type '%s'", type.c_str());
+        aError(_("不支持的点火类型 '%s'"), type.c_str());
         return eErrorInvalidParam;
     }
 }

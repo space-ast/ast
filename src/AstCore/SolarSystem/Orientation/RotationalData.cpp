@@ -31,7 +31,7 @@ errc_t RotationalData::load(StringView filepath)
 {
     BKVParser parser(filepath);
     if(!parser.isOpen()){
-        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     BKVItemView item;
@@ -49,7 +49,7 @@ errc_t RotationalData::load(StringView filepath)
                 double epoch = 0.0;
                 errc_t rc = aParseDouble(item.value(), epoch);
                 if(rc){
-                    aError("failed to parse RotationEpoch");
+                    aError(_("解析 RotationEpoch 失败"));
                     return rc;
                 }else{
                     data.rotationEpoch_ = TimePoint::FromImpreciseJDTT(epoch);
@@ -78,7 +78,7 @@ errc_t RotationalData::load(StringView filepath)
                         foundRightAscension = true;
                         errc_t rc = data.rightAscension_.load(parser);
                         if(rc){
-                            aError("failed to load SpinAxisRightAscension");
+                            aError(_("加载 SpinAxisRightAscension 失败"));
                             return rc;
                         }
                     }
@@ -87,7 +87,7 @@ errc_t RotationalData::load(StringView filepath)
                         foundDeclination = true;
                         errc_t rc = data.declination_.load(parser);
                         if(rc){
-                            aError("failed to load SpinAxisDeclination");
+                            aError(_("加载 SpinAxisDeclination 失败"));
                             return rc;
                         }
                     }
@@ -96,12 +96,12 @@ errc_t RotationalData::load(StringView filepath)
                         foundRotation = true;
                         errc_t rc = data.rotation_.load(parser);
                         if(rc){
-                            aError("failed to load Rotation");
+                            aError(_("加载 Rotation 失败"));
                             return rc;
                         }
                     }
                 }else{
-                    aError("invalid key '%.*s', expect 'Type'", (int)item.key().size(), item.key().data());
+                    aError(_("无效的键 '%.*s'，预期 'Type'"), (int)item.key().size(), item.key().data());
                     return eErrorParse;
                 }
             }
@@ -112,7 +112,7 @@ errc_t RotationalData::load(StringView filepath)
         }
     }while(token != BKVParser::eEOF);
     if(!(foundRightAscension && foundDeclination && foundRotation)){
-        aError("missing RotationElement, expect SpinAxisRightAscension, SpinAxisDeclination, Rotation");
+        aError(_("缺少 RotationElement，预期 SpinAxisRightAscension、SpinAxisDeclination、Rotation"));
         return eErrorParse;
     }
     *this = std::move(data);

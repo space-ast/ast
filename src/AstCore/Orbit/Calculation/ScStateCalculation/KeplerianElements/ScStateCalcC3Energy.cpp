@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcC3Energy::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement C3 energy calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

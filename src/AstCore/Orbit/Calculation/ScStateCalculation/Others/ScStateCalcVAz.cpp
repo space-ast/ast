@@ -27,7 +27,7 @@ errc_t ScStateCalcVAz::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement velocity azimuth calculation
     // Need to get velocity vector from State first
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcOutVAzP::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement outgoing velocity azimuth at periapsis calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

@@ -95,7 +95,7 @@ errc_t coe2rv(const double* coe, double gm, double* pos, double* vel)
     vel[1] = -c4 * (sraan * c6 - craan * cinc * c5);
     vel[2] = c4 * c5 * sinc;
     if (ecc == 1) {
-        aError("偏心率为1");
+        aError(_("偏心率为1"));
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -119,7 +119,7 @@ errc_t coe2mee(const double* coe, double* mee)
     k = temp * sin(raan);              // k
     L = mod(raan + argper + trueAnom, PI2);
     if (e == 1) {
-        aError("偏心率为1");
+        aError(_("偏心率为1"));
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -249,7 +249,7 @@ errc_t rv2mee(const double* pos_, const double* vel_, double gm, double* mee)
 
     if (unith[2] + 1.0 <= 0.0)
     {
-        aError("轨道倾角接近180度，不适合用春分点轨道根数描述.");
+        aError(_("轨道倾角接近180度，不适合用春分点轨道根数描述."));
         return eErrorInvalidParam;
     }
     double cosiadd1 = 1.0 + unith[2];
@@ -938,30 +938,30 @@ errc_t coe2dela(const double *coeIn, double gm, double *delaOut)
 	double ta= keplerian->trueA();
     if(ecc < 0.0)
     {
-        aWarning("ecc < 0.0, not supported.");
+        aWarning(_("ecc 小于 0.0，不支持"));
         ecc = -ecc;
     }
     if ((sma > 0.0) && (ecc > 1.0))
     {
-        aWarning("sma > 0 while ecc > 1.0, not supported.");
+        aWarning(_("sma 大于 0 而 ecc 大于 1.0，不支持"));
         sma = -sma;
     }
    
     if ((sma < 0.0) && (ecc < 1.0))
     {
-        aWarning("sma < 0 while ecc < 1.0, not supported.");
+        aWarning(_("sma 小于 0 而 ecc 小于 1.0，不支持"));
         sma = -sma;
     }
    
     if (gm < 1e-15)
     {
-        aError("Gravitational constant (gm=%e) is too small to convert from Keplerian to Delaunay.", gm);
+        aError(_("引力常数 (gm=%e) 太小，无法从 Keplerian 转换到 Delaunay"), gm);
         return eErrorInvalidParam;
     }
    
     if ( ecc >= 1.0)
     {
-        aError("ecc >= 1.0, not supported.");
+        aError(_("ecc 不小于 1.0，不支持"));
         return eErrorInvalidParam;
     }
    
@@ -994,12 +994,12 @@ errc_t dela2coe(const double *delaIn, double gm, double *coeOut)
     
     if (std::abs(H_dela) > std::abs(G_dela))
     {
-        aError("The magnitude of DelaunayH must be less than or equal to the magnitude of DelaunayG.");
+        aError(_("DelaunayH 的模必须小于或等于 DelaunayG 的模"));
         return eErrorInvalidParam;
     }
     if ((G_dela / L_dela) > 1.0)
     {
-        aError("It is required that (DelaunayG / DelaunayL) <= 1.");
+        aError(_("要求 (DelaunayG / DelaunayL) 不大于 1"));
         return eErrorInvalidParam;
     }
  

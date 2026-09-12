@@ -98,7 +98,7 @@ errc_t _aLoadSGP4(BKVParser& parser, const VehiclePathData& vehiclePathData, Sco
             {
                 if(_aLoadEventInterval(parser, data.interval_))
                 {
-                    aError("failed to load ephemeris interval");
+                    aError(_("加载星历时段失败"));
                 }
             }else if(aEqualsIgnoreCase(item.key(), "StartTime")){
                 data.startTime_ = TimePoint::Parse(item.value());
@@ -256,7 +256,7 @@ errc_t _aLoadSPICE(BKVParser& parser, const VehiclePathData& vehiclePathData, Sc
             }else if(aEqualsIgnoreCase(item.key(), "EphemSmartInterval")){
                 errc_t rc = _aLoadEventInterval(parser, data.ephemSmartInterval_);
                 if(rc)
-                    aError("failed to load EphemSmartInterval");
+                    aError(_("加载 EphemSmartInterval 失败"));
             }
         }else if(token == BKVParser::eBlockBegin){
             if(aEqualsIgnoreCase(item.value(), "EVENTINTERVAL")){
@@ -469,7 +469,7 @@ errc_t _aLoadSimpleAscent(BKVParser& parser, const VehiclePathData& vehiclePathD
         }else if(token == BKVParser::eEOF){
             return eNoError;
         }else{
-            aError("invalid token");
+            aError(_("无效的标记"));
             return eErrorInvalidFile;
         }
     }
@@ -550,7 +550,7 @@ errc_t _aLoadGreatArc(BKVParser& parser, const VehiclePathData& vehiclePathData,
             if(aEqualsIgnoreCase(item.value(), "ArcSmartInterval")){
                 errc_t rc = _aLoadEventInterval(parser, data.arcSmartInterval_);
                 if(rc)
-                    aError("failed to load ArcSmartInterval");
+                    aError(_("加载 ArcSmartInterval 失败"));
             }else if(aEqualsIgnoreCase(item.value(), "Waypoints")){
                 // 解析航点数据
                 for(int i = 0; i < data.numberOfWaypoints_; i++)
@@ -566,7 +566,7 @@ errc_t _aLoadGreatArc(BKVParser& parser, const VehiclePathData& vehiclePathData,
                     waypoint.position_.longitude() *= kDegToRad;
                     
                     if(status != 7){
-                        aError("invalid waypoint line");
+                        aError(_("航点行无效"));
                         // return eErrorInvalidFile;
                     }else{
                         data.waypoints_.push_back(waypoint);
@@ -641,7 +641,7 @@ errc_t _aLoadAstrogator(BKVParser& parser, const VehiclePathData& VehiclePathDat
     errc_t rc = aLoadValue(parser.getFile(), value);
     if(rc || !value)
     {
-        aError("failed to load astrogator");
+        aError(_("加载 Astrogator 失败"));
     }
     else
     {
@@ -656,11 +656,11 @@ errc_t _aLoadAstrogator(BKVParser& parser, const VehiclePathData& VehiclePathDat
             context.scenarioDir_ = fs::path(context.filepath_).parent_path();
             rc = aLoadSequence(dictSequence, motionMissionCommand->getSequence(), &context);
             if(rc)
-                aError("failed to load MainSEQUENCE");
+                aError(_("加载 MainSEQUENCE 失败"));
         }
         else
         {
-            aError("failed to find MainSEQUENCE");
+            aError(_("未找到 MainSEQUENCE"));
             return eErrorInvalidParam;
         }
     }
@@ -672,7 +672,7 @@ errc_t _aLoadAstrogator(BKVParser& parser, const VehiclePathData& VehiclePathDat
     }
     else
     {
-        aError("expected end of Astrogator block");
+        aError(_("期望 Astrogator 块结束"));
         return eErrorInvalidParam;
     }
 }
@@ -1024,48 +1024,48 @@ errc_t _aLoadMover(BKVParser& parser, StringView moverType, Mover& mover)
         }else if(token == BKVParser::eBlockBegin){
             if(aEqualsIgnoreCase(item.value(), "VehiclePath")){
                 if(errc_t rc = _aLoadVehiclePath(parser, mover)){
-                    aError("failed to load vehicle path");
+                    aError(_("加载车辆路径失败"));
                     return rc;
                 }
             }else if(aEqualsIgnoreCase(item.value(), "Ephemeris")){
                 if(errc_t rc = _aLoadEphemeris(parser, mover)){
-                    aError("failed to load ephemeris");
+                    aError(_("加载星历失败"));
                     return rc;
                 }
             }
             else if(aEqualsIgnoreCase(item.value(), "MassProperties")){
                 if(errc_t rc = _aLoadMassProperties(parser, mover)){
-                    aError("failed to load mass properties");
+                    aError(_("加载质量属性失败"));
                     return rc;
                 }
             }else if(aEqualsIgnoreCase(item.value(), "Attitude")){
                 if(errc_t rc = _aLoadAttitude(parser, mover)){
-                    aError("failed to load attitude");
+                    aError(_("加载姿态失败"));
                     return rc;
                 }
             }else if(aEqualsIgnoreCase(item.value(), "Swath")){
                 if(errc_t rc = _aLoadSwath(parser, mover)){
-                    aError("failed to load swath");
+                    aError(_("加载扫描带失败"));
                     return rc;
                 }
             }else if(aEqualsIgnoreCase(item.value(), "Eclipse")){
                 if(errc_t rc = _aLoadEclipse(parser, mover)){
-                    aError("failed to load eclipse");
+                    aError(_("加载阴影失败"));
                     return rc;
                 }
             }else if(aEqualsIgnoreCase(item.value(), "RealTimeDef")){
                 if(errc_t rc = _aLoadRealTimeDef(parser, mover)){
-                    aError("failed to load real time def");
+                    aError(_("加载实时定义失败"));
                     return rc;
                 }
             }else if(aEqualsIgnoreCase(item.value(), "Extensions")){
                 if(errc_t rc = _aLoadExtensions(parser, mover)){
-                    aError("failed to load extensions");
+                    aError(_("加载扩展失败"));
                     return rc;
                 }
             }else if(aEqualsIgnoreCase(item.value(), "SubObjects")){
                 if(errc_t rc = _aLoadSubObjects(parser, &mover)){
-                    aError("failed to load sub objects");
+                    aError(_("加载子对象失败"));
                     return rc;
                 }
             }else
@@ -1094,7 +1094,7 @@ errc_t aLoadMover(StringView filepath, Mover &mover)
     BKVParser::EToken token;
     BKVParser parser(filepath);
     if(!parser.isOpen()){
-        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     do{

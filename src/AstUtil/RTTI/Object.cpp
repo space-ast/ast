@@ -320,7 +320,7 @@ Object::~Object()
         errc_t rc = ObjectManager::CurrentInstance().removeNode(index_);
         if(rc != eNoError)
         {
-            aError("failed to remove object from object manager");
+            aError(_("从对象管理器移除对象失败"));
         }
     }
 }

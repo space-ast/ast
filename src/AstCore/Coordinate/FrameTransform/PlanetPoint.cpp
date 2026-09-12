@@ -30,7 +30,7 @@ errc_t a##NAME##PosInICRF(const TimePoint &tp, Vector3d &pos) \
 { \
     auto body = aGet##NAME(); \
     if(!body){ \
-        aError(#NAME " is null, please ensure it is initialized by `aInitialize()`"); \
+        aError(_(#NAME " 为空，请确保已通过 `aInitialize()` 函数完成初始化")); \
         return eErrorInvalidParam; \
     } \
     return body->getPosICRF(tp, pos); \
@@ -39,7 +39,7 @@ errc_t a##NAME##PosVelInICRF(const TimePoint &tp, Vector3d &pos, Vector3d &vel) 
 { \
     auto body = aGet##NAME(); \
     if(!body){ \
-        aError(#NAME " is null, please ensure it is initialized by `aInitialize()`"); \
+        aError(_(#NAME " 为空，请确保已通过 `aInitialize()` 函数完成初始化")); \
         return eErrorInvalidParam; \
     } \
     return body->getPosVelICRF(tp, pos, vel); \

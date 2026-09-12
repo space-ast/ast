@@ -277,7 +277,7 @@ static void _aCacheSpan(ColData& col)
     }
     else
     {
-        aWarning("unknown element type '%s' in column '%s', skipping output",
+        aWarning(_("未知的元素类型 '%s'（列 '%s'），跳过输出"),
                  ti.name(), col.title.c_str());
         col.dataType = EDataType::eFloat;
         col.data.clear();  // 清空数据，确保 hasType() 返回 false，输出时跳过
@@ -336,13 +336,13 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
         auto it = s_serviceFactories.find(service);
         if (it == s_serviceFactories.end())
         {
-            aWarning("unsupported report service: %s", service.c_str());
+            aWarning(_("不支持的报告服务: %s"), service.c_str());
             continue;
         }
         std::unique_ptr<DataGroup> dg(it->second(object, type));
         if (!dg)
         {
-            aError("failed to create DataGroup for service: %s", service.c_str());
+            aError(_("为服务 %s 创建 DataGroup 失败"), service.c_str());
             continue;
         }
 
@@ -357,7 +357,7 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
         {
             if (options.interval_.isEmpty())
             {
-                aError("interval is empty (start>stop) for service '%s'; set ReportGenerateOptions::interval_",
+                aError(_("时段为空，请设置 ReportGenerateOptions::interval_"),
                        service.c_str());
                 continue;
             }
@@ -365,13 +365,13 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
         }
         else
         {
-            aError("unsupported DataGroup type for service: %s", service.c_str());
+            aError(_("服务 %s 不支持该 DataGroup 类型"), service.c_str());
             continue;
         }
 
         if (err != eNoError)
         {
-            aError("calculate failed for service %s: %d", service.c_str(), static_cast<int>(err));
+            aError(_("服务 %s 计算失败"), service.c_str());
             continue;
         }
 
@@ -381,8 +381,8 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
             err = dg->extract(calcResult, columns[idx].element->element_, columns[idx].data);
             if (err != eNoError)
             {
-                aError("extract '%s' failed for service %s: %d",
-                       columns[idx].element->element_.c_str(), service.c_str(), static_cast<int>(err));
+                aError(_("提取元素 '%s' 失败(服务 %s)"),
+                       columns[idx].element->element_.c_str(), service.c_str());
                 continue;
             }
 
@@ -426,7 +426,7 @@ static errc_t _aWriteTabular(const ReportStyle& report, const Object* object, FI
         }
         else if (colSize < nRows)
         {
-            aWarning("column '%s' has fewer rows (%d) than others (%d)",
+            aWarning(_("列 '%s' 的行数 (%d) 少于其他列 (%d)"),
                      col.title.c_str(), colSize, nRows);
             nRows = colSize;
         }

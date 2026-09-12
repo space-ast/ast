@@ -37,12 +37,12 @@ errc_t ScriptExecutor::setVariable(Variable* var)
     SharedPtr<Value> value = var->eval();
     if(!value)
     {
-        aError("failed to evaluate variable: '%s'", var->getName().c_str());
+        aError(_("求变量 '%s' 的值失败"), var->getName().c_str());
         return eErrorInvalidParam;
     }
 
     #ifdef AST_DEBUG_SCRIPT_EXECUTOR
-    aInfo("setVariable: `%s = %s`", var->getName().c_str(), value->getExpression().c_str());
+    aInfo(_("设置变量: `%s = %s`"), var->getName().c_str(), value->getExpression().c_str());
     #endif
 
     if(value->isBool())
@@ -84,7 +84,7 @@ errc_t ScriptExecutor::getVariable(Variable* var)
         if(rc == eNoError)
         {
             #ifdef AST_DEBUG_SCRIPT_EXECUTOR
-            aInfo("getVariable: `%s = %lf`", var->getName().c_str(), value);
+            aInfo(_("获取变量: `%s = %lf`"), var->getName().c_str(), value);
             #endif
 
             return var->setValue(aNewValueDouble(value));
@@ -97,13 +97,13 @@ errc_t ScriptExecutor::getVariable(Variable* var)
         if(rc == eNoError)
         {
             #ifdef AST_DEBUG_SCRIPT_EXECUTOR
-            aInfo("getVariable: `%s = %s`", var->getName().c_str(), value.c_str());
+            aInfo(_("获取变量: `%s = %s`"), var->getName().c_str(), value.c_str());
             #endif
             
             return var->setValue(aNewValueString(value));
         }
     }
-    aError("failed to get variable: '%s'", var->getName().c_str());
+    aError(_("获取变量 '%s' 失败"), var->getName().c_str());
     return eErrorInvalidParam;
 }
 
@@ -151,7 +151,7 @@ std::string toString(EScriptLanguage type)
         return "AstScript";
     default:
     {
-        aError("unsupported script type");
+        aError(_("不支持的脚本类型"));
         return "Unknown";
     }
     }
@@ -171,7 +171,7 @@ ScriptExecutor* aNewScriptExecutor(EScriptLanguage type)
         return new PythonExecutor();
     default:
     {
-        aError("unsupported script executor for language: '%s'", toString(type).c_str());
+        aError(_("不支持语言 '%s' 的脚本执行器"), toString(type).c_str());
         return nullptr;
     }
     }

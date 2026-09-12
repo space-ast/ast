@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcDiffAcrossSegmentOtherSat::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement difference across segment with other satellite calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

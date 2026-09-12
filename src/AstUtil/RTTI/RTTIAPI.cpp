@@ -139,7 +139,7 @@ Object *aResolveObject(StringView value, Class* cls)
                     if(bodyCls)
                         return bodyCls->resolve(objName);
                 }
-                aError("class '%.*s' not found", className.size(), className.data());
+                aError(_("未找到类 '%.*s'"), className.size(), className.data());
                 return nullptr;
             }
             obj = aFindObject(cls, objName);
@@ -151,7 +151,7 @@ Object *aResolveObject(StringView value, Class* cls)
             pos = value.find("/");
             if(pos == StringView::npos)
             {
-                aError("invalid object path: '%.*s'", value.size(), value.data());
+                aError(_("无效的对象路径: '%.*s'"), value.size(), value.data());
                 return nullptr;
             }
             className = value.substr(0, pos);
@@ -160,7 +160,7 @@ Object *aResolveObject(StringView value, Class* cls)
             auto cls = aGetClass(className);
             if(!cls)
             {
-                aError("class '%.*s' not found", className.size(), className.data());
+                aError(_("未找到类 '%.*s'"), className.size(), className.data());
                 return nullptr;
             }
             obj = aFindChild(obj, cls, objName);

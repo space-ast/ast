@@ -32,7 +32,7 @@ inline std::string aTestReadFile(const std::string& path)
     FILE* fp = posix::fopen(path.c_str(), "rb");
     if (!fp)
     {
-        aError("aTestReadFile: failed to open file %s", path.c_str());
+        aError(_("打开文件 %s 失败"), path.c_str());
         return {};
     }
     std::string content;

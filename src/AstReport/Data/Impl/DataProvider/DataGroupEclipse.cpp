@@ -110,7 +110,7 @@ errc_t DataGroupEclipse::calculate(const TimeInterval& interval, std::vector<Dat
     auto lightSource = this->getLightSource();
     if (!point)
     {
-        aError("point is null");
+        aError(_("点为空"));
         return eErrorNullPtr;
     }
 

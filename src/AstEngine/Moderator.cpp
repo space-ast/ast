@@ -68,7 +68,7 @@ Object* Moderator::addObject(StringView type, Object* parent)
     auto newObject = aNewObject(type, parent);
     if (newObject == nullptr)
     {
-        aWarning("failed to create object of type '%.*s'", type.size(), type.data());
+        aWarning(_("创建类型为 '%.*s' 的对象失败"), type.size(), type.data());
         return nullptr;
     }
     observers_.onObjectAdded(*newObject);

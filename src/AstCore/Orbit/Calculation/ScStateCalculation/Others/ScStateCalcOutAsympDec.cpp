@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcOutAsympDec::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement outgoing asymptotic declination calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

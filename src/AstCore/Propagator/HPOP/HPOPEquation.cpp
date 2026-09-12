@@ -97,7 +97,7 @@ static Axes* aGetGravityAxes(const GravityField& gravityField, const Body& body)
         Axes* axes = body.getAxes(gravityField.referenceFrame());
         if(axes != nullptr)
             return axes;
-        aWarning("gravity field reference frame '%s' not found in body '%s'.", gravityField.referenceFrame().c_str(), body.getName().c_str());
+        aWarning(_("未在天体 '%s' 中找到引力场参考系 '%s'"), gravityField.referenceFrame().c_str(), body.getName().c_str());
     }
     // 如果是月球，使用月球的惯性主轴PrincipalAxes
     // 月球的固连系一般为MeanEarth系，与PrincipalAxes存在偏置
@@ -106,7 +106,7 @@ static Axes* aGetGravityAxes(const GravityField& gravityField, const Body& body)
         auto axes = body.getAxes("PrincipalAxes");
         if(axes != nullptr)
             return axes;
-        aWarning("PrincipalAxes not found in body '%s'.", body.getName().c_str());
+        aWarning(_("未在天体 '%s' 中找到 PrincipalAxes"), body.getName().c_str());
     }
     return body.getAxesFixed();
 }
@@ -126,7 +126,7 @@ static errc_t aLoadGravityField(const GravityForce& gravity, const Body& body, G
     errc_t err = outGravityField.load(gravity.model_, gravity.maxDegree_, gravity.maxOrder_, body.getDirpath());
     if(err != eNoError)
     {
-        aError("Failed to load gravity field '%s' for body '%s'.", gravity.model_.c_str(), body.getName().c_str());
+        aError(_("加载重力场 '%s' 失败(天体 '%s')"), gravity.model_.c_str(), body.getName().c_str());
         return err;
     }
     // 施加永久固体潮汐修正（仅对地球无潮汐模型且 solidTideType_==ePermanentOnly 时生效，
@@ -146,12 +146,12 @@ static double clamp_f10p7(double value)
 {
     if(value < 40.0)
     {
-        aWarning("f10p7 is less than 40, using 40 as default.");
+        aWarning(_("f10p7 小于 40，使用 40 作为默认值"));
         return 40.0;
     }
     else if(value > 10000.0)
     {
-        aWarning("f10p7 is greater than 10000, using 10000 as upper bound.");
+        aWarning(_("f10p7 大于 10000，使用 10000 作为默认值"));
         return 10000.0;
     }
     return value;
@@ -187,7 +187,7 @@ static Atmosphere* aNewAtmosphere(const DragForce& drag)
             }
             else
             {
-                aWarning("failed to load space weather file '%s', using constant space weather instead.", drag.fluxApFile_.c_str());
+                aWarning(_("加载空间天气文件 '%s' 失败，改用恒定空间天气参数"), drag.fluxApFile_.c_str());
             }
         }
         // 后备方案
@@ -241,7 +241,7 @@ static Atmosphere* aNewAtmosphere(const DragForce& drag)
                                 earth->getDirpath() + "/DTM/dtm_2012_NF.dat");
             if (!dtm->isInitialized())
             {
-                aWarning("DTM2012 initialization failed");
+                aWarning(_("DTM2012 初始化失败"));
                 delete dtm;
             }
             else
@@ -253,7 +253,7 @@ static Atmosphere* aNewAtmosphere(const DragForce& drag)
 
     if(!atmosphere)
     {
-        aWarning("atmosphere '%d' is not supported, using default model 'NRLMSIS00'.", atmDensityModel);
+        aInfo(_("大气模型 '%d' 尚不支持或初始化失败，默认使用 'NRLMSIS00'"), atmDensityModel);
         atmosphere = new NRLMSIS00(frame, shape, f10p7Daily, f10p7Average, drag.ap());
     }
     atmosphere->setUseApproximateAltitude(drag.useApproxAltForDrag_);
@@ -268,7 +268,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     {
         body = aGetEarth();
         assert(body);
-        aWarning("central body is not set, using 'Earth' as default.");
+        aWarning(_("未设置中心天体，默认使用 'Earth' "));
         if(!body)
             return eErrorNullInput;
     }
@@ -286,7 +286,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
     {
         if(frame->getOrigin() != body)
         {
-            aError("propagation frame '%s' origin is not central body '%s'.", frame->getName().c_str(), body->getName().c_str());
+            aError(_("预报坐标系 '%s' 的原点不是中心天体 '%s'"), frame->getName().c_str(), body->getName().c_str());
             return eErrorInvalidParam;
         }
     }
@@ -344,10 +344,10 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         else
         {
             // todo: 处理其他引力模型
-            aWarning("the body attraction model is not a gravity force model, no central body gravity force will be added.");
+            aWarning(_("不支持的天体引力类型，将不添加中心天体引力"));
         }
     }else{
-        aWarning("the propagation frame's center is not a celestial body, no gravity force will be added.");
+        aWarning(_("预报坐标系的原点不是天体，将不添加引力"));
     }
 
 
@@ -424,7 +424,7 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
         }
         else
         {
-            aWarning("there is no sun in the system, no solar radiation pressure force will be added.");
+            aWarning(_("无法获取太阳，将不添加太阳辐射压"));
         }
     }
 
@@ -437,9 +437,9 @@ errc_t HPOPEquation::initBlocks(const HPOPForceModel &forceModel, const Spacecra
             if(body3rd == nullptr || body3rd == body)
             {
                 if(body3rd == nullptr)
-                    aWarning("third body pointer is null");
+                    aWarning(_("三体引力的天体配置为空"));
                 else
-                    aWarning("third body '%s' is the same as the central body, skipping this third body.", body3rd->name().c_str());
+                    aWarning(_("三体 '%s' 与中心天体相同，跳过该三体引力"), body3rd->name().c_str());
                 continue;
             }
             Point* bodyEphemeris = aGetBodyEphemeris(*body3rd, thirdBody.ephemerisSource());

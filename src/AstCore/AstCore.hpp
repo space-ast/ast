@@ -265,6 +265,7 @@
 #include "AstCore/OrbitPathFilter.hpp"
 #include "AstCore/OrbitalPrecession.hpp"
 #include "AstCore/OutOfDateFilter.hpp"
+#include "AstCore/PatchedConic.hpp"
 #include "AstCore/Plane.hpp"
 #include "AstCore/PlanetFrame.hpp"
 #include "AstCore/PlanetPoint.hpp"

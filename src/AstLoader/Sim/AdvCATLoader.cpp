@@ -488,7 +488,7 @@ errc_t aLoadAdvCAT(StringView filepath, StringView objectType, AdvCAT& advCAT)
     BKVParser parser(filepath);
     
     if(!parser.isOpen()){
-        aError("failed to open file '%.*s'", (int)filepath.size(), filepath.data());
+        aError(_("打开文件 '%.*s' 失败"), (int)filepath.size(), filepath.data());
         return eErrorInvalidFile;
     }
     

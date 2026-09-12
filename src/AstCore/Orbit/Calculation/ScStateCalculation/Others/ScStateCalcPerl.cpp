@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcPerl::calculate(const SpacecraftState& state, double& result)
 {
     // TODO: Implement Perl script calculation
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 

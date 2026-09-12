@@ -65,7 +65,7 @@ errc_t TimeInterval::discretize(const TimePoint &epoch, double step, std::vector
         return eNoError;
 
     }
-    aError("invalid step (%f) or empty interval", step);
+    aError(_("无效的步长 (%f) 或空区间"), step);
     return eErrorInvalidParam;
     
 }
@@ -85,7 +85,7 @@ errc_t TimeInterval::discretize(double step, std::vector<TimePoint> &times) cons
         return eNoError;
 
     }
-    aError("invalid step (%f) or empty interval", step);
+    aError(_("无效的步长 (%f) 或空区间"), step);
     return eErrorInvalidParam;
     
 }
@@ -104,7 +104,7 @@ errc_t TimeInterval::discretize(double step, TimeList& times) const
         times.seconds()[nnodes-1] = dur;
         return eNoError;
     }
-    aError("invalid step (%f) or empty interval", step);
+    aError(_("无效的步长 (%f) 或空区间"), step);
     return eErrorInvalidParam;
 }
 

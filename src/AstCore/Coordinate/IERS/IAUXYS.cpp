@@ -28,17 +28,17 @@ errc_t IAUXYS::load(StringView xSeriesPath, StringView ySeriesPath, StringView s
     errc_t ret1 = xSeries_.load(xSeriesPath);
     if (ret1 != 0)
     {
-        aError("failed to load x series file: '%.*s'", (int)xSeriesPath.size(), xSeriesPath.data());
+        aError(_("加载 X 系数文件失败: '%.*s'"), (int)xSeriesPath.size(), xSeriesPath.data());
     }
     errc_t ret2 = ySeries_.load(ySeriesPath);
     if (ret2 != 0)
     {
-        aError("failed to load y series file: '%.*s'", (int)ySeriesPath.size(), ySeriesPath.data());
+        aError(_("加载 Y 系数文件失败: '%.*s'"), (int)ySeriesPath.size(), ySeriesPath.data());
     }
     errc_t ret3 = spxy2Series_.load(spxy2SeriesPath);
     if (ret3 != 0)
     {
-        aError("failed to load spxy2 series file: '%.*s'", (int)spxy2SeriesPath.size(), spxy2SeriesPath.data());
+        aError(_("加载 S+XY/2 系数文件失败: '%.*s'"), (int)spxy2SeriesPath.size(), spxy2SeriesPath.data());
     }
     errc_t ret = ret1 | ret2 | ret3;
     if (ret == 0)

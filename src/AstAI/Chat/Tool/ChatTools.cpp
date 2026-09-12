@@ -46,7 +46,7 @@ std::string ChatTools::handleToolCall(const JsonValue& toolCall)
             return tool->call(args);
         }
     }
-    aError("unsupported tool call: %s", name.c_str());
+    aError(_("不支持的工具调用: %s"), name.c_str());
     return u8"暂时还不支持调用工具" + name;
 }
 

@@ -142,7 +142,7 @@ errc_t DataGroupLLAState::calculate(const TimeList& timeList, Span<Data> result)
     Body* body = this->getBody();
     if(!scPoint || !body)
     {
-        aError("scPoint or body is null");
+        aError(_("点或天体为空"));
         return eErrorNullPtr;
     }
 
@@ -150,7 +150,7 @@ errc_t DataGroupLLAState::calculate(const TimeList& timeList, Span<Data> result)
     BodyShape* shape = body->getShape();
     if(!bodyFixed || !shape)
     {
-        aError("bodyFixed or shape is null");
+        aError(_("坐标系或形状为空"));
         return eErrorNullPtr;
     }
 
@@ -165,7 +165,7 @@ errc_t DataGroupLLAState::calculate(const TimeList& timeList, Span<Data> result)
     size_t size = result.size();
     if(size != timeList.size())
     {
-        aError("result size must be equal to timeList size");
+        aError(_("结果数组大小必须等于时间列表大小"));
         return eErrorInvalidParam;
     }
 

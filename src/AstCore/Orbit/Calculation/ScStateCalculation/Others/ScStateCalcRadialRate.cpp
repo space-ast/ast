@@ -27,7 +27,7 @@ errc_t ScStateCalcRadialRate::calculate(const SpacecraftState& state, double& re
 {
     // TODO: Implement radial rate calculation
     // Need to get position and velocity from State first
-    aError("not implemented");
+    aError(_("尚未实现"));
     return -1;
 }
 
