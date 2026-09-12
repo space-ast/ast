@@ -390,12 +390,8 @@ BENCHMARK(bmMoonEphemeris);
 int main(int argc, char** argv)
 {
     setlocale(LC_ALL, ".UTF-8");
-    if (aInitialize() != eNoError)
-    {
-        fprintf(stderr, "aInitialize 失败：太阳系数据不可用\n");
-        return 1;
-    }
-
+    aInitialize();
+ 
     const errc_t err = prepare();
     if (err != eNoError)
     {
