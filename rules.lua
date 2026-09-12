@@ -29,7 +29,8 @@ rule("ast")
             target:add("ldflags", "-s TOTAL_MEMORY=33554432")    -- 为了兼容老版本的emscripten
         elseif target:plat() == "windows" then
             -- 去除 __FILE__ 宏中的项目目录前缀
-            target:add("cxflags", "/d1trimfile:" .. os.projectdir() .. "\\")
+            -- 但是这个编译选项容易导致部分调试器无法正常工作
+            -- target:add("cxflags", "/d1trimfile:" .. os.projectdir() .. "\\")
         end
         local include_dir = path.join(os.scriptdir(), "include", target:name())
         if os.isdir(include_dir) then
