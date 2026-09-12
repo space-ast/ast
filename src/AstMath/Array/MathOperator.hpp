@@ -403,8 +403,8 @@ struct is_vector_like {
 private:
     template<typename U>
     static auto test(int) -> decltype(
-        std::declval<U>()[0],       // 有 operator[]
-        size(std::declval<U>()),    // 有 size() 函数
+        sizeof(std::declval<U>()[0]),   // 有 operator[]，用 sizeof 取用返回值避免报 unused-result
+        size(std::declval<U>()),        // 有 size() 函数
         std::true_type{}
     );
     

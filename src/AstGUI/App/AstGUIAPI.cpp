@@ -78,7 +78,7 @@ errc_t aQAppInit(int argc, char *argv[])
             }
             else
             {
-                qDebug() << "Failed to load font from path:" << fontPath;
+                qDebug() << "加载字体文件失败:" << fontPath;
             }
         }
         (void)app;
@@ -95,7 +95,7 @@ errc_t aQAppInit(int argc, char *argv[])
             bool loaded =translator->load(qmPath);
             if (!loaded)
             {
-                qDebug() << "Failed to load translation file from path:" << qmPath;
+                qDebug() << "加载翻译文件失败:" << qmPath;
             }
         }
         qApp->installTranslator(translator);
@@ -110,6 +110,7 @@ errc_t aQAppInit(int argc, char *argv[])
             file.close();
         }
     }
+    aDebug("GUI环境初始化完成");
     return 0;
 }
 

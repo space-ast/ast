@@ -43,6 +43,12 @@ AST_NAMESPACE_BEGIN
 
 
 /// @brief 直角坐标
+/// @note  该类保持聚合类型, 不额外定义构造函数。
+///        GCC 会对 CartState 的隐式默认构造函数报-Weffc++ 警告, 因此在类定义处局部抑制该警告。
+#if defined(A_GCC) || defined(A_CLANG)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Weffc++"
+#endif
 class CartState
 {
 public:
@@ -95,6 +101,9 @@ public:
         return true;
     }
 };
+#if defined(A_GCC) || defined(A_CLANG)
+#   pragma GCC diagnostic pop
+#endif
 
 
 /// @brief 经典轨道根数

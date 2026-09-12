@@ -12,6 +12,7 @@ target("AstPy")
     add_deps("AstUtil", "AstCore", "AstSim")
     add_defines("SWIG_PYTHON_INTERPRETER_NO_DEBUG")
     add_defines("SWIG", "AST_BUILD_LIB_PY")
+    set_warnings("none")  -- swig 自动封装代码，忽略警告
     add_cxxflags("/bigobj")
     after_build(function(target)
         local autogendir = vformat(path.join("$(projectdir)", target:autogendir(), "rules", "swig"))

@@ -168,7 +168,7 @@ public:
     DataMap::const_iterator end() const { return dataMap_.end(); }
     size_t size() const { return dataMap_.size(); }
 protected:
-    DataMap dataMap_;
+    DataMap dataMap_{};
 };
 
 /*! @} */

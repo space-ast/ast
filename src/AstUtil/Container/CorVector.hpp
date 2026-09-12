@@ -456,7 +456,7 @@ protected:
         }
         
         T* new_data = allocator().allocate(new_cap);
-        size_type copy_size = std::min(size_, new_cap);
+        size_type copy_size = (std::min)(size_, new_cap);
         
         // 复制现有数据
         for (size_type i = 0; i < copy_size; ++i) {

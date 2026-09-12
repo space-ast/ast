@@ -294,6 +294,29 @@ errc_t aWideToUtf8(const wchar_t* wide, std::string& utf8)
 }
 #endif
 
+// 以下两个接口在Windows分支中已有实现，这里补齐非Windows平台的实现，
+// 保证头文件中声明的接口在所有平台上都有定义（否则使用方会出现未定义符号）。
+
+std::wstring aUtf8ToWide(StringView utf8)
+{
+    // StringView 不保证以 '\0' 结尾，先拷贝到临时缓冲再转换
+    std::string buffer(utf8.data(), utf8.size());
+    std::wstring wide;
+    if (aUtf8ToWide(buffer.c_str(), wide) != eNoError) {
+        return {};
+    }
+    return wide;
+}
+
+std::string aWideToUtf8(const wchar_t* wide)
+{
+    std::string utf8;
+    if (aWideToUtf8(wide, utf8) != eNoError) {
+        return {};
+    }
+    return utf8;
+}
+
 #endif
 
 
