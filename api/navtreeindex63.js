@@ -1,5 +1,8 @@
 var NAVTREEINDEX63 =
 {
+"namespaceast_1_1propagate__nan.html#a311d6dcbd16d6e212d729a17568e3d75":[2,0,0,5,5],
+"namespaceast_1_1propagate__nan.html#a4420d16471aa45c760b033d80823b5b1":[2,0,0,5,4],
+"namespaceast_1_1units.html":[0,8,3,0],
 "namespaceast_1_1units.html#a0990e0945adaa6e0b651b1c2e194f6cb":[2,0,0,6,26],
 "namespaceast_1_1units.html#a0fe52e4a38940eea606c33210cf9f1d2":[2,0,0,6,27],
 "namespaceast_1_1units.html#a225f8bb56223c5cff0e158b39b1ac0d8":[2,0,0,6,37],
@@ -246,8 +249,5 @@ var NAVTREEINDEX63 =
 "structast_1_1DAF__FileRecord.html#ad311bd512ed672bee5193b0e30fef442":[2,0,0,201,10],
 "structast_1_1DAF__FileRecord.html#ad311bd512ed672bee5193b0e30fef442":[3,0,0,200,10],
 "structast_1_1DAF__NameRecords.html":[2,0,0,202],
-"structast_1_1DAF__NameRecords.html":[3,0,0,201],
-"structast_1_1DAF__NameRecords.html#a5c77e5ea4c48422200833bea63ff1a0c":[2,0,0,202,0],
-"structast_1_1DAF__NameRecords.html#a5c77e5ea4c48422200833bea63ff1a0c":[3,0,0,201,0],
-"structast_1_1DAF__SPKSummaryRecords.html":[2,0,0,203]
+"structast_1_1DAF__NameRecords.html":[3,0,0,201]
 };

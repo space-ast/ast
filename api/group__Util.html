@@ -405,8 +405,14 @@ typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::colo
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:gaeaf6b3efed5b6578ba71d2261eef998f" id="r_gaeaf6b3efed5b6578ba71d2261eef998f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaeaf6b3efed5b6578ba71d2261eef998f">ast::cprintf</a> (<a class="el" href="classast_1_1Color.html">Color</a> color, const char *format,...)</td></tr>
-<tr class="separator:gaeaf6b3efed5b6578ba71d2261eef998f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa67f11688e3bea2cb0fc7276768ca932" id="r_gaa67f11688e3bea2cb0fc7276768ca932"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa67f11688e3bea2cb0fc7276768ca932">ast::cvprintf</a> (<a class="el" href="classast_1_1Color.html">Color</a> color, const char *format, va_list args)</td></tr>
+<tr class="separator:gaa67f11688e3bea2cb0fc7276768ca932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac11bb8dd4169e71e3f25746328f2de71" id="r_gac11bb8dd4169e71e3f25746328f2de71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac11bb8dd4169e71e3f25746328f2de71">ast::cvfprintf</a> (<a class="el" href="classast_1_1Color.html">Color</a> color, FILE *stream, const char *format, va_list args)</td></tr>
+<tr class="separator:gac11bb8dd4169e71e3f25746328f2de71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9375bd61cbc4422f1ee1890c3332f3b" id="r_gaa9375bd61cbc4422f1ee1890c3332f3b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa9375bd61cbc4422f1ee1890c3332f3b">ast::cprintf</a> (<a class="el" href="classast_1_1Color.html">Color</a> color, const char *format,...)</td></tr>
+<tr class="separator:gaa9375bd61cbc4422f1ee1890c3332f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d65866b99cfa5dd75353e9ccde2a83a" id="r_ga7d65866b99cfa5dd75353e9ccde2a83a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7d65866b99cfa5dd75353e9ccde2a83a">ast::cfprintf</a> (<a class="el" href="classast_1_1Color.html">Color</a> color, FILE *stream, const char *format,...)</td></tr>
+<tr class="separator:ga7d65866b99cfa5dd75353e9ccde2a83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae0dd3e8dec613bf26344801182b864b7" id="r_gae0dd3e8dec613bf26344801182b864b7"><td class="memItemLeft" align="right" valign="top">constexpr color_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae0dd3e8dec613bf26344801182b864b7">ast::rgb</a> (uint8_t r, uint8_t <a class="el" href="namespaceast_1_1units.html#ae4556ebaa282d22cb28134feff39ae12">g</a>, uint8_t b)</td></tr>
 <tr class="separator:gae0dd3e8dec613bf26344801182b864b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad75b6bc25cadaa8a25b2d91e98ca072c" id="r_gad75b6bc25cadaa8a25b2d91e98ca072c"><td class="memItemLeft" align="right" valign="top">constexpr color_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad75b6bc25cadaa8a25b2d91e98ca072c">ast::rgba</a> (uint8_t r, uint8_t <a class="el" href="namespaceast_1_1units.html#ae4556ebaa282d22cb28134feff39ae12">g</a>, uint8_t b, uint8_t a)</td></tr>
@@ -2118,6 +2124,49 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMil
 
 </div>
 </div>
+<a id="ga7d65866b99cfa5dd75353e9ccde2a83a" name="ga7d65866b99cfa5dd75353e9ccde2a83a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7d65866b99cfa5dd75353e9ccde2a83a">&#9670;&#160;</a></span>cfprintf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI int ast::cfprintf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Color.html">Color</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>stream</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>彩色打印函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>颜色 </td></tr>
+    <tr><td class="paramname">stream</td><td>流 </td></tr>
+    <tr><td class="paramname">format</td><td>格式化字符串 </td></tr>
+    <tr><td class="paramname">...</td><td>可变参数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输出字符数 </dd></dl>
+
+</div>
+</div>
 <a id="ga77fdcb17fe2f5bf4506f1f136b81f282" name="ga77fdcb17fe2f5bf4506f1f136b81f282"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga77fdcb17fe2f5bf4506f1f136b81f282">&#9670;&#160;</a></span>clamp()</h2>
 
@@ -2183,14 +2232,14 @@ template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856
 
 </div>
 </div>
-<a id="gaeaf6b3efed5b6578ba71d2261eef998f" name="gaeaf6b3efed5b6578ba71d2261eef998f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaeaf6b3efed5b6578ba71d2261eef998f">&#9670;&#160;</a></span>cprintf()</h2>
+<a id="gaa9375bd61cbc4422f1ee1890c3332f3b" name="gaa9375bd61cbc4422f1ee1890c3332f3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa9375bd61cbc4422f1ee1890c3332f3b">&#9670;&#160;</a></span>cprintf()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AST_UTIL_CAPI void ast::cprintf </td>
+          <td class="memname">AST_UTIL_CAPI int ast::cprintf </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classast_1_1Color.html">Color</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
         </tr>
@@ -2216,6 +2265,87 @@ template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>返回</dt><dd>输出字符数 </dd></dl>
+
+</div>
+</div>
+<a id="gac11bb8dd4169e71e3f25746328f2de71" name="gac11bb8dd4169e71e3f25746328f2de71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac11bb8dd4169e71e3f25746328f2de71">&#9670;&#160;</a></span>cvfprintf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI int ast::cvfprintf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Color.html">Color</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>stream</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">va_list</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>彩色打印函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>颜色 </td></tr>
+    <tr><td class="paramname">stream</td><td>流 </td></tr>
+    <tr><td class="paramname">format</td><td>格式化字符串 </td></tr>
+    <tr><td class="paramname">args</td><td>可变参数列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输出字符数 </dd></dl>
+
+</div>
+</div>
+<a id="gaa67f11688e3bea2cb0fc7276768ca932" name="gaa67f11688e3bea2cb0fc7276768ca932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa67f11688e3bea2cb0fc7276768ca932">&#9670;&#160;</a></span>cvprintf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI int ast::cvprintf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Color.html">Color</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">va_list</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>彩色打印函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>颜色 </td></tr>
+    <tr><td class="paramname">format</td><td>格式化字符串 </td></tr>
+    <tr><td class="paramname">args</td><td>可变参数列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>输出字符数 </dd></dl>
 
 </div>
 </div>

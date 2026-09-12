@@ -107,6 +107,7 @@ $(function(){initNavTree('ColoredPrint_8hpp.html',''); initResizable(true); });
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;AstUtil/Color.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ColorNamed.hpp&quot;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 </div>
 <p><a href="ColoredPrint_8hpp_source.html">浏览该文件的源代码.</a></p>
 <table class="memberdecls">
@@ -117,8 +118,14 @@ $(function(){initNavTree('ColoredPrint_8hpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:gaeaf6b3efed5b6578ba71d2261eef998f" id="r_gaeaf6b3efed5b6578ba71d2261eef998f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gaeaf6b3efed5b6578ba71d2261eef998f">ast::cprintf</a> (<a class="el" href="classast_1_1Color.html">Color</a> color, const char *format,...)</td></tr>
-<tr class="separator:gaeaf6b3efed5b6578ba71d2261eef998f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa67f11688e3bea2cb0fc7276768ca932" id="r_gaa67f11688e3bea2cb0fc7276768ca932"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gaa67f11688e3bea2cb0fc7276768ca932">ast::cvprintf</a> (<a class="el" href="classast_1_1Color.html">Color</a> color, const char *format, va_list args)</td></tr>
+<tr class="separator:gaa67f11688e3bea2cb0fc7276768ca932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac11bb8dd4169e71e3f25746328f2de71" id="r_gac11bb8dd4169e71e3f25746328f2de71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gac11bb8dd4169e71e3f25746328f2de71">ast::cvfprintf</a> (<a class="el" href="classast_1_1Color.html">Color</a> color, FILE *stream, const char *format, va_list args)</td></tr>
+<tr class="separator:gac11bb8dd4169e71e3f25746328f2de71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9375bd61cbc4422f1ee1890c3332f3b" id="r_gaa9375bd61cbc4422f1ee1890c3332f3b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gaa9375bd61cbc4422f1ee1890c3332f3b">ast::cprintf</a> (<a class="el" href="classast_1_1Color.html">Color</a> color, const char *format,...)</td></tr>
+<tr class="separator:gaa9375bd61cbc4422f1ee1890c3332f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d65866b99cfa5dd75353e9ccde2a83a" id="r_ga7d65866b99cfa5dd75353e9ccde2a83a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga7d65866b99cfa5dd75353e9ccde2a83a">ast::cfprintf</a> (<a class="el" href="classast_1_1Color.html">Color</a> color, FILE *stream, const char *format,...)</td></tr>
+<tr class="separator:ga7d65866b99cfa5dd75353e9ccde2a83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>彩色打印功能 </p>

@@ -108,14 +108,26 @@ $(function(){initNavTree('ColoredPrint_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstUtil/Color.hpp&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstUtil/ColorNamed.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>AST_UTIL_CAPI <span class="keywordtype">void</span> <a class="code hl_function" href="group__Util.html#gaeaf6b3efed5b6578ba71d2261eef998f">cprintf</a>(Color color, <span class="keyword">const</span> <span class="keywordtype">char</span>* format, ...);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="agroup__Util_html_gaeaf6b3efed5b6578ba71d2261eef998f"><div class="ttname"><a href="group__Util.html#gaeaf6b3efed5b6578ba71d2261eef998f">ast::cprintf</a></div><div class="ttdeci">void cprintf(Color color, const char *format,...)</div><div class="ttdoc">彩色打印函数</div><div class="ttdef"><b>定义</b> ColoredPrint.cpp:32</div></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>AST_UTIL_CAPI <span class="keywordtype">int</span> <a class="code hl_function" href="group__Util.html#gaa67f11688e3bea2cb0fc7276768ca932">cvprintf</a>(Color color, <span class="keyword">const</span> <span class="keywordtype">char</span>* format, va_list args);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_UTIL_CAPI <span class="keywordtype">int</span> <a class="code hl_function" href="group__Util.html#gac11bb8dd4169e71e3f25746328f2de71">cvfprintf</a>(Color color, FILE* stream, <span class="keyword">const</span> <span class="keywordtype">char</span>* format, va_list args);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>AST_UTIL_CAPI <span class="keywordtype">int</span> <a class="code hl_function" href="group__Util.html#gaa9375bd61cbc4422f1ee1890c3332f3b">cprintf</a>(Color color, <span class="keyword">const</span> <span class="keywordtype">char</span>* format, ...);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>AST_UTIL_CAPI <span class="keywordtype">int</span> <a class="code hl_function" href="group__Util.html#ga7d65866b99cfa5dd75353e9ccde2a83a">cfprintf</a>(Color color, FILE* stream, <span class="keyword">const</span> <span class="keywordtype">char</span>* format, ...);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="agroup__Util_html_ga7d65866b99cfa5dd75353e9ccde2a83a"><div class="ttname"><a href="group__Util.html#ga7d65866b99cfa5dd75353e9ccde2a83a">ast::cfprintf</a></div><div class="ttdeci">int cfprintf(Color color, FILE *stream, const char *format,...)</div><div class="ttdoc">彩色打印函数</div><div class="ttdef"><b>定义</b> ColoredPrint.cpp:108</div></div>
+<div class="ttc" id="agroup__Util_html_gaa67f11688e3bea2cb0fc7276768ca932"><div class="ttname"><a href="group__Util.html#gaa67f11688e3bea2cb0fc7276768ca932">ast::cvprintf</a></div><div class="ttdeci">int cvprintf(Color color, const char *format, va_list args)</div><div class="ttdoc">彩色打印函数</div><div class="ttdef"><b>定义</b> ColoredPrint.cpp:94</div></div>
+<div class="ttc" id="agroup__Util_html_gaa9375bd61cbc4422f1ee1890c3332f3b"><div class="ttname"><a href="group__Util.html#gaa9375bd61cbc4422f1ee1890c3332f3b">ast::cprintf</a></div><div class="ttdeci">int cprintf(Color color, const char *format,...)</div><div class="ttdoc">彩色打印函数</div><div class="ttdef"><b>定义</b> ColoredPrint.cpp:99</div></div>
+<div class="ttc" id="agroup__Util_html_gac11bb8dd4169e71e3f25746328f2de71"><div class="ttname"><a href="group__Util.html#gac11bb8dd4169e71e3f25746328f2de71">ast::cvfprintf</a></div><div class="ttdeci">int cvfprintf(Color color, FILE *stream, const char *format, va_list args)</div><div class="ttdoc">彩色打印函数</div><div class="ttdef"><b>定义</b> ColoredPrint.cpp:48</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
