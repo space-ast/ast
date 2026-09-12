@@ -72,7 +72,7 @@ GUIInterfaceImpl* GUIInterfaceImpl::Instance()
 
 GUIInterfaceImpl::GUIInterfaceImpl()
 {
-    if(!qApp)
+    if(!QCoreApplication::instance())
     {
         aGUIInit();
     }
