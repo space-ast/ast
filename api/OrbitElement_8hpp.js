@@ -1,5 +1,13 @@
 var OrbitElement_8hpp =
 [
+    [ "EBPlaneRefVector", "OrbitElement_8hpp.html#gab6967e300fe546ef4241ca4d9f8e149d", [
+      [ "eBodyOrbitNormal", "OrbitElement_8hpp.html#ggab6967e300fe546ef4241ca4d9f8e149da6a48b148d847c4cbd2adc3c9050dd087", null ],
+      [ "eSpacecraftOrbitNormal", "OrbitElement_8hpp.html#ggab6967e300fe546ef4241ca4d9f8e149da6dc1839711e7b2c05e8a01a1f2ea4c8d", null ],
+      [ "eBodyPole", "OrbitElement_8hpp.html#ggab6967e300fe546ef4241ca4d9f8e149da3dc99e22a5537c4987475f7614243f85", null ],
+      [ "eCustom", "OrbitElement_8hpp.html#ggab6967e300fe546ef4241ca4d9f8e149da5bca659531259314bb61d5e1fe859cd1", null ]
+    ] ],
+    [ "aBPlaneToCart", "OrbitElement_8hpp.html#gada3b849960c19c39cae7ec99abf59dc4", null ],
+    [ "aCartToBPlane", "OrbitElement_8hpp.html#ga6dd74e9a84ce8ae1275200500fb99faa", null ],
     [ "aCartToEquinElem", "OrbitElement_8hpp.html#ga77c180ae69bd5b0bdf6a79d69379bec0", null ],
     [ "aCartToModEquinElem", "OrbitElement_8hpp.html#ga00cc913f7eea31bc0182defcdff5173e", null ],
     [ "aCartToModOrbElem", "OrbitElement_8hpp.html#ga7fdb778370ab42132dd7408540896a53", null ],

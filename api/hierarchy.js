@@ -79,6 +79,7 @@ var hierarchy =
     ] ],
     [ "ast::BKVTree", "classast_1_1BKVTree.html", null ],
     [ "ast::Bounds< T >", "classast_1_1Bounds.html", null ],
+    [ "ast::BPlaneElem", "classast_1_1BPlaneElem.html", null ],
     [ "ast::Bracket", "classast_1_1Bracket.html", null ],
     [ "ast::Breakpoint", "classast_1_1Breakpoint.html", null ],
     [ "ast::BuildTarget", "classast_1_1BuildTarget.html", null ],
@@ -1365,6 +1366,7 @@ var hierarchy =
           ] ],
           [ "ast::Star", "classast_1_1Star.html", null ],
           [ "ast::State", "classast_1_1State.html", [
+            [ "ast::StateBPlane", "classast_1_1StateBPlane.html", null ],
             [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
             [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ]
           ] ],

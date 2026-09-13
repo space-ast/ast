@@ -2,6 +2,8 @@ var dir_50954f0494f999526625bae46e4c7445 =
 [
     [ "State.cpp", "State_8cpp.html", null ],
     [ "State.hpp", "State_8hpp.html", "State_8hpp" ],
+    [ "StateBPlane.cpp", "StateBPlane_8cpp.html", null ],
+    [ "StateBPlane.hpp", "StateBPlane_8hpp.html", "StateBPlane_8hpp" ],
     [ "StateCartesian.cpp", "StateCartesian_8cpp.html", null ],
     [ "StateCartesian.hpp", "StateCartesian_8hpp.html", "StateCartesian_8hpp" ],
     [ "StateKeplerian.cpp", "StateKeplerian_8cpp.html", null ],

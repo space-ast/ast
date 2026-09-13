@@ -1,5 +1,11 @@
 var NAVTREEINDEX16 =
 {
+"String_8cpp.html":[4,0,0,27,10,4],
+"String_8hpp.html":[4,0,0,27,10,5],
+"String_8hpp_source.html":[4,0,0,27,10,5],
+"Struct_8cpp.html":[4,0,0,27,8,0,32],
+"Struct_8hpp.html":[4,0,0,27,8,0,33],
+"Struct_8hpp_source.html":[4,0,0,27,8,0,33],
 "StudyWorkbench_8cpp.html":[4,0,0,1,4,0],
 "StudyWorkbench_8hpp.html":[4,0,0,1,4,1],
 "StudyWorkbench_8hpp_source.html":[4,0,0,1,4,1],
@@ -243,11 +249,5 @@ var NAVTREEINDEX16 =
 "UiAnalyzerMainWindow_8hpp.html":[4,0,0,10,0,1],
 "UiAnalyzerMainWindow_8hpp_source.html":[4,0,0,10,0,1],
 "UiAttrMotionProfile_8hpp_source.html":[4,0,0,10,2,3],
-"UiAttrState_8hpp_source.html":[4,0,0,10,2,4],
-"UiAttributeTreeItem_8cpp.html":[4,0,0,10,2,0,2],
-"UiAttributeTreeItem_8hpp.html":[4,0,0,10,2,0,3],
-"UiAttributeTreeItem_8hpp_source.html":[4,0,0,10,2,0,3],
-"UiAttributeTree_8cpp.html":[4,0,0,10,2,0,0],
-"UiAttributeTree_8hpp.html":[4,0,0,10,2,0,1],
-"UiAttributeTree_8hpp_source.html":[4,0,0,10,2,0,1]
+"UiAttrState_8hpp_source.html":[4,0,0,10,2,4]
 };

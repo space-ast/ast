@@ -244,6 +244,7 @@ var namespaceast =
     [ "BodyOrientation", "classast_1_1BodyOrientation.html", "classast_1_1BodyOrientation" ],
     [ "BodyShape", "classast_1_1BodyShape.html", "classast_1_1BodyShape" ],
     [ "Bounds", "classast_1_1Bounds.html", null ],
+    [ "BPlaneElem", "classast_1_1BPlaneElem.html", "classast_1_1BPlaneElem" ],
     [ "Bracket", "classast_1_1Bracket.html", "classast_1_1Bracket" ],
     [ "Breakpoint", "classast_1_1Breakpoint.html", null ],
     [ "BrenthSolver", "classast_1_1BrenthSolver.html", "classast_1_1BrenthSolver" ],
@@ -1083,6 +1084,7 @@ var namespaceast =
     [ "Star", "classast_1_1Star.html", null ],
     [ "StartupConfig", "classast_1_1StartupConfig.html", "classast_1_1StartupConfig" ],
     [ "State", "classast_1_1State.html", "classast_1_1State" ],
+    [ "StateBPlane", "classast_1_1StateBPlane.html", "classast_1_1StateBPlane" ],
     [ "StateCalculation", "classast_1_1StateCalculation.html", "classast_1_1StateCalculation" ],
     [ "StateCartesian", "classast_1_1StateCartesian.html", "classast_1_1StateCartesian" ],
     [ "StateKeplerian", "classast_1_1StateKeplerian.html", "classast_1_1StateKeplerian" ],
@@ -1378,6 +1380,12 @@ var namespaceast =
       [ "eBelowMaximum", "namespaceast.html#a49995afc388c5dd1744e0c1ff5f3ad3da6958124cd06d20f7b4bdc2784466fbdb", null ],
       [ "eBetweenMinimumAndMaximum", "namespaceast.html#a49995afc388c5dd1744e0c1ff5f3ad3da5249e4ee7fbdfc5b20b4a03318fa8f6b", null ],
       [ "eOutsideMinimumAndMaximum", "namespaceast.html#a49995afc388c5dd1744e0c1ff5f3ad3daa0ccdc920c0a69f092a93c08c5ef3443", null ]
+    ] ],
+    [ "EBPlaneRefVector", "group__Orbit.html#gab6967e300fe546ef4241ca4d9f8e149d", [
+      [ "eBodyOrbitNormal", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da6a48b148d847c4cbd2adc3c9050dd087", null ],
+      [ "eSpacecraftOrbitNormal", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da6dc1839711e7b2c05e8a01a1f2ea4c8d", null ],
+      [ "eBodyPole", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da3dc99e22a5537c4987475f7614243f85", null ],
+      [ "eCustom", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da5bca659531259314bb61d5e1fe859cd1", null ]
     ] ],
     [ "EChatRole", "namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719", [
       [ "eUser", "namespaceast.html#a2c358eed2d5ca4589f81fb6e73691719a4c9ad4c6ae61cdb6969dd73173e44c3a", null ],
@@ -1965,6 +1973,7 @@ var namespaceast =
     [ "EStateType", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0", [
       [ "eCartesian", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0ab2857087f6ac735b490837f6ea566707", null ],
       [ "eKeplerian", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0ac29f4242fedd02baf87fbc607461696c", null ],
+      [ "eBPlane", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0a5b6fbab85edc08161cbf8f0168f17f6c", null ],
       [ "eUnknown", "namespaceast.html#ab96fec81957cc2c158036b02a89198f0a64c3acc11ffdb1be30ea339290bd1508", null ]
     ] ],
     [ "EStyleType", "namespaceast.html#a87334cd2f848ef4c75290166d5612b39", [
@@ -2113,10 +2122,15 @@ var namespaceast =
     [ "aBodyFixedToGeodetic", "namespaceast.html#a760d8d0022e16361b9438272f28170d5", null ],
     [ "aBodyInBodyFixed", "namespaceast.html#a171b6531f1920089854198565f99a732", null ],
     [ "aBodyInBodyInertial", "namespaceast.html#aa6dccdd5708b2171da456994bc665eaa", null ],
+    [ "aBodyOrbitNormalIn", "group__SolarSystem.html#ga9e8f9b29954b511913128feb2a0661b9", null ],
+    [ "aBodyOrbitNormalInICRF", "group__SolarSystem.html#gadba2c5b5192da69397f244f8f0d84e84", null ],
+    [ "aBodyOrbitNormalInParentInertial", "group__SolarSystem.html#gac9ccce29a1856ff2fe636a1951ea73e4", null ],
+    [ "aBPlaneToCart", "group__Orbit.html#gada3b849960c19c39cae7ec99abf59dc4", null ],
     [ "aBrentMinimize", "namespaceast.html#a051ab4c2e88cc580fb8c504902d29c42", null ],
     [ "aBrentMinimize", "namespaceast.html#a92ada0b4e0f32a49c35219b3355f556e", null ],
     [ "aCalcBetaAngle", "namespaceast.html#a5ab362604aeeba794b32bb45c6450d03", null ],
     [ "aCanDisplayGUI", "group__Platform.html#ga612f98b50735562fce328f4ad172a8de", null ],
+    [ "aCartToBPlane", "group__Orbit.html#ga6dd74e9a84ce8ae1275200500fb99faa", null ],
     [ "aCartToEquinElem", "group__Orbit.html#ga77c180ae69bd5b0bdf6a79d69379bec0", null ],
     [ "aCartToModEquinElem", "group__Orbit.html#ga00cc913f7eea31bc0182defcdff5173e", null ],
     [ "aCartToModOrbElem", "group__Orbit.html#ga7fdb778370ab42132dd7408540896a53", null ],
@@ -3236,6 +3250,7 @@ var namespaceast =
     [ "kEarthRadius", "group__Util.html#ga8097fe65924ebf1023138deae089104f", null ],
     [ "kEarthSiderealDay", "group__Util.html#ga47ee52a201a06156d648414de6e9d9b5", null ],
     [ "kEarthSiderealYear", "group__Util.html#ga81933df01c4a0ba8fb026b7930d784d9", null ],
+    [ "kEccCircularTol", "namespaceast.html#a5e201a4d3f5bb4e580fc4f190b5f1f2e", null ],
     [ "kFahrenheitToKelvinOffset", "group__Util.html#gad93a8d1ba113f52fb9f2518127065819", null ],
     [ "kFahrenheitToKelvinScale", "group__Util.html#ga43b15fbf2bcac5060e64ec4c6efa75f3", null ],
     [ "kFootToMeter", "group__Util.html#gae7628876e00633f42df00f635cfd773f", null ],
@@ -3277,6 +3292,7 @@ var namespaceast =
     [ "kKilometerToMeter", "group__Util.html#ga260fc6daeec0cf2038491c7e23e35ab2", null ],
     [ "kLightSpeed", "group__Util.html#gae83d95472028c153547de2ff297338bf", null ],
     [ "kLiterToCubicMeter", "group__Util.html#ga7910954f7d5f6a2a5f6f5f33e41e2a1f", null ],
+    [ "kMagTol", "namespaceast.html#a3de6b9af107c85236203a7fc117a06ea", null ],
     [ "kMarsGrav", "group__Util.html#ga1b3bab25158a2f71a6f69184d0ee3227", null ],
     [ "kMarsMinRadius", "group__Util.html#ga4f5e074560add1a196bcc154f77c06d0", null ],
     [ "kMarsRadius", "group__Util.html#ga495deb243a746c179ea3a2c21ae44723", null ],

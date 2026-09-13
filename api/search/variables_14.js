@@ -23,7 +23,7 @@ var searchData=
   ['tounit_5f_20',['toUnit_',['../classast_1_1UnitConverter.html#ad2bfacefe3458c7133bfaec4d528ab84',1,'ast::UnitConverter']]],
   ['trace_21',['trace',['../structast_1_1testing_1_1internal_1_1TestCase.html#ae935b48fe9bb15447fc20c839a69d227',1,'ast::testing::internal::TestCase']]],
   ['translation_5f_22',['translation_',['../classast_1_1Transform.html#aa073642b1d18774e14a953f1e2e5f09a',1,'ast::Transform']]],
-  ['truea_5f_23',['trueA_',['../classast_1_1OrbElem.html#a821bb0943770f3cdde0483cec1396a5b',1,'ast::OrbElem::trueA_'],['../classast_1_1ModOrbElem.html#a4df709ac890580d88f10a4a3aba42f66',1,'ast::ModOrbElem::trueA_']]],
+  ['truea_5f_23',['trueA_',['../classast_1_1OrbElem.html#a821bb0943770f3cdde0483cec1396a5b',1,'ast::OrbElem::trueA_'],['../classast_1_1ModOrbElem.html#a4df709ac890580d88f10a4a3aba42f66',1,'ast::ModOrbElem::trueA_'],['../classast_1_1BPlaneElem.html#a688a0035330fcf8ad82d4625eea9c83e',1,'ast::BPlaneElem::trueA_']]],
   ['trueanomaly_5f_24',['trueAnomaly_',['../classast_1_1SimpleOrbitDesigner.html#ab3c321181c80db2642c93b60ab16e0ea',1,'ast::SimpleOrbitDesigner']]],
   ['truncatesolidtides_5f_25',['truncateSolidTides_',['../classast_1_1GravityForce.html#a14cc152898af34511ea27b7ab3beffb7',1,'ast::GravityForce']]],
   ['turnradius_5f_26',['turnRadius_',['../classast_1_1WayPoint.html#a1b4f1dc8f9c9d332e6f3c1b4d65a9267',1,'ast::WayPoint']]],

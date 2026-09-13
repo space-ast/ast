@@ -1,5 +1,7 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcLonOfAscNode_8hpp.html":[4,0,0,6,11,1,0,10,19],
+"ScStateCalcLonOfAscNode_8hpp_source.html":[4,0,0,6,11,1,0,10,19],
 "ScStateCalcLongDriftRate_8cpp.html":[4,0,0,6,11,1,0,15,80],
 "ScStateCalcLongDriftRate_8hpp.html":[4,0,0,6,11,1,0,15,81],
 "ScStateCalcLongDriftRate_8hpp_source.html":[4,0,0,6,11,1,0,15,81],
@@ -247,7 +249,5 @@ var NAVTREEINDEX13 =
 "ScStateCalcSolarPressure_8hpp.html":[4,0,0,6,11,1,0,15,191],
 "ScStateCalcSolarPressure_8hpp_source.html":[4,0,0,6,11,1,0,15,191],
 "ScStateCalcSolarRadiationForce_8cpp.html":[4,0,0,6,11,1,0,15,192],
-"ScStateCalcSolarRadiationForce_8hpp.html":[4,0,0,6,11,1,0,15,193],
-"ScStateCalcSolarRadiationForce_8hpp_source.html":[4,0,0,6,11,1,0,15,193],
-"ScStateCalcSpacecraftMass_8cpp.html":[4,0,0,6,11,1,0,15,194]
+"ScStateCalcSolarRadiationForce_8hpp.html":[4,0,0,6,11,1,0,15,193]
 };

@@ -101,6 +101,7 @@ $(function(){initNavTree('OrbitElement_8hpp.html',''); initResizable(true); });
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
 <a href="#namespaces">命名空间</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
 <a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">OrbitElement.hpp 文件参考</div></div>
 </div><!--header-->
@@ -129,11 +130,22 @@ $(function(){initNavTree('OrbitElement_8hpp.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DelaunayElem.html">ast::DelaunayElem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BPlaneElem.html">ast::BPlaneElem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:gab6967e300fe546ef4241ca4d9f8e149d" id="r_gab6967e300fe546ef4241ca4d9f8e149d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#gab6967e300fe546ef4241ca4d9f8e149d">ast::EBPlaneRefVector</a> { <a class="el" href="group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da6a48b148d847c4cbd2adc3c9050dd087">ast::EBPlaneRefVector::eBodyOrbitNormal</a>
+, <a class="el" href="group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da6dc1839711e7b2c05e8a01a1f2ea4c8d">ast::EBPlaneRefVector::eSpacecraftOrbitNormal</a>
+, <a class="el" href="group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da3dc99e22a5537c4987475f7614243f85">ast::EBPlaneRefVector::eBodyPole</a>
+, <a class="el" href="group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da5bca659531259314bb61d5e1fe859cd1">ast::EBPlaneRefVector::eCustom</a>
+ }</td></tr>
+<tr class="separator:gab6967e300fe546ef4241ca4d9f8e149d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
@@ -211,6 +223,10 @@ $(function(){initNavTree('OrbitElement_8hpp.html',''); initResizable(true); });
 <tr class="separator:ga54c44d7c9f1fe6bc91b811685bb31209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab78b48363bb280ffe8cc0fbe0336a31f" id="r_gab78b48363bb280ffe8cc0fbe0336a31f"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#gab78b48363bb280ffe8cc0fbe0336a31f">ast::aCartToModOrbElem</a> (const Vector3d &amp;r, const Vector3d &amp;v, double gm)</td></tr>
 <tr class="separator:gab78b48363bb280ffe8cc0fbe0336a31f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6dd74e9a84ce8ae1275200500fb99faa" id="r_ga6dd74e9a84ce8ae1275200500fb99faa"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga6dd74e9a84ce8ae1275200500fb99faa">ast::aCartToBPlane</a> (const Vector3d &amp;pos, const Vector3d &amp;vel, double gm, const Vector3d &amp;refVector, <a class="el" href="classast_1_1BPlaneElem.html">BPlaneElem</a> &amp;bPlane)</td></tr>
+<tr class="separator:ga6dd74e9a84ce8ae1275200500fb99faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada3b849960c19c39cae7ec99abf59dc4" id="r_gada3b849960c19c39cae7ec99abf59dc4"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#gada3b849960c19c39cae7ec99abf59dc4">ast::aBPlaneToCart</a> (const <a class="el" href="classast_1_1BPlaneElem.html">BPlaneElem</a> &amp;bPlane, double gm, const Vector3d &amp;refVector, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
+<tr class="separator:gada3b849960c19c39cae7ec99abf59dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>轨道根数定义及转换接口 </p>

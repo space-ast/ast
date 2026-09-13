@@ -287,6 +287,12 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::PBody</b> = <a 
 <tr class="separator:ga02c88a250b518d7443303fc58b1f417e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga69c60ac06762dfec3f237f83ffcd71f9" id="r_ga69c60ac06762dfec3f237f83ffcd71f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ga09e00b45b91dd0d93686ec56c2c5139a">ESpiceId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga69c60ac06762dfec3f237f83ffcd71f9">ast::aGetPlanetBarycenterId</a> (<a class="el" href="#ga09e00b45b91dd0d93686ec56c2c5139a">ESpiceId</a> planetId)</td></tr>
 <tr class="separator:ga69c60ac06762dfec3f237f83ffcd71f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e8f9b29954b511913128feb2a0661b9" id="r_ga9e8f9b29954b511913128feb2a0661b9"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9e8f9b29954b511913128feb2a0661b9">ast::aBodyOrbitNormalIn</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;axes, const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;body, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;normal)</td></tr>
+<tr class="separator:ga9e8f9b29954b511913128feb2a0661b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9ccce29a1856ff2fe636a1951ea73e4" id="r_gac9ccce29a1856ff2fe636a1951ea73e4"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac9ccce29a1856ff2fe636a1951ea73e4">ast::aBodyOrbitNormalInParentInertial</a> (const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;body, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;normal)</td></tr>
+<tr class="separator:gac9ccce29a1856ff2fe636a1951ea73e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadba2c5b5192da69397f244f8f0d84e84" id="r_gadba2c5b5192da69397f244f8f0d84e84"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadba2c5b5192da69397f244f8f0d84e84">ast::aBodyOrbitNormalInICRF</a> (const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;body, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;normal)</td></tr>
+<tr class="separator:gadba2c5b5192da69397f244f8f0d84e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">枚举类型说明</h2>
 <a id="gac22db6298835f5ffbad88bd9c01c4d08" name="gac22db6298835f5ffbad88bd9c01c4d08"></a>
@@ -385,6 +391,123 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::PBody</b> = <a 
 </div>
 </div>
 <h2 class="groupheader">函数说明</h2>
+<a id="ga9e8f9b29954b511913128feb2a0661b9" name="ga9e8f9b29954b511913128feb2a0661b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9e8f9b29954b511913128feb2a0661b9">&#9670;&#160;</a></span>aBodyOrbitNormalIn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aBodyOrbitNormalIn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>axes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>normal</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取天体绕其父天体的轨道法向 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axes</td><td>轴系 </td></tr>
+    <tr><td class="paramname">body</td><td>天体 </td></tr>
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">normal</td><td>输出轨道法向 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+
+</div>
+</div>
+<a id="gadba2c5b5192da69397f244f8f0d84e84" name="gadba2c5b5192da69397f244f8f0d84e84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadba2c5b5192da69397f244f8f0d84e84">&#9670;&#160;</a></span>aBodyOrbitNormalInICRF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aBodyOrbitNormalInICRF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>normal</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取天体绕其父天体的轨道法向 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">body</td><td>天体 </td></tr>
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">normal</td><td>输出轨道法向 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+
+</div>
+</div>
+<a id="gac9ccce29a1856ff2fe636a1951ea73e4" name="gac9ccce29a1856ff2fe636a1951ea73e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac9ccce29a1856ff2fe636a1951ea73e4">&#9670;&#160;</a></span>aBodyOrbitNormalInParentInertial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aBodyOrbitNormalInParentInertial </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>normal</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取天体绕其父天体的轨道法向 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">body</td><td>天体 </td></tr>
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">normal</td><td>输出轨道法向 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+
+</div>
+</div>
 <a id="ga02c88a250b518d7443303fc58b1f417e" name="ga02c88a250b518d7443303fc58b1f417e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga02c88a250b518d7443303fc58b1f417e">&#9670;&#160;</a></span>aGetGravityParameter()</h2>
 

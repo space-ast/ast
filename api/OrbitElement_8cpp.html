@@ -101,7 +101,8 @@ $(function(){initNavTree('OrbitElement_8cpp.html',''); initResizable(true); });
   <div class="summary">
 <a href="#namespaces">命名空间</a> &#124;
 <a href="#define-members">宏定义</a> &#124;
-<a href="#func-members">函数</a>  </div>
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
   <div class="headertitle"><div class="title">OrbitElement.cpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
@@ -109,6 +110,8 @@ $(function(){initNavTree('OrbitElement_8cpp.html',''); initResizable(true); });
 <code>#include &quot;<a class="el" href="OrbitParam_8hpp_source.html">OrbitParam.hpp</a>&quot;</code><br />
 <code>#include &quot;AstUtil/Constants.hpp&quot;</code><br />
 <code>#include &quot;AstCore/MathOperator.hpp&quot;</code><br />
+<code>#include &quot;AstCore/CelestialBody.hpp&quot;</code><br />
+<code>#include &quot;AstCore/RunTimeSolarSystem.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ParseFormat.hpp&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
@@ -200,6 +203,19 @@ $(function(){initNavTree('OrbitElement_8cpp.html',''); initResizable(true); });
 <tr class="separator:ga6cbcf21e2998e49bcbce2d909a212089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga54c44d7c9f1fe6bc91b811685bb31209" id="r_ga54c44d7c9f1fe6bc91b811685bb31209"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga54c44d7c9f1fe6bc91b811685bb31209">ast::aDelaunayToOrbElem</a> (const <a class="el" href="classast_1_1DelaunayElem.html">DelaunayElem</a> &amp;delaunay, double gm, <a class="el" href="classast_1_1OrbElem.html">OrbElem</a> &amp;elem)</td></tr>
 <tr class="separator:ga54c44d7c9f1fe6bc91b811685bb31209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6dd74e9a84ce8ae1275200500fb99faa" id="r_ga6dd74e9a84ce8ae1275200500fb99faa"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga6dd74e9a84ce8ae1275200500fb99faa">ast::aCartToBPlane</a> (const Vector3d &amp;pos, const Vector3d &amp;vel, double gm, const Vector3d &amp;refVector, <a class="el" href="classast_1_1BPlaneElem.html">BPlaneElem</a> &amp;bPlane)</td></tr>
+<tr class="separator:ga6dd74e9a84ce8ae1275200500fb99faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada3b849960c19c39cae7ec99abf59dc4" id="r_gada3b849960c19c39cae7ec99abf59dc4"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#gada3b849960c19c39cae7ec99abf59dc4">ast::aBPlaneToCart</a> (const <a class="el" href="classast_1_1BPlaneElem.html">BPlaneElem</a> &amp;bPlane, double gm, const Vector3d &amp;refVector, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
+<tr class="separator:gada3b849960c19c39cae7ec99abf59dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a5e201a4d3f5bb4e580fc4f190b5f1f2e" id="r_a5e201a4d3f5bb4e580fc4f190b5f1f2e"><td class="memItemLeft" align="right" valign="top"><a id="a5e201a4d3f5bb4e580fc4f190b5f1f2e" name="a5e201a4d3f5bb4e580fc4f190b5f1f2e"></a>
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kEccCircularTol</b> = 1e-6</td></tr>
+<tr class="separator:a5e201a4d3f5bb4e580fc4f190b5f1f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3de6b9af107c85236203a7fc117a06ea" id="r_a3de6b9af107c85236203a7fc117a06ea"><td class="memItemLeft" align="right" valign="top"><a id="a3de6b9af107c85236203a7fc117a06ea" name="a3de6b9af107c85236203a7fc117a06ea"></a>
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMagTol</b> = 1e-12</td></tr>
+<tr class="separator:a3de6b9af107c85236203a7fc117a06ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

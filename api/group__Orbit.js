@@ -181,6 +181,21 @@ var group__Orbit =
       [ "p_", "classast_1_1ModEquinElem.html#afc3c6400a98790d0c54276abef603b51", null ]
     ] ],
     [ "ast::DelaunayElem", "classast_1_1DelaunayElem.html", null ],
+    [ "ast::BPlaneElem", "classast_1_1BPlaneElem.html", [
+      [ "toString", "classast_1_1BPlaneElem.html#af114869f03e3b2ac4115244e80f3df3f", null ],
+      [ "bDotR_", "classast_1_1BPlaneElem.html#a5b9e7fbf594f8bdf62e23cf3632aec0f", null ],
+      [ "bDotT_", "classast_1_1BPlaneElem.html#ae7f191ba83f80394f0f62321bb5f1145", null ],
+      [ "c3_", "classast_1_1BPlaneElem.html#aab8076390fbb8cb2fb5bce1ac45dc556", null ],
+      [ "dec_", "classast_1_1BPlaneElem.html#a8c7facf89fe8b553148e724731adab39", null ],
+      [ "ra_", "classast_1_1BPlaneElem.html#a0bf3e5d8b387b7cd1e612f0b0f8279c2", null ],
+      [ "trueA_", "classast_1_1BPlaneElem.html#a688a0035330fcf8ad82d4625eea9c83e", null ]
+    ] ],
+    [ "ast::EBPlaneRefVector", "group__Orbit.html#gab6967e300fe546ef4241ca4d9f8e149d", [
+      [ "ast::EBPlaneRefVector::eBodyOrbitNormal", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da6a48b148d847c4cbd2adc3c9050dd087", null ],
+      [ "ast::EBPlaneRefVector::eSpacecraftOrbitNormal", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da6dc1839711e7b2c05e8a01a1f2ea4c8d", null ],
+      [ "ast::EBPlaneRefVector::eBodyPole", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da3dc99e22a5537c4987475f7614243f85", null ],
+      [ "ast::EBPlaneRefVector::eCustom", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da5bca659531259314bb61d5e1fe859cd1", null ]
+    ] ],
     [ "ast::aApoAltToApoRad", "group__Orbit.html#ga5a841e7ca243fee5fc4c4d372a056a40", null ],
     [ "ast::aApoAltToMeanMotion", "group__Orbit.html#gad85f0e961dddb14262a2857f17e38127", null ],
     [ "ast::aApoAltToPeriAlt", "group__Orbit.html#gadc1695ea034d099c7bf62716e82e95d4", null ],
@@ -197,6 +212,8 @@ var group__Orbit =
     [ "ast::aArgLatToTrue", "group__Orbit.html#ga96017a9ce7290e4a5b438322f3a99f5c", null ],
     [ "ast::aArgPeriRate", "group__Orbit.html#ga3444ec7958b204a724623ace81173f00", null ],
     [ "ast::aArgPeriToLongPeri", "group__Orbit.html#ga597819a6c70e16fd39188c0ed371c851", null ],
+    [ "ast::aBPlaneToCart", "group__Orbit.html#gada3b849960c19c39cae7ec99abf59dc4", null ],
+    [ "ast::aCartToBPlane", "group__Orbit.html#ga6dd74e9a84ce8ae1275200500fb99faa", null ],
     [ "ast::aCartToEquinElem", "group__Orbit.html#ga77c180ae69bd5b0bdf6a79d69379bec0", null ],
     [ "ast::aCartToModEquinElem", "group__Orbit.html#ga00cc913f7eea31bc0182defcdff5173e", null ],
     [ "ast::aCartToModOrbElem", "group__Orbit.html#ga7fdb778370ab42132dd7408540896a53", null ],

@@ -100,6 +100,7 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
 <a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">轨道计算<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a></div></div></div>
 </div><!--header-->
@@ -139,6 +140,17 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1DelaunayElem.html">ast::DelaunayElem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BPlaneElem.html">ast::BPlaneElem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:gab6967e300fe546ef4241ca4d9f8e149d" id="r_gab6967e300fe546ef4241ca4d9f8e149d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab6967e300fe546ef4241ca4d9f8e149d">ast::EBPlaneRefVector</a> { <a class="el" href="#ggab6967e300fe546ef4241ca4d9f8e149da6a48b148d847c4cbd2adc3c9050dd087">ast::EBPlaneRefVector::eBodyOrbitNormal</a>
+, <a class="el" href="#ggab6967e300fe546ef4241ca4d9f8e149da6dc1839711e7b2c05e8a01a1f2ea4c8d">ast::EBPlaneRefVector::eSpacecraftOrbitNormal</a>
+, <a class="el" href="#ggab6967e300fe546ef4241ca4d9f8e149da3dc99e22a5537c4987475f7614243f85">ast::EBPlaneRefVector::eBodyPole</a>
+, <a class="el" href="#ggab6967e300fe546ef4241ca4d9f8e149da5bca659531259314bb61d5e1fe859cd1">ast::EBPlaneRefVector::eCustom</a>
+ }</td></tr>
+<tr class="separator:gab6967e300fe546ef4241ca4d9f8e149d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
@@ -234,6 +246,10 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 <tr class="separator:ga54c44d7c9f1fe6bc91b811685bb31209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab78b48363bb280ffe8cc0fbe0336a31f" id="r_gab78b48363bb280ffe8cc0fbe0336a31f"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab78b48363bb280ffe8cc0fbe0336a31f">ast::aCartToModOrbElem</a> (const Vector3d &amp;r, const Vector3d &amp;v, double gm)</td></tr>
 <tr class="separator:gab78b48363bb280ffe8cc0fbe0336a31f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6dd74e9a84ce8ae1275200500fb99faa" id="r_ga6dd74e9a84ce8ae1275200500fb99faa"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6dd74e9a84ce8ae1275200500fb99faa">ast::aCartToBPlane</a> (const Vector3d &amp;pos, const Vector3d &amp;vel, double gm, const Vector3d &amp;refVector, <a class="el" href="classast_1_1BPlaneElem.html">BPlaneElem</a> &amp;bPlane)</td></tr>
+<tr class="separator:ga6dd74e9a84ce8ae1275200500fb99faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada3b849960c19c39cae7ec99abf59dc4" id="r_gada3b849960c19c39cae7ec99abf59dc4"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gada3b849960c19c39cae7ec99abf59dc4">ast::aBPlaneToCart</a> (const <a class="el" href="classast_1_1BPlaneElem.html">BPlaneElem</a> &amp;bPlane, double gm, const Vector3d &amp;refVector, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
+<tr class="separator:gada3b849960c19c39cae7ec99abf59dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5a841e7ca243fee5fc4c4d372a056a40" id="r_ga5a841e7ca243fee5fc4c4d372a056a40"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5a841e7ca243fee5fc4c4d372a056a40">ast::aApoAltToApoRad</a> (double apogeeAlt, double bodyRadius)</td></tr>
 <tr class="separator:ga5a841e7ca243fee5fc4c4d372a056a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad85f0e961dddb14262a2857f17e38127" id="r_gad85f0e961dddb14262a2857f17e38127"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad85f0e961dddb14262a2857f17e38127">ast::aApoAltToMeanMotion</a> (double apogeeAlt, double eccentricity, double bodyRadius, double gm)</td></tr>
@@ -391,6 +407,42 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 <tr class="memitem:gad93a7b2f714513f09813165d1ef3b064" id="r_gad93a7b2f714513f09813165d1ef3b064"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad93a7b2f714513f09813165d1ef3b064">ast::aFlatToEcc</a> (double flatFactor)</td></tr>
 <tr class="separator:gad93a7b2f714513f09813165d1ef3b064"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">枚举类型说明</h2>
+<a id="gab6967e300fe546ef4241ca4d9f8e149d" name="gab6967e300fe546ef4241ca4d9f8e149d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab6967e300fe546ef4241ca4d9f8e149d">&#9670;&#160;</a></span>EBPlaneRefVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gab6967e300fe546ef4241ca4d9f8e149d">ast::EBPlaneRefVector</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>B平面参考向量类型 </p>
+<p>B平面内的R、T两轴由参考向量N决定: T = unit(S x N), R = S x T, 其中S为入渐近线方向。不同的参考向量会给出不同的R、T轴。 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ggab6967e300fe546ef4241ca4d9f8e149da6a48b148d847c4cbd2adc3c9050dd087" name="ggab6967e300fe546ef4241ca4d9f8e149da6a48b148d847c4cbd2adc3c9050dd087"></a>eBodyOrbitNormal&#160;</td><td class="fielddoc"><p>天体绕其父天体运动的轨道法向 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab6967e300fe546ef4241ca4d9f8e149da6dc1839711e7b2c05e8a01a1f2ea4c8d" name="ggab6967e300fe546ef4241ca4d9f8e149da6dc1839711e7b2c05e8a01a1f2ea4c8d"></a>eSpacecraftOrbitNormal&#160;</td><td class="fielddoc"><p>航天器自身的轨道法向 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab6967e300fe546ef4241ca4d9f8e149da3dc99e22a5537c4987475f7614243f85" name="ggab6967e300fe546ef4241ca4d9f8e149da3dc99e22a5537c4987475f7614243f85"></a>eBodyPole&#160;</td><td class="fielddoc"><p>天体的自转轴 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab6967e300fe546ef4241ca4d9f8e149da5bca659531259314bb61d5e1fe859cd1" name="ggab6967e300fe546ef4241ca4d9f8e149da5bca659531259314bb61d5e1fe859cd1"></a>eCustom&#160;</td><td class="fielddoc"><p>自定义参考向量 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">函数说明</h2>
 <a id="ga5a841e7ca243fee5fc4c4d372a056a40" name="ga5a841e7ca243fee5fc4c4d372a056a40"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga5a841e7ca243fee5fc4c4d372a056a40">&#9670;&#160;</a></span>aApoAltToApoRad()</h2>
@@ -1043,6 +1095,105 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>近地点经度 [rad] </dd></dl>
+
+</div>
+</div>
+<a id="gada3b849960c19c39cae7ec99abf59dc4" name="gada3b849960c19c39cae7ec99abf59dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gada3b849960c19c39cae7ec99abf59dc4">&#9670;&#160;</a></span>aBPlaneToCart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aBPlaneToCart </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1BPlaneElem.html">BPlaneElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bPlane</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>gm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>refVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>B平面根数转换为直角坐标 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bPlane</td><td>B平面根数 </td></tr>
+    <tr><td class="paramname">gm</td><td>引力参数 [m^3/s^2] </td></tr>
+    <tr><td class="paramname">refVector</td><td>参考向量(任意非零矢量), 需与生成bPlane时一致 </td></tr>
+    <tr><td class="paramname">pos</td><td>输出位置矢量 [m] </td></tr>
+    <tr><td class="paramname">vel</td><td>输出速度矢量 [m/s] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+
+</div>
+</div>
+<a id="ga6dd74e9a84ce8ae1275200500fb99faa" name="ga6dd74e9a84ce8ae1275200500fb99faa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6dd74e9a84ce8ae1275200500fb99faa">&#9670;&#160;</a></span>aCartToBPlane()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aCartToBPlane </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>gm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>refVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1BPlaneElem.html">BPlaneElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bPlane</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>直角坐标转换为B平面根数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>位置矢量 [m] </td></tr>
+    <tr><td class="paramname">vel</td><td>速度矢量 [m/s] </td></tr>
+    <tr><td class="paramname">gm</td><td>引力参数 [m^3/s^2] </td></tr>
+    <tr><td class="paramname">refVector</td><td>参考向量(任意非零矢量), 用于确定R、T轴, 见 EBPlaneRefVector </td></tr>
+    <tr><td class="paramname">bPlane</td><td>输出B平面根数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>当偏心率e大于1时, 按B平面的定义计算; e不大于1时入渐近线不存在, 此时退化处理: |B|取椭圆半短轴 a*sqrt(1-e^2), 入渐近线方向S取偏心率向量方向, 偏心率向量为零(圆轨道)时取坐标系的+X轴。 </dd></dl>
 
 </div>
 </div>

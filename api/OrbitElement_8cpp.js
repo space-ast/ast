@@ -1,6 +1,8 @@
 var OrbitElement_8cpp =
 [
     [ "PI", "OrbitElement_8cpp.html#a598a3330b3c21701223ee0ca14316eca", null ],
+    [ "aBPlaneToCart", "OrbitElement_8cpp.html#gada3b849960c19c39cae7ec99abf59dc4", null ],
+    [ "aCartToBPlane", "OrbitElement_8cpp.html#ga6dd74e9a84ce8ae1275200500fb99faa", null ],
     [ "aCartToEquinElem", "OrbitElement_8cpp.html#ga77c180ae69bd5b0bdf6a79d69379bec0", null ],
     [ "aCartToModEquinElem", "OrbitElement_8cpp.html#ga00cc913f7eea31bc0182defcdff5173e", null ],
     [ "aCartToModOrbElem", "OrbitElement_8cpp.html#ga7fdb778370ab42132dd7408540896a53", null ],
@@ -36,5 +38,7 @@ var OrbitElement_8cpp =
     [ "rv2coe", "OrbitElement_8cpp.html#ga74589afeb8d77e952cd266b493c165e7", null ],
     [ "rv2ee", "OrbitElement_8cpp.html#ga1fdffc5972383581fa15ec65315fbccb", null ],
     [ "rv2mee", "OrbitElement_8cpp.html#gaba35a3b8eaf083eeadcbe04ccf2fbb77", null ],
-    [ "rv2moe", "OrbitElement_8cpp.html#ga32ebf07d28744d4ebfcfc9577c35a45c", null ]
+    [ "rv2moe", "OrbitElement_8cpp.html#ga32ebf07d28744d4ebfcfc9577c35a45c", null ],
+    [ "kEccCircularTol", "OrbitElement_8cpp.html#a5e201a4d3f5bb4e580fc4f190b5f1f2e", null ],
+    [ "kMagTol", "OrbitElement_8cpp.html#a3de6b9af107c85236203a7fc117a06ea", null ]
 ];

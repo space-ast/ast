@@ -603,14 +603,16 @@ $(function(){initNavTree('Literals_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> = 1_T;</div>
 <div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3c2daf334b57a8f94872576718ab94ae">nT</a> = 1_nT;</div>
 <div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a24443a92dfe568134168357e48429904">Gs</a> = 1_Gs;</div>
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>}</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span> </div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    <span class="keyword">constexpr</span> <span class="keywordtype">double</span> sec2 = 1;</div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>}</div>
 </div>
-<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span> </div>
-<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span><span class="comment">// 导入字面量命名空间到ast命名空间，便于使用</span></div>
-<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span><span class="keyword">using namespace </span>literals;</div>
-<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span> </div>
-<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span> </div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span><span class="comment">// 导入字面量命名空间到ast命名空间，便于使用</span></div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span><span class="keyword">using namespace </span>literals;</div>
 <div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span> </div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span> </div>
 <div class="ttc" id="aConstants_8hpp_html"><div class="ttname"><a href="Constants_8hpp.html">Constants.hpp</a></div></div>
 <div class="ttc" id="agroup__Util_html_ga087d994ff5078a24ddea9f94283c23cb"><div class="ttname"><a href="group__Util.html#ga087d994ff5078a24ddea9f94283c23cb">ast::kCentimeterToMeter</a></div><div class="ttdeci">constexpr double kCentimeterToMeter</div><div class="ttdoc">厘米到米</div><div class="ttdef"><b>定义</b> Constants.hpp:194</div></div>
 <div class="ttc" id="agroup__Util_html_ga12a8a48682816085701653e55bc40a32"><div class="ttname"><a href="group__Util.html#ga12a8a48682816085701653e55bc40a32">ast::kArcSecToRad</a></div><div class="ttdeci">constexpr double kArcSecToRad</div><div class="ttdoc">弧秒到弧度 kDegToRad/3600.0 度分秒的秒</div><div class="ttdef"><b>定义</b> Constants.hpp:259</div></div>

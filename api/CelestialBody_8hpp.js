@@ -101,6 +101,9 @@ var CelestialBody_8hpp =
       [ "ePluto", "CelestialBody_8hpp.html#gga09e00b45b91dd0d93686ec56c2c5139aa9e3a839ed230390bb5b416d7771f14ab", null ],
       [ "eCharon", "CelestialBody_8hpp.html#gga09e00b45b91dd0d93686ec56c2c5139aa337403c00241828f75e2cc279f279ba5", null ]
     ] ],
+    [ "aBodyOrbitNormalIn", "CelestialBody_8hpp.html#ga9e8f9b29954b511913128feb2a0661b9", null ],
+    [ "aBodyOrbitNormalInICRF", "CelestialBody_8hpp.html#gadba2c5b5192da69397f244f8f0d84e84", null ],
+    [ "aBodyOrbitNormalInParentInertial", "CelestialBody_8hpp.html#gac9ccce29a1856ff2fe636a1951ea73e4", null ],
     [ "aGetGravityParameter", "CelestialBody_8hpp.html#ga02c88a250b518d7443303fc58b1f417e", null ],
     [ "aGetPlanetBarycenterId", "CelestialBody_8hpp.html#ga69c60ac06762dfec3f237f83ffcd71f9", null ]
 ];
