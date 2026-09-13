@@ -338,6 +338,38 @@ public:
 };
 
 
+/// @brief B平面根数
+/// @details
+/// B平面主要用于描述双曲线到达轨迹(月球或行星借力飞越)相对中心天体的状态。
+/// B平面是垂直于入渐近线方向的平面, 位于该平面内的B矢量给出入渐近线与B平面的交点,
+/// B矢量通常以平面内另外两个矢量R、T的分量表示。
+/// 其中R、T由参考向量N决定: T = S x N, R = S x T (S为入渐近线方向)
+/// @note  当偏心率e小于1(椭圆轨道)时, 入渐近线不存在, 给出退化结果, 参见 aCartToBPlane 的说明。
+class BPlaneElem
+{
+// 设置为public使类型为聚合类型
+public:
+    double ra_;         ///< 入渐近线赤经(B平面法向量的赤经) [rad]
+    double dec_;        ///< 入渐近线赤纬(B平面法向量的赤纬) [rad]
+    double bDotR_;      ///< B矢量在R轴上的分量 B·R [m]
+    double bDotT_;      ///< B矢量在T轴上的分量 B·T [m]
+    double c3_;         ///< 特征能量 C3 = v^2 - 2*gm/r [m^2/s^2]
+    double trueA_;      ///< 真近点角 [rad]
+public:
+    /// @brief 转换为字符串
+    AST_CORE_API
+    std::string toString() const;
+public:
+    A_DEF_POD_ITERABLE(double)
+    AST_DEF_ACCESS_METHOD(double, ra)
+    AST_DEF_ACCESS_METHOD(double, dec)
+    AST_DEF_ACCESS_METHOD(double, bDotR)
+    AST_DEF_ACCESS_METHOD(double, bDotT)
+    AST_DEF_ACCESS_METHOD(double, c3)
+    AST_DEF_ACCESS_METHOD(double, trueA)
+};
+
+
 /// @brief 经典轨道根数转换为直角坐标
 /// @param coe 经典轨道根数 [长半轴, 偏心率, 轨道倾角, 升交点赤经, 近拱点角, 真近点角]
 /// @param gm 引力参数 [m^3/s^2]
@@ -646,6 +678,55 @@ ModOrbElem aCartToModOrbElem(const Vector3d& r, const Vector3d& v, double gm)
     aCartToModOrbElem(r, v, gm, modOrbElem);
     return modOrbElem;
 }
+
+
+/// @brief B平面参考向量类型
+/// @details B平面内的R、T两轴由参考向量N决定: T = unit(S x N), R = S x T,
+///          其中S为入渐近线方向。不同的参考向量会给出不同的R、T轴。
+enum class EBPlaneRefVector
+{
+    eBodyOrbitNormal,           ///< 天体绕其父天体运动的轨道法向
+    eSpacecraftOrbitNormal,     ///< 航天器自身的轨道法向
+    eBodyPole,                  ///< 天体的自转轴
+    eCustom,                    ///< 自定义参考向量
+};
+
+
+
+/// @brief 直角坐标转换为B平面根数
+/// @param pos 位置矢量 [m]
+/// @param vel 速度矢量 [m/s]
+/// @param gm 引力参数 [m^3/s^2]
+/// @param refVector 参考向量(任意非零矢量), 用于确定R、T轴, 见 EBPlaneRefVector
+/// @param bPlane 输出B平面根数
+/// @return 错误码，成功返回eNoError
+/// @note  当偏心率e大于1时, 按B平面的定义计算;
+///        e不大于1时入渐近线不存在, 此时退化处理:
+///        |B|取椭圆半短轴 a*sqrt(1-e^2), 入渐近线方向S取偏心率向量方向,
+///        偏心率向量为零(圆轨道)时取坐标系的+X轴。
+AST_CORE_CAPI errc_t aCartToBPlane(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    double gm,
+    const Vector3d& refVector,
+    BPlaneElem& bPlane
+);
+
+
+/// @brief B平面根数转换为直角坐标
+/// @param bPlane B平面根数
+/// @param gm 引力参数 [m^3/s^2]
+/// @param refVector 参考向量(任意非零矢量), 需与生成bPlane时一致
+/// @param pos 输出位置矢量 [m]
+/// @param vel 输出速度矢量 [m/s]
+/// @return 错误码，成功返回eNoError
+AST_CORE_CAPI errc_t aBPlaneToCart(
+    const BPlaneElem& bPlane,
+    double gm,
+    const Vector3d& refVector,
+    Vector3d& pos,
+    Vector3d& vel
+);
 
 
 /*! @} */

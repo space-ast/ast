@@ -20,8 +20,10 @@
  
 #include "OrbitElement.hpp"
 #include "OrbitParam.hpp"
-#include "AstUtil/Constants.hpp"      // for pi, std::array
-#include "AstCore/MathOperator.hpp" // for mod
+#include "AstUtil/Constants.hpp"            // for pi, std::array
+#include "AstCore/MathOperator.hpp"         // for mod
+#include "AstCore/CelestialBody.hpp"        // for aBodyOrbitNormalIn
+#include "AstCore/RunTimeSolarSystem.hpp"   // for aGetSun
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ParseFormat.hpp"
 #include "AstUtil/Constants.hpp"
@@ -1153,6 +1155,205 @@ errc_t aOrbElemToDelaunay(const OrbElem &elem, double gm, DelaunayElem &delaunay
 errc_t aDelaunayToOrbElem(const DelaunayElem &delaunay, double gm, OrbElem &elem)
 {
     return dela2coe(delaunay.data(), gm, elem.data());
+}
+
+
+// -------------
+// B平面相关计算
+// -------------
+
+
+/// 偏心率小于该值时认为轨道为圆轨道, 此时偏心率矢量的方向不再有意义
+constexpr double kEccCircularTol = 1e-6;
+
+/// 矢量模/矢量间夹角正弦的判定阈值
+constexpr double kMagTol = 1e-12;
+
+std::string BPlaneElem::toString() const
+{
+    return std::string(
+        "BPlaneElem{ra: " + aFormatDouble(ra_ * kRadToDeg) + "deg" +
+        ", dec: " + aFormatDouble(dec_ * kRadToDeg) + "deg" +
+        ", B.R: " + aFormatDouble(bDotR_) + "m" +
+        ", B.T: " + aFormatDouble(bDotT_) + "m" +
+        ", C3: " + aFormatDouble(c3_) + "m^2/s^2" +
+        ", true: " + aFormatDouble(trueA_ * kRadToDeg) + "deg" +
+        "}");
+}
+
+/// 取与给定法向垂直的一个单位矢量, 优先取+x轴, 退化时取+y轴
+static Vector3d aPerpendicularPlusX(const Vector3d& hhat)
+{
+    Vector3d xhat{1.0, 0.0, 0.0};
+    auto xv = xhat - dot(xhat, hhat) * hhat;
+    double xmag = norm(xv);
+    if (xmag > kMagTol)
+        return xv / xmag;
+    Vector3d yhat{0.0, 1.0, 0.0};
+    auto yv = yhat - dot(yhat, hhat) * hhat;
+    double ymag = norm(yv);
+    if (ymag > kMagTol)
+        return yv / ymag;
+    aError(_("无法确定与轨道面法向垂直的矢量"));
+    return xhat;
+}
+
+/// 计算B平面内的R、T轴: T = unit(S x N), R = S x T
+/// @param shat 入渐近线方向(单位矢量)
+/// @param refVector 参考向量
+/// @param rhat 输出R轴(单位矢量)
+/// @param that 输出T轴(单位矢量)
+/// @return 错误码，成功返回eNoError
+static errc_t aBPlaneRT(const Vector3d& shat, const Vector3d& refVector, Vector3d& rhat, Vector3d& that)
+{
+    double nmag = norm(refVector);
+    AST_CHECK_INVALID(nmag <= 0);
+
+    auto nhat = refVector / nmag;
+    auto tv = cross(shat, nhat);
+    double tmag = norm(tv);
+    if (tmag <= kMagTol)            // 参考向量与入渐近线平行时, T轴无定义
+    {
+        aError(_("参考向量与入渐近线平行, 无法确定B平面的R、T轴"));
+        return eErrorInvalidParam;
+    }
+    that = tv / tmag;
+    rhat = cross(shat, that);
+    return eNoError;
+}
+
+errc_t aCartToBPlane(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    double gm,
+    const Vector3d& refVector,
+    BPlaneElem& bPlane)
+{
+    double rmag = norm(pos);
+    double vmag = norm(vel);
+    AST_CHECK_INVALID(rmag <= 0 || gm <= 0);
+
+    // 角动量矢量(轨道面法向)
+    auto hv = cross(pos, vel);
+    double hmag = norm(hv);
+    if (hmag <= 0)                  // 直线运动, 轨道面不确定
+    {
+        aError(_("角动量为零, 无法确定轨道面"));
+        return eErrorInvalidParam;
+    }
+    auto hhat = hv / hmag;
+
+    // 偏心率矢量
+    auto evec = cross(vel / gm, hv) - pos / rmag;
+    double ecc = norm(evec);
+
+    // 圆轨道(偏心率数值上为零)时偏心率矢量方向无意义, 取与轨道面垂直的+x方向
+    auto ehat = (ecc > kEccCircularTol) ? evec / ecc : aPerpendicularPlusX(hhat);
+
+    // 半长轴与特征能量
+    double sma = 1.0 / (2.0 / rmag - vmag * vmag / gm);
+    bPlane.c3_ = vmag * vmag - 2.0 * gm / rmag;
+
+    // 半短轴, 即B矢量的模: 双曲线为 |a|*sqrt(e^2-1), 椭圆为 a*sqrt(1-e^2)
+    double bmag = fabs(sma) * sqrt(fabs(ecc * ecc - 1.0));
+
+    // 半张角: cos(alpha) = 1/e, 椭圆(e<1)时按0处理
+    double alpha = (ecc > 1.0) ? acos(1.0 / ecc) : 0.0;
+
+    // 入渐近线方向, 即B-Plane Normal
+    auto sv = cos(alpha) * ehat + sin(alpha) * cross(hhat, ehat);
+    double smag = norm(sv);
+    AST_CHECK_INVALID(smag <= 0);
+    auto shat = sv / smag;
+
+    bPlane.ra_ = mod(atan2(shat[1], shat[0]), PI2);
+    bPlane.dec_ = asin(shat[2] > 1.0 ? 1.0 : (shat[2] < -1.0 ? -1.0 : shat[2]));
+
+    // B矢量: 位于B平面内, 垂直于入渐近线
+    auto bvec = bmag * cross(shat, hhat);
+
+    // R、T轴
+    Vector3d rhat, that;
+    errc_t rc = aBPlaneRT(shat, refVector, rhat, that);
+    if (rc != eNoError)
+        return rc;
+
+    bPlane.bDotR_ = dot(bvec, rhat);
+    bPlane.bDotT_ = dot(bvec, that);
+
+    // 真近点角: 从偏心率矢量到位置矢量, 沿运动方向为正
+    bPlane.trueA_ = atan2(dot(pos, cross(hhat, ehat)), dot(pos, ehat));
+    return eNoError;
+}
+
+errc_t aBPlaneToCart(
+    const BPlaneElem& bPlane,
+    double gm,
+    const Vector3d& refVector,
+    Vector3d& pos,
+    Vector3d& vel)
+{
+    AST_CHECK_INVALID(gm <= 0);
+
+    // 入渐近线方向
+    double sdec = sin(bPlane.dec_);
+    Vector3d shat{cos(bPlane.dec_) * cos(bPlane.ra_), cos(bPlane.dec_) * sin(bPlane.ra_), sdec};
+    double smag = norm(shat);
+    AST_CHECK_INVALID(smag <= 0);
+    shat = shat / smag;
+
+    // B矢量模(半短轴)
+    double bmag = hypot(bPlane.bDotR_, bPlane.bDotT_);
+    AST_CHECK_INVALID(bmag <= 0);
+
+    // 半长轴与偏心率: b = |a|*sqrt(|e^2-1|)
+    double c3 = bPlane.c3_;
+    AST_CHECK_INVALID(c3 == 0.0);   // 抛物线情形半长轴无穷, 暂不支持
+    double sma = -gm / c3;
+    double tmp = bmag / fabs(sma);
+    double ecc2 = (c3 > 0) ? (1.0 + tmp * tmp) : (1.0 - tmp * tmp);
+    if (ecc2 < 0)                   // 椭圆轨道下 |B| 不能大于半长轴
+    {
+        aError(_("B矢量模大于半长轴, 参数不合法"));
+        return eErrorInvalidParam;
+    }
+    double ecc = sqrt(ecc2);
+
+    // R、T轴
+    Vector3d rhat, that;
+    errc_t rc = aBPlaneRT(shat, refVector, rhat, that);
+    if (rc != eNoError)
+        return rc;
+
+    // B矢量与轨道面法向: B = b*(S x h) => h = B x S
+    auto bhat = (bPlane.bDotR_ * rhat + bPlane.bDotT_ * that) / bmag;
+    auto hv = cross(bhat, shat);
+    double hmag = norm(hv);
+    if (hmag <= 0)
+    {
+        aError(_("B矢量为零, 无法确定轨道面"));
+        return eErrorInvalidParam;
+    }
+    auto hhat = hv / hmag;
+
+    // 偏心率矢量: S = cos(alpha)*e + sin(alpha)*(h x e)
+    double alpha = (ecc > 1.0) ? acos(1.0 / ecc) : 0.0;
+    auto ev = cos(alpha) * shat - sin(alpha) * cross(hhat, shat);
+    double emag = norm(ev);
+    AST_CHECK_INVALID(emag <= 0);
+    auto ehat = ev / emag;
+    auto qhat = cross(hhat, ehat);
+
+    // 由真近点角给出位置和速度
+    double slr = sma * (1.0 - ecc * ecc);   // 半通径 p = a(1-e^2)
+    AST_CHECK_INVALID(slr <= 0);
+    double nu = bPlane.trueA_;
+    double rmag = slr / (1.0 + ecc * cos(nu));
+    double hmom = sqrt(gm * slr);
+
+    pos = rmag * (cos(nu) * ehat + sin(nu) * qhat);
+    vel = (gm / hmom) * (-sin(nu) * ehat + (ecc + cos(nu)) * qhat);
+    return eNoError;
 }
 
 AST_NAMESPACE_END

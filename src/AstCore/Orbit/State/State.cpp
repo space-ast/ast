@@ -27,6 +27,7 @@
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/StateCartesian.hpp"
 #include "AstCore/StateKeplerian.hpp"
+#include "AstCore/StateBPlane.hpp"
 #include "AstCore/Resolve.hpp"
 #include "AstCore/BodyShape.hpp"
 #include "AstUtil/ObjectLinker.hpp"
@@ -58,6 +59,8 @@ PState State::New(EStateType type)
         break;
     case EStateType::eKeplerian:
         return new StateKeplerian();
+    case EStateType::eBPlane:
+        return new StateBPlane();
     default:
         break;
     }
@@ -74,6 +77,8 @@ PState State::New(State &state, EStateType type)
         break;
     case EStateType::eKeplerian:
         return new StateKeplerian(state);
+    case EStateType::eBPlane:
+        return new StateBPlane(state);
     default:
         break;
     }

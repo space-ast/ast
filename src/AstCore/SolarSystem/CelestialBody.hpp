@@ -369,6 +369,48 @@ enum ESpiceId: int;
 AST_CORE_CAPI ESpiceId aGetPlanetBarycenterId(ESpiceId planetId);
 
 
+/// @brief 获取天体绕其父天体的轨道法向
+/// @param axes 轴系
+/// @param body 天体
+/// @param tp 时间点
+/// @param normal 输出轨道法向
+/// @return 错误码，成功返回eNoError
+AST_CORE_CAPI errc_t aBodyOrbitNormalIn
+(
+    Axes& axes,
+    const Body& body,
+    const TimePoint& tp,
+    Vector3d& normal
+);
+
+
+/// @brief 获取天体绕其父天体的轨道法向
+/// @param body 天体
+/// @param tp 时间点
+/// @param normal 输出轨道法向
+/// @return 错误码，成功返回eNoError
+AST_CORE_CAPI errc_t aBodyOrbitNormalInParentInertial
+(
+    const Body& body,
+    const TimePoint& tp,
+    Vector3d& normal
+);
+
+
+/// @brief 获取天体绕其父天体的轨道法向
+/// @param body 天体
+/// @param tp 时间点
+/// @param normal 输出轨道法向
+/// @return 错误码，成功返回eNoError
+AST_CORE_CAPI errc_t aBodyOrbitNormalInICRF
+(
+    const Body& body,
+    const TimePoint& tp,
+    Vector3d& normal
+);
+
+
+
 /// @brief  SPICE 天体ID
 /// @see spicelib/zzidmap.for
 enum ESpiceId: int

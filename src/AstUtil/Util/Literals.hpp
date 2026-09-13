@@ -457,6 +457,8 @@ namespace literals
     constexpr double T = 1_T;
     constexpr double nT = 1_nT;
     constexpr double Gs = 1_Gs;
+
+    constexpr double sec2 = 1;
 }
 
 // 导入字面量命名空间到ast命名空间，便于使用

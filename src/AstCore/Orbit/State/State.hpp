@@ -39,6 +39,7 @@ enum class EStateType
 {
     eCartesian,     ///< 笛卡尔状态
     eKeplerian,     ///< 开普勒状态
+    eBPlane,        ///< B平面状态
     eUnknown,       ///< 未知状态类型
 };
 
