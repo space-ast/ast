@@ -1,5 +1,9 @@
 var NAVTREEINDEX10 =
 {
+"OpAssignPredefined_8hpp.html":[4,0,0,18,7,0,3],
+"OpAssignPredefined_8hpp_source.html":[4,0,0,18,7,0,3],
+"OpAssign_8cpp.html":[4,0,0,18,7,3],
+"OpAssign_8hpp.html":[4,0,0,18,7,4],
 "OpAssign_8hpp_source.html":[4,0,0,18,7,4],
 "OpBinPredefined_8hpp_source.html":[4,0,0,18,7,0,4],
 "OpBinRegistry_8cpp.html":[4,0,0,18,7,0,5],
@@ -43,9 +47,9 @@ var NAVTREEINDEX10 =
 "OrbitDesign_8hpp_source.html":[4,0,0,6,11,4,11],
 "OrbitDesigner_8hpp_source.html":[4,0,0,6,11,4,12],
 "OrbitElement_8cpp.html":[4,0,0,6,11,11],
-"OrbitElement_8cpp.html#a3de6b9af107c85236203a7fc117a06ea":[4,0,0,6,11,11,44],
+"OrbitElement_8cpp.html#a3de6b9af107c85236203a7fc117a06ea":[4,0,0,6,11,11,46],
 "OrbitElement_8cpp.html#a598a3330b3c21701223ee0ca14316eca":[4,0,0,6,11,11,0],
-"OrbitElement_8cpp.html#a5e201a4d3f5bb4e580fc4f190b5f1f2e":[4,0,0,6,11,11,43],
+"OrbitElement_8cpp.html#a5e201a4d3f5bb4e580fc4f190b5f1f2e":[4,0,0,6,11,11,45],
 "OrbitElement_8hpp.html":[4,0,0,6,11,12],
 "OrbitElement_8hpp_source.html":[4,0,0,6,11,12],
 "OrbitGeometry_8cpp.html":[4,0,0,6,11,13],
@@ -245,9 +249,5 @@ var NAVTREEINDEX10 =
 "PythonAPI_8hpp_source.html":[4,0,0,18,3,11],
 "PythonExecutor_8cpp.html":[4,0,0,18,3,0,9],
 "PythonExecutor_8hpp.html":[4,0,0,18,3,0,10],
-"PythonExecutor_8hpp_source.html":[4,0,0,18,3,0,10],
-"PythonSerializer_8cpp.html":[4,0,0,27,9,7],
-"PythonSerializer_8hpp.html":[4,0,0,27,9,8],
-"PythonSerializer_8hpp_source.html":[4,0,0,27,9,8],
-"QuantityParser_8cpp.html":[4,0,0,27,7,4]
+"PythonExecutor_8hpp_source.html":[4,0,0,18,3,0,10]
 };

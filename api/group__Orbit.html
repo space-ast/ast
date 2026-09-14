@@ -146,6 +146,8 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1MixedSphericalElem.html">ast::MixedSphericalElem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GeodeticElem.html">ast::GeodeticElem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
@@ -184,6 +186,10 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 <tr class="separator:ga836658b66677b07a1b328ef10586fc65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8fa3d90fcb51af140e2958004e44bf55" id="r_ga8fa3d90fcb51af140e2958004e44bf55"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8fa3d90fcb51af140e2958004e44bf55">ast::aMixedSphericalToCart</a> (const <a class="el" href="classast_1_1MixedSphericalElem.html">MixedSphericalElem</a> &amp;mixedSph, const <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;fixedToframe, const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> &amp;shape, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
 <tr class="separator:ga8fa3d90fcb51af140e2958004e44bf55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57933b8bf2260e763068148d95c52df5" id="r_ga57933b8bf2260e763068148d95c52df5"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga57933b8bf2260e763068148d95c52df5">ast::aCartToGeodetic</a> (const Vector3d &amp;pos, const Vector3d &amp;vel, const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> &amp;shape, <a class="el" href="classast_1_1GeodeticElem.html">GeodeticElem</a> &amp;geodetic)</td></tr>
+<tr class="separator:ga57933b8bf2260e763068148d95c52df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabfac90adb0c2b97c1cab306b4caa0ccd" id="r_gabfac90adb0c2b97c1cab306b4caa0ccd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabfac90adb0c2b97c1cab306b4caa0ccd">ast::aGeodeticToCart</a> (const <a class="el" href="classast_1_1GeodeticElem.html">GeodeticElem</a> &amp;geodetic, const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> &amp;shape, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
+<tr class="separator:gabfac90adb0c2b97c1cab306b4caa0ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2b4504e96da0e3c45617a0d1a02461b2" id="r_ga2b4504e96da0e3c45617a0d1a02461b2"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2b4504e96da0e3c45617a0d1a02461b2">ast::coe2rv</a> (const double *coe, double gm, double *pos, double *vel)</td></tr>
 <tr class="separator:ga2b4504e96da0e3c45617a0d1a02461b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga43c391913302a47ee361df3c024a02fd" id="r_ga43c391913302a47ee361df3c024a02fd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga43c391913302a47ee361df3c024a02fd">ast::coe2mee</a> (const double *coe, double *mee)</td></tr>
@@ -1251,6 +1257,50 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 
 </div>
 </div>
+<a id="ga57933b8bf2260e763068148d95c52df5" name="ga57933b8bf2260e763068148d95c52df5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga57933b8bf2260e763068148d95c52df5">&#9670;&#160;</a></span>aCartToGeodetic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aCartToGeodetic </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>shape</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1GeodeticElem.html">GeodeticElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>geodetic</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>天体固连系直角坐标转换为大地坐标根数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>天体固连系下的位置矢量 [m] </td></tr>
+    <tr><td class="paramname">vel</td><td>天体固连系下的速度矢量 [m/s] </td></tr>
+    <tr><td class="paramname">shape</td><td>参考形状(椭球) </td></tr>
+    <tr><td class="paramname">geodetic</td><td>输出大地坐标根数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>与 <a class="el" href="#ga836658b66677b07a1b328ef10586fc65">aCartToMixedSpherical</a> 不同, 这里的 pos 与 vel 均为天体固连系下的量, 故不需要旋转参数; 参考系与固连系之间的换算由调用方(见 <a class="el" href="classast_1_1StateGeodetic.html">StateGeodetic</a> )负责。 位置或速度为零矢量时无法确定经度、纬度或变化率, 返回eErrorInvalidParam; 极点(lat=±π/2)处经度率奇异, 取lonRate=0(约定); 参考形状不支持该转换时透传其错误码。 </dd></dl>
+
+</div>
+</div>
 <a id="ga836658b66677b07a1b328ef10586fc65" name="ga836658b66677b07a1b328ef10586fc65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga836658b66677b07a1b328ef10586fc65">&#9670;&#160;</a></span>aCartToMixedSpherical()</h2>
 
@@ -1817,6 +1867,50 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>偏心率 </dd></dl>
+
+</div>
+</div>
+<a id="gabfac90adb0c2b97c1cab306b4caa0ccd" name="gabfac90adb0c2b97c1cab306b4caa0ccd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabfac90adb0c2b97c1cab306b4caa0ccd">&#9670;&#160;</a></span>aGeodeticToCart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aGeodeticToCart </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1GeodeticElem.html">GeodeticElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>geodetic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>shape</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>大地坐标根数转换为天体固连系直角坐标 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">geodetic</td><td>大地坐标根数 </td></tr>
+    <tr><td class="paramname">shape</td><td>参考形状(椭球) </td></tr>
+    <tr><td class="paramname">pos</td><td>输出天体固连系下的位置矢量 [m] </td></tr>
+    <tr><td class="paramname">vel</td><td>输出天体固连系下的速度矢量 [m/s] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>速度为天体固连系下的速度, 不包含任何牵连速度; 大地纬度超出[-π/2, π/2]或位置退化到参考椭球中心附近时返回eErrorInvalidParam; 参考形状不支持该转换时透传其错误码。 </dd></dl>
 
 </div>
 </div>

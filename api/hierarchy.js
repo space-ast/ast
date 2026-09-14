@@ -383,6 +383,7 @@ var hierarchy =
       [ "ast::GeocentricPoint", "classast_1_1GeocentricPoint.html", null ],
       [ "ast::GeodeticPoint", "classast_1_1GeodeticPoint.html", null ]
     ] ],
+    [ "ast::GeodeticElem", "classast_1_1GeodeticElem.html", null ],
     [ "ast::detail::GetterErrorSetterTag", "structast_1_1detail_1_1GetterErrorSetterTag.html", null ],
     [ "ast::detail::GetterOnlyTag", "structast_1_1detail_1_1GetterOnlyTag.html", null ],
     [ "ast::detail::GetterVoidSetterTag", "structast_1_1detail_1_1GetterVoidSetterTag.html", null ],
@@ -1357,6 +1358,7 @@ var hierarchy =
           [ "ast::State", "classast_1_1State.html", [
             [ "ast::StateBPlane", "classast_1_1StateBPlane.html", null ],
             [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
+            [ "ast::StateGeodetic", "classast_1_1StateGeodetic.html", null ],
             [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ],
             [ "ast::StateMixedSpherical", "classast_1_1StateMixedSpherical.html", null ],
             [ "ast::StateSpherical", "classast_1_1StateSpherical.html", null ]

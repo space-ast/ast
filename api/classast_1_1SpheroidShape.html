@@ -134,6 +134,10 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a76b111a7094d292bae479802dbdbcf43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add0d8aa433371a72de19f57ac7f43fdd" id="r_add0d8aa433371a72de19f57ac7f43fdd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add0d8aa433371a72de19f57ac7f43fdd">transform</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;detic, Vector3d &amp;cartesian) const override</td></tr>
 <tr class="separator:add0d8aa433371a72de19f57ac7f43fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a582c76e2bfb0d4c4a34ad0eff9ff3edb" id="r_a582c76e2bfb0d4c4a34ad0eff9ff3edb"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a582c76e2bfb0d4c4a34ad0eff9ff3edb">transform</a> (const Vector3d &amp;pos, const Vector3d &amp;vel, <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;detic, <a class="el" href="classast_1_1LatLonAlt.html">LatLonAlt</a> &amp;rate) const override</td></tr>
+<tr class="separator:a582c76e2bfb0d4c4a34ad0eff9ff3edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7bb9508cb5b62ffc991bef2f9cac45c" id="r_ac7bb9508cb5b62ffc991bef2f9cac45c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7bb9508cb5b62ffc991bef2f9cac45c">transform</a> (const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;detic, const <a class="el" href="classast_1_1LatLonAlt.html">LatLonAlt</a> &amp;rate, Vector3d &amp;pos, Vector3d &amp;vel) const override</td></tr>
+<tr class="separator:ac7bb9508cb5b62ffc991bef2f9cac45c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6aca884f3acb6de56c6408d8e2f4a4d" id="r_ac6aca884f3acb6de56c6408d8e2f4a4d"><td class="memItemLeft" align="right" valign="top"><a id="ac6aca884f3acb6de56c6408d8e2f4a4d" name="ac6aca884f3acb6de56c6408d8e2f4a4d"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>flatFactor</b> () const</td></tr>
 <tr class="separator:ac6aca884f3acb6de56c6408d8e2f4a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -369,8 +373,62 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 
 </div>
 </div>
+<a id="ac7bb9508cb5b62ffc991bef2f9cac45c" name="ac7bb9508cb5b62ffc991bef2f9cac45c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7bb9508cb5b62ffc991bef2f9cac45c">&#9670;&#160;</a></span>transform() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpheroidShape::transform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>detic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1LatLonAlt.html">LatLonAlt</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将大地坐标及其变化率转换为天体固连系下的位置与速度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">detic</td><td>大地坐标 </td></tr>
+    <tr><td class="paramname">rate</td><td>大地坐标变化率, 依次为经度率[rad/s]、纬度率[rad/s]、高度率[m/s] </td></tr>
+    <tr><td class="paramname">pos</td><td>输出的天体固连系位置 </td></tr>
+    <tr><td class="paramname">vel</td><td>输出的天体固连系速度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>与上一重载互为逆变换; 形状不支持该转换时返回 eErrorNotImplemented。 </dd></dl>
+
+<p>重载 <a class="el" href="classast_1_1BodyShape.html#ad94470d750e32a70f66d070f2b0ef44f">ast::BodyShape</a> .</p>
+
+</div>
+</div>
 <a id="add0d8aa433371a72de19f57ac7f43fdd" name="add0d8aa433371a72de19f57ac7f43fdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add0d8aa433371a72de19f57ac7f43fdd">&#9670;&#160;</a></span>transform() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#add0d8aa433371a72de19f57ac7f43fdd">&#9670;&#160;</a></span>transform() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -410,7 +468,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div>
 </div>
 <a id="aad903d0e6024d89fb6baa9421ac55d97" name="aad903d0e6024d89fb6baa9421ac55d97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad903d0e6024d89fb6baa9421ac55d97">&#9670;&#160;</a></span>transform() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aad903d0e6024d89fb6baa9421ac55d97">&#9670;&#160;</a></span>transform() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -444,7 +502,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div>
 </div>
 <a id="a39d467691eacd497439633a5c318536b" name="a39d467691eacd497439633a5c318536b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39d467691eacd497439633a5c318536b">&#9670;&#160;</a></span>transform() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d467691eacd497439633a5c318536b">&#9670;&#160;</a></span>transform() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -478,7 +536,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div>
 </div>
 <a id="a76b111a7094d292bae479802dbdbcf43" name="a76b111a7094d292bae479802dbdbcf43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76b111a7094d292bae479802dbdbcf43">&#9670;&#160;</a></span>transform() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a76b111a7094d292bae479802dbdbcf43">&#9670;&#160;</a></span>transform() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -514,6 +572,60 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 
 <p>实现了 <a class="el" href="classast_1_1BodyShape.html#ad0d78f7ec43e0b5d3e790199fe52f117">ast::BodyShape</a>.</p>
+
+</div>
+</div>
+<a id="a582c76e2bfb0d4c4a34ad0eff9ff3edb" name="a582c76e2bfb0d4c4a34ad0eff9ff3edb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a582c76e2bfb0d4c4a34ad0eff9ff3edb">&#9670;&#160;</a></span>transform() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpheroidShape::transform </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>detic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1LatLonAlt.html">LatLonAlt</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rate</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将天体固连系下的位置与速度转换为大地坐标及其变化率 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>天体固连系位置 </td></tr>
+    <tr><td class="paramname">vel</td><td>天体固连系速度 </td></tr>
+    <tr><td class="paramname">detic</td><td>输出的大地坐标 </td></tr>
+    <tr><td class="paramname">rate</td><td>输出的大地坐标变化率, 依次为经度率[rad/s]、纬度率[rad/s]、高度率[m/s] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>rate 复用 <a class="el" href="classast_1_1LatLonAlt.html">LatLonAlt</a> , 但其纬度、经度、高度三个字段依次为纬度率、经度率、高度率; 变化率描述的是天体固连系下的速度, 不含任何牵连速度; 速度分解所依赖的度量因子随形状而异, 由各形状自行实现 (见 <a class="el" href="classast_1_1SpheroidShape.html">SpheroidShape</a> 、 <a class="el" href="classast_1_1SphereShape.html">SphereShape</a> ); 形状不支持该转换时返回 eErrorNotImplemented。 </dd></dl>
+
+<p>重载 <a class="el" href="classast_1_1BodyShape.html#a07dfc1c0bfdebfedced4525a71543f33">ast::BodyShape</a> .</p>
 
 </div>
 </div>

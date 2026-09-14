@@ -1,5 +1,13 @@
 var NAVTREEINDEX16 =
 {
+"StringPosix_8hpp.html":[4,0,0,27,6,29],
+"StringPosix_8hpp.html#a2dbc046c9cca54d791ab5bd5739c8953":[4,0,0,27,6,29,0],
+"StringPosix_8hpp.html#ab44707fb5f9cdfc8eaa97a54c0f65fdc":[4,0,0,27,6,29,1],
+"StringPosix_8hpp_source.html":[4,0,0,27,6,29],
+"StringSplit_8cpp.html":[4,0,0,27,10,6],
+"StringSplit_8hpp.html":[4,0,0,27,10,7],
+"StringSplit_8hpp_source.html":[4,0,0,27,10,7],
+"StringSplitter_8cpp.html":[4,0,0,27,10,8],
 "StringSplitter_8hpp.html":[4,0,0,27,10,9],
 "StringSplitter_8hpp_source.html":[4,0,0,27,10,9],
 "StringUtil_8cpp.html":[4,0,0,27,10,10],
@@ -241,13 +249,5 @@ var NAVTREEINDEX16 =
 "Transmitter_8hpp_source.html":[4,0,0,19,3,69],
 "TwoBody_8cpp.html":[4,0,0,6,12,14],
 "TwoBody_8cpp.html#a576e27d6ac7a3bed49e448e9b092a4ba":[4,0,0,6,12,14,0],
-"TwoBody_8hpp.html":[4,0,0,6,12,15],
-"TwoBody_8hpp_source.html":[4,0,0,6,12,15],
-"TypeTraits_8hpp_source.html":[4,0,0,27,11,23],
-"Type_8hpp.html":[4,0,0,27,8,27],
-"Type_8hpp_source.html":[4,0,0,27,8,27],
-"Types_8cpp.html":[4,0,0,18,0,7],
-"Types_8hpp.html":[4,0,0,18,0,8],
-"Types_8hpp_source.html":[4,0,0,18,0,8],
-"USSA1976_8cpp.html":[4,0,0,6,2,18]
+"TwoBody_8hpp.html":[4,0,0,6,12,15]
 };

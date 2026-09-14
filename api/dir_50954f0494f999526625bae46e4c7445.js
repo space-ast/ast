@@ -6,6 +6,8 @@ var dir_50954f0494f999526625bae46e4c7445 =
     [ "StateBPlane.hpp", "StateBPlane_8hpp.html", "StateBPlane_8hpp" ],
     [ "StateCartesian.cpp", "StateCartesian_8cpp.html", null ],
     [ "StateCartesian.hpp", "StateCartesian_8hpp.html", "StateCartesian_8hpp" ],
+    [ "StateGeodetic.cpp", "StateGeodetic_8cpp.html", null ],
+    [ "StateGeodetic.hpp", "StateGeodetic_8hpp.html", "StateGeodetic_8hpp" ],
     [ "StateKeplerian.cpp", "StateKeplerian_8cpp.html", null ],
     [ "StateKeplerian.hpp", "StateKeplerian_8hpp.html", "StateKeplerian_8hpp" ],
     [ "StateMixedSpherical.cpp", "StateMixedSpherical_8cpp.html", null ],

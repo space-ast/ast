@@ -1,5 +1,17 @@
 var NAVTREEINDEX26 =
 {
+"classast_1_1DetectorDeltaV.html#a9178fb748a82c3037d942d6051778287":[2,0,0,252,0],
+"classast_1_1DetectorDeltaV.html#a9178fb748a82c3037d942d6051778287":[3,0,0,251,0],
+"classast_1_1DetectorDescendingNode.html":[2,0,0,253],
+"classast_1_1DetectorDescendingNode.html":[3,0,0,252],
+"classast_1_1DetectorDescendingNode.html#a8d0cf1b0abe9949e7db6f85731c0223c":[2,0,0,253,0],
+"classast_1_1DetectorDescendingNode.html#a8d0cf1b0abe9949e7db6f85731c0223c":[3,0,0,252,0],
+"classast_1_1DetectorDuration.html":[2,0,0,254],
+"classast_1_1DetectorDuration.html":[3,0,0,253],
+"classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49":[2,0,0,254,0],
+"classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49":[3,0,0,253,0],
+"classast_1_1DetectorEpoch.html":[2,0,0,255],
+"classast_1_1DetectorEpoch.html":[3,0,0,254],
 "classast_1_1DetectorEpoch.html#ab8c9990550692ecb5bca0e09a6457aca":[2,0,0,255,0],
 "classast_1_1DetectorEpoch.html#ab8c9990550692ecb5bca0e09a6457aca":[3,0,0,254,0],
 "classast_1_1DetectorEpoch.html#af349d47a567d2bfa7678a6c532314faa":[2,0,0,255,1],
@@ -237,17 +249,5 @@ var NAVTREEINDEX26 =
 "classast_1_1EphemerisBinary.html#a8bdc6555ca42a425ca8e67e4b07df639":[3,0,0,282,0],
 "classast_1_1EphemerisBinary.html#adbc5d8eccc1b6eef3ab05adc27fda951":[2,0,0,283,1],
 "classast_1_1EphemerisBinary.html#adbc5d8eccc1b6eef3ab05adc27fda951":[3,0,0,282,1],
-"classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206":[2,0,0,283,4],
-"classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206":[3,0,0,282,4],
-"classast_1_1EphemerisFileParser.html":[2,0,0,284],
-"classast_1_1EphemerisFileParser.html":[3,0,0,283],
-"classast_1_1EphemerisFileWriter.html":[2,0,0,285],
-"classast_1_1EphemerisFileWriter.html":[3,0,0,284],
-"classast_1_1EphemerisFileWriter.html#a118fd29c3b418469c5e30428459c7565":[2,0,0,285,0],
-"classast_1_1EphemerisFileWriter.html#a118fd29c3b418469c5e30428459c7565":[3,0,0,284,0],
-"classast_1_1EphemerisLagrangeVar.html":[2,0,0,286],
-"classast_1_1EphemerisLagrangeVar.html":[3,0,0,285],
-"classast_1_1EphemerisLagrangeVar.html#a06a7e408aa0f8579cf3016de7dfe26a2":[2,0,0,286,5],
-"classast_1_1EphemerisLagrangeVar.html#a06a7e408aa0f8579cf3016de7dfe26a2":[3,0,0,285,5],
-"classast_1_1EphemerisLagrangeVar.html#a414a413a20b740331cb6a665cc981302":[2,0,0,286,6]
+"classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206":[2,0,0,283,4]
 };

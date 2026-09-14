@@ -118,14 +118,15 @@ $(function(){initNavTree('classast_1_1State.html',''); initResizable(true); });
  <div class="center">
   <img src="classast_1_1State.png" usemap="#ast::State_map" alt=""/>
   <map id="ast::State_map" name="ast::State_map">
-<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="320,112,470,136"/>
-<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="320,56,470,80"/>
-<area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="320,0,470,24"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="400,112,550,136"/>
+<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="400,56,550,80"/>
+<area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="400,0,550,24"/>
 <area href="classast_1_1StateBPlane.html" title="B平面状态" alt="ast::StateBPlane" shape="rect" coords="0,224,150,248"/>
 <area href="classast_1_1StateCartesian.html" title="笛卡尔状态(直角坐标)" alt="ast::StateCartesian" shape="rect" coords="160,224,310,248"/>
-<area href="classast_1_1StateKeplerian.html" title="开普勒轨道根数状态" alt="ast::StateKeplerian" shape="rect" coords="320,224,470,248"/>
-<area href="classast_1_1StateMixedSpherical.html" title="混合球坐标状态" alt="ast::StateMixedSpherical" shape="rect" coords="480,224,630,248"/>
-<area href="classast_1_1StateSpherical.html" title="球坐标状态" alt="ast::StateSpherical" shape="rect" coords="640,224,790,248"/>
+<area href="classast_1_1StateGeodetic.html" title="大地坐标状态" alt="ast::StateGeodetic" shape="rect" coords="320,224,470,248"/>
+<area href="classast_1_1StateKeplerian.html" title="开普勒轨道根数状态" alt="ast::StateKeplerian" shape="rect" coords="480,224,630,248"/>
+<area href="classast_1_1StateMixedSpherical.html" title="混合球坐标状态" alt="ast::StateMixedSpherical" shape="rect" coords="640,224,790,248"/>
+<area href="classast_1_1StateSpherical.html" title="球坐标状态" alt="ast::StateSpherical" shape="rect" coords="800,224,950,248"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -501,7 +502,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </dl>
 <dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1StateBPlane.html#ac879f0b91fb088f60d21df199e72d465">ast::StateBPlane</a>, <a class="el" href="classast_1_1StateCartesian.html#ab68a1ff08041f0bc8775a732a2bdb362">ast::StateCartesian</a>, <a class="el" href="classast_1_1StateKeplerian.html#ae9e019778b911fc7ba5e2efa702d92ff">ast::StateKeplerian</a>, <a class="el" href="classast_1_1StateMixedSpherical.html#a6252ba414a617020e35b5d68e4ec67d9">ast::StateMixedSpherical</a> , 以及 <a class="el" href="classast_1_1StateSpherical.html#ae1e13c4489eeb7f7e73a1575ebba9ebd">ast::StateSpherical</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1StateBPlane.html#ac879f0b91fb088f60d21df199e72d465">ast::StateBPlane</a>, <a class="el" href="classast_1_1StateCartesian.html#ab68a1ff08041f0bc8775a732a2bdb362">ast::StateCartesian</a>, <a class="el" href="classast_1_1StateGeodetic.html#aeb5f9d42e5b1a79197cf62e1aa4c29a8">ast::StateGeodetic</a>, <a class="el" href="classast_1_1StateKeplerian.html#ae9e019778b911fc7ba5e2efa702d92ff">ast::StateKeplerian</a>, <a class="el" href="classast_1_1StateMixedSpherical.html#a6252ba414a617020e35b5d68e4ec67d9">ast::StateMixedSpherical</a> , 以及 <a class="el" href="classast_1_1StateSpherical.html#ae1e13c4489eeb7f7e73a1575ebba9ebd">ast::StateSpherical</a> 内被实现.</p>
 
 </div>
 </div>
@@ -537,7 +538,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </dl>
 <dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1StateBPlane.html#ace8cf2352285acd751e7290041fe8128">ast::StateBPlane</a>, <a class="el" href="classast_1_1StateCartesian.html#a96227134f85e94e72614551c87d5c23d">ast::StateCartesian</a>, <a class="el" href="classast_1_1StateKeplerian.html#a016d4ba5d119dcad53da2425264ba9ca">ast::StateKeplerian</a>, <a class="el" href="classast_1_1StateMixedSpherical.html#a96bf17b4784f550a2c331cc09df32444">ast::StateMixedSpherical</a> , 以及 <a class="el" href="classast_1_1StateSpherical.html#a303d06e5440853c7b2253c99399b9bbf">ast::StateSpherical</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1StateBPlane.html#ace8cf2352285acd751e7290041fe8128">ast::StateBPlane</a>, <a class="el" href="classast_1_1StateCartesian.html#a96227134f85e94e72614551c87d5c23d">ast::StateCartesian</a>, <a class="el" href="classast_1_1StateGeodetic.html#ad53cfc366a590ad23de483c36780842a">ast::StateGeodetic</a>, <a class="el" href="classast_1_1StateKeplerian.html#a016d4ba5d119dcad53da2425264ba9ca">ast::StateKeplerian</a>, <a class="el" href="classast_1_1StateMixedSpherical.html#a96bf17b4784f550a2c331cc09df32444">ast::StateMixedSpherical</a> , 以及 <a class="el" href="classast_1_1StateSpherical.html#a303d06e5440853c7b2253c99399b9bbf">ast::StateSpherical</a> 内被实现.</p>
 
 </div>
 </div>
@@ -745,7 +746,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <p>获取状态类型 </p>
 <dl class="section return"><dt>返回</dt><dd>EStateType 状态类型 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1StateBPlane.html#a02c2415a445a9c10926f34169f9ae580">ast::StateBPlane</a>, <a class="el" href="classast_1_1StateCartesian.html#a82558f7253ea3083780e8292a9ec4d4a">ast::StateCartesian</a>, <a class="el" href="classast_1_1StateKeplerian.html#a6df7105f740567a6328a2e57192e5e94">ast::StateKeplerian</a>, <a class="el" href="classast_1_1StateMixedSpherical.html#ab34e32095255e10b1847c06fafe486b3">ast::StateMixedSpherical</a> , 以及 <a class="el" href="classast_1_1StateSpherical.html#accc2ea74a88c609e3c132fc7d1ed8f9b">ast::StateSpherical</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1StateBPlane.html#a02c2415a445a9c10926f34169f9ae580">ast::StateBPlane</a>, <a class="el" href="classast_1_1StateCartesian.html#a82558f7253ea3083780e8292a9ec4d4a">ast::StateCartesian</a>, <a class="el" href="classast_1_1StateGeodetic.html#a89da421cb468966f55751c1f6aca26bd">ast::StateGeodetic</a>, <a class="el" href="classast_1_1StateKeplerian.html#a6df7105f740567a6328a2e57192e5e94">ast::StateKeplerian</a>, <a class="el" href="classast_1_1StateMixedSpherical.html#ab34e32095255e10b1847c06fafe486b3">ast::StateMixedSpherical</a> , 以及 <a class="el" href="classast_1_1StateSpherical.html#accc2ea74a88c609e3c132fc7d1ed8f9b">ast::StateSpherical</a> 内被实现.</p>
 
 </div>
 </div>
@@ -985,7 +986,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </dl>
 <dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1StateBPlane.html#ae788a675c8f1d44d8fbaf4705a23ef75">ast::StateBPlane</a>, <a class="el" href="classast_1_1StateCartesian.html#a62569b4f97a37936f57db40065e366f3">ast::StateCartesian</a>, <a class="el" href="classast_1_1StateKeplerian.html#aea87dafaadc3d1c37526a7206c54b37a">ast::StateKeplerian</a>, <a class="el" href="classast_1_1StateMixedSpherical.html#a81eca144035766bc551894c2bda78ee0">ast::StateMixedSpherical</a> , 以及 <a class="el" href="classast_1_1StateSpherical.html#a8abcdb5f53083ea8acebdaada503f04f">ast::StateSpherical</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1StateBPlane.html#ae788a675c8f1d44d8fbaf4705a23ef75">ast::StateBPlane</a>, <a class="el" href="classast_1_1StateCartesian.html#a62569b4f97a37936f57db40065e366f3">ast::StateCartesian</a>, <a class="el" href="classast_1_1StateGeodetic.html#ae6543baae33bc1aca46f30cf6226e133">ast::StateGeodetic</a>, <a class="el" href="classast_1_1StateKeplerian.html#aea87dafaadc3d1c37526a7206c54b37a">ast::StateKeplerian</a>, <a class="el" href="classast_1_1StateMixedSpherical.html#a81eca144035766bc551894c2bda78ee0">ast::StateMixedSpherical</a> , 以及 <a class="el" href="classast_1_1StateSpherical.html#a8abcdb5f53083ea8acebdaada503f04f">ast::StateSpherical</a> 内被实现.</p>
 
 </div>
 </div>
@@ -1021,7 +1022,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 </dl>
 <dl class="section return"><dt>返回</dt><dd>errc_t 错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1StateBPlane.html#aa2a2874a66ad04268699c48a17215883">ast::StateBPlane</a>, <a class="el" href="classast_1_1StateCartesian.html#af9df141f77bb88f3d95834478ac7a589">ast::StateCartesian</a>, <a class="el" href="classast_1_1StateKeplerian.html#a5d56cc49e50c5b7daa52724aa60c8ed6">ast::StateKeplerian</a>, <a class="el" href="classast_1_1StateMixedSpherical.html#a72964abdf11c3d43ae3705c9e8c1eb39">ast::StateMixedSpherical</a> , 以及 <a class="el" href="classast_1_1StateSpherical.html#ac0c5a74d66fac3a300648dc2dd692743">ast::StateSpherical</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1StateBPlane.html#aa2a2874a66ad04268699c48a17215883">ast::StateBPlane</a>, <a class="el" href="classast_1_1StateCartesian.html#af9df141f77bb88f3d95834478ac7a589">ast::StateCartesian</a>, <a class="el" href="classast_1_1StateGeodetic.html#a97b8728e1cb44e79c60efb01f09669da">ast::StateGeodetic</a>, <a class="el" href="classast_1_1StateKeplerian.html#a5d56cc49e50c5b7daa52724aa60c8ed6">ast::StateKeplerian</a>, <a class="el" href="classast_1_1StateMixedSpherical.html#a72964abdf11c3d43ae3705c9e8c1eb39">ast::StateMixedSpherical</a> , 以及 <a class="el" href="classast_1_1StateSpherical.html#ac0c5a74d66fac3a300648dc2dd692743">ast::StateSpherical</a> 内被实现.</p>
 
 </div>
 </div>

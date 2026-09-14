@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Orbit/State/StateGeodetic.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('StateGeodetic_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">StateGeodetic.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="StateGeodetic_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstCore/State.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstMath/Vector.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstCore/OrbitElement.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>StateGeodetic;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">using </span>PStateGeodetic = StateGeodetic*;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">using </span>HStateGeodetic = SharedPtr&lt;StateGeodetic&gt;;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html">   49</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1StateGeodetic.html">StateGeodetic</a> final: <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1State.html">State</a></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1StateGeodetic.html">StateGeodetic</a>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    AST_PROPERT(Lon)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    AST_PROPERT(Lat)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    AST_PROPERT(Alt)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    AST_PROPERT(LonRate)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    AST_PROPERT(LatRate)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    AST_PROPERT(AltRate)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1StateGeodetic.html">PStateGeodetic</a> <a class="code hl_function" href="classast_1_1State.html#ab8e8f658d9bae72c5a3e6c329497983c">New</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1SharedPtr.html">HStateGeodetic</a> <a class="code hl_function" href="classast_1_1State.html#a07ffd7a549e9226e748bf2d7fc9d535a">MakeShared</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1StateGeodetic.html">PStateGeodetic</a> <a class="code hl_function" href="classast_1_1State.html#ab8e8f658d9bae72c5a3e6c329497983c">New</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticElem.html">GeodeticElem</a>&amp; geodeticElem);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1SharedPtr.html">HStateGeodetic</a> <a class="code hl_function" href="classast_1_1State.html#a07ffd7a549e9226e748bf2d7fc9d535a">MakeShared</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticElem.html">GeodeticElem</a>&amp; geodeticElem);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_class" href="classast_1_1StateGeodetic.html">StateGeodetic</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="classast_1_1StateGeodetic.html">StateGeodetic</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticElem.html">GeodeticElem</a>&amp; geodeticElem);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="classast_1_1StateGeodetic.html">StateGeodetic</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1State.html">State</a>&amp; state);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classast_1_1StateGeodetic.html">~StateGeodetic</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#a89da421cb468966f55751c1f6aca26bd">   69</a></span>    <a class="code hl_enumeration" href="namespaceast.html#ab96fec81957cc2c158036b02a89198f0">EStateType</a> <a class="code hl_function" href="classast_1_1StateGeodetic.html#a89da421cb468966f55751c1f6aca26bd">getStateType</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="namespaceast.html#ab96fec81957cc2c158036b02a89198f0a664e357c201f05d6427b1bdbdc94d482">EStateType::eGeodetic</a>; }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    errc_t <a class="code hl_function" href="classast_1_1State.html#a107c8c7780ea27bbf854a42bf70e4aab">getState</a>(<a class="code hl_class" href="classast_1_1CartState.html">CartState</a>&amp; state) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    errc_t <a class="code hl_function" href="classast_1_1State.html#a107c8c7780ea27bbf854a42bf70e4aab">getState</a>(<a class="code hl_class" href="classast_1_1ModOrbElem.html">ModOrbElem</a>&amp; orbElem) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    errc_t <a class="code hl_function" href="classast_1_1State.html#a459d28a4e3666674d0d8a795227432e4">setState</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1CartState.html">CartState</a>&amp; state) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    errc_t <a class="code hl_function" href="classast_1_1State.html#a459d28a4e3666674d0d8a795227432e4">setState</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1ModOrbElem.html">ModOrbElem</a>&amp; orbElem) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#a640559500d2ad053b1f6bc49b26bfdbc">   77</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1StateGeodetic.html#a640559500d2ad053b1f6bc49b26bfdbc">getState</a>(<a class="code hl_class" href="classast_1_1GeodeticElem.html">GeodeticElem</a>&amp; geodeticElem)<span class="keyword"> const </span>{ geodeticElem = geodeticElem_; }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    errc_t <a class="code hl_function" href="classast_1_1State.html#a459d28a4e3666674d0d8a795227432e4">setState</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1GeodeticElem.html">GeodeticElem</a>&amp; geodeticElem);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* getShape() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* getFixedFrame() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    errc_t getFrameToFixed(<a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>&amp; frameToFixed) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    errc_t getFixedToFrame(<a class="code hl_class" href="classast_1_1KinematicTransform.html">KinematicTransform</a>&amp; fixedToFrame) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>PROPERTIES:</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    angle_d getLon()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> geodeticElem_.lon_; }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#ac2ff96bcdabc6c3e9b75c5eab3837411">  105</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1StateGeodetic.html#ac2ff96bcdabc6c3e9b75c5eab3837411">setLon</a>(angle_d lon) { geodeticElem_.lon_ = lon; }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#a22720c62da087b99327aea3d13eab58c">  108</a></span>    angle_d <a class="code hl_function" href="classast_1_1StateGeodetic.html#a22720c62da087b99327aea3d13eab58c">getLat</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> geodeticElem_.lat_; }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#ab7a6c878eed6ddd1d3acb8432a1a45bf">  110</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1StateGeodetic.html#ab7a6c878eed6ddd1d3acb8432a1a45bf">setLat</a>(angle_d lat) { geodeticElem_.lat_ = lat; }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#ab899a981a3943fe7837e0e601d854625">  113</a></span>    length_d <a class="code hl_function" href="classast_1_1StateGeodetic.html#ab899a981a3943fe7837e0e601d854625">getAlt</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> geodeticElem_.alt_; }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#acb3a1ae1b3f693c8337fb93f663cb8f4">  115</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1StateGeodetic.html#acb3a1ae1b3f693c8337fb93f663cb8f4">setAlt</a>(length_d alt) { geodeticElem_.alt_ = alt; }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#a213342ca57a37750102544ab34c91b65">  118</a></span>    angle_d <a class="code hl_function" href="classast_1_1StateGeodetic.html#a213342ca57a37750102544ab34c91b65">getLonRate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> geodeticElem_.lonRate_; }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#ac97cd7e0074b415098de03e4e9e2eed9">  120</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1StateGeodetic.html#ac97cd7e0074b415098de03e4e9e2eed9">setLonRate</a>(angle_d lonRate) { geodeticElem_.lonRate_ = lonRate; }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#a5e9d606ceb8679b3ca2f2f85a962d779">  123</a></span>    angle_d <a class="code hl_function" href="classast_1_1StateGeodetic.html#a5e9d606ceb8679b3ca2f2f85a962d779">getLatRate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> geodeticElem_.latRate_; }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#ae24d9e08e39ad3572283c2a526e70a8b">  125</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1StateGeodetic.html#ae24d9e08e39ad3572283c2a526e70a8b">setLatRate</a>(angle_d latRate) { geodeticElem_.latRate_ = latRate; }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#afd096507f055e972695f54cfdb8e900a">  128</a></span>    speed_d <a class="code hl_function" href="classast_1_1StateGeodetic.html#afd096507f055e972695f54cfdb8e900a">getAltRate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> geodeticElem_.altRate_; }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#a3f875a42b5ea97c7d3e499c39f52c28d">  130</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1StateGeodetic.html#a3f875a42b5ea97c7d3e499c39f52c28d">setAltRate</a>(speed_d altRate) { geodeticElem_.altRate_ = altRate; }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classast_1_1StateGeodetic.html#a6e3d0ea72d3e9c53a7cd2beec65968fa">  132</a></span>    <a class="code hl_class" href="classast_1_1GeodeticElem.html">GeodeticElem</a> geodeticElem_{};   </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>};</div>
+</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1BodyShape_html"><div class="ttname"><a href="classast_1_1BodyShape.html">ast::BodyShape</a></div><div class="ttdoc">天体形状基类</div><div class="ttdef"><b>定义</b> BodyShape.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1CartState_html"><div class="ttname"><a href="classast_1_1CartState.html">ast::CartState</a></div><div class="ttdoc">直角坐标</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:53</div></div>
+<div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系抽象基类</div><div class="ttdef"><b>定义</b> Frame.hpp:64</div></div>
+<div class="ttc" id="aclassast_1_1GeodeticElem_html"><div class="ttname"><a href="classast_1_1GeodeticElem.html">ast::GeodeticElem</a></div><div class="ttdoc">大地坐标根数</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:504</div></div>
+<div class="ttc" id="aclassast_1_1KinematicTransform_html"><div class="ttname"><a href="classast_1_1KinematicTransform.html">ast::KinematicTransform</a></div><div class="ttdoc">运动学变换</div><div class="ttdef"><b>定义</b> KinematicTransform.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1ModOrbElem_html"><div class="ttname"><a href="classast_1_1ModOrbElem.html">ast::ModOrbElem</a></div><div class="ttdoc">修正轨道根数</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:154</div></div>
+<div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdoc">共享指针</div><div class="ttdef"><b>定义</b> SharedPtr.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html"><div class="ttname"><a href="classast_1_1StateGeodetic.html">ast::StateGeodetic</a></div><div class="ttdoc">大地坐标状态</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:50</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_a213342ca57a37750102544ab34c91b65"><div class="ttname"><a href="classast_1_1StateGeodetic.html#a213342ca57a37750102544ab34c91b65">ast::StateGeodetic::getLonRate</a></div><div class="ttdeci">angle_d getLonRate() const</div><div class="ttdoc">获取大地经度变化率</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:118</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_a22720c62da087b99327aea3d13eab58c"><div class="ttname"><a href="classast_1_1StateGeodetic.html#a22720c62da087b99327aea3d13eab58c">ast::StateGeodetic::getLat</a></div><div class="ttdeci">angle_d getLat() const</div><div class="ttdoc">获取大地纬度</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:108</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_a3f875a42b5ea97c7d3e499c39f52c28d"><div class="ttname"><a href="classast_1_1StateGeodetic.html#a3f875a42b5ea97c7d3e499c39f52c28d">ast::StateGeodetic::setAltRate</a></div><div class="ttdeci">void setAltRate(speed_d altRate)</div><div class="ttdoc">设置高度变化率</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:130</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_a5e9d606ceb8679b3ca2f2f85a962d779"><div class="ttname"><a href="classast_1_1StateGeodetic.html#a5e9d606ceb8679b3ca2f2f85a962d779">ast::StateGeodetic::getLatRate</a></div><div class="ttdeci">angle_d getLatRate() const</div><div class="ttdoc">获取大地纬度变化率</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:123</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_a640559500d2ad053b1f6bc49b26bfdbc"><div class="ttname"><a href="classast_1_1StateGeodetic.html#a640559500d2ad053b1f6bc49b26bfdbc">ast::StateGeodetic::getState</a></div><div class="ttdeci">void getState(GeodeticElem &amp;geodeticElem) const</div><div class="ttdoc">获取大地坐标根数</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:77</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_a89da421cb468966f55751c1f6aca26bd"><div class="ttname"><a href="classast_1_1StateGeodetic.html#a89da421cb468966f55751c1f6aca26bd">ast::StateGeodetic::getStateType</a></div><div class="ttdeci">EStateType getStateType() const override</div><div class="ttdoc">获取状态类型</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:69</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_ab7a6c878eed6ddd1d3acb8432a1a45bf"><div class="ttname"><a href="classast_1_1StateGeodetic.html#ab7a6c878eed6ddd1d3acb8432a1a45bf">ast::StateGeodetic::setLat</a></div><div class="ttdeci">void setLat(angle_d lat)</div><div class="ttdoc">设置大地纬度</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:110</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_ab899a981a3943fe7837e0e601d854625"><div class="ttname"><a href="classast_1_1StateGeodetic.html#ab899a981a3943fe7837e0e601d854625">ast::StateGeodetic::getAlt</a></div><div class="ttdeci">length_d getAlt() const</div><div class="ttdoc">获取高度</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:113</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_ac2ff96bcdabc6c3e9b75c5eab3837411"><div class="ttname"><a href="classast_1_1StateGeodetic.html#ac2ff96bcdabc6c3e9b75c5eab3837411">ast::StateGeodetic::setLon</a></div><div class="ttdeci">void setLon(angle_d lon)</div><div class="ttdoc">设置大地经度</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:105</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_ac97cd7e0074b415098de03e4e9e2eed9"><div class="ttname"><a href="classast_1_1StateGeodetic.html#ac97cd7e0074b415098de03e4e9e2eed9">ast::StateGeodetic::setLonRate</a></div><div class="ttdeci">void setLonRate(angle_d lonRate)</div><div class="ttdoc">设置大地经度变化率</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:120</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_acb3a1ae1b3f693c8337fb93f663cb8f4"><div class="ttname"><a href="classast_1_1StateGeodetic.html#acb3a1ae1b3f693c8337fb93f663cb8f4">ast::StateGeodetic::setAlt</a></div><div class="ttdeci">void setAlt(length_d alt)</div><div class="ttdoc">设置高度</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:115</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_ae24d9e08e39ad3572283c2a526e70a8b"><div class="ttname"><a href="classast_1_1StateGeodetic.html#ae24d9e08e39ad3572283c2a526e70a8b">ast::StateGeodetic::setLatRate</a></div><div class="ttdeci">void setLatRate(angle_d latRate)</div><div class="ttdoc">设置大地纬度变化率</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:125</div></div>
+<div class="ttc" id="aclassast_1_1StateGeodetic_html_afd096507f055e972695f54cfdb8e900a"><div class="ttname"><a href="classast_1_1StateGeodetic.html#afd096507f055e972695f54cfdb8e900a">ast::StateGeodetic::getAltRate</a></div><div class="ttdeci">speed_d getAltRate() const</div><div class="ttdoc">获取高度变化率</div><div class="ttdef"><b>定义</b> StateGeodetic.hpp:128</div></div>
+<div class="ttc" id="aclassast_1_1State_html"><div class="ttname"><a href="classast_1_1State.html">ast::State</a></div><div class="ttdoc">航天器状态</div><div class="ttdef"><b>定义</b> State.hpp:57</div></div>
+<div class="ttc" id="aclassast_1_1State_html_a07ffd7a549e9226e748bf2d7fc9d535a"><div class="ttname"><a href="classast_1_1State.html#a07ffd7a549e9226e748bf2d7fc9d535a">ast::State::MakeShared</a></div><div class="ttdeci">static HState MakeShared(EStateType type)</div><div class="ttdoc">创建状态</div><div class="ttdef"><b>定义</b> State.cpp:46</div></div>
+<div class="ttc" id="aclassast_1_1State_html_a107c8c7780ea27bbf854a42bf70e4aab"><div class="ttname"><a href="classast_1_1State.html#a107c8c7780ea27bbf854a42bf70e4aab">ast::State::getState</a></div><div class="ttdeci">virtual errc_t getState(CartState &amp;state) const =0</div><div class="ttdoc">获取状态</div></div>
+<div class="ttc" id="aclassast_1_1State_html_a459d28a4e3666674d0d8a795227432e4"><div class="ttname"><a href="classast_1_1State.html#a459d28a4e3666674d0d8a795227432e4">ast::State::setState</a></div><div class="ttdeci">virtual errc_t setState(const CartState &amp;state)=0</div><div class="ttdoc">设置状态</div></div>
+<div class="ttc" id="aclassast_1_1State_html_ab8e8f658d9bae72c5a3e6c329497983c"><div class="ttname"><a href="classast_1_1State.html#ab8e8f658d9bae72c5a3e6c329497983c">ast::State::New</a></div><div class="ttdeci">static PState New(EStateType type)</div><div class="ttdoc">创建状态</div><div class="ttdef"><b>定义</b> State.cpp:56</div></div>
+<div class="ttc" id="anamespaceast_html_ab96fec81957cc2c158036b02a89198f0"><div class="ttname"><a href="namespaceast.html#ab96fec81957cc2c158036b02a89198f0">ast::EStateType</a></div><div class="ttdeci">EStateType</div><div class="ttdoc">状态类型</div><div class="ttdef"><b>定义</b> State.hpp:39</div></div>
+<div class="ttc" id="anamespaceast_html_ab96fec81957cc2c158036b02a89198f0a664e357c201f05d6427b1bdbdc94d482"><div class="ttname"><a href="namespaceast.html#ab96fec81957cc2c158036b02a89198f0a664e357c201f05d6427b1bdbdc94d482">ast::EStateType::eGeodetic</a></div><div class="ttdeci">@ eGeodetic</div><div class="ttdoc">大地坐标状态(固连系下的位置与速度)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_fb8dea326293309ee9315e7aedad3578.html">Orbit</a></li><li class="navelem"><a class="el" href="dir_50954f0494f999526625bae46e4c7445.html">State</a></li><li class="navelem"><a class="el" href="StateGeodetic_8hpp.html">StateGeodetic.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

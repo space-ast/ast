@@ -1,5 +1,9 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcLocalAppSolLon_8hpp.html":[4,0,0,6,11,1,0,15,79],
+"ScStateCalcLocalAppSolLon_8hpp_source.html":[4,0,0,6,11,1,0,15,79],
+"ScStateCalcLonOfAscNode_8cpp.html":[4,0,0,6,11,1,0,10,18],
+"ScStateCalcLonOfAscNode_8hpp.html":[4,0,0,6,11,1,0,10,19],
 "ScStateCalcLonOfAscNode_8hpp_source.html":[4,0,0,6,11,1,0,10,19],
 "ScStateCalcLongDriftRate_8cpp.html":[4,0,0,6,11,1,0,15,80],
 "ScStateCalcLongDriftRate_8hpp.html":[4,0,0,6,11,1,0,15,81],
@@ -245,9 +249,5 @@ var NAVTREEINDEX13 =
 "ScStateCalcSolarPhaseAngle_8hpp.html":[4,0,0,6,11,1,0,15,189],
 "ScStateCalcSolarPhaseAngle_8hpp_source.html":[4,0,0,6,11,1,0,15,189],
 "ScStateCalcSolarPressure_8cpp.html":[4,0,0,6,11,1,0,15,190],
-"ScStateCalcSolarPressure_8hpp.html":[4,0,0,6,11,1,0,15,191],
-"ScStateCalcSolarPressure_8hpp_source.html":[4,0,0,6,11,1,0,15,191],
-"ScStateCalcSolarRadiationForce_8cpp.html":[4,0,0,6,11,1,0,15,192],
-"ScStateCalcSolarRadiationForce_8hpp.html":[4,0,0,6,11,1,0,15,193],
-"ScStateCalcSolarRadiationForce_8hpp_source.html":[4,0,0,6,11,1,0,15,193]
+"ScStateCalcSolarPressure_8hpp.html":[4,0,0,6,11,1,0,15,191]
 };
