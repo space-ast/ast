@@ -1,6 +1,5 @@
 var NAVTREEINDEX18 =
 {
-"UiTimelineView_8hpp_source.html":[4,0,0,10,5,24],
 "UiToolCallCard_8cpp.html":[4,0,0,22,0,14],
 "UiToolCallCard_8hpp.html":[4,0,0,22,0,15],
 "UiToolCallCard_8hpp_source.html":[4,0,0,22,0,15],
@@ -249,5 +248,6 @@ var NAVTREEINDEX18 =
 "VisGroup_8cpp.html":[4,0,0,28,8],
 "VisGroup_8hpp.html":[4,0,0,28,9],
 "VisGroup_8hpp_source.html":[4,0,0,28,9],
-"VisObject_8cpp.html":[4,0,0,28,10]
+"VisObject_8cpp.html":[4,0,0,28,10],
+"VisObject_8hpp.html":[4,0,0,28,11]
 };

@@ -1,6 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"ScStateCalcAngularMomentum_8hpp_source.html":[4,0,0,6,11,1,0,10,5],
 "ScStateCalcAppSolTime_8cpp.html":[4,0,0,6,11,1,0,18,0],
 "ScStateCalcAppSolTime_8hpp.html":[4,0,0,6,11,1,0,18,1],
 "ScStateCalcAppSolTime_8hpp_source.html":[4,0,0,6,11,1,0,18,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX12 =
 "ScStateCalcLocalAppSolLon_8cpp.html":[4,0,0,6,11,1,0,15,78],
 "ScStateCalcLocalAppSolLon_8hpp.html":[4,0,0,6,11,1,0,15,79],
 "ScStateCalcLocalAppSolLon_8hpp_source.html":[4,0,0,6,11,1,0,15,79],
-"ScStateCalcLonOfAscNode_8cpp.html":[4,0,0,6,11,1,0,10,18]
+"ScStateCalcLonOfAscNode_8cpp.html":[4,0,0,6,11,1,0,10,18],
+"ScStateCalcLonOfAscNode_8hpp.html":[4,0,0,6,11,1,0,10,19]
 };

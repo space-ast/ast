@@ -36,9 +36,6 @@ var hierarchy =
     [ "ast::AttributeBasic< ObjectType, PropertyType >", "classast_1_1AttributeBasic.html", null ],
     [ "ast::AttributeBasic< Object, Property >", "classast_1_1AttributeBasic.html", null ],
     [ "AVector3d", "structAVector3d.html", null ],
-    [ "matplot::backend::backend_interface", null, [
-      [ "ast::QwtBackend", "classast_1_1QwtBackend.html", null ]
-    ] ],
     [ "ast::BackTrace", "classast_1_1BackTrace.html", null ],
     [ "std::bad_cast", null, [
       [ "ast::bad_any_cast", "classast_1_1bad__any__cast.html", null ]
@@ -159,9 +156,6 @@ var hierarchy =
     [ "ast::CoInitializeGuard", "classast_1_1CoInitializeGuard.html", null ],
     [ "ast::ColData", "structast_1_1ColData.html", null ],
     [ "ast::Color", "classast_1_1Color.html", null ],
-    [ "Qwt3D::Color", null, [
-      [ "ast::CDataColor", "classast_1_1CDataColor.html", null ]
-    ] ],
     [ "ast::CommandDispatcher", "classast_1_1CommandDispatcher.html", null ],
     [ "ast::CommandHandler", "classast_1_1CommandHandler.html", [
       [ "ast::TaggedRule< F, Tuple >", "classast_1_1TaggedRule.html", null ]
@@ -329,7 +323,6 @@ var hierarchy =
       ] ]
     ] ],
     [ "ast::FieldOfViewVisitor", "classast_1_1FieldOfViewVisitor.html", null ],
-    [ "ast::figure_silencer", "classast_1_1figure__silencer.html", null ],
     [ "ast::fs_simple::file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
     [ "fitrecord", "structfitrecord.html", null ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
@@ -473,7 +466,6 @@ var hierarchy =
     [ "ast::DTM2012::Impl", "structast_1_1DTM2012_1_1Impl.html", null ],
     [ "ast::NetworkImplWinHTTP::Impl", "classast_1_1NetworkImplWinHTTP_1_1Impl.html", null ],
     [ "ast::NetworkImplWinINet::Impl", "classast_1_1NetworkImplWinINet_1_1Impl.html", null ],
-    [ "ast::QwtBackend::Impl", "structast_1_1QwtBackend_1_1Impl.html", null ],
     [ "ast::fs_simple::directory_iterator::impl", "structast_1_1fs__simple_1_1directory__iterator_1_1impl.html", null ],
     [ "ast::ImplFor< I, T >", "classast_1_1ImplFor.html", null ],
     [ "ast::InitalizeConfig", "structast_1_1InitalizeConfig.html", null ],
@@ -789,7 +781,6 @@ var hierarchy =
       [ "ast::UiChatMessageList", "classast_1_1UiChatMessageList.html", null ],
       [ "ast::UiChatPanel", "classast_1_1UiChatPanel.html", null ],
       [ "ast::UiExpressionBrowser", "classast_1_1UiExpressionBrowser.html", null ],
-      [ "ast::UiFigure", "classast_1_1UiFigure.html", null ],
       [ "ast::UiFilePath", "classast_1_1UiFilePath.html", null ],
       [ "ast::UiODEIntegratorEditor", "classast_1_1UiODEIntegratorEditor.html", null ],
       [ "ast::UiObject", "classast_1_1UiObject.html", [
@@ -842,9 +833,6 @@ var hierarchy =
       [ "ast::UiToolCallTimeline", "classast_1_1UiToolCallTimeline.html", null ],
       [ "ast::UiVariableList", "classast_1_1UiVariableList.html", null ],
       [ "ast::UiWidget", "classast_1_1UiWidget.html", null ]
-    ] ],
-    [ "QwtFigureWidgetOverlay", null, [
-      [ "ast::EditFigureOverlay", "classast_1_1EditFigureOverlay.html", null ]
     ] ],
     [ "ast::RecordStep", "structast_1_1RecordStep.html", null ],
     [ "ast::Referenced", "classast_1_1Referenced.html", [
@@ -1557,9 +1545,6 @@ var hierarchy =
     [ "ast::StringViewBasic< _Char >", "classast_1_1StringViewBasic.html", null ],
     [ "ast::StringViewBasic< char >", "classast_1_1StringViewBasic.html", null ],
     [ "ast::SummarySection", "structast_1_1SummarySection.html", null ],
-    [ "Qwt3D::SurfacePlot", null, [
-      [ "ast::ColoredSurfacePlot", "classast_1_1ColoredSurfacePlot.html", null ]
-    ] ],
     [ "ast::SymbolTable", "classast_1_1SymbolTable.html", null ],
     [ "std::system_error", null, [
       [ "ast::fs_simple::filesystem_error", "classast_1_1fs__simple_1_1filesystem__error.html", null ]
@@ -1629,9 +1614,6 @@ var hierarchy =
     [ "ast::VectorX< _Scalar >", "classast_1_1VectorX.html", null ],
     [ "ast::VehiclePathData", "structast_1_1VehiclePathData.html", null ],
     [ "ast::Version", "classast_1_1Version.html", null ],
-    [ "Qwt3D::VertexEnrichment", null, [
-      [ "ast::ColoredSurfaceEnrichment", "classast_1_1ColoredSurfaceEnrichment.html", null ]
-    ] ],
     [ "matplot::visitor", null, [
       [ "ast::QwtPlotVisitor", "classast_1_1QwtPlotVisitor.html", null ]
     ] ],
