@@ -24,6 +24,9 @@
 #include "AstCore/MathOperator.hpp"         // for mod
 #include "AstCore/CelestialBody.hpp"        // for aBodyOrbitNormalIn
 #include "AstCore/RunTimeSolarSystem.hpp"   // for aGetSun
+#include "AstCore/BodyShape.hpp"            // for BodyShape::transform
+#include "AstCore/GeodeticPoint.hpp"        // for GeodeticPoint
+#include "AstMath/Rotation.hpp"             // for Rotation::transformVector
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ParseFormat.hpp"
 #include "AstUtil/Constants.hpp"
@@ -1266,7 +1269,7 @@ errc_t aCartToBPlane(
     AST_CHECK_INVALID(smag <= 0);
     auto shat = sv / smag;
 
-    bPlane.ra_ = mod(atan2(shat[1], shat[0]), PI2);
+    bPlane.ra_ = atan2(shat[1], shat[0]);
     bPlane.dec_ = asin(shat[2] > 1.0 ? 1.0 : (shat[2] < -1.0 ? -1.0 : shat[2]));
 
     // B矢量: 位于B平面内, 垂直于入渐近线
@@ -1401,7 +1404,7 @@ errc_t aCartToSpherical(
     auto rhat = pos / rmag;
 
     // 赤经与赤纬: 极点处atan2(0, 0)的取值为0, 该取值是一个约定, 仍可精确往返
-    double ra = mod(atan2(pos[1], pos[0]), PI2);
+    double ra = atan2(pos[1], pos[0]);
     double dec = atan2(pos[2], hypot(pos[0], pos[1]));
 
     // 当地东、北单位矢量
@@ -1447,6 +1450,107 @@ errc_t aSphericalToCart(
 
     pos = sph.r_ * rhat;
     vel = sph.v_ * (sin(sph.fpa_) * rhat + cos(sph.fpa_) * horizontal);
+    return eNoError;
+}
+
+
+// -------------
+// 混合球坐标根数相关计算
+// -------------
+
+std::string MixedSphericalElem::toString() const
+{
+    return std::string(
+        "MixedSphericalElem{lon: " + aFormatDouble(lon_ * kRadToDeg) + "deg" +
+        ", lat: " + aFormatDouble(lat_ * kRadToDeg) + "deg" +
+        ", alt: " + aFormatDouble(alt_) + "m" +
+        ", fpa: " + aFormatDouble(fpa_ * kRadToDeg) + "deg" +
+        ", azi: " + aFormatDouble(azi_ * kRadToDeg) + "deg" +
+        ", v: " + aFormatDouble(v_) + "m/s" +
+        "}");
+}
+
+errc_t aCartToMixedSpherical(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    const Rotation& frameToFixed,
+    const BodyShape& shape,
+    MixedSphericalElem& mixedSph)
+{
+    double rmag = norm(pos);
+    double vmag = norm(vel);
+    if(rmag <= 0 || vmag <= 0)
+    {
+        mixedSph = MixedSphericalElem{};
+        aWarning(_("位置或速度为零矢量, 无法确定经度、纬度、航迹角与航迹方位角"));
+        return eErrorInvalidParam;
+    }
+
+    // 位置: 转换到天体固连系后反解大地坐标
+    Vector3d posFixed = frameToFixed.transformVector(pos);
+    GeodeticPoint detic;
+    shape.transform(posFixed, detic);
+
+    // 速度: 在参考系(惯性系)下分解, 与椭球和固连系无关
+    // 当地东、北单位矢量由位置矢量在参考系下的赤经确定, 与 SphericalElem 的约定一致
+    Vector3d rhat = pos / rmag;
+    double ra = atan2(pos[1], pos[0]);
+    Vector3d ehat, nhat;
+    aLocalEastNorth(ra, rhat, ehat, nhat);
+
+    double vRadial = dot(vel, rhat);
+    double vTransversal = norm(vel - vRadial * rhat);
+
+    mixedSph.lon_ = detic.longitude();
+    mixedSph.lat_ = detic.latitude();
+    mixedSph.alt_ = detic.altitude();
+    // 航迹角: 速度的径向分量与横向分量之比, 向上(远离中心天体)为正
+    mixedSph.fpa_ = atan2(vRadial, vTransversal);
+    // 航迹方位角: 自当地北向东为正
+    mixedSph.azi_ = atan2(dot(vel, ehat), dot(vel, nhat));
+    mixedSph.v_   = vmag;
+    return eNoError;
+}
+
+errc_t aMixedSphericalToCart(
+    const MixedSphericalElem& mixedSph,
+    const Rotation& fixedToFrame,
+    const BodyShape& shape,
+    Vector3d& pos,
+    Vector3d& vel)
+{
+    if(mixedSph.v_ < 0)
+    {
+        aWarning(_("速度大小为负, 无法确定位置和速度"));
+        pos = Vector3d::Zero();
+        vel = Vector3d::Zero();
+        return eErrorInvalidParam;
+    }
+
+    // 位置: 由大地坐标正算天体固连系位置
+    GeodeticPoint detic(mixedSph.lat_, mixedSph.lon_, mixedSph.alt_);
+    Vector3d posFixed;
+    shape.transform(detic, posFixed);
+
+    double rmag = norm(posFixed);
+    if(rmag <= 0)
+    {
+        aWarning(_("位置退化到参考椭球中心, 无法确定航迹角与航迹方位角"));
+        pos = Vector3d::Zero();
+        vel = Vector3d::Zero();
+        return eErrorInvalidParam;
+    }
+
+    // 位置换算到参考系, 速度在参考系(惯性系)下分解, 与椭球和固连系无关
+    pos = fixedToFrame.transformVector(posFixed);
+    Vector3d rhat = pos / rmag;
+    double ra = atan2(pos[1], pos[0]);
+    Vector3d ehat, nhat;
+    aLocalEastNorth(ra, rhat, ehat, nhat);
+
+    // 速度: 径向分量 + 当地水平面内的横向分量(方位角自当地北向东量)
+    Vector3d horizontal = cos(mixedSph.azi_) * nhat + sin(mixedSph.azi_) * ehat;
+    vel = mixedSph.v_ * (sin(mixedSph.fpa_) * rhat + cos(mixedSph.fpa_) * horizontal);
     return eNoError;
 }
 

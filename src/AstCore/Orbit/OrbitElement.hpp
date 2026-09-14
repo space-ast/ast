@@ -374,7 +374,7 @@ public:
 /// @details
 /// 用赤经、赤纬、地心距描述位置, 用飞行航迹角、航迹方位角、速度大小描述速度。
 /// 各分量均在参考坐标系的轴系下定义:
-///     ra  = atan2(y, x)           [rad] 赤经, 自x轴逆时针量, 范围[0, 2π)
+///     ra  = atan2(y, x)           [rad] 赤经, 自x轴逆时针量
 ///     dec = atan2(z, hypot(x, y)) [rad] 赤纬, 范围[-π/2, π/2]
 ///     r   = |pos|                 [m]   地心距
 ///     fpa = atan2(v_r, v_h)       [rad] 航迹角, 速度矢量与当地水平面的夹角, 向上为正
@@ -425,6 +425,65 @@ public:
 };
 
 
+/// @brief 混合球坐标轨道根数
+/// @details
+/// 位置用天体固连系下的大地坐标描述, 速度由惯性速度矢量描述:
+///     lon = atan2(y, x)           [rad] 大地经度(天体固连系), 自本初子午线向东为正
+///     lat = 大地纬度               [rad] 椭球法线与赤道面的夹角, 范围[-π/2, π/2]
+///     alt = 高度                   [m]   在参考椭球之上为正, 沿椭球法线量
+///     fpa = atan2(v_r, v_h)       [rad] 水平航迹角, 惯性速度矢量与当地水平面的夹角, 向上为正
+///     azi = atan2(v_e, v_n)       [rad] 航迹方位角, 自当地北向东为正
+///     v   = |vel|                 [m/s] 惯性速度大小
+/// @note  位置分量由固连系下的大地坐标给出, 需要参考形状(椭球, 见 @ref BodyShape)与固连系/惯性系之间的旋转(见 @ref Rotation);
+///        速度分量则完全在参考系(惯性系)下定义, 与椭球和固连系无关, 
+///        当地水平面与当地北向由位置矢量在该系下的赤经确定(同 @ref SphericalElem), 不含固连系的牵连速度, 故 v 为惯性速度大小。
+///        参见 @ref aCartToMixedSpherical 和 @ref aMixedSphericalToCart
+class MixedSphericalElem
+{
+// 设置为public使类型为聚合类型
+public:
+    double lon_;        ///< 大地经度 [rad] (天体固连系)
+    double lat_;        ///< 大地纬度 [rad] (天体固连系)
+    double alt_;        ///< 高度 [m] (相对参考椭球, 沿椭球法线)
+    double fpa_;        ///< 水平航迹角 [rad]
+    double azi_;        ///< 航迹方位角 [rad]
+    double v_;          ///< 惯性速度大小 [m/s]
+public:
+    /// @brief 获取大地经度
+    double getLon() const {return lon_;}
+
+    /// @brief 获取大地纬度
+    double getLat() const {return lat_;}
+
+    /// @brief 获取高度
+    double getAlt() const {return alt_;}
+
+    /// @brief 获取飞行航迹角(水平飞行航迹角)
+    double getFltPathAng() const {return fpa_;}
+
+    /// @brief 获取垂直飞行航迹角(水平飞行航迹角的余角)
+    double getVertFltPathAng() const {return kHalfPI - fpa_;}
+
+    /// @brief 获取航迹方位角
+    double getFltPathAzi() const {return azi_;}
+
+    /// @brief 获取速度大小
+    double getVel() const {return v_;}
+
+    /// @brief 转换为字符串
+    AST_CORE_API
+    std::string toString() const;
+public:
+    A_DEF_POD_ITERABLE(double)
+    AST_DEF_ACCESS_METHOD(double, lon)
+    AST_DEF_ACCESS_METHOD(double, lat)
+    AST_DEF_ACCESS_METHOD(double, alt)
+    AST_DEF_ACCESS_METHOD(double, fpa)
+    AST_DEF_ACCESS_METHOD(double, azi)
+    AST_DEF_ACCESS_METHOD(double, v)
+};
+
+
 /// @brief 直角坐标转换为球坐标根数
 /// @param pos 位置矢量 [m]
 /// @param vel 速度矢量 [m/s]
@@ -446,6 +505,42 @@ AST_CORE_API errc_t aCartToSpherical(
 /// @note  地心距不大于零或速度小于零时返回eErrorInvalidParam
 AST_CORE_API errc_t aSphericalToCart(
     const SphericalElem& sph,
+    Vector3d& pos,
+    Vector3d& vel
+);
+
+
+/// @brief 直角坐标转换为混合球坐标根数
+/// @param pos 位置矢量 [m]
+/// @param vel 速度矢量 [m/s]
+/// @param framelToFixed 位置速度参考系到天体固连系的旋转, 仅用于位置分量
+/// @param shape 参考形状(椭球), 仅用于位置分量
+/// @param mixedSph 输出混合球坐标根数
+/// @return 错误码，成功返回eNoError
+/// @note  位置或速度为零矢量时无法确定经度、纬度、航迹角与航迹方位角, 返回eErrorInvalidParam;
+///        航迹角与航迹方位角完全由 pos、vel 在惯性系下确定, 与 inertialToFixed、shape 无关,
+///        见 @ref MixedSphericalElem。
+AST_CORE_API errc_t aCartToMixedSpherical(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    const Rotation& framelToFixed,
+    const BodyShape& shape,
+    MixedSphericalElem& mixedSph
+);
+
+
+/// @brief 混合球坐标根数转换为直角坐标
+/// @param mixedSph 混合球坐标根数
+/// @param fixedToframe 天体固连系到参考系的旋转, 需与生成mixedSph时所用的旋转互逆, 仅用于位置分量
+/// @param shape 参考形状(椭球), 仅用于位置分量
+/// @param pos 输出位置矢量 [m]
+/// @param vel 输出速度矢量 [m/s]
+/// @return 错误码，成功返回eNoError
+/// @note  速度小于零或位置退化到参考椭球中心时返回eErrorInvalidParam
+AST_CORE_API errc_t aMixedSphericalToCart(
+    const MixedSphericalElem& mixedSph,
+    const Rotation& fixedToframe,
+    const BodyShape& shape,
     Vector3d& pos,
     Vector3d& vel
 );
