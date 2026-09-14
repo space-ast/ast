@@ -38,6 +38,19 @@ void SphereShape::transform(const GeodeticPoint& detic, Vector3d& cartesian) con
     aGeodeticToBodyFixed(detic, cartesian, radius_);
 }
 
+errc_t SphereShape::transform(const Vector3d& pos, const Vector3d& vel,
+                              GeodeticPoint& detic, LatLonAlt& rate) const
+{
+    // 圆球是零扁率的扁球体: e²=0 时 N=M=radius, 位置与速度的实现均精确退化
+    return aBodyFixedToGeodetic(pos, vel, detic, rate, radius_, 0.0);
+}
+
+errc_t SphereShape::transform(const GeodeticPoint& detic, const LatLonAlt& rate,
+                              Vector3d& pos, Vector3d& vel) const
+{
+    return aGeodeticToBodyFixed(detic, rate, pos, vel, radius_, 0.0);
+}
+
 
 AST_NAMESPACE_END
 

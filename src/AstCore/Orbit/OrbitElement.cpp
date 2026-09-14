@@ -1554,5 +1554,68 @@ errc_t aMixedSphericalToCart(
     return eNoError;
 }
 
+
+// -------------
+// 大地坐标根数相关计算
+// -------------
+
+std::string GeodeticElem::toString() const
+{
+    return std::string(
+        "GeodeticElem{lon: " + aFormatDouble(lon_ * kRadToDeg) + "deg" +
+        ", lat: " + aFormatDouble(lat_ * kRadToDeg) + "deg" +
+        ", alt: " + aFormatDouble(alt_) + "m" +
+        ", lonRate: " + aFormatDouble(lonRate_ * kRadToDeg) + "deg/s" +
+        ", latRate: " + aFormatDouble(latRate_ * kRadToDeg) + "deg/s" +
+        ", altRate: " + aFormatDouble(altRate_) + "m/s" +
+        "}");
+}
+
+errc_t aCartToGeodetic(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    const BodyShape& shape,
+    GeodeticElem& geodetic)
+{
+    // 位置与速度同在天体固连系下, 由参考形状统一完成换算
+    // 注意: 速度为零是合法的(如地球同步轨道), 此时三个变化率均为零, 故不校验速度
+    GeodeticPoint detic;
+    LatLonAlt rate;     // 三个分量依次为纬度率、经度率、高度率
+    errc_t rc = shape.transform(pos, vel, detic, rate);
+    if (rc != eNoError)
+    {
+        geodetic = GeodeticElem{};
+        return rc;
+    }
+
+    geodetic.lon_     = detic.longitude();
+    geodetic.lat_     = detic.latitude();
+    geodetic.alt_     = detic.altitude();
+    geodetic.lonRate_ = rate.longitude();
+    geodetic.latRate_ = rate.latitude();
+    geodetic.altRate_ = rate.altitude();
+    return eNoError;
+}
+
+errc_t aGeodeticToCart(
+    const GeodeticElem& geodetic,
+    const BodyShape& shape,
+    Vector3d& pos,
+    Vector3d& vel)
+{
+    GeodeticPoint detic(geodetic.lat_, geodetic.lon_, geodetic.alt_);
+    LatLonAlt rate;     // 三个分量依次为纬度率、经度率、高度率
+    rate.latitude()  = geodetic.latRate_;
+    rate.longitude() = geodetic.lonRate_;
+    rate.altitude()  = geodetic.altRate_;
+    errc_t rc = shape.transform(detic, rate, pos, vel);
+    if (rc != eNoError)
+    {
+        pos = Vector3d::Zero();
+        vel = Vector3d::Zero();
+    }
+    return rc;
+}
+
 AST_NAMESPACE_END
 

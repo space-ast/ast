@@ -484,6 +484,65 @@ public:
 };
 
 
+/// @brief 大地坐标根数
+/// @details
+/// 位置与速度均在天体固连系下以大地坐标及其变化率描述:
+///     lon = atan2(y, x)           [rad]   大地经度(天体固连系), 自本初子午线向东为正
+///     lat                          [rad]   大地纬度, 椭球法线与赤道面的夹角, 范围[-π/2, π/2]
+///     alt                          [m]     高度, 在参考椭球之上为正, 沿椭球法线量
+///     lonRate                      [rad/s] 大地经度变化率
+///     latRate                      [rad/s] 大地纬度变化率
+///     altRate                      [m/s]   高度变化率
+/// @note  与 @ref MixedSphericalElem 的关键区别在于速度也完全在固连系下定义:
+///        vel = (N+alt)cos(lat)·lonRate·e + (M+alt)·latRate·n + altRate·u ,
+///        其中 e、n、u 为当地东、北、天单位矢量, N、M 为卯酉圈与子午圈曲率半径。
+///        因此 vel 为零(如地球同步轨道)时三个变化率亦为零, 与惯性速度无关。
+///        需要参考形状(椭球, 见 @ref BodyShape)以及参考系与固连系之间的运动学变换(见 @ref KinematicTransform)。
+///        极点(lat=±π/2)处经度率奇异, 正向转换取lonRate=0(约定), 与 @ref SphericalElem 的赤经一致。
+///        参见 @ref aCartToGeodetic 和 @ref aGeodeticToCart
+class GeodeticElem
+{
+// 设置为public使类型为聚合类型
+public:
+    double lat_;        ///< 大地纬度 [rad] (天体固连系)
+    double lon_;        ///< 大地经度 [rad] (天体固连系)
+    double alt_;        ///< 高度 [m] (相对参考椭球, 沿椭球法线)
+    double latRate_;    ///< 大地纬度变化率 [rad/s] (天体固连系)
+    double lonRate_;    ///< 大地经度变化率 [rad/s] (天体固连系)
+    double altRate_;    ///< 高度变化率 [m/s] (天体固连系)
+public:
+    /// @brief 获取大地经度
+    double getLon() const {return lon_;}
+
+    /// @brief 获取大地纬度
+    double getLat() const {return lat_;}
+
+    /// @brief 获取高度
+    double getAlt() const {return alt_;}
+
+    /// @brief 获取大地经度变化率
+    double getLonRate() const {return lonRate_;}
+
+    /// @brief 获取大地纬度变化率
+    double getLatRate() const {return latRate_;}
+
+    /// @brief 获取高度变化率
+    double getAltRate() const {return altRate_;}
+
+    /// @brief 转换为字符串
+    AST_CORE_API
+    std::string toString() const;
+public:
+    A_DEF_POD_ITERABLE(double)
+    AST_DEF_ACCESS_METHOD(double, lon)
+    AST_DEF_ACCESS_METHOD(double, lat)
+    AST_DEF_ACCESS_METHOD(double, alt)
+    AST_DEF_ACCESS_METHOD(double, lonRate)
+    AST_DEF_ACCESS_METHOD(double, latRate)
+    AST_DEF_ACCESS_METHOD(double, altRate)
+};
+
+
 /// @brief 直角坐标转换为球坐标根数
 /// @param pos 位置矢量 [m]
 /// @param vel 速度矢量 [m/s]
@@ -540,6 +599,41 @@ AST_CORE_API errc_t aCartToMixedSpherical(
 AST_CORE_API errc_t aMixedSphericalToCart(
     const MixedSphericalElem& mixedSph,
     const Rotation& fixedToframe,
+    const BodyShape& shape,
+    Vector3d& pos,
+    Vector3d& vel
+);
+
+
+/// @brief 天体固连系直角坐标转换为大地坐标根数
+/// @param pos 天体固连系下的位置矢量 [m]
+/// @param vel 天体固连系下的速度矢量 [m/s]
+/// @param shape 参考形状(椭球)
+/// @param geodetic 输出大地坐标根数
+/// @return 错误码，成功返回eNoError
+/// @note  与 @ref aCartToMixedSpherical 不同, 这里的 pos 与 vel 均为天体固连系下的量,
+///        故不需要旋转参数; 参考系与固连系之间的换算由调用方(见 @ref StateGeodetic )负责。
+///        位置或速度为零矢量时无法确定经度、纬度或变化率, 返回eErrorInvalidParam;
+///        极点(lat=±π/2)处经度率奇异, 取lonRate=0(约定); 参考形状不支持该转换时透传其错误码。
+AST_CORE_API errc_t aCartToGeodetic(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    const BodyShape& shape,
+    GeodeticElem& geodetic
+);
+
+
+/// @brief 大地坐标根数转换为天体固连系直角坐标
+/// @param geodetic 大地坐标根数
+/// @param shape 参考形状(椭球)
+/// @param pos 输出天体固连系下的位置矢量 [m]
+/// @param vel 输出天体固连系下的速度矢量 [m/s]
+/// @return 错误码，成功返回eNoError
+/// @note  速度为天体固连系下的速度, 不包含任何牵连速度;
+///        大地纬度超出[-π/2, π/2]或位置退化到参考椭球中心附近时返回eErrorInvalidParam;
+///        参考形状不支持该转换时透传其错误码。
+AST_CORE_API errc_t aGeodeticToCart(
+    const GeodeticElem& geodetic,
     const BodyShape& shape,
     Vector3d& pos,
     Vector3d& vel

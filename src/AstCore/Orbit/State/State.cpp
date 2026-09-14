@@ -30,6 +30,7 @@
 #include "AstCore/StateBPlane.hpp"
 #include "AstCore/StateSpherical.hpp"
 #include "AstCore/StateMixedSpherical.hpp"
+#include "AstCore/StateGeodetic.hpp"
 #include "AstCore/Resolve.hpp"
 #include "AstCore/BodyShape.hpp"
 #include "AstUtil/ObjectLinker.hpp"
@@ -67,6 +68,8 @@ PState State::New(EStateType type)
         return new StateBPlane();
     case EStateType::eMixedSpherical:
         return new StateMixedSpherical();
+    case EStateType::eGeodetic:
+        return new StateGeodetic();
     default:
         break;
     }
@@ -89,6 +92,8 @@ PState State::New(State &state, EStateType type)
         return new StateBPlane(state);
     case EStateType::eMixedSpherical:
         return new StateMixedSpherical(state);
+    case EStateType::eGeodetic:
+        return new StateGeodetic(state);
     default:
         break;
     }

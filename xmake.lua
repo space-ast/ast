@@ -139,7 +139,12 @@ add_requires("glu", {optional = true})                                          
 
 -- 下载并安装第三方库（可选）
 add_requires("python 3.x", {optional = true})                                   -- 可选的Python库，用于编译python库
-add_requires("swig >=4.2", {optional = true})                                   -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.2 才支持 enum class : type
+add_requires("swig >=4.3", {optional = true})                                   -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.3，见下方说明
+-- SWIG 版本要求说明：
+--   >=4.2 才支持 `enum class : type` 语法；
+--   >=4.3 才能求值本项目枚举中的初值表达式（enum class EDimension : dimension_t 的初值为constexpr 常量，
+--         enum EColor : color_t 的初值为 rgb()/rgba() constexpr 函数调用），
+--         4.2.0 会对这些初值报 "Error: Type error. Expecting an integral type" 并以非 0 退出。
 add_requires("gtest <=1.12.1", {optional = true, configs = {cmake = false}})    -- 可选的gtest库，用于单元测试，gtest v1.12.1 for c++11
 add_requires("benchmark", {optional = true})                                    -- 可选的benchmark库，用于性能测试
 add_requires("replxx", {optional = true})                                       -- 可选的replxx库，用于命令行交互

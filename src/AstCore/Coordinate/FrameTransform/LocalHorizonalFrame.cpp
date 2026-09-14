@@ -232,6 +232,82 @@ void aBodyFixedToGeodetic(const Vector3d& bodyFixed, GeodeticPoint& point, doubl
 }
 
 
+errc_t aGeodeticToBodyFixed(const GeodeticPoint& point, const LatLonAlt& rate,
+                            Vector3d& bodyFixed, Vector3d& vel,
+                            double radius, double flatFact)
+{
+	if (fabs(point.latitude()) > kHalfPI)
+	{
+		bodyFixed = Vector3d::Zero();
+		vel = Vector3d::Zero();
+		aWarning(_("大地纬度超出范围, 无法确定位置和速度"));
+		return eErrorInvalidParam;
+	}
+
+	// 位置: 与大地坐标的位置正算共用同一算法, 保证两者几何一致
+	aGeodeticToBodyFixed(point, bodyFixed, radius, flatFact);
+
+	// 速度: 固连系下按当地东、北、天方向分解
+	//   vel = (N+h)cos(lat)·lonRate·e + (M+h)·latRate·n + altRate·u
+	double ee = flatFact * (2.0 - flatFact);          // e² = 2f - f²
+	double slat, clat;
+	sincos(point.latitude(), &slat, &clat);
+	double denom = 1.0 - ee * slat * slat;
+	double N = radius / sqrt(denom);                  // 卯酉圈曲率半径
+	double M = radius * (1.0 - ee) / (denom * sqrt(denom));  // 子午圈曲率半径
+	double h = point.altitude();
+
+	// rate 的纬度、经度、高度三个字段依次为纬度率、经度率、高度率
+	vel = (N + h) * clat * rate.longitude() * point.getEast()
+	    + (M + h) * rate.latitude() * point.getNorth()
+	    + rate.altitude() * point.getZenith();
+	return eNoError;
+}
+
+
+errc_t aBodyFixedToGeodetic(const Vector3d& bodyFixed, const Vector3d& vel,
+                            GeodeticPoint& point, LatLonAlt& rate,
+                            double radius, double flatFact)
+{
+	if (bodyFixed.norm() <= 0)
+	{
+		point = GeodeticPoint{};
+		rate = LatLonAlt{};
+		aWarning(_("位置为零矢量, 无法确定大地坐标的变化率"));
+		return eErrorInvalidParam;
+	}
+
+	// 位置: 与大地坐标的位置反解共用同一算法, 保证两者几何一致
+	aBodyFixedToGeodetic(bodyFixed, point, radius, flatFact);
+
+	// 速度: 投影到当地东、北、天方向后除以相应的度量因子
+	double ee = flatFact * (2.0 - flatFact);          // e² = 2f - f²
+	double slat, clat;
+	sincos(point.latitude(), &slat, &clat);
+	double denom = 1.0 - ee * slat * slat;
+	double N = radius / sqrt(denom);                  // 卯酉圈曲率半径
+	double M = radius * (1.0 - ee) / (denom * sqrt(denom));  // 子午圈曲率半径
+	double h = point.altitude();
+
+	double rho = (N + h) * clat;                      // 到自转轴的距离
+	double meri = M + h;                              // 纬度的度量因子
+	if (rho < 0 || meri <= 0)
+	{
+		point = GeodeticPoint{};
+		rate = LatLonAlt{};
+		aWarning(_("位置退化到参考椭球中心附近, 无法确定大地坐标的变化率"));
+		return eErrorInvalidParam;
+	}
+
+	// 极点处 rho→0, 经度率奇异: 取0(约定), 与 SphericalElem 的赤经处理一致
+	// rate 的纬度、经度、高度三个字段依次为纬度率、经度率、高度率
+	rate.longitude() = (rho > 1.0e-9 * radius) ? (dot(vel, point.getEast()) / rho) : 0.0;
+	rate.latitude()  = dot(vel, point.getNorth()) / meri;
+	rate.altitude()  = dot(vel, point.getZenith());
+	return eNoError;
+}
+
+
 /// @brief 检查体形状是否为空，若为空则使用默认椭球体
 inline BodyShape* checkBodyShape(BodyShape* bodyShape)
 {

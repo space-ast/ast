@@ -62,5 +62,17 @@ void SpheroidShape::transform(const GeodeticPoint& detic, Vector3d& cartesian) c
     aGeodeticToBodyFixed(detic, cartesian, majorAxis_, flatFactor_);
 }
 
+errc_t SpheroidShape::transform(const Vector3d& pos, const Vector3d& vel,
+                                GeodeticPoint& detic, LatLonAlt& rate) const
+{
+    return aBodyFixedToGeodetic(pos, vel, detic, rate, majorAxis_, flatFactor_);
+}
+
+errc_t SpheroidShape::transform(const GeodeticPoint& detic, const LatLonAlt& rate,
+                                Vector3d& pos, Vector3d& vel) const
+{
+    return aGeodeticToBodyFixed(detic, rate, pos, vel, majorAxis_, flatFactor_);
+}
+
 
 AST_NAMESPACE_END

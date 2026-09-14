@@ -42,6 +42,7 @@ enum class EStateType
     eSpherical,         ///< 球坐标状态
     eBPlane,            ///< B平面状态
     eMixedSpherical,    ///< 混合球坐标状态
+    eGeodetic,          ///< 大地坐标状态(固连系下的位置与速度)
     eUnknown,           ///< 未知状态类型
 };
 

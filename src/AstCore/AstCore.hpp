@@ -554,6 +554,7 @@
 #include "AstCore/StateBPlane.hpp"
 #include "AstCore/StateCalculation.hpp"
 #include "AstCore/StateCartesian.hpp"
+#include "AstCore/StateGeodetic.hpp"
 #include "AstCore/StateKeplerian.hpp"
 #include "AstCore/StateMapper.hpp"
 #include "AstCore/StateMixedSpherical.hpp"

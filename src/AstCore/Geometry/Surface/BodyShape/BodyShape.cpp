@@ -24,6 +24,7 @@
 #include "AstCore/EllipsoidShape.hpp"
 #include "AstUtil/SharedPtr.hpp"
 #include "AstUtil/Constants.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,6 +32,21 @@ BodyShape::BodyShape()
 {
     // 默认为组件对象
     this->setIsComponent(true);
+}
+
+errc_t BodyShape::transform(const Vector3d&, const Vector3d&,
+                            GeodeticPoint&, LatLonAlt&) const
+{
+    // 默认实现: 仅旋转椭球与圆球给出了度量因子, 其余形状不支持该转换
+    aError(_("该天体形状不支持大地坐标与天体固连系速度的相互转换"));
+    return eErrorNotImplemented;
+}
+
+errc_t BodyShape::transform(const GeodeticPoint&, const LatLonAlt&,
+                            Vector3d&, Vector3d&) const
+{
+    aError(_("该天体形状不支持大地坐标与天体固连系速度的相互转换"));
+    return eErrorNotImplemented;
 }
 
 BodyShape* aWGS84Spheroid()
