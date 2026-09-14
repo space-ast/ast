@@ -554,6 +554,7 @@
 #include "AstCore/StateCalculation.hpp"
 #include "AstCore/StateCartesian.hpp"
 #include "AstCore/StateKeplerian.hpp"
+#include "AstCore/StateSpherical.hpp"
 #include "AstCore/StateMapper.hpp"
 #include "AstCore/StationaryOrbitDesigner.hpp"
 #include "AstCore/Stop.hpp"

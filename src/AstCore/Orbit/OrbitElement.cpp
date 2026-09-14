@@ -97,7 +97,7 @@ errc_t coe2rv(const double* coe, double gm, double* pos, double* vel)
     vel[1] = -c4 * (sraan * c6 - craan * cinc * c5);
     vel[2] = c4 * c5 * sinc;
     if (ecc == 1) {
-        aError(_("偏心率为1"));
+        aWarning(_("偏心率为1"));
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -121,7 +121,7 @@ errc_t coe2mee(const double* coe, double* mee)
     k = temp * sin(raan);              // k
     L = mod(raan + argper + trueAnom, PI2);
     if (e == 1) {
-        aError(_("偏心率为1"));
+        aWarning(_("偏心率为1"));
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -251,7 +251,7 @@ errc_t rv2mee(const double* pos_, const double* vel_, double gm, double* mee)
 
     if (unith[2] + 1.0 <= 0.0)
     {
-        aError(_("轨道倾角接近180度，不适合用春分点轨道根数描述."));
+        aWarning(_("轨道倾角接近180度，不适合用春分点轨道根数描述."));
         return eErrorInvalidParam;
     }
     double cosiadd1 = 1.0 + unith[2];
@@ -957,13 +957,13 @@ errc_t coe2dela(const double *coeIn, double gm, double *delaOut)
    
     if (gm < 1e-15)
     {
-        aError(_("引力常数 (gm=%e) 太小，无法从 Keplerian 转换到 Delaunay"), gm);
+        aWarning(_("引力常数 (gm=%e) 太小，无法从 Keplerian 转换到 Delaunay"), gm);
         return eErrorInvalidParam;
     }
    
     if ( ecc >= 1.0)
     {
-        aError(_("ecc 不小于 1.0，不支持"));
+        aWarning(_("ecc 不小于 1.0，不支持"));
         return eErrorInvalidParam;
     }
    
@@ -996,12 +996,12 @@ errc_t dela2coe(const double *delaIn, double gm, double *coeOut)
     
     if (std::abs(H_dela) > std::abs(G_dela))
     {
-        aError(_("DelaunayH 的模必须小于或等于 DelaunayG 的模"));
+        aWarning(_("DelaunayH 的模必须小于或等于 DelaunayG 的模"));
         return eErrorInvalidParam;
     }
     if ((G_dela / L_dela) > 1.0)
     {
-        aError(_("要求 (DelaunayG / DelaunayL) 不大于 1"));
+        aWarning(_("要求 (DelaunayG / DelaunayL) 不大于 1"));
         return eErrorInvalidParam;
     }
  
@@ -1194,7 +1194,7 @@ static Vector3d aPerpendicularPlusX(const Vector3d& hhat)
     double ymag = norm(yv);
     if (ymag > kMagTol)
         return yv / ymag;
-    aError(_("无法确定与轨道面法向垂直的矢量"));
+    aWarning(_("无法确定与轨道面法向垂直的矢量"));
     return xhat;
 }
 
@@ -1214,7 +1214,7 @@ static errc_t aBPlaneRT(const Vector3d& shat, const Vector3d& refVector, Vector3
     double tmag = norm(tv);
     if (tmag <= kMagTol)            // 参考向量与入渐近线平行时, T轴无定义
     {
-        aError(_("参考向量与入渐近线平行, 无法确定B平面的R、T轴"));
+        aWarning(_("参考向量与入渐近线平行, 无法确定B平面的R、T轴"));
         return eErrorInvalidParam;
     }
     that = tv / tmag;
@@ -1238,7 +1238,7 @@ errc_t aCartToBPlane(
     double hmag = norm(hv);
     if (hmag <= 0)                  // 直线运动, 轨道面不确定
     {
-        aError(_("角动量为零, 无法确定轨道面"));
+        aWarning(_("角动量为零, 无法确定轨道面"));
         return eErrorInvalidParam;
     }
     auto hhat = hv / hmag;
@@ -1314,7 +1314,7 @@ errc_t aBPlaneToCart(
     double ecc2 = (c3 > 0) ? (1.0 + tmp * tmp) : (1.0 - tmp * tmp);
     if (ecc2 < 0)                   // 椭圆轨道下 |B| 不能大于半长轴
     {
-        aError(_("B矢量模大于半长轴, 参数不合法"));
+        aWarning(_("B矢量模大于半长轴, 参数不合法"));
         return eErrorInvalidParam;
     }
     double ecc = sqrt(ecc2);
@@ -1331,7 +1331,7 @@ errc_t aBPlaneToCart(
     double hmag = norm(hv);
     if (hmag <= 0)
     {
-        aError(_("B矢量为零, 无法确定轨道面"));
+        aWarning(_("B矢量为零, 无法确定轨道面"));
         return eErrorInvalidParam;
     }
     auto hhat = hv / hmag;
@@ -1353,6 +1353,100 @@ errc_t aBPlaneToCart(
 
     pos = rmag * (cos(nu) * ehat + sin(nu) * qhat);
     vel = (gm / hmom) * (-sin(nu) * ehat + (ecc + cos(nu)) * qhat);
+    return eNoError;
+}
+
+
+// -------------
+// 球坐标根数相关计算
+// -------------
+
+std::string SphericalElem::toString() const
+{
+    return std::string(
+        "SphericalElem{ra: " + aFormatDouble(ra_ * kRadToDeg) + "deg" +
+        ", dec: " + aFormatDouble(dec_ * kRadToDeg) + "deg" +
+        ", r: " + aFormatDouble(r_) + "m" +
+        ", fpa: " + aFormatDouble(fpa_ * kRadToDeg) + "deg" +
+        ", azi: " + aFormatDouble(azi_ * kRadToDeg) + "deg" +
+        ", v: " + aFormatDouble(v_) + "m/s" +
+        "}");
+}
+
+/// 计算当地东、北单位矢量: 东 = (-sin(ra), cos(ra), 0), 北 = rhat x 东
+/// @param ra 赤经 [rad]
+/// @param rhat 位置方向单位矢量
+/// @param ehat 输出当地东向单位矢量
+/// @param nhat 输出当地北向单位矢量
+static void aLocalEastNorth(double ra, const Vector3d& rhat, Vector3d& ehat, Vector3d& nhat)
+{
+    ehat = Vector3d{-sin(ra), cos(ra), 0.0};
+    nhat = cross(rhat, ehat);
+}
+
+errc_t aCartToSpherical(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    SphericalElem& sph)
+{
+    double rmag = norm(pos);
+    double vmag = norm(vel);
+    if(rmag <= 0 || vmag <= 0)
+    {
+        sph = SphericalElem{};
+        aWarning(_("位置或速度为零矢量, 无法确定赤经、赤纬、航迹角与航迹方位角"));
+        return eErrorInvalidParam;
+    }
+
+    auto rhat = pos / rmag;
+
+    // 赤经与赤纬: 极点处atan2(0, 0)的取值为0, 该取值是一个约定, 仍可精确往返
+    double ra = mod(atan2(pos[1], pos[0]), PI2);
+    double dec = atan2(pos[2], hypot(pos[0], pos[1]));
+
+    // 当地东、北单位矢量
+    Vector3d ehat, nhat;
+    aLocalEastNorth(ra, rhat, ehat, nhat);
+
+    // 航迹角: 速度的径向分量与横向分量之比, 向上(远离中心天体)为正
+    double vRadial = dot(vel, rhat);
+    double vTransversal = norm(vel - vRadial * rhat);
+
+    sph.ra_  = ra;
+    sph.dec_ = dec;
+    sph.r_   = rmag;
+    sph.fpa_ = atan2(vRadial, vTransversal);
+    // 航迹方位角: 自当地北向东为正
+    sph.azi_ = atan2(dot(vel, ehat), dot(vel, nhat));
+    sph.v_   = vmag;
+    return eNoError;
+}
+
+errc_t aSphericalToCart(
+    const SphericalElem& sph,
+    Vector3d& pos,
+    Vector3d& vel)
+{
+    if(sph.r_ <= 0 || sph.v_ < 0)
+    {
+        aWarning(_("地心距或速度大小为负, 无法确定位置和速度"));
+        pos = Vector3d::Zero();
+        vel = Vector3d::Zero();
+        return eErrorInvalidParam;
+    }
+
+    double cosDec = cos(sph.dec_);
+    Vector3d rhat{cosDec * cos(sph.ra_), cosDec * sin(sph.ra_), sin(sph.dec_)};
+
+    // 当地东、北单位矢量
+    Vector3d ehat, nhat;
+    aLocalEastNorth(sph.ra_, rhat, ehat, nhat);
+
+    // 速度: 径向分量 + 当地水平面内的横向分量(方位角自当地北向东量)
+    Vector3d horizontal = cos(sph.azi_) * nhat + sin(sph.azi_) * ehat;
+
+    pos = sph.r_ * rhat;
+    vel = sph.v_ * (sin(sph.fpa_) * rhat + cos(sph.fpa_) * horizontal);
     return eNoError;
 }
 

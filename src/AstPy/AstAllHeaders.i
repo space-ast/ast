@@ -716,6 +716,7 @@
 %include "../AstCore/Orbit/Spacecraft/SpacecraftState.hpp"
 %include "../AstCore/Orbit/State/StateCartesian.hpp"
 %include "../AstCore/Orbit/State/StateKeplerian.hpp"
+%include "../AstCore/Orbit/State/StateSpherical.hpp"
 %include "../AstSim/Motion/Abstract/MotionOrbitDynamics.hpp"
 %include "../AstMath/ODE/Impl/RK4.hpp"
 %include "../AstMath/ODE/Impl/RK8.hpp"

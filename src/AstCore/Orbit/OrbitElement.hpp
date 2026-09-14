@@ -1,7 +1,7 @@
 ///
 /// @file      OrbitElement.hpp
 /// @brief     轨道根数定义及转换接口
-/// @details   提供各种轨道根数（直角坐标、经典轨道根数、修正轨道根数、春分点根数、改进春分点轨道根数）之间的转换函数。
+/// @details   提供各种轨道根数（直角坐标、经典轨道根数、修正轨道根数、春分点根数、改进春分点轨道根数、球坐标根数、B平面根数）之间的转换函数。
 /// @author    axel
 /// @date      19.11.2025
 /// @copyright 版权所有 (C) 2025-present, ast项目.
@@ -368,6 +368,87 @@ public:
     AST_DEF_ACCESS_METHOD(double, c3)
     AST_DEF_ACCESS_METHOD(double, trueA)
 };
+
+
+/// @brief 球坐标轨道根数
+/// @details
+/// 用赤经、赤纬、地心距描述位置, 用飞行航迹角、航迹方位角、速度大小描述速度。
+/// 各分量均在参考坐标系的轴系下定义:
+///     ra  = atan2(y, x)           [rad] 赤经, 自x轴逆时针量, 范围[0, 2π)
+///     dec = atan2(z, hypot(x, y)) [rad] 赤纬, 范围[-π/2, π/2]
+///     r   = |pos|                 [m]   地心距
+///     fpa = atan2(v_r, v_h)       [rad] 航迹角, 速度矢量与当地水平面的夹角, 向上为正
+///     azi = atan2(v_e, v_n)       [rad] 航迹方位角, 自当地北向东为正
+///     v   = |vel|                 [m/s] 速度大小
+/// @note  极点(|dec|=π/2)处赤经与航迹方位角奇异: 正向转换取ra=0, 仍保持精确往返;
+///        零速度时航迹角与航迹方位角无定义, 正向转换失败。
+class SphericalElem
+{
+// 设置为public使类型为聚合类型
+public:
+    double ra_;         ///< 赤经 [rad]
+    double dec_;        ///< 赤纬 [rad]
+    double r_;          ///< 地心距 [m]
+    double fpa_;        ///< 航迹角 [rad]
+    double azi_;        ///< 航迹方位角 [rad]
+    double v_;          ///< 速度大小 [m/s]
+public:
+    /// @brief 获取赤经
+    double getRA() const {return ra_;}
+
+    /// @brief 获取赤纬
+    double getDec() const {return dec_;}
+
+    /// @brief 获取地心距
+    double getRadius() const {return r_;}
+
+    /// @brief 获取飞行航迹角(水平飞行航迹角)
+    double getFltPathAng() const {return fpa_;}
+
+    /// @brief 获取航迹方位角
+    double getFltPathAzi() const {return azi_;}
+
+    /// @brief 获取速度大小
+    double getVel() const {return v_;}
+
+    /// @brief 转换为字符串
+    AST_CORE_API
+    std::string toString() const;
+public:
+    A_DEF_POD_ITERABLE(double)
+    AST_DEF_ACCESS_METHOD(double, ra)
+    AST_DEF_ACCESS_METHOD(double, dec)
+    AST_DEF_ACCESS_METHOD(double, r)
+    AST_DEF_ACCESS_METHOD(double, fpa)
+    AST_DEF_ACCESS_METHOD(double, azi)
+    AST_DEF_ACCESS_METHOD(double, v)
+};
+
+
+/// @brief 直角坐标转换为球坐标根数
+/// @param pos 位置矢量 [m]
+/// @param vel 速度矢量 [m/s]
+/// @param sph 输出球坐标根数
+/// @return 错误码，成功返回eNoError
+/// @note  位置或速度为零矢量时无法确定赤经、赤纬、航迹角与航迹方位角, 返回eErrorInvalidParam
+AST_CORE_API errc_t aCartToSpherical(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    SphericalElem& sph
+);
+
+
+/// @brief 球坐标根数转换为直角坐标
+/// @param sph 球坐标根数
+/// @param pos 输出位置矢量 [m]
+/// @param vel 输出速度矢量 [m/s]
+/// @return 错误码，成功返回eNoError
+/// @note  地心距不大于零或速度小于零时返回eErrorInvalidParam
+AST_CORE_API errc_t aSphericalToCart(
+    const SphericalElem& sph,
+    Vector3d& pos,
+    Vector3d& vel
+);
 
 
 /// @brief 经典轨道根数转换为直角坐标
