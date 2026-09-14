@@ -1974,6 +1974,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SphereShape.html">SphereShape</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SpheroidShape.html">SpheroidShape</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SpiceAPI.html">SpiceAPI</a></td></tr>
@@ -2035,6 +2037,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1StateKeplerian.html">StateKeplerian</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1StateMapper.html">StateMapper</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1StateSpherical.html">StateSpherical</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1StateVector.html">StateVector</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2633,6 +2637,12 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>PStateKeplerian</b> 
 <tr class="memitem:a3e892ae37d58a848b2c9b3811656874b" id="r_a3e892ae37d58a848b2c9b3811656874b"><td class="memItemLeft" align="right" valign="top"><a id="a3e892ae37d58a848b2c9b3811656874b" name="a3e892ae37d58a848b2c9b3811656874b"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>HStateKeplerian</b> = <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1StateKeplerian.html">StateKeplerian</a>&gt;</td></tr>
 <tr class="separator:a3e892ae37d58a848b2c9b3811656874b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c56f1642813509f4cc41eacd3f13fb" id="r_a91c56f1642813509f4cc41eacd3f13fb"><td class="memItemLeft" align="right" valign="top"><a id="a91c56f1642813509f4cc41eacd3f13fb" name="a91c56f1642813509f4cc41eacd3f13fb"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>PStateSpherical</b> = <a class="el" href="classast_1_1StateSpherical.html">StateSpherical</a>*</td></tr>
+<tr class="separator:a91c56f1642813509f4cc41eacd3f13fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7254705a707351a1bad861cb83c12bc" id="r_aa7254705a707351a1bad861cb83c12bc"><td class="memItemLeft" align="right" valign="top"><a id="aa7254705a707351a1bad861cb83c12bc" name="aa7254705a707351a1bad861cb83c12bc"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>HStateSpherical</b> = <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1StateSpherical.html">StateSpherical</a>&gt;</td></tr>
+<tr class="separator:aa7254705a707351a1bad861cb83c12bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3c1129f8ed4fc74243d3c8188098003" id="r_ac3c1129f8ed4fc74243d3c8188098003"><td class="memItemLeft" align="right" valign="top"><a id="ac3c1129f8ed4fc74243d3c8188098003" name="ac3c1129f8ed4fc74243d3c8188098003"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>BlockAstro</b> = <a class="el" href="classast_1_1FuncBlock.html">FuncBlock</a></td></tr>
 <tr class="separator:ac3c1129f8ed4fc74243d3c8188098003"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3114,10 +3124,14 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <a class="el" href="group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da5bca659531259314bb61d5e1fe859cd1">EBPlaneRefVector::eCustom</a>
  }</td></tr>
 <tr class="separator:gab6967e300fe546ef4241ca4d9f8e149d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab96fec81957cc2c158036b02a89198f0" id="r_ab96fec81957cc2c158036b02a89198f0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab96fec81957cc2c158036b02a89198f0">EStateType</a> { <a class="el" href="#ab96fec81957cc2c158036b02a89198f0ab2857087f6ac735b490837f6ea566707">eCartesian</a>
+<tr class="memitem:ab96fec81957cc2c158036b02a89198f0" id="r_ab96fec81957cc2c158036b02a89198f0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab96fec81957cc2c158036b02a89198f0">EStateType</a> { <br />
+&#160;&#160;<a class="el" href="#ab96fec81957cc2c158036b02a89198f0ab2857087f6ac735b490837f6ea566707">eCartesian</a>
 , <a class="el" href="#ab96fec81957cc2c158036b02a89198f0ac29f4242fedd02baf87fbc607461696c">eKeplerian</a>
+, <a class="el" href="#ab96fec81957cc2c158036b02a89198f0a20cf4ac448c4e6af02dc910e7fd95045">eSpherical</a>
 , <a class="el" href="#ab96fec81957cc2c158036b02a89198f0a5b6fbab85edc08161cbf8f0168f17f6c">eBPlane</a>
-, <a class="el" href="#ab96fec81957cc2c158036b02a89198f0a64c3acc11ffdb1be30ea339290bd1508">eUnknown</a>
+, <br />
+&#160;&#160;<a class="el" href="#ab96fec81957cc2c158036b02a89198f0a64c3acc11ffdb1be30ea339290bd1508">eUnknown</a>
+<br />
  }</td></tr>
 <tr class="separator:ab96fec81957cc2c158036b02a89198f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42503bc04b484437e930407c57f5658c" id="r_a42503bc04b484437e930407c57f5658c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42503bc04b484437e930407c57f5658c">ESizeType</a> { <br />
@@ -4933,6 +4947,10 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aAxesTransform</b> 
 <tr class="separator:ga6dd74e9a84ce8ae1275200500fb99faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gada3b849960c19c39cae7ec99abf59dc4" id="r_gada3b849960c19c39cae7ec99abf59dc4"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#gada3b849960c19c39cae7ec99abf59dc4">aBPlaneToCart</a> (const <a class="el" href="classast_1_1BPlaneElem.html">BPlaneElem</a> &amp;bPlane, double gm, const Vector3d &amp;refVector, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
 <tr class="separator:gada3b849960c19c39cae7ec99abf59dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga586f129fc7ae3aa33a3ed285aadc6b8a" id="r_ga586f129fc7ae3aa33a3ed285aadc6b8a"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga586f129fc7ae3aa33a3ed285aadc6b8a">aCartToSpherical</a> (const Vector3d &amp;pos, const Vector3d &amp;vel, <a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a> &amp;sph)</td></tr>
+<tr class="separator:ga586f129fc7ae3aa33a3ed285aadc6b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ba25ffd5dc2200302df32f6b32d1e97" id="r_ga0ba25ffd5dc2200302df32f6b32d1e97"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga0ba25ffd5dc2200302df32f6b32d1e97">aSphericalToCart</a> (const <a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a> &amp;sph, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
+<tr class="separator:ga0ba25ffd5dc2200302df32f6b32d1e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab78b48363bb280ffe8cc0fbe0336a31f" id="r_gab78b48363bb280ffe8cc0fbe0336a31f"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1ModOrbElem.html">ModOrbElem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#gab78b48363bb280ffe8cc0fbe0336a31f">aCartToModOrbElem</a> (const Vector3d &amp;r, const Vector3d &amp;v, double gm)</td></tr>
 <tr class="separator:gab78b48363bb280ffe8cc0fbe0336a31f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3b4e6412e7618867cf04928571783cf0" id="r_ga3b4e6412e7618867cf04928571783cf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__OrbitGeometry.html#ga3b4e6412e7618867cf04928571783cf0">aOrbitPlaneNormal</a> (double inc, double raan, Vector3d &amp;normal)</td></tr>
@@ -9896,6 +9914,8 @@ constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>kId
 <tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ab96fec81957cc2c158036b02a89198f0ab2857087f6ac735b490837f6ea566707" name="ab96fec81957cc2c158036b02a89198f0ab2857087f6ac735b490837f6ea566707"></a>eCartesian&#160;</td><td class="fielddoc"><p>笛卡尔状态 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ab96fec81957cc2c158036b02a89198f0ac29f4242fedd02baf87fbc607461696c" name="ab96fec81957cc2c158036b02a89198f0ac29f4242fedd02baf87fbc607461696c"></a>eKeplerian&#160;</td><td class="fielddoc"><p>开普勒状态 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab96fec81957cc2c158036b02a89198f0a20cf4ac448c4e6af02dc910e7fd95045" name="ab96fec81957cc2c158036b02a89198f0a20cf4ac448c4e6af02dc910e7fd95045"></a>eSpherical&#160;</td><td class="fielddoc"><p>球坐标状态 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ab96fec81957cc2c158036b02a89198f0a5b6fbab85edc08161cbf8f0168f17f6c" name="ab96fec81957cc2c158036b02a89198f0a5b6fbab85edc08161cbf8f0168f17f6c"></a>eBPlane&#160;</td><td class="fielddoc"><p>B平面状态 </p>
 </td></tr>

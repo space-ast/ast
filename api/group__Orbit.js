@@ -190,6 +190,21 @@ var group__Orbit =
       [ "ra_", "classast_1_1BPlaneElem.html#a0bf3e5d8b387b7cd1e612f0b0f8279c2", null ],
       [ "trueA_", "classast_1_1BPlaneElem.html#a688a0035330fcf8ad82d4625eea9c83e", null ]
     ] ],
+    [ "ast::SphericalElem", "classast_1_1SphericalElem.html", [
+      [ "getDec", "classast_1_1SphericalElem.html#aaec9c4412dc805c2ea4d0ec6dfda11f8", null ],
+      [ "getFltPathAng", "classast_1_1SphericalElem.html#a6976bca9c9345e2653dcea90a8840382", null ],
+      [ "getFltPathAzi", "classast_1_1SphericalElem.html#a020a19468559f6e4e349fb1feea0b937", null ],
+      [ "getRA", "classast_1_1SphericalElem.html#a84653da5692e7a7b26b91f53cfdc6342", null ],
+      [ "getRadius", "classast_1_1SphericalElem.html#a80f25781352e8c02714e87e936566461", null ],
+      [ "getVel", "classast_1_1SphericalElem.html#aa6c875d6f58ec6866af2efcb934038ec", null ],
+      [ "toString", "classast_1_1SphericalElem.html#a522fe41f477c9a137e31843c551ad231", null ],
+      [ "azi_", "classast_1_1SphericalElem.html#a0c5343b15c6274d3d6eefcda596e5f8e", null ],
+      [ "dec_", "classast_1_1SphericalElem.html#a20f96c62ebd2a9dd850b6fc3541d790c", null ],
+      [ "fpa_", "classast_1_1SphericalElem.html#ae236c883a3cea6d91de9eb6f93717655", null ],
+      [ "r_", "classast_1_1SphericalElem.html#a6f766c8a2584977654966db72fa9acc5", null ],
+      [ "ra_", "classast_1_1SphericalElem.html#a8c063365d21ca2b1b370493d501d5621", null ],
+      [ "v_", "classast_1_1SphericalElem.html#a0282c81ae0fabfa58edc8b8a3218c18a", null ]
+    ] ],
     [ "ast::EBPlaneRefVector", "group__Orbit.html#gab6967e300fe546ef4241ca4d9f8e149d", [
       [ "ast::EBPlaneRefVector::eBodyOrbitNormal", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da6a48b148d847c4cbd2adc3c9050dd087", null ],
       [ "ast::EBPlaneRefVector::eSpacecraftOrbitNormal", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da6dc1839711e7b2c05e8a01a1f2ea4c8d", null ],
@@ -219,6 +234,7 @@ var group__Orbit =
     [ "ast::aCartToModOrbElem", "group__Orbit.html#ga7fdb778370ab42132dd7408540896a53", null ],
     [ "ast::aCartToModOrbElem", "group__Orbit.html#gab78b48363bb280ffe8cc0fbe0336a31f", null ],
     [ "ast::aCartToOrbElem", "group__Orbit.html#gad447b5bf492a264a9cb1b4881a50e6e2", null ],
+    [ "ast::aCartToSpherical", "group__Orbit.html#ga586f129fc7ae3aa33a3ed285aadc6b8a", null ],
     [ "ast::aDelaunayToOrbElem", "group__Orbit.html#ga54c44d7c9f1fe6bc91b811685bb31209", null ],
     [ "ast::aEccToFlat", "group__Orbit.html#ga5c7f3dfea3fdb060d29571e20c203c07", null ],
     [ "ast::aEccToMean", "group__Orbit.html#ga84ae9a11a491f25fe5402b18ed3f37a6", null ],
@@ -282,6 +298,7 @@ var group__Orbit =
     [ "ast::aSMAToSMinAx", "group__Orbit.html#gae97af2364e248e19117ddda707f8a925", null ],
     [ "ast::aSMAToSParam", "group__Orbit.html#ga58481d4e11cac545c86b73019e854e59", null ],
     [ "ast::aSMinAxToSMA", "group__Orbit.html#ga94434d9d496526076d21e26c8527aa50", null ],
+    [ "ast::aSphericalToCart", "group__Orbit.html#ga0ba25ffd5dc2200302df32f6b32d1e97", null ],
     [ "ast::aSunSynchronousInclination", "group__Orbit.html#gaade62de67dff12b7b7959b00db311f1a", null ],
     [ "ast::aSunSynchronousInclination", "group__Orbit.html#ga636649d0a9cfcbf711c1d152c290dcfc", null ],
     [ "ast::aSunSynchronousSemiMajorAxis", "group__Orbit.html#ga5d30ae87d8900bf3e2117efe0a490b8f", null ],

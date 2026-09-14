@@ -1,5 +1,9 @@
 var NAVTREEINDEX26 =
 {
+"classast_1_1DetectorDuration.html":[3,0,0,256],
+"classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49":[2,0,0,257,0],
+"classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49":[3,0,0,256,0],
+"classast_1_1DetectorEpoch.html":[2,0,0,258],
 "classast_1_1DetectorEpoch.html":[3,0,0,257],
 "classast_1_1DetectorEpoch.html#ab8c9990550692ecb5bca0e09a6457aca":[2,0,0,258,0],
 "classast_1_1DetectorEpoch.html#ab8c9990550692ecb5bca0e09a6457aca":[3,0,0,257,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX26 =
 "classast_1_1EphemerisFileParser.html":[2,0,0,288],
 "classast_1_1EphemerisFileParser.html":[3,0,0,287],
 "classast_1_1EphemerisFileWriter.html":[2,0,0,289],
-"classast_1_1EphemerisFileWriter.html":[3,0,0,288],
-"classast_1_1EphemerisFileWriter.html#a118fd29c3b418469c5e30428459c7565":[2,0,0,289,0],
-"classast_1_1EphemerisFileWriter.html#a118fd29c3b418469c5e30428459c7565":[3,0,0,288,0],
-"classast_1_1EphemerisLagrangeVar.html":[2,0,0,290],
-"classast_1_1EphemerisLagrangeVar.html":[3,0,0,289]
+"classast_1_1EphemerisFileWriter.html":[3,0,0,288]
 };

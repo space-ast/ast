@@ -142,6 +142,8 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BPlaneElem.html">ast::BPlaneElem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SphericalElem.html">ast::SphericalElem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
@@ -172,6 +174,10 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 <tr class="separator:gaade62de67dff12b7b7959b00db311f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5d30ae87d8900bf3e2117efe0a490b8f" id="r_ga5d30ae87d8900bf3e2117efe0a490b8f"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5d30ae87d8900bf3e2117efe0a490b8f">ast::aSunSynchronousSemiMajorAxis</a> (double gm, double j2, double rb, double bodyMeanMotion, double inc, double ecc)</td></tr>
 <tr class="separator:ga5d30ae87d8900bf3e2117efe0a490b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga586f129fc7ae3aa33a3ed285aadc6b8a" id="r_ga586f129fc7ae3aa33a3ed285aadc6b8a"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga586f129fc7ae3aa33a3ed285aadc6b8a">ast::aCartToSpherical</a> (const Vector3d &amp;pos, const Vector3d &amp;vel, <a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a> &amp;sph)</td></tr>
+<tr class="separator:ga586f129fc7ae3aa33a3ed285aadc6b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ba25ffd5dc2200302df32f6b32d1e97" id="r_ga0ba25ffd5dc2200302df32f6b32d1e97"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0ba25ffd5dc2200302df32f6b32d1e97">ast::aSphericalToCart</a> (const <a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a> &amp;sph, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
+<tr class="separator:ga0ba25ffd5dc2200302df32f6b32d1e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2b4504e96da0e3c45617a0d1a02461b2" id="r_ga2b4504e96da0e3c45617a0d1a02461b2"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2b4504e96da0e3c45617a0d1a02461b2">ast::coe2rv</a> (const double *coe, double gm, double *pos, double *vel)</td></tr>
 <tr class="separator:ga2b4504e96da0e3c45617a0d1a02461b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga43c391913302a47ee361df3c024a02fd" id="r_ga43c391913302a47ee361df3c024a02fd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga43c391913302a47ee361df3c024a02fd">ast::coe2mee</a> (const double *coe, double *mee)</td></tr>
@@ -1402,6 +1408,44 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+
+</div>
+</div>
+<a id="ga586f129fc7ae3aa33a3ed285aadc6b8a" name="ga586f129fc7ae3aa33a3ed285aadc6b8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga586f129fc7ae3aa33a3ed285aadc6b8a">&#9670;&#160;</a></span>aCartToSpherical()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aCartToSpherical </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sph</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>直角坐标转换为球坐标根数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>位置矢量 [m] </td></tr>
+    <tr><td class="paramname">vel</td><td>速度矢量 [m/s] </td></tr>
+    <tr><td class="paramname">sph</td><td>输出球坐标根数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>位置或速度为零矢量时无法确定赤经、赤纬、航迹角与航迹方位角, 返回eErrorInvalidParam </dd></dl>
 
 </div>
 </div>
@@ -3766,6 +3810,44 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>长半轴 [m] </dd></dl>
+
+</div>
+</div>
+<a id="ga0ba25ffd5dc2200302df32f6b32d1e97" name="ga0ba25ffd5dc2200302df32f6b32d1e97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0ba25ffd5dc2200302df32f6b32d1e97">&#9670;&#160;</a></span>aSphericalToCart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aSphericalToCart </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sph</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>球坐标根数转换为直角坐标 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sph</td><td>球坐标根数 </td></tr>
+    <tr><td class="paramname">pos</td><td>输出位置矢量 [m] </td></tr>
+    <tr><td class="paramname">vel</td><td>输出速度矢量 [m/s] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，成功返回eNoError </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>地心距不大于零或速度小于零时返回eErrorInvalidParam </dd></dl>
 
 </div>
 </div>

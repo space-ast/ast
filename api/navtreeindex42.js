@@ -1,5 +1,9 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1ScStateCalcAbsoluteValue.html":[3,0,0,677],
+"classast_1_1ScStateCalcAltitude.html":[2,0,0,679],
+"classast_1_1ScStateCalcAltitude.html":[3,0,0,678],
+"classast_1_1ScStateCalcAltitudeOfApoapsis.html":[2,0,0,680],
 "classast_1_1ScStateCalcAltitudeOfApoapsis.html":[3,0,0,679],
 "classast_1_1ScStateCalcAltitudeOfPeriapsis.html":[2,0,0,681],
 "classast_1_1ScStateCalcAltitudeOfPeriapsis.html":[3,0,0,680],
@@ -245,9 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalcOrbitDelaunayL.html":[3,0,0,794],
 "classast_1_1ScStateCalcOrbitPeriod.html":[2,0,0,796],
 "classast_1_1ScStateCalcOrbitPeriod.html":[3,0,0,795],
-"classast_1_1ScStateCalcOrbitSemiLatusRectum.html":[2,0,0,797],
-"classast_1_1ScStateCalcOrbitSemiLatusRectum.html":[3,0,0,796],
-"classast_1_1ScStateCalcOrbitStateValue.html":[2,0,0,798],
-"classast_1_1ScStateCalcOrbitStateValue.html":[3,0,0,797],
-"classast_1_1ScStateCalcOutAsympDec.html":[2,0,0,799]
+"classast_1_1ScStateCalcOrbitSemiLatusRectum.html":[2,0,0,797]
 };

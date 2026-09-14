@@ -132,6 +132,8 @@ $(function(){initNavTree('OrbitElement_8hpp.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1BPlaneElem.html">ast::BPlaneElem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1SphericalElem.html">ast::SphericalElem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -149,6 +151,10 @@ $(function(){initNavTree('OrbitElement_8hpp.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:ga586f129fc7ae3aa33a3ed285aadc6b8a" id="r_ga586f129fc7ae3aa33a3ed285aadc6b8a"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga586f129fc7ae3aa33a3ed285aadc6b8a">ast::aCartToSpherical</a> (const Vector3d &amp;pos, const Vector3d &amp;vel, <a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a> &amp;sph)</td></tr>
+<tr class="separator:ga586f129fc7ae3aa33a3ed285aadc6b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ba25ffd5dc2200302df32f6b32d1e97" id="r_ga0ba25ffd5dc2200302df32f6b32d1e97"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga0ba25ffd5dc2200302df32f6b32d1e97">ast::aSphericalToCart</a> (const <a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a> &amp;sph, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
+<tr class="separator:ga0ba25ffd5dc2200302df32f6b32d1e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2b4504e96da0e3c45617a0d1a02461b2" id="r_ga2b4504e96da0e3c45617a0d1a02461b2"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga2b4504e96da0e3c45617a0d1a02461b2">ast::coe2rv</a> (const double *coe, double gm, double *pos, double *vel)</td></tr>
 <tr class="separator:ga2b4504e96da0e3c45617a0d1a02461b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga43c391913302a47ee361df3c024a02fd" id="r_ga43c391913302a47ee361df3c024a02fd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga43c391913302a47ee361df3c024a02fd">ast::coe2mee</a> (const double *coe, double *mee)</td></tr>
@@ -230,7 +236,7 @@ $(function(){initNavTree('OrbitElement_8hpp.html',''); initResizable(true); });
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>轨道根数定义及转换接口 </p>
-<p>提供各种轨道根数（直角坐标、经典轨道根数、修正轨道根数、春分点根数、改进春分点轨道根数）之间的转换函数。 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
+<p>提供各种轨道根数（直角坐标、经典轨道根数、修正轨道根数、春分点根数、改进春分点轨道根数、球坐标根数、B平面根数）之间的转换函数。 </p><dl class="section author"><dt>作者</dt><dd>axel </dd></dl>
 <dl class="section date"><dt>日期</dt><dd>19.11.2025 </dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd>版权所有 (C) 2025-present, ast项目.</dd></dl>
 <p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>

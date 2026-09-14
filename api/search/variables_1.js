@@ -45,5 +45,6 @@ var searchData=
   ['averagestep_5f_42',['averageStep_',['../classast_1_1EphemerisLagrangeVar.html#a489a8392204b2d4a342744efacd7be3e',1,'ast::EphemerisLagrangeVar']]],
   ['axes_5f_43',['axes_',['../classast_1_1AxesFrozen.html#a7d770abcd6cbdaa1b982a106414ca01c',1,'ast::AxesFrozen::axes_'],['../classast_1_1AxesFrozenAtEventTime.html#aa7bfcd5dbb0240fa55a11f28f5132cff',1,'ast::AxesFrozenAtEventTime::axes_'],['../classast_1_1FrameAssembly.html#a0d929700481c1b4f191a791d71d9b42e',1,'ast::FrameAssembly::axes_']]],
   ['axis_5f_44',['axis_',['../classast_1_1AngleAxis.html#ae403cba318176d5a4d12a6406c48c4e9',1,'ast::AngleAxis']]],
-  ['azimuth_5f_45',['azimuth_',['../classast_1_1TrackingCoordinates.html#ad29ce2c328635f98d20e7c0a6e04cbb5',1,'ast::TrackingCoordinates']]]
+  ['azi_5f_45',['azi_',['../classast_1_1SphericalElem.html#a0c5343b15c6274d3d6eefcda596e5f8e',1,'ast::SphericalElem']]],
+  ['azimuth_5f_46',['azimuth_',['../classast_1_1TrackingCoordinates.html#ad29ce2c328635f98d20e7c0a6e04cbb5',1,'ast::TrackingCoordinates']]]
 ];

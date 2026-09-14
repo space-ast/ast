@@ -13,7 +13,7 @@ var searchData=
   ['db_10',['dB',['../namespaceast_1_1units.html#ae27b660304b769c7e437351d4651d249',1,'ast::units']]],
   ['dbm_11',['dBm',['../namespaceast_1_1units.html#ab458434e15d21ea67cf485f792c7adf7',1,'ast::units']]],
   ['dbw_12',['dBW',['../namespaceast_1_1units.html#a963631fcb1e2fada65c23440696356e2',1,'ast::units']]],
-  ['dec_5f_13',['dec_',['../classast_1_1BPlaneElem.html#a8c7facf89fe8b553148e724731adab39',1,'ast::BPlaneElem']]],
+  ['dec_5f_13',['dec_',['../classast_1_1BPlaneElem.html#a8c7facf89fe8b553148e724731adab39',1,'ast::BPlaneElem::dec_'],['../classast_1_1SphericalElem.html#a20f96c62ebd2a9dd850b6fc3541d790c',1,'ast::SphericalElem::dec_']]],
   ['defaultobject_5f_14',['defaultObject_',['../classast_1_1Class.html#a11aca8e75971e84eb0dba30877094620',1,'ast::Class']]],
   ['defile_5f_15',['deFile_',['../classast_1_1JplDe.html#a024c6edb5e94b1a6b111f37e7cebab69',1,'ast::JplDe']]],
   ['defines_5f_16',['defines_',['../classast_1_1BuildTarget.html#ad5e267060681ec6bd071b72edc763520',1,'ast::BuildTarget']]],

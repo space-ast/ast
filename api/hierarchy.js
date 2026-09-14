@@ -1368,7 +1368,8 @@ var hierarchy =
           [ "ast::State", "classast_1_1State.html", [
             [ "ast::StateBPlane", "classast_1_1StateBPlane.html", null ],
             [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
-            [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ]
+            [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ],
+            [ "ast::StateSpherical", "classast_1_1StateSpherical.html", null ]
           ] ],
           [ "ast::SweepOutput", "classast_1_1SweepOutput.html", null ],
           [ "ast::SweepVariable", "classast_1_1SweepVariable.html", null ],
@@ -1525,6 +1526,7 @@ var hierarchy =
     [ "ast::Sparse", "classast_1_1Sparse.html", null ],
     [ "ast::SpatialCalculationVisitor", "classast_1_1SpatialCalculationVisitor.html", null ],
     [ "ast::SpatialConditionVisitor", "classast_1_1SpatialConditionVisitor.html", null ],
+    [ "ast::SphericalElem", "classast_1_1SphericalElem.html", null ],
     [ "ast::SpiceAPI", "classast_1_1SpiceAPI.html", null ],
     [ "ast::SpiceBodyRegistry", "classast_1_1SpiceBodyRegistry.html", null ],
     [ "ast::SpiceFrameRegistry", "classast_1_1SpiceFrameRegistry.html", null ],

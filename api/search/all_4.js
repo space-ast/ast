@@ -154,7 +154,7 @@ var searchData=
   ['debugger_151',['Debugger',['../classast_1_1Debugger.html',1,'ast']]],
   ['debugger_2ecpp_152',['Debugger.cpp',['../Debugger_8cpp.html',1,'']]],
   ['debugger_2ehpp_153',['Debugger.hpp',['../Debugger_8hpp.html',1,'']]],
-  ['dec_5f_154',['dec_',['../classast_1_1BPlaneElem.html#a8c7facf89fe8b553148e724731adab39',1,'ast::BPlaneElem']]],
+  ['dec_5f_154',['dec_',['../classast_1_1BPlaneElem.html#a8c7facf89fe8b553148e724731adab39',1,'ast::BPlaneElem::dec_'],['../classast_1_1SphericalElem.html#a20f96c62ebd2a9dd850b6fc3541d790c',1,'ast::SphericalElem::dec_']]],
   ['decibel_155',['Decibel',['../classast_1_1Unit.html#a7ddfdfd691f05b1a7b5dab50165d228c',1,'ast::Unit']]],
   ['decibelmilliwatt_156',['DecibelMilliwatt',['../classast_1_1Unit.html#a5ecd3cca2af600452ded86e6ed236e73',1,'ast::Unit']]],
   ['decibelwatt_157',['DecibelWatt',['../classast_1_1Unit.html#a268aa9d9bf0ac386ba56a34333c760d3',1,'ast::Unit']]],
