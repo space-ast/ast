@@ -36,7 +36,7 @@ typedef struct AMatrix3d
 
 #endif
 
-#ifndef AST_BUILD_LIB  // 避免报错：conflicting C language linkage declaration
+#if !defined(AST_BUILD_LIB) && defined(AST_ENABLE_CAPI)  // 避免报错：conflicting C language linkage declaration
 
 AST_CORE_CAPI int aTwoBodyProp(double dt, double gm, AVector3d* pos, AVector3d* vel);
 

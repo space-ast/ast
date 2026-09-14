@@ -20,6 +20,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#ifdef AST_WITH_QWT
 #include <qwt_figure_widget_overlay.h>
 
 AST_NAMESPACE_BEGIN
@@ -38,3 +39,5 @@ protected:
 };
 
 AST_NAMESPACE_END
+
+#endif

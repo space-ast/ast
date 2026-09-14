@@ -6,6 +6,7 @@
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 
+#ifdef AST_WITH_QWT
 #include "EditFigureOverlay.hpp"
 #include <QMouseEvent>
 #include <QPainter>
@@ -177,3 +178,5 @@ void EditFigureOverlay::drawControlLine(QPainter* painter, const QRect& actualRe
 }
 
 AST_NAMESPACE_END
+
+#endif
