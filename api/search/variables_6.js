@@ -13,7 +13,7 @@ var searchData=
   ['flatfactor_5f_10',['flatFactor_',['../classast_1_1SpheroidShape.html#ab6f4ed930e79cbac6d2237acd4866468',1,'ast::SpheroidShape']]],
   ['fluxapfile_5f_11',['fluxApFile_',['../classast_1_1DragForce.html#a397fcd45c4ec9d06d72fadec245abef5',1,'ast::DragForce']]],
   ['format_5f_12',['format_',['../classast_1_1ReportElement.html#a9925a7692f061906f45996e5ddf0bf21',1,'ast::ReportElement']]],
-  ['fpa_5f_13',['fpa_',['../classast_1_1SphericalElem.html#ae236c883a3cea6d91de9eb6f93717655',1,'ast::SphericalElem']]],
+  ['fpa_5f_13',['fpa_',['../classast_1_1SphericalElem.html#ae236c883a3cea6d91de9eb6f93717655',1,'ast::SphericalElem::fpa_'],['../classast_1_1MixedSphericalElem.html#a9e6bb8e7b5761bce37d314040980c475',1,'ast::MixedSphericalElem::fpa_']]],
   ['frame_5f_14',['frame_',['../classast_1_1AtmosphereBase.html#a485bcf95a4f71497763ed891b5b00dd9',1,'ast::AtmosphereBase::frame_'],['../classast_1_1EphemerisLagrangeVar.html#a414a413a20b740331cb6a665cc981302',1,'ast::EphemerisLagrangeVar::frame_'],['../classast_1_1State.html#afd76bc624bd9bfdcd1d21937afeff909',1,'ast::State::frame_']]],
   ['free_15',['free',['../structast_1_1DAF__FileRecord.html#a2374ff9dcca78746eb384c4775ec8251',1,'ast::DAF_FileRecord']]],
   ['fromunit_5f_16',['fromUnit_',['../classast_1_1UnitConverter.html#a66f9c0d3b47f576a3fba2f7eb10f2839',1,'ast::UnitConverter']]],

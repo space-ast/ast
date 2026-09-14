@@ -1,5 +1,9 @@
 var NAVTREEINDEX26 =
 {
+"classast_1_1DetectorDescendingNode.html":[3,0,0,255],
+"classast_1_1DetectorDescendingNode.html#a8d0cf1b0abe9949e7db6f85731c0223c":[2,0,0,256,0],
+"classast_1_1DetectorDescendingNode.html#a8d0cf1b0abe9949e7db6f85731c0223c":[3,0,0,255,0],
+"classast_1_1DetectorDuration.html":[2,0,0,257],
 "classast_1_1DetectorDuration.html":[3,0,0,256],
 "classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49":[2,0,0,257,0],
 "classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49":[3,0,0,256,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX26 =
 "classast_1_1EphemerisBinary.html#adbc5d8eccc1b6eef3ab05adc27fda951":[2,0,0,287,1],
 "classast_1_1EphemerisBinary.html#adbc5d8eccc1b6eef3ab05adc27fda951":[3,0,0,286,1],
 "classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206":[2,0,0,287,4],
-"classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206":[3,0,0,286,4],
-"classast_1_1EphemerisFileParser.html":[2,0,0,288],
-"classast_1_1EphemerisFileParser.html":[3,0,0,287],
-"classast_1_1EphemerisFileWriter.html":[2,0,0,289],
-"classast_1_1EphemerisFileWriter.html":[3,0,0,288]
+"classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206":[3,0,0,286,4]
 };

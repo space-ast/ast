@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['v_5f_0',['v_',['../classast_1_1SphericalElem.html#a0282c81ae0fabfa58edc8b8a3218c18a',1,'ast::SphericalElem']]],
+  ['v_5f_0',['v_',['../classast_1_1SphericalElem.html#a0282c81ae0fabfa58edc8b8a3218c18a',1,'ast::SphericalElem::v_'],['../classast_1_1MixedSphericalElem.html#af82fd0d1256377d5e0260fb31300c283',1,'ast::MixedSphericalElem::v_']]],
   ['valarray_1',['ValArray',['../classast_1_1ValArray.html',1,'ast']]],
   ['valarray_2ecpp_2',['ValArray.cpp',['../ValArray_8cpp.html',1,'']]],
   ['valarray_2ehpp_3',['ValArray.hpp',['../ValArray_8hpp.html',1,'']]],

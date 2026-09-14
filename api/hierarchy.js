@@ -602,6 +602,7 @@ var hierarchy =
     ] ],
     [ "metselrecord", "structmetselrecord.html", null ],
     [ "ast::MissionCommandVisitor", "classast_1_1MissionCommandVisitor.html", null ],
+    [ "ast::MixedSphericalElem", "classast_1_1MixedSphericalElem.html", null ],
     [ "ast::MockUninitializedPointer", "classast_1_1MockUninitializedPointer.html", null ],
     [ "ast::ModEquinElem", "classast_1_1ModEquinElem.html", null ],
     [ "ast::Moderator", "classast_1_1Moderator.html", null ],
@@ -1369,6 +1370,7 @@ var hierarchy =
             [ "ast::StateBPlane", "classast_1_1StateBPlane.html", null ],
             [ "ast::StateCartesian", "classast_1_1StateCartesian.html", null ],
             [ "ast::StateKeplerian", "classast_1_1StateKeplerian.html", null ],
+            [ "ast::StateMixedSpherical", "classast_1_1StateMixedSpherical.html", null ],
             [ "ast::StateSpherical", "classast_1_1StateSpherical.html", null ]
           ] ],
           [ "ast::SweepOutput", "classast_1_1SweepOutput.html", null ],

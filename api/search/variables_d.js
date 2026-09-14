@@ -40,13 +40,14 @@ var searchData=
   ['minute_37',['minute',['../namespaceast_1_1units.html#a2d6fb503bf6082f07cb7c76eb28dd653',1,'ast::units']]],
   ['minute_5f_38',['minute_',['../classast_1_1Time.html#a725581098644a4dcdb197a45c1291381',1,'ast::Time']]],
   ['minvalue_5f_39',['minValue_',['../structast_1_1GridCoord.html#ad2f21681f16b5871bda753e482ca984d',1,'ast::GridCoord']]],
-  ['mjd_40',['mjd',['../structast_1_1EOP_1_1Entry.html#a15043430319f0f3facafed49b529f019',1,'ast::EOP::Entry']]],
-  ['mm_41',['mm',['../namespaceast_1_1units.html#a7b0c49927f01dc0647079c0e8d949521',1,'ast::units']]],
-  ['mode_5f_42',['mode_',['../classast_1_1DataPort.html#a987c352479736dac36de325236257ddb',1,'ast::DataPort']]],
-  ['model_5f_43',['model_',['../classast_1_1GravityFieldHead.html#a5787cef48f07d8e20f80d020cefaa2a9',1,'ast::GravityFieldHead::model_'],['../classast_1_1GravityForce.html#a2c3acbb879875f47bd7889dc78dd444d',1,'ast::GravityForce::model_'],['../classast_1_1GravityField.html#a5787cef48f07d8e20f80d020cefaa2a9',1,'ast::GravityField::model_']]],
-  ['modorbelem_5f_44',['modOrbElem_',['../classast_1_1StateKeplerian.html#a06ff1e1b6718b389a6e9e0140f036f53',1,'ast::StateKeplerian::modOrbElem_'],['../classast_1_1J2J4Analytical.html#a4d0e24ab9e7f382724d1af6083d81e21',1,'ast::J2J4Analytical::modOrbElem_']]],
-  ['month_5f_45',['month_',['../group__Time.html#ga723ebfd7f060ed1c64a4dc82d92a0c4c',1,'ast::Date']]],
-  ['moon_5f_46',['moon_',['../classast_1_1SolarSystem.html#a72dda8f47d7469e691678eb2216cddf4',1,'ast::SolarSystem']]],
-  ['ms_47',['ms',['../namespaceast_1_1units.html#a66fc0c2327c7c298ea5eca0f8afb08c8',1,'ast::units']]],
-  ['mutex_5f_48',['mutex_',['../classast_1_1JplDe.html#a74fb293e5fdd83c88e3ecfbe11f82503',1,'ast::JplDe::mutex_'],['../classast_1_1SpiceAPI.html#a473b494575fc4bbdc8a5d124a954807c',1,'ast::SpiceAPI::mutex_']]]
+  ['mixedsphericalelem_5f_40',['mixedSphericalElem_',['../classast_1_1StateMixedSpherical.html#af9a64629a333700207ec62e4f0a97db7',1,'ast::StateMixedSpherical']]],
+  ['mjd_41',['mjd',['../structast_1_1EOP_1_1Entry.html#a15043430319f0f3facafed49b529f019',1,'ast::EOP::Entry']]],
+  ['mm_42',['mm',['../namespaceast_1_1units.html#a7b0c49927f01dc0647079c0e8d949521',1,'ast::units']]],
+  ['mode_5f_43',['mode_',['../classast_1_1DataPort.html#a987c352479736dac36de325236257ddb',1,'ast::DataPort']]],
+  ['model_5f_44',['model_',['../classast_1_1GravityFieldHead.html#a5787cef48f07d8e20f80d020cefaa2a9',1,'ast::GravityFieldHead::model_'],['../classast_1_1GravityForce.html#a2c3acbb879875f47bd7889dc78dd444d',1,'ast::GravityForce::model_'],['../classast_1_1GravityField.html#a5787cef48f07d8e20f80d020cefaa2a9',1,'ast::GravityField::model_']]],
+  ['modorbelem_5f_45',['modOrbElem_',['../classast_1_1StateKeplerian.html#a06ff1e1b6718b389a6e9e0140f036f53',1,'ast::StateKeplerian::modOrbElem_'],['../classast_1_1J2J4Analytical.html#a4d0e24ab9e7f382724d1af6083d81e21',1,'ast::J2J4Analytical::modOrbElem_']]],
+  ['month_5f_46',['month_',['../group__Time.html#ga723ebfd7f060ed1c64a4dc82d92a0c4c',1,'ast::Date']]],
+  ['moon_5f_47',['moon_',['../classast_1_1SolarSystem.html#a72dda8f47d7469e691678eb2216cddf4',1,'ast::SolarSystem']]],
+  ['ms_48',['ms',['../namespaceast_1_1units.html#a66fc0c2327c7c298ea5eca0f8afb08c8',1,'ast::units']]],
+  ['mutex_5f_49',['mutex_',['../classast_1_1JplDe.html#a74fb293e5fdd83c88e3ecfbe11f82503',1,'ast::JplDe::mutex_'],['../classast_1_1SpiceAPI.html#a473b494575fc4bbdc8a5d124a954807c',1,'ast::SpiceAPI::mutex_']]]
 ];

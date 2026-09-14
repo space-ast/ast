@@ -110,7 +110,7 @@ var searchData=
   ['fovsimplecone_107',['FOVSimpleCone',['../classast_1_1FOVSimpleCone.html',1,'ast::FOVSimpleCone'],['../classast_1_1FOVSimpleCone.html#a467b5029228b3a536a3f20ca95e62724',1,'ast::FOVSimpleCone::FOVSimpleCone()']]],
   ['fovsimplecone_2ecpp_108',['FOVSimpleCone.cpp',['../FOVSimpleCone_8cpp.html',1,'']]],
   ['fovsimplecone_2ehpp_109',['FOVSimpleCone.hpp',['../FOVSimpleCone_8hpp.html',1,'']]],
-  ['fpa_5f_110',['fpa_',['../classast_1_1SphericalElem.html#ae236c883a3cea6d91de9eb6f93717655',1,'ast::SphericalElem']]],
+  ['fpa_5f_110',['fpa_',['../classast_1_1SphericalElem.html#ae236c883a3cea6d91de9eb6f93717655',1,'ast::SphericalElem::fpa_'],['../classast_1_1MixedSphericalElem.html#a9e6bb8e7b5761bce37d314040980c475',1,'ast::MixedSphericalElem::fpa_']]],
   ['fpropertyget_111',['FPropertyGet',['../group__RTTI.html#ga2a9eeaa0f4e58aa1e27ff9a63441f7ee',1,'ast']]],
   ['fpropertyset_112',['FPropertySet',['../group__RTTI.html#ga159c7076d71e611938d8f153ef2abb42',1,'ast']]],
   ['fractional_113',['fractional',['../classast_1_1LongDuration.html#abc7987f8b42f2bf55c6a33c9967552d4',1,'ast::LongDuration']]],

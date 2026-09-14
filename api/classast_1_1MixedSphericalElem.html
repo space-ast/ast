@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::MixedSphericalElem类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1MixedSphericalElem.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="classast_1_1MixedSphericalElem-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::MixedSphericalElem类 参考<div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Orbit.html">轨道计算</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="OrbitElement_8hpp_source.html">OrbitElement.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a5f500429fb37958183d99a01b675b4cd" id="r_a5f500429fb37958183d99a01b675b4cd"><td class="memItemLeft" align="right" valign="top"><a id="a5f500429fb37958183d99a01b675b4cd" name="a5f500429fb37958183d99a01b675b4cd"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getLon</b> () const</td></tr>
+<tr class="separator:a5f500429fb37958183d99a01b675b4cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeedb0be0bb31277e2a6c2984d5c780d" id="r_afeedb0be0bb31277e2a6c2984d5c780d"><td class="memItemLeft" align="right" valign="top"><a id="afeedb0be0bb31277e2a6c2984d5c780d" name="afeedb0be0bb31277e2a6c2984d5c780d"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getLat</b> () const</td></tr>
+<tr class="separator:afeedb0be0bb31277e2a6c2984d5c780d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb0f33797efe9e0cb372a6eb89a1c29" id="r_a8bb0f33797efe9e0cb372a6eb89a1c29"><td class="memItemLeft" align="right" valign="top"><a id="a8bb0f33797efe9e0cb372a6eb89a1c29" name="a8bb0f33797efe9e0cb372a6eb89a1c29"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getAlt</b> () const</td></tr>
+<tr class="separator:a8bb0f33797efe9e0cb372a6eb89a1c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad815496d801d31f7ccf0ee7bafa593b1" id="r_ad815496d801d31f7ccf0ee7bafa593b1"><td class="memItemLeft" align="right" valign="top"><a id="ad815496d801d31f7ccf0ee7bafa593b1" name="ad815496d801d31f7ccf0ee7bafa593b1"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getFltPathAng</b> () const</td></tr>
+<tr class="separator:ad815496d801d31f7ccf0ee7bafa593b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78eacbe688d0f70d59e69487deedef5d" id="r_a78eacbe688d0f70d59e69487deedef5d"><td class="memItemLeft" align="right" valign="top"><a id="a78eacbe688d0f70d59e69487deedef5d" name="a78eacbe688d0f70d59e69487deedef5d"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getVertFltPathAng</b> () const</td></tr>
+<tr class="separator:a78eacbe688d0f70d59e69487deedef5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9299d9173d7d9d0393e496bf76a919df" id="r_a9299d9173d7d9d0393e496bf76a919df"><td class="memItemLeft" align="right" valign="top"><a id="a9299d9173d7d9d0393e496bf76a919df" name="a9299d9173d7d9d0393e496bf76a919df"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getFltPathAzi</b> () const</td></tr>
+<tr class="separator:a9299d9173d7d9d0393e496bf76a919df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6333f47f6746067d202db16b492a96b2" id="r_a6333f47f6746067d202db16b492a96b2"><td class="memItemLeft" align="right" valign="top"><a id="a6333f47f6746067d202db16b492a96b2" name="a6333f47f6746067d202db16b492a96b2"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getVel</b> () const</td></tr>
+<tr class="separator:a6333f47f6746067d202db16b492a96b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9da76399922ef9de031f7daff122a602" id="r_a9da76399922ef9de031f7daff122a602"><td class="memItemLeft" align="right" valign="top"><a id="a9da76399922ef9de031f7daff122a602" name="a9da76399922ef9de031f7daff122a602"></a>
+AST_CORE_API std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const</td></tr>
+<tr class="separator:a9da76399922ef9de031f7daff122a602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:af6d513c170bafc6c879c1e51411b2f72" id="r_af6d513c170bafc6c879c1e51411b2f72"><td class="memItemLeft" align="right" valign="top"><a id="af6d513c170bafc6c879c1e51411b2f72" name="af6d513c170bafc6c879c1e51411b2f72"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>lon_</b></td></tr>
+<tr class="separator:af6d513c170bafc6c879c1e51411b2f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a979a777843a793697df35cdc17624bba" id="r_a979a777843a793697df35cdc17624bba"><td class="memItemLeft" align="right" valign="top"><a id="a979a777843a793697df35cdc17624bba" name="a979a777843a793697df35cdc17624bba"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>lat_</b></td></tr>
+<tr class="separator:a979a777843a793697df35cdc17624bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2871d17d520bc9ae0fb5fb2e1e5fac6" id="r_aa2871d17d520bc9ae0fb5fb2e1e5fac6"><td class="memItemLeft" align="right" valign="top"><a id="aa2871d17d520bc9ae0fb5fb2e1e5fac6" name="aa2871d17d520bc9ae0fb5fb2e1e5fac6"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>alt_</b></td></tr>
+<tr class="separator:aa2871d17d520bc9ae0fb5fb2e1e5fac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e6bb8e7b5761bce37d314040980c475" id="r_a9e6bb8e7b5761bce37d314040980c475"><td class="memItemLeft" align="right" valign="top"><a id="a9e6bb8e7b5761bce37d314040980c475" name="a9e6bb8e7b5761bce37d314040980c475"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>fpa_</b></td></tr>
+<tr class="separator:a9e6bb8e7b5761bce37d314040980c475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49f2431cef3d72a9ae6bd1725e05ba01" id="r_a49f2431cef3d72a9ae6bd1725e05ba01"><td class="memItemLeft" align="right" valign="top"><a id="a49f2431cef3d72a9ae6bd1725e05ba01" name="a49f2431cef3d72a9ae6bd1725e05ba01"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>azi_</b></td></tr>
+<tr class="separator:a49f2431cef3d72a9ae6bd1725e05ba01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82fd0d1256377d5e0260fb31300c283" id="r_af82fd0d1256377d5e0260fb31300c283"><td class="memItemLeft" align="right" valign="top"><a id="af82fd0d1256377d5e0260fb31300c283" name="af82fd0d1256377d5e0260fb31300c283"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>v_</b></td></tr>
+<tr class="separator:af82fd0d1256377d5e0260fb31300c283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>混合球坐标轨道根数 </p>
+<p>位置用天体固连系下的大地坐标描述, 速度由惯性速度矢量描述: lon = atan2(y, x) [rad] 大地经度(天体固连系), 自本初子午线向东为正 lat = 大地纬度 [rad] 椭球法线与赤道面的夹角, 范围[-π/2, π/2] alt = 高度 [m] 在参考椭球之上为正, 沿椭球法线量 fpa = atan2(v_r, v_h) [rad] 水平航迹角, 惯性速度矢量与当地水平面的夹角, 向上为正 azi = atan2(v_e, v_n) [rad] 航迹方位角, 自当地北向东为正 v = |vel| [m/s] 惯性速度大小 </p><dl class="section note"><dt>注解</dt><dd>位置分量由固连系下的大地坐标给出, 需要参考形状(椭球, 见 <a class="el" href="classast_1_1BodyShape.html">BodyShape</a>)与固连系/惯性系之间的旋转(见 <a class="el" href="classast_1_1Rotation.html">Rotation</a>); 速度分量则完全在参考系(惯性系)下定义, 与椭球和固连系无关, 当地水平面与当地北向由位置矢量在该系下的赤经确定(同 <a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a>), 不含固连系的牵连速度, 故 v 为惯性速度大小。 参见 <a class="el" href="group__Orbit.html#ga836658b66677b07a1b328ef10586fc65">aCartToMixedSpherical</a> 和 <a class="el" href="group__Orbit.html#ga8fa3d90fcb51af140e2958004e44bf55">aMixedSphericalToCart</a> </dd></dl>
+</div><hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Orbit/<a class="el" href="OrbitElement_8hpp_source.html">OrbitElement.hpp</a></li>
+<li>src/AstCore/Orbit/<a class="el" href="OrbitElement_8cpp.html">OrbitElement.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1MixedSphericalElem.html">MixedSphericalElem</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

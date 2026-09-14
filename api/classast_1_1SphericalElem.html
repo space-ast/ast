@@ -155,7 +155,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>v_</b></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>球坐标轨道根数 </p>
-<p>用赤经、赤纬、地心距描述位置, 用飞行航迹角、航迹方位角、速度大小描述速度。 各分量均在参考坐标系的轴系下定义: ra = atan2(y, x) [rad] 赤经, 自x轴逆时针量, 范围[0, 2π) dec = atan2(z, hypot(x, y)) [rad] 赤纬, 范围[-π/2, π/2] r = |pos| [m] 地心距 fpa = atan2(v_r, v_h) [rad] 航迹角, 速度矢量与当地水平面的夹角, 向上为正 azi = atan2(v_e, v_n) [rad] 航迹方位角, 自当地北向东为正 v = |vel| [m/s] 速度大小 </p><dl class="section note"><dt>注解</dt><dd>极点(|dec|=π/2)处赤经与航迹方位角奇异: 正向转换取ra=0, 仍保持精确往返; 零速度时航迹角与航迹方位角无定义, 正向转换失败。 </dd></dl>
+<p>用赤经、赤纬、地心距描述位置, 用飞行航迹角、航迹方位角、速度大小描述速度。 各分量均在参考坐标系的轴系下定义: ra = atan2(y, x) [rad] 赤经, 自x轴逆时针量 dec = atan2(z, hypot(x, y)) [rad] 赤纬, 范围[-π/2, π/2] r = |pos| [m] 地心距 fpa = atan2(v_r, v_h) [rad] 航迹角, 速度矢量与当地水平面的夹角, 向上为正 azi = atan2(v_e, v_n) [rad] 航迹方位角, 自当地北向东为正 v = |vel| [m/s] 速度大小 </p><dl class="section note"><dt>注解</dt><dd>极点(|dec|=π/2)处赤经与航迹方位角奇异: 正向转换取ra=0, 仍保持精确往返; 零速度时航迹角与航迹方位角无定义, 正向转换失败。 </dd></dl>
 </div><hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstCore/Orbit/<a class="el" href="OrbitElement_8hpp_source.html">OrbitElement.hpp</a></li>
 <li>src/AstCore/Orbit/<a class="el" href="OrbitElement_8cpp.html">OrbitElement.cpp</a></li>

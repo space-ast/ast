@@ -205,6 +205,22 @@ var group__Orbit =
       [ "ra_", "classast_1_1SphericalElem.html#a8c063365d21ca2b1b370493d501d5621", null ],
       [ "v_", "classast_1_1SphericalElem.html#a0282c81ae0fabfa58edc8b8a3218c18a", null ]
     ] ],
+    [ "ast::MixedSphericalElem", "classast_1_1MixedSphericalElem.html", [
+      [ "getAlt", "classast_1_1MixedSphericalElem.html#a8bb0f33797efe9e0cb372a6eb89a1c29", null ],
+      [ "getFltPathAng", "classast_1_1MixedSphericalElem.html#ad815496d801d31f7ccf0ee7bafa593b1", null ],
+      [ "getFltPathAzi", "classast_1_1MixedSphericalElem.html#a9299d9173d7d9d0393e496bf76a919df", null ],
+      [ "getLat", "classast_1_1MixedSphericalElem.html#afeedb0be0bb31277e2a6c2984d5c780d", null ],
+      [ "getLon", "classast_1_1MixedSphericalElem.html#a5f500429fb37958183d99a01b675b4cd", null ],
+      [ "getVel", "classast_1_1MixedSphericalElem.html#a6333f47f6746067d202db16b492a96b2", null ],
+      [ "getVertFltPathAng", "classast_1_1MixedSphericalElem.html#a78eacbe688d0f70d59e69487deedef5d", null ],
+      [ "toString", "classast_1_1MixedSphericalElem.html#a9da76399922ef9de031f7daff122a602", null ],
+      [ "alt_", "classast_1_1MixedSphericalElem.html#aa2871d17d520bc9ae0fb5fb2e1e5fac6", null ],
+      [ "azi_", "classast_1_1MixedSphericalElem.html#a49f2431cef3d72a9ae6bd1725e05ba01", null ],
+      [ "fpa_", "classast_1_1MixedSphericalElem.html#a9e6bb8e7b5761bce37d314040980c475", null ],
+      [ "lat_", "classast_1_1MixedSphericalElem.html#a979a777843a793697df35cdc17624bba", null ],
+      [ "lon_", "classast_1_1MixedSphericalElem.html#af6d513c170bafc6c879c1e51411b2f72", null ],
+      [ "v_", "classast_1_1MixedSphericalElem.html#af82fd0d1256377d5e0260fb31300c283", null ]
+    ] ],
     [ "ast::EBPlaneRefVector", "group__Orbit.html#gab6967e300fe546ef4241ca4d9f8e149d", [
       [ "ast::EBPlaneRefVector::eBodyOrbitNormal", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da6a48b148d847c4cbd2adc3c9050dd087", null ],
       [ "ast::EBPlaneRefVector::eSpacecraftOrbitNormal", "group__Orbit.html#ggab6967e300fe546ef4241ca4d9f8e149da6dc1839711e7b2c05e8a01a1f2ea4c8d", null ],
@@ -230,6 +246,7 @@ var group__Orbit =
     [ "ast::aBPlaneToCart", "group__Orbit.html#gada3b849960c19c39cae7ec99abf59dc4", null ],
     [ "ast::aCartToBPlane", "group__Orbit.html#ga6dd74e9a84ce8ae1275200500fb99faa", null ],
     [ "ast::aCartToEquinElem", "group__Orbit.html#ga77c180ae69bd5b0bdf6a79d69379bec0", null ],
+    [ "ast::aCartToMixedSpherical", "group__Orbit.html#ga836658b66677b07a1b328ef10586fc65", null ],
     [ "ast::aCartToModEquinElem", "group__Orbit.html#ga00cc913f7eea31bc0182defcdff5173e", null ],
     [ "ast::aCartToModOrbElem", "group__Orbit.html#ga7fdb778370ab42132dd7408540896a53", null ],
     [ "ast::aCartToModOrbElem", "group__Orbit.html#gab78b48363bb280ffe8cc0fbe0336a31f", null ],
@@ -258,6 +275,7 @@ var group__Orbit =
     [ "ast::aMeanToTimePastAscNode", "group__Orbit.html#ga68ce725fecb8a5000c48c1e46a9255cd", null ],
     [ "ast::aMeanToTimePastPeri", "group__Orbit.html#ga6b188bf0bda51424cb33195570928981", null ],
     [ "ast::aMeanToTrue", "group__Orbit.html#gaa900251bbc601eecc874f898f2f993ef", null ],
+    [ "ast::aMixedSphericalToCart", "group__Orbit.html#ga8fa3d90fcb51af140e2958004e44bf55", null ],
     [ "ast::aModEquinElemToCart", "group__Orbit.html#ga4225a28410e6071cce78e11ca26c27d6", null ],
     [ "ast::aModEquinElemToOrbElem", "group__Orbit.html#ga85f07c229020509c69e79520a06c8cc2", null ],
     [ "ast::aModOrbElemToCart", "group__Orbit.html#gabef510b7e27400d10070ac0aa9818e53", null ],

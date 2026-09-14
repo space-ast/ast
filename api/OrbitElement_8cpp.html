@@ -112,6 +112,9 @@ $(function(){initNavTree('OrbitElement_8cpp.html',''); initResizable(true); });
 <code>#include &quot;AstCore/MathOperator.hpp&quot;</code><br />
 <code>#include &quot;AstCore/CelestialBody.hpp&quot;</code><br />
 <code>#include &quot;AstCore/RunTimeSolarSystem.hpp&quot;</code><br />
+<code>#include &quot;AstCore/BodyShape.hpp&quot;</code><br />
+<code>#include &quot;AstCore/GeodeticPoint.hpp&quot;</code><br />
+<code>#include &quot;AstMath/Rotation.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/ParseFormat.hpp&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
@@ -211,6 +214,10 @@ $(function(){initNavTree('OrbitElement_8cpp.html',''); initResizable(true); });
 <tr class="separator:ga586f129fc7ae3aa33a3ed285aadc6b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0ba25ffd5dc2200302df32f6b32d1e97" id="r_ga0ba25ffd5dc2200302df32f6b32d1e97"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga0ba25ffd5dc2200302df32f6b32d1e97">ast::aSphericalToCart</a> (const <a class="el" href="classast_1_1SphericalElem.html">SphericalElem</a> &amp;sph, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
 <tr class="separator:ga0ba25ffd5dc2200302df32f6b32d1e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga836658b66677b07a1b328ef10586fc65" id="r_ga836658b66677b07a1b328ef10586fc65"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga836658b66677b07a1b328ef10586fc65">ast::aCartToMixedSpherical</a> (const Vector3d &amp;pos, const Vector3d &amp;vel, const <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;framelToFixed, const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> &amp;shape, <a class="el" href="classast_1_1MixedSphericalElem.html">MixedSphericalElem</a> &amp;mixedSph)</td></tr>
+<tr class="separator:ga836658b66677b07a1b328ef10586fc65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8fa3d90fcb51af140e2958004e44bf55" id="r_ga8fa3d90fcb51af140e2958004e44bf55"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Orbit.html#ga8fa3d90fcb51af140e2958004e44bf55">ast::aMixedSphericalToCart</a> (const <a class="el" href="classast_1_1MixedSphericalElem.html">MixedSphericalElem</a> &amp;mixedSph, const <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;fixedToframe, const <a class="el" href="classast_1_1BodyShape.html">BodyShape</a> &amp;shape, Vector3d &amp;pos, Vector3d &amp;vel)</td></tr>
+<tr class="separator:ga8fa3d90fcb51af140e2958004e44bf55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 变量</h2></td></tr>

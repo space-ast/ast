@@ -18,7 +18,7 @@ var searchData=
   ['alignpad_15',['alignPad',['../structast_1_1CloseApproachOptions.html#a81e40e716bc7189cb70e213dc7931b89',1,'ast::CloseApproachOptions']]],
   ['allocator_5f_16',['allocator_',['../classast_1_1CorVector.html#a9ad9b9cb9ab5dfee51adce5cf9a7ed42',1,'ast::CorVector']]],
   ['allowcomment_5f_17',['allowComment_',['../classast_1_1BKVParser.html#a738ba19baafea456ca1eae248f2c750a',1,'ast::BKVParser']]],
-  ['alt_5f_18',['alt_',['../classast_1_1LatLonAlt.html#a40510d15372aac6b3d24755b4000513b',1,'ast::LatLonAlt']]],
+  ['alt_5f_18',['alt_',['../classast_1_1LatLonAlt.html#a40510d15372aac6b3d24755b4000513b',1,'ast::LatLonAlt::alt_'],['../classast_1_1MixedSphericalElem.html#aa2871d17d520bc9ae0fb5fb2e1e5fac6',1,'ast::MixedSphericalElem::alt_']]],
   ['altitude_5f_19',['altitude_',['../classast_1_1CircularOrbitDesigner.html#ac594f6df2a05341dd1c2198f45a751c6',1,'ast::CircularOrbitDesigner']]],
   ['altitudecutoff_5f_20',['altitudeCutOff_',['../classast_1_1MotionHPOPSax.html#a88a3e59e803ac27f732ae8de42719433',1,'ast::MotionHPOPSax']]],
   ['angle1_5f_21',['angle1_',['../classast_1_1Euler.html#a90f20b7cd8b45ecc01be6a48e50f66f1',1,'ast::Euler']]],
@@ -45,6 +45,6 @@ var searchData=
   ['averagestep_5f_42',['averageStep_',['../classast_1_1EphemerisLagrangeVar.html#a489a8392204b2d4a342744efacd7be3e',1,'ast::EphemerisLagrangeVar']]],
   ['axes_5f_43',['axes_',['../classast_1_1AxesFrozen.html#a7d770abcd6cbdaa1b982a106414ca01c',1,'ast::AxesFrozen::axes_'],['../classast_1_1AxesFrozenAtEventTime.html#aa7bfcd5dbb0240fa55a11f28f5132cff',1,'ast::AxesFrozenAtEventTime::axes_'],['../classast_1_1FrameAssembly.html#a0d929700481c1b4f191a791d71d9b42e',1,'ast::FrameAssembly::axes_']]],
   ['axis_5f_44',['axis_',['../classast_1_1AngleAxis.html#ae403cba318176d5a4d12a6406c48c4e9',1,'ast::AngleAxis']]],
-  ['azi_5f_45',['azi_',['../classast_1_1SphericalElem.html#a0c5343b15c6274d3d6eefcda596e5f8e',1,'ast::SphericalElem']]],
+  ['azi_5f_45',['azi_',['../classast_1_1SphericalElem.html#a0c5343b15c6274d3d6eefcda596e5f8e',1,'ast::SphericalElem::azi_'],['../classast_1_1MixedSphericalElem.html#a49f2431cef3d72a9ae6bd1725e05ba01',1,'ast::MixedSphericalElem::azi_']]],
   ['azimuth_5f_46',['azimuth_',['../classast_1_1TrackingCoordinates.html#ad29ce2c328635f98d20e7c0a6e04cbb5',1,'ast::TrackingCoordinates']]]
 ];
