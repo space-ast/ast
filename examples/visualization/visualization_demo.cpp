@@ -1,5 +1,5 @@
 ///
-/// @file      visualization_simple_demo.cpp
+/// @file      visualization_demo.cpp
 /// @brief
 /// @details
 /// @author    axel

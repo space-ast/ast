@@ -205,6 +205,11 @@ void aUiRegisterEditWidget(Class *cls, FNewEditWidget newEditWidget)
 
 QWidget *aUiNewEditWidget(Object *object)
 {
+    if(!aGuiAvailable())
+    {
+        aError(_("当前环境没有可用的 GUI（缺少 Qt 平台插件），无法创建编辑控件"));
+        return nullptr;
+    }
     return ObjectEditRegistry::Instance().newEditWidget(object);
 }
 

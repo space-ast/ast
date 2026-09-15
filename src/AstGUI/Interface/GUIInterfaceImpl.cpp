@@ -80,6 +80,11 @@ GUIInterfaceImpl::GUIInterfaceImpl()
 
 errc_t GUIInterfaceImpl::editObject(Object *object)
 {
+    if(!aGuiAvailable())
+    {
+        aError(_("当前环境没有可用的 GUI（缺少 Qt 平台插件），无法编辑对象"));
+        return eErrorUnsupported;
+    }
     QWidget* editWidget = ObjectEditRegistry::Instance().newEditWidget(object);
     if(editWidget == nullptr)
     {
