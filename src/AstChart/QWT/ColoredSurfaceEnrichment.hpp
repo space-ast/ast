@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#ifdef AST_WITH_QWT
 #include <qwt3d_surfaceplot.h>
 #include <qwt3d_enrichment.h>
 
@@ -65,3 +66,5 @@ private:
 /*! @} */
 
 AST_NAMESPACE_END
+
+#endif

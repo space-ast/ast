@@ -18,9 +18,13 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
+#include "QwtBackend.hpp"
+#include "AstUtil/Logger.hpp"
+
+#if defined(AST_WITH_QWT) && defined(AST_WITH_MATPLOT)
+
 #include <QPen>
 #include <QBrush>
-#include "QwtBackend.hpp"
 #include "QwtPlotVisitor.hpp"
 #include "ColoredSurfacePlot.hpp"
 #include "UiFigure.hpp"
@@ -448,12 +452,21 @@ void QwtBackend::Impl::renderFigure(matplot::figure_type* f, UiFigure* uifigure)
     // 恢复编辑模式（overlay + element picker）
     uifigure->restoreEditModeIfNeeded();
 }
+AST_NAMESPACE_END
+
+#endif
+
+AST_NAMESPACE_BEGIN
 
 void aUseQwtBackend() {
+    #if defined(AST_WITH_QWT) && defined(AST_WITH_MATPLOT)
     matplot::register_backend("qwt", []() -> matplot::backend::backend_interface* {
         return new QwtBackend();
     });
     matplot::change_default_backend("qwt");
+    #else
+    aError("QWT 库或 matplot 库在编译时未启用，无法使用 Qwt 绘图后端");
+    #endif
 }
 
 AST_NAMESPACE_END

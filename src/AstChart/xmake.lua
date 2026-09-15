@@ -10,9 +10,6 @@ target("AstChart")
     add_deps("AstUtil", "AstSim", "AstCore", "AstMath")
     if has_package("matplotplusplus") and has_package("qwt") and has_package("opengl") then
         add_packages("matplotplusplus", "qwt", "opengl")
-    else
-        -- set_enabled(false)
-        set_kind("phony")
     end
     if not has_package("qt") then
         set_enabled(false)

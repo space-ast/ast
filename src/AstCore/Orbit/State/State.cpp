@@ -27,6 +27,10 @@
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/StateCartesian.hpp"
 #include "AstCore/StateKeplerian.hpp"
+#include "AstCore/StateBPlane.hpp"
+#include "AstCore/StateSpherical.hpp"
+#include "AstCore/StateMixedSpherical.hpp"
+#include "AstCore/StateGeodetic.hpp"
 #include "AstCore/Resolve.hpp"
 #include "AstCore/BodyShape.hpp"
 #include "AstUtil/ObjectLinker.hpp"
@@ -58,6 +62,14 @@ PState State::New(EStateType type)
         break;
     case EStateType::eKeplerian:
         return new StateKeplerian();
+    case EStateType::eSpherical:
+        return new StateSpherical();
+    case EStateType::eBPlane:
+        return new StateBPlane();
+    case EStateType::eMixedSpherical:
+        return new StateMixedSpherical();
+    case EStateType::eGeodetic:
+        return new StateGeodetic();
     default:
         break;
     }
@@ -74,6 +86,14 @@ PState State::New(State &state, EStateType type)
         break;
     case EStateType::eKeplerian:
         return new StateKeplerian(state);
+    case EStateType::eSpherical:
+        return new StateSpherical(state);
+    case EStateType::eBPlane:
+        return new StateBPlane(state);
+    case EStateType::eMixedSpherical:
+        return new StateMixedSpherical(state);
+    case EStateType::eGeodetic:
+        return new StateGeodetic(state);
     default:
         break;
     }

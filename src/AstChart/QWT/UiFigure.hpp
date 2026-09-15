@@ -21,6 +21,8 @@
 
 #pragma once
 
+#ifdef AST_WITH_QWT
+
 #include "AstGlobal.h"
 #include "EditFigureDialog.hpp"
 #include <QWidget>
@@ -169,3 +171,5 @@ private:
 };
 
 AST_NAMESPACE_END
+
+#endif

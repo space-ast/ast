@@ -21,6 +21,9 @@
 #pragma once
 
 #include "AstGlobal.h"
+
+#if defined(AST_WITH_MATPLOT) && defined(AST_WITH_QWT)
+
 A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/backend/backend_interface.h>
 A_SUPPRESS_WARNINGS_END
@@ -71,6 +74,12 @@ private:
     struct Impl;
     std::unique_ptr<Impl> impl_;
 };
+
+AST_NAMESPACE_END
+#endif
+
+
+AST_NAMESPACE_BEGIN
 
 AST_CHART_API void aUseQwtBackend();
 

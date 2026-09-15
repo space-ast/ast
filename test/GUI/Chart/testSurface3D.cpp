@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include <QApplication>
+#ifdef AST_WITH_QWT
 #include <qwt3d_surfaceplot.h>
 
 using namespace Qwt3D;
@@ -55,3 +56,9 @@ int main(int argc, char* argv[])
 
     return app.exec();
 }
+#else
+int main(int argc, char* argv[])
+{
+    return 0;
+}
+#endif

@@ -48,6 +48,30 @@ public:
     /// @param cartesian 笛卡尔坐标（天体固连系）
     virtual void transform(const GeodeticPoint& detic, Vector3d& cartesian) const = 0;
 
+    /// @brief 将天体固连系下的位置与速度转换为大地坐标及其变化率
+    /// @param pos 天体固连系位置
+    /// @param vel 天体固连系速度
+    /// @param detic 输出的大地坐标
+    /// @param rate 输出的大地坐标变化率, 依次为经度率[rad/s]、纬度率[rad/s]、高度率[m/s]
+    /// @return 错误码，成功返回eNoError
+    /// @note rate 复用 @ref LatLonAlt , 但其纬度、经度、高度三个字段依次为纬度率、经度率、高度率;
+    ///       变化率描述的是天体固连系下的速度, 不含任何牵连速度;
+    ///       速度分解所依赖的度量因子随形状而异, 由各形状自行实现
+    ///       (见 @ref SpheroidShape 、 @ref SphereShape );
+    ///       形状不支持该转换时返回 eErrorNotImplemented。
+    virtual errc_t transform(const Vector3d& pos, const Vector3d& vel,
+                             GeodeticPoint& detic, LatLonAlt& rate) const;
+
+    /// @brief 将大地坐标及其变化率转换为天体固连系下的位置与速度
+    /// @param detic 大地坐标
+    /// @param rate 大地坐标变化率, 依次为经度率[rad/s]、纬度率[rad/s]、高度率[m/s]
+    /// @param pos 输出的天体固连系位置
+    /// @param vel 输出的天体固连系速度
+    /// @return 错误码，成功返回eNoError
+    /// @note 与上一重载互为逆变换; 形状不支持该转换时返回 eErrorNotImplemented。
+    virtual errc_t transform(const GeodeticPoint& detic, const LatLonAlt& rate,
+                             Vector3d& pos, Vector3d& vel) const;
+
     /// @brief 将笛卡尔坐标（天体固连系）转换为大地坐标
     /// @param cartesian 笛卡尔坐标（天体固连系）
     /// @return 大地坐标

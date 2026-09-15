@@ -16,7 +16,8 @@
 /// 软件按“现有状态”提供，无任何明示或暗示的担保条件。
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
- 
+
+#define AST_ENABLE_CAPI // 启用C语言接口（默认关闭）
 #include "ast/AstCoreC.h" 
 #ifdef __cplusplus
 #include "ast/Vector.hpp"

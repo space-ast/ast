@@ -485,6 +485,69 @@ Axes *CelestialBody::getEpochAxesReference() const
 }
 
 
+errc_t _aBodyOrbitNormalIn(const Body& body, const TimePoint& tp, Vector3d& normal, Axes*& refAxes)
+{
+    // 确定天体绕其运行的中心天体: 优先取显式设置的父天体(如月球->地球),
+    // 未设置时取太阳
+    const Body* primary = body.getParent();
+    if (!primary)
+    {
+        aInfo(_("未设置天体的父天体, 默认使用太阳作为其父天体"));
+        primary = aGetSun();
+    }
+    if (!primary)
+    {
+        aWarning(_("无法确定天体的中心天体, 无法计算轨道法向"));
+        return eErrorInvalidParam;
+    }
+
+    Vector3d pos, vel;
+    errc_t rc = body.getPosVelIn(primary->getFrameInertial(), tp, pos, vel);
+    if (rc != eNoError)
+    {
+        aWarning(_("获取天体位置速度失败"));
+        return rc;
+    }
+
+    auto hv = cross(pos, vel);
+    normal = hv.normalized();
+    refAxes = primary->getAxesInertial();
+    return eNoError;
+}
+
+errc_t aBodyOrbitNormalIn(Axes& axes, const Body& body, const TimePoint& tp, Vector3d& normal)
+{
+    Axes* refAxes = nullptr;
+    errc_t rc = _aBodyOrbitNormalIn(body, tp, normal, refAxes);
+    if(rc != eNoError)
+    {
+        return rc;
+    }
+    if(&axes != refAxes)
+    {
+        Rotation rotation;
+        axes.getTransformFrom(refAxes, tp, rotation);
+        normal = rotation.transformVector(normal);
+    }
+    return eNoError;
+}
+
+errc_t aBodyOrbitNormalInParentInertial
+(
+    const Body& body,
+    const TimePoint& tp,
+    Vector3d& normal
+)
+{
+    Axes* refAxes;
+    return _aBodyOrbitNormalIn(body, tp, normal, refAxes);
+}
+
+errc_t aBodyOrbitNormalInICRF(const Body &body, const TimePoint &tp, Vector3d &normal)
+{
+    return aBodyOrbitNormalIn(*aAxesICRF(), body, tp, normal);
+}
+
 ESpiceId aGetPlanetBarycenterId(ESpiceId planetId)
 {
     std::div_t result = std::div(planetId, 100);

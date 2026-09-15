@@ -40,6 +40,12 @@ public:
 
     void transform(const GeodeticPoint& detic, Vector3d& cartesian) const override;
 
+    errc_t transform(const Vector3d& pos, const Vector3d& vel,
+                     GeodeticPoint& detic, LatLonAlt& rate) const override;
+
+    errc_t transform(const GeodeticPoint& detic, const LatLonAlt& rate,
+                     Vector3d& pos, Vector3d& vel) const override;
+
 PROPERTIES:
     length_d radius_{}; ///< 半径长度
 };

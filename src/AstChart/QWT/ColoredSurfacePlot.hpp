@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#ifdef AST_WITH_QWT
 #include "qwt3d_surfaceplot.h"
 
 AST_NAMESPACE_BEGIN
@@ -43,3 +44,4 @@ protected:
 AST_NAMESPACE_END
 
 
+#endif

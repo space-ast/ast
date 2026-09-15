@@ -20,8 +20,13 @@
  
 #include "OrbitElement.hpp"
 #include "OrbitParam.hpp"
-#include "AstUtil/Constants.hpp"      // for pi, std::array
-#include "AstCore/MathOperator.hpp" // for mod
+#include "AstUtil/Constants.hpp"            // for pi, std::array
+#include "AstCore/MathOperator.hpp"         // for mod
+#include "AstCore/CelestialBody.hpp"        // for aBodyOrbitNormalIn
+#include "AstCore/RunTimeSolarSystem.hpp"   // for aGetSun
+#include "AstCore/BodyShape.hpp"            // for BodyShape::transform
+#include "AstCore/GeodeticPoint.hpp"        // for GeodeticPoint
+#include "AstMath/Rotation.hpp"             // for Rotation::transformVector
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ParseFormat.hpp"
 #include "AstUtil/Constants.hpp"
@@ -95,7 +100,7 @@ errc_t coe2rv(const double* coe, double gm, double* pos, double* vel)
     vel[1] = -c4 * (sraan * c6 - craan * cinc * c5);
     vel[2] = c4 * c5 * sinc;
     if (ecc == 1) {
-        aError(_("偏心率为1"));
+        aWarning(_("偏心率为1"));
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -119,7 +124,7 @@ errc_t coe2mee(const double* coe, double* mee)
     k = temp * sin(raan);              // k
     L = mod(raan + argper + trueAnom, PI2);
     if (e == 1) {
-        aError(_("偏心率为1"));
+        aWarning(_("偏心率为1"));
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -249,7 +254,7 @@ errc_t rv2mee(const double* pos_, const double* vel_, double gm, double* mee)
 
     if (unith[2] + 1.0 <= 0.0)
     {
-        aError(_("轨道倾角接近180度，不适合用春分点轨道根数描述."));
+        aWarning(_("轨道倾角接近180度，不适合用春分点轨道根数描述."));
         return eErrorInvalidParam;
     }
     double cosiadd1 = 1.0 + unith[2];
@@ -955,13 +960,13 @@ errc_t coe2dela(const double *coeIn, double gm, double *delaOut)
    
     if (gm < 1e-15)
     {
-        aError(_("引力常数 (gm=%e) 太小，无法从 Keplerian 转换到 Delaunay"), gm);
+        aWarning(_("引力常数 (gm=%e) 太小，无法从 Keplerian 转换到 Delaunay"), gm);
         return eErrorInvalidParam;
     }
    
     if ( ecc >= 1.0)
     {
-        aError(_("ecc 不小于 1.0，不支持"));
+        aWarning(_("ecc 不小于 1.0，不支持"));
         return eErrorInvalidParam;
     }
    
@@ -994,12 +999,12 @@ errc_t dela2coe(const double *delaIn, double gm, double *coeOut)
     
     if (std::abs(H_dela) > std::abs(G_dela))
     {
-        aError(_("DelaunayH 的模必须小于或等于 DelaunayG 的模"));
+        aWarning(_("DelaunayH 的模必须小于或等于 DelaunayG 的模"));
         return eErrorInvalidParam;
     }
     if ((G_dela / L_dela) > 1.0)
     {
-        aError(_("要求 (DelaunayG / DelaunayL) 不大于 1"));
+        aWarning(_("要求 (DelaunayG / DelaunayL) 不大于 1"));
         return eErrorInvalidParam;
     }
  
@@ -1153,6 +1158,463 @@ errc_t aOrbElemToDelaunay(const OrbElem &elem, double gm, DelaunayElem &delaunay
 errc_t aDelaunayToOrbElem(const DelaunayElem &delaunay, double gm, OrbElem &elem)
 {
     return dela2coe(delaunay.data(), gm, elem.data());
+}
+
+
+// -------------
+// B平面相关计算
+// -------------
+
+
+/// 偏心率小于该值时认为轨道为圆轨道, 此时偏心率矢量的方向不再有意义
+constexpr double kEccCircularTol = 1e-6;
+
+/// 矢量模/矢量间夹角正弦的判定阈值
+constexpr double kMagTol = 1e-12;
+
+std::string BPlaneElem::toString() const
+{
+    return std::string(
+        "BPlaneElem{ra: " + aFormatDouble(ra_ * kRadToDeg) + "deg" +
+        ", dec: " + aFormatDouble(dec_ * kRadToDeg) + "deg" +
+        ", B.R: " + aFormatDouble(bDotR_) + "m" +
+        ", B.T: " + aFormatDouble(bDotT_) + "m" +
+        ", C3: " + aFormatDouble(c3_) + "m^2/s^2" +
+        ", true: " + aFormatDouble(trueA_ * kRadToDeg) + "deg" +
+        "}");
+}
+
+/// 取与给定法向垂直的一个单位矢量, 优先取+x轴, 退化时取+y轴
+static Vector3d aPerpendicularPlusX(const Vector3d& hhat)
+{
+    Vector3d xhat{1.0, 0.0, 0.0};
+    auto xv = xhat - dot(xhat, hhat) * hhat;
+    double xmag = norm(xv);
+    if (xmag > kMagTol)
+        return xv / xmag;
+    Vector3d yhat{0.0, 1.0, 0.0};
+    auto yv = yhat - dot(yhat, hhat) * hhat;
+    double ymag = norm(yv);
+    if (ymag > kMagTol)
+        return yv / ymag;
+    aWarning(_("无法确定与轨道面法向垂直的矢量"));
+    return xhat;
+}
+
+/// 计算B平面内的R、T轴: T = unit(S x N), R = S x T
+/// @param shat 入渐近线方向(单位矢量)
+/// @param refVector 参考向量
+/// @param rhat 输出R轴(单位矢量)
+/// @param that 输出T轴(单位矢量)
+/// @return 错误码，成功返回eNoError
+static errc_t aBPlaneRT(const Vector3d& shat, const Vector3d& refVector, Vector3d& rhat, Vector3d& that)
+{
+    double nmag = norm(refVector);
+    AST_CHECK_INVALID(nmag <= 0);
+
+    auto nhat = refVector / nmag;
+    auto tv = cross(shat, nhat);
+    double tmag = norm(tv);
+    if (tmag <= kMagTol)            // 参考向量与入渐近线平行时, T轴无定义
+    {
+        aWarning(_("参考向量与入渐近线平行, 无法确定B平面的R、T轴"));
+        return eErrorInvalidParam;
+    }
+    that = tv / tmag;
+    rhat = cross(shat, that);
+    return eNoError;
+}
+
+errc_t aCartToBPlane(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    double gm,
+    const Vector3d& refVector,
+    BPlaneElem& bPlane)
+{
+    double rmag = norm(pos);
+    double vmag = norm(vel);
+    AST_CHECK_INVALID(rmag <= 0 || gm <= 0);
+
+    // 角动量矢量(轨道面法向)
+    auto hv = cross(pos, vel);
+    double hmag = norm(hv);
+    if (hmag <= 0)                  // 直线运动, 轨道面不确定
+    {
+        aWarning(_("角动量为零, 无法确定轨道面"));
+        return eErrorInvalidParam;
+    }
+    auto hhat = hv / hmag;
+
+    // 偏心率矢量
+    auto evec = cross(vel / gm, hv) - pos / rmag;
+    double ecc = norm(evec);
+
+    // 圆轨道(偏心率数值上为零)时偏心率矢量方向无意义, 取与轨道面垂直的+x方向
+    auto ehat = (ecc > kEccCircularTol) ? evec / ecc : aPerpendicularPlusX(hhat);
+
+    // 半长轴与特征能量
+    double sma = 1.0 / (2.0 / rmag - vmag * vmag / gm);
+    bPlane.c3_ = vmag * vmag - 2.0 * gm / rmag;
+
+    // 半短轴, 即B矢量的模: 双曲线为 |a|*sqrt(e^2-1), 椭圆为 a*sqrt(1-e^2)
+    double bmag = fabs(sma) * sqrt(fabs(ecc * ecc - 1.0));
+
+    // 半张角: cos(alpha) = 1/e, 椭圆(e<1)时按0处理
+    double alpha = (ecc > 1.0) ? acos(1.0 / ecc) : 0.0;
+
+    // 入渐近线方向, 即B-Plane Normal
+    auto sv = cos(alpha) * ehat + sin(alpha) * cross(hhat, ehat);
+    double smag = norm(sv);
+    AST_CHECK_INVALID(smag <= 0);
+    auto shat = sv / smag;
+
+    bPlane.ra_ = atan2(shat[1], shat[0]);
+    bPlane.dec_ = asin(shat[2] > 1.0 ? 1.0 : (shat[2] < -1.0 ? -1.0 : shat[2]));
+
+    // B矢量: 位于B平面内, 垂直于入渐近线
+    auto bvec = bmag * cross(shat, hhat);
+
+    // R、T轴
+    Vector3d rhat, that;
+    errc_t rc = aBPlaneRT(shat, refVector, rhat, that);
+    if (rc != eNoError)
+        return rc;
+
+    bPlane.bDotR_ = dot(bvec, rhat);
+    bPlane.bDotT_ = dot(bvec, that);
+
+    // 真近点角: 从偏心率矢量到位置矢量, 沿运动方向为正
+    bPlane.trueA_ = atan2(dot(pos, cross(hhat, ehat)), dot(pos, ehat));
+    return eNoError;
+}
+
+errc_t aBPlaneToCart(
+    const BPlaneElem& bPlane,
+    double gm,
+    const Vector3d& refVector,
+    Vector3d& pos,
+    Vector3d& vel)
+{
+    AST_CHECK_INVALID(gm <= 0);
+
+    // 入渐近线方向
+    double sdec = sin(bPlane.dec_);
+    Vector3d shat{cos(bPlane.dec_) * cos(bPlane.ra_), cos(bPlane.dec_) * sin(bPlane.ra_), sdec};
+    double smag = norm(shat);
+    AST_CHECK_INVALID(smag <= 0);
+    shat = shat / smag;
+
+    // B矢量模(半短轴)
+    double bmag = hypot(bPlane.bDotR_, bPlane.bDotT_);
+    AST_CHECK_INVALID(bmag <= 0);
+
+    // 半长轴与偏心率: b = |a|*sqrt(|e^2-1|)
+    double c3 = bPlane.c3_;
+    AST_CHECK_INVALID(c3 == 0.0);   // 抛物线情形半长轴无穷, 暂不支持
+    double sma = -gm / c3;
+    double tmp = bmag / fabs(sma);
+    double ecc2 = (c3 > 0) ? (1.0 + tmp * tmp) : (1.0 - tmp * tmp);
+    if (ecc2 < 0)                   // 椭圆轨道下 |B| 不能大于半长轴
+    {
+        aWarning(_("B矢量模大于半长轴, 参数不合法"));
+        return eErrorInvalidParam;
+    }
+    double ecc = sqrt(ecc2);
+
+    // R、T轴
+    Vector3d rhat, that;
+    errc_t rc = aBPlaneRT(shat, refVector, rhat, that);
+    if (rc != eNoError)
+        return rc;
+
+    // B矢量与轨道面法向: B = b*(S x h) => h = B x S
+    auto bhat = (bPlane.bDotR_ * rhat + bPlane.bDotT_ * that) / bmag;
+    auto hv = cross(bhat, shat);
+    double hmag = norm(hv);
+    if (hmag <= 0)
+    {
+        aWarning(_("B矢量为零, 无法确定轨道面"));
+        return eErrorInvalidParam;
+    }
+    auto hhat = hv / hmag;
+
+    // 偏心率矢量: S = cos(alpha)*e + sin(alpha)*(h x e)
+    double alpha = (ecc > 1.0) ? acos(1.0 / ecc) : 0.0;
+    auto ev = cos(alpha) * shat - sin(alpha) * cross(hhat, shat);
+    double emag = norm(ev);
+    AST_CHECK_INVALID(emag <= 0);
+    auto ehat = ev / emag;
+    auto qhat = cross(hhat, ehat);
+
+    // 由真近点角给出位置和速度
+    double slr = sma * (1.0 - ecc * ecc);   // 半通径 p = a(1-e^2)
+    AST_CHECK_INVALID(slr <= 0);
+    double nu = bPlane.trueA_;
+    double rmag = slr / (1.0 + ecc * cos(nu));
+    double hmom = sqrt(gm * slr);
+
+    pos = rmag * (cos(nu) * ehat + sin(nu) * qhat);
+    vel = (gm / hmom) * (-sin(nu) * ehat + (ecc + cos(nu)) * qhat);
+    return eNoError;
+}
+
+
+// -------------
+// 球坐标根数相关计算
+// -------------
+
+std::string SphericalElem::toString() const
+{
+    return std::string(
+        "SphericalElem{ra: " + aFormatDouble(ra_ * kRadToDeg) + "deg" +
+        ", dec: " + aFormatDouble(dec_ * kRadToDeg) + "deg" +
+        ", r: " + aFormatDouble(r_) + "m" +
+        ", fpa: " + aFormatDouble(fpa_ * kRadToDeg) + "deg" +
+        ", azi: " + aFormatDouble(azi_ * kRadToDeg) + "deg" +
+        ", v: " + aFormatDouble(v_) + "m/s" +
+        "}");
+}
+
+/// 计算当地东、北单位矢量: 东 = (-sin(ra), cos(ra), 0), 北 = rhat x 东
+/// @param ra 赤经 [rad]
+/// @param rhat 位置方向单位矢量
+/// @param ehat 输出当地东向单位矢量
+/// @param nhat 输出当地北向单位矢量
+static void aLocalEastNorth(double ra, const Vector3d& rhat, Vector3d& ehat, Vector3d& nhat)
+{
+    ehat = Vector3d{-sin(ra), cos(ra), 0.0};
+    nhat = cross(rhat, ehat);
+}
+
+errc_t aCartToSpherical(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    SphericalElem& sph)
+{
+    double rmag = norm(pos);
+    double vmag = norm(vel);
+    if(rmag <= 0 || vmag <= 0)
+    {
+        sph = SphericalElem{};
+        aWarning(_("位置或速度为零矢量, 无法确定赤经、赤纬、航迹角与航迹方位角"));
+        return eErrorInvalidParam;
+    }
+
+    auto rhat = pos / rmag;
+
+    // 赤经与赤纬: 极点处atan2(0, 0)的取值为0, 该取值是一个约定, 仍可精确往返
+    double ra = atan2(pos[1], pos[0]);
+    double dec = atan2(pos[2], hypot(pos[0], pos[1]));
+
+    // 当地东、北单位矢量
+    Vector3d ehat, nhat;
+    aLocalEastNorth(ra, rhat, ehat, nhat);
+
+    // 航迹角: 速度的径向分量与横向分量之比, 向上(远离中心天体)为正
+    double vRadial = dot(vel, rhat);
+    double vTransversal = norm(vel - vRadial * rhat);
+
+    sph.ra_  = ra;
+    sph.dec_ = dec;
+    sph.r_   = rmag;
+    sph.fpa_ = atan2(vRadial, vTransversal);
+    // 航迹方位角: 自当地北向东为正
+    sph.azi_ = atan2(dot(vel, ehat), dot(vel, nhat));
+    sph.v_   = vmag;
+    return eNoError;
+}
+
+errc_t aSphericalToCart(
+    const SphericalElem& sph,
+    Vector3d& pos,
+    Vector3d& vel)
+{
+    if(sph.r_ <= 0 || sph.v_ < 0)
+    {
+        aWarning(_("地心距或速度大小为负, 无法确定位置和速度"));
+        pos = Vector3d::Zero();
+        vel = Vector3d::Zero();
+        return eErrorInvalidParam;
+    }
+
+    double cosDec = cos(sph.dec_);
+    Vector3d rhat{cosDec * cos(sph.ra_), cosDec * sin(sph.ra_), sin(sph.dec_)};
+
+    // 当地东、北单位矢量
+    Vector3d ehat, nhat;
+    aLocalEastNorth(sph.ra_, rhat, ehat, nhat);
+
+    // 速度: 径向分量 + 当地水平面内的横向分量(方位角自当地北向东量)
+    Vector3d horizontal = cos(sph.azi_) * nhat + sin(sph.azi_) * ehat;
+
+    pos = sph.r_ * rhat;
+    vel = sph.v_ * (sin(sph.fpa_) * rhat + cos(sph.fpa_) * horizontal);
+    return eNoError;
+}
+
+
+// -------------
+// 混合球坐标根数相关计算
+// -------------
+
+std::string MixedSphericalElem::toString() const
+{
+    return std::string(
+        "MixedSphericalElem{lon: " + aFormatDouble(lon_ * kRadToDeg) + "deg" +
+        ", lat: " + aFormatDouble(lat_ * kRadToDeg) + "deg" +
+        ", alt: " + aFormatDouble(alt_) + "m" +
+        ", fpa: " + aFormatDouble(fpa_ * kRadToDeg) + "deg" +
+        ", azi: " + aFormatDouble(azi_ * kRadToDeg) + "deg" +
+        ", v: " + aFormatDouble(v_) + "m/s" +
+        "}");
+}
+
+errc_t aCartToMixedSpherical(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    const Rotation& frameToFixed,
+    const BodyShape& shape,
+    MixedSphericalElem& mixedSph)
+{
+    double rmag = norm(pos);
+    double vmag = norm(vel);
+    if(rmag <= 0 || vmag <= 0)
+    {
+        mixedSph = MixedSphericalElem{};
+        aWarning(_("位置或速度为零矢量, 无法确定经度、纬度、航迹角与航迹方位角"));
+        return eErrorInvalidParam;
+    }
+
+    // 位置: 转换到天体固连系后反解大地坐标
+    Vector3d posFixed = frameToFixed.transformVector(pos);
+    GeodeticPoint detic;
+    shape.transform(posFixed, detic);
+
+    // 速度: 在参考系(惯性系)下分解, 与椭球和固连系无关
+    // 当地东、北单位矢量由位置矢量在参考系下的赤经确定, 与 SphericalElem 的约定一致
+    Vector3d rhat = pos / rmag;
+    double ra = atan2(pos[1], pos[0]);
+    Vector3d ehat, nhat;
+    aLocalEastNorth(ra, rhat, ehat, nhat);
+
+    double vRadial = dot(vel, rhat);
+    double vTransversal = norm(vel - vRadial * rhat);
+
+    mixedSph.lon_ = detic.longitude();
+    mixedSph.lat_ = detic.latitude();
+    mixedSph.alt_ = detic.altitude();
+    // 航迹角: 速度的径向分量与横向分量之比, 向上(远离中心天体)为正
+    mixedSph.fpa_ = atan2(vRadial, vTransversal);
+    // 航迹方位角: 自当地北向东为正
+    mixedSph.azi_ = atan2(dot(vel, ehat), dot(vel, nhat));
+    mixedSph.v_   = vmag;
+    return eNoError;
+}
+
+errc_t aMixedSphericalToCart(
+    const MixedSphericalElem& mixedSph,
+    const Rotation& fixedToFrame,
+    const BodyShape& shape,
+    Vector3d& pos,
+    Vector3d& vel)
+{
+    if(mixedSph.v_ < 0)
+    {
+        aWarning(_("速度大小为负, 无法确定位置和速度"));
+        pos = Vector3d::Zero();
+        vel = Vector3d::Zero();
+        return eErrorInvalidParam;
+    }
+
+    // 位置: 由大地坐标正算天体固连系位置
+    GeodeticPoint detic(mixedSph.lat_, mixedSph.lon_, mixedSph.alt_);
+    Vector3d posFixed;
+    shape.transform(detic, posFixed);
+
+    double rmag = norm(posFixed);
+    if(rmag <= 0)
+    {
+        aWarning(_("位置退化到参考椭球中心, 无法确定航迹角与航迹方位角"));
+        pos = Vector3d::Zero();
+        vel = Vector3d::Zero();
+        return eErrorInvalidParam;
+    }
+
+    // 位置换算到参考系, 速度在参考系(惯性系)下分解, 与椭球和固连系无关
+    pos = fixedToFrame.transformVector(posFixed);
+    Vector3d rhat = pos / rmag;
+    double ra = atan2(pos[1], pos[0]);
+    Vector3d ehat, nhat;
+    aLocalEastNorth(ra, rhat, ehat, nhat);
+
+    // 速度: 径向分量 + 当地水平面内的横向分量(方位角自当地北向东量)
+    Vector3d horizontal = cos(mixedSph.azi_) * nhat + sin(mixedSph.azi_) * ehat;
+    vel = mixedSph.v_ * (sin(mixedSph.fpa_) * rhat + cos(mixedSph.fpa_) * horizontal);
+    return eNoError;
+}
+
+
+// -------------
+// 大地坐标根数相关计算
+// -------------
+
+std::string GeodeticElem::toString() const
+{
+    return std::string(
+        "GeodeticElem{lon: " + aFormatDouble(lon_ * kRadToDeg) + "deg" +
+        ", lat: " + aFormatDouble(lat_ * kRadToDeg) + "deg" +
+        ", alt: " + aFormatDouble(alt_) + "m" +
+        ", lonRate: " + aFormatDouble(lonRate_ * kRadToDeg) + "deg/s" +
+        ", latRate: " + aFormatDouble(latRate_ * kRadToDeg) + "deg/s" +
+        ", altRate: " + aFormatDouble(altRate_) + "m/s" +
+        "}");
+}
+
+errc_t aCartToGeodetic(
+    const Vector3d& pos,
+    const Vector3d& vel,
+    const BodyShape& shape,
+    GeodeticElem& geodetic)
+{
+    // 位置与速度同在天体固连系下, 由参考形状统一完成换算
+    // 注意: 速度为零是合法的(如地球同步轨道), 此时三个变化率均为零, 故不校验速度
+    GeodeticPoint detic;
+    LatLonAlt rate;     // 三个分量依次为纬度率、经度率、高度率
+    errc_t rc = shape.transform(pos, vel, detic, rate);
+    if (rc != eNoError)
+    {
+        geodetic = GeodeticElem{};
+        return rc;
+    }
+
+    geodetic.lon_     = detic.longitude();
+    geodetic.lat_     = detic.latitude();
+    geodetic.alt_     = detic.altitude();
+    geodetic.lonRate_ = rate.longitude();
+    geodetic.latRate_ = rate.latitude();
+    geodetic.altRate_ = rate.altitude();
+    return eNoError;
+}
+
+errc_t aGeodeticToCart(
+    const GeodeticElem& geodetic,
+    const BodyShape& shape,
+    Vector3d& pos,
+    Vector3d& vel)
+{
+    GeodeticPoint detic(geodetic.lat_, geodetic.lon_, geodetic.alt_);
+    LatLonAlt rate;     // 三个分量依次为纬度率、经度率、高度率
+    rate.latitude()  = geodetic.latRate_;
+    rate.longitude() = geodetic.lonRate_;
+    rate.altitude()  = geodetic.altRate_;
+    errc_t rc = shape.transform(detic, rate, pos, vel);
+    if (rc != eNoError)
+    {
+        pos = Vector3d::Zero();
+        vel = Vector3d::Zero();
+    }
+    return rc;
 }
 
 AST_NAMESPACE_END

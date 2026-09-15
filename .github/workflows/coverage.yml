@@ -71,12 +71,19 @@ jobs:
 
       - name: 编译项目
         run: |
+          # xmake 的 swig 规则按 PATH 解析 swig（不认 add_packages 提供的包路径），
+          # 这里把 xmake 装好的 swig 顶到 PATH 最前，避免命中系统自带的旧版本（<4.3）
+          SWIG_BIN="$(find "$PWD/xmake-cache/packages/s/swig" -type f -name swig 2>/dev/null | head -1)"
+          if [ -n "$SWIG_BIN" ]; then export PATH="$(dirname "$SWIG_BIN"):$PATH"; fi
+          echo "swig path: $(command -v swig || echo 未找到)"
+          swig -version || true
           xmake
-      
+
       - name: 执行测试并收集覆盖率信息
         run: |
           lcov --directory . --zerocounters
           xmake cpdata
+          xmake r environment_info
           xmake r sun_geocentric_j2000_case
           xmake r testLibrary
           xmake r testSpiceZpr

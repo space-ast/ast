@@ -100,12 +100,17 @@ int posix::printf(const char* format, ...)
     return result;
 }
 
+int posix::vfprintf(FILE * stream, const char * format, va_list args)
+{
+    return _vfprintf_l(stream, format, _ast_locale_ensure(), args);
+}
+
 int posix::fprintf(FILE * stream, const char * format, ...)
 {
     va_list args;
     int result;
     va_start(args, format);
-    result = _vfprintf_l(stream, format, _ast_locale_ensure(), args);
+    result = posix::vfprintf(stream, format, args);
     va_end(args);
     return result;
 }

@@ -85,6 +85,41 @@ AST_CORE_API void aGeodeticToBodyFixed(const GeodeticPoint& point, Vector3d& bod
 AST_CORE_API void aBodyFixedToGeodetic(const Vector3d& bodyFixed, GeodeticPoint& point, double xRadius, double yRadius, double zRadius);
 
 
+/// @brief 大地坐标及其变化率转天体固连系的位置与速度
+/// @param[in] point 大地坐标
+/// @param[in] rate 大地坐标变化率, 依次为经度率[rad/s]、纬度率[rad/s]、高度率[m/s]
+/// @param[out] bodyFixed 输出的天体固连系位置
+/// @param[out] vel 输出的天体固连系速度
+/// @param[in] radius 扁球体赤道半径
+/// @param[in] flatFact 扁率
+/// @return 错误码，成功返回eNoError
+/// @note rate 复用了 @ref LatLonAlt 的字段顺序, 但其纬度、经度、高度三个分量依次为
+///       纬度率、经度率、高度率, 量纲也相应为角速度、角速度、速度;
+///       扁率为0时退化为圆球, 与 @ref aGeodeticToBodyFixed(const GeodeticPoint&, Vector3d&, double) 等价;
+///       圆球可视为零扁率的扁球体, 故不再单列圆球重载(避免与三轴椭球重载混淆)。
+AST_CORE_API errc_t aGeodeticToBodyFixed(const GeodeticPoint& point, const LatLonAlt& rate,
+                                         Vector3d& bodyFixed, Vector3d& vel,
+                                         double radius, double flatFact);
+
+
+/// @brief 天体固连系的位置与速度转大地坐标及其变化率
+/// @param[in] bodyFixed 天体固连系位置
+/// @param[in] vel 天体固连系速度
+/// @param[out] point 输出的大地坐标
+/// @param[out] rate 输出的大地坐标变化率, 依次为经度率[rad/s]、纬度率[rad/s]、高度率[m/s]
+/// @param[in] radius 扁球体赤道半径
+/// @param[in] flatFact 扁率
+/// @return 错误码，成功返回eNoError
+/// @note 速度在天体固连系下按当地东、北、天方向分解:
+///       经度率 = v_e / ((N+h)cos(lat)), 纬度率 = v_n / (M+h), 高度率 = v_u,
+///       其中 N、M 为卯酉圈与子午圈曲率半径;
+///       极点(lat=±90°)处经度率奇异, 取0(约定);
+///       位置为零矢量或退化到参考椭球中心附近时返回eErrorInvalidParam。
+AST_CORE_API errc_t aBodyFixedToGeodetic(const Vector3d& bodyFixed, const Vector3d& vel,
+                                         GeodeticPoint& point, LatLonAlt& rate,
+                                         double radius, double flatFact);
+
+
 /// @brief 天体固连系坐标转NED坐标
 /// @param posInBodyFixed 天体固连系坐标
 /// @param origin 局部NED系原点

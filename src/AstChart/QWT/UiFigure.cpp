@@ -18,6 +18,9 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
+
+#ifdef AST_WITH_QWT
+
 #include "UiFigure.hpp"
 #include "ColoredSurfacePlot.hpp"
 #include "EditFigureOverlay.hpp"
@@ -690,3 +693,5 @@ void UiFigure::openPropertyInspector()
 }
 
 AST_NAMESPACE_END
+
+#endif

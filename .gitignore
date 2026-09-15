@@ -13,6 +13,7 @@ coverage.info
 *.gcov
 __pycache__
 *.zip
+*.log
 # doxyfile
 *.gch
 

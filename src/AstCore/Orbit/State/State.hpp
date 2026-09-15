@@ -37,9 +37,13 @@ AST_NAMESPACE_BEGIN
 /// @brief 状态类型
 enum class EStateType
 {
-    eCartesian,     ///< 笛卡尔状态
-    eKeplerian,     ///< 开普勒状态
-    eUnknown,       ///< 未知状态类型
+    eCartesian,         ///< 笛卡尔状态
+    eKeplerian,         ///< 开普勒状态
+    eSpherical,         ///< 球坐标状态
+    eBPlane,            ///< B平面状态
+    eMixedSpherical,    ///< 混合球坐标状态
+    eGeodetic,          ///< 大地坐标状态(固连系下的位置与速度)
+    eUnknown,           ///< 未知状态类型
 };
 
 class State;
