@@ -138,6 +138,55 @@ GeodeticElem makeElem(double lat, double lon, double alt,
 }   // namespace
 
 
+TEST(Geodetic, CartToGeodetic)
+{
+    auto earth = aGetEarth();
+    auto shape = earth->getShape();
+    {
+        Vector3d pos{4036800_m, -5319900_m, 17440_m};
+        Vector3d vel{5015_m/sec, 3817_m/sec, 3686_m/sec};
+        GeodeticElem geoticElem{};
+        ASSERT_EQ(aCartToGeodetic(pos, vel, *shape, geoticElem), eNoError);
+        GeodeticElem geoticElemExpected{
+            0.1505915129124376_deg, -52.8083639372511300_deg, 299.9912078714071413_km,
+            0.0318280608444481_deg/sec, 0.0540719414328207_deg/sec, 0.0004778574962943_km/sec
+        };
+        for(int i=0;i<6;i++)
+        {
+            EXPECT_NEAR(geoticElem[i], geoticElemExpected[i], 2e-9) << i;
+        }
+    }
+}
+
+
+TEST(Geodetic, GeodeticToCart)
+{
+    auto earth = aGetEarth();
+    auto shape = earth->getShape();
+    {
+        GeodeticElem GeodeticElem
+        {
+            0.1499999999999999_deg, -52.7999999999999829_deg, 299.9999999999996021_km,
+            0.0320000000000000_deg/sec, 0.0540000000000000_deg/sec, 0.0010000000000008_km/sec
+        };
+        Vector3d pos{}, vel{};
+        ASSERT_EQ(aGeodeticToCart(GeodeticElem, *shape, pos, vel), eNoError);
+        printf("pos: %s\n", pos.toString().c_str());
+        printf("vel: %s\n", vel.toString().c_str());
+        Vector3d posExpected{4037581.9709812141954899_m, -5319317.8046476449817419_m, 17371.5200733465462690_m};
+        Vector3d velExpected{5008.0776446801501152_m/sec, 3812.2628332697418045_m/sec, 3705.9185959816118157_m/sec};
+        for(int i=0;i<3;i++)
+        {
+            EXPECT_NEAR(pos[i], posExpected[i], 1e-9) << i;
+        }
+        for(int i=0;i<3;i++)
+        {
+            EXPECT_NEAR(vel[i], velExpected[i], 1e-11) << i;
+        }
+        
+    }
+}
+
 // ---------------------------------------------------------------------------
 // 纯数学转换(天体固连系下的位置与速度)
 // ---------------------------------------------------------------------------
