@@ -2448,6 +2448,7 @@ var namespaceast =
     [ "aGTODToECF", "group__Coordinate.html#gafc43ca88443dcc9af6ff3f8c21718614", null ],
     [ "aGTODToECFMatrix", "group__Coordinate.html#ga46a0850ade8cdc74e0e4176d90e8656b", null ],
     [ "aGTODToECFTransform", "group__Coordinate.html#gab792bcc75449482ad42318c89d69edbe", null ],
+    [ "aGuiAvailable", "namespaceast.html#a253b1a362f8b71d1bd8ca5829ff14273", null ],
     [ "aGUIInit", "namespaceast.html#a7212999ae11b2b8a287b6ca859686eb6", null ],
     [ "aGUIInterfaceImpl", "namespaceast.html#abc8a549bd0034f7f766a488af1a51f11", null ],
     [ "aHarrisPriester", "namespaceast.html#a00b8036931a9cee539bed4bda0d6403c", null ],

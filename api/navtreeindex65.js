@@ -1,5 +1,6 @@
 var NAVTREEINDEX65 =
 {
+"structast_1_1DAF__SummaryRecords.html":[2,0,0,202],
 "structast_1_1DAF__SummaryRecords.html":[3,0,0,201],
 "structast_1_1DAF__SummaryRecords.html#a0971b46fa87ae11370503bd017ddfa1b":[2,0,0,202,0],
 "structast_1_1DAF__SummaryRecords.html#a0971b46fa87ae11370503bd017ddfa1b":[3,0,0,201,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX65 =
 "structast_1_1SPK__Type2__Record.html#a4bf352a51ac2aa4b8c370419d4f358c5":[3,0,0,941,1],
 "structast_1_1SPK__Type2__Trailer.html":[2,0,0,943],
 "structast_1_1SPK__Type2__Trailer.html":[3,0,0,942],
-"structast_1_1SPK__Type2__Trailer.html#a271dc580e5817fc616ca8862c32941ee":[2,0,0,943,0],
-"structast_1_1SPK__Type2__Trailer.html#a271dc580e5817fc616ca8862c32941ee":[3,0,0,942,0]
+"structast_1_1SPK__Type2__Trailer.html#a271dc580e5817fc616ca8862c32941ee":[2,0,0,943,0]
 };

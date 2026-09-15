@@ -5665,6 +5665,8 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160
 <tr class="separator:ga6daa5711aa17b0ee813180ca20a72e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga55077fa33582c28c9868a5ce250a62aa" id="r_ga55077fa33582c28c9868a5ce250a62aa"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Fault.html#ga55077fa33582c28c9868a5ce250a62aa">aCrashResolveSymbols</a> (const char *logPath, const char *outPath)</td></tr>
 <tr class="separator:ga55077fa33582c28c9868a5ce250a62aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a253b1a362f8b71d1bd8ca5829ff14273" id="r_a253b1a362f8b71d1bd8ca5829ff14273"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a253b1a362f8b71d1bd8ca5829ff14273">aGuiAvailable</a> ()</td></tr>
+<tr class="separator:a253b1a362f8b71d1bd8ca5829ff14273"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae69209148e6c0fd4176eab778ed11627" id="r_ae69209148e6c0fd4176eab778ed11627"><td class="memItemLeft" align="right" valign="top"><a id="ae69209148e6c0fd4176eab778ed11627" name="ae69209148e6c0fd4176eab778ed11627"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>aInitAppAttributes</b> ()</td></tr>
 <tr class="separator:ae69209148e6c0fd4176eab778ed11627"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -14313,6 +14315,26 @@ template&lt;typename Func &gt; </div>
 
 </div>
 </div>
+<a id="a253b1a362f8b71d1bd8ca5829ff14273" name="a253b1a362f8b71d1bd8ca5829ff14273"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a253b1a362f8b71d1bd8ca5829ff14273">&#9670;&#160;</a></span>aGuiAvailable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_GUI_CAPI bool ast::aGuiAvailable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判断当前是否具备可用的 GUI 环境 </p>
+<p>仅当已成功创建 QApplication（即平台插件可用）时返回 true。 返回 false 时不应创建任何 QWidget 派生对象。 </p><dl class="section return"><dt>返回</dt><dd>具备可用 GUI 环境返回 true </dd></dl>
+
+</div>
+</div>
 <a id="a7212999ae11b2b8a287b6ca859686eb6" name="a7212999ae11b2b8a287b6ca859686eb6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7212999ae11b2b8a287b6ca859686eb6">&#9670;&#160;</a></span>aGUIInit()</h2>
 
@@ -19235,7 +19257,7 @@ template&lt;typename Func &gt; </div>
 </div><div class="memdoc">
 
 <p>初始化Qt应用程序 </p>
-<dl class="section return"><dt>返回</dt><dd>errc_t </dd></dl>
+<p>缺少 Qt 平台插件（如 Windows 下的 qwindows.dll）时会降级为 QCoreApplication， 此时日志与翻译功能仍可正常使用，但所有 GUI 功能不可用。 </p><dl class="section return"><dt>返回</dt><dd>errc_t </dd></dl>
 
 </div>
 </div>
@@ -20791,7 +20813,7 @@ template&lt;typename Func &gt; </div>
 </div><div class="memdoc">
 
 <p>创建主窗口 </p>
-<dl class="section return"><dt>返回</dt><dd>QMainWindow* </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>QMainWindow*，GUI 环境不可用时返回 nullptr </dd></dl>
 
 </div>
 </div>

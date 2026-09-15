@@ -1,5 +1,6 @@
 var NAVTREEINDEX66 =
 {
+"structast_1_1SPK__Type2__Trailer.html#a271dc580e5817fc616ca8862c32941ee":[3,0,0,942,0],
 "structast_1_1SPK__Type2__Trailer.html#a344d7683695e35ac3664ffcf5e334d02":[2,0,0,943,2],
 "structast_1_1SPK__Type2__Trailer.html#a344d7683695e35ac3664ffcf5e334d02":[3,0,0,942,2],
 "structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e":[2,0,0,943,3],
