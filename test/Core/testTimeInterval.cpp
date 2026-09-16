@@ -67,6 +67,59 @@ TEST(TimeInterval, GetSet)
     EXPECT_FALSE(str.empty());
 }
 
+TEST(TimeInterval, SetBoundsSelfAlias)
+{
+    // start()/stop() 返回成员引用，因此 setBounds 的 epoch 参数可能与区间自身的
+    // 端点别名。此时两个端点都必须基于「原始」的 epoch 计算，否则第二个端点会
+    // 读到已被第一个端点覆盖掉的 epoch。
+    TimePoint t0 = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0.0);
+
+    // epoch 别名 start_
+    {
+        TimeInterval interval(t0, 100.0, 3600.0);
+        const TimePoint& epoch = interval.start();     // 相对 t0 为 100s
+        interval.setBounds(epoch, 20.0, 30.0);
+
+        // 期望 {100+20, 100+30}，即 {t0+120, t0+130}
+        EXPECT_DOUBLE_EQ(interval.start().durationFrom(t0), 120.0);
+        EXPECT_DOUBLE_EQ(interval.stop().durationFrom(t0), 130.0);
+        EXPECT_DOUBLE_EQ(interval.duration(), 10.0);
+    }
+
+    // epoch 别名 stop_
+    {
+        TimeInterval interval(t0, 100.0, 3600.0);
+        const TimePoint& epoch = interval.stop();      // 相对 t0 为 3600s
+        interval.setBounds(epoch, 20.0, 30.0);
+
+        // 期望 {3600+20, 3600+30}
+        EXPECT_DOUBLE_EQ(interval.start().durationFrom(t0), 3620.0);
+        EXPECT_DOUBLE_EQ(interval.stop().durationFrom(t0), 3630.0);
+        EXPECT_DOUBLE_EQ(interval.duration(), 10.0);
+    }
+
+    // epoch + Interval 重载，同样存在别名
+    {
+        TimeInterval interval(t0, 100.0, 3600.0);
+        const TimePoint& epoch = interval.start();
+        interval.setBounds(epoch, Interval{20.0, 30.0});
+
+        EXPECT_DOUBLE_EQ(interval.start().durationFrom(t0), 120.0);
+        EXPECT_DOUBLE_EQ(interval.stop().durationFrom(t0), 130.0);
+        EXPECT_DOUBLE_EQ(interval.duration(), 10.0);
+    }
+
+    // 两个 TimePoint 端点同时别名：交换端点
+    {
+        TimeInterval interval(t0, 100.0, 3600.0);
+        interval.setBounds(interval.stop(), interval.start());
+
+        EXPECT_DOUBLE_EQ(interval.start().durationFrom(t0), 3600.0);
+        EXPECT_DOUBLE_EQ(interval.stop().durationFrom(t0), 100.0);
+        EXPECT_TRUE(interval.isEmpty());    // 端点已交换，区间反向
+    }
+}
+
 TEST(TimeInterval, Format)
 {
     TimePoint start = TimePoint::FromUTC(2026, 1, 1, 12, 30, 45.5);

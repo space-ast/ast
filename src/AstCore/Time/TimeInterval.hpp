@@ -124,7 +124,10 @@ public:
     /// @brief 设置时间区间的开始时间点和结束时间点
     /// @param start 开始时间点
     /// @param stop 结束时间点
-    void setBounds(const TimePoint& start, const TimePoint& stop){
+    /// @note TimePoint 按值传递（而非 const&）：实参在调用时即完成拷贝，
+    ///       因此允许与本区间的端点别名（如 setBounds(stop(), start())），
+    ///       函数体内无论怎么写都读不到被覆盖的值。TimePoint 可平凡复制，无额外开销。
+    void setBounds(TimePoint start, TimePoint stop){
         start_ = start;
         stop_  = stop;
     }
@@ -133,7 +136,9 @@ public:
     /// @param epoch 时间区间的基准时间点
     /// @param start 开始时间点（相对基准时间点的秒数）
     /// @param stop 结束时间点（相对基准时间点的秒数）
-    void setBounds(const TimePoint& epoch, double start, double stop){
+    /// @note epoch 按值传递，理由同 setBounds(TimePoint, TimePoint)：
+    ///       两个端点都基于原始的 epoch 计算，即使传入 start() 或 stop() 也正确。
+    void setBounds(TimePoint epoch, double start, double stop){
         start_ = epoch + start;
         stop_  = epoch + stop;
     }
@@ -141,7 +146,8 @@ public:
     /// @brief 设置时间区间的开始时间点和结束时间点
     /// @param epoch 时间区间的基准时间点
     /// @param interval 相对基准时间点的时间区间
-    void setBounds(const TimePoint& epoch, const Interval& interval){
+    /// @note epoch 按值传递，理由同上。
+    void setBounds(TimePoint epoch, const Interval& interval){
         start_ = epoch + interval.start();
         stop_  = epoch + interval.stop();
     }
