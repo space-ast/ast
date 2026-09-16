@@ -19,6 +19,11 @@ xpack("ast")
     add_sourcefiles("(test/**)|**bm*")
     add_sourcefiles("(repo/**)")
     add_sourcefiles("*.lua", "*.md", "LICENSE*")
+    -- xmake.sh（脚本式构建，不依赖 xmake）相关文件，runself 源码包解包后靠它现场编译
+    add_sourcefiles("configure")
+    add_sourcefiles("xmake.sh")
+    add_sourcefiles("(scripts/xpack/runself.sh)")   -- 用括号包住，保证在包里保持 scripts/xpack/ 目录结构
+
     -- 二进制安装包的文件
     add_installfiles("(examples/**)|*.lua")
     add_installfiles("(test/**)|**bm*|*.lua")
@@ -32,6 +37,16 @@ xpack("ast")
             package:set("basename", "SpaceAST-v$(version)-" .. plat .. "-" .. arch)
         else
             package:set("basename", "SpaceAST-v$(version)")
+        end
+
+        -- @note runself 是源码自解压包，解包后在目标机上用 xmake.sh（configure + make）
+        -- 现场编译安装，所以既不需要工程 target，也不需要安装文件（否则会生成
+        -- `xmake install -P .` 之类的安装命令）
+        if package:format() == "runself" then
+            package:set("targets", {})
+            package:set("installfiles", {})
+            package:set("basename", "SpaceAST-v$(version)-linux-any")
+            return
         end
 
         -- 添加所有工程目标，排除AstVisVTK
@@ -67,5 +82,14 @@ xpack("ast")
             package:add("installfiles", "build/$(plat)/$(arch)/debug/*.py",   {prefixdir = "bin"})
         end
     end)
-   
+
+    -- runself（源码自解压安装包）：解包后调用工程里的 scripts/xpack/runself.sh，
+    -- 用 xmake.sh 现场编译并安装到 --prefix（默认 ~/.local），
+    -- 用户执行 .run 时传的参数（--prefix/-j/--mode/...）由 makeself 透传进来
+    after_installcmd(function (package, batchcmds)
+        if package:format() == "runself" then
+            batchcmds:runv("sh", {"./scripts/xpack/runself.sh", "$@"})
+        end
+    end)
+
     

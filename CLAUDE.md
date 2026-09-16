@@ -19,6 +19,22 @@ xmake pack -f zip           # 打包为 zip 压缩包
 
 配置选项：`--with_test=y`（启用测试，默认开启）、`--check_warnings=y`（警告视为错误，默认开启）。
 
+### xmake.sh（脚本式构建，可选）
+
+仓库同时提供一套 [xmake.sh](https://github.com/xmake-io/xmake.sh) 构建配置（`configure` + 各级 `xmake.sh`），不依赖 xmake，只要 make 和一个 C/C++ 编译器：
+
+```bash
+./configure                       # 配置，默认 release，生成 Makefile（--generator=ninja 则生成 build.ninja）
+./configure --mode=debug          # debug 模式（还有 --mode=coverage）
+./configure --fmt=y --eigen=n     # 可选依赖默认自动探测，也可手动开关
+./configure --builddir=build-xsh  # 构建目录默认 build/，与 xmake 的 release 输出同名，建议错开
+make -j                           # 编译全部模块；make AstCore 只编某个模块
+make install PREFIX=$PWD/artifacts     # 装到工程内 artifacts/（已在 .gitignore），不碰系统目录
+make install PREFIX=$HOME/.local/ast   # 也可装到用户级前缀，当 SDK 给其它工程用
+```
+
+目前只覆盖 `src/` 下的库模块：依赖自定义 rule 的 Qt(moc/uic/rcc)、SWIG、COM IDL、WASM、Fortran 目标（AstGUI/AstChart/AstUi*/AstPy/AstCOM/AstWasm 等）以及 `test/`、`examples/`、`projects/` 尚未接入。
+
 ## 项目概述
 
 **ast** 是一个面向航天仿真领域的 C++11 算法库，涵盖轨道力学、姿态动力学、坐标变换、环境模型和数值方法。编译产物为一组模块粒度的共享库（Windows 下为 DLL，Linux 下为 SO）。

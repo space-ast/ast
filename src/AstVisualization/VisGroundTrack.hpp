@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "VisObject.hpp"
+#include "AstCore/CelestialBody.hpp"
 #include "AstCore/Point.hpp"
 #include "AstCore/Frame.hpp"
 #include "AstCore/TimeInterval.hpp"
