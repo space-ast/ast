@@ -85,10 +85,21 @@ jobs:
         run: |
           xmake -ay
 
-      - name: 打包项目
+      - name: 打包二进制包
         run: |
           xmake f -cy --with_test=y -m release
           xmake pack -f zip -o artifacts/ --basename=SpaceAST
+
+      - name: 测试 xmake.sh 编译
+        if: runner.os != 'Windows'
+        run: |
+          ./scripts/xpack/runself.sh --builddir=build-xsh
+
+      - name: 打包自安装源码包
+        if: runner.os != 'Windows'
+        run: |
+          xmake f -cy --with_test=y -m release
+          xmake pack -f runself -o artifacts/ --basename=SpaceAST
       
       - name: 获取发布信息
         id: release-info
@@ -116,7 +127,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: SpaceAST-${{ steps.release-info.outputs.plat }}-${{ steps.release-info.outputs.arch }}
-          path: artifacts/SpaceAST.zip
+          path: artifacts/
            
       - name: 发布产物
         if: github.event.action == 'published'
@@ -130,7 +141,7 @@ jobs:
           asset_content_type: application/zip
       
       - name: 更新 nightly tag
-        if: github.ref == 'refs/heads/master' && matrix.os == 'windows-2022' && matrix.arch == 'x64'
+        if: github.ref == 'refs/heads/master' && runner.os == 'Windows' && matrix.arch == 'x64'
         shell: bash
         run: |
           git tag -f nightly "${{ github.sha }}"
