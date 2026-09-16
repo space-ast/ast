@@ -274,7 +274,7 @@ fi
 add_includedirs "include"
 
 if is_plat "linux"; then
-    add_rpathdirs "$ORIGIN"                  # 运行时到库所在目录查找依赖库
+    add_rpathdirs "@loader_path"             # 运行时依赖库查找目录，使用 @loader_path 而不是 $ORIGIN，避免意外的转义问题
     add_syslinks "dl" "pthread"
 elif is_plat "windows"; then
     add_defines "_CRT_SECURE_NO_WARNINGS" "_SCL_SECURE_NO_WARNINGS"
