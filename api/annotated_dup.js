@@ -34,6 +34,7 @@ var annotated_dup =
         [ "space_info", "structast_1_1fs__simple_1_1space__info.html", null ]
       ] ],
       [ "math", "namespaceast_1_1math.html", [
+        [ "is_arithmetic_element", "structast_1_1math_1_1is__arithmetic__element.html", null ],
         [ "is_vector_like", "structast_1_1math_1_1is__vector__like.html", null ]
       ] ],
       [ "propagate_nan", "namespaceast_1_1propagate__nan.html", [

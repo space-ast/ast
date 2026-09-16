@@ -478,6 +478,9 @@ var hierarchy =
       [ "ast::CNLPSnoptSolver", "classast_1_1CNLPSnoptSolver.html", null ],
       [ "ast::DifferentialCorrector", "classast_1_1DifferentialCorrector.html", null ]
     ] ],
+    [ "std::integral_constant", null, [
+      [ "ast::math::is_arithmetic_element< T >", "structast_1_1math_1_1is__arithmetic__element.html", null ]
+    ] ],
     [ "Interface", null, [
       [ "ast::TraitObject< Interface >", "classast_1_1TraitObject.html", null ]
     ] ],

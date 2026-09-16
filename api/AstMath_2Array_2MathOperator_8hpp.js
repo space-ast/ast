@@ -1,5 +1,6 @@
 var AstMath_2Array_2MathOperator_8hpp =
 [
+    [ "ast::math::is_arithmetic_element< T >", "structast_1_1math_1_1is__arithmetic__element.html", null ],
     [ "ast::math::is_vector_like< T >", "structast_1_1math_1_1is__vector__like.html", null ],
     [ "_AST_DEF_OP_SV", "AstMath_2Array_2MathOperator_8hpp.html#ac9e493001955b1fb246d65c0cf4f6a12", null ],
     [ "cot", "AstMath_2Array_2MathOperator_8hpp.html#a762ef5701ce8b50600daa804623886da", null ],

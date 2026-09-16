@@ -1,5 +1,6 @@
 var namespaceast_1_1math =
 [
+    [ "is_arithmetic_element", "structast_1_1math_1_1is__arithmetic__element.html", null ],
     [ "is_vector_like", "structast_1_1math_1_1is__vector__like.html", null ],
     [ "cot", "namespaceast_1_1math.html#a762ef5701ce8b50600daa804623886da", null ],
     [ "cross", "namespaceast_1_1math.html#afe4763a2a941b3324f166f3377767b77", null ],
