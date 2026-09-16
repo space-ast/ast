@@ -397,7 +397,18 @@ inline std::array<double, N> normalized(const double* vec)
     return retval;
 }
 
-// 定义向量特征：必须要有 size() 和 operator[]
+/// @brief 判断类型是否为向量运算可用的数值类型
+template<typename T>
+struct is_arithmetic_element : std::integral_constant<bool,
+    std::is_arithmetic<T>::value
+    && !std::is_same<T, char>::value
+    && !std::is_same<T, wchar_t>::value
+    && !std::is_same<T, char16_t>::value
+    && !std::is_same<T, char32_t>::value>
+{};
+
+
+// 定义向量特征：必须要有 size() 和数值型元素的 operator[]
 template<typename T>
 struct is_vector_like {
 private:
@@ -405,7 +416,10 @@ private:
     static auto test(int) -> decltype(
         sizeof(std::declval<U>()[0]),   // 有 operator[]，用 sizeof 取用返回值避免报 unused-result
         size(std::declval<U>()),        // 有 size() 函数
-        std::true_type{}
+        typename std::enable_if<
+            is_arithmetic_element<
+                typename std::decay<decltype(std::declval<U>()[0])>::type>::value,
+            std::true_type>::type{}
     );
     
     template<typename>

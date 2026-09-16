@@ -28,6 +28,7 @@
 #include "AstCore/TimePoint.hpp"
 #include "AstGUI/UiTimePoint.hpp"
 #include "AstGUI/UiQuantity.hpp"
+#include "AstGUI/AstGUIAPI.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Unit.hpp"
 #include "AstUtil/Quantity.hpp"
@@ -376,6 +377,12 @@ errc_t aUiExportSTKEphemeris(Point* ephemeris, QWidget* parent)
 {
     if(!ephemeris)
         return eErrorInvalidParam;
+
+    if(!aGuiAvailable())
+    {
+        aError(_("当前环境没有可用的 GUI（缺少 Qt 平台插件），无法弹出导出对话框"));
+        return eErrorUnsupported;
+    }
 
     QDialog dlg(parent);
     dlg.setWindowTitle(QObject::tr("导出 STK 星历文件"));

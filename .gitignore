@@ -27,3 +27,10 @@ __pycache__
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md
 settings.local.json
+
+# xmake.sh 生成的构建文件
+Makefile
+build.ninja
+build-xsh/
+build-xsh-debug/
+.tmp-*

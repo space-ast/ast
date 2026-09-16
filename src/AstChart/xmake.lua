@@ -8,9 +8,7 @@ target("AstChart")
     add_defines("AST_BUILD_LIB_CHART")
     add_defines("NOMINMAX")
     add_deps("AstUtil", "AstSim", "AstCore", "AstMath")
-    if has_package("matplotplusplus") and has_package("qwt") and has_package("opengl") then
-        add_packages("matplotplusplus", "qwt", "opengl")
-    end
+    add_packages("matplotplusplus", "qwt", "opengl")
     if not has_package("qt") then
         set_enabled(false)
     end

@@ -24,6 +24,8 @@
 #include "AstCore/SolarSystem.hpp"
 #include "AstCore/RunTimeSolarSystem.hpp"
 #include "AstUtil/RTTIAPI.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstGUI/AstGUIAPI.hpp"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -276,6 +278,12 @@ void UiSelectFrame::resolveAndEmit()
 
 Frame* aUiSelectFrame()
 {
+    if(!aGuiAvailable())
+    {
+        aError(_("当前环境没有可用的 GUI（缺少 Qt 平台插件），无法弹出坐标系选择对话框"));
+        return nullptr;
+    }
+
     QDialog dlg;
     dlg.setWindowTitle(QObject::tr("选择坐标系"));
     auto* layout = new QVBoxLayout(&dlg);

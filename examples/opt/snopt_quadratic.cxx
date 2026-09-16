@@ -48,10 +48,10 @@
 // SnoptCAPI 通过动态加载提供 SNOPT Fortran 函数的 C 封装
 #include "AstOpt/SnoptAPI.hpp"
 
-// f2c 兼容类型 (integer, doublereal, ftnlen 等)
-#include "AstOpt/f2c.h"
-
 using namespace ast;
+using snoptproto::integer;
+using snoptproto::doublereal;
+using snoptproto::ftnlen;
 
 // ═══════════════════════════════════════════════════════════════════
 // 用户回调函数：计算目标函数值与约束函数值
