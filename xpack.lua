@@ -11,17 +11,17 @@ xpack("ast")
         "srczip", "srctargz", "runself", "srpm", "deb"  -- 源文件包格式
     )
     -- 添加工程目标
-    add_targets("ascript", "AppCLI")
+    add_targets("ascript", "AppCLI", "AppMissionAnalysis")
     -- 源文件安装包的文件
     add_sourcefiles("(src/**)")
     add_sourcefiles("(include/**)")
     add_sourcefiles("(examples/**)")
-    add_sourcefiles("(test/**)")
+    add_sourcefiles("(test/**)|**bm*")
     add_sourcefiles("(repo/**)")
     add_sourcefiles("*.lua", "*.md", "LICENSE*")
     -- 二进制安装包的文件
     add_installfiles("(examples/**)|*.lua")
-    add_installfiles("(test/**)|*.lua")
+    add_installfiles("(test/**)|**bm*|*.lua")
     add_installfiles("scripts/xpack/port.lua", {filename = "xmake.lua"})
     on_load(function(package)
         import("core.project.project")
@@ -34,9 +34,9 @@ xpack("ast")
             package:set("basename", "SpaceAST-v$(version)")
         end
 
-        -- 添加所有工程目标，排除AstGUI
+        -- 添加所有工程目标，排除AstVisVTK
         for targetname, _ in pairs(project.targets()) do
-            if targetname:startswith("Ast") and targetname ~= "AstGUI" and not targetname:startswith("AstUi") then
+            if targetname:startswith("Ast") and targetname ~= "AstVisVTK" then
                 package:add("targets", targetname)
             end
         end

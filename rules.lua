@@ -91,6 +91,7 @@ rule_end()
 
 rule("ast.qt")
     add_deps("qt.env")
+    add_deps("qt.ui", "qt.moc", "qt.qrc", "qt.ts")
     on_config(function (target)
         -- 检查是否存在Qt环境，如果没有qt环境则禁用相关项目
         local qt = target:data("qt")
@@ -120,12 +121,10 @@ rule_end()
 
 rule("ast.qt.widgetapp")
     add_deps("ast.qt")
-    if is_plat("wasm") then
-        add_deps("qt.widgetapp_static")
-    else
-        add_deps("qt.widgetapp")
-    end
     on_load(function (target)
+        -- 与内置 qt.widgetapp 一致：桌面平台是 GUI 可执行程序，android 上是共享库。
+        -- 必须在 on_load 中设置，因为规则要早于 target 的其它配置确定 kind。
+        target:set("kind", target:is_plat("android") and "shared" or "binary")
         -- 添加静态链接的Qt插件，必须在on_load中设置，否则不起作用
         if target:plat() == "wasm" then
             target:add("values", "qt.plugins", "QSvgPlugin")
@@ -133,6 +132,102 @@ rule("ast.qt.widgetapp")
             target:add("values", "qt.linkdirs", "plugins/imageformats")
         end
     end)
+    if is_plat("wasm") then
+        -- wasm 是静态链接，仍然复用内置规则（它的 installcmd 在非 windows 平台本来就装到 bin）
+        add_deps("qt.widgetapp_static")
+    else
+        on_config(function (target)
+            -- 与内置 qt.widgetapp 的 on_config 一致：
+            import("rules.qt.load", {rootdir = os.programdir()})(target, {gui = true})
+            -- 这两项 windeployqt 默认都会部署，但对本项目是多余的：
+            --   --compiler-runtime      MSVC 工具链下会从 %VCToolsRedistDir% 拷一份 18MB 的
+            --                           vc_redist.x64.exe，改由使用方自行确保目标机装过运行库
+            --   --system-d3d-compiler   系统自带 D3Dcompiler_47.dll，Windows 7 之后无需分发
+            -- xmake 会把这里的值原样透传给 windeployqt。
+            target:add("values", "qt.deploy.flags", "--no-compiler-runtime", "--no-system-d3d-compiler")
+        end)
+
+        -- 安装到安装包：windows/mingw 下用 windeployqt 部署并装到 bin；其余平台复制构建输出目录到 bin、共享库到 lib。
+        -- 与内置 qt.widgetapp 的 installcmd 的唯一区别就是 windows 下不装到包根目录。
+        --
+        -- 注意这里只是"生成"安装命令，windeployqt 必须在此时同步跑完（deploydir 位于target:autogendir() 下），
+        -- 随后的 cp/rm 由 pack 统一执行。
+        on_installcmd(function (target, batchcmds, opt)
+            local package = opt.package
+            if not package then
+                return
+            end
+            import("plugins.pack.batchcmds", {alias = "pack_batchcmds", rootdir = os.programdir()})
+            local bindir = package:bindir()
+
+            if target:is_plat("windows", "mingw") then
+                import("rules.qt.install.windeployqt", {rootdir = os.programdir()})
+
+                local deploydir = path.join(target:autogendir(), "qt", "deploy", target:name())
+                os.mkdir(deploydir)
+
+                -- 先把可执行文件和 qt.shared 依赖拷进来，再交给 windeployqt 补齐 Qt 依赖
+                local targetfile = path.join(deploydir, target:filename())
+                os.cp(target:targetfile(), targetfile)
+                local installfiles = {targetfile}
+                for _, dep in ipairs(target:orderdeps()) do
+                    if dep:rule("qt.shared") then
+                        local depfile = path.join(deploydir, path.filename(dep:targetfile()))
+                        os.cp(dep:targetfile(), depfile)
+                        table.insert(installfiles, depfile)
+                    end
+                end
+                windeployqt.run_deploy(target, deploydir, installfiles)
+
+                batchcmds:mkdir(bindir)
+                batchcmds:cp(path.join(deploydir, "*"), bindir, {rootdir = deploydir})
+                pack_batchcmds.install_target_shared_libraries(target, batchcmds, {bindir = bindir, package = package})
+            else
+                local target_bindir = target:bindir()
+                if target_bindir and os.isdir(target_bindir) then
+                    batchcmds:cp(path.join(target_bindir, "*"), bindir, {rootdir = target_bindir})
+                    pack_batchcmds.install_target_shared_libraries(target, batchcmds,
+                        {bindir = package:installdir("lib"), package = package})
+                end
+            end
+
+            -- 安装目标自身的文件（资源等）
+            pack_batchcmds.install_target_files(target, batchcmds, opt)
+            pack_batchcmds.update_target_install_rpath(target, batchcmds, opt)
+        end)
+
+        on_uninstallcmd(function (target, batchcmds, opt)
+            local package = opt.package
+            if not package then
+                return
+            end
+            if target:is_plat("windows", "mingw") then
+                local deploydir = path.join(target:autogendir(), "qt", "deploy", target:name())
+                if not os.isdir(deploydir) then
+                    return
+                end
+                local bindir = package:bindir()
+                for _, item in ipairs(os.filedirs(path.join(deploydir, "*"))) do
+                    local dstpath = path.join(bindir, path.relative(item, deploydir))
+                    if os.isdir(item) then
+                        batchcmds:rmdir(dstpath, {emptydirs = true})
+                    else
+                        batchcmds:rm(dstpath, {emptydirs = true})
+                    end
+                end
+            else
+                -- 与内置 qt.widgetapp 的 uninstallcmd 的 linux 分支一致：清空包 bin 目录
+                local package_bindir = package:installdir("bin")
+                for _, item in ipairs(os.filedirs(path.join(package_bindir, "*"))) do
+                    if os.isfile(item) then
+                        batchcmds:rm(item, {emptydirs = true})
+                    elseif os.isdir(item) then
+                        batchcmds:rmdir(item, {emptydirs = true})
+                    end
+                end
+            end
+        end)
+    end
 rule_end()
 
 
