@@ -183,12 +183,13 @@ rule("ast.qt.widgetapp")
                 batchcmds:cp(path.join(deploydir, "*"), bindir, {rootdir = deploydir})
                 pack_batchcmds.install_target_shared_libraries(target, batchcmds, {bindir = bindir, package = package})
             else
-                local target_bindir = target:bindir()
-                if target_bindir and os.isdir(target_bindir) then
-                    batchcmds:cp(path.join(target_bindir, "*"), bindir, {rootdir = target_bindir})
-                    pack_batchcmds.install_target_shared_libraries(target, batchcmds,
-                        {bindir = package:installdir("lib"), package = package})
-                end
+                -- 注意：这里装的是可执行文件自身，不能用 target:bindir() 去找构建产物。
+                -- target:bindir() 返回的是**安装**目录，linux 平台默认 installdir 是 /usr/local，
+                -- 于是它等于 /usr/local/bin，os.isdir 又为真，下面就会把系统目录当成产物目录拷进包里。
+                batchcmds:mkdir(bindir)
+                batchcmds:cp(target:targetfile(), path.join(bindir, target:filename()))
+                pack_batchcmds.install_target_shared_libraries(target, batchcmds,
+                    {bindir = package:installdir("lib"), package = package})
             end
 
             -- 安装目标自身的文件（资源等）
