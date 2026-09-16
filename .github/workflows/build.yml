@@ -75,7 +75,7 @@ jobs:
           
       - name: 编译debug版本
         run: |
-          xmake
+          xmake -ay
 
       - name: 配置release版本
         run: |
@@ -83,7 +83,7 @@ jobs:
 
       - name: 编译release版本
         run: |
-          xmake
+          xmake -ay
 
       - name: 打包项目
         run: |

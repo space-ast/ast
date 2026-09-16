@@ -77,7 +77,7 @@ jobs:
           if [ -n "$SWIG_BIN" ]; then export PATH="$(dirname "$SWIG_BIN"):$PATH"; fi
           echo "swig path: $(command -v swig || echo 未找到)"
           swig -version || true
-          xmake
+          xmake -ay
 
       - name: 执行测试并收集覆盖率信息
         run: |
