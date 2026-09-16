@@ -169,7 +169,7 @@ errc_t aQAppInit(int argc, char *argv[])
                 // 有显示环境但缺少平台插件，此时构造 QApplication 会直接 abort，
                 // 故降级为 QCoreApplication：日志、翻译等功能仍可用，仅 GUI 功能不可用。
                 const std::string pluginDir = (fs::path(aExeDir()) / "platforms").string();
-                aWarning(_("未找到可用的 Qt 平台插件，请将平台插件部署到 '%s'"), pluginDir.c_str());
+                aDebug(_("未找到可用的 Qt 平台插件，请将平台插件部署到 '%s'"), pluginDir.c_str());
             }else{
                 aDebug(_("未检测到GUI环境"));
             }
