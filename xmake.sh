@@ -276,14 +276,16 @@ add_includedirs "include"
 if is_plat "linux"; then
     add_rpathdirs "$ORIGIN"                  # 运行时到库所在目录查找依赖库
     add_syslinks "dl" "pthread"
-elif is_plat "windows" "mingw"; then
+elif is_plat "windows"; then
     add_defines "_CRT_SECURE_NO_WARNINGS" "_SCL_SECURE_NO_WARNINGS"
     add_cxflags "/wd4819"                    # 忽略警告：代码页
     add_cxflags "/wd4251"                    # 忽略警告：需要有 dll 接口
     add_cxflags "/wd4996"                    # 忽略警告：已否决的函数或参数
     add_cxflags "/utf-8"
-    add_cxflags "-Wno-missing-braces"
     add_cxxflags "/we4703"                   # 视为错误：未初始化的本地变量
+elif is_plat "mingw"; then
+    add_defines "_CRT_SECURE_NO_WARNINGS" "_SCL_SECURE_NO_WARNINGS"
+    add_cxflags "-Wno-missing-braces"
 elif is_plat "wasm"; then
     add_cxflags "-Wno-missing-braces"
 fi

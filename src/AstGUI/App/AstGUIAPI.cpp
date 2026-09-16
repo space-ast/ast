@@ -51,7 +51,9 @@ static const char* const kPlatformPluginKeys[] = {
     "qxcb", "qwayland"
 };
 #else
-static const char* const kPlatformPluginKeys[] = {};
+static const char* const kPlatformPluginKeys[] = {
+    "qoffscreen"
+};
 #endif
 
 
@@ -88,6 +90,11 @@ static bool aPlatformPluginExistsInDir(const QString& dir)
 /// @return 找到可用的平台插件返回 true
 static bool aQtPlatformPluginAvailable()
 {
+#ifdef A_WASM
+    // wasm 的平台插件（QWasmIntegrationPlugin）是被静态链接进可执行文件的，磁盘上
+    // 根本不存在插件文件，文件探测必然失败，因此直接放行。
+    return true;
+#else
     // 显式指定平台时尊重调用方的选择
     if(!qgetenv("QT_QPA_PLATFORM").isEmpty())
         return true;
@@ -123,6 +130,7 @@ static bool aQtPlatformPluginAvailable()
             return true;
     }
     return false;
+#endif
 }
 
 bool aGuiAvailable()
