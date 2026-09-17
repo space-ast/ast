@@ -66,7 +66,7 @@ errc_t _aLoadSolarPressureModel(BKVParser& parser, MotionHPOPSax::PhysicalParam&
 }
 
 
-static EAtmDensityModel _aStringToAtmDensityModel(StringView value)
+static EAtmDensityModel _aStringToAtmDensityModel_HPOP(StringView value)
 {
     if(aEqualsIgnoreCase(value, "JacchiaRoberts")){
         return EAtmDensityModel::eJacchiaRoberts;
@@ -200,7 +200,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         forceModel_.useDrag(value.toBool());
     }
     else if(aEqualsIgnoreCase(key, "AtmDensityModel")){
-        forceModel_.drag().atmDensityModel_ = _aStringToAtmDensityModel(value.toString());
+        forceModel_.drag().atmDensityModel_ = _aStringToAtmDensityModel_HPOP(value.toString());
         if(forceModel_.drag().atmDensityModel_ == EAtmDensityModel::eNone){
             aWarning(_("使用默认大气密度模型 'NRLMSISE2000'"));
             forceModel_.drag().atmDensityModel_ = EAtmDensityModel::eNRLMSISE2000;
@@ -210,7 +210,7 @@ errc_t MotionHPOPSax::keyValue(StringView key, const ValueView &value)
         forceModel_.drag().atmBlendingRange_ = value.toDouble();
     }
     else if(aEqualsIgnoreCase(key, "LowAltAtmDensityModel")){
-        forceModel_.drag().lowAltAtmDensityModel_ = _aStringToAtmDensityModel(value.toString());
+        forceModel_.drag().lowAltAtmDensityModel_ = _aStringToAtmDensityModel_HPOP(value.toString());
     }
     else if(aEqualsIgnoreCase(key, "UseFluxApFile")){
         forceModel_.drag().useFluxApFile_ = value.toBool();

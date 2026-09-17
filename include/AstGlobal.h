@@ -160,7 +160,7 @@
 #endif
 
 
-#if defined(_MSC_VER)
+#if defined(_MSC_VER) && !defined(__clang__)  // clang 的默认执行字符集本就是 utf-8，无需设置
 #pragma warning(disable: 4251)   // 禁用未导出的符号警告，因为一些类使用了stl等模板容器
 #   if defined(AST_BUILD_LIB) 
     // 在编译ast库时指定代码内的字符串使用utf-8编码

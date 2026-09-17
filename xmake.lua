@@ -40,8 +40,16 @@ option_end()
 -- add_defines([[_AST_LIB_SUFFIX="_"]])
 
 -- 设置 c++代码标准：c++11，c代码标准：c99
-if not is_plat("windows") then  -- fixme: msvc下添加c++11后生成vs工程有问题，所以这里不设置c++11标准
+if not is_plat("windows") then
     set_languages("c++11")
+else
+    -- fixme: msvc下添加c++11后生成vs工程有问题，所以这里不设置c++11标准
+    -- windows下统一显式设置为c++14：
+    --   msvc最低只支持c++14（xmake会把c++11映射成msvc的-std:c++11，等价于默认的c++14）；
+    --   clang下vs2022+的stl也要求c++14起步。
+    -- 另外，xmake内置的qt规则在target未设置c++标准时，会按Qt5往target注入一个c++11：
+    --   msvc会忽略它，但clang会真的降到-std=c++11，导致vs2022+的stl无法编译。显式设置可一并避免。
+    set_languages("c++14")
 end
 
 

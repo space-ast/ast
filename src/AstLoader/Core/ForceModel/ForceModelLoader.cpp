@@ -193,7 +193,7 @@ errc_t aLoadThirdBodyForce(const Value& value, ThirdBodyForce& thirdBodyForce)
 
 
 
-static EAtmDensityModel _aStringToAtmDensityModel(const std::string& type)
+static EAtmDensityModel _aStringToAtmDensityModel_ForceModel(const std::string& type)
 {
     if(type == "US_Standard_Atmosphere")
         return EAtmDensityModel::e1976Standard;
@@ -242,7 +242,7 @@ errc_t aLoadDragForce(const Value& value, DragForce& dragForce)
         return eErrorInvalidParam;
     }
     // 解析大气阻力模型
-    dragForce.atmDensityModel_ = _aStringToAtmDensityModel(value["Type"]);
+    dragForce.atmDensityModel_ = _aStringToAtmDensityModel_ForceModel(value["Type"]);
     dragForce.lowAltAtmDensityModel_ = EAtmDensityModel::eNone; // 默认没有这个配置项
     dragForce.atmBlendingRange_ = 0;
 
