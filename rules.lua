@@ -55,8 +55,11 @@ rule("ast")
     end)
     if after_config then
         after_config(function (target)
-            import("core.project.config")
+            -- 在 after_config 里显式设置 runpath，覆盖 qt rules 里隐式添加的 rpathdirs
+            target:set("rpathdirs", "$ORIGIN", "$ORIGIN/../lib")
+
             if target:plat() == "wasm" then
+                import("core.project.config")
                 if os.exists("build/wasm/data") then
                     os.rmdir("build/wasm/data")
                 end

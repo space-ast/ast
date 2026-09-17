@@ -79,15 +79,12 @@ end
 set_policy("run.autobuild", true)                           -- 自动编译，当运行目标时自动编译
 set_policy("build.progress_style", "multirow")              -- 编译进度条显示为多行
 set_policy("package.precompiled", false)                    -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译(osg使用预编译库流水线会报错)
+set_policy("build.rpath", false)                            -- 禁止xmake隐式添加runpath
+set_policy("install.rpath", false)                          -- 禁止xmake隐式添加runpath
 
--- linux平台添加rpath
-if is_plat("linux") then
-    add_rpathdirs("$ORIGIN", "$ORIGIN/../lib")              -- 添加运行时库搜索路径，指向可执行文件所在目录和上一级目录的lib子目录
-elseif is_plat("windows") then
+if is_plat("windows") then
     if is_mode("debug") then
         set_values("windows.subsystem", "console")
-        -- 为了让AI生成的代码能正常编译
-        -- add_includedirs("src")
     end
     add_defines("_CRT_SECURE_NO_WARNINGS", "_SCL_SECURE_NO_WARNINGS")
     -- for msvc
