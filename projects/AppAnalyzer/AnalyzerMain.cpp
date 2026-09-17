@@ -18,9 +18,9 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AstGUI/UiAnalyzerMainWindow.hpp"
-#include "AstGUI/UiStudyWorkbench.hpp"
-#include "AstGUI/AstGUIAPI.hpp"
+#include "AstUiCore/UiAnalyzerMainWindow.hpp"
+#include "AstUiCore/UiStudyWorkbench.hpp"
+#include "AstUiCore/AstGUIAPI.hpp"
 #include "AstAnalyzer/StudyWorkbench.hpp"
 #include "AstCore/MainSequence.hpp"
 #include "AstUtil/RTTIAPI.hpp"

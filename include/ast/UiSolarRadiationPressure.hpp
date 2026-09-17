@@ -1,1 +1,1 @@
-#include "AstGUI/UiSolarRadiationPressure.hpp"
+#include "AstUiCore/UiSolarRadiationPressure.hpp"

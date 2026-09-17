@@ -1,1 +1,1 @@
-#include "AstGUI/UiResultView.hpp"
+#include "AstUiCore/UiResultView.hpp"

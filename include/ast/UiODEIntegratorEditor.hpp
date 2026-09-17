@@ -1,1 +1,1 @@
-#include "AstGUI/UiODEIntegratorEditor.hpp"
+#include "AstUiCore/UiODEIntegratorEditor.hpp"

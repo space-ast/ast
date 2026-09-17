@@ -1,1 +1,1 @@
-#include "AstGUI/UiNewObjectQuickDialog.hpp"
+#include "AstUiCore/UiNewObjectQuickDialog.hpp"

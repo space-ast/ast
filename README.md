@@ -117,7 +117,7 @@ The following modules will be developed with AI assistance:
 - AstInterp: Interactive console
 - AstMex: MATLAB wrappers
 - AstPy: Python wrappers
-- AstGui: Graphical user interface
+- AstUiCore: Graphical user interface
 
 ## 📞 Contact
 

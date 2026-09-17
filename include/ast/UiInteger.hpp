@@ -1,1 +1,1 @@
-#include "AstGUI/UiInteger.hpp"
+#include "AstUiCore/UiInteger.hpp"

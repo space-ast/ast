@@ -55,7 +55,7 @@ make install PREFIX=$HOME/.local/ast   # 也可装到用户级前缀，当 SDK �
 | AstScript | 嵌入式脚本语言（自定义解释器、解析器、调试器） |
 | AstCalc | 天文计算器与几何搜索 |
 | AstAnalyzer | 任务分析：约束、变量、打靶法、灵敏度、权衡研究、遍历搜索 |
-| AstGUI | 基于 Qt5 的 GUI 组件 |
+| AstUiCore | 基于 Qt5 的 GUI 组件 |
 | AstPy | 通过 SWIG 生成的 Python 绑定 |
 | AstAI | AI 代理、对话服务 |
 | AstCmd | CLI 命令系统（分发、路由） |

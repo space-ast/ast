@@ -90,7 +90,7 @@ arg-model: prompt
 
 ### 图标加载工具
 
-`missionIcon`（定义在 `src/AstGUI/Mission/MissionIcons.hpp`）：
+`missionIcon`（定义在 `src/AstUiCore/Mission/MissionIcons.hpp`）：
 ```cpp
 inline QIcon missionIcon(const QString& name) {
     QString path = QCoreApplication::applicationDirPath()
@@ -99,7 +99,7 @@ inline QIcon missionIcon(const QString& name) {
 }
 ```
 
-`objectIcon`（定义在 `src/AstGUI/Foundation/ObjectIcons.hpp`）：
+`objectIcon`（定义在 `src/AstUiCore/Foundation/ObjectIcons.hpp`）：
 根据对象 RTTI 类型名自动匹配对应图标，未匹配回退到 `Object` 图标。
 
 ### 控件中使用

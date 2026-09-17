@@ -98,7 +98,7 @@ ModuleName/
 - **AstMex**：MATLAB封装
 - **AstPy**：Python封装
 - **AstWasm**：Web Assembly封装
-- **AstGui**：图形化界面
+- **AstUiCore**：图形化界面
 
 ### 4.3 模块间依赖
 - 低层级模块（如AstUtil）不应依赖高层级模块

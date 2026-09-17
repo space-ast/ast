@@ -1,1 +1,1 @@
-#include "AstGUI/UiCelestialBody.hpp"
+#include "AstUiCore/UiCelestialBody.hpp"

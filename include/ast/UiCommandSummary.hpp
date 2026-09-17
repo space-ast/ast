@@ -1,1 +1,1 @@
-#include "AstGUI/UiCommandSummary.hpp"
+#include "AstUiCore/UiCommandSummary.hpp"

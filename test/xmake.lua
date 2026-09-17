@@ -59,7 +59,7 @@ if has_package("qt") then
             add_rules("qt.widgetapp")
             set_values("windows.subsystem", "console")
             add_files(file)
-            add_deps("AstGUI", "AstChart")
+            add_deps("AstUiCore", "AstChart")
             add_frameworks("QtWidgets", "QtGui", "QtCore")
             add_packages("qwt")
         target_end()

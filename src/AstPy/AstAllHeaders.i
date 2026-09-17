@@ -80,6 +80,7 @@
 %include "../AstCore/Orbit/Ephemeris/EphemerisLagrangeFixed.hpp"
 %include "../AstCore/Orbit/Ephemeris/EphemerisSPK.hpp"
 %include "../AstCore/Orbit/Lambert.hpp"
+%include "../AstCore/Orbit/Launch.hpp"
 %include "../AstCore/Orbit/Mission/Break.hpp"
 %include "../AstCore/Orbit/Mission/Continue.hpp"
 %include "../AstCore/Orbit/OrbitDesign/OrbitDesign.hpp"

@@ -1,1 +1,1 @@
-#include "AstGUI/UiSolarSystem.hpp"
+#include "AstUiCore/UiSolarSystem.hpp"

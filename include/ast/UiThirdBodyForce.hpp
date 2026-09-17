@@ -1,1 +1,1 @@
-#include "AstGUI/UiThirdBodyForce.hpp"
+#include "AstUiCore/UiThirdBodyForce.hpp"

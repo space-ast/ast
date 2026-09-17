@@ -1,1 +1,1 @@
-#include "AstGUI/UiFeasibleRegionStudy.hpp"
+#include "AstUiCore/UiFeasibleRegionStudy.hpp"

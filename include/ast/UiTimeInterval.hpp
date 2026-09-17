@@ -1,1 +1,1 @@
-#include "AstGUI/UiTimeInterval.hpp"
+#include "AstUiCore/UiTimeInterval.hpp"

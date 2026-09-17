@@ -229,6 +229,7 @@
 #include "AstCore/LandingSiteCalculation.hpp"
 #include "AstCore/LatLon.hpp"
 #include "AstCore/LatLonAlt.hpp"
+#include "AstCore/Launch.hpp"
 #include "AstCore/LeapSecond.hpp"
 #include "AstCore/LocalHorizonalFrame.hpp"
 #include "AstCore/LocalOrbitFrame.hpp"
