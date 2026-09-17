@@ -59,7 +59,6 @@
 #include "AstGUI/UiPointMassForce.hpp"
 #include "AstGUI/UiPropagate.hpp"
 #include "AstGUI/UiQuantity.hpp"
-#include "AstGUI/UiResponseList.hpp"
 #include "AstGUI/UiResultView.hpp"
 #include "AstGUI/UiSTKEphemerisFileWriter.hpp"
 #include "AstGUI/UiScenarioWizard.hpp"

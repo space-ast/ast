@@ -90,7 +90,6 @@
 #include "AstCore/Burn.hpp"
 #include "AstCore/BurnCollocation.hpp"
 #include "AstCore/BurnFinite.hpp"
-#include "AstCore/BurnImpulse.hpp"
 #include "AstCore/BurnImpulsive.hpp"
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/CelestialBodyLoader.hpp"

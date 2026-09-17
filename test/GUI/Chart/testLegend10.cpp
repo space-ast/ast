@@ -1,3 +1,4 @@
+#ifdef AST_WITH_MATPLOT
 #include <cmath>
 #include <matplot/matplot.h>
 #include "ast/QwtBackend.hpp"
@@ -20,3 +21,10 @@ int main() {
     show();
     return 0;
 }
+#else
+#include <stdio.h>
+int main(){
+    puts("没有启用matplot++库");
+    return 0;
+}
+#endif

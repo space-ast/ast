@@ -92,9 +92,9 @@
 
 
 // 定义调试库后缀
-#if defined(_WIN32) && defined(_DEBUG)
-#   define _AST_DEBUG_SUFFIX "D"
-#   define _AST_ENABLE_DEBUG_SUFFIX  // 内部宏，标识是否启用了调试库后缀
+#if defined(_WIN32)
+#   define _AST_DEBUG_SUFFIX "_d"
+#   define _AST_ENABLE_DEBUG_SUFFIX  // 内部宏，标识库的调试版本是否有后缀
 #   define AST_APPEND_DEBUG(NAME) NAME _AST_DEBUG_SUFFIX
 #else
 #   define _AST_DEBUG_SUFFIX ""
@@ -105,15 +105,28 @@
 // 库链接名称前缀
 #ifndef _AST_LIB_PREFIX
 #   define _AST_LIB_PREFIX ""
+#else
+#   define _AST_ENABLE_LIB_PREFIX
 #endif
 
 // 库链接名称后缀
-#ifndef _AST_LIB_SUFFIX
-#   define _AST_LIB_SUFFIX _AST_DEBUG_SUFFIX
+#if !defined(_AST_LIB_SUFFIX)
+#   ifdef _DEBUG
+#       define _AST_ENABLE_LIB_SUFFIX
+#       define _AST_LIB_SUFFIX _AST_DEBUG_SUFFIX
+#   else
+#       define _AST_LIB_SUFFIX ""
+#   endif
+#else
+#   define _AST_ENABLE_LIB_SUFFIX
 #endif
 
 // 库链接名称
-#define AST_LIB_LINKNAME(NAME) _AST_LIB_PREFIX  NAME  _AST_LIB_SUFFIX
+#ifdef _AST_ENABLE_LIB_SUFFIX
+    #define AST_LIB_LINKNAME(NAME) _AST_LIB_PREFIX  NAME  _AST_LIB_SUFFIX
+#else
+    #define AST_LIB_LINKNAME(NAME) _AST_LIB_PREFIX  NAME
+#endif
 
 // 定义访问函数
 #define AST_DEF_ACCESS_METHOD(TYPE, NAME) TYPE NAME() const{return NAME##_;} TYPE& NAME(){return NAME##_;}

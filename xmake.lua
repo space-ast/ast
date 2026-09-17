@@ -248,6 +248,11 @@ if has_package("openscenegraph") then
     add_packages("openscenegraph")
 end
 
+-- 添加qt库依赖（可选）
+if has_package("qt") then
+    add_defines("AST_WITH_QT")
+end
+
 -- 添加ipopt库依赖（可选）
 -- if has_package("ipopt") then
 --     add_packages("ipopt")

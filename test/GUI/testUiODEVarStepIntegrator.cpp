@@ -1,3 +1,4 @@
+#ifdef AST_WITH_QT
 #include "AstGlobal.h"
 #include "ast/UiODEVarStepIntegrator.hpp"
 #include <QApplication>
@@ -16,3 +17,10 @@ int main(int argc, char *argv[])
     
     return result;
 }
+#else
+#include <stdio.h>
+int main(){
+    puts("没有启用Qt库");
+    return 0;
+}
+#endif

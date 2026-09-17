@@ -17,6 +17,7 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
+#ifdef AST_WITH_QT
 #include "ast/UiCommandEditor.hpp"
 #include "ast/InitialState.hpp"
 #include "ast/Propagate.hpp"
@@ -152,3 +153,10 @@ int main(int argc, char* argv[])
 
     return g_failures;
 }
+#else
+#include <stdio.h>
+int main(){
+    puts("没有启用Qt库");
+    return 0;
+}
+#endif
