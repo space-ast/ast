@@ -203,6 +203,9 @@ var NAVTREEINDEX7 =
 "LaunchVehicle_8cpp.html":[4,0,0,19,3,30],
 "LaunchVehicle_8hpp.html":[4,0,0,19,3,31],
 "LaunchVehicle_8hpp_source.html":[4,0,0,19,3,31],
+"Launch_8cpp.html":[4,0,0,6,11,9],
+"Launch_8hpp.html":[4,0,0,6,11,10],
+"Launch_8hpp_source.html":[4,0,0,6,11,10],
 "LeapSecond_8cpp.html":[4,0,0,6,7,9],
 "LeapSecond_8hpp.html":[4,0,0,6,7,10],
 "LeapSecond_8hpp_source.html":[4,0,0,6,7,10],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "Literals_8hpp.html#a37f3765186d1cfa7af70cf2e70a49924":[4,0,0,27,11,8,23],
 "Literals_8hpp.html#a3c4674a50f9743d87c3abe4e76b808da":[4,0,0,27,11,8,61],
 "Literals_8hpp.html#a40fb5a52b0f3690c77fdbf8307666de4":[4,0,0,27,11,8,51],
-"Literals_8hpp.html#a45c7dfa9e979ded86d231dc15bdd617c":[4,0,0,27,11,8,48],
-"Literals_8hpp.html#a4869e59c1fdd3430bd91cd6aed376d6d":[4,0,0,27,11,8,12],
-"Literals_8hpp.html#a48a759ae8040c3004f34ef1dbaa20065":[4,0,0,27,11,8,58],
-"Literals_8hpp.html#a492bb747d024b7c71bcba2743a0558e7":[4,0,0,27,11,8,10]
+"Literals_8hpp.html#a45c7dfa9e979ded86d231dc15bdd617c":[4,0,0,27,11,8,48]
 };

@@ -9,6 +9,8 @@ var dir_fb8dea326293309ee9315e7aedad3578 =
     [ "State", "dir_50954f0494f999526625bae46e4c7445.html", "dir_50954f0494f999526625bae46e4c7445" ],
     [ "Lambert.cpp", "Lambert_8cpp.html", null ],
     [ "Lambert.hpp", "Lambert_8hpp.html", null ],
+    [ "Launch.cpp", "Launch_8cpp.html", "Launch_8cpp" ],
+    [ "Launch.hpp", "Launch_8hpp.html", "Launch_8hpp" ],
     [ "OrbitalPrecession.cpp", "OrbitalPrecession_8cpp.html", "OrbitalPrecession_8cpp" ],
     [ "OrbitalPrecession.hpp", "OrbitalPrecession_8hpp.html", "OrbitalPrecession_8hpp" ],
     [ "OrbitElement.cpp", "OrbitElement_8cpp.html", "OrbitElement_8cpp" ],

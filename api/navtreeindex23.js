@@ -1,5 +1,8 @@
 var NAVTREEINDEX23 =
 {
+"classast_1_1BuiltinAxesRegistry.html":[0,5,0],
+"classast_1_1Burn.html":[2,0,0,124],
+"classast_1_1Burn.html":[3,0,0,123],
 "classast_1_1BurnCollocation.html":[2,0,0,125],
 "classast_1_1BurnCollocation.html":[3,0,0,124],
 "classast_1_1BurnFinite.html":[2,0,0,126],
@@ -246,8 +249,5 @@ var NAVTREEINDEX23 =
 "classast_1_1Class.html#a2c5dca1364c3582b2c26ba40502c5356":[0,8,4,7,0],
 "classast_1_1Class.html#a46ecef03de9c1200a1e8d1a4225a1de6":[0,8,4,7,14],
 "classast_1_1Class.html#a52ff111feaae1fda4e3af690b2985133":[0,8,4,7,9],
-"classast_1_1Class.html#a7887839611398ba4eedd813b9c848002":[0,8,4,7,12],
-"classast_1_1Class.html#a8341b220558cbac691cb6cb8ce10d52a":[0,8,4,7,1],
-"classast_1_1Class.html#a935808c7b1adbf8969e38123f0833751":[0,8,4,7,3],
-"classast_1_1Class.html#aa76e811c66d6af0e5d0fade9bf762ee3":[0,8,4,7,2]
+"classast_1_1Class.html#a7887839611398ba4eedd813b9c848002":[0,8,4,7,12]
 };

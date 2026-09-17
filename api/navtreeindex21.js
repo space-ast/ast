@@ -1,5 +1,8 @@
 var NAVTREEINDEX21 =
 {
+"classast_1_1BlockDeadZone.html#abab6bc25b9ada61d50abc3493e7d6c32":[3,0,0,67,4],
+"classast_1_1BlockDeadZone.html#ac7581bf927467e6a31bed25d9bac1a22":[2,0,0,68,3],
+"classast_1_1BlockDeadZone.html#ac7581bf927467e6a31bed25d9bac1a22":[3,0,0,67,3],
 "classast_1_1BlockDerivative.html":[2,0,0,69],
 "classast_1_1BlockDerivative.html":[3,0,0,68],
 "classast_1_1BlockDerivative.html#a21c5640833e91390ebd97839439fa500":[2,0,0,69,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX21 =
 "classast_1_1BlockStateTransitionMatrix.html#a6cc394a089f848d006e244acc2671cb6":[0,12,4,0],
 "classast_1_1BlockSubtract.html":[2,0,0,94],
 "classast_1_1BlockSubtract.html":[3,0,0,93],
-"classast_1_1BlockSubtract.html#ae0f64db963bde583007f3d87b5680108":[2,0,0,94,0],
-"classast_1_1BlockSubtract.html#ae0f64db963bde583007f3d87b5680108":[3,0,0,93,0],
-"classast_1_1BlockSum.html":[2,0,0,95],
-"classast_1_1BlockSum.html":[3,0,0,94]
+"classast_1_1BlockSubtract.html#ae0f64db963bde583007f3d87b5680108":[2,0,0,94,0]
 };

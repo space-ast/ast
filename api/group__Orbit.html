@@ -160,6 +160,10 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:ga43ecde1043ed8b2658d78f3676b950c3" id="r_ga43ecde1043ed8b2658d78f3676b950c3"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga43ecde1043ed8b2658d78f3676b950c3">ast::aInclinationToLaunchAzimuths</a> (double inclination, double latitude, double &amp;azimuthNorth, double &amp;azimuthSouth)</td></tr>
+<tr class="separator:ga43ecde1043ed8b2658d78f3676b950c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3809e6ba65701a81653f5350a661a4f" id="r_gac3809e6ba65701a81653f5350a661a4f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac3809e6ba65701a81653f5350a661a4f">ast::aLaunchAzimuthToInclination</a> (double azimuth, double latitude)</td></tr>
+<tr class="separator:gac3809e6ba65701a81653f5350a661a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaad8f0755e84ade8bc28b27a2eea2fd6b" id="r_gaad8f0755e84ade8bc28b27a2eea2fd6b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaad8f0755e84ade8bc28b27a2eea2fd6b">ast::aRAANRate</a> (double gm, double j2, double rb, double a, double ecc, double inc)</td></tr>
 <tr class="separator:gaad8f0755e84ade8bc28b27a2eea2fd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3444ec7958b204a724623ace81173f00" id="r_ga3444ec7958b204a724623ace81173f00"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3444ec7958b204a724623ace81173f00">ast::aArgPeriRate</a> (double gm, double j2, double rb, double a, double ecc, double inc)</td></tr>
@@ -1914,6 +1918,51 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
 
 </div>
 </div>
+<a id="ga43ecde1043ed8b2658d78f3676b950c3" name="ga43ecde1043ed8b2658d78f3676b950c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga43ecde1043ed8b2658d78f3676b950c3">&#9670;&#160;</a></span>aInclinationToLaunchAzimuths()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI errc_t ast::aInclinationToLaunchAzimuths </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>inclination</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>latitude</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>azimuthNorth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>azimuthSouth</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>由目标轨道倾角和发射点纬度计算发射方位角（射向） </p>
+<p>忽略地球自转对速度方向的影响，认为火箭在发射点沿当地水平面飞行， 此时目标轨道倾角 i、发射方位角 A 与发射点地理纬度 B 满足球面三角关系： </p><pre class="fragment">cos(i) = cos(B) * sin(A)
+</pre><p>该方程一般有两个解，分别对应向北发射（发射点位于轨道升段）和向南发射（发射点位于轨道降段） 当 sin(A) = ±1（如赤道发射场入轨倾角为 0° 或 180°、任意纬度入轨倾角为 90°）时两个解重合 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inclination</td><td>目标轨道倾角 [rad]，取值范围 [0, π] </td></tr>
+    <tr><td class="paramname">latitude</td><td>发射点地理纬度 [rad]，取值范围 [-π/2, π/2] </td></tr>
+    <tr><td class="paramname">azimuthNorth</td><td>向北发射的方位角 [rad]，自正北起顺时针为正（向东为正） </td></tr>
+    <tr><td class="paramname">azimuthSouth</td><td>向南发射的方位角 [rad]，自正北起顺时针为正（向东为正） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码，参数非法时返回 eErrorInvalidParam； 目标倾角低于发射点纬度（|cos(i)| &gt; cos(B)）或发射点在极点附近时返回 eErrorOutOfRange </dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="#gac3809e6ba65701a81653f5350a661a4f" title="由发射方位角和发射点纬度计算入轨轨道倾角">aLaunchAzimuthToInclination</a> </dd></dl>
+
+</div>
+</div>
 <a id="gac4d6914c90df0d4ca29864f0c1d9568f" name="gac4d6914c90df0d4ca29864f0c1d9568f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac4d6914c90df0d4ca29864f0c1d9568f">&#9670;&#160;</a></span>aJ2Period()</h2>
 
@@ -2009,6 +2058,38 @@ $(function(){initNavTree('group__Orbit.html',''); initResizable(true); });
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>升交点赤经 [rad] </dd></dl>
+
+</div>
+</div>
+<a id="gac3809e6ba65701a81653f5350a661a4f" name="gac3809e6ba65701a81653f5350a661a4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac3809e6ba65701a81653f5350a661a4f">&#9670;&#160;</a></span>aLaunchAzimuthToInclination()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI double ast::aLaunchAzimuthToInclination </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>azimuth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>latitude</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>由发射方位角和发射点纬度计算入轨轨道倾角 </p>
+<p>为 <a class="el" href="#ga43ecde1043ed8b2658d78f3676b950c3" title="由目标轨道倾角和发射点纬度计算发射方位角（射向）">aInclinationToLaunchAzimuths()</a> 的逆运算，同样忽略地球自转的影响 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">azimuth</td><td>发射方位角 [rad]，自正北起顺时针为正（向东为正） </td></tr>
+    <tr><td class="paramname">latitude</td><td>发射点地理纬度 [rad] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>轨道倾角 [rad]，取值范围 [0, π]；纬度非法时返回 NaN </dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="#ga43ecde1043ed8b2658d78f3676b950c3" title="由目标轨道倾角和发射点纬度计算发射方位角（射向）">aInclinationToLaunchAzimuths</a> </dd></dl>
 
 </div>
 </div>
