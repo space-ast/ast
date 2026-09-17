@@ -100,7 +100,6 @@ var NAVTREEINDEX19 =
 "atmos76_8hpp.html":[4,0,0,31,0,5,2],
 "atmos76_8hpp.html#a487aefca373f1e309c2f102fed87b217":[4,0,0,31,0,5,2,0],
 "atmos76_8hpp_source.html":[4,0,0,31,0,5,2],
-"atmosapi_8h_source.html":[4,0,0,31,0,6],
 "classAstCOMLib_1_1CExecCmdResult.html":[3,0,1,0],
 "classAstCOMLib_1_1CLinkToObject.html":[3,0,1,1],
 "classAstCOMLib_1_1CObject.html":[3,0,1,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX19 =
 "classast_1_1AssistantAgent.html#ae635dedc1de01dcb0c0d3936fc3794ed":[0,0,0,10],
 "classast_1_1AssistantAgent.html#aee02308d4829ccf66f73f03339c422c5":[0,0,0,13],
 "classast_1_1AssistantAgent.html#af5c54c793063dccbc098ecfe30d89810":[0,0,0,17],
-"classast_1_1AssistantAgent.html#af5d2c4ef2ab3956c0dfb0ea0f795466f":[0,0,0,11]
+"classast_1_1AssistantAgent.html#af5d2c4ef2ab3956c0dfb0ea0f795466f":[0,0,0,11],
+"classast_1_1Asteroid.html":[2,0,0,30]
 };

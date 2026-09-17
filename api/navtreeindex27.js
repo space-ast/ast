@@ -1,6 +1,5 @@
 var NAVTREEINDEX27 =
 {
-"classast_1_1EphemerisBinary.html#af58f68a30c7bf2eecca4ebd6662fe206":[3,0,0,282,4],
 "classast_1_1EphemerisFileParser.html":[2,0,0,284],
 "classast_1_1EphemerisFileParser.html":[3,0,0,283],
 "classast_1_1EphemerisFileWriter.html":[2,0,0,285],
@@ -249,5 +248,6 @@ var NAVTREEINDEX27 =
 "classast_1_1ExprMacroExpand.html":[0,4,13],
 "classast_1_1ExprMacroExpand.html#a20ea81774cbe4ca94b3731331141d843":[0,4,13,4],
 "classast_1_1ExprMacroExpand.html#a3be4942fb16269f8694a9aed7c5d2759":[0,4,13,2],
-"classast_1_1ExprMacroExpand.html#a5277e3536b3da262d348d33a983d1fe6":[0,4,13,0]
+"classast_1_1ExprMacroExpand.html#a5277e3536b3da262d348d33a983d1fe6":[0,4,13,0],
+"classast_1_1ExprMacroExpand.html#a5ce598e389911173d45cdf6426dbdfe0":[0,4,13,3]
 };

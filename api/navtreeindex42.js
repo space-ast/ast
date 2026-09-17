@@ -1,6 +1,5 @@
 var NAVTREEINDEX42 =
 {
-"classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28afe9b55340700343ac2bd78a3a02df15a":[3,0,0,963,0,0],
 "classast_1_1STKEphemerisFileWriter.html#a67a9ce1e31dd079e3d27867764fab097":[2,0,0,964,1],
 "classast_1_1STKEphemerisFileWriter.html#a67a9ce1e31dd079e3d27867764fab097":[3,0,0,963,1],
 "classast_1_1Satellite.html":[2,0,0,659],
@@ -249,5 +248,6 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalcManeuverTotalMassFlowRate.html":[3,0,0,772],
 "classast_1_1ScStateCalcMass.html":[2,0,0,774],
 "classast_1_1ScStateCalcMass.html":[3,0,0,773],
-"classast_1_1ScStateCalcMatlab.html":[2,0,0,775]
+"classast_1_1ScStateCalcMatlab.html":[2,0,0,775],
+"classast_1_1ScStateCalcMatlab.html":[3,0,0,774]
 };

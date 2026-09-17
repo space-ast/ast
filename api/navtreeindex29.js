@@ -1,6 +1,5 @@
 var NAVTREEINDEX29 =
 {
-"classast_1_1FieldOfView.html#a4eaaccf3271d46449247da6cc8806d43":[2,0,0,333,1],
 "classast_1_1FieldOfView.html#a4eaaccf3271d46449247da6cc8806d43":[3,0,0,332,1],
 "classast_1_1FieldOfView.html#a8d6b27822ad330d78596c12771dd2205":[2,0,0,333,5],
 "classast_1_1FieldOfView.html#a8d6b27822ad330d78596c12771dd2205":[3,0,0,332,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX29 =
 "classast_1_1GeodeticPoint.html#ad736e724d00ca8e9e49a845d71371995":[3,0,0,358,1],
 "classast_1_1GlobalContext.html":[0,1,1,2],
 "classast_1_1GlobalContext.html#a788925c4722877fbb344ab5712b1f7b9":[0,1,1,2,0],
-"classast_1_1GlobalContext.html#a864f505346d21f9bc93910f17e79088e":[0,1,1,2,1]
+"classast_1_1GlobalContext.html#a864f505346d21f9bc93910f17e79088e":[0,1,1,2,1],
+"classast_1_1GoldenSectionOptimizer.html":[0,3,5,1]
 };

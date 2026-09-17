@@ -1,6 +1,5 @@
 var NAVTREEINDEX47 =
 {
-"classast_1_1StateMapper.html#ab22bb936029e8755ed1f9f6df4af0738":[2,0,0,958,7],
 "classast_1_1StateMapper.html#ab22bb936029e8755ed1f9f6df4af0738":[3,0,0,957,7],
 "classast_1_1StateMapper.html#abf0f13af75dcb3f3fbf139c5c4ca617e":[2,0,0,958,8],
 "classast_1_1StateMapper.html#abf0f13af75dcb3f3fbf139c5c4ca617e":[3,0,0,957,8],
@@ -249,5 +248,6 @@ var NAVTREEINDEX47 =
 "classast_1_1TLEDatabaseQuery.html#a090d34b95eabeddf2782fffc8239692e":[2,0,0,1005,8],
 "classast_1_1TLEDatabaseQuery.html#a090d34b95eabeddf2782fffc8239692e":[3,0,0,1004,8],
 "classast_1_1TLEDatabaseQuery.html#a0bf8277a975bebbb13c72521e1608668":[2,0,0,1005,46],
-"classast_1_1TLEDatabaseQuery.html#a0bf8277a975bebbb13c72521e1608668":[3,0,0,1004,46]
+"classast_1_1TLEDatabaseQuery.html#a0bf8277a975bebbb13c72521e1608668":[3,0,0,1004,46],
+"classast_1_1TLEDatabaseQuery.html#a10870b0a4109984b79eff549db7c445e":[2,0,0,1005,3]
 };

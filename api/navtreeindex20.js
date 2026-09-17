@@ -1,6 +1,5 @@
 var NAVTREEINDEX20 =
 {
-"classast_1_1Asteroid.html":[2,0,0,30],
 "classast_1_1Asteroid.html":[3,0,0,29],
 "classast_1_1AstroBlockFactory.html":[0,12,0],
 "classast_1_1Atmosphere.html":[2,0,0,32],
@@ -249,5 +248,6 @@ var NAVTREEINDEX20 =
 "classast_1_1BlockDeadZone.html#aa9d98a458f6d2403a8d546ec62bff24c":[3,0,0,67,2],
 "classast_1_1BlockDeadZone.html#abab6bc25b9ada61d50abc3493e7d6c32":[2,0,0,68,4],
 "classast_1_1BlockDeadZone.html#abab6bc25b9ada61d50abc3493e7d6c32":[3,0,0,67,4],
-"classast_1_1BlockDeadZone.html#ac7581bf927467e6a31bed25d9bac1a22":[2,0,0,68,3]
+"classast_1_1BlockDeadZone.html#ac7581bf927467e6a31bed25d9bac1a22":[2,0,0,68,3],
+"classast_1_1BlockDeadZone.html#ac7581bf927467e6a31bed25d9bac1a22":[3,0,0,67,3]
 };
