@@ -1,3 +1,4 @@
+#ifdef AST_WITH_QT
 #include "ast/UiTimePoint.hpp"
 #include <QApplication>
 #include <QMainWindow>
@@ -37,3 +38,10 @@ int main(int argc, char* argv[])
     
     return app.exec();
 }
+#else
+#include <stdio.h>
+int main(){
+    puts("没有启用Qt库");
+    return 0;
+}
+#endif

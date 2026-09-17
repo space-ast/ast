@@ -2,7 +2,7 @@
 set_project("ast")
 
 -- 设置版本号
-set_version("0.2.0", {build="%Y%m%d", soname = false})
+set_version("0.3.0", {build="%Y%m%d", soname = false})
 
 -- 工程配置选项：是否编译测试工程
 option("with_test")
@@ -40,8 +40,16 @@ option_end()
 -- add_defines([[_AST_LIB_SUFFIX="_"]])
 
 -- 设置 c++代码标准：c++11，c代码标准：c99
-if not is_plat("windows") then  -- fixme: msvc下添加c++11后生成vs工程有问题，所以这里不设置c++11标准
+if not is_plat("windows") then
     set_languages("c++11")
+else
+    -- fixme: msvc下添加c++11后生成vs工程有问题，所以这里不设置c++11标准
+    -- windows下统一显式设置为c++14：
+    --   msvc最低只支持c++14（xmake会把c++11映射成msvc的-std:c++11，等价于默认的c++14）；
+    --   clang下vs2022+的stl也要求c++14起步。
+    -- 另外，xmake内置的qt规则在target未设置c++标准时，会按Qt5往target注入一个c++11：
+    --   msvc会忽略它，但clang会真的降到-std=c++11，导致vs2022+的stl无法编译。显式设置可一并避免。
+    set_languages("c++14")
 end
 
 
@@ -74,7 +82,7 @@ set_policy("package.precompiled", false)                    -- 禁止从远程�
 
 -- linux平台添加rpath
 if is_plat("linux") then
-    add_rpathdirs("$ORIGIN")                                -- 添加运行时库搜索路径，指向可执行文件所在目录
+    add_rpathdirs("$ORIGIN", "$ORIGIN/../lib")              -- 添加运行时库搜索路径，指向可执行文件所在目录和上一级目录的lib子目录
 elseif is_plat("windows") then
     if is_mode("debug") then
         set_values("windows.subsystem", "console")
@@ -151,8 +159,8 @@ add_requires("replxx", {optional = true})                                       
 -- add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
 -- add_requires("openframes", {optional = true})                                   -- 可选的OpenFrames库，用于三维可视化
 -- add_requires("vulkanscenegraph", {optional = true, configs = {shared = true}})  -- 可选的VulkanSceneGraph库，共享库版本，用于图形渲染
-add_requires("vtk", {optional = true, configs = {shared = true}})
-add_requireconfs("vtk.seacas", {version = "2025.08.28"})
+-- add_requires("vtk", {optional = true, configs = {shared = true}})
+-- add_requireconfs("vtk.seacas", {version = "2025.08.28"})
 add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
 add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
 add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
@@ -246,6 +254,11 @@ end
 if has_package("openscenegraph") then
     add_defines("AST_WITH_OSG")
     add_packages("openscenegraph")
+end
+
+-- 添加qt库依赖（可选）
+if has_package("qt") then
+    add_defines("AST_WITH_QT")
 end
 
 -- 添加ipopt库依赖（可选）

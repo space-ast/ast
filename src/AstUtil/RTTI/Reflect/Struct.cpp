@@ -72,13 +72,21 @@ std::string Struct::getModuleName() const
         }
     }
 #endif
-#ifdef _AST_ENABLE_DEBUG_SUFFIX
+#if defined(_AST_ENABLE_DEBUG_SUFFIX)
     {
         if(StringView(moduleName).ends_with(_AST_DEBUG_SUFFIX)){
             return moduleName.substr(0, moduleName.size() - std::char_traits<char>::length(_AST_DEBUG_SUFFIX));
         }
     }
 #endif
+#if defined(_AST_ENABLE_LIB_PREFIX)
+    {
+        if(StringView(moduleName).starts_with(_AST_LIB_PREFIX)){
+            return moduleName.substr(std::char_traits<char>::length(_AST_LIB_PREFIX));
+        }
+    }
+#endif
+
     return moduleName;
 }
 

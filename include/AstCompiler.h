@@ -329,15 +329,18 @@
 
 // 警告抑制宏 — 用于暂时屏蔽某个源文件或代码段内的全部编译警告
 // 用法：在源文件开头或需要屏蔽的代码段前后分别放置 BEGIN / END 宏
-#if defined(A_MSVC)
+#if defined(A_MSVC) && !defined(A_CLANG) // clang 在 msvc 目标下同样会定义 _MSC_VER，必须显式排除
 #   define A_SUPPRESS_WARNINGS_BEGIN __pragma(warning(push, 0))
 #   define A_SUPPRESS_WARNINGS_END   __pragma(warning(pop))
 #elif defined(A_CLANG)
-#   define A_SUPPRESS_WARNINGS_BEGIN                         \
-        _Pragma("clang diagnostic push")                      \
-        _Pragma("clang diagnostic ignored \"-Weverything\"")
+#   define A_SUPPRESS_WARNINGS_BEGIN                        \
+        _Pragma("clang diagnostic push")                    \
+        _Pragma("clang diagnostic ignored \"-Weverything\"")\
+        _Pragma("clang diagnostic ignored \"-unused-but-set-variable\"")
+
 #   define A_SUPPRESS_WARNINGS_END                           \
         _Pragma("clang diagnostic pop")
+
 #elif defined(A_GCC)
 #   define _A_SUPPRESS_WARNINGS_PUSH \
         _Pragma("GCC diagnostic push")

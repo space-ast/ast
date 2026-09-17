@@ -566,7 +566,14 @@ errc_t JplDe::open(const char* fileName)
     }
     if (!isSameEndian_)
     {
-        swap_32_bit_val(&ipt_[0][0], sizeof(ipt_) / 4);
+        // ipt_ 是二维数组，这里逐行交换。
+        // 注意：不能写成 swap_32_bit_val(&ipt_[0][0], sizeof(ipt_) / sizeof(ipt_[0][0]))——
+        // 那样字节写入会超出 ipt_[0] 这一行（IPT_COLS 个 uint32_t）的子对象范围，
+        // GCC 11 在 -O2 下会以 -Wstringop-overflow 报错（offset 128 into object of size 12）。
+        constexpr size_t IPT_ROWS = sizeof(ipt_) / sizeof(ipt_[0]);
+        constexpr size_t IPT_COLS = sizeof(ipt_[0]) / sizeof(ipt_[0][0]);
+        for (size_t i = 0; i < IPT_ROWS; i++)
+            swap_32_bit_val(ipt_[i], IPT_COLS);
     }
     /* if these don't add up correctly, */
     /* zero them out (they've garbage data) */

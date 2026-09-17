@@ -1,1 +1,0 @@
-#include "AstCore/BurnImpulse.hpp"

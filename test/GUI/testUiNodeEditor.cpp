@@ -1,3 +1,4 @@
+#ifdef AST_WITH_QT
 #include <QApplication>
 #include <QMainWindow>
 #include <QVBoxLayout>
@@ -269,3 +270,10 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+#else
+#include <stdio.h>
+int main(){
+    puts("没有启用Qt库");
+    return 0;
+}
+#endif

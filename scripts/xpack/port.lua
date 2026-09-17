@@ -22,9 +22,9 @@ end
 -- 链接库
 if is_plat("windows") then
     if is_mode("debug") then
-        add_links(os.files("lib/*D.lib"))
+        add_links(os.files("lib/*_d.lib"))
     else
-        add_links(os.files("lib/*.lib|*D.lib"))
+        add_links(os.files("lib/*.lib|*_d.lib"))
     end
 else
     add_links(os.files("lib/lib*.so"))

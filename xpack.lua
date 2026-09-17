@@ -60,8 +60,8 @@ xpack("ast")
         if package:plat() == "windows" and package:with_binary() then
             local arch = package:arch()
             local debug_dir = "build/windows/" .. arch .. "/debug/"
-            package:add("installfiles", debug_dir .. "Ast*D.lib", {prefixdir = "lib"})
-            package:add("installfiles", debug_dir .. "Ast*D.dll", {prefixdir = "bin"})
+            package:add("installfiles", debug_dir .. "Ast*_d.lib", {prefixdir = "lib"})
+            package:add("installfiles", debug_dir .. "Ast*_d.dll", {prefixdir = "bin"})
             -- package:add("installfiles", debug_dir .. "Ast*D.pdb", {prefixdir = "bin"})
             local release_dir = "build/windows/" .. arch .. "/release/"
             package:add("installfiles", release_dir .. "Ast*.lib", {prefixdir = "lib"})

@@ -1,3 +1,4 @@
+#ifdef AST_WITH_MATPLOT
 #include <iostream>
 #include <matplot/matplot.h>
 #include <set>
@@ -29,3 +30,10 @@ int main() {
     show();
     return 0;
 }
+#else
+#include <stdio.h>
+int main(){
+    puts("没有启用matplot++库");
+    return 0;
+}
+#endif

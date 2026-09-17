@@ -8,11 +8,15 @@ on:
   release:
     types: [published]
 
+permissions:
+  # 推 nightly tag、上传 release 资产需要；显式声明，不依赖仓库默认权限设置
+  contents: write
+
 jobs:
   build:
     strategy:
       matrix:
-        os: [windows-2022, ubuntu-24.04]  # ubuntu-22.04
+        os: [windows-2022, ubuntu-22.04]  # ubuntu-24.04
         arch: [x64, arm64]
 
     runs-on: ${{ matrix.os }}
@@ -46,9 +50,9 @@ jobs:
           path: |
             build
             .xmake
-          key: build-${{ runner.os }}-${{ matrix.arch }}-build-v2-${{ github.sha }}
+          key: build-${{ matrix.os }}-${{ matrix.arch }}-build-v2-${{ github.sha }}
           restore-keys: |
-            build-${{ runner.os }}-${{ matrix.arch }}-build-v2-
+            build-${{ matrix.os }}-${{ matrix.arch }}-build-v2-
 
       - name: 设置xmake相关目录
         run: |
@@ -151,15 +155,43 @@ jobs:
           asset_name: SpaceAST-${{ github.event.release.tag_name }}-linux-any.gz.run
           asset_content_type: application/x-makeself
 
+      - name: 检查 nightly 可否更新
+        id: nightly-guard
+        shell: bash
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/master" ]; then
+            echo "非 master 分支($GITHUB_REF)，不更新 nightly"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          SHA="${{ github.sha }}"
+          # 只允许"仍然是 master 顶端"的提交更新 nightly。
+          # 重跑旧的 run 时 github.sha 仍是那次 push 的旧提交，直接推会把 nightly 打回去。
+          # 用 ls-remote 比对远端顶端，不依赖本地历史。
+          TIP="$(git ls-remote origin refs/heads/master 2>/dev/null || true)"
+          TIP="${TIP%%[[:space:]]*}"
+          echo "TIP=$TIP"
+          echo "SHA=$SHA"
+          if [ -z "$TIP" ]; then
+            echo "::warning::取不到远端 master 顶端(ls-remote 失败)，跳过 nightly 更新"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          elif [ "$TIP" = "$SHA" ]; then
+            echo "master 顶端即本次提交，允许更新 nightly"
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::本次提交 $SHA 不是 master 当前顶端 $TIP(疑似重跑旧 run, 或构建期间已有新推送)，跳过 nightly 更新，避免回退"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: 更新 nightly tag
-        if: github.ref == 'refs/heads/master' && runner.os == 'Windows' && matrix.arch == 'x64'
+        if: steps.nightly-guard.outputs.ok == 'true' && runner.os != 'Windows' && matrix.arch == 'x64'
         shell: bash
         run: |
           git tag -f nightly "${{ github.sha }}"
           git push -f origin nightly
 
-      - name: 更新 nightly prerelease
-        if: github.ref == 'refs/heads/master'
+      - name: 更新预发布-二进制包
+        if: steps.nightly-guard.outputs.ok == 'true'
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -168,4 +200,16 @@ jobs:
           tag: nightly
           overwrite: true
           prerelease: true
-          release_name: Nightly Build
+          release_name: Nightly Build-预发布版
+
+      - name: 更新预发布-自安装源码包
+        if: steps.nightly-guard.outputs.ok == 'true' && runner.os != 'Windows' && matrix.arch == 'x64'
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: artifacts/SpaceAST.gz.run
+          asset_name: SpaceAST-nightly-linux-any.gz.run
+          tag: nightly
+          overwrite: true
+          prerelease: true
+          release_name: Nightly Build-预发布版

@@ -49,7 +49,6 @@
 #include "AstScript/Parser.hpp"
 #include "AstScript/PythonAPI.hpp"
 #include "AstScript/PythonExecutor.hpp"
-#include "AstScript/PythonScriptExecutor.hpp"
 #include "AstScript/Scanner.hpp"
 #include "AstScript/ScriptAPI.hpp"
 #include "AstScript/ScriptContext.hpp"

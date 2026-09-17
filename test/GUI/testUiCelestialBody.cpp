@@ -6,6 +6,7 @@
 /// @copyright 版权所有 (C) 2026-present, ast项目.
 ///
 
+#ifdef AST_WITH_QT
 #include "ast/UiCelestialBody.hpp"
 #include "ast/CelestialBody.hpp"
 #include <QApplication>
@@ -63,3 +64,10 @@ int main(int argc, char* argv[])
     
     return app.exec();
 }
+#else
+#include <stdio.h>
+int main(){
+    puts("没有启用Qt库");
+    return 0;
+}
+#endif

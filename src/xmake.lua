@@ -2,7 +2,7 @@
 includes("*/xmake.lua")
 
 if is_plat("windows") and is_mode("debug") then
-    set_suffixname("D") -- windows的调试库使用D后缀
+    set_suffixname("_d") -- windows的调试库使用_d后缀(D后缀对一些工程名无法程序区分，例如AstCmd、AstOD)
 end
 
 -- for gcc: 将一些警告转换为错误，以发现潜在的问题
