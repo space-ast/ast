@@ -39,9 +39,9 @@ jobs:
           path: |
             build
             .xmake
-          key: coverage-${{ runner.os }}-${{ matrix.arch }}-build-v2-${{ github.sha }}
+          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-build-v2-${{ github.sha }}
           restore-keys: |
-            coverage-${{ runner.os }}-${{ matrix.arch }}-build-v2-
+            coverage-${{ matrix.os }}-${{ matrix.arch }}-build-v2-
 
       - name: 设置xmake相关目录
         run: |
