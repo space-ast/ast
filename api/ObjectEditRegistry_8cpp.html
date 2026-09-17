@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstGUI/Interface/ObjectEditRegistry.cpp 文件参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUiCore/Interface/ObjectEditRegistry.cpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -130,31 +130,31 @@ $(function(){initNavTree('ObjectEditRegistry_8cpp.html',''); initResizable(true)
 <code>#include &quot;AstAnalyzer/StudyWorkbench.hpp&quot;</code><br />
 <code>#include &quot;AstAnalyzer/SweepStudy.hpp&quot;</code><br />
 <code>#include &quot;AstAnalyzer/FeasibleRegionStudy.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiAttributeTree.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiBodyEphemerisDE.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiBodyEphemerisSPK.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiBurnImpulsive.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiCelestialBody.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiDragForce.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiEventDetector.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiGravityForce.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiHPOPForceModel.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiInitialState.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiSequenceWorkbench.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiManeuver.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiMotionTwoBody.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiODEVarStepIntegrator.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiPropagate.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiSequence.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiSolarRadiationPressure.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiSpacecraftParams.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiStateCartesian.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiStateKeplerian.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiStudyWorkbench.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiSweepStudy.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiThirdBodyForce.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/UiFeasibleRegionStudy.hpp&quot;</code><br />
-<code>#include &quot;AstGUI/AstGUIAPI.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiAttributeTree.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiBodyEphemerisDE.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiBodyEphemerisSPK.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiBurnImpulsive.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiCelestialBody.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiDragForce.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiEventDetector.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiGravityForce.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiHPOPForceModel.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiInitialState.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiSequenceWorkbench.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiManeuver.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiMotionTwoBody.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiODEVarStepIntegrator.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiPropagate.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiSequence.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiSolarRadiationPressure.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiSpacecraftParams.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiStateCartesian.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiStateKeplerian.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiStudyWorkbench.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiSweepStudy.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiThirdBodyForce.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/UiFeasibleRegionStudy.hpp&quot;</code><br />
+<code>#include &quot;AstUiCore/AstGUIAPI.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -167,10 +167,10 @@ $(function(){initNavTree('ObjectEditRegistry_8cpp.html',''); initResizable(true)
 template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </td></tr>
 <tr class="memitem:ad41cb456fac7c58b643f0b51afc619a9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aUiRegisterEditWidget</b> (<a class="el" href="classast_1_1ObjectEditRegistry.html">ObjectEditRegistry</a> *registry, FNewEditWidget newEditWidget)</td></tr>
 <tr class="separator:ad41cb456fac7c58b643f0b51afc619a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad085c071a789a488cd5e583b8124b34c" id="r_ad085c071a789a488cd5e583b8124b34c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ad085c071a789a488cd5e583b8124b34c">ast::aUiRegisterEditWidget</a> (<a class="el" href="classast_1_1Class.html">Class</a> *cls, FNewEditWidget newEditWidget)</td></tr>
-<tr class="separator:ad085c071a789a488cd5e583b8124b34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ee505f80941487945b0ff8c1b668f46" id="r_a5ee505f80941487945b0ff8c1b668f46"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a5ee505f80941487945b0ff8c1b668f46">ast::aUiNewEditWidget</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
-<tr class="separator:a5ee505f80941487945b0ff8c1b668f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1de35d951382be3c1a76c9dc96ea9fd3" id="r_a1de35d951382be3c1a76c9dc96ea9fd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#a1de35d951382be3c1a76c9dc96ea9fd3">ast::aUiRegisterEditWidget</a> (<a class="el" href="classast_1_1Class.html">Class</a> *cls, FNewEditWidget newEditWidget)</td></tr>
+<tr class="separator:a1de35d951382be3c1a76c9dc96ea9fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfcf70d8cbd263e56532c97bae28c8a0" id="r_acfcf70d8cbd263e56532c97bae28c8a0"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#acfcf70d8cbd263e56532c97bae28c8a0">ast::aUiNewEditWidget</a> (<a class="el" href="classast_1_1Object.html">Object</a> *object)</td></tr>
+<tr class="separator:acfcf70d8cbd263e56532c97bae28c8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
@@ -187,7 +187,7 @@ template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1aa6ec13829cacb2d194b2b5829946f0.html">AstGUI</a></li><li class="navelem"><a class="el" href="dir_372f8b48cb5d6b7c8c496b490e9c2aef.html">Interface</a></li><li class="navelem"><a class="el" href="ObjectEditRegistry_8cpp.html">ObjectEditRegistry.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6f303c536764ca5e799c206b71d3427f.html">AstUiCore</a></li><li class="navelem"><a class="el" href="dir_211c9957c52f8349432e3bd90d1b678f.html">Interface</a></li><li class="navelem"><a class="el" href="ObjectEditRegistry_8cpp.html">ObjectEditRegistry.cpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

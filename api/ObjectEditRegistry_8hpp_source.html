@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstGUI/Interface/ObjectEditRegistry.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUiCore/Interface/ObjectEditRegistry.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -118,7 +118,7 @@ $(function(){initNavTree('ObjectEditRegistry_8hpp_source.html',''); initResizabl
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">typedef</span> QWidget* (*FNewEditWidget)(Object *object);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1ObjectEditRegistry.html">   40</a></span><span class="keyword">class </span>AST_GUI_API <a class="code hl_class" href="classast_1_1ObjectEditRegistry.html">ObjectEditRegistry</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1ObjectEditRegistry.html">   40</a></span><span class="keyword">class </span>AST_UICORE_API <a class="code hl_class" href="classast_1_1ObjectEditRegistry.html">ObjectEditRegistry</a></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">using </span>EditWidgetMap = std::unordered_map&lt;Class*, FNewEditWidget&gt;;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
@@ -137,23 +137,23 @@ $(function(){initNavTree('ObjectEditRegistry_8hpp_source.html',''); initResizabl
 </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_GUI_CAPI <span class="keywordtype">void</span> aUiRegisterEditWidget(<a class="code hl_class" href="classast_1_1Class.html">Class</a> *cls, FNewEditWidget newEditWidget);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_UICORE_CAPI <span class="keywordtype">void</span> aUiRegisterEditWidget(<a class="code hl_class" href="classast_1_1Class.html">Class</a> *cls, FNewEditWidget newEditWidget);</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>AST_GUI_CAPI QWidget* <a class="code hl_function" href="namespaceast.html#a5ee505f80941487945b0ff8c1b668f46">aUiNewEditWidget</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a> *<span class="keywordtype">object</span>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>AST_UICORE_CAPI QWidget* <a class="code hl_function" href="namespaceast.html#acfcf70d8cbd263e56532c97bae28c8a0">aUiNewEditWidget</a>(<a class="code hl_class" href="classast_1_1Object.html">Object</a> *<span class="keywordtype">object</span>);</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1Class_html"><div class="ttname"><a href="classast_1_1Class.html">ast::Class</a></div><div class="ttdoc">类元信息</div><div class="ttdef"><b>定义</b> Class.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1ObjectEditRegistry_html"><div class="ttname"><a href="classast_1_1ObjectEditRegistry.html">ast::ObjectEditRegistry</a></div><div class="ttdef"><b>定义</b> ObjectEditRegistry.hpp:41</div></div>
 <div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:95</div></div>
-<div class="ttc" id="anamespaceast_html_a5ee505f80941487945b0ff8c1b668f46"><div class="ttname"><a href="namespaceast.html#a5ee505f80941487945b0ff8c1b668f46">ast::aUiNewEditWidget</a></div><div class="ttdeci">QWidget * aUiNewEditWidget(Object *object)</div><div class="ttdoc">创建编辑控件</div><div class="ttdef"><b>定义</b> ObjectEditRegistry.cpp:206</div></div>
+<div class="ttc" id="anamespaceast_html_acfcf70d8cbd263e56532c97bae28c8a0"><div class="ttname"><a href="namespaceast.html#acfcf70d8cbd263e56532c97bae28c8a0">ast::aUiNewEditWidget</a></div><div class="ttdeci">QWidget * aUiNewEditWidget(Object *object)</div><div class="ttdoc">创建编辑控件</div><div class="ttdef"><b>定义</b> ObjectEditRegistry.cpp:206</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1aa6ec13829cacb2d194b2b5829946f0.html">AstGUI</a></li><li class="navelem"><a class="el" href="dir_372f8b48cb5d6b7c8c496b490e9c2aef.html">Interface</a></li><li class="navelem"><a class="el" href="ObjectEditRegistry_8hpp.html">ObjectEditRegistry.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6f303c536764ca5e799c206b71d3427f.html">AstUiCore</a></li><li class="navelem"><a class="el" href="dir_211c9957c52f8349432e3bd90d1b678f.html">Interface</a></li><li class="navelem"><a class="el" href="ObjectEditRegistry_8hpp.html">ObjectEditRegistry.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

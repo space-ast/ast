@@ -14,10 +14,10 @@ var topics =
     [ "Eclipse", "group__Eclipse.html", "group__Eclipse" ],
     [ "BlockAstro", "group__BlockAstro.html", "group__BlockAstro" ],
     [ "Fault", "group__Fault.html", "group__Fault" ],
-    [ "GUI", "group__GUI.html", "group__GUI" ],
     [ "AstLoader", "group__AstLoader.html", "group__AstLoader" ],
     [ "AstReport", "group__AstReport.html", "group__AstReport" ],
     [ "UiAI", "group__UiAI.html", "group__UiAI" ],
+    [ "GUI", "group__GUI.html", "group__GUI" ],
     [ "Network", "group__Network.html", "group__Network" ],
     [ "Serde", "group__Serde.html", "group__Serde" ]
 ];

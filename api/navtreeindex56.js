@@ -119,7 +119,7 @@ var NAVTREEINDEX56 =
 "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9a314ebc5a1ac89ebd09538736ac6438eb":[0,1,2,2,1],
 "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ac17e2e87b6c84f56634797d3b1990fe5":[0,1,2,2,0],
 "group__ForceModel.html#ggae12dca510680d7ff59d3e93fb379eba9ad0a1ac722a0ce00297b74d0f06e769c8":[0,1,2,2,2],
-"group__GUI.html":[0,14],
+"group__GUI.html":[0,17],
 "group__Geometry.html":[0,1,3],
 "group__Geometry.html#ga0c68218f2168dda4e4ea8111f2368fb1":[0,1,3,6],
 "group__Geometry.html#ga13750cf42b939efb70ef39e92c5eade8":[0,1,3,12],

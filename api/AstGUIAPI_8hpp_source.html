@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstGUI/App/AstGUIAPI.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstUiCore/App/AstGUIAPI.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -112,27 +112,27 @@ $(function(){initNavTree('AstGUIAPI_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>AST_GUI_CAPI errc_t <a class="code hl_function" href="namespaceast.html#a7212999ae11b2b8a287b6ca859686eb6">aGUIInit</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>AST_UICORE_CAPI errc_t <a class="code hl_function" href="namespaceast.html#a3257aaf4d5af06ade8b53b3e502f4dc1">aGUIInit</a>();</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>AST_GUI_CAPI errc_t <a class="code hl_function" href="namespaceast.html#ac2f4b938ad0de31f9e9a8c2ed0112b56">aQAppInit</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>AST_UICORE_CAPI errc_t <a class="code hl_function" href="namespaceast.html#a40019d8525abad63c3b6fc1dce2a4770">aQAppInit</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>AST_GUI_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a253b1a362f8b71d1bd8ca5829ff14273">aGuiAvailable</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>AST_UICORE_CAPI <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceast.html#a8ca933299f0133713fce91342e5d2b95">aGuiAvailable</a>();</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>AST_GUI_CAPI QMainWindow* <a class="code hl_function" href="namespaceast.html#aaca60acfb5c5162e0689a6f92fabd4bd">aUiNewMainWindow</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>AST_UICORE_CAPI QMainWindow* <a class="code hl_function" href="namespaceast.html#ad84da1bdc94a3ee9350c315e01c1e726">aUiNewMainWindow</a>();</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="anamespaceast_html_a253b1a362f8b71d1bd8ca5829ff14273"><div class="ttname"><a href="namespaceast.html#a253b1a362f8b71d1bd8ca5829ff14273">ast::aGuiAvailable</a></div><div class="ttdeci">bool aGuiAvailable()</div><div class="ttdoc">判断当前是否具备可用的 GUI 环境</div><div class="ttdef"><b>定义</b> AstGUIAPI.cpp:136</div></div>
-<div class="ttc" id="anamespaceast_html_a7212999ae11b2b8a287b6ca859686eb6"><div class="ttname"><a href="namespaceast.html#a7212999ae11b2b8a287b6ca859686eb6">ast::aGUIInit</a></div><div class="ttdeci">errc_t aGUIInit()</div><div class="ttdoc">初始化Gui</div><div class="ttdef"><b>定义</b> AstGUIAPI.cpp:151</div></div>
-<div class="ttc" id="anamespaceast_html_aaca60acfb5c5162e0689a6f92fabd4bd"><div class="ttname"><a href="namespaceast.html#aaca60acfb5c5162e0689a6f92fabd4bd">ast::aUiNewMainWindow</a></div><div class="ttdeci">QMainWindow * aUiNewMainWindow()</div><div class="ttdoc">创建主窗口</div><div class="ttdef"><b>定义</b> AstGUIAPI.cpp:244</div></div>
-<div class="ttc" id="anamespaceast_html_ac2f4b938ad0de31f9e9a8c2ed0112b56"><div class="ttname"><a href="namespaceast.html#ac2f4b938ad0de31f9e9a8c2ed0112b56">ast::aQAppInit</a></div><div class="ttdeci">errc_t aQAppInit(int argc, char *argv[])</div><div class="ttdoc">初始化Qt应用程序</div><div class="ttdef"><b>定义</b> AstGUIAPI.cpp:164</div></div>
+<div class="ttc" id="anamespaceast_html_a3257aaf4d5af06ade8b53b3e502f4dc1"><div class="ttname"><a href="namespaceast.html#a3257aaf4d5af06ade8b53b3e502f4dc1">ast::aGUIInit</a></div><div class="ttdeci">errc_t aGUIInit()</div><div class="ttdoc">初始化Gui</div><div class="ttdef"><b>定义</b> AstGUIAPI.cpp:151</div></div>
+<div class="ttc" id="anamespaceast_html_a40019d8525abad63c3b6fc1dce2a4770"><div class="ttname"><a href="namespaceast.html#a40019d8525abad63c3b6fc1dce2a4770">ast::aQAppInit</a></div><div class="ttdeci">errc_t aQAppInit(int argc, char *argv[])</div><div class="ttdoc">初始化Qt应用程序</div><div class="ttdef"><b>定义</b> AstGUIAPI.cpp:164</div></div>
+<div class="ttc" id="anamespaceast_html_a8ca933299f0133713fce91342e5d2b95"><div class="ttname"><a href="namespaceast.html#a8ca933299f0133713fce91342e5d2b95">ast::aGuiAvailable</a></div><div class="ttdeci">bool aGuiAvailable()</div><div class="ttdoc">判断当前是否具备可用的 GUI 环境</div><div class="ttdef"><b>定义</b> AstGUIAPI.cpp:136</div></div>
+<div class="ttc" id="anamespaceast_html_ad84da1bdc94a3ee9350c315e01c1e726"><div class="ttname"><a href="namespaceast.html#ad84da1bdc94a3ee9350c315e01c1e726">ast::aUiNewMainWindow</a></div><div class="ttdeci">QMainWindow * aUiNewMainWindow()</div><div class="ttdoc">创建主窗口</div><div class="ttdef"><b>定义</b> AstGUIAPI.cpp:244</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1aa6ec13829cacb2d194b2b5829946f0.html">AstGUI</a></li><li class="navelem"><a class="el" href="dir_a3c36abbf0c3f8b3d6006d7b9eb94bf5.html">App</a></li><li class="navelem"><b>AstGUIAPI.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6f303c536764ca5e799c206b71d3427f.html">AstUiCore</a></li><li class="navelem"><a class="el" href="dir_c1c142bbd74e4b4906decbac0158cb51.html">App</a></li><li class="navelem"><b>AstGUIAPI.hpp</b></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
