@@ -2,7 +2,7 @@
 set_project("ast")
 
 -- 设置版本号
-set_version("0.2.0", {build="%Y%m%d", soname = false})
+set_version("0.3.0", {build="%Y%m%d", soname = false})
 
 -- 工程配置选项：是否编译测试工程
 option("with_test")
@@ -74,7 +74,7 @@ set_policy("package.precompiled", false)                    -- 禁止从远程�
 
 -- linux平台添加rpath
 if is_plat("linux") then
-    add_rpathdirs("$ORIGIN")                                -- 添加运行时库搜索路径，指向可执行文件所在目录
+    add_rpathdirs("$ORIGIN", "$ORIGIN/../lib")              -- 添加运行时库搜索路径，指向可执行文件所在目录和上一级目录的lib子目录
 elseif is_plat("windows") then
     if is_mode("debug") then
         set_values("windows.subsystem", "console")
@@ -151,8 +151,8 @@ add_requires("replxx", {optional = true})                                       
 -- add_requires("openscenegraph", {optional = true, configs = {shared = true}})    -- 可选的OpenSceneGraph库，共享库版本，用于图形渲染
 -- add_requires("openframes", {optional = true})                                   -- 可选的OpenFrames库，用于三维可视化
 -- add_requires("vulkanscenegraph", {optional = true, configs = {shared = true}})  -- 可选的VulkanSceneGraph库，共享库版本，用于图形渲染
-add_requires("vtk", {optional = true, configs = {shared = true}})
-add_requireconfs("vtk.seacas", {version = "2025.08.28"})
+-- add_requires("vtk", {optional = true, configs = {shared = true}})
+-- add_requireconfs("vtk.seacas", {version = "2025.08.28"})
 add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
 add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
 add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
