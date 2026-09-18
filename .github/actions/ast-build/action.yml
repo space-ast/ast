@@ -105,29 +105,29 @@ runs:
       if: runner.os == 'Windows'
       shell: pwsh
       run: |
-        xrepo install -yv aqt
+        xrepo install -y aqt
         xrepo info aqt
-        xmake require -yv qt
+        xmake require -y qt
 
     - name: 配置Qt环境(Linux)
       if: runner.os != 'Windows'
       shell: bash
       run: |
-        xrepo install -yv aqt
+        xrepo install -y aqt
         xrepo info aqt
-        xmake require -yv qt
+        xmake require -y qt
 
     - name: 配置debug版本(Windows)
       if: runner.os == 'Windows'
       shell: pwsh
       run: |
-        xmake f -cvy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m debug
+        xmake f -cy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m debug
 
     - name: 配置debug版本(Linux)
       if: runner.os != 'Windows'
       shell: bash
       run: |
-        xmake f -cvy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m debug
+        xmake f -cy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m debug
 
     - name: 编译debug版本(Windows)
       if: runner.os == 'Windows'
@@ -145,13 +145,13 @@ runs:
       if: runner.os == 'Windows'
       shell: pwsh
       run: |
-        xmake f -cvy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m release
+        xmake f -cy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m release
 
     - name: 配置release版本(Linux)
       if: runner.os != 'Windows'
       shell: bash
       run: |
-        xmake f -cvy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m release
+        xmake f -cy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m release
 
     - name: 编译release版本(Windows)
       if: runner.os == 'Windows'
