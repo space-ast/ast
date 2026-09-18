@@ -1,0 +1,232 @@
+name: ast 构建
+description: >-
+  配置 xmake、编译 debug/release、打包，并上传产物 / 发布 release / 更新 nightly。
+  由 build.yml 的 Windows job 与 Linux(manylinux 容器) job 共用，避免两边重复维护。
+  注意：本 action 假定 Linux 侧运行在 manylinux 容器里（依赖 dnf / /opt/python）。
+
+inputs:
+  plat:
+    description: 发布用的平台标识，windows 或 linux
+    required: true
+  arch:
+    description: 发布用的架构标识，x64 / arm64 / x86_64
+    required: true
+  qt-sdkver:
+    description: Qt SDK 版本
+    required: false
+    default: '5.15.2'
+  token:
+    description: 用于上传 release 资产的 GITHUB_TOKEN（composite action 里拿不到 secrets 上下文，必须显式传入）
+    required: true
+
+runs:
+  using: composite
+  steps:
+    # 容器镜像很干净，mesa / X11 / 字体这些 Qt 链接期依赖都得自己装。
+    # 首次跑很可能会在这一步上迭代（缺包就补进下面这个列表）。
+    - name: 配置系统依赖(Linux)
+      if: runner.os != 'Windows'
+      shell: bash
+      run: |
+        dnf install -y --setopt=install_weak_deps=False \
+          git curl wget which unzip xz tar \
+          mesa-libGL-devel mesa-libGLU-devel \
+          libX11-devel libXext-devel libXrender-devel libXrandr-devel libXfixes-devel \
+          libXi-devel libXcursor-devel libXinerama-devel libXScrnSaver-devel \
+          libxcb-devel libxkbcommon-devel libxkbcommon-x11-devel \
+          fontconfig-devel freetype-devel libpng-devel \
+          glib2-devel dbus-devel alsa-lib-devel libSM-devel libICE-devel \
+          openssl-devel
+
+    # xrepo 装 aqt 需要 Python。manylinux 的 /opt/python/*/bin 不在默认 PATH 上。
+    - name: 准备 Python(Linux)
+      if: runner.os != 'Windows'
+      shell: bash
+      run: |
+        pybin=$(ls -d /opt/python/cp3*/bin 2>/dev/null | sort -V | tail -1)
+        if [ -z "$pybin" ]; then
+          echo "::error::容器里找不到 /opt/python/cp3*/bin，无法提供 Python 给 aqt"
+          exit 1
+        fi
+        echo "$pybin" >> "$GITHUB_PATH"
+        echo "xrepo/qt 将使用 $pybin/python3"
+
+    - uses: xmake-io/github-action-setup-xmake@v1
+      with:
+        # branch@dev 会从源码编译 xmake，因此 arm64 runner 上也不依赖官方预编译产物
+        xmake-version: branch@dev
+
+    # Cache xmake dependencies
+    - name: 配置依赖缓存
+      uses: actions/cache@v4
+      with:
+        path: xmake-cache
+        key: build-${{ runner.os }}-${{ inputs.arch }}-xmake-cache-v2
+
+    # Cache build directory
+    - name: 配置编译缓存
+      if: github.event.action != 'published' && github.ref != 'refs/heads/master'
+      uses: actions/cache@v4
+      with:
+        path: |
+          build
+          .xmake
+        key: build-${{ runner.os }}-${{ inputs.arch }}-build-v2-${{ github.sha }}
+        restore-keys: |
+          build-${{ runner.os }}-${{ inputs.arch }}-build-v2-
+
+    - name: 设置xmake相关目录(Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
+        xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
+        xmake repo -u
+
+    - name: 设置xmake相关目录(Linux)
+      if: runner.os != 'Windows'
+      shell: bash
+      run: |
+        xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
+        xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
+        xmake repo -u
+
+    - name: 配置Qt环境
+      shell: bash
+      run: |
+        xrepo install -yv aqt
+        xrepo info aqt
+        xmake require -yv qt
+
+    - name: 配置debug版本
+      shell: bash
+      run: |
+        xmake f -cvy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m debug
+
+    - name: 编译debug版本
+      shell: bash
+      run: |
+        xmake -ay
+
+    - name: 配置release版本
+      shell: bash
+      run: |
+        xmake f -cvy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m release
+
+    - name: 编译release版本
+      shell: bash
+      run: |
+        xmake -ay
+
+    - name: 打包二进制包
+      shell: bash
+      run: |
+        xmake f -cy --with_test=y -m release
+        xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
+
+    - name: 测试 xmake.sh 编译
+      if: runner.os != 'Windows'
+      shell: bash
+      run: |
+        ./scripts/xpack/runself.sh --builddir=build-xsh
+
+    - name: 打包自安装源码包
+      if: runner.os != 'Windows'
+      shell: bash
+      run: |
+        xmake f -cy --with_test=y -m release
+        xmake pack -y -f runself -o artifacts/ --basename=SpaceAST
+
+    - name: 获取发布信息
+      id: release-info
+      shell: bash
+      run: |
+        echo "plat=${{ inputs.plat }}" >> $GITHUB_OUTPUT
+        echo "arch=${{ inputs.arch }}" >> $GITHUB_OUTPUT
+
+    - name: 上传产物
+      uses: actions/upload-artifact@v4
+      with:
+        name: SpaceAST-${{ inputs.plat }}-${{ inputs.arch }}
+        path: artifacts/
+
+    - name: 发布产物-二进制包
+      if: github.event.action == 'published'
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: artifacts/SpaceAST.zip
+        asset_name: SpaceAST-${{ github.event.release.tag_name }}-${{ inputs.plat }}-${{ inputs.arch }}.zip
+        asset_content_type: application/zip
+
+    - name: 发布产物-自安装源码包
+      if: github.event.action == 'published' && runner.os != 'Windows' && inputs.arch == 'x86_64'
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: artifacts/SpaceAST.gz.run
+        asset_name: SpaceAST-${{ github.event.release.tag_name }}-linux-any.gz.run
+        asset_content_type: application/x-makeself
+
+    - name: 检查 nightly 可否更新
+      id: nightly-guard
+      shell: bash
+      run: |
+        if [ "$GITHUB_REF" != "refs/heads/master" ]; then
+          echo "非 master 分支($GITHUB_REF)，不更新 nightly"
+          echo "ok=false" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+        SHA="${{ github.sha }}"
+        # 只允许"仍然是 master 顶端"的提交更新 nightly。
+        # 重跑旧的 run 时 github.sha 仍是那次 push 的旧提交，直接推会把 nightly 打回去。
+        # 用 ls-remote 比对远端顶端，不依赖本地历史。
+        TIP="$(git ls-remote origin refs/heads/master 2>/dev/null || true)"
+        TIP="${TIP%%[[:space:]]*}"
+        echo "TIP=$TIP"
+        echo "SHA=$SHA"
+        if [ -z "$TIP" ]; then
+          echo "::warning::取不到远端 master 顶端(ls-remote 失败)，跳过 nightly 更新"
+          echo "ok=false" >> "$GITHUB_OUTPUT"
+        elif [ "$TIP" = "$SHA" ]; then
+          echo "master 顶端即本次提交，允许更新 nightly"
+          echo "ok=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "::warning::本次提交 $SHA 不是 master 当前顶端 $TIP(疑似重跑旧 run, 或构建期间已有新推送)，跳过 nightly 更新，避免回退"
+          echo "ok=false" >> "$GITHUB_OUTPUT"
+        fi
+
+    - name: 更新 nightly tag
+      if: steps.nightly-guard.outputs.ok == 'true' && runner.os != 'Windows' && inputs.arch == 'x86_64'
+      shell: bash
+      run: |
+        git tag -f nightly "${{ github.sha }}"
+        git push -f origin nightly
+
+    - name: 更新预发布-二进制包
+      if: steps.nightly-guard.outputs.ok == 'true'
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ inputs.token }}
+        file: artifacts/SpaceAST.zip
+        asset_name: SpaceAST-nightly-${{ inputs.plat }}-${{ inputs.arch }}.zip
+        tag: nightly
+        overwrite: true
+        prerelease: true
+        release_name: Nightly Build-预发布版
+
+    - name: 更新预发布-自安装源码包
+      if: steps.nightly-guard.outputs.ok == 'true' && runner.os != 'Windows' && inputs.arch == 'x86_64'
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ inputs.token }}
+        file: artifacts/SpaceAST.gz.run
+        asset_name: SpaceAST-nightly-linux-any.gz.run
+        tag: nightly
+        overwrite: true
+        prerelease: true
+        release_name: Nightly Build-预发布版
