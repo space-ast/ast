@@ -42,6 +42,8 @@ jobs:
   # 镜像内 `ls /opt/rh` 可确认；编出的产物对应的 libstdc++ 版本也跟着变。
   build-linux:
     strategy:
+      # 两条腿各自独立报错：bring-up 阶段一次跑完，省一轮往返
+      fail-fast: false
       matrix:
         include:
           - runner: ubuntu-22.04
@@ -53,6 +55,10 @@ jobs:
     runs-on: ${{ matrix.runner }}
     container:
       image: quay.io/pypa/${{ matrix.image }}
+    env:
+      # manylinux 镜像默认以 root 运行，xmake 拒绝在 root 下工作（exit 255），
+      # 需要显式放开；镜像里没有非 root 用户，改 --user 会让工作区属主乱掉。
+      XMAKE_ROOT: y
     concurrency:
       group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-linux-${{ matrix.arch }}-build
       cancel-in-progress: true
