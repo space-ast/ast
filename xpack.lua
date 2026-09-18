@@ -28,6 +28,7 @@ xpack("ast")
     add_installfiles("(examples/**)|*.lua")
     add_installfiles("(test/**)|**bm*|*.lua")
     add_installfiles("scripts/xpack/port.lua", {filename = "xmake.lua"})
+    add_installfiles("*.md", "LICENSE*")
     on_load(function(package)
         import("core.project.project")
         -- 只有二进制包才添加平台和架构
