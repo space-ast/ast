@@ -39,7 +39,7 @@ runs:
       shell: bash
       run: |
         dnf install -y --setopt=install_weak_deps=False \
-          git curl wget which unzip xz tar \
+          git curl wget which zip unzip xz tar \
           mesa-libGL-devel mesa-libGLU-devel \
           libX11-devel libXext-devel libXrender-devel libXrandr-devel libXfixes-devel \
           libXi-devel libXcursor-devel libXinerama-devel libXScrnSaver-devel \
