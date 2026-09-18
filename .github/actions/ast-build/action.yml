@@ -19,6 +19,16 @@ inputs:
     description: 用于上传 release 资产的 GITHUB_TOKEN（composite action 里拿不到 secrets 上下文，必须显式传入）
     required: true
 
+# 关于下面成对的 "(Windows)/(Linux)" 步骤：
+# composite action 没有 runs-on，无法推导默认 shell，每个 run 步骤必须显式写 shell，
+# 而 `shell:` 又不支持 `${{ }}` 表达式，没法写成「按 runner.os 选 shell」。
+# 所以跨平台的步骤一律拆成 pwsh/bash 一对，用 if 分流 —— 等价于原 workflow 里
+# 「各平台用各自默认 shell」的行为。
+#
+# 为什么 Windows 侧必须是 pwsh 而不是 bash：Git Bash(MSYS) 不执行 .bat/.cmd，
+# 而 xmake 的 Windows 安装里 xrepo 是 xrepo.bat（xmake 本身是 xmake.exe 不受影响），
+# 用 bash 调 xrepo 会直接 `command not found`(exit 127)。
+
 runs:
   using: composite
   steps:
@@ -91,34 +101,79 @@ runs:
         xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
         xmake repo -u
 
-    - name: 配置Qt环境
+    - name: 配置Qt环境(Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        xrepo install -yv aqt
+        xrepo info aqt
+        xmake require -yv qt
+
+    - name: 配置Qt环境(Linux)
+      if: runner.os != 'Windows'
       shell: bash
       run: |
         xrepo install -yv aqt
         xrepo info aqt
         xmake require -yv qt
 
-    - name: 配置debug版本
+    - name: 配置debug版本(Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        xmake f -cvy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m debug
+
+    - name: 配置debug版本(Linux)
+      if: runner.os != 'Windows'
       shell: bash
       run: |
         xmake f -cvy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m debug
 
-    - name: 编译debug版本
+    - name: 编译debug版本(Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        xmake -ay
+
+    - name: 编译debug版本(Linux)
+      if: runner.os != 'Windows'
       shell: bash
       run: |
         xmake -ay
 
-    - name: 配置release版本
+    - name: 配置release版本(Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        xmake f -cvy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m release
+
+    - name: 配置release版本(Linux)
+      if: runner.os != 'Windows'
       shell: bash
       run: |
         xmake f -cvy --with_test=y --qt_sdkver=${{ inputs.qt-sdkver }} -m release
 
-    - name: 编译release版本
+    - name: 编译release版本(Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        xmake -ay
+
+    - name: 编译release版本(Linux)
+      if: runner.os != 'Windows'
       shell: bash
       run: |
         xmake -ay
 
-    - name: 打包二进制包
+    - name: 打包二进制包(Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        xmake f -cy --with_test=y -m release
+        xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
+
+    - name: 打包二进制包(Linux)
+      if: runner.os != 'Windows'
       shell: bash
       run: |
         xmake f -cy --with_test=y -m release
@@ -137,6 +192,8 @@ runs:
         xmake f -cy --with_test=y -m release
         xmake pack -y -f runself -o artifacts/ --basename=SpaceAST
 
+    # 以下步骤是纯 shell 逻辑（写 $GITHUB_OUTPUT、调 git），bash 在两个平台上都能跑，
+    # 原 workflow 在 Windows 上也一直显式用 shell: bash，所以不需要拆成对。
     - name: 获取发布信息
       id: release-info
       shell: bash
