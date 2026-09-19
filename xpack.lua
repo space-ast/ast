@@ -51,8 +51,12 @@ xpack("ast")
         end
 
         -- 添加所有工程目标，排除AstVisVTK
-        for targetname, _ in pairs(project.targets()) do
-            if targetname:startswith("Ast") and targetname ~= "AstVisVTK" then
+        -- 只收真正会产出产物的目标：被禁用的（如缺 Qt 时的 AstUi*）和 phony 的都不该
+        -- 出现在打包列表里，否则 xmake 会去装一个不存在的产物，而 os.cp 找不到文件是
+        -- 静默失败——包里少东西但打包过程不报错。
+        for targetname, target in pairs(project.targets()) do
+            if targetname:startswith("Ast") and targetname ~= "AstVisVTK"
+                and target:is_enabled() and target:kind() ~= "phony" then
                 package:add("targets", targetname)
             end
         end

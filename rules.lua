@@ -96,11 +96,12 @@ rule("ast.qt")
     add_deps("qt.env")
     add_deps("qt.ui", "qt.moc", "qt.qrc", "qt.ts")
     on_config(function (target)
-        -- 检查是否存在Qt环境，如果没有qt环境则禁用相关项目
-        local qt = target:data("qt")
-        if not qt then
-            target:set("kind", "phony")
-        end
+        -- 注意：Qt 缺失不能在这里处理。on_config 只对已经启用的目标执行，此时目标早已
+        -- 进了 project.targets()，在这里把它改成 phony 只会让目标留在 xpack 的打包列表
+        -- 里、贡献头文件却不产出库（os.cp 找不到产物是静默失败），既不报错也装不出东西。
+        -- 必须在 target 体内 `if not has_package("qt") then set_enabled(false) end`，
+        -- 只有这样才能让它被 project.targets() 过滤掉。
+        -- 参见 src/AstUi*/xmake.lua 与 projects/App*/xmake.lua。
         target:add(
             "frameworks", 
             "QtWidgets", "QtGui", "QtCore", "QtSvg", "QtTest", 
