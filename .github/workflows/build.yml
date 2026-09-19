@@ -15,9 +15,24 @@ permissions:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
-        os: [windows-2022, ubuntu-22.04]  # ubuntu-24.04
-        arch: [x64, arm64]
+        include:
+          - os: windows-2022
+            plat: windows
+            arch: x64
+          - os: windows-2022
+            plat: windows
+            arch: arm64
+          - os: windows-2022
+            plat: windows
+            arch: x86
+          - os: ubuntu-22.04
+            plat: linux
+            arch: x86_64
+          - os: ubuntu-22.04-arm
+            plat: linux
+            arch: arm64
 
     runs-on: ${{ matrix.os }}
     concurrency:
@@ -67,23 +82,25 @@ jobs:
           packages: libgl1-mesa-dev libglu1-mesa-dev
           version: 2
 
+      # arm64 上拿不到 Qt
       - name: 配置Qt环境
+        if: matrix.arch != 'arm64'
         run: |
-          xrepo install -yv aqt
+          xrepo install -y aqt
           xrepo info aqt
-          xmake require -yv qt
-          
+          xmake require -y qt
+
       - name: 配置debug版本
         run: |
-          xmake f -cvy --with_test=y --qt_sdkver=5.15.2 -m debug 
-          
+          xmake f -cy --with_test=y -m debug -a ${{ matrix.arch }}
+
       - name: 编译debug版本
         run: |
           xmake -ay
 
       - name: 配置release版本
         run: |
-          xmake f -cvy --with_test=y --qt_sdkver=5.15.2 -m release
+          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
 
       - name: 编译release版本
         run: |
@@ -91,7 +108,7 @@ jobs:
 
       - name: 打包二进制包
         run: |
-          xmake f -cy --with_test=y -m release
+          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
           xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
 
       - name: 测试 xmake.sh 编译
@@ -102,35 +119,13 @@ jobs:
       - name: 打包自安装源码包
         if: runner.os != 'Windows'
         run: |
-          xmake f -cy --with_test=y -m release
+          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
           xmake pack -y -f runself -o artifacts/ --basename=SpaceAST
       
-      - name: 获取发布信息
-        id: release-info
-        shell: bash
-        run: |
-          # Map runner OS to friendly name
-          case "${{ matrix.os }}" in
-            windows-*) echo "plat=windows" >> $GITHUB_OUTPUT ;;
-            ubuntu-*)  echo "plat=linux" >> $GITHUB_OUTPUT ;;
-            *)         echo "plat=${{ matrix.os }}" >> $GITHUB_OUTPUT ;;
-          esac
-          # Map arch to friendly name (x86_64 for Linux x64)
-          case "${{ matrix.os }}" in
-            ubuntu-*)
-              case "${{ matrix.arch }}" in
-                x64)   echo "arch=x86_64" >> $GITHUB_OUTPUT ;;
-                arm64) echo "arch=arm64" >> $GITHUB_OUTPUT ;;
-                *)     echo "arch=${{ matrix.arch }}" >> $GITHUB_OUTPUT ;;
-              esac ;;
-            *)
-              echo "arch=${{ matrix.arch }}" >> $GITHUB_OUTPUT ;;
-          esac
-
       - name: 上传产物
         uses: actions/upload-artifact@v4
         with:
-          name: SpaceAST-${{ steps.release-info.outputs.plat }}-${{ steps.release-info.outputs.arch }}
+          name: SpaceAST-${{ matrix.plat }}-${{ matrix.arch }}
           path: artifacts/
            
       - name: 发布产物-二进制包
@@ -141,7 +136,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-${{ github.event.release.tag_name }}-${{ steps.release-info.outputs.plat }}-${{ steps.release-info.outputs.arch }}.zip
+          asset_name: SpaceAST-${{ github.event.release.tag_name }}-${{ matrix.plat }}-${{ matrix.arch }}.zip
           asset_content_type: application/zip
       
       - name: 发布产物-自安装源码包
@@ -196,7 +191,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-nightly-${{ steps.release-info.outputs.plat }}-${{ steps.release-info.outputs.arch }}.zip
+          asset_name: SpaceAST-nightly-${{ matrix.plat }}-${{ matrix.arch }}.zip
           tag: nightly
           overwrite: true
           prerelease: true

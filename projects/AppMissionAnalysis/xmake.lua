@@ -1,7 +1,8 @@
 target("AppMissionAnalysis")
-    add_rules("ast.qt.widgetapp")
     add_files("**.cpp")
-    add_deps("AstUiCore", "AstUiDataUpdate")
     if not has_package("qt") then
-        set_enabled(false)
+        set_kind("phony")
+    else
+        add_rules("ast.qt.widgetapp")
+        add_deps("AstUiCore", "AstUiDataUpdate")
     end

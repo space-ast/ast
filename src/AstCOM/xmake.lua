@@ -12,7 +12,7 @@ target("AstCOM")
     add_defines("_USRDLL")            -- 定义CAtlDllModuleT变量时需要
     add_defines("UNICODE", "_UNICODE", "_ATL_UNICODE") -- 编译为使用UNICODE宽字符
     add_deps("AstUtil", "AstMath", "AstWeather", "AstScript", "AstSim", "AstCmd")
-    if is_plat("windows") then
+    if is_plat("windows") and is_arch("x64") then
         add_syslinks("oleaut32", "ole32", "uuid")
     else
         -- set_enabled(false)

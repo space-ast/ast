@@ -99,7 +99,7 @@ rule("ast.qt")
         -- 检查是否存在Qt环境，如果没有qt环境则禁用相关项目
         local qt = target:data("qt")
         if not qt then
-            target:set("enabled", false)
+            target:set("kind", "phony")
         end
         target:add(
             "frameworks", 
