@@ -18,6 +18,7 @@
 #include "AstCore/CelestialBody.hpp"
 #include <fstream>
 #include <cstring>
+#include <limits>
 
 AST_NAMESPACE_BEGIN
 
@@ -96,7 +97,8 @@ errc_t EphemerisBinary::saveFrom(const Ephemeris* source, const std::string& fil
 
     // 直接用内存中的数据初始化内部状态，无需重新读取文件
     filepath_  = filepath;
-    pointCount_ = pointCount;
+    // pointCount 来自 times.size()，折回 size_t 无损（文件里固定用 64 位字段）
+    pointCount_ = static_cast<size_t>(pointCount);
     frameName_ = fname;
     frame_     = SharedPtr<Frame>(srcFrame);
     epoch_.duration_.integer_    = epochInt;
@@ -151,16 +153,21 @@ errc_t EphemerisBinary::open(const std::string& filepath)
     if (nameLen > 256)
         return eErrorInvalidFile;
 
+    // Validate pointCount：点数索引是 int，超过 INT_MAX 无法寻址；
+    // 这样也保证 32 位平台（size_t 为 32 位）上收窄是无损的
+    if (pointCount > static_cast<uint64_t>(std::numeric_limits<int>::max()))
+        return eErrorInvalidFile;
+
     filepath_ = filepath;
     epoch_.duration_.integer_ = epochInt;
     epoch_.duration_.fractional_ = epochFrac;
-    pointCount_ = pointCount;
+    pointCount_ = static_cast<size_t>(pointCount);
     interval_.setBounds(startTime, stopTime);
 
     // Read frame name
     if (nameLen > 0)
     {
-        frameName_.resize(nameLen);
+        frameName_.resize(static_cast<size_t>(nameLen));    // nameLen 已校验 <= 256
         if (!file.read(&frameName_[0], static_cast<std::streamsize>(nameLen)))
             return eErrorInvalidFile;
     }
@@ -266,7 +273,7 @@ void EphemerisBinary::fillWindow(size_t fileIdx) const
         return;
 
     // Calculate body offset: header(56) + frameNameLen + body offset
-    uint64_t nameLen = frameName_.size();
+    size_t nameLen = frameName_.size();
     size_t headerSize = HEADER_BASE + nameLen;
     size_t bodyOffset = headerSize + startIdx * POINT_BYTES;
 

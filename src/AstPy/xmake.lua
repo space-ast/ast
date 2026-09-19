@@ -1,7 +1,13 @@
 
 
 target("AstPy")
-    if has_package("python") and has_package("swig") and not is_plat("mingw") then
+    -- 目标平台/架构与宿主机不一致时（如 windows x86、windows arm64），xmake 会把 python 包
+    -- 当成宿主机工具包（package kind = "binary"，见 xmake-repo packages/p/python/xmake.lua），
+    -- 这类包不会把 includedirs/links 传给目标，且解析到的是宿主机架构的 python，
+    -- 结果就是编译 AstPy.cpp 时报 "Cannot open include file: 'Python.h'"。
+    if not is_plat(os.host()) or not is_arch(os.arch()) then
+        set_enabled(false)
+    elseif has_package("python") and has_package("swig") and not is_plat("mingw") then
         add_packages("swig")
         add_packages("python")
     else
