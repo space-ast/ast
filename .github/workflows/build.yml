@@ -7,37 +7,71 @@ on:
       - '**'  # 仅分支推送触发，忽略 tag 推送（tag 和 release:published 会出现并发组冲突）
   release:
     types: [published]
+  workflow_dispatch:  # 手动触发，便于不推 master 也能验证构建与打包
 
 permissions:
   # 推 nightly tag、上传 release 资产需要；显式声明，不依赖仓库默认权限设置
   contents: write
 
 jobs:
-  build:
+  # 把 nightly 判定抽出来只跑一次
+  nightly-guard:
+    runs-on: ubuntu-latest
+    outputs:
+      ok: ${{ steps.guard.outputs.ok }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # 需要 git ls-remote 与 tag 操作
+          fetch-depth: 0
+
+      - name: 检查 nightly 可否更新
+        id: guard
+        shell: bash
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/master" ]; then
+            echo "非 master 分支($GITHUB_REF)，不更新 nightly"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          SHA="${{ github.sha }}"
+          # 只允许"仍然是 master 顶端"的提交更新 nightly。
+          # 重跑旧的 run 时 github.sha 仍是那次 push 的旧提交，直接推会把 nightly 打回去。
+          # 用 ls-remote 比对远端顶端，不依赖本地历史。
+          TIP="$(git ls-remote origin refs/heads/master 2>/dev/null || true)"
+          TIP="${TIP%%[[:space:]]*}"
+          echo "TIP=$TIP"
+          echo "SHA=$SHA"
+          if [ -z "$TIP" ]; then
+            echo "::warning::取不到远端 master 顶端(ls-remote 失败)，跳过 nightly 更新"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          elif [ "$TIP" = "$SHA" ]; then
+            echo "master 顶端即本次提交，允许更新 nightly"
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::本次提交 $SHA 不是 master 当前顶端 $TIP(疑似重跑旧 run, 或构建期间已有新推送)，跳过 nightly 更新，避免回退"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 更新 nightly tag
+        if: steps.guard.outputs.ok == 'true'
+        shell: bash
+        run: |
+          git tag -f nightly "${{ github.sha }}"
+          git push -f origin nightly
+
+  build-windows:
+    needs: nightly-guard
+    # guard 自身失败不该挡住构建（nightly 与否由它的 outputs 决定）；但被取消时不必再跑
+    if: ${{ !cancelled() }}
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - os: windows-2022
-            plat: windows
-            arch: x64
-          - os: windows-2022
-            plat: windows
-            arch: arm64
-          - os: windows-2022
-            plat: windows
-            arch: x86
-          - os: ubuntu-22.04
-            plat: linux
-            arch: x86_64
-          - os: ubuntu-22.04-arm
-            plat: linux
-            arch: arm64
-
-    runs-on: ${{ matrix.os }}
+        arch: [x64, arm64, x86]
+    runs-on: windows-2022
     concurrency:
-        group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-${{ matrix.os }}-${{ matrix.arch }}-build
-        cancel-in-progress: true
+      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-windows-${{ matrix.arch }}-build
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
         with:
@@ -55,7 +89,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: xmake-cache
-          key: build-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v2
+          key: build-windows-2022-${{ matrix.arch }}-xmake-cache-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}
 
       # Cache build directory
       - name: 配置编译缓存
@@ -65,22 +99,15 @@ jobs:
           path: |
             build
             .xmake
-          key: build-${{ matrix.os }}-${{ matrix.arch }}-build-v2-${{ github.sha }}
+          key: build-windows-2022-${{ matrix.arch }}-build-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
           restore-keys: |
-            build-${{ matrix.os }}-${{ matrix.arch }}-build-v2-
+            build-windows-2022-${{ matrix.arch }}-build-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
 
       - name: 设置xmake相关目录
         run: |
           xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
           xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
           xmake repo -u
-      
-      - name: 配置opengl环境
-        if: runner.os != 'Windows'
-        uses: awalsh128/cache-apt-pkgs-action@v1.6.0
-        with:
-          packages: libgl1-mesa-dev libglu1-mesa-dev
-          version: 2
 
       # arm64 上拿不到 Qt
       - name: 配置Qt环境
@@ -111,23 +138,12 @@ jobs:
           xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
           xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
 
-      - name: 测试 xmake.sh 编译
-        if: runner.os != 'Windows'
-        run: |
-          ./scripts/xpack/runself.sh --builddir=build-xsh
-
-      - name: 打包自安装源码包
-        if: runner.os != 'Windows'
-        run: |
-          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
-          xmake pack -y -f runself -o artifacts/ --basename=SpaceAST
-      
       - name: 上传产物
         uses: actions/upload-artifact@v4
         with:
-          name: SpaceAST-${{ matrix.plat }}-${{ matrix.arch }}
+          name: SpaceAST-windows-${{ matrix.arch }}
           path: artifacts/
-           
+
       - name: 发布产物-二进制包
         if: github.event.action == 'published'
         uses: actions/upload-release-asset@v1.0.1
@@ -136,11 +152,182 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-${{ github.event.release.tag_name }}-${{ matrix.plat }}-${{ matrix.arch }}.zip
+          asset_name: SpaceAST-${{ github.event.release.tag_name }}-windows-${{ matrix.arch }}.zip
           asset_content_type: application/zip
-      
+
+      - name: 更新预发布-二进制包
+        if: needs.nightly-guard.outputs.ok == 'true'
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: artifacts/SpaceAST.zip
+          asset_name: SpaceAST-nightly-windows-${{ matrix.arch }}.zip
+          tag: nightly
+          overwrite: true
+          prerelease: true
+          release_name: Nightly Build-预发布版
+
+  # Linux 在 manylinux_2_28 容器里构建：AlmaLinux 8 + glibc 2.28
+  build-linux:
+    needs: nightly-guard
+    if: ${{ !cancelled() }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-22.04
+            image: manylinux_2_28_x86_64
+            arch: x86_64
+          - runner: ubuntu-22.04-arm
+            image: manylinux_2_28_aarch64
+            arch: arm64
+    runs-on: ${{ matrix.runner }}
+    container:
+      image: quay.io/pypa/${{ matrix.image }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      # 容器里以 root 运行，xmake 默认拒绝工作，需要设置 XMAKE_ROOT=y 才能正常工作
+      # （error: Running xmake as root is extremely dangerous and no longer supported.）
+      XMAKE_ROOT: y
+    concurrency:
+      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-linux-${{ matrix.arch }}-build
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Need full history for git tag operations
+          fetch-depth: 0
+          submodules: true
+
+      # 容器镜像很干净：Qt 链接期的 X11/字体/GL 依赖，以及打包要用的 zip，都得自己装
+      - name: 配置系统依赖
+        run: |
+          echo "=== 编译器 ==="
+          which -a gcc g++ ld ar ranlib 2>/dev/null || true
+          gcc --version | head -n 1
+          echo "=== CPU 基线 ==="
+          echo | gcc -S -x c -o /dev/null -v - 2>&1 | grep -o 'march=[^ ]*' || true
+          echo "=== 关键环境变量 ==="
+          env | grep -E '^(PATH|LD_LIBRARY_PATH|LIBRARY_PATH|CPATH)=' || true
+          echo "=== 工具链自带的 libstdc++ 版本上限 ==="
+          readelf --version-info /usr/lib64/libstdc++.so.6 2>/dev/null \
+            | grep -oE 'GLIBCXX_[0-9.]+' | sort -V | tail -n 1 || true
+
+          dnf install -y --setopt=install_weak_deps=False \
+            zip unzip xz tar which git curl wget \
+            binutils make pkgconf-pkg-config \
+            mesa-libGL-devel mesa-libGLU-devel \
+            libX11-devel libXext-devel libXrender-devel libXrandr-devel libXfixes-devel \
+            libXi-devel libXcursor-devel libXinerama-devel libXScrnSaver-devel \
+            libxcb-devel libxkbcommon-devel libxkbcommon-x11-devel \
+            fontconfig-devel freetype-devel libpng-devel \
+            glib2-devel dbus-devel alsa-lib-devel libSM-devel libICE-devel \
+            openssl-devel
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: branch@dev
+
+      # 缓存键里加上的第三方库的内容哈希，使第三方库的内容改变时触发重新编译
+      - name: 配置依赖缓存
+        uses: actions/cache@v4
+        with:
+          path: xmake-cache
+          key: xmake-deps-${{ matrix.image }}-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v1
+
+      # 缓存键里加上的第三方库的内容哈希，使第三方库的内容改变时触发重新编译
+      - name: 配置编译缓存
+        if: github.event.action != 'published' && github.ref != 'refs/heads/master'
+        uses: actions/cache@v4
+        with:
+          path: |
+            build
+            .xmake
+          key: xmake-build-${{ matrix.image }}-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
+          restore-keys: |
+            xmake-build-${{ matrix.image }}-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
+
+      - name: 设置xmake相关目录
+        run: |
+          xmake g --pkg_cachedir="$(pwd)/xmake-cache/cache"
+          xmake g --pkg_installdir="$(pwd)/xmake-cache/packages"
+          xmake repo -u
+
+      # aqt 和 AstPy 都要 Python，而 manylinux 的 /opt/python/*/bin 不在默认 PATH 上。
+      # 避免退回到没有头文件的系统 python，导致编译 AstPy 时报错
+      - name: 准备 Python
+        run: |
+          pybin="$(ls -d /opt/python/cp3*/bin 2>/dev/null | sort -V | tail -n 1)"
+          if [ -z "$pybin" ]; then
+            echo "::error::容器里找不到 /opt/python/cp3*/bin"
+            exit 1
+          fi
+          echo "$pybin" >> "$GITHUB_PATH"
+          "$pybin/python3" --version
+
+      # Qt 5.15.2 没有 linux_arm64 官方构建，arm64 只能跳过
+      - name: 配置Qt环境
+        if: matrix.arch == 'x86_64'
+        run: |
+          xrepo install -y aqt
+          xrepo info aqt
+          xmake require -y qt
+
+      - name: 临时测试为什么cspice包编译失败
+        run: |
+          xmake b -P thirdparty/cspice-linux || true
+
+      # linux 下只用编译 release 版本
+      - name: 配置release版本
+        run: |
+          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
+
+      - name: 编译release版本
+        run: |
+          xmake -ay
+
+      - name: 打包二进制包
+        run: |
+          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
+          xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
+
+      # 检查动态库的 ABI 版本是否符合要求，使得能在大部分linux发行版上运行
+      - name: ABI 门槛校验
+        run: |
+          bash scripts/ci/check-abi.sh artifacts/SpaceAST.zip \
+            --max-glibc=2.23 --max-glibcxx=3.4.21 --glibcxx=fail
+
+      - name: 测试 xmake.sh 编译
+        run: |
+          ./scripts/xpack/runself.sh --builddir=build-xsh
+          rm -rf build-xsh
+
+      - name: 打包自安装源码包
+        run: |
+          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
+          xmake pack -y -f runself -o artifacts/ --basename=SpaceAST
+
+      - name: 上传产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: SpaceAST-linux-${{ matrix.arch }}
+          path: artifacts/
+
+      - name: 发布产物-二进制包
+        if: github.event.action == 'published'
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: artifacts/SpaceAST.zip
+          asset_name: SpaceAST-${{ github.event.release.tag_name }}-linux-${{ matrix.arch }}.zip
+          asset_content_type: application/zip
+
       - name: 发布产物-自安装源码包
-        if: github.event.action == 'published' && runner.os != 'Windows' && matrix.arch == 'x64'
+        if: github.event.action == 'published' && matrix.arch == 'x86_64'
         uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -150,55 +337,20 @@ jobs:
           asset_name: SpaceAST-${{ github.event.release.tag_name }}-linux-any.gz.run
           asset_content_type: application/x-makeself
 
-      - name: 检查 nightly 可否更新
-        id: nightly-guard
-        shell: bash
-        run: |
-          if [ "$GITHUB_REF" != "refs/heads/master" ]; then
-            echo "非 master 分支($GITHUB_REF)，不更新 nightly"
-            echo "ok=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          SHA="${{ github.sha }}"
-          # 只允许"仍然是 master 顶端"的提交更新 nightly。
-          # 重跑旧的 run 时 github.sha 仍是那次 push 的旧提交，直接推会把 nightly 打回去。
-          # 用 ls-remote 比对远端顶端，不依赖本地历史。
-          TIP="$(git ls-remote origin refs/heads/master 2>/dev/null || true)"
-          TIP="${TIP%%[[:space:]]*}"
-          echo "TIP=$TIP"
-          echo "SHA=$SHA"
-          if [ -z "$TIP" ]; then
-            echo "::warning::取不到远端 master 顶端(ls-remote 失败)，跳过 nightly 更新"
-            echo "ok=false" >> "$GITHUB_OUTPUT"
-          elif [ "$TIP" = "$SHA" ]; then
-            echo "master 顶端即本次提交，允许更新 nightly"
-            echo "ok=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "::warning::本次提交 $SHA 不是 master 当前顶端 $TIP(疑似重跑旧 run, 或构建期间已有新推送)，跳过 nightly 更新，避免回退"
-            echo "ok=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: 更新 nightly tag
-        if: steps.nightly-guard.outputs.ok == 'true' && runner.os != 'Windows' && matrix.arch == 'x64'
-        shell: bash
-        run: |
-          git tag -f nightly "${{ github.sha }}"
-          git push -f origin nightly
-
       - name: 更新预发布-二进制包
-        if: steps.nightly-guard.outputs.ok == 'true'
+        if: needs.nightly-guard.outputs.ok == 'true'
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-nightly-${{ matrix.plat }}-${{ matrix.arch }}.zip
+          asset_name: SpaceAST-nightly-linux-${{ matrix.arch }}.zip
           tag: nightly
           overwrite: true
           prerelease: true
           release_name: Nightly Build-预发布版
 
       - name: 更新预发布-自安装源码包
-        if: steps.nightly-guard.outputs.ok == 'true' && runner.os != 'Windows' && matrix.arch == 'x64'
+        if: needs.nightly-guard.outputs.ok == 'true' && matrix.arch == 'x86_64'
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}

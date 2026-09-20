@@ -50,12 +50,21 @@ xpack("ast")
             return
         end
 
-        -- 添加所有工程目标，排除AstVisVTK
-        for targetname, _ in pairs(project.targets()) do
-            if targetname:startswith("Ast") and targetname ~= "AstVisVTK" then
-                package:add("targets", targetname)
+        -- add_targets() 显式列出的目标名也要过一遍存在性检查，避免 set_enabled(false) 导致目标不存在
+        local targets = {}
+        for _, targetname in ipairs(table.wrap(package:get("targets"))) do
+            local target = project.target(targetname)
+            if target and target:is_enabled() and target:kind() ~= "phony" then
+                table.insert(targets, targetname)
             end
         end
+        for targetname, target in pairs(project.targets()) do
+            if targetname:startswith("Ast") and targetname ~= "AstVisVTK"
+                and target:is_enabled() and target:kind() ~= "phony" then
+                table.insert(targets, targetname)
+            end
+        end
+        package:set("targets", targets)
         
         -- windows下手动添加debug库和release库
         if package:plat() == "windows" and package:with_binary() then

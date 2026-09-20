@@ -23,8 +23,8 @@
 #include <QObject>
 #include <string>
 #include <atomic>
-#include <thread>
 #include <functional>
+#include "AstUtil/Thread.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -97,7 +97,7 @@ private:
     PilotSession*  session_;
     PilotRecorder* recorder_;
     std::atomic<bool> running_{true};
-    std::thread     stdinThread_{};
+    Thread          stdinThread_{};
     std::function<void(const std::string&)> outputCb_{};
 };
 

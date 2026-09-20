@@ -25,13 +25,15 @@ jobs:
           sudo apt-get install -y lcov
 
       # Cache xmake dependencies
+      # 缓存键里加上的第三方库的内容哈希，使第三方库的内容改变时触发重新编译
       - name: 配置依赖缓存
         uses: actions/cache@v3
         with:
           path: xmake-cache
-          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v2
+          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v2
 
       # Cache build directory
+      # 缓存键里加上的第三方库的内容哈希，使第三方库的内容改变时触发重新编译
       - name: 配置编译缓存
         if: github.event.action != 'published' && github.ref != 'refs/heads/master'
         uses: actions/cache@v4
@@ -39,9 +41,9 @@ jobs:
           path: |
             build
             .xmake
-          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-build-v2-${{ github.sha }}
+          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-build-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v2-${{ github.sha }}
           restore-keys: |
-            coverage-${{ matrix.os }}-${{ matrix.arch }}-build-v2-
+            coverage-${{ matrix.os }}-${{ matrix.arch }}-build-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v2-
 
       - name: 设置xmake相关目录
         run: |

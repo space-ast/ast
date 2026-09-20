@@ -12,7 +12,7 @@
     add_defines("AST_BUILD_LIB_UTIL")
     -- add_extrafiles("xmake.lua")   
     if is_plat("linux") then
-        add_syslinks("dl")
+        add_syslinks("dl", "pthread")
     end
     if is_plat("windows", "mingw") then
         add_syslinks("ole32", "oleaut32", "uuid", "shell32", "user32", "shlwapi")
