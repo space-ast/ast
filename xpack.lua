@@ -50,16 +50,28 @@ xpack("ast")
             return
         end
 
-        -- 添加所有工程目标，排除AstVisVTK
-        -- 只收真正会产出产物的目标：被禁用的（如缺 Qt 时的 AstUi*）和 phony 的都不该
-        -- 出现在打包列表里，否则 xmake 会去装一个不存在的产物，而 os.cp 找不到文件是
-        -- 静默失败——包里少东西但打包过程不报错。
+        -- 上面 add_targets() 显式列出的目标名也要过一遍存在性检查：缺 Qt 时
+        -- AppMissionAnalysis 会在 target 体内 set_enabled(false)，从而整个从
+        -- project.targets() 里消失，名字留在列表里会让打包直接报
+        -- "xpack(ast): target(AppMissionAnalysis) not found!"。
+        --
+        -- 然后收集全部工程目标、排除 AstVisVTK。只收真正会产出产物的目标：被禁用的
+        -- （如缺 Qt 时的 AstUi*）和 phony 的都不该出现在打包列表里，否则 xmake 会去装
+        -- 一个不存在的产物，而 os.cp 找不到文件是静默失败——包里少东西但不报错。
+        local targets = {}
+        for _, targetname in ipairs(table.wrap(package:get("targets"))) do
+            local target = project.target(targetname)
+            if target and target:is_enabled() and target:kind() ~= "phony" then
+                table.insert(targets, targetname)
+            end
+        end
         for targetname, target in pairs(project.targets()) do
             if targetname:startswith("Ast") and targetname ~= "AstVisVTK"
                 and target:is_enabled() and target:kind() ~= "phony" then
-                package:add("targets", targetname)
+                table.insert(targets, targetname)
             end
         end
+        package:set("targets", targets)
         
         -- windows下手动添加debug库和release库
         if package:plat() == "windows" and package:with_binary() then

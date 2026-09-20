@@ -270,7 +270,21 @@ jobs:
           xmake g --pkg_installdir="$(pwd)/xmake-cache/packages"
           xmake repo -u
 
-      # aqt 需要 Python，而 manylinux 的 /opt/python/*/bin 不在默认 PATH 上。
+      # aqt 和 AstPy 都要 Python，而 manylinux 的 /opt/python/*/bin 不在默认 PATH 上。
+      # 必须两条腿都加：x86_64 上不给 aqt 会装不了 Qt；aarch64 上（没有 Qt 步骤）
+      # 不给的话 xmake 会退回到没有头文件的系统 python，编译 AstPy 时报
+      # "fatal error: Python.h: No such file or directory"。
+      - name: 准备 Python
+        run: |
+          set -euo pipefail
+          pybin="$(ls -d /opt/python/cp3*/bin 2>/dev/null | sort -V | tail -n 1)"
+          if [ -z "$pybin" ]; then
+            echo "::error::容器里找不到 /opt/python/cp3*/bin"
+            exit 1
+          fi
+          echo "$pybin" >> "$GITHUB_PATH"
+          "$pybin/python3" --version
+
       # Qt 5.15.2 没有 linux_arm64 官方构建（aqt 报 "Failed to locate XML data for Qt
       # version '5.15.2'"），arm64 只能跳过；缺 Qt 时相关 target 会在 target 体内
       # set_enabled(false) 自行禁用，不会半途变成 phony 混进包里。
@@ -278,12 +292,6 @@ jobs:
         if: matrix.arch == 'x86_64'
         run: |
           set -euo pipefail
-          pybin="$(ls -d /opt/python/cp3*/bin 2>/dev/null | sort -V | tail -n 1)"
-          if [ -z "$pybin" ]; then
-            echo "::error::容器里找不到 /opt/python/cp3*/bin，aqt 没有 Python 可用"
-            exit 1
-          fi
-          echo "$pybin" >> "$GITHUB_PATH"
           xrepo install -y aqt
           xrepo info aqt
           xmake require -y qt
