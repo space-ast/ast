@@ -161,10 +161,11 @@
 
 
 #if defined(_MSC_VER) && !defined(__clang__)  // clang 的默认执行字符集本就是 utf-8，无需设置
-#pragma warning(disable: 4251)   // 禁用未导出的符号警告，因为一些类使用了stl等模板容器
-#   if defined(AST_BUILD_LIB) 
-    // 在编译ast库时指定代码内的字符串使用utf-8编码
-    // 不编译ast库时屏蔽该指令，以避免污染其他项目的字符串编码
+#   pragma warning(disable: 4251)   // 禁用未导出的符号警告，因为一些类使用了stl等模板容器
+#   if defined(AST_BUILD_LIB) && _MSC_FULL_VER <= 190023918
+    // VS2015 Update 2 之前的版本 (190023918) 不支持 /utf-8 选项
+    // 故采用 #pragma execution_character_set 指定运行时编码
+    // 仅在编译时启用，避免污染其他项目的字符串运行时编码
 #       pragma execution_character_set("utf-8")
 #   endif
 #endif

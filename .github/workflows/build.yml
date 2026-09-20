@@ -167,12 +167,15 @@ jobs:
           prerelease: true
           release_name: Nightly Build-预发布版
 
+      - name: 恢复归档测试用例
+        shell: bash
+        run: cp -r test/Archive/* test
+
       - name: 测试
         timeout-minutes: 90
         run: |
-          cp -r test/Archive/* test
           xmake cpdata
-          xmake test
+          xmake test -v
 
   # Linux 在 manylinux_2_28 容器里构建：AlmaLinux 8 + glibc 2.28
   build-linux:
@@ -373,4 +376,4 @@ jobs:
         run: |
           cp -r test/Archive/* test
           xmake cpdata
-          xmake test
+          xmake test -v
