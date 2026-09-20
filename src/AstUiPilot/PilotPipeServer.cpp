@@ -45,7 +45,7 @@ void PilotPipeServer::start()
 {
     if (running_) return;
     running_ = true;
-    serverThread_ = std::thread(&PilotPipeServer::serverLoop, this);
+    serverThread_ = Thread([this]() { serverLoop(); });
 }
 
 void PilotPipeServer::stop()

@@ -143,7 +143,14 @@ add_requires("opengl", {optional = true})                                       
 add_requires("glu", {optional = true})                                          -- 可选的GLU库，用于3D模型渲染
 
 -- 下载并安装第三方库（可选）
-add_requires("python 3.x", {optional = true})                                   -- 可选的Python库，用于编译python库
+-- 可选的Python库，用于编译python库
+-- Linux 下走 headeronly：xmake-repo 的 python 包在该配置下会 package:set("links", "")，
+-- 并把 openssl/ca-certificates 降为 private。Python 扩展模块本来就不该链 libpython
+-- （Py* 符号由解释器在运行时提供），而链上它会把整套静态 CPython 打进 _AstPy.so，
+-- 顺带拖来 libssl.so.1.1，产物对 glibc 的要求会从 2.14 抬到 2.28 —— 正好卡在
+-- 银河麒麟 V4（Ubuntu 16.04，glibc 2.23，且只有 libssl1.0.0）之外。
+-- Windows 下必须保持链 pythonXY.lib，那边的 .pyd 没有解释器可以借符号。
+add_requires("python 3.x", {optional = true, configs = {headeronly = is_plat("linux")}})
 add_requires("swig >=4.3", {optional = true})                                   -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.3，见下方说明
 -- SWIG 版本要求说明：
 --   >=4.2 才支持 `enum class : type` 语法；

@@ -25,6 +25,7 @@
 #include "AstUiPilot/UiPilotToolbar.hpp"
 #include "AstUiPilot/PilotPipeServer.hpp"
 #include "AstUiPilot/PilotUtil.hpp"
+#include "AstUtil/Thread.hpp"
 #include <QApplication>
 #include <QMainWindow>
 #include <QDebug>
@@ -192,7 +193,7 @@ Q_COREAPP_STARTUP_FUNCTION(initUiPilot)
 namespace {
     struct PollStarter {
         PollStarter() {
-            std::thread(pollForQApp).detach();
+            Thread(pollForQApp).detach();
             qAddPostRoutine([]() {
                 if (g_commander) {
                     g_commander->stop();
@@ -251,7 +252,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 static void __attribute__((constructor)) astUiPilotEntry()
 {
     // 启动轮询线程等待 QApplication（兼容 Qt5）
-    std::thread(ast::pollForQApp).detach();
+    ast::Thread(ast::pollForQApp).detach();
 
     // 注册退出清理
     qAddPostRoutine([]() {

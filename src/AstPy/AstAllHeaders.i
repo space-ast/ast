@@ -161,6 +161,7 @@
 %include "../AstUtil/Platform/Platform.hpp"
 %include "../AstUtil/Platform/StringPosix.hpp"
 %include "../AstUtil/Platform/Terminal.hpp"
+%include "../AstUtil/Platform/Thread.hpp"
 %include "../AstUtil/Platform/UiOperator.hpp"
 %include "../AstUtil/Quantity/Dimension.hpp"
 %include "../AstUtil/RTTI/ClassRegistry.hpp"

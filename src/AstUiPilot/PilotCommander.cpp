@@ -242,7 +242,7 @@ void PilotCommander::startStdinLoop()
 
     running_ = true;
 
-    stdinThread_ = std::thread([this]() {
+    stdinThread_ = Thread([this]() {
         // 打印 banner
         std::string banner = std::string(
             "\n========================================\n"

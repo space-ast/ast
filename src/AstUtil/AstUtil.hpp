@@ -164,6 +164,7 @@
 #include "AstUtil/Struct.hpp"
 #include "AstUtil/TempFileGuard.hpp"
 #include "AstUtil/Terminal.hpp"
+#include "AstUtil/Thread.hpp"
 #include "AstUtil/Type.hpp"
 #include "AstUtil/TypeTraits.hpp"
 #include "AstUtil/UiOperator.hpp"

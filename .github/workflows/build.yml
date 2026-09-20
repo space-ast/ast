@@ -173,11 +173,10 @@ jobs:
   # 为什么不用 ubuntu runner 直接编：runner 镜像决定产物的 glibc 下限。ubuntu-22.04 是
   # glibc 2.35，编出来的库在 Ubuntu 20.04 / Debian 11 / RHEL 8、9 上一律加载失败。
   # manylinux_2_28 的 glibc 2.28 同时也是 job 级 container 能跑 Node 24 actions 的底线
-  # （再老，checkout / cache / upload-artifact 会直接 GLIBC_2.28 not found）。
-  #
-  # 镜像默认编译器是 gcc-toolset，libstdc++ 上限随之到 GLIBCXX_3.4.33 一带，也就是说
-  # 产物要求 glibc >= 2.28 且系统的 libstdc++ 够新。check-abi.sh 会把实测值打出来并卡住
-  # GLIBC 上限；这个取舍写进了 docs/guide/quickstart.md。
+  # （再老，checkout / cache / upload-artifact 会直接 GLIBC_2.28 not found）。要用
+  # glibc ≤2.23 的镜像就得放弃 job 级 container，代价远大于改源码，故只把容器当"构建环境"，
+  # 产物的实际基线由源码和下面那道门禁保证 —— 现在实测能到 glibc 2.14 / GLIBCXX 3.4.21，
+  # 覆盖银河麒麟 V4，见 docs/guide/quickstart.md。
   build-linux:
     needs: nightly-guard
     if: ${{ !cancelled() }}
@@ -322,15 +321,19 @@ jobs:
           xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
           xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
 
-      # 卡住 ABI 下限。GLIBC 2.28 是换容器的全部意义，超了说明构建环境没按预期生效；
-      # GLIBCXX 3.4.29 对应 GCC 11 自带的 libstdc++，是"能在哪些发行版上跑"的另一半答案。
-      # 两个都硬卡。若实测确实高于这里写的值，说明镜像工具链本身就要求更高，需要连同
-      # docs/guide/quickstart.md 里的说明一起上调，而不是把门槛删掉了事。
+      # 卡住 ABI 下限，这两个数是"能在哪些发行版上跑"的完整答案，也是本分支存在的理由：
+      #   GLIBC 2.23   —— 银河麒麟 V4（基于 Ubuntu 16.04）。这条能成立，靠的是源码里
+      #                   不再有 powf/pow 这类被 glibc 重新版本化过的 libm 调用、
+      #                   AstPy 不再链静态 CPython（见 xmake.lua 的 python headeronly）。
+      #   GLIBCXX 3.4.21 —— std::__cxx11::basic_string 的 C++11 ABI 地板，降不下去；
+      #                   只要不碰 std::thread（GCC 6 起挂在 3.4.22）就正好停在这里。
+      # 超了就是有新的代码/依赖把基线抬回去了，要顺着报出来的文件和符号去查，而不是把
+      # 门槛上调了事。若确实必须上调，务必同步改 docs/guide/quickstart.md 的系统要求。
       - name: ABI 门槛校验
         run: |
           set -euo pipefail
           bash scripts/ci/check-abi.sh artifacts/SpaceAST.zip \
-            --max-glibc=2.28 --max-glibcxx=3.4.29 --glibcxx=fail
+            --max-glibc=2.23 --max-glibcxx=3.4.21 --glibcxx=fail
 
       - name: 测试 xmake.sh 编译
         run: |
