@@ -19,6 +19,15 @@ var group__Platform =
       [ "setFileName", "classast_1_1Library.html#af4d43c9f92a8308cad8d600cf2754b29", null ],
       [ "unload", "classast_1_1Library.html#aea368b3facf5c02d7f0c3c403723f39f", null ]
     ] ],
+    [ "ast::Thread", "classast_1_1Thread.html", [
+      [ "Thread", "classast_1_1Thread.html#abdc6ac5fb7b04555203fafdd5965ae0c", null ],
+      [ "Thread", "classast_1_1Thread.html#aa044d965d6ef2170d04c7ccee9b20dad", null ],
+      [ "~Thread", "classast_1_1Thread.html#ac23cdb2a4b88a9a543f239d3c15901ed", null ],
+      [ "detach", "classast_1_1Thread.html#a41a5691ffc6db1176d9369e5e8532acd", null ],
+      [ "join", "classast_1_1Thread.html#a82078ff77618a54e0edfbd1f70eb6bd1", null ],
+      [ "joinable", "classast_1_1Thread.html#a6db81a1e5a1994ffd57829f79c7b30eb", null ],
+      [ "swap", "classast_1_1Thread.html#ac7eaca02eeee4f0ec394dbb88ebd0a74", null ]
+    ] ],
     [ "ast::EEndian", "group__Platform.html#gae5cf4de7adb0a012861b982458f81526", [
       [ "ast::eLittleEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526ae3046b598c718c3efb499423ed6272ec", null ],
       [ "ast::eBigEndian", "group__Platform.html#ggae5cf4de7adb0a012861b982458f81526aa62c0343340b8ffd29f021d1546be637", null ]
@@ -56,5 +65,6 @@ var group__Platform =
     [ "ast::aStdOutIsFile", "group__Platform.html#ga038a62d786234b02f668f9460bbd86f6", null ],
     [ "ast::aStdOutIsTerminal", "group__Platform.html#gaef5625c409a6ef4a8ddf3e4b2aff79b5", null ],
     [ "ast::aTerminalSupportColor", "group__Platform.html#gaf933b51a61fdbc6724497ceae15bcb17", null ],
-    [ "ast::aTerminalWidth", "group__Platform.html#gae7deb716bae3511d5ad91dad9696fdf4", null ]
+    [ "ast::aTerminalWidth", "group__Platform.html#gae7deb716bae3511d5ad91dad9696fdf4", null ],
+    [ "ast::swap", "group__Platform.html#ga057833c67cd619b666f534f50d48fc30", null ]
 ];

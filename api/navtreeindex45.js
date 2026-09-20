@@ -1,5 +1,8 @@
 var NAVTREEINDEX45 =
 {
+"classast_1_1SpaceWeatherProvider.html#ace7491f8d2df075583ce44a3ce97e93d":[0,1,1,9,3],
+"classast_1_1Spacecraft.html":[2,0,0,902],
+"classast_1_1Spacecraft.html":[3,0,0,901],
 "classast_1_1SpacecraftParam.html":[2,0,0,903],
 "classast_1_1SpacecraftParam.html":[3,0,0,902],
 "classast_1_1SpacecraftParam.html#a011dcca23aa96514c8e4e97508f1fe84":[2,0,0,903,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX45 =
 "classast_1_1StateBPlane.html#a1a4c6250fc1d3436adfc6bb9ce26bab7":[3,0,0,952,11],
 "classast_1_1StateBPlane.html#a1d0a6fa414496284cc9e4998d16bbc37":[2,0,0,953,7],
 "classast_1_1StateBPlane.html#a1d0a6fa414496284cc9e4998d16bbc37":[3,0,0,952,7],
-"classast_1_1StateBPlane.html#a2f46c908e9cda4a17728d49f467f273b":[2,0,0,953,0],
-"classast_1_1StateBPlane.html#a2f46c908e9cda4a17728d49f467f273b":[3,0,0,952,0],
-"classast_1_1StateBPlane.html#a37074b66eb53c1bcf17d7c028cd0555f":[2,0,0,953,4],
-"classast_1_1StateBPlane.html#a37074b66eb53c1bcf17d7c028cd0555f":[3,0,0,952,4]
+"classast_1_1StateBPlane.html#a2f46c908e9cda4a17728d49f467f273b":[2,0,0,953,0]
 };

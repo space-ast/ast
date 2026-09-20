@@ -1564,6 +1564,7 @@ var hierarchy =
     [ "ast::testing::Test", "classast_1_1testing_1_1Test.html", null ],
     [ "ast::testing::internal::TestCase", "structast_1_1testing_1_1internal_1_1TestCase.html", null ],
     [ "ast::testing::internal::TestRegistrar", "structast_1_1testing_1_1internal_1_1TestRegistrar.html", null ],
+    [ "ast::Thread", "classast_1_1Thread.html", null ],
     [ "ast::Time", "classast_1_1Time.html", null ],
     [ "ast::TimeInterval", "classast_1_1TimeInterval.html", null ],
     [ "ast::TimeIntervalList", "classast_1_1TimeIntervalList.html", null ],

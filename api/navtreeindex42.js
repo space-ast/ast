@@ -1,5 +1,8 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28a641bc0f2cf8ca4d7625f5fbbe1bdb2a6":[2,0,0,964,0,4],
+"classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28a641bc0f2cf8ca4d7625f5fbbe1bdb2a6":[3,0,0,963,0,4],
+"classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28ad2ea7865bc7e4b829834e3c58dd2dc20":[2,0,0,964,0,2],
 "classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28ad2ea7865bc7e4b829834e3c58dd2dc20":[3,0,0,963,0,2],
 "classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28afe9b55340700343ac2bd78a3a02df15a":[2,0,0,964,0,0],
 "classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28afe9b55340700343ac2bd78a3a02df15a":[3,0,0,963,0,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalcMagneticFieldStrength.html":[2,0,0,771],
 "classast_1_1ScStateCalcMagneticFieldStrength.html":[3,0,0,770],
 "classast_1_1ScStateCalcManeuverSpecificImpulse.html":[2,0,0,772],
-"classast_1_1ScStateCalcManeuverSpecificImpulse.html":[3,0,0,771],
-"classast_1_1ScStateCalcManeuverTotalMassFlowRate.html":[2,0,0,773],
-"classast_1_1ScStateCalcManeuverTotalMassFlowRate.html":[3,0,0,772],
-"classast_1_1ScStateCalcMass.html":[2,0,0,774]
+"classast_1_1ScStateCalcManeuverSpecificImpulse.html":[3,0,0,771]
 };

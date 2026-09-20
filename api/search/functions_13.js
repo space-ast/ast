@@ -446,7 +446,7 @@ var searchData=
   ['studyworkbencheditor_443',['studyWorkbenchEditor',['../classast_1_1UiAnalyzerMainWindow.html#ad3f9d6f31976ad9125e732b2cb8c2fd1',1,'ast::UiAnalyzerMainWindow']]],
   ['subtract_444',['subtract',['../classast_1_1IntervalList.html#a12c3a1a5814972379f67d6ad494b5051',1,'ast::IntervalList::subtract()'],['../classast_1_1TimeIntervalList.html#af7481a1d83d4cf8c857c3d93484dc3c8',1,'ast::TimeIntervalList::subtract()']]],
   ['subtracted_445',['subtracted',['../classast_1_1IntervalList.html#ae845b747c8cc80fe2264e01500df012c',1,'ast::IntervalList::subtracted()'],['../classast_1_1TimeIntervalList.html#aa0cb1f90c5ea2a18d022db9abbe93727',1,'ast::TimeIntervalList::subtracted()']]],
-  ['swap_446',['swap',['../classast_1_1Any.html#a110778e23a4ca2931c08f3f607ff7e33',1,'ast::Any']]],
+  ['swap_446',['swap',['../classast_1_1Any.html#a110778e23a4ca2931c08f3f607ff7e33',1,'ast::Any::swap()'],['../classast_1_1Thread.html#ac7eaca02eeee4f0ec394dbb88ebd0a74',1,'ast::Thread::swap()'],['../group__Platform.html#ga057833c67cd619b666f534f50d48fc30',1,'ast::swap()']]],
   ['sweepstudyeditor_447',['sweepStudyEditor',['../classast_1_1UiAnalyzerMainWindow.html#aa52b0ef42c7a92ac9d89c105adb18d9e',1,'ast::UiAnalyzerMainWindow']]],
   ['symbol_448',['symbol',['../classast_1_1Dimension.html#a7f3ace4929a6d92b8f7e75a3f58694df',1,'ast::Dimension']]],
   ['symbolscope_449',['SymbolScope',['../classast_1_1SymbolScope.html#a7f5833fd92c32ceda4367e1114d8f8cd',1,'ast::SymbolScope::SymbolScope()=default'],['../classast_1_1SymbolScope.html#a5dc569a8b55eb4c73f0bbb7dec314a51',1,'ast::SymbolScope::SymbolScope(SymbolScope *parent)']]],

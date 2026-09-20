@@ -1,5 +1,8 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1AssistantAgent.html#ad6630a75d59377d6526630a149900525":[0,0,0,16],
+"classast_1_1AssistantAgent.html#ae635dedc1de01dcb0c0d3936fc3794ed":[0,0,0,10],
+"classast_1_1AssistantAgent.html#aee02308d4829ccf66f73f03339c422c5":[0,0,0,13],
 "classast_1_1AssistantAgent.html#af5c54c793063dccbc098ecfe30d89810":[0,0,0,17],
 "classast_1_1AssistantAgent.html#af5d2c4ef2ab3956c0dfb0ea0f795466f":[0,0,0,11],
 "classast_1_1Asteroid.html":[2,0,0,30],
@@ -246,8 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1BlockDeadZone.html#a2dc00b96ddf3a757ace238de2b284d12":[2,0,0,68,1],
 "classast_1_1BlockDeadZone.html#a2dc00b96ddf3a757ace238de2b284d12":[3,0,0,67,1],
 "classast_1_1BlockDeadZone.html#a501ec3354d9899ede0a1da342d5520cb":[2,0,0,68,0],
-"classast_1_1BlockDeadZone.html#a501ec3354d9899ede0a1da342d5520cb":[3,0,0,67,0],
-"classast_1_1BlockDeadZone.html#aa9d98a458f6d2403a8d546ec62bff24c":[2,0,0,68,2],
-"classast_1_1BlockDeadZone.html#aa9d98a458f6d2403a8d546ec62bff24c":[3,0,0,67,2],
-"classast_1_1BlockDeadZone.html#abab6bc25b9ada61d50abc3493e7d6c32":[2,0,0,68,4]
+"classast_1_1BlockDeadZone.html#a501ec3354d9899ede0a1da342d5520cb":[3,0,0,67,0]
 };
