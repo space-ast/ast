@@ -67,10 +67,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [x64, arm64, x86]
-    runs-on: windows-2022
+        # arm64 必须跑在 windows-11-arm 上
+        # 交叉编译出来的 arm64 在 x64 上执行不了，测试无法进行
+        target:
+          - { runner: windows-2022,   arch: x64   }
+          - { runner: windows-2022,   arch: x86   }
+          - { runner: windows-11-arm, arch: arm64 }
+    runs-on: ${{ matrix.target.runner }}
     concurrency:
-      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-windows-${{ matrix.arch }}-build
+      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-windows-${{ matrix.target.arch }}-build
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
@@ -89,7 +94,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: xmake-cache
-          key: build-windows-2022-${{ matrix.arch }}-xmake-cache-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}
+          key: build-${{ matrix.target.runner }}-${{ matrix.target.arch }}-xmake-cache-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}
 
       # Cache build directory
       - name: 配置编译缓存
@@ -99,9 +104,9 @@ jobs:
           path: |
             build
             .xmake
-          key: build-windows-2022-${{ matrix.arch }}-build-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
+          key: build-${{ matrix.target.runner }}-${{ matrix.target.arch }}-build-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
           restore-keys: |
-            build-windows-2022-${{ matrix.arch }}-build-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
+            build-${{ matrix.target.runner }}-${{ matrix.target.arch }}-build-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
 
       - name: 设置xmake相关目录
         run: |
@@ -111,7 +116,7 @@ jobs:
 
       # arm64 上拿不到 Qt
       - name: 配置Qt环境
-        if: matrix.arch != 'arm64'
+        if: matrix.target.arch != 'arm64'
         run: |
           xrepo install -y aqt
           xrepo info aqt
@@ -119,7 +124,7 @@ jobs:
 
       - name: 配置debug版本
         run: |
-          xmake f -cy --with_test=y -m debug -a ${{ matrix.arch }}
+          xmake f -cy --with_test=y -m debug -a ${{ matrix.target.arch }}
 
       - name: 编译debug版本
         run: |
@@ -127,7 +132,7 @@ jobs:
 
       - name: 配置release版本
         run: |
-          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
+          xmake f -cy --with_test=y -m release -a ${{ matrix.target.arch }}
 
       - name: 编译release版本
         run: |
@@ -135,13 +140,13 @@ jobs:
 
       - name: 打包二进制包
         run: |
-          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
+          xmake f -cy --with_test=y -m release -a ${{ matrix.target.arch }}
           xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
 
       - name: 上传产物
         uses: actions/upload-artifact@v4
         with:
-          name: SpaceAST-windows-${{ matrix.arch }}
+          name: SpaceAST-windows-${{ matrix.target.arch }}
           path: artifacts/
 
       - name: 发布产物-二进制包
@@ -152,7 +157,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-${{ github.event.release.tag_name }}-windows-${{ matrix.arch }}.zip
+          asset_name: SpaceAST-${{ github.event.release.tag_name }}-windows-${{ matrix.target.arch }}.zip
           asset_content_type: application/zip
 
       - name: 更新预发布-二进制包
@@ -161,7 +166,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-nightly-windows-${{ matrix.arch }}.zip
+          asset_name: SpaceAST-nightly-windows-${{ matrix.target.arch }}.zip
           tag: nightly
           overwrite: true
           prerelease: true

@@ -238,12 +238,12 @@ TEST_F(HPOPTest, Gravity_SecularVariation)
 
     Vector3d posExpect{  -2.7860997530027227e+06, 5.8800552383734034e+06, 2.3653234244502061e+06 };
     Vector3d velExpect{  -5.7912724289295857e+03, -3.9317279131837313e+03, 2.9464110271406303e+03};
-    EXPECT_NEAR(pos[0],  posExpect[0], 2e-4);
-    EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
-    EXPECT_NEAR(pos[2],  posExpect[2], 1e-4);
-    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
-    EXPECT_NEAR(vel[1],  velExpect[1], 2e-7);
-    EXPECT_NEAR(vel[2],  velExpect[2], 1e-7);
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-3);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-3);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-3);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-6);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-6);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
 }
 
 

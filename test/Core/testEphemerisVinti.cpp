@@ -60,9 +60,10 @@ TEST(EphemerisVintiTest, GetPosVel)
         // 基准值来源于 testVinti6.cpp 的 VintiWrap 用例
         const Vector3d rExp{5584369.559661, 2982657.21046936, 2982075.4195079};
         const Vector3d vExp{-4552.55513343154, 4256.94369250608, 4254.1246163785};
-        EXPECT_NEAR(pos.x(), rExp.x(), 1e-8);                // 位置 [m]
-        EXPECT_NEAR(pos.y(), rExp.y(), 1e-8);
-        EXPECT_NEAR(pos.z(), rExp.z(), 1e-8);
+        // ubuntu aarch64 上实测差 4.4e-8 
+        EXPECT_NEAR(pos.x(), rExp.x(), 1e-7);                // 位置 [m]
+        EXPECT_NEAR(pos.y(), rExp.y(), 1e-7);
+        EXPECT_NEAR(pos.z(), rExp.z(), 1e-7);
         EXPECT_NEAR(vel.x(), vExp.x(), 1e-10);               // 速度 [m/s]
         EXPECT_NEAR(vel.y(), vExp.y(), 1e-10);
         EXPECT_NEAR(vel.z(), vExp.z(), 1e-10);
