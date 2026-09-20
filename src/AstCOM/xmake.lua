@@ -12,7 +12,8 @@ target("AstCOM")
     add_defines("_USRDLL")            -- 定义CAtlDllModuleT变量时需要
     add_defines("UNICODE", "_UNICODE", "_ATL_UNICODE") -- 编译为使用UNICODE宽字符
     add_deps("AstUtil", "AstMath", "AstWeather", "AstScript", "AstSim", "AstCmd")
-    if is_plat("windows") and is_arch("x64") then
+    -- xmake dev 最新版已经修改了交叉编译 windows arm64 时的问题了
+    if is_plat("windows") then
         add_syslinks("oleaut32", "ole32", "uuid")
     else
         -- set_enabled(false)
