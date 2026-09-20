@@ -8,6 +8,11 @@
 #include "PilotPipeServer.hpp"
 #include "PilotCommander.hpp"
 #include <sstream>
+// serverLoop 里的 std::this_thread::sleep_for 用得到。原先这两个头是从
+// PilotPipeServer.hpp 的 #include <thread> 传递进来的，而该头现在改用
+// ast::Thread 了，所以要在这里显式包含（MSVC 上有别的头兜着，GCC 上会直接报错）。
+#include <thread>
+#include <chrono>
 
 #ifdef _WIN32
 #include <windows.h>
