@@ -258,6 +258,11 @@ jobs:
           path: xmake-cache
           key: xmake-deps-${{ matrix.image }}-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v1
 
+      # 编译缓存的键同样要带第三方源码哈希，restore-keys 的前缀也必须带 ——
+      # `build/` 这棵树里不止有项目自己的目标文件，还混着从包收集来的第三方 .so
+      # （libmatplot.so / libqwt.so 等）。只按 `xmake-build-<image>-v1-` 前缀回捞的话，
+      # 会把上一个提交（乃至更早）留下的第三方库一起捞回来，打包时用的是那份旧库，
+      # 改 vendored 源码照样不见效。带上哈希后就只有第三方没动时才复用。
       - name: 配置编译缓存
         if: github.event.action != 'published' && github.ref != 'refs/heads/master'
         uses: actions/cache@v4
@@ -265,9 +270,9 @@ jobs:
           path: |
             build
             .xmake
-          key: xmake-build-${{ matrix.image }}-v1-${{ github.sha }}
+          key: xmake-build-${{ matrix.image }}-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
           restore-keys: |
-            xmake-build-${{ matrix.image }}-v1-
+            xmake-build-${{ matrix.image }}-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
 
       - name: 设置xmake相关目录
         run: |
@@ -327,6 +332,27 @@ jobs:
           set -euo pipefail
           xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
           xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
+
+      # 【临时诊断，定位完 libmatplot.so 的来源后删除】
+      - name: 诊断第三方库来源
+        if: always()
+        run: |
+          set -uo pipefail
+          echo "===== 1. 工作区里所有 libmatplot.so ====="
+          find . -name 'libmatplot.so' -not -path './artifacts/*' 2>/dev/null | while read -r f; do
+            echo "  $f | $(stat -c '%y  %s bytes' "$f" 2>/dev/null)"
+          done
+          echo "===== 2. xmake-cache（--pkg_installdir）里有没有 matplotplusplus ====="
+          ls -d xmake-cache/packages/m/matplotplusplus 2>/dev/null || echo "  (不存在)"
+          echo "===== 3. build/.packages 里有没有 ====="
+          ls -d build/.packages/m/matplotplusplus 2>/dev/null || echo "  (不存在)"
+          echo "===== 4. 包目录下实际的 .so ====="
+          find xmake-cache/packages build/.packages -name 'libmatplot*' 2>/dev/null | head -20
+          echo "===== 5. 打包结果里 libmatplot.so 的身份 ====="
+          readelf -n artifacts/pkg/lib/libmatplot.so 2>/dev/null | grep -i "build id" || true
+          readelf -n build/.packages/m/matplotplusplus/*/*/lib/libmatplot.so 2>/dev/null | grep -i "build id" || true
+          echo "===== 6. build 顶层结构 ====="
+          ls -d build/*/ 2>/dev/null | head
 
       # 卡住 ABI 下限，这两个数是"能在哪些发行版上跑"的完整答案，也是本分支存在的理由：
       #   GLIBC 2.23   —— 银河麒麟 V4（基于 Ubuntu 16.04）。这条能成立，靠的是源码里
