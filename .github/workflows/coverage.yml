@@ -25,11 +25,14 @@ jobs:
           sudo apt-get install -y lcov
 
       # Cache xmake dependencies
+      # 与 build.yml 同理：键里必须带上从本仓源码现场编译的包的内容哈希。matplot++ 等
+      # 包是 set_sourcedir 到 thirdparty/ 子模块的，xmake 只看「包装好没有」、不看源码
+      # 变没变，键里不带哈希的话改了 vendored 源码也会复用旧产物，测试跑的是旧代码。
       - name: 配置依赖缓存
         uses: actions/cache@v3
         with:
           path: xmake-cache
-          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v2
+          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v2
 
       # Cache build directory
       - name: 配置编译缓存

@@ -245,11 +245,18 @@ jobs:
       # 缓存 key 按镜像隔离，且 restore-keys 也用同一个前缀：绝不能捞到旧 ubuntu 腿的
       # build/——那些对象文件是别的 GCC 编的，看着能复用，链接出来却带着上一代工具链
       # 的符号版本需求。
+      # 键里必须带上「从本仓源码现场编译」的那几个包的内容哈希：matplot++、QWT、Ipopt、
+      # libf2c、OpenFrames、Qt-Advanced-Docking、cspice 都是 set_sourcedir 到 thirdparty/
+      # 子模块的。这类包的安装结果存在 xmake-cache 里，而 xmake 只看「包装好没有」、
+      # 不看源码变没变 —— 键里不带哈希的话，改了 vendored 源码它照样复用旧产物，
+      # 修复会静默失效。这不是假设：matplot++ 的 powf@GLIBC_2.27 修复就这么白丢过一轮，
+      # 源码改成乘法了、产物里的符号纹丝不动，直到把这条键加上哈希。
+      # 用 thirdparty/** 而不是逐个列举，是为了新加从子模块取源码的包时自动覆盖。
       - name: 配置依赖缓存
         uses: actions/cache@v4
         with:
           path: xmake-cache
-          key: xmake-deps-${{ matrix.image }}-v1
+          key: xmake-deps-${{ matrix.image }}-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v1
 
       - name: 配置编译缓存
         if: github.event.action != 'published' && github.ref != 'refs/heads/master'
