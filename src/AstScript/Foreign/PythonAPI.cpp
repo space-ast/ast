@@ -22,6 +22,7 @@
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/FileSystem.hpp"       // for aGetModulePathFromAddress
 
 AST_NAMESPACE_BEGIN
 
@@ -90,7 +91,8 @@ PythonAPI::PythonAPI(bool shouldLoadDynamicLib)
         {
             static const char* vers[] = {
                 "python314", "python313", "python312", "python311",
-                "python310", "python39", "python38",
+                "python310", "python39",  "python38",  "python37",
+                "python36",  "python35",  "python34",  "python33",
             };
             for(auto* v : vers)
                 if(load(v) == eNoError)
@@ -98,13 +100,25 @@ PythonAPI::PythonAPI(bool shouldLoadDynamicLib)
         }
 #else
         static const char* vers[] = {
+            "libpython3",
             "libpython3.14", "libpython3.13", "libpython3.12",
             "libpython3.11", "libpython3.10", "libpython3.9",
-            "libpython3.8", "libpython3",
+            "libpython3.8",
+            "libpython3.7", "libpython3.7m",
+            "libpython3.6", "libpython3.6m",
+            "libpython3.5", "libpython3.5m",
+            "libpython3.4", "libpython3.4m",
+            "libpython3.3", "libpython3.3m",
         };
         for(auto* v : vers)
+        {
             if(load(v) == eNoError)
                 break;
+            // aLoadLibrary 只会在名字后面补 .so、前缀补 lib，
+            // 无法直接处理 libpython3.12.so.1.0 的情况
+            if(load(std::string(v) + ".so.1.0") == eNoError)
+                break;
+        }
 #endif
     }
 }
@@ -118,9 +132,10 @@ PythonAPI::~PythonAPI()
 }
 
 
-errc_t PythonAPI::load(StringView dirpath)
+errc_t PythonAPI::load(StringView path)
 {
-    void* lib = aLoadLibrary(std::string(dirpath).c_str());
+    std::string pathStr = std::string(path);
+    void* lib = aLoadLibrary(pathStr.c_str());
     if(!lib)
         return eErrorInvalidFile;
 
@@ -169,6 +184,10 @@ errc_t PythonAPI::load(StringView dirpath)
     }
     library_ = lib;
     functions_ = funcs;
+
+    std::string modulePath = aGetModulePathFromAddress(funcs[iPy_Initialize]);
+    aInfo(_("已加载 Python 动态库 '%s' -> %s"), pathStr.c_str(), modulePath.c_str());
+
     return eNoError;
 }
 

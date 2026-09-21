@@ -103,7 +103,7 @@ public:
     ~PythonAPI();
 
     /// @brief 加载指定路径的Python动态库
-    errc_t load(StringView libpath);
+    errc_t load(StringView path);
 
     /// @brief 尝试加载库，按顺序尝试直到成功
     errc_t tryload(const std::vector<std::string>& libpaths);

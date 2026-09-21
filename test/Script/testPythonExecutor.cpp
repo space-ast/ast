@@ -60,7 +60,7 @@ TEST(PythonExecutor, Execute)
 
     // import 模块
     rc = exec.execute("import math");
-    EXPECT_EQ(rc, eNoError);
+    EXPECT_EQ(rc, eNoError) << "import math 失败: " << exec.getLastError();
 
     // 验证前面设置的变量依然存在
     int val = 0;
@@ -111,9 +111,10 @@ TEST(PythonExecutor, Evaluate)
     EXPECT_EQ(result.value_->toBool(), false);
 
     // 求值函数调用
-    exec.execute("import math");
+    rc = exec.execute("import math");
+    EXPECT_EQ(rc, eNoError) << "import math 失败: " << exec.getLastError();
     rc = exec.evaluate("math.sqrt(16)", &result);
-    EXPECT_EQ(rc, eNoError);
+    EXPECT_EQ(rc, eNoError) << "求值 math.sqrt(16) 失败: " << exec.getLastError();
     EXPECT_DOUBLE_EQ(result.value_->toDouble(), 4.0);
 
     // 求值失败 —— 语法错误
