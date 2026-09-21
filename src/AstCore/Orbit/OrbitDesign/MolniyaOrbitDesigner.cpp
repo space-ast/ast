@@ -65,8 +65,10 @@ errc_t MolniyaOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
         double deltaLon = bodyAngleVel * period - RAANAngle;
         return deltaLon - expectDeltaLon;
     };
+    // 如果下界取 rb， ecc = (a - rp)/a 在 a < rp 时为负，aJ2Period 会因此对负数开方得到 NaN
+    // 如果下界取 rp，根 a > rp 恒成立，[rp, rb*100] 是合法区间
     SolverStats stats{};
-    double a = brentq(func, rb, rb * 100, 1e-10, 1e-10, 100, stats);
+    double a = brentq(func, rp, rb * 100, 1e-10, 1e-10, 100, stats);
     if(stats.error_num == 0){
         double ecc = (a - rp) / a;
         orbElem.rp_ = rp;
@@ -77,7 +79,8 @@ errc_t MolniyaOrbitDesigner::getOrbitState(ModOrbElem &orbElem) const
         orbElem.trueA_ = 0_deg;
         return eNoError;
     }else{
-        aError(_("根据给定参数未找到莫尼亚轨道"));
+        aError(_("根据给定参数未找到莫尼亚轨道 (求解器错误码 %d, 迭代 %d 次)"),
+               (int)stats.error_num, (int)stats.iterations);
         return -1;
     }
 }
