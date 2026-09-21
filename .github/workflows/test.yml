@@ -53,10 +53,10 @@ jobs:
           xmake repo -u
 
       - name: 配置项目
+        # 不要加 ASan：arm64 debug 的 ASan 全量构建跑出来是 exit=0 / 零报告，
+        # sanitizer 的分配器把问题掩盖了。要的是原样复现 + 栈。
         run: |
-          xmake f -cy --with_test=y --check_warnings=n -m ${{ matrix.mode }} -a ${{ matrix.target.arch }} \
-            --cxflags="-fsanitize=address -fno-omit-frame-pointer" \
-            --ldflags="-fsanitize=address"
+          xmake f -cy --with_test=y --check_warnings=n -m ${{ matrix.mode }} -a ${{ matrix.target.arch }}
           xmake show
 
       - name: 准备 SWIG
@@ -74,34 +74,46 @@ jobs:
         run: |
           xmake build testSolarSystem
 
-      - name: 运行 testSolarSystem (ASan)
-        timeout-minutes: 30
+      - name: 用 gdb 抓 testSolarSystem 的崩溃栈
+        timeout-minutes: 40
         run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq gdb
           xmake cpdata
           ROOT="$PWD"
-          BIN="$ROOT/build/linux/arm64/${{ matrix.mode }}/testSolarSystem"
-
-          echo "=== 产物信息 ==="
+          BIN_DIR="$ROOT/build/linux/arm64/${{ matrix.mode }}"
+          BIN="$BIN_DIR/testSolarSystem"
           ls -la "$BIN"
-          # 先确认 ASan 真的链进去了，否则跑出来的报告毫无意义
-          readelf -d "$BIN" | grep -iE 'NEEDED.*(asan|ubsan)|RUNPATH|RPATH' || true
-          # libcspice.so 是 xmake 包，装在 xmake-cache/packages 下，靠 rpath/LD_LIBRARY_PATH 找。
-          # 直接 ./xxx 会 exit=127（cannot open shared object file），必须走 xmake r
-          echo "=== xmake 给的库搜索路径 ==="
-          LD_LIBRARY_PATH="" ldd "$BIN" 2>&1 | grep -iE 'asan|cspice|not found' || true
 
-          # 测试按 CWD 找 data/；xmake r 的 rundir 就是产物目录，和 cpdata 的目标一致
-          set +e
-          ASAN_OPTIONS=detect_leaks=0:print_stacktrace=1:log_path="$ROOT/asan.log" \
-            xmake r testSolarSystem > "$ROOT/run.stdout" 2>&1
-          echo "exit=$?"
-          set -e
-
-          echo "=== stdout tail ==="
-          tail -60 "$ROOT/run.stdout"
-          echo "=== asan reports ==="
-          for f in "$ROOT"/asan.log.*; do
-            [ -e "$f" ] || continue
-            echo "### $f"
-            head -c 200000 "$f"
+          # 产物的 RUNPATH 只有 $ORIGIN:$ORIGIN/../lib，第三方包（libcspice/libmatplot 等）
+          # 在 xmake-cache/packages 下，直接跑会 exit=127。把缺失的库逐个找出来补进 LD_LIBRARY_PATH
+          EXTRA=""
+          for lib in $(ldd "$BIN" 2>/dev/null | awk '/not found/{print $1}'); do
+            d="$(find "$ROOT/xmake-cache/packages" "$BIN_DIR" -name "$lib" -printf '%h\n' 2>/dev/null | head -1)"
+            [ -n "$d" ] && EXTRA="$EXTRA:$d"
           done
+          export LD_LIBRARY_PATH="$BIN_DIR$EXTRA"
+          echo "=== 还缺哪些库 ==="
+          ldd "$BIN" | grep -i 'not found' || echo "(全部找到)"
+
+          # 先用原样跑一次，确认不套 gdb 也能复现（否则说明是 xmake test 的调用方式有问题）
+          cd "$BIN_DIR"
+          set +e
+          ./testSolarSystem > "$ROOT/plain.out" 2>&1
+          echo "plain exit=$?"
+          set -e
+          tail -5 "$ROOT/plain.out"
+
+          set +e
+          gdb -batch -nx \
+            -ex 'set pagination off' \
+            -ex 'set confirm off' \
+            -ex 'handle SIGPIPE nostop noprint pass' \
+            -ex run \
+            -ex 'echo \n===== BACKTRACE =====\n' \
+            -ex 'bt 40' \
+            -ex 'echo \n===== THREADS =====\n' \
+            -ex 'thread apply all bt 12' \
+            --args "$BIN" > "$ROOT/gdb.out" 2>&1
+          echo "gdb exit=$?"
+          set -e
+          tail -c 150000 "$ROOT/gdb.out"
