@@ -93,7 +93,12 @@ jobs:
           xmake -ay
 
       - name: 先看动态链接器眼里的 python
+        # 纯诊断步骤，任何一条命令失败都不许带崩 job（find 遇到无权限目录会返回 1，
+        # 叠上 -e -o pipefail 会直接把整个 job 干掉，上一轮就是这么死的）。
         run: |
+          set +e
+          echo "LD_LIBRARY_PATH=[${LD_LIBRARY_PATH}]"
+
           echo "===== 产物的 RPATH/RUNPATH ====="
           readelf -d build/linux/x86_64/release/testPythonExecutor 2>/dev/null \
             | grep -iE 'rpath|runpath' || echo "(没有 RPATH/RUNPATH)"
@@ -103,12 +108,30 @@ jobs:
             echo "--- $so"
             readelf -d "$so" 2>/dev/null | grep -iE 'rpath|runpath' || echo "  (没有)"
           done
+
+          echo "===== /usr/lib64/libpython3.so 链到哪个版本 ====="
+          readelf -d /usr/lib64/libpython3.so 2>/dev/null | grep -i needed || echo "(读不到)"
+          ls -l /usr/lib64/libpython3.so
+
+          echo "===== xmake 的 python 包到底带不带 libpython*.so ====="
+          echo "--- 包目录顶层"
+          ls -d xmake-cache/packages/p/python/*/* 2>/dev/null || echo "(没有 python 包目录)"
+          echo "--- 包里的 lib 目录"
+          ls -l xmake-cache/packages/p/python/*/*/lib 2>/dev/null || echo "(没有 lib 目录)"
+          echo "--- 包里所有 libpython*"
+          find xmake-cache/packages/p/python -name 'libpython*' 2>/dev/null || echo "(找不到)"
+
           echo "===== 系统 ldconfig 认得的 libpython ====="
           ldconfig -p 2>/dev/null | grep -i libpython || echo "(无)"
           echo "===== /usr 下的 libpython*.so* ====="
           ls -l /usr/lib64/libpython* /usr/lib/libpython* 2>/dev/null || echo "(/usr 下无)"
-          echo "===== 全盘找 libpython3*.so* ====="
-          find / -maxdepth 7 -name 'libpython3*.so*' 2>/dev/null | head -40
+
+          echo "===== 全盘 find 的结果（先落盘再排，避免 head 触发 SIGPIPE）====="
+          find / -maxdepth 7 -name 'libpython3*.so*' 2>/dev/null > /tmp/libpy.txt
+          echo "共 $(wc -l < /tmp/libpy.txt) 条"
+          sort /tmp/libpy.txt | head -60
+          echo "===== 诊断步骤到此为止 ====="
+          exit 0
 
       - name: 测试
         timeout-minutes: 90
