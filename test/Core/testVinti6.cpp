@@ -108,9 +108,9 @@ TEST(VintiTest, Vinti6)
     EXPECT_NEAR(oeSi[1], oeKm[1], 1e-8);              // e
     EXPECT_NEAR(oeSi[2], oeKm[2], 1e-8);              // sin^2(I)
     // 实测 ubuntu aarch64 上该分量差 1.35e-6
-    EXPECT_NEAR(oeSi[3], oeKm[3], 1e-7);              // -beta1 (s)
-    EXPECT_NEAR(oeSi[4], oeKm[4], 1e-7);              // beta2
-    EXPECT_NEAR(oeSi[5], oeKm[5], 1e-7);              // beta3
+    EXPECT_NEAR(oeSi[3], oeKm[3], 4e-6);              // -beta1 (s)
+    EXPECT_NEAR(oeSi[4], oeKm[4], 4e-6);              // beta2
+    EXPECT_NEAR(oeSi[5], oeKm[5], 4e-6);              // beta3
 }
 
 

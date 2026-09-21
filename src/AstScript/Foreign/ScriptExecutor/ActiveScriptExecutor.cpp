@@ -749,21 +749,35 @@ bool setScriptVariable(IDispatch* pDisp, const std::wstring& name, const VARIANT
 // 使用 IDispatchEx 设置全局变量，若不存在会自动创建
 bool setScriptVariableByEx(IDispatch* pGlobalDisp, const std::wstring& name, const VARIANT& value)
 {
+    AST_USING_NAMESPACE
     if (!pGlobalDisp) return false;
 
     // 1. 查询 IDispatchEx（JScript 全局对象一定支持）
     IDispatchEx* pDispEx = nullptr;
     HRESULT hr = pGlobalDisp->QueryInterface(IID_IDispatchEx,
                                              (void**)&pDispEx);
-    if (FAILED(hr) || !pDispEx) return false;
+    if (FAILED(hr) || !pDispEx)
+    {
+        // 引擎没有 IDispatchEx：只有 IDispatch 可用，退回到 GetIDsOfNames 路径
+        return setScriptVariable(pGlobalDisp, name, value);
+    }
 
     // 2. 获取或创建属性的 DISPID
-    /// @bug `pDispEx->GetDispID` 这个逻辑在低版本的jscript动态库中执行会报错 
-    DISPID dispid;
+    /// @bug `pDispEx->GetDispID` 这个逻辑在低版本的jscript动态库中执行会报错
+    /// @note 不能只看 HRESULT：旧版 jscript.dll 存在返回 S_OK 但没写回 dispid
+    ///       的情况，此时 dispid 仍是初值，拿去 InvokeEx 会在引擎内部访问越界。
+    ///       所以 dispid 必须显式初始化并校验。
+    DISPID dispid = DISPID_UNKNOWN;
     hr = pDispEx->GetDispID(const_cast<BSTR>(name.c_str()), fdexNameEnsure, &dispid);
-    if (FAILED(hr))
+    if (FAILED(hr) || dispid == DISPID_UNKNOWN)
     {
         pDispEx->Release();
+        // 退回 IDispatch 路径。GetIDsOfNames 只认已存在的名字，
+        // 所以这条只对"变量已由脚本声明过"的场景有效。
+        if (setScriptVariable(pGlobalDisp, name, value))
+            return true;
+        aError(_("设置脚本变量 %ls 失败 (GetDispID: 0x%08X)"),
+               name.c_str(), hr);
         return false;
     }
 
