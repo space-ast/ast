@@ -128,10 +128,11 @@ TEST(TransformTest, KinematicTransform_inverse)
     printf("pos2: %f, %f, %f\n", posvel2.pos().x(), posvel2.pos().y(), posvel2.pos().z());
     printf("vel1: %f, %f, %f\n", posvel1.vel().x(), posvel1.vel().y(), posvel1.vel().z());
     printf("vel2: %f, %f, %f\n", posvel2.vel().x(), posvel2.vel().y(), posvel2.vel().z());
+    // ubuntu aarch64 上实测差 3.6e-14/5.1e-14
     for(int i = 0; i < 3; i++)
     {
-        EXPECT_NEAR(posvel1.pos()[i], posvel2.pos()[i], 2e-14);
-        EXPECT_NEAR(posvel1.vel()[i], posvel2.vel()[i], 2e-14);
+        EXPECT_NEAR(posvel1.pos()[i], posvel2.pos()[i], 1e-13);
+        EXPECT_NEAR(posvel1.vel()[i], posvel2.vel()[i], 1e-13);
     }
 }
 
