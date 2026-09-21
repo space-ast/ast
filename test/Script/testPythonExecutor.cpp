@@ -20,10 +20,15 @@
 
 #include "ast/PythonExecutor.hpp"
 #include "ast/PythonAPI.hpp"
+#include "ast/LibraryLoader.hpp"
 #include "ast/Test.h"
 
 #include <cstdio>
 #include <string>
+
+#ifndef _WIN32
+#include <dlfcn.h>
+#endif
 
 AST_USING_NAMESPACE
 
@@ -444,6 +449,34 @@ TEST(PythonExecutor, DiagnoseImport)
                (int)r,
                result.value_.get() ? result.value_->toString().c_str() : "(null)",
                exec.getLastError().c_str());
+    }
+
+    // 对照组 F：逐个候选名直接试加载，看 PythonAPI 的候选表里到底哪个能命中、
+    // 命中到什么路径。（PythonAPI::load 用的就是 aLoadLibrary）
+    {
+        const char* candidates[] = {
+            "libpython3.14", "libpython3.13", "libpython3.12", "libpython3.11",
+            "libpython3.10", "libpython3.9",  "libpython3.8",  "libpython3",
+        };
+        for (auto* name : candidates)
+        {
+            void* h = aLoadLibrary(name);
+            if (h)
+            {
+                const char* path = "?";
+#ifndef _WIN32
+                Dl_info info{};
+                if (dladdr(h, &info) && info.dli_fname)
+                    path = info.dli_fname;
+#endif
+                printf("[diag] F  load %-14s -> OK   path=%s\n", name, path);
+                aFreeLibrary(h);
+            }
+            else
+            {
+                printf("[diag] F  load %-14s -> FAIL (%s)\n", name, aGetLoadError());
+            }
+        }
     }
 
     printf("===== DIAG END =====\n\n");

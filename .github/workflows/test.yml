@@ -92,6 +92,24 @@ jobs:
         run: |
           xmake -ay
 
+      - name: 先看动态链接器眼里的 python
+        run: |
+          echo "===== 产物的 RPATH/RUNPATH ====="
+          readelf -d build/linux/x86_64/release/testPythonExecutor 2>/dev/null \
+            | grep -iE 'rpath|runpath' || echo "(没有 RPATH/RUNPATH)"
+          echo "===== 各库自己的 RUNPATH ====="
+          for so in build/linux/x86_64/release/libAstScript.so \
+                    build/linux/x86_64/release/libAstUtil.so; do
+            echo "--- $so"
+            readelf -d "$so" 2>/dev/null | grep -iE 'rpath|runpath' || echo "  (没有)"
+          done
+          echo "===== 系统 ldconfig 认得的 libpython ====="
+          ldconfig -p 2>/dev/null | grep -i libpython || echo "(无)"
+          echo "===== /usr 下的 libpython*.so* ====="
+          ls -l /usr/lib64/libpython* /usr/lib/libpython* 2>/dev/null || echo "(/usr 下无)"
+          echo "===== 全盘找 libpython3*.so* ====="
+          find / -maxdepth 7 -name 'libpython3*.so*' 2>/dev/null | head -40
+
       - name: 测试
         timeout-minutes: 90
         run: |
