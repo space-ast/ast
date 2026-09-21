@@ -22,6 +22,14 @@
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Encode.hpp"
+
+#if defined(_WIN32) || defined(_WIN64)
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#include <limits.h>
+#endif
 
 AST_NAMESPACE_BEGIN
 
@@ -70,6 +78,46 @@ static int countLoadedFuncs(const PythonAPI::funcarray& funcs)
     for(auto& f : funcs)
         if(f) count++;
     return count;
+}
+
+
+/// 反查一个已加载的动态库实际落在磁盘上的哪个文件
+/// @details 只打印候选名是不够的：aLoadLibrary 会依次试 4 个确切文件名
+///          （X / X.so / libX / libX.so），最终命中的那个才说明问题——比如
+///          候选 "libpython3" 命中的其实是 ldconfig 里的 /usr/lib64/libpython3.so，
+///          那是发行版自带 Python 的桩，跟构建时用的那一份毫无关系。
+/// @param lib     aLoadLibrary 返回的句柄
+/// @param symbol  该库内任意一个符号的地址，POSIX 下靠它反查
+static std::string describeLoadedLib(void* lib, void* symbol)
+{
+#if defined(_WIN32) || defined(_WIN64)
+    (void)symbol;
+    wchar_t buffer[MAX_PATH] = {};
+    DWORD n = GetModuleFileNameW(static_cast<HMODULE>(lib), buffer, MAX_PATH);
+    if(n == 0 || n >= MAX_PATH)
+        return std::string();
+    return aWideToUtf8(buffer);
+#else
+    std::string name;
+    Dl_info info{};
+    if(symbol && dladdr(symbol, &info) != 0 && info.dli_fname)
+        name = info.dli_fname;
+
+    // dladdr 给出的只是 dlopen 时用的那个名字（如 "libpython3.so"），
+    // 补上它所在目录才是完整路径。
+#if defined(__GLIBC__) && defined(RTLD_DI_ORIGIN)
+    char origin[PATH_MAX] = {};
+    if(lib && dlinfo(lib, RTLD_DI_ORIGIN, origin) == 0 && origin[0])
+    {
+        std::string dir(origin);
+        if(!dir.empty() && dir.back() != '/')
+            dir += '/';
+        if(name.empty() || name.front() != '/')
+            name = dir + name;
+    }
+#endif
+    return name;
+#endif
 }
 
 
@@ -169,6 +217,13 @@ errc_t PythonAPI::load(StringView dirpath)
     }
     library_ = lib;
     functions_ = funcs;
+
+    // 记一笔到底绑到了哪个 libpython：候选名和真实路径经常对不上，
+    // 出问题时这行就是唯一的线索。
+    aInfo(_("已加载 Python 动态库 '%s' -> %s"),
+          std::string(dirpath).c_str(),
+          describeLoadedLib(lib, reinterpret_cast<void*>(funcs[iPy_Initialize])).c_str());
+
     return eNoError;
 }
 
