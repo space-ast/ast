@@ -44,8 +44,14 @@ TEST(SolarSystem, loadPCK)
     if(!aIsGithubCI()) GTEST_SKIP();
 
     
-    SolarSystem system;
-    errc_t rc = system.loadPCK(aDataDirGet() + "/Test/kernels/pck/pck00011.tpc");
+    // 必须放在堆上：SolarSystem 构造时 new 出来的 CelestialBody 各自持有
+    // WeakPtr<SolarSystem>，并且会被登记进全局 ObjectManager 一直活到进程退出。
+    // 若 SolarSystem 在栈上，函数一返回栈帧就失效，进程退出时
+    // ~WeakPtr<SolarSystem> 会拿着已失效的栈地址去 aObject_DecWeakRef()，
+    // 那里读到什么就是什么——一旦 weakrefcnt_ 恰好为 1 就会对栈内存
+    // operator delete，表现为退出时 "free(): invalid size"。
+    SharedPtr<SolarSystem> system = new SolarSystem;
+    errc_t rc = system->loadPCK(aDataDirGet() + "/Test/kernels/pck/pck00011.tpc");
     // EXPECT_EQ(rc, 0);
     A_UNUSED(rc);
 }
@@ -54,14 +60,15 @@ TEST(SolarSystem, getBody)
 {
     if(!aIsGithubCI()) GTEST_SKIP();
 
-    SolarSystem system;
-    errc_t rc = system.load(aDataDirGet() + "/SolarSystem");
+    // 同 loadPCK：不能在栈上构造，理由见上
+    SharedPtr<SolarSystem> system = new SolarSystem;
+    errc_t rc = system->load(aDataDirGet() + "/SolarSystem");
     EXPECT_EQ(rc, 0);
-    auto ariel = system.getBody("Ariel");
+    auto ariel = system->getBody("Ariel");
     EXPECT_NE(ariel, nullptr);
-    auto earth = system.getBody("Earth");
+    auto earth = system->getBody("Earth");
     EXPECT_NE(earth, nullptr);
-    auto earth2 = system.getEarth();
+    auto earth2 = system->getEarth();
     EXPECT_EQ(earth2, earth);
 }
 
