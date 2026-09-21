@@ -94,8 +94,6 @@ std::string fromBSTR(BSTR bstr);
 bool getScriptVariable(IDispatch* pDisp, const std::wstring& name, VARIANT& result);
 // 向 IDispatch 写入指定属性
 bool setScriptVariable(IDispatch* pDisp, const std::wstring& name, const VARIANT& value);
-// 使用 IDispatchEx 设置全局变量，若不存在会自动创建
-bool setScriptVariableByEx(IDispatch* pGlobalDisp, const std::wstring& name, const VARIANT& value);
 // 获取根对象的Dispatch接口
 IUnknown* rootDispatch();
 }
@@ -471,6 +469,28 @@ public:
         return ERR_FAIL;
     }
 
+    /// 设置全局变量，变量不存在时先声明
+    /// @details 刻意不走 IDispatchEx::GetDispID：部分系统的 jscript.dll（实测
+    ///          Windows Server 2022）在该调用内部直接访问越界，异常在 dll 里抛出，
+    ///          调用方连 HRESULT 都拿不到，无法防御。改成用 GetIDsOfNames/Invoke
+    ///          赋值（这两个在同样的机器上正常），名字不存在时让引擎自己声明。
+    bool setGlobalVariable(const std::wstring& name, const VARIANT& value)
+    {
+        if (!pGlobal) return false;
+
+        // 1. 变量已存在：直接赋值
+        if (setScriptVariable(pGlobal, name, value))
+            return true;
+
+        // 2. 变量不存在：先让引擎声明，再赋值
+        if (!pParse || !pSite)
+            return false;
+        std::string declare = "var " + aWideToUtf8(name.c_str()) + ";";
+        if (run(declare, false, nullptr) != ERR_OK)
+            return false;
+        return setScriptVariable(pGlobal, name, value);
+    }
+
 };
 
 // ---------- ActiveScriptExecutor 公共接口实现 ----------
@@ -538,7 +558,7 @@ errc_t ActiveScriptExecutor::setVariable(StringView name, StringView value)
     VARIANT v; VariantInit(&v);
     v.vt = VT_BSTR;
     v.bstrVal = SysAllocString(wval.c_str());
-    bool ok = setScriptVariableByEx(impl_->pGlobal, wname, v);
+    bool ok = impl_->setGlobalVariable(wname, v);
     VariantClear(&v);
     return ok ? ERR_OK : ERR_FAIL;
 }
@@ -550,7 +570,7 @@ errc_t ActiveScriptExecutor::setVariable(StringView name, double value)
     VARIANT v; VariantInit(&v);
     v.vt = VT_R8;
     v.dblVal = value;
-    bool ok = setScriptVariableByEx(impl_->pGlobal, wname, v);
+    bool ok = impl_->setGlobalVariable(wname, v);
     return ok ? ERR_OK : ERR_FAIL;
 }
 
@@ -561,7 +581,7 @@ errc_t ActiveScriptExecutor::setVariable(StringView name, int value)
     VARIANT v; VariantInit(&v);
     v.vt = VT_I4;
     v.lVal = value;
-    bool ok = setScriptVariableByEx(impl_->pGlobal, wname, v);
+    bool ok = impl_->setGlobalVariable(wname, v);
     return ok ? ERR_OK : ERR_FAIL;
 }
 
@@ -572,7 +592,7 @@ errc_t ActiveScriptExecutor::setVariable(StringView name, bool value)
     VARIANT v; VariantInit(&v);
     v.vt = VT_BOOL;
     v.boolVal = value ? VARIANT_TRUE : VARIANT_FALSE;
-    bool ok = setScriptVariableByEx(impl_->pGlobal, wname, v);
+    bool ok = impl_->setGlobalVariable(wname, v);
     return ok ? ERR_OK : ERR_FAIL;
 }
 
@@ -745,64 +765,6 @@ bool setScriptVariable(IDispatch* pDisp, const std::wstring& name, const VARIANT
     return SUCCEEDED(hr);
 }
 
-
-// 使用 IDispatchEx 设置全局变量，若不存在会自动创建
-bool setScriptVariableByEx(IDispatch* pGlobalDisp, const std::wstring& name, const VARIANT& value)
-{
-    AST_USING_NAMESPACE
-    if (!pGlobalDisp) return false;
-
-    // 1. 查询 IDispatchEx（JScript 全局对象一定支持）
-    IDispatchEx* pDispEx = nullptr;
-    HRESULT hr = pGlobalDisp->QueryInterface(IID_IDispatchEx,
-                                             (void**)&pDispEx);
-    if (FAILED(hr) || !pDispEx)
-    {
-        // 引擎没有 IDispatchEx：只有 IDispatch 可用，退回到 GetIDsOfNames 路径
-        return setScriptVariable(pGlobalDisp, name, value);
-    }
-
-    // 2. 获取或创建属性的 DISPID
-    /// @bug `pDispEx->GetDispID` 这个逻辑在低版本的jscript动态库中执行会报错
-    /// @note 不能只看 HRESULT：旧版 jscript.dll 存在返回 S_OK 但没写回 dispid
-    ///       的情况，此时 dispid 仍是初值，拿去 InvokeEx 会在引擎内部访问越界。
-    ///       所以 dispid 必须显式初始化并校验。
-    DISPID dispid = DISPID_UNKNOWN;
-    hr = pDispEx->GetDispID(const_cast<BSTR>(name.c_str()), fdexNameEnsure, &dispid);
-    if (FAILED(hr) || dispid == DISPID_UNKNOWN)
-    {
-        pDispEx->Release();
-        // 退回 IDispatch 路径。GetIDsOfNames 只认已存在的名字，
-        // 所以这条只对"变量已由脚本声明过"的场景有效。
-        if (setScriptVariable(pGlobalDisp, name, value))
-            return true;
-        aError(_("设置脚本变量 %ls 失败 (GetDispID: 0x%08X)"),
-               name.c_str(), hr);
-        return false;
-    }
-
-    // 3. 准备参数（属性赋值需要 DISPID_PROPERTYPUT）
-    VARIANT v;
-    VariantInit(&v);
-    hr = VariantCopyInd(&v, const_cast<VARIANTARG*>(&value));  // 深拷贝
-    if (FAILED(hr))
-    {
-        pDispEx->Release();
-        return false;
-    }
-
-    DISPID dispidNamed = DISPID_PROPERTYPUT;
-    DISPPARAMS params = { &v, &dispidNamed, 1, 1 };
-
-    // 4. 通过 InvokeEx 设置属性值
-    hr = pDispEx->InvokeEx(dispid, LOCALE_USER_DEFAULT,
-                           DISPATCH_PROPERTYPUT,
-                           &params, nullptr, nullptr, nullptr);
-
-    VariantClear(&v);
-    pDispEx->Release();
-    return SUCCEEDED(hr);
-}
 
 // 解析根对象Dispatch接口
 IUnknown* _resolveRootDispatch()
