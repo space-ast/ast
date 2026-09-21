@@ -79,17 +79,26 @@ jobs:
         run: |
           xmake cpdata
           ROOT="$PWD"
-          BIN_DIR="build/linux/arm64/${{ matrix.mode }}"
-          ls -la "$BIN_DIR/testSolarSystem"
-          # 测试按 CWD 找 data/，必须切到产物目录再跑
-          cd "$BIN_DIR"
+          BIN="$ROOT/build/linux/arm64/${{ matrix.mode }}/testSolarSystem"
+
+          echo "=== 产物信息 ==="
+          ls -la "$BIN"
+          # 先确认 ASan 真的链进去了，否则跑出来的报告毫无意义
+          readelf -d "$BIN" | grep -iE 'NEEDED.*(asan|ubsan)|RUNPATH|RPATH' || true
+          # libcspice.so 是 xmake 包，装在 xmake-cache/packages 下，靠 rpath/LD_LIBRARY_PATH 找。
+          # 直接 ./xxx 会 exit=127（cannot open shared object file），必须走 xmake r
+          echo "=== xmake 给的库搜索路径 ==="
+          LD_LIBRARY_PATH="" ldd "$BIN" 2>&1 | grep -iE 'asan|cspice|not found' || true
+
+          # 测试按 CWD 找 data/；xmake r 的 rundir 就是产物目录，和 cpdata 的目标一致
           set +e
           ASAN_OPTIONS=detect_leaks=0:print_stacktrace=1:log_path="$ROOT/asan.log" \
-            ./testSolarSystem > "$ROOT/run.stdout" 2>&1
+            xmake r testSolarSystem > "$ROOT/run.stdout" 2>&1
           echo "exit=$?"
           set -e
+
           echo "=== stdout tail ==="
-          tail -25 "$ROOT/run.stdout"
+          tail -60 "$ROOT/run.stdout"
           echo "=== asan reports ==="
           for f in "$ROOT"/asan.log.*; do
             [ -e "$f" ] || continue
