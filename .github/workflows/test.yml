@@ -52,6 +52,13 @@ jobs:
           xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
           xmake repo -u
 
+      - name: 清掉被 ASan 那轮污染的包
+        # xmake 包缓存的 key 里不含编译 flags（只有 runner/arch/thirdparty 哈希），
+        # 于是 ASan 那轮把 gtest 编成了带 __asan_report_* 的静态库并缓存下来，
+        # 这轮不带 sanitizer 链接就 undefined reference。清空安装目录让 xmake
+        # 从本地 cache 目录重新装（不联网）。
+        run: rm -rf xmake-cache/packages
+
       - name: 配置项目
         # 不要加 ASan：arm64 debug 的 ASan 全量构建跑出来是 exit=0 / 零报告，
         # sanitizer 的分配器把问题掩盖了。要的是原样复现 + 栈。
