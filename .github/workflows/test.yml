@@ -72,7 +72,7 @@ jobs:
 
       - name: 编译
         run: |
-          xmake -y build testSolarSystem
+          xmake build testSolarSystem
 
       - name: 运行 testSolarSystem (ASan)
         timeout-minutes: 30
