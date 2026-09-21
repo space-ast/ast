@@ -1,11 +1,10 @@
 name: 测试
 
 on:
-  pull_request:
   push:
     branches:
-      - '**'  # 仅分支推送触发，忽略 tag 推送（避免并发组冲突）
-  workflow_dispatch:  # 手动触发，便于不推分支也能验证测试
+      - 'ci/asan-solar'
+  workflow_dispatch:
 
 jobs:
   test:
@@ -13,13 +12,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        mode: [release, debug]
+        mode: [debug]
         target:
-          - { runner: ubuntu-latest,    arch: x86_64 }
           - { runner: ubuntu-22.04-arm, arch: arm64  }
-          - { runner: windows-2022,     arch: x64    }
-          - { runner: windows-2022,     arch: x86    }
-          - { runner: windows-11-arm,   arch: arm64  }
     concurrency:
       group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-${{ matrix.target.runner }}-${{ matrix.target.arch }}-${{ matrix.mode }}-test
       cancel-in-progress: true
@@ -59,7 +54,9 @@ jobs:
 
       - name: 配置项目
         run: |
-          xmake f -cy --with_test=y --check_warnings=n -m ${{ matrix.mode }} -a ${{ matrix.target.arch }}
+          xmake f -cy --with_test=y --check_warnings=n -m ${{ matrix.mode }} -a ${{ matrix.target.arch }} \
+            --cxflags="-fsanitize=address -fno-omit-frame-pointer" \
+            --ldflags="-fsanitize=address"
           xmake show
 
       - name: 准备 SWIG
@@ -75,10 +72,27 @@ jobs:
 
       - name: 编译
         run: |
-          xmake -ay
+          xmake -y build testSolarSystem
 
-      - name: 执行${{ matrix.mode }}测试
-        timeout-minutes: 90
+      - name: 运行 testSolarSystem (ASan)
+        timeout-minutes: 30
         run: |
           xmake cpdata
-          xmake test -v
+          ROOT="$PWD"
+          BIN_DIR="build/linux/arm64/${{ matrix.mode }}"
+          ls -la "$BIN_DIR/testSolarSystem"
+          # 测试按 CWD 找 data/，必须切到产物目录再跑
+          cd "$BIN_DIR"
+          set +e
+          ASAN_OPTIONS=detect_leaks=0:print_stacktrace=1:log_path="$ROOT/asan.log" \
+            ./testSolarSystem > "$ROOT/run.stdout" 2>&1
+          echo "exit=$?"
+          set -e
+          echo "=== stdout tail ==="
+          tail -25 "$ROOT/run.stdout"
+          echo "=== asan reports ==="
+          for f in "$ROOT"/asan.log.*; do
+            [ -e "$f" ] || continue
+            echo "### $f"
+            head -c 200000 "$f"
+          done

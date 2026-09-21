@@ -1,6 +1,10 @@
 ﻿name: 覆盖率
 
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - 'ci/asan-solar'  # 一次性诊断分支，只跑 ASan workflow
+  pull_request:
 
 jobs:
   coverage:
