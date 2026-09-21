@@ -186,12 +186,9 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
         hr = pItems->Item(vIndex, &pItem);
         if (SUCCEEDED(hr) && pItem)
         {
-            BSTR bstrName = nullptr;
-            if (SUCCEEDED(pItem->get_Name(&bstrName)) && bstrName)
-            {
-                itemNames.push_back(std::wstring(bstrName, SysStringLen(bstrName)));
-                SysFreeString(bstrName);
-            }
+            std::wstring realName = aShellItemRealName(pItem);
+            if (!realName.empty())
+                itemNames.push_back(realName);
             pItem->Release();
         }
     }

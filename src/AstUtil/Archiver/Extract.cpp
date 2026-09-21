@@ -48,13 +48,37 @@ ExtractorInterface* aExtractGetImpl(StringView source)
 
 errc_t aExtract(StringView source, StringView target)
 {
-    ExtractorInterface* impl = aExtractGetImpl(source);
-    if (!impl)
+    // 按优先级依次尝试，而不是只认第一个可用的实现。
+    ExtractorInterface* impls[5];
+    size_t count = 0;
+#ifdef _WIN32
+    impls[count++] = &ExtractorImplShellCOM::Instance();
+    impls[count++] = &ExtractorImplPowerShell::Instance();
+#endif
+    impls[count++] = &ExtractorImplTar::Instance();
+    impls[count++] = &ExtractorImplSystem::Instance();
+    impls[count++] = &ExtractorImplRaw::Instance();
+
+    bool found = false;
+    for (size_t i = 0; i < count; ++i)
+    {
+        ExtractorInterface* impl = impls[i];
+        if (!impl->isSupported() || !impl->canExtract(source))
+            continue;
+        found = true;
+        errc_t ret = impl->extract(source, target);
+        if (ret == eNoError)
+            return eNoError;
+        aWarning(_("第 %d 个解压器实现失败(错误码 %d)，尝试下一个"), (int)(i + 1), (int)ret);
+    }
+
+    if (!found)
     {
         aError(_("没有可用于 %s 的解压器"), source.data());
         return eErrorNotImplemented;
     }
-    return impl->extract(source, target);
+    aError(_("所有解压器实现均失败: %s"), source.data());
+    return eError;
 }
 
 AST_NAMESPACE_END
