@@ -47,6 +47,49 @@ inline void aShellPumpMessages(unsigned long waitMs)
     }
 }
 
+/// 取项的“真实名称”（带扩展名）
+/// @details 不能用 FolderItem::get_Name：它返回的是**显示名称**，会按资源管理器的
+///          「隐藏已知文件类型的扩展名」设置把扩展名去掉。实测（同一台机器，仅切换
+///          该设置）：
+///             HideFileExt=0 → Name='readme.txt'
+///             HideFileExt=1 → Name='readme'     就变成了不带扩展名的
+///          而 .bin/.dat 这类没有注册文件关联的扩展名不受影响，始终带扩展名——这正是
+///          该设置名字里“已知文件类型”的含义。CI 上该设置为默认（隐藏），于是
+///          createTestDirectory 造出的 readme.txt 被读成 "readme"，拿它去 ParseName
+///          永远匹配不上，轮询一路超时到 30 秒，最后删档返回失败。
+///          get_Path 返回的始终是带扩展名的真实路径，取最后一段即可。
+/// @return 真实名称，失败时返回空串
+inline std::wstring aShellItemRealName(FolderItem* pItem)
+{
+    if (!pItem) return std::wstring();
+
+    BSTR bstrPath = nullptr;
+    if (SUCCEEDED(pItem->get_Path(&bstrPath)) && bstrPath)
+    {
+        std::wstring path(bstrPath, SysStringLen(bstrPath));
+        SysFreeString(bstrPath);
+        size_t pos = path.find_last_of(L"\\/");
+        if (pos != std::wstring::npos)
+        {
+            if (pos + 1 < path.size()) return path.substr(pos + 1);
+        }
+        else if (!path.empty())
+        {
+            return path;   // 没有分隔符，Path 本身就是名字
+        }
+    }
+
+    // 退路：Path 拿不到时退回显示名称（少数命名空间未实现 Path）
+    BSTR bstrName = nullptr;
+    if (SUCCEEDED(pItem->get_Name(&bstrName)) && bstrName)
+    {
+        std::wstring name(bstrName, SysStringLen(bstrName));
+        SysFreeString(bstrName);
+        return name;
+    }
+    return std::wstring();
+}
+
 /// 等待 Shell COM CopyHere 异步操作完成（通过 ParseName 轮询）
 /// @param pFolder 目标 Folder 指针
 /// @param itemName 要等待的项名称

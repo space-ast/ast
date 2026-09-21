@@ -278,11 +278,9 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             FolderItem* pChild = nullptr;
             if (SUCCEEDED(pItems->Item(vIdx, &pChild)) && pChild)
             {
-                BSTR bn = nullptr;
-                if (SUCCEEDED(pChild->get_Name(&bn)) && bn)
-                { 
-                    itemNames.push_back(std::wstring(bn, SysStringLen(bn))); SysFreeString(bn); 
-                }
+                std::wstring realName = aShellItemRealName(pChild);
+                if (!realName.empty())
+                    itemNames.push_back(realName);
                 pChild->Release();
             }
         }
