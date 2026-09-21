@@ -44,8 +44,9 @@ TEST(SolarSystem, loadPCK)
     if(!aIsGithubCI()) GTEST_SKIP();
 
     
-    SolarSystem system;
-    errc_t rc = system.loadPCK(aDataDirGet() + "/Test/kernels/pck/pck00011.tpc");
+    // SolarSystem 必须分配在堆上
+    SharedPtr<SolarSystem> system = new SolarSystem;
+    errc_t rc = system->loadPCK(aDataDirGet() + "/Test/kernels/pck/pck00011.tpc");
     // EXPECT_EQ(rc, 0);
     A_UNUSED(rc);
 }
@@ -54,14 +55,15 @@ TEST(SolarSystem, getBody)
 {
     if(!aIsGithubCI()) GTEST_SKIP();
 
-    SolarSystem system;
-    errc_t rc = system.load(aDataDirGet() + "/SolarSystem");
+    // SolarSystem 必须分配在堆上
+    SharedPtr<SolarSystem> system = new SolarSystem;
+    errc_t rc = system->load(aDataDirGet() + "/SolarSystem");
     EXPECT_EQ(rc, 0);
-    auto ariel = system.getBody("Ariel");
+    auto ariel = system->getBody("Ariel");
     EXPECT_NE(ariel, nullptr);
-    auto earth = system.getBody("Earth");
+    auto earth = system->getBody("Earth");
     EXPECT_NE(earth, nullptr);
-    auto earth2 = system.getEarth();
+    auto earth2 = system->getEarth();
     EXPECT_EQ(earth2, earth);
 }
 
