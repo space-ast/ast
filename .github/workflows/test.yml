@@ -1,84 +1,104 @@
 name: 测试
 
 on:
-  pull_request:
   push:
     branches:
-      - '**'  # 仅分支推送触发，忽略 tag 推送（避免并发组冲突）
-  workflow_dispatch:  # 手动触发，便于不推分支也能验证测试
+      - 'ci/python-diag'
+  workflow_dispatch:
 
 jobs:
   test:
-    runs-on: ${{ matrix.target.runner }}
-    strategy:
-      fail-fast: false
-      matrix:
-        mode: [release, debug]
-        target:
-          - { runner: ubuntu-latest,    arch: x86_64 }
-          - { runner: ubuntu-22.04-arm, arch: arm64  }
-          - { runner: windows-2022,     arch: x64    }
-          - { runner: windows-2022,     arch: x86    }
-          - { runner: windows-11-arm,   arch: arm64  }
+    # 复刻 编译 工作流的 build-linux(manylinux_2_28_x86_64) 腿，只保留到跑测试为止：
+    # 打包 / ABI 门槛 / xmake.sh / 产物上传都跟定位 testPythonExecutor 无关，删掉省时间。
+    # 缓存 key 与 build.yml 保持一致，好命中已有的编译缓存，不用从头编。
+    runs-on: ubuntu-22.04
+    container:
+      image: quay.io/pypa/manylinux_2_28_x86_64
+    defaults:
+      run:
+        shell: bash
+    env:
+      XMAKE_ROOT: y
     concurrency:
-      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-${{ matrix.target.runner }}-${{ matrix.target.arch }}-${{ matrix.mode }}-test
+      group: ${{ github.ref }}-python-diag
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           submodules: true
+
+      - name: 配置系统依赖
+        run: |
+          dnf install -y --setopt=install_weak_deps=False \
+            zip unzip xz tar which git curl wget \
+            binutils make pkgconf-pkg-config \
+            mesa-libGL-devel mesa-libGLU-devel \
+            libX11-devel libXext-devel libXrender-devel libXrandr-devel libXfixes-devel \
+            libXi-devel libXcursor-devel libXinerama-devel libXScrnSaver-devel \
+            libxcb-devel libxkbcommon-devel libxkbcommon-x11-devel \
+            fontconfig-devel freetype-devel libpng-devel \
+            glib2-devel dbus-devel alsa-lib-devel libSM-devel libICE-devel \
+            openssl-devel
 
       - uses: xmake-io/github-action-setup-xmake@v1
         with:
-          # this is not supported, use dev branch instead
-          # xmake-version: local#
           xmake-version: branch@dev
 
       - name: 配置依赖缓存
         uses: actions/cache@v4
         with:
           path: xmake-cache
-          key: test-${{ matrix.target.runner }}-${{ matrix.target.arch }}-xmake-cache-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v1
+          key: xmake-deps-manylinux_2_28_x86_64-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v1
 
       - name: 配置编译缓存
-        if: github.ref != 'refs/heads/master'
         uses: actions/cache@v4
         with:
           path: |
             build
             .xmake
-          key: test-${{ matrix.target.runner }}-${{ matrix.target.arch }}-${{ matrix.mode }}-build-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
+          key: xmake-build-manylinux_2_28_x86_64-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
           restore-keys: |
-            test-${{ matrix.target.runner }}-${{ matrix.target.arch }}-${{ matrix.mode }}-build-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
+            xmake-build-manylinux_2_28_x86_64-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
 
       - name: 设置xmake相关目录
         run: |
-          xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
-          xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
+          xmake g --pkg_cachedir="$(pwd)/xmake-cache/cache"
+          xmake g --pkg_installdir="$(pwd)/xmake-cache/packages"
           xmake repo -u
 
-      - name: 配置项目
+      - name: 准备 Python
         run: |
-          xmake f -cy --with_test=y --check_warnings=n -m ${{ matrix.mode }} -a ${{ matrix.target.arch }}
+          pybin="$(ls -d /opt/python/cp3*/bin 2>/dev/null | sort -V | tail -n 1)"
+          if [ -z "$pybin" ]; then
+            echo "::error::容器里找不到 /opt/python/cp3*/bin"
+            exit 1
+          fi
+          echo "$pybin" >> "$GITHUB_PATH"
+          "$pybin/python3" --version
+
+      - name: 配置Qt环境
+        run: |
+          xrepo install -y aqt
+          xrepo info aqt
+          xmake require -y qt
+
+      - name: 配置release版本
+        run: |
+          xmake f -cy --with_test=y -m release -a x86_64
           xmake show
-
-      - name: 准备 SWIG
-        if: runner.os == 'Linux'
-        run: |
-          SWIG_BIN="$(find "$PWD/xmake-cache/packages/s/swig" -type f -name swig 2>/dev/null | head -1)"
-          if [ -n "$SWIG_BIN" ]; then echo "$(dirname "$SWIG_BIN")" >> "$GITHUB_PATH"; fi
-          echo "swig: ${SWIG_BIN:-未找到}"
-
-      - name: 恢复归档测试用例
-        shell: bash
-        run: cp -r test/Archive/* test
 
       - name: 编译
         run: |
           xmake -ay
 
-      - name: 执行${{ matrix.mode }}测试
+      - name: 测试
         timeout-minutes: 90
         run: |
+          cp -r test/Archive/* test
           xmake cpdata
-          xmake test -v
+          xmake test -v > "$PWD/test.out" 2>&1 || true
+          echo "===== 失败清单 ====="
+          grep -a -E 'Failed tests:|^ *- test[a-zA-Z]*/unittest|tests passed,' "$PWD/test.out" | tail -20
+          echo "===== DIAG ====="
+          sed -n '/DIAG BEGIN/,/DIAG END/p' "$PWD/test.out"

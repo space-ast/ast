@@ -1,6 +1,7 @@
 ﻿name: 覆盖率
 
-on: [push, pull_request]
+# 一次性诊断分支 ci/python-diag 上关掉，避免跟定位工作流抢并发
+on: workflow_dispatch
 
 jobs:
   coverage:

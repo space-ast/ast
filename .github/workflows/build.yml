@@ -3,8 +3,10 @@ name: 编译
 on:
   pull_request:
   push:
-    branches:
-      - '**'  # 仅分支推送触发，忽略 tag 推送（tag 和 release:published 会出现并发组冲突）
+    # branches 与 branches-ignore 不能同时出现，这里用 branches-ignore 表达
+    # "除 ci/python-diag 外的所有分支"（一次性诊断分支，只跑容器里的 python 定位）
+    branches-ignore:
+      - 'ci/python-diag'
   release:
     types: [published]
   workflow_dispatch:  # 手动触发，便于不推 master 也能验证构建与打包

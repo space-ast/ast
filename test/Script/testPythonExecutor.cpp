@@ -19,7 +19,11 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ast/PythonExecutor.hpp"
+#include "ast/PythonAPI.hpp"
 #include "ast/Test.h"
+
+#include <cstdio>
+#include <string>
 
 AST_USING_NAMESPACE
 
@@ -60,7 +64,7 @@ TEST(PythonExecutor, Execute)
 
     // import 模块
     rc = exec.execute("import math");
-    EXPECT_EQ(rc, eNoError);
+    EXPECT_EQ(rc, eNoError) << "import math 失败: " << exec.getLastError();
 
     // 验证前面设置的变量依然存在
     int val = 0;
@@ -111,9 +115,10 @@ TEST(PythonExecutor, Evaluate)
     EXPECT_EQ(result.value_->toBool(), false);
 
     // 求值函数调用
-    exec.execute("import math");
+    rc = exec.execute("import math");
+    EXPECT_EQ(rc, eNoError) << "import math 失败: " << exec.getLastError();
     rc = exec.evaluate("math.sqrt(16)", &result);
-    EXPECT_EQ(rc, eNoError);
+    EXPECT_EQ(rc, eNoError) << "求值 math.sqrt(16) 失败: " << exec.getLastError();
     EXPECT_DOUBLE_EQ(result.value_->toDouble(), 4.0);
 
     // 求值失败 —— 语法错误
@@ -371,6 +376,66 @@ TEST(PythonExecutor, TypeMismatch)
     EXPECT_EQ(after, 123);
 
     exec.finalize();
+}
+
+
+// ---------------------------------------------------------------------------
+// 临时诊断：定位 manylinux 容器腿里 "import math 失败" 的根因。
+// 只在 ci/python-diag 分支使用，定位后删除。
+// ---------------------------------------------------------------------------
+TEST(PythonExecutor, DiagnoseImport)
+{
+    PythonExecutor exec;
+    if (exec.initialize() != eNoError) { GTEST_SKIP() << "Python not available"; return; }
+
+    printf("\n===== DIAG BEGIN =====\n");
+
+    // 对照 A：直接用 PyRun_SimpleString。它在 __main__.__dict__ 里执行，那个 dict
+    // 自带 __builtins__；而 PythonExecutor 用的是自己 PyDict_New() 出来的空 dict。
+    auto* api = PythonAPI::Instance();
+    int rcSimple = api->PyRun_SimpleString("import math; _diag = math.sqrt(16)");
+    printf("[diag] A  PyRun_SimpleString('import math')  -> rc=%d (0 表示成功)\n", rcSimple);
+
+    // 对照 B：走 PythonExecutor 的空 dict
+    errc_t rcExec = exec.execute("import math");
+    printf("[diag] B  exec.execute('import math')        -> rc=%d err=[%s]\n",
+           (int)rcExec, exec.getLastError().c_str());
+
+    // 逐个 import：sys/builtins 是编译进解释器的内建模块，不需要 sys.path；
+    // math/os/json/ctypes 在 Linux 上是 lib-dynload 里的 .so，需要 sys.path。
+    // 若内建的过、扩展的全挂，就是 sys.path 问题；若连内建都挂，就是 __builtins__ 问题。
+    const char* probes[] = {"sys", "builtins", "math", "os", "json", "ctypes"};
+    for (auto* name : probes)
+    {
+        std::string script = std::string("import ") + name;
+        errc_t r = exec.execute(script.c_str());
+        printf("[diag] C  import %-9s -> rc=%d err=[%s]\n",
+               name, (int)r, exec.getLastError().c_str());
+    }
+
+    // 解释器自述
+    if (exec.execute("import sys") == eNoError)
+    {
+        const char* exprs[] = {
+            "sys.version",
+            "sys.prefix",
+            "sys.exec_prefix",
+            "sys.base_prefix",
+            "sys.executable",
+            "','.join(sys.builtin_module_names)",
+            "'|'.join(sys.path)",
+        };
+        for (auto* e : exprs)
+        {
+            ScriptResult result;
+            errc_t r = exec.evaluate(e, &result);
+            printf("[diag] D  %s\n         -> rc=%d value=[%s] err=[%s]\n", e, (int)r,
+                   result.value_.get() ? result.value_->toString().c_str() : "(null)",
+                   exec.getLastError().c_str());
+        }
+    }
+
+    printf("===== DIAG END =====\n\n");
 }
 
 
