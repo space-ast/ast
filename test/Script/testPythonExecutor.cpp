@@ -435,6 +435,17 @@ TEST(PythonExecutor, DiagnoseImport)
         }
     }
 
+    // 对照组 E：直接确认命名空间里到底有没有 __builtins__。
+    // 这条表达式本身就要用到内建函数 globals()，修好之前它自己也会挂。
+    {
+        ScriptResult result;
+        errc_t r = exec.evaluate("'__builtins__' in globals()", &result);
+        printf("[diag] E  \"'__builtins__' in globals()\" -> rc=%d value=[%s] err=[%s]\n",
+               (int)r,
+               result.value_.get() ? result.value_->toString().c_str() : "(null)",
+               exec.getLastError().c_str());
+    }
+
     printf("===== DIAG END =====\n\n");
 }
 

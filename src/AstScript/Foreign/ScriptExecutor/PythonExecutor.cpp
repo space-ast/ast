@@ -56,6 +56,31 @@ errc_t PythonExecutor::initialize()
             lastError_ = captureError();
             return eError;
         }
+
+        // 必须显式放 __builtins__。
+        // 空 dict 时解释器会退回到"用 interp 自己的 builtins 兜底"，但那条兜底
+        // 在嵌入式场景下并不可靠：manylinux 容器里的 python3.12 上，
+        // PyRun_String 拿到的 frame->f_builtins 里没有 __import__，任何 import
+        // 语句都会直接失败并报 "__import__ not found"（连 import sys 都不行）。
+        // CPython 自己的 PyImport_Import 就是这么做的：先建 globals，
+        // 把 builtins 塞进去，再执行。这里对齐同样的做法。
+        auto* builtins = api_->PyImport_ImportModule("builtins");
+        if (!builtins)
+        {
+            lastError_ = captureError();
+            api_->Py_DecRef(globals_);
+            globals_ = nullptr;
+            return eError;
+        }
+        int rc = api_->PyDict_SetItemString(globals_, "__builtins__", builtins);
+        api_->Py_DecRef(builtins);
+        if (rc != 0)
+        {
+            lastError_ = captureError();
+            api_->Py_DecRef(globals_);
+            globals_ = nullptr;
+            return eError;
+        }
     }
 
     lastError_.clear();
