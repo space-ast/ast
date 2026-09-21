@@ -465,8 +465,11 @@ TEST(PythonExecutor, DiagnoseImport)
             {
                 const char* path = "?";
 #ifndef _WIN32
+                // dladdr 要的是**库内某个符号的地址**，不是 dlopen 的句柄。
+                // 上一轮直接传句柄，dladdr 必然失败，path 一直是 "?"。
+                void* sym = aGetProcAddress(h, "Py_Initialize");
                 Dl_info info{};
-                if (dladdr(h, &info) && info.dli_fname)
+                if (sym && dladdr(sym, &info) && info.dli_fname)
                     path = info.dli_fname;
 #endif
                 printf("[diag] F  load %-14s -> OK   path=%s\n", name, path);

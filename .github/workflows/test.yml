@@ -141,5 +141,7 @@ jobs:
           xmake test -v > "$PWD/test.out" 2>&1 || true
           echo "===== 失败清单 ====="
           grep -a -E 'Failed tests:|^ *- test[a-zA-Z]*/unittest|tests passed,' "$PWD/test.out" | tail -20
+          echo "===== PythonAPI 实际绑到的库 ====="
+          grep -a '已加载 Python 动态库' "$PWD/test.out" | sort -u | head -5
           echo "===== DIAG ====="
           sed -n '/DIAG BEGIN/,/DIAG END/p' "$PWD/test.out"
