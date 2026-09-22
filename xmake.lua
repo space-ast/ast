@@ -2,7 +2,7 @@
 set_project("ast")
 
 -- 设置版本号
-set_version("0.3.0", {build="%Y%m%d", soname = false})
+set_version("0.3.1", {build="%Y%m%d", soname = false})
 
 -- 工程配置选项：是否编译测试工程
 option("with_test")

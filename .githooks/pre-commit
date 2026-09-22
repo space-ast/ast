@@ -1,0 +1,11 @@
+#!/bin/sh
+# pre-commit
+#
+# 启用：./scripts/ci/install-hooks.sh
+# 跳过某一次：git commit --no-verify
+
+root="$(git rev-parse --show-toplevel)" || exit 0
+
+
+# 检查 xmake.lua 与 xmake.sh 的版本号是否一致。
+exec bash "${root}/scripts/ci/check-version.sh" --staged
