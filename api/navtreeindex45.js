@@ -1,5 +1,7 @@
 var NAVTREEINDEX45 =
 {
+"classast_1_1SpaceWeatherProvider.html#a151685dc4b937e9de353bc1db2b69363":[0,1,1,9,4],
+"classast_1_1SpaceWeatherProvider.html#a7b3e13a7ad98dca360a9a18c4a05fc0e":[0,1,1,9,1],
 "classast_1_1SpaceWeatherProvider.html#a7cb957a6b3a28cf715a9288872d6df2a":[0,1,1,9,2],
 "classast_1_1SpaceWeatherProvider.html#a8b05be42c953a25a7c2baaa266c1a02b":[0,1,1,9,0],
 "classast_1_1SpaceWeatherProvider.html#ace7491f8d2df075583ce44a3ce97e93d":[0,1,1,9,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX45 =
 "classast_1_1StateBPlane.html#a0f34358d1db7a79fe8d03bfe5cdd376b":[3,0,0,952,13],
 "classast_1_1StateBPlane.html#a0ff96184475f41fb9d023f4fc015d45c":[2,0,0,953,3],
 "classast_1_1StateBPlane.html#a0ff96184475f41fb9d023f4fc015d45c":[3,0,0,952,3],
-"classast_1_1StateBPlane.html#a1a4c6250fc1d3436adfc6bb9ce26bab7":[2,0,0,953,11],
-"classast_1_1StateBPlane.html#a1a4c6250fc1d3436adfc6bb9ce26bab7":[3,0,0,952,11],
-"classast_1_1StateBPlane.html#a1d0a6fa414496284cc9e4998d16bbc37":[2,0,0,953,7]
+"classast_1_1StateBPlane.html#a1a4c6250fc1d3436adfc6bb9ce26bab7":[2,0,0,953,11]
 };

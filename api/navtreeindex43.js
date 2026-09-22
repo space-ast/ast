@@ -1,5 +1,7 @@
 var NAVTREEINDEX43 =
 {
+"classast_1_1ScStateCalcMagneticFieldStrength.html":[2,0,0,771],
+"classast_1_1ScStateCalcMagneticFieldStrength.html":[3,0,0,770],
 "classast_1_1ScStateCalcManeuverSpecificImpulse.html":[2,0,0,772],
 "classast_1_1ScStateCalcManeuverSpecificImpulse.html":[3,0,0,771],
 "classast_1_1ScStateCalcManeuverTotalMassFlowRate.html":[2,0,0,773],
@@ -247,7 +249,5 @@ var NAVTREEINDEX43 =
 "classast_1_1Scenario.html#a5d6565f06b6be9db2a2c40316764e1d2":[2,0,0,665,12],
 "classast_1_1Scenario.html#a5d6565f06b6be9db2a2c40316764e1d2":[3,0,0,664,12],
 "classast_1_1Scenario.html#a6d1d4dafdac38429f13a076df9142bc2":[2,0,0,665,2],
-"classast_1_1Scenario.html#a6d1d4dafdac38429f13a076df9142bc2":[3,0,0,664,2],
-"classast_1_1Scenario.html#a6ec9d7b47cc8127819c9039e9839a1c4":[2,0,0,665,7],
-"classast_1_1Scenario.html#a6ec9d7b47cc8127819c9039e9839a1c4":[3,0,0,664,7]
+"classast_1_1Scenario.html#a6d1d4dafdac38429f13a076df9142bc2":[3,0,0,664,2]
 };

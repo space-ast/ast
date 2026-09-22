@@ -73,5 +73,6 @@ var searchData=
   ['propertynamedvector_70',['PropertyNamedVector',['../classast_1_1PropertyNamedVector.html#a5d019b6a38d7ac5b75df53ae6f0ef40c',1,'ast::PropertyNamedVector']]],
   ['propnonormalize_71',['propNoNormalize',['../classast_1_1J2J4Analytical.html#a1719c88a91c33eb4f7ed22b376c0d9f7',1,'ast::J2J4Analytical']]],
   ['push_5fback_72',['push_back',['../classast_1_1IntervalList.html#ab71136ff00ff8d30f4de6662180ee9fe',1,'ast::IntervalList::push_back(const Interval &amp;interval)'],['../classast_1_1IntervalList.html#a0ba7c6d57f77696aa24e04f9794e5176',1,'ast::IntervalList::push_back(double start, double stop)'],['../classast_1_1TimeIntervalList.html#aa16440947ade9c2aed623001662794a7',1,'ast::TimeIntervalList::push_back(const TimeInterval &amp;ti)'],['../classast_1_1TimeIntervalList.html#a97532224599b98764b7a732d8cab968e',1,'ast::TimeIntervalList::push_back(const TimePoint &amp;start, const TimePoint &amp;stop)'],['../classast_1_1ExprContainer.html#a7693c4461fff8bd2095cbb0e54cbaad0',1,'ast::ExprContainer::push_back()']]],
-  ['pxform_73',['pxform',['../group__Spice.html#ga7b492f27fc0ea931de62b89458eee914',1,'ast']]]
+  ['pxform_73',['pxform',['../group__Spice.html#ga7b492f27fc0ea931de62b89458eee914',1,'ast']]],
+  ['py_5fgetversion_74',['Py_GetVersion',['../classast_1_1PythonAPI.html#aade616cd34dcf3d278aa87f22a74a247',1,'ast::PythonAPI']]]
 ];

@@ -1,5 +1,7 @@
 var NAVTREEINDEX50 =
 {
+"classast_1_1UiChatPanel.html":[0,16,5],
+"classast_1_1UiChatPanel.html#a2065119387e437fea6414ebc02545591":[0,16,5,7],
 "classast_1_1UiChatPanel.html#a2eebe55f909db8ca113f0196921ebc9b":[0,16,5,3],
 "classast_1_1UiChatPanel.html#a3af838d0951ff6df1dca70c5d222a61d":[0,16,5,1],
 "classast_1_1UiChatPanel.html#a43c0c5df13809d953827aca3fdf34897":[0,16,5,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX50 =
 "classast_1_1UiResultView.html#af2296ae3ada04b0f05284cc8dd7bbde2":[2,0,0,1067,2],
 "classast_1_1UiResultView.html#af2296ae3ada04b0f05284cc8dd7bbde2":[3,0,0,1066,2],
 "classast_1_1UiSTKEphemerisFileWriter.html":[0,17,6],
-"classast_1_1UiSTKEphemerisFileWriter.html#a2029e9e6adfdb73ea45ba8241540dcb4":[0,17,6,7],
-"classast_1_1UiSTKEphemerisFileWriter.html#a272eafb0e5985c52f9a3e23a6552b408":[0,17,6,1],
-"classast_1_1UiSTKEphemerisFileWriter.html#a30ea9fb8e96b8cc74f07c8612ee3a5c8":[0,17,6,4]
+"classast_1_1UiSTKEphemerisFileWriter.html#a2029e9e6adfdb73ea45ba8241540dcb4":[0,17,6,7]
 };
