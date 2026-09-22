@@ -98,7 +98,7 @@ jobs:
           xmake r testHPOPEarth_Drag
           xmake r testHPOP_StateTransitionMatrix
           xmake r testExtractor
-          xmake test
+          xmake test --output-on-failure
           lcov --directory . --capture --include */src/* --output-file coverage.info 
       
       - name: 上传覆盖率到Codecov

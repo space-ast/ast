@@ -83,4 +83,4 @@ jobs:
         timeout-minutes: 90
         run: |
           xmake cpdata
-          xmake test -v
+          xmake test --output-on-failure
