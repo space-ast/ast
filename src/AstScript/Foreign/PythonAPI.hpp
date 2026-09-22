@@ -82,6 +82,7 @@ public:
         iPyDict_GetItemString,
         iPyGILState_Ensure,
         iPyGILState_Release,
+        iPy_GetVersion,
         numfunctions,
     };
 
@@ -101,6 +102,9 @@ public:
     explicit PythonAPI(bool shouldLoadDynamicLib);
 
     ~PythonAPI();
+
+    /// @brief 根据当前的PATH环境变量加载Python动态库
+    errc_t load();
 
     /// @brief 加载指定路径的Python动态库
     errc_t load(StringView path);
@@ -165,6 +169,9 @@ public: // -- 以下接口名称和签名与 Python C API 完全一致 --
     // GIL 管理（多线程场景）
     int PyGILState_Ensure();
     void PyGILState_Release(int gstate);
+
+    /// @brief 解释器版本串，如 "3.6.8 (default, Aug 18 2026, ...)"
+    const char* Py_GetVersion();
 
     // 类型对象访问器（从 DLL 加载的数据符号）
     PyObject* PyFloat_Type()   const { return static_cast<PyObject*>(functions_[iPyFloat_Type]); }

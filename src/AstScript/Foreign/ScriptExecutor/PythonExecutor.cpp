@@ -47,6 +47,9 @@ errc_t PythonExecutor::initialize()
         return eErrorInvalidFile;
     }
     api_->Py_Initialize();
+    
+    if (auto* version = api_->Py_GetVersion())
+        aInfo(_("Python 解释器: %s"), version);
 
     if (!globals_)
     {
