@@ -116,7 +116,7 @@ $(function(){initNavTree('ActiveScriptExecutor_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#ifndef SWIG</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#if defined(AST_BUILD_LIB) &amp;&amp; !defined(SWIG)</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>errc_t aActiveScriptGetVariable(IDispatch&amp; pDisp, <span class="keyword">const</span> std::wstring&amp; name, VARIANT&amp; result);</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>errc_t aActiveScriptSetVariable(IDispatch&amp; pDisp, <span class="keyword">const</span> std::wstring&amp; name, <span class="keyword">const</span> VARIANT&amp; value);</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>errc_t aActiveScriptSetVariableEx(IDispatch&amp; pDisp, <span class="keyword">const</span> std::wstring&amp; name, <span class="keyword">const</span> VARIANT&amp; value);</div>
