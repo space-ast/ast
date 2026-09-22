@@ -213,7 +213,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
         VARIANT vFlags;
         VariantInit(&vFlags);
         vFlags.vt = VT_I4;
-        vFlags.lVal = 0x0400; // FOF_NO_CONNECTED_FILES
+        vFlags.lVal = kShellComCopyFlags;
 
         hr = pDestFolder->CopyHere(vItems, vFlags);
 
@@ -233,7 +233,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     std::vector<std::wstring> extractedItems; // 记录已成功提取的项，用于失败时回滚
     for (const auto& name : itemNames)
     {
-        if (!aShellWaitForItem(pDestFolder, name, 30000))
+        if (!aShellWaitForItem(pDestFolder, name, kShellComWaitTimeoutMs))
         {
             aError(_("waitForItem 等待超时: %ls"), name.c_str());
             allOk = false;

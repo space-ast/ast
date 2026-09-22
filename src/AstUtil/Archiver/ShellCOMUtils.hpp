@@ -16,6 +16,7 @@
 #include "AstGlobal.h"
 
 #include <Windows.h>
+#include <shellapi.h>
 #include <shlobj.h>
 #include <string>
 
@@ -82,13 +83,23 @@ inline std::wstring aShellItemRealName(FolderItem* pItem)
     return std::wstring();
 }
 
+
+/// CopyHere 的标志位
+/// @see https://learn.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-shfileopstructa
+/// @details CI runner 等无交互桌面的环境下，进度框/确认框可能反过来阻塞副本引擎，
+//           这里把 UI 全部关掉，完成与否只由 aShellWaitForItem 轮询判定
+constexpr long kShellComCopyFlags = FOF_NO_UI;
+
+/// CopyHere 完成等待的默认超时（毫秒）
+/// @details 副本引擎由 zipfldr.dll 异步完成，耗时波动很大，这里默认设置 60s 的超时时间
+constexpr unsigned long kShellComWaitTimeoutMs = 60000;
+
 /// 等待 Shell COM CopyHere 异步操作完成（通过 ParseName 轮询）
 /// @param pFolder 目标 Folder 指针
 /// @param itemName 要等待的项名称
 /// @param timeoutMs 超时时间（毫秒）
 /// @return true 项已出现，false 超时
-inline bool aShellWaitForItem(Folder* pFolder, const std::wstring& itemName,
-                               unsigned long timeoutMs = 30000)
+inline bool aShellWaitForItem(Folder* pFolder, const std::wstring& itemName, unsigned long timeoutMs = kShellComWaitTimeoutMs)
 {
     unsigned long start = GetTickCount();
 
