@@ -1,5 +1,7 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28":[2,0,0,964,0],
+"classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28":[3,0,0,963,0],
 "classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28a2b073c2394a5471c7f73a7f6aac687fa":[2,0,0,964,0,3],
 "classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28a2b073c2394a5471c7f73a7f6aac687fa":[3,0,0,963,0,3],
 "classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28a3404ea29872ee26c1db54e516fe93d38":[2,0,0,964,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalcMCSDeltaVSquared.html":[2,0,0,778],
 "classast_1_1ScStateCalcMCSDeltaVSquared.html":[3,0,0,777],
 "classast_1_1ScStateCalcMagFieldDipoleL.html":[2,0,0,769],
-"classast_1_1ScStateCalcMagFieldDipoleL.html":[3,0,0,768],
-"classast_1_1ScStateCalcMagneticFieldForce.html":[2,0,0,770],
-"classast_1_1ScStateCalcMagneticFieldForce.html":[3,0,0,769]
+"classast_1_1ScStateCalcMagFieldDipoleL.html":[3,0,0,768]
 };

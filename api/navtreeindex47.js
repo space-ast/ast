@@ -1,5 +1,7 @@
 var NAVTREEINDEX47 =
 {
+"classast_1_1StateMapper.html#a19bc9917b4fc007fe851caa0c525d02f":[3,0,0,957,3],
+"classast_1_1StateMapper.html#a1f1ebe4ee656582f5e52c0ed086bb641":[2,0,0,958,1],
 "classast_1_1StateMapper.html#a1f1ebe4ee656582f5e52c0ed086bb641":[3,0,0,957,1],
 "classast_1_1StateMapper.html#a2040049c8cc86be12751eb60683f36c9":[2,0,0,958,0],
 "classast_1_1StateMapper.html#a2040049c8cc86be12751eb60683f36c9":[3,0,0,957,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX47 =
 "classast_1_1TDBScale.html":[3,0,0,990],
 "classast_1_1TLE.html":[2,0,0,1004],
 "classast_1_1TLE.html":[3,0,0,1003],
-"classast_1_1TLEDatabase.html":[2,0,0,1005],
-"classast_1_1TLEDatabase.html":[3,0,0,1004],
-"classast_1_1TLEDatabaseQuery.html":[2,0,0,1006]
+"classast_1_1TLEDatabase.html":[2,0,0,1005]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1Quaternion.html#a74f632ce182f8b5a87073f7748b95122":[0,3,1,2,21],
+"classast_1_1Quaternion.html#a7580a59c2fb5a2a1d9c0bb1ec1abb76b":[0,3,1,2,6],
 "classast_1_1Quaternion.html#a76aa1c753eacaebb930f0883113fc2ec":[0,3,1,2,5],
 "classast_1_1Quaternion.html#a7c602f8105b181b466ab3dbb97e6607e":[0,3,1,2,22],
 "classast_1_1Quaternion.html#a8450b588cce120ed57b4734788bf3c72":[0,3,1,2,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1STKEphemerisFileParser.html":[2,0,0,963],
 "classast_1_1STKEphemerisFileParser.html":[3,0,0,962],
 "classast_1_1STKEphemerisFileWriter.html":[2,0,0,964],
-"classast_1_1STKEphemerisFileWriter.html":[3,0,0,963],
-"classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28":[2,0,0,964,0],
-"classast_1_1STKEphemerisFileWriter.html#a4a1bba6184cb6a5d49435c82a9e93a28":[3,0,0,963,0]
+"classast_1_1STKEphemerisFileWriter.html":[3,0,0,963]
 };
