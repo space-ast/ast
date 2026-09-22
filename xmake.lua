@@ -82,6 +82,25 @@ set_policy("package.precompiled", false)                    -- 禁止从远程�
 set_policy("build.rpath", false)                            -- 禁止xmake隐式添加runpath
 set_policy("install.rpath", false)                          -- 禁止xmake隐式添加runpath
 
+-- MSVC（VS2022 17.10 起）的 STL 会给 basic_string/vector 打 ASan 容器标注，并用
+--   #pragma detect_mismatch("annotate_string"/"annotate_vector", ...)
+-- 记录编译时有没有开 /fsanitize=address：开了写 1，没开写 0。
+-- 同一个二进制里出现两个不同的值就是 LNK2038、 LNK1319
+-- 本工程目标都带 /fsanitize=address（值 1），
+-- 而 fmt/gtest/agg/qwt 这些第三方静态库是按非 ASan 编出来的（值 0）
+-- 关掉 STL 容器标注后本工程目标也写 0，两边一致；
+-- ASan 本身照常生效（堆/栈/全局越界、use-after-free 都还在），
+-- 只是不再额外标记「容器capacity 之内、size 之外」的越界访问。
+-- 想连容器标注一起要，得让所有依赖也用 ASan 编（工程级set_policy("build.sanitizer.address", true)），
+-- 但 xmake-repo 的 gtest 在on_test 里会链自己刚编出来的 asan 版库并因同样原因装不上，暂时走不通
+if is_mode("asan") then
+    if is_plat("windows") then
+        add_defines("_DISABLE_STL_ANNOTATION")
+    else
+        set_policy("build.sanitizer.address", true)
+    end
+end
+
 if is_plat("windows") then
     if is_mode("debug") then
         set_values("windows.subsystem", "console")

@@ -157,7 +157,7 @@ public:
 TEST_F(EclipseEventFinderTest, LeoOrbitOneDay)
 {
     // 构建 LEO 圆轨道卫星（~300 km 高度，i=28.5°）
-    auto sat = new Satellite();
+    SharedPtr<Satellite> sat = new Satellite();
     sat->setName("Satellite1");
 
     auto motion = MotionTwoBody::New();
@@ -270,7 +270,6 @@ TEST_F(EclipseEventFinderTest, LeoOrbitOneDay)
         EXPECT_GT(r, 0.9) << "just after eclipse should be sunlit, got " << r;
     }
 
-    delete sat;
 }
 
 GTEST_MAIN()

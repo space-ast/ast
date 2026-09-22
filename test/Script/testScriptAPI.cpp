@@ -233,14 +233,17 @@ TEST_F(ScriptAPI2, OperatorExecution) {
 
 TEST(ScriptAPI, VariableFunctions)
 {
+    // 注意：aNewVariable会接管expr的所有权（内部以SharedPtr持有），
+    // 变量析构时expr随之释放，之后不得再使用该expr，因此每个变量用独立创建的值。
     // 测试aNewVariable函数
     Expr* expr = aNewValueInt(42);
     Variable* var1 = aNewVariable("testVar", expr, false);
     EXPECT_TRUE(var1);
     // 注意：Variable类可能没有直接的name()和expr()方法
     delete var1;
-    
-    Variable* var2 = aNewVariable(expr, true);
+
+    Expr* expr2 = aNewValueInt(42);
+    Variable* var2 = aNewVariable(expr2, true);
     EXPECT_TRUE(var2);
     // 注意：Variable类可能没有直接的expr()方法
     delete var2;
@@ -257,25 +260,22 @@ TEST(ScriptAPI, SymbolFunctions)
 
 TEST(ScriptAPI, OperatorFunctions)
 {
-    // 创建测试用的表达式
-    Expr* left = aNewValueInt(10);
-    Expr* right = aNewValueInt(20);
-    
+    // 注意：aNewOpXxx会接管操作数的所有权（内部以SharedPtr持有），
+    // 表达式析构时操作数随之释放，之后不得再使用，因此每个表达式用独立创建的操作数。
     // 测试aNewOpBin函数
-    Expr* opBin = aNewOpBin(EOpBinType::eAdd, left, right);
+    Expr* opBin = aNewOpBin(EOpBinType::eAdd, aNewValueInt(10), aNewValueInt(20));
     EXPECT_TRUE(opBin);
     delete opBin;
-    
+
     // 测试aNewOpAssign函数
-    Expr* opAssign = aNewOpAssign(EOpAssignType::eAssign, left, right);
+    Expr* opAssign = aNewOpAssign(EOpAssignType::eAssign, aNewValueInt(10), aNewValueInt(20));
     EXPECT_TRUE(opAssign);
     delete opAssign;
-    
+
     // 测试aNewOpUnary函数
-    Expr* opUnary = aNewOpUnary(EOpUnaryType::eNeg, left);
+    Expr* opUnary = aNewOpUnary(EOpUnaryType::eNeg, aNewValueInt(10));
     EXPECT_TRUE(opUnary);
     delete opUnary;
-    
 }
 
 TEST(ScriptAPI, ValueCreationFunctions)
