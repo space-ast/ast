@@ -18,6 +18,8 @@ jobs:
           # this is not supported, use dev branch instead
           # xmake-version: local#
           xmake-version: branch@dev
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: 'ubuntu-latest'
 
       - name: 安装依赖
         run: |

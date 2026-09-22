@@ -88,6 +88,8 @@ jobs:
           # this is not supported, use dev branch instead
           # xmake-version: local#
           xmake-version: branch@dev
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: ${{ matrix.target.runner }}
 
       # Cache xmake dependencies
       - name: 配置依赖缓存
@@ -244,6 +246,8 @@ jobs:
       - uses: xmake-io/github-action-setup-xmake@v1
         with:
           xmake-version: branch@dev
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: ${{ matrix.image }}
 
       # 缓存键里加上的第三方库的内容哈希，使第三方库的内容改变时触发重新编译
       - name: 配置依赖缓存

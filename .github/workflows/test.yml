@@ -33,7 +33,9 @@ jobs:
           # this is not supported, use dev branch instead
           # xmake-version: local#
           xmake-version: branch@dev
-
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: ${{ matrix.target.runner }}
+          
       - name: 配置依赖缓存
         uses: actions/cache@v4
         with:
