@@ -60,7 +60,8 @@ add_includedirs("include")
 -- 内置规则
 add_rules(
     "mode.debug", "mode.release", "mode.releasedbg", 
-    "mode.coverage", "mode.asan"
+    "mode.coverage", 
+    "mode.asan", "mode.msan", "mode.ubsan", "mode.valgrind"
 )                                                           -- 调试模式、发布模式、代码覆盖率模式
 -- add_rules("plugin.vsxmake.autoupdate")                      -- 自动更新vsxmake工程
 add_rules("c++.unity_build", {batchsize=20})                -- 开启unity build，提高编译效率
@@ -99,6 +100,28 @@ if is_mode("asan") then
     else
         set_policy("build.sanitizer.address", true)
     end
+end
+
+if is_mode("msan") then
+    -- MSan 只有 clang 编译器支持，且只在 Linux/FreeBSD 这类平台提供
+    assert(not is_plat("windows"), "msan 不支持 Windows, 请在 Linux 上构建")
+    set_toolchains("clang")
+    set_policy("build.sanitizer.memory", true)
+end
+
+if is_mode("ubsan") then
+    -- ubsan 在 windows 上只有 clang 编译器支持
+    -- Windows 上用 clang-cl 而不是 GNU MinGW 驱动的 clang++
+    -- "clang-cl@llvm" 是 xmake 的 toolchain@packages 语法：
+    -- 工具链用内置的 clang-cl, 二进制从 llvm 包获取
+    if is_plat("windows") then
+        add_requires("llvm", {optional = true})
+        set_toolchains("clang-cl@llvm")
+    else
+        -- linux 下 gcc 和 clang 都支持，默认使用 gcc 编译器即可
+        -- set_toolchains("clang")
+    end
+    set_policy("build.sanitizer.undefined", true)
 end
 
 if is_plat("windows") then
