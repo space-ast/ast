@@ -165,6 +165,12 @@ void* aResolveProcAddress(const char* filepath, const char* funcName)
     // 获取函数指针
     void* procAddress = aGetProcAddress(library, funcName);
 
+    if (!procAddress) {
+        // 符号没找到，说明这个库不是我们要的，句柄留着没用，直接卸掉
+        aFreeLibrary(library);
+        return nullptr;
+    }
+
     // 注意：这里不卸载库，因为调用者需要使用这个库的函数
     // @fixme 应该在适当的时候调用相应的卸载函数
     return procAddress;

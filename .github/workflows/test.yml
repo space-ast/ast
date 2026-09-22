@@ -39,6 +39,7 @@ jobs:
       - name: 配置依赖缓存
         uses: actions/cache@v4
         with:
+          # 包里有一些二进制工具，没必要每个 mode 都缓存一份，避免占用过多缓存额度
           path: xmake-cache
           key: test-${{ matrix.target.runner }}-${{ matrix.target.arch }}-xmake-cache-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v1
 
@@ -76,6 +77,11 @@ jobs:
         run: cp -r test/Archive/* test
 
       - name: 编译
+        env:
+          # 编译期间跑的都是构建工具（swig / moc / 编译器），不是被测代码。
+          # 避免因为存在 ASan 版的工具，让 LeakSanitizer 的泄漏报告把它判成失败。
+          # 测试步骤不带这个变量，泄漏检测照常生效。
+          ASAN_OPTIONS: detect_leaks=0
         run: |
           xmake -ay
 
