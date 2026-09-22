@@ -44,9 +44,13 @@ errc_t aTestScriptParse(StringView script)
     if(!expr2)
     {
         aError(_("解析格式化后的表达式失败: %s"), exprStr1.c_str());
+        delete expr1;
         return eErrorInvalidParam;
     }
     std::string exprStr2 = aFormatExpr(expr2);
+    // 表达式由调用者负责释放，避免内存泄漏
+    delete expr1;
+    delete expr2;
     if(exprStr1 != exprStr2)
     {
         aError(_("第一个格式化后的表达式与第二个格式化后的表达式不相等"));
@@ -61,6 +65,7 @@ errc_t aTestScriptSyntaxError(StringView str)
     if(expr)
     {
         aError(_("期望出现语法错误"));
+        delete expr;
         return eErrorInvalidParam;
     }
     return eNoError;
@@ -75,6 +80,7 @@ errc_t aTestScriptEvalRuntimeError(StringView str)
         return eErrorInvalidParam;
     }
     SharedPtr<Value> value = aEvalExpr(expr);
+    delete expr;
     if(value)
     {
         aError(_("期望出现运行时错误"));

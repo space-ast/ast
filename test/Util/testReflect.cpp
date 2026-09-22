@@ -66,6 +66,7 @@ TEST(Reflect, PropertyBool)
     err = prop->setValueBool(&test, false);
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propBool_, false);
+    delete prop;
 }
 
 TEST(Reflect, PropertyBoolGetterSetter)
@@ -81,6 +82,7 @@ TEST(Reflect, PropertyBoolGetterSetter)
     err = prop->setValueBool(&test, false);
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propBool_, false);
+    delete prop;
 }
 
 TEST(Reflect, PropertyBoolGetterSetter2)
@@ -96,6 +98,7 @@ TEST(Reflect, PropertyBoolGetterSetter2)
     err = prop->setValueBool(&test, false);
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propBool_, false);
+    delete prop;
 }
 
 // 测试布尔属性的类型转换
@@ -144,6 +147,7 @@ TEST(Reflect, PropertyBoolConvert)
     err = prop->setValueString(&test, "true");
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propBool_, true);
+    delete prop;
 }
 
 // 测试整数属性
@@ -160,6 +164,7 @@ TEST(Reflect, PropertyInt)
     err = prop->setValueInt(&test, 84);
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propInt_, 84);
+    delete prop;
 }
 
 TEST(Reflect, PropertyIntGetterSetter)
@@ -175,6 +180,7 @@ TEST(Reflect, PropertyIntGetterSetter)
     err = prop->setValueInt(&test, 84);
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propInt_, 84);
+    delete prop;
 }
 
 TEST(Reflect, PropertyIntGetterSetter2)
@@ -190,6 +196,7 @@ TEST(Reflect, PropertyIntGetterSetter2)
     err = prop->setValueInt(&test, 84);
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propInt_, 84);
+    delete prop;
 }
 
 // 测试整数属性的类型转换
@@ -233,6 +240,7 @@ TEST(Reflect, PropertyIntConvert)
     err = prop->setValueString(&test, "84");
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propInt_, 84);
+    delete prop;
 }
 
 // 测试双精度属性（已有的）
@@ -249,6 +257,7 @@ TEST(Reflect, PropertyDouble)
     err = prop->setValueDouble(&test, 2.0408);
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propDouble_, 2.0408);
+    delete prop;
 }
 
 TEST(Reflect, PropertyDoubleGetterSetter)
@@ -264,6 +273,7 @@ TEST(Reflect, PropertyDoubleGetterSetter)
     err = prop->setValueDouble(&test, 2.0408);
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propDouble_, 2.0408);
+    delete prop;
 }
 
 TEST(Reflect, PropertyDoubleGetterSetter2)
@@ -279,6 +289,7 @@ TEST(Reflect, PropertyDoubleGetterSetter2)
     err = prop->setValueDouble(&test, 2.0408);
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propDouble_, 2.0408);
+    delete prop;
 }
 
 // 测试双精度属性的类型转换
@@ -322,6 +333,7 @@ TEST(Reflect, PropertyDoubleConvert)
     err = prop->setValueString(&test, "84.5");
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propDouble_, 84.5);
+    delete prop;
 }
 
 // 测试字符串属性
@@ -338,6 +350,7 @@ TEST(Reflect, PropertyString)
     err = prop->setValueString(&test, "test2");
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propString_, "test2");
+    delete prop;
 }
 
 TEST(Reflect, PropertyStringGetterSetter)
@@ -353,6 +366,7 @@ TEST(Reflect, PropertyStringGetterSetter)
     err = prop->setValueString(&test, "test2");
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propString_, "test2");
+    delete prop;
 }
 
 TEST(Reflect, PropertyStringGetterSetter2)
@@ -368,6 +382,7 @@ TEST(Reflect, PropertyStringGetterSetter2)
     err = prop->setValueString(&test, "test2");
     EXPECT_FALSE(err);
     EXPECT_EQ(test.propString_, "test2");
+    delete prop;
 }
 
 // 测试字符串属性的类型转换
@@ -415,6 +430,7 @@ TEST(Reflect, PropertyStringConvert)
     err = prop->getValueDouble(&test, checkValue);
     EXPECT_FALSE(err);
     EXPECT_EQ(checkValue, 84.5);
+    delete prop;
 }
 
 // 测试Struct类的功能

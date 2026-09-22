@@ -64,6 +64,8 @@ TEST_F(ScriptAPI2, VariableFunctions) {
     auto val4 = var3->eval();
     EXPECT_EQ(val4, val3);
     EXPECT_NE(var3, nullptr);
+    // aNewVariable 接管了 expr 的所有权，删除变量时一并释放
+    delete var3;
 }
 
 // 测试符号创建函数

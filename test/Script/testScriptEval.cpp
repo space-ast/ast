@@ -469,7 +469,8 @@ TEST_F(ScriptExec, MutilLine)
 TEST_F(ScriptExec, DelayAssign)
 {
     // 测试延迟赋值
-    aEval("x := y");
+    // aEval 返回的值由调用者持有，这里只关心副作用，需要释放
+    delete aEval("x := y");
     testScriptEval("y = 10");
     testScriptEvalInt("x", 10);
     testScriptEval("y = 1.123");
@@ -479,7 +480,7 @@ TEST_F(ScriptExec, DelayAssign)
 TEST_F(ScriptExec, BindAssign)
 {
     // 测试绑定赋值
-    aEval("x =& y");
+    delete aEval("x =& y");
     testScriptEval("y = 10");
     testScriptEvalInt("x", 10);
     testScriptEval("x = 1.123");

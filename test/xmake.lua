@@ -1,4 +1,4 @@
-﻿set_group("test")
+set_group("test")
 add_deps(
     "AstCore",
     "AstUtil",
@@ -104,7 +104,7 @@ for _, file in ipairs(asc_files) do
                     outfile = os.tmpfile()
                     errfile = os.tmpfile()
                 end
-                local targetfile = target:targetfile()
+                local targetfile = path.absolute(target:targetfile())
                 local runargs = {filepath}
                 local addenvs, setenvs = runenvs.make(target)
                 local ok, syserrors = os.execv(targetfile, runargs, {

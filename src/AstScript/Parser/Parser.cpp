@@ -195,6 +195,9 @@ Expr* Parser::parseConditionalExpr()
 Expr* Parser::parseLogicalOrExpr()
 {
     Expr* expr = parseLogicalAndExpr();
+    if (!expr) {
+        return nullptr;
+    }
     
     while (match(Lexer::eOrOr)) {
         Expr* right = parseLogicalAndExpr();
@@ -213,6 +216,9 @@ Expr* Parser::parseLogicalOrExpr()
 Expr* Parser::parseLogicalAndExpr()
 {
     Expr* expr = parseBitwiseOrExpr();
+    if (!expr) {
+        return nullptr;
+    }
     
     while (match(Lexer::eAndAnd)) {
         Expr* right = parseBitwiseOrExpr();
@@ -231,6 +237,9 @@ Expr* Parser::parseLogicalAndExpr()
 Expr* Parser::parseBitwiseOrExpr()
 {
     Expr* expr = parseBitwiseXorExpr();
+    if (!expr) {
+        return nullptr;
+    }
     while (match(Lexer::ePipe)) {
         Expr* right = parseBitwiseXorExpr();
         if (right) {
@@ -248,6 +257,9 @@ Expr* Parser::parseBitwiseOrExpr()
 Expr* Parser::parseBitwiseXorExpr()
 {
     Expr* expr = parseBitwiseAndExpr();
+    if (!expr) {
+        return nullptr;
+    }
     while (true) {
         if (match(Lexer::eXor)) {
             Expr* right = parseBitwiseAndExpr();
@@ -269,6 +281,9 @@ Expr* Parser::parseBitwiseXorExpr()
 Expr* Parser::parseBitwiseAndExpr()
 {
     Expr* expr = parseEqualityExpr();
+    if (!expr) {
+        return nullptr;
+    }
     while (true) {
         if (match(Lexer::eAmpersand)) {
             Expr* right = parseEqualityExpr();
@@ -290,6 +305,9 @@ Expr* Parser::parseBitwiseAndExpr()
 Expr* Parser::parseEqualityExpr()
 {
     Expr* expr = parseRelationalExpr();
+    if (!expr) {
+        return nullptr;
+    }
     
     while (true) {
         if (match(Lexer::eEqualEqual)) {
@@ -321,6 +339,9 @@ Expr* Parser::parseRelationalExpr()
 {
     // 解析起始表达式（使用位移表达式，因为关系表达式优先级高于范围表达式）
     Expr* expr = parseRangeExpr();
+    if (!expr) {
+        return nullptr;
+    }
     
     while (true) {
         if (match(Lexer::eLess)) {
@@ -393,6 +414,9 @@ Expr* Parser::parseRangeExpr()
 Expr* Parser::parseShiftExpr()
 {
     Expr* expr = parseAdditiveExpr();
+    if (!expr) {
+        return nullptr;
+    }
     
     while (true) {
         if (match(Lexer::eLessLess)) {
@@ -431,6 +455,9 @@ Expr* Parser::parseShiftExpr()
 Expr* Parser::parseAdditiveExpr()
 {
     Expr* expr = parseMultiplicativeExpr();
+    if (!expr) {
+        return nullptr;
+    }
     
     while (true) {
         if (match(Lexer::ePlus)) {
@@ -461,6 +488,9 @@ Expr* Parser::parseAdditiveExpr()
 Expr* Parser::parseMultiplicativeExpr()
 {
     Expr* expr = parseExponentiationExpr();
+    if (!expr) {
+        return nullptr;
+    }
     
     while (true) {
         if (match(Lexer::eStar)) {
@@ -499,6 +529,9 @@ Expr* Parser::parseMultiplicativeExpr()
 Expr* Parser::parseExponentiationExpr()
 {
     Expr* expr = parseUnaryExpr();
+    if (!expr) {
+        return nullptr;
+    }
     
     if (match(Lexer::eCaret)) {
         Expr* right = parseExponentiationExpr();

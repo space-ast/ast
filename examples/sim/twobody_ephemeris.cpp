@@ -22,8 +22,8 @@ int main()
     std::cout << "二体预报生成星历示例 (使用 MotionProfile 接口)" << std::endl;
     std::cout << "==============================================" << std::endl;
     
-    // 创建二体运动模型
-    auto motion = MotionTwoBody::New();
+    // 创建二体运动模型（用 ScopedPtr 管理生命周期，避免泄漏）
+    ScopedPtr<MotionTwoBody> motion = MotionTwoBody::New();
     
     // 设置初始状态
     auto initialState = StateCartesian::New();

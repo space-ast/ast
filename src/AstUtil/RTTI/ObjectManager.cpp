@@ -65,6 +65,10 @@ ObjectManager &ObjectManager::CurrentInstance()
 ObjectManager::~ObjectManager()
 {
     removeAllObjects();
+    // 对象节点由管理器持有，析构时需要显式释放，否则会造成内存泄漏
+    for(auto objNode : objects_)
+        delete objNode;
+    objects_.clear();
 }
 
 Object* ObjectManager::getObject(uint32_t index)

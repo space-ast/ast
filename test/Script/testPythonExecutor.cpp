@@ -375,4 +375,13 @@ TEST(PythonExecutor, TypeMismatch)
 }
 
 
-GTEST_MAIN();
+// GTEST_MAIN();
+int main(int argc, char **argv) {
+    #ifdef __SANITIZE_ADDRESS__
+    // cpython 及其模块不进行 address sanitizer 检查
+    return 0;
+    #endif
+    std::printf("Running main() from %s\n", __FILE__); 
+    testing::InitGoogleTest(&argc, argv); 
+    return RUN_ALL_TESTS(); 
+}

@@ -44,7 +44,9 @@ public:
 
     size_t size() const { return eventObservers_.size(); }
 
-    void clear(){ eventObservers_.clear(); }
+    /// @brief 清除所有事件探测观察者
+    /// @details 与 ODEStateObserverList::clear() 行为一致，会释放观察者对象
+    void clear();
 
     void reset();
 

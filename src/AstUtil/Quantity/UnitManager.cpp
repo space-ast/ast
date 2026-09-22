@@ -151,6 +151,12 @@ UnitManager::~UnitManager()
     {
         delete unit.second;
     }
+    // siUnits_ 中缓存的是 units_ 中单位的副本，同样需要释放，否则会泄漏
+    for (auto& unit : siUnits_)
+    {
+        delete unit.second;
+    }
+    siUnits_.clear();
 }
 
 errc_t UnitManager::addUnit(const Unit& unit)

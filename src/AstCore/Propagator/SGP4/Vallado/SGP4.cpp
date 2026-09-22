@@ -1451,8 +1451,13 @@ namespace SGP4Funcs
 		#ifdef _MSC_VER
 			strcpy_s(satrec.satnumStr, 6 * sizeof(char), satn);
 		#else
-			strncpy(satrec.satnumStr, satn, sizeof(satrec.satnumStr));
-			satrec.satnumStr[sizeof(satrec.satnumStr) - 1] = '\0';
+			// ast修改: satn 可能就指向 satrec.satnumStr（twoline2rv 传入的正是它），
+			// 此时 strncpy 的源与目的重叠属于未定义行为，ASan 会报 strncpy-param-overlap
+			if(satn != satrec.satnumStr)
+			{
+				strncpy(satrec.satnumStr, satn, sizeof(satrec.satnumStr));
+				satrec.satnumStr[sizeof(satrec.satnumStr) - 1] = '\0';
+			}
 		#endif
 
 		// sgp4fix - note the following variables are also passed directly via satrec.

@@ -22,7 +22,8 @@ int main()
     
     // 创建冻结轴系：在freezeTime时刻冻结ECF轴系
     // referenceAxes指定参考轴系，用于确定变换方向
-    AxesFrozen* frozenAxes = AxesFrozen::New(ecf, freezeTime, icrf);
+    // 使用 MakeShared 返回智能指针，由它负责释放，避免对象泄漏
+    HAxesFrozen frozenAxes = AxesFrozen::MakeShared(ecf, freezeTime, icrf);
     
     printf("冻结时间: 2026-01-01 00:00:00 UTC\n");
     printf("ECF轴系: %p\n", (void*)ecf);
