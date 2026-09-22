@@ -26,6 +26,7 @@
 #include <string>
 #include <memory.h>
 #include <cstring>
+#include <new>              //  for ::operator delete
 
 AST_NAMESPACE_BEGIN
 
@@ -59,7 +60,16 @@ public:
     const char* c_str() const {
         return data_;
     }
-    
+
+    // 释放内存
+    // 注意：标识符由 IdentifierTable 变长分配（::operator new(sizeof(Identifier) + length)），
+    // 分配尺寸大于 sizeof(Identifier)，而编译器为 delete 生成的 sized deallocation
+    // 传入的尺寸是 sizeof(Identifier)，两者不符，ASan 会报 new-delete-type-mismatch。
+    // 这里提供类级 operator delete 并转发到无尺寸的全局版本。
+    // 有尺寸的版本必须一并声明：只声明无尺寸版本时，若实现仍选中全局 sized delete，问题依旧。
+    static void operator delete(void* ptr) noexcept { ::operator delete(ptr); }
+    static void operator delete(void* ptr, size_t) noexcept { ::operator delete(ptr); }
+
     // 转换为std::string
     std::string toString() const {
         return std::string(data_, length_);

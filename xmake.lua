@@ -163,7 +163,7 @@ add_requires("glu", {optional = true})                                          
 
 -- 下载并安装第三方库（可选）
 add_requires("python 3.x", {optional = true, configs = {headeronly = is_plat("linux")}})
-add_requires("swig >=4.3", {optional = true})                                   -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.3，见下方说明
+add_requires("swig >=4.3", {optional = true, asan=false})                       -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.3，见下方说明
 -- SWIG 版本要求说明：
 --   >=4.2 才支持 `enum class : type` 语法；
 --   >=4.3 才能求值本项目枚举中的初值表达式（enum class EDimension : dimension_t 的初值为constexpr 常量，
