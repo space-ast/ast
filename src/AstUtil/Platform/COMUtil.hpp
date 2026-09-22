@@ -49,20 +49,32 @@ AST_UTIL_API HRESULT aEnsureCoInitialized();
 
 
 
+/// COM 接口指针的 RAII 包装
+/// @details 只负责持有一个已经带有引用的接口指针（如 QueryInterface、CoCreateInstance 的返回值），
+///          在析构和 reset 时自动 Release。此类不做 AddRef，复制被禁用，转移所有权请用移动
 template <typename T>
 class ComScopedPtr
 {
 public:
     ComScopedPtr() = default;
-    explicit ComScopedPtr(T* p) : p_(p) { if (p_) p_->AddRef(); }
     ComScopedPtr(const ComScopedPtr&) = delete;
     ComScopedPtr& operator=(const ComScopedPtr&) = delete;
-    ComScopedPtr(ComScopedPtr&&) noexcept = default;
-    ComScopedPtr& operator=(ComScopedPtr&&) noexcept = default;
-    ~ComScopedPtr() { if (p_) p_->Release(); p_ = nullptr; }
+    ComScopedPtr(ComScopedPtr&& other) noexcept : p_(other.p_) { other.p_ = nullptr; }
+    ComScopedPtr& operator=(ComScopedPtr&& other) noexcept{std::swap(p_, other.p_); return *this;}
+    ~ComScopedPtr() { reset(); }
+
+    /// @brief 获取裸指针
+    T* get() const { return p_; }
     T* operator->() const { return p_; }
     T& operator*() const { return *p_; }
+
+    /// @brief 获取用于接收输出参数的地址，配合 IID_PPV_ARGS 使用
+    /// @warning 要求当前未持有对象，否则原对象不会被 Release，造成引用泄漏
     T** operator&() { return &p_; }
+
+    /// @brief 释放当前持有的对象
+    void reset() { if (p_) p_->Release(); p_ = nullptr; }
+
     operator bool() const { return p_ != nullptr; }
 private:
     T* p_{nullptr};

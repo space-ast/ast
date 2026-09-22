@@ -50,15 +50,13 @@ public:
     errc_t evaluate(StringView expression, ScriptResult* resultOut = nullptr) override;
     std::string getLastError() const override;
 
+    // 下面这些重载会隐藏基类同名的其他重载（含字符串字面量重载与类型护栏），需要显式引回
+    using ScriptExecutor::setVariable;
+
     errc_t setVariable(StringView name, StringView value) override;
     errc_t setVariable(StringView name, double value) override;
     errc_t setVariable(StringView name, int value) override;
     errc_t setVariable(StringView name, bool value) override;
-
-    // 防止 const char* 被隐式转换为 bool
-    errc_t setVariable(StringView name, const char* value) {
-        return setVariable(name, StringView(value));
-    }
 
     errc_t getVariable(StringView name, std::string& value) const override;
     errc_t getVariable(StringView name, double& value) const override;

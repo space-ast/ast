@@ -205,16 +205,13 @@ errc_t aActiveScriptSetVariableEx(IDispatch& pDisp, const std::wstring& name, co
 }
 
 
-bool aActiveScriptHasVariable(IDispatch* pDisp, const std::wstring& name)
+bool aActiveScriptHasVariable(IDispatch& pDisp, const std::wstring& name)
 {
     DISPID dispid = DISPID_UNKNOWN;
     const wchar_t* wname = name.c_str();
-    HRESULT hr = pDisp->GetIDsOfNames(IID_NULL, const_cast<LPOLESTR*>(&wname), 1,
+    HRESULT hr = pDisp.GetIDsOfNames(IID_NULL, const_cast<LPOLESTR*>(&wname), 1,
                                       LOCALE_USER_DEFAULT, &dispid);
-    if (FAILED(hr) || dispid == DISPID_UNKNOWN) 
-        return false;
-    else
-        return true;
+    return SUCCEEDED(hr) && dispid != DISPID_UNKNOWN;
 }
 
 

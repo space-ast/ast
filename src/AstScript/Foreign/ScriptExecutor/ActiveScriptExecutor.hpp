@@ -36,7 +36,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-#ifndef SWIG
+#if defined(AST_BUILD_LIB) && !defined(SWIG)
 errc_t aActiveScriptGetVariable(IDispatch& pDisp, const std::wstring& name, VARIANT& result);
 errc_t aActiveScriptSetVariable(IDispatch& pDisp, const std::wstring& name, const VARIANT& value);
 errc_t aActiveScriptSetVariableEx(IDispatch& pDisp, const std::wstring& name, const VARIANT& value);
