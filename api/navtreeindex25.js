@@ -1,5 +1,7 @@
 var NAVTREEINDEX25 =
 {
+"classast_1_1DataElement.html#a133eb8fe3635efc6371bbfa9c1b9fa7c":[3,0,0,205,7],
+"classast_1_1DataElement.html#a46793932a871e2d1fb24684c66c5a132":[2,0,0,206,3],
 "classast_1_1DataElement.html#a46793932a871e2d1fb24684c66c5a132":[3,0,0,205,3],
 "classast_1_1DataElement.html#a53de62f7d5e65d5ac0947721f8ca6b18":[2,0,0,206,2],
 "classast_1_1DataElement.html#a53de62f7d5e65d5ac0947721f8ca6b18":[3,0,0,205,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX25 =
 "classast_1_1DetectorAscendingNode.html":[3,0,0,248],
 "classast_1_1DetectorAscendingNode.html#a66d9128f1fd2702d80c5f85899c4678f":[2,0,0,249,0],
 "classast_1_1DetectorAscendingNode.html#a66d9128f1fd2702d80c5f85899c4678f":[3,0,0,248,0],
-"classast_1_1DetectorBodyRelated.html":[2,0,0,250],
-"classast_1_1DetectorBodyRelated.html":[3,0,0,249],
-"classast_1_1DetectorCartesian.html":[2,0,0,251]
+"classast_1_1DetectorBodyRelated.html":[2,0,0,250]
 };

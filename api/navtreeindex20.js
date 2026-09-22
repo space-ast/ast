@@ -1,5 +1,7 @@
 var NAVTREEINDEX20 =
 {
+"classast_1_1AssistantAgent.html#ad4fc910907550f53b95d6c24283a5304":[0,0,0,4],
+"classast_1_1AssistantAgent.html#ad56e30258e67f74783a8eab84a83a9fd":[0,0,0,9],
 "classast_1_1AssistantAgent.html#ad6630a75d59377d6526630a149900525":[0,0,0,16],
 "classast_1_1AssistantAgent.html#ae635dedc1de01dcb0c0d3936fc3794ed":[0,0,0,10],
 "classast_1_1AssistantAgent.html#aee02308d4829ccf66f73f03339c422c5":[0,0,0,13],
@@ -247,7 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1BlockDeadZone.html":[2,0,0,68],
 "classast_1_1BlockDeadZone.html":[3,0,0,67],
 "classast_1_1BlockDeadZone.html#a2dc00b96ddf3a757ace238de2b284d12":[2,0,0,68,1],
-"classast_1_1BlockDeadZone.html#a2dc00b96ddf3a757ace238de2b284d12":[3,0,0,67,1],
-"classast_1_1BlockDeadZone.html#a501ec3354d9899ede0a1da342d5520cb":[2,0,0,68,0],
-"classast_1_1BlockDeadZone.html#a501ec3354d9899ede0a1da342d5520cb":[3,0,0,67,0]
+"classast_1_1BlockDeadZone.html#a2dc00b96ddf3a757ace238de2b284d12":[3,0,0,67,1]
 };

@@ -6,6 +6,7 @@ var classast_1_1ActiveScriptExecutor =
     [ "execute", "classast_1_1ActiveScriptExecutor.html#a4793a68c3ad56ad32fb36062135bed2a", null ],
     [ "execute", "classast_1_1ActiveScriptExecutor.html#a8a804ac0237753f2e26369d45400ae66", null ],
     [ "finalize", "classast_1_1ActiveScriptExecutor.html#a60c7c6b7d806104c0589900828b96ac6", null ],
+    [ "getGlobal", "classast_1_1ActiveScriptExecutor.html#a312b304deabe63b6df01fd694b5c3301", null ],
     [ "getLastError", "classast_1_1ActiveScriptExecutor.html#af3cf13c8aa98b6f47904a749230914f0", null ],
     [ "getVariable", "classast_1_1ActiveScriptExecutor.html#a3356bcca66a7f572cb674fdc16e3e644", null ],
     [ "initialize", "classast_1_1ActiveScriptExecutor.html#ab29f6d23e68a0b336efb85084171b27e", null ],

@@ -1,5 +1,7 @@
 var NAVTREEINDEX43 =
 {
+"classast_1_1ScStateCalcManeuverSpecificImpulse.html":[2,0,0,772],
+"classast_1_1ScStateCalcManeuverSpecificImpulse.html":[3,0,0,771],
 "classast_1_1ScStateCalcManeuverTotalMassFlowRate.html":[2,0,0,773],
 "classast_1_1ScStateCalcManeuverTotalMassFlowRate.html":[3,0,0,772],
 "classast_1_1ScStateCalcMass.html":[2,0,0,774],
@@ -247,7 +249,5 @@ var NAVTREEINDEX43 =
 "classast_1_1Scenario.html#a6d1d4dafdac38429f13a076df9142bc2":[2,0,0,665,2],
 "classast_1_1Scenario.html#a6d1d4dafdac38429f13a076df9142bc2":[3,0,0,664,2],
 "classast_1_1Scenario.html#a6ec9d7b47cc8127819c9039e9839a1c4":[2,0,0,665,7],
-"classast_1_1Scenario.html#a6ec9d7b47cc8127819c9039e9839a1c4":[3,0,0,664,7],
-"classast_1_1Scenario.html#a7b8d62d59f200a67217604990f710298":[2,0,0,665,0],
-"classast_1_1Scenario.html#a7b8d62d59f200a67217604990f710298":[3,0,0,664,0]
+"classast_1_1Scenario.html#a6ec9d7b47cc8127819c9039e9839a1c4":[3,0,0,664,7]
 };

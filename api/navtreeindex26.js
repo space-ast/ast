@@ -1,5 +1,7 @@
 var NAVTREEINDEX26 =
 {
+"classast_1_1DetectorBodyRelated.html":[3,0,0,249],
+"classast_1_1DetectorCartesian.html":[2,0,0,251],
 "classast_1_1DetectorCartesian.html":[3,0,0,250],
 "classast_1_1DetectorCartesian.html#afe1da42284c467cd67e344a25a1fb7d5":[2,0,0,251,0],
 "classast_1_1DetectorCartesian.html#afe1da42284c467cd67e344a25a1fb7d5":[3,0,0,250,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX26 =
 "classast_1_1EphemerisBinary.html#a3497cb293796ff8bbd1b3cf6eba13262":[2,0,0,283,3],
 "classast_1_1EphemerisBinary.html#a3497cb293796ff8bbd1b3cf6eba13262":[3,0,0,282,3],
 "classast_1_1EphemerisBinary.html#a4c136d0c74869abdf084f2f86f2ced1b":[2,0,0,283,5],
-"classast_1_1EphemerisBinary.html#a4c136d0c74869abdf084f2f86f2ced1b":[3,0,0,282,5],
-"classast_1_1EphemerisBinary.html#a84730dc3ac5cffa572463b149a3c7142":[2,0,0,283,2],
-"classast_1_1EphemerisBinary.html#a84730dc3ac5cffa572463b149a3c7142":[3,0,0,282,2]
+"classast_1_1EphemerisBinary.html#a4c136d0c74869abdf084f2f86f2ced1b":[3,0,0,282,5]
 };
