@@ -1,4 +1,4 @@
-#include "ComInit.hpp"
+#include "COMUtil.hpp"
 
 AST_NAMESPACE_BEGIN
 

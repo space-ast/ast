@@ -5,7 +5,7 @@
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Logger.hpp"
-#include "AstUtil/ComInit.hpp"
+#include "AstUtil/COMUtil.hpp"
 #include "AstUtil/Encode.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/ShellCOMUtils.hpp"

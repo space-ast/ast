@@ -24,7 +24,7 @@
 #include "AstUtil/ParseFormat.hpp"
 #include "VBScriptExecutor.hpp"
 
-#if  !defined _WIN32
+#if !defined(_WIN32)
 
 AST_NAMESPACE_BEGIN
 
@@ -65,7 +65,7 @@ AST_NAMESPACE_END
 
 #include "AstUtil/Encode.hpp"
 #include "AstUtil/LibraryLoader.hpp"
-#include "AstUtil/ComInit.hpp"
+#include "AstUtil/COMUtil.hpp"
 #include "AstCOM/COMAPI.hpp"
 #include "ActiveScriptGlobalFunctions.inl"
 #include <comdef.h>
@@ -89,15 +89,33 @@ AST_NAMESPACE_END
 namespace {
 
 // 将 BSTR 安全地转为 UTF-8 字符串
-std::string fromBSTR(BSTR bstr);
-// 从 IDispatch 读取指定属性
-bool getScriptVariable(IDispatch* pDisp, const std::wstring& name, VARIANT& result);
-// 向 IDispatch 写入指定属性
-bool setScriptVariable(IDispatch* pDisp, const std::wstring& name, const VARIANT& value);
-// 使用 IDispatchEx 设置全局变量，若不存在会自动创建
-bool setScriptVariableByEx(IDispatch* pGlobalDisp, const std::wstring& name, const VARIANT& value);
+std::string fromBSTR(BSTR bstr)
+{
+    if (!bstr) return {};
+    int len = WideCharToMultiByte(CP_UTF8, 0, bstr, -1, nullptr, 0, nullptr, nullptr);
+    if (len <= 0) return {};
+    std::string s(len - 1, '\0');
+    WideCharToMultiByte(CP_UTF8, 0, bstr, -1, &s[0], len, nullptr, nullptr);
+    return s;
+}
+
+// 解析根对象Dispatch接口
+IUnknown* resolveRootDispatch()
+{
+    AST_USING_NAMESPACE
+    using FuncType = decltype(&aComObjectRoot);
+    FuncType func = (FuncType)aResolveProcAddress(AST_LIB_LINKNAME("AstCOM"), A_STR(aComObjectRoot));
+    if (func)
+        return func();
+    return nullptr;
+}
+
 // 获取根对象的Dispatch接口
-IUnknown* rootDispatch();
+IUnknown* rootDispatch()
+{
+    static IUnknown* pRootDisp = resolveRootDispatch();
+    return pRootDisp;
+}
 }
 
 #define _AST_ACTIVE_SCRIPT_NOT_INITIALIZED "script executor is not initialized."
@@ -107,6 +125,97 @@ constexpr const wchar_t* kGlobalFunctionsItemName = L"GlobalFunctions"; ///< 命
 
 AST_NAMESPACE_BEGIN
 
+
+
+errc_t aActiveScriptGetVariable(IDispatch& pDisp, const std::wstring& name, VARIANT& result)
+{
+    DISPID dispid = DISPID_UNKNOWN;
+    const wchar_t* wname = name.c_str();
+    HRESULT hr = pDisp.GetIDsOfNames(IID_NULL, const_cast<LPOLESTR*>(&wname), 1,
+                                      LOCALE_USER_DEFAULT, &dispid);
+    if (FAILED(hr) || dispid == DISPID_UNKNOWN) return eErrorNotFound;
+
+    DISPPARAMS params = { nullptr, nullptr, 0, 0 };
+    hr = pDisp.Invoke(dispid, IID_NULL, LOCALE_USER_DEFAULT,
+                       DISPATCH_PROPERTYGET, &params, &result, nullptr, nullptr);
+    return SUCCEEDED(hr) ? eNoError: eError;
+}
+
+errc_t aActiveScriptSetVariable(IDispatch& pDisp, const std::wstring& name, const VARIANT& value)
+{
+    DISPID dispid = DISPID_UNKNOWN;
+    const wchar_t* wname = name.c_str();
+    HRESULT hr = pDisp.GetIDsOfNames(IID_NULL, const_cast<LPOLESTR*>(&wname), 1,
+                                      LOCALE_USER_DEFAULT, &dispid);
+    if (FAILED(hr) || dispid == DISPID_UNKNOWN) return eErrorNotFound;
+
+    // 对于属性赋值，需要将 value 放入参数数组，并标记命名参数 DISPID_PROPERTYPUT
+    VARIANT v;
+    VariantInit(&v);
+    hr = VariantCopyInd(&v, const_cast<VARIANTARG*>(&value));
+    if (FAILED(hr)) return eErrorInvalidParam;
+
+    DISPID dispidNamed = DISPID_PROPERTYPUT;
+    DISPPARAMS params = { &v, &dispidNamed, 1, 1 };
+    hr = pDisp.Invoke(dispid, IID_NULL, LOCALE_USER_DEFAULT,
+                       DISPATCH_PROPERTYPUT, &params, nullptr, nullptr, nullptr);
+    VariantClear(&v);
+    return SUCCEEDED(hr) ? eNoError: eError;
+}
+
+errc_t aActiveScriptSetVariableEx(IDispatch& pDisp, const std::wstring& name, const VARIANT& value)
+{
+    // 1. 查询 IDispatchEx
+    ComScopedPtr<IDispatchEx> pDispEx;
+    HRESULT hr = pDisp.QueryInterface(IID_PPV_ARGS(&pDispEx));
+    if (FAILED(hr) || !pDispEx)
+    {
+        aWarning(_("脚本不支持 IDispatchEx 接口，尝试使用 IDispatch 接口"));
+        return aActiveScriptSetVariable(pDisp, name, value);
+    }
+
+    // 2. 获取或创建属性的 DISPID
+    /// @bug `pDispEx->GetDispID` 这个逻辑在低版本的jscript动态库中执行会报错 
+    DISPID dispid = DISPID_UNKNOWN;
+    hr = pDispEx->GetDispID(const_cast<BSTR>(name.c_str()), fdexNameEnsure, &dispid);
+    if (FAILED(hr) || dispid == DISPID_UNKNOWN)
+    {
+        return eErrorNotFound;
+    }
+
+    // 3. 准备参数（属性赋值需要 DISPID_PROPERTYPUT）
+    VARIANT v;
+    VariantInit(&v);
+    hr = VariantCopyInd(&v, const_cast<VARIANTARG*>(&value));  // 深拷贝
+    if (FAILED(hr))
+    {
+        return eErrorInvalidParam;
+    }
+
+    DISPID dispidNamed = DISPID_PROPERTYPUT;
+    DISPPARAMS params = { &v, &dispidNamed, 1, 1 };
+
+    // 4. 通过 InvokeEx 设置属性值
+    hr = pDispEx->InvokeEx(dispid, LOCALE_USER_DEFAULT,
+                           DISPATCH_PROPERTYPUT,
+                           &params, nullptr, nullptr, nullptr);
+
+    VariantClear(&v);
+    return SUCCEEDED(hr) ? eNoError: eError;
+}
+
+
+bool aActiveScriptHasVariable(IDispatch* pDisp, const std::wstring& name)
+{
+    DISPID dispid = DISPID_UNKNOWN;
+    const wchar_t* wname = name.c_str();
+    HRESULT hr = pDisp->GetIDsOfNames(IID_NULL, const_cast<LPOLESTR*>(&wname), 1,
+                                      LOCALE_USER_DEFAULT, &dispid);
+    if (FAILED(hr) || dispid == DISPID_UNKNOWN) 
+        return false;
+    else
+        return true;
+}
 
 
 void VariantToValue(const VARIANT& v, SharedPtr<Value>& value)
@@ -495,6 +604,11 @@ void ActiveScriptExecutor::setProgID(const wchar_t* progId)
         impl_->progId = progId;
 }
 
+struct IDispatch* ActiveScriptExecutor::getGlobal() const
+{
+    return impl_->pGlobal;
+}
+
 errc_t ActiveScriptExecutor::initialize()
 {
     if (!impl_) return ERR_FAIL;
@@ -538,9 +652,9 @@ errc_t ActiveScriptExecutor::setVariable(StringView name, StringView value)
     VARIANT v; VariantInit(&v);
     v.vt = VT_BSTR;
     v.bstrVal = SysAllocString(wval.c_str());
-    bool ok = setScriptVariableByEx(impl_->pGlobal, wname, v);
+    errc_t rc = aActiveScriptSetVariableEx(*impl_->pGlobal, wname, v);
     VariantClear(&v);
-    return ok ? ERR_OK : ERR_FAIL;
+    return rc;
 }
 
 errc_t ActiveScriptExecutor::setVariable(StringView name, double value)
@@ -550,8 +664,7 @@ errc_t ActiveScriptExecutor::setVariable(StringView name, double value)
     VARIANT v; VariantInit(&v);
     v.vt = VT_R8;
     v.dblVal = value;
-    bool ok = setScriptVariableByEx(impl_->pGlobal, wname, v);
-    return ok ? ERR_OK : ERR_FAIL;
+    return aActiveScriptSetVariableEx(*impl_->pGlobal, wname, v);
 }
 
 errc_t ActiveScriptExecutor::setVariable(StringView name, int value)
@@ -561,8 +674,7 @@ errc_t ActiveScriptExecutor::setVariable(StringView name, int value)
     VARIANT v; VariantInit(&v);
     v.vt = VT_I4;
     v.lVal = value;
-    bool ok = setScriptVariableByEx(impl_->pGlobal, wname, v);
-    return ok ? ERR_OK : ERR_FAIL;
+    return aActiveScriptSetVariableEx(*impl_->pGlobal, wname, v);
 }
 
 errc_t ActiveScriptExecutor::setVariable(StringView name, bool value)
@@ -572,58 +684,9 @@ errc_t ActiveScriptExecutor::setVariable(StringView name, bool value)
     VARIANT v; VariantInit(&v);
     v.vt = VT_BOOL;
     v.boolVal = value ? VARIANT_TRUE : VARIANT_FALSE;
-    bool ok = setScriptVariableByEx(impl_->pGlobal, wname, v);
-    return ok ? ERR_OK : ERR_FAIL;
+    return aActiveScriptSetVariableEx(*impl_->pGlobal, wname, v);
 }
 
-static errc_t setVBVariableByLiteral(VBScriptExecutor& exec, StringView name, StringView literal)
-{
-    std::string varname = std::string(name);
-    std::string cmd = "Dim " + varname + "\n" + varname + " = " + std::string(literal) + "\n";
-    return exec.execute(cmd);
-}
-
-
-errc_t VBScriptExecutor::setVariable(StringView name, StringView value)
-{
-    errc_t rc = execute("Dim " + std::string(name) + "\n");
-    if(rc != ERR_OK)
-        return rc;
-    // 字符串在使用Dim声明后，使用setScriptVariable设置值，避免字符串转义等复杂问题
-    std::wstring wname = aUtf8ToWide(name);
-    std::wstring wval  = aUtf8ToWide(value);
-    VARIANT v; VariantInit(&v);
-    v.vt = VT_BSTR;
-    v.bstrVal = SysAllocString(wval.c_str());
-    bool ok = setScriptVariable(impl_->pGlobal, wname, v);
-    VariantClear(&v);
-    return ok ? ERR_OK : ERR_FAIL;
-}
-
-
-errc_t VBScriptExecutor::setVariable(StringView name, double value)
-{
-    errc_t rc = execute("Dim " + std::string(name) + "\n");
-    if(rc != ERR_OK)
-        return rc;
-    // 浮点数在使用Dim声明后，使用setScriptVariable设置值，避免nan、inf等边界问题
-    std::wstring wname = aUtf8ToWide(name);
-    VARIANT v; VariantInit(&v);
-    v.vt = VT_R8;
-    v.dblVal = value;
-    bool ok = setScriptVariable(impl_->pGlobal, wname, v);
-    return ok ? ERR_OK : ERR_FAIL;    
-}
-
-errc_t VBScriptExecutor::setVariable(StringView name, int value)
-{
-    return setVBVariableByLiteral(*this, name, aFormatInt(value));
-}
-errc_t VBScriptExecutor::setVariable(StringView name, bool value)
-{
-    const char* boolLiteral = value ? "True" : "False";
-    return setVBVariableByLiteral(*this, name, boolLiteral);
-}
 
 // ---------- getVariable 重载 ----------
 errc_t ActiveScriptExecutor::getVariable(StringView name, std::string& value) const
@@ -631,8 +694,8 @@ errc_t ActiveScriptExecutor::getVariable(StringView name, std::string& value) co
     if (!impl_ || !impl_->pGlobal) return ERR_FAIL;
     std::wstring wname = aUtf8ToWide(name);
     VARIANT v; VariantInit(&v);
-    if (!getScriptVariable(impl_->pGlobal, wname, v))
-        return ERR_FAIL;
+    if (errc_t rc = aActiveScriptGetVariable(*impl_->pGlobal, wname, v))
+        return rc;
     if (v.vt == VT_BSTR)
         value = fromBSTR(v.bstrVal);
     else
@@ -655,8 +718,8 @@ errc_t ActiveScriptExecutor::getVariable(StringView name, double& value) const
     if (!impl_ || !impl_->pGlobal) return ERR_FAIL;
     std::wstring wname = aUtf8ToWide(name);
     VARIANT v; VariantInit(&v);
-    if (!getScriptVariable(impl_->pGlobal, wname, v))
-        return ERR_FAIL;
+    if (errc_t rc = aActiveScriptGetVariable(*impl_->pGlobal, wname, v))
+        return rc;
     HRESULT hr = VariantChangeType(&v, &v, 0, VT_R8);
     if (FAILED(hr)) { VariantClear(&v); return ERR_FAIL; }
     value = v.dblVal;
@@ -669,8 +732,8 @@ errc_t ActiveScriptExecutor::getVariable(StringView name, int& value) const
     if (!impl_ || !impl_->pGlobal) return ERR_FAIL;
     std::wstring wname = aUtf8ToWide(name);
     VARIANT v; VariantInit(&v);
-    if (!getScriptVariable(impl_->pGlobal, wname, v))
-        return ERR_FAIL;
+    if (errc_t rc = aActiveScriptGetVariable(*impl_->pGlobal, wname, v))
+        return rc;
     HRESULT hr = VariantChangeType(&v, &v, 0, VT_I4);
     if (FAILED(hr)) { VariantClear(&v); return ERR_FAIL; }
     value = v.lVal;
@@ -683,8 +746,8 @@ errc_t ActiveScriptExecutor::getVariable(StringView name, bool& value) const
     if (!impl_ || !impl_->pGlobal) return ERR_FAIL;
     std::wstring wname = aUtf8ToWide(name);
     VARIANT v; VariantInit(&v);
-    if (!getScriptVariable(impl_->pGlobal, wname, v))
-        return ERR_FAIL;
+    if (errc_t rc = aActiveScriptGetVariable(*impl_->pGlobal, wname, v))
+        return rc;
     HRESULT hr = VariantChangeType(&v, &v, 0, VT_BOOL);
     if (FAILED(hr)) { VariantClear(&v); return ERR_FAIL; }
     value = (v.boolVal == VARIANT_TRUE);
@@ -694,122 +757,6 @@ errc_t ActiveScriptExecutor::getVariable(StringView name, bool& value) const
 
 AST_NAMESPACE_END
 
-// ---------- 匿名空间辅助函数实现 ----------
-namespace {
-
-
-
-std::string fromBSTR(BSTR bstr)
-{
-    if (!bstr) return {};
-    int len = WideCharToMultiByte(CP_UTF8, 0, bstr, -1, nullptr, 0, nullptr, nullptr);
-    if (len <= 0) return {};
-    std::string s(len - 1, '\0');
-    WideCharToMultiByte(CP_UTF8, 0, bstr, -1, &s[0], len, nullptr, nullptr);
-    return s;
-}
-
-bool getScriptVariable(IDispatch* pDisp, const std::wstring& name, VARIANT& result)
-{
-    DISPID dispid;
-    const wchar_t* wname = name.c_str();
-    HRESULT hr = pDisp->GetIDsOfNames(IID_NULL, const_cast<LPOLESTR*>(&wname), 1,
-                                      LOCALE_USER_DEFAULT, &dispid);
-    if (FAILED(hr)) return false;
-
-    DISPPARAMS params = { nullptr, nullptr, 0, 0 };
-    hr = pDisp->Invoke(dispid, IID_NULL, LOCALE_USER_DEFAULT,
-                       DISPATCH_PROPERTYGET, &params, &result, nullptr, nullptr);
-    return SUCCEEDED(hr);
-}
-
-bool setScriptVariable(IDispatch* pDisp, const std::wstring& name, const VARIANT& value)
-{
-    DISPID dispid;
-    const wchar_t* wname = name.c_str();
-    HRESULT hr = pDisp->GetIDsOfNames(IID_NULL, const_cast<LPOLESTR*>(&wname), 1,
-                                      LOCALE_USER_DEFAULT, &dispid);
-    if (FAILED(hr)) return false;
-
-    // 对于属性赋值，需要将 value 放入参数数组，并标记命名参数 DISPID_PROPERTYPUT
-    VARIANT v;
-    VariantInit(&v);
-    hr = VariantCopyInd(&v, const_cast<VARIANTARG*>(&value));
-    if (FAILED(hr)) return false;
-
-    DISPID dispidNamed = DISPID_PROPERTYPUT;
-    DISPPARAMS params = { &v, &dispidNamed, 1, 1 };
-    hr = pDisp->Invoke(dispid, IID_NULL, LOCALE_USER_DEFAULT,
-                       DISPATCH_PROPERTYPUT, &params, nullptr, nullptr, nullptr);
-    VariantClear(&v);
-    return SUCCEEDED(hr);
-}
-
-
-// 使用 IDispatchEx 设置全局变量，若不存在会自动创建
-bool setScriptVariableByEx(IDispatch* pGlobalDisp, const std::wstring& name, const VARIANT& value)
-{
-    if (!pGlobalDisp) return false;
-
-    // 1. 查询 IDispatchEx（JScript 全局对象一定支持）
-    IDispatchEx* pDispEx = nullptr;
-    HRESULT hr = pGlobalDisp->QueryInterface(IID_IDispatchEx,
-                                             (void**)&pDispEx);
-    if (FAILED(hr) || !pDispEx) return false;
-
-    // 2. 获取或创建属性的 DISPID
-    /// @bug `pDispEx->GetDispID` 这个逻辑在低版本的jscript动态库中执行会报错 
-    DISPID dispid;
-    hr = pDispEx->GetDispID(const_cast<BSTR>(name.c_str()), fdexNameEnsure, &dispid);
-    if (FAILED(hr))
-    {
-        pDispEx->Release();
-        return false;
-    }
-
-    // 3. 准备参数（属性赋值需要 DISPID_PROPERTYPUT）
-    VARIANT v;
-    VariantInit(&v);
-    hr = VariantCopyInd(&v, const_cast<VARIANTARG*>(&value));  // 深拷贝
-    if (FAILED(hr))
-    {
-        pDispEx->Release();
-        return false;
-    }
-
-    DISPID dispidNamed = DISPID_PROPERTYPUT;
-    DISPPARAMS params = { &v, &dispidNamed, 1, 1 };
-
-    // 4. 通过 InvokeEx 设置属性值
-    hr = pDispEx->InvokeEx(dispid, LOCALE_USER_DEFAULT,
-                           DISPATCH_PROPERTYPUT,
-                           &params, nullptr, nullptr, nullptr);
-
-    VariantClear(&v);
-    pDispEx->Release();
-    return SUCCEEDED(hr);
-}
-
-// 解析根对象Dispatch接口
-IUnknown* _resolveRootDispatch()
-{
-    AST_USING_NAMESPACE
-    using FuncType = decltype(&aComObjectRoot);
-    FuncType func = (FuncType)aResolveProcAddress(AST_LIB_LINKNAME("AstCOM"), A_STR(aComObjectRoot));
-    if (func)
-        return func();
-    return nullptr;
-}
-
-// 获取根对象的Dispatch接口
-IUnknown* rootDispatch()
-{
-    static IUnknown* pRootDisp = _resolveRootDispatch();
-    return pRootDisp;
-}
-
-
-} // anonymous namespace
 
 #undef ERR_FAIL
 #undef ERR_OK

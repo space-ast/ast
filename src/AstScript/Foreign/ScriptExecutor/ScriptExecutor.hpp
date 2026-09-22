@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstScript/Value.hpp"
 #include <string>
+#include <type_traits>
 
 AST_NAMESPACE_BEGIN
 
@@ -127,7 +128,15 @@ public:
     virtual errc_t setVariable(StringView name, double value) = 0;
     virtual errc_t setVariable(StringView name, int value) = 0;
     virtual errc_t setVariable(StringView name, bool value) = 0;
+    errc_t setVariable(StringView name, const char* value){return setVariable(name, StringView(value));}
+    errc_t setVariable(StringView name, const std::string& value){return setVariable(name, StringView(value));}
     errc_t setVariable(Variable* var);
+
+    // 拦截 float、long、各种指针等无法匹配上述重载、却会被隐式转换悄悄接受下来的类型，让调用错误在编译期暴露出来
+    // 注意：不能连可转换为 StringView 的类型一起拦。除了 std::string，
+    //      SWIG 生成的包装代码会把参数写成 SwigValueWrapper<StringView>
+    template <typename T, typename = typename std::enable_if<!std::is_convertible<T, StringView>::value>::type>
+    errc_t setVariable(StringView name, T value) = delete;
 
     /// @brief 获取脚本执行器的字符串变量值
     /// @param name 变量名称

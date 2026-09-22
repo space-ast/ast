@@ -19,6 +19,13 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "JScriptExecutor.hpp"
+#include "AstUtil/StringView.hpp"
+
+#ifdef _WIN32
+#include <Windows.h>
+#include <activscp.h>
+#endif
+
 
 AST_NAMESPACE_BEGIN
 
@@ -26,6 +33,86 @@ JScriptExecutor::JScriptExecutor()
     : ActiveScriptExecutor(L"JScript")
 {
 }
+
+
+#if defined _WIN32
+
+
+errc_t JScriptExecutor::setVariable(StringView name, StringView value)
+{
+    auto global = getGlobal();
+    if (!global) return eErrorNullPtr;
+
+    errc_t rc = execute("var " + std::string(name) + "\n");
+    if(rc != eNoError)
+        return rc;
+
+    std::wstring wname = aUtf8ToWide(name);
+    std::wstring wval  = aUtf8ToWide(value);
+    VARIANT v; VariantInit(&v);
+    v.vt = VT_BSTR;
+    v.bstrVal = SysAllocString(wval.c_str());
+    rc = aActiveScriptSetVariable(*global, wname, v);
+    VariantClear(&v);
+    return rc;
+}
+
+errc_t JScriptExecutor::setVariable(StringView name, double value)
+{
+    auto global = getGlobal();
+    if (!global) return eErrorNullPtr;
+
+    errc_t rc = execute("var " + std::string(name) + "\n");
+    if(rc != eNoError)
+        return rc;
+
+    std::wstring wname = aUtf8ToWide(name);
+    VARIANT v; VariantInit(&v);
+    v.vt = VT_R8;
+    v.dblVal = value;
+    rc = aActiveScriptSetVariable(*global, wname, v);
+    VariantClear(&v);
+    return rc;
+
+}
+errc_t JScriptExecutor::setVariable(StringView name, int value)
+{
+    auto global = getGlobal();
+    if (!global) return eErrorNullPtr;
+
+    errc_t rc = execute("var " + std::string(name) + "\n");
+    if(rc != eNoError)
+        return rc;
+
+    std::wstring wname = aUtf8ToWide(name);
+    VARIANT v; VariantInit(&v);
+    v.vt = VT_I4;
+    v.lVal = value;
+    rc = aActiveScriptSetVariable(*global, wname, v);
+    VariantClear(&v);
+    return rc;
+}
+
+errc_t JScriptExecutor::setVariable(StringView name, bool value)
+{
+    auto global = getGlobal();
+    if (!global) return eErrorNullPtr;
+
+    errc_t rc = execute("var " + std::string(name) + "\n");
+    if(rc != eNoError)
+        return rc;
+
+    std::wstring wname = aUtf8ToWide(name);
+    VARIANT v; VariantInit(&v);
+    v.vt = VT_BOOL;
+    v.boolVal = value;
+    rc = aActiveScriptSetVariable(*global, wname, v);
+    VariantClear(&v);
+    return rc;
+}
+
+
+#endif
 
 AST_NAMESPACE_END
 

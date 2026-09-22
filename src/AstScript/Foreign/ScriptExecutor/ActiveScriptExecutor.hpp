@@ -24,6 +24,11 @@
 #include "ScriptExecutor.hpp"
 #include <memory>
 
+
+struct IDispatch;
+typedef struct tagVARIANT VARIANT;
+
+
 AST_NAMESPACE_BEGIN
 
 /*!
@@ -31,7 +36,12 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-
+#ifndef SWIG
+errc_t aActiveScriptGetVariable(IDispatch& pDisp, const std::wstring& name, VARIANT& result);
+errc_t aActiveScriptSetVariable(IDispatch& pDisp, const std::wstring& name, const VARIANT& value);
+errc_t aActiveScriptSetVariableEx(IDispatch& pDisp, const std::wstring& name, const VARIANT& value);
+bool   aActiveScriptHasVariable(IDispatch& pDisp, const std::wstring& name);
+#endif
 
 /// @brief 微软Active系列脚本执行器
 /// @details 用于执行微软Active系列脚本: JScriptScript、JScript 等 
@@ -57,6 +67,9 @@ public:
     errc_t evaluate(StringView expression, ScriptResult* resultOut=nullptr) override;
     std::string getLastError() const override;
 
+    // 下面这些重载会隐藏基类同名的其他重载（含字符串字面量重载），需要显式引回
+    using ScriptExecutor::setVariable;
+
     errc_t setVariable(StringView name, StringView value) override;
     errc_t setVariable(StringView name, double value) override;
     errc_t setVariable(StringView name, int value) override;
@@ -71,6 +84,8 @@ protected:
     /// 设置脚本引擎 ProgID（由子类如 JScriptExecutor 在构造时调用）
     void setProgID(const wchar_t* progId);
 
+    /// @brief 获取脚本的全局根对象
+    IDispatch* getGlobal() const;
 protected:
     std::unique_ptr<Impl> impl_; // 隐藏 COM 对象与状态
 };

@@ -1,8 +1,7 @@
 ///
-/// @file      ComInit.hpp
-/// @brief     COM 初始化工具
-/// @details   提供 RAII 风格的 COM 初始化和释放守卫，以及线程局部 COM 初始化函数。
-///           从 ActiveScriptExecutor.cpp 中抽取，供 Shell COM 等模块复用。
+/// @file      COMUtil.hpp
+/// @brief     COM 工具
+/// @details   
 /// @author    axel
 /// @date      2026-07-25
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -47,6 +46,27 @@ public:
 /// @details 使用 thread_local 静态守卫，每个线程仅初始化一次（STA 模式）
 /// @return S_OK 表示成功，否则返回失败 HRESULT
 AST_UTIL_API HRESULT aEnsureCoInitialized();
+
+
+
+template <typename T>
+class ComScopedPtr
+{
+public:
+    ComScopedPtr() = default;
+    explicit ComScopedPtr(T* p) : p_(p) { if (p_) p_->AddRef(); }
+    ComScopedPtr(const ComScopedPtr&) = delete;
+    ComScopedPtr& operator=(const ComScopedPtr&) = delete;
+    ComScopedPtr(ComScopedPtr&&) noexcept = default;
+    ComScopedPtr& operator=(ComScopedPtr&&) noexcept = default;
+    ~ComScopedPtr() { if (p_) p_->Release(); p_ = nullptr; }
+    T* operator->() const { return p_; }
+    T& operator*() const { return *p_; }
+    T** operator&() { return &p_; }
+    operator bool() const { return p_ != nullptr; }
+private:
+    T* p_{nullptr};
+};
 
 #else
 
