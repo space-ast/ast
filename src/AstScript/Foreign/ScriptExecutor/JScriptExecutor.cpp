@@ -105,7 +105,9 @@ errc_t JScriptExecutor::setVariable(StringView name, bool value)
     std::wstring wname = aUtf8ToWide(name);
     VARIANT v; VariantInit(&v);
     v.vt = VT_BOOL;
-    v.boolVal = value;
+    // 必须写入规范的 VARIANT_TRUE/VARIANT_FALSE(-1/0)：C++ 的 bool 隐式转成 short 只会得到 1，
+    // 而 1 不是规范的 VARIANT_TRUE。部分 jscript.dll（如 Server 2022 上的旧版本）会把它原样存回。
+    v.boolVal = value ? VARIANT_TRUE : VARIANT_FALSE;
     rc = aActiveScriptSetVariable(*global, wname, v);
     VariantClear(&v);
     return rc;

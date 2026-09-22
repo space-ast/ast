@@ -230,7 +230,7 @@ void VariantToValue(const VARIANT& v, SharedPtr<Value>& value)
         break;
     
     case VT_BOOL:
-        value = aNewValueBool(v.boolVal != 0);
+        value = aNewValueBool(v.boolVal != VARIANT_FALSE);
         break;
     
     case VT_I1:
@@ -750,7 +750,10 @@ errc_t ActiveScriptExecutor::getVariable(StringView name, bool& value) const
         return rc;
     HRESULT hr = VariantChangeType(&v, &v, 0, VT_BOOL);
     if (FAILED(hr)) { VariantClear(&v); return ERR_FAIL; }
-    value = (v.boolVal == VARIANT_TRUE);
+    // 按 OLE 约定，VARIANT_BOOL 只要非 0 即为真。这里不能写成 `== VARIANT_TRUE`：
+    // 当 vt 已是 VT_BOOL 时 VariantChangeType 是原样拷贝、不做归一化，
+    // 引擎若返回非规范的 1，`== VARIANT_TRUE(-1)` 会把 true 误判成 false。
+    value = (v.boolVal != VARIANT_FALSE);
     VariantClear(&v);
     return ERR_OK;
 }
