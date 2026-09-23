@@ -155,6 +155,8 @@ jobs:
       # ── 正式发布：GitHub / Gitee / GitCode ────────────────────────────
       # 三个平台的发布 action 都按文件名（basename）上传、不支持上传时改名，
       # 所以先在本地复制出带版本号的副本，三边共用同一份 files glob。
+      # Gitee/GitCode 那两步额外加 preserve_order（串行上传）：跨境实测只有 20–90 KB/s，
+      # 同一个 job 里两路并发会把链路对半分，两个文件都拖得更久、也都更容易被掐断。
       - name: 准备发布产物-二进制包
         if: github.event.action == 'published'
         shell: bash
@@ -178,6 +180,7 @@ jobs:
         if: github.event.action == 'published'
         continue-on-error: true  # 失败也不影响后续步骤
         uses: space-ast/action-git-release@v1
+        timeout-minutes: 355
         with:
           platform: gitee
           repository: space-ast/ast
@@ -187,11 +190,13 @@ jobs:
           body: ${{ github.event.release.body }}
           files: release-assets/*.zip
           fail_on_unmatched_files: 'true'
+          preserve_order: 'true'
 
       - name: 同步发布-二进制包到 GitCode
         if: github.event.action == 'published'
         continue-on-error: true  # 失败也不影响后续步骤
         uses: space-ast/action-git-release@v1
+        timeout-minutes: 355
         with:
           platform: gitcode
           repository: space-ast/ast
@@ -201,6 +206,7 @@ jobs:
           body: ${{ github.event.release.body }}
           files: release-assets/*.zip
           fail_on_unmatched_files: 'true'
+          preserve_order: 'true'
 
       # ── nightly 预发布：GitHub / Gitee / GitCode ──────────────────────
       # nightly 用固定的 nightly 标签反复覆盖，所以每次都按文件名覆盖同名附件
@@ -229,6 +235,7 @@ jobs:
         if: needs.nightly-guard.outputs.ok == 'true'
         continue-on-error: true  # 失败也不影响后续步骤
         uses: space-ast/action-git-release@v1
+        timeout-minutes: 355
         with:
           platform: gitee
           repository: space-ast/ast
@@ -240,11 +247,13 @@ jobs:
           files: nightly-assets/*.zip
           overwrite_files: 'true'
           fail_on_unmatched_files: 'true'
+          preserve_order: 'true'
 
       - name: 更新 nightly 到 GitCode
         if: needs.nightly-guard.outputs.ok == 'true'
         continue-on-error: true  # 失败也不影响后续步骤
         uses: space-ast/action-git-release@v1
+        timeout-minutes: 355
         with:
           platform: gitcode
           repository: space-ast/ast
@@ -256,6 +265,7 @@ jobs:
           files: nightly-assets/*.zip
           overwrite_files: 'true'
           fail_on_unmatched_files: 'true'
+          preserve_order: 'true'
 
       - name: 恢复归档测试用例
         shell: bash
@@ -416,6 +426,8 @@ jobs:
       # ── 正式发布：GitHub / Gitee / GitCode ────────────────────────────
       # 三个平台的发布 action 都按文件名（basename）上传、不支持上传时改名，
       # 所以先在本地复制出带版本号的副本，三边共用同一份 files glob。
+      # Gitee/GitCode 那两步额外加 preserve_order（串行上传）：跨境实测只有 20–90 KB/s，
+      # 同一个 job 里两路并发会把链路对半分，两个文件都拖得更久、也都更容易被掐断。
       - name: 准备发布产物-linux
         if: github.event.action == 'published'
         shell: bash
@@ -445,6 +457,7 @@ jobs:
         if: github.event.action == 'published'
         continue-on-error: true  # 失败也不影响后续步骤
         uses: space-ast/action-git-release@v1
+        timeout-minutes: 355
         with:
           platform: gitee
           repository: space-ast/ast
@@ -454,11 +467,13 @@ jobs:
           body: ${{ github.event.release.body }}
           files: release-assets/*
           fail_on_unmatched_files: 'true'
+          preserve_order: 'true'
 
       - name: 同步发布-linux 产物到 GitCode
         if: github.event.action == 'published'
         continue-on-error: true  # 失败也不影响后续步骤
         uses: space-ast/action-git-release@v1
+        timeout-minutes: 355
         with:
           platform: gitcode
           repository: space-ast/ast
@@ -468,6 +483,7 @@ jobs:
           body: ${{ github.event.release.body }}
           files: release-assets/*
           fail_on_unmatched_files: 'true'
+          preserve_order: 'true'
 
       # ── nightly 预发布：GitHub / Gitee / GitCode ──────────────────────
       - name: 准备 nightly 产物-linux
@@ -499,6 +515,7 @@ jobs:
         if: needs.nightly-guard.outputs.ok == 'true'
         continue-on-error: true  # 失败也不影响后续步骤
         uses: space-ast/action-git-release@v1
+        timeout-minutes: 355
         with:
           platform: gitee
           repository: space-ast/ast
@@ -510,11 +527,13 @@ jobs:
           files: nightly-assets/*
           overwrite_files: 'true'
           fail_on_unmatched_files: 'true'
+          preserve_order: 'true'
 
       - name: 更新 nightly 到 GitCode
         if: needs.nightly-guard.outputs.ok == 'true'
         continue-on-error: true  # 失败也不影响后续步骤
         uses: space-ast/action-git-release@v1
+        timeout-minutes: 355
         with:
           platform: gitcode
           repository: space-ast/ast
@@ -526,6 +545,7 @@ jobs:
           files: nightly-assets/*
           overwrite_files: 'true'
           fail_on_unmatched_files: 'true'
+          preserve_order: 'true'
 
       - name: 测试
         timeout-minutes: 90

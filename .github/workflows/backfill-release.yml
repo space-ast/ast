@@ -1,0 +1,124 @@
+name: 补发 Gitee / GitCode Release
+
+# GitHub 上的 release 发出去之后，Gitee / GitCode 那两个镜像仓库里往往是残缺的，
+# 这里负责事后补齐。之所以要事后补而不是发布时顺手同步，有两个原因：
+#
+#   带宽   跨境上传实测只有 20–90 KB/s，一个 34MB 的包要传十几分钟；而发布 run 的
+#          矩阵里 5 个 job 会同时往同一个 release 塞十几个附件，单条连接分到的带宽
+#          更少，往往是传了一半就被掐断。
+#
+#   镜像   space-ast/ast 在 Gitee 与 GitCode 上都是「拉取镜像仓库」，镜像状态无法保证实时同步。
+#          建 release 时 tag 要是还没同步过来，平台会顺手把 tag 建出来：GitCode 那边
+#          被镜像规则直接拒掉（`not allowed because the repository is an image
+#          repository`），Gitee 那边则会在镜像之外造出一个分叉 tag。
+#          所以两个平台都得等镜像把 tag 同步过来再补。
+#
+# 判断「缺哪些附件」这段两个平台共用的逻辑在 scripts/ci/find-release-gaps.sh 里，
+# 两个平台只在查询方式上分支。脚本只算不下载：产物和正文都落在下面这一步自己指定的
+# 路径上，读 workflow 就能看清 action 拿到的是什么。
+#
+# 补发是幂等的：只补平台上还缺的附件，已经在的不会重传，定时任务多跑一次没有副作用。
+
+on:
+  schedule:
+    # 每天 UTC 02:43（北京时间 10:43）。镜像同步观测在凌晨 1 点左右，
+    # 留出小半天余量；分钟刻意不走整点，GitHub 的定时任务在整点最挤。
+    #
+    # 合并前 Gitee 跑在 02:17、GitCode 跑在 02:43，错开是为了别让两条流水线互相抢
+    # 跨境带宽。现在两个平台在同一条流水线里由 max-parallel: 1 串行上传，一次只有
+    # 一条连接，错开时间就没有必要了。tag 没同步过来的平台会在 plan 阶段被跳过。
+    - cron: '43 2 * * *'
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: 只补发某个平台
+        type: choice
+        options: [all, gitee, gitcode]
+        default: all
+
+permissions:
+  contents: read # 从 GitHub Release 读说明与产物
+
+concurrency:
+  group: backfill-release
+  cancel-in-progress: false # 补发很慢，别让新的一次把正在跑的掐掉
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # 只要 scripts/ci/find-release-gaps.sh，不读历史也不要子模块
+          fetch-depth: 1
+
+      - name: 列出两个平台上还缺哪些附件
+        id: plan
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+          PLATFORM: ${{ inputs.platform || 'all' }}
+        run: |
+          set -euo pipefail
+          matrix=$(bash scripts/ci/find-release-gaps.sh --platform "$PLATFORM")
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+
+  backfill:
+    needs: plan
+    # 没有缺的附件时 plan 输出 []，整个 job 跳过。
+    if: needs.plan.outputs.matrix != '[]'
+    runs-on: ubuntu-latest
+    # 跨境上传只有 20–90 KB/s，一个几十 MB 的附件就要十几分钟。
+    # action 那边单次上限 60 分钟、最多重试 5 次，最坏情况单个文件就耗满 5 小时，
+    # 所以贴着 GitHub 托管 runner 的 360 分钟上限给——再高会被平台直接掐掉。
+    #
+    # 一个附件一个 job（而不是一个 job 里塞完所有附件）：上面这个上限是**每个 job** 的，
+    # 捆在一起传十几个文件必然超时。
+    timeout-minutes: 355
+    strategy:
+      # 一个附件失败不该连坐其他的，剩下的继续补。
+      fail-fast: false
+      # 关键：串行。单个 job 只占用一条连接，跨境链路才吃得满；顺带也让 Gitee 与
+      # GitCode 不会同时上传互相抢带宽。
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 下载产物与说明
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # 一个附件一个 job, 所以这里一次只下一个文件: 跨境链路同时开几路谁都传不完。
+          mkdir -p assets
+          gh release download "${{ matrix.tag }}" \
+            -R "$GITHUB_REPOSITORY" -D assets -p "${{ matrix.file }}"
+          # 正文每次都得跟着下: 下一步的 action 拿它去建/更新 release, 缺了会把正文设成空。
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${{ matrix.tag }}" \
+            --jq '.body // ""' > body.md
+
+      - name: 补发到 ${{ matrix.platform }}
+        uses: space-ast/action-git-release@v1
+        env:
+          # 刻意不传 token 输入：留空时 action 会按 platform 回退到对应的环境变量，
+          # 这里两个都给它，它按 platform 挑。
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+        with:
+          platform: ${{ matrix.platform }}
+          repository: space-ast/ast
+          tag_name: ${{ matrix.tag }}
+          # 名称留空即可，action 会退回用 tag 名，与 GitHub 那边一致。
+          body_path: body.md
+          files: assets/*
+          overwrite_files: 'true'
+          fail_on_unmatched_files: 'true'
