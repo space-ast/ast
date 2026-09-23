@@ -1,0 +1,91 @@
+name: 补发 GitCode Release
+
+# GitCode 上的 space-ast/ast 是「拉取镜像仓库」，而拉取镜像会禁用建 tag 等写操作。
+# GitCode 那边 tag 还没同步过来，建 release 时会顺手创建 tag，被镜像规则拒绝并报错：
+# `not allowed because the repository is an image repository`。
+#
+# 这里采用事后补发：镜像每天同步一次，等 GitCode 同步完成后再把 release 补上。
+
+on:
+  schedule:
+    # 每天 UTC 02:43（北京时间 10:43）。镜像同步观测在凌晨 1 点左右，留出小半天余量；
+    # 分钟刻意不走整点，GitHub 的定时任务在整点最挤。
+    - cron: '43 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read # 从 GitHub Release 读说明与产物
+
+concurrency:
+  group: backfill-gitcode
+  cancel-in-progress: false # 补发很慢，别让新的一次把正在跑的掐掉
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    # 跨境上传只有 20–90 KB/s，一个几十 MB 的附件就要十几分钟，给足余量。
+    timeout-minutes: 300
+    steps:
+      - name: 判断要不要补发
+        id: check
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+        run: |
+          set -euo pipefail
+          # releases/latest 取的是最新一个非草稿、非预发布的 release,
+          # 所以 nightly(prerelease)不会命中，拿到的就是最新正式版。
+          TAG=$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq .tag_name)
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+          # 先用 git 判断 GitCode 上有没有这个 tag。
+          # 避免白下载几百 MB 产物，再在建 release 时被镜像规则拒掉(拉取镜像紧张建 tag)
+          NEEDED=false
+          if [ -z "$(git ls-remote --tags https://gitcode.com/space-ast/ast.git "refs/tags/$TAG")" ]; then
+            echo "GitCode 上还没有 tag $TAG(镜像尚未同步)，跳过"
+          else
+            # tag 在了，再看 release 有没有。
+            CODE=$(curl -sS -o gc.json -w '%{http_code}' \
+              "https://api.gitcode.com/api/v5/repos/space-ast/ast/releases/tags/$TAG?access_token=$GITCODE_TOKEN")
+            case "$CODE" in
+              200)
+                echo "GitCode 上已有 $TAG 的 release, 无需补发"
+                ;;
+              404)
+                echo "GitCode 上有 $TAG 的 tag 但缺 release, 开始补发"
+                NEEDED=true
+                ;;
+              *)
+                echo "::error::查询 GitCode 返回 HTTP $CODE: $(head -c 300 gc.json)"
+                exit 1
+                ;;
+            esac
+          fi
+          echo "needed=$NEEDED" >> "$GITHUB_OUTPUT"
+
+      - name: 下载产物与说明
+        if: steps.check.outputs.needed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.check.outputs.tag }}
+        run: |
+          set -euo pipefail
+          mkdir -p assets
+          gh release download "$TAG" -R "$GITHUB_REPOSITORY" -D assets
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq '.body // ""' > body.md
+
+      - name: 补发到 GitCode
+        if: steps.check.outputs.needed == 'true'
+        uses: space-ast/action-git-release@v1
+        with:
+          platform: gitcode
+          repository: space-ast/ast
+          token: ${{ secrets.GITCODE_TOKEN }}
+          tag_name: ${{ steps.check.outputs.tag }}
+          # 名称留空即可，action 会退回用 tag 名，与 GitHub 那边一致。
+          body_path: body.md
+          files: assets/*
+          overwrite_files: 'true'
+          fail_on_unmatched_files: 'true'
