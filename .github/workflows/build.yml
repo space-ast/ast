@@ -162,6 +162,45 @@ jobs:
           asset_name: SpaceAST-${{ github.event.release.tag_name }}-windows-${{ matrix.target.arch }}.zip
           asset_content_type: application/zip
 
+      # ── 同步发布到 Gitee / GitCode ────────────────────────────────────
+      # action 按文件名上传、不支持上传时改名，所以先复制出带版本号的副本，
+      # 与上面 Gitee/GitHub 的 asset_name 保持一致。
+      - name: 准备镜像产物-二进制包
+        if: github.event.action == 'published'
+        shell: bash
+        run: |
+          mkdir -p mirror-assets
+          cp artifacts/SpaceAST.zip \
+            "mirror-assets/SpaceAST-${{ github.event.release.tag_name }}-windows-${{ matrix.target.arch }}.zip"
+
+      - name: 同步发布-二进制包到 Gitee
+        if: github.event.action == 'published'
+        continue-on-error: true  # 失败也不影响后续步骤
+        uses: space-ast/action-git-release@v1
+        with:
+          platform: gitee
+          repository: space-ast/ast
+          token: ${{ secrets.GITEE_TOKEN }}
+          tag_name: ${{ github.event.release.tag_name }}
+          name: ${{ github.event.release.name }}
+          body: ${{ github.event.release.body }}
+          files: mirror-assets/*.zip
+          fail_on_unmatched_files: 'true'
+
+      - name: 同步发布-二进制包到 GitCode
+        if: github.event.action == 'published'
+        continue-on-error: true  # 失败也不影响后续步骤
+        uses: space-ast/action-git-release@v1
+        with:
+          platform: gitcode
+          repository: space-ast/ast
+          token: ${{ secrets.GITCODE_TOKEN }}
+          tag_name: ${{ github.event.release.tag_name }}
+          name: ${{ github.event.release.name }}
+          body: ${{ github.event.release.body }}
+          files: mirror-assets/*.zip
+          fail_on_unmatched_files: 'true'
+
       - name: 更新预发布-二进制包
         if: needs.nightly-guard.outputs.ok == 'true'
         uses: svenstaro/upload-release-action@v2
@@ -173,6 +212,46 @@ jobs:
           overwrite: true
           prerelease: true
           release_name: Nightly Build-预发布版
+
+      # nightly 用固定的 nightly 标签反复覆盖，所以每次都按文件名覆盖同名附件
+      - name: 准备 nightly 镜像产物
+        shell: bash
+        run: |
+          mkdir -p nightly-assets
+          cp artifacts/SpaceAST.zip \
+            "nightly-assets/SpaceAST-nightly-windows-${{ matrix.target.arch }}.zip"
+
+      - name: 更新 nightly 到 Gitee
+        if: needs.nightly-guard.outputs.ok == 'true'
+        continue-on-error: true  # 失败也不影响后续步骤
+        uses: space-ast/action-git-release@v1
+        with:
+          platform: gitee
+          repository: space-ast/ast
+          token: ${{ secrets.GITEE_TOKEN }}
+          tag_name: nightly
+          name: Nightly Build-预发布版
+          body: 由 GitHub Actions 自动构建的每夜版，随 master 更新
+          prerelease: 'true'
+          files: nightly-assets/*.zip
+          overwrite_files: 'true'
+          fail_on_unmatched_files: 'true'
+
+      - name: 更新 nightly 到 GitCode
+        if: needs.nightly-guard.outputs.ok == 'true'
+        continue-on-error: true  # 失败也不影响后续步骤
+        uses: space-ast/action-git-release@v1
+        with:
+          platform: gitcode
+          repository: space-ast/ast
+          token: ${{ secrets.GITCODE_TOKEN }}
+          tag_name: nightly
+          name: Nightly Build-预发布版
+          body: 由 GitHub Actions 自动构建的每夜版，随 master 更新
+          prerelease: 'true'
+          files: nightly-assets/*.zip
+          overwrite_files: 'true'
+          fail_on_unmatched_files: 'true'
 
       - name: 恢复归档测试用例
         shell: bash
@@ -353,6 +432,48 @@ jobs:
           asset_name: SpaceAST-${{ github.event.release.tag_name }}-linux-any.gz.run
           asset_content_type: application/x-makeself
 
+      # ── 同步发布到 Gitee / GitCode ────────────────────────────────────
+      - name: 准备镜像产物-linux
+        if: github.event.action == 'published'
+        shell: bash
+        run: |
+          mkdir -p mirror-assets
+          cp artifacts/SpaceAST.zip \
+            "mirror-assets/SpaceAST-${{ github.event.release.tag_name }}-linux-${{ matrix.arch }}.zip"
+          # 自安装源码包只有 x86_64 构建会产出，与上面的 GitHub 上传条件保持一致
+          if [ -f artifacts/SpaceAST.gz.run ]; then
+            cp artifacts/SpaceAST.gz.run \
+              "mirror-assets/SpaceAST-${{ github.event.release.tag_name }}-linux-any.gz.run"
+          fi
+
+      - name: 同步发布-linux 产物到 Gitee
+        if: github.event.action == 'published'
+        continue-on-error: true  # 失败也不影响后续步骤
+        uses: space-ast/action-git-release@v1
+        with:
+          platform: gitee
+          repository: space-ast/ast
+          token: ${{ secrets.GITEE_TOKEN }}
+          tag_name: ${{ github.event.release.tag_name }}
+          name: ${{ github.event.release.name }}
+          body: ${{ github.event.release.body }}
+          files: mirror-assets/*
+          fail_on_unmatched_files: 'true'
+
+      - name: 同步发布-linux 产物到 GitCode
+        if: github.event.action == 'published'
+        continue-on-error: true  # 失败也不影响后续步骤
+        uses: space-ast/action-git-release@v1
+        with:
+          platform: gitcode
+          repository: space-ast/ast
+          token: ${{ secrets.GITCODE_TOKEN }}
+          tag_name: ${{ github.event.release.tag_name }}
+          name: ${{ github.event.release.name }}
+          body: ${{ github.event.release.body }}
+          files: mirror-assets/*
+          fail_on_unmatched_files: 'true'
+
       - name: 更新预发布-二进制包
         if: needs.nightly-guard.outputs.ok == 'true'
         uses: svenstaro/upload-release-action@v2
@@ -376,6 +497,49 @@ jobs:
           overwrite: true
           prerelease: true
           release_name: Nightly Build-预发布版
+
+      - name: 准备 nightly 镜像产物-linux
+        if: needs.nightly-guard.outputs.ok == 'true'
+        shell: bash
+        run: |
+          mkdir -p nightly-assets
+          cp artifacts/SpaceAST.zip \
+            "nightly-assets/SpaceAST-nightly-linux-${{ matrix.arch }}.zip"
+          if [ -f artifacts/SpaceAST.gz.run ]; then
+            cp artifacts/SpaceAST.gz.run "nightly-assets/SpaceAST-nightly-linux-any.gz.run"
+          fi
+
+      - name: 更新 nightly 到 Gitee
+        if: needs.nightly-guard.outputs.ok == 'true'
+        continue-on-error: true  # 失败也不影响后续步骤
+        uses: space-ast/action-git-release@v1
+        with:
+          platform: gitee
+          repository: space-ast/ast
+          token: ${{ secrets.GITEE_TOKEN }}
+          tag_name: nightly
+          name: Nightly Build-预发布版
+          body: 由 GitHub Actions 自动构建的每夜版，随 master 更新
+          prerelease: 'true'
+          files: nightly-assets/*
+          overwrite_files: 'true'
+          fail_on_unmatched_files: 'true'
+
+      - name: 更新 nightly 到 GitCode
+        if: needs.nightly-guard.outputs.ok == 'true'
+        continue-on-error: true  # 失败也不影响后续步骤
+        uses: space-ast/action-git-release@v1
+        with:
+          platform: gitcode
+          repository: space-ast/ast
+          token: ${{ secrets.GITCODE_TOKEN }}
+          tag_name: nightly
+          name: Nightly Build-预发布版
+          body: 由 GitHub Actions 自动构建的每夜版，随 master 更新
+          prerelease: 'true'
+          files: nightly-assets/*
+          overwrite_files: 'true'
+          fail_on_unmatched_files: 'true'
 
       - name: 测试
         timeout-minutes: 90
