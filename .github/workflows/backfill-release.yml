@@ -46,6 +46,7 @@ concurrency:
 jobs:
   plan:
     runs-on: ubuntu-latest
+    continue-on-error: true
     outputs:
       matrix: ${{ steps.plan.outputs.matrix }}
     steps:
@@ -67,10 +68,23 @@ jobs:
           matrix=$(bash scripts/ci/find-release-gaps.sh --platform "$PLATFORM")
           echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
 
+      # 失败不会让 run 变红（plan 上挂了 continue-on-error），所以在这里留个痕：
+      # run 页面顶部的 Summary 能直接看到，不用翻进日志找。
+      - name: 记录失败
+        if: failure()
+        shell: bash
+        run: |
+          {
+            echo "### ❌ 补发计划失败"
+            echo
+            echo "plan 没跑通，本次一条附件都没补。查日志里这一步的输出，"
+            echo "常见原因是 GITEE_TOKEN / GITCODE_TOKEN 失效。"
+          } >> "$GITHUB_STEP_SUMMARY"
+
   backfill:
     needs: plan
     # 没有缺的附件时 plan 输出 []，整个 job 跳过。
-    if: needs.plan.outputs.matrix != '[]'
+    if: needs.plan.outputs.matrix != '' && needs.plan.outputs.matrix != '[]'
     runs-on: ubuntu-latest
     # 跨境上传只有 20–90 KB/s，一个几十 MB 的附件就要十几分钟。
     # action 那边单次上限 60 分钟、最多重试 5 次，最坏情况单个文件就耗满 5 小时，
@@ -79,6 +93,7 @@ jobs:
     # 一个附件一个 job（而不是一个 job 里塞完所有附件）：上面这个上限是**每个 job** 的，
     # 捆在一起传十几个文件必然超时。
     timeout-minutes: 355
+    continue-on-error: true
     strategy:
       # 一个附件失败不该连坐其他的，剩下的继续补。
       fail-fast: false
@@ -122,3 +137,16 @@ jobs:
           files: assets/*
           overwrite_files: 'true'
           fail_on_unmatched_files: 'true'
+
+      # 同上：一个附件传失败不会让 run 变红，这里把「哪个平台的哪个附件」写进 Summary。
+      # 每个失败的 matrix 分片各写一行，最后在 run 页面顶部汇总成一张清单。
+      - name: 记录失败
+        if: failure()
+        shell: bash
+        run: |
+          {
+            echo "### ❌ ${{ matrix.platform }} 补发失败"
+            echo
+            echo "- tag: \`${{ matrix.tag }}\`"
+            echo "- 附件: \`${{ matrix.file }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
