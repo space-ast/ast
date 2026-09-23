@@ -517,6 +517,7 @@ var annotated_dup =
       [ "Lexer", "classast_1_1Lexer.html", "classast_1_1Lexer" ],
       [ "LfsPointerInfo", "structast_1_1LfsPointerInfo.html", "structast_1_1LfsPointerInfo" ],
       [ "Library", "classast_1_1Library.html", "classast_1_1Library" ],
+      [ "LibraryHolder", "classast_1_1LibraryHolder.html", null ],
       [ "LinePropertyPage", "classast_1_1LinePropertyPage.html", null ],
       [ "LineTarget", "classast_1_1LineTarget.html", null ],
       [ "LLMClient", "classast_1_1LLMClient.html", "classast_1_1LLMClient" ],

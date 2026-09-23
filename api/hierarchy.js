@@ -557,6 +557,7 @@ var hierarchy =
     [ "ast::Lexer", "classast_1_1Lexer.html", null ],
     [ "ast::LfsPointerInfo", "structast_1_1LfsPointerInfo.html", null ],
     [ "ast::Library", "classast_1_1Library.html", null ],
+    [ "ast::LibraryHolder", "classast_1_1LibraryHolder.html", null ],
     [ "ast::LLMClient", "classast_1_1LLMClient.html", [
       [ "ast::Anthropic", "classast_1_1Anthropic.html", null ],
       [ "ast::OpenAI", "classast_1_1OpenAI.html", [

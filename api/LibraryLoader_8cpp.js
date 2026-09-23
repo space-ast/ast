@@ -1,5 +1,6 @@
 var LibraryLoader_8cpp =
 [
+    [ "ast::LibraryHolder", "classast_1_1LibraryHolder.html", null ],
     [ "aFreeLibrary", "LibraryLoader_8cpp.html#ga52c02b09388ac56566408d15c1e1ce7e", null ],
     [ "aGetLoadError", "LibraryLoader_8cpp.html#ga792d6e546f624b93c64487c04deac344", null ],
     [ "aGetProcAddress", "LibraryLoader_8cpp.html#ga0f4600dceeffcc4993b66d33a3b8e680", null ],
