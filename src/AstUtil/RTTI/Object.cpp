@@ -227,7 +227,6 @@ uint32_t Object::getID() const
 {
     if(index_ == static_cast<uint32_t>(INVALID_ID))
     {
-        // @todo 从对象管理器获取对象ID
         return aAddObject(const_cast<Object*>(this));
     }
     return index_;

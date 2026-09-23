@@ -59,7 +59,7 @@ public:
 
     /// @brief 获取对象节点的父对象
     /// @return Object* 父对象指针
-    Object* getParentScope() const {return parentNode_?parentNode_->getObject():nullptr;}
+    Object* getParentScope() const;
 
     /// @brief 获取对象节点的父对象的父节点
     /// @return ObjectNode* 父对象的父节点指针

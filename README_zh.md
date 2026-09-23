@@ -79,6 +79,9 @@
 - [用户界面模块](src/AstUiCore/): 提供算法组件的交互式界面控件，以支持参数配置、结果展示等；
 - [SPICE模块](src/AstSPICE/): 对核心算法进行轻量封装，提供与 NASA SPICE 兼容的接口；
 - [场景加载模块](src/AstLoader/): 解析 STK/GMAT 格式的配置文件，构建仿真对象；
+- [Web Assembly模块](src/AstWasm/): 提供Web Assembly接口，支持在浏览器中调用算法；
+- [Python模块](src/AstPy/): 提供Python接口，支持在Python环境中调用算法；
+
 
 ## 快速开始
 
@@ -129,26 +132,23 @@ ast/
 // 命名空间 ast
 namespace ast
 {
-    // ...
+    // 类型 - 无前缀
+    class OrbitPropagator;
+
+    // 全局函数 - 单个'a'前缀
+    aPropagateOrbit();
+    aSolveLambert();
+    aRotateQuaternion();
 }
 
-// 全局函数 - 单个'a'前缀
-aPropagateOrbit();
-aSolveLambert();
-aRotateQuaternion();
-
-// 类型别名 - 'A'前缀
-typedef ast::OrbitPropagator    AOrbitPropagator;
-typedef ast::AttitudeController AAttitudeController;
-
-// 枚举 - 'E'和'e'前缀
+// 枚举 - 'E' 和 'e' 前缀
 enum EFrame { eECI, eECEF }; 
 
 // 常量 - 'k' 前缀
 const kEps15 = 1e-15;
 ```
 
-可以发现：在以上命名规范里，所有以小写字母开头的都有值或者地址
+在以上命名规范里，所有以小写字母开头的都有值或者地址
 
 
 ### 注释规范
@@ -170,7 +170,7 @@ const kEps15 = 1e-15;
 
 1. Fork 本仓库
 2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+3. 提交更改 (`git commit -m 'feat: 新增某功能特性'`)
 4. 推送到分支 (`git push origin feature/AmazingFeature`)
 5. 开启 Pull Request
 
@@ -179,24 +179,6 @@ const kEps15 = 1e-15;
 ## 许可证
 
 本项目采用 Apache2.0 许可证 - 详见 [LICENSE](LICENSE) 文件。
-
-### 模块规划
-
-核心模块将认真设计与开发，并进行完善的测试与验证，确保算法的准确性和稳定性。
-
-- [工具模块](src/AstUtil): 提供通用的工具函数，如数学运算、字符串处理等
-- [数学库](src/AstMath): 提供数值计算、线性代数、优化等数学函数
-- [仿真引擎](src/AstSim): 提供仿真环境，支持轨道模拟、姿态仿真、环境交互等
-- [航天算法](src/AstCore): 提供轨道力学、姿态系统、坐标转换等核心算法
-
-下面的模块将通过AI辅助进行开发，但会通过人工审查和自动测试确保质量。
-
-- [脚本系统](src/AstScript): 提供脚本接口，支持用户自定义仿真场景
-- [交互式控制台](src/AstInterp): 提供交互式命令行界面，方便用户进行仿真实验
-- [MatLab封装](src/AstMex): 提供MatLab接口，方便用户在MatLab环境中使用ast算法
-- [Python封装](src/AstPy): 提供Python接口，方便用户在Python环境中使用ast算法
-- [Web Assembly封装](src/AstWasm): 提供Web Assembly接口，方便用户在浏览器中使用ast算法
-- [图形化界面](src/AstUiCore): 提供图形化界面，方便用户进行仿真实验
 
 
 ## 联系我们
@@ -259,9 +241,8 @@ const kEps15 = 1e-15;
 
 ### 词源深意
 
-- 星辰之源：源自希腊语词根 `aster` (ἀστήρ)，意为"星辰"
-- 天文传承：与 astronomy（天文学）、astronaut（宇航员）、Astrodynamics(航天动力学)等同源
-- 宇宙探索：象征着我们通过仿真技术探索宇宙奥秘的使命
+- 星辰：源自希腊语词根 `aster` (ἀστήρ)，意为"星辰"
+- 天文：与 astronomy（天文学）、astronaut（宇航员）、Astrodynamics(航天动力学)等同源
 
 ### 专业内涵
 

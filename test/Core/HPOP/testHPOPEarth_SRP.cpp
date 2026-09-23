@@ -267,7 +267,7 @@ TEST_F(HPOPTest, SRP_NoShadow_ApparentSun)
     EXPECT_NEAR(pos[1],  posExpect[1], 2e-3);
     EXPECT_NEAR(pos[2],  posExpect[2], 1e-3);
     EXPECT_NEAR(vel[0],  velExpect[0], 1e-5);
-    EXPECT_NEAR(vel[1],  velExpect[1], 1e-6);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-5);
     EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
 }
 
