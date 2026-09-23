@@ -22,8 +22,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # 需要 git ls-remote 与 tag 操作
-          fetch-depth: 0
+          # ls-remote 不读本地历史，tag 也只打在 github.sha（即 HEAD）上，
+          # 全量历史有 250+ MB 而 HEAD 快照只有 12 MB，这里没必要拉历史。
+          fetch-depth: 1
 
       - name: 检查 nightly 可否更新
         id: guard
@@ -80,8 +81,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # Need full history for git tag operations
-          fetch-depth: 0
+          # 本 job 不跑任何 git 命令（发布全走 API action），版本号取自 xmake.lua 的字面量，
+          # 保持默认浅克隆即可；子模块也会跟着用 --depth=1。
           submodules: true
       - uses: xmake-io/github-action-setup-xmake@v1
         with:
@@ -293,8 +294,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # Need full history for git tag operations
-          fetch-depth: 0
+          # 同 build-windows：本 job 不跑任何 git 命令，保持默认浅克隆
           submodules: true
 
       # 容器镜像很干净：Qt 链接期的 X11/字体/GL 依赖，以及打包要用的 zip，都得自己装

@@ -6,11 +6,11 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
-          # WyriHaximus/github-action-get-previous-tag@master need it
-          fetch-depth: 0
-          submodules: true      
+          # 覆盖率流程不读 git 历史，保持浅克隆即可；
+          # 子模块要完整检出（编译需要 thirdparty，跑测试要 data）。
+          submodules: true
           # lfs: true # 账号的lfs流量不够了...
 
       - uses: xmake-io/github-action-setup-xmake@v1

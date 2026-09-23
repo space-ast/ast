@@ -21,7 +21,8 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          # 只读 xmake.lua + 查远端 tag，不需要本地历史
+          fetch-depth: 1
 
       - name: 提取版本号
         id: version
@@ -41,7 +42,11 @@ jobs:
         shell: bash
         run: |
           TAG="${{ steps.version.outputs.tag }}"
-          if git rev-parse "$TAG" >/dev/null 2>&1; then
+          # 查远端而不是本地：浅克隆里没有 tag 对象, rev-parse 会永远判成不存在。
+          # ls-remote 的模式是前缀匹配(refs/tags/v0.3.1 会命中 v0.3.10 / v0.3.1-rc1),
+          # 所以取出 ref 名再用 -qxF 做整行精确比较。
+          if git ls-remote --tags --refs origin "refs/tags/$TAG" \
+               | awk '{print $2}' | grep -qxF "refs/tags/$TAG"; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
             echo "标签 $TAG 已存在，跳过创建"
           else
