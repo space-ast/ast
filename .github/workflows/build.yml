@@ -152,27 +152,27 @@ jobs:
           name: SpaceAST-windows-${{ matrix.target.arch }}
           path: artifacts/
 
-      - name: 发布产物-二进制包
-        if: github.event.action == 'published'
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-${{ github.event.release.tag_name }}-windows-${{ matrix.target.arch }}.zip
-          asset_content_type: application/zip
-
-      # ── 同步发布到 Gitee / GitCode ────────────────────────────────────
-      # action 按文件名上传、不支持上传时改名，所以先复制出带版本号的副本，
-      # 与上面 Gitee/GitHub 的 asset_name 保持一致。
-      - name: 准备镜像产物-二进制包
+      # ── 正式发布：GitHub / Gitee / GitCode ────────────────────────────
+      # 三个平台的发布 action 都按文件名（basename）上传、不支持上传时改名，
+      # 所以先在本地复制出带版本号的副本，三边共用同一份 files glob。
+      - name: 准备发布产物-二进制包
         if: github.event.action == 'published'
         shell: bash
         run: |
-          mkdir -p mirror-assets
+          mkdir -p release-assets
           cp artifacts/SpaceAST.zip \
-            "mirror-assets/SpaceAST-${{ github.event.release.tag_name }}-windows-${{ matrix.target.arch }}.zip"
+            "release-assets/SpaceAST-${{ github.event.release.tag_name }}-windows-${{ matrix.target.arch }}.zip"
+
+      # 只传 tag_name/files：release 已由 tag-release.yml 建好，action 对已存在的
+      # release 走增量更新，正文、名称、预发布标记都保持原样，不会被这里改掉。
+      - name: 发布产物-二进制包到 GitHub
+        if: github.event.action == 'published'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: release-assets/*.zip
+          fail_on_unmatched_files: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 同步发布-二进制包到 Gitee
         if: github.event.action == 'published'
@@ -185,7 +185,7 @@ jobs:
           tag_name: ${{ github.event.release.tag_name }}
           name: ${{ github.event.release.name }}
           body: ${{ github.event.release.body }}
-          files: mirror-assets/*.zip
+          files: release-assets/*.zip
           fail_on_unmatched_files: 'true'
 
       - name: 同步发布-二进制包到 GitCode
@@ -199,28 +199,31 @@ jobs:
           tag_name: ${{ github.event.release.tag_name }}
           name: ${{ github.event.release.name }}
           body: ${{ github.event.release.body }}
-          files: mirror-assets/*.zip
+          files: release-assets/*.zip
           fail_on_unmatched_files: 'true'
 
-      - name: 更新预发布-二进制包
-        if: needs.nightly-guard.outputs.ok == 'true'
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-nightly-windows-${{ matrix.target.arch }}.zip
-          tag: nightly
-          overwrite: true
-          prerelease: true
-          release_name: Nightly Build-预发布版
-
+      # ── nightly 预发布：GitHub / Gitee / GitCode ──────────────────────
       # nightly 用固定的 nightly 标签反复覆盖，所以每次都按文件名覆盖同名附件
-      - name: 准备 nightly 镜像产物
+      - name: 准备 nightly 产物
+        if: needs.nightly-guard.outputs.ok == 'true'
         shell: bash
         run: |
           mkdir -p nightly-assets
           cp artifacts/SpaceAST.zip \
             "nightly-assets/SpaceAST-nightly-windows-${{ matrix.target.arch }}.zip"
+
+      # prerelease 必须显式传：GitHub 创建 release 接口的 make_latest 默认是 true，
+      # 漏传会让首次创建出来的 nightly release 被当成正式版。
+      - name: 更新 nightly 产物到 GitHub
+        if: needs.nightly-guard.outputs.ok == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: nightly
+          name: Nightly Build-预发布版
+          prerelease: true
+          files: nightly-assets/*.zip
+          fail_on_unmatched_files: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 更新 nightly 到 Gitee
         if: needs.nightly-guard.outputs.ok == 'true'
@@ -410,41 +413,33 @@ jobs:
           name: SpaceAST-linux-${{ matrix.arch }}
           path: artifacts/
 
-      - name: 发布产物-二进制包
-        if: github.event.action == 'published'
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-${{ github.event.release.tag_name }}-linux-${{ matrix.arch }}.zip
-          asset_content_type: application/zip
-
-      - name: 发布产物-自安装源码包
-        if: github.event.action == 'published' && matrix.arch == 'x86_64'
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: artifacts/SpaceAST.gz.run
-          asset_name: SpaceAST-${{ github.event.release.tag_name }}-linux-any.gz.run
-          asset_content_type: application/x-makeself
-
-      # ── 同步发布到 Gitee / GitCode ────────────────────────────────────
-      - name: 准备镜像产物-linux
+      # ── 正式发布：GitHub / Gitee / GitCode ────────────────────────────
+      # 三个平台的发布 action 都按文件名（basename）上传、不支持上传时改名，
+      # 所以先在本地复制出带版本号的副本，三边共用同一份 files glob。
+      - name: 准备发布产物-linux
         if: github.event.action == 'published'
         shell: bash
         run: |
-          mkdir -p mirror-assets
+          mkdir -p release-assets
           cp artifacts/SpaceAST.zip \
-            "mirror-assets/SpaceAST-${{ github.event.release.tag_name }}-linux-${{ matrix.arch }}.zip"
-          # 自安装源码包只有 x86_64 构建会产出，与上面的 GitHub 上传条件保持一致
-          if [ -f artifacts/SpaceAST.gz.run ]; then
+            "release-assets/SpaceAST-${{ github.event.release.tag_name }}-linux-${{ matrix.arch }}.zip"
+          # runself 是纯源码包、不含架构, basename 里也是 linux-any, 两个架构都会产出这个同名文件；
+          # 只让 x86_64 发布，免得两个 job 去抢同一个附件名。
+          if [ "${{ matrix.arch }}" = "x86_64" ]; then
             cp artifacts/SpaceAST.gz.run \
-              "mirror-assets/SpaceAST-${{ github.event.release.tag_name }}-linux-any.gz.run"
+              "release-assets/SpaceAST-${{ github.event.release.tag_name }}-linux-any.gz.run"
           fi
+
+      # 只传 tag_name/files：release 已由 tag-release.yml 建好，action 对已存在的
+      # release 走增量更新，正文、名称、预发布标记都保持原样，不会被这里改掉。
+      - name: 发布产物-linux 到 GitHub
+        if: github.event.action == 'published'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: release-assets/*
+          fail_on_unmatched_files: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 同步发布-linux 产物到 Gitee
         if: github.event.action == 'published'
@@ -457,7 +452,7 @@ jobs:
           tag_name: ${{ github.event.release.tag_name }}
           name: ${{ github.event.release.name }}
           body: ${{ github.event.release.body }}
-          files: mirror-assets/*
+          files: release-assets/*
           fail_on_unmatched_files: 'true'
 
       - name: 同步发布-linux 产物到 GitCode
@@ -471,43 +466,34 @@ jobs:
           tag_name: ${{ github.event.release.tag_name }}
           name: ${{ github.event.release.name }}
           body: ${{ github.event.release.body }}
-          files: mirror-assets/*
+          files: release-assets/*
           fail_on_unmatched_files: 'true'
 
-      - name: 更新预发布-二进制包
-        if: needs.nightly-guard.outputs.ok == 'true'
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: artifacts/SpaceAST.zip
-          asset_name: SpaceAST-nightly-linux-${{ matrix.arch }}.zip
-          tag: nightly
-          overwrite: true
-          prerelease: true
-          release_name: Nightly Build-预发布版
-
-      - name: 更新预发布-自安装源码包
-        if: needs.nightly-guard.outputs.ok == 'true' && matrix.arch == 'x86_64'
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: artifacts/SpaceAST.gz.run
-          asset_name: SpaceAST-nightly-linux-any.gz.run
-          tag: nightly
-          overwrite: true
-          prerelease: true
-          release_name: Nightly Build-预发布版
-
-      - name: 准备 nightly 镜像产物-linux
+      # ── nightly 预发布：GitHub / Gitee / GitCode ──────────────────────
+      - name: 准备 nightly 产物-linux
         if: needs.nightly-guard.outputs.ok == 'true'
         shell: bash
         run: |
           mkdir -p nightly-assets
           cp artifacts/SpaceAST.zip \
             "nightly-assets/SpaceAST-nightly-linux-${{ matrix.arch }}.zip"
-          if [ -f artifacts/SpaceAST.gz.run ]; then
+          # 同正式发布: linux-any 的源码包只由 x86_64 发
+          if [ "${{ matrix.arch }}" = "x86_64" ]; then
             cp artifacts/SpaceAST.gz.run "nightly-assets/SpaceAST-nightly-linux-any.gz.run"
           fi
+
+      # prerelease 必须显式传：GitHub 创建 release 接口的 make_latest 默认是 true，
+      # 漏传会让首次创建出来的 nightly release 被当成正式版。
+      - name: 更新 nightly 产物到 GitHub
+        if: needs.nightly-guard.outputs.ok == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: nightly
+          name: Nightly Build-预发布版
+          prerelease: true
+          files: nightly-assets/*
+          fail_on_unmatched_files: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 更新 nightly 到 Gitee
         if: needs.nightly-guard.outputs.ok == 'true'
