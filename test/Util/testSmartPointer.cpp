@@ -1,4 +1,4 @@
-﻿/// @file      testSmartPointer.cpp
+/// @file      testSmartPointer.cpp
 /// @brief     
 /// @details   ~
 /// @author    axel
@@ -29,6 +29,21 @@
 #include <memory>
 
 AST_USING_NAMESPACE
+
+// 是否在 AddressSanitizer 下构建。
+// 栈对象离开作用域后，智能指针中仍保留指向该栈内存的指针，
+// 再去读取它（哪怕是判断是否已析构）属于 use-after-scope，
+// ASan 会直接报错，因此下面演示"不要用智能指针管理栈对象"的用例在 ASan 下跳过。
+#if defined(__SANITIZE_ADDRESS__)
+#  define _AST_TEST_WITH_ASAN 1
+#elif defined(__has_feature)
+#  if __has_feature(address_sanitizer)
+#    define _AST_TEST_WITH_ASAN 1
+#  endif
+#endif
+#ifndef _AST_TEST_WITH_ASAN
+#  define _AST_TEST_WITH_ASAN 0
+#endif
 
 // 测试SharedPtr
 TEST(SmartPointer, SharedPtr)
@@ -97,6 +112,8 @@ TEST(SmartPointer, ScopedPtr)
 // 测试栈上的对象
 TEST(SmartPointer, StackObject_SharedPtr)
 {
+    if (_AST_TEST_WITH_ASAN)
+        GTEST_SKIP();  // 访问已析构的栈对象是 use-after-scope
     {
         SharedPtr<Class> ptr;
         {
@@ -123,6 +140,8 @@ TEST(SmartPointer, StackObject_SharedPtr)
 // 测试栈上的对象
 TEST(SmartPointer, StackObject_WeakPtr)
 {
+    if (_AST_TEST_WITH_ASAN)
+        GTEST_SKIP();  // 判断栈对象是否已析构需要读取已失效的栈内存
     {
         WeakPtr<StateCartesian> ptrweak;
         {

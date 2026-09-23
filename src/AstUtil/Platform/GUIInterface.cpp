@@ -22,7 +22,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/LibraryLoader.hpp"
-#include "AstGUI/GUIInterfaceImpl.hpp"
+#include "AstUiCore/GUIInterfaceImpl.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -41,7 +41,7 @@ GUIInterface *GUIInterface::CurrentInstance()
         // 先赋值，避免无限递归调用
         g_guiInstance = NoopInstance();
         using functype = decltype(&aGUIInterfaceImpl);
-        const char* libName = AST_LIB_LINKNAME("AstGUI");
+        const char* libName = AST_LIB_LINKNAME("AstUiCore");
         const char* funcName = A_STR(aGUIInterfaceImpl);
         functype func = (functype)aResolveProcAddress(libName, funcName);
         if(func){

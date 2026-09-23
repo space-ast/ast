@@ -55,8 +55,11 @@ rule("ast")
     end)
     if after_config then
         after_config(function (target)
-            import("core.project.config")
+            -- 在 after_config 里显式设置 runpath，覆盖 qt rules 里隐式添加的 rpathdirs
+            target:set("rpathdirs", "$ORIGIN", "$ORIGIN/../lib")
+
             if target:plat() == "wasm" then
+                import("core.project.config")
                 if os.exists("build/wasm/data") then
                     os.rmdir("build/wasm/data")
                 end
@@ -93,11 +96,7 @@ rule("ast.qt")
     add_deps("qt.env")
     add_deps("qt.ui", "qt.moc", "qt.qrc", "qt.ts")
     on_config(function (target)
-        -- 检查是否存在Qt环境，如果没有qt环境则禁用相关项目
-        local qt = target:data("qt")
-        if not qt then
-            target:set("enabled", false)
-        end
+        -- 注意：Qt 缺失不能在这里处理。on_config 只对已经启用的目标执行
         target:add(
             "frameworks", 
             "QtWidgets", "QtGui", "QtCore", "QtSvg", "QtTest", 

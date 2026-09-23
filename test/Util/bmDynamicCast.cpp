@@ -22,15 +22,18 @@
 #include "ast/StateCartesian.hpp"
 #include "ast/RunTime.hpp"
 #include "ast/RTTIAPI.hpp"
+#include "ast/SharedPtr.hpp"
 #include <benchmark/benchmark.h>
 
 AST_USING_NAMESPACE
 
-static MotionTwoBody* motion = new MotionTwoBody();
+// 用 SharedPtr 持有，保证程序结束时释放（benchmark 会多次调用各测试函数，裸指针会持续泄漏）
+static SharedPtr<MotionTwoBody> motion = MotionTwoBody::New();
 
 void bm_dynamic_cast_incorrect(benchmark::State& state)
 {
-    Object* obj = aNewObject("StateCartesian");
+    SharedPtr<Object> objHolder = aNewObject("StateCartesian");
+    Object* obj = objHolder.get();
     for(auto _ : state)
     {
         MotionTwoBody* motion = dynamic_cast<MotionTwoBody*>(obj);
@@ -43,7 +46,8 @@ BENCHMARK(bm_dynamic_cast_incorrect);
 
 void bm_aobject_cast_incorrect(benchmark::State& state)
 {
-    Object* obj = aNewObject("StateCartesian");
+    SharedPtr<Object> objHolder = aNewObject("StateCartesian");
+    Object* obj = objHolder.get();
     for(auto _ : state)
     {
         MotionTwoBody* motion = aobject_cast<MotionTwoBody*>(obj);
@@ -55,7 +59,8 @@ BENCHMARK(bm_aobject_cast_incorrect);
 
 void bm_dynamic_cast_correct(benchmark::State& state)
 {
-    Object* obj = aNewObject("StateCartesian");
+    SharedPtr<Object> objHolder = aNewObject("StateCartesian");
+    Object* obj = objHolder.get();
     for(auto _ : state)
     {
         StateCartesian* state = dynamic_cast<StateCartesian*>(obj);
@@ -68,7 +73,8 @@ BENCHMARK(bm_dynamic_cast_correct);
 
 void bm_aobject_cast_correct(benchmark::State& state)
 {
-    Object* obj = aNewObject("StateCartesian");
+    SharedPtr<Object> objHolder = aNewObject("StateCartesian");
+    Object* obj = objHolder.get();
     for(auto _ : state)
     {
         StateCartesian* state = aobject_cast<StateCartesian*>(obj);
@@ -81,7 +87,8 @@ BENCHMARK(bm_aobject_cast_correct);
 
 void bm_dynamic_cast_superclass(benchmark::State& state)
 {
-    Object* obj = aNewObject("StateCartesian");
+    SharedPtr<Object> objHolder = aNewObject("StateCartesian");
+    Object* obj = objHolder.get();
     for(auto _ : state)
     {
         State* state = dynamic_cast<State*>(obj);
@@ -95,7 +102,8 @@ BENCHMARK(bm_dynamic_cast_superclass);
 
 void bm_aobject_cast_superclass(benchmark::State& state)
 {
-    Object* obj = aNewObject("StateCartesian");
+    SharedPtr<Object> objHolder = aNewObject("StateCartesian");
+    Object* obj = objHolder.get();
     for(auto _ : state)
     {
         State* state = aobject_cast<State*>(obj);
@@ -107,7 +115,8 @@ BENCHMARK(bm_aobject_cast_superclass);
 
 void bm_dynamic_cast_childclass(benchmark::State& state)
 {
-    StateCartesian* obj = (StateCartesian*)aNewObject("StateCartesian");
+    SharedPtr<Object> objHolder = aNewObject("StateCartesian");
+    StateCartesian* obj = (StateCartesian*)objHolder.get();
     for(auto _ : state)
     {
         Object* o = dynamic_cast<Object*>(obj);
@@ -119,7 +128,8 @@ BENCHMARK(bm_dynamic_cast_childclass);
 
 void bm_aobject_cast_childclass(benchmark::State& state)
 {
-    StateCartesian* obj = (StateCartesian*)aNewObject("StateCartesian");
+    SharedPtr<Object> objHolder = aNewObject("StateCartesian");
+    StateCartesian* obj = (StateCartesian*)objHolder.get();
     for(auto _ : state)
     {
         Object* o = aobject_cast<Object*>(obj);

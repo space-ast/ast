@@ -1,1 +1,1 @@
-#include "AstGUI/UiPointMassForce.hpp"
+#include "AstUiCore/UiPointMassForce.hpp"

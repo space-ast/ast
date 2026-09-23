@@ -94,6 +94,8 @@ TEST_F(SerializeCppTest, BodyEphemerisDE) {
 
     errc_t rc = aTestSerializeCpp(ephemeris);
     EXPECT_EQ(rc, eNoError);
+
+    delete ephemeris;
 }
 
 TEST_F(SerializeCppTest, BodyEphemerisSPK) {
@@ -108,6 +110,8 @@ TEST_F(SerializeCppTest, BodyEphemerisSPK) {
 
     rc = aTestSerializeCpp(ephemeris);
     EXPECT_EQ(rc, eNoError);
+
+    delete ephemeris;
 }
 
 GTEST_MAIN()

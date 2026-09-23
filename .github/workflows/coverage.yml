@@ -1,4 +1,4 @@
-﻿name: 测试覆盖率
+﻿name: 覆盖率
 
 on: [push, pull_request]
 
@@ -6,11 +6,11 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
-          # WyriHaximus/github-action-get-previous-tag@master need it
-          fetch-depth: 0
-          submodules: true      
+          # 覆盖率流程不读 git 历史，保持浅克隆即可；
+          # 子模块要完整检出（编译需要 thirdparty，跑测试要 data）。
+          submodules: true
           # lfs: true # 账号的lfs流量不够了...
 
       - uses: xmake-io/github-action-setup-xmake@v1
@@ -18,6 +18,8 @@ jobs:
           # this is not supported, use dev branch instead
           # xmake-version: local#
           xmake-version: branch@dev
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: 'ubuntu-latest'
 
       - name: 安装依赖
         run: |
@@ -25,13 +27,15 @@ jobs:
           sudo apt-get install -y lcov
 
       # Cache xmake dependencies
+      # 缓存键里加上的第三方库的内容哈希，使第三方库的内容改变时触发重新编译
       - name: 配置依赖缓存
         uses: actions/cache@v3
         with:
           path: xmake-cache
-          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-v2
+          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-xmake-cache-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v2
 
       # Cache build directory
+      # 缓存键里加上的第三方库的内容哈希，使第三方库的内容改变时触发重新编译
       - name: 配置编译缓存
         if: github.event.action != 'published' && github.ref != 'refs/heads/master'
         uses: actions/cache@v4
@@ -39,9 +43,9 @@ jobs:
           path: |
             build
             .xmake
-          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-build-v2-${{ github.sha }}
+          key: coverage-${{ matrix.os }}-${{ matrix.arch }}-build-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v2-${{ github.sha }}
           restore-keys: |
-            coverage-${{ matrix.os }}-${{ matrix.arch }}-build-v2-
+            coverage-${{ matrix.os }}-${{ matrix.arch }}-build-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v2-
 
       - name: 设置xmake相关目录
         run: |
@@ -80,6 +84,7 @@ jobs:
           xmake -ay
 
       - name: 执行测试并收集覆盖率信息
+        timeout-minutes: 90
         run: |
           lcov --directory . --zerocounters
           xmake cpdata
@@ -93,7 +98,7 @@ jobs:
           xmake r testHPOPEarth_Drag
           xmake r testHPOP_StateTransitionMatrix
           xmake r testExtractor
-          xmake test
+          xmake test --output-on-failure
           lcov --directory . --capture --include */src/* --output-file coverage.info 
       
       - name: 上传覆盖率到Codecov

@@ -22,7 +22,7 @@
 #include "AstGlobal.h"
 #include <string>
 #include <atomic>
-#include <thread>
+#include "AstUtil/Thread.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -69,7 +69,7 @@ private:
     PilotCommander*    commander_{};
     unsigned long      pid_{};
     std::atomic<bool>  running_{false};
-    std::thread        serverThread_{};
+    Thread             serverThread_{};
 };
 
 /*! @} */

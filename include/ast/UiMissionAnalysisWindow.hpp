@@ -1,1 +1,1 @@
-#include "AstGUI/UiMissionAnalysisWindow.hpp"
+#include "AstUiCore/UiMissionAnalysisWindow.hpp"

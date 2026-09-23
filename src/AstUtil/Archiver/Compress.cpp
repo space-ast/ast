@@ -44,13 +44,36 @@ CompressorInterface* aCompressGetImpl(StringView source, StringView target)
 
 errc_t aCompress(StringView source, StringView target, StringView curdir)
 {
-    CompressorInterface* impl = aCompressGetImpl(source, target);
-    if (!impl)
+    // 按优先级依次尝试，而不是只认第一个可用的实现。
+    CompressorInterface* impls[4];
+    size_t count = 0;
+#ifdef _WIN32
+    impls[count++] = &CompressorImplShellCOM::Instance();
+#endif
+    impls[count++] = &CompressorImplTar::Instance();
+    impls[count++] = &CompressorImplSystem::Instance();
+    impls[count++] = &CompressorImplRaw::Instance();
+
+    bool found = false;
+    for (size_t i = 0; i < count; ++i)
+    {
+        CompressorInterface* impl = impls[i];
+        if (!impl->isSupported() || !impl->canCompress(source, target))
+            continue;
+        found = true;
+        errc_t ret = impl->compress(source, target, curdir);
+        if (ret == eNoError)
+            return eNoError;
+        aWarning(_("第 %d 个压缩器实现失败(错误码 %d)，尝试下一个"), (int)(i + 1), (int)ret);
+    }
+
+    if (!found)
     {
         aError(_("没有可用于 %s 的压缩器"), source.data());
         return eErrorNotImplemented;
     }
-    return impl->compress(source, target, curdir);
+    aError(_("所有压缩器实现均失败: %s"), target.data());
+    return eError;
 }
 
 AST_NAMESPACE_END

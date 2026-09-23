@@ -2,7 +2,7 @@
 set_project("ast")
 
 -- 设置版本号
-set_version("0.3.0", {build="%Y%m%d", soname = false})
+set_version("0.3.1", {build="%Y%m%d", soname = false})
 
 -- 工程配置选项：是否编译测试工程
 option("with_test")
@@ -60,7 +60,8 @@ add_includedirs("include")
 -- 内置规则
 add_rules(
     "mode.debug", "mode.release", "mode.releasedbg", 
-    "mode.coverage"
+    "mode.coverage", 
+    "mode.asan", "mode.msan", "mode.ubsan", "mode.valgrind"
 )                                                           -- 调试模式、发布模式、代码覆盖率模式
 -- add_rules("plugin.vsxmake.autoupdate")                      -- 自动更新vsxmake工程
 add_rules("c++.unity_build", {batchsize=20})                -- 开启unity build，提高编译效率
@@ -79,15 +80,53 @@ end
 set_policy("run.autobuild", true)                           -- 自动编译，当运行目标时自动编译
 set_policy("build.progress_style", "multirow")              -- 编译进度条显示为多行
 set_policy("package.precompiled", false)                    -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译(osg使用预编译库流水线会报错)
+set_policy("build.rpath", false)                            -- 禁止xmake隐式添加runpath
+set_policy("install.rpath", false)                          -- 禁止xmake隐式添加runpath
 
--- linux平台添加rpath
-if is_plat("linux") then
-    add_rpathdirs("$ORIGIN", "$ORIGIN/../lib")              -- 添加运行时库搜索路径，指向可执行文件所在目录和上一级目录的lib子目录
-elseif is_plat("windows") then
+-- MSVC（VS2022 17.10 起）的 STL 会给 basic_string/vector 打 ASan 容器标注，并用
+--   #pragma detect_mismatch("annotate_string"/"annotate_vector", ...)
+-- 记录编译时有没有开 /fsanitize=address：开了写 1，没开写 0。
+-- 同一个二进制里出现两个不同的值就是 LNK2038、 LNK1319
+-- 本工程目标都带 /fsanitize=address（值 1），
+-- 而 fmt/gtest/agg/qwt 这些第三方静态库是按非 ASan 编出来的（值 0）
+-- 关掉 STL 容器标注后本工程目标也写 0，两边一致；
+-- ASan 本身照常生效（堆/栈/全局越界、use-after-free 都还在），
+-- 只是不再额外标记「容器capacity 之内、size 之外」的越界访问。
+-- 想连容器标注一起要，得让所有依赖也用 ASan 编（工程级set_policy("build.sanitizer.address", true)），
+-- 但 xmake-repo 的 gtest 在on_test 里会链自己刚编出来的 asan 版库并因同样原因装不上，暂时走不通
+if is_mode("asan") then
+    if is_plat("windows") then
+        add_defines("_DISABLE_STL_ANNOTATION")
+    else
+        set_policy("build.sanitizer.address", true)
+    end
+end
+
+if is_mode("msan") then
+    -- MSan 只有 clang 编译器支持，且只在 Linux/FreeBSD 这类平台提供
+    assert(not is_plat("windows"), "msan 不支持 Windows, 请在 Linux 上构建")
+    set_toolchains("clang")
+    set_policy("build.sanitizer.memory", true)
+end
+
+if is_mode("ubsan") then
+    -- ubsan 在 windows 上只有 clang 编译器支持
+    -- Windows 上用 clang-cl 而不是 GNU MinGW 驱动的 clang++
+    -- "clang-cl@llvm" 是 xmake 的 toolchain@packages 语法：
+    -- 工具链用内置的 clang-cl, 二进制从 llvm 包获取
+    if is_plat("windows") then
+        add_requires("llvm", {optional = true})
+        set_toolchains("clang-cl@llvm")
+    else
+        -- linux 下 gcc 和 clang 都支持，默认使用 gcc 编译器即可
+        -- set_toolchains("clang")
+    end
+    set_policy("build.sanitizer.undefined", true)
+end
+
+if is_plat("windows") then
     if is_mode("debug") then
         set_values("windows.subsystem", "console")
-        -- 为了让AI生成的代码能正常编译
-        -- add_includedirs("src")
     end
     add_defines("_CRT_SECURE_NO_WARNINGS", "_SCL_SECURE_NO_WARNINGS")
     -- for msvc
@@ -146,8 +185,8 @@ add_requires("opengl", {optional = true})                                       
 add_requires("glu", {optional = true})                                          -- 可选的GLU库，用于3D模型渲染
 
 -- 下载并安装第三方库（可选）
-add_requires("python 3.x", {optional = true})                                   -- 可选的Python库，用于编译python库
-add_requires("swig >=4.3", {optional = true})                                   -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.3，见下方说明
+add_requires("python 3.x", {optional = true, configs = {headeronly = is_plat("linux")}})
+add_requires("swig >=4.3", {optional = true, asan=false})                       -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.3，见下方说明
 -- SWIG 版本要求说明：
 --   >=4.2 才支持 `enum class : type` 语法；
 --   >=4.3 才能求值本项目枚举中的初值表达式（enum class EDimension : dimension_t 的初值为constexpr 常量，

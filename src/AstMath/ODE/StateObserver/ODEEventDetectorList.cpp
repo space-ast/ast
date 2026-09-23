@@ -36,6 +36,17 @@ ODEEventDetectorList::~ODEEventDetectorList()
 }
 
 
+void ODEEventDetectorList::clear()
+{
+    // 与析构、removeEventDetector 保持一致：观察者由本列表持有，清除时需要释放，否则会泄漏
+    for(auto observer : eventObservers_)
+    {
+        delete observer;
+    }
+    eventObservers_.clear();
+}
+
+
 EODEAction ODEEventDetectorList::onStateUpdate(double* y, double& x, ODEIntegrator* integrator)
 {
     ODEEventObserver* firstObservered = nullptr;    ///< 第一个观测到的事件

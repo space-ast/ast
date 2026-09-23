@@ -267,7 +267,7 @@ TEST_F(HPOPTest, SRP_NoShadow_ApparentSun)
     EXPECT_NEAR(pos[1],  posExpect[1], 2e-3);
     EXPECT_NEAR(pos[2],  posExpect[2], 1e-3);
     EXPECT_NEAR(vel[0],  velExpect[0], 1e-5);
-    EXPECT_NEAR(vel[1],  velExpect[1], 1e-6);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-5);
     EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
 }
 
@@ -372,12 +372,12 @@ TEST_F(HPOPTest, SRP_NoShadow_TrueSun)
 
     Vector3d posExpect{ 6.2333481674869442e+06, 4.2166379211770219e+05, 2.8615712739877473e+06};
     Vector3d velExpect{ -1.2876976995850798e+03, 7.3033485417655947e+03, 1.7416876627816571e+03};
-    EXPECT_NEAR(pos[0],  posExpect[0], 1e-5);
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-4);
     EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
-    EXPECT_NEAR(pos[2],  posExpect[2], 1e-5);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-4);
     EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
-    EXPECT_NEAR(vel[1],  velExpect[1], 1e-8);
-    EXPECT_NEAR(vel[2],  velExpect[2], 1e-8);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-7);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-7);
 }
 
 

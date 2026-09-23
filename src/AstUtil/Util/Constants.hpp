@@ -257,14 +257,14 @@ constexpr double kPercentToUnit = 1.0e-02;                 ///< 百分比到单�
 
 constexpr double kDegToRad      = 0.017453292519943295769236907684886;	///< 角度到弧度 kPI/180.0
 constexpr double kArcSecToRad   = 4.848136811095359935899141e-6;        ///< 弧秒到弧度 kDegToRad/3600.0 度分秒的秒
-constexpr double kArcMinToRad   = 2.9088820866572159615394846141477e-4;	///< 弧分到弧度 kDegToRad/60.0 度分秒的分
+constexpr double kArcMinToRad   = 2.9088820866572159615394846141477e-4;	///< 弧分到弧度 kDegToRad/60.0   度分秒的分
 constexpr double kTimeSecToRad  = 7.2722052166430399038487115353692e-5;	///< 时间秒到弧度，时分秒的秒
 constexpr double kTimeMinToRad  = 0.0043633231299858239423092269212215;	///< 时间分到弧度，时分秒的分
 constexpr double kTimeHourToRad = kDegToRad * 15.0;	                    ///< 时间时到弧度，时分秒的时
 constexpr double kRevolutionToRad = kTwoPI;                             ///< 周期数到弧度 2.0 * kPI
 
 constexpr double kRadToDeg      = 57.2957795130823208767;		        ///< 弧度到角度 180.0/kPI
-constexpr double kRadToTimeHour = kRadToDeg / 15.0;	                    ///< 弧度到时间时，度分秒的时
+constexpr double kRadToTimeHour = kRadToDeg / 15.0;	                    ///< 弧度到时间时，时分秒的时
 
 // 磁感应强度(磁通密度)单位转换常数
 

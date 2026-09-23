@@ -5,7 +5,7 @@
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Logger.hpp"
-#include "AstUtil/ComInit.hpp"
+#include "AstUtil/COMUtil.hpp"
 #include "AstUtil/Encode.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/ShellCOMUtils.hpp"
@@ -278,11 +278,9 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             FolderItem* pChild = nullptr;
             if (SUCCEEDED(pItems->Item(vIdx, &pChild)) && pChild)
             {
-                BSTR bn = nullptr;
-                if (SUCCEEDED(pChild->get_Name(&bn)) && bn)
-                { 
-                    itemNames.push_back(std::wstring(bn, SysStringLen(bn))); SysFreeString(bn); 
-                }
+                std::wstring realName = aShellItemRealName(pChild);
+                if (!realName.empty())
+                    itemNames.push_back(realName);
                 pChild->Release();
             }
         }
@@ -291,7 +289,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
         {
             VARIANT vIt; VariantInit(&vIt); vIt.vt = VT_DISPATCH;
             vIt.pdispVal = static_cast<IDispatch*>(pItems);
-            VARIANT vFl; VariantInit(&vFl); vFl.vt = VT_I4; vFl.lVal = 0x0400;
+            VARIANT vFl; VariantInit(&vFl); vFl.vt = VT_I4; vFl.lVal = kShellComCopyFlags;
             hr = pZipFolder->CopyHere(vIt, vFl);
             if (FAILED(hr))
             {
@@ -306,7 +304,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             bool allOk = true;
             for (const auto& n : itemNames)
             {
-                if (!aShellWaitForItem(pZipFolder, n, 30000))
+                if (!aShellWaitForItem(pZipFolder, n, kShellComWaitTimeoutMs))
                 {
                     aError(_("waitForItem 等待超时: %ls"), n.c_str());
                     allOk = false;
@@ -350,7 +348,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
         VARIANT vFlags;
         VariantInit(&vFlags);
         vFlags.vt = VT_I4;
-        vFlags.lVal = 0x0400;
+        vFlags.lVal = kShellComCopyFlags;
         hr = pZipFolder->CopyHere(vItem, vFlags);
         if (FAILED(hr))
         {
@@ -362,7 +360,7 @@ errc_t CompressorImplShellCOM::compress(StringView source, StringView target, St
             DeleteFileW(absTarget);
             return eError;
         }
-        if (!aShellWaitForItem(pZipFolder, srcName, 30000))
+        if (!aShellWaitForItem(pZipFolder, srcName, kShellComWaitTimeoutMs))
         {
             aError(_("waitForItem 等待超时: '%.*s'"), source.size(), source.data());
             pItem->Release();

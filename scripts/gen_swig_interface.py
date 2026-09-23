@@ -4,7 +4,7 @@ from collections import defaultdict, deque
 
 def filter_func_for_swig(header):
     exclude_list = [
-        "AstCOM", "AstGUI", "AstGfx", "AstAnalyzer", "AstTest", "AstWasm",
+        "AstCOM", "AstUiCore", "AstGfx", "AstAnalyzer", "AstTest", "AstWasm",
         "\\ScStateCalculation\\",
         r"Platform\Posix.hpp",
         r"Array\MathOperator.hpp", 

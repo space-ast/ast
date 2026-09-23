@@ -8,6 +8,8 @@
 #include "PilotPipeServer.hpp"
 #include "PilotCommander.hpp"
 #include <sstream>
+#include <thread>  // for std::this_thread::sleep_for 
+#include <chrono>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -45,7 +47,7 @@ void PilotPipeServer::start()
 {
     if (running_) return;
     running_ = true;
-    serverThread_ = std::thread(&PilotPipeServer::serverLoop, this);
+    serverThread_ = Thread([this]() { serverLoop(); });
 }
 
 void PilotPipeServer::stop()

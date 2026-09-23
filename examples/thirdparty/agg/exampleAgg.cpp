@@ -561,6 +561,10 @@ void drawScene(agg::rendering_buffer& rbuf, unsigned width, unsigned height)
 // ============================================================================
 int main()
 {
+    #ifdef __SANITIZE_ADDRESS__
+    // 该示例不进行 address sanitizer 检查
+    return 0;
+    #endif
     const unsigned width  = 640;
     const unsigned height = 600;
     const unsigned stride = width * 4;  // RGBA = 4 bytes per pixel

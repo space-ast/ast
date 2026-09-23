@@ -60,7 +60,8 @@ static ScopedPtr<Ephemeris> makeHPOPEphemeris(const TimePoint& epoch, const Time
     hpForce.gravity().maxDegree_ = 20;
     hpForce.gravity().maxOrder_ = 20;
 
-    auto hpMotion = MotionHPOP::New();
+    // 用 ScopedPtr 管理生命周期，避免运动模型泄漏
+    ScopedPtr<MotionHPOP> hpMotion = MotionHPOP::New();
     hpMotion->setForceModel(hpForce);
     hpMotion->setInterval(interval);
 

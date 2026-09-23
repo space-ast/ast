@@ -54,7 +54,7 @@ if has_config "vtk"; then
 fi
 
 # @note 以下模块依赖 xmake 的自定义 rule，无法用 xmake.sh 描述，暂未接入：
-#   AstChart/AstGUI/AstUiAI/AstUiDataUpdate/AstUiPilot/AstUiPilotBoot/AstUiUtil  -- Qt (moc/uic/rcc)
+#   AstChart/AstUiCore/AstUiAI/AstUiDataUpdate/AstUiPilot/AstUiPilotBoot/AstUiUtil  -- Qt (moc/uic/rcc)
 #   AstPy                                                                      -- SWIG
 #   AstCOM                                                                     -- Windows IDL/ATL
 #   AstWasm                                                                    -- wasm 平台

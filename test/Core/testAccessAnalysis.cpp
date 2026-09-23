@@ -373,8 +373,10 @@ TEST_F(AccessAnalysisTest, Sensor2ToFacility1)
            fovResult.size(), losResult.size(), result.size());
     VerifyBaseline(result, kSensor2Baseline, 2, 304.141);
 
+    // sensorFrame 通过 SharedPtr 持有 sat2，删除 frame 时 sat2 会被一并释放，
+    // 因此这里不再显式 delete sat2，避免二次释放
+    delete sensorFrame;
     delete fac1;
-    delete sat2;
 }
 
 // ==================== 测试 5：Sensor2 → Facility1（AndConstraint）====================
@@ -399,8 +401,10 @@ TEST_F(AccessAnalysisTest, Sensor2ToFacility1_AndConstraint)
     PrintIntervals("Sensor2 -> Facility1 (AndConstraint)", result, 4);
     VerifyBaseline(result, kSensor2Baseline, 2, 304.141);
 
+    // sat2 由 sensorFrame 持有，随 frame 一起释放
+    delete pFov;
+    delete sensorFrame;
     delete fac1;
-    delete sat2;
 }
 
 // ==================== 测试 6：Sensor2 → Facility1（向量 aEvaluateAccess）====================
@@ -425,8 +429,9 @@ TEST_F(AccessAnalysisTest, Sensor2ToFacility1_VectorEval)
     PrintIntervals("Sensor2 -> Facility1 (vector aEvaluateAccess)", result, 4);
     VerifyBaseline(result, kSensor2Baseline, 2, 304.141);
 
+    // sat2 由 sensorFrame 持有，随 frame 一起释放
+    delete sensorFrame;
     delete fac1;
-    delete sat2;
 }
 
 GTEST_MAIN()

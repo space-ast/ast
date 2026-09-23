@@ -1,1 +1,1 @@
-#include "AstGUI/ObjectEditRegistry.hpp"
+#include "AstUiCore/ObjectEditRegistry.hpp"

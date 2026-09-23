@@ -118,6 +118,13 @@ public:
     typename std::enable_if<!std::is_abstract<T>::value>::type setConstructor() {
         setConstructor([](Object* parentScope) -> Object* {
             auto obj = new T();
+            // Struct 及其派生类（例如 Class 元类自身）构造时会持有一个"初始强引用"
+            // （见 Struct::Struct 中的 Object(initial_strong_ref)），用于保证静态存储期/
+            // 栈上的元类对象不会被引用计数释放。这里创建的是堆对象，所有权交给调用者
+            // （通常为 SharedPtr），因此需要先释放这次初始强引用，
+            // 否则调用者释放后引用计数仍为 1，对象永远不会被释放。
+            if (std::is_base_of<Struct, T>::value)
+                obj->decRefNoDelete();
             obj->setParentScope(parentScope);
             return obj;
         });

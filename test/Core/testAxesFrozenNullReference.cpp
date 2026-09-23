@@ -45,8 +45,9 @@ TEST_F(AxesFrozenNullTest, DegenerateFrozenAxesLooksLikeRoot)
     ASSERT_NE(ecf, nullptr);
 
     // 构造异常组件：referenceAxes_ 显式为空
-    AxesFrozen* abnormal = AxesFrozen::New(ecf, freezeTime, nullptr);
-    ASSERT_NE(abnormal, nullptr);
+    // 用 MakeShared 返回智能指针管理生命周期，避免泄漏
+    HAxesFrozen abnormal = AxesFrozen::MakeShared(ecf, freezeTime, nullptr);
+    ASSERT_NE(abnormal.get(), nullptr);
 
     // 现象1：getParent() 返回 nullptr —— 与真正的根节点 AxesRoot 无法区分
     EXPECT_EQ(abnormal->getParent(), nullptr);
@@ -74,16 +75,17 @@ TEST_F(AxesFrozenNullTest, TransformThroughUnresolvedFrozenAxes)
     ASSERT_NE(icrf, nullptr);
     ASSERT_NE(ecf, nullptr);
 
-    AxesFrozen* abnormal = AxesFrozen::New(ecf, freezeTime, nullptr);
-    ASSERT_NE(abnormal, nullptr);
+    // 用 MakeShared 返回智能指针管理生命周期，避免泄漏
+    HAxesFrozen abnormal = AxesFrozen::MakeShared(ecf, freezeTime, nullptr);
+    ASSERT_NE(abnormal.get(), nullptr);
 
     Rotation rot;
     // TODO: 修复前，路径以 getParent()==nullptr 终止，异常节点被当作根
     //       会导致逻辑出现问题，读到未初始化的栈内存（越界崩溃）。
     errc_t rc;
-    rc = aAxesTransform(*abnormal, *icrf, evalTime, rot);
+    rc = aAxesTransform(*abnormal.get(), *icrf, evalTime, rot);
     EXPECT_NE(rc, eNoError);
-    rc = aAxesTransform(*icrf, *abnormal, evalTime, rot);
+    rc = aAxesTransform(*icrf, *abnormal.get(), evalTime, rot);
     EXPECT_NE(rc, eNoError);
 }
 

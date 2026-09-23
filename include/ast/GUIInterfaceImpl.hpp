@@ -1,1 +1,1 @@
-#include "AstGUI/GUIInterfaceImpl.hpp"
+#include "AstUiCore/GUIInterfaceImpl.hpp"

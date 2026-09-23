@@ -15,7 +15,7 @@
 # 说明：
 #   1. 目前只接入 src/ 下的库模块（test/examples/projects/thirdparty 对应的目录尚未接入）；
 #   2. Qt(moc/uic/rcc)、SWIG、COM IDL、WASM、Fortran 等依赖 xmake 自定义 rule 的
-#      目标没法用 xmake.sh 描述，所以 AstGUI/AstChart/AstUi*/AstPy/AstCOM/AstWasm
+#      目标没法用 xmake.sh 描述，所以 AstChart/AstUi*/AstPy/AstCOM/AstWasm
 #      等模块没有对应的 xmake.sh；
 #   3. 可选第三方依赖通过 option 自动探测（pkg-config / 头文件 / 链接测试都可以），
 #      探测不到的依赖，相关代码会被宏自动屏蔽，不影响其它模块编译。
@@ -24,7 +24,7 @@
 #
 
 set_project "ast"
-set_version "0.2.0" "%Y%m%d"
+set_version "0.3.1" "%Y%m%d"
 
 #-----------------------------------------------------------------------------
 # 工程选项

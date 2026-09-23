@@ -7,38 +7,91 @@
 ![License](https://img.shields.io/badge/License-Apache2.0-green.svg)
 ![Platform](https://img.shields.io/badge/platform-linux%20%7C%20windows%20%7C%20mingw%20%7C%20wasm-lightgrey.svg)
 
+[English](README.md) | 中文
 
-**space-ast** (/æst/) 是一个用C++编写的航天仿真算法库，为航天任务分析和设计提供计算基础。
+**space-ast** 是一个专注于航天仿真领域的算法库。
 
-*像星辰般精准，为航天仿真而生*
-
-
-## 🌟 项目简介
-
-**space-ast** (/æst/) 是一个专注于航天仿真领域的算法库，提供了轨道力学、姿态仿真、轨迹规划等核心算法的现代C++实现。
-
-如果你想要了解更多，请参考：[版本下载](https://github.com/space-ast/ast/releases), [使用指南](https://space-ast.github.io/ast/), [API文档](https://space-ast.github.io/ast/api/), [Github](https://github.com/space-ast/ast)以及 [Gitee](https://gitee.com/space-ast/ast) 和 [GitCode](https://gitcode.com/space-ast/ast)。
-
-## 🚀 核心特性
-
-### 🛰️ 算法领域
-
-- **轨道力学**：二体问题、轨道外推、兰伯特问题求解
-- **姿态系统**：四元数运算、姿态仿真
-- **坐标转换**：J2000, MOD, TOD, ECF, LVLH等坐标系间的转换
-- **环境模型**：大气密度、引力场、太阳辐射压
-- **数值方法**：常微分方程数值积分、线性代数求解
+它提供了轨道动力学、姿态仿真、轨迹规划、测控窗口分析等核心算法的现代C++实现，为航天任务分析和设计提供计算基础。
 
 
-## 📦 快速开始
+预编译二进制包与自安装源码包的下载地址：<https://github.com/space-ast/ast/releases>
 
-### 📋 环境要求
+如果你想要了解更多，请参考：[使用指南](https://space-ast.github.io/ast/), [API文档](https://space-ast.github.io/ast/api/), [Github](https://github.com/space-ast/ast)以及 [Gitee](https://gitee.com/space-ast/ast) 和 [GitCode](https://gitcode.com/space-ast/ast)。
+
+
+## 主要功能模块
+
+### [数学模块](src/AstMath/)
+
+提供航天动力学所需的底层数学支持，是整个库的数值计算基础。
+
+- 线性代数：矩阵、向量以及相关运算函数；
+- 姿态：四元数、轴角、欧拉角等表示方法与转换函数；
+- 坐标转换：包括位置坐标的转换，以及附带速度转换的运动学版本，支持坐标转换的任意组合与求逆；
+- 常微分方程：固定步长积分器（RK4、RK8、RKV8）与自适应步长积分器（RKF45、RKF56、RKF78、RKCK），含事件检测器与状态观测器；
+- 非线性方程：割线法、Ridder、Brent、二分法等多种求根算法；
+- 函数极值：Brent、黄金分割等求极值算法；
+- 插值：抽象插值接口与拉格朗日插值器；
+
+
+### [工具模块](src/AstUtil/)
+
+提供解析、压缩、网络、反射等通用基础设施。
+
+- 单位量纲：提供高效灵活的量纲类型与单位类型，支持基本运算、单位转换、自定义单位等；
+- 反射：提供运行时类型信息，支持动态类型检查、属性访问等操作；
+- 解析器：提供 JSON、XML、Markdown、DAF、键值文件等格式的解析器；
+- 压缩解压：支持 tar/tgz/zip 多种格式的压缩解压操作；
+- 网络：提供文件下载、HTTP请求等支持；
+- 其他：字符串处理、文件系统、日志系统、国际化、颜色、C++拓展容器等；
+
+
+### [太空环境模块](src/AstWeather/)
+
+提供大气密度、地磁场与辐射带模型。
+
+- 大气模型：USSA1976、JacchiaRoberts、Harris-Priester、NRLMSISE-00、MSIS-86、MSISE-90、DTM-2012 等模型；
+- 地磁场模型：IGRF 国际地磁参考场；
+- 辐射带模型：AE8/AP8 辐射带电子/质子模型；
+
+### [核心计算模块](src/AstCore/)
+
+提供坐标系统、力模型、轨道预报、轨道设计、可见性分析、碰撞检测等完整的航天动力学计算能力。
+
+- 时间系统：包括高精度时间点类型、儒略日、闰秒、EOP、不同时间系统转换；
+- 坐标系统：提供完整的坐标系层次，包括ICRF、J2000、天体惯性系、天体固连系、真赤道系、平赤道系、VVLH、VNC等；
+- 轨道预报：SGP4、HPOP、J2/J4 解析解、二体、Vinti等轨道预报器；
+- 星历加载：支持加载DE、SPK、STK等格式的星历文件；
+- 力模型：提供点质量引力、重力场、三体引力、大气阻力、太阳光压等摄动力模型；
+- 轨道根数：经典轨道根数、春分点根数、德洛奈根数、球坐标、大地坐标、B平面状态等状态量的定义与相互转换；
+- 轨道设计器：冻结轨道、太阳同步轨道、闪电轨道、回归轨道、静止轨道等轨道设计器；
+- 访问窗口分析：可精确计算满足给定约束的时间窗口，并支持约束之间的任意逻辑组合；
+- 碰撞检测：检测航天器之间的碰撞，返回最接近时刻、最小距离、相对速度等数据；
+- 数据库：TLE数据库加载、CelesTrak卫星数据库加载；
+
+
+### 其他扩展模块
+
+- [仿真模块](src/AstSim/): 定义各类对象（飞行器、地面站、天线、传感器等）及其运动与姿态模型；
+- [AI模块](src/AstAI/): 提供与大语言模型集成的框架，支持工具调用、Agent定义、群聊等；
+- [脚本模块](src/AstScript/): 提供内置的脚本解释器，并提供了外部脚本语言执行器；
+- [可视化模块](src/AstVisualization/): 提供仿真数据的二维和三维可视化功能；
+- [用户界面模块](src/AstUiCore/): 提供算法组件的交互式界面控件，以支持参数配置、结果展示等；
+- [SPICE模块](src/AstSPICE/): 对核心算法进行轻量封装，提供与 NASA SPICE 兼容的接口；
+- [场景加载模块](src/AstLoader/): 解析 STK/GMAT 格式的配置文件，构建仿真对象；
+- [Web Assembly模块](src/AstWasm/): 提供Web Assembly接口，支持在浏览器中调用算法；
+- [Python模块](src/AstPy/): 提供Python接口，支持在Python环境中调用算法；
+
+
+## 快速开始
+
+### 环境要求
 
 - C++11兼容编译器 (MSVC 2015+, GCC 5+, clang)
 - [xmake 2.9+](https://xmake.io/)
 
 
-### 🏗️ 构建项目
+### 构建项目
 
 
 ```bash
@@ -47,7 +100,7 @@ cd ast
 xmake
 ```
 
-## 🏗️ 项目架构
+## 项目架构
 
 ```
 ast/
@@ -63,15 +116,15 @@ ast/
 └── thirdparty/    # 第三方库
 ```
 
-## 🎯 API 设计理念
+## API 设计理念
 
 - **简单易用**：提供简洁的API接口，方便开发者快速集成到项目中。
 - **高度可定制**：允许开发者根据需求自定义算法参数和行为。
 - **性能优化**：针对航天仿真场景，对关键算法进行了性能优化。
 
-## 📏代码规范
+## 代码规范
 
-### 📝 命名规范
+### 命名规范
 
 项目采用以下命名约定：
 
@@ -79,29 +132,26 @@ ast/
 // 命名空间 ast
 namespace ast
 {
-    // ...
+    // 类型 - 无前缀
+    class OrbitPropagator;
+
+    // 全局函数 - 单个'a'前缀
+    aPropagateOrbit();
+    aSolveLambert();
+    aRotateQuaternion();
 }
 
-// 全局函数 - 单个'a'前缀
-aPropagateOrbit();
-aSolveLambert();
-aRotateQuaternion();
-
-// 类型别名 - 'A'前缀
-typedef ast::OrbitPropagator    AOrbitPropagator;
-typedef ast::AttitudeController AAttitudeController;
-
-// 枚举 - 'E'和'e'前缀
+// 枚举 - 'E' 和 'e' 前缀
 enum EFrame { eECI, eECEF }; 
 
 // 常量 - 'k' 前缀
 const kEps15 = 1e-15;
 ```
 
-可以发现：在以上命名规范里，所有以小写字母开头的都有值或者地址
+在以上命名规范里，所有以小写字母开头的都有值或者地址
 
 
-### 👁️‍🗨️ 注释规范
+### 注释规范
 
 遵循Doxygen注释规范，函数、文件、类的注释采用`///`格式，其他多行注释也可采用`/*! ... */`格式。
 
@@ -112,54 +162,36 @@ const kEps15 = 1e-15;
 - **文件注释**：每个源文件都需要包含文件头注释，包括文件名、作者、日期、版权信息等。
 
 
-## 🤝 参与贡献
+## 参与贡献
 
 我们欢迎各种形式的贡献！无论是代码改进、文档完善、bug报告还是新功能建议，都是对项目的宝贵支持。
 
-### 🔄 贡献流程
+### 贡献流程
 
 1. Fork 本仓库
 2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+3. 提交更改 (`git commit -m 'feat: 新增某功能特性'`)
 4. 推送到分支 (`git push origin feature/AmazingFeature`)
 5. 开启 Pull Request
 
 请确保代码遵循项目的编码规范，并添加相应的测试用例。
 
-## 📄 许可证
+## 许可证
 
 本项目采用 Apache2.0 许可证 - 详见 [LICENSE](LICENSE) 文件。
 
-### 🗂️ 模块规划
 
-核心模块将认真设计与开发，并进行完善的测试与验证，确保算法的准确性和稳定性。
+## 联系我们
 
-- [工具模块](src/AstUtil): 提供通用的工具函数，如数学运算、字符串处理等
-- [数学库](src/AstMath): 提供数值计算、线性代数、优化等数学函数
-- [仿真引擎](src/AstSim): 提供仿真环境，支持轨道模拟、姿态仿真、环境交互等
-- [航天算法](src/AstCore): 提供轨道力学、姿态系统、坐标转换等核心算法
-
-下面的模块将通过AI辅助进行开发，但会通过人工审查和自动测试确保质量。
-
-- [脚本系统](src/AstScript): 提供脚本接口，支持用户自定义仿真场景
-- [交互式控制台](src/AstInterp): 提供交互式命令行界面，方便用户进行仿真实验
-- [MatLab封装](src/AstMex): 提供MatLab接口，方便用户在MatLab环境中使用ast算法
-- [Python封装](src/AstPy): 提供Python接口，方便用户在Python环境中使用ast算法
-- [Web Assembly封装](src/AstWasm): 提供Web Assembly接口，方便用户在浏览器中使用ast算法
-- [图形化界面](src/AstGui): 提供图形化界面，方便用户进行仿真实验
+- 讨论区: [GitHub Discussions](https://github.com/space-ast/ast/discussions)
+- 问题报告: [GitHub Issues](https://github.com/space-ast/ast/issues)
 
 
-## 📞 联系我们
-
-- 💬 讨论区: [GitHub Discussions](https://github.com/space-ast/ast/discussions)
-- 🐛 问题报告: [GitHub Issues](https://github.com/space-ast/ast/issues)
-
-
-## 📚 参考资料
+## 参考资料
 
 本项目的开发参考和使用了很多资料与工具，感谢所有开源社区贡献者的辛勤工作、航天仿真领域研究人员的理论贡献，以及行业标杆软件的启发，这些宝贵的资源为ast项目的开发提供了坚实的基础。
 
-### 💻 开源代码
+### 开源代码
 
 - [Orekit](https://www.orekit.org/): Java语言编写的航天动力学库，提供丰富的轨道和姿态算法
 - [GMAT](https://gmat.atlassian.net/): 通用任务分析工具，NASA开源的航天任务分析软件
@@ -179,7 +211,7 @@ const kEps15 = 1e-15;
 - [glibc](https://www.gnu.org/software/libc/): GNU C库，提供了C语言标准库的实现
 - [abseil](https://abseil.io/): 一个C++库，提供了许多常用的功能，如字符串处理、内存管理、并发编程等，是Google开源的一个项目
 
-### 🛰️ 行业软件
+### 行业软件
 
 以下行业软件为航天仿真领域的标杆工具，其功能设计为本项目提供了重要参考：
 
@@ -187,13 +219,13 @@ const kEps15 = 1e-15;
 - [FreeFlyer](https://ai-solutions.com/): a.i. solutions公司的商业航天任务设计与分析软件，支持轨道规划、机动分析和星座设计
 - [Copernicus](https://www.nasa.gov/general/copernicus/): NASA开发的航天任务轨迹设计与优化软件，支持从近地轨道到深空探测的全场景轨迹规划
 
-## 🔗 项目依赖
+## 项目依赖
 
-### 🔧 工具链
+### 工具链
 
 - [Xmake](https://xmake.io/): 基于Lua的现代化C/C++构建工具
 
-### 📦 第三方库
+### 第三方库
 
 - [iau-sofa](https://www.iausofa.org/): 一个C库，提供了许多常用的天文计算函数
 - [Eigen](http://eigen.tuxfamily.org/): 高性能C++模板库，用于线性代数、矩阵和向量运算
@@ -203,24 +235,17 @@ const kEps15 = 1e-15;
 - [Qt](https://www.qt.io/): 跨平台C++图形用户界面应用程序开发框架
 
 
-## 🌌 项目名称灵感
+## 项目名称灵感
 
 **ast** 这个名字蕴含着多重深意，每一层都呼应着航天仿真的本质：
 
-### 🪐 **词源深意**
+### 词源深意
 
-- **星辰之源**：源自希腊语词根 `aster` (ἀστήρ)，意为"星辰"
-- **天文传承**：与 astronomy（天文学）、astronaut（宇航员）、Astrodynamics(航天动力学)等同源
-- **宇宙探索**：象征着我们通过仿真技术探索宇宙奥秘的使命
+- 星辰：源自希腊语词根 `aster` (ἀστήρ)，意为"星辰"
+- 天文：与 astronomy（天文学）、astronaut（宇航员）、Astrodynamics(航天动力学)等同源
 
-### 🚀 **专业内涵**
+### 专业内涵
 
-- **Aerospace Simulation Tool**    - 航天仿真工具
-- **Advanced Space Technology**    - 先进空间技术  
-- **Astrodynamics Solver Tool**    - 航天动力学求解工具
-
----
-
-"在代码的宇宙中，我们绘制航天的星辰轨迹"
-
----
+- Aerospace Simulation Tool: 航天仿真工具
+- Advanced Space Technology: 先进空间技术  
+- Astrodynamics Solver Tool: 航天动力学求解工具

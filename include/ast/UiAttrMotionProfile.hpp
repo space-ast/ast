@@ -1,1 +1,1 @@
-#include "AstGUI/UiAttrMotionProfile.hpp"
+#include "AstUiCore/UiAttrMotionProfile.hpp"

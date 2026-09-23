@@ -16,18 +16,90 @@
 #include "AstGlobal.h"
 
 #include <Windows.h>
+#include <shellapi.h>
 #include <shlobj.h>
 #include <string>
 
 AST_NAMESPACE_BEGIN
+
+/// 等待期间派发本线程的消息队列
+/// @details Folder::CopyHere 是异步的：真正干活的是 Shell 的副本引擎
+///          （zip 由 zipfldr.dll 实现），它跑在后台线程上，并可能通过
+///          SendMessage 把进度/完成回投到调用线程。这里通过 PeekMessage
+///          派发消息队列，确保进度回投能及时处理
+inline void aShellPumpMessages(unsigned long waitMs)
+{
+    unsigned long start = GetTickCount();
+
+    while ((GetTickCount() - start) < waitMs)
+    {
+        MSG msg;
+        while (PeekMessageW(&msg, nullptr, 0, 0, PM_REMOVE))
+        {
+            TranslateMessage(&msg);
+            DispatchMessageW(&msg);
+        }
+        unsigned long elapsed = GetTickCount() - start;
+        DWORD remain = (elapsed < waitMs) ? (DWORD)(waitMs - elapsed) : 0;
+        if (remain > 50) remain = 50;   // 分段等待，避免错过队列中的消息
+        MsgWaitForMultipleObjectsEx(0, nullptr, remain, QS_ALLINPUT,
+                                    MWMO_INPUTAVAILABLE);
+    }
+}
+
+/// 取项的真实名称（带扩展名）
+/// @details FolderItem::get_Name 返回的是显示名称，会按资源管理器的
+///          「隐藏已知文件类型的扩展名」设置把扩展名去掉。
+///          get_Path 返回的始终是带扩展名的真实路径，取最后一段即可。
+/// @return 真实名称，失败时返回空串
+inline std::wstring aShellItemRealName(FolderItem* pItem)
+{
+    if (!pItem) return std::wstring();
+
+    BSTR bstrPath = nullptr;
+    if (SUCCEEDED(pItem->get_Path(&bstrPath)) && bstrPath)
+    {
+        std::wstring path(bstrPath, SysStringLen(bstrPath));
+        SysFreeString(bstrPath);
+        size_t pos = path.find_last_of(L"\\/");
+        if (pos != std::wstring::npos)
+        {
+            if (pos + 1 < path.size()) return path.substr(pos + 1);
+        }
+        else if (!path.empty())
+        {
+            return path;   // 没有分隔符，Path 本身就是名字
+        }
+    }
+
+    // 退路：Path 拿不到时退回显示名称（少数命名空间未实现 Path）
+    BSTR bstrName = nullptr;
+    if (SUCCEEDED(pItem->get_Name(&bstrName)) && bstrName)
+    {
+        std::wstring name(bstrName, SysStringLen(bstrName));
+        SysFreeString(bstrName);
+        return name;
+    }
+    return std::wstring();
+}
+
+
+/// CopyHere 的标志位
+/// @see https://learn.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-shfileopstructa
+/// @details CI runner 等无交互桌面的环境下，进度框/确认框可能反过来阻塞副本引擎，
+//           这里把 UI 全部关掉，完成与否只由 aShellWaitForItem 轮询判定
+constexpr long kShellComCopyFlags = FOF_NO_UI;
+
+/// CopyHere 完成等待的默认超时（毫秒）
+/// @details 副本引擎由 zipfldr.dll 异步完成，耗时波动很大，这里默认设置 60s 的超时时间
+constexpr unsigned long kShellComWaitTimeoutMs = 60000;
 
 /// 等待 Shell COM CopyHere 异步操作完成（通过 ParseName 轮询）
 /// @param pFolder 目标 Folder 指针
 /// @param itemName 要等待的项名称
 /// @param timeoutMs 超时时间（毫秒）
 /// @return true 项已出现，false 超时
-inline bool aShellWaitForItem(Folder* pFolder, const std::wstring& itemName,
-                               unsigned long timeoutMs = 30000)
+inline bool aShellWaitForItem(Folder* pFolder, const std::wstring& itemName, unsigned long timeoutMs = kShellComWaitTimeoutMs)
 {
     unsigned long start = GetTickCount();
 
@@ -44,7 +116,7 @@ inline bool aShellWaitForItem(Folder* pFolder, const std::wstring& itemName,
             pCheck->Release();
             return true;
         }
-        Sleep(100);
+        aShellPumpMessages(100);
     }
     return false;
 }

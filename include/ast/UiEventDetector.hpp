@@ -1,1 +1,1 @@
-#include "AstGUI/UiEventDetector.hpp"
+#include "AstUiCore/UiEventDetector.hpp"

@@ -17,11 +17,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          # 如果你文档需要 Git 子模块，取消注释下一行
-          submodules: true
+          # 主仓库不读 git 历史：Doxygen 只看 src/、INCLUDE_PATH 是 include，
+          # VuePress 的 importCode 只映射 /examples 和 /src。
+          fetch-depth: 1
+          # submodules: true 会把 thirdparty/* 和 data（139 MB）一起拉下来，本流程一个都用不到
+          submodules: false
 
-
+      # theme-hope 默认启用 @vuepress/plugin-git（lastUpdated / contributors），
+      # 它是对 docs 目录跑 git log，所以 docs 的历史要完整拉下来
+      - name: 检出文档子模块
+        run: git submodule update --init docs
 
       - name: 设置 Node.js
         uses: actions/setup-node@v4

@@ -1,1 +1,1 @@
-#include "AstGUI/UiAnalyzerMainWindow.hpp"
+#include "AstUiCore/UiAnalyzerMainWindow.hpp"

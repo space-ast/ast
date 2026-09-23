@@ -2,7 +2,7 @@ target("AppGUI")
     add_rules("ast.qt.widgetapp")
     add_files("**.cpp")
     -- add_files("**.ui")
-    add_deps("AstGUI", "AstUiDataUpdate")
+    add_deps("AstUiCore", "AstUiDataUpdate")
     -- if not has_package("qt") and not is_plat("wasm") then
     --     set_enabled(false)
     -- end

@@ -1,7 +1,7 @@
 target("AppAnalyzer")
     add_rules("ast.qt.widgetapp")
     add_files("*.cpp", "*.hpp")
-    add_deps("AstGUI", "AstAnalyzer")
+    add_deps("AstUiCore", "AstAnalyzer")
 
     if not has_package("qt") and not is_plat("wasm") then
         set_enabled(false)

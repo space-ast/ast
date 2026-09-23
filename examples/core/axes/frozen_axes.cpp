@@ -19,7 +19,8 @@ int main()
     Axes* ecf = aAxesECF();
     
     // 创建冻结轴系：在freezeTime时刻冻结ECF轴系
-    Axes* frozenAxes = AxesFrozen::New(ecf, freezeTime, aAxesICRF());
+    // 使用 MakeShared 返回智能指针，由它负责释放，避免对象泄漏
+    HAxesFrozen frozenAxes = AxesFrozen::MakeShared(ecf, freezeTime, aAxesICRF());
     
     printf("冻结时间: 2026-01-01 00:00:00 UTC\n");
     printf("求值时间: 2026-06-15 12:00:00 UTC\n");

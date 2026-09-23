@@ -27,6 +27,7 @@
 #include <algorithm>        
 #include <unordered_map>    //  for std::unordered_map
 #include <memory>           //  for std::unique_ptr
+#include <new>              //  for ::operator new
 
 AST_NAMESPACE_BEGIN
 
@@ -66,8 +67,11 @@ public:
         }
         
         // 创建新符号
+        // 注意：这里必须使用 ::operator new 而非 new char[] 分配。
+        // 符号最终由 std::unique_ptr<Identifier> 释放（即 operator delete），
+        // 用 new char[] 分配会构成 new[]/delete 不匹配的未定义行为，ASan 会报 alloc-dealloc-mismatch。
         size_t alloc_size = sizeof(Identifier) + length; 
-        char* memory = new char[alloc_size];
+        void* memory = ::operator new(alloc_size);
         Identifier* sym = new (memory) Identifier(static_cast<uint32_t>(length));
         memcpy(sym->data(), data, length);
         sym->data()[length] = '\0';

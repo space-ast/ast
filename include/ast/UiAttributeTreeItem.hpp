@@ -1,1 +1,1 @@
-#include "AstGUI/UiAttributeTreeItem.hpp"
+#include "AstUiCore/UiAttributeTreeItem.hpp"

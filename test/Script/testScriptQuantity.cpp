@@ -22,6 +22,8 @@
 #include "ast/AstTestMacro.h"
 #include "ast/StringView.hpp"
 #include "ast/Quantity.hpp"
+#include "ast/Value.hpp"
+#include "ast/SharedPtr.hpp"
 #include "ast/IO.hpp"
 
 AST_USING_NAMESPACE
@@ -35,6 +37,8 @@ void testParseQuantity(StringView quantityStr, const Quantity& expectedQuantity)
     ASSERT_TRUE(aValueIsQuantity(val));
     Quantity quantity = aValueUnboxQuantity(val);
     ASSERT_EQ(quantity, expectedQuantity);
+    // aEval 返回的值由调用者持有，需要释放
+    delete val;
 }
 
 

@@ -23,6 +23,7 @@
 #include "AstUtil/Encode.hpp"
 #include <cstdio>
 #include <cstring>
+#include <vector>
 
 // 平台特定的头文件包含
 #if defined(_WIN32) || defined(_WIN64)
@@ -73,6 +74,7 @@ void* _aLoadLibrary(const char* filepath)
 #if defined(_WIN32) || defined(_WIN64)
 	std::wstring widePath;
 	aUtf8ToWide(filepath, widePath);
+    static_assert(sizeof(void*) >= sizeof(HMODULE), "void* must be at least as large as HMODULE");
     return LoadLibraryW(widePath.c_str());
 #else
     // Linux/Unix平台
@@ -149,6 +151,19 @@ void* aGetProcAddress(void* lib, const char* funcName)
 #endif
 }
 
+/// @brief 库句柄 RAII 类，用于自动卸载已加载的库
+class LibraryHolder
+{
+public:
+    LibraryHolder(void* lib) : handle_(lib) {}
+    ~LibraryHolder() { aFreeLibrary(handle_); }
+    LibraryHolder(const LibraryHolder& other) = delete;
+    LibraryHolder& operator=(const LibraryHolder& other) = delete;
+    LibraryHolder(LibraryHolder&& other) : handle_(other.handle_) { other.handle_ = nullptr; }
+    LibraryHolder& operator=(LibraryHolder&& other) { std::swap(handle_, other.handle_); return *this; }
+private:
+    void* handle_{ nullptr };
+};
 
 void* aResolveProcAddress(const char* filepath, const char* funcName)
 {
@@ -165,8 +180,16 @@ void* aResolveProcAddress(const char* filepath, const char* funcName)
     // 获取函数指针
     void* procAddress = aGetProcAddress(library, funcName);
 
-    // 注意：这里不卸载库，因为调用者需要使用这个库的函数
-    // @fixme 应该在适当的时候调用相应的卸载函数
+    if (!procAddress) {
+        // 符号没找到，说明这个库不是我们要的，句柄留着没用，直接卸掉
+        aFreeLibrary(library);
+        return nullptr;
+    }
+
+    // 记录已加载的库，在程序结束时自动卸载
+    static std::vector<LibraryHolder> loadedLibraries;
+    loadedLibraries.emplace_back(library);
+
     return procAddress;
 }
 

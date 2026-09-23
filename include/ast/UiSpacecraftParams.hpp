@@ -1,1 +1,1 @@
-#include "AstGUI/UiSpacecraftParams.hpp"
+#include "AstUiCore/UiSpacecraftParams.hpp"

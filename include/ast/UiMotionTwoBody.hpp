@@ -1,1 +1,1 @@
-#include "AstGUI/UiMotionTwoBody.hpp"
+#include "AstUiCore/UiMotionTwoBody.hpp"

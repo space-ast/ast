@@ -5,7 +5,7 @@
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/IO.hpp"
 #include "AstUtil/Logger.hpp"
-#include "AstUtil/ComInit.hpp"
+#include "AstUtil/COMUtil.hpp"
 #include "AstUtil/Encode.hpp"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/ShellCOMUtils.hpp"
@@ -186,12 +186,9 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
         hr = pItems->Item(vIndex, &pItem);
         if (SUCCEEDED(hr) && pItem)
         {
-            BSTR bstrName = nullptr;
-            if (SUCCEEDED(pItem->get_Name(&bstrName)) && bstrName)
-            {
-                itemNames.push_back(std::wstring(bstrName, SysStringLen(bstrName)));
-                SysFreeString(bstrName);
-            }
+            std::wstring realName = aShellItemRealName(pItem);
+            if (!realName.empty())
+                itemNames.push_back(realName);
             pItem->Release();
         }
     }
@@ -216,7 +213,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
         VARIANT vFlags;
         VariantInit(&vFlags);
         vFlags.vt = VT_I4;
-        vFlags.lVal = 0x0400; // FOF_NO_CONNECTED_FILES
+        vFlags.lVal = kShellComCopyFlags;
 
         hr = pDestFolder->CopyHere(vItems, vFlags);
 
@@ -236,7 +233,7 @@ errc_t ExtractorImplShellCOM::extract(StringView source, StringView target) cons
     std::vector<std::wstring> extractedItems; // 记录已成功提取的项，用于失败时回滚
     for (const auto& name : itemNames)
     {
-        if (!aShellWaitForItem(pDestFolder, name, 30000))
+        if (!aShellWaitForItem(pDestFolder, name, kShellComWaitTimeoutMs))
         {
             aError(_("waitForItem 等待超时: %ls"), name.c_str());
             allOk = false;

@@ -1,1 +1,1 @@
-#include "AstGUI/UiStudyWorkbench.hpp"
+#include "AstUiCore/UiStudyWorkbench.hpp"

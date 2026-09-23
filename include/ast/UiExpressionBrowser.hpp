@@ -1,1 +1,1 @@
-#include "AstGUI/UiExpressionBrowser.hpp"
+#include "AstUiCore/UiExpressionBrowser.hpp"

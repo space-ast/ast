@@ -47,6 +47,9 @@ errc_t PythonExecutor::initialize()
         return eErrorInvalidFile;
     }
     api_->Py_Initialize();
+    
+    if (auto* version = api_->Py_GetVersion())
+        aInfo(_("Python 解释器: %s"), version);
 
     if (!globals_)
     {
@@ -54,6 +57,27 @@ errc_t PythonExecutor::initialize()
         if (!globals_)
         {
             lastError_ = captureError();
+            return eError;
+        }
+
+        // 必须显式放 __builtins__
+        // 否则 PyRun_String 拿到的 frame->f_builtins 里没有 __import__
+        // 任何 import 语句都会失败并报 "__import__ not found" 
+        auto* builtins = api_->PyImport_ImportModule("builtins");
+        if (!builtins)
+        {
+            lastError_ = captureError();
+            api_->Py_DecRef(globals_);
+            globals_ = nullptr;
+            return eError;
+        }
+        int rc = api_->PyDict_SetItemString(globals_, "__builtins__", builtins);
+        api_->Py_DecRef(builtins);
+        if (rc != 0)
+        {
+            lastError_ = captureError();
+            api_->Py_DecRef(globals_);
+            globals_ = nullptr;
             return eError;
         }
     }

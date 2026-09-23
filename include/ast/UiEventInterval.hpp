@@ -1,1 +1,1 @@
-#include "AstGUI/UiEventInterval.hpp"
+#include "AstUiCore/UiEventInterval.hpp"

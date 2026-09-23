@@ -1,1 +1,1 @@
-#include "AstGUI/UiBurnImpulsive.hpp"
+#include "AstUiCore/UiBurnImpulsive.hpp"

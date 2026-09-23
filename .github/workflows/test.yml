@@ -1,0 +1,92 @@
+name: 测试
+
+on:
+  pull_request:
+  push:
+    branches:
+      - '**'  # 仅分支推送触发，忽略 tag 推送（避免并发组冲突）
+  workflow_dispatch:  # 手动触发，便于不推分支也能验证测试
+
+jobs:
+  test:
+    runs-on: ${{ matrix.target.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [release, debug, asan]
+        target:
+          - { runner: ubuntu-latest,    arch: x86_64 }
+          - { runner: ubuntu-22.04-arm, arch: arm64  }
+          - { runner: windows-2022,     arch: x64    }
+          - { runner: windows-2022,     arch: x86    }
+          - { runner: windows-11-arm,   arch: arm64  }
+    concurrency:
+      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-${{ matrix.target.runner }}-${{ matrix.target.arch }}-${{ matrix.mode }}-test
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          # this is not supported, use dev branch instead
+          # xmake-version: local#
+          xmake-version: branch@dev
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: ${{ matrix.target.runner }}
+          
+      - name: 配置依赖缓存
+        uses: actions/cache@v4
+        with:
+          # 包里有一些二进制工具，没必要每个 mode 都缓存一份，避免占用过多缓存额度
+          path: xmake-cache
+          key: test-${{ matrix.target.runner }}-${{ matrix.target.arch }}-xmake-cache-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v1
+
+      - name: 配置编译缓存
+        if: github.ref != 'refs/heads/master'
+        uses: actions/cache@v4
+        with:
+          path: |
+            build
+            .xmake
+          key: test-${{ matrix.target.runner }}-${{ matrix.target.arch }}-${{ matrix.mode }}-build-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
+          restore-keys: |
+            test-${{ matrix.target.runner }}-${{ matrix.target.arch }}-${{ matrix.mode }}-build-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
+
+      - name: 设置xmake相关目录
+        run: |
+          xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
+          xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
+          xmake repo -u
+
+      - name: 配置项目
+        run: |
+          xmake f -cy --with_test=y --check_warnings=n -m ${{ matrix.mode }} -a ${{ matrix.target.arch }}
+          xmake show
+
+      - name: 准备 SWIG
+        if: runner.os == 'Linux'
+        run: |
+          SWIG_BIN="$(find "$PWD/xmake-cache/packages/s/swig" -type f -name swig 2>/dev/null | head -1)"
+          if [ -n "$SWIG_BIN" ]; then echo "$(dirname "$SWIG_BIN")" >> "$GITHUB_PATH"; fi
+          echo "swig: ${SWIG_BIN:-未找到}"
+
+      - name: 恢复归档测试用例
+        shell: bash
+        run: cp -r test/Archive/* test
+
+      - name: 编译
+        env:
+          # 编译期间跑的都是构建工具（swig / moc / 编译器），不是被测代码。
+          # 避免因为存在 ASan 版的工具，让 LeakSanitizer 的泄漏报告把它判成失败。
+          # 测试步骤不带这个变量，泄漏检测照常生效。
+          ASAN_OPTIONS: detect_leaks=0
+        run: |
+          xmake -ay
+
+      - name: 执行${{ matrix.mode }}测试
+        timeout-minutes: 90
+        run: |
+          xmake cpdata
+          xmake test --output-on-failure

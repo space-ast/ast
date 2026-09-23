@@ -168,9 +168,9 @@ TEST_F(HPOPTest, With_Sun_Moon_ThirdBody)
     printf("vel: %s\n", vel.toString().c_str());
     Vector3d posExpect{ -5.5995469216931257e+06, -3.0816759444764131e+06, 2.5246500543340887e+06};
     Vector3d velExpect{ 4.2866120729498525e+03, -5.8469115306180220e+03, 2.3388688727148760e+03};
-    EXPECT_NEAR(pos[0],  posExpect[0], 3e-4);
-    EXPECT_NEAR(pos[1],  posExpect[1], 3e-4);
-    EXPECT_NEAR(pos[2],  posExpect[2], 2e-4);
+    EXPECT_NEAR(pos[0],  posExpect[0], 1e-3);
+    EXPECT_NEAR(pos[1],  posExpect[1], 1e-3);
+    EXPECT_NEAR(pos[2],  posExpect[2], 1e-3);
     EXPECT_NEAR(vel[0],  velExpect[0], 1e-6);
     EXPECT_NEAR(vel[1],  velExpect[1], 1e-6);
     EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);

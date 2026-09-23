@@ -22,6 +22,13 @@
 
 AST_NAMESPACE_BEGIN
 
+Object* ObjectNode::getParentScope() const
+{
+    // 节点的 object_ 为 nullptr 时，获取其 parentNode_ 的操作是未定义的
+    assert(this->object_.get());
+    return parentNode_?parentNode_->getObject():nullptr;
+}
+
 errc_t ObjectNode::addChild(ObjectNode *child)
 {
     if(!child)
@@ -41,18 +48,31 @@ errc_t ObjectNode::removeChild(ObjectNode *child)
 
 void ObjectNode::clearChildren()
 {
-    for(auto child : children_){
+    // 先置空 children_，避免在遍历中修改容器的迭代器失效
+    auto children = std::move(children_);
+    for(auto child : children){
         child->decRef();
         child->parentNode_ = nullptr;
     }
-    children_.clear();
 }
 
 void ObjectNode::clear()
 {
     clearChildren();
+    
+    /*
+    父节点对本节点持有一个强引用，必须在这里显式释放
+    这种情况应该只会在调用 removeAllObjects 以及显式移除指定对象时出现
+
+    而在对象具有父节点时，因为父节点拥有子节点的一个强引用
+    所以子对象不会进入析构逻辑，从而不会进入这里的 if 分支逻辑
+    */
+    
+    if(parentNode_)
+    {
+        parentNode_->removeChild(this);
+    }
     object_ = nullptr;
-    parentNode_ = nullptr;
 }
 
 errc_t ObjectNode::setParent(ObjectNode *parent)

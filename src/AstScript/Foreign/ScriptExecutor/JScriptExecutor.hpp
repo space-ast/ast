@@ -30,10 +30,19 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class AST_SCRIPT_API JScriptExecutor : public ActiveScriptExecutor
+class AST_SCRIPT_API JScriptExecutor final: public ActiveScriptExecutor
 {
 public:
     JScriptExecutor();
+    #ifdef _WIN32
+    // 下面这些重载会隐藏基类同名的其他重载（含字符串字面量重载），需要显式引回
+    using ScriptExecutor::setVariable;
+
+    errc_t setVariable(StringView name, StringView value) override;
+    errc_t setVariable(StringView name, double value) override;
+    errc_t setVariable(StringView name, int value) override;
+    errc_t setVariable(StringView name, bool value) override;
+    #endif
 };
 
 
