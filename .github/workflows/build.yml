@@ -218,6 +218,21 @@ jobs:
           cp artifacts/SpaceAST.zip \
             "nightly-assets/SpaceAST-nightly-windows-${{ matrix.target.arch }}.zip"
 
+      # 发布说明里的时间戳用北京时间。runner 是 UTC，用 date -u -d 直接做偏移，
+      # 不依赖 tzdata（Windows runner 的 Git Bash 没有 zoneinfo），容器里的 coreutils 行为一致。
+      - name: 生成 nightly 发布说明
+        id: nightly_note
+        if: needs.nightly-guard.outputs.ok == 'true'
+        shell: bash
+        run: |
+          {
+            echo 'body<<EOF_BODY'
+            echo '流水线自动构建的每夜版, 随主分支更新'
+            echo
+            echo "最近更新：$(date -u -d '+8 hours' '+%Y-%m-%d %H:%M')(UTC+8)"
+            echo 'EOF_BODY'
+          } >> "$GITHUB_OUTPUT"
+
       # prerelease 必须显式传：GitHub 创建 release 接口的 make_latest 默认是 true，
       # 漏传会让首次创建出来的 nightly release 被当成正式版。
       - name: 更新 nightly 产物到 GitHub
@@ -242,7 +257,7 @@ jobs:
           token: ${{ secrets.GITEE_TOKEN }}
           tag_name: nightly
           name: Nightly Build-预发布版
-          body: 由 GitHub Actions 自动构建的每夜版，随 master 更新
+          body: ${{ steps.nightly_note.outputs.body }}
           prerelease: 'true'
           files: nightly-assets/*.zip
           overwrite_files: 'true'
@@ -260,7 +275,7 @@ jobs:
           token: ${{ secrets.GITCODE_TOKEN }}
           tag_name: nightly
           name: Nightly Build-预发布版
-          body: 由 GitHub Actions 自动构建的每夜版，随 master 更新
+          body: ${{ steps.nightly_note.outputs.body }}
           prerelease: 'true'
           files: nightly-assets/*.zip
           overwrite_files: 'true'
@@ -498,6 +513,21 @@ jobs:
             cp artifacts/SpaceAST.gz.run "nightly-assets/SpaceAST-nightly-linux-any.gz.run"
           fi
 
+      # 发布说明里的时间戳用北京时间。runner 是 UTC，用 date -u -d 直接做偏移，
+      # 不依赖 tzdata（Windows runner 的 Git Bash 没有 zoneinfo），容器里的 coreutils 行为一致。
+      - name: 生成 nightly 发布说明
+        id: nightly_note
+        if: needs.nightly-guard.outputs.ok == 'true'
+        shell: bash
+        run: |
+          {
+            echo 'body<<EOF_BODY'
+            echo '流水线自动构建的每夜版, 随主分支更新'
+            echo
+            echo "最近更新：$(date -u -d '+8 hours' '+%Y-%m-%d %H:%M')(UTC+8)"
+            echo 'EOF_BODY'
+          } >> "$GITHUB_OUTPUT"
+
       # prerelease 必须显式传：GitHub 创建 release 接口的 make_latest 默认是 true，
       # 漏传会让首次创建出来的 nightly release 被当成正式版。
       - name: 更新 nightly 产物到 GitHub
@@ -522,7 +552,7 @@ jobs:
           token: ${{ secrets.GITEE_TOKEN }}
           tag_name: nightly
           name: Nightly Build-预发布版
-          body: 由 GitHub Actions 自动构建的每夜版，随 master 更新
+          body: ${{ steps.nightly_note.outputs.body }}
           prerelease: 'true'
           files: nightly-assets/*
           overwrite_files: 'true'
@@ -540,7 +570,7 @@ jobs:
           token: ${{ secrets.GITCODE_TOKEN }}
           tag_name: nightly
           name: Nightly Build-预发布版
-          body: 由 GitHub Actions 自动构建的每夜版，随 master 更新
+          body: ${{ steps.nightly_note.outputs.body }}
           prerelease: 'true'
           files: nightly-assets/*
           overwrite_files: 'true'
