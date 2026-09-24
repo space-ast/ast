@@ -1,32 +1,60 @@
+# Codecov 配置
+#
+# 目标分两层（存量 + 增量），不用单一数字卡整个工程：
+#   - project: 棘轮（ratchet），只许涨不许跌，允许 1% 的正常抖动
+#   - patch:   新增/修改的行必须 80% 覆盖 —— 真正推动覆盖率上涨的杠杆
+#
+# 非门禁的里程碑（写在配置里备查，不要做成阻塞检查）：
+#   6 个月     54% -> 65%
+#   12 个月        -> 75%
+#   长期          核心模块（AstCore / AstMath） - 90%
+#
+# 注意：ignore 里的每一项都会缩小分母，也就改变了目标的含义。
+# 排除某个目录前，先确认它确实不该由行覆盖率来度量。
+
 coverage:
   status:
     project: #add everything under here, more options at https://docs.codecov.com/docs/commit-status
       default:
         # basic
-        target: 80%    # the required coverage value
-        threshold: 2%  # the leniency in hitting the target
+        target: auto   # 不低于 base commit 的覆盖率（棘轮）
+        threshold: 1%  # the leniency in hitting the target
         base: auto 
+    patch:
+      default:
+        target: 80%    # 新增/修改的行必须达到
+        threshold: 0%
 
 comment:                  #this is a top-level key
-  layout: " diff, flags, files"
+  layout: "diff, flags, files"
   behavior: default
   require_changes: false  # if true: only post the comment if coverage changes
   require_base: false        # [true :: must have a base report to post]
   require_head: true       # [true :: must have a head report to post]
-  hide_project_coverage: false # [true :: only show coverage on the git diff aka patch coverage]]
+  hide_project_coverage: false # [true :: only show coverage on the git diff aka patch coverage]
 
 ignore:
   # These libraries are external imports and should not count towards coverage stats
+  # 第三方 / 非统计对象
   - "3rdparty"    # 第三方库
   - "thirdparty"  # 第三方库
   - "test"        # 测试代码
   - "projects"    # 上层项目/示例项目
   - "examples"    # 示例代码
   - "docs"        # 文档
-  - "src/AstUiCore"    
-  - "src/AstGfx"
-  - "src/AstMock"
-  - "src/AstOpt"
-  - "src/AstOCP"
-  - "src/AstLoader"
 
+  # GUI / 可视化：验收靠人工，行覆盖率信息量低
+  - "src/AstUi*"
+  - "src/AstVis*"
+  - "src/AstVisualization"
+  - "src/AstChart"
+  - "src/AstPlot"
+
+  # 绑定 / 外壳 / 实验性：多为生成代码或平台专属，测试策略不同
+  - "src/AstPy"    # SWIG 生成的 Python 绑定
+  - "src/AstCOM"   # 仅 Windows；覆盖率 job 跑在 Ubuntu 上，永远测不到
+  - "src/AstWasm"  # WASM 实验性支持
+
+  # 测试辅助库与求解器封装
+  - "src/AstTest"  # 测试工具库
+  - "src/AstMock"  # 模拟/测试工具
