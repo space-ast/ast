@@ -10,11 +10,11 @@ on:
   workflow_dispatch:  # 手动触发，便于不推 master 也能验证构建与打包
 
 permissions:
-  # 推 nightly tag、上传 release 资产需要；显式声明，不依赖仓库默认权限设置
+  # 推 nightly tag、上传 release 产物需要；显式声明，不依赖仓库默认权限设置
   contents: write
 
 jobs:
-  # 把 nightly 判定抽出来只跑一次
+  # 判断是否需要更新 nightly 版本
   nightly-guard:
     runs-on: ubuntu-latest
     outputs:
@@ -37,7 +37,7 @@ jobs:
           fi
           SHA="${{ github.sha }}"
           # 只允许"仍然是 master 顶端"的提交更新 nightly。
-          # 重跑旧的 run 时 github.sha 仍是那次 push 的旧提交，直接推会把 nightly 打回去。
+          # 重跑旧的 run 时 github.sha 仍是那次 push 的旧提交，直接推会把 nightly 标签重置为旧提交。
           # 用 ls-remote 比对远端顶端，不依赖本地历史。
           TIP="$(git ls-remote origin refs/heads/master 2>/dev/null || true)"
           TIP="${TIP%%[[:space:]]*}"
@@ -155,7 +155,7 @@ jobs:
       # ── 正式发布：GitHub / Gitee / GitCode ────────────────────────────
       # 三个平台的发布 action 都按文件名（basename）上传、不支持上传时改名，
       # 所以先在本地复制出带版本号的副本，三边共用同一份 files glob。
-      # Gitee/GitCode 那两步额外加 preserve_order（串行上传）：跨境实测只有 20–90 KB/s，
+      # Gitee/GitCode 那两步额外加 preserve_order（实现串行上传）：跨境实测有时只有 20–90 KB/s，
       # 同一个 job 里两路并发会把链路对半分，两个文件都拖得更久、也都更容易被掐断。
       - name: 准备发布产物-二进制包
         if: github.event.action == 'published'
@@ -426,7 +426,7 @@ jobs:
       # ── 正式发布：GitHub / Gitee / GitCode ────────────────────────────
       # 三个平台的发布 action 都按文件名（basename）上传、不支持上传时改名，
       # 所以先在本地复制出带版本号的副本，三边共用同一份 files glob。
-      # Gitee/GitCode 那两步额外加 preserve_order（串行上传）：跨境实测只有 20–90 KB/s，
+      # Gitee/GitCode 那两步额外加 preserve_order（实现串行上传）：跨境实测有时只有 20–90 KB/s，
       # 同一个 job 里两路并发会把链路对半分，两个文件都拖得更久、也都更容易被掐断。
       - name: 准备发布产物-linux
         if: github.event.action == 'published'
