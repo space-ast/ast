@@ -42,12 +42,12 @@ errc_t aDataDirGetDefault(std::string &dataDirOut)
     }
 
     // 2. 检查动态库目录的data文件夹
+    // 将该目录作为默认数据目录，使得数据下载到该目录下，而不是其他目录
     {
-        fs::path datadir = fs::path(aLibDir()) / AST_DATA_DIR_NAME;
+        dataDirOut = fs::path(aLibDir()) / AST_DATA_DIR_NAME;
         std::error_code ec;
         // aDebug("datadir: %s\n", datadir.string().c_str());
-        if (fs::is_directory(datadir, ec)){
-            dataDirOut = datadir.string();
+        if (fs::is_directory(dataDirOut, ec)){
             return eNoError;
         }
     }
@@ -76,9 +76,7 @@ errc_t aDataDirGetDefault(std::string &dataDirOut)
         }
     }
 
-    // aError("未找到数据文件夹");
-    // 如果所有路径都不存在，返回默认的相对路径
-    dataDirOut = AST_DATA_DIR_NAME;
+    // 如果所有路径都不存在，返回默认的相对路径（动态库目录的data文件夹）
     return eErrorNotFound;
 }
 
