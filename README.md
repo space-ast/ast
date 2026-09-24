@@ -92,7 +92,7 @@ Provides complete astrodynamics computation capabilities, including coordinate s
 
 
 ```bash
-git clone https://github.com/space-ast/ast.git --recursive
+git clone https://github.com/space-ast/ast.git --depth=1
 cd ast
 xmake
 ```
@@ -129,23 +129,18 @@ The project adopts the following naming conventions:
 // Namespace ast
 namespace ast
 {
-    // ...
+    // Global functions - single 'a' prefix
+    aPropagateOrbit();
+    aSolveLambert();
+    aRotateQuaternion();
+
+
+    // Enums - 'E' and 'e' prefix
+    enum EFrame { eECI, eECEF }; 
+
+    // Constants - 'k' prefix
+    const kEps15 = 1e-15;
 }
-
-// Global functions - single 'a' prefix
-aPropagateOrbit();
-aSolveLambert();
-aRotateQuaternion();
-
-// Type aliases - 'A' prefix
-typedef ast::OrbitPropagator    AOrbitPropagator;
-typedef ast::AttitudeController AAttitudeController;
-
-// Enums - 'E' and 'e' prefix
-enum EFrame { eECI, eECEF }; 
-
-// Constants - 'k' prefix
-const kEps15 = 1e-15;
 ```
 
 As you may notice, under the conventions above, every name starting with a lowercase letter denotes a value or an address.
@@ -179,24 +174,6 @@ Please make sure your code follows the project's coding standards and add the co
 ## License
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
-
-### Module Planning
-
-Core modules will be carefully designed and developed, with thorough testing and validation to ensure the accuracy and stability of the algorithms.
-
-- [Utility Module](src/AstUtil): provides general-purpose utility functions such as mathematical operations and string processing
-- [Math Library](src/AstMath): provides mathematical functions for numerical computation, linear algebra, optimization, and more
-- [Simulation Engine](src/AstSim): provides a simulation environment supporting orbit simulation, attitude simulation, environment interaction, and more
-- [Astrodynamics Algorithms](src/AstCore): provides core algorithms such as orbital mechanics, attitude systems, and coordinate transformations
-
-The following modules will be developed with AI assistance, but their quality will be ensured through human review and automated testing.
-
-- [Script System](src/AstScript): provides a scripting interface so users can define custom simulation scenarios
-- [Interactive Console](src/AstInterp): provides an interactive command-line interface for users to run simulation experiments
-- [MATLAB Wrapper](src/AstMex): provides a MATLAB interface so users can use the ast algorithms in the MATLAB environment
-- [Python Wrapper](src/AstPy): provides a Python interface so users can use the ast algorithms in the Python environment
-- [WebAssembly Wrapper](src/AstWasm): provides a WebAssembly interface so users can use the ast algorithms in the browser
-- [Graphical User Interface](src/AstUiCore): provides a graphical user interface for users to run simulation experiments
 
 
 ## Contact Us
@@ -245,25 +222,22 @@ The following industry software represents the benchmark tools in the aerospace 
 
 ### Third-Party Libraries
 
-- [iau-sofa](https://www.iausofa.org/): a C library providing many commonly used astronomical computation functions
-- [Eigen](http://eigen.tuxfamily.org/): a high-performance C++ template library for linear algebra, matrix, and vector operations
+All third-party libraries this project depends on are optional, and users can choose whether to include them as needed.
+
 - [fmt](https://fmt.dev/): a C++ library for formatting strings, providing Python-like formatting syntax
-- [openscenegraph](https://www.openscenegraph.org/): a cross-platform 3D graphics library for rendering and interactively displaying 3D scenes
-- [opengl](https://www.opengl.org/): a cross-platform 3D graphics library for rendering and interactively displaying 3D scenes
 - [Qt](https://www.qt.io/): a cross-platform C++ framework for developing graphical user interface applications
+- [SPICE](https://naif.jpl.nasa.gov/naif/toolkit.html): a software library provided by NASA's Navigation and Ancillary Information Facility (NAIF)
+- [Matplot++](https://github.com/alandefreitas/matplotplusplus): a C++ library for plotting 2D and 3D charts, providing MATLAB-like syntax
+- [agg](https://agg.sourceforge.net/antigrain.com/index.html): provides high-quality 2D vector graphics rendering with support for sub-pixel resolution and anti-aliasing
+- [gtest](https://github.com/google/googletest): a C++ unit testing framework for writing and running unit tests
+- [benchmark](https://github.com/google/benchmark): a C++ performance benchmarking framework for measuring code performance metrics
+- [vtk](https://www.vtk.org/): a cross-platform visualization toolkit for rendering and interactively displaying scientific data
+- [replxx](https://github.com/AmokHuginnsson/replxx): provides interactive command-line input, including line editing, history, tab completion, and prompts
 
 
 ## Project Name Inspiration
 
-The name **ast** carries multiple layers of meaning, each echoing the essence of aerospace simulation:
-
-### Etymological Depth
-
-- Stellar origins: derived from the Greek root `aster` (ἀστήρ), meaning "star"
-- Astronomical heritage: shares roots with astronomy, astronaut, astrodynamics, and the like
-- Cosmic exploration: symbolizes our mission to explore the mysteries of the universe through simulation technology
-
-### Professional Connotations
+ast derives from the Greek root astēr (ἀστήρ), meaning "star", carrying a natural imagery of interstellar space, and sharing roots with astronomy, astronaut, astrodynamics, and asteroid. Professionally, AST can be expanded as:
 
 - Aerospace Simulation Tool
 - Advanced Space Technology  

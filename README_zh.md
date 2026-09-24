@@ -95,7 +95,7 @@
 
 
 ```bash
-git clone https://github.com/space-ast/ast.git --recursive
+git clone https://github.com/space-ast/ast.git --depth=1
 cd ast
 xmake
 ```
@@ -139,13 +139,13 @@ namespace ast
     aPropagateOrbit();
     aSolveLambert();
     aRotateQuaternion();
+
+    // 枚举 - 'E' 和 'e' 前缀
+    enum EFrame { eECI, eECEF }; 
+
+    // 常量 - 'k' 前缀
+    const kEps15 = 1e-15;
 }
-
-// 枚举 - 'E' 和 'e' 前缀
-enum EFrame { eECI, eECEF }; 
-
-// 常量 - 'k' 前缀
-const kEps15 = 1e-15;
 ```
 
 在以上命名规范里，所有以小写字母开头的都有值或者地址
@@ -227,24 +227,21 @@ const kEps15 = 1e-15;
 
 ### 第三方库
 
-- [iau-sofa](https://www.iausofa.org/): 一个C库，提供了许多常用的天文计算函数
-- [Eigen](http://eigen.tuxfamily.org/): 高性能C++模板库，用于线性代数、矩阵和向量运算
-- [fmt](https://fmt.dev/): 一个用于格式化字符串的C++库，提供了类似于Python的格式化语法
-- [openscenegraph](https://www.openscenegraph.org/): 一个跨平台的3D图形库，用于渲染和交互显示3D场景
-- [opengl](https://www.opengl.org/): 一个跨平台的3D图形库，用于渲染和交互显示3D场景
-- [Qt](https://www.qt.io/): 跨平台C++图形用户界面应用程序开发框架
+项目所依赖的第三方库均为可选项，用户可以根据需要选择是否引入
 
+- [fmt](https://fmt.dev/): 用于格式化字符串的C++库，提供了类似于Python的格式化语法
+- [Qt](https://www.qt.io/): 跨平台C++图形用户界面应用程序开发框架
+- [SPICE](https://naif.jpl.nasa.gov/naif/toolkit.html): NASA导航和辅助信息设施(NAIF)提供的一套软件库
+- [Matplot++](https://github.com/alandefreitas/matplotplusplus): 用于绘制2D和3D图表的C++库，提供了类似于MATLAB的语法
+- [agg](https://agg.sourceforge.net/antigrain.com/index.html): 提供高质量 2D 矢量图形渲染能力，支持子像素分辨率和抗锯齿
+- [gtest](https://github.com/google/googletest): C++单元测试框架，用于编写和运行单元测试
+- [benchmark](https://github.com/google/benchmark): C++性能测试框架，用于测量代码性能指标
+- [vtk](https://www.vtk.org/): 一个跨平台的可视化工具库，用于渲染和交互显示科学数据
+- [replxx](https://github.com/AmokHuginnsson/replxx): 提供交互式命令行输入功能，包括行编辑、历史记录、Tab 补全、提示符等
 
 ## 项目名称灵感
 
-**ast** 这个名字蕴含着多重深意，每一层都呼应着航天仿真的本质：
-
-### 词源深意
-
-- 星辰：源自希腊语词根 `aster` (ἀστήρ)，意为"星辰"
-- 天文：与 astronomy（天文学）、astronaut（宇航员）、Astrodynamics(航天动力学)等同源
-
-### 专业内涵
+ast 源自希腊语词根 astēr(ἀστήρ)，意为星辰，天然带有星际空间的意象，并与 astronomy（天文学）、astronaut（宇航员）、astrodynamics（航天动力学）、asteroid（小行星）等同源。专业上，AST 可展开为：
 
 - Aerospace Simulation Tool: 航天仿真工具
 - Advanced Space Technology: 先进空间技术  
