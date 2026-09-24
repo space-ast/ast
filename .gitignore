@@ -27,6 +27,8 @@ __pycache__
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md
 settings.local.json
+# Claude Code 本地会话记录（.claude/skills 是入库的软链，勿忽略）
+.claude/projects/
 
 # xmake.sh 生成的构建文件
 Makefile

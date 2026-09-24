@@ -38,7 +38,7 @@ DEFAULT_EXTENSIONS = ['.cpp', '.h', '.hpp', '.c', '.cxx', '.inl']
 
 # 默认排除的目录名
 DEFAULT_EXCLUDE_DIRS = [
-    '.git', '.svn', '.claude', '.github', '.vs', '.vscode',
+    '.git', '.svn', '.claude', '.agents', '.github', '.vs', '.vscode',
     '.xmake', '__pycache__', 'node_modules',
     'build', 'artifacts', 'thirdparty', 'data', 'doc', 'docs',
 ]

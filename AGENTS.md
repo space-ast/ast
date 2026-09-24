@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-本文件为 Claude Code（claude.ai/code）在此仓库中工作时提供指导。
+本文件为在此仓库中工作的 AI 编码代理提供指导。
 
 ## 构建系统
 

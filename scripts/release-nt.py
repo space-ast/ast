@@ -47,7 +47,7 @@ ZIP_NAME = 'ast-nt.zip'
 
 # 排除的目录
 EXCLUDE_DIRS = ['data', "doc", 'docs', 'build', "thirdparty", "artifacts",
-                ".claude", ".github", ".trae", ".vs", ".vscode", '.xmake', '.git', 
+                ".claude", ".agents", ".github", ".trae", ".vs", ".vscode", '.xmake', '.git', 
                 "__pycache__", 
                 "vs2015", "vs2026", "vsxmake2022", "vsxmake2026",
                 "node_modules"]
