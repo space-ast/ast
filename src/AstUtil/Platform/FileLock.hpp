@@ -108,7 +108,7 @@ private:
     class Impl;
     Impl& impl();
 private:
-    std::aligned_storage<sizeof(void*)>::type impl_;
+    std::aligned_storage<sizeof(void*)>::type impl_{};
 };
 
 

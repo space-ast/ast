@@ -153,6 +153,8 @@ public:
     }
     errc_t unlock()
     {
+        if(handle_ == nullptr || handle_ == INVALID_HANDLE_VALUE)
+            return eErrorInvalidFile;
         OVERLAPPED overlapped{};
         overlapped.Offset = kLockFileLockOffset;
         if (!::UnlockFileEx(handle_, 0, 1, 0, &overlapped)) {
@@ -243,6 +245,8 @@ public:
     }
     errc_t unlock()
     {
+        if(fd_ < 0)
+            return eErrorInvalidFile;
         if (::flock(fd_, LOCK_UN) != 0) {
             aError(_("解锁文件失败: %s"), std::strerror(errno));
             return eError;
