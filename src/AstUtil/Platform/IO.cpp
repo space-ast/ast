@@ -286,8 +286,9 @@ bool hasCacheFile(const std::string& filepath)
 }
 
 
-/// @brief 计算当月的文件夹名，形如 "2026-09"
-std::string currentMonthName()
+/// @brief 计算月份的文件夹名，形如 "2026-09"
+/// @param monthOffset 相对当月的月份偏移：0 表示当月，-1 表示上月
+std::string monthName(int monthOffset)
 {
     const std::time_t now = std::time(nullptr);
     std::tm tmValue{};
@@ -296,17 +297,23 @@ std::string currentMonthName()
 #else
     localtime_r(&now, &tmValue);
 #endif
-    char buffer[16];
-    snprintf(buffer, sizeof(buffer), "%04d-%02d", tmValue.tm_year + 1900, tmValue.tm_mon + 1);
+    // 换算成"自公元 0 年起的月序"再偏移，跨年由整数除法自动归一化
+    const int months = (tmValue.tm_year + 1900) * 12 + tmValue.tm_mon + monthOffset;
+    char buffer[32]{};
+    snprintf(buffer, sizeof(buffer), "%04d-%02d", months / 12, months % 12 + 1);
     return buffer;
 }
 
-/// @brief 删除过期的月份文件夹，只保留当月
-void removeOldMonths(const fs::path& uriDir, const std::string& keepMonth)
+/// @brief 删除上个月之前的月份文件夹
+/// @param keepFrom 保留的起始月份（含），形如 "2026-08"
+/// @note 多留一个月的原因：moonName 在进程内是静态缓存的（跨月也稳定），
+///       跨月仍在运行的进程还在用上个月的目录，删掉会让它的缓存写入失败
+void removeOldMonths(const fs::path& uriDir, const std::string& keepFrom)
 {
+    // 目录名形如 "2026-09"，补零后字典序即时间序
     for (const auto& entry : fs::directory_iterator(uriDir))
     {
-        if (entry.path().filename().string() != keepMonth)
+        if (entry.path().filename().string() < keepFrom)
             fs::remove_all(entry.path());
     }
 }
@@ -323,7 +330,7 @@ errc_t uriCachePath(StringView requestUri, std::string& cacheFile, std::string& 
     }
 
     // 静态变量保证在首次调用时缓存，保证程序运行期间月份文件夹不变（程序跨月也稳定）
-    static const std::string moonName = currentMonthName();
+    static const std::string moonName = monthName(0);
 
     const fs::path downloadDir = fs::path(cacheDir) / "download";
     const fs::path monthDir = downloadDir / moonName;
@@ -336,8 +343,8 @@ errc_t uriCachePath(StringView requestUri, std::string& cacheFile, std::string& 
             aError(_("无法创建缓存文件夹 '%s'"), monthDir.string().c_str());
             return eErrorInvalidFile;
         }
-        // 第一次使用当月文件夹：月份滚动，清掉其它月份的缓存
-        removeOldMonths(downloadDir, moonName);
+        // 第一次使用当月文件夹：月份滚动，清掉上个月之前的缓存
+        removeOldMonths(downloadDir, monthName(-1));
     }
 
     const std::string hash = uriCacheHash(requestUri);
@@ -350,7 +357,10 @@ errc_t uriCachePath(StringView requestUri, std::string& cacheFile, std::string& 
 errc_t fetchRemote(const std::string& uri, const std::string& cacheFile, FileLock& lock)
 {
     if (lock.lock() != eNoError)
-        aWarning(_("无法锁定缓存锁文件 '%s'，跳过多进程协调"), cacheFile.c_str());
+    {
+        aError(_("无法获取缓存锁 '%s'"), cacheFile.c_str());
+        return eError;
+    }
 
     // 命中检查必须在持锁之后：另一个进程可能刚下载完
     if (hasCacheFile(cacheFile))
