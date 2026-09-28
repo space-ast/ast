@@ -76,7 +76,7 @@ public:
                             TimePoint{0, -std::numeric_limits<double>::infinity()});
     }
 
-    /// @brief 完整时间区间（{-∞, +∞}）
+    /// @brief 时间区间全集（{-∞, +∞}）
     static TimeInterval Whole()
     {
         return TimeInterval(TimePoint{0, -std::numeric_limits<double>::infinity()},
