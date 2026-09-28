@@ -1,6 +1,5 @@
 var dir_76c72d9a785286fd1276578b7b3202c1 =
 [
-    [ "Attitude", "dir_f5927139ba9f5b5643613853e967f4e9.html", "dir_f5927139ba9f5b5643613853e967f4e9" ],
     [ "AxesAPI.cpp", "AxesAPI_8cpp.html", "AxesAPI_8cpp" ],
     [ "AxesAPI.hpp", "AxesAPI_8hpp.html", "AxesAPI_8hpp" ],
     [ "AxesBodyFixed.cpp", "AxesBodyFixed_8cpp.html", null ],

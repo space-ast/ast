@@ -183,6 +183,12 @@ $(function(){initNavTree('group__Util.html',''); initResizable(true); });
 <tr class="memitem:ga0349b631bb6c1f24a8ec4a33cc78a362" id="r_ga0349b631bb6c1f24a8ec4a33cc78a362"><td class="memItemLeft" align="right" valign="top"><a id="ga0349b631bb6c1f24a8ec4a33cc78a362" name="ga0349b631bb6c1f24a8ec4a33cc78a362"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DATA_DIR_NAME</b>&#160;&#160;&#160;&quot;data&quot;</td></tr>
 <tr class="separator:ga0349b631bb6c1f24a8ec4a33cc78a362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga59bf4c76dd4b624109aec71ec815ca30" id="r_ga59bf4c76dd4b624109aec71ec815ca30"><td class="memItemLeft" align="right" valign="top"><a id="ga59bf4c76dd4b624109aec71ec815ca30" name="ga59bf4c76dd4b624109aec71ec815ca30"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_ENV_CACHE_DIR</b>&#160;&#160;&#160;&quot;AST_CACHE_DIR&quot;</td></tr>
+<tr class="separator:ga59bf4c76dd4b624109aec71ec815ca30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga415b48d6e9c78a02ccf5fec6fc48e24c" id="r_ga415b48d6e9c78a02ccf5fec6fc48e24c"><td class="memItemLeft" align="right" valign="top"><a id="ga415b48d6e9c78a02ccf5fec6fc48e24c" name="ga415b48d6e9c78a02ccf5fec6fc48e24c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_CACHE_DIR_NAME</b>&#160;&#160;&#160;&quot;cache&quot;</td></tr>
+<tr class="separator:ga415b48d6e9c78a02ccf5fec6fc48e24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga52b80590e24f61ccb9850f44bb5435c4" id="r_ga52b80590e24f61ccb9850f44bb5435c4"><td class="memItemLeft" align="right" valign="top"><a id="ga52b80590e24f61ccb9850f44bb5435c4" name="ga52b80590e24f61ccb9850f44bb5435c4"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_DIR_AEP8</b>&#160;&#160;&#160;&quot;SolarSystem/Earth/aep8/&quot;</td></tr>
 <tr class="separator:ga52b80590e24f61ccb9850f44bb5435c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -505,6 +511,10 @@ A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast
 <tr class="separator:gad98bdd67f1f6fb3c6f78889f92a20369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga602bf5d595d538f0a1a1d690e8b4a5e5" id="r_ga602bf5d595d538f0a1a1d690e8b4a5e5"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga602bf5d595d538f0a1a1d690e8b4a5e5">ast::aDataDir</a> (std::string &amp;datadir)</td></tr>
 <tr class="separator:ga602bf5d595d538f0a1a1d690e8b4a5e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26e65383c7aa0d4558ed07189f54321b" id="r_ga26e65383c7aa0d4558ed07189f54321b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga26e65383c7aa0d4558ed07189f54321b">ast::aCacheDir</a> (std::string &amp;cachedir)</td></tr>
+<tr class="separator:ga26e65383c7aa0d4558ed07189f54321b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e814da31541ce9a33ce0e4e3c4e6c37" id="r_ga3e814da31541ce9a33ce0e4e3c4e6c37"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3e814da31541ce9a33ce0e4e3c4e6c37">ast::aCacheDir</a> ()</td></tr>
+<tr class="separator:ga3e814da31541ce9a33ce0e4e3c4e6c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaad67fee67dde91d39aea8e0b9ebacbee" id="r_gaad67fee67dde91d39aea8e0b9ebacbee"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaad67fee67dde91d39aea8e0b9ebacbee">ast::Polynomial::eval</a> (double x) const</td></tr>
 <tr class="separator:gaad67fee67dde91d39aea8e0b9ebacbee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -1444,6 +1454,58 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMil
 </div>
 </div>
 <h2 class="groupheader">函数说明</h2>
+<a id="ga3e814da31541ce9a33ce0e4e3c4e6c37" name="ga3e814da31541ce9a33ce0e4e3c4e6c37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3e814da31541ce9a33ce0e4e3c4e6c37">&#9670;&#160;</a></span>aCacheDir() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::string ast::aCacheDir </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取缓存文件夹 </p>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="#ga26e65383c7aa0d4558ed07189f54321b" title="获取缓存文件夹 缓存文件夹的顺序：">aCacheDir(std::string&amp;)</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga26e65383c7aa0d4558ed07189f54321b" name="ga26e65383c7aa0d4558ed07189f54321b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga26e65383c7aa0d4558ed07189f54321b">&#9670;&#160;</a></span>aCacheDir() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI errc_t ast::aCacheDir </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>cachedir</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取缓存文件夹 缓存文件夹的顺序： </p>
+<ol type="1">
+<li>AST_CACHE_DIR 环境变量</li>
+<li>Windows: LOCALAPPDATA%/ast/cache；POSIX: $XDG_CACHE_HOME/ast 或 $HOME/.cache/ast</li>
+<li>动态库目录的 cache 文件夹(AST_CACHE_DIR_NAME) <dl class="section note"><dt>注解</dt><dd>只解析路径，不创建文件夹 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">cachedir</td><td>缓存文件夹路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+</li>
+</ol>
+
+</div>
+</div>
 <a id="ga1504ced890d1ddf9c776dad4def524e9" name="ga1504ced890d1ddf9c776dad4def524e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga1504ced890d1ddf9c776dad4def524e9">&#9670;&#160;</a></span>aColorToRGB()</h2>
 

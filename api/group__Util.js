@@ -206,6 +206,8 @@ var group__Util =
       [ "ast::ELogLevel::eCritical", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01faf38218e99af914676ea5032c50fe4fb6", null ],
       [ "ast::ELogLevel::eFatal", "group__Util.html#gga5bbb8d8bdd9f8766a334821bfbf1d01faa6eae972352ca2db629694a3d732bdf8", null ]
     ] ],
+    [ "ast::aCacheDir", "group__Util.html#ga3e814da31541ce9a33ce0e4e3c4e6c37", null ],
+    [ "ast::aCacheDir", "group__Util.html#ga26e65383c7aa0d4558ed07189f54321b", null ],
     [ "ast::aColorToRGB", "group__Util.html#ga1504ced890d1ddf9c776dad4def524e9", null ],
     [ "ast::aColorToRGBA", "group__Util.html#ga924b82626c144275a12826e154af64c4", null ],
     [ "ast::acosd", "group__Util.html#gac806bd7b674d45101bed2b074eec2f36", null ],

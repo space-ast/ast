@@ -39,6 +39,7 @@ var searchData=
   ['loadspindata_36',['loadSpinData',['../classast_1_1CelestialBody.html#a2d9d8b5b0627fec3a63b69362abd01c0',1,'ast::CelestialBody']]],
   ['loadstk_37',['loadSTK',['../classast_1_1NutationSeries.html#afd663255bea4231d2fb59784b2fc8f57',1,'ast::NutationSeries::loadSTK()'],['../classast_1_1LeapSecond.html#ade2715ccb4bc4373cc8419dc1fcc11f4',1,'ast::LeapSecond::loadSTK()']]],
   ['localeguard_38',['LocaleGuard',['../classast_1_1LocaleGuard.html#a88496c851987f0fa00b5bfcf3075e11d',1,'ast::LocaleGuard']]],
-  ['longitude_39',['longitude',['../classast_1_1GeoCoordinate.html#a372ddc25c669aebc1d37e1d21837b8a9',1,'ast::GeoCoordinate::longitude() const'],['../classast_1_1GeoCoordinate.html#a4abf5d3b8a40f6e5284799bbd0664280',1,'ast::GeoCoordinate::longitude()'],['../classast_1_1LatLonAlt.html#a77ac2552ea9ebde8c3be5886a7f911ed',1,'ast::LatLonAlt::longitude() const'],['../classast_1_1LatLonAlt.html#aacdeccd7f62b46738ee57bc706824dcc',1,'ast::LatLonAlt::longitude()']]],
-  ['luminous_40',['Luminous',['../classast_1_1Dimension.html#aa286c4f20064706f87d5427291f4c978',1,'ast::Dimension']]]
+  ['lock_39',['lock',['../classast_1_1FileLock.html#a5c37cc0cd3883ad687a4124db5d4dd7b',1,'ast::FileLock']]],
+  ['longitude_40',['longitude',['../classast_1_1GeoCoordinate.html#a372ddc25c669aebc1d37e1d21837b8a9',1,'ast::GeoCoordinate::longitude() const'],['../classast_1_1GeoCoordinate.html#a4abf5d3b8a40f6e5284799bbd0664280',1,'ast::GeoCoordinate::longitude()'],['../classast_1_1LatLonAlt.html#a77ac2552ea9ebde8c3be5886a7f911ed',1,'ast::LatLonAlt::longitude() const'],['../classast_1_1LatLonAlt.html#aacdeccd7f62b46738ee57bc706824dcc',1,'ast::LatLonAlt::longitude()']]],
+  ['luminous_41',['Luminous',['../classast_1_1Dimension.html#aa286c4f20064706f87d5427291f4c978',1,'ast::Dimension']]]
 ];

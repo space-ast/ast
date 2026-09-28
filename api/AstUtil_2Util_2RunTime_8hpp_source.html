@@ -114,23 +114,32 @@ $(function(){initNavTree('AstUtil_2Util_2RunTime_8hpp_source.html',''); initResi
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#define AST_ENV_DATA_DIR  &quot;AST_DATA_DIR&quot;         </span><span class="comment">// 环境变量 AST_DATA_DIR：数据文件夹路径</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define AST_DATA_DIR_NAME &quot;data&quot;                 </span><span class="comment">// 默认的数据文件夹名称</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define AST_DEFAULT_DIR_AEP8                    &quot;SolarSystem/Earth/aep8/&quot;</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define AST_DEFAULT_DIR_IGRF                    &quot;SolarSystem/Earth/igrf/&quot;</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#define AST_DEFAULT_DIR_IRBEM                   &quot;SolarSystem/Earth/irbem/&quot;</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>AST_UTIL_API std::string <a class="code hl_function" href="group__Util.html#gacd7295b95b999fc4c152788a9a40a6ca">aDataDirGetDefault</a>();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__Util.html#gacd7295b95b999fc4c152788a9a40a6ca">aDataDirGetDefault</a>(std::string&amp; datadir);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>AST_UTIL_API std::string <a class="code hl_function" href="group__Util.html#ga602bf5d595d538f0a1a1d690e8b4a5e5">aDataDir</a>();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__Util.html#ga602bf5d595d538f0a1a1d690e8b4a5e5">aDataDir</a>(std::string&amp; datadir);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="agroup__Util_html_ga602bf5d595d538f0a1a1d690e8b4a5e5"><div class="ttname"><a href="group__Util.html#ga602bf5d595d538f0a1a1d690e8b4a5e5">ast::aDataDir</a></div><div class="ttdeci">errc_t aDataDir(std::string &amp;datadir)</div><div class="ttdoc">获取数据文件夹</div><div class="ttdef"><b>定义</b> RunTime.cpp:97</div></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define AST_ENV_CACHE_DIR  &quot;AST_CACHE_DIR&quot;       </span><span class="comment">// 环境变量 AST_CACHE_DIR：缓存文件夹路径</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define AST_CACHE_DIR_NAME &quot;cache&quot;               </span><span class="comment">// 默认的缓存文件夹名称</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#define AST_DEFAULT_DIR_AEP8                    &quot;SolarSystem/Earth/aep8/&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define AST_DEFAULT_DIR_IGRF                    &quot;SolarSystem/Earth/igrf/&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define AST_DEFAULT_DIR_IRBEM                   &quot;SolarSystem/Earth/irbem/&quot;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>AST_UTIL_API std::string <a class="code hl_function" href="group__Util.html#gacd7295b95b999fc4c152788a9a40a6ca">aDataDirGetDefault</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__Util.html#gacd7295b95b999fc4c152788a9a40a6ca">aDataDirGetDefault</a>(std::string&amp; datadir);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>AST_UTIL_API std::string <a class="code hl_function" href="group__Util.html#ga602bf5d595d538f0a1a1d690e8b4a5e5">aDataDir</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__Util.html#ga602bf5d595d538f0a1a1d690e8b4a5e5">aDataDir</a>(std::string&amp; datadir);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>AST_UTIL_CAPI errc_t <a class="code hl_function" href="group__Util.html#ga26e65383c7aa0d4558ed07189f54321b">aCacheDir</a>(std::string&amp; cachedir);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>AST_UTIL_API std::string <a class="code hl_function" href="group__Util.html#ga26e65383c7aa0d4558ed07189f54321b">aCacheDir</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="agroup__Util_html_ga26e65383c7aa0d4558ed07189f54321b"><div class="ttname"><a href="group__Util.html#ga26e65383c7aa0d4558ed07189f54321b">ast::aCacheDir</a></div><div class="ttdeci">errc_t aCacheDir(std::string &amp;cacheDirOut)</div><div class="ttdoc">获取缓存文件夹 缓存文件夹的顺序：</div><div class="ttdef"><b>定义</b> RunTime.cpp:117</div></div>
+<div class="ttc" id="agroup__Util_html_ga602bf5d595d538f0a1a1d690e8b4a5e5"><div class="ttname"><a href="group__Util.html#ga602bf5d595d538f0a1a1d690e8b4a5e5">ast::aDataDir</a></div><div class="ttdeci">errc_t aDataDir(std::string &amp;datadir)</div><div class="ttdoc">获取数据文件夹</div><div class="ttdef"><b>定义</b> RunTime.cpp:95</div></div>
 <div class="ttc" id="agroup__Util_html_gacd7295b95b999fc4c152788a9a40a6ca"><div class="ttname"><a href="group__Util.html#gacd7295b95b999fc4c152788a9a40a6ca">ast::aDataDirGetDefault</a></div><div class="ttdeci">errc_t aDataDirGetDefault(std::string &amp;dataDirOut)</div><div class="ttdoc">获取默认数据文件夹</div><div class="ttdef"><b>定义</b> RunTime.cpp:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

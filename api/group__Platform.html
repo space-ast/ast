@@ -118,6 +118,8 @@ $(function(){initNavTree('group__Platform.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FileLock.html">ast::FileLock</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1GUIInterface.html">ast::GUIInterface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Library.html">ast::Library</a></td></tr>
@@ -176,6 +178,10 @@ $(function(){initNavTree('group__Platform.html',''); initResizable(true); });
 <tr class="separator:ga39dda408be669b8f5c88e097b0c73ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga612f98b50735562fce328f4ad172a8de" id="r_ga612f98b50735562fce328f4ad172a8de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga612f98b50735562fce328f4ad172a8de">ast::aCanDisplayGUI</a> ()</td></tr>
 <tr class="separator:ga612f98b50735562fce328f4ad172a8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad51aa555191e6fc747ceda779c0ccf20" id="r_gad51aa555191e6fc747ceda779c0ccf20"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad51aa555191e6fc747ceda779c0ccf20">ast::aUriFetch</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> uri, std::string &amp;filepath)</td></tr>
+<tr class="separator:gad51aa555191e6fc747ceda779c0ccf20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa51212c6232255761cb25af9678c3fce" id="r_gaa51212c6232255761cb25af9678c3fce"><td class="memItemLeft" align="right" valign="top">std::FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa51212c6232255761cb25af9678c3fce">ast::uriopen</a> (const char *uri, const char *mode)</td></tr>
+<tr class="separator:gaa51212c6232255761cb25af9678c3fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga03ae395c115564ea3880c1f65646b685" id="r_ga03ae395c115564ea3880c1f65646b685"><td class="memItemLeft" align="right" valign="top"><a id="ga03ae395c115564ea3880c1f65646b685" name="ga03ae395c115564ea3880c1f65646b685"></a>
 A_ALWAYS_INLINE std::FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_fopen</b> (const char *filepath, const char *mode)</td></tr>
 <tr class="separator:ga03ae395c115564ea3880c1f65646b685"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1027,6 +1033,73 @@ A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::
 
 <p>获取终端窗口宽度（列数） </p>
 <dl class="section return"><dt>返回</dt><dd>终端宽度（列），若无法获取则返回默认值 80 </dd></dl>
+
+</div>
+</div>
+<a id="gad51aa555191e6fc747ceda779c0ccf20" name="gad51aa555191e6fc747ceda779c0ccf20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad51aa555191e6fc747ceda779c0ccf20">&#9670;&#160;</a></span>aUriFetch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI errc_t ast::aUriFetch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>uri</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>解析URI(统一资源标识符)并返回其对应的本地文件路径 </p>
+<p>支持三种输入：</p><ul>
+<li>普通文件路径：原样返回，不检查文件是否存在， 例如 "C:\\Users\\axel\\Desktop\\file.txt"；</li>
+<li><code><a href="file://">file://</a></code> 本地文件URI：支持 percent 解码（%20 等）与 localhost 主机名， 例如 <a href="file:///path/to/file.txt">file:///path/to/file.txt</a> ；</li>
+<li><code><a href="http://">http://</a></code>、<code><a href="https://">https://</a></code> 远程资源：下载并缓存在缓存文件夹（见 aCacheDir）中， 同一URI只下载一次，多个进程间用文件锁协调。 <dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">uri</td><td>文件URI，utf-8编码 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">filepath</td><td>本地文件路径，utf-8编码； </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="gaa51212c6232255761cb25af9678c3fce" name="gaa51212c6232255761cb25af9678c3fce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa51212c6232255761cb25af9678c3fce">&#9670;&#160;</a></span>uriopen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI std::FILE * ast::uriopen </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>uri</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>mode</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>打开URI(统一资源标识符)对应的文件 例如 <a href="https://example.com/file.txt">https://example.com/file.txt</a> 、file:///path/to/file.txt 等 也支持传入普通文件路径，即与 <code>fopen</code> 函数相同， 例如 "C:\\Users\\axel\\Desktop\\file.txt" 等 </p>
+<p>内部先调用 aUriFetch 得到本地路径，再以 <code>mode</code> 打开。 远程资源会被下载并缓存，因此同一URI的第二次打开不会再联网。 打开远程二进制资源时建议使用 "rb"。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">uri</td><td>文件URI，utf-8编码 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>文件打开模式，网络文件只支持 "r"、"rb" </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>文件指针，失败时返回空指针并设置 errno </dd></dl>
 
 </div>
 </div>

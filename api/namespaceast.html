@@ -186,8 +186,6 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeFigureOfMerit.html">AttitudeFigureOfMerit</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeRealTime.html">AttitudeRealTime</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttributeBasic.html">AttributeBasic</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html">Axes</a></td></tr>
@@ -789,6 +787,8 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FigureOfMerit.html">FigureOfMerit</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FileDownloadReceiver.html">FileDownloadReceiver</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FileLock.html">FileLock</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FileScanner.html">FileScanner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2461,9 +2461,6 @@ typedef std::string(*&#160;</td><td class="memItemRight" valign="bottom"><b>FCal
 <tr class="memitem:aed5655df7247379353130ae9c7715a89" id="r_aed5655df7247379353130ae9c7715a89"><td class="memItemLeft" align="right" valign="top"><a id="aed5655df7247379353130ae9c7715a89" name="aed5655df7247379353130ae9c7715a89"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>MessageVector</b> = std::vector&lt;<a class="el" href="classast_1_1ChatMessage.html">ChatMessage</a>&gt;</td></tr>
 <tr class="separator:aed5655df7247379353130ae9c7715a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b941cacef8b34ca36571c51b6ac9ae1" id="r_a8b941cacef8b34ca36571c51b6ac9ae1"><td class="memItemLeft" align="right" valign="top"><a id="a8b941cacef8b34ca36571c51b6ac9ae1" name="a8b941cacef8b34ca36571c51b6ac9ae1"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>AttitudeProfile</b> = <a class="el" href="classast_1_1Axes.html">Axes</a></td></tr>
-<tr class="separator:a8b941cacef8b34ca36571c51b6ac9ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4ba02008b0be69ef5384875636bab574" id="r_ga4ba02008b0be69ef5384875636bab574"><td class="memItemLeft" align="right" valign="top">
 using&#160;</td><td class="memItemRight" valign="bottom"><b>HAxesBodyFixed</b> = <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1AxesBodyFixed.html">AxesBodyFixed</a>&gt;</td></tr>
 <tr class="separator:ga4ba02008b0be69ef5384875636bab574"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2853,6 +2850,12 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>MarkdownRenderer</b>
 <tr class="memitem:a3fbf1073e0f54a5c17de475f6e6241fe" id="r_a3fbf1073e0f54a5c17de475f6e6241fe"><td class="memItemLeft" align="right" valign="top"><a id="a3fbf1073e0f54a5c17de475f6e6241fe" name="a3fbf1073e0f54a5c17de475f6e6241fe"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>HXMLNode</b> = std::unique_ptr&lt;<a class="el" href="classast_1_1XMLNode.html">XMLNode</a>&gt;</td></tr>
 <tr class="separator:a3fbf1073e0f54a5c17de475f6e6241fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8a8bf15372af01cab7e579761cfdff7" id="r_ab8a8bf15372af01cab7e579761cfdff7"><td class="memItemLeft" align="right" valign="top"><a id="ab8a8bf15372af01cab7e579761cfdff7" name="ab8a8bf15372af01cab7e579761cfdff7"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ELockMode</b> = <a class="el" href="classast_1_1FileLock.html#ac51aed84ebb89e0cc1c0774c1b0bf710">FileLock::ELockMode</a></td></tr>
+<tr class="separator:ab8a8bf15372af01cab7e579761cfdff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a38a210620aeedb577cdf2978b2f5ad" id="r_a7a38a210620aeedb577cdf2978b2f5ad"><td class="memItemLeft" align="right" valign="top"><a id="a7a38a210620aeedb577cdf2978b2f5ad" name="a7a38a210620aeedb577cdf2978b2f5ad"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ELockResult</b> = <a class="el" href="classast_1_1FileLock.html#ae6484cc042a096a7779cd2dbbdc53e58">FileLock::ELockResult</a></td></tr>
+<tr class="separator:a7a38a210620aeedb577cdf2978b2f5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a340c3f6bf77b79bb1d0a9b1870c39e4c" id="r_a340c3f6bf77b79bb1d0a9b1870c39e4c"><td class="memItemLeft" align="right" valign="top"><a id="a340c3f6bf77b79bb1d0a9b1870c39e4c" name="a340c3f6bf77b79bb1d0a9b1870c39e4c"></a>
 typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><b>String</b></td></tr>
 <tr class="separator:a340c3f6bf77b79bb1d0a9b1870c39e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -7349,6 +7352,10 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_aFileParentDi
 <tr class="separator:ga39dda408be669b8f5c88e097b0c73ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga612f98b50735562fce328f4ad172a8de" id="r_ga612f98b50735562fce328f4ad172a8de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga612f98b50735562fce328f4ad172a8de">aCanDisplayGUI</a> ()</td></tr>
 <tr class="separator:ga612f98b50735562fce328f4ad172a8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad51aa555191e6fc747ceda779c0ccf20" id="r_gad51aa555191e6fc747ceda779c0ccf20"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#gad51aa555191e6fc747ceda779c0ccf20">aUriFetch</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> uri, std::string &amp;filepath)</td></tr>
+<tr class="separator:gad51aa555191e6fc747ceda779c0ccf20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa51212c6232255761cb25af9678c3fce" id="r_gaa51212c6232255761cb25af9678c3fce"><td class="memItemLeft" align="right" valign="top">std::FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#gaa51212c6232255761cb25af9678c3fce">uriopen</a> (const char *uri, const char *mode)</td></tr>
+<tr class="separator:gaa51212c6232255761cb25af9678c3fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga86f36b18f798b1a50be84a8c0dff1c1e" id="r_ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memItemLeft" align="right" valign="top">
 int&#160;</td><td class="memItemRight" valign="bottom"><b>ast_printf</b> (const char *format,...)</td></tr>
 <tr class="separator:ga86f36b18f798b1a50be84a8c0dff1c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -7989,6 +7996,10 @@ A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aPa
 <tr class="separator:ga602bf5d595d538f0a1a1d690e8b4a5e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad98bdd67f1f6fb3c6f78889f92a20369" id="r_gad98bdd67f1f6fb3c6f78889f92a20369"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#gad98bdd67f1f6fb3c6f78889f92a20369">aDataDir</a> ()</td></tr>
 <tr class="separator:gad98bdd67f1f6fb3c6f78889f92a20369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26e65383c7aa0d4558ed07189f54321b" id="r_ga26e65383c7aa0d4558ed07189f54321b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga26e65383c7aa0d4558ed07189f54321b">aCacheDir</a> (std::string &amp;cachedir)</td></tr>
+<tr class="separator:ga26e65383c7aa0d4558ed07189f54321b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e814da31541ce9a33ce0e4e3c4e6c37" id="r_ga3e814da31541ce9a33ce0e4e3c4e6c37"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Util.html#ga3e814da31541ce9a33ce0e4e3c4e6c37">aCacheDir</a> ()</td></tr>
+<tr class="separator:ga3e814da31541ce9a33ce0e4e3c4e6c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ab095e8a194aeafadf1e408c8393e8d" id="r_a0ab095e8a194aeafadf1e408c8393e8d"><td class="memItemLeft" align="right" valign="top"><a id="a0ab095e8a194aeafadf1e408c8393e8d" name="a0ab095e8a194aeafadf1e408c8393e8d"></a>
 constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_sep</b> (char c)</td></tr>
 <tr class="separator:a0ab095e8a194aeafadf1e408c8393e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>

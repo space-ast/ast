@@ -2,6 +2,24 @@ var group__Platform =
 [
     [ "ast::fs_simple", "namespaceast_1_1fs__simple.html", null ],
     [ "ast::posix", "namespaceast_1_1posix.html", null ],
+    [ "ast::FileLock", "classast_1_1FileLock.html", [
+      [ "Impl", "classast_1_1FileLock_1_1Impl.html", null ],
+      [ "ELockMode", "classast_1_1FileLock.html#ac51aed84ebb89e0cc1c0774c1b0bf710", [
+        [ "eExclusive", "classast_1_1FileLock.html#ac51aed84ebb89e0cc1c0774c1b0bf710a1cf5f100bd48311c12dfdc56c94838bf", null ],
+        [ "eShared", "classast_1_1FileLock.html#ac51aed84ebb89e0cc1c0774c1b0bf710a4ee769dc3f4e01c2bd6eeddefb41d30e", null ]
+      ] ],
+      [ "ELockResult", "classast_1_1FileLock.html#ae6484cc042a096a7779cd2dbbdc53e58", [
+        [ "eLocked", "classast_1_1FileLock.html#ae6484cc042a096a7779cd2dbbdc53e58ad6cf3becf435786bf7754d55e7f35f84", null ],
+        [ "eBusy", "classast_1_1FileLock.html#ae6484cc042a096a7779cd2dbbdc53e58a10d07ea9fc768a05c8aaa8db9cd99bb6", null ],
+        [ "eError", "classast_1_1FileLock.html#ae6484cc042a096a7779cd2dbbdc53e58ac6ce1774058cef7d2b7c173e3f8f6b2f", null ]
+      ] ],
+      [ "FileLock", "classast_1_1FileLock.html#a9be6ffbd0890105eb39d0ca3b94ef421", null ],
+      [ "~FileLock", "classast_1_1FileLock.html#a6163bfd17a6ae12cf2e0dcae0bdf3210", null ],
+      [ "lock", "classast_1_1FileLock.html#a5c37cc0cd3883ad687a4124db5d4dd7b", null ],
+      [ "tryLock", "classast_1_1FileLock.html#ad5c3f5e46f0efa2b866aaa9e0041d9d6", null ],
+      [ "tryLock", "classast_1_1FileLock.html#afc7c38aba40732ba180349d627415d28", null ],
+      [ "unlock", "classast_1_1FileLock.html#a83949d92581d98e8b172ac1c991df8aa", null ]
+    ] ],
     [ "ast::GUIInterface", "classast_1_1GUIInterface.html", [
       [ "~GUIInterface", "classast_1_1GUIInterface.html#a21fd42ca1ddf0dc1eb5e83df4c338f36", null ],
       [ "editObject", "classast_1_1GUIInterface.html#a8ca5ae91cab9b454468b07637075b9b3", null ],
@@ -66,5 +84,7 @@ var group__Platform =
     [ "ast::aStdOutIsTerminal", "group__Platform.html#gaef5625c409a6ef4a8ddf3e4b2aff79b5", null ],
     [ "ast::aTerminalSupportColor", "group__Platform.html#gaf933b51a61fdbc6724497ceae15bcb17", null ],
     [ "ast::aTerminalWidth", "group__Platform.html#gae7deb716bae3511d5ad91dad9696fdf4", null ],
-    [ "ast::swap", "group__Platform.html#ga057833c67cd619b666f534f50d48fc30", null ]
+    [ "ast::aUriFetch", "group__Platform.html#gad51aa555191e6fc747ceda779c0ccf20", null ],
+    [ "ast::swap", "group__Platform.html#ga057833c67cd619b666f534f50d48fc30", null ],
+    [ "ast::uriopen", "group__Platform.html#gaa51212c6232255761cb25af9678c3fce", null ]
 ];

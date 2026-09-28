@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::FileLock类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1FileLock.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1FileLock-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::FileLock类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a> &raquo; <a class="el" href="group__Platform.html">平台相关接口</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="FileLock_8hpp_source.html">FileLock.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1FileLock_1_1Impl.html">Impl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:ac51aed84ebb89e0cc1c0774c1b0bf710" id="r_ac51aed84ebb89e0cc1c0774c1b0bf710"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac51aed84ebb89e0cc1c0774c1b0bf710">ELockMode</a> { <a class="el" href="#ac51aed84ebb89e0cc1c0774c1b0bf710a1cf5f100bd48311c12dfdc56c94838bf">eExclusive</a>
+, <a class="el" href="#ac51aed84ebb89e0cc1c0774c1b0bf710a4ee769dc3f4e01c2bd6eeddefb41d30e">eShared</a>
+ }</td></tr>
+<tr class="separator:ac51aed84ebb89e0cc1c0774c1b0bf710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6484cc042a096a7779cd2dbbdc53e58" id="r_ae6484cc042a096a7779cd2dbbdc53e58"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6484cc042a096a7779cd2dbbdc53e58">ELockResult</a> { <a class="el" href="#ae6484cc042a096a7779cd2dbbdc53e58ad6cf3becf435786bf7754d55e7f35f84">eLocked</a> =0
+, <a class="el" href="#ae6484cc042a096a7779cd2dbbdc53e58a10d07ea9fc768a05c8aaa8db9cd99bb6">eBusy</a> =eErrorBusy
+, <a class="el" href="#ae6484cc042a096a7779cd2dbbdc53e58ac6ce1774058cef7d2b7c173e3f8f6b2f">eError</a> =-1
+ }</td></tr>
+<tr class="separator:ae6484cc042a096a7779cd2dbbdc53e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a9be6ffbd0890105eb39d0ca3b94ef421" id="r_a9be6ffbd0890105eb39d0ca3b94ef421"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9be6ffbd0890105eb39d0ca3b94ef421">FileLock</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path)</td></tr>
+<tr class="separator:a9be6ffbd0890105eb39d0ca3b94ef421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6163bfd17a6ae12cf2e0dcae0bdf3210" id="r_a6163bfd17a6ae12cf2e0dcae0bdf3210"><td class="memItemLeft" align="right" valign="top"><a id="a6163bfd17a6ae12cf2e0dcae0bdf3210" name="a6163bfd17a6ae12cf2e0dcae0bdf3210"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~FileLock</b> ()</td></tr>
+<tr class="separator:a6163bfd17a6ae12cf2e0dcae0bdf3210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c37cc0cd3883ad687a4124db5d4dd7b" id="r_a5c37cc0cd3883ad687a4124db5d4dd7b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c37cc0cd3883ad687a4124db5d4dd7b">lock</a> (<a class="el" href="#ac51aed84ebb89e0cc1c0774c1b0bf710">ELockMode</a> mode=ELockMode::eExclusive)</td></tr>
+<tr class="separator:a5c37cc0cd3883ad687a4124db5d4dd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc7c38aba40732ba180349d627415d28" id="r_afc7c38aba40732ba180349d627415d28"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc7c38aba40732ba180349d627415d28">tryLock</a> (<a class="el" href="#ac51aed84ebb89e0cc1c0774c1b0bf710">ELockMode</a> mode=ELockMode::eExclusive)</td></tr>
+<tr class="separator:afc7c38aba40732ba180349d627415d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5c3f5e46f0efa2b866aaa9e0041d9d6" id="r_ad5c3f5e46f0efa2b866aaa9e0041d9d6"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5c3f5e46f0efa2b866aaa9e0041d9d6">tryLock</a> (double timeoutSeconds, <a class="el" href="#ac51aed84ebb89e0cc1c0774c1b0bf710">ELockMode</a> mode=ELockMode::eExclusive)</td></tr>
+<tr class="separator:ad5c3f5e46f0efa2b866aaa9e0041d9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83949d92581d98e8b172ac1c991df8aa" id="r_a83949d92581d98e8b172ac1c991df8aa"><td class="memItemLeft" align="right" valign="top"><a id="a83949d92581d98e8b172ac1c991df8aa" name="a83949d92581d98e8b172ac1c991df8aa"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>unlock</b> ()</td></tr>
+<tr class="separator:a83949d92581d98e8b172ac1c991df8aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>跨进程文件锁 </p>
+<p>用于协调多个进程（或同一进程内的多个句柄）对同一资源的访问： 持锁方在锁文件上持有一把操作系统级的 advisory 锁，其它进程通过 <a class="el" href="#afc7c38aba40732ba180349d627415d28" title="非阻塞加锁">tryLock()</a> 判断资源是否已被占用。</p>
+<p>特点：</p><ul>
+<li>RAII：析构时自动解锁并关闭句柄；</li>
+<li>进程异常退出（崩溃、被强杀）时锁由内核自动释放，不会留下死锁；</li>
+<li>锁文件本身保留：构造时打开（不存在则创建），残留的空文件会被后续复用；</li>
+<li>锁是建议性的（advisory）：不阻止其它进程直接读写该文件。</li>
+</ul>
+<p>注意：</p><ul>
+<li>路径按 UTF-8 解释；锁文件所在目录必须已存在（不会自动创建）；</li>
+<li>一个 <a class="el" href="classast_1_1FileLock.html" title="跨进程文件锁">FileLock</a> 对象对应一把锁，对象本身不是线程安全的；</li>
+</ul>
+<p>使用示例： </p><div class="fragment"><div class="line"><a class="code hl_class" href="classast_1_1FileLock.html">FileLock</a> <a class="code hl_function" href="#a5c37cc0cd3883ad687a4124db5d4dd7b">lock</a>(<span class="stringliteral">&quot;data/.update.lock&quot;</span>);</div>
+<div class="line"><span class="keywordflow">if</span> (<a class="code hl_function" href="#a5c37cc0cd3883ad687a4124db5d4dd7b">lock</a>.tryLock() == eNoError) {</div>
+<div class="line">    <span class="comment">// 独占访问 data 目录，lock 析构或进程退出时自动解锁</span></div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line">    <span class="comment">// 已有其它进程在更新数据</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aclassast_1_1FileLock_html"><div class="ttname"><a href="classast_1_1FileLock.html">ast::FileLock</a></div><div class="ttdoc">跨进程文件锁</div><div class="ttdef"><b>定义</b> FileLock.hpp:64</div></div>
+<div class="ttc" id="aclassast_1_1FileLock_html_a5c37cc0cd3883ad687a4124db5d4dd7b"><div class="ttname"><a href="#a5c37cc0cd3883ad687a4124db5d4dd7b">ast::FileLock::lock</a></div><div class="ttdeci">errc_t lock(ELockMode mode=ELockMode::eExclusive)</div><div class="ttdoc">阻塞加锁，直到获得锁为止</div><div class="ttdef"><b>定义</b> FileLock.cpp:277</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">成员枚举类型说明</h2>
+<a id="ac51aed84ebb89e0cc1c0774c1b0bf710" name="ac51aed84ebb89e0cc1c0774c1b0bf710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac51aed84ebb89e0cc1c0774c1b0bf710">&#9670;&#160;</a></span>ELockMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ac51aed84ebb89e0cc1c0774c1b0bf710">ast::FileLock::ELockMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文件锁模式 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ac51aed84ebb89e0cc1c0774c1b0bf710a1cf5f100bd48311c12dfdc56c94838bf" name="ac51aed84ebb89e0cc1c0774c1b0bf710a1cf5f100bd48311c12dfdc56c94838bf"></a>eExclusive&#160;</td><td class="fielddoc"><p>排他锁：同一时刻只允许一个持有者 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac51aed84ebb89e0cc1c0774c1b0bf710a4ee769dc3f4e01c2bd6eeddefb41d30e" name="ac51aed84ebb89e0cc1c0774c1b0bf710a4ee769dc3f4e01c2bd6eeddefb41d30e"></a>eShared&#160;</td><td class="fielddoc"><p>共享锁：允许多个持有者同时持有，与排他锁互斥 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae6484cc042a096a7779cd2dbbdc53e58" name="ae6484cc042a096a7779cd2dbbdc53e58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6484cc042a096a7779cd2dbbdc53e58">&#9670;&#160;</a></span>ELockResult</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ae6484cc042a096a7779cd2dbbdc53e58">ast::FileLock::ELockResult</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加锁结果 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ae6484cc042a096a7779cd2dbbdc53e58ad6cf3becf435786bf7754d55e7f35f84" name="ae6484cc042a096a7779cd2dbbdc53e58ad6cf3becf435786bf7754d55e7f35f84"></a>eLocked&#160;</td><td class="fielddoc"><p>成功获得锁 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae6484cc042a096a7779cd2dbbdc53e58a10d07ea9fc768a05c8aaa8db9cd99bb6" name="ae6484cc042a096a7779cd2dbbdc53e58a10d07ea9fc768a05c8aaa8db9cd99bb6"></a>eBusy&#160;</td><td class="fielddoc"><p>锁已被其它句柄占用（非阻塞加锁或等待超时） </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae6484cc042a096a7779cd2dbbdc53e58ac6ce1774058cef7d2b7c173e3f8f6b2f" name="ae6484cc042a096a7779cd2dbbdc53e58ac6ce1774058cef7d2b7c173e3f8f6b2f"></a>eError&#160;</td><td class="fielddoc"><p>打开锁文件或加锁失败，具体原因见日志 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a9be6ffbd0890105eb39d0ca3b94ef421" name="a9be6ffbd0890105eb39d0ca3b94ef421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9be6ffbd0890105eb39d0ca3b94ef421">&#9670;&#160;</a></span>FileLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::FileLock::FileLock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>构造锁，关联锁文件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>锁文件路径（UTF-8） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a5c37cc0cd3883ad687a4124db5d4dd7b" name="a5c37cc0cd3883ad687a4124db5d4dd7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c37cc0cd3883ad687a4124db5d4dd7b">&#9670;&#160;</a></span>lock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::FileLock::lock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ac51aed84ebb89e0cc1c0774c1b0bf710">ELockMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval">ELockMode::eExclusive</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>阻塞加锁，直到获得锁为止 </p>
+<p>锁文件在构造时打开；本函数会一直等待，直到获得锁为止 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>锁模式，默认排他锁 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad5c3f5e46f0efa2b866aaa9e0041d9d6" name="ad5c3f5e46f0efa2b866aaa9e0041d9d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c3f5e46f0efa2b866aaa9e0041d9d6">&#9670;&#160;</a></span>tryLock() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::FileLock::tryLock </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>timeoutSeconds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ac51aed84ebb89e0cc1c0774c1b0bf710">ELockMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval">ELockMode::eExclusive</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>带超时的加锁，在 timeoutSeconds 秒内反复尝试 </p>
+<p>在超时前反复尝试 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeoutSeconds</td><td>最长等待时间 [s]，小于等于 0 时只尝试一次 </td></tr>
+    <tr><td class="paramname">mode</td><td>锁模式，默认排他锁 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afc7c38aba40732ba180349d627415d28" name="afc7c38aba40732ba180349d627415d28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc7c38aba40732ba180349d627415d28">&#9670;&#160;</a></span>tryLock() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::FileLock::tryLock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ac51aed84ebb89e0cc1c0774c1b0bf710">ELockMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval">ELockMode::eExclusive</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>非阻塞加锁 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>锁模式，默认排他锁 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/Platform/<a class="el" href="FileLock_8hpp_source.html">FileLock.hpp</a></li>
+<li>src/AstUtil/Platform/<a class="el" href="FileLock_8cpp.html">FileLock.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1FileLock.html">FileLock</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>
