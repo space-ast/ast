@@ -446,6 +446,7 @@ typedef enum EError
     eErrorNotImplemented,   ///< 未实现
     eErrorUnsupported,      ///< 不支持的类型
     eErrorCancelled,        ///< 操作被中止/取消
+    eErrorBusy,             ///< 被占用
 } AEError;
 
 

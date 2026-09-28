@@ -362,6 +362,87 @@ TEST(SimpleFileSystem, ErrorHandling) {
     EXPECT_TRUE(ec_set);  // 应该失败并设置错误码
 }
 
+// 测试文件大小（含 error_code 重载）
+TEST(SimpleFileSystem, FileSize) {
+    namespace fs = _AST fs_simple;
+
+    fs::path test_file = "file_size_test.txt";
+    fs::path missing_file = "file_size_test_missing.txt";
+    fs::remove(test_file);
+    fs::remove(missing_file);
+
+    {
+        std::ofstream file(test_file.string(), std::ios::binary);
+        file << "0123456789";
+    }
+    EXPECT_EQ(fs::file_size(test_file), 10u);
+
+    // 不存在的文件：error_code 版本返回 (uintmax_t)-1 并设置 ec
+    std::error_code ec;
+    uintmax_t size = fs::file_size(missing_file, ec);
+    EXPECT_TRUE(ec);
+    EXPECT_EQ(size, static_cast<uintmax_t>(-1));
+
+    // 非 error_code 版本抛异常
+    EXPECT_THROW(fs::file_size(missing_file), fs::filesystem_error);
+
+    // is_empty 的 error_code 版本不应抛异常，只设置 ec
+    ec.clear();
+    EXPECT_FALSE(fs::is_empty(missing_file, ec));
+    EXPECT_TRUE(ec);
+
+    fs::remove(test_file);
+}
+
+// 测试绝对路径
+TEST(SimpleFileSystem, Absolute) {
+    namespace fs = _AST fs_simple;
+
+    // 已经是绝对路径时原样返回
+    #ifdef _WIN32
+    fs::path abs_path = "C:\\Windows\\System32";
+    #else
+    fs::path abs_path = "/etc";
+    #endif
+    EXPECT_TRUE(abs_path.is_absolute());
+    EXPECT_EQ(fs::absolute(abs_path), abs_path);
+
+    // 相对路径拼接到 current_path 上
+    std::error_code ec;
+    fs::path base = fs::current_path(ec);
+    EXPECT_FALSE(ec);
+
+    fs::path rel_path = fs::absolute("some_relative_file.txt", ec);
+    EXPECT_FALSE(ec);
+    EXPECT_TRUE(rel_path.is_absolute());
+    EXPECT_EQ(rel_path, base / "some_relative_file.txt");
+
+    // 与 current_path() 直接拼接的结果一致
+    EXPECT_EQ(fs::absolute(fs::path("a") / "b"), fs::current_path() / "a" / "b");
+}
+
+// 测试系统临时文件夹
+TEST(SimpleFileSystem, TempDirectoryPath) {
+    namespace fs = _AST fs_simple;
+
+    std::error_code ec;
+    fs::path tmpdir = fs::temp_directory_path(ec);
+    EXPECT_FALSE(ec);
+    EXPECT_FALSE(tmpdir.empty());
+    EXPECT_TRUE(tmpdir.is_absolute());
+    EXPECT_TRUE(fs::is_directory(tmpdir));
+
+    // 临时目录下确实可以创建文件
+    fs::path temp_file = tmpdir / "ast_test_tempdir.txt";
+    {
+        std::ofstream file(temp_file.string(), std::ios::binary);
+        file << "tmp";
+    }
+    EXPECT_TRUE(fs::exists(temp_file));
+    EXPECT_EQ(fs::file_size(temp_file), 3u);
+    fs::remove(temp_file);
+}
+
 // 测试Unicode字符支持
 TEST(SimpleFileSystem, UnicodeSupport) {
     namespace fs = _AST fs_simple;

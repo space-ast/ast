@@ -53,6 +53,7 @@
 #include "AstUtil/ExtractorImplTar.hpp"
 #include "AstUtil/ExtractorInterface.hpp"
 #include "AstUtil/Field.hpp"
+#include "AstUtil/FileLock.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/FileSystemSimple.hpp"
 #include "AstUtil/GUI.hpp"

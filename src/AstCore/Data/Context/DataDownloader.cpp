@@ -24,6 +24,7 @@
 #include "AstUtil/Network.hpp"
 #include "AstUtil/Extract.hpp"
 #include "AstUtil/RunTime.hpp"
+#include "AstUtil/FileLock.hpp"
 #include <ctime>
 #include <cstdio>
 
@@ -97,7 +98,27 @@ errc_t aDownloadData(StringView dataDir)
             return eErrorNotFound;
         }
     }
+    if(!fs::exists(parentDir))
+    {
+        fs::create_directories(parentDir);
+    }
+    FileLock lock((parentDir / "data.lock").string());
 
+    const errc_t lockRc = lock.tryLock();
+    if(lockRc == FileLock::eBusy)   // 已被其它进程占用：等它下载完
+    {
+        aInfo(_("其他进程正在下载数据，等待完成"));
+        lock.lock();    // 等待其他进程下载完成
+        std::error_code ec;
+        const bool empty = fs::is_empty(targetDir, ec);
+        return (ec || empty)? eError : eNoError;
+    }
+    if(lockRc != eNoError)          // 锁文件打不开等错误：不做无同步的下载
+    {
+        aError(_("无法获取数据锁 '%s'"), parentDir.string().c_str());
+        return eError;
+    }
+    
     TempZipGuard zipGuard(parentDir);
     fs::path& tmpZip = zipGuard.zipFile();
     fs::path& tmpExDir = zipGuard.extractDir();

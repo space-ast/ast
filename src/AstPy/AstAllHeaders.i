@@ -214,6 +214,7 @@
 %include "../AstUtil/ParseFormat/Json/JsonValue.hpp"
 %include "../AstUtil/ParseFormat/Markdown/BaseRenderer.hpp"
 %include "../AstUtil/ParseFormat/Markdown/MarkdownSax.hpp"
+%include "../AstUtil/Platform/FileLock.hpp"
 %include "../AstUtil/Platform/IO.hpp"
 %include "../AstUtil/Platform/Library.hpp"
 %include "../AstUtil/Platform/LibraryLoader.hpp"

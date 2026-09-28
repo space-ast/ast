@@ -35,6 +35,8 @@ class DataContext;
 
 #define AST_ENV_DATA_DIR  "AST_DATA_DIR"         // 环境变量 AST_DATA_DIR：数据文件夹路径
 #define AST_DATA_DIR_NAME "data"                 // 默认的数据文件夹名称
+#define AST_ENV_CACHE_DIR  "AST_CACHE_DIR"       // 环境变量 AST_CACHE_DIR：缓存文件夹路径
+#define AST_CACHE_DIR_NAME "cache"               // 默认的缓存文件夹名称
 #define AST_DEFAULT_DIR_AEP8                    "SolarSystem/Earth/aep8/"
 #define AST_DEFAULT_DIR_IGRF                    "SolarSystem/Earth/igrf/"
 #define AST_DEFAULT_DIR_IRBEM                   "SolarSystem/Earth/irbem/"
@@ -63,6 +65,22 @@ AST_UTIL_API std::string aDataDir();
 /// @brief 获取数据文件夹
 /// @note 与 aDataDirGet 一样
 AST_UTIL_CAPI errc_t aDataDir(std::string& datadir);
+
+
+/// @brief 获取缓存文件夹
+/// 缓存文件夹的顺序：
+/// 1. AST_CACHE_DIR 环境变量
+/// 2. Windows: %LOCALAPPDATA%/ast/cache；POSIX: $XDG_CACHE_HOME/ast 或 $HOME/.cache/ast
+/// 3. 动态库目录的 cache 文件夹(AST_CACHE_DIR_NAME)
+/// @note 只解析路径，不创建文件夹
+/// @param[out] cachedir 缓存文件夹路径
+/// @return 错误码
+AST_UTIL_CAPI errc_t aCacheDir(std::string& cachedir);
+
+
+/// @brief 获取缓存文件夹
+/// @see aCacheDir(std::string&)
+AST_UTIL_API std::string aCacheDir();
 
 
 /*! @} */

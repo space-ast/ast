@@ -23,6 +23,7 @@
 #include "AstUtil/Encode.hpp"
 #include "AstUtil/Logger.hpp"
 #include <algorithm>
+#include <cstdlib>   // for getenv
 #include <cstring>
 
 #ifdef _WIN32
@@ -303,24 +304,30 @@ namespace fs_simple
 
     
 
-    uintmax_t file_size(const path& p)
+    uintmax_t file_size(const path& p, std::error_code& ec) noexcept
     {
+        ec.clear();
     #ifdef _WIN32
         std::wstring wide_path;
         aUtf8ToWide(p.c_str(), wide_path);  // 转换为宽字符
         HANDLE hFile = CreateFileW(wide_path.c_str(), GENERIC_READ, FILE_SHARE_READ,
             NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile == INVALID_HANDLE_VALUE) {
+            ec = std::error_code(static_cast<int>(GetLastError()), std::system_category());
             return static_cast<uintmax_t>(-1);
         }
 
         DWORD sizeLow = 0, sizeHigh = 0;
         sizeLow = GetFileSize(hFile, &sizeHigh);
-        CloseHandle(hFile);
-
-        if (sizeLow == INVALID_FILE_SIZE && GetLastError() != NO_ERROR) {
-            return static_cast<uintmax_t>(-1);
+        if (sizeLow == INVALID_FILE_SIZE) {
+            DWORD err = GetLastError();
+            CloseHandle(hFile);
+            if (err != NO_ERROR) {
+                ec = std::error_code(static_cast<int>(err), std::system_category());
+                return static_cast<uintmax_t>(-1);
+            }
         }
+        CloseHandle(hFile);
 
         return (static_cast<uintmax_t>(sizeHigh) << 32) | sizeLow;
     #else
@@ -328,8 +335,18 @@ namespace fs_simple
         if (stat(p.c_str(), &sb) == 0) {
             return static_cast<uintmax_t>(sb.st_size);
         }
+        ec = std::error_code(errno, std::system_category());
         return static_cast<uintmax_t>(-1);
     #endif
+    }
+
+    uintmax_t file_size(const path& p)
+    {
+        std::error_code ec;
+        uintmax_t size = file_size(p, ec);
+        if (ec)
+            throw filesystem_error("file_size", ec);
+        return size;
     }
 
     // 规则：目录无任何条目、或常规文件 size==0 时返回 true；路径不存在时报错
@@ -345,6 +362,7 @@ namespace fs_simple
             return false;
         }
 
+        // 目录类型，检查目录内是否有条目
         if (s.type() == file_type::directory)
         {
         #ifdef _WIN32
@@ -360,8 +378,11 @@ namespace fs_simple
         #endif
         }
 
-        // 其它类型（常规文件 / 符号链接等）按 empty file 处理
-        return file_size(p) == 0;
+        // 其它类型（常规文件 / 符号链接等），检查文件大小
+        uintmax_t size = file_size(p, ec);
+        if (ec)
+            return false;
+        return size == 0;
     }
 
     bool is_empty(const path& p)
@@ -875,6 +896,68 @@ path relative(const path& p, const path& base, std::error_code& ec) noexcept
     }
 
     return p.lexically_relative(base);
+}
+
+path absolute(const path& p)
+{
+    if (p.is_absolute())
+        return p;
+    return current_path() / p;
+}
+
+path absolute(const path& p, std::error_code& ec) noexcept
+{
+    ec.clear();
+
+    if (p.is_absolute())
+        return p;
+
+    path base = current_path(ec);
+    if (ec)
+        return path();
+
+    return base / p;
+}
+
+path temp_directory_path()
+{
+    std::error_code ec;
+    path result = temp_directory_path(ec);
+    if (ec)
+        throw filesystem_error("temp_directory_path", ec);
+    return result;
+}
+
+path temp_directory_path(std::error_code& ec) noexcept
+{
+    ec.clear();
+
+#ifdef _WIN32
+    // GetTempPathW 的返回值有两种含义：成功时是不含结尾 '\0' 的长度，
+    // 缓冲区不够时是含结尾 '\0' 的所需总长度；只有返回 0 才是真失败（此时才有 last error）
+    std::vector<wchar_t> buffer(MAX_PATH + 1);
+    for (;;)
+    {
+        DWORD size = GetTempPathW(static_cast<DWORD>(buffer.size()), buffer.data());
+        if (size == 0)
+        {
+            ec = std::error_code(static_cast<int>(GetLastError()), std::system_category());
+            return path();
+        }
+        if (size < buffer.size())       // 成功：size 是不含结尾 '\0' 的长度
+            break;
+        buffer.resize(size);            // 不够：size 是含结尾 '\0' 的所需总长度
+    }
+
+    std::string utf8_path;
+    aWideToUtf8(buffer.data(), utf8_path);
+    return path(utf8_path);
+#else
+    const char* tmpdir = getenv("TMPDIR");
+    if (tmpdir && tmpdir[0] != '\0')
+        return path(tmpdir);
+    return path("/tmp");
+#endif
 }
 
 } // namespace simple_fs
