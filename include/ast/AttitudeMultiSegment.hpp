@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeMultiSegment.hpp"
+#include "AstCore/AttitudeMultiSegment.hpp"

@@ -1,1 +1,1 @@
-#include "AstSim/AttitudePRFixedEciYawNadir.hpp"
+#include "AstCore/AttitudePRFixedEciYawNadir.hpp"

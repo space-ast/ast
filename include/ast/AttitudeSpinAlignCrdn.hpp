@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeSpinAlignCrdn.hpp"
+#include "AstCore/AttitudeSpinAlignCrdn.hpp"

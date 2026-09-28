@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeSunPointingZOrbit.hpp"
+#include "AstCore/AttitudeSunPointingZOrbit.hpp"

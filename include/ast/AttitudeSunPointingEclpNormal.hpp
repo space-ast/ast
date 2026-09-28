@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeSunPointingEclpNormal.hpp"
+#include "AstCore/AttitudeSunPointingEclpNormal.hpp"

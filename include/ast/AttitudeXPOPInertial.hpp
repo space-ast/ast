@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeXPOPInertial.hpp"
+#include "AstCore/AttitudeXPOPInertial.hpp"

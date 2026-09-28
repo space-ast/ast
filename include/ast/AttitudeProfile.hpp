@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeProfile.hpp"
+#include "AstCore/AttitudeProfile.hpp"

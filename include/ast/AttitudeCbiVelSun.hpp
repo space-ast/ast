@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeCbiVelSun.hpp"
+#include "AstCore/AttitudeCbiVelSun.hpp"

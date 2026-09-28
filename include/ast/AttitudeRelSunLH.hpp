@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeRelSunLH.hpp"
+#include "AstCore/AttitudeRelSunLH.hpp"

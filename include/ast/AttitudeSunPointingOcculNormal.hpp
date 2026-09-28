@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeSunPointingOcculNormal.hpp"
+#include "AstCore/AttitudeSunPointingOcculNormal.hpp"

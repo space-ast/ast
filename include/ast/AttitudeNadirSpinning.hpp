@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeNadirSpinning.hpp"
+#include "AstCore/AttitudeNadirSpinning.hpp"

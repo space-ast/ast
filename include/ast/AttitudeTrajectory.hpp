@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeTrajectory.hpp"
+#include "AstCore/AttitudeTrajectory.hpp"

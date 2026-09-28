@@ -23,10 +23,10 @@
 #include "AstGlobal.h"
 #include "AstCore/Object.hpp"
 #include "AstCore/Point.hpp"
-#include "AstSim/AttitudeProfile.hpp"
+#include "AstCore/AttitudeProfile.hpp"
+#include "AstCore/Ephemeris.hpp"
 #include "AstSim/MotionProfile.hpp"
 #include "AstSim/Platform.hpp"
-#include "AstCore/Ephemeris.hpp"
 #include "AstUtil/StringView.hpp"
 
 AST_NAMESPACE_BEGIN
