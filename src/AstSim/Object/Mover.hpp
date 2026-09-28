@@ -72,8 +72,10 @@ PROPERTIES:
     /// @param profile 运动定义指针
     void setMotionProfile(MotionProfile* profile);
     /// @brief 获取姿态定义
+    /// @details 内部存储的是 Axes 抽象类型，此处向下转换为 AttitudeProfile；
+    ///          若姿态属性被设置成了非姿态剖面的轴系(例如 AxesFrozen)，则返回 nullptr。
     /// @return 姿态定义指针
-    AttitudeProfile* getAttitudeProfile() const { return orientation(); }
+    AttitudeProfile* getAttitudeProfile() const;
     /// @brief 设置姿态定义
     /// @param profile 姿态定义指针
     void setAttitudeProfile(AttitudeProfile* profile) { setOrientation(profile); }

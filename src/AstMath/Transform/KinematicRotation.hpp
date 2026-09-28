@@ -28,6 +28,10 @@ AST_NAMESPACE_BEGIN
 
 /// @brief     运动学坐标系旋转
 /// @details   在静态坐标系旋转的基础上，增加了坐标系旋转的角速度信息
+/// @note      角速度的参考系约定：angvel_ 表示**本坐标系相对源坐标系(父坐标系)的角速度，
+///            且其分量在源坐标系(父坐标系)下分解**。例如 aAxesTransform(source, target, tp, kr)
+///            给出的 kr.getRotationRate() 是 target 相对 source 的角速度在 source 下的分量。
+///            该约定由 compose 与 getInverse 的实现共同确定。
 class KinematicRotation: protected Rotation
 {
 public:
