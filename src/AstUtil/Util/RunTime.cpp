@@ -114,6 +114,61 @@ std::string aDataDir()
 }
 
 
+errc_t aCacheDir(std::string &cacheDirOut)
+{
+    // 1. 检查AST_CACHE_DIR环境变量
+    {
+        const char* cachedir = getenv(AST_ENV_CACHE_DIR);
+        if (cachedir && cachedir[0] != '\0')
+        {
+            cacheDirOut = cachedir;
+            return eNoError;
+        }
+    }
+
+    // 2. 用户级缓存目录，避免写进可能只读的动态库目录
+#ifdef _WIN32
+    {
+        const char* localAppData = getenv("LOCALAPPDATA");
+        if (localAppData && localAppData[0] != '\0')
+        {
+            cacheDirOut = (fs::path(localAppData) / AST_PROJECT_NAME / AST_CACHE_DIR_NAME).string();
+            return eNoError;
+        }
+    }
+#else
+    {
+        const char* xdgCacheHome = getenv("XDG_CACHE_HOME");
+        if (xdgCacheHome && xdgCacheHome[0] != '\0')
+        {
+            cacheDirOut = (fs::path(xdgCacheHome) / AST_PROJECT_NAME).string();
+            return eNoError;
+        }
+        const char* home = getenv("HOME");
+        if (home && home[0] != '\0')
+        {
+            cacheDirOut = (fs::path(home) / ".cache" / AST_PROJECT_NAME).string();
+            return eNoError;
+        }
+    }
+#endif
+
+    // 3. 动态库目录的cache文件夹
+    {
+        cacheDirOut = (fs::path(aLibDir()) / AST_CACHE_DIR_NAME).string();
+        return eNoError;
+    }
+}
+
+std::string aCacheDir()
+{
+    std::string cacheDirOut;
+    errc_t rc = aCacheDir(cacheDirOut);
+    A_UNUSED(rc);
+    return cacheDirOut;
+}
+
+
 
 
 

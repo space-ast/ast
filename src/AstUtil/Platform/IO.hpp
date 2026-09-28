@@ -135,6 +135,34 @@ using std::fwprintf;
 using namespace posix;
 #endif
 
+
+/// @brief 解析URI(统一资源标识符)并返回其对应的本地文件路径
+/// @details 支持三种输入：
+///        - 普通文件路径：原样返回，不检查文件是否存在，
+///          例如 "C:\\Users\\axel\\Desktop\\file.txt"；
+///        - `file://` 本地文件URI：支持 percent 解码（%20 等）与 localhost 主机名，
+///          例如 file:///path/to/file.txt ；
+///        - `http://`、`https://` 远程资源：下载并缓存在缓存文件夹（见 aCacheDir）中，
+///          同一URI只下载一次，多个进程间用文件锁协调。
+/// @param[in] uri 文件URI，utf-8编码
+/// @param[out] filepath 本地文件路径，utf-8编码；
+/// @return 错误码
+AST_UTIL_CAPI errc_t aUriFetch(StringView uri, std::string& filepath);
+
+
+/// @brief 打开URI(统一资源标识符)对应的文件
+/// 例如 https://example.com/file.txt 、file:///path/to/file.txt 等
+/// 也支持传入普通文件路径，即与 `fopen` 函数相同，
+/// 例如 "C:\\Users\\axel\\Desktop\\file.txt" 等
+/// @details 内部先调用 aUriFetch 得到本地路径，再以 `mode` 打开。
+///          远程资源会被下载并缓存，因此同一URI的第二次打开不会再联网。
+///          打开远程二进制资源时建议使用 "rb"。
+/// @param[in] uri 文件URI，utf-8编码
+/// @param[in] mode 文件打开模式，网络文件只支持 "r"、"rb"
+/// @return 文件指针，失败时返回空指针并设置 errno
+AST_UTIL_CAPI std::FILE* uriopen(const char* uri, const char* mode);
+
+
 A_ALWAYS_INLINE 
 std::FILE* ast_fopen(const char* filepath, const char* mode)
 {
