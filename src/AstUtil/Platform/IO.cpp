@@ -30,6 +30,7 @@
 #include <cstdarg>              // for va_list, va_start, va_end
 #include <cstdint>              // for uint64_t
 #include <cstring>              // for strcmp
+#include <ctime>                // for std::time, std::time_t
 #include <memory>               // for std::unique_ptr
 #include <type_traits>          // for std::remove_pointer
 
@@ -277,14 +278,40 @@ std::string uriCacheHash(StringView uri)
 }
 
 /// @brief 缓存文件是否可用（存在且非空）
-bool isUsableCacheFile(const std::string& filepath)
+bool hasCacheFile(const std::string& filepath)
 {
     std::error_code ec;
     const bool empty = fs::is_empty(filepath, ec);
     return !ec && !empty;
 }
 
-/// @brief 构造缓存文件路径与锁文件路径，并确保缓存文件夹已存在
+
+/// @brief 计算当月的文件夹名，形如 "2026-09"
+std::string currentMonthName()
+{
+    const std::time_t now = std::time(nullptr);
+    std::tm tmValue{};
+#ifdef _WIN32
+    localtime_s(&tmValue, &now);
+#else
+    localtime_r(&now, &tmValue);
+#endif
+    char buffer[16];
+    snprintf(buffer, sizeof(buffer), "%04d-%02d", tmValue.tm_year + 1900, tmValue.tm_mon + 1);
+    return buffer;
+}
+
+/// @brief 删除过期的月份文件夹，只保留当月
+void removeOldMonths(const fs::path& uriDir, const std::string& keepMonth)
+{
+    for (const auto& entry : fs::directory_iterator(uriDir))
+    {
+        if (entry.path().filename().string() != keepMonth)
+            fs::remove_all(entry.path());
+    }
+}
+
+/// @brief 构造缓存文件路径与锁文件路径，必要时创建当月的缓存文件夹
 errc_t uriCachePath(StringView requestUri, std::string& cacheFile, std::string& lockFile)
 {
     std::string cacheDir;
@@ -295,29 +322,38 @@ errc_t uriCachePath(StringView requestUri, std::string& cacheFile, std::string& 
         return eErrorNotFound;
     }
 
-    fs::path uriDir = fs::path(cacheDir) / "uri";
+    // 静态变量保证在首次调用时缓存，保证程序运行期间月份文件夹不变（程序跨月也稳定）
+    static const std::string moonName = currentMonthName();
+
+    const fs::path downloadDir = fs::path(cacheDir) / "download";
+    const fs::path monthDir = downloadDir / moonName;
     std::error_code ec;
-    // 文件锁不会创建父目录，必须先建好；已存在时返回 true
-    if (!fs::create_directories(uriDir, ec) || ec)
+    // 文件锁不会创建父目录，必须先建好
+    if (!fs::is_directory(monthDir, ec))
     {
-        aError(_("无法创建缓存文件夹 '%s'"), uriDir.string().c_str());
-        return eErrorInvalidFile;
+        if (!fs::create_directories(monthDir, ec) || ec)
+        {
+            aError(_("无法创建缓存文件夹 '%s'"), monthDir.string().c_str());
+            return eErrorInvalidFile;
+        }
+        // 第一次使用当月文件夹：月份滚动，清掉其它月份的缓存
+        removeOldMonths(downloadDir, moonName);
     }
 
     const std::string hash = uriCacheHash(requestUri);
-    cacheFile = (uriDir / (hash + "_" + uriCacheName(requestUri))).string();
-    lockFile = (uriDir / (hash + ".lock")).string();
+    cacheFile = (monthDir / (hash + "_" + uriCacheName(requestUri))).string();
+    lockFile = (monthDir / (hash + ".lock")).string();
     return eNoError;
 }
 
-/// @brief 持锁读取缓存，缓存不存在时下载
+/// @brief 持锁读取缓存，缓存缺失或过期时下载
 errc_t fetchRemote(const std::string& uri, const std::string& cacheFile, FileLock& lock)
 {
     if (lock.lock() != eNoError)
         aWarning(_("无法锁定缓存锁文件 '%s'，跳过多进程协调"), cacheFile.c_str());
 
     // 命中检查必须在持锁之后：另一个进程可能刚下载完
-    if (isUsableCacheFile(cacheFile))
+    if (hasCacheFile(cacheFile))
         return eNoError;
 
     // 三参版本 + 空回调：静默下载，不打印进度条
