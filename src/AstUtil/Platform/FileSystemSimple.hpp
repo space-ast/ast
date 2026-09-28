@@ -306,6 +306,7 @@ namespace fs_simple
     AST_UTIL_API bool exists(const path& p);
     AST_UTIL_API bool exists(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API uintmax_t file_size(const path& p);
+    AST_UTIL_API uintmax_t file_size(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API bool is_empty(const path& p);
     AST_UTIL_API bool is_empty(const path& p, std::error_code& ec) noexcept;
     AST_UTIL_API file_status status(const path& p) noexcept;
@@ -369,6 +370,16 @@ namespace fs_simple
     /// @brief 计算 p 相对于 base 的相对路径（对标 std::filesystem::relative）
     /// @note 若 p 和 base 根不同（如不同盘符）则设置 ec 并返回空路径
     AST_UTIL_API path relative(const path& p, const path& base, std::error_code& ec) noexcept;
+
+    /// @brief 获取绝对路径
+    /// @note 纯词法操作：已经是绝对路径时原样返回，否则拼接到 current_path() 上
+    AST_UTIL_API path absolute(const path& p);
+    AST_UTIL_API path absolute(const path& p, std::error_code& ec) noexcept;
+
+    /// @brief 获取系统临时文件夹
+    /// @details Windows 取 GetTempPathW；POSIX 依次取 TMPDIR 环境变量、/tmp
+    AST_UTIL_API path temp_directory_path();
+    AST_UTIL_API path temp_directory_path(std::error_code& ec) noexcept;
 
 } // namespace simple_fs
 

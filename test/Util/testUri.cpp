@@ -57,7 +57,7 @@ std::string makeFileUri(const std::string& absPath)
 std::string absPathInCwd(const std::string& name)
 {
     std::error_code ec;
-    return (fs::current_path(ec) / name).string();
+    return fs::absolute(name, ec).string();
 }
 
 std::string readAll(const std::string& filepath)

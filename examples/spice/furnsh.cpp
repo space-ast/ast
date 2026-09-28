@@ -21,8 +21,13 @@ int main(){
         }else{
             std::cout << "Kernel file " << kernel << " exists." << std::endl;
         }
-        size_t size = fs::file_size(kernel);
-        std::cout << "Kernel file " << kernel << " size is " << size << " bytes." << std::endl;
+        std::error_code ec;
+        size_t size = fs::file_size(kernel, ec);
+        if (ec) {
+            std::cout << "Kernel file " << kernel << " size is unknown." << std::endl;
+        } else {
+            std::cout << "Kernel file " << kernel << " size is " << size << " bytes." << std::endl;
+        }
     }
     for(auto& kernel : kernels){
         std::cout << "Loading kernel file " << kernel << std::endl;
