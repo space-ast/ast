@@ -105,6 +105,7 @@ var annotated_dup =
       [ "AtmosphereBase", "classast_1_1AtmosphereBase.html", "classast_1_1AtmosphereBase" ],
       [ "AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
       [ "AttitudeFigureOfMerit", "classast_1_1AttitudeFigureOfMerit.html", null ],
+      [ "AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],
       [ "AttributeBasic", "classast_1_1AttributeBasic.html", "classast_1_1AttributeBasic" ],
       [ "Axes", "classast_1_1Axes.html", "classast_1_1Axes" ],
       [ "AxesBodyFixed", "classast_1_1AxesBodyFixed.html", "classast_1_1AxesBodyFixed" ],

@@ -864,6 +864,7 @@ var hierarchy =
           [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
           [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
           [ "ast::Axes", "classast_1_1Axes.html", [
+            [ "ast::AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],
             [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
               [ "ast::AxesBodyFixed", "classast_1_1AxesBodyFixed.html", null ],
               [ "ast::AxesBodyInertial", "classast_1_1AxesBodyInertial.html", null ],
