@@ -106,13 +106,13 @@ xmake
 ast/
 ├── data/          # 数据
 ├── docs/          # 文档
-├── examples/      # 示例代码片段
+├── examples/      # 示例代码
 ├── include/       # 头文件
 ├── projects/      # 示例工程
 ├── repo/          # 第三方库配置文件
 ├── scripts/       # 工具脚本
 ├── src/           # 源文件
-├── test/          # 测试工程
+├── test/          # 单元测试
 └── thirdparty/    # 第三方库
 ```
 
