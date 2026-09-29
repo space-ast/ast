@@ -1,6 +1,5 @@
 var NAVTREEINDEX42 =
 {
-"classast_1_1Rotation.html#a063a06cdbb0809904ec030ae050b1c91":[2,0,0,665,8],
 "classast_1_1Rotation.html#a063a06cdbb0809904ec030ae050b1c91":[3,0,0,664,8],
 "classast_1_1Rotation.html#a07cb0f54ac2f853b39ae2e4ab99d5ba2":[2,0,0,665,11],
 "classast_1_1Rotation.html#a07cb0f54ac2f853b39ae2e4ab99d5ba2":[3,0,0,664,11],
@@ -249,5 +248,6 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalcCosineVFPA.html":[2,0,0,717],
 "classast_1_1ScStateCalcCosineVFPA.html":[3,0,0,716],
 "classast_1_1ScStateCalcCr.html":[2,0,0,718],
-"classast_1_1ScStateCalcCr.html":[3,0,0,717]
+"classast_1_1ScStateCalcCr.html":[3,0,0,717],
+"classast_1_1ScStateCalcCrossSectionalArea.html":[2,0,0,719]
 };

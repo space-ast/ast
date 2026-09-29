@@ -1,6 +1,5 @@
 var NAVTREEINDEX41 =
 {
-"classast_1_1PropertyString.html#a64839b2e71513501ccd256a15a62bfa3":[0,8,4,16,5],
 "classast_1_1PropertyString.html#a6d1b3c3a4f796fd0538f7998a28dc374":[0,8,4,16,4],
 "classast_1_1PropertyString.html#a6f2721e71873d42e8b64902aba6b5b42":[0,8,4,16,12],
 "classast_1_1PropertyString.html#a79c880cc9b0fbc37ec65cfbf440b8b53":[0,8,4,16,8],
@@ -249,5 +248,6 @@ var NAVTREEINDEX41 =
 "classast_1_1RidderSolver.html#a85ed3aeddc5f0eb1a5851a1e5b3dce1c":[0,3,3,3,0],
 "classast_1_1RidderSolver.html#adce16c903462b526ebefc6a7456ab4ce":[0,3,3,3,1],
 "classast_1_1Rotation.html":[2,0,0,665],
-"classast_1_1Rotation.html":[3,0,0,664]
+"classast_1_1Rotation.html":[3,0,0,664],
+"classast_1_1Rotation.html#a063a06cdbb0809904ec030ae050b1c91":[2,0,0,665,8]
 };

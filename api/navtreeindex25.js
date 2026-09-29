@@ -1,6 +1,5 @@
 var NAVTREEINDEX25 =
 {
-"classast_1_1ConstantSpaceWeather.html#aadc131b3f273d8f75f0e65e6246fac20":[0,1,1,0,9],
 "classast_1_1ConstantSpaceWeather.html#aae22533b9c4d29751685f71a7f3ed4b1":[0,1,1,0,10],
 "classast_1_1ConstantSpaceWeather.html#aae8956d3da0c6318313007cda4e88fd3":[0,1,1,0,16],
 "classast_1_1ConstantSpaceWeather.html#aba003b5e243e52939f9e770bbc9eab5b":[0,1,1,0,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX25 =
 "classast_1_1DataGroupSpherical.html#a215e022bc0b0e9a06f15fe4c3694838f":[3,0,0,239,1],
 "classast_1_1DataGroupTimeVar.html":[2,0,0,241],
 "classast_1_1DataGroupTimeVar.html":[3,0,0,240],
-"classast_1_1DataGroupTimeVar.html#a96e6451ed9a1f20d8ec9463127af9318":[2,0,0,241,0]
+"classast_1_1DataGroupTimeVar.html#a96e6451ed9a1f20d8ec9463127af9318":[2,0,0,241,0],
+"classast_1_1DataGroupTimeVar.html#a96e6451ed9a1f20d8ec9463127af9318":[3,0,0,240,0]
 };

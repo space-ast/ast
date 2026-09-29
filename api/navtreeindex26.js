@@ -1,6 +1,5 @@
 var NAVTREEINDEX26 =
 {
-"classast_1_1DataGroupTimeVar.html#a96e6451ed9a1f20d8ec9463127af9318":[3,0,0,240,0],
 "classast_1_1DataGroupTrajectory.html":[2,0,0,242],
 "classast_1_1DataGroupTrajectory.html":[3,0,0,241],
 "classast_1_1DataGroupTrajectory.html#a417497c53f47e4f75f1a54d972ee04c4":[2,0,0,242,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX26 =
 "classast_1_1Dimension.html#a82b0ccba0fef1df739d54040e94d3bd1":[2,0,0,280,25],
 "classast_1_1Dimension.html#a82b0ccba0fef1df739d54040e94d3bd1":[3,0,0,279,25],
 "classast_1_1Dimension.html#a973e2ff2d5d06b478b9626369af97e43":[2,0,0,280,6],
-"classast_1_1Dimension.html#a973e2ff2d5d06b478b9626369af97e43":[3,0,0,279,6]
+"classast_1_1Dimension.html#a973e2ff2d5d06b478b9626369af97e43":[3,0,0,279,6],
+"classast_1_1Dimension.html#a996ce7c6aeac24387203c07f642ef377":[2,0,0,280,3]
 };

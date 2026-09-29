@@ -1,6 +1,5 @@
 var NAVTREEINDEX43 =
 {
-"classast_1_1ScStateCalcCrossSectionalArea.html":[2,0,0,719],
 "classast_1_1ScStateCalcCrossSectionalArea.html":[3,0,0,718],
 "classast_1_1ScStateCalcCrossTrack.html":[2,0,0,720],
 "classast_1_1ScStateCalcCrossTrack.html":[3,0,0,719],
@@ -249,5 +248,6 @@ var NAVTREEINDEX43 =
 "classast_1_1ScStateCalcRightAscension.html":[2,0,0,836],
 "classast_1_1ScStateCalcRightAscension.html":[3,0,0,835],
 "classast_1_1ScStateCalcSEETMagFieldFieldLineSepAngle.html":[2,0,0,840],
-"classast_1_1ScStateCalcSEETMagFieldFieldLineSepAngle.html":[3,0,0,839]
+"classast_1_1ScStateCalcSEETMagFieldFieldLineSepAngle.html":[3,0,0,839],
+"classast_1_1ScStateCalcSEETSAAFlux.html":[2,0,0,841]
 };

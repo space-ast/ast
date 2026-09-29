@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"BKVTree_8cpp.html":[4,0,0,27,5,0,14],
 "BKVTree_8hpp.html":[4,0,0,27,5,0,15],
 "BKVTree_8hpp_source.html":[4,0,0,27,5,0,15],
 "BackTrace_8hpp.html":[4,0,0,17,5,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "BodyPosition_8hpp.html#ae1175a89974b670e35e3dff97b7159afa7233ea4cbdef01f95cee0ad5943d0bb6":[4,0,0,6,15,3,0,6],
 "BodyPosition_8hpp.html#ae1175a89974b670e35e3dff97b7159afab0082e38b89ae20046dd036f82258532":[4,0,0,6,15,3,0,3],
 "BodyPosition_8hpp.html#ae1175a89974b670e35e3dff97b7159afabe988781e4e1de1c6a36fb698afbbe1f":[4,0,0,6,15,3,0,4],
-"BodyPosition_8hpp.html#ae1175a89974b670e35e3dff97b7159afae1573863ca6f6a1fb254af1708ca74ea":[4,0,0,6,15,3,0,1]
+"BodyPosition_8hpp.html#ae1175a89974b670e35e3dff97b7159afae1573863ca6f6a1fb254af1708ca74ea":[4,0,0,6,15,3,0,1],
+"BodyPosition_8hpp.html#ae1175a89974b670e35e3dff97b7159afae1768248d2caebebe86f2d6bb4ad4dd8":[4,0,0,6,15,3,0,7]
 };

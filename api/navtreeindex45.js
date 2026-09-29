@@ -1,6 +1,5 @@
 var NAVTREEINDEX45 =
 {
-"classast_1_1Sequence.html#aeb33b6f9fb307a40559bca2f9b4a854a":[2,0,0,895,7],
 "classast_1_1Sequence.html#aeb33b6f9fb307a40559bca2f9b4a854a":[3,0,0,894,7],
 "classast_1_1Sequence.html#afc459a2aaa64f10befe6d30001fc7b7f":[2,0,0,895,6],
 "classast_1_1Sequence.html#afc459a2aaa64f10befe6d30001fc7b7f":[3,0,0,894,6],
@@ -249,5 +248,6 @@ var NAVTREEINDEX45 =
 "classast_1_1SphericalElem.html#a0c5343b15c6274d3d6eefcda596e5f8e":[0,1,4,16,7],
 "classast_1_1SphericalElem.html#a20f96c62ebd2a9dd850b6fc3541d790c":[0,1,4,16,8],
 "classast_1_1SphericalElem.html#a522fe41f477c9a137e31843c551ad231":[0,1,4,16,6],
-"classast_1_1SphericalElem.html#a6976bca9c9345e2653dcea90a8840382":[0,1,4,16,1]
+"classast_1_1SphericalElem.html#a6976bca9c9345e2653dcea90a8840382":[0,1,4,16,1],
+"classast_1_1SphericalElem.html#a6f766c8a2584977654966db72fa9acc5":[0,1,4,16,10]
 };

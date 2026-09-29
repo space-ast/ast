@@ -1,6 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"PropertyPOD_8cpp.html":[4,0,0,27,8,0,20],
 "PropertyPOD_8hpp.html":[4,0,0,27,8,0,21],
 "PropertyPOD_8hpp_source.html":[4,0,0,27,8,0,21],
 "PropertyPages_8cpp.html":[4,0,0,3,0,8],
@@ -249,5 +248,6 @@ var NAVTREEINDEX11 =
 "SatelliteDatabaseQuery_8cpp.html":[4,0,0,6,9,6],
 "SatelliteDatabaseQuery_8hpp.html":[4,0,0,6,9,7],
 "SatelliteDatabaseQuery_8hpp_source.html":[4,0,0,6,9,7],
-"SatelliteDatabase_8cpp.html":[4,0,0,6,9,2]
+"SatelliteDatabase_8cpp.html":[4,0,0,6,9,2],
+"SatelliteDatabase_8hpp.html":[4,0,0,6,9,3]
 };

@@ -1378,9 +1378,7 @@ var namespaceast =
       [ "eZip", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbaa0a7e04d2a48df2e9e6da1deaf5a17db", null ],
       [ "e7z", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba3810536d2724931acb3ffbac9fe75d14", null ],
       [ "eRar", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba7b4d0bbb4cb24fded846db9ab30bb094", null ],
-      [ "eGz", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbac2374c8b480af195c42dec925c4aa897", null ],
-      [ "eDirectory", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba7f145fc5614f1cbfa24bc09213e3abd9", null ],
-      [ "eFile", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba5e7de5f948230715ad55929daf7287e2", null ]
+      [ "eGz", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbac2374c8b480af195c42dec925c4aa897", null ]
     ] ],
     [ "EAttitudeAxis", "group__Attitude.html#ga0d20359faf15fdf1950c85b646172999", [
       [ "eX", "group__Attitude.html#gga0d20359faf15fdf1950c85b646172999a791c8faabb4af608ce8588393e66c7ff", null ],
@@ -2292,6 +2290,7 @@ var namespaceast =
     [ "aDeleteObject", "group__RTTI.html#gac773a55dc25b4065657e0d2ab5ce3b21", null ],
     [ "aDelInterpreter", "namespaceast.html#a6559d1cbce02f1b37fa1c5f0689083d2", null ],
     [ "aDetectArchiveFormat", "namespaceast.html#abdcf9254ace9d326f743e54508a737e0", null ],
+    [ "aDetectArchiveFormatByMagic", "namespaceast.html#a531f64745fa6a97474532cbcbbdf65f2", null ],
     [ "aDimIsBase", "namespaceast.html#a43e28a808d32e53cc4d7b0649aea9bd8", null ],
     [ "aDimIsDerived", "namespaceast.html#ab37fa7007b27d9cfaff76f2dc926414e", null ],
     [ "aDimIsUnit", "namespaceast.html#a66356b3c1665ac2eea3a7f3c32ac598f", null ],

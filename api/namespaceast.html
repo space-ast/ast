@@ -3623,8 +3623,6 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <a class="el" href="#a5e3206d9e900367922b7afd3ddfd94dba7b4d0bbb4cb24fded846db9ab30bb094">eRar</a>
 , <br />
 &#160;&#160;<a class="el" href="#a5e3206d9e900367922b7afd3ddfd94dbac2374c8b480af195c42dec925c4aa897">eGz</a>
-, <a class="el" href="#a5e3206d9e900367922b7afd3ddfd94dba7f145fc5614f1cbfa24bc09213e3abd9">eDirectory</a>
-, <a class="el" href="#a5e3206d9e900367922b7afd3ddfd94dba5e7de5f948230715ad55929daf7287e2">eFile</a>
 <br />
  }</td></tr>
 <tr class="separator:a5e3206d9e900367922b7afd3ddfd94db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -7150,6 +7148,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>aTarIsZeroBlock</b> (
 <tr class="separator:ad5d66825e21acc1a73c5720d2506812c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdcf9254ace9d326f743e54508a737e0" id="r_abdcf9254ace9d326f743e54508a737e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a5e3206d9e900367922b7afd3ddfd94db">EArchiveFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abdcf9254ace9d326f743e54508a737e0">aDetectArchiveFormat</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path)</td></tr>
 <tr class="separator:abdcf9254ace9d326f743e54508a737e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a531f64745fa6a97474532cbcbbdf65f2" id="r_a531f64745fa6a97474532cbcbbdf65f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a5e3206d9e900367922b7afd3ddfd94db">EArchiveFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a531f64745fa6a97474532cbcbbdf65f2">aDetectArchiveFormatByMagic</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path)</td></tr>
+<tr class="separator:a531f64745fa6a97474532cbcbbdf65f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61f7c26953d197e46a42c6bf5fb59b25" id="r_a61f7c26953d197e46a42c6bf5fb59b25"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61f7c26953d197e46a42c6bf5fb59b25">aIsArchiveFile</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path)</td></tr>
 <tr class="separator:a61f7c26953d197e46a42c6bf5fb59b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68b36384b6bb19791b3f3b072a3ed43a" id="r_a68b36384b6bb19791b3f3b072a3ed43a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68b36384b6bb19791b3f3b072a3ed43a">aIsCommandAvailable</a> (const char *cmd)</td></tr>
@@ -8954,10 +8954,6 @@ constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>kId
 <tr><td class="fieldname"><a id="a5e3206d9e900367922b7afd3ddfd94dba7b4d0bbb4cb24fded846db9ab30bb094" name="a5e3206d9e900367922b7afd3ddfd94dba7b4d0bbb4cb24fded846db9ab30bb094"></a>eRar&#160;</td><td class="fielddoc"><p>.rar </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a5e3206d9e900367922b7afd3ddfd94dbac2374c8b480af195c42dec925c4aa897" name="a5e3206d9e900367922b7afd3ddfd94dbac2374c8b480af195c42dec925c4aa897"></a>eGz&#160;</td><td class="fielddoc"><p>.gz </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5e3206d9e900367922b7afd3ddfd94dba7f145fc5614f1cbfa24bc09213e3abd9" name="a5e3206d9e900367922b7afd3ddfd94dba7f145fc5614f1cbfa24bc09213e3abd9"></a>eDirectory&#160;</td><td class="fielddoc"><p>目录（非归档文件） </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5e3206d9e900367922b7afd3ddfd94dba5e7de5f948230715ad55929daf7287e2" name="a5e3206d9e900367922b7afd3ddfd94dba5e7de5f948230715ad55929daf7287e2"></a>eFile&#160;</td><td class="fielddoc"><p>普通文件（非归档文件） </p>
 </td></tr>
 </table>
 
@@ -12605,6 +12601,32 @@ template&lt;typename Func &gt; </div>
 
 <p>检测归档文件格式 </p>
 <p>优先通过文件扩展名检测，必要时读取魔数验证 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>文件路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>EArchiveFormat 检测到的格式 </dd></dl>
+
+</div>
+</div>
+<a id="a531f64745fa6a97474532cbcbbdf65f2" name="a531f64745fa6a97474532cbcbbdf65f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a531f64745fa6a97474532cbcbbdf65f2">&#9670;&#160;</a></span>aDetectArchiveFormatByMagic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API <a class="el" href="#a5e3206d9e900367922b7afd3ddfd94db">EArchiveFormat</a> ast::aDetectArchiveFormatByMagic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>仅通过魔数检测归档文件格式 </p>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>文件路径 </td></tr>
   </table>

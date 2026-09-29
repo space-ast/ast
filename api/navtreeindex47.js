@@ -1,6 +1,5 @@
 var NAVTREEINDEX47 =
 {
-"classast_1_1StateGeodetic.html#ae6543baae33bc1aca46f30cf6226e133":[3,0,0,967,19],
 "classast_1_1StateGeodetic.html#aeb5f9d42e5b1a79197cf62e1aa4c29a8":[2,0,0,968,9],
 "classast_1_1StateGeodetic.html#aeb5f9d42e5b1a79197cf62e1aa4c29a8":[3,0,0,967,9],
 "classast_1_1StateGeodetic.html#afd096507f055e972695f54cfdb8e900a":[2,0,0,968,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX47 =
 "classast_1_1StateSpherical.html#add8287a168e2c0f20b80d3757216eadb":[3,0,0,971,11],
 "classast_1_1StateSpherical.html#ae1e13c4489eeb7f7e73a1575ebba9ebd":[2,0,0,972,4],
 "classast_1_1StateSpherical.html#ae1e13c4489eeb7f7e73a1575ebba9ebd":[3,0,0,971,4],
-"classast_1_1StateSpherical.html#aee0ea3c00ad73fb690fe31cf9fe5ca0a":[2,0,0,972,6]
+"classast_1_1StateSpherical.html#aee0ea3c00ad73fb690fe31cf9fe5ca0a":[2,0,0,972,6],
+"classast_1_1StateSpherical.html#aee0ea3c00ad73fb690fe31cf9fe5ca0a":[3,0,0,971,6]
 };

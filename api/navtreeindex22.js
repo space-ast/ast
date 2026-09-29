@@ -1,6 +1,5 @@
 var NAVTREEINDEX22 =
 {
-"classast_1_1BlockGravityPartial.html":[3,0,0,87],
 "classast_1_1BlockGravityPartial.html#a1f4766673d052d63b8a14f503360bd40":[2,0,0,88,0],
 "classast_1_1BlockGravityPartial.html#a1f4766673d052d63b8a14f503360bd40":[3,0,0,87,0],
 "classast_1_1BlockIn.html":[2,0,0,89],
@@ -249,5 +248,6 @@ var NAVTREEINDEX22 =
 "classast_1_1BodyEphemeris.html#aa09c59ec72c50e271aa5a56e6d594912":[0,1,7,1,0],
 "classast_1_1BodyEphemeris.html#aa1e11cf86ac4938f9b5a814e8b974dae":[0,1,7,1,1],
 "classast_1_1BodyEphemeris.html#ad3a62ffd699511e16a2c09dee7e8a6c5":[0,1,7,1,2],
-"classast_1_1BodyEphemeris.html#ae278ba0998cba33886e253fb25e59db2":[0,1,7,1,4]
+"classast_1_1BodyEphemeris.html#ae278ba0998cba33886e253fb25e59db2":[0,1,7,1,4],
+"classast_1_1BodyEphemerisDE.html":[0,1,7,2]
 };

@@ -1,6 +1,5 @@
 var NAVTREEINDEX15 =
 {
-"SimpleOrbitDesigner_8cpp.html":[4,0,0,6,12,4,17],
 "SimpleOrbitDesigner_8hpp.html":[4,0,0,6,12,4,18],
 "SimpleOrbitDesigner_8hpp_source.html":[4,0,0,6,12,4,18],
 "SimulationAPI_8cpp.html":[4,0,0,6,13,1,19],
@@ -249,5 +248,6 @@ var NAVTREEINDEX15 =
 "StateMapper_8hpp_source.html":[4,0,0,6,13,1,22],
 "StateMixedSpherical_8cpp.html":[4,0,0,6,12,6,10],
 "StateMixedSpherical_8hpp.html":[4,0,0,6,12,6,11],
-"StateMixedSpherical_8hpp_source.html":[4,0,0,6,12,6,11]
+"StateMixedSpherical_8hpp_source.html":[4,0,0,6,12,6,11],
+"StateSpherical_8cpp.html":[4,0,0,6,12,6,12]
 };

@@ -1,6 +1,5 @@
 var NAVTREEINDEX23 =
 {
-"classast_1_1BodyEphemerisDE.html":[0,1,7,2],
 "classast_1_1BodyEphemerisDE.html#a258a1cac057918775a0ab6141d403d4a":[0,1,7,2,2],
 "classast_1_1BodyEphemerisDE.html#a59a8c6943575f9a84c911d34810c6ba7":[0,1,7,2,0],
 "classast_1_1BodyEphemerisDE.html#abc3fdf1759501af613db1d20bb571215":[0,1,7,2,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX23 =
 "classast_1_1ChatAgent.html#afa7f9681350abda19e722c65536d811f":[3,0,0,147,2],
 "classast_1_1ChatConsole.html":[0,0,2],
 "classast_1_1ChatConsole.html#a46ca93bc9518884dddd65c20b6c26498":[0,0,2,3],
-"classast_1_1ChatConsole.html#a50d157274745f09229051277a32720da":[0,0,2,0]
+"classast_1_1ChatConsole.html#a50d157274745f09229051277a32720da":[0,0,2,0],
+"classast_1_1ChatConsole.html#a882313cd34c77cdfd63172a81995606c":[0,0,2,6]
 };

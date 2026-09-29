@@ -1,6 +1,5 @@
 var NAVTREEINDEX48 =
 {
-"classast_1_1StateSpherical.html#aee0ea3c00ad73fb690fe31cf9fe5ca0a":[3,0,0,971,6],
 "classast_1_1StateVector.html":[2,0,0,973],
 "classast_1_1StateVector.html":[3,0,0,972],
 "classast_1_1StationaryOrbitDesigner.html":[0,1,4,7],
@@ -249,5 +248,6 @@ var NAVTREEINDEX48 =
 "classast_1_1TLEDatabaseQuery.html#afad439835a59eb95da3313dff58934fe":[3,0,0,1017,26],
 "classast_1_1TLEDatabaseQuery.html#afb37dccad17754d23251cf9eb550a3dd":[2,0,0,1018,52],
 "classast_1_1TLEDatabaseQuery.html#afb37dccad17754d23251cf9eb550a3dd":[3,0,0,1017,52],
-"classast_1_1TLEDatabaseQuery.html#afec803dba3e4197ff797cf0625ceec5d":[2,0,0,1018,17]
+"classast_1_1TLEDatabaseQuery.html#afec803dba3e4197ff797cf0625ceec5d":[2,0,0,1018,17],
+"classast_1_1TLEDatabaseQuery.html#afec803dba3e4197ff797cf0625ceec5d":[3,0,0,1017,17]
 };
