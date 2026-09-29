@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# 检查 xmake.lua 与 xmake.sh 里声明的工程版本号是否一致。
+# 检查 xmake.lua、xmake.sh、doxyfile 里声明的工程版本号是否一致。
 #
 #   check-version.sh [--staged]
 #
@@ -42,8 +42,16 @@ version_in_sh() {
         | head -n 1
 }
 
+# doxyfile 里是 `PROJECT_NUMBER = 0.3.1`（等号两侧空格可有可无，行尾注释不算）
+version_in_doxyfile() {
+    file_content doxyfile \
+        | sed -n 's/^[[:space:]]*PROJECT_NUMBER[[:space:]]*=[[:space:]]*\([0-9][0-9.]*\)[[:space:]]*$/\1/p' \
+        | head -n 1
+}
+
 v_lua="$(version_in_lua)"
 v_sh="$(version_in_sh)"
+v_doxy="$(version_in_doxyfile)"
 
 if [ -z "${v_lua}" ]; then
     echo "FAIL: ${source_desc}里的 xmake.lua 找不到 set_version(\"<x.y.z>\")" >&2
@@ -53,10 +61,14 @@ if [ -z "${v_sh}" ]; then
     echo "FAIL: ${source_desc}里的 xmake.sh 找不到 set_version \"<x.y.z>\"" >&2
     exit 1
 fi
+if [ -z "${v_doxy}" ]; then
+    echo "FAIL: ${source_desc}里的 doxyfile 找不到 PROJECT_NUMBER = <x.y.z>" >&2
+    exit 1
+fi
 
-if [ "${v_lua}" != "${v_sh}" ]; then
-    echo "FAIL: 版本号不一致 —— xmake.lua=${v_lua}，xmake.sh=${v_sh}" >&2
-    echo "      改版本号时请两处一起改（tag-release.yml 取的是 xmake.lua）" >&2
+if [ "${v_lua}" != "${v_sh}" ] || [ "${v_lua}" != "${v_doxy}" ]; then
+    echo "FAIL: 版本号不一致 —— xmake.lua=${v_lua}，xmake.sh=${v_sh}，doxyfile=${v_doxy}" >&2
+    echo "      改版本号时请三处一起改（tag-release.yml 取的是 xmake.lua）" >&2
     exit 1
 fi
 
