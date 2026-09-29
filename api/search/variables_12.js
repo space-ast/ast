@@ -27,9 +27,10 @@ var searchData=
   ['results_24',['results',['../structast_1_1CloseApproachReport.html#a5ec5e4160762e81e2f18e944c04ac243',1,'ast::CloseApproachReport']]],
   ['right_5f_25',['right_',['../classast_1_1OpBin.html#ae37a3d8fd55a864daddbba49df8f7ad4',1,'ast::OpBin']]],
   ['rightascensionofascendingnode_5f_26',['rightAscensionOfAscendingNode_',['../classast_1_1SimpleOrbitDesigner.html#ad90b331db5b484737829a923c425f412',1,'ast::SimpleOrbitDesigner']]],
-  ['rotation_5f_27',['rotation_',['../classast_1_1Transform.html#a35a535f2e5b33bc4e5d2a1959e9cac60',1,'ast::Transform']]],
-  ['rotationepoch_5f_28',['rotationEpoch_',['../classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f',1,'ast::RotationalData']]],
-  ['rowcol_5f_29',['rowcol_',['../classast_1_1LowerMatrix.html#a50ac82125bcfdf6da06d01083e8b2798',1,'ast::LowerMatrix']]],
-  ['rp_5f_30',['rp_',['../classast_1_1ModOrbElem.html#a06bf100ac344511c23ce4004fc761072',1,'ast::ModOrbElem']]],
-  ['rsize_31',['rsize',['../structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e',1,'ast::SPK_Type2_Trailer']]]
+  ['roll_5f_27',['roll_',['../classast_1_1AttitudeYPRFixedECI.html#a0d96865c87def112abc14bd8b030d7bf',1,'ast::AttitudeYPRFixedECI']]],
+  ['rotation_5f_28',['rotation_',['../classast_1_1AttitudeFixed.html#ad15c9021a0960fe308389c648862f2e4',1,'ast::AttitudeFixed::rotation_'],['../classast_1_1Transform.html#a35a535f2e5b33bc4e5d2a1959e9cac60',1,'ast::Transform::rotation_']]],
+  ['rotationepoch_5f_29',['rotationEpoch_',['../classast_1_1RotationalData.html#ad567fc0272d196bb6d630c93a97dd91f',1,'ast::RotationalData']]],
+  ['rowcol_5f_30',['rowcol_',['../classast_1_1LowerMatrix.html#a50ac82125bcfdf6da06d01083e8b2798',1,'ast::LowerMatrix']]],
+  ['rp_5f_31',['rp_',['../classast_1_1ModOrbElem.html#a06bf100ac344511c23ce4004fc761072',1,'ast::ModOrbElem']]],
+  ['rsize_32',['rsize',['../structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e',1,'ast::SPK_Type2_Trailer']]]
 ];

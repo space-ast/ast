@@ -131,6 +131,9 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a262da130868caf4121f044987790da1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5faeeda5e7a1db19b0b1cb74f9aea923" id="r_a5faeeda5e7a1db19b0b1cb74f9aea923"><td class="memItemLeft" align="right" valign="top">const Vector3d &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5faeeda5e7a1db19b0b1cb74f9aea923">getRotationRate</a> () const</td></tr>
 <tr class="separator:a5faeeda5e7a1db19b0b1cb74f9aea923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4270744ecc22fb3bb9e7535ef7f739e" id="r_ae4270744ecc22fb3bb9e7535ef7f739e"><td class="memItemLeft" align="right" valign="top"><a id="ae4270744ecc22fb3bb9e7535ef7f739e" name="ae4270744ecc22fb3bb9e7535ef7f739e"></a>
+const Vector3d &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rotationRate</b> () const</td></tr>
+<tr class="separator:ae4270744ecc22fb3bb9e7535ef7f739e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a254e9380af5fc710dea75053b6b819ce" id="r_a254e9380af5fc710dea75053b6b819ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a254e9380af5fc710dea75053b6b819ce">setRotationRate</a> (const Vector3d &amp;angvel)</td></tr>
 <tr class="separator:a254e9380af5fc710dea75053b6b819ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82779c2bb75c29307caf234dd954649d" id="r_a82779c2bb75c29307caf234dd954649d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82779c2bb75c29307caf234dd954649d">getRotation</a> () const</td></tr>
@@ -264,7 +267,7 @@ static <a class="el" href="classast_1_1Rotation.html">Rotation</a>&#160;</td><td
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>运动学坐标系旋转 </p>
-<p>在静态坐标系旋转的基础上，增加了坐标系旋转的角速度信息 </p>
+<p>在静态坐标系旋转的基础上，增加了坐标系旋转的角速度信息 </p><dl class="section note"><dt>注解</dt><dd>角速度的参考系约定：angvel 表示本坐标系相对源坐标系(父坐标系)的角速度， 且其分量在源坐标系(父坐标系)下分解。 例如： aAxesTransform(source, target, tp, kr) 给出的 kr.rotationRate() 是 target 相对 source 的角速度在 source 下的分量。 </dd></dl>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="acfc1d8217c1e6a2d28a887ec6b5bad43" name="acfc1d8217c1e6a2d28a887ec6b5bad43"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfc1d8217c1e6a2d28a887ec6b5bad43">&#9670;&#160;</a></span>KinematicRotation() <span class="overload">[1/2]</span></h2>

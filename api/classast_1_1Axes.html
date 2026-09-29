@@ -114,20 +114,24 @@ $(function(){initNavTree('classast_1_1Axes.html',''); initResizable(true); });
  <div class="center">
   <img src="classast_1_1Axes.png" usemap="#ast::Axes_map" alt=""/>
   <map id="ast::Axes_map" name="ast::Axes_map">
-<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="637,112,809,136"/>
-<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="637,56,809,80"/>
-<area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="637,0,809,24"/>
-<area href="classast_1_1AttitudeRealTime.html" alt="ast::AttitudeRealTime" shape="rect" coords="0,224,172,248"/>
-<area href="classast_1_1AxesBodyRelated.html" title="天体相关的轴系" alt="ast::AxesBodyRelated" shape="rect" coords="273,224,445,248"/>
-<area href="classast_1_1AxesFrozen.html" title="冻结轴系" alt="ast::AxesFrozen" shape="rect" coords="455,224,627,248"/>
-<area href="classast_1_1AxesFrozenAtEventTime.html" title="事件时间冻结轴系" alt="ast::AxesFrozenAtEventTime" shape="rect" coords="637,224,809,248"/>
-<area href="classast_1_1AxesICRF.html" title="ICRF 轴系" alt="ast::AxesICRF" shape="rect" coords="819,224,991,248"/>
-<area href="classast_1_1AxesLinkTo.html" alt="ast::AxesLinkTo" shape="rect" coords="1001,224,1173,248"/>
-<area href="classast_1_1AxesRoot.html" title="根轴系" alt="ast::AxesRoot" shape="rect" coords="1183,224,1355,248"/>
-<area href="classast_1_1AxesBodyFixed.html" title="天体固连轴系" alt="ast::AxesBodyFixed" shape="rect" coords="0,280,172,304"/>
-<area href="classast_1_1AxesBodyInertial.html" title="天体惯性轴系" alt="ast::AxesBodyInertial" shape="rect" coords="182,280,354,304"/>
-<area href="classast_1_1AxesBodyMOD.html" title="天体MOD轴系" alt="ast::AxesBodyMOD" shape="rect" coords="364,280,536,304"/>
-<area href="classast_1_1AxesBodyTOD.html" title="天体TOD轴系" alt="ast::AxesBodyTOD" shape="rect" coords="546,280,718,304"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="728,112,900,136"/>
+<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="728,56,900,80"/>
+<area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="728,0,900,24"/>
+<area href="classast_1_1AttitudeProfile.html" title="姿态剖面抽象基类" alt="ast::AttitudeProfile" shape="rect" coords="0,224,172,248"/>
+<area href="classast_1_1AxesBodyRelated.html" title="天体相关的轴系" alt="ast::AxesBodyRelated" shape="rect" coords="364,224,536,248"/>
+<area href="classast_1_1AxesFrozen.html" title="冻结轴系" alt="ast::AxesFrozen" shape="rect" coords="546,224,718,248"/>
+<area href="classast_1_1AxesFrozenAtEventTime.html" title="事件时间冻结轴系" alt="ast::AxesFrozenAtEventTime" shape="rect" coords="728,224,900,248"/>
+<area href="classast_1_1AxesICRF.html" title="ICRF 轴系" alt="ast::AxesICRF" shape="rect" coords="910,224,1082,248"/>
+<area href="classast_1_1AxesLinkTo.html" alt="ast::AxesLinkTo" shape="rect" coords="1092,224,1264,248"/>
+<area href="classast_1_1AxesRoot.html" title="根轴系" alt="ast::AxesRoot" shape="rect" coords="1274,224,1446,248"/>
+<area href="classast_1_1AttitudeAlignConstrain.html" title="对齐/约束姿态剖面 (Aligned and Constrained)" alt="ast::AttitudeAlignConstrain" shape="rect" coords="182,280,354,304"/>
+<area href="classast_1_1AttitudeFixed.html" title="固定姿态剖面 (Fixed in Axes)" alt="ast::AttitudeFixed" shape="rect" coords="182,336,354,360"/>
+<area href="classast_1_1AttitudeRealTime.html" alt="ast::AttitudeRealTime" shape="rect" coords="182,392,354,416"/>
+<area href="classast_1_1AttitudeSpinning.html" title="自旋姿态剖面 (Spinning)" alt="ast::AttitudeSpinning" shape="rect" coords="182,448,354,472"/>
+<area href="classast_1_1AxesBodyFixed.html" title="天体固连轴系" alt="ast::AxesBodyFixed" shape="rect" coords="546,280,718,304"/>
+<area href="classast_1_1AxesBodyInertial.html" title="天体惯性轴系" alt="ast::AxesBodyInertial" shape="rect" coords="546,336,718,360"/>
+<area href="classast_1_1AxesBodyMOD.html" title="天体MOD轴系" alt="ast::AxesBodyMOD" shape="rect" coords="546,392,718,416"/>
+<area href="classast_1_1AxesBodyTOD.html" title="天体TOD轴系" alt="ast::AxesBodyTOD" shape="rect" coords="546,448,718,472"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -405,7 +409,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <p>获取当前轴系的父轴系 </p>
 <dl class="section return"><dt>返回</dt><dd>父轴系指针，根轴系返回 nullptr </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AxesBodyFixed.html#adfbe61a14eb4b20cacbd113271375eda">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2e0e3330db547e9904b348cc30d44d35">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#afcc73f9511666cf42c2f1d0ad803b23c">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a8d704c7140c235fe09df5056de66e9fe">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a53411e370b539ea7014b66819f0b6664">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a7d358e5e6e3e6c58ac9f865723fd8feb">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#a0b1009ad635c8058bd70d3178e8dbe47">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#abb4cab385bf21851f374dcd045c8cc77">ast::AxesRoot</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1AttitudeProfile.html#ab06ecc79b90e945dfa57276692908e80">ast::AttitudeProfile</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#adfbe61a14eb4b20cacbd113271375eda">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2e0e3330db547e9904b348cc30d44d35">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#afcc73f9511666cf42c2f1d0ad803b23c">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a8d704c7140c235fe09df5056de66e9fe">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a53411e370b539ea7014b66819f0b6664">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a7d358e5e6e3e6c58ac9f865723fd8feb">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#a0b1009ad635c8058bd70d3178e8dbe47">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#abb4cab385bf21851f374dcd045c8cc77">ast::AxesRoot</a> 内被实现.</p>
 
 </div>
 </div>
@@ -446,7 +450,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AxesBodyFixed.html#abef80d58aad162d3d6c8e63a05c18d85">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2c6b55a36228d79b84a6c2312c0d802d">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a97e1fd0cba8eecd9476e31a64c4333f0">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a6a7a3b145eb8733c638ea6987eb1a816">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad74df91ae19abb4af6caf6018b083f1e">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a890c33446719129ba05ee3f04a2e8a2a">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a6924c416590384d8cff7406069748e1b">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#aee37ee8eb8a04f6281988a68b326c79a">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a07468d6431ad4376b214bdec39e0415a">ast::AxesRoot</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1AttitudeAlignConstrain.html#a2ffe239cf2e7bcea6d2db24bf84c9674">ast::AttitudeAlignConstrain</a>, <a class="el" href="classast_1_1AttitudeFixed.html#a9a1bd8cfb79993034f631bab623c6438">ast::AttitudeFixed</a>, <a class="el" href="classast_1_1AttitudeProfile.html#a2ffe239cf2e7bcea6d2db24bf84c9674">ast::AttitudeProfile</a>, <a class="el" href="classast_1_1AttitudeSpinning.html#a1dab656defae27f895f6e1206a00c0ac">ast::AttitudeSpinning</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#abef80d58aad162d3d6c8e63a05c18d85">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2c6b55a36228d79b84a6c2312c0d802d">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a97e1fd0cba8eecd9476e31a64c4333f0">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a6a7a3b145eb8733c638ea6987eb1a816">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad74df91ae19abb4af6caf6018b083f1e">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a890c33446719129ba05ee3f04a2e8a2a">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a6924c416590384d8cff7406069748e1b">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#aee37ee8eb8a04f6281988a68b326c79a">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a07468d6431ad4376b214bdec39e0415a">ast::AxesRoot</a> 内被实现.</p>
 
 </div>
 </div>
@@ -487,7 +491,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AxesBodyFixed.html#a61bb2ff9d228a573e8ba4e69d827ffa7">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a52e5ccb88dd2b9e39b4944845d325e41">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a72c9bd0d51fee3c6e87802a1e050c421">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a4b313234d0a3ca5b7e77e5aa6e88f7cc">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#a606e2869b39a91cddcb2ee4cc40009cf">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#ad4c95b38832c988ae13a22a56e50babb">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#ac588dbc23aaf0e637de24841c721c08a">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#ade775c6be2a42fbdb4680efc5108c8de">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a03cb0a840ca84022130a2d08c4a2a859">ast::AxesRoot</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1AttitudeAlignConstrain.html#add7843ef3e9e1407e090c4759aef31c2">ast::AttitudeAlignConstrain</a>, <a class="el" href="classast_1_1AttitudeFixed.html#a12bc72426896ab7ce301f2446c046bf4">ast::AttitudeFixed</a>, <a class="el" href="classast_1_1AttitudeProfile.html#aec79e13013d862180c8d63836338dede">ast::AttitudeProfile</a>, <a class="el" href="classast_1_1AttitudeSpinning.html#afc553d07491a0fdef4e51ea37cc7b3a7">ast::AttitudeSpinning</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#a61bb2ff9d228a573e8ba4e69d827ffa7">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a52e5ccb88dd2b9e39b4944845d325e41">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a72c9bd0d51fee3c6e87802a1e050c421">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a4b313234d0a3ca5b7e77e5aa6e88f7cc">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#a606e2869b39a91cddcb2ee4cc40009cf">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#ad4c95b38832c988ae13a22a56e50babb">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#ac588dbc23aaf0e637de24841c721c08a">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#ade775c6be2a42fbdb4680efc5108c8de">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a03cb0a840ca84022130a2d08c4a2a859">ast::AxesRoot</a> 内被实现.</p>
 
 </div>
 </div>

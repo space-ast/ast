@@ -101,13 +101,41 @@ $(function(){initNavTree('AttitudeECFVVLH_8hpp_source.html',''); initResizable(t
   <div class="headertitle"><div class="title">AttitudeECFVVLH.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="AttitudeECFVVLH_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="AttitudeAlignConstrain_8hpp.html">AttitudeAlignConstrain.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classast_1_1AttitudeECFVVLH.html">   40</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1AttitudeECFVVLH.html">AttitudeECFVVLH</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1AttitudeAlignConstrain.html">AttitudeAlignConstrain</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1AttitudeECFVVLH.html">AttitudeECFVVLH</a>)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classast_1_1AttitudeECFVVLH.html">AttitudeECFVVLH</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="classast_1_1AttitudeECFVVLH.html">~AttitudeECFVVLH</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* <a class="code hl_function" href="classast_1_1AttitudeProfile.html#a17b2685ce85ecff6090e032159054a0e">defaultFrame</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aAttitudeAlignConstrain_8hpp_html"><div class="ttname"><a href="AttitudeAlignConstrain_8hpp.html">AttitudeAlignConstrain.hpp</a></div><div class="ttdoc">对齐/约束姿态(Aligned and Constrained)</div></div>
+<div class="ttc" id="aclassast_1_1AttitudeAlignConstrain_html"><div class="ttname"><a href="classast_1_1AttitudeAlignConstrain.html">ast::AttitudeAlignConstrain</a></div><div class="ttdoc">对齐/约束姿态剖面 (Aligned and Constrained)</div><div class="ttdef"><b>定义</b> AttitudeAlignConstrain.hpp:90</div></div>
+<div class="ttc" id="aclassast_1_1AttitudeECFVVLH_html"><div class="ttname"><a href="classast_1_1AttitudeECFVVLH.html">ast::AttitudeECFVVLH</a></div><div class="ttdoc">对地指向 + ECF 速度约束姿态</div><div class="ttdef"><b>定义</b> AttitudeECFVVLH.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1AttitudeProfile_html_a17b2685ce85ecff6090e032159054a0e"><div class="ttname"><a href="classast_1_1AttitudeProfile.html#a17b2685ce85ecff6090e032159054a0e">ast::AttitudeProfile::defaultFrame</a></div><div class="ttdeci">virtual Frame * defaultFrame() const</div><div class="ttdoc">该剖面的自然参考坐标系</div><div class="ttdef"><b>定义</b> AttitudeProfile.cpp:66</div></div>
+<div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系抽象基类</div><div class="ttdef"><b>定义</b> Frame.hpp:64</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_7ff596b4b9948ed8471d9cff64c624c7.html">Attitude</a></li><li class="navelem"><b>AttitudeECFVVLH.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_7ff596b4b9948ed8471d9cff64c624c7.html">Attitude</a></li><li class="navelem"><a class="el" href="AttitudeECFVVLH_8hpp.html">AttitudeECFVVLH.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

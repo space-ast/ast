@@ -120,7 +120,7 @@ var searchData=
   ['frame_117',['Frame',['../classast_1_1Frame.html',1,'ast']]],
   ['frame_2ecpp_118',['Frame.cpp',['../Frame_8cpp.html',1,'']]],
   ['frame_2ehpp_119',['Frame.hpp',['../Frame_8hpp.html',1,'']]],
-  ['frame_5f_120',['frame_',['../classast_1_1AtmosphereBase.html#a485bcf95a4f71497763ed891b5b00dd9',1,'ast::AtmosphereBase::frame_'],['../classast_1_1EphemerisLagrangeVar.html#a414a413a20b740331cb6a665cc981302',1,'ast::EphemerisLagrangeVar::frame_'],['../classast_1_1State.html#afd76bc624bd9bfdcd1d21937afeff909',1,'ast::State::frame_']]],
+  ['frame_5f_120',['frame_',['../classast_1_1AtmosphereBase.html#a485bcf95a4f71497763ed891b5b00dd9',1,'ast::AtmosphereBase::frame_'],['../classast_1_1AttitudeProfile.html#af2397dee4343c9e0de2729d8e58687ca',1,'ast::AttitudeProfile::frame_'],['../classast_1_1EphemerisLagrangeVar.html#a414a413a20b740331cb6a665cc981302',1,'ast::EphemerisLagrangeVar::frame_'],['../classast_1_1State.html#afd76bc624bd9bfdcd1d21937afeff909',1,'ast::State::frame_']]],
   ['frameassembly_121',['FrameAssembly',['../classast_1_1FrameAssembly.html',1,'ast']]],
   ['frameassembly_2ecpp_122',['FrameAssembly.cpp',['../FrameAssembly_8cpp.html',1,'']]],
   ['frameassembly_2ehpp_123',['FrameAssembly.hpp',['../FrameAssembly_8hpp.html',1,'']]],

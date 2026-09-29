@@ -8,6 +8,8 @@ var dir_32b6fdb3e539a523c77d6e423bf4bed7 =
     [ "AttitudeConvert.hpp", "AstMath_2Attitude_2AttitudeConvert_8hpp.html", null ],
     [ "AttitudeConvertInline.hpp", "AttitudeConvertInline_8hpp.html", "AttitudeConvertInline_8hpp" ],
     [ "AttitudeConvertProto.hpp", "AttitudeConvertProto_8hpp_source.html", null ],
+    [ "AttitudeUtil.cpp", "AttitudeUtil_8cpp.html", "AttitudeUtil_8cpp" ],
+    [ "AttitudeUtil.hpp", "AttitudeUtil_8hpp.html", "AttitudeUtil_8hpp" ],
     [ "Euler.hpp", "AstMath_2Attitude_2Euler_8hpp.html", null ],
     [ "Quaternion.cpp", "Quaternion_8cpp.html", null ],
     [ "Quaternion.hpp", "AstMath_2Attitude_2Quaternion_8hpp.html", "AstMath_2Attitude_2Quaternion_8hpp" ]
