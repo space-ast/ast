@@ -46,7 +46,7 @@ TEST(SolarSystem, loadPCK)
     
     // SolarSystem 必须分配在堆上
     SharedPtr<SolarSystem> system = new SolarSystem;
-    errc_t rc = system->loadPCK(aDataDirGet() + "/Test/kernels/pck/pck00011.tpc");
+    errc_t rc = system->loadPCK(aDataDirGet() + "/kernels/pck/pck00011.tpc");
     // EXPECT_EQ(rc, 0);
     A_UNUSED(rc);
 }

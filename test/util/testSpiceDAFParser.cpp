@@ -106,7 +106,7 @@ TEST(SpiceSPKParser, getPosNative)
 TEST(SpiceSPKParser, loadPlanetSatellitesSPK)
 {
     GTEST_SKIP();
-    const std::string kernel = aDataDirGet() + "/Test/kernels/spk/mars.bsp";
+    const std::string kernel = aDataDirGet() + "/kernels/spk/mars.bsp";
     SPKParser parser(kernel);
     double et = 0;
     int bodid = (int)ESpiceId::ePhobos;

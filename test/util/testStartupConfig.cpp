@@ -27,7 +27,7 @@ AST_USING_NAMESPACE
 TEST(StartupConfig, gmat_startup_file)
 {
     if(!aIsGithubCI()) GTEST_SKIP();
-    const char filepath[] = "data/Test/GMAT/gmat_startup_file.txt";
+    const std::string filepath = aTestDataDirGet() + "/GMAT/gmat_startup_file.txt";
     StartupConfig config;
     errc_t rc = config.load(filepath);
     EXPECT_EQ(rc, eNoError);
@@ -45,7 +45,7 @@ TEST(StartupConfig, gmat_startup_file)
 
 TEST(StartupConfig, ast_startup_file)
 {
-    const char filepath[] = "data/Test/ast_startup_file.txt";
+    const std::string filepath = aTestDataDirGet() + "/ast_startup_file.txt";
     errc_t rc = aInitializeByConfig(filepath);
     // EXPECT_EQ(rc, eNoError);
 }

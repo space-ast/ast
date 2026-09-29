@@ -55,7 +55,7 @@ TEST(BKVParser, Parser)
     {
         BKVParser parser{};
         BKVSaxPrint printer{};
-        fs::path filepath = fs::path(aDataDirGet()) / "Test/TestBKV.txt";
+        fs::path filepath = fs::path(aTestDataDirGet()) / "TestBKV.txt";
         ast_printf("filepath: %s\n", filepath.string().c_str());
         parser.parseFile(filepath.string(), printer);
     }
@@ -63,7 +63,7 @@ TEST(BKVParser, Parser)
     {
         BKVParser parser{};
         BKVSaxPrint printer{};
-        fs::path filepath = fs::path(aDataDirGet()) / "Test/STK/Satellite.sa3";
+        fs::path filepath = fs::path(aTestDataDirGet()) / "STK/Satellite.sa3";
         ast_printf("filepath: %s\n", filepath.string().c_str());
         parser.parseFile(filepath.string(), printer);
     }
@@ -71,7 +71,7 @@ TEST(BKVParser, Parser)
     {
         BKVParser parser{};
         BKVSaxPrint printer{};
-        fs::path filepath = fs::path(aDataDirGet()) / "Test/STK/Satellite.sa";
+        fs::path filepath = fs::path(aTestDataDirGet()) / "STK/Satellite.sa";
         ast_printf("filepath: %s\n", filepath.string().c_str());
         parser.parseFile(filepath.string(), printer);
     }

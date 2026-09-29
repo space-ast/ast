@@ -41,9 +41,15 @@ public:
     ~StartupConfig() = default;
 
     /// @brief  加载启动配置文件
-    /// @param filepath 
-    /// @return 
+    /// @param filepath
+    /// @return
     errc_t load(StringView filepath);
+
+    /// @brief  加载启动配置文件，并保留已有配置项
+    /// @details 与 load() 的区别是不清空已有配置，因此可以在加载前预置配置项
+    /// @param filepath 配置文件路径
+    /// @return 错误码
+    errc_t loadAndMerge(StringView filepath);
 
     /// @brief  获取加载的配置文件路径
     const std::string& filepath() const{return filepath_;}
@@ -108,6 +114,12 @@ public: // 修改配置
     /// @return  None
     void printConfig(FILE* file=stdout) const;
 protected:
+    /// @brief  加载配置文件的公共实现
+    /// @param filepath 配置文件路径
+    /// @param clear 是否先清空已有配置
+    /// @return 错误码
+    errc_t loadImpl(StringView filepath, bool clear);
+
     std::string decodeConfig(StringView value);
 protected:
     using ConfigMap = std::unordered_map<std::string, GenericValue>;

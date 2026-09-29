@@ -27,7 +27,7 @@ AST_USING_NAMESPACE
 TEST(KVTest, LoadGmatStartupFile)
 {
     KVParser parser;
-    parser.open("data/Test/GMAT/gmat_startup_file.txt");
+    parser.open(aTestDataDirGet() + "/GMAT/gmat_startup_file.txt");
     BKVItemView item;
     while(parser.getNext(item) == eNoError){
         printf("key: '%.*s'\n", (int)item.key().size(), item.key().data());

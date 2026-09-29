@@ -58,8 +58,8 @@ TEST(GravityField, loadJGM3)
     if(!aIsGithubCI()) GTEST_SKIP();
 
     std::vector<std::string> files;
-    files.push_back(aDataDirGet() + "/Test/GMAT/gravity/earth/JGM3.cof");
-    files.push_back(aDataDirGet() + "/Test/CentralBodies/Earth/JGM3.grv");
+    files.push_back(aTestDataDirGet() + "/GMAT/gravity/earth/JGM3.cof");
+    files.push_back(aTestDataDirGet() + "/CentralBodies/Earth/JGM3.grv");
     
     for(auto &file : files){
         GravityField gf;
@@ -83,7 +83,7 @@ TEST(GravityField, loadJGM3)
 
     // load gfc
     {
-        std::string file = aDataDirGet() + "/Test/satkit/JGM3.gfc";
+        std::string file = aTestDataDirGet() + "/satkit/JGM3.gfc";
         GravityField gf;
         errc_t err = gf.load(file);
         EXPECT_EQ(err, eNoError);
@@ -109,7 +109,7 @@ TEST(GravityField, load_gfc)
 {
     if(!aIsGithubCI()) GTEST_SKIP();
 
-    std::string file = aDataDirGet() + "/Test/satkit/JGM2.gfc";
+    std::string file = aTestDataDirGet() + "/satkit/JGM2.gfc";
     GravityField gf;
     errc_t err = gf.load(file);
     EXPECT_EQ(err, eNoError);
@@ -129,8 +129,8 @@ TEST(GravityField, loadATK)
 {
     if(!aIsGithubCI()) GTEST_SKIP();
 
-    std::string file1 = aDataDirGet() + "/Test/ATK/v1/GEMT1.grv";
-    std::string file2 = aDataDirGet() + "/Test/ATK/v1/GEMT1.grv";
+    std::string file1 = aTestDataDirGet() + "/ATK/v1/GEMT1.grv";
+    std::string file2 = aTestDataDirGet() + "/ATK/v1/GEMT1.grv";
 
     GravityField gf1, gf2;
     errc_t err1 = gf1.load(file1);

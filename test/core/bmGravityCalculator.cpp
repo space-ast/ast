@@ -20,6 +20,7 @@
 
 #include "ast/GravityCalculator.hpp"
 #include "ast/RunTime.hpp"
+#include "ast/TestConfig.hpp"
 #include "ast/String.hpp"
 #include "ast/Vector.hpp"
 #include <benchmark/benchmark.h>
@@ -29,15 +30,15 @@ AST_USING_NAMESPACE
 const int degree = 30;
 const int order = 30;
 const Vector3d position{ 30000e3, 20000e3, 10e3 };
-const char* grvFile = "/Test/CentralBodies/Earth/WGS84.grv";
-// const char* grvFile = "/Test/CentralBodies/Earth/egm2008.grv";
+const char* grvFile = "/CentralBodies/Earth/WGS84.grv";
+// const char* grvFile = "/CentralBodies/Earth/egm2008.grv";
 
 #ifdef _AST_ENABLE_GRAVITY_CALCULATOR_1
 
 static void bmCalcPertAcceleration1(benchmark::State& state)
 {
     GravityField gf;
-    gf.load(aDataDirGet() + grvFile);
+    gf.load(aTestDataDirGet() + grvFile);
     GravityCalculator1 gc1(gf, degree, order);
     Vector3d pertAccel1;
     for (auto _ : state) {
@@ -54,7 +55,7 @@ BENCHMARK(bmCalcPertAcceleration1);
 static void bmCalcPertAcceleration2(benchmark::State& state)
 {
     GravityField gf;
-    gf.load(aDataDirGet() + grvFile);
+    gf.load(aTestDataDirGet() + grvFile);
     GravityCalculator2 gc2(gf, degree, order);
     Vector3d pertAccel2;
     for (auto _ : state) {
@@ -69,7 +70,7 @@ BENCHMARK(bmCalcPertAcceleration2);
 static void bmCalcPertAcceleration3(benchmark::State& state)
 {
     GravityField gf;
-    gf.load(aDataDirGet() + grvFile);
+    gf.load(aTestDataDirGet() + grvFile);
     GravityCalculator3 gc3(gf, degree, order);
     Vector3d pertAccel3;
     for (auto _ : state) {

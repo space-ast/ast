@@ -21,6 +21,7 @@
 #include <benchmark/benchmark.h>
 #include "ast/NutationSeries.hpp"
 #include "ast/RunTime.hpp"
+#include "ast/TestConfig.hpp"
 
 AST_USING_NAMESPACE
 
@@ -28,7 +29,7 @@ AST_USING_NAMESPACE
 static void LoadSTK_S(benchmark::State& state)
 {
     NutationSeries series;
-    std::string stkFile = aDataDirGet() + "/Test/ICRF/IAU2006_S.dat";
+    std::string stkFile = aTestDataDirGet() + "/ICRF/IAU2006_S.dat";
     for (auto _ : state) {
         errc_t ret = series.loadSTK(stkFile);
         benchmark::DoNotOptimize(ret);
@@ -52,7 +53,7 @@ BENCHMARK(LoadIERS_S);
 static void LoadSTK_X(benchmark::State& state)
 {
     NutationSeries series;
-    std::string stkFile = aDataDirGet() + "/Test/ICRF/IAU2006_X.dat";
+    std::string stkFile = aTestDataDirGet() + "/ICRF/IAU2006_X.dat";
     for (auto _ : state) {
         errc_t ret = series.loadSTK(stkFile);
         benchmark::DoNotOptimize(ret);

@@ -27,12 +27,23 @@ AST_NAMESPACE_BEGIN
 
 errc_t StartupConfig::load(StringView filepath)
 {
+    return this->loadImpl(filepath, true);
+}
+
+errc_t StartupConfig::loadAndMerge(StringView filepath)
+{
+    return this->loadImpl(filepath, false);
+}
+
+errc_t StartupConfig::loadImpl(StringView filepath, bool clear)
+{
     KVParser parser;
     parser.open(filepath);
     if(!parser.isOpen())
         return eErrorInvalidFile;
     this->filepath_ = std::string(filepath);
-    this->configMap_.clear();
+    if(clear)
+        this->configMap_.clear();
     BKVItemView item;
     while(1)
     {

@@ -190,7 +190,7 @@ static fs::path aRelPathToAbs(const fs::path& relpath, const fs::path& basedir)
 
 std::string aGetDefaultSPKDir()
 {
-    return aDataDirGet() + "/Test/kernels/spk/";
+    return aDataDirGet() + "/kernels/spk/";
 }
 
 void _aGetInitalizeConfig_FromContextConfig(DataContext* context, InitalizeConfig& initalizeConfig)

@@ -33,7 +33,7 @@
 #define AST_DEFAULT_FILE_IAUX                   "IERS-conventions/2010/tab5.2a.txt"
 #define AST_DEFAULT_FILE_IAUY                   "IERS-conventions/2010/tab5.2b.txt"
 #define AST_DEFAULT_FILE_IAUS                   "IERS-conventions/2010/tab5.2d.txt"
-#define AST_DEFAULT_FILE_IAUXYS_PRECOMPUTED     "Test/ICRF/IAU2006_XYS.dat"
+#define AST_DEFAULT_FILE_IAUXYS_PRECOMPUTED     "IERS-conventions/2010/IAU2006_XYS.dat"
 #define AST_DEFAULT_DIR_SOLARSYSTEM             "SolarSystem/"
 
 

@@ -40,10 +40,10 @@ TEST(LeapSecond, LoadDefault)
 TEST(LeapSecond, load) {
     if(!aIsGithubCI()) GTEST_SKIP();
 
-    const auto atkfile = fs::path(aDataDirGet()) / "Test/LeapSecond.dat";
-    const auto stkfile = fs::path(aDataDirGet()) / "Test/STK/LeapSecond.dat";
+    const auto atkfile = fs::path(aTestDataDirGet()) / "LeapSecond.dat";
+    const auto stkfile = fs::path(aTestDataDirGet()) / "STK/LeapSecond.dat";
     const auto hiersfile = fs::path(aDataDirGet()) / "Time/Leap_Second.dat";
-    const auto spicefile = fs::path(aDataDirGet()) / "Test/kernels/lsk/naif0012.tls";
+    const auto spicefile = fs::path(aDataDirGet()) / "kernels/lsk/naif0012.tls";
     {
         LeapSecond leapSecond;
         leapSecond.data().clear();
@@ -148,7 +148,7 @@ TEST(LeapSecond, loadATK) {
     
     {
         LeapSecond leapSecond;
-        auto filepath = fs::path(aDataDirGet()) / "Test/LeapSecond.dat";
+        auto filepath = fs::path(aTestDataDirGet()) / "LeapSecond.dat";
         errc_t err = leapSecond.loadATK(filepath.c_str());
         EXPECT_EQ(err, 0);
         EXPECT_EQ(leapSecond.loadATK((const char*)nullptr), eErrorNullInput);
@@ -156,7 +156,7 @@ TEST(LeapSecond, loadATK) {
     }
     {
         LeapSecond leapSecond;
-        auto filepath = fs::path(aDataDirGet()) / "Test/LeapSecond.dat";
+        auto filepath = fs::path(aTestDataDirGet()) / "LeapSecond.dat";
         errc_t err = leapSecond.load(filepath.c_str());
         EXPECT_EQ(err, 0);
         EXPECT_EQ(leapSecond.load((const char*)nullptr), eErrorNullInput);

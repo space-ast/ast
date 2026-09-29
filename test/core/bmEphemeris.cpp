@@ -23,6 +23,7 @@
 #include "ast/Environment.hpp"
 #include "ast/JplDe.hpp"
 #include "ast/CelestialBody.hpp"
+#include "ast/RunTime.hpp"
 #include "ast/TimePoint.hpp"
 #include "ast/Vector.hpp"
 #include "ast/SpiceAPI.hpp"
@@ -50,7 +51,8 @@ BENCHMARK(bmEphemerisDE);
 void bmEphemerisSPKParser(benchmark::State& state)
 {
     if(aIsCI()) return;
-    SPKParser spk("data/Test/kernels/spk/de430.bsp");
+    const std::string kernel = aDataDirGet() + "/kernels/spk/de430.bsp";
+    SPKParser spk(kernel);
     double et = 0;
     Vector3d pos;
     Vector3d vel;
@@ -68,7 +70,8 @@ void bmEphemerisSpice(benchmark::State& state)
 {
     if(aIsCI()) return;
     SpiceAPI api(true);
-    api.furnsh("data/Test/kernels/spk/de430.bsp");
+    const std::string kernel = aDataDirGet() + "/kernels/spk/de430.bsp";
+    api.furnsh(kernel.c_str());
     double et = 0;
     double lt;
     array6d posvel;
