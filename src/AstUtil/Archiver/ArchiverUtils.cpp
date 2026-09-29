@@ -4,6 +4,7 @@
 #include "AstUtil/LocalBuffer.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringView.hpp"
+#include "AstUtil/StringUtil.hpp"
 
 #include <cstdio>
 #include <cstring>
@@ -109,12 +110,10 @@ namespace
     // 获取文件扩展名（小写）
     std::string getExtensionLower(StringView path)
     {
-        std::string s(path.data(), path.size());
-        auto pos = s.rfind('.');
-        if (pos == std::string::npos) return {};
-        std::string ext = s.substr(pos);
-        for (auto& c : ext) c = static_cast<char>(::tolower(static_cast<unsigned char>(c)));
-        return ext;
+        auto pos = path.rfind('.');
+        if (pos == StringView::npos) return {};
+        StringView ext = path.substr(pos);
+        return aAsciiStrToLower(ext);
     }
 
     // 检查路径是否以指定后缀结尾
@@ -168,7 +167,11 @@ EArchiveFormat aDetectArchiveFormat(StringView path)
         // 如果已经被上面的 .tar.gz 处理了就不会到这里
         return EArchiveFormat::eGz;
     }
+    return aDetectArchiveFormatByMagic(path);
+}
 
+EArchiveFormat aDetectArchiveFormatByMagic(StringView path)
+{
     // 扩展名无法判断时，尝试魔数检测
     unsigned char magic[8] = {};
     if (!readMagicBytes(path, magic, sizeof(magic)))

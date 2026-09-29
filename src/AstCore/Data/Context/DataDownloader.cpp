@@ -25,6 +25,9 @@
 #include "AstUtil/Extract.hpp"
 #include "AstUtil/RunTime.hpp"
 #include "AstUtil/FileLock.hpp"
+#include "AstUtil/Version.hpp"
+#include "AstUtil/ArchiverUtils.hpp"
+#include "AstConfig.h"
 #include <ctime>
 #include <cstdio>
 
@@ -75,6 +78,8 @@ errc_t aDownloadData(StringView dataDir)
 {
     // 数据仓库 master 分支压缩包地址，优先尝试 gitcode，失败时回退到 github
     static const char* kDataUrls[] = {
+        "https://raw.gitcode.com/space-ast/ast-data/archive/refs/heads/v" AST_VERSION ".zip",
+        "https://github.com/space-ast/ast-data/archive/refs/tags/v" AST_VERSION ".zip",
         "https://raw.gitcode.com/space-ast/ast-data/archive/refs/heads/master.zip",
         "https://github.com/space-ast/ast-data/archive/refs/heads/master.zip",
     };
@@ -129,13 +134,19 @@ errc_t aDownloadData(StringView dataDir)
     {
         aInfo(_("下载数据文件: %s"), url);
         err = aDownloadFile(url, tmpZip.string());
-        if (err == eNoError) break;
+        if (err == eNoError)
+        {
+            if(aDetectArchiveFormatByMagic(tmpZip.string()) != EArchiveFormat::eUnknown)
+                break;
+            else
+                aWarning(_("下载的文件不是压缩文件，无法解压"));
+        }
         if (err == eErrorCancelled) break;   // 用户取消，不再尝试备用源
         aWarning(_("无法从 %s 下载数据 (err=%d)"), url, err);
     }
     if (err != eNoError)
     {
-        aError(_("所有下载源均失败 (err=%d)"), err);
+        aWarning(_("所有下载源均失败 (err=%d)"), err);
         return err;
     }
     aInfo(_("已下载到 %s"), tmpZip.string().c_str());
@@ -144,7 +155,7 @@ errc_t aDownloadData(StringView dataDir)
     err = aExtract(tmpZip.string(), tmpExDir.string());
     if (err != eNoError)
     {
-        aError(_("解压失败 (err=%d)"), err);
+        aWarning(_("解压失败 (err=%d)"), err);
 
         return err;
     }
@@ -169,7 +180,7 @@ errc_t aDownloadData(StringView dataDir)
     }
     if (!fs::is_directory(dataRoot))
     {
-        aError(_("目录 '%s' 下没有数据"), dataRoot.string().c_str());
+        aWarning(_("目录 '%s' 下没有数据"), dataRoot.string().c_str());
         return eErrorNotFound;
     }
 
@@ -181,14 +192,14 @@ errc_t aDownloadData(StringView dataDir)
         backupPath = targetDir.string() + ".bak";
         fs::remove_all(backupPath);
         if (!fs::rename(targetDir, backupPath)) {
-            aError(_("备份已有数据目录 '%s' 失败"), targetDir.string().c_str());
+            aWarning(_("备份已有数据目录 '%s' 失败"), targetDir.string().c_str());
             return eError;
         }
     }
     // 移动解压出的数据目录到目标
     if (!fs::rename(dataRoot, targetDir))
     {
-        aError(_("安装数据到 '%s' 失败"), targetDir.string().c_str());
+        aWarning(_("安装数据到 '%s' 失败"), targetDir.string().c_str());
         // 还原备份，避免数据目录状态损坏
         if (!backupPath.empty())
             fs::rename(backupPath, targetDir);
