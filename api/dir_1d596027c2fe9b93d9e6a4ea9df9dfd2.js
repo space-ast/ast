@@ -24,7 +24,7 @@ var dir_1d596027c2fe9b93d9e6a4ea9df9dfd2 =
     [ "StartupConfig.hpp", "StartupConfig_8hpp.html", "StartupConfig_8hpp" ],
     [ "TempFileGuard.hpp", "TempFileGuard_8hpp.html", null ],
     [ "TypeTraits.hpp", "TypeTraits_8hpp_source.html", null ],
-    [ "Version.cpp", "Version_8cpp.html", null ],
+    [ "Version.cpp", "Version_8cpp.html", "Version_8cpp" ],
     [ "Version.hpp", "Version_8hpp.html", "Version_8hpp" ],
     [ "WorkingDirectory.hpp", "WorkingDirectory_8hpp.html", null ]
 ];

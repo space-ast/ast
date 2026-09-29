@@ -1,5 +1,16 @@
 var NAVTREEINDEX47 =
 {
+"classast_1_1StateGeodetic.html#ae6543baae33bc1aca46f30cf6226e133":[3,0,0,967,19],
+"classast_1_1StateGeodetic.html#aeb5f9d42e5b1a79197cf62e1aa4c29a8":[2,0,0,968,9],
+"classast_1_1StateGeodetic.html#aeb5f9d42e5b1a79197cf62e1aa4c29a8":[3,0,0,967,9],
+"classast_1_1StateGeodetic.html#afd096507f055e972695f54cfdb8e900a":[2,0,0,968,1],
+"classast_1_1StateGeodetic.html#afd096507f055e972695f54cfdb8e900a":[3,0,0,967,1],
+"classast_1_1StateKeplerian.html":[2,0,0,969],
+"classast_1_1StateKeplerian.html":[3,0,0,968],
+"classast_1_1StateKeplerian.html#a00733f5ebc6ab8a2cea02e4d11fb384f":[2,0,0,969,36],
+"classast_1_1StateKeplerian.html#a00733f5ebc6ab8a2cea02e4d11fb384f":[3,0,0,968,36],
+"classast_1_1StateKeplerian.html#a0158a367d365143358996abe695defdd":[2,0,0,969,9],
+"classast_1_1StateKeplerian.html#a0158a367d365143358996abe695defdd":[3,0,0,968,9],
 "classast_1_1StateKeplerian.html#a016d4ba5d119dcad53da2425264ba9ca":[2,0,0,969,24],
 "classast_1_1StateKeplerian.html#a016d4ba5d119dcad53da2425264ba9ca":[3,0,0,968,24],
 "classast_1_1StateKeplerian.html#a03352b055185c17e98c84d0293416b12":[2,0,0,969,58],
@@ -238,16 +249,5 @@ var NAVTREEINDEX47 =
 "classast_1_1StateSpherical.html#add8287a168e2c0f20b80d3757216eadb":[3,0,0,971,11],
 "classast_1_1StateSpherical.html#ae1e13c4489eeb7f7e73a1575ebba9ebd":[2,0,0,972,4],
 "classast_1_1StateSpherical.html#ae1e13c4489eeb7f7e73a1575ebba9ebd":[3,0,0,971,4],
-"classast_1_1StateSpherical.html#aee0ea3c00ad73fb690fe31cf9fe5ca0a":[2,0,0,972,6],
-"classast_1_1StateSpherical.html#aee0ea3c00ad73fb690fe31cf9fe5ca0a":[3,0,0,971,6],
-"classast_1_1StateVector.html":[2,0,0,973],
-"classast_1_1StateVector.html":[3,0,0,972],
-"classast_1_1StationaryOrbitDesigner.html":[0,1,4,7],
-"classast_1_1StationaryOrbitDesigner.html#a1467d485d594217fcac48fc5993ea797":[0,1,4,7,0],
-"classast_1_1StationaryOrbitDesigner.html#a505d4e119a9531bd551b6e69d800f70e":[0,1,4,7,6],
-"classast_1_1StationaryOrbitDesigner.html#a77d96ea5ea1ac575f3fdecdc392588b6":[0,1,4,7,7],
-"classast_1_1StationaryOrbitDesigner.html#a887551c2a93113f4e0f5764dc56e9e9c":[0,1,4,7,5],
-"classast_1_1StationaryOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[0,1,4,7,3],
-"classast_1_1StationaryOrbitDesigner.html#aaaae8ed54c4beeed20f9dc5c44f0e8c2":[0,1,4,7,8],
-"classast_1_1StationaryOrbitDesigner.html#ad38941e3fcc8fa58cd1c475d4cf23527":[0,1,4,7,2]
+"classast_1_1StateSpherical.html#aee0ea3c00ad73fb690fe31cf9fe5ca0a":[2,0,0,972,6]
 };

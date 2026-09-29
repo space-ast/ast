@@ -1,5 +1,16 @@
 var NAVTREEINDEX48 =
 {
+"classast_1_1StateSpherical.html#aee0ea3c00ad73fb690fe31cf9fe5ca0a":[3,0,0,971,6],
+"classast_1_1StateVector.html":[2,0,0,973],
+"classast_1_1StateVector.html":[3,0,0,972],
+"classast_1_1StationaryOrbitDesigner.html":[0,1,4,7],
+"classast_1_1StationaryOrbitDesigner.html#a1467d485d594217fcac48fc5993ea797":[0,1,4,7,0],
+"classast_1_1StationaryOrbitDesigner.html#a505d4e119a9531bd551b6e69d800f70e":[0,1,4,7,6],
+"classast_1_1StationaryOrbitDesigner.html#a77d96ea5ea1ac575f3fdecdc392588b6":[0,1,4,7,7],
+"classast_1_1StationaryOrbitDesigner.html#a887551c2a93113f4e0f5764dc56e9e9c":[0,1,4,7,5],
+"classast_1_1StationaryOrbitDesigner.html#a8bf96b52df781fc6598d96fafe9b3b49":[0,1,4,7,3],
+"classast_1_1StationaryOrbitDesigner.html#aaaae8ed54c4beeed20f9dc5c44f0e8c2":[0,1,4,7,8],
+"classast_1_1StationaryOrbitDesigner.html#ad38941e3fcc8fa58cd1c475d4cf23527":[0,1,4,7,2],
 "classast_1_1StationaryOrbitDesigner.html#ae04a7e2e04e444075df14bf98bc37db6":[0,1,4,7,1],
 "classast_1_1StationaryOrbitDesigner.html#ae11194d184fe4188c639d6520ffc1462":[0,1,4,7,4],
 "classast_1_1Stop.html":[2,0,0,977],
@@ -238,16 +249,5 @@ var NAVTREEINDEX48 =
 "classast_1_1TLEDatabaseQuery.html#afad439835a59eb95da3313dff58934fe":[3,0,0,1017,26],
 "classast_1_1TLEDatabaseQuery.html#afb37dccad17754d23251cf9eb550a3dd":[2,0,0,1018,52],
 "classast_1_1TLEDatabaseQuery.html#afb37dccad17754d23251cf9eb550a3dd":[3,0,0,1017,52],
-"classast_1_1TLEDatabaseQuery.html#afec803dba3e4197ff797cf0625ceec5d":[2,0,0,1018,17],
-"classast_1_1TLEDatabaseQuery.html#afec803dba3e4197ff797cf0625ceec5d":[3,0,0,1017,17],
-"classast_1_1TLEDatabaseQuery.html#aff8caf66c2b350e3abdc8f4c616c0228":[2,0,0,1018,10],
-"classast_1_1TLEDatabaseQuery.html#aff8caf66c2b350e3abdc8f4c616c0228":[3,0,0,1017,10],
-"classast_1_1TLEDatabaseQuery.html#affb7e57e8dac6e44914dc747fec37879":[2,0,0,1018,35],
-"classast_1_1TLEDatabaseQuery.html#affb7e57e8dac6e44914dc747fec37879":[3,0,0,1017,35],
-"classast_1_1TLELines.html":[2,0,0,1019],
-"classast_1_1TLELines.html":[3,0,0,1018],
-"classast_1_1TLELines.html#a37ebcfee4132cd25e7ef41d099be6b73":[2,0,0,1019,1],
-"classast_1_1TLELines.html#a37ebcfee4132cd25e7ef41d099be6b73":[3,0,0,1018,1],
-"classast_1_1TLELines.html#a7528ea8465d2e5990e1b941c9d487481":[2,0,0,1019,0],
-"classast_1_1TLELines.html#a7528ea8465d2e5990e1b941c9d487481":[3,0,0,1018,0]
+"classast_1_1TLEDatabaseQuery.html#afec803dba3e4197ff797cf0625ceec5d":[2,0,0,1018,17]
 };

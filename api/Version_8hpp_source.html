@@ -134,7 +134,7 @@ $(function(){initNavTree('Version_8hpp_source.html',''); initResizable(true); })
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">bool</span> operator&gt;=(<span class="keyword">const</span> Version&amp; other)<span class="keyword"> const</span>{<span class="keywordflow">return</span> compare(other) &gt;= 0;}</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> valid()<span class="keyword"> const</span>{<span class="keywordflow">return</span> major_ &gt; 0;}</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> valid()<span class="keyword"> const</span>{<span class="keywordflow">return</span> major_ &gt;= 0;}</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">int</span> major()<span class="keyword"> const</span>{<span class="keywordflow">return</span> major_;} </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> setMajor(<span class="keywordtype">int</span> major){major_ = major;}</div>
@@ -152,18 +152,24 @@ $(function(){initNavTree('Version_8hpp_source.html',''); initResizable(true); })
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> setBuild(StringView build){build_ = std::string(build);}</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">int</span> major_{-1};                 </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">int</span> minor_{0};                  </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">int</span> patch_{0};                  </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">int</span> major_{-1};                  </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">int</span> minor_{0};                   </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">int</span> patch_{0};                   </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    std::string prerelease_{};       </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    std::string build_{};            </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>};</div>
 </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>AST_UTIL_API <span class="keyword">const</span> Version&amp; <a class="code hl_function" href="namespaceast.html#a49e819a717eff033a166fb817d14d382">aVersion</a>();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>AST_UTIL_API <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="namespaceast.html#a8d7cf7a06da0109d5ef50947e26e8ace">aVersionStr</a>();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1Version_html"><div class="ttname"><a href="classast_1_1Version.html">ast::Version</a></div><div class="ttdoc">版本号</div><div class="ttdef"><b>定义</b> Version.hpp:40</div></div>
 <div class="ttc" id="aclassast_1_1Version_html_a7ea5c988b8f3f020626e6baeadd49946"><div class="ttname"><a href="classast_1_1Version.html#a7ea5c988b8f3f020626e6baeadd49946">ast::Version::Version</a></div><div class="ttdeci">Version()=default</div><div class="ttdoc">默认构造（无效版本，major_ = -1）</div></div>
+<div class="ttc" id="anamespaceast_html_a49e819a717eff033a166fb817d14d382"><div class="ttname"><a href="namespaceast.html#a49e819a717eff033a166fb817d14d382">ast::aVersion</a></div><div class="ttdeci">const Version &amp; aVersion()</div><div class="ttdoc">获取本库的版本号</div><div class="ttdef"><b>定义</b> Version.cpp:329</div></div>
+<div class="ttc" id="anamespaceast_html_a8d7cf7a06da0109d5ef50947e26e8ace"><div class="ttname"><a href="namespaceast.html#a8d7cf7a06da0109d5ef50947e26e8ace">ast::aVersionStr</a></div><div class="ttdeci">const char * aVersionStr()</div><div class="ttdoc">获取本库的版本文本</div><div class="ttdef"><b>定义</b> Version.cpp:335</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

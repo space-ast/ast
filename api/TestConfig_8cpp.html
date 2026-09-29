@@ -107,6 +107,8 @@ $(function(){initNavTree('TestConfig_8cpp.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="TestConfig_8hpp_source.html">TestConfig.hpp</a>&quot;</code><br />
 <code>#include &quot;AstCore/RunTime.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/FileSystem.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Posix.hpp&quot;</code><br />
 <code>#include &lt;memory&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -119,9 +121,14 @@ $(function(){initNavTree('TestConfig_8cpp.html',''); initResizable(true); });
 <tr class="memitem:a5ce0325a42bf8236cbe44095733abb61" id="r_a5ce0325a42bf8236cbe44095733abb61"><td class="memItemLeft" align="right" valign="top"><a id="a5ce0325a42bf8236cbe44095733abb61" name="a5ce0325a42bf8236cbe44095733abb61"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_DEFAULT_TEST_CONFIG_PATH</b>&#160;&#160;&#160;AST_PROJECT_NAME &quot;_testconfig_file.txt&quot;</td></tr>
 <tr class="separator:a5ce0325a42bf8236cbe44095733abb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a912700a3c0198a4bead08499fe24e856" id="r_a912700a3c0198a4bead08499fe24e856"><td class="memItemLeft" align="right" valign="top"><a id="a912700a3c0198a4bead08499fe24e856" name="a912700a3c0198a4bead08499fe24e856"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_ENV_TEST_DATA_DIR</b>&#160;&#160;&#160;&quot;AST_TEST_DATA_DIR&quot;</td></tr>
+<tr class="separator:a912700a3c0198a4bead08499fe24e856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:aa21a646e588bc9dcbd0074263184dbfc" id="r_aa21a646e588bc9dcbd0074263184dbfc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#aa21a646e588bc9dcbd0074263184dbfc">ast::aTestDataDirGet</a> ()</td></tr>
+<tr class="separator:aa21a646e588bc9dcbd0074263184dbfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dcaafbd4fbda1a9ada070c8086727f2" id="r_a9dcaafbd4fbda1a9ada070c8086727f2"><td class="memItemLeft" align="right" valign="top"><a id="a9dcaafbd4fbda1a9ada070c8086727f2" name="a9dcaafbd4fbda1a9ada070c8086727f2"></a>
 std::shared_ptr&lt; <a class="el" href="classast_1_1StartupConfig.html">StartupConfig</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTestLoadConfig</b> ()</td></tr>
 <tr class="separator:a9dcaafbd4fbda1a9ada070c8086727f2"><td class="memSeparator" colspan="2">&#160;</td></tr>

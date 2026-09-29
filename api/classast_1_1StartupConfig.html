@@ -114,6 +114,8 @@ $(function(){initNavTree('classast_1_1StartupConfig.html',''); initResizable(tru
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a803a1e276aef62e187108a6ff9b6d835" id="r_a803a1e276aef62e187108a6ff9b6d835"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a803a1e276aef62e187108a6ff9b6d835">load</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="#ab6210e3a25b4289b6051256a510aa749">filepath</a>)</td></tr>
 <tr class="separator:a803a1e276aef62e187108a6ff9b6d835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65e661febd9065a63cf5d69dd26f272c" id="r_a65e661febd9065a63cf5d69dd26f272c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65e661febd9065a63cf5d69dd26f272c">loadAndMerge</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="#ab6210e3a25b4289b6051256a510aa749">filepath</a>)</td></tr>
+<tr class="separator:a65e661febd9065a63cf5d69dd26f272c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6210e3a25b4289b6051256a510aa749" id="r_ab6210e3a25b4289b6051256a510aa749"><td class="memItemLeft" align="right" valign="top"><a id="ab6210e3a25b4289b6051256a510aa749" name="ab6210e3a25b4289b6051256a510aa749"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>filepath</b> () const</td></tr>
 <tr class="separator:ab6210e3a25b4289b6051256a510aa749"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,6 +153,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ConfigMap</b> = std:
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
+<tr class="memitem:ad3fc4decc7818e0a0ede21621f92bbff" id="r_ad3fc4decc7818e0a0ede21621f92bbff"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3fc4decc7818e0a0ede21621f92bbff">loadImpl</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> <a class="el" href="#ab6210e3a25b4289b6051256a510aa749">filepath</a>, bool clear)</td></tr>
+<tr class="separator:ad3fc4decc7818e0a0ede21621f92bbff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add2ae0fb4eef46bd8e0e9f9fa0770dcf" id="r_add2ae0fb4eef46bd8e0e9f9fa0770dcf"><td class="memItemLeft" align="right" valign="top"><a id="add2ae0fb4eef46bd8e0e9f9fa0770dcf" name="add2ae0fb4eef46bd8e0e9f9fa0770dcf"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>decodeConfig</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> value)</td></tr>
 <tr class="separator:add2ae0fb4eef46bd8e0e9f9fa0770dcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -408,8 +412,72 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>filepath_</b> 
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd><br  />
- </dd></dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a65e661febd9065a63cf5d69dd26f272c" name="a65e661febd9065a63cf5d69dd26f272c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65e661febd9065a63cf5d69dd26f272c">&#9670;&#160;</a></span>loadAndMerge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::StartupConfig::loadAndMerge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filepath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载启动配置文件，并保留已有配置项 </p>
+<p>与 <a class="el" href="#a803a1e276aef62e187108a6ff9b6d835" title="加载启动配置文件">load()</a> 的区别是不清空已有配置，因此可以在加载前预置配置项 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>配置文件路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ad3fc4decc7818e0a0ede21621f92bbff" name="ad3fc4decc7818e0a0ede21621f92bbff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3fc4decc7818e0a0ede21621f92bbff">&#9670;&#160;</a></span>loadImpl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::StartupConfig::loadImpl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>clear</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>加载配置文件的公共实现 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>配置文件路径 </td></tr>
+    <tr><td class="paramname">clear</td><td>是否先清空已有配置 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 </div>
 </div>

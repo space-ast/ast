@@ -6990,6 +6990,8 @@ AST_SPICE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>spkgeo<
 <tr class="memitem:gaeec3c2d0173bb2ecff524dcaddc4af61" id="r_gaeec3c2d0173bb2ecff524dcaddc4af61"><td class="memItemLeft" align="right" valign="top">
 AST_SPICE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>spkgps</b> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *targ, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;et, <a class="el" href="classast_1_1Axes.html">Axes</a> *ref, <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *obs, Vector3d &amp;pos, double *lt=nullptr)</td></tr>
 <tr class="separator:gaeec3c2d0173bb2ecff524dcaddc4af61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa21a646e588bc9dcbd0074263184dbfc" id="r_aa21a646e588bc9dcbd0074263184dbfc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa21a646e588bc9dcbd0074263184dbfc">aTestDataDirGet</a> ()</td></tr>
+<tr class="separator:aa21a646e588bc9dcbd0074263184dbfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dcaafbd4fbda1a9ada070c8086727f2" id="r_a9dcaafbd4fbda1a9ada070c8086727f2"><td class="memItemLeft" align="right" valign="top"><a id="a9dcaafbd4fbda1a9ada070c8086727f2" name="a9dcaafbd4fbda1a9ada070c8086727f2"></a>
 std::shared_ptr&lt; <a class="el" href="classast_1_1StartupConfig.html">StartupConfig</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>aTestLoadConfig</b> ()</td></tr>
 <tr class="separator:a9dcaafbd4fbda1a9ada070c8086727f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -8069,6 +8071,12 @@ constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ext
 <tr class="memitem:a46bf7f6285e97fa9e3a05bf9ef22452f" id="r_a46bf7f6285e97fa9e3a05bf9ef22452f"><td class="memItemLeft" align="right" valign="top"><a id="a46bf7f6285e97fa9e3a05bf9ef22452f" name="a46bf7f6285e97fa9e3a05bf9ef22452f"></a>
 constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>extract_filename</b> (const char *str, const char *last_sep_pos=nullptr)</td></tr>
 <tr class="separator:a46bf7f6285e97fa9e3a05bf9ef22452f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49e819a717eff033a166fb817d14d382" id="r_a49e819a717eff033a166fb817d14d382"><td class="memItemLeft" align="right" valign="top"><a id="a49e819a717eff033a166fb817d14d382" name="a49e819a717eff033a166fb817d14d382"></a>
+const <a class="el" href="classast_1_1Version.html">Version</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>aVersion</b> ()</td></tr>
+<tr class="separator:a49e819a717eff033a166fb817d14d382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d7cf7a06da0109d5ef50947e26e8ace" id="r_a8d7cf7a06da0109d5ef50947e26e8ace"><td class="memItemLeft" align="right" valign="top"><a id="a8d7cf7a06da0109d5ef50947e26e8ace" name="a8d7cf7a06da0109d5ef50947e26e8ace"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>aVersionStr</b> ()</td></tr>
+<tr class="separator:a8d7cf7a06da0109d5ef50947e26e8ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b613f7e18d0eb319b3b5094189afa36" id="r_a0b613f7e18d0eb319b3b5094189afa36"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b613f7e18d0eb319b3b5094189afa36">aFindBodyTexture</a> (const <a class="el" href="classast_1_1CelestialBody.html">Body</a> *body)</td></tr>
 <tr class="separator:a0b613f7e18d0eb319b3b5094189afa36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab93cd609ebc908a11e29170b858ff2e0" id="r_gab93cd609ebc908a11e29170b858ff2e0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Atmosphere.html#gab93cd609ebc908a11e29170b858ff2e0">aUSSA1976</a> (double alt)</td></tr>
@@ -20267,6 +20275,30 @@ template&lt;typename Func &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>flag 字符串（"z"/"j"/"J"），非压缩格式返回 nullptr </dd></dl>
+
+</div>
+</div>
+<a id="aa21a646e588bc9dcbd0074263184dbfc" name="aa21a646e588bc9dcbd0074263184dbfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa21a646e588bc9dcbd0074263184dbfc">&#9670;&#160;</a></span>aTestDataDirGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_TEST_API std::string ast::aTestDataDirGet </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取测试数据目录 </p>
+<p>解析顺序：</p><ol type="1">
+<li>AST_TEST_DATA_DIR 环境变量；</li>
+<li>动态库所在文件夹的 test-data 目录 <dl class="section return"><dt>返回</dt><dd>测试数据目录路径 </dd></dl>
+</li>
+</ol>
 
 </div>
 </div>

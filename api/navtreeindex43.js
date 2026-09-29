@@ -1,5 +1,12 @@
 var NAVTREEINDEX43 =
 {
+"classast_1_1ScStateCalcCrossSectionalArea.html":[2,0,0,719],
+"classast_1_1ScStateCalcCrossSectionalArea.html":[3,0,0,718],
+"classast_1_1ScStateCalcCrossTrack.html":[2,0,0,720],
+"classast_1_1ScStateCalcCrossTrack.html":[3,0,0,719],
+"classast_1_1ScStateCalcCrossTrackRate.html":[2,0,0,721],
+"classast_1_1ScStateCalcCrossTrackRate.html":[3,0,0,720],
+"classast_1_1ScStateCalcDamageFlux.html":[2,0,0,722],
 "classast_1_1ScStateCalcDamageFlux.html":[3,0,0,721],
 "classast_1_1ScStateCalcDamageMassFlux.html":[2,0,0,723],
 "classast_1_1ScStateCalcDamageMassFlux.html":[3,0,0,722],
@@ -242,12 +249,5 @@ var NAVTREEINDEX43 =
 "classast_1_1ScStateCalcRightAscension.html":[2,0,0,836],
 "classast_1_1ScStateCalcRightAscension.html":[3,0,0,835],
 "classast_1_1ScStateCalcSEETMagFieldFieldLineSepAngle.html":[2,0,0,840],
-"classast_1_1ScStateCalcSEETMagFieldFieldLineSepAngle.html":[3,0,0,839],
-"classast_1_1ScStateCalcSEETSAAFlux.html":[2,0,0,841],
-"classast_1_1ScStateCalcSEETSAAFlux.html":[3,0,0,840],
-"classast_1_1ScStateCalcSRPArea.html":[2,0,0,851],
-"classast_1_1ScStateCalcSRPArea.html":[3,0,0,850],
-"classast_1_1ScStateCalcSTMVelXVelX.html":[2,0,0,852],
-"classast_1_1ScStateCalcSTMVelXVelX.html":[3,0,0,851],
-"classast_1_1ScStateCalcSTMVelXVelY.html":[2,0,0,853]
+"classast_1_1ScStateCalcSEETMagFieldFieldLineSepAngle.html":[3,0,0,839]
 };

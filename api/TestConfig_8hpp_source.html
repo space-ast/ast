@@ -113,21 +113,25 @@ $(function(){initNavTree('TestConfig_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>AST_TEST_CAPI StartupConfig* <a class="code hl_function" href="namespaceast.html#a8d2eea3527f788ee7046d2fd6903d322">aTestGetConfig</a>();</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>AST_TEST_API ValueView <a class="code hl_function" href="namespaceast.html#af1ff3a1fb61aa0e1a6b6d38f511a9cb6">aTestGetConfigValue</a>(StringView key);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>AST_TEST_API std::string <a class="code hl_function" href="namespaceast.html#aa21a646e588bc9dcbd0074263184dbfc">aTestDataDirGet</a>();</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_TEST_API std::vector&lt;std::string&gt; <a class="code hl_function" href="namespaceast.html#a5c20ec1f57564498375e34be9c57c547">aTestGetConfigStringVector</a>(StringView key);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>AST_TEST_API ValueView <a class="code hl_function" href="namespaceast.html#af1ff3a1fb61aa0e1a6b6d38f511a9cb6">aTestGetConfigValue</a>(StringView key);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_TEST_API std::vector&lt;StringView&gt; <a class="code hl_function" href="namespaceast.html#a0e24c5375dc2a1ac080587d2d92a8fb2">aTestGetConfigStringViewVector</a>(StringView key);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="anamespaceast_html_a0e24c5375dc2a1ac080587d2d92a8fb2"><div class="ttname"><a href="namespaceast.html#a0e24c5375dc2a1ac080587d2d92a8fb2">ast::aTestGetConfigStringViewVector</a></div><div class="ttdeci">std::vector&lt; StringView &gt; aTestGetConfigStringViewVector(StringView key)</div><div class="ttdoc">获取测试配置值视图向量</div><div class="ttdef"><b>定义</b> TestConfig.cpp:59</div></div>
-<div class="ttc" id="anamespaceast_html_a5c20ec1f57564498375e34be9c57c547"><div class="ttname"><a href="namespaceast.html#a5c20ec1f57564498375e34be9c57c547">ast::aTestGetConfigStringVector</a></div><div class="ttdeci">std::vector&lt; std::string &gt; aTestGetConfigStringVector(StringView key)</div><div class="ttdoc">获取测试配置值向量</div><div class="ttdef"><b>定义</b> TestConfig.cpp:54</div></div>
-<div class="ttc" id="anamespaceast_html_a8d2eea3527f788ee7046d2fd6903d322"><div class="ttname"><a href="namespaceast.html#a8d2eea3527f788ee7046d2fd6903d322">ast::aTestGetConfig</a></div><div class="ttdeci">StartupConfig * aTestGetConfig()</div><div class="ttdoc">获取测试配置</div><div class="ttdef"><b>定义</b> TestConfig.cpp:43</div></div>
-<div class="ttc" id="anamespaceast_html_af1ff3a1fb61aa0e1a6b6d38f511a9cb6"><div class="ttname"><a href="namespaceast.html#af1ff3a1fb61aa0e1a6b6d38f511a9cb6">ast::aTestGetConfigValue</a></div><div class="ttdeci">ValueView aTestGetConfigValue(StringView key)</div><div class="ttdoc">获取测试配置值</div><div class="ttdef"><b>定义</b> TestConfig.cpp:49</div></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>AST_TEST_API std::vector&lt;std::string&gt; <a class="code hl_function" href="namespaceast.html#a5c20ec1f57564498375e34be9c57c547">aTestGetConfigStringVector</a>(StringView key);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>AST_TEST_API std::vector&lt;StringView&gt; <a class="code hl_function" href="namespaceast.html#a0e24c5375dc2a1ac080587d2d92a8fb2">aTestGetConfigStringViewVector</a>(StringView key);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="anamespaceast_html_a0e24c5375dc2a1ac080587d2d92a8fb2"><div class="ttname"><a href="namespaceast.html#a0e24c5375dc2a1ac080587d2d92a8fb2">ast::aTestGetConfigStringViewVector</a></div><div class="ttdeci">std::vector&lt; StringView &gt; aTestGetConfigStringViewVector(StringView key)</div><div class="ttdoc">获取测试配置值视图向量</div><div class="ttdef"><b>定义</b> TestConfig.cpp:90</div></div>
+<div class="ttc" id="anamespaceast_html_a5c20ec1f57564498375e34be9c57c547"><div class="ttname"><a href="namespaceast.html#a5c20ec1f57564498375e34be9c57c547">ast::aTestGetConfigStringVector</a></div><div class="ttdeci">std::vector&lt; std::string &gt; aTestGetConfigStringVector(StringView key)</div><div class="ttdoc">获取测试配置值向量</div><div class="ttdef"><b>定义</b> TestConfig.cpp:85</div></div>
+<div class="ttc" id="anamespaceast_html_a8d2eea3527f788ee7046d2fd6903d322"><div class="ttname"><a href="namespaceast.html#a8d2eea3527f788ee7046d2fd6903d322">ast::aTestGetConfig</a></div><div class="ttdeci">StartupConfig * aTestGetConfig()</div><div class="ttdoc">获取测试配置</div><div class="ttdef"><b>定义</b> TestConfig.cpp:74</div></div>
+<div class="ttc" id="anamespaceast_html_aa21a646e588bc9dcbd0074263184dbfc"><div class="ttname"><a href="namespaceast.html#aa21a646e588bc9dcbd0074263184dbfc">ast::aTestDataDirGet</a></div><div class="ttdeci">std::string aTestDataDirGet()</div><div class="ttdoc">获取测试数据目录</div><div class="ttdef"><b>定义</b> TestConfig.cpp:42</div></div>
+<div class="ttc" id="anamespaceast_html_af1ff3a1fb61aa0e1a6b6d38f511a9cb6"><div class="ttname"><a href="namespaceast.html#af1ff3a1fb61aa0e1a6b6d38f511a9cb6">ast::aTestGetConfigValue</a></div><div class="ttdeci">ValueView aTestGetConfigValue(StringView key)</div><div class="ttdoc">获取测试配置值</div><div class="ttdef"><b>定义</b> TestConfig.cpp:80</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

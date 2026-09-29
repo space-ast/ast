@@ -11,6 +11,8 @@ var classast_1_1StartupConfig =
     [ "getStringViewVector", "classast_1_1StartupConfig.html#a3e2377f52c18fdad69178aa1a6d30e86", null ],
     [ "hasConfig", "classast_1_1StartupConfig.html#a7e450f15a8426f6cda4607623cbf4f45", null ],
     [ "load", "classast_1_1StartupConfig.html#a803a1e276aef62e187108a6ff9b6d835", null ],
+    [ "loadAndMerge", "classast_1_1StartupConfig.html#a65e661febd9065a63cf5d69dd26f272c", null ],
+    [ "loadImpl", "classast_1_1StartupConfig.html#ad3fc4decc7818e0a0ede21621f92bbff", null ],
     [ "printConfig", "classast_1_1StartupConfig.html#a9ab5e2284fd4e000a9b429bae78f51bd", null ],
     [ "setConfig", "classast_1_1StartupConfig.html#a5b0375d4a43b9aae3211dade49a7f1dd", null ],
     [ "setConfigRaw", "classast_1_1StartupConfig.html#a96e0150a261829108f1959baea023e27", null ]

@@ -1,5 +1,12 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1Rotation.html#a063a06cdbb0809904ec030ae050b1c91":[2,0,0,665,8],
+"classast_1_1Rotation.html#a063a06cdbb0809904ec030ae050b1c91":[3,0,0,664,8],
+"classast_1_1Rotation.html#a07cb0f54ac2f853b39ae2e4ab99d5ba2":[2,0,0,665,11],
+"classast_1_1Rotation.html#a07cb0f54ac2f853b39ae2e4ab99d5ba2":[3,0,0,664,11],
+"classast_1_1Rotation.html#a088bae2548fbc4d1153ceac5dd26882e":[2,0,0,665,23],
+"classast_1_1Rotation.html#a088bae2548fbc4d1153ceac5dd26882e":[3,0,0,664,23],
+"classast_1_1Rotation.html#a0e2af3e0f26250f08eaf54655f6a57d1":[2,0,0,665,25],
 "classast_1_1Rotation.html#a0e2af3e0f26250f08eaf54655f6a57d1":[3,0,0,664,25],
 "classast_1_1Rotation.html#a0edf972909466a1016f968b162d251b6":[2,0,0,665,10],
 "classast_1_1Rotation.html#a0edf972909466a1016f968b162d251b6":[3,0,0,664,10],
@@ -242,12 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalcCosineVFPA.html":[2,0,0,717],
 "classast_1_1ScStateCalcCosineVFPA.html":[3,0,0,716],
 "classast_1_1ScStateCalcCr.html":[2,0,0,718],
-"classast_1_1ScStateCalcCr.html":[3,0,0,717],
-"classast_1_1ScStateCalcCrossSectionalArea.html":[2,0,0,719],
-"classast_1_1ScStateCalcCrossSectionalArea.html":[3,0,0,718],
-"classast_1_1ScStateCalcCrossTrack.html":[2,0,0,720],
-"classast_1_1ScStateCalcCrossTrack.html":[3,0,0,719],
-"classast_1_1ScStateCalcCrossTrackRate.html":[2,0,0,721],
-"classast_1_1ScStateCalcCrossTrackRate.html":[3,0,0,720],
-"classast_1_1ScStateCalcDamageFlux.html":[2,0,0,722]
+"classast_1_1ScStateCalcCr.html":[3,0,0,717]
 };
