@@ -109,7 +109,7 @@ xmake run testState                  # 运行单个单元测试
 xmake run testOrbitElement           # 按文件名基本名运行特定测试
 ```
 
-CI 上（覆盖率工作流），构建前会通过 `cp -r test/Archive/* test/` 恢复归档的测试用例。
+CI 上（覆盖率工作流），构建前会通过 `cp -r test/archive/* test/` 恢复归档的测试用例。
 
 ## CI
 
