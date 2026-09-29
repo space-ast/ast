@@ -21,6 +21,7 @@
 
 #include "ast/Version.hpp"
 #include "ast/Test.h"
+#include "AstConfig.h"
 
 AST_USING_NAMESPACE
 
@@ -59,8 +60,7 @@ TEST(VersionConstruct, FromParts_ZeroMajor)
     EXPECT_EQ(v.major(), 0);
     EXPECT_EQ(v.minor(), 1);
     EXPECT_EQ(v.patch(), 0);
-    // 注意：valid() 返回 major_ > 0，因此 0.y.z 为"无效"（不稳定版）
-    EXPECT_FALSE(v.valid());
+    EXPECT_TRUE(v.valid());
 }
 
 TEST(VersionConstruct, FromParts_NoPatch)
@@ -143,7 +143,7 @@ TEST(VersionParse, ZeroMajorVersion)
     EXPECT_EQ(v.major(), 0);
     EXPECT_EQ(v.minor(), 1);
     EXPECT_EQ(v.patch(), 0);
-    EXPECT_FALSE(v.valid());  // major_ = 0，valid() 返回 false
+    EXPECT_TRUE(v.valid());  // major_ = 0，valid() 返回 true
 }
 
 TEST(VersionParse, ZeroMinorAndPatch)
@@ -658,12 +658,11 @@ TEST(VersionValid, ValidVersion)
     EXPECT_TRUE(Version(99, 0, 0).valid());
 }
 
-TEST(VersionValid, ZeroMajor_Invalid)
+TEST(VersionValid, ZeroMajor_valid)
 {
-    // 主版本号为 0 视为无效（不稳定版）
-    EXPECT_FALSE(Version(0, 0, 0).valid());
-    EXPECT_FALSE(Version(0, 1, 0).valid());
-    EXPECT_FALSE(Version(0, 99, 99).valid());
+    EXPECT_TRUE(Version(0, 0, 0).valid());
+    EXPECT_TRUE(Version(0, 1, 0).valid());
+    EXPECT_TRUE(Version(0, 99, 99).valid());
 }
 
 TEST(VersionValid, DefaultConstructed_Invalid)
@@ -749,6 +748,44 @@ TEST(VersionConsistency, ParseVsConstructor)
     EXPECT_STREQ(v1.prerelease().c_str(), v2.prerelease().c_str());
     EXPECT_STREQ(v1.build().c_str(), v2.build().c_str());
     EXPECT_EQ(v1, v2);
+}
+
+
+// ============================================================================
+// 12. 工程版本号 — aVersion() / aVersionString()
+// 断言均不写死具体版本号，改版本号时这里不需要跟着动
+// ============================================================================
+
+TEST(ProjectVersion, StringMatchesCompileTimeMacro)
+{
+    // aVersionStr() 原样返回编译期宏 AST_VERSION
+    EXPECT_STREQ(aVersionStr(), AST_VERSION);
+}
+
+TEST(ProjectVersion, MatchesCompileTimeMacro)
+{
+    // aVersion() 与 AST_VERSION 的解析结果应逐字段一致
+    Version expected = Version::Parse(AST_VERSION);
+    const Version& actual = aVersion();
+
+    EXPECT_EQ(actual.major(), expected.major());
+    EXPECT_EQ(actual.minor(), expected.minor());
+    EXPECT_EQ(actual.patch(), expected.patch());
+    EXPECT_STREQ(actual.prerelease().c_str(), expected.prerelease().c_str());
+    EXPECT_STREQ(actual.build().c_str(), expected.build().c_str());
+    EXPECT_EQ(actual, expected);
+}
+
+TEST(ProjectVersion, StringAndObjectAgree)
+{
+    // 文本与对象两条通道不得互相矛盾（只改其中一个实现时容易踩到）
+    EXPECT_EQ(Version::Parse(aVersionStr()), aVersion());
+}
+
+TEST(ProjectVersion, ReturnsReferenceToStableObject)
+{
+    // 返回的是同一个静态对象，多次调用不应各自解析
+    EXPECT_EQ(&aVersion(), &aVersion());
 }
 
 GTEST_MAIN()
