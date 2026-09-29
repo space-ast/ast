@@ -19,6 +19,9 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ast/AttitudeUtil.hpp"
+#include "ast/LocalOrbitFrame.hpp"
+#include "ast/OrbitElement.hpp"
+#include "ast/MathOperator.hpp"
 #include "ast/Rotation.hpp"
 #include "ast/KinematicRotation.hpp"
 #include "ast/Matrix.hpp"
@@ -28,6 +31,7 @@
 #include <cmath>
 
 AST_USING_NAMESPACE
+using namespace _AST math;
 
 /// @brief 断言运动学旋转为单位旋转（不含旋转、不含角速度）
 static void expectIdentity(const KinematicRotation& rotation)
@@ -71,6 +75,15 @@ TEST(AttitudeUtilTest, AlignConstrain_CircularOrbit)
                                          rotation);
     EXPECT_EQ(rc, eNoError);
 
+    KinematicRotation expected;
+    aFrameToLVLHTransform(pos, vel, expected);
+
+    for(int i=0;i<9;i++)
+        EXPECT_NEAR(rotation.getMatrix()[i], expected.getMatrix()[i], 1e-14);
+    
+    for(int i=0;i<3;i++)
+        EXPECT_NEAR(rotation.getRotationRate()[i], expected.getRotationRate()[i], 1e-14);
+
     // 圆轨道上速度垂直于位置，两组三轴均为正交单位向量，故旋转矩阵的第 i 行即参考系第 i 轴
     //   f_1 = 位置方向, f_2 = 速度方向, f_3 = 轨道法向
     const Matrix3d& m = rotation.getMatrix();
@@ -89,6 +102,43 @@ TEST(AttitudeUtilTest, AlignConstrain_CircularOrbit)
     EXPECT_NEAR(angvel[0], 0.0, 1e-15);
     EXPECT_NEAR(angvel[1], 0.0, 1e-15);
     EXPECT_NEAR(angvel[2], rate, 1e-15);
+}
+
+/// 椭圆轨道上"本体系 X 轴对齐位置方向、Y 轴约束到速度方向"等价于 LVLH 姿态：
+TEST(AttitudeUtilTest, AlignConstrain_EccentricOrbit)
+{
+    const double gm   = 398600.4418;    // 地球引力常数
+    const double sma  = 10000.0;        // 半长轴
+    const double ecc  = 0.3;            // 偏心率
+    const double ta   = 1.1;            // 真近点角，取非特殊值以免掩盖转置错误
+    const double raan = 0.9;            // 升交点赤经
+    const double inc  = 0.6;            // 轨道倾角
+    const double argp = 1.4;            // 近地点幅角
+
+    OrbElem orbElem{sma, ecc, inc, raan, argp, ta};
+    Vector3d pos, vel, acc;
+
+    aOrbElemToCart(orbElem, gm, pos, vel);
+    acc = -gm * pos / pow(pos.norm(), 3);
+    
+
+    const Vector3d axesVector1{1, 0, 0};        // 本体系 X 轴
+    const Vector3d axesVector2{0, 1, 0};        // 本体系 Y 轴
+
+    KinematicRotation rotation;
+    errc_t rc = aAlignConstrainTransform(axesVector1, pos, vel,
+                                         axesVector2, vel, acc,
+                                         rotation);
+    EXPECT_EQ(rc, eNoError);
+
+    KinematicRotation expected;
+    aFrameToLVLHTransform(pos, vel, expected);
+
+    for(int i=0;i<9;i++)
+        EXPECT_NEAR(rotation.getMatrix()[i], expected.getMatrix()[i], 1e-14);
+
+    for(int i=0;i<3;i++)
+        EXPECT_NEAR(rotation.getRotationRate()[i], expected.getRotationRate()[i], 1e-14);
 }
 
 /// 取非正交、非单位长度的向量，直接验证"对齐"与"约束"的定义，并检查旋转矩阵的正交性

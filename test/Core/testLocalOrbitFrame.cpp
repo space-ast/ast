@@ -20,6 +20,8 @@
 #include "ast/LocalOrbitFrame.hpp"
 #include "ast/RunTime.hpp"
 #include "ast/Matrix.hpp"
+#include "ast/Rotation.hpp"
+#include "ast/KinematicRotation.hpp"
 #include "ast/AstTestMacro.h"
 
 AST_USING_NAMESPACE
@@ -114,6 +116,52 @@ TEST(LocalOrbitFrame, FrameToVNC)
     aVNCToFrameMatrix(pos, vel, fromVNC);
     Matrix3d product = matrix * fromVNC;
     EXPECT_TRUE(isIdentityMatrix(product, 1e-10));
+}
+
+TEST(LocalOrbitFrame, FrameToLVLHTransform)
+{
+    Vector3d pos{6778.0, 1234.0, 4321.0};
+    Vector3d vel{-1.2, 7.5, 2.3};
+
+    Matrix3d matrix;
+    EXPECT_EQ(aFrameToLVLHMatrix(pos, vel, matrix), eNoError);
+
+    // 旋转变换与矩阵版本一致
+    Rotation rotation;
+    EXPECT_EQ(aFrameToLVLHTransform(pos, vel, rotation), eNoError);
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            EXPECT_NEAR(rotation.getMatrix()(i, j), matrix(i, j), 1e-12);
+
+    // 角速度为轨道角速度 ω = (r×v)/|r|²
+    KinematicRotation kinematic;
+    EXPECT_EQ(aFrameToLVLHTransform(pos, vel, kinematic), eNoError);
+    Vector3d expectedRate = pos.cross(vel) / pos.squaredNorm();
+    EXPECT_NEAR((kinematic.getRotationRate() - expectedRate).norm(), 0.0, 1e-12);
+
+    // 变换后位置沿X轴，速度只剩径向分量，横向和法向分量为零
+    Vector3d posOut, velOut;
+    kinematic.transformVectorVelocity(pos, vel, posOut, velOut);
+    EXPECT_NEAR(posOut[0], pos.norm(), 1e-10);
+    EXPECT_NEAR(posOut[1], 0.0, 1e-10);
+    EXPECT_NEAR(posOut[2], 0.0, 1e-10);
+    EXPECT_NEAR(velOut[0], pos.dot(vel) / pos.norm(), 1e-10);
+    EXPECT_NEAR(velOut[1], 0.0, 1e-10);
+    EXPECT_NEAR(velOut[2], 0.0, 1e-10);
+
+    // 退化情形：输出单位运动学旋转
+    {
+        Vector3d posDegenerate{1.0, 0.0, 0.0};
+        Vector3d velDegenerate{2.0, 0.0, 0.0};
+        Rotation rotationDegenerate;
+        EXPECT_EQ(aFrameToLVLHTransform(posDegenerate, velDegenerate, rotationDegenerate), eErrorInvalidParam);
+        EXPECT_TRUE(isIdentityMatrix(rotationDegenerate.getMatrix()));
+
+        KinematicRotation kinematicDegenerate;
+        EXPECT_EQ(aFrameToLVLHTransform(posDegenerate, velDegenerate, kinematicDegenerate), eErrorInvalidParam);
+        EXPECT_TRUE(isIdentityMatrix(kinematicDegenerate.getMatrix()));
+        EXPECT_NEAR(kinematicDegenerate.getRotationRate().norm(), 0.0, 0.0);
+    }
 }
 
 TEST(LocalOrbitFrame, ErrorCases)

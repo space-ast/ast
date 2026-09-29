@@ -1,7 +1,7 @@
 ///
 /// @file      AttitudeUtil.cpp
 /// @brief     姿态计算工具函数
-/// @details   由向量对计算姿态与角速度的通用工具
+/// @details   
 /// @author    axel
 /// @date      2026-09-28
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -25,7 +25,7 @@ AST_NAMESPACE_BEGIN
 namespace {
 
 /// @brief 将三轴置为单位三轴
-void _aSetIdentityTriad(Vector3d axis[3])
+void setIdentityTriad(Vector3d axis[3])
 {
     axis[0] = Vector3d::UnitX();
     axis[1] = Vector3d::UnitY();
@@ -37,20 +37,20 @@ void _aSetIdentityTriad(Vector3d axis[3])
 /// @param v1   第一轴方向向量
 /// @param v2   第二轴方向向量，只有其垂直于 v1 的分量被使用
 /// @param axis 输出的三个正交单位轴，出现退化时输出单位三轴
-/// @return 错误码；v1 为零向量或 v2 与 v1 平行时返回 eErrorInvalidParam
-errc_t _aMakeTriad(const Vector3d& v1, const Vector3d& v2, Vector3d axis[3])
+/// @return v1 为零向量或 v2 与 v1 平行时返回错误码
+errc_t makeTriad(const Vector3d& v1, const Vector3d& v2, Vector3d axis[3])
 {
     axis[0] = v1;
     if (A_UNLIKELY(axis[0].normalize() == 0))
     {
-        _aSetIdentityTriad(axis);
+        setIdentityTriad(axis);
         return eErrorInvalidParam;
     }
 
     axis[1] = v2 - axis[0] * v2.dot(axis[0]);
     if (A_UNLIKELY(axis[1].normalize() == 0))
     {
-        _aSetIdentityTriad(axis);
+        setIdentityTriad(axis);
         return eErrorInvalidParam;
     }
 
@@ -65,12 +65,12 @@ errc_t _aMakeTriad(const Vector3d& v1, const Vector3d& v2, Vector3d axis[3])
 /// @param vdot2 v2 的时间变化率
 /// @param axis  输出的三个正交单位轴，出现退化时输出单位三轴
 /// @param rate  输出的三个轴的时间变化率，出现退化时输出零向量
-/// @return 错误码；v1 为零向量或 v2 与 v1 平行时返回 eErrorInvalidParam
-errc_t _aMakeTriadRate(const Vector3d& v1, const Vector3d& vdot1,
-                       const Vector3d& v2, const Vector3d& vdot2,
-                       Vector3d axis[3], Vector3d rate[3])
+/// @return v1 为零向量或 v2 与 v1 平行时返回错误码
+errc_t makeTriadRate(const Vector3d& v1, const Vector3d& vdot1,
+                     const Vector3d& v2, const Vector3d& vdot2,
+                     Vector3d axis[3], Vector3d rate[3])
 {
-    errc_t rc = _aMakeTriad(v1, v2, axis);
+    errc_t rc = makeTriad(v1, v2, axis);
     if (A_UNLIKELY(rc != eNoError))
     {
         rate[0] = Vector3d::Zero();
@@ -86,7 +86,7 @@ errc_t _aMakeTriadRate(const Vector3d& v1, const Vector3d& vdot1,
     Vector3d fdot1 = (vdot1 - f1 * vdot1.dot(f1)) / v1.norm();
 
     // k = v2 - (v2·f1) f1 为 v2 中垂直于 f1 的分量，除以 |k| 得到 f2
-    // 对 k 求导时四项都不能漏
+    // 对 k 求导
     double normK = (v2 - f1 * v2.dot(f1)).norm();
     Vector3d kdot = vdot2 - f1 * vdot2.dot(f1) - fdot1 * v2.dot(f1) - f1 * v2.dot(fdot1);
 
@@ -100,14 +100,14 @@ errc_t _aMakeTriadRate(const Vector3d& v1, const Vector3d& vdot1,
 }
 
 /// @brief 由本体系三轴与参考系三轴填充旋转矩阵
-/// @details 记本体系三轴为 e、参考系三轴为 f。"本体系 -> 参考系"的旋转为 R = F E^T，
-///          其中 E、F 分别以 e、f 为列，故"参考系 -> 本体系"的旋转为 M = R^T = E F^T，
+/// @details 记本体系三轴为 e、参考系三轴为 f。本体系 -> 参考系的旋转为 R = F E^T，
+///          其中 E、F 分别以 e、f 为列，故参考系 -> 本体系的旋转为 M = R^T = E F^T，
 ///          元素形式为 M(i,j) = sum_k e_k[i] * f_k[j]。
 ///          注意 M(i,j) 不是 e_i 与 f_j 的点积，两者互为转置。
 /// @param axesAxis 本体系三轴
 /// @param refAxis  参考系三轴
 /// @param rotation 输出的旋转
-void _aFillRotation(const Vector3d axesAxis[3], const Vector3d refAxis[3], Rotation& rotation)
+void fillRotation(const Vector3d axesAxis[3], const Vector3d refAxis[3], Rotation& rotation)
 {
     Matrix3d& matrix = rotation.getMatrix();
     for (int i = 0; i < 3; ++i)
@@ -126,7 +126,7 @@ void _aFillRotation(const Vector3d axesAxis[3], const Vector3d refAxis[3], Rotat
 /// @param refAxis 参考系三轴
 /// @param refRate 参考系三轴的时间变化率
 /// @return 角速度，参考系分量
-Vector3d _aTriadRateToAngularVelocity(const Vector3d refAxis[3], const Vector3d refRate[3])
+Vector3d triadRateToAngularVelocity(const Vector3d refAxis[3], const Vector3d refRate[3])
 {
     return refAxis[0] * refRate[1].dot(refAxis[2])
          + refAxis[1] * refRate[2].dot(refAxis[0])
@@ -142,14 +142,14 @@ errc_t aAlignConstrainTransform(
 {
     Vector3d axesAxis[3];
     Vector3d refAxis[3];
-    errc_t rcRef = _aMakeTriad(refVector1, refVector2, refAxis);
-    errc_t rcAxes = _aMakeTriad(axesVector1, axesVector2, axesAxis);
+    errc_t rcRef = makeTriad(refVector1, refVector2, refAxis);
+    errc_t rcAxes = makeTriad(axesVector1, axesVector2, axesAxis);
     if (A_UNLIKELY(rcRef != eNoError || rcAxes != eNoError))
     {
         rotation = Rotation::Identity();
         return (rcRef != eNoError) ? rcRef : rcAxes;
     }
-    _aFillRotation(axesAxis, refAxis, rotation);
+    fillRotation(axesAxis, refAxis, rotation);
     return eNoError;
 }
 
@@ -161,16 +161,16 @@ errc_t aAlignConstrainTransform(
     Vector3d axesAxis[3];
     Vector3d refAxis[3];
     Vector3d refRate[3];
-    errc_t rcRef = _aMakeTriadRate(refVector1, refRate1, refVector2, refRate2, refAxis, refRate);
-    errc_t rcAxes = _aMakeTriad(axesVector1, axesVector2, axesAxis);
+    errc_t rcRef = makeTriadRate(refVector1, refRate1, refVector2, refRate2, refAxis, refRate);
+    errc_t rcAxes = makeTriad(axesVector1, axesVector2, axesAxis);
     if (A_UNLIKELY(rcRef != eNoError || rcAxes != eNoError))
     {
         rotation.setRotation(Rotation::Identity());
         rotation.setRotationRate(Vector3d::Zero());
         return (rcRef != eNoError) ? rcRef : rcAxes;
     }
-    _aFillRotation(axesAxis, refAxis, rotation.getRotation());
-    rotation.setRotationRate(_aTriadRateToAngularVelocity(refAxis, refRate));
+    fillRotation(axesAxis, refAxis, rotation.getRotation());
+    rotation.setRotationRate(triadRateToAngularVelocity(refAxis, refRate));
     return eNoError;
 }
 

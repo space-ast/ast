@@ -78,6 +78,28 @@ errc_t aFrameToLVLHMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame
     }
 }
 
+errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, Rotation& rotation)
+{
+    return aFrameToLVLHMatrix(posInFrame, velInFrame, rotation.getMatrix());
+}
+
+errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, KinematicRotation& rotation)
+{
+    errc_t rc = aFrameToLVLHMatrix(posInFrame, velInFrame, rotation.getRotation().getMatrix());
+    if (A_UNLIKELY(rc != eNoError))
+    {
+        rotation.setRotationRate(Vector3d::Zero());
+        return rc;
+    }
+
+    /*!
+        LVLH 系的角速度沿轨道法向，大小为 |r×v|/|r|²，单位向量为 (r×v)/|r×v|，角速度可写作 ω = (r×v)/|r|²
+        分量在输入系下分解，符合 KinematicRotation 的约定。
+    */
+    rotation.setRotationRate(posInFrame.cross(velInFrame) * (1.0 / posInFrame.squaredNorm()));
+    return eNoError;
+}
+
 errc_t aLVLHToFrameMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame, Matrix3d& matrix)
 {
     errc_t rc = aFrameToLVLHMatrix(posInFrame, velInFrame, matrix);
