@@ -24,6 +24,8 @@
 #include "ast/MathOperator.hpp"
 #include "ast/Rotation.hpp"
 #include "ast/KinematicRotation.hpp"
+#include "ast/CelestialBody.hpp"
+#include "ast/Quaternion.hpp"
 #include "ast/Matrix.hpp"
 #include "ast/Vector.hpp"
 #include "ast/Test.h"
@@ -243,5 +245,35 @@ TEST(AttitudeUtilTest, AlignConstrain_Degenerate)
         }
     }
 }
+
+
+TEST(AttitudeUtilTest, QuatAverageAngularVelocity)
+{
+    aInitialize();
+    auto earth = aGetEarth();
+    auto eci = earth->getAxesInertial();
+    auto ecf = earth->getAxesFixed();
+    auto time = "2025-01-01 00:00:00"_utc;
+    Quaternion quat, quat1, quat2;
+    Vector3d angVelExpected, angVel1, angVel2;
+    ecf->getAttitudeIn(eci, time, quat, angVelExpected);
+
+    ecf->getAttitudeIn(eci, time - 0.01, quat1);
+    ecf->getAttitudeIn(eci, time + 0.01, quat2);
+
+    aQuatAverageAngularVelocity(quat1, quat2, 0.02, angVel1);
+    aAxesRotationRateByDifference(*ecf, *eci, time, angVel2);
+    
+    printf("angVelExpected : %s\n", angVelExpected.toString().c_str());
+    printf("angVel1        : %s\n", angVel1.toString().c_str());
+    printf("angVel2        : %s\n", angVel2.toString().c_str());
+
+    for (int i = 0; i < 3; ++i)
+    {
+        EXPECT_NEAR(angVel1(i), angVelExpected(i), 1e-11);
+        EXPECT_NEAR(angVel2(i), angVelExpected(i), 1e-11);
+    }
+}
+
 
 GTEST_MAIN()

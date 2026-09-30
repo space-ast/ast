@@ -135,6 +135,17 @@ Vector3d triadRateToAngularVelocity(const Vector3d refAxis[3], const Vector3d re
 
 } // namespace
 
+void aQuatAverageAngularVelocity(const Quaternion& q1, const Quaternion& q2,
+                                 double dt, Vector3d& angvel)
+{
+    // `q1.conjugate() * q2` 为姿态 q1 下的增量旋转
+    // 转换为参考系下表示的增量旋转： `q2 * q1.conjugate()`
+    Quaternion dq = q2 * q1.conjugate();
+    AngleAxis aa;
+    aQuatToAngleAxis(dq, aa);
+    angvel = aa.axis() * (aa.angle() / dt);
+}
+
 errc_t aAlignConstrainTransform(
     const Vector3d& axesVector1, const Vector3d& refVector1,
     const Vector3d& axesVector2, const Vector3d& refVector2,

@@ -24,10 +24,12 @@
 #include "ast/Euler.hpp"
 #include "ast/AngleAxis.hpp"
 #include "ast/Constants.hpp"
+#include "ast/Literals.hpp"
+#include "ast/Rotation.hpp"
 #include "ast/AstTestMacro.h"
 
 AST_USING_NAMESPACE
-
+using namespace _AST literals;
 
 void testQuatAndMatrix(const Quaternion& quatInput)
 {
@@ -576,5 +578,63 @@ TEST(AttitudeConvertTest, aEuler31)
     }
 }
 
+
+TEST(AttitudeConvertTest, compose)
+{
+    Rotation rot1(10_deg, {1,2,3});
+    Rotation rot2(20_deg, {-2, 4, -5});
+    Rotation rotA = rot1 * rot2;
+
+    Quaternion q1 = rot1.getQuaternion();
+    Quaternion q2 = rot2.getQuaternion();
+    Quaternion qA = rotA.getQuaternion();
+
+    // 四元数乘法:
+    Quaternion qA2 = q1 * q2;
+
+    printf("qA : %s\n", qA.toString().c_str());
+    printf("qA2: %s\n", qA2.toString().c_str());
+
+    for (size_t i = 0; i < qA.size(); i++)
+    {
+        EXPECT_NEAR(qA[i], qA2[i], 1e-14);
+    }
+
+    Matrix3d mtx1 = rot1.getMatrix();
+    Matrix3d mtx2 = rot2.getMatrix();
+    Matrix3d mtxA = rotA.getMatrix();
+
+    // 矩阵乘法:
+    Matrix3d mtxA2 = mtx2 * mtx1;
+
+    printf("mtxA : %s\n", mtxA.toString().c_str());
+    printf("mtxA2: %s\n", mtxA2.toString().c_str());
+    
+    for (size_t i = 0; i < mtxA.size(); i++)
+    {
+        EXPECT_NEAR(mtxA[i], mtxA2[i], 1e-14);
+    }
+}
+
+
+TEST(AttitudeConvertTest, transformVector)
+{
+    Rotation rot1(10_deg, {1,2,3});
+    Vector3d v1 = {1,2,3};
+    Vector3d v2 = rot1.transformVector(v1);
+
+    Matrix3d mtx1 = rot1.getMatrix();
+    Vector3d v2_mtx = mtx1 * v1;
+
+    Quaternion q1 = rot1.getQuaternion();
+
+    printf("v2:     %s\n", v2.toString().c_str());
+    printf("v2_mtx: %s\n", v2_mtx.toString().c_str());
+
+    for (size_t i = 0; i < v2.size(); i++)
+    {
+        EXPECT_NEAR(v2[i], v2_mtx[i], 1e-14);
+    }
+}
 
 GTEST_MAIN()

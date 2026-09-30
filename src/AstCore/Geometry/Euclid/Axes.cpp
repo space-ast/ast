@@ -22,6 +22,7 @@
 #include "Frame.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstMath/Rotation.hpp"
+#include "AstMath/AttitudeUtil.hpp"
 #include "AstMath/KinematicRotation.hpp"
 #include "AstMath/KinematicTransform.hpp"
 #include <cmath>
@@ -240,6 +241,49 @@ errc_t aAxesTransform(Axes &source, Axes &target, const TimePoint &tp, Matrix3d 
 errc_t aAxesTransform(Axes *source, Axes *target, const TimePoint &tp, Matrix3d &matrix)
 {
     return aAxesTransform(source, target, tp, Rotation::CastFrom(matrix));
+}
+
+errc_t aAxesRotationRateByDifference(Axes &axes, Axes &referenceAxes, const TimePoint &tp, Vector3d &angvel, double h)
+{
+    if (A_UNLIKELY(h == 0.0))
+        return eErrorInvalidParam;
+
+    const TimePoint tpPlus  = tp + h;
+    const TimePoint tpMinus = tp - h;
+
+    Rotation rotPlus, rotMinus;
+    const errc_t rcPlus  = aAxesTransform(referenceAxes, axes, tpPlus, rotPlus);
+    const errc_t rcMinus = aAxesTransform(referenceAxes, axes, tpMinus, rotMinus);
+
+    if (rcPlus == eNoError && rcMinus == eNoError)
+    {
+        // 中心差分
+        aQuatAverageAngularVelocity(rotMinus.getQuaternion(), rotPlus.getQuaternion(), 2 * h, angvel);
+    }
+    else
+    {
+        Rotation rot0;
+        const errc_t rc0 = aAxesTransform(referenceAxes, axes, tp, rot0);
+        if(rc0 != eNoError)
+        {
+            return rc0;
+        }
+        else if (rcPlus == eNoError)
+        {
+            // 前向差分
+            aQuatAverageAngularVelocity(rot0.getQuaternion(), rotPlus.getQuaternion(), h, angvel);
+        }
+        else if (rcMinus == eNoError)
+        {
+            // 后向差分
+            aQuatAverageAngularVelocity(rotMinus.getQuaternion(), rot0.getQuaternion(), h, angvel);
+        }
+        else
+        {
+            return rcPlus;
+        }
+    } 
+    return eNoError;
 }
 
 AST_NAMESPACE_END

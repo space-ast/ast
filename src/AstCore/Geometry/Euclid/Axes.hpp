@@ -196,7 +196,7 @@ public:
     errc_t getAttitudeIn(Axes* axes, const TimePoint& tp, Quaternion& quat) const
     {
         if(axes == nullptr) return eErrorNullInput;
-        return getAttitudeIn(axes, tp, quat);
+        return getAttitudeIn(*axes, tp, quat);
     }
 
     /// @brief 获取当前轴系相对于目标轴系的姿态（四元数表示）和角速度
@@ -210,9 +210,21 @@ public:
     errc_t getAttitudeIn(Axes* axes, const TimePoint& tp, Quaternion& quat, Vector3d& angvel) const
     {
         if(axes == nullptr) return eErrorNullInput;
-        return getAttitudeIn(axes, tp, quat, angvel);
+        return getAttitudeIn(*axes, tp, quat, angvel);
     }
 };
+
+
+/// @brief 用有限差分计算轴系相对于参考轴系的角速度
+/// @note 增量旋转的轴角给的是主值(短弧)，因此要求 |ω|·2h < π；
+/// @note 一侧求值失败时退化为单侧差分，两侧都失败时原样返回错误码
+/// @param[in] axes 轴系
+/// @param[in] referenceAxes 参考轴系
+/// @param[in] tp 时间点
+/// @param[out] angvel axes 相对 referenceAxes 的角速度(在 referenceAxes 下分解)
+/// @param[in] h 差分步长(秒)
+/// @return 错误码
+AST_CORE_API errc_t aAxesRotationRateByDifference(Axes& axes, Axes& referenceAxes, const TimePoint& tp, Vector3d& angvel, double h = 0.05);
 
 using PAxes = Axes*;                ///< 轴系指针(pointer to axes)
 using HAxes = SharedPtr<Axes>;      ///< 轴系句柄(handle to axes)

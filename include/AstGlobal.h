@@ -512,6 +512,7 @@ class Color;                 ///< 颜色
 
 class Quaternion;            ///< 四元数
 class Euler;                 ///< 欧拉角
+class AngleAxis;             ///< 轴角
 
 class CartState;             ///< 直角坐标
 class ModOrbElem;            ///< 改进轨道根数

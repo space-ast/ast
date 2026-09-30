@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstMath/Vector.hpp"
+#include "AstMath/Quaternion.hpp"
 #include "AstMath/Rotation.hpp"
 #include "AstMath/KinematicRotation.hpp"
 
@@ -31,6 +32,35 @@ AST_NAMESPACE_BEGIN
     @addtogroup Attitude
     @{
 */
+
+
+/// @brief     由两个姿态四元数求平均角速度
+/// @details   已知参考系下两个时刻的姿态四元数 q1、q2（均为「参考系 -> 本体系」的旋转），
+///            求本体系相对参考系在 dt 内的平均角速度。
+///            记增量旋转为 dq，其轴角给出平均旋转轴与转角，转角除以 dt 即平均角速率。
+///            dt 足够小时，结果收敛于瞬时角速度。
+/// @param     q1    起始时刻的姿态四元数（参考系 -> 本体系），假设已归一化
+/// @param     q2    结束时刻的姿态四元数（参考系 -> 本体系），假设已归一化
+/// @param     dt    时间间隔，单位 s
+/// @param     angvel 输出：平均角速度，分量为参考系(父系)分量，
+///                   与 KinematicRotation::getRotationRate 的约定一致
+/// @note      只有两个采样点时无法分辨转角与其补角，转角一律取小于 180 度的短弧，
+///            故单步转角接近或超过 180 度时结果不唯一（符号会反转）。
+/// @note      需要本体系分量时，对结果再做一次逆变换：`Rotation(q1).transformVector(angvel)`。
+AST_MATH_API void aQuatAverageAngularVelocity(const Quaternion& q1, const Quaternion& q2, double dt, Vector3d& angvel);
+
+
+/// @brief     由两个姿态四元数求平均角速度
+/// @param     q1    起始时刻的姿态四元数（参考系 -> 本体系），假设已归一化
+/// @param     q2    结束时刻的姿态四元数（参考系 -> 本体系），假设已归一化
+/// @param     dt    时间间隔，单位 s
+/// @see       aQuatAverageAngularVelocity(const Quaternion&, const Quaternion&, double, Vector3d&)
+A_ALWAYS_INLINE Vector3d aQuatAverageAngularVelocity(const Quaternion& q1, const Quaternion& q2, double dt)
+{
+    Vector3d angvel;
+    aQuatAverageAngularVelocity(q1, q2, dt, angvel);
+    return angvel;
+}
 
 
 /// @brief     双矢量定姿（Aligned and Constrained）——只求姿态

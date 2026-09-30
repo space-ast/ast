@@ -209,6 +209,9 @@ public:
     Self& operator*=(const Self& other);
 
 public:
+    AST_MATH_API
+    std::string toString() const;
+public:
     Scalar data_[Row][Col];  ///< 矩阵元素；不初始化，确保类型为聚合类型
 };
 

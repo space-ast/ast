@@ -46,6 +46,7 @@
 #include "ast/RunTime.hpp"
 #include "ast/RTTIAPI.hpp"
 #include "ast/AstTestMacro.h"
+#include "ast/EOP.hpp"
 #include <cmath>
 
 AST_USING_NAMESPACE
@@ -141,6 +142,7 @@ protected:
     static void SetUpTestSuite()
     {
         aInitialize();
+        aDataContext_GetEOP()->unload();
     }
 
     /// @brief 测试历元
@@ -257,20 +259,67 @@ TEST_F(AttitudeProfileTest, AttitudeECIVVLH)
             Rotation rot(q);
             w = rot.transformVector(w);
             printf("q: %s\n", q.toString().c_str());
+            printf("w: %s\n", w.toString().c_str());
+            
             Quaternion expected_q{0.7600106309069503, -0.4521588106945666, -0.4012022196327228, 0.2386902381361061};
             Vector3d expected_w{0.0000000000000000, -0.0011961153080119, 0.0000000000000000};
             for(int i = 0; i < 4; i++)
             {
-                EXPECT_NEAR(q[i], expected_q[i], 1e-13);
+                EXPECT_NEAR(q[i], expected_q[i], 1e-13) << "q[" << i << "]";
             }
             for(int i = 0; i < 3; i++)
             {
-                EXPECT_NEAR(w[i], expected_w[i], 1e-14);
+                EXPECT_NEAR(w[i], expected_w[i], 1e-14) << "w[" << i << "]";
             }
         }
     }
 }
 
+
+TEST_F(AttitudeProfileTest, AttitudeECFVVLH)
+{
+    {
+        OrbElem orbElem{6678137, 0.02, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "28 Sep 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph  = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeECFVVLH attitude(eph, earth);
+
+        {
+            auto time = "28 Sep 2026 11:44:00.000"_utc;
+            Quaternion q;
+            Vector3d w, w2;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q, w);
+            Rotation rot;
+            attitude.getTransformFrom(*earth->getAxesInertial(), time, rot);
+            w = rot.transformVector(w);
+            aAxesRotationRateByDifference(attitude, *earth->getAxesInertial(), time, w2);
+            w2 = rot.transformVector(w2);
+            printf("q : %s\n", q.toString().c_str());
+            printf("w : %s\n", w.toString().c_str());
+            printf("w2: %s\n", w2.toString().c_str());
+            Quaternion expected_q{-0.3199066399242105, 0.1789782544788932, 0.8015404017298567, -0.4723976191206197};
+            Vector3d expected_w{0.0000249277151808, -0.0011890975123486, 0.0000262655902357};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q[i], expected_q[i], 1e-13) << "q[" << i << "]";
+            }
+            for(int i = 0; i < 3; i++)
+            {
+                EXPECT_NEAR(w2[i], expected_w[i], 1e-12) << "w2[" << i << "]";
+            }
+        }
+        {
+
+        }
+    }
+    {
+
+    }
+}
 
 
 TEST_F(AttitudeProfileTest, TransformMapsParentToBody)
@@ -430,39 +479,6 @@ TEST_F(AttitudeProfileTest, MatchesExistingLocalFrameFunctions)
         ASSERT_EQ(ecfRadial.getTransform(tp, rot), eNoError);
         ExpectSameMatrix(rot.getMatrix(), expected, 1e-12);
     }
-}
-
-// ============================================
-// T6: 固连系速度约束 —— 相对固连系的角速度应当扣掉地球自转
-// ============================================
-TEST_F(AttitudeProfileTest, ECFVVLHAngularRateExcludesEarthRotation)
-{
-    const double radius = 7000e3;
-    const double speed = std::sqrt(kEarthGrav / radius);
-    auto orbit = MakeCircularEquatorialOrbit(radius);
-
-    AttitudeECFVVLH profile;
-    profile.setPoint(orbit.get());
-    ASSERT_EQ(profile.getFrame(), aFrameECF());
-
-    TimePoint tp = TestEpoch();
-    KinematicRotation kr;
-    ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
-
-    // 固连系下卫星的视运动角速度 = 轨道角速度 - 地球自转角速度。
-    // 容差取得比惯性系情形宽：载体状态要先从惯性系变换到固连系，
-    // 该变换自身随时间有约 1e-9 量级的变化，再除以 0.2s 的差分步长就成了 ~5e-9 rad/s，
-    // 已经是这条链路的精度上限，而不是差分算法的问题。
-    EXPECT_NEAR(kr.getRotationRate()[2], speed / radius - kEarthAngVel, 1e-7);
-
-    // 姿态本身等于固连系下的 VVLH
-    Vector3d pos, vel;
-    ASSERT_EQ(orbit->getPosVelIn(aFrameECF(), tp, pos, vel), eNoError);
-    Matrix3d expected;
-    ASSERT_EQ(aFrameToVVLHMatrix(pos, vel, expected), eNoError);
-    Rotation rot;
-    ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
-    ExpectSameMatrix(rot.getMatrix(), expected, 1e-12);
 }
 
 // ============================================

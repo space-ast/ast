@@ -20,22 +20,26 @@
 
 #include "AttitudeECFVVLH.hpp"
 #include "AstCore/BuiltinFrame.hpp"
+#include "AstCore/CelestialBody.hpp"
 
 AST_NAMESPACE_BEGIN
 
 AttitudeECFVVLH::AttitudeECFVVLH()
 {
-    setAlignVector(EAttitudeVector::eNadir);
-    setAlignAxis(EAttitudeAxis::eZ);
-    setConstraintVector(EAttitudeVector::eVelocity);
-    setConstraintAxis(EAttitudeAxis::eX);
-    setOffsetAxis(EAttitudeAxis::eZ);
-    setOffsetSense(EAttitudeOffsetSense::eLeftHanded);
+
 }
 
-Frame* AttitudeECFVVLH::defaultFrame() const
+AttitudeECFVVLH::AttitudeECFVVLH(Point* point, Body* body)
 {
-    return aFrameECF();
+    this->setPoint(point);
+    this->setBody(body);
+}
+
+void AttitudeECFVVLH::setBody(Body* body)
+{
+    if(body == nullptr)
+        return;
+    this->AttitudeVVLH::setFrame(body->getFrameFixed());
 }
 
 AST_NAMESPACE_END
