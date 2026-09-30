@@ -69,7 +69,7 @@ class Mover implements Point by ephemeris_
 
 AttitudeProfile* Mover::getAttitudeProfile() const
 {
-    return aobject_cast<AttitudeProfile*>(orientation());
+    return orientation();
 }
 
 Body* Mover::getBody() const

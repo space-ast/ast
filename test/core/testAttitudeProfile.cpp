@@ -57,12 +57,12 @@ namespace {
 /// @brief 测试用姿态剖面：体轴系相对父轴系以恒定角速度绕 Z 轴旋转
 /// @details 直接返回 Rz(rate * t)，即"父系到体系"的转换矩阵。
 ///          按约定，其角速度应为 +rate * z(在父系下分解)。
-class TestSpinZ : public AttitudeProfile
+class TestSpinZ : public AttitudeProfileBase
 {
 public:
     explicit TestSpinZ(double rate) : rate_(rate) {}
 
-    using AttitudeProfile::getTransform;
+    using AttitudeProfileBase::getTransform;
     errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override
     {
         Matrix3d mtx;
@@ -76,10 +76,10 @@ public:
 };
 
 /// @brief 测试用姿态剖面：恒为单位旋转
-class TestIdentity : public AttitudeProfile
+class TestIdentity : public AttitudeProfileBase
 {
 public:
-    using AttitudeProfile::getTransform;
+    using AttitudeProfileBase::getTransform;
     errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override
     {
         rotation = Rotation::Identity();
@@ -777,9 +777,9 @@ TEST_F(AttitudeProfileTest, CommonInvariants)
     spinning.setSpinAxisInFrame(Vector3d{1.0, 1.0, 0.0});
     spinning.setSpinRate(0.1);
 
-    AttitudeProfile* profiles[] = {&ecivvlh, &ecfvvhl, &ecfRadial, &nadirNormal,
+    AttitudeProfileBase* profiles[] = {&ecivvlh, &ecfvvhl, &ecfRadial, &nadirNormal,
                                    &zDown, &fixed, &ypr, &spinning};
-    for (AttitudeProfile* profile : profiles)
+    for (AttitudeProfileBase* profile : profiles)
     {
         profile->setPoint(orbit.get());
 
@@ -836,7 +836,7 @@ TEST_F(AttitudeProfileTest, ObjectRegistryLookup)
     SharedPtr<Object> obj(aNewObject("AttitudeECIVVLH"));
     ASSERT_NE(obj.get(), nullptr);
 
-    AttitudeProfile* profile = aobject_cast<AttitudeProfile*>(obj.get());
+    AttitudeProfileBase* profile = aobject_cast<AttitudeProfileBase*>(obj.get());
     ASSERT_NE(profile, nullptr);
     EXPECT_NE(aobject_cast<AttitudeAlignConstrain*>(obj.get()), nullptr);
     EXPECT_EQ(aobject_cast<AttitudeFixed*>(obj.get()), nullptr);

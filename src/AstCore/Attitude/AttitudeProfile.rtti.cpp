@@ -7,11 +7,11 @@
 
 AST_NAMESPACE_BEGIN
 
-Class AttitudeProfile::staticType;
+Class AttitudeProfileBase::staticType;
 
-static bool AttitudeProfile_ClassInited = (AttitudeProfile::ClassInit(&AttitudeProfile::staticType), true);
+static bool AttitudeProfileBase_ClassInited = (AttitudeProfileBase::ClassInit(&AttitudeProfileBase::staticType), true);
 
-void AttitudeProfile::ClassInit(Class* cls)
+void AttitudeProfileBase::ClassInit(Class* cls)
 {
     cls->setName("AttitudeProfile");
     cls->setDesc(u8R"(姿态剖面抽象基类)");
@@ -19,8 +19,8 @@ void AttitudeProfile::ClassInit(Class* cls)
     cls->setParent<Axes>();
     cls->setConstructor<AttitudeProfile>();
 
-    cls->addProperty("Point", aNewPropertyObject<AttitudeProfile, Point, &AttitudeProfile::getPoint, &AttitudeProfile::setPoint>());
-    cls->addProperty("Frame", aNewPropertyObject<AttitudeProfile, Frame, &AttitudeProfile::getFrame, &AttitudeProfile::setFrame>());
+    cls->addProperty("Point", aNewPropertyObject<AttitudeProfileBase, Point, &AttitudeProfileBase::getPoint, &AttitudeProfileBase::setPoint>());
+    cls->addProperty("Frame", aNewPropertyObject<AttitudeProfileBase, Frame, &AttitudeProfileBase::getFrame, &AttitudeProfileBase::setFrame>());
 }
 
 AST_NAMESPACE_END

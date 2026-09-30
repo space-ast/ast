@@ -41,7 +41,7 @@ AST_NAMESPACE_BEGIN
 ///          正的自旋速率表示绕自旋轴的**右手**旋转，t 时刻的姿态为
 ///          M(t) = Rot(spinOffset + spinRate * (t - epoch), a) * M0，
 ///          其中 Rot(theta, a) 是绕 a 右手旋转 theta 的参考系到体系转换矩阵。
-class AST_CORE_API AttitudeSpinning : public AttitudeProfile
+class AST_CORE_API AttitudeSpinning : public AttitudeProfileBase
 {
 public:
     AST_OBJECT(AttitudeSpinning)
@@ -49,7 +49,7 @@ public:
     AttitudeSpinning() = default;
     ~AttitudeSpinning() override = default;
 
-    using AttitudeProfile::getTransform;
+    using AttitudeProfileBase::getTransform;
     errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override;
 
     /// @brief 获取本轴系相对父轴系的运动学旋转变换

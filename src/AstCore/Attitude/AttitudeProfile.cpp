@@ -37,38 +37,38 @@ AST_NAMESPACE_BEGIN
 ///          步长太小会被位置/速度的舍入误差放大，太大则引入截断误差。
 static constexpr double kAttitudeDiffStep = 0.1;
 
-Point* AttitudeProfile::getPoint() const
+Point* AttitudeProfileBase::getPoint() const
 {
     return point_.get();
 }
 
-void AttitudeProfile::setPoint(Point* point)
+void AttitudeProfileBase::setPoint(Point* point)
 {
     point_ = point;
 }
 
-Frame* AttitudeProfile::getFrame() const
+Frame* AttitudeProfileBase::getFrame() const
 {
     return frame_ ? frame_.get() : defaultFrame();
 }
 
-void AttitudeProfile::setFrame(Frame* frame)
+void AttitudeProfileBase::setFrame(Frame* frame)
 {
     frame_ = frame;
 }
 
-Axes* AttitudeProfile::getParent() const
+Axes* AttitudeProfileBase::getParent() const
 {
     Frame* frame = getFrame();
     return frame ? frame->getAxes() : nullptr;
 }
 
-Frame* AttitudeProfile::defaultFrame() const
+Frame* AttitudeProfileBase::defaultFrame() const
 {
     return aFrameECI();
 }
 
-errc_t AttitudeProfile::getState(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const
+errc_t AttitudeProfileBase::getState(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const
 {
     Point* point = point_.get();
     if (point == nullptr)
@@ -79,7 +79,7 @@ errc_t AttitudeProfile::getState(const TimePoint& tp, Vector3d& pos, Vector3d& v
     return point->getPosVelIn(frame, tp, pos, vel);
 }
 
-errc_t AttitudeProfile::getNadirDirection(const TimePoint& tp, Vector3d& dir) const
+errc_t AttitudeProfileBase::getNadirDirection(const TimePoint& tp, Vector3d& dir) const
 {
     Vector3d pos, vel;
     errc_t rc = getState(tp, pos, vel);
@@ -92,7 +92,7 @@ errc_t AttitudeProfile::getNadirDirection(const TimePoint& tp, Vector3d& dir) co
     return eNoError;
 }
 
-errc_t AttitudeProfile::getRadialDirection(const TimePoint& tp, Vector3d& dir) const
+errc_t AttitudeProfileBase::getRadialDirection(const TimePoint& tp, Vector3d& dir) const
 {
     Vector3d pos, vel;
     errc_t rc = getState(tp, pos, vel);
@@ -105,7 +105,7 @@ errc_t AttitudeProfile::getRadialDirection(const TimePoint& tp, Vector3d& dir) c
     return eNoError;
 }
 
-errc_t AttitudeProfile::getVelocityDirection(const TimePoint& tp, Vector3d& dir) const
+errc_t AttitudeProfileBase::getVelocityDirection(const TimePoint& tp, Vector3d& dir) const
 {
     Vector3d pos, vel;
     errc_t rc = getState(tp, pos, vel);
@@ -118,7 +118,7 @@ errc_t AttitudeProfile::getVelocityDirection(const TimePoint& tp, Vector3d& dir)
     return eNoError;
 }
 
-errc_t AttitudeProfile::getOrbitNormalDirection(const TimePoint& tp, Vector3d& dir) const
+errc_t AttitudeProfileBase::getOrbitNormalDirection(const TimePoint& tp, Vector3d& dir) const
 {
     Vector3d pos, vel;
     errc_t rc = getState(tp, pos, vel);
@@ -132,7 +132,7 @@ errc_t AttitudeProfile::getOrbitNormalDirection(const TimePoint& tp, Vector3d& d
     return eNoError;
 }
 
-errc_t AttitudeProfile::getReferenceVector(EAttitudeVector kind, const TimePoint& tp, Vector3d& vector) const
+errc_t AttitudeProfileBase::getReferenceVector(EAttitudeVector kind, const TimePoint& tp, Vector3d& vector) const
 {
     switch (kind)
     {
@@ -153,7 +153,7 @@ errc_t AttitudeProfile::getReferenceVector(EAttitudeVector kind, const TimePoint
     return eErrorInvalidParam;
 }
 
-errc_t AttitudeProfile::getSunDirection(const TimePoint& tp, Vector3d& dir) const
+errc_t AttitudeProfileBase::getSunDirection(const TimePoint& tp, Vector3d& dir) const
 {
     Vector3d pos, vel;
     errc_t rc = getState(tp, pos, vel);
@@ -199,7 +199,7 @@ static Vector3d aRotationLogVector(const Matrix3d& matrix)
     return Vector3d{sx * scale, sy * scale, sz * scale};
 }
 
-errc_t AttitudeProfile::getTransform(const TimePoint& tp, KinematicRotation& rotation) const
+errc_t AttitudeProfileBase::getTransform(const TimePoint& tp, KinematicRotation& rotation) const
 {
     Rotation rot0;
     errc_t rc = this->getTransform(tp, rot0);

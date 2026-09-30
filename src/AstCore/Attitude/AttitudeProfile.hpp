@@ -36,6 +36,8 @@ AST_NAMESPACE_BEGIN
 class Rotation;
 class KinematicRotation;
 
+using AttitudeProfile = Axes;
+
 /// @brief 姿态参考向量的种类
 /// @details 这些向量都由载体的位置、速度在剖面的参考坐标系下算出。
 enum class EAttitudeVector
@@ -69,13 +71,13 @@ enum class EAttitudeVector
 /// @note 具体剖面在重载 getTransform(tp, Rotation&) 时，必须在 public 区写一句
 ///       `using AttitudeProfile::getTransform;`，否则会遮蔽基类的
 ///       getTransform(tp, KinematicRotation&) 重载，导致对具体类型直接调用运动学版本时编译失败。
-class AST_CORE_API AttitudeProfile : public Axes
+class AST_CORE_API AttitudeProfileBase : public AttitudeProfile
 {
 public:
-    AST_OBJECT(AttitudeProfile)
+    AST_OBJECT(AttitudeProfileBase)
 
-    AttitudeProfile() = default;
-    ~AttitudeProfile() override = default;
+    AttitudeProfileBase() = default;
+    ~AttitudeProfileBase() override = default;
 
     /// @brief 获取剖面所描述的载体
     /// @return 载体指针，未设置时返回 nullptr

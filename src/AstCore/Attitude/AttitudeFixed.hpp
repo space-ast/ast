@@ -35,7 +35,7 @@ AST_NAMESPACE_BEGIN
 /// @details STK 的 "Fixed in Axes" / "Inertially Fixed" 剖面：
 ///          体轴系相对指定的参考坐标系(通过 setFrame 设置，默认地球惯性系)保持恒定取向。
 ///          参考坐标系取惯性系时即"惯性固定姿态"；取固连系时体轴系随地球一起转动。
-class AST_CORE_API AttitudeFixed : public AttitudeProfile
+class AST_CORE_API AttitudeFixed : public AttitudeProfileBase
 {
 public:
     AST_OBJECT(AttitudeFixed)
@@ -43,7 +43,7 @@ public:
     AttitudeFixed() = default;
     ~AttitudeFixed() override = default;
 
-    using AttitudeProfile::getTransform;
+    using AttitudeProfileBase::getTransform;
     errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override;
 
     /// @brief 获取本轴系相对父轴系的运动学旋转变换

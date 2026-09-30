@@ -29,6 +29,7 @@
 #include "ast/Test.h"
 #include <vector>
 #include <string>
+#include <cstdio>
 
 AST_USING_NAMESPACE
 
@@ -55,7 +56,7 @@ TEST_F(RTTITest, NewObject)
     {
         bool isVirtual = aIsVirtualClass(className);
         if(!isVirtual){
-            printf("test for className: %s\n", className.c_str());
+            std::printf("test for className: %s\n", className.c_str());
             auto obj = aMakeObject(className);
             EXPECT_TRUE(obj != nullptr);
         }
@@ -84,7 +85,7 @@ TEST_F(RTTITest, ClassDefaultObject)
     {
         bool isVirtual = aIsVirtualClass(className);
         if(!isVirtual){
-            printf("test for className: %s\n", className.c_str());
+            std::printf("test for className: %s\n", className.c_str());
             auto obj = aGetClassDefaultObject(className);
             EXPECT_TRUE(obj != nullptr);
         }
@@ -135,7 +136,20 @@ TEST_F(RTTITest, ObjectParentScope)
     }
 }
 
+TEST_F(RTTITest, ObjectCast)
+{
+    SharedPtr<Object> obj(aNewObject("CelestialBody"));
+    EXPECT_NE(obj.get(), nullptr);
 
+    CelestialBody* body = aobject_cast<CelestialBody*>(obj.get());
+    EXPECT_NE(body, nullptr);
+
+    StateCartesian* state = aobject_cast<StateCartesian*>(body);
+    EXPECT_EQ(state, nullptr);
+
+    Object* objPtr = aobject_cast<Object*>(body);
+    EXPECT_NE(objPtr, nullptr);
+}
 
 
 GTEST_MAIN()

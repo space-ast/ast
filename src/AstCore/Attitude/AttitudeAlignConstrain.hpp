@@ -86,7 +86,7 @@ AST_CORE_API Vector3d aAttitudeAxisVector(EAttitudeAxis axis);
 /// @details 用一对"对齐"矢量和一对"约束"矢量来定姿：
 ///          体系下的对齐矢量与参考系下的对齐矢量严格对齐，
 ///          在此前提下让体系下的约束矢量尽可能接近参考系下的约束矢量。
-class AST_CORE_API AttitudeAlignConstrain : public AttitudeProfile
+class AST_CORE_API AttitudeAlignConstrain : public AttitudeProfileBase
 {
 public:
     AST_OBJECT(AttitudeAlignConstrain)
@@ -94,7 +94,7 @@ public:
     AttitudeAlignConstrain() = default;
     ~AttitudeAlignConstrain() override = default;
 
-    using AttitudeProfile::getTransform;
+    using AttitudeProfileBase::getTransform;
     errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override;
 
 PROPERTIES:

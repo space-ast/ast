@@ -36,8 +36,6 @@ AST_NAMESPACE_BEGIN
 /// 由此得到的姿态即 VVLH(速度局部水平)系在惯性系下的姿态。
 /// STK 帮助特别提示：对于同步轨道或大偏心率轨道，固连系速度方向会变得病态，此时应当使用
 /// 本剖面(惯性系速度)而不是 AttitudeECFVVLH。
-/// @note 本剖面的对齐与约束关系是**类定义的一部分**，已在构造函数中固定为 STK 对应剖面的取值。
-/// 基类提供设置接口是为了支持通用的"对齐与约束"剖面，在这里修改它们会让类名与实际行为不符。
 class AST_CORE_API AttitudeECIVVLH : public AttitudeAlignConstrain
 {
 public:
