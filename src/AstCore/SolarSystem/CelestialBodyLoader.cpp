@@ -237,18 +237,29 @@ errc_t CelestialBody::loadEphemerisData(BKVParser & parser)
                 if(aEqualsIgnoreCase(item.value(), "JplDe")){
                     ephemeris_ = new BodyEphemerisDE(jplIndex_);
                 }else if(aEqualsIgnoreCase(item.value(), "JplSpice")){
-                    auto ephemerisSPK = new BodyEphemerisSPK(jplSpiceId_);
+                    ScopedPtr<BodyEphemerisSPK> ephemerisSPK = new BodyEphemerisSPK(jplSpiceId_);
                     std::string spkDir = aGetConfigValue("SPK_DIR").toString();
                     if(spkDir.empty())
                         spkDir = aGetDefaultSPKDir();
                     std::string spkFile = spkDir + "/" + aAsciiStrToLower(name()) + ".bsp";
                     if(fs::is_regular_file(spkFile)){
                         errc_t rc = ephemerisSPK->openSPKFile(spkFile);
-                        if(rc){
-                            aWarning(_("打开 SPK 文件 '%s' 失败"), spkFile.c_str());
+                        if(rc == eNoError){
+                            ephemeris_ = ephemerisSPK.release();
+                        }
+                        else
+                        {
+                            if(jplIndex_ >= JplDe::eMercury)
+                            {
+                                ephemeris_ = new BodyEphemerisDE(jplIndex_);
+                                aWarning(_("打开 SPK 文件 '%s' 失败，'%s' 将使用 DE 星历"), spkFile.c_str(), name().c_str());
+                            }
+                            else
+                            {
+                                aWarning(_("打开 SPK 文件 '%s' 失败"), spkFile.c_str());
+                            }
                         }
                     }
-                    ephemeris_ = ephemerisSPK;
                 }
             }else if(aEqualsIgnoreCase(item.key(), "JplSpiceId")){
                 jplSpiceId_ = item.value().toInt();
