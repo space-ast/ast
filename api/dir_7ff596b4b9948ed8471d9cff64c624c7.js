@@ -38,6 +38,10 @@ var dir_7ff596b4b9948ed8471d9cff64c624c7 =
     [ "AttitudeSunVectorSpinning.hpp", "AttitudeSunVectorSpinning_8hpp_source.html", null ],
     [ "AttitudeTargetPointing.hpp", "AttitudeTargetPointing_8hpp_source.html", null ],
     [ "AttitudeTrajectory.hpp", "AttitudeTrajectory_8hpp_source.html", null ],
+    [ "AttitudeTrajectoryRelated.cpp", "AttitudeTrajectoryRelated_8cpp.html", null ],
+    [ "AttitudeTrajectoryRelated.hpp", "AttitudeTrajectoryRelated_8hpp.html", "AttitudeTrajectoryRelated_8hpp" ],
+    [ "AttitudeVVLH.cpp", "AttitudeVVLH_8cpp.html", null ],
+    [ "AttitudeVVLH.hpp", "AttitudeVVLH_8hpp.html", "AttitudeVVLH_8hpp" ],
     [ "AttitudeXPOPInertial.hpp", "AttitudeXPOPInertial_8hpp_source.html", null ],
     [ "AttitudeYPRFixedECI.cpp", "AttitudeYPRFixedECI_8cpp.html", null ],
     [ "AttitudeYPRFixedECI.hpp", "AttitudeYPRFixedECI_8hpp.html", null ]

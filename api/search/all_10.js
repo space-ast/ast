@@ -121,7 +121,7 @@ var searchData=
   ['point_118',['Point',['../classast_1_1Point.html',1,'ast']]],
   ['point_2ecpp_119',['Point.cpp',['../Point_8cpp.html',1,'']]],
   ['point_2ehpp_120',['Point.hpp',['../Point_8hpp.html',1,'']]],
-  ['point_5f_121',['point_',['../classast_1_1AttitudeProfile.html#a6069b47c243731ed86b7ca590ab653b5',1,'ast::AttitudeProfile']]],
+  ['point_5f_121',['point_',['../classast_1_1AttitudeProfileBase.html#af471eb243ed79599290c27e1e87858b5',1,'ast::AttitudeProfileBase']]],
   ['pointbodycenter_122',['PointBodyCenter',['../classast_1_1PointBodyCenter.html',1,'ast']]],
   ['pointbodycenter_2ecpp_123',['PointBodyCenter.cpp',['../PointBodyCenter_8cpp.html',1,'']]],
   ['pointbodycenter_2ehpp_124',['PointBodyCenter.hpp',['../PointBodyCenter_8hpp.html',1,'']]],

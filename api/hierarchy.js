@@ -864,19 +864,23 @@ var hierarchy =
           [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
           [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
           [ "ast::Axes", "classast_1_1Axes.html", [
-            [ "ast::AttitudeProfile", "classast_1_1AttitudeProfile.html", [
+            [ "ast::AttitudeProfileBase", "classast_1_1AttitudeProfileBase.html", [
               [ "ast::AttitudeAlignConstrain", "classast_1_1AttitudeAlignConstrain.html", [
                 [ "ast::AttitudeAircraftZDown", "classast_1_1AttitudeAircraftZDown.html", null ],
                 [ "ast::AttitudeECFVVLH", "classast_1_1AttitudeECFVVLH.html", null ],
                 [ "ast::AttitudeECFVelRadial", "classast_1_1AttitudeECFVelRadial.html", null ],
-                [ "ast::AttitudeECIVVLH", "classast_1_1AttitudeECIVVLH.html", null ],
                 [ "ast::AttitudeNadirNormal", "classast_1_1AttitudeNadirNormal.html", null ]
               ] ],
               [ "ast::AttitudeFixed", "classast_1_1AttitudeFixed.html", [
                 [ "ast::AttitudeYPRFixedECI", "classast_1_1AttitudeYPRFixedECI.html", null ]
               ] ],
-              [ "ast::AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],
               [ "ast::AttitudeSpinning", "classast_1_1AttitudeSpinning.html", null ]
+            ] ],
+            [ "ast::AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],
+            [ "ast::AttitudeTrajectoryRelated", "classast_1_1AttitudeTrajectoryRelated.html", [
+              [ "ast::AttitudeVVLH", "classast_1_1AttitudeVVLH.html", [
+                [ "ast::AttitudeECIVVLH", "classast_1_1AttitudeECIVVLH.html", null ]
+              ] ]
             ] ],
             [ "ast::AxesBodyRelated", "classast_1_1AxesBodyRelated.html", [
               [ "ast::AxesBodyFixed", "classast_1_1AxesBodyFixed.html", null ],

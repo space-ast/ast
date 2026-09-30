@@ -8,6 +8,8 @@ var group__Geometry =
     ] ],
     [ "ast::Axes", "classast_1_1Axes.html", [
       [ "getAncestor", "classast_1_1Axes.html#a8bb0ec4400a447244023d2ae1d1b7f3f", null ],
+      [ "getAttitudeIn", "classast_1_1Axes.html#aeb6f03b2c44a400c3564fc4b4e7be037", null ],
+      [ "getAttitudeIn", "classast_1_1Axes.html#a5595b76fdcc9b75317131425a4f939a7", null ],
       [ "getDepth", "classast_1_1Axes.html#a082aa5ded08dac84022d64d59df3d9e2", null ],
       [ "getParent", "classast_1_1Axes.html#a61cb4c23db728cedf78474866f8e9650", null ],
       [ "getTransform", "classast_1_1Axes.html#a4cfc61858954a4398d37f335e3843e6b", null ],

@@ -16,7 +16,7 @@ var searchData=
   ['planedistancepad_13',['planeDistancePad',['../structast_1_1CloseApproachOptions.html#a499ea94699f5e06eda5cf743b0bfb132',1,'ast::CloseApproachOptions']]],
   ['plgdtm_14',['plgdtm',['../structast_1_1DTM2012_1_1Impl.html#a73d17d8f8cd1bdeb605dc8c33fbefaa9',1,'ast::DTM2012::Impl']]],
   ['pluto_5f_15',['pluto_',['../classast_1_1SolarSystem.html#a474fcf5c78757cf432116359035d822b',1,'ast::SolarSystem']]],
-  ['point_5f_16',['point_',['../classast_1_1AttitudeProfile.html#a6069b47c243731ed86b7ca590ab653b5',1,'ast::AttitudeProfile']]],
+  ['point_5f_16',['point_',['../classast_1_1AttitudeProfileBase.html#af471eb243ed79599290c27e1e87858b5',1,'ast::AttitudeProfileBase']]],
   ['polynomial_5f_17',['polynomial_',['../classast_1_1NutationSeries.html#acb06c074179b2189105972ccb894510b',1,'ast::NutationSeries']]],
   ['pos_5f_18',['pos_',['../classast_1_1CartState.html#a5e0b9acca331852128aee2d0702f3840',1,'ast::CartState::pos_'],['../structast_1_1DataGroupCartVel_1_1Data.html#a45aee0d0c1a4ee0d0da0eb48d6c17826',1,'ast::DataGroupCartVel::Data::pos_']]],
   ['poscbi_19',['posCBI',['../classast_1_1BlockThirdBodyGravity.html#a75bef1f0eb38e486be8795df2c99980f',1,'ast::BlockThirdBodyGravity::posCBI'],['../classast_1_1BlockThirdBodyPointMass.html#a0c3cf77ffc048273dabab29c7675467e',1,'ast::BlockThirdBodyPointMass::posCBI'],['../classast_1_1BlockTwoBody.html#aebfae8dca471114652426b70c4c1305f',1,'ast::BlockTwoBody::posCBI']]],

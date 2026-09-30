@@ -200,11 +200,15 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeNadirNormal.html">AttitudeNadirNormal</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeProfile.html">AttitudeProfile</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeProfileBase.html">AttitudeProfileBase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeRealTime.html">AttitudeRealTime</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeSpinning.html">AttitudeSpinning</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeTrajectoryRelated.html">AttitudeTrajectoryRelated</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeVVLH.html">AttitudeVVLH</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeYPRFixedECI.html">AttitudeYPRFixedECI</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2483,6 +2487,9 @@ typedef std::string(*&#160;</td><td class="memItemRight" valign="bottom"><b>FCal
 <tr class="memitem:aed5655df7247379353130ae9c7715a89" id="r_aed5655df7247379353130ae9c7715a89"><td class="memItemLeft" align="right" valign="top"><a id="aed5655df7247379353130ae9c7715a89" name="aed5655df7247379353130ae9c7715a89"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>MessageVector</b> = std::vector&lt;<a class="el" href="classast_1_1ChatMessage.html">ChatMessage</a>&gt;</td></tr>
 <tr class="separator:aed5655df7247379353130ae9c7715a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8b941cacef8b34ca36571c51b6ac9ae1" id="r_ga8b941cacef8b34ca36571c51b6ac9ae1"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>AttitudeProfile</b> = <a class="el" href="classast_1_1Axes.html">Axes</a></td></tr>
+<tr class="separator:ga8b941cacef8b34ca36571c51b6ac9ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4ba02008b0be69ef5384875636bab574" id="r_ga4ba02008b0be69ef5384875636bab574"><td class="memItemLeft" align="right" valign="top">
 using&#160;</td><td class="memItemRight" valign="bottom"><b>HAxesBodyFixed</b> = <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1AxesBodyFixed.html">AxesBodyFixed</a>&gt;</td></tr>
 <tr class="separator:ga4ba02008b0be69ef5384875636bab574"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4386,6 +4393,10 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1GeodeticPoint.html">GeodeticPoin
 <tr class="separator:afbcebd2a3a6c905bbce9865a1a90c197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac9917d9426efb06b57e626eaac990050" id="r_gac9917d9426efb06b57e626eaac990050"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gac9917d9426efb06b57e626eaac990050">aFrameToVVLHMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
 <tr class="separator:gac9917d9426efb06b57e626eaac990050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaeef0b27ab8827be154c65b713668765" id="r_gaaeef0b27ab8827be154c65b713668765"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gaaeef0b27ab8827be154c65b713668765">aFrameToVVLHTransform</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gaaeef0b27ab8827be154c65b713668765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf37370e3a9583a65dfab6f0654f873c3" id="r_gaf37370e3a9583a65dfab6f0654f873c3"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#gaf37370e3a9583a65dfab6f0654f873c3">aFrameToVVLHTransform</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gaf37370e3a9583a65dfab6f0654f873c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga38377665d67268a45dc42b37b5bf7b47" id="r_ga38377665d67268a45dc42b37b5bf7b47"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga38377665d67268a45dc42b37b5bf7b47">aVVLHToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
 <tr class="separator:ga38377665d67268a45dc42b37b5bf7b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6231fd2438359fb81ff765eff8b2db4f" id="r_ga6231fd2438359fb81ff765eff8b2db4f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga6231fd2438359fb81ff765eff8b2db4f">aFrameToLVLHMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>

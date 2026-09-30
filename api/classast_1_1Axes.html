@@ -114,24 +114,18 @@ $(function(){initNavTree('classast_1_1Axes.html',''); initResizable(true); });
  <div class="center">
   <img src="classast_1_1Axes.png" usemap="#ast::Axes_map" alt=""/>
   <map id="ast::Axes_map" name="ast::Axes_map">
-<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="728,112,900,136"/>
-<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="728,56,900,80"/>
-<area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="728,0,900,24"/>
-<area href="classast_1_1AttitudeProfile.html" title="姿态剖面抽象基类" alt="ast::AttitudeProfile" shape="rect" coords="0,224,172,248"/>
-<area href="classast_1_1AxesBodyRelated.html" title="天体相关的轴系" alt="ast::AxesBodyRelated" shape="rect" coords="364,224,536,248"/>
-<area href="classast_1_1AxesFrozen.html" title="冻结轴系" alt="ast::AxesFrozen" shape="rect" coords="546,224,718,248"/>
-<area href="classast_1_1AxesFrozenAtEventTime.html" title="事件时间冻结轴系" alt="ast::AxesFrozenAtEventTime" shape="rect" coords="728,224,900,248"/>
-<area href="classast_1_1AxesICRF.html" title="ICRF 轴系" alt="ast::AxesICRF" shape="rect" coords="910,224,1082,248"/>
-<area href="classast_1_1AxesLinkTo.html" alt="ast::AxesLinkTo" shape="rect" coords="1092,224,1264,248"/>
-<area href="classast_1_1AxesRoot.html" title="根轴系" alt="ast::AxesRoot" shape="rect" coords="1274,224,1446,248"/>
-<area href="classast_1_1AttitudeAlignConstrain.html" title="对齐/约束姿态剖面 (Aligned and Constrained)" alt="ast::AttitudeAlignConstrain" shape="rect" coords="182,280,354,304"/>
-<area href="classast_1_1AttitudeFixed.html" title="固定姿态剖面 (Fixed in Axes)" alt="ast::AttitudeFixed" shape="rect" coords="182,336,354,360"/>
-<area href="classast_1_1AttitudeRealTime.html" alt="ast::AttitudeRealTime" shape="rect" coords="182,392,354,416"/>
-<area href="classast_1_1AttitudeSpinning.html" title="自旋姿态剖面 (Spinning)" alt="ast::AttitudeSpinning" shape="rect" coords="182,448,354,472"/>
-<area href="classast_1_1AxesBodyFixed.html" title="天体固连轴系" alt="ast::AxesBodyFixed" shape="rect" coords="546,280,718,304"/>
-<area href="classast_1_1AxesBodyInertial.html" title="天体惯性轴系" alt="ast::AxesBodyInertial" shape="rect" coords="546,336,718,360"/>
-<area href="classast_1_1AxesBodyMOD.html" title="天体MOD轴系" alt="ast::AxesBodyMOD" shape="rect" coords="546,392,718,416"/>
-<area href="classast_1_1AxesBodyTOD.html" title="天体TOD轴系" alt="ast::AxesBodyTOD" shape="rect" coords="546,448,718,472"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="0,112,176,136"/>
+<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="0,56,176,80"/>
+<area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="0,0,176,24"/>
+<area href="classast_1_1AttitudeProfileBase.html" title="姿态剖面抽象基类" alt="ast::AttitudeProfileBase" shape="rect" coords="186,224,362,248"/>
+<area href="classast_1_1AttitudeRealTime.html" alt="ast::AttitudeRealTime" shape="rect" coords="186,280,362,304"/>
+<area href="classast_1_1AttitudeTrajectoryRelated.html" title="与轨迹相关的姿态" alt="ast::AttitudeTrajectoryRelated" shape="rect" coords="186,336,362,360"/>
+<area href="classast_1_1AxesBodyRelated.html" title="天体相关的轴系" alt="ast::AxesBodyRelated" shape="rect" coords="186,392,362,416"/>
+<area href="classast_1_1AxesFrozen.html" title="冻结轴系" alt="ast::AxesFrozen" shape="rect" coords="186,448,362,472"/>
+<area href="classast_1_1AxesFrozenAtEventTime.html" title="事件时间冻结轴系" alt="ast::AxesFrozenAtEventTime" shape="rect" coords="186,504,362,528"/>
+<area href="classast_1_1AxesICRF.html" title="ICRF 轴系" alt="ast::AxesICRF" shape="rect" coords="186,560,362,584"/>
+<area href="classast_1_1AxesLinkTo.html" alt="ast::AxesLinkTo" shape="rect" coords="186,616,362,640"/>
+<area href="classast_1_1AxesRoot.html" title="根轴系" alt="ast::AxesRoot" shape="rect" coords="186,672,362,696"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -149,16 +143,38 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a8bb0ec4400a447244023d2ae1d1b7f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af96a030bdddc38749d211924146618b2" id="r_af96a030bdddc38749d211924146618b2"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af96a030bdddc38749d211924146618b2">getTransformTo</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
 <tr class="separator:af96a030bdddc38749d211924146618b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcde1a42d9fa26aa27044884c857990" id="r_a3fcde1a42d9fa26aa27044884c857990"><td class="memItemLeft" align="right" valign="top"><a id="a3fcde1a42d9fa26aa27044884c857990" name="a3fcde1a42d9fa26aa27044884c857990"></a>
+A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformTo</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:a3fcde1a42d9fa26aa27044884c857990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa75b1b29ce13f6812bc2488d75c962b8" id="r_aa75b1b29ce13f6812bc2488d75c962b8"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa75b1b29ce13f6812bc2488d75c962b8">getTransformTo</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
 <tr class="separator:aa75b1b29ce13f6812bc2488d75c962b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a000c32fcca9e9fac8791ed2d238e21d4" id="r_a000c32fcca9e9fac8791ed2d238e21d4"><td class="memItemLeft" align="right" valign="top"><a id="a000c32fcca9e9fac8791ed2d238e21d4" name="a000c32fcca9e9fac8791ed2d238e21d4"></a>
+A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformTo</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:a000c32fcca9e9fac8791ed2d238e21d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6beb6d6b77a89b522db540ce48854d39" id="r_a6beb6d6b77a89b522db540ce48854d39"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6beb6d6b77a89b522db540ce48854d39">getTransformFrom</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
 <tr class="separator:a6beb6d6b77a89b522db540ce48854d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf27b71acbf030b192ea1aadf2ee66d0" id="r_acf27b71acbf030b192ea1aadf2ee66d0"><td class="memItemLeft" align="right" valign="top"><a id="acf27b71acbf030b192ea1aadf2ee66d0" name="acf27b71acbf030b192ea1aadf2ee66d0"></a>
+A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformFrom</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:acf27b71acbf030b192ea1aadf2ee66d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e1cad8414075ea9b1abe32a4b77a582" id="r_a9e1cad8414075ea9b1abe32a4b77a582"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e1cad8414075ea9b1abe32a4b77a582">getTransformFrom</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
 <tr class="separator:a9e1cad8414075ea9b1abe32a4b77a582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e76a192270922aebaf6da3c9ffbe43" id="r_ab2e76a192270922aebaf6da3c9ffbe43"><td class="memItemLeft" align="right" valign="top"><a id="ab2e76a192270922aebaf6da3c9ffbe43" name="ab2e76a192270922aebaf6da3c9ffbe43"></a>
+A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformFrom</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:ab2e76a192270922aebaf6da3c9ffbe43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa434d356305a79f50a1e68852b8709f9" id="r_aa434d356305a79f50a1e68852b8709f9"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa434d356305a79f50a1e68852b8709f9">getTransformFromParent</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
 <tr class="separator:aa434d356305a79f50a1e68852b8709f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a074555bbd0e6afdf8475f362375cf8b9" id="r_a074555bbd0e6afdf8475f362375cf8b9"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a074555bbd0e6afdf8475f362375cf8b9">getTransformFromParent</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
 <tr class="separator:a074555bbd0e6afdf8475f362375cf8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6f03b2c44a400c3564fc4b4e7be037" id="r_aeb6f03b2c44a400c3564fc4b4e7be037"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb6f03b2c44a400c3564fc4b4e7be037">getAttitudeIn</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;axes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat) const</td></tr>
+<tr class="separator:aeb6f03b2c44a400c3564fc4b4e7be037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bfaa62d18e2a6be73be82b950b29a02" id="r_a3bfaa62d18e2a6be73be82b950b29a02"><td class="memItemLeft" align="right" valign="top"><a id="a3bfaa62d18e2a6be73be82b950b29a02" name="a3bfaa62d18e2a6be73be82b950b29a02"></a>
+A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAttitudeIn</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> *axes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat) const</td></tr>
+<tr class="separator:a3bfaa62d18e2a6be73be82b950b29a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5595b76fdcc9b75317131425a4f939a7" id="r_a5595b76fdcc9b75317131425a4f939a7"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5595b76fdcc9b75317131425a4f939a7">getAttitudeIn</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;axes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat, Vector3d &amp;angvel) const</td></tr>
+<tr class="separator:a5595b76fdcc9b75317131425a4f939a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8d2f1a009e8d4309942d237c2ebc28" id="r_aed8d2f1a009e8d4309942d237c2ebc28"><td class="memItemLeft" align="right" valign="top"><a id="aed8d2f1a009e8d4309942d237c2ebc28" name="aed8d2f1a009e8d4309942d237c2ebc28"></a>
+A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAttitudeIn</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> *axes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat, Vector3d &amp;angvel) const</td></tr>
+<tr class="separator:aed8d2f1a009e8d4309942d237c2ebc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
 <tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
@@ -363,6 +379,86 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 
 </div>
 </div>
+<a id="aeb6f03b2c44a400c3564fc4b4e7be037" name="aeb6f03b2c44a400c3564fc4b4e7be037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb6f03b2c44a400c3564fc4b4e7be037">&#9670;&#160;</a></span>getAttitudeIn() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::Axes::getAttitudeIn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>axes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quat</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前轴系相对于目标轴系的姿态（四元数表示） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axes</td><td>目标轴系 </td></tr>
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">quat</td><td>四元数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a5595b76fdcc9b75317131425a4f939a7" name="a5595b76fdcc9b75317131425a4f939a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5595b76fdcc9b75317131425a4f939a7">&#9670;&#160;</a></span>getAttitudeIn() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::Axes::getAttitudeIn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>axes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>angvel</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前轴系相对于目标轴系的姿态（四元数表示）和角速度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axes</td><td>目标轴系 </td></tr>
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">quat</td><td>四元数 </td></tr>
+    <tr><td class="paramname">angvel</td><td>角速度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
 <a id="a082aa5ded08dac84022d64d59df3d9e2" name="a082aa5ded08dac84022d64d59df3d9e2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a082aa5ded08dac84022d64d59df3d9e2">&#9670;&#160;</a></span>getDepth()</h2>
 
@@ -409,7 +505,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <p>获取当前轴系的父轴系 </p>
 <dl class="section return"><dt>返回</dt><dd>父轴系指针，根轴系返回 nullptr </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AttitudeProfile.html#ab06ecc79b90e945dfa57276692908e80">ast::AttitudeProfile</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#adfbe61a14eb4b20cacbd113271375eda">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2e0e3330db547e9904b348cc30d44d35">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#afcc73f9511666cf42c2f1d0ad803b23c">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a8d704c7140c235fe09df5056de66e9fe">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a53411e370b539ea7014b66819f0b6664">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a7d358e5e6e3e6c58ac9f865723fd8feb">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#a0b1009ad635c8058bd70d3178e8dbe47">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#abb4cab385bf21851f374dcd045c8cc77">ast::AxesRoot</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1AttitudeProfileBase.html#a4a96bf2b4c9ec1faef7a23fc21463031">ast::AttitudeProfileBase</a>, <a class="el" href="classast_1_1AttitudeTrajectoryRelated.html#a86bb886611bc4a2172ba3b4b6f502ba9">ast::AttitudeTrajectoryRelated</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#adfbe61a14eb4b20cacbd113271375eda">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2e0e3330db547e9904b348cc30d44d35">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#afcc73f9511666cf42c2f1d0ad803b23c">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a8d704c7140c235fe09df5056de66e9fe">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a53411e370b539ea7014b66819f0b6664">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a7d358e5e6e3e6c58ac9f865723fd8feb">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#a0b1009ad635c8058bd70d3178e8dbe47">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#abb4cab385bf21851f374dcd045c8cc77">ast::AxesRoot</a> 内被实现.</p>
 
 </div>
 </div>
@@ -450,7 +546,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AttitudeAlignConstrain.html#a2ffe239cf2e7bcea6d2db24bf84c9674">ast::AttitudeAlignConstrain</a>, <a class="el" href="classast_1_1AttitudeFixed.html#a9a1bd8cfb79993034f631bab623c6438">ast::AttitudeFixed</a>, <a class="el" href="classast_1_1AttitudeProfile.html#a2ffe239cf2e7bcea6d2db24bf84c9674">ast::AttitudeProfile</a>, <a class="el" href="classast_1_1AttitudeSpinning.html#a1dab656defae27f895f6e1206a00c0ac">ast::AttitudeSpinning</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#abef80d58aad162d3d6c8e63a05c18d85">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2c6b55a36228d79b84a6c2312c0d802d">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a97e1fd0cba8eecd9476e31a64c4333f0">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a6a7a3b145eb8733c638ea6987eb1a816">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad74df91ae19abb4af6caf6018b083f1e">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a890c33446719129ba05ee3f04a2e8a2a">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a6924c416590384d8cff7406069748e1b">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#aee37ee8eb8a04f6281988a68b326c79a">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a07468d6431ad4376b214bdec39e0415a">ast::AxesRoot</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1AttitudeAlignConstrain.html#a51658fd1d9555890becf093254d13777">ast::AttitudeAlignConstrain</a>, <a class="el" href="classast_1_1AttitudeFixed.html#a9a1bd8cfb79993034f631bab623c6438">ast::AttitudeFixed</a>, <a class="el" href="classast_1_1AttitudeProfileBase.html#a51658fd1d9555890becf093254d13777">ast::AttitudeProfileBase</a>, <a class="el" href="classast_1_1AttitudeSpinning.html#a1dab656defae27f895f6e1206a00c0ac">ast::AttitudeSpinning</a>, <a class="el" href="classast_1_1AttitudeVVLH.html#a6a06a87d2dfbf6e95863a231f0ad7467">ast::AttitudeVVLH</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#abef80d58aad162d3d6c8e63a05c18d85">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2c6b55a36228d79b84a6c2312c0d802d">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a97e1fd0cba8eecd9476e31a64c4333f0">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a6a7a3b145eb8733c638ea6987eb1a816">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad74df91ae19abb4af6caf6018b083f1e">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a890c33446719129ba05ee3f04a2e8a2a">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a6924c416590384d8cff7406069748e1b">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#aee37ee8eb8a04f6281988a68b326c79a">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a07468d6431ad4376b214bdec39e0415a">ast::AxesRoot</a> 内被实现.</p>
 
 </div>
 </div>
@@ -491,7 +587,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AttitudeAlignConstrain.html#add7843ef3e9e1407e090c4759aef31c2">ast::AttitudeAlignConstrain</a>, <a class="el" href="classast_1_1AttitudeFixed.html#a12bc72426896ab7ce301f2446c046bf4">ast::AttitudeFixed</a>, <a class="el" href="classast_1_1AttitudeProfile.html#aec79e13013d862180c8d63836338dede">ast::AttitudeProfile</a>, <a class="el" href="classast_1_1AttitudeSpinning.html#afc553d07491a0fdef4e51ea37cc7b3a7">ast::AttitudeSpinning</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#a61bb2ff9d228a573e8ba4e69d827ffa7">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a52e5ccb88dd2b9e39b4944845d325e41">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a72c9bd0d51fee3c6e87802a1e050c421">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a4b313234d0a3ca5b7e77e5aa6e88f7cc">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#a606e2869b39a91cddcb2ee4cc40009cf">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#ad4c95b38832c988ae13a22a56e50babb">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#ac588dbc23aaf0e637de24841c721c08a">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#ade775c6be2a42fbdb4680efc5108c8de">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a03cb0a840ca84022130a2d08c4a2a859">ast::AxesRoot</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1AttitudeAlignConstrain.html#add7843ef3e9e1407e090c4759aef31c2">ast::AttitudeAlignConstrain</a>, <a class="el" href="classast_1_1AttitudeFixed.html#a12bc72426896ab7ce301f2446c046bf4">ast::AttitudeFixed</a>, <a class="el" href="classast_1_1AttitudeProfileBase.html#abdd4725f50c66fec594379b94af2337e">ast::AttitudeProfileBase</a>, <a class="el" href="classast_1_1AttitudeSpinning.html#afc553d07491a0fdef4e51ea37cc7b3a7">ast::AttitudeSpinning</a>, <a class="el" href="classast_1_1AttitudeVVLH.html#a76d2b841a46e95a260f536dced4c4c59">ast::AttitudeVVLH</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#a61bb2ff9d228a573e8ba4e69d827ffa7">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a52e5ccb88dd2b9e39b4944845d325e41">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a72c9bd0d51fee3c6e87802a1e050c421">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a4b313234d0a3ca5b7e77e5aa6e88f7cc">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#a606e2869b39a91cddcb2ee4cc40009cf">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#ad4c95b38832c988ae13a22a56e50babb">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#ac588dbc23aaf0e637de24841c721c08a">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#ade775c6be2a42fbdb4680efc5108c8de">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a03cb0a840ca84022130a2d08c4a2a859">ast::AxesRoot</a> 内被实现.</p>
 
 </div>
 </div>

@@ -461,6 +461,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aJ2000ToDE143Tra
 <tr class="separator:ga3f54d281027e41371352da14f8542d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac9917d9426efb06b57e626eaac990050" id="r_gac9917d9426efb06b57e626eaac990050"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac9917d9426efb06b57e626eaac990050">ast::aFrameToVVLHMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
 <tr class="separator:gac9917d9426efb06b57e626eaac990050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaeef0b27ab8827be154c65b713668765" id="r_gaaeef0b27ab8827be154c65b713668765"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaaeef0b27ab8827be154c65b713668765">ast::aFrameToVVLHTransform</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gaaeef0b27ab8827be154c65b713668765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf37370e3a9583a65dfab6f0654f873c3" id="r_gaf37370e3a9583a65dfab6f0654f873c3"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf37370e3a9583a65dfab6f0654f873c3">ast::aFrameToVVLHTransform</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
+<tr class="separator:gaf37370e3a9583a65dfab6f0654f873c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga38377665d67268a45dc42b37b5bf7b47" id="r_ga38377665d67268a45dc42b37b5bf7b47"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga38377665d67268a45dc42b37b5bf7b47">ast::aVVLHToFrameMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
 <tr class="separator:ga38377665d67268a45dc42b37b5bf7b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6231fd2438359fb81ff765eff8b2db4f" id="r_ga6231fd2438359fb81ff765eff8b2db4f"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6231fd2438359fb81ff765eff8b2db4f">ast::aFrameToLVLHMatrix</a> (const Vector3d &amp;posInFrame, const Vector3d &amp;velInFrame, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
@@ -2152,6 +2156,80 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
     <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
     <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
     <tr><td class="paramname">matrix</td><td>转换矩阵 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf37370e3a9583a65dfab6f0654f873c3" name="gaf37370e3a9583a65dfab6f0654f873c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf37370e3a9583a65dfab6f0654f873c3">&#9670;&#160;</a></span>aFrameToVVLHTransform() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aFrameToVVLHTransform </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算位置和速度向量所在坐标系到VVLH坐标系的运动学旋转变换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
+    <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
+    <tr><td class="paramname">rotation</td><td>运动学旋转变换 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="classast_1_1KinematicRotation.html" title="运动学坐标系旋转">KinematicRotation</a> </dd></dl>
+<p>VVLH 与 LVLH 只差一组固定的轴重排：X_VVLH = Y_LVLH，Y_VVLH = -Z_LVLH，Z_VVLH = -X_LVLH， 两个坐标系相对彼此静止，故相对输入系的角速度相同，均为轨道角速度 ω = (r×v)/|r|²。 分量在输入系下分解，符合 <a class="el" href="classast_1_1KinematicRotation.html" title="运动学坐标系旋转">KinematicRotation</a> 的约定。</p>
+
+</div>
+</div>
+<a id="gaaeef0b27ab8827be154c65b713668765" name="gaaeef0b27ab8827be154c65b713668765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaeef0b27ab8827be154c65b713668765">&#9670;&#160;</a></span>aFrameToVVLHTransform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API errc_t ast::aFrameToVVLHTransform </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velInFrame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算位置和速度向量所在坐标系到VVLH坐标系的旋转变换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInFrame</td><td>位置向量 </td></tr>
+    <tr><td class="paramname">velInFrame</td><td>速度向量 </td></tr>
+    <tr><td class="paramname">rotation</td><td>旋转变换 </td></tr>
   </table>
   </dd>
 </dl>

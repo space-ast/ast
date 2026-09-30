@@ -126,6 +126,8 @@ var group__Coordinate =
     [ "ast::aFrameToVNCMatrix", "group__Coordinate.html#ga613e8729e3340f1bf13ec615f45cc3f5", null ],
     [ "ast::aFrameToVNCTransform", "group__Coordinate.html#ga6625ab65bd576788e2d3ced7b0cd96f7", null ],
     [ "ast::aFrameToVVLHMatrix", "group__Coordinate.html#gac9917d9426efb06b57e626eaac990050", null ],
+    [ "ast::aFrameToVVLHTransform", "group__Coordinate.html#gaf37370e3a9583a65dfab6f0654f873c3", null ],
+    [ "ast::aFrameToVVLHTransform", "group__Coordinate.html#gaaeef0b27ab8827be154c65b713668765", null ],
     [ "ast::aGetAxes", "group__Coordinate.html#ga52cc58e5f2acf25c825218cdf3e3420f", null ],
     [ "ast::aGTODToECF", "group__Coordinate.html#gafc43ca88443dcc9af6ff3f8c21718614", null ],
     [ "ast::aGTODToECFMatrix", "group__Coordinate.html#ga46a0850ade8cdc74e0e4176d90e8656b", null ],
