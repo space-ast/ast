@@ -64,6 +64,22 @@ Axes* Axes::getAncestor(int depth) const{
     return aGeometryAncestor(this, depth);
 }
 
+errc_t Axes::getAttitudeIn(Axes &axes, const TimePoint &tp, Quaternion &quat) const
+{
+    Rotation rotation;
+    errc_t rc = this->getTransformFrom(axes, tp, rotation);
+    quat = rotation.getQuaternion();
+    return rc;
+}
+
+errc_t Axes::getAttitudeIn(Axes &axes, const TimePoint &tp, Quaternion &quat, Vector3d &angvel) const
+{
+    KinematicRotation kr;
+    errc_t rc = this->getTransformFrom(axes, tp, kr);
+    quat = kr.getQuaternion();
+    angvel = kr.getRotationRate();
+    return rc;
+}
 
 template<typename GeometryType, typename RotationType>
 A_ALWAYS_INLINE errc_t aGeometryTransform(GeometryType& source, GeometryType& target, const TimePoint& tp, RotationType &rotation)

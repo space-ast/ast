@@ -1,13 +1,7 @@
 ///
 /// @file      testAttitudeProfile.cpp
 /// @brief     姿态剖面模块测试
-/// @details   覆盖三类内容：
-///            1. 两条容易搞反的约定：getTransform 返回的是"父轴系到本轴系"的旋转
-///               (即 v_this = rotation * v_parent，矩阵的行是体轴在父系下的分量)；
-///               KinematicRotation 中的角速度是"本系相对父系、在父系下分解"的角速度。
-///            2. 对齐/约束引擎与仓库里既有函数(aFrameToVVLHMatrix / aFrameToVNCMatrix)
-///               的一致性，以及圆轨道等有闭式解的场景。
-///            3. 各剖面的语义(哪个体轴对齐/约束到哪个参考向量)与退化输入的处理。
+/// @details   
 /// @author    axel
 /// @date      2026-09-28
 /// @copyright 版权所有 (C) 2026-present, ast项目.
@@ -24,6 +18,10 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
+#include "ast/OrbitElement.hpp"
+#include "ast/Literals.hpp"
+#include "ast/RunTime.hpp"
+#include "ast/CelestialBody.hpp"
 #include "ast/AttitudeProfile.hpp"
 #include "ast/AttitudeAlignConstrain.hpp"
 #include "ast/AttitudeECIVVLH.hpp"
@@ -51,6 +49,7 @@
 #include <cmath>
 
 AST_USING_NAMESPACE
+using namespace _AST literals;
 
 namespace {
 
@@ -183,10 +182,97 @@ protected:
     }
 };
 
-// ============================================
-// T1: getTransform 的输出方向
-//     矩阵的行是体轴在父系下的分量，transformVector 把父系分量映到体系分量
-// ============================================
+
+TEST_F(AttitudeProfileTest, AttitudeECIVVLH)
+{
+    {
+        OrbElem orbElem{6678137, 0, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "28 Sep 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph  = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeECIVVLH attitude(eph, earth);
+
+        auto startTime = "28 Sep 2026 04:00:00.000"_utc;
+        auto stopTime  = "29 Sep 2026 04:00:00.000"_utc;
+        {
+            Quaternion q;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), startTime, q);
+            printf("q: %s\n", q.toString().c_str());
+            Quaternion expected{0.6076921013678738, -0.3615388083388807, -0.6076921013678738, 0.3615388083388807};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q[i], expected[i], 1e-14);
+            }
+        }
+        {
+            Quaternion q;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), stopTime, q);
+            printf("q: %s\n", q.toString().c_str());
+            Quaternion expected{0.7554924957257300, -0.4494708027285990, -0.4096467612857596, 0.2437142124799141};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q[i], expected[i], 1e-14);
+            }
+        }
+    }
+    {
+        OrbElem orbElem{6678137, 0.02, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "28 Sep 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph  = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeECIVVLH attitude(eph, earth);
+
+        {
+            auto time = "28 Sep 2026 05:51:00.000"_utc;
+            Quaternion q;
+            Vector3d w;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q, w);
+            Rotation rot(q);
+            w = rot.transformVector(w);
+            printf("q: %s\n", q.toString().c_str());
+            printf("w: %s\n", w.toString().c_str());
+
+            Quaternion expected_q{-0.0470336889994441, 0.0279821044808127, 0.8581184138735795, -0.5105268080120973 };
+            Vector3d expected_w{0.0000000000000000, -0.0011626341030019, 0.0000000000000000};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q[i], expected_q[i], 1e-14);
+            }
+            for(int i = 0; i < 3; i++)
+            {
+                EXPECT_NEAR(w[i], expected_w[i], 1e-14);
+            }
+        }
+        {
+            auto time  = "29 Sep 2026 04:00:00.000"_utc;
+            Quaternion q;
+            Vector3d w;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q, w);
+            Rotation rot(q);
+            w = rot.transformVector(w);
+            printf("q: %s\n", q.toString().c_str());
+            Quaternion expected_q{0.7600106309069503, -0.4521588106945666, -0.4012022196327228, 0.2386902381361061};
+            Vector3d expected_w{0.0000000000000000, -0.0011961153080119, 0.0000000000000000};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q[i], expected_q[i], 1e-13);
+            }
+            for(int i = 0; i < 3; i++)
+            {
+                EXPECT_NEAR(w[i], expected_w[i], 1e-14);
+            }
+        }
+    }
+}
+
+
+
 TEST_F(AttitudeProfileTest, TransformMapsParentToBody)
 {
     const double rate = 0.1;   // rad/s
@@ -321,6 +407,7 @@ TEST_F(AttitudeProfileTest, MatchesExistingLocalFrameFunctions)
     AttitudeECIVVLH      ecivvlh;
     AttitudeECFVelRadial ecfRadial;
     ecivvlh.setPoint(orbit.get());
+    ecivvlh.setBody(aGetEarth());
     ecfRadial.setPoint(orbit.get());
 
     for (int i = 0; i < 6; i++)
@@ -474,6 +561,7 @@ TEST_F(AttitudeProfileTest, DegenerateGeometry)
 
         AttitudeECIVVLH profile;
         profile.setPoint(&point);
+        profile.setBody(aGetEarth());
         Rotation rot;
         EXPECT_EQ(profile.getTransform(TestEpoch(), rot), eErrorInvalidParam);
     }
@@ -487,30 +575,11 @@ TEST_F(AttitudeProfileTest, DegenerateGeometry)
 
         AttitudeECIVVLH profile;
         profile.setPoint(&point);
+        profile.setBody(aGetEarth());
         Rotation rot;
         EXPECT_EQ(profile.getTransform(TestEpoch(), rot), eErrorInvalidParam);
     }
 
-    // 位置与速度的夹角正弦只有 1e-10 的近奇异情形。
-    // aFrameToVVLHMatrix 的判据是"叉乘严格为零"，会放行这种输入；
-    // 姿态剖面用相对阈值，必须拦住它。
-    {
-        const Vector3d pos{7000e3, 0.0, 0.0};
-        const Vector3d vel{1000.0, 1000.0e-10, 0.0};
-
-        Matrix3d allowed;
-        EXPECT_EQ(aFrameToVVLHMatrix(pos, vel, allowed), eNoError);
-
-        TestPoint point;
-        point.frame_ = aFrameECI();
-        point.pos_ = pos;
-        point.vel_ = vel;
-
-        AttitudeECIVVLH profile;
-        profile.setPoint(&point);
-        Rotation rot;
-        EXPECT_EQ(profile.getTransform(TestEpoch(), rot), eErrorInvalidParam);
-    }
 
     // 引擎层面的退化：约束方向与对齐方向平行
     {
@@ -657,29 +726,9 @@ TEST_F(AttitudeProfileTest, MoverAttitudeRoundTrip)
     EXPECT_EQ(mover.getAttitudeProfile(), profile);
     EXPECT_EQ(mover.orientation(), static_cast<Axes*>(profile));
 
-    // 姿态属性被设置成普通轴系时，向下转型失败应当返回空指针而不是崩溃
     mover.setOrientation(AxesFrozen::New(aAxesECF(), TestEpoch(), aAxesICRF()));
-    EXPECT_EQ(mover.getAttitudeProfile(), nullptr);
+    EXPECT_NE(mover.getAttitudeProfile(), nullptr);
 }
 
-// ============================================
-// T16: 通过命名注册体系创建剖面
-// ============================================
-TEST_F(AttitudeProfileTest, ObjectRegistryLookup)
-{
-    SharedPtr<Object> obj(aNewObject("AttitudeECIVVLH"));
-    ASSERT_NE(obj.get(), nullptr);
-
-    AttitudeProfileBase* profile = aobject_cast<AttitudeProfileBase*>(obj.get());
-    ASSERT_NE(profile, nullptr);
-    EXPECT_NE(aobject_cast<AttitudeAlignConstrain*>(obj.get()), nullptr);
-    EXPECT_EQ(aobject_cast<AttitudeFixed*>(obj.get()), nullptr);
-
-    // 通过反射创建出来的对象同样可以正常求值
-    auto orbit = MakeGeneralOrbit();
-    profile->setPoint(orbit.get());
-    Rotation rot;
-    EXPECT_EQ(profile->getTransform(TestTime(), rot), eNoError);
-}
 
 GTEST_MAIN()

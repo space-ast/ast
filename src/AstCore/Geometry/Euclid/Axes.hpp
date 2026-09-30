@@ -117,6 +117,11 @@ public:
     {
         return aAxesTransform(const_cast<Axes*>(this), target, tp, rotation);
     }
+    A_ALWAYS_INLINE
+    errc_t getTransformTo(Axes& target, const TimePoint& tp, Rotation& rotation) const
+    {
+        return aAxesTransform(const_cast<Axes&>(*this), target, tp, rotation);
+    }
     /// @brief 获取当前轴系到目标轴系的运动学旋转变换
     /// @param target 目标轴系
     /// @param tp 时间点
@@ -126,6 +131,11 @@ public:
     errc_t getTransformTo(Axes* target, const TimePoint& tp, KinematicRotation& rotation) const
     {
         return aAxesTransform(const_cast<Axes*>(this), target, tp, rotation);
+    }
+    A_ALWAYS_INLINE
+    errc_t getTransformTo(Axes& target, const TimePoint& tp, KinematicRotation& rotation) const
+    {
+        return aAxesTransform(const_cast<Axes&>(*this), target, tp, rotation);
     }
     /// @brief 获取源轴系到当前轴系的旋转变换
     /// @param source 源轴系
@@ -137,6 +147,11 @@ public:
     {
         return aAxesTransform(source, const_cast<Axes*>(this), tp, rotation);
     }
+    A_ALWAYS_INLINE
+    errc_t getTransformFrom(Axes& source, const TimePoint& tp, Rotation& rotation) const
+    {
+        return aAxesTransform(source, const_cast<Axes&>(*this), tp, rotation);
+    }
     /// @brief 获取源轴系到当前轴系的运动学旋转变换
     /// @param source 源轴系
     /// @param tp 时间点
@@ -146,6 +161,11 @@ public:
     errc_t getTransformFrom(Axes* source, const TimePoint& tp, KinematicRotation& rotation) const
     {
         return aAxesTransform(source, const_cast<Axes*>(this), tp, rotation);
+    }
+    A_ALWAYS_INLINE
+    errc_t getTransformFrom(Axes& source, const TimePoint& tp, KinematicRotation& rotation) const
+    {
+        return aAxesTransform(source, const_cast<Axes&>(*this), tp, rotation);
     }
     /// @brief 获取当前轴系相对于父轴系的旋转变换
     /// @param tp 时间点
@@ -164,6 +184,33 @@ public:
     errc_t getTransformFromParent(const TimePoint& tp, KinematicRotation& rotation) const
     {
         return getTransform(tp, rotation);
+    }
+public:
+    /// @brief 获取当前轴系相对于目标轴系的姿态（四元数表示）
+    /// @param axes 目标轴系
+    /// @param tp 时间点
+    /// @param quat 四元数
+    /// @return 错误码
+    errc_t getAttitudeIn(Axes& axes, const TimePoint& tp, Quaternion& quat) const;
+    A_ALWAYS_INLINE
+    errc_t getAttitudeIn(Axes* axes, const TimePoint& tp, Quaternion& quat) const
+    {
+        if(axes == nullptr) return eErrorNullInput;
+        return getAttitudeIn(axes, tp, quat);
+    }
+
+    /// @brief 获取当前轴系相对于目标轴系的姿态（四元数表示）和角速度
+    /// @param axes 目标轴系
+    /// @param tp 时间点
+    /// @param quat 四元数
+    /// @param angvel 角速度
+    /// @return 错误码
+    errc_t getAttitudeIn(Axes& axes, const TimePoint& tp, Quaternion& quat, Vector3d& angvel) const;
+    A_ALWAYS_INLINE
+    errc_t getAttitudeIn(Axes* axes, const TimePoint& tp, Quaternion& quat, Vector3d& angvel) const
+    {
+        if(axes == nullptr) return eErrorNullInput;
+        return getAttitudeIn(axes, tp, quat, angvel);
     }
 };
 
