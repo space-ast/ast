@@ -78,6 +78,7 @@ public:
     /// @param pos 输出参数，点的位置向量
     /// @return 错误码
     errc_t getPosIn(Frame* frame, const TimePoint& tp, Vector3d& pos) const;
+    errc_t getPosIn(Frame& frame, const TimePoint& tp, Vector3d& pos) const;
 
     /// @brief 获取点在指定时间点的位置和速度，相对于指定参考坐标系
     /// @param frame 参考坐标系指针
@@ -86,6 +87,7 @@ public:
     /// @param vel 输出参数，点的速度向量
     /// @return 错误码
     errc_t getPosVelIn(Frame* frame, const TimePoint& tp, Vector3d& pos, Vector3d& vel) const;
+    errc_t getPosVelIn(Frame& frame, const TimePoint& tp, Vector3d& pos, Vector3d& vel) const;
 
     /// @brief 获取点在指定时间段内的位置列表，相对于指定参考坐标系
     /// @param frame 坐标系

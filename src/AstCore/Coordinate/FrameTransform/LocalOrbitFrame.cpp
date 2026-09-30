@@ -50,6 +50,29 @@ errc_t aFrameToVVLHMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame
 	}
 }
 
+errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, Rotation& rotation)
+{
+    return aFrameToVVLHMatrix(posInFrame, velInFrame, rotation.getMatrix());
+}
+
+errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, KinematicRotation& rotation)
+{
+    errc_t rc = aFrameToVVLHMatrix(posInFrame, velInFrame, rotation.getRotation().getMatrix());
+    if (A_UNLIKELY(rc != eNoError))
+    {
+        rotation.setRotationRate(Vector3d::Zero());
+        return rc;
+    }
+
+    /*!
+        VVLH 与 LVLH 只差一组固定的轴重排：X_VVLH = Y_LVLH，Y_VVLH = -Z_LVLH，Z_VVLH = -X_LVLH，
+        两个坐标系相对彼此静止，故相对输入系的角速度相同，均为轨道角速度 ω = (r×v)/|r|²。
+        分量在输入系下分解，符合 KinematicRotation 的约定。
+    */
+    rotation.setRotationRate(posInFrame.cross(velInFrame) * (1.0 / posInFrame.squaredNorm()));
+    return eNoError;
+}
+
 errc_t aVVLHToFrameMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame, Matrix3d& matrix)
 {
     errc_t rc = aFrameToVVLHMatrix(posInFrame, velInFrame, matrix);

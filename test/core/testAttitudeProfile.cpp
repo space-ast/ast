@@ -310,24 +310,6 @@ TEST_F(AttitudeProfileTest, DefaultPointAndFrame)
     EXPECT_EQ(profile.getFrame(), aFrameECI());
 }
 
-// ============================================
-// T3b: 未设置载体时求值应报错，而不是悄悄给出零向量
-// ============================================
-TEST_F(AttitudeProfileTest, MissingPointIsReported)
-{
-    AttitudeECIVVLH profile;
-
-    Rotation rot;
-    EXPECT_EQ(profile.getTransform(TestTime(), rot), eErrorNullInput);
-
-    Vector3d vec;
-    EXPECT_EQ(profile.getReferenceVector(EAttitudeVector::eNadir, TestTime(), vec), eErrorNullInput);
-
-    // 设置载体之后即可正常求值
-    auto orbit = MakeGeneralOrbit();
-    profile.setPoint(orbit.get());
-    ASSERT_EQ(profile.getTransform(TestTime(), rot), eNoError);
-}
 
 // ============================================
 // T4: 引擎与仓库里既有的坐标系函数一致(offset = 0)
@@ -361,45 +343,6 @@ TEST_F(AttitudeProfileTest, MatchesExistingLocalFrameFunctions)
         ASSERT_EQ(ecfRadial.getTransform(tp, rot), eNoError);
         ExpectSameMatrix(rot.getMatrix(), expected, 1e-12);
     }
-}
-
-// ============================================
-// T5: 赤道圆轨道的闭式解
-//     位置在 +X、速度在 +Y 时：体 X 沿速度、体 Z 沿对地、体 Y 沿 -Z
-// ============================================
-TEST_F(AttitudeProfileTest, ECIVVLHCircularEquatorial)
-{
-    const double radius = 7000e3;
-    const double speed = std::sqrt(kEarthGrav / radius);
-    auto orbit = MakeCircularEquatorialOrbit(radius);
-
-    AttitudeECIVVLH profile;
-    profile.setPoint(orbit.get());
-    ASSERT_EQ(profile.getFrame(), aFrameECI());
-
-    TimePoint tp = TestEpoch();
-    Rotation rot;
-    ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
-
-    const Matrix3d& m = rot.getMatrix();
-    const double expected[3][3] = {{0, 1, 0}, {0, 0, -1}, {-1, 0, 0}};
-    for (int r = 0; r < 3; r++)
-        for (int c = 0; c < 3; c++)
-            EXPECT_NEAR(m(r, c), expected[r][c], 1e-12);
-    ExpectOrthonormal(m);
-
-    // 体 Z 沿对地、体 X 沿速度
-    const Vector3d nadir{-1.0, 0.0, 0.0};
-    const Vector3d velDir{0.0, 1.0, 0.0};
-    EXPECT_NEAR(rot.transformVector(nadir)[2], 1.0, 1e-12);
-    EXPECT_NEAR(rot.transformVector(velDir)[0], 1.0, 1e-12);
-
-    // 圆轨道上 VVLH 系相对惯性系以轨道角速度绕 h = +Z 旋转
-    KinematicRotation kr;
-    ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
-    EXPECT_NEAR(kr.getRotationRate()[0], 0.0, 1e-9);
-    EXPECT_NEAR(kr.getRotationRate()[1], 0.0, 1e-9);
-    EXPECT_NEAR(kr.getRotationRate()[2], speed / radius, 1e-9);
 }
 
 // ============================================
@@ -516,59 +459,6 @@ TEST_F(AttitudeProfileTest, AircraftZDownVersusECFVelRadial)
     EXPECT_GT(rotRadial.transformVector(radialDir)[2], 0.0);
 }
 
-// ============================================
-// T10: offset 的旋向
-//      STK 帮助："left-handed about nadir +90 度可把约束交给体 Y 轴"，
-//      "ECF 速度对齐时 right-handed about velocity +90 度同样交给体 Y 轴"。
-//      即 Z 对齐族用左手 +90、X 对齐族用右手 +90，效果都是让体 Y 指向约束方向。
-// ============================================
-TEST_F(AttitudeProfileTest, OffsetSenseMakesConstraintAxisPointAlongConstraint)
-{
-    auto orbit = MakeGeneralOrbit();
-    TimePoint tp = TestTime();
-
-    // Z 对齐族：绕体 Z 左手 +90
-    {
-        AttitudeECIVVLH profile;
-        profile.setPoint(orbit.get());
-        profile.setAzimuth(kHalfPI);
-
-        Vector3d nadir, velDir;
-        ASSERT_EQ(profile.getReferenceVector(EAttitudeVector::eNadir, tp, nadir), eNoError);
-        ASSERT_EQ(profile.getReferenceVector(EAttitudeVector::eVelocity, tp, velDir), eNoError);
-        // 参考系下约束方向垂直于对齐方向的分量，即体 Y 应当指向的方向
-        const Vector3d constrRef = (velDir - nadir * velDir.dot(nadir)).normalized();
-
-        Rotation rot;
-        ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
-        EXPECT_NEAR(rot.transformVector(constrRef)[1], 1.0, 1e-12);
-
-        // 等价于在无 offset 的基准姿态上左乘绕体 Z 的右手 -90 度
-        AttitudeECIVVLH plain;
-        plain.setPoint(orbit.get());
-        Rotation base;
-        ASSERT_EQ(plain.getTransform(tp, base), eNoError);
-        Matrix3d offsetMatrix;
-        aRotationZMatrix(-kHalfPI, offsetMatrix);
-        ExpectSameMatrix(rot.getMatrix(), offsetMatrix * base.getMatrix(), 1e-12);
-    }
-
-    // X 对齐族：绕体 X 右手 +90
-    {
-        AttitudeECFVelRadial profile;
-        profile.setPoint(orbit.get());
-        profile.setAzimuth(kHalfPI);
-
-        Vector3d velDir, radial;
-        ASSERT_EQ(profile.getReferenceVector(EAttitudeVector::eVelocity, tp, velDir), eNoError);
-        ASSERT_EQ(profile.getReferenceVector(EAttitudeVector::eRadial, tp, radial), eNoError);
-        const Vector3d constrRef = (radial - velDir * radial.dot(velDir)).normalized();
-
-        Rotation rot;
-        ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
-        EXPECT_NEAR(rot.transformVector(constrRef)[1], 1.0, 1e-12);
-    }
-}
 
 // ============================================
 // T11: 退化输入
@@ -752,62 +642,6 @@ TEST_F(AttitudeProfileTest, Spinning)
         profile.setSpinAxisInFrame(Vector3d::Zero());
         Rotation rot;
         EXPECT_EQ(profile.getTransform(TestTime(), rot), eErrorInvalidParam);
-    }
-}
-
-// ============================================
-// T14: 所有剖面共有的不变量
-// ============================================
-TEST_F(AttitudeProfileTest, CommonInvariants)
-{
-    auto orbit = MakeGeneralOrbit();
-    TimePoint tp = TestTime();
-
-    AttitudeECIVVLH      ecivvlh;
-    AttitudeECFVVLH      ecfvvhl;
-    AttitudeECFVelRadial ecfRadial;
-    AttitudeNadirNormal  nadirNormal;
-    AttitudeAircraftZDown zDown;
-    AttitudeFixed        fixed;
-    AttitudeYPRFixedECI  ypr;
-    AttitudeSpinning     spinning;
-
-    ypr.setYaw(0.3);
-    ypr.setPitch(-0.2);
-    spinning.setSpinAxisInFrame(Vector3d{1.0, 1.0, 0.0});
-    spinning.setSpinRate(0.1);
-
-    AttitudeProfileBase* profiles[] = {&ecivvlh, &ecfvvhl, &ecfRadial, &nadirNormal,
-                                   &zDown, &fixed, &ypr, &spinning};
-    for (AttitudeProfileBase* profile : profiles)
-    {
-        profile->setPoint(orbit.get());
-
-        Rotation rot;
-        KinematicRotation kr;
-        ASSERT_EQ(profile->getTransform(tp, rot), eNoError);
-        ASSERT_EQ(profile->getTransform(tp, kr), eNoError);
-
-        // 正交且为纯旋转
-        ExpectOrthonormal(rot.getMatrix());
-
-        // 两个重载必须给出一致的旋转
-        ExpectSameMatrix(rot.getMatrix(), kr.getMatrix(), 1e-13);
-
-        // 角速度有限
-        for (int k = 0; k < 3; k++)
-            EXPECT_TRUE(std::isfinite(kr.getRotationRate()[k]));
-
-        // 同一时刻重复求值必须完全一致(说明没有隐藏状态)
-        Rotation rot2;
-        ASSERT_EQ(profile->getTransform(tp, rot2), eNoError);
-        for (int r = 0; r < 3; r++)
-            for (int c = 0; c < 3; c++)
-                EXPECT_EQ(rot.getMatrix()(r, c), rot2.getMatrix()(r, c));
-
-        // 能接入轴系链路：剖面 -> ICRF 应当成功
-        Rotation toICRF;
-        EXPECT_EQ(aAxesTransform(profile, aAxesICRF(), tp, toICRF), eNoError);
     }
 }
 

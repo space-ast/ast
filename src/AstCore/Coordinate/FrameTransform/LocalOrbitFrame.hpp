@@ -50,6 +50,20 @@ AST_NAMESPACE_BEGIN
 AST_CORE_API errc_t aFrameToVVLHMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame, Matrix3d& matrix);
 
 
+/// @brief     计算位置和速度向量所在坐标系到VVLH坐标系的旋转变换
+/// @param     posInFrame 位置向量
+/// @param     velInFrame 速度向量
+/// @param     rotation 旋转变换
+AST_CORE_API errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, Rotation& rotation);
+
+
+/// @brief     计算位置和速度向量所在坐标系到VVLH坐标系的运动学旋转变换
+/// @param     posInFrame 位置向量
+/// @param     velInFrame 速度向量
+/// @param     rotation 运动学旋转变换 @see KinematicRotation
+AST_CORE_API errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, KinematicRotation& rotation);
+
+
 /// @brief     计算VVLH坐标系到位置和速度向量所在坐标系的转换矩阵
 /// @param     posInFrame 位置向量
 /// @param     velInFrame 速度向量

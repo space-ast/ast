@@ -21,7 +21,9 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AttitudeAlignConstrain.hpp"
+#include "AttitudeProfile.hpp"
+#include "AttitudeTrajectoryRelated.hpp"
+#include "AttitudeVVLH.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,22 +33,23 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 对地指向 + ECI 速度约束姿态
-/// @details STK 的 "Nadir alignment with ECI velocity constraint" 剖面。
+/// @details 
 /// 体 Z 轴严格对齐地心对地方向，体 X 轴在保持 Z 轴对齐的前提下尽量指向惯性系速度方向，
-/// 由此得到的姿态即 VVLH(速度局部水平)系在惯性系下的姿态。
-/// STK 帮助特别提示：对于同步轨道或大偏心率轨道，固连系速度方向会变得病态，此时应当使用
-/// 本剖面(惯性系速度)而不是 AttitudeECFVVLH。
-class AST_CORE_API AttitudeECIVVLH : public AttitudeAlignConstrain
+/// 由此得到的姿态即 VVLH(Vehicle Velocity Local Horizontal, 速度局部水平)系在惯性系下的姿态
+/// 与 @see AttitudeVVLH 的区别在于：计算该姿态的位置速度的参考系为天体惯性系
+class AST_CORE_API AttitudeECIVVLH : public AttitudeVVLH
 {
 public:
     AST_OBJECT(AttitudeECIVVLH)
 
     AttitudeECIVVLH();
+    AttitudeECIVVLH(Point* point, Body* body);
     ~AttitudeECIVVLH() override = default;
-
-protected:
-    /// @brief 本剖面的自然参考坐标系为地球惯性系
-    Frame* defaultFrame() const override;
+private:
+    // 屏蔽父类的 setFrame 方法
+    void setFrame(Frame* frame) = delete;
+public:
+    void setBody(Body* body);
 };
 
 /*! @} */

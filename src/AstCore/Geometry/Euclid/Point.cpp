@@ -42,8 +42,19 @@ errc_t Point::getInterval(TimeInterval &interval) const
 
 errc_t Point::getPosIn(Frame *frame, const TimePoint &tp, Vector3d &pos) const
 {
+    if(frame == nullptr)
+        return eErrorNullPtr;
+    return getPosIn(*frame, tp, pos);
+}
+
+errc_t Point::getPosIn(Frame& frame, const TimePoint& tp, Vector3d& pos) const
+{
     auto parent = this->getFrame();
-    if(parent == frame)
+    if(parent == nullptr)
+    {
+        return eErrorNullPtr;
+    }
+    else if(parent == &frame)
     {
         return getPos(tp, pos);
     }
@@ -53,7 +64,7 @@ errc_t Point::getPosIn(Frame *frame, const TimePoint &tp, Vector3d &pos) const
         errc_t rc = getPos(tp, posInParent);
         if(rc) return rc;
         Transform transform;
-        rc = aFrameTransform(parent, frame, tp, transform);
+        rc = aFrameTransform(*parent, frame, tp, transform);
         if(rc) return rc;
         transform.transformPosition(posInParent, pos);
         return eNoError;
@@ -62,8 +73,19 @@ errc_t Point::getPosIn(Frame *frame, const TimePoint &tp, Vector3d &pos) const
 
 errc_t Point::getPosVelIn(Frame *frame, const TimePoint &tp, Vector3d &pos, Vector3d &vel) const
 {
+    if(frame == nullptr)
+        return eErrorNullPtr;
+    return getPosVelIn(*frame, tp, pos, vel);
+}
+
+errc_t Point::getPosVelIn(Frame& frame, const TimePoint& tp, Vector3d& pos, Vector3d& vel) const
+{
     auto parent = this->getFrame();
-    if(parent == frame)
+    if(parent == nullptr)
+    {
+        return eErrorNullPtr;
+    }
+    else if(parent == &frame)
     {
         return getPosVel(tp, pos, vel);
     }
@@ -73,7 +95,7 @@ errc_t Point::getPosVelIn(Frame *frame, const TimePoint &tp, Vector3d &pos, Vect
         errc_t rc = getPosVel(tp, posInParent, velInParent);
         if(rc) return rc;
         KinematicTransform transform;
-        rc = aFrameTransform(parent, frame, tp, transform);
+        rc = aFrameTransform(*parent, frame, tp, transform);
         if(rc) return rc;
         transform.transformPositionVelocity(posInParent, velInParent, pos, vel);
         return eNoError;

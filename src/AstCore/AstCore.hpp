@@ -40,6 +40,7 @@
 #include "AstCore/AttitudeSunVectorSpinning.hpp"
 #include "AstCore/AttitudeTargetPointing.hpp"
 #include "AstCore/AttitudeTrajectory.hpp"
+#include "AstCore/AttitudeTrajectoryRelated.hpp"
 #include "AstCore/AttitudeXPOPInertial.hpp"
 #include "AstCore/AttitudeYPRFixedECI.hpp"
 #include "AstCore/Axes.hpp"
