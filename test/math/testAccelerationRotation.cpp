@@ -44,7 +44,7 @@ TEST(AccelerationRotationTest, Identity)
     AccelerationRotation rotation = AccelerationRotation::Identity();
     Vector3d pos{1, -2, 3}, vel{4, -5, 6}, acc{7, 8, -9};
     Vector3d posOut{}, velOut{}, accOut{};
-    rotation.transformPosVelAcc(pos, vel, acc, posOut, velOut, accOut);
+    rotation.transformVecVelAcc(pos, vel, acc, posOut, velOut, accOut);
     for (int i = 0; i < 3; i++)
     {
         EXPECT_DOUBLE_EQ(posOut[i], pos[i]);
@@ -53,7 +53,7 @@ TEST(AccelerationRotationTest, Identity)
     }
 
     Vector3d posInv{}, velInv{}, accInv{};
-    rotation.transformPosVelAccInv(pos, vel, acc, posInv, velInv, accInv);
+    rotation.transformVecVelAccInv(pos, vel, acc, posInv, velInv, accInv);
     for (int i = 0; i < 3; i++)
     {
         EXPECT_DOUBLE_EQ(posInv[i], pos[i]);
@@ -68,7 +68,7 @@ TEST(AccelerationRotationTest, Identity)
     则按本库的旋转矩阵约定有 ω = a·ẑ、ω̇ = b·ẑ（aRotationZMatrix 给的是教科书 Rz 的转置，
     恰好满足 Ṁ = −M[ω×]）。
     源系下的轨迹取等加速度运动 r(t) = r0 + v0·t + a0·t²/2，其目标系下的轨迹为 M(t)·r(t)，
-    对该轨迹做中心差分求一、二阶导数，应与 transformPosVelAcc 的输出一致。
+    对该轨迹做中心差分求一、二阶导数，应与 transformVecVelAcc 的输出一致。
     这样是拿"导数的定义"去校验变换公式，不会有循环论证。
 */
 TEST(AccelerationRotationTest, TransformAgainstFiniteDifference)
@@ -92,7 +92,7 @@ TEST(AccelerationRotationTest, TransformAgainstFiniteDifference)
 
     AccelerationRotation rotation(mat(0.0), Vector3d{0, 0, omega0}, Vector3d{0, 0, alpha0});
     Vector3d posOut{}, velOut{}, accOut{};
-    rotation.transformPosVelAcc(pos, vel, acc, posOut, velOut, accOut);
+    rotation.transformVecVelAcc(pos, vel, acc, posOut, velOut, accOut);
 
     const double h = 1e-4;          // 中心差分的步长，兼顾截断误差与舍入误差
     Vector3d posFd = posInTarget(0.0);
@@ -105,7 +105,7 @@ TEST(AccelerationRotationTest, TransformAgainstFiniteDifference)
 
     // 逆变换应与正向变换互为逆运算
     Vector3d posBack{}, velBack{}, accBack{};
-    rotation.transformPosVelAccInv(posOut, velOut, accOut, posBack, velBack, accBack);
+    rotation.transformVecVelAccInv(posOut, velOut, accOut, posBack, velBack, accBack);
     expectVectorNear(posBack, pos, 1e-13, 1e-13);
     expectVectorNear(velBack, vel, 1e-13, 1e-13);
     expectVectorNear(accBack, acc, 1e-13, 1e-13);
@@ -126,11 +126,11 @@ TEST(AccelerationRotationTest, Composed)
     Vector3d pos3{}, vel3{}, acc3{};
     Vector3d posTemp{}, velTemp{}, accTemp{};
 
-    composed1.transformPosVelAcc(pos, vel, acc, pos1, vel1, acc1);
-    composed2.transformPosVelAcc(pos, vel, acc, pos2, vel2, acc2);
+    composed1.transformVecVelAcc(pos, vel, acc, pos1, vel1, acc1);
+    composed2.transformVecVelAcc(pos, vel, acc, pos2, vel2, acc2);
     // 组合变换应等价于依次应用两个变换（先rotation1，后rotation2）
-    rotation1.transformPosVelAcc(pos, vel, acc, posTemp, velTemp, accTemp);
-    rotation2.transformPosVelAcc(posTemp, velTemp, accTemp, pos3, vel3, acc3);
+    rotation1.transformVecVelAcc(pos, vel, acc, posTemp, velTemp, accTemp);
+    rotation2.transformVecVelAcc(posTemp, velTemp, accTemp, pos3, vel3, acc3);
 
     expectVectorNear(pos1, pos2, 1e-15, 1e-15);
     expectVectorNear(vel1, vel2, 1e-15, 1e-15);
@@ -149,8 +149,8 @@ TEST(AccelerationRotationTest, Inverse)
     Vector3d pos{1, -2, 3}, vel{4, -5, 6}, acc{7, 8, -9};
     Vector3d posOut{}, velOut{}, accOut{};
     Vector3d posBack{}, velBack{}, accBack{};
-    rotation.transformPosVelAcc(pos, vel, acc, posOut, velOut, accOut);
-    inversed.transformPosVelAcc(posOut, velOut, accOut, posBack, velBack, accBack);
+    rotation.transformVecVelAcc(pos, vel, acc, posOut, velOut, accOut);
+    inversed.transformVecVelAcc(posOut, velOut, accOut, posBack, velBack, accBack);
 
     expectVectorNear(posBack, pos, 1e-13, 1e-13);
     expectVectorNear(velBack, vel, 1e-13, 1e-13);
@@ -185,7 +185,7 @@ TEST(AccelerationRotationTest, DegenerateToKinematicRotation)
     Vector3d pos{1, -2, 3}, vel{4, -5, 6}, acc{7, 8, -9};
     Vector3d pos1{}, vel1{}, acc1{};
     Vector3d pos2{}, vel2{};
-    rotation1.transformPosVelAcc(pos, vel, acc, pos1, vel1, acc1);
+    rotation1.transformVecVelAcc(pos, vel, acc, pos1, vel1, acc1);
     kinematic1.transformVectorVelocity(pos, vel, pos2, vel2);
     for (int i = 0; i < 3; i++)
     {
@@ -195,7 +195,7 @@ TEST(AccelerationRotationTest, DegenerateToKinematicRotation)
 
     Vector3d posInv1{}, velInv1{}, accInv1{};
     Vector3d posInv2{}, velInv2{};
-    rotation1.transformPosVelAccInv(pos, vel, acc, posInv1, velInv1, accInv1);
+    rotation1.transformVecVelAccInv(pos, vel, acc, posInv1, velInv1, accInv1);
     kinematic1.transformVectorVelocityInv(pos, vel, posInv2, velInv2);
     for (int i = 0; i < 3; i++)
     {

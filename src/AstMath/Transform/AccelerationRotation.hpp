@@ -126,7 +126,7 @@ public:
     /// @param positionOut 变换后的位置
     /// @param velocityOut 变换后的速度
     /// @param accelerationOut 变换后的加速度
-    void transformPosVelAcc(
+    void transformVecVelAcc(
         const Vector3d& position,
         const Vector3d& velocity,
         const Vector3d& acceleration,
@@ -135,14 +135,14 @@ public:
         Vector3d& accelerationOut) const;
 
     /// @brief 变换位置、速度和加速度（逆变换）
-    /// @warning 注意：这里是逆变换，等价于 `inverse().transformPosVelAcc(...)`;
+    /// @warning 注意：这里是逆变换，等价于 `inverse().transformVecVelAcc(...)`;
     /// @param position 位置
     /// @param velocity 速度
     /// @param acceleration 加速度
     /// @param positionOut 变换后的位置
     /// @param velocityOut 变换后的速度
     /// @param accelerationOut 变换后的加速度
-    void transformPosVelAccInv(
+    void transformVecVelAccInv(
         const Vector3d& position,
         const Vector3d& velocity,
         const Vector3d& acceleration,
@@ -226,7 +226,7 @@ A_ALWAYS_INLINE AccelerationRotation AccelerationRotation::inverse() const
     return retval;
 }
 
-A_ALWAYS_INLINE void AccelerationRotation::transformPosVelAcc(
+A_ALWAYS_INLINE void AccelerationRotation::transformVecVelAcc(
     const Vector3d &position, const Vector3d &velocity, const Vector3d &acceleration,
     Vector3d &positionOut, Vector3d &velocityOut, Vector3d &accelerationOut) const
 {
@@ -240,7 +240,7 @@ A_ALWAYS_INLINE void AccelerationRotation::transformPosVelAcc(
     positionOut = this->matrix_ * position;
 }
 
-A_ALWAYS_INLINE void AccelerationRotation::transformPosVelAccInv(
+A_ALWAYS_INLINE void AccelerationRotation::transformVecVelAccInv(
     const Vector3d &position, const Vector3d &velocity, const Vector3d &acceleration,
     Vector3d &positionOut, Vector3d &velocityOut, Vector3d &accelerationOut) const
 {
