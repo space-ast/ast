@@ -135,6 +135,8 @@ var namespaceast =
       [ "T", "namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315", null ],
       [ "yd", "namespaceast_1_1units.html#a69bd41f3998d87945c5ba24d4f138c52", null ]
     ] ],
+    [ "AccelerationRotation", "classast_1_1AccelerationRotation.html", "classast_1_1AccelerationRotation" ],
+    [ "AccelerationTransform", "classast_1_1AccelerationTransform.html", "classast_1_1AccelerationTransform" ],
     [ "AccessConstraint", "classast_1_1AccessConstraint.html", "classast_1_1AccessConstraint" ],
     [ "AccessEvaluator", "classast_1_1AccessEvaluator.html", "classast_1_1AccessEvaluator" ],
     [ "AccessStepper", "classast_1_1AccessStepper.html", "classast_1_1AccessStepper" ],

@@ -1428,7 +1428,9 @@ var hierarchy =
     [ "ast::ReportStyle", "classast_1_1ReportStyle.html", null ],
     [ "ast::ReportUnits", "structast_1_1ReportUnits.html", null ],
     [ "ast::Rotation", "classast_1_1Rotation.html", [
-      [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ]
+      [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", [
+        [ "ast::AccelerationRotation", "classast_1_1AccelerationRotation.html", null ]
+      ] ]
     ] ],
     [ "ast::RotationElement", "classast_1_1RotationElement.html", null ],
     [ "ast::RoutingHandleResult", "classast_1_1RoutingHandleResult.html", null ],
@@ -1597,7 +1599,9 @@ var hierarchy =
     [ "ast::TLELines", "classast_1_1TLELines.html", null ],
     [ "ast::TrackingCoordinates", "classast_1_1TrackingCoordinates.html", null ],
     [ "ast::Transform", "classast_1_1Transform.html", [
-      [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", null ]
+      [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", [
+        [ "ast::AccelerationTransform", "classast_1_1AccelerationTransform.html", null ]
+      ] ]
     ] ],
     [ "ast::TreeBuildOptions", "structast_1_1TreeBuildOptions.html", null ],
     [ "std::true_type", null, [

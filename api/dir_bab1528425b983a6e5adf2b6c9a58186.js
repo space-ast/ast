@@ -1,5 +1,9 @@
 var dir_bab1528425b983a6e5adf2b6c9a58186 =
 [
+    [ "AccelerationRotation.cpp", "AccelerationRotation_8cpp.html", null ],
+    [ "AccelerationRotation.hpp", "AccelerationRotation_8hpp.html", "AccelerationRotation_8hpp" ],
+    [ "AccelerationTransform.cpp", "AccelerationTransform_8cpp.html", null ],
+    [ "AccelerationTransform.hpp", "AccelerationTransform_8hpp.html", "AccelerationTransform_8hpp" ],
     [ "KinematicRotation.cpp", "KinematicRotation_8cpp.html", null ],
     [ "KinematicRotation.hpp", "KinematicRotation_8hpp.html", "KinematicRotation_8hpp" ],
     [ "KinematicTransform.cpp", "KinematicTransform_8cpp.html", null ],

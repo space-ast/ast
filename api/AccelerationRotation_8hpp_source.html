@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstMath/Transform/AccelerationRotation.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('AccelerationRotation_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AccelerationRotation.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="AccelerationRotation_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="KinematicRotation_8hpp.html">KinematicRotation.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html">   35</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>: <span class="keyword">protected</span> <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">using </span>KinematicRotation::getMatrix;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">using </span>KinematicRotation::getQuaternion;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">using </span>KinematicRotation::transformVector;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">using </span>KinematicRotation::transformVectorInv;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">using </span>KinematicRotation::getRotation;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">using </span>KinematicRotation::setRotation;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">using </span>KinematicRotation::getRotationRate;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">using </span>KinematicRotation::setRotationRate;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">using </span>KinematicRotation::transformVectorVelocity;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">using </span>KinematicRotation::transformVectorVelocityInv;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">static</span> <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> Identity();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#ab785d8ac819fb787a72d0c33eeee15cc">   54</a></span>    <a class="code hl_function" href="classast_1_1AccelerationRotation.html#ab785d8ac819fb787a72d0c33eeee15cc">AccelerationRotation</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix3d</a>&amp; mat, <span class="keyword">const</span> Vector3d&amp; angvel, <span class="keyword">const</span> Vector3d&amp; angvelDot);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Rotation.html">Rotation</a>&amp; rot, <span class="keyword">const</span> Vector3d&amp; angvel, <span class="keyword">const</span> Vector3d&amp; angvelDot);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a>&amp; rot, <span class="keyword">const</span> Vector3d&amp; angvelDot);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#aaa44af439231a35d0a45a7ee8d76ca18">   75</a></span>    <span class="keyword">const</span> Vector3d&amp; <a class="code hl_function" href="classast_1_1AccelerationRotation.html#aaa44af439231a35d0a45a7ee8d76ca18">getRotationRateDot</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> angvelDot_; }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">const</span> Vector3d&amp; rotationRateDot()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> angvelDot_; }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a047c82d22c52daa0d829bfda3e6a7dd4">   80</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#a047c82d22c52daa0d829bfda3e6a7dd4">setRotationRateDot</a>(<span class="keyword">const</span> Vector3d&amp; angvelDot) { angvelDot_ = angvelDot; }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a3adc568f5476181d90da898f11d860cb">   85</a></span>    <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#a3adc568f5476181d90da898f11d860cb">getKinematicRotation</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>&amp; compose(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>&amp; next);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> composed(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>&amp; next) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> operator*(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>&amp; next) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>&amp; operator*=(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>&amp; next);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> getInverse(<a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>&amp; inversed) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> inverse() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">void</span> transformVecVelAcc(</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keyword">const</span> Vector3d&amp; position,</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keyword">const</span> Vector3d&amp; velocity,</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keyword">const</span> Vector3d&amp; acceleration,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        Vector3d&amp; positionOut,</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        Vector3d&amp; velocityOut,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        Vector3d&amp; accelerationOut) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">void</span> transformVecVelAccInv(</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keyword">const</span> Vector3d&amp; position,</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keyword">const</span> Vector3d&amp; velocity,</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keyword">const</span> Vector3d&amp; acceleration,</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        Vector3d&amp; positionOut,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        Vector3d&amp; velocityOut,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        Vector3d&amp; accelerationOut) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#ac2897d001770847100e4d5a400304d67">  153</a></span>    Vector3d angvelDot_{};    </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>};</div>
+</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#ada7174da5602e95e0ea94124db933efc">  156</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> AccelerationRotation::Identity()</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a>(Matrix3d::Identity(), Vector3d::Zero(), Vector3d::Zero());</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>}</div>
+</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="foldopen" id="foldopen00161" data-start="{" data-end="}">
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#aa7af4b54de4a5eeea781732c2d2be106">  161</a></span>A_ALWAYS_INLINE AccelerationRotation::AccelerationRotation(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;mat, <span class="keyword">const</span> Vector3d &amp;angvel, <span class="keyword">const</span> Vector3d &amp;angvelDot)</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    : <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a>(mat, angvel)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    , angvelDot_(angvelDot)</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>{</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>}</div>
+</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#aac182a36c019599654c2cf2de5fa162e">  167</a></span>A_ALWAYS_INLINE <a class="code hl_function" href="classast_1_1AccelerationRotation.html#ab785d8ac819fb787a72d0c33eeee15cc">AccelerationRotation::AccelerationRotation</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Rotation.html">Rotation</a> &amp;rot, <span class="keyword">const</span> Vector3d &amp;angvel, <span class="keyword">const</span> Vector3d &amp;angvelDot)</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    : <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a>(rot, angvel)</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    , angvelDot_(angvelDot)</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>{</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>}</div>
+</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a1e0d9ca9405f8835f4591dfff63c4474">  173</a></span>A_ALWAYS_INLINE <a class="code hl_function" href="classast_1_1AccelerationRotation.html#ab785d8ac819fb787a72d0c33eeee15cc">AccelerationRotation::AccelerationRotation</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rot, <span class="keyword">const</span> Vector3d &amp;angvelDot)</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    : <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a>(rot)</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    , angvelDot_(angvelDot)</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>{</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>}</div>
+</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="foldopen" id="foldopen00179" data-start="{" data-end="}">
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a80cd815f4a25d27506aa83efdb1dd504">  179</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#a80cd815f4a25d27506aa83efdb1dd504">AccelerationRotation::composed</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;next)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix3d</a> mat1 = this-&gt;matrix_;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    Vector3d angvel1 = this-&gt;<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    Vector3d angvel2InSource = next.<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a> * mat1;      <span class="comment">// 即 M1ᵀ ω2</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    Vector3d angvel = angvel1 + angvel2InSource;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    Vector3d angvelDot = this-&gt;<a class="code hl_variable" href="classast_1_1AccelerationRotation.html#ac2897d001770847100e4d5a400304d67">angvelDot_</a> + angvel1.cross(angvel2InSource) + next.<a class="code hl_variable" href="classast_1_1AccelerationRotation.html#ac2897d001770847100e4d5a400304d67">angvelDot_</a> * mat1;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#ab785d8ac819fb787a72d0c33eeee15cc">AccelerationRotation</a>(next.matrix_ * mat1, angvel, angvelDot);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>}</div>
+</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="foldopen" id="foldopen00195" data-start="{" data-end="}">
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#af6786e78476b9a4415106428b2c00fa1">  195</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;<a class="code hl_function" href="classast_1_1AccelerationRotation.html#af6786e78476b9a4415106428b2c00fa1">AccelerationRotation::compose</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;next)</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>{</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    *<span class="keyword">this</span> = this-&gt;<a class="code hl_function" href="classast_1_1AccelerationRotation.html#a80cd815f4a25d27506aa83efdb1dd504">composed</a>(next);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>}</div>
+</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="}">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a329d4fc7dc48e8e5ce86a9753dd92e71">  201</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#a329d4fc7dc48e8e5ce86a9753dd92e71">AccelerationRotation::operator*</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;next)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#a80cd815f4a25d27506aa83efdb1dd504">composed</a>(next);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>}</div>
+</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="foldopen" id="foldopen00206" data-start="{" data-end="}">
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a0f74e79b66fa9b8da16c4c8a1e940b2f">  206</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;<a class="code hl_function" href="classast_1_1AccelerationRotation.html#a0f74e79b66fa9b8da16c4c8a1e940b2f">AccelerationRotation::operator*=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;next)</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>{</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#af6786e78476b9a4415106428b2c00fa1">compose</a>(next);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>}</div>
+</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="foldopen" id="foldopen00211" data-start="{" data-end="}">
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a611f0e4e519ebcddcdd1f0a41a60fa39">  211</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#a611f0e4e519ebcddcdd1f0a41a60fa39">AccelerationRotation::getInverse</a>(<a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;inversed)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="comment">// 先取出matrix_，允许inversed与*this为同一对象</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <a class="code hl_class" href="classast_1_1MatrixMN.html">Matrix3d</a> mat = this-&gt;matrix_;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    Vector3d angvel = this-&gt;<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a>;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    Vector3d angvelDot = this-&gt;<a class="code hl_variable" href="classast_1_1AccelerationRotation.html#ac2897d001770847100e4d5a400304d67">angvelDot_</a>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    inversed.matrix_ = mat.transpose();</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    inversed.<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a> = -(mat * angvel);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    inversed.<a class="code hl_variable" href="classast_1_1AccelerationRotation.html#ac2897d001770847100e4d5a400304d67">angvelDot_</a> = -(mat * angvelDot);   <span class="comment">// ω×ω = 0，故角加速度没有附加项</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>}</div>
+</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#afdd0e1a785406a6b9098f8062502aeb1">  222</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#afdd0e1a785406a6b9098f8062502aeb1">AccelerationRotation::inverse</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <a class="code hl_class" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> retval;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    this-&gt;<a class="code hl_function" href="classast_1_1AccelerationRotation.html#a611f0e4e519ebcddcdd1f0a41a60fa39">getInverse</a>(retval);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>}</div>
+</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="foldopen" id="foldopen00229" data-start="{" data-end="}">
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a320d2ffe054169e7f924efad64c4e680">  229</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#a320d2ffe054169e7f924efad64c4e680">AccelerationRotation::transformVecVelAcc</a>(</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keyword">const</span> Vector3d &amp;position, <span class="keyword">const</span> Vector3d &amp;velocity, <span class="keyword">const</span> Vector3d &amp;acceleration,</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    Vector3d &amp;positionOut, Vector3d &amp;velocityOut, Vector3d &amp;accelerationOut)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="comment">// 注意：这里要先计算accelerationOut，再计算velocityOut，最后计算positionOut，</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="comment">//       防止入参与出参地址相同时值被覆盖</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    accelerationOut = this-&gt;matrix_ * (acceleration</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        - this-&gt;<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a>.cross(velocity) * 2.0</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        - this-&gt;<a class="code hl_variable" href="classast_1_1AccelerationRotation.html#ac2897d001770847100e4d5a400304d67">angvelDot_</a>.cross(position)</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        + this-&gt;angvel_.cross(this-&gt;angvel_.cross(position)));</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    velocityOut = this-&gt;matrix_ * (velocity - this-&gt;<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a>.cross(position));</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    positionOut = this-&gt;matrix_ * position;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>}</div>
+</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="foldopen" id="foldopen00243" data-start="{" data-end="}">
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a8d97e573597fb60144500ff2207c6dc4">  243</a></span>A_ALWAYS_INLINE <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1AccelerationRotation.html#a8d97e573597fb60144500ff2207c6dc4">AccelerationRotation::transformVecVelAccInv</a>(</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keyword">const</span> Vector3d &amp;position, <span class="keyword">const</span> Vector3d &amp;velocity, <span class="keyword">const</span> Vector3d &amp;acceleration,</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    Vector3d &amp;positionOut, Vector3d &amp;velocityOut, Vector3d &amp;accelerationOut)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="comment">// 注意：这里要先计算positionOut，再计算velocityOut，最后计算accelerationOut</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    positionOut = position * this-&gt;matrix_;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    velocityOut = velocity * this-&gt;matrix_ + this-&gt;<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a>.cross(positionOut);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    accelerationOut = acceleration * this-&gt;matrix_</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        + this-&gt;<a class="code hl_variable" href="classast_1_1AccelerationRotation.html#ac2897d001770847100e4d5a400304d67">angvelDot_</a>.cross(positionOut)</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        + this-&gt;<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a>.cross(velocityOut) * 2.0</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        - this-&gt;<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a>.cross(this-&gt;<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a>.cross(positionOut));</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>}</div>
+</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aKinematicRotation_8hpp_html"><div class="ttname"><a href="KinematicRotation_8hpp.html">KinematicRotation.hpp</a></div><div class="ttdoc">~</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html"><div class="ttname"><a href="classast_1_1AccelerationRotation.html">ast::AccelerationRotation</a></div><div class="ttdoc">加速度(二阶运动学)坐标系旋转</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:36</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_a047c82d22c52daa0d829bfda3e6a7dd4"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#a047c82d22c52daa0d829bfda3e6a7dd4">ast::AccelerationRotation::setRotationRateDot</a></div><div class="ttdeci">void setRotationRateDot(const Vector3d &amp;angvelDot)</div><div class="ttdoc">设置坐标系旋转角加速度</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:80</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_a0f74e79b66fa9b8da16c4c8a1e940b2f"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#a0f74e79b66fa9b8da16c4c8a1e940b2f">ast::AccelerationRotation::operator*=</a></div><div class="ttdeci">AccelerationRotation &amp; operator*=(const AccelerationRotation &amp;next)</div><div class="ttdoc">组合下一个坐标系旋转</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:206</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_a320d2ffe054169e7f924efad64c4e680"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#a320d2ffe054169e7f924efad64c4e680">ast::AccelerationRotation::transformVecVelAcc</a></div><div class="ttdeci">void transformVecVelAcc(const Vector3d &amp;position, const Vector3d &amp;velocity, const Vector3d &amp;acceleration, Vector3d &amp;positionOut, Vector3d &amp;velocityOut, Vector3d &amp;accelerationOut) const</div><div class="ttdoc">变换位置、速度和加速度</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:229</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_a329d4fc7dc48e8e5ce86a9753dd92e71"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#a329d4fc7dc48e8e5ce86a9753dd92e71">ast::AccelerationRotation::operator*</a></div><div class="ttdeci">AccelerationRotation operator*(const AccelerationRotation &amp;next) const</div><div class="ttdoc">组合下一个坐标系旋转</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:201</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_a3adc568f5476181d90da898f11d860cb"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#a3adc568f5476181d90da898f11d860cb">ast::AccelerationRotation::getKinematicRotation</a></div><div class="ttdeci">KinematicRotation getKinematicRotation() const</div><div class="ttdoc">降阶取出其中的一阶部分</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:85</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_a611f0e4e519ebcddcdd1f0a41a60fa39"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#a611f0e4e519ebcddcdd1f0a41a60fa39">ast::AccelerationRotation::getInverse</a></div><div class="ttdeci">void getInverse(AccelerationRotation &amp;inversed) const</div><div class="ttdoc">获取逆旋转</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:211</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_a80cd815f4a25d27506aa83efdb1dd504"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#a80cd815f4a25d27506aa83efdb1dd504">ast::AccelerationRotation::composed</a></div><div class="ttdeci">AccelerationRotation composed(const AccelerationRotation &amp;next) const</div><div class="ttdoc">组合下一个坐标系旋转</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:179</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_a8d97e573597fb60144500ff2207c6dc4"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#a8d97e573597fb60144500ff2207c6dc4">ast::AccelerationRotation::transformVecVelAccInv</a></div><div class="ttdeci">void transformVecVelAccInv(const Vector3d &amp;position, const Vector3d &amp;velocity, const Vector3d &amp;acceleration, Vector3d &amp;positionOut, Vector3d &amp;velocityOut, Vector3d &amp;accelerationOut) const</div><div class="ttdoc">变换位置、速度和加速度（逆变换）</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:243</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_aaa44af439231a35d0a45a7ee8d76ca18"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#aaa44af439231a35d0a45a7ee8d76ca18">ast::AccelerationRotation::getRotationRateDot</a></div><div class="ttdeci">const Vector3d &amp; getRotationRateDot() const</div><div class="ttdoc">获取坐标系旋转角加速度</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:75</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_ab785d8ac819fb787a72d0c33eeee15cc"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#ab785d8ac819fb787a72d0c33eeee15cc">ast::AccelerationRotation::AccelerationRotation</a></div><div class="ttdeci">AccelerationRotation()=default</div><div class="ttdoc">加速度旋转默认构造函数</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_ac2897d001770847100e4d5a400304d67"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#ac2897d001770847100e4d5a400304d67">ast::AccelerationRotation::angvelDot_</a></div><div class="ttdeci">Vector3d angvelDot_</div><div class="ttdoc">角加速度</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:153</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_af6786e78476b9a4415106428b2c00fa1"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#af6786e78476b9a4415106428b2c00fa1">ast::AccelerationRotation::compose</a></div><div class="ttdeci">AccelerationRotation &amp; compose(const AccelerationRotation &amp;next)</div><div class="ttdoc">组合下一个坐标系旋转</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:195</div></div>
+<div class="ttc" id="aclassast_1_1AccelerationRotation_html_afdd0e1a785406a6b9098f8062502aeb1"><div class="ttname"><a href="classast_1_1AccelerationRotation.html#afdd0e1a785406a6b9098f8062502aeb1">ast::AccelerationRotation::inverse</a></div><div class="ttdeci">AccelerationRotation inverse() const</div><div class="ttdoc">获取逆旋转</div><div class="ttdef"><b>定义</b> AccelerationRotation.hpp:222</div></div>
+<div class="ttc" id="aclassast_1_1KinematicRotation_html"><div class="ttname"><a href="classast_1_1KinematicRotation.html">ast::KinematicRotation</a></div><div class="ttdoc">运动学坐标系旋转</div><div class="ttdef"><b>定义</b> KinematicRotation.hpp:36</div></div>
+<div class="ttc" id="aclassast_1_1KinematicRotation_html_a3d042cb5e63ad1c82c104987dedff523"><div class="ttname"><a href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">ast::KinematicRotation::angvel_</a></div><div class="ttdeci">Vector3d angvel_</div><div class="ttdoc">角速度</div><div class="ttdef"><b>定义</b> KinematicRotation.hpp:130</div></div>
+<div class="ttc" id="aclassast_1_1MatrixMN_html"><div class="ttname"><a href="classast_1_1MatrixMN.html">ast::MatrixMN&lt; double, 3, 3 &gt;</a></div></div>
+<div class="ttc" id="aclassast_1_1Rotation_html"><div class="ttname"><a href="classast_1_1Rotation.html">ast::Rotation</a></div><div class="ttdoc">坐标系旋转类</div><div class="ttdef"><b>定义</b> Rotation.hpp:39</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ad1bdc808ef321ffd150448cfcd7c996.html">AstMath</a></li><li class="navelem"><a class="el" href="dir_bab1528425b983a6e5adf2b6c9a58186.html">Transform</a></li><li class="navelem"><a class="el" href="AccelerationRotation_8hpp.html">AccelerationRotation.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

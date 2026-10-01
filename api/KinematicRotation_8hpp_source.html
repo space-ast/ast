@@ -152,15 +152,16 @@ $(function(){initNavTree('KinematicRotation_8hpp_source.html',''); initResizable
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a> inverse() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> transformVectorVelocity(<span class="keyword">const</span> Vector3d&amp; vector, <span class="keyword">const</span> Vector3d&amp; velocity, Vector3d&amp; vectorOut, Vector3d&amp; velocityOut) <span class="keyword">const</span>;</div>
+<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a950848ca0984c4b5cfacf3614999a584">  115</a></span>    <span class="keywordtype">void</span> transformVectorVelocity(<span class="keyword">const</span> Vector3d&amp; vector, <span class="keyword">const</span> Vector3d&amp; velocity, Vector3d&amp; vectorOut, Vector3d&amp; velocityOut) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_class" href="classast_1_1CartState.html">CartState</a> transformCartState(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1CartState.html">CartState</a>&amp; state) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span> transformVectorVelocityInv(<span class="keyword">const</span> Vector3d&amp; vector, <span class="keyword">const</span> Vector3d&amp; velocity, Vector3d&amp; vectorOut, Vector3d&amp; velocityOut) <span class="keyword">const</span>;</div>
+<div class="foldopen" id="foldopen00128" data-start="{" data-end="}">
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classast_1_1AccelerationRotation.html#a710d49d2e5b51f6433181ecd97a7187a">  128</a></span>    <span class="keywordtype">void</span> transformVectorVelocityInv(<span class="keyword">const</span> Vector3d&amp; vector, <span class="keyword">const</span> Vector3d&amp; velocity, Vector3d&amp; vectorOut, Vector3d&amp; velocityOut) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">  130</a></span>    Vector3d angvel_{};       </div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>};</div>
-</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
 <div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classast_1_1KinematicRotation.html#ace8ecd9d480ea1ed50c245bc69c06192">  133</a></span>A_ALWAYS_INLINE <a class="code hl_class" href="classast_1_1KinematicRotation.html">KinematicRotation</a> KinematicRotation::Identity()</div>
@@ -257,8 +258,11 @@ $(function(){initNavTree('KinematicRotation_8hpp_source.html',''); initResizable
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    velocityOut = velocity* this-&gt;matrix_ + this-&gt;<a class="code hl_variable" href="classast_1_1KinematicRotation.html#a3d042cb5e63ad1c82c104987dedff523">angvel_</a>.cross(vectorOut);</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>}</div>
 </div>
+</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>AST_NAMESPACE_END</div>
+</div>
+</div>
 <div class="ttc" id="aRotation_8hpp_html"><div class="ttname"><a href="Rotation_8hpp.html">Rotation.hpp</a></div><div class="ttdoc">~</div></div>
 <div class="ttc" id="aclassast_1_1CartState_html"><div class="ttname"><a href="classast_1_1CartState.html">ast::CartState</a></div><div class="ttdoc">直角坐标</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:53</div></div>
 <div class="ttc" id="aclassast_1_1CartState_html_a9d4e1b44868926a5bbaba631d580d113"><div class="ttname"><a href="classast_1_1CartState.html#a9d4e1b44868926a5bbaba631d580d113">ast::CartState::pos</a></div><div class="ttdeci">const Vector3d &amp; pos() const</div><div class="ttdoc">获取位置</div><div class="ttdef"><b>定义</b> OrbitElement.hpp:66</div></div>

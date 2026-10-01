@@ -1,5 +1,11 @@
 var NAVTREEINDEX11 =
 {
+"PropertyDouble_8hpp_source.html":[4,0,0,27,8,0,12],
+"PropertyInt_8cpp.html":[4,0,0,27,8,0,13],
+"PropertyInt_8hpp.html":[4,0,0,27,8,0,14],
+"PropertyInt_8hpp_source.html":[4,0,0,27,8,0,14],
+"PropertyNamedVector_8hpp.html":[4,0,0,27,8,0,15],
+"PropertyNamedVector_8hpp_source.html":[4,0,0,27,8,0,15],
 "PropertyNoop_8cpp.html":[4,0,0,27,8,0,16],
 "PropertyNoop_8hpp.html":[4,0,0,27,8,0,17],
 "PropertyNoop_8hpp_source.html":[4,0,0,27,8,0,17],
@@ -158,9 +164,9 @@ var NAVTREEINDEX11 =
 "RotationElement_8cpp.html":[4,0,0,6,15,1,9],
 "RotationElement_8hpp.html":[4,0,0,6,15,1,10],
 "RotationElement_8hpp_source.html":[4,0,0,6,15,1,10],
-"Rotation_8cpp.html":[4,0,0,11,7,4],
-"Rotation_8hpp.html":[4,0,0,11,7,5],
-"Rotation_8hpp_source.html":[4,0,0,11,7,5],
+"Rotation_8cpp.html":[4,0,0,11,7,8],
+"Rotation_8hpp.html":[4,0,0,11,7,9],
+"Rotation_8hpp_source.html":[4,0,0,11,7,9],
 "RotationalData_8cpp.html":[4,0,0,6,15,1,7],
 "RotationalData_8hpp.html":[4,0,0,6,15,1,8],
 "RotationalData_8hpp_source.html":[4,0,0,6,15,1,8],
@@ -243,11 +249,5 @@ var NAVTREEINDEX11 =
 "STKEphemerisFileWriter_8cpp.html":[4,0,0,6,8,1,4],
 "STKEphemerisFileWriter_8cpp.html#a2b89cd79b980cf5cc1412bff9d822fef":[4,0,0,6,8,1,4,0],
 "STKEphemerisFileWriter_8hpp.html":[4,0,0,6,8,1,5],
-"STKEphemerisFileWriter_8hpp.html#a2b89cd79b980cf5cc1412bff9d822fef":[4,0,0,6,8,1,5,1],
-"STKEphemerisFileWriter_8hpp_source.html":[4,0,0,6,8,1,5],
-"SaVOImpl_8hpp.html":[4,0,0,5,18],
-"SaVOImpl_8hpp_source.html":[4,0,0,5,18],
-"SaVO_8hpp.html":[4,0,0,5,17],
-"SaVO_8hpp_source.html":[4,0,0,5,17],
-"SatelliteDatabaseEntry_8cpp.html":[4,0,0,6,9,4]
+"STKEphemerisFileWriter_8hpp.html#a2b89cd79b980cf5cc1412bff9d822fef":[4,0,0,6,8,1,5,1]
 };

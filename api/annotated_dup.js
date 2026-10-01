@@ -76,6 +76,8 @@ var annotated_dup =
         ] ],
         [ "Test", "classast_1_1testing_1_1Test.html", null ]
       ] ],
+      [ "AccelerationRotation", "classast_1_1AccelerationRotation.html", "classast_1_1AccelerationRotation" ],
+      [ "AccelerationTransform", "classast_1_1AccelerationTransform.html", "classast_1_1AccelerationTransform" ],
       [ "AccessConstraint", "classast_1_1AccessConstraint.html", "classast_1_1AccessConstraint" ],
       [ "AccessEvaluator", "classast_1_1AccessEvaluator.html", "classast_1_1AccessEvaluator" ],
       [ "AccessStepper", "classast_1_1AccessStepper.html", "classast_1_1AccessStepper" ],

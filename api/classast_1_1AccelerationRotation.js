@@ -1,0 +1,25 @@
+var classast_1_1AccelerationRotation =
+[
+    [ "AccelerationRotation", "classast_1_1AccelerationRotation.html#ab785d8ac819fb787a72d0c33eeee15cc", null ],
+    [ "AccelerationRotation", "classast_1_1AccelerationRotation.html#aa7af4b54de4a5eeea781732c2d2be106", null ],
+    [ "AccelerationRotation", "classast_1_1AccelerationRotation.html#aac182a36c019599654c2cf2de5fa162e", null ],
+    [ "AccelerationRotation", "classast_1_1AccelerationRotation.html#a1e0d9ca9405f8835f4591dfff63c4474", null ],
+    [ "compose", "classast_1_1AccelerationRotation.html#af6786e78476b9a4415106428b2c00fa1", null ],
+    [ "composed", "classast_1_1AccelerationRotation.html#a80cd815f4a25d27506aa83efdb1dd504", null ],
+    [ "getInverse", "classast_1_1AccelerationRotation.html#a611f0e4e519ebcddcdd1f0a41a60fa39", null ],
+    [ "getKinematicRotation", "classast_1_1AccelerationRotation.html#a3adc568f5476181d90da898f11d860cb", null ],
+    [ "getRotation", "classast_1_1AccelerationRotation.html#a82779c2bb75c29307caf234dd954649d", null ],
+    [ "getRotationRate", "classast_1_1AccelerationRotation.html#a5faeeda5e7a1db19b0b1cb74f9aea923", null ],
+    [ "getRotationRateDot", "classast_1_1AccelerationRotation.html#aaa44af439231a35d0a45a7ee8d76ca18", null ],
+    [ "inverse", "classast_1_1AccelerationRotation.html#afdd0e1a785406a6b9098f8062502aeb1", null ],
+    [ "operator*", "classast_1_1AccelerationRotation.html#a329d4fc7dc48e8e5ce86a9753dd92e71", null ],
+    [ "operator*=", "classast_1_1AccelerationRotation.html#a0f74e79b66fa9b8da16c4c8a1e940b2f", null ],
+    [ "setRotation", "classast_1_1AccelerationRotation.html#ad88a6774ff5fa851eabf24fda1527b3d", null ],
+    [ "setRotationRate", "classast_1_1AccelerationRotation.html#a254e9380af5fc710dea75053b6b819ce", null ],
+    [ "setRotationRateDot", "classast_1_1AccelerationRotation.html#a047c82d22c52daa0d829bfda3e6a7dd4", null ],
+    [ "transformVectorVelocity", "classast_1_1AccelerationRotation.html#a950848ca0984c4b5cfacf3614999a584", null ],
+    [ "transformVectorVelocityInv", "classast_1_1AccelerationRotation.html#a710d49d2e5b51f6433181ecd97a7187a", null ],
+    [ "transformVecVelAcc", "classast_1_1AccelerationRotation.html#a320d2ffe054169e7f924efad64c4e680", null ],
+    [ "transformVecVelAccInv", "classast_1_1AccelerationRotation.html#a8d97e573597fb60144500ff2207c6dc4", null ],
+    [ "angvelDot_", "classast_1_1AccelerationRotation.html#ac2897d001770847100e4d5a400304d67", null ]
+];
