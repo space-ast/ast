@@ -551,6 +551,7 @@ class Transform;             ///< 变换
 class KinematicRotation;     ///< 动力学旋转
 class KinematicTransform;    ///< 动力学变换
 class AccelerationRotation;  ///< 加速度旋转
+class AccelerationTransform; ///< 加速度变换
 
 class Frame;                 ///< 坐标系
 class Axes;                  ///< 坐标轴

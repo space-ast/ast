@@ -559,6 +559,7 @@
 %include "../AstMath/Transform/AccelerationRotation.hpp"
 %include "../AstMath/Transform/KinematicTransform.hpp"
 %include "../AstCore/Coordinate/Axes/BuiltinAxes.hpp"
+%include "../AstMath/Transform/AccelerationTransform.hpp"
 %include "../AstCore/Coordinate/Coordinate.hpp"
 %include "../AstCore/Coordinate/FrameTransform/FrameTransform.hpp"
 %include "../AstCore/SolarSystem/Orientation/BodyOrientation.hpp"
