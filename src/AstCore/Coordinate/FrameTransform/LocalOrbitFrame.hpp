@@ -61,6 +61,7 @@ AST_CORE_API errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vect
 /// @param     posInFrame 位置向量
 /// @param     velInFrame 速度向量
 /// @param     rotation 运动学旋转变换 @see KinematicRotation
+/// @note      角速度只由位置和速度确定，忽略由加速度决定的轨道面变化项，详见实现说明
 AST_CORE_API errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, KinematicRotation& rotation);
 
 
