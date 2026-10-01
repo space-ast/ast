@@ -116,18 +116,17 @@ $(function(){initNavTree('classast_1_1AttitudeProfileBase.html',''); initResizab
  <div class="center">
   <img src="classast_1_1AttitudeProfileBase.png" usemap="#ast::AttitudeProfileBase_map" alt=""/>
   <map id="ast::AttitudeProfileBase_map" name="ast::AttitudeProfileBase_map">
-<area href="classast_1_1Axes.html" title="轴系抽象基类" alt="ast::Axes" shape="rect" coords="680,168,840,192"/>
-<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="680,112,840,136"/>
-<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="680,56,840,80"/>
-<area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="680,0,840,24"/>
-<area href="classast_1_1AttitudeAlignConstrain.html" title="对齐/约束姿态剖面 (Aligned and Constrained)" alt="ast::AttitudeAlignConstrain" shape="rect" coords="255,280,415,304"/>
-<area href="classast_1_1AttitudeFixed.html" title="固定姿态剖面 (Fixed in Axes)" alt="ast::AttitudeFixed" shape="rect" coords="680,280,840,304"/>
-<area href="classast_1_1AttitudeSpinning.html" title="自旋姿态剖面 (Spinning)" alt="ast::AttitudeSpinning" shape="rect" coords="850,280,1010,304"/>
+<area href="classast_1_1Axes.html" title="轴系抽象基类" alt="ast::Axes" shape="rect" coords="510,168,670,192"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="510,112,670,136"/>
+<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="510,56,670,80"/>
+<area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="510,0,670,24"/>
+<area href="classast_1_1AttitudeAlignConstrain.html" title="对齐/约束姿态剖面 (Aligned and Constrained)" alt="ast::AttitudeAlignConstrain" shape="rect" coords="170,280,330,304"/>
+<area href="classast_1_1AttitudeFixed.html" title="固定姿态剖面 (Fixed in Axes)" alt="ast::AttitudeFixed" shape="rect" coords="510,280,670,304"/>
+<area href="classast_1_1AttitudeSpinning.html" title="自旋姿态剖面 (Spinning)" alt="ast::AttitudeSpinning" shape="rect" coords="680,280,840,304"/>
 <area href="classast_1_1AttitudeAircraftZDown.html" title="对地指向 + ECF 速度约束的机体 Z 朝下姿态" alt="ast::AttitudeAircraftZDown" shape="rect" coords="0,336,160,360"/>
-<area href="classast_1_1AttitudeECFVVLH.html" title="对地指向 + ECF 速度约束姿态" alt="ast::AttitudeECFVVLH" shape="rect" coords="170,336,330,360"/>
-<area href="classast_1_1AttitudeECFVelRadial.html" title="ECF 速度对齐 + 径向约束姿态" alt="ast::AttitudeECFVelRadial" shape="rect" coords="340,336,500,360"/>
-<area href="classast_1_1AttitudeNadirNormal.html" title="对地指向 + 轨道法向约束姿态" alt="ast::AttitudeNadirNormal" shape="rect" coords="510,336,670,360"/>
-<area href="classast_1_1AttitudeYPRFixedECI.html" title="偏航-俯仰-滚转固定姿态剖面 (YPRFixedECI)" alt="ast::AttitudeYPRFixedECI" shape="rect" coords="680,336,840,360"/>
+<area href="classast_1_1AttitudeECFVelRadial.html" title="ECF 速度对齐 + 径向约束姿态" alt="ast::AttitudeECFVelRadial" shape="rect" coords="170,336,330,360"/>
+<area href="classast_1_1AttitudeNadirNormal.html" title="对地指向 + 轨道法向约束姿态" alt="ast::AttitudeNadirNormal" shape="rect" coords="340,336,500,360"/>
+<area href="classast_1_1AttitudeYPRFixedECI.html" title="偏航-俯仰-滚转固定姿态剖面 (YPRFixedECI)" alt="ast::AttitudeYPRFixedECI" shape="rect" coords="510,336,670,360"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -424,7 +423,7 @@ static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class
 <p>该剖面的自然参考坐标系 </p>
 <p>当用户没有显式调用 setFrame 时使用。注意该函数是惰性求值的， 不可以在构造函数中调用(可能早于 aInitialize)。 </p><dl class="section return"><dt>返回</dt><dd>参考坐标系指针 </dd></dl>
 
-<p>被 <a class="el" href="classast_1_1AttitudeAircraftZDown.html#a9dc95d42cc5872098eb7926529810487">ast::AttitudeAircraftZDown</a>, <a class="el" href="classast_1_1AttitudeECFVelRadial.html#a21b6273db8391f5284c15e644c37fd7a">ast::AttitudeECFVelRadial</a>, <a class="el" href="classast_1_1AttitudeECFVVLH.html#ad9b5ddf08f7e8b4e0ef7fd8501562f81">ast::AttitudeECFVVLH</a>, <a class="el" href="classast_1_1AttitudeFixed.html#ab8635cf6f99ff390e220cb200de8c284">ast::AttitudeFixed</a>, <a class="el" href="classast_1_1AttitudeNadirNormal.html#ab08d99312250cecda7c4507305af7271">ast::AttitudeNadirNormal</a> , 以及 <a class="el" href="classast_1_1AttitudeSpinning.html#a74433c07b58f87c5fbc55ce94650a1c7">ast::AttitudeSpinning</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1AttitudeAircraftZDown.html#a9dc95d42cc5872098eb7926529810487">ast::AttitudeAircraftZDown</a>, <a class="el" href="classast_1_1AttitudeECFVelRadial.html#a21b6273db8391f5284c15e644c37fd7a">ast::AttitudeECFVelRadial</a>, <a class="el" href="classast_1_1AttitudeFixed.html#ab8635cf6f99ff390e220cb200de8c284">ast::AttitudeFixed</a>, <a class="el" href="classast_1_1AttitudeNadirNormal.html#ab08d99312250cecda7c4507305af7271">ast::AttitudeNadirNormal</a> , 以及 <a class="el" href="classast_1_1AttitudeSpinning.html#a74433c07b58f87c5fbc55ce94650a1c7">ast::AttitudeSpinning</a> 重载.</p>
 
 </div>
 </div>

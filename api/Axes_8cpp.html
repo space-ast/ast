@@ -108,6 +108,7 @@ $(function(){initNavTree('Axes_8cpp.html',''); initResizable(true); });
 <code>#include &quot;<a class="el" href="Frame_8hpp_source.html">Frame.hpp</a>&quot;</code><br />
 <code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
 <code>#include &quot;AstMath/Rotation.hpp&quot;</code><br />
+<code>#include &quot;AstMath/AttitudeUtil.hpp&quot;</code><br />
 <code>#include &quot;AstMath/KinematicRotation.hpp&quot;</code><br />
 <code>#include &quot;AstMath/KinematicTransform.hpp&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
@@ -157,6 +158,8 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aAxesTransform
 <tr class="memitem:ga8df2c7bf8191ebe4fd5f05e4a36ef6a1" id="r_ga8df2c7bf8191ebe4fd5f05e4a36ef6a1"><td class="memItemLeft" align="right" valign="top">
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aAxesTransform</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, <a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
 <tr class="separator:ga8df2c7bf8191ebe4fd5f05e4a36ef6a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3774144068ba83b212ebc7719e89c964" id="r_ga3774144068ba83b212ebc7719e89c964"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#ga3774144068ba83b212ebc7719e89c964">ast::aAxesRotationRateByDifference</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;axes, <a class="el" href="classast_1_1Axes.html">Axes</a> &amp;referenceAxes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;angvel, double <a class="el" href="namespaceast_1_1units.html#a41b2cc417965220fe0097097e15b1f5c">h</a>=0.05)</td></tr>
+<tr class="separator:ga3774144068ba83b212ebc7719e89c964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

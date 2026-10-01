@@ -1,5 +1,6 @@
 var Axes_8cpp =
 [
+    [ "aAxesRotationRateByDifference", "Axes_8cpp.html#ga3774144068ba83b212ebc7719e89c964", null ],
     [ "aAxesTransform", "Axes_8cpp.html#gac2accfba19038de8be5fca7846a1e0be", null ],
     [ "aAxesTransform", "Axes_8cpp.html#gabaa8ef7dc971d1169a8873690efee03d", null ],
     [ "aAxesTransform", "Axes_8cpp.html#gaa1df848eb238deb89077b2d4de987ad5", null ],

@@ -107,7 +107,7 @@ var annotated_dup =
       [ "AttitudeAlignConstrain", "classast_1_1AttitudeAlignConstrain.html", "classast_1_1AttitudeAlignConstrain" ],
       [ "AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
       [ "AttitudeECFVelRadial", "classast_1_1AttitudeECFVelRadial.html", "classast_1_1AttitudeECFVelRadial" ],
-      [ "AttitudeECFVVLH", "classast_1_1AttitudeECFVVLH.html", "classast_1_1AttitudeECFVVLH" ],
+      [ "AttitudeECFVVLH", "classast_1_1AttitudeECFVVLH.html", null ],
       [ "AttitudeECIVVLH", "classast_1_1AttitudeECIVVLH.html", null ],
       [ "AttitudeFigureOfMerit", "classast_1_1AttitudeFigureOfMerit.html", null ],
       [ "AttitudeFixed", "classast_1_1AttitudeFixed.html", "classast_1_1AttitudeFixed" ],

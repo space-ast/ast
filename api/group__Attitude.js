@@ -30,9 +30,7 @@ var group__Attitude =
     [ "ast::AttitudeECFVelRadial", "classast_1_1AttitudeECFVelRadial.html", [
       [ "defaultFrame", "classast_1_1AttitudeECFVelRadial.html#a21b6273db8391f5284c15e644c37fd7a", null ]
     ] ],
-    [ "ast::AttitudeECFVVLH", "classast_1_1AttitudeECFVVLH.html", [
-      [ "defaultFrame", "classast_1_1AttitudeECFVVLH.html#ad9b5ddf08f7e8b4e0ef7fd8501562f81", null ]
-    ] ],
+    [ "ast::AttitudeECFVVLH", "classast_1_1AttitudeECFVVLH.html", null ],
     [ "ast::AttitudeECIVVLH", "classast_1_1AttitudeECIVVLH.html", null ],
     [ "ast::AttitudeFixed", "classast_1_1AttitudeFixed.html", [
       [ "defaultFrame", "classast_1_1AttitudeFixed.html#ab8635cf6f99ff390e220cb200de8c284", null ],
@@ -182,6 +180,8 @@ var group__Attitude =
     [ "ast::aMatrixToEuler", "group__Attitude.html#gaf8884f3b155e95ce4bac9fe5b88b8549", null ],
     [ "ast::aMatrixToQuat", "group__Attitude.html#gadda4b4aa71248f9668c1437010f2a540", null ],
     [ "ast::aMatrixToQuat", "group__Attitude.html#gad654a224cee5d31ca96d2b13c9a95af8", null ],
+    [ "ast::aQuatAverageAngularVelocity", "group__Attitude.html#ga7edc0ead83647935054f424e92ad9482", null ],
+    [ "ast::aQuatAverageAngularVelocity", "group__Attitude.html#ga7e3a49281b72e4afdef1fc2f693c4ee4", null ],
     [ "ast::aQuatProduct", "group__Attitude.html#ga63c9448914552d7999347780b3a9886c", null ],
     [ "ast::aQuatToAngleAxis", "group__Attitude.html#ga0037f5d89e042a18c9988df2ffaa89b3", null ],
     [ "ast::aQuatToEuler", "group__Attitude.html#ga14f4316ad33cae6d610c01bae82ce343", null ],

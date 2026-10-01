@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"SatelliteDatabaseEntry_8hpp.html":[4,0,0,6,9,5],
 "SatelliteDatabaseEntry_8hpp_source.html":[4,0,0,6,9,5],
 "SatelliteDatabaseQuery_8cpp.html":[4,0,0,6,9,6],
 "SatelliteDatabaseQuery_8hpp.html":[4,0,0,6,9,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcInTrackRate_8cpp.html":[4,0,0,6,12,1,0,15,70],
 "ScStateCalcInTrackRate_8hpp.html":[4,0,0,6,12,1,0,15,71],
 "ScStateCalcInTrackRate_8hpp_source.html":[4,0,0,6,12,1,0,15,71],
-"ScStateCalcInTrack_8cpp.html":[4,0,0,6,12,1,0,15,68],
-"ScStateCalcInTrack_8hpp.html":[4,0,0,6,12,1,0,15,69]
+"ScStateCalcInTrack_8cpp.html":[4,0,0,6,12,1,0,15,68]
 };

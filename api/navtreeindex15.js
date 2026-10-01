@@ -1,5 +1,6 @@
 var NAVTREEINDEX15 =
 {
+"SimAPI_8hpp_source.html":[4,0,0,18,6],
 "SimEngine_8cpp.html":[4,0,0,6,13,1,14],
 "SimEngine_8hpp.html":[4,0,0,6,13,1,15],
 "SimEngine_8hpp_source.html":[4,0,0,6,13,1,15],
@@ -92,8 +93,8 @@ var NAVTREEINDEX15 =
 "Span_8cpp.html":[4,0,0,27,2,6],
 "Span_8hpp.html":[4,0,0,27,2,7],
 "Span_8hpp_source.html":[4,0,0,27,2,7],
-"Sparse_8hpp.html":[4,0,0,11,0,3],
-"Sparse_8hpp_source.html":[4,0,0,11,0,3],
+"Sparse_8hpp.html":[4,0,0,11,0,4],
+"Sparse_8hpp_source.html":[4,0,0,11,0,4],
 "SpatialCalcAltitude_8cpp.html":[4,0,0,6,11,3,3],
 "SpatialCalcAltitude_8hpp.html":[4,0,0,6,11,3,4],
 "SpatialCalcAltitude_8hpp_source.html":[4,0,0,6,11,3,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX15 =
 "StateKeplerian_8hpp.html#aebc46f63d4ca7b01bd3e9718282bc9b3":[4,0,0,6,12,6,9,1],
 "StateKeplerian_8hpp.html#aebc46f63d4ca7b01bd3e9718282bc9b3a05ce665c049e975f4102e98ba3b29ba3":[4,0,0,6,12,6,9,1,1],
 "StateKeplerian_8hpp.html#aebc46f63d4ca7b01bd3e9718282bc9b3a3776991e2d9ed4127ed93a2522ad9fe7":[4,0,0,6,12,6,9,1,0],
-"StateKeplerian_8hpp_source.html":[4,0,0,6,12,6,9],
-"StateMapper_8cpp.html":[4,0,0,6,13,1,21]
+"StateKeplerian_8hpp_source.html":[4,0,0,6,12,6,9]
 };

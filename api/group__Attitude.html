@@ -302,6 +302,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aEuler323ToMatri
 <tr class="separator:ga8d0528ae4c9ba6aad4c54d2a6e7f7839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa01df3e782b81bb065d882b415bcf828" id="r_gaa01df3e782b81bb065d882b415bcf828"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa01df3e782b81bb065d882b415bcf828">ast::aMatrixToAngleAxis</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;mtx, <a class="el" href="classast_1_1AngleAxis.html">AngleAxis</a> &amp;aa)</td></tr>
 <tr class="separator:gaa01df3e782b81bb065d882b415bcf828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e3a49281b72e4afdef1fc2f693c4ee4" id="r_ga7e3a49281b72e4afdef1fc2f693c4ee4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7e3a49281b72e4afdef1fc2f693c4ee4">ast::aQuatAverageAngularVelocity</a> (const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;q1, const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;q2, double dt, Vector3d &amp;angvel)</td></tr>
+<tr class="separator:ga7e3a49281b72e4afdef1fc2f693c4ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7edc0ead83647935054f424e92ad9482" id="r_ga7edc0ead83647935054f424e92ad9482"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7edc0ead83647935054f424e92ad9482">ast::aQuatAverageAngularVelocity</a> (const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;q1, const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;q2, double dt)</td></tr>
+<tr class="separator:ga7edc0ead83647935054f424e92ad9482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4a135cdfdf73a1afe59e44f38671c88b" id="r_ga4a135cdfdf73a1afe59e44f38671c88b"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4a135cdfdf73a1afe59e44f38671c88b">ast::aAlignConstrainTransform</a> (const Vector3d &amp;axesVector1, const Vector3d &amp;refVector1, const Vector3d &amp;axesVector2, const Vector3d &amp;refVector2, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:ga4a135cdfdf73a1afe59e44f38671c88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadf5946e9d55a3ba84dd0e602b5d296ea" id="r_gadf5946e9d55a3ba84dd0e602b5d296ea"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadf5946e9d55a3ba84dd0e602b5d296ea">ast::aAlignConstrainTransform</a> (const Vector3d &amp;axesVector1, const Vector3d &amp;refVector1, const Vector3d &amp;refRate1, const Vector3d &amp;axesVector2, const Vector3d &amp;refVector2, const Vector3d &amp;refRate2, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation)</td></tr>
@@ -884,6 +888,88 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aEuler323ToMatri
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ga7edc0ead83647935054f424e92ad9482" name="ga7edc0ead83647935054f424e92ad9482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7edc0ead83647935054f424e92ad9482">&#9670;&#160;</a></span>aQuatAverageAngularVelocity() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE Vector3d ast::aQuatAverageAngularVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>由两个姿态四元数求平均角速度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q1</td><td>起始时刻的姿态四元数（参考系 -&gt; 本体系），假设已归一化 </td></tr>
+    <tr><td class="paramname">q2</td><td>结束时刻的姿态四元数（参考系 -&gt; 本体系），假设已归一化 </td></tr>
+    <tr><td class="paramname">dt</td><td>时间间隔，单位 s </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="#ga7e3a49281b72e4afdef1fc2f693c4ee4" title="由两个姿态四元数求平均角速度">aQuatAverageAngularVelocity(const Quaternion&amp;, const Quaternion&amp;, double, Vector3d&amp;)</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga7e3a49281b72e4afdef1fc2f693c4ee4" name="ga7e3a49281b72e4afdef1fc2f693c4ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7e3a49281b72e4afdef1fc2f693c4ee4">&#9670;&#160;</a></span>aQuatAverageAngularVelocity() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_MATH_API void ast::aQuatAverageAngularVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>q2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>angvel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>由两个姿态四元数求平均角速度 </p>
+<p>已知参考系下两个时刻的姿态四元数 q1、q2（均为「参考系 -&gt; 本体系」的旋转）， 求本体系相对参考系在 dt 内的平均角速度。 记增量旋转为 dq，其轴角给出平均旋转轴与转角，转角除以 dt 即平均角速率。 dt 足够小时，结果收敛于瞬时角速度。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q1</td><td>起始时刻的姿态四元数（参考系 -&gt; 本体系），假设已归一化 </td></tr>
+    <tr><td class="paramname">q2</td><td>结束时刻的姿态四元数（参考系 -&gt; 本体系），假设已归一化 </td></tr>
+    <tr><td class="paramname">dt</td><td>时间间隔，单位 s </td></tr>
+    <tr><td class="paramname">angvel</td><td>输出：平均角速度，分量为参考系(父系)分量， 与 <a class="el" href="classast_1_1KinematicRotation.html#a5faeeda5e7a1db19b0b1cb74f9aea923" title="获取坐标系旋转角速度">KinematicRotation::getRotationRate</a> 的约定一致 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>只有两个采样点时无法分辨转角与其补角，转角一律取小于 180 度的短弧， 故单步转角接近或超过 180 度时结果不唯一（符号会反转）。 </dd>
+<dd>
+需要本体系分量时，对结果再做一次逆变换：<code>Rotation(q1).transformVector(angvel)</code>。 </dd></dl>
 
 </div>
 </div>

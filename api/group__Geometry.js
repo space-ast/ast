@@ -66,6 +66,7 @@ var group__Geometry =
     [ "ast::PFrame", "group__Geometry.html#ga2dc6e719459f9795d6954e1ce6b2b572", null ],
     [ "ast::PPoint", "group__Geometry.html#ga7ebf47c650029bacb1fae24682d1b217", null ],
     [ "ast::PVector", "group__Geometry.html#ga7e89f801d20d9ca4dc58041420a598c4", null ],
+    [ "ast::aAxesRotationRateByDifference", "group__Geometry.html#ga3774144068ba83b212ebc7719e89c964", null ],
     [ "ast::aAxesTransform", "group__Geometry.html#gac2accfba19038de8be5fca7846a1e0be", null ],
     [ "ast::aAxesTransform", "group__Geometry.html#gabaa8ef7dc971d1169a8873690efee03d", null ],
     [ "ast::aAxesTransform", "group__Geometry.html#gaa1df848eb238deb89077b2d4de987ad5", null ],

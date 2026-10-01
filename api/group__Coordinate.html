@@ -1999,6 +1999,9 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
 <dl class="section see"><dt>参见</dt><dd><a class="el" href="classast_1_1KinematicRotation.html" title="运动学坐标系旋转">KinematicRotation</a> </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>角速度只由位置和速度确定，忽略由加速度决定的轨道面变化项，详见实现说明 </dd></dl>
 <p>LVLH 系的角速度沿轨道法向，大小为 |r×v|/|r|²，单位向量为 (r×v)/|r×v|，角速度可写作 ω = (r×v)/|r|² 分量在输入系下分解，符合 <a class="el" href="classast_1_1KinematicRotation.html" title="运动学坐标系旋转">KinematicRotation</a> 的约定。</p>
+<p>该式是二体（开普勒）运动下的精确值：轨道面在惯性空间固定（ḣ = r×a = 0），角速度只由位置和速度确定。 存在摄动时轨道面还会缓慢进动，真实角速度需再叠加轨道面变化项 </p><pre class="fragment">ĥ × (r×a) / |h|        // h = r×v，ĥ = h/|h|，a 为加速度
+</pre><p>该项即 J2 交点进动等的来源，量级约 |a|/|v|（LEO 下比轨道角速度小约 7 个量级）。 本函数入参只有位置和速度，无法得到该项，故结果对二体运动精确、对摄动运动偏小，长时间外推时需注意。</p>
+<p>此外，本式给出的是相对惯性系的角速度，要求输入系不转动。 若 pos/vel 取自转动系（如 ECEF）的分量，还需再减去该系自身的角速度。</p>
 
 </div>
 </div>
@@ -2196,7 +2199,9 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
   </dd>
 </dl>
 <dl class="section see"><dt>参见</dt><dd><a class="el" href="classast_1_1KinematicRotation.html" title="运动学坐标系旋转">KinematicRotation</a> </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>角速度只由位置和速度确定，忽略由加速度决定的轨道面变化项，详见实现说明 </dd></dl>
 <p>VVLH 与 LVLH 只差一组固定的轴重排：X_VVLH = Y_LVLH，Y_VVLH = -Z_LVLH，Z_VVLH = -X_LVLH， 两个坐标系相对彼此静止，故相对输入系的角速度相同，均为轨道角速度 ω = (r×v)/|r|²。 分量在输入系下分解，符合 <a class="el" href="classast_1_1KinematicRotation.html" title="运动学坐标系旋转">KinematicRotation</a> 的约定。</p>
+<p>该式是二体（开普勒）运动下的精确值，适用条件与 LVLH 相同：入参只有位置和速度， 无法得到由加速度决定的轨道面进动项，且要求输入系不转动。详见 aFrameToLVLHTransform 的说明。</p>
 
 </div>
 </div>

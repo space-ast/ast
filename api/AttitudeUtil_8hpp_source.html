@@ -107,26 +107,41 @@ $(function(){initNavTree('AttitudeUtil_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstMath/Vector.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstMath/Rotation.hpp&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstMath/KinematicRotation.hpp&quot;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>AST_NAMESPACE_BEGIN</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>AST_MATH_API errc_t <a class="code hl_function" href="group__Attitude.html#ga4a135cdfdf73a1afe59e44f38671c88b">aAlignConstrainTransform</a>(</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> Vector3d&amp; axesVector1, <span class="keyword">const</span> Vector3d&amp; refVector1,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> Vector3d&amp; axesVector2, <span class="keyword">const</span> Vector3d&amp; refVector2,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    Rotation&amp; rotation);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstMath/Quaternion.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstMath/Rotation.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;AstMath/KinematicRotation.hpp&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>AST_MATH_API <span class="keywordtype">void</span> <a class="code hl_function" href="group__Attitude.html#ga7e3a49281b72e4afdef1fc2f693c4ee4">aQuatAverageAngularVelocity</a>(<span class="keyword">const</span> Quaternion&amp; q1, <span class="keyword">const</span> Quaternion&amp; q2, <span class="keywordtype">double</span> dt, Vector3d&amp; angvel);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>AST_MATH_API errc_t <a class="code hl_function" href="group__Attitude.html#ga4a135cdfdf73a1afe59e44f38671c88b">aAlignConstrainTransform</a>(</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">const</span> Vector3d&amp; axesVector1, <span class="keyword">const</span> Vector3d&amp; refVector1, <span class="keyword">const</span> Vector3d&amp; refRate1,</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">const</span> Vector3d&amp; axesVector2, <span class="keyword">const</span> Vector3d&amp; refVector2, <span class="keyword">const</span> Vector3d&amp; refRate2,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    KinematicRotation&amp; rotation);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="ttc" id="agroup__Attitude_html_ga4a135cdfdf73a1afe59e44f38671c88b"><div class="ttname"><a href="group__Attitude.html#ga4a135cdfdf73a1afe59e44f38671c88b">ast::aAlignConstrainTransform</a></div><div class="ttdeci">errc_t aAlignConstrainTransform(const Vector3d &amp;axesVector1, const Vector3d &amp;refVector1, const Vector3d &amp;axesVector2, const Vector3d &amp;refVector2, Rotation &amp;rotation)</div><div class="ttdoc">双矢量定姿（Aligned and Constrained）——只求姿态</div><div class="ttdef"><b>定义</b> AttitudeUtil.cpp:138</div></div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="group__Attitude.html#ga7edc0ead83647935054f424e92ad9482">   58</a></span>A_ALWAYS_INLINE Vector3d <a class="code hl_function" href="group__Attitude.html#ga7e3a49281b72e4afdef1fc2f693c4ee4">aQuatAverageAngularVelocity</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quaternion.html">Quaternion</a>&amp; q1, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1Quaternion.html">Quaternion</a>&amp; q2, <span class="keywordtype">double</span> dt)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    Vector3d angvel;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_function" href="group__Attitude.html#ga7e3a49281b72e4afdef1fc2f693c4ee4">aQuatAverageAngularVelocity</a>(q1, q2, dt, angvel);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">return</span> angvel;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>AST_MATH_API errc_t aAlignConstrainTransform(</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">const</span> Vector3d&amp; axesVector1, <span class="keyword">const</span> Vector3d&amp; refVector1,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">const</span> Vector3d&amp; axesVector2, <span class="keyword">const</span> Vector3d&amp; refVector2,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    Rotation&amp; rotation);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>AST_MATH_API errc_t aAlignConstrainTransform(</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">const</span> Vector3d&amp; axesVector1, <span class="keyword">const</span> Vector3d&amp; refVector1, <span class="keyword">const</span> Vector3d&amp; refRate1,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">const</span> Vector3d&amp; axesVector2, <span class="keyword">const</span> Vector3d&amp; refVector2, <span class="keyword">const</span> Vector3d&amp; refRate2,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    KinematicRotation&amp; rotation);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="ttc" id="aclassast_1_1Quaternion_html"><div class="ttname"><a href="classast_1_1Quaternion.html">ast::Quaternion</a></div><div class="ttdoc">四元数</div><div class="ttdef"><b>定义</b> Quaternion.hpp:48</div></div>
+<div class="ttc" id="agroup__Attitude_html_ga7e3a49281b72e4afdef1fc2f693c4ee4"><div class="ttname"><a href="group__Attitude.html#ga7e3a49281b72e4afdef1fc2f693c4ee4">ast::aQuatAverageAngularVelocity</a></div><div class="ttdeci">void aQuatAverageAngularVelocity(const Quaternion &amp;q1, const Quaternion &amp;q2, double dt, Vector3d &amp;angvel)</div><div class="ttdoc">由两个姿态四元数求平均角速度</div><div class="ttdef"><b>定义</b> AttitudeUtil.cpp:138</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
