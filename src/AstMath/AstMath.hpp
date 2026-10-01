@@ -1,4 +1,5 @@
 // AstMath 工程聚合头文件
+#include "AstMath/AccelerationRotation.hpp"
 #include "AstMath/AngleAxis.hpp"
 #include "AstMath/AstMathGlobal.h"
 #include "AstMath/Attitude.hpp"

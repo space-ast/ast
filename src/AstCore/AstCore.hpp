@@ -41,6 +41,7 @@
 #include "AstCore/AttitudeTargetPointing.hpp"
 #include "AstCore/AttitudeTrajectory.hpp"
 #include "AstCore/AttitudeTrajectoryRelated.hpp"
+#include "AstCore/AttitudeVVLH.hpp"
 #include "AstCore/AttitudeXPOPInertial.hpp"
 #include "AstCore/AttitudeYPRFixedECI.hpp"
 #include "AstCore/Axes.hpp"
