@@ -22,7 +22,7 @@
 
 AST_NAMESPACE_BEGIN
 
-static_assert(sizeof(KinematicTransform) == sizeof(Transform) + sizeof(Vector3d) * 2, "Memory layout of KinematicTransform must be compact");
+static_assert(sizeof(KinematicTransform) == sizeof(Rotation) + sizeof(Vector3d) * 3, "Memory layout of KinematicTransform must be compact");
 static_assert(sizeof(Transform) == sizeof(Rotation)  + sizeof(Vector3d), "Memory layout of Transform must be compact");
 
 AST_NAMESPACE_END

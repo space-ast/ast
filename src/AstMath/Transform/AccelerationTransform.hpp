@@ -26,6 +26,20 @@
 
 AST_NAMESPACE_BEGIN
 
+
+#define _AST_DEF_ACCELERATIONTRANSFORM_PROPERTIES\
+    _AST_DEF_KINEMATICTRANSFORM_PROPERTIES\
+    const Vector3d& acceleration() const { return acceleration_; }\
+    Vector3d& acceleration() { return acceleration_; }\
+    const Vector3d& getAcceleration() const { return acceleration_; }\
+    Vector3d& getAcceleration() { return acceleration_; }\
+    void setAcceleration(const Vector3d& acceleration) { acceleration_ = acceleration; }\
+    const KinematicTransform& kinematicTransform() const { return reinterpret_cast<const KinematicTransform&>(velocity_); }\
+    KinematicTransform& kinematicTransform() { return reinterpret_cast<KinematicTransform&>(velocity_); }\
+    const KinematicTransform& getKinematicTransform() const { return kinematicTransform(); }\
+    KinematicTransform& getKinematicTransform() { return kinematicTransform(); }\
+    void setKinematicTransform(const KinematicTransform& transform) { kinematicTransform() = transform; }\
+
 /// @brief     加速度(二阶运动学)坐标系变换
 /// @details   在运动学坐标系变换的基础上，增加了坐标系旋转的角加速度和平移的加速度，
 ///            因此可以变换由位置、速度和加速度组成的二阶状态量，而不只是位置和速度。
@@ -37,22 +51,9 @@ AST_NAMESPACE_BEGIN
 /// @warning    平动加速度为零、旋转角加速度为零的两个变换组合之后，其加速度一般并不为零：
 ///            A = 2ω₁×(M₁ᵀV₂) + ω₁×(ω₁×τ)，α = ω₁×(M₁ᵀω₂)（τ = M₁ᵀt₂）。
 ///            即内层坐标系一旦相对转动，外层的匀速平移在源坐标系下就表现为圆周运动。
-class AccelerationTransform : protected KinematicTransform
+class AccelerationTransform
 {
 public:
-    using KinematicTransform::getTranslation;
-    using KinematicTransform::setTranslation;
-    using KinematicTransform::getVelocity;
-    using KinematicTransform::setVelocity;
-    using KinematicTransform::getRotation;
-    using KinematicTransform::getRotationRate;
-    using KinematicTransform::getKinematicRotation;
-    using KinematicTransform::setKinematicRotation;
-    using KinematicTransform::getTransform;
-    using KinematicTransform::setTransform;
-    using KinematicTransform::transformPosition;
-    using KinematicTransform::transformPositionVelocity;
-
     /// @brief 加速度变换默认构造函数
     AccelerationTransform() = default;
 
@@ -75,47 +76,9 @@ public:
     /// @return 单位加速度变换
     static AccelerationTransform Identity();
 
-    /// @brief 获取旋转角加速度
-    /// @return 旋转角加速度
-    const Vector3d& getRotationRateDot() const { return angvelDot_; }
-    const Vector3d& rotationRateDot() const { return angvelDot_; }
+    _AST_DEF_ACCELERATIONTRANSFORM_PROPERTIES
+    _AST_DEF_ACCELERATIONROTATION_PROPERTIES
 
-    /// @brief 设置坐标系旋转角速度
-    /// @note  KinematicTransform 没有提供该接口（只能用 getRotationRate() 的非 const 重载改），
-    ///        这里补上，与 AccelerationRotation::setRotationRate 对齐。
-    /// @param angvel 旋转角速度
-    void setRotationRate(const Vector3d& angvel) { angvel_ = angvel; }
-
-    /// @brief 设置旋转角加速度
-    /// @param angvelDot 旋转角加速度
-    void setRotationRateDot(const Vector3d& angvelDot) { angvelDot_ = angvelDot; }
-
-    /// @brief 获取平移加速度
-    /// @return 平移加速度
-    const Vector3d& getAcceleration() const { return acceleration_; }
-
-    /// @brief 设置平移加速度
-    /// @param acc 平移加速度
-    void setAcceleration(const Vector3d& acc) { acceleration_ = acc; }
-
-    /// @brief 降阶取出其中的一阶部分
-    /// @details 丢弃平移加速度与角加速度，得到一个运动学变换，可用于复用 KinematicTransform 的接口。
-    /// @return 运动学变换
-    const KinematicTransform& getKinematicTransform() const { return *this; }
-
-    /// @brief 组装出其中的加速度旋转（由旋转、角速度、角加速度构成）
-    /// @note  因内存布局所限（详见 AccelerationTransform.cpp 的布局约束），这里只能按值返回，
-    ///        不能像 KinematicTransform::getKinematicRotation() 那样返回引用。
-    /// @return 加速度旋转
-    AccelerationRotation getAccelerationRotation() const;
-
-    /// @brief 组装出其中的加速度旋转
-    /// @param rot 加速度旋转
-    void getAccelerationRotation(AccelerationRotation& rot) const;
-
-    /// @brief 设置其中的加速度旋转
-    /// @param rot 加速度旋转
-    void setAccelerationRotation(const AccelerationRotation& rot);
 
     /// @brief 组合下一个坐标系变换
     /// @warning 组合变换是先应用当前变换，再应用下一个变换。
@@ -152,9 +115,12 @@ public:
     /// @brief 设置为单位变换
     void setIdentity()
     {
-        KinematicTransform::setIdentity();
-        angvelDot_ = Vector3d::Zero();
         acceleration_ = Vector3d::Zero();
+        velocity_ = Vector3d::Zero();
+        translation_ = Vector3d::Zero();
+        rotation_ = Rotation::Identity();
+        angvel_ = Vector3d::Zero();
+        angvelDot_ = Vector3d::Zero();
     }
 
     /// @brief 变换位置、速度和加速度
@@ -194,21 +160,31 @@ public:
         Vector3d& accelerationOut) const;
 
 protected:
-    Vector3d angvelDot_{};     ///< 角加速度
     Vector3d acceleration_{};  ///< 平移加速度
+    Vector3d velocity_{};      ///< 速度
+    Vector3d translation_{};   ///< 平移
+    Rotation rotation_{};      ///< 旋转
+    Vector3d angvel_{};        ///< 角速度
+    Vector3d angvelDot_{};     ///< 角加速度
 };
 
 A_ALWAYS_INLINE AccelerationTransform::AccelerationTransform(const Vector3d &translation, const Vector3d &velocity, const Vector3d &acceleration, const AccelerationRotation &rot)
-    : KinematicTransform(translation, velocity, rot.getKinematicRotation())
-    , angvelDot_(rot.getRotationRateDot())
-    , acceleration_(acceleration)
+    : acceleration_(acceleration)
+    , velocity_(velocity)
+    , translation_(translation)
+    , rotation_(rot.rotation())
+    , angvel_(rot.rotationRate())
+    , angvelDot_(rot.rotationRateDot())
 {
 }
 
 A_ALWAYS_INLINE AccelerationTransform::AccelerationTransform(const KinematicTransform &transform, const Vector3d &acceleration, const Vector3d &angvelDot)
-    : KinematicTransform(transform)
+    : acceleration_(acceleration)
+    , velocity_(transform.velocity())
+    , translation_(transform.translation())
+    , rotation_(transform.rotation())
+    , angvel_(transform.rotationRate())
     , angvelDot_(angvelDot)
-    , acceleration_(acceleration)
 {
 }
 
@@ -217,22 +193,7 @@ A_ALWAYS_INLINE AccelerationTransform AccelerationTransform::Identity()
     return AccelerationTransform(Vector3d::Zero(), Vector3d::Zero(), Vector3d::Zero(), AccelerationRotation::Identity());
 }
 
-A_ALWAYS_INLINE AccelerationRotation AccelerationTransform::getAccelerationRotation() const
-{
-    return AccelerationRotation(this->getRotation(), this->getRotationRate(), angvelDot_);
-}
 
-A_ALWAYS_INLINE void AccelerationTransform::getAccelerationRotation(AccelerationRotation &rot) const
-{
-    rot = AccelerationRotation(this->getRotation(), this->getRotationRate(), angvelDot_);
-}
-
-A_ALWAYS_INLINE void AccelerationTransform::setAccelerationRotation(const AccelerationRotation &rot)
-{
-    this->getRotation() = rot.getRotation();
-    this->getRotationRate() = rot.getRotationRate();
-    angvelDot_ = rot.getRotationRateDot();
-}
 
 A_ALWAYS_INLINE AccelerationTransform AccelerationTransform::composed(const AccelerationTransform &next) const
 {
@@ -242,22 +203,22 @@ A_ALWAYS_INLINE AccelerationTransform AccelerationTransform::composed(const Acce
         A = A₁ + M₁ᵀA₂ + 2ω₁×(M₁ᵀV₂) + ω₁×(ω₁×τ) + α₁×τ
     */
     // 先取到局部量，再构造返回值，避免原地赋值
-    Matrix3d mat1 = this->getMatrix();
-    Vector3d angvel1 = this->getRotationRate();
+    Matrix3d mat1 = this->matrix();
+    Vector3d angvel1 = this->rotationRate();
     Vector3d angvelDot1 = this->rotationRateDot();
-    Vector3d tau = next.getTranslation() * mat1;             // 即 M₁ᵀ t₂
-    Vector3d velocity2 = next.getVelocity() * mat1;          // 即 M₁ᵀ V₂
-    Vector3d acceleration2 = next.getAcceleration() * mat1;  // 即 M₁ᵀ A₂
+    Vector3d tau = next.translation() * mat1;             // 即 M₁ᵀ t₂
+    Vector3d velocity2 = next.velocity() * mat1;          // 即 M₁ᵀ V₂
+    Vector3d acceleration2 = next.acceleration() * mat1;  // 即 M₁ᵀ A₂
 
-    Vector3d translation = this->getTranslation() + tau;
-    Vector3d velocity = this->getVelocity() + velocity2 + angvel1.cross(tau);
-    Vector3d acceleration = this->getAcceleration() + acceleration2
+    Vector3d translation = this->translation() + tau;
+    Vector3d velocity = this->velocity() + velocity2 + angvel1.cross(tau);
+    Vector3d acceleration = this->acceleration() + acceleration2
         + angvel1.cross(velocity2) * 2.0
         + angvel1.cross(angvel1.cross(tau))
         + angvelDot1.cross(tau);
 
     AccelerationRotation rotation = AccelerationRotation(mat1, angvel1, angvelDot1)
-        .composed(next.getAccelerationRotation());
+        .composed(next.accelerationRotation());
 
     return AccelerationTransform(translation, velocity, acceleration, rotation);
 }
@@ -285,16 +246,16 @@ A_ALWAYS_INLINE void AccelerationTransform::getInverse(AccelerationTransform &in
     也可参考 Transform::getInverse 用的 rotation_.transformVector()
     */
     // 先全部取到局部量，允许 inversed 与 *this 为同一对象
-    AccelerationRotation rotation = this->getAccelerationRotation();
+    AccelerationRotation rotation = this->accelerationRotation();
     AccelerationRotation inversedRotation;
     rotation.getInverse(inversedRotation);
 
     rotation.transformVecVelAcc(
-        -this->getTranslation(),
-        -this->getVelocity(),
-        -this->getAcceleration(),
-        inversed.getTranslation(),
-        inversed.getVelocity(),
+        -this->translation(),
+        -this->velocity(),
+        -this->acceleration(),
+        inversed.translation(),
+        inversed.velocity(),
         inversed.acceleration_);
 
     inversed.setAccelerationRotation(inversedRotation);
@@ -314,10 +275,10 @@ A_ALWAYS_INLINE void AccelerationTransform::transformPosVelAcc(
     /*!
     先进行坐标系平移（含速度和加速度），再进行加速度旋转。
     */
-    this->getAccelerationRotation().transformVecVelAcc(
-        position - this->getTranslation(),
-        velocity - this->getVelocity(),
-        acceleration - this->getAcceleration(),
+    this->accelerationRotation().transformVecVelAcc(
+        position - this->translation(),
+        velocity - this->velocity(),
+        acceleration - this->acceleration(),
         positionOut,
         velocityOut,
         accelerationOut);
@@ -330,7 +291,7 @@ A_ALWAYS_INLINE void AccelerationTransform::transformPosVelAccInv(
     /*!
     逆变换是"先逆旋转，再把平移加回去"，与正向的"先减平移，再旋转"次序相反
     */
-    this->getAccelerationRotation().transformVecVelAccInv(
+    this->accelerationRotation().transformVecVelAccInv(
         position,
         velocity,
         acceleration,
@@ -338,9 +299,9 @@ A_ALWAYS_INLINE void AccelerationTransform::transformPosVelAccInv(
         velocityOut,
         accelerationOut);
 
-    positionOut += this->getTranslation();
-    velocityOut += this->getVelocity();
-    accelerationOut += this->getAcceleration();
+    positionOut += this->translation();
+    velocityOut += this->velocity();
+    accelerationOut += this->acceleration();
 }
 
 AST_NAMESPACE_END

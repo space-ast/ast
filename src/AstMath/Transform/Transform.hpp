@@ -26,6 +26,13 @@
 AST_NAMESPACE_BEGIN
 
 
+#define _AST_DEF_TRANSFORM_PROPERTIES\
+    const Vector3d& translation() const { return translation_; }\
+    Vector3d& translation() { return translation_; }\
+    const Vector3d& getTranslation() const { return translation_; }\
+    Vector3d& getTranslation() { return translation_; }\
+    void setTranslation(const Vector3d& translation) { translation_ = translation; }\
+
 /// @brief 坐标系转换类
 /// @details 坐标系转换类表示三维空间中的坐标系转换
 /// 包括坐标系平移和坐标系旋转
@@ -44,27 +51,9 @@ public:
     /// @return 单位转换
     static Transform Identity();
 
-    /// @brief 获取坐标系旋转
-    /// @return 坐标系旋转
-    const Rotation& getRotation() const { return rotation_; }
-    Rotation& getRotation() { return rotation_; }
+    _AST_DEF_TRANSFORM_PROPERTIES
+    _AST_DEF_ROTATION_PROPERTIES
 
-    /// @brief 设置坐标系旋转
-    /// @param rotation 坐标系旋转
-    void setRotation(const Rotation& rotation) { rotation_ = rotation; }
-
-    /// @brief 获取坐标系平移
-    /// @return 坐标系平移
-    const Vector3d& getTranslation() const { return translation_; }
-    Vector3d& getTranslation() { return translation_; }
-
-    /// @brief 设置坐标系平移
-    /// @param translation 坐标系平移
-    void setTranslation(const Vector3d& translation) { translation_ = translation; }
-
-    /// @brief 获取转换矩阵
-    /// @return 转换矩阵
-    const Matrix3d& getMatrix() const { return rotation_.getMatrix(); }
 
     /// @brief 组合下一个坐标系转换
     /// @warning 组合转换是先应用当前转换，再应用下一个转换。
@@ -127,8 +116,8 @@ A_ALWAYS_INLINE Transform Transform::Identity()
 
 A_ALWAYS_INLINE Transform &Transform::compose(const Transform &next)
 {
-    translation_ += next.getTranslation() * getMatrix();
-    rotation_ = rotation_.composed(next.getRotation());
+    translation_ += next.translation() * matrix();
+    rotation_ = rotation_.composed(next.rotation());
     return *this;
 }
 
@@ -138,8 +127,8 @@ A_ALWAYS_INLINE Transform Transform::composed(const Transform &next) const
     也可以通过 getRotation().transformVectorInv() 来实现。
     */
     return Transform(
-        translation_ + next.getTranslation() * getMatrix(),
-        rotation_.composed(next.getRotation())
+        translation_ + next.translation() * matrix(),
+        rotation_.composed(next.rotation())
     );
 }
 
@@ -155,8 +144,8 @@ A_ALWAYS_INLINE Transform &Transform::operator*=(const Transform &next)
 
 A_ALWAYS_INLINE void Transform::getInverse(Transform &inversed) const
 {
-    rotation_.transformVector(-translation_, inversed.getTranslation());
-    rotation_.getInverse(inversed.getRotation());
+    rotation_.transformVector(-translation_, inversed.translation());
+    rotation_.getInverse(inversed.rotation());
 }
 
 A_ALWAYS_INLINE Transform Transform::inverse() const

@@ -25,6 +25,21 @@
 
 AST_NAMESPACE_BEGIN
 
+
+#define _AST_DEF_ACCELERATIONROTATION_PROPERTIES\
+    _AST_DEF_KINEMATICROTATION_PROPERTIES\
+    const Vector3d& rotationRateDot() const { return angvelDot_; }\
+    Vector3d& rotationRateDot() { return angvelDot_; }\
+    const Vector3d& getRotationRateDot() const { return rotationRateDot(); }\
+    Vector3d& getRotationRateDot() { return rotationRateDot(); }\
+    void setRotationRateDot(const Vector3d& angvelDot) { angvelDot_ = angvelDot; }\
+    const AccelerationRotation& accelerationRotation() const { return reinterpret_cast<const AccelerationRotation&>(rotation_); }\
+    AccelerationRotation& accelerationRotation() { return reinterpret_cast<AccelerationRotation&>(rotation_); }\
+    const AccelerationRotation& getAccelerationRotation() const { return accelerationRotation(); }\
+    AccelerationRotation& getAccelerationRotation() { return accelerationRotation(); }\
+    void setAccelerationRotation(const AccelerationRotation& rot) { accelerationRotation() = rot; }\
+
+
 /// @brief     加速度(二阶运动学)坐标系旋转
 /// @details   在运动学坐标系旋转的基础上，增加了坐标系旋转的角加速度信息。
 ///            相比 KinematicRotation 多携带一个角加速度，因此可以变换由位置、速度和
@@ -32,19 +47,9 @@ AST_NAMESPACE_BEGIN
 /// @note      角速度、角加速度的参考系约定与 KinematicRotation 一致：
 ///            均表示本坐标系相对源坐标系(父坐标系)的量，且其分量在源坐标系(父坐标系)下分解；
 ///            角加速度还额外约定为"该分量"的坐标时间导数。
-class AccelerationRotation: protected KinematicRotation
+class AccelerationRotation
 {
 public:
-    using KinematicRotation::getMatrix;
-    using KinematicRotation::getQuaternion;
-    using KinematicRotation::transformVector;
-    using KinematicRotation::transformVectorInv;
-    using KinematicRotation::getRotation;
-    using KinematicRotation::setRotation;
-    using KinematicRotation::getRotationRate;
-    using KinematicRotation::setRotationRate;
-    using KinematicRotation::transformVectorVelocity;
-    using KinematicRotation::transformVectorVelocityInv;
 
     /// @brief 获取单位加速度旋转
     /// @return 单位加速度旋转
@@ -70,19 +75,7 @@ public:
     /// @param angvelDot 旋转角加速度
     AccelerationRotation(const KinematicRotation& rot, const Vector3d& angvelDot);
 
-    /// @brief 获取坐标系旋转角加速度
-    /// @return 旋转角加速度
-    const Vector3d& getRotationRateDot() const { return angvelDot_; }
-    const Vector3d& rotationRateDot() const { return angvelDot_; }
-
-    /// @brief 设置坐标系旋转角加速度
-    /// @param angvelDot 旋转角加速度
-    void setRotationRateDot(const Vector3d& angvelDot) { angvelDot_ = angvelDot; }
-
-    /// @brief 降阶取出其中的一阶部分
-    /// @details 丢弃角加速度，得到一个运动学旋转，可用于复用 KinematicRotation 的接口。
-    /// @return 运动学旋转
-    KinematicRotation getKinematicRotation() const { return *this; }
+    _AST_DEF_ACCELERATIONROTATION_PROPERTIES
 
     /// @brief 组合下一个坐标系旋转
     /// @warning 组合旋转是先应用当前旋转，再应用下一个坐标系旋转。
@@ -150,6 +143,8 @@ public:
         Vector3d& velocityOut,
         Vector3d& accelerationOut) const;
 protected:
+    Rotation rotation_{};     ///< 旋转
+    Vector3d angvel_{};       ///< 角速度
     Vector3d angvelDot_{};    ///< 角加速度
 };
 
@@ -159,19 +154,22 @@ A_ALWAYS_INLINE AccelerationRotation AccelerationRotation::Identity()
 }
 
 A_ALWAYS_INLINE AccelerationRotation::AccelerationRotation(const Matrix3d &mat, const Vector3d &angvel, const Vector3d &angvelDot)
-    : KinematicRotation(mat, angvel)
+    : rotation_(mat)
+    , angvel_(angvel)
     , angvelDot_(angvelDot)
 {
 }
 
 A_ALWAYS_INLINE AccelerationRotation::AccelerationRotation(const Rotation &rot, const Vector3d &angvel, const Vector3d &angvelDot)
-    : KinematicRotation(rot, angvel)
+    : rotation_(rot)
+    , angvel_(angvel)
     , angvelDot_(angvelDot)
 {
 }
 
 A_ALWAYS_INLINE AccelerationRotation::AccelerationRotation(const KinematicRotation &rot, const Vector3d &angvelDot)
-    : KinematicRotation(rot)
+    : rotation_(rot.rotation())
+    , angvel_(rot.rotationRate())
     , angvelDot_(angvelDot)
 {
 }
@@ -184,12 +182,12 @@ A_ALWAYS_INLINE AccelerationRotation AccelerationRotation::composed(const Accele
     相对角速度 ω2 的分量是在转动的中间系下分解的，而合成结果要求分量在源系下分解，
     故求时间导数时该项不会消去。
     */
-    Matrix3d mat1 = this->matrix_;
+    Matrix3d mat1 = this->matrix();
     Vector3d angvel1 = this->angvel_;
     Vector3d angvel2InSource = next.angvel_ * mat1;      // 即 M1ᵀ ω2
     Vector3d angvel = angvel1 + angvel2InSource;
     Vector3d angvelDot = this->angvelDot_ + angvel1.cross(angvel2InSource) + next.angvelDot_ * mat1;
-    return AccelerationRotation(next.matrix_ * mat1, angvel, angvelDot);
+    return AccelerationRotation(next.matrix() * mat1, angvel, angvelDot);
 }
 
 A_ALWAYS_INLINE AccelerationRotation &AccelerationRotation::compose(const AccelerationRotation &next)
@@ -211,10 +209,10 @@ A_ALWAYS_INLINE AccelerationRotation &AccelerationRotation::operator*=(const Acc
 A_ALWAYS_INLINE void AccelerationRotation::getInverse(AccelerationRotation &inversed) const
 {
     // 先取出matrix_，允许inversed与*this为同一对象
-    Matrix3d mat = this->matrix_;
+    Matrix3d mat = this->matrix();
     Vector3d angvel = this->angvel_;
     Vector3d angvelDot = this->angvelDot_;
-    inversed.matrix_ = mat.transpose();
+    inversed.matrix() = mat.transpose();
     inversed.angvel_ = -(mat * angvel);
     inversed.angvelDot_ = -(mat * angvelDot);   // ω×ω = 0，故角加速度没有附加项
 }
@@ -232,12 +230,12 @@ A_ALWAYS_INLINE void AccelerationRotation::transformVecVelAcc(
 {
     // 注意：这里要先计算accelerationOut，再计算velocityOut，最后计算positionOut，
     //       防止入参与出参地址相同时值被覆盖
-    accelerationOut = this->matrix_ * (acceleration
+    accelerationOut = this->matrix() * (acceleration
         - this->angvel_.cross(velocity) * 2.0
         - this->angvelDot_.cross(position)
         + this->angvel_.cross(this->angvel_.cross(position)));
-    velocityOut = this->matrix_ * (velocity - this->angvel_.cross(position));
-    positionOut = this->matrix_ * position;
+    velocityOut = this->matrix() * (velocity - this->angvel_.cross(position));
+    positionOut = this->matrix() * position;
 }
 
 A_ALWAYS_INLINE void AccelerationRotation::transformVecVelAccInv(
@@ -245,9 +243,9 @@ A_ALWAYS_INLINE void AccelerationRotation::transformVecVelAccInv(
     Vector3d &positionOut, Vector3d &velocityOut, Vector3d &accelerationOut) const
 {
     // 注意：这里要先计算positionOut，再计算velocityOut，最后计算accelerationOut
-    positionOut = position * this->matrix_;
-    velocityOut = velocity * this->matrix_ + this->angvel_.cross(positionOut);
-    accelerationOut = acceleration * this->matrix_
+    positionOut = position * this->matrix();
+    velocityOut = velocity * this->matrix() + this->angvel_.cross(positionOut);
+    accelerationOut = acceleration * this->matrix()
         + this->angvelDot_.cross(positionOut)
         + this->angvel_.cross(velocityOut) * 2.0
         - this->angvel_.cross(this->angvel_.cross(positionOut));

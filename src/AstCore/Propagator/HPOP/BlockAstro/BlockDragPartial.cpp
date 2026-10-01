@@ -95,7 +95,7 @@ errc_t BlockDragPartial::run(const SimTime& simTime)
         KinematicTransform transform;
         Frame* atmosFrame = atmosphere_->getFrame();
         propagationFrame_->getTransformTo(atmosFrame, tp, transform);
-        transform.transformPosition(*position_, posInAtmosFrame);
+        transform.transform().transformPosition(*position_, posInAtmosFrame);
 
         // 保存角速度和旋转矩阵，后续用于计算偏导数
         omega = transform.getRotationRate();

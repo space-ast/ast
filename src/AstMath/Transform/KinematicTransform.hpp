@@ -27,9 +27,25 @@
 
 AST_NAMESPACE_BEGIN
 
+
+#define _AST_DEF_KINEMATICTRANSFORM_PROPERTIES\
+    _AST_DEF_TRANSFORM_PROPERTIES\
+    const Vector3d& velocity() const { return velocity_; }\
+    Vector3d& velocity() { return velocity_; }\
+    const Vector3d& getVelocity() const { return velocity_; }\
+    Vector3d& getVelocity() { return velocity_; }\
+    void setVelocity(const Vector3d& velocity) { velocity_ = velocity; }\
+    const Transform& transform() const { return reinterpret_cast<const Transform&>(translation_); }\
+    Transform& transform() { return reinterpret_cast<Transform&>(translation_); }\
+    const Transform& getTransform() const { return transform(); }\
+    Transform& getTransform() { return transform(); }\
+    void setTransform(const Transform& xform) { transform() = xform; }
+
+
+
 /// @brief 运动学变换
 /// @details 在静态变换的基础上，添加了旋转角速度和平移速度。
-class KinematicTransform : protected Transform
+class KinematicTransform
 {
 public:
     KinematicTransform() = default;
@@ -39,57 +55,28 @@ public:
     /// @param rot 旋转量
     A_ALWAYS_INLINE
     KinematicTransform(const CartState& translate, const KinematicRotation& rot)
-        : Transform(translate.pos(), rot.getRotation())
-        , angvel_(rot.getRotationRate()) 
-        , velocity_(translate.vel())
+        : velocity_(translate.vel())
+        , translation_(translate.pos())
+        , rotation_(rot.rotation())
+        , angvel_(rot.rotationRate()) 
     {}
 
     A_ALWAYS_INLINE
     KinematicTransform(const Vector3d& translation, const Vector3d& velocity, const KinematicRotation& rot)
-        : Transform(translation, rot.getRotation())
-        , angvel_(rot.getRotationRate()) 
-        , velocity_(velocity)
+        : velocity_(velocity)
+        , translation_(translation)
+        , rotation_(rot.rotation())
+        , angvel_(rot.rotationRate()) 
     {}
 
     /// @brief 获取单位变换
     /// @return 单位变换
     static KinematicTransform Identity();
 
-    using Transform::getTranslation;
-    using Transform::setTranslation;
-    using Transform::transformPosition;
-    using Transform::getRotation;
 
-    /// @brief 获取变换
-    /// @return 变换
-    const Transform& getTransform() const { return *this; }
-
-    /// @brief 获取旋转角速度
-    /// @return 旋转角速度
-    const Vector3d& getRotationRate() const { return angvel_; }
-    Vector3d& getRotationRate() { return angvel_; }
-
-    /// @brief 设置变换
-    /// @param transform 变换
-    void setTransform(const Transform& transform) { (Transform&)*this = transform; }
-
-    /// @brief 获取旋转
-    /// @return 旋转
-    const KinematicRotation& getKinematicRotation() const { return kinematicRotation(); }
-    KinematicRotation& getKinematicRotation() { return kinematicRotation(); }
-
-    /// @brief 设置旋转
-    /// @param rot 旋转
-    void setKinematicRotation(const KinematicRotation& rot) { kinematicRotation() = rot; }
-
-    /// @brief 获取平移速度
-    /// @return 速度
-    const Vector3d& getVelocity() const { return velocity_; }
-    Vector3d& getVelocity() { return velocity_; }
-
-    /// @brief 设置平移速度
-    /// @param vel 平移速度
-    void setVelocity(const Vector3d& vel) { velocity_ = vel; }
+public:
+    _AST_DEF_KINEMATICTRANSFORM_PROPERTIES
+    _AST_DEF_KINEMATICROTATION_PROPERTIES
 
     /// @brief 组合下一个变换
     /// @warning 组合变换是先应用当前变换，再应用下一个变换。
@@ -125,7 +112,7 @@ public:
     void getInverse(KinematicTransform& inversed) const;
     
     /// @brief 设置为单位变换
-    void setIdentity() { Transform::setIdentity(); angvel_ = Vector3d::Zero(); velocity_ = Vector3d::Zero(); }
+    void setIdentity();
 
     /// @brief 变换位置和速度
     /// @param position 位置
@@ -139,17 +126,24 @@ public:
     /// @param velocity 速度
     /// @return 变换后的位置和速度
     CartState transformPositionVelocity(const CartState& state);
-private:
-    KinematicRotation& kinematicRotation() { return reinterpret_cast<KinematicRotation&>(rotation_); }
-    const KinematicRotation& kinematicRotation() const { return reinterpret_cast<const KinematicRotation&>(rotation_); }
 protected:
-    Vector3d angvel_{};
-    Vector3d velocity_{};
+    Vector3d velocity_{};     ///< 速度
+    Vector3d translation_{};  ///< 平移
+    Rotation rotation_{};     ///< 旋转
+    Vector3d angvel_{};       ///< 角速度
 };
 
 A_ALWAYS_INLINE KinematicTransform KinematicTransform::Identity()
 {
     return KinematicTransform(CartState::Zero(), KinematicRotation::Identity());
+}
+
+A_ALWAYS_INLINE void KinematicTransform::setIdentity()
+{
+    velocity_ = Vector3d::Zero();
+    translation_ = Vector3d::Zero();
+    rotation_ = Rotation::Identity();
+    angvel_ = Vector3d::Zero();
 }
 
 A_ALWAYS_INLINE KinematicTransform &KinematicTransform::compose(const KinematicTransform &next)
@@ -160,15 +154,15 @@ A_ALWAYS_INLINE KinematicTransform &KinematicTransform::compose(const KinematicT
 
 A_ALWAYS_INLINE KinematicTransform KinematicTransform::composed(const KinematicTransform &next) const
 {
-    KinematicRotation rotation = this->getKinematicRotation().composed(next.getKinematicRotation());
+    KinematicRotation rotation = this->kinematicRotation().composed(next.kinematicRotation());
     /*
     也可以通过 getRotation().transformVectorVelocityInv() 来实现。
     */
-    Vector3d vector = next.getTranslation() * this->getMatrix();
+    Vector3d vector = next.translation() * this->matrix();
 
-    Vector3d translation = this->getTranslation() + vector;
-    Vector3d velocity = this->getVelocity() + next.getVelocity() * this->getMatrix() 
-                        + this->getRotationRate().cross(vector);
+    Vector3d translation = this->translation() + vector;
+    Vector3d velocity = this->velocity() + next.velocity() * this->matrix() 
+                        + this->rotationRate().cross(vector);
     return KinematicTransform(translation, velocity, rotation);
 }
 
@@ -191,8 +185,8 @@ A_ALWAYS_INLINE KinematicTransform KinematicTransform::inverse() const
 
 A_ALWAYS_INLINE void KinematicTransform::getInverse(KinematicTransform &inversed) const
 {
-    this->getKinematicRotation().transformVectorVelocity(-this->getTranslation(), -this->getVelocity(), inversed.getTranslation(), inversed.getVelocity());
-    this->getKinematicRotation().getInverse(inversed.getKinematicRotation());
+    this->kinematicRotation().transformVectorVelocity(-this->translation(), -this->velocity(), inversed.translation(), inversed.velocity());
+    this->kinematicRotation().getInverse(inversed.kinematicRotation());
 }
 
 A_ALWAYS_INLINE void KinematicTransform::transformPositionVelocity(const Vector3d &position, const Vector3d &velocity, Vector3d &positionOut, Vector3d &velocityOut)
@@ -210,9 +204,9 @@ A_ALWAYS_INLINE void KinematicTransform::transformPositionVelocity(const Vector3
     /*!
     先进行坐标系平移，再进行坐标系旋转。
     */
-    this->getKinematicRotation().transformVectorVelocity(
-        position - this->getTranslation(), 
-        velocity - this->getVelocity(), 
+    this->kinematicRotation().transformVectorVelocity(
+        position - this->translation(), 
+        velocity - this->velocity(), 
         positionOut, 
         velocityOut
     );

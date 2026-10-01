@@ -77,7 +77,7 @@ errc_t Axes::getAttitudeIn(Axes &axes, const TimePoint &tp, Quaternion &quat, Ve
 {
     KinematicRotation kr;
     errc_t rc = this->getTransformFrom(axes, tp, kr);
-    quat = kr.getQuaternion();
+    quat = kr.quaternion();
     angvel = kr.getRotationRate();
     return rc;
 }

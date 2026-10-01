@@ -180,7 +180,7 @@ errc_t aAlignConstrainTransform(
         rotation.setRotationRate(Vector3d::Zero());
         return (rcRef != eNoError) ? rcRef : rcAxes;
     }
-    fillRotation(axesAxis, refAxis, rotation.getRotation());
+    fillRotation(axesAxis, refAxis, rotation.rotation());
     rotation.setRotationRate(triadRateToAngularVelocity(refAxis, refRate));
     return eNoError;
 }
