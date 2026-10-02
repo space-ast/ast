@@ -33,6 +33,7 @@ AST_NAMESPACE_BEGIN
 
 class Rotation;
 class KinematicRotation;
+class AccelerationRotation;
 class Axes;
 using PAxes = Axes*;
 using HAxes = SharedPtr<Axes>;
@@ -65,6 +66,16 @@ AST_CORE_API errc_t aAxesTransform(Axes* source, Axes* target, const TimePoint& 
 /// @return 错误码
 AST_CORE_API errc_t aAxesTransform(Axes& source, Axes& target, const TimePoint& tp, KinematicRotation& rotation);
 AST_CORE_API errc_t aAxesTransform(Axes* source, Axes* target, const TimePoint& tp, KinematicRotation& rotation);
+
+
+/// @brief 计算轴系之间的加速度旋转变换
+/// @param source 源轴系
+/// @param target 目标轴系
+/// @param tp 时间点
+/// @param rotation 输出的加速度旋转变换
+/// @return 错误码
+AST_CORE_API errc_t aAxesTransform(Axes& source, Axes& target, const TimePoint& tp, AccelerationRotation& rotation);
+AST_CORE_API errc_t aAxesTransform(Axes* source, Axes* target, const TimePoint& tp, AccelerationRotation& rotation);
 
 
 /// @brief 轴系抽象基类
@@ -170,6 +181,21 @@ public:
     }
     A_ALWAYS_INLINE
     errc_t getTransformFrom(Axes& source, const TimePoint& tp, KinematicRotation& rotation) const
+    {
+        return aAxesTransform(source, const_cast<Axes&>(*this), tp, rotation);
+    }
+    /// @brief 获取源轴系到当前轴系的加速度旋转变换
+    /// @param source 源轴系
+    /// @param tp 时间点
+    /// @param rotation 输出参数，加速度旋转变换（包含角加速度）
+    /// @return 错误码
+    A_ALWAYS_INLINE
+    errc_t getTransformFrom(Axes* source, const TimePoint& tp, AccelerationRotation& rotation) const
+    {
+        return aAxesTransform(source, const_cast<Axes*>(this), tp, rotation);
+    }
+    A_ALWAYS_INLINE
+    errc_t getTransformFrom(Axes& source, const TimePoint& tp, AccelerationRotation& rotation) const
     {
         return aAxesTransform(source, const_cast<Axes&>(*this), tp, rotation);
     }

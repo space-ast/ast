@@ -26,6 +26,7 @@
 #include "AstMath/KinematicRotation.hpp"
 #include "AstMath/AccelerationRotation.hpp"
 #include "AstMath/KinematicTransform.hpp"
+#include "AstMath/AccelerationTransform.hpp"
 #include <cmath>
 #include <limits>
 #include <cassert>
@@ -267,6 +268,26 @@ errc_t aFrameTransform(Frame *source, Frame *target, const TimePoint &tp, Kinema
     return aFrameTransform(*source, *target, tp, transform);
 }
 
+errc_t aFrameTransform(Frame &source, Frame &target, const TimePoint &tp, AccelerationTransform &transform)
+{
+    auto sourcePoint = source.getOrigin();
+    auto targetPoint = target.getOrigin();
+    if(sourcePoint == targetPoint){
+        transform.setTranslation(Vector3d::Zero());
+        transform.setVelocity(Vector3d::Zero());
+        transform.setAcceleration(Vector3d::Zero());
+        return aAxesTransform(source.getAxes(), target.getAxes(), tp, transform.getAccelerationRotation());
+    }
+    return aGeometryTransform<Frame, AccelerationTransform>(source, target, tp, transform);
+}
+
+errc_t aFrameTransform(Frame *source, Frame *target, const TimePoint &tp, AccelerationTransform &transform)
+{
+    if (A_UNLIKELY(source == nullptr || target == nullptr))
+        return eErrorNullInput;
+    return aFrameTransform(*source, *target, tp, transform);
+}
+
 errc_t aAxesTransform(Axes &source, Axes &target, const TimePoint &tp, Rotation &rotation)
 {
     return aGeometryTransform<Axes, Rotation>(source, target, tp, rotation);
@@ -285,6 +306,18 @@ errc_t aAxesTransform(Axes &source, Axes &target, const TimePoint &tp, Kinematic
 }
 
 errc_t aAxesTransform(Axes *source, Axes *target, const TimePoint &tp, KinematicRotation &rotation)
+{
+    if (A_UNLIKELY(source == nullptr || target == nullptr))
+        return eErrorNullInput;
+    return aAxesTransform(*source, *target, tp, rotation);
+}
+
+errc_t aAxesTransform(Axes &source, Axes &target, const TimePoint &tp, AccelerationRotation &rotation)
+{
+    return aGeometryTransform<Axes, AccelerationRotation>(source, target, tp, rotation);
+}
+
+errc_t aAxesTransform(Axes *source, Axes *target, const TimePoint &tp, AccelerationRotation &rotation)
 {
     if (A_UNLIKELY(source == nullptr || target == nullptr))
         return eErrorNullInput;

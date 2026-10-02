@@ -56,6 +56,16 @@ AST_CORE_API errc_t aFrameTransform(Frame& source, Frame& target, const TimePoin
 AST_CORE_API errc_t aFrameTransform(Frame* source, Frame* target, const TimePoint& tp, KinematicTransform& transform);
 
 
+/// @brief 计算源坐标系到目标坐标系的加速度变换，用于需要加速度变换的场景
+/// @param source 源坐标系
+/// @param target 目标坐标系
+/// @param tp 时间点
+/// @param transform 输出参数，加速度变换（包含加速度项）
+/// @return 错误码
+AST_CORE_API errc_t aFrameTransform(Frame& source, Frame& target, const TimePoint& tp, AccelerationTransform& transform);
+AST_CORE_API errc_t aFrameTransform(Frame* source, Frame* target, const TimePoint& tp, AccelerationTransform& transform);
+
+
 /// @brief 坐标系抽象基类
 /// @details 坐标系是一种几何元素，由原点（Point）和轴系（Axes）组成，
 ///          定义了三维空间中的一个完整参考系（同时包含平移和旋转信息）。
@@ -110,6 +120,12 @@ public:
     /// @param transform 输出参数，运动学变换（包含速度项）
     /// @return 错误码
     virtual errc_t getTransform(const TimePoint& tp, KinematicTransform& transform) const;
+
+    /// @brief 获取当前坐标系相对于父坐标系的加速度变换
+    /// @param tp 时间点
+    /// @param transform 输出参数，加速度变换（包含加速度项）
+    /// @return 错误码
+    virtual errc_t getTransform(const TimePoint& tp, AccelerationTransform& transform) const;
     
     /// @brief 获取当前坐标系的轴系
     /// @details 轴系定义了坐标轴的旋转方向。纯虚方法，子类必须实现。

@@ -25,6 +25,7 @@
 #include "AstCore/Resolve.hpp"
 #include "AstMath/Transform.hpp"
 #include "AstMath/KinematicTransform.hpp"
+#include "AstMath/AccelerationTransform.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -111,6 +112,32 @@ errc_t Frame::getTransform(const TimePoint &tp, KinematicTransform &transform) c
     if(auto axes = getAxes())
     {
         errc_t rc = axes->getTransformFrom(parent->getAxes(), tp, transform.getKinematicRotation());
+        if(rc != 0)
+            return rc;
+    }
+    return eNoError;
+}
+
+errc_t Frame::getTransform(const TimePoint &tp, AccelerationTransform &transform) const
+{
+    /*!
+        默认实现：与运动学版本同构，平移项由原点的位置/速度/加速度给出，
+        旋转项由本坐标系轴系相对父坐标系轴系的加速度旋转变换给出。
+        平移加速度的解析解由 Point::getPosVelAcc 提供，没有解析解的点走其默认差分实现；
+        旋转角加速度的解析解由 Axes::getTransform(AccelerationRotation) 提供，没有解析解的轴系走其默认差分实现。
+    */
+    auto parent = getParent();
+    if(!parent)
+        return eErrorInvalidParam;
+    if(auto origin = getOrigin())
+    {
+        errc_t rc = origin->getPosVelAccIn(parent, tp, transform.translation(), transform.velocity(), transform.acceleration());
+        if(rc != 0)
+            return rc;
+    }
+    if(auto axes = getAxes())
+    {
+        errc_t rc = axes->getTransformFrom(parent->getAxes(), tp, transform.accelerationRotation());
         if(rc != 0)
             return rc;
     }

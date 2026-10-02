@@ -64,6 +64,8 @@ public:
     ~FrameAssembly() = default;
 
     Frame* getParent() const final;
+    /// @note 本类重载了 getTransform 的部分版本，会遮蔽基类的其它版本，需显式引入基类的重载集合
+    using Frame::getTransform;
     errc_t getTransform(const TimePoint&tp, Transform& transform) const override;
     errc_t getTransform(const TimePoint&tp, KinematicTransform& transform) const override;
 PROPERTIES:

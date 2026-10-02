@@ -25,6 +25,7 @@
 #include "AstMath/Vector.hpp"
 #include "AstMath/Transform.hpp"
 #include "AstMath/KinematicTransform.hpp"
+#include "AstMath/AccelerationTransform.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -150,6 +151,37 @@ errc_t Point::getPosVelIn(Frame& frame, const TimePoint& tp, Vector3d& pos, Vect
         rc = aFrameTransform(*parent, frame, tp, transform);
         if(rc) return rc;
         transform.transformPositionVelocity(posInParent, velInParent, pos, vel);
+        return eNoError;
+    }
+}
+
+errc_t Point::getPosVelAccIn(Frame *frame, const TimePoint &tp, Vector3d &pos, Vector3d &vel, Vector3d &acc) const
+{
+    if(frame == nullptr)
+        return eErrorNullPtr;
+    return getPosVelAccIn(*frame, tp, pos, vel, acc);
+}
+
+errc_t Point::getPosVelAccIn(Frame& frame, const TimePoint& tp, Vector3d& pos, Vector3d& vel, Vector3d& acc) const
+{
+    auto parent = this->getFrame();
+    if(parent == nullptr)
+    {
+        return eErrorNullPtr;
+    }
+    else if(parent == &frame)
+    {
+        return getPosVelAcc(tp, pos, vel, acc);
+    }
+    else
+    {
+        Vector3d posInParent, velInParent, accInParent;
+        errc_t rc = getPosVelAcc(tp, posInParent, velInParent, accInParent);
+        if(rc) return rc;
+        AccelerationTransform transform;
+        rc = aFrameTransform(*parent, frame, tp, transform);
+        if(rc) return rc;
+        transform.transformPosVelAcc(posInParent, velInParent, accInParent, pos, vel, acc);
         return eNoError;
     }
 }

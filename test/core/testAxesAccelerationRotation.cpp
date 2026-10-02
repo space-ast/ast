@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ast/Axes.hpp"
+#include "ast/AxesICRF.hpp"
 #include "ast/AccelerationRotation.hpp"
 #include "ast/KinematicRotation.hpp"
 #include "ast/Rotation.hpp"
@@ -45,18 +46,20 @@ public:
     /// @param omega0 初始角速度 [rad/s]
     /// @param alpha  角加速度 [rad/s^2]
     /// @param theta0 初始转角 [rad]
-    TestSpinningAxes(double omega0, double alpha, double theta0 = 0.7)
+    /// @param parent 父轴系，为空表示根轴系
+    TestSpinningAxes(double omega0, double alpha, double theta0 = 0.7, Axes* parent = nullptr)
         : tp0_(testEpoch())
         , theta0_(theta0)
         , omega0_(omega0)
         , alpha_(alpha)
+        , parent_(parent)
     {}
 
     /// @note 本类重载了 getTransform 的其它版本，会遮蔽基类的 AccelerationRotation 版本，
     ///       需要显式引入基类的重载集合
     using Axes::getTransform;
 
-    Axes* getParent() const override { return nullptr; }    // 根轴系
+    Axes* getParent() const override { return parent_; }
 
     errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override
     {
@@ -80,6 +83,7 @@ private:
     double theta0_;
     double omega0_;
     double alpha_;
+    Axes* parent_{nullptr};
 };
 
 class AxesAccelerationRotationTest : public ::testing::Test
@@ -139,6 +143,34 @@ TEST_F(AxesAccelerationRotationTest, ConstantRateHasZeroAcceleration)
 
     for (int i = 0; i < 3; i++)
         EXPECT_NEAR(accelRot.getRotationRateDot()[i], 0.0, 1e-12);
+}
+
+/*!
+    多级轴系链：沿链组合的结果应等于各段加速度旋转变换的组合。
+*/
+TEST_F(AxesAccelerationRotationTest, ChainedAxesTransform)
+{
+    const TimePoint tp = testEpoch() + 100.0;
+
+    TestSpinningAxes mid(0.3, -0.07, 0.7, aAxesICRF());
+    TestSpinningAxes leaf(-0.5, 0.2, -0.3, &mid);
+
+    AccelerationRotation chained;
+    errc_t rc = leaf.getTransformFrom(aAxesICRF(), tp, chained);
+    EXPECT_EQ(rc, eNoError);
+
+    AccelerationRotation midRot, leafRot;
+    ASSERT_EQ(mid.getTransform(tp, midRot), eNoError);
+    ASSERT_EQ(leaf.getTransform(tp, leafRot), eNoError);
+    const AccelerationRotation expected = midRot.composed(leafRot);
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+            EXPECT_NEAR(chained.getMatrix()(i, j), expected.getMatrix()(i, j), 1e-14);
+        EXPECT_NEAR(chained.getRotationRate()[i], expected.getRotationRate()[i], 1e-14);
+        EXPECT_NEAR(chained.getRotationRateDot()[i], expected.getRotationRateDot()[i], 1e-14);
+    }
 }
 
 GTEST_MAIN()

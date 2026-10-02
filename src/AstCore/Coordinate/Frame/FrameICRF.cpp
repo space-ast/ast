@@ -23,6 +23,7 @@
 #include "AstCore/AxesICRF.hpp"
 #include "AstCore/PointSSBarycenter.hpp"
 #include "AstMath/KinematicTransform.hpp"
+#include "AstMath/AccelerationTransform.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -56,6 +57,12 @@ errc_t FrameICRF::getTransform(const TimePoint &tp, Transform &transform) const
 }
 
 errc_t FrameICRF::getTransform(const TimePoint &tp, KinematicTransform &transform) const
+{
+    transform.setIdentity();
+    return eNoError;
+}
+
+errc_t FrameICRF::getTransform(const TimePoint &tp, AccelerationTransform &transform) const
 {
     transform.setIdentity();
     return eNoError;
