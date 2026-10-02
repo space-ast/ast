@@ -95,6 +95,12 @@ public:
     /// @param rotation 输出参数，运动学旋转变换（包含角速度）
     /// @return 错误码
     virtual errc_t getTransform(const TimePoint& tp, KinematicRotation& rotation) const = 0;
+
+    /// @brief 获取当前轴系相对于父轴系的加速度旋转变换
+    /// @param tp 时间点
+    /// @param rotation 输出参数，加速度旋转变换（包含加速度）
+    /// @return 错误码
+    virtual errc_t getTransform(const TimePoint& tp, AccelerationRotation& rotation) const;
 public:
     /// @brief 获取当前轴系的深度
     /// @details 根轴系深度为 0，每增加一级父轴系深度加 1。
