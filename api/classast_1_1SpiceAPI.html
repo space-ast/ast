@@ -116,15 +116,16 @@ Public 类型</h2></td></tr>
 <tr class="memitem:a132b6750cd186d052328d18730084769" id="r_a132b6750cd186d052328d18730084769"><td class="memItemLeft" align="right" valign="top"><a id="a132b6750cd186d052328d18730084769" name="a132b6750cd186d052328d18730084769"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
 &#160;&#160;<b>ifurnsh</b> = 0
 , <b>ispkgeo</b>
+, <b>ispkssb</b>
 , <b>ispklef</b>
-, <b>ispkuef</b>
 , <br />
-&#160;&#160;<b>iktotal</b>
+&#160;&#160;<b>ispkuef</b>
+, <b>iktotal</b>
 , <b>ibodc2n</b>
 , <b>ierract</b>
-, <b>ifailed</b>
 , <br />
-&#160;&#160;<b>ireset</b>
+&#160;&#160;<b>ifailed</b>
+, <b>ireset</b>
 , <b>ikclear</b>
 , <b>numfunctions</b>
 <br />
@@ -153,6 +154,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a4fbf751cd2c4df0e793752c08723d15c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac3292abf67364990a1de46f79df05d0" id="r_aac3292abf67364990a1de46f79df05d0"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac3292abf67364990a1de46f79df05d0">spkgeo</a> (int targ, double et, const char *ref, int obs, double state[6], double *lt)</td></tr>
 <tr class="separator:aac3292abf67364990a1de46f79df05d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c4f46df5c8223626d00d37c5baad2a1" id="r_a4c4f46df5c8223626d00d37c5baad2a1"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c4f46df5c8223626d00d37c5baad2a1">spkssb</a> (int targ, double et, const char *ref, double starg[6])</td></tr>
+<tr class="separator:a4c4f46df5c8223626d00d37c5baad2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bb24796022f7868f160b7d8db92f82c" id="r_a4bb24796022f7868f160b7d8db92f82c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bb24796022f7868f160b7d8db92f82c">spklef</a> (const char *filename, int *handle)</td></tr>
 <tr class="separator:a4bb24796022f7868f160b7d8db92f82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abae40dfe27cd12b56c29ef6356518992" id="r_abae40dfe27cd12b56c29ef6356518992"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abae40dfe27cd12b56c29ef6356518992">spkuef</a> (int handle)</td></tr>
@@ -479,7 +482,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b> {}</
       </table>
 </div><div class="memdoc">
 
-<p>计算spice位置 </p>
+<p>计算天体的相对星历 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">targ</td><td>目标体ID </td></tr>
@@ -523,6 +526,48 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b> {}</
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a4c4f46df5c8223626d00d37c5baad2a1" name="a4c4f46df5c8223626d00d37c5baad2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c4f46df5c8223626d00d37c5baad2a1">&#9670;&#160;</a></span>spkssb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::SpiceAPI::spkssb </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>targ</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>et</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>ref</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>starg</em></span>[6]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算天体在太阳系质心下的星历 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targ</td><td>目标体ID </td></tr>
+    <tr><td class="paramname">et</td><td>时间，相对于J2000.0 TDB的秒数，并以TDB为时间递进尺度 </td></tr>
+    <tr><td class="paramname">ref</td><td>参考系 </td></tr>
+    <tr><td class="paramname">starg</td><td>状态向量 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

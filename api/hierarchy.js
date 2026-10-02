@@ -1,6 +1,8 @@
 var hierarchy =
 [
     [ "a_structtype", "structa__structtype.html", null ],
+    [ "ast::AccelerationRotation", "classast_1_1AccelerationRotation.html", null ],
+    [ "ast::AccelerationTransform", "classast_1_1AccelerationTransform.html", null ],
     [ "ast::AEP8Data", "classast_1_1AEP8Data.html", null ],
     [ "ast::AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
     [ "allocator_type", null, [
@@ -553,6 +555,8 @@ var hierarchy =
     ] ],
     [ "ast::KernelData", "unionast_1_1KernelData.html", null ],
     [ "ast::KernelPool", "classast_1_1KernelPool.html", null ],
+    [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", null ],
+    [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", null ],
     [ "ast::LatLon", "classast_1_1LatLon.html", null ],
     [ "ast::LatLonAlt", "classast_1_1LatLonAlt.html", null ],
     [ "ast::LeapSecond", "classast_1_1LeapSecond.html", null ],
@@ -1427,11 +1431,7 @@ var hierarchy =
     [ "ast::ReportSection", "classast_1_1ReportSection.html", null ],
     [ "ast::ReportStyle", "classast_1_1ReportStyle.html", null ],
     [ "ast::ReportUnits", "structast_1_1ReportUnits.html", null ],
-    [ "ast::Rotation", "classast_1_1Rotation.html", [
-      [ "ast::KinematicRotation", "classast_1_1KinematicRotation.html", [
-        [ "ast::AccelerationRotation", "classast_1_1AccelerationRotation.html", null ]
-      ] ]
-    ] ],
+    [ "ast::Rotation", "classast_1_1Rotation.html", null ],
     [ "ast::RotationElement", "classast_1_1RotationElement.html", null ],
     [ "ast::RoutingHandleResult", "classast_1_1RoutingHandleResult.html", null ],
     [ "ast::RunningStatus", "classast_1_1RunningStatus.html", null ],
@@ -1598,11 +1598,7 @@ var hierarchy =
     [ "ast::TLEDatabaseQuery", "classast_1_1TLEDatabaseQuery.html", null ],
     [ "ast::TLELines", "classast_1_1TLELines.html", null ],
     [ "ast::TrackingCoordinates", "classast_1_1TrackingCoordinates.html", null ],
-    [ "ast::Transform", "classast_1_1Transform.html", [
-      [ "ast::KinematicTransform", "classast_1_1KinematicTransform.html", [
-        [ "ast::AccelerationTransform", "classast_1_1AccelerationTransform.html", null ]
-      ] ]
-    ] ],
+    [ "ast::Transform", "classast_1_1Transform.html", null ],
     [ "ast::TreeBuildOptions", "structast_1_1TreeBuildOptions.html", null ],
     [ "std::true_type", null, [
       [ "ast::propagate_nan::allow_efficient_minus< TimePoint >", "structast_1_1propagate__nan_1_1allow__efficient__minus_3_01TimePoint_01_4.html", null ]

@@ -100,7 +100,8 @@ $(function(){initNavTree('AccelerationRotation_8hpp.html',''); initResizable(tru
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
-<a href="#namespaces">命名空间</a>  </div>
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#define-members">宏定义</a>  </div>
   <div class="headertitle"><div class="title">AccelerationRotation.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
@@ -118,6 +119,11 @@ $(function(){initNavTree('AccelerationRotation_8hpp.html',''); initResizable(tru
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a7fa652c08b87b79f77c1824d4c573935" id="r_a7fa652c08b87b79f77c1824d4c573935"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fa652c08b87b79f77c1824d4c573935">_AST_DEF_ACCELERATIONROTATION_PROPERTIES</a></td></tr>
+<tr class="separator:a7fa652c08b87b79f77c1824d4c573935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>~ </p>
@@ -127,7 +133,33 @@ $(function(){initNavTree('AccelerationRotation_8hpp.html',''); initResizable(tru
 <p>ast项目（https://github.com/space-ast/ast） 本项目基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 <p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">宏定义说明</h2>
+<a id="a7fa652c08b87b79f77c1824d4c573935" name="a7fa652c08b87b79f77c1824d4c573935"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fa652c08b87b79f77c1824d4c573935">&#9670;&#160;</a></span>_AST_DEF_ACCELERATIONROTATION_PROPERTIES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _AST_DEF_ACCELERATIONROTATION_PROPERTIES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    _AST_DEF_KINEMATICROTATION_PROPERTIES\</div>
+<div class="line">    const Vector3d&amp; rotationRateDot()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> angvelDot_; }\</div>
+<div class="line">    Vector3d&amp; rotationRateDot() { <span class="keywordflow">return</span> angvelDot_; }\</div>
+<div class="line">    <span class="keyword">const</span> Vector3d&amp; getRotationRateDot()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rotationRateDot(); }\</div>
+<div class="line">    Vector3d&amp; getRotationRateDot() { <span class="keywordflow">return</span> rotationRateDot(); }\</div>
+<div class="line">    <span class="keywordtype">void</span> setRotationRateDot(<span class="keyword">const</span> Vector3d&amp; angvelDot) { angvelDot_ = angvelDot; }\</div>
+<div class="line">    <span class="keyword">const</span> AccelerationRotation&amp; accelerationRotation()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>AccelerationRotation&amp;<span class="keyword">&gt;</span>(rotation_); }\</div>
+<div class="line">    AccelerationRotation&amp; accelerationRotation() { <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>AccelerationRotation&amp;<span class="keyword">&gt;</span>(rotation_); }\</div>
+<div class="line">    <span class="keyword">const</span> AccelerationRotation&amp; getAccelerationRotation()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> accelerationRotation(); }\</div>
+<div class="line">    AccelerationRotation&amp; getAccelerationRotation() { <span class="keywordflow">return</span> accelerationRotation(); }\</div>
+<div class="line">    <span class="keywordtype">void</span> setAccelerationRotation(<span class="keyword">const</span> AccelerationRotation&amp; rot) { accelerationRotation() = rot; }\</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -13,6 +13,7 @@ var classast_1_1SpiceAPI =
     [ "reset", "classast_1_1SpiceAPI.html#a6421ec4591b64071a4ad321874eb8b31", null ],
     [ "spkgeo", "classast_1_1SpiceAPI.html#aac3292abf67364990a1de46f79df05d0", null ],
     [ "spklef", "classast_1_1SpiceAPI.html#a4bb24796022f7868f160b7d8db92f82c", null ],
+    [ "spkssb", "classast_1_1SpiceAPI.html#a4c4f46df5c8223626d00d37c5baad2a1", null ],
     [ "spkuef", "classast_1_1SpiceAPI.html#abae40dfe27cd12b56c29ef6356518992", null ],
     [ "tryload", "classast_1_1SpiceAPI.html#afa3c55166e2fa8b79b3091c1f1cd8b2f", null ],
     [ "unload", "classast_1_1SpiceAPI.html#a624af589af418c88f74350867335a51d", null ],

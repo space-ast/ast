@@ -51,6 +51,7 @@ var AstCore_2Data_2Context_2RunTime_8cpp =
     [ "aLOD", "AstCore_2Data_2Context_2RunTime_8cpp.html#gacbc39836a2143bf579fe71b228d4f1de", null ],
     [ "aPoleMotion", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga66a2f4b3e4796c751d597d272ac567dd", null ],
     [ "aPoleMotionUTC", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga0bebac9a35d34884b7b6b02fdd7511ad", null ],
+    [ "aSpiceHasBodyEphemeris", "AstCore_2Data_2Context_2RunTime_8cpp.html#gabd5f274378eaca4f0ce27c2449755745", null ],
     [ "aTheoreticalXYS", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga030bae706d318085b613e4431ee54600", null ],
     [ "aTheoreticalXYS_IERS2010", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga74625ec2c9cb689a8d55076d6862a785", null ],
     [ "aTheoreticalXYS_IERS2010", "AstCore_2Data_2Context_2RunTime_8cpp.html#ga322f0ef44069d6d0286466ef3d8f5ec9", null ],
