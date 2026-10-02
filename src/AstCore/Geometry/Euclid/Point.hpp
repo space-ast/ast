@@ -67,6 +67,15 @@ public:
     /// @return 错误码
     virtual errc_t getPosVel(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const = 0;
 
+    /// @brief 获取点在指定时间点的位置、速度和加速度，相对于点的参考坐标系
+    /// @details 默认实现由速度的中心差分给出加速度；有解析加速度的点应当重写本函数。
+    /// @param tp 时间点
+    /// @param pos 输出参数，点的位置向量
+    /// @param vel 输出参数，点的速度向量
+    /// @param acc 输出参数，点的加速度向量
+    /// @return 错误码
+    virtual errc_t getPosVelAcc(const TimePoint& tp, Vector3d& pos, Vector3d& vel, Vector3d& acc) const;
+
     /// @brief 获取点的时段，表示点在空间中的存在时间范围
     /// @details 默认实现返回全时间段
     /// @param interval 输出参数，点的时段

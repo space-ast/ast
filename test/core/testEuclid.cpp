@@ -32,6 +32,7 @@
 #include "ast/Matrix.hpp"
 #include "ast/Vector.hpp"
 #include "ast/AstTestMacro.h"
+#include <cmath>
 
 AST_USING_NAMESPACE
 
@@ -309,6 +310,81 @@ TEST_F(EuclidTest, PointGetPosInSameFrame)
     errc_t rc = origin->getPosIn(ecf.get(), tp, posECF);
     EXPECT_EQ(rc, eNoError);
     EXPECT_NEAR(posECF.norm(), 0.0, 1e-14);
+}
+
+// ============================================
+// Point::getPosVelAcc 默认实现测试
+// ============================================
+
+/// @brief 测试用点：在 xy 平面内做匀速圆周运动，位置/速度有解析解，
+///        加速度为 -ω²·pos，用于校验默认实现的中心差分
+class TestCircularPoint : public Point
+{
+public:
+    Frame* getFrame() const override { return nullptr; }
+
+    errc_t getPos(const TimePoint& tp, Vector3d& pos) const override
+    {
+        Vector3d vel;
+        return getPosVel(tp, pos, vel);
+    }
+
+    errc_t getPosVel(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const override
+    {
+        const double t = tp - epoch_;
+        const double c = std::cos(rate_ * t);
+        const double s = std::sin(rate_ * t);
+        pos = Vector3d{radius_ * c, radius_ * s, 0.0};
+        vel = Vector3d{-radius_ * rate_ * s, radius_ * rate_ * c, 0.0};
+        return eNoError;
+    }
+
+    TimePoint epoch_{};
+    double radius_{7000e3};   ///< 半径 [m]
+    double rate_{1.0e-3};     ///< 角速度 [rad/s]
+};
+
+/// @brief 测试用点：任何查询都失败，用于校验默认实现的错误传递
+class TestFailingPoint : public Point
+{
+public:
+    Frame* getFrame() const override { return nullptr; }
+    errc_t getPos(const TimePoint&, Vector3d&) const override { return eErrorNotFound; }
+    errc_t getPosVel(const TimePoint&, Vector3d&, Vector3d&) const override { return eErrorNotFound; }
+};
+
+TEST_F(EuclidTest, PointGetPosVelAccDefault)
+{
+    TestCircularPoint point;
+    point.epoch_ = TimePoint::FromUTC(2026, 3, 4, 0, 0, 0);
+    const TimePoint tp = point.epoch_ + 3600.0;
+
+    Vector3d pos, vel, acc;
+    errc_t rc = point.getPosVelAcc(tp, pos, vel, acc);
+    EXPECT_EQ(rc, eNoError);
+
+    // 位置、速度直接来自 getPosVel，应与其解析解一致
+    const double t = tp - point.epoch_;
+    const double c = std::cos(point.rate_ * t);
+    const double s = std::sin(point.rate_ * t);
+    EXPECT_NEAR(pos.x(), point.radius_ * c, 1e-6);
+    EXPECT_NEAR(pos.y(), point.radius_ * s, 1e-6);
+    EXPECT_NEAR(vel.x(), -point.radius_ * point.rate_ * s, 1e-9);
+    EXPECT_NEAR(vel.y(), point.radius_ * point.rate_ * c, 1e-9);
+
+    // 加速度默认为速度的中心差分，应与解析值 -ω²·pos 一致
+    const Vector3d accExpected = pos * (-point.rate_ * point.rate_);
+    EXPECT_NEAR((acc - accExpected).norm(), 0.0, 1e-9 * accExpected.norm());
+}
+
+TEST_F(EuclidTest, PointGetPosVelAccErrorPropagation)
+{
+    TestFailingPoint point;
+    const TimePoint tp = TimePoint::FromUTC(2026, 3, 4, 0, 0, 0);
+
+    Vector3d pos, vel, acc;
+    errc_t rc = point.getPosVelAcc(tp, pos, vel, acc);
+    EXPECT_EQ(rc, eErrorNotFound);
 }
 
 GTEST_MAIN()
