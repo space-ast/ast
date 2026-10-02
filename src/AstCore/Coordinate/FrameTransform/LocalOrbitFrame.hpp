@@ -60,9 +60,10 @@ AST_CORE_API errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vect
 /// @brief     计算位置和速度向量所在坐标系到VVLH坐标系的运动学旋转变换
 /// @param     posInFrame 位置向量
 /// @param     velInFrame 速度向量
+/// @param     accInFrame 加速度向量
 /// @param     rotation 运动学旋转变换 @see KinematicRotation
-/// @note      角速度只由位置和速度确定，忽略由加速度决定的轨道面变化项，详见实现说明
-AST_CORE_API errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, KinematicRotation& rotation);
+/// @note      角速度 ω = (r×v)/|r|² + ĥ×(r×a)/|h|
+AST_CORE_API errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, const Vector3d& accInFrame, KinematicRotation& rotation);
 
 
 /// @brief     计算VVLH坐标系到位置和速度向量所在坐标系的转换矩阵
@@ -94,9 +95,10 @@ AST_CORE_API errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vect
 /// @brief     计算位置和速度向量所在坐标系到LVLH坐标系的运动学旋转变换
 /// @param     posInFrame 位置向量
 /// @param     velInFrame 速度向量
+/// @param     accInFrame 加速度向量
 /// @param     rotation 运动学旋转变换 @see KinematicRotation
-/// @note      角速度只由位置和速度确定，忽略由加速度决定的轨道面变化项，详见实现说明
-AST_CORE_API errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, KinematicRotation& rotation);
+/// @note      角速度 ω = (r×v)/|r|² + ĥ×(r×a)/|h|
+AST_CORE_API errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, const Vector3d& accInFrame, KinematicRotation& rotation);
 
 
 /// @brief     计算LVLH坐标系到位置和速度向量所在坐标系的转换矩阵

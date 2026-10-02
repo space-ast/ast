@@ -27,6 +27,33 @@
 
 AST_NAMESPACE_BEGIN
 
+/// @brief     计算局部轨道系相对输入系的角速度（分量在输入系下分解）
+/// @param     posInFrame 位置向量
+/// @param     velInFrame 速度向量
+/// @param     accInFrame 加速度向量，取零时退化为二体（开普勒）情形
+/// @return    角速度向量
+/// @note      VVLH、LVLH 等局部轨道系彼此只差固定的轴重排，相对输入系的角速度相同，故共用本函数。
+///            要求 pos/vel/acc 是同一参考系下位置的一、二阶时间导数。
+static Vector3d localOrbitFrameRate(const Vector3d& posInFrame, const Vector3d& velInFrame, const Vector3d& accInFrame)
+{
+    /*!
+        h = r×v 为轨道角动量，ĥ = h/|h| 为轨道法向。角速度由两项组成：
+
+        - 轨道角速度 ω = (r×v)/|r|²，沿 ĥ，大小为 |h|/|r|²。它是二体（开普勒）运动下的精确值：
+          此时轨道面在惯性空间固定（ḣ = r×a = 0），角速度只由位置和速度确定。
+
+        - 轨道面进动项 ĥ×(r×a)/|h|，由加速度的离面分量决定。
+          因为 ḣ = r×a 且 ĥ·(r×a) = 0，故 dĥ/dt = (r×a)/|h|；单位轴的转动满足 ė = ω×e，而 (ĥ×d)×ĥ = d（d ⊥ ĥ），即得该项。
+          取 a 为二体加速度时 r×a = 0，该项消失。
+
+        该项即 J2 交点进动等的来源，量级约 |a|/|v|
+    */
+    Vector3d h = posInFrame.cross(velInFrame);
+    Vector3d rate = h * (1.0 / posInFrame.squaredNorm());
+    rate += h.cross(posInFrame.cross(accInFrame)) * (1.0 / h.squaredNorm());
+    return rate;
+}
+
 errc_t aFrameToVVLHMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame, Matrix3d& matrix)
 {
     Vector3d axis_y = velInFrame.cross(posInFrame);
@@ -55,7 +82,7 @@ errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFr
     return aFrameToVVLHMatrix(posInFrame, velInFrame, rotation.getMatrix());
 }
 
-errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, KinematicRotation& rotation)
+errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, const Vector3d& accInFrame, KinematicRotation& rotation)
 {
     errc_t rc = aFrameToVVLHMatrix(posInFrame, velInFrame, rotation.getRotation().getMatrix());
     if (A_UNLIKELY(rc != eNoError))
@@ -64,15 +91,9 @@ errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFr
         return rc;
     }
 
-    /*!
-        VVLH 与 LVLH 只差一组固定的轴重排：X_VVLH = Y_LVLH，Y_VVLH = -Z_LVLH，Z_VVLH = -X_LVLH，
-        两个坐标系相对彼此静止，故相对输入系的角速度相同，均为轨道角速度 ω = (r×v)/|r|²。
-        分量在输入系下分解，符合 KinematicRotation 的约定。
-
-        该式是二体（开普勒）运动下的精确值，适用条件与 LVLH 相同：入参只有位置和速度，
-        无法得到由加速度决定的轨道面进动项，且要求输入系不转动。详见 aFrameToLVLHTransform 的说明。
-    */
-    rotation.setRotationRate(posInFrame.cross(velInFrame) * (1.0 / posInFrame.squaredNorm()));
+    // VVLH 与 LVLH 只差一组固定的轴重排（X_VVLH = Y_LVLH，Y_VVLH = -Z_LVLH，Z_VVLH = -X_LVLH），
+    // 两系相对彼此静止，故相对输入系的角速度相同，公式见 localOrbitFrameRate。
+    rotation.setRotationRate(localOrbitFrameRate(posInFrame, velInFrame, accInFrame));
     return eNoError;
 }
 
@@ -109,7 +130,7 @@ errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFr
     return aFrameToLVLHMatrix(posInFrame, velInFrame, rotation.getMatrix());
 }
 
-errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, KinematicRotation& rotation)
+errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, const Vector3d& accInFrame, KinematicRotation& rotation)
 {
     errc_t rc = aFrameToLVLHMatrix(posInFrame, velInFrame, rotation.getRotation().getMatrix());
     if (A_UNLIKELY(rc != eNoError))
@@ -118,22 +139,8 @@ errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFr
         return rc;
     }
 
-    /*!
-        LVLH 系的角速度沿轨道法向，大小为 |r×v|/|r|²，单位向量为 (r×v)/|r×v|，角速度可写作 ω = (r×v)/|r|²
-        分量在输入系下分解，符合 KinematicRotation 的约定。
-
-        该式是二体（开普勒）运动下的精确值：轨道面在惯性空间固定（ḣ = r×a = 0），角速度只由位置和速度确定。
-        存在摄动时轨道面还会缓慢进动，真实角速度需再叠加轨道面变化项
-
-            ĥ × (r×a) / |h|        // h = r×v，ĥ = h/|h|，a 为加速度
-
-        该项即 J2 交点进动等的来源，量级约 |a|/|v|（LEO 下比轨道角速度小约 7 个量级）。
-        本函数入参只有位置和速度，无法得到该项，故结果对二体运动精确、对摄动运动偏小，长时间外推时需注意。
-
-        此外，本式给出的是相对惯性系的角速度，要求输入系不转动。
-        若 pos/vel 取自转动系（如 ECEF）的分量，还需再减去该系自身的角速度。
-    */
-    rotation.setRotationRate(posInFrame.cross(velInFrame) * (1.0 / posInFrame.squaredNorm()));
+    // LVLH 是局部轨道系的基准取向，角速度公式见 localOrbitFrameRate。
+    rotation.setRotationRate(localOrbitFrameRate(posInFrame, velInFrame, accInFrame));
     return eNoError;
 }
 

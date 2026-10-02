@@ -134,8 +134,10 @@ TEST(LocalOrbitFrame, FrameToLVLHTransform)
             EXPECT_NEAR(rotation.getMatrix()(i, j), matrix(i, j), 1e-12);
 
     // 角速度为轨道角速度 ω = (r×v)/|r|²
+    // 二体加速度沿位置方向，r×a = 0，轨道面进动项为零
+    Vector3d acc = pos.normalized() * (-398600.4418 / pos.squaredNorm());
     KinematicRotation kinematic;
-    EXPECT_EQ(aFrameToLVLHTransform(pos, vel, kinematic), eNoError);
+    EXPECT_EQ(aFrameToLVLHTransform(pos, vel, acc, kinematic), eNoError);
     Vector3d expectedRate = pos.cross(vel) / pos.squaredNorm();
     EXPECT_NEAR((kinematic.getRotationRate() - expectedRate).norm(), 0.0, 1e-12);
 
@@ -158,7 +160,7 @@ TEST(LocalOrbitFrame, FrameToLVLHTransform)
         EXPECT_TRUE(isIdentityMatrix(rotationDegenerate.getMatrix()));
 
         KinematicRotation kinematicDegenerate;
-        EXPECT_EQ(aFrameToLVLHTransform(posDegenerate, velDegenerate, kinematicDegenerate), eErrorInvalidParam);
+        EXPECT_EQ(aFrameToLVLHTransform(posDegenerate, velDegenerate, Vector3d::Zero(), kinematicDegenerate), eErrorInvalidParam);
         EXPECT_TRUE(isIdentityMatrix(kinematicDegenerate.getMatrix()));
         EXPECT_NEAR(kinematicDegenerate.getRotationRate().norm(), 0.0, 0.0);
     }
@@ -180,8 +182,10 @@ TEST(LocalOrbitFrame, FrameToVVLHTransform)
             EXPECT_NEAR(rotation.getMatrix()(i, j), matrix(i, j), 1e-12);
 
     // 角速度为轨道角速度 ω = (r×v)/|r|²，与 LVLH 相同
+    // 二体加速度沿位置方向，r×a = 0，轨道面进动项为零
+    Vector3d acc = pos.normalized() * (-398600.4418 / pos.squaredNorm());
     KinematicRotation kinematic;
-    EXPECT_EQ(aFrameToVVLHTransform(pos, vel, kinematic), eNoError);
+    EXPECT_EQ(aFrameToVVLHTransform(pos, vel, acc, kinematic), eNoError);
     Vector3d expectedRate = pos.cross(vel) / pos.squaredNorm();
     EXPECT_NEAR((kinematic.getRotationRate() - expectedRate).norm(), 0.0, 1e-12);
 
@@ -216,10 +220,45 @@ TEST(LocalOrbitFrame, FrameToVVLHTransform)
         EXPECT_TRUE(isIdentityMatrix(rotationDegenerate.getMatrix()));
 
         KinematicRotation kinematicDegenerate;
-        EXPECT_EQ(aFrameToVVLHTransform(posDegenerate, velDegenerate, kinematicDegenerate), eErrorInvalidParam);
+        EXPECT_EQ(aFrameToVVLHTransform(posDegenerate, velDegenerate, Vector3d::Zero(), kinematicDegenerate), eErrorInvalidParam);
         EXPECT_TRUE(isIdentityMatrix(kinematicDegenerate.getMatrix()));
         EXPECT_NEAR(kinematicDegenerate.getRotationRate().norm(), 0.0, 0.0);
     }
+}
+
+TEST(LocalOrbitFrame, FrameToVVLHTransformPerturbation)
+{
+    // 圆轨道：r = ρ x̂，v = v ŷ，离面加速度 a = a_z ẑ
+    const double rho = 6778.0;
+    const double v   = 7.5;
+    const double az  = 0.01;
+    Vector3d pos{rho, 0.0, 0.0};
+    Vector3d vel{0.0, v, 0.0};
+    Vector3d acc{0.0, 0.0, az};
+
+    // ω = (a_z/v) x̂ + (v/ρ) ẑ：第一项来自轨道面进动（dĥ/dt = (r×a)/|h|），第二项为轨道角速度
+    KinematicRotation kinematic;
+    EXPECT_EQ(aFrameToVVLHTransform(pos, vel, acc, kinematic), eNoError);
+    Vector3d expected{az / v, 0.0, v / rho};
+    EXPECT_NEAR((kinematic.getRotationRate() - expected).norm(), 0.0, 1e-14);
+
+    // 沿位置的加速度不产生进动项：a ∝ r 时 r×a = 0
+    KinematicRotation kinematicRadial;
+    Vector3d accRadial = pos.normalized() * (-398600.4418 / pos.squaredNorm());
+    EXPECT_EQ(aFrameToVVLHTransform(pos, vel, accRadial, kinematicRadial), eNoError);
+    EXPECT_NEAR((kinematicRadial.getRotationRate() - Vector3d{0.0, 0.0, v / rho}).norm(), 0.0, 1e-14);
+
+    // 旋转矩阵与加速度无关，两个重载给出相同矩阵
+    Rotation rotation;
+    EXPECT_EQ(aFrameToVVLHTransform(pos, vel, rotation), eNoError);
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            EXPECT_NEAR(kinematic.getMatrix()(i, j), rotation.getMatrix()(i, j), 1e-14);
+
+    // VVLH 与 LVLH 只差固定轴重排，角速度相同
+    KinematicRotation kinematicLVLH;
+    EXPECT_EQ(aFrameToLVLHTransform(pos, vel, acc, kinematicLVLH), eNoError);
+    EXPECT_NEAR((kinematicLVLH.getRotationRate() - expected).norm(), 0.0, 1e-14);
 }
 
 TEST(LocalOrbitFrame, ErrorCases)

@@ -309,6 +309,7 @@ TEST_F(AttitudeProfileTest, AttitudeECFVVLH)
             }
             for(int i = 0; i < 3; i++)
             {
+                EXPECT_NEAR(w[i], expected_w[i], 1e-12) << "w[" << i << "]";
                 EXPECT_NEAR(w2[i], expected_w[i], 1e-12) << "w2[" << i << "]";
             }
         }

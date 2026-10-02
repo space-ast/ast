@@ -46,10 +46,10 @@ errc_t AttitudeVVLH::getTransform(const TimePoint& tp, KinematicRotation& rotati
     {
         return eErrorNullPtr;
     }
-    Vector3d pos, vel;
-    errc_t rc = point->getPosVelIn(*frame, tp, pos, vel);
+    Vector3d pos, vel, acc;
+    errc_t rc = point->getPosVelAccIn(*frame, tp, pos, vel, acc);
     if(rc) return rc;
-    return aFrameToVVLHTransform(pos, vel, rotation);
+    return aFrameToVVLHTransform(pos, vel, acc, rotation);
 }
 
 AST_NAMESPACE_END

@@ -78,11 +78,11 @@ TEST(AttitudeUtilTest, AlignConstrain_CircularOrbit)
     EXPECT_EQ(rc, eNoError);
 
     KinematicRotation expected;
-    aFrameToLVLHTransform(pos, vel, expected);
+    aFrameToLVLHTransform(pos, vel, acc, expected);
 
     for(int i=0;i<9;i++)
         EXPECT_NEAR(rotation.getMatrix()[i], expected.getMatrix()[i], 1e-14);
-    
+
     for(int i=0;i<3;i++)
         EXPECT_NEAR(rotation.getRotationRate()[i], expected.getRotationRate()[i], 1e-14);
 
@@ -134,7 +134,7 @@ TEST(AttitudeUtilTest, AlignConstrain_EccentricOrbit)
     EXPECT_EQ(rc, eNoError);
 
     KinematicRotation expected;
-    aFrameToLVLHTransform(pos, vel, expected);
+    aFrameToLVLHTransform(pos, vel, acc, expected);
 
     for(int i=0;i<9;i++)
         EXPECT_NEAR(rotation.getMatrix()[i], expected.getMatrix()[i], 1e-14);
