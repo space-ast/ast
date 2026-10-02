@@ -8,6 +8,7 @@ var classast_1_1Axes =
     [ "getTransform", "classast_1_1Axes.html#a8a4f63216d63bb92bd5e495084828328", null ],
     [ "getTransform", "classast_1_1Axes.html#a4cfc61858954a4398d37f335e3843e6b", null ],
     [ "getTransform", "classast_1_1Axes.html#ab7426969fe27815711fb174d7b1e269a", null ],
+    [ "getTransformFrom", "classast_1_1Axes.html#ae7efd20bf130d36b7ed4b2ad23a95893", null ],
     [ "getTransformFrom", "classast_1_1Axes.html#a9e1cad8414075ea9b1abe32a4b77a582", null ],
     [ "getTransformFrom", "classast_1_1Axes.html#a6beb6d6b77a89b522db540ce48854d39", null ],
     [ "getTransformFromParent", "classast_1_1Axes.html#a074555bbd0e6afdf8475f362375cf8b9", null ],

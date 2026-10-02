@@ -159,6 +159,11 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosIn</b> (<a cl
 <tr class="memitem:a3a87853560d1c10a81e70ea932c1843b" id="r_a3a87853560d1c10a81e70ea932c1843b"><td class="memItemLeft" align="right" valign="top"><a id="a3a87853560d1c10a81e70ea932c1843b" name="a3a87853560d1c10a81e70ea932c1843b"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosVelIn</b> (<a class="el" href="classast_1_1Frame.html">Frame</a> &amp;frame, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos, Vector3d &amp;vel) const</td></tr>
 <tr class="separator:a3a87853560d1c10a81e70ea932c1843b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a710da7aefe7777ebe34e74aee7c2ffb9" id="r_a710da7aefe7777ebe34e74aee7c2ffb9"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a710da7aefe7777ebe34e74aee7c2ffb9">getPosVelAccIn</a> (<a class="el" href="classast_1_1Frame.html">Frame</a> *frame, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos, Vector3d &amp;vel, Vector3d &amp;acc) const</td></tr>
+<tr class="separator:a710da7aefe7777ebe34e74aee7c2ffb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e983a6d44178295ec610ec52ce1a4c" id="r_a09e983a6d44178295ec610ec52ce1a4c"><td class="memItemLeft" align="right" valign="top"><a id="a09e983a6d44178295ec610ec52ce1a4c" name="a09e983a6d44178295ec610ec52ce1a4c"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosVelAccIn</b> (<a class="el" href="classast_1_1Frame.html">Frame</a> &amp;frame, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos, Vector3d &amp;vel, Vector3d &amp;acc) const</td></tr>
+<tr class="separator:a09e983a6d44178295ec610ec52ce1a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39bc77aa64196d39725793a7704a25bc" id="r_a39bc77aa64196d39725793a7704a25bc"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39bc77aa64196d39725793a7704a25bc">getPosIn</a> (<a class="el" href="classast_1_1Frame.html">Frame</a> *frame, const <a class="el" href="classast_1_1TimePointRange.html">TimePointRange</a> &amp;range, std::vector&lt; Vector3d &gt; &amp;posList) const</td></tr>
 <tr class="separator:a39bc77aa64196d39725793a7704a25bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aead25016648ff4deccf364ecf4656615" id="r_aead25016648ff4deccf364ecf4656615"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aead25016648ff4deccf364ecf4656615">getPosVelIn</a> (<a class="el" href="classast_1_1Frame.html">Frame</a> *frame, const <a class="el" href="classast_1_1TimePointRange.html">TimePointRange</a> &amp;range, std::vector&lt; Vector3d &gt; &amp;posList, std::vector&lt; Vector3d &gt; &amp;velList) const</td></tr>
@@ -617,6 +622,55 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 <p>按 <a class="el" href="classast_1_1AccelerationTransform.html" title="加速度(二阶运动学)坐标系变换">AccelerationTransform</a> 的约定，加速度是速度的分量在坐标系下的坐标时间导数； getPosVel 给出的正是该坐标系下的速度分量，因此直接对速度分量做差商即可， 不需要额外补偿坐标系自身的转动。 这是给没有解析加速度的点兜底用的默认实现，有解析解的点应当重写本函数。</p>
+
+</div>
+</div>
+<a id="a710da7aefe7777ebe34e74aee7c2ffb9" name="a710da7aefe7777ebe34e74aee7c2ffb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a710da7aefe7777ebe34e74aee7c2ffb9">&#9670;&#160;</a></span>getPosVelAccIn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::Point::getPosVelAccIn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Frame.html">Frame</a> *</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>acc</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取点在指定时间点的位置、速度和加速度，相对于指定参考坐标系 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td>参考坐标系指针 </td></tr>
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">pos</td><td>输出参数，点的位置向量 </td></tr>
+    <tr><td class="paramname">vel</td><td>输出参数，点的速度向量 </td></tr>
+    <tr><td class="paramname">acc</td><td>输出参数，点的加速度向量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 </div>
 </div>

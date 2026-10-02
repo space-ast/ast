@@ -1,5 +1,11 @@
 var NAVTREEINDEX42 =
 {
+"classast_1_1Referenced.html#a0186807a2cfea87209e3911eceb78aed":[2,0,0,650,8],
+"classast_1_1Referenced.html#a0186807a2cfea87209e3911eceb78aed":[3,0,0,649,8],
+"classast_1_1Referenced.html#a04a0b6fb4d97cb537ca34fc26085c992":[2,0,0,650,3],
+"classast_1_1Referenced.html#a04a0b6fb4d97cb537ca34fc26085c992":[3,0,0,649,3],
+"classast_1_1Referenced.html#a366211dc1c77101f66f9e7de8f776c24":[2,0,0,650,4],
+"classast_1_1Referenced.html#a366211dc1c77101f66f9e7de8f776c24":[3,0,0,649,4],
 "classast_1_1Referenced.html#a38fc2f94b8ce3bd09ecfd9ceb4bc4c76":[2,0,0,650,6],
 "classast_1_1Referenced.html#a38fc2f94b8ce3bd09ecfd9ceb4bc4c76":[3,0,0,649,6],
 "classast_1_1Referenced.html#a3ddb7d1e47dc803e64c64a03ba110d68":[2,0,0,650,9],
@@ -243,11 +249,5 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalc1PtAccess.html":[2,0,0,689],
 "classast_1_1ScStateCalc1PtAccess.html":[3,0,0,688],
 "classast_1_1ScStateCalcAbsoluteValue.html":[2,0,0,690],
-"classast_1_1ScStateCalcAbsoluteValue.html":[3,0,0,689],
-"classast_1_1ScStateCalcAltitude.html":[2,0,0,691],
-"classast_1_1ScStateCalcAltitude.html":[3,0,0,690],
-"classast_1_1ScStateCalcAltitudeOfApoapsis.html":[2,0,0,692],
-"classast_1_1ScStateCalcAltitudeOfApoapsis.html":[3,0,0,691],
-"classast_1_1ScStateCalcAltitudeOfPeriapsis.html":[2,0,0,693],
-"classast_1_1ScStateCalcAltitudeOfPeriapsis.html":[3,0,0,692]
+"classast_1_1ScStateCalcAbsoluteValue.html":[3,0,0,689]
 };

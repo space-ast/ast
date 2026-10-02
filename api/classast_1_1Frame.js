@@ -7,6 +7,7 @@ var classast_1_1Frame =
     [ "getOrigin", "classast_1_1Frame.html#adbc66bb7ac1cf9771f20a4a52ef6ec30", null ],
     [ "getParent", "classast_1_1Frame.html#ac178bb15cbece03791ebc6e35bfd9b9e", null ],
     [ "getRepresentation", "classast_1_1Frame.html#a8a88179190a84258ab07d3260a193f30", null ],
+    [ "getTransform", "classast_1_1Frame.html#aa0ebe6ad0f5730c40a1e1cfc44f990c7", null ],
     [ "getTransform", "classast_1_1Frame.html#ae6a0a9b308f34c6cf05110e388e4b261", null ],
     [ "getTransform", "classast_1_1Frame.html#a24efd2b5aa46429d95f2d6fcf03d5bb3", null ],
     [ "getTransformFrom", "classast_1_1Frame.html#a54118ea43af06d588eb71154864a60f0", null ],

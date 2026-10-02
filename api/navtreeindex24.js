@@ -1,5 +1,6 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1CVeVOSystemsCollection.html":[0,10,10],
 "classast_1_1CVeVOSystemsElement.html":[0,10,12],
 "classast_1_1Calculation.html":[2,0,0,143],
 "classast_1_1Calculation.html":[3,0,0,142],
@@ -248,6 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1CloseEventDetecter.html":[2,0,0,172],
 "classast_1_1CloseEventDetecter.html":[3,0,0,171],
 "classast_1_1CoInitializeGuard.html":[2,0,0,178],
-"classast_1_1CoInitializeGuard.html":[3,0,0,177],
-"classast_1_1CollectingStreamReceiver.html":[0,18,2]
+"classast_1_1CoInitializeGuard.html":[3,0,0,177]
 };

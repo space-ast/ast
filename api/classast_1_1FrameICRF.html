@@ -132,6 +132,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:ac237c01d6b3d294395a6afb92338094c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20fed13b7304bb95eb5052edba9d9fb0" id="r_a20fed13b7304bb95eb5052edba9d9fb0"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20fed13b7304bb95eb5052edba9d9fb0">getTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicTransform.html">KinematicTransform</a> &amp;transform) const override</td></tr>
 <tr class="separator:a20fed13b7304bb95eb5052edba9d9fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd8884131233509d94a09e9fa391028" id="r_a2fd8884131233509d94a09e9fa391028"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fd8884131233509d94a09e9fa391028">getTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1AccelerationTransform.html">AccelerationTransform</a> &amp;transform) const override</td></tr>
+<tr class="separator:a2fd8884131233509d94a09e9fa391028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1Frame"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Frame')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Frame.html">ast::Frame</a></td></tr>
 <tr class="memitem:a8a88179190a84258ab07d3260a193f30 inherit pub_methods_classast_1_1Frame" id="r_a8a88179190a84258ab07d3260a193f30"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Frame.html#a8a88179190a84258ab07d3260a193f30">getRepresentation</a> () const override</td></tr>
 <tr class="separator:a8a88179190a84258ab07d3260a193f30 inherit pub_methods_classast_1_1Frame"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -421,8 +423,50 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 
 </div>
 </div>
+<a id="a2fd8884131233509d94a09e9fa391028" name="a2fd8884131233509d94a09e9fa391028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fd8884131233509d94a09e9fa391028">&#9670;&#160;</a></span>getTransform() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::FrameICRF::getTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1AccelerationTransform.html">AccelerationTransform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>transform</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前坐标系相对于父坐标系的加速度变换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">transform</td><td>输出参数，加速度变换（包含加速度项） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+<p>默认实现：与运动学版本同构，平移项由原点的位置/速度/加速度给出， 旋转项由本坐标系轴系相对父坐标系轴系的加速度旋转变换给出。 平移加速度的解析解由 <a class="el" href="classast_1_1Point.html#af179c2d45c726c14cb434884bd46d847" title="获取点在指定时间点的位置、速度和加速度，相对于点的参考坐标系">Point::getPosVelAcc</a> 提供，没有解析解的点走其默认差分实现； 旋转角加速度的解析解由 Axes::getTransform(AccelerationRotation) 提供，没有解析解的轴系走其默认差分实现。</p>
+
+<p>重载 <a class="el" href="classast_1_1Frame.html#aa0ebe6ad0f5730c40a1e1cfc44f990c7">ast::Frame</a> .</p>
+
+</div>
+</div>
 <a id="a20fed13b7304bb95eb5052edba9d9fb0" name="a20fed13b7304bb95eb5052edba9d9fb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20fed13b7304bb95eb5052edba9d9fb0">&#9670;&#160;</a></span>getTransform() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a20fed13b7304bb95eb5052edba9d9fb0">&#9670;&#160;</a></span>getTransform() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -463,7 +507,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div>
 </div>
 <a id="ac237c01d6b3d294395a6afb92338094c" name="ac237c01d6b3d294395a6afb92338094c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac237c01d6b3d294395a6afb92338094c">&#9670;&#160;</a></span>getTransform() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac237c01d6b3d294395a6afb92338094c">&#9670;&#160;</a></span>getTransform() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

@@ -163,6 +163,11 @@ A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>get
 <tr class="memitem:ab2e76a192270922aebaf6da3c9ffbe43" id="r_ab2e76a192270922aebaf6da3c9ffbe43"><td class="memItemLeft" align="right" valign="top"><a id="ab2e76a192270922aebaf6da3c9ffbe43" name="ab2e76a192270922aebaf6da3c9ffbe43"></a>
 A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformFrom</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
 <tr class="separator:ab2e76a192270922aebaf6da3c9ffbe43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7efd20bf130d36b7ed4b2ad23a95893" id="r_ae7efd20bf130d36b7ed4b2ad23a95893"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7efd20bf130d36b7ed4b2ad23a95893">getTransformFrom</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:ae7efd20bf130d36b7ed4b2ad23a95893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dab7e0df605f1baeea2690a5d989e91" id="r_a9dab7e0df605f1baeea2690a5d989e91"><td class="memItemLeft" align="right" valign="top"><a id="a9dab7e0df605f1baeea2690a5d989e91" name="a9dab7e0df605f1baeea2690a5d989e91"></a>
+A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformFrom</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:a9dab7e0df605f1baeea2690a5d989e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa434d356305a79f50a1e68852b8709f9" id="r_aa434d356305a79f50a1e68852b8709f9"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa434d356305a79f50a1e68852b8709f9">getTransformFromParent</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
 <tr class="separator:aa434d356305a79f50a1e68852b8709f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a074555bbd0e6afdf8475f362375cf8b9" id="r_a074555bbd0e6afdf8475f362375cf8b9"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a074555bbd0e6afdf8475f362375cf8b9">getTransformFromParent</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
@@ -635,8 +640,53 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 
 </div>
 </div>
+<a id="ae7efd20bf130d36b7ed4b2ad23a95893" name="ae7efd20bf130d36b7ed4b2ad23a95893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7efd20bf130d36b7ed4b2ad23a95893">&#9670;&#160;</a></span>getTransformFrom() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE errc_t ast::Axes::getTransformFrom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取源轴系到当前轴系的加速度旋转变换 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>源轴系 </td></tr>
+    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
+    <tr><td class="paramname">rotation</td><td>输出参数，加速度旋转变换（包含角加速度） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
 <a id="a9e1cad8414075ea9b1abe32a4b77a582" name="a9e1cad8414075ea9b1abe32a4b77a582"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e1cad8414075ea9b1abe32a4b77a582">&#9670;&#160;</a></span>getTransformFrom() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e1cad8414075ea9b1abe32a4b77a582">&#9670;&#160;</a></span>getTransformFrom() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -681,7 +731,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </div>
 </div>
 <a id="a6beb6d6b77a89b522db540ce48854d39" name="a6beb6d6b77a89b522db540ce48854d39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6beb6d6b77a89b522db540ce48854d39">&#9670;&#160;</a></span>getTransformFrom() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6beb6d6b77a89b522db540ce48854d39">&#9670;&#160;</a></span>getTransformFrom() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

@@ -1,5 +1,11 @@
 var NAVTREEINDEX54 =
 {
+"classast_1_1VolumeGridSurfaceBearing.html":[0,1,3,0,19],
+"classast_1_1VolumeGridSurfaceBearing.html#a2c94c010a3bab5495fd44aab9ffd69d0":[0,1,3,0,19,1],
+"classast_1_1VolumeGridSurfaceBearing.html#a36ea909c6aea057a39251ec4b2afbc8b":[0,1,3,0,19,2],
+"classast_1_1VolumeGridSurfaceBearing.html#a814e14e977a8d219e8ba59bd3803a005":[0,1,3,0,19,0],
+"classast_1_1VolumeGridSurfaceBearing.html#a9998da34f9a04c244f508b5787ace09b":[0,1,3,0,19,4],
+"classast_1_1VolumeGridSurfaceBearing.html#aacdb34bbbea85eaf747d2610a10b3868":[0,1,3,0,19,3],
 "classast_1_1VolumeGridVisitor.html":[0,1,3,0,20],
 "classast_1_1Volumetric.html":[2,0,0,1170],
 "classast_1_1Volumetric.html":[3,0,0,1169],
@@ -243,11 +249,5 @@ var NAVTREEINDEX54 =
 "dir_21ca20f94ae482e65c1f5f3361d968f6.html":[4,0,0,6,12,1,0,15],
 "dir_226e35ca4485425dfc8843d7937f27f4.html":[4,0,0,31,0,2],
 "dir_234e7a292bab1f69d123025d93f68cf4.html":[4,0,0,6,12,4],
-"dir_23b203a8a29dfd6901a0a95f6346468b.html":[4,0,0,22,14],
-"dir_2609d2b9547db3b29d8903e248c825f5.html":[4,0,0,5],
-"dir_2717f2c8c7b5333c99d559555f5f11d9.html":[4,0,0,6,13,2],
-"dir_286a3fd196a64d9553ffb5ae50fb0078.html":[4,0,0,6,7,4],
-"dir_289a06db8913b8ab1cde044a5c07f0d4.html":[4,0,0,6,15,1],
-"dir_2a969930e1083724931c9d79b0ad2b52.html":[4,0,0,17,4],
-"dir_2bf389e0b082ac481243922c0ce17d63.html":[4,0,0,27,0,0]
+"dir_23b203a8a29dfd6901a0a95f6346468b.html":[4,0,0,22,14]
 };

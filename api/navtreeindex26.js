@@ -1,5 +1,6 @@
 var NAVTREEINDEX26 =
 {
+"classast_1_1DataFrame.html#a20d4bc7824e51697eb77f112bb39b7aa":[0,15,4,4],
 "classast_1_1DataFrame.html#a48748a4b6e4ca7858e37d3a5d2f820b0":[0,15,4,0],
 "classast_1_1DataFrame.html#a5b46fc41d36a0d83c9480272abaf27d6":[0,15,4,7],
 "classast_1_1DataFrame.html#a88d95b297302a127ff57eef861d06103":[0,15,4,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX26 =
 "classast_1_1DetectorMeanAnomaly.html":[2,0,0,272],
 "classast_1_1DetectorMeanAnomaly.html":[3,0,0,271],
 "classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[2,0,0,272,0],
-"classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[3,0,0,271,0],
-"classast_1_1DetectorPeriapsis.html":[2,0,0,273]
+"classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[3,0,0,271,0]
 };
