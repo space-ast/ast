@@ -20,6 +20,8 @@
 
 #include "ast/SpiceAPI.hpp"
 #include "ast/Test.h"
+#include "ast/RunTime.hpp"
+#include "ast/CelestialBody.hpp"
 
 AST_USING_NAMESPACE
 
@@ -45,6 +47,18 @@ TEST(SpiceAPI, Instance)
     EXPECT_TRUE(SpiceAPI::Instance()->isLoaded());
     bool failed = SpiceAPI::Instance()->failed();
     EXPECT_FALSE(failed);
+}
+
+
+TEST(SpiceAPI, HashBodyEphemeris)
+{
+    if(aIsCI())
+        return;
+    aInitialize();
+    EXPECT_TRUE(aSpiceHasBodyEphemeris(ESpiceId::eEarth));
+    EXPECT_TRUE(aSpiceHasBodyEphemeris(ESpiceId::eMercury));
+    EXPECT_TRUE(aSpiceHasBodyEphemeris(ESpiceId::eGanymede));
+    EXPECT_FALSE(aSpiceHasBodyEphemeris(12345678910));
 }
 
 

@@ -63,6 +63,15 @@ errc_t aSpiceGetInterval(
     TimeInterval& interval
 );
 
+
+/// @brief 检查SPICE是否包含指定的天体的星历
+/// @param bodyId 天体ID
+/// @return bool 是否包含
+AST_CORE_CAPI
+bool aSpiceHasBodyEphemeris(int bodyId);
+
+
+
 /*! @} */
 
 AST_NAMESPACE_END

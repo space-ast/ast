@@ -21,6 +21,7 @@
 #include "CelestialBodyLoader.hpp"
 #include "AstUtil/BKVParser.hpp"
 #include "AstUtil/FileSystem.hpp"
+#include "AstUtil/SPKParser.hpp"
 #include "AstCore/EarthOrientation.hpp"
 #include "AstCore/MoonOrientation.hpp"
 #include "AstCore/RotationalData.hpp"
@@ -237,29 +238,33 @@ errc_t CelestialBody::loadEphemerisData(BKVParser & parser)
                 if(aEqualsIgnoreCase(item.value(), "JplDe")){
                     ephemeris_ = new BodyEphemerisDE(jplIndex_);
                 }else if(aEqualsIgnoreCase(item.value(), "JplSpice")){
+                    BodyEphemeris* ephemeris = nullptr;  // 天体星历
+
                     ScopedPtr<BodyEphemerisSPK> ephemerisSPK = new BodyEphemerisSPK(jplSpiceId_);
                     std::string spkDir = aGetConfigValue("SPK_DIR").toString();
                     if(spkDir.empty())
                         spkDir = aGetDefaultSPKDir();
                     std::string spkFile = spkDir + "/" + aAsciiStrToLower(name()) + ".bsp";
-                    if(fs::is_regular_file(spkFile)){
-                        errc_t rc = ephemerisSPK->openSPKFile(spkFile);
-                        if(rc == eNoError){
-                            ephemeris_ = ephemerisSPK.release();
-                        }
-                        else
-                        {
-                            if(jplIndex_ >= JplDe::eMercury)
-                            {
-                                ephemeris_ = new BodyEphemerisDE(jplIndex_);
-                                aWarning(_("打开 SPK 文件 '%s' 失败，'%s' 将使用 DE 星历"), spkFile.c_str(), name().c_str());
-                            }
-                            else
-                            {
-                                aWarning(_("打开 SPK 文件 '%s' 失败"), spkFile.c_str());
-                            }
-                        }
+                    if(aIsValidSPKFile(spkFile) && ephemerisSPK->openSPKFile(spkFile) == eNoError){
+                        // 先尝试打开天体对应的SPK文件
+                        ephemeris = ephemerisSPK.release();
+                    }else if(aSpiceHasBodyEphemeris(jplSpiceId_)){
+                        // 否则检查是否已经加载过了该天体的SPK星历数据
+                        ephemeris = ephemerisSPK.release();
                     }
+                    
+                    // 如果SPK文件打开失败，使用DE星历
+                    if(ephemeris == nullptr && jplIndex_ >= JplDe::eMercury)
+                    {
+                        ephemeris = new BodyEphemerisDE(jplIndex_);
+                        aWarning(_("打开 SPK 文件 '%s' 失败，'%s' 将使用 DE 星历"), spkFile.c_str(), name().c_str());
+                    }
+
+                    // 将加载的星历关联到天体
+                    if(ephemeris)
+                        this->ephemeris_ = ephemeris;
+                    else
+                        aWarning(_("打开 SPK 文件 '%s' 失败"), spkFile.c_str());
                 }
             }else if(aEqualsIgnoreCase(item.key(), "JplSpiceId")){
                 jplSpiceId_ = item.value().toInt();

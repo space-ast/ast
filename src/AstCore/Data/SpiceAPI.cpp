@@ -66,6 +66,12 @@ namespace spiceproto{
                                 SpiceInt            obs,
                                 SpiceDouble         state[6],
                                 SpiceDouble       * lt       );
+
+    void              spkssb_c ( SpiceInt           targ,
+                                 SpiceDouble        et,
+                                 ConstSpiceChar   * ref,
+                                 SpiceDouble        starg[6] );
+
                                 
     void              spklef_c ( ConstSpiceChar    * filename,
                                 SpiceInt          * handle   );
@@ -181,6 +187,7 @@ errc_t SpiceAPI::load(StringView dirpath)
     funcarray funcs{};
     funcs[ifurnsh] = aGetProcAddress(lib, "furnsh_c");
     funcs[ispkgeo] = aGetProcAddress(lib, "spkgeo_c");
+    funcs[ispkssb] = aGetProcAddress(lib, "spkssb_c");
     funcs[ispklef] = aGetProcAddress(lib, "spklef_c");
     funcs[ispkuef] = aGetProcAddress(lib, "spkuef_c");
     funcs[iktotal] = aGetProcAddress(lib, "ktotal_c");
@@ -254,6 +261,20 @@ errc_t SpiceAPI::spkgeo(int targ, double et, const char * ref, int obs, double s
     }
     std::lock_guard<std::mutex> lock(mutex_);
     spkgeo_c(targ, et, ref, obs, state, lt);
+    return checkerror();
+}
+
+errc_t SpiceAPI::spkssb(int targ, double et, const char *ref, double starg[6])
+{
+    using functype = decltype(&spiceproto::spkssb_c);
+    functype spkssb_c = reinterpret_cast<functype>(functions_[ispkssb]);
+    if(!spkssb_c)
+    {
+        aError(_(kSpiceUnloadError));
+        return eErrorNullPtr;
+    }
+    std::lock_guard<std::mutex> lock(mutex_);
+    spkssb_c(targ, et, ref, starg);
     return checkerror();
 }
 
