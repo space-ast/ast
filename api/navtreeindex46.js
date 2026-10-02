@@ -1,5 +1,7 @@
 var NAVTREEINDEX46 =
 {
+"classast_1_1SpacecraftState.html#ae9f2abf6c3574720295e24f4df89e4bd":[3,0,0,919,1],
+"classast_1_1Span.html":[0,8,0,6],
 "classast_1_1SpanStorage.html":[0,8,0,4],
 "classast_1_1SpanStorage_3_01T_00_01dynamic__extent_01_4.html":[0,8,0,5],
 "classast_1_1Sparse.html":[0,3,0,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX46 =
 "classast_1_1StateBPlane.html#ae788a675c8f1d44d8fbaf4705a23ef75":[2,0,0,969,19],
 "classast_1_1StateBPlane.html#ae788a675c8f1d44d8fbaf4705a23ef75":[3,0,0,968,19],
 "classast_1_1StateBPlane.html#afd403355ddada6294f4acc56b9c15e06":[2,0,0,969,18],
-"classast_1_1StateBPlane.html#afd403355ddada6294f4acc56b9c15e06":[3,0,0,968,18],
-"classast_1_1StateCalculation.html":[2,0,0,970],
-"classast_1_1StateCalculation.html":[3,0,0,969]
+"classast_1_1StateBPlane.html#afd403355ddada6294f4acc56b9c15e06":[3,0,0,968,18]
 };

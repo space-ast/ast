@@ -1,5 +1,7 @@
 var NAVTREEINDEX43 =
 {
+"classast_1_1ScStateCalcAltitudeRate.html":[2,0,0,694],
+"classast_1_1ScStateCalcAltitudeRate.html":[3,0,0,693],
 "classast_1_1ScStateCalcAngle.html":[2,0,0,695],
 "classast_1_1ScStateCalcAngle.html":[3,0,0,694],
 "classast_1_1ScStateCalcAngularMomentum.html":[2,0,0,696],
@@ -247,7 +249,5 @@ var NAVTREEINDEX43 =
 "classast_1_1ScStateCalcOutAsympDec.html":[2,0,0,811],
 "classast_1_1ScStateCalcOutAsympDec.html":[3,0,0,810],
 "classast_1_1ScStateCalcOutAsympRA.html":[2,0,0,812],
-"classast_1_1ScStateCalcOutAsympRA.html":[3,0,0,811],
-"classast_1_1ScStateCalcOutVAzP.html":[2,0,0,813],
-"classast_1_1ScStateCalcOutVAzP.html":[3,0,0,812]
+"classast_1_1ScStateCalcOutAsympRA.html":[3,0,0,811]
 };

@@ -12,6 +12,7 @@ var group__Geometry =
       [ "getAttitudeIn", "classast_1_1Axes.html#a5595b76fdcc9b75317131425a4f939a7", null ],
       [ "getDepth", "classast_1_1Axes.html#a082aa5ded08dac84022d64d59df3d9e2", null ],
       [ "getParent", "classast_1_1Axes.html#a61cb4c23db728cedf78474866f8e9650", null ],
+      [ "getTransform", "classast_1_1Axes.html#a8a4f63216d63bb92bd5e495084828328", null ],
       [ "getTransform", "classast_1_1Axes.html#a4cfc61858954a4398d37f335e3843e6b", null ],
       [ "getTransform", "classast_1_1Axes.html#ab7426969fe27815711fb174d7b1e269a", null ],
       [ "getTransformFrom", "classast_1_1Axes.html#a9e1cad8414075ea9b1abe32a4b77a582", null ],
@@ -43,6 +44,7 @@ var group__Geometry =
       [ "getPosIn", "classast_1_1Point.html#a25f7d8cd21775aee32c6bcf005c2517a", null ],
       [ "getPosIn", "classast_1_1Point.html#a39bc77aa64196d39725793a7704a25bc", null ],
       [ "getPosVel", "classast_1_1Point.html#a43e2e0bf5766dfbd3599b82c89321065", null ],
+      [ "getPosVelAcc", "classast_1_1Point.html#af179c2d45c726c14cb434884bd46d847", null ],
       [ "getPosVelIn", "classast_1_1Point.html#a9e550d526c8935563d3fb205ac7fb70e", null ],
       [ "getPosVelIn", "classast_1_1Point.html#aead25016648ff4deccf364ecf4656615", null ],
       [ "toBody", "classast_1_1Point.html#a3b46eeef9261d63d8418c7c3d1784e74", null ]

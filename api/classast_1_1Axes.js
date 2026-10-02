@@ -5,6 +5,7 @@ var classast_1_1Axes =
     [ "getAttitudeIn", "classast_1_1Axes.html#a5595b76fdcc9b75317131425a4f939a7", null ],
     [ "getDepth", "classast_1_1Axes.html#a082aa5ded08dac84022d64d59df3d9e2", null ],
     [ "getParent", "classast_1_1Axes.html#a61cb4c23db728cedf78474866f8e9650", null ],
+    [ "getTransform", "classast_1_1Axes.html#a8a4f63216d63bb92bd5e495084828328", null ],
     [ "getTransform", "classast_1_1Axes.html#a4cfc61858954a4398d37f335e3843e6b", null ],
     [ "getTransform", "classast_1_1Axes.html#ab7426969fe27815711fb174d7b1e269a", null ],
     [ "getTransformFrom", "classast_1_1Axes.html#a9e1cad8414075ea9b1abe32a4b77a582", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX27 =
 {
+"classast_1_1DetectorPeriapsis.html":[3,0,0,272],
 "classast_1_1DetectorPeriapsis.html#ac99379219d79336982d55298efdfdf8e":[2,0,0,273,0],
 "classast_1_1DetectorPeriapsis.html#ac99379219d79336982d55298efdfdf8e":[3,0,0,272,0],
 "classast_1_1DetectorPointRelated.html":[2,0,0,274],
@@ -248,6 +249,5 @@ var NAVTREEINDEX27 =
 "classast_1_1EphemerisLagrangeVar.html#ab42eeaa453d957fde95441d295d48bda":[2,0,0,300,10],
 "classast_1_1EphemerisLagrangeVar.html#ab42eeaa453d957fde95441d295d48bda":[3,0,0,299,10],
 "classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[2,0,0,300,2],
-"classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[3,0,0,299,2],
-"classast_1_1EphemerisLagrangeVar.html#ad3157f329611a1f7980a43c8ed95d67e":[2,0,0,300,3]
+"classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[3,0,0,299,2]
 };

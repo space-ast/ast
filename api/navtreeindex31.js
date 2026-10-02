@@ -1,5 +1,6 @@
 var NAVTREEINDEX31 =
 {
+"classast_1_1GravityCalculator.html#a2085c78cfe75bd0a4fe53b3c42c6fd8a":[3,0,0,376,3],
 "classast_1_1GravityCalculator.html#a3bd2d68b52f23752a9c3853e8a870d2b":[2,0,0,377,13],
 "classast_1_1GravityCalculator.html#a3bd2d68b52f23752a9c3853e8a870d2b":[3,0,0,376,13],
 "classast_1_1GravityCalculator.html#a4c56ea3e0471dd9d27379f3e14e2524a":[2,0,0,377,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX31 =
 "classast_1_1HPOPEquation.html#a4c7205d86fc1057cf517d1fe33f743ed":[2,0,0,395,4],
 "classast_1_1HPOPEquation.html#a4c7205d86fc1057cf517d1fe33f743ed":[3,0,0,394,4],
 "classast_1_1HPOPEquation.html#aa2ba5abf2b785a8fcec679c622ac8931":[2,0,0,395,0],
-"classast_1_1HPOPEquation.html#aa2ba5abf2b785a8fcec679c622ac8931":[3,0,0,394,0],
-"classast_1_1HPOPEquation.html#aa8acdcc999ff6eee7a355ad8ae887009":[2,0,0,395,3]
+"classast_1_1HPOPEquation.html#aa2ba5abf2b785a8fcec679c622ac8931":[3,0,0,394,0]
 };

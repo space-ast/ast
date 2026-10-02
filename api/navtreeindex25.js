@@ -1,5 +1,6 @@
 var NAVTREEINDEX25 =
 {
+"classast_1_1CollectingStreamReceiver.html#a86afa2dcd0fa01420144a118c3563e6a":[0,18,2,0],
 "classast_1_1CollectingStreamReceiver.html#ac2b8b46fcfc332f9dd015b3a6b4b3baa":[0,18,2,2],
 "classast_1_1CollectingStreamReceiver.html#adbf20c3c882891842692e1b970c6f9a1":[0,18,2,1],
 "classast_1_1CollectingStreamReceiver.html#af22b3650582a8d2f3a469b5933e919ae":[0,18,2,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX25 =
 "classast_1_1DataElements.html#adea0244a158d1e5ba18109ce01fc0f47":[3,0,0,220,0],
 "classast_1_1DataFrame.html":[0,15,4],
 "classast_1_1DataFrame.html#a0bb06d2c221f925012f1f8af67b1d8cb":[0,15,4,6],
-"classast_1_1DataFrame.html#a20d4bc7824e51697eb77f112bb39b7aa":[0,15,4,4],
-"classast_1_1DataFrame.html#a48748a4b6e4ca7858e37d3a5d2f820b0":[0,15,4,0]
+"classast_1_1DataFrame.html#a20d4bc7824e51697eb77f112bb39b7aa":[0,15,4,4]
 };
