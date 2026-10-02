@@ -119,7 +119,7 @@ public:
     /// @param velocityOut 变换后的速度
     void transformVectorVelocityInv(const Vector3d& vector, const Vector3d& velocity, Vector3d& vectorOut, Vector3d& velocityOut) const;
 protected:
-    Rotation rotation_;       ///< 旋转
+    Rotation rotation_{};     ///< 旋转
     Vector3d angvel_{};       ///< 角速度
 };
 

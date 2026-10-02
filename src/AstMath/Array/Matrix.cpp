@@ -22,7 +22,8 @@
 
 AST_NAMESPACE_BEGIN
 
-
+template<>
+AST_MATH_API
 std::string Matrix3d::toString() const
 {
     char buf[128];
