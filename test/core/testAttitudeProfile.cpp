@@ -403,6 +403,48 @@ TEST_F(AttitudeProfileTest, AttitudeRelSunLH)
 }
 
 
+TEST_F(AttitudeProfileTest, AttitudeECFVelRadial)
+{
+    {
+        OrbElem orbElem{6678137, 0.02, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "3 Oct 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph  = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeECFVelRadial attitude(eph, earth);
+
+        {
+            auto time = "3 Oct 2026 18:22:00.000"_utc;
+            Quaternion q1, q2;
+            Vector3d w;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q1, w);
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q2);
+            Rotation rot;
+            attitude.getTransformFrom(*earth->getAxesInertial(), time, rot);
+            w = rot.transformVector(w);
+
+            printf("q1: %s\n", q1.toString().c_str());
+            printf("q2: %s\n", q2.toString().c_str());
+            printf("w: %s\n", w.toString().c_str());
+            
+            Quaternion expected_q{0.3767089342785476, 0.6543249192478061, -0.3245679589716010, -0.5697410981271073};
+            Vector3d expected_w{-0.0000365437311113, 0.0011353871757996, 0.0000053706063609};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q1[i], expected_q[i], 1e-12) << "q1[" << i << "]";
+                EXPECT_NEAR(q2[i], expected_q[i], 1e-12) << "q2[" << i << "]";
+            }
+            for(int i = 0; i < 3; i++)
+            {
+                EXPECT_NEAR(w[i], expected_w[i], 1e-12) << "w[" << i << "]";
+            }
+        }
+    }
+}
+
+
 TEST_F(AttitudeProfileTest, TransformMapsParentToBody)
 {
     const double rate = 0.1;   // rad/s
@@ -539,6 +581,7 @@ TEST_F(AttitudeProfileTest, MatchesExistingLocalFrameFunctions)
     ecivvlh.setPoint(orbit.get());
     ecivvlh.setBody(aGetEarth());
     ecfRadial.setPoint(orbit.get());
+    ecfRadial.setBody(aGetEarth());
 
     for (int i = 0; i < 6; i++)
     {
@@ -570,6 +613,7 @@ TEST_F(AttitudeProfileTest, ECFVelRadialSemantics)
     auto orbit = MakeGeneralOrbit();
     AttitudeECFVelRadial profile;
     profile.setPoint(orbit.get());
+    profile.setBody(aGetEarth());
 
     TimePoint tp = TestTime();
     Vector3d pos, vel;
@@ -624,6 +668,7 @@ TEST_F(AttitudeProfileTest, AircraftZDownVersusECFVelRadial)
     AttitudeECFVelRadial  radial;
     zDown.setPoint(orbit.get());
     radial.setPoint(orbit.get());
+    radial.setBody(aGetEarth());
 
     TimePoint tp = TestTime();
     Vector3d pos, vel;

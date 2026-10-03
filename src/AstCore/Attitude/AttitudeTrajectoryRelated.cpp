@@ -20,7 +20,15 @@
 
 #include "AttitudeTrajectoryRelated.hpp"
 
+
 AST_NAMESPACE_BEGIN
+
+AttitudeTrajectoryRelated::AttitudeTrajectoryRelated(Point *point, Frame *frame)
+    : point_(point)
+    , frame_(frame)
+{
+}
+
 
 Axes *AttitudeTrajectoryRelated::getParent() const
 {

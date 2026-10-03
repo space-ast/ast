@@ -20,22 +20,40 @@
 
 #include "AttitudeECFVelRadial.hpp"
 #include "AstCore/BuiltinFrame.hpp"
+#include "AstCore/CelestialBody.hpp"
+#include "AstMath/AttitudeUtil.hpp"
 
 AST_NAMESPACE_BEGIN
 
-AttitudeECFVelRadial::AttitudeECFVelRadial()
+AttitudeECFVelRadial::AttitudeECFVelRadial(Point *point, Body *body)
 {
-    setAlignVector(EAttitudeVector::eVelocity);
-    setAlignAxis(EAttitudeAxis::eX);
-    setConstraintVector(EAttitudeVector::eRadial);
-    setConstraintAxis(EAttitudeAxis::eZ);
-    setOffsetAxis(EAttitudeAxis::eX);
-    setOffsetSense(EAttitudeOffsetSense::eRightHanded);
+    this->setPoint(point);
+    this->setBody(body);
 }
 
-Frame* AttitudeECFVelRadial::defaultFrame() const
+void AttitudeECFVelRadial::setBody(Body* body)
 {
-    return aFrameECF();
+    if(body)
+        this->AttitudeTrajectoryRelated::setFrame(body->getFrameFixed());
+}
+
+errc_t AttitudeECFVelRadial::getTransform(const TimePoint& tp, Rotation& rotation) const
+{
+    Vector3d pos, vel;
+    errc_t rc = this->getPosVelLocal(tp, pos, vel);
+    if(rc) return rc;
+    return aAlignConstrainTransform({1, 0, 0}, vel, {0, 0, 1}, pos, rotation);
+}
+
+
+errc_t AttitudeECFVelRadial::getTransform(const TimePoint& tp, KinematicRotation& rotation) const
+{
+    Vector3d pos, vel, acc;
+    errc_t rc = this->getPosVelAccLocal(tp, pos, vel, acc);
+    if(rc) return rc;
+    return aAlignConstrainTransform({1, 0, 0}, vel, acc, {0, 0, 1}, pos, vel, rotation);
 }
 
 AST_NAMESPACE_END
+
+

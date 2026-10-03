@@ -42,6 +42,7 @@ public:
     AST_OBJECT(AttitudeTrajectoryRelated)
 
     AttitudeTrajectoryRelated() = default;
+    AttitudeTrajectoryRelated(Point* point, Frame* frame);
     ~AttitudeTrajectoryRelated() override = default;
 public:
     Axes* getParent() const override;
