@@ -30,6 +30,7 @@
 #include "ast/AttitudeECFVelRadial.hpp"
 #include "ast/AttitudeNadirNormal.hpp"
 #include "ast/AttitudeAircraftZDown.hpp"
+#include "ast/AttitudeMissile.hpp"
 #include "ast/AttitudeFixed.hpp"
 #include "ast/AttitudeYPRFixedECI.hpp"
 #include "ast/AttitudeSpinning.hpp"
@@ -474,6 +475,49 @@ TEST_F(AttitudeProfileTest, AttitudeAircraftZDown)
             
             Quaternion expected_q{0.7661228590691765, -0.4492756772317785, -0.4005507855093455, 0.2253135568212521};
             Vector3d expected_w{0.0000296023069400, -0.0011746630644052, -0.0000210656400908};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q1[i], expected_q[i], 1e-12) << "q1[" << i << "]";
+                EXPECT_NEAR(q2[i], expected_q[i], 1e-12) << "q2[" << i << "]";
+            }
+            for(int i = 0; i < 3; i++)
+            {
+                EXPECT_NEAR(w[i], expected_w[i], 1e-12) << "w[" << i << "]";
+            }
+        }
+    }
+}
+
+
+
+TEST_F(AttitudeProfileTest, AttitudeMissile)
+{
+    {
+        OrbElem orbElem{6678137, 0.02, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "3 Oct 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph  = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeMissile attitude(eph, earth);
+
+        {
+            auto time = "3 Oct 2026 20:32:00.000"_utc;
+            Quaternion q1, q2;
+            Vector3d w;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q1, w);
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q2);
+            Rotation rot;
+            attitude.getTransformFrom(*earth->getAxesInertial(), time, rot);
+            w = rot.transformVector(w);
+
+            printf("q1: %s\n", q1.toString().c_str());
+            printf("q2: %s\n", q2.toString().c_str());
+            printf("w: %s\n", w.toString().c_str());
+
+            Quaternion expected_q{0.6821727309392761, -0.4058501265195221, -0.5227042617892591, 0.3109763570985482};
+            Vector3d expected_w{-0.0000000000000000, -0.0011798586987444, 0.0000000000000000};
             for(int i = 0; i < 4; i++)
             {
                 EXPECT_NEAR(q1[i], expected_q[i], 1e-12) << "q1[" << i << "]";
