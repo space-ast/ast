@@ -52,7 +52,7 @@ protected:
     errc_t getSunPosLocal(const TimePoint& tp, Vector3d& sunPos) const;
     errc_t getSunPosVelLocal(const TimePoint& tp, Vector3d& sunPos, Vector3d& sunVel) const;
 private:
-    WeakPtr<CelestialBody> sun_;
+    WeakPtr<CelestialBody> sun_{};
 };
 
 
