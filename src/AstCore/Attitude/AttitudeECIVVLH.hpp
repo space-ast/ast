@@ -33,7 +33,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 对地指向 + ECI 速度约束姿态
-/// @details 
+/// @details "Nadir alignment with ECI velocity constraint"
 /// 体 Z 轴严格对齐地心对地方向，体 X 轴在保持 Z 轴对齐的前提下尽量指向惯性系速度方向，
 /// 由此得到的姿态即 VVLH(Vehicle Velocity Local Horizontal, 速度局部水平)系在惯性系下的姿态
 /// 与 @see AttitudeVVLH 的区别在于：计算该姿态的位置速度的参考系为天体惯性系

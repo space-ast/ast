@@ -32,7 +32,7 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 对地指向 + ECF 速度约束姿态
-/// @details
+/// @details "Nadir alignment with ECF velocity constraint"
 /// 体 Z 轴严格对齐地心对地方向，体 X 轴在保持 Z 轴对齐的前提下尽量指向地固系速度方向。
 /// 注意 ECF 速度与 ECI 速度在大偏心率轨道上差异很大(逼近远地点时尤为明显)
 /// 与 @see AttitudeECIVVLH 的区别在于：计算该姿态的位置速度的参考系为天体固连系
