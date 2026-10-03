@@ -1,5 +1,6 @@
 var NAVTREEINDEX43 =
 {
+"classast_1_1SatelliteDatabaseQuery.html#a6dc1e841392a78e73ed4a041cafa5533":[2,0,0,679,6],
 "classast_1_1SatelliteDatabaseQuery.html#a6dc1e841392a78e73ed4a041cafa5533":[3,0,0,678,6],
 "classast_1_1SatelliteDatabaseQuery.html#a70eda6d62479c21405fd5a1ebcf95de0":[2,0,0,679,3],
 "classast_1_1SatelliteDatabaseQuery.html#a70eda6d62479c21405fd5a1ebcf95de0":[3,0,0,678,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX43 =
 "classast_1_1ScStateCalcMu.html":[2,0,0,802],
 "classast_1_1ScStateCalcMu.html":[3,0,0,801],
 "classast_1_1ScStateCalcNegative.html":[2,0,0,803],
-"classast_1_1ScStateCalcNegative.html":[3,0,0,802],
-"classast_1_1ScStateCalcNormal.html":[2,0,0,804]
+"classast_1_1ScStateCalcNegative.html":[3,0,0,802]
 };

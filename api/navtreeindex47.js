@@ -1,5 +1,6 @@
 var NAVTREEINDEX47 =
 {
+"classast_1_1StateBPlane.html#aa3c2af8558d0a4feda2ee45aea05111b":[2,0,0,970,1],
 "classast_1_1StateBPlane.html#aa3c2af8558d0a4feda2ee45aea05111b":[3,0,0,969,1],
 "classast_1_1StateBPlane.html#ac879f0b91fb088f60d21df199e72d465":[2,0,0,970,8],
 "classast_1_1StateBPlane.html#ac879f0b91fb088f60d21df199e72d465":[3,0,0,969,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX47 =
 "classast_1_1StateMixedSpherical.html#a001ff87e105ac11ca68644d3d000628b":[2,0,0,976,13],
 "classast_1_1StateMixedSpherical.html#a001ff87e105ac11ca68644d3d000628b":[3,0,0,975,13],
 "classast_1_1StateMixedSpherical.html#a009e42360f87762fbfb6a255ab58bbc7":[2,0,0,976,2],
-"classast_1_1StateMixedSpherical.html#a009e42360f87762fbfb6a255ab58bbc7":[3,0,0,975,2],
-"classast_1_1StateMixedSpherical.html#a08c9d1fb0bc27010c0c95d6511893408":[2,0,0,976,12]
+"classast_1_1StateMixedSpherical.html#a009e42360f87762fbfb6a255ab58bbc7":[3,0,0,975,2]
 };

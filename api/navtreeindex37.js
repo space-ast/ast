@@ -1,5 +1,6 @@
 var NAVTREEINDEX37 =
 {
+"classast_1_1MotionGreatArc.html#af056426945872d9d2c331aff2d29b316":[2,0,0,506,0],
 "classast_1_1MotionGreatArc.html#af056426945872d9d2c331aff2d29b316":[3,0,0,505,0],
 "classast_1_1MotionHPOP.html":[2,0,0,507],
 "classast_1_1MotionHPOP.html":[3,0,0,506],
@@ -248,6 +249,5 @@ var NAVTREEINDEX37 =
 "classast_1_1NLPProblem.html#a427ce27fe6420220d7aa6dcc17bc7ea8":[2,0,0,544,22],
 "classast_1_1NLPProblem.html#a427ce27fe6420220d7aa6dcc17bc7ea8":[3,0,0,543,22],
 "classast_1_1NLPProblem.html#a448659109f9add0a13b40096c4e18985":[2,0,0,544,12],
-"classast_1_1NLPProblem.html#a448659109f9add0a13b40096c4e18985":[3,0,0,543,12],
-"classast_1_1NLPProblem.html#a4e690c217b843ad087d61dd02c916d6c":[2,0,0,544,15]
+"classast_1_1NLPProblem.html#a448659109f9add0a13b40096c4e18985":[3,0,0,543,12]
 };

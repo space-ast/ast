@@ -1,5 +1,6 @@
 var NAVTREEINDEX52 =
 {
+"classast_1_1UiSpacecraftParams.html":[2,0,0,1090],
 "classast_1_1UiSpacecraftParams.html":[3,0,0,1089],
 "classast_1_1UiStartPage.html":[2,0,0,1091],
 "classast_1_1UiStartPage.html":[3,0,0,1090],
@@ -248,6 +249,5 @@ var NAVTREEINDEX52 =
 "classast_1_1ValArray.html#aefb5076bfe561d7498f557c6297fc9a8":[0,4,33,8],
 "classast_1_1ValArray.html#af5bcf66258f89a58b77a6e92960d8966":[0,4,33,1],
 "classast_1_1ValBool.html":[0,4,34],
-"classast_1_1ValDict.html":[2,0,0,1128],
-"classast_1_1ValDict.html":[3,0,0,1127]
+"classast_1_1ValDict.html":[2,0,0,1128]
 };

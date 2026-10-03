@@ -1,7 +1,8 @@
 var group__Attitude =
 [
     [ "ast::AttitudeAircraftZDown", "classast_1_1AttitudeAircraftZDown.html", [
-      [ "defaultFrame", "classast_1_1AttitudeAircraftZDown.html#a9dc95d42cc5872098eb7926529810487", null ]
+      [ "getTransform", "classast_1_1AttitudeAircraftZDown.html#a85eead47c7e4f206cdb4a9692c64eb5b", null ],
+      [ "getTransform", "classast_1_1AttitudeAircraftZDown.html#ad36586a0f4b8a0dc551b6a42af2b3611", null ]
     ] ],
     [ "ast::AttitudeAlignConstrain", "classast_1_1AttitudeAlignConstrain.html", [
       [ "getAlignAxis", "classast_1_1AttitudeAlignConstrain.html#adfc971b230d38480e3aa85865d51cee4", null ],
