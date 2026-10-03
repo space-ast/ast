@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"MockBuffer_8cpp.html":[4,0,0,12,1],
+"MockBuffer_8cpp.html#a34fab52874caf5233300db088d88045a":[4,0,0,12,1,2],
 "MockBuffer_8cpp.html#a44f38ce906bcee1f708cab78f7e14476":[4,0,0,12,1,1],
 "MockBuffer_8cpp.html#acfe621d5ba796e1ab3866752defc4f13":[4,0,0,12,1,3],
 "MockBuffer_8cpp.html#ad960b2759fb42ddb1d94bf50e0123989":[4,0,0,12,1,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "ODE_8hpp_source.html":[4,0,0,11,6,3],
 "ObjectCalculation_8cpp.html":[4,0,0,27,8,6],
 "ObjectCalculation_8hpp.html":[4,0,0,27,8,7],
-"ObjectCalculation_8hpp_source.html":[4,0,0,27,8,7],
-"ObjectEditRegistry_8cpp.html":[4,0,0,22,6,2],
-"ObjectEditRegistry_8cpp.html#a1de35d951382be3c1a76c9dc96ea9fd3":[4,0,0,22,6,2,1]
+"ObjectCalculation_8hpp_source.html":[4,0,0,27,8,7]
 };

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: ast::Axes类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::AttitudeMissile类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,7 +72,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('classast_1_1Axes.html',''); initResizable(true); });
+$(function(){initNavTree('classast_1_1AttitudeMissile.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -100,88 +100,104 @@ $(function(){initNavTree('classast_1_1Axes.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="classast_1_1Axes-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::Axes类 参考<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__Core.html">航天模块</a> &raquo; <a class="el" href="group__Geometry.html">几何</a></div></div></div>
+<a href="classast_1_1AttitudeMissile-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::AttitudeMissile类 参考<div class="ingroups"><a class="el" href="group__Math.html">数学模块</a> &raquo; <a class="el" href="group__Attitude.html">姿态功能</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="Axes_8hpp_source.html">Axes.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="AttitudeMissile_8hpp_source.html">AttitudeMissile.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::Axes 继承关系图:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::AttitudeMissile 继承关系图:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
  <div class="center">
-  <img src="classast_1_1Axes.png" usemap="#ast::Axes_map" alt=""/>
-  <map id="ast::Axes_map" name="ast::Axes_map">
+  <img src="classast_1_1AttitudeMissile.png" usemap="#ast::AttitudeMissile_map" alt=""/>
+  <map id="ast::AttitudeMissile_map" name="ast::AttitudeMissile_map">
+<area href="classast_1_1AttitudeTrajectoryRelated.html" title="与轨迹相关的姿态" alt="ast::AttitudeTrajectoryRelated" shape="rect" coords="0,224,176,248"/>
+<area href="classast_1_1Axes.html" title="轴系抽象基类" alt="ast::Axes" shape="rect" coords="0,168,176,192"/>
 <area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="0,112,176,136"/>
 <area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="0,56,176,80"/>
 <area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="0,0,176,24"/>
-<area href="classast_1_1AttitudeProfileBase.html" title="姿态剖面抽象基类" alt="ast::AttitudeProfileBase" shape="rect" coords="186,224,362,248"/>
-<area href="classast_1_1AttitudeRealTime.html" alt="ast::AttitudeRealTime" shape="rect" coords="186,280,362,304"/>
-<area href="classast_1_1AttitudeTrajectoryRelated.html" title="与轨迹相关的姿态" alt="ast::AttitudeTrajectoryRelated" shape="rect" coords="186,336,362,360"/>
-<area href="classast_1_1AxesBodyRelated.html" title="天体相关的轴系" alt="ast::AxesBodyRelated" shape="rect" coords="186,392,362,416"/>
-<area href="classast_1_1AxesFrozen.html" title="冻结轴系" alt="ast::AxesFrozen" shape="rect" coords="186,448,362,472"/>
-<area href="classast_1_1AxesFrozenAtEventTime.html" title="事件时间冻结轴系" alt="ast::AxesFrozenAtEventTime" shape="rect" coords="186,504,362,528"/>
-<area href="classast_1_1AxesICRF.html" title="ICRF 轴系" alt="ast::AxesICRF" shape="rect" coords="186,560,362,584"/>
-<area href="classast_1_1AxesLinkTo.html" alt="ast::AxesLinkTo" shape="rect" coords="186,616,362,640"/>
-<area href="classast_1_1AxesRoot.html" title="根轴系" alt="ast::AxesRoot" shape="rect" coords="186,672,362,696"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a61cb4c23db728cedf78474866f8e9650" id="r_a61cb4c23db728cedf78474866f8e9650"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classast_1_1Axes.html">Axes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61cb4c23db728cedf78474866f8e9650">getParent</a> () const =0</td></tr>
-<tr class="separator:a61cb4c23db728cedf78474866f8e9650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7426969fe27815711fb174d7b1e269a" id="r_ab7426969fe27815711fb174d7b1e269a"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7426969fe27815711fb174d7b1e269a">getTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const =0</td></tr>
-<tr class="separator:ab7426969fe27815711fb174d7b1e269a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cfc61858954a4398d37f335e3843e6b" id="r_a4cfc61858954a4398d37f335e3843e6b"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cfc61858954a4398d37f335e3843e6b">getTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const =0</td></tr>
-<tr class="separator:a4cfc61858954a4398d37f335e3843e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a4f63216d63bb92bd5e495084828328" id="r_a8a4f63216d63bb92bd5e495084828328"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a4f63216d63bb92bd5e495084828328">getTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:a8a4f63216d63bb92bd5e495084828328"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a082aa5ded08dac84022d64d59df3d9e2" id="r_a082aa5ded08dac84022d64d59df3d9e2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a082aa5ded08dac84022d64d59df3d9e2">getDepth</a> () const</td></tr>
-<tr class="separator:a082aa5ded08dac84022d64d59df3d9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bb0ec4400a447244023d2ae1d1b7f3f" id="r_a8bb0ec4400a447244023d2ae1d1b7f3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Axes.html">Axes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bb0ec4400a447244023d2ae1d1b7f3f">getAncestor</a> (int depth) const</td></tr>
-<tr class="separator:a8bb0ec4400a447244023d2ae1d1b7f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af96a030bdddc38749d211924146618b2" id="r_af96a030bdddc38749d211924146618b2"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af96a030bdddc38749d211924146618b2">getTransformTo</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:af96a030bdddc38749d211924146618b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fcde1a42d9fa26aa27044884c857990" id="r_a3fcde1a42d9fa26aa27044884c857990"><td class="memItemLeft" align="right" valign="top"><a id="a3fcde1a42d9fa26aa27044884c857990" name="a3fcde1a42d9fa26aa27044884c857990"></a>
+<tr class="memitem:a58284ba1869ede290a3702eb0b92209e" id="r_a58284ba1869ede290a3702eb0b92209e"><td class="memItemLeft" align="right" valign="top"><a id="a58284ba1869ede290a3702eb0b92209e" name="a58284ba1869ede290a3702eb0b92209e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AttitudeMissile</b> (<a class="el" href="classast_1_1Point.html">Point</a> *point, <a class="el" href="classast_1_1CelestialBody.html">Body</a> *body)</td></tr>
+<tr class="separator:a58284ba1869ede290a3702eb0b92209e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9289dc260cba985fab2f5cbc1962c55c" id="r_a9289dc260cba985fab2f5cbc1962c55c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9289dc260cba985fab2f5cbc1962c55c">getTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const override</td></tr>
+<tr class="separator:a9289dc260cba985fab2f5cbc1962c55c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ece8e5e6c5a97bca9003f7aeb559a2" id="r_ac0ece8e5e6c5a97bca9003f7aeb559a2"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0ece8e5e6c5a97bca9003f7aeb559a2">getTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const override</td></tr>
+<tr class="separator:ac0ece8e5e6c5a97bca9003f7aeb559a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb604e33cf930f26fbdbd8ca973f2913" id="r_acb604e33cf930f26fbdbd8ca973f2913"><td class="memItemLeft" align="right" valign="top"><a id="acb604e33cf930f26fbdbd8ca973f2913" name="acb604e33cf930f26fbdbd8ca973f2913"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setBody</b> (<a class="el" href="classast_1_1CelestialBody.html">Body</a> *body)</td></tr>
+<tr class="separator:acb604e33cf930f26fbdbd8ca973f2913"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1AttitudeTrajectoryRelated"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1AttitudeTrajectoryRelated')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1AttitudeTrajectoryRelated.html">ast::AttitudeTrajectoryRelated</a></td></tr>
+<tr class="memitem:ade00603f7b1b4660b637d5bbf33bbf61 inherit pub_methods_classast_1_1AttitudeTrajectoryRelated" id="r_ade00603f7b1b4660b637d5bbf33bbf61"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>AttitudeTrajectoryRelated</b> (<a class="el" href="classast_1_1Point.html">Point</a> *point, <a class="el" href="classast_1_1Frame.html">Frame</a> *frame)</td></tr>
+<tr class="separator:ade00603f7b1b4660b637d5bbf33bbf61 inherit pub_methods_classast_1_1AttitudeTrajectoryRelated"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86bb886611bc4a2172ba3b4b6f502ba9 inherit pub_methods_classast_1_1AttitudeTrajectoryRelated" id="r_a86bb886611bc4a2172ba3b4b6f502ba9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Axes.html">Axes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AttitudeTrajectoryRelated.html#a86bb886611bc4a2172ba3b4b6f502ba9">getParent</a> () const override</td></tr>
+<tr class="separator:a86bb886611bc4a2172ba3b4b6f502ba9 inherit pub_methods_classast_1_1AttitudeTrajectoryRelated"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31c399e515c13e581aa2c0b86a04fe9 inherit pub_methods_classast_1_1AttitudeTrajectoryRelated" id="r_ad31c399e515c13e581aa2c0b86a04fe9"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPoint</b> (<a class="el" href="classast_1_1Point.html">Point</a> *point)</td></tr>
+<tr class="separator:ad31c399e515c13e581aa2c0b86a04fe9 inherit pub_methods_classast_1_1AttitudeTrajectoryRelated"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1a914f86721ae2ec7c67516bfd6eeac inherit pub_methods_classast_1_1AttitudeTrajectoryRelated" id="r_ae1a914f86721ae2ec7c67516bfd6eeac"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFrame</b> (<a class="el" href="classast_1_1Frame.html">Frame</a> *frame)</td></tr>
+<tr class="separator:ae1a914f86721ae2ec7c67516bfd6eeac inherit pub_methods_classast_1_1AttitudeTrajectoryRelated"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade5797d2ec56cbcf119bbe510b1fbc5b inherit pub_methods_classast_1_1AttitudeTrajectoryRelated" id="r_ade5797d2ec56cbcf119bbe510b1fbc5b"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1Point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>point</b> () const</td></tr>
+<tr class="separator:ade5797d2ec56cbcf119bbe510b1fbc5b inherit pub_methods_classast_1_1AttitudeTrajectoryRelated"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd1bda45a9b87b8766322446fd629cb0 inherit pub_methods_classast_1_1AttitudeTrajectoryRelated" id="r_acd1bda45a9b87b8766322446fd629cb0"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>frame</b> () const</td></tr>
+<tr class="separator:acd1bda45a9b87b8766322446fd629cb0 inherit pub_methods_classast_1_1AttitudeTrajectoryRelated"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1Axes"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Axes')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Axes.html">ast::Axes</a></td></tr>
+<tr class="memitem:a8a4f63216d63bb92bd5e495084828328 inherit pub_methods_classast_1_1Axes" id="r_a8a4f63216d63bb92bd5e495084828328"><td class="memItemLeft" align="right" valign="top">virtual errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#a8a4f63216d63bb92bd5e495084828328">getTransform</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:a8a4f63216d63bb92bd5e495084828328 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a082aa5ded08dac84022d64d59df3d9e2 inherit pub_methods_classast_1_1Axes" id="r_a082aa5ded08dac84022d64d59df3d9e2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#a082aa5ded08dac84022d64d59df3d9e2">getDepth</a> () const</td></tr>
+<tr class="separator:a082aa5ded08dac84022d64d59df3d9e2 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb0ec4400a447244023d2ae1d1b7f3f inherit pub_methods_classast_1_1Axes" id="r_a8bb0ec4400a447244023d2ae1d1b7f3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Axes.html">Axes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#a8bb0ec4400a447244023d2ae1d1b7f3f">getAncestor</a> (int depth) const</td></tr>
+<tr class="separator:a8bb0ec4400a447244023d2ae1d1b7f3f inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af96a030bdddc38749d211924146618b2 inherit pub_methods_classast_1_1Axes" id="r_af96a030bdddc38749d211924146618b2"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#af96a030bdddc38749d211924146618b2">getTransformTo</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:af96a030bdddc38749d211924146618b2 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcde1a42d9fa26aa27044884c857990 inherit pub_methods_classast_1_1Axes" id="r_a3fcde1a42d9fa26aa27044884c857990"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformTo</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:a3fcde1a42d9fa26aa27044884c857990"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa75b1b29ce13f6812bc2488d75c962b8" id="r_aa75b1b29ce13f6812bc2488d75c962b8"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa75b1b29ce13f6812bc2488d75c962b8">getTransformTo</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:aa75b1b29ce13f6812bc2488d75c962b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a000c32fcca9e9fac8791ed2d238e21d4" id="r_a000c32fcca9e9fac8791ed2d238e21d4"><td class="memItemLeft" align="right" valign="top"><a id="a000c32fcca9e9fac8791ed2d238e21d4" name="a000c32fcca9e9fac8791ed2d238e21d4"></a>
+<tr class="separator:a3fcde1a42d9fa26aa27044884c857990 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa75b1b29ce13f6812bc2488d75c962b8 inherit pub_methods_classast_1_1Axes" id="r_aa75b1b29ce13f6812bc2488d75c962b8"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#aa75b1b29ce13f6812bc2488d75c962b8">getTransformTo</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:aa75b1b29ce13f6812bc2488d75c962b8 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a000c32fcca9e9fac8791ed2d238e21d4 inherit pub_methods_classast_1_1Axes" id="r_a000c32fcca9e9fac8791ed2d238e21d4"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformTo</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:a000c32fcca9e9fac8791ed2d238e21d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6beb6d6b77a89b522db540ce48854d39" id="r_a6beb6d6b77a89b522db540ce48854d39"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6beb6d6b77a89b522db540ce48854d39">getTransformFrom</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:a6beb6d6b77a89b522db540ce48854d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf27b71acbf030b192ea1aadf2ee66d0" id="r_acf27b71acbf030b192ea1aadf2ee66d0"><td class="memItemLeft" align="right" valign="top"><a id="acf27b71acbf030b192ea1aadf2ee66d0" name="acf27b71acbf030b192ea1aadf2ee66d0"></a>
+<tr class="separator:a000c32fcca9e9fac8791ed2d238e21d4 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6beb6d6b77a89b522db540ce48854d39 inherit pub_methods_classast_1_1Axes" id="r_a6beb6d6b77a89b522db540ce48854d39"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#a6beb6d6b77a89b522db540ce48854d39">getTransformFrom</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:a6beb6d6b77a89b522db540ce48854d39 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf27b71acbf030b192ea1aadf2ee66d0 inherit pub_methods_classast_1_1Axes" id="r_acf27b71acbf030b192ea1aadf2ee66d0"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformFrom</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:acf27b71acbf030b192ea1aadf2ee66d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e1cad8414075ea9b1abe32a4b77a582" id="r_a9e1cad8414075ea9b1abe32a4b77a582"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e1cad8414075ea9b1abe32a4b77a582">getTransformFrom</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:a9e1cad8414075ea9b1abe32a4b77a582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2e76a192270922aebaf6da3c9ffbe43" id="r_ab2e76a192270922aebaf6da3c9ffbe43"><td class="memItemLeft" align="right" valign="top"><a id="ab2e76a192270922aebaf6da3c9ffbe43" name="ab2e76a192270922aebaf6da3c9ffbe43"></a>
+<tr class="separator:acf27b71acbf030b192ea1aadf2ee66d0 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e1cad8414075ea9b1abe32a4b77a582 inherit pub_methods_classast_1_1Axes" id="r_a9e1cad8414075ea9b1abe32a4b77a582"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#a9e1cad8414075ea9b1abe32a4b77a582">getTransformFrom</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:a9e1cad8414075ea9b1abe32a4b77a582 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e76a192270922aebaf6da3c9ffbe43 inherit pub_methods_classast_1_1Axes" id="r_ab2e76a192270922aebaf6da3c9ffbe43"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformFrom</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:ab2e76a192270922aebaf6da3c9ffbe43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7efd20bf130d36b7ed4b2ad23a95893" id="r_ae7efd20bf130d36b7ed4b2ad23a95893"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7efd20bf130d36b7ed4b2ad23a95893">getTransformFrom</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:ae7efd20bf130d36b7ed4b2ad23a95893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dab7e0df605f1baeea2690a5d989e91" id="r_a9dab7e0df605f1baeea2690a5d989e91"><td class="memItemLeft" align="right" valign="top"><a id="a9dab7e0df605f1baeea2690a5d989e91" name="a9dab7e0df605f1baeea2690a5d989e91"></a>
+<tr class="separator:ab2e76a192270922aebaf6da3c9ffbe43 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7efd20bf130d36b7ed4b2ad23a95893 inherit pub_methods_classast_1_1Axes" id="r_ae7efd20bf130d36b7ed4b2ad23a95893"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#ae7efd20bf130d36b7ed4b2ad23a95893">getTransformFrom</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> *source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:ae7efd20bf130d36b7ed4b2ad23a95893 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dab7e0df605f1baeea2690a5d989e91 inherit pub_methods_classast_1_1Axes" id="r_a9dab7e0df605f1baeea2690a5d989e91"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTransformFrom</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;source, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:a9dab7e0df605f1baeea2690a5d989e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa434d356305a79f50a1e68852b8709f9" id="r_aa434d356305a79f50a1e68852b8709f9"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa434d356305a79f50a1e68852b8709f9">getTransformFromParent</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:aa434d356305a79f50a1e68852b8709f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a074555bbd0e6afdf8475f362375cf8b9" id="r_a074555bbd0e6afdf8475f362375cf8b9"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a074555bbd0e6afdf8475f362375cf8b9">getTransformFromParent</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
-<tr class="separator:a074555bbd0e6afdf8475f362375cf8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb6f03b2c44a400c3564fc4b4e7be037" id="r_aeb6f03b2c44a400c3564fc4b4e7be037"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb6f03b2c44a400c3564fc4b4e7be037">getAttitudeIn</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;axes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat) const</td></tr>
-<tr class="separator:aeb6f03b2c44a400c3564fc4b4e7be037"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bfaa62d18e2a6be73be82b950b29a02" id="r_a3bfaa62d18e2a6be73be82b950b29a02"><td class="memItemLeft" align="right" valign="top"><a id="a3bfaa62d18e2a6be73be82b950b29a02" name="a3bfaa62d18e2a6be73be82b950b29a02"></a>
+<tr class="separator:a9dab7e0df605f1baeea2690a5d989e91 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa434d356305a79f50a1e68852b8709f9 inherit pub_methods_classast_1_1Axes" id="r_aa434d356305a79f50a1e68852b8709f9"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#aa434d356305a79f50a1e68852b8709f9">getTransformFromParent</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:aa434d356305a79f50a1e68852b8709f9 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a074555bbd0e6afdf8475f362375cf8b9 inherit pub_methods_classast_1_1Axes" id="r_a074555bbd0e6afdf8475f362375cf8b9"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#a074555bbd0e6afdf8475f362375cf8b9">getTransformFromParent</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;rotation) const</td></tr>
+<tr class="separator:a074555bbd0e6afdf8475f362375cf8b9 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6f03b2c44a400c3564fc4b4e7be037 inherit pub_methods_classast_1_1Axes" id="r_aeb6f03b2c44a400c3564fc4b4e7be037"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#aeb6f03b2c44a400c3564fc4b4e7be037">getAttitudeIn</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;axes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat) const</td></tr>
+<tr class="separator:aeb6f03b2c44a400c3564fc4b4e7be037 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bfaa62d18e2a6be73be82b950b29a02 inherit pub_methods_classast_1_1Axes" id="r_a3bfaa62d18e2a6be73be82b950b29a02"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAttitudeIn</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> *axes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat) const</td></tr>
-<tr class="separator:a3bfaa62d18e2a6be73be82b950b29a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5595b76fdcc9b75317131425a4f939a7" id="r_a5595b76fdcc9b75317131425a4f939a7"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5595b76fdcc9b75317131425a4f939a7">getAttitudeIn</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;axes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat, Vector3d &amp;angvel) const</td></tr>
-<tr class="separator:a5595b76fdcc9b75317131425a4f939a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed8d2f1a009e8d4309942d237c2ebc28" id="r_aed8d2f1a009e8d4309942d237c2ebc28"><td class="memItemLeft" align="right" valign="top"><a id="aed8d2f1a009e8d4309942d237c2ebc28" name="aed8d2f1a009e8d4309942d237c2ebc28"></a>
+<tr class="separator:a3bfaa62d18e2a6be73be82b950b29a02 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5595b76fdcc9b75317131425a4f939a7 inherit pub_methods_classast_1_1Axes" id="r_a5595b76fdcc9b75317131425a4f939a7"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Axes.html#a5595b76fdcc9b75317131425a4f939a7">getAttitudeIn</a> (<a class="el" href="classast_1_1Axes.html">Axes</a> &amp;axes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat, Vector3d &amp;angvel) const</td></tr>
+<tr class="separator:a5595b76fdcc9b75317131425a4f939a7 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8d2f1a009e8d4309942d237c2ebc28 inherit pub_methods_classast_1_1Axes" id="r_aed8d2f1a009e8d4309942d237c2ebc28"><td class="memItemLeft" align="right" valign="top">
 A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAttitudeIn</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> *axes, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;quat, Vector3d &amp;angvel) const</td></tr>
-<tr class="separator:aed8d2f1a009e8d4309942d237c2ebc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aed8d2f1a009e8d4309942d237c2ebc28 inherit pub_methods_classast_1_1Axes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
 <tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
@@ -344,6 +360,16 @@ static <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td cla
 <tr class="memitem:a0d3a787620d7bd3b8b619bcbef67bb68 inherit pub_static_attribs_classast_1_1Object" id="r_a0d3a787620d7bd3b8b619bcbef67bb68"><td class="memItemLeft" align="right" valign="top">
 static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>staticType</b></td></tr>
 <tr class="separator:a0d3a787620d7bd3b8b619bcbef67bb68 inherit pub_static_attribs_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classast_1_1AttitudeTrajectoryRelated"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1AttitudeTrajectoryRelated')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1AttitudeTrajectoryRelated.html">ast::AttitudeTrajectoryRelated</a></td></tr>
+<tr class="memitem:a7611d142198072a7750cb2953a0a1814 inherit pro_methods_classast_1_1AttitudeTrajectoryRelated" id="r_a7611d142198072a7750cb2953a0a1814"><td class="memItemLeft" align="right" valign="top">
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosVelAccLocal</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos, Vector3d &amp;vel, Vector3d &amp;acc) const</td></tr>
+<tr class="separator:a7611d142198072a7750cb2953a0a1814 inherit pro_methods_classast_1_1AttitudeTrajectoryRelated"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6bbb90947864f91281cdddd39012f2c inherit pro_methods_classast_1_1AttitudeTrajectoryRelated" id="r_ab6bbb90947864f91281cdddd39012f2c"><td class="memItemLeft" align="right" valign="top">
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosVelLocal</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos, Vector3d &amp;vel) const</td></tr>
+<tr class="separator:ab6bbb90947864f91281cdddd39012f2c inherit pro_methods_classast_1_1AttitudeTrajectoryRelated"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85705cb300232cf6415dcd6d18765bf4 inherit pro_methods_classast_1_1AttitudeTrajectoryRelated" id="r_a85705cb300232cf6415dcd6d18765bf4"><td class="memItemLeft" align="right" valign="top">
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosLocal</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos) const</td></tr>
+<tr class="separator:a85705cb300232cf6415dcd6d18765bf4 inherit pro_methods_classast_1_1AttitudeTrajectoryRelated"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
 <tr class="memitem:a3b01428d4c83f64fb9c5f58d2f0615c3 inherit pro_methods_classast_1_1Object" id="r_a3b01428d4c83f64fb9c5f58d2f0615c3"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;)</td></tr>
@@ -357,137 +383,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <tr class="separator:a069a70787164bcec7311d5916913317e inherit pro_methods_classast_1_1Referenced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>轴系抽象基类 </p>
-<p>轴系是一种几何元素，表示三维空间中的一组正交坐标轴方向。 所有具体轴系类型（地固系、惯性系、冻结系等）均派生自此类。 轴系通过父子关系构成树形层级，根轴系通常为惯性空间（如 ICRF）。 </p>
+<div class="textblock"><p>ECI 速度对齐 + 对地约束姿态 </p>
+<p>"ECI Velocity Alignment with Nadir Constraint" 体 X 轴严格对齐惯性系速度方向(导弹纵轴指向)，体 Z 轴在保持 X 轴对齐的前提下尽量指向地心 与 </p><dl class="section see"><dt>参见</dt><dd><a class="el" href="classast_1_1AttitudeAircraftZDown.html" title="对地指向 + ECF 速度约束的机体 Z 朝下姿态">AttitudeAircraftZDown</a> 的区别在于：计算该姿态的位置速度的参考系为天体惯性系， 而不是天体固连系，故速度中不包含地球自转带来的牵连分量。 </dd></dl>
 </div><h2 class="groupheader">成员函数说明</h2>
-<a id="a8bb0ec4400a447244023d2ae1d1b7f3f" name="a8bb0ec4400a447244023d2ae1d1b7f3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bb0ec4400a447244023d2ae1d1b7f3f">&#9670;&#160;</a></span>getAncestor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classast_1_1Axes.html">Axes</a> * ast::Axes::getAncestor </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>depth</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取当前轴系指定深度的祖先轴系 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">depth</td><td>目标祖先的深度 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>祖先轴系指针，若 depth 超出范围则返回 nullptr </dd></dl>
-
-</div>
-</div>
-<a id="aeb6f03b2c44a400c3564fc4b4e7be037" name="aeb6f03b2c44a400c3564fc4b4e7be037"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb6f03b2c44a400c3564fc4b4e7be037">&#9670;&#160;</a></span>getAttitudeIn() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">errc_t ast::Axes::getAttitudeIn </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>axes</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quat</em></span>&#160;) const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取当前轴系相对于目标轴系的姿态（四元数表示） </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">axes</td><td>目标轴系 </td></tr>
-    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">quat</td><td>四元数 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
-
-</div>
-</div>
-<a id="a5595b76fdcc9b75317131425a4f939a7" name="a5595b76fdcc9b75317131425a4f939a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5595b76fdcc9b75317131425a4f939a7">&#9670;&#160;</a></span>getAttitudeIn() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">errc_t ast::Axes::getAttitudeIn </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>axes</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quat</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>angvel</em></span>&#160;) const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取当前轴系相对于目标轴系的姿态（四元数表示）和角速度 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">axes</td><td>目标轴系 </td></tr>
-    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">quat</td><td>四元数 </td></tr>
-    <tr><td class="paramname">angvel</td><td>角速度 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
-
-</div>
-</div>
-<a id="a082aa5ded08dac84022d64d59df3d9e2" name="a082aa5ded08dac84022d64d59df3d9e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a082aa5ded08dac84022d64d59df3d9e2">&#9670;&#160;</a></span>getDepth()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ast::Axes::getDepth </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取当前轴系的深度 </p>
-<p>根轴系深度为 0，每增加一级父轴系深度加 1。 </p><dl class="section return"><dt>返回</dt><dd>深度值 </dd></dl>
-
-</div>
-</div>
-<a id="a61cb4c23db728cedf78474866f8e9650" name="a61cb4c23db728cedf78474866f8e9650"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61cb4c23db728cedf78474866f8e9650">&#9670;&#160;</a></span>getParent()</h2>
+<a id="ac0ece8e5e6c5a97bca9003f7aeb559a2" name="ac0ece8e5e6c5a97bca9003f7aeb559a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ece8e5e6c5a97bca9003f7aeb559a2">&#9670;&#160;</a></span>getTransform() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -496,79 +396,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classast_1_1Axes.html">Axes</a> * ast::Axes::getParent </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取当前轴系的父轴系 </p>
-<dl class="section return"><dt>返回</dt><dd>父轴系指针，根轴系返回 nullptr </dd></dl>
-
-<p>在 <a class="el" href="classast_1_1AttitudeProfileBase.html#a4a96bf2b4c9ec1faef7a23fc21463031">ast::AttitudeProfileBase</a>, <a class="el" href="classast_1_1AttitudeTrajectoryRelated.html#a86bb886611bc4a2172ba3b4b6f502ba9">ast::AttitudeTrajectoryRelated</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#adfbe61a14eb4b20cacbd113271375eda">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2e0e3330db547e9904b348cc30d44d35">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#afcc73f9511666cf42c2f1d0ad803b23c">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a8d704c7140c235fe09df5056de66e9fe">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad5ab0d443d5f33d353a3c83c44434ca5">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a53411e370b539ea7014b66819f0b6664">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a7d358e5e6e3e6c58ac9f865723fd8feb">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#a0b1009ad635c8058bd70d3178e8dbe47">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#abb4cab385bf21851f374dcd045c8cc77">ast::AxesRoot</a> 内被实现.</p>
-
-</div>
-</div>
-<a id="a8a4f63216d63bb92bd5e495084828328" name="a8a4f63216d63bb92bd5e495084828328"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a4f63216d63bb92bd5e495084828328">&#9670;&#160;</a></span>getTransform() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">errc_t ast::Axes::getTransform </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取当前轴系相对于父轴系的加速度旋转变换 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出参数，加速度旋转变换（包含加速度） </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
-<p>默认实现：先由具体轴系给出本轴系相对父轴系的运动学旋转变换(旋转矩阵 + 角速度)， 再对两端时刻的角速度做中心差分(端点处退化为单侧差分)得到角加速度。</p>
-<p>按 <a class="el" href="classast_1_1AccelerationRotation.html" title="加速度(二阶运动学)坐标系旋转">AccelerationRotation</a> 的约定，角加速度是角速度的分量在源轴系(父轴系)下的 坐标时间导数，因此这里直接对 getTransform 返回的角速度分量做差商即可， 不需要额外补偿父轴系自身的转动——父轴系转动引入的输运项由组合变换 <a class="el" href="classast_1_1AccelerationRotation.html#a80cd815f4a25d27506aa83efdb1dd504" title="组合下一个坐标系旋转">AccelerationRotation::composed</a> 统一处理。</p>
-<p>这是给没有解析角加速度的轴系兜底用的默认实现，有解析解的轴系应当重写本函数。</p>
-
-</div>
-</div>
-<a id="a4cfc61858954a4398d37f335e3843e6b" name="a4cfc61858954a4398d37f335e3843e6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cfc61858954a4398d37f335e3843e6b">&#9670;&#160;</a></span>getTransform() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual errc_t ast::Axes::getTransform </td>
+          <td class="memname">errc_t ast::AttitudeMissile::getTransform </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
         </tr>
@@ -580,7 +408,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -595,12 +423,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AttitudeAircraftZDown.html#a85eead47c7e4f206cdb4a9692c64eb5b">ast::AttitudeAircraftZDown</a>, <a class="el" href="classast_1_1AttitudeAlignConstrain.html#a51658fd1d9555890becf093254d13777">ast::AttitudeAlignConstrain</a>, <a class="el" href="classast_1_1AttitudeECFVelRadial.html#aaeceaf664ec04286feead122486ab223">ast::AttitudeECFVelRadial</a>, <a class="el" href="classast_1_1AttitudeFixed.html#a9a1bd8cfb79993034f631bab623c6438">ast::AttitudeFixed</a>, <a class="el" href="classast_1_1AttitudeMissile.html#ac0ece8e5e6c5a97bca9003f7aeb559a2">ast::AttitudeMissile</a>, <a class="el" href="classast_1_1AttitudeNadirNormal.html#af37ffa45889189ea7ca7cdd4e90a8308">ast::AttitudeNadirNormal</a>, <a class="el" href="classast_1_1AttitudeProfileBase.html#a51658fd1d9555890becf093254d13777">ast::AttitudeProfileBase</a>, <a class="el" href="classast_1_1AttitudeRelSunLH.html#a8835c77327a69eb2424eff6bf81cdaed">ast::AttitudeRelSunLH</a>, <a class="el" href="classast_1_1AttitudeSpinning.html#a1dab656defae27f895f6e1206a00c0ac">ast::AttitudeSpinning</a>, <a class="el" href="classast_1_1AttitudeVVLH.html#a6a06a87d2dfbf6e95863a231f0ad7467">ast::AttitudeVVLH</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#abef80d58aad162d3d6c8e63a05c18d85">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a2c6b55a36228d79b84a6c2312c0d802d">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a97e1fd0cba8eecd9476e31a64c4333f0">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a6a7a3b145eb8733c638ea6987eb1a816">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#ad74df91ae19abb4af6caf6018b083f1e">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#a890c33446719129ba05ee3f04a2e8a2a">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#a6924c416590384d8cff7406069748e1b">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#aee37ee8eb8a04f6281988a68b326c79a">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a07468d6431ad4376b214bdec39e0415a">ast::AxesRoot</a> 内被实现.</p>
+<p>实现了 <a class="el" href="classast_1_1Axes.html#a4cfc61858954a4398d37f335e3843e6b">ast::Axes</a>.</p>
 
 </div>
 </div>
-<a id="ab7426969fe27815711fb174d7b1e269a" name="ab7426969fe27815711fb174d7b1e269a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7426969fe27815711fb174d7b1e269a">&#9670;&#160;</a></span>getTransform() <span class="overload">[3/3]</span></h2>
+<a id="a9289dc260cba985fab2f5cbc1962c55c" name="a9289dc260cba985fab2f5cbc1962c55c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9289dc260cba985fab2f5cbc1962c55c">&#9670;&#160;</a></span>getTransform() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -609,7 +437,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual errc_t ast::Axes::getTransform </td>
+          <td class="memname">errc_t ast::AttitudeMissile::getTransform </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
         </tr>
@@ -621,7 +449,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -636,323 +464,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1AttitudeAircraftZDown.html#ad36586a0f4b8a0dc551b6a42af2b3611">ast::AttitudeAircraftZDown</a>, <a class="el" href="classast_1_1AttitudeAlignConstrain.html#add7843ef3e9e1407e090c4759aef31c2">ast::AttitudeAlignConstrain</a>, <a class="el" href="classast_1_1AttitudeECFVelRadial.html#a3e322790bda0228ae85396c28da5951d">ast::AttitudeECFVelRadial</a>, <a class="el" href="classast_1_1AttitudeFixed.html#a12bc72426896ab7ce301f2446c046bf4">ast::AttitudeFixed</a>, <a class="el" href="classast_1_1AttitudeMissile.html#a9289dc260cba985fab2f5cbc1962c55c">ast::AttitudeMissile</a>, <a class="el" href="classast_1_1AttitudeNadirNormal.html#a278e218dc27b2aa18d21c7779eba2226">ast::AttitudeNadirNormal</a>, <a class="el" href="classast_1_1AttitudeProfileBase.html#abdd4725f50c66fec594379b94af2337e">ast::AttitudeProfileBase</a>, <a class="el" href="classast_1_1AttitudeRelSunLH.html#ab6fa93b2be960c8ce2f432ee39a5a122">ast::AttitudeRelSunLH</a>, <a class="el" href="classast_1_1AttitudeSpinning.html#afc553d07491a0fdef4e51ea37cc7b3a7">ast::AttitudeSpinning</a>, <a class="el" href="classast_1_1AttitudeVVLH.html#a76d2b841a46e95a260f536dced4c4c59">ast::AttitudeVVLH</a>, <a class="el" href="classast_1_1AxesBodyFixed.html#a61bb2ff9d228a573e8ba4e69d827ffa7">ast::AxesBodyFixed</a>, <a class="el" href="classast_1_1AxesBodyInertial.html#a52e5ccb88dd2b9e39b4944845d325e41">ast::AxesBodyInertial</a>, <a class="el" href="classast_1_1AxesBodyMOD.html#a72c9bd0d51fee3c6e87802a1e050c421">ast::AxesBodyMOD</a>, <a class="el" href="classast_1_1AxesBodyTOD.html#a4b313234d0a3ca5b7e77e5aa6e88f7cc">ast::AxesBodyTOD</a>, <a class="el" href="classast_1_1AxesFrozen.html#a606e2869b39a91cddcb2ee4cc40009cf">ast::AxesFrozen</a>, <a class="el" href="classast_1_1AxesFrozenAtEventTime.html#ad4c95b38832c988ae13a22a56e50babb">ast::AxesFrozenAtEventTime</a>, <a class="el" href="classast_1_1AxesICRF.html#ac588dbc23aaf0e637de24841c721c08a">ast::AxesICRF</a>, <a class="el" href="classast_1_1AxesLinkTo.html#ade775c6be2a42fbdb4680efc5108c8de">ast::AxesLinkTo</a> , 以及 <a class="el" href="classast_1_1AxesRoot.html#a03cb0a840ca84022130a2d08c4a2a859">ast::AxesRoot</a> 内被实现.</p>
-
-</div>
-</div>
-<a id="ae7efd20bf130d36b7ed4b2ad23a95893" name="ae7efd20bf130d36b7ed4b2ad23a95893"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7efd20bf130d36b7ed4b2ad23a95893">&#9670;&#160;</a></span>getTransformFrom() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">A_ALWAYS_INLINE errc_t ast::Axes::getTransformFrom </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1AccelerationRotation.html">AccelerationRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取源轴系到当前轴系的加速度旋转变换 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>源轴系 </td></tr>
-    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出参数，加速度旋转变换（包含角加速度） </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
-
-</div>
-</div>
-<a id="a9e1cad8414075ea9b1abe32a4b77a582" name="a9e1cad8414075ea9b1abe32a4b77a582"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e1cad8414075ea9b1abe32a4b77a582">&#9670;&#160;</a></span>getTransformFrom() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">A_ALWAYS_INLINE errc_t ast::Axes::getTransformFrom </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取源轴系到当前轴系的运动学旋转变换 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>源轴系 </td></tr>
-    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出参数，运动学旋转变换（包含角速度） </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
-
-</div>
-</div>
-<a id="a6beb6d6b77a89b522db540ce48854d39" name="a6beb6d6b77a89b522db540ce48854d39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6beb6d6b77a89b522db540ce48854d39">&#9670;&#160;</a></span>getTransformFrom() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">A_ALWAYS_INLINE errc_t ast::Axes::getTransformFrom </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取源轴系到当前轴系的旋转变换 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>源轴系 </td></tr>
-    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出参数，旋转变换 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
-
-</div>
-</div>
-<a id="a074555bbd0e6afdf8475f362375cf8b9" name="a074555bbd0e6afdf8475f362375cf8b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a074555bbd0e6afdf8475f362375cf8b9">&#9670;&#160;</a></span>getTransformFromParent() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">A_ALWAYS_INLINE errc_t ast::Axes::getTransformFromParent </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取当前轴系相对于父轴系的运动学旋转变换 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出参数，运动学旋转变换（包含角速度） </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
-
-</div>
-</div>
-<a id="aa434d356305a79f50a1e68852b8709f9" name="aa434d356305a79f50a1e68852b8709f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa434d356305a79f50a1e68852b8709f9">&#9670;&#160;</a></span>getTransformFromParent() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">A_ALWAYS_INLINE errc_t ast::Axes::getTransformFromParent </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取当前轴系相对于父轴系的旋转变换 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出参数，旋转变换 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
-
-</div>
-</div>
-<a id="aa75b1b29ce13f6812bc2488d75c962b8" name="aa75b1b29ce13f6812bc2488d75c962b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa75b1b29ce13f6812bc2488d75c962b8">&#9670;&#160;</a></span>getTransformTo() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">A_ALWAYS_INLINE errc_t ast::Axes::getTransformTo </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> *</td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1KinematicRotation.html">KinematicRotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取当前轴系到目标轴系的运动学旋转变换 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">target</td><td>目标轴系 </td></tr>
-    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出参数，运动学旋转变换（包含角速度） </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
-
-</div>
-</div>
-<a id="af96a030bdddc38749d211924146618b2" name="af96a030bdddc38749d211924146618b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af96a030bdddc38749d211924146618b2">&#9670;&#160;</a></span>getTransformTo() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">A_ALWAYS_INLINE errc_t ast::Axes::getTransformTo </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classast_1_1Axes.html">Axes</a> *</td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取当前轴系到目标轴系的旋转变换 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">target</td><td>目标轴系 </td></tr>
-    <tr><td class="paramname">tp</td><td>时间点 </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出参数，旋转变换 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+<p>实现了 <a class="el" href="classast_1_1Axes.html#ab7426969fe27815711fb174d7b1e269a">ast::Axes</a>.</p>
 
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>src/AstCore/Geometry/Euclid/<a class="el" href="Axes_8hpp_source.html">Axes.hpp</a></li>
-<li>src/AstCore/Geometry/Euclid/<a class="el" href="Axes_8cpp.html">Axes.cpp</a></li>
+<li>src/AstCore/Attitude/<a class="el" href="AttitudeMissile_8hpp_source.html">AttitudeMissile.hpp</a></li>
+<li>src/AstCore/Attitude/<a class="el" href="AttitudeMissile_8cpp.html">AttitudeMissile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1Axes.html">Axes</a></li>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1AttitudeMissile.html">AttitudeMissile</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

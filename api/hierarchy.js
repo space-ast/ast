@@ -879,6 +879,7 @@ var hierarchy =
             [ "ast::AttitudeTrajectoryRelated", "classast_1_1AttitudeTrajectoryRelated.html", [
               [ "ast::AttitudeAircraftZDown", "classast_1_1AttitudeAircraftZDown.html", null ],
               [ "ast::AttitudeECFVelRadial", "classast_1_1AttitudeECFVelRadial.html", null ],
+              [ "ast::AttitudeMissile", "classast_1_1AttitudeMissile.html", null ],
               [ "ast::AttitudeNadirNormal", "classast_1_1AttitudeNadirNormal.html", null ],
               [ "ast::AttitudeRelSunLH", "classast_1_1AttitudeRelSunLH.html", null ],
               [ "ast::AttitudeVVLH", "classast_1_1AttitudeVVLH.html", [

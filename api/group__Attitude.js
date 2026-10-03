@@ -41,6 +41,10 @@ var group__Attitude =
       [ "setRotation", "classast_1_1AttitudeFixed.html#a8efaf3a960349c9d0bb87c2caa442556", null ],
       [ "rotation_", "classast_1_1AttitudeFixed.html#ad15c9021a0960fe308389c648862f2e4", null ]
     ] ],
+    [ "ast::AttitudeMissile", "classast_1_1AttitudeMissile.html", [
+      [ "getTransform", "classast_1_1AttitudeMissile.html#ac0ece8e5e6c5a97bca9003f7aeb559a2", null ],
+      [ "getTransform", "classast_1_1AttitudeMissile.html#a9289dc260cba985fab2f5cbc1962c55c", null ]
+    ] ],
     [ "ast::AttitudeNadirNormal", "classast_1_1AttitudeNadirNormal.html", [
       [ "getTransform", "classast_1_1AttitudeNadirNormal.html#af37ffa45889189ea7ca7cdd4e90a8308", null ],
       [ "getTransform", "classast_1_1AttitudeNadirNormal.html#a278e218dc27b2aa18d21c7779eba2226", null ]
