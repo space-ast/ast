@@ -26,7 +26,8 @@ template<>
 AST_MATH_API
 std::string Matrix3d::toString() const
 {
-    char buf[128];
+    // 9 个 %.15g 最坏各占 22 字节
+    char buf[256];
     snprintf(
         buf, sizeof(buf), 
         "\n%.15g, %.15g, %.15g\n%.15g, %.15g, %.15g\n%.15g, %.15g, %.15g\n", 
