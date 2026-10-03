@@ -183,7 +183,8 @@ var NAVTREEINDEX20 =
 "classast_1_1AttitudeCoverage.html":[3,0,0,37],
 "classast_1_1AttitudeECFVVLH.html":[0,3,1,3],
 "classast_1_1AttitudeECFVelRadial.html":[0,3,1,2],
-"classast_1_1AttitudeECFVelRadial.html#a21b6273db8391f5284c15e644c37fd7a":[0,3,1,2,0],
+"classast_1_1AttitudeECFVelRadial.html#a3e322790bda0228ae85396c28da5951d":[0,3,1,2,1],
+"classast_1_1AttitudeECFVelRadial.html#aaeceaf664ec04286feead122486ab223":[0,3,1,2,0],
 "classast_1_1AttitudeECIVVLH.html":[0,3,1,4],
 "classast_1_1AttitudeFigureOfMerit.html":[2,0,0,42],
 "classast_1_1AttitudeFigureOfMerit.html":[3,0,0,41],
@@ -248,6 +249,5 @@ var NAVTREEINDEX20 =
 "classast_1_1AttitudeVVLH.html":[2,0,0,50],
 "classast_1_1AttitudeVVLH.html":[3,0,0,49],
 "classast_1_1AttitudeVVLH.html#a6a06a87d2dfbf6e95863a231f0ad7467":[2,0,0,50,0],
-"classast_1_1AttitudeVVLH.html#a6a06a87d2dfbf6e95863a231f0ad7467":[3,0,0,49,0],
-"classast_1_1AttitudeVVLH.html#a76d2b841a46e95a260f536dced4c4c59":[2,0,0,50,1]
+"classast_1_1AttitudeVVLH.html#a6a06a87d2dfbf6e95863a231f0ad7467":[3,0,0,49,0]
 };

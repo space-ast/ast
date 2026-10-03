@@ -1,4 +1,5 @@
 var classast_1_1AttitudeECFVelRadial =
 [
-    [ "defaultFrame", "classast_1_1AttitudeECFVelRadial.html#a21b6273db8391f5284c15e644c37fd7a", null ]
+    [ "getTransform", "classast_1_1AttitudeECFVelRadial.html#aaeceaf664ec04286feead122486ab223", null ],
+    [ "getTransform", "classast_1_1AttitudeECFVelRadial.html#a3e322790bda0228ae85396c28da5951d", null ]
 ];

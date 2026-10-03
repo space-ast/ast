@@ -1,5 +1,6 @@
 var NAVTREEINDEX65 =
 {
+"namespaceast_1_1math.html#ad55476707790d13c96d9eef28526cbcf":[2,0,0,3,5],
 "namespaceast_1_1math.html#ad7d48b99658c1144283823aa76621adf":[2,0,0,3,8],
 "namespaceast_1_1math.html#af4d91cee65bbdc213a65c66832b1dd8c":[2,0,0,3,7],
 "namespaceast_1_1math.html#af5311f732f050ddd8e2bc5884e38b3da":[2,0,0,3,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX65 =
 "structast_1_1DAF__FileRecord.html#a192e1ddbc2228d64a713d97462863803":[3,0,0,213,3],
 "structast_1_1DAF__FileRecord.html#a2374ff9dcca78746eb384c4775ec8251":[2,0,0,214,1],
 "structast_1_1DAF__FileRecord.html#a2374ff9dcca78746eb384c4775ec8251":[3,0,0,213,1],
-"structast_1_1DAF__FileRecord.html#a26d21a353b8e893dbd79d1cc189d43a2":[2,0,0,214,4],
-"structast_1_1DAF__FileRecord.html#a26d21a353b8e893dbd79d1cc189d43a2":[3,0,0,213,4]
+"structast_1_1DAF__FileRecord.html#a26d21a353b8e893dbd79d1cc189d43a2":[2,0,0,214,4]
 };

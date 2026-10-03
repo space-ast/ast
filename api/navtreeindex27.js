@@ -1,5 +1,6 @@
 var NAVTREEINDEX27 =
 {
+"classast_1_1DetectorEpoch.html#ab8c9990550692ecb5bca0e09a6457aca":[3,0,0,269,0],
 "classast_1_1DetectorEpoch.html#af349d47a567d2bfa7678a6c532314faa":[2,0,0,270,1],
 "classast_1_1DetectorEpoch.html#af349d47a567d2bfa7678a6c532314faa":[3,0,0,269,1],
 "classast_1_1DetectorFrameRelated.html":[2,0,0,271],
@@ -248,6 +249,5 @@ var NAVTREEINDEX27 =
 "classast_1_1EphemerisLagrangeVar.html#a06a7e408aa0f8579cf3016de7dfe26a2":[2,0,0,301,5],
 "classast_1_1EphemerisLagrangeVar.html#a06a7e408aa0f8579cf3016de7dfe26a2":[3,0,0,300,5],
 "classast_1_1EphemerisLagrangeVar.html#a414a413a20b740331cb6a665cc981302":[2,0,0,301,6],
-"classast_1_1EphemerisLagrangeVar.html#a414a413a20b740331cb6a665cc981302":[3,0,0,300,6],
-"classast_1_1EphemerisLagrangeVar.html#a489a8392204b2d4a342744efacd7be3e":[2,0,0,301,4]
+"classast_1_1EphemerisLagrangeVar.html#a414a413a20b740331cb6a665cc981302":[3,0,0,300,6]
 };

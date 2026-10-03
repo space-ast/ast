@@ -1,5 +1,6 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1CNLEMinpackSolver.html":[2,0,0,174],
 "classast_1_1CNLEMinpackSolver.html":[3,0,0,173],
 "classast_1_1CNLPIpoptSolver.html":[2,0,0,175],
 "classast_1_1CNLPIpoptSolver.html":[3,0,0,174],
@@ -248,6 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1ClassRegistry.html":[2,0,0,164],
 "classast_1_1ClassRegistry.html":[3,0,0,163],
 "classast_1_1ClonePtr.html":[0,8,4,1],
-"classast_1_1CloseApproachAnalyzer.html":[2,0,0,167],
-"classast_1_1CloseApproachAnalyzer.html":[3,0,0,166]
+"classast_1_1CloseApproachAnalyzer.html":[2,0,0,167]
 };
