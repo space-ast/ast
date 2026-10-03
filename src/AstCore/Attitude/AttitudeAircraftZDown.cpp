@@ -20,22 +20,39 @@
 
 #include "AttitudeAircraftZDown.hpp"
 #include "AstCore/BuiltinFrame.hpp"
+#include "AstCore/CelestialBody.hpp"
+#include "AstMath/AttitudeUtil.hpp"
 
 AST_NAMESPACE_BEGIN
 
-AttitudeAircraftZDown::AttitudeAircraftZDown()
+AttitudeAircraftZDown::AttitudeAircraftZDown(Point* point, Body* body)
 {
-    setAlignVector(EAttitudeVector::eVelocity);
-    setAlignAxis(EAttitudeAxis::eX);
-    setConstraintVector(EAttitudeVector::eNadir);
-    setConstraintAxis(EAttitudeAxis::eZ);
-    setOffsetAxis(EAttitudeAxis::eX);
-    setOffsetSense(EAttitudeOffsetSense::eLeftHanded);
+    setPoint(point);
+    setBody(body);
 }
 
-Frame* AttitudeAircraftZDown::defaultFrame() const
+void AttitudeAircraftZDown::setBody(Body* body)
 {
-    return aFrameECF();
+    if (body)
+        this->AttitudeTrajectoryRelated::setFrame(body->getFrameFixed());
 }
+
+errc_t AttitudeAircraftZDown::getTransform(const TimePoint& tp, Rotation& rotation) const
+{
+    Vector3d pos, vel;
+    errc_t rc = this->getPosVelLocal(tp, pos, vel);
+    if(rc) return rc;
+    return aAlignConstrainTransform({1, 0, 0}, vel, {0, 0, -1}, pos, rotation);
+}
+
+
+errc_t AttitudeAircraftZDown::getTransform(const TimePoint& tp, KinematicRotation& rotation) const
+{
+    Vector3d pos, vel, acc;
+    errc_t rc = this->getPosVelAccLocal(tp, pos, vel, acc);
+    if(rc) return rc;
+    return aAlignConstrainTransform({1, 0, 0}, vel, acc, {0, 0, -1}, pos, vel, rotation);
+}
+
 
 AST_NAMESPACE_END
