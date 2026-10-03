@@ -37,9 +37,9 @@ errc_t AttitudeFixed::getTransform(const TimePoint& tp, KinematicRotation& rotat
     return eNoError;
 }
 
-Frame* AttitudeFixed::defaultFrame() const
+Axes* AttitudeFixed::getParent() const
 {
-    return aFrameECI();
+    return referenceAxes_.get();
 }
 
 AST_NAMESPACE_END

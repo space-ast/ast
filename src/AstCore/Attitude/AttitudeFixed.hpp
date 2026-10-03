@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AttitudeProfile.hpp"
 #include "AstMath/Rotation.hpp"
+#include "AstCore/AttitudeProfile.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,11 +32,11 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 固定姿态剖面 (Fixed in Axes)
-/// @details STK 的 "Fixed in Axes" / "Inertially Fixed" 剖面：
-///          体轴系相对指定的参考坐标系(通过 setFrame 设置，默认地球惯性系)保持恒定取向。
-///          参考坐标系取惯性系时即"惯性固定姿态"；取固连系时体轴系随地球一起转动。
-class AST_CORE_API AttitudeFixed : public AttitudeProfileBase
+/// @brief 固定姿态
+/// @details "Fixed in Axes" 
+/// 体轴系相对指定的参考坐标系保持恒定取向。
+/// 参考坐标系取惯性系时即惯性固定姿态；取固连系时体轴系随地球一起转动。
+class AST_CORE_API AttitudeFixed : public AttitudeProfile
 {
 public:
     AST_OBJECT(AttitudeFixed)
@@ -43,28 +44,16 @@ public:
     AttitudeFixed() = default;
     ~AttitudeFixed() override = default;
 
-    using AttitudeProfileBase::getTransform;
+    Axes* getParent() const override;
     errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override;
-
-    /// @brief 获取本轴系相对父轴系的运动学旋转变换
-    /// @details 固定姿态相对参考坐标系没有转动，角速度严格为零。这里直接给出闭式解，
-    ///          既避免数值差分的误差，也保证长时间积分不会漂移。
-    /// @param tp 时间点
-    /// @param rotation 输出参数，运动学旋转变换(角速度恒为零)
-    /// @return 错误码
     errc_t getTransform(const TimePoint& tp, KinematicRotation& rotation) const override;
-
 PROPERTIES:
-    /// @brief 获取体轴系相对参考坐标系的取向
+    const Rotation& rotation() const { return rotation_; }
     const Rotation& getRotation() const { return rotation_; }
-    /// @brief 设置体轴系相对参考坐标系的取向
     void setRotation(const Rotation& rotation) { rotation_ = rotation; }
-
 protected:
-    Frame* defaultFrame() const override;
-
-protected:
-    Rotation rotation_{Rotation::Identity()};   ///< 恒定的体轴系取向
+    WeakPtr<Axes> referenceAxes_;               ///< 参考坐标系轴系
+    Rotation rotation_{Rotation::Identity()};   ///< 相对于参考坐标系的指向
 };
 
 /*! @} */
