@@ -50,6 +50,10 @@ public:
     void setFrame(Frame* frame) { frame_ = frame; }
     Point* point() const { return point_.get(); }
     Frame* frame() const { return frame_.get(); }
+protected:
+    errc_t getPosVelAccLocal(const TimePoint& tp, Vector3d& pos, Vector3d& vel, Vector3d& acc) const;
+    errc_t getPosVelLocal(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const;
+    errc_t getPosLocal(const TimePoint& tp, Vector3d& pos) const;
 private:
     WeakPtr<Point> point_{};    ///< 轨迹点
     WeakPtr<Frame> frame_{};    ///< 轨迹参考系

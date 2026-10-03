@@ -1,9 +1,9 @@
 ///
-/// @file      AttitudeVVLH.cpp
+/// @file      GeometryUtil.cpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-09-30
+/// @date      2026-10-03
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -18,26 +18,19 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "AttitudeVVLH.hpp"
-#include "AstCore/LocalOrbitFrame.hpp"
-#include "AstMath/Vector.hpp"
+#include "GeometryUtil.hpp"
 
 AST_NAMESPACE_BEGIN
 
-errc_t AttitudeVVLH::getTransform(const TimePoint& tp, Rotation& rotation) const
+void aVectorCross(
+    const Vector3d& vector1, const Vector3d& velocity1,
+    const Vector3d& vector2, const Vector3d& velocity2,
+    Vector3d& result, Vector3d& resultVelocity)
 {
-    Vector3d pos, vel;
-    errc_t rc = this->getPosVelLocal(tp, pos, vel);
-    if(rc) return rc;
-    return aFrameToVVLHTransform(pos, vel, rotation);
-}
-
-errc_t AttitudeVVLH::getTransform(const TimePoint& tp, KinematicRotation& rotation) const
-{
-    Vector3d pos, vel, acc;
-    errc_t rc = this->getPosVelAccLocal(tp, pos, vel, acc);
-    if(rc) return rc;
-    return aFrameToVVLHTransform(pos, vel, acc, rotation);
+    // d/dt (v1 × v2) = (dv1/dt) × v2 + v1 × (dv2/dt)
+    result = vector1.cross(vector2);
+    resultVelocity = velocity1.cross(vector2) + vector1.cross(velocity2);
 }
 
 AST_NAMESPACE_END
+

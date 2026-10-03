@@ -15,6 +15,7 @@
 #include "AstMath/BrentSolver.hpp"
 #include "AstMath/Euler.hpp"
 #include "AstMath/Function.hpp"
+#include "AstMath/GeometryUtil.hpp"
 #include "AstMath/GoldenSectionOptimizer.hpp"
 #include "AstMath/Interpolator.hpp"
 #include "AstMath/KinematicRotation.hpp"

@@ -22,6 +22,8 @@
 
 #include "AstGlobal.h"
 #include "AttitudeAlignConstrain.hpp"
+#include "AttitudeProfile.hpp"
+#include "AttitudeTrajectoryRelated.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,22 +33,21 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 对地指向 + 轨道法向约束姿态
-/// @details STK 的 "Nadir Alignment with Orbit Normal Constraint" 剖面。
-/// 体 Z 轴严格对齐地心对地方向，体 X 轴在保持 Z 轴对齐的前提下尽量指向轨道法向
-/// (位置叉乘速度)。对圆轨道而言该姿态与 VVLH 系只相差绕对地轴的一个固定转角，对偏心轨道则不然。
-/// @note 本剖面的对齐与约束关系是**类定义的一部分**，已在构造函数中固定为 STK 对应剖面的取值。
-/// 基类提供设置接口是为了支持通用的"对齐与约束"剖面，在这里修改它们会让类名与实际行为不符。
-class AST_CORE_API AttitudeNadirNormal : public AttitudeAlignConstrain
+/// @details "Nadir Alignment with Orbit Normal Constraint"
+/// 体 Z 轴严格对齐坐标系原点方向(对地指向)，体 X 轴在保持 Z 轴对齐的前提下尽量指向轨道法向(位置叉乘速度)
+/// 对圆轨道而言该姿态与 VVLH 系只相差绕对地轴的一个固定转角
+class AST_CORE_API AttitudeNadirNormal : public AttitudeTrajectoryRelated
 {
 public:
     AST_OBJECT(AttitudeNadirNormal)
 
-    AttitudeNadirNormal();
+    AttitudeNadirNormal() = default;
+    AttitudeNadirNormal(Point* point, Body* body);
+    AttitudeNadirNormal(Point* point, Frame* frame);
     ~AttitudeNadirNormal() override = default;
-
-protected:
-    /// @brief 本剖面的自然参考坐标系为地球惯性系
-    Frame* defaultFrame() const override;
+public:
+    errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override;
+    errc_t getTransform(const TimePoint& tp, KinematicRotation& rotation) const override;
 };
 
 /*! @} */

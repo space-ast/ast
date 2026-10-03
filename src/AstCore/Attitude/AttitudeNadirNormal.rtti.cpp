@@ -14,7 +14,7 @@ void AttitudeNadirNormal::ClassInit(Class* cls)
     cls->setName("AttitudeNadirNormal");
     cls->setDesc(u8R"(对地指向 + 轨道法向约束姿态（STK: NadirNormal）)");
     cls->addToRegistry();
-    cls->setParent<AttitudeAlignConstrain>();
+    cls->setParent<AttitudeTrajectoryRelated>();
     cls->setConstructor<AttitudeNadirNormal>();
 }
 

@@ -31,5 +31,37 @@ Axes *AttitudeTrajectoryRelated::getParent() const
     return nullptr;
 }
 
+errc_t AttitudeTrajectoryRelated::getPosVelAccLocal(const TimePoint &tp, Vector3d &pos, Vector3d &vel, Vector3d &acc) const
+{
+    auto point = this->point();
+    auto frame = this->frame();
+    if (!point || !frame)
+    {
+        return eErrorNullPtr;
+    }
+    return point->getPosVelAccIn(*frame, tp, pos, vel, acc);
+}
+
+errc_t AttitudeTrajectoryRelated::getPosVelLocal(const TimePoint &tp, Vector3d &pos, Vector3d &vel) const
+{
+    auto point = this->point();
+    auto frame = this->frame();
+    if (!point || !frame)
+    {
+        return eErrorNullPtr;
+    }
+    return point->getPosVelIn(*frame, tp, pos, vel);
+}
+
+errc_t AttitudeTrajectoryRelated::getPosLocal(const TimePoint &tp, Vector3d &pos) const
+{
+    auto point = this->point();
+    auto frame = this->frame();
+    if (!point || !frame)
+    {
+        return eErrorNullPtr;
+    }
+    return point->getPosIn(*frame, tp, pos);
+}
 
 AST_NAMESPACE_END

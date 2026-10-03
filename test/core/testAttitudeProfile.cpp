@@ -313,12 +313,48 @@ TEST_F(AttitudeProfileTest, AttitudeECFVVLH)
                 EXPECT_NEAR(w2[i], expected_w[i], 1e-12) << "w2[" << i << "]";
             }
         }
-        {
-
-        }
     }
-    {
+}
 
+
+TEST_F(AttitudeProfileTest, AttitudeNadirNormal)
+{
+    {
+        OrbElem orbElem{6678137, 0.02, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "3 Oct 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph  = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeNadirNormal attitude(eph, earth->getFrameInertial());
+
+        {
+            auto time = "3 Oct 2026 18:05:00.000"_utc;
+            Quaternion q1, q2;
+            Vector3d w;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q1, w);
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q2);
+            Rotation rot;
+            attitude.getTransformFrom(*earth->getAxesInertial(), time, rot);
+            w = rot.transformVector(w);
+
+            printf("q1: %s\n", q1.toString().c_str());
+            printf("q2: %s\n", q2.toString().c_str());
+            printf("w: %s\n", w.toString().c_str());
+            
+            Quaternion expected_q{ 0.1767765511429616, 0.6846532341017603, -0.4820425466535251, 0.5173344983816410};
+            Vector3d expected_w{0.0011327929510306, -0.0000000000000000, 0.0000000000000000};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q1[i], expected_q[i], 1e-13) << "q1[" << i << "]";
+                EXPECT_NEAR(q2[i], expected_q[i], 1e-13) << "q2[" << i << "]";
+            }
+            for(int i = 0; i < 3; i++)
+            {
+                EXPECT_NEAR(w[i], expected_w[i], 1e-12) << "w[" << i << "]";
+            }
+        }
     }
 }
 
@@ -517,6 +553,7 @@ TEST_F(AttitudeProfileTest, NadirNormalSemantics)
     auto orbit = MakeCircularEquatorialOrbit();
     AttitudeNadirNormal profile;
     profile.setPoint(orbit.get());
+    profile.setFrame(aGetEarth()->getFrameInertial());
 
     TimePoint tp = TestEpoch();
     Rotation rot;

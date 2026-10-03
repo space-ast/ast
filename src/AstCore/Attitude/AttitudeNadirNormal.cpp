@@ -20,22 +20,43 @@
 
 #include "AttitudeNadirNormal.hpp"
 #include "AstCore/BuiltinFrame.hpp"
+#include "AstCore/CelestialBody.hpp"
+#include "AstMath/AttitudeUtil.hpp"
+#include "AstMath/GeometryUtil.hpp"
+
 
 AST_NAMESPACE_BEGIN
 
-AttitudeNadirNormal::AttitudeNadirNormal()
+AttitudeNadirNormal::AttitudeNadirNormal(Point *point, Frame *frame)
 {
-    setAlignVector(EAttitudeVector::eNadir);
-    setAlignAxis(EAttitudeAxis::eZ);
-    setConstraintVector(EAttitudeVector::eOrbitNormal);
-    setConstraintAxis(EAttitudeAxis::eX);
-    setOffsetAxis(EAttitudeAxis::eZ);
-    setOffsetSense(EAttitudeOffsetSense::eLeftHanded);
+    this->setPoint(point);
+    this->setFrame(frame);
 }
 
-Frame* AttitudeNadirNormal::defaultFrame() const
+AttitudeNadirNormal::AttitudeNadirNormal(Point *point, Body *body)
 {
-    return aFrameECI();
+    this->setPoint(point);
+    this->setFrame(body->getFrameInertial());
+}
+
+errc_t AttitudeNadirNormal::getTransform(const TimePoint &tp, Rotation &rotation) const
+{
+    Vector3d pos, vel;
+    errc_t rc = this->getPosVelLocal(tp, pos, vel);
+    if(rc) return rc;
+    Vector3d h = pos.cross(vel);
+    return aAlignConstrainTransform({0, 0, -1}, pos, {1, 0, 0}, h, rotation);
+}
+
+
+errc_t AttitudeNadirNormal::getTransform(const TimePoint& tp, KinematicRotation& rotation) const
+{
+    Vector3d pos, vel, acc;
+    errc_t rc = this->getPosVelAccLocal(tp, pos, vel, acc);
+    if(rc) return rc;
+    Vector3d h, hdot;
+    aVectorCross(pos, vel, vel, acc, h, hdot);
+    return aAlignConstrainTransform({0, 0, -1}, pos, vel, {1, 0, 0}, h, hdot, rotation);
 }
 
 AST_NAMESPACE_END
