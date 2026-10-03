@@ -12,7 +12,7 @@ static bool AttitudeFixed_ClassInited = (AttitudeFixed::ClassInit(&AttitudeFixed
 void AttitudeFixed::ClassInit(Class* cls)
 {
     cls->setName("AttitudeFixed");
-    cls->setDesc(u8R"(固定姿态剖面（STK: Fixed in Axes）)");
+    cls->setDesc(u8R"(固定姿态)");
     cls->addToRegistry();
     cls->setParent<AttitudeProfile>();
     cls->setConstructor<AttitudeFixed>();

@@ -12,9 +12,9 @@ static bool AttitudeECFVelRadial_ClassInited = (AttitudeECFVelRadial::ClassInit(
 void AttitudeECFVelRadial::ClassInit(Class* cls)
 {
     cls->setName("AttitudeECFVelRadial");
-    cls->setDesc(u8R"(ECF 速度对齐 + 径向约束姿态（STK: ECFVelRadial / AircraftAtt）)");
+    cls->setDesc(u8R"(ECF 速度对齐 + 径向约束姿态)");
     cls->addToRegistry();
-    cls->setParent<AttitudeAlignConstrain>();
+    cls->setParent<AttitudeTrajectoryRelated>();
     cls->setConstructor<AttitudeECFVelRadial>();
 }
 

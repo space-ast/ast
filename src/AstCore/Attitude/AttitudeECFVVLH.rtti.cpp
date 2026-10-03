@@ -12,7 +12,7 @@ static bool AttitudeECFVVLH_ClassInited = (AttitudeECFVVLH::ClassInit(&AttitudeE
 void AttitudeECFVVLH::ClassInit(Class* cls)
 {
     cls->setName("AttitudeECFVVLH");
-    cls->setDesc(u8R"(对地指向 + ECF 速度约束姿态（STK: ECFVVLH）)");
+    cls->setDesc(u8R"(对地指向 + ECF 速度约束姿态)");
     cls->addToRegistry();
     cls->setParent<AttitudeVVLH>();
     cls->setConstructor<AttitudeECFVVLH>();

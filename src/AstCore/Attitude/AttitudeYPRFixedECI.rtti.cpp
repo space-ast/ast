@@ -12,7 +12,7 @@ static bool AttitudeYPRFixedECI_ClassInited = (AttitudeYPRFixedECI::ClassInit(&A
 void AttitudeYPRFixedECI::ClassInit(Class* cls)
 {
     cls->setName("AttitudeYPRFixedECI");
-    cls->setDesc(u8R"(偏航-俯仰-滚转固定姿态剖面（STK: YPRFixedECI）)");
+    cls->setDesc(u8R"(偏航-俯仰-滚转固定姿态剖面)");
     cls->addToRegistry();
     cls->setParent<AttitudeFixed>();
     cls->setConstructor<AttitudeYPRFixedECI>();

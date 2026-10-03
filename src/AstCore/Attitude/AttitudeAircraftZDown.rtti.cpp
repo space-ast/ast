@@ -12,7 +12,7 @@ static bool AttitudeAircraftZDown_ClassInited = (AttitudeAircraftZDown::ClassIni
 void AttitudeAircraftZDown::ClassInit(Class* cls)
 {
     cls->setName("AttitudeAircraftZDown");
-    cls->setDesc(u8R"(对地指向 + ECF 速度约束的机体 Z 朝下姿态（STK: AircraftZDown / AircraftZDownAtt）)");
+    cls->setDesc(u8R"(对地指向 + ECF 速度约束的机体 Z 朝下姿态)");
     cls->addToRegistry();
     cls->setParent<AttitudeAlignConstrain>();
     cls->setConstructor<AttitudeAircraftZDown>();
