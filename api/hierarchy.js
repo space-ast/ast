@@ -881,6 +881,7 @@ var hierarchy =
             [ "ast::AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],
             [ "ast::AttitudeTrajectoryRelated", "classast_1_1AttitudeTrajectoryRelated.html", [
               [ "ast::AttitudeNadirNormal", "classast_1_1AttitudeNadirNormal.html", null ],
+              [ "ast::AttitudeRelSunLH", "classast_1_1AttitudeRelSunLH.html", null ],
               [ "ast::AttitudeVVLH", "classast_1_1AttitudeVVLH.html", [
                 [ "ast::AttitudeECFVVLH", "classast_1_1AttitudeECFVVLH.html", null ],
                 [ "ast::AttitudeECIVVLH", "classast_1_1AttitudeECIVVLH.html", null ]

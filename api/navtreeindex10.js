@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"ObjectEditRegistry_8cpp.html#acfcf70d8cbd263e56532c97bae28c8a0":[4,0,0,22,6,2,0],
+"ObjectEditRegistry_8hpp.html":[4,0,0,22,6,3],
 "ObjectEditRegistry_8hpp.html#a1de35d951382be3c1a76c9dc96ea9fd3":[4,0,0,22,6,3,2],
 "ObjectEditRegistry_8hpp.html#acfcf70d8cbd263e56532c97bae28c8a0":[4,0,0,22,6,3,1],
 "ObjectEditRegistry_8hpp_source.html":[4,0,0,22,6,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "Propagator_8hpp.html":[4,0,0,6,13,13],
 "Propagator_8hpp_source.html":[4,0,0,6,13,13],
 "PropertyAll_8hpp.html":[4,0,0,27,8,0,8],
-"PropertyAll_8hpp_source.html":[4,0,0,27,8,0,8],
-"PropertyBool_8cpp.html":[4,0,0,27,8,0,9],
-"PropertyBool_8hpp.html":[4,0,0,27,8,0,10]
+"PropertyAll_8hpp_source.html":[4,0,0,27,8,0,8]
 };

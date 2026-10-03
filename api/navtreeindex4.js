@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"Constants_8hpp_source.html":[4,0,0,27,11,3],
+"ConstellationLoader_8cpp.html":[4,0,0,10,5,17],
 "ConstellationLoader_8cpp.html#a28510984de163030a674ef23916c59b0":[4,0,0,10,5,17,0],
 "ConstellationLoader_8hpp.html":[4,0,0,10,5,18],
 "ConstellationLoader_8hpp.html#a28510984de163030a674ef23916c59b0":[4,0,0,10,5,18,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "DetectorZXPlaneCross_8hpp_source.html":[4,0,0,6,13,0,44],
 "DifferentialCorrectorProfileLoader_8hpp_source.html":[4,0,0,10,1,2,0,0],
 "DifferentialCorrectorProfile_8cpp.html":[4,0,0,6,12,3,0,0],
-"DifferentialCorrectorProfile_8hpp.html":[4,0,0,6,12,3,0,1],
-"DifferentialCorrectorProfile_8hpp.html#a1261433b1247ff9055c2224bb7797ffb":[4,0,0,6,12,3,0,1,4],
-"DifferentialCorrectorProfile_8hpp.html#a1261433b1247ff9055c2224bb7797ffba4ccc1819f9b9cf1a8addaa23b66c1170":[4,0,0,6,12,3,0,1,4,0]
+"DifferentialCorrectorProfile_8hpp.html":[4,0,0,6,12,3,0,1]
 };
