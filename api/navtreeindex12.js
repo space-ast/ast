@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"STKEphemerisFileWriter_8cpp.html#a2b89cd79b980cf5cc1412bff9d822fef":[4,0,0,6,8,1,4,0],
+"STKEphemerisFileWriter_8hpp.html":[4,0,0,6,8,1,5],
+"STKEphemerisFileWriter_8hpp.html#a2b89cd79b980cf5cc1412bff9d822fef":[4,0,0,6,8,1,5,1],
 "STKEphemerisFileWriter_8hpp_source.html":[4,0,0,6,8,1,5],
 "SaVOImpl_8hpp.html":[4,0,0,5,18],
 "SaVOImpl_8hpp_source.html":[4,0,0,5,18],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcImpactMassFlux_8cpp.html":[4,0,0,6,12,1,0,15,54],
 "ScStateCalcImpactMassFlux_8hpp.html":[4,0,0,6,12,1,0,15,55],
 "ScStateCalcImpactMassFlux_8hpp_source.html":[4,0,0,6,12,1,0,15,55],
-"ScStateCalcInAsympDec_8cpp.html":[4,0,0,6,12,1,0,15,56],
-"ScStateCalcInAsympDec_8hpp.html":[4,0,0,6,12,1,0,15,57],
-"ScStateCalcInAsympDec_8hpp_source.html":[4,0,0,6,12,1,0,15,57],
-"ScStateCalcInAsympRA_8cpp.html":[4,0,0,6,12,1,0,15,58]
+"ScStateCalcInAsympDec_8cpp.html":[4,0,0,6,12,1,0,15,56]
 };

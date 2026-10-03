@@ -1,5 +1,8 @@
 var NAVTREEINDEX15 =
 {
+"ShooterResultLoader_8hpp.html#a3dae0a593bef87c78127adf939670753":[4,0,0,10,1,2,0,6,0],
+"ShooterResultLoader_8hpp_source.html":[4,0,0,10,1,2,0,6],
+"ShooterResult_8cpp.html":[4,0,0,6,12,3,0,5],
 "ShooterResult_8hpp.html":[4,0,0,6,12,3,0,6],
 "ShooterResult_8hpp_source.html":[4,0,0,6,12,3,0,6],
 "SimAPI_8cpp.html":[4,0,0,18,5],
@@ -58,8 +61,8 @@ var NAVTREEINDEX15 =
 "SolarSystem_8cpp.html":[4,0,0,6,15,8],
 "SolarSystem_8hpp.html":[4,0,0,6,15,9],
 "SolarSystem_8hpp_source.html":[4,0,0,6,15,9],
-"SolverStats_8h.html":[4,0,0,11,4,2],
-"SolverStats_8h_source.html":[4,0,0,11,4,2],
+"SolverStats_8h.html":[4,0,0,11,5,2],
+"SolverStats_8h_source.html":[4,0,0,11,5,2],
 "SourceLocation_8hpp.html":[4,0,0,27,11,19],
 "SourceLocation_8hpp.html#a0ab095e8a194aeafadf1e408c8393e8d":[4,0,0,27,11,19,2],
 "SourceLocation_8hpp.html#a46bf7f6285e97fa9e3a05bf9ef22452f":[4,0,0,27,11,19,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX15 =
 "StateKeplerian_8hpp.html#a9de38fd17316aadc192e14bfee3a2c30":[4,0,0,6,12,6,9,2],
 "StateKeplerian_8hpp.html#a9de38fd17316aadc192e14bfee3a2c30a1de61afe1f55d84ceb8bee63f89dba4c":[4,0,0,6,12,6,9,2,7],
 "StateKeplerian_8hpp.html#a9de38fd17316aadc192e14bfee3a2c30a207a52997130815e48e5570ca4c634be":[4,0,0,6,12,6,9,2,0],
-"StateKeplerian_8hpp.html#a9de38fd17316aadc192e14bfee3a2c30a3ab28c4c52385e421232669ca761ce16":[4,0,0,6,12,6,9,2,5],
-"StateKeplerian_8hpp.html#a9de38fd17316aadc192e14bfee3a2c30a4086e36775407867310ca00191d8ca59":[4,0,0,6,12,6,9,2,6],
-"StateKeplerian_8hpp.html#a9de38fd17316aadc192e14bfee3a2c30a4c715c23e08d1c29a788c1389ee072c2":[4,0,0,6,12,6,9,2,2],
-"StateKeplerian_8hpp.html#a9de38fd17316aadc192e14bfee3a2c30a4eacd8c3d57ef3275e65c7a44c7d049a":[4,0,0,6,12,6,9,2,4]
+"StateKeplerian_8hpp.html#a9de38fd17316aadc192e14bfee3a2c30a3ab28c4c52385e421232669ca761ce16":[4,0,0,6,12,6,9,2,5]
 };

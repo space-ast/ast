@@ -100,6 +100,7 @@ $(function(){initNavTree('classast_1_1AttitudeTrajectoryRelated.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="classast_1_1AttitudeTrajectoryRelated-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::AttitudeTrajectoryRelated类 参考</div></div>
 </div><!--header-->
@@ -118,9 +119,10 @@ $(function(){initNavTree('classast_1_1AttitudeTrajectoryRelated.html',''); initR
 <area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="93,112,269,136"/>
 <area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="93,56,269,80"/>
 <area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="93,0,269,24"/>
-<area href="classast_1_1AttitudeVVLH.html" title="速度局部水平姿态(对原点定向 + 速度约束)" alt="ast::AttitudeVVLH" shape="rect" coords="93,280,269,304"/>
-<area href="classast_1_1AttitudeECFVVLH.html" title="对地指向 + ECF 速度约束姿态" alt="ast::AttitudeECFVVLH" shape="rect" coords="0,336,176,360"/>
-<area href="classast_1_1AttitudeECIVVLH.html" title="对地指向 + ECI 速度约束姿态" alt="ast::AttitudeECIVVLH" shape="rect" coords="186,336,362,360"/>
+<area href="classast_1_1AttitudeNadirNormal.html" title="对地指向 + 轨道法向约束姿态" alt="ast::AttitudeNadirNormal" shape="rect" coords="0,280,176,304"/>
+<area href="classast_1_1AttitudeVVLH.html" title="速度局部水平姿态(对原点定向 + 速度约束)" alt="ast::AttitudeVVLH" shape="rect" coords="186,280,362,304"/>
+<area href="classast_1_1AttitudeECFVVLH.html" title="对地指向 + ECF 速度约束姿态" alt="ast::AttitudeECFVVLH" shape="rect" coords="93,336,269,360"/>
+<area href="classast_1_1AttitudeECIVVLH.html" title="对地指向 + ECI 速度约束姿态" alt="ast::AttitudeECIVVLH" shape="rect" coords="279,336,455,360"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -337,6 +339,29 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>tr</b> (const
 <tr class="memitem:a441ea6ec3e9e66753a3ece287d58148c inherit pub_methods_classast_1_1Referenced" id="r_a441ea6ec3e9e66753a3ece287d58148c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Referenced.html#a441ea6ec3e9e66753a3ece287d58148c">decRefNoDelete</a> ()</td></tr>
 <tr class="separator:a441ea6ec3e9e66753a3ece287d58148c inherit pub_methods_classast_1_1Referenced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a7611d142198072a7750cb2953a0a1814" id="r_a7611d142198072a7750cb2953a0a1814"><td class="memItemLeft" align="right" valign="top"><a id="a7611d142198072a7750cb2953a0a1814" name="a7611d142198072a7750cb2953a0a1814"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosVelAccLocal</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos, Vector3d &amp;vel, Vector3d &amp;acc) const</td></tr>
+<tr class="separator:a7611d142198072a7750cb2953a0a1814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6bbb90947864f91281cdddd39012f2c" id="r_ab6bbb90947864f91281cdddd39012f2c"><td class="memItemLeft" align="right" valign="top"><a id="ab6bbb90947864f91281cdddd39012f2c" name="ab6bbb90947864f91281cdddd39012f2c"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosVelLocal</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos, Vector3d &amp;vel) const</td></tr>
+<tr class="separator:ab6bbb90947864f91281cdddd39012f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85705cb300232cf6415dcd6d18765bf4" id="r_a85705cb300232cf6415dcd6d18765bf4"><td class="memItemLeft" align="right" valign="top"><a id="a85705cb300232cf6415dcd6d18765bf4" name="a85705cb300232cf6415dcd6d18765bf4"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosLocal</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, Vector3d &amp;pos) const</td></tr>
+<tr class="separator:a85705cb300232cf6415dcd6d18765bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
+<tr class="memitem:a3b01428d4c83f64fb9c5f58d2f0615c3 inherit pro_methods_classast_1_1Object" id="r_a3b01428d4c83f64fb9c5f58d2f0615c3"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;)</td></tr>
+<tr class="separator:a3b01428d4c83f64fb9c5f58d2f0615c3 inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae68f77d7295e98d721fd27590cfba289 inherit pro_methods_classast_1_1Object" id="r_ae68f77d7295e98d721fd27590cfba289"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1Object.html">Object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;)</td></tr>
+<tr class="separator:ae68f77d7295e98d721fd27590cfba289 inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classast_1_1Referenced"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Referenced')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Referenced.html">ast::Referenced</a></td></tr>
+<tr class="memitem:a069a70787164bcec7311d5916913317e inherit pro_methods_classast_1_1Referenced" id="r_a069a70787164bcec7311d5916913317e"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()</td></tr>
+<tr class="separator:a069a70787164bcec7311d5916913317e inherit pro_methods_classast_1_1Referenced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 额外继承的成员函数</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;静态 Public 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
@@ -352,17 +377,6 @@ static <a class="el" href="classast_1_1Class.html">Class</a> *&#160;</td><td cla
 <tr class="memitem:a0d3a787620d7bd3b8b619bcbef67bb68 inherit pub_static_attribs_classast_1_1Object" id="r_a0d3a787620d7bd3b8b619bcbef67bb68"><td class="memItemLeft" align="right" valign="top">
 static <a class="el" href="classast_1_1Class.html">Class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>staticType</b></td></tr>
 <tr class="separator:a0d3a787620d7bd3b8b619bcbef67bb68 inherit pub_static_attribs_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_classast_1_1Object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Object')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Object.html">ast::Object</a></td></tr>
-<tr class="memitem:a3b01428d4c83f64fb9c5f58d2f0615c3 inherit pro_methods_classast_1_1Object" id="r_a3b01428d4c83f64fb9c5f58d2f0615c3"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;)</td></tr>
-<tr class="separator:a3b01428d4c83f64fb9c5f58d2f0615c3 inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae68f77d7295e98d721fd27590cfba289 inherit pro_methods_classast_1_1Object" id="r_ae68f77d7295e98d721fd27590cfba289"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classast_1_1Object.html">Object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classast_1_1Object.html">Object</a> &amp;)</td></tr>
-<tr class="separator:ae68f77d7295e98d721fd27590cfba289 inherit pro_methods_classast_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_classast_1_1Referenced"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Referenced')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Referenced.html">ast::Referenced</a></td></tr>
-<tr class="memitem:a069a70787164bcec7311d5916913317e inherit pro_methods_classast_1_1Referenced" id="r_a069a70787164bcec7311d5916913317e"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()</td></tr>
-<tr class="separator:a069a70787164bcec7311d5916913317e inherit pro_methods_classast_1_1Referenced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>与轨迹相关的姿态 </p>

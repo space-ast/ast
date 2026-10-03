@@ -1,5 +1,8 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcInAsympDec_8hpp.html":[4,0,0,6,12,1,0,15,57],
+"ScStateCalcInAsympDec_8hpp_source.html":[4,0,0,6,12,1,0,15,57],
+"ScStateCalcInAsympRA_8cpp.html":[4,0,0,6,12,1,0,15,58],
 "ScStateCalcInAsympRA_8hpp.html":[4,0,0,6,12,1,0,15,59],
 "ScStateCalcInAsympRA_8hpp_source.html":[4,0,0,6,12,1,0,15,59],
 "ScStateCalcInTrackRate_8cpp.html":[4,0,0,6,12,1,0,15,70],
@@ -246,8 +249,5 @@ var NAVTREEINDEX13 =
 "ScStateCalcSTMVelXVelZ_8hpp.html":[4,0,0,6,12,1,0,3,5],
 "ScStateCalcSTMVelXVelZ_8hpp_source.html":[4,0,0,6,12,1,0,3,5],
 "ScStateCalcSTMVelYVelX_8cpp.html":[4,0,0,6,12,1,0,3,6],
-"ScStateCalcSTMVelYVelX_8hpp.html":[4,0,0,6,12,1,0,3,7],
-"ScStateCalcSTMVelYVelX_8hpp_source.html":[4,0,0,6,12,1,0,3,7],
-"ScStateCalcSTMVelYVelY_8cpp.html":[4,0,0,6,12,1,0,3,8],
-"ScStateCalcSTMVelYVelY_8hpp.html":[4,0,0,6,12,1,0,3,9]
+"ScStateCalcSTMVelYVelX_8hpp.html":[4,0,0,6,12,1,0,3,7]
 };

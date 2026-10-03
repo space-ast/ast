@@ -78,5 +78,6 @@ var group__Geometry =
     [ "ast::aAxesTransform", "group__Geometry.html#gaa1df848eb238deb89077b2d4de987ad5", null ],
     [ "ast::aFrameTransform", "group__Geometry.html#ga0dcd2fda52bc0ced025ce2d59815c298", null ],
     [ "ast::aFrameTransform", "group__Geometry.html#gab20c161ed6f563693ed29e82bcf89e0d", null ],
-    [ "ast::aFrameTransform", "group__Geometry.html#ga8cd86ddebb4ee196132177b4daf7753c", null ]
+    [ "ast::aFrameTransform", "group__Geometry.html#ga8cd86ddebb4ee196132177b4daf7753c", null ],
+    [ "ast::aVectorCross", "group__Geometry.html#ga7e4926b6a0056a41f908a25ca91dce5d", null ]
 ];

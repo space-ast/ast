@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"ObjectEditRegistry_8hpp.html#a1de35d951382be3c1a76c9dc96ea9fd3":[4,0,0,22,6,3,2],
+"ObjectEditRegistry_8hpp.html#acfcf70d8cbd263e56532c97bae28c8a0":[4,0,0,22,6,3,1],
+"ObjectEditRegistry_8hpp_source.html":[4,0,0,22,6,3],
 "ObjectIcons_8cpp.html":[4,0,0,22,5,2],
 "ObjectIcons_8hpp.html":[4,0,0,22,5,3],
 "ObjectIcons_8hpp_source.html":[4,0,0,22,5,3],
@@ -75,8 +78,8 @@ var NAVTREEINDEX10 =
 "OpenAI_8cpp.html":[4,0,0,0,3,6],
 "OpenAI_8hpp.html":[4,0,0,0,3,7],
 "OpenAI_8hpp_source.html":[4,0,0,0,3,7],
-"Optim_8hpp.html":[4,0,0,11,6,5],
-"Optim_8hpp_source.html":[4,0,0,11,6,5],
+"Optim_8hpp.html":[4,0,0,11,7,5],
+"Optim_8hpp_source.html":[4,0,0,11,7,5],
 "OptimizationStudy_8hpp_source.html":[4,0,0,1,1,0],
 "OrConstraint_8cpp.html":[4,0,0,6,6,12],
 "OrConstraint_8hpp.html":[4,0,0,6,6,13],
@@ -116,10 +119,10 @@ var NAVTREEINDEX10 =
 "OrderedMap_8cpp.html":[4,0,0,27,2,4],
 "OrderedMap_8hpp.html":[4,0,0,27,2,5],
 "OrderedMap_8hpp_source.html":[4,0,0,27,2,5],
-"OrdinaryDifferentialEquation_8cpp.html":[4,0,0,11,5,15],
-"OrdinaryDifferentialEquation_8hpp.html":[4,0,0,11,5,16],
-"OrdinaryDifferentialEquation_8hpp.html#a556c864e79d6a749bb7e2aae55fcac57":[4,0,0,11,5,16,1],
-"OrdinaryDifferentialEquation_8hpp_source.html":[4,0,0,11,5,16],
+"OrdinaryDifferentialEquation_8cpp.html":[4,0,0,11,6,15],
+"OrdinaryDifferentialEquation_8hpp.html":[4,0,0,11,6,16],
+"OrdinaryDifferentialEquation_8hpp.html#a556c864e79d6a749bb7e2aae55fcac57":[4,0,0,11,6,16,1],
+"OrdinaryDifferentialEquation_8hpp_source.html":[4,0,0,11,6,16],
 "OsculatingElements_8cpp.html":[4,0,0,2,0,10],
 "OsculatingElements_8hpp.html":[4,0,0,2,0,11],
 "OsculatingElements_8hpp_source.html":[4,0,0,2,0,11],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "PropertyAll_8hpp.html":[4,0,0,27,8,0,8],
 "PropertyAll_8hpp_source.html":[4,0,0,27,8,0,8],
 "PropertyBool_8cpp.html":[4,0,0,27,8,0,9],
-"PropertyBool_8hpp.html":[4,0,0,27,8,0,10],
-"PropertyBool_8hpp_source.html":[4,0,0,27,8,0,10],
-"PropertyDouble_8cpp.html":[4,0,0,27,8,0,11],
-"PropertyDouble_8hpp.html":[4,0,0,27,8,0,12]
+"PropertyBool_8hpp.html":[4,0,0,27,8,0,10]
 };

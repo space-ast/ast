@@ -1,5 +1,9 @@
 var NAVTREEINDEX26 =
 {
+"classast_1_1DataElements.html#adea0244a158d1e5ba18109ce01fc0f47":[2,0,0,221,0],
+"classast_1_1DataElements.html#adea0244a158d1e5ba18109ce01fc0f47":[3,0,0,220,0],
+"classast_1_1DataFrame.html":[0,15,4],
+"classast_1_1DataFrame.html#a0bb06d2c221f925012f1f8af67b1d8cb":[0,15,4,6],
 "classast_1_1DataFrame.html#a20d4bc7824e51697eb77f112bb39b7aa":[0,15,4,4],
 "classast_1_1DataFrame.html#a48748a4b6e4ca7858e37d3a5d2f820b0":[0,15,4,0],
 "classast_1_1DataFrame.html#a5b46fc41d36a0d83c9480272abaf27d6":[0,15,4,7],
@@ -245,9 +249,5 @@ var NAVTREEINDEX26 =
 "classast_1_1DetectorLighting.html":[2,0,0,271],
 "classast_1_1DetectorLighting.html":[3,0,0,270],
 "classast_1_1DetectorLighting.html#a4bca05fb075d19e01cabd49729344ad1":[2,0,0,271,0],
-"classast_1_1DetectorLighting.html#a4bca05fb075d19e01cabd49729344ad1":[3,0,0,270,0],
-"classast_1_1DetectorMeanAnomaly.html":[2,0,0,272],
-"classast_1_1DetectorMeanAnomaly.html":[3,0,0,271],
-"classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[2,0,0,272,0],
-"classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[3,0,0,271,0]
+"classast_1_1DetectorLighting.html#a4bca05fb075d19e01cabd49729344ad1":[3,0,0,270,0]
 };

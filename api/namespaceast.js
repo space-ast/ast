@@ -3149,6 +3149,7 @@ var namespaceast =
     [ "aValueUnboxDouble", "group__Script.html#gaaf91c999d4e5a17f0abce0bee01d8810", null ],
     [ "aValueUnboxInt", "group__Script.html#ga96c8095276cedbc77235485077c7713c", null ],
     [ "aValueUnboxQuantity", "group__Script.html#gab918a44d5e645f2a7910917b71c2413c", null ],
+    [ "aVectorCross", "group__Geometry.html#ga7e4926b6a0056a41f908a25ca91dce5d", null ],
     [ "aVectorRotation", "namespaceast.html#ab87a4581ad24da7833fdf057221d348e", null ],
     [ "aVenusPosInICRF", "group__Coordinate.html#gae5ac4ff902e2f25bdcecaba00f89c524", null ],
     [ "aVenusPosVelInICRF", "group__Coordinate.html#ga05fd529e61e087a3fae34b4de0387725", null ],

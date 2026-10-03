@@ -871,8 +871,7 @@ var hierarchy =
             [ "ast::AttitudeProfileBase", "classast_1_1AttitudeProfileBase.html", [
               [ "ast::AttitudeAlignConstrain", "classast_1_1AttitudeAlignConstrain.html", [
                 [ "ast::AttitudeAircraftZDown", "classast_1_1AttitudeAircraftZDown.html", null ],
-                [ "ast::AttitudeECFVelRadial", "classast_1_1AttitudeECFVelRadial.html", null ],
-                [ "ast::AttitudeNadirNormal", "classast_1_1AttitudeNadirNormal.html", null ]
+                [ "ast::AttitudeECFVelRadial", "classast_1_1AttitudeECFVelRadial.html", null ]
               ] ],
               [ "ast::AttitudeFixed", "classast_1_1AttitudeFixed.html", [
                 [ "ast::AttitudeYPRFixedECI", "classast_1_1AttitudeYPRFixedECI.html", null ]
@@ -881,6 +880,7 @@ var hierarchy =
             ] ],
             [ "ast::AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],
             [ "ast::AttitudeTrajectoryRelated", "classast_1_1AttitudeTrajectoryRelated.html", [
+              [ "ast::AttitudeNadirNormal", "classast_1_1AttitudeNadirNormal.html", null ],
               [ "ast::AttitudeVVLH", "classast_1_1AttitudeVVLH.html", [
                 [ "ast::AttitudeECFVVLH", "classast_1_1AttitudeECFVVLH.html", null ],
                 [ "ast::AttitudeECIVVLH", "classast_1_1AttitudeECIVVLH.html", null ]

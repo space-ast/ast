@@ -198,6 +198,8 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFrameTransfor
 <tr class="memitem:ga87115ff3e7de5529991825a70aec5f97" id="r_ga87115ff3e7de5529991825a70aec5f97"><td class="memItemLeft" align="right" valign="top"><a id="ga87115ff3e7de5529991825a70aec5f97" name="ga87115ff3e7de5529991825a70aec5f97"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFrameTransform</b> (<a class="el" href="classast_1_1Frame.html">Frame</a> *source, <a class="el" href="classast_1_1Frame.html">Frame</a> *target, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, <a class="el" href="classast_1_1AccelerationTransform.html">AccelerationTransform</a> &amp;transform)</td></tr>
 <tr class="separator:ga87115ff3e7de5529991825a70aec5f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e4926b6a0056a41f908a25ca91dce5d" id="r_ga7e4926b6a0056a41f908a25ca91dce5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7e4926b6a0056a41f908a25ca91dce5d">ast::aVectorCross</a> (const Vector3d &amp;vector1, const Vector3d &amp;velocity1, const Vector3d &amp;vector2, const Vector3d &amp;velocity2, Vector3d &amp;result, Vector3d &amp;resultVelocity)</td></tr>
+<tr class="separator:ga7e4926b6a0056a41f908a25ca91dce5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">函数说明</h2>
 <a id="ga3774144068ba83b212ebc7719e89c964" name="ga3774144068ba83b212ebc7719e89c964"></a>
@@ -550,6 +552,61 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aFrameTransfor
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga7e4926b6a0056a41f908a25ca91dce5d" name="ga7e4926b6a0056a41f908a25ca91dce5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7e4926b6a0056a41f908a25ca91dce5d">&#9670;&#160;</a></span>aVectorCross()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_MATH_API void ast::aVectorCross </td>
+          <td>(</td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vector1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velocity1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>vector2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>velocity2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>resultVelocity</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算两个向量的叉积及其时间导数 </p>
+<p>对两个随时间变化的向量求叉积，并按乘积法则同时给出叉积的时间导数： <code>result = vector1 × vector2</code> <code>resultVelocity = velocity1 × vector2 + vector1 × velocity2</code> 其中 velocity1、velocity2 分别为 vector1、vector2 的时间导数。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector1</td><td>第一个向量 </td></tr>
+    <tr><td class="paramname">velocity1</td><td>第一个向量的时间导数 </td></tr>
+    <tr><td class="paramname">vector2</td><td>第二个向量 </td></tr>
+    <tr><td class="paramname">velocity2</td><td>第二个向量的时间导数 </td></tr>
+    <tr><td class="paramname">result</td><td>输出：两个向量的叉积 <code>vector1 × vector2</code> </td></tr>
+    <tr><td class="paramname">resultVelocity</td><td>输出：叉积的时间导数 <code>velocity1 × vector2 + vector1 × velocity2</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>两个速度可传零向量，此时退化为只求叉积 </dd></dl>
 
 </div>
 </div>

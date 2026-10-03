@@ -1,5 +1,9 @@
 var NAVTREEINDEX25 =
 {
+"classast_1_1CloseEventDetecter.html":[2,0,0,172],
+"classast_1_1CloseEventDetecter.html":[3,0,0,171],
+"classast_1_1CoInitializeGuard.html":[2,0,0,178],
+"classast_1_1CoInitializeGuard.html":[3,0,0,177],
 "classast_1_1CollectingStreamReceiver.html":[0,18,2],
 "classast_1_1CollectingStreamReceiver.html#a86afa2dcd0fa01420144a118c3563e6a":[0,18,2,0],
 "classast_1_1CollectingStreamReceiver.html#ac2b8b46fcfc332f9dd015b3a6b4b3baa":[0,18,2,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX25 =
 "classast_1_1DataElements.html#a6f66b9d5b1e89abf79daf7a6b3cd4c28":[2,0,0,221,5],
 "classast_1_1DataElements.html#a6f66b9d5b1e89abf79daf7a6b3cd4c28":[3,0,0,220,5],
 "classast_1_1DataElements.html#a7d9cf6722db704022131c338196415d1":[2,0,0,221,3],
-"classast_1_1DataElements.html#a7d9cf6722db704022131c338196415d1":[3,0,0,220,3],
-"classast_1_1DataElements.html#adea0244a158d1e5ba18109ce01fc0f47":[2,0,0,221,0],
-"classast_1_1DataElements.html#adea0244a158d1e5ba18109ce01fc0f47":[3,0,0,220,0],
-"classast_1_1DataFrame.html":[0,15,4],
-"classast_1_1DataFrame.html#a0bb06d2c221f925012f1f8af67b1d8cb":[0,15,4,6]
+"classast_1_1DataElements.html#a7d9cf6722db704022131c338196415d1":[3,0,0,220,3]
 };

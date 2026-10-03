@@ -40,7 +40,8 @@ var group__Attitude =
       [ "rotation_", "classast_1_1AttitudeFixed.html#ad15c9021a0960fe308389c648862f2e4", null ]
     ] ],
     [ "ast::AttitudeNadirNormal", "classast_1_1AttitudeNadirNormal.html", [
-      [ "defaultFrame", "classast_1_1AttitudeNadirNormal.html#ab08d99312250cecda7c4507305af7271", null ]
+      [ "getTransform", "classast_1_1AttitudeNadirNormal.html#af37ffa45889189ea7ca7cdd4e90a8308", null ],
+      [ "getTransform", "classast_1_1AttitudeNadirNormal.html#a278e218dc27b2aa18d21c7779eba2226", null ]
     ] ],
     [ "ast::AttitudeProfileBase", "classast_1_1AttitudeProfileBase.html", [
       [ "defaultFrame", "classast_1_1AttitudeProfileBase.html#a661a768fe57970268594d1d2956a50ec", null ],

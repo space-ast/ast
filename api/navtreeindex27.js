@@ -1,5 +1,9 @@
 var NAVTREEINDEX27 =
 {
+"classast_1_1DetectorMeanAnomaly.html":[2,0,0,272],
+"classast_1_1DetectorMeanAnomaly.html":[3,0,0,271],
+"classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[2,0,0,272,0],
+"classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[3,0,0,271,0],
 "classast_1_1DetectorPeriapsis.html":[2,0,0,273],
 "classast_1_1DetectorPeriapsis.html":[3,0,0,272],
 "classast_1_1DetectorPeriapsis.html#ac99379219d79336982d55298efdfdf8e":[2,0,0,273,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX27 =
 "classast_1_1EphemerisLagrangeVar.html#a7050cb580f42182e380ca7b977453505":[3,0,0,299,9],
 "classast_1_1EphemerisLagrangeVar.html#a8c119e5efffeddf995281b38df056e85":[2,0,0,300,7],
 "classast_1_1EphemerisLagrangeVar.html#a8c119e5efffeddf995281b38df056e85":[3,0,0,299,7],
-"classast_1_1EphemerisLagrangeVar.html#a9af0958ad95547f1211ee45ffa4dc050":[2,0,0,300,0],
-"classast_1_1EphemerisLagrangeVar.html#a9af0958ad95547f1211ee45ffa4dc050":[3,0,0,299,0],
-"classast_1_1EphemerisLagrangeVar.html#ab42eeaa453d957fde95441d295d48bda":[2,0,0,300,10],
-"classast_1_1EphemerisLagrangeVar.html#ab42eeaa453d957fde95441d295d48bda":[3,0,0,299,10],
-"classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[2,0,0,300,2]
+"classast_1_1EphemerisLagrangeVar.html#a9af0958ad95547f1211ee45ffa4dc050":[2,0,0,300,0]
 };
