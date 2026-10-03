@@ -14,7 +14,7 @@ void AttitudeECFVVLH::ClassInit(Class* cls)
     cls->setName("AttitudeECFVVLH");
     cls->setDesc(u8R"(对地指向 + ECF 速度约束姿态（STK: ECFVVLH）)");
     cls->addToRegistry();
-    cls->setParent<AttitudeAlignConstrain>();
+    cls->setParent<AttitudeVVLH>();
     cls->setConstructor<AttitudeECFVVLH>();
 }
 

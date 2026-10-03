@@ -14,7 +14,7 @@ void AttitudeECIVVLH::ClassInit(Class* cls)
     cls->setName("AttitudeECIVVLH");
     cls->setDesc(u8R"(对地指向 + ECI 速度约束姿态（STK: CBIVelLHAtt / ECIVVLH）)");
     cls->addToRegistry();
-    cls->setParent<AttitudeAlignConstrain>();
+    cls->setParent<AttitudeVVLH>();
     cls->setConstructor<AttitudeECIVVLH>();
 }
 
