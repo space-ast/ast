@@ -100,14 +100,13 @@ $(function(){initNavTree('AttitudeAlignConstrain_8hpp.html',''); initResizable(t
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
-<a href="#namespaces">命名空间</a> &#124;
-<a href="#enum-members">枚举</a> &#124;
-<a href="#func-members">函数</a>  </div>
+<a href="#namespaces">命名空间</a>  </div>
   <div class="headertitle"><div class="title">AttitudeAlignConstrain.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;AstCore/AttitudeProfile.hpp&quot;</code><br />
+<code>#include &quot;AstCore/Vector.hpp&quot;</code><br />
 <code>#include &quot;AstMath/Rotation.hpp&quot;</code><br />
 </div>
 <p><a href="AttitudeAlignConstrain_8hpp_source.html">浏览该文件的源代码.</a></p>
@@ -121,25 +120,6 @@ $(function(){initNavTree('AttitudeAlignConstrain_8hpp.html',''); initResizable(t
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-枚举</h2></td></tr>
-<tr class="memitem:ga0d20359faf15fdf1950c85b646172999" id="r_ga0d20359faf15fdf1950c85b646172999"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Attitude.html#ga0d20359faf15fdf1950c85b646172999">ast::EAttitudeAxis</a> { <a class="el" href="group__Attitude.html#gga0d20359faf15fdf1950c85b646172999a791c8faabb4af608ce8588393e66c7ff">ast::EAttitudeAxis::eX</a> = 1
-, <a class="el" href="group__Attitude.html#gga0d20359faf15fdf1950c85b646172999ad2ff0b655e01c091aac1e8b84cc395ca">ast::EAttitudeAxis::eY</a> = 2
-, <a class="el" href="group__Attitude.html#gga0d20359faf15fdf1950c85b646172999aa363bc0d804aec432567128ed10416ee">ast::EAttitudeAxis::eZ</a> = 3
- }</td></tr>
-<tr class="separator:ga0d20359faf15fdf1950c85b646172999"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga68eaa88ed391ef90b20959a64a36f61a" id="r_ga68eaa88ed391ef90b20959a64a36f61a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Attitude.html#ga68eaa88ed391ef90b20959a64a36f61a">ast::EAttitudeOffsetSense</a> { <a class="el" href="group__Attitude.html#gga68eaa88ed391ef90b20959a64a36f61aabe8a006f53da3dd13ba3e594de2832fb">ast::EAttitudeOffsetSense::eRightHanded</a>
-, <a class="el" href="group__Attitude.html#gga68eaa88ed391ef90b20959a64a36f61aa71bd312398edb23f0c388abb0f323ad9">ast::EAttitudeOffsetSense::eLeftHanded</a>
- }</td></tr>
-<tr class="separator:ga68eaa88ed391ef90b20959a64a36f61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-函数</h2></td></tr>
-<tr class="memitem:ga000165f0f1d9d7ad70c07399debe9c66" id="r_ga000165f0f1d9d7ad70c07399debe9c66"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Attitude.html#ga000165f0f1d9d7ad70c07399debe9c66">ast::aAlignConstrainRotation</a> (const Vector3d &amp;alignRef, const Vector3d &amp;constrRef, const Vector3d &amp;alignBody, const Vector3d &amp;constrBody, <a class="el" href="group__Attitude.html#ga0d20359faf15fdf1950c85b646172999">EAttitudeAxis</a> offsetAxis, <a class="el" href="group__Attitude.html#ga68eaa88ed391ef90b20959a64a36f61a">EAttitudeOffsetSense</a> offsetSense, double offset, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
-<tr class="separator:ga000165f0f1d9d7ad70c07399debe9c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga657ef56d1ab00750e60a7b60dcb020c2" id="r_ga657ef56d1ab00750e60a7b60dcb020c2"><td class="memItemLeft" align="right" valign="top">Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Attitude.html#ga657ef56d1ab00750e60a7b60dcb020c2">ast::aAttitudeAxisVector</a> (<a class="el" href="group__Attitude.html#ga0d20359faf15fdf1950c85b646172999">EAttitudeAxis</a> axis)</td></tr>
-<tr class="separator:ga657ef56d1ab00750e60a7b60dcb020c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>对齐/约束姿态(Aligned and Constrained) </p>

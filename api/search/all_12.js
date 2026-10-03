@@ -46,7 +46,7 @@ var searchData=
   ['refdistance_5f_43',['refDistance_',['../classast_1_1GravityFieldHead.html#abb600bf03f4fd719313dae90cbdb3682',1,'ast::GravityFieldHead::refDistance_'],['../classast_1_1GravityField.html#abb600bf03f4fd719313dae90cbdb3682',1,'ast::GravityField::refDistance_']]],
   ['refelem_44',['refElem',['../structast_1_1CloseApproachContext.html#a92e64b4055ad8e1bc6de070de2222284',1,'ast::CloseApproachContext']]],
   ['reference_5f_45',['reference_',['../classast_1_1LogarithmicUnitRep.html#a290b085c22c7b39bc77b15f94d2da278',1,'ast::LogarithmicUnitRep']]],
-  ['referenceaxes_5f_46',['referenceAxes_',['../classast_1_1AxesFrozen.html#ad74d2d2584e04a4c25cb3f091b635aba',1,'ast::AxesFrozen::referenceAxes_'],['../classast_1_1AxesFrozenAtEventTime.html#ae57193cc789b68f04bf4c3a028dd0044',1,'ast::AxesFrozenAtEventTime::referenceAxes_']]],
+  ['referenceaxes_5f_46',['referenceAxes_',['../classast_1_1AttitudeFixed.html#af177b53c65d5b498066730c39d7984a4',1,'ast::AttitudeFixed::referenceAxes_'],['../classast_1_1AxesFrozen.html#ad74d2d2584e04a4c25cb3f091b635aba',1,'ast::AxesFrozen::referenceAxes_'],['../classast_1_1AxesFrozenAtEventTime.html#ae57193cc789b68f04bf4c3a028dd0044',1,'ast::AxesFrozenAtEventTime::referenceAxes_']]],
   ['referenced_47',['Referenced',['../classast_1_1Referenced.html',1,'ast::Referenced'],['../classast_1_1Referenced.html#a5d9d87925ad59fbb791680e64d45faf5',1,'ast::Referenced::Referenced()'],['../classast_1_1Object.html#a5d9d87925ad59fbb791680e64d45faf5',1,'ast::Object::Referenced()']]],
   ['referenced_2ecpp_48',['Referenced.cpp',['../Referenced_8cpp.html',1,'']]],
   ['referenced_2ehpp_49',['Referenced.hpp',['../Referenced_8hpp.html',1,'']]],

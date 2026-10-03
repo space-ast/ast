@@ -5,28 +5,9 @@ var group__Attitude =
       [ "getTransform", "classast_1_1AttitudeAircraftZDown.html#ad36586a0f4b8a0dc551b6a42af2b3611", null ]
     ] ],
     [ "ast::AttitudeAlignConstrain", "classast_1_1AttitudeAlignConstrain.html", [
-      [ "getAlignAxis", "classast_1_1AttitudeAlignConstrain.html#adfc971b230d38480e3aa85865d51cee4", null ],
-      [ "getAlignVector", "classast_1_1AttitudeAlignConstrain.html#a7b905c7f3dbf5bab8aaa80e7d99123bd", null ],
-      [ "getConstraintAxis", "classast_1_1AttitudeAlignConstrain.html#ac4d427033eca3841addfb26f52b992ad", null ],
-      [ "getConstraintVector", "classast_1_1AttitudeAlignConstrain.html#a128b9142d9b2d1718965150ffafff139", null ],
-      [ "getOffsetAxis", "classast_1_1AttitudeAlignConstrain.html#adaafc720b13f149ded4181f3371d5cb6", null ],
-      [ "getOffsetSense", "classast_1_1AttitudeAlignConstrain.html#ae11dfe290eeba3606732e425595dfa6f", null ],
-      [ "getTransform", "classast_1_1AttitudeAlignConstrain.html#a51658fd1d9555890becf093254d13777", null ],
-      [ "getTransform", "classast_1_1AttitudeAlignConstrain.html#add7843ef3e9e1407e090c4759aef31c2", null ],
-      [ "setAlignAxis", "classast_1_1AttitudeAlignConstrain.html#a8e095c4e350ebc44c88eb644678bff79", null ],
-      [ "setAlignVector", "classast_1_1AttitudeAlignConstrain.html#a420c564f298ba006cae9526e003067d7", null ],
-      [ "setAzimuth", "classast_1_1AttitudeAlignConstrain.html#a89dce20e6cd219a8a8e24d8b7894c3a7", null ],
-      [ "setConstraintAxis", "classast_1_1AttitudeAlignConstrain.html#ae3da896be60740b3af96ee465eb1e8e0", null ],
-      [ "setConstraintVector", "classast_1_1AttitudeAlignConstrain.html#a18caca9440f4c7c7c62d310e8dca362d", null ],
-      [ "setOffsetAxis", "classast_1_1AttitudeAlignConstrain.html#a9ff04eb54aea782c07fe5f1adc602334", null ],
-      [ "setOffsetSense", "classast_1_1AttitudeAlignConstrain.html#aa2403b61a9381608d16b56013a54f970", null ],
-      [ "alignAxis_", "classast_1_1AttitudeAlignConstrain.html#a84e0190f90e5918786ecfe4feca834c3", null ],
-      [ "alignVector_", "classast_1_1AttitudeAlignConstrain.html#a9e754d6216cb2edf6cb0151975cce4a6", null ],
-      [ "azimuth_", "classast_1_1AttitudeAlignConstrain.html#aac10ed1b841dccb7c14d08ef0b06dc1a", null ],
-      [ "constraintAxis_", "classast_1_1AttitudeAlignConstrain.html#a442a7aa88327458649b800cc32ecb0fa", null ],
-      [ "constraintVector_", "classast_1_1AttitudeAlignConstrain.html#a723b712fe3d6211a9767eb7d0c4c60ae", null ],
-      [ "offsetAxis_", "classast_1_1AttitudeAlignConstrain.html#adcf8d02cd0734fae620e071838fe3ff8", null ],
-      [ "offsetSense_", "classast_1_1AttitudeAlignConstrain.html#abb92aba4ecd8140e24fe088232ffe143", null ]
+      [ "getParent", "classast_1_1AttitudeAlignConstrain.html#aade641513c2b91122d9619a4946d8b1e", null ],
+      [ "getTransform", "classast_1_1AttitudeAlignConstrain.html#a9a5b2c279344f51d040309cc6fad142f", null ],
+      [ "getTransform", "classast_1_1AttitudeAlignConstrain.html#add7843ef3e9e1407e090c4759aef31c2", null ]
     ] ],
     [ "ast::AttitudeECFVelRadial", "classast_1_1AttitudeECFVelRadial.html", [
       [ "getTransform", "classast_1_1AttitudeECFVelRadial.html#aaeceaf664ec04286feead122486ab223", null ],
@@ -35,10 +16,10 @@ var group__Attitude =
     [ "ast::AttitudeECFVVLH", "classast_1_1AttitudeECFVVLH.html", null ],
     [ "ast::AttitudeECIVVLH", "classast_1_1AttitudeECIVVLH.html", null ],
     [ "ast::AttitudeFixed", "classast_1_1AttitudeFixed.html", [
-      [ "defaultFrame", "classast_1_1AttitudeFixed.html#ab8635cf6f99ff390e220cb200de8c284", null ],
+      [ "getParent", "classast_1_1AttitudeFixed.html#a90dfb898c74f3c8187a2790ac9d8c1e2", null ],
       [ "getTransform", "classast_1_1AttitudeFixed.html#a9a1bd8cfb79993034f631bab623c6438", null ],
       [ "getTransform", "classast_1_1AttitudeFixed.html#a12bc72426896ab7ce301f2446c046bf4", null ],
-      [ "setRotation", "classast_1_1AttitudeFixed.html#a8efaf3a960349c9d0bb87c2caa442556", null ],
+      [ "referenceAxes_", "classast_1_1AttitudeFixed.html#af177b53c65d5b498066730c39d7984a4", null ],
       [ "rotation_", "classast_1_1AttitudeFixed.html#ad15c9021a0960fe308389c648862f2e4", null ]
     ] ],
     [ "ast::AttitudeMissile", "classast_1_1AttitudeMissile.html", [
@@ -158,15 +139,6 @@ var group__Attitude =
       [ "z", "classast_1_1Quaternion.html#a19883c31504c687288ae7860b86deca8", null ],
       [ "z", "classast_1_1Quaternion.html#a0b07113349ff7e9c4d90df6d69c081c8", null ]
     ] ],
-    [ "ast::EAttitudeAxis", "group__Attitude.html#ga0d20359faf15fdf1950c85b646172999", [
-      [ "ast::EAttitudeAxis::eX", "group__Attitude.html#gga0d20359faf15fdf1950c85b646172999a791c8faabb4af608ce8588393e66c7ff", null ],
-      [ "ast::EAttitudeAxis::eY", "group__Attitude.html#gga0d20359faf15fdf1950c85b646172999ad2ff0b655e01c091aac1e8b84cc395ca", null ],
-      [ "ast::EAttitudeAxis::eZ", "group__Attitude.html#gga0d20359faf15fdf1950c85b646172999aa363bc0d804aec432567128ed10416ee", null ]
-    ] ],
-    [ "ast::EAttitudeOffsetSense", "group__Attitude.html#ga68eaa88ed391ef90b20959a64a36f61a", [
-      [ "ast::EAttitudeOffsetSense::eRightHanded", "group__Attitude.html#gga68eaa88ed391ef90b20959a64a36f61aabe8a006f53da3dd13ba3e594de2832fb", null ],
-      [ "ast::EAttitudeOffsetSense::eLeftHanded", "group__Attitude.html#gga68eaa88ed391ef90b20959a64a36f61aa71bd312398edb23f0c388abb0f323ad9", null ]
-    ] ],
     [ "ast::EAttitudeVector", "group__Attitude.html#ga6cdb9e054ee12459bf2aa252ee59985b", [
       [ "ast::EAttitudeVector::eVelocity", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985bab2c25b5cef640a0733b40b4ded88d091", null ],
       [ "ast::EAttitudeVector::eNadir", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985ba7ac9958bfddd484bc75aee0ee535b998", null ],
@@ -175,12 +147,10 @@ var group__Attitude =
       [ "ast::EAttitudeVector::eSun", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985bac795894823f67c3929244ba388fdb9d5", null ],
       [ "ast::EAttitudeVector::eFrameZ", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985baa76fe441a0c069088671c86d6b234918", null ]
     ] ],
-    [ "ast::aAlignConstrainRotation", "group__Attitude.html#ga000165f0f1d9d7ad70c07399debe9c66", null ],
     [ "ast::aAlignConstrainTransform", "group__Attitude.html#ga4a135cdfdf73a1afe59e44f38671c88b", null ],
     [ "ast::aAlignConstrainTransform", "group__Attitude.html#gadf5946e9d55a3ba84dd0e602b5d296ea", null ],
     [ "ast::aAngleAxisToMatrix", "group__Attitude.html#ga8d0528ae4c9ba6aad4c54d2a6e7f7839", null ],
     [ "ast::aAngleAxisToQuat", "group__Attitude.html#gadb0ca50d83436dbb9bb8ecc1e30420cf", null ],
-    [ "ast::aAttitudeAxisVector", "group__Attitude.html#ga657ef56d1ab00750e60a7b60dcb020c2", null ],
     [ "ast::aEulerToMatrix", "group__Attitude.html#ga44e3a2dcb5c26409adae4636bbd06251", null ],
     [ "ast::aEulerToQuat", "group__Attitude.html#ga92b541cf12999d1f4d2c8f0e2bdc8067", null ],
     [ "ast::aMatrixToAngleAxis", "group__Attitude.html#gaa01df3e782b81bb065d882b415bcf828", null ],

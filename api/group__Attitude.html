@@ -154,15 +154,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::AttitudeProfile
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
-<tr class="memitem:ga0d20359faf15fdf1950c85b646172999" id="r_ga0d20359faf15fdf1950c85b646172999"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0d20359faf15fdf1950c85b646172999">ast::EAttitudeAxis</a> { <a class="el" href="#gga0d20359faf15fdf1950c85b646172999a791c8faabb4af608ce8588393e66c7ff">ast::EAttitudeAxis::eX</a> = 1
-, <a class="el" href="#gga0d20359faf15fdf1950c85b646172999ad2ff0b655e01c091aac1e8b84cc395ca">ast::EAttitudeAxis::eY</a> = 2
-, <a class="el" href="#gga0d20359faf15fdf1950c85b646172999aa363bc0d804aec432567128ed10416ee">ast::EAttitudeAxis::eZ</a> = 3
- }</td></tr>
-<tr class="separator:ga0d20359faf15fdf1950c85b646172999"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga68eaa88ed391ef90b20959a64a36f61a" id="r_ga68eaa88ed391ef90b20959a64a36f61a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga68eaa88ed391ef90b20959a64a36f61a">ast::EAttitudeOffsetSense</a> { <a class="el" href="#gga68eaa88ed391ef90b20959a64a36f61aabe8a006f53da3dd13ba3e594de2832fb">ast::EAttitudeOffsetSense::eRightHanded</a>
-, <a class="el" href="#gga68eaa88ed391ef90b20959a64a36f61aa71bd312398edb23f0c388abb0f323ad9">ast::EAttitudeOffsetSense::eLeftHanded</a>
- }</td></tr>
-<tr class="separator:ga68eaa88ed391ef90b20959a64a36f61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6cdb9e054ee12459bf2aa252ee59985b" id="r_ga6cdb9e054ee12459bf2aa252ee59985b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6cdb9e054ee12459bf2aa252ee59985b">ast::EAttitudeVector</a> { <br />
 &#160;&#160;<a class="el" href="#gga6cdb9e054ee12459bf2aa252ee59985bab2c25b5cef640a0733b40b4ded88d091">ast::EAttitudeVector::eVelocity</a>
 , <a class="el" href="#gga6cdb9e054ee12459bf2aa252ee59985ba7ac9958bfddd484bc75aee0ee535b998">ast::EAttitudeVector::eNadir</a>
@@ -177,10 +168,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::AttitudeProfile
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:ga000165f0f1d9d7ad70c07399debe9c66" id="r_ga000165f0f1d9d7ad70c07399debe9c66"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga000165f0f1d9d7ad70c07399debe9c66">ast::aAlignConstrainRotation</a> (const Vector3d &amp;alignRef, const Vector3d &amp;constrRef, const Vector3d &amp;alignBody, const Vector3d &amp;constrBody, <a class="el" href="#ga0d20359faf15fdf1950c85b646172999">EAttitudeAxis</a> offsetAxis, <a class="el" href="#ga68eaa88ed391ef90b20959a64a36f61a">EAttitudeOffsetSense</a> offsetSense, double offset, <a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
-<tr class="separator:ga000165f0f1d9d7ad70c07399debe9c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga657ef56d1ab00750e60a7b60dcb020c2" id="r_ga657ef56d1ab00750e60a7b60dcb020c2"><td class="memItemLeft" align="right" valign="top">Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga657ef56d1ab00750e60a7b60dcb020c2">ast::aAttitudeAxisVector</a> (<a class="el" href="#ga0d20359faf15fdf1950c85b646172999">EAttitudeAxis</a> axis)</td></tr>
-<tr class="separator:ga657ef56d1ab00750e60a7b60dcb020c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadda4b4aa71248f9668c1437010f2a540" id="r_gadda4b4aa71248f9668c1437010f2a540"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadda4b4aa71248f9668c1437010f2a540">ast::aMatrixToQuat</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;mtx)</td></tr>
 <tr class="separator:gadda4b4aa71248f9668c1437010f2a540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2f6f876b7727a10e5a074bb0cf1098b8" id="r_ga2f6f876b7727a10e5a074bb0cf1098b8"><td class="memItemLeft" align="right" valign="top"><a id="ga2f6f876b7727a10e5a074bb0cf1098b8" name="ga2f6f876b7727a10e5a074bb0cf1098b8"></a>
@@ -316,69 +303,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aEuler323ToMatri
 <tr class="separator:ga63c9448914552d7999347780b3a9886c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">枚举类型说明</h2>
-<a id="ga0d20359faf15fdf1950c85b646172999" name="ga0d20359faf15fdf1950c85b646172999"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0d20359faf15fdf1950c85b646172999">&#9670;&#160;</a></span>EAttitudeAxis</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#ga0d20359faf15fdf1950c85b646172999">ast::EAttitudeAxis</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>体轴标记 </p>
-<dl class="section note"><dt>注解</dt><dd>取值与 aRotationXMatrix 等函数中的 axis 参数保持一致(1=X, 2=Y, 3=Z) </dd></dl>
-<table class="fieldtable">
-<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="gga0d20359faf15fdf1950c85b646172999a791c8faabb4af608ce8588393e66c7ff" name="gga0d20359faf15fdf1950c85b646172999a791c8faabb4af608ce8588393e66c7ff"></a>eX&#160;</td><td class="fielddoc"><p>体 X 轴 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="gga0d20359faf15fdf1950c85b646172999ad2ff0b655e01c091aac1e8b84cc395ca" name="gga0d20359faf15fdf1950c85b646172999ad2ff0b655e01c091aac1e8b84cc395ca"></a>eY&#160;</td><td class="fielddoc"><p>体 Y 轴 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="gga0d20359faf15fdf1950c85b646172999aa363bc0d804aec432567128ed10416ee" name="gga0d20359faf15fdf1950c85b646172999aa363bc0d804aec432567128ed10416ee"></a>eZ&#160;</td><td class="fielddoc"><p>体 Z 轴 </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a id="ga68eaa88ed391ef90b20959a64a36f61a" name="ga68eaa88ed391ef90b20959a64a36f61a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga68eaa88ed391ef90b20959a64a36f61a">&#9670;&#160;</a></span>EAttitudeOffsetSense</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#ga68eaa88ed391ef90b20959a64a36f61a">ast::EAttitudeOffsetSense</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>姿态偏移(offset)的旋向 </p>
-<table class="fieldtable">
-<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="gga68eaa88ed391ef90b20959a64a36f61aabe8a006f53da3dd13ba3e594de2832fb" name="gga68eaa88ed391ef90b20959a64a36f61aabe8a006f53da3dd13ba3e594de2832fb"></a>eRightHanded&#160;</td><td class="fielddoc"><p>右手旋向(逆着轴看为逆时针) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="gga68eaa88ed391ef90b20959a64a36f61aa71bd312398edb23f0c388abb0f323ad9" name="gga68eaa88ed391ef90b20959a64a36f61aa71bd312398edb23f0c388abb0f323ad9"></a>eLeftHanded&#160;</td><td class="fielddoc"><p>左手旋向(逆着轴看为顺时针) </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a id="ga6cdb9e054ee12459bf2aa252ee59985b" name="ga6cdb9e054ee12459bf2aa252ee59985b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga6cdb9e054ee12459bf2aa252ee59985b">&#9670;&#160;</a></span>EAttitudeVector</h2>
 
@@ -419,80 +343,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aEuler323ToMatri
 </div>
 </div>
 <h2 class="groupheader">函数说明</h2>
-<a id="ga000165f0f1d9d7ad70c07399debe9c66" name="ga000165f0f1d9d7ad70c07399debe9c66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga000165f0f1d9d7ad70c07399debe9c66">&#9670;&#160;</a></span>aAlignConstrainRotation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">AST_CORE_API errc_t ast::aAlignConstrainRotation </td>
-          <td>(</td>
-          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>alignRef</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>constrRef</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>alignBody</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>constrBody</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#ga0d20359faf15fdf1950c85b646172999">EAttitudeAxis</a></td>          <td class="paramname"><span class="paramname"><em>offsetAxis</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#ga68eaa88ed391ef90b20959a64a36f61a">EAttitudeOffsetSense</a></td>          <td class="paramname"><span class="paramname"><em>offsetSense</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>计算对齐/约束姿态对应的旋转变换 </p>
-<p>构造方式：</p><ol type="1">
-<li>由对齐向量与约束向量在参考坐标系下构造正交三轴 (f1,f2,f3)， 其中 f1 为对齐方向，f2 为约束方向中垂直于 f1 的分量，f3 = f1 x f2；</li>
-<li>同样由体固连矢量构造三轴 (e1,e2,e3)；</li>
-<li>基础旋转 M0 满足 M0*f1 = e1、M0*f2 = e2、M0*f3 = e3；</li>
-<li>最后绕指定的体轴施加 offset 旋转，得到 M = R(offset) * M0。</li>
-</ol>
-<p>第 4 步中 offset 所绕的轴取自**未施加 offset 之前**的体轴，因此当 offset 轴 与对齐轴重合时对齐关系严格保持；当 offset 轴取约束轴时，实际效果是把 "哪个体轴去对齐"整体转过一个角度，这与 STK 帮助中 "to constrain with the Y axis, set the offset to +90 degrees" 的描述一致。 </p><dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">alignRef</td><td>参考坐标系下的对齐向量 </td></tr>
-    <tr><td class="paramname">constrRef</td><td>参考坐标系下的约束向量 </td></tr>
-    <tr><td class="paramname">alignBody</td><td>体系下的对齐方向(单位向量) </td></tr>
-    <tr><td class="paramname">constrBody</td><td>体系下的约束方向(单位向量) </td></tr>
-    <tr><td class="paramname">offsetAxis</td><td>offset 旋转所绕的体轴 </td></tr>
-    <tr><td class="paramname">offsetSense</td><td>offset 的旋向 </td></tr>
-    <tr><td class="paramname">offset</td><td>offset 角度 [rad] </td></tr>
-    <tr><td class="paramname">rotation</td><td>输出参数，父轴系到本轴系的旋转变换 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>当约束向量与对齐向量平行(即约束方向没有垂直于对齐方向的分量)时无法定姿， 返回 eErrorInvalidParam。 </dd></dl>
-
-</div>
-</div>
 <a id="ga4a135cdfdf73a1afe59e44f38671c88b" name="ga4a135cdfdf73a1afe59e44f38671c88b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga4a135cdfdf73a1afe59e44f38671c88b">&#9670;&#160;</a></span>aAlignConstrainTransform() <span class="overload">[1/2]</span></h2>
 
@@ -663,32 +513,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aEuler323ToMatri
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ga657ef56d1ab00750e60a7b60dcb020c2" name="ga657ef56d1ab00750e60a7b60dcb020c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga657ef56d1ab00750e60a7b60dcb020c2">&#9670;&#160;</a></span>aAttitudeAxisVector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">AST_CORE_API Vector3d ast::aAttitudeAxisVector </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ga0d20359faf15fdf1950c85b646172999">EAttitudeAxis</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取体轴单位向量 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">axis</td><td>体轴标记 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>体轴单位向量 </dd></dl>
 
 </div>
 </div>

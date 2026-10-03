@@ -868,11 +868,11 @@ var hierarchy =
           [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
           [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
           [ "ast::Axes", "classast_1_1Axes.html", [
+            [ "ast::AttitudeAlignConstrain", "classast_1_1AttitudeAlignConstrain.html", null ],
+            [ "ast::AttitudeFixed", "classast_1_1AttitudeFixed.html", [
+              [ "ast::AttitudeYPRFixedECI", "classast_1_1AttitudeYPRFixedECI.html", null ]
+            ] ],
             [ "ast::AttitudeProfileBase", "classast_1_1AttitudeProfileBase.html", [
-              [ "ast::AttitudeAlignConstrain", "classast_1_1AttitudeAlignConstrain.html", null ],
-              [ "ast::AttitudeFixed", "classast_1_1AttitudeFixed.html", [
-                [ "ast::AttitudeYPRFixedECI", "classast_1_1AttitudeYPRFixedECI.html", null ]
-              ] ],
               [ "ast::AttitudeSpinning", "classast_1_1AttitudeSpinning.html", null ]
             ] ],
             [ "ast::AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],

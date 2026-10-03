@@ -1386,15 +1386,6 @@ var namespaceast =
       [ "eRar", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba7b4d0bbb4cb24fded846db9ab30bb094", null ],
       [ "eGz", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbac2374c8b480af195c42dec925c4aa897", null ]
     ] ],
-    [ "EAttitudeAxis", "group__Attitude.html#ga0d20359faf15fdf1950c85b646172999", [
-      [ "eX", "group__Attitude.html#gga0d20359faf15fdf1950c85b646172999a791c8faabb4af608ce8588393e66c7ff", null ],
-      [ "eY", "group__Attitude.html#gga0d20359faf15fdf1950c85b646172999ad2ff0b655e01c091aac1e8b84cc395ca", null ],
-      [ "eZ", "group__Attitude.html#gga0d20359faf15fdf1950c85b646172999aa363bc0d804aec432567128ed10416ee", null ]
-    ] ],
-    [ "EAttitudeOffsetSense", "group__Attitude.html#ga68eaa88ed391ef90b20959a64a36f61a", [
-      [ "eRightHanded", "group__Attitude.html#gga68eaa88ed391ef90b20959a64a36f61aabe8a006f53da3dd13ba3e594de2832fb", null ],
-      [ "eLeftHanded", "group__Attitude.html#gga68eaa88ed391ef90b20959a64a36f61aa71bd312398edb23f0c388abb0f323ad9", null ]
-    ] ],
     [ "EAttitudeVector", "group__Attitude.html#ga6cdb9e054ee12459bf2aa252ee59985b", [
       [ "eVelocity", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985bab2c25b5cef640a0733b40b4ded88d091", null ],
       [ "eNadir", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985ba7ac9958bfddd484bc75aee0ee535b998", null ],
@@ -2112,7 +2103,6 @@ var namespaceast =
     [ "aAgentToolsHandleToolCall", "namespaceast.html#aff3e646815e0c24018b70c13a5fe2a79", null ],
     [ "aAgentToolsJson", "namespaceast.html#ae9c5c80e053daa6f1b9df3d629a1a8f5", null ],
     [ "aAgentToolsJsonStr", "namespaceast.html#a6537fdc90b79f48646e5407b7cff680b", null ],
-    [ "aAlignConstrainRotation", "group__Attitude.html#ga000165f0f1d9d7ad70c07399debe9c66", null ],
     [ "aAlignConstrainTransform", "group__Attitude.html#ga4a135cdfdf73a1afe59e44f38671c88b", null ],
     [ "aAlignConstrainTransform", "group__Attitude.html#gadf5946e9d55a3ba84dd0e602b5d296ea", null ],
     [ "aAngleAxisToMatrix", "group__Attitude.html#ga8d0528ae4c9ba6aad4c54d2a6e7f7839", null ],
@@ -2141,7 +2131,6 @@ var namespaceast =
     [ "aArgPeriToLongPeri", "group__Orbit.html#ga597819a6c70e16fd39188c0ed371c851", null ],
     [ "aAsciiStrToLower", "group__String.html#ga681ef188a882f2e8fdf9b8c8e50ec43f", null ],
     [ "aAsciiStrToUpper", "group__String.html#ga4b6cb9cc23c061e592fe4a40ff42d890", null ],
-    [ "aAttitudeAxisVector", "group__Attitude.html#ga657ef56d1ab00750e60a7b60dcb020c2", null ],
     [ "aAxesRotationRateByDifference", "group__Geometry.html#ga3774144068ba83b212ebc7719e89c964", null ],
     [ "aAxesTransform", "group__Geometry.html#gace14eb838493696305ad16a11a38cabd", null ],
     [ "aAxesTransform", "group__Geometry.html#gac2accfba19038de8be5fca7846a1e0be", null ],
