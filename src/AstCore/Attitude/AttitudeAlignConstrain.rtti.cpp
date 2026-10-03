@@ -17,7 +17,6 @@ void AttitudeAlignConstrain::ClassInit(Class* cls)
     cls->setParent<AttitudeProfile>();
     cls->setConstructor<AttitudeAlignConstrain>();
 
-    cls->addProperty("Azimuth", aNewPropertyDouble<AttitudeAlignConstrain, &AttitudeAlignConstrain::getAzimuth, &AttitudeAlignConstrain::setAzimuth>());
 }
 
 AST_NAMESPACE_END

@@ -556,6 +556,8 @@ class AccelerationTransform; ///< 加速度变换
 class Frame;                 ///< 坐标系
 class Axes;                  ///< 坐标轴
 class Point;                 ///< 坐标点
+class Vector;                ///< 向量
+class Angle;                 ///< 角度
 class CelestialBody;         ///< 天体
 class BodyShape;             ///< 天体形状
 using Body = CelestialBody;  

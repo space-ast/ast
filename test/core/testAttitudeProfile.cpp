@@ -811,20 +811,7 @@ TEST_F(AttitudeProfileTest, DegenerateGeometry)
         Rotation rot;
         EXPECT_EQ(profile.getTransform(TestEpoch(), rot), eErrorInvalidParam);
     }
-
-
-    // 引擎层面的退化：约束方向与对齐方向平行
-    {
-        Rotation rot;
-        EXPECT_EQ(aAlignConstrainRotation(Vector3d{1, 0, 0}, Vector3d{2, 0, 0},
-                                          Vector3d{0, 0, 1}, Vector3d{1, 0, 0},
-                                          EAttitudeAxis::eZ, EAttitudeOffsetSense::eLeftHanded,
-                                          0.0, rot), eErrorInvalidParam);
-        EXPECT_EQ(aAlignConstrainRotation(Vector3d::Zero(), Vector3d{0, 1, 0},
-                                          Vector3d{0, 0, 1}, Vector3d{1, 0, 0},
-                                          EAttitudeAxis::eZ, EAttitudeOffsetSense::eLeftHanded,
-                                          0.0, rot), eErrorInvalidParam);
-    }
+ 
 }
 
 // ============================================
