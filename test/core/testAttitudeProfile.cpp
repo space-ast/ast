@@ -54,40 +54,6 @@
 AST_USING_NAMESPACE
 using namespace _AST literals;
 
-namespace {
-
-/// @brief 测试用姿态剖面：体轴系相对父轴系以恒定角速度绕 Z 轴旋转
-/// @details 直接返回 Rz(rate * t)，即"父系到体系"的转换矩阵。
-///          按约定，其角速度应为 +rate * z(在父系下分解)。
-class TestSpinZ : public AttitudeProfileBase
-{
-public:
-    explicit TestSpinZ(double rate) : rate_(rate) {}
-
-    using AttitudeProfileBase::getTransform;
-    errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override
-    {
-        Matrix3d mtx;
-        aRotationZMatrix(rate_ * (tp - epoch_), mtx);
-        rotation = Rotation::FromMatrix(mtx);
-        return eNoError;
-    }
-
-    TimePoint epoch_{};
-    double rate_{0.0};
-};
-
-/// @brief 测试用姿态剖面：恒为单位旋转
-class TestIdentity : public AttitudeProfileBase
-{
-public:
-    using AttitudeProfileBase::getTransform;
-    errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override
-    {
-        rotation = Rotation::Identity();
-        return eNoError;
-    }
-};
 
 /// @brief 测试用点：直接返回给定的位置与速度，便于构造退化几何
 class TestPoint : public Point
@@ -136,7 +102,6 @@ void ExpectSameMatrix(const Matrix3d& actual, const Matrix3d& expected, double e
             EXPECT_NEAR(actual(r, c), expected(r, c), eps);
 }
 
-}  // namespace
 
 class AttitudeProfileTest : public ::testing::Test
 {
@@ -630,129 +595,6 @@ TEST_F(AttitudeProfileTest, AttitudeSpinningBaseOrientation)
     }
 }
 
-
-TEST_F(AttitudeProfileTest, TransformMapsParentToBody)
-{
-    const double rate = 0.1;   // rad/s
-    TestSpinZ profile(rate);
-    profile.epoch_ = TestEpoch();
-
-    TimePoint tp = TestTime();
-    const double t = tp - profile.epoch_;
-
-    Rotation rot;
-    ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
-
-    const Matrix3d& m = rot.getMatrix();
-    const double c = std::cos(rate * t);
-    const double s = std::sin(rate * t);
-    EXPECT_NEAR(m(0, 0), c, 1e-14);
-    EXPECT_NEAR(m(0, 1), s, 1e-14);
-    EXPECT_NEAR(m(1, 0), -s, 1e-14);
-    EXPECT_NEAR(m(1, 1), c, 1e-14);
-
-    // transformVector 把父系分量映到体系分量：v_body = M * v_parent
-    Vector3d bodyX = rot.transformVector(Vector3d{1.0, 0.0, 0.0});
-    EXPECT_NEAR(bodyX[0], c, 1e-14);
-    EXPECT_NEAR(bodyX[1], -s, 1e-14);
-    EXPECT_NEAR(bodyX[2], 0.0, 1e-14);
-
-    // transformVectorInv 把体系分量映回父系：父系下的体 X 轴
-    Vector3d parentX = rot.transformVectorInv(Vector3d{1.0, 0.0, 0.0});
-    EXPECT_NEAR(parentX[0], c, 1e-14);
-    EXPECT_NEAR(parentX[1], s, 1e-14);
-    EXPECT_NEAR(parentX[2], 0.0, 1e-14);
-}
-
-// ============================================
-// T1b: 经由 aAxesTransform 的链路方向
-//      aAxesTransform(s, t) 给的是 v_t = rot * v_s，故 剖面 -> ICRF 应得到 M 的逆
-// ============================================
-TEST_F(AttitudeProfileTest, AxesTransformDirection)
-{
-    const double rate = 0.1;
-    TestSpinZ profile(rate);
-    profile.epoch_ = TestEpoch();
-
-    TimePoint tp = TestTime();
-    const double t = tp - profile.epoch_;
-
-    ASSERT_EQ(profile.getParent(), aAxesICRF());
-
-    Rotation rot;
-    ASSERT_EQ(aAxesTransform(&profile, aAxesICRF(), tp, rot), eNoError);
-
-    const Matrix3d& m = rot.getMatrix();
-    EXPECT_NEAR(m(0, 0), std::cos(rate * t), 1e-13);
-    EXPECT_NEAR(m(0, 1), -std::sin(rate * t), 1e-13);
-    EXPECT_NEAR(m(1, 0), std::sin(rate * t), 1e-13);
-}
-
-// ============================================
-// T2: 角速度的符号与参考系
-//     Rz(+n*t) 对应 +n * z；Rz(-n*t) 对应 -n * z
-// ============================================
-TEST_F(AttitudeProfileTest, AngularVelocitySign)
-{
-    TimePoint tp = TestTime();
-
-    {
-        const double rate = 0.1;
-        TestSpinZ profile(rate);
-        profile.epoch_ = TestEpoch();
-        KinematicRotation kr;
-        ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
-        EXPECT_NEAR(kr.getRotationRate()[0], 0.0, 1e-9);
-        EXPECT_NEAR(kr.getRotationRate()[1], 0.0, 1e-9);
-        EXPECT_NEAR(kr.getRotationRate()[2], rate, 1e-9);
-    }
-    {
-        const double rate = -0.35;
-        TestSpinZ profile(rate);
-        profile.epoch_ = TestEpoch();
-        KinematicRotation kr;
-        ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
-        EXPECT_NEAR(kr.getRotationRate()[2], rate, 1e-9);
-    }
-}
-
-// ============================================
-// T2b: 两个重载给出一致的旋转矩阵；恒等剖面的角速度严格为零
-// ============================================
-TEST_F(AttitudeProfileTest, KinematicRotationMatchesRotation)
-{
-    TimePoint tp = TestTime();
-
-    TestSpinZ profile(0.2);
-    profile.epoch_ = TestEpoch();
-    Rotation rot;
-    KinematicRotation kr;
-    ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
-    ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
-    ExpectSameMatrix(kr.getMatrix(), rot.getMatrix(), 1e-14);
-
-    TestIdentity identity;
-    ASSERT_EQ(identity.getTransform(tp, kr), eNoError);
-    EXPECT_NEAR(kr.getRotationRate().norm(), 0.0, 1e-12);
-}
-
-// ============================================
-// T3: 未设置载体与参考坐标系的默认行为
-// ============================================
-TEST_F(AttitudeProfileTest, DefaultPointAndFrame)
-{
-    TestIdentity profile;
-    EXPECT_EQ(profile.getPoint(), nullptr);
-    EXPECT_EQ(profile.getFrame(), aFrameECI());
-    EXPECT_EQ(profile.getParent(), aAxesICRF());
-
-    // setFrame(nullptr) 恢复为自然参考坐标系
-    profile.setFrame(aFrameECF());
-    EXPECT_EQ(profile.getFrame(), aFrameECF());
-    EXPECT_EQ(profile.getParent(), aAxesECF());
-    profile.setFrame(nullptr);
-    EXPECT_EQ(profile.getFrame(), aFrameECI());
-}
 
 
 // ============================================

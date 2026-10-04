@@ -1,9 +1,7 @@
 ///
 /// @file      AttitudeAlignConstrain.hpp
 /// @brief     对齐/约束姿态(Aligned and Constrained)
-/// @details   STK 中大多数预定义姿态剖面都是由"一对对齐向量 + 一对约束向量"生成的，
-///            本文件提供该机制的求解引擎(aAlignConstrainRotation)以及通用剖面
-///            AttitudeAlignConstrain，具体剖面(ECIVVLH、ECFVelRadial 等)都建立在其之上。
+/// @details   
 /// @author    axel
 /// @date      2026-09-28
 /// @copyright 版权所有 (C) 2026-present, ast项目.
