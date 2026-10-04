@@ -55,8 +55,8 @@ PROPERTIES:
     Axes* referenceAxes() const { return referenceAxes_.get(); }
     void setReferenceAxes(Axes* referenceAxes) { referenceAxes_ = referenceAxes; }
 protected:
-    WeakPtr<Axes> referenceAxes_;               ///< 参考坐标系轴系
-    Rotation rotation_{Rotation::Identity()};   ///< 相对于参考坐标系的指向
+    WeakPtr<Axes> referenceAxes_{};               ///< 参考坐标系轴系
+    Rotation rotation_{Rotation::Identity()};     ///< 相对于参考坐标系的指向
 };
 
 /*! @} */

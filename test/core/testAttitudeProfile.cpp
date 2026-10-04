@@ -532,6 +532,104 @@ TEST_F(AttitudeProfileTest, AttitudeMissile)
 }
 
 
+TEST_F(AttitudeProfileTest, AttitudeSpinning)
+{
+    {
+        OrbElem orbElem{6678137, 0.02, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "3 Oct 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph  = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeSpinning attitude;
+
+        attitude.setReferenceAxes(earth->getAxesInertial());
+        attitude.setSpinAxisInBody({1, 2, 3});
+        attitude.setSpinAxisInFrame({3, 2, 1});
+        attitude.setSpinRate(1.2000028061219963_revs/1_min);
+        attitude.setSpinOffset(0.0);
+        attitude.setEpoch("3 Oct 2026 04:00:00.000"_utc);
+
+        {
+            auto time = "3 Oct 2026 19:11:00.000"_utc;
+            Quaternion q1, q2;
+            Vector3d w;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q1, w);
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q2);
+            Rotation rot;
+            attitude.getTransformFrom(*earth->getAxesInertial(), time, rot);
+            w = rot.transformVector(w);
+
+            printf("q1: %s\n", q1.toString().c_str());
+            printf("q2: %s\n", q2.toString().c_str());
+            printf("w: %s\n", w.toString().c_str());
+
+            Quaternion expected_q{0.8215948822754436, 0.1291995822775872, 0.5399970234153091, 0.1291995822775874};
+            Vector3d expected_w{0.0335851167036829, 0.0671702334073658, 0.1007553501110487};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q1[i], expected_q[i], 1e-12) << "q1[" << i << "]";
+                EXPECT_NEAR(q2[i], expected_q[i], 1e-12) << "q2[" << i << "]";
+            }
+            for(int i = 0; i < 3; i++)
+            {
+                EXPECT_NEAR(w[i], expected_w[i], 1e-12) << "w[" << i << "]";
+            }
+        }
+    }
+}
+
+/// pinning 
+TEST_F(AttitudeProfileTest, AttitudeSpinningBaseOrientation)
+{
+    auto earth = aGetEarth();
+    AttitudeSpinning attitude;
+    attitude.setReferenceAxes(earth->getAxesInertial());
+    attitude.setSpinRate(0.0);
+    attitude.setSpinOffset(0.0);
+    attitude.setEpoch("3 Oct 2026 04:00:00.000"_utc);
+    const auto time = "3 Oct 2026 04:00:00.000"_utc;
+
+    struct Case
+    {
+        Vector3d inFrame;
+        Vector3d inBody;
+        Quaternion expected;
+    };
+    const Case cases[] = {
+        {{1, 0, 0}, {0, 1, 0}, {0.5, 0.5, 0.5, -0.5}},
+        {{0, 1, 0}, {1, 0, 0}, {0.5, -0.5, -0.5, 0.5}},
+        {{1, 0, 0}, {1, 1, 1}, {0.8204732385702833, 0.3398511429799874, 0.4247082002778670, -0.1759198966061612}},
+        {{1, 1, 0}, {0, 1, 1}, {0.8535533905932738, -0.3535533905932737, 0.1464466094067262, -0.3535533905932737}},
+        {{3, 2, -1}, {1, -2, 3}, {0.2428301997936722, -0.9143927645907802, 0.2428301997936721, -0.2143661825017182}},
+        {{0, 0, 1}, {0.8660254037844387, 0.49999999999999994, 0.0}, {0.6123724356957945, 0.6123724356957946, -0.3535533905932738, 0.3535533905932738}},
+    };
+
+    for (int k = 0; k < static_cast<int>(sizeof(cases) / sizeof(cases[0])); k++)
+    {
+        const Case& c = cases[k];
+        attitude.setSpinAxisInFrame(c.inFrame);
+        attitude.setSpinAxisInBody(c.inBody);
+        Quaternion q;
+        ASSERT_EQ(attitude.getAttitudeIn(*earth->getAxesInertial(), time, q), eNoError);
+
+        double dot = 0.0;
+        for (int i = 0; i < 4; i++)
+            dot += q[i] * c.expected[i];
+        if (dot < 0.0)
+        {
+            q.w() = -q.w();
+            q.x() = -q.x();
+            q.y() = -q.y();
+            q.z() = -q.z();
+        }
+
+        for (int i = 0; i < 4; i++)
+            EXPECT_NEAR(q[i], c.expected[i], 1e-12) << "case " << k << " [" << i << "]";
+    }
+}
+
 
 TEST_F(AttitudeProfileTest, TransformMapsParentToBody)
 {
