@@ -814,54 +814,6 @@ TEST_F(AttitudeProfileTest, DegenerateGeometry)
  
 }
 
-// ============================================
-// T12: 固定姿态与 YPR 固定姿态
-// ============================================
-TEST_F(AttitudeProfileTest, FixedAndYPR)
-{
-    // 默认是单位旋转，角速度严格为零(不是 1e-16 量级)
-    {
-        AttitudeFixed profile;
-        Rotation rot;
-        KinematicRotation kr;
-        ASSERT_EQ(profile.getTransform(TestTime(), rot), eNoError);
-        ASSERT_EQ(profile.getTransform(TestTime(), kr), eNoError);
-        for (int r = 0; r < 3; r++)
-            for (int c = 0; c < 3; c++)
-                EXPECT_EQ(rot.getMatrix()(r, c), (r == c) ? 1.0 : 0.0);
-        EXPECT_EQ(kr.getRotationRate().norm(), 0.0);
-    }
-
-    const double yaw = 42.0 * kDegToRad;
-    AttitudeYPRFixedECI profile;
-    profile.setYaw(yaw);
-
-    Rotation rot;
-    ASSERT_EQ(profile.getTransform(TestTime(), rot), eNoError);
-    const Matrix3d& m = rot.getMatrix();
-    EXPECT_NEAR(m(0, 0), std::cos(yaw), 1e-15);
-    EXPECT_NEAR(m(0, 1), std::sin(yaw), 1e-15);
-
-    // 与欧拉角转换函数针对同一转序的结果一致
-    Euler euler;
-    euler.angle1_ = yaw;
-    euler.angle2_ = 0.0;
-    euler.angle3_ = 0.0;
-    Matrix3d expected;
-    ASSERT_EQ(aEulerToMatrix(euler, profile.getUiSequence(), expected), eNoError);
-    ExpectSameMatrix(rot.getMatrix(), expected, 1e-15);
-
-    // 往返：由矩阵反解欧拉角应还原输入
-    Euler back;
-    ASSERT_EQ(aMatrixToEuler(m, profile.getUiSequence(), back), eNoError);
-    EXPECT_NEAR(back.angle1_, yaw, 1e-12);
-    EXPECT_NEAR(back.angle2_, 0.0, 1e-12);
-    EXPECT_NEAR(back.angle3_, 0.0, 1e-12);
-
-    KinematicRotation kr;
-    ASSERT_EQ(profile.getTransform(TestTime(), kr), eNoError);
-    EXPECT_EQ(kr.getRotationRate().norm(), 0.0);
-}
 
 // ============================================
 // T13: 自旋姿态

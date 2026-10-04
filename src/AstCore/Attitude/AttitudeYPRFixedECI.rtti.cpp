@@ -16,11 +16,6 @@ void AttitudeYPRFixedECI::ClassInit(Class* cls)
     cls->addToRegistry();
     cls->setParent<AttitudeFixed>();
     cls->setConstructor<AttitudeYPRFixedECI>();
-    cls->addProperty("Yaw", aNewPropertyDouble<AttitudeYPRFixedECI, &AttitudeYPRFixedECI::getYaw, &AttitudeYPRFixedECI::setYaw>());
-    cls->addProperty("Pitch", aNewPropertyDouble<AttitudeYPRFixedECI, &AttitudeYPRFixedECI::getPitch, &AttitudeYPRFixedECI::setPitch>());
-    cls->addProperty("Roll", aNewPropertyDouble<AttitudeYPRFixedECI, &AttitudeYPRFixedECI::getRoll, &AttitudeYPRFixedECI::setRoll>());
-    cls->addProperty("UiSequence", aNewPropertyInt<AttitudeYPRFixedECI, &AttitudeYPRFixedECI::getUiSequence, &AttitudeYPRFixedECI::setUiSequence>());
-    cls->addProperty("UiCoordType", aNewPropertyInt<AttitudeYPRFixedECI, &AttitudeYPRFixedECI::getUiCoordType, &AttitudeYPRFixedECI::setUiCoordType>());
 }
 
 AST_NAMESPACE_END

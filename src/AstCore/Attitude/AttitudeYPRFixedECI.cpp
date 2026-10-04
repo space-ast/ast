@@ -19,28 +19,23 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AttitudeYPRFixedECI.hpp"
+#include "AstCore/CelestialBody.hpp"
 #include "AstMath/AttitudeConvert.hpp"
 #include "AstMath/Euler.hpp"
 
 AST_NAMESPACE_BEGIN
 
-AttitudeYPRFixedECI::AttitudeYPRFixedECI()
+AttitudeYPRFixedECI::AttitudeYPRFixedECI(Body* body)
 {
-    updateRotation();
+    setBody(body);
 }
 
-void AttitudeYPRFixedECI::updateRotation()
+void AttitudeYPRFixedECI::setBody(Body* body)
 {
-    Euler euler;
-    euler.angle1_ = yaw_;
-    euler.angle2_ = pitch_;
-    euler.angle3_ = roll_;
-
-    Matrix3d matrix;
-    errc_t rc = aEulerToMatrix(euler, uiSequence_, matrix);
-    if (rc != eNoError)
-        return;
-    setRotation(Rotation::FromMatrix(matrix));
+    if(body)
+        AttitudeFixed::setReferenceAxes(body->getAxesInertial());
 }
+
+
 
 AST_NAMESPACE_END
