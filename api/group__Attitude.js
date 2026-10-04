@@ -30,25 +30,6 @@ var group__Attitude =
       [ "getTransform", "classast_1_1AttitudeNadirNormal.html#af37ffa45889189ea7ca7cdd4e90a8308", null ],
       [ "getTransform", "classast_1_1AttitudeNadirNormal.html#a278e218dc27b2aa18d21c7779eba2226", null ]
     ] ],
-    [ "ast::AttitudeProfileBase", "classast_1_1AttitudeProfileBase.html", [
-      [ "defaultFrame", "classast_1_1AttitudeProfileBase.html#a661a768fe57970268594d1d2956a50ec", null ],
-      [ "getFrame", "classast_1_1AttitudeProfileBase.html#aa052408f9cabca236fe318370c20c3c6", null ],
-      [ "getNadirDirection", "classast_1_1AttitudeProfileBase.html#a220e1fdab3a390bc79987df24d3364b7", null ],
-      [ "getOrbitNormalDirection", "classast_1_1AttitudeProfileBase.html#ac282434c523f5141705f23081e230005", null ],
-      [ "getParent", "classast_1_1AttitudeProfileBase.html#a4a96bf2b4c9ec1faef7a23fc21463031", null ],
-      [ "getPoint", "classast_1_1AttitudeProfileBase.html#a8d7afc9e140bbbc06cd5edf487ac7bbd", null ],
-      [ "getRadialDirection", "classast_1_1AttitudeProfileBase.html#ab688df67c94db3605ca792ec97e40497", null ],
-      [ "getReferenceVector", "classast_1_1AttitudeProfileBase.html#a0b9effb9b526c34aa685296516d367cd", null ],
-      [ "getState", "classast_1_1AttitudeProfileBase.html#aa12c27d32bd54ccc27a8f320752f78d8", null ],
-      [ "getSunDirection", "classast_1_1AttitudeProfileBase.html#addb6e9e0b7c2e75e232d8b0486621f9c", null ],
-      [ "getTransform", "classast_1_1AttitudeProfileBase.html#a51658fd1d9555890becf093254d13777", null ],
-      [ "getTransform", "classast_1_1AttitudeProfileBase.html#abdd4725f50c66fec594379b94af2337e", null ],
-      [ "getVelocityDirection", "classast_1_1AttitudeProfileBase.html#ad50b4ba7b3b6d3c1e4fb87aabe23d25e", null ],
-      [ "setFrame", "classast_1_1AttitudeProfileBase.html#ab934de963e059deb5c1bca4456000a35", null ],
-      [ "setPoint", "classast_1_1AttitudeProfileBase.html#af3fe54a67cabc15b688934bc4ad509a3", null ],
-      [ "frame_", "classast_1_1AttitudeProfileBase.html#a2440d157c499fc9f8088d4d2e2d25ab3", null ],
-      [ "point_", "classast_1_1AttitudeProfileBase.html#af471eb243ed79599290c27e1e87858b5", null ]
-    ] ],
     [ "ast::AttitudeSpinning", "classast_1_1AttitudeSpinning.html", [
       [ "getEpoch", "classast_1_1AttitudeSpinning.html#ad6379afd45a0ad120ca757d79ec1555e", null ],
       [ "getParent", "classast_1_1AttitudeSpinning.html#a5f98cb6184d62e58b9b3d4822e404705", null ],
@@ -126,14 +107,6 @@ var group__Attitude =
       [ "y", "classast_1_1Quaternion.html#aa2d23169dc9e5573eda946013489819f", null ],
       [ "z", "classast_1_1Quaternion.html#a19883c31504c687288ae7860b86deca8", null ],
       [ "z", "classast_1_1Quaternion.html#a0b07113349ff7e9c4d90df6d69c081c8", null ]
-    ] ],
-    [ "ast::EAttitudeVector", "group__Attitude.html#ga6cdb9e054ee12459bf2aa252ee59985b", [
-      [ "ast::EAttitudeVector::eVelocity", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985bab2c25b5cef640a0733b40b4ded88d091", null ],
-      [ "ast::EAttitudeVector::eNadir", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985ba7ac9958bfddd484bc75aee0ee535b998", null ],
-      [ "ast::EAttitudeVector::eRadial", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985ba691200e13e8594c1f6a3590b7a6c6b7b", null ],
-      [ "ast::EAttitudeVector::eOrbitNormal", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985ba45f3f3c8bdbaae1879e90d5998558e90", null ],
-      [ "ast::EAttitudeVector::eSun", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985bac795894823f67c3929244ba388fdb9d5", null ],
-      [ "ast::EAttitudeVector::eFrameZ", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985baa76fe441a0c069088671c86d6b234918", null ]
     ] ],
     [ "ast::aAlignConstrainTransform", "group__Attitude.html#ga4a135cdfdf73a1afe59e44f38671c88b", null ],
     [ "ast::aAlignConstrainTransform", "group__Attitude.html#gadf5946e9d55a3ba84dd0e602b5d296ea", null ],

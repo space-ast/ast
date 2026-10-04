@@ -24,7 +24,7 @@ var dir_7ff596b4b9948ed8471d9cff64c624c7 =
     [ "AttitudePrecessingSpin.hpp", "AttitudePrecessingSpin_8hpp_source.html", null ],
     [ "AttitudePRFixedEciYawNadir.hpp", "AttitudePRFixedEciYawNadir_8hpp_source.html", null ],
     [ "AttitudeProfile.cpp", "AttitudeProfile_8cpp.html", null ],
-    [ "AttitudeProfile.hpp", "AttitudeProfile_8hpp.html", "AttitudeProfile_8hpp" ],
+    [ "AttitudeProfile.hpp", "AttitudeProfile_8hpp.html", null ],
     [ "AttitudeRealTime.cpp", "AttitudeRealTime_8cpp.html", null ],
     [ "AttitudeRealTime.hpp", "AttitudeRealTime_8hpp.html", "AttitudeRealTime_8hpp" ],
     [ "AttitudeRelSunLH.cpp", "AttitudeRelSunLH_8cpp.html", null ],

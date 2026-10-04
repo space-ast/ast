@@ -174,7 +174,6 @@ var namespaceast =
     [ "AttitudeFixed", "classast_1_1AttitudeFixed.html", "classast_1_1AttitudeFixed" ],
     [ "AttitudeMissile", "classast_1_1AttitudeMissile.html", "classast_1_1AttitudeMissile" ],
     [ "AttitudeNadirNormal", "classast_1_1AttitudeNadirNormal.html", "classast_1_1AttitudeNadirNormal" ],
-    [ "AttitudeProfileBase", "classast_1_1AttitudeProfileBase.html", "classast_1_1AttitudeProfileBase" ],
     [ "AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],
     [ "AttitudeRelSunLH", "classast_1_1AttitudeRelSunLH.html", "classast_1_1AttitudeRelSunLH" ],
     [ "AttitudeSpinning", "classast_1_1AttitudeSpinning.html", "classast_1_1AttitudeSpinning" ],
@@ -1385,14 +1384,6 @@ var namespaceast =
       [ "e7z", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba3810536d2724931acb3ffbac9fe75d14", null ],
       [ "eRar", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dba7b4d0bbb4cb24fded846db9ab30bb094", null ],
       [ "eGz", "namespaceast.html#a5e3206d9e900367922b7afd3ddfd94dbac2374c8b480af195c42dec925c4aa897", null ]
-    ] ],
-    [ "EAttitudeVector", "group__Attitude.html#ga6cdb9e054ee12459bf2aa252ee59985b", [
-      [ "eVelocity", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985bab2c25b5cef640a0733b40b4ded88d091", null ],
-      [ "eNadir", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985ba7ac9958bfddd484bc75aee0ee535b998", null ],
-      [ "eRadial", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985ba691200e13e8594c1f6a3590b7a6c6b7b", null ],
-      [ "eOrbitNormal", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985ba45f3f3c8bdbaae1879e90d5998558e90", null ],
-      [ "eSun", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985bac795894823f67c3929244ba388fdb9d5", null ],
-      [ "eFrameZ", "group__Attitude.html#gga6cdb9e054ee12459bf2aa252ee59985baa76fe441a0c069088671c86d6b234918", null ]
     ] ],
     [ "EBodyAttractionType", "namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8", [
       [ "eGravity", "namespaceast.html#a43d71d83017c19bf8ce6e3b2ca7961e8ac330a04a1477acf2a52c1a60c250d626", null ],

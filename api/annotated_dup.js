@@ -115,7 +115,6 @@ var annotated_dup =
       [ "AttitudeFixed", "classast_1_1AttitudeFixed.html", "classast_1_1AttitudeFixed" ],
       [ "AttitudeMissile", "classast_1_1AttitudeMissile.html", "classast_1_1AttitudeMissile" ],
       [ "AttitudeNadirNormal", "classast_1_1AttitudeNadirNormal.html", "classast_1_1AttitudeNadirNormal" ],
-      [ "AttitudeProfileBase", "classast_1_1AttitudeProfileBase.html", "classast_1_1AttitudeProfileBase" ],
       [ "AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],
       [ "AttitudeRelSunLH", "classast_1_1AttitudeRelSunLH.html", "classast_1_1AttitudeRelSunLH" ],
       [ "AttitudeSpinning", "classast_1_1AttitudeSpinning.html", "classast_1_1AttitudeSpinning" ],

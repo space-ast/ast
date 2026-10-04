@@ -872,7 +872,6 @@ var hierarchy =
             [ "ast::AttitudeFixed", "classast_1_1AttitudeFixed.html", [
               [ "ast::AttitudeYPRFixedECI", "classast_1_1AttitudeYPRFixedECI.html", null ]
             ] ],
-            [ "ast::AttitudeProfileBase", "classast_1_1AttitudeProfileBase.html", null ],
             [ "ast::AttitudeRealTime", "classast_1_1AttitudeRealTime.html", null ],
             [ "ast::AttitudeSpinning", "classast_1_1AttitudeSpinning.html", null ],
             [ "ast::AttitudeTrajectoryRelated", "classast_1_1AttitudeTrajectoryRelated.html", [
