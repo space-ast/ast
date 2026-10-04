@@ -1,16 +1,5 @@
 var NAVTREEINDEX38 =
 {
-"classast_1_1NLPProblem.html#a9b81507f52138d646a5bb4dd3a5a4b49":[2,0,0,545,10],
-"classast_1_1NLPProblem.html#a9b81507f52138d646a5bb4dd3a5a4b49":[3,0,0,544,10],
-"classast_1_1NLPProblem.html#aa6bb20f8772d78cd70e5cfc8c35ae2c5":[2,0,0,545,24],
-"classast_1_1NLPProblem.html#aa6bb20f8772d78cd70e5cfc8c35ae2c5":[3,0,0,544,24],
-"classast_1_1NLPProblem.html#aba77a757aa9313fe7f6d0d11c682df1d":[2,0,0,545,4],
-"classast_1_1NLPProblem.html#aba77a757aa9313fe7f6d0d11c682df1d":[3,0,0,544,4],
-"classast_1_1NLPProblem.html#abb55731467bfca98db9b0e532b685010":[2,0,0,545,0],
-"classast_1_1NLPProblem.html#abb55731467bfca98db9b0e532b685010":[3,0,0,544,0],
-"classast_1_1NLPProblem.html#ac0e86560a8c7c5de0765c326b6be082a":[2,0,0,545,18],
-"classast_1_1NLPProblem.html#ac0e86560a8c7c5de0765c326b6be082a":[3,0,0,544,18],
-"classast_1_1NLPProblem.html#acba9e14476c37c42c6b29e5226656427":[2,0,0,545,2],
 "classast_1_1NLPProblem.html#acba9e14476c37c42c6b29e5226656427":[3,0,0,544,2],
 "classast_1_1NLPProblem.html#aea04a71521ec03d11c0ad81c9be351ca":[2,0,0,545,8],
 "classast_1_1NLPProblem.html#aea04a71521ec03d11c0ad81c9be351ca":[3,0,0,544,8],
@@ -249,5 +238,16 @@ var NAVTREEINDEX38 =
 "classast_1_1ODEStateObserver.html":[0,3,4,11],
 "classast_1_1ODEStateObserver.html#a4c745eb1d03b1db2a8bbb1c07e0646b1":[0,3,4,11,0],
 "classast_1_1ODEStateObserverGeneric.html":[2,0,0,583],
-"classast_1_1ODEStateObserverGeneric.html":[3,0,0,582]
+"classast_1_1ODEStateObserverGeneric.html":[3,0,0,582],
+"classast_1_1ODEStateObserverGeneric.html#a71b771a7b7fed0cde9534f4855cf77ab":[2,0,0,583,0],
+"classast_1_1ODEStateObserverGeneric.html#a71b771a7b7fed0cde9534f4855cf77ab":[3,0,0,582,0],
+"classast_1_1ODEStateObserverGenericHelper.html":[2,0,0,584],
+"classast_1_1ODEStateObserverGenericHelper.html":[3,0,0,583],
+"classast_1_1ODEStateObserverList.html":[2,0,0,585],
+"classast_1_1ODEStateObserverList.html":[3,0,0,584],
+"classast_1_1ODEStateObserverList.html#aad7029f9913ef4dc76b38c61cbe4d40d":[2,0,0,585,0],
+"classast_1_1ODEStateObserverList.html#aad7029f9913ef4dc76b38c61cbe4d40d":[3,0,0,584,0],
+"classast_1_1ODEStateVectorCollector.html":[2,0,0,586],
+"classast_1_1ODEStateVectorCollector.html":[3,0,0,585],
+"classast_1_1ODEStateVectorCollector.html#ac135a0cacb78e65fbc3f62cb14dd0ab8":[2,0,0,586,0]
 };

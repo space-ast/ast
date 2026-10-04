@@ -121,7 +121,7 @@ var annotated_dup =
       [ "AttitudeSpinning", "classast_1_1AttitudeSpinning.html", "classast_1_1AttitudeSpinning" ],
       [ "AttitudeTrajectoryRelated", "classast_1_1AttitudeTrajectoryRelated.html", "classast_1_1AttitudeTrajectoryRelated" ],
       [ "AttitudeVVLH", "classast_1_1AttitudeVVLH.html", "classast_1_1AttitudeVVLH" ],
-      [ "AttitudeYPRFixedECI", "classast_1_1AttitudeYPRFixedECI.html", "classast_1_1AttitudeYPRFixedECI" ],
+      [ "AttitudeYPRFixedECI", "classast_1_1AttitudeYPRFixedECI.html", null ],
       [ "AttributeBasic", "classast_1_1AttributeBasic.html", "classast_1_1AttributeBasic" ],
       [ "Axes", "classast_1_1Axes.html", "classast_1_1Axes" ],
       [ "AxesBodyFixed", "classast_1_1AxesBodyFixed.html", "classast_1_1AxesBodyFixed" ],

@@ -1,16 +1,5 @@
 var NAVTREEINDEX42 =
 {
-"classast_1_1Referenced.html#a0186807a2cfea87209e3911eceb78aed":[2,0,0,652,8],
-"classast_1_1Referenced.html#a0186807a2cfea87209e3911eceb78aed":[3,0,0,651,8],
-"classast_1_1Referenced.html#a04a0b6fb4d97cb537ca34fc26085c992":[2,0,0,652,3],
-"classast_1_1Referenced.html#a04a0b6fb4d97cb537ca34fc26085c992":[3,0,0,651,3],
-"classast_1_1Referenced.html#a366211dc1c77101f66f9e7de8f776c24":[2,0,0,652,4],
-"classast_1_1Referenced.html#a366211dc1c77101f66f9e7de8f776c24":[3,0,0,651,4],
-"classast_1_1Referenced.html#a38fc2f94b8ce3bd09ecfd9ceb4bc4c76":[2,0,0,652,6],
-"classast_1_1Referenced.html#a38fc2f94b8ce3bd09ecfd9ceb4bc4c76":[3,0,0,651,6],
-"classast_1_1Referenced.html#a3ddb7d1e47dc803e64c64a03ba110d68":[2,0,0,652,9],
-"classast_1_1Referenced.html#a3ddb7d1e47dc803e64c64a03ba110d68":[3,0,0,651,9],
-"classast_1_1Referenced.html#a441ea6ec3e9e66753a3ece287d58148c":[2,0,0,652,2],
 "classast_1_1Referenced.html#a441ea6ec3e9e66753a3ece287d58148c":[3,0,0,651,2],
 "classast_1_1Referenced.html#a5d9d87925ad59fbb791680e64d45faf5":[2,0,0,652,0],
 "classast_1_1Referenced.html#a5d9d87925ad59fbb791680e64d45faf5":[3,0,0,651,0],
@@ -249,5 +238,16 @@ var NAVTREEINDEX42 =
 "classast_1_1ScStateCalc1PtAccess.html":[2,0,0,691],
 "classast_1_1ScStateCalc1PtAccess.html":[3,0,0,690],
 "classast_1_1ScStateCalcAbsoluteValue.html":[2,0,0,692],
-"classast_1_1ScStateCalcAbsoluteValue.html":[3,0,0,691]
+"classast_1_1ScStateCalcAbsoluteValue.html":[3,0,0,691],
+"classast_1_1ScStateCalcAltitude.html":[2,0,0,693],
+"classast_1_1ScStateCalcAltitude.html":[3,0,0,692],
+"classast_1_1ScStateCalcAltitudeOfApoapsis.html":[2,0,0,694],
+"classast_1_1ScStateCalcAltitudeOfApoapsis.html":[3,0,0,693],
+"classast_1_1ScStateCalcAltitudeOfPeriapsis.html":[2,0,0,695],
+"classast_1_1ScStateCalcAltitudeOfPeriapsis.html":[3,0,0,694],
+"classast_1_1ScStateCalcAltitudeRate.html":[2,0,0,696],
+"classast_1_1ScStateCalcAltitudeRate.html":[3,0,0,695],
+"classast_1_1ScStateCalcAngle.html":[2,0,0,697],
+"classast_1_1ScStateCalcAngle.html":[3,0,0,696],
+"classast_1_1ScStateCalcAngularMomentum.html":[2,0,0,698]
 };

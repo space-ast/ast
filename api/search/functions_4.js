@@ -28,7 +28,7 @@ var searchData=
   ['deepseek_25',['DeepSeek',['../classast_1_1DeepSeek.html#aee9fb101caf81b33ae4f1ca6a0b3bad6',1,'ast::DeepSeek']]],
   ['default_26',['Default',['../classast_1_1TimePoint.html#a5499cf716a892f5e7d54108c11ce3af6',1,'ast::TimePoint']]],
   ['defaultagent_27',['DefaultAgent',['../classast_1_1AssistantAgent.html#a1f7e3096a01a8798b86843bc37c99984',1,'ast::AssistantAgent']]],
-  ['defaultframe_28',['defaultFrame',['../classast_1_1AttitudeProfileBase.html#a661a768fe57970268594d1d2956a50ec',1,'ast::AttitudeProfileBase::defaultFrame()'],['../classast_1_1AttitudeSpinning.html#a74433c07b58f87c5fbc55ce94650a1c7',1,'ast::AttitudeSpinning::defaultFrame()']]],
+  ['defaultframe_28',['defaultFrame',['../classast_1_1AttitudeProfileBase.html#a661a768fe57970268594d1d2956a50ec',1,'ast::AttitudeProfileBase']]],
   ['defaultsolarsystemdir_29',['defaultSolarSystemDir',['../classast_1_1SolarSystem.html#a250e9d858de11cc4be6a53392a3c886a',1,'ast::SolarSystem']]],
   ['defines_30',['defines',['../classast_1_1BuildTarget.html#a0c9f41b022ffca0fa1c3e469c5e6c9e2',1,'ast::BuildTarget']]],
   ['deg2rad_31',['deg2rad',['../group__Util.html#ga2829ae46176d2ae6b387706feba62fdb',1,'ast']]],

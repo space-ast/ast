@@ -1,16 +1,5 @@
 var NAVTREEINDEX27 =
 {
-"classast_1_1DetectorPeriapsis.html":[2,0,0,275],
-"classast_1_1DetectorPeriapsis.html":[3,0,0,274],
-"classast_1_1DetectorPeriapsis.html#ac99379219d79336982d55298efdfdf8e":[2,0,0,275,0],
-"classast_1_1DetectorPeriapsis.html#ac99379219d79336982d55298efdfdf8e":[3,0,0,274,0],
-"classast_1_1DetectorPointRelated.html":[2,0,0,276],
-"classast_1_1DetectorPointRelated.html":[3,0,0,275],
-"classast_1_1DetectorRMagnitude.html":[2,0,0,277],
-"classast_1_1DetectorRMagnitude.html":[3,0,0,276],
-"classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[2,0,0,277,0],
-"classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[3,0,0,276,0],
-"classast_1_1DetectorTrueAnomaly.html":[2,0,0,278],
 "classast_1_1DetectorTrueAnomaly.html":[3,0,0,277],
 "classast_1_1DetectorTrueAnomaly.html#aba977785887a1f6c8111781fc5c84da9":[2,0,0,278,0],
 "classast_1_1DetectorTrueAnomaly.html#aba977785887a1f6c8111781fc5c84da9":[3,0,0,277,0],
@@ -249,5 +238,16 @@ var NAVTREEINDEX27 =
 "classast_1_1EphemerisLagrangeVar.html#a9af0958ad95547f1211ee45ffa4dc050":[3,0,0,301,0],
 "classast_1_1EphemerisLagrangeVar.html#ab42eeaa453d957fde95441d295d48bda":[2,0,0,302,10],
 "classast_1_1EphemerisLagrangeVar.html#ab42eeaa453d957fde95441d295d48bda":[3,0,0,301,10],
-"classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[2,0,0,302,2]
+"classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[2,0,0,302,2],
+"classast_1_1EphemerisLagrangeVar.html#ad1ff0a34b155913429dd757af3da3319":[3,0,0,301,2],
+"classast_1_1EphemerisLagrangeVar.html#ad3157f329611a1f7980a43c8ed95d67e":[2,0,0,302,3],
+"classast_1_1EphemerisLagrangeVar.html#ad3157f329611a1f7980a43c8ed95d67e":[3,0,0,301,3],
+"classast_1_1EphemerisLagrangeVar.html#afa75a1734a4ede9835cb08490b78eaae":[2,0,0,302,8],
+"classast_1_1EphemerisLagrangeVar.html#afa75a1734a4ede9835cb08490b78eaae":[3,0,0,301,8],
+"classast_1_1EphemerisMultiSegment.html":[2,0,0,303],
+"classast_1_1EphemerisMultiSegment.html":[3,0,0,302],
+"classast_1_1EphemerisMultiSegment.html#a24e54beb02d8c360a8b2bb8551d51264":[2,0,0,303,1],
+"classast_1_1EphemerisMultiSegment.html#a24e54beb02d8c360a8b2bb8551d51264":[3,0,0,302,1],
+"classast_1_1EphemerisMultiSegment.html#a45c3a32479ff86beb03dd947581e0e03":[2,0,0,303,0],
+"classast_1_1EphemerisMultiSegment.html#a45c3a32479ff86beb03dd947581e0e03":[3,0,0,302,0]
 };

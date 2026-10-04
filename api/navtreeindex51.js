@@ -1,16 +1,5 @@
 var NAVTREEINDEX51 =
 {
-"classast_1_1UiCommandTreeItem.html":[3,0,0,1050],
-"classast_1_1UiCommandTreeItem.html#a958ae84a4f04ef2836ae89e66c9e5adf":[2,0,0,1051,3],
-"classast_1_1UiCommandTreeItem.html#a958ae84a4f04ef2836ae89e66c9e5adf":[3,0,0,1050,3],
-"classast_1_1UiCommandTreeItem.html#a97b3574eed330fcfb1111b0ba29c373d":[2,0,0,1051,1],
-"classast_1_1UiCommandTreeItem.html#a97b3574eed330fcfb1111b0ba29c373d":[3,0,0,1050,1],
-"classast_1_1UiCommandTreeItem.html#a985fb1fc4b8c85b22b6122f57c67cdfc":[2,0,0,1051,2],
-"classast_1_1UiCommandTreeItem.html#a985fb1fc4b8c85b22b6122f57c67cdfc":[3,0,0,1050,2],
-"classast_1_1UiCommandTreeItem.html#ae6d9831551ca99576b0a335f451bdd3b":[2,0,0,1051,0],
-"classast_1_1UiCommandTreeItem.html#ae6d9831551ca99576b0a335f451bdd3b":[3,0,0,1050,0],
-"classast_1_1UiDataUpdate.html":[2,0,0,1052],
-"classast_1_1UiDataUpdate.html":[3,0,0,1051],
 "classast_1_1UiDataUpdate.html#a27ff7a3c74aebbe319f5579867972a28":[2,0,0,1052,0],
 "classast_1_1UiDataUpdate.html#a27ff7a3c74aebbe319f5579867972a28":[3,0,0,1051,0],
 "classast_1_1UiDouble.html":[0,17,0],
@@ -249,5 +238,16 @@ var NAVTREEINDEX51 =
 "classast_1_1UiStateEditor.html#a6a5b4e679b7dd878d358f645098dffcb":[2,0,0,1095,0],
 "classast_1_1UiStateEditor.html#a6a5b4e679b7dd878d358f645098dffcb":[3,0,0,1094,0],
 "classast_1_1UiStateEditor.html#a95e2d0b8d8a39298e1a7c4f45830fb85":[2,0,0,1095,1],
-"classast_1_1UiStateEditor.html#a95e2d0b8d8a39298e1a7c4f45830fb85":[3,0,0,1094,1]
+"classast_1_1UiStateEditor.html#a95e2d0b8d8a39298e1a7c4f45830fb85":[3,0,0,1094,1],
+"classast_1_1UiStateEditor.html#a992b8735f10b3bd14b0faa3a8d8a5db5":[2,0,0,1095,2],
+"classast_1_1UiStateEditor.html#a992b8735f10b3bd14b0faa3a8d8a5db5":[3,0,0,1094,2],
+"classast_1_1UiStateKeplerian.html":[2,0,0,1096],
+"classast_1_1UiStateKeplerian.html":[3,0,0,1095],
+"classast_1_1UiStudyWorkbench.html":[2,0,0,1098],
+"classast_1_1UiStudyWorkbench.html":[3,0,0,1097],
+"classast_1_1UiStudyWorkbench.html#a83eaab980865399c3be9fdcca57a772a":[2,0,0,1098,0],
+"classast_1_1UiStudyWorkbench.html#a83eaab980865399c3be9fdcca57a772a":[3,0,0,1097,0],
+"classast_1_1UiStudyWorkbench.html#ab344c6103d160c46a7bdc264fc49c467":[2,0,0,1098,2],
+"classast_1_1UiStudyWorkbench.html#ab344c6103d160c46a7bdc264fc49c467":[3,0,0,1097,2],
+"classast_1_1UiStudyWorkbench.html#afabeffea03538406935ada0b634ce178":[2,0,0,1098,1]
 };

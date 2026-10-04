@@ -1,16 +1,5 @@
 var NAVTREEINDEX47 =
 {
-"classast_1_1StateBPlane.html#ae6c0d284a727021f97e95a05bbb5e16d":[2,0,0,971,5],
-"classast_1_1StateBPlane.html#ae6c0d284a727021f97e95a05bbb5e16d":[3,0,0,970,5],
-"classast_1_1StateBPlane.html#ae788a675c8f1d44d8fbaf4705a23ef75":[2,0,0,971,19],
-"classast_1_1StateBPlane.html#ae788a675c8f1d44d8fbaf4705a23ef75":[3,0,0,970,19],
-"classast_1_1StateBPlane.html#afd403355ddada6294f4acc56b9c15e06":[2,0,0,971,18],
-"classast_1_1StateBPlane.html#afd403355ddada6294f4acc56b9c15e06":[3,0,0,970,18],
-"classast_1_1StateCalculation.html":[2,0,0,972],
-"classast_1_1StateCalculation.html":[3,0,0,971],
-"classast_1_1StateCalculation.html#a02a603be8c6722bf6467a7f251e4ae31":[2,0,0,972,1],
-"classast_1_1StateCalculation.html#a02a603be8c6722bf6467a7f251e4ae31":[3,0,0,971,1],
-"classast_1_1StateCalculation.html#a3344b59c3a733b4697ab2acb77ebc5a9":[2,0,0,972,0],
 "classast_1_1StateCalculation.html#a3344b59c3a733b4697ab2acb77ebc5a9":[3,0,0,971,0],
 "classast_1_1StateCartesian.html":[2,0,0,973],
 "classast_1_1StateCartesian.html":[3,0,0,972],
@@ -249,5 +238,16 @@ var NAVTREEINDEX47 =
 "classast_1_1StateMixedSpherical.html#a6cab67bd514536373797ceee543f514c":[2,0,0,977,5],
 "classast_1_1StateMixedSpherical.html#a6cab67bd514536373797ceee543f514c":[3,0,0,976,5],
 "classast_1_1StateMixedSpherical.html#a72964abdf11c3d43ae3705c9e8c1eb39":[2,0,0,977,19],
-"classast_1_1StateMixedSpherical.html#a72964abdf11c3d43ae3705c9e8c1eb39":[3,0,0,976,19]
+"classast_1_1StateMixedSpherical.html#a72964abdf11c3d43ae3705c9e8c1eb39":[3,0,0,976,19],
+"classast_1_1StateMixedSpherical.html#a81eca144035766bc551894c2bda78ee0":[2,0,0,977,17],
+"classast_1_1StateMixedSpherical.html#a81eca144035766bc551894c2bda78ee0":[3,0,0,976,17],
+"classast_1_1StateMixedSpherical.html#a832438dafdc13d5adc086c5019d85453":[2,0,0,977,0],
+"classast_1_1StateMixedSpherical.html#a832438dafdc13d5adc086c5019d85453":[3,0,0,976,0],
+"classast_1_1StateMixedSpherical.html#a83811ec9f758bbf2cf28855aebff16c2":[2,0,0,977,14],
+"classast_1_1StateMixedSpherical.html#a83811ec9f758bbf2cf28855aebff16c2":[3,0,0,976,14],
+"classast_1_1StateMixedSpherical.html#a96bf17b4784f550a2c331cc09df32444":[2,0,0,977,8],
+"classast_1_1StateMixedSpherical.html#a96bf17b4784f550a2c331cc09df32444":[3,0,0,976,8],
+"classast_1_1StateMixedSpherical.html#aa189ad01f4bee3995455d8b826419919":[2,0,0,977,1],
+"classast_1_1StateMixedSpherical.html#aa189ad01f4bee3995455d8b826419919":[3,0,0,976,1],
+"classast_1_1StateMixedSpherical.html#aa833b088bcce84dcec81efde8ea99baf":[2,0,0,977,4]
 };

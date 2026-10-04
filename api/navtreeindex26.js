@@ -1,16 +1,5 @@
 var NAVTREEINDEX26 =
 {
-"classast_1_1DataFrame.html#a20d4bc7824e51697eb77f112bb39b7aa":[0,15,4,4],
-"classast_1_1DataFrame.html#a48748a4b6e4ca7858e37d3a5d2f820b0":[0,15,4,0],
-"classast_1_1DataFrame.html#a5b46fc41d36a0d83c9480272abaf27d6":[0,15,4,7],
-"classast_1_1DataFrame.html#a88d95b297302a127ff57eef861d06103":[0,15,4,3],
-"classast_1_1DataFrame.html#a8d06bd80754effe1e455b88ba6048f1c":[0,15,4,8],
-"classast_1_1DataFrame.html#a8f4cbc2adb7690f19abedc5739ad0aea":[0,15,4,9],
-"classast_1_1DataFrame.html#ac37c00e0639941c70a28f065d3525fee":[0,15,4,2],
-"classast_1_1DataFrame.html#acbe0f76529f710d8cd92a158c06d7093":[0,15,4,5],
-"classast_1_1DataFrame.html#aeb23e9524c6ba6b07f38a281da85ff7d":[0,15,4,1],
-"classast_1_1DataFrame.html#afdc0e37d79effc9e18d973ea25fb7019":[0,15,4,10],
-"classast_1_1DataGroup.html":[2,0,0,225],
 "classast_1_1DataGroup.html":[3,0,0,224],
 "classast_1_1DataGroup.html#aebddefef53fcf06422468c10f164bb06":[2,0,0,225,0],
 "classast_1_1DataGroup.html#aebddefef53fcf06422468c10f164bb06":[3,0,0,224,0],
@@ -249,5 +238,16 @@ var NAVTREEINDEX26 =
 "classast_1_1DetectorMeanAnomaly.html":[2,0,0,274],
 "classast_1_1DetectorMeanAnomaly.html":[3,0,0,273],
 "classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[2,0,0,274,0],
-"classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[3,0,0,273,0]
+"classast_1_1DetectorMeanAnomaly.html#a944264a0ae472bcf1d859fa44f1b2fda":[3,0,0,273,0],
+"classast_1_1DetectorPeriapsis.html":[2,0,0,275],
+"classast_1_1DetectorPeriapsis.html":[3,0,0,274],
+"classast_1_1DetectorPeriapsis.html#ac99379219d79336982d55298efdfdf8e":[2,0,0,275,0],
+"classast_1_1DetectorPeriapsis.html#ac99379219d79336982d55298efdfdf8e":[3,0,0,274,0],
+"classast_1_1DetectorPointRelated.html":[2,0,0,276],
+"classast_1_1DetectorPointRelated.html":[3,0,0,275],
+"classast_1_1DetectorRMagnitude.html":[2,0,0,277],
+"classast_1_1DetectorRMagnitude.html":[3,0,0,276],
+"classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[2,0,0,277,0],
+"classast_1_1DetectorRMagnitude.html#aa4dddeeb73b875ddce174afde31bb6c4":[3,0,0,276,0],
+"classast_1_1DetectorTrueAnomaly.html":[2,0,0,278]
 };

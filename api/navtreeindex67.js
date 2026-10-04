@@ -1,16 +1,5 @@
 var NAVTREEINDEX67 =
 {
-"structast_1_1SPK__Type2__Record.html#a4bf352a51ac2aa4b8c370419d4f358c5":[2,0,0,960,1],
-"structast_1_1SPK__Type2__Record.html#a4bf352a51ac2aa4b8c370419d4f358c5":[3,0,0,959,1],
-"structast_1_1SPK__Type2__Trailer.html":[2,0,0,961],
-"structast_1_1SPK__Type2__Trailer.html":[3,0,0,960],
-"structast_1_1SPK__Type2__Trailer.html#a271dc580e5817fc616ca8862c32941ee":[2,0,0,961,0],
-"structast_1_1SPK__Type2__Trailer.html#a271dc580e5817fc616ca8862c32941ee":[3,0,0,960,0],
-"structast_1_1SPK__Type2__Trailer.html#a344d7683695e35ac3664ffcf5e334d02":[2,0,0,961,2],
-"structast_1_1SPK__Type2__Trailer.html#a344d7683695e35ac3664ffcf5e334d02":[3,0,0,960,2],
-"structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e":[2,0,0,961,3],
-"structast_1_1SPK__Type2__Trailer.html#ac5d50eb1167928cb507334bf5862833e":[3,0,0,960,3],
-"structast_1_1SPK__Type2__Trailer.html#ace4662dae40c65e4f35352d317e5807d":[2,0,0,961,1],
 "structast_1_1SPK__Type2__Trailer.html#ace4662dae40c65e4f35352d317e5807d":[3,0,0,960,1],
 "structast_1_1SPK__Type5__State.html":[2,0,0,962],
 "structast_1_1SPK__Type5__State.html":[3,0,0,961],
