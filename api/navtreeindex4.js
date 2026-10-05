@@ -1,5 +1,12 @@
 var NAVTREEINDEX4 =
 {
+"CompressorInterface_8cpp.html":[4,0,0,27,0,6],
+"CompressorInterface_8hpp.html":[4,0,0,27,0,7],
+"CompressorInterface_8hpp_source.html":[4,0,0,27,0,7],
+"ConeEclipseCalculator_8cpp.html":[4,0,0,6,11,0,2],
+"ConeEclipseCalculator_8hpp.html":[4,0,0,6,11,0,3],
+"ConeEclipseCalculator_8hpp_source.html":[4,0,0,6,11,0,3],
+"ConstantSpaceWeather_8hpp.html":[4,0,0,6,8,2],
 "ConstantSpaceWeather_8hpp_source.html":[4,0,0,6,8,2],
 "Constants_8hpp.html":[4,0,0,27,11,3],
 "Constants_8hpp_source.html":[4,0,0,27,11,3],
@@ -242,12 +249,5 @@ var NAVTREEINDEX4 =
 "DetectorUserSelect_8hpp_source.html":[4,0,0,6,13,0,38],
 "DetectorXYPlaneCross_8cpp.html":[4,0,0,6,13,0,39],
 "DetectorXYPlaneCross_8hpp.html":[4,0,0,6,13,0,40],
-"DetectorXYPlaneCross_8hpp_source.html":[4,0,0,6,13,0,40],
-"DetectorYZPlaneCross_8cpp.html":[4,0,0,6,13,0,41],
-"DetectorYZPlaneCross_8hpp.html":[4,0,0,6,13,0,42],
-"DetectorYZPlaneCross_8hpp_source.html":[4,0,0,6,13,0,42],
-"DetectorZXPlaneCross_8cpp.html":[4,0,0,6,13,0,43],
-"DetectorZXPlaneCross_8hpp.html":[4,0,0,6,13,0,44],
-"DetectorZXPlaneCross_8hpp_source.html":[4,0,0,6,13,0,44],
-"DifferentialCorrectorProfileLoader_8hpp_source.html":[4,0,0,10,1,2,0,0]
+"DetectorXYPlaneCross_8hpp_source.html":[4,0,0,6,13,0,40]
 };

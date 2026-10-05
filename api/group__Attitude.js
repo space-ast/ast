@@ -9,6 +9,10 @@ var group__Attitude =
       [ "getTransform", "classast_1_1AttitudeAlignConstrain.html#a9a5b2c279344f51d040309cc6fad142f", null ],
       [ "getTransform", "classast_1_1AttitudeAlignConstrain.html#add7843ef3e9e1407e090c4759aef31c2", null ]
     ] ],
+    [ "ast::AttitudeCbiVelSun", "classast_1_1AttitudeCbiVelSun.html", [
+      [ "getTransform", "classast_1_1AttitudeCbiVelSun.html#a489a3b49bb10ae4b17b90f01c20cf87f", null ],
+      [ "getTransform", "classast_1_1AttitudeCbiVelSun.html#a4e57768f8ef50c067cae71f2c98bb592", null ]
+    ] ],
     [ "ast::AttitudeECFVelRadial", "classast_1_1AttitudeECFVelRadial.html", [
       [ "getTransform", "classast_1_1AttitudeECFVelRadial.html#aaeceaf664ec04286feead122486ab223", null ],
       [ "getTransform", "classast_1_1AttitudeECFVelRadial.html#a3e322790bda0228ae85396c28da5951d", null ]
@@ -53,6 +57,10 @@ var group__Attitude =
       [ "spinAxisInFrame_", "classast_1_1AttitudeSpinning.html#a88ee07c8f658d8f4230c44a940844609", null ],
       [ "spinOffset_", "classast_1_1AttitudeSpinning.html#a2fbe6a5a4e271e8b4ec849ac3af58b2f", null ],
       [ "spinRate_", "classast_1_1AttitudeSpinning.html#ab2d813bf55a4e080fa715ecb3dc0c7f5", null ]
+    ] ],
+    [ "ast::AttitudeSunPointing", "classast_1_1AttitudeSunPointing.html", [
+      [ "getTransform", "classast_1_1AttitudeSunPointing.html#a4af518e7fff199546d6d8d7acd9633c0", null ],
+      [ "getTransform", "classast_1_1AttitudeSunPointing.html#ae717220357c845c777a50912e4c3cd80", null ]
     ] ],
     [ "ast::AttitudeYPRFixedECI", "classast_1_1AttitudeYPRFixedECI.html", null ],
     [ "ast::AngleAxis", "classast_1_1AngleAxis.html", [

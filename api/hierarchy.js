@@ -879,7 +879,11 @@ var hierarchy =
               [ "ast::AttitudeECFVelRadial", "classast_1_1AttitudeECFVelRadial.html", null ],
               [ "ast::AttitudeMissile", "classast_1_1AttitudeMissile.html", null ],
               [ "ast::AttitudeNadirNormal", "classast_1_1AttitudeNadirNormal.html", null ],
-              [ "ast::AttitudeRelSunLH", "classast_1_1AttitudeRelSunLH.html", null ],
+              [ "ast::AttitudeSunRelated", "classast_1_1AttitudeSunRelated.html", [
+                [ "ast::AttitudeCbiVelSun", "classast_1_1AttitudeCbiVelSun.html", null ],
+                [ "ast::AttitudeRelSunLH", "classast_1_1AttitudeRelSunLH.html", null ],
+                [ "ast::AttitudeSunPointing", "classast_1_1AttitudeSunPointing.html", null ]
+              ] ],
               [ "ast::AttitudeVVLH", "classast_1_1AttitudeVVLH.html", [
                 [ "ast::AttitudeECFVVLH", "classast_1_1AttitudeECFVVLH.html", null ],
                 [ "ast::AttitudeECIVVLH", "classast_1_1AttitudeECIVVLH.html", null ]

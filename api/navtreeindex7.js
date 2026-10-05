@@ -1,5 +1,12 @@
 var NAVTREEINDEX7 =
 {
+"GoldenSectionOptimizer_8hpp.html#ae32e8cab40eb05963f0800b7823b6a3a":[4,0,0,11,7,4,0],
+"GoldenSectionOptimizer_8hpp.html#afab8bb410549cb400140729bfb354168":[4,0,0,11,7,4,1],
+"GoldenSectionOptimizer_8hpp_source.html":[4,0,0,11,7,4],
+"GravityCalculator2_8cpp.html":[4,0,0,6,10,0,2],
+"GravityCalculator3_8cpp.html":[4,0,0,6,10,0,3],
+"GravityCalculator4_8cpp.html":[4,0,0,6,10,0,4],
+"GravityCalculator5_8cpp.html":[4,0,0,6,10,0,5],
 "GravityCalculator_8cpp.html":[4,0,0,6,10,0,0],
 "GravityCalculator_8cpp.html#ae5be25e61c5e3dd4b0b3a22e3ee8b139":[4,0,0,6,10,0,0,0],
 "GravityCalculator_8hpp_source.html":[4,0,0,6,10,0,1],
@@ -242,12 +249,5 @@ var NAVTREEINDEX7 =
 "LatLonAlt_8hpp_source.html":[4,0,0,6,11,4,1,5],
 "LatLon_8hpp.html":[4,0,0,6,11,4,1,4],
 "LatLon_8hpp_source.html":[4,0,0,6,11,4,1,4],
-"LaunchVehicle_8cpp.html":[4,0,0,18,2,30],
-"LaunchVehicle_8hpp.html":[4,0,0,18,2,31],
-"LaunchVehicle_8hpp_source.html":[4,0,0,18,2,31],
-"Launch_8cpp.html":[4,0,0,6,12,9],
-"Launch_8hpp.html":[4,0,0,6,12,10],
-"Launch_8hpp_source.html":[4,0,0,6,12,10],
-"LeapSecond_8cpp.html":[4,0,0,6,8,9],
-"LeapSecond_8hpp.html":[4,0,0,6,8,10]
+"LaunchVehicle_8cpp.html":[4,0,0,18,2,30]
 };
