@@ -37,6 +37,7 @@
 #include "AstCore/AttitudeSunPointingEclpNormal.hpp"
 #include "AstCore/AttitudeSunPointingOcculNormal.hpp"
 #include "AstCore/AttitudeSunPointingZOrbit.hpp"
+#include "AstCore/AttitudeSunRelated.hpp"
 #include "AstCore/AttitudeSunVectorSpinning.hpp"
 #include "AstCore/AttitudeTargetPointing.hpp"
 #include "AstCore/AttitudeTrajectory.hpp"

@@ -1,9 +1,9 @@
 ///
-/// @file      AttitudeRelSunLH.hpp
+/// @file      AttitudeSunRelated.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-10-03
+/// @date      2026-10-05
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -21,8 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/AttitudeTrajectoryRelated.hpp"
-#include "AstCore/AttitudeSunRelated.hpp"
+#include "AttitudeTrajectoryRelated.hpp"
 #include "AstCore/CelestialBody.hpp"
 
 AST_NAMESPACE_BEGIN
@@ -32,25 +31,23 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-
-/// @brief 对原点对齐 + 太阳方向约束
-/// @details "Nadir alignment with Sun constraint"
-/// 体 Z 轴严格指向坐标系原点，体 X 轴在保持 Z 轴对齐的前提下尽量指向太阳方向，
-class AST_CORE_API AttitudeRelSunLH : public AttitudeSunRelated
+/// @brief 太阳相关姿态
+class AST_CORE_API AttitudeSunRelated : public AttitudeTrajectoryRelated
 {
 public:
-    AttitudeRelSunLH() = default;
-    AttitudeRelSunLH(Point* point, Frame* frame);
-    ~AttitudeRelSunLH() = default;
+    AttitudeSunRelated();
+    ~AttitudeSunRelated() = default;
 public:
-    errc_t getTransform(const TimePoint& tp, Rotation& rotation) const override;
-    
-    errc_t getTransform(const TimePoint& tp, KinematicRotation& rotation) const override;
+    void setSun(Body* sun){sun_ = sun;}
+    Body* sun() const { return sun_.get(); }
+protected:
+    errc_t getSunPosLocal(const TimePoint& tp, Vector3d& sunPos) const;
+    errc_t getSunPosVelLocal(const TimePoint& tp, Vector3d& sunPos, Vector3d& sunVel) const;
+private:
+    WeakPtr<CelestialBody> sun_{};  ///< 太阳(光源天体)
 };
 
 
 /*! @} */
 
 AST_NAMESPACE_END
-
-

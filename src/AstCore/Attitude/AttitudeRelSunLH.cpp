@@ -33,22 +33,6 @@ AttitudeRelSunLH::AttitudeRelSunLH(Point *point, Frame *frame)
 }
 
 
-errc_t AttitudeRelSunLH::getSunPosLocal(const TimePoint& tp, Vector3d& sunPos) const
-{
-    auto frame = this->frame();
-    auto sun = this->sun();
-    if(!frame || !sun) return eErrorNullPtr;
-    return sun->getPosIn(frame, tp, sunPos);
-}
-
-errc_t AttitudeRelSunLH::getSunPosVelLocal(const TimePoint& tp, Vector3d& sunPos, Vector3d& sunVel) const
-{
-    auto frame = this->frame();
-    auto sun = this->sun();
-    if(!frame || !sun) return eErrorNullPtr;
-    return sun->getPosVelIn(frame, tp, sunPos, sunVel);
-}
-
 errc_t AttitudeRelSunLH::getTransform(const TimePoint &tp, Rotation &rotation) const
 {
     Vector3d pos;
@@ -74,11 +58,6 @@ errc_t AttitudeRelSunLH::getTransform(const TimePoint& tp, KinematicRotation& ro
     return aAlignConstrainTransform({0, 0, -1}, pos, vel, {1, 0, 0}, sunPos, sunVel, rotation);
 }
 
-
-void AttitudeRelSunLH::setSun(Body *sun)
-{
-    this->sun_ = sun;
-}
 
 
 AST_NAMESPACE_END
