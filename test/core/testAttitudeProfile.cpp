@@ -33,6 +33,7 @@
 #include "ast/AttitudeMissile.hpp"
 #include "ast/AttitudeCbiVelSun.hpp"
 #include "ast/AttitudeSunPointing.hpp"
+#include "ast/AttitudeSunPointingEclpNormal.hpp"
 #include "ast/AttitudeFixed.hpp"
 #include "ast/AttitudeYPRFixedECI.hpp"
 #include "ast/AttitudeSpinning.hpp"
@@ -655,6 +656,111 @@ TEST_F(AttitudeProfileTest, SunPointingSemantics)
     wDiff = rot.transformVector(wDiff);
     for (int i = 0; i < 3; i++)
         EXPECT_NEAR(wAnalytic[i], wDiff[i], 1e-9) << "w[" << i << "]";
+}
+
+TEST_F(AttitudeProfileTest, SunPointingEclpNormalSemantics)
+{
+    auto orbit = MakeGeneralOrbit();
+    AttitudeSunPointingEclpNormal profile;
+    profile.setPoint(orbit.get());
+    profile.setFrame(aFrameECI());
+    profile.setSun(aGetSun());
+
+    TimePoint tp = TestTime();
+    Vector3d pos;
+    ASSERT_EQ(orbit->getPosIn(aFrameECI(), tp, pos), eNoError);
+    Vector3d sunPos;
+    ASSERT_EQ(aGetSun()->getPosIn(*aFrameECI(), tp, sunPos), eNoError);
+    const Vector3d sunDir = sunPos - pos;
+
+    // 黄道法向(黄道北极)在 J2000 惯性系下固定：ICRF 的 XY 平面绕 X 轴转过平黄赤交角
+    const double obliquity = 84381.448 * kArcSecToRad;
+    const Vector3d eclpNormal{0.0, -std::sin(obliquity), std::cos(obliquity)};
+
+    Rotation rot;
+    ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
+    ExpectOrthonormal(rot.getMatrix());
+
+    // 体 X 严格对齐太阳方向
+    const Vector3d bodyX = rot.transformVector(sunDir.normalized());
+    EXPECT_NEAR(bodyX[0], 1.0, 1e-12);
+    EXPECT_NEAR(bodyX[1], 0.0, 1e-12);
+    EXPECT_NEAR(bodyX[2], 0.0, 1e-12);
+
+    // 黄道法向落在体 XZ 平面内(体 Y 分量为零)，且体 Z 分量为正(约束到黄道法向，而不是背离)
+    const Vector3d nInBody = rot.transformVector(eclpNormal);
+    EXPECT_NEAR(nInBody[1], 0.0, 1e-12);
+    EXPECT_GT(nInBody[2], 0.0);
+
+    // 两个重载给出同一旋转，且解析角速度与数值差分一致
+    KinematicRotation kr;
+    ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
+    ExpectSameMatrix(kr.getMatrix(), rot.getMatrix(), 1e-12);
+
+    Vector3d wDiff;
+    ASSERT_EQ(aAxesRotationRateByDifference(profile, *aFrameECI()->getAxes(), tp, wDiff), eNoError);
+    const Vector3d wAnalytic = rot.transformVector(kr.getRotationRate());
+    wDiff = rot.transformVector(wDiff);
+    for (int i = 0; i < 3; i++)
+        EXPECT_NEAR(wAnalytic[i], wDiff[i], 1e-9) << "w[" << i << "]";
+}
+
+TEST_F(AttitudeProfileTest, AttitudeSunPointingEclpNormal)
+{
+    {
+        auto orbit = MakeGeneralOrbit();
+        AttitudeSunPointingEclpNormal attitude;
+        attitude.setPoint(orbit.get());
+        attitude.setFrame(aFrameECI());
+        attitude.setSun(aGetSun());
+
+        Quaternion q;
+        Vector3d w;
+        ASSERT_EQ(attitude.getAttitudeIn(*aFrameECI()->getAxes(), TestTime(), q, w), eNoError);
+
+        const Quaternion expected{0.7511837261392353, 0.15580677025394402, 0.13027373347740306, -0.6280732555144087};
+        for (int i = 0; i < 4; i++)
+            EXPECT_NEAR(q[i], expected[i], 1e-4) << "q[" << i << "]";
+    }
+    {
+        OrbElem orbElem{6678137, 0.02, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "3 Oct 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph  = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeSunPointingEclpNormal attitude(eph, earth);
+
+        //     
+
+        {
+            auto time = "3 Oct 2026 17:06:00.000"_utc;
+            Quaternion q1, q2;
+            Vector3d w;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q1, w);
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q2);
+            Rotation rot;
+            attitude.getTransformFrom(*earth->getAxesInertial(), time, rot);
+            w = rot.transformVector(w);
+
+            printf("q1: %s\n", q1.toString().c_str());
+            printf("q2: %s\n", q2.toString().c_str());
+            printf("w: %s\n", w.toString().c_str());
+
+            Quaternion expected_q{ -0.0864338683742616, -0.0179206886292524, -0.2023133151411907, 0.9753344851042105};
+            Vector3d expected_w{-0.0000000003120273, -0.0000000019138003, 0.0000001694258734};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q1[i], expected_q[i], 1e-4) << "q1[" << i << "]";
+                EXPECT_NEAR(q2[i], expected_q[i], 1e-4) << "q2[" << i << "]";
+            }
+            for(int i = 0; i < 3; i++)
+            {
+                EXPECT_NEAR(w[i], expected_w[i], 1e-9) << "w[" << i << "]";
+            }
+        }
+    }
 }
 
 
