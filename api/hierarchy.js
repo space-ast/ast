@@ -882,7 +882,8 @@ var hierarchy =
               [ "ast::AttitudeSunRelated", "classast_1_1AttitudeSunRelated.html", [
                 [ "ast::AttitudeCbiVelSun", "classast_1_1AttitudeCbiVelSun.html", null ],
                 [ "ast::AttitudeRelSunLH", "classast_1_1AttitudeRelSunLH.html", null ],
-                [ "ast::AttitudeSunPointing", "classast_1_1AttitudeSunPointing.html", null ]
+                [ "ast::AttitudeSunPointing", "classast_1_1AttitudeSunPointing.html", null ],
+                [ "ast::AttitudeSunPointingEclpNormal", "classast_1_1AttitudeSunPointingEclpNormal.html", null ]
               ] ],
               [ "ast::AttitudeVVLH", "classast_1_1AttitudeVVLH.html", [
                 [ "ast::AttitudeECFVVLH", "classast_1_1AttitudeECFVVLH.html", null ],

@@ -62,6 +62,12 @@ var group__Attitude =
       [ "getTransform", "classast_1_1AttitudeSunPointing.html#a4af518e7fff199546d6d8d7acd9633c0", null ],
       [ "getTransform", "classast_1_1AttitudeSunPointing.html#ae717220357c845c777a50912e4c3cd80", null ]
     ] ],
+    [ "ast::AttitudeSunPointingEclpNormal", "classast_1_1AttitudeSunPointingEclpNormal.html", [
+      [ "getEclipticNormalLocal", "classast_1_1AttitudeSunPointingEclpNormal.html#a2956bd187903d49133a63d7a8d527895", null ],
+      [ "getEclipticNormalLocal", "classast_1_1AttitudeSunPointingEclpNormal.html#a2c6b5d187724839a232baca1e14fda71", null ],
+      [ "getTransform", "classast_1_1AttitudeSunPointingEclpNormal.html#a2afe6951de389205e5ccabfdc989f675", null ],
+      [ "getTransform", "classast_1_1AttitudeSunPointingEclpNormal.html#a24efbe06d6579753b92bbe7084c07527", null ]
+    ] ],
     [ "ast::AttitudeYPRFixedECI", "classast_1_1AttitudeYPRFixedECI.html", null ],
     [ "ast::AngleAxis", "classast_1_1AngleAxis.html", [
       [ "AngleAxis", "classast_1_1AngleAxis.html#ada0ed7107a2cda96de6bfbf471669218", null ],

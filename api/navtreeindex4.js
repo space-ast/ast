@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"CompressorImplTar_8hpp.html":[4,0,0,27,0,0,3],
+"CompressorImplTar_8hpp_source.html":[4,0,0,27,0,0,3],
 "CompressorInterface_8cpp.html":[4,0,0,27,0,6],
 "CompressorInterface_8hpp.html":[4,0,0,27,0,7],
 "CompressorInterface_8hpp_source.html":[4,0,0,27,0,7],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "DetectorUserSelect_8cpp.html":[4,0,0,6,13,0,37],
 "DetectorUserSelect_8hpp.html":[4,0,0,6,13,0,38],
 "DetectorUserSelect_8hpp_source.html":[4,0,0,6,13,0,38],
-"DetectorXYPlaneCross_8cpp.html":[4,0,0,6,13,0,39],
-"DetectorXYPlaneCross_8hpp.html":[4,0,0,6,13,0,40],
-"DetectorXYPlaneCross_8hpp_source.html":[4,0,0,6,13,0,40]
+"DetectorXYPlaneCross_8cpp.html":[4,0,0,6,13,0,39]
 };

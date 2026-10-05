@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"ExprIf_8cpp.html":[4,0,0,17,2,16],
+"ExprIf_8hpp.html":[4,0,0,17,2,17],
 "ExprIf_8hpp_source.html":[4,0,0,17,2,17],
 "ExprLoop_8cpp.html":[4,0,0,17,2,18],
 "ExprLoop_8hpp.html":[4,0,0,17,2,19],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "GlobalContext_8cpp.html":[4,0,0,6,8,0,4],
 "GlobalContext_8hpp.html":[4,0,0,6,8,0,5],
 "GlobalContext_8hpp_source.html":[4,0,0,6,8,0,5],
-"GoldenSectionOptimizer_8cpp.html":[4,0,0,11,7,3],
-"GoldenSectionOptimizer_8cpp.html#afab8bb410549cb400140729bfb354168":[4,0,0,11,7,3,0],
-"GoldenSectionOptimizer_8hpp.html":[4,0,0,11,7,4]
+"GoldenSectionOptimizer_8cpp.html":[4,0,0,11,7,3]
 };

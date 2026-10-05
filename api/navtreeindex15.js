@@ -1,5 +1,7 @@
 var NAVTREEINDEX15 =
 {
+"Ship_8hpp.html":[4,0,0,18,2,57],
+"Ship_8hpp_source.html":[4,0,0,18,2,57],
 "ShooterControlLoader_8cpp.html":[4,0,0,10,1,2,0,3],
 "ShooterControlLoader_8cpp.html#ab8a53fda984b695b0ae3a73f868b339d":[4,0,0,10,1,2,0,3,0],
 "ShooterControlLoader_8hpp.html":[4,0,0,10,1,2,0,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX15 =
 "StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658ca0e2073f32f9206cb73bdea469c7366ae":[4,0,0,6,12,6,9,4,5],
 "StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658ca313a4466fde74774f7c84e67e730a06c":[4,0,0,6,12,6,9,4,1],
 "StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658ca5909f91eca1fed37fa5b96d4f3cf33a2":[4,0,0,6,12,6,9,4,2],
-"StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658ca6a21361f2cee5a142d0556289b01e913":[4,0,0,6,12,6,9,4,0],
-"StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658ca7b001f135cba6f8233fe6ca7c12c3627":[4,0,0,6,12,6,9,4,3],
-"StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658cab9a65322ef9c8153291edb676b31da15":[4,0,0,6,12,6,9,4,6]
+"StateKeplerian_8hpp.html#a42503bc04b484437e930407c57f5658ca6a21361f2cee5a142d0556289b01e913":[4,0,0,6,12,6,9,4,0]
 };

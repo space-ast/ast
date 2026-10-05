@@ -1,5 +1,7 @@
 var NAVTREEINDEX17 =
 {
+"TestWithSTK_8hpp.html#a9957f16d6d15866d9a82a799d678f24a":[4,0,0,20,22,0],
+"TestWithSTK_8hpp_source.html":[4,0,0,20,22],
 "Test_8h_source.html":[4,0,0,20,2],
 "Test_8hpp_source.html":[4,0,0,20,3],
 "TextMentionTermination_8cpp.html":[4,0,0,0,2,17],
@@ -247,7 +249,5 @@ var NAVTREEINDEX17 =
 "UiPropagate_8hpp.html":[4,0,0,22,8,14],
 "UiPropagate_8hpp_source.html":[4,0,0,22,8,14],
 "UiQuantity_8cpp.html":[4,0,0,22,5,17],
-"UiQuantity_8hpp.html":[4,0,0,22,5,18],
-"UiQuantity_8hpp_source.html":[4,0,0,22,5,18],
-"UiResultView_8cpp.html":[4,0,0,22,0,2]
+"UiQuantity_8hpp.html":[4,0,0,22,5,18]
 };
