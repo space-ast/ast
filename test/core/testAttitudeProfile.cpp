@@ -32,6 +32,7 @@
 #include "ast/AttitudeAircraftZDown.hpp"
 #include "ast/AttitudeMissile.hpp"
 #include "ast/AttitudeCbiVelSun.hpp"
+#include "ast/AttitudeSunPointing.hpp"
 #include "ast/AttitudeFixed.hpp"
 #include "ast/AttitudeYPRFixedECI.hpp"
 #include "ast/AttitudeSpinning.hpp"
@@ -570,6 +571,90 @@ TEST_F(AttitudeProfileTest, AttitudeCbiVelSun)
         ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
         ExpectSameMatrix(kr.getMatrix(), rot.getMatrix(), 1e-12);
     }
+}
+
+
+
+TEST_F(AttitudeProfileTest, SunPointing)
+{
+    {
+        OrbElem orbElem{6678137, 0.02, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "3 Oct 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph  = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeSunPointing attitude(eph, earth);
+
+        {
+            auto time = "3 Oct 2026 19:07:00.000"_utc;
+            Quaternion q1, q2;
+            Vector3d w;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q1, w);
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q2);
+            Rotation rot;
+            attitude.getTransformFrom(*earth->getAxesInertial(), time, rot);
+            w = rot.transformVector(w);
+
+            printf("q1: %s\n", q1.toString().c_str());
+            printf("q2: %s\n", q2.toString().c_str());
+            printf("w: %s\n", w.toString().c_str());
+
+            Quaternion expected_q{-0.0398732141183855, -0.0795773656314848, 0.6396082886876180, 0.7635304884005085};
+            Vector3d expected_w{0.0076166621831724, 0.0000002433829402, -0.0000000624623227};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q1[i], expected_q[i], 1e-3) << "q1[" << i << "]";
+                EXPECT_NEAR(q2[i], expected_q[i], 1e-3) << "q2[" << i << "]";
+            }
+            for(int i = 0; i < 3; i++)
+            {
+                EXPECT_NEAR(w[i], expected_w[i], 1e-4) << "w[" << i << "]";
+            }
+        }
+    }
+}
+
+TEST_F(AttitudeProfileTest, SunPointingSemantics)
+{
+    auto orbit = MakeGeneralOrbit();
+    AttitudeSunPointing profile;
+    profile.setPoint(orbit.get());
+    profile.setFrame(aFrameECI());
+    profile.setSun(aGetSun());
+
+    TimePoint tp = TestTime();
+    Vector3d pos;
+    ASSERT_EQ(orbit->getPosIn(aFrameECI(), tp, pos), eNoError);
+    Vector3d sunPos;
+    ASSERT_EQ(aGetSun()->getPosIn(*aFrameECI(), tp, sunPos), eNoError);
+    const Vector3d sunDir = sunPos - pos;
+
+    Rotation rot;
+    ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
+    ExpectOrthonormal(rot.getMatrix());
+
+    // 体 X 严格对齐太阳方向
+    const Vector3d bodyX = rot.transformVector(sunDir.normalized());
+    EXPECT_NEAR(bodyX[0], 1.0, 1e-12);
+    EXPECT_NEAR(bodyX[1], 0.0, 1e-12);
+    EXPECT_NEAR(bodyX[2], 0.0, 1e-12);
+
+    // 体 Z 的对地方向分量为正(约束到原点，而不是背离原点)
+    EXPECT_GT(rot.transformVector((-pos).normalized())[2], 0.0);
+
+    // 两个重载给出同一旋转，且解析角速度与数值差分一致
+    KinematicRotation kr;
+    ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
+    ExpectSameMatrix(kr.getMatrix(), rot.getMatrix(), 1e-12);
+
+    Vector3d wDiff;
+    ASSERT_EQ(aAxesRotationRateByDifference(profile, *aFrameECI()->getAxes(), tp, wDiff), eNoError);
+    const Vector3d wAnalytic = rot.transformVector(kr.getRotationRate());
+    wDiff = rot.transformVector(wDiff);
+    for (int i = 0; i < 3; i++)
+        EXPECT_NEAR(wAnalytic[i], wDiff[i], 1e-9) << "w[" << i << "]";
 }
 
 
