@@ -883,6 +883,7 @@ var hierarchy =
                 [ "ast::AttitudeCbiVelSun", "classast_1_1AttitudeCbiVelSun.html", null ],
                 [ "ast::AttitudeRelSunLH", "classast_1_1AttitudeRelSunLH.html", null ],
                 [ "ast::AttitudeSunPointing", "classast_1_1AttitudeSunPointing.html", null ],
+                [ "ast::AttitudeSunPointingCbiZ", "classast_1_1AttitudeSunPointingCbiZ.html", null ],
                 [ "ast::AttitudeSunPointingEclpNormal", "classast_1_1AttitudeSunPointingEclpNormal.html", null ]
               ] ],
               [ "ast::AttitudeVVLH", "classast_1_1AttitudeVVLH.html", [

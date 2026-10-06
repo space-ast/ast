@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"CompressorImplSystem_8hpp.html":[4,0,0,27,0,0,2],
+"CompressorImplSystem_8hpp_source.html":[4,0,0,27,0,0,2],
 "CompressorImplTar_8hpp.html":[4,0,0,27,0,0,3],
 "CompressorImplTar_8hpp_source.html":[4,0,0,27,0,0,3],
 "CompressorInterface_8cpp.html":[4,0,0,27,0,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "DetectorTrueAnomaly_8hpp.html":[4,0,0,6,13,0,36],
 "DetectorTrueAnomaly_8hpp_source.html":[4,0,0,6,13,0,36],
 "DetectorUserSelect_8cpp.html":[4,0,0,6,13,0,37],
-"DetectorUserSelect_8hpp.html":[4,0,0,6,13,0,38],
-"DetectorUserSelect_8hpp_source.html":[4,0,0,6,13,0,38],
-"DetectorXYPlaneCross_8cpp.html":[4,0,0,6,13,0,39]
+"DetectorUserSelect_8hpp.html":[4,0,0,6,13,0,38]
 };

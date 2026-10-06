@@ -1,5 +1,7 @@
 var NAVTREEINDEX18 =
 {
+"UiQuantity_8cpp.html":[4,0,0,22,5,17],
+"UiQuantity_8hpp.html":[4,0,0,22,5,18],
 "UiQuantity_8hpp_source.html":[4,0,0,22,5,18],
 "UiResultView_8cpp.html":[4,0,0,22,0,2],
 "UiResultView_8hpp.html":[4,0,0,22,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX18 =
 "ValueView_8hpp_source.html":[4,0,0,27,5,13],
 "Value_8cpp.html":[4,0,0,17,9,21],
 "Value_8hpp.html":[4,0,0,17,9,22],
-"Value_8hpp_source.html":[4,0,0,17,9,22],
-"VariableListLoader_8cpp.html":[4,0,0,10,1,2,0,9],
-"VariableListLoader_8cpp.html#a7d22075d8a6967c9d0305a6acb9a51e5":[4,0,0,10,1,2,0,9,2]
+"Value_8hpp_source.html":[4,0,0,17,9,22]
 };

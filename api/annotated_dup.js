@@ -120,6 +120,7 @@ var annotated_dup =
       [ "AttitudeRelSunLH", "classast_1_1AttitudeRelSunLH.html", "classast_1_1AttitudeRelSunLH" ],
       [ "AttitudeSpinning", "classast_1_1AttitudeSpinning.html", "classast_1_1AttitudeSpinning" ],
       [ "AttitudeSunPointing", "classast_1_1AttitudeSunPointing.html", "classast_1_1AttitudeSunPointing" ],
+      [ "AttitudeSunPointingCbiZ", "classast_1_1AttitudeSunPointingCbiZ.html", "classast_1_1AttitudeSunPointingCbiZ" ],
       [ "AttitudeSunPointingEclpNormal", "classast_1_1AttitudeSunPointingEclpNormal.html", "classast_1_1AttitudeSunPointingEclpNormal" ],
       [ "AttitudeSunRelated", "classast_1_1AttitudeSunRelated.html", null ],
       [ "AttitudeTrajectoryRelated", "classast_1_1AttitudeTrajectoryRelated.html", "classast_1_1AttitudeTrajectoryRelated" ],

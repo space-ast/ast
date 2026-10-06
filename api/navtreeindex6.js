@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"ExprExpandVisitor_8hpp.html":[4,0,0,17,0,3],
+"ExprExpandVisitor_8hpp_source.html":[4,0,0,17,0,3],
 "ExprIf_8cpp.html":[4,0,0,17,2,16],
 "ExprIf_8hpp.html":[4,0,0,17,2,17],
 "ExprIf_8hpp_source.html":[4,0,0,17,2,17],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "Geometry_8hpp.html":[4,0,0,6,11,5],
 "Geometry_8hpp_source.html":[4,0,0,6,11,5],
 "GlobalContext_8cpp.html":[4,0,0,6,8,0,4],
-"GlobalContext_8hpp.html":[4,0,0,6,8,0,5],
-"GlobalContext_8hpp_source.html":[4,0,0,6,8,0,5],
-"GoldenSectionOptimizer_8cpp.html":[4,0,0,11,7,3]
+"GlobalContext_8hpp.html":[4,0,0,6,8,0,5]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"DetectorUserSelect_8hpp_source.html":[4,0,0,6,13,0,38],
+"DetectorXYPlaneCross_8cpp.html":[4,0,0,6,13,0,39],
 "DetectorXYPlaneCross_8hpp.html":[4,0,0,6,13,0,40],
 "DetectorXYPlaneCross_8hpp_source.html":[4,0,0,6,13,0,40],
 "DetectorYZPlaneCross_8cpp.html":[4,0,0,6,13,0,41],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "ExprCondition_8hpp_source.html":[4,0,0,17,2,14],
 "ExprContainer_8hpp.html":[4,0,0,17,2,15],
 "ExprContainer_8hpp_source.html":[4,0,0,17,2,15],
-"ExprExpandVisitor_8cpp.html":[4,0,0,17,0,2],
-"ExprExpandVisitor_8hpp.html":[4,0,0,17,0,3],
-"ExprExpandVisitor_8hpp_source.html":[4,0,0,17,0,3]
+"ExprExpandVisitor_8cpp.html":[4,0,0,17,0,2]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"GlobalContext_8hpp_source.html":[4,0,0,6,8,0,5],
+"GoldenSectionOptimizer_8cpp.html":[4,0,0,11,7,3],
 "GoldenSectionOptimizer_8cpp.html#afab8bb410549cb400140729bfb354168":[4,0,0,11,7,3,0],
 "GoldenSectionOptimizer_8hpp.html":[4,0,0,11,7,4],
 "GoldenSectionOptimizer_8hpp.html#ae32e8cab40eb05963f0800b7823b6a3a":[4,0,0,11,7,4,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "LandingSite_8cpp.html":[4,0,0,6,12,3,13],
 "LandingSite_8hpp.html":[4,0,0,6,12,3,14],
 "LandingSite_8hpp_source.html":[4,0,0,6,12,3,14],
-"LatLonAlt_8hpp.html":[4,0,0,6,11,4,1,5],
-"LatLonAlt_8hpp_source.html":[4,0,0,6,11,4,1,5],
-"LatLon_8hpp.html":[4,0,0,6,11,4,1,4]
+"LatLonAlt_8hpp.html":[4,0,0,6,11,4,1,5]
 };
