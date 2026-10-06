@@ -34,6 +34,7 @@
 #include "ast/AttitudeCbiVelSun.hpp"
 #include "ast/AttitudeSunPointing.hpp"
 #include "ast/AttitudeSunPointingEclpNormal.hpp"
+#include "ast/AttitudeSunPointingCbiZ.hpp"
 #include "ast/AttitudeFixed.hpp"
 #include "ast/AttitudeYPRFixedECI.hpp"
 #include "ast/AttitudeSpinning.hpp"
@@ -750,6 +751,122 @@ TEST_F(AttitudeProfileTest, AttitudeSunPointingEclpNormal)
 
             Quaternion expected_q{ -0.0864338683742616, -0.0179206886292524, -0.2023133151411907, 0.9753344851042105};
             Vector3d expected_w{-0.0000000003120273, -0.0000000019138003, 0.0000001694258734};
+            for(int i = 0; i < 4; i++)
+            {
+                EXPECT_NEAR(q1[i], expected_q[i], 1e-4) << "q1[" << i << "]";
+                EXPECT_NEAR(q2[i], expected_q[i], 1e-4) << "q2[" << i << "]";
+            }
+            for(int i = 0; i < 3; i++)
+            {
+                EXPECT_NEAR(w[i], expected_w[i], 1e-9) << "w[" << i << "]";
+            }
+        }
+    }
+}
+
+TEST_F(AttitudeProfileTest, SunPointingCbiZSemantics)
+{
+    auto orbit = MakeGeneralOrbit();
+    auto earth = aGetEarth();
+    AttitudeSunPointingCbiZ profile;
+    profile.setPoint(orbit.get());
+    profile.setBody(earth);     // 参考系被设为地球惯性系
+    profile.setSun(aGetSun());
+
+    TimePoint tp = TestTime();
+    ASSERT_NE(profile.frame(), nullptr);
+    ASSERT_EQ(profile.frame(), earth->getFrameInertial());
+
+    Vector3d pos, sunPos;
+    ASSERT_EQ(orbit->getPosIn(*profile.frame(), tp, pos), eNoError);
+    ASSERT_EQ(aGetSun()->getPosIn(*profile.frame(), tp, sunPos), eNoError);
+    const Vector3d sunDir = sunPos - pos;
+
+    Rotation rot;
+    ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
+    ExpectOrthonormal(rot.getMatrix());
+
+    // 体 X 严格对齐太阳方向
+    const Vector3d bodyX = rot.transformVector(sunDir.normalized());
+    EXPECT_NEAR(bodyX[0], 1.0, 1e-12);
+    EXPECT_NEAR(bodyX[1], 0.0, 1e-12);
+    EXPECT_NEAR(bodyX[2], 0.0, 1e-12);
+
+    // 两个重载给出同一旋转，且解析角速度与数值差分一致
+    KinematicRotation kr;
+    ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
+    ExpectSameMatrix(kr.getMatrix(), rot.getMatrix(), 1e-12);
+
+    Vector3d wDiff;
+    ASSERT_EQ(aAxesRotationRateByDifference(profile, *profile.frame()->getAxes(), tp, wDiff), eNoError);
+    const Vector3d wAnalytic = rot.transformVector(kr.getRotationRate());
+    wDiff = rot.transformVector(wDiff);
+    for (int i = 0; i < 3; i++)
+        EXPECT_NEAR(wAnalytic[i], wDiff[i], 1e-9) << "w[" << i << "]";
+}
+
+TEST_F(AttitudeProfileTest, AttitudeSunPointingCbiZ)
+{
+    {
+        OrbElem orbElem{6678137, 0.02, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "3 Oct 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeSunPointingCbiZ attitude(eph, earth);
+
+        auto time = "3 Oct 2026 17:06:00.000"_utc;
+        Quaternion q1, q2;
+        Vector3d w;
+        attitude.getAttitudeIn(*earth->getAxesInertial(), time, q1, w);
+        attitude.getAttitudeIn(*earth->getAxesInertial(), time, q2);
+
+        for (int i = 0; i < 4; i++)
+            EXPECT_NEAR(q1[i], q2[i], 1e-12) << "q[" << i << "]";
+
+        // 把参考系设为该天体的惯性系
+        Vector3d pos, sunPos;
+        ASSERT_EQ(eph->getPosIn(*earth->getFrameInertial(), time, pos), eNoError);
+        ASSERT_EQ(aGetSun()->getPosIn(*earth->getFrameInertial(), time, sunPos), eNoError);
+        const Vector3d sunDir = sunPos - pos;
+
+        Rotation rot;
+        ASSERT_EQ(attitude.getTransformFrom(*earth->getAxesInertial(), time, rot), eNoError);
+        ExpectOrthonormal(rot.getMatrix());
+
+        const Vector3d bodyX = rot.transformVector(sunDir.normalized());
+        EXPECT_NEAR(bodyX[0], 1.0, 1e-12);
+        EXPECT_NEAR(bodyX[1], 0.0, 1e-12);
+        EXPECT_NEAR(bodyX[2], 0.0, 1e-12);
+    }
+    {
+        OrbElem orbElem{6678137, 0.02, 28.5_deg, 0, 0, 0};
+        CartState state;
+        auto earth = aGetEarth();
+        double gm = earth->getGM();
+        auto epoch = "3 Oct 2026 04:00:00.000"_utc;
+        aOrbElemToCart(orbElem, gm, state.pos_, state.vel_);
+        SharedPtr<EphemerisTwoBody> eph  = EphemerisTwoBody::New(earth->getFrameInertial(), gm, epoch, state);
+        AttitudeSunPointingCbiZ attitude(eph, earth);
+
+        {
+            auto time = "3 Oct 2026 17:20:00.000"_utc;
+            Quaternion q1, q2;
+            Vector3d w;
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q1, w);
+            attitude.getAttitudeIn(*earth->getAxesInertial(), time, q2);
+            Rotation rot;
+            attitude.getTransformFrom(*earth->getAxesInertial(), time, rot);
+            w = rot.transformVector(w);
+
+            printf("q1: %s\n", q1.toString().c_str());
+            printf("q2: %s\n", q2.toString().c_str());
+            printf("w: %s\n", w.toString().c_str());
+
+            Quaternion expected_q{-0.0811663356192398, -0.0349029184530175, -0.0028440759850293, 0.9960851989048921};
+            Vector3d expected_w{-0.0000000139399289, 0.0000000873317882, 0.0000001986697525};
             for(int i = 0; i < 4; i++)
             {
                 EXPECT_NEAR(q1[i], expected_q[i], 1e-4) << "q1[" << i << "]";
