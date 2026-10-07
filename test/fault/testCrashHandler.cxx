@@ -355,8 +355,13 @@ int main(int argc, char** argv)
 
     if (crashType)
     {
+        // 用局部变量持有临时字符串，避免 logDir 指向已析构的临时对象
+        std::string logDirFallback;
         if (!logDir)
-            logDir = getTestLogDir().c_str();
+        {
+            logDirFallback = getTestLogDir();
+            logDir = logDirFallback.c_str();
+        }
         crash_test_trigger(crashType, logDir, reporter);
         return 1; // 不应到达这里
     }

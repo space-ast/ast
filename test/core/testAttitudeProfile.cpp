@@ -1226,4 +1226,165 @@ TEST_F(AttitudeProfileTest, MoverAttitudeRoundTrip)
 }
 
 
+TEST_F(AttitudeProfileTest, AttitudeFixed)
+{
+    const TimePoint tp = TestTime();
+    Axes* refAxes = aAxesICRF();
+    ASSERT_NE(refAxes, nullptr);
+
+    const Rotation fixed(0.6, Vector3d{0.0, 0.0, 1.0});
+
+    AttitudeFixed profile;
+    profile.setReferenceAxes(refAxes);
+    profile.setRotation(fixed);
+
+    EXPECT_EQ(profile.getParent(), refAxes);
+    EXPECT_EQ(profile.referenceAxes(), refAxes);
+    ExpectSameMatrix(profile.getRotation().getMatrix(), fixed.getMatrix(), 1e-15);
+    ExpectSameMatrix(profile.rotation().getMatrix(), fixed.getMatrix(), 1e-15);
+
+    // 固定姿态：任意时刻都返回同一取向
+    Rotation rot;
+    ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
+    ExpectSameMatrix(rot.getMatrix(), fixed.getMatrix(), 1e-14);
+    ExpectOrthonormal(rot.getMatrix());
+
+    Rotation rotLater;
+    ASSERT_EQ(profile.getTransform(TestEpoch() + 7200.0, rotLater), eNoError);
+    ExpectSameMatrix(rotLater.getMatrix(), fixed.getMatrix(), 1e-14);
+
+    // 运动学版本：取向相同，角速度为零
+    KinematicRotation kr;
+    ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
+    ExpectSameMatrix(kr.getRotation().getMatrix(), fixed.getMatrix(), 1e-14);
+    EXPECT_NEAR(kr.getRotationRate().norm(), 0.0, 1e-14);
+}
+
+
+/// @brief 测试用向量：在给定轴系下返回常量值，便于构造已知的对齐/约束几何
+class TestConstantVector : public Vector
+{
+public:
+    Axes* getAxes() const override { return axes_; }
+
+    errc_t getVector(const TimePoint&, Vector3d& vec) const override
+    {
+        vec = value_;
+        return eNoError;
+    }
+
+    errc_t getVector(const TimePoint&, Vector3d& vec, Vector3d& vel) const override
+    {
+        vec = value_;
+        vel = Vector3d::Zero();
+        return eNoError;
+    }
+
+    Axes* axes_{nullptr};
+    Vector3d value_{};
+};
+
+TEST_F(AttitudeProfileTest, AttitudeAlignConstrainIdentity)
+{
+    const TimePoint tp = TestTime();
+    Axes* icrf = aAxesICRF();
+    ASSERT_NE(icrf, nullptr);
+
+    // 体轴矢量与参考矢量完全重合
+    TestConstantVector aligned;
+    aligned.axes_ = icrf;
+    aligned.value_ = Vector3d{1.0, 0.0, 0.0};
+
+    TestConstantVector constrained;
+    constrained.axes_ = icrf;
+    constrained.value_ = Vector3d{0.0, 1.0, 0.0};
+
+    // 向量先于剖面构造，因而后于剖面析构，弱引用不会悬空
+    AttitudeAlignConstrain profile;
+    profile.setAlignedVector(&aligned);
+    profile.setConstrainedVector(&constrained);
+    profile.setAlignedAxis(Vector3d{1.0, 0.0, 0.0});
+    profile.setConstrainedAxis(Vector3d{0.0, 1.0, 0.0});
+
+    // 父轴系取对齐矢量所在轴系
+    EXPECT_EQ(profile.getParent(), icrf);
+
+    // 属性可原样取回
+    EXPECT_EQ(profile.alignedVector(), &aligned);
+    EXPECT_EQ(profile.constrainedVector(), &constrained);
+    EXPECT_NEAR((profile.alignedAxis() - Vector3d{1.0, 0.0, 0.0}).norm(), 0.0, 1e-15);
+    EXPECT_NEAR((profile.constrainedAxis() - Vector3d{0.0, 1.0, 0.0}).norm(), 0.0, 1e-15);
+
+    // 两对矢量重合，定姿结果应为单位旋转
+    Rotation rot;
+    ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
+    ExpectSameMatrix(rot.getMatrix(), Matrix3d::Identity(), 1e-13);
+    ExpectOrthonormal(rot.getMatrix());
+
+    KinematicRotation kr;
+    ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
+    ExpectSameMatrix(kr.getRotation().getMatrix(), Matrix3d::Identity(), 1e-13);
+    // 参考矢量不随时间变化，角速度为零
+    EXPECT_NEAR(kr.getRotationRate().norm(), 0.0, 1e-13);
+}
+
+TEST_F(AttitudeProfileTest, AttitudeAlignConstrainTriad)
+{
+    const TimePoint tp = TestTime();
+    Axes* icrf = aAxesICRF();
+    ASSERT_NE(icrf, nullptr);
+
+    // 体 X 严格对齐参考 Y，体 Y 在此前提下尽量对齐参考 Z
+    TestConstantVector aligned;
+    aligned.axes_ = icrf;
+    aligned.value_ = Vector3d{0.0, 1.0, 0.0};
+
+    TestConstantVector constrained;
+    constrained.axes_ = icrf;
+    constrained.value_ = Vector3d{0.0, 0.0, 1.0};
+
+    AttitudeAlignConstrain profile;
+    profile.setAlignedVector(&aligned);
+    profile.setConstrainedVector(&constrained);
+    profile.setAlignedAxis(Vector3d{1.0, 0.0, 0.0});
+    profile.setConstrainedAxis(Vector3d{0.0, 1.0, 0.0});
+
+    // 参考系到本体系是 X->Y, Y->Z, Z->X 的循环置换
+    // 体轴矢量与约束轴矢量都取自参考系下的值
+    Matrix3d expected;
+    expected(0, 0) = 0.0; expected(0, 1) = 1.0; expected(0, 2) = 0.0;
+    expected(1, 0) = 0.0; expected(1, 1) = 0.0; expected(1, 2) = 1.0;
+    expected(2, 0) = 1.0; expected(2, 1) = 0.0; expected(2, 2) = 0.0;
+
+    Rotation rot;
+    ASSERT_EQ(profile.getTransform(tp, rot), eNoError);
+    ExpectSameMatrix(rot.getMatrix(), expected, 1e-13);
+    ExpectOrthonormal(rot.getMatrix());
+
+    // 本体系的 X 轴应当在参考系下指向参考 Y
+    // (R^T·e_x)_i = R(0, i)，即转置矩阵的第 0 列
+    const Matrix3d m = rot.getMatrix();
+    Vector3d bodyXInRef{m(0, 0), m(0, 1), m(0, 2)};
+    EXPECT_NEAR((bodyXInRef - Vector3d{0.0, 1.0, 0.0}).norm(), 0.0, 1e-13);
+
+    KinematicRotation kr;
+    ASSERT_EQ(profile.getTransform(tp, kr), eNoError);
+    ExpectSameMatrix(kr.getRotation().getMatrix(), expected, 1e-13);
+}
+
+TEST_F(AttitudeProfileTest, AttitudeAlignConstrainNullVectors)
+{
+    const TimePoint tp = TestTime();
+    AttitudeAlignConstrain profile;
+
+    EXPECT_EQ(profile.getParent(), nullptr);
+
+    // 未设置对齐/约束矢量时无法定姿
+    Rotation rot;
+    EXPECT_EQ(profile.getTransform(tp, rot), eErrorNullPtr);
+
+    KinematicRotation kr;
+    EXPECT_EQ(profile.getTransform(tp, kr), eErrorNullPtr);
+}
+
 GTEST_MAIN()

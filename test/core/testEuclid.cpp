@@ -31,6 +31,7 @@
 #include "ast/KinematicRotation.hpp"
 #include "ast/Matrix.hpp"
 #include "ast/Vector.hpp"
+#include "ast/AccelerationRotation.hpp"
 #include "ast/AstTestMacro.h"
 #include <cmath>
 
@@ -385,6 +386,290 @@ TEST_F(EuclidTest, PointGetPosVelAccErrorPropagation)
     Vector3d pos, vel, acc;
     errc_t rc = point.getPosVelAcc(tp, pos, vel, acc);
     EXPECT_EQ(rc, eErrorNotFound);
+}
+
+// ============================================
+// Vector::getVector / getVectorIn 测试
+// ============================================
+
+/// @brief 测试用向量：在自身轴系下做匀速圆周运动，值与速度有解析解，
+///        加速度为 -ω²·vec，用于校验默认实现的差商
+class TestCircularVector : public Vector
+{
+public:
+    using Vector::getVector;   // 引入加速度版本的默认实现
+
+    Axes* getAxes() const override { return axes_; }
+
+    errc_t getVector(const TimePoint& tp, Vector3d& vec) const override
+    {
+        Vector3d vel;
+        return getVector(tp, vec, vel);
+    }
+
+    errc_t getVector(const TimePoint& tp, Vector3d& vec, Vector3d& vel) const override
+    {
+        const double t = tp - epoch_;
+        const double c = std::cos(rate_ * t);
+        const double s = std::sin(rate_ * t);
+        vec = Vector3d{radius_ * c, radius_ * s, 0.0};
+        vel = Vector3d{-radius_ * rate_ * s, radius_ * rate_ * c, 0.0};
+        return eNoError;
+    }
+
+    Axes* axes_{nullptr};
+    TimePoint epoch_{};
+    double radius_{7000e3};   ///< 半径 [m]
+    double rate_{1.0e-3};     ///< 角速度 [rad/s]
+};
+
+/// @brief 测试用向量：在 [begin_, end_] 内做匀加速直线运动，
+///        区间外返回错误，用于触发默认加速度实现的前向/后向/双失败分支
+class TestWindowedVector : public Vector
+{
+public:
+    using Vector::getVector;   // 引入加速度版本的默认实现
+
+    Axes* getAxes() const override { return nullptr; }
+
+    errc_t getVector(const TimePoint& tp, Vector3d& vec) const override
+    {
+        Vector3d vel;
+        return getVector(tp, vec, vel);
+    }
+
+    errc_t getVector(const TimePoint& tp, Vector3d& vec, Vector3d& vel) const override
+    {
+        if (tp < begin_ || tp > end_)
+            return eErrorNotFound;
+        const double t = tp - epoch_;
+        vec = Vector3d{0.5 * accel_ * t * t, 0.0, 0.0};
+        vel = Vector3d{accel_ * t, 0.0, 0.0};
+        return eNoError;
+    }
+
+    TimePoint epoch_{};
+    TimePoint begin_{};
+    TimePoint end_{};
+    double accel_{2.5};   ///< 加速度 [m/s²]
+};
+
+/// @brief 测试用向量：任何查询都失败，且没有所属轴系
+class TestFailingVector : public Vector
+{
+public:
+    using Vector::getVector;   // 引入加速度版本的默认实现
+
+    Axes* getAxes() const override { return nullptr; }
+    errc_t getVector(const TimePoint&, Vector3d&) const override { return eErrorNotFound; }
+    errc_t getVector(const TimePoint&, Vector3d&, Vector3d&) const override { return eErrorNotFound; }
+};
+
+TEST_F(EuclidTest, VectorGetVectorAccDefault)
+{
+    TestCircularVector vec;
+    vec.epoch_ = TimePoint::FromUTC(2026, 3, 4, 0, 0, 0);
+    const TimePoint tp = vec.epoch_ + 3600.0;
+
+    Vector3d v, vdot, vddot;
+    errc_t rc = vec.getVector(tp, v, vdot, vddot);
+    EXPECT_EQ(rc, eNoError);
+
+    // 值与速度直接来自解析解
+    const double t = tp - vec.epoch_;
+    const double c = std::cos(vec.rate_ * t);
+    const double s = std::sin(vec.rate_ * t);
+    EXPECT_NEAR(v.x(), vec.radius_ * c, 1e-6);
+    EXPECT_NEAR(v.y(), vec.radius_ * s, 1e-6);
+    EXPECT_NEAR(vdot.x(), -vec.radius_ * vec.rate_ * s, 1e-9);
+    EXPECT_NEAR(vdot.y(), vec.radius_ * vec.rate_ * c, 1e-9);
+
+    // 加速度默认为速度的中心差分，应与解析值 -ω²·v 一致
+    const Vector3d accExpected = v * (-vec.rate_ * vec.rate_);
+    EXPECT_NEAR((vddot - accExpected).norm(), 0.0, 1e-8 * accExpected.norm());
+}
+
+TEST_F(EuclidTest, VectorGetVectorAccDifferenceBranches)
+{
+    const TimePoint epoch = TimePoint::FromUTC(2026, 3, 4, 0, 0, 0);
+    Vector3d v, vdot, vddot;
+
+    // 中心差分：两侧都取得到
+    {
+        TestWindowedVector vec;
+        vec.epoch_ = epoch;
+        vec.begin_ = epoch;
+        vec.end_   = epoch + 100.0;
+
+        EXPECT_EQ(vec.getVector(epoch + 50.0, v, vdot, vddot), eNoError);
+        EXPECT_NEAR(vddot.x(), vec.accel_, 1e-9);
+        EXPECT_NEAR(vddot.y(), 0.0, 1e-12);
+        EXPECT_NEAR(vddot.z(), 0.0, 1e-12);
+    }
+
+    // 前向差分：起点处 t-h 取不到
+    {
+        TestWindowedVector vec;
+        vec.epoch_ = epoch;
+        vec.begin_ = epoch;
+        vec.end_   = epoch + 100.0;
+
+        EXPECT_EQ(vec.getVector(epoch, v, vdot, vddot), eNoError);
+        EXPECT_NEAR(vddot.x(), vec.accel_, 1e-9);
+    }
+
+    // 后向差分：终点处 t+h 取不到
+    {
+        TestWindowedVector vec;
+        vec.epoch_ = epoch;
+        vec.begin_ = epoch;
+        vec.end_   = epoch + 100.0;
+
+        EXPECT_EQ(vec.getVector(epoch + 100.0, v, vdot, vddot), eNoError);
+        EXPECT_NEAR(vddot.x(), vec.accel_, 1e-9);
+    }
+
+    // 两侧都取不到：返回原始错误码，不返回零加速度
+    {
+        TestWindowedVector vec;
+        vec.epoch_ = epoch;
+        vec.begin_ = epoch;
+        vec.end_   = epoch + 0.01;   // 比差分步长还窄
+
+        EXPECT_EQ(vec.getVector(epoch + 0.005, v, vdot, vddot), eErrorNotFound);
+    }
+}
+
+TEST_F(EuclidTest, VectorGetVectorAccErrorPropagation)
+{
+    TestFailingVector vec;
+    const TimePoint tp = TimePoint::FromUTC(2026, 3, 4, 0, 0, 0);
+
+    Vector3d v, vdot, vddot;
+    EXPECT_EQ(vec.getVector(tp, v, vdot, vddot), eErrorNotFound);
+}
+
+TEST_F(EuclidTest, VectorGetVectorInNullTargets)
+{
+    const TimePoint tp = TimePoint::FromUTC(2026, 3, 4, 0, 0, 0);
+    TestFailingVector vec;
+    Vector3d v, vdot, vddot;
+
+    EXPECT_EQ(vec.getVectorIn(static_cast<Axes*>(nullptr), tp, v), eErrorNullPtr);
+    EXPECT_EQ(vec.getVectorIn(static_cast<Axes*>(nullptr), tp, v, vdot), eErrorNullPtr);
+    EXPECT_EQ(vec.getVectorIn(static_cast<Axes*>(nullptr), tp, v, vdot, vddot), eErrorNullPtr);
+
+    EXPECT_EQ(vec.getVectorIn(static_cast<Frame*>(nullptr), tp, v), eErrorNullPtr);
+    EXPECT_EQ(vec.getVectorIn(static_cast<Frame*>(nullptr), tp, v, vdot), eErrorNullPtr);
+    EXPECT_EQ(vec.getVectorIn(static_cast<Frame*>(nullptr), tp, v, vdot, vddot), eErrorNullPtr);
+}
+
+TEST_F(EuclidTest, VectorGetVectorInNullOwnAxes)
+{
+    const TimePoint tp = TimePoint::FromUTC(2026, 3, 4, 0, 0, 0);
+    Axes* icrf = aAxesICRF();
+    ASSERT_NE(icrf, nullptr);
+
+    TestFailingVector vec;   // getAxes() 返回空
+    Vector3d v, vdot, vddot;
+
+    EXPECT_EQ(vec.getVectorIn(*icrf, tp, v), eErrorNullPtr);
+    EXPECT_EQ(vec.getVectorIn(*icrf, tp, v, vdot), eErrorNullPtr);
+    EXPECT_EQ(vec.getVectorIn(*icrf, tp, v, vdot, vddot), eErrorNullPtr);
+}
+
+TEST_F(EuclidTest, VectorGetVectorInOwnAxes)
+{
+    const TimePoint epoch = TimePoint::FromUTC(2026, 3, 4, 0, 0, 0);
+    const TimePoint tp = epoch + 3600.0;
+    Axes* icrf = aAxesICRF();
+    ASSERT_NE(icrf, nullptr);
+
+    TestCircularVector vec;
+    vec.axes_ = icrf;
+    vec.epoch_ = epoch;
+
+    // 目标轴系与向量自身轴系相同，应直接给出自身轴系下的值
+    Vector3d refV, refVdot, refVddot;
+    ASSERT_EQ(vec.getVector(tp, refV, refVdot, refVddot), eNoError);
+
+    Vector3d v, vdot, vddot;
+    EXPECT_EQ(vec.getVectorIn(*icrf, tp, v), eNoError);
+    EXPECT_NEAR((v - refV).norm(), 0.0, 1e-12);
+
+    EXPECT_EQ(vec.getVectorIn(*icrf, tp, v, vdot), eNoError);
+    EXPECT_NEAR((v - refV).norm(), 0.0, 1e-12);
+    EXPECT_NEAR((vdot - refVdot).norm(), 0.0, 1e-12);
+
+    EXPECT_EQ(vec.getVectorIn(*icrf, tp, v, vdot, vddot), eNoError);
+    EXPECT_NEAR((v - refV).norm(), 0.0, 1e-12);
+    EXPECT_NEAR((vdot - refVdot).norm(), 0.0, 1e-12);
+    EXPECT_NEAR((vddot - refVddot).norm(), 0.0, 1e-12);
+}
+
+TEST_F(EuclidTest, VectorGetVectorInOtherAxes)
+{
+    const TimePoint epoch = TimePoint::FromUTC(2026, 3, 4, 0, 0, 0);
+    const TimePoint tp = epoch + 3600.0;
+    Axes* icrf = aAxesICRF();
+    ASSERT_NE(icrf, nullptr);
+
+    auto earth = aGetEarth();
+    ASSERT_NE(earth, nullptr);
+    auto ecf = earth->makeFrameFixed();
+    ASSERT_NE(ecf, nullptr);
+    Axes* ecfAxes = ecf->getAxes();
+    ASSERT_NE(ecfAxes, nullptr);
+
+    TestCircularVector vec;
+    vec.axes_ = icrf;
+    vec.epoch_ = epoch;
+
+    Vector3d ownV, ownVdot;
+    ASSERT_EQ(vec.getVector(tp, ownV, ownVdot), eNoError);
+
+    // 期望值由独立的轴系变换给出（source -> target，与实现同向）
+    Rotation rot;
+    ASSERT_EQ(aAxesTransform(icrf, ecfAxes, tp, rot), eNoError);
+    Vector3d expectV;
+    rot.transformVector(ownV, expectV);
+
+    KinematicRotation krot;
+    ASSERT_EQ(aAxesTransform(icrf, ecfAxes, tp, krot), eNoError);
+    Vector3d expectVdot;
+    krot.transformVectorVelocity(ownV, ownVdot, expectV, expectVdot);
+
+    Vector3d v, vdot;
+    EXPECT_EQ(vec.getVectorIn(*ecfAxes, tp, v), eNoError);
+    EXPECT_NEAR((v - expectV).norm(), 0.0, 1e-9 * expectV.norm());
+
+    EXPECT_EQ(vec.getVectorIn(*ecfAxes, tp, v, vdot), eNoError);
+    EXPECT_NEAR((v - expectV).norm(), 0.0, 1e-9 * expectV.norm());
+    EXPECT_NEAR((vdot - expectVdot).norm(), 0.0, 1e-9 * expectVdot.norm());
+
+    // 坐标系重载只取坐标系的轴系部分
+    Vector3d vFrame, vdotFrame;
+    EXPECT_EQ(vec.getVectorIn(*ecf, tp, vFrame), eNoError);
+    EXPECT_NEAR((vFrame - expectV).norm(), 0.0, 1e-9 * expectV.norm());
+
+    EXPECT_EQ(vec.getVectorIn(*ecf, tp, vFrame, vdotFrame), eNoError);
+    EXPECT_NEAR((vFrame - expectV).norm(), 0.0, 1e-9 * expectV.norm());
+    EXPECT_NEAR((vdotFrame - expectVdot).norm(), 0.0, 1e-9 * expectVdot.norm());
+
+    // 加速度版本：与显式构造的加速度旋转一致
+    AccelerationRotation arot;
+    ASSERT_EQ(aAxesTransform(icrf, ecfAxes, tp, arot), eNoError);
+    Vector3d ownVddot;
+    ASSERT_EQ(vec.getVector(tp, ownV, ownVdot, ownVddot), eNoError);
+    Vector3d expectVddot;
+    arot.transformVecVelAcc(ownV, ownVdot, ownVddot, expectV, expectVdot, expectVddot);
+
+    Vector3d vacc;
+    EXPECT_EQ(vec.getVectorIn(*ecfAxes, tp, v, vdot, vacc), eNoError);
+    EXPECT_NEAR((vacc - expectVddot).norm(), 0.0, 1e-9 * expectVddot.norm());
+
+    EXPECT_EQ(vec.getVectorIn(*ecf, tp, vFrame, vdotFrame, vacc), eNoError);
+    EXPECT_NEAR((vacc - expectVddot).norm(), 0.0, 1e-9 * expectVddot.norm());
 }
 
 GTEST_MAIN()
