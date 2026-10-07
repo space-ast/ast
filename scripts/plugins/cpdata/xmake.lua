@@ -11,7 +11,7 @@ task("cpdata")
         local arch = config.arch()
         local mode = config.mode()
         local datadir = path.join(os.projectdir(), "data")
-        local testdatadir = path.join(os.projectdir(), "test/data/*")
+        local testdatadir = path.join(os.projectdir(), "test-data/*")
         local dstpath = path.join(os.projectdir(), format("build/%s/%s/%s/", plat, arch, mode))
         if not os.exists(dstpath) then
             os.mkdir(dstpath)

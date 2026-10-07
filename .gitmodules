@@ -33,6 +33,6 @@
 [submodule ".agents/notes"]
 	path = .agents/notes
 	url = https://github.com/space-ast/ast-agents-notes.git
-[submodule "test/data"]
-	path = test/data
+[submodule "test-data"]
+	path = test-data
 	url = https://github.com/space-ast/ast-test-data
