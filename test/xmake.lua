@@ -32,7 +32,7 @@ add_packages("benchmark")
 set_warnings("more")
 
 -- 单元测试代码（如果没有gtest库，则使用内置测试框架 AstTest/TestFramework.hpp）
-local test_files1 = os.files("**/test*.cpp|Archive/**|GUI/**")
+local test_files1 = os.files("**/test*.cpp|archive/**|gui/**")
 for _, file in ipairs(test_files1) do
     local basename = path.basename(file)
     target(basename)
@@ -51,7 +51,7 @@ end
 
 -- GUI测试代码
 if has_package("qt") then
-    local test_files = os.files("GUI/**.cpp")
+    local test_files = os.files("gui/**.cpp")
     for _, file in ipairs(test_files) do
         -- local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
         local basename = path.basename(file)
@@ -68,7 +68,7 @@ end
 
 -- 性能测试代码
 if has_package("benchmark") then
-    local bm_files = os.files("**/bm*.cpp|Archive/**", "**/bm*.c")
+    local bm_files = os.files("**/bm*.cpp|archive/**", "**/bm*.c")
     for _, file in ipairs(bm_files) do
         -- local targetname = file:gsub("[\\/]", "_"):gsub("%.[^.]*$", "")
         local basename = path.basename(file)

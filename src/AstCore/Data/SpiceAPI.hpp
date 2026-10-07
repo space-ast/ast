@@ -48,6 +48,7 @@ public:
     enum{
         ifurnsh = 0,
         ispkgeo,
+        ispkssb,
         ispklef,
         ispkuef,
         iktotal,
@@ -97,7 +98,7 @@ public: // 包装函数
     /// @return 错误码
     errc_t furnsh(const char* file);
 
-    /// @brief 计算spice位置
+    /// @brief 计算天体的相对星历
     /// @param targ 目标体ID
     /// @param et 时间，相对于J2000.0 TDB的秒数，并以TDB为时间递进尺度
     /// @param ref 参考系
@@ -113,6 +114,20 @@ public: // 包装函数
         double         state[6],
         double       * lt      
     );
+
+
+    /// @brief 计算天体在太阳系质心下的星历
+    /// @param targ 目标体ID
+    /// @param et 时间，相对于J2000.0 TDB的秒数，并以TDB为时间递进尺度
+    /// @param ref 参考系
+    /// @param starg 状态向量
+    errc_t spkssb(
+        int           targ,
+        double        et,
+        const char   *ref,
+        double        starg[6]
+    );
+
 
     /// @brief 加载SPK内核文件
     /// @details 在CSPICE的接口基础上增加了引用计数机制

@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Version.hpp"
+#include "AstConfig.h"
 #include <cstdlib>
 #include <cctype>
 #include <climits>
@@ -323,6 +324,17 @@ int Version::compare(const Version& other) const
 
     // 构建版本号不影响优先级（semver 2.0.0 §10）
     return 0;
+}
+
+const Version& aVersion()
+{
+    static const Version version(AST_VERSION_MAJOR, AST_VERSION_MINOR, AST_VERSION_ALTER);
+    return version;
+}
+
+const char* aVersionStr()
+{
+    return AST_VERSION;
 }
 
 AST_NAMESPACE_END

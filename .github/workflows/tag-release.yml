@@ -66,3 +66,46 @@ jobs:
             --generate-notes \
             --target "${{ github.sha }}"
           echo "标签与发布 $TAG 已创建"
+
+      - name: 给 data 子模块打标签
+        id: tag_data
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.version.outputs.tag }}"
+          DATA_REPO="space-ast/ast-data"
+
+          # 获取本次发布配套的data子模块的提交 SHA
+          SHA=$(git ls-tree "${{ github.sha }}" data | awk '{print $3}')
+          if ! [[ "$SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::在 ${{ github.sha }} 中找不到 data 子模块, 取到的是「$SHA」"
+            exit 1
+          fi
+          echo "data 子模块提交: $SHA"
+
+          # 幂等：远端已有同名标签就跳过，重跑安全
+          if gh api "repos/$DATA_REPO/git/ref/tags/$TAG" >/dev/null 2>&1; then
+            echo "$DATA_REPO 上已存在标签 $TAG, 跳过创建"
+            exit 0
+          fi
+
+          gh api --method POST "repos/$DATA_REPO/git/refs" \
+            -f ref="refs/tags/$TAG" \
+            -f sha="$SHA" \
+            --jq '"已创建 " + .ref + " → " + .object.sha'
+
+      # 上一步配置了 continue-on-error，必须往 Summary 里写日志
+      - name: 记录 data 标签失败信息
+        if: steps.tag_data.outcome == 'failure'
+        shell: bash
+        run: |
+          echo "::warning::ast-data 的标签 ${{ steps.version.outputs.tag }} 未打上"
+          {
+            echo "### ⚠️ data 子模块打标签失败"
+            echo
+            echo "主仓库的 ${{ steps.version.outputs.tag }} 已发布, ast-data 上的同名标签没打上。"
+            echo "看「给 data 子模块打标签」这步的日志确认原因
+          } >> "$GITHUB_STEP_SUMMARY"

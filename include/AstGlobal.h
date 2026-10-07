@@ -512,6 +512,7 @@ class Color;                 ///< 颜色
 
 class Quaternion;            ///< 四元数
 class Euler;                 ///< 欧拉角
+class AngleAxis;             ///< 轴角
 
 class CartState;             ///< 直角坐标
 class ModOrbElem;            ///< 改进轨道根数
@@ -549,10 +550,14 @@ class Rotation;              ///< 旋转
 class Transform;             ///< 变换
 class KinematicRotation;     ///< 动力学旋转
 class KinematicTransform;    ///< 动力学变换
+class AccelerationRotation;  ///< 加速度旋转
+class AccelerationTransform; ///< 加速度变换
 
 class Frame;                 ///< 坐标系
 class Axes;                  ///< 坐标轴
 class Point;                 ///< 坐标点
+class Vector;                ///< 向量
+class Angle;                 ///< 角度
 class CelestialBody;         ///< 天体
 class BodyShape;             ///< 天体形状
 using Body = CelestialBody;  

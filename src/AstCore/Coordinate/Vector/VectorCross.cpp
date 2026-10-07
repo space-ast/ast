@@ -21,6 +21,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "VectorCross.hpp"
+#include "AstMath/GeometryUtil.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -95,12 +96,7 @@ errc_t VectorCross::getVector(const TimePoint& tp, Vector3d& vec, Vector3d& vel)
     Vector3d v2, v2_dot;
     err = vector2_->getVectorIn(axes, tp, v2, v2_dot);
     if (err != eNoError) return err;
-
-    // C = A × B
-    vec = v1.cross(v2);
-    // dC/dt = (dA/dt × B) + (A × dB/dt)
-    vel = v1_dot.cross(v2) + v1.cross(v2_dot);
-
+    aVectorCross(v1, v1_dot, v2, v2_dot, vec, vel);
     return eNoError;
 }
 

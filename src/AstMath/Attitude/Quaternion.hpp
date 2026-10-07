@@ -24,6 +24,7 @@
 #include "AstMath/MathOperator.hpp"
 #include "AstMath/Matrix.hpp"
 #include "AstMath/AttitudeConvertProto.hpp"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
@@ -159,7 +160,9 @@ public:
 		aQuatToMatrix(*this, mtx);
 		return mtx;
 	}
-
+public:
+	AST_MATH_API
+	std::string toString() const;
 public:
 	// 设置为public仅为实现聚合初始化，不要直接访问成员变量
 	double qs_;

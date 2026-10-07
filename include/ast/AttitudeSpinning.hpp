@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeSpinning.hpp"
+#include "AstCore/AttitudeSpinning.hpp"

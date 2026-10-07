@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeGPS.hpp"
+#include "AstCore/AttitudeGPS.hpp"

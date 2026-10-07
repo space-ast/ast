@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeTargetPointing.hpp"
+#include "AstCore/AttitudeTargetPointing.hpp"

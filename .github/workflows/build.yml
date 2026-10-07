@@ -284,7 +284,7 @@ jobs:
 
       - name: 恢复归档测试用例
         shell: bash
-        run: cp -r test/Archive/* test
+        run: cp -r test/archive/* test
 
       - name: 测试
         timeout-minutes: 90
@@ -580,6 +580,6 @@ jobs:
       - name: 测试
         timeout-minutes: 90
         run: |
-          cp -r test/Archive/* test
+          cp -r test/archive/* test
           xmake cpdata
           xmake test --output-on-failure

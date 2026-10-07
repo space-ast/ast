@@ -68,7 +68,7 @@ public:
     bool operator>=(const Version& other) const{return compare(other) >= 0;}
 
 public:
-    bool valid() const{return major_ > 0;}
+    bool valid() const{return major_ >= 0;}
 
     int major() const{return major_;} 
     void setMajor(int major){major_ = major;}
@@ -86,12 +86,18 @@ public:
     void setBuild(StringView build){build_ = std::string(build);}
 
 private:
-    int major_{-1};                 ///< 主版本号
-    int minor_{0};                  ///< 次版本号
-    int patch_{0};                  ///< 修订版本号
+    int major_{-1};                  ///< 主版本号
+    int minor_{0};                   ///< 次版本号
+    int patch_{0};                   ///< 修订版本号
     std::string prerelease_{};       ///< 预发布版本号
     std::string build_{};            ///< 构建版本号
 };
+
+/// @brief 获取本库的版本号
+AST_UTIL_API const Version& aVersion();
+
+/// @brief 获取本库的版本文本
+AST_UTIL_API const char* aVersionStr();
 
 /*! @} */
 

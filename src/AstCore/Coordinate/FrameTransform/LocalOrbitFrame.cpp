@@ -27,6 +27,33 @@
 
 AST_NAMESPACE_BEGIN
 
+/// @brief     计算局部轨道系相对输入系的角速度（分量在输入系下分解）
+/// @param     posInFrame 位置向量
+/// @param     velInFrame 速度向量
+/// @param     accInFrame 加速度向量，取零时退化为二体（开普勒）情形
+/// @return    角速度向量
+/// @note      VVLH、LVLH 等局部轨道系彼此只差固定的轴重排，相对输入系的角速度相同，故共用本函数。
+///            要求 pos/vel/acc 是同一参考系下位置的一、二阶时间导数。
+static Vector3d localOrbitFrameRate(const Vector3d& posInFrame, const Vector3d& velInFrame, const Vector3d& accInFrame)
+{
+    /*!
+        h = r×v 为轨道角动量，ĥ = h/|h| 为轨道法向。角速度由两项组成：
+
+        - 轨道角速度 ω = (r×v)/|r|²，沿 ĥ，大小为 |h|/|r|²。它是二体（开普勒）运动下的精确值：
+          此时轨道面在惯性空间固定（ḣ = r×a = 0），角速度只由位置和速度确定。
+
+        - 轨道面进动项 ĥ×(r×a)/|h|，由加速度的离面分量决定。
+          因为 ḣ = r×a 且 ĥ·(r×a) = 0，故 dĥ/dt = (r×a)/|h|；单位轴的转动满足 ė = ω×e，而 (ĥ×d)×ĥ = d（d ⊥ ĥ），即得该项。
+          取 a 为二体加速度时 r×a = 0，该项消失。
+
+        该项即 J2 交点进动等的来源，量级约 |a|/|v|
+    */
+    Vector3d h = posInFrame.cross(velInFrame);
+    Vector3d rate = h * (1.0 / posInFrame.squaredNorm());
+    rate += h.cross(posInFrame.cross(accInFrame)) * (1.0 / h.squaredNorm());
+    return rate;
+}
+
 errc_t aFrameToVVLHMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame, Matrix3d& matrix)
 {
     Vector3d axis_y = velInFrame.cross(posInFrame);
@@ -48,6 +75,26 @@ errc_t aFrameToVVLHMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame
         };
 		return eNoError;
 	}
+}
+
+errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, Rotation& rotation)
+{
+    return aFrameToVVLHMatrix(posInFrame, velInFrame, rotation.getMatrix());
+}
+
+errc_t aFrameToVVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, const Vector3d& accInFrame, KinematicRotation& rotation)
+{
+    errc_t rc = aFrameToVVLHMatrix(posInFrame, velInFrame, rotation.getRotation().getMatrix());
+    if (A_UNLIKELY(rc != eNoError))
+    {
+        rotation.setRotationRate(Vector3d::Zero());
+        return rc;
+    }
+
+    // VVLH 与 LVLH 只差一组固定的轴重排（X_VVLH = Y_LVLH，Y_VVLH = -Z_LVLH，Z_VVLH = -X_LVLH），
+    // 两系相对彼此静止，故相对输入系的角速度相同，公式见 localOrbitFrameRate。
+    rotation.setRotationRate(localOrbitFrameRate(posInFrame, velInFrame, accInFrame));
+    return eNoError;
 }
 
 errc_t aVVLHToFrameMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame, Matrix3d& matrix)
@@ -76,6 +123,25 @@ errc_t aFrameToLVLHMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame
         };
         return eNoError;
     }
+}
+
+errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, Rotation& rotation)
+{
+    return aFrameToLVLHMatrix(posInFrame, velInFrame, rotation.getMatrix());
+}
+
+errc_t aFrameToLVLHTransform(const Vector3d& posInFrame, const Vector3d& velInFrame, const Vector3d& accInFrame, KinematicRotation& rotation)
+{
+    errc_t rc = aFrameToLVLHMatrix(posInFrame, velInFrame, rotation.getRotation().getMatrix());
+    if (A_UNLIKELY(rc != eNoError))
+    {
+        rotation.setRotationRate(Vector3d::Zero());
+        return rc;
+    }
+
+    // LVLH 是局部轨道系的基准取向，角速度公式见 localOrbitFrameRate。
+    rotation.setRotationRate(localOrbitFrameRate(posInFrame, velInFrame, accInFrame));
+    return eNoError;
 }
 
 errc_t aLVLHToFrameMatrix(const Vector3d& posInFrame, const Vector3d& velInFrame, Matrix3d& matrix)

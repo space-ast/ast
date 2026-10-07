@@ -45,6 +45,7 @@ public:
     Point* getOrigin() const override;
     errc_t getTransform(const TimePoint& tp, Transform& transform) const override;
     errc_t getTransform(const TimePoint& tp, KinematicTransform& transform) const override;
+    errc_t getTransform(const TimePoint& tp, AccelerationTransform& transform) const override;
 };
 
 A_ALWAYS_INLINE Frame* aFrameICRF()

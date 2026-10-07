@@ -67,6 +67,11 @@ errc_t Mover::generateEphemerisSpec()
 class Mover implements Point by ephemeris_
 */
 
+AttitudeProfile* Mover::getAttitudeProfile() const
+{
+    return orientation();
+}
+
 Body* Mover::getBody() const
 {
     if(auto motion = aobject_cast<MotionOrbitDynamics*>(motionProfile_.get()))

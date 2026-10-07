@@ -190,7 +190,7 @@ static fs::path aRelPathToAbs(const fs::path& relpath, const fs::path& basedir)
 
 std::string aGetDefaultSPKDir()
 {
-    return aDataDirGet() + "/Test/kernels/spk/";
+    return aDataDirGet() + "/kernels/spk/";
 }
 
 void _aGetInitalizeConfig_FromContextConfig(DataContext* context, InitalizeConfig& initalizeConfig)
@@ -229,14 +229,14 @@ void _aGetInitalizeConfig_FromDefault(InitalizeConfig& initalizeConfig)
     initalizeConfig.solarSystemDir_ = SolarSystem::defaultSolarSystemDir();
     const std::string spkdir = aGetDefaultSPKDir();
     initalizeConfig.spkFiles_ = {
-        spkdir + "ceres.bsp",
-        spkdir + "jupiter.bsp",
-        spkdir + "mars.bsp",
-        spkdir + "neptune.bsp",
-        spkdir + "planets.bsp",
-        spkdir + "pluto.bsp",
-        spkdir + "saturn.bsp",
-        spkdir + "uranus.bsp",
+        spkdir + "/ceres.bsp",
+        spkdir + "/jupiter.bsp",
+        spkdir + "/mars.bsp",
+        spkdir + "/neptune.bsp",
+        spkdir + "/planets.bsp",
+        spkdir + "/pluto.bsp",
+        spkdir + "/saturn.bsp",
+        spkdir + "/uranus.bsp",
     };
 }
 
@@ -270,24 +270,28 @@ errc_t aInitializeByDefault(DataContext* context)
     }
     
     // init thread local data context
+    
+    // spk 星历要在太阳系天体之前加载
+    const std::string spkdir = aGetDefaultSPKDir();
+    const std::vector<std::string> spkfiles = {
+        spkdir + "/ceres.bsp",
+        spkdir + "/jupiter.bsp",
+        spkdir + "/mars.bsp",
+        spkdir + "/neptune.bsp",
+        spkdir + "/planets.bsp",
+        spkdir + "/pluto.bsp",
+        spkdir + "/saturn.bsp",
+        spkdir + "/uranus.bsp",
+    };
+    err |= loadSPK(spkfiles);
+
     err |= context->leapSecond()->loadDefault();
     err |= context->jplDe()->openDefault();
     err |= context->eop()->loadDefault();
     //err |= context->spaceWeather()->loadDefault();
     err |= context->iauXYSPrecomputed()->loadDefault();
     err |= context->solarSystem()->loadDefault();
-    const std::string spkdir = aGetDefaultSPKDir();
-    const std::vector<std::string> spkfiles = {
-        spkdir + "ceres.bsp",
-        spkdir + "jupiter.bsp",
-        spkdir + "mars.bsp",
-        spkdir + "neptune.bsp",
-        spkdir + "planets.bsp",
-        spkdir + "pluto.bsp",
-        spkdir + "saturn.bsp",
-        spkdir + "uranus.bsp",
-    };
-    err |= loadSPK(spkfiles);
+
     context->setEpoch(TimePoint::TodayUTC());
 
     if(err != eNoError) {
@@ -330,13 +334,14 @@ errc_t aInitializeByConfig(DataContext* context, const InitalizeConfig& config)
     }
     
     // init thread local data context
+    // spk 星历要在太阳系天体之前加载
+    err |= loadSPK(config.spkFiles_);
     err |= context->leapSecond()->load(config.leapSecondFile_);
     err |= context->jplDe()->open(config.jplDeFile_.c_str());
     err |= context->eop()->load(config.eopFile_);
     // err |= context->spaceWeather()->load(config.spaceWeatherFile_);
     err |= context->iauXYSPrecomputed()->load(config.iauXYSPrecomputedFile_);
     err |= context->solarSystem()->load(config.solarSystemDir_);
-    err |= loadSPK(config.spkFiles_);
     context->setEpoch(TimePoint::TodayUTC());
 
     if(err != eNoError) {
@@ -868,5 +873,11 @@ errc_t aSpiceGetPosVelICRF(
 }
 
 
+bool aSpiceHasBodyEphemeris(int bodyId)
+{
+    // 通过测试能否成功获取 J2000.0 TDB 时的星历来判断是否加载了指定天体的星历数据
+    double state[6]{};
+    return SpiceAPI::Instance()->spkssb(bodyId, 0, "J2000", state) == eNoError;
+}
 
 AST_NAMESPACE_END

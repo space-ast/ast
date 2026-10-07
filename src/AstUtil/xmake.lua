@@ -9,6 +9,9 @@
     add_headerfiles("../../include/ast/*", {prefixdir="ast"})
     add_headerfiles("../../include/AstGlobal.h")
     add_headerfiles("../../include/AstCompiler.h")
+    add_headerfiles("../../include/AstConfig.h")
+    add_configfiles("../../include/AstConfig.h.in")
+    set_configdir("../../include/")
     add_defines("AST_BUILD_LIB_UTIL")
     -- add_extrafiles("xmake.lua")   
     if is_plat("linux") then

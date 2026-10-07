@@ -35,6 +35,14 @@ AST_NAMESPACE_BEGIN
 AST_TEST_CAPI StartupConfig* aTestGetConfig();
 
 
+/// @brief 获取测试数据目录
+/// @details 解析顺序：
+///          1. AST_TEST_DATA_DIR 环境变量；
+///          2. 动态库所在文件夹的 test-data 目录
+/// @return 测试数据目录路径
+AST_TEST_API std::string aTestDataDirGet();
+
+
 /// @brief 获取测试配置值
 /// @param key 配置键
 /// @return 配置值视图

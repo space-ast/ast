@@ -36,7 +36,7 @@ FILES_TO_DELETE = [
     os.path.join(ROOT_DIR, 'README_zh.md'),
     os.path.join(ROOT_DIR, 'README.md'),
     os.path.join(ROOT_DIR, 'src/README.dox'),
-    os.path.join(ROOT_DIR, 'test/Util/testIO.cpp'),
+    os.path.join(ROOT_DIR, 'test/util/testIO.cpp'),
     os.path.join(ROOT_DIR, "xpack.lua"),
     os.path.join(ROOT_DIR, "doxyfile"),
     os.path.join(ROOT_DIR, ".gitmodules")

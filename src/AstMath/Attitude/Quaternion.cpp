@@ -21,7 +21,14 @@
  
  
 AST_NAMESPACE_BEGIN
- 
+
+std::string Quaternion::toString() const
+{
+    char buf[128];
+    // 将四元数的标量部分与矢量部分用分号分割开来
+    snprintf(buf, sizeof(buf), "(%.16g; %.16g, %.16g, %.16g)", qs(), qx(), qy(), qz());
+    return std::string(buf);
+}
   
 AST_NAMESPACE_END
  

@@ -20,6 +20,8 @@
 
 #include "TestConfig.hpp"
 #include "AstCore/RunTime.hpp"
+#include "AstUtil/FileSystem.hpp"
+#include "AstUtil/Posix.hpp"
 #include <memory>
 
 AST_NAMESPACE_BEGIN
@@ -27,15 +29,44 @@ AST_NAMESPACE_BEGIN
 
 #define AST_DEFAULT_TEST_CONFIG_PATH AST_PROJECT_NAME "_testconfig_file.txt"
 
+/// 测试数据目录的环境变量名
+#define AST_ENV_TEST_DATA_DIR "AST_TEST_DATA_DIR"
+
+
+/// @brief 获取默认的测试数据目录
+static std::string aTestDataDirDefault()
+{
+    return aLibDir() + "/test-data";
+}
+
+std::string aTestDataDirGet()
+{
+    std::string datadir;
+    const char* envdir = posix::getenv(AST_ENV_TEST_DATA_DIR);
+    if(envdir && envdir[0] != '\0')
+        datadir = envdir;
+    else
+        datadir = aTestDataDirDefault();
+
+    if(!fs::exists(datadir))
+    {
+        aWarning(_("测试数据目录不存在：'%s'"), datadir.c_str());
+    }
+    return datadir;
+}
+
 
 std::shared_ptr<StartupConfig> aTestLoadConfig()
 {
     auto config = std::make_shared<StartupConfig>();
-    errc_t rc = config->load(AST_DEFAULT_TEST_CONFIG_PATH);
+    // 预置测试数据目录，供配置文件中的变量引用。
+    // 变量引用在加载时即解析，因此必须先于 load 写入；配置文件若自行定义该键则覆盖此值。
+    config->setConfig("TEST_DATA_DIR", aTestDataDirGet());
+    errc_t rc = config->loadAndMerge(AST_DEFAULT_TEST_CONFIG_PATH);
     if(rc){
         std::string configfile = aDataDir() + "/Config/" + AST_DEFAULT_TEST_CONFIG_PATH;
         aInfo(_("正在使用测试配置文件: %s"), configfile.c_str());
-        rc = config->load(configfile);
+        rc = config->loadAndMerge(configfile);
     }
     return config;
 }

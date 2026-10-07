@@ -31,6 +31,22 @@
 AST_NAMESPACE_BEGIN
 
 
+#define _AST_DEF_ROTATION_PROPERTIES\
+    const Rotation& rotation() const { return rotation_; }\
+    Rotation& rotation() { return rotation_; }\
+    const Rotation& getRotation() const { return rotation_; }\
+    Rotation& getRotation() { return rotation_; }\
+    void setRotation(const Rotation& rotation) { rotation_ = rotation; }\
+    const Matrix3d& matrix() const { return rotation_.matrix(); }\
+    Matrix3d& matrix() { return rotation_.matrix(); }\
+    const Matrix3d& getMatrix() const { return rotation_.matrix(); }\
+    Matrix3d& getMatrix() { return rotation_.matrix(); }\
+    void setMatrix(const Matrix3d& mat) { rotation_.setMatrix(mat); }\
+    Quaternion quaternion() const { return rotation_.getQuaternion(); }\
+    Quaternion getQuaternion() const { return rotation_.getQuaternion(); }\
+
+
+    
 /// @brief 坐标系旋转类
 /// @details 表示三维空间内的坐标系旋转
 /// 坐标系旋转类当前是基于坐标转换矩阵实现的，未来也可能会切换到四元数进行实现。
@@ -90,6 +106,8 @@ public:
     /// @return 旋转矩阵
     const Matrix3d& getMatrix() const { return matrix_; }
     Matrix3d& getMatrix() { return matrix_; }
+    const Matrix3d& matrix() const { return matrix_; }
+    Matrix3d& matrix() { return matrix_; }
 
     /// @brief 设置旋转矩阵
     /// @param mat 旋转矩阵

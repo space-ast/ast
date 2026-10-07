@@ -26,16 +26,29 @@
 
 AST_NAMESPACE_BEGIN
 
+#define _AST_DEF_KINEMATICROTATION_PROPERTIES\
+    _AST_DEF_ROTATION_PROPERTIES\
+    const Vector3d& rotationRate() const { return angvel_; }\
+    Vector3d& rotationRate() { return angvel_; }\
+    const Vector3d& getRotationRate() const { return angvel_; }\
+    Vector3d& getRotationRate() { return angvel_; }\
+    void setRotationRate(const Vector3d& angvel) { angvel_ = angvel; }\
+    KinematicRotation& kinematicRotation() { return reinterpret_cast<KinematicRotation&>(rotation_); }\
+    const KinematicRotation& kinematicRotation() const { return reinterpret_cast<const KinematicRotation&>(rotation_); }\
+    KinematicRotation& getKinematicRotation() { return kinematicRotation(); }\
+    const KinematicRotation& getKinematicRotation() const { return kinematicRotation(); }\
+    void setKinematicRotation(const KinematicRotation& rot) { kinematicRotation() = rot; }\
+
+
 /// @brief     运动学坐标系旋转
 /// @details   在静态坐标系旋转的基础上，增加了坐标系旋转的角速度信息
-class KinematicRotation: protected Rotation
+/// @note      角速度的参考系约定：angvel 表示本坐标系相对源坐标系(父坐标系)的角速度，
+///            且其分量在源坐标系(父坐标系)下分解。
+///            例如： aAxesTransform(source, target, tp, kr)
+///            给出的 kr.rotationRate() 是 target 相对 source 的角速度在 source 下的分量。
+class KinematicRotation
 {
 public:
-    using Rotation::getMatrix;
-    using Rotation::getQuaternion;
-    using Rotation::transformVector;
-    using Rotation::transformVectorInv;
-
     /// @brief 获取单位运动学旋转
     static KinematicRotation Identity();
 
@@ -53,23 +66,7 @@ public:
     /// @param angvel 旋转角速度
     KinematicRotation(const Matrix3d& mat, const Vector3d& angvel);
 
-    /// @brief 获取坐标系旋转角速度
-    /// @return 旋转角速度
-    const Vector3d& getRotationRate() const { return angvel_; }
-
-    /// @brief 设置坐标系旋转角速度
-    /// @param angvel 旋转角速度
-    void setRotationRate(const Vector3d& angvel) { angvel_ = angvel; }
-    
-    /// @brief 获取坐标系旋转
-    /// @return 旋转
-    const Rotation& getRotation() const { return *this; }
-    Rotation& getRotation() { return *this; }
-
-
-    /// @brief 设置坐标系旋转
-    /// @param rot 旋转
-    void setRotation(const Rotation& rot) { (Rotation&)*this = rot; }
+    _AST_DEF_KINEMATICROTATION_PROPERTIES
 
     /// @brief 组合下一个坐标系旋转
     /// @warning 组合旋转是先应用当前旋转，再应用下一个坐标系旋转。
@@ -122,6 +119,7 @@ public:
     /// @param velocityOut 变换后的速度
     void transformVectorVelocityInv(const Vector3d& vector, const Vector3d& velocity, Vector3d& vectorOut, Vector3d& velocityOut) const;
 protected:
+    Rotation rotation_{};     ///< 旋转
     Vector3d angvel_{};       ///< 角速度
 };
 
@@ -131,27 +129,27 @@ A_ALWAYS_INLINE KinematicRotation KinematicRotation::Identity()
 }
 
 A_ALWAYS_INLINE KinematicRotation::KinematicRotation(const Matrix3d &mat, const Vector3d &angvel)
-    : Rotation(mat)
+    : rotation_(mat)
     , angvel_(angvel)
 {
 }
 
 A_ALWAYS_INLINE KinematicRotation::KinematicRotation(const Rotation &rot, const Vector3d &angvel)
-    : Rotation(rot)
+    : rotation_(rot)
     , angvel_(angvel)
 {
 }
 
 A_ALWAYS_INLINE KinematicRotation &KinematicRotation::compose(const KinematicRotation &next)
 {
-    angvel_ = this->angvel_ + next.angvel_ * this->matrix_;
-    matrix_ = next.matrix_ * this->matrix_;
+    angvel_ = this->angvel_ + next.angvel_ * this->matrix();
+    matrix() = next.matrix() * this->matrix();
     return *this;
 }
 
 A_ALWAYS_INLINE KinematicRotation KinematicRotation::composed(const KinematicRotation &next) const
 {
-    return KinematicRotation(next.matrix_ * this->matrix_, this->angvel_ + next.angvel_ * this->matrix_);
+    return KinematicRotation(next.matrix() * this->matrix(), this->angvel_ + next.angvel_ * this->matrix());
 }
 
 A_ALWAYS_INLINE KinematicRotation KinematicRotation::operator*(const KinematicRotation &next) const
@@ -166,8 +164,8 @@ A_ALWAYS_INLINE KinematicRotation &KinematicRotation::operator*=(const Kinematic
 
 A_ALWAYS_INLINE void KinematicRotation::getInverse(KinematicRotation &inversed) const
 {
-    inversed.setRotationRate(-(this->matrix_*angvel_));
-    this->Rotation::getInverse(inversed);
+    inversed.setRotationRate(-(this->matrix()*angvel_));
+    this->rotation().getInverse(inversed.rotation());
 }
 
 A_ALWAYS_INLINE KinematicRotation KinematicRotation::inverse() const
@@ -180,8 +178,8 @@ A_ALWAYS_INLINE KinematicRotation KinematicRotation::inverse() const
 A_ALWAYS_INLINE void KinematicRotation::transformVectorVelocity(const Vector3d &vector, const Vector3d &velocity, Vector3d& vectorOut, Vector3d &velocityOut) const
 {
     // 注意：这里要先计算velocityOut，防止vector和vectorOut地址相同时值被覆盖
-    velocityOut = this->matrix_ * (velocity - this->angvel_.cross(vector));
-    vectorOut = this->matrix_ * vector;
+    velocityOut = this->matrix() * (velocity - this->angvel_.cross(vector));
+    vectorOut = this->matrix() * vector;
 }
 
 A_ALWAYS_INLINE CartState KinematicRotation::transformCartState(const CartState &state) const
@@ -193,8 +191,8 @@ A_ALWAYS_INLINE CartState KinematicRotation::transformCartState(const CartState 
 
 A_ALWAYS_INLINE void KinematicRotation::transformVectorVelocityInv(const Vector3d &vector, const Vector3d &velocity, Vector3d &vectorOut, Vector3d &velocityOut) const
 {
-    vectorOut = vector * this->matrix_;
-    velocityOut = velocity* this->matrix_ + this->angvel_.cross(vectorOut);
+    vectorOut = vector * this->matrix();
+    velocityOut = velocity* this->matrix() + this->angvel_.cross(vectorOut);
 }
 
 AST_NAMESPACE_END

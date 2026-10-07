@@ -124,7 +124,7 @@ errc_t BlockDrag::run(const SimTime& simTime)
         KinematicTransform transform; // 预报坐标系到大气模型参考坐标系的变换
         Frame* atmosFrame = atmosphere_->getFrame();
         propagationFrame_->getTransformTo(atmosFrame, tp, transform);
-        transform.transformPosition(*position_, posInAtmosFrame);
+        transform.transform().transformPosition(*position_, posInAtmosFrame);
 
         // 计算大气密度
         double density = atmosphere_->getDensity(tp, posInAtmosFrame);

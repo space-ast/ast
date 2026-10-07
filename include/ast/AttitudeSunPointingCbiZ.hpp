@@ -1,1 +1,1 @@
-#include "AstSim/AttitudeSunPointingCbiZ.hpp"
+#include "AstCore/AttitudeSunPointingCbiZ.hpp"

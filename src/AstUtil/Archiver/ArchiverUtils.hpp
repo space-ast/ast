@@ -75,8 +75,6 @@ enum class EArchiveFormat
     e7z,         ///< .7z
     eRar,        ///< .rar
     eGz,         ///< .gz
-    eDirectory,  ///< 目录（非归档文件）
-    eFile,       ///< 普通文件（非归档文件）
 };
 
 /// @brief 检测归档文件格式
@@ -84,6 +82,12 @@ enum class EArchiveFormat
 /// @param path 文件路径
 /// @return EArchiveFormat 检测到的格式
 AST_UTIL_API EArchiveFormat aDetectArchiveFormat(StringView path);
+
+/// @brief 仅通过魔数检测归档文件格式
+/// @param path 文件路径
+/// @return EArchiveFormat 检测到的格式
+AST_UTIL_API EArchiveFormat aDetectArchiveFormatByMagic(StringView path);
+
 
 /// @brief 检查文件是否为归档格式（可解压的压缩包）
 /// @param path 文件路径

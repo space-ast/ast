@@ -101,15 +101,18 @@ gitee_asset_names() {
     code=$(http_get "$(with_token "${GITEE_API}/releases/tags/${tag}" "${GITEE_TOKEN:-}")" \
         "$WORK/release.json") || die "请求 Gitee release 失败, 请检查网络"
     case "$code" in
-        200) id=$(jq_lf -r .id "$WORK/release.json") ;;
-        404)
-            log "Gitee 上还没有 $tag 的 release"
-            return 0
-            ;;
+        200) id=$(jq_lf -r '.id // empty' "$WORK/release.json") ;;
+        404) id="" ;;
         *)
             die "查询 Gitee release 返回 HTTP $code: $(head -c 300 "$WORK/release.json")"
             ;;
     esac
+
+    # tag 同步过来了但还没在 Gitee 上建 release 时, 接口回的是 200 + 字面量 null, 不是 404。
+    if [ -z "$id" ]; then
+        log "Gitee 上还没有 $tag 的 release"
+        return 0
+    fi
 
     code=$(http_get \
         "$(with_token "${GITEE_API}/releases/${id}/attach_files?per_page=100" "${GITEE_TOKEN:-}")" \
