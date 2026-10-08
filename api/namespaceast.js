@@ -137,7 +137,7 @@ var namespaceast =
     ] ],
     [ "AccelerationRotation", "classast_1_1AccelerationRotation.html", "classast_1_1AccelerationRotation" ],
     [ "AccelerationTransform", "classast_1_1AccelerationTransform.html", "classast_1_1AccelerationTransform" ],
-    [ "Access", "classast_1_1Access.html", null ],
+    [ "Access", "classast_1_1Access.html", "classast_1_1Access" ],
     [ "AccessConfig", "structast_1_1AccessConfig.html", "structast_1_1AccessConfig" ],
     [ "AccessConstraint", "classast_1_1AccessConstraint.html", "classast_1_1AccessConstraint" ],
     [ "AccessEvaluator", "classast_1_1AccessEvaluator.html", "classast_1_1AccessEvaluator" ],
@@ -696,6 +696,8 @@ var namespaceast =
     [ "Object", "classast_1_1Object.html", "classast_1_1Object" ],
     [ "object_ptr_holder", "structast_1_1object__ptr__holder.html", null ],
     [ "object_ptr_holder< Object >", "structast_1_1object__ptr__holder_3_01Object_01_4.html", null ],
+    [ "ObjectAccessConstraint", "classast_1_1ObjectAccessConstraint.html", null ],
+    [ "ObjectAccessConstraints", "classast_1_1ObjectAccessConstraints.html", null ],
     [ "ObjectCalculation", "classast_1_1ObjectCalculation.html", "classast_1_1ObjectCalculation" ],
     [ "ObjectEditRegistry", "classast_1_1ObjectEditRegistry.html", "classast_1_1ObjectEditRegistry" ],
     [ "ObjectLinker", "classast_1_1ObjectLinker.html", "classast_1_1ObjectLinker" ],
@@ -1376,6 +1378,12 @@ var namespaceast =
       [ "eAnnual", "namespaceast.html#ac0b82877894a659aa7aef5d2ebb241a8a1ccda31e6c549561a4c4623a50f6aa41", null ],
       [ "eDiurnal", "namespaceast.html#ac0b82877894a659aa7aef5d2ebb241a8a3992e2ca3529e8525892502374859c0a", null ],
       [ "eTotal", "namespaceast.html#ac0b82877894a659aa7aef5d2ebb241a8aea2732070f7b1cfa1804f5a521e85b56", null ]
+    ] ],
+    [ "EAccessConstraint", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fb", [
+      [ "eNone", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fbabe988781e4e1de1c6a36fb698afbbe1f", null ],
+      [ "eLineOfSight", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fbae93111a42ec969ff31192009251fe6aa", null ],
+      [ "eElevationAngle", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fba7b4cf15ae6b5c1ef7b77bfc69a936115", null ],
+      [ "eRange", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fba8ff4632dceee249faf2e5dbe7c1bba50", null ]
     ] ],
     [ "EAccumulationType", "namespaceast.html#acf4c23bf02a15f050f732e07786a2306", [
       [ "eTotal", "namespaceast.html#acf4c23bf02a15f050f732e07786a2306aea2732070f7b1cfa1804f5a521e85b56", null ],

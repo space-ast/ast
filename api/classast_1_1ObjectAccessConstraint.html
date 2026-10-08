@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::ObjectAccessConstraint类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1ObjectAccessConstraint.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1ObjectAccessConstraint-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::ObjectAccessConstraint类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="ObjectAccessConstraint_8hpp_source.html">ObjectAccessConstraint.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:add323b7899dd0bc5d7cab809f6c41bc6" id="r_add323b7899dd0bc5d7cab809f6c41bc6"><td class="memItemLeft" align="right" valign="top"><a id="add323b7899dd0bc5d7cab809f6c41bc6" name="add323b7899dd0bc5d7cab809f6c41bc6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectAccessConstraint</b> (<a class="el" href="namespaceast.html#a8e321e693ce80eb21906659e8a7485fb">EAccessConstraint</a> type)</td></tr>
+<tr class="separator:add323b7899dd0bc5d7cab809f6c41bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81b1182b5b3ce5e6413a8afa0619a0ed" id="r_a81b1182b5b3ce5e6413a8afa0619a0ed"><td class="memItemLeft" align="right" valign="top"><a id="a81b1182b5b3ce5e6413a8afa0619a0ed" name="a81b1182b5b3ce5e6413a8afa0619a0ed"></a>
+<a class="el" href="namespaceast.html#a8e321e693ce80eb21906659e8a7485fb">EAccessConstraint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> () const</td></tr>
+<tr class="separator:a81b1182b5b3ce5e6413a8afa0619a0ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb72b7a377f0a9c09d6d949b6a57922e" id="r_acb72b7a377f0a9c09d6d949b6a57922e"><td class="memItemLeft" align="right" valign="top"><a id="acb72b7a377f0a9c09d6d949b6a57922e" name="acb72b7a377f0a9c09d6d949b6a57922e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setType</b> (<a class="el" href="namespaceast.html#a8e321e693ce80eb21906659e8a7485fb">EAccessConstraint</a> type)</td></tr>
+<tr class="separator:acb72b7a377f0a9c09d6d949b6a57922e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdbc32c1c1a08beccc1395dfd7f9561c" id="r_abdbc32c1c1a08beccc1395dfd7f9561c"><td class="memItemLeft" align="right" valign="top"><a id="abdbc32c1c1a08beccc1395dfd7f9561c" name="abdbc32c1c1a08beccc1395dfd7f9561c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>enabled</b> () const</td></tr>
+<tr class="separator:abdbc32c1c1a08beccc1395dfd7f9561c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fd0b50d13d0591e8efd0bee42d6e6cc" id="r_a4fd0b50d13d0591e8efd0bee42d6e6cc"><td class="memItemLeft" align="right" valign="top"><a id="a4fd0b50d13d0591e8efd0bee42d6e6cc" name="a4fd0b50d13d0591e8efd0bee42d6e6cc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setEnabled</b> (bool enabled)</td></tr>
+<tr class="separator:a4fd0b50d13d0591e8efd0bee42d6e6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233d334eb73f4f2e8954a6f053f0abf2" id="r_a233d334eb73f4f2e8954a6f053f0abf2"><td class="memItemLeft" align="right" valign="top"><a id="a233d334eb73f4f2e8954a6f053f0abf2" name="a233d334eb73f4f2e8954a6f053f0abf2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>useMin</b> () const</td></tr>
+<tr class="separator:a233d334eb73f4f2e8954a6f053f0abf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c1fde5f7aecf30d77f37fa8b3f9a44a" id="r_a8c1fde5f7aecf30d77f37fa8b3f9a44a"><td class="memItemLeft" align="right" valign="top"><a id="a8c1fde5f7aecf30d77f37fa8b3f9a44a" name="a8c1fde5f7aecf30d77f37fa8b3f9a44a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setUseMin</b> (bool useMin)</td></tr>
+<tr class="separator:a8c1fde5f7aecf30d77f37fa8b3f9a44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06540181eae6de35b2c0a0addd55c7cf" id="r_a06540181eae6de35b2c0a0addd55c7cf"><td class="memItemLeft" align="right" valign="top"><a id="a06540181eae6de35b2c0a0addd55c7cf" name="a06540181eae6de35b2c0a0addd55c7cf"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>useMax</b> () const</td></tr>
+<tr class="separator:a06540181eae6de35b2c0a0addd55c7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af491eb8a08cd5218f66750650bb90efa" id="r_af491eb8a08cd5218f66750650bb90efa"><td class="memItemLeft" align="right" valign="top"><a id="af491eb8a08cd5218f66750650bb90efa" name="af491eb8a08cd5218f66750650bb90efa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setUseMax</b> (bool useMax)</td></tr>
+<tr class="separator:af491eb8a08cd5218f66750650bb90efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac353d24940b87c3e80722ee676d0dac8" id="r_ac353d24940b87c3e80722ee676d0dac8"><td class="memItemLeft" align="right" valign="top"><a id="ac353d24940b87c3e80722ee676d0dac8" name="ac353d24940b87c3e80722ee676d0dac8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>exclude</b> () const</td></tr>
+<tr class="separator:ac353d24940b87c3e80722ee676d0dac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b90018f8467dda75d1ffedab54be66" id="r_ab3b90018f8467dda75d1ffedab54be66"><td class="memItemLeft" align="right" valign="top"><a id="ab3b90018f8467dda75d1ffedab54be66" name="ab3b90018f8467dda75d1ffedab54be66"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setExclude</b> (bool exclude)</td></tr>
+<tr class="separator:ab3b90018f8467dda75d1ffedab54be66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc35a69d51006b925d16d27e61b006a6" id="r_acc35a69d51006b925d16d27e61b006a6"><td class="memItemLeft" align="right" valign="top"><a id="acc35a69d51006b925d16d27e61b006a6" name="acc35a69d51006b925d16d27e61b006a6"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>min</b> () const</td></tr>
+<tr class="separator:acc35a69d51006b925d16d27e61b006a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdc54280d8d3713335d8086e3a88cb5b" id="r_abdc54280d8d3713335d8086e3a88cb5b"><td class="memItemLeft" align="right" valign="top"><a id="abdc54280d8d3713335d8086e3a88cb5b" name="abdc54280d8d3713335d8086e3a88cb5b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMin</b> (double min)</td></tr>
+<tr class="separator:abdc54280d8d3713335d8086e3a88cb5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ac3b0ce9b3e01b9c32189cb790e280" id="r_ad6ac3b0ce9b3e01b9c32189cb790e280"><td class="memItemLeft" align="right" valign="top"><a id="ad6ac3b0ce9b3e01b9c32189cb790e280" name="ad6ac3b0ce9b3e01b9c32189cb790e280"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>max</b> () const</td></tr>
+<tr class="separator:ad6ac3b0ce9b3e01b9c32189cb790e280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeb131e265bcfd6f812d8ecd1cd9af35" id="r_aeeb131e265bcfd6f812d8ecd1cd9af35"><td class="memItemLeft" align="right" valign="top"><a id="aeeb131e265bcfd6f812d8ecd1cd9af35" name="aeeb131e265bcfd6f812d8ecd1cd9af35"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMax</b> (double max)</td></tr>
+<tr class="separator:aeeb131e265bcfd6f812d8ecd1cd9af35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>对象访问约束 </p>
+</div><hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstSim/Object/Component/<a class="el" href="ObjectAccessConstraint_8hpp_source.html">ObjectAccessConstraint.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1ObjectAccessConstraint.html">ObjectAccessConstraint</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

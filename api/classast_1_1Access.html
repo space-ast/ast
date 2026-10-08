@@ -99,6 +99,7 @@ $(function(){initNavTree('classast_1_1Access.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="classast_1_1Access-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::Access类 参考</div></div>
 </div><!--header-->
@@ -121,6 +122,10 @@ $(function(){initNavTree('classast_1_1Access.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
+<tr class="memitem:a877695eda2db67bb81286e4fce4f53e6" id="r_a877695eda2db67bb81286e4fce4f53e6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classast_1_1TimeIntervalList.html">TimeIntervalList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a877695eda2db67bb81286e4fce4f53e6">accessIntervals</a> () const</td></tr>
+<tr class="separator:a877695eda2db67bb81286e4fce4f53e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af44ec8ada2f6918fa6a348e074309f9c" id="r_af44ec8ada2f6918fa6a348e074309f9c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af44ec8ada2f6918fa6a348e074309f9c">compute</a> ()</td></tr>
+<tr class="separator:af44ec8ada2f6918fa6a348e074309f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">主对象</div></td></tr>
 <tr class="memitem:ab0544b472858e0103e479f8c9d9d6693" id="r_ab0544b472858e0103e479f8c9d9d6693"><td class="memItemLeft" align="right" valign="top"><a id="ab0544b472858e0103e479f8c9d9d6693" name="ab0544b472858e0103e479f8c9d9d6693"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setBaseObject</b> (<a class="el" href="classast_1_1Object.html">Object</a> *obj)</td></tr>
@@ -135,13 +140,28 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTargetObject</b> (
 <tr class="memitem:affbab82875ed653773add6242c4f6c1e" id="r_affbab82875ed653773add6242c4f6c1e"><td class="memItemLeft" align="right" valign="top"><a id="affbab82875ed653773add6242c4f6c1e" name="affbab82875ed653773add6242c4f6c1e"></a>
 <a class="el" href="classast_1_1Object.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>targetObject</b> () const</td></tr>
 <tr class="separator:affbab82875ed653773add6242c4f6c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">配置</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">算法配置</div></td></tr>
 <tr class="memitem:a6387555fd73eca7b359976fe88e2e7c3" id="r_a6387555fd73eca7b359976fe88e2e7c3"><td class="memItemLeft" align="right" valign="top"><a id="a6387555fd73eca7b359976fe88e2e7c3" name="a6387555fd73eca7b359976fe88e2e7c3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setConfig</b> (const <a class="el" href="structast_1_1AccessConfig.html">AccessConfig</a> &amp;config)</td></tr>
 <tr class="separator:a6387555fd73eca7b359976fe88e2e7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05f6cb1b163de0f7f963d63696c3a2f7" id="r_a05f6cb1b163de0f7f963d63696c3a2f7"><td class="memItemLeft" align="right" valign="top"><a id="a05f6cb1b163de0f7f963d63696c3a2f7" name="a05f6cb1b163de0f7f963d63696c3a2f7"></a>
 const <a class="el" href="structast_1_1AccessConfig.html">AccessConfig</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>config</b> () const</td></tr>
 <tr class="separator:a05f6cb1b163de0f7f963d63696c3a2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">搜索时间区间</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>设置搜索时间区间列表</p>
+<p>访问计算的搜索范围，计算只在落于其中的时段内进行 时段为空表示未指定搜索范围，默认为两对象时间段的交集 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">intervals</td><td>搜索时间区间列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+</div></td></tr>
+<tr class="memitem:acd98987e3016071b16b06edc00f3bd29" id="r_acd98987e3016071b16b06edc00f3bd29"><td class="memItemLeft" align="right" valign="top"><a id="acd98987e3016071b16b06edc00f3bd29" name="acd98987e3016071b16b06edc00f3bd29"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSearchIntervals</b> (const <a class="el" href="classast_1_1TimeIntervalList.html">TimeIntervalList</a> &amp;intervals)</td></tr>
+<tr class="separator:acd98987e3016071b16b06edc00f3bd29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac47b512107a145ec6de72e9a646fb8ed" id="r_ac47b512107a145ec6de72e9a646fb8ed"><td class="memItemLeft" align="right" valign="top"><a id="ac47b512107a145ec6de72e9a646fb8ed" name="ac47b512107a145ec6de72e9a646fb8ed"></a>
+const <a class="el" href="classast_1_1TimeIntervalList.html">TimeIntervalList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>searchIntervals</b> () const</td></tr>
+<tr class="separator:ac47b512107a145ec6de72e9a646fb8ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classast_1_1ObjectNamed"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1ObjectNamed')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></td></tr>
 <tr class="memitem:a8f3686db877d835e7261614d560086d3 inherit pub_methods_classast_1_1ObjectNamed" id="r_a8f3686db877d835e7261614d560086d3"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>ObjectNamed</b> ()=default</td></tr>
@@ -319,8 +339,58 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>访问对象 </p>
 <p>描述两个物体之间的可见性关系 </p>
-</div><hr/>该类的文档由以下文件生成:<ul>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a877695eda2db67bb81286e4fce4f53e6" name="a877695eda2db67bb81286e4fce4f53e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a877695eda2db67bb81286e4fce4f53e6">&#9670;&#160;</a></span>accessIntervals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classast_1_1TimeIntervalList.html">TimeIntervalList</a> &amp; ast::Access::accessIntervals </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取访问时段计算结果 </p>
+<dl class="section note"><dt>注解</dt><dd>未计算时返回空列表。 </dd></dl>
+
+</div>
+</div>
+<a id="af44ec8ada2f6918fa6a348e074309f9c" name="af44ec8ada2f6918fa6a348e074309f9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af44ec8ada2f6918fa6a348e074309f9c">&#9670;&#160;</a></span>compute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::Access::compute </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算访问时段 </p>
+<p>根据配置和搜索时间区间，计算主对象和目标对象之间的可见性时段 </p><dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstSim/Object/Tool/<a class="el" href="Access_8hpp_source.html">Access.hpp</a></li>
+<li>src/AstSim/Object/Tool/<a class="el" href="Access_8cpp.html">Access.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

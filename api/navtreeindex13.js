@@ -1,5 +1,16 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcEpoch_8cpp.html":[4,0,0,6,12,1,0,18,4],
+"ScStateCalcEpoch_8hpp.html":[4,0,0,6,12,1,0,18,5],
+"ScStateCalcEpoch_8hpp_source.html":[4,0,0,6,12,1,0,18,5],
+"ScStateCalcEquinoctialH_8cpp.html":[4,0,0,6,12,1,0,7,0],
+"ScStateCalcEquinoctialH_8hpp.html":[4,0,0,6,12,1,0,7,1],
+"ScStateCalcEquinoctialH_8hpp_source.html":[4,0,0,6,12,1,0,7,1],
+"ScStateCalcEquinoctialK_8cpp.html":[4,0,0,6,12,1,0,7,2],
+"ScStateCalcEquinoctialK_8hpp.html":[4,0,0,6,12,1,0,7,3],
+"ScStateCalcEquinoctialK_8hpp_source.html":[4,0,0,6,12,1,0,7,3],
+"ScStateCalcEquinoctialP_8cpp.html":[4,0,0,6,12,1,0,7,4],
+"ScStateCalcEquinoctialP_8hpp.html":[4,0,0,6,12,1,0,7,5],
 "ScStateCalcEquinoctialP_8hpp_source.html":[4,0,0,6,12,1,0,7,5],
 "ScStateCalcEquinoctialQ_8cpp.html":[4,0,0,6,12,1,0,7,6],
 "ScStateCalcEquinoctialQ_8hpp.html":[4,0,0,6,12,1,0,7,7],
@@ -238,16 +249,5 @@ var NAVTREEINDEX13 =
 "ScStateCalcRectifiedLongitude_8cpp.html":[4,0,0,6,12,1,0,15,156],
 "ScStateCalcRectifiedLongitude_8hpp.html":[4,0,0,6,12,1,0,15,157],
 "ScStateCalcRectifiedLongitude_8hpp_source.html":[4,0,0,6,12,1,0,15,157],
-"ScStateCalcReentryDeceleration_8cpp.html":[4,0,0,6,12,1,0,15,158],
-"ScStateCalcReentryDeceleration_8hpp.html":[4,0,0,6,12,1,0,15,159],
-"ScStateCalcReentryDeceleration_8hpp_source.html":[4,0,0,6,12,1,0,15,159],
-"ScStateCalcRefRad_8cpp.html":[4,0,0,6,12,1,0,15,162],
-"ScStateCalcRefRad_8hpp.html":[4,0,0,6,12,1,0,15,163],
-"ScStateCalcRefRad_8hpp_source.html":[4,0,0,6,12,1,0,15,163],
-"ScStateCalcReflectionCoefficient_8cpp.html":[4,0,0,6,12,1,0,15,160],
-"ScStateCalcReflectionCoefficient_8hpp.html":[4,0,0,6,12,1,0,15,161],
-"ScStateCalcReflectionCoefficient_8hpp_source.html":[4,0,0,6,12,1,0,15,161],
-"ScStateCalcRelAOLMaster_8cpp.html":[4,0,0,6,12,1,0,15,164],
-"ScStateCalcRelAOLMaster_8hpp.html":[4,0,0,6,12,1,0,15,165],
-"ScStateCalcRelAOLMaster_8hpp_source.html":[4,0,0,6,12,1,0,15,165]
+"ScStateCalcReentryDeceleration_8cpp.html":[4,0,0,6,12,1,0,15,158]
 };

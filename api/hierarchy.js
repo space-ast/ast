@@ -652,6 +652,7 @@ var hierarchy =
     [ "ast::object_ptr_holder< ObjectType >", "structast_1_1object__ptr__holder.html", null ],
     [ "ast::object_ptr_holder< Object >", "structast_1_1object__ptr__holder_3_01Object_01_4.html", null ],
     [ "ast::object_ptr_holder< object_type >", "structast_1_1object__ptr__holder.html", null ],
+    [ "ast::ObjectAccessConstraint", "classast_1_1ObjectAccessConstraint.html", null ],
     [ "ast::ObjectEditRegistry", "classast_1_1ObjectEditRegistry.html", null ],
     [ "ast::ObjectLinker", "classast_1_1ObjectLinker.html", [
       [ "ast::ObjectLinkerGeneric< Func >", "classast_1_1ObjectLinkerGeneric.html", null ]
@@ -1108,6 +1109,7 @@ var hierarchy =
               [ "ast::MotionSPICE", "classast_1_1MotionSPICE.html", null ]
             ] ]
           ] ],
+          [ "ast::ObjectAccessConstraints", "classast_1_1ObjectAccessConstraints.html", null ],
           [ "ast::ObjectCalculation", "classast_1_1ObjectCalculation.html", [
             [ "ast::ScStateCalculation", "classast_1_1ScStateCalculation.html", [
               [ "ast::ScStateCalc1PtAccess", "classast_1_1ScStateCalc1PtAccess.html", null ],

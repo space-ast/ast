@@ -1,5 +1,16 @@
 var NAVTREEINDEX12 =
 {
+"SOFA_8cpp.html#add4db3984e4ac425671893e9151d776c":[4,0,0,6,7,3,9,4],
+"SOFA_8cpp.html#aeeb54fffcc4d1190586e6148f16be37e":[4,0,0,6,7,3,9,5],
+"SOFA_8cpp.html#af01f70ad0322291b74d4cbfc99cccd2a":[4,0,0,6,7,3,9,9],
+"SOFA_8cpp.html#af57cd650f14fa0b1587bf66c47bf65db":[4,0,0,6,7,3,9,12],
+"SOFA_8hpp.html":[4,0,0,6,7,3,10],
+"SOFA_8hpp.html#a02d9806e4f3e5bd79a3faba8a44d2ad4":[4,0,0,6,7,3,10,10],
+"SOFA_8hpp.html#a1a15ff0a546fe42e25b499c9df6f59a7":[4,0,0,6,7,3,10,6],
+"SOFA_8hpp.html#a1e4e4bde6b31bfda0a8a71ac89612611":[4,0,0,6,7,3,10,8],
+"SOFA_8hpp.html#a3225043e53c75ba439d6530732c65b78":[4,0,0,6,7,3,10,13],
+"SOFA_8hpp.html#a6e7666ed99afcec7d6c4bc36e89190c9":[4,0,0,6,7,3,10,2],
+"SOFA_8hpp.html#a7d564ce583d0c3862921ecceecf6935c":[4,0,0,6,7,3,10,7],
 "SOFA_8hpp.html#a914b7293a4d365eac439568ee4b12a46":[4,0,0,6,7,3,10,12],
 "SOFA_8hpp.html#a964414a5f16ed2a874e02aa19af1129e":[4,0,0,6,7,3,10,11],
 "SOFA_8hpp.html#abb7c349c2d188b3ec7a6a81497318022":[4,0,0,6,7,3,10,1],
@@ -48,7 +59,7 @@ var NAVTREEINDEX12 =
 "SatelliteDatabase_8hpp_source.html":[4,0,0,6,9,3],
 "SatelliteImpl_8hpp.html":[4,0,0,5,16],
 "SatelliteImpl_8hpp_source.html":[4,0,0,5,16],
-"Satellite_8cpp.html":[4,0,0,18,2,0,40],
+"Satellite_8cpp.html":[4,0,0,18,2,1,40],
 "ScStateCalc1PtAccess_8cpp.html":[4,0,0,6,12,1,0,1,0],
 "ScStateCalc1PtAccess_8hpp.html":[4,0,0,6,12,1,0,1,1],
 "ScStateCalc1PtAccess_8hpp_source.html":[4,0,0,6,12,1,0,1,1],
@@ -238,16 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcElevationRate_8hpp_source.html":[4,0,0,6,12,1,0,15,41],
 "ScStateCalcElevation_8cpp.html":[4,0,0,6,12,1,0,15,38],
 "ScStateCalcElevation_8hpp.html":[4,0,0,6,12,1,0,15,39],
-"ScStateCalcElevation_8hpp_source.html":[4,0,0,6,12,1,0,15,39],
-"ScStateCalcEpoch_8cpp.html":[4,0,0,6,12,1,0,18,4],
-"ScStateCalcEpoch_8hpp.html":[4,0,0,6,12,1,0,18,5],
-"ScStateCalcEpoch_8hpp_source.html":[4,0,0,6,12,1,0,18,5],
-"ScStateCalcEquinoctialH_8cpp.html":[4,0,0,6,12,1,0,7,0],
-"ScStateCalcEquinoctialH_8hpp.html":[4,0,0,6,12,1,0,7,1],
-"ScStateCalcEquinoctialH_8hpp_source.html":[4,0,0,6,12,1,0,7,1],
-"ScStateCalcEquinoctialK_8cpp.html":[4,0,0,6,12,1,0,7,2],
-"ScStateCalcEquinoctialK_8hpp.html":[4,0,0,6,12,1,0,7,3],
-"ScStateCalcEquinoctialK_8hpp_source.html":[4,0,0,6,12,1,0,7,3],
-"ScStateCalcEquinoctialP_8cpp.html":[4,0,0,6,12,1,0,7,4],
-"ScStateCalcEquinoctialP_8hpp.html":[4,0,0,6,12,1,0,7,5]
+"ScStateCalcElevation_8hpp_source.html":[4,0,0,6,12,1,0,15,39]
 };
