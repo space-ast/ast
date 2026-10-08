@@ -1,5 +1,8 @@
 var NAVTREEINDEX16 =
 {
+"StateCalculation_8cpp.html":[4,0,0,6,12,1,6],
+"StateCalculation_8hpp.html":[4,0,0,6,12,1,7],
+"StateCalculation_8hpp_source.html":[4,0,0,6,12,1,7],
 "StateCartesian_8cpp.html":[4,0,0,6,12,6,4],
 "StateCartesian_8hpp.html":[4,0,0,6,12,6,5],
 "StateCartesian_8hpp_source.html":[4,0,0,6,12,6,5],
@@ -98,9 +101,9 @@ var NAVTREEINDEX16 =
 "SubSolarPoint_8cpp.html":[4,0,0,2,0,20],
 "SubSolarPoint_8hpp.html":[4,0,0,2,0,21],
 "SubSolarPoint_8hpp_source.html":[4,0,0,2,0,21],
-"Submarine_8cpp.html":[4,0,0,18,2,65],
-"Submarine_8hpp.html":[4,0,0,18,2,66],
-"Submarine_8hpp_source.html":[4,0,0,18,2,66],
+"Submarine_8cpp.html":[4,0,0,18,2,0,52],
+"Submarine_8hpp.html":[4,0,0,18,2,0,53],
+"Submarine_8hpp_source.html":[4,0,0,18,2,0,53],
 "SunPosition_8cpp.html":[4,0,0,6,15,12],
 "SunPosition_8hpp.html":[4,0,0,6,15,13],
 "SunPosition_8hpp.html#a2bf48439a4f7c7769a0f7e017ef7f055":[4,0,0,6,15,13,0],
@@ -155,9 +158,9 @@ var NAVTREEINDEX16 =
 "TargetLoader_8hpp.html":[4,0,0,10,6,57],
 "TargetLoader_8hpp.html#a14027c3f4c5acffa60d0e67a4ffabde0":[4,0,0,10,6,57,0],
 "TargetLoader_8hpp_source.html":[4,0,0,10,6,57],
-"Target_8cpp.html":[4,0,0,18,2,67],
-"Target_8hpp.html":[4,0,0,18,2,68],
-"Target_8hpp_source.html":[4,0,0,18,2,68],
+"Target_8cpp.html":[4,0,0,18,2,0,54],
+"Target_8hpp.html":[4,0,0,18,2,0,55],
+"Target_8hpp_source.html":[4,0,0,18,2,0,55],
 "TargeterGraph_8cpp.html":[4,0,0,6,12,3,0,7],
 "TargeterGraph_8hpp.html":[4,0,0,6,12,3,0,8],
 "TargeterGraph_8hpp_source.html":[4,0,0,6,12,3,0,8],
@@ -246,8 +249,5 @@ var NAVTREEINDEX16 =
 "TestScript_8hpp.html#a2ddf40181cb506673c02dcee43b06d01":[4,0,0,20,12,7],
 "TestScript_8hpp.html#a300c4cc9e6c8b08999a7960493b37a3c":[4,0,0,20,12,3],
 "TestScript_8hpp.html#aba33fc0e0f01963e7d1a73a91fa0f054":[4,0,0,20,12,1],
-"TestScript_8hpp.html#ac7fb30380dc5e4cca8d1941775dae427":[4,0,0,20,12,2],
-"TestScript_8hpp.html#adc39c8c0cd761513be036aa514379197":[4,0,0,20,12,6],
-"TestScript_8hpp.html#aed0d92321a2b51a01a6d5bb77b1ef3ac":[4,0,0,20,12,4],
-"TestScript_8hpp.html#afb7b1084da3eee7ad6a5e1fbfd452175":[4,0,0,20,12,5]
+"TestScript_8hpp.html#ac7fb30380dc5e4cca8d1941775dae427":[4,0,0,20,12,2]
 };

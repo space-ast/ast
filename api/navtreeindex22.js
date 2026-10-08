@@ -1,5 +1,8 @@
 var NAVTREEINDEX22 =
 {
+"classast_1_1BlockDerivative.html#ae68d66ff19e1c977ad88da62eba409de":[3,0,0,90,1],
+"classast_1_1BlockDivide.html":[2,0,0,92],
+"classast_1_1BlockDivide.html":[3,0,0,91],
 "classast_1_1BlockDivide.html#a8feeffccb888bd7e5b74bab09131198e":[2,0,0,92,0],
 "classast_1_1BlockDivide.html#a8feeffccb888bd7e5b74bab09131198e":[3,0,0,91,0],
 "classast_1_1BlockDot.html":[2,0,0,93],
@@ -246,8 +249,5 @@ var NAVTREEINDEX22 =
 "classast_1_1BlockSum.html#afe15b2a91b59588999c4170168677944":[3,0,0,116,0],
 "classast_1_1BlockSwitch.html":[2,0,0,118],
 "classast_1_1BlockSwitch.html":[3,0,0,117],
-"classast_1_1BlockSwitch.html#a372bad8d6828a10d1cbd5f5f454ef385":[2,0,0,118,1],
-"classast_1_1BlockSwitch.html#a372bad8d6828a10d1cbd5f5f454ef385":[3,0,0,117,1],
-"classast_1_1BlockSwitch.html#a63a91f715cca289941c12613a3d5a4d1":[2,0,0,118,0],
-"classast_1_1BlockSwitch.html#a63a91f715cca289941c12613a3d5a4d1":[3,0,0,117,0]
+"classast_1_1BlockSwitch.html#a372bad8d6828a10d1cbd5f5f454ef385":[2,0,0,118,1]
 };

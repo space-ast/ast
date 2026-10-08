@@ -1,5 +1,8 @@
 var NAVTREEINDEX40 =
 {
+"classast_1_1OpenAI.html#abd1d8c30b15405536e5bcb9a7265f67f":[0,0,9,1],
+"classast_1_1OpenAI.html#abf33ed4bed5bf9d55fdabc218e57229a":[0,0,9,4],
+"classast_1_1OpenAI.html#ad6370a554b50d52da40ed6715b0873da":[0,0,9,3],
 "classast_1_1OptimizationStudy.html":[2,0,0,600],
 "classast_1_1OptimizationStudy.html":[3,0,0,599],
 "classast_1_1OrConstraint.html":[2,0,0,605],
@@ -246,8 +249,5 @@ var NAVTREEINDEX40 =
 "classast_1_1PropertyBool.html#a9a880596a86fa0c4d7af04a57d97e797":[0,8,4,10,8],
 "classast_1_1PropertyBool.html#a9ae9975fc9d6f976899d4933dceed2e3":[0,8,4,10,5],
 "classast_1_1PropertyBool.html#aa497a89feedc363657490710ec1c912a":[0,8,4,10,12],
-"classast_1_1PropertyBool.html#aab01b85b40f500ccf39f31afd49f3fa8":[0,8,4,10,9],
-"classast_1_1PropertyBool.html#ac82e4ce0f0d71d363a0dfe96dde1fccd":[0,8,4,10,10],
-"classast_1_1PropertyDouble.html":[0,8,4,11],
-"classast_1_1PropertyDouble.html#a030860dadc6003a0a3aca0b1ef0d3ed2":[0,8,4,11,10]
+"classast_1_1PropertyBool.html#aab01b85b40f500ccf39f31afd49f3fa8":[0,8,4,10,9]
 };

@@ -1,5 +1,8 @@
 var NAVTREEINDEX26 =
 {
+"classast_1_1DataElement.html#aad7b2069599cacfb3b141e6c5b8dff3c":[2,0,0,228,5],
+"classast_1_1DataElement.html#aad7b2069599cacfb3b141e6c5b8dff3c":[3,0,0,227,5],
+"classast_1_1DataElement.html#af362f1a47dcbbc923bb2689617aa94c3":[2,0,0,228,4],
 "classast_1_1DataElement.html#af362f1a47dcbbc923bb2689617aa94c3":[3,0,0,227,4],
 "classast_1_1DataElements.html":[2,0,0,229],
 "classast_1_1DataElements.html":[3,0,0,228],
@@ -246,8 +249,5 @@ var NAVTREEINDEX26 =
 "classast_1_1DetectorDescendingNode.html":[2,0,0,275],
 "classast_1_1DetectorDescendingNode.html":[3,0,0,274],
 "classast_1_1DetectorDescendingNode.html#a8d0cf1b0abe9949e7db6f85731c0223c":[2,0,0,275,0],
-"classast_1_1DetectorDescendingNode.html#a8d0cf1b0abe9949e7db6f85731c0223c":[3,0,0,274,0],
-"classast_1_1DetectorDuration.html":[2,0,0,276],
-"classast_1_1DetectorDuration.html":[3,0,0,275],
-"classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49":[2,0,0,276,0]
+"classast_1_1DetectorDescendingNode.html#a8d0cf1b0abe9949e7db6f85731c0223c":[3,0,0,274,0]
 };

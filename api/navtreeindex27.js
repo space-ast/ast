@@ -1,5 +1,8 @@
 var NAVTREEINDEX27 =
 {
+"classast_1_1DetectorDuration.html":[2,0,0,276],
+"classast_1_1DetectorDuration.html":[3,0,0,275],
+"classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49":[2,0,0,276,0],
 "classast_1_1DetectorDuration.html#ae57d1ff27eb676f4a6b67bfa339ada49":[3,0,0,275,0],
 "classast_1_1DetectorEpoch.html":[2,0,0,277],
 "classast_1_1DetectorEpoch.html":[3,0,0,276],
@@ -246,8 +249,5 @@ var NAVTREEINDEX27 =
 "classast_1_1EphemerisFileParser.html":[3,0,0,305],
 "classast_1_1EphemerisFileWriter.html":[2,0,0,307],
 "classast_1_1EphemerisFileWriter.html":[3,0,0,306],
-"classast_1_1EphemerisFileWriter.html#a118fd29c3b418469c5e30428459c7565":[2,0,0,307,0],
-"classast_1_1EphemerisFileWriter.html#a118fd29c3b418469c5e30428459c7565":[3,0,0,306,0],
-"classast_1_1EphemerisLagrangeVar.html":[2,0,0,308],
-"classast_1_1EphemerisLagrangeVar.html":[3,0,0,307]
+"classast_1_1EphemerisFileWriter.html#a118fd29c3b418469c5e30428459c7565":[2,0,0,307,0]
 };

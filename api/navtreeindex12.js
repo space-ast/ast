@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"SOFA_8hpp.html#a914b7293a4d365eac439568ee4b12a46":[4,0,0,6,7,3,10,12],
+"SOFA_8hpp.html#a964414a5f16ed2a874e02aa19af1129e":[4,0,0,6,7,3,10,11],
+"SOFA_8hpp.html#abb7c349c2d188b3ec7a6a81497318022":[4,0,0,6,7,3,10,1],
 "SOFA_8hpp.html#aca6a3cf571f946372790a9c912a9cc94":[4,0,0,6,7,3,10,3],
 "SOFA_8hpp.html#ad4d33fedb094a2588449938697651f14":[4,0,0,6,7,3,10,0],
 "SOFA_8hpp.html#add4db3984e4ac425671893e9151d776c":[4,0,0,6,7,3,10,4],
@@ -45,7 +48,7 @@ var NAVTREEINDEX12 =
 "SatelliteDatabase_8hpp_source.html":[4,0,0,6,9,3],
 "SatelliteImpl_8hpp.html":[4,0,0,5,16],
 "SatelliteImpl_8hpp_source.html":[4,0,0,5,16],
-"Satellite_8cpp.html":[4,0,0,18,2,51],
+"Satellite_8cpp.html":[4,0,0,18,2,0,40],
 "ScStateCalc1PtAccess_8cpp.html":[4,0,0,6,12,1,0,1,0],
 "ScStateCalc1PtAccess_8hpp.html":[4,0,0,6,12,1,0,1,1],
 "ScStateCalc1PtAccess_8hpp_source.html":[4,0,0,6,12,1,0,1,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcEquinoctialK_8hpp.html":[4,0,0,6,12,1,0,7,3],
 "ScStateCalcEquinoctialK_8hpp_source.html":[4,0,0,6,12,1,0,7,3],
 "ScStateCalcEquinoctialP_8cpp.html":[4,0,0,6,12,1,0,7,4],
-"ScStateCalcEquinoctialP_8hpp.html":[4,0,0,6,12,1,0,7,5],
-"ScStateCalcEquinoctialP_8hpp_source.html":[4,0,0,6,12,1,0,7,5],
-"ScStateCalcEquinoctialQ_8cpp.html":[4,0,0,6,12,1,0,7,6],
-"ScStateCalcEquinoctialQ_8hpp.html":[4,0,0,6,12,1,0,7,7]
+"ScStateCalcEquinoctialP_8hpp.html":[4,0,0,6,12,1,0,7,5]
 };

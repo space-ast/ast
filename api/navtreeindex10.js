@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"ODEEventObserver_8hpp_source.html":[4,0,0,11,6,1,1],
+"ODEFixedStepIntegrator_8cpp.html":[4,0,0,11,6,6],
+"ODEFixedStepIntegrator_8hpp.html":[4,0,0,11,6,7],
 "ODEFixedStepIntegrator_8hpp_source.html":[4,0,0,11,6,7],
 "ODEInnerStateObserver_8cpp.html":[4,0,0,11,6,1,2],
 "ODEInnerStateObserver_8hpp.html":[4,0,0,11,6,1,3],
@@ -207,9 +210,9 @@ var NAVTREEINDEX10 =
 "PlaceLoader_8hpp.html":[4,0,0,10,6,43],
 "PlaceLoader_8hpp.html#ab129892740b74f8927dabb799528b0ad":[4,0,0,10,6,43,0],
 "PlaceLoader_8hpp_source.html":[4,0,0,10,6,43],
-"Place_8cpp.html":[4,0,0,18,2,41],
-"Place_8hpp.html":[4,0,0,18,2,42],
-"Place_8hpp_source.html":[4,0,0,18,2,42],
+"Place_8cpp.html":[4,0,0,18,2,0,30],
+"Place_8hpp.html":[4,0,0,18,2,0,31],
+"Place_8hpp_source.html":[4,0,0,18,2,0,31],
 "Plane_8hpp_source.html":[4,0,0,6,11,1,6],
 "PlanetFrame_8cpp.html":[4,0,0,6,7,2,10],
 "PlanetFrame_8hpp.html":[4,0,0,6,7,2,11],
@@ -222,10 +225,10 @@ var NAVTREEINDEX10 =
 "PlanetPoint_8cpp.html":[4,0,0,6,7,2,12],
 "PlanetPoint_8hpp.html":[4,0,0,6,7,2,13],
 "PlanetPoint_8hpp_source.html":[4,0,0,6,7,2,13],
-"Planet_8cpp.html":[4,0,0,18,2,43],
-"Planet_8hpp.html":[4,0,0,18,2,44],
-"Planet_8hpp_source.html":[4,0,0,18,2,44],
-"Plot_8hpp_source.html":[4,0,0,15,3],
+"Planet_8cpp.html":[4,0,0,18,2,0,32],
+"Planet_8hpp.html":[4,0,0,18,2,0,33],
+"Planet_8hpp_source.html":[4,0,0,18,2,0,33],
+"Plot_8hpp_source.html":[4,0,0,15,5],
 "PointBodyCenter_8cpp.html":[4,0,0,6,7,4,2],
 "PointBodyCenter_8hpp.html":[4,0,0,6,7,4,3],
 "PointBodyCenter_8hpp_source.html":[4,0,0,6,7,4,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "Point_8cpp.html":[4,0,0,6,11,1,7],
 "Point_8hpp.html":[4,0,0,6,11,1,8],
 "Point_8hpp_source.html":[4,0,0,6,11,1,8],
-"PointingDirection_8cpp.html":[4,0,0,2,0,14],
-"PointingDirection_8hpp.html":[4,0,0,2,0,15],
-"PointingDirection_8hpp_source.html":[4,0,0,2,0,15],
-"Polynomial_8cpp.html":[4,0,0,27,11,15]
+"PointingDirection_8cpp.html":[4,0,0,2,0,14]
 };

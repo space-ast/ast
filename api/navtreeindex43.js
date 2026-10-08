@@ -1,5 +1,8 @@
 var NAVTREEINDEX43 =
 {
+"classast_1_1SatelliteDatabaseQuery.html#a0257008c8f6383b1a99c479d0ea699ae":[2,0,0,686,7],
+"classast_1_1SatelliteDatabaseQuery.html#a0257008c8f6383b1a99c479d0ea699ae":[3,0,0,685,7],
+"classast_1_1SatelliteDatabaseQuery.html#a22e8de6435ac08f2a5251b8a7aa9dbbe":[2,0,0,686,0],
 "classast_1_1SatelliteDatabaseQuery.html#a22e8de6435ac08f2a5251b8a7aa9dbbe":[3,0,0,685,0],
 "classast_1_1SatelliteDatabaseQuery.html#a32002edc72fa9bc5178caeb55e1f4f4d":[2,0,0,686,1],
 "classast_1_1SatelliteDatabaseQuery.html#a32002edc72fa9bc5178caeb55e1f4f4d":[3,0,0,685,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX43 =
 "classast_1_1ScStateCalcMeanLongitude.html":[2,0,0,806],
 "classast_1_1ScStateCalcMeanLongitude.html":[3,0,0,805],
 "classast_1_1ScStateCalcMeanMotion.html":[2,0,0,807],
-"classast_1_1ScStateCalcMeanMotion.html":[3,0,0,806],
-"classast_1_1ScStateCalcMinimumValue.html":[2,0,0,808],
-"classast_1_1ScStateCalcMinimumValue.html":[3,0,0,807],
-"classast_1_1ScStateCalcMu.html":[2,0,0,809]
+"classast_1_1ScStateCalcMeanMotion.html":[3,0,0,806]
 };

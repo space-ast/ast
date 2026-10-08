@@ -1,5 +1,8 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcEquinoctialP_8hpp_source.html":[4,0,0,6,12,1,0,7,5],
+"ScStateCalcEquinoctialQ_8cpp.html":[4,0,0,6,12,1,0,7,6],
+"ScStateCalcEquinoctialQ_8hpp.html":[4,0,0,6,12,1,0,7,7],
 "ScStateCalcEquinoctialQ_8hpp_source.html":[4,0,0,6,12,1,0,7,7],
 "ScStateCalcFPA_8cpp.html":[4,0,0,6,12,1,0,15,44],
 "ScStateCalcFPA_8hpp.html":[4,0,0,6,12,1,0,15,45],
@@ -246,8 +249,5 @@ var NAVTREEINDEX13 =
 "ScStateCalcReflectionCoefficient_8hpp_source.html":[4,0,0,6,12,1,0,15,161],
 "ScStateCalcRelAOLMaster_8cpp.html":[4,0,0,6,12,1,0,15,164],
 "ScStateCalcRelAOLMaster_8hpp.html":[4,0,0,6,12,1,0,15,165],
-"ScStateCalcRelAOLMaster_8hpp_source.html":[4,0,0,6,12,1,0,15,165],
-"ScStateCalcRelGroundTrackError_8cpp.html":[4,0,0,6,12,1,0,15,166],
-"ScStateCalcRelGroundTrackError_8hpp.html":[4,0,0,6,12,1,0,15,167],
-"ScStateCalcRelGroundTrackError_8hpp_source.html":[4,0,0,6,12,1,0,15,167]
+"ScStateCalcRelAOLMaster_8hpp_source.html":[4,0,0,6,12,1,0,15,165]
 };

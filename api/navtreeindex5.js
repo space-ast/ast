@@ -1,5 +1,8 @@
 var NAVTREEINDEX5 =
 {
+"DetectorPeriapsis_8cpp.html":[4,0,0,6,13,0,29],
+"DetectorPeriapsis_8hpp.html":[4,0,0,6,13,0,30],
+"DetectorPeriapsis_8hpp_source.html":[4,0,0,6,13,0,30],
 "DetectorPointRelated_8cpp.html":[4,0,0,6,13,0,31],
 "DetectorPointRelated_8hpp.html":[4,0,0,6,13,0,32],
 "DetectorPointRelated_8hpp_source.html":[4,0,0,6,13,0,32],
@@ -246,8 +249,5 @@ var NAVTREEINDEX5 =
 "ExprBlock_8cpp.html":[4,0,0,17,2,4],
 "ExprBlock_8hpp.html":[4,0,0,17,2,5],
 "ExprBlock_8hpp_source.html":[4,0,0,17,2,5],
-"ExprCalculation_8cpp.html":[4,0,0,17,2,6],
-"ExprCalculation_8hpp.html":[4,0,0,17,2,7],
-"ExprCalculation_8hpp_source.html":[4,0,0,17,2,7],
-"ExprCall_8hpp_source.html":[4,0,0,17,2,8]
+"ExprCalculation_8cpp.html":[4,0,0,17,2,6]
 };

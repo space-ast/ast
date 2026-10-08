@@ -1,5 +1,8 @@
 var NAVTREEINDEX24 =
 {
+"classast_1_1BurnImpulsive.html":[3,0,0,148],
+"classast_1_1ByCommaAndRepeatedWhitespace.html":[2,0,0,150],
+"classast_1_1ByCommaAndRepeatedWhitespace.html":[3,0,0,149],
 "classast_1_1CAstCOMModule.html":[2,0,0,155],
 "classast_1_1CAstCOMModule.html":[3,0,0,154],
 "classast_1_1CExecCmdResult.html":[0,10,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX24 =
 "classast_1_1Class.html#ab686a3a67a08c59663f271cbcb56e144":[0,8,4,7,11],
 "classast_1_1Class.html#ac0e6308a1e4b07142f98c125dbcbe39f":[0,8,4,7,6],
 "classast_1_1Class.html#ac33daba8178cc37dc4fd31645e4883c0":[0,8,4,7,17],
-"classast_1_1Class.html#ac8924b03c261b1252e68229d1135f672":[0,8,4,7,10],
-"classast_1_1Class.html#ae6ea2fa70abfee13febffeee9402ffbb":[0,8,4,7,4],
-"classast_1_1Class.html#af145951dbc4b681bdad3f49ad500504e":[0,8,4,7,8],
-"classast_1_1Class.html#afaab0360ed1054b01f315d79379e9268":[0,8,4,7,13]
+"classast_1_1Class.html#ac8924b03c261b1252e68229d1135f672":[0,8,4,7,10]
 };

@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"PointingDirection_8hpp.html":[4,0,0,2,0,15],
+"PointingDirection_8hpp_source.html":[4,0,0,2,0,15],
+"Polynomial_8cpp.html":[4,0,0,27,11,15],
 "Polynomial_8hpp.html":[4,0,0,27,11,16],
 "Polynomial_8hpp_source.html":[4,0,0,27,11,16],
 "PosixExt_8cpp.html":[4,0,0,27,6,28],
@@ -120,17 +123,17 @@ var NAVTREEINDEX11 =
 "RadarLoader_8hpp.html":[4,0,0,10,6,47],
 "RadarLoader_8hpp.html#a900f09e61570bbad8649fecddceb2da5":[4,0,0,10,6,47,0],
 "RadarLoader_8hpp_source.html":[4,0,0,10,6,47],
-"Radar_8cpp.html":[4,0,0,18,2,47],
-"Radar_8hpp.html":[4,0,0,18,2,48],
-"Radar_8hpp_source.html":[4,0,0,18,2,48],
+"Radar_8cpp.html":[4,0,0,18,2,0,36],
+"Radar_8hpp.html":[4,0,0,18,2,0,37],
+"Radar_8hpp_source.html":[4,0,0,18,2,0,37],
 "ReceiverLoader_8cpp.html":[4,0,0,10,6,48],
 "ReceiverLoader_8cpp.html#afade84f712ca97c32e872f9d38f982ea":[4,0,0,10,6,48,0],
 "ReceiverLoader_8hpp.html":[4,0,0,10,6,49],
 "ReceiverLoader_8hpp.html#afade84f712ca97c32e872f9d38f982ea":[4,0,0,10,6,49,0],
 "ReceiverLoader_8hpp_source.html":[4,0,0,10,6,49],
-"Receiver_8cpp.html":[4,0,0,18,2,49],
-"Receiver_8hpp.html":[4,0,0,18,2,50],
-"Receiver_8hpp_source.html":[4,0,0,18,2,50],
+"Receiver_8cpp.html":[4,0,0,18,2,0,38],
+"Receiver_8hpp.html":[4,0,0,18,2,0,39],
+"Receiver_8hpp_source.html":[4,0,0,18,2,0,39],
 "RecordStep_8cpp.html":[4,0,0,24,1,2],
 "RecordStep_8hpp.html":[4,0,0,24,1,3],
 "RecordStep_8hpp_source.html":[4,0,0,24,1,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "SOFA_8hpp.html#a1e4e4bde6b31bfda0a8a71ac89612611":[4,0,0,6,7,3,10,8],
 "SOFA_8hpp.html#a3225043e53c75ba439d6530732c65b78":[4,0,0,6,7,3,10,13],
 "SOFA_8hpp.html#a6e7666ed99afcec7d6c4bc36e89190c9":[4,0,0,6,7,3,10,2],
-"SOFA_8hpp.html#a7d564ce583d0c3862921ecceecf6935c":[4,0,0,6,7,3,10,7],
-"SOFA_8hpp.html#a914b7293a4d365eac439568ee4b12a46":[4,0,0,6,7,3,10,12],
-"SOFA_8hpp.html#a964414a5f16ed2a874e02aa19af1129e":[4,0,0,6,7,3,10,11],
-"SOFA_8hpp.html#abb7c349c2d188b3ec7a6a81497318022":[4,0,0,6,7,3,10,1]
+"SOFA_8hpp.html#a7d564ce583d0c3862921ecceecf6935c":[4,0,0,6,7,3,10,7]
 };

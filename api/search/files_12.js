@@ -1,7 +1,7 @@
 var searchData=
 [
   ['satellite_2ecpp_0',['Satellite.cpp',['../Satellite_8cpp.html',1,'']]],
-  ['satellite_2ehpp_1',['Satellite.hpp',['../AstCOM_2Satellite_8hpp.html',1,'(全局命名空间)'],['../AstSim_2Object_2Satellite_8hpp.html',1,'(全局命名空间)']]],
+  ['satellite_2ehpp_1',['Satellite.hpp',['../AstCOM_2Satellite_8hpp.html',1,'(全局命名空间)'],['../AstSim_2Object_2Entity_2Satellite_8hpp.html',1,'(全局命名空间)']]],
   ['satellitedatabase_2ecpp_2',['SatelliteDatabase.cpp',['../SatelliteDatabase_8cpp.html',1,'']]],
   ['satellitedatabase_2ehpp_3',['SatelliteDatabase.hpp',['../SatelliteDatabase_8hpp.html',1,'']]],
   ['satellitedatabaseentry_2ecpp_4',['SatelliteDatabaseEntry.cpp',['../SatelliteDatabaseEntry_8cpp.html',1,'']]],

@@ -1,5 +1,8 @@
 var NAVTREEINDEX47 =
 {
+"classast_1_1StateBPlane.html#a8e65f470ab6c4de6066f89b894ff6774":[2,0,0,977,6],
+"classast_1_1StateBPlane.html#a8e65f470ab6c4de6066f89b894ff6774":[3,0,0,976,6],
+"classast_1_1StateBPlane.html#a9a50124ecf04224340cefd8a8fe6e148":[2,0,0,977,21],
 "classast_1_1StateBPlane.html#a9a50124ecf04224340cefd8a8fe6e148":[3,0,0,976,21],
 "classast_1_1StateBPlane.html#aa2a2874a66ad04268699c48a17215883":[2,0,0,977,20],
 "classast_1_1StateBPlane.html#aa2a2874a66ad04268699c48a17215883":[3,0,0,976,20],
@@ -246,8 +249,5 @@ var NAVTREEINDEX47 =
 "classast_1_1StateMapper.html#acbf3e56739edfd516050730c92080089":[2,0,0,982,5],
 "classast_1_1StateMapper.html#acbf3e56739edfd516050730c92080089":[3,0,0,981,5],
 "classast_1_1StateMapper.html#ae916ffd22239e3659c02dd352ab5048e":[2,0,0,982,9],
-"classast_1_1StateMapper.html#ae916ffd22239e3659c02dd352ab5048e":[3,0,0,981,9],
-"classast_1_1StateMixedSpherical.html":[2,0,0,983],
-"classast_1_1StateMixedSpherical.html":[3,0,0,982],
-"classast_1_1StateMixedSpherical.html#a001ff87e105ac11ca68644d3d000628b":[2,0,0,983,13]
+"classast_1_1StateMapper.html#ae916ffd22239e3659c02dd352ab5048e":[3,0,0,981,9]
 };

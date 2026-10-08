@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"CommandUtil_8hpp_source.html":[4,0,0,4,9],
+"Command_8cpp.html":[4,0,0,6,12,3,3],
+"Command_8hpp.html":[4,0,0,6,12,3,4],
 "Command_8hpp_source.html":[4,0,0,6,12,3,4],
 "CommonlyUsedHeaders_8hpp.html":[4,0,0,10,6,16],
 "CommonlyUsedHeaders_8hpp_source.html":[4,0,0,10,6,16],
@@ -30,9 +33,9 @@ var NAVTREEINDEX4 =
 "ConstellationLoader_8hpp.html":[4,0,0,10,6,20],
 "ConstellationLoader_8hpp.html#a28510984de163030a674ef23916c59b0":[4,0,0,10,6,20,0],
 "ConstellationLoader_8hpp_source.html":[4,0,0,10,6,20],
-"Constellation_8cpp.html":[4,0,0,18,2,19],
-"Constellation_8hpp.html":[4,0,0,18,2,20],
-"Constellation_8hpp_source.html":[4,0,0,18,2,20],
+"Constellation_8cpp.html":[4,0,0,18,2,0,12],
+"Constellation_8hpp.html":[4,0,0,18,2,0,13],
+"Constellation_8hpp_source.html":[4,0,0,18,2,0,13],
 "Container_8hpp.html":[4,0,0,27,2,1],
 "Container_8hpp_source.html":[4,0,0,27,2,1],
 "Continue_8cpp.html":[4,0,0,6,12,3,5],
@@ -47,9 +50,9 @@ var NAVTREEINDEX4 =
 "CoverageDefinitionLoader_8hpp.html":[4,0,0,10,6,22],
 "CoverageDefinitionLoader_8hpp.html#a9e134f832d3fa4968764d7f9eb576f68":[4,0,0,10,6,22,0],
 "CoverageDefinitionLoader_8hpp_source.html":[4,0,0,10,6,22],
-"CoverageDefinition_8cpp.html":[4,0,0,18,2,21],
-"CoverageDefinition_8hpp.html":[4,0,0,18,2,22],
-"CoverageDefinition_8hpp_source.html":[4,0,0,18,2,22],
+"CoverageDefinition_8cpp.html":[4,0,0,18,2,1,8],
+"CoverageDefinition_8hpp.html":[4,0,0,18,2,1,9],
+"CoverageDefinition_8hpp_source.html":[4,0,0,18,2,1,9],
 "CppSerializer_8cpp.html":[4,0,0,27,9,1],
 "CppSerializer_8hpp.html":[4,0,0,27,9,2],
 "CppSerializer_8hpp_source.html":[4,0,0,27,9,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "DetectorLighting_8hpp_source.html":[4,0,0,6,13,0,26],
 "DetectorMeanAnomaly_8cpp.html":[4,0,0,6,13,0,27],
 "DetectorMeanAnomaly_8hpp.html":[4,0,0,6,13,0,28],
-"DetectorMeanAnomaly_8hpp_source.html":[4,0,0,6,13,0,28],
-"DetectorPeriapsis_8cpp.html":[4,0,0,6,13,0,29],
-"DetectorPeriapsis_8hpp.html":[4,0,0,6,13,0,30],
-"DetectorPeriapsis_8hpp_source.html":[4,0,0,6,13,0,30]
+"DetectorMeanAnomaly_8hpp_source.html":[4,0,0,6,13,0,28]
 };

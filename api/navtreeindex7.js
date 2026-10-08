@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"GeomagneticIndex_8hpp.html":[4,0,0,31,2,2],
+"GeomagneticIndex_8hpp.html#a2c3e077640f6d8588ba62ccf6ffe9298":[4,0,0,31,2,2,1],
+"GeomagneticIndex_8hpp.html#ad93fe8a08cdb887d67d9b9eb40b2b302":[4,0,0,31,2,2,0],
 "GeomagneticIndex_8hpp_source.html":[4,0,0,31,2,2],
 "GeometryFinder_8cpp.html":[4,0,0,2,1,0],
 "GeometryFinder_8hpp.html":[4,0,0,2,1,1],
@@ -43,12 +46,12 @@ var NAVTREEINDEX7 =
 "GridCoord_8hpp.html#a3ddd723b348ed5722300ea2ea6c82f89a3ccc1233976ea051dd5a4ead5c066c86":[4,0,0,6,11,3,1,1,1],
 "GridCoord_8hpp.html#a3ddd723b348ed5722300ea2ea6c82f89adcc413a25f245a357a7a5201d586781e":[4,0,0,6,11,3,1,1,0],
 "GridCoord_8hpp_source.html":[4,0,0,6,11,3,1],
-"GroundStation_8cpp.html":[4,0,0,18,2,27],
-"GroundStation_8hpp.html":[4,0,0,18,2,28],
-"GroundStation_8hpp_source.html":[4,0,0,18,2,28],
-"GroundVehicle_8cpp.html":[4,0,0,18,2,29],
-"GroundVehicle_8hpp.html":[4,0,0,18,2,30],
-"GroundVehicle_8hpp_source.html":[4,0,0,18,2,30],
+"GroundStation_8cpp.html":[4,0,0,18,2,0,16],
+"GroundStation_8hpp.html":[4,0,0,18,2,0,17],
+"GroundStation_8hpp_source.html":[4,0,0,18,2,0,17],
+"GroundVehicle_8cpp.html":[4,0,0,18,2,0,18],
+"GroundVehicle_8hpp.html":[4,0,0,18,2,0,19],
+"GroundVehicle_8hpp_source.html":[4,0,0,18,2,0,19],
 "HPOPEquation_8cpp.html":[4,0,0,6,13,1,10],
 "HPOPEquation_8hpp.html":[4,0,0,6,13,1,11],
 "HPOPEquation_8hpp_source.html":[4,0,0,6,13,1,11],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "LagrangeInterpolator_8cpp.html":[4,0,0,11,4,2],
 "LagrangeInterpolator_8hpp.html":[4,0,0,11,4,3],
 "LagrangeInterpolator_8hpp_source.html":[4,0,0,11,4,3],
-"Lambert_8cpp.html":[4,0,0,6,12,7],
-"Lambert_8hpp.html":[4,0,0,6,12,8],
-"Lambert_8hpp_source.html":[4,0,0,6,12,8],
-"LandingSiteCalcSunAzimuth_8cpp.html":[4,0,0,6,12,1,1,0]
+"Lambert_8cpp.html":[4,0,0,6,12,7]
 };
