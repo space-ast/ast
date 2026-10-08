@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/AttitudeCoverage.hpp"
+#include "../../src/AstSim/Object/Tool/AttitudeCoverage.hpp"

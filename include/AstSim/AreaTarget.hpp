@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/AreaTarget.hpp"
+#include "../../src/AstSim/Object/Entity/AreaTarget.hpp"

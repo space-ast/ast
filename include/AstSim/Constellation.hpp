@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/Constellation.hpp"
+#include "../../src/AstSim/Object/Entity/Constellation.hpp"

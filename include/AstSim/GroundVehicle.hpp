@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/GroundVehicle.hpp"
+#include "../../src/AstSim/Object/Entity/GroundVehicle.hpp"

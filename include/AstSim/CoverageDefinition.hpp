@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/CoverageDefinition.hpp"
+#include "../../src/AstSim/Object/Tool/CoverageDefinition.hpp"

@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/CommSystem.hpp"
+#include "../../src/AstSim/Object/Entity/CommSystem.hpp"

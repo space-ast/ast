@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/Platform.hpp"
+#include "../../src/AstSim/Object/Entity/Platform.hpp"

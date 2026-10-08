@@ -1,4 +1,5 @@
 // AstSim 工程聚合头文件
+#include "AstSim/Access.hpp"
 #include "AstSim/AdvCAT.hpp"
 #include "AstSim/Aircraft.hpp"
 #include "AstSim/Antenna.hpp"

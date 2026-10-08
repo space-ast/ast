@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/Transmitter.hpp"
+#include "../../src/AstSim/Object/Entity/Transmitter.hpp"

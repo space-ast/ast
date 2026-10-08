@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/Submarine.hpp"
+#include "../../src/AstSim/Object/Entity/Submarine.hpp"

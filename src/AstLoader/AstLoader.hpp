@@ -1,4 +1,5 @@
 // AstLoader 工程聚合头文件
+#include "AstLoader/AccessLoader.hpp"
 #include "AstLoader/AdvCATLoader.hpp"
 #include "AstLoader/AntennaLoader.hpp"
 #include "AstLoader/AreaTargetLoader.hpp"

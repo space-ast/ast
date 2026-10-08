@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/SpaceObject.hpp"
+#include "../../src/AstSim/Object/Entity/SpaceObject.hpp"

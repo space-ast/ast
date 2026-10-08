@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/Sensor.hpp"
+#include "../../src/AstSim/Object/Entity/Sensor.hpp"

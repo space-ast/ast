@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/GroundStation.hpp"
+#include "../../src/AstSim/Object/Entity/GroundStation.hpp"

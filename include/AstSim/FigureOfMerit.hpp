@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/FigureOfMerit.hpp"
+#include "../../src/AstSim/Object/Tool/FigureOfMerit.hpp"

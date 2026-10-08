@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/Star.hpp"
+#include "../../src/AstSim/Object/Entity/Star.hpp"

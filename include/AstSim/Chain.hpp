@@ -1,1 +1,1 @@
-#include "../../src/AstSim/Object/Chain.hpp"
+#include "../../src/AstSim/Object/Entity/Chain.hpp"
