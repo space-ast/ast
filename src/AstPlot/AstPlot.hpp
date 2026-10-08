@@ -2,6 +2,7 @@
 #include "AstPlot/AggBackend.hpp"
 #include "AstPlot/AggRenderer.hpp"
 #include "AstPlot/AggVisitor.hpp"
+#include "AstPlot/AstPlotAPI.hpp"
 #include "AstPlot/LineStyle.hpp"
 #include "AstPlot/NoPlot.hpp"
 #include "AstPlot/Plot.hpp"
