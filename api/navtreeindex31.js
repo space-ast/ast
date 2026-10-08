@@ -1,5 +1,8 @@
 var NAVTREEINDEX31 =
 {
+"classast_1_1GoldenSectionOptimizer.html#ac6b10fc440119da6ca98fdf3a8d3d2ef":[0,3,5,1,3],
+"classast_1_1GoldenSectionOptimizer.html#ae582e03ddd7bdc7236a33f9683ed0249":[0,3,5,1,0],
+"classast_1_1GravityCalculator.html":[2,0,0,383],
 "classast_1_1GravityCalculator.html":[3,0,0,382],
 "classast_1_1GravityCalculator.html#a13f7592832fd03f89cb176992f08995b":[2,0,0,383,4],
 "classast_1_1GravityCalculator.html#a13f7592832fd03f89cb176992f08995b":[3,0,0,382,4],
@@ -246,8 +249,5 @@ var NAVTREEINDEX31 =
 "classast_1_1HPOP.html#aa503633338d058119bccbc870ecf5485":[0,1,6,0,11],
 "classast_1_1HPOP.html#ab70e19b902a5441a8e696668a7d5e5c4":[0,1,6,0,14],
 "classast_1_1HPOP.html#ad659ca9be93bd82dd6aff814089b6a6e":[0,1,6,0,13],
-"classast_1_1HPOP.html#ae7730a7e7ca7125c8780c5118f1e6ff5":[0,1,6,0,9],
-"classast_1_1HPOP.html#aec239270bbfe178ad2bf302758a1ed04":[0,1,6,0,3],
-"classast_1_1HPOPEquation.html":[2,0,0,401],
-"classast_1_1HPOPEquation.html":[3,0,0,400]
+"classast_1_1HPOP.html#ae7730a7e7ca7125c8780c5118f1e6ff5":[0,1,6,0,9]
 };

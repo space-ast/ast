@@ -99,14 +99,24 @@ $(function(){initNavTree('group__AstLoader.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">类</a> &#124;
 <a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">AstLoader</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TimelinePrefs.html">ast::TimelinePrefs</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
+<tr class="memitem:ga27ea9a012d5168849f2853bb9b001ff5" id="r_ga27ea9a012d5168849f2853bb9b001ff5"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga27ea9a012d5168849f2853bb9b001ff5">ast::aLoadTimeLinePrefs</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1TimelinePrefs.html">TimelinePrefs</a> &amp;prefs)</td></tr>
+<tr class="separator:ga27ea9a012d5168849f2853bb9b001ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga48314c7770288014cf520b548c0cde97" id="r_ga48314c7770288014cf520b548c0cde97"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga48314c7770288014cf520b548c0cde97">ast::aLoadTimeLinePrefs</a> (<a class="el" href="classast_1_1XMLNode.html">XMLNode</a> &amp;root, <a class="el" href="classast_1_1TimelinePrefs.html">TimelinePrefs</a> &amp;prefs)</td></tr>
+<tr class="separator:ga48314c7770288014cf520b548c0cde97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8c9939a512be49d91d5b359871ecf2e8" id="r_ga8c9939a512be49d91d5b359871ecf2e8"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8c9939a512be49d91d5b359871ecf2e8">ast::aLoadReportStyle</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;report)</td></tr>
 <tr class="separator:ga8c9939a512be49d91d5b359871ecf2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0c556da93483ebd3b68fc2494c787302" id="r_ga0c556da93483ebd3b68fc2494c787302"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0c556da93483ebd3b68fc2494c787302">ast::aLoadReportStyle</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;report)</td></tr>
@@ -169,6 +179,68 @@ $(function(){initNavTree('group__AstLoader.html',''); initResizable(true); });
   <table class="params">
     <tr><td class="paramname">filepath</td><td>文件路径（.rst 或 .rsg 文件） </td></tr>
     <tr><td class="paramname">report</td><td>[out] 报表样式数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga27ea9a012d5168849f2853bb9b001ff5" name="ga27ea9a012d5168849f2853bb9b001ff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga27ea9a012d5168849f2853bb9b001ff5">&#9670;&#160;</a></span>aLoadTimeLinePrefs() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_LOADER_API errc_t ast::aLoadTimeLinePrefs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1TimelinePrefs.html">TimelinePrefs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>prefs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从 XML 文件加载时间线视图偏好 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">filepath</td><td>文件路径（*TimelinePrefs.xml） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">prefs</td><td>时间线偏好数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="ga48314c7770288014cf520b548c0cde97" name="ga48314c7770288014cf520b548c0cde97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga48314c7770288014cf520b548c0cde97">&#9670;&#160;</a></span>aLoadTimeLinePrefs() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_LOADER_API errc_t ast::aLoadTimeLinePrefs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1XMLNode.html">XMLNode</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>root</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1TimelinePrefs.html">TimelinePrefs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>prefs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从已解析的 XML 根节点加载时间线视图偏好 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">root</td><td>已解析的 XML 根节点（应为 TimelineLine_Prefs 元素） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">prefs</td><td>时间线偏好数据 </td></tr>
   </table>
   </dd>
 </dl>

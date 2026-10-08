@@ -27,5 +27,6 @@ var searchData=
   ['rotationelement_24',['RotationElement',['../classast_1_1RotationElement.html',1,'ast']]],
   ['roundrobingroupchat_25',['RoundRobinGroupChat',['../classast_1_1RoundRobinGroupChat.html',1,'ast']]],
   ['routinghandleresult_26',['RoutingHandleResult',['../classast_1_1RoutingHandleResult.html',1,'ast']]],
-  ['runningstatus_27',['RunningStatus',['../classast_1_1RunningStatus.html',1,'ast']]]
+  ['row_27',['Row',['../structast_1_1TimelinePrefs_1_1Row.html',1,'ast::TimelinePrefs']]],
+  ['runningstatus_28',['RunningStatus',['../classast_1_1RunningStatus.html',1,'ast']]]
 ];

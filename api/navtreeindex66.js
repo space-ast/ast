@@ -1,5 +1,14 @@
 var NAVTREEINDEX66 =
 {
+"structast_1_1DAF__SPKSummaryRecords.html#a30b79ae6a343e644e3fcdc4d8f1ece50":[2,0,0,221,3],
+"structast_1_1DAF__SPKSummaryRecords.html#a30b79ae6a343e644e3fcdc4d8f1ece50":[3,0,0,220,3],
+"structast_1_1DAF__SPKSummaryRecords.html#a5b4c7bca9ee562968ea70b164fef28dc":[2,0,0,221,0],
+"structast_1_1DAF__SPKSummaryRecords.html#a5b4c7bca9ee562968ea70b164fef28dc":[3,0,0,220,0],
+"structast_1_1DAF__SPKSummaryRecords.html#a680a017d720ab0a4337286e38a961e4d":[2,0,0,221,2],
+"structast_1_1DAF__SPKSummaryRecords.html#a680a017d720ab0a4337286e38a961e4d":[3,0,0,220,2],
+"structast_1_1DAF__SPKSummaryRecords.html#a9c13a301591a23544e3202f7684c3211":[2,0,0,221,1],
+"structast_1_1DAF__SPKSummaryRecords.html#a9c13a301591a23544e3202f7684c3211":[3,0,0,220,1],
+"structast_1_1DAF__SummaryRecords.html":[2,0,0,222],
 "structast_1_1DAF__SummaryRecords.html":[3,0,0,221],
 "structast_1_1DAF__SummaryRecords.html#a0971b46fa87ae11370503bd017ddfa1b":[2,0,0,222,0],
 "structast_1_1DAF__SummaryRecords.html#a0971b46fa87ae11370503bd017ddfa1b":[3,0,0,221,0],
@@ -240,14 +249,5 @@ var NAVTREEINDEX66 =
 "structast_1_1SPK__Type20__Record.html":[3,0,0,961],
 "structast_1_1SPK__Type20__Trailer.html":[2,0,0,963],
 "structast_1_1SPK__Type20__Trailer.html":[3,0,0,962],
-"structast_1_1SPK__Type2__Record.html":[2,0,0,964],
-"structast_1_1SPK__Type2__Record.html":[3,0,0,963],
-"structast_1_1SPK__Type2__Record.html#a42a40f4968320b391585c1aa17c08290":[2,0,0,964,0],
-"structast_1_1SPK__Type2__Record.html#a42a40f4968320b391585c1aa17c08290":[3,0,0,963,0],
-"structast_1_1SPK__Type2__Record.html#a4bf352a51ac2aa4b8c370419d4f358c5":[2,0,0,964,1],
-"structast_1_1SPK__Type2__Record.html#a4bf352a51ac2aa4b8c370419d4f358c5":[3,0,0,963,1],
-"structast_1_1SPK__Type2__Trailer.html":[2,0,0,965],
-"structast_1_1SPK__Type2__Trailer.html":[3,0,0,964],
-"structast_1_1SPK__Type2__Trailer.html#a271dc580e5817fc616ca8862c32941ee":[2,0,0,965,0],
-"structast_1_1SPK__Type2__Trailer.html#a271dc580e5817fc616ca8862c32941ee":[3,0,0,964,0]
+"structast_1_1SPK__Type2__Record.html":[2,0,0,964]
 };

@@ -34,11 +34,12 @@ var searchData=
   ['dims_5f_31',['dims_',['../classast_1_1ValArray.html#aefb5076bfe561d7498f557c6297fc9a8',1,'ast::ValArray']]],
   ['direction_5f_32',['direction_',['../classast_1_1CriticallyInclinedOrbitDesigner.html#a771ab05caca4a307e4f15692d6ee96ae',1,'ast::CriticallyInclinedOrbitDesigner']]],
   ['dirpath_5f_33',['dirpath_',['../classast_1_1GravityFieldLoader.html#a35b4d83a3160eaed9fbed4959b7c5a32',1,'ast::GravityFieldLoader::dirpath_'],['../classast_1_1SolarSystem.html#a00ab55b3f026a57e64b222d167aa2340',1,'ast::SolarSystem::dirpath_']]],
-  ['dm_34',['dm',['../namespaceast_1_1units.html#a567c78044182d62bdfd482ade453488f',1,'ast::units']]],
-  ['doublebuffer_5f_35',['doubleBuffer_',['../classast_1_1BlockDrag.html#a0f1d7d2b3c24d2caa71d523a7ac573c3',1,'ast::BlockDrag::doubleBuffer_'],['../classast_1_1BlockSRP.html#a5195d2dddffae1ddb5207f4170d077c3',1,'ast::BlockSRP::doubleBuffer_']]],
-  ['dragarea_5f_36',['dragArea_',['../classast_1_1SpacecraftParam.html#acad5f7be72efead486eb21bd709ec024',1,'ast::SpacecraftParam::dragArea_'],['../classast_1_1BlockDrag.html#a70fd4cfbc1bdc6de6bcb7d4bc391b548',1,'ast::BlockDrag::dragArea_']]],
-  ['dragcoefficient_5f_37',['dragCoefficient_',['../classast_1_1BlockDrag.html#ae8a3996f455a8642915591a501a212a1',1,'ast::BlockDrag']]],
-  ['drymass_5f_38',['dryMass_',['../classast_1_1SpacecraftParam.html#aba6b02f97c2589b79c75abd86cb32194',1,'ast::SpacecraftParam']]],
-  ['dval_39',['dval',['../structast_1_1DAF__SummaryRecords.html#a0971b46fa87ae11370503bd017ddfa1b',1,'ast::DAF_SummaryRecords']]],
-  ['dy_40',['dy',['../structast_1_1EOP_1_1Entry.html#aad4654f312619fbc29165539a7d27ea4',1,'ast::EOP::Entry']]]
+  ['displayname_5f_34',['displayName_',['../structast_1_1TimelinePrefs_1_1Row.html#a19762f20dc73f6da057f5edafa907398',1,'ast::TimelinePrefs::Row']]],
+  ['dm_35',['dm',['../namespaceast_1_1units.html#a567c78044182d62bdfd482ade453488f',1,'ast::units']]],
+  ['doublebuffer_5f_36',['doubleBuffer_',['../classast_1_1BlockDrag.html#a0f1d7d2b3c24d2caa71d523a7ac573c3',1,'ast::BlockDrag::doubleBuffer_'],['../classast_1_1BlockSRP.html#a5195d2dddffae1ddb5207f4170d077c3',1,'ast::BlockSRP::doubleBuffer_']]],
+  ['dragarea_5f_37',['dragArea_',['../classast_1_1SpacecraftParam.html#acad5f7be72efead486eb21bd709ec024',1,'ast::SpacecraftParam::dragArea_'],['../classast_1_1BlockDrag.html#a70fd4cfbc1bdc6de6bcb7d4bc391b548',1,'ast::BlockDrag::dragArea_']]],
+  ['dragcoefficient_5f_38',['dragCoefficient_',['../classast_1_1BlockDrag.html#ae8a3996f455a8642915591a501a212a1',1,'ast::BlockDrag']]],
+  ['drymass_5f_39',['dryMass_',['../classast_1_1SpacecraftParam.html#aba6b02f97c2589b79c75abd86cb32194',1,'ast::SpacecraftParam']]],
+  ['dval_40',['dval',['../structast_1_1DAF__SummaryRecords.html#a0971b46fa87ae11370503bd017ddfa1b',1,'ast::DAF_SummaryRecords']]],
+  ['dy_41',['dy',['../structast_1_1EOP_1_1Entry.html#aad4654f312619fbc29165539a7d27ea4',1,'ast::EOP::Entry']]]
 ];

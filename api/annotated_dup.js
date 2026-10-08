@@ -1091,6 +1091,7 @@ var annotated_dup =
       [ "Time", "classast_1_1Time.html", "classast_1_1Time" ],
       [ "TimeInterval", "classast_1_1TimeInterval.html", "classast_1_1TimeInterval" ],
       [ "TimeIntervalList", "classast_1_1TimeIntervalList.html", "classast_1_1TimeIntervalList" ],
+      [ "TimelinePrefs", "classast_1_1TimelinePrefs.html", "classast_1_1TimelinePrefs" ],
       [ "TimeList", "classast_1_1TimeList.html", "classast_1_1TimeList" ],
       [ "TimePoint", "classast_1_1TimePoint.html", "classast_1_1TimePoint" ],
       [ "TimePointRange", "classast_1_1TimePointRange.html", "classast_1_1TimePointRange" ],

@@ -1,5 +1,8 @@
 var NAVTREEINDEX38 =
 {
+"classast_1_1NLPProblem.html#a87efade9b981d9f3b63d24278442924b":[2,0,0,549,9],
+"classast_1_1NLPProblem.html#a87efade9b981d9f3b63d24278442924b":[3,0,0,548,9],
+"classast_1_1NLPProblem.html#a8a223e5607d97f05ce43599c70763f04":[2,0,0,549,7],
 "classast_1_1NLPProblem.html#a8a223e5607d97f05ce43599c70763f04":[3,0,0,548,7],
 "classast_1_1NLPProblem.html#a9b81507f52138d646a5bb4dd3a5a4b49":[2,0,0,549,10],
 "classast_1_1NLPProblem.html#a9b81507f52138d646a5bb4dd3a5a4b49":[3,0,0,548,10],
@@ -246,8 +249,5 @@ var NAVTREEINDEX38 =
 "classast_1_1ODEIntegrator.html#ae1b8d09804f73c6dd2035706605da221":[0,3,4,10,17],
 "classast_1_1ODEIntegrator.html#ae72c0c1835275c3ec91d3ec917ff4a04":[0,3,4,10,4],
 "classast_1_1ODEIntegrator.html#af04d4e6c7ccae641b9fe451172db95cf":[0,3,4,10,22],
-"classast_1_1ODEIntegrator.html#af22094cba194c3eb8b02c5d7bc871daf":[0,3,4,10,14],
-"classast_1_1ODEStateObserver.html":[0,3,4,11],
-"classast_1_1ODEStateObserver.html#a4c745eb1d03b1db2a8bbb1c07e0646b1":[0,3,4,11,0],
-"classast_1_1ODEStateObserverGeneric.html":[2,0,0,587]
+"classast_1_1ODEIntegrator.html#af22094cba194c3eb8b02c5d7bc871daf":[0,3,4,10,14]
 };

@@ -28,6 +28,6 @@ var searchData=
   ['truncatesolidtides_5f_25',['truncateSolidTides_',['../classast_1_1GravityForce.html#a14cc152898af34511ea27b7ab3beffb7',1,'ast::GravityForce']]],
   ['turnradius_5f_26',['turnRadius_',['../classast_1_1WayPoint.html#a1b4f1dc8f9c9d332e6f3c1b4d65a9267',1,'ast::WayPoint']]],
   ['type_27',['type',['../structast_1_1WasmObjectInfo.html#af2e4892a058fb8a884de130d3a5ed7b9',1,'ast::WasmObjectInfo']]],
-  ['type_5f_28',['type_',['../classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c',1,'ast::DataPort::type_'],['../classast_1_1ReportElement.html#a2f76c07ddfba438bfb1f83982dd22c7f',1,'ast::ReportElement::type_']]],
+  ['type_5f_28',['type_',['../classast_1_1DataPort.html#ab9232e19783152cab0e3b285da07ac7c',1,'ast::DataPort::type_'],['../structast_1_1TimelinePrefs_1_1Row.html#af5bac9ab96cc2e502a780f0da8eba3cd',1,'ast::TimelinePrefs::Row::type_'],['../classast_1_1ReportElement.html#a2f76c07ddfba438bfb1f83982dd22c7f',1,'ast::ReportElement::type_']]],
   ['typename_29',['typeName',['../structast_1_1QuickTypeEntry.html#a267340cf55ac2e8eacc08645791d777b',1,'ast::QuickTypeEntry']]]
 ];
