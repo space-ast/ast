@@ -1,5 +1,16 @@
 var NAVTREEINDEX5 =
 {
+"DetectorPointRelated_8cpp.html":[4,0,0,6,13,0,31],
+"DetectorPointRelated_8hpp.html":[4,0,0,6,13,0,32],
+"DetectorPointRelated_8hpp_source.html":[4,0,0,6,13,0,32],
+"DetectorRMagnitude_8cpp.html":[4,0,0,6,13,0,33],
+"DetectorRMagnitude_8hpp.html":[4,0,0,6,13,0,34],
+"DetectorRMagnitude_8hpp_source.html":[4,0,0,6,13,0,34],
+"DetectorTrueAnomaly_8cpp.html":[4,0,0,6,13,0,35],
+"DetectorTrueAnomaly_8hpp.html":[4,0,0,6,13,0,36],
+"DetectorTrueAnomaly_8hpp_source.html":[4,0,0,6,13,0,36],
+"DetectorUserSelect_8cpp.html":[4,0,0,6,13,0,37],
+"DetectorUserSelect_8hpp.html":[4,0,0,6,13,0,38],
 "DetectorUserSelect_8hpp_source.html":[4,0,0,6,13,0,38],
 "DetectorXYPlaneCross_8cpp.html":[4,0,0,6,13,0,39],
 "DetectorXYPlaneCross_8hpp.html":[4,0,0,6,13,0,40],
@@ -238,16 +249,5 @@ var NAVTREEINDEX5 =
 "ExprCalculation_8cpp.html":[4,0,0,17,2,6],
 "ExprCalculation_8hpp.html":[4,0,0,17,2,7],
 "ExprCalculation_8hpp_source.html":[4,0,0,17,2,7],
-"ExprCall_8hpp_source.html":[4,0,0,17,2,8],
-"ExprCatHorizontal_8cpp.html":[4,0,0,17,2,9],
-"ExprCatHorizontal_8hpp_source.html":[4,0,0,17,2,10],
-"ExprCatVertical_8cpp.html":[4,0,0,17,2,11],
-"ExprCatVertical_8hpp.html":[4,0,0,17,2,12],
-"ExprCatVertical_8hpp_source.html":[4,0,0,17,2,12],
-"ExprCondition_8cpp.html":[4,0,0,17,2,13],
-"ExprCondition_8hpp.html":[4,0,0,17,2,14],
-"ExprCondition_8hpp_source.html":[4,0,0,17,2,14],
-"ExprContainer_8hpp.html":[4,0,0,17,2,15],
-"ExprContainer_8hpp_source.html":[4,0,0,17,2,15],
-"ExprExpandVisitor_8cpp.html":[4,0,0,17,0,2]
+"ExprCall_8hpp_source.html":[4,0,0,17,2,8]
 };

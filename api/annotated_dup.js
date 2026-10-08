@@ -78,6 +78,8 @@ var annotated_dup =
       ] ],
       [ "AccelerationRotation", "classast_1_1AccelerationRotation.html", "classast_1_1AccelerationRotation" ],
       [ "AccelerationTransform", "classast_1_1AccelerationTransform.html", "classast_1_1AccelerationTransform" ],
+      [ "Access", "classast_1_1Access.html", null ],
+      [ "AccessConfig", "structast_1_1AccessConfig.html", "structast_1_1AccessConfig" ],
       [ "AccessConstraint", "classast_1_1AccessConstraint.html", "classast_1_1AccessConstraint" ],
       [ "AccessEvaluator", "classast_1_1AccessEvaluator.html", "classast_1_1AccessEvaluator" ],
       [ "AccessStepper", "classast_1_1AccessStepper.html", "classast_1_1AccessStepper" ],

@@ -132,6 +132,10 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AccelerationTransform.html">AccelerationTransform</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Access.html">Access</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1AccessConfig.html">AccessConfig</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AccessConstraint.html">AccessConstraint</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1AccessEvaluator.html">AccessEvaluator</a></td></tr>
@@ -2880,6 +2884,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>HSpacecraft</b> = <a
 <tr class="memitem:a2d24769b83c2ea4dd3c7b1c32d8809a6" id="r_a2d24769b83c2ea4dd3c7b1c32d8809a6"><td class="memItemLeft" align="right" valign="top"><a id="a2d24769b83c2ea4dd3c7b1c32d8809a6" name="a2d24769b83c2ea4dd3c7b1c32d8809a6"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>PSpacecraft</b> = <a class="el" href="classast_1_1Spacecraft.html">Spacecraft</a>*</td></tr>
 <tr class="separator:a2d24769b83c2ea4dd3c7b1c32d8809a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5282fcedcdd24a435b5b612efc73c45" id="r_af5282fcedcdd24a435b5b612efc73c45"><td class="memItemLeft" align="right" valign="top"><a id="af5282fcedcdd24a435b5b612efc73c45" name="af5282fcedcdd24a435b5b612efc73c45"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>HAccess</b> = <a class="el" href="classast_1_1SharedPtr.html">SharedPtr</a>&lt;<a class="el" href="classast_1_1Access.html">Access</a>&gt;</td></tr>
+<tr class="separator:af5282fcedcdd24a435b5b612efc73c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fa539ef205cdc24b5d1151798002026" id="r_a7fa539ef205cdc24b5d1151798002026"><td class="memItemLeft" align="right" valign="top"><a id="a7fa539ef205cdc24b5d1151798002026" name="a7fa539ef205cdc24b5d1151798002026"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>SpiceInt</b> = int</td></tr>
 <tr class="separator:a7fa539ef205cdc24b5d1151798002026"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3289,7 +3296,7 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 <tr class="memitem:ac0b82877894a659aa7aef5d2ebb241a8" id="r_ac0b82877894a659aa7aef5d2ebb241a8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0b82877894a659aa7aef5d2ebb241a8">EAberrationType</a> { <a class="el" href="#ac0b82877894a659aa7aef5d2ebb241a8abe988781e4e1de1c6a36fb698afbbe1f">eNone</a>
 , <a class="el" href="#ac0b82877894a659aa7aef5d2ebb241a8a1ccda31e6c549561a4c4623a50f6aa41">eAnnual</a>
 , <a class="el" href="#ac0b82877894a659aa7aef5d2ebb241a8a3992e2ca3529e8525892502374859c0a">eDiurnal</a>
-, <a class="el" href="#ac0b82877894a659aa7aef5d2ebb241a8aea2732070f7b1cfa1804f5a521e85b56">eTotal</a>
+, <b>eTotal</b>
  }</td></tr>
 <tr class="separator:ac0b82877894a659aa7aef5d2ebb241a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac22db6298835f5ffbad88bd9c01c4d08" id="r_gac22db6298835f5ffbad88bd9c01c4d08"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SolarSystem.html#gac22db6298835f5ffbad88bd9c01c4d08">EEphemerisSource</a> { <a class="el" href="group__SolarSystem.html#ggac22db6298835f5ffbad88bd9c01c4d08aa3e972fdedd51e056d8402b279c4c5d5">EEphemerisSource::eBodyEphemeris</a>
@@ -5911,6 +5918,10 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>aLoadValue</b> (<a 
 <tr class="separator:ga8c9939a512be49d91d5b359871ecf2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0c556da93483ebd3b68fc2494c787302" id="r_ga0c556da93483ebd3b68fc2494c787302"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__AstLoader.html#ga0c556da93483ebd3b68fc2494c787302">aLoadReportStyle</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1ReportStyle.html">ReportStyle</a> &amp;report)</td></tr>
 <tr class="separator:ga0c556da93483ebd3b68fc2494c787302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4bfdadd06e3a12b95e0ae3749a443ec" id="r_ad4bfdadd06e3a12b95e0ae3749a443ec"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4bfdadd06e3a12b95e0ae3749a443ec">aLoadAccess</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Scenario.html">Scenario</a> &amp;scenario)</td></tr>
+<tr class="separator:ad4bfdadd06e3a12b95e0ae3749a443ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f3032f5d35c3697634b178e99752b54" id="r_a6f3032f5d35c3697634b178e99752b54"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f3032f5d35c3697634b178e99752b54">aLoadAccess</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1Scenario.html">Scenario</a> &amp;scenario, std::vector&lt; <a class="el" href="#af5282fcedcdd24a435b5b612efc73c45">HAccess</a> &gt; &amp;accesses)</td></tr>
+<tr class="separator:a6f3032f5d35c3697634b178e99752b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fce802f178e3d7288618e48667b8618" id="r_a0fce802f178e3d7288618e48667b8618"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fce802f178e3d7288618e48667b8618">_aLoadInterval</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1AdvCAT.html">AdvCAT</a> &amp;advCAT)</td></tr>
 <tr class="separator:a0fce802f178e3d7288618e48667b8618"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac63ff501c2ad6207c615c6d4d63150a1" id="r_ac63ff501c2ad6207c615c6d4d63150a1"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac63ff501c2ad6207c615c6d4d63150a1">_aLoadFilterSettings</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1AdvCAT.html">AdvCAT</a> &amp;advCAT)</td></tr>
@@ -8899,15 +8910,13 @@ constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>kId
 </table>
 </div><div class="memdoc">
 
-<p>光行差类型 </p>
+<p>像差类型 </p>
 <table class="fieldtable">
-<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ac0b82877894a659aa7aef5d2ebb241a8abe988781e4e1de1c6a36fb698afbbe1f" name="ac0b82877894a659aa7aef5d2ebb241a8abe988781e4e1de1c6a36fb698afbbe1f"></a>eNone&#160;</td><td class="fielddoc"><p>无光行差 </p>
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ac0b82877894a659aa7aef5d2ebb241a8abe988781e4e1de1c6a36fb698afbbe1f" name="ac0b82877894a659aa7aef5d2ebb241a8abe988781e4e1de1c6a36fb698afbbe1f"></a>eNone&#160;</td><td class="fielddoc"><p>无像差 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac0b82877894a659aa7aef5d2ebb241a8a1ccda31e6c549561a4c4623a50f6aa41" name="ac0b82877894a659aa7aef5d2ebb241a8a1ccda31e6c549561a4c4623a50f6aa41"></a>eAnnual&#160;</td><td class="fielddoc"><p>周年光行差 </p>
+<tr><td class="fieldname"><a id="ac0b82877894a659aa7aef5d2ebb241a8a1ccda31e6c549561a4c4623a50f6aa41" name="ac0b82877894a659aa7aef5d2ebb241a8a1ccda31e6c549561a4c4623a50f6aa41"></a>eAnnual&#160;</td><td class="fielddoc"><p>周年像差 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac0b82877894a659aa7aef5d2ebb241a8a3992e2ca3529e8525892502374859c0a" name="ac0b82877894a659aa7aef5d2ebb241a8a3992e2ca3529e8525892502374859c0a"></a>eDiurnal&#160;</td><td class="fielddoc"><p>周日光行差 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ac0b82877894a659aa7aef5d2ebb241a8aea2732070f7b1cfa1804f5a521e85b56" name="ac0b82877894a659aa7aef5d2ebb241a8aea2732070f7b1cfa1804f5a521e85b56"></a>eTotal&#160;</td><td class="fielddoc"><p>总光行差 </p>
+<tr><td class="fieldname"><a id="ac0b82877894a659aa7aef5d2ebb241a8a3992e2ca3529e8525892502374859c0a" name="ac0b82877894a659aa7aef5d2ebb241a8a3992e2ca3529e8525892502374859c0a"></a>eDiurnal&#160;</td><td class="fielddoc"><p>周日像差 </p>
 </td></tr>
 </table>
 
@@ -9111,7 +9120,7 @@ constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>kId
 </table>
 </div><div class="memdoc">
 
-<p>时钟主机（用于光时计算中选择时间参考对象） </p>
+<p>时钟主体（用于光时计算中选择时间参考对象） </p>
 <table class="fieldtable">
 <tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a46daf5279b2c4dc2e3a37bbae8fb2a6da9f69905585d448f691aba12b95d2f391" name="a46daf5279b2c4dc2e3a37bbae8fb2a6da9f69905585d448f691aba12b95d2f391"></a>eFirstObject&#160;</td><td class="fielddoc"><p>以第一个对象为时钟参考 </p>
 </td></tr>
@@ -10136,11 +10145,11 @@ constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>kId
 </table>
 </div><div class="memdoc">
 
-<p>时间方向（用于光时计算中定义传输/接收方向） </p>
+<p>信号传输方向（定义光行时差计算中信号的传输方向） </p>
 <table class="fieldtable">
-<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a36fb77b62a6bc0136b765df39deefd46a48bb86a8e60bbffb0fe42f6c145df380" name="a36fb77b62a6bc0136b765df39deefd46a48bb86a8e60bbffb0fe42f6c145df380"></a>eTransmit&#160;</td><td class="fielddoc"><p>发射方向 </p>
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a36fb77b62a6bc0136b765df39deefd46a48bb86a8e60bbffb0fe42f6c145df380" name="a36fb77b62a6bc0136b765df39deefd46a48bb86a8e60bbffb0fe42f6c145df380"></a>eTransmit&#160;</td><td class="fielddoc"><p>发送端（本端发送信号） </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a36fb77b62a6bc0136b765df39deefd46a73e17a661237961af99c6714b00f226f" name="a36fb77b62a6bc0136b765df39deefd46a73e17a661237961af99c6714b00f226f"></a>eReceive&#160;</td><td class="fielddoc"><p>接收方向 </p>
+<tr><td class="fieldname"><a id="a36fb77b62a6bc0136b765df39deefd46a73e17a661237961af99c6714b00f226f" name="a36fb77b62a6bc0136b765df39deefd46a73e17a661237961af99c6714b00f226f"></a>eReceive&#160;</td><td class="fielddoc"><p>接收端（本端接收信号） </p>
 </td></tr>
 </table>
 
@@ -15331,6 +15340,74 @@ template&lt;typename Func &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>true = 被遮挡，false = 无遮挡 </dd></dl>
+
+</div>
+</div>
+<a id="ad4bfdadd06e3a12b95e0ae3749a443ec" name="ad4bfdadd06e3a12b95e0ae3749a443ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4bfdadd06e3a12b95e0ae3749a443ec">&#9670;&#160;</a></span>aLoadAccess() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_LOADER_API errc_t ast::aLoadAccess </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Scenario.html">Scenario</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scenario</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载 <a class="el" href="classast_1_1Access.html" title="访问对象">Access</a> 对象 </p>
+<p>加载 .sca 文件中的全部 <a class="el" href="classast_1_1Access.html" title="访问对象">Access</a> 对象，并挂到场景之下 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>.sca 文件路径 </td></tr>
+    <tr><td class="paramname">scenario</td><td>所属场景 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a6f3032f5d35c3697634b178e99752b54" name="a6f3032f5d35c3697634b178e99752b54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f3032f5d35c3697634b178e99752b54">&#9670;&#160;</a></span>aLoadAccess() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_LOADER_API errc_t ast::aLoadAccess </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Scenario.html">Scenario</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scenario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="#af5282fcedcdd24a435b5b612efc73c45">HAccess</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>accesses</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载 <a class="el" href="classast_1_1Access.html" title="访问对象">Access</a> 对象 </p>
+<p>加载 .sca 文件中的全部 <a class="el" href="classast_1_1Access.html" title="访问对象">Access</a> 对象，并挂到场景之下 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>.sca 文件路径 </td></tr>
+    <tr><td class="paramname">scenario</td><td>所属场景 </td></tr>
+    <tr><td class="paramname">accesses</td><td>输出参数，本次加载产生的 <a class="el" href="classast_1_1Access.html" title="访问对象">Access</a> 对象列表（调用时会被清空） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
 </div>
 </div>

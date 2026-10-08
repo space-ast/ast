@@ -3,6 +3,7 @@ var hierarchy =
     [ "a_structtype", "structa__structtype.html", null ],
     [ "ast::AccelerationRotation", "classast_1_1AccelerationRotation.html", null ],
     [ "ast::AccelerationTransform", "classast_1_1AccelerationTransform.html", null ],
+    [ "ast::AccessConfig", "structast_1_1AccessConfig.html", null ],
     [ "ast::AEP8Data", "classast_1_1AEP8Data.html", null ],
     [ "ast::AEPDataCollection", "classast_1_1AEPDataCollection.html", null ],
     [ "allocator_type", null, [
@@ -850,6 +851,7 @@ var hierarchy =
       [ "ast::Object", "classast_1_1Object.html", [
         [ "ast::MockObject", "classast_1_1MockObject.html", null ],
         [ "ast::ObjectNamed", "classast_1_1ObjectNamed.html", [
+          [ "ast::Access", "classast_1_1Access.html", null ],
           [ "ast::AccessConstraint", "classast_1_1AccessConstraint.html", [
             [ "ast::AndConstraint", "classast_1_1AndConstraint.html", null ],
             [ "ast::BodyObstructionConstraint", "classast_1_1BodyObstructionConstraint.html", null ],
