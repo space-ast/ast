@@ -373,6 +373,7 @@ var annotated_dup =
       [ "EditFigureDialog", "classast_1_1EditFigureDialog.html", null ],
       [ "EllipsoidShape", "classast_1_1EllipsoidShape.html", "classast_1_1EllipsoidShape" ],
       [ "End", "classast_1_1End.html", "classast_1_1End" ],
+      [ "EnumDescriptor", "classast_1_1EnumDescriptor.html", null ],
       [ "EOP", "classast_1_1EOP.html", "classast_1_1EOP" ],
       [ "EphemerisBinary", "classast_1_1EphemerisBinary.html", "classast_1_1EphemerisBinary" ],
       [ "EphemerisFileParser", "classast_1_1EphemerisFileParser.html", null ],

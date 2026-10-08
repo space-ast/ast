@@ -1,5 +1,8 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcElevation_8cpp.html":[4,0,0,6,12,1,0,15,38],
+"ScStateCalcElevation_8hpp.html":[4,0,0,6,12,1,0,15,39],
+"ScStateCalcElevation_8hpp_source.html":[4,0,0,6,12,1,0,15,39],
 "ScStateCalcEpoch_8cpp.html":[4,0,0,6,12,1,0,18,4],
 "ScStateCalcEpoch_8hpp.html":[4,0,0,6,12,1,0,18,5],
 "ScStateCalcEpoch_8hpp_source.html":[4,0,0,6,12,1,0,18,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX13 =
 "ScStateCalcRange_8cpp.html":[4,0,0,6,12,1,0,15,150],
 "ScStateCalcRange_8hpp.html":[4,0,0,6,12,1,0,15,151],
 "ScStateCalcRange_8hpp_source.html":[4,0,0,6,12,1,0,15,151],
-"ScStateCalcRectifiedLongitude_8cpp.html":[4,0,0,6,12,1,0,15,156],
-"ScStateCalcRectifiedLongitude_8hpp.html":[4,0,0,6,12,1,0,15,157],
-"ScStateCalcRectifiedLongitude_8hpp_source.html":[4,0,0,6,12,1,0,15,157],
-"ScStateCalcReentryDeceleration_8cpp.html":[4,0,0,6,12,1,0,15,158]
+"ScStateCalcRectifiedLongitude_8cpp.html":[4,0,0,6,12,1,0,15,156]
 };

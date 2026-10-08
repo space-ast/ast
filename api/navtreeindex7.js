@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"GeomagneticIndex_8cpp.html#a2c3e077640f6d8588ba62ccf6ffe9298":[4,0,0,31,2,1,1],
+"GeomagneticIndex_8cpp.html#ac69c8000497fce4b21dd8b225cf30389":[4,0,0,31,2,1,2],
+"GeomagneticIndex_8cpp.html#ad93fe8a08cdb887d67d9b9eb40b2b302":[4,0,0,31,2,1,0],
 "GeomagneticIndex_8hpp.html":[4,0,0,31,2,2],
 "GeomagneticIndex_8hpp.html#a2c3e077640f6d8588ba62ccf6ffe9298":[4,0,0,31,2,2,1],
 "GeomagneticIndex_8hpp.html#ad93fe8a08cdb887d67d9b9eb40b2b302":[4,0,0,31,2,2,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "LLMClient_8hpp_source.html":[4,0,0,0,3,5],
 "LLMConfig_8hpp.html":[4,0,0,0,1,0],
 "LLMConfig_8hpp_source.html":[4,0,0,0,1,0],
-"LagrangeInterpolator_8cpp.html":[4,0,0,11,4,2],
-"LagrangeInterpolator_8hpp.html":[4,0,0,11,4,3],
-"LagrangeInterpolator_8hpp_source.html":[4,0,0,11,4,3],
-"Lambert_8cpp.html":[4,0,0,6,12,7]
+"LagrangeInterpolator_8cpp.html":[4,0,0,11,4,2]
 };

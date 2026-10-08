@@ -1,5 +1,8 @@
 var NAVTREEINDEX27 =
 {
+"classast_1_1DetectorAscendingNode.html":[2,0,0,271],
+"classast_1_1DetectorAscendingNode.html":[3,0,0,270],
+"classast_1_1DetectorAscendingNode.html#a66d9128f1fd2702d80c5f85899c4678f":[2,0,0,271,0],
 "classast_1_1DetectorAscendingNode.html#a66d9128f1fd2702d80c5f85899c4678f":[3,0,0,270,0],
 "classast_1_1DetectorBodyRelated.html":[2,0,0,272],
 "classast_1_1DetectorBodyRelated.html":[3,0,0,271],
@@ -246,8 +249,5 @@ var NAVTREEINDEX27 =
 "classast_1_1End.html":[3,0,0,302],
 "classast_1_1End.html#a8c22be48646cdae98ff5fe7476fbe05e":[2,0,0,303,0],
 "classast_1_1End.html#a8c22be48646cdae98ff5fe7476fbe05e":[3,0,0,302,0],
-"classast_1_1EphemerisBinary.html":[2,0,0,305],
-"classast_1_1EphemerisBinary.html":[3,0,0,304],
-"classast_1_1EphemerisBinary.html#a3497cb293796ff8bbd1b3cf6eba13262":[2,0,0,305,3],
-"classast_1_1EphemerisBinary.html#a3497cb293796ff8bbd1b3cf6eba13262":[3,0,0,304,3]
+"classast_1_1EnumDescriptor.html":[2,0,0,304]
 };

@@ -1,5 +1,8 @@
 var NAVTREEINDEX26 =
 {
+"classast_1_1DataContext.html#ad707287da6e562678dfe48f80e59b7a1":[0,1,1,1,9],
+"classast_1_1DataContext.html#af4c713af68c05ce6f2b7b599072824ef":[0,1,1,1,13],
+"classast_1_1DataElement.html":[2,0,0,228],
 "classast_1_1DataElement.html":[3,0,0,227],
 "classast_1_1DataElement.html#a133eb8fe3635efc6371bbfa9c1b9fa7c":[2,0,0,228,7],
 "classast_1_1DataElement.html#a133eb8fe3635efc6371bbfa9c1b9fa7c":[3,0,0,227,7],
@@ -246,8 +249,5 @@ var NAVTREEINDEX26 =
 "classast_1_1DetectorApoapsis.html":[2,0,0,270],
 "classast_1_1DetectorApoapsis.html":[3,0,0,269],
 "classast_1_1DetectorApoapsis.html#a94c36e51b2a333f3c0ad1493338c193d":[2,0,0,270,0],
-"classast_1_1DetectorApoapsis.html#a94c36e51b2a333f3c0ad1493338c193d":[3,0,0,269,0],
-"classast_1_1DetectorAscendingNode.html":[2,0,0,271],
-"classast_1_1DetectorAscendingNode.html":[3,0,0,270],
-"classast_1_1DetectorAscendingNode.html#a66d9128f1fd2702d80c5f85899c4678f":[2,0,0,271,0]
+"classast_1_1DetectorApoapsis.html#a94c36e51b2a333f3c0ad1493338c193d":[3,0,0,269,0]
 };

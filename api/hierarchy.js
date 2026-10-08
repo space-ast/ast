@@ -285,6 +285,7 @@ var hierarchy =
     [ "ast::EOP::Entry", "structast_1_1EOP_1_1Entry.html", null ],
     [ "ast::LeapSecond::Entry", "structast_1_1LeapSecond_1_1Entry.html", null ],
     [ "ast::SpaceWeather::Entry", "structast_1_1SpaceWeather_1_1Entry.html", null ],
+    [ "ast::EnumDescriptor", "classast_1_1EnumDescriptor.html", null ],
     [ "ast::EOP", "classast_1_1EOP.html", null ],
     [ "ast::EphemerisFileParser", "classast_1_1EphemerisFileParser.html", [
       [ "ast::STKEphemerisFileParser", "classast_1_1STKEphemerisFileParser.html", null ]

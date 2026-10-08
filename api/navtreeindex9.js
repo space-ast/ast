@@ -1,5 +1,8 @@
 var NAVTREEINDEX9 =
 {
+"Math_8hpp.html":[4,0,0,27,11,13],
+"Math_8hpp.html#a311d6dcbd16d6e212d729a17568e3d75":[4,0,0,27,11,13,15],
+"Math_8hpp.html#a4420d16471aa45c760b033d80823b5b1":[4,0,0,27,11,13,14],
 "Math_8hpp_source.html":[4,0,0,27,11,13],
 "MatlabExecutor_8cpp.html":[4,0,0,17,3,0,7],
 "MatlabExecutor_8hpp_source.html":[4,0,0,17,3,0,8],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "OArchive_8hpp_source.html":[4,0,0,27,9,0,6],
 "OCPProblem_8hpp_source.html":[4,0,0,13,1],
 "OCPSolver_8hpp_source.html":[4,0,0,13,2],
-"ODEEventDetectorList_8hpp_source.html":[4,0,0,11,6,1,0],
-"ODEEventDetector_8cpp.html":[4,0,0,11,6,4],
-"ODEEventDetector_8hpp.html":[4,0,0,11,6,5],
-"ODEEventDetector_8hpp_source.html":[4,0,0,11,6,5]
+"ODEEventDetectorList_8hpp_source.html":[4,0,0,11,6,1,0]
 };
