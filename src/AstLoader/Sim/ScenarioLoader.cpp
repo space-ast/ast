@@ -23,7 +23,9 @@
 #include "BasicComponentLoader.hpp"
 #include "AstSim/Scenario.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/FileSystem.hpp"
 #include "AstCore/EventTimeFallback.hpp"
+#include "AstLoader/VDFLoader.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -248,7 +250,7 @@ errc_t _aLoadExtensions(BKVParser& parser, Scenario& scenario)
     return eNoError;
 }
 
-errc_t aLoadScenario(StringView filepath, Scenario &scenario)
+errc_t aLoadScenarioFile(StringView filepath, Scenario &scenario)
 {
     BKVItemView item;
     BKVParser::EToken token;
@@ -326,6 +328,61 @@ errc_t aLoadScenario(StringView filepath, Scenario &scenario)
         }
     }while(token != BKVParser::eEOF);
     return eNoError;
+}
+
+
+errc_t aLoadScenario(StringView filepath, Scenario& scenario)
+{
+    std::error_code ec;
+    fs::path path(filepath);
+    auto status = fs::status(path, ec);
+    switch(status.type()){
+        case fs::file_type::regular:
+        {
+            auto extension = path.extension();
+            if(aEqualsIgnoreCase(extension.string(), ".sc"))
+            {
+                return aLoadScenarioFile(filepath, scenario);
+            }
+            else if(aEqualsIgnoreCase(extension.string(), ".vdf"))
+            {
+                return aLoadVDF(filepath, scenario);
+            }
+            else
+            {
+                aError(_("不支持的文件类型 '%.*s'"), (int)filepath.size(), filepath.data());
+                return eErrorInvalidFile;
+            }
+        }
+        case fs::file_type::directory:
+        {
+            // 查找目录下的 .sc 文件
+            fs::path scenarioPath;
+            int count = 0;
+            for(auto& entry : fs::directory_iterator(path)){
+                if (!fs::is_regular_file(entry.status())) continue;
+                if(aEqualsIgnoreCase(entry.path().extension().string(), ".sc")){
+                    scenarioPath = entry.path();
+                    count++;
+                }
+            }
+            if(count == 0){
+                aWarning(_("目录下没有 .sc 文件"));
+                return eErrorInvalidFile;
+            }else if(count == 1){
+                return aLoadScenarioFile(scenarioPath.string(), scenario);
+            }else{ // if(count > 1)
+                aWarning(_("目录下有多个 .sc 文件，无法确定要加载的文件"));
+                return eErrorInvalidFile;
+            }
+        }
+        default:
+        {
+            aWarning(_("未知文件类型 '%.*s'"), (int)filepath.size(), filepath.data());
+            return eErrorInvalidFile;
+        }
+    }
+    return eError;
 }
 
 

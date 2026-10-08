@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include "AstUtil/StringView.hpp"
 
 #include <string>
 #include <vector>
@@ -32,7 +33,6 @@
 #include <cstring>
 #include <memory>
 
- 
 AST_NAMESPACE_BEGIN
  
 
@@ -71,6 +71,8 @@ namespace fs_simple
         path(const char_type* source) : path_(source)
         {}
         path(const string_type& source) : path_(source)
+        {}
+        path(StringView source) : path_(source.data(), source.size())
         {}
         
         std::string string() const{return path_;}

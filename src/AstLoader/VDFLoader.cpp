@@ -298,31 +298,7 @@ errc_t aLoadVDF(StringView filepath, Scenario& scenario)
         return rc;
     }
 
-    // 找 .sc 文件并加载
-    std::string scPath;
-    for (auto& entry : fs::directory_iterator(tempDir))
-    {
-        if (!fs::is_regular_file(entry.status())) continue;
-        std::string name = entry.path().filename().string();
-        // 匹配 *.sc
-        if (name.size() > 3)
-        {
-            StringView nameView = name;
-            if (nameView.ends_with(".sc"))
-            {
-                scPath = entry.path().string();
-                break;
-            }
-        }
-    }
-
-    if (scPath.empty())
-    {
-        aError(_("未找到 .sc 文件"));
-        return eErrorInvalidFile;
-    }
-
-    return aLoadScenario(scPath, scenario);
+    return aLoadScenario(tempDir, scenario);
 }
 
 AST_NAMESPACE_END
