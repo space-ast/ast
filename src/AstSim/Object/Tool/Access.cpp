@@ -19,10 +19,14 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Access.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
-
-
+errc_t Access::compute()
+{
+    aWarning(_("暂未实现"));
+    return eErrorNotImplemented;
+}
 
 AST_NAMESPACE_END

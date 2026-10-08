@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstUtil/ObjectNamed.hpp"
 #include "AstCore/BodyPosition.hpp"
+#include "AstCore/TimeIntervalList.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,7 +32,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-/// @brief 访问计算配置
+/// @brief 访问计算算法配置
 struct AST_SIM_API AccessConfig
 {
     bool            useLightTimeDelay_{true};                       ///< 是否应用光行时延迟
@@ -55,6 +56,8 @@ public:
     Access() = default;
     ~Access() override = default;
 
+public: // 相关配置
+
     /// @name 主对象
     /// @{
     void setBaseObject(Object* obj) { baseObject_ = obj; }
@@ -67,16 +70,41 @@ public:
     Object* targetObject() const { return targetObject_.get(); }
     /// @}
 
-    /// @name 配置
+    /// @name 算法配置
     /// @{
     void setConfig(const AccessConfig& config) { config_ = config; }
     const AccessConfig& config() const { return config_; }
     /// @}
 
+    /// @name 搜索时间区间
+    /// @{
+    /// @brief 设置搜索时间区间列表
+    /// @details 
+    /// 访问计算的搜索范围，计算只在落于其中的时段内进行
+    /// 时段为空表示未指定搜索范围，默认为两对象时间段的交集
+    /// @param intervals 搜索时间区间列表
+    void setSearchIntervals(const TimeIntervalList& intervals) { searchIntervals_ = intervals; }
+    const TimeIntervalList& searchIntervals() const { return searchIntervals_; }
+    /// @}
+
+public: // 计算结果
+
+    /// @brief 获取访问时段计算结果
+    /// @note 未计算时返回空列表。
+    const TimeIntervalList& accessIntervals() const { return accessIntervals_; }
+
+public:
+    /// @brief 计算访问时段
+    /// @details 根据配置和搜索时间区间，计算主对象和目标对象之间的可见性时段
+    /// @return 错误码
+    errc_t compute();
+
 private:
-    WeakPtr<Object> baseObject_{};      ///< 主对象
-    WeakPtr<Object> targetObject_{};    ///< 目标对象
-    AccessConfig config_{};             ///< 配置
+    WeakPtr<Object> baseObject_{};                  ///< 主对象
+    WeakPtr<Object> targetObject_{};                ///< 目标对象
+    AccessConfig config_{};                         ///< 配置
+    TimeIntervalList searchIntervals_{};            ///< 搜索时间区间列表
+    TimeIntervalList accessIntervals_{};            ///< 访问时段计算结果
 };
 
 using HAccess = SharedPtr<Access>;      ///< 访问对象句柄
