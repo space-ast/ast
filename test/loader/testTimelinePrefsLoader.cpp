@@ -34,8 +34,7 @@ TEST(TimelinePrefsLoaderTest, Load)
     errc_t rc = aLoadTimeLinePrefs(filePath, prefs);
     ASSERT_EQ(rc, eNoError);
 
-    // 内容视图中的两行：场景可用性 + 卫星传感器对设施的访问
-    ASSERT_EQ(prefs.rows_.size(), 2u);
+    ASSERT_EQ(prefs.rows_.size(), 3u);
 
     const TimelinePrefs::Row& availability = prefs.rows_[0];
     EXPECT_EQ(availability.componentName_, "AvailabilityIntervals");
@@ -46,7 +45,7 @@ TEST(TimelinePrefsLoaderTest, Load)
     const TimelinePrefs::Row& access = prefs.rows_[1];
     EXPECT_EQ(access.componentName_, "AccessIntervals");
     EXPECT_EQ(access.className_, "Access");
-    EXPECT_EQ(access.intervals_.size(), 17u);
+    EXPECT_EQ(access.intervals_.size(), 19u);
     // Path 是区间归属的唯一标识，必须保留
     EXPECT_FALSE(access.path_.empty());
 

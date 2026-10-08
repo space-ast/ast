@@ -21,6 +21,7 @@
 #include "ScenarioLoader.hpp"
 #include "CommonlyUsedHeaders.hpp"
 #include "BasicComponentLoader.hpp"
+#include "AccessLoader.hpp"
 #include "AstSim/Scenario.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/FileSystem.hpp"
@@ -327,6 +328,14 @@ errc_t aLoadScenarioFile(StringView filepath, Scenario &scenario)
             }
         }
     }while(token != BKVParser::eEOF);
+
+    // 在场景对象全部加载完成后，加载场景对应的 Access 配置(.sca 文件)
+    {
+        fs::path accessPath(std::string(filepath) + "a");
+        if(fs::is_regular_file(accessPath)){
+            return aLoadAccess(accessPath.string(), scenario);
+        }
+    }
     return eNoError;
 }
 

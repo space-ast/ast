@@ -30,11 +30,11 @@
 
 AST_USING_NAMESPACE
 
-const char scenarioPath[] = "./test-data/STK/Scenarios/testVDFSTK/testVDFSTK.vdf";
+const char scenarioPath[] = "./STK/Scenarios/testVDFSTK/testVDFSTK.vdf";
 
 TEST(VDFSTKTest, LoadScenario)
 {
-    std::string scenarioFullPath = aExeDir() + "/" + scenarioPath;
+    std::string scenarioFullPath = aTestDataDirGet() + "/" + scenarioPath;
     SharedPtr<Scenario> scenario = aMakeShared<Scenario>();
     errc_t rc = aLoadScenario(scenarioFullPath, *scenario);
     ASSERT_EQ(rc, eNoError);

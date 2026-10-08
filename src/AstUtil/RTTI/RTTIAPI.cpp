@@ -93,8 +93,9 @@ SharedPtr<Object> aMakeObject(StringView name, Object* parentScope)
 
 Object *aResolveObject(StringView value, Class* cls)
 {
-    auto pos = value.find("/");
-    if(pos == StringView::npos)
+    size_t posSlash1, posSlash2;
+    posSlash1 = value.find('/');
+    if(posSlash1 == StringView::npos)
     {
         if(cls)
         {
@@ -119,17 +120,16 @@ Object *aResolveObject(StringView value, Class* cls)
         StringView className;
         StringView objName;
         Object* obj;
-        size_t pos2;
-        if(value[0] == '*' && pos == 1)
+        if(value[0] == '*' && posSlash1 == 1)
         {
             obj = aFindObject(aGetClass("Scenario"));
-            pos2 = 1;
+            posSlash2 = 1;
         }
         else
         {
-            className = value.substr(0, pos);
-            pos2 = value.substr(pos + 1).find("/");
-            objName = value.substr(pos + 1, pos2);
+            className = value.substr(0, posSlash1);
+            posSlash2 = value.find('/', posSlash1 + 1);
+            objName = value.substr(posSlash1 + 1, posSlash2 - posSlash1 - 1);
             auto cls = aGetClass(className);
             if(!cls)
             {
@@ -145,18 +145,18 @@ Object *aResolveObject(StringView value, Class* cls)
             obj = aFindObject(cls, objName);
         }
 
-        while(pos2 != StringView::npos)
+        while(posSlash2 != StringView::npos)
         {
-            value = value.substr(pos2 + 1);
-            pos = value.find("/");
-            if(pos == StringView::npos)
+            value = value.substr(posSlash2 + 1);
+            posSlash1 = value.find('/');
+            if(posSlash1 == StringView::npos)
             {
                 aError(_("无效的对象路径: '%.*s'"), value.size(), value.data());
                 return nullptr;
             }
-            className = value.substr(0, pos);
-            pos2 = value.substr(pos + 1).find("/");
-            objName = value.substr(pos + 1, pos2);
+            className = value.substr(0, posSlash1);
+            posSlash2 = value.find('/', posSlash1 + 1);
+            objName = value.substr(posSlash1 + 1, posSlash2 - posSlash1 - 1);
             auto cls = aGetClass(className);
             if(!cls)
             {

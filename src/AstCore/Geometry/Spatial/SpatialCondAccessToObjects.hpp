@@ -59,7 +59,7 @@ public:
     EClockHost getClockHost() const { return clockHost_; }
     /// @}
 
-    /// @name 时间方向
+    /// @name 信号传输方向
     /// @{
     void setTimeSense(ETimeSense sense) { timeSense_ = sense; }
     ETimeSense getTimeSense() const { return timeSense_; }
@@ -78,12 +78,12 @@ public:
     /// @}
 
 private:
-    WeakPtr<Object>          secondObject_;                          ///< 第二对象（如 Facility/Facility1）
-    bool                     applyLTDelay_{true};                    ///< 是否应用光时延迟
-    EClockHost               clockHost_{EClockHost::eFirstObject};   ///< 时钟参考
-    ETimeSense               timeSense_{ETimeSense::eTransmit};      ///< 时间方向
+    WeakPtr<Object>          secondObject_;                             ///< 第二对象（如 Facility/Facility1）
+    bool                     applyLTDelay_{true};                       ///< 是否应用光时延迟
+    EClockHost               clockHost_{EClockHost::eFirstObject};      ///< 时钟参考
+    ETimeSense               timeSense_{ETimeSense::eTransmit};         ///< 信号传输方向
     EAberrationType          aberrationType_{EAberrationType::eAnnual}; ///< 光行差
-    DifferentiationSettings  diffSettings_;                          ///< 导数设置
+    DifferentiationSettings  diffSettings_;                             ///< 导数设置
 };
 
 AST_NAMESPACE_END

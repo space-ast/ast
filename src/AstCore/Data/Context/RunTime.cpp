@@ -345,7 +345,7 @@ errc_t aInitializeByConfig(DataContext* context, const InitalizeConfig& config)
     context->setEpoch(TimePoint::TodayUTC());
 
     if(err != eNoError) {
-        aError(_("初始化失败，有部分数据文件加载失败"));
+        aWarning(_("初始化失败，有部分数据文件加载失败"));
     }
     return err;
 }

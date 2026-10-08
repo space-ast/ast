@@ -200,7 +200,7 @@ errc_t SpiceAPI::load(StringView dirpath)
     int numloaded = funcarray_loadedfunc(funcs);
     if(numloaded < numfunctions)
     {
-        aError(_("无法加载全部 %d 个函数，仅加载了 %d 个"), numfunctions, numloaded);
+        aWarning(_("无法加载全部 %d 个函数，仅加载了 %d 个"), numfunctions, numloaded);
         aFreeLibrary(lib);
         return eErrorInvalidFile;
     }
@@ -240,7 +240,7 @@ errc_t SpiceAPI::furnsh(const char* file)
     functype furnsh_c = reinterpret_cast<functype>(functions_[ifurnsh]);
     if(!furnsh_c)
     {
-        aError(_(kSpiceUnloadError));
+        aWarning(_(kSpiceUnloadError));
         return eErrorNullPtr;
     }
     std::lock_guard<std::mutex> lock(mutex_);
@@ -256,7 +256,7 @@ errc_t SpiceAPI::spkgeo(int targ, double et, const char * ref, int obs, double s
     functype spkgeo_c = reinterpret_cast<functype>(functions_[ispkgeo]);
     if(!spkgeo_c)
     {
-        aError(_(kSpiceUnloadError));
+        aWarning(_(kSpiceUnloadError));
         return eErrorNullPtr;
     }
     std::lock_guard<std::mutex> lock(mutex_);
@@ -270,7 +270,7 @@ errc_t SpiceAPI::spkssb(int targ, double et, const char *ref, double starg[6])
     functype spkssb_c = reinterpret_cast<functype>(functions_[ispkssb]);
     if(!spkssb_c)
     {
-        aError(_(kSpiceUnloadError));
+        aWarning(_(kSpiceUnloadError));
         return eErrorNullPtr;
     }
     std::lock_guard<std::mutex> lock(mutex_);
@@ -284,7 +284,7 @@ errc_t SpiceAPI::spklef(const char *filename, int *handle)
     functype spklef_c = reinterpret_cast<functype>(functions_[ispklef]);
     if(!spklef_c)
     {
-        aError(_(kSpiceUnloadError));
+        aWarning(_(kSpiceUnloadError));
         return eErrorNullPtr;
     }
     spiceproto::SpiceInt h=0;
@@ -310,7 +310,7 @@ errc_t SpiceAPI::spkuef(int handle)
     functype spkuef_c = reinterpret_cast<functype>(functions_[ispkuef]);
     if(!spkuef_c)
     {
-        // aError(kSpiceUnloadError);
+        // aWarning(kSpiceUnloadError);
         return eErrorNullPtr;
     }
     if(handle >= (spiceproto::SpiceInt)spk_handles_.size() || handle < 0)
@@ -391,7 +391,7 @@ errc_t SpiceAPI::ktotal(const char *kind, int *count)
     functype ktotal_c = reinterpret_cast<functype>(functions_[iktotal]);
     if(!ktotal_c)
     {
-        aError(_(kSpiceUnloadError));
+        aWarning(_(kSpiceUnloadError));
         return eErrorNullPtr;
     }
     std::lock_guard<std::mutex> lock(mutex_);
