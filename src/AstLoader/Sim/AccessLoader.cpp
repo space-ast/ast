@@ -26,6 +26,8 @@
 #include "AstUtil/RTTIAPI.hpp"
 #include "AstUtil/StringUtil.hpp"
 #include "AstUtil/Logger.hpp"
+#include <algorithm>
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
@@ -82,6 +84,27 @@ static EAberrationType _aParseAberrationType(StringView value)
     return EAberrationType::eAnnual;
 }
 
+/// @brief 由对象路径生成访问名称中的一段
+/// @details 去掉开头的 "Scenario/<场景名>" 两段，再把剩余的 '/' 换成 '-'。
+///          例如 "Scenario/testAccess/Satellite/Satellite1/Sensor/Sensor1" 得到
+///          "Satellite-Satellite1-Sensor-Sensor1"。
+/// @param path 对象路径
+/// @return 名称片段
+static std::string _aMakeAccessNamePart(std::string path)
+{
+    for(int i = 0; i < 2; ++i)
+    {
+        auto pos = path.find('/');
+        if(pos == std::string::npos)
+        {
+            break;
+        }
+        path.erase(0, pos + 1);
+    }
+    std::replace(path.begin(), path.end(), '/', '-');
+    return path;
+}
+
 /// @brief 加载单个 Access 块
 /// @details 调用时已读到 BEGIN Access，解析到对应的 END Access 为止。
 ///          块首的两条裸路径依次为主对象和目标对象。
@@ -96,6 +119,8 @@ static errc_t _aLoadAccessBlock(BKVParser& parser, Scenario& scenario, std::vect
     SharedPtr<Access> access = aMakeShared<Access>();
     Object* baseObject = nullptr;
     Object* targetObject = nullptr;
+    std::string basePath;
+    std::string targetPath;
     AccessConfig config{};
     do{
         token = parser.getNext(item);
@@ -103,18 +128,23 @@ static errc_t _aLoadAccessBlock(BKVParser& parser, Scenario& scenario, std::vect
         {
             if(item.value().size() == 0 && item.key().find("/") != StringView::npos)
             {
-                // 裸路径行（无值），第一条为主对象，第二条为目标对象
-                Object* object = aResolveObject(item.key());
+                // 裸路径行（无值），第一条为主对象，第二条为目标对象。
+                // item.key() 指向解析器的内部缓冲区，下一轮解析就会被覆盖，先拷贝出来。
+                std::string path(item.key());
+                Object* object = aResolveObject(path);
                 if(!object)
                 {
-                    aError(_("无法解析对象 '%.*s'"), (int)item.key().size(), item.key().data());
+                    aError(_("无法解析对象 '%s'"), path.c_str());
                 }
-                else if(!baseObject)
+                // 用"是否已见过第一条路径"来区分主/目标，解析失败也不会错位
+                if(basePath.empty())
                 {
+                    basePath = path;
                     baseObject = object;
                 }
                 else
                 {
+                    targetPath = path;
                     targetObject = object;
                 }
             }
@@ -173,11 +203,7 @@ static errc_t _aLoadAccessBlock(BKVParser& parser, Scenario& scenario, std::vect
     access->setBaseObject(baseObject);
     access->setTargetObject(targetObject);
     access->setConfig(config);
-    // 命名为 "<主对象名>-<目标对象名>"
-    std::string name = baseObject ? baseObject->getName() : std::string();
-    name += "-";
-    name += targetObject ? targetObject->getName() : std::string();
-    access->setName(name);
+    access->setName(_aMakeAccessNamePart(basePath) + "-To-" + _aMakeAccessNamePart(targetPath));
     errc_t rc = aSetParentScope(access.get(), &scenario);
     if(rc == eNoError)
     {

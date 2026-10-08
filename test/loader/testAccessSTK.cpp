@@ -36,6 +36,10 @@ AST_USING_NAMESPACE
 const char scenarioDir[] = "./STK/Scenarios/testAccessSTK";
 const char scenarioAccessFile[] = "./STK/Scenarios/testAccessSTK/testAccess.sca";
 
+// 访问对象名称：两条对象路径各自去掉 "Scenario/<场景名>/" 前缀后把 '/' 换成 '-'，中间用 "-To-" 连接
+const char sensorAccessName[] = "Satellite-Satellite1-Sensor-Sensor1-To-Facility-Facility1";
+const char satelliteAccessName[] = "Satellite-Satellite1-To-Facility-Facility1";
+
 TEST(AccessSTKTest, LoadScenario)
 {
     std::string scenarioFullPath = aTestDataDirGet() + "/" + scenarioDir;
@@ -62,7 +66,7 @@ TEST(AccessSTKTest, LoadAccess)
 
     // 第一条：Sensor1 <-> Facility1
     auto* sensorAccess = aobject_cast<Access*>(
-        aFindChild(scenario, Access::StaticType(), "Sensor1-Facility1"));
+        aFindChild(scenario, Access::StaticType(), sensorAccessName));
     ASSERT_NE(sensorAccess, nullptr);
     ASSERT_NE(sensorAccess->baseObject(), nullptr);
     ASSERT_NE(sensorAccess->targetObject(), nullptr);
@@ -80,7 +84,7 @@ TEST(AccessSTKTest, LoadAccess)
 
     // 第二条：Satellite1 <-> Facility1
     auto* satelliteAccess = aobject_cast<Access*>(
-        aFindChild(scenario, Access::StaticType(), "Satellite1-Facility1"));
+        aFindChild(scenario, Access::StaticType(), satelliteAccessName));
     ASSERT_NE(satelliteAccess, nullptr);
     ASSERT_NE(satelliteAccess->baseObject(), nullptr);
     ASSERT_NE(satelliteAccess->targetObject(), nullptr);
@@ -91,8 +95,8 @@ TEST(AccessSTKTest, LoadAccess)
     std::vector<HAccess> loaded;
     ASSERT_EQ(aLoadAccess(aTestDataDirGet() + "/" + scenarioAccessFile, *scenario, loaded), eNoError);
     ASSERT_EQ(loaded.size(), 2u);
-    EXPECT_EQ(loaded[0]->getName(), "Sensor1-Facility1");
-    EXPECT_EQ(loaded[1]->getName(), "Satellite1-Facility1");
+    EXPECT_EQ(loaded[0]->getName(), sensorAccessName);
+    EXPECT_EQ(loaded[1]->getName(), satelliteAccessName);
     EXPECT_EQ(loaded[0]->baseObject(), sensorAccess->baseObject());
 }
 
