@@ -46,10 +46,12 @@ class AST_SIM_API ObjectAccessConstraint
 public:
     ObjectAccessConstraint() = default;
     ObjectAccessConstraint(EAccessConstraint type) : type_(type) {}
+    ObjectAccessConstraint(StringView type);
     ~ObjectAccessConstraint() = default;
 
     EAccessConstraint type() const { return type_; }
     void setType(EAccessConstraint type) { type_ = type; }
+    errc_t setType(StringView type);
 
     bool enabled() const { return enabled_; }
     void setEnabled(bool enabled) { enabled_ = enabled; }

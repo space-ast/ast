@@ -120,6 +120,7 @@
 %include "../AstScript/Interpreter/StackFrame.hpp"
 %include "../AstScript/Interpreter/SymbolTable.hpp"
 %include "../AstSim/Object/Component/ObjectAccessConstraint.hpp"
+%include "../AstSim/Object/Component/ObjectComponent.hpp"
 %include "../AstSim/SimAPI.hpp"
 %include "../AstSim/Visitor/MotionProfileVisitor.hpp"
 %include "../AstUtil/Archiver/ShellCOMUtils.hpp"

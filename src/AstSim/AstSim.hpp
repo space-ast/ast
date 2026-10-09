@@ -43,6 +43,7 @@
 #include "AstSim/Mover.hpp"
 #include "AstSim/ObjectAccessConstraint.hpp"
 #include "AstSim/ObjectAccessConstraints.hpp"
+#include "AstSim/ObjectComponent.hpp"
 #include "AstSim/Place.hpp"
 #include "AstSim/Planet.hpp"
 #include "AstSim/Platform.hpp"

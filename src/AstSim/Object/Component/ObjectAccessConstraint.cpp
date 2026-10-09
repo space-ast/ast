@@ -19,9 +19,39 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ObjectAccessConstraint.hpp"
+#include "AstUtil/EnumDescriptor.hpp"
+#include "AstUtil/StringView.hpp"
+#include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
+AST_ENUM_DESCRIPTOR(EAccessConstraint,
+    AST_ENUM_VALUE(eNone,           "None"),
+    AST_ENUM_VALUE(eLineOfSight,    "LineOfSight"),
+    AST_ENUM_VALUE(eElevationAngle, "ElevationAngle"),
+    AST_ENUM_VALUE(eRange,          "Range")
+)
+
+
+ObjectAccessConstraint::ObjectAccessConstraint(StringView type)
+{
+    errc_t rc = setType(type);
+    if (rc != eNoError)
+    {
+        aWarning(_("未知的访问约束类型: %.*s"), type.size(), type.data());
+    }
+}
+
+errc_t ObjectAccessConstraint::setType(StringView type)
+{
+    auto& descriptor = aEnumDescriptor<EAccessConstraint>();
+    bool found = false;
+    EAccessConstraint value = descriptor.valueOf(type, found);
+    if (!found)
+        return eErrorInvalidParam;
+    type_ = value;
+    return eNoError;
+}
 
 
 AST_NAMESPACE_END

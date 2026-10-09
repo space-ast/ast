@@ -19,6 +19,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ObjectAccessConstraints.hpp"
+#include "AstUtil/EnumDescriptor.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -35,6 +36,16 @@ ObjectAccessConstraint *ObjectAccessConstraints::addConstraint(EAccessConstraint
     auto constraint = new ObjectAccessConstraint(type);
     constraints_.push_back(constraint);
     return constraint;
+}
+
+ObjectAccessConstraint *ObjectAccessConstraints::addConstraint(StringView name)
+{
+    auto& descriptor = aEnumDescriptor<EAccessConstraint>();
+    bool found = false;
+    EAccessConstraint type = descriptor.valueOf(name, found);
+    if (!found)
+        return nullptr;
+    return addConstraint(type);
 }
 
 AST_NAMESPACE_END

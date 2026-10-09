@@ -1,9 +1,9 @@
 ///
-/// @file      ObjectAccessConstraints.hpp
+/// @file      ObjectComponent.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-10-08
+/// @date      2026-10-09
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -21,8 +21,6 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/ObjectNamed.hpp"
-#include "ObjectAccessConstraint.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,22 +29,27 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class AST_SIM_API ObjectAccessConstraints: public ObjectNamed
+class ObjectAccessConstraints;
+
+
+/// @tparam ComponentType 组件类型
+/// @param object 对象
+/// @return 对象的组件
+template<typename ComponentType>
+ComponentType& aObject_EnsureComponent(Object& object)
 {
-public:
-    AST_OBJECT(ObjectAccessConstraints)
+    ComponentType* component = aFindChild<ComponentType*>(&object);
+    if(component == nullptr)
+        component = aNewObject<ComponentType>(&object);
+    return *component;
+}
 
-    using ConstraintList = std::vector<ObjectAccessConstraint*>;
 
-    ObjectAccessConstraints() = default;
-    ~ObjectAccessConstraints();
-public:
-    ObjectAccessConstraint* addConstraint(EAccessConstraint type);
-    ObjectAccessConstraint* addConstraint(StringView name);
-    const ConstraintList& constraints() const { return constraints_; }
-private:
-    ConstraintList constraints_{};
-};
+/// @param object 对象
+/// @return 对象的访问约束组件
+AST_SIM_CAPI ObjectAccessConstraints& aObject_EnsureAccessConstraints(Object& object);
+
+
 
 /*! @} */
 
