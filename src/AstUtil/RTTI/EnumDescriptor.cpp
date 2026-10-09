@@ -24,7 +24,7 @@
 
 AST_NAMESPACE_BEGIN
 
-const char *EnumDescriptor::nameOf(NumberType value) const
+const char *EnumDescriptorData::nameOf(NumberType value) const
 {
     for (const auto &entry : values_)
     {
@@ -36,18 +36,34 @@ const char *EnumDescriptor::nameOf(NumberType value) const
     return nullptr;
 }
 
+EnumDescriptorData::NumberType EnumDescriptorData::valueOf(StringView name) const
+{
+    for(const auto& entry : values_)
+    {
+        if(aEqualsIgnoreCase(entry.second, name))
+        {
+            return entry.first;
+        }
+    }
+    return 0;
+}
 
-const EnumDescriptor::NumberType *EnumDescriptor::valueOf(StringView name) const
+
+EnumDescriptorData::NumberType EnumDescriptorData::valueOf(StringView name, bool& found) const
 {
     for (const auto &entry : values_)
     {
         if(aEqualsIgnoreCase(entry.second, name))
         {
-            return &entry.first;
+            found = true;
+            return entry.first;
         }
     }
-    return nullptr;
+    found = false;
+    return 0;
 }
+
+
 
 
 AST_NAMESPACE_END

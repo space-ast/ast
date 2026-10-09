@@ -42,15 +42,13 @@ public:
     
     static EnumRegistry* Instance();
 
-    void registerEnum(StringView name, EnumDescriptor* descriptor);
-    EnumDescriptor* getEnum(StringView name) const;
+    void registerEnum(StringView name, EnumDescriptorData* descriptor);
+    EnumDescriptorData* getEnum(StringView name) const;
 private:
-    std::map<std::string, EnumDescriptor*> enums_;
+    std::map<std::string, EnumDescriptorData*> enums_;
 };
 
 
-template<typename EnumType>
-EnumDescriptor& aEnumDescriptor(StringView name);
 
 
 /*! @} */

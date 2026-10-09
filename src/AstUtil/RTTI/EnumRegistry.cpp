@@ -29,12 +29,12 @@ EnumRegistry* EnumRegistry::Instance()
     return &instance;
 }
 
-void EnumRegistry::registerEnum(StringView name, EnumDescriptor *descriptor)
+void EnumRegistry::registerEnum(StringView name, EnumDescriptorData *descriptor)
 {
     enums_[std::string(name)] = descriptor;
 }
 
-EnumDescriptor* EnumRegistry::getEnum(StringView name) const
+EnumDescriptorData* EnumRegistry::getEnum(StringView name) const
 {
     auto it = enums_.find(std::string(name));
     if (it != enums_.end())
