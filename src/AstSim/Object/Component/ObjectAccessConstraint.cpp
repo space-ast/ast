@@ -28,10 +28,11 @@ AST_NAMESPACE_BEGIN
 AST_ENUM_DESCRIPTOR(EAccessConstraint,
     AST_ENUM_VALUE(eNone,           "None"),
     AST_ENUM_VALUE(eFieldOfView,    "FieldOfView"),
-    AST_ENUM_VALUE(eAtFieldOfView,  "AtFieldOfView"),
     AST_ENUM_VALUE(eLineOfSight,    "LineOfSight"),
     AST_ENUM_VALUE(eElevationAngle, "ElevationAngle"),
-    AST_ENUM_VALUE(eRange,          "Range")
+    AST_ENUM_VALUE(eRange,          "Range"),
+
+    AST_ENUM_VALUE(eAtFieldOfView,  "AtFieldOfView"),
 )
 
 

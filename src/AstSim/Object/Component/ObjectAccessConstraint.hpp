@@ -33,12 +33,13 @@ AST_NAMESPACE_BEGIN
 /// @brief 访问约束类型
 enum class EAccessConstraint
 {
-    eNone,
-    eFieldOfView,
-    eAtFieldOfView,
-    eLineOfSight,
-    eElevationAngle,
-    eRange,
+    eNone,                  ///< 无访问约束
+    eFieldOfView,           ///< 视场约束
+    eLineOfSight,           ///< 线视约束
+    eElevationAngle,        ///< 仰角约束
+    eRange,                 ///< 距离约束
+
+    eAtFieldOfView,         ///< 暂不支持(含义尚不清楚)
 };
 
 
