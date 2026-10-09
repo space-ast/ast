@@ -21,6 +21,7 @@
 #pragma once
  
 #include "AstGlobal.h"
+#include <cmath>        // for std::isinf
  
 AST_NAMESPACE_BEGIN
 

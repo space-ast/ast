@@ -25,6 +25,7 @@
 #include "AstSim/Scenario.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/FileSystem.hpp"
+#include "AstUtil/ObjectLinker.hpp"
 #include "AstCore/EventTimeFallback.hpp"
 #include "AstLoader/VDFLoader.hpp"
 
@@ -329,14 +330,20 @@ errc_t aLoadScenarioFile(StringView filepath, Scenario &scenario)
         }
     }while(token != BKVParser::eEOF);
 
+    errc_t rc = eNoError;
     // 在场景对象全部加载完成后，加载场景对应的 Access 配置(.sca 文件)
     {
         fs::path accessPath(std::string(filepath) + "a");
         if(fs::is_regular_file(accessPath)){
-            return aLoadAccess(accessPath.string(), scenario);
+            rc = aLoadAccess(accessPath.string(), scenario);
         }
     }
-    return eNoError;
+
+    // 在场景全部加载完成后，解析对象的延迟链接
+    {
+        aResolveAllLinks();
+    }
+    return rc;
 }
 
 

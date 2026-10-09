@@ -334,6 +334,17 @@ inline DoubleRange TimeInterval::discretize(const TimePoint& epoch, double step)
     return DoubleRange(0.0, 0.0, step, 0);
 }
 
+
+A_ALWAYS_INLINE bool operator==(const TimeInterval& lhs, const TimeInterval& rhs)
+{
+    return lhs.start() == rhs.start() && lhs.stop() == rhs.stop();
+}
+
+A_ALWAYS_INLINE bool operator!=(const TimeInterval& lhs, const TimeInterval& rhs)
+{
+    return !(lhs == rhs);
+}
+
 /*! @} */
 
 

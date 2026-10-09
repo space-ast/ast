@@ -351,6 +351,7 @@ errc_t aLoadSensor(BKVParser &parser, StringView sensorType, Sensor &sensor)
 {
     BKVItemView item;
     BKVParser::EToken token;
+    bool locationLoaded = false;
     
     do{
         token = parser.getNext(item);
@@ -365,6 +366,7 @@ errc_t aLoadSensor(BKVParser &parser, StringView sensorType, Sensor &sensor)
                     return rc;
                 }
             }else if(aEqualsIgnoreCase(item.value(), "Location")){
+                locationLoaded = true;
                 if(errc_t rc = _aLoadSensorLocation(parser, sensor)){
                     return rc;
                 }
@@ -391,6 +393,18 @@ errc_t aLoadSensor(BKVParser &parser, StringView sensorType, Sensor &sensor)
             }
         }
     }while(token != BKVParser::eEOF);
+
+    if(!locationLoaded)
+    {
+        sensor.setLocation(nullptr);
+        sensor.addDelayedLink([&sensor]{
+            auto point = aobject_cast<Point*>(sensor.getParentScope());
+            if(point)
+                sensor.setLocation(point);
+            else
+                aError(_("传感器 '%s' 的父对象不是点对象"), sensor.getName().c_str());
+        });
+    }
     return eNoError;
 }
 

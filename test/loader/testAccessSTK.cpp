@@ -120,6 +120,22 @@ TEST(AccessSTKTest, Point_GetPosVel)
 
     printf("interval1: %s\n", interval1.toString().c_str());
     printf("interval2: %s\n", interval2.toString().c_str());
+    EXPECT_EQ(interval1, interval2);
+
+    for(const auto& tp: interval1.discretize(600))
+    {
+        Vector3d pos1, vel1, pos2, vel2;
+        errc_t rc = satellite->getPosVel(tp, pos1, vel1);
+        ASSERT_EQ(rc, eNoError);
+        rc = sensor->getPosVel(tp, pos2, vel2);
+        ASSERT_EQ(rc, eNoError);
+        EXPECT_EQ(pos1[0], pos2[0]);
+        EXPECT_EQ(pos1[1], pos2[1]);
+        EXPECT_EQ(pos1[2], pos2[2]);
+        EXPECT_EQ(vel1[0], vel2[0]);
+        EXPECT_EQ(vel1[1], vel2[1]);
+        EXPECT_EQ(vel1[2], vel2[2]);
+    }
 }
 
 GTEST_MAIN()

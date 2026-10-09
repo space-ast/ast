@@ -257,7 +257,7 @@ errc_t CelestialBody::loadEphemerisData(BKVParser & parser)
                     if(ephemeris == nullptr && jplIndex_ >= JplDe::eMercury)
                     {
                         ephemeris = new BodyEphemerisDE(jplIndex_);
-                        aWarning(_("打开 SPK 文件 '%s' 失败，'%s' 将使用 DE 星历"), spkFile.c_str(), name().c_str());
+                        aWarning(_("打开 SPK 文件 '%s' 失败，'%s' 将使用 DE 星历"), spkFile.c_str(), displayName().c_str());
                     }
 
                     // 将加载的星历关联到天体
