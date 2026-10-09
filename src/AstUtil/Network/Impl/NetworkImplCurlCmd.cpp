@@ -24,6 +24,7 @@
 #include "AstUtil/NetworkResponse.hpp"
 #include "AstUtil/NetworkStreamReceiver.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/FileStream.hpp"
 #include <cstdio>
 #include <cstdlib>
 #include <string>
@@ -190,7 +191,7 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
 #endif
         // 写入请求体
         {
-            std::ofstream tmpFile(tmpFilePath, std::ios::binary);
+            cxx::ofstream tmpFile(tmpFilePath, std::ios::binary);
             if (!tmpFile)
             {
                 std::remove(tmpFilePath.c_str());

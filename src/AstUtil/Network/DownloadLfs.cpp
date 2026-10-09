@@ -24,6 +24,7 @@
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringUtil.hpp"
+#include "AstUtil/FileStream.hpp"
 #include <fstream>
 #include <sstream>
 #include <iterator>
@@ -172,7 +173,7 @@ errc_t aDownloadLfs(StringView pointerFile, StringView outputFile, StringView re
     std::string rUrl(remoteUrl);
 
     // 读取指针文件文本
-    std::ifstream in(pFile.c_str(), std::ios::binary);
+    cxx::ifstream in(pFile.c_str(), std::ios::binary);
     if (!in.is_open())
     {
         aError(_("无法打开 LFS 指针文件 %s"), pFile.c_str());

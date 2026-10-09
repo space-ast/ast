@@ -56,6 +56,7 @@
 #include "AstUtil/ExtractorInterface.hpp"
 #include "AstUtil/Field.hpp"
 #include "AstUtil/FileLock.hpp"
+#include "AstUtil/FileStream.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/FileSystemSimple.hpp"
 #include "AstUtil/GUI.hpp"

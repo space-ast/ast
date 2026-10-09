@@ -16,6 +16,7 @@
 #include "AstCore/EventTime.hpp"
 #include "AstCore/Resolve.hpp"
 #include "AstCore/CelestialBody.hpp"
+#include "AstUtil/FileStream.hpp"
 #include <fstream>
 #include <cstring>
 #include <limits>
@@ -62,7 +63,7 @@ errc_t EphemerisBinary::saveFrom(const Ephemeris* source, const std::string& fil
     uint64_t pointCount = times.size();
 
     {
-        std::ofstream file(filepath, std::ios::binary | std::ios::trunc);
+        cxx::ofstream file(filepath, std::ios::binary | std::ios::trunc);
         if (!file.is_open())
             return eErrorInvalidFile;
 
@@ -124,7 +125,7 @@ errc_t EphemerisBinary::saveFrom(const Ephemeris* source, const std::string& fil
 
 errc_t EphemerisBinary::open(const std::string& filepath)
 {
-    std::ifstream file(filepath, std::ios::binary);
+    cxx::ifstream file(filepath, std::ios::binary);
     if (!file.is_open())
         return eErrorInvalidFile;
 
@@ -268,7 +269,7 @@ void EphemerisBinary::fillWindow(size_t fileIdx) const
     if (count == 0)
         return;
 
-    std::ifstream file(filepath_, std::ios::binary);
+    cxx::ifstream file(filepath_, std::ios::binary);
     if (!file.is_open())
         return;
 
