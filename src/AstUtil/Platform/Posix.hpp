@@ -67,15 +67,6 @@ namespace posix
     AST_UTIL_API
     int rmdir(const char* path);
 
-    /// @brief 检查文件状态是否为目录
-    /// @param st 文件状态结构体
-    /// @return 如果是目录则返回true，否则返回false
-    A_ALWAYS_INLINE
-    bool isdir(const stat& st)
-    {
-        return (_S_IFDIR & st.st_mode) != 0;
-    }
-
     /// @brief 判断文件描述符是否为终端
     /// @param fd 文件描述符
     /// @return 如果是终端则返回非0值，否则返回0
@@ -117,12 +108,6 @@ namespace posix
     using ::stat;
     using ::fileno;
     using ::rmdir;
-
-    A_ALWAYS_INLINE
-    bool isdir(const struct stat& st)
-    {
-        return S_ISDIR(st.st_mode);
-    }
     using ::isatty;
     using ::fstat;
     using ::chdir;

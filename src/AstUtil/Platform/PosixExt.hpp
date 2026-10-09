@@ -58,7 +58,22 @@ constexpr size_t kMaxPath = 255; // default max path length
         }
         return std::string();
     }
-    
+#if defined(_WIN32) || defined(AST_PARSED_BY_DOXYGEN)
+    /// @brief 检查文件状态是否为目录
+    /// @param st 文件状态结构体
+    /// @return 如果是目录则返回true，否则返回false
+    A_ALWAYS_INLINE
+    bool isdir(const stat& st)
+    {
+        return (_S_IFDIR & st.st_mode) != 0;
+    }
+#else
+    A_ALWAYS_INLINE
+    bool isdir(const struct stat& st)
+    {
+        return S_ISDIR(st.st_mode);
+    }
+#endif
 }
 
 /*! @} */
