@@ -50,6 +50,8 @@ var group__Time =
         [ "eUTC", "classast_1_1DateTime.html#a4dfd1e72a1730a4456aa76542b9de867acc0ee529d453f9d592c48f6695ecde89", null ],
         [ "eBJT", "classast_1_1DateTime.html#a4dfd1e72a1730a4456aa76542b9de867a283e3b926300ac7626a18b93c2a32dd1", null ]
       ] ],
+      [ "isInf", "classast_1_1DateTime.html#a84bf64d7855a0f82427347a40247ca3f", null ],
+      [ "toString", "classast_1_1DateTime.html#ace5b76ed9e41214806ab0437326c82a0", null ],
       [ "date_", "classast_1_1DateTime.html#a7c792b9c3d749fac2111c7d5ef8f5ad4", null ],
       [ "time_", "classast_1_1DateTime.html#abddc2f3424d39275a932cb2edf1d2ffa", null ]
     ] ],
@@ -142,6 +144,7 @@ var group__Time =
     ] ],
     [ "ast::Time", "classast_1_1Time.html", [
       [ "dayFraction", "classast_1_1Time.html#a8ef96b44c3526232fa295e974468167d", null ],
+      [ "isInf", "classast_1_1Time.html#afdc796e29d9ad15f859cc03de7b909ae", null ],
       [ "normalize", "classast_1_1Time.html#ab145e10ac9b7c1cdc75ddfad9ee3eebe", null ],
       [ "normalized", "classast_1_1Time.html#a885467b02749d0e4bf1fe4962da41419", null ],
       [ "totalSecond", "classast_1_1Time.html#a81796002df5e60cd6ebe140719b40772", null ],

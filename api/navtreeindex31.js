@@ -1,5 +1,7 @@
 var NAVTREEINDEX31 =
 {
+"classast_1_1GeoCoordinate.html#a3ced7d65bcf7322936caf6565b4cc32b":[2,0,0,383,9],
+"classast_1_1GeoCoordinate.html#a3ced7d65bcf7322936caf6565b4cc32b":[3,0,0,382,9],
 "classast_1_1GeoCoordinate.html#a4a41abfa181db6d9d044f4c4b4b3f45e":[2,0,0,383,8],
 "classast_1_1GeoCoordinate.html#a4a41abfa181db6d9d044f4c4b4b3f45e":[3,0,0,382,8],
 "classast_1_1GeoCoordinate.html#a4abf5d3b8a40f6e5284799bbd0664280":[2,0,0,383,15],
@@ -247,7 +249,5 @@ var NAVTREEINDEX31 =
 "classast_1_1GravityFieldLoader.html#acb6ea8a76a32480231faa91179626ad9":[2,0,0,395,9],
 "classast_1_1GravityFieldLoader.html#acb6ea8a76a32480231faa91179626ad9":[3,0,0,394,9],
 "classast_1_1GravityFieldLoader.html#ae8380991478c82cfbfda8f9da77860ef":[2,0,0,395,1],
-"classast_1_1GravityFieldLoader.html#ae8380991478c82cfbfda8f9da77860ef":[3,0,0,394,1],
-"classast_1_1GravityFieldSecularVariations.html":[2,0,0,396],
-"classast_1_1GravityFieldSecularVariations.html":[3,0,0,395]
+"classast_1_1GravityFieldLoader.html#ae8380991478c82cfbfda8f9da77860ef":[3,0,0,394,1]
 };

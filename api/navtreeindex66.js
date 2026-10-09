@@ -1,5 +1,8 @@
 var NAVTREEINDEX66 =
 {
+"structast_1_1CloseApproachOptions.html#a0ebfe354efa626f63cc944ec49474f8a":[2,0,0,177,10],
+"structast_1_1CloseApproachOptions.html#a0ebfe354efa626f63cc944ec49474f8a":[3,0,0,176,10],
+"structast_1_1CloseApproachOptions.html#a13580eb37d1e38023e8e81e94de22b22":[2,0,0,177,13],
 "structast_1_1CloseApproachOptions.html#a13580eb37d1e38023e8e81e94de22b22":[3,0,0,176,13],
 "structast_1_1CloseApproachOptions.html#a27c06d78091a5532d89e58ed105af642":[2,0,0,177,5],
 "structast_1_1CloseApproachOptions.html#a27c06d78091a5532d89e58ed105af642":[3,0,0,176,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX66 =
 "structast_1_1GravityFieldSecularVariations_1_1Variation.html#acc2ad798aaf626032e1b3af684d8c75d":[3,0,0,395,0,4],
 "structast_1_1GridCoord.html":[2,0,0,398],
 "structast_1_1GridCoord.html":[3,0,0,397],
-"structast_1_1GridCoord.html#a619f488f04cb3cb5a60c95d0d7601380":[2,0,0,398,0],
-"structast_1_1GridCoord.html#a619f488f04cb3cb5a60c95d0d7601380":[3,0,0,397,0],
-"structast_1_1GridCoord.html#a6df1df8a30562a4a06719b947ed64dcf":[2,0,0,398,3],
-"structast_1_1GridCoord.html#a6df1df8a30562a4a06719b947ed64dcf":[3,0,0,397,3]
+"structast_1_1GridCoord.html#a619f488f04cb3cb5a60c95d0d7601380":[2,0,0,398,0]
 };

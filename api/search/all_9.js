@@ -188,7 +188,7 @@ var searchData=
   ['isidle_185',['isIdle',['../classast_1_1MarkdownTableParser.html#a54ec39bcd0a65703e5cfee9b2fbd4729',1,'ast::MarkdownTableParser']]],
   ['isincludespermtide_186',['isIncludesPermTide',['../classast_1_1GravityField.html#a12782ab8c83938c09335a8becb08016b',1,'ast::GravityField']]],
   ['isindepvar_5f_187',['isIndepVar_',['../classast_1_1ReportElement.html#a20731f62614f1466b9f4a32efe8c333a',1,'ast::ReportElement']]],
-  ['isinf_188',['isInf',['../classast_1_1TimeInterval.html#acb11c69e3ff558e35f4ac57eb6dd0ac7',1,'ast::TimeInterval::isInf()'],['../classast_1_1TimePoint.html#a17d6c381234ca7eaae8607a1930b1db5',1,'ast::TimePoint::isInf()']]],
+  ['isinf_188',['isInf',['../classast_1_1DateTime.html#a84bf64d7855a0f82427347a40247ca3f',1,'ast::DateTime::isInf()'],['../classast_1_1Time.html#afdc796e29d9ad15f859cc03de7b909ae',1,'ast::Time::isInf()'],['../classast_1_1TimeInterval.html#acb11c69e3ff558e35f4ac57eb6dd0ac7',1,'ast::TimeInterval::isInf()'],['../classast_1_1TimePoint.html#a17d6c381234ca7eaae8607a1930b1db5',1,'ast::TimePoint::isInf()']]],
   ['isinit_5f_189',['isInit_',['../classast_1_1SolarSystem.html#a62116574b5a26af266075674c9c6722a',1,'ast::SolarSystem']]],
   ['isinitialized_190',['isInitialized',['../classast_1_1DTM2012.html#a5fcd896adba790c718a14c621dd133aa',1,'ast::DTM2012::isInitialized()'],['../classast_1_1DataContext.html#a9e049e190ef1ff098dae6d3048a803cd',1,'ast::DataContext::isInitialized()']]],
   ['isintervalcached_5f_191',['isIntervalCached_',['../classast_1_1JplSpk.html#aa92e240fce8ac0389f0caa6f7acce87e',1,'ast::JplSpk']]],

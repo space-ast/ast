@@ -1,5 +1,7 @@
 var NAVTREEINDEX41 =
 {
+"classast_1_1Polynomial.html#a7d65d2fabeed2a6cf14451c265387731":[0,8,14,2],
+"classast_1_1Polynomial.html#ad7d714ad2fc6ec23c384e1034d1bb4dd":[0,8,14,1],
 "classast_1_1Propagate.html":[2,0,0,635],
 "classast_1_1Propagate.html":[3,0,0,634],
 "classast_1_1Propagate.html#a4c7809425c93c1c977dbf05daaaa8438":[2,0,0,635,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX41 =
 "classast_1_1Quantity.html#ac988a30e183d70dcae9d3c0ab4a758d4":[0,8,3,1,0],
 "classast_1_1Quantity.html#accd68453f0bf216a913b04d0d38c4bb6":[0,8,3,1,8],
 "classast_1_1Quantity.html#acf36d11c1b7fd4e4d85350f3e41800f5":[0,8,3,1,24],
-"classast_1_1Quantity.html#ad3624b8c05237dc20588e076faf2f8fb":[0,8,3,1,36],
-"classast_1_1Quantity.html#ad496589ba151e75319b80f9c6d2d048f":[0,8,3,1,33],
-"classast_1_1Quantity.html#ad848cec88687923bff9eca4d3e5f107f":[0,8,3,1,39]
+"classast_1_1Quantity.html#ad3624b8c05237dc20588e076faf2f8fb":[0,8,3,1,36]
 };

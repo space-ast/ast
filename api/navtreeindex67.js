@@ -1,5 +1,8 @@
 var NAVTREEINDEX67 =
 {
+"structast_1_1GridCoord.html#a619f488f04cb3cb5a60c95d0d7601380":[3,0,0,397,0],
+"structast_1_1GridCoord.html#a6df1df8a30562a4a06719b947ed64dcf":[2,0,0,398,3],
+"structast_1_1GridCoord.html#a6df1df8a30562a4a06719b947ed64dcf":[3,0,0,397,3],
 "structast_1_1GridCoord.html#ac5e9ea58ba044dd1c4c7906de86d373d":[2,0,0,398,1],
 "structast_1_1GridCoord.html#ac5e9ea58ba044dd1c4c7906de86d373d":[3,0,0,397,1],
 "structast_1_1GridCoord.html#ad2f21681f16b5871bda753e482ca984d":[2,0,0,398,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX67 =
 "structast_1_1propagate__nan_1_1allow__efficient__minus_3_01TimePoint_01_4.html":[2,0,0,5,1],
 "structast_1_1propagate__nan_1_1allow__efficient__minus_3_01TimePoint_01_4.html":[3,0,0,3,1],
 "structast_1_1propagate__nan_1_1has__minus.html":[2,0,0,5,2],
-"structast_1_1propagate__nan_1_1has__minus.html":[3,0,0,3,2],
-"structast_1_1propagate__nan_1_1use__efficient__minus.html":[2,0,0,5,3],
-"structast_1_1propagate__nan_1_1use__efficient__minus.html":[3,0,0,3,3],
-"structast_1_1property__trait.html":[0,8,4,18]
+"structast_1_1propagate__nan_1_1has__minus.html":[3,0,0,3,2]
 };

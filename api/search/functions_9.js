@@ -74,7 +74,7 @@ var searchData=
   ['ishexdigit_71',['isHexDigit',['../namespaceast.html#a212db34da83ee26fa1f671ba8a2367c9',1,'ast']]],
   ['isidle_72',['isIdle',['../classast_1_1MarkdownTableParser.html#a54ec39bcd0a65703e5cfee9b2fbd4729',1,'ast::MarkdownTableParser']]],
   ['isincludespermtide_73',['isIncludesPermTide',['../classast_1_1GravityField.html#a12782ab8c83938c09335a8becb08016b',1,'ast::GravityField']]],
-  ['isinf_74',['isInf',['../classast_1_1TimeInterval.html#acb11c69e3ff558e35f4ac57eb6dd0ac7',1,'ast::TimeInterval::isInf()'],['../classast_1_1TimePoint.html#a17d6c381234ca7eaae8607a1930b1db5',1,'ast::TimePoint::isInf()']]],
+  ['isinf_74',['isInf',['../classast_1_1DateTime.html#a84bf64d7855a0f82427347a40247ca3f',1,'ast::DateTime::isInf()'],['../classast_1_1Time.html#afdc796e29d9ad15f859cc03de7b909ae',1,'ast::Time::isInf()'],['../classast_1_1TimeInterval.html#acb11c69e3ff558e35f4ac57eb6dd0ac7',1,'ast::TimeInterval::isInf()'],['../classast_1_1TimePoint.html#a17d6c381234ca7eaae8607a1930b1db5',1,'ast::TimePoint::isInf()']]],
   ['isinitialized_75',['isInitialized',['../classast_1_1DTM2012.html#a5fcd896adba790c718a14c621dd133aa',1,'ast::DTM2012::isInitialized()'],['../classast_1_1DataContext.html#a9e049e190ef1ff098dae6d3048a803cd',1,'ast::DataContext::isInitialized()']]],
   ['isleapyear_76',['isLeapYear',['../group__Time.html#ga47ee05579fd4388bc089ce1c2004b7f3',1,'ast::Date']]],
   ['islibrary_77',['IsLibrary',['../classast_1_1Library.html#a8b9c12723a11a5e555afb8812fe5226b',1,'ast::Library']]],

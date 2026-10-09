@@ -1,5 +1,7 @@
 var NAVTREEINDEX27 =
 {
+"classast_1_1Debugger.html":[0,4,1],
+"classast_1_1DeepSeek.html":[2,0,0,265],
 "classast_1_1DeepSeek.html":[3,0,0,264],
 "classast_1_1DeepSeek.html#aee9fb101caf81b33ae4f1ca6a0b3bad6":[2,0,0,265,0],
 "classast_1_1DeepSeek.html#aee9fb101caf81b33ae4f1ca6a0b3bad6":[3,0,0,264,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX27 =
 "classast_1_1EclipseEvent.html#a25fd5d0ea08bbd8bfb2e16136a8aac83":[0,11,0,0],
 "classast_1_1EclipseEvent.html#a2d5053da69200ecb3011ac1e9cfd924d":[0,11,0,1],
 "classast_1_1EclipseEvent.html#a30e80eb5cc2250d39b97b0789d774862":[0,11,0,4],
-"classast_1_1EclipseEvent.html#a9e6f082f733d412fe15ee0424c9ad165":[0,11,0,2],
-"classast_1_1EclipseEvent.html#abf1461aa4b0c971f509683cea7df7030":[0,11,0,3],
-"classast_1_1EclipseEventFinder.html":[0,11,1]
+"classast_1_1EclipseEvent.html#a9e6f082f733d412fe15ee0424c9ad165":[0,11,0,2]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX40 =
 {
+"classast_1_1ObjectNode.html#a61f41231c4561548451ebad29a881a79":[3,0,0,580,4],
+"classast_1_1ObjectNode.html#a678d20d4cd3b80c57e05c7ca562291b9":[2,0,0,581,6],
 "classast_1_1ObjectNode.html#a678d20d4cd3b80c57e05c7ca562291b9":[3,0,0,580,6],
 "classast_1_1ObjectNode.html#a8f7b79f705a3e91ce94fa88aa377164e":[2,0,0,581,9],
 "classast_1_1ObjectNode.html#a8f7b79f705a3e91ce94fa88aa377164e":[3,0,0,580,9],
@@ -247,7 +249,5 @@ var NAVTREEINDEX40 =
 "classast_1_1PointSSBarycenter.html#a910d244422f8cddf062510af02813506":[0,1,0,12,2],
 "classast_1_1PointSSBarycenter.html#adae8a58f274f31f03c59bf0f76649399":[0,1,0,12,1],
 "classast_1_1Polynomial.html":[0,8,14],
-"classast_1_1Polynomial.html#a15d601a475b507decfe5f784509dd1b4":[0,8,14,3],
-"classast_1_1Polynomial.html#a7d65d2fabeed2a6cf14451c265387731":[0,8,14,2],
-"classast_1_1Polynomial.html#ad7d714ad2fc6ec23c384e1034d1bb4dd":[0,8,14,1]
+"classast_1_1Polynomial.html#a15d601a475b507decfe5f784509dd1b4":[0,8,14,3]
 };

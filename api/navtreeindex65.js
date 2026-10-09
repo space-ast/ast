@@ -1,5 +1,8 @@
 var NAVTREEINDEX65 =
 {
+"namespaceast_1_1literals.html#a084800223b242711298388366d43230e":[2,0,0,2,25],
+"namespaceast_1_1literals.html#a0a1afc7ff96e956adc4a56f2827da16a":[2,0,0,2,60],
+"namespaceast_1_1literals.html#a0dd5142a226b450f2f5f4b4b60868d6c":[2,0,0,2,26],
 "namespaceast_1_1literals.html#a1174bf354ee26152011bbe41f077f15a":[2,0,0,2,31],
 "namespaceast_1_1literals.html#a120303f6251e93344d264b73ebd03f08":[2,0,0,2,1],
 "namespaceast_1_1literals.html#a17a319cf85c1430861c5122d65ff1443":[2,0,0,2,29],
@@ -246,8 +249,5 @@ var NAVTREEINDEX65 =
 "structast_1_1CloseApproachOptions.html":[2,0,0,177],
 "structast_1_1CloseApproachOptions.html":[3,0,0,176],
 "structast_1_1CloseApproachOptions.html#a0737b0a9bcb784a3818967e85874b30a":[2,0,0,177,3],
-"structast_1_1CloseApproachOptions.html#a0737b0a9bcb784a3818967e85874b30a":[3,0,0,176,3],
-"structast_1_1CloseApproachOptions.html#a0ebfe354efa626f63cc944ec49474f8a":[2,0,0,177,10],
-"structast_1_1CloseApproachOptions.html#a0ebfe354efa626f63cc944ec49474f8a":[3,0,0,176,10],
-"structast_1_1CloseApproachOptions.html#a13580eb37d1e38023e8e81e94de22b22":[2,0,0,177,13]
+"structast_1_1CloseApproachOptions.html#a0737b0a9bcb784a3818967e85874b30a":[3,0,0,176,3]
 };

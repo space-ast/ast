@@ -1,6 +1,7 @@
 var classast_1_1Time =
 [
     [ "dayFraction", "classast_1_1Time.html#a8ef96b44c3526232fa295e974468167d", null ],
+    [ "isInf", "classast_1_1Time.html#afdc796e29d9ad15f859cc03de7b909ae", null ],
     [ "normalize", "classast_1_1Time.html#ab145e10ac9b7c1cdc75ddfad9ee3eebe", null ],
     [ "normalized", "classast_1_1Time.html#a885467b02749d0e4bf1fe4962da41419", null ],
     [ "totalSecond", "classast_1_1Time.html#a81796002df5e60cd6ebe140719b40772", null ],

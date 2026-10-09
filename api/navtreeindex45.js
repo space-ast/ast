@@ -1,5 +1,7 @@
 var NAVTREEINDEX45 =
 {
+"classast_1_1ScaleUnitRep.html#adcc3eb25c7a0f7b5081e3ef54fe248ce":[2,0,0,692,0],
+"classast_1_1ScaleUnitRep.html#adcc3eb25c7a0f7b5081e3ef54fe248ce":[3,0,0,691,0],
 "classast_1_1Scanner.html":[0,4,32],
 "classast_1_1Scanner.html#a33ee5119251b068aaeb54126c00627dc":[0,4,32,2],
 "classast_1_1Scanner.html#a690a6d62d7dee8ea99062ac7aa2315b4":[0,4,32,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX45 =
 "classast_1_1SolarSystem.html#ab58c1489c58ed6fbf1e6d260e614e927":[0,1,7,11,10],
 "classast_1_1SolarSystem.html#ab6d175c897cb435a9429eee76aee9ffe":[0,1,7,11,20],
 "classast_1_1SolarSystem.html#aba889e171b8c4b1f085d5f4223c0caf8":[0,1,7,11,42],
-"classast_1_1SolarSystem.html#abd6cf8eaa34d8846faeb93846b98ffc3":[0,1,7,11,39],
-"classast_1_1SolarSystem.html#abfe7eccf6394b60c3d5bf653c63e937d":[0,1,7,11,41],
-"classast_1_1SolarSystem.html#aca3d9f6582ec87e95e858561f5ebcf76":[0,1,7,11,5]
+"classast_1_1SolarSystem.html#abd6cf8eaa34d8846faeb93846b98ffc3":[0,1,7,11,39]
 };
