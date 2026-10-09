@@ -1,15 +1,5 @@
 var NAVTREEINDEX65 =
 {
-"namespaceast_1_1literals.html#a084800223b242711298388366d43230e":[2,0,0,2,25],
-"namespaceast_1_1literals.html#a0a1afc7ff96e956adc4a56f2827da16a":[2,0,0,2,60],
-"namespaceast_1_1literals.html#a0dd5142a226b450f2f5f4b4b60868d6c":[2,0,0,2,26],
-"namespaceast_1_1literals.html#a1174bf354ee26152011bbe41f077f15a":[2,0,0,2,31],
-"namespaceast_1_1literals.html#a120303f6251e93344d264b73ebd03f08":[2,0,0,2,1],
-"namespaceast_1_1literals.html#a17a319cf85c1430861c5122d65ff1443":[2,0,0,2,29],
-"namespaceast_1_1literals.html#a1b3fdc083d93ed6a35f51d36f08db3d5":[2,0,0,2,24],
-"namespaceast_1_1literals.html#a23b761f96fb5018f922ec1a1babfe741":[2,0,0,2,18],
-"namespaceast_1_1literals.html#a29d3091d402ce3ff218560d875a9664c":[2,0,0,2,53],
-"namespaceast_1_1literals.html#a37f3765186d1cfa7af70cf2e70a49924":[2,0,0,2,23],
 "namespaceast_1_1literals.html#a3c4674a50f9743d87c3abe4e76b808da":[2,0,0,2,61],
 "namespaceast_1_1literals.html#a40fb5a52b0f3690c77fdbf8307666de4":[2,0,0,2,51],
 "namespaceast_1_1literals.html#a45c7dfa9e979ded86d231dc15bdd617c":[2,0,0,2,48],
@@ -249,5 +239,15 @@ var NAVTREEINDEX65 =
 "structast_1_1CloseApproachOptions.html":[2,0,0,177],
 "structast_1_1CloseApproachOptions.html":[3,0,0,176],
 "structast_1_1CloseApproachOptions.html#a0737b0a9bcb784a3818967e85874b30a":[2,0,0,177,3],
-"structast_1_1CloseApproachOptions.html#a0737b0a9bcb784a3818967e85874b30a":[3,0,0,176,3]
+"structast_1_1CloseApproachOptions.html#a0737b0a9bcb784a3818967e85874b30a":[3,0,0,176,3],
+"structast_1_1CloseApproachOptions.html#a0ebfe354efa626f63cc944ec49474f8a":[2,0,0,177,10],
+"structast_1_1CloseApproachOptions.html#a0ebfe354efa626f63cc944ec49474f8a":[3,0,0,176,10],
+"structast_1_1CloseApproachOptions.html#a13580eb37d1e38023e8e81e94de22b22":[2,0,0,177,13],
+"structast_1_1CloseApproachOptions.html#a13580eb37d1e38023e8e81e94de22b22":[3,0,0,176,13],
+"structast_1_1CloseApproachOptions.html#a27c06d78091a5532d89e58ed105af642":[2,0,0,177,5],
+"structast_1_1CloseApproachOptions.html#a27c06d78091a5532d89e58ed105af642":[3,0,0,176,5],
+"structast_1_1CloseApproachOptions.html#a33229c4749135f7db05a4a152403a4a3":[2,0,0,177,16],
+"structast_1_1CloseApproachOptions.html#a33229c4749135f7db05a4a152403a4a3":[3,0,0,176,16],
+"structast_1_1CloseApproachOptions.html#a4829e62b925c4548d47ec6b4e8d5f39c":[2,0,0,177,15],
+"structast_1_1CloseApproachOptions.html#a4829e62b925c4548d47ec6b4e8d5f39c":[3,0,0,176,15]
 };

@@ -1,15 +1,5 @@
 var NAVTREEINDEX50 =
 {
-"classast_1_1TimeInterval.html#a6db876bd729da3260baf3d6396ce29e8":[0,1,8,10,3],
-"classast_1_1TimeInterval.html#a6e3b2b9e22dc980546e1a44b82aa78f1":[0,1,8,10,39],
-"classast_1_1TimeInterval.html#a736b9ebdaac09e564e97c1e973a2d4cb":[0,1,8,10,8],
-"classast_1_1TimeInterval.html#a73a9291f5ac82696815a98bd0ffaae65":[0,1,8,10,9],
-"classast_1_1TimeInterval.html#a755808e774bf38782c618dc15e0282c3":[0,1,8,10,5],
-"classast_1_1TimeInterval.html#a848357e1c8ea8032454bd2d683157d9d":[0,1,8,10,20],
-"classast_1_1TimeInterval.html#a84c8351775a794c668e5208c920f7563":[0,1,8,10,35],
-"classast_1_1TimeInterval.html#a898a8d5f3dffae3ee4cae241aa5abbb8":[0,1,8,10,28],
-"classast_1_1TimeInterval.html#a92ad94094486d2c3b3207f5bdbfa6e7b":[0,1,8,10,34],
-"classast_1_1TimeInterval.html#aa41b820c258fa1d333f192e109d26b77":[0,1,8,10,37],
 "classast_1_1TimeInterval.html#aa7ec99e8e8eda77f481dcf8e68c32f43":[0,1,8,10,14],
 "classast_1_1TimeInterval.html#aae74998cd44c06c9960c8294ab7822d8":[0,1,8,10,13],
 "classast_1_1TimeInterval.html#ab467b273cd33f97b6053596fec9d3286":[0,1,8,10,12],
@@ -249,5 +239,15 @@ var NAVTREEINDEX50 =
 "classast_1_1UiChatEventHandler.html#ac2bda89467bbf7952156cce260d716a7":[0,16,0,6],
 "classast_1_1UiChatEventHandler.html#ada89e3ded00017e74fddf64f2f0fb496":[0,16,0,5],
 "classast_1_1UiChatEventHandler.html#ae744178c9277a1b8dc42706f892ecd10":[0,16,0,3],
-"classast_1_1UiChatEventHandler.html#aeca32a6d4e74b76468cff5f551bca216":[0,16,0,1]
+"classast_1_1UiChatEventHandler.html#aeca32a6d4e74b76468cff5f551bca216":[0,16,0,1],
+"classast_1_1UiChatEventHandler.html#afc2381ee7522905e85367ab0db14321f":[0,16,0,8],
+"classast_1_1UiChatInput.html":[0,16,1],
+"classast_1_1UiChatInput.html#a039e698330083c185d68c3e2be120d93":[0,16,1,4],
+"classast_1_1UiChatInput.html#a3f0f6862bc36b8dd01f6b1d104a95617":[0,16,1,2],
+"classast_1_1UiChatInput.html#a5cbc0fc818a39f2fd7f704895b55e8ef":[0,16,1,0],
+"classast_1_1UiChatInput.html#a5e71df6fd90f067cba5cec71aaa27653":[0,16,1,3],
+"classast_1_1UiChatInput.html#abeb51d145ee5a8e366ce5b5f737552b2":[0,16,1,1],
+"classast_1_1UiChatInput.html#addeab8ad2ceabb24a4a9372669057510":[0,16,1,5],
+"classast_1_1UiChatMainWidget.html":[0,16,2],
+"classast_1_1UiChatMainWidget.html#a209103acced29ce224bb8014a178d006":[0,16,2,1]
 };

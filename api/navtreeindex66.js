@@ -1,15 +1,5 @@
 var NAVTREEINDEX66 =
 {
-"structast_1_1CloseApproachOptions.html#a0ebfe354efa626f63cc944ec49474f8a":[2,0,0,177,10],
-"structast_1_1CloseApproachOptions.html#a0ebfe354efa626f63cc944ec49474f8a":[3,0,0,176,10],
-"structast_1_1CloseApproachOptions.html#a13580eb37d1e38023e8e81e94de22b22":[2,0,0,177,13],
-"structast_1_1CloseApproachOptions.html#a13580eb37d1e38023e8e81e94de22b22":[3,0,0,176,13],
-"structast_1_1CloseApproachOptions.html#a27c06d78091a5532d89e58ed105af642":[2,0,0,177,5],
-"structast_1_1CloseApproachOptions.html#a27c06d78091a5532d89e58ed105af642":[3,0,0,176,5],
-"structast_1_1CloseApproachOptions.html#a33229c4749135f7db05a4a152403a4a3":[2,0,0,177,16],
-"structast_1_1CloseApproachOptions.html#a33229c4749135f7db05a4a152403a4a3":[3,0,0,176,16],
-"structast_1_1CloseApproachOptions.html#a4829e62b925c4548d47ec6b4e8d5f39c":[2,0,0,177,15],
-"structast_1_1CloseApproachOptions.html#a4829e62b925c4548d47ec6b4e8d5f39c":[3,0,0,176,15],
 "structast_1_1CloseApproachOptions.html#a499ea94699f5e06eda5cf743b0bfb132":[2,0,0,177,12],
 "structast_1_1CloseApproachOptions.html#a499ea94699f5e06eda5cf743b0bfb132":[3,0,0,176,12],
 "structast_1_1CloseApproachOptions.html#a533af1f3d6644e1171fdcf11c3a2b8ec":[2,0,0,177,1],
@@ -249,5 +239,15 @@ var NAVTREEINDEX66 =
 "structast_1_1GravityFieldSecularVariations_1_1Variation.html#acc2ad798aaf626032e1b3af684d8c75d":[3,0,0,395,0,4],
 "structast_1_1GridCoord.html":[2,0,0,398],
 "structast_1_1GridCoord.html":[3,0,0,397],
-"structast_1_1GridCoord.html#a619f488f04cb3cb5a60c95d0d7601380":[2,0,0,398,0]
+"structast_1_1GridCoord.html#a619f488f04cb3cb5a60c95d0d7601380":[2,0,0,398,0],
+"structast_1_1GridCoord.html#a619f488f04cb3cb5a60c95d0d7601380":[3,0,0,397,0],
+"structast_1_1GridCoord.html#a6df1df8a30562a4a06719b947ed64dcf":[2,0,0,398,3],
+"structast_1_1GridCoord.html#a6df1df8a30562a4a06719b947ed64dcf":[3,0,0,397,3],
+"structast_1_1GridCoord.html#ac5e9ea58ba044dd1c4c7906de86d373d":[2,0,0,398,1],
+"structast_1_1GridCoord.html#ac5e9ea58ba044dd1c4c7906de86d373d":[3,0,0,397,1],
+"structast_1_1GridCoord.html#ad2f21681f16b5871bda753e482ca984d":[2,0,0,398,2],
+"structast_1_1GridCoord.html#ad2f21681f16b5871bda753e482ca984d":[3,0,0,397,2],
+"structast_1_1InitalizeConfig.html":[0,1,1,3],
+"structast_1_1InitalizeConfig.html#a1622cf2dc70ef0003fdede3ea060148d":[0,1,1,3,7],
+"structast_1_1InitalizeConfig.html#a201a6cfb5b930e6a5c8958cd017e38be":[0,1,1,3,6]
 };

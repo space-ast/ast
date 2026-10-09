@@ -1366,14 +1366,14 @@ var hierarchy =
                   ] ]
                 ] ],
                 [ "ast::Submarine", "classast_1_1Submarine.html", null ]
-              ] ]
+              ] ],
+              [ "ast::Sensor", "classast_1_1Sensor.html", null ]
             ] ],
             [ "ast::PointBodyCenter", "classast_1_1PointBodyCenter.html", null ],
             [ "ast::PointCartographic", "classast_1_1PointCartographic.html", null ],
             [ "ast::PointRoot", "classast_1_1PointRoot.html", null ],
             [ "ast::PointSSBarycenter", "classast_1_1PointSSBarycenter.html", null ],
-            [ "ast::SGP4", "classast_1_1SGP4.html", null ],
-            [ "ast::Sensor", "classast_1_1Sensor.html", null ]
+            [ "ast::SGP4", "classast_1_1SGP4.html", null ]
           ] ],
           [ "ast::Radar", "classast_1_1Radar.html", null ],
           [ "ast::Receiver", "classast_1_1Receiver.html", null ],

@@ -1,15 +1,5 @@
 var NAVTREEINDEX68 =
 {
-"structast_1_1propagate__nan_1_1use__efficient__minus.html":[2,0,0,5,3],
-"structast_1_1propagate__nan_1_1use__efficient__minus.html":[3,0,0,3,3],
-"structast_1_1property__trait.html":[0,8,4,18],
-"structast_1_1property__trait_3_01TimePoint_01_4.html":[0,8,4,20],
-"structast_1_1property__trait_3_01std_1_1string_01_4.html":[0,8,4,19],
-"structast_1_1strings__internal_1_1AllowEmpty.html":[3,0,0,4,0],
-"structast_1_1strings__internal_1_1DelimiterConcept.html":[3,0,0,4,8],
-"structast_1_1strings__internal_1_1SelectDelimiter.html":[3,0,0,4,10],
-"structast_1_1strings__internal_1_1SelectDelimiter_3_01StringView_01_4.html":[3,0,0,4,14],
-"structast_1_1strings__internal_1_1SelectDelimiter_3_01char_01_4.html":[3,0,0,4,11],
 "structast_1_1strings__internal_1_1SelectDelimiter_3_01const_01char_01_5_01_4.html":[3,0,0,4,12],
 "structast_1_1strings__internal_1_1SelectDelimiter_3_01std_1_1string_01_4.html":[3,0,0,4,13],
 "structast_1_1strings__internal_1_1SkipEmpty.html":[3,0,0,4,15],

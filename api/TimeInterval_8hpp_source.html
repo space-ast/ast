@@ -329,7 +329,18 @@ $(function(){initNavTree('TimeInterval_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>}</div>
 </div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>A_ALWAYS_INLINE <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimeInterval.html">TimeInterval</a>&amp; lhs, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimeInterval.html">TimeInterval</a>&amp; rhs)</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>{</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    <span class="keywordflow">return</span> lhs.<a class="code hl_function" href="classast_1_1TimeInterval.html#a92ad94094486d2c3b3207f5bdbfa6e7b">start</a>() == rhs.<a class="code hl_function" href="classast_1_1TimeInterval.html#a92ad94094486d2c3b3207f5bdbfa6e7b">start</a>() &amp;&amp; lhs.<a class="code hl_function" href="classast_1_1TimeInterval.html#a84c8351775a794c668e5208c920f7563">stop</a>() == rhs.<a class="code hl_function" href="classast_1_1TimeInterval.html#a84c8351775a794c668e5208c920f7563">stop</a>();</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>}</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>A_ALWAYS_INLINE <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> TimeInterval&amp; lhs, <span class="keyword">const</span> TimeInterval&amp; rhs)</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>{</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <span class="keywordflow">return</span> !(lhs == rhs);</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>}</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aDoubleRange_8hpp_html"><div class="ttname"><a href="DoubleRange_8hpp.html">DoubleRange.hpp</a></div><div class="ttdoc">按步长采样的相对秒范围</div></div>
 <div class="ttc" id="aInterval_8hpp_html"><div class="ttname"><a href="Interval_8hpp.html">Interval.hpp</a></div></div>
 <div class="ttc" id="aTimePointRange_8hpp_html"><div class="ttname"><a href="TimePointRange_8hpp.html">TimePointRange.hpp</a></div><div class="ttdoc">按步长采样的时间点范围</div></div>

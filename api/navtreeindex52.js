@@ -1,15 +1,5 @@
 var NAVTREEINDEX52 =
 {
-"classast_1_1UiQuantity.html#a16a124c3f22e8303b3396a0e296efe85":[0,17,3,6],
-"classast_1_1UiQuantity.html#a2136077e991881affe099d594344c820":[0,17,3,0],
-"classast_1_1UiQuantity.html#a32a39bdf006f4f8216f8683e34d6e3a7":[0,17,3,16],
-"classast_1_1UiQuantity.html#a3a93abd0d0859035e6330af53aab967c":[0,17,3,9],
-"classast_1_1UiQuantity.html#a3b250de1ee70aee863b8de5cda4e953b":[0,17,3,10],
-"classast_1_1UiQuantity.html#a3f74845a3a7c8339c9fc8102485bb557":[0,17,3,5],
-"classast_1_1UiQuantity.html#a481122ae0e746a799ff54b2b116ebceb":[0,17,3,2],
-"classast_1_1UiQuantity.html#a4c5d82867b8c44f5113558d218a8c839":[0,17,3,13],
-"classast_1_1UiQuantity.html#a84922526c90a8c9b5ac3bda8e34dc2d1":[0,17,3,3],
-"classast_1_1UiQuantity.html#aa2916aa7279c9a41d545d5236204be47":[0,17,3,4],
 "classast_1_1UiQuantity.html#abcabb45cc3310b917135947ce95e1cc8":[0,17,3,8],
 "classast_1_1UiQuantity.html#acda7477cac5832188e65eba57728c641":[0,17,3,12],
 "classast_1_1UiQuantity.html#aedaec01af15bb3eb1c77a49276c67988":[0,17,3,15],
@@ -249,5 +239,15 @@ var NAVTREEINDEX52 =
 "classast_1_1Unit.html#ab063663d190520fb849f9a79280a2565":[0,8,3,2,9],
 "classast_1_1Unit.html#ac04046bcfc043d2939553cb9cacadb69":[0,8,3,2,6],
 "classast_1_1Unit.html#ac9c6a03f40114106d9347585c9d9903f":[0,8,3,2,3],
-"classast_1_1Unit.html#ace0c733ae096215d1e88930f629bb614":[0,8,3,2,0]
+"classast_1_1Unit.html#ace0c733ae096215d1e88930f629bb614":[0,8,3,2,0],
+"classast_1_1Unit.html#ad5af747d90773053e1f87c7ae7573a30":[0,8,3,2,19],
+"classast_1_1UnitConverter.html":[0,8,3,3],
+"classast_1_1UnitConverter.html#a2cea762abbd997e951408116afaff234":[0,8,3,3,2],
+"classast_1_1UnitConverter.html#a5ec8a38119541ac15de6db9a8d52163a":[0,8,3,3,0],
+"classast_1_1UnitConverter.html#a6302810bd3650d97bd65d73c36fc53fc":[0,8,3,3,4],
+"classast_1_1UnitConverter.html#a66f9c0d3b47f576a3fba2f7eb10f2839":[0,8,3,3,5],
+"classast_1_1UnitConverter.html#a976e637f70d0c06868a50cbecec3c14f":[0,8,3,3,3],
+"classast_1_1UnitConverter.html#aa097ad9095169ed5e0e3e1d415f4f0a6":[0,8,3,3,1],
+"classast_1_1UnitConverter.html#ad2bfacefe3458c7133bfaec4d528ab84":[0,8,3,3,6],
+"classast_1_1UnitManager.html":[0,8,3,4]
 };
