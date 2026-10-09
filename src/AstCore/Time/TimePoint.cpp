@@ -118,6 +118,19 @@ void aTimePointToUT1(const TimePoint& time, DateTime& dttmUT1)
 
 errc_t aTimePointFormat(const TimePoint &time, std::string &str, int precision)
 {
+    if(time.isInf())
+    {
+        if(time.fractionalPart() < 0)
+            str = "-Infinity";
+        else
+            str = "+Infinity";
+        return eNoError;
+    }
+    else if(time.isNaN())
+    {
+        str = "Invalid";
+        return eNoError;
+    }
     DateTime utc{};
     aTimePointToUTC(time, utc);
     errc_t err = aDateTimeFormatDefault(utc, str, precision);

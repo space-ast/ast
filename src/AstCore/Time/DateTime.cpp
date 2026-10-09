@@ -93,8 +93,10 @@ void aDateTimeNormalizeUTC(DateTime& dttm)
     using std::min;
     using std::max;
 
-    int minute = dttm.time().hour() * 60 + dttm.minute();
     double second = dttm.time().second();
+    if(std::isnan(second) || std::isinf(second))
+        return;
+    int minute = dttm.time().hour() * 60 + dttm.minute();
     int dday = static_cast<int>((second + minute * 60) / 86400.);
     if (dday == 0) {
         aDateTimeNormalize(dttm);

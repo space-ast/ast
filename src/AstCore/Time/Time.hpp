@@ -69,6 +69,9 @@ public:
     /// @details 计算时间对象表示的日分数，范围为0-1
     /// @return 时间对象的日分数
     double dayFraction() const{return second_ / 86400.0 + minute_ / 1440.0 + hour_ / 24.0;}
+
+    /// @brief 检查时间对象是否为无穷大
+    bool isInf() const{return std::isinf(second_);}
 public:
     /// @brief 规范化时间对象
     /// @details 将时间中的秒、分进行进位或借位调整，使其处于合理范围内（0-59）

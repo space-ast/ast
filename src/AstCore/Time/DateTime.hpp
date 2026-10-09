@@ -537,6 +537,10 @@ public:
         return dttm;
     }
 public:
+    /// @brief 检查日期时间对象是否为无穷大
+    bool isInf() const{return time_.isInf();}
+
+    /// @brief 将日期时间对象转换为字符串表示
     std::string toString(int precision = 3) const{
         std::string str;
         aDateTimeFormatDefault(*this, str, precision);

@@ -100,5 +100,27 @@ TEST(AccessSTKTest, LoadAccess)
     EXPECT_EQ(loaded[0]->baseObject(), sensorAccess->baseObject());
 }
 
+
+TEST(AccessSTKTest, Point_GetPosVel)
+{
+    std::string scenarioFullPath = aTestDataDirGet() + "/" + scenarioDir;
+    SharedPtr<Scenario> scenario = aMakeShared<Scenario>();
+    errc_t rc = aLoadScenario(scenarioFullPath, *scenario);
+    ASSERT_EQ(rc, eNoError);
+    auto satellite = aFindChild<Satellite*>(scenario);
+    auto sensor = aFindChild<Sensor*>(satellite);
+    ASSERT_NE(satellite, nullptr);
+    ASSERT_NE(sensor, nullptr);
+
+    TimeInterval interval1;
+    satellite->getInterval(interval1);
+
+    TimeInterval interval2;
+    sensor->getInterval(interval2);
+
+    printf("interval1: %s\n", interval1.toString().c_str());
+    printf("interval2: %s\n", interval2.toString().c_str());
+}
+
 GTEST_MAIN()
 
