@@ -1,5 +1,9 @@
 var NAVTREEINDEX14 =
 {
+"ScStateCalcRARate_8hpp.html":[4,0,0,6,12,1,0,15,155],
+"ScStateCalcRARate_8hpp_source.html":[4,0,0,6,12,1,0,15,155],
+"ScStateCalcRA_8cpp.html":[4,0,0,6,12,1,0,15,138],
+"ScStateCalcRA_8hpp.html":[4,0,0,6,12,1,0,15,139],
 "ScStateCalcRA_8hpp_source.html":[4,0,0,6,12,1,0,15,139],
 "ScStateCalcRMag_8cpp.html":[4,0,0,6,12,1,0,2,0],
 "ScStateCalcRMag_8hpp.html":[4,0,0,6,12,1,0,2,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX14 =
 "ScriptingToolProfileLoader_8cpp.html":[4,0,0,10,2,2,0,1],
 "ScriptingToolProfileLoader_8cpp.html#a2e21ef2b5817bcceac40e20285d9651d":[4,0,0,10,2,2,0,1,0],
 "ScriptingToolProfileLoader_8hpp.html":[4,0,0,10,2,2,0,2],
-"ScriptingToolProfileLoader_8hpp.html#a2e21ef2b5817bcceac40e20285d9651d":[4,0,0,10,2,2,0,2,0],
-"ScriptingToolProfileLoader_8hpp_source.html":[4,0,0,10,2,2,0,2],
-"ScriptingToolProfile_8hpp_source.html":[4,0,0,6,12,3,0,2],
-"SecantSolver_8cpp.html":[4,0,0,11,5,0,7],
-"SecantSolver_8hpp.html":[4,0,0,11,5,0,8]
+"ScriptingToolProfileLoader_8hpp.html#a2e21ef2b5817bcceac40e20285d9651d":[4,0,0,10,2,2,0,2,0]
 };

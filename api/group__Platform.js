@@ -1,5 +1,6 @@
 var group__Platform =
 [
+    [ "ast::cxx", "namespaceast_1_1cxx.html", null ],
     [ "ast::fs_simple", "namespaceast_1_1fs__simple.html", null ],
     [ "ast::posix", "namespaceast_1_1posix.html", null ],
     [ "ast::FileLock", "classast_1_1FileLock.html", [
@@ -19,6 +20,15 @@ var group__Platform =
       [ "tryLock", "classast_1_1FileLock.html#ad5c3f5e46f0efa2b866aaa9e0041d9d6", null ],
       [ "tryLock", "classast_1_1FileLock.html#afc7c38aba40732ba180349d627415d28", null ],
       [ "unlock", "classast_1_1FileLock.html#a83949d92581d98e8b172ac1c991df8aa", null ]
+    ] ],
+    [ "ast::cxx::ifstream", "classast_1_1cxx_1_1ifstream.html", [
+      [ "open", "classast_1_1cxx_1_1ifstream.html#ac3f318508eaccf2a2f87e9edfb93c5fd", null ]
+    ] ],
+    [ "ast::cxx::ofstream", "classast_1_1cxx_1_1ofstream.html", [
+      [ "open", "classast_1_1cxx_1_1ofstream.html#a209c5bdfb38943595ca6df1330ea2678", null ]
+    ] ],
+    [ "ast::cxx::fstream", "classast_1_1cxx_1_1fstream.html", [
+      [ "open", "classast_1_1cxx_1_1fstream.html#a00301db0a6269135041730557b9842f6", null ]
     ] ],
     [ "ast::GUIInterface", "classast_1_1GUIInterface.html", [
       [ "~GUIInterface", "classast_1_1GUIInterface.html#a21fd42ca1ddf0dc1eb5e83df4c338f36", null ],

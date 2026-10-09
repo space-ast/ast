@@ -1,5 +1,9 @@
 var NAVTREEINDEX13 =
 {
+"ScStateCalcDensity_8hpp_source.html":[4,0,0,6,12,1,0,6,7],
+"ScStateCalcDiffAcrossSegmentOtherSat_8cpp.html":[4,0,0,6,12,1,0,15,28],
+"ScStateCalcDiffAcrossSegmentOtherSat_8hpp.html":[4,0,0,6,12,1,0,15,29],
+"ScStateCalcDiffAcrossSegmentOtherSat_8hpp_source.html":[4,0,0,6,12,1,0,15,29],
 "ScStateCalcDifferenceOtherSegment_8cpp.html":[4,0,0,6,12,1,0,15,32],
 "ScStateCalcDifferenceOtherSegment_8hpp.html":[4,0,0,6,12,1,0,15,33],
 "ScStateCalcDifferenceOtherSegment_8hpp_source.html":[4,0,0,6,12,1,0,15,33],
@@ -245,9 +249,5 @@ var NAVTREEINDEX13 =
 "ScStateCalcRAAN_8cpp.html":[4,0,0,6,12,1,0,10,22],
 "ScStateCalcRAAN_8hpp.html":[4,0,0,6,12,1,0,10,23],
 "ScStateCalcRAAN_8hpp_source.html":[4,0,0,6,12,1,0,10,23],
-"ScStateCalcRARate_8cpp.html":[4,0,0,6,12,1,0,15,154],
-"ScStateCalcRARate_8hpp.html":[4,0,0,6,12,1,0,15,155],
-"ScStateCalcRARate_8hpp_source.html":[4,0,0,6,12,1,0,15,155],
-"ScStateCalcRA_8cpp.html":[4,0,0,6,12,1,0,15,138],
-"ScStateCalcRA_8hpp.html":[4,0,0,6,12,1,0,15,139]
+"ScStateCalcRARate_8cpp.html":[4,0,0,6,12,1,0,15,154]
 };

@@ -1,6 +1,11 @@
 var annotated_dup =
 [
     [ "ast", "namespaceast.html", [
+      [ "cxx", "namespaceast_1_1cxx.html", [
+        [ "fstream", "classast_1_1cxx_1_1fstream.html", "classast_1_1cxx_1_1fstream" ],
+        [ "ifstream", "classast_1_1cxx_1_1ifstream.html", "classast_1_1cxx_1_1ifstream" ],
+        [ "ofstream", "classast_1_1cxx_1_1ofstream.html", "classast_1_1cxx_1_1ofstream" ]
+      ] ],
       [ "detail", null, [
         [ "arg_pair", "structast_1_1detail_1_1arg__pair.html", null ],
         [ "decode_impl", "structast_1_1detail_1_1decode__impl.html", null ],

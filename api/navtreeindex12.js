@@ -1,5 +1,9 @@
 var NAVTREEINDEX12 =
 {
+"RotationalData_8hpp.html":[4,0,0,6,15,1,8],
+"RotationalData_8hpp_source.html":[4,0,0,6,15,1,8],
+"RoundRobinGroupChat_8cpp.html":[4,0,0,0,2,13],
+"RoundRobinGroupChat_8hpp.html":[4,0,0,0,2,14],
 "RoundRobinGroupChat_8hpp_source.html":[4,0,0,0,2,14],
 "RunTimeConfig_8cpp.html":[4,0,0,6,8,0,8],
 "RunTimeConfig_8hpp.html":[4,0,0,6,8,0,9],
@@ -245,9 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcDeltaV_8hpp.html":[4,0,0,6,12,1,0,11,1],
 "ScStateCalcDeltaV_8hpp_source.html":[4,0,0,6,12,1,0,11,1],
 "ScStateCalcDensity_8cpp.html":[4,0,0,6,12,1,0,6,6],
-"ScStateCalcDensity_8hpp.html":[4,0,0,6,12,1,0,6,7],
-"ScStateCalcDensity_8hpp_source.html":[4,0,0,6,12,1,0,6,7],
-"ScStateCalcDiffAcrossSegmentOtherSat_8cpp.html":[4,0,0,6,12,1,0,15,28],
-"ScStateCalcDiffAcrossSegmentOtherSat_8hpp.html":[4,0,0,6,12,1,0,15,29],
-"ScStateCalcDiffAcrossSegmentOtherSat_8hpp_source.html":[4,0,0,6,12,1,0,15,29]
+"ScStateCalcDensity_8hpp.html":[4,0,0,6,12,1,0,6,7]
 };

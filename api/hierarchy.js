@@ -333,6 +333,9 @@ var hierarchy =
     [ "ast::fs_simple::file_status", "classast_1_1fs__simple_1_1file__status.html", null ],
     [ "ast::FileLock", "classast_1_1FileLock.html", null ],
     [ "fitrecord", "structfitrecord.html", null ],
+    [ "std::fstream", null, [
+      [ "ast::cxx::fstream", "classast_1_1cxx_1_1fstream.html", null ]
+    ] ],
     [ "ast::FuncBlock", "classast_1_1FuncBlock.html", [
       [ "ast::BlockAbs", "classast_1_1BlockAbs.html", null ],
       [ "ast::BlockConstant", "classast_1_1BlockConstant.html", null ],
@@ -470,6 +473,9 @@ var hierarchy =
       [ "ast::ISaVOImpl< T, piid >", "classast_1_1ISaVOImpl.html", null ],
       [ "ast::IVeVOSystemsCollectionImpl< T, piid >", "classast_1_1IVeVOSystemsCollectionImpl.html", null ],
       [ "ast::IVeVOSystemsElementImpl< T, piid >", "classast_1_1IVeVOSystemsElementImpl.html", null ]
+    ] ],
+    [ "std::ifstream", null, [
+      [ "ast::cxx::ifstream", "classast_1_1cxx_1_1ifstream.html", null ]
     ] ],
     [ "ast::ActiveScriptExecutor::Impl", "classast_1_1ActiveScriptExecutor_1_1Impl.html", null ],
     [ "ast::DTM2012::Impl", "structast_1_1DTM2012_1_1Impl.html", null ],
@@ -681,6 +687,9 @@ var hierarchy =
     [ "ast::ODEStateObserverGenericHelper", "classast_1_1ODEStateObserverGenericHelper.html", null ],
     [ "ast::ODEWorkspace", "classast_1_1ODEWorkspace.html", [
       [ "ast::ODEFixedStepIntegrator::Workspace", "classast_1_1ODEFixedStepIntegrator_1_1Workspace.html", null ]
+    ] ],
+    [ "std::ofstream", null, [
+      [ "ast::cxx::ofstream", "classast_1_1cxx_1_1ofstream.html", null ]
     ] ],
     [ "ast::OpBinRegistry::OpBinKeyHash", "structast_1_1OpBinRegistry_1_1OpBinKeyHash.html", null ],
     [ "ast::OpBinRegistry", "classast_1_1OpBinRegistry.html", null ],

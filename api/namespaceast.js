@@ -1,5 +1,6 @@
 var namespaceast =
 [
+    [ "cxx", "namespaceast_1_1cxx.html", "namespaceast_1_1cxx" ],
     [ "escape", "namespaceast_1_1escape.html", [
       [ "kBlue", "namespaceast_1_1escape.html#aa856c41fb0f3f86f400b2aa87aeceee5", null ],
       [ "kBold", "namespaceast_1_1escape.html#adb9b953754e83448b401775d593a2d67", null ],
