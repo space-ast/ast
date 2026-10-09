@@ -115,13 +115,14 @@ $(function(){initNavTree('classast_1_1Frame.html',''); initResizable(true); });
  <div class="center">
   <img src="classast_1_1Frame.png" usemap="#ast::Frame_map" alt=""/>
   <map id="ast::Frame_map" name="ast::Frame_map">
-<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="210,112,340,136"/>
-<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="210,56,340,80"/>
-<area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="210,0,340,24"/>
+<area href="classast_1_1ObjectNamed.html" title="命名对象" alt="ast::ObjectNamed" shape="rect" coords="280,112,410,136"/>
+<area href="classast_1_1Object.html" title="对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能" alt="ast::Object" shape="rect" coords="280,56,410,80"/>
+<area href="classast_1_1Referenced.html" alt="ast::Referenced" shape="rect" coords="280,0,410,24"/>
 <area href="classast_1_1FrameAssembly.html" title="组装坐标系" alt="ast::FrameAssembly" shape="rect" coords="0,224,130,248"/>
 <area href="classast_1_1FrameICRF.html" alt="ast::FrameICRF" shape="rect" coords="140,224,270,248"/>
-<area href="classast_1_1FrameRoot.html" title="根坐标系" alt="ast::FrameRoot" shape="rect" coords="280,224,410,248"/>
-<area href="classast_1_1FrameWithEpoch.html" title="带轴系历元的坐标系" alt="ast::FrameWithEpoch" shape="rect" coords="420,224,550,248"/>
+<area href="classast_1_1FrameProxy.html" title="坐标系代理类" alt="ast::FrameProxy" shape="rect" coords="280,224,410,248"/>
+<area href="classast_1_1FrameRoot.html" title="根坐标系" alt="ast::FrameRoot" shape="rect" coords="420,224,550,248"/>
+<area href="classast_1_1FrameWithEpoch.html" title="带轴系历元的坐标系" alt="ast::FrameWithEpoch" shape="rect" coords="560,224,690,248"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -388,7 +389,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <p>获取当前坐标系的轴系 </p>
 <p>轴系定义了坐标轴的旋转方向。纯虚方法，子类必须实现。 </p><dl class="section return"><dt>返回</dt><dd>轴系指针 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1FrameAssembly.html#a1f06ad5026d0aabe77cf610fc3a0f96a">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#a260d7334947877b0bb213cb6ca49d034">ast::FrameICRF</a>, <a class="el" href="classast_1_1FrameRoot.html#a33ecb5aa45fa06de1be92645e451ee0a">ast::FrameRoot</a> , 以及 <a class="el" href="classast_1_1FrameWithEpoch.html#a9499ffb3b0c8a303fb985fad8cff3443">ast::FrameWithEpoch</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1FrameAssembly.html#a1f06ad5026d0aabe77cf610fc3a0f96a">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#a260d7334947877b0bb213cb6ca49d034">ast::FrameICRF</a>, <a class="el" href="classast_1_1FrameProxy.html#a7a3c4b94287e8091d3733e3bf6f86e00">ast::FrameProxy</a>, <a class="el" href="classast_1_1FrameRoot.html#a33ecb5aa45fa06de1be92645e451ee0a">ast::FrameRoot</a> , 以及 <a class="el" href="classast_1_1FrameWithEpoch.html#a9499ffb3b0c8a303fb985fad8cff3443">ast::FrameWithEpoch</a> 内被实现.</p>
 
 </div>
 </div>
@@ -458,7 +459,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <p>获取当前坐标系的原点 </p>
 <p>原点定义了坐标系的平移位置。纯虚方法，子类必须实现。 </p><dl class="section return"><dt>返回</dt><dd>原点指针 </dd></dl>
 
-<p>在 <a class="el" href="classast_1_1FrameICRF.html#a09dc67cccdf7b92d53a356594390d902">ast::FrameICRF</a>, <a class="el" href="classast_1_1FrameRoot.html#a30da38b2a44ba8c769f903eeabe4c6d4">ast::FrameRoot</a> , 以及 <a class="el" href="classast_1_1FrameWithEpoch.html#a5267d054cfa0791862f37047c3dfeef6">ast::FrameWithEpoch</a> 内被实现.</p>
+<p>在 <a class="el" href="classast_1_1FrameICRF.html#a09dc67cccdf7b92d53a356594390d902">ast::FrameICRF</a>, <a class="el" href="classast_1_1FrameProxy.html#ac86d3bc85d84dbfd3a675333728d761c">ast::FrameProxy</a>, <a class="el" href="classast_1_1FrameRoot.html#a30da38b2a44ba8c769f903eeabe4c6d4">ast::FrameRoot</a> , 以及 <a class="el" href="classast_1_1FrameWithEpoch.html#a5267d054cfa0791862f37047c3dfeef6">ast::FrameWithEpoch</a> 内被实现.</p>
 
 </div>
 </div>
@@ -488,7 +489,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <p>获取当前坐标系的父坐标系 </p>
 <dl class="section return"><dt>返回</dt><dd>父坐标系指针，根坐标系返回 nullptr </dd></dl>
 
-<p>被 <a class="el" href="classast_1_1FrameAssembly.html#af0eb575ef414753a239864a33bf302de">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#a6daa55a8192ea14876a7d71440c1f355">ast::FrameICRF</a> , 以及 <a class="el" href="classast_1_1FrameRoot.html#afd13ab5a3e93641a0c55ee288ee3bdc8">ast::FrameRoot</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1FrameAssembly.html#af0eb575ef414753a239864a33bf302de">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#a6daa55a8192ea14876a7d71440c1f355">ast::FrameICRF</a>, <a class="el" href="classast_1_1FrameProxy.html#a14235216ba966ad45e00df35701696c0">ast::FrameProxy</a> , 以及 <a class="el" href="classast_1_1FrameRoot.html#afd13ab5a3e93641a0c55ee288ee3bdc8">ast::FrameRoot</a> 重载.</p>
 
 </div>
 </div>
@@ -519,6 +520,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <p>沿父坐标系链向上组合，返回完整的路径字符串，如 "Earth/ITRF"。 </p><dl class="section return"><dt>返回</dt><dd>路径字符串 </dd></dl>
 
 <p>重载 <a class="el" href="classast_1_1Object.html#aa74b57ccf8714c96db2380b65a921181">ast::Object</a> .</p>
+
+<p>被 <a class="el" href="classast_1_1FrameProxy.html#ad5e34eb9c4f0eae10b59958f79a1b62c">ast::FrameProxy</a> 重载.</p>
 
 </div>
 </div>
@@ -560,7 +563,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 <p>默认实现：与运动学版本同构，平移项由原点的位置/速度/加速度给出， 旋转项由本坐标系轴系相对父坐标系轴系的加速度旋转变换给出。 平移加速度的解析解由 <a class="el" href="classast_1_1Point.html#af179c2d45c726c14cb434884bd46d847" title="获取点在指定时间点的位置、速度和加速度，相对于点的参考坐标系">Point::getPosVelAcc</a> 提供，没有解析解的点走其默认差分实现； 旋转角加速度的解析解由 Axes::getTransform(AccelerationRotation) 提供，没有解析解的轴系走其默认差分实现。</p>
 
-<p>被 <a class="el" href="classast_1_1FrameAssembly.html#aa0ebe6ad0f5730c40a1e1cfc44f990c7">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#a2fd8884131233509d94a09e9fa391028">ast::FrameICRF</a> , 以及 <a class="el" href="classast_1_1FrameRoot.html#ab50ef48eadd16da9b490687e6788d24a">ast::FrameRoot</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1FrameAssembly.html#aa0ebe6ad0f5730c40a1e1cfc44f990c7">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#a2fd8884131233509d94a09e9fa391028">ast::FrameICRF</a>, <a class="el" href="classast_1_1FrameProxy.html#a11a62ae98ed355e8e3bccc01494ee008">ast::FrameProxy</a> , 以及 <a class="el" href="classast_1_1FrameRoot.html#ab50ef48eadd16da9b490687e6788d24a">ast::FrameRoot</a> 重载.</p>
 
 </div>
 </div>
@@ -601,7 +604,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>被 <a class="el" href="classast_1_1FrameAssembly.html#aae5d17ebefd5c1c2636560a7d350f81f">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#a20fed13b7304bb95eb5052edba9d9fb0">ast::FrameICRF</a> , 以及 <a class="el" href="classast_1_1FrameRoot.html#a57cf22967f0b20957aec2b59145d7664">ast::FrameRoot</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1FrameAssembly.html#aae5d17ebefd5c1c2636560a7d350f81f">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#a20fed13b7304bb95eb5052edba9d9fb0">ast::FrameICRF</a>, <a class="el" href="classast_1_1FrameProxy.html#a736a9ee10af0908c24478805877c6a39">ast::FrameProxy</a> , 以及 <a class="el" href="classast_1_1FrameRoot.html#a57cf22967f0b20957aec2b59145d7664">ast::FrameRoot</a> 重载.</p>
 
 </div>
 </div>
@@ -642,7 +645,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDestructed</b> ()<
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
 
-<p>被 <a class="el" href="classast_1_1FrameAssembly.html#a462f6dc9d2253d264bcfd5a44d0422a8">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#ac237c01d6b3d294395a6afb92338094c">ast::FrameICRF</a> , 以及 <a class="el" href="classast_1_1FrameRoot.html#aad2eb60eb0e53b3b08428208d8d5c351">ast::FrameRoot</a> 重载.</p>
+<p>被 <a class="el" href="classast_1_1FrameAssembly.html#a462f6dc9d2253d264bcfd5a44d0422a8">ast::FrameAssembly</a>, <a class="el" href="classast_1_1FrameICRF.html#ac237c01d6b3d294395a6afb92338094c">ast::FrameICRF</a>, <a class="el" href="classast_1_1FrameProxy.html#a55ffabcdaf8db1ca69e3417882578873">ast::FrameProxy</a> , 以及 <a class="el" href="classast_1_1FrameRoot.html#aad2eb60eb0e53b3b08428208d8d5c351">ast::FrameRoot</a> 重载.</p>
 
 </div>
 </div>

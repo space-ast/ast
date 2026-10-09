@@ -1,5 +1,17 @@
 var NAVTREEINDEX14 =
 {
+"ScStateCalcRA_8hpp_source.html":[4,0,0,6,12,1,0,15,139],
+"ScStateCalcRMag_8cpp.html":[4,0,0,6,12,1,0,2,0],
+"ScStateCalcRMag_8hpp.html":[4,0,0,6,12,1,0,2,1],
+"ScStateCalcRMag_8hpp_source.html":[4,0,0,6,12,1,0,2,1],
+"ScStateCalcRadPressureArea_8cpp.html":[4,0,0,6,12,1,0,15,146],
+"ScStateCalcRadPressureArea_8hpp.html":[4,0,0,6,12,1,0,15,147],
+"ScStateCalcRadPressureArea_8hpp_source.html":[4,0,0,6,12,1,0,15,147],
+"ScStateCalcRadPressureCoefficient_8cpp.html":[4,0,0,6,12,1,0,15,148],
+"ScStateCalcRadPressureCoefficient_8hpp.html":[4,0,0,6,12,1,0,15,149],
+"ScStateCalcRadPressureCoefficient_8hpp_source.html":[4,0,0,6,12,1,0,15,149],
+"ScStateCalcRadialRate_8cpp.html":[4,0,0,6,12,1,0,15,142],
+"ScStateCalcRadialRate_8hpp.html":[4,0,0,6,12,1,0,15,143],
 "ScStateCalcRadialRate_8hpp_source.html":[4,0,0,6,12,1,0,15,143],
 "ScStateCalcRadial_8cpp.html":[4,0,0,6,12,1,0,15,140],
 "ScStateCalcRadial_8hpp.html":[4,0,0,6,12,1,0,15,141],
@@ -237,17 +249,5 @@ var NAVTREEINDEX14 =
 "ScriptingToolProfileLoader_8hpp_source.html":[4,0,0,10,2,2,0,2],
 "ScriptingToolProfile_8hpp_source.html":[4,0,0,6,12,3,0,2],
 "SecantSolver_8cpp.html":[4,0,0,11,5,0,7],
-"SecantSolver_8hpp.html":[4,0,0,11,5,0,8],
-"SecantSolver_8hpp_source.html":[4,0,0,11,5,0,8],
-"SegmentCalculation_8cpp.html":[4,0,0,6,12,1,4],
-"SegmentCalculation_8hpp.html":[4,0,0,6,12,1,5],
-"SegmentCalculation_8hpp_source.html":[4,0,0,6,12,1,5],
-"SegmentGraph_8cpp.html":[4,0,0,6,12,3,28],
-"SegmentGraph_8hpp.html":[4,0,0,6,12,3,29],
-"SegmentGraph_8hpp_source.html":[4,0,0,6,12,3,29],
-"SegmentLoader_8cpp.html":[4,0,0,10,2,2,14],
-"SegmentLoader_8cpp.html#aef5dcbbc1252c39adc7b1e2f59da07da":[4,0,0,10,2,2,14,0],
-"SegmentLoader_8hpp.html":[4,0,0,10,2,2,15],
-"SegmentLoader_8hpp.html#aef5dcbbc1252c39adc7b1e2f59da07da":[4,0,0,10,2,2,15,0],
-"SegmentLoader_8hpp_source.html":[4,0,0,10,2,2,15]
+"SecantSolver_8hpp.html":[4,0,0,11,5,0,8]
 };

@@ -87,6 +87,9 @@ var NAVTREEINDEX0 =
 "AngleAxis_8cpp.html":[4,0,0,11,1,0],
 "AngleAxis_8hpp.html":[4,0,0,11,1,1],
 "AngleAxis_8hpp_source.html":[4,0,0,11,1,1],
+"AngleProxy_8cpp.html":[4,0,0,6,11,1,2],
+"AngleProxy_8hpp.html":[4,0,0,6,11,1,3],
+"AngleProxy_8hpp_source.html":[4,0,0,6,11,1,3],
 "Angle_8cpp.html":[4,0,0,6,11,1,0],
 "Angle_8hpp.html":[4,0,0,6,11,1,1],
 "Angle_8hpp_source.html":[4,0,0,6,11,1,1],
@@ -198,9 +201,9 @@ var NAVTREEINDEX0 =
 "AstCore_2Data_2Context_2RunTime_8cpp.html":[4,0,0,6,8,0,6],
 "AstCore_2Data_2Context_2RunTime_8hpp.html":[4,0,0,6,8,0,7],
 "AstCore_2Data_2Context_2RunTime_8hpp_source.html":[4,0,0,6,8,0,7],
-"AstCore_2Geometry_2Euclid_2Vector_8cpp.html":[4,0,0,6,11,1,9],
-"AstCore_2Geometry_2Euclid_2Vector_8hpp.html":[4,0,0,6,11,1,10],
-"AstCore_2Geometry_2Euclid_2Vector_8hpp_source.html":[4,0,0,6,11,1,10],
+"AstCore_2Geometry_2Euclid_2Vector_8cpp.html":[4,0,0,6,11,1,11],
+"AstCore_2Geometry_2Euclid_2Vector_8hpp.html":[4,0,0,6,11,1,12],
+"AstCore_2Geometry_2Euclid_2Vector_8hpp_source.html":[4,0,0,6,11,1,12],
 "AstCore_2RTTI_2PropertyTimePoint_8cpp.html":[4,0,0,6,14,0],
 "AstCore_2RTTI_2PropertyTimePoint_8hpp.html":[4,0,0,6,14,1],
 "AstCore_2RTTI_2PropertyTimePoint_8hpp_source.html":[4,0,0,6,14,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "AstMath_2Attitude_2Quaternion_8hpp.html":[4,0,0,11,1,12],
 "AstMath_2Attitude_2Quaternion_8hpp_source.html":[4,0,0,11,1,12],
 "AstMath_2Function_2Function_8hpp.html":[4,0,0,11,2,0],
-"AstMath_2Function_2Function_8hpp_source.html":[4,0,0,11,2,0],
-"AstMath_8hpp_source.html":[4,0,0,11,10],
-"AstMock_8hpp_source.html":[4,0,0,12,0],
-"AstOCP_8hpp_source.html":[4,0,0,13,0]
+"AstMath_2Function_2Function_8hpp_source.html":[4,0,0,11,2,0]
 };

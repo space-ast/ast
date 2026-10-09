@@ -1,5 +1,17 @@
 var NAVTREEINDEX15 =
 {
+"SecantSolver_8hpp_source.html":[4,0,0,11,5,0,8],
+"SegmentCalculation_8cpp.html":[4,0,0,6,12,1,4],
+"SegmentCalculation_8hpp.html":[4,0,0,6,12,1,5],
+"SegmentCalculation_8hpp_source.html":[4,0,0,6,12,1,5],
+"SegmentGraph_8cpp.html":[4,0,0,6,12,3,28],
+"SegmentGraph_8hpp.html":[4,0,0,6,12,3,29],
+"SegmentGraph_8hpp_source.html":[4,0,0,6,12,3,29],
+"SegmentLoader_8cpp.html":[4,0,0,10,2,2,14],
+"SegmentLoader_8cpp.html#aef5dcbbc1252c39adc7b1e2f59da07da":[4,0,0,10,2,2,14,0],
+"SegmentLoader_8hpp.html":[4,0,0,10,2,2,15],
+"SegmentLoader_8hpp.html#aef5dcbbc1252c39adc7b1e2f59da07da":[4,0,0,10,2,2,15,0],
+"SegmentLoader_8hpp_source.html":[4,0,0,10,2,2,15],
 "Segment_8cpp.html":[4,0,0,6,12,3,26],
 "Segment_8hpp.html":[4,0,0,6,12,3,27],
 "Segment_8hpp_source.html":[4,0,0,6,12,3,27],
@@ -237,17 +249,5 @@ var NAVTREEINDEX15 =
 "SpatialConditionVisitor_8cpp.html":[4,0,0,6,11,3,23],
 "SpatialConditionVisitor_8hpp.html":[4,0,0,6,11,3,24],
 "SpatialConditionVisitor_8hpp_source.html":[4,0,0,6,11,3,24],
-"SpatialCondition_8cpp.html":[4,0,0,6,11,3,21],
-"SpatialCondition_8hpp.html":[4,0,0,6,11,3,22],
-"SpatialCondition_8hpp_source.html":[4,0,0,6,11,3,22],
-"Spatial_8hpp.html":[4,0,0,6,11,3,2],
-"Spatial_8hpp_source.html":[4,0,0,6,11,3,2],
-"SphereShape_8cpp.html":[4,0,0,6,11,4,0,6],
-"SphereShape_8hpp.html":[4,0,0,6,11,4,0,7],
-"SphereShape_8hpp_source.html":[4,0,0,6,11,4,0,7],
-"SpheroidShape_8cpp.html":[4,0,0,6,11,4,0,8],
-"SpheroidShape_8hpp.html":[4,0,0,6,11,4,0,9],
-"SpheroidShape_8hpp_source.html":[4,0,0,6,11,4,0,9],
-"SpiceAPI_8cpp.html":[4,0,0,6,8,14],
-"SpiceAPI_8hpp.html":[4,0,0,6,8,15]
+"SpatialCondition_8cpp.html":[4,0,0,6,11,3,21]
 };

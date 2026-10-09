@@ -870,7 +870,9 @@ var hierarchy =
             [ "ast::FixedStepStepper", "classast_1_1FixedStepStepper.html", null ]
           ] ],
           [ "ast::AdvCAT", "classast_1_1AdvCAT.html", null ],
-          [ "ast::Angle", "classast_1_1Angle.html", null ],
+          [ "ast::Angle", "classast_1_1Angle.html", [
+            [ "ast::AngleProxy", "classast_1_1AngleProxy.html", null ]
+          ] ],
           [ "ast::Antenna", "classast_1_1Antenna.html", null ],
           [ "ast::AreaTarget", "classast_1_1AreaTarget.html", null ],
           [ "ast::AttitudeCoverage", "classast_1_1AttitudeCoverage.html", null ],
@@ -908,6 +910,7 @@ var hierarchy =
             [ "ast::AxesFrozenAtEventTime", "classast_1_1AxesFrozenAtEventTime.html", null ],
             [ "ast::AxesICRF", "classast_1_1AxesICRF.html", null ],
             [ "ast::AxesLinkTo", "classast_1_1AxesLinkTo.html", null ],
+            [ "ast::AxesProxy", "classast_1_1AxesProxy.html", null ],
             [ "ast::AxesRoot", "classast_1_1AxesRoot.html", null ]
           ] ],
           [ "ast::BodyOrientation", "classast_1_1BodyOrientation.html", [
@@ -1074,6 +1077,7 @@ var hierarchy =
           [ "ast::Frame", "classast_1_1Frame.html", [
             [ "ast::FrameAssembly", "classast_1_1FrameAssembly.html", null ],
             [ "ast::FrameICRF", "classast_1_1FrameICRF.html", null ],
+            [ "ast::FrameProxy", "classast_1_1FrameProxy.html", null ],
             [ "ast::FrameRoot", "classast_1_1FrameRoot.html", null ],
             [ "ast::FrameWithEpoch", "classast_1_1FrameWithEpoch.html", null ]
           ] ],
@@ -1371,6 +1375,7 @@ var hierarchy =
             ] ],
             [ "ast::PointBodyCenter", "classast_1_1PointBodyCenter.html", null ],
             [ "ast::PointCartographic", "classast_1_1PointCartographic.html", null ],
+            [ "ast::PointProxy", "classast_1_1PointProxy.html", null ],
             [ "ast::PointRoot", "classast_1_1PointRoot.html", null ],
             [ "ast::PointSSBarycenter", "classast_1_1PointSSBarycenter.html", null ],
             [ "ast::SGP4", "classast_1_1SGP4.html", null ]
@@ -1413,7 +1418,8 @@ var hierarchy =
             [ "ast::VectorCross", "classast_1_1VectorCross.html", null ],
             [ "ast::VectorDisplacement", "classast_1_1VectorDisplacement.html", null ],
             [ "ast::VectorFixed", "classast_1_1VectorFixed.html", null ],
-            [ "ast::VectorFixedAtEpoch", "classast_1_1VectorFixedAtEpoch.html", null ]
+            [ "ast::VectorFixedAtEpoch", "classast_1_1VectorFixedAtEpoch.html", null ],
+            [ "ast::VectorProxy", "classast_1_1VectorProxy.html", null ]
           ] ],
           [ "ast::VisObject", "classast_1_1VisObject.html", [
             [ "ast::VisCelestialBody", "classast_1_1VisCelestialBody.html", null ],

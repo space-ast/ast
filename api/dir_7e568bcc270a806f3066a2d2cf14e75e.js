@@ -2,6 +2,8 @@ var dir_7e568bcc270a806f3066a2d2cf14e75e =
 [
     [ "Angle.cpp", "Angle_8cpp.html", null ],
     [ "Angle.hpp", "Angle_8hpp.html", "Angle_8hpp" ],
+    [ "AngleProxy.cpp", "AngleProxy_8cpp.html", null ],
+    [ "AngleProxy.hpp", "AngleProxy_8hpp.html", null ],
     [ "Axes.cpp", "Axes_8cpp.html", "Axes_8cpp" ],
     [ "Axes.hpp", "Axes_8hpp.html", "Axes_8hpp" ],
     [ "Frame.cpp", "Frame_8cpp.html", null ],

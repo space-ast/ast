@@ -1,10 +1,36 @@
 var group__Geometry =
 [
     [ "空间分析", "group__Spatial.html", "group__Spatial" ],
+    [ "ast::FrameProxy", "classast_1_1FrameProxy.html", [
+      [ "getAxes", "classast_1_1FrameProxy.html#a7a3c4b94287e8091d3733e3bf6f86e00", null ],
+      [ "getOrigin", "classast_1_1FrameProxy.html#ac86d3bc85d84dbfd3a675333728d761c", null ],
+      [ "getParent", "classast_1_1FrameProxy.html#a14235216ba966ad45e00df35701696c0", null ],
+      [ "getRepresentation", "classast_1_1FrameProxy.html#ad5e34eb9c4f0eae10b59958f79a1b62c", null ],
+      [ "getTransform", "classast_1_1FrameProxy.html#a11a62ae98ed355e8e3bccc01494ee008", null ],
+      [ "getTransform", "classast_1_1FrameProxy.html#a736a9ee10af0908c24478805877c6a39", null ],
+      [ "getTransform", "classast_1_1FrameProxy.html#a55ffabcdaf8db1ca69e3417882578873", null ]
+    ] ],
+    [ "ast::PointProxy", "classast_1_1PointProxy.html", [
+      [ "getFrame", "classast_1_1PointProxy.html#ac7f9e6586f317a9043a16e818700b32d", null ],
+      [ "getInterval", "classast_1_1PointProxy.html#ad52590c6e81086b8f73f8235d727dca4", null ],
+      [ "getPos", "classast_1_1PointProxy.html#a5d8ab17a5b594119c1ceead213f19b05", null ],
+      [ "getPosVel", "classast_1_1PointProxy.html#a713924867a7e34f522d7436c5855432e", null ],
+      [ "getPosVelAcc", "classast_1_1PointProxy.html#a5fc92b77788fe947afcfc35978ed83fc", null ]
+    ] ],
+    [ "ast::VectorProxy", "classast_1_1VectorProxy.html", [
+      [ "getAxes", "classast_1_1VectorProxy.html#a8d7852e5c2cd2dd219f0b756096fc95e", null ],
+      [ "getVector", "classast_1_1VectorProxy.html#a201508602775944ea032b5917dffe804", null ],
+      [ "getVector", "classast_1_1VectorProxy.html#ae4155d504dc16294b68d8a9d5ca29be5", null ],
+      [ "getVector", "classast_1_1VectorProxy.html#a80f26d235ebc6249ac6984afccf53d7b", null ]
+    ] ],
     [ "ast::Angle", "classast_1_1Angle.html", [
       [ "getAngle", "classast_1_1Angle.html#ab1d5d5666f02d8142d9cbfc603fe9406", null ],
       [ "getAngle", "classast_1_1Angle.html#a067625657abc77fcdf8afbc4f85d8211", null ],
       [ "getAngle", "classast_1_1Angle.html#a6b300eadb55d5e3f1de80bcf3d8cb184", null ]
+    ] ],
+    [ "ast::AngleProxy", "classast_1_1AngleProxy.html", [
+      [ "getAngle", "classast_1_1AngleProxy.html#a45bb084b00df6d1dd1a490b83c643bba", null ],
+      [ "getAngle", "classast_1_1AngleProxy.html#ab0f2beb8f42ae8e46089dc4edeb80bc3", null ]
     ] ],
     [ "ast::Axes", "classast_1_1Axes.html", [
       [ "getAncestor", "classast_1_1Axes.html#a8bb0ec4400a447244023d2ae1d1b7f3f", null ],
