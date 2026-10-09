@@ -433,6 +433,8 @@ var namespaceast =
     [ "EllipsoidShape", "classast_1_1EllipsoidShape.html", "classast_1_1EllipsoidShape" ],
     [ "End", "classast_1_1End.html", "classast_1_1End" ],
     [ "EnumDescriptor", "classast_1_1EnumDescriptor.html", null ],
+    [ "EnumDescriptorData", "classast_1_1EnumDescriptorData.html", null ],
+    [ "EnumRegistry", "classast_1_1EnumRegistry.html", null ],
     [ "EOP", "classast_1_1EOP.html", "classast_1_1EOP" ],
     [ "EphemerisBinary", "classast_1_1EphemerisBinary.html", "classast_1_1EphemerisBinary" ],
     [ "EphemerisFileParser", "classast_1_1EphemerisFileParser.html", null ],
@@ -1382,6 +1384,8 @@ var namespaceast =
     ] ],
     [ "EAccessConstraint", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fb", [
       [ "eNone", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fbabe988781e4e1de1c6a36fb698afbbe1f", null ],
+      [ "eFieldOfView", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fba68a215232d05c71b68b16d0d1472d006", null ],
+      [ "eAtFieldOfView", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fbab5e19a915cb181d39d7a12ff26d46df3", null ],
       [ "eLineOfSight", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fbae93111a42ec969ff31192009251fe6aa", null ],
       [ "eElevationAngle", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fba7b4cf15ae6b5c1ef7b77bfc69a936115", null ],
       [ "eRange", "namespaceast.html#a8e321e693ce80eb21906659e8a7485fba8ff4632dceee249faf2e5dbe7c1bba50", null ]
@@ -2061,6 +2065,8 @@ var namespaceast =
       [ "eDocType", "namespaceast.html#a2e508696256a2c3780c71d54a51d5672af02c492dd5e173576ebbc1bf8b373101", null ]
     ] ],
     [ "_", "namespaceast.html#a59c0e4baad32c4025992a3d36520badc", null ],
+    [ "_aLoadAccessConstraintParams", "namespaceast.html#ad8f62f227c0c2b7a360dcd5426ce8206", null ],
+    [ "_aLoadAccessConstraints", "namespaceast.html#a6c5b9b131ceaa9725479522e61a50824", null ],
     [ "_aLoadAntennaExtensions", "namespaceast.html#a14f5e3b11f41813063bc4b0c07cb69d0", null ],
     [ "_aLoadAntennaPattern", "namespaceast.html#a1629d405949345122c6e106bbcc71ab3", null ],
     [ "_aLoadAntennaPointing", "namespaceast.html#a4fdd6bb1a480a7455ab190e65d2ea284", null ],
@@ -2670,6 +2676,7 @@ var namespaceast =
     [ "aLoadMTO", "namespaceast.html#a31d4ec5ea65fae28ce30fa97319ad52e", null ],
     [ "aLoadNumericalIntegrator", "namespaceast.html#a0a6b29183be37f8ee25d751bf1b7b898", null ],
     [ "aLoadObject", "namespaceast.html#a06d8de9e32ff2e781b9aa25b7a3a813f", null ],
+    [ "aLoadObjectExtensions", "namespaceast.html#a445b3d40f9afb44d74f3c6ebe9abbc92", null ],
     [ "aLoadParameter", "namespaceast.html#a5e061001e333d28291609dcf063cf9bc", null ],
     [ "aLoadParameters", "namespaceast.html#a7d22075d8a6967c9d0305a6acb9a51e5", null ],
     [ "aLoadPlace", "namespaceast.html#ab129892740b74f8927dabb799528b0ad", null ],
@@ -2819,6 +2826,8 @@ var namespaceast =
     [ "any_cast", "group__Container.html#ga2d6933072c6fdb08f1f07d0c7b551b9f", null ],
     [ "aObject_AddDelayedLink", "namespaceast.html#a7e07d7960cd31a4e4ebcce834f49cd59", null ],
     [ "aobject_cast", "group__RTTI.html#ga07f047f5acbdcf3b22d1d1c775fa3101", null ],
+    [ "aObject_EnsureAccessConstraints", "namespaceast.html#a238c4652ccf0edefb369dfa03f03895d", null ],
+    [ "aObject_EnsureComponent", "namespaceast.html#ac79cb8cda3f8dbab6ecd60e55b36cf9d", null ],
     [ "aObject_GetFrame", "namespaceast.html#ab5b2a3ed3b861d8097375453514a754e", null ],
     [ "aObject_ResolveLinks", "namespaceast.html#a79e8c73cac2e12badd269a2cd20f24d3", null ],
     [ "aObjectDeserialize", "group__Serde.html#gab0bd3533256d09536a498771f83dec1e", null ],

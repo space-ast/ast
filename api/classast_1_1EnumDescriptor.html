@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: ast::EnumDescriptor类 参考</title>
+<title>🛰️航天仿真算法库 SpaceAST: ast::EnumDescriptor&lt; EnumType &gt; 模板类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,41 +99,71 @@ $(function(){initNavTree('classast_1_1EnumDescriptor.html',''); initResizable(tr
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="classast_1_1EnumDescriptor-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">ast::EnumDescriptor类 参考</div></div>
+  <div class="headertitle"><div class="title">ast::EnumDescriptor&lt; EnumType &gt; 模板类 参考</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="EnumDescriptor_8hpp_source.html">EnumDescriptor.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::EnumDescriptor&lt; EnumType &gt; 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1EnumDescriptor.png" usemap="#ast::EnumDescriptor_3C_20EnumType_20_3E_map" alt=""/>
+  <map id="ast::EnumDescriptor_3C_20EnumType_20_3E_map" name="ast::EnumDescriptor_3C_20EnumType_20_3E_map">
+<area href="classast_1_1EnumDescriptorData.html" title="枚举描述符数据" alt="ast::EnumDescriptorData" shape="rect" coords="0,0,207,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public 类型</h2></td></tr>
-<tr class="memitem:a9200a67678f8233c2261403ce2bc34b6" id="r_a9200a67678f8233c2261403ce2bc34b6"><td class="memItemLeft" align="right" valign="top"><a id="a9200a67678f8233c2261403ce2bc34b6" name="a9200a67678f8233c2261403ce2bc34b6"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>NumberType</b> = int</td></tr>
-<tr class="separator:a9200a67678f8233c2261403ce2bc34b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec64500f3fd0c80b34b0b2164205fdb8" id="r_aec64500f3fd0c80b34b0b2164205fdb8"><td class="memItemLeft" align="right" valign="top"><a id="aec64500f3fd0c80b34b0b2164205fdb8" name="aec64500f3fd0c80b34b0b2164205fdb8"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>ValueList</b> = std::vector&lt;std::pair&lt;NumberType, std::string&gt;&gt;</td></tr>
-<tr class="separator:aec64500f3fd0c80b34b0b2164205fdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:af9236e333d7c9eadbaa2aaaa26de6ddf" id="r_af9236e333d7c9eadbaa2aaaa26de6ddf"><td class="memItemLeft" align="right" valign="top"><a id="af9236e333d7c9eadbaa2aaaa26de6ddf" name="af9236e333d7c9eadbaa2aaaa26de6ddf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EnumDescriptor</b> (const ValueList &amp;values)</td></tr>
-<tr class="separator:af9236e333d7c9eadbaa2aaaa26de6ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e35cb6f494296cb56b6b26163c0c95a" id="r_a6e35cb6f494296cb56b6b26163c0c95a"><td class="memItemLeft" align="right" valign="top"><a id="a6e35cb6f494296cb56b6b26163c0c95a" name="a6e35cb6f494296cb56b6b26163c0c95a"></a>
-const std::string *&#160;</td><td class="memItemRight" valign="bottom"><b>nameOf</b> (NumberType value) const</td></tr>
-<tr class="separator:a6e35cb6f494296cb56b6b26163c0c95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a9e803e56723e0ea9f2802696a94fc0" id="r_a0a9e803e56723e0ea9f2802696a94fc0"><td class="memItemLeft" align="right" valign="top"><a id="a0a9e803e56723e0ea9f2802696a94fc0" name="a0a9e803e56723e0ea9f2802696a94fc0"></a>
-const NumberType *&#160;</td><td class="memItemRight" valign="bottom"><b>valueOf</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name) const</td></tr>
-<tr class="separator:a0a9e803e56723e0ea9f2802696a94fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25fb6d130f1e39d0b0ce878938d61fae" id="r_a25fb6d130f1e39d0b0ce878938d61fae"><td class="memItemLeft" align="right" valign="top"><a id="a25fb6d130f1e39d0b0ce878938d61fae" name="a25fb6d130f1e39d0b0ce878938d61fae"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>nameOf</b> (EnumType value) const</td></tr>
+<tr class="separator:a25fb6d130f1e39d0b0ce878938d61fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4082649fac1ae7224d3505d4b6095cad" id="r_a4082649fac1ae7224d3505d4b6095cad"><td class="memItemLeft" align="right" valign="top"><a id="a4082649fac1ae7224d3505d4b6095cad" name="a4082649fac1ae7224d3505d4b6095cad"></a>
+EnumType&#160;</td><td class="memItemRight" valign="bottom"><b>valueOf</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name) const</td></tr>
+<tr class="separator:a4082649fac1ae7224d3505d4b6095cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06c9a2823c5028e133066e6241f8e0f9" id="r_a06c9a2823c5028e133066e6241f8e0f9"><td class="memItemLeft" align="right" valign="top"><a id="a06c9a2823c5028e133066e6241f8e0f9" name="a06c9a2823c5028e133066e6241f8e0f9"></a>
+EnumType&#160;</td><td class="memItemRight" valign="bottom"><b>valueOf</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, bool &amp;found) const</td></tr>
+<tr class="separator:a06c9a2823c5028e133066e6241f8e0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d18426cc549efe1fa190dc4de5b3021" id="r_a0d18426cc549efe1fa190dc4de5b3021"><td class="memItemLeft" align="right" valign="top"><a id="a0d18426cc549efe1fa190dc4de5b3021" name="a0d18426cc549efe1fa190dc4de5b3021"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EnumDescriptorData</b> ()=default</td></tr>
+<tr class="separator:a0d18426cc549efe1fa190dc4de5b3021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16029006cfcbadfa96ce6016c4066605" id="r_a16029006cfcbadfa96ce6016c4066605"><td class="memItemLeft" align="right" valign="top"><a id="a16029006cfcbadfa96ce6016c4066605" name="a16029006cfcbadfa96ce6016c4066605"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EnumDescriptorData</b> (<a class="el" href="classast_1_1Span.html">ValueList</a> values)</td></tr>
+<tr class="separator:a16029006cfcbadfa96ce6016c4066605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1EnumDescriptorData"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1EnumDescriptorData')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1EnumDescriptorData.html">ast::EnumDescriptorData</a></td></tr>
+<tr class="memitem:a16029006cfcbadfa96ce6016c4066605 inherit pub_methods_classast_1_1EnumDescriptorData" id="r_a16029006cfcbadfa96ce6016c4066605"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>EnumDescriptorData</b> (<a class="el" href="classast_1_1Span.html">ValueList</a> values)</td></tr>
+<tr class="separator:a16029006cfcbadfa96ce6016c4066605 inherit pub_methods_classast_1_1EnumDescriptorData"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba2a5c30f0eeaf9281bd41acbd22d7cc inherit pub_methods_classast_1_1EnumDescriptorData" id="r_aba2a5c30f0eeaf9281bd41acbd22d7cc"><td class="memItemLeft" align="right" valign="top">
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>nameOf</b> (NumberType value) const</td></tr>
+<tr class="separator:aba2a5c30f0eeaf9281bd41acbd22d7cc inherit pub_methods_classast_1_1EnumDescriptorData"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a098a9be301bd983bd034d34dc9e1010f inherit pub_methods_classast_1_1EnumDescriptorData" id="r_a098a9be301bd983bd034d34dc9e1010f"><td class="memItemLeft" align="right" valign="top">
+NumberType&#160;</td><td class="memItemRight" valign="bottom"><b>valueOf</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name) const</td></tr>
+<tr class="separator:a098a9be301bd983bd034d34dc9e1010f inherit pub_methods_classast_1_1EnumDescriptorData"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0723e96365ba8a4a1eda316fa91799aa inherit pub_methods_classast_1_1EnumDescriptorData" id="r_a0723e96365ba8a4a1eda316fa91799aa"><td class="memItemLeft" align="right" valign="top">
+NumberType&#160;</td><td class="memItemRight" valign="bottom"><b>valueOf</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, bool &amp;found) const</td></tr>
+<tr class="separator:a0723e96365ba8a4a1eda316fa91799aa inherit pub_methods_classast_1_1EnumDescriptorData"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pub_types_classast_1_1EnumDescriptorData"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_types_classast_1_1EnumDescriptorData')"><img src="closed.png" alt="-"/>&#160;Public 类型 继承自 <a class="el" href="classast_1_1EnumDescriptorData.html">ast::EnumDescriptorData</a></td></tr>
+<tr class="memitem:a2c619dc00cffea06caf0bf321eb73f36 inherit pub_types_classast_1_1EnumDescriptorData" id="r_a2c619dc00cffea06caf0bf321eb73f36"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>NumberType</b> = int</td></tr>
+<tr class="separator:a2c619dc00cffea06caf0bf321eb73f36 inherit pub_types_classast_1_1EnumDescriptorData"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1738e04f7345c647c01af18e795e00da inherit pub_types_classast_1_1EnumDescriptorData" id="r_a1738e04f7345c647c01af18e795e00da"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ValueList</b> = <a class="el" href="classast_1_1Span.html">Span</a>&lt;std::pair&lt;NumberType, char*&gt;&gt;</td></tr>
+<tr class="separator:a1738e04f7345c647c01af18e795e00da inherit pub_types_classast_1_1EnumDescriptorData"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>枚举描述符 </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename EnumType&gt;<br />
+class ast::EnumDescriptor&lt; EnumType &gt;</div><p>枚举描述符 </p>
 </div><hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstUtil/RTTI/<a class="el" href="EnumDescriptor_8hpp_source.html">EnumDescriptor.hpp</a></li>
-<li>src/AstUtil/RTTI/<a class="el" href="EnumDescriptor_8cpp.html">EnumDescriptor.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

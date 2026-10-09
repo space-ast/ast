@@ -285,7 +285,10 @@ var hierarchy =
     [ "ast::EOP::Entry", "structast_1_1EOP_1_1Entry.html", null ],
     [ "ast::LeapSecond::Entry", "structast_1_1LeapSecond_1_1Entry.html", null ],
     [ "ast::SpaceWeather::Entry", "structast_1_1SpaceWeather_1_1Entry.html", null ],
-    [ "ast::EnumDescriptor", "classast_1_1EnumDescriptor.html", null ],
+    [ "ast::EnumDescriptorData", "classast_1_1EnumDescriptorData.html", [
+      [ "ast::EnumDescriptor< EnumType >", "classast_1_1EnumDescriptor.html", null ]
+    ] ],
+    [ "ast::EnumRegistry", "classast_1_1EnumRegistry.html", null ],
     [ "ast::EOP", "classast_1_1EOP.html", null ],
     [ "ast::EphemerisFileParser", "classast_1_1EphemerisFileParser.html", [
       [ "ast::STKEphemerisFileParser", "classast_1_1STKEphemerisFileParser.html", null ]
@@ -1544,11 +1547,13 @@ var hierarchy =
     [ "ast::Span< ast::TimePoint >", "classast_1_1Span.html", null ],
     [ "ast::Span< double >", "classast_1_1Span.html", null ],
     [ "ast::Span< int >", "classast_1_1Span.html", null ],
+    [ "ast::Span< std::pair< NumberType, char * > >", "classast_1_1Span.html", null ],
     [ "ast::Span< std::string >", "classast_1_1Span.html", null ],
     [ "ast::SpanStorage< T, Extent >", "classast_1_1SpanStorage.html", null ],
     [ "ast::SpanStorage< ast::TimePoint, dynamic_extent >", "classast_1_1SpanStorage.html", null ],
     [ "ast::SpanStorage< double, dynamic_extent >", "classast_1_1SpanStorage.html", null ],
     [ "ast::SpanStorage< int, dynamic_extent >", "classast_1_1SpanStorage.html", null ],
+    [ "ast::SpanStorage< std::pair< NumberType, char * >, dynamic_extent >", "classast_1_1SpanStorage.html", null ],
     [ "ast::SpanStorage< std::string, dynamic_extent >", "classast_1_1SpanStorage.html", null ],
     [ "ast::SpanStorage< T, dynamic_extent >", "classast_1_1SpanStorage_3_01T_00_01dynamic__extent_01_4.html", null ],
     [ "ast::Sparse", "classast_1_1Sparse.html", null ],

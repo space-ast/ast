@@ -1,5 +1,10 @@
 var NAVTREEINDEX7 =
 {
+"GeocentricPoint_8hpp.html":[4,0,0,6,11,4,1,0],
+"GeocentricPoint_8hpp_source.html":[4,0,0,6,11,4,1,0],
+"GeodeticPoint_8hpp.html":[4,0,0,6,11,4,1,3],
+"GeodeticPoint_8hpp_source.html":[4,0,0,6,11,4,1,3],
+"GeomagneticIndex_8cpp.html":[4,0,0,31,2,1],
 "GeomagneticIndex_8cpp.html#a2c3e077640f6d8588ba62ccf6ffe9298":[4,0,0,31,2,1,1],
 "GeomagneticIndex_8cpp.html#ac69c8000497fce4b21dd8b225cf30389":[4,0,0,31,2,1,2],
 "GeomagneticIndex_8cpp.html#ad93fe8a08cdb887d67d9b9eb40b2b302":[4,0,0,31,2,1,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX7 =
 "KinematicTransform_8cpp.html":[4,0,0,11,8,6],
 "KinematicTransform_8hpp.html":[4,0,0,11,8,7],
 "KinematicTransform_8hpp_source.html":[4,0,0,11,8,7],
-"LLMClient_8cpp.html":[4,0,0,0,3,4],
-"LLMClient_8hpp.html":[4,0,0,0,3,5],
-"LLMClient_8hpp_source.html":[4,0,0,0,3,5],
-"LLMConfig_8hpp.html":[4,0,0,0,1,0],
-"LLMConfig_8hpp_source.html":[4,0,0,0,1,0],
-"LagrangeInterpolator_8cpp.html":[4,0,0,11,4,2]
+"LLMClient_8cpp.html":[4,0,0,0,3,4]
 };

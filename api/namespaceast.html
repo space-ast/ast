@@ -724,6 +724,10 @@ $(function(){initNavTree('namespaceast.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EnumDescriptor.html">EnumDescriptor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EnumDescriptorData.html">EnumDescriptorData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EnumRegistry.html">EnumRegistry</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EOP.html">EOP</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EphemerisBinary.html">EphemerisBinary</a></td></tr>
@@ -3591,10 +3595,15 @@ typedef std::array&lt; <a class="el" href="classast_1_1AEP8Data.html">AEP8Data</
 , <a class="el" href="#a364fd776aa5b05ed45dae4534b252fdaa86c385cc832c655877c33a1bf1f6ac6a">eITCEphemeris</a>
  }</td></tr>
 <tr class="separator:a364fd776aa5b05ed45dae4534b252fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e321e693ce80eb21906659e8a7485fb" id="r_a8e321e693ce80eb21906659e8a7485fb"><td class="memItemLeft" align="right" valign="top"><a id="a8e321e693ce80eb21906659e8a7485fb" name="a8e321e693ce80eb21906659e8a7485fb"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e321e693ce80eb21906659e8a7485fb">EAccessConstraint</a> { <b>eNone</b>
+<tr class="memitem:a8e321e693ce80eb21906659e8a7485fb" id="r_a8e321e693ce80eb21906659e8a7485fb"><td class="memItemLeft" align="right" valign="top"><a id="a8e321e693ce80eb21906659e8a7485fb" name="a8e321e693ce80eb21906659e8a7485fb"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e321e693ce80eb21906659e8a7485fb">EAccessConstraint</a> { <br />
+&#160;&#160;<b>eNone</b>
+, <b>eFieldOfView</b>
+, <b>eAtFieldOfView</b>
 , <b>eLineOfSight</b>
-, <b>eElevationAngle</b>
+, <br />
+&#160;&#160;<b>eElevationAngle</b>
 , <b>eRange</b>
+<br />
  }</td></tr>
 <tr class="separator:a8e321e693ce80eb21906659e8a7485fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga101136608862295c65fbd660783ecdd7" id="r_ga101136608862295c65fbd660783ecdd7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__UiAI.html#ga101136608862295c65fbd660783ecdd7">EToolCallState</a> { <a class="el" href="group__UiAI.html#gga101136608862295c65fbd660783ecdd7ab23499ad7f3dd05d99fd73010d51558a">EToolCallState::eRunning</a>
@@ -6051,6 +6060,12 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadExtensions</b
 <tr class="separator:af5369f5993f60e9a1c5d35925d6bb564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdb2130371d507907f5eaa218f07477c" id="r_acdb2130371d507907f5eaa218f07477c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdb2130371d507907f5eaa218f07477c">aLoadCommSystem</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> filepath, <a class="el" href="classast_1_1CommSystem.html">CommSystem</a> &amp;commSystem)</td></tr>
 <tr class="separator:acdb2130371d507907f5eaa218f07477c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f62f227c0c2b7a360dcd5426ce8206" id="r_ad8f62f227c0c2b7a360dcd5426ce8206"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8f62f227c0c2b7a360dcd5426ce8206">_aLoadAccessConstraintParams</a> (<a class="el" href="classast_1_1ObjectAccessConstraint.html">ObjectAccessConstraint</a> &amp;constraint, <a class="el" href="classast_1_1ValueView.html">ValueView</a> value)</td></tr>
+<tr class="separator:ad8f62f227c0c2b7a360dcd5426ce8206"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c5b9b131ceaa9725479522e61a50824" id="r_a6c5b9b131ceaa9725479522e61a50824"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c5b9b131ceaa9725479522e61a50824">_aLoadAccessConstraints</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1ObjectAccessConstraints.html">ObjectAccessConstraints</a> &amp;constraints)</td></tr>
+<tr class="separator:a6c5b9b131ceaa9725479522e61a50824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a445b3d40f9afb44d74f3c6ebe9abbc92" id="r_a445b3d40f9afb44d74f3c6ebe9abbc92"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a445b3d40f9afb44d74f3c6ebe9abbc92">aLoadObjectExtensions</a> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Object.html">Object</a> &amp;object)</td></tr>
+<tr class="separator:a445b3d40f9afb44d74f3c6ebe9abbc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a5731e3bc5e89780d157481064e94b4" id="r_a5a5731e3bc5e89780d157481064e94b4"><td class="memItemLeft" align="right" valign="top"><a id="a5a5731e3bc5e89780d157481064e94b4" name="a5a5731e3bc5e89780d157481064e94b4"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>_aLoadDefinition</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Constellation.html">Constellation</a> &amp;constellation)</td></tr>
 <tr class="separator:a5a5731e3bc5e89780d157481064e94b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -6928,6 +6943,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isBinaryDigit</b> (ch
 <tr class="memitem:a7355dae83cf21fdd8862a4f2e84dc01d" id="r_a7355dae83cf21fdd8862a4f2e84dc01d"><td class="memItemLeft" align="right" valign="top"><a id="a7355dae83cf21fdd8862a4f2e84dc01d" name="a7355dae83cf21fdd8862a4f2e84dc01d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isOctalDigit</b> (char c)</td></tr>
 <tr class="separator:a7355dae83cf21fdd8862a4f2e84dc01d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd03618b329540348c97bdc63cf11ac9" id="r_abd03618b329540348c97bdc63cf11ac9"><td class="memItemLeft" align="right" valign="top"><a id="abd03618b329540348c97bdc63cf11ac9" name="abd03618b329540348c97bdc63cf11ac9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AST_ENUM_DESCRIPTOR</b> (<a class="el" href="#a8e321e693ce80eb21906659e8a7485fb">EAccessConstraint</a>, <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eNone, &quot;None&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eFieldOfView, &quot;FieldOfView&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eAtFieldOfView, &quot;AtFieldOfView&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eLineOfSight, &quot;LineOfSight&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eElevationAngle, &quot;ElevationAngle&quot;),) <a class="el" href="classast_1_1ObjectAccessConstraint.html">ObjectAccessConstraint</a></td></tr>
+<tr class="separator:abd03618b329540348c97bdc63cf11ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a238c4652ccf0edefb369dfa03f03895d" id="r_a238c4652ccf0edefb369dfa03f03895d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ObjectAccessConstraints.html">ObjectAccessConstraints</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a238c4652ccf0edefb369dfa03f03895d">aObject_EnsureAccessConstraints</a> (<a class="el" href="classast_1_1Object.html">Object</a> &amp;object)</td></tr>
+<tr class="separator:a238c4652ccf0edefb369dfa03f03895d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac79cb8cda3f8dbab6ecd60e55b36cf9d" id="r_ac79cb8cda3f8dbab6ecd60e55b36cf9d"><td class="memTemplParams" colspan="2">template&lt;typename ComponentType &gt; </td></tr>
+<tr class="memitem:ac79cb8cda3f8dbab6ecd60e55b36cf9d"><td class="memTemplItemLeft" align="right" valign="top">ComponentType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac79cb8cda3f8dbab6ecd60e55b36cf9d">aObject_EnsureComponent</a> (<a class="el" href="classast_1_1Object.html">Object</a> &amp;object)</td></tr>
+<tr class="separator:ac79cb8cda3f8dbab6ecd60e55b36cf9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53b517690d4d043bf79a2fb35fd86c43" id="r_a53b517690d4d043bf79a2fb35fd86c43"><td class="memItemLeft" align="right" valign="top"><a id="a53b517690d4d043bf79a2fb35fd86c43" name="a53b517690d4d043bf79a2fb35fd86c43"></a>
 <a class="el" href="classast_1_1ObjectLinkTo.html">ObjectLinkTo</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>aSpaceObject_GetReferenceVehicleLink</b> (<a class="el" href="classast_1_1SpaceObject.html">SpaceObject</a> *spaceObject)</td></tr>
 <tr class="separator:a53b517690d4d043bf79a2fb35fd86c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -7658,6 +7681,10 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 <tr class="separator:ga922efaad6ca265e3e0ad9e597e453371"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga486f3eaffaaa752eeb95ea274c895690" id="r_ga486f3eaffaaa752eeb95ea274c895690"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Quantity.html#ga486f3eaffaaa752eeb95ea274c895690">aUnitParse</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
 <tr class="separator:ga486f3eaffaaa752eeb95ea274c895690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71f3fd9426f5e860517567cea519195e" id="r_a71f3fd9426f5e860517567cea519195e"><td class="memTemplParams" colspan="2"><a id="a71f3fd9426f5e860517567cea519195e" name="a71f3fd9426f5e860517567cea519195e"></a>
+template&lt;typename EnumType &gt; </td></tr>
+<tr class="memitem:a71f3fd9426f5e860517567cea519195e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1EnumDescriptor.html">EnumDescriptor</a>&lt; EnumType &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>aEnumDescriptor</b> ()</td></tr>
+<tr class="separator:a71f3fd9426f5e860517567cea519195e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga07f047f5acbdcf3b22d1d1c775fa3101" id="r_ga07f047f5acbdcf3b22d1d1c775fa3101"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> , typename U &gt; </td></tr>
 <tr class="memitem:ga07f047f5acbdcf3b22d1d1c775fa3101"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__RTTI.html#ga07f047f5acbdcf3b22d1d1c775fa3101">aobject_cast</a> (U *obj)</td></tr>
 <tr class="separator:ga07f047f5acbdcf3b22d1d1c775fa3101"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -10235,6 +10262,73 @@ constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>kId
 </div>
 </div>
 <h2 class="groupheader">函数说明</h2>
+<a id="ad8f62f227c0c2b7a360dcd5426ce8206" name="ad8f62f227c0c2b7a360dcd5426ce8206"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f62f227c0c2b7a360dcd5426ce8206">&#9670;&#160;</a></span>_aLoadAccessConstraintParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::_aLoadAccessConstraintParams </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1ObjectAccessConstraint.html">ObjectAccessConstraint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>constraint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1ValueView.html">ValueView</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载单条访问约束的参数 </p>
+<p>参数由空格分隔，支持可选的 "Min &lt;值&gt;"、"Max &lt;值&gt;"，以及末尾的 "IncludeIntervals"/"ExcludeIntervals"。 例如 "Min  0.0000000000e+00    Max  5.0000000000e+01 IncludeIntervals" </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">constraint</td><td>访问约束 </td></tr>
+    <tr><td class="paramname">value</td><td>参数值视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a6c5b9b131ceaa9725479522e61a50824" name="a6c5b9b131ceaa9725479522e61a50824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c5b9b131ceaa9725479522e61a50824">&#9670;&#160;</a></span>_aLoadAccessConstraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::_aLoadAccessConstraints </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1ObjectAccessConstraints.html">ObjectAccessConstraints</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>constraints</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载访问约束块 </p>
+<p>块内每一行的键为约束类型，值为该约束的参数。 例如： </p><div class="fragment"><div class="line">BEGIN AccessConstraints</div>
+<div class="line">    LineOfSight IncludeIntervals</div>
+<div class="line">    ElevationAngle Min  0.0000000000e+00    Max  5.0000000000e+01 IncludeIntervals</div>
+<div class="line">    Range Min  4.0000000000e+04 ExcludeIntervals</div>
+<div class="line">END AccessConstraints</div>
+</div><!-- fragment --> <dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>BKV解析器 </td></tr>
+    <tr><td class="paramname">constraints</td><td>访问约束容器 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
 <a id="a14f5e3b11f41813063bc4b0c07cb69d0" name="a14f5e3b11f41813063bc4b0c07cb69d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14f5e3b11f41813063bc4b0c07cb69d0">&#9670;&#160;</a></span>_aLoadAntennaExtensions()</h2>
 
@@ -16974,6 +17068,37 @@ template&lt;typename Func &gt; </div>
 
 </div>
 </div>
+<a id="a445b3d40f9afb44d74f3c6ebe9abbc92" name="a445b3d40f9afb44d74f3c6ebe9abbc92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a445b3d40f9afb44d74f3c6ebe9abbc92">&#9670;&#160;</a></span>aLoadObjectExtensions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">errc_t ast::aLoadObjectExtensions </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>object</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>加载对象的扩展组件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parser</td><td>键值对解析器 </td></tr>
+    <tr><td class="paramname">object</td><td>对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
 <a id="a5e061001e333d28291609dcf063cf9bc" name="a5e061001e333d28291609dcf063cf9bc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5e061001e333d28291609dcf063cf9bc">&#9670;&#160;</a></span>aLoadParameter()</h2>
 
@@ -18937,6 +19062,62 @@ template&lt;typename Func &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a238c4652ccf0edefb369dfa03f03895d" name="a238c4652ccf0edefb369dfa03f03895d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a238c4652ccf0edefb369dfa03f03895d">&#9670;&#160;</a></span>aObject_EnsureAccessConstraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_SIM_CAPI <a class="el" href="classast_1_1ObjectAccessConstraints.html">ObjectAccessConstraints</a> &amp; ast::aObject_EnsureAccessConstraints </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对象的访问约束组件 </dd></dl>
+
+</div>
+</div>
+<a id="ac79cb8cda3f8dbab6ecd60e55b36cf9d" name="ac79cb8cda3f8dbab6ecd60e55b36cf9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac79cb8cda3f8dbab6ecd60e55b36cf9d">&#9670;&#160;</a></span>aObject_EnsureComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ComponentType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ComponentType &amp; ast::aObject_EnsureComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Object.html">Object</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ComponentType</td><td>组件类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对象的组件 </dd></dl>
 
 </div>
 </div>

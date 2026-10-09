@@ -100,11 +100,14 @@ $(function(){initNavTree('EnumDescriptor_8hpp.html',''); initResizable(true); })
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
-<a href="#namespaces">命名空间</a>  </div>
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">EnumDescriptor.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
+<code>#include &quot;AstUtil/Span.hpp&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
@@ -113,13 +116,29 @@ $(function(){initNavTree('EnumDescriptor_8hpp.html',''); initResizable(true); })
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EnumDescriptor.html">ast::EnumDescriptor</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EnumDescriptorData.html">ast::EnumDescriptorData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1EnumDescriptor.html">ast::EnumDescriptor&lt; EnumType &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a7c42525172f0276b024206f93de52606" id="r_a7c42525172f0276b024206f93de52606"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(Enumerator,  Name)</td></tr>
+<tr class="separator:a7c42525172f0276b024206f93de52606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cf1669bfcff44891e001a0e842f9f60" id="r_a7cf1669bfcff44891e001a0e842f9f60"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cf1669bfcff44891e001a0e842f9f60">AST_ENUM_DESCRIPTOR</a>(EnumType, ...)</td></tr>
+<tr class="separator:a7cf1669bfcff44891e001a0e842f9f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a71f3fd9426f5e860517567cea519195e" id="r_a71f3fd9426f5e860517567cea519195e"><td class="memTemplParams" colspan="2"><a id="a71f3fd9426f5e860517567cea519195e" name="a71f3fd9426f5e860517567cea519195e"></a>
+template&lt;typename EnumType &gt; </td></tr>
+<tr class="memitem:a71f3fd9426f5e860517567cea519195e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1EnumDescriptor.html">EnumDescriptor</a>&lt; EnumType &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aEnumDescriptor</b> ()</td></tr>
+<tr class="separator:a71f3fd9426f5e860517567cea519195e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />
@@ -131,7 +150,78 @@ $(function(){initNavTree('EnumDescriptor_8hpp.html',''); initResizable(true); })
 <p>SpaceAST项目（https://github.com/space-ast/ast） 本软件基于 Apache 2.0 开源许可证分发。 您可在遵守许可证条款的前提下使用、修改和分发本软件。 许可证全文请见：</p>
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 <p>重要须知： 软件按"现有状态"提供，无任何明示或暗示的担保条件。 除非法律要求或书面同意，作者与贡献者不承担任何责任。 使用本软件所产生的风险，需由您自行承担。 </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">宏定义说明</h2>
+<a id="a7cf1669bfcff44891e001a0e842f9f60" name="a7cf1669bfcff44891e001a0e842f9f60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cf1669bfcff44891e001a0e842f9f60">&#9670;&#160;</a></span>AST_ENUM_DESCRIPTOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AST_ENUM_DESCRIPTOR</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>EnumType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">template</span>&lt;&gt; \</div>
+<div class="line">    EnumDescriptor&lt;EnumType&gt;&amp; aEnumDescriptor&lt;EnumType&gt;() \</div>
+<div class="line">    { \</div>
+<div class="line">        <span class="keyword">using </span>_EnumType = EnumType; \</div>
+<div class="line">        static_assert(<span class="keyword">sizeof</span>(EnumType) &lt;= <span class="keyword">sizeof</span>(EnumDescriptorData::NumberType), <span class="stringliteral">&quot;size of &quot;</span> #EnumType <span class="stringliteral">&quot; must be less than or equal to size of EnumDescriptorData::NumberType&quot;</span>); \</div>
+<div class="line">        <span class="keyword">static</span> std::pair&lt;EnumDescriptorData::NumberType, char*&gt; _values[] = {__VA_ARGS__}; \</div>
+<div class="line">        <span class="keyword">static</span> EnumDescriptor&lt;EnumType&gt; descriptor{_values}; \</div>
+<div class="line">        <span class="keywordflow">return</span> descriptor; \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>定义枚举描述符，即 aEnumDescriptor&lt;EnumType&gt;() 的特化 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">EnumType</td><td>枚举类型 </td></tr>
+    <tr><td class="paramname">...</td><td>枚举项列表，每一项由 <a class="el" href="#a7c42525172f0276b024206f93de52606" title="定义一个枚举项（枚举值 + 名称）">AST_ENUM_VALUE()</a> 给出 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7c42525172f0276b024206f93de52606" name="a7c42525172f0276b024206f93de52606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c42525172f0276b024206f93de52606">&#9670;&#160;</a></span>AST_ENUM_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AST_ENUM_VALUE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Enumerator</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>Name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">{<span class="keyword">static_cast&lt;</span>EnumDescriptorData::NumberType<span class="keyword">&gt;</span>(_EnumType::Enumerator), <span class="keyword">const_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(Name)}</div>
+</div><!-- fragment -->
+<p>定义一个枚举项（枚举值 + 名称） </p>
+<p>仅用于 <a class="el" href="#a7cf1669bfcff44891e001a0e842f9f60" title="定义枚举描述符，即 aEnumDescriptor&lt;EnumType&gt;() 的特化">AST_ENUM_DESCRIPTOR()</a> 的枚举项列表中 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Enumerator</td><td>枚举项名称（不带枚举类型限定符） </td></tr>
+    <tr><td class="paramname">Name</td><td>枚举项的名称字符串 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

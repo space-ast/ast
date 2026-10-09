@@ -6,6 +6,8 @@ var dir_f086dbc8bbdaf6c80c8dc7e81d9f967a =
     [ "ClonePtr.hpp", "ClonePtr_8hpp.html", null ],
     [ "EnumDescriptor.cpp", "EnumDescriptor_8cpp.html", null ],
     [ "EnumDescriptor.hpp", "EnumDescriptor_8hpp.html", "EnumDescriptor_8hpp" ],
+    [ "EnumRegistry.cpp", "EnumRegistry_8cpp.html", null ],
+    [ "EnumRegistry.hpp", "EnumRegistry_8hpp.html", "EnumRegistry_8hpp" ],
     [ "Object.cpp", "Object_8cpp.html", null ],
     [ "Object.hpp", "AstUtil_2RTTI_2Object_8hpp.html", "AstUtil_2RTTI_2Object_8hpp" ],
     [ "ObjectCalculation.cpp", "ObjectCalculation_8cpp.html", null ],
