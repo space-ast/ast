@@ -1,9 +1,9 @@
 ///
-/// @file      EnumDescriptor.cpp
+/// @file      EnumRegistry.cpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-10-08
+/// @date      2026-10-09
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -18,36 +18,32 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#include "EnumDescriptor.hpp"
+#include "EnumRegistry.hpp"
 #include "AstUtil/StringView.hpp"
-#include "AstUtil/StringUtil.hpp"
 
 AST_NAMESPACE_BEGIN
 
-const char *EnumDescriptor::nameOf(NumberType value) const
+EnumRegistry* EnumRegistry::Instance()
 {
-    for (const auto &entry : values_)
-    {
-        if (entry.first == value)
-        {
-            return entry.second;
-        }
-    }
-    return nullptr;
+    static EnumRegistry instance;
+    return &instance;
 }
 
-
-const EnumDescriptor::NumberType *EnumDescriptor::valueOf(StringView name) const
+void EnumRegistry::registerEnum(StringView name, EnumDescriptor *descriptor)
 {
-    for (const auto &entry : values_)
+    enums_[std::string(name)] = descriptor;
+}
+
+EnumDescriptor* EnumRegistry::getEnum(StringView name) const
+{
+    auto it = enums_.find(std::string(name));
+    if (it != enums_.end())
     {
-        if(aEqualsIgnoreCase(entry.second, name))
-        {
-            return &entry.first;
-        }
+        return it->second;
     }
     return nullptr;
-}
+}   
 
 
 AST_NAMESPACE_END
+

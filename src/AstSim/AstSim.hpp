@@ -41,6 +41,8 @@
 #include "AstSim/MotionTwoBody.hpp"
 #include "AstSim/MotionWithIntervalStep.hpp"
 #include "AstSim/Mover.hpp"
+#include "AstSim/ObjectAccessConstraint.hpp"
+#include "AstSim/ObjectAccessConstraints.hpp"
 #include "AstSim/Place.hpp"
 #include "AstSim/Planet.hpp"
 #include "AstSim/Platform.hpp"

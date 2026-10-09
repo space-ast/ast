@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/Span.hpp"
 #include <string>       // for std::string
 #include <vector>       // for std::vector
 #include <utility>      // for std::pair
@@ -37,18 +38,35 @@ AST_NAMESPACE_BEGIN
 class AST_UTIL_API EnumDescriptor
 {   
 public:
-    using NumberType = int;                                             // 枚举值类型
-    using ValueList = std::vector<std::pair<NumberType, std::string>>;  // 枚举值列表
+    using NumberType = int;                                // 枚举值类型
+    using ValueList = Span<std::pair<NumberType, char*>>;  // 枚举值列表
 public:
     EnumDescriptor() = default;
     ~EnumDescriptor() = default;
 
-    EnumDescriptor(const ValueList& values) : values_(values) {}
+    EnumDescriptor(ValueList values) : values_(values) {}
+    EnumDescriptor(ValueList&& values) : values_(std::move(values)) {}
 
 public:
-    const std::string* nameOf(NumberType value) const;
+    const char* nameOf(NumberType value) const;
 
     const NumberType* valueOf(StringView name) const;
+
+    template<typename EnumType>
+    const char* nameOf(EnumType value) const
+    {
+        static_assert(std::is_enum<EnumType>::value, "EnumType must be an enum type");
+        static_assert(sizeof(NumberType) >= sizeof(EnumType), "sizeof(NumberType) must be at least sizeof(EnumType) in order to store EnumType");
+        return nameOf(static_cast<NumberType>(value));
+    }
+
+    template<typename EnumType>
+    const EnumType* valueOf(StringView name) const
+    {
+        static_assert(std::is_enum<EnumType>::value, "EnumType must be an enum type");
+        static_assert(sizeof(NumberType) >= sizeof(EnumType), "sizeof(NumberType) must be at least sizeof(EnumType) in order to store EnumType");
+        return valueOf(static_cast<NumberType>(name));
+    }
 private:
     ValueList values_;  ///< 枚举值列表
 };
