@@ -33,6 +33,7 @@
 #include "AstLoader/MotionTwoBodySax.hpp"
 #include "AstLoader/MoverLoader.hpp"
 #include "AstLoader/NumericalIntegratorLoader.hpp"
+#include "AstLoader/ObjectComponentLoader.hpp"
 #include "AstLoader/ObjectLoader.hpp"
 #include "AstLoader/PlaceLoader.hpp"
 #include "AstLoader/PlanetLoader.hpp"

@@ -1,9 +1,9 @@
 ///
-/// @file      ObjectAccessConstraints.hpp
+/// @file      ObjectComponentLoader.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-10-08
+/// @date      2026-10-09
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -21,8 +21,6 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/ObjectNamed.hpp"
-#include "ObjectAccessConstraint.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -31,23 +29,13 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class AST_SIM_API ObjectAccessConstraints: public ObjectNamed
-{
-public:
-    AST_OBJECT(ObjectAccessConstraints)
-    A_DISABLE_COPY(ObjectAccessConstraints)
+/// @brief 加载对象的扩展组件
+/// @param parser 键值对解析器
+/// @param object 对象
+/// @return 错误码
+errc_t aLoadObjectExtensions(BKVParser& parser, Object& object);
 
-    using ConstraintList = std::vector<ObjectAccessConstraint*>;
 
-    ObjectAccessConstraints() = default;
-    ~ObjectAccessConstraints();
-public:
-    ObjectAccessConstraint* addConstraint(EAccessConstraint type);
-    ObjectAccessConstraint* addConstraint(StringView name);
-    const ConstraintList& constraints() const { return constraints_; }
-private:
-    ConstraintList constraints_{};
-};
 
 /*! @} */
 

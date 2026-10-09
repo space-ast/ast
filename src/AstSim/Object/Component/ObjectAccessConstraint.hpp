@@ -34,6 +34,8 @@ AST_NAMESPACE_BEGIN
 enum class EAccessConstraint
 {
     eNone,
+    eFieldOfView,
+    eAtFieldOfView,
     eLineOfSight,
     eElevationAngle,
     eRange,
@@ -73,7 +75,7 @@ public:
 
 private:
     EAccessConstraint type_{EAccessConstraint::eNone};  ///< 访问约束类型
-    bool enabled_{false};                               ///< 是否启用该访问约束
+    bool enabled_{true};                                ///< 是否启用该访问约束
     bool exclude_{false};                               ///< 是否将满足本约束的时段从访问区间中剔除
     bool useMin_{false};                                ///< 是否使用最小值
     bool useMax_{false};                                ///< 是否使用最大值

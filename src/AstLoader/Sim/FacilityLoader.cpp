@@ -22,6 +22,7 @@
 #include "AstSim/Facility.hpp"
 #include "AstSim/CentroidPosition.hpp"
 #include "AstCore/RunTimeSolarSystem.hpp"
+#include "AstLoader/ObjectComponentLoader.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -140,20 +141,7 @@ errc_t _aLoadFacilityConstraints(BKVParser& parser, Facility& facility)
 /// @return 错误码
 errc_t _aLoadFacilityExtensions(BKVParser& parser, Facility& facility)
 {
-    BKVItemView item;
-    BKVParser::EToken token;
-    
-    do{
-        token = parser.getNext(item);
-        if(token == BKVParser::eBlockBegin){
-            // @todo 处理各种扩展块
-        }else if(token == BKVParser::eBlockEnd){
-            if(aEqualsIgnoreCase(item.value(), "Extensions")){
-                return eNoError;
-            }
-        }
-    }while(token != BKVParser::eEOF);
-    return eNoError;
+    return aLoadObjectExtensions(parser, facility);
 }
 
 errc_t aLoadFacility(BKVParser &parser, StringView objectType, Facility &facility)

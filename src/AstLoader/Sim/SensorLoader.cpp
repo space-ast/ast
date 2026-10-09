@@ -19,6 +19,7 @@
 
 #include "SensorLoader.hpp"
 #include "CommonlyUsedHeaders.hpp"
+#include "AstLoader/ObjectComponentLoader.hpp"
 #include "AstSim/Sensor.hpp"
 #include "AstSim/CentroidPosition.hpp"
 #include "AstCore/FOVSimpleCone.hpp"
@@ -337,42 +338,7 @@ errc_t _aLoadSensorLocation(BKVParser& parser, Sensor& sensor)
 /// @return 错误码
 errc_t _aLoadSensorExtensions(BKVParser& parser, Sensor& sensor)
 {
-    BKVItemView item;
-    BKVParser::EToken token;
-    
-    do{
-        token = parser.getNext(item);
-        if(token == BKVParser::eBlockBegin){
-            if(aEqualsIgnoreCase(item.value(), "ExternData")){
-                // @todo 处理外部数据
-            }else if(aEqualsIgnoreCase(item.value(), "ADFFileData")){
-                // @todo 处理ADF文件数据
-            }else if(aEqualsIgnoreCase(item.value(), "AccessConstraints")){
-                // @todo 处理访问约束
-            }else if(aEqualsIgnoreCase(item.value(), "ObjectCoverage")){
-                // @todo 处理对象覆盖
-            }else if(aEqualsIgnoreCase(item.value(), "Desc")){
-                // @todo 处理描述
-            }else if(aEqualsIgnoreCase(item.value(), "Refraction")){
-                // @todo 处理折射
-            }else if(aEqualsIgnoreCase(item.value(), "Crdn")){
-                // @todo 处理坐标系统
-            }else if(aEqualsIgnoreCase(item.value(), "Graphics")){
-                // @todo 处理图形
-            }else if(aEqualsIgnoreCase(item.value(), "Swath")){
-                // @todo 处理扫描带
-            }else if(aEqualsIgnoreCase(item.value(), "VO")){
-                // @todo 处理VO
-            }else if(aEqualsIgnoreCase(item.value(), "DIS")){
-                // @todo 处理DIS
-            }
-        }else if(token == BKVParser::eBlockEnd){
-            if(aEqualsIgnoreCase(item.value(), "Extensions")){
-                return eNoError;
-            }
-        }
-    }while(token != BKVParser::eEOF);
-    return eNoError;
+    return aLoadObjectExtensions(parser, sensor);
 }
 
 

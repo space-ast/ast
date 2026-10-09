@@ -28,6 +28,7 @@
 #include "AstCore/STKEphemerisFileParser.hpp"
 #include "AstLoader/ValXMLLoader.hpp"
 #include "AstLoader/MissionCommandLoader.hpp"
+#include "AstLoader/ObjectComponentLoader.hpp"
 #include "AstScript/Value.hpp"
 #include "AstSim/MotionBallistic.hpp"
 #include "AstSim/MotionSimpleAscent.hpp"
@@ -995,19 +996,7 @@ errc_t _aLoadRealTimeDef(BKVParser& parser, Mover& mover)
 
 errc_t _aLoadExtensions(BKVParser& parser, Mover& mover)
 {
-    BKVItemView item;
-    BKVParser::EToken token;
-    do{
-        token = parser.getNext(item);
-        if(token == BKVParser::eBlockBegin){
-            // @todo 处理各种扩展块
-        }else if(token == BKVParser::eBlockEnd){
-            if(aEqualsIgnoreCase(item.value(), "Extensions")){
-                return eNoError;
-            }
-        }
-    }while(token != BKVParser::eEOF);
-    return eNoError;
+    return aLoadObjectExtensions(parser, mover);
 }
 
 errc_t _aLoadMover(BKVParser& parser, StringView moverType, Mover& mover)
