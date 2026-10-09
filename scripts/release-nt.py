@@ -53,7 +53,7 @@ EXCLUDE_DIRS = ['data', "doc", 'docs', 'build', "thirdparty", "artifacts",
                 "node_modules"]
 
 # 空行替换内容（可配置）
-EMPTY_LINE_REPLACEMENT = '// 警告：请不要修改此文件，所进行的修改都会被覆盖。为避免丢失，不要修改此文件的代码。'  # 默认替换为空字符串，即删除空行
+EMPTY_LINE_REPLACEMENT = '// 警告：请不要修改此文件，所进行的修改都会被不定时覆盖，任何修改都会被直接丢弃，故不要修改此文件的任何代码。'  # 默认替换为空字符串，即删除空行
 
 
 def ensure_writable(file_path):
@@ -244,12 +244,12 @@ def convert_encoding_to_utf8_bom():
                 convert_to_utf8_bom(os.path.join(root, file))
 
 
-def replace_empty_lines_in_cpp():
-    """遍历所有 .cpp 文件，将空行替换为警告注释"""
+def replace_empty_lines_in_source():
+    """遍历所有源文件（.cpp、.h、.hpp等），将空行替换为警告注释"""
     for root, dirs, files in os.walk(ROOT_DIR):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         for file in files:
-            if file.endswith('.cpp'):
+            if file.endswith('.cpp') or file.endswith('.h') or file.endswith('.hpp'):
                 replace_empty_lines(os.path.join(root, file))
 
 def delete_files():
@@ -401,8 +401,8 @@ def main():
         replace_authors(args.new_author)
 
     if args.replace_empty:
-        print("Replacing empty lines in .cpp files...")
-        replace_empty_lines_in_cpp()
+        print("Replacing empty lines in source files...")
+        replace_empty_lines_in_source()
 
     if args.merge:
         print("Merging module sources...")
