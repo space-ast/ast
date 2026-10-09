@@ -47,7 +47,7 @@ GUIInterface *GUIInterface::CurrentInstance()
         if(func){
             g_guiInstance = func();
         }else{
-            aError(_("从动态库 '%s' 解析函数 '%s' 失败"), libName, funcName);
+            aWarning(_("从动态库 '%s' 解析函数 '%s' 失败"), libName, funcName);
         }
     } 
     return g_guiInstance;
