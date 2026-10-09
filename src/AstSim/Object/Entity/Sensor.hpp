@@ -24,6 +24,7 @@
 #include "AstUtil/StringView.hpp"
 #include "AstCore/Point.hpp"
 #include "AstCore/FieldOfView.hpp"
+#include "AstSim/Platform.hpp"
 #include <memory>
 
 AST_NAMESPACE_BEGIN
@@ -34,20 +35,12 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 传感器对象
-class AST_SIM_API Sensor: public Point
+class AST_SIM_API Sensor: public Platform
 {
 public:
     AST_OBJECT(Sensor)
     Sensor();
     ~Sensor() override = default;
-public:
-    const std::string& getName() const override { return name_; }
-    void setName(StringView name) override { name_ = std::string(name); }
-
-public: // 从 Point 类继承的方法
-    Frame* getFrame() const final;
-    errc_t getPos(const TimePoint& tp, Vector3d& pos) const final;
-    errc_t getPosVel(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const final;
 public:
     /// @brief 设置传感器视场
     /// @param fov 视场对象指针
@@ -56,10 +49,9 @@ public:
     /// @brief 获取传感器视场
     /// @return 视场对象指针
     FieldOfView* getFieldOfView() const { return fov_; }
+    FieldOfView* fieldOfView() const { return fov_; }
 
 private:
-    std::string name_{};              ///< 传感器名称
-    WeakPtr<Point> location_{};       ///< 传感器位置点, 这里使用弱引用
     SharedPtr<FieldOfView> fov_{};    ///< 传感器视场定义
 };
 

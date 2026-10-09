@@ -15,7 +15,7 @@ void Sensor::ClassInit(Class* cls)
     cls->setName(NC_("Class", "Sensor"));
     cls->setDesc(u8R"(传感器对象)");
     cls->addToRegistry();
-    cls->setParent<Point>();
+    cls->setParent<Platform>();
     cls->setConstructor<Sensor>();
 
 }

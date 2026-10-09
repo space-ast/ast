@@ -29,33 +29,6 @@ Sensor::Sensor()
 
 }
 
-Frame *Sensor::getFrame() const
-{
-    if(!location_.expired())
-    {
-        return location_->getFrame();
-    }
-    return nullptr;
-}
-
-errc_t Sensor::getPos(const TimePoint& tp, Vector3d& pos) const
-{
-    if(!location_.expired())
-    {
-        return location_->getPos(tp, pos);
-    }
-    return eErrorNullPtr;
-}
-
-errc_t Sensor::getPosVel(const TimePoint& tp, Vector3d& pos, Vector3d& vel) const
-{
-    if(!location_.expired())
-    {
-        return location_->getPosVel(tp, pos, vel);
-    }
-    return eErrorNullPtr;
-}
-
 void Sensor::setFieldOfView(FieldOfView *fov)
 {
     if(fov)
