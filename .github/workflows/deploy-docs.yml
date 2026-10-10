@@ -6,6 +6,11 @@ on:
     branches:
       - master
       - dev
+    # docs 是子模块，改动落在子模块仓库里；主仓库只会看到 `docs` 这个 gitlink 变动，
+    # 所以 `docs` 和 `docs/**` 两个都要列，`docs/**` 单独匹配不到 gitlink。
+    paths:
+      - 'docs'
+      - 'docs/**'
 
 permissions:
   contents: write
