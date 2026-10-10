@@ -140,6 +140,42 @@ TEST(AccessSTKTest, Point_GetPosVel)
 }
 
 
+// 执行 Access 计算，并与 TimelinePrefs 中记录的 AccessIntervals 对比
+static void CheckAccessAgainstPrefs(Access* access, const std::string& scenarioDir)
+{
+    ASSERT_NE(access, nullptr);
+
+    // 执行 Access 计算
+    errc_t rc = access->compute();
+    ASSERT_EQ(rc, eNoError);
+    printf("access name: %s\n", access->getName().c_str());
+
+    // 获取计算结果
+    auto& intervalList = access->accessIntervals();
+    printf("intervalList.size(): %d\n", intervalList.size());
+    printf("intervalList:\n%s\n", intervalList.toString().c_str());
+
+    // 加载 TimelinePrefs
+    TimelinePrefs prefs;
+    rc = aLoadTimeLinePrefs(scenarioDir, prefs);
+    ASSERT_EQ(rc, eNoError);
+
+    auto row = prefs.findRowByDisplayName(access->getName() + " AccessIntervals");
+    ASSERT_NE(row, nullptr);
+
+    auto& intervals = row->intervals_;
+    ASSERT_EQ(intervals.size(), intervalList.size());
+
+    // 对比计算结果
+    int i = 0;
+    for(const auto& interval : intervalList)
+    {
+        EXPECT_NEAR(interval.start() - intervals[i].start(), 0, 1e-2);
+        EXPECT_NEAR(interval.stop()  - intervals[i].stop(),  0, 1e-2);
+        i++;
+    }
+}
+
 TEST(AccessSTKTest, Case1)
 {
     const char scenarioDir_Case1[] = "./STK/Scenarios/testAccessSTK_Case1";
@@ -150,82 +186,27 @@ TEST(AccessSTKTest, Case1)
 
     auto satellite = aFindChild<Satellite*>(scenario);
     auto facility = aFindChild<Facility*>(scenario);
-    auto sensor = aFindChild<Sensor*>(satellite);
+    auto sensorSimpleConic = aFindChild<Sensor*>(satellite, "SimpleConic");
+    auto sensorRectangular = aFindChild<Sensor*>(satellite, "Rectangular");
+    auto sensorComplexConic = aFindChild<Sensor*>(satellite, "ComplexConic");
 
     ASSERT_NE(satellite, nullptr);
-    ASSERT_NE(sensor, nullptr);
     ASSERT_NE(facility, nullptr);
+    ASSERT_NE(sensorSimpleConic, nullptr);
+    ASSERT_NE(sensorRectangular, nullptr);
+    ASSERT_NE(sensorComplexConic, nullptr);
 
-    // 获取 Satellite1 <-> Facility1 的 Access 计算工具组件
-    {
-        auto access = aFindAccess(*scenario, *satellite, *facility);
-        ASSERT_NE(access, nullptr);
+    // 获取并验证 Satellite1 <-> Facility1 的 Access 计算工具组件
+    CheckAccessAgainstPrefs(aFindAccess(*scenario, *satellite, *facility), scenarioDir);
 
-        // 执行 Access 计算
-        rc = access->compute();
-        ASSERT_EQ(rc, eNoError);
-        printf("access name: %s\n", access->getName().c_str());
-        
-        // 获取计算结果
-        auto& intervalList = access->accessIntervals();
-        printf("intervalList.size(): %d\n", intervalList.size());
-        printf("intervalList:\n%s\n", intervalList.toString().c_str());
-        
-        // 加载 TimelinePrefs
-        TimelinePrefs prefs;
-        rc = aLoadTimeLinePrefs(scenarioDir, prefs);
-        ASSERT_EQ(rc, eNoError);
+    // 获取并验证 SensorSimpleConic <-> Facility1 的 Access 计算工具组件
+    CheckAccessAgainstPrefs(aFindAccess(*scenario, *sensorSimpleConic, *facility), scenarioDir);
 
-        auto row = prefs.findRowByDisplayName(access->getName() + " AccessIntervals");
-        ASSERT_NE(row, nullptr);
-        
-        auto& intervals = row->intervals_;
-        ASSERT_EQ(intervals.size(), intervalList.size());
+    // 获取并验证 SensorRectangular <-> Facility1 的 Access 计算工具组件
+    CheckAccessAgainstPrefs(aFindAccess(*scenario, *sensorRectangular, *facility), scenarioDir);
 
-        // 对比计算结果
-        int i = 0;
-        for(const auto& interval : intervalList)
-        {
-            EXPECT_NEAR(interval.start() - intervals[i].start(), 0, 1e-2);
-            EXPECT_NEAR(interval.stop()  - intervals[i].stop(),  0, 1e-2);
-            i++;
-        }
-    }
-    
-    // 获取 Sensor1 <-> Facility1 的 Access 计算工具组件
-    {
-        auto access = aFindAccess(*scenario, *sensor, *facility);
-        ASSERT_NE(access, nullptr);
-        printf("access name: %s\n", access->getName().c_str());
-        
-        // 执行 Access 计算
-        rc = access->compute();
-        ASSERT_EQ(rc, eNoError);
-        
-        // 获取计算结果
-        auto& intervalList = access->accessIntervals();
-        printf("intervalList.size(): %d\n", intervalList.size());
-        printf("intervalList:\n%s\n", intervalList.toString().c_str());
-        
-        // 加载 TimelinePrefs
-        TimelinePrefs prefs;
-        rc = aLoadTimeLinePrefs(scenarioDir, prefs);
-        ASSERT_EQ(rc, eNoError);
-
-        auto row = prefs.findRowByDisplayName(access->getName() + " AccessIntervals");
-        ASSERT_NE(row, nullptr);
-
-        auto& intervals = row->intervals_;
-        ASSERT_EQ(intervals.size(), intervalList.size());
-        // 对比计算结果
-        int i = 0;
-        for(const auto& interval : intervalList)
-        {
-            EXPECT_NEAR(interval.start() - intervals[i].start(), 0, 1e-2);
-            EXPECT_NEAR(interval.stop()  - intervals[i].stop(),  0, 1e-2);
-            i++;
-        }
-    }
+    // 获取并验证 SensorComplexConic <-> Facility1 的 Access 计算工具组件
+    CheckAccessAgainstPrefs(aFindAccess(*scenario, *sensorComplexConic, *facility), scenarioDir);
 
 }
 

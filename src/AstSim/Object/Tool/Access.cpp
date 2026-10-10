@@ -23,6 +23,7 @@
 #include "AstUtil/ScopeExit.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 #include "AstSim/Sensor.hpp"
+#include "AstSim/Scenario.hpp"
 #include "AstSim/ObjectComponent.hpp"
 #include "AstSim/ObjectAccessConstraint.hpp"
 #include "AstSim/ObjectAccessConstraints.hpp"
@@ -130,6 +131,7 @@ errc_t Access::compute()
 
     // 计算访问时间段
     FixedStepStepper stepper;
+    stepper.setStepSize(30);
     rc = aEvaluateAccess(constraints, &stepper, intervalAccess, this->accessIntervals_);
     AST_CHECK_ERRCODE(rc, _("计算访问时间段失败"));
 

@@ -113,9 +113,9 @@ errc_t _aLoadRectangular(BKVParser& parser, FOVRectangular& fov)
         token = parser.getNext(item);
         if(token == BKVParser::eKeyValue){
             if(aEqualsIgnoreCase(item.key(), "SideToSideAngle")){
-                fov.setHorizontalHalfAngle(item.value().toAngleRad());
+                fov.setHorizontalHalfAngle(item.value().toAngleRad() / 2);
             }else if(aEqualsIgnoreCase(item.key(), "UpDownAngle")){
-                fov.setVerticalHalfAngle(item.value().toAngleRad());
+                fov.setVerticalHalfAngle(item.value().toAngleRad() / 2);
             }
         }else if(token == BKVParser::eBlockEnd){
             if(aEqualsIgnoreCase(item.value(), "Rectangular")){

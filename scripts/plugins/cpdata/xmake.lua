@@ -11,13 +11,24 @@ task("cpdata")
         local arch = config.arch()
         local mode = config.mode()
         local datadir = path.join(os.projectdir(), "data")
-        local testdatadir = path.join(os.projectdir(), "test-data/*")
+        local testdatadir = path.join(os.projectdir(), "test-data")
         local dstpath = path.join(os.projectdir(), format("build/%s/%s/%s/", plat, arch, mode))
+
         if not os.exists(dstpath) then
             os.mkdir(dstpath)
         end
-        os.cp(datadir, dstpath)
-        os.cp(testdatadir, dstpath .. "/test-data/")
-        print("data is copied to:", dstpath)
+        
+        if os.islink(path.join(dstpath, "data")) then
+            print("data dest dir is link, skip copy data")
+        else
+            os.cp(datadir, dstpath)
+            print("data is copied to:", dstpath)
+        end
+        if os.islink(path.join(dstpath, "test-data")) then
+            print("test-data dest dir is link, skip copy test-data")
+        else
+            os.cp(testdatadir, dstpath)
+            print("test-data is copied to:", dstpath)
+        end
     end)
 task_end()
