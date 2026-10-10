@@ -1,5 +1,9 @@
 var NAVTREEINDEX23 =
 {
+"classast_1_1BlockSRP.html":[3,0,0,114],
+"classast_1_1BlockSRP.html#a087a7321e4b77cfe82ab453d884a0829":[2,0,0,115,10],
+"classast_1_1BlockSRP.html#a087a7321e4b77cfe82ab453d884a0829":[3,0,0,114,10],
+"classast_1_1BlockSRP.html#a0d0a6a188e603636e0e61bae4b9f8605":[2,0,0,115,12],
 "classast_1_1BlockSRP.html#a0d0a6a188e603636e0e61bae4b9f8605":[3,0,0,114,12],
 "classast_1_1BlockSRP.html#a132388846c864a5c32294b1e3ebc9e3a":[2,0,0,115,13],
 "classast_1_1BlockSRP.html#a132388846c864a5c32294b1e3ebc9e3a":[3,0,0,114,13],
@@ -245,9 +249,5 @@ var NAVTREEINDEX23 =
 "classast_1_1BrentOptimizer.html#a673c5be8dde56e305fa8e2ecd4691d64":[0,3,5,0,2],
 "classast_1_1BrentOptimizer.html#a7d3af170e6dd80dccb824ea4b5eeaf0f":[0,3,5,0,1],
 "classast_1_1BrentOptimizer.html#ac6b10fc440119da6ca98fdf3a8d3d2ef":[0,3,5,0,3],
-"classast_1_1BrentOptimizer.html#ae582e03ddd7bdc7236a33f9683ed0249":[0,3,5,0,0],
-"classast_1_1BrenthSolver.html":[0,3,3,2],
-"classast_1_1BrenthSolver.html#a10e51810834979c771e146426d6e86f3":[0,3,3,2,2],
-"classast_1_1BrenthSolver.html#a5daaf70ab12d4f452892bb4dd66e2539":[0,3,3,2,1],
-"classast_1_1BrenthSolver.html#a85ed3aeddc5f0eb1a5851a1e5b3dce1c":[0,3,3,2,0]
+"classast_1_1BrentOptimizer.html#ae582e03ddd7bdc7236a33f9683ed0249":[0,3,5,0,0]
 };

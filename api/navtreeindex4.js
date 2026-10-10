@@ -1,5 +1,9 @@
 var NAVTREEINDEX4 =
 {
+"CommandDispatcher_8hpp_source.html":[4,0,0,4,3],
+"CommandInit_8cpp.html":[4,0,0,4,4],
+"CommandInit_8cpp.html#abb88200e691e251dde882083f2c01143":[4,0,0,4,4,0],
+"CommandInit_8hpp.html":[4,0,0,4,5],
 "CommandInit_8hpp_source.html":[4,0,0,4,5],
 "CommandRouting_8cpp.html":[4,0,0,4,6],
 "CommandRouting_8cpp.html#a9fba2dafb69d49d7629946ceacd13b94":[4,0,0,4,6,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX4 =
 "DetectorDuration_8hpp.html":[4,0,0,6,13,0,20],
 "DetectorDuration_8hpp_source.html":[4,0,0,6,13,0,20],
 "DetectorEpoch_8cpp.html":[4,0,0,6,13,0,21],
-"DetectorEpoch_8hpp.html":[4,0,0,6,13,0,22],
-"DetectorEpoch_8hpp_source.html":[4,0,0,6,13,0,22],
-"DetectorFrameRelated_8cpp.html":[4,0,0,6,13,0,23],
-"DetectorFrameRelated_8hpp.html":[4,0,0,6,13,0,24],
-"DetectorFrameRelated_8hpp_source.html":[4,0,0,6,13,0,24]
+"DetectorEpoch_8hpp.html":[4,0,0,6,13,0,22]
 };

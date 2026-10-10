@@ -1,5 +1,9 @@
 var NAVTREEINDEX66 =
 {
+"namespacemembers_vars_c.html":[2,1,2,2],
+"namespacemembers_vars_d.html":[2,1,2,3],
+"namespacemembers_vars_f.html":[2,1,2,4],
+"namespacemembers_vars_g.html":[2,1,2,5],
 "namespacemembers_vars_h.html":[2,1,2,6],
 "namespacemembers_vars_i.html":[2,1,2,7],
 "namespacemembers_vars_k.html":[2,1,2,8],
@@ -245,9 +249,5 @@ var NAVTREEINDEX66 =
 "structast_1_1DataGroupModOrbElem_1_1Data.html":[3,0,0,249,0],
 "structast_1_1DataGroupOrbit_1_1Data.html":[2,0,0,251,0],
 "structast_1_1DataGroupOrbit_1_1Data.html":[3,0,0,250,0],
-"structast_1_1DataGroupPointPrv_1_1Data.html":[2,0,0,252,0],
-"structast_1_1DataGroupPointPrv_1_1Data.html":[3,0,0,251,0],
-"structast_1_1DataGroupQuats_1_1Data.html":[2,0,0,253,0],
-"structast_1_1DataGroupQuats_1_1Data.html":[3,0,0,252,0],
-"structast_1_1DataGroupQuats_1_1Data.html#a096fd2072ecc8a54e545d45626662ffa":[2,0,0,253,0,2]
+"structast_1_1DataGroupPointPrv_1_1Data.html":[2,0,0,252,0]
 };

@@ -119,26 +119,26 @@ $(function(){initNavTree('BasicComponentLoader_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;CelestialBody&gt;</a> centralBody_{};</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span> storeEphemeris_ = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">bool</span> smoothInterp_ = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structast_1_1VehiclePathData.html#accea996bc3727564758c57b3a7ba955c">   44</a></span>    <a class="code hl_class" href="classast_1_1CelestialBody.html">Body</a>&amp; <a class="code hl_function" href="structast_1_1VehiclePathData.html#accea996bc3727564758c57b3a7ba955c">getCentralBody</a>() { <span class="keywordflow">return</span> centralBody_?*centralBody_:*<a class="code hl_function" href="group__Data.html#gafa4815df453dd0c6d4edf6274305e8dd">aGetDefaultBody</a>(); }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
 </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>AST_LOADER_API <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> <a class="code hl_function" href="namespaceast.html#acdfeb9b03318b4917c927d3ce67dc17c">aClassSTKExtension</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> objectType);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>errc_t _aLoadEventInterval(<a class="code hl_class" href="classast_1_1BKVParser.html">BKVParser</a>&amp; parser, <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;EventInterval&gt;</a>&amp; eventInterval);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>errc_t _aLoadEventTime(<a class="code hl_class" href="classast_1_1BKVParser.html">BKVParser</a>&amp; parser, <a class="code hl_class" href="classast_1_1SharedPtr.html">SharedPtr&lt;EventTime&gt;</a>&amp; eventTime);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>errc_t _aLoadSubObjects(<a class="code hl_class" href="classast_1_1BKVParser.html">BKVParser</a>&amp; parser, <a class="code hl_class" href="classast_1_1Object.html">Object</a>* parentObject);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a727de32fe5f31a1185eb96c57c31a1df">_aSkipUnknownBlock</a>(<a class="code hl_class" href="classast_1_1BKVParser.html">BKVParser</a>&amp; parser, <a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> blockName);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1BKVParser_html"><div class="ttname"><a href="classast_1_1BKVParser.html">ast::BKVParser</a></div><div class="ttdoc">键值对解析器（BlockKeyValueParser）</div><div class="ttdef"><b>定义</b> BKVParser.hpp:45</div></div>
-<div class="ttc" id="aclassast_1_1Object_html"><div class="ttname"><a href="classast_1_1Object.html">ast::Object</a></div><div class="ttdoc">对象基类，继承自该类的对象可以使用运行时类型信息相关功能，实现强弱引用计数、运行时元信息（属性访问、序列化等）等基础功能</div><div class="ttdef"><b>定义</b> Object.hpp:95</div></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>AST_LOADER_API StringView aClassSTKExtension(StringView objectType);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>errc_t _aLoadEventInterval(BKVParser&amp; parser, SharedPtr&lt;EventInterval&gt;&amp; eventInterval);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>errc_t _aLoadEventTime(BKVParser&amp; parser, SharedPtr&lt;EventTime&gt;&amp; eventTime);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>errc_t _aLoadSubObjects(BKVParser&amp; parser, Object* parentObject);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordtype">void</span> _aSkipUnknownBlock(BKVParser&amp; parser, StringView blockName);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1CelestialBody_html"><div class="ttname"><a href="classast_1_1CelestialBody.html">ast::CelestialBody</a></div><div class="ttdoc">天体</div><div class="ttdef"><b>定义</b> CelestialBody.hpp:72</div></div>
 <div class="ttc" id="aclassast_1_1SharedPtr_html"><div class="ttname"><a href="classast_1_1SharedPtr.html">ast::SharedPtr</a></div><div class="ttdoc">共享指针</div><div class="ttdef"><b>定义</b> SharedPtr.hpp:33</div></div>
-<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
-<div class="ttc" id="anamespaceast_html_a727de32fe5f31a1185eb96c57c31a1df"><div class="ttname"><a href="namespaceast.html#a727de32fe5f31a1185eb96c57c31a1df">ast::_aSkipUnknownBlock</a></div><div class="ttdeci">void _aSkipUnknownBlock(BKVParser &amp;parser, StringView blockName)</div><div class="ttdoc">跳过未知块</div><div class="ttdef"><b>定义</b> BasicComponentLoader.cpp:402</div></div>
-<div class="ttc" id="anamespaceast_html_acdfeb9b03318b4917c927d3ce67dc17c"><div class="ttname"><a href="namespaceast.html#acdfeb9b03318b4917c927d3ce67dc17c">ast::aClassSTKExtension</a></div><div class="ttdeci">StringView aClassSTKExtension(StringView objectType)</div><div class="ttdoc">获取对象文件扩展名</div><div class="ttdef"><b>定义</b> BasicComponentLoader.cpp:37</div></div>
+<div class="ttc" id="agroup__Data_html_gafa4815df453dd0c6d4edf6274305e8dd"><div class="ttname"><a href="group__Data.html#gafa4815df453dd0c6d4edf6274305e8dd">ast::aGetDefaultBody</a></div><div class="ttdeci">CelestialBody * aGetDefaultBody()</div><div class="ttdoc">获取默认天体</div><div class="ttdef"><b>定义</b> RunTime.cpp:765</div></div>
 <div class="ttc" id="astructast_1_1VehiclePathData_html"><div class="ttname"><a href="structast_1_1VehiclePathData.html">ast::VehiclePathData</a></div><div class="ttdef"><b>定义</b> BasicComponentLoader.hpp:38</div></div>
+<div class="ttc" id="astructast_1_1VehiclePathData_html_accea996bc3727564758c57b3a7ba955c"><div class="ttname"><a href="structast_1_1VehiclePathData.html#accea996bc3727564758c57b3a7ba955c">ast::VehiclePathData::getCentralBody</a></div><div class="ttdeci">Body &amp; getCentralBody()</div><div class="ttdoc">获取中心天体</div><div class="ttdef"><b>定义</b> BasicComponentLoader.hpp:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

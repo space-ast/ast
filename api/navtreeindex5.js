@@ -1,5 +1,9 @@
 var NAVTREEINDEX5 =
 {
+"DetectorEpoch_8hpp_source.html":[4,0,0,6,13,0,22],
+"DetectorFrameRelated_8cpp.html":[4,0,0,6,13,0,23],
+"DetectorFrameRelated_8hpp.html":[4,0,0,6,13,0,24],
+"DetectorFrameRelated_8hpp_source.html":[4,0,0,6,13,0,24],
 "DetectorLighting_8cpp.html":[4,0,0,6,13,0,25],
 "DetectorLighting_8hpp.html":[4,0,0,6,13,0,26],
 "DetectorLighting_8hpp_source.html":[4,0,0,6,13,0,26],
@@ -245,9 +249,5 @@ var NAVTREEINDEX5 =
 "EventTimeFallback_8cpp.html":[4,0,0,6,16,0,1,4],
 "EventTimeFallback_8hpp.html":[4,0,0,6,16,0,1,5],
 "EventTimeFallback_8hpp_source.html":[4,0,0,6,16,0,1,5],
-"EventTimeLinkTo_8cpp.html":[4,0,0,6,16,0,1,6],
-"EventTimeLinkTo_8hpp.html":[4,0,0,6,16,0,1,7],
-"EventTimeLinkTo_8hpp_source.html":[4,0,0,6,16,0,1,7],
-"EventTime_8cpp.html":[4,0,0,6,16,0,1,0],
-"EventTime_8hpp.html":[4,0,0,6,16,0,1,1]
+"EventTimeLinkTo_8cpp.html":[4,0,0,6,16,0,1,6]
 };

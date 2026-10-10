@@ -1,5 +1,9 @@
 var NAVTREEINDEX12 =
 {
+"Rotation_8cpp.html":[4,0,0,11,8,8],
+"Rotation_8hpp.html":[4,0,0,11,8,9],
+"Rotation_8hpp_source.html":[4,0,0,11,8,9],
+"RotationalData_8cpp.html":[4,0,0,6,15,1,7],
 "RotationalData_8hpp.html":[4,0,0,6,15,1,8],
 "RotationalData_8hpp_source.html":[4,0,0,6,15,1,8],
 "RoundRobinGroupChat_8cpp.html":[4,0,0,0,2,13],
@@ -245,9 +249,5 @@ var NAVTREEINDEX12 =
 "ScStateCalcDeltaVSquared_8cpp.html":[4,0,0,6,12,1,0,11,2],
 "ScStateCalcDeltaVSquared_8hpp.html":[4,0,0,6,12,1,0,11,3],
 "ScStateCalcDeltaVSquared_8hpp_source.html":[4,0,0,6,12,1,0,11,3],
-"ScStateCalcDeltaV_8cpp.html":[4,0,0,6,12,1,0,11,0],
-"ScStateCalcDeltaV_8hpp.html":[4,0,0,6,12,1,0,11,1],
-"ScStateCalcDeltaV_8hpp_source.html":[4,0,0,6,12,1,0,11,1],
-"ScStateCalcDensity_8cpp.html":[4,0,0,6,12,1,0,6,6],
-"ScStateCalcDensity_8hpp.html":[4,0,0,6,12,1,0,6,7]
+"ScStateCalcDeltaV_8cpp.html":[4,0,0,6,12,1,0,11,0]
 };

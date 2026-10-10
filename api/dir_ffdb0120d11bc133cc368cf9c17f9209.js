@@ -5,7 +5,7 @@ var dir_ffdb0120d11bc133cc368cf9c17f9209 =
     [ "ColoredSurfacePlot.cpp", "ColoredSurfacePlot_8cpp.html", null ],
     [ "ColoredSurfacePlot.hpp", "ColoredSurfacePlot_8hpp.html", null ],
     [ "EditFigureDialog.cpp", "EditFigureDialog_8cpp.html", null ],
-    [ "EditFigureDialog.hpp", "EditFigureDialog_8hpp.html", "EditFigureDialog_8hpp" ],
+    [ "EditFigureDialog.hpp", "EditFigureDialog_8hpp.html", null ],
     [ "EditFigureOverlay.cpp", "EditFigureOverlay_8cpp.html", null ],
     [ "EditFigureOverlay.hpp", "EditFigureOverlay_8hpp.html", null ],
     [ "PropertyPages.cpp", "PropertyPages_8cpp.html", null ],

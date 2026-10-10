@@ -1,5 +1,9 @@
 var NAVTREEINDEX8 =
 {
+"Julia_8hpp_source.html":[4,0,0,17,3,6],
+"JulianDate_8cpp.html":[4,0,0,6,16,14],
+"JulianDate_8hpp.html":[4,0,0,6,16,15],
+"JulianDate_8hpp_source.html":[4,0,0,6,16,15],
 "KVParser_8cpp.html":[4,0,0,27,5,2,0],
 "KVParser_8hpp.html":[4,0,0,27,5,2,1],
 "KVParser_8hpp_source.html":[4,0,0,27,5,2,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX8 =
 "MarkdownInlineParser_8cpp.html":[4,0,0,27,5,3,10],
 "MarkdownInlineParser_8hpp.html":[4,0,0,27,5,3,11],
 "MarkdownInlineParser_8hpp_source.html":[4,0,0,27,5,3,11],
-"MarkdownParser_8cpp.html":[4,0,0,27,5,3,12],
-"MarkdownParser_8cpp.html#a099dd3c1085f31b725d45ec720f824d1":[4,0,0,27,5,3,12,0],
-"MarkdownParser_8cpp.html#a45643131ff703ea363ff21ab849a6a97":[4,0,0,27,5,3,12,1],
-"MarkdownParser_8hpp.html":[4,0,0,27,5,3,13],
-"MarkdownParser_8hpp.html#a099dd3c1085f31b725d45ec720f824d1":[4,0,0,27,5,3,13,1]
+"MarkdownParser_8cpp.html":[4,0,0,27,5,3,12]
 };

@@ -733,7 +733,6 @@ var hierarchy =
     [ "ast::PropertyVisitor", "classast_1_1PropertyVisitor.html", null ],
     [ "ast::PythonAPI", "classast_1_1PythonAPI.html", null ],
     [ "QDialog", null, [
-      [ "ast::EditFigureDialog", "classast_1_1EditFigureDialog.html", null ],
       [ "ast::UiDataUpdate", "classast_1_1UiDataUpdate.html", null ],
       [ "ast::UiInsertObjectDialog", "classast_1_1UiInsertObjectDialog.html", null ],
       [ "ast::UiNewObjectDialog", "classast_1_1UiNewObjectDialog.html", null ],

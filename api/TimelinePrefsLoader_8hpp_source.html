@@ -116,7 +116,7 @@ $(function(){initNavTree('TimelinePrefsLoader_8hpp_source.html',''); initResizab
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>XMLNode;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classast_1_1TimelinePrefs.html">   41</a></span><span class="keyword">class </span><a class="code hl_class" href="classast_1_1TimelinePrefs.html">TimelinePrefs</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classast_1_1TimelinePrefs.html">   41</a></span><span class="keyword">class </span>AST_LOADER_API <a class="code hl_class" href="classast_1_1TimelinePrefs.html">TimelinePrefs</a></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
@@ -134,18 +134,20 @@ $(function(){initNavTree('TimelinePrefsLoader_8hpp_source.html',''); initResizab
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structast_1_1TimelinePrefs_1_1Row.html#a8a617a0a95671b0129b623347fac359b">   58</a></span>        std::vector&lt;TimeInterval&gt; intervals_{};   </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    };</div>
 </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classast_1_1TimelinePrefs.html#aee46f35d2a35b04cd6ee6e945633c7ce">   62</a></span>    std::vector&lt;Row&gt; rows_{};            </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classast_1_1TimelinePrefs.html#a48c6bd58ba7400e9e431c813cc8a2610">   63</a></span>    <a class="code hl_class" href="classast_1_1TimeInterval.html">TimeInterval</a> globalInterval_{};      </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">const</span> Row* findRowByDisplayName(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> displayName);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classast_1_1TimelinePrefs.html#aee46f35d2a35b04cd6ee6e945633c7ce">   64</a></span>    std::vector&lt;Row&gt; rows_{};            </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classast_1_1TimelinePrefs.html#a48c6bd58ba7400e9e431c813cc8a2610">   65</a></span>    <a class="code hl_class" href="classast_1_1TimeInterval.html">TimeInterval</a> globalInterval_{};      </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
 </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>AST_LOADER_API errc_t aLoadTimeLinePrefs(StringView filepath, TimelinePrefs&amp; prefs);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>AST_LOADER_API errc_t aLoadTimeLinePrefs(XMLNode&amp; root, TimelinePrefs&amp; prefs);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>AST_LOADER_API errc_t aLoadTimeLinePrefs(StringView filepath, TimelinePrefs&amp; prefs);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>AST_LOADER_API errc_t aLoadTimeLinePrefs(XMLNode&amp; root, TimelinePrefs&amp; prefs);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic&lt; char &gt;</a></div></div>
 <div class="ttc" id="aclassast_1_1TimeInterval_html"><div class="ttname"><a href="classast_1_1TimeInterval.html">ast::TimeInterval</a></div><div class="ttdoc">时间区间</div><div class="ttdef"><b>定义</b> TimeInterval.hpp:64</div></div>
 <div class="ttc" id="aclassast_1_1TimelinePrefs_html"><div class="ttname"><a href="classast_1_1TimelinePrefs.html">ast::TimelinePrefs</a></div><div class="ttdoc">时间线偏好数据</div><div class="ttdef"><b>定义</b> TimelinePrefsLoader.hpp:42</div></div>
 <div class="ttc" id="astructast_1_1TimelinePrefs_1_1Row_html"><div class="ttname"><a href="structast_1_1TimelinePrefs_1_1Row.html">ast::TimelinePrefs::Row</a></div><div class="ttdoc">时间线内容视图中的一行</div><div class="ttdef"><b>定义</b> TimelinePrefsLoader.hpp:48</div></div>

@@ -112,6 +112,9 @@ $(function(){initNavTree('MoverLoader_8cpp.html',''); initResizable(true); });
 <code>#include &quot;MotionJ4AnalyticalSax.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="MotionHPOPSax_8hpp_source.html">MotionHPOPSax.hpp</a>&quot;</code><br />
 <code>#include &quot;AstCore/STKEphemerisFileParser.hpp&quot;</code><br />
+<code>#include &quot;AstCore/AttitudeECIVVLH.hpp&quot;</code><br />
+<code>#include &quot;AstCore/AttitudeECFVVLH.hpp&quot;</code><br />
+<code>#include &quot;AstCore/AttitudeECFVelRadial.hpp&quot;</code><br />
 <code>#include &quot;AstLoader/ValXMLLoader.hpp&quot;</code><br />
 <code>#include &quot;AstLoader/MissionCommandLoader.hpp&quot;</code><br />
 <code>#include &quot;AstLoader/ObjectComponentLoader.hpp&quot;</code><br />
@@ -169,18 +172,18 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadAstrogat
 <tr class="memitem:af7b84377e44fb6e908cdacf0fe98702d" id="r_af7b84377e44fb6e908cdacf0fe98702d"><td class="memItemLeft" align="right" valign="top"><a id="af7b84377e44fb6e908cdacf0fe98702d" name="af7b84377e44fb6e908cdacf0fe98702d"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadPassDefn</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
 <tr class="separator:af7b84377e44fb6e908cdacf0fe98702d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9bb6b9633883ecb170a07207919de4d" id="r_ad9bb6b9633883ecb170a07207919de4d"><td class="memItemLeft" align="right" valign="top"><a id="ad9bb6b9633883ecb170a07207919de4d" name="ad9bb6b9633883ecb170a07207919de4d"></a>
-errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadVehiclePath</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
-<tr class="separator:ad9bb6b9633883ecb170a07207919de4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f6a4caa3da1774a56f65adab20fd8e8" id="r_a8f6a4caa3da1774a56f65adab20fd8e8"><td class="memItemLeft" align="right" valign="top"><a id="a8f6a4caa3da1774a56f65adab20fd8e8" name="a8f6a4caa3da1774a56f65adab20fd8e8"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadVehiclePath</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover, <a class="el" href="structast_1_1VehiclePathData.html">VehiclePathData</a> &amp;data)</td></tr>
+<tr class="separator:a8f6a4caa3da1774a56f65adab20fd8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e8f4bd4f0842fb039b3e68b6bccbe56" id="r_a7e8f4bd4f0842fb039b3e68b6bccbe56"><td class="memItemLeft" align="right" valign="top"><a id="a7e8f4bd4f0842fb039b3e68b6bccbe56" name="a7e8f4bd4f0842fb039b3e68b6bccbe56"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadEphemeris</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
 <tr class="separator:a7e8f4bd4f0842fb039b3e68b6bccbe56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3978b235073da4a69cec06cd9067e05e" id="r_a3978b235073da4a69cec06cd9067e05e"><td class="memItemLeft" align="right" valign="top"><a id="a3978b235073da4a69cec06cd9067e05e" name="a3978b235073da4a69cec06cd9067e05e"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadMassProperties</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
 <tr class="separator:a3978b235073da4a69cec06cd9067e05e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b9b00c35d7d7f46aab07ec73862f618" id="r_a8b9b00c35d7d7f46aab07ec73862f618"><td class="memItemLeft" align="right" valign="top"><a id="a8b9b00c35d7d7f46aab07ec73862f618" name="a8b9b00c35d7d7f46aab07ec73862f618"></a>
-errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadAttitude</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
-<tr class="separator:a8b9b00c35d7d7f46aab07ec73862f618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e46d2842451865ff008b571d665a42f" id="r_a9e46d2842451865ff008b571d665a42f"><td class="memItemLeft" align="right" valign="top"><a id="a9e46d2842451865ff008b571d665a42f" name="a9e46d2842451865ff008b571d665a42f"></a>
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadAttitude</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover, <a class="el" href="classast_1_1CelestialBody.html">Body</a> &amp;centralBody)</td></tr>
+<tr class="separator:a9e46d2842451865ff008b571d665a42f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a556e956c4ea5ed7ac7514968631727aa" id="r_a556e956c4ea5ed7ac7514968631727aa"><td class="memItemLeft" align="right" valign="top"><a id="a556e956c4ea5ed7ac7514968631727aa" name="a556e956c4ea5ed7ac7514968631727aa"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aLoadSwath</b> (<a class="el" href="classast_1_1BKVParser.html">BKVParser</a> &amp;parser, <a class="el" href="classast_1_1Mover.html">Mover</a> &amp;mover)</td></tr>
 <tr class="separator:a556e956c4ea5ed7ac7514968631727aa"><td class="memSeparator" colspan="2">&#160;</td></tr>

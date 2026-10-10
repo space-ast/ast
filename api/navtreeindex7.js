@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"GenericValue_8cpp.html":[4,0,0,27,5,8],
+"GenericValue_8hpp.html":[4,0,0,27,5,9],
+"GenericValue_8hpp_source.html":[4,0,0,27,5,9],
+"GeoCoordinate_8cpp.html":[4,0,0,6,11,4,1,1],
 "GeoCoordinate_8cpp.html#a2716f3c71f6cd635ffaf3c4c76a2e667":[4,0,0,6,11,4,1,1,2],
 "GeoCoordinate_8cpp.html#a643d79418b063ea2bd4b4d98f9801405":[4,0,0,6,11,4,1,1,1],
 "GeoCoordinate_8cpp.html#a67f30cea55bfebe12f59a82fcaeb1f1a":[4,0,0,6,11,4,1,1,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX7 =
 "JuliaExecutor_8hpp.html":[4,0,0,17,3,0,4],
 "JuliaExecutor_8hpp_source.html":[4,0,0,17,3,0,4],
 "Julia_8cpp.html":[4,0,0,17,3,5],
-"Julia_8hpp.html":[4,0,0,17,3,6],
-"Julia_8hpp_source.html":[4,0,0,17,3,6],
-"JulianDate_8cpp.html":[4,0,0,6,16,14],
-"JulianDate_8hpp.html":[4,0,0,6,16,15],
-"JulianDate_8hpp_source.html":[4,0,0,6,16,15]
+"Julia_8hpp.html":[4,0,0,17,3,6]
 };
