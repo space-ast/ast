@@ -1484,6 +1484,7 @@ var hierarchy =
     [ "ast::ScopedPtrDeleter< std::FILE >", "structast_1_1ScopedPtrDeleter_3_01std_1_1FILE_01_4.html", null ],
     [ "ast::ScopedPtrDeleter< T, typename std::enable_if< std::is_base_of< Object, T >::value >::type >", "structast_1_1ScopedPtrDeleter_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_fb1b9be9ff001b0d07c8cc184fa0e786.html", null ],
     [ "ast::testing::internal::ScopedTrace", "classast_1_1testing_1_1internal_1_1ScopedTrace.html", null ],
+    [ "ast::ScopeExit< F >", "classast_1_1ScopeExit.html", null ],
     [ "ast::ScriptExecutor", "classast_1_1ScriptExecutor.html", [
       [ "ast::ActiveScriptExecutor", "classast_1_1ActiveScriptExecutor.html", [
         [ "ast::JScriptExecutor", "classast_1_1JScriptExecutor.html", null ],

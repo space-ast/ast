@@ -205,7 +205,12 @@ $(function(){initNavTree('group__AstLoader.html',''); initResizable(true); });
       </table>
 </div><div class="memdoc">
 
-<p>从 XML 文件加载时间线视图偏好 </p>
+<p>从文件路径或场景路径加载时间线视图偏好 </p>
+<p>从 XML 文件加载时间线视图偏好</p>
+<p>入参有两种形式：</p><ul>
+<li>直接给出 <em>TimelinePrefs.xml，则解析该文件；</em></li>
+<li><em>给出场景文件（</em>.sc）或场景目录，则先定位到场景文件，再按约定取其同名的 *TimelinePrefs.xml（Scenario1.sc -&gt; Scenario1TimelinePrefs.xml）。</li>
+</ul>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">filepath</td><td>文件路径（*TimelinePrefs.xml） </td></tr>

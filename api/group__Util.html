@@ -152,6 +152,8 @@ $(function(){initNavTree('group__Util.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Polynomial.html">ast::Polynomial</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1ScopeExit.html">ast::ScopeExit&lt; F &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TempFileGuard.html">ast::TempFileGuard</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1WorkingDirectory.html">ast::WorkingDirectory</a></td></tr>
@@ -515,6 +517,9 @@ A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast
 <tr class="separator:ga26e65383c7aa0d4558ed07189f54321b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3e814da31541ce9a33ce0e4e3c4e6c37" id="r_ga3e814da31541ce9a33ce0e4e3c4e6c37"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3e814da31541ce9a33ce0e4e3c4e6c37">ast::aCacheDir</a> ()</td></tr>
 <tr class="separator:ga3e814da31541ce9a33ce0e4e3c4e6c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8c094e6d5cfe7da04043792ef2f8c2a" id="r_gaf8c094e6d5cfe7da04043792ef2f8c2a"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:gaf8c094e6d5cfe7da04043792ef2f8c2a"><td class="memTemplItemLeft" align="right" valign="top">A_NODISCARD A_ALWAYS_INLINE <a class="el" href="classast_1_1ScopeExit.html">ScopeExit</a>&lt; typename std::decay&lt; F &gt;::type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gaf8c094e6d5cfe7da04043792ef2f8c2a">ast::aScopeExit</a> (F &amp;&amp;fn)</td></tr>
+<tr class="separator:gaf8c094e6d5cfe7da04043792ef2f8c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaad67fee67dde91d39aea8e0b9ebacbee" id="r_gaad67fee67dde91d39aea8e0b9ebacbee"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaad67fee67dde91d39aea8e0b9ebacbee">ast::Polynomial::eval</a> (double x) const</td></tr>
 <tr class="separator:gaad67fee67dde91d39aea8e0b9ebacbee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -2074,6 +2079,43 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMil
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="gaf8c094e6d5cfe7da04043792ef2f8c2a" name="gaf8c094e6d5cfe7da04043792ef2f8c2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf8c094e6d5cfe7da04043792ef2f8c2a">&#9670;&#160;</a></span>aScopeExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">A_NODISCARD A_ALWAYS_INLINE <a class="el" href="classast_1_1ScopeExit.html">ScopeExit</a>&lt; typename std::decay&lt; F &gt;::type &gt; ast::aScopeExit </td>
+          <td>(</td>
+          <td class="paramtype">F &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>fn</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>创建一个作用域退出守卫，在离开当前作用域时执行给定动作 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>可调用对象类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fn</td><td>无参可调用对象，通常是一个捕获了所需上下文引用的 lambda </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>作用域退出守卫对象 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>返回值必须绑定到具名变量上并存活到需要清理的时刻。 若临时对象被丢弃，临时对象会在该语句结束时立即析构并执行动作。 <div class="fragment"><div class="line"><span class="keyword">auto</span> guard = <a class="code hl_function" href="#gaf8c094e6d5cfe7da04043792ef2f8c2a">aScopeExit</a>([&amp;]{ aScopeExitCounter++; });</div>
+<div class="ttc" id="agroup__Util_html_gaf8c094e6d5cfe7da04043792ef2f8c2a"><div class="ttname"><a href="#gaf8c094e6d5cfe7da04043792ef2f8c2a">ast::aScopeExit</a></div><div class="ttdeci">A_NODISCARD A_ALWAYS_INLINE ScopeExit&lt; typename std::decay&lt; F &gt;::type &gt; aScopeExit(F &amp;&amp;fn)</div><div class="ttdoc">创建一个作用域退出守卫，在离开当前作用域时执行给定动作</div><div class="ttdef"><b>定义</b> ScopeExit.hpp:117</div></div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>

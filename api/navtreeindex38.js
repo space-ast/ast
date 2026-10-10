@@ -1,5 +1,9 @@
 var NAVTREEINDEX38 =
 {
+"classast_1_1MotionSimpleAscent.html#a86d681e0f5a629b164d6d0f8ba0544ea":[2,0,0,534,14],
+"classast_1_1MotionSimpleAscent.html#a86d681e0f5a629b164d6d0f8ba0544ea":[3,0,0,533,14],
+"classast_1_1MotionSimpleAscent.html#a870e1f766921ef843d3a1a55efbc4388":[2,0,0,534,16],
+"classast_1_1MotionSimpleAscent.html#a870e1f766921ef843d3a1a55efbc4388":[3,0,0,533,16],
 "classast_1_1MotionSimpleAscent.html#a87d685990bd4aef3422d5211c7d7165a":[2,0,0,534,18],
 "classast_1_1MotionSimpleAscent.html#a87d685990bd4aef3422d5211c7d7165a":[3,0,0,533,18],
 "classast_1_1MotionSimpleAscent.html#a8c4cd8c1d919694266ec25609e20cc95":[2,0,0,534,17],
@@ -245,9 +249,5 @@ var NAVTREEINDEX38 =
 "classast_1_1NotConstraint.html#a7d7061162ae3e92d8f96d7aa4cbee7e8":[2,0,0,565,0],
 "classast_1_1NotConstraint.html#a7d7061162ae3e92d8f96d7aa4cbee7e8":[3,0,0,564,0],
 "classast_1_1NutationSeries.html":[2,0,0,569],
-"classast_1_1NutationSeries.html":[3,0,0,568],
-"classast_1_1NutationSeries.html#a17994116f8e00b8a84a08781b78546c2":[2,0,0,569,4],
-"classast_1_1NutationSeries.html#a17994116f8e00b8a84a08781b78546c2":[3,0,0,568,4],
-"classast_1_1NutationSeries.html#a440330b339d96e0aa79777a31024a898":[2,0,0,569,0],
-"classast_1_1NutationSeries.html#a440330b339d96e0aa79777a31024a898":[3,0,0,568,0]
+"classast_1_1NutationSeries.html":[3,0,0,568]
 };

@@ -777,6 +777,7 @@ var annotated_dup =
       [ "ScopedPtrDeleter", "structast_1_1ScopedPtrDeleter.html", null ],
       [ "ScopedPtrDeleter< std::FILE >", "structast_1_1ScopedPtrDeleter_3_01std_1_1FILE_01_4.html", null ],
       [ "ScopedPtrDeleter< T, typename std::enable_if< std::is_base_of< Object, T >::value >::type >", "structast_1_1ScopedPtrDeleter_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_fb1b9be9ff001b0d07c8cc184fa0e786.html", null ],
+      [ "ScopeExit", "classast_1_1ScopeExit.html", "classast_1_1ScopeExit" ],
       [ "ScriptExecutor", "classast_1_1ScriptExecutor.html", "classast_1_1ScriptExecutor" ],
       [ "ScriptingToolProfile", "classast_1_1ScriptingToolProfile.html", "classast_1_1ScriptingToolProfile" ],
       [ "ScriptResult", "classast_1_1ScriptResult.html", "classast_1_1ScriptResult" ],

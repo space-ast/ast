@@ -1,5 +1,9 @@
 var NAVTREEINDEX16 =
 {
+"SpatialCondOverTime_8hpp.html#a2a32aec9c0c2e7b4a0ac82e2ddc27c1baaf0b3a8259adcf4c043b34761f7b5016":[4,0,0,6,11,3,28,0,3],
+"SpatialCondOverTime_8hpp.html#a2a32aec9c0c2e7b4a0ac82e2ddc27c1bad3f6a5f493ecbe284c1a33f85af3731c":[4,0,0,6,11,3,28,0,2],
+"SpatialCondOverTime_8hpp.html#a2a32aec9c0c2e7b4a0ac82e2ddc27c1bad4a35693e80621cd89d4bf671551d10c":[4,0,0,6,11,3,28,0,0],
+"SpatialCondOverTime_8hpp_source.html":[4,0,0,6,11,3,28],
 "SpatialConditionVisitor_8cpp.html":[4,0,0,6,11,3,23],
 "SpatialConditionVisitor_8hpp.html":[4,0,0,6,11,3,24],
 "SpatialConditionVisitor_8hpp_source.html":[4,0,0,6,11,3,24],
@@ -44,9 +48,9 @@ var NAVTREEINDEX16 =
 "Star_8cpp.html":[4,0,0,18,2,1,50],
 "Star_8hpp.html":[4,0,0,18,2,1,51],
 "Star_8hpp_source.html":[4,0,0,18,2,1,51],
-"StartupConfig_8cpp.html":[4,0,0,27,11,20],
-"StartupConfig_8hpp.html":[4,0,0,27,11,21],
-"StartupConfig_8hpp_source.html":[4,0,0,27,11,21],
+"StartupConfig_8cpp.html":[4,0,0,27,11,21],
+"StartupConfig_8hpp.html":[4,0,0,27,11,22],
+"StartupConfig_8hpp_source.html":[4,0,0,27,11,22],
 "StateBPlane_8cpp.html":[4,0,0,6,12,6,2],
 "StateBPlane_8hpp.html":[4,0,0,6,12,6,3],
 "StateBPlane_8hpp_source.html":[4,0,0,6,12,6,3],
@@ -232,8 +236,8 @@ var NAVTREEINDEX16 =
 "TargeterSequence_8cpp.html":[4,0,0,6,12,3,34],
 "TargeterSequence_8hpp.html":[4,0,0,6,12,3,35],
 "TargeterSequence_8hpp_source.html":[4,0,0,6,12,3,35],
-"TempFileGuard_8hpp.html":[4,0,0,27,11,22],
-"TempFileGuard_8hpp_source.html":[4,0,0,27,11,22],
+"TempFileGuard_8hpp.html":[4,0,0,27,11,23],
+"TempFileGuard_8hpp_source.html":[4,0,0,27,11,23],
 "Terminal_8cpp.html":[4,0,0,27,6,33],
 "Terminal_8hpp.html":[4,0,0,27,6,34],
 "Terminal_8hpp_source.html":[4,0,0,27,6,34],
@@ -245,9 +249,5 @@ var NAVTREEINDEX16 =
 "TestConfig_8cpp.html#a8d2eea3527f788ee7046d2fd6903d322":[4,0,0,20,4,2],
 "TestConfig_8cpp.html#a912700a3c0198a4bead08499fe24e856":[4,0,0,20,4,0],
 "TestConfig_8cpp.html#aa21a646e588bc9dcbd0074263184dbfc":[4,0,0,20,4,1],
-"TestConfig_8cpp.html#af1ff3a1fb61aa0e1a6b6d38f511a9cb6":[4,0,0,20,4,5],
-"TestConfig_8hpp.html":[4,0,0,20,5],
-"TestConfig_8hpp.html#a0e24c5375dc2a1ac080587d2d92a8fb2":[4,0,0,20,5,3],
-"TestConfig_8hpp.html#a5c20ec1f57564498375e34be9c57c547":[4,0,0,20,5,2],
-"TestConfig_8hpp.html#a8d2eea3527f788ee7046d2fd6903d322":[4,0,0,20,5,1]
+"TestConfig_8cpp.html#af1ff3a1fb61aa0e1a6b6d38f511a9cb6":[4,0,0,20,4,5]
 };

@@ -70,7 +70,7 @@ var searchData=
   ['relativitycorrection_67',['RelativityCorrection',['../classast_1_1RelativityCorrection.html',1,'ast']]],
   ['relativitycorrection_2ecpp_68',['RelativityCorrection.cpp',['../RelativityCorrection_8cpp.html',1,'']]],
   ['relativitycorrection_2ehpp_69',['RelativityCorrection.hpp',['../RelativityCorrection_8hpp.html',1,'']]],
-  ['release_70',['release',['../classast_1_1ScopedPtr.html#a69d0309953981b9f33d1d315e78e05c7',1,'ast::ScopedPtr::release()'],['../classast_1_1TempFileGuard.html#a86c1d88176bdb2ec2e58e28ccf2a181b',1,'ast::TempFileGuard::release()']]],
+  ['release_70',['release',['../classast_1_1ScopedPtr.html#a69d0309953981b9f33d1d315e78e05c7',1,'ast::ScopedPtr::release()'],['../classast_1_1ScopeExit.html#aecb56f44ead5fd7811e7498f6e40ad66',1,'ast::ScopeExit::release()'],['../classast_1_1TempFileGuard.html#a86c1d88176bdb2ec2e58e28ccf2a181b',1,'ast::TempFileGuard::release()']]],
   ['reloadephemerisfor_71',['reloadEphemerisFor',['../classast_1_1MotionExternalEphemeris.html#aeed5c4a75b2fc19b49c42d404c0b582e',1,'ast::MotionExternalEphemeris']]],
   ['reltol_5f_72',['relTol_',['../classast_1_1UnarySolver.html#ae4ead6da0360421cd483d10cf2fd95cd',1,'ast::UnarySolver::relTol_'],['../classast_1_1UnaryOptimizer.html#a2505e58bae16b030366746c2c3857204',1,'ast::UnaryOptimizer::relTol_']]],
   ['relvalueconvergence_5f_73',['relValueConvergence_',['../structast_1_1AccessConfig.html#af5931a9f784f5012fb1f718e3d103710',1,'ast::AccessConfig']]],

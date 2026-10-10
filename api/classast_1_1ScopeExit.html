@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::ScopeExit&lt; F &gt; 模板类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1ScopeExit.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classast_1_1ScopeExit-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::ScopeExit&lt; F &gt; 模板类 参考<div class="ingroups"><a class="el" href="group__Util.html">工具模块</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="ScopeExit_8hpp_source.html">ScopeExit.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ae42f22cfc07cc53097f193c1927e8bb1" id="r_ae42f22cfc07cc53097f193c1927e8bb1"><td class="memItemLeft" align="right" valign="top"><a id="ae42f22cfc07cc53097f193c1927e8bb1" name="ae42f22cfc07cc53097f193c1927e8bb1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ScopeExit</b> (const F &amp;fn)</td></tr>
+<tr class="separator:ae42f22cfc07cc53097f193c1927e8bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0ad8a50b45fc1c243152ba696535378" id="r_ae0ad8a50b45fc1c243152ba696535378"><td class="memItemLeft" align="right" valign="top"><a id="ae0ad8a50b45fc1c243152ba696535378" name="ae0ad8a50b45fc1c243152ba696535378"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ScopeExit</b> (F &amp;&amp;fn)</td></tr>
+<tr class="separator:ae0ad8a50b45fc1c243152ba696535378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3593066ef2eb759c185c9df3befc953" id="r_aa3593066ef2eb759c185c9df3befc953"><td class="memItemLeft" align="right" valign="top"><a id="aa3593066ef2eb759c185c9df3befc953" name="aa3593066ef2eb759c185c9df3befc953"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ScopeExit</b> (<a class="el" href="classast_1_1ScopeExit.html">ScopeExit</a> &amp;&amp;other) noexcept(std::is_nothrow_move_constructible&lt; F &gt;::value)</td></tr>
+<tr class="separator:aa3593066ef2eb759c185c9df3befc953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6127819d60d041b6a57e630295524314" id="r_a6127819d60d041b6a57e630295524314"><td class="memItemLeft" align="right" valign="top"><a id="a6127819d60d041b6a57e630295524314" name="a6127819d60d041b6a57e630295524314"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~ScopeExit</b> ()</td></tr>
+<tr class="separator:a6127819d60d041b6a57e630295524314"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63017a8b41d080ee13acd5b104352bc" id="r_ac63017a8b41d080ee13acd5b104352bc"><td class="memItemLeft" align="right" valign="top"><a id="ac63017a8b41d080ee13acd5b104352bc" name="ac63017a8b41d080ee13acd5b104352bc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>A_DISABLE_COPY</b> (<a class="el" href="classast_1_1ScopeExit.html">ScopeExit</a>)</td></tr>
+<tr class="separator:ac63017a8b41d080ee13acd5b104352bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad733a43fd7c20aa250c6b6032cbc9a76" id="r_ad733a43fd7c20aa250c6b6032cbc9a76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad733a43fd7c20aa250c6b6032cbc9a76">invoke</a> ()</td></tr>
+<tr class="separator:ad733a43fd7c20aa250c6b6032cbc9a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecb56f44ead5fd7811e7498f6e40ad66" id="r_aecb56f44ead5fd7811e7498f6e40ad66"><td class="memItemLeft" align="right" valign="top"><a id="aecb56f44ead5fd7811e7498f6e40ad66" name="aecb56f44ead5fd7811e7498f6e40ad66"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>release</b> () noexcept</td></tr>
+<tr class="separator:aecb56f44ead5fd7811e7498f6e40ad66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a18dd61434e3448cf7176545a852f1c" id="r_a3a18dd61434e3448cf7176545a852f1c"><td class="memItemLeft" align="right" valign="top"><a id="a3a18dd61434e3448cf7176545a852f1c" name="a3a18dd61434e3448cf7176545a852f1c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isActive</b> () const noexcept</td></tr>
+<tr class="separator:a3a18dd61434e3448cf7176545a852f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d683d4ca7c1de1622cdd4649c769bd3" id="r_a1d683d4ca7c1de1622cdd4649c769bd3"><td class="memItemLeft" align="right" valign="top"><a id="a1d683d4ca7c1de1622cdd4649c769bd3" name="a1d683d4ca7c1de1622cdd4649c769bd3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const noexcept</td></tr>
+<tr class="separator:a1d683d4ca7c1de1622cdd4649c769bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a1eba84c978b97b78c0356d543e717591" id="r_a1eba84c978b97b78c0356d543e717591"><td class="memItemLeft" align="right" valign="top"><a id="a1eba84c978b97b78c0356d543e717591" name="a1eba84c978b97b78c0356d543e717591"></a>
+F&#160;</td><td class="memItemRight" valign="bottom"><b>fn_</b></td></tr>
+<tr class="separator:a1eba84c978b97b78c0356d543e717591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc3d207db9733bdd045ed3c85f7dd560" id="r_afc3d207db9733bdd045ed3c85f7dd560"><td class="memItemLeft" align="right" valign="top"><a id="afc3d207db9733bdd045ed3c85f7dd560" name="afc3d207db9733bdd045ed3c85f7dd560"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>active_</b> {true}</td></tr>
+<tr class="separator:afc3d207db9733bdd045ed3c85f7dd560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename F&gt;<br />
+class ast::ScopeExit&lt; F &gt;</div><p>作用域退出守卫 </p>
+<p>持有一个无参可调用对象，在守卫析构时执行一次，从而保证提前返回、 跳出循环或抛出异常时清理动作都能完成——等价于其它语言的 defer 语句。 动作只执行一次：移动或 <a class="el" href="#aecb56f44ead5fd7811e7498f6e40ad66">release()</a> 之后原守卫不再执行。 </p><dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>无参可调用对象类型，如 lambda、函数对象、函数指针、std::function&lt;void()&gt; 等 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>析构函数是隐式的 noexcept，清理动作一旦抛出异常将直接终止程序，因此动作本身不应抛出。 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>守卫不可拷贝，但可以移动，以便从工厂函数 <a class="el" href="group__Util.html#gaf8c094e6d5cfe7da04043792ef2f8c2a">aScopeExit()</a> 返回。 <div class="fragment"><div class="line"><span class="keyword">auto</span> guard = <a class="code hl_function" href="group__Util.html#gaf8c094e6d5cfe7da04043792ef2f8c2a">aScopeExit</a>([&amp;]{ file.close(); });   <span class="comment">// 离开作用域时自动 close</span></div>
+<div class="line">...</div>
+<div class="line">guard.release();                                 <span class="comment">// 若不需要清理，则放弃动作</span></div>
+<div class="ttc" id="agroup__Util_html_gaf8c094e6d5cfe7da04043792ef2f8c2a"><div class="ttname"><a href="group__Util.html#gaf8c094e6d5cfe7da04043792ef2f8c2a">ast::aScopeExit</a></div><div class="ttdeci">A_NODISCARD A_ALWAYS_INLINE ScopeExit&lt; typename std::decay&lt; F &gt;::type &gt; aScopeExit(F &amp;&amp;fn)</div><div class="ttdoc">创建一个作用域退出守卫，在离开当前作用域时执行给定动作</div><div class="ttdef"><b>定义</b> ScopeExit.hpp:117</div></div>
+</div><!-- fragment --> </dd></dl>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="ad733a43fd7c20aa250c6b6032cbc9a76" name="ad733a43fd7c20aa250c6b6032cbc9a76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad733a43fd7c20aa250c6b6032cbc9a76">&#9670;&#160;</a></span>invoke()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classast_1_1ScopeExit.html">ast::ScopeExit</a>&lt; F &gt;::invoke </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>立即执行清理动作并解除守卫 </p>
+<p>先解除再执行，因此即使动作抛出异常也不会被重复执行。 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstUtil/Util/<a class="el" href="ScopeExit_8hpp_source.html">ScopeExit.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1ScopeExit.html">ScopeExit</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>
