@@ -63,10 +63,12 @@
 %ignore ast::aScript_FormartErrStringV;
 %ignore ast::aLogMessageV;
 %ignore ast::ast_vprintf;
-%ignore ast::posix::vprintf;
-%ignore ast::posix::vfprintf;
 %ignore ast::cvprintf;
 %ignore ast::cvfprintf;
+
+// 屏蔽 posix 命名空间（文件/目录/字符串的底层系统接口），
+// 其参数多为 FILE*/stat 等不透明句柄，在 Python 侧既无法构造也无使用价值。
+%ignore ast::posix;
 
 %include "AstAllHeaders.i"
 
