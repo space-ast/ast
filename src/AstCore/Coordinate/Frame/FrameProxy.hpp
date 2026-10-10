@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Frame.hpp"
+#include "AstCore/Frame.hpp"
 
 AST_NAMESPACE_BEGIN
 

@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Angle.hpp"
+#include "AstCore/Angle.hpp"
 
 AST_NAMESPACE_BEGIN
 

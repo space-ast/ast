@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "Axes.hpp"
+#include "AstCore/Axes.hpp"
 
 AST_NAMESPACE_BEGIN
 
