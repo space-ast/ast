@@ -281,6 +281,8 @@ TimeIntervalList& TimeIntervalList::subtract(const TimeIntervalList& other)
 
 std::string TimeIntervalList::toString(int precision) const
 {
+    if(intervals_.empty())
+        return "<空时段列表>";
     std::string str;
     for (auto interval : *this)
     {

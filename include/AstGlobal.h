@@ -562,6 +562,13 @@ class CelestialBody;         ///< 天体
 class BodyShape;             ///< 天体形状
 using Body = CelestialBody;  
 
+
+class Scenario;              ///< 场景对象
+class Satellite;             ///< 卫星对象
+class Facility;              ///< 设施对象
+class Sensor;                ///< 传感器对象
+class Access;                ///< 访问对象
+
 class EventTime;             ///< 事件时间
 class EventInterval;         ///< 事件时间段
 

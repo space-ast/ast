@@ -259,6 +259,22 @@ AST_UTIL_API errc_t aFindChildren(Object* parentScope, Class* cls, StringView na
 /// @return 子对象指针向量
 AST_UTIL_API std::vector<Object*> aFindChildren(Object* parentScope, Class* cls=nullptr, StringView name=StringView());
 
+
+template<typename T>
+std::vector<T> aFindChildren(Object* parentScope, StringView name=StringView())
+{
+    // @todo: 这里逻辑和aobject_cast<T>的重复了，考虑怎么重构
+    using ObjectType = typename std::decay<typename std::remove_pointer<T>::type>::type;
+    static_assert(has_own_getType<ObjectType>::value, "aFindChildren requires the type to has a AST_OBJECT macro");
+    std::vector<Object*> children;
+    aFindChildren(parentScope, ObjectType::StaticType(), name, children);
+    std::vector<T> result;
+    result.reserve(children.size());
+    for(const auto& child: children)
+        result.push_back(static_cast<T>(child));
+    return result;
+}
+
 /// @brief 打印对象树的配置结构体
 struct ObjectPrintConfig {
     bool printRefCount = false;  ///< 是否打印强引用计数

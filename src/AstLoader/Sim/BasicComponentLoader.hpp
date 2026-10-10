@@ -39,6 +39,9 @@ struct VehiclePathData
     SharedPtr<CelestialBody> centralBody_{};
     bool storeEphemeris_ = false;
     bool smoothInterp_ = false;
+
+    /// @brief 获取中心天体
+    Body& getCentralBody() { return centralBody_?*centralBody_:*aGetDefaultBody(); }
 };
 
 /// @brief 获取对象文件扩展名

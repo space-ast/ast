@@ -6,6 +6,7 @@
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 
+#ifdef AST_WITH_MATPLOT
 #include "EditFigureDialog.hpp"
 #include "PropertyPages.hpp"
 A_SUPPRESS_WARNINGS_BEGIN
@@ -269,3 +270,4 @@ QIcon EditFigureDialog::loadIcon(const QString& name) const
 }
 
 AST_NAMESPACE_END
+#endif

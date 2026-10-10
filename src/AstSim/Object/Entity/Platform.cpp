@@ -19,8 +19,25 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "Platform.hpp"
+#include "AstCore/FrameAssembly.hpp"
+#include "AstCore/AxesProxy.hpp"
 
 AST_NAMESPACE_BEGIN
+
+Platform::Platform()
+    : Platform{nullptr, nullptr}
+{
+
+}
+
+Platform::Platform(Point* location, Axes* orientation)
+    : location_(location)
+    , orientation_(orientation) 
+{
+    bodyFrame_ = new FrameAssembly(location, orientation);
+    bodyAxes_ = new AxesProxy(orientation);
+}
+
 
 Frame *Platform::getFrame() const
 {
@@ -53,6 +70,20 @@ errc_t Platform::getInterval(TimeInterval &interval) const
         return eErrorNullPtr;
     return location->getInterval(interval);
 }
+
+void Platform::setLocation(Point* location)
+{
+    location_ = location;
+    static_cast<FrameAssembly*>(bodyFrame_.get())->setOrigin(location);
+}
+
+void Platform::setOrientation(Axes* orientation)
+{
+    orientation_ = orientation;
+    static_cast<AxesProxy*>(bodyAxes_.get())->setImpl(orientation);
+    static_cast<FrameAssembly*>(bodyFrame_.get())->setAxes(orientation);
+}
+
 
 
 AST_NAMESPACE_END

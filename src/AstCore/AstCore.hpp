@@ -53,6 +53,7 @@
 #include "AstCore/AxesBodyMOD.hpp"
 #include "AstCore/AxesBodyRelated.hpp"
 #include "AstCore/AxesBodyTOD.hpp"
+#include "AstCore/AxesFixed.hpp"
 #include "AstCore/AxesFrozen.hpp"
 #include "AstCore/AxesFrozenAtEventTime.hpp"
 #include "AstCore/AxesICRF.hpp"

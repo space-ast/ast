@@ -39,10 +39,9 @@ AST_NAMESPACE_BEGIN
 class AST_SIM_API Platform : public Point
 {
 public:
-    Platform() = default;
-    Platform(Point* location, Axes* orientation)
-        : location_(location), orientation_(orientation) 
-    {}
+    AST_OBJECT(Platform)
+    Platform();
+    Platform(Point* location, Axes* orientation);
     ~Platform() = default;
 public:
     Frame* getFrame() const override;
@@ -52,11 +51,17 @@ public:
 public:
     Point* location() const {return location_.get();}
     Axes* orientation() const {return orientation_.get();}
-    void setLocation(Point* location) {location_ = location;}
-    void setOrientation(Axes* orientation) {orientation_ = orientation;}
+    void setLocation(Point* location);
+    void setOrientation(Axes* orientation);
+public:
+    Frame& bodyFrame() const {return *bodyFrame_;}
+    Axes& bodyAxes() const {return *bodyAxes_;}
 private:
     SharedPtr<Point> location_{};         ///< 平台位置
     SharedPtr<Axes>  orientation_{};      ///< 平台姿态
+private:
+    SharedPtr<Frame> bodyFrame_{};        ///< 平台体坐标系
+    SharedPtr<Axes> bodyAxes_{};          ///< 平台体轴系
 };
 
 

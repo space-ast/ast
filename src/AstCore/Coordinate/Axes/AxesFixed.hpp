@@ -1,9 +1,9 @@
 ///
-/// @file      ObjectComponent.hpp
+/// @file      AxesFixed.hpp
 /// @brief     
 /// @details   
 /// @author    axel
-/// @date      2026-10-09
+/// @date      2026-10-10
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -21,7 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstUtil/RTTIAPI.hpp"
+#include "AstCore/AttitudeFixed.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -30,27 +30,7 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
-class ObjectAccessConstraints;
-
-
-/// @tparam ComponentType 组件类型
-/// @param object 对象
-/// @return 对象的组件
-template<typename ComponentType>
-ComponentType& aObject_EnsureComponent(Object& object)
-{
-    ComponentType* component = aFindChild<ComponentType*>(&object);
-    if(component == nullptr)
-        component = aNewObject<ComponentType>(&object);
-    return *component;
-}
-
-
-/// @param object 对象
-/// @return 对象的访问约束组件
-AST_SIM_CAPI ObjectAccessConstraints& aObject_EnsureAccessConstraints(Object& object);
-
-
+using AxesFixed = AttitudeFixed;
 
 /*! @} */
 

@@ -28,7 +28,10 @@
 #include "AstCore/FOVRectangular.hpp"
 #include "AstCore/FOVSAR.hpp"
 #include "AstCore/FOVCustom.hpp"
+#include "AstCore/AttitudeFixed.hpp"
+#include "AstCore/AxesFixed.hpp"
 #include "AstMath/Vector.hpp"
+#include "AstMath/Quaternion.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -243,7 +246,10 @@ errc_t _aLoadSensorPointing(BKVParser& parser, Sensor& sensor)
     do{
         token = parser.getNext(item);
         if(token == BKVParser::eBlockBegin){
-            if(aEqualsIgnoreCase(item.value(), "Fixed")){
+            if(aEqualsIgnoreCase(item.value(), "Fixed"))
+            {
+                SharedPtr<AxesFixed> axesFixed = new AxesFixed();
+                Quaternion quat;
                 BKVItemView fixedItem;
                 BKVParser::EToken fixedToken;
                 do{
@@ -254,16 +260,27 @@ errc_t _aLoadSensorPointing(BKVParser& parser, Sensor& sensor)
                         }else if(aEqualsIgnoreCase(fixedItem.key(), "Sequence")){
                             // @todo 设置序列
                         }else if(aEqualsIgnoreCase(fixedItem.key(), "Qx")){
-                            // @todo 设置四元数x
+                            quat.x() = fixedItem.value().toDouble();
                         }else if(aEqualsIgnoreCase(fixedItem.key(), "Qy")){
-                            // @todo 设置四元数y
+                            quat.y() = fixedItem.value().toDouble();
                         }else if(aEqualsIgnoreCase(fixedItem.key(), "Qz")){
-                            // @todo 设置四元数z
+                            quat.z() = fixedItem.value().toDouble();
                         }else if(aEqualsIgnoreCase(fixedItem.key(), "Qs")){
-                            // @todo 设置四元数s
+                            quat.w() = fixedItem.value().toDouble();
                         }
                     }else if(fixedToken == BKVParser::eBlockEnd){
-                        if(aEqualsIgnoreCase(fixedItem.value(), "Fixed")){
+                        if(aEqualsIgnoreCase(fixedItem.value(), "Fixed"))
+                        {
+                            axesFixed->setRotation(Rotation(quat));
+                            sensor.setOrientation(axesFixed);
+                            axesFixed->addDelayedLink([&sensor, axesFixed]{
+                                auto parent = sensor.getParentScope();
+                                auto platform = aobject_cast<Platform*>(parent);
+                                if(platform)
+                                    axesFixed->setReferenceAxes(&platform->bodyAxes());
+                                else
+                                    aError(_("传感器 '%s' 的父对象不是平台对象"), sensor.getName().c_str());
+                            });
                             break;
                         }
                     }

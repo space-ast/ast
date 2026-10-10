@@ -109,6 +109,17 @@ private:
 
 using HAccess = SharedPtr<Access>;      ///< 访问对象句柄
 
+
+/// @brief 查找访问对象
+/// @details 从场景中查找两个对象之间的访问对象
+/// @param scenario 场景对象
+/// @param object1 对象1
+/// @param object2 对象2
+/// @return 访问对象句柄
+AST_SIM_API Access* aFindAccess(Scenario& scenario, Object& object1, Object& object2);
+
+
+
 /*! @} */
 
 AST_NAMESPACE_END

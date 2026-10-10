@@ -21,6 +21,8 @@
 #include "Access.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/ScopeExit.hpp"
+#include "AstUtil/RTTIAPI.hpp"
+#include "AstSim/Sensor.hpp"
 #include "AstSim/ObjectComponent.hpp"
 #include "AstSim/ObjectAccessConstraint.hpp"
 #include "AstSim/ObjectAccessConstraints.hpp"
@@ -28,6 +30,7 @@
 #include "AstCore/AccessConstraint.hpp"
 #include "AstCore/FixedStepStepper.hpp"
 #include "AstCore/BodyObstructionConstraint.hpp"
+#include "AstCore/FieldOfViewConstraint.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -63,6 +66,23 @@ void collectObjectAccessConstraints(
             {
                 auto constraint = new BodyObstructionConstraint(&object, &otherObject, &aPoint_GetBody(object));
                 constraints.push_back(constraint);
+                break;
+            }
+            case EAccessConstraint::eFieldOfView:
+            {
+                auto sensor = aobject_cast<Sensor*>(&object);
+                if(!sensor)
+                {
+                    aError(_("点对象'%s'不是传感器对象"), object.name().c_str());
+                    break;
+                }
+                auto constraint = new FieldOfViewConstraint(&sensor->bodyFrame(), &otherObject, sensor->fieldOfView());
+                constraints.push_back(constraint);
+                break;
+            }
+            case EAccessConstraint::eAtFieldOfView:
+            {
+                // 尚不清楚含义，先不处理
                 break;
             }
             default:
@@ -115,5 +135,22 @@ errc_t Access::compute()
 
     return rc;
 }
+
+Access *aFindAccess(Scenario &scenario, Object &object1, Object &object2)
+{
+    std::vector<Access*> accessObjects = aFindChildren<Access*>(&scenario);
+    for(auto& accessObject: accessObjects)
+    {
+        if(
+            accessObject->baseObject() == &object2 && accessObject->targetObject() == &object1 || 
+            accessObject->baseObject() == &object1 && accessObject->targetObject() == &object2
+        )
+        {
+            return accessObject;
+        }
+    }
+    return nullptr;
+}
+
 
 AST_NAMESPACE_END

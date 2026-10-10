@@ -148,37 +148,83 @@ TEST(AccessSTKTest, Case1)
     errc_t rc = aLoadScenario(scenarioDir, *scenario);
     ASSERT_EQ(rc, eNoError);
 
-    // 获取 Access 对象
-    auto accesses = aFindChildren(scenario, Access::StaticType());
-    printf("accesses.size(): %d\n", accesses.size());
-    ASSERT_EQ(accesses.size(), 1);
-    auto access = aobject_cast<Access*>(accesses[0]);
-    ASSERT_NE(access, nullptr);
+    auto satellite = aFindChild<Satellite*>(scenario);
+    auto facility = aFindChild<Facility*>(scenario);
+    auto sensor = aFindChild<Sensor*>(satellite);
 
-    // 执行 Access 计算
-    rc = access->compute();
-    ASSERT_EQ(rc, eNoError);
-    
-    // 获取计算结果
-    auto& intervalList = access->accessIntervals();
-    printf("intervalList.size(): %d\n", intervalList.size());
-    printf("intervalList:\n%s\n", intervalList.toString().c_str());
-    
-    // 加载 TimelinePrefs
-    TimelinePrefs prefs;
-    rc = aLoadTimeLinePrefs(scenarioDir, prefs);
-    ASSERT_EQ(rc, eNoError);
-    ASSERT_EQ(prefs.rows_.size(), 2);
-    auto& intervals = prefs.rows_[1].intervals_;
-    ASSERT_EQ(intervals.size(), intervalList.size());
+    ASSERT_NE(satellite, nullptr);
+    ASSERT_NE(sensor, nullptr);
+    ASSERT_NE(facility, nullptr);
 
-    // 对比计算结果
-    int i = 0;
-    for(const auto& interval : intervalList)
+    // 获取 Satellite1 <-> Facility1 的 Access 计算工具组件
     {
-        EXPECT_NEAR(interval.start() - intervals[i].start(), 0, 1e-2);
-        EXPECT_NEAR(interval.stop()  - intervals[i].stop(),  0, 1e-2);
-        i++;
+        auto access = aFindAccess(*scenario, *satellite, *facility);
+        ASSERT_NE(access, nullptr);
+
+        // 执行 Access 计算
+        rc = access->compute();
+        ASSERT_EQ(rc, eNoError);
+        printf("access name: %s\n", access->getName().c_str());
+        
+        // 获取计算结果
+        auto& intervalList = access->accessIntervals();
+        printf("intervalList.size(): %d\n", intervalList.size());
+        printf("intervalList:\n%s\n", intervalList.toString().c_str());
+        
+        // 加载 TimelinePrefs
+        TimelinePrefs prefs;
+        rc = aLoadTimeLinePrefs(scenarioDir, prefs);
+        ASSERT_EQ(rc, eNoError);
+
+        auto row = prefs.findRowByDisplayName(access->getName() + " AccessIntervals");
+        ASSERT_NE(row, nullptr);
+        
+        auto& intervals = row->intervals_;
+        ASSERT_EQ(intervals.size(), intervalList.size());
+
+        // 对比计算结果
+        int i = 0;
+        for(const auto& interval : intervalList)
+        {
+            EXPECT_NEAR(interval.start() - intervals[i].start(), 0, 1e-2);
+            EXPECT_NEAR(interval.stop()  - intervals[i].stop(),  0, 1e-2);
+            i++;
+        }
+    }
+    
+    // 获取 Sensor1 <-> Facility1 的 Access 计算工具组件
+    {
+        auto access = aFindAccess(*scenario, *sensor, *facility);
+        ASSERT_NE(access, nullptr);
+        printf("access name: %s\n", access->getName().c_str());
+        
+        // 执行 Access 计算
+        rc = access->compute();
+        ASSERT_EQ(rc, eNoError);
+        
+        // 获取计算结果
+        auto& intervalList = access->accessIntervals();
+        printf("intervalList.size(): %d\n", intervalList.size());
+        printf("intervalList:\n%s\n", intervalList.toString().c_str());
+        
+        // 加载 TimelinePrefs
+        TimelinePrefs prefs;
+        rc = aLoadTimeLinePrefs(scenarioDir, prefs);
+        ASSERT_EQ(rc, eNoError);
+
+        auto row = prefs.findRowByDisplayName(access->getName() + " AccessIntervals");
+        ASSERT_NE(row, nullptr);
+
+        auto& intervals = row->intervals_;
+        ASSERT_EQ(intervals.size(), intervalList.size());
+        // 对比计算结果
+        int i = 0;
+        for(const auto& interval : intervalList)
+        {
+            EXPECT_NEAR(interval.start() - intervals[i].start(), 0, 1e-2);
+            EXPECT_NEAR(interval.stop()  - intervals[i].stop(),  0, 1e-2);
+            i++;
+        }
     }
 
 }

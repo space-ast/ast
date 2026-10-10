@@ -38,7 +38,7 @@ class XMLNode;
 
 /// @brief 时间线偏好数据
 /// @details 对应 STK 时间线偏好文件（根元素 TimelineLine_Prefs）
-class TimelinePrefs
+class AST_LOADER_API TimelinePrefs
 {
 public:
     /// @brief 时间线内容视图中的一行
@@ -57,7 +57,9 @@ public:
         bool isHidden_{false};                    ///< IsHidden 属性
         std::vector<TimeInterval> intervals_{};   ///< 时间区间列表（<Interval> 元素）
     };
-
+    
+    /// @brief 根据 DisplayName 属性查找行
+    const Row* findRowByDisplayName(StringView displayName);
 public:
     std::vector<Row> rows_{};            ///< 内容视图中的各行（每行一组区间）
     TimeInterval globalInterval_{};      ///< 时间视图的全局分析时段（GlobalStart/Stop）

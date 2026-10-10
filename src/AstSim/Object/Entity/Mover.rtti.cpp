@@ -15,7 +15,7 @@ void Mover::ClassInit(Class* cls)
     cls->setName(NC_("Class", "Mover"));
     cls->setDesc(u8R"(运动对象)");
     cls->addToRegistry();
-    cls->setParent<Point>();
+    cls->setParent<Platform>();
     cls->setConstructor<Mover>();
 
     cls->addProperty("MotionProfile", aNewPropertyObject<Mover, MotionProfile, &Mover::getMotionProfile, &Mover::setMotionProfile>());

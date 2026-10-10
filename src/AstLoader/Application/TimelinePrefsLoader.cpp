@@ -25,6 +25,7 @@
 #include "AstUtil/XMLNode.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringUtil.hpp"
+#include "AstUtil/StringView.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -189,6 +190,17 @@ errc_t aLoadTimeLinePrefs(StringView filepath, TimelinePrefs& prefs)
         return aLoadTimeLinePrefsXML(xmlpath, prefs);
     }
 }
+
+const TimelinePrefs::Row *TimelinePrefs::findRowByDisplayName(StringView displayName)
+{
+    for(const auto& row : rows_)
+    {
+        if(displayName == row.displayName_)
+            return &row;
+    }
+    return nullptr;
+}
+
 
 
 AST_NAMESPACE_END

@@ -7,12 +7,14 @@
 ///
 
 #include "PropertyPages.hpp"
+#ifdef AST_WITH_MATPLOT
 A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/core/axes_type.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/axes_objects/line.h>
 #include <matplot/axes_objects/surface.h>
 A_SUPPRESS_WARNINGS_END
+#endif
 #include <QFormLayout>
 #include <QVBoxLayout>
 #include <QGroupBox>
@@ -50,6 +52,7 @@ void ColorButton::onClick()
     }
 }
 
+#ifdef AST_WITH_MATPLOT
 // ============ AxesPropertyPage ============
 
 AxesPropertyPage::AxesPropertyPage(QWidget* parent) : QWidget(parent)
@@ -410,5 +413,6 @@ void SurfacePropertyPage::apply(class matplot::surface* surf)
     if (auto* parent = surf->parent())
         parent->cb_axis().visible(colorbarVisible_->isChecked());
 }
+#endif
 
 AST_NAMESPACE_END

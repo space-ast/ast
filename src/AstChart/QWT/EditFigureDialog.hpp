@@ -15,6 +15,7 @@
 #include <QDialogButtonBox>
 #include <QIcon>
 
+#ifdef AST_WITH_MATPLOT
 namespace matplot {
     class figure_type;
     class axes_type;
@@ -59,3 +60,4 @@ private:
 };
 
 AST_NAMESPACE_END
+#endif

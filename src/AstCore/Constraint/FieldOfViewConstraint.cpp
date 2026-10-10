@@ -38,7 +38,8 @@ double FieldOfViewConstraint::evaluate(const TimePoint& time) const
     if (!frame_ || !target_ || !fov_) { return -1.0; }
 
     Vector3d posTarget;
-    target_->getPosIn(frame_, time, posTarget);
+    errc_t rc = target_->getPosIn(*frame_, time, posTarget);
+    if(rc) return -1.0;
 
     return fov_->angularMargin(posTarget);
 }

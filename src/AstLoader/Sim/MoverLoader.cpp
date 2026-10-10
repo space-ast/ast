@@ -26,6 +26,9 @@
 #include "MotionJ4AnalyticalSax.hpp"
 #include "MotionHPOPSax.hpp"
 #include "AstCore/STKEphemerisFileParser.hpp"
+#include "AstCore/AttitudeECIVVLH.hpp"
+#include "AstCore/AttitudeECFVVLH.hpp"
+#include "AstCore/AttitudeECFVelRadial.hpp"
 #include "AstLoader/ValXMLLoader.hpp"
 #include "AstLoader/MissionCommandLoader.hpp"
 #include "AstLoader/ObjectComponentLoader.hpp"
@@ -724,18 +727,21 @@ errc_t _aLoadPassDefn(BKVParser& parser, Mover& mover)
     return eNoError;
 }
 
-errc_t _aLoadVehiclePath(BKVParser& parser, Mover& mover)
+errc_t _aLoadVehiclePath(BKVParser& parser, Mover& mover, VehiclePathData& data)
 {
     BKVItemView item;
     BKVParser::EToken token;
-    VehiclePathData data;
     data.centralBody_ = aGetDefaultBody();  // default body
     do{
         token = parser.getNext(item);
         if(token == BKVParser::eKeyValue)
         {
             if(aEqualsIgnoreCase(item.key(), "CentralBody")){
-                data.centralBody_ = aGetBody(item.value());
+                auto body = aGetBody(item.value());
+                if(body == nullptr)
+                    aWarning(_("未找到天体: '%.*s'"), (int)item.value().size(), item.value().data());
+                else
+                    data.centralBody_ = body;
             }else if(aEqualsIgnoreCase(item.key(), "StoreEphemeris")){
                 data.storeEphemeris_ = item.value().toBool();
             }else if(aEqualsIgnoreCase(item.key(), "SmoothInterp")){
@@ -866,20 +872,50 @@ errc_t _aLoadMassProperties(BKVParser& parser, Mover& mover)
     return eNoError;
 }
 
-errc_t _aLoadAttitude(BKVParser& parser, Mover& mover)
+errc_t _aLoadAttitude(BKVParser& parser, Mover& mover, Body& centralBody)
 {
     BKVItemView item;
     BKVParser::EToken token;
+    TimePoint scenarioEpoch;
     do{
         token = parser.getNext(item);
         if(token == BKVParser::eKeyValue)
         {
             if(aEqualsIgnoreCase(item.key(), "ScenarioEpoch")){
-                // @todo 处理场景历元
+                scenarioEpoch = TimePoint::Parse(item.value());
             }
         }else if(token == BKVParser::eBlockBegin){
-            if(aEqualsIgnoreCase(item.value(), "Profile")){
-                // @todo 处理姿态定义
+            if(aEqualsIgnoreCase(item.value(), "Profile"))
+            {
+                do{
+                    token = parser.getNext(item);
+                    if(token == BKVParser::eKeyValue)
+                    {
+                        if(aEqualsIgnoreCase(item.key(), "Name")){
+                            StringView name = item.value().toStringView();
+                            if(name == "ECIVVLH")
+                            {
+                                auto attitude = new AttitudeECIVVLH(&mover, &centralBody);
+                                mover.setAttitudeProfile(attitude);
+                            }
+                            else if(name == "ECFVVLH")
+                            {
+                                auto attitude = new AttitudeECFVVLH(&mover, &centralBody);
+                                mover.setAttitudeProfile(attitude);
+                            }
+                            else
+                            {
+                                aError(_("暂不支持姿态类型 '%.*s'"), name.size(), name.data());
+                            }
+                        }
+                    }
+                    else if(token == BKVParser::eBlockEnd)
+                    {
+                        if(aEqualsIgnoreCase(item.value(), "Profile")){
+                            break;
+                        }
+                    }
+                }while(token != BKVParser::eEOF);
             }
         }else if(token == BKVParser::eBlockEnd){
             if(aEqualsIgnoreCase(item.value(), "Attitude")){
@@ -1003,6 +1039,7 @@ errc_t _aLoadMover(BKVParser& parser, StringView moverType, Mover& mover)
 {
     BKVItemView item;
     BKVParser::EToken token;
+    VehiclePathData vehiclePathData;
     do{
         token = parser.getNext(item);
         if(token == BKVParser::eKeyValue)
@@ -1012,7 +1049,7 @@ errc_t _aLoadMover(BKVParser& parser, StringView moverType, Mover& mover)
             }
         }else if(token == BKVParser::eBlockBegin){
             if(aEqualsIgnoreCase(item.value(), "VehiclePath")){
-                if(errc_t rc = _aLoadVehiclePath(parser, mover)){
+                if(errc_t rc = _aLoadVehiclePath(parser, mover, vehiclePathData)){
                     aError(_("加载车辆路径失败"));
                     return rc;
                 }
@@ -1028,7 +1065,7 @@ errc_t _aLoadMover(BKVParser& parser, StringView moverType, Mover& mover)
                     return rc;
                 }
             }else if(aEqualsIgnoreCase(item.value(), "Attitude")){
-                if(errc_t rc = _aLoadAttitude(parser, mover)){
+                if(errc_t rc = _aLoadAttitude(parser, mover, vehiclePathData.getCentralBody())){
                     aError(_("加载姿态失败"));
                     return rc;
                 }
