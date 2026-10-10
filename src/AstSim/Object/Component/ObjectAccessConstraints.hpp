@@ -45,6 +45,10 @@ public:
     ObjectAccessConstraint* addConstraint(EAccessConstraint type);
     ObjectAccessConstraint* addConstraint(StringView name);
     const ConstraintList& constraints() const { return constraints_; }
+public:
+    ConstraintList::iterator begin() { return constraints_.begin(); }
+    ConstraintList::iterator end() { return constraints_.end(); }
+    size_t size() const { return constraints_.size(); }
 private:
     ConstraintList constraints_{};
 };

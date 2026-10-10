@@ -21,6 +21,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "TimelinePrefsLoader.hpp"
+#include "AstLoader/ScenarioLoader.hpp"
 #include "AstUtil/XMLNode.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/StringUtil.hpp"
@@ -150,7 +151,7 @@ errc_t aLoadTimeLinePrefs(XMLNode& root, TimelinePrefs& prefs)
     return eNoError;
 }
 
-errc_t aLoadTimeLinePrefs(StringView filepath, TimelinePrefs& prefs)
+errc_t aLoadTimeLinePrefsXML(StringView filepath, TimelinePrefs& prefs)
 {
     XMLNode root;
     errc_t rc = root.load(filepath);
@@ -160,5 +161,34 @@ errc_t aLoadTimeLinePrefs(StringView filepath, TimelinePrefs& prefs)
     }
     return aLoadTimeLinePrefs(root, prefs);
 }
+
+/// @brief 从文件路径或场景路径加载时间线视图偏好
+/// @details 
+/// 入参有两种形式：
+/// - 直接给出 *TimelinePrefs.xml，则解析该文件；
+/// - 给出场景文件（*.sc）或场景目录，则先定位到场景文件，再按约定取其同名的 *TimelinePrefs.xml（Scenario1.sc -> Scenario1TimelinePrefs.xml）。
+errc_t aLoadTimeLinePrefs(StringView filepath, TimelinePrefs& prefs)
+{
+    // 已是偏好文件本身，直接解析
+    if(filepath.ends_with(".xml"))
+    {
+        return aLoadTimeLinePrefsXML(filepath, prefs);
+    }
+    else
+    {
+        // 非 xml：按场景路径处理。未直接给出 *.sc 时，先向场景目录查找场景文件
+        std::string scenarioPath;
+        if(!filepath.ends_with(".sc"))
+        {
+            errc_t rc = aFindScenarioFile(filepath, scenarioPath);
+            if(rc) return rc;
+            filepath = scenarioPath;
+        }
+        // 偏好文件与场景文件同名、仅后缀不同：去掉 ".sc" 后拼接 "TimelinePrefs.xml"
+        std::string xmlpath = std::string(filepath.substr(0, filepath.size() - 3)) + "TimelinePrefs.xml";
+        return aLoadTimeLinePrefsXML(xmlpath, prefs);
+    }
+}
+
 
 AST_NAMESPACE_END

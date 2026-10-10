@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
@@ -38,6 +39,12 @@ class Scenario;
 /// @return 错误码
 AST_LOADER_CAPI errc_t aLoadScenario(StringView filepath, Scenario& scenario);
 
+
+/// @brief 查找场景文件
+/// @details dirpath 场景目录路径
+/// @param scenarioPath 场景文件路径
+/// @return 错误码
+AST_LOADER_CAPI errc_t aFindScenarioFile(StringView dirpath, std::string& scenarioPath);
 
 /*! @} */
 

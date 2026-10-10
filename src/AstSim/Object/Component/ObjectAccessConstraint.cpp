@@ -56,5 +56,22 @@ errc_t ObjectAccessConstraint::setType(StringView type)
     return eNoError;
 }
 
+std::string toString(EAccessConstraint type)
+{
+    const char* name = aEnumDescriptor<EAccessConstraint>().nameOf(type);
+    if (name == nullptr)
+        return "<未知枚举值>";
+    return name;
+}
+
+errc_t parse(StringView type, EAccessConstraint &result)
+{
+    bool found = false;
+    result = aEnumDescriptor<EAccessConstraint>().valueOf(type, found);
+    if (!found)
+        return eErrorInvalidParam;
+    return eNoError;
+}
+
 
 AST_NAMESPACE_END

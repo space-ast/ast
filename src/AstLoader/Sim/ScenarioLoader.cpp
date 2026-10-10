@@ -373,24 +373,12 @@ errc_t aLoadScenario(StringView filepath, Scenario& scenario)
         case fs::file_type::directory:
         {
             // 查找目录下的 .sc 文件
-            fs::path scenarioPath;
-            int count = 0;
-            for(auto& entry : fs::directory_iterator(path)){
-                if (!fs::is_regular_file(entry.status())) continue;
-                if(aEqualsIgnoreCase(entry.path().extension().string(), ".sc")){
-                    scenarioPath = entry.path();
-                    count++;
-                }
+            std::string scenarioPath;
+            errc_t rc = aFindScenarioFile(filepath, scenarioPath);
+            if(rc == eNoError){
+                return aLoadScenarioFile(scenarioPath, scenario);
             }
-            if(count == 0){
-                aWarning(_("目录下没有 .sc 文件"));
-                return eErrorInvalidFile;
-            }else if(count == 1){
-                return aLoadScenarioFile(scenarioPath.string(), scenario);
-            }else{ // if(count > 1)
-                aWarning(_("目录下有多个 .sc 文件，无法确定要加载的文件"));
-                return eErrorInvalidFile;
-            }
+            return rc;
         }
         default:
         {
@@ -401,5 +389,26 @@ errc_t aLoadScenario(StringView filepath, Scenario& scenario)
     return eError;
 }
 
+errc_t aFindScenarioFile(StringView dirpath, std::string &scenarioPath)
+{
+    fs::path path(dirpath);
+    int count = 0;
+    for(auto& entry : fs::directory_iterator(path)){
+        if (!fs::is_regular_file(entry.status())) continue;
+        if(aEqualsIgnoreCase(entry.path().extension().string(), ".sc")){
+            scenarioPath = entry.path();
+            count++;
+        }
+    }
+    if(count == 0){
+        aWarning(_("目录下没有 .sc 文件"));
+        return eErrorInvalidFile;
+    }else if(count == 1){
+        return eNoError;
+    }else{ // if(count > 1)
+        aWarning(_("目录下有多个 .sc 文件，无法确定要加载的文件"));
+        return eErrorInvalidFile;
+    }
+}
 
 AST_NAMESPACE_END

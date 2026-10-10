@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
@@ -41,6 +42,10 @@ enum class EAccessConstraint
 
     eAtFieldOfView,         ///< 暂不支持(含义尚不清楚)
 };
+
+
+AST_SIM_API std::string toString(EAccessConstraint type);
+AST_SIM_API errc_t parse(StringView type, EAccessConstraint& result);
 
 
 /// @brief 对象访问约束

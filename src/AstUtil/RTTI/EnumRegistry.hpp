@@ -45,7 +45,7 @@ public:
     void registerEnum(StringView name, EnumDescriptorData* descriptor);
     EnumDescriptorData* getEnum(StringView name) const;
 private:
-    std::map<std::string, EnumDescriptorData*> enums_;
+    std::map<std::string, EnumDescriptorData*> enums_{};
 };
 
 

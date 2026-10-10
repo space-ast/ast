@@ -148,6 +148,7 @@
 #include "AstUtil/ReflectAPI.hpp"
 #include "AstUtil/RunTime.hpp"
 #include "AstUtil/SPKParser.hpp"
+#include "AstUtil/ScopeExit.hpp"
 #include "AstUtil/ScopedPtr.hpp"
 #include "AstUtil/Serde.hpp"
 #include "AstUtil/SerdeAPI.hpp"

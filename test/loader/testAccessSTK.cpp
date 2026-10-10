@@ -28,6 +28,7 @@
 #include "ast/Access.hpp"
 #include "ast/AccessLoader.hpp"
 #include "ast/RTTIAPI.hpp"
+#include "ast/TimelinePrefsLoader.hpp"
 #include <string>
 #include <vector>
 
@@ -136,6 +137,50 @@ TEST(AccessSTKTest, Point_GetPosVel)
         EXPECT_EQ(vel1[1], vel2[1]);
         EXPECT_EQ(vel1[2], vel2[2]);
     }
+}
+
+
+TEST(AccessSTKTest, Case1)
+{
+    const char scenarioDir_Case1[] = "./STK/Scenarios/testAccessSTK_Case1";
+    const std::string scenarioDir = aTestDataDirGet() + "/" + scenarioDir_Case1;
+    SharedPtr<Scenario> scenario = aMakeShared<Scenario>();
+    errc_t rc = aLoadScenario(scenarioDir, *scenario);
+    ASSERT_EQ(rc, eNoError);
+
+    // 获取 Access 对象
+    auto accesses = aFindChildren(scenario, Access::StaticType());
+    printf("accesses.size(): %d\n", accesses.size());
+    ASSERT_EQ(accesses.size(), 1);
+    auto access = aobject_cast<Access*>(accesses[0]);
+    ASSERT_NE(access, nullptr);
+
+    // 执行 Access 计算
+    rc = access->compute();
+    ASSERT_EQ(rc, eNoError);
+    
+    // 获取计算结果
+    auto& intervalList = access->accessIntervals();
+    printf("intervalList.size(): %d\n", intervalList.size());
+    printf("intervalList:\n%s\n", intervalList.toString().c_str());
+    
+    // 加载 TimelinePrefs
+    TimelinePrefs prefs;
+    rc = aLoadTimeLinePrefs(scenarioDir, prefs);
+    ASSERT_EQ(rc, eNoError);
+    ASSERT_EQ(prefs.rows_.size(), 2);
+    auto& intervals = prefs.rows_[1].intervals_;
+    ASSERT_EQ(intervals.size(), intervalList.size());
+
+    // 对比计算结果
+    int i = 0;
+    for(const auto& interval : intervalList)
+    {
+        EXPECT_NEAR(interval.start() - intervals[i].start(), 0, 1e-2);
+        EXPECT_NEAR(interval.stop()  - intervals[i].stop(),  0, 1e-2);
+        i++;
+    }
+
 }
 
 GTEST_MAIN()
