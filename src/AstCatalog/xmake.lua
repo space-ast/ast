@@ -1,0 +1,7 @@
+target("AstCatalog")
+    set_kind("shared")
+    add_files("**.cpp")
+    add_headerfiles("**.hpp", {prefixdir="AstCatalog"})
+    add_headerfiles("**.h", {prefixdir="AstCatalog"})
+    add_deps("AstUtil", "AstCore")
+    add_defines("AST_BUILD_LIB_CATALOG")
