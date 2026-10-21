@@ -9,6 +9,7 @@ add_deps(
     "AstWeather",
     "AstSPICE",
     "AstSim",
+    "AstEstimation",
     "AstLoader",
     "AstAI",
     "AstCmd",

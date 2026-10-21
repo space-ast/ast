@@ -1,0 +1,6 @@
+target("AstEstimation")
+    set_kind("shared")
+    add_files("**.cpp")
+    add_headerfiles("**.hpp", {prefixdir="AstEstimation"})
+    add_headerfiles("**.h", {prefixdir="AstEstimation"})
+    add_defines("AST_BUILD_LIB_ESTIMATION")
