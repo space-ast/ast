@@ -1,0 +1,98 @@
+name: SGP4 ARM64 转储
+
+# 一次性诊断工作流（ci/sgp4-diag）：只编 AstCore，把 arm64 debug 的 DLL/PDB 传上来，
+# 并在日志里打印崩溃 RVA 附近的汇编。
+on:
+  push:
+    branches:
+      - 'ci/sgp4-diag'
+  workflow_dispatch:
+
+jobs:
+  dump:
+    runs-on: windows-11-arm
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: branch@dev
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: windows-11-arm
+
+      - name: 配置依赖缓存
+        uses: actions/cache@v4
+        with:
+          path: xmake-cache
+          key: dump-windows-11-arm-arm64-xmake-cache-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v1
+
+      - name: 设置xmake相关目录
+        run: |
+          xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
+          xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
+          xmake repo -u
+
+      - name: 配置项目
+        timeout-minutes: 60
+        run: |
+          xmake f -cy --with_test=y --check_warnings=n -m debug -a arm64
+          xmake show
+
+      - name: 编译 AstCore
+        timeout-minutes: 90
+        env:
+          ASAN_OPTIONS: detect_leaks=0
+        run: |
+          xmake build AstCore
+
+      - name: 反汇编崩溃点附近
+        shell: pwsh
+        run: |
+          $dll = "build/windows/arm64/debug/AstCore_d.dll"
+          if (-not (Test-Path $dll)) { throw "missing $dll" }
+          $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+          $dumpbin = Get-ChildItem "$vs\VC\Tools\MSVC\*\bin\Hostx64\x64\dumpbin.exe" |
+            Sort-Object FullName -Descending | Select-Object -First 1
+          if (-not $dumpbin) { throw "dumpbin not found" }
+          Write-Host "dumpbin: $($dumpbin.FullName)"
+          Write-Host "dll size: $((Get-Item $dll).Length)"
+
+          & $dumpbin.FullName /headers $dll > headers.txt
+          $baseLine = Select-String -Path headers.txt -Pattern 'image base' | Select-Object -First 1
+          Write-Host "image base line: $($baseLine.Line.Trim())"
+          $baseText = [regex]::Match($baseLine.Line, '\(([0-9A-Fa-f]+)').Groups[1].Value
+          $imageBase = [Convert]::ToUInt64($baseText, 16)
+          Write-Host ("image base: 0x{0:x}" -f $imageBase)
+
+          & $dumpbin.FullName /disasm:nobytes $dll > disasm.txt
+          Write-Host "disasm lines: $((Get-Content disasm.txt | Measure-Object -Line).Lines)"
+
+          # 崩溃点：VEH 报的 RVA 是 0x1f0158
+          $target = $imageBase + 0x1f0158
+          Write-Host ("target VA: 0x{0:x}" -f $target)
+
+          $lines = Get-Content disasm.txt
+          $idx = -1
+          for ($i = 0; $i -lt $lines.Count; $i++) {
+            if ($lines[$i] -match '^\s+([0-9A-F]+):' -and [Convert]::ToUInt64($matches[1], 16) -ge $target) {
+              $idx = $i
+              break
+            }
+          }
+          if ($idx -lt 0) { throw "target VA not found in disasm" }
+          Write-Host "=== 崩溃点附近（先往前找最近的函数标签）"
+          $label = $idx
+          while ($label -gt 0 -and $lines[$label] -notmatch '^\S.*:$') { $label-- }
+          Write-Host $lines[$label]
+          $from = [Math]::Max($label + 1, $idx - 40)
+          $lines[$from..([Math]::Min($idx + 10, $lines.Count - 1))] | ForEach-Object { Write-Host $_ }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astcore-arm64-debug
+          path: |
+            build/windows/arm64/debug/AstCore_d.dll
+            build/windows/arm64/debug/AstCore_d.pdb
+          if-no-files-found: error
