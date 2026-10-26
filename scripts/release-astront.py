@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-release to module nt
+release to astront
 """
 
 import os
@@ -43,7 +43,7 @@ FILES_TO_DELETE = [
 ]
 
 # 压缩包名称
-ZIP_NAME = 'ast-nt.zip'
+ZIP_NAME = 'astront.zip'
 
 # 排除的目录
 EXCLUDE_DIRS = ['data', "test-data", "doc", 'docs', 'build', "thirdparty", "artifacts",
