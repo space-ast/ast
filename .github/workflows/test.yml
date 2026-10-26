@@ -87,6 +87,39 @@ jobs:
         run: |
           xmake -ay
 
+      # 临时诊断（ci/sgp4-diag 一次性分支）：打印 arm64 debug 产物里相关函数的反汇编，
+      # 用于确认 prologue 是否走 __chkstk、LR 保存顺序是否正确。
+      - name: 反汇编 arm64 debug 的相关函数
+        if: matrix.mode == 'debug' && matrix.target.runner == 'windows-11-arm'
+        timeout-minutes: 30
+        shell: pwsh
+        run: |
+          $exe = "build/windows/arm64/debug/testSGP4.exe"
+          if (-not (Test-Path $exe)) { throw "missing $exe" }
+          $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+          $dumpbin = Get-ChildItem "$vs\VC\Tools\MSVC\*\bin\Hostx64\x64\dumpbin.exe" |
+            Sort-Object FullName -Descending | Select-Object -First 1
+          if (-not $dumpbin) { throw "dumpbin not found" }
+          Write-Host "dumpbin: $($dumpbin.FullName)"
+          & $dumpbin.FullName /disasm:nobytes $exe > disasm.txt
+          Write-Host "disasm lines: $((Get-Content disasm.txt | Measure-Object -Line).Lines)"
+          foreach ($pat in @(
+              '\?TestBody@SGP4Test_Propagation_Test',
+              '\?TestBody@SGP4Test_SDP4Split_Test',
+              'sgp4init@SGP4Funcs',
+              'dscom@SGP4Funcs',
+              'dpper@SGP4Funcs',
+              'dsinit@SGP4Funcs')) {
+            Write-Host "=== $pat"
+            $hit = Select-String -Path disasm.txt -Pattern $pat -Context 0,24 | Select-Object -First 1
+            if ($hit) {
+              Write-Host $hit.Line
+              $hit.Context.PostContext | ForEach-Object { Write-Host $_ }
+            } else {
+              Write-Host "(not found)"
+            }
+          }
+
       - name: 执行${{ matrix.mode }}测试
         timeout-minutes: 90
         run: |

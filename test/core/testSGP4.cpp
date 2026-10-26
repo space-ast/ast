@@ -29,6 +29,145 @@
 #include "ast/BuiltinFrame.hpp"
 #include "ast/Literals.hpp"
 
+// ============================================================================
+// 临时诊断代码：仅用于 ci/sgp4-diag 一次性分支定位 arm64 debug 崩溃，勿合入。
+// ============================================================================
+#include <cstdio>
+#include <cstring>
+
+#if defined(_WIN32) && defined(_M_ARM64)
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#include <windows.h>
+#include <dbghelp.h>
+#pragma comment(lib, "dbghelp.lib")
+
+#define SGP4_DIAG_STEP(msg) \
+    do { std::fprintf(stderr, "[SGP4DIAG] %s\n", msg); std::fflush(stderr); } while (0)
+
+namespace {
+
+void sgp4DiagDumpStack(HANDLE process, CONTEXT* context)
+{
+    CONTEXT ctx = *context;
+    UNWIND_HISTORY_TABLE history;
+    std::memset(&history, 0, sizeof(history));
+
+    for (int i = 0; i < 40; ++i)
+    {
+        DWORD64 pc = static_cast<DWORD64>(ctx.Pc);
+        if (pc == 0)
+            break;
+
+        char symBuffer[sizeof(SYMBOL_INFO) + 256] = {};
+        SYMBOL_INFO* symbol = reinterpret_cast<SYMBOL_INFO*>(symBuffer);
+        symbol->SizeOfStruct = sizeof(SYMBOL_INFO);
+        symbol->MaxNameLen = 255;
+        DWORD64 displacement = 0;
+        const char* name = "<unknown>";
+        if (SymFromAddr(process, pc, &displacement, symbol))
+            name = symbol->Name;
+
+        IMAGEHLP_LINE64 line;
+        std::memset(&line, 0, sizeof(line));
+        line.SizeOfStruct = sizeof(line);
+        DWORD lineOffset = 0;
+        if (SymGetLineFromAddr64(process, pc, &lineOffset, &line))
+        {
+            std::fprintf(stderr, "[SGP4DIAG] #%02d %016llx %s+0x%llx  (%s:%lu)\n",
+                         i, static_cast<unsigned long long>(pc), name,
+                         static_cast<unsigned long long>(displacement),
+                         line.FileName, line.LineNumber);
+        }
+        else
+        {
+            std::fprintf(stderr, "[SGP4DIAG] #%02d %016llx %s+0x%llx\n",
+                         i, static_cast<unsigned long long>(pc), name,
+                         static_cast<unsigned long long>(displacement));
+        }
+
+        DWORD64 imageBase = 0;
+        PRUNTIME_FUNCTION function = RtlLookupFunctionEntry(pc, &imageBase, &history);
+        if (function != nullptr)
+        {
+            PVOID handlerData = nullptr;
+            DWORD64 establisherFrame = 0;
+            KNONVOLATILE_CONTEXT_POINTERS nvContext;
+            std::memset(&nvContext, 0, sizeof(nvContext));
+            RtlVirtualUnwind(UNW_FLAG_NHANDLER, imageBase, pc, function, &ctx,
+                             &handlerData, &establisherFrame, &nvContext);
+        }
+        else
+        {
+            // 叶子函数：返回地址在 LR 中
+            ctx.Pc = ctx.Lr;
+        }
+
+        if (static_cast<DWORD64>(ctx.Pc) == pc)
+            break;
+    }
+}
+
+LONG WINAPI sgp4DiagVeh(EXCEPTION_POINTERS* info)
+{
+    if (info->ExceptionRecord->ExceptionCode != EXCEPTION_ACCESS_VIOLATION)
+        return EXCEPTION_CONTINUE_SEARCH;
+
+    CONTEXT* ctx = info->ContextRecord;
+    std::fprintf(stderr, "\n[SGP4DIAG] ==== ACCESS VIOLATION ====\n");
+    std::fprintf(stderr, "[SGP4DIAG] access=%d target=%p\n",
+                 static_cast<int>(info->ExceptionRecord->ExceptionInformation[0]),
+                 reinterpret_cast<void*>(info->ExceptionRecord->ExceptionInformation[1]));
+    std::fprintf(stderr, "[SGP4DIAG] PC=%p LR=%p SP=%p FP=%p\n",
+                 reinterpret_cast<void*>(ctx->Pc), reinterpret_cast<void*>(ctx->Lr),
+                 reinterpret_cast<void*>(ctx->Sp), reinterpret_cast<void*>(ctx->Fp));
+
+    HMODULE module = nullptr;
+    if (GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
+                           GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                           reinterpret_cast<LPCWSTR>(ctx->Pc), &module))
+    {
+        char modulePath[MAX_PATH] = {};
+        GetModuleFileNameA(module, modulePath, MAX_PATH);
+        std::fprintf(stderr, "[SGP4DIAG] fault module=%s rva=0x%llx\n", modulePath,
+                     static_cast<unsigned long long>(
+                         ctx->Pc - reinterpret_cast<DWORD64>(module)));
+    }
+
+    char exePath[MAX_PATH] = {};
+    GetModuleFileNameA(nullptr, exePath, MAX_PATH);
+    char* lastSlash = std::strrchr(exePath, '\\');
+    if (lastSlash != nullptr)
+        *lastSlash = '\0';
+
+    HANDLE process = GetCurrentProcess();
+    SymSetOptions(SYMOPT_LOAD_LINES | SYMOPT_DEFERRED_LOADS | SYMOPT_UNDNAME);
+    if (SymInitialize(process, exePath, TRUE))
+    {
+        sgp4DiagDumpStack(process, ctx);
+        SymCleanup(process);
+    }
+    std::fflush(stderr);
+    return EXCEPTION_CONTINUE_SEARCH;
+}
+
+struct SGP4DiagVehInstaller
+{
+    SGP4DiagVehInstaller()
+    {
+        AddVectoredExceptionHandler(1, &sgp4DiagVeh);
+    }
+};
+
+const SGP4DiagVehInstaller g_sgp4DiagVehInstaller;
+
+} // namespace
+#else
+#define SGP4_DIAG_STEP(msg) \
+    do { std::fprintf(stderr, "[SGP4DIAG] %s\n", msg); std::fflush(stderr); } while (0)
+#endif
+
 // =============================================================================
 // 测试 TLE（NORAD 26661, 太阳同步轨道卫星）
 // 来源: atkAllTLE.tce
@@ -96,12 +235,24 @@ TEST(SGP4Test, Propagation)
     {
         const char* line1 = "1 11690U 80011A   19080.80357948  .00000045  00000-0  00000-0 0  9998";
         const char* line2 = "2 11690  63.3243 130.5698 0462510 197.4223 162.7516  2.00568721300695";
+        SGP4_DIAG_STEP("prop: before TLE::FromLines");
         TLE tle = TLE::FromLines(TLELines{"", line1, line2});
+        SGP4_DIAG_STEP("prop: after TLE::FromLines");
+        std::fprintf(stderr, "[SGP4DIAG] prop: norad=%d ecc=%.9f inc=%.9f mm=%.12f\n",
+                     tle.noradId(), tle.eccentricity(), tle.inclination(), tle.meanMotion());
         SGP4 sgp4(tle);
+        SGP4_DIAG_STEP("prop: after SGP4 ctor");
+        std::fprintf(stderr, "[SGP4DIAG] prop: error=%d method=%c irez=%d no_kozai=%.12f\n",
+                     sgp4.getError(), sgp4.elementSet().method, sgp4.elementSet().irez,
+                     sgp4.elementSet().no_kozai);
 
+        SGP4_DIAG_STEP("prop: before _utc literal");
         auto tp = "23 Oct 2019 04:00:00.000"_utc;
+        SGP4_DIAG_STEP("prop: after _utc literal");
         Vector3d posTEME, velTEME;
+        SGP4_DIAG_STEP("prop: before getPosVel");
         sgp4.getPosVel(tp, posTEME, velTEME);  // in TEME of date
+        SGP4_DIAG_STEP("prop: after getPosVel");
         printf("posTEME  = %s\n", toString(posTEME).c_str());
         printf("velTEME  = %s\n", toString(velTEME).c_str());
 
@@ -372,6 +523,42 @@ TEST(SGP4Test, TimeInterval)
         double dur = interval.duration();
         EXPECT_GT(dur, 1e9);  // > 1e9 秒 ≈ 31 年，即"无限"
     }
+}
+
+
+/// 临时诊断：与上面的 SDP4 段完全相同，但放在独立 TEST 中，
+/// 使其 TestBody 栈帧保持在 4 KB 栈探测阈值以下。
+TEST(SGP4Test, SDP4Split)
+{
+    AST_USING_NAMESPACE
+    SGP4_DIAG_STEP("split: enter");
+    const char* line1 = "1 11690U 80011A   19080.80357948  .00000045  00000-0  00000-0 0  9998";
+    const char* line2 = "2 11690  63.3243 130.5698 0462510 197.4223 162.7516  2.00568721300695";
+    SGP4_DIAG_STEP("split: before TLE::FromLines");
+    TLE tle = TLE::FromLines(TLELines{"", line1, line2});
+    SGP4_DIAG_STEP("split: after TLE::FromLines");
+    SGP4 sgp4(tle);
+    SGP4_DIAG_STEP("split: after SGP4 ctor");
+    std::fprintf(stderr, "[SGP4DIAG] split: error=%d method=%c irez=%d no_kozai=%.12f\n",
+                 sgp4.getError(), sgp4.elementSet().method, sgp4.elementSet().irez,
+                 sgp4.elementSet().no_kozai);
+
+    auto tp = "23 Oct 2019 04:00:00.000"_utc;
+    SGP4_DIAG_STEP("split: after _utc literal");
+    Vector3d posTEME, velTEME;
+    sgp4.getPosVel(tp, posTEME, velTEME);  // in TEME of date
+    SGP4_DIAG_STEP("split: after getPosVel");
+    printf("posTEME  = %s\n", toString(posTEME).c_str());
+    printf("velTEME  = %s\n", toString(velTEME).c_str());
+
+    Vector3d posTEMEExpected{-12395.933166123259_km, 23889.486152985672_km, -5991.338005484711_km};
+    Vector3d velTEMEExpected{-1.894871503730_km/s, -0.066422373191_km/s, 3.211034937954_km/s};
+    EXPECT_NEAR(posTEME.x(), posTEMEExpected.x(), 1e-3);
+    EXPECT_NEAR(posTEME.y(), posTEMEExpected.y(), 1e-3);
+    EXPECT_NEAR(posTEME.z(), posTEMEExpected.z(), 1e-3);
+    EXPECT_NEAR(velTEME.x(), velTEMEExpected.x(), 1e-6);
+    EXPECT_NEAR(velTEME.y(), velTEMEExpected.y(), 1e-6);
+    EXPECT_NEAR(velTEME.z(), velTEMEExpected.z(), 1e-6);
 }
 
 
