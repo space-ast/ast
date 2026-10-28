@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -146,6 +146,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</
 <tr class="separator:a7149c42dc30e8a8e146c752d54fb2ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a444a4398b7ebbeb2f5b27f7094c11b" id="r_a2a444a4398b7ebbeb2f5b27f7094c11b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a444a4398b7ebbeb2f5b27f7094c11b">getAp3HourlyList</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double *apList, int maxLookback) const override</td></tr>
 <tr class="separator:a2a444a4398b7ebbeb2f5b27f7094c11b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2333219ddf655a1f5593382c5aba759b" id="r_a2333219ddf655a1f5593382c5aba759b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2333219ddf655a1f5593382c5aba759b">getKp3HourlyList</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double *kpList, int maxLookback) const override</td></tr>
+<tr class="separator:a2333219ddf655a1f5593382c5aba759b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8e75a534fc6ba10064b6250a9f6d6a9" id="r_ab8e75a534fc6ba10064b6250a9f6d6a9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8e75a534fc6ba10064b6250a9f6d6a9">getKpDaily</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp) const override</td></tr>
 <tr class="separator:ab8e75a534fc6ba10064b6250a9f6d6a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75b061c8e8334746ad9e44e2dedf5358" id="r_a75b061c8e8334746ad9e44e2dedf5358"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75b061c8e8334746ad9e44e2dedf5358">getKpDaily_UTCMJD</a> (double mjdUTC) const</td></tr>
@@ -481,6 +483,53 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>endMJD_</b> = 0</td></
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>对应的MJD的F10.7单日观测值 </dd></dl>
+
+</div>
+</div>
+<a id="a2333219ddf655a1f5593382c5aba759b" name="a2333219ddf655a1f5593382c5aba759b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2333219ddf655a1f5593382c5aba759b">&#9670;&#160;</a></span>getKp3HourlyList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ast::SpaceWeather::getKp3HourlyList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>kpList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxLookback</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取从指定时间向前回溯的连续3小时间隔Kp值列表 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>参考时间点 </td></tr>
+    <tr><td class="paramname">kpList</td><td>输出缓冲区（kpList[0]=当前块, kpList[1]=3小时前, ...） </td></tr>
+    <tr><td class="paramname">maxLookback</td><td>最多回溯的块数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>实际填充的块数，0表示无数据 </dd></dl>
+
+<p>重载 <a class="el" href="classast_1_1SpaceWeatherProvider.html#ad7891cc919d784a64a66d8e5b4e096ab">ast::SpaceWeatherProvider</a> .</p>
 
 </div>
 </div>

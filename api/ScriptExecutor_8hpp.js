@@ -12,5 +12,6 @@ var ScriptExecutor_8hpp =
       [ "eLua", "ScriptExecutor_8hpp.html#aedeaa12b4f41b37c84e1d36771ed5a87afea8a6fda8fd038422ed1475914b8079", null ],
       [ "eAstScript", "ScriptExecutor_8hpp.html#aedeaa12b4f41b37c84e1d36771ed5a87ab12456a0a4c8cf90dc07d4f958a0b0e2", null ]
     ] ],
-    [ "aNewScriptExecutor", "ScriptExecutor_8hpp.html#ab4e65d1e3291aefc88a10a4fee91cdd2", null ]
+    [ "aNewScriptExecutor", "ScriptExecutor_8hpp.html#ab4e65d1e3291aefc88a10a4fee91cdd2", null ],
+    [ "aNewScriptExecutorFromPlugin", "ScriptExecutor_8hpp.html#af3f1dda45f0d9104412e122bac453075", null ]
 ];

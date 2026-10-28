@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: ast::BlendingAtmosphere类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classast_1_1BlendingAtmosphere.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classast_1_1BlendingAtmosphere-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">ast::BlendingAtmosphere类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BlendingAtmosphere_8hpp_source.html">BlendingAtmosphere.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> 类 ast::BlendingAtmosphere 继承关系图:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="classast_1_1BlendingAtmosphere.png" usemap="#ast::BlendingAtmosphere_map" alt=""/>
+  <map id="ast::BlendingAtmosphere_map" name="ast::BlendingAtmosphere_map">
+<area href="classast_1_1Atmosphere.html" title="大气模型基类" alt="ast::Atmosphere" shape="rect" coords="0,0,150,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a544d3f9c057cb05d5f3325572f98b8b9" id="r_a544d3f9c057cb05d5f3325572f98b8b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a544d3f9c057cb05d5f3325572f98b8b9">BlendingAtmosphere</a> (<a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *<a class="el" href="#ade674297caa439c66533c88de75d2575">mainModel</a>, <a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *<a class="el" href="#ad1539175b43e60d4fadae1a7c4dc896c">lowAltModel</a>, double <a class="el" href="#ac5dd76beb0a4f1955447d9328497717a">blendAltitude</a>, double <a class="el" href="#a1d2b4598253ff5124e3fbee95219b556">blendRange</a>)</td></tr>
+<tr class="separator:a544d3f9c057cb05d5f3325572f98b8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af571e12ec8c3d76f5ddba78b338c7ea8" id="r_af571e12ec8c3d76f5ddba78b338c7ea8"><td class="memItemLeft" align="right" valign="top"><a id="af571e12ec8c3d76f5ddba78b338c7ea8" name="af571e12ec8c3d76f5ddba78b338c7ea8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BlendingAtmosphere</b> (<a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *<a class="el" href="#ade674297caa439c66533c88de75d2575">mainModel</a>, <a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *<a class="el" href="#ad1539175b43e60d4fadae1a7c4dc896c">lowAltModel</a>)</td></tr>
+<tr class="separator:af571e12ec8c3d76f5ddba78b338c7ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac260c474c140aa393a95853630d64ecd" id="r_ac260c474c140aa393a95853630d64ecd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac260c474c140aa393a95853630d64ecd">getDensity</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;posInBodyFixed) const override</td></tr>
+<tr class="separator:ac260c474c140aa393a95853630d64ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cdddb265c80f0509332ba074e37217e" id="r_a3cdddb265c80f0509332ba074e37217e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cdddb265c80f0509332ba074e37217e">getFrame</a> () const override</td></tr>
+<tr class="separator:a3cdddb265c80f0509332ba074e37217e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa09d391e77d60377f6929e53ea8ec036" id="r_aa09d391e77d60377f6929e53ea8ec036"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa09d391e77d60377f6929e53ea8ec036">getShape</a> () const override</td></tr>
+<tr class="separator:aa09d391e77d60377f6929e53ea8ec036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade674297caa439c66533c88de75d2575" id="r_ade674297caa439c66533c88de75d2575"><td class="memItemLeft" align="right" valign="top"><a id="ade674297caa439c66533c88de75d2575" name="ade674297caa439c66533c88de75d2575"></a>
+<a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mainModel</b> () const</td></tr>
+<tr class="separator:ade674297caa439c66533c88de75d2575"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55d97850c43a8fcf1845747bf8050ac9" id="r_a55d97850c43a8fcf1845747bf8050ac9"><td class="memItemLeft" align="right" valign="top"><a id="a55d97850c43a8fcf1845747bf8050ac9" name="a55d97850c43a8fcf1845747bf8050ac9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMainModel</b> (<a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *<a class="el" href="#ade674297caa439c66533c88de75d2575">mainModel</a>)</td></tr>
+<tr class="separator:a55d97850c43a8fcf1845747bf8050ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1539175b43e60d4fadae1a7c4dc896c" id="r_ad1539175b43e60d4fadae1a7c4dc896c"><td class="memItemLeft" align="right" valign="top"><a id="ad1539175b43e60d4fadae1a7c4dc896c" name="ad1539175b43e60d4fadae1a7c4dc896c"></a>
+<a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>lowAltModel</b> () const</td></tr>
+<tr class="separator:ad1539175b43e60d4fadae1a7c4dc896c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8f83c6e5e8b822ab83172bce8e985da" id="r_aa8f83c6e5e8b822ab83172bce8e985da"><td class="memItemLeft" align="right" valign="top"><a id="aa8f83c6e5e8b822ab83172bce8e985da" name="aa8f83c6e5e8b822ab83172bce8e985da"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLowAltModel</b> (<a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *<a class="el" href="#ad1539175b43e60d4fadae1a7c4dc896c">lowAltModel</a>)</td></tr>
+<tr class="separator:aa8f83c6e5e8b822ab83172bce8e985da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5dd76beb0a4f1955447d9328497717a" id="r_ac5dd76beb0a4f1955447d9328497717a"><td class="memItemLeft" align="right" valign="top"><a id="ac5dd76beb0a4f1955447d9328497717a" name="ac5dd76beb0a4f1955447d9328497717a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>blendAltitude</b> () const</td></tr>
+<tr class="separator:ac5dd76beb0a4f1955447d9328497717a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedd8fdaca53cc859fe4886a8ed0674d8" id="r_aedd8fdaca53cc859fe4886a8ed0674d8"><td class="memItemLeft" align="right" valign="top"><a id="aedd8fdaca53cc859fe4886a8ed0674d8" name="aedd8fdaca53cc859fe4886a8ed0674d8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setBlendAltitude</b> (double <a class="el" href="#ac5dd76beb0a4f1955447d9328497717a">blendAltitude</a>)</td></tr>
+<tr class="separator:aedd8fdaca53cc859fe4886a8ed0674d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d2b4598253ff5124e3fbee95219b556" id="r_a1d2b4598253ff5124e3fbee95219b556"><td class="memItemLeft" align="right" valign="top"><a id="a1d2b4598253ff5124e3fbee95219b556" name="a1d2b4598253ff5124e3fbee95219b556"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>blendRange</b> () const</td></tr>
+<tr class="separator:a1d2b4598253ff5124e3fbee95219b556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d177cc136962aaced279b7fe5b35545" id="r_a9d177cc136962aaced279b7fe5b35545"><td class="memItemLeft" align="right" valign="top"><a id="a9d177cc136962aaced279b7fe5b35545" name="a9d177cc136962aaced279b7fe5b35545"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setBlendRange</b> (double <a class="el" href="#a1d2b4598253ff5124e3fbee95219b556">blendRange</a>)</td></tr>
+<tr class="separator:a9d177cc136962aaced279b7fe5b35545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classast_1_1Atmosphere"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classast_1_1Atmosphere')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classast_1_1Atmosphere.html">ast::Atmosphere</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pro_methods_classast_1_1Atmosphere"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Atmosphere')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Atmosphere.html">ast::Atmosphere</a></td></tr>
+<tr class="memitem:a2470e7875ada8fae9a18e5fafe934f82 inherit pro_methods_classast_1_1Atmosphere" id="r_a2470e7875ada8fae9a18e5fafe934f82"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getAltitude</b> (const Vector3d &amp;posInBodyFixed) const</td></tr>
+<tr class="separator:a2470e7875ada8fae9a18e5fafe934f82 inherit pro_methods_classast_1_1Atmosphere"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>主/低高度大气密度模型的混合过渡模型 </p>
+<p>在过渡高度附近，将"主大气模型"（高高度模型）与"低高度模型"按高度线性混合：</p><ul>
+<li>高度 ≤ blendAltitude - blendRange/2：全部使用低高度模型；</li>
+<li>高度 ≥ blendAltitude + blendRange/2：全部使用主模型；</li>
+<li>过渡带内：对两者按高度线性加权（低高度偏重低高度模型，高高度偏重主模型）。 </li>
+</ul>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a544d3f9c057cb05d5f3325572f98b8b9" name="a544d3f9c057cb05d5f3325572f98b8b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a544d3f9c057cb05d5f3325572f98b8b9">&#9670;&#160;</a></span>BlendingAtmosphere()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ast::BlendingAtmosphere::BlendingAtmosphere </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *</td>          <td class="paramname"><span class="paramname"><em>mainModel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *</td>          <td class="paramname"><span class="paramname"><em>lowAltModel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>blendAltitude</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>blendRange</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>构造混合过渡大气模型 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mainModel</td><td>主（高高度）大气模型 </td></tr>
+    <tr><td class="paramname">lowAltModel</td><td>低高度大气模型 </td></tr>
+    <tr><td class="paramname">blendAltitude</td><td>过渡带中心高度（单位：米） </td></tr>
+    <tr><td class="paramname">blendRange</td><td>过渡带宽度（单位：米），≤0 时不做过渡，直接按 blendAltitude 二选一 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ac260c474c140aa393a95853630d64ecd" name="ac260c474c140aa393a95853630d64ecd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac260c474c140aa393a95853630d64ecd">&#9670;&#160;</a></span>getDensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ast::BlendingAtmosphere::getDensity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>posInBodyFixed</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取大气密度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>当前时间 </td></tr>
+    <tr><td class="paramname">posInBodyFixed</td><td>当前位置(相对于getFrame()返回的坐标系) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>大气密度（单位：kg/m³） </dd></dl>
+
+<p>实现了 <a class="el" href="classast_1_1Atmosphere.html#ae426889d9de74f821879327ab109aed3">ast::Atmosphere</a>.</p>
+
+</div>
+</div>
+<a id="a3cdddb265c80f0509332ba074e37217e" name="a3cdddb265c80f0509332ba074e37217e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cdddb265c80f0509332ba074e37217e">&#9670;&#160;</a></span>getFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Frame.html">Frame</a> * ast::BlendingAtmosphere::getFrame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取大气模型的参考坐标系 </p>
+
+<p>实现了 <a class="el" href="classast_1_1Atmosphere.html#a49f2a9a587d39b2277217e5eb1cf0bf7">ast::Atmosphere</a>.</p>
+
+</div>
+</div>
+<a id="aa09d391e77d60377f6929e53ea8ec036" name="aa09d391e77d60377f6929e53ea8ec036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa09d391e77d60377f6929e53ea8ec036">&#9670;&#160;</a></span>getShape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1BodyShape.html">BodyShape</a> * ast::BlendingAtmosphere::getShape </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取大气模型对应的天体形状 </p>
+
+<p>重载 <a class="el" href="classast_1_1Atmosphere.html#a535e8982f08f1fc86ab712582de0809f">ast::Atmosphere</a> .</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/AstCore/Atmosphere/<a class="el" href="BlendingAtmosphere_8hpp_source.html">BlendingAtmosphere.hpp</a></li>
+<li>src/AstCore/Atmosphere/<a class="el" href="BlendingAtmosphere_8cpp.html">BlendingAtmosphere.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceast.html">ast</a></li><li class="navelem"><a class="el" href="classast_1_1BlendingAtmosphere.html">BlendingAtmosphere</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

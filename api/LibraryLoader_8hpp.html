@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -106,6 +106,7 @@ $(function(){initNavTree('LibraryLoader_8hpp.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div>
 <p><a href="LibraryLoader_8hpp_source.html">浏览该文件的源代码.</a></p>
 <table class="memberdecls">
@@ -126,10 +127,14 @@ $(function(){initNavTree('LibraryLoader_8hpp.html',''); initResizable(true); });
 <tr class="separator:ga19e5714a61a8ba893a69b7ebdeba2005"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga52c02b09388ac56566408d15c1e1ce7e" id="r_ga52c02b09388ac56566408d15c1e1ce7e"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga52c02b09388ac56566408d15c1e1ce7e">ast::aFreeLibrary</a> (void *lib)</td></tr>
 <tr class="separator:ga52c02b09388ac56566408d15c1e1ce7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga76062afc1ba2839bd8eb0adcf42ca404" id="r_ga76062afc1ba2839bd8eb0adcf42ca404"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga76062afc1ba2839bd8eb0adcf42ca404">ast::aFreeLibraryOnExit</a> (void *lib)</td></tr>
+<tr class="separator:ga76062afc1ba2839bd8eb0adcf42ca404"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga792d6e546f624b93c64487c04deac344" id="r_ga792d6e546f624b93c64487c04deac344"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga792d6e546f624b93c64487c04deac344">ast::aGetLoadError</a> ()</td></tr>
 <tr class="separator:ga792d6e546f624b93c64487c04deac344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6186503d5c641ed5c2a3f36c0cbf1a76" id="r_ga6186503d5c641ed5c2a3f36c0cbf1a76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#ga6186503d5c641ed5c2a3f36c0cbf1a76">ast::aIsLibrary</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fileName)</td></tr>
 <tr class="separator:ga6186503d5c641ed5c2a3f36c0cbf1a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd53896a8b3f1a913f4a9addd60c05d2" id="r_gadd53896a8b3f1a913f4a9addd60c05d2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Platform.html#gadd53896a8b3f1a913f4a9addd60c05d2">ast::aGetModuleFilePath</a> (void *lib)</td></tr>
+<tr class="separator:gadd53896a8b3f1a913f4a9addd60c05d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

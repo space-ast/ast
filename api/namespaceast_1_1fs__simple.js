@@ -8,5 +8,6 @@ var namespaceast_1_1fs__simple =
     [ "space_info", "structast_1_1fs__simple_1_1space__info.html", null ],
     [ "absolute", "namespaceast_1_1fs__simple.html#abd50a03f720f09410e8f2d20b343436c", null ],
     [ "relative", "namespaceast_1_1fs__simple.html#a8fa783eb0e81045615d218f37441b52c", null ],
+    [ "symlink_status", "namespaceast_1_1fs__simple.html#ac05dc83ad2c55fb31ea5326b87c8822f", null ],
     [ "temp_directory_path", "namespaceast_1_1fs__simple.html#add25dbcd38325c4a206a83c065ac189c", null ]
 ];

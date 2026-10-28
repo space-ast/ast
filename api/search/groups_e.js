@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['大气模型_0',['大气模型',['../group__Atmosphere.html',1,'']]]
+  ['向量矩阵_0',['向量矩阵',['../group__Array.html',1,'']]]
 ];

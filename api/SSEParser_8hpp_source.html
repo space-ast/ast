@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstAI/Providers/SSEParser.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstHarness/Providers/SSEParser.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -108,7 +108,7 @@ $(function(){initNavTree('SSEParser_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/NetworkStreamReceiver.hpp&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstUtil/JsonValue.hpp&quot;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;AstAI/ChatEventHandler.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;AstHarness/ChatEventHandler.hpp&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
@@ -116,7 +116,7 @@ $(function(){initNavTree('SSEParser_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classast_1_1SSEParser.html">   37</a></span><span class="keyword">class </span>AST_AI_API <a class="code hl_class" href="classast_1_1SSEParser.html">SSEParser</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1NetworkStreamReceiver.html">NetworkStreamReceiver</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classast_1_1SSEParser.html">   37</a></span><span class="keyword">class </span>AST_HARNESS_API <a class="code hl_class" href="classast_1_1SSEParser.html">SSEParser</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1NetworkStreamReceiver.html">NetworkStreamReceiver</a></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1SSEParser.html">SSEParser</a>(<a class="code hl_class" href="classast_1_1ChatEventHandler.html">ChatEventHandler</a>&amp; handler);</div>
@@ -152,21 +152,23 @@ $(function(){initNavTree('SSEParser_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> processToolCallDeltas(<span class="keyword">const</span> JsonValue&amp; toolCalls);</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    ChatEventHandler&amp; handler_;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">bool</span> thoughtCompleted_{<span class="keyword">false</span>};   <span class="comment">// 是否已完成推理/思考内容</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::string       buffer_{};</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    std::string       error_{};</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::string id_{};</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    std::string model_{};</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    std::string accumulatedContent_{};</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::string accumulatedReasoning_{};</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    std::string finishReason_{};</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    std::map&lt;int, AccumulatedToolCall&gt; toolCallsByIndex_{};</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">bool</span>              thoughtCompleted_{<span class="keyword">false</span>};         </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">bool</span>              errorTruncated_{<span class="keyword">false</span>};           </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">int</span>               statusCode_{-1};                  </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::string       buffer_{};</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::string       error_{};</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    std::string id_{};</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::string model_{};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    std::string accumulatedContent_{};</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    std::string accumulatedReasoning_{};</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::string finishReason_{};</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    std::map&lt;int, AccumulatedToolCall&gt; toolCallsByIndex_{};</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
 </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1ChatEventHandler_html"><div class="ttname"><a href="classast_1_1ChatEventHandler.html">ast::ChatEventHandler</a></div><div class="ttdoc">流式聊天事件处理器</div><div class="ttdef"><b>定义</b> ChatEventHandler.hpp:42</div></div>
 <div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
 <div class="ttc" id="aclassast_1_1NetworkStreamReceiver_html"><div class="ttname"><a href="classast_1_1NetworkStreamReceiver.html">ast::NetworkStreamReceiver</a></div><div class="ttdoc">流式数据接收器</div><div class="ttdef"><b>定义</b> NetworkStreamReceiver.hpp:44</div></div>
@@ -182,7 +184,7 @@ $(function(){initNavTree('SSEParser_8hpp_source.html',''); initResizable(true); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ea6136a52e1cd5f6e6b20d5ee7560754.html">AstAI</a></li><li class="navelem"><a class="el" href="dir_88c9be8639d736a6c27031e7d3f9df3a.html">Providers</a></li><li class="navelem"><a class="el" href="SSEParser_8hpp.html">SSEParser.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a79ee6964b391c673dc3565c5f5397d7.html">AstHarness</a></li><li class="navelem"><a class="el" href="dir_8676985a42d0e0d5d114cfdbd80b561a.html">Providers</a></li><li class="navelem"><a class="el" href="SSEParser_8hpp.html">SSEParser.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['q2m_0',['q2m',['../group__Spice.html#ga627c43ef632cc13d3e38a11ff1c80254',1,'ast']]],
+  ['q2m_0',['q2m',['../group__Spice.html#ga031a8611cf0a3b9fe78e0d0964f69e2c',1,'ast']]],
   ['q_5f_1',['q_',['../classast_1_1EquinElem.html#a3e83e3e396633690125f0784ec58329f',1,'ast::EquinElem']]],
   ['qs_2',['qs',['../classast_1_1Quaternion.html#a8450b588cce120ed57b4734788bf3c72',1,'ast::Quaternion::qs() const'],['../classast_1_1Quaternion.html#a6e238b0ff22ec106e0157e844363813d',1,'ast::Quaternion::qs()']]],
   ['quantity_3',['Quantity',['../classast_1_1Quantity.html',1,'ast::Quantity'],['../classast_1_1Quantity.html#ac988a30e183d70dcae9d3c0ab4a758d4',1,'ast::Quantity::Quantity(double magnitude, const Unit &amp;unit)'],['../classast_1_1Quantity.html#aa4ba87f976a1bdca3c068e91cafc7284',1,'ast::Quantity::Quantity(double magnitude)']]],

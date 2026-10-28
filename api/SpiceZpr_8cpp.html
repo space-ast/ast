@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -117,6 +117,8 @@ $(function(){initNavTree('SpiceZpr_8cpp.html',''); initResizable(true); });
 <code>#include &quot;AstMath/Euler.hpp&quot;</code><br />
 <code>#include &quot;AstMath/Quaternion.hpp&quot;</code><br />
 <code>#include &quot;AstMath/MathOperator.hpp&quot;</code><br />
+<code>#include &quot;AstMath/MathUtil.hpp&quot;</code><br />
+<code>#include &quot;AstMath/ParamAdapter.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Constants.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/Math.hpp&quot;</code><br />
 <code>#include &quot;AstUtil/StringView.hpp&quot;</code><br />
@@ -137,8 +139,11 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::SpiceInt</b> = 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:gaa492a6a07aed235f9ef4ea65c0ec1017" id="r_gaa492a6a07aed235f9ef4ea65c0ec1017"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#gaa492a6a07aed235f9ef4ea65c0ec1017">ast::axisar</a> (const Vector3d &amp;axis, double angle, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r)</td></tr>
-<tr class="separator:gaa492a6a07aed235f9ef4ea65c0ec1017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d9503f02a44b69080861bdd6b7d0313" id="r_ga5d9503f02a44b69080861bdd6b7d0313"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga5d9503f02a44b69080861bdd6b7d0313">ast::axisar</a> (const Vector3d &amp;axis, double angle, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r)</td></tr>
+<tr class="separator:ga5d9503f02a44b69080861bdd6b7d0313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aead6c69ea8d6aaf6801ebefa434b354b" id="r_aead6c69ea8d6aaf6801ebefa434b354b"><td class="memItemLeft" align="right" valign="top"><a id="aead6c69ea8d6aaf6801ebefa434b354b" name="aead6c69ea8d6aaf6801ebefa434b354b"></a>
+AST_SPICE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::axisar</b> (const double axis[3], double angle, double r[3][3])</td></tr>
+<tr class="separator:aead6c69ea8d6aaf6801ebefa434b354b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga70544ad5025e6d1ee6668980a7ec6230" id="r_ga70544ad5025e6d1ee6668980a7ec6230"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga70544ad5025e6d1ee6668980a7ec6230">ast::azlrec</a> (double range, double az, double el, bool azccw, bool elplsz, Vector3d &amp;rectan)</td></tr>
 <tr class="separator:ga70544ad5025e6d1ee6668980a7ec6230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga840c1478e8c535f6105c0c16a048190c" id="r_ga840c1478e8c535f6105c0c16a048190c"><td class="memItemLeft" align="right" valign="top">
@@ -152,10 +157,16 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::b1950</b> ()</
 <tr class="memitem:gae84bbf14131d083d3886978ca516e180" id="r_gae84bbf14131d083d3886978ca516e180"><td class="memItemLeft" align="right" valign="top">
 double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::dpr</b> ()</td></tr>
 <tr class="separator:gae84bbf14131d083d3886978ca516e180"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5e731824b990e410fb69e97f5f05c283" id="r_ga5e731824b990e410fb69e97f5f05c283"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga5e731824b990e410fb69e97f5f05c283">ast::eul2m</a> (double angle3, double angle2, double angle1, int axis3, int axis2, int axis1, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r)</td></tr>
-<tr class="separator:ga5e731824b990e410fb69e97f5f05c283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga69e7485a9fbd13916ae87dbf0ba84562" id="r_ga69e7485a9fbd13916ae87dbf0ba84562"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga69e7485a9fbd13916ae87dbf0ba84562">ast::ident</a> (<a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
-<tr class="separator:ga69e7485a9fbd13916ae87dbf0ba84562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa859858a754e3aba252aa01a7bd43cc2" id="r_gaa859858a754e3aba252aa01a7bd43cc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#gaa859858a754e3aba252aa01a7bd43cc2">ast::eul2m</a> (double angle3, double angle2, double angle1, int axis3, int axis2, int axis1, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r)</td></tr>
+<tr class="separator:gaa859858a754e3aba252aa01a7bd43cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22ab68865e9675ddc8481dd3a0d7b3c1" id="r_a22ab68865e9675ddc8481dd3a0d7b3c1"><td class="memItemLeft" align="right" valign="top"><a id="a22ab68865e9675ddc8481dd3a0d7b3c1" name="a22ab68865e9675ddc8481dd3a0d7b3c1"></a>
+AST_SPICE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::eul2m</b> (double angle3, double angle2, double angle1, int axis3, int axis2, int axis1, double r[3][3])</td></tr>
+<tr class="separator:a22ab68865e9675ddc8481dd3a0d7b3c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9f9048099aa812e30cc9201c12a104c" id="r_gad9f9048099aa812e30cc9201c12a104c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#gad9f9048099aa812e30cc9201c12a104c">ast::ident</a> (<a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;matrix)</td></tr>
+<tr class="separator:gad9f9048099aa812e30cc9201c12a104c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72e019c71a0179759579293c8087c9bf" id="r_a72e019c71a0179759579293c8087c9bf"><td class="memItemLeft" align="right" valign="top"><a id="a72e019c71a0179759579293c8087c9bf" name="a72e019c71a0179759579293c8087c9bf"></a>
+AST_SPICE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ident</b> (double matrix[3][3])</td></tr>
+<tr class="separator:a72e019c71a0179759579293c8087c9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga03c40552799c64c5894b07ed280c2bc0" id="r_ga03c40552799c64c5894b07ed280c2bc0"><td class="memItemLeft" align="right" valign="top">
 double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::j1900</b> ()</td></tr>
 <tr class="separator:ga03c40552799c64c5894b07ed280c2bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,26 +184,41 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::jyear</b> ()</
 <tr class="separator:gae378623c62ab40755fb7a3e2782611a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga681668a99acdec72888a3ee355098016" id="r_ga681668a99acdec72888a3ee355098016"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga681668a99acdec72888a3ee355098016">ast::latrec</a> (double radius, double lon, double lat, Vector3d &amp;rectan)</td></tr>
 <tr class="separator:ga681668a99acdec72888a3ee355098016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae64d4b9ccf02cdb3ca2e46d24351dc07" id="r_gae64d4b9ccf02cdb3ca2e46d24351dc07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#gae64d4b9ccf02cdb3ca2e46d24351dc07">ast::m2eul</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r, int axis3, int axis2, int axis1, double &amp;angle3, double &amp;angle2, double &amp;angle1)</td></tr>
-<tr class="separator:gae64d4b9ccf02cdb3ca2e46d24351dc07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac01f9b58731969aaab459cdd8fb9de56" id="r_gac01f9b58731969aaab459cdd8fb9de56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#gac01f9b58731969aaab459cdd8fb9de56">ast::m2q</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;q)</td></tr>
-<tr class="separator:gac01f9b58731969aaab459cdd8fb9de56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga186312adcab3a6cc586e7affaa431d69" id="r_ga186312adcab3a6cc586e7affaa431d69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga186312adcab3a6cc586e7affaa431d69">ast::mxm</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;m1, const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;<a class="el" href="namespaceast_1_1units.html#ac593a293f88115dcf831f0cd0c707ccd">m2</a>, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;mout)</td></tr>
-<tr class="separator:ga186312adcab3a6cc586e7affaa431d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99d96bfd415e8a6e6706c18d516387ae" id="r_ga99d96bfd415e8a6e6706c18d516387ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga99d96bfd415e8a6e6706c18d516387ae">ast::m2eul</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r, int axis3, int axis2, int axis1, double &amp;angle3, double &amp;angle2, double &amp;angle1)</td></tr>
+<tr class="separator:ga99d96bfd415e8a6e6706c18d516387ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba51704ebc1dedf3e558c3fcfd54a333" id="r_aba51704ebc1dedf3e558c3fcfd54a333"><td class="memItemLeft" align="right" valign="top"><a id="aba51704ebc1dedf3e558c3fcfd54a333" name="aba51704ebc1dedf3e558c3fcfd54a333"></a>
+AST_SPICE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::m2eul</b> (const double r[3][3], int axis3, int axis2, int axis1, double *angle3, double *angle2, double *angle1)</td></tr>
+<tr class="separator:aba51704ebc1dedf3e558c3fcfd54a333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61d74627ad55469067e6e2a3b62ee9be" id="r_ga61d74627ad55469067e6e2a3b62ee9be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga61d74627ad55469067e6e2a3b62ee9be">ast::m2q</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r, <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;q)</td></tr>
+<tr class="separator:ga61d74627ad55469067e6e2a3b62ee9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a410bdd1a00d7c2714cb348ff28c2b2fb" id="r_a410bdd1a00d7c2714cb348ff28c2b2fb"><td class="memItemLeft" align="right" valign="top"><a id="a410bdd1a00d7c2714cb348ff28c2b2fb" name="a410bdd1a00d7c2714cb348ff28c2b2fb"></a>
+AST_SPICE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::m2q</b> (const double r[3][3], double q[4])</td></tr>
+<tr class="separator:a410bdd1a00d7c2714cb348ff28c2b2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26ca19fcf9edd48b0a3c90498828b7d1" id="r_ga26ca19fcf9edd48b0a3c90498828b7d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga26ca19fcf9edd48b0a3c90498828b7d1">ast::mxm</a> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;m1, const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;<a class="el" href="namespaceast_1_1units.html#ac593a293f88115dcf831f0cd0c707ccd">m2</a>, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;mout)</td></tr>
+<tr class="separator:ga26ca19fcf9edd48b0a3c90498828b7d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa82a8a309449c0d010efa20eb8dc092" id="r_afa82a8a309449c0d010efa20eb8dc092"><td class="memItemLeft" align="right" valign="top"><a id="afa82a8a309449c0d010efa20eb8dc092" name="afa82a8a309449c0d010efa20eb8dc092"></a>
+AST_SPICE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::mxm</b> (const double m1[3][3], const double <a class="el" href="namespaceast_1_1units.html#ac593a293f88115dcf831f0cd0c707ccd">m2</a>[3][3], double mout[3][3])</td></tr>
+<tr class="separator:afa82a8a309449c0d010efa20eb8dc092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad90e6b55870d2a694400ebc5c8c6548f" id="r_gad90e6b55870d2a694400ebc5c8c6548f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#gad90e6b55870d2a694400ebc5c8c6548f">ast::mxvg</a> (const void *m1, const void *v2, int nr1, int nc1r2, void *vout)</td></tr>
 <tr class="separator:gad90e6b55870d2a694400ebc5c8c6548f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7b492f27fc0ea931de62b89458eee914" id="r_ga7b492f27fc0ea931de62b89458eee914"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga7b492f27fc0ea931de62b89458eee914">ast::pxform</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> from, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> to, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;et, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;rotate)</td></tr>
 <tr class="separator:ga7b492f27fc0ea931de62b89458eee914"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d2284e82e58b2d0dc5f06e00b5ba227" id="r_a7d2284e82e58b2d0dc5f06e00b5ba227"><td class="memItemLeft" align="right" valign="top"><a id="a7d2284e82e58b2d0dc5f06e00b5ba227" name="a7d2284e82e58b2d0dc5f06e00b5ba227"></a>
-AST_SPICE_CAPI errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pxform</b> (const char *from, const char *to, double et, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;rotate)</td></tr>
-<tr class="separator:a7d2284e82e58b2d0dc5f06e00b5ba227"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga627c43ef632cc13d3e38a11ff1c80254" id="r_ga627c43ef632cc13d3e38a11ff1c80254"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga627c43ef632cc13d3e38a11ff1c80254">ast::q2m</a> (const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;q, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r)</td></tr>
-<tr class="separator:ga627c43ef632cc13d3e38a11ff1c80254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a310e2245731bf3dcd37c6bc11594af01" id="r_a310e2245731bf3dcd37c6bc11594af01"><td class="memItemLeft" align="right" valign="top"><a id="a310e2245731bf3dcd37c6bc11594af01" name="a310e2245731bf3dcd37c6bc11594af01"></a>
+AST_SPICE_CAPI errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::pxform</b> (const char *from, const char *to, double et, double rotate[3][3])</td></tr>
+<tr class="separator:a310e2245731bf3dcd37c6bc11594af01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga031a8611cf0a3b9fe78e0d0964f69e2c" id="r_ga031a8611cf0a3b9fe78e0d0964f69e2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga031a8611cf0a3b9fe78e0d0964f69e2c">ast::q2m</a> (const <a class="el" href="classast_1_1Quaternion.html">Quaternion</a> &amp;q, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;r)</td></tr>
+<tr class="separator:ga031a8611cf0a3b9fe78e0d0964f69e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d306140878051522bac3ca365af7e47" id="r_a5d306140878051522bac3ca365af7e47"><td class="memItemLeft" align="right" valign="top"><a id="a5d306140878051522bac3ca365af7e47" name="a5d306140878051522bac3ca365af7e47"></a>
+AST_SPICE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::q2m</b> (const double q[4], double r[3][3])</td></tr>
+<tr class="separator:a5d306140878051522bac3ca365af7e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga925fcb5be8351292ea60a4b53e1aadd5" id="r_ga925fcb5be8351292ea60a4b53e1aadd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga925fcb5be8351292ea60a4b53e1aadd5">ast::radrec</a> (double range, double ra, double dec, Vector3d &amp;rectan)</td></tr>
 <tr class="separator:ga925fcb5be8351292ea60a4b53e1aadd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae4ad791279dc2d35f3ee9497a9b24160" id="r_gae4ad791279dc2d35f3ee9497a9b24160"><td class="memItemLeft" align="right" valign="top">
+<tr class="memitem:ga2258c2838e433e4823ae91052ac70796" id="r_ga2258c2838e433e4823ae91052ac70796"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::rav2xf</b> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;rot, const Vector3d &amp;av, <a class="el" href="classast_1_1MatrixMN.html">Matrix6d</a> &amp;xform)</td></tr>
-<tr class="separator:gae4ad791279dc2d35f3ee9497a9b24160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga2258c2838e433e4823ae91052ac70796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24da12a676033cea6b6a1e0278d21a8e" id="r_a24da12a676033cea6b6a1e0278d21a8e"><td class="memItemLeft" align="right" valign="top"><a id="a24da12a676033cea6b6a1e0278d21a8e" name="a24da12a676033cea6b6a1e0278d21a8e"></a>
+AST_SPICE_CAPI void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::rav2xf</b> (const double rot[3][3], const double av[3], double xform[6][6])</td></tr>
+<tr class="separator:a24da12a676033cea6b6a1e0278d21a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3da269f265fc042307707d13ce7be0a2" id="r_ga3da269f265fc042307707d13ce7be0a2"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga3da269f265fc042307707d13ce7be0a2">ast::spkapo</a> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *targ, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;et, <a class="el" href="classast_1_1Axes.html">Axes</a> *ref, const <a class="el" href="classast_1_1CartState.html">CartState</a> &amp;sobs, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> abcorr, Vector3d &amp;ptarg, double *lt=nullptr)</td></tr>
 <tr class="separator:ga3da269f265fc042307707d13ce7be0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga00b23aec0227c90d3691861a387f3a5c" id="r_ga00b23aec0227c90d3691861a387f3a5c"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga00b23aec0227c90d3691861a387f3a5c">ast::spkpos</a> (<a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *targ, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;et, <a class="el" href="classast_1_1Axes.html">Axes</a> *ref, <a class="el" href="classast_1_1StringViewBasic.html">StringView</a> abcorr, <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *obs, Vector3d &amp;ptarg, double *lt=nullptr)</td></tr>
@@ -217,9 +243,9 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::stlabx</b> (co
 <tr class="memitem:ga388f3226af49439118825a93792302d6" id="r_ga388f3226af49439118825a93792302d6"><td class="memItemLeft" align="right" valign="top">
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::tipbod</b> (<a class="el" href="classast_1_1Axes.html">Axes</a> *ref, <a class="el" href="classast_1_1CelestialBody.html">CelestialBody</a> *body, const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;et, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;tipm)</td></tr>
 <tr class="separator:ga388f3226af49439118825a93792302d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af07f9074272bfb526b7a1b48153f11be" id="r_af07f9074272bfb526b7a1b48153f11be"><td class="memItemLeft" align="right" valign="top"><a id="af07f9074272bfb526b7a1b48153f11be" name="af07f9074272bfb526b7a1b48153f11be"></a>
-AST_SPICE_CAPI errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::tipbod</b> (const char *ref, int body, double et, <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;tipm)</td></tr>
-<tr class="separator:af07f9074272bfb526b7a1b48153f11be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bd41009426f822bd596867f783c743b" id="r_a7bd41009426f822bd596867f783c743b"><td class="memItemLeft" align="right" valign="top"><a id="a7bd41009426f822bd596867f783c743b" name="a7bd41009426f822bd596867f783c743b"></a>
+AST_SPICE_CAPI errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::tipbod</b> (const char *ref, int body, double et, double tipm[3][3])</td></tr>
+<tr class="separator:a7bd41009426f822bd596867f783c743b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4f205815708e303f060b016040e999fd" id="r_ga4f205815708e303f060b016040e999fd"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Spice.html#ga4f205815708e303f060b016040e999fd">ast::utc2et</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> utcstr, double &amp;et)</td></tr>
 <tr class="separator:ga4f205815708e303f060b016040e999fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a199afe3b7d6c7eb8dc465b79bf5da569" id="r_a199afe3b7d6c7eb8dc465b79bf5da569"><td class="memItemLeft" align="right" valign="top"><a id="a199afe3b7d6c7eb8dc465b79bf5da569" name="a199afe3b7d6c7eb8dc465b79bf5da569"></a>

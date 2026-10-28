@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -111,27 +111,30 @@ $(function(){initNavTree('AccessStepper_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classast_1_1AccessStepper.html">   34</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1AccessStepper.html">AccessStepper</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1ObjectNamed.html">ObjectNamed</a></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1AccessStepper.html">AccessStepper</a>)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="classast_1_1AccessStepper.html">AccessStepper</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1AccessStepper.html">~AccessStepper</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classast_1_1AccessStepper.html#a0593763cb87625a15011ea55aaa4988b">   45</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1AccessStepper.html#a0593763cb87625a15011ea55aaa4988b">init</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; start, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; stop) = 0;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classast_1_1AccessStepper.html#a485cb86a144684b80bf16320fe22702d">   50</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1AccessStepper.html#a485cb86a144684b80bf16320fe22702d">next</a>(<a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) = 0;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classast_1_1AccessStepper.html">   36</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1AccessStepper.html">AccessStepper</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1ObjectNamed.html">ObjectNamed</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    AST_OBJECT(<a class="code hl_class" href="classast_1_1AccessStepper.html">AccessStepper</a>)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classast_1_1AccessStepper.html">AccessStepper</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classast_1_1AccessStepper.html">~AccessStepper</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classast_1_1AccessStepper.html#a0593763cb87625a15011ea55aaa4988b">   47</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1AccessStepper.html#a0593763cb87625a15011ea55aaa4988b">init</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; start, <span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; stop) = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classast_1_1AccessStepper.html#a427d586b9f1eb72e5c0b3ee297652b06">   52</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1AccessStepper.html#a427d586b9f1eb72e5c0b3ee297652b06">first</a>(<a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) = 0;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classast_1_1AccessStepper.html#a485cb86a144684b80bf16320fe22702d">   57</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classast_1_1AccessStepper.html#a485cb86a144684b80bf16320fe22702d">next</a>(<a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp) = 0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
 </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="aclassast_1_1AccessStepper_html"><div class="ttname"><a href="classast_1_1AccessStepper.html">ast::AccessStepper</a></div><div class="ttdoc">步进策略抽象基类</div><div class="ttdef"><b>定义</b> AccessStepper.hpp:35</div></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aclassast_1_1AccessStepper_html"><div class="ttname"><a href="classast_1_1AccessStepper.html">ast::AccessStepper</a></div><div class="ttdoc">步进策略抽象基类</div><div class="ttdef"><b>定义</b> AccessStepper.hpp:37</div></div>
 <div class="ttc" id="aclassast_1_1AccessStepper_html_a0593763cb87625a15011ea55aaa4988b"><div class="ttname"><a href="classast_1_1AccessStepper.html#a0593763cb87625a15011ea55aaa4988b">ast::AccessStepper::init</a></div><div class="ttdeci">virtual void init(const TimePoint &amp;start, const TimePoint &amp;stop)=0</div><div class="ttdoc">初始化时间范围</div></div>
+<div class="ttc" id="aclassast_1_1AccessStepper_html_a427d586b9f1eb72e5c0b3ee297652b06"><div class="ttname"><a href="classast_1_1AccessStepper.html#a427d586b9f1eb72e5c0b3ee297652b06">ast::AccessStepper::first</a></div><div class="ttdeci">virtual bool first(TimePoint &amp;tp)=0</div><div class="ttdoc">获取第一个采样时刻</div></div>
 <div class="ttc" id="aclassast_1_1AccessStepper_html_a485cb86a144684b80bf16320fe22702d"><div class="ttname"><a href="classast_1_1AccessStepper.html#a485cb86a144684b80bf16320fe22702d">ast::AccessStepper::next</a></div><div class="ttdeci">virtual bool next(TimePoint &amp;tp)=0</div><div class="ttdoc">获取下一个采样时刻</div></div>
 <div class="ttc" id="aclassast_1_1ObjectNamed_html"><div class="ttname"><a href="classast_1_1ObjectNamed.html">ast::ObjectNamed</a></div><div class="ttdoc">命名对象</div><div class="ttdef"><b>定义</b> ObjectNamed.hpp:36</div></div>
-<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:108</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:109</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -110,6 +110,8 @@ $(function(){initNavTree('namespaceast_1_1math.html',''); initResizable(true); }
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1math_1_1is__arithmetic__element.html">is_arithmetic_element</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1math_1_1is__vector__like.html">is_vector_like</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structast_1_1math_1_1is__vector__like_3_1_1Eigen_1_1Matrix_3_01Scalar_00_01Rows_00_01Cols_00_01Oe63ba8974902180fb0560fc66b8057c6.html">is_vector_like&lt;::Eigen::Matrix&lt; Scalar, Rows, Cols, Options, MaxRows, MaxCols &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -223,6 +225,9 @@ template&lt;size_t N&gt; </td></tr>
 template&lt;size_t N&gt; </td></tr>
 <tr class="memitem:ad6133cb1eb3b026f01fe299bc664d8d9"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; double, <a class="el" href="namespaceast_1_1units.html#aa855b6dee85a8685cc6cad69db006c8a">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>normalized</b> (const double *vec)</td></tr>
 <tr class="separator:ad6133cb1eb3b026f01fe299bc664d8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f4d8a27579c552bbf631620e04a90d" id="r_ac9f4d8a27579c552bbf631620e04a90d"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </td></tr>
+<tr class="memitem:ac9f4d8a27579c552bbf631620e04a90d"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="structast_1_1math_1_1is__arithmetic__element.html">is_arithmetic_element</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt;::value, std::true_type &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac9f4d8a27579c552bbf631620e04a90d">arithmeticElementCheck</a> (<a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>)</td></tr>
+<tr class="separator:ac9f4d8a27579c552bbf631620e04a90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad55476707790d13c96d9eef28526cbcf" id="r_ad55476707790d13c96d9eef28526cbcf"><td class="memTemplParams" colspan="2"><a id="ad55476707790d13c96d9eef28526cbcf" name="ad55476707790d13c96d9eef28526cbcf"></a>
 template&lt;typename _Scalar , size_t I, size_t J, size_t K&gt; </td></tr>
 <tr class="memitem:ad55476707790d13c96d9eef28526cbcf"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; std::array&lt; _Scalar, <a class="el" href="namespaceast_1_1units.html#aedd8196c22c19f4357fa0cc6aec72f53">K</a> &gt;, I &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mtimes</b> (const _Scalar(&amp;left)[I][J], const _Scalar(&amp;right)[J][<a class="el" href="namespaceast_1_1units.html#aedd8196c22c19f4357fa0cc6aec72f53">K</a>])</td></tr>
@@ -232,7 +237,31 @@ template&lt;typename _Scalar , size_t I, size_t J, size_t K&gt; </td></tr>
 <div class="textblock"><p>提供向量运算相关的函数 </p>
 <dl class="section note"><dt>注解</dt><dd>采用模板函数实现向量运算，只要类型支持标准化的接口即可使用这些函数</dd></dl>
 <p>一般来说，用于向量运算的类型都能支持随机访问， 所以这里没有参考标准库的实现来处理不支持随机访问的数据容器 直接使用使用for循环 + 下标访问实现向量运算 </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">函数说明</h2>
+<a id="ac9f4d8a27579c552bbf631620e04a90d" name="ac9f4d8a27579c552bbf631620e04a90d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f4d8a27579c552bbf631620e04a90d">&#9670;&#160;</a></span>arithmeticElementCheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt; <a class="el" href="structast_1_1math_1_1is__arithmetic__element.html">is_arithmetic_element</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt;::value, std::true_type &gt;::type ast::math::arithmeticElementCheck </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>仅当 T 为向量运算可用的数值类型时该重载才存在 </p>
+<dl class="section note"><dt>注解</dt><dd><br  />
+ 老版本 MSVC（VS2015）解析不了嵌套在 decltype 里的类模板，会误报 C2955 故用该函数模板判断元素类型，而不是写在 decltype 内部，只声明不定义，仅用于 SFINAE 探测 </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

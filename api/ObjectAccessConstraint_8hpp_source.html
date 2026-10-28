@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -133,8 +133,8 @@ $(function(){initNavTree('ObjectAccessConstraint_8hpp_source.html',''); initResi
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classast_1_1ObjectAccessConstraint.html">ObjectAccessConstraint</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classast_1_1ObjectAccessConstraint.html">ObjectAccessConstraint</a>(<a class="code hl_enumeration" href="namespaceast.html#a8e321e693ce80eb21906659e8a7485fb">EAccessConstraint</a> type) : type_(type) {}</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="classast_1_1ObjectAccessConstraint.html">ObjectAccessConstraint</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> type);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1ObjectAccessConstraint.html">ObjectAccessConstraint</a>(<a class="code hl_enumeration" href="namespaceast.html#a8e321e693ce80eb21906659e8a7485fb">EAccessConstraint</a> type) : type_(type) {}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classast_1_1ObjectAccessConstraint.html">ObjectAccessConstraint</a>(<a class="code hl_class" href="classast_1_1StringViewBasic.html">StringView</a> type);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="classast_1_1ObjectAccessConstraint.html">~ObjectAccessConstraint</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_enumeration" href="namespaceast.html#a8e321e693ce80eb21906659e8a7485fb">EAccessConstraint</a> type()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> type_; }</div>

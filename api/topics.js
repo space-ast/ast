@@ -1,8 +1,8 @@
 var topics =
 [
-    [ "Chat", "group__Chat.html", "group__Chat" ],
     [ "航天模块", "group__Core.html", "group__Core" ],
     [ "数据更新", "group__DataUpdate.html", "group__DataUpdate" ],
+    [ "Chat", "group__Chat.html", "group__Chat" ],
     [ "数学模块", "group__Math.html", "group__Math" ],
     [ "脚本模块", "group__Script.html", "group__Script" ],
     [ "Spice", "group__Spice.html", "group__Spice" ],
@@ -10,6 +10,7 @@ var topics =
     [ "UiPilot", "group__UiPilot.html", "group__UiPilot" ],
     [ "工具模块", "group__Util.html", "group__Util" ],
     [ "空间天气模型", "group__Weather.html", "group__Weather" ],
+    [ "MCP", "group__MCP.html", "group__MCP" ],
     [ "AstCOM", "group__AstCOM.html", "group__AstCOM" ],
     [ "Eclipse", "group__Eclipse.html", "group__Eclipse" ],
     [ "BlockAstro", "group__BlockAstro.html", "group__BlockAstro" ],
@@ -19,5 +20,6 @@ var topics =
     [ "UiAI", "group__UiAI.html", "group__UiAI" ],
     [ "GUI", "group__GUI.html", "group__GUI" ],
     [ "Network", "group__Network.html", "group__Network" ],
+    [ "Plugin", "group__Plugin.html", "group__Plugin" ],
     [ "Serde", "group__Serde.html", "group__Serde" ]
 ];

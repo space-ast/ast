@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -101,12 +101,15 @@ $(function(){initNavTree('DragForce_8hpp.html',''); initResizable(true); });
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
 <a href="#namespaces">命名空间</a> &#124;
-<a href="#enum-members">枚举</a>  </div>
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">DragForce.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstGlobal.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="ForceModel_8hpp_source.html">ForceModel.hpp</a>&quot;</code><br />
+<code>#include &quot;AstUtil/EnumOrName.hpp&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div>
 <p><a href="DragForce_8hpp_source.html">浏览该文件的源代码.</a></p>
@@ -121,9 +124,17 @@ $(function(){initNavTree('DragForce_8hpp.html',''); initResizable(true); });
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:ga311d66201b80c5f17224622700e18fad" id="r_ga311d66201b80c5f17224622700e18fad"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ast::EAtmDensityModel</b> = EAtmosphereModel</td></tr>
+<tr class="separator:ga311d66201b80c5f17224622700e18fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga969bc64ed0b7e6398124f3f58d55098e" id="r_ga969bc64ed0b7e6398124f3f58d55098e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ForceModel.html#ga969bc64ed0b7e6398124f3f58d55098e">ast::AtmosphereModelId</a> = <a class="el" href="classast_1_1EnumOrName.html">EnumOrName</a>&lt;EAtmosphereModel&gt;</td></tr>
+<tr class="separator:ga969bc64ed0b7e6398124f3f58d55098e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
-<tr class="memitem:gae7d345e328c706e11b589b6545de1b01" id="r_gae7d345e328c706e11b589b6545de1b01"><td class="memItemLeft" align="right" valign="top"><a id="gae7d345e328c706e11b589b6545de1b01" name="gae7d345e328c706e11b589b6545de1b01"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>EAtmDensityModel</b> { <br />
+<tr class="memitem:ga58d93ff5f9b608413e7af269cf4d3f5e" id="r_ga58d93ff5f9b608413e7af269cf4d3f5e"><td class="memItemLeft" align="right" valign="top"><a id="ga58d93ff5f9b608413e7af269cf4d3f5e" name="ga58d93ff5f9b608413e7af269cf4d3f5e"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>EAtmosphereModel</b> { <br />
 &#160;&#160;<b>eNone</b>
 , <b>e1976Standard</b>
 , <b>eHarrisPriester</b>
@@ -140,7 +151,7 @@ $(function(){initNavTree('DragForce_8hpp.html',''); initResizable(true); });
 , <b>eDTM2012</b>
 <br />
  }</td></tr>
-<tr class="separator:gae7d345e328c706e11b589b6545de1b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga58d93ff5f9b608413e7af269cf4d3f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga72d0791d0cee39ced994338c28e4cb71" id="r_ga72d0791d0cee39ced994338c28e4cb71"><td class="memItemLeft" align="right" valign="top"><a id="ga72d0791d0cee39ced994338c28e4cb71" name="ga72d0791d0cee39ced994338c28e4cb71"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>EGeoMagFluxSource</b> { <b>eKp</b>
 , <b>eAp</b>
  }</td></tr>
@@ -151,6 +162,15 @@ $(function(){initNavTree('DragForce_8hpp.html',''); initResizable(true); });
 , <b>e3HourlyCubicSpline</b>
  }</td></tr>
 <tr class="separator:gacb2537be212f9602ae5cd1a02c1e2c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga688c4d6859c7a2f002e4de0ca1a6dd1d" id="r_ga688c4d6859c7a2f002e4de0ca1a6dd1d"><td class="memItemLeft" align="right" valign="top">
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::toString</b> (EAtmDensityModel model)</td></tr>
+<tr class="separator:ga688c4d6859c7a2f002e4de0ca1a6dd1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b036f901cca2752dafe3021ae04784e" id="r_ga5b036f901cca2752dafe3021ae04784e"><td class="memItemLeft" align="right" valign="top">
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::parse</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> type, EAtmDensityModel &amp;result)</td></tr>
+<tr class="separator:ga5b036f901cca2752dafe3021ae04784e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

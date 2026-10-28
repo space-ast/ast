@@ -334,6 +334,7 @@ var group__Time =
     [ "ast::aDateTimeParseISO8601", "group__Time.html#ga6a591cc16c9dc28e968489beba551d43", null ],
     [ "ast::aDateTimeParseRFC3339", "group__Time.html#ga0b72910dfaba93078890c193b19cfaca", null ],
     [ "ast::aDateTimeToJD", "group__Time.html#gaa15f64143aa8bdcf322bcf25182063d4", null ],
+    [ "ast::aDateTimeToYD", "group__Time.html#gaa4438240a6cb7537348c31d8ad3671c3", null ],
     [ "ast::aDateToJD", "group__Time.html#gaebe4e926542fe1deaf535bfdc56a28b3", null ],
     [ "ast::aDateToJDAtNoon", "group__Time.html#gab2b6f150cf641d2e6aa419e849b363cc", null ],
     [ "ast::aDateToMJD", "group__Time.html#gaf509e2f791b75c51d60c4e705c7b0195", null ],

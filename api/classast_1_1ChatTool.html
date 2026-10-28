@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -134,12 +134,22 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a5fa9e5866e57cbbee97b14a469ed2f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c14607c52c49667765ab24353969e6c" id="r_a0c14607c52c49667765ab24353969e6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c14607c52c49667765ab24353969e6c">setParameters</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;<a class="el" href="#a5fa9e5866e57cbbee97b14a469ed2f4b">parameters</a>)</td></tr>
 <tr class="separator:a0c14607c52c49667765ab24353969e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a959988258a1200ac605f5551d8a1a08c" id="r_a959988258a1200ac605f5551d8a1a08c"><td class="memItemLeft" align="right" valign="top"><a id="a959988258a1200ac605f5551d8a1a08c" name="a959988258a1200ac605f5551d8a1a08c"></a>
+const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>inputSchema</b> () const</td></tr>
+<tr class="separator:a959988258a1200ac605f5551d8a1a08c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a557301b2b772092af7244b0f34a3d0fb" id="r_a557301b2b772092af7244b0f34a3d0fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a557301b2b772092af7244b0f34a3d0fb">setInputSchema</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;schema)</td></tr>
+<tr class="separator:a557301b2b772092af7244b0f34a3d0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097169db3d9e63336a1e912127474c43" id="r_a097169db3d9e63336a1e912127474c43"><td class="memItemLeft" align="right" valign="top"><a id="a097169db3d9e63336a1e912127474c43" name="a097169db3d9e63336a1e912127474c43"></a>
+const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>annotations</b> () const</td></tr>
+<tr class="separator:a097169db3d9e63336a1e912127474c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8c43d747bdfc04f9766a451819ae22" id="r_a0c8c43d747bdfc04f9766a451819ae22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c8c43d747bdfc04f9766a451819ae22">setAnnotations</a> (const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;<a class="el" href="#a097169db3d9e63336a1e912127474c43">annotations</a>)</td></tr>
+<tr class="separator:a0c8c43d747bdfc04f9766a451819ae22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d365c65fb84fdf15b17a4262da58d49" id="r_a7d365c65fb84fdf15b17a4262da58d49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1JsonValue.html">JsonValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d365c65fb84fdf15b17a4262da58d49">toJson</a> () const</td></tr>
 <tr class="separator:a7d365c65fb84fdf15b17a4262da58d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>AI工具基类 </p>
-<p>所有AI工具的基类，定义了工具的基本属性和方法 </p>
+<p>所有AI工具的基类，定义了工具的基本属性和方法。 既可用于OpenAI风格的函数调用，也可通过McpTool别名用于MCP服务器。 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
 <a id="a29060b7310c58f2cbb2a0173ff8714b4" name="a29060b7310c58f2cbb2a0173ff8714b4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a29060b7310c58f2cbb2a0173ff8714b4">&#9670;&#160;</a></span>call()</h2>
@@ -261,6 +271,39 @@ Public 成员函数</h2></td></tr>
 
 </div>
 </div>
+<a id="a0c8c43d747bdfc04f9766a451819ae22" name="a0c8c43d747bdfc04f9766a451819ae22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c8c43d747bdfc04f9766a451819ae22">&#9670;&#160;</a></span>setAnnotations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ChatTool::setAnnotations </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>annotations</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置工具注解（MCP ToolAnnotations，OpenAI序列化时忽略） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">annotations</td><td>工具注解 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ad801b83e965db510c3d60f6bbdb80c74" name="ad801b83e965db510c3d60f6bbdb80c74"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad801b83e965db510c3d60f6bbdb80c74">&#9670;&#160;</a></span>setDescription()</h2>
 
@@ -288,6 +331,39 @@ Public 成员函数</h2></td></tr>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">description</td><td>工具描述 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a557301b2b772092af7244b0f34a3d0fb" name="a557301b2b772092af7244b0f34a3d0fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a557301b2b772092af7244b0f34a3d0fb">&#9670;&#160;</a></span>setInputSchema()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::ChatTool::setInputSchema </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1JsonValue.html">JsonValue</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>schema</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置工具参数schema（MCP中的inputSchema） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">schema</td><td>工具参数schema </td></tr>
   </table>
   </dd>
 </dl>
@@ -375,14 +451,14 @@ Public 成员函数</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>转换为JSON值 </p>
+<p>转换为OpenAI风格的JSON值 </p>
 <dl class="section return"><dt>返回</dt><dd>JSON值 </dd></dl>
 
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>src/AstAI/Chat/Tool/<a class="el" href="ChatTool_8hpp_source.html">ChatTool.hpp</a></li>
-<li>src/AstAI/Chat/Tool/<b>ChatTool.cpp</b></li>
+<li>src/AstHarness/Chat/Tool/<a class="el" href="ChatTool_8hpp_source.html">ChatTool.hpp</a></li>
+<li>src/AstHarness/Chat/Tool/<b>ChatTool.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

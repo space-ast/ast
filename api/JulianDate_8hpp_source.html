@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -299,24 +299,32 @@ $(function(){initNavTree('JulianDate_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordflow">return</span> {<a class="code hl_variable" href="namespaceast_1_1units.html#a46331518b0993f7058b537530ef94a33">day</a>() - other.day(), second() - other.second()};</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00236" data-start="{" data-end="}">
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classast_1_1JulianDate.html#acd8181371856325ed60df9079ba61cde">  236</a></span>    <a class="code hl_class" href="classast_1_1JulianDate.html">JulianDate</a> <a class="code hl_function" href="classast_1_1JulianDate.html#acd8181371856325ed60df9079ba61cde">shiftedBySecond</a>(<span class="keywordtype">double</span> second)<span class="keyword"> const</span>{</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keywordflow">return</span> JulianDate::FromDaySecond(day_, second_ + second);</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    }</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> JulianDate&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">return</span> this-&gt;daysFrom(other) &lt; 0;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> JulianDate&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keywordflow">return</span> this-&gt;daysFrom(other) == 0;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    }</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00244" data-start="{" data-end="}">
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="classast_1_1JulianDate.html#acd8181371856325ed60df9079ba61cde">  244</a></span>    <a class="code hl_class" href="classast_1_1JulianDate.html">JulianDate</a> <a class="code hl_function" href="classast_1_1JulianDate.html#acd8181371856325ed60df9079ba61cde">shiftedBySecond</a>(<span class="keywordtype">double</span> second)<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keywordflow">return</span> JulianDate::FromDaySecond(day_, second_ + second);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    }</div>
 </div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordtype">int</span>    day_;     <span class="comment">// 天数部分 day part of julian date</span></div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keywordtype">double</span> second_;  <span class="comment">// 秒数部分 second part of julia date</span></div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>};</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keywordtype">int</span>    day_;     <span class="comment">// 天数部分 day part of julian date</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keywordtype">double</span> second_;  <span class="comment">// 秒数部分 second part of julia date</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>};</div>
 </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>AST_NAMESPACE_END</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
 <div class="ttc" id="aDuration_8hpp_html"><div class="ttname"><a href="Duration_8hpp.html">Duration.hpp</a></div></div>
-<div class="ttc" id="aclassast_1_1DateTime_html"><div class="ttname"><a href="classast_1_1DateTime.html">ast::DateTime</a></div><div class="ttdoc">日期时间</div><div class="ttdef"><b>定义</b> DateTime.hpp:420</div></div>
+<div class="ttc" id="aclassast_1_1DateTime_html"><div class="ttname"><a href="classast_1_1DateTime.html">ast::DateTime</a></div><div class="ttdoc">日期时间</div><div class="ttdef"><b>定义</b> DateTime.hpp:431</div></div>
 <div class="ttc" id="aclassast_1_1JulianDate_html"><div class="ttname"><a href="classast_1_1JulianDate.html">ast::JulianDate</a></div><div class="ttdoc">儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:86</div></div>
 <div class="ttc" id="aclassast_1_1JulianDate_html_a145faf107fe21f998bb3a7e3af1381b3"><div class="ttname"><a href="classast_1_1JulianDate.html#a145faf107fe21f998bb3a7e3af1381b3">ast::JulianDate::secondsFromJulianDate</a></div><div class="ttdeci">double secondsFromJulianDate(double jd) const</div><div class="ttdoc">计算儒略日与另一个儒略日的时间差（秒）</div><div class="ttdef"><b>定义</b> JulianDate.hpp:197</div></div>
 <div class="ttc" id="aclassast_1_1JulianDate_html_a184c746464a0269e3ee46eb8527ab961"><div class="ttname"><a href="classast_1_1JulianDate.html#a184c746464a0269e3ee46eb8527ab961">ast::JulianDate::FromDaySecond</a></div><div class="ttdeci">static JulianDate FromDaySecond(double day, double second)</div><div class="ttdoc">根据天数和秒数创建儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:117</div></div>
@@ -331,7 +339,7 @@ $(function(){initNavTree('JulianDate_8hpp_source.html',''); initResizable(true);
 <div class="ttc" id="aclassast_1_1JulianDate_html_a87055b6bc22499096b60dac1ce0f67dc"><div class="ttname"><a href="classast_1_1JulianDate.html#a87055b6bc22499096b60dac1ce0f67dc">ast::JulianDate::setImpreciseDay</a></div><div class="ttdeci">void setImpreciseDay(double jd)</div><div class="ttdoc">设置不精确的天数</div><div class="ttdef"><b>定义</b> JulianDate.hpp:146</div></div>
 <div class="ttc" id="aclassast_1_1JulianDate_html_a9ce61b46dfd09b9e5d99c9dd458e3597"><div class="ttname"><a href="classast_1_1JulianDate.html#a9ce61b46dfd09b9e5d99c9dd458e3597">ast::JulianDate::FromDaySecond</a></div><div class="ttdeci">static JulianDate FromDaySecond(int day, double second)</div><div class="ttdoc">根据天数和秒数创建儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:110</div></div>
 <div class="ttc" id="aclassast_1_1JulianDate_html_ac65a58270e53a88414d2714c10de55be"><div class="ttname"><a href="classast_1_1JulianDate.html#ac65a58270e53a88414d2714c10de55be">ast::JulianDate::FromDays</a></div><div class="ttdeci">static JulianDate FromDays(double day1, double day2)</div><div class="ttdoc">根据天数(分两部分)创建儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:99</div></div>
-<div class="ttc" id="aclassast_1_1JulianDate_html_acd8181371856325ed60df9079ba61cde"><div class="ttname"><a href="classast_1_1JulianDate.html#acd8181371856325ed60df9079ba61cde">ast::JulianDate::shiftedBySecond</a></div><div class="ttdeci">JulianDate shiftedBySecond(double second) const</div><div class="ttdoc">计算儒略日偏移后的新儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:236</div></div>
+<div class="ttc" id="aclassast_1_1JulianDate_html_acd8181371856325ed60df9079ba61cde"><div class="ttname"><a href="classast_1_1JulianDate.html#acd8181371856325ed60df9079ba61cde">ast::JulianDate::shiftedBySecond</a></div><div class="ttdeci">JulianDate shiftedBySecond(double second) const</div><div class="ttdoc">计算儒略日偏移后的新儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:244</div></div>
 <div class="ttc" id="aclassast_1_1JulianDate_html_ad080fd43f0bf7af18d6429589a13e510"><div class="ttname"><a href="classast_1_1JulianDate.html#ad080fd43f0bf7af18d6429589a13e510">ast::JulianDate::J2000</a></div><div class="ttdeci">static JulianDate J2000()</div><div class="ttdoc">获取 J2000.0 历元的儒略日</div><div class="ttdef"><b>定义</b> JulianDate.hpp:133</div></div>
 <div class="ttc" id="aclassast_1_1JulianDate_html_addfe786b99fd2337bf91b32158b8d62c"><div class="ttname"><a href="classast_1_1JulianDate.html#addfe786b99fd2337bf91b32158b8d62c">ast::JulianDate::setDayFractional</a></div><div class="ttdeci">void setDayFractional(double df)</div><div class="ttdoc">设置小数部分的日数</div><div class="ttdef"><b>定义</b> JulianDate.hpp:175</div></div>
 <div class="ttc" id="aclassast_1_1JulianDate_html_adf1272b09b6178310814e64c8559dd71"><div class="ttname"><a href="classast_1_1JulianDate.html#adf1272b09b6178310814e64c8559dd71">ast::JulianDate::setDaySecond</a></div><div class="ttdeci">void setDaySecond(int day, double second)</div><div class="ttdoc">设置天数和秒数</div><div class="ttdef"><b>定义</b> JulianDate.hpp:165</div></div>

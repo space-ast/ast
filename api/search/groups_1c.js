@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['脚本模块_0',['脚本模块',['../group__Script.html',1,'']]]
+  ['磁场模型_0',['磁场模型',['../group__Magnetosphere.html',1,'']]]
 ];

@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -103,6 +103,8 @@ $(function(){initNavTree('classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.h
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#friends">友元</a> &#124;
 <a href="classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">ast::MatrixMN&lt; _Scalar, 3, 3 &gt; 模板类 参考<div class="ingroups"><a class="el" href="group__Math.html">数学模块</a> &raquo; <a class="el" href="group__Array.html">向量矩阵</a></div></div></div>
 </div><!--header-->
@@ -153,9 +155,9 @@ Scalar&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (siz
 <tr class="memitem:aedbce5d539df152b65aee98c4320e41c" id="r_aedbce5d539df152b65aee98c4320e41c"><td class="memItemLeft" align="right" valign="top"><a id="aedbce5d539df152b65aee98c4320e41c" name="aedbce5d539df152b65aee98c4320e41c"></a>
 Scalar &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (size_t row, size_t col)</td></tr>
 <tr class="separator:aedbce5d539df152b65aee98c4320e41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad38f1e44af04eb99d02c562fba9e7fe1" id="r_gad38f1e44af04eb99d02c562fba9e7fe1"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html">Self</a>&#160;</td><td class="memItemRight" valign="bottom"><b>transpose</b> () const</td></tr>
-<tr class="separator:gad38f1e44af04eb99d02c562fba9e7fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43f96e53dd65c05143713a2dea316d16" id="r_ga43f96e53dd65c05143713a2dea316d16"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1TransposeMatrix.html">TransposeMatrix</a>&lt; <a class="el" href="classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html">Self</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transpose</b> () const</td></tr>
+<tr class="separator:ga43f96e53dd65c05143713a2dea316d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7516d07130880eee9192745d9da87a9e" id="r_ga7516d07130880eee9192745d9da87a9e"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>transposeInPlace</b> ()</td></tr>
 <tr class="separator:ga7516d07130880eee9192745d9da87a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,6 +185,18 @@ Public 属性</h2></td></tr>
 <tr class="memitem:a67fb22197f1a01bf499e23f926eb5059" id="r_a67fb22197f1a01bf499e23f926eb5059"><td class="memItemLeft" align="right" valign="top"><a id="a67fb22197f1a01bf499e23f926eb5059" name="a67fb22197f1a01bf499e23f926eb5059"></a>
 Scalar&#160;</td><td class="memItemRight" valign="bottom"><b>data_</b> [Row][Col]</td></tr>
 <tr class="separator:a67fb22197f1a01bf499e23f926eb5059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:ga2211a36b57104dae38fe8ff18e4c5141" id="r_ga2211a36b57104dae38fe8ff18e4c5141"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html">Self</a>&#160;</td><td class="memItemRight" valign="bottom"><b>transposeImpl</b> () const</td></tr>
+<tr class="separator:ga2211a36b57104dae38fe8ff18e4c5141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+友元</h2></td></tr>
+<tr class="memitem:a9ba87ae2fa30d3983ec2ac021281f942" id="r_a9ba87ae2fa30d3983ec2ac021281f942"><td class="memItemLeft" align="right" valign="top"><a id="a9ba87ae2fa30d3983ec2ac021281f942" name="a9ba87ae2fa30d3983ec2ac021281f942"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>TransposeMatrix&lt; Self &gt;</b></td></tr>
+<tr class="separator:a9ba87ae2fa30d3983ec2ac021281f942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstMath/Array/<a class="el" href="AstMath_2Array_2Matrix_8hpp_source.html">Matrix.hpp</a></li>

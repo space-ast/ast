@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -99,13 +99,16 @@ $(function(){initNavTree('group__Core.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#groups">专题</a>  </div>
+<a href="#groups">专题</a> &#124;
+<a href="#nested-classes">类</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">航天模块</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <p>提供航天模块的功能 </p>
-<dl class="section see"><dt>参见</dt><dd><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">src/AstCore</a> </dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">src/AstCore</a></dd></dl>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
 专题</h2></td></tr>
@@ -127,7 +130,59 @@ $(function(){initNavTree('group__Core.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Time.html">时间转换</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1IAtmosphereProvider.html">ast::IAtmosphereProvider</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:gac3ab567c8a2c7c602d8533fc2689f084" id="r_gac3ab567c8a2c7c602d8533fc2689f084"><td class="memItemLeft" align="right" valign="top"><a id="gac3ab567c8a2c7c602d8533fc2689f084" name="gac3ab567c8a2c7c602d8533fc2689f084"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AST_IID_IAtmosphereProvider</b>&#160;&#160;&#160;&quot;space.ast.AstCore.IAtmosphereProvider&quot;</td></tr>
+<tr class="separator:gac3ab567c8a2c7c602d8533fc2689f084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:gaa1cc09ecb83c52628faf7856b9c6443f" id="r_gaa1cc09ecb83c52628faf7856b9c6443f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa1cc09ecb83c52628faf7856b9c6443f">ast::aCreateAtmosphereFromPlugin</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name, <a class="el" href="classast_1_1ScopedPtr.html">ScopedPtr</a>&lt; <a class="el" href="classast_1_1SpaceWeatherProvider.html">SpaceWeatherProvider</a> &gt; &amp;spaceWeatherProvider)</td></tr>
+<tr class="separator:gaa1cc09ecb83c52628faf7856b9c6443f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac04ff713a31f3c72760910d19dc54eea" id="r_gac04ff713a31f3c72760910d19dc54eea"><td class="memItemLeft" align="right" valign="top"><a id="gac04ff713a31f3c72760910d19dc54eea" name="gac04ff713a31f3c72760910d19dc54eea"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aGetPluginAtmosphereModelNames</b> (std::vector&lt; std::string &gt; &amp;names)</td></tr>
+<tr class="separator:gac04ff713a31f3c72760910d19dc54eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">函数说明</h2>
+<a id="gaa1cc09ecb83c52628faf7856b9c6443f" name="gaa1cc09ecb83c52628faf7856b9c6443f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa1cc09ecb83c52628faf7856b9c6443f">&#9670;&#160;</a></span>aCreateAtmosphereFromPlugin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_API <a class="el" href="classast_1_1Atmosphere.html">Atmosphere</a> * ast::aCreateAtmosphereFromPlugin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classast_1_1ScopedPtr.html">ScopedPtr</a>&lt; <a class="el" href="classast_1_1SpaceWeatherProvider.html">SpaceWeatherProvider</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>spaceWeatherProvider</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>按名字创建插件提供的大气模型 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>模型名字，来自插件元数据里的索引键 </td></tr>
+    <tr><td class="paramname">spaceWeatherProvider</td><td>空间天气数据源 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>模型实例；未找到或创建失败返回 nullptr。所有权归调用方 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>插件需要先被发现：调用 <a class="el" href="group__Plugin.html#ga9c2f790ef43b31273fbc9d6d5cb4944f" title="扫描可用插件并建立索引">aScanPlugins()</a> </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

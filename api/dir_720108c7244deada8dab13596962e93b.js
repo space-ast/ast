@@ -7,6 +7,7 @@ var dir_720108c7244deada8dab13596962e93b =
     [ "Network", "dir_b63ee357c7472c6dbdbf28146b6f1139.html", "dir_b63ee357c7472c6dbdbf28146b6f1139" ],
     [ "ParseFormat", "dir_480cf6b53fcea3873823fd76d21e216e.html", "dir_480cf6b53fcea3873823fd76d21e216e" ],
     [ "Platform", "dir_58f1c1acee87c1819259ff24dc93e089.html", "dir_58f1c1acee87c1819259ff24dc93e089" ],
+    [ "Plugin", "dir_c4c77009fb9a0e06764f18921084af6a.html", "dir_c4c77009fb9a0e06764f18921084af6a" ],
     [ "Quantity", "dir_f454e969ccf99a49cff74d0cdbee1578.html", "dir_f454e969ccf99a49cff74d0cdbee1578" ],
     [ "RTTI", "dir_f086dbc8bbdaf6c80c8dc7e81d9f967a.html", "dir_f086dbc8bbdaf6c80c8dc7e81d9f967a" ],
     [ "Serde", "dir_7050b1ff41cd5be055b62375943f1843.html", "dir_7050b1ff41cd5be055b62375943f1843" ],

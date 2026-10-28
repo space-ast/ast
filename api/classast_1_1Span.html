@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -150,15 +150,17 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>const_reverse_iterat
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:aa289d6daf9146ad59a00260e5503b1ec" id="r_aa289d6daf9146ad59a00260e5503b1ec"><td class="memItemLeft" align="right" valign="top"><a id="aa289d6daf9146ad59a00260e5503b1ec" name="aa289d6daf9146ad59a00260e5503b1ec"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>Span</b> (std::initializer_list&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt; init) noexcept</td></tr>
-<tr class="separator:aa289d6daf9146ad59a00260e5503b1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10bc2e7c71d29525e855804511d8e8e6" id="r_a10bc2e7c71d29525e855804511d8e8e6"><td class="memTemplParams" colspan="2"><a id="a10bc2e7c71d29525e855804511d8e8e6" name="a10bc2e7c71d29525e855804511d8e8e6"></a>
+template&lt;bool Initializable = (Extent == 0 || Extent == dynamic_extent), typename std::enable_if&lt; Initializable, int &gt;::type  = 0&gt; </td></tr>
+<tr class="memitem:a10bc2e7c71d29525e855804511d8e8e6"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Span</b> (std::initializer_list&lt; value_type &gt; init) noexcept</td></tr>
+<tr class="separator:a10bc2e7c71d29525e855804511d8e8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b1f4c3994a4d947086a83ad943f7982" id="r_a8b1f4c3994a4d947086a83ad943f7982"><td class="memItemLeft" align="right" valign="top"><a id="a8b1f4c3994a4d947086a83ad943f7982" name="a8b1f4c3994a4d947086a83ad943f7982"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>Span</b> (pointer ptr, index_type count) noexcept</td></tr>
 <tr class="separator:a8b1f4c3994a4d947086a83ad943f7982"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a542e2b9b76d77e71a864c442d6b25557" id="r_a542e2b9b76d77e71a864c442d6b25557"><td class="memItemLeft" align="right" valign="top"><a id="a542e2b9b76d77e71a864c442d6b25557" name="a542e2b9b76d77e71a864c442d6b25557"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>Span</b> (pointer first, pointer last) noexcept</td></tr>
-<tr class="separator:a542e2b9b76d77e71a864c442d6b25557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dee71dec17121e6ea5955f0ef054884" id="r_a5dee71dec17121e6ea5955f0ef054884"><td class="memTemplParams" colspan="2"><a id="a5dee71dec17121e6ea5955f0ef054884" name="a5dee71dec17121e6ea5955f0ef054884"></a>
+template&lt;typename <a class="el" href="classast_1_1End.html">End</a> , typename std::enable_if&lt;!std::is_convertible&lt; <a class="el" href="classast_1_1End.html">End</a>, index_type &gt;::value, int &gt;::type  = 0&gt; </td></tr>
+<tr class="memitem:a5dee71dec17121e6ea5955f0ef054884"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Span</b> (pointer first, <a class="el" href="classast_1_1End.html">End</a> last) noexcept</td></tr>
+<tr class="separator:a5dee71dec17121e6ea5955f0ef054884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae13e4100b50ffe61d1e387fb08491a10" id="r_ae13e4100b50ffe61d1e387fb08491a10"><td class="memTemplParams" colspan="2"><a id="ae13e4100b50ffe61d1e387fb08491a10" name="ae13e4100b50ffe61d1e387fb08491a10"></a>
 template&lt;std::size_t N&gt; </td></tr>
 <tr class="memitem:ae13e4100b50ffe61d1e387fb08491a10"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Span</b> (element_type(&amp;arr)[<a class="el" href="namespaceast_1_1units.html#aa855b6dee85a8685cc6cad69db006c8a">N</a>]) noexcept</td></tr>
@@ -224,21 +226,32 @@ constexpr index_type&#160;</td><td class="memItemRight" valign="bottom"><b>size<
 <tr class="memitem:a047691c6c29d92e0873e23c491d31d7b" id="r_a047691c6c29d92e0873e23c491d31d7b"><td class="memItemLeft" align="right" valign="top"><a id="a047691c6c29d92e0873e23c491d31d7b" name="a047691c6c29d92e0873e23c491d31d7b"></a>
 constexpr index_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_bytes</b> () const noexcept</td></tr>
 <tr class="separator:a047691c6c29d92e0873e23c491d31d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82248abf87be3dd46b5607967f0b5d3c" id="r_a82248abf87be3dd46b5607967f0b5d3c"><td class="memItemLeft" align="right" valign="top"><a id="a82248abf87be3dd46b5607967f0b5d3c" name="a82248abf87be3dd46b5607967f0b5d3c"></a>
-A_CONSTEXPR_CXX14 <a class="el" href="classast_1_1Span.html">Span</a>&#160;</td><td class="memItemRight" valign="bottom"><b>subspan</b> (index_type offset, index_type count=static_cast&lt; index_type &gt;(-1)) const noexcept</td></tr>
-<tr class="separator:a82248abf87be3dd46b5607967f0b5d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fb2a26ebca17d874b80b77c57c5d676" id="r_a0fb2a26ebca17d874b80b77c57c5d676"><td class="memItemLeft" align="right" valign="top"><a id="a0fb2a26ebca17d874b80b77c57c5d676" name="a0fb2a26ebca17d874b80b77c57c5d676"></a>
-constexpr <a class="el" href="classast_1_1Span.html">Span</a>&#160;</td><td class="memItemRight" valign="bottom"><b>first</b> (index_type count) const noexcept</td></tr>
-<tr class="separator:a0fb2a26ebca17d874b80b77c57c5d676"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d05cc2b0baf7b23c42a0c1a3029177c" id="r_a3d05cc2b0baf7b23c42a0c1a3029177c"><td class="memItemLeft" align="right" valign="top"><a id="a3d05cc2b0baf7b23c42a0c1a3029177c" name="a3d05cc2b0baf7b23c42a0c1a3029177c"></a>
-constexpr <a class="el" href="classast_1_1Span.html">Span</a>&#160;</td><td class="memItemRight" valign="bottom"><b>last</b> (index_type count) const noexcept</td></tr>
-<tr class="separator:a3d05cc2b0baf7b23c42a0c1a3029177c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d60a24a2e5e319be6ee99094d14a91" id="r_a53d60a24a2e5e319be6ee99094d14a91"><td class="memItemLeft" align="right" valign="top"><a id="a53d60a24a2e5e319be6ee99094d14a91" name="a53d60a24a2e5e319be6ee99094d14a91"></a>
+A_CONSTEXPR_CXX14 <a class="el" href="classast_1_1Span.html">Span</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>subspan</b> (index_type offset, index_type count=static_cast&lt; index_type &gt;(-1)) const noexcept</td></tr>
+<tr class="separator:a53d60a24a2e5e319be6ee99094d14a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce814c7f2d01a1948a0ccd3d0ed3267" id="r_a4ce814c7f2d01a1948a0ccd3d0ed3267"><td class="memItemLeft" align="right" valign="top"><a id="a4ce814c7f2d01a1948a0ccd3d0ed3267" name="a4ce814c7f2d01a1948a0ccd3d0ed3267"></a>
+constexpr <a class="el" href="classast_1_1Span.html">Span</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>first</b> (index_type count) const noexcept</td></tr>
+<tr class="separator:a4ce814c7f2d01a1948a0ccd3d0ed3267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a200ca48020dbe5763452e30ce1812f14" id="r_a200ca48020dbe5763452e30ce1812f14"><td class="memItemLeft" align="right" valign="top"><a id="a200ca48020dbe5763452e30ce1812f14" name="a200ca48020dbe5763452e30ce1812f14"></a>
+constexpr <a class="el" href="classast_1_1Span.html">Span</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>last</b> (index_type count) const noexcept</td></tr>
+<tr class="separator:a200ca48020dbe5763452e30ce1812f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae092498346f2c4f63252b297bdbf9d7c" id="r_ae092498346f2c4f63252b297bdbf9d7c"><td class="memTemplParams" colspan="2"><a id="ae092498346f2c4f63252b297bdbf9d7c" name="ae092498346f2c4f63252b297bdbf9d7c"></a>
+template&lt;std::size_t Count&gt; </td></tr>
+<tr class="memitem:ae092498346f2c4f63252b297bdbf9d7c"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classast_1_1Span.html">Span</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>, Count &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>first</b> () const noexcept</td></tr>
+<tr class="separator:ae092498346f2c4f63252b297bdbf9d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99fc8458e1ff24e3c5d4abba53b5c706" id="r_a99fc8458e1ff24e3c5d4abba53b5c706"><td class="memTemplParams" colspan="2"><a id="a99fc8458e1ff24e3c5d4abba53b5c706" name="a99fc8458e1ff24e3c5d4abba53b5c706"></a>
+template&lt;std::size_t Count&gt; </td></tr>
+<tr class="memitem:a99fc8458e1ff24e3c5d4abba53b5c706"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classast_1_1Span.html">Span</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>, Count &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>last</b> () const noexcept</td></tr>
+<tr class="separator:a99fc8458e1ff24e3c5d4abba53b5c706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1c5f490bddf5099ec686372c7a0f56e" id="r_ad1c5f490bddf5099ec686372c7a0f56e"><td class="memTemplParams" colspan="2">template&lt;std::size_t Offset, std::size_t Count = dynamic_extent&gt; </td></tr>
+<tr class="memitem:ad1c5f490bddf5099ec686372c7a0f56e"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classast_1_1Span.html">Span</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>,(Count !=dynamic_extent ? Count :(Extent !=dynamic_extent ? Extent - Offset :dynamic_extent))&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad1c5f490bddf5099ec686372c7a0f56e">subspan</a> () const noexcept</td></tr>
+<tr class="separator:ad1c5f490bddf5099ec686372c7a0f56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静态 Public 属性</h2></td></tr>
-<tr class="memitem:ae6b4906d251b45336c81ebbe19c02710" id="r_ae6b4906d251b45336c81ebbe19c02710"><td class="memItemLeft" align="right" valign="top"><a id="ae6b4906d251b45336c81ebbe19c02710" name="ae6b4906d251b45336c81ebbe19c02710"></a>
-static constexpr std::ptrdiff_t&#160;</td><td class="memItemRight" valign="bottom"><b>extent</b> = Extent</td></tr>
-<tr class="separator:ae6b4906d251b45336c81ebbe19c02710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga62d677fbff90a1e0084ee9fe8bc41c86" id="r_ga62d677fbff90a1e0084ee9fe8bc41c86"><td class="memItemLeft" align="right" valign="top">
+static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>extent</b> = Extent</td></tr>
+<tr class="separator:ga62d677fbff90a1e0084ee9fe8bc41c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>, size_t Extent = dynamic_extent&gt;<br />
@@ -250,7 +263,40 @@ class ast::Span&lt; T, Extent &gt;</div><p>非拥有的连续对象序列视图 
   </table>
   </dd>
 </dl>
-</div><hr/>该类的文档由以下文件生成:<ul>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="ad1c5f490bddf5099ec686372c7a0f56e" name="ad1c5f490bddf5099ec686372c7a0f56e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1c5f490bddf5099ec686372c7a0f56e">&#9670;&#160;</a></span>subspan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a> , size_t Extent = dynamic_extent&gt; </div>
+<div class="memtemplate">
+template&lt;std::size_t Offset, std::size_t Count = dynamic_extent&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1Span.html">Span</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>,(Count !=dynamic_extent ? Count :(Extent !=dynamic_extent ? Extent - Offset :dynamic_extent))&gt; <a class="el" href="classast_1_1Span.html">ast::Span</a>&lt; <a class="el" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>, Extent &gt;::subspan </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>编译期偏移/计数的子视图 </p>
+<p>Count 省略时取到末尾：固定 extent 的 span 返回剩余长度的 span， 动态 extent 的 span 仍返回动态 extent 的 span。 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
 <li>src/AstUtil/Container/<a class="el" href="Span_8hpp_source.html">Span.hpp</a></li>
 </ul>
 </div><!-- contents -->

@@ -339,6 +339,5 @@ var searchData=
   ['ut1_5futc_336',['ut1_utc',['../structast_1_1EOP_1_1Entry.html#a44c6e2f8a8b505a18e0b6ee047b2d3ac',1,'ast::EOP::Entry']]],
   ['utc2et_337',['utc2et',['../group__Spice.html#ga4f205815708e303f060b016040e999fd',1,'ast']]],
   ['utcscale_338',['UTCScale',['../classast_1_1UTCScale.html',1,'ast']]],
-  ['util_2ecpp_339',['Util.cpp',['../Util_8cpp.html',1,'']]],
-  ['util_2ehpp_340',['Util.hpp',['../Util_8hpp.html',1,'']]]
+  ['util_2ehpp_339',['Util.hpp',['../Util_8hpp.html',1,'']]]
 ];

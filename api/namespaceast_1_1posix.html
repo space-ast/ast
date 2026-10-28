@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -120,6 +120,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>stat</b> = struct ::
 <tr class="separator:a7e90d3800c40de7e75eb1c3fca10dc4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affe4f5e5287aa523aeb4a51b828caac1" id="r_affe4f5e5287aa523aeb4a51b828caac1"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affe4f5e5287aa523aeb4a51b828caac1">isatty</a> (int fd)</td></tr>
 <tr class="separator:affe4f5e5287aa523aeb4a51b828caac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec6771e8e82bbab724db5e8f1ee0def3" id="r_aec6771e8e82bbab724db5e8f1ee0def3"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec6771e8e82bbab724db5e8f1ee0def3">getpid</a> ()</td></tr>
+<tr class="separator:aec6771e8e82bbab724db5e8f1ee0def3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3f28c319b242bab2f7bfc469dc71c14" id="r_ad3f28c319b242bab2f7bfc469dc71c14"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3f28c319b242bab2f7bfc469dc71c14">fstat</a> (int fd, stat *buf)</td></tr>
 <tr class="separator:ad3f28c319b242bab2f7bfc469dc71c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf8c6e22f7f0a04805c1e7cba2142919" id="r_abf8c6e22f7f0a04805c1e7cba2142919"><td class="memItemLeft" align="right" valign="top">AST_UTIL_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf8c6e22f7f0a04805c1e7cba2142919">chdir</a> (const char *path)</td></tr>
@@ -272,6 +274,26 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>kMaxPath<
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>如果成功则返回buf，否则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="aec6771e8e82bbab724db5e8f1ee0def3" name="aec6771e8e82bbab724db5e8f1ee0def3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec6771e8e82bbab724db5e8f1ee0def3">&#9670;&#160;</a></span>getpid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">A_ALWAYS_INLINE int ast::posix::getpid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前进程 ID </p>
+<dl class="section return"><dt>返回</dt><dd>当前进程 ID </dd></dl>
 
 </div>
 </div>

@@ -13,6 +13,7 @@ var ParseFormat_8cpp =
     [ "aFormatColor", "ParseFormat_8cpp.html#ga63265581084bbbffd11dfe8b9f437118", null ],
     [ "aFormatDouble", "ParseFormat_8cpp.html#ga5c4d8dd1940e4f4b79408c9b480c10d1", null ],
     [ "aFormatInt", "ParseFormat_8cpp.html#ga9f4b6ed1cf14fe64250b3ddc93387876", null ],
+    [ "aIsInt", "ParseFormat_8cpp.html#ga2c9befd31b9650a4852e7225dcc96e49", null ],
     [ "aParseBool", "ParseFormat_8cpp.html#ga8a061b86a6444396198d62357e65bc5d", null ],
     [ "aParseColor", "ParseFormat_8cpp.html#ga275fe07ad8181316abfb2f954a4cd41b", null ],
     [ "aParseDouble", "ParseFormat_8cpp.html#ga7fce437d68706b2fe82640460bd27a85", null ],

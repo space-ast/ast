@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstCore/Atmosphere/BlendingAtmosphere.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('BlendingAtmosphere_8hpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BlendingAtmosphere.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="BlendingAtmosphere_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="AtmosphereBase_8hpp.html">AtmosphereBase.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstUtil/ScopedPtr.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>AST_NAMESPACE_BEGIN</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespaceast.html#a2dd48ae521780653f2d71f7966016ac6">   38</a></span><span class="keyword">constexpr</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="namespaceast.html#a2dd48ae521780653f2d71f7966016ac6">kDefaultBlendAltitude</a> = 100e3;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classast_1_1BlendingAtmosphere.html">   46</a></span><span class="keyword">class </span>AST_CORE_API <a class="code hl_class" href="classast_1_1BlendingAtmosphere.html">BlendingAtmosphere</a> : <span class="keyword">public</span> <a class="code hl_class" href="classast_1_1Atmosphere.html">Atmosphere</a></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="classast_1_1BlendingAtmosphere.html">BlendingAtmosphere</a>(<a class="code hl_class" href="classast_1_1Atmosphere.html">Atmosphere</a>* mainModel, <a class="code hl_class" href="classast_1_1Atmosphere.html">Atmosphere</a>* lowAltModel, <span class="keywordtype">double</span> blendAltitude, <span class="keywordtype">double</span> blendRange);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classast_1_1BlendingAtmosphere.html">BlendingAtmosphere</a>(<a class="code hl_class" href="classast_1_1Atmosphere.html">Atmosphere</a>* mainModel, <a class="code hl_class" href="classast_1_1Atmosphere.html">Atmosphere</a>* lowAltModel);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="classast_1_1BlendingAtmosphere.html">~BlendingAtmosphere</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">public</span>: <span class="comment">// 重载行为</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1Atmosphere.html#ae426889d9de74f821879327ab109aed3">getDensity</a>(<span class="keyword">const</span> <a class="code hl_class" href="classast_1_1TimePoint.html">TimePoint</a>&amp; tp, <span class="keyword">const</span> Vector3d&amp; posInBodyFixed) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classast_1_1Frame.html">Frame</a>* <a class="code hl_function" href="classast_1_1Atmosphere.html#a49f2a9a587d39b2277217e5eb1cf0bf7">getFrame</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="classast_1_1BodyShape.html">BodyShape</a>* <a class="code hl_function" href="classast_1_1Atmosphere.html#a535e8982f08f1fc86ab712582de0809f">getShape</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classast_1_1BlendingAtmosphere.html#ade674297caa439c66533c88de75d2575">   66</a></span>    <a class="code hl_class" href="classast_1_1Atmosphere.html">Atmosphere</a>* <a class="code hl_function" href="classast_1_1BlendingAtmosphere.html#ade674297caa439c66533c88de75d2575">mainModel</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> mainModel_; }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> setMainModel(<a class="code hl_class" href="classast_1_1Atmosphere.html">Atmosphere</a>* mainModel) { mainModel_ = mainModel; }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classast_1_1BlendingAtmosphere.html#ad1539175b43e60d4fadae1a7c4dc896c">   70</a></span>    <a class="code hl_class" href="classast_1_1Atmosphere.html">Atmosphere</a>* <a class="code hl_function" href="classast_1_1BlendingAtmosphere.html#ad1539175b43e60d4fadae1a7c4dc896c">lowAltModel</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lowAltModel_; }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> setLowAltModel(<a class="code hl_class" href="classast_1_1Atmosphere.html">Atmosphere</a>* lowAltModel) { lowAltModel_ = lowAltModel; }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classast_1_1BlendingAtmosphere.html#ac5dd76beb0a4f1955447d9328497717a">   74</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1BlendingAtmosphere.html#ac5dd76beb0a4f1955447d9328497717a">blendAltitude</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> blendAltitude_; }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> setBlendAltitude(<span class="keywordtype">double</span> blendAltitude) { blendAltitude_ = blendAltitude; }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classast_1_1BlendingAtmosphere.html#a1d2b4598253ff5124e3fbee95219b556">   78</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classast_1_1BlendingAtmosphere.html#a1d2b4598253ff5124e3fbee95219b556">blendRange</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> blendRange_; }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> setBlendRange(<span class="keywordtype">double</span> blendRange) { blendRange_ = blendRange; }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    ScopedPtr&lt;Atmosphere&gt; mainModel_{};           </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    ScopedPtr&lt;Atmosphere&gt; lowAltModel_{};         </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">double</span> blendAltitude_{<a class="code hl_variable" href="namespaceast.html#a2dd48ae521780653f2d71f7966016ac6">kDefaultBlendAltitude</a>}; </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">double</span> blendRange_{0.0};                      </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>AST_NAMESPACE_END</div>
+<div class="ttc" id="aAtmosphereBase_8hpp_html"><div class="ttname"><a href="AtmosphereBase_8hpp.html">AtmosphereBase.hpp</a></div></div>
+<div class="ttc" id="aclassast_1_1Atmosphere_html"><div class="ttname"><a href="classast_1_1Atmosphere.html">ast::Atmosphere</a></div><div class="ttdoc">大气模型基类</div><div class="ttdef"><b>定义</b> Atmosphere.hpp:48</div></div>
+<div class="ttc" id="aclassast_1_1Atmosphere_html_a49f2a9a587d39b2277217e5eb1cf0bf7"><div class="ttname"><a href="classast_1_1Atmosphere.html#a49f2a9a587d39b2277217e5eb1cf0bf7">ast::Atmosphere::getFrame</a></div><div class="ttdeci">virtual Frame * getFrame() const =0</div><div class="ttdoc">获取大气模型的参考坐标系</div></div>
+<div class="ttc" id="aclassast_1_1Atmosphere_html_a535e8982f08f1fc86ab712582de0809f"><div class="ttname"><a href="classast_1_1Atmosphere.html#a535e8982f08f1fc86ab712582de0809f">ast::Atmosphere::getShape</a></div><div class="ttdeci">virtual BodyShape * getShape() const</div><div class="ttdoc">获取大气模型对应的天体形状</div><div class="ttdef"><b>定义</b> Atmosphere.cpp:28</div></div>
+<div class="ttc" id="aclassast_1_1Atmosphere_html_ae426889d9de74f821879327ab109aed3"><div class="ttname"><a href="classast_1_1Atmosphere.html#ae426889d9de74f821879327ab109aed3">ast::Atmosphere::getDensity</a></div><div class="ttdeci">virtual double getDensity(const TimePoint &amp;tp, const Vector3d &amp;posInBodyFixed) const =0</div><div class="ttdoc">获取大气密度</div></div>
+<div class="ttc" id="aclassast_1_1BlendingAtmosphere_html"><div class="ttname"><a href="classast_1_1BlendingAtmosphere.html">ast::BlendingAtmosphere</a></div><div class="ttdoc">主/低高度大气密度模型的混合过渡模型</div><div class="ttdef"><b>定义</b> BlendingAtmosphere.hpp:47</div></div>
+<div class="ttc" id="aclassast_1_1BlendingAtmosphere_html_a1d2b4598253ff5124e3fbee95219b556"><div class="ttname"><a href="classast_1_1BlendingAtmosphere.html#a1d2b4598253ff5124e3fbee95219b556">ast::BlendingAtmosphere::blendRange</a></div><div class="ttdeci">double blendRange() const</div><div class="ttdoc">过渡带宽度</div><div class="ttdef"><b>定义</b> BlendingAtmosphere.hpp:78</div></div>
+<div class="ttc" id="aclassast_1_1BlendingAtmosphere_html_ac5dd76beb0a4f1955447d9328497717a"><div class="ttname"><a href="classast_1_1BlendingAtmosphere.html#ac5dd76beb0a4f1955447d9328497717a">ast::BlendingAtmosphere::blendAltitude</a></div><div class="ttdeci">double blendAltitude() const</div><div class="ttdoc">过渡带中心高度</div><div class="ttdef"><b>定义</b> BlendingAtmosphere.hpp:74</div></div>
+<div class="ttc" id="aclassast_1_1BlendingAtmosphere_html_ad1539175b43e60d4fadae1a7c4dc896c"><div class="ttname"><a href="classast_1_1BlendingAtmosphere.html#ad1539175b43e60d4fadae1a7c4dc896c">ast::BlendingAtmosphere::lowAltModel</a></div><div class="ttdeci">Atmosphere * lowAltModel() const</div><div class="ttdoc">低高度大气模型</div><div class="ttdef"><b>定义</b> BlendingAtmosphere.hpp:70</div></div>
+<div class="ttc" id="aclassast_1_1BlendingAtmosphere_html_ade674297caa439c66533c88de75d2575"><div class="ttname"><a href="classast_1_1BlendingAtmosphere.html#ade674297caa439c66533c88de75d2575">ast::BlendingAtmosphere::mainModel</a></div><div class="ttdeci">Atmosphere * mainModel() const</div><div class="ttdoc">主（高高度）大气模型</div><div class="ttdef"><b>定义</b> BlendingAtmosphere.hpp:66</div></div>
+<div class="ttc" id="aclassast_1_1BodyShape_html"><div class="ttname"><a href="classast_1_1BodyShape.html">ast::BodyShape</a></div><div class="ttdoc">天体形状基类</div><div class="ttdef"><b>定义</b> BodyShape.hpp:33</div></div>
+<div class="ttc" id="aclassast_1_1Frame_html"><div class="ttname"><a href="classast_1_1Frame.html">ast::Frame</a></div><div class="ttdoc">坐标系抽象基类</div><div class="ttdef"><b>定义</b> Frame.hpp:74</div></div>
+<div class="ttc" id="aclassast_1_1TimePoint_html"><div class="ttname"><a href="classast_1_1TimePoint.html">ast::TimePoint</a></div><div class="ttdoc">绝对时间点</div><div class="ttdef"><b>定义</b> TimePoint.hpp:109</div></div>
+<div class="ttc" id="anamespaceast_html_a2dd48ae521780653f2d71f7966016ac6"><div class="ttname"><a href="namespaceast.html#a2dd48ae521780653f2d71f7966016ac6">ast::kDefaultBlendAltitude</a></div><div class="ttdeci">constexpr double kDefaultBlendAltitude</div><div class="ttdoc">主/低高度大气模型的过渡带中心高度默认值</div><div class="ttdef"><b>定义</b> BlendingAtmosphere.hpp:38</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ba29613c1d0899bb7dd064b57f92f413.html">AstCore</a></li><li class="navelem"><a class="el" href="dir_5b17ea73c95a1e4bace30f4613654d1e.html">Atmosphere</a></li><li class="navelem"><a class="el" href="BlendingAtmosphere_8hpp.html">BlendingAtmosphere.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

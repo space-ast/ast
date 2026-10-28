@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['unitrephandle_0',['UnitRepHandle',['../namespaceast.html#a9761790dbaac9ba2c53e99350a0b2d99',1,'ast']]],
-  ['unitrephandleconst_1',['UnitRepHandleConst',['../namespaceast.html#a51cf0ffaaddeaef5aac55820f4002000',1,'ast']]],
-  ['unitreppair_2',['UnitRepPair',['../namespaceast.html#a08e2c87f19d5408218699374f5331628',1,'ast']]],
-  ['unitreppairconst_3',['UnitRepPairConst',['../namespaceast.html#a78e83fe05912aa57874e1cb7a3349941',1,'ast']]]
+  ['sectiongroup_0',['SectionGroup',['../namespaceast.html#a582c7d338cba97844fac0baf762f7d89',1,'ast']]],
+  ['solverstats_1',['SolverStats',['../group__NLE.html#ga771d73ba9a27d2e576e456870e706c69',1,'ast']]],
+  ['subunitlist_2',['SubUnitList',['../namespaceast.html#a42dc9247f2d22332e65271bcdd8197b4',1,'ast']]],
+  ['subunitlistconst_3',['SubUnitListConst',['../namespaceast.html#ae4a5ab1089dab17b378e9f8f8891b14e',1,'ast']]]
 ];

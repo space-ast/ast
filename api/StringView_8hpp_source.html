@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -459,40 +459,46 @@ $(function(){initNavTree('StringView_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>    <span class="keywordflow">return</span> os;</div>
 <div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>}</div>
 <div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="comment">// 字面量操作符（C++11不支持用户定义字面量用于模板，这里只提供char版本）</span></div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span><span class="keyword">inline</span> StringView <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_sv(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keywordtype">size_t</span> len) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="comment">// 比较字符串和字符串视图</span></div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> operator == (<span class="keyword">const</span> std::string&amp; left, StringView right)</div>
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>{</div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    <span class="keywordflow">return</span> StringView(str, len);</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    <span class="keywordflow">return</span> StringView(left) == right;</div>
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>}</div>
 <div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span><span class="keyword">inline</span> WStringView <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_sv(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* str, <span class="keywordtype">size_t</span> len) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>{</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    <span class="keywordflow">return</span> WStringView(str, len);</div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>}</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span><span class="comment">// 字面量操作符（C++11不支持用户定义字面量用于模板，这里只提供char版本）</span></div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span><span class="keyword">inline</span> StringView <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_sv(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keywordtype">size_t</span> len) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>{</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <span class="keywordflow">return</span> StringView(str, len);</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>}</div>
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span><span class="keyword">inline</span> WStringView <span class="keyword">operator</span> <span class="stringliteral">&quot;&quot;</span>_sv(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* str, <span class="keywordtype">size_t</span> len) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>{</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    <span class="keywordflow">return</span> WStringView(str, len);</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>}</div>
 <div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
 <div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span> </div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span><span class="comment">// 哈希支持</span></div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span><span class="keyword">namespace </span>std</div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>{</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> _Char&gt;</div>
-<div class="foldopen" id="foldopen00407" data-start="{" data-end="};">
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01__AST_01StringViewBasic_3_01__Char_01_4_01_4.html">  407</a></span>    <span class="keyword">struct </span>hash&lt;_AST StringViewBasic&lt;_Char&gt;&gt;</div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    {</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>        <span class="keywordtype">size_t</span> operator()(<span class="keyword">const</span> _AST StringViewBasic&lt;_Char&gt;&amp; sv) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>        {</div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>            <span class="comment">// 简单的FNV-1a哈希算法</span></div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>            <span class="keywordtype">size_t</span> result = 2166136261U;</div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> ch : sv) {</div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>                result = (result ^ <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(ch)) * 16777619U;</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>            }</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>        }</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    };</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span><span class="comment">// 哈希支持</span></div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span><span class="keyword">namespace </span>std</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>{</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> _Char&gt;</div>
+<div class="foldopen" id="foldopen00413" data-start="{" data-end="};">
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01__AST_01StringViewBasic_3_01__Char_01_4_01_4.html">  413</a></span>    <span class="keyword">struct </span>hash&lt;_AST StringViewBasic&lt;_Char&gt;&gt;</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    {</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>        <span class="keywordtype">size_t</span> operator()(<span class="keyword">const</span> _AST StringViewBasic&lt;_Char&gt;&amp; sv) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>        {</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>            <span class="comment">// 简单的FNV-1a哈希算法</span></div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>            <span class="keywordtype">size_t</span> result = 2166136261U;</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> ch : sv) {</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>                result = (result ^ <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(ch)) * 16777619U;</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>            }</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>        }</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>    };</div>
 </div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>}</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>}</div>
 <div class="ttc" id="aclassast_1_1StringViewBasic_html"><div class="ttname"><a href="classast_1_1StringViewBasic.html">ast::StringViewBasic</a></div><div class="ttdoc">字符串视图类，与C++17的string_view接口兼容，且支持部分C++20的函数</div><div class="ttdef"><b>定义</b> StringView.hpp:44</div></div>
 <div class="ttc" id="agroup__Platform_html_ga057833c67cd619b666f534f50d48fc30"><div class="ttname"><a href="group__Platform.html#ga057833c67cd619b666f534f50d48fc30">ast::swap</a></div><div class="ttdeci">A_ALWAYS_INLINE void swap(Thread &amp;lhs, Thread &amp;rhs) noexcept</div><div class="ttdoc">交换两个线程对象</div><div class="ttdef"><b>定义</b> Thread.hpp:82</div></div>
 </div><!-- fragment --></div><!-- contents -->

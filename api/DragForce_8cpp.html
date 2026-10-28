@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -99,17 +99,33 @@ $(function(){initNavTree('DragForce_8cpp.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">命名空间</a>  </div>
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#func-members">函数</a>  </div>
   <div class="headertitle"><div class="title">DragForce.cpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="DragForce_8hpp_source.html">DragForce.hpp</a>&quot;</code><br />
 <code>#include &quot;AstWeather/GeomagneticIndex.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/EnumDescriptor.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/I18n.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a9a821d4c8859237c07aea5c95f04ee7b" id="r_a9a821d4c8859237c07aea5c95f04ee7b"><td class="memItemLeft" align="right" valign="top"><a id="a9a821d4c8859237c07aea5c95f04ee7b" name="a9a821d4c8859237c07aea5c95f04ee7b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ast::AST_ENUM_DESCRIPTOR</b> (EAtmDensityModel, <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eNone, &quot;None&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(e1976Standard, &quot;1976Standard&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eHarrisPriester, &quot;HarrisPriester&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eJacchia60, &quot;Jacchia60&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eJacchia70, &quot;Jacchia70&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eJacchia71, &quot;Jacchia71&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eJacchiaRoberts, &quot;JacchiaRoberts&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eMSIS1986, &quot;MSIS1986&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eMSISE1990, &quot;MSISE1990&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eNRLMSISE2000, &quot;NRLMSISE2000&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eCIRA72, &quot;CIRA72&quot;), <a class="el" href="EnumDescriptor_8hpp.html#a7c42525172f0276b024206f93de52606">AST_ENUM_VALUE</a>(eDTM2012, &quot;DTM2012&quot;),)</td></tr>
+<tr class="separator:a9a821d4c8859237c07aea5c95f04ee7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga688c4d6859c7a2f002e4de0ca1a6dd1d" id="r_ga688c4d6859c7a2f002e4de0ca1a6dd1d"><td class="memItemLeft" align="right" valign="top">
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::toString</b> (EAtmDensityModel model)</td></tr>
+<tr class="separator:ga688c4d6859c7a2f002e4de0ca1a6dd1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b036f901cca2752dafe3021ae04784e" id="r_ga5b036f901cca2752dafe3021ae04784e"><td class="memItemLeft" align="right" valign="top">
+errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::parse</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> type, EAtmDensityModel &amp;result)</td></tr>
+<tr class="separator:ga5b036f901cca2752dafe3021ae04784e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p><br  />

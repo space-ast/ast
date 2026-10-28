@@ -171,6 +171,7 @@ var group__Data =
       [ "getF10p7Average_UTCMJD", "classast_1_1SpaceWeather.html#a402e8a441763dbdaf7712498d8ce92c5", null ],
       [ "getF10p7Daily", "classast_1_1SpaceWeather.html#a0fdf63c648e64b5f3d22bc6f0af4a7c6", null ],
       [ "getF10p7Daily_UTCMJD", "classast_1_1SpaceWeather.html#ac6df105efe6bbcbe5dc0fab95d3734ef", null ],
+      [ "getKp3HourlyList", "classast_1_1SpaceWeather.html#a2333219ddf655a1f5593382c5aba759b", null ],
       [ "getKpDaily", "classast_1_1SpaceWeather.html#ab8e75a534fc6ba10064b6250a9f6d6a9", null ],
       [ "getKpDaily_UTCMJD", "classast_1_1SpaceWeather.html#a75b061c8e8334746ad9e44e2dedf5358", null ],
       [ "load", "classast_1_1SpaceWeather.html#a09ac9fdce0c9117cb61c9a45b4f4333e", null ],
@@ -183,6 +184,7 @@ var group__Data =
       [ "getApDaily", "classast_1_1SpaceWeatherProvider.html#a7b3e13a7ad98dca360a9a18c4a05fc0e", null ],
       [ "getF10p7Average", "classast_1_1SpaceWeatherProvider.html#a7cb957a6b3a28cf715a9288872d6df2a", null ],
       [ "getF10p7Daily", "classast_1_1SpaceWeatherProvider.html#ace7491f8d2df075583ce44a3ce97e93d", null ],
+      [ "getKp3HourlyList", "classast_1_1SpaceWeatherProvider.html#ad7891cc919d784a64a66d8e5b4e096ab", null ],
       [ "getKpDaily", "classast_1_1SpaceWeatherProvider.html#a151685dc4b937e9de353bc1db2b69363", null ]
     ] ],
     [ "ast::SpiceAPI", "classast_1_1SpiceAPI.html", [
@@ -196,6 +198,7 @@ var group__Data =
       [ "kclear", "classast_1_1SpiceAPI.html#a0feeb3bfba7ea0c51c9869ae4fc4766c", null ],
       [ "ktotal", "classast_1_1SpiceAPI.html#a5e6bf0d9111fb23b465c472b3750f84b", null ],
       [ "load", "classast_1_1SpiceAPI.html#ae0408a3a3444be4b86aff5f43bf72845", null ],
+      [ "makeSpicePath", "classast_1_1SpiceAPI.html#a8eef3677ee803b4b69f0085a2cdb087c", null ],
       [ "reset", "classast_1_1SpiceAPI.html#a6421ec4591b64071a4ad321874eb8b31", null ],
       [ "spkgeo", "classast_1_1SpiceAPI.html#aac3292abf67364990a1de46f79df05d0", null ],
       [ "spklef", "classast_1_1SpiceAPI.html#a4bb24796022f7868f160b7d8db92f82c", null ],

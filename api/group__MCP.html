@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🛰️航天仿真算法库 SpaceAST: MCP</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group__MCP.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle"><div class="title">MCP</div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>Model Context Protocol 服务器接口 </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:gad52da998dc17d5382e31c2dcbf3d263b" id="r_gad52da998dc17d5382e31c2dcbf3d263b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad52da998dc17d5382e31c2dcbf3d263b">ast::EMcpErrorCode</a> : int { <br />
+&#160;&#160;<a class="el" href="#ggad52da998dc17d5382e31c2dcbf3d263ba695f6698028517cec3fc73e7421cc1a8">ast::EMcpErrorCode::eParseError</a> = -32700
+, <a class="el" href="#ggad52da998dc17d5382e31c2dcbf3d263ba447591d41003792c8393aad207d2a046">ast::EMcpErrorCode::eInvalidRequest</a> = -32600
+, <a class="el" href="#ggad52da998dc17d5382e31c2dcbf3d263ba6f50a502c6ea5a515f23863ac1d6254c">ast::EMcpErrorCode::eMethodNotFound</a> = -32601
+, <a class="el" href="#ggad52da998dc17d5382e31c2dcbf3d263ba377d9affe96296017ae3d0bd6027eca9">ast::EMcpErrorCode::eInvalidParams</a> = -32602
+, <br />
+&#160;&#160;<a class="el" href="#ggad52da998dc17d5382e31c2dcbf3d263ba3bf70e9f79a19e3e6e58a2838f08b60b">ast::EMcpErrorCode::eInternalError</a> = -32603
+<br />
+ }</td></tr>
+<tr class="separator:gad52da998dc17d5382e31c2dcbf3d263b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga1886ac389a85559df25fafbd42ae75b9" id="r_ga1886ac389a85559df25fafbd42ae75b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1886ac389a85559df25fafbd42ae75b9">ast::aAddAgentToolsToMcpServer</a> (<a class="el" href="classast_1_1McpServer.html">McpServer</a> &amp;server)</td></tr>
+<tr class="separator:ga1886ac389a85559df25fafbd42ae75b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafa466cd638f9bcfa3e26506e309d03f5" id="r_gafa466cd638f9bcfa3e26506e309d03f5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafa466cd638f9bcfa3e26506e309d03f5">ast::aMcpIsSupportedProtocolVersion</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> version)</td></tr>
+<tr class="separator:gafa466cd638f9bcfa3e26506e309d03f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ga21aca7d77c05724bedb9ac72fccacfdb" id="r_ga21aca7d77c05724bedb9ac72fccacfdb"><td class="memItemLeft" align="right" valign="top"><a id="ga21aca7d77c05724bedb9ac72fccacfdb" name="ga21aca7d77c05724bedb9ac72fccacfdb"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpJsonRpcVersion</b> = &quot;2.0&quot;</td></tr>
+<tr class="separator:ga21aca7d77c05724bedb9ac72fccacfdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae46282eb9ff39888ea36bd4ab54ff9f5" id="r_gae46282eb9ff39888ea36bd4ab54ff9f5"><td class="memItemLeft" align="right" valign="top"><a id="gae46282eb9ff39888ea36bd4ab54ff9f5" name="gae46282eb9ff39888ea36bd4ab54ff9f5"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpProtocolVersion20251125</b> = &quot;2025-11-25&quot;</td></tr>
+<tr class="separator:gae46282eb9ff39888ea36bd4ab54ff9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4fad310ecb9ba0ff2cd55988ffc59cf" id="r_gad4fad310ecb9ba0ff2cd55988ffc59cf"><td class="memItemLeft" align="right" valign="top"><a id="gad4fad310ecb9ba0ff2cd55988ffc59cf" name="gad4fad310ecb9ba0ff2cd55988ffc59cf"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpProtocolVersion20250618</b> = &quot;2025-06-18&quot;</td></tr>
+<tr class="separator:gad4fad310ecb9ba0ff2cd55988ffc59cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaefffc855ac5970cd3b064f520cdce446" id="r_gaefffc855ac5970cd3b064f520cdce446"><td class="memItemLeft" align="right" valign="top"><a id="gaefffc855ac5970cd3b064f520cdce446" name="gaefffc855ac5970cd3b064f520cdce446"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpProtocolVersion20250326</b> = &quot;2025-03-26&quot;</td></tr>
+<tr class="separator:gaefffc855ac5970cd3b064f520cdce446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c6975beeb40c7ef60f68fcda2e47877" id="r_ga7c6975beeb40c7ef60f68fcda2e47877"><td class="memItemLeft" align="right" valign="top"><a id="ga7c6975beeb40c7ef60f68fcda2e47877" name="ga7c6975beeb40c7ef60f68fcda2e47877"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpProtocolVersion20241105</b> = &quot;2024-11-05&quot;</td></tr>
+<tr class="separator:ga7c6975beeb40c7ef60f68fcda2e47877"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba002568e1c9665286d34a6018e47649" id="r_gaba002568e1c9665286d34a6018e47649"><td class="memItemLeft" align="right" valign="top"><a id="gaba002568e1c9665286d34a6018e47649" name="gaba002568e1c9665286d34a6018e47649"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpDefaultProtocolVersion</b> = <a class="el" href="#gae46282eb9ff39888ea36bd4ab54ff9f5">kMcpProtocolVersion20251125</a></td></tr>
+<tr class="separator:gaba002568e1c9665286d34a6018e47649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28dbaa66fdc894e700f245d5333686e0" id="r_ga28dbaa66fdc894e700f245d5333686e0"><td class="memItemLeft" align="right" valign="top"><a id="ga28dbaa66fdc894e700f245d5333686e0" name="ga28dbaa66fdc894e700f245d5333686e0"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpMethodInitialize</b> = &quot;initialize&quot;</td></tr>
+<tr class="separator:ga28dbaa66fdc894e700f245d5333686e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae52442f10f69c208a2093afcf3e6819b" id="r_gae52442f10f69c208a2093afcf3e6819b"><td class="memItemLeft" align="right" valign="top"><a id="gae52442f10f69c208a2093afcf3e6819b" name="gae52442f10f69c208a2093afcf3e6819b"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpMethodInitialized</b> = &quot;notifications/initialized&quot;</td></tr>
+<tr class="separator:gae52442f10f69c208a2093afcf3e6819b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8676e1803d03ce8f67d5b3ba10071fe" id="r_gaa8676e1803d03ce8f67d5b3ba10071fe"><td class="memItemLeft" align="right" valign="top"><a id="gaa8676e1803d03ce8f67d5b3ba10071fe" name="gaa8676e1803d03ce8f67d5b3ba10071fe"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpMethodCancelled</b> = &quot;notifications/cancelled&quot;</td></tr>
+<tr class="separator:gaa8676e1803d03ce8f67d5b3ba10071fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga761c0f2fda50790feb8a30264ba016d4" id="r_ga761c0f2fda50790feb8a30264ba016d4"><td class="memItemLeft" align="right" valign="top"><a id="ga761c0f2fda50790feb8a30264ba016d4" name="ga761c0f2fda50790feb8a30264ba016d4"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpMethodPing</b> = &quot;ping&quot;</td></tr>
+<tr class="separator:ga761c0f2fda50790feb8a30264ba016d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41951fc4d8e38e26ceb63900e34ae800" id="r_ga41951fc4d8e38e26ceb63900e34ae800"><td class="memItemLeft" align="right" valign="top"><a id="ga41951fc4d8e38e26ceb63900e34ae800" name="ga41951fc4d8e38e26ceb63900e34ae800"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpMethodToolsList</b> = &quot;tools/list&quot;</td></tr>
+<tr class="separator:ga41951fc4d8e38e26ceb63900e34ae800"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18b1b2698fddbbfc4dd46746dd09e8ef" id="r_ga18b1b2698fddbbfc4dd46746dd09e8ef"><td class="memItemLeft" align="right" valign="top"><a id="ga18b1b2698fddbbfc4dd46746dd09e8ef" name="ga18b1b2698fddbbfc4dd46746dd09e8ef"></a>
+constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kMcpMethodToolsCall</b> = &quot;tools/call&quot;</td></tr>
+<tr class="separator:ga18b1b2698fddbbfc4dd46746dd09e8ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">枚举类型说明</h2>
+<a id="gad52da998dc17d5382e31c2dcbf3d263b" name="gad52da998dc17d5382e31c2dcbf3d263b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad52da998dc17d5382e31c2dcbf3d263b">&#9670;&#160;</a></span>EMcpErrorCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gad52da998dc17d5382e31c2dcbf3d263b">ast::EMcpErrorCode</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>JSON-RPC错误码 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ggad52da998dc17d5382e31c2dcbf3d263ba695f6698028517cec3fc73e7421cc1a8" name="ggad52da998dc17d5382e31c2dcbf3d263ba695f6698028517cec3fc73e7421cc1a8"></a>eParseError&#160;</td><td class="fielddoc"><p>解析错误 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad52da998dc17d5382e31c2dcbf3d263ba447591d41003792c8393aad207d2a046" name="ggad52da998dc17d5382e31c2dcbf3d263ba447591d41003792c8393aad207d2a046"></a>eInvalidRequest&#160;</td><td class="fielddoc"><p>无效请求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad52da998dc17d5382e31c2dcbf3d263ba6f50a502c6ea5a515f23863ac1d6254c" name="ggad52da998dc17d5382e31c2dcbf3d263ba6f50a502c6ea5a515f23863ac1d6254c"></a>eMethodNotFound&#160;</td><td class="fielddoc"><p>方法不存在 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad52da998dc17d5382e31c2dcbf3d263ba377d9affe96296017ae3d0bd6027eca9" name="ggad52da998dc17d5382e31c2dcbf3d263ba377d9affe96296017ae3d0bd6027eca9"></a>eInvalidParams&#160;</td><td class="fielddoc"><p>参数无效 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad52da998dc17d5382e31c2dcbf3d263ba3bf70e9f79a19e3e6e58a2838f08b60b" name="ggad52da998dc17d5382e31c2dcbf3d263ba3bf70e9f79a19e3e6e58a2838f08b60b"></a>eInternalError&#160;</td><td class="fielddoc"><p>内部错误 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="ga1886ac389a85559df25fafbd42ae75b9" name="ga1886ac389a85559df25fafbd42ae75b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1886ac389a85559df25fafbd42ae75b9">&#9670;&#160;</a></span>aAddAgentToolsToMcpServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_AGENT_API void ast::aAddAgentToolsToMcpServer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1McpServer.html">McpServer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>server</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将AstAgent的默认智能体工具注册到MCP服务器 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>MCP服务器</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>工具的增删由AstAgent维护；本函数只做格式转换和转发，不包含具体业务逻辑。 </p>
+
+</div>
+</div>
+<a id="gafa466cd638f9bcfa3e26506e309d03f5" name="gafa466cd638f9bcfa3e26506e309d03f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafa466cd638f9bcfa3e26506e309d03f5">&#9670;&#160;</a></span>aMcpIsSupportedProtocolVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ast::aMcpIsSupportedProtocolVersion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>version</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断协议版本是否受支持 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">version</td><td>客户端请求的协议版本 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否受支持 </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -37,14 +37,13 @@ var group__Platform =
       [ "translate", "classast_1_1GUIInterface.html#a01d72be6741e72d335819ac57631739b", null ]
     ] ],
     [ "ast::Library", "classast_1_1Library.html", [
-      [ "Library", "classast_1_1Library.html#ae0669cce6b93171d34f2083088c008f5", null ],
+      [ "Library", "classast_1_1Library.html#a1ea7f3daf15f2a4cf31cd9513c04bf7b", null ],
       [ "Library", "classast_1_1Library.html#a5a3e1d171c4030c90a7aa0079d193089", null ],
       [ "~Library", "classast_1_1Library.html#a1deb8e94c2b302abacf3bc240f47b2a0", null ],
-      [ "fileName", "classast_1_1Library.html#a16e937f1a8c1fdf0907cd6ebad20f08a", null ],
+      [ "filePath", "classast_1_1Library.html#a5670ab2902a9d5583f66bf13a0fa29ed", null ],
       [ "isLoaded", "classast_1_1Library.html#ad315f33d98390d6598b7fe550e938644", null ],
-      [ "load", "classast_1_1Library.html#a1bbb9dcd61dec76bd2c5d86163feb85a", null ],
-      [ "resolve", "classast_1_1Library.html#a7e0f7bef2cb9fb5e7c189bacf352149c", null ],
-      [ "setFileName", "classast_1_1Library.html#af4d43c9f92a8308cad8d600cf2754b29", null ],
+      [ "load", "classast_1_1Library.html#a2b707403bccbfbf5d3f728b5d4e903fd", null ],
+      [ "resolve", "classast_1_1Library.html#acaa74625f8fdbc201637d0ec9b6a4aaa", null ],
       [ "unload", "classast_1_1Library.html#aea368b3facf5c02d7f0c3c403723f39f", null ]
     ] ],
     [ "ast::Thread", "classast_1_1Thread.html", [
@@ -66,10 +65,12 @@ var group__Platform =
     [ "ast::aExeDir", "group__Platform.html#ga524821ccab59a9b4bc923f26dd3d3660", null ],
     [ "ast::aExePath", "group__Platform.html#ga39dda408be669b8f5c88e097b0c73ca3", null ],
     [ "ast::aFreeLibrary", "group__Platform.html#ga52c02b09388ac56566408d15c1e1ce7e", null ],
+    [ "ast::aFreeLibraryOnExit", "group__Platform.html#ga76062afc1ba2839bd8eb0adcf42ca404", null ],
     [ "ast::aGetEndian", "group__Platform.html#ga12c79e8e850e12d6ae0b9277d83ec0cb", null ],
     [ "ast::aGetFilePath", "group__Platform.html#ga696e5be3337a541eac1e81388379802f", null ],
     [ "ast::aGetFilePath", "group__Platform.html#ga37ceb5060ff95143bf4fe04cd905d7bf", null ],
     [ "ast::aGetLoadError", "group__Platform.html#ga792d6e546f624b93c64487c04deac344", null ],
+    [ "ast::aGetModuleFilePath", "group__Platform.html#gadd53896a8b3f1a913f4a9addd60c05d2", null ],
     [ "ast::aGetModulePathFromAddress", "group__Platform.html#ga274d27fb277c936ba605eb68469bbd28", null ],
     [ "ast::aGetProcAddress", "group__Platform.html#ga0f4600dceeffcc4993b66d33a3b8e680", null ],
     [ "ast::aIsCI", "group__Platform.html#ga1b536eb0b193fd88914dd12e6895c229", null ],

@@ -4,6 +4,7 @@ var classast_1_1AtmosphereBase =
     [ "getDensity", "classast_1_1AtmosphereBase.html#ad52df15166e3bd1ab8afe89fc7bb3ee2", null ],
     [ "getFrame", "classast_1_1AtmosphereBase.html#a5bb6beed3597296887c3b7f9812dbe44", null ],
     [ "getGeodetic", "classast_1_1AtmosphereBase.html#a7f930cc722cd1c485a0483e22f1ce965", null ],
+    [ "getShape", "classast_1_1AtmosphereBase.html#a1225b031c07301f745963ec3d684aa3a", null ],
     [ "setUseApproximateAltitude", "classast_1_1AtmosphereBase.html#aa55ef156bdbab9ec50956c103add453f", null ],
     [ "useApproximateAltitude", "classast_1_1AtmosphereBase.html#a7b2f77b272c403c208e4c025d69c9ec3", null ],
     [ "bodyShape_", "classast_1_1AtmosphereBase.html#a313d7545b5ca8f328d17cf79353118ea", null ],

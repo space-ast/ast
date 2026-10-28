@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -111,6 +111,7 @@ $(function(){initNavTree('functions_s.html',''); initResizable(true); });
 <li>Scalar()&#160;:&#160;<a class="el" href="classast_1_1Quantity.html#a8616d69c2c54e37311da65291bb029e4">ast::Quantity</a></li>
 <li>Scale()&#160;:&#160;<a class="el" href="classast_1_1Unit.html#aac378ff19aece3483b509927dadfe0ff">ast::Unit</a></li>
 <li>scale_&#160;:&#160;<a class="el" href="classast_1_1AffineUnitRep.html#a894661cf23b9b3a81aa04e2f01b97aa9">ast::AffineUnitRep</a>, <a class="el" href="classast_1_1ScaleUnitRep.html#a39c989355e17da72e1925c226f19078e">ast::ScaleUnitRep</a></li>
+<li>scanDirectory()&#160;:&#160;<a class="el" href="classast_1_1PluginRegistry.html#a8d0971cd699bd6b2d478d071e65f37ca">ast::PluginRegistry</a></li>
 <li>scenarioDescription()&#160;:&#160;<a class="el" href="classast_1_1UiScenarioWizard.html#a747ea647c6b5ae5d0e255a930910b44b">ast::UiScenarioWizard</a></li>
 <li>scenarioDir_&#160;:&#160;<a class="el" href="classast_1_1LoaderContext.html#a181a2eb46c694384b83f91c4a0ddbe43">ast::LoaderContext</a></li>
 <li>scenarioLocation()&#160;:&#160;<a class="el" href="classast_1_1UiScenarioWizard.html#aa2f2fc215e07496a96715acfc21d4a96">ast::UiScenarioWizard</a></li>
@@ -157,6 +158,7 @@ $(function(){initNavTree('functions_s.html',''); initResizable(true); });
 <li>setAngle()&#160;:&#160;<a class="el" href="classast_1_1Dimension.html#aca6ceca9be9d41c8bfaddd9730895806">ast::Dimension</a></li>
 <li>setAngleAxis()&#160;:&#160;<a class="el" href="classast_1_1Rotation.html#adeb93109e695abcd2121a7f057935772">ast::Rotation</a></li>
 <li>setAngularPatternResolution()&#160;:&#160;<a class="el" href="classast_1_1FOVSimpleCone.html#aae46986212ee3f50832a15302b80fd2a">ast::FOVSimpleCone</a></li>
+<li>setAnnotations()&#160;:&#160;<a class="el" href="classast_1_1ChatTool.html#a0c8c43d747bdfc04f9766a451819ae22">ast::ChatTool</a></li>
 <li>setAntennaDiameter()&#160;:&#160;<a class="el" href="classast_1_1FOVHalfPower.html#a94df47949cea2556471560d46543fdd7">ast::FOVHalfPower</a></li>
 <li>setAp()&#160;:&#160;<a class="el" href="classast_1_1ConstantSpaceWeather.html#aae22533b9c4d29751685f71a7f3ed4b1">ast::ConstantSpaceWeather</a></li>
 <li>setApiKey()&#160;:&#160;<a class="el" href="classast_1_1OpenAI.html#a2a3775d392c28123f2730167ee6b91ae">ast::OpenAI</a></li>
@@ -256,7 +258,6 @@ $(function(){initNavTree('functions_s.html',''); initResizable(true); });
 <li>setF10p7Average()&#160;:&#160;<a class="el" href="classast_1_1ConstantSpaceWeather.html#a5f83735816e9b4f93f9ef59c6ffd058b">ast::ConstantSpaceWeather</a></li>
 <li>setF10p7Daily()&#160;:&#160;<a class="el" href="classast_1_1ConstantSpaceWeather.html#a409e51118f4621b1f3ea256d6c762b3f">ast::ConstantSpaceWeather</a></li>
 <li>setFieldOfView()&#160;:&#160;<a class="el" href="classast_1_1Sensor.html#af86b8e1e6290f9abd7da0a63f9e4d7a3">ast::Sensor</a></li>
-<li>setFileName()&#160;:&#160;<a class="el" href="classast_1_1Library.html#af4d43c9f92a8308cad8d600cf2754b29">ast::Library</a></li>
 <li>setFilePath()&#160;:&#160;<a class="el" href="classast_1_1MotionExternalEphemeris.html#ac535c87a5f4e64642480c81dbf2bc7c4">ast::MotionExternalEphemeris</a></li>
 <li>setFilter()&#160;:&#160;<a class="el" href="classast_1_1UiFilePath.html#a20f8ae9e92e4494274d13fff83e9d5cd">ast::UiFilePath</a></li>
 <li>setFltPathAng()&#160;:&#160;<a class="el" href="classast_1_1StateMixedSpherical.html#a001ff87e105ac11ca68644d3d000628b">ast::StateMixedSpherical</a>, <a class="el" href="classast_1_1StateSpherical.html#a8ea64835efa70d8480374f5545c05604">ast::StateSpherical</a></li>
@@ -285,6 +286,8 @@ $(function(){initNavTree('functions_s.html',''); initResizable(true); });
 <li>setInitialStepSize()&#160;:&#160;<a class="el" href="classast_1_1ODEVarStepIntegrator.html#ae1f1d5067be5feaaa7054313a53376b6">ast::ODEVarStepIntegrator</a></li>
 <li>setInnerConeAngle()&#160;:&#160;<a class="el" href="classast_1_1FOVConical.html#ae9eccc707446cafe06fa4be5e0a2ad09">ast::FOVConical</a></li>
 <li>setInputFocus()&#160;:&#160;<a class="el" href="classast_1_1UiChatInput.html#a3f0f6862bc36b8dd01f6b1d104a95617">ast::UiChatInput</a></li>
+<li>setInputSchema()&#160;:&#160;<a class="el" href="classast_1_1ChatTool.html#a557301b2b772092af7244b0f34a3d0fb">ast::ChatTool</a></li>
+<li>setInstructions()&#160;:&#160;<a class="el" href="classast_1_1McpServer.html#a88e182bba9191024c64f61b80586dab6">ast::McpServer</a></li>
 <li>setInt()&#160;:&#160;<a class="el" href="classast_1_1JsonValue.html#ac0bd041027d8f76b83438fe1229e0543">ast::JsonValue</a></li>
 <li>setIntData()&#160;:&#160;<a class="el" href="classast_1_1KernelPool.html#adbf466d51dece62be2d971faf1edcb04">ast::KernelPool</a></li>
 <li>setIntegrator()&#160;:&#160;<a class="el" href="classast_1_1HPOP.html#a441808f323a236e9916f7f0e7f774750">ast::HPOP</a>, <a class="el" href="classast_1_1MotionHPOP.html#aa21c1a29ed47105d1b8356447201cdbe">ast::MotionHPOP</a></li>
@@ -410,6 +413,8 @@ $(function(){initNavTree('functions_s.html',''); initResizable(true); });
 <li>setSemimajorAxis()&#160;:&#160;<a class="el" href="classast_1_1SimpleOrbitDesigner.html#a86593fdef2a8adbd682b6d3e25a33e7c">ast::SimpleOrbitDesigner</a></li>
 <li>setSendEnabled()&#160;:&#160;<a class="el" href="classast_1_1UiChatInput.html#a039e698330083c185d68c3e2be120d93">ast::UiChatInput</a></li>
 <li>setSequence()&#160;:&#160;<a class="el" href="classast_1_1UiCommandTree.html#a89c640575b8403edda57140c728f12bb">ast::UiCommandTree</a>, <a class="el" href="classast_1_1UiSequenceWorkbench.html#adc21413487c2121675b5a16d5cd7788d">ast::UiSequenceWorkbench</a></li>
+<li>setServerName()&#160;:&#160;<a class="el" href="classast_1_1McpServer.html#a760819a739183834393def63061020c1">ast::McpServer</a></li>
+<li>setServerVersion()&#160;:&#160;<a class="el" href="classast_1_1McpServer.html#a1255ced36d2cbb9cfe247b7db1d937b3">ast::McpServer</a></li>
 <li>setSession()&#160;:&#160;<a class="el" href="classast_1_1UiChatMainWidget.html#ae940e3978030aeaff52cc1ad976257a4">ast::UiChatMainWidget</a>, <a class="el" href="classast_1_1UiChatPanel.html#a2065119387e437fea6414ebc02545591">ast::UiChatPanel</a></li>
 <li>setShowComponents()&#160;:&#160;<a class="el" href="classast_1_1UiObjectTree.html#a04db6b63ba6e91750283deea893cb307">ast::UiObjectTree</a></li>
 <li>setSignal()&#160;:&#160;<a class="el" href="classast_1_1DataPort.html#a7e323e32e7dc572bae45525f63f20c21">ast::DataPort</a></li>
@@ -502,7 +507,7 @@ $(function(){initNavTree('functions_s.html',''); initResizable(true); });
 <li>sinCoeff_&#160;:&#160;<a class="el" href="classast_1_1GravityField.html#ae3ab861d3a10664e253e4d599dcc929d">ast::GravityField</a></li>
 <li>singleStep()&#160;:&#160;<a class="el" href="classast_1_1IODEIntegrator.html#a13492e744f630de69e788687296ea294">ast::IODEIntegrator</a>, <a class="el" href="classast_1_1RK4.html#a7408a1d1172f6b4dc25330199af2b0f2">ast::RK4</a>, <a class="el" href="classast_1_1RK8.html#a7dd739be8c4171c8da40cc73afd2d109">ast::RK8</a>, <a class="el" href="classast_1_1RKCK.html#aaa1d1edd63b17c00f055ced142e16660">ast::RKCK</a>, <a class="el" href="classast_1_1RKF45.html#ad3926ec8f8498a22974bf97a68d44fd0">ast::RKF45</a>, <a class="el" href="classast_1_1RKF56.html#ac9526d33f3e6363f35a29bd3da2a560e">ast::RKF56</a>, <a class="el" href="classast_1_1RKF78.html#ad21d7628fd5f0f7d1213e22aaed6dfc5">ast::RKF78</a>, <a class="el" href="classast_1_1RKV8.html#a4a29126b02faf2e0fd5221099c9760d2">ast::RKV8</a></li>
 <li>siUnits_&#160;:&#160;<a class="el" href="classast_1_1UnitManager.html#ab97fdf55e70688435897a18837723779">ast::UnitManager</a></li>
-<li>size()&#160;:&#160;<a class="el" href="classast_1_1AndConstraint.html#a4bc26b1df05dcbd12c8d5db9fc48462e">ast::AndConstraint</a>, <a class="el" href="classast_1_1BlockDynamicSystem.html#ac4e0bf064e2643dbfea6976b95aefcf8">ast::BlockDynamicSystem</a>, <a class="el" href="classast_1_1EOP.html#a1d81ece0da0f48b501c1004e184b2f4a">ast::EOP</a>, <a class="el" href="classast_1_1ExprContainer.html#a0386326b6e44ca1f14d19c25785aa2a7">ast::ExprContainer</a>, <a class="el" href="classast_1_1IntervalList.html#aa2b2dbed0c043e28f138956d67f574b4">ast::IntervalList</a>, <a class="el" href="classast_1_1JsonValue.html#a614e1f23aedb32ece32bee19ebdfe789">ast::JsonValue</a>, <a class="el" href="structast_1_1LfsPointerInfo.html#a075221ccf3975f64c5f5925c4a204356">ast::LfsPointerInfo</a>, <a class="el" href="classast_1_1OrConstraint.html#aa2280a7c069659434011621d011921e1">ast::OrConstraint</a>, <a class="el" href="classast_1_1OrderedMap.html#a43de2ffc93cc161e8219d4220bd906bb">ast::OrderedMap&lt; Key, Value &gt;</a>, <a class="el" href="classast_1_1SpaceWeather.html#ad3ba9924d985cf147592bb29ab4a2b10">ast::SpaceWeather</a>, <a class="el" href="classast_1_1TimeIntervalList.html#a74314db85e0cd0a0b843a442efd14458">ast::TimeIntervalList</a>, <a class="el" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">ast::ValArray&lt; T, NDIM &gt;</a>, <a class="el" href="classast_1_1ValNamedVector.html#aff4d1842f2b55215fee626de18addb79">ast::ValNamedVector</a>, <a class="el" href="classast_1_1ValRange.html#aee570694d132d60a797e1093862ffa03">ast::ValRange</a>, <a class="el" href="classast_1_1VisGroup.html#a92cf0bc06864d322f2d1f78f01cb4341">ast::VisGroup</a></li>
+<li>size()&#160;:&#160;<a class="el" href="classast_1_1AndConstraint.html#a4bc26b1df05dcbd12c8d5db9fc48462e">ast::AndConstraint</a>, <a class="el" href="classast_1_1BlockDynamicSystem.html#ac4e0bf064e2643dbfea6976b95aefcf8">ast::BlockDynamicSystem</a>, <a class="el" href="classast_1_1ChatTools.html#a78fff649d27281879cbbe26ac987769f">ast::ChatTools</a>, <a class="el" href="classast_1_1EOP.html#a1d81ece0da0f48b501c1004e184b2f4a">ast::EOP</a>, <a class="el" href="classast_1_1ExprContainer.html#a0386326b6e44ca1f14d19c25785aa2a7">ast::ExprContainer</a>, <a class="el" href="classast_1_1IntervalList.html#aa2b2dbed0c043e28f138956d67f574b4">ast::IntervalList</a>, <a class="el" href="classast_1_1JsonValue.html#a614e1f23aedb32ece32bee19ebdfe789">ast::JsonValue</a>, <a class="el" href="structast_1_1LfsPointerInfo.html#a075221ccf3975f64c5f5925c4a204356">ast::LfsPointerInfo</a>, <a class="el" href="classast_1_1OrConstraint.html#aa2280a7c069659434011621d011921e1">ast::OrConstraint</a>, <a class="el" href="classast_1_1OrderedMap.html#a43de2ffc93cc161e8219d4220bd906bb">ast::OrderedMap&lt; Key, Value &gt;</a>, <a class="el" href="classast_1_1SpaceWeather.html#ad3ba9924d985cf147592bb29ab4a2b10">ast::SpaceWeather</a>, <a class="el" href="classast_1_1TimeIntervalList.html#a74314db85e0cd0a0b843a442efd14458">ast::TimeIntervalList</a>, <a class="el" href="classast_1_1ValArray.html#a02f6b171c8adfd17b6b09695656c805b">ast::ValArray&lt; T, NDIM &gt;</a>, <a class="el" href="classast_1_1ValNamedVector.html#aff4d1842f2b55215fee626de18addb79">ast::ValNamedVector</a>, <a class="el" href="classast_1_1ValRange.html#aee570694d132d60a797e1093862ffa03">ast::ValRange</a>, <a class="el" href="classast_1_1VisGroup.html#a92cf0bc06864d322f2d1f78f01cb4341">ast::VisGroup</a></li>
 <li>size_&#160;:&#160;<a class="el" href="classast_1_1CorVector.html#ae2160345db2574af3870ddfd366b5fbc">ast::CorVector&lt; T &gt;</a></li>
 <li>sizeType_&#160;:&#160;<a class="el" href="classast_1_1StateKeplerian.html#a1a94ded5950fb4057d783043f2757e9b">ast::StateKeplerian</a></li>
 <li>skip()&#160;:&#160;<a class="el" href="classast_1_1FileScanner.html#a131122901c6294f87282fcd3f4a0557e">ast::FileScanner</a>, <a class="el" href="classast_1_1Scanner.html#af7b1ea37aaf9fb4712b264a7702097e8">ast::Scanner</a>, <a class="el" href="classast_1_1StreamScanner.html#a4676b49efa300d0d87da29a571a0360e">ast::StreamScanner</a>, <a class="el" href="classast_1_1StringScanner.html#a83dcf3a9bf9ee9b327eaf93c0ed67fea">ast::StringScanner</a></li>
@@ -519,7 +524,6 @@ $(function(){initNavTree('functions_s.html',''); initResizable(true); });
 <li>sortBlocks()&#160;:&#160;<a class="el" href="classast_1_1BlockDynamicSystem.html#ad361d3f61414d1b7f6ff9dba31ee6651">ast::BlockDynamicSystem</a></li>
 <li>sourceAxes_&#160;:&#160;<a class="el" href="classast_1_1FrameWithEpoch.html#a1cb7a7bc1d67acb3ccbffcedfff170e2">ast::FrameWithEpoch</a></li>
 <li>spacecraftParam()&#160;:&#160;<a class="el" href="classast_1_1HPOP.html#ab70e19b902a5441a8e696668a7d5e5c4">ast::HPOP</a></li>
-<li>SpaceEngineer()&#160;:&#160;<a class="el" href="classast_1_1AssistantAgent.html#a2049c86f4100bd4598f2f2acb4e65849">ast::AssistantAgent</a></li>
 <li>spaceWeather_&#160;:&#160;<a class="el" href="classast_1_1MSISBase.html#a84198f0eef99a4b06616a6e4527198ac">ast::MSISBase</a></li>
 <li>spaceWeatherFile_&#160;:&#160;<a class="el" href="structast_1_1InitalizeConfig.html#a4795aa1a58b70c3c5d2b6959936e3a51">ast::InitalizeConfig</a></li>
 <li>specifiedGM_&#160;:&#160;<a class="el" href="classast_1_1PointMassForce.html#a33bf6043aee4633ad1e57c72a925e8d5">ast::PointMassForce</a></li>
@@ -592,6 +596,7 @@ $(function(){initNavTree('functions_s.html',''); initResizable(true); });
 <li>studyWorkbench()&#160;:&#160;<a class="el" href="classast_1_1UiStudyWorkbench.html#ab344c6103d160c46a7bdc264fc49c467">ast::UiStudyWorkbench</a></li>
 <li>studyWorkbenchEditor()&#160;:&#160;<a class="el" href="classast_1_1UiAnalyzerMainWindow.html#ad3f9d6f31976ad9125e732b2cb8c2fd1">ast::UiAnalyzerMainWindow</a></li>
 <li>subsatellitePoint_&#160;:&#160;<a class="el" href="classast_1_1StationaryOrbitDesigner.html#aaaae8ed54c4beeed20f9dc5c44f0e8c2">ast::StationaryOrbitDesigner</a></li>
+<li>subspan()&#160;:&#160;<a class="el" href="classast_1_1Span.html#ad1c5f490bddf5099ec686372c7a0f56e">ast::Span&lt; T, Extent &gt;</a></li>
 <li>subtract()&#160;:&#160;<a class="el" href="classast_1_1IntervalList.html#a12c3a1a5814972379f67d6ad494b5051">ast::IntervalList</a>, <a class="el" href="classast_1_1TimeIntervalList.html#af7481a1d83d4cf8c857c3d93484dc3c8">ast::TimeIntervalList</a></li>
 <li>subtracted()&#160;:&#160;<a class="el" href="classast_1_1IntervalList.html#ae845b747c8cc80fe2264e01500df012c">ast::IntervalList</a>, <a class="el" href="classast_1_1TimeIntervalList.html#aa0cb1f90c5ea2a18d022db9abbe93727">ast::TimeIntervalList</a></li>
 <li>subUnits_&#160;:&#160;<a class="el" href="classast_1_1UnitRep.html#a1f36dee0412b05827e214bc5d1fd3a5b">ast::UnitRep</a></li>

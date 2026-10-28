@@ -36,13 +36,14 @@ var searchData=
   ['traitobject_3c_20ivalueprv_20_3e_33',['TraitObject&lt; IValuePrv &gt;',['../classast_1_1TraitObject.html',1,'ast']]],
   ['transform_34',['Transform',['../classast_1_1Transform.html',1,'ast']]],
   ['transmitter_35',['Transmitter',['../classast_1_1Transmitter.html',1,'ast']]],
-  ['treebuildoptions_36',['TreeBuildOptions',['../structast_1_1TreeBuildOptions.html',1,'ast']]],
-  ['twobody_37',['TwoBody',['../classast_1_1TwoBody.html',1,'ast']]],
-  ['type_5ffrom_5ftag_38',['type_from_tag',['../structast_1_1detail_1_1type__from__tag.html',1,'ast::detail']]],
-  ['type_5ffrom_5ftag_3c_20type_5fbool_20_3e_39',['type_from_tag&lt; type_bool &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__bool_01_4.html',1,'ast::detail']]],
-  ['type_5ffrom_5ftag_3c_20type_5fdouble_20_3e_40',['type_from_tag&lt; type_double &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__double_01_4.html',1,'ast::detail']]],
-  ['type_5ffrom_5ftag_3c_20type_5fint_20_3e_41',['type_from_tag&lt; type_int &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__int_01_4.html',1,'ast::detail']]],
-  ['type_5ffrom_5ftag_3c_20type_5fobject_20_3e_42',['type_from_tag&lt; type_object &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__object_01_4.html',1,'ast::detail']]],
-  ['type_5ffrom_5ftag_3c_20type_5fstring_20_3e_43',['type_from_tag&lt; type_string &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__string_01_4.html',1,'ast::detail']]],
-  ['typeops_44',['TypeOps',['../structast_1_1VariantVector_1_1TypeOps.html',1,'ast::VariantVector']]]
+  ['transposematrix_36',['TransposeMatrix',['../classast_1_1TransposeMatrix.html',1,'ast']]],
+  ['treebuildoptions_37',['TreeBuildOptions',['../structast_1_1TreeBuildOptions.html',1,'ast']]],
+  ['twobody_38',['TwoBody',['../classast_1_1TwoBody.html',1,'ast']]],
+  ['type_5ffrom_5ftag_39',['type_from_tag',['../structast_1_1detail_1_1type__from__tag.html',1,'ast::detail']]],
+  ['type_5ffrom_5ftag_3c_20type_5fbool_20_3e_40',['type_from_tag&lt; type_bool &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__bool_01_4.html',1,'ast::detail']]],
+  ['type_5ffrom_5ftag_3c_20type_5fdouble_20_3e_41',['type_from_tag&lt; type_double &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__double_01_4.html',1,'ast::detail']]],
+  ['type_5ffrom_5ftag_3c_20type_5fint_20_3e_42',['type_from_tag&lt; type_int &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__int_01_4.html',1,'ast::detail']]],
+  ['type_5ffrom_5ftag_3c_20type_5fobject_20_3e_43',['type_from_tag&lt; type_object &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__object_01_4.html',1,'ast::detail']]],
+  ['type_5ffrom_5ftag_3c_20type_5fstring_20_3e_44',['type_from_tag&lt; type_string &gt;',['../structast_1_1detail_1_1type__from__tag_3_01type__string_01_4.html',1,'ast::detail']]],
+  ['typeops_45',['TypeOps',['../structast_1_1VariantVector_1_1TypeOps.html',1,'ast::VariantVector']]]
 ];

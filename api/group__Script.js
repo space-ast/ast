@@ -111,6 +111,9 @@ var group__Script =
       [ "tryload", "classast_1_1PythonAPI.html#a1b20b1a04a53fd2cc87795aefbbfeb8c", null ],
       [ "unload", "classast_1_1PythonAPI.html#a63ff9f392f8dcd9e0d658a72cf0454ad", null ]
     ] ],
+    [ "ast::IScriptExecutorProvider", "classast_1_1IScriptExecutorProvider.html", [
+      [ "create", "classast_1_1IScriptExecutorProvider.html#a8ca023ae631fc107425d6a499353ba5a", null ]
+    ] ],
     [ "ast::Function", "classast_1_1Function.html", null ],
     [ "ast::BackTrace", "classast_1_1BackTrace.html", null ],
     [ "ast::CallStack", "classast_1_1CallStack.html", null ],
@@ -327,6 +330,7 @@ var group__Script =
       [ "desc_", "classast_1_1Variable.html#a34441040a42bb7a98dee0f13cec32ab9", null ],
       [ "expr_", "classast_1_1Variable.html#ad38524b5e49afa4669800bcfa1365db4", null ]
     ] ],
+    [ "AST_IID_IScriptExecutorProvider", "group__Script.html#gafb0ad35604306c088b456fc80bca9849", null ],
     [ "ast::IterateFunc", "group__Script.html#gac92a2124b66c8a652bceedb7da6a1b63", null ],
     [ "ast::OpAssignFunc", "group__Script.html#ga4a3435fb2657aa607b7c2dab49eb8cc4", null ],
     [ "ast::OpBinFunc", "group__Script.html#ga33b0083252c4606fe2c63aa003f3bc91", null ],

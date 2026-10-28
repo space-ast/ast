@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -121,12 +121,12 @@ $(function(){initNavTree('classast_1_1TLEDatabase.html',''); initResizable(true)
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public 类型</h2></td></tr>
-<tr class="memitem:adcfb7f1b19c0dbcede7282f484bc8ba0" id="r_adcfb7f1b19c0dbcede7282f484bc8ba0"><td class="memItemLeft" align="right" valign="top"><a id="adcfb7f1b19c0dbcede7282f484bc8ba0" name="adcfb7f1b19c0dbcede7282f484bc8ba0"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Entry</b> = <a class="el" href="classast_1_1TLE.html">TLE</a></td></tr>
-<tr class="separator:adcfb7f1b19c0dbcede7282f484bc8ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae479a0877bb546e81d18c98bf3bef519" id="r_ae479a0877bb546e81d18c98bf3bef519"><td class="memItemLeft" align="right" valign="top"><a id="ae479a0877bb546e81d18c98bf3bef519" name="ae479a0877bb546e81d18c98bf3bef519"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>EntryList</b> = std::vector&lt;<a class="el" href="classast_1_1TLE.html">TLE</a>&gt;</td></tr>
-<tr class="separator:ae479a0877bb546e81d18c98bf3bef519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b5f39035b7570bb82159511791c88e" id="r_a53b5f39035b7570bb82159511791c88e"><td class="memItemLeft" align="right" valign="top"><a id="a53b5f39035b7570bb82159511791c88e" name="a53b5f39035b7570bb82159511791c88e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TLEList</b> = std::vector&lt;<a class="el" href="classast_1_1TLE.html">TLE</a>&gt;</td></tr>
+<tr class="separator:a53b5f39035b7570bb82159511791c88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb80a5d4338662442fd2b1d4f5fe3c9c" id="r_afb80a5d4338662442fd2b1d4f5fe3c9c"><td class="memItemLeft" align="right" valign="top"><a id="afb80a5d4338662442fd2b1d4f5fe3c9c" name="afb80a5d4338662442fd2b1d4f5fe3c9c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TLELineList</b> = std::vector&lt;<a class="el" href="classast_1_1TLELines.html">TLELines</a>&gt;</td></tr>
+<tr class="separator:afb80a5d4338662442fd2b1d4f5fe3c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
@@ -142,15 +142,18 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>reload</b> ()</td><
 <tr class="memitem:adf0bb9ae01dc5c75305861aabaa4be0f" id="r_adf0bb9ae01dc5c75305861aabaa4be0f"><td class="memItemLeft" align="right" valign="top"><a id="adf0bb9ae01dc5c75305861aabaa4be0f" name="adf0bb9ae01dc5c75305861aabaa4be0f"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLoaded</b> () const</td></tr>
 <tr class="separator:adf0bb9ae01dc5c75305861aabaa4be0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d90f5122566d1b8c2e4c179f2a5bdd7" id="r_a8d90f5122566d1b8c2e4c179f2a5bdd7"><td class="memItemLeft" align="right" valign="top"><a id="a8d90f5122566d1b8c2e4c179f2a5bdd7" name="a8d90f5122566d1b8c2e4c179f2a5bdd7"></a>
-const EntryList &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEntries</b> () const</td></tr>
-<tr class="separator:a8d90f5122566d1b8c2e4c179f2a5bdd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1520093842897df4a29ae9c722df2c58" id="r_a1520093842897df4a29ae9c722df2c58"><td class="memItemLeft" align="right" valign="top"><a id="a1520093842897df4a29ae9c722df2c58" name="a1520093842897df4a29ae9c722df2c58"></a>
-EntryList&#160;</td><td class="memItemRight" valign="bottom"><b>getEntries</b> (const <a class="el" href="classast_1_1TLEDatabaseQuery.html">TLEDatabaseQuery</a> &amp;query) const</td></tr>
-<tr class="separator:a1520093842897df4a29ae9c722df2c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e7aeae22ab630754e60bfb28e666bc8" id="r_a2e7aeae22ab630754e60bfb28e666bc8"><td class="memItemLeft" align="right" valign="top"><a id="a2e7aeae22ab630754e60bfb28e666bc8" name="a2e7aeae22ab630754e60bfb28e666bc8"></a>
+const TLEList &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEntries</b> () const</td></tr>
+<tr class="separator:a2e7aeae22ab630754e60bfb28e666bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b7499e5e5d668e80606b5f14cbaf502" id="r_a0b7499e5e5d668e80606b5f14cbaf502"><td class="memItemLeft" align="right" valign="top"><a id="a0b7499e5e5d668e80606b5f14cbaf502" name="a0b7499e5e5d668e80606b5f14cbaf502"></a>
+TLEList&#160;</td><td class="memItemRight" valign="bottom"><b>getEntries</b> (const <a class="el" href="classast_1_1TLEDatabaseQuery.html">TLEDatabaseQuery</a> &amp;query) const</td></tr>
+<tr class="separator:a0b7499e5e5d668e80606b5f14cbaf502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d1011fb14bad6f955db3f6033047843" id="r_a2d1011fb14bad6f955db3f6033047843"><td class="memItemLeft" align="right" valign="top"><a id="a2d1011fb14bad6f955db3f6033047843" name="a2d1011fb14bad6f955db3f6033047843"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
 <tr class="separator:a2d1011fb14bad6f955db3f6033047843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e6bc16626edda96ada3858673c1d25" id="r_a40e6bc16626edda96ada3858673c1d25"><td class="memItemLeft" align="right" valign="top"><a id="a40e6bc16626edda96ada3858673c1d25" name="a40e6bc16626edda96ada3858673c1d25"></a>
+const TLELineList &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>lines</b> () const</td></tr>
+<tr class="separator:a40e6bc16626edda96ada3858673c1d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55d9a5dc62b1a734eebcbd48c33fc5f4" id="r_a55d9a5dc62b1a734eebcbd48c33fc5f4"><td class="memItemLeft" align="right" valign="top"><a id="a55d9a5dc62b1a734eebcbd48c33fc5f4" name="a55d9a5dc62b1a734eebcbd48c33fc5f4"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>filePath</b> () const</td></tr>
 <tr class="separator:a55d9a5dc62b1a734eebcbd48c33fc5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>

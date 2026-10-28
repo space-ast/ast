@@ -10,6 +10,7 @@ var classast_1_1SpiceAPI =
     [ "kclear", "classast_1_1SpiceAPI.html#a0feeb3bfba7ea0c51c9869ae4fc4766c", null ],
     [ "ktotal", "classast_1_1SpiceAPI.html#a5e6bf0d9111fb23b465c472b3750f84b", null ],
     [ "load", "classast_1_1SpiceAPI.html#ae0408a3a3444be4b86aff5f43bf72845", null ],
+    [ "makeSpicePath", "classast_1_1SpiceAPI.html#a8eef3677ee803b4b69f0085a2cdb087c", null ],
     [ "reset", "classast_1_1SpiceAPI.html#a6421ec4591b64071a4ad321874eb8b31", null ],
     [ "spkgeo", "classast_1_1SpiceAPI.html#aac3292abf67364990a1de46f79df05d0", null ],
     [ "spklef", "classast_1_1SpiceAPI.html#a4bb24796022f7868f160b7d8db92f82c", null ],

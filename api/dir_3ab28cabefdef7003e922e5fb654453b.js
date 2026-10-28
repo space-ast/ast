@@ -4,7 +4,7 @@ var dir_3ab28cabefdef7003e922e5fb654453b =
     [ "BodyAttraction.cpp", "BodyAttraction_8cpp.html", null ],
     [ "BodyAttraction.hpp", "BodyAttraction_8hpp.html", "BodyAttraction_8hpp" ],
     [ "DragForce.cpp", "DragForce_8cpp.html", null ],
-    [ "DragForce.hpp", "DragForce_8hpp.html", null ],
+    [ "DragForce.hpp", "DragForce_8hpp.html", "DragForce_8hpp" ],
     [ "ForceModel.cpp", "ForceModel_8cpp.html", null ],
     [ "ForceModel.hpp", "ForceModel_8hpp.html", "ForceModel_8hpp" ],
     [ "GravityForce.cpp", "GravityForce_8cpp.html", null ],

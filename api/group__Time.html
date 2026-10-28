@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -409,6 +409,8 @@ A_ALWAYS_INLINE errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast
 <tr class="separator:ga70b01a03019b1c2e056402c4c2c3d167"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7c6695040fe4a4836e186a2ead852e73" id="r_ga7c6695040fe4a4836e186a2ead852e73"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7c6695040fe4a4836e186a2ead852e73">ast::aDateTimeParseAny</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm)</td></tr>
 <tr class="separator:ga7c6695040fe4a4836e186a2ead852e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa4438240a6cb7537348c31d8ad3671c3" id="r_gaa4438240a6cb7537348c31d8ad3671c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa4438240a6cb7537348c31d8ad3671c3">ast::aDateTimeToYD</a> (const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;dttm, double &amp;year, double &amp;<a class="el" href="namespaceast_1_1units.html#a46331518b0993f7058b537530ef94a33">day</a>)</td></tr>
+<tr class="separator:gaa4438240a6cb7537348c31d8ad3671c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7d9257dc8e71b54cb261e4359d0b4634" id="r_ga7d9257dc8e71b54cb261e4359d0b4634"><td class="memItemLeft" align="right" valign="top"><a id="ga7d9257dc8e71b54cb261e4359d0b4634" name="ga7d9257dc8e71b54cb261e4359d0b4634"></a>
 A_ALWAYS_INLINE <a class="el" href="classast_1_1DateTime.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aCurrentDateTimeLocal</b> ()</td></tr>
 <tr class="separator:ga7d9257dc8e71b54cb261e4359d0b4634"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -488,6 +490,9 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointForm
 <tr class="memitem:gaf87534d679f29432c0c775aa3ec3a0ad" id="r_gaf87534d679f29432c0c775aa3ec3a0ad"><td class="memItemLeft" align="right" valign="top"><a id="gaf87534d679f29432c0c775aa3ec3a0ad" name="gaf87534d679f29432c0c775aa3ec3a0ad"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aTimePointParse</b> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str, <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;time)</td></tr>
 <tr class="separator:gaf87534d679f29432c0c775aa3ec3a0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac312a6c00ae09eabfdabb8135140666e" id="r_gac312a6c00ae09eabfdabb8135140666e"><td class="memItemLeft" align="right" valign="top"><a id="gac312a6c00ae09eabfdabb8135140666e" name="gac312a6c00ae09eabfdabb8135140666e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::toString</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp)</td></tr>
+<tr class="separator:gac312a6c00ae09eabfdabb8135140666e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad48a81d9b6bf043e8d2552e8a0ea6f83" id="r_gad48a81d9b6bf043e8d2552e8a0ea6f83"><td class="memItemLeft" align="right" valign="top"><a id="gad48a81d9b6bf043e8d2552e8a0ea6f83" name="gad48a81d9b6bf043e8d2552e8a0ea6f83"></a>
 <a class="el" href="classast_1_1TimePoint.html">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::operator&quot;&quot;_utc</b> (const char *str, size_t len)</td></tr>
 <tr class="separator:gad48a81d9b6bf043e8d2552e8a0ea6f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1833,6 +1838,42 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kTimeDe
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>errc_t 错误码，eNoError表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="gaa4438240a6cb7537348c31d8ad3671c3" name="gaa4438240a6cb7537348c31d8ad3671c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa4438240a6cb7537348c31d8ad3671c3">&#9670;&#160;</a></span>aDateTimeToYD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_CORE_CAPI void ast::aDateTimeToYD </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classast_1_1DateTime.html">DateTime</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dttm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>year</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>day</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将日期时间对象转换为年数和日数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dttm</td><td>日期时间对象 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">year</td><td>年数（例如：2025） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">day</td><td>当年的日数，包含表示当日秒数的小数部分（从1开始，例如：21.5） </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

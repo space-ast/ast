@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -192,6 +192,8 @@ Protected 成员函数</h2></td></tr>
 <tr class="memitem:affa41e813fbf996099c5b9a931f18d11" id="r_affa41e813fbf996099c5b9a931f18d11"><td class="memItemLeft" align="right" valign="top"><a id="affa41e813fbf996099c5b9a931f18d11" name="affa41e813fbf996099c5b9a931f18d11"></a>
 errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>checkerror</b> ()</td></tr>
 <tr class="separator:affa41e813fbf996099c5b9a931f18d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eef3677ee803b4b69f0085a2cdb087c" id="r_a8eef3677ee803b4b69f0085a2cdb087c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8eef3677ee803b4b69f0085a2cdb087c">makeSpicePath</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> path, std::string &amp;spicePath)</td></tr>
+<tr class="separator:a8eef3677ee803b4b69f0085a2cdb087c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4eb1ed9fedb4b0028b876602801fcdc8" id="r_a4eb1ed9fedb4b0028b876602801fcdc8"><td class="memItemLeft" align="right" valign="top"><a id="a4eb1ed9fedb4b0028b876602801fcdc8" name="a4eb1ed9fedb4b0028b876602801fcdc8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>A_DISABLE_COPY</b> (<a class="el" href="classast_1_1SpiceAPI.html">SpiceAPI</a>)</td></tr>
 <tr class="separator:a4eb1ed9fedb4b0028b876602801fcdc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -440,6 +442,44 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b> {}</
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>错误码 </dd></dl>
+
+</div>
+</div>
+<a id="a8eef3677ee803b4b69f0085a2cdb087c" name="a8eef3677ee803b4b69f0085a2cdb087c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eef3677ee803b4b69f0085a2cdb087c">&#9670;&#160;</a></span>makeSpicePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ast::SpiceAPI::makeSpicePath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>spicePath</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将路径转换为 CSPICE 可接受的路径 </p>
+<p>CSPICE 的 FILSIZ 是 256：FURNSH/SPKLEF 在打开文件前就会拒绝 超过 255 字符的文件名，与操作系统的长路径支持无关。超长路径 的父目录会被映射到一个短路径别名目录下再拼接文件名。 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>原始路径 </td></tr>
+    <tr><td class="paramname">spicePath</td><td>供 CSPICE 使用的路径（C库运行时编码） </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

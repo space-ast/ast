@@ -2,6 +2,8 @@ var namespaceast_1_1math =
 [
     [ "is_arithmetic_element", "structast_1_1math_1_1is__arithmetic__element.html", null ],
     [ "is_vector_like", "structast_1_1math_1_1is__vector__like.html", null ],
+    [ "is_vector_like<::Eigen::Matrix< Scalar, Rows, Cols, Options, MaxRows, MaxCols > >", "structast_1_1math_1_1is__vector__like_3_1_1Eigen_1_1Matrix_3_01Scalar_00_01Rows_00_01Cols_00_01Oe63ba8974902180fb0560fc66b8057c6.html", null ],
+    [ "arithmeticElementCheck", "namespaceast_1_1math.html#ac9f4d8a27579c552bbf631620e04a90d", null ],
     [ "cot", "namespaceast_1_1math.html#a762ef5701ce8b50600daa804623886da", null ],
     [ "cross", "namespaceast_1_1math.html#afe4763a2a941b3324f166f3377767b77", null ],
     [ "dot", "namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e", null ],

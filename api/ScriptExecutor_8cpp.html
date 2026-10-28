@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -107,10 +107,12 @@ $(function(){initNavTree('ScriptExecutor_8cpp.html',''); initResizable(true); })
 <div class="textblock"><code>#include &quot;AstScript/Variable.hpp&quot;</code><br />
 <code>#include &quot;AstScript/Value.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="ScriptExecutor_8hpp_source.html">ScriptExecutor.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ScriptExecutorProvider_8hpp_source.html">ScriptExecutorProvider.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="VBScriptExecutor_8hpp_source.html">VBScriptExecutor.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="JScriptExecutor_8hpp_source.html">JScriptExecutor.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="PythonExecutor_8hpp_source.html">PythonExecutor.hpp</a>&quot;</code><br />
 <code>#include &quot;AstUtil/Logger.hpp&quot;</code><br />
+<code>#include &quot;AstUtil/PluginRegistry.hpp&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
@@ -122,6 +124,8 @@ $(function(){initNavTree('ScriptExecutor_8cpp.html',''); initResizable(true); })
 <tr class="memitem:a84193b7b98a1bd0a8e279045864b30c6" id="r_a84193b7b98a1bd0a8e279045864b30c6"><td class="memItemLeft" align="right" valign="top"><a id="a84193b7b98a1bd0a8e279045864b30c6" name="a84193b7b98a1bd0a8e279045864b30c6"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::toString</b> (<a class="el" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87">EScriptLanguage</a> type)</td></tr>
 <tr class="separator:a84193b7b98a1bd0a8e279045864b30c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f1dda45f0d9104412e122bac453075" id="r_af3f1dda45f0d9104412e122bac453075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ScriptExecutor.html">ScriptExecutor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#af3f1dda45f0d9104412e122bac453075">ast::aNewScriptExecutorFromPlugin</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> name)</td></tr>
+<tr class="separator:af3f1dda45f0d9104412e122bac453075"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4e65d1e3291aefc88a10a4fee91cdd2" id="r_ab4e65d1e3291aefc88a10a4fee91cdd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1ScriptExecutor.html">ScriptExecutor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ab4e65d1e3291aefc88a10a4fee91cdd2">ast::aNewScriptExecutor</a> (<a class="el" href="namespaceast.html#aedeaa12b4f41b37c84e1d36771ed5a87">EScriptLanguage</a> type)</td></tr>
 <tr class="separator:ab4e65d1e3291aefc88a10a4fee91cdd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

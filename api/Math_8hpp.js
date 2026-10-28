@@ -16,6 +16,7 @@ var Math_8hpp =
     [ "clamp", "Math_8hpp.html#ga77fdcb17fe2f5bf4506f1f136b81f282", null ],
     [ "max", "Math_8hpp.html#a4420d16471aa45c760b033d80823b5b1", null ],
     [ "min", "Math_8hpp.html#a311d6dcbd16d6e212d729a17568e3d75", null ],
+    [ "round", "Math_8hpp.html#ga8f2043d640de2490edea0c715f2f11c2", null ],
     [ "sincos", "Math_8hpp.html#ga138fdd1a12245781f9122dfef37cabfc", null ],
     [ "sincos", "Math_8hpp.html#gafc70c145323140f0099c8226ab2161b5", null ],
     [ "sqrtSafe", "Math_8hpp.html#ga448817aeed1fc1c6155f4642d15b3637", null ],

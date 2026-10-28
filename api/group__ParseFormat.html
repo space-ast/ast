@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -217,6 +217,8 @@ errc_t&#160;</td><td class="memItemRight" valign="bottom"><b>ast::_aParseDouble_
 <tr class="separator:ga63265581084bbbffd11dfe8b9f437118"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad96a5256d0941310854d4e3d537a2bcf" id="r_gad96a5256d0941310854d4e3d537a2bcf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad96a5256d0941310854d4e3d537a2bcf">ast::aFormatBytes</a> (uint64_t bytes)</td></tr>
 <tr class="separator:gad96a5256d0941310854d4e3d537a2bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c9befd31b9650a4852e7225dcc96e49" id="r_ga2c9befd31b9650a4852e7225dcc96e49"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2c9befd31b9650a4852e7225dcc96e49">ast::aIsInt</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> str)</td></tr>
+<tr class="separator:ga2c9befd31b9650a4852e7225dcc96e49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga266b96fed3eb3bc40f8eee113e194513" id="r_ga266b96fed3eb3bc40f8eee113e194513"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga266b96fed3eb3bc40f8eee113e194513">ast::aFormatBool</a> (bool value)</td></tr>
 <tr class="separator:ga266b96fed3eb3bc40f8eee113e194513"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4ca49df1fdd27618f3983d6318265ea1" id="r_ga4ca49df1fdd27618f3983d6318265ea1"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4ca49df1fdd27618f3983d6318265ea1">ast::aFormatInt</a> (int value)</td></tr>
@@ -823,6 +825,32 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 
 </div>
 </div>
+<a id="ga2c9befd31b9650a4852e7225dcc96e49" name="ga2c9befd31b9650a4852e7225dcc96e49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2c9befd31b9650a4852e7225dcc96e49">&#9670;&#160;</a></span>aIsInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API bool ast::aIsInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classast_1_1StringViewBasic.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检查字符串是否为整数 </p>
+<p>允许可选的前导正负号，符号之后必须至少有一位数字；空字符串和仅含符号的字符串返回 false </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>输入字符串 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否为整数 </dd></dl>
+
+</div>
+</div>
 <a id="ga0439e28027e2ddd2c6f8d653fd363c7c" name="ga0439e28027e2ddd2c6f8d653fd363c7c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga0439e28027e2ddd2c6f8d653fd363c7c">&#9670;&#160;</a></span>aParseBool() <span class="overload">[1/2]</span></h2>
 
@@ -983,7 +1011,7 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 </div><div class="memdoc">
 
 <p>将字符串转换为双精度浮点数 </p>
-<dl class="params"><dt>参数</dt><dd>
+<p>严格解析：允许首尾空白，除此之外整个字符串必须是一个浮点数， 例如 " 5.35 " 可以解析，"5.35 xyz" 解析失败 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>输入字符串 </td></tr>
     <tr><td class="paramname">value</td><td>输出双精度浮点数 </td></tr>
@@ -1040,7 +1068,7 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 </div><div class="memdoc">
 
 <p>解析Fortran格式的双精度浮点数，例如"1.23D-4"、"1.23d-4"等 </p>
-<dl class="params"><dt>参数</dt><dd>
+<p>严格解析，规则同 aParseDouble </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>输入字符串 </td></tr>
     <tr><td class="paramname">value</td><td>输出双精度浮点数 </td></tr>
@@ -1097,7 +1125,7 @@ A_ALWAYS_INLINE std::string&#160;</td><td class="memItemRight" valign="bottom"><
 </div><div class="memdoc">
 
 <p>将字符串转换为整数 </p>
-<dl class="params"><dt>参数</dt><dd>
+<p>严格解析：允许首尾空白，除此之外整个字符串必须是一个整数， 例如 " 123 " 可以解析，"123 abc" 解析失败 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>输入字符串 </td></tr>
     <tr><td class="paramname">value</td><td>输出整数 </td></tr>

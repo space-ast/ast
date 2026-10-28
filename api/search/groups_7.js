@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['serde_0',['Serde',['../group__Serde.html',1,'']]],
-  ['spice_1',['Spice',['../group__Spice.html',1,'']]]
+  ['network_0',['Network',['../group__Network.html',1,'']]]
 ];

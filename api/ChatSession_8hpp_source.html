@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstAI/Chat/ChatSession.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstHarness/Chat/ChatSession.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -106,13 +106,13 @@ $(function(){initNavTree('ChatSession_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;AstGlobal.h&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstAI/LLMClient.hpp&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstAI/ChatAgent.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstAI/LLMConfig.hpp&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstAI/ChatTool.hpp&quot;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;AstAI/ChatMessages.hpp&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;AstAI/ChatTools.hpp&quot;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;AstAI/AssistantAgent.hpp&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;AstHarness/LLMClient.hpp&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;AstHarness/ChatAgent.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;AstHarness/LLMConfig.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;AstHarness/ChatTool.hpp&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;AstHarness/ChatMessages.hpp&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;AstHarness/ChatTools.hpp&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;AstHarness/AssistantAgent.hpp&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
@@ -122,7 +122,7 @@ $(function(){initNavTree('ChatSession_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">class </span>AssistantAgent;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html">   44</a></span><span class="keyword">class </span>AST_AI_API <a class="code hl_class" href="classast_1_1ChatSession.html">ChatSession</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html">   44</a></span><span class="keyword">class </span>AST_HARNESS_API <a class="code hl_class" href="classast_1_1ChatSession.html">ChatSession</a> {</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classast_1_1ChatSession.html">ChatSession</a>();</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
@@ -140,7 +140,7 @@ $(function(){initNavTree('ChatSession_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#a79d7c1e5e3fcf6874305504691d3daba">   81</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classast_1_1ChatSession.html#a79d7c1e5e3fcf6874305504691d3daba">setAgent</a>(std::unique_ptr&lt;AssistantAgent&gt; agent){agent_ = std::move(agent);}</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">   85</a></span>    <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">tools</a>(){<span class="keywordflow">return</span> agent().tools();}</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">   85</a></span>    <a class="code hl_class" href="classast_1_1ChatTools.html">ChatTools</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#a2c1f6b0a5dd5bab64070316bb0ef51e4">tools</a>(){<span class="keywordflow">return</span> agent().<a class="code hl_function" href="classast_1_1ChatTools.html#ae1d8dd62343a4294226bab26cfd6419c">tools</a>();}</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classast_1_1ChatSession.html#adfebf9aa6a608d83e6af377c544bc44a">   88</a></span>    <a class="code hl_class" href="classast_1_1LLMClient.html">LLMClient</a>&amp; <a class="code hl_function" href="classast_1_1ChatSession.html#adfebf9aa6a608d83e6af377c544bc44a">client</a>(){<span class="keywordflow">return</span> agent().client();}</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
@@ -171,7 +171,8 @@ $(function(){initNavTree('ChatSession_8hpp_source.html',''); initResizable(true)
 <div class="ttc" id="aclassast_1_1ChatSession_html_a7ee04b929db6e0dcf142f33a0ad51f7b"><div class="ttname"><a href="classast_1_1ChatSession.html#a7ee04b929db6e0dcf142f33a0ad51f7b">ast::ChatSession::lastError</a></div><div class="ttdeci">const std::string &amp; lastError() const</div><div class="ttdoc">获取最后一次错误信息</div><div class="ttdef"><b>定义</b> ChatSession.hpp:91</div></div>
 <div class="ttc" id="aclassast_1_1ChatSession_html_adfebf9aa6a608d83e6af377c544bc44a"><div class="ttname"><a href="classast_1_1ChatSession.html#adfebf9aa6a608d83e6af377c544bc44a">ast::ChatSession::client</a></div><div class="ttdeci">LLMClient &amp; client()</div><div class="ttdoc">获取当前使用的AI接口</div><div class="ttdef"><b>定义</b> ChatSession.hpp:88</div></div>
 <div class="ttc" id="aclassast_1_1ChatSession_html_ae9974e5336509f991ef1cb29eada082d"><div class="ttname"><a href="classast_1_1ChatSession.html#ae9974e5336509f991ef1cb29eada082d">ast::ChatSession::messages</a></div><div class="ttdeci">ChatMessages &amp; messages()</div><div class="ttdoc">获取消息历史</div><div class="ttdef"><b>定义</b> ChatSession.hpp:74</div></div>
-<div class="ttc" id="aclassast_1_1ChatTools_html"><div class="ttname"><a href="classast_1_1ChatTools.html">ast::ChatTools</a></div><div class="ttdoc">AI工具集合</div><div class="ttdef"><b>定义</b> ChatTools.hpp:39</div></div>
+<div class="ttc" id="aclassast_1_1ChatTools_html"><div class="ttname"><a href="classast_1_1ChatTools.html">ast::ChatTools</a></div><div class="ttdoc">AI工具集合</div><div class="ttdef"><b>定义</b> ChatTools.hpp:41</div></div>
+<div class="ttc" id="aclassast_1_1ChatTools_html_ae1d8dd62343a4294226bab26cfd6419c"><div class="ttname"><a href="classast_1_1ChatTools.html#ae1d8dd62343a4294226bab26cfd6419c">ast::ChatTools::tools</a></div><div class="ttdeci">const std::vector&lt; std::unique_ptr&lt; ChatTool &gt; &gt; &amp; tools() const</div><div class="ttdoc">获取工具列表</div><div class="ttdef"><b>定义</b> ChatTools.hpp:77</div></div>
 <div class="ttc" id="aclassast_1_1JsonValue_html"><div class="ttname"><a href="classast_1_1JsonValue.html">ast::JsonValue</a></div><div class="ttdoc">JSON 值类</div><div class="ttdef"><b>定义</b> JsonValue.hpp:47</div></div>
 <div class="ttc" id="aclassast_1_1LLMClient_html"><div class="ttname"><a href="classast_1_1LLMClient.html">ast::LLMClient</a></div><div class="ttdoc">大语言模型客户端接口</div><div class="ttdef"><b>定义</b> LLMClient.hpp:39</div></div>
 <div class="ttc" id="aclassast_1_1LLMConfig_html"><div class="ttname"><a href="classast_1_1LLMConfig.html">ast::LLMConfig</a></div><div class="ttdoc">LLM请求配置</div><div class="ttdef"><b>定义</b> LLMConfig.hpp:39</div></div>
@@ -181,7 +182,7 @@ $(function(){initNavTree('ChatSession_8hpp_source.html',''); initResizable(true)
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ea6136a52e1cd5f6e6b20d5ee7560754.html">AstAI</a></li><li class="navelem"><a class="el" href="dir_99fbedef7022a5da78e5c186a8338777.html">Chat</a></li><li class="navelem"><a class="el" href="ChatSession_8hpp.html">ChatSession.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a79ee6964b391c673dc3565c5f5397d7.html">AstHarness</a></li><li class="navelem"><a class="el" href="dir_91fcf2b37b6629de33fed64251e67a78.html">Chat</a></li><li class="navelem"><a class="el" href="ChatSession_8hpp.html">ChatSession.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

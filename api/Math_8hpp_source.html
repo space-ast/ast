@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -240,175 +240,200 @@ $(function(){initNavTree('Math_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>}</div>
 </div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="foldopen" id="foldopen00177" data-start="{" data-end="}">
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">  177</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(<span class="keywordtype">double</span> angle, <span class="keywordtype">double</span> start)</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>{</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">return</span> angle - floor((angle - start) / <a class="code hl_variable" href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>) * <a class="code hl_variable" href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>;</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>}</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>AST_UTIL_API <span class="keywordtype">double</span> round(<span class="keywordtype">double</span> x, <span class="keywordtype">int</span> digits);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="keyword">using </span>std::round;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="foldopen" id="foldopen00185" data-start="{" data-end="}">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">  185</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(<span class="keywordtype">double</span> angle, <span class="keywordtype">double</span> start)</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>{</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">return</span> angle - floor((angle - start) / <a class="code hl_variable" href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>) * <a class="code hl_variable" href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>}</div>
 </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="foldopen" id="foldopen00187" data-start="{" data-end="}">
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">  187</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">aNormalizeAngle</a>(<span class="keywordtype">double</span> angle, <span class="keywordtype">double</span> center)</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>{</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, center - <a class="code hl_variable" href="group__Util.html#gac73c5a61168551b1bc14f6748ea36cdc">kPI</a>);</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>}</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="foldopen" id="foldopen00195" data-start="{" data-end="}">
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">  195</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">aNormalizeAngle</a>(<span class="keywordtype">double</span> angle, <span class="keywordtype">double</span> center)</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>{</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, center - <a class="code hl_variable" href="group__Util.html#gac73c5a61168551b1bc14f6748ea36cdc">kPI</a>);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>}</div>
 </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="foldopen" id="foldopen00196" data-start="{" data-end="}">
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="group__Util.html#ga5cd816a87700237b7696f6170ae4e474">  196</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#ga5cd816a87700237b7696f6170ae4e474">aNormalizeAngle0To2Pi</a>(<span class="keywordtype">double</span> angle)</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>{</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, 0);</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>}</div>
-</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
 <div class="foldopen" id="foldopen00204" data-start="{" data-end="}">
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="group__Util.html#ga70afc34acbd6e94be6c10c32ea03acbd">  204</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#ga70afc34acbd6e94be6c10c32ea03acbd">aNormalizeAngleNegPiToPi</a>(<span class="keywordtype">double</span> angle)</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="group__Util.html#ga5cd816a87700237b7696f6170ae4e474">  204</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#ga5cd816a87700237b7696f6170ae4e474">aNormalizeAngle0To2Pi</a>(<span class="keywordtype">double</span> angle)</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>{</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, -<a class="code hl_variable" href="group__Util.html#gac73c5a61168551b1bc14f6748ea36cdc">kPI</a>);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, 0);</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>}</div>
 </div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
 <div class="foldopen" id="foldopen00212" data-start="{" data-end="}">
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">  212</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">aNormalizeAngleNeg2PiTo0</a>(<span class="keywordtype">double</span> angle)</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="group__Util.html#ga70afc34acbd6e94be6c10c32ea03acbd">  212</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#ga70afc34acbd6e94be6c10c32ea03acbd">aNormalizeAngleNegPiToPi</a>(<span class="keywordtype">double</span> angle)</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>{</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, -<a class="code hl_variable" href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, -<a class="code hl_variable" href="group__Util.html#gac73c5a61168551b1bc14f6748ea36cdc">kPI</a>);</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>}</div>
 </div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="foldopen" id="foldopen00219" data-start="{" data-end="}">
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="namespaceast_1_1propagate__nan.html">  219</a></span><span class="keyword">namespace </span>propagate_nan</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>{</div>
-<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="namespaceast_1_1propagate__nan.html#a311d6dcbd16d6e212d729a17568e3d75">  222</a></span>    A_ALWAYS_INLINE double (min)(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    {</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">if</span>(a &lt;= b)</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            <span class="keywordflow">return</span> a;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">if</span>(b &lt;= a)</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordflow">return</span> std::numeric_limits&lt;double&gt;::quiet_NaN();</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    }</div>
+<div class="foldopen" id="foldopen00220" data-start="{" data-end="}">
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">  220</a></span>A_ALWAYS_INLINE <span class="keywordtype">double</span> <a class="code hl_function" href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">aNormalizeAngleNeg2PiTo0</a>(<span class="keywordtype">double</span> angle)</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>{</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">aNormalizeAngleStart</a>(angle, -<a class="code hl_variable" href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">kTwoPI</a>);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>}</div>
 </div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
-<div class="foldopen" id="foldopen00232" data-start="{" data-end="}">
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="namespaceast_1_1propagate__nan.html#a4420d16471aa45c760b033d80823b5b1">  232</a></span>    A_ALWAYS_INLINE double (max)(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    {</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">if</span>(a &gt;= b)</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keywordflow">return</span> a;</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">if</span>(b &gt;= a)</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keywordflow">return</span> std::numeric_limits&lt;double&gt;::quiet_NaN();</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    }</div>
-</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="comment">// SWIG 无法解析 has_minus 中的 decltype SFINAE 检测，以下内部模板暂不暴露给 SWIG</span></div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="preprocessor">#ifndef SWIG</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="comment">// -------------------- 类型标记：类型是否允许使用减法，需要用户通过类型特化 allow_efficient_minus 来明确允许 --------------------</span></div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="structast_1_1propagate__nan_1_1allow__efficient__minus.html">  245</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1propagate__nan_1_1allow__efficient__minus.html">allow_efficient_minus</a> : std::false_type {};</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> VectorType&gt;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="keyword">inline</span> <span class="keywordtype">double</span> aAngle(<span class="keyword">const</span> VectorType&amp; v1, <span class="keyword">const</span> VectorType &amp; v2)</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>{</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordtype">double</span> normProduct = v1.norm() * v2.norm();</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keywordflow">if</span> (normProduct == 0) {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e">dot</a> = v1.dot(v2);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordtype">double</span> threshold = normProduct * 0.9999;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordflow">if</span> ((dot &lt; -threshold) || (dot &gt; threshold)) {</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keyword">auto</span> v3 = v1.cross(v2);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keywordflow">if</span> (dot &gt;= 0) {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keywordflow">return</span> asin(v3.norm() / normProduct);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="group__Util.html#gac73c5a61168551b1bc14f6748ea36cdc">kPI</a> - asin(v3.norm() / normProduct);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    }</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordflow">return</span> acos(dot / normProduct);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>}</div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="comment">// -------------------- 工具：检测是否存在 operator- --------------------</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00249" data-start="{" data-end="};">
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="structast_1_1propagate__nan_1_1has__minus.html">  249</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1propagate__nan_1_1has__minus.html">has_minus</a></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    {</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keyword">static</span> <span class="keyword">auto</span> test(<span class="keywordtype">int</span>) -&gt; <span class="keyword">decltype</span>(std::declval&lt;U&gt;() - std::declval&lt;U&gt;(), std::true_type());</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <span class="keyword">static</span> std::false_type test(...);</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> value = <span class="keyword">decltype</span>(test&lt;T&gt;(0))::value;</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    };</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="keyword">namespace </span>propagate_nan</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>{</div>
+<div class="foldopen" id="foldopen00252" data-start="{" data-end="}">
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="namespaceast_1_1propagate__nan.html#a311d6dcbd16d6e212d729a17568e3d75">  252</a></span>    A_ALWAYS_INLINE double (min)(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    {</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <span class="keywordflow">if</span>(a &lt;= b)</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            <span class="keywordflow">return</span> a;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keywordflow">if</span>(b &lt;= a)</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordflow">return</span> std::numeric_limits&lt;double&gt;::quiet_NaN();</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    }</div>
 </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="comment">// -------------------- 类型标记：是否使用减法 --------------------</span></div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00261" data-start="{" data-end="};">
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="structast_1_1propagate__nan_1_1use__efficient__minus.html">  261</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1propagate__nan_1_1use__efficient__minus.html">use_efficient_minus</a></div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    {</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> value = <a class="code hl_struct" href="structast_1_1propagate__nan_1_1allow__efficient__minus.html">allow_efficient_minus&lt;T&gt;::value</a> &amp;&amp; <a class="code hl_struct" href="structast_1_1propagate__nan_1_1has__minus.html">has_minus&lt;T&gt;::value</a>;</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    };</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="foldopen" id="foldopen00262" data-start="{" data-end="}">
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="namespaceast_1_1propagate__nan.html#a4420d16471aa45c760b033d80823b5b1">  262</a></span>    A_ALWAYS_INLINE double (max)(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    {</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <span class="keywordflow">if</span>(a &gt;= b)</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keywordflow">return</span> a;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keywordflow">if</span>(b &gt;= a)</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        <span class="keywordflow">return</span> std::numeric_limits&lt;double&gt;::quiet_NaN();</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    }</div>
 </div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keyword">typename</span> std::enable_if&lt;!use_efficient_minus&lt;T&gt;::value,<span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp;&gt;::type </div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    (min)(<span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; a, <span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; b)</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    {</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="comment">// 不支持 operator- 的类型，直接比较大小</span></div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        <span class="keywordflow">if</span>(a &lt;= b)</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keywordflow">return</span> a;</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        <span class="keywordflow">if</span>(b &lt;= a)</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keywordflow">if</span>(a != a)</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            <span class="keywordflow">return</span> a;</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    }</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="keyword">typename</span> std::enable_if&lt;use_efficient_minus&lt;T&gt;::value, <span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp;&gt;::type </div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    (min)(<span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; a, <span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; b) {</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <span class="comment">// 支持 operator- 的类型，使用减法比较大小</span></div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        <span class="keyword">auto</span> diff = a - b;         <span class="comment">// 注意：这里会构造临时对象</span></div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        <span class="keywordflow">if</span> (diff &lt;= 0) <span class="keywordflow">return</span> a;   <span class="comment">// a &lt;= b</span></div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        <span class="keywordflow">if</span> (diff &gt;= 0) <span class="keywordflow">return</span> b;   <span class="comment">// a &gt;= b</span></div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        <span class="keywordflow">if</span>(a != a)</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            <span class="keywordflow">return</span> a;</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    }</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    </div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keyword">typename</span> std::enable_if&lt;!use_efficient_minus&lt;T&gt;::value,<span class="keyword">const</span> T&amp;&gt;::type </div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    (max)(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b)</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    {</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        <span class="comment">// 不支持 operator- 的类型，直接比较大小</span></div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        <span class="keywordflow">if</span>(a &gt;= b)</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            <span class="keywordflow">return</span> a;</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        <span class="keywordflow">if</span>(b &gt;= a)</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        <span class="keywordflow">if</span>(a != a)</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            <span class="keywordflow">return</span> a;</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    }</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <span class="keyword">typename</span> std::enable_if&lt;use_efficient_minus&lt;T&gt;::value, <span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp;&gt;::type </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    (max)(<span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; a, <span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; b) </div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    {</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="comment">// 支持 operator- 的类型，使用减法比较大小</span></div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keyword">auto</span> diff = a - b;        <span class="comment">// 注意：这里会构造临时对象</span></div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        <span class="keywordflow">if</span> (diff &gt;= 0) <span class="keywordflow">return</span> a;   <span class="comment">// a &gt;= b</span></div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        <span class="keywordflow">if</span> (diff &lt;= 0) <span class="keywordflow">return</span> b;   <span class="comment">// a &lt;= b</span></div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <span class="keywordflow">if</span>(a != a)</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>            <span class="keywordflow">return</span> a;</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    }</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="preprocessor">#endif  </span><span class="comment">// !SWIG</span></div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>}</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="comment">// SWIG 无法解析 has_minus 中的 decltype SFINAE 检测，以下内部模板暂不暴露给 SWIG</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="preprocessor">#ifndef SWIG</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="comment">// -------------------- 类型标记：类型是否允许使用减法，需要用户通过类型特化 allow_efficient_minus 来明确允许 --------------------</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno"><a class="line" href="structast_1_1propagate__nan_1_1allow__efficient__minus.html">  275</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1propagate__nan_1_1allow__efficient__minus.html">allow_efficient_minus</a> : std::false_type {};</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="comment">// -------------------- 工具：检测是否存在 operator- --------------------</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00279" data-start="{" data-end="};">
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno"><a class="line" href="structast_1_1propagate__nan_1_1has__minus.html">  279</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1propagate__nan_1_1has__minus.html">has_minus</a></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    {</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <span class="keyword">static</span> <span class="keyword">auto</span> test(<span class="keywordtype">int</span>) -&gt; <span class="keyword">decltype</span>(std::declval&lt;U&gt;() - std::declval&lt;U&gt;(), std::true_type());</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        <span class="keyword">static</span> std::false_type test(...);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> value = <span class="keyword">decltype</span>(test&lt;T&gt;(0))::value;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    };</div>
 </div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>AST_NAMESPACE_END</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="comment">// -------------------- 类型标记：是否使用减法 --------------------</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00291" data-start="{" data-end="};">
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="structast_1_1propagate__nan_1_1use__efficient__minus.html">  291</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structast_1_1propagate__nan_1_1use__efficient__minus.html">use_efficient_minus</a></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    {</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> value = <a class="code hl_struct" href="structast_1_1propagate__nan_1_1allow__efficient__minus.html">allow_efficient_minus&lt;T&gt;::value</a> &amp;&amp; <a class="code hl_struct" href="structast_1_1propagate__nan_1_1has__minus.html">has_minus&lt;T&gt;::value</a>;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    };</div>
+</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <span class="keyword">typename</span> std::enable_if&lt;!use_efficient_minus&lt;T&gt;::value,<span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp;&gt;::type </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    (min)(<span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; a, <span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; b)</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    {</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        <span class="comment">// 不支持 operator- 的类型，直接比较大小</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        <span class="keywordflow">if</span>(a &lt;= b)</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            <span class="keywordflow">return</span> a;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <span class="keywordflow">if</span>(b &lt;= a)</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>            <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <span class="keywordflow">if</span>(a != a)</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>            <span class="keywordflow">return</span> a;</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    }</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keyword">typename</span> std::enable_if&lt;use_efficient_minus&lt;T&gt;::value, <span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp;&gt;::type </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    (min)(<span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; a, <span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; b) {</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <span class="comment">// 支持 operator- 的类型，使用减法比较大小</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        <span class="keyword">auto</span> diff = a - b;         <span class="comment">// 注意：这里会构造临时对象</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <span class="keywordflow">if</span> (diff &lt;= 0) <span class="keywordflow">return</span> a;   <span class="comment">// a &lt;= b</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="keywordflow">if</span> (diff &gt;= 0) <span class="keywordflow">return</span> b;   <span class="comment">// a &gt;= b</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <span class="keywordflow">if</span>(a != a)</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>            <span class="keywordflow">return</span> a;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    }</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="keyword">typename</span> std::enable_if&lt;!use_efficient_minus&lt;T&gt;::value,<span class="keyword">const</span> T&amp;&gt;::type </div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    (max)(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b)</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    {</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        <span class="comment">// 不支持 operator- 的类型，直接比较大小</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        <span class="keywordflow">if</span>(a &gt;= b)</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>            <span class="keywordflow">return</span> a;</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        <span class="keywordflow">if</span>(b &gt;= a)</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>            <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <span class="keywordflow">if</span>(a != a)</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>            <span class="keywordflow">return</span> a;</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    }</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    <span class="keyword">typename</span> std::enable_if&lt;use_efficient_minus&lt;T&gt;::value, <span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp;&gt;::type </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    (max)(<span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; a, <span class="keyword">const</span> <a class="code hl_variable" href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">T</a>&amp; b) </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    {</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        <span class="comment">// 支持 operator- 的类型，使用减法比较大小</span></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <span class="keyword">auto</span> diff = a - b;        <span class="comment">// 注意：这里会构造临时对象</span></div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        <span class="keywordflow">if</span> (diff &gt;= 0) <span class="keywordflow">return</span> a;   <span class="comment">// a &gt;= b</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordflow">if</span> (diff &lt;= 0) <span class="keywordflow">return</span> b;   <span class="comment">// a &lt;= b</span></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <span class="keywordflow">if</span>(a != a)</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>            <span class="keywordflow">return</span> a;</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    }</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="preprocessor">#endif  </span><span class="comment">// !SWIG</span></div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>}</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="aclassast_1_1SinCos_html"><div class="ttname"><a href="classast_1_1SinCos.html">ast::SinCos</a></div><div class="ttdoc">包含 sin(x) 和 cos(x) 值的结构体</div><div class="ttdef"><b>定义</b> Math.hpp:61</div></div>
 <div class="ttc" id="agroup__Util_html_ga21bfbd352838fe327fe09a3d4f008451"><div class="ttname"><a href="group__Util.html#ga21bfbd352838fe327fe09a3d4f008451">ast::kTwoPI</a></div><div class="ttdeci">constexpr double kTwoPI</div><div class="ttdoc">2*PI</div><div class="ttdef"><b>定义</b> Constants.hpp:55</div></div>
 <div class="ttc" id="agroup__Util_html_ga3d674163a7720e28ed63b575dcb337ab"><div class="ttname"><a href="group__Util.html#ga3d674163a7720e28ed63b575dcb337ab">ast::aDiscretizedCount</a></div><div class="ttdeci">A_ALWAYS_INLINE size_t aDiscretizedCount(double span, double step)</div><div class="ttdoc">计算闭区间 [0, span] 按 step 步长采样（含两端点）的采样点数</div><div class="ttdef"><b>定义</b> Math.hpp:107</div></div>
 <div class="ttc" id="agroup__Util_html_ga448817aeed1fc1c6155f4642d15b3637"><div class="ttname"><a href="group__Util.html#ga448817aeed1fc1c6155f4642d15b3637">ast::sqrtSafe</a></div><div class="ttdeci">A_ALWAYS_INLINE double sqrtSafe(double x)</div><div class="ttdoc">安全平方根，参数自动箝位到 [0, +∞]</div><div class="ttdef"><b>定义</b> Math.hpp:159</div></div>
-<div class="ttc" id="agroup__Util_html_ga5cd816a87700237b7696f6170ae4e474"><div class="ttname"><a href="group__Util.html#ga5cd816a87700237b7696f6170ae4e474">ast::aNormalizeAngle0To2Pi</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngle0To2Pi(double angle)</div><div class="ttdoc">将角度量规范化到 0 到 2π 范围</div><div class="ttdef"><b>定义</b> Math.hpp:196</div></div>
+<div class="ttc" id="agroup__Util_html_ga5cd816a87700237b7696f6170ae4e474"><div class="ttname"><a href="group__Util.html#ga5cd816a87700237b7696f6170ae4e474">ast::aNormalizeAngle0To2Pi</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngle0To2Pi(double angle)</div><div class="ttdoc">将角度量规范化到 0 到 2π 范围</div><div class="ttdef"><b>定义</b> Math.hpp:204</div></div>
 <div class="ttc" id="agroup__Util_html_ga69612c7878a622a17ab0f6af56aaab65"><div class="ttname"><a href="group__Util.html#ga69612c7878a622a17ab0f6af56aaab65">ast::asinSafe</a></div><div class="ttdeci">A_ALWAYS_INLINE double asinSafe(double x)</div><div class="ttdoc">安全反正弦，参数自动箝位到 [-1, 1]</div><div class="ttdef"><b>定义</b> Math.hpp:143</div></div>
-<div class="ttc" id="agroup__Util_html_ga70afc34acbd6e94be6c10c32ea03acbd"><div class="ttname"><a href="group__Util.html#ga70afc34acbd6e94be6c10c32ea03acbd">ast::aNormalizeAngleNegPiToPi</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleNegPiToPi(double angle)</div><div class="ttdoc">将角度量规范化到 -π 到 π 范围</div><div class="ttdef"><b>定义</b> Math.hpp:204</div></div>
+<div class="ttc" id="agroup__Util_html_ga70afc34acbd6e94be6c10c32ea03acbd"><div class="ttname"><a href="group__Util.html#ga70afc34acbd6e94be6c10c32ea03acbd">ast::aNormalizeAngleNegPiToPi</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleNegPiToPi(double angle)</div><div class="ttdoc">将角度量规范化到 -π 到 π 范围</div><div class="ttdef"><b>定义</b> Math.hpp:212</div></div>
 <div class="ttc" id="agroup__Util_html_ga77fdcb17fe2f5bf4506f1f136b81f282"><div class="ttname"><a href="group__Util.html#ga77fdcb17fe2f5bf4506f1f136b81f282">ast::clamp</a></div><div class="ttdeci">A_CONSTEXPR_CXX14 const T &amp; clamp(const T &amp;val, const T &amp;low, const T &amp;high)</div><div class="ttdoc">对值进行范围限制</div><div class="ttdef"><b>定义</b> Math.hpp:123</div></div>
 <div class="ttc" id="agroup__Util_html_ga8831f3e788e7c120569b0c8f00004ebf"><div class="ttname"><a href="group__Util.html#ga8831f3e788e7c120569b0c8f00004ebf">ast::aMax</a></div><div class="ttdeci">Scalar aMax(Scalar a, Scalar b)</div><div class="ttdoc">计算两个数中的较大值</div><div class="ttdef"><b>定义</b> Math.hpp:91</div></div>
 <div class="ttc" id="agroup__Util_html_gac73c5a61168551b1bc14f6748ea36cdc"><div class="ttname"><a href="group__Util.html#gac73c5a61168551b1bc14f6748ea36cdc">ast::kPI</a></div><div class="ttdeci">constexpr double kPI</div><div class="ttdoc">PI</div><div class="ttdef"><b>定义</b> Constants.hpp:54</div></div>
-<div class="ttc" id="agroup__Util_html_gae34aefa61d4998de18c705a340bf3d9c"><div class="ttname"><a href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">ast::aNormalizeAngleNeg2PiTo0</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleNeg2PiTo0(double angle)</div><div class="ttdoc">将角度量规范化到 -2π 到 0 范围</div><div class="ttdef"><b>定义</b> Math.hpp:212</div></div>
+<div class="ttc" id="agroup__Util_html_gae34aefa61d4998de18c705a340bf3d9c"><div class="ttname"><a href="group__Util.html#gae34aefa61d4998de18c705a340bf3d9c">ast::aNormalizeAngleNeg2PiTo0</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleNeg2PiTo0(double angle)</div><div class="ttdoc">将角度量规范化到 -2π 到 0 范围</div><div class="ttdef"><b>定义</b> Math.hpp:220</div></div>
 <div class="ttc" id="agroup__Util_html_gae607d540253979beacb45ea4a55c0bb1"><div class="ttname"><a href="group__Util.html#gae607d540253979beacb45ea4a55c0bb1">ast::aMin</a></div><div class="ttdeci">Scalar aMin(Scalar a, Scalar b)</div><div class="ttdoc">计算两个数中的较小值</div><div class="ttdef"><b>定义</b> Math.hpp:98</div></div>
-<div class="ttc" id="agroup__Util_html_gae628da25178a68de57bdf3fdfd9e8dcb"><div class="ttname"><a href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">ast::aNormalizeAngleStart</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleStart(double angle, double start)</div><div class="ttdoc">将角度量规范化到指定起始范围</div><div class="ttdef"><b>定义</b> Math.hpp:177</div></div>
-<div class="ttc" id="agroup__Util_html_gaea03a932dcd544c97844e1f9eb451437"><div class="ttname"><a href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">ast::aNormalizeAngle</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngle(double angle, double center)</div><div class="ttdoc">将角度量规范化到指定中心范围</div><div class="ttdef"><b>定义</b> Math.hpp:187</div></div>
+<div class="ttc" id="agroup__Util_html_gae628da25178a68de57bdf3fdfd9e8dcb"><div class="ttname"><a href="group__Util.html#gae628da25178a68de57bdf3fdfd9e8dcb">ast::aNormalizeAngleStart</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngleStart(double angle, double start)</div><div class="ttdoc">将角度量规范化到指定起始范围</div><div class="ttdef"><b>定义</b> Math.hpp:185</div></div>
+<div class="ttc" id="agroup__Util_html_gaea03a932dcd544c97844e1f9eb451437"><div class="ttname"><a href="group__Util.html#gaea03a932dcd544c97844e1f9eb451437">ast::aNormalizeAngle</a></div><div class="ttdeci">A_ALWAYS_INLINE double aNormalizeAngle(double angle, double center)</div><div class="ttdoc">将角度量规范化到指定中心范围</div><div class="ttdef"><b>定义</b> Math.hpp:195</div></div>
 <div class="ttc" id="agroup__Util_html_gaeda6489a58c6ade5f16fd219c121a570"><div class="ttname"><a href="group__Util.html#gaeda6489a58c6ade5f16fd219c121a570">ast::square</a></div><div class="ttdeci">Scalar square(Scalar x)</div><div class="ttdoc">计算平方</div><div class="ttdef"><b>定义</b> Math.hpp:167</div></div>
 <div class="ttc" id="agroup__Util_html_gaf3daeb4f2ae541a38327773fb244197b"><div class="ttname"><a href="group__Util.html#gaf3daeb4f2ae541a38327773fb244197b">ast::acosSafe</a></div><div class="ttdeci">A_ALWAYS_INLINE double acosSafe(double x)</div><div class="ttdoc">安全反余弦，参数自动箝位到 [-1, 1]</div><div class="ttdef"><b>定义</b> Math.hpp:151</div></div>
 <div class="ttc" id="agroup__Util_html_gafc70c145323140f0099c8226ab2161b5"><div class="ttname"><a href="group__Util.html#gafc70c145323140f0099c8226ab2161b5">ast::sincos</a></div><div class="ttdeci">A_ALWAYS_INLINE void sincos(double x, double *psin, double *pcos)</div><div class="ttdoc">计算 sin(x) 和 cos(x) 值</div><div class="ttdef"><b>定义</b> Math.hpp:51</div></div>
+<div class="ttc" id="anamespaceast_1_1math_html_aca33d22882041673d4a2e218e052cc3e"><div class="ttname"><a href="namespaceast_1_1math.html#aca33d22882041673d4a2e218e052cc3e">ast::math::dot</a></div><div class="ttdeci">double dot(const Container1 &amp;vec1, const Container2 &amp;vec2)</div><div class="ttdoc">dot</div><div class="ttdef"><b>定义</b> MathOperator.hpp:162</div></div>
 <div class="ttc" id="anamespaceast_1_1units_html_a3ba38903856aa71d0b6b98823175b315"><div class="ttname"><a href="namespaceast_1_1units.html#a3ba38903856aa71d0b6b98823175b315">ast::units::T</a></div><div class="ttdeci">Unit T</div><div class="ttdoc">特斯拉</div><div class="ttdef"><b>定义</b> Unit.cpp:492</div></div>
-<div class="ttc" id="astructast_1_1propagate__nan_1_1allow__efficient__minus_html"><div class="ttname"><a href="structast_1_1propagate__nan_1_1allow__efficient__minus.html">ast::propagate_nan::allow_efficient_minus</a></div><div class="ttdef"><b>定义</b> Math.hpp:245</div></div>
-<div class="ttc" id="astructast_1_1propagate__nan_1_1has__minus_html"><div class="ttname"><a href="structast_1_1propagate__nan_1_1has__minus.html">ast::propagate_nan::has_minus</a></div><div class="ttdef"><b>定义</b> Math.hpp:250</div></div>
-<div class="ttc" id="astructast_1_1propagate__nan_1_1use__efficient__minus_html"><div class="ttname"><a href="structast_1_1propagate__nan_1_1use__efficient__minus.html">ast::propagate_nan::use_efficient_minus</a></div><div class="ttdef"><b>定义</b> Math.hpp:262</div></div>
+<div class="ttc" id="astructast_1_1propagate__nan_1_1allow__efficient__minus_html"><div class="ttname"><a href="structast_1_1propagate__nan_1_1allow__efficient__minus.html">ast::propagate_nan::allow_efficient_minus</a></div><div class="ttdef"><b>定义</b> Math.hpp:275</div></div>
+<div class="ttc" id="astructast_1_1propagate__nan_1_1has__minus_html"><div class="ttname"><a href="structast_1_1propagate__nan_1_1has__minus.html">ast::propagate_nan::has_minus</a></div><div class="ttdef"><b>定义</b> Math.hpp:280</div></div>
+<div class="ttc" id="astructast_1_1propagate__nan_1_1use__efficient__minus_html"><div class="ttname"><a href="structast_1_1propagate__nan_1_1use__efficient__minus.html">ast::propagate_nan::use_efficient_minus</a></div><div class="ttdef"><b>定义</b> Math.hpp:292</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

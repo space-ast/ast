@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -151,7 +151,7 @@ $(function(){initNavTree('SourceLocation_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">   73</a></span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">extract_filename</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keyword">const</span> <span class="keywordtype">char</span>* last_sep_pos=<span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="namespaceast.html#a8779d0780c94c0ccbade74e118da5a09">   73</a></span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="namespaceast.html#a8779d0780c94c0ccbade74e118da5a09">extract_filename</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str)</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> extract_filename_impl(str, <span class="keyword">nullptr</span>, str);</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
@@ -166,7 +166,7 @@ $(function(){initNavTree('SourceLocation_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>AST_NAMESPACE_END</div>
 <div class="ttc" id="anamespaceast_html_a0ab095e8a194aeafadf1e408c8393e8d"><div class="ttname"><a href="namespaceast.html#a0ab095e8a194aeafadf1e408c8393e8d">ast::is_sep</a></div><div class="ttdeci">constexpr bool is_sep(char c)</div><div class="ttdoc">判断字符是否为路径分隔符（反斜杠或正斜杠）</div><div class="ttdef"><b>定义</b> SourceLocation.hpp:34</div></div>
-<div class="ttc" id="anamespaceast_html_a46bf7f6285e97fa9e3a05bf9ef22452f"><div class="ttname"><a href="namespaceast.html#a46bf7f6285e97fa9e3a05bf9ef22452f">ast::extract_filename</a></div><div class="ttdeci">constexpr const char * extract_filename(const char *str, const char *last_sep_pos=nullptr)</div><div class="ttdoc">从路径中提取文件名，若无分隔符则返回原串</div><div class="ttdef"><b>定义</b> SourceLocation.hpp:73</div></div>
+<div class="ttc" id="anamespaceast_html_a8779d0780c94c0ccbade74e118da5a09"><div class="ttname"><a href="namespaceast.html#a8779d0780c94c0ccbade74e118da5a09">ast::extract_filename</a></div><div class="ttdeci">constexpr const char * extract_filename(const char *str)</div><div class="ttdoc">从路径中提取文件名，若无分隔符则返回原串</div><div class="ttdef"><b>定义</b> SourceLocation.hpp:73</div></div>
 <div class="ttc" id="anamespaceast_html_af19d4e6c4f5207d9e37dea1ab90459e4"><div class="ttname"><a href="namespaceast.html#af19d4e6c4f5207d9e37dea1ab90459e4">ast::extract_after_last_dotdot</a></div><div class="ttdeci">constexpr const char * extract_after_last_dotdot(const char *str)</div><div class="ttdoc">查找最后一个 &quot;..&quot; 后的路径，并返回后续实际路径的起始位置，若无 .. 则返回原串</div><div class="ttdef"><b>定义</b> SourceLocation.hpp:56</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

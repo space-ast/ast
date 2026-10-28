@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -396,9 +396,9 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</t
 <tr class="separator:ga761a90cb1815dcc48770bda27249e13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6c6a572ffdf8ed2e7a6b0e87d9a6c074" id="r_ga6c6a572ffdf8ed2e7a6b0e87d9a6c074"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6c6a572ffdf8ed2e7a6b0e87d9a6c074">ast::aJ2000ToICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecJ2000, const Vector3d &amp;velJ2000, Vector3d &amp;vecICRF, Vector3d &amp;velICRF)</td></tr>
 <tr class="separator:ga6c6a572ffdf8ed2e7a6b0e87d9a6c074"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga50e20f586e2227e4a9dccdf138ae2788" id="r_ga50e20f586e2227e4a9dccdf138ae2788"><td class="memItemLeft" align="right" valign="top"><a id="ga50e20f586e2227e4a9dccdf138ae2788" name="ga50e20f586e2227e4a9dccdf138ae2788"></a>
-A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aICRFToECFMatrix</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double matrix[3][3])</td></tr>
-<tr class="separator:ga50e20f586e2227e4a9dccdf138ae2788"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5876b3c02f372089377052467e4a389d" id="r_ga5876b3c02f372089377052467e4a389d"><td class="memItemLeft" align="right" valign="top"><a id="ga5876b3c02f372089377052467e4a389d" name="ga5876b3c02f372089377052467e4a389d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aICRFToECFMatrix</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double matrix[3][3])</td></tr>
+<tr class="separator:ga5876b3c02f372089377052467e4a389d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabde4be78f6f741a562e7560d5c2ca74b" id="r_gabde4be78f6f741a562e7560d5c2ca74b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabde4be78f6f741a562e7560d5c2ca74b">ast::aJ2000ToB1950Transform_Vallado</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
 <tr class="separator:gabde4be78f6f741a562e7560d5c2ca74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf4bf9d50600f2535d6c6b24d237d4e2c" id="r_gaf4bf9d50600f2535d6c6b24d237d4e2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf4bf9d50600f2535d6c6b24d237d4e2c">ast::aJ2000ToB1950Transform_SPICE</a> (<a class="el" href="classast_1_1Rotation.html">Rotation</a> &amp;rotation)</td></tr>
@@ -2866,7 +2866,7 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
 </div><div class="memdoc">
 
 <p>计算月球ICRF坐标系到月球MeanEarth系的转换(依赖IAU旋转系数) </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">待办事项</a></b></dt><dd>还未实现该函数 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">待办事项</a></b></dt><dd>还未实现该函数 </dd></dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td></td></tr>
@@ -4245,7 +4245,7 @@ A_ALWAYS_INLINE <a class="el" href="classast_1_1Point.html">Point</a> *&#160;</t
 
 <p>计算ICRF到月球主轴系(PA)的转换 </p>
 <dl class="section note"><dt>注解</dt><dd>该函数依赖DE星历数据里的月球平动角 </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">待办事项</a></b></dt><dd>还未实现该函数，需要实现旋转角速度的计算 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">待办事项</a></b></dt><dd>还未实现该函数，需要实现旋转角速度的计算 </dd></dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>时间点 </td></tr>

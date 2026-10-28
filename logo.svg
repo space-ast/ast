@@ -1,21 +1,67 @@
-<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-  <!-- 背景圆形 -->
-  <circle cx="64" cy="64" r="60" fill="#1a365d" stroke="#2d3748" stroke-width="2"/>
-  
-  <!-- 轨道环 -->
-  <circle cx="64" cy="64" r="45" fill="none" stroke="#4299e1" stroke-width="2" stroke-dasharray="3,3"/>
-  <circle cx="64" cy="64" r="35" fill="none" stroke="#48bb78" stroke-width="2" stroke-dasharray="2,2"/>
-  
-  <!-- 中心卫星/航天器 -->
-  <circle cx="64" cy="64" r="12" fill="#e53e3e"/>
-  <rect x="60" y="52" width="8" height="24" fill="#ed8936"/>
-  
-  <!-- 数学符号 -->
-  <text x="64" y="70" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">A</text>
-  
-  <!-- 星星 -->
-  <circle cx="40" cy="40" r="1.5" fill="white"/>
-  <circle cx="90" cy="50" r="1" fill="white"/>
-  <circle cx="50" cy="85" r="1" fill="white"/>
-  <circle cx="85" cy="80" r="1.5" fill="white"/>
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="badge" x1="20" y1="8" x2="108" y2="122" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2f8bff"/>
+      <stop offset="0.55" stop-color="#1677ff"/>
+      <stop offset="1" stop-color="#083fa8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(40 30) rotate(45) scale(82)">
+      <stop stop-color="#ffffff" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="planet" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(53 55) rotate(50) scale(39)">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.5" stop-color="#dcecff"/>
+      <stop offset="1" stop-color="#93bdf7"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0" y1="-6" x2="0" y2="6" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe8a3"/>
+      <stop offset="1" stop-color="#f5a623"/>
+    </linearGradient>
+    <clipPath id="badgeClip">
+      <rect x="4" y="4" width="120" height="120" rx="30"/>
+    </clipPath>
+    <clipPath id="planetClip">
+      <circle cx="64" cy="68" r="26"/>
+    </clipPath>
+  </defs>
+
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#badge)"/>
+  <rect x="5" y="5" width="118" height="118" rx="29" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1"/>
+  <g clip-path="url(#badgeClip)">
+    <rect x="4" y="4" width="120" height="120" fill="url(#glow)"/>
+    <g fill="#ffffff" opacity="0.4">
+      <circle cx="27" cy="31" r="1.5"/>
+      <circle cx="103" cy="25" r="1.1"/>
+      <circle cx="35" cy="102" r="1.2"/>
+      <circle cx="101" cy="103" r="1.5"/>
+      <circle cx="22" cy="72" r="1"/>
+    </g>
+  </g>
+
+  <!-- orbit -->
+  <ellipse cx="64" cy="68" rx="45" ry="17" transform="rotate(-24 64 68)"
+           stroke="#e8f4ff" stroke-width="3.5" stroke-opacity="0.95"/>
+
+  <!-- planet -->
+  <circle cx="64" cy="68" r="26" fill="url(#planet)"/>
+  <g clip-path="url(#planetClip)">
+    <ellipse cx="74" cy="79" rx="7" ry="4.5" transform="rotate(-22 74 79)" fill="#6ea7ef" opacity="0.16"/>
+    <circle cx="52" cy="79" r="3.4" fill="#6ea7ef" opacity="0.14"/>
+    <ellipse cx="77" cy="58" rx="3.4" ry="2.2" transform="rotate(-18 77 58)" fill="#6ea7ef" opacity="0.14"/>
+  </g>
+
+  <!-- satellite -->
+  <g transform="translate(100 45.5) rotate(-16) scale(0.92)">
+    <rect x="-18" y="-6" width="9" height="12" rx="1.6" fill="url(#panel)" stroke="#fff4d1" stroke-width="1"/>
+    <rect x="9" y="-6" width="9" height="12" rx="1.6" fill="url(#panel)" stroke="#fff4d1" stroke-width="1"/>
+    <path d="M-18 -2h9M-18 2h9M9 -2h9M9 2h9" stroke="#c07a12" stroke-width="0.9" opacity="0.8"/>
+    <path d="M-9 0H-5.5M5.5 0H9" stroke="#e8f4ff" stroke-width="1.4"/>
+    <rect x="-5.5" y="-7.5" width="11" height="15" rx="3" fill="#ffffff" stroke="#0b3d91" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="2.4" fill="#1677ff"/>
+    <path d="M0 -7.5V-12" stroke="#e8f4ff" stroke-width="1.3"/>
+    <circle cx="0" cy="-13.4" r="1.9" fill="#ffd666"/>
+  </g>
 </svg>

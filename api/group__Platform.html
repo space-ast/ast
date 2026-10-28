@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -220,10 +220,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ast::ast_printf</b> (c
 <tr class="separator:ga19e5714a61a8ba893a69b7ebdeba2005"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga52c02b09388ac56566408d15c1e1ce7e" id="r_ga52c02b09388ac56566408d15c1e1ce7e"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga52c02b09388ac56566408d15c1e1ce7e">ast::aFreeLibrary</a> (void *lib)</td></tr>
 <tr class="separator:ga52c02b09388ac56566408d15c1e1ce7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga76062afc1ba2839bd8eb0adcf42ca404" id="r_ga76062afc1ba2839bd8eb0adcf42ca404"><td class="memItemLeft" align="right" valign="top">errc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga76062afc1ba2839bd8eb0adcf42ca404">ast::aFreeLibraryOnExit</a> (void *lib)</td></tr>
+<tr class="separator:ga76062afc1ba2839bd8eb0adcf42ca404"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga792d6e546f624b93c64487c04deac344" id="r_ga792d6e546f624b93c64487c04deac344"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga792d6e546f624b93c64487c04deac344">ast::aGetLoadError</a> ()</td></tr>
 <tr class="separator:ga792d6e546f624b93c64487c04deac344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6186503d5c641ed5c2a3f36c0cbf1a76" id="r_ga6186503d5c641ed5c2a3f36c0cbf1a76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6186503d5c641ed5c2a3f36c0cbf1a76">ast::aIsLibrary</a> (<a class="el" href="classast_1_1StringViewBasic.html">StringView</a> fileName)</td></tr>
 <tr class="separator:ga6186503d5c641ed5c2a3f36c0cbf1a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd53896a8b3f1a913f4a9addd60c05d2" id="r_gadd53896a8b3f1a913f4a9addd60c05d2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadd53896a8b3f1a913f4a9addd60c05d2">ast::aGetModuleFilePath</a> (void *lib)</td></tr>
+<tr class="separator:gadd53896a8b3f1a913f4a9addd60c05d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga057833c67cd619b666f534f50d48fc30" id="r_ga057833c67cd619b666f534f50d48fc30"><td class="memItemLeft" align="right" valign="top"><a id="ga057833c67cd619b666f534f50d48fc30" name="ga057833c67cd619b666f534f50d48fc30"></a>
 A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::swap</b> (<a class="el" href="classast_1_1Thread.html">Thread</a> &amp;lhs, <a class="el" href="classast_1_1Thread.html">Thread</a> &amp;rhs) noexcept</td></tr>
 <tr class="separator:ga057833c67cd619b666f534f50d48fc30"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -394,6 +398,33 @@ A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::
 
 </div>
 </div>
+<a id="ga76062afc1ba2839bd8eb0adcf42ca404" name="ga76062afc1ba2839bd8eb0adcf42ca404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga76062afc1ba2839bd8eb0adcf42ca404">&#9670;&#160;</a></span>aFreeLibraryOnExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_CAPI errc_t ast::aFreeLibraryOnExit </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>lib</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>声明动态库在程序退出时卸载 </p>
+<p>将动态库句柄登记到进程级列表，在进程结束时统一卸载 适用于需要长期驻留、又希望在退出前正常卸载的库（例如插件动态库） </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lib</td><td>动态库句柄 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>eNoError: 成功；其他错误码: 失败 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>登记后句柄归本模块管理，不得再对其调用 aFreeLibrary 登记次数应与动态库的加载次数一致：每次 aLoadLibrary 成功对应一次登记 </dd></dl>
+
+</div>
+</div>
 <a id="ga12c79e8e850e12d6ae0b9277d83ec0cb" name="ga12c79e8e850e12d6ae0b9277d83ec0cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga12c79e8e850e12d6ae0b9277d83ec0cb">&#9670;&#160;</a></span>aGetEndian()</h2>
 
@@ -488,6 +519,32 @@ A_ALWAYS_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::
 
 <p>获取最后的错误信息 </p>
 <dl class="section return"><dt>返回</dt><dd>错误信息字符串 </dd></dl>
+
+</div>
+</div>
+<a id="gadd53896a8b3f1a913f4a9addd60c05d2" name="gadd53896a8b3f1a913f4a9addd60c05d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadd53896a8b3f1a913f4a9addd60c05d2">&#9670;&#160;</a></span>aGetModuleFilePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API std::string ast::aGetModuleFilePath </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>lib</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取动态库的文件路径 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lib</td><td>动态库 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>库的文件路径 </dd></dl>
 
 </div>
 </div>

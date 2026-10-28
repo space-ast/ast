@@ -184,6 +184,7 @@ var group__ParseFormat =
     [ "ast::aFormatInt", "group__ParseFormat.html#ga4ca49df1fdd27618f3983d6318265ea1", null ],
     [ "ast::aFormatInt", "group__ParseFormat.html#ga9f4b6ed1cf14fe64250b3ddc93387876", null ],
     [ "ast::aIsHashCommentLine", "group__ParseFormat.html#ga705cb94fd0b7a45fe27f245a69444a51", null ],
+    [ "ast::aIsInt", "group__ParseFormat.html#ga2c9befd31b9650a4852e7225dcc96e49", null ],
     [ "ast::aParseBool", "group__ParseFormat.html#ga0439e28027e2ddd2c6f8d653fd363c7c", null ],
     [ "ast::aParseBool", "group__ParseFormat.html#ga8a061b86a6444396198d62357e65bc5d", null ],
     [ "ast::aParseColor", "group__ParseFormat.html#gaa409a6abe34f0cf75a9e9c06cdaea5ba", null ],

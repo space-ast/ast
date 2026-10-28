@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['插值功能_0',['插值功能',['../group__Interpolator.html',1,'']]]
+  ['常微分方程求解_0',['常微分方程求解',['../group__ODE.html',1,'']]]
 ];

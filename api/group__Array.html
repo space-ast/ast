@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -121,6 +121,8 @@ $(function(){initNavTree('group__Array.html',''); initResizable(true); });
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1MatrixMN.html">ast::MatrixMN&lt; _Scalar, Row, Col &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1TransposeMatrix.html">ast::TransposeMatrix&lt; MatrixType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1Matrix.html">ast::Matrix&lt; _Scalar &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html">ast::MatrixMN&lt; _Scalar, 3, 3 &gt;</a></td></tr>
@@ -174,6 +176,28 @@ template&lt;typename _Scalar , size_t I, size_t J&gt; </td></tr>
 template&lt;typename _Scalar , size_t I, size_t J&gt; </td></tr>
 <tr class="memitem:ga2dc830dd7786bdfc35379bec1d0823b9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, J &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, I &gt; &amp;left, const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &amp;right)</td></tr>
 <tr class="separator:ga2dc830dd7786bdfc35379bec1d0823b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0b10af8d18188d0039f702b1930b4d4" id="r_gab0b10af8d18188d0039f702b1930b4d4"><td class="memTemplParams" colspan="2"><a id="gab0b10af8d18188d0039f702b1930b4d4" name="gab0b10af8d18188d0039f702b1930b4d4"></a>
+template&lt;typename _Scalar , size_t I, size_t J&gt; </td></tr>
+<tr class="memitem:gab0b10af8d18188d0039f702b1930b4d4"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, J &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1TransposeMatrix.html">TransposeMatrix</a>&lt; <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &gt; &amp;left, const <a class="el" href="classast_1_1VectorN.html">VectorN</a>&lt; _Scalar, I &gt; &amp;right)</td></tr>
+<tr class="separator:gab0b10af8d18188d0039f702b1930b4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24a4e12882939323f013c5e86530c7e8" id="r_ga24a4e12882939323f013c5e86530c7e8"><td class="memTemplParams" colspan="2"><a id="ga24a4e12882939323f013c5e86530c7e8" name="ga24a4e12882939323f013c5e86530c7e8"></a>
+template&lt;typename _Scalar , size_t I, size_t J, size_t K&gt; </td></tr>
+<tr class="memitem:ga24a4e12882939323f013c5e86530c7e8"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, <a class="el" href="namespaceast_1_1units.html#aedd8196c22c19f4357fa0cc6aec72f53">K</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &amp;left, const <a class="el" href="classast_1_1TransposeMatrix.html">TransposeMatrix</a>&lt; <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, <a class="el" href="namespaceast_1_1units.html#aedd8196c22c19f4357fa0cc6aec72f53">K</a>, J &gt; &gt; &amp;right)</td></tr>
+<tr class="separator:ga24a4e12882939323f013c5e86530c7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga735fd9feb0917929eb76021a2ec9fb2a" id="r_ga735fd9feb0917929eb76021a2ec9fb2a"><td class="memTemplParams" colspan="2"><a id="ga735fd9feb0917929eb76021a2ec9fb2a" name="ga735fd9feb0917929eb76021a2ec9fb2a"></a>
+template&lt;typename _Scalar , size_t I, size_t J, size_t K&gt; </td></tr>
+<tr class="memitem:ga735fd9feb0917929eb76021a2ec9fb2a"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, J, <a class="el" href="namespaceast_1_1units.html#aedd8196c22c19f4357fa0cc6aec72f53">K</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1TransposeMatrix.html">TransposeMatrix</a>&lt; <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &gt; &amp;left, const <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, <a class="el" href="namespaceast_1_1units.html#aedd8196c22c19f4357fa0cc6aec72f53">K</a> &gt; &amp;right)</td></tr>
+<tr class="separator:ga735fd9feb0917929eb76021a2ec9fb2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga913e38e99878bad92a156dfbf81cee95" id="r_ga913e38e99878bad92a156dfbf81cee95"><td class="memTemplParams" colspan="2"><a id="ga913e38e99878bad92a156dfbf81cee95" name="ga913e38e99878bad92a156dfbf81cee95"></a>
+template&lt;typename _Scalar , size_t I, size_t J, size_t K&gt; </td></tr>
+<tr class="memitem:ga913e38e99878bad92a156dfbf81cee95"><td class="memTemplItemLeft" align="right" valign="top">A_ALWAYS_INLINE <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, J, <a class="el" href="namespaceast_1_1units.html#aedd8196c22c19f4357fa0cc6aec72f53">K</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::operator*</b> (const <a class="el" href="classast_1_1TransposeMatrix.html">TransposeMatrix</a>&lt; <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, I, J &gt; &gt; &amp;left, const <a class="el" href="classast_1_1TransposeMatrix.html">TransposeMatrix</a>&lt; <a class="el" href="classast_1_1MatrixMN.html">MatrixMN</a>&lt; _Scalar, <a class="el" href="namespaceast_1_1units.html#aedd8196c22c19f4357fa0cc6aec72f53">K</a>, I &gt; &gt; &amp;right)</td></tr>
+<tr class="separator:ga913e38e99878bad92a156dfbf81cee95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab757556cc48ea21eafdb590ad10d10c4" id="r_gab757556cc48ea21eafdb590ad10d10c4"><td class="memItemLeft" align="right" valign="top"><a id="gab757556cc48ea21eafdb590ad10d10c4" name="gab757556cc48ea21eafdb590ad10d10c4"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::toString</b> (const <a class="el" href="classast_1_1MatrixMN.html">Matrix3d</a> &amp;<a class="el" href="namespaceast_1_1units.html#a6b2069a36f88d45a8bd6a9e61d760296">m</a>)</td></tr>
+<tr class="separator:gab757556cc48ea21eafdb590ad10d10c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4953255e8ae68c6e6b885ec17cbf4237" id="r_ga4953255e8ae68c6e6b885ec17cbf4237"><td class="memItemLeft" align="right" valign="top"><a id="ga4953255e8ae68c6e6b885ec17cbf4237" name="ga4953255e8ae68c6e6b885ec17cbf4237"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ast::toString</b> (const Vector3d &amp;v)</td></tr>
+<tr class="separator:ga4953255e8ae68c6e6b885ec17cbf4237"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad56ea4cfdeef50df93015508608fa70d" id="r_gad56ea4cfdeef50df93015508608fa70d"><td class="memItemLeft" align="right" valign="top"><a id="gad56ea4cfdeef50df93015508608fa70d" name="gad56ea4cfdeef50df93015508608fa70d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::LowerMatrix&lt; _Scalar &gt;::resize</b> (size_t rowcol)</td></tr>
 <tr class="separator:gad56ea4cfdeef50df93015508608fa70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -213,9 +237,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Matrix&lt; _Scal
 <tr class="memitem:ga7a0216ed9d4018dbbf075653825c0b0b" id="r_ga7a0216ed9d4018dbbf075653825c0b0b"><td class="memItemLeft" align="right" valign="top"><a id="ga7a0216ed9d4018dbbf075653825c0b0b" name="ga7a0216ed9d4018dbbf075653825c0b0b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::Matrix&lt; _Scalar &gt;::setZero</b> ()</td></tr>
 <tr class="separator:ga7a0216ed9d4018dbbf075653825c0b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad38f1e44af04eb99d02c562fba9e7fe1" id="r_gad38f1e44af04eb99d02c562fba9e7fe1"><td class="memItemLeft" align="right" valign="top"><a id="gad38f1e44af04eb99d02c562fba9e7fe1" name="gad38f1e44af04eb99d02c562fba9e7fe1"></a>
-<a class="el" href="classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html">Self</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::MatrixMN&lt; _Scalar, 3, 3 &gt;::transpose</b> () const</td></tr>
-<tr class="separator:gad38f1e44af04eb99d02c562fba9e7fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2211a36b57104dae38fe8ff18e4c5141" id="r_ga2211a36b57104dae38fe8ff18e4c5141"><td class="memItemLeft" align="right" valign="top"><a id="ga2211a36b57104dae38fe8ff18e4c5141" name="ga2211a36b57104dae38fe8ff18e4c5141"></a>
+<a class="el" href="classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html">Self</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ast::MatrixMN&lt; _Scalar, 3, 3 &gt;::transposeImpl</b> () const</td></tr>
+<tr class="separator:ga2211a36b57104dae38fe8ff18e4c5141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43f96e53dd65c05143713a2dea316d16" id="r_ga43f96e53dd65c05143713a2dea316d16"><td class="memItemLeft" align="right" valign="top"><a id="ga43f96e53dd65c05143713a2dea316d16" name="ga43f96e53dd65c05143713a2dea316d16"></a>
+<a class="el" href="classast_1_1TransposeMatrix.html">TransposeMatrix</a>&lt; <a class="el" href="classast_1_1MatrixMN_3_01__Scalar_00_013_00_013_01_4.html">Self</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ast::MatrixMN&lt; _Scalar, 3, 3 &gt;::transpose</b> () const</td></tr>
+<tr class="separator:ga43f96e53dd65c05143713a2dea316d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7516d07130880eee9192745d9da87a9e" id="r_ga7516d07130880eee9192745d9da87a9e"><td class="memItemLeft" align="right" valign="top"><a id="ga7516d07130880eee9192745d9da87a9e" name="ga7516d07130880eee9192745d9da87a9e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::MatrixMN&lt; _Scalar, 3, 3 &gt;::transposeInPlace</b> ()</td></tr>
 <tr class="separator:ga7516d07130880eee9192745d9da87a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>

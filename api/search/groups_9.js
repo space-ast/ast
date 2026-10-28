@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['一维优化_0',['一维优化',['../group__Optim.html',1,'']]]
+  ['serde_0',['Serde',['../group__Serde.html',1,'']]],
+  ['spice_1',['Spice',['../group__Spice.html',1,'']]]
 ];

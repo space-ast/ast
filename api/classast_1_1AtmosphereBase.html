@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -140,6 +140,8 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:ad52df15166e3bd1ab8afe89fc7bb3ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bb6beed3597296887c3b7f9812dbe44" id="r_a5bb6beed3597296887c3b7f9812dbe44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1Frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bb6beed3597296887c3b7f9812dbe44">getFrame</a> () const override</td></tr>
 <tr class="separator:a5bb6beed3597296887c3b7f9812dbe44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1225b031c07301f745963ec3d684aa3a" id="r_a1225b031c07301f745963ec3d684aa3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classast_1_1BodyShape.html">BodyShape</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1225b031c07301f745963ec3d684aa3a">getShape</a> () const override</td></tr>
+<tr class="separator:a1225b031c07301f745963ec3d684aa3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b2f77b272c403c208e4c025d69c9ec3" id="r_a7b2f77b272c403c208e4c025d69c9ec3"><td class="memItemLeft" align="right" valign="top"><a id="a7b2f77b272c403c208e4c025d69c9ec3" name="a7b2f77b272c403c208e4c025d69c9ec3"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>useApproximateAltitude</b> () const</td></tr>
 <tr class="separator:a7b2f77b272c403c208e4c025d69c9ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,6 +165,13 @@ Protected 属性</h2></td></tr>
 <tr class="memitem:a335da15e789e8cfbbd8204a9c3fce88a" id="r_a335da15e789e8cfbbd8204a9c3fce88a"><td class="memItemLeft" align="right" valign="top"><a id="a335da15e789e8cfbbd8204a9c3fce88a" name="a335da15e789e8cfbbd8204a9c3fce88a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>useApproximateAltitude_</b> {false}</td></tr>
 <tr class="separator:a335da15e789e8cfbbd8204a9c3fce88a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pro_methods_classast_1_1Atmosphere"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classast_1_1Atmosphere')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="classast_1_1Atmosphere.html">ast::Atmosphere</a></td></tr>
+<tr class="memitem:a2470e7875ada8fae9a18e5fafe934f82 inherit pro_methods_classast_1_1Atmosphere" id="r_a2470e7875ada8fae9a18e5fafe934f82"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getAltitude</b> (const Vector3d &amp;posInBodyFixed) const</td></tr>
+<tr class="separator:a2470e7875ada8fae9a18e5fafe934f82 inherit pro_methods_classast_1_1Atmosphere"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">成员函数说明</h2>
 <a id="a21a17a4acdb2e7cc8e58debec75f7c92" name="a21a17a4acdb2e7cc8e58debec75f7c92"></a>
@@ -302,6 +311,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>useApproximateAltitud
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a1225b031c07301f745963ec3d684aa3a" name="a1225b031c07301f745963ec3d684aa3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1225b031c07301f745963ec3d684aa3a">&#9670;&#160;</a></span>getShape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classast_1_1BodyShape.html">BodyShape</a> * ast::AtmosphereBase::getShape </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取大气模型对应天体形状 </p>
+
+<p>重载 <a class="el" href="classast_1_1Atmosphere.html#a535e8982f08f1fc86ab712582de0809f">ast::Atmosphere</a> .</p>
 
 </div>
 </div>

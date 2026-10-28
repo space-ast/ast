@@ -1,0 +1,47 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="planet" x1="40" y1="42" x2="88" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8ec5ff"/>
+      <stop offset="0.5" stop-color="#1677ff"/>
+      <stop offset="1" stop-color="#0958d9"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(48 50) rotate(52) scale(40)">
+      <stop stop-color="#ffffff" stop-opacity="0.75"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0" y1="-6" x2="0" y2="6" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#cfe6ff"/>
+      <stop offset="1" stop-color="#69b1ff"/>
+    </linearGradient>
+    <clipPath id="planetClip">
+      <circle cx="58" cy="68" r="30"/>
+    </clipPath>
+  </defs>
+
+  <!-- orbit -->
+  <ellipse cx="58" cy="68" rx="52" ry="20" transform="rotate(-22 58 68)"
+           stroke="#2f80ff" stroke-width="4.2"/>
+
+  <!-- planet -->
+  <circle cx="58" cy="68" r="30" fill="url(#planet)"/>
+  <g clip-path="url(#planetClip)">
+    <circle cx="58" cy="68" r="30" fill="url(#shine)"/>
+    <ellipse cx="73" cy="80" rx="8" ry="5" transform="rotate(-22 73 80)" fill="#ffffff" opacity="0.15"/>
+    <circle cx="48" cy="80" r="3.8" fill="#ffffff" opacity="0.11"/>
+    <ellipse cx="77" cy="56" rx="3.8" ry="2.4" transform="rotate(-18 77 56)" fill="#ffffff" opacity="0.12"/>
+  </g>
+
+  <!-- satellite -->
+  <g transform="translate(102.6 44.4) rotate(-16) scale(1.02)">
+    <rect x="-18" y="-6" width="9" height="12" rx="1.6" fill="url(#panel)" stroke="#0958d9" stroke-width="1.1"/>
+    <rect x="9" y="-6" width="9" height="12" rx="1.6" fill="url(#panel)" stroke="#0958d9" stroke-width="1.1"/>
+    <path d="M-18 -2h9M-18 2h9M9 -2h9M9 2h9" stroke="#e6f4ff" stroke-width="0.9" opacity="0.85"/>
+    <path d="M-9 0H-5.5M5.5 0H9" stroke="#0958d9" stroke-width="1.5"/>
+    <rect x="-5.5" y="-7.5" width="11" height="15" rx="3" fill="#ffffff" stroke="#0958d9" stroke-width="1.3"/>
+    <circle cx="0" cy="0" r="2.4" fill="#0958d9"/>
+    <path d="M0 -7.5V-12" stroke="#0958d9" stroke-width="1.3"/>
+    <circle cx="0" cy="-13.4" r="1.9" fill="#ffd666"/>
+  </g>
+</svg>

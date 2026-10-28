@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" fill="none">
+  <defs>
+    <linearGradient id="planet" x1="245" y1="150" x2="340" y2="325" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#69b1ff"/>
+      <stop offset="0.55" stop-color="#1677ff"/>
+      <stop offset="1" stop-color="#0958d9"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#bae0ff"/>
+      <stop offset="1" stop-color="#4096ff"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#adc6ff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop stop-color="#1677ff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#1677ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0958d9" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- soft glow -->
+  <circle cx="280" cy="220" r="190" fill="url(#glow)"/>
+
+  <!-- stars -->
+  <g fill="#4096ff" opacity="0.55">
+    <circle cx="88" cy="92" r="2"/>
+    <circle cx="466" cy="70" r="1.6"/>
+    <circle cx="500" cy="226" r="2.2"/>
+    <circle cx="62" cy="292" r="1.8"/>
+    <circle cx="156" cy="48" r="1.2"/>
+    <circle cx="414" cy="356" r="1.5"/>
+    <circle cx="326" cy="42" r="1.1"/>
+  </g>
+
+  <!-- orbit rings -->
+  <ellipse cx="280" cy="220" rx="208" ry="86" transform="rotate(-18 280 220)"
+           stroke="#91caff" stroke-width="2" stroke-dasharray="7 9" opacity="0.8"/>
+  <ellipse cx="280" cy="220" rx="158" ry="60" transform="rotate(26 280 220)"
+           stroke="#69b1ff" stroke-width="2" stroke-dasharray="5 9" opacity="0.5"/>
+
+  <!-- planet -->
+  <g filter="url(#shadow)">
+    <circle cx="280" cy="220" r="82" fill="url(#planet)"/>
+  </g>
+  <path d="M230 185c15-17 41-24 60-15 9 4 10 15 21 18 13 3 22 13 19 26-2 15-17 20-31 17-12-2-18 6-30 7-15 1-28-6-35-18-9-13-12-26-4-35Z"
+        fill="#ffffff" opacity="0.2"/>
+  <path d="M306 260c9-8 24-8 32-1 5 5 4 13-1 17-9 6-22 5-29-2-4-5-5-10-2-14Z"
+        fill="#ffffff" opacity="0.14"/>
+  <ellipse cx="252" cy="190" rx="28" ry="17" transform="rotate(-28 252 190)"
+           fill="#ffffff" opacity="0.22"/>
+
+  <!-- satellite on the outer orbit (t = -20deg) -->
+  <g transform="translate(456.8 131.6) rotate(30.6)">
+    <!-- solar panels -->
+    <rect x="-58" y="-14" width="36" height="28" rx="3" fill="url(#panel)" stroke="#0958d9" stroke-width="1.5"/>
+    <rect x="22" y="-14" width="36" height="28" rx="3" fill="url(#panel)" stroke="#0958d9" stroke-width="1.5"/>
+    <path d="M-52 -6h25M-52 1h25M-52 8h25M28 -6h25M28 1h25M28 8h25"
+          stroke="#e6f4ff" stroke-width="1.2" opacity="0.75"/>
+    <!-- connectors -->
+    <path d="M-22 0h44" stroke="#0958d9" stroke-width="2"/>
+    <!-- body -->
+    <rect x="-14" y="-17" width="28" height="34" rx="6" fill="url(#body)" stroke="#0958d9" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="6.5" fill="#0958d9"/>
+    <circle cx="-2" cy="-2" r="2.2" fill="#e6f4ff"/>
+    <!-- antenna -->
+    <path d="M0 -17V-29" stroke="#0958d9" stroke-width="2"/>
+    <circle cx="0" cy="-31" r="3.2" fill="#69b1ff"/>
+  </g>
+
+  <!-- small satellite trail -->
+  <path d="M118 338c14 8 22 18 26 30" stroke="#69b1ff" stroke-width="2"
+        stroke-linecap="round" stroke-dasharray="4 8" opacity="0.6"/>
+  <circle cx="118" cy="338" r="3" fill="#69b1ff" opacity="0.8"/>
+</svg>

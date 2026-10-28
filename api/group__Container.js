@@ -48,7 +48,9 @@ var group__Container =
     ] ],
     [ "ast::SpanStorage< T, Extent >", "classast_1_1SpanStorage.html", null ],
     [ "ast::SpanStorage< T, dynamic_extent >", "classast_1_1SpanStorage_3_01T_00_01dynamic__extent_01_4.html", null ],
-    [ "ast::Span< T, Extent >", "classast_1_1Span.html", null ],
+    [ "ast::Span< T, Extent >", "classast_1_1Span.html", [
+      [ "subspan", "classast_1_1Span.html#ad1c5f490bddf5099ec686372c7a0f56e", null ]
+    ] ],
     [ "ast::VariantVector", "classast_1_1VariantVector.html", [
       [ "as", "group__Container.html#ga7af62d710328ca2965052d97865c06f1", null ],
       [ "asSpan", "group__Container.html#ga9aaae629ae4794060416bf5d2163986c", null ],

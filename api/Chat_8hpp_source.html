@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🛰️航天仿真算法库 SpaceAST: src/AstAI/Chat/Chat.hpp 源文件</title>
+<title>🛰️航天仿真算法库 SpaceAST: src/AstHarness/Chat/Chat.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -110,28 +110,28 @@ $(function(){initNavTree('Chat_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>AST_NAMESPACE_BEGIN</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>AST_AI_API std::string <a class="code hl_function" href="namespaceast.html#aaa48b499a9b2e5d0d612b032f1c06a1c">aChat</a>(StringView message);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>AST_HARNESS_API std::string <a class="code hl_function" href="namespaceast.html#af7b7f87b5539a8f2821bb3d330c7271a">aChat</a>(StringView message);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>AST_AI_API errc_t <a class="code hl_function" href="namespaceast.html#aaa48b499a9b2e5d0d612b032f1c06a1c">aChat</a>(StringView message, std::string&amp; response);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>AST_HARNESS_API errc_t <a class="code hl_function" href="namespaceast.html#af7b7f87b5539a8f2821bb3d330c7271a">aChat</a>(StringView message, std::string&amp; response);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>AST_AI_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#adeb5e8896cae3226158893db398a0468">aChatClearMessages</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>AST_HARNESS_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#a0e6bd551e39ea09beb0d96ca252d5bbd">aChatClearMessages</a>();</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_AI_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#ae5796187432989719446a132b3777006">aChatClearAllMessages</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>AST_HARNESS_API <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceast.html#ad9881052a3c1be8bb38a5c3ad703e42e">aChatClearAllMessages</a>();</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>AST_NAMESPACE_END</div>
-<div class="ttc" id="anamespaceast_html_aaa48b499a9b2e5d0d612b032f1c06a1c"><div class="ttname"><a href="namespaceast.html#aaa48b499a9b2e5d0d612b032f1c06a1c">ast::aChat</a></div><div class="ttdeci">std::string aChat(StringView message)</div><div class="ttdoc">聊天接口</div><div class="ttdef"><b>定义</b> Chat.cpp:34</div></div>
-<div class="ttc" id="anamespaceast_html_adeb5e8896cae3226158893db398a0468"><div class="ttname"><a href="namespaceast.html#adeb5e8896cae3226158893db398a0468">ast::aChatClearMessages</a></div><div class="ttdeci">void aChatClearMessages()</div><div class="ttdoc">清除聊天消息历史</div><div class="ttdef"><b>定义</b> Chat.cpp:46</div></div>
-<div class="ttc" id="anamespaceast_html_ae5796187432989719446a132b3777006"><div class="ttname"><a href="namespaceast.html#ae5796187432989719446a132b3777006">ast::aChatClearAllMessages</a></div><div class="ttdeci">void aChatClearAllMessages()</div><div class="ttdoc">清除所有聊天消息</div><div class="ttdef"><b>定义</b> Chat.cpp:62</div></div>
+<div class="ttc" id="anamespaceast_html_a0e6bd551e39ea09beb0d96ca252d5bbd"><div class="ttname"><a href="namespaceast.html#a0e6bd551e39ea09beb0d96ca252d5bbd">ast::aChatClearMessages</a></div><div class="ttdeci">void aChatClearMessages()</div><div class="ttdoc">清除聊天消息历史</div><div class="ttdef"><b>定义</b> Chat.cpp:46</div></div>
+<div class="ttc" id="anamespaceast_html_ad9881052a3c1be8bb38a5c3ad703e42e"><div class="ttname"><a href="namespaceast.html#ad9881052a3c1be8bb38a5c3ad703e42e">ast::aChatClearAllMessages</a></div><div class="ttdeci">void aChatClearAllMessages()</div><div class="ttdoc">清除所有聊天消息</div><div class="ttdef"><b>定义</b> Chat.cpp:62</div></div>
+<div class="ttc" id="anamespaceast_html_af7b7f87b5539a8f2821bb3d330c7271a"><div class="ttname"><a href="namespaceast.html#af7b7f87b5539a8f2821bb3d330c7271a">ast::aChat</a></div><div class="ttdeci">std::string aChat(StringView message)</div><div class="ttdoc">聊天接口</div><div class="ttdef"><b>定义</b> Chat.cpp:34</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ea6136a52e1cd5f6e6b20d5ee7560754.html">AstAI</a></li><li class="navelem"><a class="el" href="dir_99fbedef7022a5da78e5c186a8338777.html">Chat</a></li><li class="navelem"><a class="el" href="Chat_8hpp.html">Chat.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a79ee6964b391c673dc3565c5f5397d7.html">AstHarness</a></li><li class="navelem"><a class="el" href="dir_91fcf2b37b6629de33fed64251e67a78.html">Chat</a></li><li class="navelem"><a class="el" href="Chat_8hpp.html">Chat.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

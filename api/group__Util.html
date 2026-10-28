@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -465,6 +465,8 @@ template&lt;typename Scalar &gt; </td></tr>
 <tr class="memitem:gaeda6489a58c6ade5f16fd219c121a570" id="r_gaeda6489a58c6ade5f16fd219c121a570"><td class="memTemplParams" colspan="2">template&lt;typename Scalar &gt; </td></tr>
 <tr class="memitem:gaeda6489a58c6ade5f16fd219c121a570"><td class="memTemplItemLeft" align="right" valign="top">Scalar&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gaeda6489a58c6ade5f16fd219c121a570">ast::square</a> (Scalar x)</td></tr>
 <tr class="separator:gaeda6489a58c6ade5f16fd219c121a570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f2043d640de2490edea0c715f2f11c2" id="r_ga8f2043d640de2490edea0c715f2f11c2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8f2043d640de2490edea0c715f2f11c2">ast::round</a> (double x, int digits)</td></tr>
+<tr class="separator:ga8f2043d640de2490edea0c715f2f11c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae628da25178a68de57bdf3fdfd9e8dcb" id="r_gae628da25178a68de57bdf3fdfd9e8dcb"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae628da25178a68de57bdf3fdfd9e8dcb">ast::aNormalizeAngleStart</a> (double angle, double start)</td></tr>
 <tr class="separator:gae628da25178a68de57bdf3fdfd9e8dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaea03a932dcd544c97844e1f9eb451437" id="r_gaea03a932dcd544c97844e1f9eb451437"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaea03a932dcd544c97844e1f9eb451437">ast::aNormalizeAngle</a> (double angle, double center)</td></tr>
@@ -475,6 +477,10 @@ template&lt;typename Scalar &gt; </td></tr>
 <tr class="separator:ga70afc34acbd6e94be6c10c32ea03acbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae34aefa61d4998de18c705a340bf3d9c" id="r_gae34aefa61d4998de18c705a340bf3d9c"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae34aefa61d4998de18c705a340bf3d9c">ast::aNormalizeAngleNeg2PiTo0</a> (double angle)</td></tr>
 <tr class="separator:gae34aefa61d4998de18c705a340bf3d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef7a402ba2a1275084cdfe2529ca7048" id="r_gaef7a402ba2a1275084cdfe2529ca7048"><td class="memTemplParams" colspan="2"><a id="gaef7a402ba2a1275084cdfe2529ca7048" name="gaef7a402ba2a1275084cdfe2529ca7048"></a>
+template&lt;typename VectorType &gt; </td></tr>
+<tr class="memitem:gaef7a402ba2a1275084cdfe2529ca7048"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ast::aAngle</b> (const VectorType &amp;v1, const VectorType &amp;v2)</td></tr>
+<tr class="separator:gaef7a402ba2a1275084cdfe2529ca7048"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga820cdafe9d38c66c5c0736d429aafabd" id="r_ga820cdafe9d38c66c5c0736d429aafabd"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga820cdafe9d38c66c5c0736d429aafabd">ast::rad2deg</a> (double x)</td></tr>
 <tr class="separator:ga820cdafe9d38c66c5c0736d429aafabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2829ae46176d2ae6b387706feba62fdb" id="r_ga2829ae46176d2ae6b387706feba62fdb"><td class="memItemLeft" align="right" valign="top">A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2829ae46176d2ae6b387706feba62fdb">ast::deg2rad</a> (double x)</td></tr>
@@ -576,15 +582,15 @@ constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kQua
 <tr class="memitem:gac8efc4a77e007161fc5a9a74543e17b2" id="r_gac8efc4a77e007161fc5a9a74543e17b2"><td class="memItemLeft" align="right" valign="top"><a id="gac8efc4a77e007161fc5a9a74543e17b2" name="gac8efc4a77e007161fc5a9a74543e17b2"></a>
 constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kSqrPI</b> = 9.869604401089358618834490999873</td></tr>
 <tr class="separator:gac8efc4a77e007161fc5a9a74543e17b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaed34bed5c7139f4583bc16472be4370c" id="r_gaed34bed5c7139f4583bc16472be4370c"><td class="memItemLeft" align="right" valign="top"><a id="gaed34bed5c7139f4583bc16472be4370c" name="gaed34bed5c7139f4583bc16472be4370c"></a>
-constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kNaN</b> = std::numeric_limits&lt;double&gt;::quiet_NaN()</td></tr>
-<tr class="separator:gaed34bed5c7139f4583bc16472be4370c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4f69d644876f4d290aac5d7c4690b7ed" id="r_ga4f69d644876f4d290aac5d7c4690b7ed"><td class="memItemLeft" align="right" valign="top"><a id="ga4f69d644876f4d290aac5d7c4690b7ed" name="ga4f69d644876f4d290aac5d7c4690b7ed"></a>
-constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kInf</b> = +std::numeric_limits&lt;double&gt;::infinity()</td></tr>
-<tr class="separator:ga4f69d644876f4d290aac5d7c4690b7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2bc6ec7493650fc17142a5664dabbe66" id="r_ga2bc6ec7493650fc17142a5664dabbe66"><td class="memItemLeft" align="right" valign="top"><a id="ga2bc6ec7493650fc17142a5664dabbe66" name="ga2bc6ec7493650fc17142a5664dabbe66"></a>
-constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kNegInf</b> = -std::numeric_limits&lt;double&gt;::infinity()</td></tr>
-<tr class="separator:ga2bc6ec7493650fc17142a5664dabbe66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3220696f7eae96d28bda2bf738c445ec" id="r_ga3220696f7eae96d28bda2bf738c445ec"><td class="memItemLeft" align="right" valign="top"><a id="ga3220696f7eae96d28bda2bf738c445ec" name="ga3220696f7eae96d28bda2bf738c445ec"></a>
+const double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kNaN</b> = std::numeric_limits&lt;double&gt;::quiet_NaN()</td></tr>
+<tr class="separator:ga3220696f7eae96d28bda2bf738c445ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64e0bb04a725e54e2c31995f117bfdc7" id="r_ga64e0bb04a725e54e2c31995f117bfdc7"><td class="memItemLeft" align="right" valign="top"><a id="ga64e0bb04a725e54e2c31995f117bfdc7" name="ga64e0bb04a725e54e2c31995f117bfdc7"></a>
+const double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kInf</b> = +std::numeric_limits&lt;double&gt;::infinity()</td></tr>
+<tr class="separator:ga64e0bb04a725e54e2c31995f117bfdc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga133f485b5cb8d21f0671a205d571d676" id="r_ga133f485b5cb8d21f0671a205d571d676"><td class="memItemLeft" align="right" valign="top"><a id="ga133f485b5cb8d21f0671a205d571d676" name="ga133f485b5cb8d21f0671a205d571d676"></a>
+const double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kNegInf</b> = -std::numeric_limits&lt;double&gt;::infinity()</td></tr>
+<tr class="separator:ga133f485b5cb8d21f0671a205d571d676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga26e6b3f751883b9eb78ac315c46166c5" id="r_ga26e6b3f751883b9eb78ac315c46166c5"><td class="memItemLeft" align="right" valign="top"><a id="ga26e6b3f751883b9eb78ac315c46166c5" name="ga26e6b3f751883b9eb78ac315c46166c5"></a>
 constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ast::kAU</b> = 1.49597870691e11</td></tr>
 <tr class="separator:ga26e6b3f751883b9eb78ac315c46166c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2632,6 +2638,37 @@ template&lt;typename <a class="el" href="namespaceast_1_1units.html#a3ba38903856
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>对应的 <a class="el" href="classast_1_1Color.html" title="颜色类">Color</a> 值 </dd></dl>
+
+</div>
+</div>
+<a id="ga8f2043d640de2490edea0c715f2f11c2" name="ga8f2043d640de2490edea0c715f2f11c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8f2043d640de2490edea0c715f2f11c2">&#9670;&#160;</a></span>round()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AST_UTIL_API double ast::round </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>digits</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对值进行四舍五入，保留指定小数位数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>输入值 </td></tr>
+    <tr><td class="paramname">digits</td><td>小数位数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>四舍五入后的值 </dd></dl>
 
 </div>
 </div>

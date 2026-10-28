@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['文本解析和格式化_0',['文本解析和格式化',['../group__ParseFormat.html',1,'']]]
+  ['插值功能_0',['插值功能',['../group__Interpolator.html',1,'']]]
 ];

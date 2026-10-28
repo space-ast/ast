@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.3.1</span>
+   <div id="projectname">🛰️航天仿真算法库 SpaceAST<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -107,6 +107,7 @@ $(function(){initNavTree('EarthFrame_8cpp.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;AstMath/Rotation.hpp&quot;</code><br />
 <code>#include &quot;AstMath/KinematicRotation.hpp&quot;</code><br />
+<code>#include &quot;AstMath/ParamAdapter.hpp&quot;</code><br />
 <code>#include &quot;AstMath/AttitudeConvert.hpp&quot;</code><br />
 <code>#include &quot;AstMath/Euler.hpp&quot;</code><br />
 <code>#include &quot;AstMath/Vector.hpp&quot;</code><br />
@@ -279,6 +280,9 @@ A_ALWAYS_INLINE double&#160;</td><td class="memItemRight" valign="bottom"><b>ast
 <tr class="separator:ga761a90cb1815dcc48770bda27249e13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6c6a572ffdf8ed2e7a6b0e87d9a6c074" id="r_ga6c6a572ffdf8ed2e7a6b0e87d9a6c074"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Coordinate.html#ga6c6a572ffdf8ed2e7a6b0e87d9a6c074">ast::aJ2000ToICRF</a> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, const Vector3d &amp;vecJ2000, const Vector3d &amp;velJ2000, Vector3d &amp;vecICRF, Vector3d &amp;velICRF)</td></tr>
 <tr class="separator:ga6c6a572ffdf8ed2e7a6b0e87d9a6c074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5876b3c02f372089377052467e4a389d" id="r_ga5876b3c02f372089377052467e4a389d"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ast::aICRFToECFMatrix</b> (const <a class="el" href="classast_1_1TimePoint.html">TimePoint</a> &amp;tp, double matrix[3][3])</td></tr>
+<tr class="separator:ga5876b3c02f372089377052467e4a389d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>~ </p>

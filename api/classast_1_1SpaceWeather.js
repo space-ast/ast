@@ -10,6 +10,7 @@ var classast_1_1SpaceWeather =
     [ "getF10p7Average_UTCMJD", "classast_1_1SpaceWeather.html#a402e8a441763dbdaf7712498d8ce92c5", null ],
     [ "getF10p7Daily", "classast_1_1SpaceWeather.html#a0fdf63c648e64b5f3d22bc6f0af4a7c6", null ],
     [ "getF10p7Daily_UTCMJD", "classast_1_1SpaceWeather.html#ac6df105efe6bbcbe5dc0fab95d3734ef", null ],
+    [ "getKp3HourlyList", "classast_1_1SpaceWeather.html#a2333219ddf655a1f5593382c5aba759b", null ],
     [ "getKpDaily", "classast_1_1SpaceWeather.html#ab8e75a534fc6ba10064b6250a9f6d6a9", null ],
     [ "getKpDaily_UTCMJD", "classast_1_1SpaceWeather.html#a75b061c8e8334746ad9e44e2dedf5358", null ],
     [ "load", "classast_1_1SpaceWeather.html#a09ac9fdce0c9117cb61c9a45b4f4333e", null ],
