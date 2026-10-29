@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstCore/TimeInterval.hpp"
+#include <map>
 #include <string>
 
 AST_NAMESPACE_BEGIN
@@ -104,10 +105,9 @@ public:
         std::vector<int>& ids
     ) const;
 protected:
-    std::string spkfile_{};                  ///< SPK文件路径
-    int handle_{0};                         ///< 库句柄
-    mutable bool isIntervalCached_{false};  ///< 是否缓存了时间间隔
-    mutable TimeInterval intervalCache_{};  ///< 时间间隔缓存
+    std::string spkfile_{};                                 ///< SPK文件路径
+    int handle_{0};                                         ///< 库句柄
+    mutable std::map<int, TimeInterval> intervalCache_{};   ///< 各目标体的时间间隔缓存
 };
 
 /*! @} */
