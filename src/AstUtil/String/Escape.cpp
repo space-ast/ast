@@ -96,6 +96,7 @@ std::string aCUnescape(StringView source)
                 case 'r': dest.push_back('\r'); break;
                 case 't': dest.push_back('\t'); break;
                 case 'v': dest.push_back('\v'); break;
+                case '?': dest.push_back('?'); break;
                 // 十六进制转义序列
                 case 'x': {
                     ++ptr; // 跳过'x'
@@ -109,11 +110,12 @@ std::string aCUnescape(StringView source)
                     int value = 0;
                     int digits = 0;
                     
-                    // 读取十六进制数字（至少1位，最多2位）
-                    while (ptr < end && digits < 2) {
+                    // 读取十六进制数字（至少1位，位数不限）
+                    // 按 C/C++ 规则，值超出 unsigned char 范围时取低 8 位（与 GCC/Clang 一致）
+                    while (ptr < end) {
                         int digit = hexCharToValue(*ptr);
                         if (digit >= 0) {
-                            value = value * 16 + digit;
+                            value = (value * 16 + digit) & 0xFF;
                             ++ptr;
                             ++digits;
                         } else {
@@ -128,7 +130,7 @@ std::string aCUnescape(StringView source)
                         dest.push_back('x');
                         --ptr; // 因为循环会再次++ptr
                     } else {
-                        dest.push_back(static_cast<char>(value));
+                        dest.push_back(static_cast<char>(value & 0xFF));
                         --ptr; // 因为循环会再次++ptr
                     }
                     break;
@@ -152,7 +154,7 @@ std::string aCUnescape(StringView source)
                             }
                         }
                         
-                        dest.push_back(static_cast<char>(value));
+                        dest.push_back(static_cast<char>(value & 0xFF));
                         --ptr; // 因为循环会再次++ptr
                         break;
                     }else{

@@ -53,7 +53,14 @@ namespace escape
 
 
 /// @brief 解析C风格转义序列
-/// @details 解析'source'字符串中的C风格转义序列，将它们替换为对应的字符
+/// @details 按 C/C++ 规则解析 `source` 中的转义序列并替换为对应字节：
+///          - 简单转义：`\'` `\"` `\?` `\\` `\a` `\b` `\f` `\n` `\r` `\t` `\v`
+///          - 八进制转义：`\o` / `\oo` / `\ooo`，最多 3 位，值取低 8 位
+///          - 十六进制转义：`\x` 后跟 1 位或多位十六进制数字，值取低 8 位
+///            （与 GCC/Clang 对超范围十六进制转义的截断行为一致）
+///          - 其他形式（未知转义如 `\q`、末尾单个 `\`、`\u`/`\U`）保持原样，
+///            以保证配置/路径字符串不被静默改写
+/// @note    C 标准未定义未知转义的行为，本函数选择“原样保留”而非丢弃反斜杠。
 /// @param source 要解析的源字符串
 /// @return 解析后的字符串
 AST_UTIL_API std::string aCUnescape(StringView source);
@@ -69,7 +76,7 @@ AST_UTIL_API std::string aCUnescape(StringView source);
 /// @example
 ///   std::string s = "foo\rbar\tbaz\010\011\012\013\014\x0d\n";
 ///   std::string escaped_s = aCEscape(s);
-///   EXPECT_EQ(escaped_s, "foo\\rbar\\tbaz\\010\\t\\n\\013\\014\\r\\n");
+///   EXPECT_EQ(escaped_s, "foo\\rbar\\tbaz\\b\\t\\n\\v\\f\\r\\n");
 AST_UTIL_API std::string aCEscape(StringView src);
 
 
@@ -111,7 +118,7 @@ AST_UTIL_API std::string aQuote(StringView src);
 ///
 ///   // 错误格式示例：
 ///   std::string bad = "foo\" bar";   // 缺少开头引号
-///   EXPECT_EQ(aUnquote(bad), "");    // 返回空字符串
+///   EXPECT_EQ(aUnquote(bad), bad);   // 缺少引号时原样返回
 AST_UTIL_API std::string aUnquote(StringView src);
 
 
