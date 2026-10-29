@@ -1,7 +1,5 @@
 var NAVTREEINDEX59 =
 {
-"group__Geometry.html#ga52cecc91460a5123ebbfa0a7a4c7b0f9":[0,0,3,11],
-"group__Geometry.html#ga628b0ba86e81b7c7d57cf5fdc1e674b1":[0,0,3,14],
 "group__Geometry.html#ga7e4926b6a0056a41f908a25ca91dce5d":[0,0,3,28],
 "group__Geometry.html#ga7e89f801d20d9ca4dc58041420a598c4":[0,0,3,19],
 "group__Geometry.html#ga7ebf47c650029bacb1fae24682d1b217":[0,0,3,18],
@@ -249,5 +247,7 @@ var NAVTREEINDEX59 =
 "group__Platform.html#ga038a62d786234b02f668f9460bbd86f6":[0,8,2,43],
 "group__Platform.html#ga057833c67cd619b666f534f50d48fc30":[0,8,2,48],
 "group__Platform.html#ga0b64bc142a888da84a5d78f6cdcfab8e":[0,8,2,38],
-"group__Platform.html#ga0f4600dceeffcc4993b66d33a3b8e680":[0,8,2,24]
+"group__Platform.html#ga0f4600dceeffcc4993b66d33a3b8e680":[0,8,2,24],
+"group__Platform.html#ga105f92d27f866fba769d7344c9f7391f":[0,8,2,34],
+"group__Platform.html#ga12c79e8e850e12d6ae0b9277d83ec0cb":[0,8,2,18]
 };

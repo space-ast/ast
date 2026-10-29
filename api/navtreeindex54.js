@@ -1,7 +1,5 @@
 var NAVTREEINDEX54 =
 {
-"classast_1_1UnarySolver.html#aea5df1a762fb98b3b4f47ff89d33eea5":[0,3,3,7,3],
-"classast_1_1UnarySolver.html#aff655ba2415cd81bde896134a6de1ba0":[0,3,3,7,6],
 "classast_1_1UnaryVectorFunc.html":[2,0,0,1160],
 "classast_1_1UnaryVectorFunc.html":[3,0,0,1159],
 "classast_1_1UnaryVectorFunc.html#a4b8493d4e86a320330fd8fa67359a2cd":[2,0,0,1160,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX54 =
 "classast_1_1Version.html#a7ea5c988b8f3f020626e6baeadd49946":[3,0,0,1196,0],
 "classast_1_1Version.html#a889f5656fc2bdf7cfc9e6e2ff984191d":[2,0,0,1197,2],
 "classast_1_1Version.html#a889f5656fc2bdf7cfc9e6e2ff984191d":[3,0,0,1196,2],
-"classast_1_1VisCelestialBody.html":[2,0,0,1198]
+"classast_1_1VisCelestialBody.html":[2,0,0,1198],
+"classast_1_1VisCelestialBody.html":[3,0,0,1197],
+"classast_1_1VisCelestialBody.html#a158fe2ba763a828e1aa57d3c486702d0":[2,0,0,1198,2]
 };

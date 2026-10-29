@@ -1,7 +1,5 @@
 var NAVTREEINDEX42 =
 {
-"classast_1_1PointProxy.html#a713924867a7e34f522d7436c5855432e":[0,0,3,2,3],
-"classast_1_1PointProxy.html#ac7f9e6586f317a9043a16e818700b32d":[0,0,3,2,0],
 "classast_1_1PointProxy.html#ad52590c6e81086b8f73f8235d727dca4":[0,0,3,2,1],
 "classast_1_1PointRoot.html":[0,0,0,11],
 "classast_1_1PointRoot.html#aaa35c3d0d0df0d49adf0027f321b8f55":[0,0,0,11,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX42 =
 "classast_1_1Quantity.html#a5fe59771e407a13ed5bb8d9aa97b9a4c":[0,8,3,1,26],
 "classast_1_1Quantity.html#a6343290425e03e408101e6e1e3ee040b":[0,8,3,1,21],
 "classast_1_1Quantity.html#a6886278043783d6f0bd106a4416df264":[0,8,3,1,13],
-"classast_1_1Quantity.html#a6df5a84f1a98aeafb0e946a832018835":[0,8,3,1,35]
+"classast_1_1Quantity.html#a6df5a84f1a98aeafb0e946a832018835":[0,8,3,1,35],
+"classast_1_1Quantity.html#a848fd346c4efab2b57e962b9a06fb7d1":[0,8,3,1,5],
+"classast_1_1Quantity.html#a8d7dce204b4f04fc3d0345fecf8c9937":[0,8,3,1,10]
 };

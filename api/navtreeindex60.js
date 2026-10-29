@@ -1,7 +1,5 @@
 var NAVTREEINDEX60 =
 {
-"group__Platform.html#ga105f92d27f866fba769d7344c9f7391f":[0,8,2,34],
-"group__Platform.html#ga12c79e8e850e12d6ae0b9277d83ec0cb":[0,8,2,18],
 "group__Platform.html#ga19bcda407eb5e7e67ab74ccc0f8f5a23":[0,8,2,12],
 "group__Platform.html#ga19e5714a61a8ba893a69b7ebdeba2005":[0,8,2,37],
 "group__Platform.html#ga1b536eb0b193fd88914dd12e6895c229":[0,8,2,25],
@@ -249,5 +247,7 @@ var NAVTREEINDEX60 =
 "group__Script.html#gga84a7917cdd65e122f6fcf04b096f455daea697211d9c43d398c2cc270b3024c3f":[0,4,53,26],
 "group__Script.html#gga84a7917cdd65e122f6fcf04b096f455daf2b5d8c2729ace153f91f78bafa7ea77":[0,4,53,22],
 "group__Script.html#gga84a7917cdd65e122f6fcf04b096f455daf56a23473d2677ab0b4a7d346efbcad8":[0,4,53,7],
-"group__Serde.html":[0,21]
+"group__Serde.html":[0,21],
+"group__Serde.html#ga33ea3abafb0ca9c8d971e0bb68131c7b":[0,21,3],
+"group__Serde.html#gaacd9b657347c9d644ef83fb7ac13b0b8":[0,21,2]
 };

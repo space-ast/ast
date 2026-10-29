@@ -9,7 +9,6 @@ var classast_1_1JplSpk =
     [ "isOpen", "classast_1_1JplSpk.html#ac6c4c38069315c826c8ecd0031d3acb8", null ],
     [ "open", "classast_1_1JplSpk.html#ae3420b50dd1e5350538b48973b4f12f9", null ],
     [ "handle_", "classast_1_1JplSpk.html#ad6b185e4864a32373b44a3a61e63ce34", null ],
-    [ "intervalCache_", "classast_1_1JplSpk.html#a68398ef41ae4773d9ac82ce74beb307f", null ],
-    [ "isIntervalCached_", "classast_1_1JplSpk.html#aa92e240fce8ac0389f0caa6f7acce87e", null ],
+    [ "intervalCache_", "classast_1_1JplSpk.html#a3b4283a0d7ea8b777aebebdf6f42624b", null ],
     [ "spkfile_", "classast_1_1JplSpk.html#a5b19cfa2fb024a805cd40912c91c1a07", null ]
 ];

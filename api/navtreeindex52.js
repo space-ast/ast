@@ -1,7 +1,5 @@
 var NAVTREEINDEX52 =
 {
-"classast_1_1UiBodyEphemerisDE.html":[3,0,0,1076],
-"classast_1_1UiBodyEphemerisSPK.html":[2,0,0,1078],
 "classast_1_1UiBodyEphemerisSPK.html":[3,0,0,1077],
 "classast_1_1UiBurnEditor.html":[2,0,0,1079],
 "classast_1_1UiBurnEditor.html":[3,0,0,1078],
@@ -249,5 +247,7 @@ var NAVTREEINDEX52 =
 "classast_1_1UiObjectTree.html#abfdc051f29041dc2477b75cb0bd695f6":[2,0,0,1117,3],
 "classast_1_1UiObjectTree.html#abfdc051f29041dc2477b75cb0bd695f6":[3,0,0,1116,3],
 "classast_1_1UiObjectTree.html#acb6843e188fe2c7c01020f25a9d888ef":[2,0,0,1117,9],
-"classast_1_1UiObjectTree.html#acb6843e188fe2c7c01020f25a9d888ef":[3,0,0,1116,9]
+"classast_1_1UiObjectTree.html#acb6843e188fe2c7c01020f25a9d888ef":[3,0,0,1116,9],
+"classast_1_1UiObjectTree.html#aef0feafe47a5fcddd9961857420e5479":[2,0,0,1117,5],
+"classast_1_1UiObjectTree.html#aef0feafe47a5fcddd9961857420e5479":[3,0,0,1116,5]
 };

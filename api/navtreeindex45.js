@@ -1,7 +1,5 @@
 var NAVTREEINDEX45 =
 {
-"classast_1_1ScStateCalcInTrackRate.html":[3,0,0,813],
-"classast_1_1ScStateCalcInVAzP.html":[2,0,0,815],
 "classast_1_1ScStateCalcInVAzP.html":[3,0,0,814],
 "classast_1_1ScStateCalcInclination.html":[2,0,0,808],
 "classast_1_1ScStateCalcInclination.html":[3,0,0,807],
@@ -249,5 +247,7 @@ var NAVTREEINDEX45 =
 "classast_1_1ScStateCalcX.html":[3,0,0,930],
 "classast_1_1ScStateCalcY.html":[2,0,0,932],
 "classast_1_1ScStateCalcY.html":[3,0,0,931],
-"classast_1_1ScStateCalcZ.html":[2,0,0,933]
+"classast_1_1ScStateCalcZ.html":[2,0,0,933],
+"classast_1_1ScStateCalcZ.html":[3,0,0,932],
+"classast_1_1ScStateCalculation.html":[2,0,0,915]
 };

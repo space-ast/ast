@@ -1,7 +1,5 @@
 var NAVTREEINDEX61 =
 {
-"group__Serde.html#ga33ea3abafb0ca9c8d971e0bb68131c7b":[0,21,3],
-"group__Serde.html#gaacd9b657347c9d644ef83fb7ac13b0b8":[0,21,2],
 "group__Serde.html#gab0bd3533256d09536a498771f83dec1e":[0,21,1],
 "group__Serde.html#gaef43b9b3776f4a31b51199070120c94e":[0,21,4],
 "group__SolarSystem.html":[0,0,7],
@@ -249,5 +247,7 @@ var NAVTREEINDEX61 =
 "group__Util.html#ga138fdd1a12245781f9122dfef37cabfc":[0,8,60],
 "group__Util.html#ga144fa7a415b4847287109c29a8883c19":[0,8,41],
 "group__Util.html#ga1504ced890d1ddf9c776dad4def524e9":[0,8,22],
-"group__Util.html#ga188f28afadd5726184410f34d54149e7":[0,8,109]
+"group__Util.html#ga188f28afadd5726184410f34d54149e7":[0,8,109],
+"group__Util.html#ga18f6f717bda8518bdd24fb910495162b":[0,8,95],
+"group__Util.html#ga19f9bfcf3f62986215fe838d19bc3076":[0,8,166]
 };

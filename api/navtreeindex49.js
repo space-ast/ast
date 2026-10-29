@@ -1,7 +1,5 @@
 var NAVTREEINDEX49 =
 {
-"classast_1_1StateKeplerian.html#aac861d3c1b8810f7346f7e4c34ac2a23":[2,0,0,1014,50],
-"classast_1_1StateKeplerian.html#aac861d3c1b8810f7346f7e4c34ac2a23":[3,0,0,1013,50],
 "classast_1_1StateKeplerian.html#aae580d42e5f15af8426246f041e962de":[2,0,0,1014,39],
 "classast_1_1StateKeplerian.html#aae580d42e5f15af8426246f041e962de":[3,0,0,1013,39],
 "classast_1_1StateKeplerian.html#aafe4c74007d80c628722ef8b11bb2bf6":[2,0,0,1014,4],
@@ -249,5 +247,7 @@ var NAVTREEINDEX49 =
 "classast_1_1SunSynchronousOrbitDesigner.html#a41e17cb88d6004a7eb2439adc6a6a925":[0,0,4,8,7],
 "classast_1_1SunSynchronousOrbitDesigner.html#a6659c7b384f2fdf1a3a0e8efe9a8d578":[0,0,4,8,8],
 "classast_1_1SunSynchronousOrbitDesigner.html#a6811310e4aca456e8f3585f8bee3b870":[0,0,4,8,11],
-"classast_1_1SunSynchronousOrbitDesigner.html#a955dfaecc54044bcb1218d9cc5c3eeda":[0,0,4,8,0]
+"classast_1_1SunSynchronousOrbitDesigner.html#a955dfaecc54044bcb1218d9cc5c3eeda":[0,0,4,8,0],
+"classast_1_1SunSynchronousOrbitDesigner.html#ad4d3e61a5ba5c4cd8b1664f4b8b36ca5":[0,0,4,8,1],
+"classast_1_1SunSynchronousOrbitDesigner.html#ad9f6cd61c2094423d62b648c07ca6e56":[0,0,4,8,10]
 };
