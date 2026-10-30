@@ -21,14 +21,23 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/ScStateCalculation.hpp"
+#include "AstCore/ScStateCalcBodyRelated.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class ScStateCalcLongDriftRate : public ScStateCalculation
+/// @brief 经度漂移率
+/// @details 航天器相对中心天体固连系的经度变化率（正值向东），即考虑J2长期项后的平经度变化率与中心天体自转角速率之差。
+///          中心天体由本计算量自身的body配置决定（未配置时默认为地球），与输入状态所在坐标系无关。
+class AST_CORE_API ScStateCalcLongDriftRate : public ScStateCalcBodyRelated
 {
 public:
+    AST_OBJECT(ScStateCalcLongDriftRate)
+
+    ScStateCalcLongDriftRate() = default;
+    ~ScStateCalcLongDriftRate() = default;
+public:
     errc_t calculate(const SpacecraftState& scState, double& result) override;
+    Dimension getDimension() const override {return EDimension::eAngularVelocity;}
 };
 
 AST_NAMESPACE_END

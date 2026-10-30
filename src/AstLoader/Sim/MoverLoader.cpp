@@ -894,7 +894,7 @@ errc_t _aLoadAttitude(BKVParser& parser, Mover& mover, Body& centralBody)
                     {
                         if(aEqualsIgnoreCase(item.key(), "Name")){
                             StringView name = item.value().toStringView();
-                            if(name == "ECIVVLH")
+                            if(name == "ECIVVLH" || name == "CBIVelLHAtt")
                             {
                                 auto attitude = new AttitudeECIVVLH(&mover, &centralBody);
                                 mover.setAttitudeProfile(attitude);

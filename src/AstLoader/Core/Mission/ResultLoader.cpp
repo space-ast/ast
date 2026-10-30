@@ -210,6 +210,12 @@ errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Obj
         result = calculation;
         // aLoadCalculation(value, *calculation);
     }
+    else if(type == "CAgAsStateCalcLongDriftRate")
+    {
+        auto calculation = aNewObject<ScStateCalcLongDriftRate>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+    }
     else
     {
         result.reset();
