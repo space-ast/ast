@@ -219,7 +219,12 @@ errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Obj
     else
     {
         result.reset();
-        aError(_("不支持的结果类型：'%s'"), type.c_str());
+        std::string objectDescription;
+        if(scope)
+        {
+            objectDescription = scope->getName() + "#" + scope->getType()->getName();
+        }
+        aError(_("对象%s不支持的结果类型：'%s'"), objectDescription.c_str(), type.c_str());
         return eErrorInvalidParam;
     }
     // if(result && !result->getParentScope())

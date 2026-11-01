@@ -67,47 +67,47 @@ errc_t aLoadEventDetector(const Value& value, DetectorUserSelect& detector)
     return 0;
 }
 
-errc_t aLoadStoppingCondition(const Value& value, SharedPtr<EventDetector>& eventDetector, Propagate& propagate)
+errc_t aLoadStoppingCondition(StringView name, const Value& value, SharedPtr<EventDetector>& eventDetector, Propagate& propagate)
 {
     std::string type = value["Type"];
     Object* scope = &propagate;
     if(type == "Duration")
     {
-        eventDetector = aNewObject<DetectorDuration>(scope);
+        eventDetector = aNewObject<DetectorDuration>(scope, name);
     }
     else if(type == "Periapsis")
     {
-        auto detectorPeriapsis = aNewObject<DetectorPeriapsis>(scope);
+        auto detectorPeriapsis = aNewObject<DetectorPeriapsis>(scope, name);
         aLoadEventDetector(value, *detectorPeriapsis);
         eventDetector = detectorPeriapsis;
     }
     else if(type == "Apoapsis")
     {
-        auto detectorApoapsis = aNewObject<DetectorApoapsis>(scope);
+        auto detectorApoapsis = aNewObject<DetectorApoapsis>(scope, name);
         aLoadEventDetector(value, *detectorApoapsis);
         eventDetector = detectorApoapsis;
     }
     else if(type == "R Magnitude")
     {
-        auto detectorRMagnitude = aNewObject<DetectorRMagnitude>(scope);
+        auto detectorRMagnitude = aNewObject<DetectorRMagnitude>(scope, name);
         aLoadEventDetector(value, *detectorRMagnitude);
         eventDetector = detectorRMagnitude;
     }
     else if(type == "Lighting")
     {
-        auto detectorLighting = aNewObject<DetectorLighting>(scope);
+        auto detectorLighting = aNewObject<DetectorLighting>(scope, name);
         // aLoadEventDetector(value, *detectorLighting);
         eventDetector = detectorLighting;
     }
     else if(type == "Epoch")
     {
-        auto detectorEpoch = aNewObject<DetectorEpoch>(scope);
+        auto detectorEpoch = aNewObject<DetectorEpoch>(scope, name);
         aLoadEventDetector(value, *detectorEpoch);
         eventDetector = detectorEpoch;
     }
     else if(type == "UserSelect")
     {
-        auto detectorUserSelect = aNewObject<DetectorUserSelect>(scope);
+        auto detectorUserSelect = aNewObject<DetectorUserSelect>(scope, name);
         aLoadEventDetector(value, *detectorUserSelect);
         eventDetector = detectorUserSelect;
     }
@@ -143,7 +143,7 @@ errc_t aLoadStoppingConditions(const Value& dict, Propagate& propagate)
         std::string name = item.first;
         Value& value = *item.second;
         SharedPtr<EventDetector> eventDetector;
-        rc = aLoadStoppingCondition(value, eventDetector, propagate);
+        rc = aLoadStoppingCondition(name, value, eventDetector, propagate);
         if(rc || !eventDetector)
         {
             std::string type = value["Type"];
@@ -151,7 +151,6 @@ errc_t aLoadStoppingConditions(const Value& dict, Propagate& propagate)
         }
         else
         {
-            eventDetector->setName(name);
             eventDetectors.push_back(eventDetector);
         }
     }
