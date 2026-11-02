@@ -55,12 +55,7 @@ std::string describeError(const Error& error)
 
 std::string fromBSTR(BSTR bstr)
 {
-    if (!bstr) return {};
-    int len = WideCharToMultiByte(CP_UTF8, 0, bstr, -1, nullptr, 0, nullptr, nullptr);
-    if (len <= 0) return {};
-    std::string s(len - 1, '\0');
-    WideCharToMultiByte(CP_UTF8, 0, bstr, -1, &s[0], len, nullptr, nullptr);
-    return s;
+    return aWideToUtf8(bstr);
 }
 
 /// @brief 有符号整数转 Value
