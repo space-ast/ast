@@ -25,10 +25,12 @@ AST_NAMESPACE_BEGIN
 
 errc_t ScStateCalcEpoch::calculate(const SpacecraftState& state, double& result)
 {
-    // TODO: Implement epoch calculation
-    // Need to get time from State or SpacecraftState
-    aError(_("尚未实现"));
-    return -1;
+    TimePoint tp;
+    errc_t rc = state.getStateEpoch(tp);
+    if(rc)
+        return rc;
+    result = aTimePointToEpochSecond(tp);
+    return eNoError;
 }
 
 AST_NAMESPACE_END

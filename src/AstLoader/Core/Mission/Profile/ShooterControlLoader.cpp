@@ -48,7 +48,7 @@ errc_t aLoadShooterControl(const Value& value, ShooterControl& control)
     {
         std::string parentSegmentName = value["ParentSegmentName"];
         std::string controlName = value["ControlName"];
-        Sequence* sequence = aGetAncestorScope<Sequence*>(&control);
+        Sequence* sequence = aGetNearestAncestorScope<Sequence*>(&control);
         if(!sequence)
         {
             aError(_("无法获取控制变量 '%s' 的任务序列"), controlName.c_str());

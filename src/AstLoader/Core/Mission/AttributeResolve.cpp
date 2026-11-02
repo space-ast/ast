@@ -74,6 +74,13 @@ Attribute aResolveAttributeByMap(Object* obj, StringView attrpath)
             return scState->getOrbitState()->attr(aPropertyName(State, StateEpoch));
         }
     }
+    else if(auto detector = aobject_cast<EventDetector*>(obj))
+    {
+        if(attrpath == "TripValue")
+        {
+            return detector->attr(aPropertyName(EventDetector, goal));
+        }
+    }
     aWarning(_("解析属性 '%.*s' 失败，对象 '%s（%s）'"),
         attrpath.size(), attrpath.data(),
         obj->getName().c_str(), obj->typeName().c_str()

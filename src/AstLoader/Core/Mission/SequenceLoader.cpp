@@ -59,10 +59,9 @@ errc_t aLoadSequence(const Value& dictRoot, Sequence& sequence, const LoaderCont
             auto& name = item.first;
             const auto& dictSegment = *item.second;
             HMissionCommand command;
-            errc_t rc = aLoadMissionCommand(dictSegment, command, context);
+            errc_t rc = aLoadMissionCommand(name, dictSegment, command, &sequence, context);
             if(!rc && command != nullptr)
             {
-                command->setName(name);
                 commands.push_back(command);
             }else
             {

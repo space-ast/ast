@@ -178,7 +178,7 @@ Object *ObjectManager::getParentScope(Object *obj)
     return nullptr;
 }
 
-Object *ObjectManager::getAncestorScope(Object *obj, Class*cls)
+Object *ObjectManager::getNearestAncestorScope(Object *obj, Class*cls)
 {
     if(!obj || !cls)
         return nullptr;
@@ -196,6 +196,27 @@ Object *ObjectManager::getAncestorScope(Object *obj, Class*cls)
         parentNode = parentNode->parentNode_;
     }
     return nullptr;
+}
+
+Object *ObjectManager::getTopmostAncestorScope(Object *obj, Class*cls)
+{
+    if(!obj || !cls)
+        return nullptr;
+    if(obj->index_ == static_cast<uint32_t>(INVALID_ID))
+        return nullptr;
+    Object* topmost = nullptr;
+    auto objNode = objects_[obj->index_];
+    auto parentNode = objNode->parentNode_;
+    while(parentNode)
+    {
+        auto parentObject = parentNode->getObject();
+        if(cls->cast(parentObject))
+        {
+            topmost = parentObject;
+        }
+        parentNode = parentNode->parentNode_;
+    }
+    return topmost;
 }
 
 errc_t ObjectManager::setMaxObjectCount(uint32_t maxCount)

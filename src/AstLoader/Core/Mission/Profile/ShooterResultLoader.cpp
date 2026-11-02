@@ -51,7 +51,7 @@ errc_t aLoadShooterResult(const Value& value, ShooterResult& result)
         std::string calcType = value["CalcType"];
         A_UNUSED(parentType);
         A_UNUSED(calcType);
-        Sequence* sequence = aGetAncestorScope<Sequence*>(&result);
+        Sequence* sequence = aGetNearestAncestorScope<Sequence*>(&result);
         if(sequence == nullptr)
         {
             aError(_("未找到父序列 '%s'"), parentSegmentName.c_str());

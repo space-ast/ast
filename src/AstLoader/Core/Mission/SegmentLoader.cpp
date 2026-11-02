@@ -31,6 +31,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstScript/Value.hpp"
 #include "AstScript/ExprAttribute.hpp"
+#include "AstLoader/LoaderCommon.hpp"
 
 
 
@@ -45,7 +46,7 @@ errc_t aLoadShooterControl(const Value& value, SharedPtr<ExprAttribute>& control
     control->setParentScope(scope);
     if(!attr.isValid())
     {
-        aWarning(_("解析属性 '%.*s' 失败"), attrPath.size(), attrPath.data());
+        aWarning(_("解析对象%s属性 '%.*s' 失败"), aObjectSimpleRepr(scope).c_str(), attrPath.size(), attrPath.data());
     }
     return 0;   
 }

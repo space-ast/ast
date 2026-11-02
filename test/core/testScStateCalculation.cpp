@@ -26,6 +26,8 @@
 #include "ast/ScStateCalcLongDriftRate.hpp"
 #include "ast/ScStateCalcAngle.hpp"
 #include "ast/ScStateCalcSemiMajorAxis.hpp"
+#include "ast/ScStateCalcDifferenceOtherSegment.hpp"
+#include "ast/InitialState.hpp"
 #include "ast/VectorFixed.hpp"
 #include "ast/AxesICRF.hpp"
 
@@ -307,6 +309,90 @@ TEST(ScStateCalcSemiMajorAxisTest, SemiMajorAxisDefaultBody)
 {
     auto earthState = makeOrbitState(7000000.0, 0.0, 0.0);
     EXPECT_NEAR(calcSemiMajorAxis(*earthState), calcSemiMajorAxis(*earthState, aGetEarth()), 1e-9);
+}
+
+/// @brief 将指定段的输出状态设置为给定半长轴的圆轨道
+void setSegmentFinalState(Segment& segment, double sma)
+{
+    auto outputState = segment.getOutputState();
+    ASSERT_NE(outputState, nullptr);
+    outputState->setFrame(aGetEarth()->getFrameInertial());
+    outputState->setState(ModOrbElem{sma, 0.0, 0.0, 0.0, 0.0, 0.0});
+    outputState->setStateEpoch(TimePoint::FromUTC(2026, 1, 1, 0, 0, 0));
+}
+
+/// @brief 当前值减另一轨道段的最终值（默认顺序与默认段状态）
+TEST(ScStateCalcDifferenceOtherSegmentTest, CurrentMinusFinal)
+{
+    auto currentState = makeOrbitState(9000000.0, 0.0, 0.0);
+    auto otherInitialState = makeOrbitState(7000000.0, 0.0, 0.0);
+    SharedPtr<InitialState> otherSegment = new InitialState();
+    setSegmentFinalState(*otherSegment, 8000000.0);
+    otherSegment->setInputState(otherInitialState.get());
+
+    SharedPtr<ScStateCalcSemiMajorAxis> calculation = new ScStateCalcSemiMajorAxis();
+    SharedPtr<ScStateCalcDifferenceOtherSegment> difference = new ScStateCalcDifferenceOtherSegment();
+    difference->setCalculation(calculation.get());
+    difference->setOtherSegment(otherSegment.get());
+
+    double value = 0.0;
+    ASSERT_EQ(difference->calculate(*currentState, value), eNoError);
+    EXPECT_NEAR(value, 1.0e6, 1e-6);
+    EXPECT_EQ(difference->getDimension(), EDimension::eLength);
+}
+
+/// @brief 当前值减另一轨道段的初始值
+TEST(ScStateCalcDifferenceOtherSegmentTest, CurrentMinusInitial)
+{
+    auto currentState = makeOrbitState(9000000.0, 0.0, 0.0);
+    auto otherInitialState = makeOrbitState(7000000.0, 0.0, 0.0);
+    SharedPtr<InitialState> otherSegment = new InitialState();
+    setSegmentFinalState(*otherSegment, 8000000.0);
+    otherSegment->setInputState(otherInitialState.get());
+
+    SharedPtr<ScStateCalcSemiMajorAxis> calculation = new ScStateCalcSemiMajorAxis();
+    SharedPtr<ScStateCalcDifferenceOtherSegment> difference = new ScStateCalcDifferenceOtherSegment();
+    difference->setCalculation(calculation.get());
+    difference->setOtherSegment(otherSegment.get());
+    difference->setSegmentStateToUse(ESegmentStateToUse::eInitial);
+
+    double value = 0.0;
+    ASSERT_EQ(difference->calculate(*currentState, value), eNoError);
+    EXPECT_NEAR(value, 2.0e6, 1e-6);
+}
+
+/// @brief 另一轨道段的值减当前值
+TEST(ScStateCalcDifferenceOtherSegmentTest, SegmentMinusCurrent)
+{
+    auto currentState = makeOrbitState(9000000.0, 0.0, 0.0);
+    auto otherInitialState = makeOrbitState(7000000.0, 0.0, 0.0);
+    SharedPtr<InitialState> otherSegment = new InitialState();
+    setSegmentFinalState(*otherSegment, 8000000.0);
+    otherSegment->setInputState(otherInitialState.get());
+
+    SharedPtr<ScStateCalcSemiMajorAxis> calculation = new ScStateCalcSemiMajorAxis();
+    SharedPtr<ScStateCalcDifferenceOtherSegment> difference = new ScStateCalcDifferenceOtherSegment();
+    difference->setCalculation(calculation.get());
+    difference->setOtherSegment(otherSegment.get());
+    difference->setDifferenceOrderToUse(ESegmentDifferenceOrder::eSegmentMinusCurrent);
+
+    double value = 0.0;
+    ASSERT_EQ(difference->calculate(*currentState, value), eNoError);
+    EXPECT_NEAR(value, -1.0e6, 1e-6);
+}
+
+/// @brief 未配置参考计算量或另一轨道段时应返回空指针错误
+TEST(ScStateCalcDifferenceOtherSegmentTest, MissingInputs)
+{
+    auto currentState = makeOrbitState(9000000.0, 0.0, 0.0);
+    SharedPtr<ScStateCalcSemiMajorAxis> calculation = new ScStateCalcSemiMajorAxis();
+    SharedPtr<ScStateCalcDifferenceOtherSegment> difference = new ScStateCalcDifferenceOtherSegment();
+
+    double value = 0.0;
+    EXPECT_EQ(difference->calculate(*currentState, value), eErrorNullPtr);
+
+    difference->setCalculation(calculation.get());
+    EXPECT_EQ(difference->calculate(*currentState, value), eErrorNullPtr);
 }
 
 GTEST_MAIN()

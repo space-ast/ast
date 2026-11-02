@@ -36,33 +36,33 @@
 AST_NAMESPACE_BEGIN
 
 
-errc_t aLoadMissionCommand(const Value& value, SharedPtr<MissionCommand>& missionCommand, const LoaderContext* context)
+errc_t aLoadMissionCommand(StringView name, const Value& value, SharedPtr<MissionCommand>& missionCommand, Object* scope, const LoaderContext* context)
 {
     std::string type = value["Type"];
     if(type == "Sequence")
     {
-        SharedPtr<Sequence> sequence = new Sequence();
+        SharedPtr<Sequence> sequence = aNewObject<Sequence>(scope, name);
         missionCommand = sequence;
         return aLoadSequence(value, *sequence);
     }else if(type == "InitialState")
     {
-        SharedPtr<InitialState> initialState = new InitialState();
+        SharedPtr<InitialState> initialState = aNewObject<InitialState>(scope, name);
         missionCommand = initialState;
         return aLoadInitialState(value, *initialState);
     }else if(type == "Maneuver")
     {
-        SharedPtr<Maneuver> maneuver = new Maneuver();
+        SharedPtr<Maneuver> maneuver = aNewObject<Maneuver>(scope, name);
         missionCommand = maneuver;
         return aLoadManeuver(value, *maneuver);
     }else if(type == "Propagate")
     {
-        SharedPtr<Propagate> propagate = new Propagate();
+        SharedPtr<Propagate> propagate = aNewObject<Propagate>(scope, name);
         missionCommand = propagate;
         return aLoadPropagate(value, *propagate, context);
     }
     else if(type == "End")
     {
-        SharedPtr<End> end = new End();
+        SharedPtr<End> end = aNewObject<End>(scope, name);
         missionCommand = end;
         // End命令仅仅是标识结束，不执行任何操作，所以应该不用加载任何参数
         // return aLoadEnd(value, *end);
@@ -70,20 +70,20 @@ errc_t aLoadMissionCommand(const Value& value, SharedPtr<MissionCommand>& missio
     }
     else if(type == "Stop")
     {
-        SharedPtr<Stop> stop = new Stop();
+        SharedPtr<Stop> stop = aNewObject<Stop>(scope, name);
         missionCommand = stop;
         // return aLoadStop(value, *stop);
         return eNoError;
     }
     else if(type == "Return")
     {
-        SharedPtr<Return> ret = new Return();
+        SharedPtr<Return> ret = aNewObject<Return>(scope, name);
         missionCommand = ret;
         return aLoadReturn(value, *ret);
     }
     else if(type == "TargeterSequence")
     {
-        SharedPtr<TargeterSequence> targeterSequence = new TargeterSequence();
+        SharedPtr<TargeterSequence> targeterSequence = aNewObject<TargeterSequence>(scope, name);
         missionCommand = targeterSequence;
         return aLoadTargeterSequence(value, *targeterSequence);
     }
@@ -101,7 +101,7 @@ errc_t aLoadMissionCommand(StringView filePath, SharedPtr<MissionCommand>& missi
     rc = aLoadValue(filePath, value);
     if(rc)  return rc;
     if(!value) return eErrorNullPtr;
-    return aLoadMissionCommand(*value, missionCommand);
+    return aLoadMissionCommand(StringView(), *value, missionCommand, nullptr, nullptr);
 }
 
 AST_NAMESPACE_END

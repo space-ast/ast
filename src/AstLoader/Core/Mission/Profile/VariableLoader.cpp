@@ -76,7 +76,7 @@ Value* ExprCurrentScStateCalculation::eval() const
         aError(_("计算对象为空"));
         return nullptr;
     }
-    Sequence* sequence = aGetAncestorScope<Sequence*>(const_cast<ExprCurrentScStateCalculation*>(this));
+    Sequence* sequence = aGetNearestAncestorScope<Sequence*>(const_cast<ExprCurrentScStateCalculation*>(this));
     if(sequence == nullptr)
     {
         aError(_("获取祖先序列失败"));

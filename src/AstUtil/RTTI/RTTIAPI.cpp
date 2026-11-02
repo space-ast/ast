@@ -218,9 +218,14 @@ Object *aGetParentScope(Object *obj)
     return ObjectManager::CurrentInstance().getParentScope(obj);
 }
 
-Object *aGetAncestorScope(Object *obj, Class *cls)
+Object *aGetNearestAncestorScope(Object *obj, Class *cls)
 {
-    return ObjectManager::CurrentInstance().getAncestorScope(obj, cls);
+    return ObjectManager::CurrentInstance().getNearestAncestorScope(obj, cls);
+}
+
+Object *aGetTopmostAncestorScope(Object *obj, Class *cls)
+{
+    return ObjectManager::CurrentInstance().getTopmostAncestorScope(obj, cls);
 }
 
 std::vector<Object*> aGetAllObjects()
