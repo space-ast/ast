@@ -26,6 +26,7 @@
 #include "AstUtil/ObjectLinker.hpp"
 #include "AstLoader/LoaderCommon.hpp"
 #include "AstSim/SpaceObject.hpp"
+#include "AstCore/Sequence.hpp"
 
 AST_NAMESPACE_BEGIN
 
