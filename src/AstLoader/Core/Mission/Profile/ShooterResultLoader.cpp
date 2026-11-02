@@ -54,19 +54,19 @@ errc_t aLoadShooterResult(const Value& value, ShooterResult& result)
         Sequence* sequence = aGetNearestAncestorScope<Sequence*>(&result);
         if(sequence == nullptr)
         {
-            aError(_("未找到父序列 '%s'"), parentSegmentName.c_str());
+            aError(_("未找到父序列"));
             return -1;
         }
         auto segment = sequence->getSegmentByPath(parentSegmentName);
         if(!segment)
         {
-            aError(_("获取结果 '%s' 的段 '%s' 失败"), parentSegmentName.c_str(), resultName.c_str());
+            aError(_("未找到段 '%s'"), parentSegmentName.c_str());
             return -1;
         }
         auto calculation = aFindChild<ObjectCalculation*>(segment, resultName);
         if(calculation == nullptr)
         {
-            aError(_("未找到结果对象 '%s'"), resultName.c_str());
+            aError(_("未找到 '%s' 的结果对象 '%s'"), segment->getName().c_str(), resultName.c_str());
             return -1;
         }
         Expr* expr = new ExprCalculation(segment->getOutputState(), calculation);

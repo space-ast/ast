@@ -26,7 +26,15 @@
 #include "ast/ScStateCalcLongDriftRate.hpp"
 #include "ast/ScStateCalcAngle.hpp"
 #include "ast/ScStateCalcSemiMajorAxis.hpp"
+#include "ast/ScStateCalcInclination.hpp"
+#include "ast/ScStateCalcEccAnomaly.hpp"
+#include "ast/ScStateCalcAltitudeOfApoapsis.hpp"
+#include "ast/ScStateCalcTimePastAscNode.hpp"
 #include "ast/ScStateCalcDifferenceOtherSegment.hpp"
+#include "ast/ScStateCalcDeltaFromMaster.hpp"
+#include "ast/ScStateCalcTrueAnomaly.hpp"
+#include "ast/OrbitParam.hpp"
+#include "ast/EphemerisTwoBody.hpp"
 #include "ast/InitialState.hpp"
 #include "ast/VectorFixed.hpp"
 #include "ast/AxesICRF.hpp"
@@ -311,6 +319,70 @@ TEST(ScStateCalcSemiMajorAxisTest, SemiMajorAxisDefaultBody)
     EXPECT_NEAR(calcSemiMajorAxis(*earthState), calcSemiMajorAxis(*earthState, aGetEarth()), 1e-9);
 }
 
+/// @brief 由给定半径的圆轨道构造主航天器星历，历元与 makeOrbitState 一致
+SharedPtr<EphemerisTwoBody> makeMasterEphemeris(double radius)
+{
+    const TimePoint epoch = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0);
+    const double gm = aGetEarth()->getGM();
+    const double velocity = std::sqrt(gm / radius);
+    CartState state{{radius, 0.0, 0.0}, {0.0, velocity, 0.0}};
+    return EphemerisTwoBody::New(aGetEarth()->getFrameInertial(), gm, epoch, state);
+}
+
+/// @brief 当前值减主航天器值
+TEST(ScStateCalcDeltaFromMasterTest, CurrentMinusMaster)
+{
+    auto currentState = makeOrbitState(9000000.0, 0.0, 0.0);
+    auto master = makeMasterEphemeris(8000000.0);
+
+    SharedPtr<ScStateCalcSemiMajorAxis> calculation = new ScStateCalcSemiMajorAxis();
+    SharedPtr<ScStateCalcDeltaFromMaster> delta = new ScStateCalcDeltaFromMaster();
+    delta->setCalculation(calculation.get());
+    delta->setReference(master.get());
+
+    double value = 0.0;
+    ASSERT_EQ(delta->calculate(*currentState, value), eNoError);
+    EXPECT_NEAR(value, 1.0e6, 1e-6);
+    EXPECT_EQ(delta->getDimension(), EDimension::eLength);
+}
+
+/// @brief 主航天器按当前状态的历元取值，而非其星历历元
+TEST(ScStateCalcDeltaFromMasterTest, UsesCurrentEpoch)
+{
+    auto currentState = makeOrbitState(9000000.0, 0.0, 0.0);
+    const TimePoint epoch = TimePoint::FromUTC(2026, 1, 1, 0, 10, 0);
+    currentState->setStateEpoch(epoch);
+
+    auto master = makeMasterEphemeris(8000000.0);
+    Vector3d masterPos, masterVel;
+    ASSERT_EQ(master->getPosVel(epoch, masterPos, masterVel), eNoError);
+    ModOrbElem masterElem{};
+    ASSERT_EQ(aCartToModOrbElem(masterPos, masterVel, aGetEarth()->getGM(), masterElem), eNoError);
+
+    SharedPtr<ScStateCalcTrueAnomaly> calculation = new ScStateCalcTrueAnomaly();
+    SharedPtr<ScStateCalcDeltaFromMaster> delta = new ScStateCalcDeltaFromMaster();
+    delta->setCalculation(calculation.get());
+    delta->setReference(master.get());
+
+    // 当前状态在圆轨道上，真近点角为 0
+    double value = 0.0;
+    ASSERT_EQ(delta->calculate(*currentState, value), eNoError);
+    EXPECT_NEAR(value, -masterElem.getTrueAnomaly(), 1e-12);
+    EXPECT_GT(std::abs(value), 1e-3);
+}
+
+/// @brief 未配置参考计算量或主航天器时应返回空指针错误
+TEST(ScStateCalcDeltaFromMasterTest, MissingInputs)
+{
+    auto currentState = makeOrbitState(9000000.0, 0.0, 0.0);
+    SharedPtr<ScStateCalcDeltaFromMaster> delta = new ScStateCalcDeltaFromMaster();
+    double value = 0.0;
+    EXPECT_EQ(delta->calculate(*currentState, value), eErrorNullPtr);
+
+    delta->setCalculation(new ScStateCalcSemiMajorAxis());
+    EXPECT_EQ(delta->calculate(*currentState, value), eErrorNullPtr);
+}
+
 /// @brief 将指定段的输出状态设置为给定半长轴的圆轨道
 void setSegmentFinalState(Segment& segment, double sma)
 {
@@ -393,6 +465,205 @@ TEST(ScStateCalcDifferenceOtherSegmentTest, MissingInputs)
 
     difference->setCalculation(calculation.get());
     EXPECT_EQ(difference->calculate(*currentState, value), eErrorNullPtr);
+}
+
+/// @brief 由修正轨道根数构造指定天体惯性系下的航天器状态
+SharedPtr<SpacecraftState> makeOrbitState(double sma, double ecc, double inc,
+    double raan, double argPeri, double trueA, CelestialBody* body = nullptr)
+{
+    if(!body)
+        body = aGetEarth();
+    SharedPtr<SpacecraftState> scState = SpacecraftState::NewDefault();
+    scState->setFrame(body->getFrameInertial());
+    ModOrbElem orbElem{sma * (1.0 - ecc), ecc, inc, raan, argPeri, trueA};
+    scState->setState(orbElem);
+    scState->setStateEpoch(TimePoint::FromUTC(2026, 1, 1, 0, 0, 0));
+    return scState;
+}
+
+/// @brief 计算轨道倾角
+double calcInclination(const SpacecraftState& scState, Frame* frame = nullptr)
+{
+    ScStateCalcInclination calc;
+    if(frame)
+        calc.setFrame(frame);
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(scState, value), eNoError);
+    return value;
+}
+
+/// @brief 计算偏近点角
+double calcEccAnomaly(const SpacecraftState& scState, CelestialBody* body = nullptr)
+{
+    ScStateCalcEccAnomaly calc;
+    if(body)
+        calc.setBody(body);
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(scState, value), eNoError);
+    return value;
+}
+
+/// @brief 计算远地点高度
+double calcAltitudeOfApoapsis(const SpacecraftState& scState, CelestialBody* body = nullptr)
+{
+    ScStateCalcAltitudeOfApoapsis calc;
+    if(body)
+        calc.setBody(body);
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(scState, value), eNoError);
+    return value;
+}
+
+/// @brief 计算过升交点后经过的时间
+double calcTimePastAscNode(const SpacecraftState& scState, Frame* frame = nullptr)
+{
+    ScStateCalcTimePastAscNode calc;
+    if(frame)
+        calc.setFrame(frame);
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(scState, value), eNoError);
+    return value;
+}
+
+/// @brief 椭圆轨道的倾角
+TEST(ScStateCalcInclinationTest, InclinationElliptical)
+{
+    auto scState = makeOrbitState(7000000.0, 0.1, 30.0_deg, 45.0_deg, 60.0_deg, 90.0_deg);
+    EXPECT_NEAR(calcInclination(*scState), 30.0_deg, 1e-12);
+}
+
+/// @brief 逆行轨道的倾角
+TEST(ScStateCalcInclinationTest, InclinationRetrograde)
+{
+    auto scState = makeOrbitState(7000000.0, 0.1, 120.0_deg, 45.0_deg, 60.0_deg, 90.0_deg);
+    EXPECT_NEAR(calcInclination(*scState), 120.0_deg, 1e-12);
+}
+
+/// @brief 显式配置参考系
+TEST(ScStateCalcInclinationTest, InclinationExplicitFrame)
+{
+    auto scState = makeOrbitState(7000000.0, 0.1, 30.0_deg, 45.0_deg, 60.0_deg, 90.0_deg);
+    EXPECT_NEAR(calcInclination(*scState, aGetEarth()->getFrameInertial()), 30.0_deg, 1e-12);
+}
+
+/// @brief 倾角的量纲为角度
+TEST(ScStateCalcInclinationTest, InclinationDimension)
+{
+    ScStateCalcInclination calc;
+    EXPECT_EQ(calc.getDimension(), EDimension::eAngle);
+}
+
+/// @brief 椭圆轨道的偏近点角
+TEST(ScStateCalcEccAnomalyTest, EccAnomalyElliptical)
+{
+    const double ecc = 0.1;
+    const double trueA = 60.0_deg;
+    auto scState = makeOrbitState(7000000.0, ecc, 30.0_deg, 45.0_deg, 60.0_deg, trueA);
+    EXPECT_NEAR(calcEccAnomaly(*scState), aTrueToEcc(trueA, ecc), 1e-12);
+}
+
+/// @brief 圆轨道的偏近点角与真近点角相同
+TEST(ScStateCalcEccAnomalyTest, EccAnomalyCircular)
+{
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0, 0.0, 0.0, 60.0_deg);
+    EXPECT_NEAR(calcEccAnomaly(*scState), 60.0_deg, 1e-12);
+}
+
+/// @brief 计算量自身指定中心天体为月球
+TEST(ScStateCalcEccAnomalyTest, EccAnomalyMoon)
+{
+    const double ecc = 0.05;
+    const double trueA = 90.0_deg;
+    auto moonState = makeOrbitState(88463000.0, ecc, 30.0_deg, 45.0_deg, 60.0_deg, trueA, aGetMoon());
+
+    // 同一物理状态在地球惯性系下的表示，计算时应自动转换回月球惯性系
+    CartState cartInEarth;
+    ASSERT_EQ(moonState->getStateIn(aGetEarth()->getFrameInertial(), cartInEarth), eNoError);
+    SharedPtr<SpacecraftState> earthState = SpacecraftState::NewDefault();
+    earthState->setFrame(aGetEarth()->getFrameInertial());
+    ASSERT_EQ(earthState->setState(cartInEarth), eNoError);
+    earthState->setStateEpoch(TimePoint::FromUTC(2026, 1, 1, 0, 0, 0));
+
+    EXPECT_NEAR(calcEccAnomaly(*moonState, aGetMoon()), aTrueToEcc(trueA, ecc), 1e-12);
+    EXPECT_NEAR(calcEccAnomaly(*earthState, aGetMoon()), calcEccAnomaly(*moonState, aGetMoon()), 1e-8);
+}
+
+/// @brief 偏近点角的量纲为角度
+TEST(ScStateCalcEccAnomalyTest, EccAnomalyDimension)
+{
+    ScStateCalcEccAnomaly calc;
+    EXPECT_EQ(calc.getDimension(), EDimension::eAngle);
+}
+
+/// @brief 椭圆轨道的远地点高度
+TEST(ScStateCalcAltitudeOfApoapsisTest, AltitudeOfApoapsisElliptical)
+{
+    const double sma = 7000000.0;
+    const double ecc = 0.1;
+    auto scState = makeOrbitState(sma, ecc, 30.0_deg, 45.0_deg, 60.0_deg, 90.0_deg);
+    EXPECT_NEAR(calcAltitudeOfApoapsis(*scState),
+        sma * (1.0 + ecc) - aGetEarth()->getRadius(), 1e-6);
+}
+
+/// @brief 圆轨道的远地点高度
+TEST(ScStateCalcAltitudeOfApoapsisTest, AltitudeOfApoapsisCircular)
+{
+    const double sma = 7000000.0;
+    auto scState = makeOrbitState(sma, 0.0, 0.0, 0.0, 0.0, 0.0);
+    EXPECT_NEAR(calcAltitudeOfApoapsis(*scState),
+        sma - aGetEarth()->getRadius(), 1e-6);
+}
+
+/// @brief 计算量自身指定中心天体为月球，高度按月球半径计算
+TEST(ScStateCalcAltitudeOfApoapsisTest, AltitudeOfApoapsisMoon)
+{
+    const double sma = 88463000.0;
+    const double ecc = 0.05;
+    auto moonState = makeOrbitState(sma, ecc, 30.0_deg, 45.0_deg, 60.0_deg, 90.0_deg, aGetMoon());
+    EXPECT_NEAR(calcAltitudeOfApoapsis(*moonState, aGetMoon()),
+        sma * (1.0 + ecc) - aGetMoon()->getRadius(), 1e-3);
+}
+
+/// @brief 远地点高度的量纲为长度
+TEST(ScStateCalcAltitudeOfApoapsisTest, AltitudeOfApoapsisDimension)
+{
+    ScStateCalcAltitudeOfApoapsis calc;
+    EXPECT_EQ(calc.getDimension(), EDimension::eLength);
+}
+
+/// @brief 椭圆轨道的过升交点后经过的时间
+TEST(ScStateCalcTimePastAscNodeTest, TimePastAscNodeElliptical)
+{
+    const double sma = 7000000.0;
+    const double ecc = 0.1;
+    const double argPeri = 30.0_deg;
+    const double trueA = 60.0_deg;
+    auto scState = makeOrbitState(sma, ecc, 30.0_deg, 45.0_deg, argPeri, trueA);
+    EXPECT_NEAR(calcTimePastAscNode(*scState),
+        aTrueToTimePastAscNode(trueA, argPeri, sma, ecc, aGetEarth()->getGM()), 1e-6);
+}
+
+/// @brief 位于升交点时为 0
+TEST(ScStateCalcTimePastAscNodeTest, TimePastAscNodeAtAscendingNode)
+{
+    const double argPeri = 30.0_deg;
+    auto scState = makeOrbitState(7000000.0, 0.1, 30.0_deg, 45.0_deg, argPeri, -argPeri);
+    EXPECT_NEAR(calcTimePastAscNode(*scState), 0.0, 1e-6);
+}
+
+/// @brief 显式配置参考系
+TEST(ScStateCalcTimePastAscNodeTest, TimePastAscNodeExplicitFrame)
+{
+    auto scState = makeOrbitState(7000000.0, 0.1, 30.0_deg, 45.0_deg, 30.0_deg, 60.0_deg);
+    EXPECT_NEAR(calcTimePastAscNode(*scState, aGetEarth()->getFrameInertial()),
+        calcTimePastAscNode(*scState), 1e-12);
+}
+
+/// @brief 过升交点后经过的时间的量纲为时间
+TEST(ScStateCalcTimePastAscNodeTest, TimePastAscNodeDimension)
+{
+    ScStateCalcTimePastAscNode calc;
+    EXPECT_EQ(calc.getDimension(), EDimension::eTime);
 }
 
 GTEST_MAIN()

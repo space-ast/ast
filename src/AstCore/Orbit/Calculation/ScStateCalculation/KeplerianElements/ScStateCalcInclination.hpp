@@ -20,19 +20,28 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/ScStateCalculation.hpp"
+#include "AstCore/ScStateCalcFrameRelated.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup
     @{
 */
 
-class AST_CORE_API ScStateCalcInclination : public ScStateCalculation
+/// @brief 轨道倾角
+/// @details 由当前密切轨道根数计算的轨道倾角。
+///          参考系取本计算量自身的配置，未配置时默认为地球惯性系
+class AST_CORE_API ScStateCalcInclination : public ScStateCalcFrameRelated
 {
 public:
+    AST_OBJECT(ScStateCalcInclination)
+
+    ScStateCalcInclination() = default;
+    ~ScStateCalcInclination() = default;
+public:
     errc_t calculate(const SpacecraftState& state, double& result) override;
+    Dimension getDimension() const override {return EDimension::eAngle;}
 };
 
 /*! @} */

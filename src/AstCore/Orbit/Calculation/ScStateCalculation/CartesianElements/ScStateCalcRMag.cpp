@@ -21,14 +21,33 @@
 #include "ScStateCalcRMag.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstCore/OrbitElement.hpp"
+#include "AstCore/CelestialBody.hpp"
 
 AST_NAMESPACE_BEGIN
 
 errc_t ScStateCalcRMag::calculate(const SpacecraftState& state, double& result)
 {
+    auto point = this->point();
+    if(!point)
+    {
+        point = aGetEarth();
+        aWarning(_("未指定点，将默认使用地球作为参考点"));
+    }
+    errc_t rc;
     CartState cartState{};
+    Vector3d pos;
+
+    // 输入状态对应的位置
     state.getState(cartState);
-    result = cartState.pos().norm();
+    TimePoint tp;
+    rc = state.getStateEpoch(tp);           AST_CHECK_ERRCODE(rc, _("获取时间失败"));
+    
+    // 计算参考点的位置
+    auto frame = state.getFrame();
+    rc = point->getPosIn(frame, tp, pos);   AST_CHECK_ERRCODE(rc, _("获取点位置失败"));
+    
+    // 计算当前点到参考点的距离模
+    result = (cartState.pos() - pos).norm();
     return 0;
 }
 
