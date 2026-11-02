@@ -18,14 +18,16 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ast/Test.hpp"
-#include "ast/RunTime.hpp"
-#include "ast/EOP.hpp"
 #include "ast/TimePoint.hpp"
 #include "ast/SpacecraftState.hpp"
 #include "ast/OrbitElement.hpp"
 #include "ast/CelestialBody.hpp"
 #include "ast/Literals.hpp"
 #include "ast/ScStateCalcLongDriftRate.hpp"
+#include "ast/ScStateCalcAngle.hpp"
+#include "ast/ScStateCalcSemiMajorAxis.hpp"
+#include "ast/VectorFixed.hpp"
+#include "ast/AxesICRF.hpp"
 
 #include <cmath>
 
@@ -33,20 +35,6 @@ AST_USING_NAMESPACE
 using namespace literals;
 
 namespace{
-
-class ScStateCalculationTest : public ::testing::Test
-{
-protected:
-    void SetUp() override
-    {
-        aInitialize();
-        aDataContext_GetEOP()->unload();
-    }
-    void TearDown() override
-    {
-        aUninitialize();
-    }
-};
 
 /// @brief 由经典轨道根数构造指定天体惯性系下的航天器状态
 /// @param sma 半长轴
@@ -77,7 +65,7 @@ double calcLongDriftRate(const SpacecraftState& scState)
 } // namespace
 
 /// @brief 圆赤道静止轨道附近（半长轴取名义静止轨道半长轴）
-TEST_F(ScStateCalculationTest, LongDriftRateCircularEquatorial)
+TEST(ScStateCalcLongDriftRateTest, LongDriftRateCircularEquatorial)
 {
     auto scState = makeOrbitState(42164170.0, 0.0, 0.0);
     // 标称值：参考实现计算结果
@@ -85,21 +73,21 @@ TEST_F(ScStateCalculationTest, LongDriftRateCircularEquatorial)
 }
 
 /// @brief 小偏心率静止轨道
-TEST_F(ScStateCalculationTest, LongDriftRateSmallEccentricity)
+TEST(ScStateCalcLongDriftRateTest, LongDriftRateSmallEccentricity)
 {
     auto scState = makeOrbitState(42164170.0, 0.0005, 0.0);
     EXPECT_NEAR(calcLongDriftRate(*scState), 5.425646537287449e-09, 1e-12);
 }
 
 /// @brief 倾角 30 度，验证结果对倾角的依赖
-TEST_F(ScStateCalculationTest, LongDriftRateInclined)
+TEST(ScStateCalcLongDriftRateTest, LongDriftRateInclined)
 {
     auto scState = makeOrbitState(42164170.0, 0.0, 30.0_deg);
     EXPECT_NEAR(calcLongDriftRate(*scState), 3.0788914680312304e-09, 1e-12);
 }
 
 /// @brief 半长轴比名义值低 20 km，应为明显向东漂移（正值）
-TEST_F(ScStateCalculationTest, LongDriftRateLowerSemiMajorAxis)
+TEST(ScStateCalcLongDriftRateTest, LongDriftRateLowerSemiMajorAxis)
 {
     auto scState = makeOrbitState(42144170.0, 0.0, 0.0);
     double value = calcLongDriftRate(*scState);
@@ -108,7 +96,7 @@ TEST_F(ScStateCalculationTest, LongDriftRateLowerSemiMajorAxis)
 }
 
 /// @brief 由笛卡尔状态计算（含 12 度倾角、极小偏心率）
-TEST_F(ScStateCalculationTest, LongDriftRateFromCartesianState)
+TEST(ScStateCalcLongDriftRateTest, LongDriftRateFromCartesianState)
 {
     SharedPtr<SpacecraftState> scState = SpacecraftState::NewDefault();
     scState->setFrame(aGetEarth()->makeFrameICRF());
@@ -122,7 +110,7 @@ TEST_F(ScStateCalculationTest, LongDriftRateFromCartesianState)
 }
 
 /// @brief 计算量自身指定中心天体为月球（默认配置之外的配置）
-TEST_F(ScStateCalculationTest, LongDriftRateMoon)
+TEST(ScStateCalcLongDriftRateTest, LongDriftRateMoon)
 {
     // 月面静止轨道半径附近，圆赤道轨道（月球惯性系）
     auto moonState = makeOrbitState(88463000.0, 0.0, 0.0, aGetMoon());
@@ -148,7 +136,7 @@ TEST_F(ScStateCalculationTest, LongDriftRateMoon)
 }
 
 /// @brief 未配置中心天体时使用默认天体（地球），不读取状态所在坐标系
-TEST_F(ScStateCalculationTest, LongDriftRateDefaultBodyIgnoresStateFrame)
+TEST(ScStateCalcLongDriftRateTest, LongDriftRateDefaultBodyIgnoresStateFrame)
 {
     const double sma = 88463000.0;
     const double velocity = std::sqrt(aGetMoon()->getGM() / sma);
@@ -169,6 +157,156 @@ TEST_F(ScStateCalculationTest, LongDriftRateDefaultBodyIgnoresStateFrame)
     ASSERT_EQ(defaultCalc.calculate(*scState, defaultValue), eNoError);
     ASSERT_EQ(earthCalc.calculate(*scState, earthValue), eNoError);
     EXPECT_NEAR(defaultValue, earthValue, 1e-15);
+}
+
+/// @brief 两向量垂直，夹角为 π/2
+TEST(ScStateCalcAngleTest, AnglePerpendicular)
+{
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
+    VectorFixed vector1, vector2;
+    vector1.setAxes(aAxesICRF());
+    vector1.setValue({1.0, 0.0, 0.0});
+    vector2.setAxes(aAxesICRF());
+    vector2.setValue({0.0, 2.0, 0.0});
+
+    ScStateCalcAngle calc;
+    calc.setVector1(&vector1);
+    calc.setVector2(&vector2);
+    double value = 0.0;
+    ASSERT_EQ(calc.calculate(*scState, value), eNoError);
+    EXPECT_NEAR(value, kPI / 2.0, 1e-15);
+}
+
+/// @brief 两向量平行，夹角为 0
+TEST(ScStateCalcAngleTest, AngleParallel)
+{
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
+    VectorFixed vector1, vector2;
+    vector1.setAxes(aAxesICRF());
+    vector1.setValue({1.0, -2.0, 3.0});
+    vector2.setAxes(aAxesICRF());
+    vector2.setValue({2.0, -4.0, 6.0});
+
+    ScStateCalcAngle calc;
+    calc.setVector1(&vector1);
+    calc.setVector2(&vector2);
+    double value = 0.0;
+    ASSERT_EQ(calc.calculate(*scState, value), eNoError);
+    EXPECT_NEAR(value, 0.0, 1e-15);
+}
+
+/// @brief 两向量反向，夹角为 π
+TEST(ScStateCalcAngleTest, AngleAntiParallel)
+{
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
+    VectorFixed vector1, vector2;
+    vector1.setAxes(aAxesICRF());
+    vector1.setValue({1.0, 0.0, 0.0});
+    vector2.setAxes(aAxesICRF());
+    vector2.setValue({-3.0, 0.0, 0.0});
+
+    ScStateCalcAngle calc;
+    calc.setVector1(&vector1);
+    calc.setVector2(&vector2);
+    double value = 0.0;
+    ASSERT_EQ(calc.calculate(*scState, value), eNoError);
+    EXPECT_NEAR(value, kPI, 1e-15);
+}
+
+/// @brief 夹角为 60 度，验证结果单位为弧度
+TEST(ScStateCalcAngleTest, AngleSixtyDegrees)
+{
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
+    VectorFixed vector1, vector2;
+    vector1.setAxes(aAxesICRF());
+    vector1.setValue({1.0, 0.0, 0.0});
+    vector2.setAxes(aAxesICRF());
+    vector2.setValue({1.0, std::sqrt(3.0), 0.0});
+
+    ScStateCalcAngle calc;
+    calc.setVector1(&vector1);
+    calc.setVector2(&vector2);
+    double value = 0.0;
+    ASSERT_EQ(calc.calculate(*scState, value), eNoError);
+    EXPECT_NEAR(value, 60.0_deg, 1e-15);
+}
+
+/// @brief 零向量没有确定的方向，与 aAngle 一致返回 0
+TEST(ScStateCalcAngleTest, AngleZeroVector)
+{
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
+    VectorFixed vector1, vector2;
+    vector1.setAxes(aAxesICRF());
+    vector1.setValue({1.0, 0.0, 0.0});
+    vector2.setAxes(aAxesICRF());
+    vector2.setValue({0.0, 0.0, 0.0});
+
+    ScStateCalcAngle calc;
+    calc.setVector1(&vector1);
+    calc.setVector2(&vector2);
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(*scState, value), eNoError);
+    EXPECT_NEAR(value, 0.0, 1e-15);
+}
+
+/// @brief 未配置向量时应返回空指针错误
+TEST(ScStateCalcAngleTest, AngleMissingVector)
+{
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
+    ScStateCalcAngle calc;
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(*scState, value), eErrorNullPtr);
+}
+
+/// @brief 计算半长轴
+double calcSemiMajorAxis(const SpacecraftState& scState, CelestialBody* body = nullptr)
+{
+    ScStateCalcSemiMajorAxis calc;
+    if(body)
+        calc.setBody(body);
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(scState, value), eNoError);
+    return value;
+}
+
+/// @brief 圆轨道半长轴
+TEST(ScStateCalcSemiMajorAxisTest, SemiMajorAxisCircular)
+{
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
+    EXPECT_NEAR(calcSemiMajorAxis(*scState), 7000000.0, 1e-6);
+}
+
+/// @brief 椭圆轨道半长轴，验证与偏心率、倾角无关
+TEST(ScStateCalcSemiMajorAxisTest, SemiMajorAxisElliptical)
+{
+    auto scState = makeOrbitState(7000000.0, 0.1, 30.0_deg);
+    EXPECT_NEAR(calcSemiMajorAxis(*scState), 7000000.0, 1e-6);
+}
+
+/// @brief 计算量自身指定中心天体为月球
+TEST(ScStateCalcSemiMajorAxisTest, SemiMajorAxisMoon)
+{
+    // 月球惯性系下的圆轨道
+    auto moonState = makeOrbitState(88463000.0, 0.0, 0.0, aGetMoon());
+
+    // 同一物理状态在地球惯性系下的表示，计算时应自动转换回月球惯性系
+    CartState cartInEarth;
+    ASSERT_EQ(moonState->getStateIn(aGetEarth()->getFrameInertial(), cartInEarth), eNoError);
+    SharedPtr<SpacecraftState> earthState = SpacecraftState::NewDefault();
+    earthState->setFrame(aGetEarth()->getFrameInertial());
+    ASSERT_EQ(earthState->setState(cartInEarth), eNoError);
+    earthState->setStateEpoch(TimePoint::FromUTC(2026, 1, 1, 0, 0, 0));
+
+    EXPECT_NEAR(calcSemiMajorAxis(*moonState, aGetMoon()), 88463000.0, 1e-3);
+    // 与输入状态所在坐标系无关（坐标转换会引入微小的数值差）
+    EXPECT_NEAR(calcSemiMajorAxis(*earthState, aGetMoon()), calcSemiMajorAxis(*moonState, aGetMoon()), 1e-3);
+}
+
+/// @brief 未配置中心天体时使用默认天体（地球）
+TEST(ScStateCalcSemiMajorAxisTest, SemiMajorAxisDefaultBody)
+{
+    auto earthState = makeOrbitState(7000000.0, 0.0, 0.0);
+    EXPECT_NEAR(calcSemiMajorAxis(*earthState), calcSemiMajorAxis(*earthState, aGetEarth()), 1e-9);
 }
 
 GTEST_MAIN()

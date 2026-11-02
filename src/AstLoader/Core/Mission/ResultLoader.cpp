@@ -37,6 +37,13 @@ ScStateCalculation* aResolveBuiltinScStateCalculation(StringView name)
         aAddObject(calculation);
         return calculation;
     }
+    else if(name == "Semimajor_Axis")
+    {
+        auto calculation = new ScStateCalcSemiMajorAxis();
+        calculation->setName(name);
+        aAddObject(calculation);
+        return calculation;
+    }
     else
     {
         aError(_("不支持的内置计算量 '%.*s'"), name.size(), name.data());
@@ -87,6 +94,19 @@ errc_t aLoadCalculation(const Value& value, ScStateCalcBodyRelated& calculation)
     return 0;
 }
 
+errc_t aLoadCalculation(const Value& value, ScStateCalcSemiMajorAxis& calculation)
+{
+    aLoadCalculation(value, static_cast<ScStateCalcBodyRelated&>(calculation));
+
+    // 目前只支持密切轨道根数，平轨道根数（Brouwer-Lyddane、Kozai-Izsak）尚未实现
+    std::string elementType = value["ElementType"];
+    if(!elementType.empty() && elementType != "Osculating")
+    {
+        aWarning(_("暂不支持半长轴根数类型 '%s'，按密切轨道根数计算"), elementType.c_str());
+    }
+    return 0;
+}
+
 errc_t aLoadCalculation(const Value& value, ScStateCalcPointRelated& calculation)
 {
     std::string pointName = value["ReferencePoint"];
@@ -99,6 +119,33 @@ errc_t aLoadCalculation(const Value& value, ScStateCalcPointRelated& calculation
         }
         aError(_("未找到参考点 '%s'，用于计算量 '%s（%s）'"), pointName.c_str(), calcPtr->getName().c_str(), calcPtr->typeName().c_str());
         return eErrorNullPtr;
+    };
+    calculation.addDelayedLink(resolveFunc);
+    return 0;
+}
+
+errc_t aLoadCalculation(const Value& value, ScStateCalcAngle& calculation)
+{
+    std::string vector1Name = value["Vector1"];
+    std::string vector2Name = value["Vector2"];
+    auto calcPtr = &calculation;
+    auto resolveFunc = [calcPtr, vector1Name, vector2Name]() -> errc_t {
+        errc_t rc = eNoError;
+        if(auto vector = aFindObject<Vector*>(vector1Name))
+            calcPtr->setVector1(vector);
+        else
+        {
+            aError(_("未找到向量 '%s'，用于计算量 '%s（%s）'"), vector1Name.c_str(), calcPtr->getName().c_str(), calcPtr->typeName().c_str());
+            rc = eErrorNullPtr;
+        }
+        if(auto vector = aFindObject<Vector*>(vector2Name))
+            calcPtr->setVector2(vector);
+        else
+        {
+            aError(_("未找到向量 '%s'，用于计算量 '%s（%s）'"), vector2Name.c_str(), calcPtr->getName().c_str(), calcPtr->typeName().c_str());
+            rc = eErrorNullPtr;
+        }
+        return rc;
     };
     calculation.addDelayedLink(resolveFunc);
     return 0;
@@ -156,6 +203,12 @@ errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Obj
         result = calculation;
         aLoadCalculation(value, *calculation);
     }
+    else if(type == "AsStateCalcSemiMajorAxis")
+    {
+        auto calculation = aNewObject<ScStateCalcSemiMajorAxis>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+    }
     else if(type == "AsStateCalcRadiusOfApoapsis")
     {
         auto calculation = aNewObject<ScStateCalcRadiusOfApoapsis>(scope);
@@ -189,6 +242,12 @@ errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Obj
     else if(type == "AsStateCalcVMag")
     {
         auto calculation = aNewObject<ScStateCalcVMag>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+    }
+    else if(type == "CAgAsStateCalcAngle")
+    {
+        auto calculation = aNewObject<ScStateCalcAngle>(scope);
         result = calculation;
         aLoadCalculation(value, *calculation);
     }

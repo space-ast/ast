@@ -20,19 +20,28 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/ScStateCalculation.hpp"
+#include "AstCore/ScStateCalcBodyRelated.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup
     @{
 */
 
-class AST_CORE_API ScStateCalcSemiMajorAxis : public ScStateCalculation
+/// @brief 半长轴
+/// @details 由当前密切轨道根数计算的半长轴。
+///          中心天体取本计算量自身的配置，未配置时默认为地球
+class AST_CORE_API ScStateCalcSemiMajorAxis : public ScStateCalcBodyRelated
 {
 public:
+    AST_OBJECT(ScStateCalcSemiMajorAxis)
+
+    ScStateCalcSemiMajorAxis() = default;
+    ~ScStateCalcSemiMajorAxis() = default;
+public:
     errc_t calculate(const SpacecraftState& state, double& result) override;
+    Dimension getDimension() const override {return EDimension::eLength;}
 };
 
 /*! @} */

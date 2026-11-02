@@ -22,13 +22,43 @@
 
 #include "AstGlobal.h"
 #include "AstCore/ScStateCalculation.hpp"
+#include "AstCore/Vector.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class ScStateCalcAngle : public ScStateCalculation
+/*!
+    @addtogroup
+    @{
+*/
+
+/// @brief 两向量夹角
+/// @details 计算两个向量的夹角，结果范围为 [0, π]
+class AST_CORE_API ScStateCalcAngle : public ScStateCalculation
 {
 public:
+    AST_OBJECT(ScStateCalcAngle)
+    AST_PROPERT(Vector1)
+    AST_PROPERT(Vector2)
+    ScStateCalcAngle() = default;
+    ~ScStateCalcAngle() override = default;
+public:
     errc_t calculate(const SpacecraftState& scState, double& result) override;
+    Dimension getDimension() const override {return EDimension::eAngle;}
+PROPERTIES:
+    /// @brief 获取第一个向量
+    Vector* getVector1() const { return vector1_.get(); }
+    /// @brief 设置第一个向量
+    void setVector1(Vector* vector) { vector1_ = vector; }
+
+    /// @brief 获取第二个向量
+    Vector* getVector2() const { return vector2_.get(); }
+    /// @brief 设置第二个向量
+    void setVector2(Vector* vector) { vector2_ = vector; }
+private:
+    WeakPtr<Vector> vector1_{};     ///< 第一个向量
+    WeakPtr<Vector> vector2_{};     ///< 第二个向量
 };
+
+/*! @} */
 
 AST_NAMESPACE_END

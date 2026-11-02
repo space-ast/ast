@@ -28,9 +28,8 @@ AST_NAMESPACE_BEGIN
 errc_t ScStateCalcArgLat::calculate(const SpacecraftState& state, double& result)
 {
     auto frame = this->frame();
-    A_UNUSED(frame);
     ModOrbElem orbElem;
-    errc_t rc = state.getState(orbElem);
+    errc_t rc = state.getStateIn(frame, orbElem);
     if(rc != eNoError)
         return rc;
     result = orbElem.getArgLat();
