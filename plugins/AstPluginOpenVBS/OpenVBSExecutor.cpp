@@ -201,7 +201,8 @@ public:
 
     ~Impl()
     {
-        
+        // 调用方可以不显式 finalize，析构时必须把引擎对象释放掉
+        finalize();
     }
 
     errc_t initialize()
