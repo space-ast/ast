@@ -210,7 +210,9 @@ public:
         if(root_)
             return eNoError;
         const wchar_t* empty = L"";
-        root_ = new CProcessor(new CProgram(empty), nullptr, &extension_);
+        // CProcessor 只存 CProgram 的裸指针，不负责释放，得由这里持有
+        program_ = new CProgram(empty);
+        root_ = new CProcessor(program_, nullptr, &extension_);
         HRESULT hr = (*root_)();
         A_UNUSED(hr);
         return eNoError;
@@ -221,6 +223,12 @@ public:
         if(root_)
             delete root_;
         root_ = nullptr;
+        // 必须在 CProcessor 析构之后再释放语法树，析构里还会用到它
+        if(program_)
+        {
+            program_->Release();    // 引用计数归零时自销毁
+            program_ = nullptr;
+        }
         error_.clear();
         extension_.clear();
     }
@@ -407,6 +415,7 @@ private:
     std::string  error_{};          ///< 最近一次错误（UTF-8）
     CExtension   extension_{};      ///< 引擎的外部名字表
     CProcessor*  root_{nullptr};    ///< 根解释器；第一段脚本执行时创建
+    CProgram*    program_{nullptr}; ///< root_ 使用的语法树，引用计数由本对象持有
 };
 
 
