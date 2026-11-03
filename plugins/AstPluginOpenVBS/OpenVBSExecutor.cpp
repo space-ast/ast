@@ -323,7 +323,8 @@ public:
         {
             // Eval 的内部处理器不会把详细错误回传给父处理器，这里只能区分
             // 解析失败（E_INVALIDARG）和运行时失败
-            error_ = (hr == E_INVALIDARG) ? "invalid expression" : "evaluation failed";
+            // E_INVALIDARG 在垫片里是无符号字面量，直接比会被 -Wsign-compare 拦下
+            error_ = (static_cast<unsigned int>(hr) == E_INVALIDARG) ? "invalid expression" : "evaluation failed";
             return eError;
         }
 
