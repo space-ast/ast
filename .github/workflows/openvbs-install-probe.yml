@@ -5,6 +5,9 @@ name: openvbs 安装诊断
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - ci/openvbs-install-probe
 
 jobs:
   probe:
