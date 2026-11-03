@@ -1,0 +1,73 @@
+name: openvbs 安装诊断
+
+# 临时诊断用：只在手动触发时运行，定位 openvbs 包在 x86_64 Linux / Windows 上
+# 冷安装失败的真实原因。拿到结论后删除这个文件。
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runner:
+          - ubuntu-latest
+          - ubuntu-22.04-arm
+          - windows-2022
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: branch@dev
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: ${{ matrix.runner }}
+
+      # 和正式 workflow 一致：包缓存放在工作区内，且不恢复任何 actions/cache，
+      # 保证这是一次真正的冷安装
+      - name: 设置xmake相关目录
+        shell: bash
+        run: |
+          xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
+          xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
+          xmake repo -u
+          xmake show
+
+      - name: 安装openvbs（详细日志）
+        shell: bash
+        run: |
+          set +e
+          echo "=== xmake require --force openvbs -vD ==="
+          xmake require -y --force openvbs -vD > openvbs-verbose.log 2>&1
+          echo "verbose_exit=$?"
+          tail -200 openvbs-verbose.log
+          echo "=== 不带 -v 再装一次 ==="
+          xmake require -y --force openvbs > openvbs-normal.log 2>&1
+          echo "normal_exit=$?"
+          tail -50 openvbs-normal.log
+          exit 0
+
+      - name: 收集日志
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p probe-artifacts
+          cp openvbs-*.log probe-artifacts/ 2>/dev/null || true
+          # xmake 会把失败的包安装日志留在 pkg_cachedir 下
+          if [ -d xmake-cache/cache ]; then
+            find xmake-cache/cache -type f -name "*.log" -exec cp --parents {} probe-artifacts/ \; 2>/dev/null || true
+            find xmake-cache/cache -type d -name "installdir.failed" -exec cp -r --parents {} probe-artifacts/ \; 2>/dev/null || true
+          fi
+          echo "=== collected ==="
+          find probe-artifacts -type f | head -100
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: openvbs-probe-${{ matrix.runner }}
+          path: probe-artifacts
