@@ -1,7 +1,7 @@
 name: openvbs 安装诊断
 
-# 临时诊断用：只在手动触发时运行，定位 openvbs 包在 x86_64 Linux / Windows 上
-# 冷安装失败的真实原因。拿到结论后删除这个文件。
+# 临时诊断用：忠实复现正式 workflow 的 Windows 配置步骤，并带 -v 让嵌套构建的
+# 输出可见（正式 CI 只打印 "install openvbs latest .. failed"）。拿到结论后删除。
 
 on:
   workflow_dispatch:
@@ -10,16 +10,9 @@ on:
       - ci/openvbs-install-probe
 
 jobs:
-  probe:
-    runs-on: ${{ matrix.runner }}
-    strategy:
-      fail-fast: false
-      matrix:
-        runner:
-          - ubuntu-latest
-          - ubuntu-22.04-arm
-          - windows-2022
-    timeout-minutes: 30
+  probe-windows:
+    runs-on: windows-2022
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -29,10 +22,8 @@ jobs:
         with:
           xmake-version: branch@dev
           actions-cache-folder: '.xmake-cache'
-          actions-cache-key: ${{ matrix.runner }}
+          actions-cache-key: windows-2022
 
-      # 和正式 workflow 一致：包缓存放在工作区内，且不恢复任何 actions/cache，
-      # 保证这是一次真正的冷安装
       - name: 设置xmake相关目录
         shell: bash
         run: |
@@ -41,18 +32,15 @@ jobs:
           xmake repo -u
           xmake show
 
-      - name: 安装openvbs（详细日志）
+      # 与正式 workflow 完全相同的配置命令，只用 timeout 兜底：openvbs 的失败
+      # 发生在配置早期，15 分钟足够，后面的包不用等
+      - name: 配置（与正式 workflow 相同，带 -v）
         shell: bash
         run: |
           set +e
-          echo "=== xmake require --force openvbs -vD ==="
-          xmake require -y --force openvbs -vD > openvbs-verbose.log 2>&1
-          echo "verbose_exit=$?"
-          tail -200 openvbs-verbose.log
-          echo "=== 不带 -v 再装一次 ==="
-          xmake require -y --force openvbs > openvbs-normal.log 2>&1
-          echo "normal_exit=$?"
-          tail -50 openvbs-normal.log
+          timeout 900 xmake f -cy --with_test=y --check_warnings=n -m release -a x64 -v > configure.log 2>&1
+          echo "configure_exit=$?"
+          grep -n -i "openvbs" configure.log | tail -40 || true
           exit 0
 
       - name: 收集日志
@@ -60,17 +48,12 @@ jobs:
         shell: bash
         run: |
           mkdir -p probe-artifacts
-          cp openvbs-*.log probe-artifacts/ 2>/dev/null || true
-          # xmake 会把失败的包安装日志留在 pkg_cachedir 下
-          if [ -d xmake-cache/cache ]; then
-            find xmake-cache/cache -type f -name "*.log" -exec cp --parents {} probe-artifacts/ \; 2>/dev/null || true
-            find xmake-cache/cache -type d -name "installdir.failed" -exec cp -r --parents {} probe-artifacts/ \; 2>/dev/null || true
-          fi
-          echo "=== collected ==="
-          find probe-artifacts -type f | head -100
+          cp configure.log probe-artifacts/ 2>/dev/null || true
+          cp -r build/.packages/o/openvbs/latest/cache/installdir.failed probe-artifacts/ 2>/dev/null || true
+          find probe-artifacts -type f | head -50
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: openvbs-probe-${{ matrix.runner }}
+          name: openvbs-probe-windows-faithful
           path: probe-artifacts
