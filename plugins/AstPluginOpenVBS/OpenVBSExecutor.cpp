@@ -505,6 +505,8 @@ errc_t OpenVBSExecutor::evaluate(StringView script, ScriptResult* resultOut)
         resultOut->error_ = impl_->error();
         VariantToValue(result, resultOut->value_);
     }
+    // impl_->evaluate 把结果的所有权交给了这里，BSTR 等资源必须清掉
+    ::VariantClear(&result);
     return rc;
 }
 
