@@ -220,8 +220,10 @@ public:
 
     void finalize()
     {
+        // CProcessor 是引用计数的 IDispatch：new 出来时计数为 1，由本对象持有，
+        // 必须走 Release 让它自销毁（引擎内部可能还留着引用，不能直接 delete）
         if(root_)
-            delete root_;
+            root_->Release();
         root_ = nullptr;
         // 必须在 CProcessor 析构之后再释放语法树，析构里还会用到它
         if(program_)
