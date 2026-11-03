@@ -38,7 +38,9 @@ jobs:
         shell: bash
         run: |
           set +e
-          timeout 900 xmake f -cy --with_test=y --check_warnings=n -m release -a x64 -v > configure.log 2>&1
+          # 显式 -p windows：Git Bash 下 xmake 会把宿主平台识别成 msys，
+          # 与正式 CI（PowerShell，windows + MSVC）不一致
+          timeout 900 xmake f -cy -p windows --with_test=y --check_warnings=n -m release -a x64 -v > configure.log 2>&1
           echo "configure_exit=$?"
           grep -n -i "openvbs" configure.log | tail -40 || true
           exit 0
