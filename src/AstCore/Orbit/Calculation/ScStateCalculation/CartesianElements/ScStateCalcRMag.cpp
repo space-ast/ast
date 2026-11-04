@@ -19,7 +19,6 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ScStateCalcRMag.hpp"
-#include "AstUtil/Logger.hpp"
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/CelestialBody.hpp"
 
@@ -29,10 +28,7 @@ errc_t ScStateCalcRMag::calculate(const SpacecraftState& state, double& result)
 {
     auto point = this->point();
     if(!point)
-    {
         point = aGetEarth();
-        aWarning(_("未指定点，将默认使用地球作为参考点"));
-    }
     errc_t rc;
     CartState cartState{};
     Vector3d pos;
