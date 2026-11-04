@@ -383,6 +383,11 @@ errc_t aLoadScenario(StringView filepath, Scenario& scenario)
             }
             return rc;
         }
+        case fs::file_type::not_found:
+        {
+            aError(_("未找到文件或目录 '%.*s'"), (int)filepath.size(), filepath.data());
+            return eErrorInvalidFile;
+        }
         default:
         {
             aWarning(_("未知文件类型 '%.*s'"), (int)filepath.size(), filepath.data());

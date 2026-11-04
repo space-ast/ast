@@ -20,19 +20,28 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/ScStateCalculation.hpp"
+#include "AstCore/ScStateCalcBodyRelated.hpp"
 
 AST_NAMESPACE_BEGIN
 
 /*!
-    @addtogroup 
+    @addtogroup
     @{
 */
 
-class AST_CORE_API ScStateCalcEccAnomaly : public ScStateCalculation
+/// @brief 偏近点角
+/// @details 由当前密切轨道根数计算的偏近点角。
+///          中心天体取本计算量自身的配置，未配置时默认为地球
+class AST_CORE_API ScStateCalcEccAnomaly : public ScStateCalcBodyRelated
 {
 public:
+    AST_OBJECT(ScStateCalcEccAnomaly)
+
+    ScStateCalcEccAnomaly() = default;
+    ~ScStateCalcEccAnomaly() = default;
+public:
     errc_t calculate(const SpacecraftState& state, double& result) override;
+    Dimension getDimension() const override {return EDimension::eAngle;}
 };
 
 /*! @} */

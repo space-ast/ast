@@ -24,24 +24,40 @@
 #include "AstScript/Value.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 #include "AstUtil/ObjectLinker.hpp"
+#include "AstLoader/LoaderCommon.hpp"
+#include "AstSim/SpaceObject.hpp"
+#include "AstCore/Sequence.hpp"
 
 AST_NAMESPACE_BEGIN
 
 
 ScStateCalculation* aResolveBuiltinScStateCalculation(StringView name)
 {
+    ScStateCalculation* calculation = nullptr;
     if(name == "Argument_of_Latitude")
     {
-        auto calculation = new ScStateCalcArgLat();
-        calculation->setName(name);
-        aAddObject(calculation);
-        return calculation;
+        calculation = new ScStateCalcArgLat();
+    }
+    else if(name == "Semimajor_Axis")
+    {
+        calculation = new ScStateCalcSemiMajorAxis();
+    }
+    else if(name == "Epoch")
+    {
+        calculation = new ScStateCalcEpoch();
+    }
+    else if(name == "R_Mag")
+    {
+        calculation = new ScStateCalcRMag();
     }
     else
     {
         aError(_("不支持的内置计算量 '%.*s'"), name.size(), name.data());
+        return nullptr;
     }
-    return nullptr;
+    calculation->setName(name);
+    aAddObject(calculation);
+    return calculation;
 }
 
 ScStateCalculation* aResolveScStateCalculation(StringView name)
@@ -49,6 +65,21 @@ ScStateCalculation* aResolveScStateCalculation(StringView name)
     if(auto calc = aFindObject<ScStateCalculation*>(name))
         return calc;
     return aResolveBuiltinScStateCalculation(name);
+}
+
+
+ObjectCalculation* aValueToResult(const Value& value, Object* scope)
+{
+    if(value.isString())
+    {
+        return aResolveScStateCalculation(value.toString());
+    }
+    else
+    {
+        SharedPtr<ObjectCalculation> result;
+        aLoadResult(value, result, scope);
+        return result.take();
+    }
 }
 
 
@@ -87,6 +118,7 @@ errc_t aLoadCalculation(const Value& value, ScStateCalcBodyRelated& calculation)
     return 0;
 }
 
+
 errc_t aLoadCalculation(const Value& value, ScStateCalcPointRelated& calculation)
 {
     std::string pointName = value["ReferencePoint"];
@@ -99,6 +131,33 @@ errc_t aLoadCalculation(const Value& value, ScStateCalcPointRelated& calculation
         }
         aError(_("未找到参考点 '%s'，用于计算量 '%s（%s）'"), pointName.c_str(), calcPtr->getName().c_str(), calcPtr->typeName().c_str());
         return eErrorNullPtr;
+    };
+    calculation.addDelayedLink(resolveFunc);
+    return 0;
+}
+
+errc_t aLoadCalculation(const Value& value, ScStateCalcAngle& calculation)
+{
+    std::string vector1Name = value["Vector1"];
+    std::string vector2Name = value["Vector2"];
+    auto calcPtr = &calculation;
+    auto resolveFunc = [calcPtr, vector1Name, vector2Name]() -> errc_t {
+        errc_t rc = eNoError;
+        if(auto vector = aFindObject<Vector*>(vector1Name))
+            calcPtr->setVector1(vector);
+        else
+        {
+            aError(_("未找到向量 '%s'，用于计算量 '%s（%s）'"), vector1Name.c_str(), calcPtr->getName().c_str(), calcPtr->typeName().c_str());
+            rc = eErrorNullPtr;
+        }
+        if(auto vector = aFindObject<Vector*>(vector2Name))
+            calcPtr->setVector2(vector);
+        else
+        {
+            aError(_("未找到向量 '%s'，用于计算量 '%s（%s）'"), vector2Name.c_str(), calcPtr->getName().c_str(), calcPtr->typeName().c_str());
+            rc = eErrorNullPtr;
+        }
+        return rc;
     };
     calculation.addDelayedLink(resolveFunc);
     return 0;
@@ -121,25 +180,130 @@ errc_t aLoadCalculation(const Value& value, ScStateCalcDifference& calculation)
         calculation.setDifferenceOrderToUse(orderToUse);
     }
     {
-        auto& calcObject = value["CalcObject"];
-        if(calcObject.isString())
-        {
-            auto calc = aResolveScStateCalculation(calcObject.toString());
-            if(calc)
-                calculation.setCalculation(calc);
-        }
-        else
-        {
-            SharedPtr<ObjectCalculation> result;
-            Object* scope = &calculation;
-            errc_t rc = aLoadResult(calcObject, result, scope);
-            if(rc ==0 && result)
-                calculation.setCalculation(aobject_cast<ScStateCalculation*>(result.get()));
-        }
+        calculation.setCalculation(aobject_cast<ScStateCalculation*>(aValueToResult(value["CalcObject"], &calculation)));
     }
     return 0;
 }
 
+
+errc_t aLoadCalculation(const Value& value, ScStateCalcDifferenceOtherSegment& calculation)
+{
+    {
+        std::string segmentStateToUse = value["SegmentStateToUse"];
+        ESegmentStateToUse stateToUse;
+        if(segmentStateToUse == "Final")
+            stateToUse = ESegmentStateToUse::eFinal;
+        else if(segmentStateToUse == "Initial")
+            stateToUse = ESegmentStateToUse::eInitial;
+        else
+        {
+            stateToUse = ESegmentStateToUse::eFinal;
+            aError(_("不支持的轨道段状态：'%s'，默认使用 'Final'"), segmentStateToUse.c_str());
+        }
+        calculation.setSegmentStateToUse(stateToUse);
+    }
+    {
+        std::string differenceOrderToUse = value["DifferenceOrderToUse"];
+        ESegmentDifferenceOrder orderToUse;
+        if(differenceOrderToUse == "Current Minus Other Segment")
+            orderToUse = ESegmentDifferenceOrder::eCurrentMinusSegment;
+        else if(differenceOrderToUse == "Other Segment Minus Current")
+            orderToUse = ESegmentDifferenceOrder::eSegmentMinusCurrent;
+        else
+        {
+            orderToUse = ESegmentDifferenceOrder::eCurrentMinusSegment;
+            aError(_("不支持的差值顺序：'%s'，默认使用 'Current Minus Other Segment'"), differenceOrderToUse.c_str());
+        }
+        calculation.setDifferenceOrderToUse(orderToUse);
+    }
+    {
+        std::string otherSegment = value["OtherSegment"];
+        auto delayedLinkFunc = [&calculation, otherSegment](){
+            auto sequence = aGetTopmostAncestorScope<Sequence*>(&calculation);
+            if(!sequence)
+            {
+                aError(_("计算量 '%s' 所在的作用域不是 Sequence，无法解析 OtherSegment"), aObjectSimpleRepr(&calculation).c_str());
+                return eErrorInvalidParam;
+            }
+            auto segment = sequence->getSegmentByPath(otherSegment);
+            if(!segment)
+            {
+                aError(_("未找到轨道段 '%s'"), otherSegment.c_str());
+                return eErrorNullPtr;
+            }
+            calculation.setOtherSegment(segment);
+            return eNoError;
+        };
+        calculation.addDelayedLink(delayedLinkFunc);
+
+    }
+    {
+        calculation.setCalculation(aobject_cast<ScStateCalculation*>(aValueToResult(value["CalcObject"], &calculation)));
+    }
+    return 0;
+}
+
+
+errc_t aLoadCalculation(const Value& value, ScStateCalcDeltaFromMaster& calculation)
+{
+    {
+        std::string referenceSelection = value["ReferenceSelection"];
+        std::string referencePath = value["Reference"];
+        auto calcPtr = &calculation;
+        auto delayedLinkFunc = [calcPtr, referenceSelection, referencePath]() -> errc_t {
+            // 缺少链接时 Value 会给出 "null"
+            if(referencePath.empty() || referencePath == "null")
+            {
+                // "Use Basic->Reference"：主航天器取航天器基本属性中的参考航天器
+                if(!referenceSelection.empty() && referenceSelection != "Use Basic->Reference")
+                    aWarning(_("计算量 '%s' 的主航天器选择方式 '%s' 缺少参考对象"), calcPtr->getName().c_str(), referenceSelection.c_str());
+                auto spaceObject = aGetNearestAncestorScope<SpaceObject*>(calcPtr);
+                if(!spaceObject)
+                {
+                    aWarning(_("计算量 '%s' 不在航天器对象下，无法解析主航天器"), aObjectSimpleRepr(calcPtr).c_str());
+                    return eNoError;
+                }
+                auto reference = aSpaceObject_GetReferenceVehicle(spaceObject);
+                if(!reference)
+                {
+                    aWarning(_("航天器 '%s' 未设置参考航天器，计算量 '%s' 无主航天器"), spaceObject->getName().c_str(), calcPtr->getName().c_str());
+                    return eNoError;
+                }
+                calcPtr->setReference(reference);
+                return eNoError;
+            }
+            auto reference = aResolveObject<Point*>(referencePath);
+            if(!reference)
+            {
+                aError(_("未找到主航天器 '%s'，用于计算量 '%s（%s）'"), referencePath.c_str(), calcPtr->getName().c_str(), calcPtr->typeName().c_str());
+                return eErrorNullPtr;
+            }
+            calcPtr->setReference(reference);
+            return eNoError;
+        };
+        calculation.addDelayedLink(delayedLinkFunc);
+    }
+    {
+        calculation.setCalculation(aobject_cast<ScStateCalculation*>(aValueToResult(value["CalcObject"], &calculation)));
+    }
+    return 0;
+}
+
+
+namespace {
+
+/// @brief 提示暂不支持的根数类型
+/// @details 目前只支持密切轨道根数，平轨道根数（Brouwer-Lyddane、Kozai-Izsak）尚未实现
+void aWarnUnsupportedElementType(const Value& value, const ScStateCalculation& calculation)
+{
+    std::string elementType = value["ElementType"];
+    if(!elementType.empty() && elementType != "Osculating")
+    {
+        aWarning(_("暂不支持计算量 '%s' 的根数类型 '%s'，按密切轨道根数计算"), calculation.getName().c_str(), elementType.c_str());
+    }
+}
+
+} // namespace
 
 errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Object* scope)
 {
@@ -149,18 +313,56 @@ errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Obj
         auto calculation = aNewObject<ScStateCalcEccentricity>(scope);
         result = calculation;
         aLoadCalculation(value, *calculation);
+        aWarnUnsupportedElementType(value, *calculation);
     }
     else if(type == "AsStateCalcTrueAnomaly")
     {
         auto calculation = aNewObject<ScStateCalcTrueAnomaly>(scope);
         result = calculation;
         aLoadCalculation(value, *calculation);
+        aWarnUnsupportedElementType(value, *calculation);
+    }
+    else if(type == "AsStateCalcSemiMajorAxis")
+    {
+        auto calculation = aNewObject<ScStateCalcSemiMajorAxis>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+        aWarnUnsupportedElementType(value, *calculation);
     }
     else if(type == "AsStateCalcRadiusOfApoapsis")
     {
         auto calculation = aNewObject<ScStateCalcRadiusOfApoapsis>(scope);
         result = calculation;
         aLoadCalculation(value, *calculation);
+        aWarnUnsupportedElementType(value, *calculation);
+    }
+    else if(type == "AsStateCalcInclination")
+    {
+        auto calculation = aNewObject<ScStateCalcInclination>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+        aWarnUnsupportedElementType(value, *calculation);
+    }
+    else if(type == "AsStateCalcEccAnomaly")
+    {
+        auto calculation = aNewObject<ScStateCalcEccAnomaly>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+        aWarnUnsupportedElementType(value, *calculation);
+    }
+    else if(type == "AsStateCalcAltitudeOfApoapsis")
+    {
+        auto calculation = aNewObject<ScStateCalcAltitudeOfApoapsis>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+        aWarnUnsupportedElementType(value, *calculation);
+    }
+    else if(type == "AsStateCalcTimePastAscNode")
+    {
+        auto calculation = aNewObject<ScStateCalcTimePastAscNode>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+        aWarnUnsupportedElementType(value, *calculation);
     }
     else if(type == "AsStateCalcVx")
     {
@@ -192,6 +394,12 @@ errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Obj
         result = calculation;
         aLoadCalculation(value, *calculation);
     }
+    else if(type == "CAgAsStateCalcAngle")
+    {
+        auto calculation = aNewObject<ScStateCalcAngle>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+    }
     else if(type == "CAgAsStateCalcDifference")
     {
         auto calculation = aNewObject<ScStateCalcDifference>(scope);
@@ -210,10 +418,28 @@ errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Obj
         result = calculation;
         // aLoadCalculation(value, *calculation);
     }
+    else if(type == "CAgAsStateCalcLongDriftRate")
+    {
+        auto calculation = aNewObject<ScStateCalcLongDriftRate>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+    }
+    else if(type == "CAgAsStateCalcDifferenceOtherSegment")
+    {
+        auto calculation = aNewObject<ScStateCalcDifferenceOtherSegment>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+    }
+    else if(type == "CAgAsStateCalcDeltaFromMaster")
+    {
+        auto calculation = aNewObject<ScStateCalcDeltaFromMaster>(scope);
+        result = calculation;
+        aLoadCalculation(value, *calculation);
+    }
     else
     {
         result.reset();
-        aError(_("不支持的结果类型：'%s'"), type.c_str());
+        aError(_("对象%s不支持的结果类型：'%s'"), aObjectSimpleRepr(scope).c_str(), type.c_str());
         return eErrorInvalidParam;
     }
     // if(result && !result->getParentScope())

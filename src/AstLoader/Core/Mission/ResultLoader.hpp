@@ -32,10 +32,10 @@ AST_NAMESPACE_BEGIN
 
 
 
-errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Object* scope);
+AST_LOADER_API errc_t aLoadResult(const Value& value, SharedPtr<ObjectCalculation>& result, Object* scope);
 
 
-errc_t aLoadResults(const Value& dict, Object* scope);
+AST_LOADER_API errc_t aLoadResults(const Value& dict, Object* scope);
 
 /*! @} */
 

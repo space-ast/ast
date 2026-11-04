@@ -1,8 +1,9 @@
 ///
-/// @file      ScStateCalcDeltaFromMaster.hpp
+/// @file      testGEORendezvousSTK.cpp
 /// @brief     
+/// @details   
 /// @author    axel
-/// @date      2026-05-02
+/// @date      2026-10-29
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 /// SpaceAST项目（https://github.com/space-ast/ast）
@@ -17,17 +18,20 @@
 /// 除非法律要求或书面同意，作者与贡献者不承担任何责任。
 /// 使用本软件所产生的风险，需由您自行承担。
 
-#pragma once
+#include "ast/Test.hpp"
+#include "ast/Scenario.hpp"
+#include "ast/ScenarioLoader.hpp"
 
-#include "AstGlobal.h"
-#include "AstCore/ScStateCalculation.hpp"
+AST_USING_NAMESPACE
 
-AST_NAMESPACE_BEGIN
-
-class AST_CORE_API ScStateCalcDeltaFromMaster : public ScStateCalculation
+TEST(GEORendezvousTest, Load)
 {
-public:
-    errc_t calculate(const SpacecraftState& state, double& result) override;
-};
+    const char scenarioDir[] = "./STK/Scenarios/testGEORendezvousSTK";
+    const std::string path = aTestDataDirGet() + "/" + scenarioDir;
+    SharedPtr<Scenario> scenario = new Scenario();
+    errc_t rc = aLoadScenario(path, *scenario);
+    EXPECT_EQ(rc, eNoError);
 
-AST_NAMESPACE_END
+}
+
+GTEST_MAIN()

@@ -77,11 +77,21 @@ public:
     Object* getParentScope(Object* obj);
 
 
-    /// @brief 获取对象的祖先作用域
-    /// @details obj 对象指针
-    /// @param cls 类指针，如果为空则匹配所有类型
-    /// @return 祖先作用域指针
-    Object* getAncestorScope(Object* obj, Class* cls);
+    /// @brief 获取最近的祖先作用域
+    /// @details
+    /// 从对象的父作用域开始沿作用域链逐级向上查找，返回第一个类型匹配的祖先，对象自身不参与匹配；
+    /// @param obj 对象指针
+    /// @param cls 类指针，不能为空
+    /// @return 最近的匹配祖先作用域指针，未找到时返回空指针
+    Object* getNearestAncestorScope(Object* obj, Class* cls);
+
+    /// @brief 获取最顶层的祖先作用域
+    /// @details
+    /// 从对象的父作用域开始沿作用域链逐级向上查找，返回最靠上的类型匹配的祖先，对象自身不参与匹配；
+    /// @param obj 对象指针
+    /// @param cls 类指针，不能为空
+    /// @return 最顶层的匹配祖先作用域指针，未找到时返回空指针
+    Object* getTopmostAncestorScope(Object* obj, Class* cls);
 
     /// @brief 获取对象节点数量
     /// @warning 对象节点数量可能大于对象数量，因为对象节点对应的对象可能已被删除

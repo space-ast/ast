@@ -36,3 +36,6 @@
 [submodule "test-data"]
 	path = test-data
 	url = https://github.com/space-ast/ast-test-data
+[submodule "thirdparty/openvbs"]
+	path = thirdparty/openvbs
+	url = https://github.com/space-ast/openvbs

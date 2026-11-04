@@ -22,6 +22,7 @@
 
 #include "AstGlobal.h"
 #include "AstCore/ScStateCalcEccentricity.hpp"
+#include "AstCore/ScStateCalcAngle.hpp"
 #include "AstCore/ScStateCalcVx.hpp"
 #include "AstCore/ScStateCalcVy.hpp"
 #include "AstCore/ScStateCalcVz.hpp"

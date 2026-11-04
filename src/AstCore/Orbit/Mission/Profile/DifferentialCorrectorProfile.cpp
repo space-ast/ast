@@ -440,7 +440,7 @@ Command* DifferentialCorrectorProfile::getRelatedCommand() const
 {
     if(auto command = relatedCommand_.get())
         return command;
-    auto command = aGetAncestorScope<Command*>(const_cast<DifferentialCorrectorProfile*>(this));
+    auto command = aGetNearestAncestorScope<Command*>(const_cast<DifferentialCorrectorProfile*>(this));
     relatedCommand_ = command;
     return command;
 }

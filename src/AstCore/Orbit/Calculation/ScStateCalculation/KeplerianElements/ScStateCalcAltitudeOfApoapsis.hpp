@@ -20,14 +20,30 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/ScStateCalculation.hpp"
+#include "AstCore/ScStateCalcBodyRelated.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class AST_CORE_API ScStateCalcAltitudeOfApoapsis : public ScStateCalculation
+/*!
+    @addtogroup
+    @{
+*/
+
+/// @brief 远地点高度
+/// @details 由当前密切轨道根数计算的远地点高度。
+///          中心天体取本计算量自身的配置，未配置时默认为地球
+class AST_CORE_API ScStateCalcAltitudeOfApoapsis : public ScStateCalcBodyRelated
 {
 public:
+    AST_OBJECT(ScStateCalcAltitudeOfApoapsis)
+
+    ScStateCalcAltitudeOfApoapsis() = default;
+    ~ScStateCalcAltitudeOfApoapsis() = default;
+public:
     errc_t calculate(const SpacecraftState& state, double& result) override;
+    Dimension getDimension() const override {return EDimension::eLength;}
 };
+
+/*! @} */
 
 AST_NAMESPACE_END

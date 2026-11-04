@@ -20,14 +20,30 @@
 #pragma once
 
 #include "AstGlobal.h"
-#include "AstCore/ScStateCalculation.hpp"
+#include "AstCore/ScStateCalcFrameRelated.hpp"
 
 AST_NAMESPACE_BEGIN
 
-class AST_CORE_API ScStateCalcTimePastAscNode : public ScStateCalculation
+/*!
+    @addtogroup
+    @{
+*/
+
+/// @brief 过升交点后经过的时间
+/// @details 由当前密切轨道根数计算的过升交点后经过的时间。
+///          参考系取本计算量自身的配置，未配置时默认为地球惯性系
+class AST_CORE_API ScStateCalcTimePastAscNode : public ScStateCalcFrameRelated
 {
 public:
+    AST_OBJECT(ScStateCalcTimePastAscNode)
+
+    ScStateCalcTimePastAscNode() = default;
+    ~ScStateCalcTimePastAscNode() = default;
+public:
     errc_t calculate(const SpacecraftState& state, double& result) override;
+    Dimension getDimension() const override {return EDimension::eTime;}
 };
+
+/*! @} */
 
 AST_NAMESPACE_END

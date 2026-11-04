@@ -38,7 +38,7 @@ Segment* ScStateCalcDifference::getSegment()
 {
     if(auto segment = segment_.get())
         return segment;
-    Segment* segment = (Segment*)aGetAncestorScope(this, Segment::StaticType());
+    Segment* segment = (Segment*)aGetNearestAncestorScope(this, Segment::StaticType());
     segment_ = segment;
     return segment;
 }
@@ -49,10 +49,13 @@ errc_t ScStateCalcDifference::calculate(const SpacecraftState& state, double& re
     auto calculation = this->calculation();         AST_CHECK_NULLPTR(calculation);
     auto inputState = segment->getInputState();     AST_CHECK_NULLPTR(inputState);
     errc_t rc;
+    // 参考计算量在段初状态下的取值
     double initialValue;
     rc = calculation->calculate(*inputState, initialValue);  AST_CHECK_ERRCODE(rc, "calculation failed");
+    // 参考计算量在当前状态下的取值
     double currentValue;
     rc = calculation->calculate(state, currentValue);   AST_CHECK_ERRCODE(rc, "calculation failed");
+    // 按配置的差值顺序作差
     if(differenceOrderToUse() == EDifferenceOrderToUse::eCurrentMinusInitial)
         result = currentValue - initialValue;
     else

@@ -202,6 +202,12 @@ ScriptExecutor* aNewScriptExecutor(EScriptLanguage type)
         aInfo(_("JScript 将由可移植的 JavaScript 引擎执行"));
         return aNewScriptExecutorFromPlugin("JavaScript");
     }
+    // 非 Windows 平台没有 Active Scripting，VBScript 由 OpenVBS 插件执行
+    case EScriptLanguage::eVBScript:
+    {
+        aInfo(_("VBScript 将由 OpenVBS 插件执行"));
+        return aNewScriptExecutorFromPlugin("OpenVBS");
+    }
 #endif
     default:
     {

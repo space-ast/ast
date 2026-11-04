@@ -21,6 +21,8 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/Object.hpp"
+#include <string>
 
 AST_NAMESPACE_BEGIN
 
@@ -28,6 +30,15 @@ AST_NAMESPACE_BEGIN
     @addtogroup 
     @{
 */
+
+inline std::string aObjectSimpleRepr(Object* object)
+{
+    if(object)
+    {
+        return object->getName() + "#" + object->typeName();
+    }
+    return std::string();
+}
 
 
 /*! @} */

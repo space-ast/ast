@@ -19,16 +19,41 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ScStateCalcSemiMajorAxis.hpp"
+#include "AstCore/OrbitElement.hpp"
+#include "AstCore/CelestialBody.hpp"
 #include "AstUtil/Logger.hpp"
+#include <cmath>
 
 AST_NAMESPACE_BEGIN
 
-errc_t ScStateCalcSemiMajorAxis::calculate(const SpacecraftState& state, double& result)
+errc_t ScStateCalcSemiMajorAxis::calculate(const SpacecraftState& scState, double& result)
 {
-    // TODO: Implement semi-major axis calculation
-    // Need to convert State to Keplerian elements first
-    aError(_("尚未实现"));
-    return -1;
+    // 计算时的中心天体仅由计算量自身的配置决定，未配置时使用默认天体（地球）
+    CelestialBody* body = this->body();
+    if(!body)
+    {
+        body = aGetEarth();
+        if(!body)
+        {
+            aError(_("未配置中心天体"));
+            return eErrorNullPtr;
+        }
+    }
+
+    // 将状态转换到中心天体的惯性系后再计算轨道根数
+    CartState cartState;
+    errc_t rc = scState.getStateInBodyInertial(body, cartState);
+    if(rc != eNoError)
+        return rc;
+
+    OrbElem orbElem{};
+    rc = aCartToOrbElem(cartState.pos(), cartState.vel(), body->getGM(), orbElem);
+    if(rc != eNoError)
+        return rc;
+
+    const double sma = orbElem.getSMA();
+    result = sma;
+    return eNoError;
 }
 
 AST_NAMESPACE_END

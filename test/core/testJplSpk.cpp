@@ -85,4 +85,33 @@ TEST(JplSpkTest, open)
 }
 
 
+TEST(JplSpkTest, getInterval_perTarget)
+{
+    #if !defined(AST_WITH_CSPICE)
+    GTEST_SKIP();
+    #endif
+    if(aIsGithubCI())
+        GTEST_SKIP();
+    std::string spkfile = aTestGetConfigValue("SPK_FILE").toString();
+    JplSpk spk(spkfile);
+
+    TimeInterval interval;
+    EXPECT_EQ(spk.getInterval(ESpiceId::eJupiter, interval), eNoError);
+
+    // 查询一个文件中不存在的目标：不能命中上一个目标的缓存
+    TimeInterval missingInterval;
+    EXPECT_NE(spk.getInterval(1234567, missingInterval), eNoError);
+}
+
+
+TEST(JplSpkTest, getBodyNames_error)
+{
+    // 未打开文件时解析必然失败，错误码必须向上传递
+    JplSpk spk;
+    std::vector<std::string> names;
+    EXPECT_NE(spk.getBodyNames(names), eNoError);
+    EXPECT_TRUE(names.empty());
+}
+
+
 GTEST_MAIN()

@@ -22,15 +22,29 @@
 #include "AstUtil/Logger.hpp"
 #include "AstCore/SpacecraftState.hpp"
 #include "AstCore/OrbitElement.hpp"
+#include "AstCore/BuiltinFrame.hpp"
+#include "AstCore/CelestialBody.hpp"
 
 AST_NAMESPACE_BEGIN
 
 errc_t ScStateCalcArgLat::calculate(const SpacecraftState& state, double& result)
 {
     auto frame = this->frame();
-    A_UNUSED(frame);
+    if(frame == nullptr)
+    {
+        auto body = aGetEarth();
+        if(body)
+            frame = body->getFrameInertial();
+        if(frame == nullptr)
+            frame = aFrameECI();
+        if(frame == nullptr)
+        {
+            aError(_("未配置参考系"));
+            return eErrorInvalidParam;
+        }
+    }
     ModOrbElem orbElem;
-    errc_t rc = state.getState(orbElem);
+    errc_t rc = state.getStateIn(frame, orbElem);
     if(rc != eNoError)
         return rc;
     result = orbElem.getArgLat();

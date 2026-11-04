@@ -196,19 +196,45 @@ AST_UTIL_CAPI errc_t aSetParentScope(Object* obj, Object* parentScope);
 AST_UTIL_CAPI Object* aGetParentScope(Object* obj);
 
 
-/// @brief 获取对象的祖先作用域
-/// @details obj 对象指针
-/// @param cls 类指针，如果为空则匹配所有类型
-/// @return 祖先作用域指针
-AST_UTIL_CAPI Object* aGetAncestorScope(Object* obj, Class* cls);
+/// @brief 获取最近的祖先作用域
+/// @details
+/// 从对象的父作用域开始沿作用域链逐级向上查找，返回第一个类型匹配的祖先，对象自身不参与匹配；
+/// @param obj 对象指针
+/// @return 最近的匹配祖先作用域指针，未找到时返回空指针
+AST_UTIL_CAPI Object* aGetNearestAncestorScope(Object* obj, Class* cls);
 
+/// @brief 按类型获取最近的祖先作用域
+/// @details 等价于 aGetNearestAncestorScope(obj, T 对应类的类指针)
+/// @tparam T 目标类型，为指针形式（如 Sequence*），对应类必须具有 AST_OBJECT 宏
+/// @param obj 对象指针
+/// @return 最近的匹配祖先作用域指针，未找到时返回空指针
 template<typename T>
-T aGetAncestorScope(Object* obj)
+T aGetNearestAncestorScope(Object* obj)
 {
     // @todo: 这里逻辑和aobject_cast<T>的重复了，考虑怎么重构
     using ObjectType = typename std::decay<typename std::remove_pointer<T>::type>::type;
-    static_assert(has_own_getType<ObjectType>::value, "aGetAncestorScope requires the type to has a AST_OBJECT macro");
-    return static_cast<T>(aGetAncestorScope(obj, ObjectType::StaticType()));
+    static_assert(has_own_getType<ObjectType>::value, "aGetNearestAncestorScope requires the type to has a AST_OBJECT macro");
+    return static_cast<T>(aGetNearestAncestorScope(obj, ObjectType::StaticType()));
+}
+
+/// @brief 获取最顶层的祖先作用域
+/// @details
+/// 从对象的父作用域开始沿作用域链逐级向上查找，返回最靠上的类型匹配的祖先，对象自身不参与匹配；
+/// @param obj 对象指针
+/// @return 最顶层的匹配祖先作用域指针，未找到时返回空指针
+AST_UTIL_CAPI Object* aGetTopmostAncestorScope(Object* obj, Class* cls);
+
+/// @brief 按类型获取最顶层的祖先作用域
+/// @details 等价于 aGetTopmostAncestorScope(obj, T 对应类的类指针)
+/// @tparam T 目标类型，为指针形式（如 Sequence*），对应类必须具有 AST_OBJECT 宏
+/// @param obj 对象指针
+/// @return 最顶层的匹配祖先作用域指针，未找到时返回空指针
+template<typename T>
+T aGetTopmostAncestorScope(Object* obj)
+{
+    using ObjectType = typename std::decay<typename std::remove_pointer<T>::type>::type;
+    static_assert(has_own_getType<ObjectType>::value, "aGetTopmostAncestorScope requires the type to has a AST_OBJECT macro");
+    return static_cast<T>(aGetTopmostAncestorScope(obj, ObjectType::StaticType()));
 }
 
 /// @brief 获取所有对象

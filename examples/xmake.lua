@@ -12,7 +12,7 @@ set_warnings("more")
 local patterns = {
     "**/*.cpp",
     "**/*.c",
-    "../docs/zh/**.cpp"
+    -- "../docs/zh/**.cpp"
 }
 
 for _, pattern in ipairs(patterns) do

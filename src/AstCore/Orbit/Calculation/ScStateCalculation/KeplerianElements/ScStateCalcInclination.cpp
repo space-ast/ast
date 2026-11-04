@@ -19,16 +19,36 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ScStateCalcInclination.hpp"
+#include "AstCore/OrbitElement.hpp"
+#include "AstCore/BuiltinFrame.hpp"
+#include "AstCore/CelestialBody.hpp"
 #include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
 errc_t ScStateCalcInclination::calculate(const SpacecraftState& state, double& result)
 {
-    // TODO: Implement inclination calculation
-    // Need to convert State to Keplerian elements first
-    aError(_("尚未实现"));
-    return -1;
+    auto frame = this->frame();
+    if(frame == nullptr)
+    {
+        // 未配置参考系时依次回退到地球惯性系、ECI 系
+        auto body = aGetEarth();
+        if(body)
+            frame = body->getFrameInertial();
+        if(frame == nullptr)
+            frame = aFrameECI();
+        if(frame == nullptr)
+        {
+            aError(_("未配置参考系"));
+            return eErrorInvalidParam;
+        }
+    }
+    ModOrbElem orbElem;
+    errc_t rc = state.getStateIn(frame, orbElem);
+    if(rc != eNoError)
+        return rc;
+    result = orbElem.getInc();
+    return eNoError;
 }
 
 AST_NAMESPACE_END

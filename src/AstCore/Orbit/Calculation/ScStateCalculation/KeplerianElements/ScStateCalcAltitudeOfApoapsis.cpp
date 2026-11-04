@@ -19,14 +19,39 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "ScStateCalcAltitudeOfApoapsis.hpp"
+#include "AstCore/OrbitElement.hpp"
+#include "AstCore/CelestialBody.hpp"
 #include "AstUtil/Logger.hpp"
 
 AST_NAMESPACE_BEGIN
 
-errc_t ScStateCalcAltitudeOfApoapsis::calculate(const SpacecraftState& state, double& result)
+errc_t ScStateCalcAltitudeOfApoapsis::calculate(const SpacecraftState& scState, double& result)
 {
-    aError(_("尚未实现"));
-    return -1;
+    // 计算时的中心天体仅由计算量自身的配置决定，未配置时使用默认天体（地球）
+    CelestialBody* body = this->body();
+    if(!body)
+    {
+        body = aGetEarth();
+        if(!body)
+        {
+            aError(_("未配置中心天体"));
+            return eErrorNullPtr;
+        }
+    }
+
+    // 将状态转换到中心天体的惯性系后再计算轨道根数
+    CartState cartState;
+    errc_t rc = scState.getStateInBodyInertial(body, cartState);
+    if(rc != eNoError)
+        return rc;
+
+    ModOrbElem orbElem{};
+    rc = aCartToModOrbElem(cartState.pos(), cartState.vel(), body->getGM(), orbElem);
+    if(rc != eNoError)
+        return rc;
+
+    result = orbElem.getApoAlt(body->getRadius());
+    return eNoError;
 }
 
 AST_NAMESPACE_END

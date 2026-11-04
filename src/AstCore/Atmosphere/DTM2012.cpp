@@ -592,6 +592,7 @@ double DTM2012::getDensity(const TimePoint &tp, const Vector3d &posInBodyFixed) 
     //   LST = (2π / 24) * ( (secOfDay / 3600) + (lon_deg / 15) )
     // 其中 secOfDay = hour*3600 + minute*60 + sec，lon_deg 为经度 [°]
     // 输出归一化到 [0, 2π]
+    #undef pi
     const double pi = kPI;
     double nsec = dttm.hour() * 3600.0 + dttm.minute() * 60.0 + dttm.second();
     double lonDeg = lon * 180.0 / pi;

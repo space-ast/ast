@@ -69,6 +69,8 @@ AST_NAMESPACE_END
 #include "AstCOM/COMAPI.hpp"
 #include "ActiveScriptGlobalFunctions.inl"
 #include <comdef.h>
+#include <limits>
+#include <type_traits>
 #include <unordered_map>
 #include <Windows.h>
 #include <activscp.h>
@@ -215,6 +217,39 @@ bool aActiveScriptHasVariable(IDispatch& pDisp, const std::wstring& name)
 }
 
 
+namespace {
+
+/// @brief 有符号整数转 Value
+/// @details Value 只有 32 位 int，装不下的才退化为 double
+template <typename T, typename std::enable_if<std::is_signed<T>::value, int>::type = 0>
+void integerToValue(T number, SharedPtr<Value>& value)
+{
+    if (number >= (std::numeric_limits<int>::min)()
+        && number <= (std::numeric_limits<int>::max)())
+        value = aNewValueInt(static_cast<int>(number));
+    else
+    {
+        aInfo(_("整数 %lld 超出 int 范围，按 double 保存"), static_cast<long long>(number));
+        value = aNewValueDouble(static_cast<double>(number));
+    }
+}
+
+/// @brief 无符号整数转 Value（下界 0 天然落在 int 范围内）
+template <typename T, typename std::enable_if<std::is_unsigned<T>::value, int>::type = 0>
+void integerToValue(T number, SharedPtr<Value>& value)
+{
+    if (number <= static_cast<T>((std::numeric_limits<int>::max)()))
+        value = aNewValueInt(static_cast<int>(number));
+    else
+    {
+        aInfo(_("无符号整数 %llu 超出 int 范围，按 double 保存"),
+              static_cast<unsigned long long>(number));
+        value = aNewValueDouble(static_cast<double>(number));
+    }
+}
+
+} // namespace
+
 void VariantToValue(const VARIANT& v, SharedPtr<Value>& value)
 {
     switch (v.vt)
@@ -243,7 +278,7 @@ void VariantToValue(const VARIANT& v, SharedPtr<Value>& value)
         break;
     
     case VT_I8:
-        value = aNewValueDouble(static_cast<double>(v.llVal));
+        integerToValue(v.llVal, value);
         break;
     
     case VT_UI1:
@@ -255,11 +290,11 @@ void VariantToValue(const VARIANT& v, SharedPtr<Value>& value)
         break;
     
     case VT_UI4:
-        value = aNewValueDouble(static_cast<double>(v.ulVal));
+        integerToValue(v.ulVal, value);
         break;
-    
+
     case VT_UI8:
-        value = aNewValueDouble(static_cast<double>(v.ullVal));
+        integerToValue(v.ullVal, value);
         break;
     
     case VT_R4:

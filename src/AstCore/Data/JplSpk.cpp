@@ -33,7 +33,6 @@ AST_NAMESPACE_BEGIN
 
 JplSpk::JplSpk()
     : handle_(0)
-    , isIntervalCached_(false)
 {
 }
 
@@ -60,12 +59,12 @@ errc_t JplSpk::open(StringView filepath)
 
 errc_t JplSpk::close()
 {
+    intervalCache_.clear();
     if (handle_ > 0)
     {
         int handle = handle_;
         handle_ = 0;
         spkfile_.clear();
-        isIntervalCached_ = false;
         return SpiceAPI::Instance()->spkuef(handle);
     }
     return eNoError;
@@ -183,9 +182,11 @@ errc_t aSpiceGetBodyIds(StringView filepath, std::vector<int>& ids)
 
 errc_t aSpiceGetBodyNames(StringView filepath, std::vector<std::string>& names)
 {
-    std::vector<int> ids;
-    aSpiceGetBodyIds(filepath, ids);
     names.clear();
+    std::vector<int> ids;
+    errc_t rc = aSpiceGetBodyIds(filepath, ids);
+    if(rc != eNoError)
+        return rc;
     names.reserve(ids.size());
     for(int id : ids)
     {
@@ -206,18 +207,17 @@ std::string JplSpk::getBodyName(int id)
 
 errc_t JplSpk::getInterval(int target, TimeInterval &interval) const
 {
-    if(isIntervalCached_)
+    auto iter = intervalCache_.find(target);
+    if(iter != intervalCache_.end())
     {
-        interval = intervalCache_;
+        interval = iter->second;
         return eNoError;
-    }else{
-        errc_t rc = aSpiceGetInterval(spkfile_, target, interval);
-        if(rc == eNoError){
-            isIntervalCached_ = true;
-            intervalCache_ = interval;
-        }
-        return rc;
     }
+    errc_t rc = aSpiceGetInterval(spkfile_, target, interval);
+    if(rc == eNoError){
+        intervalCache_.emplace(target, interval);
+    }
+    return rc;
 }
 
 errc_t JplSpk::getBodyNames(std::vector<std::string> &names) const
