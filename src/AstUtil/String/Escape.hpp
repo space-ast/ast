@@ -70,7 +70,7 @@ AST_UTIL_API std::string aCUnescape(StringView source);
 /// @brief     使用C风格转义序列转义字符串
 /// @details   转义'src'字符串，使用C风格转义序列(https://en.cppreference.com/w/cpp/language/escape)，
 ///            其中中常用转义符（如 '\n', '\r', '\t', '\b', '\f', '\v', '\"', '\\'）使用单字母形式
-///            将其他不可打印/非空白字节转义为八进制序列(例如"\377")
+///            将其他不可打印字节转义为八进制序列(例如"\377")；可打印空格保持不变
 /// @param      src 要转义的源字符串
 /// @return     std::string 转义后的字符串
 /// @example

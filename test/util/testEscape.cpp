@@ -56,11 +56,12 @@ TEST(CEscapeTest, HeaderDocExample)
     EXPECT_EQ(aCEscape(s), "foo\\rbar\\tbaz\\b\\t\\n\\v\\f\\r\\n");
 }
 
-TEST(CEscapeTest, WhitespaceIsEscapedAsOctal)
+TEST(CEscapeTest, PrintableSpaceIsNotEscaped)
 {
-    // 空格属于 ASCII 空白，虽然可打印，但仍按八进制转义
-    EXPECT_EQ(aCEscape("a b"), "a\\040b");
+    // 空格可打印，保持原样；其余空白字符仍用单字母转义
+    EXPECT_EQ(aCEscape("a b"), "a b");
     EXPECT_EQ(aCEscape("a\tb"), "a\\tb");
+    EXPECT_EQ(aCEscape("  leading and trailing  "), "  leading and trailing  ");
 }
 
 TEST(CEscapeTest, NonPrintableBytesUseOctal)

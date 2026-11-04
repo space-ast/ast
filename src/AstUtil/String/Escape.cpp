@@ -33,12 +33,6 @@ bool isPrintableAscii(char c) noexcept
     return static_cast<unsigned char>(c) >= 0x20 && static_cast<unsigned char>(c) <= 0x7E;
 }
 
-/// @brief 检查字符是否为ASCII空白字符
-bool isAsciiWhitespace(char c) noexcept
-{
-    return c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f' || c == '\v';
-}
-
 /// @brief 将十六进制字符转换为对应的数值
 int hexCharToValue(char c) noexcept
 {
@@ -202,7 +196,7 @@ std::string aCEscape(StringView src)
             case '\v': result.append("\\v"); break;
             
             default:
-                if (isPrintableAscii(c) && !isAsciiWhitespace(c)) {
+                if (isPrintableAscii(c)) {
                     // 可打印的非空白字符，直接输出
                     result.push_back(c);
                 } else {
