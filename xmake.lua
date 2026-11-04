@@ -232,6 +232,7 @@ else
     add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
     add_requires("duktape", {optional = true})                                      -- 可选的Duktape嵌入式JavaScript引擎
     add_requires("openvbs", {optional = true})                                      -- 可选的OpenVBS脚本引擎，用于跨平台执行VBScript
+    add_requires("libcurl", {optional = true, configs = {debug = is_mode("debug")}})-- 可选的libcurl库，用于HTTP请求
     add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
     add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
     add_requires("ipopt", {optional = true, configs = {shared = true, debug = is_mode("debug")}}) -- 可选的ipopt库，用于求解非线性优化问题
@@ -259,7 +260,6 @@ end
 -- add_requires("libintl", {optional = true})                                      -- 可选的libintl库，用于国际化
 -- add_requires("nlohmann_json", {optional = true})                                -- 可选的nlohmann_json库，用于JSON解析
 -- add_requires("jsoncpp", {optional = true})                                      -- 可选的jsoncpp库，用于JSON解析
--- add_requires("curl", {optional = true})                                         -- 可选的curl库，用于HTTP请求
 -- add_requires("nodeeditor", {optional = true})                                   -- 可选的nodeeditor库，用于节点编辑器
 
 -- 使用llvm工具链编译（可选）
@@ -287,6 +287,11 @@ end
 if has_package("openvbs") then
     -- 同上：只添加宏定义，避免链接进所有目标
     add_defines("AST_WITH_OPENVBS")
+end
+
+if has_package("libcurl") then
+    -- 同上：只添加宏定义，避免链接进所有目标
+    add_defines("AST_WITH_LIBCURL")
 end
 
 -- 添加openmp库依赖（可选）
@@ -373,12 +378,6 @@ end
 -- if has_package("jsoncpp") then
 --     add_packages("jsoncpp")
 --     add_defines("AST_WITH_JSONCPP")
--- end
-
--- -- 添加curl库依赖（可选）
--- if has_package("curl") then
---     add_packages("curl")
---     add_defines("AST_WITH_CURL")
 -- end
 
 -- 添加nodeeditor库依赖（可选）

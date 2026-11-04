@@ -21,12 +21,15 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/StringView.hpp"
 #include "NetworkCookieJar.hpp"
 #include "NetworkCookie.hpp"
 #include "NetworkInterface.hpp"
 #include "NetworkSession.hpp"
 #include <functional>
 #include <cstdint>
+#include <string>
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
@@ -120,6 +123,21 @@ AST_UTIL_API errc_t aNetworkSetImpl(ENetworkImplType impltype);
 /// @param impl 网络实现
 /// @return 错误码
 AST_UTIL_API void aNetworkSetImpl(NetworkInterface* impl);
+
+
+/// 按插件注册名设置网络实现
+/// @details   从已扫描的插件中查找实现 NetworkInterface 的插件并启用。
+///            首次调用会自动扫描插件目录（等价于调用 aScanPlugins()）。
+/// @param name 插件注册名，例如 "CURL"
+/// @return eNoError 成功；eErrorNullInput 名称为空；
+///         eErrorNotFound 未发现该插件；eErrorUnsupported 插件自检失败
+AST_UTIL_API errc_t aNetworkSetImplPlugin(StringView name);
+
+
+/// 列出提供 NetworkInterface 的插件注册名
+/// @details   首次调用会自动扫描插件目录；返回前会清空 names
+/// @param names 输出参数，插件注册名列表
+AST_UTIL_API void aNetworkGetPluginNames(std::vector<std::string>& names);
 
 
 /*! @} */
