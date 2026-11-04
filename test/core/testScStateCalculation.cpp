@@ -33,6 +33,7 @@
 #include "ast/ScStateCalcDifferenceOtherSegment.hpp"
 #include "ast/ScStateCalcDeltaFromMaster.hpp"
 #include "ast/ScStateCalcTrueAnomaly.hpp"
+#include "ast/ScStateCalcEpoch.hpp"
 #include "ast/OrbitParam.hpp"
 #include "ast/EphemerisTwoBody.hpp"
 #include "ast/InitialState.hpp"
@@ -169,6 +170,23 @@ TEST(ScStateCalcLongDriftRateTest, LongDriftRateDefaultBodyIgnoresStateFrame)
     EXPECT_NEAR(defaultValue, earthValue, 1e-15);
 }
 
+/// @brief 双曲线轨道没有长期的经度漂移率
+TEST(ScStateCalcLongDriftRateTest, LongDriftRateHyperbolic)
+{
+    const double radius = 7000000.0;
+    const double escapeVelocity = std::sqrt(2.0 * aGetEarth()->getGM() / radius);
+    CartState cartState{{radius, 0.0, 0.0}, {0.0, escapeVelocity * 1.1, 0.0}};
+
+    SharedPtr<SpacecraftState> scState = SpacecraftState::NewDefault();
+    scState->setFrame(aGetEarth()->getFrameInertial());
+    ASSERT_EQ(scState->setState(cartState), eNoError);
+    scState->setStateEpoch(TimePoint::FromUTC(2026, 1, 1, 0, 0, 0));
+
+    ScStateCalcLongDriftRate calc;
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(*scState, value), eErrorInvalidParam);
+}
+
 /// @brief 两向量垂直，夹角为 π/2
 TEST(ScStateCalcAngleTest, AnglePerpendicular)
 {
@@ -264,6 +282,79 @@ TEST(ScStateCalcAngleTest, AngleMissingVector)
 {
     auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
     ScStateCalcAngle calc;
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(*scState, value), eErrorNullPtr);
+}
+
+/// @brief 状态没有历元时无法确定向量的取值时刻
+TEST(ScStateCalcAngleTest, AngleWithoutStateEpoch)
+{
+    SharedPtr<SpacecraftState> scState = SpacecraftState::NewDefault();
+    ASSERT_NE(scState->getOrbitState(), nullptr);
+    scState->getOrbitState()->setStateEpoch(nullptr);
+    VectorFixed vector1, vector2;
+    vector1.setAxes(aAxesICRF());
+    vector2.setAxes(aAxesICRF());
+    vector1.setValue({1.0, 0.0, 0.0});
+    vector2.setValue({0.0, 1.0, 0.0});
+
+    ScStateCalcAngle calc;
+    calc.setVector1(&vector1);
+    calc.setVector2(&vector2);
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(*scState, value), eErrorNullPtr);
+}
+
+/// @brief 第一个向量缺少参考轴系时无法确定投影目标
+TEST(ScStateCalcAngleTest, AngleVector1WithoutAxes)
+{
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
+    VectorFixed vector1, vector2;
+    vector2.setAxes(aAxesICRF());
+    vector1.setValue({1.0, 0.0, 0.0});
+    vector2.setValue({0.0, 1.0, 0.0});
+
+    ScStateCalcAngle calc;
+    calc.setVector1(&vector1);
+    calc.setVector2(&vector2);
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(*scState, value), eErrorNullPtr);
+}
+
+/// @brief 第二个向量缺少参考轴系时无法转换到第一个向量的轴系
+TEST(ScStateCalcAngleTest, AngleVector2WithoutAxes)
+{
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
+    VectorFixed vector1, vector2;
+    vector1.setAxes(aAxesICRF());
+    vector1.setValue({1.0, 0.0, 0.0});
+    vector2.setValue({0.0, 1.0, 0.0});
+
+    ScStateCalcAngle calc;
+    calc.setVector1(&vector1);
+    calc.setVector2(&vector2);
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(*scState, value), eErrorNullPtr);
+}
+
+/// @brief 历元计算量返回状态的历元（自 J2000 起的秒数）
+TEST(ScStateCalcEpochTest, EpochFromState)
+{
+    const TimePoint epoch = TimePoint::FromUTC(2026, 1, 1, 0, 0, 0);
+    auto scState = makeOrbitState(7000000.0, 0.0, 0.0);
+    ScStateCalcEpoch calc;
+    double value = 0.0;
+    EXPECT_EQ(calc.calculate(*scState, value), eNoError);
+    EXPECT_NEAR(value, aTimePointToEpochSecond(epoch), 1e-9);
+}
+
+/// @brief 状态没有历元时应向上传递错误
+TEST(ScStateCalcEpochTest, EpochWithoutStateEpoch)
+{
+    SharedPtr<SpacecraftState> scState = SpacecraftState::NewDefault();
+    ASSERT_NE(scState->getOrbitState(), nullptr);
+    scState->getOrbitState()->setStateEpoch(nullptr);
+    ScStateCalcEpoch calc;
     double value = 0.0;
     EXPECT_EQ(calc.calculate(*scState, value), eErrorNullPtr);
 }

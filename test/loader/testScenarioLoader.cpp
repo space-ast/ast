@@ -55,4 +55,11 @@ TEST(ScenarioLoader, LoadScenario)
     }
 }
 
+/// @brief 路径不存在时应返回文件错误，不依赖任何测试数据
+TEST(ScenarioLoader, LoadMissingPath)
+{
+    Scenario scenario;
+    EXPECT_EQ(aLoadScenario("no_such_scenario_path.sc", scenario), eErrorInvalidFile);
+}
+
 GTEST_MAIN()
