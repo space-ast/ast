@@ -56,6 +56,11 @@ NetworkInterface* aNetworkGetImplDefault()
     if (impl != nullptr && impl->isSupported())
         return impl;
 
+    // 其次尝试 cpp-httplib 插件
+    impl = aPluginRegistry().find<NetworkInterface>("CppHTTP");
+    if (impl != nullptr && impl->isSupported())
+        return impl;
+
     impl = NetworkImplWinHTTP::Instance();
     if (impl != nullptr && impl->isSupported())
         return impl;

@@ -233,6 +233,11 @@ else
     add_requires("duktape", {optional = true})                                      -- 可选的Duktape嵌入式JavaScript引擎
     add_requires("openvbs", {optional = true})                                      -- 可选的OpenVBS脚本引擎，用于跨平台执行VBScript
     add_requires("libcurl", {optional = true, configs = {debug = is_mode("debug")}})-- 可选的libcurl库，用于HTTP请求
+    -- 可选的cpp-httplib（header-only），ssl=true 会带入 openssl3；
+    -- cpp-httplib >=0.23.0 不再支持 32 位，x86 构建跳过该包
+    if not is_plat("wasm") and not is_arch("x86") then
+        add_requires("cpp-httplib", {optional = true, configs = {ssl = true, exceptions = false}})
+    end
     add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
     add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
     add_requires("ipopt", {optional = true, configs = {shared = true, debug = is_mode("debug")}}) -- 可选的ipopt库，用于求解非线性优化问题
@@ -292,6 +297,11 @@ end
 if has_package("libcurl") then
     -- 同上：只添加宏定义，避免链接进所有目标
     add_defines("AST_WITH_LIBCURL")
+end
+
+if has_package("cpp-httplib") then
+    -- 同上：只添加宏定义，cpp-httplib 仅由 AstPluginCppHTTP 使用
+    add_defines("AST_WITH_CPP_HTTP")
 end
 
 -- 添加openmp库依赖（可选）
