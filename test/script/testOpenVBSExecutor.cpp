@@ -429,7 +429,7 @@ TEST(OpenVBSExecutorTest, IntegerAndBoolConversions)
 
     // 布尔可以按 1/0 读取为整数
     EXPECT_EQ(executor->setVariable("yes", true), eNoError);
-    int integer = kNaN;
+    int integer = 12345;
     EXPECT_EQ(executor->getVariable("yes", integer), eNoError);
     EXPECT_EQ(integer, -1);
 
