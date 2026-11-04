@@ -549,9 +549,9 @@ errc_t OpenVBSExecutor::getVariable(StringView name, int& value) const
     {
         VARIANT converted;
         ::VariantInit(&converted);
-        if (SUCCEEDED(::VariantChangeType(&converted, &v, 0, VT_I8)))
+        if (SUCCEEDED(::VariantChangeType(&converted, &v, 0, VT_I4)))
         {
-            value = static_cast<int>(converted.llVal);
+            value = converted.lVal;
             rc = eNoError;
         }
         ::VariantClear(&converted);
