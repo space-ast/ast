@@ -13,7 +13,7 @@ import("core.base.semver")
 local system_openssl = find_package("openssl")
 local system_openssl_ver = system_openssl and system_openssl.version and semver.match(system_openssl.version)
 if not system_openssl_ver or system_openssl_ver:lt("3.0.0") then
-    add_requireconfs("openssl3", {system = false})
+    add_requireconfs("**.openssl3", {system = false})
 end
 
 -- 同时验证两个包能以动态库形式链接（插件实际是 shared 目标）
