@@ -157,8 +157,17 @@ errc_t NetworkImplCurlCmd::requestStream(const NetworkRequest& request, NetworkS
     //   -L 跟随重定向  -N 禁用输出缓冲
     //   --connect-timeout 30  连接超时 (秒)
     //   --max-time 300        总体请求超时 (秒)
+    //
+    // 外部 curl 是独立程序，不应该被本进程的库搜索路径影响：构建目录或
+    // 安装包里的 libcurl 会通过 LD_LIBRARY_PATH 把系统 curl 劫持到不兼容的
+    // 版本上，所以子进程里把这两个变量清掉（Windows 的 curl.exe 静态链接，不受影响）。
+#if defined(_WIN32)
     std::string command = "curl -s -S -i -L -N"
-                          " --connect-timeout 30 --max-time 300";  
+                          " --connect-timeout 30 --max-time 300";
+#else
+    std::string command = "env -u LD_LIBRARY_PATH -u LD_PRELOAD curl -s -S -i -L -N"
+                          " --connect-timeout 30 --max-time 300";
+#endif
 
     // 请求方法
     command += " -X " + std::string(methodToString(request.method()));
@@ -345,8 +354,9 @@ bool NetworkImplCurlCmd::isSupported() const
         // Windows: 将错误和输出都丢弃到 NUL
         int ret = std::system("curl --version > NUL 2>&1");
 #else
-        // Unix-like: 重定向到 /dev/null
-        int ret = std::system("curl --version > /dev/null 2>&1");
+        // Unix-like: 重定向到 /dev/null；与 requestStream 保持一致，不受
+        // LD_LIBRARY_PATH/LD_PRELOAD 影响
+        int ret = std::system("env -u LD_LIBRARY_PATH -u LD_PRELOAD curl --version > /dev/null 2>&1");
 #endif
     return ret == 0;
 }
