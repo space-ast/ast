@@ -42,6 +42,8 @@ jobs:
           xmake require -y 2>&1 | tail -5
           OPENSSL3="$(find "$HOME/.xmake/packages/o/openssl3" -type f -name openssl -path '*/bin/*' 2>/dev/null | head -1)"
           echo "OPENSSL3=$OPENSSL3"
+          # 共享库版本的 openssl 可执行文件需要同包的 libssl.so.3
+          export LD_LIBRARY_PATH="$(dirname "$(dirname "$OPENSSL3")")/lib:${LD_LIBRARY_PATH:-}"
           "$OPENSSL3" version -a 2>&1 | head -4
           echo
           echo "=== OpenSSL3 + SSL_CERT_FILE=certifi（即容器的默认环境） ==="
