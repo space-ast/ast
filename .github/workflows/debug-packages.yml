@@ -63,10 +63,11 @@ jobs:
           echo "=== 错误 ==="
           grep -a -E "error:|CMake Error|install .* failed" debug-config.log debug-build.log | sed 's/\x1b\[[0-9;]*m//g' | head -n 40
           echo "=== Configure 上下文 ==="
+          grep -a -n -E "Can't locate|BEGIN failed|@INC|No such file|Configure" debug-config.log | sed 's/\x1b\[[0-9;]*m//g' | tail -n 20
           line=$(grep -a -n "execv(./Configure" debug-config.log | head -n 1 | cut -d: -f1)
           if [ -n "$line" ]; then
-            start=$((line > 120 ? line - 120 : 1))
-            sed -n "${start},${line}p" debug-config.log | sed 's/\x1b\[[0-9;]*m//g' | tail -n 120
+            start=$((line > 25 ? line - 25 : 1))
+            sed -n "${start},${line}p" debug-config.log | sed 's/\x1b\[[0-9;]*m//g'
           fi
           echo "=== 产物 ==="
           ls -l build/linux/x86_64/release/ 2>/dev/null
