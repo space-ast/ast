@@ -97,7 +97,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: 编译弱引用探针
         run: |
-          ldd --version | head -n 1
+          ldd --version 2>&1 | sed -n 1p
           cat > weakness.c <<'EOF'
           #include <stddef.h>
           extern int getentropy(void *buffer, size_t length) __attribute__((weak));
@@ -162,5 +162,5 @@ jobs:
           set +e
           docker run --rm -v "$PWD:/work" -w /work \
             quay.io/pypa/manylinux2014_x86_64 \
-            bash -c 'ldd --version | head -n 1; gcc load.c -o load -ldl && ./load; echo exit=$?'
+            bash -c 'ldd --version 2>&1 | sed -n 1p; gcc load.c -o load -ldl && ./load; echo exit=$?'
           echo "docker exit=$?"
