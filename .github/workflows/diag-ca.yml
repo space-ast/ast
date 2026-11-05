@@ -67,6 +67,52 @@ jobs:
               -connect postman-echo.com:443 -servername postman-echo.com -verify_return_error 2>&1 || true) \
             | grep -E "Verify return code|verify error|error" | head -3 || true
 
+      - name: 用 httplib + OpenSSL3 复现插件行为
+        run: |
+          dnf install -y --setopt=install_weak_deps=False gcc-c++ make || true
+          mkdir -p /tmp/hprobe
+          cd /tmp/hprobe
+          curl -fsSL --max-time 60 -o httplib.h \
+            https://raw.githubusercontent.com/yhirose/cpp-httplib/v0.63.0/httplib.h
+          cat > probe.cpp <<'EOF'
+          #include "httplib.h"
+          #include <cstdio>
+          #include <cstdlib>
+          int main() {
+              const char* f = std::getenv("SSL_CERT_FILE");
+              const char* d = std::getenv("SSL_CERT_DIR");
+              std::printf("SSL_CERT_FILE=[%s]\n", f ? f : "(null)");
+              std::printf("SSL_CERT_DIR=[%s]\n", d ? d : "(null)");
+              httplib::Client cli("https://postman-echo.com");
+              auto res = cli.Get("/get");
+              if (res) {
+                  std::printf("RESULT: http=%d body=%u\n", res->status,
+                              (unsigned)res->body.size());
+              } else {
+                  std::printf("RESULT: error=%s (%d)\n",
+                              httplib::to_string(res.error()).c_str(),
+                              (int)res.error());
+              }
+              return 0;
+          }
+          EOF
+          SSL3DIR="$(dirname "$(dirname "$(find "$HOME/.xmake/packages/o/openssl3" -type f -name openssl -path '*/bin/*' | head -1)")")"
+          echo "SSL3DIR=$SSL3DIR"
+          g++ -std=c++11 -DCPPHTTPLIB_OPENSSL_SUPPORT -DCPPHTTPLIB_NO_EXCEPTIONS \
+            -I"$SSL3DIR/include" -I. probe.cpp -o probe \
+            -L"$SSL3DIR/lib" -lssl -lcrypto -lpthread -ldl -Wl,-rpath,"$SSL3DIR/lib"
+          CACERT="$(find "$HOME/.xmake/packages/c/ca-certificates" -name cacert.pem | head -1)"
+          CACERTDIR="$(dirname "$CACERT")"
+          echo "CACERT=$CACERT"
+          run() { echo "--- $1"; shift; ( eval "$@" ./probe ) 2>&1 | tail -3; }
+          run "容器默认环境（SSL_CERT_FILE=certifi）"          ""
+          run "清掉 SSL_CERT_FILE"                              "env -u SSL_CERT_FILE"
+          run "SSL_CERT_FILE=系统 bundle"                       "env SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt"
+          run "SSL_CERT_FILE=certifi + SSL_CERT_DIR=xmake 包目录" \
+              "env SSL_CERT_FILE=/opt/_internal/certs.pem SSL_CERT_DIR=$CACERTDIR"
+          run "SSL_CERT_FILE=xmake cacert（ca-certificates 包的 env）" \
+              "env SSL_CERT_FILE=$CACERT SSL_CERT_DIR=$CACERTDIR"
+
       - name: CA 与环境诊断
         run: |
           echo "=== 系统与时间 ==="
