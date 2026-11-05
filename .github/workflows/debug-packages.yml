@@ -48,16 +48,22 @@ jobs:
         with:
           xmake-version: branch@dev
 
-      - name: 安装 cpp-httplib / libcurl（详细日志）
+      - name: 安装并编译探针工程
         run: |
           cd _ci_debug
           set +e
-          xmake f -cy -m release -a x86_64 -vD > debug-httplib.log 2>&1
-          rc=$?
-          echo "=== xmake f exit: $rc ==="
-          grep -n -i -E "error|failed|openssl|cmake|checking" debug-httplib.log | tail -n 120
-          echo "=== tail ==="
-          tail -n 200 debug-httplib.log
+          xmake f -cy -m release -a x86_64 -vD > debug-config.log 2>&1
+          echo "=== xmake f exit: $? ==="
+          xmake -y -vD > debug-build.log 2>&1
+          echo "=== xmake build exit: $? ==="
+          echo "=== openssl3 来源 ==="
+          grep -a -E "checking for xmake-repo::openssl3|install openssl3|system::openssl" debug-config.log | sed 's/\x1b\[[0-9;]*m//g'
+          echo "=== 错误 ==="
+          grep -a -E "error:|CMake Error|install .* failed" debug-config.log debug-build.log | sed 's/\x1b\[[0-9;]*m//g' | head -n 40
+          echo "=== 产物 ==="
+          ls -l build/linux/x86_64/release/ 2>/dev/null
+          echo "=== 动态库依赖 ==="
+          readelf -d build/linux/x86_64/release/libprobe-net.so 2>/dev/null | grep NEEDED
 
       - name: 上传详细日志
         if: always()
