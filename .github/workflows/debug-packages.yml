@@ -1,0 +1,67 @@
+name: 调试第三方包安装
+
+on:
+  push:
+    branches:
+      - ci-debug-pkg
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-22.04
+    container:
+      image: quay.io/pypa/manylinux_2_28_x86_64
+    defaults:
+      run:
+        shell: bash
+    env:
+      XMAKE_ROOT: y
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 配置系统依赖（与 build.yml 一致）
+        run: |
+          dnf install -y --setopt=install_weak_deps=False \
+            zip unzip xz tar which git curl wget \
+            binutils make pkgconf-pkg-config \
+            mesa-libGL-devel mesa-libGLU-devel \
+            libX11-devel libXext-devel libXrender-devel libXrandr-devel libXfixes-devel \
+            libXi-devel libXcursor-devel libXinerama-devel libXScrnSaver-devel \
+            libxcb-devel libxkbcommon-devel libxkbcommon-x11-devel \
+            fontconfig-devel freetype-devel libpng-devel \
+            glib2-devel dbus-devel alsa-lib-devel libSM-devel libICE-devel \
+            openssl-devel
+
+      - name: 环境信息
+        run: |
+          echo "=== gcc ==="; gcc --version | head -n 1
+          echo "=== cmake ==="; which -a cmake || true; cmake --version 2>/dev/null | head -n 1 || true
+          echo "=== perl ==="; perl -v | sed -n '2p'
+          echo "=== openssl 头/库 ==="
+          pkg-config --modversion openssl 2>/dev/null || true
+          grep -m1 OPENSSL_VERSION_TEXT /usr/include/openssl/opensslv.h 2>/dev/null || true
+          ls -l /usr/lib64/libssl.so* /usr/local/lib64/libssl.so* 2>/dev/null || true
+          echo "=== 环境变量 ==="
+          env | grep -E '^(PATH|LD_LIBRARY_PATH|LIBRARY_PATH|CPATH|CFLAGS|CXXFLAGS|CPPFLAGS)=' || true
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: branch@dev
+
+      - name: 安装 cpp-httplib / libcurl（详细日志）
+        run: |
+          cd _ci_debug
+          set +e
+          xmake f -cy -m release -a x86_64 -vD > debug-httplib.log 2>&1
+          rc=$?
+          echo "=== xmake f exit: $rc ==="
+          grep -n -i -E "error|failed|openssl|cmake|checking" debug-httplib.log | tail -n 120
+          echo "=== tail ==="
+          tail -n 200 debug-httplib.log
+
+      - name: 上传详细日志
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-packages-log
+          path: _ci_debug/*.log
