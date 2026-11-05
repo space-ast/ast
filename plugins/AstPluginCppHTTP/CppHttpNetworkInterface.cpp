@@ -22,9 +22,11 @@
 #include "httplib.h"
 
 #include "CppHttpNetworkInterface.hpp"
+#include "AstUtil/FileSystem.hpp"
 #include "AstUtil/Logger.hpp"
 
 #include <cctype>
+#include <cstdlib>
 #include <map>
 #include <string>
 
@@ -183,6 +185,38 @@ errc_t CppHttpNetworkInterface::requestStream(const NetworkRequest& request,
     httplib::Client client(origin);
     if (!client.is_valid())
         return eErrorInvalidParam;
+
+#if defined(CPPHTTPLIB_SSL_ENABLED) && defined(__linux__)
+    // 本工程的 OpenSSL 从源码构建，编译期确定的 CA 路径在发行版上并不存在，
+    // SSL_CTX_set_default_verify_paths 找不到证书时 https 会报 "SSL server verification failed"。
+    // SSL_CERT_FILE/SSL_CERT_DIR 由 OpenSSL 自己优先处理，这里补上各发行版常见的 CA 包路径。
+    if (origin.compare(0, 8, "https://") == 0)
+    {
+        const char* caFile = std::getenv("SSL_CERT_FILE");
+        const char* caDir = std::getenv("SSL_CERT_DIR");
+        const bool userProvidedCa =
+            (caFile != nullptr && caFile[0] != '\0') ||
+            (caDir != nullptr && caDir[0] != '\0');
+        if (!userProvidedCa)
+        {
+            static const char* const candidates[] = {
+                "/etc/ssl/certs/ca-certificates.crt",  // Debian / Ubuntu
+                "/etc/pki/tls/certs/ca-bundle.crt",    // RHEL / CentOS / Fedora
+                "/etc/ssl/ca-bundle.pem",              // openSUSE
+                "/etc/ssl/certs/ca-bundle.crt",        // Arch
+                "/etc/ssl/cert.pem",                   // Alpine
+            };
+            for (const char* candidate : candidates)
+            {
+                if (fs::exists(candidate))
+                {
+                    client.set_ca_cert_path(candidate);
+                    break;
+                }
+            }
+        }
+    }
+#endif
 
     client.set_connection_timeout(30, 0);
     client.set_read_timeout(300, 0);

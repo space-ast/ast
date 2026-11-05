@@ -437,12 +437,15 @@ jobs:
       # 版本较高的 getentropy/fcntl64 落在 libcrypto.so.3（实测 2.25）和 libcurl.so.4（实测 2.28）上，
       # 这些库在旧系统上加载失败只是让插件自动缺席（PluginRegistry 会跳过），
       # 因此只对这两个库放宽门槛，其余文件仍卡 2.23。
+      # cpp-httplib 是头文件库，会带进 std::thread（GLIBCXX 3.4.22 = GCC 6），
+      # 在 libstdc++ 5.x 的系统上同样只是让 CppHTTP 插件缺席（CURL 插件不受影响）。
       - name: ABI 门槛校验
         run: |
           bash scripts/ci/check-abi.sh artifacts/SpaceAST.zip \
             --max-glibc=2.23 --max-glibcxx=3.4.21 --glibcxx=fail \
             --glibc-exception='lib/libcrypto.so.3*:2.25' \
-            --glibc-exception='lib/libcurl.so.4*:2.28'
+            --glibc-exception='lib/libcurl.so.4*:2.28' \
+            --glibcxx-exception='lib/libAstPluginCppHTTP.so:3.4.22'
 
       - name: 测试 xmake.sh 编译
         run: |
