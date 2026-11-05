@@ -81,6 +81,7 @@ jobs:
             echo "--- $f"
             ls -l "$f" 2>/dev/null
             readelf -d "$f" 2>/dev/null | grep NEEDED
+            readelf -d "$f" 2>/dev/null | grep -E 'RUNPATH|RPATH'
             objdump -T "$f" 2>/dev/null | grep -oE 'GLIBC_[0-9.]+' | sort -V | tail -n 1
           done
           echo "=== 包内 lib 目录 ==="
