@@ -51,7 +51,7 @@ jobs:
       - name: 安装并编译探针工程
         run: |
           rm -rf /tmp/probe-net && mkdir -p /tmp/probe-net
-          cp _ci_debug/xmake.lua _ci_debug/probe.cpp _ci_debug/glibc_compat.c /tmp/probe-net/
+          cp _ci_debug/xmake.lua _ci_debug/probe.cpp /tmp/probe-net/
           cd /tmp/probe-net
           set +e
           xmake f -cy -m release -a x86_64 -vD > debug-config.log 2>&1
@@ -73,10 +73,18 @@ jobs:
           ls -l build/linux/x86_64/release/ 2>/dev/null
           echo "=== 动态库依赖 ==="
           readelf -d build/linux/x86_64/release/libprobe-net.so 2>/dev/null | grep NEEDED
-          echo "=== 最高 GLIBC 符号版本 ==="
-          objdump -T build/linux/x86_64/release/libprobe-net.so 2>/dev/null | grep -oE 'GLIBC_[0-9.]+' | sort -V | tail -n 5
-          echo "=== 2.24+ 符号 ==="
-          objdump -T build/linux/x86_64/release/libprobe-net.so 2>/dev/null | grep -E 'GLIBC_2\.(2[4-9]|[3-9])' | sed 's/^.*GLIBC/GLIBC/' | sort | uniq -c | sort -rn | head -n 30
+          echo "=== RUNPATH ==="
+          readelf -d build/linux/x86_64/release/libprobe-net.so 2>/dev/null | grep -E 'RUNPATH|RPATH'
+          echo "=== 各文件的最高 GLIBC 符号版本 ==="
+          for f in build/linux/x86_64/release/libprobe-net.so \
+                   $(find "$HOME/.xmake/packages" -type f \( -name 'libssl.so*' -o -name 'libcrypto.so*' -o -name 'libcurl.so*' \) 2>/dev/null); do
+            echo "--- $f"
+            ls -l "$f" 2>/dev/null
+            readelf -d "$f" 2>/dev/null | grep NEEDED
+            objdump -T "$f" 2>/dev/null | grep -oE 'GLIBC_[0-9.]+' | sort -V | tail -n 1
+          done
+          echo "=== 包内 lib 目录 ==="
+          find "$HOME/.xmake/packages" -path '*openssl3*' -o -path '*libcurl*' 2>/dev/null | grep -E '/(lib|bin)/' | head -n 40
 
       - name: 上传详细日志
         if: always()
