@@ -26,6 +26,45 @@ jobs:
     env:
       XMAKE_ROOT: y
     steps:
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: branch@dev
+
+      - name: 用源码构建的 OpenSSL 3 复现
+        run: |
+          dnf install -y --setopt=install_weak_deps=False \
+            perl-IPC-Cmd perl-IPC-Run perl-Time-Piece make gcc gcc-c++ binutils || true
+          mkdir -p /tmp/sslprobe
+          cd /tmp/sslprobe
+          cat > xmake.lua <<'EOF'
+          add_requires("openssl3 3.6.5", {system = false, configs = {shared = true}})
+          EOF
+          xmake require -y 2>&1 | tail -5
+          OPENSSL3="$(find "$HOME/.xmake/packages/o/openssl3" -type f -name openssl -path '*/bin/*' 2>/dev/null | head -1)"
+          echo "OPENSSL3=$OPENSSL3"
+          "$OPENSSL3" version -a 2>&1 | head -4
+          echo
+          echo "=== OpenSSL3 + SSL_CERT_FILE=certifi（即容器的默认环境） ==="
+          (echo | SSL_CERT_FILE=/opt/_internal/certs.pem "$OPENSSL3" s_client \
+              -connect postman-echo.com:443 -servername postman-echo.com -verify_return_error 2>&1 || true) \
+            | grep -E "Verify return code|verify error|error" | head -3 || true
+          echo "=== OpenSSL3 + 无 SSL_CERT_FILE ==="
+          (echo | env -u SSL_CERT_FILE "$OPENSSL3" s_client \
+              -connect postman-echo.com:443 -servername postman-echo.com -verify_return_error 2>&1 || true) \
+            | grep -E "Verify return code|verify error|error" | head -3 || true
+          echo "=== OpenSSL3 + 系统 bundle ==="
+          (echo | SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt "$OPENSSL3" s_client \
+              -connect postman-echo.com:443 -servername postman-echo.com -verify_return_error 2>&1 || true) \
+            | grep -E "Verify return code|verify error|error" | head -3 || true
+          echo "=== OpenSSL3 + -CAfile certifi ==="
+          (echo | "$OPENSSL3" s_client -CAfile /opt/_internal/certs.pem \
+              -connect postman-echo.com:443 -servername postman-echo.com -verify_return_error 2>&1 || true) \
+            | grep -E "Verify return code|verify error|error" | head -3 || true
+          echo "=== OpenSSL3 + -CAfile 系统 bundle ==="
+          (echo | "$OPENSSL3" s_client -CAfile /etc/pki/tls/certs/ca-bundle.crt \
+              -connect postman-echo.com:443 -servername postman-echo.com -verify_return_error 2>&1 || true) \
+            | grep -E "Verify return code|verify error|error" | head -3 || true
+
       - name: CA 与环境诊断
         run: |
           echo "=== 系统与时间 ==="
