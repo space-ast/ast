@@ -32,6 +32,6 @@ end
 -- 同时验证两个包能以动态库形式链接（插件实际是 shared 目标）
 target("probe-net")
     set_kind("shared")
-    add_files("probe.cpp")
+    add_files("probe.cpp", "glibc_compat.c")
     add_packages("cpp-httplib", "libcurl")
     add_defines("CPPHTTPLIB_NO_EXCEPTIONS")

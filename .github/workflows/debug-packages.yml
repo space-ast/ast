@@ -51,7 +51,7 @@ jobs:
       - name: 安装并编译探针工程
         run: |
           rm -rf /tmp/probe-net && mkdir -p /tmp/probe-net
-          cp _ci_debug/xmake.lua _ci_debug/probe.cpp /tmp/probe-net/
+          cp _ci_debug/xmake.lua _ci_debug/probe.cpp _ci_debug/glibc_compat.c /tmp/probe-net/
           cd /tmp/probe-net
           set +e
           xmake f -cy -m release -a x86_64 -vD > debug-config.log 2>&1
