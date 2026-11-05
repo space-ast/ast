@@ -21,7 +21,6 @@
 #include "NRLMSIS00.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstCore/TimePoint.hpp"
-#include "AstWeather/nrlmsise-00.hpp"
 #include "AstWeather/MSIS_Vers.h"
 
 AST_NAMESPACE_BEGIN
@@ -68,6 +67,8 @@ double NRLMSIS00::getDensity(const TimePoint& tp, const Vector3d& posInBodyFixed
 }
 
 #else
+
+#error "NRLMSISE class implementation is disabled (nrlmsise-00-class.cpp.off); keep _AST_USE_MSIS_VERS_FOR_NRLMSIS00 defined or re-enable the implementation"
 
 NRLMSIS00::NRLMSIS00(Frame* ecf, BodyShape* bodyShape, double f107Daily, double f107Average, double ap)
     : AtmosphereBase(ecf, bodyShape, f107Daily, f107Average, ap)
