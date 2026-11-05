@@ -117,6 +117,56 @@ jobs:
           run "SSL_CERT_FILE=xmake cacert（ca-certificates 包的 env）" \
               "env SSL_CERT_FILE=$CACERT SSL_CERT_DIR=$CACERTDIR"
 
+      - name: 复现 xmake test 的真实环境
+        run: |
+          dnf install -y --setopt=install_weak_deps=False gcc-c++ make || true
+          mkdir -p /tmp/envprobe
+          cd /tmp/envprobe
+          cat > main.cpp <<'EOF'
+          #include "httplib.h"
+          #include <cstdio>
+          #include <cstdlib>
+          #include <sys/stat.h>
+          int main() {
+              const char* f = std::getenv("SSL_CERT_FILE");
+              const char* d = std::getenv("SSL_CERT_DIR");
+              struct stat sb;
+              std::printf("ENV SSL_CERT_FILE=[%s] exists=%d\n", f ? f : "(null)",
+                          (f && stat(f, &sb) == 0) ? 1 : 0);
+              std::printf("ENV SSL_CERT_DIR=[%s] exists=%d\n", d ? d : "(null)",
+                          (d && stat(d, &sb) == 0) ? 1 : 0);
+              httplib::Client cli("https://postman-echo.com");
+              auto res = cli.Get("/get");
+              if (res) {
+                  std::printf("RESULT http=%d\n", res->status);
+              } else {
+                  std::printf("RESULT error=%s (%d)\n",
+                              httplib::to_string(res.error()).c_str(),
+                              (int)res.error());
+              }
+              return 0;
+          }
+          EOF
+          cat > xmake.lua <<'EOF'
+          add_requires("cpp-httplib", {configs = {ssl = true, exceptions = false}})
+          add_requires("libcurl", {optional = true})
+          add_requireconfs("**.openssl3", {system = false, configs = {shared = true}})
+          add_requireconfs("libcurl", {configs = {shared = true}})
+          target("envprobe")
+              set_kind("binary")
+              add_files("main.cpp")
+              add_packages("cpp-httplib")
+              add_packages("libcurl", {links = {}})
+              add_defines("CPPHTTPLIB_NO_EXCEPTIONS")
+              if is_plat("linux") then
+                  add_syslinks("pthread", "dl")
+              end
+              add_tests("unittest")
+          EOF
+          xmake f -y
+          xmake -y
+          xmake test -v 2>&1 | tail -40
+
       - name: CA 与环境诊断
         run: |
           echo "=== 系统与时间 ==="
