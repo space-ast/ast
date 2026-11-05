@@ -1,0 +1,87 @@
+name: 诊断-manylinux-CA
+
+# 临时诊断：定位 manylinux 容器里 CppHTTP 插件与 curl 命令行实现 https 校验失败的原因。
+# 只跑轻量命令，不编译工程。
+
+on:
+  push:
+    branches:
+      - 'diag/**'
+  workflow_dispatch:
+
+jobs:
+  diag:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { runner: ubuntu-22.04,     image: quay.io/pypa/manylinux_2_28_x86_64 }
+          - { runner: ubuntu-22.04-arm, image: quay.io/pypa/manylinux_2_28_aarch64 }
+    runs-on: ${{ matrix.runner }}
+    container:
+      image: ${{ matrix.image }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      XMAKE_ROOT: y
+    steps:
+      - name: CA 与环境诊断
+        run: |
+          echo "=== 系统与时间 ==="
+          head -3 /etc/os-release || true
+          date -u
+          echo
+          echo "=== 关键环境变量 ==="
+          env | grep -i -E '^(SSL_|CURL_|LD_LIBRARY|PATH=)' || true
+          echo
+          echo "=== CA 候选文件 ==="
+          for f in "$SSL_CERT_FILE" /opt/_internal/vendor/certifi/cacert.pem \
+                   /etc/pki/tls/certs/ca-bundle.crt /etc/pki/tls/cert.pem \
+                   /etc/ssl/certs/ca-certificates.crt /etc/ssl/cert.pem; do
+            [ -n "$f" ] || continue
+            if [ -e "$f" ]; then
+              real="$(readlink -f "$f" 2>/dev/null || true)"
+              echo "EXISTS $f -> ${real:-<readlink failed>}"
+              if [ -f "$real" ]; then
+                echo "  size=$(wc -c < "$real") certs=$(grep -c 'BEGIN CERTIFICATE' "$real" 2>/dev/null || echo '?')"
+              else
+                echo "  不是普通文件（悬空符号链接？）"
+              fi
+            else
+              echo "MISSING $f"
+            fi
+          done
+          echo
+          echo "=== 系统 openssl ==="
+          openssl version -a 2>&1 | head -6
+          rpm -q ca-certificates openssl-libs 2>/dev/null || true
+          echo
+          echo "=== DNS ==="
+          getent hosts postman-echo.com || true
+          echo
+          echo "=== 握手（默认环境，即插件看到的环境） ==="
+          (echo | timeout 30 openssl s_client -connect postman-echo.com:443 \
+              -servername postman-echo.com -verify_return_error 2>&1 || true) \
+            | grep -E "Verify return code|verify error|CONNECTED|error" | head -6 || true
+          echo
+          echo "=== 握手（清掉 SSL_CERT_FILE） ==="
+          (env -u SSL_CERT_FILE bash -c 'echo | timeout 30 openssl s_client -connect postman-echo.com:443 -servername postman-echo.com -verify_return_error 2>&1' || true) \
+            | grep -E "Verify return code|verify error|CONNECTED|error" | head -6 || true
+          echo
+          echo "=== 握手（SSL_CERT_FILE 指向系统 bundle） ==="
+          (SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt timeout 30 bash -c 'echo | openssl s_client -connect postman-echo.com:443 -servername postman-echo.com -verify_return_error 2>&1' || true) \
+            | grep -E "Verify return code|verify error|CONNECTED|error" | head -6 || true
+          echo
+          echo "=== curl（默认环境） ==="
+          curl -sS --max-time 30 -o /dev/null -w 'http=%{http_code} rc=%{exitcode}\n' https://postman-echo.com/get || echo "curl exit=$?"
+          echo "=== curl（清掉 SSL_CERT_FILE） ==="
+          env -u SSL_CERT_FILE curl -sS --max-time 30 -o /dev/null -w 'http=%{http_code} rc=%{exitcode}\n' https://postman-echo.com/get || echo "curl exit=$?"
+          echo "=== curl（CURL_CA_BUNDLE=系统 bundle） ==="
+          CURL_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt curl -sS --max-time 30 -o /dev/null -w 'http=%{http_code} rc=%{exitcode}\n' https://postman-echo.com/get || echo "curl exit=$?"
+          echo
+          echo "=== 复现测试里的那行 curl ==="
+          timeout 30 curl -s -S -i -L -N "https://postman-echo.com/get?foo1=10&foo2=20" 2>&1 | head -8 || echo "curl exit=$?"
+          echo
+          echo "=== curl --version ==="
+          curl --version | head -3
