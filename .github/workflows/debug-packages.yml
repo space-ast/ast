@@ -75,6 +75,8 @@ jobs:
           readelf -d build/linux/x86_64/release/libprobe-net.so 2>/dev/null | grep NEEDED
           echo "=== 最高 GLIBC 符号版本 ==="
           objdump -T build/linux/x86_64/release/libprobe-net.so 2>/dev/null | grep -oE 'GLIBC_[0-9.]+' | sort -V | tail -n 5
+          echo "=== 2.24+ 符号 ==="
+          objdump -T build/linux/x86_64/release/libprobe-net.so 2>/dev/null | grep -E 'GLIBC_2\.(2[4-9]|[3-9])' | sed 's/^.*GLIBC/GLIBC/' | sort | uniq -c | sort -rn | head -n 30
 
       - name: 上传详细日志
         if: always()
