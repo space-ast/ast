@@ -27,7 +27,7 @@ end
 
 if is_plat("linux") and not has_system_openssl3() then
     add_requireconfs("**.openssl3", {system = false, configs = {shared = true}})
-    add_requireconfs("**.libcurl", {configs = {shared = true}})
+    add_requireconfs("libcurl", {configs = {shared = true}})
 end
 
 -- 插件形态的共享库：不再链接 libc 兼容垫片，验证自身 GLIBC 门槛回到 2.23 以内
