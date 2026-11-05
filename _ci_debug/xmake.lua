@@ -34,6 +34,6 @@ end
 target("probe-net")
     set_kind("shared")
     add_files("probe.cpp")
-    set("rpathdirs", "$ORIGIN", "$ORIGIN/../lib")
+    set_rpathdirs("$ORIGIN", "$ORIGIN/../lib")
     add_packages("cpp-httplib", "libcurl")
     add_defines("CPPHTTPLIB_NO_EXCEPTIONS")
