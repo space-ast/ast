@@ -30,7 +30,7 @@ jobs:
             libxcb-devel libxkbcommon-devel libxkbcommon-x11-devel \
             fontconfig-devel freetype-devel libpng-devel \
             glib2-devel dbus-devel alsa-lib-devel libSM-devel libICE-devel \
-            openssl-devel
+            openssl-devel perl-IPC-Cmd perl-IPC-Run
 
       - name: 环境信息
         run: |
