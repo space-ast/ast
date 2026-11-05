@@ -38,6 +38,7 @@ jobs:
           cd /tmp/sslprobe
           cat > xmake.lua <<'EOF'
           add_requires("openssl3 3.6.5", {system = false, configs = {shared = true}})
+          add_requires("ca-certificates 20250131")
           EOF
           xmake require -y 2>&1 | tail -5
           OPENSSL3="$(find "$HOME/.xmake/packages/o/openssl3" -type f -name openssl -path '*/bin/*' 2>/dev/null | head -1)"
@@ -101,7 +102,10 @@ jobs:
           g++ -std=c++11 -DCPPHTTPLIB_OPENSSL_SUPPORT -DCPPHTTPLIB_NO_EXCEPTIONS \
             -I"$SSL3DIR/include" -I. probe.cpp -o probe \
             -L"$SSL3DIR/lib" -lssl -lcrypto -lpthread -ldl -Wl,-rpath,"$SSL3DIR/lib"
-          CACERT="$(find "$HOME/.xmake/packages/c/ca-certificates" -name cacert.pem | head -1)"
+          CACERT="$(find "$HOME/.xmake/packages/c/ca-certificates" -name cacert.pem 2>/dev/null | head -1 || true)"
+          if [ -z "$CACERT" ]; then
+            CACERT=/opt/_internal/certs.pem
+          fi
           CACERTDIR="$(dirname "$CACERT")"
           echo "CACERT=$CACERT"
           run() { echo "--- $1"; shift; ( eval "$@" ./probe ) 2>&1 | tail -3; }
