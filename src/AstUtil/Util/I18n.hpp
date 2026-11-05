@@ -99,11 +99,6 @@ A_ALWAYS_INLINE const char* C_(const char* msgctxt, const char* msgid)
 #endif
 
 
-/// @brief 设置当前文本域
-A_ALWAYS_INLINE const char* textdomain(const char* domainname)
-{
-    return aTextDomain(domainname);
-}
 
 /*! @} */
 
