@@ -39,6 +39,11 @@ if has_package("benchmark") then
     add_defines("AST_WITH_BENCHMARK")
 end
 
+-- 确保测试代码在运行时能找到libcurl库
+if has_package("libcurl") then
+    add_packages("libcurl", {links = {}})
+end
+
 set_warnings("more")
 
 -- 单元测试代码（如果没有gtest库，则使用内置测试框架 AstTest/TestFramework.hpp）
