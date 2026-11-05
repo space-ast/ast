@@ -107,21 +107,25 @@ jobs:
           }
           EOF
           gcc -shared -fPIC -O2 weakness.c -o libweakness.so
+          gcc -shared -fPIC -O2 weakness.c _ci_debug/glibc_compat.c -o libweakness_fixed.so
           echo "=== 动态符号（注意 weak 标记）==="
           readelf --dyn-syms libweakness.so | grep -i getentropy || true
-          echo "=== Version needs ==="
+          echo "=== 未打垫片的 Version needs ==="
           readelf --version-info libweakness.so
+          echo "=== 打了垫片的 Version needs ==="
+          readelf --version-info libweakness_fixed.so
       - uses: actions/upload-artifact@v4
         with:
           name: weak-so
-          path: libweakness.so
+          path: |
+            libweakness.so
+            libweakness_fixed.so
 
-  # 在 glibc 2.17（manylinux2014）上真正 dlopen 它
+  # 在 glibc 2.17（manylinux2014）上真正 dlopen 它。
+  # 宿主 runner 上执行，避免 GitHub Actions 自身的 Node 运行时进不了旧镜像。
   weak-load-old-glibc:
     needs: weak-version
     runs-on: ubuntu-22.04
-    container:
-      image: quay.io/pypa/manylinux2014_x86_64
     defaults:
       run:
         shell: bash
@@ -131,25 +135,32 @@ jobs:
           name: weak-so
       - name: 在 glibc 2.17 上 dlopen
         run: |
-          ldd --version | head -n 1
           cat > load.c <<'EOF'
           #include <dlfcn.h>
           #include <stdio.h>
 
-          int main(void)
+          int run(const char *path)
           {
-              void *handle = dlopen("./libweakness.so", RTLD_NOW);
+              void *handle = dlopen(path, RTLD_NOW);
               if (handle == NULL) {
-                  printf("dlopen failed: %s\n", dlerror());
+                  printf("%s: dlopen failed: %s\n", path, dlerror());
                   return 1;
               }
               int (*fn)(void *, unsigned long) = (int (*)(void *, unsigned long))dlsym(handle, "call_getentropy");
               char buf[16];
-              printf("dlopen ok, call_getentropy() = %d\n", fn ? fn(buf, sizeof(buf)) : -999);
+              printf("%s: dlopen ok, call_getentropy() = %d\n", path, fn ? fn(buf, sizeof(buf)) : -999);
               return 0;
           }
+
+          int main(void)
+          {
+              int rc = run("./libweakness.so");
+              rc |= run("./libweakness_fixed.so");
+              return rc;
+          }
           EOF
-          gcc load.c -o load -ldl
           set +e
-          ./load
-          echo "exit=$?"
+          docker run --rm -v "$PWD:/work" -w /work \
+            quay.io/pypa/manylinux2014_x86_64 \
+            bash -c 'ldd --version | head -n 1; gcc load.c -o load -ldl && ./load; echo exit=$?'
+          echo "docker exit=$?"
