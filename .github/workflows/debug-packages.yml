@@ -73,6 +73,8 @@ jobs:
           ls -l build/linux/x86_64/release/ 2>/dev/null
           echo "=== 动态库依赖 ==="
           readelf -d build/linux/x86_64/release/libprobe-net.so 2>/dev/null | grep NEEDED
+          echo "=== 最高 GLIBC 符号版本 ==="
+          objdump -T build/linux/x86_64/release/libprobe-net.so 2>/dev/null | grep -oE 'GLIBC_[0-9.]+' | sort -V | tail -n 5
 
       - name: 上传详细日志
         if: always()
