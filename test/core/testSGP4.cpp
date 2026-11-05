@@ -29,6 +29,8 @@
 #include "ast/BuiltinFrame.hpp"
 #include "ast/Literals.hpp"
 
+#include "SGP4Vectors.inc"
+
 // =============================================================================
 // 测试 TLE（NORAD 26661, 太阳同步轨道卫星）
 // 来源: atkAllTLE.tce
@@ -374,5 +376,55 @@ TEST(SGP4Test, TimeInterval)
     }
 }
 
+
+// =============================================================================
+// 官方验证向量（Vallado, AIAA 2006-6753 "Revisiting Spacetrack Report #3"）
+// 数据来源：SGP4-VER.TLE + tcppver.out（WGS72），覆盖近地/深空/大偏心率等 32 个用例
+// =============================================================================
+TEST(SGP4Test, OfficialVectors)
+{
+    AST_USING_NAMESPACE
+
+    int checked = 0;
+    int errorCases = 0;
+    for (const auto& c : kSGP4Vectors)
+    {
+        TLE tle = TLE::FromLines(c.l1, c.l2);
+        SGP4 sgp4(tle);
+
+        // 官方 tcppver 输出为 km / (km/s)，本库统一使用 m / (m/s)
+        const double kPos = 1000.0, kVel = 1000.0;
+        double ex = c.x * kPos, ey = c.y * kPos, ez = c.z * kPos;
+        double evx = c.vx * kVel, evy = c.vy * kVel, evz = c.vz * kVel;
+
+        TimePoint tp = tle.epochTime() + c.tsince * 60.0;
+        Vector3d pos, vel;
+        errc_t rc = sgp4.getPosVel(tp, pos, vel);
+        if (sgp4.getError() != 0)
+        {
+            // 官方用例中包含初始化即报错的卫星（衰减/异常），只验证错误被上报
+            EXPECT_NE(rc, eNoError) << c.l1 << " tsince=" << c.tsince;
+            ++errorCases;
+            continue;
+        }
+        ASSERT_EQ(rc, eNoError) << c.l1 << " tsince=" << c.tsince;
+
+        double dp = std::fabs(pos.x() - ex);
+        dp = std::max(dp, std::fabs(pos.y() - ey));
+        dp = std::max(dp, std::fabs(pos.z() - ez));
+        double dv = std::fabs(vel.x() - evx);
+        dv = std::max(dv, std::fabs(vel.y() - evy));
+        dv = std::max(dv, std::fabs(vel.z() - evz));
+
+        EXPECT_LT(dp, 1e-2) << c.l1 << " tsince=" << c.tsince
+                            << " pos=(" << pos.x() << ", " << pos.y() << ", " << pos.z() << ")"
+                            << " expected=(" << ex << ", " << ey << ", " << ez << ")";
+        EXPECT_LT(dv, 1e-5) << c.l1 << " tsince=" << c.tsince
+                            << " vel=(" << vel.x() << ", " << vel.y() << ", " << vel.z() << ")"
+                            << " expected=(" << evx << ", " << evy << ", " << evz << ")";
+        ++checked;
+    }
+    EXPECT_EQ(checked + errorCases, static_cast<int>(sizeof(kSGP4Vectors) / sizeof(kSGP4Vectors[0])));
+}
 
 GTEST_MAIN()
