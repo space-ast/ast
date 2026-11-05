@@ -84,3 +84,72 @@ jobs:
         with:
           name: debug-packages-log
           path: _ci_debug/*.log
+
+  # 在 glibc 2.28 上编译一个只有 getentropy 弱引用的 .so
+  weak-version:
+    runs-on: ubuntu-22.04
+    container:
+      image: quay.io/pypa/manylinux_2_28_x86_64
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - name: 编译弱引用探针
+        run: |
+          ldd --version | head -n 1
+          cat > weakness.c <<'EOF'
+          #include <stddef.h>
+          extern int getentropy(void *buffer, size_t length) __attribute__((weak));
+          int call_getentropy(void *buffer, size_t length)
+          {
+              return getentropy != NULL ? getentropy(buffer, length) : -7;
+          }
+          EOF
+          gcc -shared -fPIC -O2 weakness.c -o libweakness.so
+          echo "=== 动态符号（注意 weak 标记）==="
+          readelf --dyn-syms libweakness.so | grep -i getentropy || true
+          echo "=== Version needs ==="
+          readelf --version-info libweakness.so
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weak-so
+          path: libweakness.so
+
+  # 在 glibc 2.17（manylinux2014）上真正 dlopen 它
+  weak-load-old-glibc:
+    needs: weak-version
+    runs-on: ubuntu-22.04
+    container:
+      image: quay.io/pypa/manylinux2014_x86_64
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: weak-so
+      - name: 在 glibc 2.17 上 dlopen
+        run: |
+          ldd --version | head -n 1
+          cat > load.c <<'EOF'
+          #include <dlfcn.h>
+          #include <stdio.h>
+
+          int main(void)
+          {
+              void *handle = dlopen("./libweakness.so", RTLD_NOW);
+              if (handle == NULL) {
+                  printf("dlopen failed: %s\n", dlerror());
+                  return 1;
+              }
+              int (*fn)(void *, unsigned long) = (int (*)(void *, unsigned long))dlsym(handle, "call_getentropy");
+              char buf[16];
+              printf("dlopen ok, call_getentropy() = %d\n", fn ? fn(buf, sizeof(buf)) : -999);
+              return 0;
+          }
+          EOF
+          gcc load.c -o load -ldl
+          set +e
+          ./load
+          echo "exit=$?"
