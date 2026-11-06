@@ -24,11 +24,13 @@
 #include "CppHttpNetworkInterface.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/StringSplit.hpp"
 
 #include <cctype>
 #include <cstdlib>
 #include <map>
 #include <string>
+#include <vector>
 
 AST_NAMESPACE_BEGIN
 
@@ -137,6 +139,16 @@ std::map<std::string, std::string> toHeaderMap(const httplib::Headers& headers)
     return result;
 }
 
+#if defined(CPPHTTPLIB_SSL_ENABLED) && defined(__linux__)
+/// 按 ':' 拆分 PATH 风格的列表
+/// @details xmake 等构建工具会把自带的 CA 包路径“前置”到 SSL_CERT_FILE/SSL_CERT_DIR 上，
+///          拼成 "路径1:路径2" 的列表；而 OpenSSL 把它们当单一路径，整串都不存在。
+std::vector<std::string> splitPathList(StringView path)
+{
+    return aStrSplit(path, ':');
+}
+#endif
+
 errc_t mapHttpError(httplib::Error error)
 {
     switch (error)
@@ -187,22 +199,36 @@ errc_t CppHttpNetworkInterface::requestStream(const NetworkRequest& request,
         return eErrorInvalidParam;
 
 #if defined(CPPHTTPLIB_SSL_ENABLED) && defined(__linux__)
-    // 本工程的 OpenSSL 从源码构建，编译期确定的 CA 路径在发行版上并不存在，
-    // SSL_CTX_set_default_verify_paths 找不到证书时 https 会报 "SSL server verification failed"。
-    // SSL_CERT_FILE/SSL_CERT_DIR 由 OpenSSL 自己优先处理，这里补上各发行版常见的 CA 包路径。
+    //   1. SSL_CERT_FILE 可能是 PATH 风格的列表
+    //      xmake 会把自带 ca-certificates 包的路径前置进来，拼成 "路径1:路径2"），
+    //      但OpenSSL 却只认单一路径，所以按 ':' 拆开，取第一个真实存在的文件；
+    //   2. 环境没给或都不可用时，退回各发行版常见的 CA 包；
     if (origin.compare(0, 8, "https://") == 0)
     {
         const char* caFile = std::getenv("SSL_CERT_FILE");
         const char* caDir = std::getenv("SSL_CERT_DIR");
-        const bool userProvidedCa =
-            (caFile != nullptr && caFile[0] != '\0') ||
-            (caDir != nullptr && caDir[0] != '\0');
-        if (!userProvidedCa)
+
+        std::string caFileChosen;
+
+        if(caFile != nullptr && caFile[0] != '\0')
+        {
+            const std::vector<std::string> caFiles = splitPathList(caFile);
+            for (size_t i = 0; i < caFiles.size(); ++i)
+            {
+                if (fs::exists(caFiles[i]) && !fs::is_directory(caFiles[i]))
+                {
+                    caFileChosen = caFiles[i];
+                    break;
+                }
+            }
+        }
+        else
         {
             static const char* const candidates[] = {
                 "/etc/ssl/certs/ca-certificates.crt",  // Debian / Ubuntu
                 "/etc/pki/tls/certs/ca-bundle.crt",    // RHEL / CentOS / Fedora
-                "/etc/ssl/ca-bundle.pem",              // openSUSE
+                "/etc/pki/tls/cacert.pem",             // OpenELEC
+                "/etc/ssl/ca-bundle.pem",              // OpenSUSE
                 "/etc/ssl/certs/ca-bundle.crt",        // Arch
                 "/etc/ssl/cert.pem",                   // Alpine
             };
@@ -210,10 +236,34 @@ errc_t CppHttpNetworkInterface::requestStream(const NetworkRequest& request,
             {
                 if (fs::exists(candidate))
                 {
-                    client.set_ca_cert_path(candidate);
+                    caFileChosen = candidate;
                     break;
                 }
             }
+        }
+
+        std::string caDirChosen;
+        if(caDir != nullptr && caDir[0] != '\0')
+        {
+            const std::vector<std::string> caDirs = splitPathList(caDir);
+            for (size_t i = 0; i < caDirs.size(); ++i)
+            {
+                if (fs::is_directory(caDirs[i]))
+                {
+                    caDirChosen = caDirs[i];
+                    break;
+                }
+            }
+        }
+
+
+        if (!caFileChosen.empty() || !caDirChosen.empty())
+        {
+            client.set_ca_cert_path(caFileChosen, caDirChosen);
+        }
+        else
+        {
+            aWarning(_("https 请求找不到可用的 CA"));
         }
     }
 #endif
