@@ -326,6 +326,10 @@ errc_t CurlNetworkInterface::requestStream(const NetworkRequest& request,
         break;
     case ENetworkRequestMethod::ePost:
         curl_easy_setopt(curl, CURLOPT_POST, 1L);
+        // 显式声明零长度请求体：否则 libcurl 认为长度未知，会改用 chunked
+        // 编码并从默认读回调（stdin）读取正文。有正文时下面设置的
+        // CURLOPT_POSTFIELDSIZE_LARGE 会覆盖此值。
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, 0L);
         break;
     default:
         curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, methodToString(method));
