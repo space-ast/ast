@@ -1,7 +1,7 @@
 ///
 /// @file      plugin.cpp
 /// @brief     大气模型插件：注册入口
-/// @details   本动态库向宿主注册插件新增的 "Exponential" 大气模型。
+/// @details   本动态库向主程序注册插件新增的 "Exponential" 大气模型。
 /// @author    axel
 /// @date      2026-10-14
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -31,7 +31,7 @@ AST_USING_NAMESPACE
 namespace {
 
 /// @brief 指数大气模型提供者
-/// @details 同时继承 PluginInstance 与 IAtmosphereProvider，宿主用 aPluginCast 取后者
+/// @details 同时继承 PluginInstance 与 IAtmosphereProvider，主程序用 aPluginCast 取后者
 class ExponentialProvider : public PluginInstance, public IAtmosphereProvider
 {
 public:

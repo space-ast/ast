@@ -164,6 +164,7 @@ std::string toString(EScriptLanguage type)
 
 ScriptExecutor* aNewScriptExecutorFromPlugin(StringView name)
 {
+    aEnsurePluginsScanned();
     PluginInstance* instance = aPluginRegistry().find(aInterfaceId<IScriptExecutorProvider>(), name);
     if(!instance)
     {

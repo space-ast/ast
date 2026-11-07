@@ -131,6 +131,9 @@ A_ALWAYS_INLINE PluginRegistry& aPluginRegistry()
 /// @note 重复调用是幂等的。
 AST_UTIL_API errc_t aScanPlugins();
 
+
+AST_UTIL_API void aEnsurePluginsScanned();
+
 /*! @} */
 
 AST_NAMESPACE_END

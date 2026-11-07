@@ -232,6 +232,27 @@ else
     add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
     add_requires("duktape", {optional = true})                                      -- 可选的Duktape嵌入式JavaScript引擎
     add_requires("openvbs", {optional = true})                                      -- 可选的OpenVBS脚本引擎，用于跨平台执行VBScript
+    add_requires("libcurl", {optional = true})                                      -- 可选的libcurl库，用于HTTP请求
+    -- 可选的cpp-httplib（header-only），ssl=true 会带入 openssl3；
+    -- cpp-httplib >=0.23.0 不再支持 32 位，x86 构建跳过该包
+    if not is_plat("wasm") and not is_arch("x86") then
+        add_requires("cpp-httplib", {optional = true, configs = {ssl = true, exceptions = false}})
+    end
+
+    -- windows 系统:
+    -- libcurl 可以不依赖 openssl 库(直接使用系统自带的Schannel)，但是 cpp-httplib 仍然需要依赖 openssl 库
+    -- 
+    -- Linux 系统:
+    -- libcurl 8.21 与 cpp-httplib 都要求 OpenSSL >= 3.0，
+    -- 而 xmake-repo 的 openssl3 包在探测系统库时只看能否链接、不校验版本：
+    -- AlmaLinux 8（manylinux_2_28）上的 OpenSSL 1.1.1k 会被当成 openssl3 直接满足依赖，
+    -- 导致 libcurl 编译报 #error、cpp-httplib 的 CMake 找不到 OpenSSL 3，两个网络插件被静默跳过。
+    -- 
+    -- 因此不使用系统中的 openssl 库，直接从源码编译
+    -- 同时将 openssl3 和 libcurl 都编译为共享库：两个插件共享一份，不必各自静态嵌入；
+    add_requireconfs("**.openssl3", {system = false, configs = {shared = true}})
+    add_requireconfs("libcurl", {configs = {shared = true}})
+
     add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
     add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
     add_requires("ipopt", {optional = true, configs = {shared = true, debug = is_mode("debug")}}) -- 可选的ipopt库，用于求解非线性优化问题
@@ -259,7 +280,6 @@ end
 -- add_requires("libintl", {optional = true})                                      -- 可选的libintl库，用于国际化
 -- add_requires("nlohmann_json", {optional = true})                                -- 可选的nlohmann_json库，用于JSON解析
 -- add_requires("jsoncpp", {optional = true})                                      -- 可选的jsoncpp库，用于JSON解析
--- add_requires("curl", {optional = true})                                         -- 可选的curl库，用于HTTP请求
 -- add_requires("nodeeditor", {optional = true})                                   -- 可选的nodeeditor库，用于节点编辑器
 
 -- 使用llvm工具链编译（可选）
@@ -287,6 +307,16 @@ end
 if has_package("openvbs") then
     -- 同上：只添加宏定义，避免链接进所有目标
     add_defines("AST_WITH_OPENVBS")
+end
+
+if has_package("libcurl") then
+    -- 同上：只添加宏定义，避免链接进所有目标
+    add_defines("AST_WITH_LIBCURL")
+end
+
+if has_package("cpp-httplib") then
+    -- 同上：只添加宏定义，cpp-httplib 仅由 AstPluginCppHTTP 使用
+    add_defines("AST_WITH_CPP_HTTP")
 end
 
 -- 添加openmp库依赖（可选）
@@ -373,12 +403,6 @@ end
 -- if has_package("jsoncpp") then
 --     add_packages("jsoncpp")
 --     add_defines("AST_WITH_JSONCPP")
--- end
-
--- -- 添加curl库依赖（可选）
--- if has_package("curl") then
---     add_packages("curl")
---     add_defines("AST_WITH_CURL")
 -- end
 
 -- 添加nodeeditor库依赖（可选）

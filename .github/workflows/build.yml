@@ -351,6 +351,9 @@ jobs:
           readelf --version-info /usr/lib64/libstdc++.so.6 2>/dev/null \
             | grep -oE 'GLIBCXX_[0-9.]+' | sort -V | tail -n 1 || true
 
+          # 容器里的 OpenSSL 只有 1.1.1, libcurl/cpp-httplib 要 OpenSSL 3,
+          # 因此 openssl3 包会从源码构建(见根 xmake.lua)。
+          # 它的 Configure 需要 IPC::Cmd, 生成 Makefile 需要 Time::Piece, IPC::Run 供构建脚本使用。
           dnf install -y --setopt=install_weak_deps=False \
             zip unzip xz tar which git curl wget \
             binutils make pkgconf-pkg-config \
@@ -360,7 +363,8 @@ jobs:
             libxcb-devel libxkbcommon-devel libxkbcommon-x11-devel \
             fontconfig-devel freetype-devel libpng-devel \
             glib2-devel dbus-devel alsa-lib-devel libSM-devel libICE-devel \
-            openssl-devel
+            openssl-devel \
+            perl-IPC-Cmd perl-IPC-Run perl-Time-Piece
 
       - uses: xmake-io/github-action-setup-xmake@v1
         with:
@@ -428,11 +432,20 @@ jobs:
           xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
           xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
 
-      # 检查动态库的 ABI 版本是否符合要求，使得能在大部分linux发行版上运行
+      # 检查动态库的 ABI 版本是否符合要求，使得能在大部分linux发行版上运行。
+      # openssl3 会从源码构建，且 openssl3/libcurl 都按共享库安装安装
+      # 版本较高的 getentropy/fcntl64 落在 libcrypto.so.3（实测 2.25）和 libcurl.so.4（实测 2.28）上，
+      # 这些库在旧系统上加载失败只是让插件自动缺席（PluginRegistry 会跳过），
+      # 因此只对这两个库放宽门槛，其余文件仍卡 2.23。
+      # cpp-httplib 是头文件库，会带进 std::thread（GLIBCXX 3.4.22 = GCC 6），
+      # 在 libstdc++ 5.x 的系统上同样只是让 CppHTTP 插件缺席（CURL 插件不受影响）。
       - name: ABI 门槛校验
         run: |
           bash scripts/ci/check-abi.sh artifacts/SpaceAST.zip \
-            --max-glibc=2.23 --max-glibcxx=3.4.21 --glibcxx=fail
+            --max-glibc=2.23 --max-glibcxx=3.4.21 --glibcxx=fail \
+            --glibc-exception='lib/libcrypto.so.3*:2.25' \
+            --glibc-exception='lib/libcurl.so.4*:2.28' \
+            --glibcxx-exception='lib/libAstPluginCppHTTP.so:3.4.22'
 
       - name: 测试 xmake.sh 编译
         run: |

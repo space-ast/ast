@@ -3,7 +3,9 @@
 # 扫描发布出去的产物包，检查 ELF 的 glibc / libstdc++ ABI 版本门槛。
 #
 #   check-abi.sh <artifact.zip|dir> [--max-glibc=2.28] [--max-glibcxx=3.4.29]
-#                 [--glibcxx=warn|fail] [--no-needed] [--quiet]
+#                 [--glibcxx=warn|fail] [--glibc-exception=<glob>:<version>]...
+#                 [--glibcxx-exception=<glob>:<version>]...
+#                 [--no-needed] [--quiet]
 #
 # 退出码：0 通过 · 1 超限 · 2 用法或环境错误
 #
@@ -14,6 +16,12 @@
 # 为什么要卡这个：产物能跑在哪个发行版上，取决于它引用的最高 GLIBC_/GLIBCXX_ 版本，
 # 而不是编译它的发行版。构建环境一换（runner 镜像、容器、工具链），这个数字就会悄悄
 # 变化，且不会有任何编译期警告 —— 只有符号表能看出来。
+#
+# --glibc-exception 给个别文件单独放行（glob 相对包根，可重复）：
+#   --glibc-exception='lib/libAstPluginCURL.so:2.28'
+# 用于静态链接了新版 OpenSSL、但加载失败只导致该插件缺席的文件；
+# 其余文件仍按全局 --max-glibc 判定。
+# --glibcxx-exception 同理，用于第三方头文件库把某个插件抬到更高 GLIBCXX 的情况。
 
 set -euo pipefail
 
@@ -23,9 +31,13 @@ GLIBCXX_MODE="warn"
 SHOW_NEEDED=1
 QUIET=0
 TARGET=""
+GLIBC_EXCEPTION_GLOBS=()
+GLIBC_EXCEPTION_VERSIONS=()
+GLIBCXX_EXCEPTION_GLOBS=()
+GLIBCXX_EXCEPTION_VERSIONS=()
 
 usage() {
-    sed -n '3,6p' "$0" | sed 's/^# \{0,1\}//'
+    sed -n '3,7p' "$0" | sed 's/^# \{0,1\}//'
 }
 
 while [ $# -gt 0 ]; do
@@ -33,6 +45,26 @@ while [ $# -gt 0 ]; do
         --max-glibc=*)   MAX_GLIBC="${1#*=}" ;;
         --max-glibcxx=*) MAX_GLIBCXX="${1#*=}" ;;
         --glibcxx=*)     GLIBCXX_MODE="${1#*=}" ;;
+        --glibc-exception=*)
+            entry="${1#*=}"
+            pattern="${entry%:*}"
+            version="${entry##*:}"
+            if [ -z "$pattern" ] || [ -z "$version" ] || [ "$pattern" = "$entry" ]; then
+                echo "--glibc-exception 需要 <glob>:<version>（收到 $entry）" >&2
+                exit 2
+            fi
+            GLIBC_EXCEPTION_GLOBS+=("$pattern")
+            GLIBC_EXCEPTION_VERSIONS+=("$version") ;;
+        --glibcxx-exception=*)
+            entry="${1#*=}"
+            pattern="${entry%:*}"
+            version="${entry##*:}"
+            if [ -z "$pattern" ] || [ -z "$version" ] || [ "$pattern" = "$entry" ]; then
+                echo "--glibcxx-exception 需要 <glob>:<version>（收到 $entry）" >&2
+                exit 2
+            fi
+            GLIBCXX_EXCEPTION_GLOBS+=("$pattern")
+            GLIBCXX_EXCEPTION_VERSIONS+=("$version") ;;
         --no-needed)     SHOW_NEEDED=0 ;;
         --quiet)         QUIET=1 ;;
         -h|--help)       usage; exit 0 ;;
@@ -123,6 +155,38 @@ list_files() {
     ( cd "$1" && find . -type f | sed 's|^\./||' | sort )
 }
 
+# 某个文件适用的 GLIBC 门槛：默认全局门槛，命中 --glibc-exception 时用例外版本
+glibc_limit_for() {
+    local rel="$1" i
+    if [ "${#GLIBC_EXCEPTION_GLOBS[@]}" -gt 0 ]; then
+        for i in "${!GLIBC_EXCEPTION_GLOBS[@]}"; do
+            # 有意不加引号：让 glob 生效
+            case "$rel" in
+                ${GLIBC_EXCEPTION_GLOBS[$i]})
+                    printf '%s' "${GLIBC_EXCEPTION_VERSIONS[$i]}"
+                    return 0 ;;
+            esac
+        done
+    fi
+    printf '%s' "$MAX_GLIBC"
+}
+
+# 某个文件适用的 GLIBCXX 门槛：默认全局门槛，命中 --glibcxx-exception 时用例外版本
+glibcxx_limit_for() {
+    local rel="$1" i
+    if [ "${#GLIBCXX_EXCEPTION_GLOBS[@]}" -gt 0 ]; then
+        for i in "${!GLIBCXX_EXCEPTION_GLOBS[@]}"; do
+            # 有意不加引号：让 glob 生效
+            case "$rel" in
+                ${GLIBCXX_EXCEPTION_GLOBS[$i]})
+                    printf '%s' "${GLIBCXX_EXCEPTION_VERSIONS[$i]}"
+                    return 0 ;;
+            esac
+        done
+    fi
+    printf '%s' "$MAX_GLIBCXX"
+}
+
 all_glibc=""
 all_glibcxx=""
 all_cxxabi=""
@@ -157,16 +221,22 @@ while IFS= read -r rel; do
 
     if [ -n "$g" ]; then
         all_glibc="$(max_of "$all_glibc" "$g")"
-        if ver_gt "$g" "$MAX_GLIBC"; then
+        limit="$(glibc_limit_for "$rel")"
+        if ver_gt "$g" "$limit"; then
             over_glibc=$((over_glibc + 1))
-            echo "  ^^ GLIBC $g > $MAX_GLIBC"
+            echo "  ^^ GLIBC $g > $limit"
+        elif ver_gt "$g" "$MAX_GLIBC"; then
+            echo "  (该文件按 --glibc-exception 放宽到 $limit)"
         fi
     fi
     if [ -n "$x" ]; then
         all_glibcxx="$(max_of "$all_glibcxx" "$x")"
-        if [ -n "$MAX_GLIBCXX" ] && ver_gt "$x" "$MAX_GLIBCXX"; then
+        limit="$(glibcxx_limit_for "$rel")"
+        if [ -n "$limit" ] && ver_gt "$x" "$limit"; then
             over_glibcxx=$((over_glibcxx + 1))
-            echo "  ^^ GLIBCXX $x > $MAX_GLIBCXX"
+            echo "  ^^ GLIBCXX $x > $limit"
+        elif [ -n "$MAX_GLIBCXX" ] && ver_gt "$x" "$MAX_GLIBCXX"; then
+            echo "  (该文件按 --glibcxx-exception 放宽到 $limit)"
         fi
     fi
     if [ -n "$a" ]; then
@@ -188,6 +258,19 @@ if [ "$SHOW_NEEDED" = 1 ] && { [ -d "$ROOT/bin" ] || [ -d "$ROOT/lib" ]; }; then
     echo
 fi
 
+glibc_exceptions_text=""
+if [ "${#GLIBC_EXCEPTION_GLOBS[@]}" -gt 0 ]; then
+    for i in "${!GLIBC_EXCEPTION_GLOBS[@]}"; do
+        glibc_exceptions_text="$glibc_exceptions_text ${GLIBC_EXCEPTION_GLOBS[$i]}:${GLIBC_EXCEPTION_VERSIONS[$i]}"
+    done
+fi
+glibcxx_exceptions_text=""
+if [ "${#GLIBCXX_EXCEPTION_GLOBS[@]}" -gt 0 ]; then
+    for i in "${!GLIBCXX_EXCEPTION_GLOBS[@]}"; do
+        glibcxx_exceptions_text="$glibcxx_exceptions_text ${GLIBCXX_EXCEPTION_GLOBS[$i]}:${GLIBCXX_EXCEPTION_VERSIONS[$i]}"
+    done
+fi
+
 {
     echo "## ABI 门槛：$(basename "$TARGET")"
     echo
@@ -197,6 +280,14 @@ fi
     echo "| GLIBCXX | ${all_glibcxx:-无} | ${MAX_GLIBCXX:-未设（仅报告）} |"
     echo "| CXXABI | ${all_cxxabi:-无} | — |"
     echo
+    if [ -n "$glibc_exceptions_text" ]; then
+        echo "GLIBC 例外：${glibc_exceptions_text# }"
+        echo
+    fi
+    if [ -n "$glibcxx_exceptions_text" ]; then
+        echo "GLIBCXX 例外：${glibcxx_exceptions_text# }"
+        echo
+    fi
     if [ -n "$shipped_runtime" ]; then
         echo "⚠️ 包内出现编译器运行时（按约定不应打包）：${shipped_runtime}"
         echo
@@ -211,18 +302,20 @@ if [ "$QUIET" != 1 ]; then
     echo "GLIBC 上限:   ${all_glibc:-无}  (门槛 ${MAX_GLIBC})"
     echo "GLIBCXX 上限: ${all_glibcxx:-无}  ${MAX_GLIBCXX:+（门槛 ${MAX_GLIBCXX}）}"
     echo "CXXABI 上限:  ${all_cxxabi:-无}"
+    [ -n "$glibc_exceptions_text" ] && echo "GLIBC 例外: ${glibc_exceptions_text# }"
+    [ -n "$glibcxx_exceptions_text" ] && echo "GLIBCXX 例外: ${glibcxx_exceptions_text# }"
     [ -n "$shipped_runtime" ] && echo "警告：包内出现编译器运行时${shipped_runtime}"
     [ -n "$isa_notes" ] && echo "警告：CPU 基线偏高${isa_notes}"
 fi
 
 fail=0
 if [ "$over_glibc" -gt 0 ]; then
-    echo "FAIL: $over_glibc 个文件的 GLIBC 需求超过 ${MAX_GLIBC}" >&2
+    echo "FAIL: $over_glibc 个文件的 GLIBC 需求超过各自门槛（全局 ${MAX_GLIBC}）" >&2
     fail=1
 fi
 if [ "$over_glibcxx" -gt 0 ]; then
     if [ "$GLIBCXX_MODE" = "fail" ]; then
-        echo "FAIL: $over_glibcxx 个文件的 GLIBCXX 需求超过 ${MAX_GLIBCXX}" >&2
+        echo "FAIL: $over_glibcxx 个文件的 GLIBCXX 需求超过各自门槛（全局 ${MAX_GLIBCXX}）" >&2
         fail=1
     else
         echo "WARN: $over_glibcxx 个文件的 GLIBCXX 需求超过 ${MAX_GLIBCXX}（本轮只报告）" >&2
@@ -230,6 +323,10 @@ if [ "$over_glibcxx" -gt 0 ]; then
 fi
 
 if [ "$fail" -eq 0 ]; then
-    echo "OK: GLIBC 需求不超过 ${MAX_GLIBC}"
+    if [ -n "$glibc_exceptions_text" ]; then
+        echo "OK: GLIBC 需求不超过各自门槛（全局 ${MAX_GLIBC}，含例外）"
+    else
+        echo "OK: GLIBC 需求不超过 ${MAX_GLIBC}"
+    fi
 fi
 exit "$fail"

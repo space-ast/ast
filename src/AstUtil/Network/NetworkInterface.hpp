@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include "AstUtil/PluginInterface.hpp"
 #include "NetworkRequest.hpp"
 #include "NetworkResponse.hpp"
 #include "NetworkStreamReceiver.hpp"
@@ -43,7 +44,9 @@ AST_UTIL_API int aParsePort(const std::string& portStr, int defaultPort);
 
 /// 网络抽象接口
 /// @details   网络抽象接口，用于与网络进行交互
-class NetworkInterface
+///            同时作为插件接口：插件根对象可同时继承 PluginInstance 与
+///            NetworkInterface，主程序通过 aPluginCast<NetworkInterface> 取用
+class AST_UTIL_API NetworkInterface
 {
 public:
     NetworkInterface() = default;
@@ -78,6 +81,10 @@ public:
     /// @return true 如果支持，false 否则
     virtual bool isSupported() const = 0;
 };
+
+/// 网络接口的唯一 ID，插件元数据中的 iid 必须与此一致
+#define AST_IID_NetworkInterface "space.ast.AstUtil.NetworkInterface"
+AST_DECLARE_INTERFACE(NetworkInterface, AST_IID_NetworkInterface)
 
 
 /*! @} */

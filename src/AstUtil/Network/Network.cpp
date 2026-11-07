@@ -35,6 +35,7 @@
 #include "AstUtil/NetworkImplWinHTTP.hpp"
 #include "AstUtil/NetworkImplWinINet.hpp"
 #include "AstUtil/NetworkImplCurlCmd.hpp"
+#include "AstUtil/PluginRegistry.hpp"
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/ParseFormat.hpp"
@@ -49,7 +50,17 @@ static std::atomic<NetworkInterface*> s_interface{nullptr};
 
 NetworkInterface* aNetworkGetImplDefault()
 {
-    NetworkInterface* impl = nullptr;
+    // 插件优先：libcurl 插件（若存在）比内置 curl 命令行实现更可靠
+    aEnsurePluginsScanned();
+    NetworkInterface* impl = aPluginRegistry().find<NetworkInterface>("CURL");
+    if (impl != nullptr && impl->isSupported())
+        return impl;
+
+    // 其次尝试 cpp-httplib 插件
+    impl = aPluginRegistry().find<NetworkInterface>("CppHTTP");
+    if (impl != nullptr && impl->isSupported())
+        return impl;
+
     impl = NetworkImplWinHTTP::Instance();
     if (impl != nullptr && impl->isSupported())
         return impl;
@@ -95,6 +106,33 @@ void aNetworkSetImpl(NetworkInterface* impl)
     if (impl == nullptr)
         return;
     s_interface.store(impl, std::memory_order_release);
+}
+
+errc_t aNetworkSetImplPlugin(StringView name)
+{
+    if (name.empty())
+        return eErrorNullInput;
+
+    aEnsurePluginsScanned();
+    NetworkInterface* impl = aPluginRegistry().find<NetworkInterface>(name);
+    if (impl == nullptr)
+    {
+        aError(_("未找到网络插件: %s"), std::string(name.data(), name.size()).c_str());
+        return eErrorNotFound;
+    }
+    if (!impl->isSupported())
+    {
+        aWarning(_("网络插件不受支持: %s"), std::string(name.data(), name.size()).c_str());
+        return eErrorUnsupported;
+    }
+    s_interface.store(impl, std::memory_order_release);
+    return eNoError;
+}
+
+void aNetworkGetPluginNames(std::vector<std::string>& names)
+{
+    aEnsurePluginsScanned();
+    aPluginRegistry().keys<NetworkInterface>(names);
 }
 
 

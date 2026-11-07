@@ -21,6 +21,7 @@
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/LibraryLoader.hpp"
 #include "AstUtil/Logger.hpp"
+#include <mutex>
 #include <utility>
 
 AST_NAMESPACE_BEGIN
@@ -215,5 +216,14 @@ errc_t aScanPlugins()
 
     return eNoError;
 }
+
+
+
+void aEnsurePluginsScanned()
+{
+    static std::once_flag flag;
+    std::call_once(flag, []() { aScanPlugins(); });
+}
+
 
 AST_NAMESPACE_END
