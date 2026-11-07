@@ -21,6 +21,9 @@
 #pragma once
 
 #include "AstGlobal.h"
+#if defined(__linux__)
+#include "ast/FileSystem.hpp"
+#endif
 #include "ast/Network.hpp"
 #include "ast/Test.h"
 #include <cstdio>
@@ -130,5 +133,17 @@ TEST(NetworkTest, DownloadFileFollowRedirect)
 
     std::remove(path.c_str());
 }
+
+#if defined(__linux__)
+/// @brief 返回的路径要么为空，要么是真实存在的 CA 文件/目录
+TEST(NetworkTest, CaCertPaths)
+{
+    const std::string file = aGetCaCertFile();
+    EXPECT_TRUE(file.empty() || (fs::exists(file) && !fs::is_directory(file)));
+
+    const std::string dir = aGetCaCertDir();
+    EXPECT_TRUE(dir.empty() || fs::is_directory(dir));
+}
+#endif
 
 GTEST_MAIN()

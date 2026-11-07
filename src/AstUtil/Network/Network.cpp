@@ -22,7 +22,6 @@
 #include "NetworkInterface.hpp"
 #include <atomic>
 #include <cstdio>
-#include <cstdlib>
 #ifdef _WIN32
 #include <io.h>
 #include <conio.h>
@@ -40,6 +39,10 @@
 #include "AstUtil/FileSystem.hpp"
 #include "AstUtil/ParseFormat.hpp"
 #include "AstUtil/IO.hpp"
+#if defined(__linux__)
+#include "AstUtil/Posix.hpp"
+#include "AstUtil/StringSplit.hpp"
+#endif
 
 AST_NAMESPACE_BEGIN
 
@@ -135,6 +138,69 @@ void aNetworkGetPluginNames(std::vector<std::string>& names)
     aPluginRegistry().keys<NetworkInterface>(names);
 }
 
+
+#if defined(__linux__)
+std::string aGetCaCertFile()
+{
+    // 首次调用解析一次后缓存；magic static 的初始化是线程安全的
+    static const std::string path = []() -> std::string {
+        // 环境变量可能是 "路径1:路径2" 的 PATH 风格列表，逐项取第一个存在的普通文件
+        if (const char* value = posix::getenv("SSL_CERT_FILE"))
+        {
+            for (StringView item : aStrSplit(StringView(value), ':', SkipEmpty()))
+            {
+                const std::string candidate(item);
+                if (fs::is_regular_file(candidate))
+                    return candidate;
+            }
+        // 环境变量给了但全部无效：继续走候选列表
+        }
+        static const char* const kCandidates[] = {
+            "/etc/ssl/certs/ca-certificates.crt",  // Debian / Ubuntu
+            "/etc/pki/tls/certs/ca-bundle.crt",    // RHEL / CentOS / Fedora
+            "/etc/pki/tls/cacert.pem",             // OpenELEC
+            "/etc/ssl/ca-bundle.pem",              // openSUSE
+            "/etc/ssl/certs/ca-bundle.crt",        // Arch
+            "/etc/ssl/cert.pem",                   // Alpine
+            "/usr/share/ssl/certs/ca-bundle.crt",
+            "/usr/local/share/certs/ca-root-nss.crt",
+        };
+        for (const char* candidate : kCandidates)
+            if (fs::is_regular_file(candidate))
+                return std::string(candidate);
+        return std::string();
+    }();
+    return path;
+}
+
+std::string aGetCaCertDir()
+{
+    // 首次调用解析一次后缓存；magic static 的初始化是线程安全的
+    static const std::string path = []() -> std::string {
+        if (const char* value = posix::getenv("SSL_CERT_DIR"))
+        {
+            for (StringView item : aStrSplit(StringView(value), ':', SkipEmpty()))
+            {
+                const std::string candidate(item);
+                if (fs::is_directory(candidate))
+                    return candidate;
+            }
+        }
+        static const char* const kCandidates[] = {
+            "/etc/ssl/certs",             // Debian / Ubuntu / Arch / Alpine / openSUSE
+            "/etc/pki/tls/certs",         // RHEL / CentOS / Fedora
+            "/usr/local/ssl/certs",       // 源码安装的 OpenSSL
+            "/usr/lib/ssl/certs",         // Debian / Ubuntu 的 OpenSSL 默认目录
+            "/usr/share/ca-certificates", // Other
+        };
+        for (const char* candidate : kCandidates)
+            if (fs::is_directory(candidate))
+                return std::string(candidate);
+        return std::string();
+    }();
+    return path;
+}
+#endif
 
 
 errc_t aNetworkRequest(const NetworkRequest& request, NetworkResponse& response)

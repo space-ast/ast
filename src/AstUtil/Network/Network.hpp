@@ -140,6 +140,25 @@ AST_UTIL_API errc_t aNetworkSetImplPlugin(StringView name);
 AST_UTIL_API void aNetworkGetPluginNames(std::vector<std::string>& names);
 
 
+#if defined(__linux__)
+/// 获取 Linux 下可用的 CA 证书文件路径
+/// @details 优先检查 SSL_CERT_FILE。该值可能是以 ':' 分隔的路径列表
+///          （xmake 等构建工具会把自带的 CA 包路径前置进来），取其中第一个
+///          存在的普通文件，空项忽略。环境变量未设置、为空或列表中没有可用
+///          文件时，回退到各发行版常见的 CA 证书包。
+/// @return CA 文件路径；找不到时返回空字符串
+/// @note 首次调用后缓存结果
+AST_UTIL_API std::string aGetCaCertFile();
+
+/// 获取 Linux 下可用的 CA 证书目录路径
+/// @details 优先检查 SSL_CERT_DIR（同样可能是 ':' 分隔的列表），取第一个存在
+///          的目录；不可用时回退到常见 CA 目录。
+/// @return CA 目录路径；找不到时返回空字符串
+/// @note 只校验“是目录”，不校验目录内是否已 c_rehash
+AST_UTIL_API std::string aGetCaCertDir();
+#endif
+
+
 /*! @} */
 
 AST_NAMESPACE_END
