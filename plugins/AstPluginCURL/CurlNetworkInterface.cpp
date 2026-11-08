@@ -22,6 +22,8 @@
 
 #include "CurlNetworkInterface.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/Network.hpp"
+#include "AstUtil/StringUtil.hpp"
 
 #include <cctype>
 #include <cstdlib>
@@ -150,6 +152,16 @@ const char* methodToString(ENetworkRequestMethod method)
     default:                              return "GET";
     }
 }
+
+#if defined(__linux__)
+/// URL 是否以 https:// 开头（大小写不敏感）
+bool isHttpsUrl(const std::string& url)
+{
+    static const char prefix[] = "https://";
+    const std::string::size_type len = sizeof(prefix) - 1;
+    return aEqualsIgnoreCase(StringView(url).substr(0, len), prefix);
+}
+#endif
 
 std::string trim(const std::string& value)
 {
@@ -298,6 +310,21 @@ errc_t CurlNetworkInterface::requestStream(const NetworkRequest& request,
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 300L);
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 2L);
+#if defined(__linux__)
+    // 空串表示没找到，保留 libcurl 默认 CA 配置。
+    // 变量必须活到 perform 之后，不要直接传 aGetCaCertFile().c_str()。
+    std::string caCertFile;
+    std::string caCertDir;
+    if (isHttpsUrl(request.url()))
+    {
+        caCertFile = aGetCaCertFile();
+        if (!caCertFile.empty())
+            curl_easy_setopt(curl, CURLOPT_CAINFO, caCertFile.c_str());
+        caCertDir = aGetCaCertDir();
+        if (!caCertDir.empty())
+            curl_easy_setopt(curl, CURLOPT_CAPATH, caCertDir.c_str());
+    }
+#endif
     curl_easy_setopt(curl, CURLOPT_ACCEPT_ENCODING, "");
     curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, errorBuffer);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback);
