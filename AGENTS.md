@@ -115,7 +115,7 @@ CI 上（覆盖率工作流），构建前会通过 `cp -r test/archive/* test/`
 ## CI
 
 GitHub Actions 工作流：
-- `build.yml` — 在 Windows 和 Linux 上构建（x64 + arm64），包括 debug 和 release。发布 tag 时上传产物。
+- `release.yml` — master 推送和发布 tag 时构建打包（Windows x64/x86/arm64、Linux x86_64/arm64），更新 nightly 并上传正式发布产物。
 - `coverage.yml` — 在 Ubuntu 上以覆盖率模式构建，运行测试，上传 lcov 数据到 Codecov。
 - `deploy-docs.yml` — 将文档部署到 GitHub Pages。
 
