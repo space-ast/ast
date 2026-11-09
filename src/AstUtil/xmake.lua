@@ -13,6 +13,7 @@
     add_configfiles("../../include/AstConfig.h.in")
     set_configdir("../../include/")
     add_defines("AST_BUILD_LIB_UTIL")
+    add_packages("fmt")
     -- add_extrafiles("xmake.lua")   
     if is_plat("linux") then
         add_syslinks("dl", "pthread")

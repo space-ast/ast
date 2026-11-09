@@ -321,50 +321,44 @@ end
 
 -- 添加openmp库依赖（可选）
 if has_package("openmp") then
-    add_packages("openmp")
     add_defines("AST_WITH_OPENMP")
 end
 
 -- 添加fmt库依赖（可选）
 if has_package("fmt") then
-    add_packages("fmt")
     add_defines("AST_WITH_FMT")
 end
 
 -- 添加Eigen库依赖（可选）
 if has_package("eigen") then
     add_defines("AST_WITH_EIGEN")
-    add_packages("eigen")
+    -- header-only 库不会引入链接库，可以直接添加依赖
+    add_packages("eigen")  
 end
 
 -- 添加cspice库依赖（可选）
 if has_package("cspice") then
-    add_packages("cspice")
     add_defines("AST_WITH_CSPICE")
 end
 
 
 if has_package("agg") then
     add_defines("AST_WITH_AGG")
-    add_packages("agg")
 end
 
 -- 添加matplot++库依赖（可选）
 if has_package("matplotplusplus") then
-    add_packages("matplotplusplus")
     add_defines("AST_WITH_MATPLOT")
 end
 
 -- 添加vtk库依赖（可选）
 if has_package("vtk") then
     add_defines("AST_WITH_VTK")
-    add_packages("vtk")
 end
 
 -- 添加openscenegraph库依赖（可选）
 if has_package("openscenegraph") then
     add_defines("AST_WITH_OSG")
-    add_packages("openscenegraph")
 end
 
 -- 添加qt库依赖（可选）
@@ -375,7 +369,6 @@ end
 -- 添加qwt库依赖（可选）
 if has_package("qwt") then
     add_defines("AST_WITH_QWT")
-    add_packages("qwt")
 end
 
 -- 添加ipopt库依赖（可选）

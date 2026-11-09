@@ -318,16 +318,22 @@ rule("ast.qt.ts")
 rule_end()
 
 -- --packages=none 的校验
+-- 拦截被解析/链接进来的第三方包：
+-- 防止以后在子目录里 add_requires，或规则/插件绕过此模式引入依赖包
 rule("ast.no_packages")
     on_load(function (target)
         if not is_config("packages", "none") then
             return
         end
-        local packages = target:get("packages")
-        if packages and #table.wrap(packages) > 0 then
+        local packages = target:orderpkgs()
+        if #packages > 0 then
+            local names = {}
+            for _, pkg in ipairs(packages) do
+                table.insert(names, pkg:fullname())
+            end
             os.raise(string.format(
-                "target(%s) 在 --packages=none 下仍声明了第三方包: %s",
-                target:name(), table.concat(table.wrap(packages), ", ")
+                "target(%s) 在 --packages=none 下仍解析到第三方包: %s",
+                target:name(), table.concat(names, ", ")
                 )
             )
         end

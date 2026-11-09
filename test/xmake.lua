@@ -18,6 +18,12 @@ add_deps(
     "AstEngine"
 )
 
+add_packages("fmt")
+add_packages("matplotplusplus")
+add_packages("agg")
+add_packages("cspice")
+
+
 if is_plat("windows") and has_config("with_com") then
     add_defines("AST_WITH_COM")
     add_deps("AstCOM")
