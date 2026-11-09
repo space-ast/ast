@@ -1,4 +1,4 @@
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
 #include <matplot/matplot.h>
 #include <random>
 #include "ast/QwtBackend.hpp"

@@ -1,4 +1,4 @@
-﻿#ifdef AST_WITH_OSG
+﻿#ifdef AST_WITH_OPENSCENEGRAPH
 #ifdef _WIN32
 #   define WIN32
 #endif

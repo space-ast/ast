@@ -29,7 +29,8 @@
  * 前缀 AST_        ：ast项目专用宏、ast模块相关、ast功能相关宏
  * 前缀 _           ：内部宏
  * 
- * 前缀 AST_WITH_   ：是否带有某个第三方库，例如eigen、boost、fmt、ipopt等
+ * 前缀 AST_WITH_   ：是否带有某个第三方库，宏名由包名确定（AST_WITH_ + 包名大写，非字母数字转下划线），
+ *                    例如 fmt -> AST_WITH_FMT、matplotplusplus -> AST_WITH_MATPLOTPLUSPLUS、cpp-httplib -> AST_WITH_CPP_HTTPLIB
  * 前缀 AST_ENABLE_ ：是否启用某个特定特性，通常是性能、调试、功能的开关，例如调试信息、缓存、日志、后缀名称等
  * 前缀 AST_DISABLE_：是否禁用某个特定特性，通常是性能、调试、功能的开关，例如调试信息、缓存、日志、后缀名称等
  * 前缀 AST_USE_    ：是否使用某个实现方法，通常是可选、可替换的实现方式，例如不同的算法、不同的数据结构

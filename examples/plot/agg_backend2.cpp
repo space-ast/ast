@@ -1,7 +1,7 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <vector>
-#if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOT)
+#if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOTPLUSPLUS)
 #include <matplot/matplot.h>
 #include <matplot/backend/backend_registry.h>
 #include "AstPlot/AggBackend.hpp"

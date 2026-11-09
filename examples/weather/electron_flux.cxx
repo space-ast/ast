@@ -30,7 +30,7 @@
 #include <vector>
 #include <string>
 
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
 #include <matplot/matplot.h>
 #endif
 
@@ -160,7 +160,7 @@ int main(int argc, char* argv[])
     // ============================
     // 4. 使用 matplot++ 绘图
     // ============================
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
     using namespace matplot;
 
     // 创建图表: 时间-辐射通量 (所有通道)

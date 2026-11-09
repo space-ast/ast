@@ -26,7 +26,7 @@ AST_NAMESPACE_BEGIN
 
 matplot::backend::backend_interface* aNewAggBackend()
 {
-#if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOT)
+#if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOTPLUSPLUS)
     return new AggBackend();
 #else
     aWarning(_("Agg 后端不可用，请检查是否启用了 agg 和 matplot++ 库"));

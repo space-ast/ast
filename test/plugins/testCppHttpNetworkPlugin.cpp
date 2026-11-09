@@ -40,7 +40,7 @@ CppHttpPluginStatus checkCppHttpPlugin()
     if (std::find(names.begin(), names.end(), std::string("CppHTTP")) != names.end())
         return CppHttpPluginStatus::eAvailable;
 
-#ifdef AST_WITH_CPP_HTTP
+#ifdef AST_WITH_CPP_HTTPLIB
     if (aIsCI())
         return CppHttpPluginStatus::eMissingInCI;
 #endif

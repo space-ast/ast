@@ -87,6 +87,7 @@ add_rules("c.unity_build", {batchsize=0})                   -- 不启用C语言�
 -- 自定义规则
 includes("rules.lua")                                       -- 导入ast项目自定义规则
 add_rules("ast")                                            -- 添加ast项目自定义规则
+add_rules("ast.package_defines")                            -- 按目标的 add_packages() 自动添加 AST_WITH_* 宏
 
 -- 设置警告等级，并且将警告作为编译错误处理
 if has_config("check_warnings") then
@@ -287,122 +288,11 @@ end
 -- set_toolchains("@llvm")
 
 
--- 添加abseil库（可选）
--- add_requires("abseil", {optional = true})
--- if has_package("abseil") then
---     add_packages("abseil")
---     add_defines("AST_WITH_ABSEIL")
--- end
-
-if has_package("libf2c") then
-    -- 这里不直接给所有工程添加依赖，只添加宏定义
-    add_defines("AST_WITH_LIBF2C")
-end
-
-if has_package("duktape") then
-    -- 同上：只添加宏定义，避免链接进所有目标
-    add_defines("AST_WITH_DUKTAPE")
-end
-
-if has_package("openvbs") then
-    -- 同上：只添加宏定义，避免链接进所有目标
-    add_defines("AST_WITH_OPENVBS")
-end
-
-if has_package("libcurl") then
-    -- 同上：只添加宏定义，避免链接进所有目标
-    add_defines("AST_WITH_LIBCURL")
-end
-
-if has_package("cpp-httplib") then
-    -- 同上：只添加宏定义，cpp-httplib 仅由 AstPluginCppHTTP 使用
-    add_defines("AST_WITH_CPP_HTTP")
-end
-
--- 添加openmp库依赖（可选）
-if has_package("openmp") then
-    add_defines("AST_WITH_OPENMP")
-end
-
--- 添加fmt库依赖（可选）
-if has_package("fmt") then
-    add_defines("AST_WITH_FMT")
-end
-
 -- 添加Eigen库依赖（可选）
 if has_package("eigen") then
-    add_defines("AST_WITH_EIGEN")
     -- header-only 库不会引入链接库，可以直接添加依赖
-    add_packages("eigen")  
+    add_packages("eigen")
 end
-
--- 添加cspice库依赖（可选）
-if has_package("cspice") then
-    add_defines("AST_WITH_CSPICE")
-end
-
-
-if has_package("agg") then
-    add_defines("AST_WITH_AGG")
-end
-
--- 添加matplot++库依赖（可选）
-if has_package("matplotplusplus") then
-    add_defines("AST_WITH_MATPLOT")
-end
-
--- 添加vtk库依赖（可选）
-if has_package("vtk") then
-    add_defines("AST_WITH_VTK")
-end
-
--- 添加openscenegraph库依赖（可选）
-if has_package("openscenegraph") then
-    add_defines("AST_WITH_OSG")
-end
-
--- 添加qt库依赖（可选）
-if has_package("qt") then
-    add_defines("AST_WITH_QT")
-end
-
--- 添加qwt库依赖（可选）
-if has_package("qwt") then
-    add_defines("AST_WITH_QWT")
-end
-
--- 添加ipopt库依赖（可选）
--- if has_package("ipopt") then
---     add_packages("ipopt")
---     add_defines("AST_WITH_IPOPT")
--- end
-
-
-
--- 添加libintl库依赖（可选）
--- if has_package("libintl") then
---     add_packages("libintl")
---     add_defines("AST_WITH_LIBINTL")
--- end
-
--- 添加nlohmann_json库依赖（可选）
--- if has_package("nlohmann_json") then
---     add_packages("nlohmann_json")
---     add_defines("AST_WITH_NLOHMANN_JSON")
--- end
-
-
--- 添加jsoncpp库依赖（可选）
--- if has_package("jsoncpp") then
---     add_packages("jsoncpp")
---     add_defines("AST_WITH_JSONCPP")
--- end
-
--- 添加nodeeditor库依赖（可选）
--- if has_package("nodeeditor") then
---     add_packages("nodeeditor")
---     add_defines("AST_WITH_NODEEDITOR")
--- end
 
 
 -- 添加插件

@@ -11,7 +11,7 @@
  */
 
 #ifdef AST_WITH_AGG
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
 
 #define NOMINMAX
 

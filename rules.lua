@@ -317,6 +317,24 @@ rule("ast.qt.ts")
 
 rule_end()
 
+-- 自动生成根据包名生成 AST_WITH_* 宏：
+-- AST_WITH_ + 包名大写，非字母数字字符替换为下划线，例如：
+--     fmt -> AST_WITH_FMT
+--     matplotplusplus -> AST_WITH_MATPLOTPLUSPLUS
+--     cpp-httplib -> AST_WITH_CPP_HTTPLIB
+local function _package_define(name)
+    return "AST_WITH_" .. name:upper():gsub("[^%w]", "_")
+end
+
+-- 根据目标实际解析到的第三方包自动添加 AST_WITH_* 宏
+rule("ast.package_defines")
+    on_load(function (target)
+        for _, pkg in ipairs(target:orderpkgs()) do
+            target:add("defines", _package_define(pkg:name()))
+        end
+    end)
+rule_end()
+
 -- --packages=none 的校验
 -- 拦截被解析/链接进来的第三方包：
 -- 防止以后在子目录里 add_requires，或规则/插件绕过此模式引入依赖包

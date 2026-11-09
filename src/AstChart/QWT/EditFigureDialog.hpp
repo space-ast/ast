@@ -15,7 +15,7 @@
 #include <QDialogButtonBox>
 #include <QIcon>
 
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
 namespace matplot {
     class figure_type;
     class axes_type;

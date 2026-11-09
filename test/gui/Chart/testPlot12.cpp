@@ -1,4 +1,4 @@
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
 #include "ast/AstPlot.hpp"
 #include "ast/QwtBackend.hpp"
 

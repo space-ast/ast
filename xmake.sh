@@ -125,12 +125,12 @@ option_find_agg() {
     option_end
 }
 
-# matplotplusplus：绘图（AST_WITH_MATPLOT）
+# matplotplusplus：绘图（AST_WITH_MATPLOTPLUSPLUS）
 option "matplotplusplus"
     add_cxxincludes "matplot/matplot.h"
     add_links "matplot"
     before_check "option_find_matplotplusplus"
-    add_defines "AST_WITH_MATPLOT"
+    add_defines "AST_WITH_MATPLOTPLUSPLUS"
 option_end
 
 option_find_matplotplusplus() {

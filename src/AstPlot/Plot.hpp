@@ -22,7 +22,7 @@
 
 #include "AstGlobal.h"
 
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
 A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/matplot.h>
 A_SUPPRESS_WARNINGS_END
@@ -32,7 +32,7 @@ A_SUPPRESS_WARNINGS_END
 
 AST_NAMESPACE_BEGIN
 
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
 namespace plt = matplot;
 #else
 namespace plt = noplot;

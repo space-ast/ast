@@ -22,7 +22,7 @@
 
 #include "AstGlobal.h"
 
-#if defined(AST_WITH_MATPLOT) && defined(AST_WITH_QWT)
+#if defined(AST_WITH_MATPLOTPLUSPLUS) && defined(AST_WITH_QWT)
 
 A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/backend/backend_interface.h>

@@ -23,7 +23,7 @@
 
 #include "AstGlobal.h"
 
-#if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOT)
+#if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOTPLUSPLUS)
 A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/backend/backend_interface.h>
 A_SUPPRESS_WARNINGS_END
@@ -88,4 +88,4 @@ private:
 
 AST_NAMESPACE_END
 
-#endif  // AST_WITH_AGG && AST_WITH_MATPLOT
+#endif  // AST_WITH_AGG && AST_WITH_MATPLOTPLUSPLUS

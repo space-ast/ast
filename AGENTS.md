@@ -93,10 +93,12 @@ make install PREFIX=$HOME/.local/ast   # 也可装到用户级前缀，当 SDK �
 - **Eigen** — 线性代数（`AST_WITH_EIGEN` / `AST_NO_EIGEN`）
 - **fmt** — 格式化输出（`AST_WITH_FMT` / `AST_NO_FMT`）
 - **CSPICE** — NASA SPICE 工具箱（`AST_WITH_CSPICE` / `AST_NO_CSPICE`）
-- **matplot++** — 绘图（`AST_WITH_MATPLOT` / `AST_NO_MATPLOT`）
+- **matplot++** — 绘图（`AST_WITH_MATPLOTPLUSPLUS` / `AST_NO_MATPLOTPLUSPLUS`）
 - **gtest**、**benchmark** — 测试与性能测试
 - **Qt5**、**OpenSceneGraph**、**OpenGL** — GUI/可视化
 - **Python**、**SWIG** — Python 绑定
+
+`AST_WITH_*` 宏由 `ast.package_defines` 规则按目标的 `add_packages()` 自动生成，命名约定为 `AST_WITH_` + 包名大写、非字母数字转下划线（如 `cpp-httplib` → `AST_WITH_CPP_HTTPLIB`），不需要在 `xmake.lua` 里手写。
 
 自定义 xmake 包描述文件位于 `repo/packages/`（按首字母分为 `c/`、`l/`、`m/`、`s/` 子目录）。
 

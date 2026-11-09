@@ -23,7 +23,7 @@
 /// 运行: xmake run osg_two_body_orbit   # 弹出交互窗口，并保存 osg_two_body_orbit.png
 ///
 
-#ifdef AST_WITH_OSG
+#ifdef AST_WITH_OPENSCENEGRAPH
 
 #ifdef _WIN32
 #   define WIN32

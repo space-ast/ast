@@ -19,7 +19,7 @@
 
 #include "AggBackend.hpp"
 
-#if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOT)
+#if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOTPLUSPLUS)
 
 #include <cstdio>
 A_SUPPRESS_WARNINGS_BEGIN
@@ -142,4 +142,4 @@ void AggBackend::draw(matplot::figure_type* f) {
 
 AST_NAMESPACE_END
 
-#endif  // AST_WITH_AGG && AST_WITH_MATPLOT
+#endif  // AST_WITH_AGG && AST_WITH_MATPLOTPLUSPLUS
