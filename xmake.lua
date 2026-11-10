@@ -87,6 +87,7 @@ add_rules("c.unity_build", {batchsize=0})                   -- 不启用C语言�
 -- 自定义规则
 includes("rules.lua")                                       -- 导入ast项目自定义规则
 add_rules("ast")                                            -- 添加ast项目自定义规则
+add_rules("ast.package_defines")                            -- 按目标的 add_packages() 自动添加 AST_WITH_* 宏
 
 -- 设置警告等级，并且将警告作为编译错误处理
 if has_config("check_warnings") then
@@ -210,12 +211,15 @@ else
 
     -- 下载并安装第三方库（可选）
     add_requires("python 3.x", {optional = true, configs = {headeronly = is_plat("linux")}})
-    add_requires("swig >=4.3", {optional = true, asan=false})                       -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.3，见下方说明
+    add_requires("swig >=4.4.1", {optional = true, asan=false})                     -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.4.1，见下方说明
     -- SWIG 版本要求说明：
     --   >=4.2 才支持 `enum class : type` 语法；
     --   >=4.3 才能求值本项目枚举中的初值表达式（enum class EDimension : dimension_t 的初值为constexpr 常量，
     --         enum EColor : color_t 的初值为 rgb()/rgba() constexpr 函数调用），
-    --         4.2.0 会对这些初值报 "Error: Type error. Expecting an integral type" 并以非 0 退出。
+    --         4.2.0 会对这些初值报 "Error: Type error. Expecting an integral type" 并以非 0 退出；
+    --   >=4.4.1 修复了 4.4.0 的问题：AstPy.i 限定了 Py_LIMITED_API=3.5，而 4.4.0 只按 Python 头文件
+    --         版本判断能否直接调用 3.13 新增 API（PyImport_AddModuleRef、PyType_GetFullyQualifiedName 等），
+    --         这些 API 在 Py_LIMITED_API=3.5 下不会被声明，导致生成的 AstPy.cpp 编译失败。
     add_requires("gtest <=1.12.1", {optional = true, configs = {cmake = false}})    -- 可选的gtest库，用于单元测试，gtest v1.12.1 for c++11
     add_requires("benchmark", {optional = true})                                    -- 可选的benchmark库，用于性能测试
     add_requires("replxx", {optional = true})                                       -- 可选的replxx库，用于命令行交互
@@ -287,129 +291,11 @@ end
 -- set_toolchains("@llvm")
 
 
--- 添加abseil库（可选）
--- add_requires("abseil", {optional = true})
--- if has_package("abseil") then
---     add_packages("abseil")
---     add_defines("AST_WITH_ABSEIL")
--- end
-
-if has_package("libf2c") then
-    -- 这里不直接给所有工程添加依赖，只添加宏定义
-    add_defines("AST_WITH_LIBF2C")
-end
-
-if has_package("duktape") then
-    -- 同上：只添加宏定义，避免链接进所有目标
-    add_defines("AST_WITH_DUKTAPE")
-end
-
-if has_package("openvbs") then
-    -- 同上：只添加宏定义，避免链接进所有目标
-    add_defines("AST_WITH_OPENVBS")
-end
-
-if has_package("libcurl") then
-    -- 同上：只添加宏定义，避免链接进所有目标
-    add_defines("AST_WITH_LIBCURL")
-end
-
-if has_package("cpp-httplib") then
-    -- 同上：只添加宏定义，cpp-httplib 仅由 AstPluginCppHTTP 使用
-    add_defines("AST_WITH_CPP_HTTP")
-end
-
--- 添加openmp库依赖（可选）
-if has_package("openmp") then
-    add_packages("openmp")
-    add_defines("AST_WITH_OPENMP")
-end
-
--- 添加fmt库依赖（可选）
-if has_package("fmt") then
-    add_packages("fmt")
-    add_defines("AST_WITH_FMT")
-end
-
 -- 添加Eigen库依赖（可选）
 if has_package("eigen") then
-    add_defines("AST_WITH_EIGEN")
+    -- header-only 库不会引入链接库，可以直接添加依赖
     add_packages("eigen")
 end
-
--- 添加cspice库依赖（可选）
-if has_package("cspice") then
-    add_packages("cspice")
-    add_defines("AST_WITH_CSPICE")
-end
-
-
-if has_package("agg") then
-    add_defines("AST_WITH_AGG")
-    add_packages("agg")
-end
-
--- 添加matplot++库依赖（可选）
-if has_package("matplotplusplus") then
-    add_packages("matplotplusplus")
-    add_defines("AST_WITH_MATPLOT")
-end
-
--- 添加vtk库依赖（可选）
-if has_package("vtk") then
-    add_defines("AST_WITH_VTK")
-    add_packages("vtk")
-end
-
--- 添加openscenegraph库依赖（可选）
-if has_package("openscenegraph") then
-    add_defines("AST_WITH_OSG")
-    add_packages("openscenegraph")
-end
-
--- 添加qt库依赖（可选）
-if has_package("qt") then
-    add_defines("AST_WITH_QT")
-end
-
--- 添加qwt库依赖（可选）
-if has_package("qwt") then
-    add_defines("AST_WITH_QWT")
-    add_packages("qwt")
-end
-
--- 添加ipopt库依赖（可选）
--- if has_package("ipopt") then
---     add_packages("ipopt")
---     add_defines("AST_WITH_IPOPT")
--- end
-
-
-
--- 添加libintl库依赖（可选）
--- if has_package("libintl") then
---     add_packages("libintl")
---     add_defines("AST_WITH_LIBINTL")
--- end
-
--- 添加nlohmann_json库依赖（可选）
--- if has_package("nlohmann_json") then
---     add_packages("nlohmann_json")
---     add_defines("AST_WITH_NLOHMANN_JSON")
--- end
-
-
--- 添加jsoncpp库依赖（可选）
--- if has_package("jsoncpp") then
---     add_packages("jsoncpp")
---     add_defines("AST_WITH_JSONCPP")
--- end
-
--- 添加nodeeditor库依赖（可选）
--- if has_package("nodeeditor") then
---     add_packages("nodeeditor")
---     add_defines("AST_WITH_NODEEDITOR")
--- end
 
 
 -- 添加插件

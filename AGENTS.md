@@ -90,13 +90,15 @@ make install PREFIX=$HOME/.local/ast   # 也可装到用户级前缀，当 SDK �
 ## 可选第三方依赖
 
 所有依赖均为可选，通过 xmake 的 `add_requires(..., {optional = true})` 控制。构建时检查可用性：
-- **Eigen** — 线性代数（`AST_WITH_EIGEN` / `AST_NO_EIGEN`）
-- **fmt** — 格式化输出（`AST_WITH_FMT` / `AST_NO_FMT`）
-- **CSPICE** — NASA SPICE 工具箱（`AST_WITH_CSPICE` / `AST_NO_CSPICE`）
-- **matplot++** — 绘图（`AST_WITH_MATPLOT` / `AST_NO_MATPLOT`）
+- **Eigen** — 线性代数（`AST_WITH_EIGEN`）
+- **fmt** — 格式化输出（`AST_WITH_FMT`）
+- **CSPICE** — NASA SPICE 工具箱（`AST_WITH_CSPICE`）
+- **matplot++** — 绘图（`AST_WITH_MATPLOTPLUSPLUS`）
 - **gtest**、**benchmark** — 测试与性能测试
 - **Qt5**、**OpenSceneGraph**、**OpenGL** — GUI/可视化
 - **Python**、**SWIG** — Python 绑定
+
+`AST_WITH_*` 宏由 `ast.package_defines` 规则按目标的 `add_packages()` 自动生成，命名约定为 `AST_WITH_` + 包名大写、非字母数字转下划线（如 `cpp-httplib` → `AST_WITH_CPP_HTTPLIB`），不需要在 `xmake.lua` 里手写。
 
 自定义 xmake 包描述文件位于 `repo/packages/`（按首字母分为 `c/`、`l/`、`m/`、`s/` 子目录）。
 
@@ -115,7 +117,7 @@ CI 上（覆盖率工作流），构建前会通过 `cp -r test/archive/* test/`
 ## CI
 
 GitHub Actions 工作流：
-- `build.yml` — 在 Windows 和 Linux 上构建（x64 + arm64），包括 debug 和 release。发布 tag 时上传产物。
+- `release.yml` — master 推送和发布 tag 时构建打包（Windows x64/x86/arm64、Linux x86_64/arm64），更新 nightly 并上传正式发布产物。
 - `coverage.yml` — 在 Ubuntu 上以覆盖率模式构建，运行测试，上传 lcov 数据到 Codecov。
 - `deploy-docs.yml` — 将文档部署到 GitHub Pages。
 

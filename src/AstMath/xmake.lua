@@ -4,5 +4,6 @@
     add_headerfiles("**.h", {prefixdir="AstMath"})
     add_files("**.c")
     add_files("**.cpp")
+    add_packages("fmt")
     add_deps("AstUtil")
     add_defines("AST_BUILD_LIB_MATH")

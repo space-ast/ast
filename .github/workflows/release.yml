@@ -1,10 +1,9 @@
-name: 编译
+name: 构建与发布
 
 on:
-  pull_request:
   push:
     branches:
-      - '**'  # 仅分支推送触发，忽略 tag 推送（tag 和 release:published 会出现并发组冲突）
+      - master  # 仅 master 推送触发；tag 推送不触发
   release:
     types: [published]
   workflow_dispatch:  # 手动触发，便于不推 master 也能验证构建与打包
@@ -61,15 +60,13 @@ jobs:
           git tag -f nightly "${{ github.sha }}"
           git push -f origin nightly
 
-  build-windows:
+  release-windows:
     needs: nightly-guard
     # guard 自身失败不该挡住构建（nightly 与否由它的 outputs 决定）；但被取消时不必再跑
     if: ${{ !cancelled() }}
     strategy:
       fail-fast: false
       matrix:
-        # arm64 必须跑在 windows-11-arm 上
-        # 交叉编译出来的 arm64 在 x64 上执行不了，测试无法进行
         target:
           - { runner: windows-2022,   arch: x64   }
           - { runner: windows-2022,   arch: x86   }
@@ -92,31 +89,6 @@ jobs:
           actions-cache-folder: '.xmake-cache'
           actions-cache-key: ${{ matrix.target.runner }}
 
-      # Cache xmake dependencies
-      - name: 配置依赖缓存
-        uses: actions/cache@v4
-        with:
-          path: xmake-cache
-          key: build-${{ matrix.target.runner }}-${{ matrix.target.arch }}-xmake-cache-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}
-
-      # Cache build directory
-      - name: 配置编译缓存
-        if: github.event.action != 'published' && github.ref != 'refs/heads/master'
-        uses: actions/cache@v4
-        with:
-          path: |
-            build
-            .xmake
-          key: build-${{ matrix.target.runner }}-${{ matrix.target.arch }}-build-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
-          restore-keys: |
-            build-${{ matrix.target.runner }}-${{ matrix.target.arch }}-build-v2-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
-
-      - name: 设置xmake相关目录
-        run: |
-          xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
-          xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
-          xmake repo -u
-
       # arm64 上拿不到 Qt
       - name: 配置Qt环境
         if: matrix.target.arch != 'arm64'
@@ -127,7 +99,7 @@ jobs:
 
       - name: 配置debug版本
         run: |
-          xmake f -cy --with_test=y -m debug -a ${{ matrix.target.arch }}
+          xmake f -cy --with_test=n --with_examples=n -m debug -a ${{ matrix.target.arch }}
 
       - name: 编译debug版本
         run: |
@@ -135,7 +107,7 @@ jobs:
 
       - name: 配置release版本
         run: |
-          xmake f -cy --with_test=y -m release -a ${{ matrix.target.arch }}
+          xmake f -cy --with_test=n --with_examples=n -m release -a ${{ matrix.target.arch }}
 
       - name: 编译release版本
         run: |
@@ -143,7 +115,6 @@ jobs:
 
       - name: 打包二进制包
         run: |
-          xmake f -cy --with_test=y -m release -a ${{ matrix.target.arch }}
           xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
 
       - name: 上传产物
@@ -282,30 +253,8 @@ jobs:
           fail_on_unmatched_files: 'true'
           preserve_order: 'true'
 
-      - name: 恢复归档测试用例
-        shell: bash
-        run: cp -r test/archive/* test
-
-      - name: 测试
-        timeout-minutes: 90
-        run: |
-          xmake cpdata
-          xmake test --output-on-failure
-
-      # 超长数据目录测试
-      - name: 准备超长数据目录
-        timeout-minutes: 15
-        run: xmake run PrepareLongPathData
-
-      # 先跑一次 --check，确认 aDataDir 等没有静默回退到默认目录
-      - name: 执行超长数据目录测试
-        timeout-minutes: 90
-        run: |
-          xmake run PrepareLongPathData --check
-          xmake test --output-on-failure
-
   # Linux 在 manylinux_2_28 容器里构建：AlmaLinux 8 + glibc 2.28
-  build-linux:
+  release-linux:
     needs: nightly-guard
     if: ${{ !cancelled() }}
     strategy:
@@ -337,34 +286,11 @@ jobs:
           # 同 build-windows：本 job 不跑任何 git 命令，保持默认浅克隆
           submodules: true
 
-      # 容器镜像很干净：Qt 链接期的 X11/字体/GL 依赖，以及打包要用的 zip，都得自己装
       - name: 配置系统依赖
-        run: |
-          echo "=== 编译器 ==="
-          which -a gcc g++ ld ar ranlib 2>/dev/null || true
-          gcc --version | head -n 1
-          echo "=== CPU 基线 ==="
-          echo | gcc -S -x c -o /dev/null -v - 2>&1 | grep -o 'march=[^ ]*' || true
-          echo "=== 关键环境变量 ==="
-          env | grep -E '^(PATH|LD_LIBRARY_PATH|LIBRARY_PATH|CPATH)=' || true
-          echo "=== 工具链自带的 libstdc++ 版本上限 ==="
-          readelf --version-info /usr/lib64/libstdc++.so.6 2>/dev/null \
-            | grep -oE 'GLIBCXX_[0-9.]+' | sort -V | tail -n 1 || true
-
-          # 容器里的 OpenSSL 只有 1.1.1, libcurl/cpp-httplib 要 OpenSSL 3,
-          # 因此 openssl3 包会从源码构建(见根 xmake.lua)。
-          # 它的 Configure 需要 IPC::Cmd, 生成 Makefile 需要 Time::Piece, IPC::Run 供构建脚本使用。
-          dnf install -y --setopt=install_weak_deps=False \
-            zip unzip xz tar which git curl wget \
-            binutils make pkgconf-pkg-config \
-            mesa-libGL-devel mesa-libGLU-devel \
-            libX11-devel libXext-devel libXrender-devel libXrandr-devel libXfixes-devel \
-            libXi-devel libXcursor-devel libXinerama-devel libXScrnSaver-devel \
-            libxcb-devel libxkbcommon-devel libxkbcommon-x11-devel \
-            fontconfig-devel freetype-devel libpng-devel \
-            glib2-devel dbus-devel alsa-lib-devel libSM-devel libICE-devel \
-            openssl-devel \
-            perl-IPC-Cmd perl-IPC-Run perl-Time-Piece
+        uses: ./.github/actions/setup-manylinux-deps
+        with:
+          # 发布构建额外打印工具链诊断，便于排查 ABI 相关问题时对照
+          diagnostics: 'true'
 
       - uses: xmake-io/github-action-setup-xmake@v1
         with:
@@ -372,42 +298,8 @@ jobs:
           actions-cache-folder: '.xmake-cache'
           actions-cache-key: ${{ matrix.image }}
 
-      # 缓存键里加上的第三方库的内容哈希，使第三方库的内容改变时触发重新编译
-      - name: 配置依赖缓存
-        uses: actions/cache@v4
-        with:
-          path: xmake-cache
-          key: xmake-deps-${{ matrix.image }}-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v1
-
-      # 缓存键里加上的第三方库的内容哈希，使第三方库的内容改变时触发重新编译
-      - name: 配置编译缓存
-        if: github.event.action != 'published' && github.ref != 'refs/heads/master'
-        uses: actions/cache@v4
-        with:
-          path: |
-            build
-            .xmake
-          key: xmake-build-${{ matrix.image }}-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
-          restore-keys: |
-            xmake-build-${{ matrix.image }}-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
-
-      - name: 设置xmake相关目录
-        run: |
-          xmake g --pkg_cachedir="$(pwd)/xmake-cache/cache"
-          xmake g --pkg_installdir="$(pwd)/xmake-cache/packages"
-          xmake repo -u
-
-      # aqt 和 AstPy 都要 Python，而 manylinux 的 /opt/python/*/bin 不在默认 PATH 上。
-      # 避免退回到没有头文件的系统 python，导致编译 AstPy 时报错
       - name: 准备 Python
-        run: |
-          pybin="$(ls -d /opt/python/cp3*/bin 2>/dev/null | sort -V | tail -n 1)"
-          if [ -z "$pybin" ]; then
-            echo "::error::容器里找不到 /opt/python/cp3*/bin"
-            exit 1
-          fi
-          echo "$pybin" >> "$GITHUB_PATH"
-          "$pybin/python3" --version
+        uses: ./.github/actions/setup-manylinux-python
 
       # Qt 5.15.2 没有 linux_arm64 官方构建，arm64 只能跳过
       - name: 配置Qt环境
@@ -421,7 +313,7 @@ jobs:
       # linux 下只用编译 release 版本
       - name: 配置release版本
         run: |
-          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
+          xmake f -cy --with_test=n --with_examples=n -m release -a ${{ matrix.arch }}
 
       - name: 编译release版本
         run: |
@@ -429,7 +321,6 @@ jobs:
 
       - name: 打包二进制包
         run: |
-          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
           xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
 
       # 检查动态库的 ABI 版本是否符合要求，使得能在大部分linux发行版上运行。
@@ -447,14 +338,9 @@ jobs:
             --glibc-exception='lib/libcurl.so.4*:2.28' \
             --glibcxx-exception='lib/libAstPluginCppHTTP.so:3.4.22'
 
-      - name: 测试 xmake.sh 编译
-        run: |
-          ./scripts/xpack/runself.sh --builddir=build-xsh
-          rm -rf build-xsh
-
       - name: 打包自安装源码包
+        if: matrix.arch == 'x86_64'
         run: |
-          xmake f -cy --with_test=y -m release -a ${{ matrix.arch }}
           xmake pack -y -f runself -o artifacts/ --basename=SpaceAST
 
       - name: 上传产物
@@ -601,22 +487,3 @@ jobs:
           overwrite_files: 'true'
           fail_on_unmatched_files: 'true'
           preserve_order: 'true'
-
-      - name: 测试
-        timeout-minutes: 90
-        run: |
-          cp -r test/archive/* test
-          xmake cpdata
-          xmake test --output-on-failure
-
-      # 超长数据目录测试
-      - name: 准备超长数据目录
-        timeout-minutes: 15
-        run: xmake run PrepareLongPathData
-
-      # 先跑一次 --check，确认 aDataDir 等没有静默回退到默认目录
-      - name: 执行超长数据目录测试
-        timeout-minutes: 90
-        run: |
-          xmake run PrepareLongPathData --check
-          xmake test --output-on-failure

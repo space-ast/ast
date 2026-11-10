@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined(AST_WITH_MATPLOT) && defined(AST_WITH_AGG)
+#if defined(AST_WITH_MATPLOTPLUSPLUS) && defined(AST_WITH_AGG)
 #include "AstCompiler.h"
 
 A_SUPPRESS_WARNINGS_BEGIN
@@ -61,4 +61,4 @@ private:
 
 AST_NAMESPACE_END
 
-#endif  // AST_WITH_AGG && AST_WITH_MATPLOT
+#endif  // AST_WITH_AGG && AST_WITH_MATPLOTPLUSPLUS

@@ -21,7 +21,7 @@
 #include "QwtBackend.hpp"
 #include "AstUtil/Logger.hpp"
 
-#if defined(AST_WITH_QWT) && defined(AST_WITH_MATPLOT)
+#if defined(AST_WITH_QWT) && defined(AST_WITH_MATPLOTPLUSPLUS)
 
 #include <QPen>
 #include <QBrush>
@@ -459,7 +459,7 @@ AST_NAMESPACE_END
 AST_NAMESPACE_BEGIN
 
 void aUseQwtBackend() {
-    #if defined(AST_WITH_QWT) && defined(AST_WITH_MATPLOT)
+    #if defined(AST_WITH_QWT) && defined(AST_WITH_MATPLOTPLUSPLUS)
     matplot::register_backend("qwt", []() -> matplot::backend::backend_interface* {
         return new QwtBackend();
     });

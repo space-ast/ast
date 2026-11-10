@@ -6,7 +6,7 @@
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
 ///
 
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
 #include "EditFigureDialog.hpp"
 #include "PropertyPages.hpp"
 A_SUPPRESS_WARNINGS_BEGIN

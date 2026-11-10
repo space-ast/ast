@@ -1,6 +1,6 @@
 #include "AggVisitor.hpp"
 
-#if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOT)
+#if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOTPLUSPLUS)
 
 A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/core/axes_type.h>
@@ -581,4 +581,4 @@ void AggVisitor::visit(matplot::line& l) {
 AST_NAMESPACE_END
 
 
-#endif  // AST_WITH_AGG && AST_WITH_MATPLOT
+#endif  // AST_WITH_AGG && AST_WITH_MATPLOTPLUSPLUS

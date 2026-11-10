@@ -8,6 +8,11 @@ add_deps(
 
 set_warnings("more")
 
+add_packages("matplotplusplus")
+add_packages("agg")
+add_packages("cspice")
+add_packages("openmp")
+
 -- 添加 `examples` 和 `docs` 下面的所有cpp文件作为示例
 local patterns = {
     "**/*.cpp",

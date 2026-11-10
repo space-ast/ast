@@ -7,7 +7,7 @@
 ///
 
 #include "PropertyPages.hpp"
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
 A_SUPPRESS_WARNINGS_BEGIN
 #include <matplot/core/axes_type.h>
 #include <matplot/core/line_spec.h>
@@ -52,7 +52,7 @@ void ColorButton::onClick()
     }
 }
 
-#ifdef AST_WITH_MATPLOT
+#ifdef AST_WITH_MATPLOTPLUSPLUS
 // ============ AxesPropertyPage ============
 
 AxesPropertyPage::AxesPropertyPage(QWidget* parent) : QWidget(parent)

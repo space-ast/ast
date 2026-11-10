@@ -383,4 +383,4 @@ void AggRenderer::save_bmp(const char* filename) const {
 
 AST_NAMESPACE_END
 
-#endif // AST_WITH_AGG && AST_WITH_MATPLOT
+#endif // AST_WITH_AGG && AST_WITH_MATPLOTPLUSPLUS

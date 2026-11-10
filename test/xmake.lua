@@ -18,6 +18,20 @@ add_deps(
     "AstEngine"
 )
 
+add_packages("fmt")
+add_packages("matplotplusplus")
+add_packages("agg")
+add_packages("cspice")
+-- 添加gtest库依赖（可选）
+add_packages("gtest")
+-- 添加benchmark库依赖（可选）
+add_packages("benchmark")
+-- 确保测试代码在运行时能找到libcurl库
+add_packages("libcurl", {links = {}})
+-- 插件相关测试需要对应的 AST_WITH_* 宏；插件运行时动态加载，这里只引入包、不链接
+add_packages("cpp-httplib", "duktape", "openvbs", {links = {}})
+
+
 if is_plat("windows") and has_config("with_com") then
     add_defines("AST_WITH_COM")
     add_deps("AstCOM")
@@ -27,22 +41,6 @@ if is_plat("windows") then
     add_cxflags("/utf-8")
 end
 
--- 添加gtest库依赖（可选）
-if has_package("gtest") then
-    add_packages("gtest")
-    add_defines("AST_WITH_GTEST")
-end
-
--- 添加benchmark库依赖（可选）
-if has_package("benchmark") then
-    add_packages("benchmark")
-    add_defines("AST_WITH_BENCHMARK")
-end
-
--- 确保测试代码在运行时能找到libcurl库
-if has_package("libcurl") then
-    add_packages("libcurl", {links = {}})
-end
 
 set_warnings("more")
 

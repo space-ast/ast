@@ -4,10 +4,9 @@ name: 零依赖构建
 # 单独作为一个 workflow，避免和主构建的依赖缓存、Qt 下载、打包发布流程耦合
 
 on:
-  pull_request:
   push:
     branches:
-      - '**'
+      - '**'  # 仅分支推送触发，忽略 tag 推送
   workflow_dispatch:
 
 permissions:
@@ -15,27 +14,34 @@ permissions:
 
 jobs:
   build:
-    name: build (${{ matrix.os }})
+    name: build (${{ matrix.runner }})
     strategy:
       fail-fast: false
       matrix:
-        os:
-          - ubuntu-22.04
-          - windows-2022
-    runs-on: ${{ matrix.os }}
+        include:
+          - runner: ubuntu-latest
+            arch: x86_64
+            mode: 'release'
+          - runner: windows-latest
+            arch: x64
+            mode: 'release'
+    runs-on: ${{ matrix.runner }}
     concurrency:
-      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-nopackages-${{ matrix.os }}
+      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-nopackages-${{ matrix.runner }}
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - uses: xmake-io/github-action-setup-xmake@v1
+      - uses: ./.github/actions/setup-xmake
         with:
-          xmake-version: branch@dev
+          os: ${{ matrix.runner }}
+          arch: ${{ matrix.arch }}
+          mode: ${{ matrix.mode }}
+          package-cache: false
 
-      - name: 配置 release 版本
-        run: xmake f -cy --packages=none -m release
+      - name: 配置 ${{ matrix.mode }} 版本
+        run: xmake f -cy --packages=none -m ${{ matrix.mode }}
 
       - name: 编译
         run: xmake -ay
