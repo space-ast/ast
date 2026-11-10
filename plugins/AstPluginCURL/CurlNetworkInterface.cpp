@@ -310,7 +310,7 @@ errc_t CurlNetworkInterface::requestStream(const NetworkRequest& request,
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 300L);
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 2L);
-#if defined(__linux__)
+#if defined(__linux__) && 0
     // 空串表示没找到，保留 libcurl 默认 CA 配置。
     // 变量必须活到 perform 之后，不要直接传 aGetCaCertFile().c_str()。
     std::string caCertFile;
