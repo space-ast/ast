@@ -14,16 +14,16 @@ permissions:
 
 jobs:
   build:
-    name: build (${{ matrix.os }})
+    name: build (${{ matrix.runner }})
     strategy:
       fail-fast: false
       matrix:
-        os:
+        runner:
           - ubuntu-22.04
           - windows-2022
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.runner }}
     concurrency:
-      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-nopackages-${{ matrix.os }}
+      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-nopackages-${{ matrix.runner }}
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
@@ -32,6 +32,12 @@ jobs:
       - uses: xmake-io/github-action-setup-xmake@v1
         with:
           xmake-version: branch@dev
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: ${{ matrix.runner }}
+          package-cache: true
+          package-cache-key: ${{ matrix.runner }}
+          build-cache: true
+          build-cache-key: ${{ matrix.runner }}
 
       - name: 配置 release 版本
         run: xmake f -cy --packages=none -m release

@@ -1,0 +1,45 @@
+name: 准备 manylinux 系统依赖
+description: 在 manylinux 容器里安装 Qt 链接期依赖与打包工具
+
+inputs:
+  diagnostics:
+    description: 是否额外打印编译器、CPU 基线、环境变量与工具链 libstdc++ 版本上限
+    required: false
+    default: 'false'
+
+runs:
+  using: composite
+  steps:
+    - name: 环境诊断
+      if: inputs.diagnostics == 'true'
+      shell: bash
+      run: |
+        echo "=== 编译器 ==="
+        which -a gcc g++ ld ar ranlib 2>/dev/null || true
+        gcc --version | head -n 1
+        echo "=== CPU 基线 ==="
+        echo | gcc -S -x c -o /dev/null -v - 2>&1 | grep -o 'march=[^ ]*' || true
+        echo "=== 关键环境变量 ==="
+        env | grep -E '^(PATH|LD_LIBRARY_PATH|LIBRARY_PATH|CPATH)=' || true
+        echo "=== 工具链自带的 libstdc++ 版本上限 ==="
+        readelf --version-info /usr/lib64/libstdc++.so.6 2>/dev/null \
+          | grep -oE 'GLIBCXX_[0-9.]+' | sort -V | tail -n 1 || true
+
+    - name: 安装系统依赖
+      shell: bash
+      run: |
+        # 容器镜像很干净: Qt 链接期的 X11/字体/GL 依赖，以及打包要用的 zip, 都得自己装。
+        # 容器里的 OpenSSL 只有 1.1.1, libcurl/cpp-httplib 要 OpenSSL 3,
+        # 因此 openssl3 包会从源码构建(见根 xmake.lua)。
+        # 它的 Configure 需要 IPC::Cmd, 生成 Makefile 需要 Time::Piece, IPC::Run 供构建脚本使用。
+        dnf install -y --setopt=install_weak_deps=False \
+          zip unzip xz tar which git curl wget \
+          binutils make pkgconf-pkg-config \
+          mesa-libGL-devel mesa-libGLU-devel \
+          libX11-devel libXext-devel libXrender-devel libXrandr-devel libXfixes-devel \
+          libXi-devel libXcursor-devel libXinerama-devel libXScrnSaver-devel \
+          libxcb-devel libxkbcommon-devel libxkbcommon-x11-devel \
+          fontconfig-devel freetype-devel libpng-devel \
+          glib2-devel dbus-devel alsa-lib-devel libSM-devel libICE-devel \
+          openssl-devel \
+          perl-IPC-Cmd perl-IPC-Run perl-Time-Piece

@@ -1,0 +1,36 @@
+name: 准备 SWIG
+description: 安装固定版本的 SWIG，校验后顶到 PATH 最前
+
+inputs:
+  version:
+    description: SWIG 版本
+    required: false
+    default: '4.4.1'
+
+runs:
+  using: composite
+  steps:
+    - name: 检查系统是否已安装 SWIG
+      shell: bash
+      run: |
+        echo "system swig path: $(command -v swig || echo 未找到)"
+        swig -version || true
+        
+    - name: 安装并校验 SWIG
+      shell: bash
+      run: |
+        # xmake 的 swig 规则按 PATH 查找 swig, 不认 add_packages 提供的路径；
+        # 系统自带的版本可能不满足要求（例如 4.4.0 在 Py_LIMITED_API 下会生成编不过的代码），
+        # 这里显式安装固定版本并顶到 PATH 最前；找不到就直接失败，避免静默回退到系统版本。
+        xrepo install -yv "swig ${{ inputs.version }}"
+        # 包安装目录由 xmake 自己给出
+        PKG_INSTALLDIR="$(xmake l -c 'import("core.package.package"); print(package.installdir())')"
+        # 缓存里可能残留其它版本，只在目标版本目录里找，并校验选中二进制的版本
+        SWIG_BIN="$(find "$PKG_INSTALLDIR/s/swig" -path "*/${{ inputs.version }}/*" -name swig \( -type f -o -type l \) -print -quit)"
+        test -n "$SWIG_BIN"
+        SWIG_DIR="$(dirname "$SWIG_BIN")"
+        echo "xmake swig path: $SWIG_DIR"
+        SWIG_VERSION="$("$SWIG_BIN" -version 2>&1 || true)"
+        echo "$SWIG_VERSION"
+        echo "$SWIG_VERSION" | grep -qF "${{ inputs.version }}" || { echo "swig 版本不是 ${{ inputs.version }}"; exit 1; }
+        echo "$SWIG_DIR" >> "$GITHUB_PATH"
