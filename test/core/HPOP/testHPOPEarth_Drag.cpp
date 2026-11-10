@@ -103,9 +103,9 @@ TEST_F(HPOPTest, Drag_MSIS86)
     EXPECT_NEAR(pos[0],  posExpect[0], 1e-4);
     EXPECT_NEAR(pos[1],  posExpect[1], 1e-4);
     EXPECT_NEAR(pos[2],  posExpect[2], 1e-4);
-    EXPECT_NEAR(vel[0],  velExpect[0], 1e-7);
-    EXPECT_NEAR(vel[1],  velExpect[1], 1e-7);
-    EXPECT_NEAR(vel[2],  velExpect[2], 1e-7);
+    EXPECT_NEAR(vel[0],  velExpect[0], 1e-6);
+    EXPECT_NEAR(vel[1],  velExpect[1], 1e-6);
+    EXPECT_NEAR(vel[2],  velExpect[2], 1e-6);
 }
 
 

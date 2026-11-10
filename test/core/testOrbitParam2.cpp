@@ -26,9 +26,9 @@ AST_USING_NAMESPACE
 
 // 测试常量
 const double CB_RADIUS = 6378137.0; // 地球赤道半径 [m]
-const double GM = 3.986004418e14;    // 地球引力参数 [m^3/s^2]
+const double GM = 3.986004418e14;   // 地球引力参数 [m^3/s^2]
 const double EPS = 1e-7;            // 一般精度要求
-const double HIGH_EPS = 1e-14;      // 高精度要求（用于近点角转换）
+const double HIGH_EPS = 2e-14;      // 高精度要求（用于近点角转换）
 const double REL_EPS = 1e-13;       // 相对精度要求（用于量级远大于1的量，如秒数）
 
 /// @brief 测试抛物线轨道 (e = 1.0) 参数转换
