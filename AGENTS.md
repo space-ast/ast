@@ -90,10 +90,10 @@ make install PREFIX=$HOME/.local/ast   # 也可装到用户级前缀，当 SDK �
 ## 可选第三方依赖
 
 所有依赖均为可选，通过 xmake 的 `add_requires(..., {optional = true})` 控制。构建时检查可用性：
-- **Eigen** — 线性代数（`AST_WITH_EIGEN` / `AST_NO_EIGEN`）
-- **fmt** — 格式化输出（`AST_WITH_FMT` / `AST_NO_FMT`）
-- **CSPICE** — NASA SPICE 工具箱（`AST_WITH_CSPICE` / `AST_NO_CSPICE`）
-- **matplot++** — 绘图（`AST_WITH_MATPLOTPLUSPLUS` / `AST_NO_MATPLOTPLUSPLUS`）
+- **Eigen** — 线性代数（`AST_WITH_EIGEN`）
+- **fmt** — 格式化输出（`AST_WITH_FMT`）
+- **CSPICE** — NASA SPICE 工具箱（`AST_WITH_CSPICE`）
+- **matplot++** — 绘图（`AST_WITH_MATPLOTPLUSPLUS`）
 - **gtest**、**benchmark** — 测试与性能测试
 - **Qt5**、**OpenSceneGraph**、**OpenGL** — GUI/可视化
 - **Python**、**SWIG** — Python 绑定
