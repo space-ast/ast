@@ -1,0 +1,18 @@
+name: 准备 manylinux Python
+description: 把 manylinux 容器里的 Python 顶到 PATH 最前
+
+runs:
+  using: composite
+  steps:
+    # aqt 和 AstPy 都要 Python，而 manylinux 的 /opt/python/*/bin 不在默认 PATH 上。
+    # 避免退回到没有头文件的系统 python，导致编译 AstPy 时报错
+    - name: 准备 Python
+      shell: bash
+      run: |
+        pybin="$(ls -d /opt/python/cp3*/bin 2>/dev/null | sort -V | tail -n 1)"
+        if [ -z "$pybin" ]; then
+          echo "::error::容器里找不到 /opt/python/cp3*/bin"
+          exit 1
+        fi
+        echo "$pybin" >> "$GITHUB_PATH"
+        "$pybin/python3" --version

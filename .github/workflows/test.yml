@@ -2,6 +2,8 @@ name: 测试
 
 on:
   pull_request:
+    paths-ignore:
+      - '**/*.md'
   workflow_dispatch:  # 手动触发，便于不推分支也能验证测试
 
 jobs:
@@ -11,6 +13,8 @@ jobs:
       fail-fast: false
       matrix:
         mode: [release, debug, asan]
+        # arm64 必须跑在 ubuntu-22.04-arm/windows-11-arm 上
+        # 交叉编译出来的 arm64 在 x86_64/x64 上执行不了，测试无法进行
         target:
           - { runner: ubuntu-latest,    arch: x86_64 }
           - { runner: ubuntu-22.04-arm, arch: arm64  }
@@ -32,42 +36,12 @@ jobs:
           xmake-version: branch@dev
           actions-cache-folder: '.xmake-cache'
           actions-cache-key: ${{ matrix.target.runner }}
-          
-      - name: 配置依赖缓存
-        uses: actions/cache@v4
-        with:
-          # 包里有一些二进制工具，没必要每个 mode 都缓存一份，避免占用过多缓存额度
-          path: xmake-cache
-          key: test-${{ matrix.target.runner }}-${{ matrix.target.arch }}-xmake-cache-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-v1
-
-      - name: 配置编译缓存
-        if: github.ref != 'refs/heads/master'
-        uses: actions/cache@v4
-        with:
-          path: |
-            build
-            .xmake
-          key: test-${{ matrix.target.runner }}-${{ matrix.target.arch }}-${{ matrix.mode }}-build-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-${{ github.sha }}
-          restore-keys: |
-            test-${{ matrix.target.runner }}-${{ matrix.target.arch }}-${{ matrix.mode }}-build-v1-${{ hashFiles('repo/packages/**', 'thirdparty/**') }}-
-
-      - name: 设置xmake相关目录
-        run: |
-          xmake g --pkg_cachedir=$(pwd)/xmake-cache/cache
-          xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
-          xmake repo -u
-
+          package-cache: true
+          package-cache-key: ${{ matrix.target.runner }}
+  
       - name: 准备 SWIG
         if: runner.os == 'Linux'
-        run: |
-          # xmake 的 swig 规则按 PATH 查找 swig, 不认 add_packages 提供的路径；
-          # 系统自带的版本可能不满足要求（如 4.4.0 在 Py_LIMITED_API 下会生成编不过的代码），
-          # 这里显式安装固定版本并顶到 PATH 最前；找不到就直接失败，避免静默回退到系统版本。
-          xrepo install -yv "swig 4.4.1"
-          SWIG_BIN="$(find "$PWD/xmake-cache/packages/s/swig" -name swig \( -type f -o -type l \) | head -1)"
-          test -n "$SWIG_BIN"
-          echo "$(dirname "$SWIG_BIN")" >> "$GITHUB_PATH"
-          "$SWIG_BIN" -version
+        uses: ./.github/actions/setup-swig
 
       - name: 配置项目
         # 依赖包安装要从网络取源码并编译，卡住时必须尽快失败，别耗满 6 小时的默认超时
@@ -108,3 +82,91 @@ jobs:
         run: |
           xmake run PrepareLongPathData --check
           xmake test --output-on-failure
+
+  # release.yml 的 Linux 产物在 manylinux_2_28 容器里构建（glibc 2.28），
+  # 上面的 ubuntu-latest / ubuntu-22.04-arm 用的是新 glibc，测不出老系统上的运行期问题
+  # 因此在同样的容器里再构建一次 release 并跑测试。
+  # 这里不装 Qt：test/gui 下的目标没有 add_tests，xmake test 不会执行它们，
+  # Qt 只影响编译范围，不影响测试结果。
+  test-manylinux:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-22.04
+            image: manylinux_2_28_x86_64
+            arch: x86_64
+          - runner: ubuntu-22.04-arm
+            image: manylinux_2_28_aarch64
+            arch: arm64
+    runs-on: ${{ matrix.runner }}
+    container:
+      image: quay.io/pypa/${{ matrix.image }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      # 容器里以 root 运行，xmake 默认拒绝工作，需要设置 XMAKE_ROOT=y 才能正常工作
+      XMAKE_ROOT: y
+    concurrency:
+      group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-manylinux-${{ matrix.arch }}-test
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      # 与 release.yml 的 release-linux 保持同一套系统依赖
+      - name: 配置系统依赖
+        uses: ./.github/actions/setup-manylinux-deps
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: branch@dev
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: ${{ matrix.image }}
+          package-cache: true
+          package-cache-key: ${{ matrix.image }}
+
+      - name: 准备 Python
+        uses: ./.github/actions/setup-manylinux-python
+
+      - name: 配置项目
+        # 依赖包安装要从网络取源码并编译，卡住时必须尽快失败
+        timeout-minutes: 60
+        run: |
+          xmake f -cy --with_test=y --check_warnings=n -m release -a ${{ matrix.arch }}
+          xmake show
+
+      - name: 恢复归档测试用例
+        shell: bash
+        run: cp -r test/archive/* test
+
+      - name: 编译
+        run: xmake -ay
+
+      - name: 执行release测试
+        timeout-minutes: 90
+        run: |
+          xmake cpdata
+          xmake test --output-on-failure
+
+      # 超长数据目录测试
+      - name: 准备超长数据目录
+        timeout-minutes: 15
+        run: xmake run PrepareLongPathData
+
+      # 先跑一次 --check，确认 aDataDir 等没有静默回退到默认目录
+      - name: 执行超长数据目录测试
+        timeout-minutes: 90
+        run: |
+          xmake run PrepareLongPathData --check
+          xmake test --output-on-failure
+
+      # xmake.sh（configure + make）构建冒烟测试，源码自解压包安装时走的就是这条路径。
+      # 用独立的 builddir，不与上面的 xmake 构建目录冲突。
+      - name: 测试 xmake.sh 编译
+        timeout-minutes: 60
+        run: |
+          ./scripts/xpack/runself.sh --builddir=build-xsh
+          rm -rf build-xsh
