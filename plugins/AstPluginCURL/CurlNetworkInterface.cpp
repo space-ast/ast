@@ -153,7 +153,7 @@ const char* methodToString(ENetworkRequestMethod method)
     }
 }
 
-#if defined(__linux__)
+#if defined(__linux__) && 0
 /// URL 是否以 https:// 开头（大小写不敏感）
 bool isHttpsUrl(const std::string& url)
 {
