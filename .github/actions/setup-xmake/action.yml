@@ -6,8 +6,22 @@ inputs:
     description: xmake 版本
     required: false
     default: 'branch@dev'
-  cache-key:
-    description: 三套缓存共用的 key
+  package-cache:
+    description: 是否启用依赖包缓存
+    required: false
+    default: true
+  build-cache:
+    description: 是否启用编译缓存
+    required: false
+    default: true
+  os:
+    description: 操作系统名称
+    required: true
+  arch:
+    description: 架构名称
+    required: true
+  mode:
+    description: 构建模式
     required: true
 
 runs:
@@ -18,11 +32,11 @@ runs:
       with:
         xmake-version: ${{ inputs.xmake-version }}
         actions-cache-folder: '.xmake-cache'
-        actions-cache-key: ${{ inputs.cache-key }}
-        package-cache: true
-        package-cache-key: ${{ inputs.cache-key }}
-        build-cache: true
-        build-cache-key: ${{ inputs.cache-key }}
+        actions-cache-key: ${{ inputs.os }}
+        package-cache: ${{ inputs.package-cache }}
+        package-cache-key: ${{ inputs.os }}-${{ inputs.arch }}-${{ inputs.mode }}
+        build-cache: ${{ inputs.build-cache }}
+        build-cache-key: ${{ inputs.os }}-${{ inputs.arch }}-${{ inputs.mode }}
 
     # package-cache 只覆盖全局包目录；
     # set_sourcedir 的本地包装在 build/.packages，用单独的 cache 补上。
@@ -33,9 +47,10 @@ runs:
     # 这里枚举到第 4 层（<哈希> 安装目录和 cache 目录），
     # 再排除 cache，且 manifest 里不出现它们的祖先目录。
     - name: 缓存本地包
+      if: ${{ inputs.package-cache == 'true' }}
       uses: actions/cache@v4
       with:
         path: |
           build/.packages/*/*/*/*
           !build/.packages/*/*/*/cache
-        key: xmake-local-packages-${{ inputs.cache-key }}
+        key: xmake-local-packages-${{ inputs.os }}-${{ inputs.arch }}-${{ inputs.mode }}

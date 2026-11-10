@@ -31,7 +31,9 @@ jobs:
 
       - uses: ./.github/actions/setup-xmake
         with:
-          cache-key: 'ubuntu-latest'
+          os: 'ubuntu-latest'
+          arch: 'x86_64'
+          mode: 'coverage'
 
       - name: 安装依赖
         run: |

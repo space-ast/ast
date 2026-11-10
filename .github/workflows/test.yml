@@ -19,7 +19,7 @@ jobs:
         # arm64 必须跑在 ubuntu-22.04-arm/windows-11-arm 上
         # 交叉编译出来的 arm64 在 x86_64/x64 上执行不了，测试无法进行
         target:
-          - { runner: ubuntu-latest,    arch: x86_64 }
+          - { runner: ubuntu-22.04,     arch: x86_64 }
           - { runner: ubuntu-22.04-arm, arch: arm64  }
           - { runner: windows-2022,     arch: x64    }
           - { runner: windows-2022,     arch: x86    }
@@ -34,7 +34,9 @@ jobs:
 
       - uses: ./.github/actions/setup-xmake
         with:
-          cache-key: ${{ matrix.target.runner }}
+          os: ${{ matrix.target.runner }}
+          arch: ${{ matrix.target.arch }}
+          mode: ${{ matrix.mode }}
   
       - name: 准备 SWIG
         if: runner.os == 'Linux'
@@ -82,7 +84,7 @@ jobs:
 
   # release.yml 的 Linux 产物在 manylinux_2_28 容器里构建（glibc 2.28），
   # 上面的 ubuntu-latest / ubuntu-22.04-arm 用的是新 glibc，测不出老系统上的运行期问题
-  # 因此在同样的容器里再构建一次 release 并跑测试。
+  # 因此在同样的容器里再构建一次并跑测试。
   # 这里不装 Qt：test/gui 下的目标没有 add_tests，xmake test 不会执行它们，
   # Qt 只影响编译范围，不影响测试结果。
   test-manylinux:
@@ -93,9 +95,11 @@ jobs:
           - runner: ubuntu-22.04
             image: manylinux_2_28_x86_64
             arch: x86_64
+            mode: release
           - runner: ubuntu-22.04-arm
             image: manylinux_2_28_aarch64
             arch: arm64
+            mode: release
     runs-on: ${{ matrix.runner }}
     container:
       image: quay.io/pypa/${{ matrix.image }}
@@ -119,7 +123,9 @@ jobs:
 
       - uses: ./.github/actions/setup-xmake
         with:
-          cache-key: ${{ matrix.image }}
+          os: ${{ matrix.image }}
+          arch: ${{ matrix.arch }}
+          mode: ${{ matrix.mode }}
 
       - name: 准备 Python
         uses: ./.github/actions/setup-manylinux-python
@@ -128,7 +134,7 @@ jobs:
         # 依赖包安装要从网络取源码并编译，卡住时必须尽快失败
         timeout-minutes: 60
         run: |
-          xmake f -cy --with_test=y --check_warnings=n -m release -a ${{ matrix.arch }}
+          xmake f -cy --with_test=y --check_warnings=n -m ${{ matrix.mode }} -a ${{ matrix.arch }}
           xmake show
 
       - name: 恢复归档测试用例
@@ -138,7 +144,7 @@ jobs:
       - name: 编译
         run: xmake -ay
 
-      - name: 执行release测试
+      - name: 执行${{ matrix.mode }}测试
         timeout-minutes: 90
         run: |
           xmake cpdata
