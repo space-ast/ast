@@ -29,17 +29,9 @@ jobs:
         with:
           submodules: true
 
-      - uses: xmake-io/github-action-setup-xmake@v1
+      - uses: ./.github/actions/setup-xmake
         with:
-          # this is not supported, use dev branch instead
-          # xmake-version: local#
-          xmake-version: branch@dev
-          actions-cache-folder: '.xmake-cache'
-          actions-cache-key: ${{ matrix.target.runner }}
-          package-cache: true
-          package-cache-key: ${{ matrix.target.runner }}
-          build-cache: true
-          build-cache-key: ${{ matrix.target.runner }}
+          cache-key: ${{ matrix.target.runner }}
   
       - name: 准备 SWIG
         if: runner.os == 'Linux'
@@ -122,15 +114,9 @@ jobs:
       - name: 配置系统依赖
         uses: ./.github/actions/setup-manylinux-deps
 
-      - uses: xmake-io/github-action-setup-xmake@v1
+      - uses: ./.github/actions/setup-xmake
         with:
-          xmake-version: branch@dev
-          actions-cache-folder: '.xmake-cache'
-          actions-cache-key: ${{ matrix.image }}
-          package-cache: true
-          package-cache-key: ${{ matrix.image }}
-          build-cache: true
-          build-cache-key: ${{ matrix.image }}
+          cache-key: ${{ matrix.image }}
 
       - name: 准备 Python
         uses: ./.github/actions/setup-manylinux-python

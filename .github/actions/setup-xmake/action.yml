@@ -1,0 +1,41 @@
+name: 准备 xmake
+description: 安装 xmake, 并统一启用 xmake 本体、依赖包与编译三套缓存
+
+inputs:
+  xmake-version:
+    description: xmake 版本
+    required: false
+    default: 'branch@dev'
+  cache-key:
+    description: 三套缓存共用的 key
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: 安装 xmake 并启用缓存
+      uses: xmake-io/github-action-setup-xmake@v1
+      with:
+        xmake-version: ${{ inputs.xmake-version }}
+        actions-cache-folder: '.xmake-cache'
+        actions-cache-key: ${{ inputs.cache-key }}
+        package-cache: true
+        package-cache-key: ${{ inputs.cache-key }}
+        build-cache: true
+        build-cache-key: ${{ inputs.cache-key }}
+
+    # package-cache 只覆盖全局包目录；
+    # set_sourcedir 的本地包装在 build/.packages，用单独的 cache 补上。
+    #
+    # 只缓存安装产物，排除 <版本>/cache 下的构建树。
+    # 不能直接写 path: build/.packages 再配 !...
+    # glob 不展开被点名的目录，而 tar 又会递归打包目录，排除项对父目录里的内容无效。
+    # 这里枚举到第 4 层（<哈希> 安装目录和 cache 目录），
+    # 再排除 cache，且 manifest 里不出现它们的祖先目录。
+    - name: 缓存本地包
+      uses: actions/cache@v4
+      with:
+        path: |
+          build/.packages/*/*/*/*
+          !build/.packages/*/*/*/cache
+        key: xmake-local-packages-${{ inputs.cache-key }}

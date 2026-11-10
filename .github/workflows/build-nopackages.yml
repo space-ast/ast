@@ -29,15 +29,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - uses: xmake-io/github-action-setup-xmake@v1
+      - uses: ./.github/actions/setup-xmake
         with:
-          xmake-version: branch@dev
-          actions-cache-folder: '.xmake-cache'
-          actions-cache-key: ${{ matrix.runner }}
-          package-cache: true
-          package-cache-key: ${{ matrix.runner }}
-          build-cache: true
-          build-cache-key: ${{ matrix.runner }}
+          cache-key: ${{ matrix.runner }}
 
       - name: 配置 release 版本
         run: xmake f -cy --packages=none -m release
