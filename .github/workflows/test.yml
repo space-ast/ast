@@ -57,19 +57,24 @@ jobs:
           xmake g --pkg_installdir=$(pwd)/xmake-cache/packages
           xmake repo -u
 
+      - name: 准备 SWIG
+        if: runner.os == 'Linux'
+        run: |
+          # xmake 的 swig 规则按 PATH 查找 swig, 不认 add_packages 提供的路径；
+          # 系统自带的版本可能不满足要求（如 4.4.0 在 Py_LIMITED_API 下会生成编不过的代码），
+          # 这里显式安装固定版本并顶到 PATH 最前；找不到就直接失败，避免静默回退到系统版本。
+          xrepo install -yv "swig 4.4.1"
+          SWIG_BIN="$(find "$PWD/xmake-cache/packages/s/swig" -name swig \( -type f -o -type l \) | head -1)"
+          test -n "$SWIG_BIN"
+          echo "$(dirname "$SWIG_BIN")" >> "$GITHUB_PATH"
+          "$SWIG_BIN" -version
+
       - name: 配置项目
         # 依赖包安装要从网络取源码并编译，卡住时必须尽快失败，别耗满 6 小时的默认超时
         timeout-minutes: 60
         run: |
           xmake f -cy --with_test=y --check_warnings=n -m ${{ matrix.mode }} -a ${{ matrix.target.arch }}
           xmake show
-
-      - name: 准备 SWIG
-        if: runner.os == 'Linux'
-        run: |
-          SWIG_BIN="$(find "$PWD/xmake-cache/packages/s/swig" -type f -name swig 2>/dev/null | head -1)"
-          if [ -n "$SWIG_BIN" ]; then echo "$(dirname "$SWIG_BIN")" >> "$GITHUB_PATH"; fi
-          echo "swig: ${SWIG_BIN:-未找到}"
 
       - name: 恢复归档测试用例
         shell: bash

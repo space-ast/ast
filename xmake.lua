@@ -211,12 +211,15 @@ else
 
     -- 下载并安装第三方库（可选）
     add_requires("python 3.x", {optional = true, configs = {headeronly = is_plat("linux")}})
-    add_requires("swig >=4.3", {optional = true, asan=false})                       -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.3，见下方说明
+    add_requires("swig >=4.4.1", {optional = true, asan=false})                     -- 可选的SWIG库，用于生成Python绑定代码，必须 >=4.4.1，见下方说明
     -- SWIG 版本要求说明：
     --   >=4.2 才支持 `enum class : type` 语法；
     --   >=4.3 才能求值本项目枚举中的初值表达式（enum class EDimension : dimension_t 的初值为constexpr 常量，
     --         enum EColor : color_t 的初值为 rgb()/rgba() constexpr 函数调用），
-    --         4.2.0 会对这些初值报 "Error: Type error. Expecting an integral type" 并以非 0 退出。
+    --         4.2.0 会对这些初值报 "Error: Type error. Expecting an integral type" 并以非 0 退出；
+    --   >=4.4.1 修复了 4.4.0 的问题：AstPy.i 限定了 Py_LIMITED_API=3.5，而 4.4.0 只按 Python 头文件
+    --         版本判断能否直接调用 3.13 新增 API（PyImport_AddModuleRef、PyType_GetFullyQualifiedName 等），
+    --         这些 API 在 Py_LIMITED_API=3.5 下不会被声明，导致生成的 AstPy.cpp 编译失败。
     add_requires("gtest <=1.12.1", {optional = true, configs = {cmake = false}})    -- 可选的gtest库，用于单元测试，gtest v1.12.1 for c++11
     add_requires("benchmark", {optional = true})                                    -- 可选的benchmark库，用于性能测试
     add_requires("replxx", {optional = true})                                       -- 可选的replxx库，用于命令行交互
