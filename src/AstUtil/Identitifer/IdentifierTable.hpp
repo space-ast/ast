@@ -36,8 +36,21 @@ AST_NAMESPACE_BEGIN
 
 class IdentifierTable {
 private:
+    // 释放变长分配的 Identifier：先析构，再交给无尺寸的全局 operator delete。
+    // 不能用 unique_ptr 的默认 deleter，否则 -delete 表达式会选中 sized operator delete，
+    // 传入的尺寸是 sizeof(Identifier) 而非实际分配尺寸，ASan 会报 new-delete-type-mismatch。
+    struct IdentifierDeleter {
+        void operator()(Identifier* sym) const noexcept {
+            if (sym) {
+                sym->~Identifier();
+                ::operator delete(sym);
+            }
+        }
+    };
+    using IdentifierPtr = std::unique_ptr<Identifier, IdentifierDeleter>;
+
     // 使用哈希表存储符号
-    std::unordered_multimap<size_t, std::unique_ptr<Identifier>> table_{};
+    std::unordered_multimap<size_t, IdentifierPtr> table_{};
 #ifdef _AST_ENABLE_IDENTIFIER_TABLE_MUTEX
     mutable std::mutex mutex_;
 #endif
@@ -67,16 +80,17 @@ public:
         }
         
         // 创建新符号
-        // 注意：这里必须使用 ::operator new 而非 new char[] 分配。
-        // 符号最终由 std::unique_ptr<Identifier> 释放（即 operator delete），
-        // 用 new char[] 分配会构成 new[]/delete 不匹配的未定义行为，ASan 会报 alloc-dealloc-mismatch。
-        size_t alloc_size = sizeof(Identifier) + length; 
+        // 标识符是变长对象（sizeof(Identifier) 之后是多出来的字符），
+        // 用 ::operator new 分配、在缓冲区上定位构造；
+        // 释放统一交给 IdentifierDeleter，显式走无尺寸的::operator delete，
+        // 避免 delete 表达式带来尺寸不符的 sized deallocation
+        size_t alloc_size = sizeof(Identifier) + length;
         void* memory = ::operator new(alloc_size);
         Identifier* sym = new (memory) Identifier(static_cast<uint32_t>(length));
         memcpy(sym->data(), data, length);
         sym->data()[length] = '\0';
-        
-        table_.emplace(hash, std::unique_ptr<Identifier>(sym));
+
+        table_.emplace(hash, IdentifierPtr(sym));
         return sym;
     }
     
