@@ -38,6 +38,8 @@ jobs:
           actions-cache-key: 'ubuntu-latest'
           package-cache: true
           package-cache-key: 'ubuntu-latest'
+          build-cache: true
+          build-cache-key: 'ubuntu-latest'
 
       - name: 安装依赖
         run: |

@@ -38,6 +38,8 @@ jobs:
           actions-cache-key: ${{ matrix.target.runner }}
           package-cache: true
           package-cache-key: ${{ matrix.target.runner }}
+          build-cache: true
+          build-cache-key: ${{ matrix.target.runner }}
   
       - name: 准备 SWIG
         if: runner.os == 'Linux'
@@ -127,6 +129,8 @@ jobs:
           actions-cache-key: ${{ matrix.image }}
           package-cache: true
           package-cache-key: ${{ matrix.image }}
+          build-cache: true
+          build-cache-key: ${{ matrix.image }}
 
       - name: 准备 Python
         uses: ./.github/actions/setup-manylinux-python
