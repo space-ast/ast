@@ -100,6 +100,11 @@ set_policy("build.progress_style", "multirow")              -- 编译进度条�
 set_policy("package.precompiled", false)                    -- 禁止从远程下载预编译的第三方库，而是在本地从源代码编译(osg使用预编译库流水线会报错)
 set_policy("build.rpath", false)                            -- 禁止xmake隐式添加runpath
 set_policy("install.rpath", false)                          -- 禁止xmake隐式添加runpath
+-- 关闭打包时的包内共享库裁剪：pack 会用 ldd 解析插件的 DT_NEEDED，manylinux 里系统 libcurl(7.61)
+-- 与包内 libcurl(8.21) 的 SONAME 都是 libcurl.so.4，ldd 命中 /usr/lib64/libcurl.so.4 后，
+-- 包内 libcurl 在过滤时被判为“没用到”而剔除，nightly 的 libAstPluginCURL.so 就会缺 NEEDED 库。
+-- 详见 .agents/notes/2026-11-11-libcurl-missing-from-linux-nightly-package.md
+set_policy("install.strip_packagelibs", false)
 
 -- MSVC（VS2022 17.10 起）的 STL 会给 basic_string/vector 打 ASan 容器标注，并用
 --   #pragma detect_mismatch("annotate_string"/"annotate_vector", ...)
@@ -252,13 +257,10 @@ else
     -- AlmaLinux 8（manylinux_2_28）上的 OpenSSL 1.1.1k 会被当成 openssl3 直接满足依赖，
     -- 导致 libcurl 编译报 #error、cpp-httplib 的 CMake 找不到 OpenSSL 3，两个网络插件被静默跳过。
     -- 
-    -- 因此不使用系统中的 openssl 库和 libcurl 库，两者都直接从源码编译
+    -- 因此不使用系统中的 openssl 库，直接从源码编译
     -- 同时将 openssl3 和 libcurl 都编译为共享库：两个插件共享一份，不必各自静态嵌入；
-    -- libcurl 必须显式 system=false：manylinux_2_28 镜像自带 curl-devel(AlmaLinux 8 的 7.61.1)，
-    -- 不强制时 xmake 可能直接用系统 libcurl，打包阶段就没有 xmake 包内的 libcurl.so.4 可收，
-    -- libAstPluginCURL.so 会带着 NEEDED libcurl.so.4 发布出去(2026-11-10 nightly 即如此)。
     add_requireconfs("**.openssl3", {system = false, configs = {shared = true}})
-    add_requireconfs("libcurl", {system = false, configs = {shared = true}})
+    add_requireconfs("libcurl", {configs = {shared = true}})
 
     add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
     add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
