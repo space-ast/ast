@@ -31,6 +31,11 @@
 #include <mutex>
 #include <string>
 
+// 旧版 curl.h 没有这个宏；那些版本也不会对 deprecated 选项告警。
+#ifndef CURL_IGNORE_DEPRECATION
+#   define CURL_IGNORE_DEPRECATION(statements) statements
+#endif
+
 AST_NAMESPACE_BEGIN
 
 namespace {
@@ -332,15 +337,25 @@ errc_t CurlNetworkInterface::requestStream(const NetworkRequest& request,
     curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, headerCallback);
     curl_easy_setopt(curl, CURLOPT_HEADERDATA, &context);
 
+    // 只允许 http/https（含重定向）。
+    // 插件运行时加载，实际链接的 libcurl 可能比编译头文件老，因此按运行期版本选择接口；
+    // 位掩码选项在新版中只是 deprecated，仍然可用。
 #if LIBCURL_VERSION_NUM >= 0x075500
-    curl_easy_setopt(curl, CURLOPT_PROTOCOLS_STR, "http,https");
-    curl_easy_setopt(curl, CURLOPT_REDIR_PROTOCOLS_STR, "http,https");
-#else
-    curl_easy_setopt(curl, CURLOPT_PROTOCOLS,
-                     static_cast<long>(CURLPROTO_HTTP | CURLPROTO_HTTPS));
-    curl_easy_setopt(curl, CURLOPT_REDIR_PROTOCOLS,
-                     static_cast<long>(CURLPROTO_HTTP | CURLPROTO_HTTPS));
+    const curl_version_info_data* info = curl_version_info(CURLVERSION_NOW);
+    if (info != nullptr && info->version_num >= 0x075500)
+    {
+        curl_easy_setopt(curl, CURLOPT_PROTOCOLS_STR, "http,https");
+        curl_easy_setopt(curl, CURLOPT_REDIR_PROTOCOLS_STR, "http,https");
+    }
+    else
 #endif
+    {
+        const long protocols = static_cast<long>(CURLPROTO_HTTP | CURLPROTO_HTTPS);
+        CURL_IGNORE_DEPRECATION(
+            curl_easy_setopt(curl, CURLOPT_PROTOCOLS, protocols);
+            curl_easy_setopt(curl, CURLOPT_REDIR_PROTOCOLS, protocols);
+        )
+    }
 
     const ENetworkRequestMethod method = request.method();
     switch (method)

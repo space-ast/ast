@@ -27,7 +27,11 @@ if is_plat("windows") then
         add_links(os.files("lib/*.lib|*_d.lib"))
     end
 else
-    add_links(os.files("lib/lib*.so"))
+    for _, file in ipairs(os.files("lib/lib*.so")) do
+        -- 提取库名，去掉前缀 lib 和后缀 .so
+        add_links(path.basename(file):sub(4))
+    end
+    add_rpathdirs("$ORIGIN", "$ORIGIN/../lib")
 end
 
 
