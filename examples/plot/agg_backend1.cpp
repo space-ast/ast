@@ -20,17 +20,17 @@
 #include <vector>
 
 #include <matplot/matplot.h>
-#include <matplot/backend/backend_registry.h>
 
-#include "AstPlot/AggBackend.hpp"
-#include "AstPlot/AggRenderer.hpp"
+#include "AstPlot/PlotBackend.hpp"
+
+AST_USING_NAMESPACE
 
 int main() {
-    // ---- 注册 Agg 后端 ----
-    matplot::register_backend("agg", []() -> matplot::backend::backend_interface* {
-        return new _AST AggBackend();
-    });
-    matplot::change_default_backend("agg");
+    // ---- 选择 Agg 后端（由 AstPluginAgg 插件提供） ----
+    if (aUsePlotBackend("agg") != eNoError) {
+        printf("AstPluginAgg plugin not found.\n");
+        return 1;
+    }
 
     // ---- 创建 figure ----
     auto fig = matplot::figure(true);

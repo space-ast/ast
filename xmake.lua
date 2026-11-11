@@ -231,7 +231,7 @@ else
     add_requires("eigen", {optional = true, configs = {headeronly = true}})         -- 可选的Eigen库，头文件版本，用于线性代数计算
     add_requires("fmt", {optional = true})                                          -- 可选的fmt库，用于格式化输出
     add_requires("sofa", {optional = true})                                         -- 可选的iau-sofa库，用于天文计算
-    add_requires("agg", {optional = true, configs = {shared = true}})               -- 可选的agg库，用于绘图
+    add_requires("agg", {optional = true, configs = {shared = false}})              -- 可选的agg库，用于绘图
     add_requires("matplotplusplus", {optional = true})                              -- 可选的matplot++库，用于绘图
     add_requires("libf2c", {optional = true})                                       -- 可选的libf2c库，用于f2c转换
     add_requires("duktape", {optional = true})                                      -- 可选的Duktape嵌入式JavaScript引擎

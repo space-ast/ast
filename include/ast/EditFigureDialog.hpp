@@ -1,1 +1,0 @@
-#include "AstChart/EditFigureDialog.hpp"
