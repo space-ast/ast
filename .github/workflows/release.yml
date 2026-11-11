@@ -323,6 +323,17 @@ jobs:
         run: |
           xmake pack -y -f zip -o artifacts/ --basename=SpaceAST
 
+      - name: 打包自安装源码包
+        if: matrix.arch == 'x86_64'
+        run: |
+          xmake pack -y -f runself -o artifacts/ --basename=SpaceAST
+
+      - name: 上传产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: SpaceAST-linux-${{ matrix.arch }}
+          path: artifacts/
+
       # 检查动态库的 ABI 版本是否符合要求，使得能在大部分linux发行版上运行。
       # openssl3 会从源码构建，且 openssl3/libcurl 都按共享库安装安装
       # 版本较高的 getentropy/fcntl64 落在 libcrypto.so.3（实测 2.25）和 libcurl.so.4（实测 2.28）上，
@@ -337,17 +348,6 @@ jobs:
             --glibc-exception='lib/libcrypto.so.3*:2.25' \
             --glibc-exception='lib/libcurl.so.4*:2.28' \
             --glibcxx-exception='lib/libAstPluginCppHTTP.so:3.4.22'
-
-      - name: 打包自安装源码包
-        if: matrix.arch == 'x86_64'
-        run: |
-          xmake pack -y -f runself -o artifacts/ --basename=SpaceAST
-
-      - name: 上传产物
-        uses: actions/upload-artifact@v4
-        with:
-          name: SpaceAST-linux-${{ matrix.arch }}
-          path: artifacts/
 
       # ── 正式发布：GitHub / Gitee / GitCode ────────────────────────────
       # 三个平台的发布 action 都按文件名（basename）上传、不支持上传时改名，
