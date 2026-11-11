@@ -252,10 +252,13 @@ else
     -- AlmaLinux 8（manylinux_2_28）上的 OpenSSL 1.1.1k 会被当成 openssl3 直接满足依赖，
     -- 导致 libcurl 编译报 #error、cpp-httplib 的 CMake 找不到 OpenSSL 3，两个网络插件被静默跳过。
     -- 
-    -- 因此不使用系统中的 openssl 库，直接从源码编译
+    -- 因此不使用系统中的 openssl 库和 libcurl 库，两者都直接从源码编译
     -- 同时将 openssl3 和 libcurl 都编译为共享库：两个插件共享一份，不必各自静态嵌入；
+    -- libcurl 必须显式 system=false：manylinux_2_28 镜像自带 curl-devel(AlmaLinux 8 的 7.61.1)，
+    -- 不强制时 xmake 可能直接用系统 libcurl，打包阶段就没有 xmake 包内的 libcurl.so.4 可收，
+    -- libAstPluginCURL.so 会带着 NEEDED libcurl.so.4 发布出去(2026-11-10 nightly 即如此)。
     add_requireconfs("**.openssl3", {system = false, configs = {shared = true}})
-    add_requireconfs("libcurl", {configs = {shared = true}})
+    add_requireconfs("libcurl", {system = false, configs = {shared = true}})
 
     add_requires("cminpack", {optional = true, configs = {long_double = true}})     -- 可选的cminpack库，用于求解非线性方程组
     add_requires("cspice", {optional = true})                                       -- 可选的cspice库，用于天文计算
