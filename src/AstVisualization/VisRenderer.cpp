@@ -1,7 +1,8 @@
 ///
 /// @file      VisRenderer.cpp
 /// @brief     渲染器注册表实现
-/// @details   维护全局默认渲染器；当未显式设置时，尝试运行时动态加载 VTK 后端模块。
+/// @details   维护全局默认渲染器；当未显式设置时，通过插件注册表自动选择
+///            已发现的可视化渲染后端（优先 "vtk"）。
 /// @author    axel
 /// @date      2026-09-06
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -19,73 +20,83 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "VisRenderer.hpp"
-#include "AstUtil/LibraryLoader.hpp"
-#include "AstUtil/FileSystem.hpp"
+#include "VisBackend.hpp"
+#include "AstUtil/Logger.hpp"
+#include "AstUtil/Span.hpp"
 
+#include <memory>
+#include <mutex>
 #include <string>
 #include <vector>
 
 AST_NAMESPACE_BEGIN
 
-static VisRenderer* defaultRenderer = nullptr;
+namespace {
 
-namespace
+/// @brief 进程级默认渲染器及其同步设施
+std::mutex g_defaultRendererMutex;
+std::unique_ptr<VisRenderer> g_defaultRenderer;
+std::once_flag g_selectDefaultOnce;
+
+/// @brief 从已注册的插件键中选择默认后端，优先 VTK
+std::string selectDefaultRendererKey(Span<std::string> names)
 {
-
-/// @brief 尝试加载并注册默认渲染后端
-/// @details 通过 aLoadLibrary 探测 VTK 后端模块，命中后调用其导出的 aVisVtkRegister()。
-///          成功后不卸载模块（保持驻留以承载 VTK 窗口）。
-void aTryLoadBackend()
-{
-    // 依据平台与调试后缀枚举候选库名
-#if defined(_WIN32)
-    const char* names[]{AST_LIB_LINKNAME("AstVisVTK") ".dll"};
-#elif defined __linux__
-    const char* names[]{"libAstVisVTK.so"};
-#elif defined __APPLE__
-    const char* names[]{"libAstVisVTK.dylib"};
-#endif
-
-    // 先在可执行文件目录、本模块目录等位置探测
-    std::vector<fs::path> dirs;
-    dirs.push_back("");
-    dirs.push_back(aExeDir());
-    dirs.push_back(fs::path(aGetModulePathFromAddress(reinterpret_cast<void*>(&VisRenderer::Default))).parent_path());
-    dirs.push_back(aLibDir());
-
-    for (const fs::path& dir : dirs) {
-        for (const char* name : names) {
-            void* lib = aLoadLibrary((dir / name).string());
-            if (!lib) {
-                continue;
-            }
-            typedef void (*RegisterFn)();
-            RegisterFn fn = reinterpret_cast<RegisterFn>(aGetProcAddress(lib, "aVisVtkRegister"));
-            if (fn) {
-                fn();
-                return;   // 注册成功，停止探测
-            }
-        }
+    for (const std::string& name : names) {
+        if (name == "vtk")
+            return name;
     }
+    if (!names.empty())
+        return names.front();   // 注册表按 map 键序返回，结果确定
+    return std::string();
 }
 
-}
+} // namespace
 
 VisRenderer* VisRenderer::Default()
 {
-    static bool triedLoad = false;
-    if (!defaultRenderer && !triedLoad) {
-        triedLoad = true;
-        aTryLoadBackend();
-    }
-    return defaultRenderer;
+    std::call_once(g_selectDefaultOnce, [] {
+        {
+            std::lock_guard<std::mutex> lock(g_defaultRendererMutex);
+            if (g_defaultRenderer)
+                return;   // 已由 SetDefault 显式指定
+        }
+
+        // 不持锁扫描插件/调用插件代码，避免与动态库加载器锁交叉
+        std::vector<std::string> names = aVisRendererNames();
+        if (names.empty()) {
+            aWarning(_("未找到可视化渲染后端插件，请确认插件已构建并位于可扫描目录"));
+            return;
+        }
+
+        // 局部 unique_ptr 保证并发竞态下未被采用的实例也会被释放
+        std::unique_ptr<VisRenderer> renderer(aNewVisRenderer(selectDefaultRendererKey(names)));
+        if (!renderer)
+            return;
+
+        std::lock_guard<std::mutex> lock(g_defaultRendererMutex);
+        if (!g_defaultRenderer) {
+            g_defaultRenderer = std::move(renderer);
+        }
+        // 若并发下已有显式默认值，保留显式值，renderer 在作用域结束时释放
+    });
+
+    std::lock_guard<std::mutex> lock(g_defaultRendererMutex);
+    return g_defaultRenderer.get();
 }
 
 void VisRenderer::SetDefault(VisRenderer* renderer)
 {
-    if (renderer) {
-        defaultRenderer = renderer;
+    if (!renderer)
+        return;
+
+    std::unique_ptr<VisRenderer> owned(renderer);
+    std::unique_ptr<VisRenderer> previous;
+    {
+        std::lock_guard<std::mutex> lock(g_defaultRendererMutex);
+        previous = std::move(g_defaultRenderer);
+        g_defaultRenderer = std::move(owned);
     }
+    // previous 在锁外析构，避免在持锁时执行插件侧的析构代码
 }
 
 AST_NAMESPACE_END

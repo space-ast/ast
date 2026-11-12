@@ -117,36 +117,51 @@ public:
     constexpr Span(pointer first, End last) noexcept
         : storage_(first, last - first) {}
 
-    template <std::size_t N>
-    constexpr
-    /*explicit*/
-    Span(element_type (&arr)[N]) noexcept
+    // 数组长度在编译期已知，长度匹配时可隐式构造。
+    template <std::size_t N,
+              typename std::enable_if<(Extent == dynamic_extent || N == Extent), int>::type = 0>
+    constexpr Span(element_type (&arr)[N]) noexcept
         : storage_(arr, N)
-    {
-        static_assert(Extent == dynamic_extent || N == Extent, "Array size must match the fixed span extent");
-    }
+    {}
 
-    template <typename U, std::size_t N>
-    constexpr explicit Span(std::array<U, N>& arr) noexcept
+    template <typename U, std::size_t N,
+              typename std::enable_if<(Extent == dynamic_extent || N == Extent), int>::type = 0>
+    constexpr Span(std::array<U, N>& arr) noexcept
         : storage_(arr.data(), N)
-    {
-        static_assert(Extent == dynamic_extent || N == Extent, "Array size must match the fixed span extent");
-    }
+    {}
 
-    template <typename U, std::size_t N>
-    constexpr explicit Span(const std::array<U, N>& arr) noexcept
+    template <typename U, std::size_t N,
+              typename std::enable_if<(Extent == dynamic_extent || N == Extent), int>::type = 0>
+    constexpr Span(const std::array<U, N>& arr) noexcept
         : storage_(arr.data(), N)
-    {
-        static_assert(Extent == dynamic_extent || N == Extent, "Array size must match the fixed span extent");
-    }
+    {}
 
-    template <typename U>
-    constexpr explicit Span(const std::vector<U>& span) noexcept
-        : storage_(span.data(), span.size()) {}
+    // 动态 extent 可隐式构造；固定 extent 的长度无法在编译期校验，必须显式构造。
+    // C++20 可以写作 explicit(Extent != dynamic_extent)，
+    // C++11/14 下按 Extent 拆成两个重载来模拟条件性 explicit。
+    template <typename U,
+              typename std::enable_if<(Extent == dynamic_extent) && std::is_same<U, U>::value,
+                                      int>::type = 0>
+    constexpr Span(std::vector<U>& vec) noexcept
+        : storage_(vec.data(), vec.size()) {}
 
-    template <typename U>
-    constexpr explicit Span(std::vector<U>& span) noexcept
-        : storage_(span.data(), span.size()) {}
+    template <typename U,
+              typename std::enable_if<(Extent != dynamic_extent) && std::is_same<U, U>::value,
+                                      int>::type = 0>
+    constexpr explicit Span(std::vector<U>& vec) noexcept
+        : storage_(vec.data(), vec.size()) {}
+
+    template <typename U,
+              typename std::enable_if<(Extent == dynamic_extent) && std::is_same<U, U>::value,
+                                      int>::type = 0>
+    constexpr Span(const std::vector<U>& vec) noexcept
+        : storage_(vec.data(), vec.size()) {}
+
+    template <typename U,
+              typename std::enable_if<(Extent != dynamic_extent) && std::is_same<U, U>::value,
+                                      int>::type = 0>
+    constexpr explicit Span(const std::vector<U>& vec) noexcept
+        : storage_(vec.data(), vec.size()) {}
 
 #if 0 // 暂时不支持其他容器类型，因为无法确定其内存是否连续
     template <typename Container>

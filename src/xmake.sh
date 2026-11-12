@@ -49,14 +49,10 @@ includes "AstSPICE"
 includes "AstLoader"
 includes "AstTest"
 
-# 依赖 vtk 的模块，探测到 vtk 才编译
-if has_config "vtk"; then
-    includes "AstVisVTK"
-fi
-
-# @note 以下模块依赖 xmake 的自定义 rule，无法用 xmake.sh 描述，暂未接入：
+# @note 以下模块依赖 xmake 的自定义 rule 或者依赖第三方库，难以用 xmake.sh 配置构建，暂未接入：
 #   AstChart/AstUiCore/AstUiAI/AstUiDataUpdate/AstUiPilot/AstUiPilotBoot/AstUiUtil  -- Qt (moc/uic/rcc)
 #   AstPy                                                                      -- SWIG
 #   AstCOM                                                                     -- Windows IDL/ATL
 #   AstWasm                                                                    -- wasm 平台
-#   AstWeather/Atmosphere/{MSIS86,ussa1976}                                     -- Fortran (ifort)
+#   plugins/*                                                                  -- 插件模块
+#   AstWeather/Atmosphere/{MSIS86,ussa1976}                                    -- Fortran (ifort)

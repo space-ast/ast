@@ -194,7 +194,7 @@ option_find_ipopt() {
     option_end
 }
 
-# vtk：三维可视化（AST_WITH_VTK），同时决定 AstVisVTK 模块是否参与编译
+# vtk：三维可视化（AST_WITH_VTK）
 option "vtk"
     add_cxxincludes "vtkVersion.h"
     add_links "vtkCommonCore"

@@ -60,7 +60,8 @@ xpack("ast")
             end
         end
         for targetname, target in pairs(project.targets()) do
-            if targetname:startswith("Ast") and targetname ~= "AstVisVTK"
+            -- AstPluginVTK 依赖庞大的 VTK 运行库，当前版本不随安装包分发
+            if targetname:startswith("Ast") and targetname ~= "AstPluginVTK"
                 and target:is_enabled() and target:kind() ~= "phony" then
                 table.insert(targets, targetname)
             end

@@ -15,7 +15,8 @@ add_deps(
     "AstCmd",
     "AstTest",
     "AstFault",
-    "AstEngine"
+    "AstEngine",
+    "AstVisualization"
 )
 
 add_packages("fmt")

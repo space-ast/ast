@@ -32,6 +32,24 @@
 AST_USING_NAMESPACE
 
 
+// 供隐式转换测试使用的接收 Span 的函数
+static int sumSpan(Span<const int> s)
+{
+    int sum = 0;
+    for (Span<const int>::iterator it = s.begin(); it != s.end(); ++it)
+        sum += *it;
+    return sum;
+}
+
+static int sumFixedSpan4(Span<const int, 4> s)
+{
+    int sum = 0;
+    for (Span<const int, 4>::iterator it = s.begin(); it != s.end(); ++it)
+        sum += *it;
+    return sum;
+}
+
+
 // ================================================================
 // 1. 类型别名与 extent
 // ================================================================
@@ -293,6 +311,56 @@ TEST(SpanTest, FromInitializerList)
         sum += x;
     EXPECT_EQ(sum, 10);
 
+}
+
+TEST(SpanTest, ImplicitConversionRules)
+{
+    // 与 std::span 一致：动态 extent 的构造函数不是 explicit，
+    // 固定 extent 从动态长度来源构造时才是 explicit。
+    using Vec = std::vector<int>;
+    using Arr = std::array<int, 4>;
+
+    // 动态 extent：容器/数组可隐式转换
+    EXPECT_TRUE((std::is_convertible<Vec&, Span<int> >::value));
+    EXPECT_TRUE((std::is_convertible<const Vec&, Span<const int> >::value));
+    EXPECT_TRUE((std::is_convertible<Arr&, Span<int> >::value));
+    EXPECT_TRUE((std::is_convertible<const Arr&, Span<const int> >::value));
+    EXPECT_TRUE((std::is_convertible<int (&)[4], Span<int> >::value));
+
+    // 固定 extent + 动态长度来源：只能显式构造
+    EXPECT_FALSE((std::is_convertible<Vec&, Span<int, 4> >::value));
+    EXPECT_FALSE((std::is_convertible<const Vec&, Span<const int, 4> >::value));
+    EXPECT_TRUE((std::is_constructible<Span<int, 4>, Vec&>::value));
+    EXPECT_TRUE((std::is_constructible<Span<int, 4>, const Vec&>::value));
+
+    // 固定 extent + 长度在编译期已知且匹配：可隐式构造
+    EXPECT_TRUE((std::is_convertible<Arr&, Span<int, 4> >::value));
+    EXPECT_TRUE((std::is_convertible<const Arr&, Span<const int, 4> >::value));
+    EXPECT_TRUE((std::is_convertible<int (&)[4], Span<int, 4> >::value));
+
+    // 长度不匹配时构造函数被约束掉
+    EXPECT_FALSE((std::is_constructible<Span<int, 4>, std::array<int, 5>&>::value));
+    EXPECT_FALSE((std::is_constructible<Span<int, 4>, int (&)[5]>::value));
+
+    // initializer_list 不能隐式转成 span
+    EXPECT_FALSE((std::is_convertible<std::initializer_list<int>, Span<const int> >::value));
+    EXPECT_FALSE((std::is_convertible<std::initializer_list<int>, Span<const int, 3> >::value));
+}
+
+TEST(SpanTest, ImplicitConversionInFunctionCall)
+{
+    std::vector<int> v = {1, 2, 3};
+    std::array<int, 4> a = {{1, 2, 3, 4}};
+    int arr[4] = {1, 2, 3, 4};
+
+    // 动态 extent：容器和数组都能直接传给 Span 形参
+    EXPECT_EQ(sumSpan(v), 6);
+    EXPECT_EQ(sumSpan(a), 10);
+    EXPECT_EQ(sumSpan(arr), 10);
+
+    // 固定 extent：长度匹配的 std::array / C 数组可隐式绑定
+    EXPECT_EQ(sumFixedSpan4(a), 10);
+    EXPECT_EQ(sumFixedSpan4(arr), 10);
 }
 
 

@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "AstGlobal.h"
+#include "AstPluginVTKGlobal.hpp"
 #include "AstVisualization/VisRenderer.hpp"
 #include "AstUtil/StringView.hpp"
 #include <string>
@@ -35,9 +35,8 @@ AST_NAMESPACE_BEGIN
 /// @brief VTK 渲染后端
 /// @details 实现 VisRenderer::render()，把场景图翻译为 VTK 场景（轨迹 polyline、
 ///          天体球体、地面轨迹）。场景坐标统一采用国际单位（米）。
-///          作为 AstVisualization 的可插拔后端，由 __AstVisualization__ 在运行时
-///          LoadLibrary 本模块并调用 aVisVtkRegister() 完成注册。
-class AST_VISVTK_API VisVTKRenderer: public VisRenderer
+///          作为 IVisRendererProvider 插件（键 "vtk"）由主程序在运行时扫描加载。
+class AST_PLUGIN_VTK_API VisVTKRenderer: public VisRenderer
 {
 public:
     VisVTKRenderer() = default;
@@ -108,7 +107,3 @@ private:
 /*! @} */
 
 AST_NAMESPACE_END
-
-
-/// @brief 注册本 VTK 渲染后端为默认渲染器（C 链接符号，供运行时 LoadLibrary 调用）
-extern "C" AST_VISVTK_API void aVisVtkRegister();

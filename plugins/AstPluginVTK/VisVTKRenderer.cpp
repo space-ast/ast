@@ -305,10 +305,3 @@ errc_t VisVTKRenderer::render(const VisView& view, const TimePoint& epoch)
 }
 
 AST_NAMESPACE_END
-
-
-extern "C" AST_VISVTK_API void aVisVtkRegister()
-{
-    AST_USING_NAMESPACE
-    VisRenderer::SetDefault(new VisVTKRenderer());
-}

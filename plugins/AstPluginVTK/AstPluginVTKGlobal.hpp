@@ -1,7 +1,6 @@
 ///
-/// @file      AstVisVTKGlobal.h
-/// @brief
-/// @details
+/// @file      AstPluginVTKGlobal.hpp
+/// @brief     VTK 可视化后端插件导出声明
 /// @author    axel
 /// @date      2026-09-06
 /// @copyright 版权所有 (C) 2026-present, SpaceAST项目.
@@ -22,17 +21,8 @@
 
 #include "AstGlobal.h"
 
-AST_NAMESPACE_BEGIN
-
-/*!
-    @addtogroup
-    @{
-*/
-
-#ifdef __cplusplus
-class VisVTKRenderer;
+#ifdef AST_BUILD_PLUGIN_VTK
+#    define AST_PLUGIN_VTK_API A_DECL_EXPORT
+#else
+#    define AST_PLUGIN_VTK_API A_DECL_IMPORT
 #endif
-
-/*! @} */
-
-AST_NAMESPACE_END
