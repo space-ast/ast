@@ -5,7 +5,6 @@ package("openvbs")
     else
         add_urls("https://gitcode.com/space-ast/openvbs.git")
         add_urls("https://github.com/space-ast/openvbs.git")
-        add_versions("v1.0", "master")
     end
     add_configs("shared", {description = "Build shared library.", default = false, type = "boolean", readonly = true})
     on_install(function (package)

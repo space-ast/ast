@@ -35,7 +35,14 @@ AST_NAMESPACE_BEGIN
 class AST_VISUALIZATION_API VisRenderer
 {
 public:
+    /// @brief 获取默认渲染器
+    /// @details 未显式设置时，自动从已加载插件中选择（优先 "vtk"）
+    /// @return 默认渲染器；没有任何可用后端时返回 nullptr
     static VisRenderer* Default();
+
+    /// @brief 设置默认渲染器
+    /// @param renderer 渲染器实例；接管所有权，调用方不得再释放。nullptr 被忽略
+    /// @note 替换默认渲染器会释放旧实例，此前由 Default() 取得的指针随之失效
     static void SetDefault(VisRenderer* renderer);
 
     virtual ~VisRenderer() = default;

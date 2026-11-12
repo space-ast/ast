@@ -3,17 +3,15 @@
 #include <vector>
 #if defined(AST_WITH_AGG) && defined(AST_WITH_MATPLOTPLUSPLUS)
 #include <matplot/matplot.h>
-#include <matplot/backend/backend_registry.h>
-#include "AstPlot/AggBackend.hpp"
+#include "AstPlot/PlotBackend.hpp"
 
-static matplot::backend::backend_interface* create_agg_backend() {
-    return new _AST AggBackend();
-}
+AST_USING_NAMESPACE
 
 int main()
 {
-    matplot::register_backend("agg", create_agg_backend);
-    matplot::change_default_backend("agg");
+    // 选择 Agg 后端（由 AstPluginAgg 插件提供）
+    if (aUsePlotBackend("agg") != eNoError)
+        return 1;
 
     const int n = 50;
     std::vector<double> x(n), y(n);

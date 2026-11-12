@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginJavaScript/AstPluginJavaScriptGlobal.hpp"
+#include "../../plugins/script/AstPluginJavaScript/AstPluginJavaScriptGlobal.hpp"

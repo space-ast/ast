@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginAtmosphere/AstPluginAtmosphereGlobal.hpp"
+#include "../../plugins/atmosphere/AstPluginAtmosphere/AstPluginAtmosphereGlobal.hpp"

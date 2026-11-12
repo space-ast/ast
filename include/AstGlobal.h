@@ -420,15 +420,6 @@
 #define AST_VISUALIZATION_CAPI A_DECL_EXTERN_C AST_VISUALIZATION_API
 
 
-// 可视化 VTK 渲染后端模块导出声明
-#ifdef AST_BUILD_LIB_VISVTK
-#    define AST_VISVTK_API A_DECL_EXPORT
-#else
-#    define AST_VISVTK_API A_DECL_IMPORT
-#endif
-#define AST_VISVTK_CAPI A_DECL_EXTERN_C AST_VISVTK_API
-
-
 #if defined(AST_USE_EIGEN_MATRIX) && defined(__cplusplus)
 #undef min
 #undef max

@@ -1,1 +1,1 @@
-#include "../../src/AstChart/QWT/QwtBackend.hpp"
+#include "../../src/AstChart/QwtBackend.hpp"

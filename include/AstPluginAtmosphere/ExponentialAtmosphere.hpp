@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginAtmosphere/ExponentialAtmosphere.hpp"
+#include "../../plugins/atmosphere/AstPluginAtmosphere/ExponentialAtmosphere.hpp"

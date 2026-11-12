@@ -28,6 +28,19 @@ def gen_module_header(srcroot, incroot):
         incdir = os.path.join(incroot, dirname)
         gen_header(srcdir, incdir)
 
+def gen_plugin_header(pluginroot, incroot):
+    # 插件按分类嵌套：plugins/<分类>/<插件>/。转发头平铺到 include/<插件>/，
+    # 保证 #include "AstPluginQwt/..." 的写法不变。
+    for category in sorted(os.listdir(pluginroot)):
+        catpath = os.path.join(pluginroot, category)
+        if not os.path.isdir(catpath):
+            continue
+        for name in sorted(os.listdir(catpath)):
+            srcdir = os.path.join(catpath, name)
+            if not os.path.isdir(srcdir):
+                continue
+            gen_header(srcdir, os.path.join(incroot, name))
+
 def clean_dir(incroot):
     # 转发头文件是平铺生成的（include/<模块>/<文件名>.hpp），
     # 模块目录下出现的子目录都是历史残留，直接删掉；空目录也一并清理
@@ -83,11 +96,10 @@ if __name__ == "__main__":
         print("rootdir", rootdir) 
         os.chdir(rootdir)
         incroot = os.path.join(rootdir, "include")
-        clean_dir(incroot)
         clean_header(incroot)
-        for module in ["src", "plugins"]:
-            srcroot = os.path.join(rootdir, module)
-            gen_module_header(srcroot, incroot)
+        clean_dir(incroot)
+        gen_module_header(os.path.join(rootdir, "src"), incroot)
+        gen_plugin_header(os.path.join(rootdir, "plugins"), incroot)
     except:
         traceback.print_exc()
 

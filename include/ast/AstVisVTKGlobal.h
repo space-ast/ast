@@ -1,1 +1,0 @@
-#include "AstVisVTK/AstVisVTKGlobal.h"

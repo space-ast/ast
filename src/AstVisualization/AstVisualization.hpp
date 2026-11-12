@@ -1,6 +1,7 @@
 // AstVisualization 工程聚合头文件
 #include "AstVisualization/AstVisualizationGlobal.h"
 #include "AstVisualization/Freestanding.hpp"
+#include "AstVisualization/VisBackend.hpp"
 #include "AstVisualization/VisCelestialBody.hpp"
 #include "AstVisualization/VisGroundTrack.hpp"
 #include "AstVisualization/VisGroup.hpp"
