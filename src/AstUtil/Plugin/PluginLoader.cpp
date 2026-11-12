@@ -19,8 +19,10 @@
 
 #include "PluginLoader.hpp"
 #include "AstUtil/LibraryLoader.hpp"
-#include "AstUtil/FileStream.hpp"
+#include "AstUtil/ScopedPtr.hpp"
 #include "AstUtil/Logger.hpp"
+#include "AstUtil/IO.hpp"
+
 #include <cstddef>
 #include <cstring>
 #include <string>
@@ -29,7 +31,7 @@
 
 AST_NAMESPACE_BEGIN
 
-static_assert(sizeof(PluginMetadataRecord) == 664, "PluginMetadataRecord layout changed; bump AST_PLUGIN_METADATA_VERSION");
+static_assert(sizeof(PluginMetadataRecord) == 280, "PluginMetadataRecord layout changed; bump AST_PLUGIN_METADATA_VERSION");
 
 namespace{
 
@@ -101,6 +103,57 @@ bool recordToMetadata(const PluginMetadataRecord& record, PluginMetadata& metada
     return true;
 }
 
+const char* _find_sub(const char* hay, std::size_t n,
+                      const char* pat, std::size_t m)
+{
+    if (m == 0) return hay;          // 空模式：返回起点
+    if (m > n)  return nullptr;      // 模式比文本还长，必然找不到
+
+    const char first = pat[0];
+    const char* p   = hay;
+    const char* end = hay + (n - m + 1);   // 最后一个可能的匹配起点 +1
+    while (p < end) {
+        const void* r = std::memchr(p, first, static_cast<std::size_t>(end - p));
+        if (!r) 
+            return nullptr;
+        p = static_cast<const char*>(r);
+        if (std::memcmp(p, pat, m) == 0) 
+            return p;
+        ++p;
+    }
+    return nullptr;
+}
+
+errc_t _find_metadata(const char* buffer, size_t size, PluginMetadataRecord& record)
+{
+    size_t searchFrom = 0;
+    for(;;)
+    {
+        const char* hit = _find_sub(buffer + searchFrom, 
+                                    size - searchFrom, 
+                                    AST_PLUGIN_METADATA_MAGIC, 
+                                    AST_PLUGIN_METADATA_MAGIC_LEN);
+        if(!hit)
+            break;
+        const size_t pos = static_cast<size_t>(hit - buffer);
+        const size_t remaining = size - pos;
+        if (remaining < sizeof(PluginMetadataRecord))
+        {
+            return eErrorNotFound;
+        }
+        PluginMetadataRecord candidate;
+        std::memcpy(&candidate, hit, sizeof(PluginMetadataRecord));
+        if (validateMetadataRecord(candidate))
+        {
+            record = candidate;
+            return eNoError;
+        }
+        // 魔数无自重叠（首字符只出现一次），未通过校验时整段跳过
+        searchFrom = pos + AST_PLUGIN_METADATA_MAGIC_LEN;
+    }
+    return eErrorNotFound;
+}
+
 } // namespace
 
 errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& record)
@@ -109,9 +162,25 @@ errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& reco
         return eErrorNullInput;
 
     const std::string path(filepath);
-    cxx::ifstream in(path, std::ios::in | std::ios::binary);
-    if (!in.is_open())
+    ScopedPtr<std::FILE> file = ast_fopen(path.c_str(), "rb");
+    if (file == nullptr)
         return eErrorInvalidFile;
+
+#ifdef _MSC_VER
+    /*
+    MSVC 工具链的链接器一般把 .astplug 段放在文件末尾，优先只读末尾一块；
+    未命中或文件不足一块时回退到从头完整扫描
+    */
+    if (fseek(file, -static_cast<long>(kScanChunkSize), SEEK_END) == 0)
+    {
+        std::vector<char> tail(kScanChunkSize);
+        const size_t got = fread(tail.data(), 1, kScanChunkSize, file);
+        tail.resize(got);
+        if (_find_metadata(tail.data(), tail.size(), record) == eNoError)
+            return eNoError;
+    }
+    fseek(file, 0, SEEK_SET);
+#endif
 
     // 分块扫描文件字节。保留尾部 sizeof(record)-1 字节，保证跨块的记录下一轮能完整解析
     const size_t carrySize = sizeof(PluginMetadataRecord) - 1;
@@ -122,46 +191,14 @@ errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& reco
     {
         const size_t offset = buffer.size();
         buffer.resize(offset + kScanChunkSize);
-        in.read(buffer.data() + offset, static_cast<std::streamsize>(kScanChunkSize));
-        const size_t got = static_cast<size_t>(in.gcount());
+        const size_t got = fread(buffer.data() + offset, 1, kScanChunkSize, file);
         buffer.resize(offset + got);
 
-        if (buffer.empty())
-            break;
+        errc_t ret = _find_metadata(buffer.data(), buffer.size(), record);
+        if (ret == eNoError)
+            return ret;
 
-        size_t searchFrom = 0;
-        while (searchFrom + AST_PLUGIN_METADATA_MAGIC_LEN <= buffer.size())
-        {
-            const void* hit = std::memchr(buffer.data() + searchFrom,
-                                          AST_PLUGIN_METADATA_MAGIC[0],
-                                          buffer.size() - searchFrom
-                                              - AST_PLUGIN_METADATA_MAGIC_LEN + 1);
-            if (!hit)
-                break;
-
-            const size_t pos = static_cast<size_t>(
-                static_cast<const char*>(hit) - buffer.data());
-            if (std::memcmp(hit, AST_PLUGIN_METADATA_MAGIC,
-                            AST_PLUGIN_METADATA_MAGIC_LEN) == 0)
-            {
-                if (pos + sizeof(PluginMetadataRecord) > buffer.size())
-                {
-                    // 记录跨块：本位置及之后都不会有完整记录，留到下一轮
-                    break;
-                }
-
-                PluginMetadataRecord candidate;
-                std::memcpy(&candidate, buffer.data() + pos, sizeof(candidate));
-                if (validateMetadataRecord(candidate))
-                {
-                    record = candidate;
-                    return eNoError;
-                }
-            }
-            searchFrom = pos + 1;
-        }
-
-        if (in.eof() || got == 0)
+        if (got < kScanChunkSize)
             break;
 
         const size_t keep = buffer.size() < carrySize ? buffer.size() : carrySize;

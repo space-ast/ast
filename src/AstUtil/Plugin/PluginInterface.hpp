@@ -84,7 +84,7 @@ typedef PluginInstance* (*FPluginInstance)();
 #define AST_PLUGIN_METADATA_MAGIC       "ASTPLUGINMETA:1"
 #define AST_PLUGIN_METADATA_VERSION     1u
 #define AST_PLUGIN_IID_MAX_LEN          128
-#define AST_PLUGIN_KEYS_MAX_LEN         512
+#define AST_PLUGIN_KEYS_MAX_LEN         128
 
 struct PluginMetadataRecord
 {
@@ -115,12 +115,12 @@ constexpr bool aPluginStrEqual(const char* lhs, const char* rhs)
 /// @brief 声明插件元数据：接口 ID + 逗号分隔的索引键
 /// @param IFace 接口类型（接口头必须定义同名的 AST_IID_<IFace> 宏）
 /// @param KEYS  索引键字符串字面量，多个键用逗号分隔，如 "agg" 或 "a,b"
-/// @note iid 不超过 127 字节，keys 不超过 511 字节；键中不能出现逗号
+/// @note iid 不超过 AST_PLUGIN_IID_MAX_LEN 字节，keys 不超过 AST_PLUGIN_KEYS_MAX_LEN 字节；键中不能出现逗号
 /// @note 元数据放在动态库的 .astplug 段，主程序无需加载动态库即可读取
 #define AST_PLUGIN_METADATA(IFace, KEYS)                                             \
-    extern "C" { AST_PLUGIN_EXPORT const char* AST_PLUGIN_IID_NAME =                \
+    extern "C" { AST_PLUGIN_EXPORT const char* AST_PLUGIN_IID_NAME =                 \
                      aInterfaceId<IFace>(); }                                        \
-    extern AST_PLUGIN_METADATA_SECTION const _AST PluginMetadataRecord              \
+    extern AST_PLUGIN_METADATA_SECTION const _AST PluginMetadataRecord               \
         AST_PLUGIN_METADATA_NAME = {                                                 \
             AST_PLUGIN_METADATA_MAGIC,                                               \
             AST_PLUGIN_METADATA_VERSION,                                             \
