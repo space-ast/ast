@@ -272,26 +272,30 @@ errc_t PluginLoader::loadNoLock()
             return loadError_;
     }
 
-    handle_ = aLoadLibrary(filepath_.c_str());
-    if (!handle_)
+    // 先加载到临时句柄：校验通过前不能写 handle_，否则失败后 load()/isLoaded() 会误报已加载
+    void* handle = aLoadLibrary(filepath_.c_str());
+    if (!handle)
     {
         loadError_ = eErrorInvalidFile;
         aWarning(_("插件动态库加载失败：'%s'：%s"), filepath_.c_str(), aGetLoadError());
         return loadError_;
     }
-    // 登记为进程退出时卸载：插件库常驻，插件根对象及其创建的对象必须始终有效
-    aFreeLibraryOnExit(handle_);
 
     // 校验运行期导出的 iid 与文件元数据一致，防止扫描后文件被替换
     const char* const* iidAddr = static_cast<const char* const*>(
-        aGetProcAddress(handle_, AST_PLUGIN_IID_NAMESTR));
+        aGetProcAddress(handle, AST_PLUGIN_IID_NAMESTR));
     const char* runtimeIid = iidAddr ? *iidAddr : nullptr;
     if (!runtimeIid || metadata_.iid != runtimeIid)
     {
         aWarning(_("插件元数据与导出的 ast_plugin_iid 不一致：'%s'"), filepath_.c_str());
         loadError_ = eErrorParse;
+        aFreeLibrary(handle);
         return loadError_;
     }
+
+    // 登记为进程退出时卸载：插件库常驻，插件根对象及其创建的对象必须始终有效
+    aFreeLibraryOnExit(handle);
+    handle_ = handle;
 
     return eNoError;
 }
