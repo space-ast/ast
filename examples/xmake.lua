@@ -12,6 +12,7 @@ add_packages("matplotplusplus")
 add_packages("agg")
 add_packages("cspice")
 add_packages("openmp")
+add_packages("gtest")
 
 -- 按工程实际解析到的包自动添加 AST_WITH_* 宏
 add_rules("ast.project_package_defines")
