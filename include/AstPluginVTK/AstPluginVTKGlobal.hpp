@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginVTK/AstPluginVTKGlobal.hpp"
+#include "../../plugins/visualization/AstPluginVTK/AstPluginVTKGlobal.hpp"

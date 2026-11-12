@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginQwt/ColoredSurfacePlot.hpp"
+#include "../../plugins/plot/AstPluginQwt/ColoredSurfacePlot.hpp"

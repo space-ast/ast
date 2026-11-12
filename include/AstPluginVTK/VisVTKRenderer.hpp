@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginVTK/VisVTKRenderer.hpp"
+#include "../../plugins/visualization/AstPluginVTK/VisVTKRenderer.hpp"

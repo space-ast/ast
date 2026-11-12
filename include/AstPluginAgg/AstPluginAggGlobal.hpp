@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginAgg/AstPluginAggGlobal.hpp"
+#include "../../plugins/plot/AstPluginAgg/AstPluginAggGlobal.hpp"

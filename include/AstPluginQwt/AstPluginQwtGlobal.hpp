@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginQwt/AstPluginQwtGlobal.hpp"
+#include "../../plugins/plot/AstPluginQwt/AstPluginQwtGlobal.hpp"

@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginQwt/QwtBackend.hpp"
+#include "../../plugins/plot/AstPluginQwt/QwtBackend.hpp"

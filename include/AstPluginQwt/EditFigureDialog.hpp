@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginQwt/EditFigureDialog.hpp"
+#include "../../plugins/plot/AstPluginQwt/EditFigureDialog.hpp"

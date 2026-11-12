@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginAgg/LineStyle.hpp"
+#include "../../plugins/plot/AstPluginAgg/LineStyle.hpp"

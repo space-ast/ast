@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginOpenVBS/AstPluginOpenVBSGlobal.hpp"
+#include "../../plugins/script/AstPluginOpenVBS/AstPluginOpenVBSGlobal.hpp"

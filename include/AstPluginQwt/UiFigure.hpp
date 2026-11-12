@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginQwt/UiFigure.hpp"
+#include "../../plugins/plot/AstPluginQwt/UiFigure.hpp"

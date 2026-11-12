@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginCURL/CurlNetworkInterface.hpp"
+#include "../../plugins/network/AstPluginCURL/CurlNetworkInterface.hpp"

@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginAgg/AggRenderer.hpp"
+#include "../../plugins/plot/AstPluginAgg/AggRenderer.hpp"

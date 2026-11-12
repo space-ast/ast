@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginQwt/EditFigureOverlay.hpp"
+#include "../../plugins/plot/AstPluginQwt/EditFigureOverlay.hpp"

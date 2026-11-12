@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginQwt/PropertyPages.hpp"
+#include "../../plugins/plot/AstPluginQwt/PropertyPages.hpp"

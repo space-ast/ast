@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginCppHTTP/CppHttpNetworkInterface.hpp"
+#include "../../plugins/network/AstPluginCppHTTP/CppHttpNetworkInterface.hpp"

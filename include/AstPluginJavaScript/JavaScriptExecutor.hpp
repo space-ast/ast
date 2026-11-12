@@ -1,1 +1,1 @@
-#include "../../plugins/AstPluginJavaScript/JavaScriptExecutor.hpp"
+#include "../../plugins/script/AstPluginJavaScript/JavaScriptExecutor.hpp"
