@@ -177,7 +177,7 @@ void PluginRegistry::loadPluginMetadata(const std::string& filepath)
 
     loaders_.push_back(std::move(loader));
 
-    aInfo(_("已发现插件 '%s'，新增 %d 条索引"), filepath.c_str(), static_cast<int>(indexed));
+    // aInfo(_("已发现插件 '%s'，新增 %d 条索引"), filepath.c_str(), static_cast<int>(indexed));
 }
 
 errc_t aScanPlugins()
