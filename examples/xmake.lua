@@ -13,6 +13,9 @@ add_packages("agg")
 add_packages("cspice")
 add_packages("openmp")
 
+-- 按工程实际解析到的包自动添加 AST_WITH_* 宏
+add_rules("ast.project_package_defines")
+
 -- 添加 `examples` 和 `docs` 下面的所有cpp文件作为示例
 local patterns = {
     "**/*.cpp",
