@@ -108,7 +108,7 @@ errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& reco
     if (filepath.empty())
         return eErrorNullInput;
 
-    const std::string path(filepath.data(), filepath.size());
+    const std::string path(filepath);
     cxx::ifstream in(path, std::ios::in | std::ios::binary);
     if (!in.is_open())
         return eErrorInvalidFile;
@@ -117,7 +117,6 @@ errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& reco
     const size_t carrySize = sizeof(PluginMetadataRecord) - 1;
 
     std::vector<char> buffer;
-    bool sawMagic = false;
 
     for (;;)
     {
@@ -145,7 +144,6 @@ errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& reco
             if (std::memcmp(hit, AST_PLUGIN_METADATA_MAGIC,
                             AST_PLUGIN_METADATA_MAGIC_LEN) == 0)
             {
-                sawMagic = true;
                 if (pos + sizeof(PluginMetadataRecord) > buffer.size())
                 {
                     // 记录跨块：本位置及之后都不会有完整记录，留到下一轮
@@ -170,8 +168,7 @@ errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& reco
         buffer.erase(buffer.begin(), buffer.end() - static_cast<std::ptrdiff_t>(keep));
     }
 
-    // 见过 magic 但记录不完整/损坏 → 解析错误；完全没见过 → 不是插件
-    return sawMagic ? eErrorParse : eErrorInvalidFile;
+    return eErrorInvalidFile;
 }
 
 errc_t aReadPluginMetadata(StringView filepath, PluginMetadata& metadata)

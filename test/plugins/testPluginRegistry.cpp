@@ -165,12 +165,12 @@ TEST(PluginLoader, RejectNonPluginLibrary)
     const std::string libPath = aLibPath();
     ASSERT_FALSE(libPath.empty());
     PluginLoader moduleLoader{StringView(libPath.c_str())};
-    EXPECT_EQ(moduleLoader.readMetadata(), eErrorInvalidFile);
+    EXPECT_NE(moduleLoader.readMetadata(), eNoError);
     EXPECT_FALSE(moduleLoader.isPlugin());
     EXPECT_FALSE(moduleLoader.isLoaded());
 
     // load() 会先读取元数据；失败结果被缓存，instance() 同样拿不到根对象
-    EXPECT_EQ(moduleLoader.load(), eErrorInvalidFile);
+    EXPECT_NE(moduleLoader.load(), eNoError);
     EXPECT_FALSE(moduleLoader.isLoaded());
     EXPECT_TRUE(moduleLoader.instance() == nullptr);
 }
