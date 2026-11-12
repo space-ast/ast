@@ -40,6 +40,5 @@ public:
 
 } // namespace
 
-AST_PLUGIN_IID(IPlotBackendProvider)        ///< 插件接口 ID
-AST_PLUGIN_KEYS("gnuplot")                  ///< 插件注册名
-AST_PLUGIN_INSTANCE(GnuplotBackendProvider) ///< 插件实例
+AST_PLUGIN_METADATA(IPlotBackendProvider, "gnuplot")   ///< 插件接口 ID 与注册名
+AST_PLUGIN_INSTANCE(GnuplotBackendProvider)            ///< 插件实例

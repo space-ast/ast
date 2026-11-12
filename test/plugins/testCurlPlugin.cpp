@@ -36,9 +36,8 @@ CurlPluginStatus checkCurlPlugin()
 {
     aScanPlugins();
 
-    std::vector<std::string> names;
-    aNetworkGetPluginNames(names);
-    if (std::find(names.begin(), names.end(), std::string("CURL")) != names.end())
+    // 元数据枚举只说明插件文件存在，真正可用还要求动态库能加载
+    if (aPluginRegistry().find<NetworkInterface>("CURL") != nullptr)
         return CurlPluginStatus::eAvailable;
 
 #ifdef AST_WITH_LIBCURL

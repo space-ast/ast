@@ -35,9 +35,8 @@ CppHttpPluginStatus checkCppHttpPlugin()
 {
     aScanPlugins();
 
-    std::vector<std::string> names;
-    aNetworkGetPluginNames(names);
-    if (std::find(names.begin(), names.end(), std::string("CppHTTP")) != names.end())
+    // 元数据枚举只说明插件文件存在，真正可用还要求动态库能加载
+    if (aPluginRegistry().find<NetworkInterface>("CppHTTP") != nullptr)
         return CppHttpPluginStatus::eAvailable;
 
 #ifdef AST_WITH_CPP_HTTPLIB

@@ -24,6 +24,12 @@
 #include <mutex>
 #include <utility>
 
+// 打开后可输出插件扫描耗时（开发调试用）
+// #define _AST_DEBUG_PLUGIN_SCAN
+#ifdef _AST_DEBUG_PLUGIN_SCAN
+#include <chrono>
+#endif
+
 AST_NAMESPACE_BEGIN
 
 PluginRegistry* PluginRegistry::Instance()
@@ -65,7 +71,7 @@ errc_t PluginRegistry::scanDirectory(StringView dir, Span<const StringView> name
         {
             // windows 下，release 和 debug 版本不能混用
             // 这里通过文件名后缀进行筛选
-            // @todo 后续需要根据插件动态库元数据进行筛选
+            // @todo 元数据暂不记录构建模式，仍以文件名后缀区分 debug/release
 
             fs::path stem = entry.path().stem();
             #if defined(_DEBUG)
@@ -95,7 +101,7 @@ errc_t PluginRegistry::scanDirectory(StringView dir, Span<const StringView> name
                 continue;
         }
 
-        loadPlugin(entry.path().string());
+        loadPluginMetadata(entry.path().string());
     }
 
     return eNoError;
@@ -147,27 +153,25 @@ void PluginRegistry::clear()
     scannedDirs_.clear();
 }
 
-void PluginRegistry::loadPlugin(const std::string& filepath)
+void PluginRegistry::loadPluginMetadata(const std::string& filepath)
 {
-    std::unique_ptr<PluginLoader> loader(new PluginLoader());
-    if (loader->load(filepath) != eNoError)
-        return;   // 不是插件，或加载失败，或元数据非法
+    std::unique_ptr<PluginLoader> loader(new PluginLoader(filepath));
+    if (loader->readMetadata() != eNoError)
+        return; // 不是插件，或读取失败，或元数据非法
 
     size_t indexed = 0;
-    for (const PluginEntry& entry : loader->entries())
+    const PluginMetadata& metadata = loader->metadata();
+    for (const std::string& key : metadata.keys)
     {
-        for (const std::string& key : entry.keys)
+        auto id = std::make_pair(metadata.iid, key);
+        auto inserted = index_.insert(std::make_pair(id, loader.get()));
+        if (inserted.second)
         {
-            auto id = std::make_pair(entry.iid, key);
-            auto inserted = index_.insert(std::make_pair(id, loader.get()));
-            if (inserted.second)
-            {
-                ++indexed;
-            }
-            else
-            {
-                aWarning(_("插件索引键重复：接口 '%s' 的键 '%s'，后注册者被忽略"), entry.iid.c_str(), key.c_str());
-            }
+            ++indexed;
+        }
+        else
+        {
+            aWarning(_("插件索引键重复：接口 '%s' 的键 '%s'，后注册者被忽略"), metadata.iid.c_str(), key.c_str());
         }
     }
 
@@ -179,6 +183,10 @@ void PluginRegistry::loadPlugin(const std::string& filepath)
 errc_t aScanPlugins()
 {
     PluginRegistry& registry = aPluginRegistry();
+
+#ifdef _AST_DEBUG_PLUGIN_SCAN
+    const std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+#endif
 
     bool foundPluginsDir = false;
 
@@ -213,6 +221,13 @@ errc_t aScanPlugins()
             registry.scanDirectory(libDir, prefixes);
         }
     }
+
+#ifdef _AST_DEBUG_PLUGIN_SCAN
+    const double elapsedMs = std::chrono::duration<double, std::milli>(
+        std::chrono::steady_clock::now() - begin).count();
+    aInfo(_("插件扫描完成：发现 %d 个插件，耗时 %.2f ms"),
+          static_cast<int>(registry.pluginCount()), elapsedMs);
+#endif
 
     return eNoError;
 }

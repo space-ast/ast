@@ -24,9 +24,11 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/Span.hpp"
 
+#include <algorithm>
 #include <memory>
 #include <mutex>
 #include <string>
+#include <utility>
 #include <vector>
 
 AST_NAMESPACE_BEGIN
@@ -38,16 +40,16 @@ std::mutex g_defaultRendererMutex;
 std::unique_ptr<VisRenderer> g_defaultRenderer;
 std::once_flag g_selectDefaultOnce;
 
-/// @brief 从已注册的插件键中选择默认后端，优先 VTK
-std::string selectDefaultRendererKey(Span<std::string> names)
+/// @brief 把优先后端（VTK）移到候选列表首位，其余顺序不变
+void preferDefaultRenderer(std::vector<std::string>& names)
 {
-    for (const std::string& name : names) {
-        if (name == "vtk")
-            return name;
+    for (size_t i = 0; i < names.size(); ++i) {
+        if (names[i] == "vtk") {
+            if (i != 0)
+                std::swap(names[0], names[i]);
+            return;
+        }
     }
-    if (!names.empty())
-        return names.front();   // 注册表按 map 键序返回，结果确定
-    return std::string();
 }
 
 } // namespace
@@ -68,10 +70,19 @@ VisRenderer* VisRenderer::Default()
             return;
         }
 
+        // 元数据枚举可能列出运行库缺失的插件，逐个尝试直到成功。
         // 局部 unique_ptr 保证并发竞态下未被采用的实例也会被释放
-        std::unique_ptr<VisRenderer> renderer(aNewVisRenderer(selectDefaultRendererKey(names)));
-        if (!renderer)
+        preferDefaultRenderer(names);
+        std::unique_ptr<VisRenderer> renderer;
+        for (const std::string& name : names) {
+            renderer.reset(aNewVisRenderer(name));
+            if (renderer)
+                break;
+        }
+        if (!renderer) {
+            aWarning(_("所有可视化渲染后端插件均加载失败"));
             return;
+        }
 
         std::lock_guard<std::mutex> lock(g_defaultRendererMutex);
         if (!g_defaultRenderer) {

@@ -39,6 +39,5 @@ public:
 
 } // namespace
 
-AST_PLUGIN_IID(IVisRendererProvider)     ///< 插件接口 ID
-AST_PLUGIN_KEYS("vtk")                   ///< 插件注册名
-AST_PLUGIN_INSTANCE(VTKRendererProvider) ///< 插件实例
+AST_PLUGIN_METADATA(IVisRendererProvider, "vtk")   ///< 插件接口 ID 与注册名
+AST_PLUGIN_INSTANCE(VTKRendererProvider)           ///< 插件实例

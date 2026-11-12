@@ -42,7 +42,9 @@ AST_NAMESPACE_BEGIN
 */
 
 /// @brief 插件注册表（进程级单例）
-/// @details 维护 (接口 ID, 索引键) → 插件库 的索引，已成功加载的插件库将常驻进程
+/// @details 维护 (接口 ID, 索引键) → 插件库 的索引。
+///          扫描阶段只读取文件中的嵌入元数据，不加载动态库；
+///          实际加载推迟到首次 find() 命中，加载后的库常驻进程
 class AST_UTIL_API PluginRegistry
 {
 public:
@@ -53,7 +55,7 @@ public:
     /// @param dir 目录路径
     /// @param namePrefix 只处理文件名以此前缀开头的库；为空表示不筛选
     /// @return 错误码
-    /// @note 同一个目录只会被扫描一次，重复调用是幂等的
+    /// @note 只读取插件文件中的元数据，不加载动态库；同一个目录只会被扫描一次，重复调用是幂等的
     errc_t scanDirectory(StringView dir, StringView namePrefix = StringView());
 
     /// @brief 扫描目录并建立索引，只处理文件名以任一前缀开头的库
@@ -64,7 +66,7 @@ public:
     errc_t scanDirectory(StringView dir, Span<const StringView> namePrefixes);
 
     /// @brief 按 (接口 ID, 索引键) 查找插件根对象
-    /// @return 根对象指针；未命中返回 nullptr。命中时才会构造根对象
+    /// @return 根对象指针；未命中或动态库加载失败返回 nullptr。命中时才会加载动态库并构造根对象
     PluginInstance* find(StringView iid, StringView key);
 
     template<class IFace>
@@ -90,7 +92,7 @@ public:
         this->keys(aInterfaceId<IFace>(), keys);
     }
 
-    /// @brief 已加载的插件库数量
+    /// @brief 已发现的插件库数量（元数据读取成功，不代表已加载）
     size_t pluginCount() const;
 
     /// @brief 索引条目总数
@@ -106,11 +108,11 @@ private:
 
     A_DISABLE_COPY(PluginRegistry)
 
-    /// @brief 加载单个插件库并将其元数据并入索引
-    void loadPlugin(const std::string& filepath);
+    /// @brief 读取单个插件库的元数据并将其并入索引（不加载动态库）
+    void loadPluginMetadata(const std::string& filepath);
 
 private:
-    std::vector<std::unique_ptr<PluginLoader>> loaders_{};                ///< 已加载的插件库
+    std::vector<std::unique_ptr<PluginLoader>> loaders_{};                ///< 已发现的插件库
     std::map<std::pair<std::string, std::string>, PluginLoader*> index_{};///< (iid, key) → 插件
     std::set<std::string> scannedDirs_{};                                 ///< 已扫描过的目录
 };
@@ -128,7 +130,7 @@ A_ALWAYS_INLINE PluginRegistry& aPluginRegistry()
 /// MSVC 产物没有 lib 前缀，只匹配 "AstPlugin"
 /// GCC / Clang / MinGW 的共享库可能带 lib 前缀，同时接受 "AstPlugin" 与 "libAstPlugin"
 /// @return 错误码
-/// @note 重复调用是幂等的。
+/// @note 扫描只读取元数据，不加载动态库；重复调用是幂等的。
 AST_UTIL_API errc_t aScanPlugins();
 
 

@@ -24,6 +24,5 @@
 
 AST_USING_NAMESPACE
 
-AST_PLUGIN_IID(NetworkInterface)                    ///< 插件接口 ID
-AST_PLUGIN_KEYS("CppHTTP")                          ///< 插件注册名
+AST_PLUGIN_METADATA(NetworkInterface, "CppHTTP")    ///< 插件接口 ID 与注册名
 AST_PLUGIN_INSTANCE(CppHttpNetworkInterface)        ///< 插件实例
