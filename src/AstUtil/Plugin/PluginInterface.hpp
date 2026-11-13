@@ -98,7 +98,7 @@ struct PluginMetadataRecord
 /// @brief 编译期字符串相等比较（C++11 constexpr 只允许单条 return）
 constexpr bool aPluginStrEqual(const char* lhs, const char* rhs)
 {
-    return (*lhs == *rhs) && (*lhs == '\0' || aPluginStrEqual(lhs + 1, rhs + 1));
+    return (*lhs == *rhs) && ((*lhs == '\0') ? true : aPluginStrEqual(lhs + 1, rhs + 1));
 }
 
 /// @brief 由接口类型名取出接口头文件里的 IID 字符串字面量
