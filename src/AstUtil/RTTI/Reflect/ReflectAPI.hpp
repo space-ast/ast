@@ -23,6 +23,7 @@
 #include "AstGlobal.h"
 #include "AstUtil/StringView.hpp"
 #include "AstUtil/Dimension.hpp"
+#include "AstUtil/Span.hpp"
 #include <string>
 #include <type_traits>
 
@@ -35,8 +36,11 @@ AST_NAMESPACE_BEGIN
 
 using FPropertyGet = errc_t (*)(const void* obj, void* value);      ///< 获取属性值
 using FPropertySet = errc_t (*)(void* obj, const void* value);      ///< 设置属性值
+
+using FPropertyGetSize = size_t (*)(const void* obj);               ///< 获取数组大小
 using FPropertyGetItemByString = errc_t (*)(const void* obj, StringView key, Object*& value);
 using FPropertyGetItemByIndex  = errc_t (*)(const void* obj, size_t key, Object*& value);
+using FPropertyReplaceItems = errc_t (*)(void* obj, size_t pos, size_t count, Object** items, size_t size);
 
 
 
@@ -49,7 +53,7 @@ AST_UTIL_CAPI Property* _aNewPropertyDouble(FPropertyGet getter, FPropertySet se
 AST_UTIL_CAPI Property* _aNewPropertyString(FPropertyGet getter, FPropertySet setter);
 AST_UTIL_CAPI Property* _aNewPropertyQuantity(FPropertyGet getter, FPropertySet setter, Dimension dimension);
 AST_UTIL_CAPI Property* _aNewPropertyObject(FPropertyGet getter, FPropertySet setter, Class* cls);
-
+AST_UTIL_CAPI Property* _aNewPropertyObjectList(FPropertyGetSize getSize, FPropertyGetItemByIndex getItemByIndex, FPropertyReplaceItems replaceItems, Class* elementClass);
 
 
 // ============================================================================
@@ -469,6 +473,77 @@ A_ALWAYS_INLINE Property* aNewPropertyObjectWithError()
         &ObjectType::staticType
     );
 }
+
+// ============================================================================
+// 对象列表类型属性
+// ============================================================================
+
+namespace detail
+{
+    /// @brief 对象列表属性的 Builder
+    /// @details 把“获取大小 / 按索引获取 / 批量替换”三个成员函数适配成
+    ///          PropertyObjectList 所需的 Object* 接口
+    template<typename T, typename ElementType,
+             size_t (T::*SizeGetter)() const,
+             errc_t (T::*ItemGetter)(size_t, ElementType*&) const,
+             errc_t (T::*Replacer)(size_t, size_t, Span<ElementType*>)>
+    struct PropertyObjectListBuilder
+    {
+        static FPropertyGetSize makeSizeGetter()
+        {
+            return [](const void* obj) -> size_t
+            {
+                return (static_cast<const T*>(obj)->*SizeGetter)();
+            };
+        }
+
+        static FPropertyGetItemByIndex makeItemGetter()
+        {
+            return [](const void* obj, size_t index, Object*& value) -> errc_t
+            {
+                ElementType* item = nullptr;
+                errc_t rc = (static_cast<const T*>(obj)->*ItemGetter)(index, item);
+                value = item;
+                return rc;
+            };
+        }
+
+        static FPropertyReplaceItems makeReplacer()
+        {
+            return [](void* obj, size_t pos, size_t count, Object** items, size_t size) -> errc_t
+            {
+                return (static_cast<T*>(obj)->*Replacer)(
+                    pos, count, Span<ElementType*>(reinterpret_cast<ElementType**>(items), size));
+            };
+        }
+    };
+} // namespace detail
+
+/// @brief 构造对象列表类型属性
+/// @details 成员函数需满足以下命名和签名约定（由 gen_rtti.py 识别）：
+///          - `size_t getXxxSize() const`
+///          - `errc_t getXxxItem(size_t index, ElementType*& item) const`
+///          - `errc_t replaceXxx(size_t pos, size_t count, Span<ElementType*> items)`
+/// @tparam T 容器对象类型
+/// @tparam ElementType 列表元素类型
+/// @tparam SizeGetter 获取列表大小的成员函数
+/// @tparam ItemGetter 按索引获取元素的成员函数
+/// @tparam Replacer 批量替换元素的成员函数
+template<typename T, typename ElementType,
+         size_t (T::*SizeGetter)() const,
+         errc_t (T::*ItemGetter)(size_t, ElementType*&) const,
+         errc_t (T::*Replacer)(size_t, size_t, Span<ElementType*>)>
+A_ALWAYS_INLINE Property* aNewPropertyObjectList()
+{
+    using Builder = detail::PropertyObjectListBuilder<T, ElementType, SizeGetter, ItemGetter, Replacer>;
+    return _aNewPropertyObjectList(
+        Builder::makeSizeGetter(),
+        Builder::makeItemGetter(),
+        Builder::makeReplacer(),
+        &ElementType::staticType
+    );
+}
+
 
 // ============================================================================
 // 兼容旧 API（内联转发）

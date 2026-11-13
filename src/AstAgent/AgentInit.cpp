@@ -22,6 +22,7 @@
 #include "AstHarness/ChatTools.hpp"
 #include "AstHarness/ChatSession.hpp"
 #include "AstAgent/AgentUtil.hpp"
+#include "AstAgent/AgentTools.hpp"
 #include "AstUtil/RTTIAPI.hpp"
 #include "AstUtil/JsonValue.hpp"
 #include "AstUtil/Logger.hpp"

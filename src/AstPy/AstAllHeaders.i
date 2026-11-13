@@ -289,6 +289,7 @@
 %include "../AstUtil/RTTI/Reflect/PropertyNamedVector.hpp"
 %include "../AstUtil/RTTI/Reflect/PropertyNoop.hpp"
 %include "../AstUtil/RTTI/Reflect/PropertyObject.hpp"
+%include "../AstUtil/RTTI/Reflect/PropertyObjectList.hpp"
 %include "../AstUtil/RTTI/Reflect/PropertyPOD.hpp"
 %include "../AstUtil/RTTI/Reflect/PropertyString.hpp"
 %include "../AstUtil/RTTI/Reflect/PropertyStruct.hpp"

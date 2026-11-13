@@ -24,6 +24,7 @@
 #include "MissionCommand.hpp"
 #include "Segment.hpp"
 #include "AstCore/ScriptingToolProfile.hpp"
+#include "AstUtil/Span.hpp"
 
 AST_NAMESPACE_BEGIN
 
@@ -43,6 +44,7 @@ class AST_CORE_API Sequence: public Segment
 {
 public:
     AST_OBJECT(Sequence)
+    AST_PROPERT(Commands)
     Sequence() = default;
     ~Sequence() = default;
 public:
@@ -89,6 +91,10 @@ public:
     /// @return int 重复次数
     int repeatCount() const{return repeatCount_;}
     void setRepeatCount(int count){repeatCount_ = count;}
+PROPERTIES:
+    size_t getCommandsSize() const{return commands_.size();}
+    errc_t getCommandsItem(size_t index, MissionCommand*& command) const;
+    errc_t replaceCommands(size_t pos, size_t count, Span<MissionCommand*> commands);
 protected:
     /// @brief 链接任务命令
     void linkCommands();

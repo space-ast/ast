@@ -43,6 +43,7 @@ enum class EValueType
     eString,        ///< std::string类型
     eObject,        ///< 对象类型
     eTimePoint,     ///< 时间点类型
+    eObjectList,    ///< 对象列表类型
     eInvalid,       ///< 无效类型
 };
 
@@ -86,6 +87,11 @@ public:
         : Field()
         , getter_(getter?getter:&aFakeGet)
         , setter_(setter?setter:&aFakeSet)
+    {}
+    Property(StringView name)
+        : Field(name)
+        , getter_(&aFakeGet)
+        , setter_(&aFakeSet)
     {}
     ~Property() = default;
     

@@ -26,6 +26,7 @@ class PropertyType(Enum):
     BOOL = "Bool"
     STRING = "String"
     OBJECT = "Object"
+    OBJECT_LIST = "ObjectList"
     UNKNOWN = "Unknown"
 
 class PropertyInfo:
@@ -39,6 +40,9 @@ class PropertyInfo:
         self.getter = None                  # getter函数名
         self.setter = None                  # setter函数名
         self.is_readonly = False            # 是否只读
+        self.item_getter = None             # 对象列表：按索引获取元素的函数名
+        self.replacer = None                # 对象列表：批量替换元素的函数名
+        self.element_type = None            # 对象列表：元素类型名
 
 
     def __repr__(self):
@@ -257,7 +261,10 @@ class BaseHeaderAnalyzer:
         # 生成addProperty调用
         for _, prop_info in class_info.properties.items():
             prop_name = prop_info.name  # 使用原始属性名
-            if prop_info.type_name in ['length_d', 'mass_d', 'time_d', 'area_d', 'speed_d', 'force_d', 'energy_d', 'power_d', 'angle_d', 'angvel_d', 'temperature_d', 'density_d', 'pressure_d']:
+            if prop_info.property_type == PropertyType.OBJECT_LIST:
+                # 对象列表类型
+                lines.append(f'    cls->addProperty("{prop_name}", aNewPropertyObjectList<{class_info.name}, {prop_info.element_type}, &{class_info.name}::{prop_info.getter}, &{class_info.name}::{prop_info.item_getter}, &{class_info.name}::{prop_info.replacer}>());')
+            elif prop_info.type_name in ['length_d', 'mass_d', 'time_d', 'area_d', 'speed_d', 'force_d', 'energy_d', 'power_d', 'angle_d', 'angvel_d', 'temperature_d', 'density_d', 'pressure_d']:
                 # 量纲类型
                 dimension_map = {
                     'length_d': 'Dimension::Length()',
@@ -359,7 +366,10 @@ class ClangHeaderAnalyzer(BaseHeaderAnalyzer):
                 # 解析头文件
                 args = [
                     '-x', 'c++',
-                    '-std=c++11',
+                    # 仅用于解析，标准取高一些：新版 MSVC STL 头文件在 C++11 下无法解析
+                    '-std=c++17',
+                    # 新版 MSVC STL 会按 __clang_major__ 做版本检查，libclang 通常更旧
+                    '-D_ALLOW_COMPILER_AND_STL_VERSION_MISMATCH',
                     '-DAST_PROPERTIES_MARK=struct __properties_begin__;',
                     '-Iinclude',  # 包含当前目录
                     '-I' + str(header_file.parent),  # 包含头文件所在目录
@@ -440,19 +450,20 @@ class ClangHeaderAnalyzer(BaseHeaderAnalyzer):
     
     def _analyze_class_properties(self, class_info: ClassInfo, cursor: Cursor):
         """分析类的属性"""
-        
+
         found_mark = False
         in_property_area = False
         class_info.has_resolve = False
-        
+        property_children: List[Cursor] = []
+
         def process_child(child: Cursor):
             nonlocal in_property_area, found_mark
-            
+
             # 检查是否是属性标记
             if child.kind == CursorKind.STRUCT_DECL and child.spelling == '__properties_begin__':
                 found_mark = True
                 return
-            
+
             # 处理访问说明符
             if child.kind == CursorKind.CXX_ACCESS_SPEC_DECL:
                 if found_mark:
@@ -467,19 +478,113 @@ class ClangHeaderAnalyzer(BaseHeaderAnalyzer):
                 if method_name == 'Resolve' and child.is_static_method():
                     class_info.has_resolve = True
 
-            # 如果在属性区域
+            # 如果在属性区域，先收集起来，稍后统一处理
             if in_property_area:
-                # 处理成员变量
-                if child.kind == CursorKind.FIELD_DECL:
-                    self._process_member_variable(child, class_info)
-                
-                # 处理成员函数
-                elif child.kind == CursorKind.CXX_METHOD:
-                    self._process_member_function(child, class_info)
-        
+                property_children.append(child)
+
         # 遍历类的所有子节点
         for child in cursor.get_children():
             process_child(child)
+
+        # 先识别对象列表属性的三件套，避免 getXxxSize 被当成普通 getter
+        consumed = self._process_object_list_properties(property_children, class_info)
+
+        for child in property_children:
+            if child.spelling in consumed:
+                continue
+
+            # 处理成员变量
+            if child.kind == CursorKind.FIELD_DECL:
+                self._process_member_variable(child, class_info)
+
+            # 处理成员函数
+            elif child.kind == CursorKind.CXX_METHOD:
+                self._process_member_function(child, class_info)
+
+    def _process_object_list_properties(self, children: List[Cursor], class_info: ClassInfo) -> Set[str]:
+        """识别对象列表属性的三件套
+        @details 约定为：
+            - `size_t getXxxSize() const`
+            - `errc_t getXxxItem(size_t index, ElementType*& item) const`
+            - `errc_t replaceXxx(size_t pos, size_t count, Span<ElementType*> items)`
+        @return 已被识别为对象列表属性的成员函数名集合
+        """
+        methods = {}
+        for child in children:
+            if child.kind == CursorKind.CXX_METHOD and child.spelling not in methods:
+                methods[child.spelling] = child
+
+        consumed: Set[str] = set()
+        for method_name, size_cursor in methods.items():
+            match = re.fullmatch(r'get(\w+)Size', method_name)
+            if not match:
+                continue
+            prop_name = match.group(1)
+            if not self._is_object_list_size_getter(size_cursor):
+                continue
+
+            item_cursor = methods.get(f'get{prop_name}Item')
+            replace_cursor = methods.get(f'replace{prop_name}')
+            if item_cursor is None or replace_cursor is None:
+                print(f"对象列表属性 {prop_name} 缺少 get{prop_name}Item/replace{prop_name}，skip it")
+                continue
+
+            element_type = self._get_object_list_element_type(item_cursor, replace_cursor)
+            if element_type is None:
+                print(f"对象列表属性 {prop_name} 的函数签名无效，skip it")
+                continue
+
+            prop_info = PropertyInfo(
+                name=prop_name,
+                original_name=prop_name,
+                type_name=element_type,
+                property_type=PropertyType.OBJECT_LIST
+            )
+            prop_info.getter = method_name
+            prop_info.item_getter = item_cursor.spelling
+            prop_info.replacer = replace_cursor.spelling
+            prop_info.element_type = element_type
+            class_info.add_property(prop_info)
+            consumed.update([method_name, item_cursor.spelling, replace_cursor.spelling])
+
+        return consumed
+
+    def _is_object_list_size_getter(self, cursor: Cursor) -> bool:
+        """判断是否是对象列表的大小获取函数"""
+        return cursor.is_const_method() and len(list(cursor.get_arguments())) == 0
+
+    @staticmethod
+    def _clean_pointer_type(type_spelling: str) -> str:
+        """去掉类型名中的 const、指针和引用修饰符"""
+        type_name = type_spelling.replace('const', '').replace('&', '').replace('*', '')
+        type_name = type_name.replace('class ', '').replace('struct ', '')
+        return type_name.strip()
+
+    def _get_object_list_element_type(self, item_cursor: Cursor, replace_cursor: Cursor) -> Optional[str]:
+        """从 getXxxItem / replaceXxx 的签名中提取元素类型"""
+        # errc_t getXxxItem(size_t index, ElementType*& item) const
+        if not item_cursor.is_const_method():
+            return None
+        item_args = list(item_cursor.get_arguments())
+        if len(item_args) != 2 or '*' not in item_args[1].type.spelling:
+            return None
+        element_type = self._clean_pointer_type(item_args[1].type.spelling)
+        if not element_type:
+            return None
+
+        # errc_t replaceXxx(size_t pos, size_t count, Span<ElementType*> items)
+        replace_args = list(replace_cursor.get_arguments())
+        if len(replace_args) != 3:
+            return None
+        span_match = re.search(r'Span\s*<\s*(.+?)\s*>', replace_args[2].type.spelling)
+        if not span_match:
+            return None
+        span_element_type = self._clean_pointer_type(span_match.group(1))
+        if span_element_type != element_type:
+            print(f"对象列表元素类型不一致：{element_type} vs {span_element_type}")
+            return None
+
+        return element_type
     
     def _process_member_variable(self, cursor: Cursor, class_info: ClassInfo):
         """处理成员变量"""

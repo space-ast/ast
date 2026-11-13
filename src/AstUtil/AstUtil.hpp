@@ -140,6 +140,7 @@
 #include "AstUtil/PropertyNamedVector.hpp"
 #include "AstUtil/PropertyNoop.hpp"
 #include "AstUtil/PropertyObject.hpp"
+#include "AstUtil/PropertyObjectList.hpp"
 #include "AstUtil/PropertyPOD.hpp"
 #include "AstUtil/PropertyQuantity.hpp"
 #include "AstUtil/PropertyString.hpp"

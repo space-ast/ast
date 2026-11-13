@@ -25,6 +25,7 @@
 #include "PropertyString.hpp"
 #include "PropertyQuantity.hpp"
 #include "PropertyObject.hpp"
+#include "PropertyObjectList.hpp"
 
 
 AST_NAMESPACE_BEGIN
@@ -60,6 +61,12 @@ Property* _aNewPropertyObject(FPropertyGet getter, FPropertySet setter, Class* c
 {
     return new PropertyObject(getter, setter, cls);
 }
+
+Property* _aNewPropertyObjectList(FPropertyGetSize getSize, FPropertyGetItemByIndex getItemByIndex, FPropertyReplaceItems replaceItems, Class* elementClass)
+{
+    return new PropertyObjectList(getSize, getItemByIndex, replaceItems, elementClass);
+}
+
 
 
 

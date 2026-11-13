@@ -166,6 +166,43 @@ errc_t Sequence::removeCommand(MissionCommand* command)
     return eErrorNotFound;
 }
 
+errc_t Sequence::getCommandsItem(size_t index, MissionCommand*& command) const
+{
+    if(index >= commands_.size())
+    {
+        command = nullptr;
+        return eErrorOutOfRange;
+    }
+    command = commands_[index].get();
+    return eNoError;
+}
+
+errc_t Sequence::replaceCommands(size_t pos, size_t count, Span<MissionCommand*> commands)
+{
+    if(pos > commands_.size() || count > commands_.size() - pos)
+        return eErrorOutOfRange;
+    
+    // 被替换的命令解除父子关系
+    for(size_t i = pos; i < pos + count; ++i)
+    {
+        auto command = commands_[i].get();
+        if(command && command->getParentScope() == this)
+            command->setParentScope(nullptr);
+    }
+    // 新命令若属于其它序列，先从原序列移除，再设置父作用域
+    for(auto& command : commands)
+    {
+        HMissionCommand keepAlive(command);
+        if(command->getParentScope() != this)
+            command->removeFromParentSequence();
+        command->setParentScope(this);
+    }
+    commands_.erase(commands_.begin() + pos, commands_.begin() + pos + count);
+    commands_.insert(commands_.begin() + pos, commands.begin(), commands.end());
+    linkCommands();
+    return eNoError;
+}
+
 Segment* Sequence::getSegmentByPath(StringView path)
 {
     return aobject_cast<Segment*>(getCommandByPath(path));

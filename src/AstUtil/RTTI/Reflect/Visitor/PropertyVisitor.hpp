@@ -35,6 +35,7 @@ class PropertyDouble;
 class PropertyInt;
 class PropertyString;
 class PropertyObject;
+class PropertyObjectList;
 class PropertyStruct;
 class PropertyQuantity;
 class PropertyPOD;
@@ -104,6 +105,13 @@ public:
     /// @param container 容器对象指针
     /// @return errc_t 错误码
     virtual errc_t visit(PropertyTimePoint& property, const void* container) = 0;
+
+    /// @brief 访问ObjectList类型属性
+    /// @param property ObjectList类型属性对象
+    /// @param container 容器对象指针
+    /// @return errc_t 错误码
+    virtual errc_t visit(PropertyObjectList& property, const void* container) {A_UNUSED(property); A_UNUSED(container); return 0;}
+    
 };
 
 /*! @} */

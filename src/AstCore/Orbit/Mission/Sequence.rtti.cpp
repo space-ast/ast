@@ -18,6 +18,7 @@ void Sequence::ClassInit(Class* cls)
     cls->setParent<Segment>();
     cls->setConstructor<Sequence>();
 
+    cls->addProperty("Commands", aNewPropertyObjectList<Sequence, MissionCommand, &Sequence::getCommandsSize, &Sequence::getCommandsItem, &Sequence::replaceCommands>());
 }
 
 AST_NAMESPACE_END
