@@ -33,6 +33,8 @@ add_packages("libcurl", {links = {}})
 -- 插件相关测试需要对应的 AST_WITH_* 宏；插件运行时动态加载，这里只引入包、不链接
 add_packages("cpp-httplib", "duktape", "openvbs", {links = {}})
 
+-- 按工程实际解析到的包自动添加 AST_WITH_* 宏
+add_rules("ast.project_package_defines")
 
 if is_plat("windows") and has_config("with_com") then
     add_defines("AST_WITH_COM")

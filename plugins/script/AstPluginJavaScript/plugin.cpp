@@ -41,6 +41,5 @@ public:
 } // namespace
 
 
-AST_PLUGIN_IID(IScriptExecutorProvider)          ///< 插件接口 ID
-AST_PLUGIN_KEYS("JavaScript")                    ///< 插件注册名
-AST_PLUGIN_INSTANCE(JavaScriptExecutorProvider)  ///< 插件实例
+AST_PLUGIN_METADATA(IScriptExecutorProvider, "JavaScript")   ///< 插件接口 ID 与注册名
+AST_PLUGIN_INSTANCE(JavaScriptExecutorProvider)              ///< 插件实例

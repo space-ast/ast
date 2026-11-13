@@ -24,6 +24,5 @@
 
 AST_USING_NAMESPACE
 
-AST_PLUGIN_IID(NetworkInterface)                ///< 插件接口 ID
-AST_PLUGIN_KEYS("CURL")                         ///< 插件注册名
+AST_PLUGIN_METADATA(NetworkInterface, "CURL")   ///< 插件接口 ID 与注册名
 AST_PLUGIN_INSTANCE(CurlNetworkInterface)       ///< 插件实例

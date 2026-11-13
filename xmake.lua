@@ -87,7 +87,7 @@ add_rules("c.unity_build", {batchsize=0})                   -- 不启用C语言�
 -- 自定义规则
 includes("rules.lua")                                       -- 导入ast项目自定义规则
 add_rules("ast")                                            -- 添加ast项目自定义规则
-add_rules("ast.package_defines")                            -- 按目标的 add_packages() 自动添加 AST_WITH_* 宏
+add_rules("ast.target_package_defines")                     -- 按目标的 add_packages() 自动添加 AST_WITH_* 宏
 
 -- 设置警告等级，并且将警告作为编译错误处理
 if has_config("check_warnings") then

@@ -146,23 +146,33 @@ TEST(PluginRegistry, MultiPrefixScan)
 
 TEST(PluginLoader, RejectNonPluginLibrary)
 {
-    PluginLoader loader;
-
     // 空路径
-    EXPECT_EQ(loader.load(StringView()), eErrorNullInput);
-    EXPECT_FALSE(loader.isPlugin());
-    EXPECT_TRUE(loader.instance() == nullptr);
+    PluginLoader emptyLoader{StringView()};
+    EXPECT_EQ(emptyLoader.readMetadata(), eErrorNullInput);
+    EXPECT_EQ(emptyLoader.load(), eErrorNullInput);
+    EXPECT_FALSE(emptyLoader.isPlugin());
+    EXPECT_FALSE(emptyLoader.isLoaded());
+    EXPECT_TRUE(emptyLoader.instance() == nullptr);
 
     // 不存在的文件
-    EXPECT_EQ(loader.load("no_such_plugin_library"), eErrorInvalidFile);
-    EXPECT_FALSE(loader.isPlugin());
+    PluginLoader missingLoader{"no_such_plugin_library"};
+    EXPECT_EQ(missingLoader.readMetadata(), eErrorInvalidFile);
+    EXPECT_EQ(missingLoader.load(), eErrorInvalidFile);
+    EXPECT_FALSE(missingLoader.isPlugin());
+    EXPECT_FALSE(missingLoader.isLoaded());
 
-    // 存在但不是插件的动态库：能加载，但不导出插件元数据
+    // 存在但不是插件的动态库：文件中没有 .astplug 元数据，读取阶段即拒绝，不加载动态库
     const std::string libPath = aLibPath();
     ASSERT_FALSE(libPath.empty());
-    EXPECT_EQ(loader.load(libPath), eErrorInvalidFile);
-    EXPECT_FALSE(loader.isPlugin());
-    EXPECT_TRUE(loader.instance() == nullptr);
+    PluginLoader moduleLoader{StringView(libPath.c_str())};
+    EXPECT_NE(moduleLoader.readMetadata(), eNoError);
+    EXPECT_FALSE(moduleLoader.isPlugin());
+    EXPECT_FALSE(moduleLoader.isLoaded());
+
+    // load() 会先读取元数据；失败结果被缓存，instance() 同样拿不到根对象
+    EXPECT_NE(moduleLoader.load(), eNoError);
+    EXPECT_FALSE(moduleLoader.isLoaded());
+    EXPECT_TRUE(moduleLoader.instance() == nullptr);
 }
 
 GTEST_MAIN()

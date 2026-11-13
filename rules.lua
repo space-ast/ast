@@ -327,11 +327,33 @@ local function _package_define(name)
 end
 
 -- 根据目标实际解析到的第三方包自动添加 AST_WITH_* 宏
-rule("ast.package_defines")
+rule("ast.target_package_defines")
     on_load(function (target)
         for _, pkg in ipairs(target:orderpkgs()) do
             target:add("defines", _package_define(pkg:name()))
         end
+    end)
+rule_end()
+
+-- 根据工程实际解析到的第三方包自动添加 AST_WITH_* 宏
+-- 与 ast.target_package_defines 的区别：
+-- 不看 target 是否链接该包，所有应用此规则的 target 都得到工程级一致的宏集合
+rule("ast.project_package_defines")
+    on_load(function (target)
+        import("core.project.project")
+        local defines = {}
+        for _, pkg in pairs(project.required_packages()) do
+            -- enabled() 含义：
+            -- true 表示该包已解析到
+            -- false 表示 optional 包缺失（或同 group 互斥）
+            -- nil 表示尚未登记（例如刚 xmake f -c 清过缓存）
+            if pkg:enabled() then
+                table.insert(defines, _package_define(pkg:name()))
+            end
+        end
+        -- 排序后添加，保证编译命令行稳定
+        table.sort(defines)
+        target:add("defines", defines)
     end)
 rule_end()
 

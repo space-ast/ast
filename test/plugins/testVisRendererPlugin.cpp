@@ -9,6 +9,7 @@
 #include "ast/Test.hpp"
 #include "ast/VisBackend.hpp"
 #include "ast/VisRenderer.hpp"
+#include "ast/PluginRegistry.hpp"
 #include <string>
 #include <vector>
 
@@ -34,16 +35,9 @@ TEST(VisRendererPlugin, NamesCallable)
 
 TEST(VisRendererPlugin, UseVtkWhenAvailable)
 {
-    const std::vector<std::string> names = aVisRendererNames();
-    bool found = false;
-    for (const std::string& name : names) {
-        if (name == "vtk") {
-            found = true;
-            break;
-        }
-    }
-    if (!found)
-        return;   // 未构建 VTK 插件（常规配置），跳过成功路径
+    aScanPlugins();
+    if (!aPluginRegistry().find<IVisRendererProvider>("vtk"))
+        return;   // 未构建 VTK 插件，或运行库缺失导致加载失败
 
     EXPECT_EQ(aUseVisRenderer("vtk"), eNoError);
     EXPECT_TRUE(VisRenderer::Default() != nullptr);

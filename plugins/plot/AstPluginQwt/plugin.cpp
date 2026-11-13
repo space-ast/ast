@@ -40,6 +40,5 @@ public:
 
 } // namespace
 
-AST_PLUGIN_IID(IPlotBackendProvider)     ///< 插件接口 ID
-AST_PLUGIN_KEYS("qwt")                   ///< 插件注册名
-AST_PLUGIN_INSTANCE(QwtBackendProvider)  ///< 插件实例
+AST_PLUGIN_METADATA(IPlotBackendProvider, "qwt")   ///< 插件接口 ID 与注册名
+AST_PLUGIN_INSTANCE(QwtBackendProvider)            ///< 插件实例

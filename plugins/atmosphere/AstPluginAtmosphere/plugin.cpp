@@ -48,6 +48,5 @@ public:
 } // namespace
 
 
-AST_PLUGIN_IID(IAtmosphereProvider)             ///< 插件接口 ID
-AST_PLUGIN_KEYS("Exponential")                  ///< 插件注册名
-AST_PLUGIN_INSTANCE(ExponentialProvider)        ///< 插件实例
+AST_PLUGIN_METADATA(IAtmosphereProvider, "Exponential")     ///< 插件接口 ID 与注册名
+AST_PLUGIN_INSTANCE(ExponentialProvider)                    ///< 插件实例
