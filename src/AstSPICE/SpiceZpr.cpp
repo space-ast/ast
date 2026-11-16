@@ -676,7 +676,7 @@ void eul2m(
 
 // gnpool
 
-// halfpi
+double halfpi(void) { return kHalfPI; }
 
 // hrmesp
 
@@ -1030,7 +1030,7 @@ void mxvg(const void *m1, const void *v2, int nr1, int nc1r2, void *vout)
 
 // pipool
 
-// pi
+double pi(void) { return kPI; }
 
 // pjelpl
 
@@ -1216,7 +1216,7 @@ void rav2xf(
 
 // rotvec
 
-// rpd
+double rpd(void) { return kDegToRad; }
 
 // rquad
 
@@ -1262,7 +1262,7 @@ void rav2xf(
 
 // size
 
-// spd
+double spd(void) { return kSecondsPerDay; }
 
 // sphcyl
 
@@ -1680,13 +1680,13 @@ errc_t tipbod(
 
 // tsetyr
 
-// twopi
+double twopi(void) { return kTwoPI; }
 
 // twovec
 
 // twovxf
 
-// tyear
+double tyear(void) { return kSecondsPerTropicalYear; }
 
 // ucase
 

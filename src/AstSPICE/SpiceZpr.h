@@ -606,7 +606,7 @@ void eul2m(
 
 // gnpool
 
-// halfpi
+double halfpi(void);
 
 // hrmesp
 
@@ -881,7 +881,7 @@ void mxvg(
 
 // pipool
 
-// pi
+double pi(void);
 
 // pjelpl
 
@@ -1011,7 +1011,7 @@ void rav2xf(
 
 // rotvec
 
-// rpd
+double rpd(void);
 
 // rquad
 
@@ -1057,7 +1057,7 @@ void rav2xf(
 
 // size
 
-// spd
+double spd(void);
 
 // sphcyl
 
@@ -1257,13 +1257,13 @@ int tipbod(
 
 // tsetyr
 
-// twopi
+double twopi(void);
 
 // twovec
 
 // twovxf
 
-// tyear
+double tyear(void);
 
 // ucase
 

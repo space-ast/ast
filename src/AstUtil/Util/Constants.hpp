@@ -238,6 +238,7 @@ constexpr double kSecondsPerDay   = 86400.0;               ///< 一天的秒数
 constexpr double kSecondsPerHour = 3600.0;                 ///< 一小时的秒数
 constexpr double kSecondsPerMinute = 60.0;                 ///< 一分钟的秒数
 constexpr double kSecondsPerJulianYear = 31557600.0;       ///< 儒略年秒数(kDaysPerJulianYear * kSecondsPerDay)
+constexpr double kSecondsPerTropicalYear = 31556925.9747;  ///< 回归年秒数 (SPICE 的值)
 
 // 质量单位转换常数
 

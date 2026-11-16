@@ -646,7 +646,7 @@ AST_SPICE_API void eul2m(
 
 // gnpool
 
-// halfpi
+AST_SPICE_CAPI double halfpi();
 
 // hrmesp
 
@@ -958,7 +958,7 @@ AST_SPICE_CAPI void mxvg(
 
 // pipool
 
-// pi
+AST_SPICE_CAPI double pi();
 
 // pjelpl
 
@@ -1105,7 +1105,7 @@ AST_SPICE_API void rav2xf(
 
 // rotvec
 
-// rpd
+AST_SPICE_CAPI double rpd();
 
 // rquad
 
@@ -1151,7 +1151,7 @@ AST_SPICE_API void rav2xf(
 
 // size
 
-// spd
+AST_SPICE_CAPI double spd();
 
 // sphcyl
 
@@ -1415,13 +1415,13 @@ AST_SPICE_API errc_t tipbod(
 
 // tsetyr
 
-// twopi
+AST_SPICE_CAPI double twopi();
 
 // twovec
 
 // twovxf
 
-// tyear
+AST_SPICE_CAPI double tyear();
 
 // ucase
 
