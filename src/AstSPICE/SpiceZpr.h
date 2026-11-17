@@ -273,7 +273,7 @@ double clight();
 
 // deltet
 
-// det
+double det(const double m1[3][3]);
 
 // dgeodr
 
@@ -648,7 +648,7 @@ void ident(double matrix[3][3]);
 
 // intmin
 
-// invert
+void invert(const double m1[3][3], double mout[3][3]);
 
 // invort
 
@@ -662,7 +662,7 @@ void ident(double matrix[3][3]);
 
 // isrchi
 
-// isrot
+int isrot(const double m[3][3], double ntol, double dtol);
 
 // iswhsp
 
@@ -779,7 +779,7 @@ void m2q(
 
 // mequg
 
-// mequ
+void mequ(const double m1[3][3], double mout[3][3]);
 
 // mind
 
@@ -789,17 +789,17 @@ void m2q(
 
 // mtxmg
 
-// mtxm
+void mtxm(const double m1[3][3], const double m2[3][3], double mout[3][3]);
 
 // mtxvg
 
-// mtxv
+void mtxv(const double m1[3][3], const double v2[3], double vout[3]);
 
 // mxmg
 
 // mxmtg
 
-// mxmt
+void mxmt(const double m1[3][3], const double m2[3][3], double mout[3][3]);
 
 void mxm(
     const double  m1[3][3],
@@ -815,7 +815,7 @@ void mxvg(
     void         * vout
 );
 
-// mxv
+void mxv(const double m1[3][3], const double v2[3], double vout[3]);
 
 // namfrm
 
@@ -1267,7 +1267,7 @@ double tyear(void);
 
 // ucase
 
-// ucrss
+void ucrss(const double v1[3], const double v2[3], double vout[3]);
 
 // uddc
 
@@ -1283,7 +1283,7 @@ double tyear(void);
 
 // unormg
 
-// unorm
+double unorm(const double v[3], double u[3]);
 
 int utc2et(
     const char * utcstr,
@@ -1292,45 +1292,45 @@ int utc2et(
 
 // vaddg
 
-// vadd
+void vadd(const double v1[3], const double v2[3], double vout[3]);
 
 // valid
 
-// vcrss
+void vcrss(const double v1[3], const double v2[3], double vout[3]);
 
 // vdistg
 
-// vdist
+double vdist(const double v1[3], const double v2[3]);
 
 // vdotg
 
-// vdot
+double vdot(const double v1[3], const double v2[3]);
 
 // vequg
 
-// vequ
+void vequ(const double vin[3], double vout[3]);
 
 // vhatg
 
-// vhat
+void vhat(const double v[3], double vout[3]);
 
-// vlcom3
+void vlcom3(double a, const double v1[3], double b, const double v2[3], double c, const double v3[3], double sum[3]);
 
 // vlcomg
 
-// vlcom
+void vlcom(double a, const double v1[3], double b, const double v2[3], double sum[3]);
 
-// vminug
+void vminug(const double v[3], double vout[3]);
 
-// vminus
+void vminus(const double v[3], double vout[3]);
 
 // vnormg
 
-// vnorm
+double vnorm(const double v[3]);
 
-// vpack
+void vpack(double x, double y, double z, double v[3]);
 
-// vperp
+void vperp(const double a[3], const double b[3], double p[3]);
 
 // vprjpi
 
@@ -1338,7 +1338,7 @@ int utc2et(
 
 // vprojg
 
-// vproj
+void vproj(const double a[3], const double b[3], double p[3]);
 
 // vrelg
 
@@ -1348,25 +1348,25 @@ int utc2et(
 
 // vsclg
 
-// vscl
+void vscl(double s, const double v1[3], double vout[3]);
 
 // vsepg
 
-// vsep
+double vsep(const double v1[3], const double v2[3]);
 
 // vsubg
 
-// vsub
+void vsub(const double v1[3], const double v2[3], double vout[3]);
 
 // vtmvg
 
 // vtmv
 
-// vupack
+void vupack(const double v[3], double* x, double* y, double* z);
 
 // vzerog
 
-// vzero
+int vzero(const double v[3]);
 
 // wncard
 
@@ -1408,11 +1408,11 @@ int utc2et(
 
 // xfmsta
 
-// xpose6
+void xpose6(const double m1[6][6], double mout[6][6]);
 
 // xposeg
 
-// xpose
+void xpose(const double m1[3][3], double mout[3][3]);
 
 #endif
 
