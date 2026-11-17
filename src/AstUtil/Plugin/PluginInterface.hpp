@@ -22,8 +22,10 @@
 
 #include "AstGlobal.h"
 #include "AstUtil/StringView.hpp"
+#include "AstUtil/JsonValue.hpp"
 #include <string>
 #include <vector>
+#include <cstddef>
 #include <cstdint>
 
 // 插件元数据所在的动态库段名
@@ -81,19 +83,56 @@ typedef PluginInstance* (*FPluginInstance)();
 // 嵌入到动态库 .astplug 段的元数据记录。
 // 主程序在 LoadLibrary/dlopen 之前直接扫描文件字节读取该记录，因此它必须是常量初始化的。
 #define AST_PLUGIN_METADATA_MAGIC_LEN   16
-#define AST_PLUGIN_METADATA_MAGIC       "ASTPLUGINMETA:1"
-#define AST_PLUGIN_METADATA_VERSION     1u
+#define AST_PLUGIN_METADATA_MAGIC       "AST_PLUGIN_META"
+#define AST_PLUGIN_METADATA_VERSION     2u
 #define AST_PLUGIN_IID_MAX_LEN          128
-#define AST_PLUGIN_KEYS_MAX_LEN         128
 
+// 数据区类型
+#define AST_PLUGIN_DATA_TEXT            0   ///< 纯文本：逗号分隔的索引键
+#define AST_PLUGIN_DATA_JSON            1   ///< JSON 字符串
+
+// 数据区长度上限。扫描时据此拒绝异常记录，避免按文件中的长度分配任意大的缓冲区
+#define AST_PLUGIN_DATA_MAX_LEN         (64 * 1024)
+
+#ifndef SWIG
+
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable : 4200)     // 末尾柔性数组是刻意为之的布局约定
+#endif
+
+/// @brief 元数据记录的定长头
+/// @details 记录在文件中形如「定长头 + size_ 字节的数据区」，数据区紧接 data_ 存放
 struct PluginMetadataRecord
 {
     char     magic_[AST_PLUGIN_METADATA_MAGIC_LEN];     ///< AST_PLUGIN_METADATA_MAGIC
     uint32_t version_;                                  ///< AST_PLUGIN_METADATA_VERSION
-    uint32_t size_;                                     ///< sizeof(PluginMetadataRecord)
     char     iid_[AST_PLUGIN_IID_MAX_LEN];              ///< NUL 结尾，其后全 0
-    char     keys_[AST_PLUGIN_KEYS_MAX_LEN];            ///< 逗号分隔的索引键，NUL 结尾，其后全 0
+    uint8_t  dataType_;                                 ///< 数据类型: AST_PLUGIN_DATA_TEXT / AST_PLUGIN_DATA_JSON
+    uint32_t size_;                                     ///< 数据区字节数（不含结尾 NUL）
+    char     data_[];                                   ///< 数据区，长度为 size_
 };
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
+
+#endif
+
+/// @brief 带定长数据区的完整记录对象
+/// @details 仅用于在插件里定义常量：与 PluginMetadataRecord 的定长头逐字段一致，data_ 紧随其后
+/// @note 不能直接对 PluginMetadataRecord 的柔性数组做聚合初始化，因此用这个模板生成完整字节布局
+template<size_t N>
+struct PluginMetadataRecordStorage
+{
+    char     magic_[AST_PLUGIN_METADATA_MAGIC_LEN];
+    uint32_t version_;
+    char     iid_[AST_PLUGIN_IID_MAX_LEN];
+    uint8_t  dataType_;
+    uint32_t size_;
+    char     data_[N];
+};
+
 
 /// @brief 编译期字符串相等比较（C++11 constexpr 只允许单条 return）
 constexpr bool aPluginStrEqual(const char* lhs, const char* rhs)
@@ -112,22 +151,43 @@ constexpr bool aPluginStrEqual(const char* lhs, const char* rhs)
                   "AST_IID_<IFace> must be defined and equal to aInterfaceId<IFace>()")
 
 
-/// @brief 声明插件元数据：接口 ID + 逗号分隔的索引键
-/// @param IFace 接口类型（接口头必须定义同名的 AST_IID_<IFace> 宏）
-/// @param KEYS  索引键字符串字面量，多个键用逗号分隔，如 "agg" 或 "a,b"
-/// @note iid 不超过 AST_PLUGIN_IID_MAX_LEN 字节，keys 不超过 AST_PLUGIN_KEYS_MAX_LEN 字节；键中不能出现逗号
-/// @note 元数据放在动态库的 .astplug 段，主程序无需加载动态库即可读取
-#define AST_PLUGIN_METADATA(IFace, KEYS)                                             \
+/// @brief 声明插件元数据：接口 ID + 数据区
+/// @param IFace     接口类型（接口头必须定义同名的 AST_IID_<IFace> 宏）
+/// @param DATA_TYPE AST_PLUGIN_DATA_TEXT / AST_PLUGIN_DATA_JSON
+/// @param DATA      数据区字符串字面量，长度不得超过 AST_PLUGIN_DATA_MAX_LEN
+#define _AST_PLUGIN_METADATA_STORAGE(IFace, DATA_TYPE, DATA)                             \
     extern "C" { AST_PLUGIN_EXPORT const char* AST_PLUGIN_IID_NAME =                 \
                      aInterfaceId<IFace>(); }                                        \
-    extern AST_PLUGIN_METADATA_SECTION const _AST PluginMetadataRecord               \
-        AST_PLUGIN_METADATA_NAME = {                                                 \
+    extern AST_PLUGIN_METADATA_SECTION const _AST PluginMetadataRecordStorage<       \
+        sizeof(DATA)> AST_PLUGIN_METADATA_NAME = {                                   \
             AST_PLUGIN_METADATA_MAGIC,                                               \
             AST_PLUGIN_METADATA_VERSION,                                             \
-            static_cast<uint32_t>(sizeof(_AST PluginMetadataRecord)),                \
             AST_PLUGIN_IID_LITERAL(IFace),                                           \
-            KEYS };                                                                  \
-    AST_PLUGIN_STATIC_ASSERT_IID(IFace);
+            DATA_TYPE,                                                               \
+            static_cast<uint32_t>(sizeof(DATA) - 1),                                 \
+            DATA };                                                                  \
+    AST_PLUGIN_STATIC_ASSERT_IID(IFace);                                             \
+    static_assert(sizeof(DATA) - 1 <= AST_PLUGIN_DATA_MAX_LEN,                       \
+                  "plugin metadata data must not exceed AST_PLUGIN_DATA_MAX_LEN");   \
+    static_assert(sizeof(AST_PLUGIN_IID_LITERAL(IFace)) <= AST_PLUGIN_IID_MAX_LEN,   \
+                  "plugin interface id must not exceed AST_PLUGIN_IID_MAX_LEN");
+
+/// @brief 声明插件元数据：接口 ID + 逗号分隔的索引键
+/// @param IFace 接口类型（接口头必须定义同名的 AST_IID_<IFace> 宏）
+/// @param KEYS  索引键字符串字面量，多个键用逗号分隔，如 "agg" 或 "a,b"；键中不能出现逗号
+/// @note 元数据放在动态库的 .astplug 段，主程序无需加载动态库即可读取
+#define AST_PLUGIN_METADATA_TEXT(IFace, KEYS)                                        \
+    _AST_PLUGIN_METADATA_STORAGE(IFace, AST_PLUGIN_DATA_TEXT, KEYS)
+
+/// @brief 声明插件元数据：接口 ID + JSON 元数据
+/// @param IFace 接口类型（接口头必须定义同名的 AST_IID_<IFace> 宏）
+/// @param JSON  JSON 字符串字面量；
+/// @note 整个 JSON 会解析到 PluginMetadata::json_，供插件自行解释
+#define AST_PLUGIN_METADATA_JSON(IFace, JSON)                                        \
+    _AST_PLUGIN_METADATA_STORAGE(IFace, AST_PLUGIN_DATA_JSON, JSON)
+
+
+#define AST_PLUGIN_METADATA(IFace, KEYS) AST_PLUGIN_METADATA_TEXT(IFace, KEYS)
 
 /// @brief 接口 ID 特化模板
 template<class IFace>
@@ -156,11 +216,12 @@ IFace* aPluginCast(PluginInstance* instance)
     return dynamic_cast<IFace*>(instance);
 }
 
-/// @brief 解析后的插件元数据：接口 ID 与该接口下的索引键
+/// @brief 解析后的插件元数据：接口 ID、索引键与 JSON 数据
 struct PluginMetadata
 {
-    std::string iid{};                ///< 接口 ID
-    std::vector<std::string> keys{};  ///< 该接口下的索引键
+    std::string iid_{};                ///< 接口 ID
+    std::vector<std::string> keys_{};  ///< 该接口下的索引键
+    JsonValue json_{};                 ///< JSON 元数据解析后的值；纯文本元数据时为 null
 };
 
 /*! @} */
