@@ -1283,7 +1283,7 @@ void ucrss(const double v1[3], const double v2[3], double vout[3]);
 
 // unormg
 
-double unorm(const double v[3], double u[3]);
+void unorm(const double v[3], double u[3], double* vmag);
 
 int utc2et(
     const char * utcstr,
@@ -1320,7 +1320,7 @@ void vlcom3(double a, const double v1[3], double b, const double v2[3], double c
 
 void vlcom(double a, const double v1[3], double b, const double v2[3], double sum[3]);
 
-void vminug(const double v[3], double vout[3]);
+void vminug(const double* vin, int ndim, double* vout);
 
 void vminus(const double v[3], double vout[3]);
 

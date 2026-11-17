@@ -1793,7 +1793,11 @@ double unorm(const Vector3d& v, Vector3d& u) {
     return n; 
 }
 
-AST_SPICE_CAPI double unorm(const double v[3], double u[3]) { return unorm(in(v), out(u)); }
+AST_SPICE_CAPI void unorm(const double v[3], double u[3], double* vmag) 
+{
+    const double mag = unorm(in(v), out(u));
+    if (vmag) *vmag = mag; 
+}
 
 errc_t utc2et(StringView utcstr, double &et)
 {
@@ -1865,7 +1869,11 @@ AST_SPICE_CAPI void vlcom(double a, const double v1[3], double b, const double v
 
 void vminug(const Vector3d& v, Vector3d& vout) { vout = -v; }
 
-AST_SPICE_CAPI void vminug(const double v[3], double vout[3]) { vminug(in(v), out(vout)); }
+AST_SPICE_CAPI void vminug(const double* vin, int ndim, double* vout) 
+{
+    for (int i = 0; i < ndim; ++i) 
+        vout[i] = -vin[i]; 
+}
 
 void vminus(const Vector3d& v, Vector3d& vout) { vout = -v; }
 
