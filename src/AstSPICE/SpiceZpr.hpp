@@ -304,7 +304,10 @@ AST_SPICE_CAPI double clight();
 
 // deltet
 
-// det
+/// @brief 计算3x3矩阵的行列式
+/// @param m1 输入矩阵
+/// @return 行列式值
+AST_SPICE_API double det(const Matrix3d& m1);
 
 // dgeodr
 
@@ -646,7 +649,7 @@ AST_SPICE_API void eul2m(
 
 // gnpool
 
-// halfpi
+AST_SPICE_CAPI double halfpi();
 
 // hrmesp
 
@@ -690,7 +693,10 @@ AST_SPICE_API void ident(Matrix3d& matrix);
 
 // intmin
 
-// invert
+/// @brief 矩阵求逆
+/// @param[in] m1 矩阵
+/// @param[out] mout 逆矩阵
+AST_SPICE_API void invert(const Matrix3d& m1, Matrix3d& mout);
 
 // invort
 
@@ -704,7 +710,12 @@ AST_SPICE_API void ident(Matrix3d& matrix);
 
 // isrchi
 
-// isrot
+/// @brief 判断矩阵是否为旋转矩阵
+/// @param[in] m 矩阵
+/// @param[in] ntol 矩阵的列的范数的容差
+/// @param[in] dtol 矩阵的行列式的容差
+/// @return 是否为旋转矩阵
+AST_SPICE_API bool isrot(const Matrix3d& m, double ntol, double dtol);
 
 // iswhsp
 
@@ -845,7 +856,10 @@ AST_SPICE_API void m2q(
 
 // mequg
 
-// mequ
+/// @brief 矩阵赋值
+/// @param[in] m1 输入矩阵
+/// @param[out] mout 输出矩阵
+AST_SPICE_API void mequ(const Matrix3d& m1, Matrix3d& mout);
 
 // mind
 
@@ -855,17 +869,29 @@ AST_SPICE_API void m2q(
 
 // mtxmg
 
-// mtxm
+/// @brief  将一个3x3矩阵的转置矩阵与一个3x3矩阵相乘。
+/// @param[in] m1 矩阵1
+/// @param[in] m2 矩阵2
+/// @param[out] mout 输出矩阵
+AST_SPICE_API void mtxm(const Matrix3d& m1, const Matrix3d& m2, Matrix3d& mout);
 
 // mtxvg
 
-// mtxv
+/// @brief  将左侧3x3矩阵的转置与右侧的向量相乘。
+/// @param[in] m1 矩阵1
+/// @param[in] v2 向量2
+/// @param[out] vout 输出向量
+AST_SPICE_API void mtxv(const Matrix3d& m1, const Vector3d& v2, Vector3d& vout);
 
 // mxmg
 
 // mxmtg
 
-// mxmt
+/// @brief  将一个3x3矩阵与其转置矩阵相乘。
+/// @param[in] m1 矩阵1
+/// @param[in] m2 矩阵2
+/// @param[out] mout 输出矩阵
+AST_SPICE_API void mxmt(const Matrix3d& m1, const Matrix3d& m2, Matrix3d& mout);
 
 /// @brief 矩阵乘法(Matrix times matrix, 3x3)
 /// @param m1 矩阵1
@@ -891,8 +917,11 @@ AST_SPICE_CAPI void mxvg(
     void         * vout
 );
 
-
-// mxv
+/// @brief  将一个3x3的矩阵与一个三维向量相乘。
+/// @param[in] m1 矩阵1
+/// @param[in] v2 向量2
+/// @param[out] vout 输出向量
+AST_SPICE_API void mxv(const Matrix3d& m1, const Vector3d& v2, Vector3d& vout);
 
 // namfrm
 
@@ -958,7 +987,7 @@ AST_SPICE_CAPI void mxvg(
 
 // pipool
 
-// pi
+AST_SPICE_CAPI double pi();
 
 // pjelpl
 
@@ -1105,7 +1134,7 @@ AST_SPICE_API void rav2xf(
 
 // rotvec
 
-// rpd
+AST_SPICE_CAPI double rpd();
 
 // rquad
 
@@ -1151,7 +1180,7 @@ AST_SPICE_API void rav2xf(
 
 // size
 
-// spd
+AST_SPICE_CAPI double spd();
 
 // sphcyl
 
@@ -1415,17 +1444,21 @@ AST_SPICE_API errc_t tipbod(
 
 // tsetyr
 
-// twopi
+AST_SPICE_CAPI double twopi();
 
 // twovec
 
 // twovxf
 
-// tyear
+AST_SPICE_CAPI double tyear();
 
 // ucase
 
-// ucrss
+/// @brief 计算两个三维向量的归一化叉积。
+/// @param[in] v1 向量1
+/// @param[in] v2 向量2
+/// @param[out] vout 输出向量
+AST_SPICE_API void ucrss(const Vector3d& v1, const Vector3d& v2, Vector3d& vout);
 
 // uddc
 
@@ -1441,7 +1474,11 @@ AST_SPICE_API errc_t tipbod(
 
 // unormg
 
-// unorm
+/// @brief 对一个双精度3向量进行归一化处理，并返回其模长。
+/// @param[in] v 输入向量
+/// @param[out] u 输出归一化向量
+/// @return 归一化向量的模长
+AST_SPICE_API double unorm(const Vector3d& v, Vector3d& u);
 
 /// @brief 
 /// @param utcstr 
@@ -1451,45 +1488,98 @@ AST_SPICE_API errc_t utc2et(StringView utcstr, double &et);
 
 // vaddg
 
-// vadd
+/// @brief 计算两个三维向量的和
+/// @param[in] v1 向量1
+/// @param[in] v2 向量2
+/// @param[out] vout 输出向量
+AST_SPICE_API void vadd(const Vector3d& v1, const Vector3d& v2, Vector3d& vout);
 
 // valid
 
-// vcrss
+/// @brief 计算两个三维向量的叉积
+/// @param[in] v1 向量1
+/// @param[in] v2 向量2
+/// @param[out] vout 输出向量
+AST_SPICE_API void vcrss(const Vector3d& v1, const Vector3d& v2, Vector3d& vout);
 
 // vdistg
 
-// vdist
+/// @brief  返回两个三维向量之间的距离。
+/// @param[in] v1 向量1
+/// @param[in] v2 向量2
+/// @return 距离
+AST_SPICE_API double vdist(const Vector3d& v1, const Vector3d& v2);
 
 // vdotg
 
-// vdot
+/// @brief 计算两个三维向量的点积。
+/// @param[in] v1 向量1
+/// @param[in] v2 向量2
+/// @return 点积
+AST_SPICE_API double vdot(const Vector3d& v1, const Vector3d& v2);
 
 // vequg
 
-// vequ
+/// @brief 向量赋值。
+/// @param[in] vin 输入向量
+/// @param[out] vout 输出向量
+AST_SPICE_API void vequ(const Vector3d& vin, Vector3d& vout);
 
 // vhatg
 
-// vhat
+/// @brief 计算一个三维向量的单位向量。
+/// @param[in] v 输入向量
+/// @param[out] vout 输出向量
+AST_SPICE_API void vhat(const Vector3d& v, Vector3d& vout);
 
-// vlcom3
+/// @brief 计算三个三维向量的向量线性组合。
+/// @param a 系数a
+/// @param v1 向量1
+/// @param b 系数b
+/// @param v2 向量2
+/// @param c 系数c
+/// @param v3 向量3
+/// @param sum 输出向量
+/// @return 
+AST_SPICE_API void vlcom3(double a, const Vector3d& v1, double b, const Vector3d& v2, double c, const Vector3d& v3, Vector3d& sum);
 
 // vlcomg
 
-// vlcom
+/// @brief 计算两个三维向量的向量线性组合。
+/// @param a 系数a
+/// @param v1 向量1
+/// @param b 系数b
+/// @param v2 向量2
+/// @param sum 输出向量
+/// @return 
+AST_SPICE_API void vlcom(double a, const Vector3d& v1, double b, const Vector3d& v2, Vector3d& sum);
 
 // vminug
 
-// vminus
+/// @brief  对三维向量进行取反
+/// @param[in] v 输入向量   
+/// @param[out] vout 输出向量
+AST_SPICE_API void vminus(const Vector3d& v, Vector3d& vout);
 
 // vnormg
 
-// vnorm
+/// @brief 计算一个三维向量的模长。
+/// @param[in] v 输入向量
+/// @return 模长
+AST_SPICE_API double vnorm(const Vector3d& v);
 
-// vpack
+/// @brief  将三个标量打包成一个三维向量。
+/// @param x 标量x
+/// @param y 标量y
+/// @param z 标量z
+/// @param[out] v 输出向量
+AST_SPICE_API void vpack(double x, double y, double z, Vector3d& v);
 
-// vperp
+/// @brief 求解输入向量的分量，使该分量与第二个向量垂直。
+/// @param a 输入向量a
+/// @param b 输入向量b
+/// @param p 输出向量p
+AST_SPICE_API void vperp(const Vector3d& a, const Vector3d& b, Vector3d& p);
 
 // vprjpi
 
@@ -1497,36 +1587,64 @@ AST_SPICE_API errc_t utc2et(StringView utcstr, double &et);
 
 // vprojg
 
-// vproj
+/// @brief 计算一个三维向量在另一个三维向量上的投影。
+/// @param a 输入向量a
+/// @param b 输入向量b
+/// @param p 输出向量p
+AST_SPICE_API void vproj(const Vector3d& a, const Vector3d& b, Vector3d& p);
 
 // vrelg
 
 // vrel
 
-// vrotv
+/// @brief 绕指定轴对一个三维向量进行旋转。
+/// @param v 输入向量
+/// @param axis 旋转轴
+/// @param theta 旋转角度
+/// @param r 输出向量
 AST_SPICE_CAPI void vrotv(const Vector3d& v, const Vector3d& axis, double theta, Vector3d& r);
 
 // vsclg
 
-// vscl
+/// @brief 对一个三维向量进行缩放。
+/// @param s 缩放因子
+/// @param v1 输入向量1
+/// @param vout 输出向量
+AST_SPICE_API void vscl(double s, const Vector3d& v1, Vector3d& vout);
 
 // vsepg
 
-// vsep
+/// @brief 计算两个三维向量之间的角度。
+/// @param v1 向量1
+/// @param v2 向量2
+/// @return 角度
+AST_SPICE_API double vsep(const Vector3d& v1, const Vector3d& v2);
 
 // vsubg
 
-// vsub
+/// @brief 计算两个三维向量的差。
+/// @param v1 向量1
+/// @param v2 向量2
+/// @param vout 输出向量
+AST_SPICE_API void vsub(const Vector3d& v1, const Vector3d& v2, Vector3d& vout);
 
 // vtmvg
 
 // vtmv
 
-// vupack
+/// @brief 从一个三维向量中解包三个标量。
+/// @param v 输入向量
+/// @param x 输出标量x
+/// @param y 输出标量y
+/// @param z 输出标量z
+AST_SPICE_API void vupack(const Vector3d& v, double& x, double& y, double& z);
 
 // vzerog
 
-// vzero
+/// @brief 判断一个三维向量是否为零向量。
+/// @param v 输入向量
+/// @return 是否为零向量
+AST_SPICE_API bool vzero(const Vector3d& v);
 
 // wncard
 
@@ -1568,11 +1686,17 @@ AST_SPICE_CAPI void vrotv(const Vector3d& v, const Vector3d& axis, double theta,
 
 // xfmsta
 
-// xpose6
+/// @brief 对一个6x6矩阵进行转置。
+/// @param m1 输入矩阵
+/// @param mout 输出矩阵
+AST_SPICE_API void xpose6(const Matrix6d& m1, Matrix6d& mout);
 
 // xposeg
 
-// xpose
+/// @brief 对一个3x3矩阵进行转置。
+/// @param m1 输入矩阵
+/// @param mout 输出矩阵
+AST_SPICE_API void xpose(const Matrix3d& m1, Matrix3d& mout);
 
 
 

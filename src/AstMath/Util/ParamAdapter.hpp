@@ -162,11 +162,53 @@ private:
 // --- double[6][6] 参数适配器
 // -------------------------
 
+
 // Eigen 对定长矩阵可能带有对齐要求(例如大小为 16 字节整数倍的矩阵)
 // 故不能把裸 double 缓冲区直接当作 Eigen::Matrix6d 对象使用，
 #if _AST_MATRIX_IS_ROW_MAJOR && !defined(AST_USE_EIGEN_MATRIX)
 
-/// @brief 可写 `double[6][6]` 适配器，内存布局与行优先存储的 Matrix6d 一致，直接绑定外部缓冲区
+/// @brief 只读 `double[6][6]` 适配器，内存布局与行优先存储的 Matrix6d 一致，直接绑定外部缓冲区
+template <>
+class In<const double (*)[6]>
+{
+public:
+    explicit In(const double (*value)[6]) : value_(value) {}
+    operator const Matrix6d& () const { return *reinterpret_cast<const Matrix6d*>(value_); }
+private:
+    const double (*value_)[6]{};
+};
+
+#else
+
+template <>
+class In<const double (*)[6]>
+{
+public:
+    explicit In(const double (*value)[6])
+        : value_(value)
+    {
+        if (value_ == nullptr)
+            return;
+        for(int i = 0; i < 6; i++)
+        {
+            for(int j = 0; j < 6; j++)
+            {
+                matrix_(i, j) = value_[i][j];
+            }
+        }
+    }
+    operator const Matrix6d& () const { return matrix_; }
+private:
+    Matrix6d matrix_{};
+    const double (*value_)[6]{};
+};
+#endif
+
+// Eigen 对定长矩阵可能带有对齐要求(例如大小为 16 字节整数倍的矩阵)
+// 故不能把裸 double 缓冲区直接当作 Eigen::Matrix6d 对象使用，
+#if _AST_MATRIX_IS_ROW_MAJOR && !defined(AST_USE_EIGEN_MATRIX)
+
+/// @brief 只读 `double[6][6]` 适配器，内存布局与行优先存储的 Matrix6d 一致，直接绑定外部缓冲区
 template <>
 class Out<double (*)[6]>
 {
@@ -268,6 +310,11 @@ A_ALWAYS_INLINE In<const double*> in(const double* value)
 A_ALWAYS_INLINE In<const double (*)[3]> in(const double (*value)[3])
 {
     return In<const double (*)[3]>(value);
+}
+
+A_ALWAYS_INLINE In<const double (*)[6]> in(const double (*value)[6])
+{
+    return In<const double (*)[6]>(value);
 }
 
 A_ALWAYS_INLINE In<Matrix3d> in(const Matrix3d& value)
