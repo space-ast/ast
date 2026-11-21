@@ -81,13 +81,27 @@ const char* aGetLoadError()
 }
 #else
 
+#if defined(_WIN32) || defined(_WIN64)
+errc_t aAddLibrarySearchDirectory(StringView path)
+{
+    using AddDllDirectoryFunc = decltype(&AddDllDirectory);
+    static AddDllDirectoryFunc addDllDirectory = (AddDllDirectoryFunc) aResolveProcAddress("kernel32.dll", "AddDllDirectory");
+    if (!addDllDirectory) return eErrorUnsupported;
+	std::wstring widePath = aMakeWin32Path(path);
+	auto cookie = addDllDirectory(widePath.c_str());
+    if (cookie == 0) return eError;
+    return eNoError;
+}
+
+#endif
+
 void* _aLoadLibraryFromName(const char* filename)
 {
 #if defined(_WIN32) || defined(_WIN64)
 	std::wstring wideFilename;
 	aUtf8ToWide(filename, wideFilename);
     static_assert(sizeof(void*) >= sizeof(HMODULE), "void* must be at least as large as HMODULE");
-    return LoadLibraryW(wideFilename.c_str());
+    return LoadLibraryExW(wideFilename.c_str(), nullptr, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
 #else
     // Linux/Unix平台
     // RTLD_LAZY: 延迟绑定，只在需要时解析符号
@@ -103,7 +117,7 @@ void* _aLoadLibraryFromPath(StringView filepath)
 #if defined(_WIN32) || defined(_WIN64)
 	std::wstring widePath = aMakeWin32Path(filepath);
     static_assert(sizeof(void*) >= sizeof(HMODULE), "void* must be at least as large as HMODULE");
-    return LoadLibraryW(widePath.c_str());
+    return LoadLibraryExW(widePath.c_str(), nullptr, LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR | LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
 #else
     std::string path(filepath);
     return _aLoadLibraryFromName(path.c_str());
