@@ -88,6 +88,8 @@ public:
     /// @return 函数指针，失败返回 nullptr
     static void* Resolve(StringView fileName, const char* symbol);
 
+    /// @brief 获取动态库句柄
+    void* handle() const { return handle_; }
 private:
     void* handle_{ nullptr };
 };

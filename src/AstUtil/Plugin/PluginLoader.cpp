@@ -31,19 +31,21 @@
 
 AST_NAMESPACE_BEGIN
 
-static_assert(sizeof(PluginMetadataRecord) == 280, "PluginMetadataRecord layout changed; bump AST_PLUGIN_METADATA_VERSION");
 
 namespace{
 
 constexpr size_t kScanChunkSize = 64 * 1024;
 
-/// @brief 校验一条 .astplug 段内元数据记录的完整性
-/// @return 记录合法返回 true
+/// @brief 校验一条 .astplug 段内元数据记录的定长头
+/// @details 数据区的格式由 recordToMetadata() 进一步校验
+/// @return 记录头合法返回 true
 bool validateMetadataRecord(const PluginMetadataRecord& record)
 {
     if (record.version_ != AST_PLUGIN_METADATA_VERSION)
         return false;
-    if (record.size_ != sizeof(PluginMetadataRecord))
+    if (record.dataType_ != AST_PLUGIN_DATA_TEXT && record.dataType_ != AST_PLUGIN_DATA_JSON)
+        return false;
+    if (record.size_ > AST_PLUGIN_DATA_MAX_LEN)
         return false;
 
     // iid：必须在界内 NUL 结尾，且终结符之后全为 0（聚合初始化会清零未用部分）
@@ -56,46 +58,56 @@ bool validateMetadataRecord(const PluginMetadataRecord& record)
         if (*p != '\0')
             return false;
     }
-
-    // keys：同样要求 NUL 结尾且其后全为 0
-    const char* keysEnd = static_cast<const char*>(
-        std::memchr(record.keys_, '\0', sizeof(record.keys_)));
-    if (!keysEnd)
-        return false;
-    for (const char* p = keysEnd + 1; p != record.keys_ + sizeof(record.keys_); ++p)
-    {
-        if (*p != '\0')
-            return false;
-    }
     return true;
 }
 
-/// @brief 把已校验的元数据记录解析为 PluginMetadata
-/// @return 索引键格式合法返回 true
-bool recordToMetadata(const PluginMetadataRecord& record, PluginMetadata& metadata)
+/// @brief 把一条记录字节解析为 PluginMetadata
+/// @param record 整条记录的字节，定长头在前、数据区紧随其后
+/// @return 记录格式合法返回 true
+bool recordToMetadata(const std::vector<char>& record, PluginMetadata& metadata)
 {
+    if (record.size() < sizeof(PluginMetadataRecord))
+        return false;
+
+    // 记录字节的前 sizeof(PluginMetadataRecord) 字节就是定长头
+    PluginMetadataRecord header;
+    std::memcpy(&header, record.data(), sizeof(PluginMetadataRecord));
+    if (header.size_ > record.size() - sizeof(PluginMetadataRecord))
+        return false;
+    const StringView data(record.data() + sizeof(PluginMetadataRecord), header.size_);
+
     const char* iidEnd = static_cast<const char*>(
-        std::memchr(record.iid_, '\0', sizeof(record.iid_)));
-    const char* keysEnd = static_cast<const char*>(
-        std::memchr(record.keys_, '\0', sizeof(record.keys_)));
-    if (!iidEnd || !keysEnd) // 调用方应已完成校验，这里只做防御
+        std::memchr(header.iid_, '\0', sizeof(header.iid_)));
+    if (!iidEnd) // 调用方应已完成校验，这里只做防御
         return false;
 
     PluginMetadata parsed;
-    parsed.iid.assign(record.iid_, static_cast<size_t>(iidEnd - record.iid_));
+    parsed.iid_.assign(header.iid_, static_cast<size_t>(iidEnd - header.iid_));
 
-    // keys 是以逗号分隔的字符串，拒绝空段（首尾逗号、连续逗号）；空字符串表示没有键
-    if (keysEnd != record.keys_)
+    if (header.dataType_ == AST_PLUGIN_DATA_JSON)
     {
-        const char* keyBegin = record.keys_;
-        for (const char* p = record.keys_; p <= keysEnd; ++p)
+        if (parsed.json_.parseFromString(data) != eNoError)
+            return false;
+
+        // @TODO 解析 JSON 元数据中的索引键
+    }
+    else
+    {
+        // 纯文本：逗号分隔的索引键，拒绝空段（首尾逗号、连续逗号）；空字符串表示没有键
+        const char* begin = data.data();
+        const char* end = begin + data.size();
+        if (begin != end)
         {
-            if (p != keysEnd && *p != ',')
-                continue;
-            if (p == keyBegin)
-                return false;
-            parsed.keys.emplace_back(keyBegin, static_cast<size_t>(p - keyBegin));
-            keyBegin = p + 1;
+            const char* keyBegin = begin;
+            for (const char* p = begin; p <= end; ++p)
+            {
+                if (p != end && *p != ',')
+                    continue;
+                if (p == keyBegin)
+                    return false;
+                parsed.keys_.emplace_back(keyBegin, static_cast<size_t>(p - keyBegin));
+                keyBegin = p + 1;
+            }
         }
     }
 
@@ -124,14 +136,16 @@ const char* _find_sub(const char* hay, std::size_t n,
     return nullptr;
 }
 
-errc_t _find_metadata(const char* buffer, size_t size, PluginMetadataRecord& record)
+/// @brief 在缓冲区中定位一条完整的元数据记录
+/// @details 记录头或数据区没读全时视为本轮未找到，调用方保留足够的尾部字节后重试
+errc_t _find_metadata(const char* buffer, size_t size, std::vector<char>& record)
 {
     size_t searchFrom = 0;
     for(;;)
     {
-        const char* hit = _find_sub(buffer + searchFrom, 
-                                    size - searchFrom, 
-                                    AST_PLUGIN_METADATA_MAGIC, 
+        const char* hit = _find_sub(buffer + searchFrom,
+                                    size - searchFrom,
+                                    AST_PLUGIN_METADATA_MAGIC,
                                     AST_PLUGIN_METADATA_MAGIC_LEN);
         if(!hit)
             break;
@@ -139,24 +153,36 @@ errc_t _find_metadata(const char* buffer, size_t size, PluginMetadataRecord& rec
         const size_t remaining = size - pos;
         if (remaining < sizeof(PluginMetadataRecord))
         {
+            // 头都没读全，剩余字节也容纳不下另一条记录
             return eErrorNotFound;
         }
         PluginMetadataRecord candidate;
         std::memcpy(&candidate, hit, sizeof(PluginMetadataRecord));
-        if (validateMetadataRecord(candidate))
+        if (!validateMetadataRecord(candidate))
         {
-            record = candidate;
-            return eNoError;
+            // 魔数无自重叠（首字符只出现一次），未通过校验时整段跳过
+            searchFrom = pos + AST_PLUGIN_METADATA_MAGIC_LEN;
+            continue;
         }
-        // 魔数无自重叠（首字符只出现一次），未通过校验时整段跳过
-        searchFrom = pos + AST_PLUGIN_METADATA_MAGIC_LEN;
+        if (remaining - sizeof(PluginMetadataRecord) < candidate.size_)
+        {
+            // 数据区没读全，本轮跳过，等读到更多字节后再解析
+            searchFrom = pos + AST_PLUGIN_METADATA_MAGIC_LEN;
+            continue;
+        }
+        // 定长头与数据区在文件里连续，一次拷完整条记录
+        record.assign(hit, hit + sizeof(PluginMetadataRecord) + candidate.size_);
+        return eNoError;
     }
     return eErrorNotFound;
 }
 
+// 分块扫描时保留的尾部长度：记录头 + 最大数据区，足以覆盖任何跨界记录
+constexpr size_t kCarrySize = sizeof(PluginMetadataRecord) + AST_PLUGIN_DATA_MAX_LEN;
+
 } // namespace
 
-errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& record)
+errc_t aReadPluginMetadataRecord(StringView filepath, std::vector<char>& record)
 {
     if (filepath.empty())
         return eErrorNullInput;
@@ -182,9 +208,7 @@ errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& reco
     fseek(file, 0, SEEK_SET);
 #endif
 
-    // 分块扫描文件字节。保留尾部 sizeof(record)-1 字节，保证跨块的记录下一轮能完整解析
-    const size_t carrySize = sizeof(PluginMetadataRecord) - 1;
-
+    // 分块扫描文件字节。保留尾部 kCarrySize 字节，保证跨块的记录下一轮能完整解析
     std::vector<char> buffer;
 
     for (;;)
@@ -194,14 +218,13 @@ errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& reco
         const size_t got = fread(buffer.data() + offset, 1, kScanChunkSize, file);
         buffer.resize(offset + got);
 
-        errc_t ret = _find_metadata(buffer.data(), buffer.size(), record);
-        if (ret == eNoError)
-            return ret;
+        if (_find_metadata(buffer.data(), buffer.size(), record) == eNoError)
+            return eNoError;
 
         if (got < kScanChunkSize)
             break;
 
-        const size_t keep = buffer.size() < carrySize ? buffer.size() : carrySize;
+        const size_t keep = buffer.size() < kCarrySize ? buffer.size() : kCarrySize;
         buffer.erase(buffer.begin(), buffer.end() - static_cast<std::ptrdiff_t>(keep));
     }
 
@@ -210,7 +233,7 @@ errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& reco
 
 errc_t aReadPluginMetadata(StringView filepath, PluginMetadata& metadata)
 {
-    PluginMetadataRecord record;
+    std::vector<char> record;
     const errc_t rc = aReadPluginMetadataRecord(filepath, record);
     if (rc != eNoError)
         return rc;
@@ -285,7 +308,7 @@ errc_t PluginLoader::loadNoLock()
     const char* const* iidAddr = static_cast<const char* const*>(
         aGetProcAddress(handle, AST_PLUGIN_IID_NAMESTR));
     const char* runtimeIid = iidAddr ? *iidAddr : nullptr;
-    if (!runtimeIid || metadata_.iid != runtimeIid)
+    if (!runtimeIid || metadata_.iid_ != runtimeIid)
     {
         aWarning(_("插件元数据与导出的 ast_plugin_iid 不一致：'%s'"), filepath_.c_str());
         loadError_ = eErrorParse;

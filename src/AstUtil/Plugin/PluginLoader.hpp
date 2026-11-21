@@ -24,6 +24,7 @@
 #include "AstUtil/StringView.hpp"
 #include "PluginInterface.hpp"
 #include <string>
+#include <vector>
 #include <mutex>
 
 AST_NAMESPACE_BEGIN
@@ -35,13 +36,13 @@ AST_NAMESPACE_BEGIN
 
 /// @brief 从动态库文件字节中读取插件元数据记录（不加载动态库）
 /// @param filepath 动态库路径
-/// @param[out] record 解析出的元数据记录
+/// @param[out] record 整条记录的字节，定长头在前、数据区紧随其后
 /// @return 错误码
-AST_UTIL_API errc_t aReadPluginMetadataRecord(StringView filepath, PluginMetadataRecord& record);
+AST_UTIL_API errc_t aReadPluginMetadataRecord(StringView filepath, std::vector<char>& record);
 
 /// @brief 从动态库文件字节中读取插件元数据（不加载动态库）
 /// @param filepath 动态库路径
-/// @param[out] metadata 解析出的接口 ID 与索引键
+/// @param[out] metadata 解析出的接口 ID、索引键与 JSON 数据
 /// @return 错误码
 AST_UTIL_API errc_t aReadPluginMetadata(StringView filepath, PluginMetadata& metadata);
 
@@ -71,7 +72,7 @@ public:
     errc_t readMetadata();
 
     /// @brief 是否为已验证的插件库（元数据读取成功）
-    bool isPlugin() const { return !metadata_.iid.empty(); }
+    bool isPlugin() const { return !metadata_.iid_.empty(); }
 
     /// @brief 已解析的插件元数据
     const PluginMetadata& metadata() const { return metadata_; }
