@@ -237,6 +237,39 @@ Version Version::Parse(StringView version)
     return result;
 }
 
+std::string Version::toString() const
+{
+    // 无效版本没有字符串表示
+    if (!valid())
+        return {};
+
+    // MAJOR.MINOR[.PATCH]
+    std::string result = std::to_string(major_);
+    result += '.';
+    result += std::to_string(minor_);
+    if (patch_ >= 0)
+    {
+        result += '.';
+        result += std::to_string(patch_);
+    }
+
+    // -预发布版本号
+    if (!prerelease_.empty())
+    {
+        result += '-';
+        result += prerelease_;
+    }
+
+    // +构建版本号
+    if (!build_.empty())
+    {
+        result += '+';
+        result += build_;
+    }
+
+    return result;
+}
+
 int Version::compare(const Version& other) const
 {
     // 逐级比较主版本号、次版本号、修订版本号

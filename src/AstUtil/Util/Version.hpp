@@ -84,7 +84,10 @@ public:
 
     const std::string& build() const{return build_;}
     void setBuild(StringView build){build_ = std::string(build);}
-
+public:
+    /// @brief 将版本号转换为字符串表示
+    /// @return 版本号字符串
+    std::string toString() const;
 private:
     int major_{-1};                  ///< 主版本号
     int minor_{0};                   ///< 次版本号

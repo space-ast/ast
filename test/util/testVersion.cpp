@@ -788,4 +788,122 @@ TEST(ProjectVersion, ReturnsReferenceToStableObject)
     EXPECT_EQ(&aVersion(), &aVersion());
 }
 
+
+// ============================================================================
+// 13. 字符串表示 — toString()
+// ============================================================================
+
+TEST(VersionToString, InvalidVersionReturnsEmpty)
+{
+    // 无效版本没有字符串表示
+    EXPECT_EQ(Version().toString(), "");
+    EXPECT_EQ(Version::Parse("").toString(), "");
+    EXPECT_EQ(Version::Parse("not-a-version").toString(), "");
+    EXPECT_EQ(Version::Parse("01.0.0").toString(), "");
+}
+
+TEST(VersionToString, BasicCoreFormat)
+{
+    // 规范格式：MAJOR.MINOR.PATCH
+    EXPECT_EQ(Version(1, 2, 3).toString(), "1.2.3");
+    EXPECT_EQ(Version(0, 0, 0).toString(), "0.0.0");
+    EXPECT_EQ(Version(0, 1, 0).toString(), "0.1.0");
+    EXPECT_EQ(Version(10, 20, 30).toString(), "10.20.30");
+    EXPECT_EQ(Version(999, 999, 999).toString(), "999.999.999");
+}
+
+TEST(VersionToString, NoPatchOmitsPatchField)
+{
+    // patch < 0 表示无修订号，字符串中只输出 MAJOR.MINOR
+    EXPECT_EQ(Version(1, 2, -1).toString(), "1.2");
+    EXPECT_EQ(Version(0, 0, -1).toString(), "0.0");
+}
+
+TEST(VersionToString, WithPrerelease)
+{
+    EXPECT_EQ(Version(1, 0, 0, "alpha").toString(), "1.0.0-alpha");
+    EXPECT_EQ(Version(1, 0, 0, "rc.1").toString(), "1.0.0-rc.1");
+    EXPECT_EQ(Version(1, 0, 0, "x.7.z.92").toString(), "1.0.0-x.7.z.92");
+}
+
+TEST(VersionToString, WithBuild)
+{
+    EXPECT_EQ(Version(1, 0, 0, {}, "20200101").toString(), "1.0.0+20200101");
+    EXPECT_EQ(Version(1, 0, 0, {}, "exp.sha.5114f85").toString(), "1.0.0+exp.sha.5114f85");
+    EXPECT_EQ(Version(1, 0, 0, {}, "001").toString(), "1.0.0+001");
+}
+
+TEST(VersionToString, WithPrereleaseAndBuild)
+{
+    EXPECT_EQ(Version(1, 0, 0, "alpha", "001").toString(), "1.0.0-alpha+001");
+    EXPECT_EQ(Version(1, 0, 0, "beta", "exp.sha.5114f85").toString(), "1.0.0-beta+exp.sha.5114f85");
+}
+
+TEST(VersionToString, FromSetters)
+{
+    // 通过 setter 逐字段构造的版本也应正确输出
+    Version v;
+    v.setMajor(5);
+    v.setMinor(4);
+    v.setPatch(3);
+    v.setPrerelease("rc");
+    v.setBuild("20200101");
+    EXPECT_EQ(v.toString(), "5.4.3-rc+20200101");
+}
+
+TEST(VersionToString, ParseRoundTrip)
+{
+    // 合法版本号经 Parse → toString 应原样还原
+    const char* const cases[] = {
+        "0.0.0",
+        "1.2.3",
+        "10.20.30",
+        "999.999.999",
+        "1.0.0-alpha",
+        "1.0.0-alpha.1",
+        "1.0.0-0.3.7",
+        "1.0.0-x.7.z.92",
+        "1.0.0-x-y-z.-",
+        "1.0.0+20130313144700",
+        "1.0.0+001",
+        "1.0.0-beta+exp.sha.5114f85",
+        "1.0.0-alpha+001",
+    };
+
+    for (const char* text : cases)
+    {
+        Version v = Version::Parse(text);
+        ASSERT_TRUE(v.valid()) << "failed to parse: " << text;
+        EXPECT_EQ(v.toString(), text) << "round trip: " << text;
+    }
+}
+
+TEST(VersionToString, ParseTwoPartRoundTrip)
+{
+    // MAJOR.MINOR 形式（无修订号）也应原样还原
+    EXPECT_EQ(Version::Parse("1.2").toString(), "1.2");
+}
+
+TEST(VersionToString, ParseNormalizesVPrefix)
+{
+    // v/V 前缀不属于版本号本身，toString 不输出
+    EXPECT_EQ(Version::Parse("v1.2.3").toString(), "1.2.3");
+    EXPECT_EQ(Version::Parse("V2.0.0").toString(), "2.0.0");
+    EXPECT_EQ(Version::Parse("v1.0.0-rc.1").toString(), "1.0.0-rc.1");
+}
+
+TEST(VersionToString, OutputIsReparsable)
+{
+    // toString 的输出应能被 Parse 重新解析为等价的版本
+    Version original(2, 5, 3, "rc.2", "build.1");
+    Version reparsed(original.toString());
+
+    EXPECT_TRUE(reparsed.valid());
+    EXPECT_EQ(reparsed.major(), original.major());
+    EXPECT_EQ(reparsed.minor(), original.minor());
+    EXPECT_EQ(reparsed.patch(), original.patch());
+    EXPECT_STREQ(reparsed.prerelease().c_str(), original.prerelease().c_str());
+    EXPECT_STREQ(reparsed.build().c_str(), original.build().c_str());
+}
+
 GTEST_MAIN()
