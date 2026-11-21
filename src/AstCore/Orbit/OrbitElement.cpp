@@ -688,7 +688,7 @@ errc_t moe2rv(const double* moe, double gm, double* pos, double* vel)
 
     if(ecc == 1)
         return eErrorInvalidParam;
-    double slr = perirad * (1 + ecc);         // p  semi-latus rectum  // perirad = p/(1+e) = a (1-e)
+    double slr = fabs(perirad) * (1 + ecc);         // p  semi-latus rectum  // perirad = p/(1+e) = a (1-e)
     double rm = slr / (1 + ecc * cos(tanom));  // 当前距离
     double arglat = argper + tanom;           // 纬度辐角
     double sarglat = sin(arglat);
