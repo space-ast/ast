@@ -135,6 +135,19 @@ std::vector<std::string> PluginRegistry::keys(StringView iid) const
     return keys;
 }
 
+void PluginRegistry::plugins(StringView iid, std::vector<PluginLoader*>& out) const
+{
+    out.clear();
+
+    for (const std::unique_ptr<PluginLoader>& loader : loaders_)
+    {
+        if (!loader)
+            continue;
+        if (iid == loader->metadata().iid_)
+            out.push_back(loader.get());
+    }
+}
+
 size_t PluginRegistry::pluginCount() const
 {
     return loaders_.size();

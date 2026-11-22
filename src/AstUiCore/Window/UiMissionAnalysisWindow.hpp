@@ -23,8 +23,11 @@
 #pragma once
 
 #include "AstGlobal.h"
+#include <QList>
 #include <QMainWindow>
 
+class QAction;
+class QMenu;
 class QTabBar;
 class QStackedWidget;
 class QTabWidget;
@@ -63,6 +66,8 @@ private:
     void setupUi();
 
     void setupMenuBar();
+    void setupPluginToolsMenu(QMenu* menu);
+    void rebuildPluginToolsMenu();
     void setupToolBar();
     void setupObjectDock();
     void setupCentral();
@@ -74,6 +79,10 @@ private:
 
     /// @brief 打开"插入对象"对话框，并将插入结果反映到状态栏
     void insertObject();
+
+    // 工具菜单中的插件项
+    QMenu*             toolsMenu_ = nullptr;      ///< “工具”菜单（插件项挂在这里）
+    QList<QAction*>    pluginToolActions_;        ///< 由插件清单生成的动作，重建时整体替换
 
     // 工具栏（由多个可移动工具组组成，QMainWindow 持有所有权）
     QLineEdit* timeEdit_    = nullptr;   ///< 时间输入框（当前模拟时刻）

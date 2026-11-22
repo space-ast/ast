@@ -25,6 +25,7 @@
 #include "AstCore/TimePoint.hpp"
 #include "AstCore/TimeInterval.hpp"
 #include "AstCore/DateTime.hpp"
+#include "AstUiUtil/UiToolPluginManager.hpp"
 
 #include <QAction>
 #include <QColor>
@@ -35,7 +36,9 @@
 #include <QKeySequence>
 #include <QLabel>
 #include <QLineEdit>
+#include <QMenu>
 #include <QMenuBar>
+#include <QMessageBox>
 #include <QPalette>
 #include <QPixmap>
 #include <QStatusBar>
@@ -115,9 +118,70 @@ void UiMissionAnalysisWindow::setupMenuBar()
     QObject::connect(insertObjectAction, &QAction::triggered, this, [this]() { insertObject(); });
     menuBar()->addMenu(tr("分析(&A)"));
     menuBar()->addMenu(tr("卫星(&S)"));
-    menuBar()->addMenu(tr("工具(&T)"));
+    auto* toolsMenu = menuBar()->addMenu(tr("工具(&T)"));
+    setupPluginToolsMenu(toolsMenu);
     menuBar()->addMenu(tr("窗口(&W)"));
     menuBar()->addMenu(tr("帮助(&H)"));
+}
+
+// ============================================================================
+// 工具菜单中的界面插件项
+// ============================================================================
+
+void UiMissionAnalysisWindow::setupPluginToolsMenu(QMenu* menu)
+{
+    toolsMenu_ = menu;
+
+    // 只读插件元数据，不加载动态库
+    UiToolPluginManager::Instance().refresh();
+    rebuildPluginToolsMenu();
+}
+
+void UiMissionAnalysisWindow::rebuildPluginToolsMenu()
+{
+    if (!toolsMenu_)
+        return;
+
+    // 先整体撤掉上一次生成的插件项（包括分隔线）
+    for (QAction* action : pluginToolActions_)
+    {
+        toolsMenu_->removeAction(action);
+        action->deleteLater();
+    }
+    pluginToolActions_.clear();
+
+    const std::vector<UiToolPluginEntry>& tools = UiToolPluginManager::Instance().tools();
+    if (tools.empty())
+        return;
+
+    pluginToolActions_.append(toolsMenu_->addSeparator());
+
+    for (const UiToolPluginEntry& info : tools)
+    {
+        const QString id = QString::fromStdString(info.id());
+
+        auto* action = toolsMenu_->addAction(QString::fromStdString(info.title()));
+        action->setObjectName(QStringLiteral("PluginTool_%1").arg(id));
+        if (!info.tooltip().empty())
+            action->setToolTip(QString::fromStdString(info.tooltip()));
+        if (!info.iconPath().empty())
+            action->setIcon(QIcon(QString::fromStdString(info.iconPath())));
+
+        pluginToolActions_.append(action);
+
+        // 只有真正被点击时才加载插件动态库
+        QObject::connect(action, &QAction::triggered, this, [this, id]() {
+            UiToolPluginManager& toolManager = UiToolPluginManager::Instance();
+            if (toolManager.invoke(id.toStdString(), this))
+                return;
+
+            QMessageBox::warning(
+                this,
+                tr("插件工具"),
+                tr("无法运行工具“%1”。\n\n%2")
+                    .arg(id, QString::fromStdString(toolManager.errorText(id.toStdString()))));
+        });
+    }
 }
 
 // ============================================================================
