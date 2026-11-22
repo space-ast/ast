@@ -101,7 +101,13 @@ void* _aLoadLibraryFromName(const char* filename)
 	std::wstring wideFilename;
 	aUtf8ToWide(filename, wideFilename);
     static_assert(sizeof(void*) >= sizeof(HMODULE), "void* must be at least as large as HMODULE");
-    return LoadLibraryExW(wideFilename.c_str(), nullptr, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
+    // 优先按 LOAD_LIBRARY_SEARCH_* 搜索：
+    // 可命中通过 aAddLibrarySearchDirectory 登记的目录（默认搜索顺序不会查这些目录）。
+    if (HMODULE handle = LoadLibraryExW(wideFilename.c_str(), nullptr, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS))
+        return handle;
+    // 回退到默认搜索顺序：
+    // 依赖库可能只存在于 PATH 中，指定 LOAD_LIBRARY_SEARCH_* 时 PATH 会被排除，因此需要这次回退。
+    return LoadLibraryW(wideFilename.c_str());
 #else
     // Linux/Unix平台
     // RTLD_LAZY: 延迟绑定，只在需要时解析符号
@@ -117,7 +123,14 @@ void* _aLoadLibraryFromPath(StringView filepath)
 #if defined(_WIN32) || defined(_WIN64)
 	std::wstring widePath = aMakeWin32Path(filepath);
     static_assert(sizeof(void*) >= sizeof(HMODULE), "void* must be at least as large as HMODULE");
-    return LoadLibraryExW(widePath.c_str(), nullptr, LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR | LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
+    // 优先按 LOAD_LIBRARY_SEARCH_* 搜索：
+    // 可命中动态库同目录的依赖，以及通过 aAddLibrarySearchDirectory 登记的目录。
+    if (HMODULE handle = LoadLibraryExW(widePath.c_str(), nullptr,
+            LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR | LOAD_LIBRARY_SEARCH_DEFAULT_DIRS))
+        return handle;
+    // 回退到默认搜索顺序：
+    // 依赖库可能只存在于 PATH 中，指定 LOAD_LIBRARY_SEARCH_* 时 PATH 会被排除，因此需要这次回退。
+    return LoadLibraryW(widePath.c_str());
 #else
     std::string path(filepath);
     return _aLoadLibraryFromName(path.c_str());
