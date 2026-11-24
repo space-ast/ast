@@ -68,6 +68,8 @@ private:
     void setupMenuBar();
     void setupPluginToolsMenu(QMenu* menu);
     void rebuildPluginToolsMenu();
+    /// @brief 菜单弹出前按管理器里的最新启用状态同步插件动作
+    void syncPluginToolActions();
     void setupToolBar();
     void setupObjectDock();
     void setupCentral();

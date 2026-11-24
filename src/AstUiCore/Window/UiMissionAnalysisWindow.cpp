@@ -47,6 +47,7 @@
 #include <QToolBar>
 #include <QToolButton>
 #include <QVBoxLayout>
+#include <QVariant>
 #include <QWidget>
 
 AST_NAMESPACE_BEGIN
@@ -132,6 +133,9 @@ void UiMissionAnalysisWindow::setupPluginToolsMenu(QMenu* menu)
 {
     toolsMenu_ = menu;
 
+    // 菜单每次弹出前，按管理器里的最新状态同步动作可用性
+    QObject::connect(toolsMenu_, &QMenu::aboutToShow, this, [this]() { syncPluginToolActions(); });
+
     // 只读插件元数据，不加载动态库
     UiToolPluginManager::Instance().refresh();
     rebuildPluginToolsMenu();
@@ -162,6 +166,8 @@ void UiMissionAnalysisWindow::rebuildPluginToolsMenu()
 
         auto* action = toolsMenu_->addAction(QString::fromStdString(info.title()));
         action->setObjectName(QStringLiteral("PluginTool_%1").arg(id));
+        action->setData(QString::fromStdString(info.id()));
+        action->setEnabled(info.enabled());
         if (!info.tooltip().empty())
             action->setToolTip(QString::fromStdString(info.tooltip()));
         if (!info.iconPath().empty())
@@ -180,6 +186,24 @@ void UiMissionAnalysisWindow::rebuildPluginToolsMenu()
                 tr("插件工具"),
                 tr("无法运行工具'%1'").arg(id));
         });
+    }
+}
+
+void UiMissionAnalysisWindow::syncPluginToolActions()
+{
+    UiToolPluginManager& manager = UiToolPluginManager::Instance();
+    for (QAction* action : pluginToolActions_)
+    {
+        if (!action)
+            continue;
+
+        // 分隔线没有 data，跳过
+        const QVariant toolId = action->data();
+        if (!toolId.isValid())
+            continue;
+
+        const UiToolPluginEntry* info = manager.tool(toolId.toString().toStdString());
+        action->setEnabled(info != nullptr && info->enabled());
     }
 }
 
