@@ -123,7 +123,77 @@ namespace
         out.append(start, len);
         return true;
     }
+
+    /// @brief 校验已存储的预发布版本号字符串（点分隔标识符，不允许空段）
+    bool isValidPrereleaseIds(const std::string& value)
+    {
+        if (value.empty())
+            return true;  // 空字符串表示没有预发布版本号
+
+        const char* p = value.data();
+        const char* end = p + value.size();
+        while (p < end)
+        {
+            std::string id;
+            if (!parsePrereleaseId(p, end, id))  // 非合法字符或空标识符
+                return false;
+            if (p < end)
+            {
+                if (*p != '.')
+                    return false;
+                ++p;
+                if (p == end)  // 尾随点，等价于空标识符
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    /// @brief 校验已存储的构建版本号字符串（点分隔标识符，不允许空段）
+    bool isValidBuildIds(const std::string& value)
+    {
+        if (value.empty())
+            return true;  // 空字符串表示没有构建版本号
+
+        const char* p = value.data();
+        const char* end = p + value.size();
+        while (p < end)
+        {
+            std::string id;
+            if (!parseBuildId(p, end, id))  // 非合法字符或空标识符
+                return false;
+            if (p < end)
+            {
+                if (*p != '.')
+                    return false;
+                ++p;
+                if (p == end)  // 尾随点，等价于空标识符
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    /// @brief 按数值比较两个纯数字标识符
+    /// @note 合法 semver 的数字标识符不含前导零（"0" 除外），因此直接按位数 + 字典序比较即可；
+    ///       compare() 不校验有效性，无效版本之间的比较结果未定义，不需要为它们做去零兼容
+    int compareNumericIds(const std::string& a, const std::string& b)
+    {
+        if (a.size() != b.size())
+            return a.size() < b.size() ? -1 : 1;
+
+        const int cmp = a.compare(b);
+        if (cmp == 0)
+            return 0;
+        return cmp < 0 ? -1 : 1;
+    }
 }  // anonymous namespace
+
+void Version::updateStringValid()
+{
+    prereleaseValid_ = isValidPrereleaseIds(prerelease_);
+    buildValid_ = isValidBuildIds(build_);
+}
 
 Version::Version(StringView version)
     : prerelease_(), build_()
@@ -134,10 +204,23 @@ Version::Version(StringView version)
 Version::Version(int major, int minor, int patch, StringView prerelease, StringView build)
     : major_(major)
     , minor_(minor)
-    , patch_(patch)
+    , patch_(patch < 0 ? -1 : patch)  // 归一化为 -1，保证 toString() 可往返
     , prerelease_(prerelease.data(), prerelease.size())
     , build_(build.data(), build.size())
 {
+    updateStringValid();
+}
+
+void Version::setPrerelease(StringView prerelease)
+{
+    prerelease_ = std::string(prerelease);
+    prereleaseValid_ = isValidPrereleaseIds(prerelease_);
+}
+
+void Version::setBuild(StringView build)
+{
+    build_ = std::string(build);
+    buildValid_ = isValidBuildIds(build_);
 }
 
 Version Version::Parse(StringView version)
@@ -195,7 +278,15 @@ Version Version::Parse(StringView version)
                 return result;
             }
             if (p < end && *p == '.')
+            {
                 ++p;
+                // 点后必须紧跟下一个标识符（尾点或直接接 '+' 都是空标识符）
+                if (p >= end || *p == '+')
+                {
+                    result.major_ = -1;
+                    return result;
+                }
+            }
         }
         // 检查 '-' 后面至少有一个有效标识符
         if (result.prerelease_.empty())
@@ -217,7 +308,15 @@ Version Version::Parse(StringView version)
                 return result;
             }
             if (p < end && *p == '.')
+            {
                 ++p;
+                // 点后必须紧跟下一个标识符（尾点等价于空标识符）
+                if (p >= end)
+                {
+                    result.major_ = -1;
+                    return result;
+                }
+            }
         }
         // 检查 '+' 后面至少有一个有效标识符
         if (result.build_.empty())
@@ -234,6 +333,7 @@ Version Version::Parse(StringView version)
         return result;
     }
 
+    result.updateStringValid();
     return result;
 }
 
@@ -327,11 +427,10 @@ int Version::compare(const Version& other) const
 
             if (aNum && bNum)
             {
-                // 同为数字标识符，按数值比较（通过 strtol 忽略前导零）
-                long aVal = strtol(aId.c_str(), nullptr, 10);
-                long bVal = strtol(bId.c_str(), nullptr, 10);
-                if (aVal != bVal)
-                    return aVal < bVal ? -1 : 1;
+                // 同为数字标识符，按数值比较（逐位比较，不受整型位宽限制）
+                const int cmp = compareNumericIds(aId, bId);
+                if (cmp != 0)
+                    return cmp;
             }
             else if (aNum)
             {
