@@ -60,6 +60,25 @@ const JsonValue* findMember(const std::map<std::string, JsonValue>& object, cons
     return it == object.end() ? nullptr : &it->second;
 }
 
+/// @brief 节点是否至少包含一个非空字符串
+/// @details 纯字符串直接判断自身；多语言对象只要任意一个语言值是非空字符串即可，
+///          避免当前语言恰好为空串时把还有其它语种的条目丢掉
+bool hasNonEmptyText(const JsonValue& node)
+{
+    if (node.isString())
+        return !node.toString().empty();
+
+    if (!node.isObject())
+        return false;
+
+    for (const auto& kv : node.getObject())
+    {
+        if (kv.second.isString() && !kv.second.toString().empty())
+            return true;
+    }
+    return false;
+}
+
 /// @brief 把元数据里的图标字段解析成绝对路径
 /// @details 相对路径按插件动态库所在目录解析；文件不存在时返回空串
 std::string resolveIconPath(const std::string& pluginPath, const std::string& icon)
@@ -127,9 +146,9 @@ void UiToolPluginManager::ParseTools(const std::string& pluginPath,
 
         const std::map<std::string, JsonValue>& object = kv.second.getObject();
 
-        // title 保持原始节点，只检查"至少有一种语言能解析出文本"
+        // title 保持原始节点：纯字符串要求非空，多语言对象要求至少一种语言有非空文本
         const JsonValue* titleNode = findMember(object, "title");
-        if (!titleNode || aUiResolveText(*titleNode, StringView()).empty())
+        if (!titleNode || !hasNonEmptyText(*titleNode))
         {
             aWarning(_("插件 '%s' 的工具 '%s' 缺少可用的 title，已跳过"),
                      pluginPath.c_str(), id.c_str());

@@ -153,6 +153,33 @@ TEST(UiToolPluginManager, SkipInvalidTools)
     EXPECT_EQ(tools[0].id(), std::string("ok"));
 }
 
+TEST(UiToolPluginManager, TitleAcceptsAnyNonEmptyLanguage)
+{
+    // 当前语言对应空串时，只要其它语种有文本，标题仍应保留
+    aUiSetLanguage("zh");
+
+    std::vector<UiToolPluginEntry> tools;
+    UiToolPluginManager::ParseTools("p.dll", makeMetadata(R"json({
+        "api": 1,
+        "tools": {
+            "empty_all":    { "title": { "zh": "", "en": "" } },
+            "empty_string": { "title": "" },
+            "no_title":     { "order": 1 },
+            "only_en":      { "title": { "zh": "", "en": "English" } },
+            "only_fr":      { "title": { "en": "", "fr": "Bonjour" } },
+            "plain":        { "title": "Plain" }
+        }
+    })json"), tools);
+
+    ASSERT_TRUE(tools.size() == 3);
+    EXPECT_EQ(tools[0].id(), std::string("only_en"));
+    EXPECT_EQ(tools[1].id(), std::string("only_fr"));
+    EXPECT_EQ(tools[2].id(), std::string("plain"));
+
+    // 恢复为跟随环境变量/系统区域
+    aUiSetLanguage("");
+}
+
 TEST(UiToolPluginManager, MissingToolsObject)
 {
     std::vector<UiToolPluginEntry> tools;
