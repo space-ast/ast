@@ -77,6 +77,10 @@ public:
     /// @return 路径；条目尚未关联插件库时返回空串
     std::string pluginPath() const;
 
+    /// @brief 可移动但不可拷贝（条目存于 std::vector 并参与排序）
+    UiToolPluginEntry(UiToolPluginEntry&&) = default;
+    UiToolPluginEntry& operator=(UiToolPluginEntry&&) = default;
+
     /// @name 运行期状态（只读）
     /// @{
     EUiToolState state() const noexcept { return state_; }        ///< 当前状态

@@ -56,6 +56,33 @@ TEST(UiToolPluginManager, ResolveTextFallback)
     EXPECT_TRUE(aUiResolveText(JsonValue(1), "zh").empty());
 }
 
+TEST(UiToolPluginManager, ResolveTextEmptyLangUsesCurrentLanguage)
+{
+    const JsonValue node = JsonValue::FromString(R"({"zh":"中文","en":"English"})");
+
+    // 不传语言时按当前界面语言解析
+    aUiSetLanguage("zh");
+    EXPECT_EQ(aUiResolveText(node, ""), std::string("中文"));
+
+    aUiSetLanguage("en");
+    EXPECT_EQ(aUiResolveText(node, ""), std::string("English"));
+
+    // 条目接口同样遵循该回退
+    std::vector<UiToolPluginEntry> tools;
+    UiToolPluginManager::ParseTools("p.dll",
+        makeMetadata(R"json({"tools":{"t":{"title":{"zh":"中文标题","en":"English title"}}}})json"),
+        tools);
+    ASSERT_TRUE(tools.size() == 1);
+
+    aUiSetLanguage("zh");
+    EXPECT_EQ(tools[0].title(""), std::string("中文标题"));
+    aUiSetLanguage("en");
+    EXPECT_EQ(tools[0].title(""), std::string("English title"));
+
+    // 恢复为跟随环境变量/系统区域
+    aUiSetLanguage("");
+}
+
 TEST(UiToolPluginManager, ParseTools)
 {
     const PluginMetadata metadata = makeMetadata(R"json({

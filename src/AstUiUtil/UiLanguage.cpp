@@ -83,7 +83,8 @@ std::string aUiResolveText(const JsonValue& node, StringView lang)
     if (object.empty())
         return std::string();
 
-    const std::string want = normalizeLanguage(lang);
+    // 显式语言码先归一化；未指定时跟随当前界面语言（aUiCurrentLanguage() 的返回值已归一化）
+    const std::string want = lang.empty() ? aUiCurrentLanguage() : normalizeLanguage(lang);
 
     // 当前语言
     for (const auto& kv : object)
