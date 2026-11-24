@@ -35,18 +35,17 @@ AST_NAMESPACE_BEGIN
 class PluginLoader;
 
 /*!
-    @addtogroup ToolPlugin
+    @addtogroup 
     @{
 */
 
 /// @brief 工具的运行状态
 enum class EUiToolState
 {
-    eNotLoaded,     ///< 已发现，尚未加载动态库
-    eLoaded,        ///< 已加载并成功激活过
-    eFailed,        ///< 加载或激活失败
-    eIncompatible,  ///< 接口版本不匹配
-    eDisabled,      ///< 被会话级禁用
+    eNormal,          ///< 正常状态
+    eLoadFailed,      ///< 加载失败
+    eIncompatible,    ///< 接口不兼容
+    eInvokeFailed,    ///< 调用失败
 };
 
 /// @brief 工具插件声明的一个工具
@@ -83,9 +82,9 @@ public:
 
     /// @name 运行期状态（只读）
     /// @{
-    EUiToolState state() const noexcept { return state_; }        ///< 当前状态
-    const std::string& error() const noexcept { return error_; }  ///< 最近一次失败原因
-    bool enabled() const noexcept { return enabled_; }            ///< 会话级启用状态
+    EUiToolState state() const noexcept { return state_; }                         ///< 当前状态
+    const std::string& error() const noexcept { return error_; }                   ///< 最近一次失败原因
+    bool enabled() const noexcept { return enabled_; }                             ///< 是否已启用
     /// @}
 
 private:
@@ -109,9 +108,9 @@ private:
     int order_{100};                                ///< 排序权重
     int api_{1};                                    ///< 接口版本
 
-    EUiToolState state_{EUiToolState::eNotLoaded};  ///< 当前状态
+    EUiToolState state_{EUiToolState::eNormal};     ///< 当前状态
     std::string error_{};                           ///< 最近一次失败原因
-    bool enabled_{true};                            ///< 会话级启用状态
+    bool enabled_{true};                            ///< 是否启用
 
     /// @internal 所属插件库，仅管理器使用
     PluginLoader* plugin_{nullptr};
@@ -151,24 +150,14 @@ public:
     /// @return 工具条目；未命中返回 nullptr
     const UiToolPluginEntry* tool(StringView id) const;
 
-    /// @brief 工具当前状态
-    EUiToolState state(StringView id) const;
-
-    /// @brief 最近一次失败原因（UTF-8）；没有失败时返回空串
-    std::string errorText(StringView id) const;
-
     /// @brief 调用工具：首次调用时加载所属动态库并转发给插件
     /// @param key 工具键，即元数据 tools 对象的键
     /// @param parent 主窗口，作为插件对话框的父对象，可为空
-    /// @return 成功返回 true；失败时原因可通过 errorText() 取得
-    /// @note 只能在主线程调用；失败结果会被记住，不会反复重试
+    /// @return 成功返回 true；
+    /// @note 只能在主线程调用；
+    ///       动态库加载失败或接口版本不匹配会被记住，不会反复重试；
+    ///       库已加载但激活失败（如插件执行异常）时允许下次点击重试；
     bool invoke(StringView key, QWidget* parent);
-
-    /// @brief 会话级启用/禁用工具，只影响菜单是否可用
-    void setEnabled(StringView id, bool enabled);
-
-    /// @brief 工具是否处于启用状态
-    bool isEnabled(StringView id) const;
 
 private:
     UiToolPluginManager() = default;

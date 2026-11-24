@@ -58,17 +58,17 @@ AST_NAMESPACE_BEGIN
 /// @endcode
 ///
 /// 字段：
+/// - `api`：必填字段，接口版本。默认为1，与主程序支持的接口版本(kUiToolApiVersion)一致
 /// - `tools`：必填对象。键就是工具键，会原样传给 invoke()；同一个键不能重复
-/// - `title`：必填。多语言对象（如 `{"zh":"…","en":"…"}`）或纯字符串
-/// - `tooltip`：可选，格式同 `title`
-/// - `order`：可选，菜单排序权重，默认 100
-/// - `icon`：可选，相对插件动态库所在目录的图标路径；没有时菜单不带图标
-/// - `api`：可选，接口版本，默认 1
+///     - `title`：必填。多语言对象（如 `{"zh":"…","en":"…"}`）或纯字符串
+///     - `tooltip`：可选，格式同 `title`
+///     - `order`：可选，菜单排序权重，默认 100
+///     - `icon`：可选，相对插件动态库所在目录的图标路径；没有时菜单不带图标
 ///
 /// @par 插件声明方式
 /// @code{.cpp}
 /// AST_PLUGIN_METADATA_JSON(IUiToolProvider, R"json(
-/// { "tools": { "hello": { "title": { "zh": "你好", "en": "Hello" } } } }
+/// { "api": 1, "tools": { "hello": { "title": { "zh": "你好", "en": "Hello" } } } }
 /// )json")
 /// AST_PLUGIN_INSTANCE(MyToolProvider)
 /// @endcode
@@ -93,6 +93,10 @@ public:
 
 /// @brief 界面工具插件接口的唯一 ID（插件元数据里的 iid 必须是此值）
 #define AST_IID_IUiToolProvider "space.ast.AstUiUtil.IUiToolProvider:1"
+
+/// @brief 主程序当前支持的界面工具接口版本，对应元数据中的 api 字段
+/// @note 插件声明的 api 与此不一致时，工具会被标记为 eIncompatible，不会加载
+constexpr int kUiToolApiVersion = 1;
 
 AST_DECLARE_INTERFACE(IUiToolProvider, AST_IID_IUiToolProvider)
 

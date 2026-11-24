@@ -178,8 +178,7 @@ void UiMissionAnalysisWindow::rebuildPluginToolsMenu()
             QMessageBox::warning(
                 this,
                 tr("插件工具"),
-                tr("无法运行工具“%1”。\n\n%2")
-                    .arg(id, QString::fromStdString(toolManager.errorText(id.toStdString()))));
+                tr("无法运行工具'%1'").arg(id));
         });
     }
 }

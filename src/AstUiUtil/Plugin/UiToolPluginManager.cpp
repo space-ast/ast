@@ -25,6 +25,7 @@
 #include "AstUtil/Logger.hpp"
 #include "AstUtil/PluginLoader.hpp"
 #include "AstUtil/PluginRegistry.hpp"
+#include "AstUtil/ScopeExit.hpp"
 
 #include <algorithm>
 #include <cctype>
@@ -100,6 +101,12 @@ void UiToolPluginManager::ParseTools(const std::string& pluginPath,
     if (const JsonValue* apiNode = findMember(root, "api"))
         api = apiNode->toInt(1);
 
+    const bool apiCompatible = (api == kUiToolApiVersion);
+    if (!apiCompatible)
+    {
+        aWarning(_("插件 '%s' 的接口版本 %d 与主程序支持的 %d 不一致，相关工具不可用"), pluginPath.c_str(), api, kUiToolApiVersion);
+    }
+
     for (const auto& kv : toolsNode->getObject())
     {
         const std::string& id = kv.first;
@@ -143,8 +150,14 @@ void UiToolPluginManager::ParseTools(const std::string& pluginPath,
 
         // 构造函数是私有的，只能在这里构造后移动进容器
         // （emplace_back 由 allocator 直接构造，访问不到私有构造）
-        out.push_back(UiToolPluginEntry(id, *titleNode, std::move(tooltip),
-                                        std::move(iconPath), order, api));
+        UiToolPluginEntry entry(id, *titleNode, std::move(tooltip),
+                                std::move(iconPath), order, api);
+        if (!apiCompatible)
+        {
+            entry.state_ = EUiToolState::eIncompatible;
+            entry.error_ = std::string("插件接口版本不匹配：主程序支持 ") + std::to_string(kUiToolApiVersion) +"，插件声明 " + std::to_string(api);
+        }
+        out.push_back(std::move(entry));
     }
 }
 
@@ -236,8 +249,6 @@ errc_t UiToolPluginManager::refresh()
             {
                 if (old.id() == info.id())
                 {
-                    info.state_ = old.state_;
-                    info.error_ = old.error_;
                     info.enabled_ = old.enabled_;
                     break;
                 }
@@ -288,43 +299,6 @@ const UiToolPluginEntry* UiToolPluginManager::tool(StringView id) const
 }
 
 
-EUiToolState UiToolPluginManager::state(StringView id) const
-{
-    const UiToolPluginEntry* info = findTool(id);
-    if (!info)
-        return EUiToolState::eNotLoaded;
-
-    if (!info->enabled())
-        return EUiToolState::eDisabled;
-
-    // 插件可能被别的调用方提前加载过，这里按实际句柄补一个判断
-    if (info->state() == EUiToolState::eNotLoaded && info->plugin_ && info->plugin_->isLoaded())
-        return EUiToolState::eLoaded;
-
-    return info->state();
-}
-
-
-std::string UiToolPluginManager::errorText(StringView id) const
-{
-    const UiToolPluginEntry* info = findTool(id);
-    return info ? info->error() : std::string();
-}
-
-
-void UiToolPluginManager::setEnabled(StringView id, bool enabled)
-{
-    if (UiToolPluginEntry* info = findTool(id))
-        info->enabled_ = enabled;
-}
-
-
-bool UiToolPluginManager::isEnabled(StringView id) const
-{
-    const UiToolPluginEntry* info = findTool(id);
-    return info && info->enabled();
-}
-
 
 bool UiToolPluginManager::invoke(StringView key, QWidget* parent)
 {
@@ -343,26 +317,28 @@ bool UiToolPluginManager::invoke(StringView key, QWidget* parent)
         return false;
     }
 
+    // 加载失败或接口不兼容的条目不调用
+    if (info->state_ == EUiToolState::eLoadFailed || info->state_ == EUiToolState::eIncompatible)
+        return false;
+
     PluginLoader* loader = info->plugin_;
     if (!loader)
     {
-        info->state_ = EUiToolState::eFailed;
+        info->state_ = EUiToolState::eLoadFailed;
         info->error_ = "插件加载器为空";
         return false;
     }
 
     invoking_ = true;
-    struct ReentryGuard
-    {
-        bool& flag;
-        ~ReentryGuard() { flag = false; }
-    } guard{invoking_};
+    auto guard = aScopeExit([&]() { invoking_ = false; });
+    (void) guard;
+    
 
     // 插件代码可能间接调用 refresh()，使 info 失效，之后一律按 key 重新查找
-    auto setFailure = [this, key](const std::string& reason) {
+    auto setFailure = [this, key](EUiToolState state, const std::string& reason) {
         if (UiToolPluginEntry* entry = findTool(key))
         {
-            entry->state_ = EUiToolState::eFailed;
+            entry->state_ = state;
             entry->error_ = reason;
         }
     };
@@ -373,8 +349,7 @@ bool UiToolPluginManager::invoke(StringView key, QWidget* parent)
         if (rc != eNoError)
         {
             const char* reason = aGetLoadError();
-            setFailure(std::string("动态库加载失败：") + loader->filepath() +
-                       (reason ? std::string("：") + reason : std::string()));
+            setFailure(EUiToolState::eLoadFailed, std::string("动态库加载失败：") + loader->filepath() + (reason ? std::string("：") + reason : std::string()));
             aWarning(_("界面工具插件加载失败：'%s'"), loader->filepath().c_str());
             return false;
         }
@@ -382,14 +357,14 @@ bool UiToolPluginManager::invoke(StringView key, QWidget* parent)
         PluginInstance* instance = loader->instance();
         if (!instance)
         {
-            setFailure(std::string("插件入口缺失：") + loader->filepath());
+            setFailure(EUiToolState::eLoadFailed, std::string("插件入口缺失：") + loader->filepath());
             return false;
         }
 
         IUiToolProvider* provider = aPluginCast<IUiToolProvider>(instance);
         if (!provider)
         {
-            setFailure(std::string("插件未实现 IUiToolProvider：") + loader->filepath());
+            setFailure(EUiToolState::eIncompatible, std::string("插件未实现 IUiToolProvider：") + loader->filepath());
             return false;
         }
 
@@ -398,14 +373,14 @@ bool UiToolPluginManager::invoke(StringView key, QWidget* parent)
     catch (...)
     {
         // 插件是任意代码，异常不能穿过 DLL 边界传播
-        setFailure(std::string("插件执行时抛出异常：") + loader->filepath());
+        setFailure(EUiToolState::eInvokeFailed, std::string("插件执行时抛出异常：") + loader->filepath());
         aWarning(_("界面工具插件执行异常：'%s'"), loader->filepath().c_str());
         return false;
     }
 
     if (UiToolPluginEntry* entry = findTool(key))
     {
-        entry->state_ = EUiToolState::eLoaded;
+        entry->state_ = EUiToolState::eNormal;
         entry->error_.clear();
     }
     return true;

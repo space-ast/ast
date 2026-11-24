@@ -109,6 +109,32 @@ TEST(UiToolPluginManager, ParseTools)
     EXPECT_TRUE(tools[0].iconPath().empty());
 }
 
+TEST(UiToolPluginManager, IncompatibleApiMarked)
+{
+    // 接口版本不一致：条目保留，但状态为 eIncompatible，且记录原因
+    std::vector<UiToolPluginEntry> incompatible;
+    UiToolPluginManager::ParseTools("p.dll", makeMetadata(R"json({
+        "api": 2,
+        "tools": { "t": { "title": { "en": "T" } } }
+    })json"), incompatible);
+
+    ASSERT_TRUE(incompatible.size() == 1);
+    EXPECT_EQ(incompatible[0].api(), 2);
+    EXPECT_TRUE(incompatible[0].state() == EUiToolState::eIncompatible);
+    EXPECT_FALSE(incompatible[0].error().empty());
+
+    // 版本一致时保持未加载状态
+    std::vector<UiToolPluginEntry> compatible;
+    UiToolPluginManager::ParseTools("p.dll", makeMetadata(R"json({
+        "api": 1,
+        "tools": { "t": { "title": { "en": "T" } } }
+    })json"), compatible);
+
+    ASSERT_TRUE(compatible.size() == 1);
+    EXPECT_TRUE(compatible[0].state() == EUiToolState::eNormal);
+    EXPECT_TRUE(compatible[0].error().empty());
+}
+
 TEST(UiToolPluginManager, SkipInvalidTools)
 {
     const PluginMetadata metadata = makeMetadata(R"json({
@@ -146,11 +172,10 @@ TEST(UiToolPluginManager, RefreshIsIdempotent)
     EXPECT_EQ(manager.refresh(), eNoError);
     EXPECT_EQ(manager.refresh(), eNoError);
 
-    // 刷新不加载任何动态库：未激活的工具都处于未加载状态
     for (const UiToolPluginEntry& info : manager.tools())
     {
-        const EUiToolState state = manager.state(info.id());
-        EXPECT_TRUE(state == EUiToolState::eNotLoaded || state == EUiToolState::eLoaded);
+        const EUiToolState state = info.state();
+        EXPECT_TRUE(state == EUiToolState::eNormal);
     }
 }
 
@@ -183,8 +208,7 @@ TEST(UiToolPluginManager, DiscoverExamplePluginWithoutLoading)
     EXPECT_FALSE(info->pluginPath().empty());
     EXPECT_EQ(info->order(), 900);
 
-    // 关键约束：发现工具不需要加载动态库
-    EXPECT_TRUE(manager.state("hello") == EUiToolState::eNotLoaded);
+    EXPECT_TRUE(info->state() == EUiToolState::eNormal);
 }
 
 TEST(UiToolPluginManager, LanguageIndependentEntry)
