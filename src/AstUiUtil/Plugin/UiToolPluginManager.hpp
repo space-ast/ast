@@ -85,6 +85,7 @@ public:
     /// @}
 
 private:
+    A_DISABLE_COPY(UiToolPluginEntry);
     friend class UiToolPluginManager;
 
     /// @brief 由解析器构造条目，外部不可见

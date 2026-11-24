@@ -99,15 +99,19 @@ bool recordToMetadata(const std::vector<char>& record, PluginMetadata& metadata)
         if (begin != end)
         {
             const char* keyBegin = begin;
-            for (const char* p = begin; p <= end; ++p)
+            for (const char* p = begin; p < end; ++p)
             {
-                if (p != end && *p != ',')
+                if (*p != ',')
                     continue;
-                if (p == keyBegin)
+                if (p == keyBegin) // 首字符即逗号，或连续逗号
                     return false;
                 parsed.keys_.emplace_back(keyBegin, static_cast<size_t>(p - keyBegin));
-                keyBegin = p + 1;
+                keyBegin = p + 1; // p < end，p + 1 最多到 end，不会越过 one-past-end
             }
+            // 循环结束时 keyBegin == end 说明尾随逗号，拒绝
+            if (keyBegin == end)
+                return false;
+            parsed.keys_.emplace_back(keyBegin, static_cast<size_t>(end - keyBegin));
         }
     }
 
