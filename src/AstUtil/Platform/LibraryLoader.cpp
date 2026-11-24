@@ -98,6 +98,15 @@ errc_t aAddLibrarySearchDirectory(StringView path)
 void* _aLoadLibraryFromName(const char* filename)
 {
 #if defined(_WIN32) || defined(_WIN64)
+    /**
+     * @bug 从通过 aAddLibrarySearchDirectory 添加的目录中加载 DLL 时，如果其依赖仅存在于 PATH 中，则可能加载失败。
+     *
+     *      第一次尝试使用 LOAD_LIBRARY_SEARCH_DEFAULT_DIRS，该策略不包含 PATH。
+     *      回退的 LoadLibraryW 使用标准搜索路径，该路径不包含通过aAddLibrarySearchDirectory 注册的目录。
+     *      没有任何一次尝试同时搜索这两个位置。
+     *
+     *      同样的缺口也适用于基于路径加载时的同级依赖，以及仅存在于 PATH 的依赖（参见 _aLoadLibraryFromPath）
+     */
 	std::wstring wideFilename;
 	aUtf8ToWide(filename, wideFilename);
     static_assert(sizeof(void*) >= sizeof(HMODULE), "void* must be at least as large as HMODULE");
