@@ -81,12 +81,41 @@ const char* aGetLoadError()
 }
 #else
 
+#if defined(_WIN32) || defined(_WIN64)
+errc_t aAddLibrarySearchDirectory(StringView path)
+{
+    using AddDllDirectoryFunc = decltype(&AddDllDirectory);
+    static AddDllDirectoryFunc addDllDirectory = (AddDllDirectoryFunc) aResolveProcAddress("kernel32.dll", "AddDllDirectory");
+    if (!addDllDirectory) return eErrorUnsupported;
+	std::wstring widePath = aMakeWin32Path(path);
+	auto cookie = addDllDirectory(widePath.c_str());
+    if (cookie == 0) return eError;
+    return eNoError;
+}
+
+#endif
+
 void* _aLoadLibraryFromName(const char* filename)
 {
 #if defined(_WIN32) || defined(_WIN64)
+    /**
+     * @bug 从通过 aAddLibrarySearchDirectory 添加的目录中加载 DLL 时，如果其依赖仅存在于 PATH 中，则可能加载失败。
+     *
+     *      第一次尝试使用 LOAD_LIBRARY_SEARCH_DEFAULT_DIRS，该策略不包含 PATH。
+     *      回退的 LoadLibraryW 使用标准搜索路径，该路径不包含通过aAddLibrarySearchDirectory 注册的目录。
+     *      没有任何一次尝试同时搜索这两个位置。
+     *
+     *      同样的缺口也适用于基于路径加载时的同级依赖，以及仅存在于 PATH 的依赖（参见 _aLoadLibraryFromPath）
+     */
 	std::wstring wideFilename;
 	aUtf8ToWide(filename, wideFilename);
     static_assert(sizeof(void*) >= sizeof(HMODULE), "void* must be at least as large as HMODULE");
+    // 优先按 LOAD_LIBRARY_SEARCH_* 搜索：
+    // 可命中通过 aAddLibrarySearchDirectory 登记的目录（默认搜索顺序不会查这些目录）。
+    if (HMODULE handle = LoadLibraryExW(wideFilename.c_str(), nullptr, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS))
+        return handle;
+    // 回退到默认搜索顺序：
+    // 依赖库可能只存在于 PATH 中，指定 LOAD_LIBRARY_SEARCH_* 时 PATH 会被排除，因此需要这次回退。
     return LoadLibraryW(wideFilename.c_str());
 #else
     // Linux/Unix平台
@@ -103,6 +132,13 @@ void* _aLoadLibraryFromPath(StringView filepath)
 #if defined(_WIN32) || defined(_WIN64)
 	std::wstring widePath = aMakeWin32Path(filepath);
     static_assert(sizeof(void*) >= sizeof(HMODULE), "void* must be at least as large as HMODULE");
+    // 优先按 LOAD_LIBRARY_SEARCH_* 搜索：
+    // 可命中动态库同目录的依赖，以及通过 aAddLibrarySearchDirectory 登记的目录。
+    if (HMODULE handle = LoadLibraryExW(widePath.c_str(), nullptr,
+            LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR | LOAD_LIBRARY_SEARCH_DEFAULT_DIRS))
+        return handle;
+    // 回退到默认搜索顺序：
+    // 依赖库可能只存在于 PATH 中，指定 LOAD_LIBRARY_SEARCH_* 时 PATH 会被排除，因此需要这次回退。
     return LoadLibraryW(widePath.c_str());
 #else
     std::string path(filepath);

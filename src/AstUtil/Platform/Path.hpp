@@ -65,7 +65,7 @@ AST_UTIL_API std::wstring aMakeWin32Path(StringView path);
 /// @details 目标目录必须位于本地卷（不支持 UNC/网络路径），联接点所在卷必须是 NTFS
 ///          创建目录联接不需要管理员权限
 ///          失败时会删除已经创建的空目录
-/// @param targetPath 本地目录路径（相对路径按当前目录解析）
+/// @param targetPath 本地目录路径（相对路径按当前工作目录解析）
 /// @param junctionPath 联接点路径（必须是尚不存在的目录）
 /// @return 错误码
 AST_UTIL_CAPI errc_t aCreateJunction(StringView targetPath, StringView junctionPath);
@@ -82,6 +82,22 @@ AST_UTIL_CAPI errc_t aCreateJunction(StringView targetPath, StringView junctionP
 /// @param isDirectory 是否创建目录符号链接(仅在 Windows 上有效)
 /// @return 错误码
 AST_UTIL_CAPI errc_t aCreateSymbolicLink(StringView targetPath, StringView linkPath, bool isDirectory);
+
+
+/// @brief 创建目录链接
+/// @details windows 下通过创建目录联接实现，linux 下通过创建符号链接实现
+/// @param targetPath 本地目录路径（必须是绝对路径）
+/// @param linkPath 链接路径（必须是尚不存在的目录）
+/// @return 错误码
+A_ALWAYS_INLINE
+errc_t aCreateDirectoryLink(StringView targetPath, StringView linkPath)
+{
+#ifdef _WIN32
+    return aCreateJunction(targetPath, linkPath);
+#else
+    return aCreateSymbolicLink(targetPath, linkPath, true);
+#endif
+}
 
 
 /// @brief 尝试获取短路径

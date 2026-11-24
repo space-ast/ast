@@ -92,6 +92,22 @@ public:
         this->keys(aInterfaceId<IFace>(), keys);
     }
 
+    /// @brief 列出元数据接口 ID 匹配的插件库
+    /// @param iid 接口 ID
+    /// @param[out] out 插件库指针；只读元数据，不加载动态库。
+    ///            指针由注册表持有，调用 clear() 后失效
+    /// @note 与 keys() 的区别：没有索引键的插件（例如只在 JSON 元数据里声明 tools 的界面插件）
+    ///       也能被列出，适合由专门的领域管理器自行解读元数据
+    void plugins(StringView iid, std::vector<PluginLoader*>& out) const;
+
+    template<class IFace>
+    std::vector<PluginLoader*> plugins() const
+    {
+        std::vector<PluginLoader*> out;
+        this->plugins(aInterfaceId<IFace>(), out);
+        return out;
+    }
+
     /// @brief 已发现的插件库数量（元数据读取成功，不代表已加载）
     size_t pluginCount() const;
 

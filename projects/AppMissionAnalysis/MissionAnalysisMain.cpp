@@ -20,6 +20,7 @@
 /// 使用本软件所产生的风险，需由您自行承担。
 
 #include "AstUiCore/UiMissionAnalysisWindow.hpp"
+#include "AstUiUtil/UiLanguage.hpp"
 
 #include <QApplication>
 
@@ -29,6 +30,10 @@ int main(int argc, char *argv[])
 
     // 创建 Qt 应用程序实例
     QApplication app(argc, argv);
+
+    // 本应用界面文案为中文，插件元数据里的多语言文本也统一按中文解析。
+    // 不设置的话会跟随 QLocale::system()，系统区域为英文时菜单会显示英文标题
+    aUiSetLanguage("zh");
 
     // 创建航天任务分析主窗口
     UiMissionAnalysisWindow mainWindow;

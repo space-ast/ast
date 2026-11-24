@@ -31,6 +31,18 @@ AST_NAMESPACE_BEGIN
     @{
 */
 
+#if defined(_WIN32) || defined(_WIN64)
+/// @brief 添加动态库搜索目录
+/// @details 目前仅支持 Windows 平台
+/// @param path 目录路径
+/// @return 错误码
+AST_UTIL_API errc_t aAddLibrarySearchDirectory(StringView path);
+#else
+inline 
+errc_t aAddLibrarySearchDirectory(StringView path){return eErrorUnsupported;}
+#endif
+
+
 /// @brief 加载动态库
 /// @param filepath 动态库路径（C 字符串）
 /// @return 库句柄，失败返回 nullptr

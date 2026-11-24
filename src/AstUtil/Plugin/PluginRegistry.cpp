@@ -135,6 +135,19 @@ std::vector<std::string> PluginRegistry::keys(StringView iid) const
     return keys;
 }
 
+void PluginRegistry::plugins(StringView iid, std::vector<PluginLoader*>& out) const
+{
+    out.clear();
+
+    for (const std::unique_ptr<PluginLoader>& loader : loaders_)
+    {
+        if (!loader)
+            continue;
+        if (iid == loader->metadata().iid_)
+            out.push_back(loader.get());
+    }
+}
+
 size_t PluginRegistry::pluginCount() const
 {
     return loaders_.size();
@@ -161,9 +174,9 @@ void PluginRegistry::loadPluginMetadata(const std::string& filepath)
 
     size_t indexed = 0;
     const PluginMetadata& metadata = loader->metadata();
-    for (const std::string& key : metadata.keys)
+    for (const std::string& key : metadata.keys_)
     {
-        auto id = std::make_pair(metadata.iid, key);
+        auto id = std::make_pair(metadata.iid_, key);
         auto inserted = index_.insert(std::make_pair(id, loader.get()));
         if (inserted.second)
         {
@@ -171,7 +184,7 @@ void PluginRegistry::loadPluginMetadata(const std::string& filepath)
         }
         else
         {
-            aWarning(_("插件索引键重复：接口 '%s' 的键 '%s'，后注册者被忽略"), metadata.iid.c_str(), key.c_str());
+            aWarning(_("插件索引键重复：接口 '%s' 的键 '%s'，后注册者被忽略"), metadata.iid_.c_str(), key.c_str());
         }
     }
 
