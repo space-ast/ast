@@ -25,6 +25,8 @@
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/TimeSystem.hpp"
+#include "AstCore/CoordConvert.hpp"
+#include "AstCore/LatLonRad.hpp"
 #include "AstMath/AttitudeConvert.hpp"
 #include "AstMath/AngleAxis.hpp"
 #include "AstMath/Euler.hpp"
@@ -856,13 +858,7 @@ double jyear()
 
 void latrec(double radius, double lon, double lat, Vector3d &rectan)
 {
-    double cos_lon, sin_lon, cos_lat, sin_lat;
-    sincos(lon, &sin_lon, &cos_lon);
-    sincos(lat, &sin_lat, &cos_lat);
-
-    rectan[0] = radius * cos_lon * cos_lat;
-    rectan[1] = radius * sin_lon * cos_lat;
-    rectan[2] = radius * sin_lat;
+    aLLRToCart(LLR{lat, lon, radius}, rectan);
 }
 
 // latsph
@@ -1243,7 +1239,25 @@ void rav2xf(
 
 // recgeo
 
-// reclat
+void reclat(const Vector3d& rectan, double& radius, double& longitude, double& latitude)
+{
+    LLR llr;
+    aCartToLLR(rectan, llr);
+    radius    = llr.radius();
+    longitude = llr.longitude();
+    latitude  = llr.latitude();
+}
+
+AST_SPICE_CAPI
+void reclat(
+    const double  rectan[3],
+    double      * radius,
+    double      * longitude,
+    double      * latitude
+)
+{
+    reclat(in(rectan), *radius, *longitude, *latitude);
+}
 
 // recpgr
 

@@ -2368,6 +2368,69 @@ TEST(SpiceZpr, recgeo)
 
 TEST(SpiceZpr, reclat)
 {
+    static const struct {
+        double rectan[3];
+    } testData[] = {
+        {{ 1.0,  0.0,  0.0}},       // +X 轴：经度 0，纬度 0
+        {{ 0.0,  1.0,  0.0}},       // +Y 轴：经度 pi/2
+        {{ 0.0,  0.0,  1.0}},       // +Z 轴：纬度为 pi/2
+        {{-1.0,  0.0,  0.0}},       // -X 轴：经度为 pi
+        {{ 0.0, -1.0,  0.0}},       // -Y 轴：经度为 -pi/2
+        {{ 0.0,  0.0, -1.0}},       // -Z 轴：纬度为 -pi/2
+        {{ 1.0,  1.0,  0.0}},       // 经度 pi/4
+        {{ 1.0,  1.0,  1.0}},       // 经度 pi/4，纬度 asin(1/sqrt(3))
+        {{-1.0, -1.0, -1.0}},       // 第三象限
+        {{ 1.0, -1.0,  0.0}},       // 经度为负
+        {{ 0.0,  0.0,  0.0}},       // 零向量：经度、纬度均为 0
+        {{ 1e-15, -1e-15, 0.0}},    // 极小向量
+        {{ 1e8,  2e8, -3e8}},       // 大数值
+    };
+
+    for (size_t i = 0; i < sizeof(testData) / sizeof(testData[0]); i++)
+    {
+        const auto& data = testData[i];
+        double rectan[3] = {data.rectan[0], data.rectan[1], data.rectan[2]};
+
+        double radius1, lon1, lat1;
+        double radius2, lon2, lat2;
+        reclat(rectan, &radius1, &lon1, &lat1);
+        reclat_c(rectan, &radius2, &lon2, &lat2);
+
+        EXPECT_NEAR(radius1, radius2, 1e-12 * (1.0 + std::fabs(radius2)));
+        EXPECT_NEAR(lon1, lon2, 1e-12);
+        EXPECT_NEAR(lat1, lat2, 1e-12);
+
+        // 与 latrec 互为逆变换
+        if (radius2 < 100.0)
+        {
+            double rectan2[3];
+            latrec(radius1, lon1, lat1, rectan2);
+            for (int j = 0; j < 3; j++)
+            {
+                EXPECT_NEAR(rectan2[j], rectan[j], 1e-12);
+            }
+        }
+    }
+
+    // 显式数值校验：45 度经度、atan(1/sqrt(2)) 纬度
+    {
+        double rectan[3] = {1.0, 1.0, 1.0};
+        double radius, lon, lat;
+        reclat(rectan, &radius, &lon, &lat);
+        EXPECT_NEAR(radius, std::sqrt(3.0), 1e-15);
+        EXPECT_NEAR(lon, kQuarterPI, 1e-15);
+        EXPECT_NEAR(lat, std::asin(1.0 / std::sqrt(3.0)), 1e-15);
+    }
+
+    // 零向量的经度、纬度必须为零，避免 atan2(0,0) 的不确定性
+    {
+        double rectan[3] = {0.0, 0.0, 0.0};
+        double radius, lon, lat;
+        reclat(rectan, &radius, &lon, &lat);
+        EXPECT_EQ(radius, 0.0);
+        EXPECT_EQ(lon, 0.0);
+        EXPECT_EQ(lat, 0.0);
+    }
 }
 
 TEST(SpiceZpr, recpgr)

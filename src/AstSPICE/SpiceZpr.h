@@ -965,7 +965,12 @@ void rav2xf(
 
 // recgeo
 
-// reclat
+void reclat(
+    const double  rectan[3],
+    double      * radius,
+    double      * longitude,
+    double      * latitude
+);
 
 // recpgr
 
