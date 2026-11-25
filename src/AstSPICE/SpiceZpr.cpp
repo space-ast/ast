@@ -1261,7 +1261,28 @@ void reclat(
 
 // recpgr
 
-// recrad
+
+void recrad(const Vector3d& rectan, double& range, double& ra, double& dec)
+{
+    // 赤经/赤纬与经度/纬度是同一组球面坐标，复用 AstCore 的直角坐标转换；
+    // 差别只在于赤经按天文惯例规范化到 [0, 2π)，而经度取 [-π, π]
+    LLR llr;
+    aCartToLLR(rectan, llr);
+    range = llr.radius();
+    ra    = aNormalizeAngle0To2Pi(llr.longitude());
+    dec   = llr.latitude();
+}
+
+AST_SPICE_CAPI
+void recrad(
+    const double  rectan[3],
+    double      * range,
+    double      * ra,
+    double      * dec
+)
+{
+    recrad(in(rectan), *range, *ra, *dec);
+}
 
 // recsph
 

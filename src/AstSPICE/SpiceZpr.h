@@ -974,7 +974,13 @@ void reclat(
 
 // recpgr
 
-// recrad
+
+void recrad(
+    const double  rectan[3],
+    double      * range,
+    double      * ra,
+    double      * dec
+);
 
 // recsph
 

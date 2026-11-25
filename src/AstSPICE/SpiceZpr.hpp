@@ -1103,7 +1103,20 @@ AST_SPICE_API void reclat(
 
 // recpgr
 
-// recrad
+
+/// @brief 将直角坐标转换为距离、赤经、赤纬坐标
+/// 赤经自 +X 轴起算、朝 +Y 轴方向为正，赤纬为相对 X-Y 平面的球面纬度
+/// @param[in] rectan 输入直角坐标（x, y, z）
+/// @param[out] range 距离（矢量模长）
+/// @param[out] ra 赤经（弧度），规范化到 [0, 2pi)
+/// @param[out] dec 赤纬（弧度），取值范围 [-pi/2, pi/2]
+/// @note 零向量的赤经与赤纬均为 0
+AST_SPICE_API void recrad(
+    const Vector3d&  rectan,
+    double&          range,
+    double&          ra,
+    double&          dec
+);
 
 // recsph
 

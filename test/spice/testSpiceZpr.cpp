@@ -2379,7 +2379,7 @@ TEST(SpiceZpr, reclat)
         {{ 0.0,  0.0, -1.0}},       // -Z 轴：纬度为 -pi/2
         {{ 1.0,  1.0,  0.0}},       // 经度 pi/4
         {{ 1.0,  1.0,  1.0}},       // 经度 pi/4，纬度 asin(1/sqrt(3))
-        {{-1.0, -1.0, -1.0}},       // 第三象限
+        {{-1.0, -1.0, -1.0}},       // 第三象限：经度 -3pi/4，纬度 asin(-1/sqrt(3))
         {{ 1.0, -1.0,  0.0}},       // 经度为负
         {{ 0.0,  0.0,  0.0}},       // 零向量：经度、纬度均为 0
         {{ 1e-15, -1e-15, 0.0}},    // 极小向量
@@ -2439,6 +2439,78 @@ TEST(SpiceZpr, recpgr)
 
 TEST(SpiceZpr, recrad)
 {
+    static const struct {
+        double rectan[3];
+    } testData[] = {
+        {{ 1.0,  0.0,  0.0}},       // +X 轴：赤经 0，赤纬 0
+        {{ 0.0,  1.0,  0.0}},       // +Y 轴：赤经 pi/2
+        {{ 0.0,  0.0,  1.0}},       // +Z 轴：赤纬 pi/2
+        {{-1.0,  0.0,  0.0}},       // -X 轴：赤经 pi
+        {{ 0.0, -1.0,  0.0}},       // -Y 轴：赤经 3pi/2（规范化到 [0, 2pi)）
+        {{ 0.0,  0.0, -1.0}},       // -Z 轴：赤纬 -pi/2
+        {{ 1.0,  1.0,  0.0}},       // 赤经 pi/4
+        {{ 1.0,  1.0,  1.0}},       // 赤经 pi/4，赤纬 asin(1/sqrt(3))
+        {{-1.0, -1.0, -1.0}},       // 第三象限：赤经 5pi/4
+        {{ 0.0,  0.0,  0.0}},       // 零向量：赤经、赤纬均为 0
+        {{ 1e-15, -1e-15, 0.0}},    // 极小向量
+        {{ 1e8,  2e8, -3e8}},       // 大数值
+    };
+
+    for (size_t i = 0; i < sizeof(testData) / sizeof(testData[0]); i++)
+    {
+        const auto& data = testData[i];
+        double rectan[3] = {data.rectan[0], data.rectan[1], data.rectan[2]};
+
+        double range1, ra1, dec1;
+        double range2, ra2, dec2;
+        recrad(rectan, &range1, &ra1, &dec1);
+        recrad_c(rectan, &range2, &ra2, &dec2);
+
+        EXPECT_NEAR(range1, range2, 1e-12 * (1.0 + std::fabs(range2)));
+        EXPECT_NEAR(ra1, ra2, 1e-12);
+        EXPECT_NEAR(dec1, dec2, 1e-12);
+
+        // 与 radrec 互为逆变换
+        if (range2 < 100.0)
+        {
+            double rectan2[3];
+            radrec(range1, ra1, dec1, rectan2);
+            for (int j = 0; j < 3; j++)
+            {
+                EXPECT_NEAR(rectan2[j], rectan[j], 1e-12);
+            }
+        }
+    }
+
+    // 显式数值校验：赤经 45 度、赤纬 asin(1/sqrt(3))
+    {
+        double rectan[3] = {1.0, 1.0, 1.0};
+        double range, ra, dec;
+        recrad(rectan, &range, &ra, &dec);
+        EXPECT_NEAR(range, std::sqrt(3.0), 1e-15);
+        EXPECT_NEAR(ra, kQuarterPI, 1e-15);
+        EXPECT_NEAR(dec, std::asin(1.0 / std::sqrt(3.0)), 1e-15);
+    }
+
+    // 负赤经规范化到 [0, 2pi)：{0, -1, 0} 的赤经为 3pi/2
+    {
+        double rectan[3] = {0.0, -1.0, 0.0};
+        double range, ra, dec;
+        recrad(rectan, &range, &ra, &dec);
+        EXPECT_DOUBLE_EQ(range, 1.0);
+        EXPECT_NEAR(ra, kTwoPI * 0.75, 1e-15);
+        EXPECT_DOUBLE_EQ(dec, 0.0);
+    }
+
+    // 零向量的赤经、赤纬必须为零
+    {
+        double rectan[3] = {0.0, 0.0, 0.0};
+        double range, ra, dec;
+        recrad(rectan, &range, &ra, &dec);
+        EXPECT_EQ(range, 0.0);
+        EXPECT_EQ(ra, 0.0);
+        EXPECT_EQ(dec, 0.0);
+    }
 }
 
 TEST(SpiceZpr, recsph)
