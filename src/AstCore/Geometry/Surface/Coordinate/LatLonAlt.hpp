@@ -48,10 +48,16 @@ public:
     /// @brief 设置高度
     void setAltitude(double alt) { alt_ = alt; }
 
+    const double* data() const {return reinterpret_cast<const double*>(this); }
+    double* data() {return reinterpret_cast<double*>(this); }
 PROPERTIES:
+#ifdef _AST_LATLONALT_MEMBER
+#   include _AST_LATLONALT_MEMBER
+#else
     angle_d  lat_;  ///< 纬度
     angle_d  lon_;  ///< 经度
     length_d alt_;  ///< 高度
+#endif
 };
 
 using LatLngAlt = LatLonAlt;

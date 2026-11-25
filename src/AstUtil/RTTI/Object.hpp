@@ -317,6 +317,9 @@ public:  // 对象标志位
     
 public: // 国际化
     const char* tr(const char* msg) const;
+#ifdef _AST_OBJECT_PLUGIN
+#   include _AST_OBJECT_PLUGIN
+#endif
 protected:
     friend class ObjectManager;
     virtual ~Object();

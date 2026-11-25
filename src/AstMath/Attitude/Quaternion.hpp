@@ -164,11 +164,15 @@ public:
 	AST_MATH_API
 	std::string toString() const;
 public:
+#ifdef _AST_QUATERNION_MEMBER
+    #include _AST_QUATERNION_MEMBER
+#else
 	// 设置为public仅为实现聚合初始化，不要直接访问成员变量
 	double qs_;
 	double qx_;
 	double qy_;
 	double qz_;
+#endif
 };
 
 

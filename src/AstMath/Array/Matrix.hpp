@@ -218,7 +218,11 @@ public:
 protected:
     Self transposeImpl() const;
 public:
+#ifdef _AST_MATRIXMN_MEMBER
+#   include _AST_MATRIXMN_MEMBER
+#else
     Scalar data_[Row][Col];  ///< 矩阵元素；不初始化，确保类型为聚合类型
+#endif
 };
 
 #if !defined(AST_USE_EIGEN_MATRIX)

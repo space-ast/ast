@@ -113,8 +113,17 @@ public:
     const Self& transpose() const{return *this;}
     std::string toString() const;
     _AST_DEF_VECTOR_METHOD(Scalar);
+
+#ifdef _AST_VECTOR3_PLUGIN
+#   include _AST_VECTOR3_PLUGIN
+#endif
+
 public:
+#ifdef _AST_VECTOR3_MEMBER
+#   include _AST_VECTOR3_MEMBER
+#else
     _Scalar x_, y_, z_; // 不要直接访问数据，设为public仅为了实现聚合初始化
+#endif
 };
 
 
