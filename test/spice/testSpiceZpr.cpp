@@ -623,6 +623,8 @@ TEST(SpiceZpr, deltet)
 
 TEST(SpiceZpr, det)
 {
+    const double m1[3][3] = {{1.0, 2.0, 3.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
+    EXPECT_NEAR(det(m1), det_c(m1), 1e-12);
 }
 
 TEST(SpiceZpr, dgeodr)
@@ -1318,6 +1320,7 @@ TEST(SpiceZpr, gnpool)
 
 TEST(SpiceZpr, halfpi)
 {
+    EXPECT_DOUBLE_EQ(halfpi(), halfpi_c());
 }
 
 TEST(SpiceZpr, hrmesp)
@@ -1413,6 +1416,15 @@ TEST(SpiceZpr, intmin)
 
 TEST(SpiceZpr, invert)
 {
+    const double m1[3][3] = {{1.0, 2.0, 3.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
+    const double m2[3][3] = {{2.0, -1.0, 0.0}, {3.0, 0.5, 1.0}, {-2.0, 4.0, 1.5}};
+    double ast[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    double ref[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    invert(m1, ast);
+    invert_c(m1, ref);
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            EXPECT_NEAR(ast[i][j], ref[i][j], 1e-12) << "component " << i << "," << j;
 }
 
 TEST(SpiceZpr, invort)
@@ -1441,6 +1453,11 @@ TEST(SpiceZpr, isrchi)
 
 TEST(SpiceZpr, isrot)
 {
+    const double identity[3][3] = {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}};
+    const double notRotation[3][3] = {{1.0, 2.0, 3.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
+    EXPECT_EQ(isrot(identity, 1e-12, 1e-12) != 0, isrot_c(identity, 1e-12, 1e-12) != 0);
+    EXPECT_TRUE(isrot(identity, 1e-12, 1e-12));
+    EXPECT_EQ(isrot(notRotation, 1e-12, 1e-12) != 0, isrot_c(notRotation, 1e-12, 1e-12) != 0);
 }
 
 TEST(SpiceZpr, iswhsp)
@@ -1758,6 +1775,15 @@ TEST(SpiceZpr, mequg)
 
 TEST(SpiceZpr, mequ)
 {
+    const double m1[3][3] = {{1.0, 2.0, 3.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
+    const double m2[3][3] = {{2.0, -1.0, 0.0}, {3.0, 0.5, 1.0}, {-2.0, 4.0, 1.5}};
+    double ast[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    double ref[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    mequ(m1, ast);
+    mequ_c(m1, ref);
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            EXPECT_NEAR(ast[i][j], ref[i][j], 1e-12) << "component " << i << "," << j;
 }
 
 TEST(SpiceZpr, mind)
@@ -1778,6 +1804,15 @@ TEST(SpiceZpr, mtxmg)
 
 TEST(SpiceZpr, mtxm)
 {
+    const double m1[3][3] = {{1.0, 2.0, 3.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
+    const double m2[3][3] = {{2.0, -1.0, 0.0}, {3.0, 0.5, 1.0}, {-2.0, 4.0, 1.5}};
+    double ast[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    double ref[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    mtxm(m1, m2, ast);
+    mtxm_c(m1, m2, ref);
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            EXPECT_NEAR(ast[i][j], ref[i][j], 1e-12) << "component " << i << "," << j;
 }
 
 TEST(SpiceZpr, mtxvg)
@@ -1786,6 +1821,17 @@ TEST(SpiceZpr, mtxvg)
 
 TEST(SpiceZpr, mtxv)
 {
+    const double m1[3][3] = {{1.0, 2.0, 3.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
+    const double m2[3][3] = {{2.0, -1.0, 0.0}, {3.0, 0.5, 1.0}, {-2.0, 4.0, 1.5}};
+    double ast[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    double ref[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    const double v[3] = {1.0, -2.0, 3.5};
+    double astV[3] = {0.0, 0.0, 0.0};
+    double refV[3] = {0.0, 0.0, 0.0};
+    mtxv(m1, v, astV);
+    mtxv_c(m1, v, refV);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(astV[i], refV[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, mxmg)
@@ -1798,6 +1844,15 @@ TEST(SpiceZpr, mxmtg)
 
 TEST(SpiceZpr, mxmt)
 {
+    const double m1[3][3] = {{1.0, 2.0, 3.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
+    const double m2[3][3] = {{2.0, -1.0, 0.0}, {3.0, 0.5, 1.0}, {-2.0, 4.0, 1.5}};
+    double ast[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    double ref[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    mxmt(m1, m2, ast);
+    mxmt_c(m1, m2, ref);
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            EXPECT_NEAR(ast[i][j], ref[i][j], 1e-12) << "component " << i << "," << j;
 }
 
 TEST(SpiceZpr, mxm)
@@ -1831,6 +1886,17 @@ TEST(SpiceZpr, mxvg)
 
 TEST(SpiceZpr, mxv)
 {
+    const double m1[3][3] = {{1.0, 2.0, 3.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
+    const double m2[3][3] = {{2.0, -1.0, 0.0}, {3.0, 0.5, 1.0}, {-2.0, 4.0, 1.5}};
+    double ast[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    double ref[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    const double v[3] = {1.0, -2.0, 3.5};
+    double astV[3] = {0.0, 0.0, 0.0};
+    double refV[3] = {0.0, 0.0, 0.0};
+    mxv(m1, v, astV);
+    mxv_c(m1, v, refV);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(astV[i], refV[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, namfrm)
@@ -1963,6 +2029,7 @@ TEST(SpiceZpr, pipool)
 
 TEST(SpiceZpr, pi)
 {
+    EXPECT_DOUBLE_EQ(pi(), pi_c());
 }
 
 TEST(SpiceZpr, pjelpl)
@@ -2301,6 +2368,69 @@ TEST(SpiceZpr, recgeo)
 
 TEST(SpiceZpr, reclat)
 {
+    static const struct {
+        double rectan[3];
+    } testData[] = {
+        {{ 1.0,  0.0,  0.0}},       // +X 轴：经度 0，纬度 0
+        {{ 0.0,  1.0,  0.0}},       // +Y 轴：经度 pi/2
+        {{ 0.0,  0.0,  1.0}},       // +Z 轴：纬度为 pi/2
+        {{-1.0,  0.0,  0.0}},       // -X 轴：经度为 pi
+        {{ 0.0, -1.0,  0.0}},       // -Y 轴：经度为 -pi/2
+        {{ 0.0,  0.0, -1.0}},       // -Z 轴：纬度为 -pi/2
+        {{ 1.0,  1.0,  0.0}},       // 经度 pi/4
+        {{ 1.0,  1.0,  1.0}},       // 经度 pi/4，纬度 asin(1/sqrt(3))
+        {{-1.0, -1.0, -1.0}},       // 第三象限：经度 -3pi/4，纬度 asin(-1/sqrt(3))
+        {{ 1.0, -1.0,  0.0}},       // 经度为负
+        {{ 0.0,  0.0,  0.0}},       // 零向量：经度、纬度均为 0
+        {{ 1e-15, -1e-15, 0.0}},    // 极小向量
+        {{ 1e8,  2e8, -3e8}},       // 大数值
+    };
+
+    for (size_t i = 0; i < sizeof(testData) / sizeof(testData[0]); i++)
+    {
+        const auto& data = testData[i];
+        double rectan[3] = {data.rectan[0], data.rectan[1], data.rectan[2]};
+
+        double radius1, lon1, lat1;
+        double radius2, lon2, lat2;
+        reclat(rectan, &radius1, &lon1, &lat1);
+        reclat_c(rectan, &radius2, &lon2, &lat2);
+
+        EXPECT_NEAR(radius1, radius2, 1e-12 * (1.0 + std::fabs(radius2)));
+        EXPECT_NEAR(lon1, lon2, 1e-12);
+        EXPECT_NEAR(lat1, lat2, 1e-12);
+
+        // 与 latrec 互为逆变换
+        if (radius2 < 100.0)
+        {
+            double rectan2[3];
+            latrec(radius1, lon1, lat1, rectan2);
+            for (int j = 0; j < 3; j++)
+            {
+                EXPECT_NEAR(rectan2[j], rectan[j], 1e-12);
+            }
+        }
+    }
+
+    // 显式数值校验：45 度经度、atan(1/sqrt(2)) 纬度
+    {
+        double rectan[3] = {1.0, 1.0, 1.0};
+        double radius, lon, lat;
+        reclat(rectan, &radius, &lon, &lat);
+        EXPECT_NEAR(radius, std::sqrt(3.0), 1e-15);
+        EXPECT_NEAR(lon, kQuarterPI, 1e-15);
+        EXPECT_NEAR(lat, std::asin(1.0 / std::sqrt(3.0)), 1e-15);
+    }
+
+    // 零向量的经度、纬度必须为零，避免 atan2(0,0) 的不确定性
+    {
+        double rectan[3] = {0.0, 0.0, 0.0};
+        double radius, lon, lat;
+        reclat(rectan, &radius, &lon, &lat);
+        EXPECT_EQ(radius, 0.0);
+        EXPECT_EQ(lon, 0.0);
+        EXPECT_EQ(lat, 0.0);
+    }
 }
 
 TEST(SpiceZpr, recpgr)
@@ -2309,10 +2439,148 @@ TEST(SpiceZpr, recpgr)
 
 TEST(SpiceZpr, recrad)
 {
+    static const struct {
+        double rectan[3];
+    } testData[] = {
+        {{ 1.0,  0.0,  0.0}},       // +X 轴：赤经 0，赤纬 0
+        {{ 0.0,  1.0,  0.0}},       // +Y 轴：赤经 pi/2
+        {{ 0.0,  0.0,  1.0}},       // +Z 轴：赤纬 pi/2
+        {{-1.0,  0.0,  0.0}},       // -X 轴：赤经 pi
+        {{ 0.0, -1.0,  0.0}},       // -Y 轴：赤经 3pi/2（规范化到 [0, 2pi)）
+        {{ 0.0,  0.0, -1.0}},       // -Z 轴：赤纬 -pi/2
+        {{ 1.0,  1.0,  0.0}},       // 赤经 pi/4
+        {{ 1.0,  1.0,  1.0}},       // 赤经 pi/4，赤纬 asin(1/sqrt(3))
+        {{-1.0, -1.0, -1.0}},       // 第三象限：赤经 5pi/4
+        {{ 0.0,  0.0,  0.0}},       // 零向量：赤经、赤纬均为 0
+        {{ 1e-15, -1e-15, 0.0}},    // 极小向量
+        {{ 1e8,  2e8, -3e8}},       // 大数值
+    };
+
+    for (size_t i = 0; i < sizeof(testData) / sizeof(testData[0]); i++)
+    {
+        const auto& data = testData[i];
+        double rectan[3] = {data.rectan[0], data.rectan[1], data.rectan[2]};
+
+        double range1, ra1, dec1;
+        double range2, ra2, dec2;
+        recrad(rectan, &range1, &ra1, &dec1);
+        recrad_c(rectan, &range2, &ra2, &dec2);
+
+        EXPECT_NEAR(range1, range2, 1e-12 * (1.0 + std::fabs(range2)));
+        EXPECT_NEAR(ra1, ra2, 1e-12);
+        EXPECT_NEAR(dec1, dec2, 1e-12);
+
+        // 与 radrec 互为逆变换
+        if (range2 < 100.0)
+        {
+            double rectan2[3];
+            radrec(range1, ra1, dec1, rectan2);
+            for (int j = 0; j < 3; j++)
+            {
+                EXPECT_NEAR(rectan2[j], rectan[j], 1e-12);
+            }
+        }
+    }
+
+    // 显式数值校验：赤经 45 度、赤纬 asin(1/sqrt(3))
+    {
+        double rectan[3] = {1.0, 1.0, 1.0};
+        double range, ra, dec;
+        recrad(rectan, &range, &ra, &dec);
+        EXPECT_NEAR(range, std::sqrt(3.0), 1e-15);
+        EXPECT_NEAR(ra, kQuarterPI, 1e-15);
+        EXPECT_NEAR(dec, std::asin(1.0 / std::sqrt(3.0)), 1e-15);
+    }
+
+    // 负赤经规范化到 [0, 2pi)：{0, -1, 0} 的赤经为 3pi/2
+    {
+        double rectan[3] = {0.0, -1.0, 0.0};
+        double range, ra, dec;
+        recrad(rectan, &range, &ra, &dec);
+        EXPECT_DOUBLE_EQ(range, 1.0);
+        EXPECT_NEAR(ra, kTwoPI * 0.75, 1e-15);
+        EXPECT_DOUBLE_EQ(dec, 0.0);
+    }
+
+    // 零向量的赤经、赤纬必须为零
+    {
+        double rectan[3] = {0.0, 0.0, 0.0};
+        double range, ra, dec;
+        recrad(rectan, &range, &ra, &dec);
+        EXPECT_EQ(range, 0.0);
+        EXPECT_EQ(ra, 0.0);
+        EXPECT_EQ(dec, 0.0);
+    }
 }
 
 TEST(SpiceZpr, recsph)
 {
+    static const struct {
+        double rectan[3];
+    } testData[] = {
+        {{ 1.0,  0.0,  0.0}},       // +X 轴：余纬 pi/2，经度 0
+        {{ 0.0,  1.0,  0.0}},       // +Y 轴：经度 pi/2
+        {{ 0.0,  0.0,  1.0}},       // +Z 轴：余纬 0
+        {{-1.0,  0.0,  0.0}},       // -X 轴：经度 pi
+        {{ 0.0, -1.0,  0.0}},       // -Y 轴：经度 3pi/2（规范化到 [0, 2pi)）
+        {{ 0.0,  0.0, -1.0}},       // -Z 轴：余纬 pi
+        {{ 1.0,  1.0,  0.0}},       // 经度 pi/4
+        {{ 1.0,  1.0,  1.0}},       // 经度 pi/4，余纬 acos(1/sqrt(3))
+        {{-1.0, -1.0, -1.0}},       // 第三象限：经度 5pi/4
+        {{ 0.0,  0.0,  0.0}},       // 零向量：余纬、经度均为 0
+        {{ 1e-15, -1e-15, 0.0}},    // 极小向量
+        {{ 1e8,  2e8, -3e8}},       // 大数值
+    };
+
+    for (size_t i = 0; i < sizeof(testData) / sizeof(testData[0]); i++)
+    {
+        const auto& data = testData[i];
+        double rectan[3] = {data.rectan[0], data.rectan[1], data.rectan[2]};
+
+        double radius1, colat1, lon1;
+        double radius2, colat2, lon2;
+        recsph(rectan, &radius1, &colat1, &lon1);
+        recsph_c(rectan, &radius2, &colat2, &lon2);
+
+        EXPECT_NEAR(radius1, radius2, 1e-12 * (1.0 + std::fabs(radius2)));
+        EXPECT_NEAR(colat1, colat2, 1e-12);
+        EXPECT_NEAR(lon1, lon2, 1e-12);
+    }
+
+    // 显式数值校验：+Z 极点余纬为 0，-Z 极点余纬为 pi
+    {
+        double radius, colat, lon;
+
+        double rectan1[3] = {0.0, 0.0, 2.0};
+        recsph(rectan1, &radius, &colat, &lon);
+        EXPECT_DOUBLE_EQ(radius, 2.0);
+        EXPECT_DOUBLE_EQ(colat, 0.0);
+
+        double rectan2[3] = {0.0, 0.0, -2.0};
+        recsph(rectan2, &radius, &colat, &lon);
+        EXPECT_DOUBLE_EQ(radius, 2.0);
+        EXPECT_NEAR(colat, kPI, 1e-15);
+    }
+
+    // 负经度规范化到 [0, 2pi)：{0, -1, 0} 的经度为 3pi/2
+    {
+        double rectan[3] = {0.0, -1.0, 0.0};
+        double radius, colat, lon;
+        recsph(rectan, &radius, &colat, &lon);
+        EXPECT_DOUBLE_EQ(radius, 1.0);
+        EXPECT_NEAR(colat, kHalfPI, 1e-15);
+        EXPECT_NEAR(lon, kTwoPI * 0.75, 1e-15);
+    }
+
+    // 零向量的余纬、经度必须为零
+    {
+        double rectan[3] = {0.0, 0.0, 0.0};
+        double radius, colat, lon;
+        recsph(rectan, &radius, &colat, &lon);
+        EXPECT_EQ(radius, 0.0);
+        EXPECT_EQ(colat, 0.0);
+        EXPECT_EQ(lon, 0.0);
+    }
 }
 
 TEST(SpiceZpr, removc)
@@ -2393,6 +2661,7 @@ TEST(SpiceZpr, rotvec)
 
 TEST(SpiceZpr, rpd)
 {
+    EXPECT_DOUBLE_EQ(rpd(), rpd_c());
 }
 
 TEST(SpiceZpr, rquad)
@@ -2485,6 +2754,7 @@ TEST(SpiceZpr, size)
 
 TEST(SpiceZpr, spd)
 {
+    EXPECT_DOUBLE_EQ(spd(), spd_c());
 }
 
 TEST(SpiceZpr, sphcyl)
@@ -2952,6 +3222,7 @@ TEST(SpiceZpr, tsetyr)
 
 TEST(SpiceZpr, twopi)
 {
+    EXPECT_DOUBLE_EQ(twopi(), twopi_c());
 }
 
 TEST(SpiceZpr, twovec)
@@ -2964,6 +3235,7 @@ TEST(SpiceZpr, twovxf)
 
 TEST(SpiceZpr, tyear)
 {
+    EXPECT_DOUBLE_EQ(tyear(), tyear_c());
 }
 
 TEST(SpiceZpr, ucase)
@@ -2972,6 +3244,14 @@ TEST(SpiceZpr, ucase)
 
 TEST(SpiceZpr, ucrss)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    ucrss(v1, v2, ast);
+    ucrss_c(v1, v2, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, uddc)
@@ -3004,6 +3284,17 @@ TEST(SpiceZpr, unormg)
 
 TEST(SpiceZpr, unorm)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    double astMag = 0.0;
+    double refMag = 0.0;
+    unorm(v1, ast, &astMag);
+    unorm_c(v1, ref, &refMag);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
+    EXPECT_NEAR(astMag, refMag, 1e-12);
 }
 
 TEST(SpiceZpr, utc2et)
@@ -3027,6 +3318,14 @@ TEST(SpiceZpr, vaddg)
 
 TEST(SpiceZpr, vadd)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vadd(v1, v2, ast);
+    vadd_c(v1, v2, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, valid)
@@ -3035,6 +3334,14 @@ TEST(SpiceZpr, valid)
 
 TEST(SpiceZpr, vcrss)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vcrss(v1, v2, ast);
+    vcrss_c(v1, v2, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vdistg)
@@ -3043,6 +3350,9 @@ TEST(SpiceZpr, vdistg)
 
 TEST(SpiceZpr, vdist)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    EXPECT_NEAR(vdist(v1, v2), vdist_c(v1, v2), 1e-12);
 }
 
 TEST(SpiceZpr, vdotg)
@@ -3051,6 +3361,9 @@ TEST(SpiceZpr, vdotg)
 
 TEST(SpiceZpr, vdot)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    EXPECT_NEAR(vdot(v1, v2), vdot_c(v1, v2), 1e-12);
 }
 
 TEST(SpiceZpr, vequg)
@@ -3059,6 +3372,14 @@ TEST(SpiceZpr, vequg)
 
 TEST(SpiceZpr, vequ)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vequ(v1, ast);
+    vequ_c(v1, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vhatg)
@@ -3067,10 +3388,27 @@ TEST(SpiceZpr, vhatg)
 
 TEST(SpiceZpr, vhat)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vhat(v1, ast);
+    vhat_c(v1, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vlcom3)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    const double v3[3] = {0.5, -1.0, 2.0};
+    vlcom3(1.3, v1, -0.7, v2, 0.4, v3, ast);
+    vlcom3_c(1.3, v1, -0.7, v2, 0.4, v3, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vlcomg)
@@ -3079,14 +3417,38 @@ TEST(SpiceZpr, vlcomg)
 
 TEST(SpiceZpr, vlcom)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vlcom(1.3, v1, -0.7, v2, ast);
+    vlcom_c(1.3, v1, -0.7, v2, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vminug)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vminug(v1, 3, ast);
+    vminug_c(v1, 3, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vminus)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vminus(v1, ast);
+    vminus_c(v1, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vnormg)
@@ -3095,14 +3457,32 @@ TEST(SpiceZpr, vnormg)
 
 TEST(SpiceZpr, vnorm)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    EXPECT_NEAR(vnorm(v1), vnorm_c(v1), 1e-12);
 }
 
 TEST(SpiceZpr, vpack)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vpack(1.1, -2.2, 3.3, ast);
+    vpack_c(1.1, -2.2, 3.3, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vperp)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vperp(v1, v2, ast);
+    vperp_c(v1, v2, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vprjpi)
@@ -3119,6 +3499,14 @@ TEST(SpiceZpr, vprojg)
 
 TEST(SpiceZpr, vproj)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vproj(v1, v2, ast);
+    vproj_c(v1, v2, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vrelg)
@@ -3139,6 +3527,14 @@ TEST(SpiceZpr, vsclg)
 
 TEST(SpiceZpr, vscl)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vscl(1.7, v1, ast);
+    vscl_c(1.7, v1, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vsepg)
@@ -3147,6 +3543,9 @@ TEST(SpiceZpr, vsepg)
 
 TEST(SpiceZpr, vsep)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    EXPECT_NEAR(vsep(v1, v2), vsep_c(v1, v2), 1e-12);
 }
 
 TEST(SpiceZpr, vsubg)
@@ -3155,6 +3554,14 @@ TEST(SpiceZpr, vsubg)
 
 TEST(SpiceZpr, vsub)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    vsub(v1, v2, ast);
+    vsub_c(v1, v2, ref);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_NEAR(ast[i], ref[i], 1e-12) << "component " << i;
 }
 
 TEST(SpiceZpr, vtmvg)
@@ -3167,6 +3574,17 @@ TEST(SpiceZpr, vtmv)
 
 TEST(SpiceZpr, vupack)
 {
+    const double v1[3] = {1.0, -2.0, 3.5};
+    const double v2[3] = {-0.5, 4.0, 2.0};
+    double ast[3] = {0.0, 0.0, 0.0};
+    double ref[3] = {0.0, 0.0, 0.0};
+    double ax = 0.0, ay = 0.0, az = 0.0;
+    double rx = 0.0, ry = 0.0, rz = 0.0;
+    vupack(v1, &ax, &ay, &az);
+    vupack_c(v1, &rx, &ry, &rz);
+    EXPECT_NEAR(ax, rx, 1e-12);
+    EXPECT_NEAR(ay, ry, 1e-12);
+    EXPECT_NEAR(az, rz, 1e-12);
 }
 
 TEST(SpiceZpr, vzerog)
@@ -3175,6 +3593,10 @@ TEST(SpiceZpr, vzerog)
 
 TEST(SpiceZpr, vzero)
 {
+    const double zero[3] = {0.0, 0.0, 0.0};
+    const double nonzero[3] = {1.0, 0.0, 0.0};
+    EXPECT_EQ(vzero(zero) != 0, vzero_c(zero) != 0);
+    EXPECT_EQ(vzero(nonzero) != 0, vzero_c(nonzero) != 0);
 }
 
 TEST(SpiceZpr, wncard)
@@ -3259,6 +3681,17 @@ TEST(SpiceZpr, xfmsta)
 
 TEST(SpiceZpr, xpose6)
 {
+    double m1[6][6];
+    double ast[6][6];
+    double ref[6][6];
+    for (int i = 0; i < 6; ++i)
+        for (int j = 0; j < 6; ++j)
+            m1[i][j] = static_cast<double>(i * 6 + j) - 10.0;
+    xpose6(m1, ast);
+    xpose6_c(m1, ref);
+    for (int i = 0; i < 6; ++i)
+        for (int j = 0; j < 6; ++j)
+            EXPECT_NEAR(ast[i][j], ref[i][j], 1e-12) << "component " << i << "," << j;
 }
 
 TEST(SpiceZpr, xposeg)
@@ -3267,6 +3700,15 @@ TEST(SpiceZpr, xposeg)
 
 TEST(SpiceZpr, xpose)
 {
+    const double m1[3][3] = {{1.0, 2.0, 3.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
+    const double m2[3][3] = {{2.0, -1.0, 0.0}, {3.0, 0.5, 1.0}, {-2.0, 4.0, 1.5}};
+    double ast[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    double ref[3][3] = {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}};
+    xpose(m1, ast);
+    xpose_c(m1, ref);
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            EXPECT_NEAR(ast[i][j], ref[i][j], 1e-12) << "component " << i << "," << j;
 }
 
 #endif

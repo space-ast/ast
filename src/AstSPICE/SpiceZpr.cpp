@@ -25,6 +25,8 @@
 #include "AstCore/CelestialBody.hpp"
 #include "AstCore/OrbitElement.hpp"
 #include "AstCore/TimeSystem.hpp"
+#include "AstCore/CoordConvert.hpp"
+#include "AstCore/LatLonRad.hpp"
 #include "AstMath/AttitudeConvert.hpp"
 #include "AstMath/AngleAxis.hpp"
 #include "AstMath/Euler.hpp"
@@ -45,6 +47,50 @@ using namespace math;
 
 using SpiceDouble = double;
 using SpiceInt = int;
+
+namespace {
+
+double spiceDet3(const Matrix3d& m)
+{
+    return m(0, 0) * (m(1, 1) * m(2, 2) - m(1, 2) * m(2, 1))
+         - m(0, 1) * (m(1, 0) * m(2, 2) - m(1, 2) * m(2, 0))
+         + m(0, 2) * (m(1, 0) * m(2, 1) - m(1, 1) * m(2, 0));
+}
+
+
+void spiceTranspose6(const Matrix6d& m, Matrix6d& out)
+{
+    for (int i = 0; i < 6; ++i)
+        for (int j = 0; j < 6; ++j)
+            out(i, j) = m(j, i);
+}
+
+void spiceInverse3(const Matrix3d& m, Matrix3d& out)
+{
+    const double a = m(0, 0), b = m(0, 1), c = m(0, 2);
+    const double d = m(1, 0), e = m(1, 1), f = m(1, 2);
+    const double g = m(2, 0), h = m(2, 1), i = m(2, 2);
+    const double det = spiceDet3(m);
+    if (det == 0.0) {
+        for (int r = 0; r < 3; ++r)
+            for (int c = 0; c < 3; ++c)
+                out(r, c) = 0.0;
+        return;
+    }
+    const double invDet = 1.0 / det;
+    out(0, 0) = (e * i - f * h) * invDet;
+    out(0, 1) = (c * h - b * i) * invDet;
+    out(0, 2) = (b * f - c * e) * invDet;
+    out(1, 0) = (f * g - d * i) * invDet;
+    out(1, 1) = (a * i - c * g) * invDet;
+    out(1, 2) = (c * d - a * f) * invDet;
+    out(2, 0) = (d * h - e * g) * invDet;
+    out(2, 1) = (b * g - a * h) * invDet;
+    out(2, 2) = (a * e - b * d) * invDet;
+}
+
+} // namespace
+
 
 
 
@@ -326,7 +372,9 @@ double clight()
 
 // deltet
 
-// det
+double det(const Matrix3d& m1) { return spiceDet3(m1); }
+
+AST_SPICE_CAPI double det(const double m1[3][3]) { return det(in(m1)); }
 
 // dgeodr
 
@@ -676,7 +724,7 @@ void eul2m(
 
 // gnpool
 
-// halfpi
+AST_SPICE_API double halfpi(void) { return kHalfPI; }
 
 // hrmesp
 
@@ -728,8 +776,11 @@ void ident(double matrix[3][3])
 
 // intmin
 
-// invert
+void invert(const Matrix3d& m1, Matrix3d& mout) { 
+    spiceInverse3(m1, mout); 
+}
 
+AST_SPICE_CAPI void invert(const double m1[3][3], double mout[3][3]) { invert(in(m1), out(mout)); }
 // invort
 
 // invstm
@@ -742,7 +793,21 @@ void ident(double matrix[3][3])
 
 // isrchi
 
-// isrot
+bool isrot(const Matrix3d& m, double ntol, double dtol) { 
+    const Matrix3d r = m * m.transpose(); 
+    for (int i = 0; i < 3; ++i)
+    {
+        for (int j = 0; j < 3; ++j) 
+        { 
+            const double expected = (i == j) ? 1.0 : 0.0; 
+            if (std::fabs(r(i, j) - expected) > ntol) 
+            return false; 
+        }
+    }
+    return std::fabs(spiceDet3(m) - 1.0) <= dtol; 
+}
+
+AST_SPICE_CAPI int isrot(const double m[3][3], double ntol, double dtol) { return isrot(in(m), ntol, dtol) ? 1 : 0; }
 
 // iswhsp
 
@@ -793,13 +858,7 @@ double jyear()
 
 void latrec(double radius, double lon, double lat, Vector3d &rectan)
 {
-    double cos_lon, sin_lon, cos_lat, sin_lat;
-    sincos(lon, &sin_lon, &cos_lon);
-    sincos(lat, &sin_lat, &cos_lat);
-
-    rectan[0] = radius * cos_lon * cos_lat;
-    rectan[1] = radius * sin_lon * cos_lat;
-    rectan[2] = radius * sin_lat;
+    aLLRToCart(LLR{lat, lon, radius}, rectan);
 }
 
 // latsph
@@ -908,7 +967,9 @@ void m2q(
 
 // mequg
 
-// mequ
+void mequ(const Matrix3d& m1, Matrix3d& mout) { mout = m1; }
+
+AST_SPICE_CAPI void mequ(const double m1[3][3], double mout[3][3]) { mequ(in(m1), out(mout)); }
 
 // mind
 
@@ -918,19 +979,25 @@ void m2q(
 
 // mtxmg
 
-// mtxm
+void mtxm(const Matrix3d& m1, const Matrix3d& m2, Matrix3d& mout) { 
+    mout = m1.transpose() * m2; 
+}
+
+AST_SPICE_CAPI void mtxm(const double m1[3][3], const double m2[3][3], double mout[3][3]) { mtxm(in(m1), in(m2), out(mout)); }
 
 // mtxvg
 
-// mtxv
+void mtxv(const Matrix3d& m1, const Vector3d& v2, Vector3d& vout) { vout = m1.transpose() * v2; }
+
+AST_SPICE_CAPI void mtxv(const double m1[3][3], const double v2[3], double vout[3]) { mtxv(in(m1), in(v2), out(vout)); }
 
 // mxmg
 
 // mxmtg
 
-// mxmt
+void mxmt(const Matrix3d& m1, const Matrix3d& m2, Matrix3d& mout) { mout = m1 * m2.transpose(); }
 
-
+AST_SPICE_CAPI void mxmt(const double m1[3][3], const double m2[3][3], double mout[3][3]) { mxmt(in(m1), in(m2), out(mout)); }
 
 void mxm(const Matrix3d &m1, const Matrix3d &m2, Matrix3d &mout)
 {
@@ -964,7 +1031,9 @@ void mxvg(const void *m1, const void *v2, int nr1, int nc1r2, void *vout)
     }
 }
 
-// mxv
+void mxv(const Matrix3d& m1, const Vector3d& v2, Vector3d& vout) { vout = m1 * v2; }
+
+AST_SPICE_CAPI void mxv(const double m1[3][3], const double v2[3], double vout[3]) { mxv(in(m1), in(v2), out(vout)); }
 
 // namfrm
 
@@ -1030,7 +1099,7 @@ void mxvg(const void *m1, const void *v2, int nr1, int nc1r2, void *vout)
 
 // pipool
 
-// pi
+AST_SPICE_CAPI double pi(void) { return kPI; }
 
 // pjelpl
 
@@ -1170,13 +1239,73 @@ void rav2xf(
 
 // recgeo
 
-// reclat
+void reclat(const Vector3d& rectan, double& radius, double& longitude, double& latitude)
+{
+    LLR llr;
+    aCartToLLR(rectan, llr);
+    radius    = llr.radius();
+    longitude = llr.longitude();
+    latitude  = llr.latitude();
+}
+
+AST_SPICE_CAPI
+void reclat(
+    const double  rectan[3],
+    double      * radius,
+    double      * longitude,
+    double      * latitude
+)
+{
+    reclat(in(rectan), *radius, *longitude, *latitude);
+}
 
 // recpgr
 
-// recrad
 
-// recsph
+void recrad(const Vector3d& rectan, double& range, double& ra, double& dec)
+{
+    // 赤经/赤纬与经度/纬度是同一组球面坐标，复用 AstCore 的直角坐标转换；
+    // 差别只在于赤经按天文惯例规范化到 [0, 2π)，而经度取 [-π, π]
+    LLR llr;
+    aCartToLLR(rectan, llr);
+    range = llr.radius();
+    ra    = aNormalizeAngle0To2Pi(llr.longitude());
+    dec   = llr.latitude();
+}
+
+AST_SPICE_CAPI
+void recrad(
+    const double  rectan[3],
+    double      * range,
+    double      * ra,
+    double      * dec
+)
+{
+    recrad(in(rectan), *range, *ra, *dec);
+}
+
+
+void recsph(const Vector3d& rectan, double& radius, double& colat, double& lon)
+{
+    // AstCore 的纬度经度半径坐标 + SPICE 的余纬约定：
+    // 余纬 = π/2 - 纬度，经度规范化到 [0, 2π)
+    LLR llr;
+    aCartToLLR(rectan, llr);
+    radius = llr.radius();
+    colat  = kHalfPI - llr.latitude();
+    lon    = aNormalizeAngle0To2Pi(llr.longitude());
+}
+
+AST_SPICE_CAPI
+void recsph(
+    const double  rectan[3],
+    double      * radius,
+    double      * colat,
+    double      * lon
+)
+{
+    recsph(in(rectan), *radius, *colat, *lon);
+}
 
 // removc
 
@@ -1216,7 +1345,7 @@ void rav2xf(
 
 // rotvec
 
-// rpd
+AST_SPICE_CAPI double rpd(void) { return kDegToRad; }
 
 // rquad
 
@@ -1262,7 +1391,7 @@ void rav2xf(
 
 // size
 
-// spd
+AST_SPICE_CAPI double spd(void) { return kSecondsPerDay; }
 
 // sphcyl
 
@@ -1680,17 +1809,22 @@ errc_t tipbod(
 
 // tsetyr
 
-// twopi
+AST_SPICE_CAPI double twopi(void) { return kTwoPI; }
 
 // twovec
 
 // twovxf
 
-// tyear
+AST_SPICE_CAPI double tyear(void) { return kSecondsPerTropicalYear; }
 
 // ucase
 
-// ucrss
+void ucrss(const Vector3d& v1, const Vector3d& v2, Vector3d& vout) { 
+    vout = v1.cross(v2); 
+    vout.normalize();
+}
+
+AST_SPICE_CAPI void ucrss(const double v1[3], const double v2[3], double vout[3]) { ucrss(in(v1), in(v2), out(vout)); }
 
 // uddc
 
@@ -1706,9 +1840,20 @@ errc_t tipbod(
 
 // unormg
 
-// unorm
+double unorm(const Vector3d& v, Vector3d& u) { 
+    const double n = v.norm(); 
+    if (n > 0.0) 
+        u = v / n; 
+    else 
+        u.setZero(); 
+    return n; 
+}
 
-
+AST_SPICE_CAPI void unorm(const double v[3], double u[3], double* vmag) 
+{
+    const double mag = unorm(in(v), out(u));
+    if (vmag) *vmag = mag; 
+}
 
 errc_t utc2et(StringView utcstr, double &et)
 {
@@ -1732,45 +1877,81 @@ errc_t utc2et(
 
 // vaddg
 
-// vadd
+void vadd(const Vector3d& v1, const Vector3d& v2, Vector3d& vout) { vout = v1 + v2; }
+
+AST_SPICE_CAPI void vadd(const double v1[3], const double v2[3], double vout[3]) { vadd(in(v1), in(v2), out(vout)); }
 
 // valid
 
-// vcrss
+void vcrss(const Vector3d& v1, const Vector3d& v2, Vector3d& vout) { vout = v1.cross(v2); }
+
+AST_SPICE_CAPI void vcrss(const double v1[3], const double v2[3], double vout[3]) { vcrss(in(v1), in(v2), out(vout)); }
 
 // vdistg
 
-// vdist
+double vdist(const Vector3d& v1, const Vector3d& v2) { return (v1 - v2).norm(); }
+
+AST_SPICE_CAPI double vdist(const double v1[3], const double v2[3]) { return vdist(in(v1), in(v2)); }
 
 // vdotg
 
-// vdot
+double vdot(const Vector3d& v1, const Vector3d& v2) { return v1.dot(v2); }
+
+AST_SPICE_CAPI double vdot(const double v1[3], const double v2[3]) { return vdot(in(v1), in(v2)); }
 
 // vequg
 
-// vequ
+void vequ(const Vector3d& vin, Vector3d& vout) { vout = vin; }
+
+AST_SPICE_CAPI void vequ(const double vin[3], double vout[3]) { vequ(in(vin), out(vout)); }
 
 // vhatg
 
-// vhat
+void vhat(const Vector3d& v, Vector3d& vout) { 
+    vout = v.normalized(); 
+}
 
-// vlcom3
+AST_SPICE_CAPI void vhat(const double v[3], double vout[3]) { vhat(in(v), out(vout)); }
+
+void vlcom3(double a, const Vector3d& v1, double b, const Vector3d& v2, double c, const Vector3d& v3, Vector3d& sum) { sum = a * v1 + b * v2 + c * v3; }
+
+AST_SPICE_CAPI void vlcom3(double a, const double v1[3], double b, const double v2[3], double c, const double v3[3], double sum[3]) { vlcom3(a, in(v1), b, in(v2), c, in(v3), out(sum)); }
 
 // vlcomg
 
-// vlcom
+void vlcom(double a, const Vector3d& v1, double b, const Vector3d& v2, Vector3d& sum) { sum = a * v1 + b * v2; }
 
-// vminug
+AST_SPICE_CAPI void vlcom(double a, const double v1[3], double b, const double v2[3], double sum[3]) { vlcom(a, in(v1), b, in(v2), out(sum)); }
 
-// vminus
+void vminug(const Vector3d& v, Vector3d& vout) { vout = -v; }
+
+AST_SPICE_CAPI void vminug(const double* vin, int ndim, double* vout) 
+{
+    for (int i = 0; i < ndim; ++i) 
+        vout[i] = -vin[i]; 
+}
+
+void vminus(const Vector3d& v, Vector3d& vout) { vout = -v; }
+
+AST_SPICE_CAPI void vminus(const double v[3], double vout[3]) { vminus(in(v), out(vout)); }
 
 // vnormg
 
-// vnorm
+double vnorm(const Vector3d& v) { return v.norm(); }
 
-// vpack
+AST_SPICE_CAPI double vnorm(const double v[3]) { return vnorm(in(v)); }
 
-// vperp
+void vpack(double x, double y, double z, Vector3d& v) { v.x() = x; v.y() = y; v.z() = z; }
+
+AST_SPICE_CAPI void vpack(double x, double y, double z, double v[3]) { vpack(x, y, z, out(v)); }
+
+void vperp(const Vector3d& a, const Vector3d& b, Vector3d& p) { 
+    Vector3d t; 
+    vproj(a, b, t); 
+    p = a - t; 
+}
+
+AST_SPICE_CAPI void vperp(const double a[3], const double b[3], double p[3]) { vperp(in(a), in(b), out(p)); }
 
 // vprjpi
 
@@ -1778,7 +1959,15 @@ errc_t utc2et(
 
 // vprojg
 
-// vproj
+void vproj(const Vector3d& a, const Vector3d& b, Vector3d& p) { 
+    const double bb = b.dot(b); 
+    if (bb == 0.0) 
+        p.setZero(); 
+    else 
+        p = b * (a.dot(b) / bb); 
+}
+
+AST_SPICE_CAPI void vproj(const double a[3], const double b[3], double p[3]) { vproj(in(a), in(b), out(p)); }
 
 // vrelg
 
@@ -1817,25 +2006,41 @@ void vrotv(const Vector3d& v, const Vector3d& axis, double theta, Vector3d& r)
 
 // vsclg
 
-// vscl
+void vscl(double s, const Vector3d& v1, Vector3d& vout) { vout = s * v1; }
+
+AST_SPICE_CAPI void vscl(double s, const double v1[3], double vout[3]) { vscl(s, in(v1), out(vout)); }
 
 // vsepg
 
-// vsep
+double vsep(const Vector3d& v1, const Vector3d& v2) { 
+    const double n1 = v1.norm(), n2 = v2.norm(); 
+    if (n1 == 0.0 || n2 == 0.0) 
+        return 0.0; 
+    double c = v1.dot(v2) / (n1 * n2); 
+    return acosSafe(c); 
+}
+
+AST_SPICE_CAPI double vsep(const double v1[3], const double v2[3]) { return vsep(in(v1), in(v2)); }
 
 // vsubg
 
-// vsub
+void vsub(const Vector3d& v1, const Vector3d& v2, Vector3d& vout) { vout = v1 - v2; }
+
+AST_SPICE_CAPI void vsub(const double v1[3], const double v2[3], double vout[3]) { vsub(in(v1), in(v2), out(vout)); }
 
 // vtmvg
 
 // vtmv
 
-// vupack
+void vupack(const Vector3d& v, double& x, double& y, double& z) { x = v.x(); y = v.y(); z = v.z(); }
+
+AST_SPICE_CAPI void vupack(const double v[3], double* x, double* y, double* z) { vupack(in(v), *x, *y, *z); }
 
 // vzerog
 
-// vzero
+bool vzero(const Vector3d& v) { return v.x() == 0.0 && v.y() == 0.0 && v.z() == 0.0; }
+
+AST_SPICE_CAPI int vzero(const double v[3]) { return vzero(in(v)) ? 1 : 0; }
 
 // wncard
 
@@ -1877,18 +2082,14 @@ void vrotv(const Vector3d& v, const Vector3d& axis, double theta, Vector3d& r)
 
 // xfmsta
 
-// xpose6
+void xpose6(const Matrix6d& m1, Matrix6d& mout) { spiceTranspose6(m1, mout); }
+
+AST_SPICE_CAPI void xpose6(const double m1[6][6], double mout[6][6]) { xpose6(in(m1), out(mout)); }
 
 // xposeg
 
-// xpose
+void xpose(const Matrix3d& m1, Matrix3d& mout) { mout = m1.transpose(); }
 
-
-
-
-
-
-
-
+AST_SPICE_CAPI void xpose(const double m1[3][3], double mout[3][3]) { xpose(in(m1), out(mout)); }
 
 AST_NAMESPACE_END

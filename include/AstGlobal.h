@@ -563,7 +563,11 @@ class SGP4;                  ///< SGP4 轨道模型
 class GeodeticPoint;         ///< 大地坐标
 class LatLon;                ///< 纬度经度坐标
 class LatLonAlt;             ///< 纬经高坐标
+class LatLonRad;             ///< 纬经半径坐标
 class TrackingCoordinates;   ///< 测量/跟踪坐标(AER)
+
+using LLA = LatLonAlt;
+using LLR = LatLonRad;
 using AER = TrackingCoordinates;
 
 class State;                 ///< 状态
