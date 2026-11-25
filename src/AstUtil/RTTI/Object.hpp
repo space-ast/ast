@@ -327,6 +327,12 @@ protected:
     {
         return *this;
     }
+#ifdef AST_ENABLE_DYNAMIX
+    Referenced* dynamix() const {return dynamix_.get();}
+    void setDynamix(Referenced* dynamix) {dynamix_ = dynamix;}
+private:
+    SharedPtr<Referenced>    dynamix_{};                                ///< 对象的 DynaMix 扩展槽，可用于动态扩展和替换对象的多态行为，或者作为 userdata 存储额外数据
+#endif
 private:
     // Class*                type_;                                     ///< 类型元信息，同时用于标识对象是否被析构(废弃，采用虚函数`getType()`实现)
     uint32_t                 index_{static_cast<uint32_t>(INVALID_ID)}; ///< 对象索引，用于唯一标识对象

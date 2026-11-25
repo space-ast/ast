@@ -38,8 +38,8 @@
  * */
 
 
-// 通用宏见"AstCompiler.h"
-#include "AstCompiler.h"
+#include "AstCompiler.h"    // 通用宏
+#include "AstConfig.h"      // 编译期配置宏
 
 #include <stddef.h>         // for size_t
 #include <stdint.h>         // for uint32_t
@@ -47,27 +47,6 @@
 #include <array>            // for array
 // #include <string_view>
 #endif
-
-// 下面是ast项目专用宏，用于控制ast项目的行为，你可以根据需要定义或注释掉这些宏
-// 有些宏定义会改变项目的二进制接口(ABI)，使用不同宏定义编译的库文件互相不兼容
-// 请确保整个项目中使用一致的配置，避免混用不同配置的库文件和头文件
-
-
-#define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间(如果关闭，需要同步更改rules.lua里的qt.moc.flags)
-// #define AST_USE_CRT_SAFE                      // 是否使用CRT安全函数，例如_wfopen_s、_wfreopen_s等
-                                                 //（已废弃，这些函数无法共享文件，即同时打开相同文件，在一些情况下有问题）
-
-// #define AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库的一些函数
-// #define AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
-// #define AST_ENABLE_REDUNDANT                  // 是否启用冗余功能
-// #define AST_ENABLE_CAPI                       // 是否启用C语言接口
-
-// #define AST_DISABLE_AUTO_DOWNLOAD_DATA        // 是否禁用自动下载数据功能
-
-// #define AST_USE_EIGEN_MATRIX                  // [影响ABI]是否使用 Eigen 库中的矩阵向量定义，否则使用库中内置的类型
-// #define AST_USE_STD_STRING_VIEW               // [影响ABI]是否使用 std::string_view ，否则使用内置的string_view
-// #define AST_USE_STD_FILESYSTEM                // 是否使用 std::filesystem，如果存在的话，否则使用内置的filesystem
-// #define AST_USE_STD_FILESYSTEM_EXPERIMENTAL   // 是否选择使用 std::experimental::filesystem 的c++实验特性，如果存在的话
 
 /// 项目专用宏
 #if defined AST_ENABLE_NAMESPACE && defined(__cplusplus) 
