@@ -38,6 +38,7 @@
 #include "AstHarness/LLMConfig.hpp"
 #include <iostream>
 #include <cstdlib>
+#include <clocale>
 
 AST_USING_NAMESPACE;
 
