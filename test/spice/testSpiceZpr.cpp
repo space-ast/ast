@@ -2515,6 +2515,72 @@ TEST(SpiceZpr, recrad)
 
 TEST(SpiceZpr, recsph)
 {
+    static const struct {
+        double rectan[3];
+    } testData[] = {
+        {{ 1.0,  0.0,  0.0}},       // +X 轴：余纬 pi/2，经度 0
+        {{ 0.0,  1.0,  0.0}},       // +Y 轴：经度 pi/2
+        {{ 0.0,  0.0,  1.0}},       // +Z 轴：余纬 0
+        {{-1.0,  0.0,  0.0}},       // -X 轴：经度 pi
+        {{ 0.0, -1.0,  0.0}},       // -Y 轴：经度 3pi/2（规范化到 [0, 2pi)）
+        {{ 0.0,  0.0, -1.0}},       // -Z 轴：余纬 pi
+        {{ 1.0,  1.0,  0.0}},       // 经度 pi/4
+        {{ 1.0,  1.0,  1.0}},       // 经度 pi/4，余纬 acos(1/sqrt(3))
+        {{-1.0, -1.0, -1.0}},       // 第三象限：经度 5pi/4
+        {{ 0.0,  0.0,  0.0}},       // 零向量：余纬、经度均为 0
+        {{ 1e-15, -1e-15, 0.0}},    // 极小向量
+        {{ 1e8,  2e8, -3e8}},       // 大数值
+    };
+
+    for (size_t i = 0; i < sizeof(testData) / sizeof(testData[0]); i++)
+    {
+        const auto& data = testData[i];
+        double rectan[3] = {data.rectan[0], data.rectan[1], data.rectan[2]};
+
+        double radius1, colat1, lon1;
+        double radius2, colat2, lon2;
+        recsph(rectan, &radius1, &colat1, &lon1);
+        recsph_c(rectan, &radius2, &colat2, &lon2);
+
+        EXPECT_NEAR(radius1, radius2, 1e-12 * (1.0 + std::fabs(radius2)));
+        EXPECT_NEAR(colat1, colat2, 1e-12);
+        EXPECT_NEAR(lon1, lon2, 1e-12);
+    }
+
+    // 显式数值校验：+Z 极点余纬为 0，-Z 极点余纬为 pi
+    {
+        double radius, colat, lon;
+
+        double rectan1[3] = {0.0, 0.0, 2.0};
+        recsph(rectan1, &radius, &colat, &lon);
+        EXPECT_DOUBLE_EQ(radius, 2.0);
+        EXPECT_DOUBLE_EQ(colat, 0.0);
+
+        double rectan2[3] = {0.0, 0.0, -2.0};
+        recsph(rectan2, &radius, &colat, &lon);
+        EXPECT_DOUBLE_EQ(radius, 2.0);
+        EXPECT_NEAR(colat, kPI, 1e-15);
+    }
+
+    // 负经度规范化到 [0, 2pi)：{0, -1, 0} 的经度为 3pi/2
+    {
+        double rectan[3] = {0.0, -1.0, 0.0};
+        double radius, colat, lon;
+        recsph(rectan, &radius, &colat, &lon);
+        EXPECT_DOUBLE_EQ(radius, 1.0);
+        EXPECT_NEAR(colat, kHalfPI, 1e-15);
+        EXPECT_NEAR(lon, kTwoPI * 0.75, 1e-15);
+    }
+
+    // 零向量的余纬、经度必须为零
+    {
+        double rectan[3] = {0.0, 0.0, 0.0};
+        double radius, colat, lon;
+        recsph(rectan, &radius, &colat, &lon);
+        EXPECT_EQ(radius, 0.0);
+        EXPECT_EQ(colat, 0.0);
+        EXPECT_EQ(lon, 0.0);
+    }
 }
 
 TEST(SpiceZpr, removc)

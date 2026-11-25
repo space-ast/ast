@@ -1284,7 +1284,28 @@ void recrad(
     recrad(in(rectan), *range, *ra, *dec);
 }
 
-// recsph
+
+void recsph(const Vector3d& rectan, double& radius, double& colat, double& lon)
+{
+    // AstCore 的纬度经度半径坐标 + SPICE 的余纬约定：
+    // 余纬 = π/2 - 纬度，经度规范化到 [0, 2π)
+    LLR llr;
+    aCartToLLR(rectan, llr);
+    radius = llr.radius();
+    colat  = kHalfPI - llr.latitude();
+    lon    = aNormalizeAngle0To2Pi(llr.longitude());
+}
+
+AST_SPICE_CAPI
+void recsph(
+    const double  rectan[3],
+    double      * radius,
+    double      * colat,
+    double      * lon
+)
+{
+    recsph(in(rectan), *radius, *colat, *lon);
+}
 
 // removc
 

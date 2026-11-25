@@ -1118,7 +1118,20 @@ AST_SPICE_API void recrad(
     double&          dec
 );
 
-// recsph
+
+/// @brief 将直角坐标转换为球坐标
+/// 余纬自 +Z 轴起算，经度自 +X 轴起算、朝 +Y 轴方向为正
+/// @param[in] rectan 输入直角坐标（x, y, z）
+/// @param[out] radius 半径
+/// @param[out] colat 余纬（弧度），取值范围 [0, pi]
+/// @param[out] lon 经度（弧度），规范化到 [0, 2pi)
+/// @note 零向量的余纬与经度均为 0
+AST_SPICE_API void recsph(
+    const Vector3d&  rectan,
+    double&          radius,
+    double&          colat,
+    double&          lon
+);
 
 // removc
 

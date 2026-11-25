@@ -38,7 +38,7 @@ void aCartToLLR(const Vector3d &cart, LLR &llr)
         return;
     }
     llr.setLongitude(std::atan2(cart.y(), cart.x()));
-    llr.setLatitude(std::asin(cart.z() / radius));
+    llr.setLatitude(asinSafe(cart.z() / radius));
 }
 
 void aLLRToCart(const LLR &llr, Vector3d &cart)

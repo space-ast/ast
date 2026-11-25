@@ -984,6 +984,13 @@ void recrad(
 
 // recsph
 
+void recsph(
+    const double  rectan[3],
+    double      * radius,
+    double      * colat,
+    double      * lon
+);
+
 // removc
 
 // removd
