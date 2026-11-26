@@ -175,6 +175,10 @@ public:
     {
         return aFrameTransform(source, const_cast<Frame*>(this), tp, transform);
     }
+public:
+#ifdef _AST_FRAME_PLUGIN
+#   include _AST_FRAME_PLUGIN
+#endif
 };
 
 using PFrame = Frame*;                ///< 坐标系指针(pointer to frame)

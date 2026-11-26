@@ -348,6 +348,7 @@ protected:
         return *this;
     }
 #ifdef AST_ENABLE_DYNAMIX
+public:
     Referenced* dynamix() const {return dynamix_.get();}
     void setDynamix(Referenced* dynamix) {dynamix_ = dynamix;}
 private:

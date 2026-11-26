@@ -243,6 +243,10 @@ public:
         if(axes == nullptr) return eErrorNullInput;
         return getAttitudeIn(*axes, tp, quat, angvel);
     }
+public:
+#ifdef _AST_AXES_PLUGIN
+#   include _AST_AXES_PLUGIN
+#endif
 };
 
 
