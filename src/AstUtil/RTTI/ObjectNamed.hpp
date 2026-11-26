@@ -49,8 +49,13 @@ public:
 
     /// @brief 设置对象名称
     void setName(StringView name) override { name_ = std::string(name); }
+
+    const std::string& description() const { return description_; }
+
+    void setDescription(StringView desc) { description_ = std::string(desc); }
 private:
-    std::string name_{};      ///< 对象名称
+    std::string name_{};        ///< 对象名称
+    std::string description_{}; ///< 对象描述
 };
 
 

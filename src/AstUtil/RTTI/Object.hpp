@@ -79,11 +79,15 @@ enum {
 /// @brief 对象标志位
 enum class EObjectFlags: uint32_t
 {
-    eNone = 0,              ///< 无标志位
-    eReadOnly = 0x01,       ///< 只读
-    eInActive = 0x02,       ///< 不活跃
-    eComponent = 0x04,      ///< 组件对象(和eEntity互斥)
-    eEntity = 0x08,         ///< 实体对象(和eComponent互斥)
+    eNone       = 0,          ///< 无标志位
+    eReadOnly   = 0x01,       ///< 只读组件/只读对象
+    eBuiltin    = 0x02,       ///< 内置组件/内置对象
+    eInActive   = 0x04,       ///< 不活跃
+    eComponent  = 0x08,       ///< 组件对象(和eEntity互斥)
+    eEntity     = 0x10,       ///< 实体对象(和eComponent互斥)
+    eUncopyable = 0x20,       ///< 不可复制对象
+    eGlobal     = 0x40,       ///< 全局组件/全局对象(和eAttached互斥)
+    eAttached   = 0x80,       ///< 附加组件/附加对象(和eGlobal互斥)
 };
 
 
@@ -134,8 +138,8 @@ public:
     /// @brief 获取对象的名称
     const std::string& name() const {return this->getName();}
 
-    /// @brief 获取对象的显示名称
-    std::string displayName() const;
+    /// @brief 获取对象的显示名称(翻译后的名称)
+    std::string displayName() const;  
 public: // 编辑属性
     
     /// @brief 显示编辑对话框，用于编辑对象的属性
@@ -305,6 +309,18 @@ public: // 延迟链接
 public:  // 对象标志位
     bool readOnly() const {return !!(flags_ & EObjectFlags::eReadOnly);}
     void setReadOnly(bool readOnly);
+
+    bool isBuiltin() const {return !!(flags_ & EObjectFlags::eBuiltin);}
+    void setIsBuiltin(bool isBuiltin);
+
+    bool copyable() const {return !(flags_ & EObjectFlags::eUncopyable);}
+    void setCopyable(bool copyable);
+
+    bool isGlobal() const {return !!(flags_ & EObjectFlags::eGlobal);}
+    void setIsGlobal(bool isGlobal);
+
+    bool isAttached() const {return !!(flags_ & EObjectFlags::eAttached);}
+    void setIsAttached(bool isAttached);
 
     bool active() const {return !(flags_ & EObjectFlags::eInActive);}
     void setActive(bool active);
