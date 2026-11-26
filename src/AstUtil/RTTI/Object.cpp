@@ -52,10 +52,6 @@ Object::Object(std::nullptr_t)
 {
 }
 
-Class *Object::getType() const
-{
-    return &staticType;
-}
 
 const std::string empty;
 

@@ -43,7 +43,6 @@ public:
     AST_PROPERT(SourceVector)
     AST_PROPERT(Axes)
     AST_PROPERT(Epoch)
-
     VectorFixedAtEpoch() = default;
     ~VectorFixedAtEpoch() override = default;
 

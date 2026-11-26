@@ -39,7 +39,6 @@ public:
     AST_OBJECT(VectorFixed)
     AST_PROPERT(Axes)
     AST_PROPERT(Value)
-
     VectorFixed() = default;
     ~VectorFixed() override = default;
 

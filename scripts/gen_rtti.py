@@ -110,26 +110,30 @@ class TypeMapper:
     }
     
     @classmethod
-    def map_type(cls, cpp_type: str) -> PropertyType:
-        """映射C++类型到属性类型"""
-        # 清理类型字符串
+    def strip_qualifiers(cls, cpp_type: str) -> str:
+        """去掉 const 修饰符以及指针/引用符号，得到基础类型名"""
         cpp_type = cpp_type.strip()
-        
-        # 移除const修饰符
+
         if cpp_type.startswith('const '):
             cpp_type = cpp_type[6:]
         if cpp_type.endswith(' const'):
             cpp_type = cpp_type[:-6]
-        
-        # 移除引用和指针
+
+        return cpp_type.replace('&', '').replace('*', '').strip()
+
+    @classmethod
+    def map_type(cls, cpp_type: str) -> PropertyType:
+        """映射C++类型到属性类型"""
+        # 检查是否是对象类型（有指针，或包含::，或包含ScopedPtr）
         has_pointer = '*' in cpp_type
-        cpp_type = cpp_type.replace('&', '').replace('*', '').strip()
+
+        # 清理类型字符串
+        cpp_type = cls.strip_qualifiers(cpp_type)
         
         # 查找映射
         if cpp_type in cls.TYPE_MAPPING:
             return cls.TYPE_MAPPING[cpp_type]
         
-        # 检查是否是对象类型（有指针或引用，或包含::，或包含ScopedPtr）
         if has_pointer or '::' in cpp_type or 'ScopedPtr' in cpp_type:
             return PropertyType.OBJECT
         
@@ -232,6 +236,17 @@ class BaseHeaderAnalyzer:
         lines.append("")
         lines.append(f"Class {class_info.name}::staticType;")
         lines.append("")
+        # StaticType()/getType() 在 AST_OBJECT 宏中只做声明，定义放到 cpp 中，避免每个包含头文件的翻译单元都生成一份
+        lines.append(f"Class* {class_info.name}::StaticType()")
+        lines.append("{")
+        lines.append("    return &staticType;")
+        lines.append("}")
+        lines.append("")
+        lines.append(f"Class* {class_info.name}::getType() const")
+        lines.append("{")
+        lines.append("    return &staticType;")
+        lines.append("}")
+        lines.append("")
         lines.append(f"static bool {class_info.name}_ClassInited = ({class_info.name}::ClassInit(&{class_info.name}::staticType), true);")
         lines.append("")
         lines.append(f"void {class_info.name}::ClassInit(Class* cls)")
@@ -285,12 +300,7 @@ class BaseHeaderAnalyzer:
                 # 对象类型
                 prop_func = TypeMapper.get_property_function(prop_info.property_type)
                 # 提取对象类型名（去掉指针和引用）
-                object_type = prop_info.type_name.strip()
-                if object_type.startswith('const '):
-                    object_type = object_type[6:]
-                if object_type.endswith(' const'):
-                    object_type = object_type[:-6]
-                object_type = object_type.replace('&', '').replace('*', '').strip()
+                object_type = TypeMapper.strip_qualifiers(prop_info.type_name)
                 
                 if prop_info.getter and prop_info.setter:
                     lines.append(f'    cls->addProperty("{prop_name}", {prop_func}<{class_info.name}, {object_type}, &{class_info.name}::{prop_info.getter}, &{class_info.name}::{prop_info.setter}>());')
@@ -299,6 +309,10 @@ class BaseHeaderAnalyzer:
             else:
                 # 普通类型
                 prop_func = TypeMapper.get_property_function(prop_info.property_type)
+                if prop_info.property_type == PropertyType.UNKNOWN:
+                    # 值类型属性目前只支持 bool/int/double/std::string/量纲，其它类型无法创建属性，跳过
+                    print(f"警告: 跳过属性 {class_info.name}::{prop_name}（不支持的值类型 {prop_info.type_name}）")
+                    continue
                 if prop_info.getter and prop_info.setter:
                     lines.append(f'    cls->addProperty("{prop_name}", {prop_func}<{class_info.name}, &{class_info.name}::{prop_info.getter}, &{class_info.name}::{prop_info.setter}>());')
                 elif prop_info.getter:
@@ -897,6 +911,8 @@ def run(input_paths, classes=None, output=None, recursive=False, add_typedefs=Fa
                 
                 with open(output_path, 'w', encoding='utf-8') as f:
                     f.write(f"#include \"{header_file_name}\"\n\n")
+                    f.write("#include \"AstCore/ReflectAPI.hpp\"\n\n")
+
                     f.write("// 自动生成的属性初始化代码\n")
                     f.write("// 警告: 不要手动修改此文件\n\n")
                     f.write(code_str)

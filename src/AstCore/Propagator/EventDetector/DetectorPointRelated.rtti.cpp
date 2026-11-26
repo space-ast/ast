@@ -1,11 +1,23 @@
 #include "DetectorPointRelated.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class DetectorPointRelated::staticType;
+
+Class* DetectorPointRelated::StaticType()
+{
+    return &staticType;
+}
+
+Class* DetectorPointRelated::getType() const
+{
+    return &staticType;
+}
 
 static bool DetectorPointRelated_ClassInited = (DetectorPointRelated::ClassInit(&DetectorPointRelated::staticType), true);
 

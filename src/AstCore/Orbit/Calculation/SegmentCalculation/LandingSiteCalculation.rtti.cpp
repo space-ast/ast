@@ -1,11 +1,23 @@
 #include "LandingSiteCalculation.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class LandingSiteCalculation::staticType;
+
+Class* LandingSiteCalculation::StaticType()
+{
+    return &staticType;
+}
+
+Class* LandingSiteCalculation::getType() const
+{
+    return &staticType;
+}
 
 static bool LandingSiteCalculation_ClassInited = (LandingSiteCalculation::ClassInit(&LandingSiteCalculation::staticType), true);
 

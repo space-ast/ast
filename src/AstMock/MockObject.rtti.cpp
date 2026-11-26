@@ -1,5 +1,7 @@
 #include "MockObject.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
@@ -7,12 +9,22 @@ AST_NAMESPACE_BEGIN
 
 Class MockObject::staticType;
 
+Class* MockObject::StaticType()
+{
+    return &staticType;
+}
+
+Class* MockObject::getType() const
+{
+    return &staticType;
+}
+
 static bool MockObject_ClassInited = (MockObject::ClassInit(&MockObject::staticType), true);
 
 void MockObject::ClassInit(Class* cls)
 {
 
-    cls->setName("MockObject");
+    cls->setName(NC_("Class", "MockObject"));
     cls->addToRegistry();
     cls->setParent<Object>();
     cls->setConstructor<MockObject>();

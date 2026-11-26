@@ -1,11 +1,23 @@
 #include "Planet.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Planet::staticType;
+
+Class* Planet::StaticType()
+{
+    return &staticType;
+}
+
+Class* Planet::getType() const
+{
+    return &staticType;
+}
 
 static bool Planet_ClassInited = (Planet::ClassInit(&Planet::staticType), true);
 

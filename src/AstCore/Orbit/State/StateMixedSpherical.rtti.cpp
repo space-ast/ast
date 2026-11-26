@@ -1,11 +1,23 @@
 #include "StateMixedSpherical.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class StateMixedSpherical::staticType;
+
+Class* StateMixedSpherical::StaticType()
+{
+    return &staticType;
+}
+
+Class* StateMixedSpherical::getType() const
+{
+    return &staticType;
+}
 
 static bool StateMixedSpherical_ClassInited = (StateMixedSpherical::ClassInit(&StateMixedSpherical::staticType), true);
 

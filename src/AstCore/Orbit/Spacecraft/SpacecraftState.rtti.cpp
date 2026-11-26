@@ -1,5 +1,7 @@
 #include "SpacecraftState.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
@@ -7,13 +9,22 @@ AST_NAMESPACE_BEGIN
 
 Class SpacecraftState::staticType;
 
+Class* SpacecraftState::StaticType()
+{
+    return &staticType;
+}
+
+Class* SpacecraftState::getType() const
+{
+    return &staticType;
+}
+
 static bool SpacecraftState_ClassInited = (SpacecraftState::ClassInit(&SpacecraftState::staticType), true);
 
 void SpacecraftState::ClassInit(Class* cls)
 {
 
     cls->setName(NC_("Class", "SpacecraftState"));
-    cls->setDesc(u8R"(航天器状态，包含轨道状态、质量、面积、阻力系数、光压、密度、压力、温度等属性)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();
     cls->setConstructor<SpacecraftState>();

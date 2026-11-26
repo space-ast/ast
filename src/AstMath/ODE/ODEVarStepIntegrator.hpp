@@ -35,6 +35,7 @@ public:
     AST_OBJECT(ODEVarStepIntegrator)
     AST_PROPERT(useMinStep)
     AST_PROPERT(useMaxStep)
+    AST_PROPERT(useFixedStep)
     AST_PROPERT(warnOnMinStep)
     AST_PROPERT(maxStepAttempts)
     AST_PROPERT(minStepSize)

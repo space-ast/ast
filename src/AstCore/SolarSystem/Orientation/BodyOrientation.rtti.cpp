@@ -1,11 +1,23 @@
 #include "BodyOrientation.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class BodyOrientation::staticType;
+
+Class* BodyOrientation::StaticType()
+{
+    return &staticType;
+}
+
+Class* BodyOrientation::getType() const
+{
+    return &staticType;
+}
 
 static bool BodyOrientation_ClassInited = (BodyOrientation::ClassInit(&BodyOrientation::staticType), true);
 

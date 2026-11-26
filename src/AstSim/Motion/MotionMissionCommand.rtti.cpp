@@ -1,11 +1,23 @@
 #include "MotionMissionCommand.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class MotionMissionCommand::staticType;
+
+Class* MotionMissionCommand::StaticType()
+{
+    return &staticType;
+}
+
+Class* MotionMissionCommand::getType() const
+{
+    return &staticType;
+}
 
 static bool MotionMissionCommand_ClassInited = (MotionMissionCommand::ClassInit(&MotionMissionCommand::staticType), true);
 

@@ -1,11 +1,23 @@
 #include "StateGeodetic.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class StateGeodetic::staticType;
+
+Class* StateGeodetic::StaticType()
+{
+    return &staticType;
+}
+
+Class* StateGeodetic::getType() const
+{
+    return &staticType;
+}
 
 static bool StateGeodetic_ClassInited = (StateGeodetic::ClassInit(&StateGeodetic::staticType), true);
 
@@ -21,8 +33,8 @@ void StateGeodetic::ClassInit(Class* cls)
     cls->addProperty("Lon", aNewPropertyQuantity<StateGeodetic, &StateGeodetic::getLon, &StateGeodetic::setLon>(Dimension::Angle()));
     cls->addProperty("Lat", aNewPropertyQuantity<StateGeodetic, &StateGeodetic::getLat, &StateGeodetic::setLat>(Dimension::Angle()));
     cls->addProperty("Alt", aNewPropertyQuantity<StateGeodetic, &StateGeodetic::getAlt, &StateGeodetic::setAlt>(Dimension::Length()));
-    cls->addProperty("LonRate", aNewPropertyQuantity<StateGeodetic, &StateGeodetic::getLonRate, &StateGeodetic::setLonRate>(Dimension::AngularVelocity()));
-    cls->addProperty("LatRate", aNewPropertyQuantity<StateGeodetic, &StateGeodetic::getLatRate, &StateGeodetic::setLatRate>(Dimension::AngularVelocity()));
+    cls->addProperty("LonRate", aNewPropertyQuantity<StateGeodetic, &StateGeodetic::getLonRate, &StateGeodetic::setLonRate>(Dimension::Angle()));
+    cls->addProperty("LatRate", aNewPropertyQuantity<StateGeodetic, &StateGeodetic::getLatRate, &StateGeodetic::setLatRate>(Dimension::Angle()));
     cls->addProperty("AltRate", aNewPropertyQuantity<StateGeodetic, &StateGeodetic::getAltRate, &StateGeodetic::setAltRate>(Dimension::Speed()));
 }
 

@@ -1,11 +1,23 @@
 #include "ScStateCalculation.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class ScStateCalculation::staticType;
+
+Class* ScStateCalculation::StaticType()
+{
+    return &staticType;
+}
+
+Class* ScStateCalculation::getType() const
+{
+    return &staticType;
+}
 
 static bool ScStateCalculation_ClassInited = (ScStateCalculation::ClassInit(&ScStateCalculation::staticType), true);
 

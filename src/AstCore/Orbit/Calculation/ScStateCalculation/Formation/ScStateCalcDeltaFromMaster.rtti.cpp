@@ -1,11 +1,23 @@
 #include "ScStateCalcDeltaFromMaster.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class ScStateCalcDeltaFromMaster::staticType;
+
+Class* ScStateCalcDeltaFromMaster::StaticType()
+{
+    return &staticType;
+}
+
+Class* ScStateCalcDeltaFromMaster::getType() const
+{
+    return &staticType;
+}
 
 static bool ScStateCalcDeltaFromMaster_ClassInited = (ScStateCalcDeltaFromMaster::ClassInit(&ScStateCalcDeltaFromMaster::staticType), true);
 

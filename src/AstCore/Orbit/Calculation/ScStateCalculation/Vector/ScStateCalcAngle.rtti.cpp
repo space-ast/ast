@@ -1,11 +1,23 @@
 #include "ScStateCalcAngle.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class ScStateCalcAngle::staticType;
+
+Class* ScStateCalcAngle::StaticType()
+{
+    return &staticType;
+}
+
+Class* ScStateCalcAngle::getType() const
+{
+    return &staticType;
+}
 
 static bool ScStateCalcAngle_ClassInited = (ScStateCalcAngle::ClassInit(&ScStateCalcAngle::staticType), true);
 

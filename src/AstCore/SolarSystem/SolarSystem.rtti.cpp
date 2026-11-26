@@ -1,11 +1,23 @@
 #include "SolarSystem.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class SolarSystem::staticType;
+
+Class* SolarSystem::StaticType()
+{
+    return &staticType;
+}
+
+Class* SolarSystem::getType() const
+{
+    return &staticType;
+}
 
 static bool SolarSystem_ClassInited = (SolarSystem::ClassInit(&SolarSystem::staticType), true);
 

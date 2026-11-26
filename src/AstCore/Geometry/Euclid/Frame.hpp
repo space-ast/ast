@@ -83,7 +83,6 @@ public:
 
     Frame() = default;
     ~Frame() override= default;
-    A_DISABLE_COPY(Frame)
 
     /// @brief 获取当前坐标系的路径表示
     /// @details 沿父坐标系链向上组合，返回完整的路径字符串，如 "Earth/ITRF"。

@@ -40,7 +40,8 @@ class AST_CORE_API AttitudeFixed : public AttitudeProfile
 {
 public:
     AST_OBJECT(AttitudeFixed)
-
+    AST_PROPERT(rotation)
+    AST_PROPERT(referenceAxes)
     AttitudeFixed() = default;
     ~AttitudeFixed() override = default;
 

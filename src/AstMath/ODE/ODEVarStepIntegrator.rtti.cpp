@@ -1,5 +1,7 @@
 #include "ODEVarStepIntegrator.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
@@ -7,12 +9,22 @@ AST_NAMESPACE_BEGIN
 
 Class ODEVarStepIntegrator::staticType;
 
+Class* ODEVarStepIntegrator::StaticType()
+{
+    return &staticType;
+}
+
+Class* ODEVarStepIntegrator::getType() const
+{
+    return &staticType;
+}
+
 static bool ODEVarStepIntegrator_ClassInited = (ODEVarStepIntegrator::ClassInit(&ODEVarStepIntegrator::staticType), true);
 
 void ODEVarStepIntegrator::ClassInit(Class* cls)
 {
 
-    cls->setName("ODEVarStepIntegrator");
+    cls->setName(NC_("Class", "ODEVarStepIntegrator"));
     cls->setDesc(u8R"(可变步长积分器)");
     cls->addToRegistry();
     cls->setParent<ODEFixedStepIntegrator>();
@@ -20,6 +32,7 @@ void ODEVarStepIntegrator::ClassInit(Class* cls)
 
     cls->addProperty("useMinStep", aNewPropertyBoolMem<ODEVarStepIntegrator, &ODEVarStepIntegrator::useMinStep_>());
     cls->addProperty("useMaxStep", aNewPropertyBoolMem<ODEVarStepIntegrator, &ODEVarStepIntegrator::useMaxStep_>());
+    cls->addProperty("useFixedStep", aNewPropertyBoolMem<ODEVarStepIntegrator, &ODEVarStepIntegrator::useFixedStep_>());
     cls->addProperty("warnOnMinStep", aNewPropertyBoolMem<ODEVarStepIntegrator, &ODEVarStepIntegrator::warnOnMinStep_>());
     cls->addProperty("maxStepAttempts", aNewPropertyIntMem<ODEVarStepIntegrator, &ODEVarStepIntegrator::maxStepAttempts_>());
     cls->addProperty("minStepSize", aNewPropertyDoubleMem<ODEVarStepIntegrator, &ODEVarStepIntegrator::minStepSize_>());

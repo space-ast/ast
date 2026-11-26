@@ -1,11 +1,23 @@
 #include "MotionSPICE.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class MotionSPICE::staticType;
+
+Class* MotionSPICE::StaticType()
+{
+    return &staticType;
+}
+
+Class* MotionSPICE::getType() const
+{
+    return &staticType;
+}
 
 static bool MotionSPICE_ClassInited = (MotionSPICE::ClassInit(&MotionSPICE::staticType), true);
 

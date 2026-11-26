@@ -1,11 +1,23 @@
 #include "Constellation.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Constellation::staticType;
+
+Class* Constellation::StaticType()
+{
+    return &staticType;
+}
+
+Class* Constellation::getType() const
+{
+    return &staticType;
+}
 
 static bool Constellation_ClassInited = (Constellation::ClassInit(&Constellation::staticType), true);
 

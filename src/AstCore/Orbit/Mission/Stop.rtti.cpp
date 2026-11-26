@@ -1,11 +1,23 @@
 #include "Stop.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Stop::staticType;
+
+Class* Stop::StaticType()
+{
+    return &staticType;
+}
+
+Class* Stop::getType() const
+{
+    return &staticType;
+}
 
 static bool Stop_ClassInited = (Stop::ClassInit(&Stop::staticType), true);
 

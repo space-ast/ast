@@ -1,11 +1,23 @@
 #include "DetectorDeltaV.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class DetectorDeltaV::staticType;
+
+Class* DetectorDeltaV::StaticType()
+{
+    return &staticType;
+}
+
+Class* DetectorDeltaV::getType() const
+{
+    return &staticType;
+}
 
 static bool DetectorDeltaV_ClassInited = (DetectorDeltaV::ClassInit(&DetectorDeltaV::staticType), true);
 

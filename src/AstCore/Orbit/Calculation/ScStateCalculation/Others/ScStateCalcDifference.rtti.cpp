@@ -1,5 +1,7 @@
 #include "ScStateCalcDifference.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
@@ -7,12 +9,23 @@ AST_NAMESPACE_BEGIN
 
 Class ScStateCalcDifference::staticType;
 
+Class* ScStateCalcDifference::StaticType()
+{
+    return &staticType;
+}
+
+Class* ScStateCalcDifference::getType() const
+{
+    return &staticType;
+}
+
 static bool ScStateCalcDifference_ClassInited = (ScStateCalcDifference::ClassInit(&ScStateCalcDifference::staticType), true);
 
 void ScStateCalcDifference::ClassInit(Class* cls)
 {
 
     cls->setName(NC_("Class", "ScStateCalcDifference"));
+    cls->setDesc(u8R"(差值计算量)");
     cls->addToRegistry();
     cls->setParent<ScStateCalculation>();
     cls->setConstructor<ScStateCalcDifference>();

@@ -1,11 +1,23 @@
 #include "DetectorAlwaysTripped.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class DetectorAlwaysTripped::staticType;
+
+Class* DetectorAlwaysTripped::StaticType()
+{
+    return &staticType;
+}
+
+Class* DetectorAlwaysTripped::getType() const
+{
+    return &staticType;
+}
 
 static bool DetectorAlwaysTripped_ClassInited = (DetectorAlwaysTripped::ClassInit(&DetectorAlwaysTripped::staticType), true);
 

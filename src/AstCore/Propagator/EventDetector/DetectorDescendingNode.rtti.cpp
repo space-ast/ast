@@ -1,11 +1,23 @@
 #include "DetectorDescendingNode.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class DetectorDescendingNode::staticType;
+
+Class* DetectorDescendingNode::StaticType()
+{
+    return &staticType;
+}
+
+Class* DetectorDescendingNode::getType() const
+{
+    return &staticType;
+}
 
 static bool DetectorDescendingNode_ClassInited = (DetectorDescendingNode::ClassInit(&DetectorDescendingNode::staticType), true);
 

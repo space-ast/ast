@@ -1,11 +1,23 @@
 #include "ScStateCalcSemiMajorAxis.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class ScStateCalcSemiMajorAxis::staticType;
+
+Class* ScStateCalcSemiMajorAxis::StaticType()
+{
+    return &staticType;
+}
+
+Class* ScStateCalcSemiMajorAxis::getType() const
+{
+    return &staticType;
+}
 
 static bool ScStateCalcSemiMajorAxis_ClassInited = (ScStateCalcSemiMajorAxis::ClassInit(&ScStateCalcSemiMajorAxis::staticType), true);
 

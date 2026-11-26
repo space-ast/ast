@@ -1,11 +1,23 @@
 #include "ShooterResult.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class ShooterResult::staticType;
+
+Class* ShooterResult::StaticType()
+{
+    return &staticType;
+}
+
+Class* ShooterResult::getType() const
+{
+    return &staticType;
+}
 
 static bool ShooterResult_ClassInited = (ShooterResult::ClassInit(&ShooterResult::staticType), true);
 

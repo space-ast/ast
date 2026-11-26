@@ -1,11 +1,23 @@
 #include "BodyEphemerisDE.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class BodyEphemerisDE::staticType;
+
+Class* BodyEphemerisDE::StaticType()
+{
+    return &staticType;
+}
+
+Class* BodyEphemerisDE::getType() const
+{
+    return &staticType;
+}
 
 static bool BodyEphemerisDE_ClassInited = (BodyEphemerisDE::ClassInit(&BodyEphemerisDE::staticType), true);
 

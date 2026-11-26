@@ -57,8 +57,8 @@ typedef AttributeBasic<Object, Property> Attribute;
 // AST 对象运行时元信息
 #define AST_OBJECT(TYPE) \
     static Class staticType;\
-    static inline Class* StaticType(){return &staticType;}\
-    Class* getType() const override{return &staticType;} \
+    static Class* StaticType();\
+    Class* getType() const override; \
     static void ClassInit(Class* cls);\
 
 // 定义属性
@@ -70,6 +70,7 @@ typedef AttributeBasic<Object, Property> Attribute;
 
 #define _AST_IMPL_OBJECT(TYPE) \
     Class TYPE::staticType;\
+    Class* TYPE::StaticType(){return &staticType;}\
 
 
 enum {
@@ -118,7 +119,7 @@ public:
 public:
     static Class staticType;
     static void ClassInit(Class* cls);
-    static inline Class* StaticType(){return &staticType;}
+    static Class* StaticType();
 
     /// @brief 获取对象的类型元信息
     /// @return Class* 类型元信息指针

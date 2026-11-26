@@ -1,11 +1,23 @@
 #include "SegmentGraph.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class SegmentGraph::staticType;
+
+Class* SegmentGraph::StaticType()
+{
+    return &staticType;
+}
+
+Class* SegmentGraph::getType() const
+{
+    return &staticType;
+}
 
 static bool SegmentGraph_ClassInited = (SegmentGraph::ClassInit(&SegmentGraph::staticType), true);
 

@@ -1,11 +1,23 @@
 #include "ScStateCalcTimePastAscNode.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class ScStateCalcTimePastAscNode::staticType;
+
+Class* ScStateCalcTimePastAscNode::StaticType()
+{
+    return &staticType;
+}
+
+Class* ScStateCalcTimePastAscNode::getType() const
+{
+    return &staticType;
+}
 
 static bool ScStateCalcTimePastAscNode_ClassInited = (ScStateCalcTimePastAscNode::ClassInit(&ScStateCalcTimePastAscNode::staticType), true);
 

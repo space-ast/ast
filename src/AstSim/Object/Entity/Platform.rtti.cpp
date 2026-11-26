@@ -1,11 +1,23 @@
 #include "Platform.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Platform::staticType;
+
+Class* Platform::StaticType()
+{
+    return &staticType;
+}
+
+Class* Platform::getType() const
+{
+    return &staticType;
+}
 
 static bool Platform_ClassInited = (Platform::ClassInit(&Platform::staticType), true);
 

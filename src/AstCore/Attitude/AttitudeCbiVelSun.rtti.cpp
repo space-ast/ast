@@ -1,11 +1,23 @@
 #include "AttitudeCbiVelSun.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class AttitudeCbiVelSun::staticType;
+
+Class* AttitudeCbiVelSun::StaticType()
+{
+    return &staticType;
+}
+
+Class* AttitudeCbiVelSun::getType() const
+{
+    return &staticType;
+}
 
 static bool AttitudeCbiVelSun_ClassInited = (AttitudeCbiVelSun::ClassInit(&AttitudeCbiVelSun::staticType), true);
 

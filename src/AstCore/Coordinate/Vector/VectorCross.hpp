@@ -41,7 +41,6 @@ public:
     AST_OBJECT(VectorCross)
     AST_PROPERT(Vector1)
     AST_PROPERT(Vector2)
-
     VectorCross() = default;
     ~VectorCross() override = default;
 

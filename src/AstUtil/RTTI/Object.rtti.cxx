@@ -7,6 +7,16 @@ AST_NAMESPACE_BEGIN
 
 Class Object::staticType;
 
+Class* Object::StaticType()
+{
+    return &staticType;
+}
+
+Class *Object::getType() const
+{
+    return &staticType;
+}
+
 static bool Object_ClassInited = (Object::ClassInit(&Object::staticType), true);
 
 void Object::ClassInit(Class* cls)

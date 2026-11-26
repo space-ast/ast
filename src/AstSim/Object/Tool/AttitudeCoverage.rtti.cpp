@@ -1,11 +1,23 @@
 #include "AttitudeCoverage.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class AttitudeCoverage::staticType;
+
+Class* AttitudeCoverage::StaticType()
+{
+    return &staticType;
+}
+
+Class* AttitudeCoverage::getType() const
+{
+    return &staticType;
+}
 
 static bool AttitudeCoverage_ClassInited = (AttitudeCoverage::ClassInit(&AttitudeCoverage::staticType), true);
 

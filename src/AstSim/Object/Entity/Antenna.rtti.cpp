@@ -1,11 +1,23 @@
 #include "Antenna.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Antenna::staticType;
+
+Class* Antenna::StaticType()
+{
+    return &staticType;
+}
+
+Class* Antenna::getType() const
+{
+    return &staticType;
+}
 
 static bool Antenna_ClassInited = (Antenna::ClassInit(&Antenna::staticType), true);
 

@@ -1,11 +1,23 @@
 #include "CelestialBody.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class CelestialBody::staticType;
+
+Class* CelestialBody::StaticType()
+{
+    return &staticType;
+}
+
+Class* CelestialBody::getType() const
+{
+    return &staticType;
+}
 
 static bool CelestialBody_ClassInited = (CelestialBody::ClassInit(&CelestialBody::staticType), true);
 

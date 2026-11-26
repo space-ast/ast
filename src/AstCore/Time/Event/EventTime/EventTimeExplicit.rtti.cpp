@@ -1,11 +1,23 @@
 #include "EventTimeExplicit.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class EventTimeExplicit::staticType;
+
+Class* EventTimeExplicit::StaticType()
+{
+    return &staticType;
+}
+
+Class* EventTimeExplicit::getType() const
+{
+    return &staticType;
+}
 
 static bool EventTimeExplicit_ClassInited = (EventTimeExplicit::ClassInit(&EventTimeExplicit::staticType), true);
 
@@ -18,7 +30,6 @@ void EventTimeExplicit::ClassInit(Class* cls)
     cls->setParent<EventTime>();
     cls->setConstructor<EventTimeExplicit>();
 
-    cls->addProperty("Time", aNewPropertyTimePoint<EventTimeExplicit, &EventTimeExplicit::getTime, &EventTimeExplicit::setTime>());
 }
 
 AST_NAMESPACE_END
