@@ -38,6 +38,8 @@ Platform::Platform(Point* location, Axes* orientation)
     bodyAxes_ = new AxesProxy(orientation);
 }
 
+Platform::~Platform() = default;
+
 
 Frame *Platform::getFrame() const
 {
