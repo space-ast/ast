@@ -21,6 +21,8 @@
 // #define AST_ENABLE_DYNAMIX                    ///< [影响ABI]是否启用对象的 DynaMix 扩展槽，可用于动态扩展和替换对象的多态行为，或作为 userdata 存储额外数据
 
 // #define AST_DISABLE_AUTO_DOWNLOAD_DATA        ///< 是否禁用自动下载数据功能
+// #define AST_DISABLE_SHARED_LIBRARY_IMPORT     ///< 是否禁用共享库的导入声明，静态链接本库或把源码并入宿主工程时启用
+// #define AST_DISABLE_SHARED_LIBRARY_EXPORT     ///< 是否禁用共享库的导出声明，构建静态库时启用，使编译本库时的 AST_*_API 也为空
 
 // #define AST_USE_EIGEN_MATRIX                  ///< [影响ABI]是否使用 Eigen 库中的矩阵向量定义，否则使用库中内置的类型
 // #define AST_USE_STD_STRING_VIEW               ///< [影响ABI]是否使用 std::string_view ，否则使用内置的string_view
