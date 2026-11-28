@@ -1,11 +1,23 @@
 #include "StateKeplerian.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class StateKeplerian::staticType;
+
+Class* StateKeplerian::StaticType()
+{
+    return &staticType;
+}
+
+Class* StateKeplerian::getType() const
+{
+    return &staticType;
+}
 
 static bool StateKeplerian_ClassInited = (StateKeplerian::ClassInit(&StateKeplerian::staticType), true);
 

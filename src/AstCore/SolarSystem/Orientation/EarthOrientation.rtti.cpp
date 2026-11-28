@@ -1,11 +1,23 @@
 #include "EarthOrientation.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class EarthOrientation::staticType;
+
+Class* EarthOrientation::StaticType()
+{
+    return &staticType;
+}
+
+Class* EarthOrientation::getType() const
+{
+    return &staticType;
+}
 
 static bool EarthOrientation_ClassInited = (EarthOrientation::ClassInit(&EarthOrientation::staticType), true);
 

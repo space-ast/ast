@@ -1,11 +1,23 @@
 #include "EventTime.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class EventTime::staticType;
+
+Class* EventTime::StaticType()
+{
+    return &staticType;
+}
+
+Class* EventTime::getType() const
+{
+    return &staticType;
+}
 
 static bool EventTime_ClassInited = (EventTime::ClassInit(&EventTime::staticType), true);
 

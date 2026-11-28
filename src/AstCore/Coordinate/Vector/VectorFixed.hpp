@@ -39,7 +39,6 @@ public:
     AST_OBJECT(VectorFixed)
     AST_PROPERT(Axes)
     AST_PROPERT(Value)
-
     VectorFixed() = default;
     ~VectorFixed() override = default;
 
@@ -74,8 +73,8 @@ PROPERTIES:
     const Vector3d& getValue() const;
 
 private:
-    WeakPtr<Axes> axes_{ nullptr };     ///< 参考轴系 (向量所在的坐标系)
-    Vector3d      value_{ 0, 0, 0 };    ///< 恒定的向量值
+    WeakPtr<Axes> axes_{ };     ///< 参考轴系 (向量所在的坐标系)
+    Vector3d      value_{ };    ///< 恒定的向量值
 };
 
 AST_NAMESPACE_END

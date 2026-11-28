@@ -57,8 +57,8 @@ typedef AttributeBasic<Object, Property> Attribute;
 // AST 对象运行时元信息
 #define AST_OBJECT(TYPE) \
     static Class staticType;\
-    static inline Class* StaticType(){return &staticType;}\
-    Class* getType() const override{return &staticType;} \
+    static Class* StaticType();\
+    Class* getType() const override; \
     static void ClassInit(Class* cls);\
 
 // 定义属性
@@ -70,6 +70,7 @@ typedef AttributeBasic<Object, Property> Attribute;
 
 #define _AST_IMPL_OBJECT(TYPE) \
     Class TYPE::staticType;\
+    Class* TYPE::StaticType(){return &staticType;}\
 
 
 enum {
@@ -79,11 +80,15 @@ enum {
 /// @brief 对象标志位
 enum class EObjectFlags: uint32_t
 {
-    eNone = 0,              ///< 无标志位
-    eReadOnly = 0x01,       ///< 只读
-    eInActive = 0x02,       ///< 不活跃
-    eComponent = 0x04,      ///< 组件对象(和eEntity互斥)
-    eEntity = 0x08,         ///< 实体对象(和eComponent互斥)
+    eNone       = 0,          ///< 无标志位
+    eReadOnly   = 0x01,       ///< 只读组件/只读对象
+    eBuiltin    = 0x02,       ///< 内置组件/内置对象
+    eInActive   = 0x04,       ///< 不活跃
+    eComponent  = 0x08,       ///< 组件对象(和eEntity互斥)
+    eEntity     = 0x10,       ///< 实体对象(和eComponent互斥)
+    eUncopyable = 0x20,       ///< 不可复制对象
+    eGlobal     = 0x40,       ///< 全局组件/全局对象(和eAttached互斥)
+    eAttached   = 0x80,       ///< 附加组件/附加对象(和eGlobal互斥)
 };
 
 
@@ -114,7 +119,7 @@ public:
 public:
     static Class staticType;
     static void ClassInit(Class* cls);
-    static inline Class* StaticType(){return &staticType;}
+    static Class* StaticType();
 
     /// @brief 获取对象的类型元信息
     /// @return Class* 类型元信息指针
@@ -134,8 +139,8 @@ public:
     /// @brief 获取对象的名称
     const std::string& name() const {return this->getName();}
 
-    /// @brief 获取对象的显示名称
-    std::string displayName() const;
+    /// @brief 获取对象的显示名称(翻译后的名称)
+    std::string displayName() const;  
 public: // 编辑属性
     
     /// @brief 显示编辑对话框，用于编辑对象的属性
@@ -306,6 +311,18 @@ public:  // 对象标志位
     bool readOnly() const {return !!(flags_ & EObjectFlags::eReadOnly);}
     void setReadOnly(bool readOnly);
 
+    bool isBuiltin() const {return !!(flags_ & EObjectFlags::eBuiltin);}
+    void setIsBuiltin(bool isBuiltin);
+
+    bool copyable() const {return !(flags_ & EObjectFlags::eUncopyable);}
+    void setCopyable(bool copyable);
+
+    bool isGlobal() const {return !!(flags_ & EObjectFlags::eGlobal);}
+    void setIsGlobal(bool isGlobal);
+
+    bool isAttached() const {return !!(flags_ & EObjectFlags::eAttached);}
+    void setIsAttached(bool isAttached);
+
     bool active() const {return !(flags_ & EObjectFlags::eInActive);}
     void setActive(bool active);
     
@@ -317,6 +334,9 @@ public:  // 对象标志位
     
 public: // 国际化
     const char* tr(const char* msg) const;
+#ifdef _AST_OBJECT_PLUGIN
+#   include _AST_OBJECT_PLUGIN
+#endif
 protected:
     friend class ObjectManager;
     virtual ~Object();
@@ -327,6 +347,13 @@ protected:
     {
         return *this;
     }
+#ifdef AST_ENABLE_DYNAMIX
+public:
+    Referenced* dynamix() const {return dynamix_.get();}
+    void setDynamix(Referenced* dynamix) {dynamix_ = dynamix;}
+private:
+    SharedPtr<Referenced>    dynamix_{};                                ///< 对象的 DynaMix 扩展槽，可用于动态扩展和替换对象的多态行为，或者作为 userdata 存储额外数据
+#endif
 private:
     // Class*                type_;                                     ///< 类型元信息，同时用于标识对象是否被析构(废弃，采用虚函数`getType()`实现)
     uint32_t                 index_{static_cast<uint32_t>(INVALID_ID)}; ///< 对象索引，用于唯一标识对象

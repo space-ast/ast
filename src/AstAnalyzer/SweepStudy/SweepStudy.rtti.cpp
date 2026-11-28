@@ -1,11 +1,23 @@
 #include "SweepStudy.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class SweepVariable::staticType;
+
+Class* SweepVariable::StaticType()
+{
+    return &staticType;
+}
+
+Class* SweepVariable::getType() const
+{
+    return &staticType;
+}
 
 static bool SweepVariable_ClassInited = (SweepVariable::ClassInit(&SweepVariable::staticType), true);
 
@@ -25,6 +37,16 @@ AST_NAMESPACE_BEGIN
 
 Class SweepOutput::staticType;
 
+Class* SweepOutput::StaticType()
+{
+    return &staticType;
+}
+
+Class* SweepOutput::getType() const
+{
+    return &staticType;
+}
+
 static bool SweepOutput_ClassInited = (SweepOutput::ClassInit(&SweepOutput::staticType), true);
 
 void SweepOutput::ClassInit(Class* cls)
@@ -42,6 +64,16 @@ AST_NAMESPACE_END
 AST_NAMESPACE_BEGIN
 
 Class SweepStudy::staticType;
+
+Class* SweepStudy::StaticType()
+{
+    return &staticType;
+}
+
+Class* SweepStudy::getType() const
+{
+    return &staticType;
+}
 
 static bool SweepStudy_ClassInited = (SweepStudy::ClassInit(&SweepStudy::staticType), true);
 

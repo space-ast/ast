@@ -1,11 +1,23 @@
 #include "Satellite.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Satellite::staticType;
+
+Class* Satellite::StaticType()
+{
+    return &staticType;
+}
+
+Class* Satellite::getType() const
+{
+    return &staticType;
+}
 
 static bool Satellite_ClassInited = (Satellite::ClassInit(&Satellite::staticType), true);
 

@@ -1,11 +1,23 @@
 #include "Sequence.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Sequence::staticType;
+
+Class* Sequence::StaticType()
+{
+    return &staticType;
+}
+
+Class* Sequence::getType() const
+{
+    return &staticType;
+}
 
 static bool Sequence_ClassInited = (Sequence::ClassInit(&Sequence::staticType), true);
 

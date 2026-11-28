@@ -46,7 +46,12 @@ class AST_CORE_API AttitudeSpinning : public AttitudeProfile
 {
 public:
     AST_OBJECT(AttitudeSpinning)
-
+    AST_PROPERT(ReferenceAxes)
+    AST_PROPERT(SpinAxisInFrame)
+    AST_PROPERT(SpinAxisInBody)
+    AST_PROPERT(SpinRate)
+    AST_PROPERT(SpinOffset)
+    AST_PROPERT(Epoch)
     AttitudeSpinning() = default;
     ~AttitudeSpinning() override = default;
 

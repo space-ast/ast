@@ -1,11 +1,23 @@
 #include "End.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class End::staticType;
+
+Class* End::StaticType()
+{
+    return &staticType;
+}
+
+Class* End::getType() const
+{
+    return &staticType;
+}
 
 static bool End_ClassInited = (End::ClassInit(&End::staticType), true);
 

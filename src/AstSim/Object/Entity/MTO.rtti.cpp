@@ -1,11 +1,23 @@
 #include "MTO.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class MTO::staticType;
+
+Class* MTO::StaticType()
+{
+    return &staticType;
+}
+
+Class* MTO::getType() const
+{
+    return &staticType;
+}
 
 static bool MTO_ClassInited = (MTO::ClassInit(&MTO::staticType), true);
 

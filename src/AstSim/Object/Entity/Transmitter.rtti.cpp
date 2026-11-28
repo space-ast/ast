@@ -1,11 +1,23 @@
 #include "Transmitter.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Transmitter::staticType;
+
+Class* Transmitter::StaticType()
+{
+    return &staticType;
+}
+
+Class* Transmitter::getType() const
+{
+    return &staticType;
+}
 
 static bool Transmitter_ClassInited = (Transmitter::ClassInit(&Transmitter::staticType), true);
 

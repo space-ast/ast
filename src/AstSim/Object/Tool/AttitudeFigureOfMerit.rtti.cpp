@@ -1,11 +1,23 @@
 #include "AttitudeFigureOfMerit.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class AttitudeFigureOfMerit::staticType;
+
+Class* AttitudeFigureOfMerit::StaticType()
+{
+    return &staticType;
+}
+
+Class* AttitudeFigureOfMerit::getType() const
+{
+    return &staticType;
+}
 
 static bool AttitudeFigureOfMerit_ClassInited = (AttitudeFigureOfMerit::ClassInit(&AttitudeFigureOfMerit::staticType), true);
 

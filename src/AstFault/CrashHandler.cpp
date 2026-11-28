@@ -36,7 +36,9 @@
 #   include <psapi.h>
 #   include <process.h>
 #   include <signal.h>
+A_SUPPRESS_WARNINGS_BEGIN
 #   include <dbghelp.h>
+A_SUPPRESS_WARNINGS_END
 #   ifdef A_MSVC
 #       pragma comment(lib, "psapi.lib")
 #       pragma comment(lib, "dbghelp.lib")

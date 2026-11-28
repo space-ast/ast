@@ -1,5 +1,7 @@
 #include "Axes.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
@@ -7,13 +9,23 @@ AST_NAMESPACE_BEGIN
 
 Class Axes::staticType;
 
+Class* Axes::StaticType()
+{
+    return &staticType;
+}
+
+Class* Axes::getType() const
+{
+    return &staticType;
+}
+
 static bool Axes_ClassInited = (Axes::ClassInit(&Axes::staticType), true);
 
 void Axes::ClassInit(Class* cls)
 {
 
     cls->setName(NC_("Class", "Axes"));
-    cls->setDesc(u8R"(轴系类)");
+    cls->setDesc(u8R"(轴系抽象基类)");
     cls->addToRegistry();
     cls->setParent<ObjectNamed>();
     cls->setConstructor<Axes>();

@@ -1,11 +1,23 @@
 #include "BodyAttraction.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class BodyAttraction::staticType;
+
+Class* BodyAttraction::StaticType()
+{
+    return &staticType;
+}
+
+Class* BodyAttraction::getType() const
+{
+    return &staticType;
+}
 
 static bool BodyAttraction_ClassInited = (BodyAttraction::ClassInit(&BodyAttraction::staticType), true);
 

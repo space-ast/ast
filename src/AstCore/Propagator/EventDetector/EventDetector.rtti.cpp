@@ -1,11 +1,23 @@
 #include "EventDetector.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class EventDetector::staticType;
+
+Class* EventDetector::StaticType()
+{
+    return &staticType;
+}
+
+Class* EventDetector::getType() const
+{
+    return &staticType;
+}
 
 static bool EventDetector_ClassInited = (EventDetector::ClassInit(&EventDetector::staticType), true);
 

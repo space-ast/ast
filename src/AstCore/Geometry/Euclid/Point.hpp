@@ -122,7 +122,10 @@ public:
     /// @param velList 输出参数，点的速度向量列表
     /// @return 错误码
     errc_t getPosVelIn(Frame* frame, const TimePointRange& range, std::vector<Vector3d>& posList, std::vector<Vector3d>& velList) const;
-
+public:
+#ifdef _AST_POINT_PLUGIN
+#   include _AST_POINT_PLUGIN
+#endif
 };
 
 using PPoint = Point*;                ///< 点指针(pointer to point)

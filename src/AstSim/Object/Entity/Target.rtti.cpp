@@ -1,11 +1,23 @@
 #include "Target.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Target::staticType;
+
+Class* Target::StaticType()
+{
+    return &staticType;
+}
+
+Class* Target::getType() const
+{
+    return &staticType;
+}
 
 static bool Target_ClassInited = (Target::ClassInit(&Target::staticType), true);
 

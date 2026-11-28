@@ -40,6 +40,7 @@
 #include "AstHarness/UserProxyAgent.hpp"
 #include <iostream>
 #include <cstdlib>
+#include <clocale>
 
 using namespace ast;
 

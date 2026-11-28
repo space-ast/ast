@@ -1,11 +1,23 @@
 #include "MotionJ4Analytical.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class MotionJ4Analytical::staticType;
+
+Class* MotionJ4Analytical::StaticType()
+{
+    return &staticType;
+}
+
+Class* MotionJ4Analytical::getType() const
+{
+    return &staticType;
+}
 
 static bool MotionJ4Analytical_ClassInited = (MotionJ4Analytical::ClassInit(&MotionJ4Analytical::staticType), true);
 

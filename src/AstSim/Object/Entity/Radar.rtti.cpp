@@ -1,11 +1,23 @@
 #include "Radar.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Radar::staticType;
+
+Class* Radar::StaticType()
+{
+    return &staticType;
+}
+
+Class* Radar::getType() const
+{
+    return &staticType;
+}
 
 static bool Radar_ClassInited = (Radar::ClassInit(&Radar::staticType), true);
 

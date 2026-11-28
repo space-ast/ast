@@ -26,7 +26,9 @@ AST_NAMESPACE_BEGIN
 
 #define _AST_IMPL_EXPR(EXPR) \
     Class EXPR::staticType;\
-    void EXPR::ClassInit(Class *){}
+    Class* EXPR::StaticType(){return &staticType;}\
+    void EXPR::ClassInit(Class *){}\
+    Class* EXPR::getType() const{return &staticType;}
 
 _AST_IMPL_EXPR(ValInt)
 _AST_IMPL_EXPR(ValDouble)

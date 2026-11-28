@@ -1,11 +1,23 @@
 #include "GroundStation.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class GroundStation::staticType;
+
+Class* GroundStation::StaticType()
+{
+    return &staticType;
+}
+
+Class* GroundStation::getType() const
+{
+    return &staticType;
+}
 
 static bool GroundStation_ClassInited = (GroundStation::ClassInit(&GroundStation::staticType), true);
 

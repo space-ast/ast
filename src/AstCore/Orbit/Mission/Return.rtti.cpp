@@ -1,11 +1,23 @@
 #include "Return.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Return::staticType;
+
+Class* Return::StaticType()
+{
+    return &staticType;
+}
+
+Class* Return::getType() const
+{
+    return &staticType;
+}
 
 static bool Return_ClassInited = (Return::ClassInit(&Return::staticType), true);
 

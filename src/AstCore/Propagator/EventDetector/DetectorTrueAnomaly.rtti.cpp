@@ -1,11 +1,23 @@
 #include "DetectorTrueAnomaly.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class DetectorTrueAnomaly::staticType;
+
+Class* DetectorTrueAnomaly::StaticType()
+{
+    return &staticType;
+}
+
+Class* DetectorTrueAnomaly::getType() const
+{
+    return &staticType;
+}
 
 static bool DetectorTrueAnomaly_ClassInited = (DetectorTrueAnomaly::ClassInit(&DetectorTrueAnomaly::staticType), true);
 

@@ -84,10 +84,14 @@ public:
     A_DEF_POD_ITERABLE(double)
 
 public:
+#ifdef _AST_EULER_MEMBER
+    #include _AST_EULER_MEMBER
+#else
     // 设置为public只是为了聚合初始化，不要直接访问成员变量
 	double	angle1_;	///< 第一个角
 	double	angle2_;	///< 第二个角
 	double	angle3_;	///< 第三个角
+#endif
 };
 
 

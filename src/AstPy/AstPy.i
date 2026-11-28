@@ -46,6 +46,7 @@
 
 
 %import "../../include/AstCompiler.h"
+%import "../../include/AstConfig.h"
 %import "../../include/AstGlobal.h"
 %import "../AstUtil/String/StringView.hpp"
 %import "../AstUtil/RTTI/Object.hpp"

@@ -89,7 +89,6 @@ public:
     ~Axes() override = default;
     Axes() = default;
     
-    A_DISABLE_COPY(Axes)
     
     /// @brief 获取当前轴系的父轴系
     /// @return 父轴系指针，根轴系返回 nullptr
@@ -244,6 +243,10 @@ public:
         if(axes == nullptr) return eErrorNullInput;
         return getAttitudeIn(*axes, tp, quat, angvel);
     }
+public:
+#ifdef _AST_AXES_PLUGIN
+#   include _AST_AXES_PLUGIN
+#endif
 };
 
 

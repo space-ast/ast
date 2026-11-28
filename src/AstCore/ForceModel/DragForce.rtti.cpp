@@ -1,11 +1,23 @@
 #include "DragForce.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class DragForce::staticType;
+
+Class* DragForce::StaticType()
+{
+    return &staticType;
+}
+
+Class* DragForce::getType() const
+{
+    return &staticType;
+}
 
 static bool DragForce_ClassInited = (DragForce::ClassInit(&DragForce::staticType), true);
 

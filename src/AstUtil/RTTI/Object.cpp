@@ -52,10 +52,6 @@ Object::Object(std::nullptr_t)
 {
 }
 
-Class *Object::getType() const
-{
-    return &staticType;
-}
 
 const std::string empty;
 
@@ -72,7 +68,7 @@ const std::string &Object::getName() const
 
 std::string Object::displayName() const
 {
-    if(readOnly())
+    if(readOnly() || isBuiltin())
         return tr(getName().c_str());
     return getName();
 }
@@ -273,6 +269,38 @@ void Object::setReadOnly(bool readOnly)
         flags_ |= EObjectFlags::eReadOnly;
     else
         flags_ &= ~EObjectFlags::eReadOnly;
+}
+
+void Object::setIsBuiltin(bool isBuiltin)
+{
+    if(isBuiltin)
+        flags_ |= EObjectFlags::eBuiltin;
+    else
+        flags_ &= ~EObjectFlags::eBuiltin;
+}
+
+void Object::setCopyable(bool copyable)
+{
+    if(copyable)
+        flags_ &= ~EObjectFlags::eUncopyable;
+    else
+        flags_ |= EObjectFlags::eUncopyable;
+}
+
+void Object::setIsGlobal(bool isGlobal)
+{
+    if(isGlobal)
+        flags_ |= EObjectFlags::eGlobal;
+    else
+        flags_ &= ~EObjectFlags::eGlobal;
+}
+
+void Object::setIsAttached(bool isAttached)
+{
+    if(isAttached)
+        flags_ |= EObjectFlags::eAttached;
+    else
+        flags_ &= ~EObjectFlags::eAttached;
 }
 
 void Object::setActive(bool active)

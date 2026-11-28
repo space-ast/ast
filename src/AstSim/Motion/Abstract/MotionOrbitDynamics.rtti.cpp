@@ -1,11 +1,23 @@
 #include "MotionOrbitDynamics.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class MotionOrbitDynamics::staticType;
+
+Class* MotionOrbitDynamics::StaticType()
+{
+    return &staticType;
+}
+
+Class* MotionOrbitDynamics::getType() const
+{
+    return &staticType;
+}
 
 static bool MotionOrbitDynamics_ClassInited = (MotionOrbitDynamics::ClassInit(&MotionOrbitDynamics::staticType), true);
 

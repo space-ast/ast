@@ -1,11 +1,23 @@
 #include "BodyShape.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class BodyShape::staticType;
+
+Class* BodyShape::StaticType()
+{
+    return &staticType;
+}
+
+Class* BodyShape::getType() const
+{
+    return &staticType;
+}
 
 static bool BodyShape_ClassInited = (BodyShape::ClassInit(&BodyShape::staticType), true);
 

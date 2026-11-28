@@ -42,7 +42,7 @@ public:
     AST_OBJECT(Platform)
     Platform();
     Platform(Point* location, Axes* orientation);
-    ~Platform() = default;
+    ~Platform();
 public:
     Frame* getFrame() const override;
     errc_t getPos(const TimePoint& tp, Vector3d& pos) const override;

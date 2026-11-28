@@ -32,7 +32,7 @@ class AST_CORE_API SpheroidShape final : public BodyShape
 public:
     AST_OBJECT(SpheroidShape)
     AST_PROPERT(majorAxis)
-    AST_PROPERT(flatfactor)
+    AST_PROPERT(flatFactor)
     static SpheroidShape* NewFromMajorAxisFlatFactor(double majorAxis, double flatFactor);
     static SpheroidShape* NewFromMajorMinorAxis(double majorAxis, double minorAxis);
     

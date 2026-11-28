@@ -1,11 +1,23 @@
 #include "ObjectAccessConstraints.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class ObjectAccessConstraints::staticType;
+
+Class* ObjectAccessConstraints::StaticType()
+{
+    return &staticType;
+}
+
+Class* ObjectAccessConstraints::getType() const
+{
+    return &staticType;
+}
 
 static bool ObjectAccessConstraints_ClassInited = (ObjectAccessConstraints::ClassInit(&ObjectAccessConstraints::staticType), true);
 

@@ -1,11 +1,23 @@
 #include "Spacecraft.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Spacecraft::staticType;
+
+Class* Spacecraft::StaticType()
+{
+    return &staticType;
+}
+
+Class* Spacecraft::getType() const
+{
+    return &staticType;
+}
 
 static bool Spacecraft_ClassInited = (Spacecraft::ClassInit(&Spacecraft::staticType), true);
 

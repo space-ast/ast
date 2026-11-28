@@ -38,8 +38,8 @@
  * */
 
 
-// 通用宏见"AstCompiler.h"
-#include "AstCompiler.h"
+#include "AstCompiler.h"    // 通用宏
+#include "AstConfig.h"      // 编译期配置宏
 
 #include <stddef.h>         // for size_t
 #include <stdint.h>         // for uint32_t
@@ -47,27 +47,6 @@
 #include <array>            // for array
 // #include <string_view>
 #endif
-
-// 下面是ast项目专用宏，用于控制ast项目的行为，你可以根据需要定义或注释掉这些宏
-// 有些宏定义会改变项目的二进制接口(ABI)，使用不同宏定义编译的库文件互相不兼容
-// 请确保整个项目中使用一致的配置，避免混用不同配置的库文件和头文件
-
-
-#define AST_ENABLE_NAMESPACE                     // [影响ABI]是否使用命名空间(如果关闭，需要同步更改rules.lua里的qt.moc.flags)
-// #define AST_USE_CRT_SAFE                      // 是否使用CRT安全函数，例如_wfopen_s、_wfreopen_s等
-                                                 //（已废弃，这些函数无法共享文件，即同时打开相同文件，在一些情况下有问题）
-
-// #define AST_ENABLE_OVERRIDE_STDLIB            // 是否允许覆盖标准库的一些函数
-// #define AST_ENABLE_DATETIME_FORMAT_RFC        // 是否启用RFC系列的其他日期时间格式化，例如RFC 1123、RFC 2822等
-// #define AST_ENABLE_REDUNDANT                  // 是否启用冗余功能
-// #define AST_ENABLE_CAPI                       // 是否启用C语言接口
-
-// #define AST_DISABLE_AUTO_DOWNLOAD_DATA        // 是否禁用自动下载数据功能
-
-// #define AST_USE_EIGEN_MATRIX                  // [影响ABI]是否使用 Eigen 库中的矩阵向量定义，否则使用库中内置的类型
-// #define AST_USE_STD_STRING_VIEW               // [影响ABI]是否使用 std::string_view ，否则使用内置的string_view
-// #define AST_USE_STD_FILESYSTEM                // 是否使用 std::filesystem，如果存在的话，否则使用内置的filesystem
-// #define AST_USE_STD_FILESYSTEM_EXPERIMENTAL   // 是否选择使用 std::experimental::filesystem 的c++实验特性，如果存在的话
 
 /// 项目专用宏
 #if defined AST_ENABLE_NAMESPACE && defined(__cplusplus) 
@@ -92,6 +71,21 @@
 #	define AST_DECL_TYPE_ALIAS(name)
 #endif
 
+// 共享库导入/导出声明，对应 AstConfig.h 中的 AST_DISABLE_SHARED_LIBRARY_* 配置宏：
+// AST_DISABLE_SHARED_LIBRARY_IMPORT 清空“导入”声明（静态链接、源码内嵌时使用），
+// AST_DISABLE_SHARED_LIBRARY_EXPORT 清空“导出”声明（构建静态库时使用），
+// 两者同时定义时下面所有模块的 AST_*_API 均展开为空宏。
+#if defined(AST_DISABLE_SHARED_LIBRARY_IMPORT)
+#   define AST_DECL_IMPORT
+#else
+#   define AST_DECL_IMPORT A_DECL_IMPORT
+#endif
+
+#if defined(AST_DISABLE_SHARED_LIBRARY_EXPORT)
+#   define AST_DECL_EXPORT
+#else
+#   define AST_DECL_EXPORT A_DECL_EXPORT
+#endif
 
 // 定义调试库后缀
 #if defined(_WIN32)
@@ -174,218 +168,218 @@
 
 // 脚本模块导出声明
 #ifdef AST_BUILD_LIB_SCRIPT
-#    define AST_SCRIPT_API A_DECL_EXPORT
+#    define AST_SCRIPT_API AST_DECL_EXPORT
 #else
-#    define AST_SCRIPT_API A_DECL_IMPORT
+#    define AST_SCRIPT_API AST_DECL_IMPORT
 #endif
 #define AST_SCRIPT_CAPI A_DECL_EXTERN_C AST_SCRIPT_API
 
 
 // 核心模块导出声明
 #ifdef AST_BUILD_LIB_CORE
-#    define AST_CORE_API A_DECL_EXPORT
+#    define AST_CORE_API AST_DECL_EXPORT
 #else
-#    define AST_CORE_API A_DECL_IMPORT
+#    define AST_CORE_API AST_DECL_IMPORT
 #endif
 #define AST_CORE_CAPI A_DECL_EXTERN_C AST_CORE_API
 
 // 优化模块导出声明
 #ifdef AST_BUILD_LIB_OPT
-#    define AST_OPT_API A_DECL_EXPORT
+#    define AST_OPT_API AST_DECL_EXPORT
 #else
-#    define AST_OPT_API A_DECL_IMPORT
+#    define AST_OPT_API AST_DECL_IMPORT
 #endif
 #define AST_OPT_CAPI  A_DECL_EXTERN_C AST_OPT_API
 
 // 数学模块导出声明
 #ifdef AST_BUILD_LIB_MATH
-#    define AST_MATH_API A_DECL_EXPORT
+#    define AST_MATH_API AST_DECL_EXPORT
 #else
-#    define AST_MATH_API A_DECL_IMPORT
+#    define AST_MATH_API AST_DECL_IMPORT
 #endif
 #define AST_MATH_CAPI A_DECL_EXTERN_C AST_MATH_API
 
 // 工具模块导出声明
 #ifdef AST_BUILD_LIB_UTIL
-#    define AST_UTIL_API A_DECL_EXPORT
+#    define AST_UTIL_API AST_DECL_EXPORT
 #else
-#    define AST_UTIL_API A_DECL_IMPORT
+#    define AST_UTIL_API AST_DECL_IMPORT
 #endif
 #define AST_UTIL_CAPI A_DECL_EXTERN_C AST_UTIL_API
 
 // 天文计算器模块导出声明
 #if defined AST_BUILD_LIB_CALC
-#    define AST_CALC_API A_DECL_EXPORT
+#    define AST_CALC_API AST_DECL_EXPORT
 #else
-#    define AST_CALC_API A_DECL_IMPORT
+#    define AST_CALC_API AST_DECL_IMPORT
 #endif
 #define AST_CALC_CAPI A_DECL_EXTERN_C AST_CALC_API
 
 // 仿真模块导出声明
 #if defined AST_BUILD_LIB_SIM
-#    define AST_SIM_API A_DECL_EXPORT
+#    define AST_SIM_API AST_DECL_EXPORT
 #else
-#    define AST_SIM_API A_DECL_IMPORT
+#    define AST_SIM_API AST_DECL_IMPORT
 #endif
 #define AST_SIM_CAPI A_DECL_EXTERN_C AST_SIM_API
 
 // 引擎模块导出声明
 #ifdef AST_BUILD_LIB_ENGINE
-#    define AST_ENGINE_API A_DECL_EXPORT
+#    define AST_ENGINE_API AST_DECL_EXPORT
 #else
-#    define AST_ENGINE_API A_DECL_IMPORT
+#    define AST_ENGINE_API AST_DECL_IMPORT
 #endif
 #define AST_ENGINE_CAPI A_DECL_EXTERN_C AST_ENGINE_API
 
 // 模拟模块导出声明
 #ifdef AST_BUILD_LIB_MOCK
-#    define AST_MOCK_API A_DECL_EXPORT
+#    define AST_MOCK_API AST_DECL_EXPORT
 #else
-#    define AST_MOCK_API A_DECL_IMPORT
+#    define AST_MOCK_API AST_DECL_IMPORT
 #endif
 #define AST_MOCK_CAPI A_DECL_EXTERN_C AST_MOCK_API
 
 // 绘图模块导出声明
 #ifdef AST_BUILD_LIB_PLOT
-#    define AST_PLOT_API A_DECL_EXPORT
+#    define AST_PLOT_API AST_DECL_EXPORT
 #else
-#    define AST_PLOT_API A_DECL_IMPORT
+#    define AST_PLOT_API AST_DECL_IMPORT
 #endif
 #define AST_PLOT_CAPI A_DECL_EXTERN_C AST_PLOT_API
 
 // UiCore模块导出声明
 #ifdef AST_BUILD_LIB_UICORE
-#    define AST_UICORE_API A_DECL_EXPORT
+#    define AST_UICORE_API AST_DECL_EXPORT
 #else
-#    define AST_UICORE_API A_DECL_IMPORT
+#    define AST_UICORE_API AST_DECL_IMPORT
 #endif
 #define AST_UICORE_CAPI A_DECL_EXTERN_C AST_UICORE_API
 
 // Chart模块导出声明
 #ifdef AST_BUILD_LIB_CHART
-#    define AST_CHART_API A_DECL_EXPORT
+#    define AST_CHART_API AST_DECL_EXPORT
 #else
-#    define AST_CHART_API A_DECL_IMPORT
+#    define AST_CHART_API AST_DECL_IMPORT
 #endif
 #define AST_CHART_CAPI A_DECL_EXTERN_C AST_CHART_API
 
 // 可视化模块导出声明
 #ifdef AST_BUILD_LIB_GFX
-#    define AST_GFX_API A_DECL_EXPORT
+#    define AST_GFX_API AST_DECL_EXPORT
 #else
-#    define AST_GFX_API A_DECL_IMPORT
+#    define AST_GFX_API AST_DECL_IMPORT
 #endif
 #define AST_GFX_CAPI A_DECL_EXTERN_C AST_GFX_API
 
 // 天气模型模块导出声明
 #ifdef AST_BUILD_LIB_WEATHER
-#    define AST_WEATHER_API A_DECL_EXPORT
+#    define AST_WEATHER_API AST_DECL_EXPORT
 #else
-#    define AST_WEATHER_API A_DECL_IMPORT
+#    define AST_WEATHER_API AST_DECL_IMPORT
 #endif
 #define AST_WEATHER_CAPI A_DECL_EXTERN_C AST_WEATHER_API
 
 
 /// SPICE模块导出声明
 #ifdef AST_BUILD_LIB_SPICE
-#    define AST_SPICE_API A_DECL_EXPORT
+#    define AST_SPICE_API AST_DECL_EXPORT
 #else
-#    define AST_SPICE_API A_DECL_IMPORT
+#    define AST_SPICE_API AST_DECL_IMPORT
 #endif
 #define AST_SPICE_CAPI A_DECL_EXTERN_C AST_SPICE_API
 
 
 /// 测试模块导出声明
 #ifdef AST_BUILD_LIB_TEST
-#    define AST_TEST_API A_DECL_EXPORT
+#    define AST_TEST_API AST_DECL_EXPORT
 #else
-#    define AST_TEST_API A_DECL_IMPORT
+#    define AST_TEST_API AST_DECL_IMPORT
 #endif
 #define AST_TEST_CAPI A_DECL_EXTERN_C AST_TEST_API
 
 // 序列化模块导出声明
 // #ifdef AST_BUILD_LIB_SERDE
-// #    define AST_SERDE_API A_DECL_EXPORT
+// #    define AST_SERDE_API AST_DECL_EXPORT
 // #else
-// #    define AST_SERDE_API A_DECL_IMPORT
+// #    define AST_SERDE_API AST_DECL_IMPORT
 // #endif
 // #define AST_SERDE_CAPI A_DECL_EXTERN_C AST_SERDE_API
 
 
 // 加载模块导出声明
 #ifdef AST_BUILD_LIB_LOADER
-#    define AST_LOADER_API A_DECL_EXPORT
+#    define AST_LOADER_API AST_DECL_EXPORT
 #else
-#    define AST_LOADER_API A_DECL_IMPORT
+#    define AST_LOADER_API AST_DECL_IMPORT
 #endif
 #define AST_LOADER_CAPI A_DECL_EXTERN_C AST_LOADER_API
 
 
 // 报表模块导出声明
 #ifdef AST_BUILD_LIB_REPORT
-#    define AST_REPORT_API A_DECL_EXPORT
+#    define AST_REPORT_API AST_DECL_EXPORT
 #else
-#    define AST_REPORT_API A_DECL_IMPORT
+#    define AST_REPORT_API AST_DECL_IMPORT
 #endif
 #define AST_REPORT_CAPI A_DECL_EXTERN_C AST_REPORT_API
 
 
 // Harness模块导出声明
 #ifdef AST_BUILD_LIB_HARNESS
-#    define AST_HARNESS_API A_DECL_EXPORT
+#    define AST_HARNESS_API AST_DECL_EXPORT
 #else
-#    define AST_HARNESS_API A_DECL_IMPORT
+#    define AST_HARNESS_API AST_DECL_IMPORT
 #endif
 #define AST_HARNESS_CAPI A_DECL_EXTERN_C AST_HARNESS_API
 
 // Agent模块导出声明
 #ifdef AST_BUILD_LIB_AGENT
-#    define AST_AGENT_API A_DECL_EXPORT
+#    define AST_AGENT_API AST_DECL_EXPORT
 #else
-#    define AST_AGENT_API A_DECL_IMPORT
+#    define AST_AGENT_API AST_DECL_IMPORT
 #endif
 #define AST_AGENT_CAPI A_DECL_EXTERN_C AST_AGENT_API
 
 // UiPilot模块导出声明
 #ifdef AST_BUILD_LIB_UIPILOT
-#    define AST_UIPILOT_API A_DECL_EXPORT
+#    define AST_UIPILOT_API AST_DECL_EXPORT
 #else
-#    define AST_UIPILOT_API A_DECL_IMPORT
+#    define AST_UIPILOT_API AST_DECL_IMPORT
 #endif
 #define AST_UIPILOT_CAPI A_DECL_EXTERN_C AST_UIPILOT_API
 
 // COM封装模块导出声明
 #ifdef AST_BUILD_LIB_COM
-#   define AST_COM_API A_DECL_EXPORT
+#   define AST_COM_API AST_DECL_EXPORT
 #else
-#   define AST_COM_API A_DECL_IMPORT
+#   define AST_COM_API AST_DECL_IMPORT
 #endif
 #define AST_COM_CAPI A_DECL_EXTERN_C AST_COM_API
 
 
 // 命令模块导出声明
 #ifdef AST_BUILD_LIB_CMD
-#   define AST_CMD_API A_DECL_EXPORT
+#   define AST_CMD_API AST_DECL_EXPORT
 #else
-#   define AST_CMD_API A_DECL_IMPORT
+#   define AST_CMD_API AST_DECL_IMPORT
 #endif
 #define AST_CMD_CAPI A_DECL_EXTERN_C AST_CMD_API
 
 
 // 分析模块导出声明
 #ifdef AST_BUILD_LIB_ANALYZER
-#    define AST_ANALYZER_API A_DECL_EXPORT
+#    define AST_ANALYZER_API AST_DECL_EXPORT
 #else
-#    define AST_ANALYZER_API A_DECL_IMPORT
+#    define AST_ANALYZER_API AST_DECL_IMPORT
 #endif
 #define AST_ANALYZER_CAPI A_DECL_EXTERN_C AST_ANALYZER_API
 
 
 // 故障捕获模块导出声明
 #ifdef AST_BUILD_LIB_FAULT
-#    define AST_FAULT_API A_DECL_EXPORT
+#    define AST_FAULT_API AST_DECL_EXPORT
 #else
-#    define AST_FAULT_API A_DECL_IMPORT
+#    define AST_FAULT_API AST_DECL_IMPORT
 #endif
 #define AST_FAULT_CAPI A_DECL_EXTERN_C AST_FAULT_API
 
@@ -395,27 +389,27 @@
 
 // UiAI模块导出声明
 #ifdef AST_BUILD_LIB_UIAI
-#    define AST_UIAI_API A_DECL_EXPORT
+#    define AST_UIAI_API AST_DECL_EXPORT
 #else
-#    define AST_UIAI_API A_DECL_IMPORT
+#    define AST_UIAI_API AST_DECL_IMPORT
 #endif
 #define AST_UIAI_CAPI A_DECL_EXTERN_C AST_UIAI_API
 
 
 // UiUtil模块导出声明
 #ifdef AST_BUILD_LIB_UIUTIL
-#    define AST_UIUTIL_API A_DECL_EXPORT
+#    define AST_UIUTIL_API AST_DECL_EXPORT
 #else
-#    define AST_UIUTIL_API A_DECL_IMPORT
+#    define AST_UIUTIL_API AST_DECL_IMPORT
 #endif
 #define AST_UIUTIL_CAPI A_DECL_EXTERN_C AST_UIUTIL_API
 
 
 // 可视化模块导出声明
 #ifdef AST_BUILD_LIB_VISUALIZATION
-#    define AST_VISUALIZATION_API A_DECL_EXPORT
+#    define AST_VISUALIZATION_API AST_DECL_EXPORT
 #else
-#    define AST_VISUALIZATION_API A_DECL_IMPORT
+#    define AST_VISUALIZATION_API AST_DECL_IMPORT
 #endif
 #define AST_VISUALIZATION_CAPI A_DECL_EXTERN_C AST_VISUALIZATION_API
 

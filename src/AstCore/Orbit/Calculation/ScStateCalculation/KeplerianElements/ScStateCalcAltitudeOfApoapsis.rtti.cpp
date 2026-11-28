@@ -1,11 +1,23 @@
 #include "ScStateCalcAltitudeOfApoapsis.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class ScStateCalcAltitudeOfApoapsis::staticType;
+
+Class* ScStateCalcAltitudeOfApoapsis::StaticType()
+{
+    return &staticType;
+}
+
+Class* ScStateCalcAltitudeOfApoapsis::getType() const
+{
+    return &staticType;
+}
 
 static bool ScStateCalcAltitudeOfApoapsis_ClassInited = (ScStateCalcAltitudeOfApoapsis::ClassInit(&ScStateCalcAltitudeOfApoapsis::staticType), true);
 

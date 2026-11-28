@@ -1,11 +1,23 @@
 #include "AttitudeSunPointingCbiZ.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class AttitudeSunPointingCbiZ::staticType;
+
+Class* AttitudeSunPointingCbiZ::StaticType()
+{
+    return &staticType;
+}
+
+Class* AttitudeSunPointingCbiZ::getType() const
+{
+    return &staticType;
+}
 
 static bool AttitudeSunPointingCbiZ_ClassInited = (AttitudeSunPointingCbiZ::ClassInit(&AttitudeSunPointingCbiZ::staticType), true);
 

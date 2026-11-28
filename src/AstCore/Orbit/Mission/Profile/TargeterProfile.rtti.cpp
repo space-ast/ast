@@ -1,11 +1,23 @@
 #include "TargeterProfile.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class TargeterProfile::staticType;
+
+Class* TargeterProfile::StaticType()
+{
+    return &staticType;
+}
+
+Class* TargeterProfile::getType() const
+{
+    return &staticType;
+}
 
 static bool TargeterProfile_ClassInited = (TargeterProfile::ClassInit(&TargeterProfile::staticType), true);
 

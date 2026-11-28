@@ -1,11 +1,23 @@
 #include "DetectorDuration.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class DetectorDuration::staticType;
+
+Class* DetectorDuration::StaticType()
+{
+    return &staticType;
+}
+
+Class* DetectorDuration::getType() const
+{
+    return &staticType;
+}
 
 static bool DetectorDuration_ClassInited = (DetectorDuration::ClassInit(&DetectorDuration::staticType), true);
 

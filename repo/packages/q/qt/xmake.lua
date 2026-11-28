@@ -5,6 +5,7 @@ package("qt")
     add_versions("5.15.2", "dummy")
     add_versions("5.12.5", "dummy")
     add_versions("5.7.1", "dummy")
+    add_versions("5.7.0", "dummy")
 
     on_fetch(function (package, opt)
         import("core.base.semver")

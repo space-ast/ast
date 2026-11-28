@@ -1,11 +1,23 @@
 #include "Ship.hpp"
 
+#include "AstCore/ReflectAPI.hpp"
+
 // 自动生成的属性初始化代码
 // 警告: 不要手动修改此文件
 
 AST_NAMESPACE_BEGIN
 
 Class Ship::staticType;
+
+Class* Ship::StaticType()
+{
+    return &staticType;
+}
+
+Class* Ship::getType() const
+{
+    return &staticType;
+}
 
 static bool Ship_ClassInited = (Ship::ClassInit(&Ship::staticType), true);
 
